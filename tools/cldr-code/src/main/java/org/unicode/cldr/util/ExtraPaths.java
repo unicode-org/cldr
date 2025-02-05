@@ -80,8 +80,9 @@ public class ExtraPaths {
 
         Singleton() {
             pathsTemp = new TreeSet<>();
-            addPaths(NameType.SCRIPT);
             addPaths(NameType.LANGUAGE);
+            addPaths(NameType.SCRIPT);
+            addPaths(NameType.TERRITORY);
             addMetazones();
             pathsTemp.addAll(CONST_EXTRA_PATHS);
             paths = ImmutableSet.copyOf(pathsTemp); // preserves order (Sets.copyOf doesn't)
@@ -100,14 +101,19 @@ public class ExtraPaths {
         }
 
         private void adjustCodeSet(Set<String> codes, NameType nameType) {
-            if (nameType == NameType.LANGUAGE) {
-                codes.remove(LocaleNames.ROOT);
-                codes.addAll(
-                        List.of(
-                                "ar_001", "de_AT", "de_CH", "en_AU", "en_CA", "en_GB", "en_US",
-                                "es_419", "es_ES", "es_MX", "fa_AF", "fr_CA", "fr_CH", "frc",
-                                "hi_Latn", "lou", "nds_NL", "nl_BE", "pt_BR", "pt_PT", "ro_MD",
-                                "sw_CD", "zh_Hans", "zh_Hant"));
+            switch (nameType) {
+                case LANGUAGE:
+                    codes.remove(LocaleNames.ROOT);
+                    codes.addAll(
+                            List.of(
+                                    "ar_001", "de_AT", "de_CH", "en_AU", "en_CA", "en_GB", "en_US",
+                                    "es_419", "es_ES", "es_MX", "fa_AF", "fr_CA", "fr_CH", "frc",
+                                    "hi_Latn", "lou", "nds_NL", "nl_BE", "pt_BR", "pt_PT", "ro_MD",
+                                    "sw_CD", "zh_Hans", "zh_Hant"));
+                    break;
+                case TERRITORY:
+                    codes.addAll(List.of("XA", "XB"));
+                    break;
             }
         }
 
@@ -128,6 +134,24 @@ public class ExtraPaths {
                 case SCRIPT:
                     addAltPath("Hans", "stand-alone", nameType);
                     addAltPath("Hant", "stand-alone", nameType);
+                case TERRITORY:
+                    addAltPath("GB", "short", nameType);
+                    addAltPath("HK", "short", nameType);
+                    addAltPath("MO", "short", nameType);
+                    addAltPath("PS", "short", nameType);
+                    addAltPath("US", "short", nameType);
+                    addAltPath("CD", "variant", nameType);
+                    addAltPath("CG", "variant", nameType);
+                    addAltPath("CI", "variant", nameType);
+                    addAltPath("CZ", "variant", nameType);
+                    addAltPath("FK", "variant", nameType);
+                    addAltPath("TL", "variant", nameType);
+                    addAltPath("SZ", "variant", nameType);
+                    addAltPath("IO", "biot", nameType);
+                    addAltPath("IO", "chagos", nameType);
+                    // new alternate name
+                    addAltPath("NZ", "variant", nameType);
+                    addAltPath("TR", "variant", nameType);
             }
         }
 

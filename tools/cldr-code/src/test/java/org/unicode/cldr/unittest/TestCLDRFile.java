@@ -193,6 +193,8 @@ public class TestCLDRFile extends TestFmwk {
                                     || path.startsWith(
                                             "//ldml/localeDisplayNames/languages/language")
                                     || path.startsWith("//ldml/localeDisplayNames/scripts/script")
+                                    || path.startsWith(
+                                            "//ldml/localeDisplayNames/territories/territory")
                                     || path.startsWith("//ldml/numbers/currencies/currency")
                                     || path.startsWith("//ldml/personNames/sampleName")
                                     || path.contains("/availableFormats")
@@ -924,7 +926,7 @@ public class TestCLDRFile extends TestFmwk {
         }
     }
 
-    public void TestExtraPaths() {
+    public void testExtraPaths2() {
         List<String> testCases =
                 Arrays.asList(
                         "//ldml/localeDisplayNames/languages/language[@type=\"ccp\"]",

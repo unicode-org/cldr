@@ -46,7 +46,6 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
     public static final String ROOT_ID = "root";
     public static final boolean USE_PARTS_IN_ALIAS = false;
     private static final String TRACE_INDENT = " "; // "\t"
-    private static Map<String, String> allowDuplicates = new HashMap<>();
 
     private String localeID;
     private boolean nonInheriting;
@@ -273,11 +272,6 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             putFullPathAtDPath(distinguishingXPath, fixedPath[0]);
         }
         return distinguishingXPath;
-    }
-
-    /** Gets those paths that allow duplicates */
-    public static Map<String, String> getPathsAllowingDuplicates() {
-        return allowDuplicates;
     }
 
     /** A listener for XML source data. */
@@ -1605,7 +1599,6 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             Map<String, String> zone_countries = sc.getZoneToCountry();
             List<NameType> nameTypeList =
                     List.of(
-                            NameType.TERRITORY,
                             NameType.VARIANT,
                             NameType.CURRENCY,
                             NameType.CURRENCY_SYMBOL,
@@ -1627,30 +1620,6 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                     addFallbackCode(nameType, code, value);
                 }
             }
-            addFallbackCode(NameType.TERRITORY, "GB", "GB", "short");
-            addFallbackCode(NameType.TERRITORY, "HK", "HK", "short");
-            addFallbackCode(NameType.TERRITORY, "MO", "MO", "short");
-            addFallbackCode(NameType.TERRITORY, "PS", "PS", "short");
-            addFallbackCode(NameType.TERRITORY, "US", "US", "short");
-
-            addFallbackCode(
-                    NameType.TERRITORY, "CD", "CD", "variant"); // add other geopolitical items
-            addFallbackCode(NameType.TERRITORY, "CG", "CG", "variant");
-            addFallbackCode(NameType.TERRITORY, "CI", "CI", "variant");
-            addFallbackCode(NameType.TERRITORY, "CZ", "CZ", "variant");
-            addFallbackCode(NameType.TERRITORY, "FK", "FK", "variant");
-            addFallbackCode(NameType.TERRITORY, "TL", "TL", "variant");
-            addFallbackCode(NameType.TERRITORY, "SZ", "SZ", "variant");
-            addFallbackCode(NameType.TERRITORY, "IO", "IO", "biot");
-            addFallbackCode(NameType.TERRITORY, "IO", "IO", "chagos");
-
-            // new alternate name
-
-            addFallbackCode(NameType.TERRITORY, "NZ", "NZ", "variant");
-            addFallbackCode(NameType.TERRITORY, "TR", "TR", "variant");
-
-            addFallbackCode(NameType.TERRITORY, "XA", "XA");
-            addFallbackCode(NameType.TERRITORY, "XB", "XB");
 
             addFallbackCode(
                     "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/eras/eraAbbr/era[@type=\"0\"]",
@@ -1697,7 +1666,6 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                         typeDisplayNames[i][0]);
             }
             constructedItems.freeze();
-            allowDuplicates = Collections.unmodifiableMap(allowDuplicates);
         }
 
         private static void addFallbackCode(NameType nameType, String code, String value) {
@@ -1708,13 +1676,9 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                 NameType nameType, String code, String value, String alt) {
             String fullpath = nameType.getKeyPath(code);
             String distinguishingPath = addFallbackCodeToConstructedItems(fullpath, value, alt);
-            if (nameType == NameType.SCRIPT || nameType == NameType.TERRITORY) {
-                allowDuplicates.put(distinguishingPath, code);
-            }
         }
 
-        private static void addFallbackCode(
-                String fullpath, String value, String alt) { // assumes no allowDuplicates for this
+        private static void addFallbackCode(String fullpath, String value, String alt) {
             addFallbackCodeToConstructedItems(fullpath, value, alt); // ignore unneeded return value
         }
 

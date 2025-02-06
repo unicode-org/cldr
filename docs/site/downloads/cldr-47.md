@@ -17,8 +17,6 @@ CLDR data is used by all [major software systems](/index#who-uses-cldr)
 (including all mobile phones) for their software internationalization and localization,
 adapting software to the conventions of different languages.
 
-### Locale Coverage Status
-
 CLDR 47 focused on MessageFormat 2.0 and tooling for an expansion of DDL support.
 It was a closed cycle: locale data changes were limited to bug fixes and the addition of new locales, mostly regional variants.
 
@@ -43,6 +41,8 @@ So the listed changes are relative to [CLDR v46.0](https://cldr.unicode.org/down
        - Improved date/time test data
 
 For more details, see below.
+
+### Locale Coverage Status
 
 #### Current Levels
 

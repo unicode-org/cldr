@@ -585,7 +585,14 @@ public class TestDtdData extends TestFmwk {
                     new HashSet<>(
                             Arrays.asList("name", "reorder", "row", "settings", "transform")));
 
+    /**
+     * This function has the purpose of validating that the DTD doesn't change without updating this
+     * test. "old" means "expected" (and so throughout this test)
+     */
     public static boolean isOrderedOld(String element, DtdType type) {
+        // currency is ordered in ldmlSupplemental, but not in ldml, so handle it here.
+        if (type == DtdType.supplementalData && element.equals("currency")) return true;
+
         switch (type) {
             case keyboardTest3:
                 return orderedKeyboardTestElements.contains(element);

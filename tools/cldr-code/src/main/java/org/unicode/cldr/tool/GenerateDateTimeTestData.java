@@ -819,6 +819,9 @@ public class GenerateDateTimeTestData {
 
     static class TestCase {
         TestCaseInput testCaseInput;
+        String classicalSkeleton; // Should only be non-null when semantic skeleton non-null.
+        // This exists to allow existing ICU & other i18n impls to format
+        // until they add support for formatting using semantic skeletons.
         String expected;
     }
 
@@ -1088,6 +1091,7 @@ public class GenerateDateTimeTestData {
                             localeCldrFile,
                             testCaseInput.fieldStyleCombo,
                             calendarStr);
+            // compute the expected
             // TODO: fix CLDR DateTimeFormats constructor to use CLDRFile to get the dateTimeFormat
             //   glue pattern rather than use ICU to get it
             DateTimeFormats formats = new DateTimeFormats().set(localeCldrFile, calendarStr);
@@ -1101,6 +1105,7 @@ public class GenerateDateTimeTestData {
 
             TestCase result = new TestCase();
             result.testCaseInput = testCaseInput;
+            result.classicalSkeleton = skeleton;
             result.expected = formattedDateTime;
 
             return result;
@@ -1206,6 +1211,7 @@ public class GenerateDateTimeTestData {
         String timeLength = null;
         String semanticSkeleton = null;
         String semanticSkeletonLength = null;
+        String classicalSkeleton = null;
         String dateTimeFormatType = null;
         String hourCycle = null;
         String zoneStyle = null;
@@ -1235,6 +1241,7 @@ public class GenerateDateTimeTestData {
                 Optional.ofNullable(testCase.testCaseInput.fieldStyleCombo.semanticSkeletonLength)
                         .map(SemanticSkeletonLength::getLabel)
                         .orElse(null);
+        result.classicalSkeleton = testCase.classicalSkeleton;
         result.dateTimeFormatType =
                 Optional.ofNullable(testCase.testCaseInput.fieldStyleCombo.dateTimeFormatType)
                         .map(DateTimeFormatType::getLabel)

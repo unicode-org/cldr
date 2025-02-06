@@ -61,7 +61,23 @@ jobs:
         # Warn, don't fail yet
         run: npx markdownlint-cli *.md {specs,docs}/*.md || (echo Warning, please fix these ; true)
       - name: Note any changes
+        # if the archiver had to update anything, or if anchors changed
         run: git status ; git diff
+      - name: Restore lychee cache
+        uses: actions/cache@v3
+        with:
+          path: .lycheecache
+          key: cache-lychee-${{ github.sha }}
+          restore-keys: cache-lychee-
+      - name: Run lychee
+        uses: lycheeverse/lychee-action@v1
+        with:
+            args: "-n --cache --max-cache-age 10d docs/rfc docs/ldml"
+            fail: false
+            format: markdown
+            output: linkcheck.md
+      - name: Link Checker Summary
+        run: cat linkcheck.md >> $GITHUB_STEP_SUMMARY
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.2

@@ -3193,7 +3193,7 @@ public class CLDRFile implements Freezable<CLDRFile>, LocaleStringProvider {
     private List<String> getRawExtraPathsPrivate() {
         Set<String> toAddTo = new HashSet<>();
         ExtraPaths.addConstant(toAddTo);
-        ExtraPaths.addLocaleDependent(toAddTo, this, getLocaleID());
+        ExtraPaths.addLocaleDependent(toAddTo, this.iterableWithoutExtras(), getLocaleID());
         return toAddTo.stream().map(String::intern).collect(Collectors.toList());
     }
 

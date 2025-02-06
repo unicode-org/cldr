@@ -7,7 +7,6 @@ import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
 import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.impl.UnicodeMap;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
@@ -25,6 +24,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -40,6 +40,7 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleValidator;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.ScriptToExemplars;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.LstrType;
@@ -169,6 +170,7 @@ public class LikelySubtagsTest extends TestFmwk {
     final LanguageTagParser sourceLtp = new LanguageTagParser();
 
     final Set<String> KNOWN_ERRORS = Set.of("en_Latn_MU", "en_Latn_SL", "en_Latn_TK", "en_Latn_ZM");
+
     /**
      * Return false if we should skip the language
      *
@@ -343,14 +345,14 @@ public class LikelySubtagsTest extends TestFmwk {
             } else {
                 logln("Likely subtags for " + language + ":\t " + likely);
             }
-            String path = CLDRFile.getKey(CLDRFile.LANGUAGE_NAME, language);
+            String path = NameType.LANGUAGE.getKeyPath(language);
             String englishName = english.getStringValue(path);
             if (englishName == null) {
                 Level covLevel = ccl.getEffectiveCoverageLevel(language);
                 if (covLevel == null || !covLevel.isAtLeast(Level.BASIC)) {
-                    // https://unicode-org.atlassian.net/browse/CLDR-15663
+                    // https://unicode-org.atlassian.net/browse/CLDR-17857
                     if (logKnownIssue(
-                            "CLDR-15663",
+                            "CLDR-17857",
                             "English translation should not be required for sub-basic language name")) {
                         continue; // skip error
                     }
@@ -374,19 +376,22 @@ public class LikelySubtagsTest extends TestFmwk {
                                 "Missing likely subtags for region: "
                                         + region
                                         + "\t"
-                                        + english.getName("territory", region));
+                                        + english.nameGetter()
+                                                .getNameFromTypeEnumCode(
+                                                        NameType.TERRITORY, region));
                     }
                 } else { // container
                     logln(
                             "Missing likely subtags for macroregion (fix to exclude regions having 'en'): "
                                     + region
                                     + "\t"
-                                    + english.getName("territory", region));
+                                    + english.nameGetter()
+                                            .getNameFromTypeEnumCode(NameType.TERRITORY, region));
                 }
             } else {
                 logln("Likely subtags for region: " + region + ":\t " + likely);
             }
-            String path = CLDRFile.getKey(CLDRFile.TERRITORY_NAME, region);
+            String path = NameType.TERRITORY.getKeyPath(region);
             String englishName = english.getStringValue(path);
             if (englishName == null) {
                 errln("Missing English translation for: " + region);

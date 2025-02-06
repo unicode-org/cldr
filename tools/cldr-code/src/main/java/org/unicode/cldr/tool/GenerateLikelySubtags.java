@@ -46,6 +46,7 @@ import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LocaleNames;
 import org.unicode.cldr.util.LocaleScriptInfo;
 import org.unicode.cldr.util.LocaleValidator;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.LstrType;
@@ -313,9 +314,7 @@ public class GenerateLikelySubtags {
                             "fuf_Latn_GN",
                             "kby_Arab_NE",
                             "kdh_Latn_TG",
-                            "apd_Arab_TG",
-                            "zlm_Latn_TG",
-                            "cr_Cans_CA",
+                            "zlm_Latn_MY",
                             "hif_Latn_FJ",
                             "gon_Telu_IN",
                             "lzz_Latn_TR",
@@ -331,14 +330,6 @@ public class GenerateLikelySubtags {
                             "blt_Tavt_VN",
                             "rhg_Arab_MM",
                             "rhg_Rohg_MM",
-                            "clc_Latn_CA",
-                            "crg_Latn_CA",
-                            "hur_Latn_CA",
-                            "kwk_Latn_CA",
-                            "lil_Latn_CA",
-                            "ojs_Cans_CA",
-                            "oka_Latn_CA",
-                            "pqm_Latn_CA",
                             "no_Latn_NO",
                             "tok_Latn_001",
                             "prg_Latn_PL",
@@ -392,6 +383,10 @@ public class GenerateLikelySubtags {
                                 {"mro", "mro_Mroo_BD"},
                                 {"mro_BD", "mro_Mroo_BD"},
                                 {"ms_Arab", "ms_Arab_MY"},
+                                {"nan", "nan_Hans_CN"},
+                                {"nan_Hant", "nan_Hant_TW"},
+                                {"nan_Hans", "nan_Hans_CN"},
+                                {"nan_TW", "nan_Hant_TW"},
                                 {"pap", "pap_Latn_CW"},
                                 {"pap_Latn", "pap_Latn_CW"},
                                 {
@@ -400,9 +395,6 @@ public class GenerateLikelySubtags {
                                 {"rif_Latn", "rif_Latn_MA"},
                                 {"rif_Tfng", "rif_Tfng_MA"},
                                 {"rif_MA", "rif_Latn_MA"}, // Ibid
-                                {"shi", "shi_Tfng_MA"},
-                                {"shi_Tfng", "shi_Tfng_MA"},
-                                {"shi_MA", "shi_Tfng_MA"},
                                 {"sr_Latn", "sr_Latn_RS"},
                                 {"ss", "ss_Latn_ZA"},
                                 {"ss_Latn", "ss_Latn_ZA"},
@@ -430,21 +422,13 @@ public class GenerateLikelySubtags {
                                 {"und_Latn_PH", "fil_Latn_PH"},
                                 {"und_ML", "bm_Latn_ML"},
                                 {"und_Latn_ML", "bm_Latn_ML"},
-                                {"und_MU", "mfe_Latn_MU"},
                                 {"und_NE", "ha_Latn_NE"},
                                 {"und_PH", "fil_Latn_PH"},
                                 {"und_PK", "ur_Arab_PK"},
                                 {"und_SO", "so_Latn_SO"},
                                 {"und_SS", "en_Latn_SS"},
-                                {"und_TK", "tkl_Latn_TK"},
                                 {"vo", "vo_Latn_001"},
                                 {"vo_Latn", "vo_Latn_001"},
-                                //                                {"yi", "yi_Hebr_001"},
-                                //                                {"yi_Hebr", "yi_Hebr_001"},
-                                {"yue", "yue_Hant_HK"},
-                                {"yue_Hant", "yue_Hant_HK"},
-                                {"yue_Hans", "yue_Hans_CN"},
-                                {"yue_CN", "yue_Hans_CN"},
                                 {"zh_Hani", "zh_Hani_CN"},
                                 {"zh_Bopo", "zh_Bopo_TW"},
                                 {"ccp", "ccp_Cakm_BD"},
@@ -453,7 +437,6 @@ public class GenerateLikelySubtags {
                                 {"cu_Glag", "cu_Glag_BG"},
                                 {"sd_Khoj", "sd_Khoj_IN"},
                                 {"lif_Limb", "lif_Limb_IN"},
-                                {"grc_Linb", "grc_Linb_GR"},
                                 {"arc_Nbat", "arc_Nbat_JO"},
                                 {"arc_Palm", "arc_Palm_SY"},
                                 {"pal_Phlp", "pal_Phlp_CN"},
@@ -466,17 +449,11 @@ public class GenerateLikelySubtags {
 
                                 // {"und_Cyrl_PL", "be_Cyrl_PL"},
 
-                                //        {"cr", "cr_Cans_CA"},
                                 //        {"hif", "hif_Latn_FJ"},
                                 //        {"gon", "gon_Telu_IN"},
-                                //        {"lzz", "lzz_Latn_TR"},
                                 //        {"lif", "lif_Deva_NP"},
                                 //        {"unx", "unx_Beng_IN"},
                                 //        {"unr", "unr_Beng_IN"},
-                                //        {"ttt", "ttt_Latn_AZ"},
-                                //        {"pnt", "pnt_Grek_GR"},
-                                //        {"tly", "tly_Latn_AZ"},
-                                //        {"tkr", "tkr_Latn_AZ"},
                                 //        {"bsq", "bsq_Bass_LR"},
                                 //        {"ccp", "ccp_Cakm_BD"},
                                 //        {"blt", "blt_Tavt_VN"},
@@ -498,13 +475,12 @@ public class GenerateLikelySubtags {
 
                                 // new additions for compatibility with old
                                 {"und_419", "es_Latn_419"},
-                                {"und_ZM", "bem_Latn_ZM"},
                                 {"und_CC", "ms_Arab_CC"},
-                                {"und_SL", "kri_Latn_SL"},
                                 {"und_SS", "ar_Arab_SS"},
 
                                 // additions for missing values from LikelySubtagsText
                                 {"und_Arab_AF", "fa_Arab_AF"},
+                                {"und_Arab_AZ", "az_Arab_AZ"},
                                 {"und_Cyrl_BG", "bg_Cyrl_BG"},
                                 {"und_Tibt_BT", "dz_Tibt_BT"},
                                 {"und_Cyrl_BY", "be_Cyrl_BY"},
@@ -518,9 +494,14 @@ public class GenerateLikelySubtags {
                                 {"und_Cyrl_RS", "sr_Cyrl_RS"},
                                 {"und_Cyrl_TJ", "tg_Cyrl_TJ"},
                                 {"und_Cyrl_UA", "uk_Cyrl_UA"},
+                                {"und_Hans_TW", "zh_Hans_TW"},
                                 {"arc_Hatr", "arc_Hatr_IQ"},
                                 {"hnj_Hmng", "hnj_Hmng_LA"},
                                 {"bap_Krai", "bap_Krai_IN"},
+
+                                // Temporary additions to fix bad script mappings
+                                // See https://unicode-org.atlassian.net/browse/CLDR-18121
+                                {"sga", "sga_Latn_IE"},
                             });
 
     /**
@@ -681,7 +662,7 @@ public class GenerateLikelySubtags {
     public static String getNameSafe(String oldValue) {
         try {
             if (oldValue != null) {
-                String result = english.getName(oldValue);
+                String result = english.nameGetter().getNameFromIdentifier(oldValue);
                 if (result.startsWith("Unknown language ")) {
                     result = result.substring("Unknown language ".length());
                 }
@@ -698,6 +679,7 @@ public class GenerateLikelySubtags {
     private static final String TAG_SEPARATOR = OUTPUT_STYLE == OutputStyle.C_ALT ? "-" : "_";
 
     private static final Joiner JOIN_SPACE = Joiner.on(' ');
+    private static final Joiner JOIN_UBAR = Joiner.on('_');
 
     private static final Joiner JOIN_LS = Joiner.on(CldrUtility.LINE_SEPARATOR);
 
@@ -753,7 +735,7 @@ public class GenerateLikelySubtags {
                     //                        // if (SHOW_ADD)
                     //                        // System.out.println("Skipping:\t" + writtenLanguage
                     // + "\t" + region + "\t"
-                    //                        // + english.getName(locale)
+                    //                        // + english.nameGetter().getName(locale)
                     //                        // + "\t-- too small:\t" +
                     // number.format(literatePopulation));
                     //                        // continue;
@@ -1098,6 +1080,68 @@ public class GenerateLikelySubtags {
             add(source, target, toMaximized, "OVERRIDE", LocaleOverride.REPLACE_EXISTING);
         }
 
+        // Make sure mapping is additive
+        // That is, adding a field doesn't disturb results
+        // if a__ => a_b_c, then a_b_ => a_b_c, a__c => a_b_c
+        // if _b_ => a_b_c, then a_b_ => a_b_c, _b_c => a_b_c
+        // if __c => a_b_c, then a__c => a_b_c, _b_c => a_b_c
+        //
+        int failures = 0;
+        for (Entry<String, String> entry : toMaximized.entrySet()) {
+            String source = entry.getKey();
+            String target = entry.getValue();
+            CLDRLocale cSource = CLDRLocale.getInstance(source);
+            String sLang = cSource.getLanguage();
+            if (sLang.equals("und")) { // normalize to make computation easier
+                sLang = "";
+            }
+            String sScript = cSource.getScript();
+            String sRegion = cSource.getRegion();
+
+            int fieldCount = countNonEmpty(sLang, sScript, sRegion);
+            switch (fieldCount) {
+                case 1:
+                    break; // the case we care about
+                case 0:
+                case 2:
+                    continue;
+                default:
+                    throw new IllegalArgumentException("Bad field count: " + cSource);
+            }
+
+            CLDRLocale cTarget = CLDRLocale.getInstance(target);
+            String tLang = cTarget.getLanguage();
+            String tScript = cTarget.getScript();
+            String tRegion = cTarget.getRegion();
+            if (!sLang.isBlank()) {
+                failures +=
+                        getErrorCount(toMaximized, source, target, JOIN_UBAR.join(sLang, tScript));
+                failures +=
+                        getErrorCount(toMaximized, source, target, JOIN_UBAR.join(sLang, tRegion));
+            } else if (!sScript.isBlank()) {
+                failures +=
+                        getErrorCount(toMaximized, source, target, JOIN_UBAR.join(tLang, sScript));
+                failures +=
+                        getErrorCount(
+                                toMaximized,
+                                source,
+                                target,
+                                JOIN_UBAR.join("und", sScript, tRegion));
+            } else { // region
+                failures +=
+                        getErrorCount(toMaximized, source, target, JOIN_UBAR.join(tLang, sRegion));
+                failures +=
+                        getErrorCount(
+                                toMaximized,
+                                source,
+                                target,
+                                JOIN_UBAR.join("und", tScript, sRegion));
+            }
+        }
+        if (failures != 0) {
+            throw new IllegalArgumentException("Non-additive failure count: " + failures);
+        }
+
         // Make sure that the mapping is Idempotent. If we have A ==> B, we must never have B ==> C
         // We run this check until we get no problems.
         Set<List<String>> problems = new HashSet<>();
@@ -1133,6 +1177,27 @@ public class GenerateLikelySubtags {
             }
         }
         return CldrUtility.protectCollection(toMaximized);
+    }
+
+    private static int getErrorCount(
+            Map<String, String> toMaximized, String source, String target, String modSource) {
+        String modTarget = toMaximized.get(modSource);
+        if (modTarget != null && !target.equals(modTarget)) {
+            System.out.println(
+                    JOIN_SPACE.join("Non-additive: ", source, target, modSource, modTarget));
+            return 1;
+        }
+        return 0;
+    }
+
+    public static int countNonEmpty(String... items) {
+        int count = 0;
+        for (String item : items) {
+            if (!item.isEmpty()) {
+                ++count;
+            }
+        }
+        return count;
     }
 
     /** Class for maximizing data sources */
@@ -1622,13 +1687,14 @@ public class GenerateLikelySubtags {
         return spacing.join(
                 (lang.equals(LocaleNames.UND)
                         ? "?"
-                        : english.getName(CLDRFile.LANGUAGE_NAME, lang)),
+                        : english.nameGetter().getNameFromTypeEnumCode(NameType.LANGUAGE, lang)),
                 (script == null || script.equals("")
                         ? "?"
-                        : english.getName(CLDRFile.SCRIPT_NAME, script)),
+                        : english.nameGetter().getNameFromTypeEnumCode(NameType.SCRIPT, script)),
                 (region == null || region.equals("")
                         ? "?"
-                        : english.getName(CLDRFile.TERRITORY_NAME, region)));
+                        : english.nameGetter()
+                                .getNameFromTypeEnumCode(NameType.TERRITORY, region)));
     }
 
     static final String SEPARATOR =

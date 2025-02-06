@@ -47,6 +47,5 @@ The key points are:
 
 - If the draft status of the previously released value is better than the new draft status, then no change is made. Otherwise, the optimal value and its draft status are made part of the new release.
 
-In our previous version, *approved* required O ≥ 8. 
+In our previous version, *approved* required O ≥ 8.
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

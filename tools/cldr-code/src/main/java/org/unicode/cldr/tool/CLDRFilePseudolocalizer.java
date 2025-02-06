@@ -261,12 +261,16 @@ public class CLDRFilePseudolocalizer {
     private static class PseudolocalizerXB extends Pseudolocalizer {
         /** Right-to-left override character. */
         private static final String RLO = "\u202e";
+
         /** Right-to-left mark character. */
         private static final String RLM = "\u200f";
+
         /** Pop direction formatting character. */
         private static final String PDF = "\u202c";
+
         /** Prefix to add before each LTR word */
         private static final String BIDI_PREFIX = RLM + RLO;
+
         /** Postfix to add after each LTR word */
         private static final String BIDI_POSTFIX = PDF + RLM;
 

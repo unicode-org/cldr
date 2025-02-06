@@ -6,7 +6,7 @@ title: New BCP47 Extension T Fields
 
 ## Proposed Additions
 
-BCP47 language tags can use Extension T for identifying transformed content, or indicating requests for transformed content, as described in [*rfc6497*](http://tools.ietf.org/html/rfc6497). If you have any comments on proposals, please circulate them on the cldr-users mailing list. Instructions for joining are at [cldr list](http://www.unicode.org/consortium/distlist.html#cldr_list). 
+BCP47 language tags can use Extension T for identifying transformed content, or indicating requests for transformed content, as described in [*rfc6497*](http://tools.ietf.org/html/rfc6497). If you have any comments on proposals, please circulate them on the cldr-users mailing list. Instructions for joining are at [cldr list](http://www.unicode.org/consortium/distlist.html#cldr_list).
 
 *There are no proposed additions at this time.*
 
@@ -180,4 +180,3 @@ The following proposal was distributed for public review on March 26, 2012. The 
 
 **Note:** RFC6497 interprets transforms that result in content broadly, including speech recognition and other instances where the source is not simply text. For the case of keyboards, the source content can be viewed as keystrokes, but may also be text—for the case of virtual web-based keyboards. For example, such a keyboard may translate the text in the following way. Suppose the user types a key that produces a "W" on a qwerty keyboard. A web-based tool using an azerty virtual keyboard can map that text ("W") to the text that would have resulted from typing a key on an azerty keyboard, by transforming "W" to "Z". Such transforms are in fact performed in existing web applications. The standardized extension can be used to communicate, internally or externally, a request for a particular keyboard mapping that is to be used to transform either text or keystrokes, and then use that data to perform the requested actions.
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

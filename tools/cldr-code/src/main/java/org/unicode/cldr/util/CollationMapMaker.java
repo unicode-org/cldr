@@ -20,7 +20,6 @@ import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
-import com.ibm.icu.util.ULocale;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
@@ -199,7 +198,7 @@ public class CollationMapMaker {
     }
 
     static final boolean showDetails = false;
-    static final RuleBasedCollator uca = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
+    static final RuleBasedCollator uca = CollatorHelper.ROOT_COLLATOR;
     static final UnicodeSet filteredChars =
             new UnicodeSet(
                             "[{ss}[^[:Co:][:Cf:][:Cc:][:Cn:][:Cs:][:script=Han:][:script=Hangul:]-[:nfkcquickcheck=no:]]]")

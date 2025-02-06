@@ -71,4 +71,3 @@ Iteration is more complicated. We have to figure out whether *any possible* path
 A set of all the paths is cached on the first access for iteration, using the above process. For lookup, the incoming path is checked against the cached set of paths, and the lookup process takes place only if the value is not already cached. The iteration and lookup processes are performed separately because they are both optimized for their individual use cases. Iteration would slow down significantly if value storage was performed at the same time.
 
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

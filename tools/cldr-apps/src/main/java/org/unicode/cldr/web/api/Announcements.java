@@ -27,10 +27,13 @@ public class Announcements {
     public static final String AUDIENCE_EVERYONE = "Everyone";
 
     public static final String ORGS_MINE = "Mine";
+
     /** all TC orgs, as defined by {@link Organization#isTCOrg()} */
     public static final String ORGS_TC = "TC";
+
     /** excluding TC orgs, as defined by {@link Organization#isTCOrg()} */
     public static final String ORGS_NON_TC = "NonTC";
+
     /** All organizations */
     public static final String ORGS_ALL = "All";
 
@@ -82,7 +85,7 @@ public class Announcements {
         if (session == null) {
             return Auth.noSessionResponse();
         }
-        if (!UserRegistry.userIsGuest(session.user)) { // userIsGuest means "is guest or stronger"
+        if (!UserRegistry.userIsGuestOrStronger(session.user)) {
             return Response.status(403, "Forbidden").build();
         }
         session.userDidAction();
@@ -220,7 +223,7 @@ public class Announcements {
         // Only TC or Admin can specify orgs other than ORGS_MINE
         if (!UserRegistry.userIsManagerOrStronger(session.user)
                 || (!ORGS_MINE.equals(request.orgs)
-                        && !UserRegistry.userIsTC(session.user))) { // userIsTC means TC or stronger
+                        && !UserRegistry.userIsTCOrStronger(session.user))) {
             return Response.status(403, "Forbidden").build();
         }
         final AnnouncementSubmissionResponse response = new AnnouncementSubmissionResponse();
@@ -328,7 +331,7 @@ public class Announcements {
         if (session == null) {
             return Auth.noSessionResponse();
         }
-        if (!UserRegistry.userIsGuest(session.user)) { // means guest or stronger
+        if (!UserRegistry.userIsGuestOrStronger(session.user)) {
             return Response.status(403, "Forbidden").build();
         }
         final CheckReadResponse response = new CheckReadResponse();

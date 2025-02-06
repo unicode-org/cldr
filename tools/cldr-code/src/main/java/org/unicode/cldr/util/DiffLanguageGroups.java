@@ -284,7 +284,8 @@ public class DiffLanguageGroups {
     }
 
     public static String getName(String languageCode) {
-        String result = ENGLISH.getName(CLDRFile.LANGUAGE_NAME, languageCode);
+        String result =
+                ENGLISH.nameGetter().getNameFromTypeEnumCode(NameType.LANGUAGE, languageCode);
         return result == null ? "(no name)" : result.replace(" (Other)", "");
     }
 
@@ -355,7 +356,7 @@ public class DiffLanguageGroups {
     private static boolean handleLanguageGroups(
             String value, XPathParts parts, Multimap<String, String> languageGroups) {
         String parent = parts.getAttributeValue(-1, "parent");
-        List<String> children = SupplementalDataInfo.WHITESPACE_SPLTTER.splitToList(value);
+        List<String> children = SupplementalDataInfo.WHITESPACE_SPLITTER.splitToList(value);
         languageGroups.putAll(parent, children);
         return true;
     }

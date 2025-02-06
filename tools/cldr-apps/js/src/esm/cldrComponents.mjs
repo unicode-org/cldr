@@ -14,6 +14,7 @@ import LoginButton from "../views/LoginButton.vue";
 import OverallErrors from "../views/OverallErrors.vue";
 import ReportResponse from "../views/ReportResponse.vue";
 import SearchButton from "../views/SearchButton.vue";
+import SignCla from "../views/SignCla.vue";
 
 // 3rd party component(s)
 
@@ -23,14 +24,17 @@ import {
   Button,
   Card,
   Checkbox,
+  Col,
   Collapse,
   CollapsePanel,
   Form,
   Input,
   List,
+  Modal,
   Popover,
   Progress,
   Radio,
+  Row,
   Select,
   Spin,
   Steps,
@@ -60,6 +64,7 @@ function setup(app) {
   app.component("a-button", Button);
   app.component("a-card", Card);
   app.component("a-checkbox", Checkbox);
+  app.component("a-col", Col);
   app.component("a-collapse-panel", CollapsePanel);
   app.component("a-collapse", Collapse);
   app.component("a-form-item", Form.Item);
@@ -70,10 +75,12 @@ function setup(app) {
   app.component("a-list-item-meta", List.Item.Meta);
   app.component("a-list-item", List.Item);
   app.component("a-list", List);
+  app.component("a-modal", Modal);
   app.component("a-popover", Popover);
   app.component("a-progress", Progress);
   app.component("a-radio-group", Radio.Group);
   app.component("a-radio", Radio);
+  app.component("a-row", Row);
   app.component("a-select", Select);
   app.component("a-spin", Spin);
   app.component("a-step", Steps.Step);
@@ -90,6 +97,7 @@ function setup(app) {
   app.component("cldr-report-response", ReportResponse);
   app.component("cldr-searchbutton", SearchButton);
   app.component("cldr-value", CldrValue);
+  app.component("cldr-cla", SignCla);
 
   // some plugins we can pull in wholesale
   app.use(VueVirtualScroller);

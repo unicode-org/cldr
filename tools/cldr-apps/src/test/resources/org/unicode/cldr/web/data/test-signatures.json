@@ -1,0 +1,58 @@
+[
+    {
+        "user_name": "TEST$revoker",
+        "repo_owner": "unicode-org",
+        "gist_name": "CLA.md",
+        "gist_url": "https://gist.github.com/unicode-org/0123456",
+        "gist_version": "6543210",
+        "signed_at": "",
+        "revoked_at": "2024-12-26T19:17:15.000Z",
+        "org_cla": false,
+        "name": "Revoked User",
+        "email": "revoker@example.com",
+        "employer": "none",
+        "category": "I am not employer or, etc etc.."
+    },
+    {
+        "user_name": "TEST$corp-signer",
+        "repo_owner": "unicode-org",
+        "gist_name": "CLA.md",
+        "gist_url": "https://gist.github.com/unicode-org/0123456",
+        "gist_version": "6543210",
+        "signed_at": "2024-11-26T19:17:15.000Z",
+        "revoked_at": "",
+        "org_cla": true,
+        "name": "Corp Signer",
+        "email": "corpsigner@acme.example.com",
+        "employer": "Acme Corporation",
+        "category": "My employer has already signed the CLA and is listed on Unicode’s List of Corporate CLAs."
+    },
+    {
+        "user_name": "TEST$revoker",
+        "repo_owner": "unicode-org",
+        "gist_name": "CLA.md",
+        "gist_url": "https://gist.github.com/unicode-org/0123456",
+        "gist_version": "6543210",
+        "signed_at": "2024-10-26T19:17:15.000Z",
+        "revoked_at": "",
+        "org_cla": false,
+        "name": "Revoked User",
+        "email": "revoker@example.com",
+        "employer": "none",
+        "category": "I am not employer or, etc etc.."
+    },
+    {
+        "user_name": "TEST$ind-signer",
+        "repo_owner": "unicode-org",
+        "gist_name": "CLA.md",
+        "gist_url": "https://gist.github.com/unicode-org/0123456",
+        "gist_version": "6543210",
+        "signed_at": "2024-09-26T19:17:15.000Z",
+        "revoked_at": "",
+        "org_cla": true,
+        "name": "Indy Signer",
+        "email": "corpsigner@example.com",
+        "employer": "none",
+        "category": "I am not employer or, etc etc.."
+    }
+]

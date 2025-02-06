@@ -26,7 +26,7 @@ Note that if in your locale certain abbreviations are always understood to mean 
 
 ## Simple Units
 
-Simple units are cases like "{0} mile" or "{0} miles". These have from 1 to 6 [plural forms](https://cldr.unicode.org/translation/getting-started/plurals), depending on the language. Units also have a display name, such as "miles", used as labels in interfaces.
+Simple units are cases like "{0} mile" or "{0} miles". These have from 1 to 6 [plural forms](/translation/getting-started/plurals), depending on the language. Units also have a display name, such as "miles", used as labels in interfaces.
 
 ## Compound Units
 
@@ -36,8 +36,8 @@ Some units are compound units, like "miles per hour". When formatting, software 
 |---|---|---|---|
 | **per** | {0} per {1} | **cm** / **s** , **centimeters** per **second** | Used to compose units consisting of a division of two source units when there is no specialized pattern available. See [perUnitPatterns](https://www.unicode.org/reports/tr35/tr35-general.html#perUnitPatterns). |
 | **times** | {0}-{1} | kW⋅h, kilowatt-hour | Used to compose units consisting of a multiplication of two source units when there is no specialized pattern available. See [kilowatt hour](https://en.wikipedia.org/wiki/Kilowatt-hour) . |
-| **power** (square, cubic) | square {0} | square **meters** | - Used to compose area or volume measures when there is no specialized pattern available. The width should correspond to the base unit's width, as in [{0} square meter](https://cldr-smoke.unicode.org/cldr-apps/v#/fr/Area/5888c3421f06626c) or [{0} m²](https://cldr-smoke.unicode.org/cldr-apps/v#/fr/Area/6b88ccc5db865200).<br /> - The short form will typically be superscripts {0}² or {0}³; the long form may be the same or may be spelled out (as in English).<br /> - The long form should be spelled out. See Long Power.<br /> - Note that the base unit will be lowercased when there is no spacing around the {0}. Thus {0} Meter will be lowercased when composed with Quadrat{0}. |
-| **prefix** (milli-, kilo-,…) | milli{0} | milli **meter** | - Used to compose **metric** units when there is no specialized pattern available.<br /> - The width should correspond to the base unit's width, as in [{0} decimeter](https://cldr-smoke.unicode.org/cldr-apps/v#/fr/Length/ce4591152ece6f2) or [{0} dm](https://cldr-smoke.unicode.org/cldr-apps/v#/fr/Length/1f1b7ef47cfaee78).<br /> - Note that the base unit will be lowercased when there is no spacing around the {0}. Thus {0} Meter will be lowercased when composed with Milli{0}.<br /> - There are two different sets of prefixes:<br />&nbsp;&nbsp; - The standard prefixes are base 10, such as [mega{0}](https://st.unicode.org/cldr-apps/v#/USER/CompoundUnits/2ac0c0f7d5fff965) = ×10⁶ = ×1,000,000.<br />&nbsp;&nbsp; - The  binary  prefixes are base 1024, such as [mebi{0}](https://st.unicode.org/cldr-apps/v#/fr/CompoundUnits/61ea5a846717f829) = ×1024² = ×1,048,576. There are only a few of these, and they are only used with digital units such as byte or bit. See [Mebibyte](https://en.wikipedia.org/wiki/Byte#Multiple-byte_units) for more information. |
+| **power** (square, cubic) | square {0} | square **meters** | - Used to compose area or volume measures when there is no specialized pattern available. The width should correspond to the base unit's width, as in [{0} square meter](https://st.unicode.org/cldr-apps/v#/fr/Area/5888c3421f06626c) or [{0} m²](https://st.unicode.org/cldr-apps/v#/fr/Area/6b88ccc5db865200).<br /> - The short form will typically be superscripts {0}² or {0}³; the long form may be the same or may be spelled out (as in English).<br /> - The long form should be spelled out. See Long Power.<br /> - Note that the base unit will be lowercased when there is no spacing around the {0}. Thus {0} Meter will be lowercased when composed with Quadrat{0}. |
+| **prefix** (milli-, kilo-,…) | milli{0} | milli **meter** | - Used to compose **metric** units when there is no specialized pattern available.<br /> - The width should correspond to the base unit's width, as in [{0} decimeter](https://st.unicode.org/cldr-apps/v#/fr/Length_Metric/ce4591152ece6f2) or [{0} dm](https://st.unicode.org/cldr-apps/v#/fr/Length_Metric/1f1b7ef47cfaee78).<br /> - Note that the base unit will be lowercased when there is no spacing around the {0}. Thus {0} Meter will be lowercased when composed with Milli{0}.<br /> - There are two different sets of prefixes:<br />&nbsp;&nbsp; - The standard prefixes are base 10, such as [mega{0}](https://st.unicode.org/cldr-apps/v#/USER/CompoundUnits/2ac0c0f7d5fff965) = ×10⁶ = ×1,000,000.<br />&nbsp;&nbsp; - The  binary  prefixes are base 1024, such as [mebi{0}](https://st.unicode.org/cldr-apps/v#/fr/CompoundUnits/61ea5a846717f829) = ×1024² = ×1,048,576. There are only a few of these, and they are only used with digital units such as byte or bit. See [Mebibyte](https://en.wikipedia.org/wiki/Byte#Multiple-byte_units) for more information. |
 
 Using these patterns, names for complex units can be formed, such as *gigawatt hour per square second*. In common cases, these complex units will have an explicit translation that you supply such as [kilowatt-hour](https://st.unicode.org/cldr-apps/v#/USER/EnergyPower/49796c300ae2d104). But for less common cases, the components will be used to form units, and you need to make sure that they are consistent.
 
@@ -73,11 +73,11 @@ In many languages, the "per Y" part is inflected, and the dividing unit can't be
 
 ### Long Power
 
-If your language is inflected for case or gender: 
+If your language is inflected for case or gender:
 
 - **No inflected alternatives.** If it doesn't list inflected alternatives for square or cubic yet, choose the most neutral form inflection. For many locales, an abbreviated form may work the best, so that there is no visible inflection.
 - **Inflected alternatives.** If it does list inflected alternatives, you should look at some of the compound units with "square" and "cubic" that are already translated, to see how to translate power2 and power3. For example, for English, we see
-    - Length / Kilometer / long-other => {0} kilometers 
+    - Length / Kilometer / long-other => {0} kilometers
     - Area / Square-Kilometer / long-other => {0} square kilometers
 - The pattern for power2 should be constructed so that if you take the word for "kilometers" and substituted it into the pattern, you get "square kilometers". So let's take an example from French:
 
@@ -86,11 +86,11 @@ If your language is inflected for case or gender:
 - So the appropriate pattern for power2 would be:
 
     3. [https://st.unicode.org/cldr-apps/v#/fr/CompoundUnits/15b049cba8052719](https://st.unicode.org/cldr-apps/v#/fr/CompoundUnits/15b049cba8052719) => **{0} carrés**
-- If we were to substitute "kilomètres" from the pattern in #1 into the pattern in #3, we would get "kilomètres carrés", which appears in pattern #2. 
+- If we were to substitute "kilomètres" from the pattern in #1 into the pattern in #3, we would get "kilomètres carrés", which appears in pattern #2.
 
 ### Fallback Format: two units
 
-Some units are formed by combining other units. The most common of this is X per Y, such as "miles per hour". There is a "per" pattern that is used for this. For example, "{0} per {1}" might get replaced by "*10 meters* **per** *second*". 
+Some units are formed by combining other units. The most common of this is X per Y, such as "miles per hour". There is a "per" pattern that is used for this. For example, "{0} per {1}" might get replaced by "*10 meters* **per** *second*".
 
 Given an amount, and two units, the process uses the available patterns to put together a result, as described on [perUnitPatterns](http://www.unicode.org/reports/tr35/tr35-general.html#perUnitPatterns). (e.g. "3 kilograms" + "{0} per second" → "3 kilograms per second")
 
@@ -114,7 +114,7 @@ The measurements for *points, dots,* and *pixels* may be confusing. A *point* is
 
 If the natural word for both "point" and "dot" is the same, such as *punkt*, then there are a few different options to solve the conflict. Italic will be used for native words.
 
-**Changing the name for *point*.** 
+**Changing the name for *point*.**
 
 1. Use the equivalent of “*punkt length*” in your language for **point**.
 2. Use the equivalent of “*typographic punkt*” in your language for **point**.
@@ -129,4 +129,3 @@ If the natural word for both "point" and "dot" is the same, such as *punkt*, the
 A few languages have special words for **year, month, week,** or **day** when they are used in context of a person's age. Other languages may simply use the same terms for each one, and do not require separate translation.
 
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

@@ -18,7 +18,7 @@ This proposal replaces the current "defaultNumberingSystem" field with a series 
 
 \<native> - Numbering system using native digits. The "native" numbering system can only be a numeric numbering system, containing the native digits used in the locale.
 
-\<traditional> - The traditional or historic numbering system. Algorithmic systems are allowed in the "traditional" system. 
+\<traditional> - The traditional or historic numbering system. Algorithmic systems are allowed in the "traditional" system.
 
 - May be the same as "native" for some locales, but it may be different for others, such as Tamil or Chinese.
 - If "traditional" is not explicitly specified, fall back to "native".
@@ -757,4 +757,3 @@ Proposed seed data for numbering systems
 The plan is that these fields would NOT be exposed to survey tool, and would only be changeable via ticket submissions in trac.
 
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

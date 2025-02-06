@@ -8,10 +8,6 @@
  */
 package org.unicode.cldr.util;
 
-import com.google.common.base.Joiner;
-import com.google.common.base.Splitter;
-import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.ImmutableMap.Builder;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.util.concurrent.UncheckedExecutionException;
 import com.ibm.icu.impl.Relation;
@@ -27,6 +23,7 @@ import com.ibm.icu.util.Calendar;
 import com.ibm.icu.util.Freezable;
 import com.ibm.icu.util.ICUUncheckedIOException;
 import com.ibm.icu.util.Output;
+import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
 import com.ibm.icu.util.VersionInfo;
 import java.io.File;
@@ -44,7 +41,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
@@ -56,15 +52,9 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
-import org.unicode.cldr.test.CheckMetazones;
-import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
-import org.unicode.cldr.util.GrammarInfo.GrammaticalScope;
-import org.unicode.cldr.util.GrammarInfo.GrammaticalTarget;
 import org.unicode.cldr.util.LocaleInheritanceInfo.Reason;
-import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
-import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.With.SimpleIterator;
 import org.unicode.cldr.util.XMLFileReader.AllHandler;
 import org.unicode.cldr.util.XMLSource.ResolvingSource;
@@ -101,15 +91,6 @@ import org.xml.sax.helpers.XMLReaderFactory;
 
 public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleStringProvider {
 
-    private static final String GETNAME_LOCALE_SEPARATOR =
-            "//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator";
-    private static final String GETNAME_LOCALE_PATTERN =
-            "//ldml/localeDisplayNames/localeDisplayPattern/localePattern";
-    private static final String GETNAME_LOCALE_KEY_TYPE_PATTERN =
-            "//ldml/localeDisplayNames/localeDisplayPattern/localeKeyTypePattern";
-
-    private static final ImmutableSet<String> casesNominativeOnly =
-            ImmutableSet.of(GrammaticalFeature.grammaticalCase.getDefault(null));
     /**
      * Variable to control whether File reads are buffered; this will about halve the time spent in
      * loadFromFile() and Factory.make() from about 20 % to about 10 %. It will also noticeably
@@ -132,9 +113,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
     private static boolean DEBUG_LOGGING = false;
 
     public static final String SUPPLEMENTAL_NAME = "supplementalData";
-    public static final String SUPPLEMENTAL_METADATA = "supplementalMetadata";
-    public static final String SUPPLEMENTAL_PREFIX = "supplemental";
-    public static final String GEN_VERSION = "46";
+
+    public static final String GEN_VERSION = "47";
     public static final List<String> SUPPLEMENTAL_NAMES =
             Arrays.asList(
                     "characters",
@@ -300,6 +280,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         return dataSource.isNonInheriting();
     }
 
+    private final NameGetter nameGetter;
+
     private static final boolean DEBUG_CLDR_FILE = false;
     private String creationTime = null; // only used if DEBUG_CLDR_FILE
 
@@ -310,6 +292,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
      */
     public CLDRFile(XMLSource dataSource) {
         this.dataSource = dataSource;
+        this.nameGetter = new NameGetter(this);
 
         if (DEBUG_CLDR_FILE) {
             creationTime =
@@ -327,6 +310,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
      * @param minimalDraftStatus
      */
     public CLDRFile(String localeId, List<File> dirs, DraftStatus minimalDraftStatus) {
+        this.nameGetter = new NameGetter(this);
         // order matters
         this.dataSource = XMLSource.getFrozenInstance(localeId, dirs, minimalDraftStatus);
         this.dtdType = dataSource.getXMLNormalizingDtdType();
@@ -334,6 +318,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
     }
 
     public CLDRFile(XMLSource dataSource, XMLSource... resolvingParents) {
+        this.nameGetter = new NameGetter(this);
         List<XMLSource> sourceList = new ArrayList<>();
         sourceList.add(dataSource);
         sourceList.addAll(Arrays.asList(resolvingParents));
@@ -347,6 +332,10 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
                     "📂 Created new CLDRFile(dataSource, XMLSource... resolvingParents) at "
                             + creationTime);
         }
+    }
+
+    public NameGetter nameGetter() {
+        return nameGetter;
     }
 
     public static CLDRFile loadFromFile(
@@ -594,6 +583,10 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
                     result = dataSource.getValueAtPath(fallbackPath);
                 }
             }
+            // Note: the following can occur even when result != null at this point, and it can
+            // improve the result.For example, the code above may give "zh_Hans (FONIPA)", while the
+            // constructed value gotten below is "xitoy [soddalashgan] (FONIPA)" (in locale uz),
+            // which is expected by TestLocaleDisplay.
             if (isResolved()
                     && GlossonymConstructor.valueIsBogus(result)
                     && GlossonymConstructor.pathIsEligible(xpath)) {
@@ -1165,12 +1158,6 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
                                         continue;
                                     }
                                 }
-                                String keepValue =
-                                        XMLSource.getPathsAllowingDuplicates().get(xpath);
-                                if (keepValue != null && keepValue.equals(currentValue)) {
-                                    logicDuplicate = false;
-                                    continue;
-                                }
                                 // we've now established that the values are the same
                                 String currentFullXPath = dataSource.getFullPath(xpath);
                                 String otherFullXPath = other.dataSource.getFullPath(otherXpath);
@@ -1260,6 +1247,149 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
             }
         }
         return lb.build().toString(); // TODO: CLDRLocale ?
+    }
+
+    /**
+     * Create xpaths for DateFormat that look like
+     *
+     * <pre>
+     * //ldml/dates/calendars/calendar[@type="*"]/dateFormats/dateFormatLength[@type="*"]/dateFormat[@type="standard"]/pattern[@type="standard"]
+     * //ldml/dates/calendars/calendar[@type="*"]/dateFormats/dateFormatLength[@type="*"]/dateFormat[@type="standard"]/pattern[@type="standard"][@numbers="*"]
+     * </pre>
+     *
+     * @param calendar Calendar system identifier
+     * @param length full, long, medium, short. "*" is a wildcard selector for XPath
+     * @return
+     */
+    private String getDateFormatXpath(String calendar, String length) {
+        String formatPattern =
+                "//ldml/dates/calendars/calendar[@type=\"%s\"]/dateFormats/dateFormatLength[@type=\"%s\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"]";
+        return String.format(formatPattern, calendar, length);
+    }
+
+    /**
+     * Create xpaths for DateFormat that look like
+     *
+     * <pre>
+     * //ldml/dates/calendars/calendar[@type="*"]/dateFormats/dateFormatLength[@type="*"]/dateFormat[@type="standard"]/datetimeSkeleton[@type="standard"]
+     * //ldml/dates/calendars/calendar[@type="*"]/dateFormats/dateFormatLength[@type="*"]/dateFormat[@type="standard"]/datetimeSkeleton[@type="standard"][@numbers="*"]
+     * </pre>
+     *
+     * @param calendar Calendar system identifier
+     * @param length full, long, medium, short. "*" is a wildcard selector for XPath
+     * @return
+     */
+    private String getDateSkeletonXpath(String calendar, String length) {
+        String formatPattern =
+                "//ldml/dates/calendars/calendar[@type=\"%s\"]/dateFormats/dateFormatLength[@type=\"%s\"]/dateFormat[@type=\"standard\"]/datetimeSkeleton";
+        return String.format(formatPattern, calendar, length);
+    }
+
+    /**
+     * Create xpaths for TimeFormat that look like
+     *
+     * <pre>
+     * //ldml/dates/calendars/calendar[@type="*"]/timeFormats/timeFormatLength[@type="*"]/timeFormat[@type="standard"]/pattern[@type="standard"]
+     * //ldml/dates/calendars/calendar[@type="*"]/timeFormats/timeFormatLength[@type="*"]/timeFormat[@type="standard"]/pattern[@type="standard"][@numbers="*"] // not currently used
+     * </pre>
+     *
+     * @param calendar Calendar system idenfitier
+     * @param length full, long, medium, short. "*" is a wildcard selector for XPath
+     * @return
+     */
+    private String getTimeFormatXpath(String calendar, String length) {
+        String formatPattern =
+                "//ldml/dates/calendars/calendar[@type=\"%s\"]/timeFormats/timeFormatLength[@type=\"%s\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]";
+        return String.format(formatPattern, calendar, length);
+    }
+
+    /**
+     * Create xpaths for the glue pattern from DateTimeFormat that look like
+     *
+     * <pre>
+     *   //ldml/dates/calendars/calendar[@type="*"]/dateTimeFormats/dateTimeFormatLength[@type="*"]/dateTimeFormat[@type="standard"]/pattern[@type="standard"]
+     *   //ldml/dates/calendars/calendar[@type="*"]/dateTimeFormats/dateTimeFormatLength[@type="*"]/dateTimeFormat[@type="atTime"]/pattern[@type="standard"]
+     * </pre>
+     *
+     * @param calendar
+     * @param length
+     * @param formatType "standard" or "atTime"
+     * @return
+     */
+    private String getDateTimeFormatXpath(String calendar, String length, String formatType) {
+        String formatPattern =
+                "//ldml/dates/calendars/calendar[@type=\"%s\"]/dateTimeFormats/dateTimeFormatLength[@type=\"%s\"]/dateTimeFormat[@type=\"%s\"]/pattern[@type=\"standard\"]";
+        return String.format(formatPattern, calendar, length, formatType);
+    }
+
+    public SimpleDateFormat getDateFormat(
+            String calendar, String length, ICUServiceBuilder icuServiceBuilder) {
+        String dateFormatXPath = // Get standard dateFmt for same calendar & length as this
+                // dateTimePattern
+                this.getDateFormatXpath(calendar, length);
+        String dateFormatValue = this.getWinningValue(dateFormatXPath);
+
+        if (dateFormatValue == null) {
+            return null;
+        }
+
+        XPathParts parts = XPathParts.getFrozenInstance(this.getFullXPath(dateFormatXPath));
+        String dateNumbersOverride = parts.findAttributeValue("pattern", "numbers");
+        return icuServiceBuilder.getDateFormat(calendar, dateFormatValue, dateNumbersOverride);
+    }
+
+    public SimpleDateFormat getTimeFormat(
+            String calendar, String length, ICUServiceBuilder icuServiceBuilder) {
+        String timeFormatXPath = this.getTimeFormatXpath(calendar, length);
+        String timeFormatValue = this.getWinningValue(timeFormatXPath);
+
+        if (timeFormatValue == null) {
+            return null;
+        }
+
+        XPathParts parts = XPathParts.getFrozenInstance(this.getFullXPath(timeFormatXPath));
+        String timeNumbersOverride = parts.findAttributeValue("pattern", "numbers");
+        return icuServiceBuilder.getDateFormat(calendar, timeFormatValue, timeNumbersOverride);
+    }
+
+    public String glueDateTimeFormat(
+            String date,
+            String time,
+            String calendar,
+            String length,
+            String formatType,
+            ICUServiceBuilder icuServiceBuilder) {
+        // calls getDateTimeFormatXpath, load the glue pattern, then call
+        // glueDateTimeFormatWithGluePattern
+        String xpath = this.getDateTimeFormatXpath(calendar, length, formatType);
+        String fullpath = this.getFullXPath(xpath);
+        String gluePattern = this.getWinningValue(xpath);
+        return this.glueDateTimeFormatWithGluePattern(
+                date, time, calendar, gluePattern, icuServiceBuilder);
+    }
+
+    public String glueDateTimeFormatWithGluePattern(
+            String date,
+            String time,
+            String calendar,
+            String gluePattern,
+            ICUServiceBuilder icuServiceBuilder) {
+        // uses SimpleDateFormat to get rid of quotes
+        SimpleDateFormat temp = icuServiceBuilder.getDateFormat(calendar, gluePattern, null);
+        TimeZone tempTimeZone = TimeZone.GMT_ZONE;
+        Calendar tempCalendar = Calendar.getInstance(tempTimeZone, ULocale.ENGLISH);
+        Date tempDate = tempCalendar.getTime();
+        String gluePatternWithoutQuotes = temp.format(tempDate);
+
+        // uses MessageFormat to interpret the placeholders in the glue pattern
+        return MessageFormat.format(gluePatternWithoutQuotes, (Object[]) new String[] {time, date});
+    }
+
+    public String getDateSkeleton(String calendar, String length) {
+        String dateTimeSkeletonXPath = // Get standard dateTime skeleton for same calendar & length
+                // as this dateTimePattern
+                this.getDateSkeletonXpath(calendar, length);
+        return this.getWinningValue(dateTimeSkeletonXPath);
     }
 
     /**
@@ -2224,132 +2354,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         return item.startsWith("//ldml[@draft=\"unconfirmed\"]");
     }
 
-    // public Collection keySet(Matcher regexMatcher, Collection output) {
-    // if (output == null) output = new ArrayList(0);
-    // for (Iterator it = keySet().iterator(); it.hasNext();) {
-    // String path = (String)it.next();
-    // if (regexMatcher.reset(path).matches()) {
-    // output.add(path);
-    // }
-    // }
-    // return output;
-    // }
-
-    // public Collection keySet(String regexPattern, Collection output) {
-    // return keySet(PatternCache.get(regexPattern).matcher(""), output);
-    // }
-
-    /**
-     * Gets the type of a given xpath, eg script, territory, ... TODO move to separate class
-     *
-     * @param xpath
-     * @return
-     */
-    public static int getNameType(String xpath) {
-        for (int i = 0; i < NameTable.length; ++i) {
-            if (!xpath.startsWith(NameTable[i][0])) continue;
-            if (xpath.indexOf(NameTable[i][1], NameTable[i][0].length()) >= 0) return i;
-        }
-        return -1;
-    }
-
-    /** Gets the display name for a type */
-    public static String getNameTypeName(int index) {
-        try {
-            return getNameName(index);
-        } catch (Exception e) {
-            return "Illegal Type Name: " + index;
-        }
-    }
-
-    public static final int NO_NAME = -1,
-            LANGUAGE_NAME = 0,
-            SCRIPT_NAME = 1,
-            TERRITORY_NAME = 2,
-            VARIANT_NAME = 3,
-            CURRENCY_NAME = 4,
-            CURRENCY_SYMBOL = 5,
-            TZ_EXEMPLAR = 6,
-            TZ_START = TZ_EXEMPLAR,
-            TZ_GENERIC_LONG = 7,
-            TZ_GENERIC_SHORT = 8,
-            TZ_STANDARD_LONG = 9,
-            TZ_STANDARD_SHORT = 10,
-            TZ_DAYLIGHT_LONG = 11,
-            TZ_DAYLIGHT_SHORT = 12,
-            TZ_LIMIT = 13,
-            KEY_NAME = 13,
-            KEY_TYPE_NAME = 14,
-            SUBDIVISION_NAME = 15,
-            LIMIT_TYPES = 15;
-
-    private static final String[][] NameTable = {
-        {"//ldml/localeDisplayNames/languages/language[@type=\"", "\"]", "language"},
-        {"//ldml/localeDisplayNames/scripts/script[@type=\"", "\"]", "script"},
-        {"//ldml/localeDisplayNames/territories/territory[@type=\"", "\"]", "territory"},
-        {"//ldml/localeDisplayNames/variants/variant[@type=\"", "\"]", "variant"},
-        {"//ldml/numbers/currencies/currency[@type=\"", "\"]/displayName", "currency"},
-        {"//ldml/numbers/currencies/currency[@type=\"", "\"]/symbol", "currency-symbol"},
-        {"//ldml/dates/timeZoneNames/zone[@type=\"", "\"]/exemplarCity", "exemplar-city"},
-        {"//ldml/dates/timeZoneNames/zone[@type=\"", "\"]/long/generic", "tz-generic-long"},
-        {"//ldml/dates/timeZoneNames/zone[@type=\"", "\"]/short/generic", "tz-generic-short"},
-        {"//ldml/dates/timeZoneNames/zone[@type=\"", "\"]/long/standard", "tz-standard-long"},
-        {"//ldml/dates/timeZoneNames/zone[@type=\"", "\"]/short/standard", "tz-standard-short"},
-        {"//ldml/dates/timeZoneNames/zone[@type=\"", "\"]/long/daylight", "tz-daylight-long"},
-        {"//ldml/dates/timeZoneNames/zone[@type=\"", "\"]/short/daylight", "tz-daylight-short"},
-        {"//ldml/localeDisplayNames/keys/key[@type=\"", "\"]", "key"},
-        {"//ldml/localeDisplayNames/types/type[@key=\"", "\"][@type=\"", "\"]", "key|type"},
-        {"//ldml/localeDisplayNames/subdivisions/subdivision[@type=\"", "\"]", "subdivision"},
-
-        /**
-         * <long> <generic>Newfoundland Time</generic> <standard>Newfoundland Standard
-         * Time</standard> <daylight>Newfoundland Daylight Time</daylight> </long> - <short>
-         * <generic>NT</generic> <standard>NST</standard> <daylight>NDT</daylight> </short>
-         */
-    };
-
-    // private static final String[] TYPE_NAME = {"language", "script", "territory", "variant",
-    // "currency",
-    // "currency-symbol",
-    // "tz-exemplar",
-    // "tz-generic-long", "tz-generic-short"};
-
-    public Iterator<String> getAvailableIterator(int type) {
-        return iterator(NameTable[type][0]);
-    }
-
-    /**
-     * @return the xpath used to access data of a given type
-     */
-    public static String getKey(int type, String code) {
-        switch (type) {
-            case VARIANT_NAME:
-                code = code.toUpperCase(Locale.ROOT);
-                break;
-            case KEY_NAME:
-                code = fixKeyName(code);
-                break;
-            case TZ_DAYLIGHT_LONG:
-            case TZ_DAYLIGHT_SHORT:
-            case TZ_EXEMPLAR:
-            case TZ_GENERIC_LONG:
-            case TZ_GENERIC_SHORT:
-            case TZ_STANDARD_LONG:
-            case TZ_STANDARD_SHORT:
-                code = getLongTzid(code);
-                break;
-        }
-        String[] nameTableRow = NameTable[type];
-        if (code.contains("|")) {
-            String[] codes = code.split("\\|");
-            return nameTableRow[0]
-                    + fixKeyName(codes[0])
-                    + nameTableRow[1]
-                    + codes[1]
-                    + nameTableRow[2];
-        } else {
-            return nameTableRow[0] + code + nameTableRow[1];
-        }
+    public Iterator<String> getAvailableIterator(NameType type) {
+        String s = type.getPathStart();
+        return iterator(s);
     }
 
     static final Relation<R2<String, String>, String> bcp47AliasMap =
@@ -2365,60 +2372,6 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         return code;
     }
 
-    static final ImmutableMap<String, String> FIX_KEY_NAME;
-
-    static {
-        Builder<String, String> temp = ImmutableMap.builder();
-        for (String s :
-                Arrays.asList(
-                        "colAlternate",
-                        "colBackwards",
-                        "colCaseFirst",
-                        "colCaseLevel",
-                        "colNormalization",
-                        "colNumeric",
-                        "colReorder",
-                        "colStrength")) {
-            temp.put(s.toLowerCase(Locale.ROOT), s);
-        }
-        FIX_KEY_NAME = temp.build();
-    }
-
-    private static String fixKeyName(String code) {
-        String result = FIX_KEY_NAME.get(code);
-        return result == null ? code : result;
-    }
-
-    /**
-     * @return the code used to access data of a given type from the path. Null if not found.
-     */
-    public static String getCode(String path) {
-        int type = getNameType(path);
-        if (type < 0) {
-            throw new IllegalArgumentException("Illegal type in path: " + path);
-        }
-        String[] nameTableRow = NameTable[type];
-        int start = nameTableRow[0].length();
-        int end = path.indexOf(nameTableRow[1], start);
-        return path.substring(start, end);
-    }
-
-    /**
-     * @param type a string such as "language", "script", "territory", "region", ...
-     * @return the corresponding integer
-     */
-    public static int typeNameToCode(String type) {
-        if (type.equalsIgnoreCase("region")) {
-            type = "territory";
-        }
-        for (int i = 0; i < LIMIT_TYPES; ++i) {
-            if (type.equalsIgnoreCase(getNameName(i))) {
-                return i;
-            }
-        }
-        return -1;
-    }
-
     /** For use in getting short names. */
     public static final Transform<String, String> SHORT_ALTS =
             new Transform<>() {
@@ -2427,12 +2380,6 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
                     return "short";
                 }
             };
-
-    /** Returns the name of a type. */
-    public static String getNameName(int choice) {
-        String[] nameTableRow = NameTable[choice];
-        return nameTableRow[nameTableRow.length - 1];
-    }
 
     /**
      * Get standard ordering for elements.
@@ -2811,7 +2758,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
          * XPath where originally found. May be {@link GlossonymConstructor#PSEUDO_PATH} if the
          * value was constructed.
          *
-         * @see GlossonymnConstructor
+         * @see GlossonymConstructor
          */
         public String pathWhereFound;
 
@@ -3119,8 +3066,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
      * @return
      */
     public Collection<String> getExtraPaths() {
-        Set<String> toAddTo = new HashSet<>();
-        toAddTo.addAll(getRawExtraPaths());
+        Set<String> toAddTo = new HashSet<>(getRawExtraPaths());
         for (String path : this) {
             toAddTo.remove(path);
         }
@@ -3153,11 +3099,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
      */
     public Set<String> getRawExtraPaths() {
         if (extraPaths == null) {
-            extraPaths =
-                    ImmutableSet.<String>builder()
-                            .addAll(getRawExtraPathsPrivate())
-                            .addAll(CONST_EXTRA_PATHS)
-                            .build();
+            extraPaths = ImmutableSet.<String>builder().addAll(getRawExtraPathsPrivate()).build();
             if (DEBUG) {
                 System.out.println(getLocaleID() + "\textras: " + extraPaths.size());
             }
@@ -3170,8 +3112,6 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
      * typically don't have a reasonable fallback value that could be added to root. Some of them
      * are common to all locales, and some of them are specific to the given locale, based on
      * features like the plural rules for the locale.
-     *
-     * <p>The ones that are constant for all locales should go into CONST_EXTRA_PATHS.
      *
      * @return toAddTo (the collection)
      *     <p>Called only by getRawExtraPaths.
@@ -3187,222 +3127,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
      */
     private List<String> getRawExtraPathsPrivate() {
         Set<String> toAddTo = new HashSet<>();
-        SupplementalDataInfo supplementalData = CLDRConfig.getInstance().getSupplementalDataInfo();
-        // units
-        PluralInfo plurals = supplementalData.getPlurals(PluralType.cardinal, getLocaleID());
-        if (plurals == null && DEBUG) {
-            System.err.println(
-                    "No "
-                            + PluralType.cardinal
-                            + "  plurals for "
-                            + getLocaleID()
-                            + " in "
-                            + supplementalData.getDirectory().getAbsolutePath());
-        }
-        Set<Count> pluralCounts = Collections.emptySet();
-        if (plurals != null) {
-            pluralCounts = plurals.getAdjustedCounts();
-            Set<Count> pluralCountsRaw = plurals.getCounts();
-            if (pluralCountsRaw.size() != 1) {
-                // we get all the root paths with count
-                addPluralCounts(toAddTo, pluralCounts, pluralCountsRaw, this);
-            }
-        }
-        // dayPeriods
-        String locale = getLocaleID();
-        DayPeriodInfo dayPeriods =
-                supplementalData.getDayPeriods(DayPeriodInfo.Type.format, locale);
-        if (dayPeriods != null) {
-            LinkedHashSet<DayPeriod> items = new LinkedHashSet<>(dayPeriods.getPeriods());
-            items.add(DayPeriod.am);
-            items.add(DayPeriod.pm);
-            for (String context : new String[] {"format", "stand-alone"}) {
-                for (String width : new String[] {"narrow", "abbreviated", "wide"}) {
-                    for (DayPeriod dayPeriod : items) {
-                        // ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="am"]
-                        toAddTo.add(
-                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/"
-                                        + "dayPeriodContext[@type=\""
-                                        + context
-                                        + "\"]/dayPeriodWidth[@type=\""
-                                        + width
-                                        + "\"]/dayPeriod[@type=\""
-                                        + dayPeriod
-                                        + "\"]");
-                    }
-                }
-            }
-        }
-
-        // metazones
-        Set<String> zones = supplementalData.getAllMetazones();
-
-        for (String zone : zones) {
-            final boolean metazoneUsesDST = CheckMetazones.metazoneUsesDST(zone);
-            for (String width : new String[] {"long", "short"}) {
-                for (String type : new String[] {"generic", "standard", "daylight"}) {
-                    if (metazoneUsesDST || type.equals("standard")) {
-                        // Only add /standard for non-DST metazones
-                        final String path =
-                                "//ldml/dates/timeZoneNames/metazone[@type=\""
-                                        + zone
-                                        + "\"]/"
-                                        + width
-                                        + "/"
-                                        + type;
-                        toAddTo.add(path);
-                    }
-                }
-            }
-        }
-
-        //        // Individual zone overrides
-        //        final String[] overrides = {
-        //            "Pacific/Honolulu\"]/short/generic",
-        //            "Pacific/Honolulu\"]/short/standard",
-        //            "Pacific/Honolulu\"]/short/daylight",
-        //            "Europe/Dublin\"]/long/daylight",
-        //            "Europe/London\"]/long/daylight",
-        //            "Etc/UTC\"]/long/standard",
-        //            "Etc/UTC\"]/short/standard"
-        //        };
-        //        for (String override : overrides) {
-        //            toAddTo.add("//ldml/dates/timeZoneNames/zone[@type=\"" + override);
-        //        }
-
-        // Currencies
-        Set<String> codes = supplementalData.getBcp47Keys().getAll("cu");
-        for (String code : codes) {
-            String currencyCode = code.toUpperCase();
-            toAddTo.add(
-                    "//ldml/numbers/currencies/currency[@type=\"" + currencyCode + "\"]/symbol");
-            toAddTo.add(
-                    "//ldml/numbers/currencies/currency[@type=\""
-                            + currencyCode
-                            + "\"]/displayName");
-            if (!pluralCounts.isEmpty()) {
-                for (Count count : pluralCounts) {
-                    toAddTo.add(
-                            "//ldml/numbers/currencies/currency[@type=\""
-                                    + currencyCode
-                                    + "\"]/displayName[@count=\""
-                                    + count.toString()
-                                    + "\"]");
-                }
-            }
-        }
-
-        // grammatical info
-
-        GrammarInfo grammarInfo = supplementalData.getGrammarInfo(getLocaleID(), true);
-        if (grammarInfo != null) {
-            if (grammarInfo.hasInfo(GrammaticalTarget.nominal)) {
-                Collection<String> genders =
-                        grammarInfo.get(
-                                GrammaticalTarget.nominal,
-                                GrammaticalFeature.grammaticalGender,
-                                GrammaticalScope.units);
-                Collection<String> rawCases =
-                        grammarInfo.get(
-                                GrammaticalTarget.nominal,
-                                GrammaticalFeature.grammaticalCase,
-                                GrammaticalScope.units);
-                Collection<String> nomCases = rawCases.isEmpty() ? casesNominativeOnly : rawCases;
-                Collection<Count> adjustedPlurals = pluralCounts;
-                // There was code here allowing fewer plurals to be used, but is retracted for now
-                // (needs more thorough integration in logical groups, etc.)
-                // This note is left for 'blame' to find the old code in case we revive that.
-
-                // TODO use UnitPathType to get paths
-                if (!genders.isEmpty()) {
-                    for (String unit : GrammarInfo.getUnitsToAddGrammar()) {
-                        toAddTo.add(
-                                "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\""
-                                        + unit
-                                        + "\"]/gender");
-                    }
-                    for (Count plural : adjustedPlurals) {
-                        for (String gender : genders) {
-                            for (String case1 : nomCases) {
-                                final String grammaticalAttributes =
-                                        GrammarInfo.getGrammaticalInfoAttributes(
-                                                grammarInfo,
-                                                UnitPathType.power,
-                                                plural.toString(),
-                                                gender,
-                                                case1);
-                                toAddTo.add(
-                                        "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1"
-                                                + grammaticalAttributes);
-                                toAddTo.add(
-                                        "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power3\"]/compoundUnitPattern1"
-                                                + grammaticalAttributes);
-                            }
-                        }
-                    }
-                    //             <genderMinimalPairs gender="masculine">Der {0} ist
-                    // …</genderMinimalPairs>
-                    for (String gender : genders) {
-                        toAddTo.add(
-                                "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\""
-                                        + gender
-                                        + "\"]");
-                    }
-                }
-                if (!rawCases.isEmpty()) {
-                    for (String case1 : rawCases) {
-                        //          <caseMinimalPairs case="nominative">{0} kostet
-                        // €3,50.</caseMinimalPairs>
-                        toAddTo.add(
-                                "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\""
-                                        + case1
-                                        + "\"]");
-
-                        for (Count plural : adjustedPlurals) {
-                            for (String unit : GrammarInfo.getUnitsToAddGrammar()) {
-                                toAddTo.add(
-                                        "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\""
-                                                + unit
-                                                + "\"]/unitPattern"
-                                                + GrammarInfo.getGrammaticalInfoAttributes(
-                                                        grammarInfo,
-                                                        UnitPathType.unit,
-                                                        plural.toString(),
-                                                        null,
-                                                        case1));
-                            }
-                        }
-                    }
-                }
-            }
-        }
+        ExtraPaths.addConstant(toAddTo);
+        ExtraPaths.addLocaleDependent(toAddTo, this, getLocaleID());
         return toAddTo.stream().map(String::intern).collect(Collectors.toList());
-    }
-
-    private void addPluralCounts(
-            Collection<String> toAddTo,
-            final Set<Count> pluralCounts,
-            final Set<Count> pluralCountsRaw,
-            Iterable<String> file) {
-        for (String path : file) {
-            String countAttr = "[@count=\"other\"]";
-            int countPos = path.indexOf(countAttr);
-            if (countPos < 0) {
-                continue;
-            }
-            Set<Count> pluralCountsNeeded =
-                    path.startsWith("//ldml/numbers/minimalPairs") ? pluralCountsRaw : pluralCounts;
-            if (pluralCountsNeeded.size() > 1) {
-                String start = path.substring(0, countPos) + "[@count=\"";
-                String end = "\"]" + path.substring(countPos + countAttr.length());
-                for (Count count : pluralCounts) {
-                    if (count == Count.other) {
-                        continue;
-                    }
-                    toAddTo.add(start + count + end);
-                }
-            }
-        }
     }
 
     /**
@@ -3567,7 +3294,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
     public boolean isNotRoot(String distinguishedPath) {
         String source = getSourceLocaleID(distinguishedPath, null);
         return source != null
-                && !source.equals("root")
+                && !source.equals(LocaleNames.ROOT)
                 && !source.equals(XMLSource.CODE_FALLBACK_ID);
     }
 
@@ -3757,527 +3484,6 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         return result;
     }
 
-    /*
-     *******************************************************************************************
-     * TODO: move the code below here -- that is, the many (currently ten as of 2022-06-01)
-     * versions of getName and their subroutines and data -- to a new class in a separate file,
-     * and enable tracking similar to existing "pathWhereFound/localeWhereFound" but more general.
-     *
-     * Reference: https://unicode-org.atlassian.net/browse/CLDR-15830
-     *******************************************************************************************
-     */
-
-    static final Joiner JOIN_HYPHEN = Joiner.on('-');
-    static final Joiner JOIN_UNDERBAR = Joiner.on('_');
-
-    /** Utility for getting a name, given a type and code. */
-    public String getName(String type, String code) {
-        return getName(typeNameToCode(type), code);
-    }
-
-    public String getName(int type, String code) {
-        return getName(type, code, null, null);
-    }
-
-    public String getName(int type, String code, Set<String> paths) {
-        return getName(type, code, null, paths);
-    }
-
-    public String getName(int type, String code, Transform<String, String> altPicker) {
-        return getName(type, code, altPicker, null);
-    }
-
-    /**
-     * Returns the name of the given bcp47 identifier. Note that extensions must be specified using
-     * the old "\@key=type" syntax.
-     *
-     * @param localeOrTZID
-     * @return
-     */
-    public synchronized String getName(String localeOrTZID) {
-        return getName(localeOrTZID, false);
-    }
-
-    public String getName(
-            LanguageTagParser lparser,
-            boolean onlyConstructCompound,
-            Transform<String, String> altPicker) {
-        return getName(lparser, onlyConstructCompound, altPicker, null);
-    }
-
-    /**
-     * @param paths if non-null, will contain contributory paths on return
-     */
-    public String getName(
-            LanguageTagParser lparser,
-            boolean onlyConstructCompound,
-            Transform<String, String> altPicker,
-            Set<String> paths) {
-        return getName(
-                lparser,
-                onlyConstructCompound,
-                altPicker,
-                getWinningValueWithBailey(GETNAME_LOCALE_KEY_TYPE_PATTERN),
-                getWinningValueWithBailey(GETNAME_LOCALE_PATTERN),
-                getWinningValueWithBailey(GETNAME_LOCALE_SEPARATOR),
-                paths);
-    }
-
-    public synchronized String getName(
-            String localeOrTZID,
-            boolean onlyConstructCompound,
-            String localeKeyTypePattern,
-            String localePattern,
-            String localeSeparator) {
-        return getName(
-                localeOrTZID,
-                onlyConstructCompound,
-                localeKeyTypePattern,
-                localePattern,
-                localeSeparator,
-                null,
-                null);
-    }
-
-    /**
-     * Returns the name of the given bcp47 identifier. Note that extensions must be specified using
-     * the old "\@key=type" syntax.
-     *
-     * @param localeOrTZID the locale or timezone ID
-     * @param onlyConstructCompound
-     * @return
-     */
-    public synchronized String getName(String localeOrTZID, boolean onlyConstructCompound) {
-        return getName(localeOrTZID, onlyConstructCompound, null);
-    }
-
-    /**
-     * Returns the name of the given bcp47 identifier. Note that extensions must be specified using
-     * the old "\@key=type" syntax.
-     *
-     * @param localeOrTZID the locale or timezone ID
-     * @param onlyConstructCompound if true, returns "English (United Kingdom)" instead of "British
-     *     English"
-     * @param altPicker Used to select particular alts. For example, SHORT_ALTS can be used to get
-     *     "English (U.K.)" instead of "English (United Kingdom)"
-     * @return
-     */
-    public synchronized String getName(
-            String localeOrTZID,
-            boolean onlyConstructCompound,
-            Transform<String, String> altPicker) {
-        return getName(localeOrTZID, onlyConstructCompound, altPicker, null);
-    }
-
-    /**
-     * Returns the name of the given bcp47 identifier. Note that extensions must be specified using
-     * the old "\@key=type" syntax.
-     *
-     * @param localeOrTZID the locale or timezone ID
-     * @param onlyConstructCompound if true, returns "English (United Kingdom)" instead of "British
-     *     English"
-     * @param altPicker Used to select particular alts. For example, SHORT_ALTS can be used to get
-     *     "English (U.K.)" instead of "English (United Kingdom)"
-     * @return
-     */
-    public synchronized String getName(
-            String localeOrTZID,
-            boolean onlyConstructCompound,
-            Transform<String, String> altPicker,
-            Set<String> paths) {
-        return getName(
-                localeOrTZID,
-                onlyConstructCompound,
-                getWinningValueWithBailey(GETNAME_LOCALE_KEY_TYPE_PATTERN),
-                getWinningValueWithBailey(GETNAME_LOCALE_PATTERN),
-                getWinningValueWithBailey(GETNAME_LOCALE_SEPARATOR),
-                altPicker,
-                paths);
-    }
-
-    /**
-     * Returns the name of the given bcp47 identifier. Note that extensions must be specified using
-     * the old "\@key=type" syntax. Only used by ExampleGenerator.
-     *
-     * @param localeOrTZID the locale or timezone ID
-     * @param onlyConstructCompound
-     * @param localeKeyTypePattern the pattern used to format key-type pairs
-     * @param localePattern the pattern used to format primary/secondary subtags
-     * @param localeSeparator the list separator for secondary subtags
-     * @param paths if non-null, fillin with contributory paths
-     * @return
-     */
-    public synchronized String getName(
-            String localeOrTZID,
-            boolean onlyConstructCompound,
-            String localeKeyTypePattern,
-            String localePattern,
-            String localeSeparator,
-            Transform<String, String> altPicker,
-            Set<String> paths) {
-        // Hack for seed
-        if (localePattern == null) {
-            localePattern = "{0} ({1})";
-        }
-        boolean isCompound = localeOrTZID.contains("_");
-        String name =
-                isCompound && onlyConstructCompound
-                        ? null
-                        : getName(LANGUAGE_NAME, localeOrTZID, altPicker, paths);
-
-        // TODO - handle arbitrary combinations
-        if (name != null && !name.contains("_") && !name.contains("-")) {
-            name = replaceBracketsForName(name);
-            return name;
-        }
-        LanguageTagParser lparser = new LanguageTagParser().set(localeOrTZID);
-        return getName(
-                lparser,
-                onlyConstructCompound,
-                altPicker,
-                localeKeyTypePattern,
-                localePattern,
-                localeSeparator,
-                paths);
-    }
-
-    public String getName(
-            LanguageTagParser lparser,
-            boolean onlyConstructCompound,
-            Transform<String, String> altPicker,
-            String localeKeyTypePattern,
-            String localePattern,
-            String localeSeparator,
-            Set<String> paths) {
-        String name;
-        String original = null;
-
-        // we need to check for prefixes, for lang+script or lang+country
-        boolean haveScript = false;
-        boolean haveRegion = false;
-        // try lang+script
-        if (onlyConstructCompound) {
-            name = getName(LANGUAGE_NAME, original = lparser.getLanguage(), altPicker, paths);
-            if (name == null) name = original;
-        } else {
-            String x = lparser.toString(LanguageTagParser.LANGUAGE_SCRIPT_REGION);
-            name = getName(LANGUAGE_NAME, x, altPicker, paths);
-            if (name != null) {
-                haveScript = haveRegion = true;
-            } else {
-                name =
-                        getName(
-                                LANGUAGE_NAME,
-                                lparser.toString(LanguageTagParser.LANGUAGE_SCRIPT),
-                                altPicker,
-                                paths);
-                if (name != null) {
-                    haveScript = true;
-                } else {
-                    name =
-                            getName(
-                                    LANGUAGE_NAME,
-                                    lparser.toString(LanguageTagParser.LANGUAGE_REGION),
-                                    altPicker,
-                                    paths);
-                    if (name != null) {
-                        haveRegion = true;
-                    } else {
-                        name =
-                                getName(
-                                        LANGUAGE_NAME,
-                                        original = lparser.getLanguage(),
-                                        altPicker,
-                                        paths);
-                        if (name == null) {
-                            name = original;
-                        }
-                    }
-                }
-            }
-        }
-        name = replaceBracketsForName(name);
-        String extras = "";
-        if (!haveScript) {
-            extras =
-                    addDisplayName(
-                            lparser.getScript(),
-                            SCRIPT_NAME,
-                            localeSeparator,
-                            extras,
-                            altPicker,
-                            paths);
-        }
-        if (!haveRegion) {
-            extras =
-                    addDisplayName(
-                            lparser.getRegion(),
-                            TERRITORY_NAME,
-                            localeSeparator,
-                            extras,
-                            altPicker,
-                            paths);
-        }
-        List<String> variants = lparser.getVariants();
-        for (String orig : variants) {
-            extras = addDisplayName(orig, VARIANT_NAME, localeSeparator, extras, altPicker, paths);
-        }
-
-        // Look for key-type pairs.
-        main:
-        for (Map.Entry<String, List<String>> extension :
-                lparser.getLocaleExtensionsDetailed().entrySet()) {
-            String key = extension.getKey();
-            if (key.equals("h0")) {
-                continue;
-            }
-            List<String> keyValue = extension.getValue();
-            String oldFormatType =
-                    (key.equals("ca") ? JOIN_HYPHEN : JOIN_UNDERBAR)
-                            .join(keyValue); // default value
-            // Check if key/type pairs exist in the CLDRFile first.
-            String value = getKeyValueName(key, oldFormatType);
-            if (value != null) {
-                value = replaceBracketsForName(value);
-            } else {
-                // if we fail, then we construct from the key name and the value
-                String kname = getKeyName(key);
-                if (kname == null) {
-                    kname = key; // should not happen, but just in case
-                }
-                switch (key) {
-                    case "t":
-                        List<String> hybrid = lparser.getLocaleExtensionsDetailed().get("h0");
-                        if (hybrid != null) {
-                            kname = getKeyValueName("h0", JOIN_UNDERBAR.join(hybrid));
-                        }
-                        oldFormatType = getName(oldFormatType);
-                        break;
-                    case "h0":
-                        continue main;
-                    case "cu":
-                        oldFormatType =
-                                getName(
-                                        CURRENCY_SYMBOL,
-                                        oldFormatType.toUpperCase(Locale.ROOT),
-                                        paths);
-                        break;
-                    case "tz":
-                        if (paths != null) {
-                            throw new IllegalArgumentException(
-                                    "Error: getName(…) with paths doesn't handle timezones.");
-                        }
-                        oldFormatType =
-                                getTZName(
-                                        oldFormatType, "VVVV"); // TODO: paths not handled here, yet
-                        break;
-                    case "kr":
-                        oldFormatType = getReorderName(localeSeparator, keyValue, paths);
-                        break;
-                    case "rg":
-                    case "sd":
-                        oldFormatType = getName(SUBDIVISION_NAME, oldFormatType, paths);
-                        break;
-                    default:
-                        oldFormatType = JOIN_HYPHEN.join(keyValue);
-                }
-                value =
-                        MessageFormat.format(
-                                localeKeyTypePattern, new Object[] {kname, oldFormatType});
-                if (paths != null) {
-                    paths.add(GETNAME_LOCALE_KEY_TYPE_PATTERN);
-                }
-                value = replaceBracketsForName(value);
-            }
-            if (paths != null && !extras.isEmpty()) {
-                paths.add(GETNAME_LOCALE_SEPARATOR);
-            }
-            extras =
-                    extras.isEmpty()
-                            ? value
-                            : MessageFormat.format(localeSeparator, new Object[] {extras, value});
-        }
-        // now handle stray extensions
-        for (Map.Entry<String, List<String>> extension :
-                lparser.getExtensionsDetailed().entrySet()) {
-            String value =
-                    MessageFormat.format(
-                            localeKeyTypePattern,
-                            new Object[] {
-                                extension.getKey(), JOIN_HYPHEN.join(extension.getValue())
-                            });
-            if (paths != null) {
-                paths.add(GETNAME_LOCALE_KEY_TYPE_PATTERN);
-            }
-            extras =
-                    extras.isEmpty()
-                            ? value
-                            : MessageFormat.format(localeSeparator, new Object[] {extras, value});
-        }
-        // fix this -- shouldn't be hardcoded!
-        if (extras.length() == 0) {
-            return name;
-        }
-        if (paths != null) {
-            paths.add(GETNAME_LOCALE_PATTERN);
-        }
-        return MessageFormat.format(localePattern, new Object[] {name, extras});
-    }
-
-    private static final String replaceBracketsForName(String value) {
-        value = value.replace('(', '[').replace(')', ']').replace('（', '［').replace('）', '］');
-        return value;
-    }
-
-    /**
-     * Utility for getting the name, given a code.
-     *
-     * @param type
-     * @param code
-     * @param codeToAlt - if not null, is called on the code. If the result is not null, then that
-     *     is used for an alt value. If the alt path has a value it is used, otherwise the normal
-     *     one is used. For example, the transform could return "short" for PS or HK or MO, but not
-     *     US or GB.
-     * @param paths if non-null, will have contributory paths on return
-     * @return
-     */
-    public String getName(
-            int type, String code, Transform<String, String> codeToAlt, Set<String> paths) {
-        String path = getKey(type, code);
-        String result = null;
-        if (codeToAlt != null) {
-            String alt = codeToAlt.transform(code);
-            if (alt != null) {
-                String altPath = path + "[@alt=\"" + alt + "\"]";
-                result = getStringValueWithBaileyNotConstructed(altPath);
-                if (paths != null && result != null) {
-                    paths.add(altPath);
-                }
-            }
-        }
-        if (result == null) {
-            result = getStringValueWithBaileyNotConstructed(path);
-            if (paths != null && result != null) {
-                paths.add(path);
-            }
-        }
-        if (getLocaleID().equals("en")) {
-            CLDRFile.Status status = new CLDRFile.Status();
-            String sourceLocale = getSourceLocaleID(path, status);
-            if (result == null || !sourceLocale.equals("en")) {
-                if (type == LANGUAGE_NAME) {
-                    Set<String> set = Iso639Data.getNames(code);
-                    if (set != null) {
-                        return set.iterator().next();
-                    }
-                    Map<String, Map<String, String>> map =
-                            StandardCodes.getLStreg().get("language");
-                    Map<String, String> info = map.get(code);
-                    if (info != null) {
-                        result = info.get("Description");
-                    }
-                } else if (type == TERRITORY_NAME) {
-                    result = getLstrFallback("region", code, paths);
-                } else if (type == SCRIPT_NAME) {
-                    result = getLstrFallback("script", code, paths);
-                }
-            }
-        }
-        return result;
-    }
-
-    static final Pattern CLEAN_DESCRIPTION = Pattern.compile("([^\\(\\[]*)[\\(\\[].*");
-    static final Splitter DESCRIPTION_SEP = Splitter.on('▪');
-
-    private String getLstrFallback(String codeType, String code, Set<String> paths) {
-        Map<String, String> info = StandardCodes.getLStreg().get(codeType).get(code);
-        if (info != null) {
-            String temp = info.get("Description");
-            if (!temp.equalsIgnoreCase("Private use")) {
-                List<String> temp2 = DESCRIPTION_SEP.splitToList(temp);
-                temp = temp2.get(0);
-                final Matcher matcher = CLEAN_DESCRIPTION.matcher(temp);
-                if (matcher.lookingAt()) {
-                    temp = matcher.group(1).trim();
-                }
-                return temp;
-            }
-        }
-        return null;
-    }
-
-    /**
-     * Gets timezone name. Not optimized.
-     *
-     * @param tzcode
-     * @return
-     */
-    private String getTZName(String tzcode, String format) {
-        String longid = getLongTzid(tzcode);
-        if (tzcode.length() == 4 && !tzcode.equals("gaza")) {
-            return longid;
-        }
-        TimezoneFormatter tzf = new TimezoneFormatter(this);
-        return tzf.getFormattedZone(longid, format, 0);
-    }
-
-    private String getReorderName(
-            String localeSeparator, List<String> keyValues, Set<String> paths) {
-        String result = null;
-        for (String value : keyValues) {
-            String name =
-                    getName(
-                            SCRIPT_NAME,
-                            Character.toUpperCase(value.charAt(0)) + value.substring(1),
-                            paths);
-            if (name == null) {
-                name = getKeyValueName("kr", value);
-                if (name == null) {
-                    name = value;
-                }
-            }
-            result =
-                    result == null
-                            ? name
-                            : MessageFormat.format(localeSeparator, new Object[] {result, name});
-        }
-        return result;
-    }
-
-    /**
-     * Adds the display name for a subtag to a string.
-     *
-     * @param subtag the subtag
-     * @param type the type of the subtag
-     * @param separatorPattern the pattern to be used for separating display names in the resultant
-     *     string
-     * @param extras the string to be added to
-     * @return the modified display name string
-     */
-    private String addDisplayName(
-            String subtag,
-            int type,
-            String separatorPattern,
-            String extras,
-            Transform<String, String> altPicker,
-            Set<String> paths) {
-        if (subtag.length() == 0) {
-            return extras;
-        }
-        String sname = getName(type, subtag, altPicker, paths);
-        if (sname == null) {
-            sname = subtag;
-        }
-        sname = replaceBracketsForName(sname);
-
-        if (extras.length() == 0) {
-            extras += sname;
-        } else {
-            extras = MessageFormat.format(separatorPattern, new Object[] {extras, sname});
-        }
-        return extras;
-    }
-
     /**
      * Like getStringValueWithBailey, but reject constructed values, to prevent circularity problems
      * with getName
@@ -4291,7 +3497,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
      * @param path the given xpath
      * @return the string value, or null
      */
-    private String getStringValueWithBaileyNotConstructed(String path) {
+    String getStringValueWithBaileyNotConstructed(String path) {
         Output<String> pathWhereFound = new Output<>();
         final String value = getStringValueWithBailey(path, pathWhereFound, null);
         if (value == null || GlossonymConstructor.PSEUDO_PATH.equals(pathWhereFound.toString())) {
@@ -4299,52 +3505,4 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         }
         return value;
     }
-
-    /**
-     * A set of paths to be added to getRawExtraPaths(). These are constant across locales, and
-     * don't have good fallback values in root. NOTE: if this is changed, you'll need to modify
-     * TestPaths.extraPathAllowsNullValue
-     */
-    static final Set<String> CONST_EXTRA_PATHS =
-            CharUtilities.internImmutableSet(
-                    Set.of(
-                            // Individual zone overrides — were in getRawExtraPaths
-                            "//ldml/dates/timeZoneNames/zone[@type=\"Pacific/Honolulu\"]/short/generic",
-                            "//ldml/dates/timeZoneNames/zone[@type=\"Pacific/Honolulu\"]/short/standard",
-                            "//ldml/dates/timeZoneNames/zone[@type=\"Pacific/Honolulu\"]/short/daylight",
-                            "//ldml/dates/timeZoneNames/zone[@type=\"Europe/Dublin\"]/long/daylight",
-                            "//ldml/dates/timeZoneNames/zone[@type=\"Europe/London\"]/long/daylight",
-                            "//ldml/dates/timeZoneNames/zone[@type=\"Etc/UTC\"]/long/standard",
-                            "//ldml/dates/timeZoneNames/zone[@type=\"Etc/UTC\"]/short/standard",
-                            // Person name paths
-                            "//ldml/personNames/sampleName[@item=\"nativeG\"]/nameField[@type=\"given\"]",
-                            "//ldml/personNames/sampleName[@item=\"nativeGS\"]/nameField[@type=\"given\"]",
-                            "//ldml/personNames/sampleName[@item=\"nativeGS\"]/nameField[@type=\"surname\"]",
-                            "//ldml/personNames/sampleName[@item=\"nativeGGS\"]/nameField[@type=\"given\"]",
-                            "//ldml/personNames/sampleName[@item=\"nativeGGS\"]/nameField[@type=\"given2\"]",
-                            "//ldml/personNames/sampleName[@item=\"nativeGGS\"]/nameField[@type=\"surname\"]",
-                            "//ldml/personNames/sampleName[@item=\"nativeFull\"]/nameField[@type=\"title\"]",
-                            "//ldml/personNames/sampleName[@item=\"nativeFull\"]/nameField[@type=\"given\"]",
-                            "//ldml/personNames/sampleName[@item=\"nativeFull\"]/nameField[@type=\"given-informal\"]",
-                            "//ldml/personNames/sampleName[@item=\"nativeFull\"]/nameField[@type=\"given2\"]",
-                            "//ldml/personNames/sampleName[@item=\"nativeFull\"]/nameField[@type=\"surname-prefix\"]",
-                            "//ldml/personNames/sampleName[@item=\"nativeFull\"]/nameField[@type=\"surname-core\"]",
-                            "//ldml/personNames/sampleName[@item=\"nativeFull\"]/nameField[@type=\"surname2\"]",
-                            "//ldml/personNames/sampleName[@item=\"nativeFull\"]/nameField[@type=\"generation\"]",
-                            "//ldml/personNames/sampleName[@item=\"nativeFull\"]/nameField[@type=\"credentials\"]",
-                            "//ldml/personNames/sampleName[@item=\"foreignG\"]/nameField[@type=\"given\"]",
-                            "//ldml/personNames/sampleName[@item=\"foreignGS\"]/nameField[@type=\"given\"]",
-                            "//ldml/personNames/sampleName[@item=\"foreignGS\"]/nameField[@type=\"surname\"]",
-                            "//ldml/personNames/sampleName[@item=\"foreignGGS\"]/nameField[@type=\"given\"]",
-                            "//ldml/personNames/sampleName[@item=\"foreignGGS\"]/nameField[@type=\"given2\"]",
-                            "//ldml/personNames/sampleName[@item=\"foreignGGS\"]/nameField[@type=\"surname\"]",
-                            "//ldml/personNames/sampleName[@item=\"foreignFull\"]/nameField[@type=\"title\"]",
-                            "//ldml/personNames/sampleName[@item=\"foreignFull\"]/nameField[@type=\"given\"]",
-                            "//ldml/personNames/sampleName[@item=\"foreignFull\"]/nameField[@type=\"given-informal\"]",
-                            "//ldml/personNames/sampleName[@item=\"foreignFull\"]/nameField[@type=\"given2\"]",
-                            "//ldml/personNames/sampleName[@item=\"foreignFull\"]/nameField[@type=\"surname-prefix\"]",
-                            "//ldml/personNames/sampleName[@item=\"foreignFull\"]/nameField[@type=\"surname-core\"]",
-                            "//ldml/personNames/sampleName[@item=\"foreignFull\"]/nameField[@type=\"surname2\"]",
-                            "//ldml/personNames/sampleName[@item=\"foreignFull\"]/nameField[@type=\"generation\"]",
-                            "//ldml/personNames/sampleName[@item=\"foreignFull\"]/nameField[@type=\"credentials\"]"));
 }

@@ -48,7 +48,7 @@ title: Updating Subdivision Codes
 	2. Do a diff with the last release.
 		1. Make sure the added names (from ISO) are consistent.
 		2. Verify that we NEVER remove an ID. (The deprecated ones move down, but don't disappear).
-3. Run the [Update Validity XML](https://cldr.unicode.org/development/updating-codes/update-validity-xml) steps to produce a new {workspace}/cldr/common/validity/subdivision.xml
+3. Run the [Update Validity XML](/development/updating-codes/update-validity-xml) steps to produce a new {workspace}/cldr/common/validity/subdivision.xml
 	1. Don't bother with the others, but diff and update that one.
 	2. A code may move to deprecated, but it should never disappear. If you find that, then revisit \#4 (supplementalMetadata) above
 4. Run the tests
@@ -126,4 +126,3 @@ Rearrange the leftovers to see if there is any OLD \=\> NEW1\+NEW2\... cases or 
 | \<subgroup type="FR" subtype="P" contains="14 50 61"/\> | FR | "P" |  | "14 50 61" | \<subdivisionAlias type="FR-P" replacement="FR-?? reason="deprecated"/\> | \<subdivisionAlias type="FR-P" replacement="FR-NOR" reason="deprecated"/\> |
 | \<subgroup type="FR" subtype="NOR" contains="14 27 50 61 76"/\> | FR |  | "NOR" | "14 27 50 61 76" |  |  |
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

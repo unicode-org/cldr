@@ -20,7 +20,7 @@ You will need to include some options to run various programs. Here are some sam
 
 \-Dregistry\=language\-subtag\-registry
 
-\-DSHOW\_FILES 
+\-DSHOW\_FILES
 
 The xmx is to increase memory so that you don't blow up. If you only do a few dozen locales, you don't need to set it that high.
 
@@ -31,4 +31,3 @@ The xmx is to increase memory so that you don't blow up. If you only do a few do
 \-DSHOW\_FILES // shows files being opened and created
 
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

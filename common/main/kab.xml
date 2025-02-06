@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -2534,6 +2534,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<regionFormat type="daylight" draft="unconfirmed">{0} Akud n unebdu</regionFormat>
 			<regionFormat type="standard" draft="unconfirmed">{0} Akud amezday</regionFormat>
 			<fallbackFormat draft="unconfirmed">↑↑↑</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity draft="unconfirmed">Honolulu</exemplarCity>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard draft="unconfirmed">Akud agraɣlan imyuddsen</standard>
@@ -3271,9 +3274,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity draft="unconfirmed">Ulanbatar</exemplarCity>
 			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity draft="unconfirmed">Kwabalsan</exemplarCity>
-			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity draft="unconfirmed">Makaw</exemplarCity>
 			</zone>
@@ -3673,9 +3673,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="America/Nome">
 				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity draft="unconfirmed">Honolulu</exemplarCity>
-			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity draft="unconfirmed">Ankuraj</exemplarCity>
 			</zone>
@@ -4018,13 +4015,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic draft="unconfirmed">Akud n Cin</generic>
 					<standard draft="unconfirmed">Akud amezday n Cin</standard>
 					<daylight draft="unconfirmed">Akud n unebdu n Cin</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic draft="unconfirmed">Akud n Kwabalsan</generic>
-					<standard draft="unconfirmed">Akud amezday n Kwabalsan</standard>
-					<daylight draft="unconfirmed">Akud n unebdu n Kwabalsan</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
-Copyright © 1991-2021 Unicode, Inc.
+Copyright © 1991-2024 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -692,7 +692,7 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="1000">←←௲[→→];</rbnfrule>
             </ruleset>
             <ruleset type="zz-default">
-                <rbnfrule value="0">=#,##0=;</rbnfrule>
+                <rbnfrule value="0">=#,##0.##=;</rbnfrule>
             </ruleset>
         </rulesetGrouping>
         <rulesetGrouping type="OrdinalRules">

@@ -55,4 +55,3 @@ For additional information about Browser cache tips, see https://www.getfileclou
 
 ~~See~~ https://www.getfilecloud.com/blog/2015/03/tech-tip-how-to-do-hard-refresh-in-browsers/#.XRJaApMzbuM ~~for examples.~~
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -3793,6 +3793,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<regionFormat type="daylight">ເວລາກາງເວັນ {0}</regionFormat>
 			<regionFormat type="standard">ເວລາມາດຕະຖານ {0}</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>ໂຮໂນລູລູ</exemplarCity>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>ເວລາສາກົນເຊີງພິກັດ</standard>
@@ -4533,9 +4536,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>ອູລານບາຕາຣ໌</exemplarCity>
 			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity>ຊອຍບອລຊານ</exemplarCity>
-			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity>ມາເກົາ</exemplarCity>
 			</zone>
@@ -4935,9 +4935,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Nome">
 				<exemplarCity>ນອມ</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>ໂຮໂນລູລູ</exemplarCity>
-			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>ແອນເຄີເຣກ</exemplarCity>
 			</zone>
@@ -5313,13 +5310,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>ເວ​ລາ​ຈີນ</generic>
 					<standard>ເວລາມາດຕະຖານຈີນ</standard>
 					<daylight>​ເວ​ລາ​ຕອນ​ທ່ຽງ​ຈີນ</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>ເວ​ລາ​ໂຊຍ​ບາ​ຊັນ</generic>
-					<standard>ເວລາມາດຕະຖານໂຊຍບາຊັນ</standard>
-					<daylight>ເວລາລະ​ດູ​ຮ້ອນໂຊຍບາຊັນ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">

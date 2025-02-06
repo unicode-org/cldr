@@ -4,8 +4,8 @@ import static com.google.common.collect.ImmutableList.toImmutableList;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
-import com.ibm.icu.dev.test.TestFmwk;
 import java.util.Comparator;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 
 /**
  * Tests for the core CLDR path representation. Since this is an immutable value type, the tests

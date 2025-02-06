@@ -1,6 +1,5 @@
 package org.unicode.cldr.web;
 
-import com.ibm.icu.dev.util.ElapsedTimer;
 import java.io.IOException;
 import java.time.LocalTime;
 import java.util.*;
@@ -9,6 +8,7 @@ import java.util.concurrent.Semaphore;
 import java.util.logging.Logger;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.unicode.cldr.icu.dev.util.ElapsedTimer;
 import org.unicode.cldr.util.*;
 import org.unicode.cldr.util.TimeDiff;
 import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
@@ -245,7 +245,8 @@ public class VettingViewerQueue {
                 }
                 try {
                     if (stop) {
-                        // this NEVER happens?
+                        // this NEVER happens?! Possibly should check stop AFTER calling
+                        // processCriticalWork
                         if (DEBUG) {
                             System.out.println(
                                     "VettingViewerQueue.Task.run -- stopping, "

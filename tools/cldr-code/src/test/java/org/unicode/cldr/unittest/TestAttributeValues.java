@@ -7,7 +7,6 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSortedSet;
 import com.google.common.collect.Multimap;
-import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.util.Output;
 import java.io.File;
@@ -32,6 +31,7 @@ import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.tool.VerifyAttributeValues;
 import org.unicode.cldr.tool.VerifyAttributeValues.Errors;
 import org.unicode.cldr.util.AttributeValueValidity;
@@ -39,7 +39,6 @@ import org.unicode.cldr.util.AttributeValueValidity.AttributeValueSpec;
 import org.unicode.cldr.util.AttributeValueValidity.MatcherPattern;
 import org.unicode.cldr.util.AttributeValueValidity.Status;
 import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.ChainedMap.M4;
@@ -47,6 +46,7 @@ import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdData.ValueStatus;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.LanguageInfo;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.LstrField;
@@ -92,7 +92,7 @@ public class TestAttributeValues extends TestFmwk {
                     addXMLFiles(dtdType, mainDirs + stringDir, files);
                     if (isVerbose())
                         synchronized (pathChecker.testLog) {
-                            warnln(mainDirs + stringDir);
+                            logln(mainDirs + stringDir);
                         }
                 }
                 Stream<String> stream = SERIAL ? files.stream() : files.parallelStream();
@@ -102,7 +102,7 @@ public class TestAttributeValues extends TestFmwk {
                 //                    checkFile(pathChecker, file);
                 //                }
             }
-            pathChecker.show(isVerbose(), showStatuses);
+            pathChecker.show(dtdType, isVerbose(), showStatuses);
         }
         //        List<String> localesToTest = Arrays.asList("en", "root"); // , "zh", "hi", "ja",
         // "ru", "cy"
@@ -145,9 +145,9 @@ public class TestAttributeValues extends TestFmwk {
         } else {
             for (String file : dirFile.list()) {
                 String localeID = file.replace(".xml", "");
-                if (StandardCodes.isLocaleAtLeastBasic(localeID)) {
-                    addXMLFiles(dtdType, path + "/" + file, files);
-                }
+                // if (StandardCodes.isLocaleAtLeastBasic(localeID)) {
+                addXMLFiles(dtdType, path + "/" + file, files);
+                // }
             }
         }
     }
@@ -186,7 +186,8 @@ public class TestAttributeValues extends TestFmwk {
                                     ++_attributeCount;
                                     String attribute = r.getAttributeLocalName(i);
                                     String attributeValue = r.getAttributeValue(i);
-                                    pathChecker.checkAttribute(element, attribute, attributeValue);
+                                    pathChecker.checkAttribute(
+                                            fullFile, element, attribute, attributeValue);
                                 }
                                 break;
                         }
@@ -237,7 +238,7 @@ public class TestAttributeValues extends TestFmwk {
             matchValues = ImmutableMap.copyOf(_matchValues);
         }
 
-        private void checkPath(String path) {
+        private void checkPath(String fullFile, String path) {
             if (seen.contains(path)) {
                 return;
             }
@@ -251,19 +252,20 @@ public class TestAttributeValues extends TestFmwk {
                 for (Entry<String, String> entry : parts.getAttributes(elementIndex).entrySet()) {
                     String attribute = entry.getKey();
                     String attrValue = entry.getValue();
-                    checkAttribute(element, attribute, attrValue);
+                    checkAttribute(fullFile, element, attribute, attrValue);
                 }
             }
         }
 
-        public void checkElement(String element, Attributes atts) {
+        public void checkElement(String fullFile, String element, Attributes atts) {
             int length = atts.getLength();
             for (int i = 0; i < length; ++i) {
-                checkAttribute(element, atts.getQName(i), atts.getValue(i));
+                checkAttribute(fullFile, element, atts.getQName(i), atts.getValue(i));
             }
         }
 
-        private void checkAttribute(String element, String attribute, String attrValue) {
+        private void checkAttribute(
+                String fullFile, String element, String attribute, String attrValue) {
             // skip cases we know we don't need to test
             if (!needsTesting.containsEntry(element, attribute)) {
                 return;
@@ -296,16 +298,18 @@ public class TestAttributeValues extends TestFmwk {
                 // Set breakpoint here for debugging (referenced from
                 // http://cldr.unicode.org/development/testattributevalues)
                 dtdData.getValueStatus(element, attribute, attrValue);
+                testLog.warnln(
+                        Joiner.on('\t').join("Invalid", fullFile, element, attribute, attrValue));
             }
             synchronized (valueStatusInfo) {
                 valueStatusInfo.put(valueStatus, element, attribute, attrValue, Boolean.TRUE);
             }
         }
 
-        void show(boolean verbose, ImmutableSet<ValueStatus> retain) {
+        void show(DtdType dtdType, boolean verbose, ImmutableSet<ValueStatus> retain) {
             if (dtdData.dtdType == DtdType.keyboard3
                     && testLog.logKnownIssue("CLDR-14974", "skipping for keyboard")) {
-                testLog.warnln("Skipping for keyboard3");
+                testLog.warnln("keyboard3 is missing validity checks");
             }
             boolean haveProblems = false;
             for (ValueStatus valueStatus : ValueStatus.values()) {
@@ -323,7 +327,9 @@ public class TestAttributeValues extends TestFmwk {
             }
             StringBuilder out = new StringBuilder();
             out.append(
-                    "\nIf the test fails, look at https://cldr.unicode.org/development/cldr-development-site/testattributevalues\n");
+                    "For "
+                            + dtdType.directories
+                            + "\nIf the test fails, use -v for details. Also look at https://cldr.unicode.org/development/updating-codes/testattributevalues for guidance.\n");
 
             out.append("file\tCount:\t" + dtdData.dtdType + "\t" + fileCount + "\n");
             out.append("element\tCount:\t" + dtdData.dtdType + "\t" + elementCount + "\n");
@@ -424,7 +430,9 @@ public class TestAttributeValues extends TestFmwk {
         logln(
                 language
                         + "\t"
-                        + config.getEnglish().getName(CLDRFile.LANGUAGE_NAME, language)
+                        + config.getEnglish()
+                                .nameGetter()
+                                .getNameFromTypeEnumCode(NameType.LANGUAGE, language)
                         + "\t"
                         + languageInfo);
     }

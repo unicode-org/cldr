@@ -59,7 +59,7 @@ As a proxy for the best pinyin, we use an algorithm to pick from the many pinyin
 Take the first pinyin from the following. Where there are multiple choices in a field, use the first
 
 1. patchFile
-2. kMandarin // moved up in CLDR 30. 
+2. kMandarin // moved up in CLDR 30.
 3. kHanyuPinlu
 4. kXHC1983
 5. kHanyuPinyin
@@ -104,4 +104,3 @@ Then, if it is still missing, try to map to a character that does have a pinyin.
 3. ~~Using the name reading rather than the general reading for standard pinyin collation might produce unexpected results.~~
 4. ~~Why not just specify the name reading when that is desired? No need to make it the default if it is the less common reading.~~
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

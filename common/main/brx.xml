@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -2665,6 +2665,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<regionFormat type="daylight">{0} साननि सोरां सम</regionFormat>
 			<regionFormat type="standard">{0} थाखोआरि सम</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>हनलुलु</exemplarCity>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>गोरोबहोनाय मुलुगनां सम</standard>
@@ -3402,9 +3405,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>उलानबातार</exemplarCity>
 			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity>च’इबालसान</exemplarCity>
-			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity>माकाऊ</exemplarCity>
 			</zone>
@@ -3801,9 +3801,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="America/Nome">
 				<exemplarCity>न’म</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>हनलुलु</exemplarCity>
-			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>एंकरेज</exemplarCity>
 			</zone>
@@ -4181,13 +4178,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>चाईना सम</generic>
 					<standard>चाईना थाखोआरि सम</standard>
 					<daylight>चाईना सानारि सम</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>च’इबालसान सम</generic>
-					<standard>च’इबालसान थाखोआरि सम</standard>
-					<daylight>च’इबालसान दैज्लां सम</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">

@@ -1,7 +1,7 @@
 package org.unicode.cldr.unittest.web;
 
-import com.ibm.icu.dev.test.TestFmwk;
 import java.sql.SQLException;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.web.CookieSession;
@@ -22,7 +22,7 @@ public class TestUserRegistry extends TestFmwk {
     /**
      * Test the ability of a user to change another user's level, especially the aspects of
      * canSetUserLevel that depend on org.unicode.cldr.web.UserRegistry for info that isn't
-     * available to org.unicode.cldr.unittest.TestUtilities.TestCanCreateOrSetLevelTo()
+     * available to org.unicode.cldr.unittest.TestHelper.TestCanCreateOrSetLevelTo()
      *
      * @throws SQLException
      */

@@ -15,7 +15,7 @@ Thus, this old currency symbol for PTE is specified as "PTE" in pt\_CV to avoid 
 
 Thus, in pt\_CV, the following currency symbol information should be kept.
 
-\<currency type="CVE"> 
+\<currency type="CVE">
 
 &emsp; \<symbol>\</symbol> (Note: this is U+200B ZWSP, not nothing)
 
@@ -23,13 +23,12 @@ Thus, in pt\_CV, the following currency symbol information should be kept.
 
 &emsp; \<group> \</group>
 
-\<currency type="PTE"> 
+\<currency type="PTE">
 
 &emsp; \<symbol>PTE\</symbol>
 
-&emsp; \<decimal>,\</decimal> 
+&emsp; \<decimal>,\</decimal>
 
-&emsp; \<group> \</group> 
+&emsp; \<group> \</group>
 
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

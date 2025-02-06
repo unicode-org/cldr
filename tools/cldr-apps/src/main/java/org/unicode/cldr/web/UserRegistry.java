@@ -6,18 +6,26 @@
 
 package org.unicode.cldr.web;
 
-import com.ibm.icu.dev.util.ElapsedTimer;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.*;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
+import java.util.TreeSet;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONString;
+import org.unicode.cldr.icu.dev.util.ElapsedTimer;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRConfig.Environment;
@@ -94,6 +102,7 @@ public class UserRegistry {
     }
 
     private static final java.util.logging.Logger logger = SurveyLog.forClass(UserRegistry.class);
+
     // user levels
 
     /** Administrator */
@@ -205,6 +214,9 @@ public class UserRegistry {
         @Schema(hidden = true)
         private String emailmd5 = null;
 
+        @Schema(description = "True if CLA is signed")
+        public boolean claSigned = false;
+
         public String getEmailHash() {
             if (emailmd5 == null) {
                 String newHash = DigestUtils.md5Hex(email.trim().toLowerCase());
@@ -281,7 +293,7 @@ public class UserRegistry {
         }
 
         public String toHtml(User forUser) {
-            if (forUser == null || !userIsTC(forUser)) {
+            if (forUser == null || !userIsTCOrStronger(forUser)) {
                 return "(" + org + "#" + id + ")";
             } else {
                 return "<a href='mailto:"
@@ -304,7 +316,7 @@ public class UserRegistry {
         }
 
         public String toString(User forUser) {
-            if (forUser == null || !userIsTC(forUser)) {
+            if (forUser == null || !userIsTCOrStronger(forUser)) {
                 return "(" + org + "#" + id + ")";
             } else {
                 return email
@@ -480,7 +492,12 @@ public class UserRegistry {
                     .put("org", vrOrg().name())
                     .put("orgName", vrOrg().getDisplayName())
                     .put("id", id)
+                    .put("claSigned", claSigned)
                     .toString();
+        }
+
+        public boolean canGenerateVxml() {
+            return userIsTCOrStronger(this);
         }
 
         public boolean canImportOldVotes() {
@@ -500,6 +517,7 @@ public class UserRegistry {
         /** This one is hidden because it uses JSONObject and can't be serialized */
         JSONObject getPermissionsJson() throws JSONException {
             return new JSONObject()
+                    .put("userCanGenerateVxml", canGenerateVxml())
                     .put("userCanImportOldVotes", canImportOldVotes())
                     .put("userCanUseVettingSummary", userCanUseVettingSummary(this))
                     .put("userCanCreateSummarySnapshot", userCanCreateSummarySnapshot(this))
@@ -508,8 +526,10 @@ public class UserRegistry {
                     .put("userCanUseVettingParticipation", userCanUseVettingParticipation(this))
                     .put("userIsAdmin", userIsAdmin(this))
                     .put("userIsManager", getLevel().canManageSomeUsers())
-                    .put("userIsTC", userIsTC(this))
-                    .put("userIsVetter", userIsVetter(this) && !userIsTC(this))
+                    .put("userIsTC", userIsTCOrStronger(this))
+                    // Caution: userIsVetter really means user is Vetter or Manager, but not TC or
+                    // Admin. It should be renamed to avoid confusion.
+                    .put("userIsVetter", userIsVetterOrStronger(this) && !userIsTCOrStronger(this))
                     .put("userIsLocked", userIsLocked(this));
         }
 
@@ -555,6 +575,44 @@ public class UserRegistry {
                 return localeSet.firstElement();
             }
             return null;
+        }
+
+        public void signCla(ClaSignature cla) {
+            if (ClaSignature.CLA_ORGS.contains(getOrganization())) {
+                throw new IllegalArgumentException("Cannot modify CLA for a listed org");
+            }
+            if (!cla.valid()) throw new IllegalArgumentException("Invalid CLA");
+            cla.signed = new Date();
+            cla.version = SurveyMain.getNewVersion();
+            settings().setJson(ClaSignature.CLA_KEY, cla);
+            claSigned = true;
+        }
+
+        public boolean revokeCla() {
+            if (ClaSignature.CLA_ORGS.contains(getOrganization())) {
+                return false;
+            }
+            final String oldCla = settings().get(ClaSignature.CLA_KEY, null);
+            if (oldCla == null || oldCla.isBlank()) {
+                return false;
+            }
+            settings().set(ClaSignature.CLA_KEY, "");
+            claSigned = false;
+            return true;
+        }
+
+        public ClaSignature getCla() {
+            CLDRConfig config = CLDRConfig.getInstance();
+            if (config.getEnvironment() == Environment.UNITTEST) {
+                return new ClaSignature("UNITTEST");
+            } else if (ClaSignature.DO_NOT_REQURE_CLA
+                    && !config.getProperty("REQUIRE_CLA", false)) {
+                // no CLA needed unless CLDR_NEED_CLA is true.
+                return new ClaSignature("DO_NOT_REQURE_CLA");
+            } else if (ClaSignature.CLA_ORGS.contains(getOrganization())) {
+                return new ClaSignature(getOrganization());
+            }
+            return settings().getJson(ClaSignature.CLA_KEY, ClaSignature.class);
         }
     }
 
@@ -835,6 +893,9 @@ public class UserRegistry {
                         infoArray = new UserRegistry.User[newchunk];
                         arraySize = newchunk;
                     }
+
+                    u.claSigned = (u.getCla() != null);
+
                     infoArray[id] = u;
                     // good so far..
                     if (rs.next()) {
@@ -955,6 +1016,7 @@ public class UserRegistry {
             u.locales = rs.getString(5);
             u.intlocs = rs.getString(6);
             u.last_connect = rs.getTimestamp(7);
+            u.claSigned = (u.getCla() != null);
 
             // good so far..
 
@@ -1703,8 +1765,8 @@ public class UserRegistry {
         return (u != null) && u.getLevel().isAdmin();
     }
 
-    public static boolean userIsTC(User u) {
-        return (u != null) && u.getLevel().isTC();
+    public static boolean userIsTCOrStronger(User u) {
+        return (u != null) && u.getLevel().isTCOrStronger();
     }
 
     public static boolean userIsExactlyManager(User u) {
@@ -1715,12 +1777,12 @@ public class UserRegistry {
         return (u != null) && u.getLevel().isManagerOrStronger();
     }
 
-    public static boolean userIsVetter(User u) {
-        return (u != null) && u.getLevel().isVetter();
+    public static boolean userIsVetterOrStronger(User u) {
+        return (u != null) && u.getLevel().isVetterOrStronger();
     }
 
-    public static boolean userIsGuest(User u) {
-        return (u != null) && u.getLevel().isGuest();
+    public static boolean userIsGuestOrStronger(User u) {
+        return (u != null) && u.getLevel().isGuestOrStronger();
     }
 
     public static boolean userIsLocked(User u) {
@@ -1865,7 +1927,8 @@ public class UserRegistry {
         DENY_PHASE_CLOSED("SurveyTool is in 'closed' phase"),
         DENY_NO_RIGHTS("User does not have any voting rights"),
         DENY_LOCALE_LIST("User does not have rights to vote for this locale"),
-        DENY_PHASE_FINAL_TESTING("SurveyTool is in the 'final testing' phase");
+        DENY_PHASE_FINAL_TESTING("SurveyTool is in the 'final testing' phase"),
+        DENY_CLA_NOT_SIGNED("CLA is not signed");
 
         ModifyDenial(String reason) {
             this.reason = reason;
@@ -1888,9 +1951,10 @@ public class UserRegistry {
 
     private static Object userCanAccessForumWhy(User u, CLDRLocale locale) {
         if (u == null) return ModifyDenial.DENY_NULL_USER; // no user, no dice
-        if (!userIsGuest(u)) return ModifyDenial.DENY_NO_RIGHTS; // at least guest level
+        if (!u.claSigned) return ModifyDenial.DENY_CLA_NOT_SIGNED;
+        if (!userIsGuestOrStronger(u)) return ModifyDenial.DENY_NO_RIGHTS; // at least guest level
         if (userIsAdmin(u)) return null; // Admin can modify all
-        if (userIsTC(u)) return null; // TC can modify all
+        if (userIsTCOrStronger(u)) return null; // TC can modify all
         if (SpecialLocales.getType(locale) == SpecialLocales.Type.scratch) {
             // All users can modify the sandbox
             return null;
@@ -1929,7 +1993,7 @@ public class UserRegistry {
         if (STFactory.isReadOnlyLocale(locale)) return ModifyDenial.DENY_LOCALE_READONLY;
 
         // user must have guest level perms
-        if (!userIsGuest(u)) return ModifyDenial.DENY_NO_RIGHTS; // at least guest level
+        if (!userIsGuestOrStronger(u)) return ModifyDenial.DENY_NO_RIGHTS; // at least guest level
 
         // locales that are aliases can't be modified.
         if (sm.isLocaleAliased(locale) != null) {
@@ -1947,6 +2011,7 @@ public class UserRegistry {
     }
 
     public static ModifyDenial userCanModifyLocaleWhy(User u, CLDRLocale locale) {
+        if (u != null && !u.claSigned) return ModifyDenial.DENY_CLA_NOT_SIGNED;
         final ModifyDenial denyCountVote = countUserVoteForLocaleWhy(u, locale);
 
         // If we don't count the votes, modify is prohibited.
@@ -1957,7 +2022,7 @@ public class UserRegistry {
         // We add more restrictions
 
         // Admin and TC users can always modify, even in closed state.
-        if (userIsAdmin(u) || userIsTC(u)) return null;
+        if (userIsTCOrStronger(u)) return null;
 
         // Otherwise, if closed, deny
         if (SurveyMain.isPhaseVettingClosed(locale)) return ModifyDenial.DENY_PHASE_CLOSED;

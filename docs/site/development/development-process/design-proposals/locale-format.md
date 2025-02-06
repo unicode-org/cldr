@@ -79,9 +79,8 @@ If there is no placeholder in the pattern, it works the old way.
 	4. "short standalone": US English
 3. We would also add context="short" on Regions, to get "US", and use it if there wasn't a short form of en\_US context="short" or "short standalone"
 
-Fallbacks: 
+Fallbacks:
 
 - short standalone => standalone => ""
 - short => ""
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

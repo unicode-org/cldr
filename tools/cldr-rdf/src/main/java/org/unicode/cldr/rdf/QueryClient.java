@@ -142,6 +142,7 @@ public class QueryClient {
             System.out.println();
         }
     }
+
     /**
      * Load a query from a resource
      *

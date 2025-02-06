@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -3428,6 +3428,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<regionFormat type="daylight">{0} Taimi liliu</regionFormat>
 			<regionFormat type="standard">{0} Taimi totonu</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<short>
+					<generic draft="unconfirmed">HTT</generic>
+					<standard draft="unconfirmed">HTT</standard>
+					<daylight draft="unconfirmed">HTL</daylight>
+				</short>
+				<exemplarCity>Honolulu</exemplarCity>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>taimi fakaemāmani</standard>
@@ -4168,9 +4176,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity>Macau</exemplarCity>
 			</zone>
@@ -4567,14 +4572,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="America/Nome">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<short>
-					<generic draft="unconfirmed">HTT</generic>
-					<standard draft="unconfirmed">HTT</standard>
-					<daylight draft="unconfirmed">HTL</daylight>
-				</short>
-				<exemplarCity>Honolulu</exemplarCity>
-			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
@@ -4957,13 +4954,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>houa fakasiaina</generic>
 					<standard>houa fakasiaina taimi totonu</standard>
 					<daylight>houa fakasiaina taimi liliu</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>houa fakakoipalisani</generic>
-					<standard>houa fakakoipalisani taimi totonu</standard>
-					<daylight>houa fakakoipalisani taimi liliu</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">

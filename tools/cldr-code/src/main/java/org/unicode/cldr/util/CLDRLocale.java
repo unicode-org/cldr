@@ -31,7 +31,7 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
 
         String getDisplayName(
                 CLDRLocale cldrLocale,
-                boolean onlyConstructCompound,
+                NameGetter.NameOpt nameOpt,
                 Transform<String, String> altPicker);
 
         String getDisplayLanguage(CLDRLocale cldrLocale);
@@ -113,7 +113,7 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
         @Override
         public String getDisplayName(
                 CLDRLocale cldrLocale,
-                boolean onlyConstructCompound,
+                NameGetter.NameOpt nameOpt,
                 Transform<String, String> altPicker) {
             return getDisplayName(cldrLocale);
         }
@@ -151,42 +151,56 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
 
         @Override
         public String getDisplayVariant(CLDRLocale cldrLocale) {
-            if (file != null) return file.getName("variant", cldrLocale.getVariant());
+            if (file != null)
+                return file.nameGetter()
+                        .getNameFromTypeEnumCode(NameType.VARIANT, cldrLocale.getVariant());
             return tryForBetter(super.getDisplayVariant(cldrLocale), cldrLocale.getVariant());
         }
 
         @Override
         public String getDisplayName(CLDRLocale cldrLocale) {
-            if (file != null) return file.getName(cldrLocale.toDisplayLanguageTag(), true, null);
+            if (file != null)
+                return file.nameGetter()
+                        .getNameFromIdentifierOptAlt(
+                                cldrLocale.toDisplayLanguageTag(),
+                                NameGetter.NameOpt.COMPOUND_ONLY,
+                                null);
             return super.getDisplayName(cldrLocale);
         }
 
         @Override
         public String getDisplayName(
                 CLDRLocale cldrLocale,
-                boolean onlyConstructCompound,
+                NameGetter.NameOpt nameOpt,
                 Transform<String, String> altPicker) {
             if (file != null)
-                return file.getName(
-                        cldrLocale.toDisplayLanguageTag(), onlyConstructCompound, altPicker);
+                return file.nameGetter()
+                        .getNameFromIdentifierOptAlt(
+                                cldrLocale.toDisplayLanguageTag(), nameOpt, altPicker);
             return super.getDisplayName(cldrLocale);
         }
 
         @Override
         public String getDisplayScript(CLDRLocale cldrLocale) {
-            if (file != null) return file.getName("script", cldrLocale.getScript());
+            if (file != null)
+                return file.nameGetter()
+                        .getNameFromTypeEnumCode(NameType.SCRIPT, cldrLocale.getScript());
             return tryForBetter(super.getDisplayScript(cldrLocale), cldrLocale.getScript());
         }
 
         @Override
         public String getDisplayLanguage(CLDRLocale cldrLocale) {
-            if (file != null) return file.getName("language", cldrLocale.getLanguage());
+            if (file != null)
+                return file.nameGetter()
+                        .getNameFromTypeEnumCode(NameType.LANGUAGE, cldrLocale.getLanguage());
             return tryForBetter(super.getDisplayLanguage(cldrLocale), cldrLocale.getLanguage());
         }
 
         @Override
         public String getDisplayCountry(CLDRLocale cldrLocale) {
-            if (file != null) return file.getName("territory", cldrLocale.getCountry());
+            if (file != null)
+                return file.nameGetter()
+                        .getNameFromTypeEnumCode(NameType.TERRITORY, cldrLocale.getCountry());
             return tryForBetter(super.getDisplayLanguage(cldrLocale), cldrLocale.getLanguage());
         }
 
@@ -227,10 +241,13 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
 
     /** Cached ICU format locale */
     private ULocale ulocale;
+
     /** base name, 'without parameters'. Currently same as fullname. */
     private String basename;
+
     /** Full name */
     private String fullname;
+
     /** The LocaleIDParser interprets the various parts (language, country, script, etc). */
     private LocaleIDParser parts = null;
 
@@ -308,6 +325,13 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
      */
     public String getBaseName() {
         return basename;
+    }
+
+    /**
+     * @return the language-script (or language) part of a tag.
+     */
+    public String getLanguageScript() {
+        return parts == null ? fullname : parts.getLanguageScript();
     }
 
     /**
@@ -534,8 +558,8 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
         return getDisplayVariant(getDefaultFormatter());
     }
 
-    public String getDisplayName(boolean combined, Transform<String, String> picker) {
-        return getDisplayName(getDefaultFormatter(), combined, picker);
+    public String getDisplayName(NameGetter.NameOpt nameOpt, Transform<String, String> picker) {
+        return getDisplayName(getDefaultFormatter(), nameOpt, picker);
     }
 
     /**
@@ -636,8 +660,8 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
     }
 
     public String getDisplayName(
-            NameFormatter engFormat, boolean combined, Transform<String, String> picker) {
-        return engFormat.getDisplayName(this, combined, picker);
+            NameFormatter engFormat, NameGetter.NameOpt nameOpt, Transform<String, String> picker) {
+        return engFormat.getDisplayName(this, nameOpt, picker);
     }
 
     /**

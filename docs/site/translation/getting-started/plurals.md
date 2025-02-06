@@ -10,11 +10,11 @@ In CLDR, Plurals are used for localized Units and Compact numbers (under Numbers
 
 In the Survey Tool for translation purpose, plural forms shown per language will differ as only those that are relevant to that language are shown.
 
-For example, in French, the distinction of the One and Other are available. Please see [Plural Rules](https://cldr.unicode.org/index/cldr-spec/plural-rules), and [file a ticket](https://github.com/unicode-org/cldr/blob/main/docs/requesting_changes.md) if you see a form in the Survey Tool that is not expected in your language.
+For example, in French, the distinction of the One and Other are available. Please see [Plural Rules](/index/cldr-spec/plural-rules), and [file a ticket](/requesting_changes) if you see a form in the Survey Tool that is not expected in your language.
 
 ![image](../../images/French-plural.PNG)
 
-**Note:** Many of the sets of names form Logical Groups, and you need to make sure they have the same status or you will get error messages. See [Logical Groups](https://cldr.unicode.org/translation/getting-started/resolving-errors) for more information.
+**Note:** Many of the sets of names form Logical Groups, and you need to make sure they have the same status or you will get error messages. See [Logical Groups](/translation/getting-started/resolving-errors) for more information.
 
 ## Localized Units
 
@@ -31,7 +31,7 @@ As well as being used for durations, like "3.5 hours", they can also be used for
 
 1. **D**entro de {0} horas
 2. **h**ace {0} años
-    
+
 Each unit may have multiple plural forms, one for each category (see below). These are composed with numbers using a _unitPattern_. A formatted number will be substituted in place of the number placeholder.
 
 For example, for English if the unit is an hour and the number is 1234, then the number is looked up to get the rule category _other_. The number is then formatted into "1,234" and composed with the unitPattern for _other_ to get the final result. Examples are in the table below for the unit **hour**.
@@ -60,7 +60,7 @@ Some techniques for shortening the _narrow_ or _short_ form include:
 1. Drop the space between the value and the unit: “{0}km” instead of “{0} km”.
 2. Use symbols like km² or / instead of longer terms like “Quadrat” or “ pro ”.
 3. Use symbols that would be understood in context: eg “/h” for “ per hour” when the topic is speed, or "Mi" for mile(s) when the topic is distance.
-4. Replace the qualifiers "English" or "American" by an abbreviation (UK, US), or drop if most people would understand that the measurement would be an English unit (and not, say, an obsolete German or French one). 
+4. Replace the qualifiers "English" or "American" by an abbreviation (UK, US), or drop if most people would understand that the measurement would be an English unit (and not, say, an obsolete German or French one).
 5. Use narrow symbols for CJK languages, such as “/” instead of “／”.
 
 Which of these techniques you can use will depend on your language, of course.
@@ -71,18 +71,17 @@ The short and narrow forms of the display names for a unit need not be as short 
 
 ## Past and Future
 
-Unit patterns for past and future (3 hours ago, In 4 hours) are related to [Relative Dates](https://cldr.unicode.org/translation/date-time/date-time-names), and occur in the same circumstances. They need to have the same casing behavior. That is, if the translation for "Yesterday" starts with an uppercase 'Y', then the translation for "In {0} hours" needs to start with an uppercase 'I' (if it doesn't start with the placeholder).
+Unit patterns for past and future (3 hours ago, In 4 hours) are related to [Relative Dates](/translation/date-time/date-time-names), and occur in the same circumstances. They need to have the same casing behavior. That is, if the translation for "Yesterday" starts with an uppercase 'Y', then the translation for "In {0} hours" needs to start with an uppercase 'I' (if it doesn't start with the placeholder).
 
 ## Minimal Pairs
 
 Minimal pairs are used to verify the different grammatical features used by a language. _**These messages are not to be translated literally; do not simply translate the English!**_
 
-- **Plurals (cardinals) and Ordinals.** See [Determining Plural Categories](https://cldr.unicode.org/index/cldr-spec/plural-rules#TOC-Determining-Plural-Categories).
-- **Grammatical Case and Gender.** See [Grammatical Inflection](https://cldr.unicode.org/translation/grammatical-inflection)
-    
+- **Plurals (cardinals) and Ordinals.** See [Determining Plural Categories](/index/cldr-spec/plural-rules#TOC-Determining-Plural-Categories).
+- **Grammatical Case and Gender.** See [Grammatical Inflection](/translation/grammatical-inflection)
+
 
 ## Compound Units
 
-Units of measurement can be formed from other units and other components. For more information, see [Compound Units](https://cldr.unicode.org/translation/units/unit-names-and-patterns).
+Units of measurement can be formed from other units and other components. For more information, see [Compound Units](/translation/units/unit-names-and-patterns).
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

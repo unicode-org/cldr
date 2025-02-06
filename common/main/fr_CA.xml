@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -3524,6 +3524,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<regionFormat type="daylight">{0} (heure avancée)</regionFormat>
 			<regionFormat type="standard">{0} (heure normale)</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>↑↑↑</standard>
@@ -4261,9 +4264,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
@@ -4663,9 +4663,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="America/Nome">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
@@ -5063,13 +5060,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>heure de Chine</generic>
 					<standard>heure normale de Chine</standard>
 					<daylight>heure avancée de Chine</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>↑↑↑</generic>
-					<standard>↑↑↑</standard>
-					<daylight>heure avancée de Choibalsan</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">

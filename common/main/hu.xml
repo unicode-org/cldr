@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -3455,6 +3455,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<regionFormat type="daylight">{0} nyári idő</regionFormat>
 			<regionFormat type="standard">{0} zónaidő</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>Honolulu</exemplarCity>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>koordinált világidő</standard>
@@ -4195,9 +4198,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>Ulánbátor</exemplarCity>
 			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity>Csojbalszan</exemplarCity>
-			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity>Makaó</exemplarCity>
 			</zone>
@@ -4597,9 +4597,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Nome">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>Honolulu</exemplarCity>
-			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
@@ -4982,13 +4979,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>kínai idő</generic>
 					<standard>kínai téli idő</standard>
 					<daylight>kínai nyári idő</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>csojbalszani idő</generic>
-					<standard>csojbalszani téli idő</standard>
-					<daylight>csojbalszani nyári idő</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">
@@ -6030,39 +6020,65 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>#,##0.00 ¤</pattern>
-					<pattern alt="noCurrency" draft="provisional">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
+					<pattern alt="noCurrency" draft="provisional">#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyFormatLength type="short">
 				<currencyFormat type="standard">
 					<pattern type="1000" count="one">↑↑↑</pattern>
+					<pattern type="1000" count="one" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="1000" count="other">0 E ¤</pattern>
+					<pattern type="1000" count="other" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="10000" count="one">↑↑↑</pattern>
+					<pattern type="10000" count="one" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="10000" count="other">00 E ¤</pattern>
+					<pattern type="10000" count="other" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="100000" count="one">↑↑↑</pattern>
+					<pattern type="100000" count="one" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="100000" count="other">000 E ¤</pattern>
+					<pattern type="100000" count="other" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="1000000" count="one">↑↑↑</pattern>
+					<pattern type="1000000" count="one" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="1000000" count="other">0 M ¤</pattern>
+					<pattern type="1000000" count="other" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="10000000" count="one">↑↑↑</pattern>
+					<pattern type="10000000" count="one" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="10000000" count="other">00 M ¤</pattern>
+					<pattern type="10000000" count="other" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="100000000" count="one">↑↑↑</pattern>
+					<pattern type="100000000" count="one" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="100000000" count="other">000 M ¤</pattern>
+					<pattern type="100000000" count="other" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="1000000000" count="one">↑↑↑</pattern>
+					<pattern type="1000000000" count="one" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="1000000000" count="other">0 Mrd ¤</pattern>
+					<pattern type="1000000000" count="other" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="10000000000" count="one">↑↑↑</pattern>
+					<pattern type="10000000000" count="one" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="10000000000" count="other">00 Mrd ¤</pattern>
+					<pattern type="10000000000" count="other" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="100000000000" count="one">↑↑↑</pattern>
+					<pattern type="100000000000" count="one" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="100000000000" count="other">000 Mrd ¤</pattern>
+					<pattern type="100000000000" count="other" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="1000000000000" count="one">↑↑↑</pattern>
+					<pattern type="1000000000000" count="one" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="1000000000000" count="other">0 B ¤</pattern>
+					<pattern type="1000000000000" count="other" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="10000000000000" count="one">↑↑↑</pattern>
+					<pattern type="10000000000000" count="one" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="10000000000000" count="other">00 B ¤</pattern>
+					<pattern type="10000000000000" count="other" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="100000000000000" count="one">↑↑↑</pattern>
+					<pattern type="100000000000000" count="one" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="100000000000000" count="other">000 B ¤</pattern>
+					<pattern type="100000000000000" count="other" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>

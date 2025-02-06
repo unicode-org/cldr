@@ -57,7 +57,8 @@ public enum NotificationCategory {
 
     /** You have abstained, or not yet voted for any value */
     abstained('A', "Abstained", "You have abstained, or not yet voted for any value."),
-    ;
+
+    other('O', "Other", "All other values");
 
     public final char abbreviation;
     public final String buttonLabel;

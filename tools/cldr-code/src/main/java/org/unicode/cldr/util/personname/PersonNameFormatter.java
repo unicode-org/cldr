@@ -89,6 +89,7 @@ public class PersonNameFormatter {
         public static final Comparator<Iterable<Order>> ITERABLE_COMPARE =
                 Comparators.lexicographical(Comparator.<Order>naturalOrder());
         public static final Set<Order> ALL = ImmutableSet.copyOf(Order.values());
+
         /** Use this instead of valueOf if value might be null */
         public static Order from(String item) {
             return item == null ? null : Order.valueOf(item);
@@ -133,6 +134,7 @@ public class PersonNameFormatter {
         public static final Comparator<Iterable<Usage>> ITERABLE_COMPARE =
                 Comparators.lexicographical(Comparator.<Usage>naturalOrder());
         public static final Set<Usage> ALL = ImmutableSet.copyOf(Usage.values());
+
         /** Use this instead of valueOf if value might be null */
         public static Usage from(String item) {
             return item == null ? null : Usage.valueOf(item);
@@ -145,6 +147,7 @@ public class PersonNameFormatter {
         public static final Comparator<Iterable<Formality>> ITERABLE_COMPARE =
                 Comparators.lexicographical(Comparator.<Formality>naturalOrder());
         public static final Set<Formality> ALL = ImmutableSet.copyOf(Formality.values());
+
         /** Use this instead of valueOf if value might be null */
         public static Formality from(String item) {
             return item == null ? null : Formality.valueOf(item);
@@ -310,6 +313,7 @@ public class PersonNameFormatter {
         optional,
         disallowed
     }
+
     /**
      * Types of samples, only for use by CLDR
      *
@@ -1767,14 +1771,17 @@ public class PersonNameFormatter {
          * the locale of the person name formatter.
          */
         public ULocale getNameLocale();
+
         /** Returns a mapping for the modified fields directly supported to their values. */
         public ImmutableMap<ModifiedField, String> getModifiedFieldToValue();
+
         /**
          * Returns the set of fields directly supported. Should be overridden for speed. It returns
          * the same value as getModifiedFieldToValue().keySet().stream().map(x ->
          * x.field).collect(Collectors.toSet()), but may be optimized.
          */
         public Set<Field> getAvailableFields();
+
         /**
          * Returns the best available value for the modified field, or null if nothing is available.
          * Null is returned in all and only those cases where

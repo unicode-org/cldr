@@ -1,6 +1,5 @@
 package org.unicode.cldr.unittest;
 
-import com.ibm.icu.dev.test.TestFmwk;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,6 +9,7 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;

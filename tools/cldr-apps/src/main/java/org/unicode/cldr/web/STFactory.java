@@ -6,7 +6,6 @@ import com.google.common.base.Suppliers;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
-import com.ibm.icu.dev.util.ElapsedTimer;
 import com.ibm.icu.text.NumberFormat;
 import java.io.File;
 import java.io.IOException;
@@ -33,6 +32,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutionException;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
+import org.unicode.cldr.icu.dev.util.ElapsedTimer;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
@@ -91,22 +91,31 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
     public final class PerLocaleData implements Comparable<PerLocaleData>, BallotBox<User> {
         /** Locale of this PLD */
         private final CLDRLocale locale;
+
         /** For readonly locales, there's no DB */
         private final boolean readonly;
+
         /** Stamp that tracks if this locale has been modified (by a vote) */
         private final MutableStamp stamp;
+
         /** unresolved XMLSource backed by the DB, or null for readonly */
         private final BallotBoxXMLSource<User> dataBackedSource;
+
         /** unresolved XMLSource: == dataBackedSource, or for readonly == diskData */
         private final XMLSource xmlsource;
+
         /** Unresolved CLDRFile backed by {@link #xmlsource} */
         private final CLDRFile file;
+
         /** Resolved CLDRFile backed by {@link #xmlsource} */
         private final CLDRFile rFile;
+
         /** List of all XPaths present. Only mutated by makeSureInPathsForFile */
         private Set<String> pathsForFile;
+
         /** which XPaths had votes? */
         BitSet votesSometimeThisRelease = null;
+
         /** Voting information for each XPath */
         private final Map<String, PerXPathData> xpathToData = new HashMap<>();
 
@@ -124,6 +133,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             private final class PerUserData {
                 /** What is this user voting for? */
                 String vote;
+
                 /** What is this user's override strength? */
                 Integer override;
 
@@ -412,7 +422,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             if (ph.getSurveyToolStatus() == PathHeader.SurveyToolStatus.DEPRECATED) return false;
             if (ph.getSurveyToolStatus() == PathHeader.SurveyToolStatus.HIDE
                     || ph.getSurveyToolStatus() == PathHeader.SurveyToolStatus.READ_ONLY) {
-                if (!UserRegistry.userIsTC(user)) return false;
+                if (!UserRegistry.userIsTCOrStronger(user)) return false;
             }
 
             if (sm.getSupplementalDataInfo().getCoverageValue(xpath, locale.getBaseName())
@@ -908,7 +918,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 throws InvalidXPathException {
             if (!getPathsForFile().contains(xpath)) {
                 if (value == null
-                        && UserRegistry.userIsTC(user)
+                        && UserRegistry.userIsTCOrStronger(user)
                         && XPathTable.getAlt(xpath) != null) {
                     synchronized (this) {
                         Set<String> set = new HashSet<>(pathsForFile);
@@ -1016,7 +1026,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 }
                 ps.executeUpdate();
 
-                if (wasFlagged && UserRegistry.userIsTC(user)) {
+                if (wasFlagged && UserRegistry.userIsTCOrStronger(user)) {
                     clearFlag(conn, locale, xpathId);
                     didClearFlag = true;
                 }
@@ -1199,7 +1209,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         throw new InternalError("NOT YET IMPLEMENTED - TODO!.");
     }
 
-    boolean dbIsSetup = false;
+    private boolean dbIsSetup = false;
 
     /** The infamous back-pointer. */
     public SurveyMain sm;
@@ -1254,6 +1264,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
     /** Config: # of hours before a locale is expired from the cache */
     private final int CLDR_LOCALE_CACHE_HOURS =
             CLDRConfig.getInstance().getProperty("CLDR_LOCALE_EXPIRE_HOURS", 12);
+
     /** Config: Max # of concurrent locales/sublocales in teh cache */
     private final int CLDR_LOCALE_CACHE_MAX =
             CLDRConfig.getInstance().getProperty("CLDR_LOCALE_CACHE_MAX", 100);
@@ -1455,7 +1466,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         dbIsSetup = true; // don't thrash.
         String sql = "(none)"; // this points to
         Statement s = null;
-        try (Connection conn = DBUtils.getInstance().getDBConnection()) {
+        try (Connection conn = DBUtils.getInstance().getAConnection()) {
             if (!DBUtils.hasTable(DBUtils.Table.VOTE_VALUE.toString())) {
                 s = conn.createStatement();
                 sql =
@@ -1488,7 +1499,6 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 s.execute(sql);
                 s.close();
                 s = null; // don't close twice.
-                conn.commit();
                 System.err.println("Created table " + DBUtils.Table.VOTE_VALUE);
             } else if (!DBUtils.tableHasColumn(
                     conn, DBUtils.Table.VOTE_VALUE.toString(), VOTE_TYPE)) {
@@ -1502,7 +1512,6 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 s.execute(sql);
                 s.close();
                 s = null;
-                conn.commit();
                 System.err.println(
                         "Added column " + VOTE_TYPE + " to table " + DBUtils.Table.VOTE_VALUE);
             }
@@ -1538,7 +1547,6 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 s.execute(sql);
                 s.close();
                 s = null; // don't close twice.
-                conn.commit();
                 System.err.println("Created table " + DBUtils.Table.VOTE_VALUE_ALT);
             }
             if (!DBUtils.hasTable(DBUtils.Table.VOTE_FLAGGED.toString())) {
@@ -1567,7 +1575,6 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 s.execute(sql);
                 s.close();
                 s = null; // don't close twice.
-                conn.commit();
                 System.err.println("Created table " + DBUtils.Table.VOTE_FLAGGED);
             }
             if (!DBUtils.hasTable(DBUtils.Table.IMPORT.toString())) {
@@ -1605,7 +1612,6 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 s.execute(sql);
                 s.close();
                 s = null; // don't close twice.
-                conn.commit();
                 System.err.println("Created table " + DBUtils.Table.IMPORT);
             }
             if (!DBUtils.hasTable(DBUtils.Table.IMPORT_AUTO.toString())) {
@@ -1631,7 +1637,6 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 s.execute(sql);
                 s.close();
                 s = null; // don't close twice.
-                conn.commit();
                 System.err.println("Created table " + DBUtils.Table.IMPORT_AUTO);
             }
             String tableName = DBUtils.Table.LOCKED_XPATHS.toString();
@@ -1656,7 +1661,6 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 s.execute(sql);
                 s.close();
                 s = null; // don't close twice.
-                conn.commit();
                 System.err.println("Created table " + tableName);
             }
         } catch (SQLException se) {
@@ -1834,6 +1838,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
     public SurveyMenus getSurveyMenus() {
         return surveyMenus.get();
     }
+
     /**
      * Resolving disk file, or null if none.
      *

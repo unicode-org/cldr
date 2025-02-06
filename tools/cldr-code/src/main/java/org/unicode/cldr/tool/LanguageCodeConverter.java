@@ -126,7 +126,7 @@ public class LanguageCodeConverter {
             // if (languageAliases.containsKey(code)) {
             // continue;
             // }
-            // String cldrName = english.getName("language", code);
+            // String cldrName = english.nameGetter().getName("language", code);
             // if (cldrName != null && !cldrName.equals("private-use")) {
             // addNameToCode("cldr", code, cldrName);
             // }

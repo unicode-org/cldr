@@ -1,0 +1,24 @@
+{
+  "name": "@unicode-org/cldr-site",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node assets/js/build.mjs",
+    "postinstall": "mkdir -p assets/vendor ; cp node_modules/vue/dist/vue.global.prod.js assets/vendor",
+    "pretty": "prettier --no-error-on-unmatched-pattern --write assets/js/cldrsite.js  assets/js/build.mjs  assets/css/page.css _layouts/*.html"
+  },
+  "keywords": [],
+  "author": "Steven R. Loomis <srloomis@unicode.org>",
+  "license": "Unicode-3.0",
+  "description": "Static Assets for CLDR Site",
+  "private": true,
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "sitemap": "^8.0.0",
+    "vue": "^3.5.0"
+  },
+  "devDependencies": {
+    "prettier": "^2.8.8"
+  }
+}

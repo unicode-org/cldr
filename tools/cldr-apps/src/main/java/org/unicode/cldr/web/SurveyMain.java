@@ -7,7 +7,6 @@
 package org.unicode.cldr.web;
 
 import com.google.common.base.Suppliers;
-import com.ibm.icu.dev.util.ElapsedTimer;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.ListFormatter;
 import com.ibm.icu.text.UnicodeSet;
@@ -60,6 +59,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONString;
 import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.icu.dev.util.ElapsedTimer;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.test.HelpMessages;
@@ -210,6 +210,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     // ===== Configuration state
     private static Phase currentPhase = Phase.VETTING;
     private static Phase currentExtendedPhase = Phase.VETTING;
+
     /** set by CLDR_PHASE property. * */
     private static String oldVersion = "OLDVERSION";
 
@@ -357,6 +358,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
 
     private static boolean initCalled = false;
+
     /**
      * Was init() called on the servlet? This is called very early in server startup,
      * but should be noted here.
@@ -368,6 +370,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
 
     private static boolean didTryToStartUp = false;
+
     /**
      * Did SurveyMain try to startup? Need to call GET /cldr-apps/survey for this to happen
      * if GET has not been called, then we don't have a SurveyMain instance yet and getInstance() will fail.
@@ -453,6 +456,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
 
     public static String defaultServletPath = null;
+
     /** IP exclusion list */
     public static Hashtable<String, Object> BAD_IPS = new Hashtable<>();
 
@@ -499,7 +503,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 freeMem(pages, xpages);
             }
         }
-        com.ibm.icu.dev.util.ElapsedTimer reqTimer = new com.ibm.icu.dev.util.ElapsedTimer();
+        ElapsedTimer reqTimer = new ElapsedTimer();
 
         /*
          * Busted: unrecoverable error, do not attempt to go on.
@@ -1078,7 +1082,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             try {
                 int i, j;
 
-                com.ibm.icu.dev.util.ElapsedTimer et = new com.ibm.icu.dev.util.ElapsedTimer();
+                ElapsedTimer et = new ElapsedTimer();
 
                 conn = dbUtils.getDBConnection();
                 s = conn.createStatement();
@@ -1460,6 +1464,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
 
     static final Pattern HASH_PATTERN = Pattern.compile("^CLDR_([A-Z]+)_HASH$");
+
     /**
      * Get the current source revision
      *
@@ -3362,6 +3367,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
 
     private static long shortN = 0;
+
     /** Only used by about.jsp to know whether it's safe to call DBUtils.getInstance() */
     public static boolean isDbSetup = false;
 

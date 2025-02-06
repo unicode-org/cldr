@@ -71,6 +71,8 @@ import org.unicode.cldr.util.LanguageTagCanonicalizer;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleNames;
+import org.unicode.cldr.util.NameGetter;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PluralRanges;
@@ -78,6 +80,7 @@ import org.unicode.cldr.util.PreferredAndAllowedHour;
 import org.unicode.cldr.util.PreferredAndAllowedHour.HourStyle;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.CodeType;
+import org.unicode.cldr.util.StandardCodes.LstrField;
 import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
@@ -98,6 +101,7 @@ import org.unicode.cldr.util.Validity.Status;
 
 public class TestSupplementalInfo extends TestFmwkPlus {
     static CLDRConfig testInfo = CLDRConfig.getInstance();
+    private static NameGetter englishNameGetter = testInfo.getEnglish().nameGetter();
 
     private static final StandardCodes STANDARD_CODES = StandardCodes.make();
 
@@ -858,18 +862,18 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         Set<String> b = new LinkedHashSet<>();
         for (String ss : s) {
             ltp.set(ss);
-            addName(CLDRFile.LANGUAGE_NAME, ltp.getLanguage(), b);
-            addName(CLDRFile.SCRIPT_NAME, ltp.getScript(), b);
-            addName(CLDRFile.TERRITORY_NAME, ltp.getRegion(), b);
+            addName(NameType.LANGUAGE, ltp.getLanguage(), b);
+            addName(NameType.SCRIPT, ltp.getScript(), b);
+            addName(NameType.TERRITORY, ltp.getRegion(), b);
         }
         return Joiner.on("; ").join(b);
     }
 
-    private void addName(int languageName, String code, Set<String> b) {
+    private void addName(NameType nameType, String code, Set<String> b) {
         if (code.isEmpty()) {
             return;
         }
-        String name = testInfo.getEnglish().getName(languageName, code);
+        String name = englishNameGetter.getNameFromTypeEnumCode(nameType, code);
         if (!code.equals(name)) {
             b.add(code + "=" + name);
         }
@@ -1054,22 +1058,22 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                                     missing24only,
                                     "\n\t\t",
                                     new NameCodeTransform(
-                                            testInfo.getEnglish(), CLDRFile.TERRITORY_NAME)));
+                                            testInfo.getEnglish(), NameType.TERRITORY)));
         }
     }
 
     public static class NameCodeTransform implements StringTransform {
         private final CLDRFile file;
-        private final int codeType;
+        private final NameType nameType;
 
-        public NameCodeTransform(CLDRFile file, int code) {
+        public NameCodeTransform(CLDRFile file, NameType nameType) {
             this.file = file;
-            this.codeType = code;
+            this.nameType = nameType;
         }
 
         @Override
         public String transform(String code) {
-            return file.getName(codeType, code) + " [" + code + "]";
+            return file.nameGetter().getNameFromTypeEnumCode(nameType, code) + " [" + code + "]";
         }
     }
 
@@ -1237,7 +1241,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
     }
 
     private String getRegionName(String region) {
-        return testInfo.getEnglish().getName(CLDRFile.TERRITORY_NAME, region);
+        return englishNameGetter.getNameFromTypeEnumCode(NameType.TERRITORY, region);
     }
 
     private Map<String, Integer> getRecursiveContainment(
@@ -1315,7 +1319,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         // now show the items we found
         for (Scope scope : scopeToCodes.keySet()) {
             for (String language : scopeToCodes.getAll(scope)) {
-                String name = testInfo.getEnglish().getName(language);
+                String name = englishNameGetter.getNameFromIdentifier(language);
                 if (name == null || name.equals(language)) {
                     Set<String> set = Iso639Data.getNames(language);
                     if (set != null) {
@@ -1534,7 +1538,8 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                                 + "\t"
                                 + dateInfo.toString()
                                 + "\t"
-                                + testInfo.getEnglish().getName(CLDRFile.CURRENCY_NAME, currency));
+                                + englishNameGetter.getNameFromTypeEnumCode(
+                                        NameType.CURRENCY, currency));
             }
         }
         // fix up
@@ -1570,7 +1575,8 @@ public class TestSupplementalInfo extends TestFmwkPlus {
 
         for (String currency : modernCurrencyCodes.keySet()) {
             Set<Pair<String, CurrencyDateInfo>> data = modernCurrencyCodes.getAll(currency);
-            final String name = testInfo.getEnglish().getName(CLDRFile.CURRENCY_NAME, currency);
+            final String name =
+                    englishNameGetter.getNameFromTypeEnumCode(NameType.CURRENCY, currency);
 
             Set<String> isoCountries = isoCurrenciesToCountries.getAll(currency);
             if (isoCountries == null) {
@@ -1644,7 +1650,8 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                         + "\t"
                         + nonModernCurrencyCodes);
         for (String currency : nonModernCurrencyCodes.keySet()) {
-            final String name = testInfo.getEnglish().getName(CLDRFile.CURRENCY_NAME, currency);
+            final String name =
+                    englishNameGetter.getNameFromTypeEnumCode(NameType.CURRENCY, currency);
             if (name == null) {
                 errln("No English name for currency " + currency);
                 continue;
@@ -1685,10 +1692,8 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                                         + "\t"
                                         + dateInfo
                                         + "\t"
-                                        + testInfo.getEnglish()
-                                                .getName(
-                                                        CLDRFile.CURRENCY_NAME,
-                                                        dateInfo.getCurrency()));
+                                        + englishNameGetter.getNameFromTypeEnumCode(
+                                                NameType.CURRENCY, dateInfo.getCurrency()));
                     }
                 }
             }
@@ -2029,9 +2034,18 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         Date goalMin = new Date(70, 0, 1);
         Date goalMax = new Date(300, 0, 2);
         ImmutableSet<String> knownTZWithoutMetazone =
-                ImmutableSet.of("America/Montreal", "Asia/Barnaul", "Asia/Tomsk", "Europe/Kirov");
+                ImmutableSet.of(
+                        "America/Montreal",
+                        "Asia/Barnaul",
+                        "Asia/Choibalsan",
+                        "Asia/Tomsk",
+                        "Europe/Kirov");
         for (String timezoneRaw : TimeZone.getAvailableIDs()) {
             String timezone = TimeZone.getCanonicalID(timezoneRaw);
+            if (timezone.equals("Etc/Unknown")) {
+                System.err.println("CLDR-17949: Skipping " + timezone + " for raw " + timezoneRaw);
+                continue;
+            }
             String region = TimeZone.getRegion(timezone);
             if (!timezone.equals(timezoneRaw) || "001".equals(region)) {
                 continue;
@@ -2097,7 +2111,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             Set<String> modern = new TreeSet<>();
             Set<String> comprehensive = new TreeSet<>();
             for (String lang : temp) {
-                Level level = coverageLevel.getLevel(CLDRFile.getKey(CLDRFile.LANGUAGE_NAME, lang));
+                Level level = coverageLevel.getLevel(NameType.LANGUAGE.getKeyPath(lang));
                 if (level.compareTo(Level.MODERN) <= 0) {
                     modern.add(lang);
                 } else {
@@ -2127,7 +2141,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         Set<String> tempNames = new TreeSet<>();
         for (String langCode : temp) {
             tempNames.add(
-                    testInfo.getEnglish().getName(CLDRFile.LANGUAGE_NAME, langCode)
+                    englishNameGetter.getNameFromTypeEnumCode(NameType.LANGUAGE, langCode)
                             + " ("
                             + langCode
                             + ")");
@@ -2166,5 +2180,52 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                 logger.fine(entry.getKey() + "\t" + Joiner.on(", ").join(entry.getValue()));
             }
         }
+    }
+
+    public void testPredominantEncompassed() {
+        // maybe check with lstreg instead? They should be in sync.
+        Map<LstrType, Map<String, Map<LstrField, String>>> lstreg = StandardCodes.getEnumLstreg();
+
+        SupplementalDataInfo supp = SupplementalDataInfo.getInstance();
+        // Returns type -> tag -> , like "language" -> "sh" -> <{"sr_Latn"}, reason>
+        Map<String, Map<String, R2<List<String>, String>>> locAliases = supp.getLocaleAliasInfo();
+        Map<String, R2<List<String>, String>> langAliases = locAliases.get("language");
+        Set<String> skip = Set.of("no", "sh");
+
+        Iso639Data.getNames("a"); // init (need to fix)
+
+        Set<String> macros = Iso639Data.getMacros();
+        main:
+        for (String macro : macros) {
+            if (skip.contains(macro)) {
+                continue;
+            }
+            Set<String> encompasseds = Iso639Data.getEncompassedForMacro(macro);
+            final List<String> encompassedNames =
+                    encompasseds.stream().map(x -> codeAndName(x)).collect(Collectors.toList());
+            for (String encompassed : encompasseds) {
+                R2<List<String>, String> data = langAliases.get(encompassed);
+                if (data != null) {
+                    if (data.get0().contains(macro)) {
+                        logln(
+                                codeAndName(macro)
+                                        + "has predominant "
+                                        + codeAndName(encompassed)
+                                        + " in encompassed: "
+                                        + encompassedNames);
+                        continue main;
+                    }
+                }
+            }
+            errln("ERROR " + codeAndName(macro) + " missing predominent from " + encompassedNames);
+        }
+    }
+
+    private String codeAndName(String macro) {
+        // TODO Auto-generated method stub
+        return CLDRConfig.getInstance().getEnglish().nameGetter().getNameFromIdentifier(macro)
+                + " ("
+                + macro
+                + ")";
     }
 }

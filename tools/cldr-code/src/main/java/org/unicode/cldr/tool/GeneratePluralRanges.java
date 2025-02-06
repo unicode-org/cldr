@@ -99,7 +99,7 @@ public class GeneratePluralRanges {
                 System.out.println(
                         locale
                                 + "\t"
-                                + english.getName(locale)
+                                + english.nameGetter().getNameFromIdentifier(locale)
                                 + "\t"
                                 + rangeSample.start
                                 + "\t"

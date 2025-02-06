@@ -2,7 +2,7 @@
 
 # Unicode Locale Data Markup Language (LDML)<br/>Part 5: Collation
 
-|Version|46 (draft)      |
+|Version|47 (draft)      |
 |-------|----------------|
 |Editors|Markus Scherer (<a href="mailto:markus.icu@gmail.com">markus.icu@gmail.com</a>) and <a href="tr35.md#Acknowledgments">other CLDR committee members</a>|
 
@@ -13,11 +13,6 @@ For the full header, summary, and status, see [Part 1: Core](tr35.md).
 This document describes parts of an XML format (_vocabulary_) for the exchange of structured locale data. This format is used in the [Unicode Common Locale Data Repository](https://www.unicode.org/cldr/).
 
 This is a partial document, describing only those parts of the LDML that are relevant for collation (sorting, searching & grouping). For the other parts of the LDML see the [main LDML document](tr35.md) and the links above.
-
-_Note:_
-Some links may lead to in-development or older
-versions of the data files.
-See <https://cldr.unicode.org> for up-to-date CLDR release data.
 
 ### _Status_
 
@@ -30,7 +25,11 @@ This is a stable document and may be used as reference material or cited as a no
 
 > _**A Unicode Technical Standard (UTS)** is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS._
 
-_Please submit corrigenda and other comments with the CLDR bug reporting form [[Bugs](tr35.md#Bugs)]. Related information that is useful in understanding this document is found in the [References](tr35.md#References). For the latest version of the Unicode Standard see [[Unicode](tr35.md#Unicode)]. For a list of current Unicode Technical Reports see [[Reports](tr35.md#Reports)]. For more information about versions of the Unicode Standard, see [[Versions](tr35.md#Versions)]._
+_Please submit corrigenda and other comments with the CLDR bug reporting form [[Bugs](https://cldr.unicode.org/index/bug-reports)].
+Related information that is useful in understanding this document is found in the [References](#References).
+For the latest version of the Unicode Standard see [[Unicode](https://www.unicode.org/versions/latest/)].
+For more information see [About Unicode Technical Reports](https://www.unicode.org/reports/about-reports.html) and the [Specifications FAQ](https://www.unicode.org/faq/specifications.html).
+Unicode Technical Reports are governed by the Unicode [Terms of Use](https://www.unicode.org/copyright.html)._
 
 ## <a name="Parts" href="#Parts">Parts</a>
 
@@ -538,7 +537,7 @@ A collation type name that starts with "private-", for example, "private-kana", 
 
 > 👉 **Note**: There is an on-line demonstration of collation at [[LocaleExplorer](tr35.md#LocaleExplorer)] that uses the same rule syntax. (Pick the locale and scroll to "Collation Rules", near the end.)
 
-> 👉 **Note**: In CLDR 23 and before, LDML collation files used an XML format. Starting with CLDR 24, the XML collation syntax is deprecated and no longer used. See the _[CLDR 23 version of this document](https://www.unicode.org/reports/tr35/tr35-31/tr35-collation.html#Collation_Tailorings)_ for details about the XML collation syntax.
+> 👉 **Note**: In CLDR 23 and before, LDML collation files used an XML format. Starting with CLDR 24, the XML collation syntax is deprecated and no longer used. See the _[CLDR 23 version of this document](tr35-collation.md#Collation_Tailorings)_ for details about the XML collation syntax.
 
 #### <a name="Collation_Type_Fallback" href="#Collation_Type_Fallback">Collation Type Fallback</a>
 
@@ -1178,6 +1177,16 @@ However, for stroke order, the label string is the stroke count (second characte
 
 * * *
 
-Copyright © 2001–2024 Unicode, Inc. All Rights Reserved. The Unicode Consortium makes no expressed or implied warranty of any kind, and assumes no liability for errors or omissions. No liability is assumed for incidental and consequential damages in connection with or arising out of the use of the information or programs contained or accompanying this technical report. The Unicode [Terms of Use](https://www.unicode.org/copyright.html) apply.
+© 2001–2025 Unicode, Inc.
+This publication is protected by copyright, and permission must be obtained from Unicode, Inc.
+prior to any reproduction, modification, or other use not permitted by the [Terms of Use](https://www.unicode.org/copyright.html).
+Specifically, you may make copies of this publication and may annotate and translate it solely for personal or internal business purposes and not for public distribution,
+provided that any such permitted copies and modifications fully reproduce all copyright and other legal notices contained in the original.
+You may not make copies of or modifications to this publication for public distribution, or incorporate it in whole or in part into any product or publication without the express written permission of Unicode.
 
-Unicode and the Unicode logo are trademarks of Unicode, Inc., and are registered in some jurisdictions.
+Use of all Unicode Products, including this publication, is governed by the Unicode [Terms of Use](https://www.unicode.org/copyright.html).
+The authors, contributors, and publishers have taken care in the preparation of this publication,
+but make no express or implied representation or warranty of any kind and assume no responsibility or liability for errors or omissions or for consequential or incidental damages that may arise therefrom.
+This publication is provided “AS-IS” without charge as a convenience to users.
+
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the United States and other countries.

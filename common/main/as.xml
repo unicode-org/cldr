@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -3250,9 +3250,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>উলানবাটাৰ</exemplarCity>
 			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity>কোইবাল্ছন</exemplarCity>
-			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity>মাকাও</exemplarCity>
 			</zone>
@@ -3996,13 +3993,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>চীনৰ ডেলাইট সময়</daylight>
 				</long>
 			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>কোইবাল্ছনৰ সময়</generic>
-					<standard>কোইবাল্ছনৰ মান সময়</standard>
-					<daylight>কোইবাল্ছনৰ গ্ৰীষ্মকালীন সময়</daylight>
-				</long>
-			</metazone>
 			<metazone type="Christmas">
 				<long>
 					<standard>খ্ৰীষ্টমাছ দ্বীপৰ সময়</standard>
@@ -4671,9 +4661,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<native>beng</native>
 		</otherNumberingSystems>
 		<minimumGroupingDigits>↑↑↑</minimumGroupingDigits>
-		<symbols>
-			<timeSeparator draft="unconfirmed">.</timeSeparator>
-		</symbols>
 		<symbols numberSystem="beng">
 			<decimal>↑↑↑</decimal>
 			<group>↑↑↑</group>
@@ -4699,6 +4686,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<perMille>↑↑↑</perMille>
 			<infinity>↑↑↑</infinity>
 			<nan>↑↑↑</nan>
+			<timeSeparator draft="unconfirmed">.</timeSeparator>
 		</symbols>
 		<decimalFormats numberSystem="beng">
 			<decimalFormatLength>

@@ -18,8 +18,7 @@ class LdmlConvertRules {
 
     /** File sets that will not be processed in JSON transformation. */
     public static final ImmutableSet<String> IGNORE_FILE_SET =
-            ImmutableSet.of(
-                    "attributeValueValidity", "coverageLevels", "postalCodeData", "subdivisions");
+            ImmutableSet.of("attributeValueValidity", "coverageLevels", "postalCodeData");
 
     /**
      * The attribute list that should become part of the name in form of name-(attribute)-(value).
@@ -154,7 +153,15 @@ class LdmlConvertRules {
                     "identity:variant:type",
 
                     // in common/bcp47/*.xml
-                    "keyword:key:name");
+                    "keyword:key:name",
+
+                    // transforms
+
+                    // transforms
+                    "transforms:transform:source",
+                    "transforms:transform:target",
+                    "transforms:transform:direction",
+                    "transforms:transform:variant");
 
     /**
      * The set of element:attribute pair in which the attribute should be treated as value. All the

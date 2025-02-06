@@ -6,11 +6,11 @@ title: CLDR 45 Release Note
 
 | No. |    Date    | Rel. Note |  Data  |  Charts  | Spec |   Delta  | GitHub Tag | Delta DTD | CLDR JSON |
 |:---:|:----------:|:---------:|:------:|:--------:|:------------:|:---:|:----------:|:---------:|:---------:|
-|  45 | 2024-04-17 |    [v45](http://cldr.unicode.org/index/downloads/cldr-45)    | [CLDR45](http://unicode.org/Public/cldr/45/) | [Charts45](https://unicode.org/cldr/charts/45/) |    [LDML45](https://www.unicode.org/reports/tr35/tr35-72/tr35.html)    | [Δ45](https://unicode-org.atlassian.net/issues/?jql=project+%3D+CLDR+AND+status+%3D+Done+AND+resolution+%3D+Fixed+AND+fixVersion+%3D+%2245%22+ORDER+BY+component+ASC%2C+priority+DESC%2C+created+ASC) | [release-45](https://github.com/unicode-org/cldr/releases/tag/release-45) |   [ΔDtd45](https://www.unicode.org/cldr/charts/45/supplemental/dtd_deltas.html)  |   [45.0.0](https://github.com/unicode-org/cldr-json/releases/tag/45.0.0)  |
+|  45 | 2024-04-17 |    [v45](/index/downloads/cldr-45)    | [CLDR45](http://unicode.org/Public/cldr/45/) | [Charts45](https://unicode.org/cldr/charts/45/) |    [LDML45](https://www.unicode.org/reports/tr35/tr35-72/tr35.html)    | [Δ45](https://unicode-org.atlassian.net/issues/?jql=project+%3D+CLDR+AND+status+%3D+Done+AND+resolution+%3D+Fixed+AND+fixVersion+%3D+%2245%22+ORDER+BY+component+ASC%2C+priority+DESC%2C+created+ASC) | [release-45](https://github.com/unicode-org/cldr/releases/tag/release-45) |   [ΔDtd45](https://www.unicode.org/cldr/charts/45/supplemental/dtd_deltas.html)  |   [45.0.0](https://github.com/unicode-org/cldr-json/releases/tag/45.0.0)  |
 
 ## Overview
 
-Unicode CLDR provides key building blocks for software supporting the world's languages. CLDR data is used by all [major software systems](https://www.google.com/url?q=http://cldr.unicode.org/index%23TOC-Who-uses-CLDR-&sa=D&source=editors&ust=1713652058779208&usg=AOvVaw3r8kLAP0U8srdRrX-YUWlu) (including all mobile phones) for their software internationalization and localization, adapting software to the conventions of different languages.
+Unicode CLDR provides key building blocks for software supporting the world's languages. CLDR data is used by all [major software systems](/index#who-uses-cldr) (including all mobile phones) for their software internationalization and localization, adapting software to the conventions of different languages.
 
 CLDR 45 is a closed release with no submission period, focusing on just a few areas:
 
@@ -65,7 +65,7 @@ For a full listing, see [Delta DTDs](https://unicode.org/cldr/charts/45/suppleme
 -   Metazone changes
     -   For deprecations and Greenland changes, see the supplemental data delta chart.
 
-For a full listing, see [¤¤BCP47 Delta](https://www.google.com/url?q=https://unicode.org/cldr/charts/45/delta/bcp47.html&sa=D&source=editors&ust=1713652058784981&usg=AOvVaw02X97tSG45_oChn55f3Gjw) and [¤¤Supplemental Delta](https://www.google.com/url?q=https://unicode.org/cldr/charts/45/delta/supplemental-data.html&sa=D&source=editors&ust=1713652058785221&usg=AOvVaw2OKxgUzfQepGGrI7DGbMFt)
+For a full listing, see [¤¤BCP47 Delta](https://unicode.org/cldr/charts/45/delta/bcp47.html) and [¤¤Supplemental Delta](https://unicode.org/cldr/charts/45/delta/supplemental-data.html)
 
 ### [Locale Changes](https://unicode.org/cldr/charts/45/delta/index.html)
 
@@ -138,8 +138,8 @@ For this release there are no appreciable changes.
 
 ## Acknowledgments
 
-Many people have made significant contributions to CLDR and LDML; see the [Acknowledgments](https://cldr.unicode.org/index/acknowledgments) page for a full listing.
+Many people have made significant contributions to CLDR and LDML; see the [Acknowledgments](/index/acknowledgments) page for a full listing.
 
 The Unicode [Terms of Use](https://unicode.org/copyright.html) apply to CLDR data; in particular, see [Exhibit 1](https://unicode.org/copyright.html#Exhibit1).
 
-For web pages with different views of CLDR data, see [http://cldr.unicode.org/index/charts](https://cldr.unicode.org/index/charts).
+For web pages with different views of CLDR data, see [http://cldr.unicode.org/index/charts](/index/charts).

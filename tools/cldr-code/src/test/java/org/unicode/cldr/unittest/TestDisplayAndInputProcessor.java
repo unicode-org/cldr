@@ -1,12 +1,13 @@
 package org.unicode.cldr.unittest;
 
-import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.CharSequences;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
 import java.util.Arrays;
 import java.util.Set;
 import java.util.TreeSet;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.DisplayAndInputProcessor.PathSpaceType;
 import org.unicode.cldr.util.CLDRConfig;
@@ -351,12 +352,13 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
             String input = daip.processInput(path, display, internalException);
             String diff = diff(value, input, path);
             if (diff != null) {
+                // repeat for debugging
                 display = daip.processForDisplay(path, value);
                 input = daip.processInput(path, display, internalException);
                 diff(value, input, path);
                 errln(
                         cldrFile.getLocaleID()
-                                + "\tNo roundtrip in DAIP:"
+                                + "\tNo roundtrip in DAIP, value ≠ processInput(display(value)):"
                                 + "\n\t  value<"
                                 + value
                                 + ">\n\tdisplay<"
@@ -396,6 +398,7 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
             }
         }
     }
+
     /** DAIP can add characters to UnicodeSets, so remove them for a clean test. Could optimize */
     UnicodeSet suppressAdditions(UnicodeSet value, UnicodeSet input_value) {
         for (UnicodeSetIterator usi = new UnicodeSetIterator(value); usi.next(); ) {
@@ -463,7 +466,29 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
         if (value2.equals(input)) {
             return null;
         }
-        return "?";
+
+        return firstDiff(value2, input);
+    }
+
+    private String firstDiff(String v1, String v2) {
+        int i = 0;
+        while (i < v1.length() && i < v2.length()) {
+            int cp1 = v1.codePointAt(i);
+            int cp2 = v2.codePointAt(i);
+            if (cp1 != cp2) {
+                return v1.substring(0, i)
+                        + " ⓥ:"
+                        + Utility.hex(cp1)
+                        + " ≠ Ⓘ(Ⓓ(ⓥ)):"
+                        + Utility.hex(cp2);
+            }
+            i += cp1 <= 0xFFFF ? 1 : 2;
+        }
+        return v1.substring(0, i)
+                + " ⓥ:"
+                + v1.substring(i, v1.length())
+                + " ≠ Ⓘ(Ⓓ(ⓥ)):"
+                + v2.substring(i, v2.length());
     }
 
     /** Test whether DisplayAndInputProcessor.processInput removes backspaces */

@@ -1,7 +1,6 @@
 package org.unicode.cldr.unittest;
 
 import com.google.common.base.Joiner;
-import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.text.Transform;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UnicodeSet;
@@ -9,6 +8,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.util.CldrUtility;
 
 public class TestFmwkPlus extends TestFmwk {

@@ -4,7 +4,7 @@ title: Emoji Names and Keywords
 
 # Emoji Names and Keywords
 
-CLDR collects short character names and keywords for Emoji characters and sequences. 
+CLDR collects short character names and keywords for Emoji characters and sequences.
 
 These are found in Survey Tool under **Characters**, and they are divided into different category types. For example, Smileys, People, Animal & Nature, etc...
 
@@ -47,11 +47,11 @@ Many of the emoji names are constructed, which means that in implementations emo
 	2. Hover over the ⓔ to see how some sample constructed emoji would look in English.
 	![image](../../images/Screenshot-2024-06-21-at-7.38.34.png)
 3. **Characters\Category** contain terms like “flag” (used in constructing flag names). These 3 terms are also marked with ⓔ, so make sure to review each of the examples in English and your language.
-4. **Blond/Bearded.** The people with blond hair or beards need to have names consistent with those used for hair styles (see [dark skin tone examples](https://cldr-smoke.unicode.org/cldr-apps/v#/USER/Component/4da6f737d7901c30)), such as: 
-	1. [🧔 — man: beard](https://cldr-smoke.unicode.org/cldr-apps/v#/fr/People/20a49c6ad428d880)
-	2. [👱 — person: blond hair](https://cldr-smoke.unicode.org/cldr-apps/v#/fr/People/5cae8a8d1de49cd9)
-	3. [👱‍♂️ — man: blond hair](https://cldr-smoke.unicode.org/cldr-apps/v#/fr/People/532f430d6e2a26f)
-	4. [👱‍♀️ — woman: blond hair](https://cldr-smoke.unicode.org/cldr-apps/v#/fr/People/3f3d3e9ef4f5768b)
+4. **Blond/Bearded.** The people with blond hair or beards need to have names consistent with those used for hair styles (see [dark skin tone examples](https://st.unicode.org/cldr-apps/v#/USER/Component/4da6f737d7901c30)), such as:
+	1. [🧔 — man: beard](https://st.unicode.org/cldr-apps/v#/fr/People/20a49c6ad428d880)
+	2. [👱 — person: blond hair](https://st.unicode.org/cldr-apps/v#/fr/People/5cae8a8d1de49cd9)
+	3. [👱‍♂️ — man: blond hair](https://st.unicode.org/cldr-apps/v#/fr/People/532f430d6e2a26f)
+	4. [👱‍♀️ — woman: blond hair](https://st.unicode.org/cldr-apps/v#/fr/People/3f3d3e9ef4f5768b)
 
 ## FAQ Tips for character names and keywords
 
@@ -71,7 +71,7 @@ Many of the emoji names are constructed, which means that in implementations emo
 - For the Character > Categories > Label (such as [French](https://st.unicode.org/cldr-apps/v#/fr/Category/19624f4413eaac8b)), whether or not a label is plural will depend on the label and the language. The pluralization choice will not necessarily follow the English.
 ## Short Character Names
 
-In CLDR we provide descriptive but short names for the characters across languages. (For reference, see [Background: Unicode Std. vs CLDR names](https://cldr.unicode.org/translation/characters-emoji-symbols/short-names-and-keywords%23TOC-Background:-Unicode-Std.-vs-CLDR-names).)
+In CLDR we provide descriptive but short names for the characters across languages. (For reference, see [Background: Unicode Std. vs CLDR names](/translation/characters-emoji-symbols/short-names-and-keywords%23TOC-Background:-Unicode-Std.-vs-CLDR-names).)
 
 Goals for the short names collected in CLDR are:
 
@@ -82,12 +82,12 @@ Goals for the short names collected in CLDR are:
 | **Descriptive** | Be descriptive of the prevailing color images. Don't be "over-descriptive", however. The descriptions only have to be enough to distinguish each image from the others: they shouldn't have any details beyond that. |
 | **Consistent** | Be consistent across images with similar features. (Don’t call 📫 a _mailbox_ and 📬 a _post box_).  |
 | **Flexible** | It is **not a goal** to be immutable: in future versions of CLDR, you can improve names by casing new suggestions if a more appropriate names are available. |
-| **Not Literal** | Names should **not just be literal translations** of the English-- the names should be based on associations to the image _in your language._ But you can be _informed_ by the English names. (Exceptions to this when there is no equivalent in your language. See [Emoji specific to a country/region](https://cldr.unicode.org/translation/characters-emoji-symbols/short-names-and-keywords#TOC-FAQ-Tips-for-character-names-and-keywords)) |
+| **Not Literal** | Names should **not just be literal translations** of the English-- the names should be based on associations to the image _in your language._ But you can be _informed_ by the English names. (Exceptions to this when there is no equivalent in your language. See [Emoji specific to a country/region](/translation/characters-emoji-symbols/short-names-and-keywords#TOC-FAQ-Tips-for-character-names-and-keywords)) |
 
 When voting on the emoji names and keywords:
 
-- Follow the middle of sentence rule. See [Capitalization](https://cldr.unicode.org/translation/translation-guide-general/capitalization) guideline.
-- As usual, the names in “en” are American English; where necessary those are customized for “en-GB”. For differences for sub-locale, see [Regional Variant](https://cldr.unicode.org/translation/getting-started/guide#TOC-Regional-Variants-also-known-as-Sub-locales-) guideline.
+- Follow the middle of sentence rule. See [Capitalization](/translation/translation-guide-general/capitalization) guideline.
+- As usual, the names in “en” are American English; where necessary those are customized for “en-GB”. For differences for sub-locale, see [Regional Variant](/translation/getting-started/guide#TOC-Regional-Variants-also-known-as-Sub-locales-) guideline.
 
 ### Unique Names
 
@@ -121,7 +121,7 @@ Other common problem cases that must be distinguished.  **NOTE that punctuation 
 
 ### Gender
 
-There are different ways emoji may have gender. 
+There are different ways emoji may have gender.
 
 - No specific gender
 	- smilies or human-form emoji where the gender is hidden, such as person fencing.
@@ -136,7 +136,7 @@ For the full triples, we need three unique names:
 - X2 (=female only; no males)
 - X3 (=either male or female)
 
-In some languages it may be tricky to do this, especially for the neutral case. 
+In some languages it may be tricky to do this, especially for the neutral case.
 
 Gender-neutral forms
 
@@ -204,4 +204,3 @@ A: For some animals, there are two different emoji, one of which has a name incl
 
 For other animals, there is no such distinction. For example, there is only one wolf: 🐺 U+1F43A. In that case, you don't need to use a term corresponding to “face” in your language, even if the English name has the word face (that is often due to historical accident.)
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

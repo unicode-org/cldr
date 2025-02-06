@@ -41,6 +41,7 @@ jobs:
     - name: Run JS tests
       # stopgap: fail this if it takes too long
       timeout-minutes: 10
-      run: (cd tools/cldr-apps/js && npm t)
+      # TODO: See CLDR-17780 work around mocha-headless-chrome issue
+      run: (cd tools/cldr-apps/js && npm t -- -- -a no-sandbox -a disable-setuid-sandbox)
     - name: Run Webpack production build
       run: (cd tools/cldr-apps/js && npm run build)

@@ -1,5 +1,5 @@
 ---
-title: CLDR: Big Red Switch
+title: 'CLDR: Big Red Switch'
 ---
 
 # CLDR: Big Red Switch
@@ -12,7 +12,7 @@ title: CLDR: Big Red Switch
 
 ### Trial New Version (Let us know if you need write access!)
 
-(For editors: [List View of BRS](https://cldr.unicode.org/development/cldr-big-red-switch/list-view-of-brs), [Spreadsheet View](https://docs.google.com/spreadsheets/d/1dIOLxKX2gW7BRDVdMBH9qr1GdxpPj8Bc1Pe-02p_92k/edit#gid=0)) 
+(For editors: [List View of BRS](/development/cldr-big-red-switch/list-view-of-brs), [Spreadsheet View](https://docs.google.com/spreadsheets/d/1dIOLxKX2gW7BRDVdMBH9qr1GdxpPj8Bc1Pe-02p_92k/edit#gid=0))
 
 ## Contributor Message
 
@@ -28,4 +28,4 @@ However, names are not automatically entered there, since some people may not wi
 2. e\-mail that list **on BCC:** the above message with a subject line of "\[CLDR X.Y Contributor Message]", and a request to please keep the subject line intact.
 3. Then, the subject line can be used to filter/locate the contributor requests.
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)
+

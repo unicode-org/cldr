@@ -1,6 +1,5 @@
 package org.unicode.cldr.tool;
 
-import com.ibm.icu.text.ListFormat;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Output;
@@ -18,6 +17,7 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.unicode.cldr.icu.text.ListFormat;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CldrUtility.LineHandler;
 import org.unicode.cldr.util.Counter2;

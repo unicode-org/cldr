@@ -4,4 +4,5 @@ title: Internal Development
 
 # Internal Development
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)
+This section provides information for CLDR developers.
+See the subpages in the sidebar. 

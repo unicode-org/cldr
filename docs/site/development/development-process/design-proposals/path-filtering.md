@@ -50,9 +50,8 @@ There are a couple of extra features of the regex. For the coverage level (and p
 | $localeCurrencies | modern currencies for the $localeRegions |
 | $modernMetazones | metazones ... |
 
-*Issue:* 
+*Issue:*
 
 - *I'm thinking that we may want to append the value to the path (eg .../\_VALUE="...") to allow for matching on that.*
 - *Use XML instead of ; format?*
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

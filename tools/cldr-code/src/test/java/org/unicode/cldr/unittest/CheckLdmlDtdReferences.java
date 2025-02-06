@@ -43,6 +43,7 @@ public class CheckLdmlDtdReferences {
     static Map<DtdType, Multimap<Element, String>> foundElementsToLink = new LinkedHashMap<>();
 
     static Map<DtdType, Multimap<Element, Element>> childToParent = new LinkedHashMap<>();
+
     //    static Map<DtdType, Multimap<Element, String>> foundAttributesToLink = new
     // LinkedHashMap<>();
     static {

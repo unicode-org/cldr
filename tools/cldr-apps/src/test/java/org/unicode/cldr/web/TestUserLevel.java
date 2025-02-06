@@ -149,16 +149,16 @@ public class TestUserLevel {
                 assertEquals(expected, UserRegistry.userIsManagerOrStronger(u), onFail);
                 break;
             case "userIsVetter":
-                assertEquals(expected, UserRegistry.userIsVetter(u), onFail);
+                assertEquals(expected, UserRegistry.userIsVetterOrStronger(u), onFail);
                 break;
             case "userIsAdmin":
                 assertEquals(expected, UserRegistry.userIsAdmin(u), onFail);
                 break;
             case "userIsTC":
-                assertEquals(expected, UserRegistry.userIsTC(u), onFail);
+                assertEquals(expected, UserRegistry.userIsTCOrStronger(u), onFail);
                 break;
             case "userIsGuest":
-                assertEquals(expected, UserRegistry.userIsGuest(u), onFail);
+                assertEquals(expected, UserRegistry.userIsGuestOrStronger(u), onFail);
                 break;
             case "userIsLocked":
                 assertEquals(expected, UserRegistry.userIsLocked(u), onFail);
@@ -288,16 +288,16 @@ public class TestUserLevel {
                 assertEquals(expected, l.isManagerOrStronger(), onFail);
                 break;
             case "userIsVetter":
-                assertEquals(expected, l.isVetter(), onFail);
+                assertEquals(expected, l.isVetterOrStronger(), onFail);
                 break;
             case "userIsAdmin":
                 assertEquals(expected, l.isAdmin(), onFail);
                 break;
             case "userIsTC":
-                assertEquals(expected, l.isTC(), onFail);
+                assertEquals(expected, l.isTCOrStronger(), onFail);
                 break;
             case "userIsGuest":
-                assertEquals(expected, l.isGuest(), onFail);
+                assertEquals(expected, l.isGuestOrStronger(), onFail);
                 break;
             case "userIsLocked":
                 assertEquals(expected, l.isLocked(), onFail);

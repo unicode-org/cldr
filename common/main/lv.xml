@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -3260,6 +3260,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<regionFormat type="daylight">{0}: vasaras laiks</regionFormat>
 			<regionFormat type="standard">{0}: standarta laiks</regionFormat>
 			<fallbackFormat>{0} ({1})</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>Honolulu</exemplarCity>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>Universālais koordinētais laiks</standard>
@@ -3997,9 +4000,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>Ulanbatora</exemplarCity>
 			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity>Čoibalsana</exemplarCity>
-			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity>Makao</exemplarCity>
 			</zone>
@@ -4399,9 +4399,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Nome">
 				<exemplarCity>Noma</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>Honolulu</exemplarCity>
-			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>Ankurāža</exemplarCity>
 			</zone>
@@ -4751,13 +4748,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Ķīnas laiks</generic>
 					<standard>Ķīnas ziemas laiks</standard>
 					<daylight>Ķīnas vasaras laiks</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>Čoibalsanas laiks</generic>
-					<standard>Čoibalsanas ziemas laiks</standard>
-					<daylight>Čoibalsanas vasaras laiks</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">

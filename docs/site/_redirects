@@ -1,0 +1,13 @@
+# CLDR Redirects
+# Note: See <https://developers.cloudflare.com/pages/configuration/redirects/> for docs!
+
+# redirect latest and dev pages
+/downloads/dev*  /downloads/cldr-47
+/downloads/latest* /downloads/cldr-46
+
+# redirect old download pages [CLDR-17977]
+/index/downloads/* /downloads/:splat
+
+# pages that were renamed [CLDR-17977]
+/index/cldr-spec/unicode-transliteration-guidelines* /index/cldr-spec/transliteration-guidelines
+/index/bug-reports* /requesting_changes

@@ -13,6 +13,7 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LocaleNames;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
 @Deprecated
@@ -200,17 +201,17 @@ public class GenerateLikelySubtagTests {
                 + spacing
                 + (lang.equals(LocaleNames.UND)
                         ? "?"
-                        : ENGLISH.getName(CLDRFile.LANGUAGE_NAME, lang))
+                        : ENGLISH.nameGetter().getNameFromTypeEnumCode(NameType.LANGUAGE, lang))
                 + ";"
                 + spacing
                 + (script == null || script.equals("")
                         ? "?"
-                        : ENGLISH.getName(CLDRFile.SCRIPT_NAME, script))
+                        : ENGLISH.nameGetter().getNameFromTypeEnumCode(NameType.SCRIPT, script))
                 + ";"
                 + spacing
                 + (region == null || region.equals("")
                         ? "?"
-                        : ENGLISH.getName(CLDRFile.TERRITORY_NAME, region))
+                        : ENGLISH.nameGetter().getNameFromTypeEnumCode(NameType.TERRITORY, region))
                 + spacing
                 + "}";
     }

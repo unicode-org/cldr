@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -2314,19 +2314,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>G y年M月d日 EEEE</pattern>
-							<datetimeSkeleton>GyMEEEEd</datetimeSkeleton>
+							<datetimeSkeleton>GyMMMEEEEd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
 							<pattern>G y年M月d日</pattern>
-							<datetimeSkeleton>GyMd</datetimeSkeleton>
+							<datetimeSkeleton>GyMMMd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
 							<pattern>G y年M月d日</pattern>
-							<datetimeSkeleton>GyMd</datetimeSkeleton>
+							<datetimeSkeleton>GyMMMd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -2867,19 +2867,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>y年M月d日 EEEE</pattern>
-							<datetimeSkeleton>yMEEEEd</datetimeSkeleton>
+							<datetimeSkeleton>yMMMEEEEd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
 							<pattern>y年M月d日</pattern>
-							<datetimeSkeleton>yMd</datetimeSkeleton>
+							<datetimeSkeleton>yMMMd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
 							<pattern>y年M月d日</pattern>
-							<datetimeSkeleton>yMd</datetimeSkeleton>
+							<datetimeSkeleton>yMMMd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -4593,6 +4593,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<regionFormat type="daylight">{0}夏令時間</regionFormat>
 			<regionFormat type="standard">{0}標準時間</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>檀香山</exemplarCity>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>協調世界時間</standard>
@@ -5330,9 +5333,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>烏蘭巴托</exemplarCity>
 			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity>喬巴山</exemplarCity>
-			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity>中華人民共和國澳門特別行政區</exemplarCity>
 			</zone>
@@ -5732,9 +5732,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="America/Nome">
 				<exemplarCity>諾姆</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>檀香山</exemplarCity>
-			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>安克拉治</exemplarCity>
 			</zone>
@@ -6117,13 +6114,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>中國時間</generic>
 					<standard>中國標準時間</standard>
 					<daylight>中國夏令時間</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>喬巴山時間</generic>
-					<standard>喬巴山標準時間</standard>
-					<daylight>喬巴山夏令時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">

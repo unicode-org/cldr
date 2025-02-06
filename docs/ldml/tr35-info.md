@@ -2,7 +2,7 @@
 
 # Unicode Locale Data Markup Language (LDML)<br/>Part 6: Supplemental
 
-|Version|46 (draft) |
+|Version|47 (draft) |
 |-------|-----------|
 |Editors|Steven Loomis (<a href="mailto:srloomis@unicode.org">srloomis@unicode.org</a>) and <a href="tr35.md#Acknowledgments">other CLDR committee members|
 
@@ -13,11 +13,6 @@ For the full header, summary, and status, see [Part 1: Core](tr35.md).
 This document describes parts of an XML format (_vocabulary_) for the exchange of structured locale data. This format is used in the [Unicode Common Locale Data Repository](https://www.unicode.org/cldr/).
 
 This is a partial document, describing only those parts of the LDML that are relevant for supplemental data. For the other parts of the LDML see the [main LDML document](tr35.md) and the links above.
-
-_Note:_
-Some links may lead to in-development or older
-versions of the data files.
-See <https://cldr.unicode.org> for up-to-date CLDR release data.
 
 ### _Status_
 
@@ -30,7 +25,11 @@ This is a stable document and may be used as reference material or cited as a no
 
 > _**A Unicode Technical Standard (UTS)** is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS._
 
-_Please submit corrigenda and other comments with the CLDR bug reporting form [[Bugs](tr35.md#Bugs)]. Related information that is useful in understanding this document is found in the [References](tr35.md#References). For the latest version of the Unicode Standard see [[Unicode](tr35.md#Unicode)]. For a list of current Unicode Technical Reports see [[Reports](tr35.md#Reports)]. For more information about versions of the Unicode Standard, see [[Versions](tr35.md#Versions)]._
+_Please submit corrigenda and other comments with the CLDR bug reporting form [[Bugs](https://cldr.unicode.org/index/bug-reports)].
+Related information that is useful in understanding this document is found in the [References](#References).
+For the latest version of the Unicode Standard see [[Unicode](https://www.unicode.org/versions/latest/)].
+For more information see [About Unicode Technical Reports](https://www.unicode.org/reports/about-reports.html) and the [Specifications FAQ](https://www.unicode.org/faq/specifications.html).
+Unicode Technical Reports are governed by the Unicode [Terms of Use](https://www.unicode.org/copyright.html)._
 
 ## <a name="Parts" href="#Parts">Parts</a>
 
@@ -107,7 +106,7 @@ The LDML specification is divided into the following parts:
 
 ## Introduction <a name="Supplemental_Data" href="#Supplemental_Data">Supplemental Data</a>
 
-The following represents the format for additional supplemental information. This is information that is important for internationalization and proper use of CLDR, but is not contained in the locale hierarchy. It is not localizable, nor is it overridden by locale data. The current CLDR data can be viewed in the [Supplemental Charts](https://unicode-org.github.io/cldr-staging/charts/38/supplemental/index.html).
+The following represents the format for additional supplemental information. This is information that is important for internationalization and proper use of CLDR, but is not contained in the locale hierarchy. It is not localizable, nor is it overridden by locale data. The current CLDR data can be viewed in the [Supplemental Charts](https://www.unicode.org/cldr/charts/46/supplemental/index.html).
 
 ```xml
 <!ELEMENT supplementalData (version, generation?, cldrVersion?, currencyData?, territoryContainment?, subdivisionContainment?, languageData?, territoryInfo?, postalCodeData?, calendarData?, calendarPreferenceData?, weekData?, timeData?, measurementData?, unitPreferenceData?, timezoneData?, characters?, transforms?, metadata?, codeMappings?, parentLocales?, likelySubtags?, metazoneInfo?, plurals?, telephoneCodeData?, numberingSystems?, bcp47KeywordMappings?, gender?, references?, languageMatching?, dayPeriodRuleSet*, metaZones?, primaryZones?, windowsZones?, coverageLevels?, idValidity?, rgScope?) >
@@ -142,7 +141,7 @@ Excluding groupings, in this tree:
 *   All non-overlapping regions form a strict tree rooted at World.
 *   All leaf-nodes (country) are always at depth 4. Some of these “country” regions are actually parts of other countries, such as Hong Kong (part of China). Such relationships are not part of the containment data.
 
-For a chart showing the relationships (plus the included timezones), see the [Territory Containment Chart](https://unicode-org.github.io/cldr-staging/charts/38/supplemental/territory_containment_un_m_49.html). The XML structure has the following form.
+For a chart showing the relationships (plus the included timezones), see the [Territory Containment Chart](https://www.unicode.org/cldr/charts/46/supplemental/territory_containment_un_m_49.html). The XML structure has the following form.
 
 ```xml
 <territoryContainment>
@@ -223,7 +222,7 @@ Note: Formerly (in CLDR 28 through 30):
 <!ATTLIST languagePopulation officialStatus (de_facto_official | official | official_regional | official_minority) #IMPLIED >
 ```
 
-This data provides testing information for language and territory populations. The main goal is to provide approximate figures for the literate, functional population for each language in each territory: that is, the population that is able to read and write each language, and is comfortable enough to use it with computers. For a chart of this data, see [Territory-Language Information](https://unicode-org.github.io/cldr-staging/charts/38/supplemental/territory_language_information.html).
+This data provides testing information for language and territory populations. The main goal is to provide approximate figures for the literate, functional population for each language in each territory: that is, the population that is able to read and write each language, and is comfortable enough to use it with computers. For a chart of this data, see [Territory-Language Information](https://www.unicode.org/cldr/charts/46/supplemental/territory_language_information.html).
 
 _Example_
 
@@ -1209,9 +1208,19 @@ Instructions for use are supplied in the header of the file.
 
 Different locales have different preferences for which unit or combination of units is used for a particular usage, such as measuring a person’s height. This is more fine-grained than merely a preference for metric versus US or UK measurement systems. For example, one locale may use meters alone, while another may use centimeters alone or a combination of meters and centimeters; a third may use inches alone, or (informally) a combination of feet and inches.
 
+The determination of preferred units uses the user preference data in [units.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/units.xml) together with **input unit**, the **input unit usage**, and the **input locale identifer**.
+  * The _well-formed_ and _valid_ **units** are defined according to [Unit Syntax](tr35-general.html#unit-syntax).
+  * The _well-formed_ **unit usages** are of the form [a-z0-9]{3-8}("-" [a-z0-9]{3-8})*.
+The _valid_ **unit usages** are the union of the set of `NMTOKENS` in the `usage` attribute value for the `unitPreferences` element in [units.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/units.xml).
+For example, the following `unitPreferences` elements produce the set {default, floor, geograph, land}.
+    * \<unitPreferences category="area" usage="default">
+    * \<unitPreferences category="area" usage="geograph land">
+    * \<unitPreferences category="area" usage="floor">
+  * There are currently no deprecated **unit usages**.
+Should there be any in the future, for backwards compatibility the above definition would be expanded to include unitUsageAlias elements.
+
 ### <a name="Unit_Preferences_Overrides" href="#Unit_Preferences_Overrides">Unit Preferences Overrides</a>
 
-The determination of preferred units uses the user preference data together with **input unit**, the **input usage**, and the **input locale identifer**.
 Within the locale identifier, the subtags that can affect the result are:
   * the value of the keys mu, ms, and rg
   * the region in the locale identifier (if there is one)
@@ -1235,10 +1244,20 @@ If any key-values are invalid, then they are ignored. Thus the following constru
 | --- | --- |
 | -mu-smoot | invalid unit |
 | -ms-stanford | invalid unit system |
-| -rg-aazzzz | invalid region 'AA' ‡|
-| -AA | invalid region 'AA'|
+| -rg-abzzzz | invalid region 'AB' ‡|
+| -AB | invalid region 'AB'|
 
-‡ Only the region portion is currently used, so in -rg-usabcdef the "abcdef" is ignored, whether or not it is valid.
+‡ Only the region portion is currently used.
+The -rg-abzzzz is ignored because AB is invalid; 
+if it were -rg-ustuvxy, it would not be ignored because US is valid.
+The table below shows when the region portion is valid or not.
+
+| Key-value | Region | Valid? | Comment |
+| --- | --- | --- | --- |
+| -rg-usut | US | Yes | Both the region portion (US) and the subdivision portion (ut = Utah) are valid. |
+| -rg-uszzzz | US | Yes | Both the region portion (US) and the subdivision portion (zzzz = all) are valid. |
+| -rg-usabc | US | Yes | The region portion (US) is valid, but the subdivision portion (abc) is not. |
+| -rg-abzzzz | AB | No, ignored | The region portion (AB) is invalid, and thus the -rg is ignored, not matter that the subdivision portion (zzzz) is. |
 
 The following algorithm is used to compute the override units, regions, and category.
 The latter two items are used in the [Unit Preferences Data](#Unit_Preferences_Data).
@@ -1253,11 +1272,13 @@ If there is no valid -mu value, the following steps are used to determine a regi
 
 1. If there is a valid -ms value then let USM  be the corresponding value in column 2 of the table below.
 Otherwise FR is not used. In either case continue with step 2.
-2. If there is a valid -rg region, let R be that region, and go to Compute the category.
+2. If there is a valid -rg region portion of the rg value, let R be that region, and go to Compute the category.
+    * In the table above, this would handle the examples `usut`, `uszzzz`, and `usabc`, resulting in R = US.
+    * Because the example `abzzzz` has an invalid region portion, no region is found and processing continues with step 3.
 3. If there is a valid region in the locale, let R be that region, and go to Compute the category.
 4. Otherwise, compute the likely subtags for the locale.
-     1. If there is a likely region, then let R be that region, and go to Compute the category.
-	 2. Otherwise, let R be 001, and go to Compute the category
+    1. If there is a likely region, then let R be that region, and go to Compute the category.
+    2. Otherwise, let R be 001, and go to Compute the category
 
 | Key-Value   | Unit Systems Match          | Fallback Region for Unit Preferences |
 |-------------|-----------------------------|--------------------------------------|
@@ -1450,6 +1471,16 @@ As an example, ICU only uses the unit preferences (with rg, ms, and/or mu and th
 
 * * *
 
-Copyright © 2001–2024 Unicode, Inc. All Rights Reserved. The Unicode Consortium makes no expressed or implied warranty of any kind, and assumes no liability for errors or omissions. No liability is assumed for incidental and consequential damages in connection with or arising out of the use of the information or programs contained or accompanying this technical report. The Unicode [Terms of Use](https://www.unicode.org/copyright.html) apply.
+© 2001–2025 Unicode, Inc.
+This publication is protected by copyright, and permission must be obtained from Unicode, Inc.
+prior to any reproduction, modification, or other use not permitted by the [Terms of Use](https://www.unicode.org/copyright.html).
+Specifically, you may make copies of this publication and may annotate and translate it solely for personal or internal business purposes and not for public distribution,
+provided that any such permitted copies and modifications fully reproduce all copyright and other legal notices contained in the original.
+You may not make copies of or modifications to this publication for public distribution, or incorporate it in whole or in part into any product or publication without the express written permission of Unicode.
 
-Unicode and the Unicode logo are trademarks of Unicode, Inc., and are registered in some jurisdictions.
+Use of all Unicode Products, including this publication, is governed by the Unicode [Terms of Use](https://www.unicode.org/copyright.html).
+The authors, contributors, and publishers have taken care in the preparation of this publication,
+but make no express or implied representation or warranty of any kind and assume no responsibility or liability for errors or omissions or for consequential or incidental damages that may arise therefrom.
+This publication is provided “AS-IS” without charge as a convenience to users.
+
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the United States and other countries.

@@ -213,7 +213,7 @@
 	     Note: this test assumes and requires that the .../minimumGroupingDigits path
 	     is "contributed" in fr.xml, and that the .../decimal path is "approved" in fr.xml.
 	     Ideally this test might mock the data to avoid the assumption.
-	     Compare TestUtilities.TestVoteResolver where it is possible to set oldStatus, etc. -->
+	     Compare TestHelper.TestVoteResolver where it is possible to set oldStatus, etc. -->
 
 	<user name="TwenA" org="apple" level="vetter" locales="*"/>
 	<user name="TwenB" org="ibm" level="vetter" locales="*"/>
@@ -236,4 +236,8 @@
 	<!-- 8 votes is not enough to change an already-approved item, so the original value (comma) should still be approved -->
 	<verify status="approved" locale="fr" xpath="//ldml/numbers/symbols[@numberSystem='latn']/decimal">,</verify>
 
+	<vote name="A" locale="mul" xpath="//ldml/dates/timeZoneNames/metazone[@type='Alaska']/long/generic">aksalA</vote>
+	<vote name="B" locale="mul" xpath="//ldml/dates/timeZoneNames/metazone[@type='Alaska']/long/generic">aksalA</vote>
+	<vote name="C" locale="mul" xpath="//ldml/dates/timeZoneNames/metazone[@type='Alaska']/long/generic">aksalA</vote>
+	<verify status="approved" locale="mul" xpath="//ldml/dates/timeZoneNames/metazone[@type='Alaska']/long/generic" >aksalA</verify>
 </TestSTFactory>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -5302,6 +5302,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<regionFormat type="daylight">Giờ mùa hè {0}</regionFormat>
 			<regionFormat type="standard">Giờ chuẩn {0}</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<short>
+					<generic draft="contributed">Giờ HST</generic>
+					<standard draft="contributed">HST</standard>
+					<daylight draft="contributed">HDT</daylight>
+				</short>
+				<exemplarCity>Honolulu</exemplarCity>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>Giờ Phối hợp Quốc tế</standard>
@@ -6042,9 +6050,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>Ulan Bator</exemplarCity>
 			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity>Ma Cao</exemplarCity>
 			</zone>
@@ -6443,14 +6448,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="America/Nome">
 				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
-			<zone type="Pacific/Honolulu">
-				<short>
-					<generic draft="contributed">Giờ HST</generic>
-					<standard draft="contributed">HST</standard>
-					<daylight draft="contributed">HDT</daylight>
-				</short>
-				<exemplarCity>Honolulu</exemplarCity>
 			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -6973,13 +6970,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Giờ Trung Quốc</generic>
 					<standard>Giờ Chuẩn Trung Quốc</standard>
 					<daylight>Giờ Mùa Hè Trung Quốc</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>Giờ Choibalsan</generic>
-					<standard>Giờ Chuẩn Choibalsan</standard>
-					<daylight>Giờ Mùa Hè Choibalsan</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">
@@ -8171,27 +8161,41 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>#,##0.00 ¤</pattern>
-					<pattern alt="noCurrency" draft="provisional">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
+					<pattern alt="noCurrency" draft="provisional">#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern alt="noCurrency">#,##0.00;(#,##0.00)</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyFormatLength type="short">
 				<currencyFormat type="standard">
 					<pattern type="1000" count="other">0 N ¤</pattern>
+					<pattern type="1000" count="other" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="10000" count="other">00 N ¤</pattern>
+					<pattern type="10000" count="other" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="100000" count="other">000 N ¤</pattern>
+					<pattern type="100000" count="other" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="1000000" count="other">0 Tr ¤</pattern>
+					<pattern type="1000000" count="other" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="10000000" count="other">00 Tr ¤</pattern>
+					<pattern type="10000000" count="other" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="100000000" count="other">000 Tr ¤</pattern>
+					<pattern type="100000000" count="other" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="1000000000" count="other">0 T ¤</pattern>
+					<pattern type="1000000000" count="other" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="10000000000" count="other">00 T ¤</pattern>
+					<pattern type="10000000000" count="other" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="100000000000" count="other">000 T ¤</pattern>
+					<pattern type="100000000000" count="other" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="1000000000000" count="other">0 NT ¤</pattern>
+					<pattern type="1000000000000" count="other" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="10000000000000" count="other">00 NT ¤</pattern>
+					<pattern type="10000000000000" count="other" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="100000000000000" count="other">000 NT ¤</pattern>
+					<pattern type="100000000000000" count="other" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>

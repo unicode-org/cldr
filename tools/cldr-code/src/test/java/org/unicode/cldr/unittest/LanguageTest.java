@@ -1,6 +1,5 @@
 package org.unicode.cldr.unittest;
 
-import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
 import com.ibm.icu.lang.UScript;
@@ -13,10 +12,12 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Counter2;
 import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.NameGetter;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
@@ -228,14 +229,15 @@ public class LanguageTest extends TestFmwk {
 
     private String getLocaleName(String input) {
         LanguageTagParser parser = new LanguageTagParser().set(input);
+        NameGetter nameGetter = testInfo.getEnglish().nameGetter();
         return (parser.getLanguage().isEmpty() ? "?" : getLanguageName(parser.getLanguage()))
                 + "; "
                 + (parser.getScript().isEmpty() ? "?" : getScriptName(parser.getScript()))
                 + "; "
                 + (parser.getRegion().isEmpty()
                         ? "?"
-                        : testInfo.getEnglish()
-                                .getName(CLDRFile.TERRITORY_NAME, parser.getRegion()));
+                        : nameGetter.getNameFromTypeEnumCode(
+                                NameType.TERRITORY, parser.getRegion()));
     }
 
     Set<String> getUnicodeScripts() {
@@ -258,7 +260,8 @@ public class LanguageTest extends TestFmwk {
     }
 
     private String getScriptName(String script) {
-        String name = testInfo.getEnglish().getName("script", script);
+        NameGetter nameGetter = testInfo.getEnglish().nameGetter();
+        String name = nameGetter.getNameFromTypeEnumCode(NameType.SCRIPT, script);
         if (name != null && !name.equals(script)) {
             return name;
         }
@@ -277,7 +280,8 @@ public class LanguageTest extends TestFmwk {
     }
 
     private String getLanguageName(String language) {
-        String name = testInfo.getEnglish().getName("language", language);
+        NameGetter nameGetter = testInfo.getEnglish().nameGetter();
+        String name = nameGetter.getNameFromTypeEnumCode(NameType.LANGUAGE, language);
         if (name != null && !name.equals(language)) {
             return name;
         }

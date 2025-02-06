@@ -271,14 +271,8 @@ public class TestCLDRFile {
             assertEquals(
                     List.of(
                             new LocaleInheritanceInfo(
-                                    XMLSource.CODE_FALLBACK_ID, GERMAN, Reason.constructed),
-                            new LocaleInheritanceInfo(
                                     XMLSource.ROOT_ID,
                                     "//ldml/localeDisplayNames/localeDisplayPattern/localePattern",
-                                    Reason.constructed),
-                            new LocaleInheritanceInfo(
-                                    XMLSource.CODE_FALLBACK_ID,
-                                    "//ldml/localeDisplayNames/territories/territory[@type=\"CH\"]",
                                     Reason.constructed),
                             new LocaleInheritanceInfo(XMLSource.ROOT_ID, p, Reason.none),
                             new LocaleInheritanceInfo(null, p, Reason.codeFallback)),
@@ -322,15 +316,9 @@ public class TestCLDRFile {
             assertEquals(
                     List.of(
                             new LocaleInheritanceInfo(
-                                    XMLSource.CODE_FALLBACK_ID, GERMAN, Reason.constructed),
-                            new LocaleInheritanceInfo(
                                     XMLSource
                                             .CODE_FALLBACK_ID /* test data does not have this in root */,
                                     "//ldml/localeDisplayNames/localeDisplayPattern/localePattern",
-                                    Reason.constructed),
-                            new LocaleInheritanceInfo(
-                                    XMLSource.CODE_FALLBACK_ID,
-                                    "//ldml/localeDisplayNames/territories/territory[@type=\"CH\"]",
                                     Reason.constructed),
                             new LocaleInheritanceInfo(locale, p, Reason.none),
                             new LocaleInheritanceInfo(XMLSource.ROOT_ID, p, Reason.none),
@@ -388,5 +376,24 @@ public class TestCLDRFile {
                     () -> baselineFactory.make("de_RU".toString(), true));
             baselineFactory.make("es_MX".toString(), true);
         }
+    }
+
+    @Test
+    public void TestTypeNameToCode() {
+        assertEquals(NameType.LANGUAGE, NameType.typeNameToCode("language"));
+        assertEquals(NameType.TERRITORY, NameType.typeNameToCode("territory"));
+        assertEquals(NameType.VARIANT, NameType.typeNameToCode("variant"));
+        assertEquals(NameType.CURRENCY, NameType.typeNameToCode("currency"));
+        assertEquals(NameType.CURRENCY_SYMBOL, NameType.typeNameToCode("currency-symbol"));
+        assertEquals(NameType.TZ_EXEMPLAR, NameType.typeNameToCode("exemplar-city"));
+        assertEquals(NameType.TZ_GENERIC_LONG, NameType.typeNameToCode("tz-generic-long"));
+        assertEquals(NameType.TZ_GENERIC_SHORT, NameType.typeNameToCode("tz-generic-short"));
+        assertEquals(NameType.TZ_STANDARD_LONG, NameType.typeNameToCode("tz-standard-long"));
+        assertEquals(NameType.TZ_STANDARD_SHORT, NameType.typeNameToCode("tz-standard-short"));
+        assertEquals(NameType.TZ_DAYLIGHT_LONG, NameType.typeNameToCode("tz-daylight-long"));
+        assertEquals(NameType.TZ_DAYLIGHT_SHORT, NameType.typeNameToCode("tz-daylight-short"));
+        assertEquals(NameType.KEY, NameType.typeNameToCode("key"));
+        assertEquals(NameType.KEY_TYPE, NameType.typeNameToCode("key|type"));
+        assertEquals(NameType.SUBDIVISION, NameType.typeNameToCode("subdivision"));
     }
 }

@@ -8,7 +8,6 @@ import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.impl.Relation;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -25,6 +24,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.test.CheckCLDR.InputMethod;
 import org.unicode.cldr.test.CheckCLDR.Phase;
 import org.unicode.cldr.test.CheckCLDR.StatusAction;
@@ -166,6 +166,7 @@ public class TestExampleGenerator extends TestFmwk {
                     "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"([^\"]*+)\"]",
                     "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"([^\"]*+)\"]",
                     "//ldml/characters/parseLenients[@scope=\"([^\"]*+)\"][@level=\"([^\"]*+)\"]/parseLenient[@sample=\"([^\"]*+)\"]");
+
     // Only add to above if the example should NEVER appear.
 
     /**
@@ -243,6 +244,7 @@ public class TestExampleGenerator extends TestFmwk {
                     "//ldml/personNames/parameterDefault[@parameter=\"([^\"]*+)\"]" // TODO
                     // CLDR-15384
                     );
+
     // Add to above if the example SHOULD appear, but we don't have it yet. TODO Add later
 
     /**
@@ -274,6 +276,7 @@ public class TestExampleGenerator extends TestFmwk {
                     "//ldml/dates/timeZoneNames/metazone[@type=\"([^\"]*+)\"]/long/standard",
                     "//ldml/dates/timeZoneNames/metazone[@type=\"([^\"]*+)\"]/long/daylight",
                     "//ldml/units/durationUnit[@type=\"([^\"]*+)\"]/durationUnitPattern");
+
     // Only add to above if the background should NEVER appear.
 
     /**
@@ -504,9 +507,10 @@ public class TestExampleGenerator extends TestFmwk {
     private void checkCompoundUnits(String locale, String[][] tests) {
         ExampleGenerator exampleGenerator = getExampleGenerator(locale);
         for (String[] test : tests) {
-            String actual =
-                    exampleGenerator.handleCompoundUnit(
-                            UnitLength.valueOf(test[1]), test[0], Count.valueOf(test[2]));
+            List<String> examples = new ArrayList<>();
+            exampleGenerator.handleCompoundUnit(
+                    UnitLength.valueOf(test[1]), test[0], Count.valueOf(test[2]), examples);
+            String actual = exampleGenerator.formatExampleList(examples);
             assertEquals("CompoundUnit", test[3], ExampleGenerator.simplify(actual, true));
         }
     }
@@ -566,10 +570,10 @@ public class TestExampleGenerator extends TestFmwk {
         for (String[] test : tests) {
 
             ExampleGenerator exampleGenerator = getExampleGenerator(test[0]);
-
-            String actual =
-                    exampleGenerator.handleCompoundUnit1(
-                            UnitLength.valueOf(test[1]), Count.valueOf(test[2]), test[3]);
+            List<String> examples = new ArrayList<>();
+            exampleGenerator.handleCompoundUnit1(
+                    UnitLength.valueOf(test[1]), Count.valueOf(test[2]), test[3], examples);
+            String actual = exampleGenerator.formatExampleList(examples);
             assertEquals("CompoundUnit", test[4], ExampleGenerator.simplify(actual, true));
         }
     }
@@ -1546,7 +1550,11 @@ public class TestExampleGenerator extends TestFmwk {
                                 + "\"]",
                         Pair.of("gender", unitGender));
             }
-            String localeName = CLDRConfig.getInstance().getEnglish().getName(locale);
+            String localeName =
+                    CLDRConfig.getInstance()
+                            .getEnglish()
+                            .nameGetter()
+                            .getNameFromIdentifier(locale);
             boolean pluralOnly = true;
             if (paths.isEmpty()) {
                 pluralSheet.add(
@@ -1799,6 +1807,36 @@ public class TestExampleGenerator extends TestFmwk {
                 "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/quarters/quarterContext[@type=\"stand-alone\"]/quarterWidth[@type=\"abbreviated\"]/quarter[@type=\"4\"]");
     }
 
+    public void TestRelative() {
+        ExampleGenerator exampleGeneratorIt = getExampleGenerator("it");
+        ExampleGenerator exampleGeneratorAm = getExampleGenerator("am");
+        checkValue(
+                "it relative day type 2",
+                "〖Dopodomani (5 settembre)〗〖5 settembre (dopodomani)〗",
+                exampleGeneratorIt,
+                "//ldml/dates/fields/field[@type=\"day\"]/relative[@type=\"2\"]");
+        checkValue(
+                "it relative hour future-other",
+                "〖Tra ❬10❭ ore (18:25)〗〖18:25 (tra ❬10❭ ore)〗",
+                exampleGeneratorIt,
+                "//ldml/dates/fields/field[@type=\"hour\"]/relativeTime[@type=\"future\"]/relativeTimePattern[@count=\"other\"]");
+        checkValue(
+                "it relative year past-one",
+                "〖❬1❭ anno fa (settembre 1999)〗〖settembre 1999 (❬1❭ anno fa)〗",
+                exampleGeneratorIt,
+                "//ldml/dates/fields/field[@type=\"year\"]/relativeTime[@type=\"past\"]/relativeTimePattern[@count=\"one\"]");
+        checkValue(
+                "am relative month future-one",
+                "〖በ❬1❭ ወር ውስጥ (ሴፕቴምበር 1999)〗〖ሴፕቴምበር 1999 (በ❬1❭ ወር ውስጥ)〗",
+                exampleGeneratorAm,
+                "//ldml/dates/fields/field[@type=\"month\"]/relativeTime[@type=\"future\"]/relativeTimePattern[@count=\"one\"]");
+        checkValue(
+                "am relative month future-other",
+                "〖በ❬10❭ ወራት ውስጥ (ሴፕቴምበር 1999)〗〖ሴፕቴምበር 1999 (በ❬10❭ ወራት ውስጥ)〗",
+                exampleGeneratorAm,
+                "//ldml/dates/fields/field[@type=\"month\"]/relativeTime[@type=\"future\"]/relativeTimePattern[@count=\"other\"]");
+    }
+
     static final class MissingKey implements Comparable<MissingKey> {
         final SectionId sectionId;
         final PageId pageId;
@@ -2047,22 +2085,22 @@ public class TestExampleGenerator extends TestFmwk {
                 "*"
             },
             {
-                "CLDR-17756 Add examples of date intervals",
+                "CLDR-17945 Add examples of date intervals",
                 "//ldml/dates/calendars/calendar[@type=\"*\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"*\"]/greatestDifference[@id=\"*\"]",
                 "*"
             },
             {
-                "CLDR-17756 Show \"{0} ¤¤\" with formatted number and ISO code, eg {0} ¤¤ becomes 3,5 EUR",
+                "CLDR-17945 Show \"{0} ¤¤\" with formatted number and ISO code, eg {0} ¤¤ becomes 3,5 EUR",
                 "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyPatternAppendISO",
                 "*"
             },
             {
-                "CLDR-17756 Show 2 currencies with pattern, eg EUR ➔ USD",
+                "CLDR-17945 Show 2 currencies with pattern, eg EUR ➔ USD",
                 "//ldml/numbers/currencies/currency[@type=\"*\"]/displayName",
                 "*"
             },
             {
-                "CLDR-17756 Show as part of a locale name",
+                "CLDR-17945 Show as part of a locale name",
                 "//ldml/localeDisplayNames/keys/key[@type=\"*\"]"
                         + "//ldml/localeDisplayNames/measurementSystemNames/measurementSystemName[@type=\"*\"]"
                         + "//ldml/localeDisplayNames/subdivisions/subdivision[@type=\"*\"]"
@@ -2070,7 +2108,7 @@ public class TestExampleGenerator extends TestFmwk {
                 "*"
             },
             {
-                "CLDR-17756 Show using two months, eg Januar - Juni",
+                "CLDR-17945 Show using two months, eg Januar - Juni",
                 "//ldml/dates/calendars/calendar[@type=\"*\"]/dateTimeFormats/intervalFormats/intervalFormatFallback",
                 "*"
             },
@@ -2081,14 +2119,14 @@ public class TestExampleGenerator extends TestFmwk {
                 "*"
             },
             {
-                "CLDR-17756 Show font with field, eg: Helvetica (kursiv), Helvetica (Kursivstellung), Helvetica (vertikale Brüch)",
+                "CLDR-17945 Show font with field, eg: Helvetica (kursiv), Helvetica (Kursivstellung), Helvetica (vertikale Brüch)",
                 "//ldml/typographicNames/styleName[@type=\"*\"][@subtype=\"*\"]"
                         + "//ldml/typographicNames/axisName[@type=\"*\"]"
                         + "//ldml/typographicNames/featureName[@type=\"*\"]",
                 "*"
             },
             {
-                "CLDR-17756 Show in date with both variants: formatting and standalone. That way people can see what difference it makes, eg between MMMM and LLLL",
+                "CLDR-17945 Show in date with both variants: formatting and standalone. That way people can see what difference it makes, eg between MMMM and LLLL",
                 "//ldml/dates/calendars/calendar[@type=\"*\"]/days/dayContext[@type=\"*\"]/dayWidth[@type=\"*\"]/day[@type=\"*\"]"
                         + "//ldml/dates/calendars/calendar[@type=\"*\"]/months/monthContext[@type=\"*\"]/monthWidth[@type=\"*\"]/month[@type=\"*\"]"
                         + "//ldml/dates/calendars/calendar[@type=\"*\"]/months/monthContext[@type=\"*\"]/monthWidth[@type=\"*\"]/month[@type=\"*\"][@yeartype=\"*\"]"
@@ -2096,12 +2134,12 @@ public class TestExampleGenerator extends TestFmwk {
                 "*"
             },
             {
-                "CLDR-17756 Show pattern with example",
+                "CLDR-17945 Show pattern with example",
                 "//ldml/dates/fields/field[@type=\"*\"]/relativePeriod",
                 "*"
             },
             {
-                "CLDR-17756 Show sample name with 2 different values",
+                "CLDR-17945 Show sample name with 2 different values",
                 "//ldml/personNames/foreignSpaceReplacement"
                         + "//ldml/personNames/initialPattern[@type=\"*\"]"
                         + "//ldml/personNames/nativeSpaceReplacement"
@@ -2110,12 +2148,12 @@ public class TestExampleGenerator extends TestFmwk {
                 "*"
             },
             {
-                "CLDR-17756 Show two units with pattern, eg 'Meter ➔ Fuß'",
+                "CLDR-17945 Show two units with pattern, eg 'Meter ➔ Fuß'",
                 "//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/displayName",
                 "*"
             },
             {
-                "CLDR-17756 Show with {0}: {0}, eg Monat: Januar",
+                "CLDR-17945 Show with {0}: {0}, eg Monat: Januar",
                 "//ldml/dates/fields/field[@type=\"*\"]/displayName",
                 "*"
             },
@@ -2125,30 +2163,30 @@ public class TestExampleGenerator extends TestFmwk {
                 "*"
             },
             {
-                "CLDR-17756 Show with formattted date, including era",
+                "CLDR-17945 Show with formattted date, including era",
                 "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraAbbr/era[@type=\"*\"]\n"
                         + "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraNames/era[@type=\"*\"]",
                 "*"
             },
             {
-                "CLDR-17756 Show with pattern, eg '30° Süd'",
+                "CLDR-17945 Show with pattern, eg '30° Süd'",
                 "//ldml/units/unitLength[@type=\"*\"]/coordinateUnit/coordinateUnitPattern[@type=\"*\"]",
                 "*"
             },
             {
-                "CLDR-17756 Show with pattern, eg Richtung: 30° Süd",
+                "CLDR-17945 Show with pattern, eg Richtung: 30° Süd",
                 "//ldml/units/unitLength[@type=\"*\"]/coordinateUnit/displayName",
                 "*"
             },
             {
-                "CLDR-17756 Show with sample characters (where possible, emoji)",
+                "CLDR-17945 Show with sample characters (where possible, emoji)",
                 "//ldml/characterLabels/characterLabelPattern[@type=\"*\"][@count=\"*\"]\n"
                         + "//ldml/characterLabels/characterLabel[@type=\"*\"]\n"
                         + "//ldml/characterLabels/characterLabelPattern[@type=\"*\"]",
                 "*"
             },
             {
-                "CLDR-17756 Use gender minimal pair patterns to show in context — look at the minimal pair examples, reversing the background",
+                "CLDR-17945 Use gender minimal pair patterns to show in context — look at the minimal pair examples, reversing the background",
                 "//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/gender",
                 "*"
             }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -2875,6 +2875,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<regionFormat type="daylight">Kurasí Ara Hurariyu: {0}</regionFormat>
 			<regionFormat type="standard">Hurariyu Retewa: {0}</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>Hunururu</exemplarCity>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>Hurariyu Mũdi turususawa Kurdenadu</standard>
@@ -3609,9 +3612,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>Urã Baturu</exemplarCity>
 			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity>Xuibausã</exemplarCity>
-			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity>Makau</exemplarCity>
 			</zone>
@@ -4008,9 +4008,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Nome">
 				<exemplarCity>Réra</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>Hunururu</exemplarCity>
-			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>Ãkurage</exemplarCity>
 			</zone>
@@ -4403,13 +4400,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Xina Hurariyu</generic>
 					<standard>Xina Hurariyu Retewa</standard>
 					<daylight>Xina Kurasí Ara Hurariyu</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>Xoibasã Hurariyu</generic>
-					<standard>Xoibasã Hurariyu Retewa</standard>
-					<daylight>Xoibasã Kurasí Ara Hurariyu</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">

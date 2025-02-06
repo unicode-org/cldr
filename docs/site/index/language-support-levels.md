@@ -6,13 +6,13 @@ title: Language Support Levels
 
 People often ask whether some device or application supports their language. This seems like a simple question: yes or no. But the reality is that there are different levels of support for a language, ranging from allowing the user to read their language on the platform all the way up to having a voice assistant in their language.
 
-This page defines a common set of terminology for language support levels for platforms such as operating systems, browsers, etc. The goal is to have consistent terminology so that people can clearly indicate the level of support for a given language. 
+This page defines a common set of terminology for language support levels for platforms such as operating systems, browsers, etc. The goal is to have consistent terminology so that people can clearly indicate the level of support for a given language.
 
-The focus here is on the incremental changes necessary to add a language to a platform that is already a Unicode-Enabled Platform. Note that the term 'language' is used for familiarity, but what needs to be supported are [locales](https://www.google.com/url?q=https://unicode-org.github.io/cldr/ldml/tr35.html%23Unicode_Language_and_Locale_Identifiers&sa=D&source=editors&ust=1717551026933717&usg=AOvVaw3RPCbCtWzpEK4qpEXVzEtJ).
+The focus here is on the incremental changes necessary to add a language to a platform that is already a Unicode-Enabled Platform. Note that the term 'language' is used for familiarity, but what needs to be supported are [locales](https://unicode-org.github.io/cldr/ldml/tr35.html#Unicode_Language_and_Locale_Identifiers).
 
 ## Support Levels
 
-1. Display - Text in the language can be read by users of the platform. 
+1. Display - Text in the language can be read by users of the platform.
     - **Characters** needed for the language are in Unicode.
     - **Fonts** supporting those characters are installed (or installable) on the platform
     - **The rendering system** supports the language’s script.
@@ -64,7 +64,7 @@ There are several general characteristics of languages, based on the kinds of te
     - *Examples of large exemplar set languages: Japanese, Chinese, Korean*
 - **Display Complexity** - The glyphs used to represent a string of characters in the language are context-dependent; sequence of glyphs is not simply a 1:1 match to the sequence of characters, and the glyph for a character may be very different depending on what characters are around it. A language written right to left (aka Bidi) also has a complex display.
     - *Examples of complex display languages: Hindi, Tamil; Arabic, Hebrew*
-- **Degree of [Inflection](https://www.google.com/url?q=https://en.wikipedia.org/wiki/Inflection&sa=D&source=editors&ust=1717551026943395&usg=AOvVaw0JeJix-GF_O0Hl8E0MmoSQ)** - very roughly, how much words in the language need to change form depending on context. Typically the most important feature for message support.
+- **Degree of [Inflection](https://en.wikipedia.org/wiki/Inflection)** - very roughly, how much words in the language need to change form depending on context. Typically the most important feature for message support.
     - *Examples of highly inflected languages: Most Slavic languages (eg, Czech), some Indo-Aryan languages (eg, Marathi), Arabic, Finnish, Turkish*
 
 In general, the smaller the exemplar set, the simpler the display, and the fewer inflections, the easier it is to support a language on computers. However, when a platform or application is already able to handle a language with a certain set of characteristics, it is much easier to add other languages with those characteristics. So in general, if a platform handles a spread of languages like Japanese, Tamil, Arabic, Russian, and Turkish, it is easier to add support for other languages.
@@ -126,4 +126,3 @@ Below are examples of selecting Cherokee on different systems. (Cherokee in Cher
 
 Cherokee is not typically a UI language for the OS, meaning the system isn't translated into it. So in practice a user must also select an alternative language such as English that will appear in the UI for any applications that don't support Cherokee.
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

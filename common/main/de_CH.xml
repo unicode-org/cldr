@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -2685,6 +2685,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<regionFormat type="daylight">↑↑↑</regionFormat>
 			<regionFormat type="standard">↑↑↑</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>↑↑↑</standard>
@@ -3422,9 +3425,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity>Macao</exemplarCity>
 			</zone>
@@ -3824,9 +3824,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="America/Nome">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
@@ -4165,13 +4162,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</long>
 			</metazone>
 			<metazone type="China">
-				<long>
-					<generic>↑↑↑</generic>
-					<standard>↑↑↑</standard>
-					<daylight>↑↑↑</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
 				<long>
 					<generic>↑↑↑</generic>
 					<standard>↑↑↑</standard>
@@ -8259,18 +8249,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
 				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
 			</unit>
-			<unit type="speed-light-speed">
-				<gender>↑↑↑</gender>
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="dative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-			</unit>
 			<unit type="concentr-portion-per-1e9">
 				<gender>↑↑↑</gender>
 				<displayName>↑↑↑</displayName>
@@ -9362,11 +9340,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="speed-light-speed">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
 			<unit type="concentr-portion-per-1e9">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -10440,11 +10413,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-quart-imperial">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-			</unit>
-			<unit type="speed-light-speed">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>

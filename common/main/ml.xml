@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -4200,6 +4200,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<regionFormat type="daylight">{0} ഡേലൈറ്റ് സമയം</regionFormat>
 			<regionFormat type="standard">{0} സ്റ്റാൻഡേർഡ് സമയം</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>ഹോണലൂലു</exemplarCity>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>കോർഡിനേറ്റഡ് യൂണിവേഴ്‌സൽ സമയം</standard>
@@ -4937,9 +4940,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>ഉലാൻബാത്തർ</exemplarCity>
 			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity>ചൊയ്ബൽസൻ</exemplarCity>
-			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity>മക്കാവു</exemplarCity>
 			</zone>
@@ -5339,9 +5339,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Nome">
 				<exemplarCity>നോം</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>ഹോണലൂലു</exemplarCity>
-			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>ആങ്കറേജ്</exemplarCity>
 			</zone>
@@ -5719,13 +5716,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>ചൈന സമയം</generic>
 					<standard>ചൈന സ്റ്റാൻഡേർഡ് സമയം</standard>
 					<daylight>ചൈന ഡേലൈറ്റ് സമയം</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>ചോയി‍ബൽസാൻ സമയം</generic>
-					<standard>ചോയ്‌ബൽസാൻ സ്റ്റാൻഡേർഡ് സമയം</standard>
-					<daylight>ചോയിബൽസാൻ ഗ്രീഷ്‌മകാല സമയം</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">

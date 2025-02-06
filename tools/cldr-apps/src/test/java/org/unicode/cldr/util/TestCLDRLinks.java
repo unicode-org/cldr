@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
-import com.ibm.icu.dev.test.UnicodeKnownIssues;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Collections;
@@ -23,6 +22,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import org.unicode.cldr.icu.dev.test.UnicodeKnownIssues;
 import org.unicode.cldr.rdf.QueryClient;
 import org.unicode.cldr.test.CheckQuotes;
 import org.unicode.cldr.tool.Chart;

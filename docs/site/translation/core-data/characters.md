@@ -6,7 +6,7 @@ title: Alphabetic Information
 
 ## Ellipsis Patterns
 
-Ellipsis patterns are used in a display when the text is too long to be shown. It will be used in environments where there is very little space, so it should be just one character; where that really can't work, it should be as short as possible. 
+Ellipsis patterns are used in a display when the text is too long to be shown. It will be used in environments where there is very little space, so it should be just one character; where that really can't work, it should be as short as possible.
 
 There are three different possible patterns that need to be translated. Typically the same character is used in all three, but three choices are provided just in case different characters would be appropriate in different contexts, for some languages.
 
@@ -63,7 +63,7 @@ Currently the CLDR survey tool checks input delimiters against a predefined set 
 
 ‘  U+2018 LEFT SINGLE QUOTATION MARK ’  U+2019 RIGHT SINGLE QUOTATION MARK ‚  U+201A SINGLE LOW-9 QUOTATION MARK “  U+201C LEFT DOUBLE QUOTATION MARK ”  U+201D RIGHT DOUBLE QUOTATION MARK „  U+201E DOUBLE LOW-9 QUOTATION MARK 「  U+300C LEFT CORNER BRACKET 」  U+300D RIGHT CORNER BRACKET 『  U+300E LEFT WHITE CORNER BRACKET 』  U+300F RIGHT WHITE CORNER BRACKET ‹  U+2039 SINGLE LEFT-POINTING ANGLE QUOTATION MARK ›  U+203A SINGLE RIGHT-POINTING ANGLE QUOTATION MARK «  U+00AB LEFT-POINTING DOUBLE ANGLE QUOTATION MARK »  U+00BB RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
 
-If you need to enter a delimiter that is not one of the characters on this list, please file a new ticket by following [these instructions](https://cldr.unicode.org/index/bug-reports).
+If you need to enter a delimiter that is not one of the characters on this list, please file a new ticket by following [these instructions](/index/bug-reports).
 
 ## Yes/No
 
@@ -75,4 +75,3 @@ There are special versions of "Yes" and "No" used in POSIX (Portable Operating S
 | No | no:n |
 
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

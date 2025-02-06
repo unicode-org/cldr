@@ -237,7 +237,7 @@ public class GenerateLanguageContainment {
             code ->
                     code.equals(LocaleNames.MUL)
                             ? LocaleNames.ROOT
-                            : ENGLISH.getName(code) + " (" + code + ")";
+                            : ENGLISH.nameGetter().getNameFromIdentifier(code) + " (" + code + ")";
 
     static final Set<String> COLLECTIONS;
 
@@ -400,7 +400,12 @@ public class GenerateLanguageContainment {
         if (true) {
             // check on items
             for (String check : Arrays.asList("sw", "km", "ksh", "wae", "kea", "mfe", "th", "lo")) {
-                System.out.println("Checking " + ENGLISH.getName(check) + "[" + check + "]");
+                System.out.println(
+                        "Checking "
+                                + ENGLISH.nameGetter().getNameFromIdentifier(check)
+                                + "["
+                                + check
+                                + "]");
                 Collection<String> entities = QUERY_HELPER.codeToEntity.get(check);
                 if (entities.isEmpty()) {
                     System.out.println("no code for " + check + ": " + entities);

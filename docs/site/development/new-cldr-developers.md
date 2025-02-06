@@ -22,7 +22,7 @@ Next, get your Eclipse environment set up properly.
 
 1. http://cldr.unicode.org/development/eclipse-setup
 2. http://cldr.unicode.org/development/running-survey-tool/eclipse
-    
+
 
 **Run the CLDR tests to be sure they pass before beginning work**:
 
@@ -38,11 +38,11 @@ Command line:
 8.  The -v tells test script to show stack trace at the test failure for debugging.
 9.  To get all parameters that could be passed at runcheck.arg, run
 10.  **ant -Druncheck.arg="-?" check**
-        
+
 
 Via eclipse:
 
-1.  Go [here](https://cldr.unicode.org/development/eclipse-setup%23TOC-Test)
+1.  Go [here](/development/eclipse-setup%23TOC-Test)
 
 Once you are all set up, be sure to read the development process, for how to handle tickets, when you can't make changes, etc.
 
@@ -56,8 +56,7 @@ The table below points to documentation for various tasks.
 | performance work | http://cldr.unicode.org/development/perf-testing |
 | survey tool database work | http://cldr.unicode.org/development/running-survey-tool/cldr-properties/db |
 
-Other useful pages are under [CLDR Development Site](https://cldr.unicode.org/development/cldr-development-site); you can also use the search box.
+Other useful pages are under [CLDR Development Site](/development/cldr-development-site); you can also use the search box.
 
 [UTS #35: Unicode Locale Data Markup Language (LDML)](https://www.unicode.org/reports/tr35/) is the specification of the XML format used for CLDR data, including the interpretation of the CLDR data.
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

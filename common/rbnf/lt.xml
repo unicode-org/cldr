@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
-Copyright © 1991-2013 Unicode, Inc.
-CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+Copyright © 1991-2024 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
+SPDX-License-Identifier: Unicode-DFS-2016
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
     <identity>
@@ -14,110 +15,493 @@ For terms of use, see http://www.unicode.org/copyright.html
         <rulesetGrouping type="SpelloutRules">
             <ruleset type="spellout-numbering-year">
                 <rbnfrule value="x.x">=0.0=;</rbnfrule>
-                <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
+                <rbnfrule value="0">=%spellout-ordinal-masculine-plural-genitive=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-numbering">
                 <rbnfrule value="0">=%spellout-cardinal-masculine=;</rbnfrule>
             </ruleset>
-            <ruleset type="spellout-cardinal-feminine-accusative" access="private">
-                <rbnfrule value="0">ERROR;</rbnfrule>
-                <rbnfrule value="2">dvi;</rbnfrule>
-                <rbnfrule value="3">tris;</rbnfrule>
-                <rbnfrule value="4">keturias;</rbnfrule>
-                <rbnfrule value="5">penkias;</rbnfrule>
-                <rbnfrule value="6">šešias;</rbnfrule>
-                <rbnfrule value="7">septynias;</rbnfrule>
-                <rbnfrule value="8">aštuonias;</rbnfrule>
-                <rbnfrule value="9">devynias;</rbnfrule>
-                <rbnfrule value="10">ERROR;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-thousands" access="private">
-                 <rbnfrule value="0">tūkstančių;</rbnfrule>
-                <rbnfrule value="1">=%spellout-cardinal-masculine= tūkstantis;</rbnfrule>
-                <rbnfrule value="2">=%spellout-cardinal-masculine= tūkstančiai;</rbnfrule>
-                <rbnfrule value="10">=%spellout-cardinal-masculine= tūkstančių;</rbnfrule>
-                <rbnfrule value="21">=%spellout-cardinal-masculine= tūkstantis;</rbnfrule>
-                <rbnfrule value="22">=%spellout-cardinal-masculine= tūkstančiai;</rbnfrule>
-                <rbnfrule value="30">=%spellout-cardinal-masculine= tūkstančių;</rbnfrule>
-                <rbnfrule value="31">=%spellout-cardinal-masculine= tūkstantis;</rbnfrule>
-                <rbnfrule value="32">=%spellout-cardinal-masculine= tūkstančiai;</rbnfrule>
-                <rbnfrule value="40">=%spellout-cardinal-masculine= tūkstančių;</rbnfrule>
-                <rbnfrule value="41">=%spellout-cardinal-masculine= tūkstantis;</rbnfrule>
-                <rbnfrule value="42">=%spellout-cardinal-masculine= tūkstančiai;</rbnfrule>
-                <rbnfrule value="50">=%spellout-cardinal-masculine= tūkstančių;</rbnfrule>
-                <rbnfrule value="51">=%spellout-cardinal-masculine= tūkstantis;</rbnfrule>
-                <rbnfrule value="52">=%spellout-cardinal-masculine= tūkstančiai;</rbnfrule>
-                <rbnfrule value="60">=%spellout-cardinal-masculine= tūkstančių;</rbnfrule>
-                <rbnfrule value="61">=%spellout-cardinal-masculine= tūkstantis;</rbnfrule>
-                <rbnfrule value="62">=%spellout-cardinal-masculine= tūkstančiai;</rbnfrule>
-                <rbnfrule value="70">=%spellout-cardinal-masculine= tūkstančių;</rbnfrule>
-                <rbnfrule value="71">=%spellout-cardinal-masculine= tūkstantis;</rbnfrule>
-                <rbnfrule value="72">=%spellout-cardinal-masculine= tūkstančiai;</rbnfrule>
-                <rbnfrule value="80">=%spellout-cardinal-masculine= tūkstančių;</rbnfrule>
-                <rbnfrule value="81">=%spellout-cardinal-masculine= tūkstantis;</rbnfrule>
-                <rbnfrule value="82">=%spellout-cardinal-masculine= tūkstančiai;</rbnfrule>
-                <rbnfrule value="90">=%spellout-cardinal-masculine= tūkstančių;</rbnfrule>
-                <rbnfrule value="91">=%spellout-cardinal-masculine= tūkstantis;</rbnfrule>
-                <rbnfrule value="92">=%spellout-cardinal-masculine= tūkstančiai;</rbnfrule>
-                <rbnfrule value="100">šimtas →→;</rbnfrule>
-                <rbnfrule value="200">←%spellout-cardinal-masculine← šimtai →→;</rbnfrule>
+            <ruleset type="spellout-cardinal-stem-few" access="private">
+                <rbnfrule value="0">0;</rbnfrule>
+                <rbnfrule value="1">1;</rbnfrule>
+                <rbnfrule value="2">2;</rbnfrule>
+                <rbnfrule value="3">3;</rbnfrule>
+                <rbnfrule value="4">ketur;</rbnfrule>
+                <rbnfrule value="5">penk;</rbnfrule>
+                <rbnfrule value="6">šeš;</rbnfrule>
+                <rbnfrule value="7">septyn;</rbnfrule>
+                <rbnfrule value="8">aštuon;</rbnfrule>
+                <rbnfrule value="9">devyn;</rbnfrule>
+                <rbnfrule value="10">10;</rbnfrule>
+                <rbnfrule value="11">vienuolik;</rbnfrule>
+                <rbnfrule value="12">dvylik;</rbnfrule>
+                <rbnfrule value="13">trylik;</rbnfrule>
+                <rbnfrule value="14">keturiolik;</rbnfrule>
+                <rbnfrule value="15">penkiolik;</rbnfrule>
+                <rbnfrule value="16">šešiolik;</rbnfrule>
+                <rbnfrule value="17">septyniolik;</rbnfrule>
+                <rbnfrule value="18">aštuoniolik;</rbnfrule>
+                <rbnfrule value="19">devyniolik;</rbnfrule>
+                <rbnfrule value="20">=%spellout-cardinal-masculine=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-cardinal-masculine">
                 <rbnfrule value="-x">mīnus →→;</rbnfrule>
-                <rbnfrule value="x.x">←← kablelis →→;</rbnfrule>
+                <rbnfrule value="x.x">[←← ir ]→%%fractions-feminine→;</rbnfrule>
                 <rbnfrule value="0">nulis;</rbnfrule>
                 <rbnfrule value="1">vienas;</rbnfrule>
                 <rbnfrule value="2">du;</rbnfrule>
                 <rbnfrule value="3">trys;</rbnfrule>
-                <rbnfrule value="4">keturi;</rbnfrule>
-                <rbnfrule value="5">penki;</rbnfrule>
-                <rbnfrule value="6">šeši;</rbnfrule>
-                <rbnfrule value="7">septyni;</rbnfrule>
-                <rbnfrule value="8">aštuoni;</rbnfrule>
-                <rbnfrule value="9">devyni;</rbnfrule>
+                <rbnfrule value="4">=%%spellout-cardinal-stem-few=i;</rbnfrule>
                 <rbnfrule value="10">dešimt;</rbnfrule>
-                <rbnfrule value="11">vienuolika;</rbnfrule>
-                <rbnfrule value="12">dvylika;</rbnfrule>
-                <rbnfrule value="13">trylika;</rbnfrule>
-                <rbnfrule value="14">→→olika;</rbnfrule>
-                <rbnfrule value="20">←%%spellout-cardinal-feminine-accusative←dešimt[ →→];</rbnfrule>
+                <rbnfrule value="11">=%%spellout-cardinal-stem-few=a;</rbnfrule>
+                <rbnfrule value="20">←%spellout-cardinal-feminine-accusative←dešimt[ →→];</rbnfrule>
                 <rbnfrule value="100">šimtas[ →→];</rbnfrule>
                 <rbnfrule value="200">←%spellout-cardinal-masculine← šimtai[ →→];</rbnfrule>
                 <rbnfrule value="1000">tūkstantis[ →→];</rbnfrule>
-                <rbnfrule value="2000" radix="1000">←%%spellout-thousands←[ →→];</rbnfrule>
-                <rbnfrule value="1000000">vienas milijonas[ →→];</rbnfrule>
-                <rbnfrule value="2000000">←%spellout-cardinal-masculine← milijonų[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">vienas milijardas[ →→];</rbnfrule>
-                <rbnfrule value="2000000000">←%spellout-cardinal-masculine← milijardų[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">vienas trilijonas[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000">←%spellout-cardinal-masculine←trilijonų[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">vienas kvadrilijonas[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000000">←%spellout-cardinal-masculine← kvadrilijonų[ →→];</rbnfrule>
+                <rbnfrule value="2000">←%spellout-cardinal-masculine← $(cardinal,one{tūkstantis}few{tūkstančiai}other{tūkstančių})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000">←%spellout-cardinal-masculine← $(cardinal,one{milijonas}few{milijonai}other{milijonų})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000">←%spellout-cardinal-masculine← $(cardinal,one{milijardas}few{milijardai}other{milijardų})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000">←%spellout-cardinal-masculine← $(cardinal,one{trilijonas}few{trilijonai}other{trilijonų})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine← $(cardinal,one{kvadrilijonas}few{kvadrilijonai}other{kvadrilijonų})$[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-cardinal-feminine">
                 <rbnfrule value="-x">mīnus →→;</rbnfrule>
-                <rbnfrule value="x.x">←← kablelis →→;</rbnfrule>
+                <rbnfrule value="x.x">[←← ir ]→%%fractions-feminine→;</rbnfrule>
                 <rbnfrule value="0">nulis;</rbnfrule>
                 <rbnfrule value="1">viena;</rbnfrule>
                 <rbnfrule value="2">dvi;</rbnfrule>
                 <rbnfrule value="3">trys;</rbnfrule>
-                <rbnfrule value="4">=%spellout-cardinal-masculine=os;</rbnfrule>
-                <rbnfrule value="10">=%spellout-cardinal-masculine=;</rbnfrule>
-                <rbnfrule value="20">←%%spellout-cardinal-feminine-accusative←dešimt[ →→];</rbnfrule>
+                <rbnfrule value="4">=%%spellout-cardinal-stem-few=ios;</rbnfrule>
+                <rbnfrule value="10">dešimt;</rbnfrule>
+                <rbnfrule value="11">=%%spellout-cardinal-stem-few=a;</rbnfrule>
+                <rbnfrule value="20">←%spellout-cardinal-feminine-accusative←dešimt[ →→];</rbnfrule>
                 <rbnfrule value="100">šimtas[ →→];</rbnfrule>
                 <rbnfrule value="200">←%spellout-cardinal-masculine← šimtai[ →→];</rbnfrule>
                 <rbnfrule value="1000">tūkstantis[ →→];</rbnfrule>
-                <rbnfrule value="2000" radix="1000">←%%spellout-thousands←[ →→];</rbnfrule>
-                <rbnfrule value="1000000">vienas milijonas[ →→];</rbnfrule>
-                <rbnfrule value="2000000">←%spellout-cardinal-masculine← milijonų[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">vienas milijardas[ →→];</rbnfrule>
-                <rbnfrule value="2000000000">←%spellout-cardinal-masculine← milijardų[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">vienas trilijonas[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000">←%spellout-cardinal-masculine← trilijonų[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">vienas kvadrilijonas[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000000">←%spellout-cardinal-masculine← kvadrilijonų[ →→];</rbnfrule>
+                <rbnfrule value="2000">←%spellout-cardinal-masculine← $(cardinal,one{tūkstantis}few{tūkstančiai}other{tūkstančių})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000">←%spellout-cardinal-masculine← $(cardinal,one{milijonas}few{milijonai}other{milijonų})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000">←%spellout-cardinal-masculine← $(cardinal,one{milijardas}few{milijardai}other{milijardų})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000">←%spellout-cardinal-masculine← $(cardinal,one{trilijonas}few{trilijonai}other{trilijonų})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine← $(cardinal,one{kvadrilijonas}few{kvadrilijonai}other{kvadrilijonų})$[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
+            </ruleset>
+            <ruleset type="fractions-feminine" access="private">
+                <rbnfrule value="10">←%spellout-cardinal-feminine← $(cardinal,one{dešimtosio}other{dešimtosios})$;</rbnfrule>
+                <rbnfrule value="100">←%spellout-cardinal-feminine← $(cardinal,one{šimtosio}other{šimtosios})$;</rbnfrule>
+                <rbnfrule value="1000">←%spellout-cardinal-feminine← $(cardinal,one{tūkstantosio}other{tūkstantosios})$;</rbnfrule>
+                <rbnfrule value="10000">←%spellout-cardinal-feminine← $(cardinal,one{dešimttūkstantosio}other{dešimttūkstantosios})$;</rbnfrule>
+                <rbnfrule value="100000">←%spellout-cardinal-feminine← $(cardinal,one{šimtatūkstantosio}other{šimtatūkstantosios})$;</rbnfrule>
+                <rbnfrule value="1000000">←%spellout-cardinal-feminine← $(cardinal,one{milijonosio}other{milijonosios})$;</rbnfrule>
+                <rbnfrule value="10000000">←%spellout-cardinal-feminine← $(cardinal,one{dešimtmilijonosio}other{dešimtmilijonosios})$;</rbnfrule>
+                <rbnfrule value="100000000">←%spellout-cardinal-feminine← $(cardinal,one{šimtamilijonosio}other{šimtamilijonosios})$;</rbnfrule>
+                <rbnfrule value="1000000000">←0←;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-cardinal-masculine-genitive">
+                <rbnfrule value="-x">mīnus →→;</rbnfrule>
+                <rbnfrule value="x.x">[←← ir ]→%%fractions-feminine-genitive→;</rbnfrule>
+                <rbnfrule value="0">nulis;</rbnfrule>
+                <rbnfrule value="1">vieno;</rbnfrule>
+                <rbnfrule value="2">dviejų;</rbnfrule>
+                <rbnfrule value="3">trijų;</rbnfrule>
+                <rbnfrule value="4">=%%spellout-cardinal-stem-few=ių;</rbnfrule>
+                <rbnfrule value="10">dešimt;</rbnfrule>
+                <rbnfrule value="11">=%%spellout-cardinal-stem-few=os;</rbnfrule>
+                <rbnfrule value="20">←%spellout-cardinal-feminine-accusative←dešimt[ →→];</rbnfrule>
+                <rbnfrule value="100">šimtas[ →→];</rbnfrule>
+                <rbnfrule value="200">←%spellout-cardinal-masculine← šimtai[ →→];</rbnfrule>
+                <rbnfrule value="1000">tūkstantis[ →→];</rbnfrule>
+                <rbnfrule value="2000">←%spellout-cardinal-masculine← $(cardinal,one{tūkstantis}few{tūkstančiai}other{tūkstančių})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000">←%spellout-cardinal-masculine← $(cardinal,one{milijonas}few{milijonai}other{milijonų})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000">←%spellout-cardinal-masculine← $(cardinal,one{milijardas}few{milijardai}other{milijardų})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000">←%spellout-cardinal-masculine← $(cardinal,one{trilijonas}few{trilijonai}other{trilijonų})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine← $(cardinal,one{kvadrilijonas}few{kvadrilijonai}other{kvadrilijonų})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-cardinal-feminine-genitive">
+                <rbnfrule value="-x">mīnus →→;</rbnfrule>
+                <rbnfrule value="x.x">[←← ir ]→%%fractions-feminine-genitive→;</rbnfrule>
+                <rbnfrule value="0">nulis;</rbnfrule>
+                <rbnfrule value="1">vienos;</rbnfrule>
+                <rbnfrule value="2">dviejų;</rbnfrule>
+                <rbnfrule value="3">trijų;</rbnfrule>
+                <rbnfrule value="4">=%%spellout-cardinal-stem-few=ių;</rbnfrule>
+                <rbnfrule value="10">dešimt;</rbnfrule>
+                <rbnfrule value="11">=%%spellout-cardinal-stem-few=os;</rbnfrule>
+                <rbnfrule value="20">←%spellout-cardinal-feminine-accusative←dešimt[ →→];</rbnfrule>
+                <rbnfrule value="100">šimtas[ →→];</rbnfrule>
+                <rbnfrule value="200">←%spellout-cardinal-masculine← šimtai[ →→];</rbnfrule>
+                <rbnfrule value="1000">tūkstantis[ →→];</rbnfrule>
+                <rbnfrule value="2000">←%spellout-cardinal-masculine← $(cardinal,one{tūkstantis}few{tūkstančiai}other{tūkstančių})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000">←%spellout-cardinal-masculine← $(cardinal,one{milijonas}few{milijonai}other{milijonų})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000">←%spellout-cardinal-masculine← $(cardinal,one{milijardas}few{milijardai}other{milijardų})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000">←%spellout-cardinal-masculine← $(cardinal,one{trilijonas}few{trilijonai}other{trilijonų})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine← $(cardinal,one{kvadrilijonas}few{kvadrilijonai}other{kvadrilijonų})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
+            </ruleset>
+            <ruleset type="fractions-feminine-genitive" access="private">
+                <rbnfrule value="10">←%spellout-cardinal-feminine-genitive← $(cardinal,one{dešimtųjų}other{dešimtųjų})$;</rbnfrule>
+                <rbnfrule value="100">←%spellout-cardinal-feminine-genitive← $(cardinal,one{šimtųjų}other{šimtųjų})$;</rbnfrule>
+                <rbnfrule value="1000">←%spellout-cardinal-feminine-genitive← $(cardinal,one{tūkstantųjų}other{tūkstantųjų})$;</rbnfrule>
+                <rbnfrule value="10000">←%spellout-cardinal-feminine-genitive← $(cardinal,one{dešimttūkstantųjų}other{dešimttūkstantųjų})$;</rbnfrule>
+                <rbnfrule value="100000">←%spellout-cardinal-feminine-genitive← $(cardinal,one{šimtatūkstantųjų}other{šimtatūkstantųjų})$;</rbnfrule>
+                <rbnfrule value="1000000">←%spellout-cardinal-feminine-genitive← $(cardinal,one{milijonųjų}other{milijonųjų})$;</rbnfrule>
+                <rbnfrule value="10000000">←%spellout-cardinal-feminine-genitive← $(cardinal,one{dešimtmilijonųjų}other{dešimtmilijonųjų})$;</rbnfrule>
+                <rbnfrule value="100000000">←%spellout-cardinal-feminine-genitive← $(cardinal,one{šimtamilijonųjų}other{šimtamilijonųjų})$;</rbnfrule>
+                <rbnfrule value="1000000000">←0←;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-cardinal-masculine-dative">
+                <rbnfrule value="-x">mīnus →→;</rbnfrule>
+                <rbnfrule value="x.x">[←← ir ]→%%fractions-feminine-dative→;</rbnfrule>
+                <rbnfrule value="0">nulis;</rbnfrule>
+                <rbnfrule value="1">vienam;</rbnfrule>
+                <rbnfrule value="2">dviem;</rbnfrule>
+                <rbnfrule value="3">trims;</rbnfrule>
+                <rbnfrule value="4">=%%spellout-cardinal-stem-few=iems;</rbnfrule>
+                <rbnfrule value="10">dešimt;</rbnfrule>
+                <rbnfrule value="11">=%%spellout-cardinal-stem-few=ai;</rbnfrule>
+                <rbnfrule value="20">←%spellout-cardinal-feminine-accusative←dešimt[ →→];</rbnfrule>
+                <rbnfrule value="100">šimtas[ →→];</rbnfrule>
+                <rbnfrule value="200">←%spellout-cardinal-masculine← šimtai[ →→];</rbnfrule>
+                <rbnfrule value="1000">tūkstantis[ →→];</rbnfrule>
+                <rbnfrule value="2000">←%spellout-cardinal-masculine← $(cardinal,one{tūkstantis}few{tūkstančiai}other{tūkstančių})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000">←%spellout-cardinal-masculine← $(cardinal,one{milijonas}few{milijonai}other{milijonų})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000">←%spellout-cardinal-masculine← $(cardinal,one{milijardas}few{milijardai}other{milijardų})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000">←%spellout-cardinal-masculine← $(cardinal,one{trilijonas}few{trilijonai}other{trilijonų})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine← $(cardinal,one{kvadrilijonas}few{kvadrilijonai}other{kvadrilijonų})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-cardinal-feminine-dative">
+                <rbnfrule value="-x">mīnus →→;</rbnfrule>
+                <rbnfrule value="x.x">[←← ir ]→%%fractions-feminine-dative→;</rbnfrule>
+                <rbnfrule value="0">nulis;</rbnfrule>
+                <rbnfrule value="1">vienai;</rbnfrule>
+                <rbnfrule value="2">dviem;</rbnfrule>
+                <rbnfrule value="3">trims;</rbnfrule>
+                <rbnfrule value="4">=%%spellout-cardinal-stem-few=ioms;</rbnfrule>
+                <rbnfrule value="10">dešimt;</rbnfrule>
+                <rbnfrule value="11">=%%spellout-cardinal-stem-few=ai;</rbnfrule>
+                <rbnfrule value="20">←%spellout-cardinal-feminine-accusative←dešimt[ →→];</rbnfrule>
+                <rbnfrule value="100">šimtas[ →→];</rbnfrule>
+                <rbnfrule value="200">←%spellout-cardinal-masculine← šimtai[ →→];</rbnfrule>
+                <rbnfrule value="1000">tūkstantis[ →→];</rbnfrule>
+                <rbnfrule value="2000">←%spellout-cardinal-masculine← $(cardinal,one{tūkstantis}few{tūkstančiai}other{tūkstančių})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000">←%spellout-cardinal-masculine← $(cardinal,one{milijonas}few{milijonai}other{milijonų})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000">←%spellout-cardinal-masculine← $(cardinal,one{milijardas}few{milijardai}other{milijardų})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000">←%spellout-cardinal-masculine← $(cardinal,one{trilijonas}few{trilijonai}other{trilijonų})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine← $(cardinal,one{kvadrilijonas}few{kvadrilijonai}other{kvadrilijonų})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
+            </ruleset>
+            <ruleset type="fractions-feminine-dative" access="private">
+                <rbnfrule value="10">←%spellout-cardinal-feminine-dative← $(cardinal,one{dešimtosioms}other{dešimtosioms})$;</rbnfrule>
+                <rbnfrule value="100">←%spellout-cardinal-feminine-dative← $(cardinal,one{šimtosioms}other{šimtosioms})$;</rbnfrule>
+                <rbnfrule value="1000">←%spellout-cardinal-feminine-dative← $(cardinal,one{tūkstantosioms}other{tūkstantosioms})$;</rbnfrule>
+                <rbnfrule value="10000">←%spellout-cardinal-feminine-dative← $(cardinal,one{dešimttūkstantosioms}other{dešimttūkstantosioms})$;</rbnfrule>
+                <rbnfrule value="100000">←%spellout-cardinal-feminine-dative← $(cardinal,one{šimtatūkstantosioms}other{šimtatūkstantosioms})$;</rbnfrule>
+                <rbnfrule value="1000000">←%spellout-cardinal-feminine-dative← $(cardinal,one{milijonosioms}other{milijonosioms})$;</rbnfrule>
+                <rbnfrule value="10000000">←%spellout-cardinal-feminine-dative← $(cardinal,one{dešimtmilijonosioms}other{dešimtmilijonosioms})$;</rbnfrule>
+                <rbnfrule value="100000000">←%spellout-cardinal-feminine-dative← $(cardinal,one{šimtamilijonosioms}other{šimtamilijonosioms})$;</rbnfrule>
+                <rbnfrule value="1000000000">←0←;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-cardinal-masculine-accusative">
+                <rbnfrule value="-x">mīnus →→;</rbnfrule>
+                <rbnfrule value="x.x">[←← ir ]→%%fractions-feminine-accusative→;</rbnfrule>
+                <rbnfrule value="0">nulis;</rbnfrule>
+                <rbnfrule value="1">vieną;</rbnfrule>
+                <rbnfrule value="2">du;</rbnfrule>
+                <rbnfrule value="3">tris;</rbnfrule>
+                <rbnfrule value="4">=%%spellout-cardinal-stem-few=is;</rbnfrule>
+                <rbnfrule value="10">dešimt;</rbnfrule>
+                <rbnfrule value="11">=%%spellout-cardinal-stem-few=ą;</rbnfrule>
+                <rbnfrule value="20">←%spellout-cardinal-feminine-accusative←dešimt[ →→];</rbnfrule>
+                <rbnfrule value="100">šimtas[ →→];</rbnfrule>
+                <rbnfrule value="200">←%spellout-cardinal-masculine← šimtai[ →→];</rbnfrule>
+                <rbnfrule value="1000">tūkstantis[ →→];</rbnfrule>
+                <rbnfrule value="2000">←%spellout-cardinal-masculine← $(cardinal,one{tūkstantis}few{tūkstančiai}other{tūkstančių})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000">←%spellout-cardinal-masculine← $(cardinal,one{milijonas}few{milijonai}other{milijonų})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000">←%spellout-cardinal-masculine← $(cardinal,one{milijardas}few{milijardai}other{milijardų})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000">←%spellout-cardinal-masculine← $(cardinal,one{trilijonas}few{trilijonai}other{trilijonų})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine← $(cardinal,one{kvadrilijonas}few{kvadrilijonai}other{kvadrilijonų})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-cardinal-feminine-accusative">
+                <rbnfrule value="-x">mīnus →→;</rbnfrule>
+                <rbnfrule value="x.x">[←← ir ]→%%fractions-feminine-accusative→;</rbnfrule>
+                <rbnfrule value="0">nulis;</rbnfrule>
+                <rbnfrule value="1">vieną;</rbnfrule>
+                <rbnfrule value="2">dvi;</rbnfrule>
+                <rbnfrule value="3">tris;</rbnfrule>
+                <rbnfrule value="4">=%%spellout-cardinal-stem-few=ias;</rbnfrule>
+                <rbnfrule value="10">dešimt;</rbnfrule>
+                <rbnfrule value="11">=%%spellout-cardinal-stem-few=ą;</rbnfrule>
+                <rbnfrule value="20">←%spellout-cardinal-feminine-accusative←dešimt[ →→];</rbnfrule>
+                <rbnfrule value="100">šimtas[ →→];</rbnfrule>
+                <rbnfrule value="200">←%spellout-cardinal-masculine← šimtai[ →→];</rbnfrule>
+                <rbnfrule value="1000">tūkstantis[ →→];</rbnfrule>
+                <rbnfrule value="2000">←%spellout-cardinal-masculine← $(cardinal,one{tūkstantis}few{tūkstančiai}other{tūkstančių})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000">←%spellout-cardinal-masculine← $(cardinal,one{milijonas}few{milijonai}other{milijonų})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000">←%spellout-cardinal-masculine← $(cardinal,one{milijardas}few{milijardai}other{milijardų})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000">←%spellout-cardinal-masculine← $(cardinal,one{trilijonas}few{trilijonai}other{trilijonų})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine← $(cardinal,one{kvadrilijonas}few{kvadrilijonai}other{kvadrilijonų})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
+            </ruleset>
+            <ruleset type="fractions-feminine-accusative" access="private">
+                <rbnfrule value="10">←%spellout-cardinal-feminine-accusative← $(cardinal,one{dešimtąsias}other{dešimtąsias})$;</rbnfrule>
+                <rbnfrule value="100">←%spellout-cardinal-feminine-accusative← $(cardinal,one{šimtąsias}other{šimtąsias})$;</rbnfrule>
+                <rbnfrule value="1000">←%spellout-cardinal-feminine-accusative← $(cardinal,one{tūkstantąsias}other{tūkstantąsias})$;</rbnfrule>
+                <rbnfrule value="10000">←%spellout-cardinal-feminine-accusative← $(cardinal,one{dešimttūkstantąsias}other{dešimttūkstantąsias})$;</rbnfrule>
+                <rbnfrule value="100000">←%spellout-cardinal-feminine-accusative← $(cardinal,one{šimtatūkstantąsias}other{šimtatūkstantąsias})$;</rbnfrule>
+                <rbnfrule value="1000000">←%spellout-cardinal-feminine-accusative← $(cardinal,one{milijonąsias}other{milijonąsias})$;</rbnfrule>
+                <rbnfrule value="10000000">←%spellout-cardinal-feminine-accusative← $(cardinal,one{dešimtmilijonąsias}other{dešimtmilijonąsias})$;</rbnfrule>
+                <rbnfrule value="100000000">←%spellout-cardinal-feminine-accusative← $(cardinal,one{šimtamilijonąsias}other{šimtamilijonąsias})$;</rbnfrule>
+                <rbnfrule value="1000000000">←0←;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-cardinal-masculine-instrumental">
+                <rbnfrule value="-x">mīnus →→;</rbnfrule>
+                <rbnfrule value="x.x">[←← ir ]→%%fractions-feminine-instrumental→;</rbnfrule>
+                <rbnfrule value="0">nulis;</rbnfrule>
+                <rbnfrule value="1">vienu;</rbnfrule>
+                <rbnfrule value="2">dviem;</rbnfrule>
+                <rbnfrule value="3">trimis;</rbnfrule>
+                <rbnfrule value="4">=%%spellout-cardinal-stem-few=iais;</rbnfrule>
+                <rbnfrule value="10">dešimt;</rbnfrule>
+                <rbnfrule value="11">=%%spellout-cardinal-stem-few=a;</rbnfrule>
+                <rbnfrule value="20">←%spellout-cardinal-feminine-accusative←dešimt[ →→];</rbnfrule>
+                <rbnfrule value="100">šimtas[ →→];</rbnfrule>
+                <rbnfrule value="200">←%spellout-cardinal-masculine← šimtai[ →→];</rbnfrule>
+                <rbnfrule value="1000">tūkstantis[ →→];</rbnfrule>
+                <rbnfrule value="2000">←%spellout-cardinal-masculine← $(cardinal,one{tūkstantis}few{tūkstančiai}other{tūkstančių})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000">←%spellout-cardinal-masculine← $(cardinal,one{milijonas}few{milijonai}other{milijonų})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000">←%spellout-cardinal-masculine← $(cardinal,one{milijardas}few{milijardai}other{milijardų})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000">←%spellout-cardinal-masculine← $(cardinal,one{trilijonas}few{trilijonai}other{trilijonų})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine← $(cardinal,one{kvadrilijonas}few{kvadrilijonai}other{kvadrilijonų})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-cardinal-feminine-instrumental">
+                <rbnfrule value="-x">mīnus →→;</rbnfrule>
+                <rbnfrule value="x.x">[←← ir ]→%%fractions-feminine-instrumental→;</rbnfrule>
+                <rbnfrule value="0">nulis;</rbnfrule>
+                <rbnfrule value="1">viena;</rbnfrule>
+                <rbnfrule value="2">dviem;</rbnfrule>
+                <rbnfrule value="3">trimis;</rbnfrule>
+                <rbnfrule value="4">=%%spellout-cardinal-stem-few=iomis;</rbnfrule>
+                <rbnfrule value="10">dešimt;</rbnfrule>
+                <rbnfrule value="11">=%%spellout-cardinal-stem-few=a;</rbnfrule>
+                <rbnfrule value="20">←%spellout-cardinal-feminine-accusative←dešimt[ →→];</rbnfrule>
+                <rbnfrule value="100">šimtas[ →→];</rbnfrule>
+                <rbnfrule value="200">←%spellout-cardinal-masculine← šimtai[ →→];</rbnfrule>
+                <rbnfrule value="1000">tūkstantis[ →→];</rbnfrule>
+                <rbnfrule value="2000">←%spellout-cardinal-masculine← $(cardinal,one{tūkstantis}few{tūkstančiai}other{tūkstančių})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000">←%spellout-cardinal-masculine← $(cardinal,one{milijonas}few{milijonai}other{milijonų})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000">←%spellout-cardinal-masculine← $(cardinal,one{milijardas}few{milijardai}other{milijardų})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000">←%spellout-cardinal-masculine← $(cardinal,one{trilijonas}few{trilijonai}other{trilijonų})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine← $(cardinal,one{kvadrilijonas}few{kvadrilijonai}other{kvadrilijonų})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
+            </ruleset>
+            <ruleset type="fractions-feminine-instrumental" access="private">
+                <rbnfrule value="10">←%spellout-cardinal-feminine-instrumental← $(cardinal,one{dešimtosiomis}other{dešimtosiomis})$;</rbnfrule>
+                <rbnfrule value="100">←%spellout-cardinal-feminine-instrumental← $(cardinal,one{šimtosiomis}other{šimtosiomis})$;</rbnfrule>
+                <rbnfrule value="1000">←%spellout-cardinal-feminine-instrumental← $(cardinal,one{tūkstantosiomis}other{tūkstantosiomis})$;</rbnfrule>
+                <rbnfrule value="10000">←%spellout-cardinal-feminine-instrumental← $(cardinal,one{dešimttūkstantosiomis}other{dešimttūkstantosiomis})$;</rbnfrule>
+                <rbnfrule value="100000">←%spellout-cardinal-feminine-instrumental← $(cardinal,one{šimtatūkstantosiomis}other{šimtatūkstantosiomis})$;</rbnfrule>
+                <rbnfrule value="1000000">←%spellout-cardinal-feminine-instrumental← $(cardinal,one{milijonosiomis}other{milijonosiomis})$;</rbnfrule>
+                <rbnfrule value="10000000">←%spellout-cardinal-feminine-instrumental← $(cardinal,one{dešimtmilijonosiomis}other{dešimtmilijonosiomis})$;</rbnfrule>
+                <rbnfrule value="100000000">←%spellout-cardinal-feminine-instrumental← $(cardinal,one{šimtamilijonosiomis}other{šimtamilijonosiomis})$;</rbnfrule>
+                <rbnfrule value="1000000000">←0←;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-cardinal-masculine-locative">
+                <rbnfrule value="-x">mīnus →→;</rbnfrule>
+                <rbnfrule value="x.x">[←← ir ]→%%fractions-feminine-locative→;</rbnfrule>
+                <rbnfrule value="0">nulis;</rbnfrule>
+                <rbnfrule value="1">viename;</rbnfrule>
+                <rbnfrule value="2">dviejuose;</rbnfrule>
+                <rbnfrule value="3">trijuose;</rbnfrule>
+                <rbnfrule value="4">=%%spellout-cardinal-stem-few=iuose;</rbnfrule>
+                <rbnfrule value="10">dešimt;</rbnfrule>
+                <rbnfrule value="11">=%%spellout-cardinal-stem-few=oje;</rbnfrule>
+                <rbnfrule value="20">←%spellout-cardinal-feminine-accusative←dešimt[ →→];</rbnfrule>
+                <rbnfrule value="100">šimtas[ →→];</rbnfrule>
+                <rbnfrule value="200">←%spellout-cardinal-masculine← šimtai[ →→];</rbnfrule>
+                <rbnfrule value="1000">tūkstantis[ →→];</rbnfrule>
+                <rbnfrule value="2000">←%spellout-cardinal-masculine← $(cardinal,one{tūkstantis}few{tūkstančiai}other{tūkstančių})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000">←%spellout-cardinal-masculine← $(cardinal,one{milijonas}few{milijonai}other{milijonų})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000">←%spellout-cardinal-masculine← $(cardinal,one{milijardas}few{milijardai}other{milijardų})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000">←%spellout-cardinal-masculine← $(cardinal,one{trilijonas}few{trilijonai}other{trilijonų})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine← $(cardinal,one{kvadrilijonas}few{kvadrilijonai}other{kvadrilijonų})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-cardinal-feminine-locative">
+                <rbnfrule value="-x">mīnus →→;</rbnfrule>
+                <rbnfrule value="x.x">[←← ir ]→%%fractions-feminine-locative→;</rbnfrule>
+                <rbnfrule value="0">nulis;</rbnfrule>
+                <rbnfrule value="1">vienoje;</rbnfrule>
+                <rbnfrule value="2">dviejose;</rbnfrule>
+                <rbnfrule value="3">trijose;</rbnfrule>
+                <rbnfrule value="4">=%%spellout-cardinal-stem-few=iose;</rbnfrule>
+                <rbnfrule value="10">dešimt;</rbnfrule>
+                <rbnfrule value="11">=%%spellout-cardinal-stem-few=oje;</rbnfrule>
+                <rbnfrule value="20">←%spellout-cardinal-feminine-accusative←dešimt[ →→];</rbnfrule>
+                <rbnfrule value="100">šimtas[ →→];</rbnfrule>
+                <rbnfrule value="200">←%spellout-cardinal-masculine← šimtai[ →→];</rbnfrule>
+                <rbnfrule value="1000">tūkstantis[ →→];</rbnfrule>
+                <rbnfrule value="2000">←%spellout-cardinal-masculine← $(cardinal,one{tūkstantis}few{tūkstančiai}other{tūkstančių})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000">←%spellout-cardinal-masculine← $(cardinal,one{milijonas}few{milijonai}other{milijonų})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000">←%spellout-cardinal-masculine← $(cardinal,one{milijardas}few{milijardai}other{milijardų})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000">←%spellout-cardinal-masculine← $(cardinal,one{trilijonas}few{trilijonai}other{trilijonų})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine← $(cardinal,one{kvadrilijonas}few{kvadrilijonai}other{kvadrilijonų})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
+            </ruleset>
+            <ruleset type="fractions-feminine-locative" access="private">
+                <rbnfrule value="10">←%spellout-cardinal-feminine-locative← $(cardinal,one{dešimtosiose}other{dešimtosiose})$;</rbnfrule>
+                <rbnfrule value="100">←%spellout-cardinal-feminine-locative← $(cardinal,one{šimtosiose}other{šimtosiose})$;</rbnfrule>
+                <rbnfrule value="1000">←%spellout-cardinal-feminine-locative← $(cardinal,one{tūkstantosiose}other{tūkstantosiose})$;</rbnfrule>
+                <rbnfrule value="10000">←%spellout-cardinal-feminine-locative← $(cardinal,one{dešimttūkstantosiose}other{dešimttūkstantosiose})$;</rbnfrule>
+                <rbnfrule value="100000">←%spellout-cardinal-feminine-locative← $(cardinal,one{šimtatūkstantosiose}other{šimtatūkstantosiose})$;</rbnfrule>
+                <rbnfrule value="1000000">←%spellout-cardinal-feminine-locative← $(cardinal,one{milijonosiose}other{milijonosiose})$;</rbnfrule>
+                <rbnfrule value="10000000">←%spellout-cardinal-feminine-locative← $(cardinal,one{dešimtmilijonosiose}other{dešimtmilijonosiose})$;</rbnfrule>
+                <rbnfrule value="100000000">←%spellout-cardinal-feminine-locative← $(cardinal,one{šimtamilijonosiose}other{šimtamilijonosiose})$;</rbnfrule>
+                <rbnfrule value="1000000000">←0←;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-base" access="private">
+                <rbnfrule value="-x">mīnus →→;</rbnfrule>
+                <rbnfrule value="x.x">=#,##0.#=;</rbnfrule>
+                <rbnfrule value="0">nulinis;</rbnfrule>
+                <rbnfrule value="1">pirm;</rbnfrule>
+                <rbnfrule value="2">antr;</rbnfrule>
+                <rbnfrule value="3">treči;</rbnfrule>
+                <rbnfrule value="4">ketvirt;</rbnfrule>
+                <rbnfrule value="5">penkt;</rbnfrule>
+                <rbnfrule value="6">šešt;</rbnfrule>
+                <rbnfrule value="7">septint;</rbnfrule>
+                <rbnfrule value="8">aštunt;</rbnfrule>
+                <rbnfrule value="9">devint;</rbnfrule>
+                <rbnfrule value="10">dešimt;</rbnfrule>
+                <rbnfrule value="11">vienuolikt;</rbnfrule>
+                <rbnfrule value="12">dvylikt;</rbnfrule>
+                <rbnfrule value="13">trylikt;</rbnfrule>
+                <rbnfrule value="14">keturiolikt;</rbnfrule>
+                <rbnfrule value="15">penkiolikt;</rbnfrule>
+                <rbnfrule value="16">šešiolikt;</rbnfrule>
+                <rbnfrule value="17">septyniolikt;</rbnfrule>
+                <rbnfrule value="18">aštuoniolikt;</rbnfrule>
+                <rbnfrule value="19">devyniolikt;</rbnfrule>
+                <rbnfrule value="20">←%spellout-cardinal-feminine-accusative←dešimt[ →→];</rbnfrule>
+                <rbnfrule value="100">šimt[as →→];</rbnfrule>
+                <rbnfrule value="200">←%spellout-cardinal-masculine← šimt[ai →→];</rbnfrule>
+                <rbnfrule value="1000">tūkstant[is →→];</rbnfrule>
+                <rbnfrule value="2000">←%spellout-cardinal-masculine← tūkstant[ai →→];</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-base-i" access="private">
+                <rbnfrule value="-x">mīnus →→;</rbnfrule>
+                <rbnfrule value="x.x">=#,##0.#=;</rbnfrule>
+                <rbnfrule value="0">nulinis;</rbnfrule>
+                <rbnfrule value="1">pirm;</rbnfrule>
+                <rbnfrule value="2">antr;</rbnfrule>
+                <rbnfrule value="3">tret;</rbnfrule>
+                <rbnfrule value="4">=%%spellout-ordinal-base=;</rbnfrule>
+                <rbnfrule value="20">←%spellout-cardinal-feminine-accusative←dešimt[ →→];</rbnfrule>
+                <rbnfrule value="100">šimt[as →→];</rbnfrule>
+                <rbnfrule value="200">←%spellout-cardinal-masculine← šimt[ai →→];</rbnfrule>
+                <rbnfrule value="1000">tūkstant[is →→];</rbnfrule>
+                <rbnfrule value="2000">←%spellout-cardinal-masculine← tūkstant[ai →→];</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-masculine">
+                <rbnfrule value="0">=%%spellout-ordinal-base=as;</rbnfrule>
+                <rbnfrule value="100">šimt[as →→];</rbnfrule>
+                <rbnfrule value="200">←%spellout-cardinal-masculine← šimt[ai →→];</rbnfrule>
+                <rbnfrule value="1000">tūkstant[is →→];</rbnfrule>
+                <rbnfrule value="2000">←%spellout-cardinal-masculine← tūkstant[ai →→];</rbnfrule>
+                <rbnfrule value="10000">=#,##0=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-feminine">
+                <rbnfrule value="0">=%%spellout-ordinal-base=a;</rbnfrule>
+                <rbnfrule value="10000">=#,##0=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-neuter">
+                <rbnfrule value="0">=%spellout-ordinal-feminine=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-masculine-plural">
+                <rbnfrule value="0">=%%spellout-ordinal-base-i=i;</rbnfrule>
+                <rbnfrule value="10000">=#,##0=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-feminine-plural">
+                <rbnfrule value="0">=%%spellout-ordinal-base=os;</rbnfrule>
+                <rbnfrule value="10000">=#,##0=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-masculine-genitive">
+                <rbnfrule value="0">=%%spellout-ordinal-base=o;</rbnfrule>
+                <rbnfrule value="10000">=#,##0=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-feminine-genitive">
+                <rbnfrule value="0">=%%spellout-ordinal-base=os;</rbnfrule>
+                <rbnfrule value="10000">=#,##0=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-masculine-plural-genitive">
+                <rbnfrule value="0">=%%spellout-ordinal-base=ų;</rbnfrule>
+                <rbnfrule value="10000">=#,##0=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-feminine-plural-genitive">
+                <rbnfrule value="0">=%spellout-ordinal-masculine-plural-genitive=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-masculine-dative">
+                <rbnfrule value="0">=%%spellout-ordinal-base=am;</rbnfrule>
+                <rbnfrule value="10000">=#,##0=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-feminine-dative">
+                <rbnfrule value="0">=%%spellout-ordinal-base=ai;</rbnfrule>
+                <rbnfrule value="10000">=#,##0=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-masculine-plural-dative">
+                <rbnfrule value="0">=%%spellout-ordinal-base-i=iems;</rbnfrule>
+                <rbnfrule value="10000">=#,##0=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-feminine-plural-dative">
+                <rbnfrule value="0">=%%spellout-ordinal-base=oms;</rbnfrule>
+                <rbnfrule value="10000">=#,##0=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-masculine-accusative">
+                <rbnfrule value="0">=%%spellout-ordinal-base=ą;</rbnfrule>
+                <rbnfrule value="10000">=#,##0=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-feminine-accusative">
+                <rbnfrule value="0">=%spellout-ordinal-masculine-accusative=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-masculine-plural-accusative">
+                <rbnfrule value="0">=%%spellout-ordinal-base=us;</rbnfrule>
+                <rbnfrule value="10000">=#,##0=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-feminine-plural-accusative">
+                <rbnfrule value="0">=%spellout-ordinal-masculine=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-masculine-instrumental">
+                <rbnfrule value="0">=%%spellout-ordinal-base=u;</rbnfrule>
+                <rbnfrule value="10000">=#,##0=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-feminine-instrumental">
+                <rbnfrule value="0">=%spellout-ordinal-feminine=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-masculine-plural-instrumental">
+                <rbnfrule value="0">=%%spellout-ordinal-base=ais;</rbnfrule>
+                <rbnfrule value="10000">=#,##0=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-feminine-plural-instrumental">
+                <rbnfrule value="0">=%%spellout-ordinal-base=omis;</rbnfrule>
+                <rbnfrule value="10000">=#,##0=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-masculine-locative">
+                <rbnfrule value="0">=%%spellout-ordinal-base=ame;</rbnfrule>
+                <rbnfrule value="10000">=#,##0=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-feminine-locative">
+                <rbnfrule value="0">=%%spellout-ordinal-base=oje;</rbnfrule>
+                <rbnfrule value="10000">=#,##0=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-masculine-plural-locative">
+                <rbnfrule value="0">=%%spellout-ordinal-base=uose;</rbnfrule>
+                <rbnfrule value="10000">=#,##0=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-feminine-plural-locative">
+                <rbnfrule value="0">=%%spellout-ordinal-base=ose;</rbnfrule>
+                <rbnfrule value="10000">=#,##0=;</rbnfrule>
             </ruleset>
         </rulesetGrouping>
     </rbnf>

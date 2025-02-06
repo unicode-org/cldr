@@ -9,12 +9,14 @@ public class CLDRTreeWriter implements AutoCloseable {
     private final Set<CLDRLocale> locales = new TreeSet<>();
     private final Set<CLDRLocale> removed = new TreeSet<>();
     private final String path;
+
     /**
      * @param path root of files to write
      */
     public CLDRTreeWriter(String forPath) {
         path = forPath;
     }
+
     /** mark a file as written */
     public void write(CLDRFile f) throws IOException {
         final String locale = f.getLocaleID();

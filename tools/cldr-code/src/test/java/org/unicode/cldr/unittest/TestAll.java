@@ -2,13 +2,13 @@
 
 package org.unicode.cldr.unittest;
 
-import com.ibm.icu.dev.test.TestFmwk.TestGroup;
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.SimpleDateFormat;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.io.Writer;
 import java.util.Date;
+import org.unicode.cldr.icu.dev.test.TestFmwk.TestGroup;
 import org.unicode.cldr.util.CLDRConfig;
 
 /** Top level test used to run all other tests as a batch. */
@@ -214,7 +214,7 @@ public class TestAll extends TestGroup {
                     "org.unicode.cldr.unittest.TestScriptMetadata",
                     "org.unicode.cldr.unittest.TestSupplementalInfo",
                     "org.unicode.cldr.unittest.TestTransforms",
-                    "org.unicode.cldr.unittest.TestUtilities",
+                    "org.unicode.cldr.unittest.TestHelper",
                     "org.unicode.cldr.unittest.TestCLDRLocaleCoverage",
                     "org.unicode.cldr.unittest.TestDayPeriods",
                     "org.unicode.cldr.unittest.TestSubdivisions",

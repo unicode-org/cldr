@@ -14,6 +14,7 @@ import org.unicode.cldr.web.SurveyLog;
 public class CLDRCacheDir {
     static final Logger logger = SurveyLog.forClass(CLDRCacheDir.class);
     private static final String CACHE_SUBDIR = ".cache";
+
     /** All users of the cache must have an enum entry here */
     public enum CacheType {
         abstracts("Article excerpts from DBPedia"),
@@ -27,10 +28,12 @@ public class CLDRCacheDir {
         public String getDescription() {
             return description;
         }
+
         /** */
         CacheType(String description) {
             this.description = description;
         }
+
         /**
          * Get the 'latest good' date before which a cached item is considered stale. For example,
          * if the expiry is 3 days, then the Instant will reflect a date 3 days ago. For some item,

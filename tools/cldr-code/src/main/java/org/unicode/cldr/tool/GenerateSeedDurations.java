@@ -1,9 +1,9 @@
 package org.unicode.cldr.tool;
 
-import com.ibm.icu.text.ListFormat;
 import com.ibm.icu.text.SimpleDateFormat;
 import java.util.LinkedHashSet;
 import java.util.Set;
+import org.unicode.cldr.icu.text.ListFormat;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.DateTimeFormats;
@@ -43,7 +43,10 @@ public class GenerateSeedDurations {
         Set<String> warnings = new LinkedHashSet<>();
         for (String locale : cldrFactory.getAvailableLanguages()) {
             CLDRFile cldrFile = cldrFactory.make(locale, true);
-            String localeString = locale + "\t" + testInfo.getEnglish().getName(locale);
+            String localeString =
+                    locale
+                            + "\t"
+                            + testInfo.getEnglish().nameGetter().getNameFromIdentifier(locale);
             System.out.println("\n" + localeString);
 
             DateTimeFormats formats = new DateTimeFormats().set(cldrFile, "gregorian");

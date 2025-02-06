@@ -11,7 +11,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<transform source="Hira" target="Kana" direction="both" alias="Hiragana-Katakana und-Kana-t-und-hira" backwardAlias="Katakana-Hiragana und-Hira-t-und-kana">
 			<tRule>
 # note: a global filter is more efficient, but MUST include all source chars
-:: [[\u0000-\u007E 、。 ゙-゜ ァ-ー ｡-ﾟー[:Hiragana:] [:Katakana:] [:nonspacing mark:]]-[\u309B \u309C]];
+:: [[\u0000-\u007E 、。 ゙-゜ ァ-ー ｡-ﾟー[:Hiragana:] [:Katakana:] [:Nonspacing_Mark:]]-[\u309B \u309C]];
 :: NFKC (NFC);
 # Hiragana-Katakana
 # This is largely a one-to-one mapping, but it has a
@@ -185,7 +185,7 @@ $xo = [
 お ← $xo {ー};
 :: NFC (NFKC) ;
 # note: a global filter is more efficient, but MUST include all source chars!!
-:: ([[\u0000-\u007E 、。 ゙-゜ ァ-ー ｡-ﾟー[:Hiragana:] [:Katakana:] [:nonspacing mark:]]-[\u309B \u309C]]);
+:: ([[\u0000-\u007E 、。 ゙-゜ ァ-ー ｡-ﾟー[:Hiragana:] [:Katakana:] [:Nonspacing_Mark:]]-[\u309B \u309C]]);
 # eof
 			</tRule>
 		</transform>

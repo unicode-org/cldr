@@ -12,9 +12,7 @@ import com.ibm.icu.impl.ICUData;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
 import com.ibm.icu.text.Collator;
-import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.text.Transliterator;
-import com.ibm.icu.util.ULocale;
 import com.ibm.icu.util.UResourceBundle;
 import java.io.BufferedReader;
 import java.io.File;
@@ -35,6 +33,7 @@ import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CollatorHelper;
 import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleFactory;
@@ -411,8 +410,7 @@ public class ExtractICUData {
             {UProperty.DOUBLE_START, UProperty.DOUBLE_START},
             {UProperty.STRING_START, UProperty.STRING_LIMIT},
         };
-        Collator col = Collator.getInstance(ULocale.ROOT);
-        ((RuleBasedCollator) col).setNumericCollation(true);
+        Collator col = CollatorHelper.ROOT_NUMERIC;
         Map<String, Set<String>> alpha = new TreeMap<>(col);
 
         for (int range = 0; range < ranges.length; ++range) {
@@ -465,12 +463,6 @@ public class ExtractICUData {
             }
             out.println("</table></td></tr>");
         }
-        Collator c = Collator.getInstance(ULocale.ENGLISH);
-        ((RuleBasedCollator) c).setNumericCollation(true);
-
-        // int enumValue = UCharacter.getIntPropertyValue(codePoint, propEnum);
-        // return UCharacter.getPropertyValueName(propEnum,enumValue, (int)nameChoice);
-
     }
 
     private static String getName(int index, String valueName, String shortValueName) {

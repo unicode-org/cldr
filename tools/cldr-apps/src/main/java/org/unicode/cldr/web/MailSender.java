@@ -46,11 +46,13 @@ public class MailSender implements Runnable {
 
     private static final class MailConfig {
         final boolean CLDR_SENDMAIL;
+
         /** How many mails to process at a time? 0 = unlimited */
         final int CLDR_MAIL_BATCHSIZE;
 
         final int CLDR_MAIL_DELAY_EACH;
         final int CLDR_MAIL_DELAY_FIRST;
+
         /** How many seconds to wait between mails in batch processing? 0 = no delay */
         final int CLDR_MAIL_DELAY_BATCH_ITEM;
 

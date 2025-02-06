@@ -1,6 +1,6 @@
 package org.unicode.cldr.unittest;
 
-import com.ibm.icu.dev.test.TestFmwk;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.test.CasingInfo;
 
 public class TestCasingInfo extends TestFmwk {

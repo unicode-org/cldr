@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -2711,6 +2711,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<regionFormat type="daylight">{0} ଦିବାଲୋକ ସମୟ</regionFormat>
 			<regionFormat type="standard">{0} ମାନାଙ୍କ ସମୟ</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>ହୋନୋଲୁଲୁ</exemplarCity>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>ସମନ୍ୱିତ ସାର୍ବଜନୀନ ସମୟ</standard>
@@ -3448,9 +3451,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>ଉଲାନ୍‌ବାଟର୍‌</exemplarCity>
 			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity>ଚୋଇବାଲସାନ୍‌</exemplarCity>
-			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity>ମାକାଉ</exemplarCity>
 			</zone>
@@ -3850,9 +3850,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Nome">
 				<exemplarCity>ନୋମେ</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>ହୋନୋଲୁଲୁ</exemplarCity>
-			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>ଆଙ୍କରେଜ୍</exemplarCity>
 			</zone>
@@ -4230,13 +4227,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>ଚୀନ ସମୟ</generic>
 					<standard>ଚୀନ ମାନକ ସମୟ</standard>
 					<daylight>ଚୀନ ଦିବାଲୋକ ସମୟ</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>ଚୋଇବାଲସାନ ସମୟ</generic>
-					<standard>ଚୋଇବାଲସାନ ମାନକ ସମୟ</standard>
-					<daylight>ଚୋଇବାଲସାନ ଗ୍ରୀଷ୍ମକାଳୀନ ସମୟ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">

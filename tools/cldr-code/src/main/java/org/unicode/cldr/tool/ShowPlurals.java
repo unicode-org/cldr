@@ -168,7 +168,7 @@ public class ShowPlurals {
             if (localeFilter != null && !localeFilter.equals(locale) || locale.equals("root")) {
                 continue;
             }
-            final String name = english.getName(locale);
+            final String name = english.nameGetter().getNameFromIdentifier(locale);
             String canonicalLocale = canonicalizer.transform(locale);
             if (!locale.equals(canonicalLocale)) {
                 String redirect =

@@ -265,9 +265,9 @@ For terms of use, see http://www.unicode.org/copyright.html
             <type name="mkskp" description="Skopje, Macedonia" alias="Europe/Skopje"/>
             <type name="mlbko" description="Bamako, Mali" alias="Africa/Bamako Africa/Timbuktu"/>
             <type name="mmrgn" description="Yangon (Rangoon), Burma" alias="Asia/Rangoon Asia/Yangon" iana="Asia/Yangon"/>
-            <type name="mncoq" description="Choibalsan, Mongolia" alias="Asia/Choibalsan"/>
+            <type name="mncoq" description="Choibalsan, Mongolia" deprecated="true" preferred="mnuln"/>
             <type name="mnhvd" description="Khovd (Hovd), Mongolia" alias="Asia/Hovd"/>
-            <type name="mnuln" description="Ulaanbaatar (Ulan Bator), Mongolia" alias="Asia/Ulaanbaatar Asia/Ulan_Bator"/>
+            <type name="mnuln" description="Ulaanbaatar (Ulan Bator), Mongolia" alias="Asia/Ulaanbaatar Asia/Ulan_Bator Asia/Choibalsan"/>
             <type name="momfm" description="Macau SAR China" alias="Asia/Macau Asia/Macao"/>
             <type name="mpspn" description="Saipan, Northern Mariana Islands" alias="Pacific/Saipan"/>
             <type name="mqfdf" description="Martinique" alias="America/Martinique"/>

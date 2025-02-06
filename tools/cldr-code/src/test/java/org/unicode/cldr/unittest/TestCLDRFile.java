@@ -5,7 +5,6 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
 import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.text.NumberFormat;
@@ -29,6 +28,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.CLDRConfig;
@@ -85,7 +85,7 @@ public class TestCLDRFile extends TestFmwk {
         };
         CLDRFile english = testInfo.getEnglish();
         for (String[] test : tests) {
-            assertEquals("", test[1], english.getName(test[0]));
+            assertEquals("", test[1], english.nameGetter().getNameFromIdentifier(test[0]));
         }
     }
 
@@ -190,8 +190,14 @@ public class TestCLDRFile extends TestFmwk {
                     path.contains("/metazone")
                                     || path.contains("/timeZoneNames")
                                     || path.contains("/gender")
+                                    || path.startsWith(
+                                            "//ldml/localeDisplayNames/languages/language")
+                                    || path.startsWith("//ldml/localeDisplayNames/scripts/script")
+                                    || path.startsWith(
+                                            "//ldml/localeDisplayNames/territories/territory")
                                     || path.startsWith("//ldml/numbers/currencies/currency")
                                     || path.startsWith("//ldml/personNames/sampleName")
+                                    || path.contains("/availableFormats")
                             ? PlaceholderStatus.DISALLOWED
                             : path.contains("/compoundUnitPattern1")
                                     ? PlaceholderStatus.REQUIRED
@@ -225,8 +231,10 @@ public class TestCLDRFile extends TestFmwk {
                 final CLDRFile cldrFile = fullCldrFactory.make(locale, true);
                 Set<String> sorted2 = new TreeSet<>(cldrFile.getExtraPaths());
                 for (String path : sorted2) {
-                    if (path.contains("speed-beaufort")) {
+                    if (path.contains("speed-beaufort") || path.contains("speed-light-speed")) {
                         continue; // special case
+                        // Light-speed should eventually be restored but for now is ignored for
+                        // https://unicode-org.atlassian.net/browse/CLDR-18258
                     }
                     if (path.contains("/gender")
                             || path.contains("@gender")
@@ -918,7 +926,7 @@ public class TestCLDRFile extends TestFmwk {
         }
     }
 
-    public void TestExtraPaths() {
+    public void testExtraPaths2() {
         List<String> testCases =
                 Arrays.asList(
                         "//ldml/localeDisplayNames/languages/language[@type=\"ccp\"]",

@@ -1,15 +1,15 @@
 package org.unicode.cldr.unittest;
 
-import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.impl.Row.R4;
-import com.ibm.icu.util.LocaleMatcher;
-import com.ibm.icu.util.LocaleMatcher.LanguageMatcherData;
 import com.ibm.icu.util.LocalePriorityList;
 import com.ibm.icu.util.ULocale;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
+import org.unicode.cldr.icu.util.LocaleMatcher;
+import org.unicode.cldr.icu.util.LocaleMatcher.LanguageMatcherData;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.LocaleNames;
 import org.unicode.cldr.util.Pair;
@@ -85,7 +85,9 @@ public class LanguageInfoTest extends TestFmwk {
     public static String getName(String item) {
         return item.contains("*")
                 ? "n/a"
-                : item.contains("$") ? item : testInfo.getEnglish().getName(item);
+                : item.contains("$")
+                        ? item
+                        : testInfo.getEnglish().nameGetter().getNameFromIdentifier(item);
     }
 
     public static void main(String[] args) {

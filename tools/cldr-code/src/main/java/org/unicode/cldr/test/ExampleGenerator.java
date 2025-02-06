@@ -68,6 +68,8 @@ import org.unicode.cldr.util.GrammarInfo.GrammaticalTarget;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.NameGetter;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.PathDescription;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.PluralSamples;
@@ -76,6 +78,7 @@ import org.unicode.cldr.util.Rational.FormatStyle;
 import org.unicode.cldr.util.ScriptToExemplars;
 import org.unicode.cldr.util.SimpleUnicodeSetFormatter;
 import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.SupplementalDataInfo.CurrencyNumberInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
@@ -169,6 +172,8 @@ public class ExampleGenerator {
 
     private static final Date DATE_SAMPLE2;
     private static final Date DATE_SAMPLE3;
+    private static final Date DATE_SAMPLE4;
+    private static final Date DATE_SAMPLE5;
 
     static {
         Calendar calendar = Calendar.getInstance(ZONE_SAMPLE, ULocale.ENGLISH);
@@ -179,6 +184,11 @@ public class ExampleGenerator {
         DATE_SAMPLE2 = calendar.getTime();
         calendar.set(1999, 8, 5, 7, 0, 0); // 1999-09-05 07:00:00
         DATE_SAMPLE3 = calendar.getTime();
+        calendar.set(1999, 8, 5, 23, 0, 0); // 1999-09-05 23:00:00
+        DATE_SAMPLE4 = calendar.getTime();
+
+        calendar.set(1999, 8, 5, 3, 25, 59); // 1999-09-05 03:25:59
+        DATE_SAMPLE5 = calendar.getTime();
     }
 
     static final List<DecimalQuantity> CURRENCY_SAMPLES =
@@ -316,6 +326,19 @@ public class ExampleGenerator {
                             List.of(
                                     new GregorianCalendar(1911, 11, 29).getTime(),
                                     new GregorianCalendar(1912, 0, 03).getTime()));
+                }
+            };
+
+    // map relativeTimePattern counts to numeric examples
+    public static final Map<String, String> COUNTS =
+            new HashMap<String, String>() {
+                {
+                    put("zero", "0");
+                    put("one", "1");
+                    put("two", "2");
+                    put("few", "3");
+                    put("many", "5");
+                    put("other", "10");
                 }
             };
 
@@ -490,6 +513,9 @@ public class ExampleGenerator {
     /**
      * Do the main work of getExampleHtml given that the result was not found in the cache.
      *
+     * <p>Creates a list that the handlers in constructExampleHtmlExtended can add examples to, and
+     * then formats the example list appropriately.
+     *
      * @param xpath the path; e.g., "//ldml/dates/timeZoneNames/fallbackFormat"
      * @param value the value; e.g., "{1} [{0}]"; not necessarily the winning value
      * @param nonTrivial true if we should avoid returning a trivial example (just value wrapped in
@@ -497,7 +523,20 @@ public class ExampleGenerator {
      * @return the example HTML, or null
      */
     private String constructExampleHtml(String xpath, String value, boolean nonTrivial) {
-        String result = null;
+        List<String> examples = new ArrayList<>();
+        constructExampleHtmlExtended(xpath, value, examples);
+        String result = formatExampleList(examples);
+        if (result != null) { // Handle the outcome
+            if (nonTrivial && value.equals(result)) {
+                result = null;
+            } else {
+                result = finalizeBackground(result);
+            }
+        }
+        return result;
+    }
+
+    private void constructExampleHtmlExtended(String xpath, String value, List<String> examples) {
         boolean showContexts =
                 isRTL || BIDI_MARKS.containsSome(value); // only used for certain example types
         /*
@@ -506,91 +545,85 @@ public class ExampleGenerator {
          */
         XPathParts parts = XPathParts.getFrozenInstance(xpath).cloneAsThawed();
         if (parts.contains("dateRangePattern")) { // {0} - {1}
-            result = handleDateRangePattern(value);
+            handleDateRangePattern(value, examples);
         } else if (parts.contains("timeZoneNames")) {
-            result = handleTimeZoneName(parts, value);
+            handleTimeZoneName(parts, value, examples);
         } else if (parts.contains("localeDisplayNames")) {
-            result = handleDisplayNames(xpath, parts, value);
+            handleDisplayNames(xpath, parts, value, examples);
         } else if (parts.contains("currency")) {
-            result = handleCurrency(xpath, parts, value);
+            handleCurrency(xpath, parts, value, examples);
         } else if (parts.contains("eras")) {
-            result = handleEras(parts, value);
+            handleEras(parts, value, examples);
         } else if (parts.contains("quarters")) {
-            result = handleQuarters(parts, value);
+            handleQuarters(parts, value, examples);
+        } else if (parts.contains("relative")
+                || parts.contains("relativeTime")
+                || parts.contains("relativePeriod")) {
+            handleRelative(xpath, parts, value, examples);
         } else if (parts.contains("dayPeriods")) {
-            result = handleDayPeriod(parts, value);
+            handleDayPeriod(parts, value, examples);
         } else if (parts.contains("monthContext")) {
-            result = handleDateSymbol(parts, value);
+            handleDateSymbol(parts, value, examples);
         } else if (parts.contains("pattern") || parts.contains("dateFormatItem")) {
             if (parts.contains("calendar")) {
-                result = handleDateFormatItem(xpath, value, showContexts);
+                handleDateFormatItem(xpath, value, showContexts, examples);
             } else if (parts.contains("miscPatterns")) {
-                result = handleMiscPatterns(parts, value);
+                handleMiscPatterns(parts, value, examples);
             } else if (parts.contains("numbers")) {
                 if (parts.contains("currencyFormat")) {
-                    result = handleCurrencyFormat(parts, value, showContexts);
+                    handleCurrencyFormat(parts, value, showContexts, examples);
                 } else {
-                    result = handleDecimalFormat(parts, value, showContexts);
+                    handleDecimalFormat(parts, value, showContexts, examples);
                 }
             }
         } else if (parts.contains("minimumGroupingDigits")) {
-            result = handleMinimumGrouping(parts, value);
+            handleMinimumGrouping(parts, value, examples);
         } else if (parts.getElement(2).contains("symbols")) {
-            result = handleNumberSymbol(parts, value);
+            handleNumberSymbol(parts, value, examples);
         } else if (parts.contains("defaultNumberingSystem")
                 || parts.contains("otherNumberingSystems")) {
-            result = handleNumberingSystem(value);
+            handleNumberingSystem(value, examples);
         } else if (parts.contains("currencyFormats") && parts.contains("unitPattern")) {
-            result = formatCountValue(xpath, parts, value);
+            formatCountValue(xpath, parts, value, examples);
         } else if (parts.getElement(-1).equals("compoundUnitPattern")) {
-            result = handleCompoundUnit(parts);
+            handleCompoundUnit(parts, examples);
         } else if (parts.getElement(-1).equals("compoundUnitPattern1")
                 || parts.getElement(-1).equals("unitPrefixPattern")) {
-            result = handleCompoundUnit1(parts, value);
+            handleCompoundUnit1(parts, value, examples);
         } else if (parts.getElement(-2).equals("unit")
                 && (parts.getElement(-1).equals("unitPattern")
                         || parts.getElement(-1).equals("displayName"))) {
-            result = handleFormatUnit(parts, value);
+            handleFormatUnit(parts, value, examples);
         } else if (parts.getElement(-1).equals("perUnitPattern")) {
-            result = handleFormatPerUnit(value);
+            handleFormatPerUnit(value, examples);
         } else if (parts.getElement(-2).equals("minimalPairs")) {
-            result = handleMinimalPairs(parts, value);
+            handleMinimalPairs(parts, value, examples);
         } else if (parts.getElement(-1).equals("durationUnitPattern")) {
-            result = handleDurationUnit(value);
+            handleDurationUnit(value, examples);
         } else if (parts.contains("intervalFormats")) {
-            result = handleIntervalFormats(parts, value);
+            handleIntervalFormats(parts, value, examples);
         } else if (parts.getElement(1).equals("delimiters")) {
-            result = handleDelimiters(parts, xpath, value);
+            handleDelimiters(parts, xpath, value, examples);
         } else if (parts.getElement(1).equals("listPatterns")) {
-            result = handleListPatterns(parts, value);
+            handleListPatterns(parts, value, examples);
         } else if (parts.getElement(2).equals("ellipsis")) {
-            result = handleEllipsis(parts.getAttributeValue(-1, "type"), value);
+            handleEllipsis(parts.getAttributeValue(-1, "type"), value, examples);
         } else if (parts.getElement(-1).equals("monthPattern")) {
-            result = handleMonthPatterns(parts, value);
+            handleMonthPatterns(parts, value, examples);
         } else if (parts.getElement(-1).equals("appendItem")) {
-            result = handleAppendItems(parts, value);
+            handleAppendItems(parts, value, examples);
         } else if (parts.getElement(-1).equals("annotation")) {
-            result = handleAnnotationName(parts, value);
+            handleAnnotationName(parts, value, examples);
         } else if (parts.getElement(-1).equals("characterLabel")) {
-            result = handleLabel(parts, value);
+            handleLabel(parts, value, examples);
         } else if (parts.getElement(-1).equals("characterLabelPattern")) {
-            result = handleLabelPattern(parts, value);
+            handleLabelPattern(parts, value, examples);
         } else if (parts.getElement(1).equals("personNames")) {
-            result = handlePersonName(parts, value);
+            handlePersonName(parts, value, examples);
         } else if (parts.getElement(-1).equals("exemplarCharacters")
                 || parts.getElement(-1).equals("parseLenient")) {
-            result = handleUnicodeSet(parts, xpath, value);
+            handleUnicodeSet(parts, xpath, value, examples);
         }
-
-        // Handle the outcome
-        if (result != null) {
-            if (nonTrivial && value.equals(result)) {
-                result = null;
-            } else {
-                result = finalizeBackground(result);
-            }
-        }
-        return result;
     }
 
     // Note: may want to change to locale's order; if so, these would be instance fields
@@ -608,13 +641,13 @@ public class ExampleGenerator {
      * Add examples for UnicodeSets. First, show a hex format of non-spacing marks if there are any,
      * then show delta to the winning value if there are any.
      */
-    private String handleUnicodeSet(XPathParts parts, String xpath, String value) {
-        ArrayList<String> examples = new ArrayList<>();
+    private void handleUnicodeSet(
+            XPathParts parts, String xpath, String value, List<String> examples) {
         UnicodeSet valueSet;
         try {
             valueSet = new UnicodeSet(value);
         } catch (Exception e) {
-            return null;
+            return;
         }
         String winningValue = cldrFile.getWinningValue(xpath);
         if (!winningValue.equals(value)) {
@@ -650,7 +683,6 @@ public class ExampleGenerator {
             }
         }
         examples.add(setBackground(INTERNAL) + valueSet.toPattern(false)); // internal format
-        return formatExampleList(examples);
     }
 
     /**
@@ -708,7 +740,7 @@ public class ExampleGenerator {
     private static final Function<String, String> BACKGROUND_TRANSFORM =
             x -> backgroundStartSymbol + x + backgroundEndSymbol;
 
-    private String handlePersonName(XPathParts parts, String value) {
+    private void handlePersonName(XPathParts parts, String value, List<String> examples) {
         // ldml/personNames/personName[@order="givenFirst"][@length="long"][@usage="addressing"][@style="formal"]/namePattern => {prefix} {surname}
         String debugState = "start";
         try {
@@ -719,26 +751,19 @@ public class ExampleGenerator {
                             PersonNameFormatter.Usage.from(parts.getAttributeValue(2, "usage")),
                             PersonNameFormatter.Formality.from(
                                     parts.getAttributeValue(2, "formality")));
-
-            List<String> examples = null;
             final CLDRFile cldrFile2 = getCldrFile();
             switch (parts.getElement(2)) {
                 case "nameOrderLocales":
-                    examples = new ArrayList<>();
+                    NameGetter nameGetter2 = cldrFile2.nameGetter();
                     for (String localeId : PersonNameFormatter.SPLIT_SPACE.split(value)) {
                         final String name =
                                 localeId.equals("und")
                                         ? "«any other»"
-                                        : cldrFile2.getName(localeId);
+                                        : nameGetter2.getNameFromIdentifier(localeId);
                         examples.add(localeId + " = " + name);
                     }
                     break;
-                case "initialPattern":
-                    return null;
-                case "sampleName":
-                    return null;
                 case "personName":
-                    examples = new ArrayList<>();
                     Map<PersonNameFormatter.SampleType, SimpleNameObject> sampleNames =
                             personNamesCache.getSampleNames(cldrFile2);
                     PersonNameFormatter personNameFormatter =
@@ -790,7 +815,6 @@ public class ExampleGenerator {
                     }
                     break;
             }
-            return formatExampleList(examples);
         } catch (Exception e) {
             StringBuffer stackTrace;
             try (StringWriter sw = new StringWriter();
@@ -800,7 +824,8 @@ public class ExampleGenerator {
             } catch (Exception e2) {
                 stackTrace = new StringBuffer("internal error");
             }
-            return "Internal error: " + e.getMessage() + "\n" + debugState + "\n" + stackTrace;
+            examples.add(
+                    "Internal error: " + e.getMessage() + "\n" + debugState + "\n" + stackTrace);
         }
     }
 
@@ -875,12 +900,11 @@ public class ExampleGenerator {
         return null;
     }
 
-    private String handleLabelPattern(XPathParts parts, String value) {
+    private void handleLabelPattern(XPathParts parts, String value, List<String> examples) {
         if ("category-list".equals(parts.getAttributeValue(-1, "type"))) {
-            List<String> examples = new ArrayList<>();
             CLDRFile cfile = getCldrFile();
             SimpleFormatter initialPattern = SimpleFormatter.compile(setBackground(value));
-            String path = CLDRFile.getKey(CLDRFile.TERRITORY_NAME, "FR");
+            String path = NameType.TERRITORY.getKeyPath("FR");
             String regionName = cfile.getStringValue(path);
             String flagName =
                     cfile.getStringValue("//ldml/characterLabels/characterLabel[@type=\"flag\"]");
@@ -889,19 +913,16 @@ public class ExampleGenerator {
                             EmojiConstants.getEmojiFromRegionCodes("FR")
                                     + " ⇒ "
                                     + initialPattern.format(flagName, regionName)));
-            return formatExampleList(examples);
         }
-        return null;
     }
 
-    private String handleLabel(XPathParts parts, String value) {
+    private void handleLabel(XPathParts parts, String value, List<String> examples) {
         // "//ldml/characterLabels/characterLabel[@type=\"" + typeAttributeValue + "\"]"
         switch (parts.getAttributeValue(-1, "type")) {
             case "flag":
                 {
                     String value2 = backgroundStartSymbol + value + backgroundEndSymbol;
                     CLDRFile cfile = getCldrFile();
-                    List<String> examples = new ArrayList<>();
                     SimpleFormatter initialPattern =
                             SimpleFormatter.compile(
                                     cfile.getStringValue(
@@ -911,12 +932,11 @@ public class ExampleGenerator {
                     addSubdivisionFlag(value2, "gbeng", initialPattern, examples);
                     addSubdivisionFlag(value2, "gbsct", initialPattern, examples);
                     addSubdivisionFlag(value2, "gbwls", initialPattern, examples);
-                    return formatExampleList(examples);
+                    return;
                 }
             case "keycap":
                 {
                     String value2 = backgroundStartSymbol + value + backgroundEndSymbol;
-                    List<String> examples = new ArrayList<>();
                     CLDRFile cfile = getCldrFile();
                     SimpleFormatter initialPattern =
                             SimpleFormatter.compile(
@@ -925,10 +945,10 @@ public class ExampleGenerator {
                     examples.add(invertBackground(initialPattern.format(value2, "1")));
                     examples.add(invertBackground(initialPattern.format(value2, "10")));
                     examples.add(invertBackground(initialPattern.format(value2, "#")));
-                    return formatExampleList(examples);
+                    return;
                 }
             default:
-                return null;
+                return;
         }
     }
 
@@ -938,7 +958,7 @@ public class ExampleGenerator {
             CLDRFile cfile,
             SimpleFormatter initialPattern,
             List<String> examples) {
-        String path = CLDRFile.getKey(CLDRFile.TERRITORY_NAME, isoRegionCode);
+        String path = NameType.TERRITORY.getKeyPath(isoRegionCode);
         String regionName = cfile.getStringValue(path);
         examples.add(
                 invertBackground(
@@ -963,17 +983,16 @@ public class ExampleGenerator {
                                 + initialPattern.format(value2, subdivisionName)));
     }
 
-    private String handleAnnotationName(XPathParts parts, String value) {
+    private void handleAnnotationName(XPathParts parts, String value, List<String> examples) {
         // ldml/annotations/annotation[@cp="🦰"][@type="tts"]
         // skip anything but the name
         if (!"tts".equals(parts.getAttributeValue(-1, "type"))) {
-            return null;
+            return;
         }
         String cp = parts.getAttributeValue(-1, "cp");
         if (cp == null || cp.isEmpty()) {
-            return null;
+            return;
         }
-        Set<String> examples = new LinkedHashSet<>();
         int first = cp.codePointAt(0);
         switch (first) {
             case 0x1F46A: // 👪  U+1F46A FAMILY
@@ -1039,7 +1058,6 @@ public class ExampleGenerator {
                 }
                 break;
         }
-        return formatExampleList(examples);
     }
 
     private String getEmojiName(CLDRFile cfile, String skin) {
@@ -1108,13 +1126,12 @@ public class ExampleGenerator {
                                         initialPattern.format(personName, skinName), hairName)));
     }
 
-    private String handleDayPeriod(XPathParts parts, String value) {
+    private void handleDayPeriod(XPathParts parts, String value, List<String> examples) {
         // ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="morning1"]
         // ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="stand-alone"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="morning1"]
-        List<String> examples = new ArrayList<>();
         final String dayPeriodType = parts.getAttributeValue(5, "type");
         if (dayPeriodType == null) {
-            return null; // formerly happened for some "/alias" paths
+            return; // formerly happened for some "/alias" paths
         }
         org.unicode.cldr.util.DayPeriodInfo.Type aType =
                 dayPeriodType.equals("format")
@@ -1124,7 +1141,7 @@ public class ExampleGenerator {
                 supplementalDataInfo.getDayPeriods(aType, cldrFile.getLocaleID());
         String periodString = parts.getAttributeValue(-1, "type");
         if (periodString == null) {
-            return null; // formerly happened for some "/alias" paths
+            return; // formerly happened for some "/alias" paths
         }
         DayPeriod dayPeriod = DayPeriod.valueOf(periodString);
         String periods = dayPeriodInfo.toString(dayPeriod);
@@ -1142,16 +1159,15 @@ public class ExampleGenerator {
                 examples.add(invertBackground(timeFormatString));
             }
         }
-        return formatExampleList(examples.toArray(new String[0]));
     }
 
-    private String handleDateSymbol(XPathParts parts, String value) {
+    private void handleDateSymbol(XPathParts parts, String value, List<String> examples) {
         // Currently only called for month names, can expand in the future to handle other symbols.
         // The idea is to show format months in a yMMMM?d date format, and stand-alone months in a
         // yMMMM? format.
         String length = parts.findAttributeValue("monthWidth", "type"); // wide, abbreviated, narrow
         if (length.equals("narrow")) {
-            return null; // no examples for narrow
+            return; // no examples for narrow
         }
         String context = parts.findAttributeValue("monthContext", "type"); // format, stand-alone
         String calendarId =
@@ -1186,7 +1202,7 @@ public class ExampleGenerator {
             dateFormat = cldrFile.getWinningValue(checkPath);
         }
         if (dateFormat == null) {
-            return null;
+            return;
         }
         SimpleDateFormat sdf = icuServiceBuilder.getDateFormat(calendarId, dateFormat);
         sdf.setTimeZone(ZONE_SAMPLE);
@@ -1207,12 +1223,11 @@ public class ExampleGenerator {
         monthNames[8] = value;
         dfs.setMonths(monthNames, DateFormatSymbols.STANDALONE, DateFormatSymbols.ABBREVIATED);
         sdf.setDateFormatSymbols(dfs);
-        return sdf.format(DATE_SAMPLE);
+        examples.add(sdf.format(DATE_SAMPLE));
     }
 
-    private String handleMinimalPairs(XPathParts parts, String minimalPattern) {
-        List<String> examples = new ArrayList<>();
-
+    private void handleMinimalPairs(
+            XPathParts parts, String minimalPattern, List<String> examples) {
         Output<String> output = new Output<>();
         String count;
         String otherCount;
@@ -1262,7 +1277,7 @@ public class ExampleGenerator {
                 sampleBad = bestMinimalPairSamples.getBestUnitWithGender(otherGender, output);
                 break;
             default:
-                return null;
+                return;
         }
         String formattedUnit =
                 format(minimalPattern, backgroundStartSymbol + sample + backgroundEndSymbol);
@@ -1273,11 +1288,10 @@ public class ExampleGenerator {
         formattedUnit =
                 format(minimalPattern, backgroundStartSymbol + sampleBad + backgroundEndSymbol);
         examples.add(EXAMPLE_OF_INCORRECT + formattedUnit);
-        return formatExampleList(examples);
     }
 
     private String getOtherGender(String gender) {
-        if (gender == null) {
+        if (gender == null || grammarInfo == null) {
             return null;
         }
         Collection<String> unitGenders =
@@ -1335,17 +1349,16 @@ public class ExampleGenerator {
         return UnitLength.valueOf(parts.getAttributeValue(-3, "type").toUpperCase(Locale.ENGLISH));
     }
 
-    private String handleFormatUnit(XPathParts parts, String unitPattern) {
+    private void handleFormatUnit(XPathParts parts, String unitPattern, List<String> examples) {
         // Sample:
         // //ldml/units/unitLength[@type="long"]/unit[@type="duration-day"]/unitPattern[@count="one"][@case="accusative"]
 
         String longUnitId = parts.getAttributeValue(-2, "type");
         final String shortUnitId = UNIT_CONVERTER.getShortId(longUnitId);
         if (UnitConverter.HACK_SKIP_UNIT_NAMES.contains(shortUnitId)) {
-            return null;
+            return;
         }
 
-        List<String> examples = new ArrayList<>();
         if (parts.getElement(-1).equals("unitPattern")) {
             String count = parts.getAttributeValue(-1, "count");
             DecimalQuantity amount = getBest(Count.valueOf(count));
@@ -1389,7 +1402,6 @@ public class ExampleGenerator {
                             relatedUnit,
                             UnitSystem.getSystemsDisplay(systems)));
         }
-        return formatExampleList(examples);
     }
 
     /**
@@ -1492,21 +1504,25 @@ public class ExampleGenerator {
         return null;
     }
 
-    private String handleFormatPerUnit(String value) {
+    private void handleFormatPerUnit(String value, List<String> examples) {
         DecimalFormat numberFormat = icuServiceBuilder.getNumberFormat(1);
-        return format(value, backgroundStartSymbol + numberFormat.format(1) + backgroundEndSymbol);
+        examples.add(
+                format(
+                        value,
+                        backgroundStartSymbol + numberFormat.format(1) + backgroundEndSymbol));
     }
 
-    public String handleCompoundUnit(XPathParts parts) {
+    public void handleCompoundUnit(XPathParts parts, List<String> examples) {
         UnitLength unitLength = getUnitLength(parts);
         String compoundType = parts.getAttributeValue(-2, "type");
         Count count =
                 Count.valueOf(CldrUtility.ifNull(parts.getAttributeValue(-1, "count"), "other"));
-        return handleCompoundUnit(unitLength, compoundType, count);
+        handleCompoundUnit(unitLength, compoundType, count, examples);
     }
 
     @SuppressWarnings("deprecation")
-    public String handleCompoundUnit(UnitLength unitLength, String compoundType, Count count) {
+    public void handleCompoundUnit(
+            UnitLength unitLength, String compoundType, Count count, List<String> examples) {
         /*
              *  <units>
         <unitLength type="long">
@@ -1531,7 +1547,8 @@ public class ExampleGenerator {
         // we want to get a number that works for the count passed in.
         DecimalQuantity amount = getBest(count);
         if (amount == null) {
-            return "n/a";
+            examples.add("n/a");
+            return;
         }
         DecimalQuantity oneValue = DecimalQuantity_DualStorageBCD.fromExponentString("1");
 
@@ -1539,7 +1556,8 @@ public class ExampleGenerator {
         String unit2mid;
         switch (compoundType) {
             default:
-                return "n/a";
+                examples.add("n/a");
+                return;
             case "per":
                 unit1mid = getFormattedUnit("length-meter", unitLength, amount);
                 unit2mid = getFormattedUnit("duration-second", unitLength, oneValue, "");
@@ -1560,20 +1578,22 @@ public class ExampleGenerator {
         String form = this.pluralInfo.getPluralRules().select(amount);
         // we rebuild a path, because we may have changed it.
         String perPath = makeCompoundUnitPath(unitLength, compoundType, "compoundUnitPattern");
-        return format(getValueFromFormat(perPath, form), unit1, unit2);
+        examples.add(format(getValueFromFormat(perPath, form), unit1, unit2));
     }
 
-    public String handleCompoundUnit1(XPathParts parts, String compoundPattern) {
+    public void handleCompoundUnit1(
+            XPathParts parts, String compoundPattern, List<String> examples) {
         UnitLength unitLength = getUnitLength(parts);
         String pathCount = parts.getAttributeValue(-1, "count");
         if (pathCount == null) {
-            return handleCompoundUnit1Name(unitLength, compoundPattern);
+            handleCompoundUnit1Name(unitLength, compoundPattern, examples);
         } else {
-            return handleCompoundUnit1(unitLength, Count.valueOf(pathCount), compoundPattern);
+            handleCompoundUnit1(unitLength, Count.valueOf(pathCount), compoundPattern, examples);
         }
     }
 
-    private String handleCompoundUnit1Name(UnitLength unitLength, String compoundPattern) {
+    private void handleCompoundUnit1Name(
+            UnitLength unitLength, String compoundPattern, List<String> examples) {
         String pathFormat =
                 "//ldml/units/unitLength"
                         + unitLength.typeString
@@ -1584,15 +1604,17 @@ public class ExampleGenerator {
         String modFormat =
                 combinePrefix(meterFormat, compoundPattern, unitLength == UnitLength.LONG);
 
-        return removeEmptyRuns(modFormat);
+        examples.add(removeEmptyRuns(modFormat));
     }
 
-    public String handleCompoundUnit1(UnitLength unitLength, Count count, String compoundPattern) {
+    public void handleCompoundUnit1(
+            UnitLength unitLength, Count count, String compoundPattern, List<String> examples) {
 
         // we want to get a number that works for the count passed in.
         DecimalQuantity amount = getBest(count);
         if (amount == null) {
-            return "n/a";
+            examples.add("n/a");
+            return;
         }
         DecimalFormat numberFormat = icuServiceBuilder.getNumberFormat(1);
 
@@ -1613,7 +1635,8 @@ public class ExampleGenerator {
         String modFormat =
                 combinePrefix(meterFormat, compoundPattern, unitLength == UnitLength.LONG);
 
-        return removeEmptyRuns(format(modFormat, numberFormat.format(amount.toBigDecimal())));
+        examples.add(
+                removeEmptyRuns(format(modFormat, numberFormat.format(amount.toBigDecimal()))));
     }
 
     // TODO, pass in unitLength instead of last parameter, and do work in Units.combinePattern.
@@ -1661,28 +1684,30 @@ public class ExampleGenerator {
         return range.end;
     }
 
-    private String handleMiscPatterns(XPathParts parts, String value) {
+    private void handleMiscPatterns(XPathParts parts, String value, List<String> examples) {
         DecimalFormat numberFormat = icuServiceBuilder.getNumberFormat(0);
         String start = backgroundStartSymbol + numberFormat.format(99) + backgroundEndSymbol;
         if ("range".equals(parts.getAttributeValue(-1, "type"))) {
             String end = backgroundStartSymbol + numberFormat.format(144) + backgroundEndSymbol;
-            return format(value, start, end);
+            examples.add(format(value, start, end));
         } else {
-            return format(value, start);
+            examples.add(format(value, start));
         }
     }
 
-    private String handleIntervalFormats(XPathParts parts, String value) {
+    private void handleIntervalFormats(XPathParts parts, String value, List<String> examples) {
         if (!parts.getAttributeValue(3, "type").equals("gregorian")) {
-            return null;
+            return;
         }
         if (parts.getElement(6).equals("intervalFormatFallback")) {
             SimpleDateFormat dateFormat = new SimpleDateFormat();
             String fallbackFormat = invertBackground(setBackground(value));
-            return format(
-                    fallbackFormat,
-                    dateFormat.format(FIRST_INTERVAL),
-                    dateFormat.format(SECOND_INTERVAL.get("y")));
+            examples.add(
+                    format(
+                            fallbackFormat,
+                            dateFormat.format(FIRST_INTERVAL),
+                            dateFormat.format(SECOND_INTERVAL.get("y"))));
+            return;
         }
         String greatestDifference = parts.getAttributeValue(-1, "id");
         /*
@@ -1708,12 +1733,13 @@ public class ExampleGenerator {
              * Reference: https://unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table
              * For now, such paths do not get examples.
              */
-            return null;
+            return;
         }
-        return intervalFormat.format(FIRST_INTERVAL, later);
+        examples.add(intervalFormat.format(FIRST_INTERVAL, later));
     }
 
-    private String handleDelimiters(XPathParts parts, String xpath, String value) {
+    private void handleDelimiters(
+            XPathParts parts, String xpath, String value, List<String> examples) {
         String lastElement = parts.getElement(-1);
         final String[] elements = {
             "quotationStart", "alternateQuotationStart",
@@ -1734,65 +1760,70 @@ public class ExampleGenerator {
                         "//ldml/localeDisplayNames/types/type[@key=\"calendar\"][@type=\"gregorian\"]");
         // NOTE: the example provided here is partially in English because we don't
         // have a translated conversational example in CLDR.
-        return invertBackground(
-                format("{0}They said {1}" + example + "{2}.{3}", (Object[]) quotes));
+        examples.add(
+                invertBackground(
+                        format("{0}They said {1}" + example + "{2}.{3}", (Object[]) quotes)));
     }
 
-    private String handleListPatterns(XPathParts parts, String value) {
+    private void handleListPatterns(XPathParts parts, String value, List<String> examples) {
         // listPatternType is either "duration" or null/other list
         String listPatternType = parts.getAttributeValue(-2, "type");
         if (listPatternType == null || !listPatternType.contains("unit")) {
-            return handleRegularListPatterns(parts, value, ListTypeLength.from(listPatternType));
+            handleRegularListPatterns(parts, value, ListTypeLength.from(listPatternType), examples);
         } else {
-            return handleDurationListPatterns(parts, value, UnitLength.from(listPatternType));
+            handleDurationListPatterns(parts, value, UnitLength.from(listPatternType), examples);
         }
     }
 
-    private String handleRegularListPatterns(
-            XPathParts parts, String value, ListTypeLength listTypeLength) {
+    private void handleRegularListPatterns(
+            XPathParts parts, String value, ListTypeLength listTypeLength, List<String> examples) {
         String patternType = parts.getAttributeValue(-1, "type");
         if (patternType == null) {
-            return null; // formerly happened for some "/alias" paths
+            return; // formerly happened for some "/alias" paths
         }
         String pathFormat = "//ldml/localeDisplayNames/territories/territory[@type=\"{0}\"]";
         String territory1 = getValueFromFormat(pathFormat, "CH");
         String territory2 = getValueFromFormat(pathFormat, "JP");
         if (patternType.equals("2")) {
-            return invertBackground(format(setBackground(value), territory1, territory2));
+            examples.add(invertBackground(format(setBackground(value), territory1, territory2)));
+            return;
         }
         String territory3 = getValueFromFormat(pathFormat, "EG");
         String territory4 = getValueFromFormat(pathFormat, "CA");
-        return longListPatternExample(
-                listTypeLength.getPath(),
-                patternType,
-                value,
-                territory1,
-                territory2,
-                territory3,
-                territory4);
+        examples.add(
+                longListPatternExample(
+                        listTypeLength.getPath(),
+                        patternType,
+                        value,
+                        territory1,
+                        territory2,
+                        territory3,
+                        territory4));
     }
 
-    private String handleDurationListPatterns(
-            XPathParts parts, String value, UnitLength unitWidth) {
+    private void handleDurationListPatterns(
+            XPathParts parts, String value, UnitLength unitWidth, List<String> examples) {
         String patternType = parts.getAttributeValue(-1, "type");
         if (patternType == null) {
-            return null; // formerly happened for some "/alias" paths
+            return; // formerly happened for some "/alias" paths
         }
         String duration1 = getFormattedUnit("duration-day", unitWidth, 4);
         String duration2 = getFormattedUnit("duration-hour", unitWidth, 2);
         if (patternType.equals("2")) {
-            return invertBackground(format(setBackground(value), duration1, duration2));
+            examples.add(invertBackground(format(setBackground(value), duration1, duration2)));
+            return;
         }
         String duration3 = getFormattedUnit("duration-minute", unitWidth, 37);
         String duration4 = getFormattedUnit("duration-second", unitWidth, 23);
-        return longListPatternExample(
-                unitWidth.listTypeLength.getPath(),
-                patternType,
-                value,
-                duration1,
-                duration2,
-                duration3,
-                duration4);
+        examples.add(
+                longListPatternExample(
+                        unitWidth.listTypeLength.getPath(),
+                        patternType,
+                        value,
+                        duration1,
+                        duration2,
+                        duration3,
+                        duration4));
     }
 
     public enum UnitLength {
@@ -1892,7 +1923,7 @@ public class ExampleGenerator {
         return cldrFile.getWinningValue(format(format, arguments));
     }
 
-    public String handleEllipsis(String type, String value) {
+    public void handleEllipsis(String type, String value, List<String> examples) {
         String pathFormat = "//ldml/localeDisplayNames/territories/territory[@type=\"{0}\"]";
         //  <ellipsis type="word-final">{0} …</ellipsis>
         //  <ellipsis type="word-initial">… {0}</ellipsis>
@@ -1907,7 +1938,7 @@ public class ExampleGenerator {
         if (type.contains("initial")) {
             territory1 = territory2;
         }
-        return invertBackground(format(setBackground(value), territory1, territory2));
+        examples.add(invertBackground(format(setBackground(value), territory1, territory2)));
     }
 
     public static String clip(String text, int clipStart, int clipEnd) {
@@ -1932,7 +1963,7 @@ public class ExampleGenerator {
      * @param value
      * @return
      */
-    private String handleMonthPatterns(XPathParts parts, String value) {
+    private void handleMonthPatterns(XPathParts parts, String value, List<String> examples) {
         String calendar = parts.getAttributeValue(3, "type");
         String context = parts.getAttributeValue(5, "type");
         String month = "8";
@@ -1942,20 +1973,20 @@ public class ExampleGenerator {
                     "//ldml/dates/calendars/calendar[@type=\"{0}\"]/months/monthContext[@type=\"{1}\"]/monthWidth[@type=\"{2}\"]/month[@type=\"8\"]";
             month = getValueFromFormat(xpath, calendar, context, width);
         }
-        return invertBackground(format(setBackground(value), month));
+        examples.add(invertBackground(format(setBackground(value), month)));
     }
 
-    private String handleAppendItems(XPathParts parts, String value) {
+    private void handleAppendItems(XPathParts parts, String value, List<String> examples) {
         String request = parts.getAttributeValue(-1, "request");
         if (!"Timezone".equals(request)) {
-            return null;
+            return;
         }
         String calendar = parts.getAttributeValue(3, "type");
 
         SimpleDateFormat sdf =
                 icuServiceBuilder.getDateFormat(calendar, 0, DateFormat.MEDIUM, null);
         String zone = cldrFile.getStringValue("//ldml/dates/timeZoneNames/gmtZeroFormat");
-        return format(value, setBackground(sdf.format(DATE_SAMPLE)), setBackground(zone));
+        examples.add(format(value, setBackground(sdf.format(DATE_SAMPLE)), setBackground(zone)));
     }
 
     private class IntervalFormat {
@@ -2038,22 +2069,23 @@ public class ExampleGenerator {
         }
     }
 
-    private String handleDurationUnit(String value) {
+    private void handleDurationUnit(String value, List<String> examples) {
         DateFormat df = this.icuServiceBuilder.getDateFormat("gregorian", value.replace('h', 'H'));
         df.setTimeZone(TimeZone.GMT_ZONE);
         long time = ((5 * 60 + 37) * 60 + 23) * 1000;
         try {
-            return df.format(new Date(time));
+            examples.add(df.format(new Date(time)));
         } catch (IllegalArgumentException e) {
             // e.g., Illegal pattern character 'o' in "aɖabaƒoƒo m:ss"
-            return null;
+            return;
         }
     }
 
     @SuppressWarnings("deprecation")
-    private String formatCountValue(String xpath, XPathParts parts, String value) {
+    private void formatCountValue(
+            String xpath, XPathParts parts, String value, List<String> examples) {
         if (!parts.containsAttribute("count")) { // no examples for items that don't format
-            return null;
+            return;
         }
         final PluralInfo plurals =
                 supplementalDataInfo.getPlurals(PluralType.cardinal, cldrFile.getLocaleID());
@@ -2070,12 +2102,12 @@ public class ExampleGenerator {
         final LinkedHashSet<DecimalQuantity> exampleCount = new LinkedHashSet<>(CURRENCY_SAMPLES);
         String countString = parts.getAttributeValue(-1, "count");
         if (countString == null) {
-            return null;
+            return;
         } else {
             try {
                 count = Count.valueOf(countString);
             } catch (Exception e) {
-                return null; // counts like 0
+                return; // counts like 0
             }
         }
 
@@ -2151,7 +2183,7 @@ public class ExampleGenerator {
                 }
             }
         }
-        return result.isEmpty() ? null : result;
+        examples.add(result.isEmpty() ? null : result);
     }
 
     @SuppressWarnings("deprecation")
@@ -2263,7 +2295,7 @@ public class ExampleGenerator {
         return "[@count=\"" + count + "\"]";
     }
 
-    private String handleMinimumGrouping(XPathParts parts, String value) {
+    private void handleMinimumGrouping(XPathParts parts, String value, List<String> examples) {
         String numberSystem = cldrFile.getWinningValue("//ldml/numbers/defaultNumberingSystem");
         String checkPath =
                 "//ldml/numbers/decimalFormats[@numberSystem=\""
@@ -2276,14 +2308,12 @@ public class ExampleGenerator {
         double sampleNum1 = 543.21;
         double sampleNum2 = 6543.21;
         double sampleNum3 = 76543.21;
-        String example = "";
-        example = addExampleResult(formatNumber(numberFormat, sampleNum1), example);
-        example = addExampleResult(formatNumber(numberFormat, sampleNum2), example);
-        example = addExampleResult(formatNumber(numberFormat, sampleNum3), example);
-        return example;
+        examples.add(formatNumber(numberFormat, sampleNum1));
+        examples.add(formatNumber(numberFormat, sampleNum2));
+        examples.add(formatNumber(numberFormat, sampleNum3));
     }
 
-    private String handleNumberSymbol(XPathParts parts, String value) {
+    private void handleNumberSymbol(XPathParts parts, String value, List<String> examples) {
         String symbolType = parts.getElement(-1);
         String numberSystem = parts.getAttributeValue(2, "numberSystem"); // null if not present
         int index; // dec/percent/sci
@@ -2318,7 +2348,7 @@ public class ExampleGenerator {
         } else {
             // We don't need examples for standalone symbols, i.e. infinity and nan.
             // We don't have an example for the list symbol either.
-            return null;
+            return;
         }
         DecimalFormat x = icuServiceBuilder.getNumberFormat(index, numberSystem);
         String example;
@@ -2347,16 +2377,16 @@ public class ExampleGenerator {
         }
         example = x.format(numberSample);
         example = example.replace(originalValue, formattedValue);
-        return backgroundStartSymbol + example + backgroundEndSymbol;
+        examples.add(backgroundStartSymbol + example + backgroundEndSymbol);
     }
 
-    private String handleNumberingSystem(String value) {
+    private void handleNumberingSystem(String value, List<String> examples) {
         NumberFormat x = icuServiceBuilder.getGenericNumberFormat(value);
         x.setGroupingUsed(false);
-        return x.format(NUMBER_SAMPLE_WHOLE);
+        examples.add(x.format(NUMBER_SAMPLE_WHOLE));
     }
 
-    private String handleTimeZoneName(XPathParts parts, String value) {
+    private void handleTimeZoneName(XPathParts parts, String value, List<String> examples) {
         String result = null;
         if (parts.contains("exemplarCity")) {
             // ldml/dates/timeZoneNames/zone[@type="America/Los_Angeles"]/exemplarCity
@@ -2368,7 +2398,8 @@ public class ExampleGenerator {
                 } else {
                     result = value; // trivial -- is this beneficial?
                 }
-                return result;
+                examples.add(result);
+                return;
             }
             if (countryCode.equals("001")) {
                 // GMT code, so format.
@@ -2377,15 +2408,23 @@ public class ExampleGenerator {
                     int hours = Integer.parseInt(hourOffset);
                     result = getGMTFormat(null, null, hours);
                 } catch (RuntimeException e) {
-                    return null; // fail, skip
+                    return; // fail, skip
                 }
             } else {
-                result = setBackground(cldrFile.getName(CLDRFile.TERRITORY_NAME, countryCode));
+                result =
+                        setBackground(
+                                cldrFile.nameGetter()
+                                        .getNameFromTypeEnumCode(NameType.TERRITORY, countryCode));
             }
         } else if (parts.contains("zone")) { // {0} Time
             result = value; // trivial -- is this beneficial?
         } else if (parts.contains("regionFormat")) { // {0} Time
-            result = format(value, setBackground(cldrFile.getName(CLDRFile.TERRITORY_NAME, "JP")));
+            result =
+                    format(
+                            value,
+                            setBackground(
+                                    cldrFile.nameGetter()
+                                            .getNameFromTypeEnumCode(NameType.TERRITORY, "JP")));
             result =
                     addExampleResult(
                             format(
@@ -2457,11 +2496,12 @@ public class ExampleGenerator {
                 }
             }
         }
-        return result;
+        examples.add(result);
     }
 
     @SuppressWarnings("deprecation")
-    private String handleDateFormatItem(String xpath, String value, boolean showContexts) {
+    private void handleDateFormatItem(
+            String xpath, String value, boolean showContexts, List<String> examples) {
         // Get here if parts contains "calendar" and either of "pattern", "dateFormatItem"
 
         String fullpath = cldrFile.getFullXPath(xpath);
@@ -2489,50 +2529,23 @@ public class ExampleGenerator {
 
             // ldml/dates/calendars/calendar[@type="*"]/dateFormats/dateFormatLength[@type="*"]/dateFormat[@type="standard"]/pattern[@type="standard"]
             // ldml/dates/calendars/calendar[@type="*"]/dateFormats/dateFormatLength[@type="*"]/dateFormat[@type="standard"]/pattern[@type="standard"][@numbers="*"]
-            String dateFormatXPath = // Get standard dateFmt for same calendar & length as this
-                    // dateTimePattern
-                    cldrFile.getWinningPath(
-                            xpath.replaceAll("dateTimeFormat", "dateFormat")
-                                    .replaceAll("atTime", "standard"));
-
-            String dateFormatValue = cldrFile.getWinningValue(dateFormatXPath);
-            parts = XPathParts.getFrozenInstance(cldrFile.getFullXPath(dateFormatXPath));
-            String dateNumbersOverride = parts.findAttributeValue("pattern", "numbers");
-            SimpleDateFormat df =
-                    icuServiceBuilder.getDateFormat(calendar, dateFormatValue, dateNumbersOverride);
+            SimpleDateFormat df = cldrFile.getDateFormat(calendar, length, icuServiceBuilder);
             df.setTimeZone(ZONE_SAMPLE);
 
             // ldml/dates/calendars/calendar[@type="*"]/timeFormats/timeFormatLength[@type="*"]/timeFormat[@type="standard"]/pattern[@type="standard"]
             // ldml/dates/calendars/calendar[@type="*"]/timeFormats/timeFormatLength[@type="*"]/timeFormat[@type="standard"]/pattern[@type="standard"][@numbers="*"] // not currently used
-            String timeFormatXPathForPrefix =
-                    cldrFile.getWinningPath(xpath.replaceAll("dateTimeFormat", "timeFormat"));
-            int tfLengthOffset = timeFormatXPathForPrefix.indexOf("timeFormatLength");
-            if (tfLengthOffset < 0) {
-                return "";
-            }
-            String timeFormatXPathPrefix = timeFormatXPathForPrefix.substring(0, tfLengthOffset);
-            String timeLongerFormatXPath =
-                    (!length.equals("short"))
-                            ? timeFormatXPathPrefix.concat(
-                                    "timeFormatLength[@type=\"full\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]")
-                            : timeFormatXPathPrefix.concat(
-                                    "timeFormatLength[@type=\"long\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]");
-            String timeShortFormatXPath =
-                    timeFormatXPathPrefix.concat(
-                            "timeFormatLength[@type=\"short\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]");
-
-            String timeFormatValue = cldrFile.getWinningValue(timeLongerFormatXPath);
-            parts = XPathParts.getFrozenInstance(cldrFile.getFullXPath(timeLongerFormatXPath));
-            String timeNumbersOverride = parts.findAttributeValue("pattern", "numbers");
             SimpleDateFormat tlf =
-                    icuServiceBuilder.getDateFormat(calendar, timeFormatValue, timeNumbersOverride);
+                    (!length.equals("short"))
+                            ? cldrFile.getTimeFormat(calendar, "full", icuServiceBuilder)
+                            : cldrFile.getTimeFormat(calendar, "long", icuServiceBuilder);
+
+            if (tlf == null) {
+                return;
+            }
+
             tlf.setTimeZone(ZONE_SAMPLE);
 
-            timeFormatValue = cldrFile.getWinningValue(timeShortFormatXPath);
-            parts = XPathParts.getFrozenInstance(cldrFile.getFullXPath(timeShortFormatXPath));
-            timeNumbersOverride = parts.findAttributeValue("pattern", "numbers");
-            SimpleDateFormat tsf =
-                    icuServiceBuilder.getDateFormat(calendar, timeFormatValue, timeNumbersOverride);
+            SimpleDateFormat tsf = cldrFile.getTimeFormat(calendar, "short", icuServiceBuilder);
             tsf.setTimeZone(ZONE_SAMPLE);
 
             // ldml/dates/fields/field[@type="day"]/relative[@type="0"] // "today"
@@ -2540,8 +2553,6 @@ public class ExampleGenerator {
                     cldrFile.getWinningPath(
                             "//ldml/dates/fields/field[@type=\"day\"]/relative[@type=\"0\"]");
             String relativeDayValue = cldrFile.getWinningValue(relativeDayXPath);
-
-            List<String> examples = new ArrayList<>();
 
             String dfResult = df.format(DATE_SAMPLE);
             String tlfResult = tlf.format(DATE_SAMPLE);
@@ -2552,30 +2563,22 @@ public class ExampleGenerator {
             // so
             // we handle it with SimpleDateFormat, plugging the date and time formats in as literal
             // text.
-            SimpleDateFormat dtf =
-                    icuServiceBuilder.getDateFormat(
+            examples.add(
+                    cldrFile.glueDateTimeFormatWithGluePattern(
+                            setBackground(dfResult),
+                            setBackground(tlfResult),
                             calendar,
-                            MessageFormat.format(
-                                    value,
-                                    (Object[])
-                                            new String[] {
-                                                setBackground("'" + tlfResult + "'"),
-                                                setBackground("'" + dfResult + "'")
-                                            }));
-            examples.add(dtf.format(DATE_SAMPLE));
+                            value,
+                            icuServiceBuilder));
 
             // Handle date plus a single short time.
-            dtf =
-                    icuServiceBuilder.getDateFormat(
+            examples.add(
+                    cldrFile.glueDateTimeFormatWithGluePattern(
+                            setBackground(dfResult),
+                            setBackground(tsfResult),
                             calendar,
-                            MessageFormat.format(
-                                    value,
-                                    (Object[])
-                                            new String[] {
-                                                setBackground("'" + tsfResult + "'"),
-                                                setBackground("'" + dfResult + "'")
-                                            }));
-            examples.add(dtf.format(DATE_SAMPLE));
+                            value,
+                            icuServiceBuilder));
 
             if (!formatType.contentEquals("atTime")) {
                 // Examples for standard pattern
@@ -2595,53 +2598,43 @@ public class ExampleGenerator {
                     String timeRange = format(intervalFormatFallbackValue, tsfAMResult, tsfResult);
 
                     // Handle date plus short time range
-                    dtf =
-                            icuServiceBuilder.getDateFormat(
+
+                    examples.add(
+                            cldrFile.glueDateTimeFormatWithGluePattern(
+                                    setBackground(dfResult),
+                                    setBackground(timeRange),
                                     calendar,
-                                    MessageFormat.format(
-                                            value,
-                                            (Object[])
-                                                    new String[] {
-                                                        setBackground("'" + timeRange + "'"),
-                                                        setBackground("'" + dfResult + "'")
-                                                    }));
-                    examples.add(dtf.format(DATE_SAMPLE));
+                                    value,
+                                    icuServiceBuilder));
 
                     // Handle relative date plus short time range
-                    dtf =
-                            icuServiceBuilder.getDateFormat(
+                    examples.add(
+                            cldrFile.glueDateTimeFormatWithGluePattern(
+                                    setBackground(relativeDayValue),
+                                    setBackground(timeRange),
                                     calendar,
-                                    MessageFormat.format(
-                                            value,
-                                            (Object[])
-                                                    new String[] {
-                                                        setBackground("'" + timeRange + "'"),
-                                                        setBackground("'" + relativeDayValue + "'")
-                                                    }));
-                    examples.add(dtf.format(DATE_SAMPLE));
+                                    value,
+                                    icuServiceBuilder));
                 }
             } else {
                 // Examples for atTime pattern
 
                 // Handle relative date plus a single short time.
-                dtf =
-                        icuServiceBuilder.getDateFormat(
+                examples.add(
+                        cldrFile.glueDateTimeFormatWithGluePattern(
+                                setBackground(relativeDayValue),
+                                setBackground(tsfResult),
                                 calendar,
-                                MessageFormat.format(
-                                        value,
-                                        (Object[])
-                                                new String[] {
-                                                    setBackground("'" + tsfResult + "'"),
-                                                    setBackground("'" + relativeDayValue + "'")
-                                                }));
-                examples.add(dtf.format(DATE_SAMPLE));
+                                value,
+                                icuServiceBuilder));
             }
 
-            return formatExampleList(examples.toArray(new String[0]));
+            return;
         } else {
             String id = parts.findAttributeValue("dateFormatItem", "id");
             if ("NEW".equals(id) || value == null) {
-                return startItalicSymbol + "n/a" + endItalicSymbol;
+                examples.add(startItalicSymbol + "n/a" + endItalicSymbol);
+                return;
             } else {
                 String numbersOverride = parts.findAttributeValue("pattern", "numbers");
                 SimpleDateFormat sdf =
@@ -2661,7 +2654,8 @@ public class ExampleGenerator {
                     // Standard date/time format, or availableFormat without dayPeriod
                     if (value.contains("MMM") || value.contains("LLL")) {
                         // alpha month, do not need context examples
-                        return sdf.format(DATE_SAMPLE);
+                        examples.add(sdf.format(DATE_SAMPLE));
+                        return;
                     } else {
                         // Use contextExamples if showContexts T
                         String example =
@@ -2670,11 +2664,16 @@ public class ExampleGenerator {
                                                 + contextheader
                                                 + exampleEndSymbol
                                         : "";
-                        example = addExampleResult(sdf.format(DATE_SAMPLE), example, showContexts);
-                        return example;
+                        String sup_twelve_example = sdf.format(DATE_SAMPLE);
+                        String sub_ten_example = sdf.format(DATE_SAMPLE5);
+                        example = addExampleResult(sup_twelve_example, example, showContexts);
+                        if (!sup_twelve_example.equals(sub_ten_example)) {
+                            example = addExampleResult(sub_ten_example, example, showContexts);
+                        }
+                        examples.add(example);
+                        return;
                     }
                 } else {
-                    List<String> examples = new ArrayList<>();
                     DayPeriodInfo dayPeriodInfo =
                             supplementalDataInfo.getDayPeriods(
                                     DayPeriodInfo.Type.format, cldrFile.getLocaleID());
@@ -2696,7 +2695,7 @@ public class ExampleGenerator {
                             examples.add(formatted);
                         }
                     }
-                    return formatExampleList(examples.toArray(new String[0]));
+                    return;
                 }
             }
         }
@@ -2729,7 +2728,8 @@ public class ExampleGenerator {
      * @param value
      * @return
      */
-    private String handleCurrencyFormat(XPathParts parts, String value, boolean showContexts) {
+    private void handleCurrencyFormat(
+            XPathParts parts, String value, boolean showContexts, List<String> examples) {
 
         String example =
                 showContexts ? exampleStartHeaderSymbol + contextheader + exampleEndSymbol : "";
@@ -2752,9 +2752,18 @@ public class ExampleGenerator {
                 icuServiceBuilder.getCurrencyFormat(currency, currencySymbol, numberSystem);
         df.applyPattern(value);
 
+        // getCurrencyFormat sets digits, but applyPattern seems to overwrite it, so fix it again
+        // here
+        SupplementalDataInfo supplementalData = CONFIG.getSupplementalDataInfo();
+        CurrencyNumberInfo info = supplementalData.getCurrencyNumberInfo(currency);
+        int digits = info.getDigits();
+        df.setMinimumFractionDigits(digits);
+        df.setMaximumFractionDigits(digits);
+
         String countValue = parts.getAttributeValue(-1, "count");
         if (countValue != null) {
-            return formatCountDecimal(df, countValue);
+            examples.add(formatCountDecimal(df, countValue));
+            return;
         }
 
         double sampleAmount = 1295.00;
@@ -2778,7 +2787,7 @@ public class ExampleGenerator {
             example = addExampleResult(formatNumber(df, -sampleAmount), example, showContexts);
         }
 
-        return example;
+        examples.add(example);
     }
 
     private String getDefaultTerritory() {
@@ -2811,14 +2820,16 @@ public class ExampleGenerator {
      * @param value
      * @return
      */
-    private String handleDecimalFormat(XPathParts parts, String value, boolean showContexts) {
+    private void handleDecimalFormat(
+            XPathParts parts, String value, boolean showContexts, List<String> examples) {
         String example =
                 showContexts ? exampleStartHeaderSymbol + contextheader + exampleEndSymbol : "";
         String numberSystem = parts.getAttributeValue(2, "numberSystem"); // null if not present
         DecimalFormat numberFormat = icuServiceBuilder.getNumberFormat(value, numberSystem);
         String countValue = parts.getAttributeValue(-1, "count");
         if (countValue != null) {
-            return formatCountDecimal(numberFormat, countValue);
+            examples.add(formatCountDecimal(numberFormat, countValue));
+            return;
         }
 
         double sampleNum1 = 5.43;
@@ -2830,7 +2841,7 @@ public class ExampleGenerator {
         example = addExampleResult(formatNumber(numberFormat, sampleNum2), example, showContexts);
         // have positive and negative
         example = addExampleResult(formatNumber(numberFormat, -sampleNum2), example, showContexts);
-        return example;
+        examples.add(example);
     }
 
     private String formatCountDecimal(DecimalFormat numberFormat, String countValue) {
@@ -2887,7 +2898,8 @@ public class ExampleGenerator {
         return samples.get(count);
     }
 
-    private String handleCurrency(String xpath, XPathParts parts, String value) {
+    private void handleCurrency(
+            String xpath, XPathParts parts, String value, List<String> examples) {
         String currency = parts.getAttributeValue(-2, "type");
         String fullPath = cldrFile.getFullXPath(xpath, false);
         if (parts.contains("symbol")) {
@@ -2910,29 +2922,27 @@ public class ExampleGenerator {
             result =
                     setBackground(result)
                             .replace(value, backgroundEndSymbol + value + backgroundStartSymbol);
-            return result;
+            examples.add(result);
         } else if (parts.contains("displayName")) {
-            return formatCountValue(xpath, parts, value);
+            formatCountValue(xpath, parts, value, examples);
         }
-        return null;
+        return;
     }
 
-    private String handleDateRangePattern(String value) {
-        String result;
+    private void handleDateRangePattern(String value, List<String> examples) {
         SimpleDateFormat dateFormat = icuServiceBuilder.getDateFormat("gregorian", 2, 0);
-        result =
+        examples.add(
                 format(
                         value,
                         setBackground(dateFormat.format(DATE_SAMPLE)),
-                        setBackground(dateFormat.format(DATE_SAMPLE2)));
-        return result;
+                        setBackground(dateFormat.format(DATE_SAMPLE2))));
     }
 
     /**
      * Add examples for eras. First checks if there is info for this calendar type and this era type
      * in the CALENDAR_ERAS map, then generates a sample date based on this info and formats it
      */
-    private String handleEras(XPathParts parts, String value) {
+    private void handleEras(XPathParts parts, String value, List<String> examples) {
         String calendarId = parts.getAttributeValue(3, "type");
         String type = parts.getAttributeValue(-1, "type");
         String id =
@@ -2940,12 +2950,12 @@ public class ExampleGenerator {
                         ? "islamic"
                         : calendarId; // islamic variations map to same sample
         if (!CALENDAR_ERAS.containsKey(id)) {
-            return null;
+            return;
         }
         int typeIndex = Integer.parseInt(type);
         if (calendarId.equals("japanese")) {
             if (typeIndex < 235) { // examples only for 2 most recent eras
-                return null;
+                return;
             } else {
                 typeIndex %= 235; // map to length 2 list
             }
@@ -2966,21 +2976,21 @@ public class ExampleGenerator {
         eraNames[typeIndex] = value; // overwrite era to current value
         dfs.setEras(eraNames);
         sdf.setDateFormatSymbols(dfs);
-        return sdf.format(sample);
+        examples.add(sdf.format(sample));
     }
 
     /**
      * Add examples for quarters for the gregorian calendar, matching each quarter type (1, 2, 3, 4)
      * to a corresponding sample month and formatting an example with that date
      */
-    private String handleQuarters(XPathParts parts, String value) {
+    void handleQuarters(XPathParts parts, String value, List<String> examples) {
         String calendarId = parts.getAttributeValue(3, "type");
         if (!calendarId.equals("gregorian")) {
-            return null;
+            return;
         }
         String width = parts.findAttributeValue("quarterWidth", "type");
         if (width.equals("narrow")) {
-            return null;
+            return;
         }
         String context = parts.findAttributeValue("quarterContext", "type");
         String type = parts.getAttributeValue(-1, "type"); // 1-indexed
@@ -3005,7 +3015,48 @@ public class ExampleGenerator {
         int month = monthSamples[quarterIndex];
         calendar.set(1999, month, 5, 13, 25, 59);
         Date sample = calendar.getTime();
-        return sdf.format(sample);
+        examples.add(sdf.format(sample));
+    }
+
+    /* Add relative date/time examples, choosing appropriate
+     * patterns as needed for relative dates vs relative times.
+     * Additionally, for relativeTimePattern items, ensure that
+     * numeric example corresponds to the count represented by the item.
+     */
+    private void handleRelative(
+            String xpath, XPathParts parts, String value, List<String> examples) {
+        String skeleton;
+        String type = parts.findAttributeValue("field", "type");
+        if (type.startsWith("hour")) {
+            skeleton = "Hm";
+        } else if (type.startsWith("minute") || type.startsWith("second")) {
+            skeleton = "ms";
+        } else if (type.startsWith("year")
+                || type.startsWith("month")
+                || type.startsWith("quarter")) {
+            skeleton = "yMMMM";
+        } else {
+            skeleton = "MMMMd";
+        }
+        String checkPath =
+                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\""
+                        + skeleton
+                        + "\"]";
+        String dateFormat = cldrFile.getWinningValue(checkPath);
+        SimpleDateFormat sdf = icuServiceBuilder.getDateFormat("gregorian", dateFormat);
+        String sampleDate = sdf.format(DATE_SAMPLE);
+        String example1 =
+                value.substring(0, 1).toUpperCase() + value.substring(1) + " (" + sampleDate + ")";
+        String example2 = sampleDate + " (" + value + ")";
+        if (parts.contains("relativeTimePattern")) { // has placeholder
+            String count = parts.getAttributeValue(-1, "count");
+            String exampleCount = COUNTS.get(count);
+            examples.add(invertBackground(format(setBackground(example1), exampleCount)));
+            examples.add(invertBackground(format(setBackground(example2), exampleCount)));
+        } else {
+            examples.add(format(example1));
+            examples.add(format(example2));
+        }
     }
 
     /**
@@ -3023,7 +3074,8 @@ public class ExampleGenerator {
         }
     }
 
-    private String handleDisplayNames(String xpath, XPathParts parts, String value) {
+    private void handleDisplayNames(
+            String xpath, XPathParts parts, String value, List<String> examples) {
         String result = null;
         if (parts.contains("codePatterns")) {
             // ldml/localeDisplayNames/codePatterns/codePattern[@type="language"]
@@ -3039,6 +3091,8 @@ public class ExampleGenerator {
                                             : type.equals("script")
                                                     ? "Avst"
                                                     : type.equals("territory") ? "057" : "CODE"));
+            examples.add(result);
+            return;
         } else if (parts.contains("localeDisplayPattern")) {
             // ldml/localeDisplayNames/localeDisplayPattern/localePattern
             // ldml/localeDisplayNames/localeDisplayPattern/localeSeparator
@@ -3057,18 +3111,19 @@ public class ExampleGenerator {
             locales.add(
                     element.equals("localeKeyTypePattern") ? "uz-Arab-u-tz-etadd" : "uz-Arab-AF");
             locales.add("uz-Arab-AF-u-tz-etadd-nu-arab");
-            String[] examples = new String[locales.size()];
+            // String[] examples = new String[locales.size()];
+            NameGetter nameGetter = cldrFile.nameGetter();
             for (int i = 0; i < locales.size(); i++) {
-                examples[i] =
+                examples.add(
                         invertBackground(
-                                cldrFile.getName(
+                                nameGetter.getNameFromIdentifierEtc(
                                         locales.get(i),
-                                        false,
+                                        NameGetter.NameOpt.DEFAULT,
                                         localeKeyTypePattern,
                                         localePattern,
-                                        localeSeparator));
+                                        localeSeparator)));
             }
-            result = formatExampleList(examples);
+            return;
         } else if (parts.contains("languages")
                 || parts.contains("scripts")
                 || parts.contains("territories")) {
@@ -3082,9 +3137,10 @@ public class ExampleGenerator {
                 } else {
                     result = cldrFile.getBaileyValue(xpath, null, null);
                 }
+                examples.add(result);
+                return;
             } else {
                 value = setBackground(value);
-                List<String> examples = new ArrayList<>();
                 String nameType = parts.getElement(3);
 
                 Map<String, String> likely = supplementalDataInfo.getLikelySubtags();
@@ -3095,7 +3151,7 @@ public class ExampleGenerator {
                     String tag = "language".equals(nameType) ? type : "und_" + type;
                     String max = LikelySubtags.maximize(tag, likely);
                     if (max == null) {
-                        return null;
+                        return;
                     }
                     LanguageTagParser ltp = new LanguageTagParser().set(max);
                     String languageName = null;
@@ -3111,11 +3167,11 @@ public class ExampleGenerator {
                     if (languageName == null) {
                         languageName =
                                 cldrFile.getStringValueWithBailey(
-                                        CLDRFile.getKey(CLDRFile.LANGUAGE_NAME, ltp.getLanguage()));
+                                        NameType.LANGUAGE.getKeyPath(ltp.getLanguage()));
                         if (languageName == null) {
                             languageName =
                                     cldrFile.getStringValueWithBailey(
-                                            CLDRFile.getKey(CLDRFile.LANGUAGE_NAME, "en"));
+                                            NameType.LANGUAGE.getKeyPath("en"));
                         }
                         if (languageName == null) {
                             languageName = ltp.getLanguage();
@@ -3124,11 +3180,11 @@ public class ExampleGenerator {
                     if (scriptName == null) {
                         scriptName =
                                 cldrFile.getStringValueWithBailey(
-                                        CLDRFile.getKey(CLDRFile.SCRIPT_NAME, ltp.getScript()));
+                                        NameType.SCRIPT.getKeyPath(ltp.getScript()));
                         if (scriptName == null) {
                             scriptName =
                                     cldrFile.getStringValueWithBailey(
-                                            CLDRFile.getKey(CLDRFile.SCRIPT_NAME, "Latn"));
+                                            NameType.SCRIPT.getKeyPath("Latn"));
                         }
                         if (scriptName == null) {
                             scriptName = ltp.getScript();
@@ -3137,11 +3193,11 @@ public class ExampleGenerator {
                     if (territoryName == null) {
                         territoryName =
                                 cldrFile.getStringValueWithBailey(
-                                        CLDRFile.getKey(CLDRFile.TERRITORY_NAME, ltp.getRegion()));
+                                        NameType.TERRITORY.getKeyPath(ltp.getRegion()));
                         if (territoryName == null) {
                             territoryName =
                                     cldrFile.getStringValueWithBailey(
-                                            CLDRFile.getKey(CLDRFile.TERRITORY_NAME, "US"));
+                                            NameType.TERRITORY.getKeyPath("US"));
                         }
                         if (territoryName == null) {
                             territoryName = ltp.getRegion();
@@ -3204,10 +3260,9 @@ public class ExampleGenerator {
                                             + "\"]");
                     examples.add(invertBackground(format(codePattern, value)));
                 }
-                result = formatExampleList(examples.toArray(new String[0]));
+                return;
             }
         }
-        return result;
     }
 
     private String formatExampleList(String[] examples) {
@@ -3224,7 +3279,7 @@ public class ExampleGenerator {
      * @param examples
      * @return
      */
-    private String formatExampleList(Collection<String> examples) {
+    public String formatExampleList(Collection<String> examples) {
         if (examples == null || examples.isEmpty()) {
             return null;
         }

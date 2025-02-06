@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!--
+Copyright © 1991-2024 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+SPDX-License-Identifier: Unicode-DFS-2016
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
+<ldml>
+    <identity>
+        <version number="$Revision$"/>
+        <language type="gu"/>
+    </identity>
+    <rbnf>
+        <rulesetGrouping type="SpelloutRules">
+            <ruleset type="spellout-numbering-year">
+                <rbnfrule value="x.x">=0.0=;</rbnfrule>
+                <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-numbering">
+                <rbnfrule value="0">=%spellout-cardinal=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-cardinal">
+                <rbnfrule value="-x">નકારાત્મક →→;</rbnfrule>
+                <rbnfrule value="x.x">←← દશાંશ →→;</rbnfrule>
+                <rbnfrule value="0">શૂન્ય;</rbnfrule>
+                <rbnfrule value="1">એક;</rbnfrule>
+                <rbnfrule value="2">બે;</rbnfrule>
+                <rbnfrule value="3">ત્રણ;</rbnfrule>
+                <rbnfrule value="4">ચાર;</rbnfrule>
+                <rbnfrule value="5">પાંચ;</rbnfrule>
+                <rbnfrule value="6">છ;</rbnfrule>
+                <rbnfrule value="7">સાત;</rbnfrule>
+                <rbnfrule value="8">આઠ;</rbnfrule>
+                <rbnfrule value="9">નવ;</rbnfrule>
+                <rbnfrule value="10">દસ;</rbnfrule>
+                <rbnfrule value="11">અગિયાર;</rbnfrule>
+                <rbnfrule value="12">બાર;</rbnfrule>
+                <rbnfrule value="13">તેર;</rbnfrule>
+                <rbnfrule value="14">ચૌદ;</rbnfrule>
+                <rbnfrule value="15">પંદર;</rbnfrule>
+                <rbnfrule value="16">સોળ;</rbnfrule>
+                <rbnfrule value="17">સત્તર;</rbnfrule>
+                <rbnfrule value="18">અઢાર;</rbnfrule>
+                <rbnfrule value="19">ઓગણીસ;</rbnfrule>
+                <rbnfrule value="20">વીસ;</rbnfrule>
+                <rbnfrule value="21">એકવીસ;</rbnfrule>
+                <rbnfrule value="22">બાવીસ;</rbnfrule>
+                <rbnfrule value="23">તેવીસ;</rbnfrule>
+                <rbnfrule value="24">ચોવીસ;</rbnfrule>
+                <rbnfrule value="25">પચ્ચીસ;</rbnfrule>
+                <rbnfrule value="26">છવીસ;</rbnfrule>
+                <rbnfrule value="27">સત્તાવીસ;</rbnfrule>
+                <rbnfrule value="28">અઠ્ઠાવીસ;</rbnfrule>
+                <rbnfrule value="29">ઓગણત્રીસ;</rbnfrule>
+                <rbnfrule value="30">ત્રીસ;</rbnfrule>
+                <rbnfrule value="31">એકત્રીસ;</rbnfrule>
+                <rbnfrule value="32">બત્રીસ;</rbnfrule>
+                <rbnfrule value="33">તેત્રીસ;</rbnfrule>
+                <rbnfrule value="34">ચોત્રીસ;</rbnfrule>
+                <rbnfrule value="35">પાંત્રીસ;</rbnfrule>
+                <rbnfrule value="36">છત્રીસ;</rbnfrule>
+                <rbnfrule value="37">સડત્રીસ;</rbnfrule>
+                <rbnfrule value="38">અડત્રીસ;</rbnfrule>
+                <rbnfrule value="39">ઓગણચાલીસ;</rbnfrule>
+                <rbnfrule value="40">ચાલીસ;</rbnfrule>
+                <rbnfrule value="41">એકતાલીસ;</rbnfrule>
+                <rbnfrule value="42">બેતાલીસ;</rbnfrule>
+                <rbnfrule value="43">ત્રેતાલીસ;</rbnfrule>
+                <rbnfrule value="44">ચુંમાલીસ;</rbnfrule>
+                <rbnfrule value="45">પિસ્તાલીસ;</rbnfrule>
+                <rbnfrule value="46">છેતાલીસ;</rbnfrule>
+                <rbnfrule value="47">સુડતાલીસ;</rbnfrule>
+                <rbnfrule value="48">અડતાલીસ;</rbnfrule>
+                <rbnfrule value="49">ઓગણપચાસ;</rbnfrule>
+                <rbnfrule value="50">પચાસ;</rbnfrule>
+                <rbnfrule value="51">એકાવન;</rbnfrule>
+                <rbnfrule value="52">બાવન;</rbnfrule>
+                <rbnfrule value="53">ત્રેપન;</rbnfrule>
+                <rbnfrule value="54">ચોપન;</rbnfrule>
+                <rbnfrule value="55">પંચાવન;</rbnfrule>
+                <rbnfrule value="56">છપ્પન;</rbnfrule>
+                <rbnfrule value="57">સત્તાવન;</rbnfrule>
+                <rbnfrule value="58">અઠ્ઠાવન;</rbnfrule>
+                <rbnfrule value="59">ઓગણસાઠ;</rbnfrule>
+                <rbnfrule value="60">સાઈઠ;</rbnfrule>
+                <rbnfrule value="61">એકસઠ;</rbnfrule>
+                <rbnfrule value="62">બાસઠ;</rbnfrule>
+                <rbnfrule value="63">ત્રેસઠ;</rbnfrule>
+                <rbnfrule value="64">ચોસઠ;</rbnfrule>
+                <rbnfrule value="65">પાંસઠ;</rbnfrule>
+                <rbnfrule value="66">છાસઠ;</rbnfrule>
+                <rbnfrule value="67">સડસઠ;</rbnfrule>
+                <rbnfrule value="68">અડસઠ;</rbnfrule>
+                <rbnfrule value="69">અગણોસિત્તેર;</rbnfrule>
+                <rbnfrule value="70">સિત્તેર;</rbnfrule>
+                <rbnfrule value="71">એકોતેર;</rbnfrule>
+                <rbnfrule value="72">બોતેર;</rbnfrule>
+                <rbnfrule value="73">તોતેર;</rbnfrule>
+                <rbnfrule value="74">ચુમોતેર;</rbnfrule>
+                <rbnfrule value="75">પંચોતેર;</rbnfrule>
+                <rbnfrule value="76">છોતેર;</rbnfrule>
+                <rbnfrule value="77">સિત્યોતેર;</rbnfrule>
+                <rbnfrule value="78">ઇઠ્યોતેર;</rbnfrule>
+                <rbnfrule value="79">ઓગણાએંસી;</rbnfrule>
+                <rbnfrule value="80">એંસી;</rbnfrule>
+                <rbnfrule value="81">એક્યાસી;</rbnfrule>
+                <rbnfrule value="82">બ્યાસી;</rbnfrule>
+                <rbnfrule value="83">ત્યાસી;</rbnfrule>
+                <rbnfrule value="84">ચોર્યાસી;</rbnfrule>
+                <rbnfrule value="85">પંચાસી;</rbnfrule>
+                <rbnfrule value="86">છ્યાસી;</rbnfrule>
+                <rbnfrule value="87">સિત્યાસી;</rbnfrule>
+                <rbnfrule value="88">ઈઠ્યાસી;</rbnfrule>
+                <rbnfrule value="89">નેવ્યાસી;</rbnfrule>
+                <rbnfrule value="90">નેવું;</rbnfrule>
+                <rbnfrule value="91">એકાણું;</rbnfrule>
+                <rbnfrule value="92">બાણું;</rbnfrule>
+                <rbnfrule value="93">ત્રાણું;</rbnfrule>
+                <rbnfrule value="94">ચોરાણું;</rbnfrule>
+                <rbnfrule value="95">પંચાણું;</rbnfrule>
+                <rbnfrule value="96">છન્નું;</rbnfrule>
+                <rbnfrule value="97">સત્તાણું;</rbnfrule>
+                <rbnfrule value="98">અઠ્ઠાણું;</rbnfrule>
+                <rbnfrule value="99">નવ્વાણું;</rbnfrule>
+                <rbnfrule value="100">←← સો[ →→];</rbnfrule>
+                <rbnfrule value="1000">←← હજાર[ →→];</rbnfrule>
+                <rbnfrule value="100000">←← લાખ[ →→];</rbnfrule>
+                <rbnfrule value="10000000">←← કરોડ઼[ →→];</rbnfrule>
+                <rbnfrule value="1000000000">←← અબજ[ →→];</rbnfrule>
+                <rbnfrule value="100000000000">←← ખરબ[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##,##0=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-masculine">
+                <rbnfrule value="-x">નકારાત્મક →→;</rbnfrule>
+                <rbnfrule value="x.x">=#,##,##0.0=;</rbnfrule>
+                <rbnfrule value="0">શૂન્યમું;</rbnfrule>
+                <rbnfrule value="1">પ્રથમ;</rbnfrule>
+                <rbnfrule value="2">બીજું;</rbnfrule>
+                <rbnfrule value="3">ત્રીજું;</rbnfrule>
+                <rbnfrule value="4">ચોથું;</rbnfrule>
+                <rbnfrule value="5">પાંચમું;</rbnfrule>
+                <rbnfrule value="6">છઠ્ઠું;</rbnfrule>
+                <rbnfrule value="7">=%spellout-cardinal=મું;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-feminine">
+                <rbnfrule value="-x">નકારાત્મક →→;</rbnfrule>
+                <rbnfrule value="x.x">=#,##,##0.0=;</rbnfrule>
+                <rbnfrule value="0">શુન્યમી;</rbnfrule>
+                <rbnfrule value="1">પેહલી;</rbnfrule>
+                <rbnfrule value="2">બીજી;</rbnfrule>
+                <rbnfrule value="3">ત્રીજી;</rbnfrule>
+                <rbnfrule value="4">ચૌથી;</rbnfrule>
+                <rbnfrule value="5">પાંચમી;</rbnfrule>
+                <rbnfrule value="6">છઠ્ઠી;</rbnfrule>
+                <rbnfrule value="7">=%spellout-cardinal=મી;</rbnfrule>
+            </ruleset>
+        </rulesetGrouping>
+        <rulesetGrouping type="OrdinalRules">
+            <ruleset type="digits-ordinal-masculine">
+                <rbnfrule value="-x">−→→;</rbnfrule>
+                <rbnfrule value="x.x">=#,##,##0.0=;</rbnfrule>
+                <rbnfrule value="0">=#,##,##0=$(ordinal,one{લા}two{જા}few{થા}many{્ઠા}other{મા})$;</rbnfrule>
+            </ruleset>
+            <ruleset type="digits-ordinal-masculine-oblique">
+                <rbnfrule value="-x">−→→;</rbnfrule>
+                <rbnfrule value="x.x">=#,##,##0.0=;</rbnfrule>
+                <rbnfrule value="0">=#,##,##0=$(ordinal,one{લે}two{જે}few{થે}many{ટ્ઠે}other{મેં})$;</rbnfrule>
+            </ruleset>
+            <ruleset type="digits-ordinal-feminine">
+                <rbnfrule value="-x">−→→;</rbnfrule>
+                <rbnfrule value="x.x">=#,##,##0.0=;</rbnfrule>
+                <rbnfrule value="0">=#,##,##0=$(ordinal,one{લી}two{જી}few{થી}many{ટ્ઠી}other{મી})$;</rbnfrule>
+            </ruleset>
+            <ruleset type="digits-ordinal">
+                <rbnfrule value="0">=%digits-ordinal-masculine=;</rbnfrule>
+            </ruleset>
+        </rulesetGrouping>
+    </rbnf>
+</ldml>

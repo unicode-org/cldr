@@ -14,12 +14,14 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.json.bind.Jsonb;
 import javax.json.bind.JsonbBuilder;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
 import javax.ws.rs.HeaderParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
@@ -476,6 +478,13 @@ public class Summary {
             @PathParam("locale") @Schema(required = true, description = "Locale ID") String locale,
             @PathParam("level") @Schema(required = true, description = "Coverage Level")
                     String level,
+            @QueryParam("includeOther")
+                    @DefaultValue("false")
+                    @Schema(
+                            required = false,
+                            description = "Include all rows ('Other' category)",
+                            example = "true")
+                    boolean includeOther,
             @HeaderParam(Auth.SESSION_HEADER) String sessionString) {
         CLDRLocale loc = CLDRLocale.getInstance(locale);
         CookieSession cs = Auth.getSession(sessionString);
@@ -486,7 +495,8 @@ public class Summary {
 
         // *Beware*  org.unicode.cldr.util.Level (coverage) ≠ VoteResolver.Level (user)
         Level coverageLevel = org.unicode.cldr.util.Level.fromString(level);
-        ReviewOutput ret = new Dashboard().get(loc, cs.user, coverageLevel, null /* xpath */);
+        ReviewOutput ret =
+                new Dashboard().get(loc, cs.user, coverageLevel, null /* xpath */, includeOther);
         ret.coverageLevel = coverageLevel.name();
 
         return Response.ok().entity(ret).build();
@@ -551,7 +561,13 @@ public class Summary {
             coverageLevel = org.unicode.cldr.util.Level.fromString(level);
         }
         ReviewOutput reviewOutput =
-                new Dashboard().get(loc, target, coverageLevel, null /* xpath */);
+                new Dashboard()
+                        .get(
+                                loc,
+                                target,
+                                coverageLevel,
+                                null /* xpath */,
+                                false /* includeOther */);
         reviewOutput.coverageLevel = coverageLevel.name();
 
         ParticipationResults participationResults =

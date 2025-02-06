@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -3089,6 +3089,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<regionFormat type="daylight">{0} Isikhathi sasemini</regionFormat>
 			<regionFormat type="standard">{0} isikhathi esivamile</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>i-Honolulu</exemplarCity>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>isikhathi somhlaba esididiyelwe</standard>
@@ -3826,9 +3829,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>i-Ulaanbaatar</exemplarCity>
 			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity>i-Choibalsan</exemplarCity>
-			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity>i-Macau</exemplarCity>
 			</zone>
@@ -4228,9 +4228,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Nome">
 				<exemplarCity>i-Nome</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>i-Honolulu</exemplarCity>
-			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>i-Anchorage</exemplarCity>
 			</zone>
@@ -4580,13 +4577,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Isikhathi sase-China</generic>
 					<standard>Isikhathi esivamile sase-China</standard>
 					<daylight>Isikhathi semini sase-China</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>Isikhathi sase-Choibalsan</generic>
-					<standard>Isikhathi Esivamile sase-Choibalsan</standard>
-					<daylight>Isikhathi sehlobo e-Choibalsan</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">

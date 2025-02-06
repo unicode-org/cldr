@@ -1,7 +1,5 @@
 package org.unicode.cldr.unittest;
 
-import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.util.LocaleMatcher;
 import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
 import java.io.IOException;
@@ -15,6 +13,8 @@ import org.unicode.cldr.draft.XLocaleDistance;
 import org.unicode.cldr.draft.XLocaleDistance.DistanceNode;
 import org.unicode.cldr.draft.XLocaleDistance.DistanceOption;
 import org.unicode.cldr.draft.XLocaleDistance.DistanceTable;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
+import org.unicode.cldr.icu.util.LocaleMatcher;
 
 /**
  * Test the XLocaleDistance.

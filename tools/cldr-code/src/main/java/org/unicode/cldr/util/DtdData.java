@@ -1886,7 +1886,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             new MapComparator<String>().add("standard", "accounting").freeze();
     static Comparator<String> zoneOrder = StandardCodes.make().getTZIDComparator();
 
-    static final Comparator<String> COMP = (Comparator) CLDRConfig.getInstance().getCollator();
+    static final Comparator<String> COMP = (Comparator) CollatorHelper.EMOJI_COLLATOR;
 
     // Hack for US
     static final Comparator<String> UNICODE_SET_COMPARATOR =

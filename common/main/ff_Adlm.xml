@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -8099,6 +8099,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<regionFormat type="daylight">{0} 𞤐𞤶𞤢𞤥𞤲𞤣𞤭 𞤕𞤫𞥅𞤯𞤵</regionFormat>
 			<regionFormat type="standard">{0} 𞤑𞤭𞤶𞤮𞥅𞤪𞤫 𞤖𞤢𞤱𞤪𞤵𞤲𞥋𞤣𞤫</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<short>
+					<generic>𞤑𞤖𞤖</generic>
+					<standard>𞤑𞤖𞤖</standard>
+					<daylight>𞤑𞤕𞤖</daylight>
+				</short>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>𞤑𞤭𞤶𞤮𞥅𞤪𞤫 𞤖𞤭𞤤𞥆𞤢𞤲𞤳𞤮𞥅𞤪𞤫 𞤊𞤮𞤲𞤣𞤢𞥄𞤲𞤣𞤫</standard>
@@ -8839,9 +8846,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>𞤓𞤤𞤢𞤲𞤦𞤢𞤼𞤢𞤪</exemplarCity>
 			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity>𞤕𞤮𞤴𞤦𞤢𞤤𞤧𞤢𞤲</exemplarCity>
-			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity>𞤃𞤢𞤳𞤢𞤱𞤮</exemplarCity>
 			</zone>
@@ -9238,13 +9242,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="America/Nome">
 				<exemplarCity>𞤐𞤮𞤱𞤥𞤵</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<short>
-					<generic>𞤑𞤖𞤖</generic>
-					<standard>𞤑𞤖𞤖</standard>
-					<daylight>𞤑𞤕𞤖</daylight>
-				</short>
-			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>𞤀𞤲𞤧𞤮𞤪𞤢𞥄𞤶𞤵</exemplarCity>
 			</zone>
@@ -9627,13 +9624,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>𞤑𞤭𞤶𞤮𞥅𞤪𞤫 𞤕𞤢𞤴𞤲𞤢</generic>
 					<standard>𞤑𞤭𞤶𞤮𞥅𞤪𞤫 𞤖𞤢𞤱𞤪𞤵𞤲𞥋𞤣𞤫 𞤕𞤢𞤴𞤲𞤢</standard>
 					<daylight>𞤑𞤭𞤶𞤮𞥅𞤪𞤫 𞤕𞤫𞥅𞤯𞤵 𞤕𞤢𞤴𞤲𞤢</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>𞤑𞤭𞤶𞤮𞥅𞤪𞤫 𞤅𞤮𞤴𞤦𞤢𞤤𞤧𞤢𞤲</generic>
-					<standard>𞤑𞤭𞤶𞤮𞥅𞤪𞤫 𞤖𞤢𞤱𞤪𞤭𞤼𞤵𞤲𞥋𞤣𞤫 𞤅𞤮𞤴𞤦𞤢𞤤𞤧𞤢𞤲</standard>
-					<daylight>𞤑𞤭𞤶𞤮𞥅𞤪𞤫 𞤕𞤫𞥅𞤯𞤵 𞤅𞤮𞤴𞤦𞤢𞤤𞤧𞤢𞤲</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">

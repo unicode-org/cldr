@@ -25,10 +25,10 @@ It was a closed cycle: locale data changes were limited to bug fixes and the add
 The most significant changes in this release are:
 
    - New locales:
-      - Core data for Coptic (cop) , Haitian Creole (ht)
+      - Core data for Coptic (cop), Haitian Creole (ht)
       - Locale data for 11 English locales and Cantonese (Macau) (yue_Hant_MO)
    - Updated time zone data to tzdata 2025a
-   - [RBNF](#number-spellout-data-changes) (Number Spellout Data Improvements) for multiple languages
+   - [RBNF](#number-spellout-data-changes) (Rule Based Number Formatting): Number spellout data improvements for multiple languages
    - Assorted transforms improvements
    - Updated and revised population data
    - Incorporates all changes from CLDR v46.1.
@@ -44,8 +44,6 @@ For more details, see below.
 
 ### Locale Coverage Status
 
-#### Current Levels
-
 Count | Level | Usage | Examples
 -- | -- | -- | --
 97 | Modern | Suitable for full UI internationalization | čeština, Ελληνικά‎, Беларуская‎, ‎ᏣᎳᎩ‎, Ქართული‎, ‎Հայերեն‎, ‎עברית‎, ‎اردو‎, አማርኛ‎, ‎नेपाली‎, অসমীয়া‎, ‎বাংলা‎, ‎ਪੰਜਾਬੀ‎, ‎ગુજરાતી‎, ‎ଓଡ଼ିଆ‎, தமிழ்‎, ‎తెలుగు‎, ‎ಕನ್ನಡ‎, ‎മലയാളം‎, ‎සිංහල‎, ‎ไทย‎, ‎ລາວ‎, မြန်မာ‎, ‎ខ្មែរ‎, ‎한국어‎, 中文, 日本語‎, … ‎|
@@ -58,11 +56,13 @@ For a full listing, see [Coverage Levels](https://unicode.org/cldr/charts/dev/su
 
 ## Specification Changes
 
-**NOTE: the specification changes will be completed by the specification beta: only a few of them are listed here, and the Modifications section is not yet complete.**
+**NOTE: The specification changes will be completed by the specification beta. 
+Only a sample is listed here, and the Modifications section is not yet complete.**
 
 The following are the most significant changes to the specification (LDML).
 
-- Don't produce "Unknown City Time" for VVV and VVVV, use localized offset format instead [CLDR-18237](https://unicode-org.atlassian.net/browse/CLDR-18237))
+- Don't produce "Unknown City Time" for VVV and VVVV, use localized offset format instead [CLDR-18237](https://unicode-org.atlassian.net/browse/CLDR-18237)
+- **TBD** (including Message Format, Part 9)
 
 There are many more changes that are important to implementations, such as changes to certain identifier syntax and various algorithms.
 See the [Modifications section](https://www.unicode.org/reports/tr35/proposed.html#Modifications) of the specification for details.
@@ -84,7 +84,7 @@ For a full listing, see [Delta DTDs](https://unicode.org/cldr/charts/dev/supplem
 - Ordered scripts in decending order of usage per locale [CLDR-18155](https://unicode-org.atlassian.net/browse/CLDR-18155)
 - Updated language matching for Afrikaans to English (en) from Dutch (nl) [CLDR-18198](https://unicode-org.atlassian.net/browse/CLDR-18198)
 - Fixed invalid codes [CLDR-18129](https://unicode-org.atlassian.net/browse/CLDR-18129)
-- TBD
+- **TBD**
 
 For a full listing, see [¤¤BCP47 Delta](https://unicode.org/cldr/charts/dev/delta/bcp47.html) and [¤¤Supplemental Delta](https://unicode.org/cldr/charts/dev/delta/supplemental-data.html)
 
@@ -101,10 +101,6 @@ prepare for this, in CLDR 47, all such elements were either removed (if redundan
 ([CLDR-17760](https://unicode-org.atlassian.net/browse/CLDR-17760))
 
 For a full listing, see [Delta Data](https://unicode.org/cldr/charts/dev/delta/index.html)
-
-### Message Format Specification
-
-- TBD
 
 ### Collation Data Changes
 
@@ -141,7 +137,7 @@ the second is preferred for a `TW`/`Hant` context, and is now used by the new `H
 
 ### JSON Data Changes
 
-- TBD
+- **TBD**
 
 ### File Changes
 
@@ -180,7 +176,7 @@ There were various SurveyTool improvements targeting expansion of DDL support an
 
 ### Keyboard Changes
 
-- TBD
+- **TBD**
 
 ## Migration
 
@@ -195,6 +191,8 @@ LDML specification: [Number Symbols](https://www.unicode.org/reports/tr35/dev/tr
     - The default week numbering will change to ISO instead being based on the calendar week starting in CLDR 48 [CLDR-18275](https://unicode-org.atlassian.net/browse/CLDR-18275).
 
 ## Known Issues
+
+_No known issues yet._
 
 ## Acknowledgments
 

@@ -1696,6 +1696,8 @@ Note: A generic location format is constructed by a part of time zone ID represe
 * "Pacific Daylight Time" (long)
 * "PDT" (short)
 
+**Specific location format:** This format does not have a symbol, but is used in the fallback chain for the _specific non-location format_. Like the _generic location format_ it uses time zone locations, but formats these in a zone-variant aware way, e.g. "France Summer Time".
+
 **Localized GMT format:** A constant, specific offset from GMT (or UTC), which may be in a translated form. There are two styles for this. The first is used when there is an explicit non-zero offset from GMT; this style is specified by the `<gmtFormat>` element and `<hourFormat>` element. The long format always uses 2-digit hours field and minutes field, with optional 2-digit seconds field. The short format is intended for the shortest representation and uses hour fields without leading zero, with optional 2-digit minutes and seconds fields. The digits used for hours, minutes and seconds fields in this format are the locale's default decimal digits:
 
 * "GMT+03:30" (long)
@@ -1832,13 +1834,16 @@ The following process is used for the particular formats, with the fallback rule
 Some of the examples are drawn from real data, while others are for illustration. For illustration the region format is "Hora de {0}". The fallback format in the examples is "{1} ({0})", which is what is in root.
 
 1. In **all** cases, first canonicalize the _TZ_ ID according to the Unicode Locale Extension _type_ mapping data (see [Time Zone Identifiers](tr35.md#Time_Zone_Identifiers) for more details). Use that canonical TZID in each of the following steps.
-   * America/Atka → America/Adak
-   * Australia/ACT → Australia/Sydney
+    1. If the canonicalization fails (i.e. `Etc/Unknown` is returned), skip non-location and location formats and fall back to localized offset format
+        * America/Atka → America/Adak
+        * Australia/ACT → Australia/Sydney
+        * Australia/Ulladulla -> Etc/Unknown // format as localized offset
 
 2. For the localized GMT format, use the gmtFormat (such as "GMT{0}" or "HMG{0}") with the hourFormat (such as "+HH:mm;-HH:mm" or "+HH.mm;-HH.mm").
    * America/Los_Angeles → "GMT-08:00" // standard time
    * America/Los_Angeles → "HMG-07:00" // daylight time
    * Etc/GMT+3 → "GMT-03.00" // note that _TZ_ TZIDs have inverse polarity!
+   * Etc/Unknown → "GMT+07:00" // if the offset is known
 
     **Note:** The digits should be whatever are appropriate for the locale used to format the time zone, not necessarily from the western digits, 0..9. For example, they might be from ०..९.
 
@@ -1877,15 +1882,18 @@ Some of the examples are drawn from real data, while others are for illustration
            * "Pacific Time (Canada)" // for the zone Vancouver in the locale en_MX.
            * "Mountain Time (Phoenix)"
            * "Pacific Time (Whitehorse)"
-5. For the generic location format:
-   1. From the TZDB get the country code for the zone, and determine whether there is only one timezone in the country. If there is only one timezone or if the zone id is in the `<primaryZones>` list, format the country name with the _regionFormat_, and return it.
+5. For the location formats (generic or specific):
+   1. Get the _regionFormat_ format according to type (generic, standard, or daylight).
+   2. From the TZDB get the country code for the zone, and determine whether there is only one timezone in the country. 
+      1. If there is only one timezone or if the zone id is in the `<primaryZones>` list, continue with short country name, if it exists, otherwise the country name.
+      2. Otherwise, continue with the localized name of the exemplar city for the zone.
+   3. Format the region format obtained in step 1 with the location obtained in step 2.
       * Examples:
-        * Europe/Rome → IT → "Italy Time" // for English
-        * Asia/Shanghai → CN → "China Time" // Asia/Shanghai is the _primaryZone_ for China
-        * Africa/Monrovia → LR → "Hora de Liberja"
-        * America/Havana → CU → "Hora de CU" // if CU is not localized
-   2. Otherwise format the exemplar city with the _regionFormat_, and return it.
-      1. America/Buenos_Aires → "Buenos Aires Time"
+        * America/Buenos_Aires, generic → "Buenos Aires Time" // multiple zones in AR
+        * Asia/Shanghai, standard → "China Standard Time" // Asia/Shanghai is the _primaryZone_ for CN
+        * Europe/Rome, daylight → "Italy Summer Time" // Europe/Rome is the only zone in IT
+        * Africa/Monrovia, generic → "Hora de Liberja"
+        * America/Havana, generic → "Hora de CU" // if CU is not localized
 
 > **Note:** If a language does require grammatical changes when composing strings, then the _regionFormat_ should either use a neutral format such as "Heure: {0}", or put all exceptional cases in explicitly translated strings.
 
@@ -2264,7 +2272,7 @@ Notes for the table below:
         <td colspan="2">The <i>short specific non-location format</i>. Where that is unavailable, falls back to the <i>short localized GMT format</i> ("O").</td></tr>
     <tr><td>zzzz</td><td>Pacific Daylight Time</td>
         <td colspan="2">The <i>long specific non-location format</i>.
-                        Where that is unavailable, falls back to the <i>long localized GMT format</i> ("OOOO").</td></tr>
+                        Where that is unavailable, falls back to the <i>specific location format</i>, then the <i>short localized GMT format</i> as the final fallback.</td></tr>
     <!--  Z  -->
     <tr><td rowspan="3">Z</td><td>Z..ZZZ</td><td>-0800</td>
         <td colspan="2">The <i>ISO8601 basic format</i> with hours, minutes and optional seconds fields.
@@ -2716,7 +2724,7 @@ For example, a conformant specification must reject the following inputs:
 
 * * *
 
-© 2024–2025 Unicode, Inc.
+© 2001–2025 Unicode, Inc.
 This publication is protected by copyright, and permission must be obtained from Unicode, Inc.
 prior to any reproduction, modification, or other use not permitted by the [Terms of Use](https://www.unicode.org/copyright.html).
 Specifically, you may make copies of this publication and may annotate and translate it solely for personal or internal business purposes and not for public distribution,

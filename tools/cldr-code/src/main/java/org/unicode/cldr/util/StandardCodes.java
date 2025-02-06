@@ -448,7 +448,9 @@ public class StandardCodes {
         }
         // see if there is a parent
         String originalLocale = desiredLocale;
+        String originalLanguage = CLDRLocale.toLanguageTag(originalLocale);
         while (desiredLocale != null) {
+
             Level status = locale_status.get(desiredLocale);
             if (status != null && status != Level.UNDETERMINED) {
                 coverageType.value =
@@ -457,7 +459,17 @@ public class StandardCodes {
                                 : LocaleCoverageType.parent;
                 return status;
             }
+
             desiredLocale = LocaleIDParser.getParent(desiredLocale);
+
+            // Unless the parent locale jumps languages, then don't continue (unless its norwegian,
+            // then its fine)
+            if (desiredLocale != null) {
+                String desiredLanguage = CLDRLocale.toLanguageTag(desiredLocale);
+                if (desiredLanguage != originalLanguage && !desiredLanguage.equals("no")) {
+                    desiredLocale = null;
+                }
+            }
         }
         Level status = locale_status.get(ALL_LOCALES);
         if (status != null && status != Level.UNDETERMINED) {

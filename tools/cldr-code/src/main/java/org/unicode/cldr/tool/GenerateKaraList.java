@@ -101,7 +101,7 @@ public class GenerateKaraList {
                     "\t\t<hdterm>"
                             + TransliteratorUtilities.toXML.transliterate(ename)
                             + "</hdterm>\t<!-- "
-                            + TransliteratorUtilities.toXML.transliterate(nameType.getNameName())
+                            + TransliteratorUtilities.toXML.transliterate(nameType.toString())
                             + ": "
                             + id
                             + " -->"); // English

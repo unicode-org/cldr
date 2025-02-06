@@ -271,14 +271,8 @@ public class TestCLDRFile {
             assertEquals(
                     List.of(
                             new LocaleInheritanceInfo(
-                                    XMLSource.CODE_FALLBACK_ID, GERMAN, Reason.constructed),
-                            new LocaleInheritanceInfo(
                                     XMLSource.ROOT_ID,
                                     "//ldml/localeDisplayNames/localeDisplayPattern/localePattern",
-                                    Reason.constructed),
-                            new LocaleInheritanceInfo(
-                                    XMLSource.CODE_FALLBACK_ID,
-                                    "//ldml/localeDisplayNames/territories/territory[@type=\"CH\"]",
                                     Reason.constructed),
                             new LocaleInheritanceInfo(XMLSource.ROOT_ID, p, Reason.none),
                             new LocaleInheritanceInfo(null, p, Reason.codeFallback)),
@@ -322,15 +316,9 @@ public class TestCLDRFile {
             assertEquals(
                     List.of(
                             new LocaleInheritanceInfo(
-                                    XMLSource.CODE_FALLBACK_ID, GERMAN, Reason.constructed),
-                            new LocaleInheritanceInfo(
                                     XMLSource
                                             .CODE_FALLBACK_ID /* test data does not have this in root */,
                                     "//ldml/localeDisplayNames/localeDisplayPattern/localePattern",
-                                    Reason.constructed),
-                            new LocaleInheritanceInfo(
-                                    XMLSource.CODE_FALLBACK_ID,
-                                    "//ldml/localeDisplayNames/territories/territory[@type=\"CH\"]",
                                     Reason.constructed),
                             new LocaleInheritanceInfo(locale, p, Reason.none),
                             new LocaleInheritanceInfo(XMLSource.ROOT_ID, p, Reason.none),

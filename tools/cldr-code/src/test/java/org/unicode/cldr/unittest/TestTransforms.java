@@ -795,6 +795,38 @@ public class TestTransforms extends TestFmwkPlus {
         assertEquals("Hira-Kata", hiraKata.transform("゛゜ わ゙ ゟ"), "゛゜ ヷ ヨリ");
     }
 
+    public void TestHani() {
+        register();
+        Transliterator haniLatn = getTransliterator("und-Latn-t-und-hani");
+        Transliterator hansLatn1 = getTransliterator("und-Latn-t-und-hans");
+        Transliterator hansLatn2 = getTransliterator("Hans-Latn");
+        Transliterator hantLatn1 = getTransliterator("und-Latn-t-und-hant");
+        Transliterator hantLatn2 = getTransliterator("Hant-Latn");
+
+        // Text that should transform the same way for Hans, Hant
+        String commonSource = "藏文 重庆 沈阳 秘鲁 㶼 锿 𤸖 藏 秘 䃺 麽 𰈶 重 㑅 飵 𫗢";
+        String commonExpect =
+                "zàng wén chóng qìng shěn yáng bì lǔ āi āi āi cáng mì mó mó mó zhòng zuò zuò zuò";
+
+        // Text that should transform differently for Hans, Hant
+        String variantSource = "㪅 㴔 䏲 万 卜 叚 沈 沓 舍 著 髪 髮 麃 𩷕 𪟝 𲆦 𲆰";
+        String variantExpectHans = "gèng jí tī wàn bo xiá shěn dá shě zhù fà fà páo láng jì xī xī";
+        String variantExpectHant =
+                "gēng xī dié mò bǔ jiǎ chén tà shè zhe fǎ fǎ biāo liáng jī xì xí";
+
+        assertEquals("common haniLatn ", commonExpect, haniLatn.transform(commonSource));
+        assertEquals("common hansLatn1", commonExpect, hansLatn1.transform(commonSource));
+        assertEquals("common hansLatn2", commonExpect, hansLatn2.transform(commonSource));
+        assertEquals("common hantLatn1", commonExpect, hantLatn1.transform(commonSource));
+        assertEquals("common hantLatn2", commonExpect, hantLatn2.transform(commonSource));
+
+        assertEquals("variant haniLatn ", variantExpectHans, haniLatn.transform(variantSource));
+        assertEquals("variant hansLatn1", variantExpectHans, hansLatn1.transform(variantSource));
+        assertEquals("variant hansLatn2", variantExpectHans, hansLatn2.transform(variantSource));
+        assertEquals("variant hantLatn1", variantExpectHant, hantLatn1.transform(variantSource));
+        assertEquals("variant hantLatn2", variantExpectHant, hantLatn2.transform(variantSource));
+    }
+
     public void TestZawgyiToUnicode10899() {
         // Some tests for the transformation of Zawgyi font encoding to Unicode Burmese.
         Transliterator z2u = getTransliterator("my-t-my-s0-zawgyi");

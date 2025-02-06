@@ -8,8 +8,6 @@
  */
 package org.unicode.cldr.util;
 
-import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.ImmutableMap.Builder;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Iterators;
 import com.google.common.util.concurrent.UncheckedExecutionException;
@@ -44,7 +42,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
@@ -56,15 +53,9 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
-import org.unicode.cldr.test.CheckMetazones;
-import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
-import org.unicode.cldr.util.GrammarInfo.GrammaticalScope;
-import org.unicode.cldr.util.GrammarInfo.GrammaticalTarget;
 import org.unicode.cldr.util.LocaleInheritanceInfo.Reason;
-import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
-import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.With.SimpleIterator;
 import org.unicode.cldr.util.XMLFileReader.AllHandler;
 import org.unicode.cldr.util.XMLSource.ResolvingSource;
@@ -100,9 +91,6 @@ import org.xml.sax.helpers.XMLReaderFactory;
  */
 
 public class CLDRFile implements Freezable<CLDRFile>, LocaleStringProvider {
-
-    private static final ImmutableSet<String> casesNominativeOnly =
-            ImmutableSet.of(GrammaticalFeature.grammaticalCase.getDefault(null));
 
     /**
      * Variable to control whether File reads are buffered; this will about halve the time spent in
@@ -596,6 +584,10 @@ public class CLDRFile implements Freezable<CLDRFile>, LocaleStringProvider {
                     result = dataSource.getValueAtPath(fallbackPath);
                 }
             }
+            // Note: the following can occur even when result != null at this point, and it can
+            // improve the result.For example, the code above may give "zh_Hans (FONIPA)", while the
+            // constructed value gotten below is "xitoy [soddalashgan] (FONIPA)" (in locale uz),
+            // which is expected by TestLocaleDisplay.
             if (isResolved()
                     && GlossonymConstructor.valueIsBogus(result)
                     && GlossonymConstructor.pathIsEligible(xpath)) {
@@ -1167,12 +1159,6 @@ public class CLDRFile implements Freezable<CLDRFile>, LocaleStringProvider {
                                         continue;
                                     }
                                 }
-                                String keepValue =
-                                        XMLSource.getPathsAllowingDuplicates().get(xpath);
-                                if (keepValue != null && keepValue.equals(currentValue)) {
-                                    logicDuplicate = false;
-                                    continue;
-                                }
                                 // we've now established that the values are the same
                                 String currentFullXPath = dataSource.getFullPath(xpath);
                                 String otherFullXPath = other.dataSource.getFullPath(otherXpath);
@@ -1283,6 +1269,24 @@ public class CLDRFile implements Freezable<CLDRFile>, LocaleStringProvider {
     }
 
     /**
+     * Create xpaths for DateFormat that look like
+     *
+     * <pre>
+     * //ldml/dates/calendars/calendar[@type="*"]/dateFormats/dateFormatLength[@type="*"]/dateFormat[@type="standard"]/datetimeSkeleton[@type="standard"]
+     * //ldml/dates/calendars/calendar[@type="*"]/dateFormats/dateFormatLength[@type="*"]/dateFormat[@type="standard"]/datetimeSkeleton[@type="standard"][@numbers="*"]
+     * </pre>
+     *
+     * @param calendar Calendar system identifier
+     * @param length full, long, medium, short. "*" is a wildcard selector for XPath
+     * @return
+     */
+    private String getDateSkeletonXpath(String calendar, String length) {
+        String formatPattern =
+                "//ldml/dates/calendars/calendar[@type=\"%s\"]/dateFormats/dateFormatLength[@type=\"%s\"]/dateFormat[@type=\"standard\"]/datetimeSkeleton";
+        return String.format(formatPattern, calendar, length);
+    }
+
+    /**
      * Create xpaths for TimeFormat that look like
      *
      * <pre>
@@ -1380,6 +1384,13 @@ public class CLDRFile implements Freezable<CLDRFile>, LocaleStringProvider {
 
         // uses MessageFormat to interpret the placeholders in the glue pattern
         return MessageFormat.format(gluePatternWithoutQuotes, (Object[]) new String[] {time, date});
+    }
+
+    public String getDateSkeleton(String calendar, String length) {
+        String dateTimeSkeletonXPath = // Get standard dateTime skeleton for same calendar & length
+                // as this dateTimePattern
+                this.getDateSkeletonXpath(calendar, length);
+        return this.getWinningValue(dateTimeSkeletonXPath);
     }
 
     /**
@@ -2426,30 +2437,6 @@ public class CLDRFile implements Freezable<CLDRFile>, LocaleStringProvider {
         return code;
     }
 
-    static final ImmutableMap<String, String> FIX_KEY_NAME;
-
-    static {
-        Builder<String, String> temp = ImmutableMap.builder();
-        for (String s :
-                Arrays.asList(
-                        "colAlternate",
-                        "colBackwards",
-                        "colCaseFirst",
-                        "colCaseLevel",
-                        "colNormalization",
-                        "colNumeric",
-                        "colReorder",
-                        "colStrength")) {
-            temp.put(s.toLowerCase(Locale.ROOT), s);
-        }
-        FIX_KEY_NAME = temp.build();
-    }
-
-    static String fixKeyName(String code) {
-        String result = FIX_KEY_NAME.get(code);
-        return result == null ? code : result;
-    }
-
     /** For use in getting short names. */
     public static final Transform<String, String> SHORT_ALTS =
             new Transform<>() {
@@ -3177,11 +3164,7 @@ public class CLDRFile implements Freezable<CLDRFile>, LocaleStringProvider {
      */
     public Set<String> getRawExtraPaths() {
         if (extraPaths == null) {
-            extraPaths =
-                    ImmutableSet.<String>builder()
-                            .addAll(getRawExtraPathsPrivate())
-                            .addAll(CONST_EXTRA_PATHS)
-                            .build();
+            extraPaths = ImmutableSet.<String>builder().addAll(getRawExtraPathsPrivate()).build();
             if (DEBUG) {
                 System.out.println(getLocaleID() + "\textras: " + extraPaths.size());
             }
@@ -3194,8 +3177,6 @@ public class CLDRFile implements Freezable<CLDRFile>, LocaleStringProvider {
      * typically don't have a reasonable fallback value that could be added to root. Some of them
      * are common to all locales, and some of them are specific to the given locale, based on
      * features like the plural rules for the locale.
-     *
-     * <p>The ones that are constant for all locales should go into CONST_EXTRA_PATHS.
      *
      * @return toAddTo (the collection)
      *     <p>Called only by getRawExtraPaths.
@@ -3211,223 +3192,9 @@ public class CLDRFile implements Freezable<CLDRFile>, LocaleStringProvider {
      */
     private List<String> getRawExtraPathsPrivate() {
         Set<String> toAddTo = new HashSet<>();
-        SupplementalDataInfo supplementalData = CLDRConfig.getInstance().getSupplementalDataInfo();
-        // units
-        PluralInfo plurals = supplementalData.getPlurals(PluralType.cardinal, getLocaleID());
-        if (plurals == null && DEBUG) {
-            System.err.println(
-                    "No "
-                            + PluralType.cardinal
-                            + "  plurals for "
-                            + getLocaleID()
-                            + " in "
-                            + supplementalData.getDirectory().getAbsolutePath());
-        }
-        Set<Count> pluralCounts = Collections.emptySet();
-        if (plurals != null) {
-            pluralCounts = plurals.getAdjustedCounts();
-            Set<Count> pluralCountsRaw = plurals.getCounts();
-            if (pluralCountsRaw.size() != 1) {
-                // we get all the root paths with count
-                addPluralCounts(
-                        toAddTo, pluralCounts, pluralCountsRaw, this.iterableWithoutExtras());
-            }
-        }
-        // dayPeriods
-        String locale = getLocaleID();
-        DayPeriodInfo dayPeriods =
-                supplementalData.getDayPeriods(DayPeriodInfo.Type.format, locale);
-        if (dayPeriods != null) {
-            LinkedHashSet<DayPeriod> items = new LinkedHashSet<>(dayPeriods.getPeriods());
-            items.add(DayPeriod.am);
-            items.add(DayPeriod.pm);
-            for (String context : new String[] {"format", "stand-alone"}) {
-                for (String width : new String[] {"narrow", "abbreviated", "wide"}) {
-                    for (DayPeriod dayPeriod : items) {
-                        // ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="am"]
-                        toAddTo.add(
-                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/"
-                                        + "dayPeriodContext[@type=\""
-                                        + context
-                                        + "\"]/dayPeriodWidth[@type=\""
-                                        + width
-                                        + "\"]/dayPeriod[@type=\""
-                                        + dayPeriod
-                                        + "\"]");
-                    }
-                }
-            }
-        }
-
-        // metazones
-        Set<String> zones = supplementalData.getAllMetazones();
-
-        for (String zone : zones) {
-            final boolean metazoneUsesDST = CheckMetazones.metazoneUsesDST(zone);
-            for (String width : new String[] {"long", "short"}) {
-                for (String type : new String[] {"generic", "standard", "daylight"}) {
-                    if (metazoneUsesDST || type.equals("standard")) {
-                        // Only add /standard for non-DST metazones
-                        final String path =
-                                "//ldml/dates/timeZoneNames/metazone[@type=\""
-                                        + zone
-                                        + "\"]/"
-                                        + width
-                                        + "/"
-                                        + type;
-                        toAddTo.add(path);
-                    }
-                }
-            }
-        }
-
-        //        // Individual zone overrides
-        //        final String[] overrides = {
-        //            "Pacific/Honolulu\"]/short/generic",
-        //            "Pacific/Honolulu\"]/short/standard",
-        //            "Pacific/Honolulu\"]/short/daylight",
-        //            "Europe/Dublin\"]/long/daylight",
-        //            "Europe/London\"]/long/daylight",
-        //            "Etc/UTC\"]/long/standard",
-        //            "Etc/UTC\"]/short/standard"
-        //        };
-        //        for (String override : overrides) {
-        //            toAddTo.add("//ldml/dates/timeZoneNames/zone[@type=\"" + override);
-        //        }
-
-        // Currencies
-        Set<String> codes = supplementalData.getBcp47Keys().getAll("cu");
-        for (String code : codes) {
-            String currencyCode = code.toUpperCase();
-            toAddTo.add(
-                    "//ldml/numbers/currencies/currency[@type=\"" + currencyCode + "\"]/symbol");
-            toAddTo.add(
-                    "//ldml/numbers/currencies/currency[@type=\""
-                            + currencyCode
-                            + "\"]/displayName");
-            if (!pluralCounts.isEmpty()) {
-                for (Count count : pluralCounts) {
-                    toAddTo.add(
-                            "//ldml/numbers/currencies/currency[@type=\""
-                                    + currencyCode
-                                    + "\"]/displayName[@count=\""
-                                    + count.toString()
-                                    + "\"]");
-                }
-            }
-        }
-
-        // grammatical info
-
-        GrammarInfo grammarInfo = supplementalData.getGrammarInfo(getLocaleID(), true);
-        if (grammarInfo != null) {
-            if (grammarInfo.hasInfo(GrammaticalTarget.nominal)) {
-                Collection<String> genders =
-                        grammarInfo.get(
-                                GrammaticalTarget.nominal,
-                                GrammaticalFeature.grammaticalGender,
-                                GrammaticalScope.units);
-                Collection<String> rawCases =
-                        grammarInfo.get(
-                                GrammaticalTarget.nominal,
-                                GrammaticalFeature.grammaticalCase,
-                                GrammaticalScope.units);
-                Collection<String> nomCases = rawCases.isEmpty() ? casesNominativeOnly : rawCases;
-                Collection<Count> adjustedPlurals = pluralCounts;
-                // There was code here allowing fewer plurals to be used, but is retracted for now
-                // (needs more thorough integration in logical groups, etc.)
-                // This note is left for 'blame' to find the old code in case we revive that.
-
-                // TODO use UnitPathType to get paths
-                if (!genders.isEmpty()) {
-                    for (String unit : GrammarInfo.getUnitsToAddGrammar()) {
-                        toAddTo.add(
-                                "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\""
-                                        + unit
-                                        + "\"]/gender");
-                    }
-                    for (Count plural : adjustedPlurals) {
-                        for (String gender : genders) {
-                            for (String case1 : nomCases) {
-                                final String grammaticalAttributes =
-                                        GrammarInfo.getGrammaticalInfoAttributes(
-                                                grammarInfo,
-                                                UnitPathType.power,
-                                                plural.toString(),
-                                                gender,
-                                                case1);
-                                toAddTo.add(
-                                        "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1"
-                                                + grammaticalAttributes);
-                                toAddTo.add(
-                                        "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power3\"]/compoundUnitPattern1"
-                                                + grammaticalAttributes);
-                            }
-                        }
-                    }
-                    //             <genderMinimalPairs gender="masculine">Der {0} ist
-                    // …</genderMinimalPairs>
-                    for (String gender : genders) {
-                        toAddTo.add(
-                                "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\""
-                                        + gender
-                                        + "\"]");
-                    }
-                }
-                if (!rawCases.isEmpty()) {
-                    for (String case1 : rawCases) {
-                        //          <caseMinimalPairs case="nominative">{0} kostet
-                        // €3,50.</caseMinimalPairs>
-                        toAddTo.add(
-                                "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\""
-                                        + case1
-                                        + "\"]");
-
-                        for (Count plural : adjustedPlurals) {
-                            for (String unit : GrammarInfo.getUnitsToAddGrammar()) {
-                                toAddTo.add(
-                                        "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\""
-                                                + unit
-                                                + "\"]/unitPattern"
-                                                + GrammarInfo.getGrammaticalInfoAttributes(
-                                                        grammarInfo,
-                                                        UnitPathType.unit,
-                                                        plural.toString(),
-                                                        null,
-                                                        case1));
-                            }
-                        }
-                    }
-                }
-            }
-        }
+        ExtraPaths.addConstant(toAddTo);
+        ExtraPaths.addLocaleDependent(toAddTo, this, getLocaleID());
         return toAddTo.stream().map(String::intern).collect(Collectors.toList());
-    }
-
-    private void addPluralCounts(
-            Collection<String> toAddTo,
-            final Set<Count> pluralCounts,
-            final Set<Count> pluralCountsRaw,
-            Iterable<String> file) {
-        for (String path : file) {
-            String countAttr = "[@count=\"other\"]";
-            int countPos = path.indexOf(countAttr);
-            if (countPos < 0) {
-                continue;
-            }
-            Set<Count> pluralCountsNeeded =
-                    path.startsWith("//ldml/numbers/minimalPairs") ? pluralCountsRaw : pluralCounts;
-            if (pluralCountsNeeded.size() > 1) {
-                String start = path.substring(0, countPos) + "[@count=\"";
-                String end = "\"]" + path.substring(countPos + countAttr.length());
-                for (Count count : pluralCounts) {
-                    if (count == Count.other) {
-                        continue;
-                    }
-                    toAddTo.add(start + count + end);
-                }
-            }
-        }
     }
 
     /**
@@ -3592,7 +3359,7 @@ public class CLDRFile implements Freezable<CLDRFile>, LocaleStringProvider {
     public boolean isNotRoot(String distinguishedPath) {
         String source = getSourceLocaleID(distinguishedPath, null);
         return source != null
-                && !source.equals("root")
+                && !source.equals(LocaleNames.ROOT)
                 && !source.equals(XMLSource.CODE_FALLBACK_ID);
     }
 
@@ -3791,52 +3558,4 @@ public class CLDRFile implements Freezable<CLDRFile>, LocaleStringProvider {
         }
         return value;
     }
-
-    /**
-     * A set of paths to be added to getRawExtraPaths(). These are constant across locales, and
-     * don't have good fallback values in root. NOTE: if this is changed, you'll need to modify
-     * TestPaths.extraPathAllowsNullValue
-     */
-    static final Set<String> CONST_EXTRA_PATHS =
-            CharUtilities.internImmutableSet(
-                    Set.of(
-                            // Individual zone overrides — were in getRawExtraPaths
-                            "//ldml/dates/timeZoneNames/zone[@type=\"Pacific/Honolulu\"]/short/generic",
-                            "//ldml/dates/timeZoneNames/zone[@type=\"Pacific/Honolulu\"]/short/standard",
-                            "//ldml/dates/timeZoneNames/zone[@type=\"Pacific/Honolulu\"]/short/daylight",
-                            "//ldml/dates/timeZoneNames/zone[@type=\"Europe/Dublin\"]/long/daylight",
-                            "//ldml/dates/timeZoneNames/zone[@type=\"Europe/London\"]/long/daylight",
-                            "//ldml/dates/timeZoneNames/zone[@type=\"Etc/UTC\"]/long/standard",
-                            "//ldml/dates/timeZoneNames/zone[@type=\"Etc/UTC\"]/short/standard",
-                            // Person name paths
-                            "//ldml/personNames/sampleName[@item=\"nativeG\"]/nameField[@type=\"given\"]",
-                            "//ldml/personNames/sampleName[@item=\"nativeGS\"]/nameField[@type=\"given\"]",
-                            "//ldml/personNames/sampleName[@item=\"nativeGS\"]/nameField[@type=\"surname\"]",
-                            "//ldml/personNames/sampleName[@item=\"nativeGGS\"]/nameField[@type=\"given\"]",
-                            "//ldml/personNames/sampleName[@item=\"nativeGGS\"]/nameField[@type=\"given2\"]",
-                            "//ldml/personNames/sampleName[@item=\"nativeGGS\"]/nameField[@type=\"surname\"]",
-                            "//ldml/personNames/sampleName[@item=\"nativeFull\"]/nameField[@type=\"title\"]",
-                            "//ldml/personNames/sampleName[@item=\"nativeFull\"]/nameField[@type=\"given\"]",
-                            "//ldml/personNames/sampleName[@item=\"nativeFull\"]/nameField[@type=\"given-informal\"]",
-                            "//ldml/personNames/sampleName[@item=\"nativeFull\"]/nameField[@type=\"given2\"]",
-                            "//ldml/personNames/sampleName[@item=\"nativeFull\"]/nameField[@type=\"surname-prefix\"]",
-                            "//ldml/personNames/sampleName[@item=\"nativeFull\"]/nameField[@type=\"surname-core\"]",
-                            "//ldml/personNames/sampleName[@item=\"nativeFull\"]/nameField[@type=\"surname2\"]",
-                            "//ldml/personNames/sampleName[@item=\"nativeFull\"]/nameField[@type=\"generation\"]",
-                            "//ldml/personNames/sampleName[@item=\"nativeFull\"]/nameField[@type=\"credentials\"]",
-                            "//ldml/personNames/sampleName[@item=\"foreignG\"]/nameField[@type=\"given\"]",
-                            "//ldml/personNames/sampleName[@item=\"foreignGS\"]/nameField[@type=\"given\"]",
-                            "//ldml/personNames/sampleName[@item=\"foreignGS\"]/nameField[@type=\"surname\"]",
-                            "//ldml/personNames/sampleName[@item=\"foreignGGS\"]/nameField[@type=\"given\"]",
-                            "//ldml/personNames/sampleName[@item=\"foreignGGS\"]/nameField[@type=\"given2\"]",
-                            "//ldml/personNames/sampleName[@item=\"foreignGGS\"]/nameField[@type=\"surname\"]",
-                            "//ldml/personNames/sampleName[@item=\"foreignFull\"]/nameField[@type=\"title\"]",
-                            "//ldml/personNames/sampleName[@item=\"foreignFull\"]/nameField[@type=\"given\"]",
-                            "//ldml/personNames/sampleName[@item=\"foreignFull\"]/nameField[@type=\"given-informal\"]",
-                            "//ldml/personNames/sampleName[@item=\"foreignFull\"]/nameField[@type=\"given2\"]",
-                            "//ldml/personNames/sampleName[@item=\"foreignFull\"]/nameField[@type=\"surname-prefix\"]",
-                            "//ldml/personNames/sampleName[@item=\"foreignFull\"]/nameField[@type=\"surname-core\"]",
-                            "//ldml/personNames/sampleName[@item=\"foreignFull\"]/nameField[@type=\"surname2\"]",
-                            "//ldml/personNames/sampleName[@item=\"foreignFull\"]/nameField[@type=\"generation\"]",
-                            "//ldml/personNames/sampleName[@item=\"foreignFull\"]/nameField[@type=\"credentials\"]"));
 }

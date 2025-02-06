@@ -116,7 +116,7 @@ on the CLDR development site.
 
 ## Copyright
 
-Copyright &copy; 1991-2025 Unicode, Inc.
+Copyright &copy; 1991-2024 Unicode, Inc.
 All rights reserved. [Terms of use][]
 
 [Survey Tool]: https://cldr.unicode.org/index/survey-tool

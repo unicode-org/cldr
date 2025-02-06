@@ -3204,11 +3204,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/St_Barthelemy">
 				<exemplarCity>St. Barthélemy</exemplarCity>
 			</zone>
-			<zone type="America/Coral_Harbour">
-				<exemplarCity>Atikokan</exemplarCity>
-			</zone>
 			<zone type="America/Noronha">
 				<exemplarCity>Fernando de Noronha</exemplarCity>
+			</zone>
+			<zone type="America/Coral_Harbour">
+				<exemplarCity>Atikokan</exemplarCity>
 			</zone>
 			<zone type="America/St_Johns">
 				<exemplarCity>St. John’s</exemplarCity>
@@ -4462,6 +4462,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>¤ #,##0.00</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
 					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">

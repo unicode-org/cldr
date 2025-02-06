@@ -51,6 +51,7 @@ import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleNames;
 import org.unicode.cldr.util.LogicalGrouping;
 import org.unicode.cldr.util.LogicalGrouping.PathType;
+import org.unicode.cldr.util.NameGetter;
 import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.PathHeader;
@@ -720,6 +721,9 @@ public class TestCoverageLevel extends TestFmwkPlus {
                 if ("narrow".equals(xpp.findAttributeValue("unitLength", "type"))
                         || path.endsWith("/compoundUnitPattern1")) {
                     continue;
+                } else if (path.contains("light-speed")) {
+                    // Temporary overrides for https://unicode-org.atlassian.net/browse/CLDR-18258
+                    continue;
                 }
             } else if (xpp.contains("posix")) {
                 continue;
@@ -1060,8 +1064,9 @@ public class TestCoverageLevel extends TestFmwkPlus {
         }
     }
 
-    public void testLSR() {
+    public void testLSR() { // LSR = Language/Script/Region
         SupplementalDataInfo supplementalData = testInfo.getSupplementalDataInfo();
+
         org.unicode.cldr.util.Factory factory = testInfo.getCldrFactory();
         CLDRFile root = factory.make(LocaleNames.ROOT, true);
         CoverageLevel2 coverageLevel =
@@ -1141,6 +1146,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
                         NameType.TERRITORY,
                         Row.of("region", regions, regionsRoot, Level.MODERATE));
 
+        NameGetter englishNameGetter = testInfo.getEnglish().nameGetter();
         for (Entry<NameType, R4<String, Map<String, Level>, Set<String>, Level>> typeAndInfo :
                 typeToInfo.entrySet()) {
             NameType type = typeAndInfo.getKey();
@@ -1152,8 +1158,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
                     typeAndInfo.getValue().get3(); // it looks like the targetLevel is ignored
 
             for (String code : Sets.union(idPartMap.keySet(), setRoot)) {
-                String displayName =
-                        testInfo.getEnglish().nameGetter().getNameFromTypeEnumCode(type, code);
+                String displayName = englishNameGetter.getNameFromTypeEnumCode(type, code);
                 String path = type.getKeyPath(code);
                 Level level = coverageLevel.getLevel(path);
                 data.put(

@@ -1,5 +1,9 @@
 package org.unicode.cldr.util;
 
+import static org.unicode.cldr.util.StandardCodes.CodeType.*;
+
+import com.google.common.collect.ImmutableMap;
+import java.util.Arrays;
 import java.util.Locale;
 
 /**
@@ -11,157 +15,65 @@ import java.util.Locale;
  * with a NameType parameter set to NameType.LANGUAGE, NameType.SCRIPT, or NameType.TERRITORY,
  * respectively, to indicate what type of name is requested (possibly with additional parameters
  * like a code such as "sa" for "Sanskrit"). The values starting with TZ_ are for time zones.
+ *
+ * <p>Each type is associated with a category of xpaths that follow a certain pattern. A pattern
+ * starts with a first string and ends with a second string, with room in between for a variable
+ * type code. Or, for KEY_TYPE, there are first/second/third strings, with room in between for two
+ * variable codes: a key code and a type code.
  */
 public enum NameType {
-    NONE,
-    LANGUAGE,
-    SCRIPT,
-    TERRITORY,
-    VARIANT,
-    CURRENCY,
-    CURRENCY_SYMBOL,
-    TZ_EXEMPLAR,
-    TZ_GENERIC_LONG,
-    TZ_GENERIC_SHORT,
-    TZ_STANDARD_LONG,
-    TZ_STANDARD_SHORT,
-    TZ_DAYLIGHT_LONG,
-    TZ_DAYLIGHT_SHORT,
-    KEY,
-    KEY_TYPE,
-    SUBDIVISION;
+    NONE("", ""),
+    LANGUAGE("//ldml/localeDisplayNames/languages/language[@type=\"", "\"]"),
+    SCRIPT("//ldml/localeDisplayNames/scripts/script[@type=\"", "\"]"),
+    TERRITORY("//ldml/localeDisplayNames/territories/territory[@type=\"", "\"]"),
+    VARIANT("//ldml/localeDisplayNames/variants/variant[@type=\"", "\"]"),
+    CURRENCY("//ldml/numbers/currencies/currency[@type=\"", "\"]/displayName"),
+    CURRENCY_SYMBOL("//ldml/numbers/currencies/currency[@type=\"", "\"]/symbol"),
+    TZ_EXEMPLAR("//ldml/dates/timeZoneNames/zone[@type=\"", "\"]/exemplarCity"),
+    TZ_GENERIC_LONG("//ldml/dates/timeZoneNames/zone[@type=\"", "\"]/long/generic"),
+    TZ_GENERIC_SHORT("//ldml/dates/timeZoneNames/zone[@type=\"", "\"]/short/generic"),
+    TZ_STANDARD_LONG("//ldml/dates/timeZoneNames/zone[@type=\"", "\"]/long/standard"),
+    TZ_STANDARD_SHORT("//ldml/dates/timeZoneNames/zone[@type=\"", "\"]/short/standard"),
+    TZ_DAYLIGHT_LONG("//ldml/dates/timeZoneNames/zone[@type=\"", "\"]/long/daylight"),
+    TZ_DAYLIGHT_SHORT("//ldml/dates/timeZoneNames/zone[@type=\"", "\"]/short/daylight"),
+    KEY("//ldml/localeDisplayNames/keys/key[@type=\"", "\"]"),
+    KEY_TYPE("//ldml/localeDisplayNames/types/type[@key=\"", "\"][@type=\"", "\"]"),
+    SUBDIVISION("//ldml/localeDisplayNames/subdivisions/subdivision[@type=\"", "\"]");
 
     /**
-     * This data in NameTable is used for associating types of path with types of name. For legacy
-     * reasons it still contains strings like "language" rather than the corresponding enum values
-     * like NameType.LANGUAGE.
-     *
-     * <p>The order of rows must correspond to INDEX_LANGUAGE, INDEX_SCRIPT, etc. Caution: the
-     * presence of "key|type" presents complications for refactoring. The row with "key|type" has
-     * four strings, while the others have three.
+     * The first, second, and (where applicable) third fragments comprising the pattern for the
+     * category of xpaths corresponding to this NameType
      */
-    private static final String[][] NameTable = {
-        {"//ldml/localeDisplayNames/languages/language[@type=\"", "\"]", "language"},
-        {"//ldml/localeDisplayNames/scripts/script[@type=\"", "\"]", "script"},
-        {"//ldml/localeDisplayNames/territories/territory[@type=\"", "\"]", "territory"},
-        {"//ldml/localeDisplayNames/variants/variant[@type=\"", "\"]", "variant"},
-        {"//ldml/numbers/currencies/currency[@type=\"", "\"]/displayName", "currency"},
-        {"//ldml/numbers/currencies/currency[@type=\"", "\"]/symbol", "currency-symbol"},
-        {"//ldml/dates/timeZoneNames/zone[@type=\"", "\"]/exemplarCity", "exemplar-city"},
-        {"//ldml/dates/timeZoneNames/zone[@type=\"", "\"]/long/generic", "tz-generic-long"},
-        {"//ldml/dates/timeZoneNames/zone[@type=\"", "\"]/short/generic", "tz-generic-short"},
-        {"//ldml/dates/timeZoneNames/zone[@type=\"", "\"]/long/standard", "tz-standard-long"},
-        {"//ldml/dates/timeZoneNames/zone[@type=\"", "\"]/short/standard", "tz-standard-short"},
-        {"//ldml/dates/timeZoneNames/zone[@type=\"", "\"]/long/daylight", "tz-daylight-long"},
-        {"//ldml/dates/timeZoneNames/zone[@type=\"", "\"]/short/daylight", "tz-daylight-short"},
-        {"//ldml/localeDisplayNames/keys/key[@type=\"", "\"]", "key"},
-        {"//ldml/localeDisplayNames/types/type[@key=\"", "\"][@type=\"", "\"]", "key|type"},
-        {"//ldml/localeDisplayNames/subdivisions/subdivision[@type=\"", "\"]", "subdivision"},
-    };
+    private final String first, second, third;
 
-    /**
-     * The numeric values of these constants must correspond to the order of rows in NameTable. For
-     * example, the first row is for "language", which must match INDEX_LANGUAGE = 0. The second row
-     * is for "script", which must match INDEX_SCRIPT = 1. As a special case, the row for "key|type"
-     * must match INDEX_KEY_TYPE.
-     */
-    private static final int INDEX_NONE = -1,
-            INDEX_LANGUAGE = 0,
-            INDEX_SCRIPT = 1,
-            INDEX_TERRITORY = 2,
-            INDEX_VARIANT = 3,
-            INDEX_CURRENCY = 4,
-            INDEX_CURRENCY_SYMBOL = 5,
-            INDEX_TZ_EXEMPLAR = 6,
-            INDEX_TZ_GENERIC_LONG = 7,
-            INDEX_TZ_GENERIC_SHORT = 8,
-            INDEX_TZ_STANDARD_LONG = 9,
-            INDEX_TZ_STANDARD_SHORT = 10,
-            INDEX_TZ_DAYLIGHT_LONG = 11,
-            INDEX_TZ_DAYLIGHT_SHORT = 12,
-            INDEX_KEY = 13,
-            INDEX_KEY_TYPE = 14,
-            INDEX_SUBDIVISION = 15,
-            INDEX_MAX = 15;
-
-    private int nameTableIndex() {
-        switch (this) {
-            case NONE:
-                return INDEX_NONE;
-            case LANGUAGE:
-                return INDEX_LANGUAGE;
-            case SCRIPT:
-                return INDEX_SCRIPT;
-            case TERRITORY:
-                return INDEX_TERRITORY;
-            case VARIANT:
-                return INDEX_VARIANT;
-            case CURRENCY:
-                return INDEX_CURRENCY;
-            case CURRENCY_SYMBOL:
-                return INDEX_CURRENCY_SYMBOL;
-            case TZ_EXEMPLAR:
-                return INDEX_TZ_EXEMPLAR;
-            case TZ_GENERIC_LONG:
-                return INDEX_TZ_GENERIC_LONG;
-            case TZ_GENERIC_SHORT:
-                return INDEX_TZ_GENERIC_SHORT;
-            case TZ_STANDARD_LONG:
-                return INDEX_TZ_STANDARD_LONG;
-            case TZ_STANDARD_SHORT:
-                return INDEX_TZ_STANDARD_SHORT;
-            case TZ_DAYLIGHT_LONG:
-                return INDEX_TZ_DAYLIGHT_LONG;
-            case TZ_DAYLIGHT_SHORT:
-                return INDEX_TZ_DAYLIGHT_SHORT;
-            case KEY:
-                return INDEX_KEY;
-            case KEY_TYPE:
-                return INDEX_KEY_TYPE;
-            case SUBDIVISION:
-                return INDEX_SUBDIVISION;
-        }
-        throw new RuntimeException("Unrecognized NameType in nameTableIndex: " + this);
+    NameType(String first, String second) {
+        this(first, second, "");
     }
 
-    private static NameType fromNameTableIndex(int index) {
-        switch (index) {
-            case INDEX_NONE:
-                return NONE;
-            case INDEX_LANGUAGE:
-                return LANGUAGE;
-            case INDEX_SCRIPT:
-                return SCRIPT;
-            case INDEX_TERRITORY:
-                return TERRITORY;
-            case INDEX_VARIANT:
-                return VARIANT;
-            case INDEX_CURRENCY:
-                return CURRENCY;
-            case INDEX_CURRENCY_SYMBOL:
-                return CURRENCY_SYMBOL;
-            case INDEX_TZ_EXEMPLAR:
-                return TZ_EXEMPLAR;
-            case INDEX_TZ_GENERIC_LONG:
-                return TZ_GENERIC_LONG;
-            case INDEX_TZ_GENERIC_SHORT:
-                return TZ_GENERIC_SHORT;
-            case INDEX_TZ_STANDARD_LONG:
-                return TZ_STANDARD_LONG;
-            case INDEX_TZ_STANDARD_SHORT:
-                return TZ_STANDARD_SHORT;
-            case INDEX_TZ_DAYLIGHT_LONG:
-                return TZ_DAYLIGHT_LONG;
-            case INDEX_TZ_DAYLIGHT_SHORT:
-                return TZ_DAYLIGHT_SHORT;
-            case INDEX_KEY:
-                return KEY;
-            case INDEX_KEY_TYPE:
-                return KEY_TYPE;
-            case INDEX_SUBDIVISION:
-                return SUBDIVISION;
+    NameType(String first, String second, String third) {
+        this.first = first;
+        this.second = second;
+        this.third = third;
+    }
+
+    public StandardCodes.CodeType toCodeType() {
+        switch (this) {
+            case LANGUAGE:
+                return language;
+            case SCRIPT:
+                return script;
+            case TERRITORY:
+                return territory;
+            case VARIANT:
+                return variant;
+            case CURRENCY:
+            case CURRENCY_SYMBOL:
+                return currency;
+            case TZ_EXEMPLAR:
+                return tzid;
+            default:
+                throw new IllegalArgumentException("Unsupported name type");
         }
-        throw new RuntimeException("Unrecognized index in fromNameTableIndex: " + index);
     }
 
     /**
@@ -171,21 +83,42 @@ public enum NameType {
      * @return the NameType, such as SCRIPT
      */
     public static NameType fromPath(String xpath) {
-        int index = getIndexFromTable(xpath);
-        return fromNameTableIndex(index);
+        for (NameType nameType : NameType.values()) {
+            if (nameType != NONE
+                    && xpath.startsWith(nameType.first)
+                    && xpath.indexOf(nameType.second, nameType.first.length()) >= 0) {
+                return nameType;
+            }
+        }
+        return NONE;
     }
 
     /**
-     * @return the xpath used to access data of a given type
+     * Get the xpath used to access data of a given type
+     *
+     * @param code the code such as "am", meaning "Amharic", if this is NameType.LANGUAGE
+     * @return the path such as //ldml/localeDisplayNames/languages/language[@type="am"]
      */
     public String getKeyPath(String code) {
+        code = fixCode(code);
+        if (code.contains("|")) {
+            // Special handling for "key|type" for KEY_TYPE
+            if (!KEY_TYPE.equals(this)) {
+                throw new IllegalArgumentException("Bar code is only for KEY_TYPE");
+            }
+            String[] codes = code.split("\\|");
+            return first + fixKeyName(codes[0]) + second + codes[1] + third;
+        } else {
+            return first + code + second;
+        }
+    }
+
+    private String fixCode(String code) {
         switch (this) {
             case VARIANT:
-                code = code.toUpperCase(Locale.ROOT);
-                break;
+                return code.toUpperCase(Locale.ROOT);
             case KEY:
-                code = CLDRFile.fixKeyName(code);
-                break;
+                return fixKeyName(code);
             case TZ_DAYLIGHT_LONG:
             case TZ_DAYLIGHT_SHORT:
             case TZ_EXEMPLAR:
@@ -193,38 +126,34 @@ public enum NameType {
             case TZ_GENERIC_SHORT:
             case TZ_STANDARD_LONG:
             case TZ_STANDARD_SHORT:
-                code = CLDRFile.getLongTzid(code);
-                break;
-        }
-        String[] nameTableRow = NameTable[this.nameTableIndex()];
-        if (code.contains("|")) {
-            // Special handling for "key|type" for KEY_TYPE
-            String[] codes = code.split("\\|");
-            return nameTableRow[0]
-                    + CLDRFile.fixKeyName(codes[0])
-                    + nameTableRow[1]
-                    + codes[1]
-                    + nameTableRow[2];
-        } else {
-            return nameTableRow[0] + code + nameTableRow[1];
+                return CLDRFile.getLongTzid(code);
+            default:
+                return code;
         }
     }
 
-    public String getNameName() {
-        int index = this.nameTableIndex();
-        String[] nameTableRow = NameTable[index];
-        return nameTableRow[nameTableRow.length - 1];
+    private static final ImmutableMap<String, String> FIX_KEY_NAME;
+
+    static {
+        ImmutableMap.Builder<String, String> temp = ImmutableMap.builder();
+        for (String s :
+                Arrays.asList(
+                        "colAlternate",
+                        "colBackwards",
+                        "colCaseFirst",
+                        "colCaseLevel",
+                        "colNormalization",
+                        "colNumeric",
+                        "colReorder",
+                        "colStrength")) {
+            temp.put(s.toLowerCase(Locale.ROOT), s);
+        }
+        FIX_KEY_NAME = temp.build();
     }
 
-    /** Gets the display name for a type */
-    public String getNameTypeName() {
-        int index = this.nameTableIndex();
-        try {
-            String[] nameTableRow = NameTable[index];
-            return nameTableRow[nameTableRow.length - 1];
-        } catch (Exception e) {
-            return "Illegal Type Name: " + index;
-        }
+    private static String fixKeyName(String code) {
+        String result = FIX_KEY_NAME.get(code);
+        return result == null ? code : result;
     }
 
     /**
@@ -236,37 +165,38 @@ public enum NameType {
      * @return the code, or null if not found
      */
     public static String getCode(String path) {
-        int index = getIndexFromTable(path);
-        if (index == INDEX_NONE) {
+        NameType nameType = fromPath(path);
+        if (nameType == NONE) {
             throw new IllegalArgumentException("Illegal type in path: " + path);
         }
-        String[] nameTableRow = NameTable[index];
-        int start = nameTableRow[0].length();
-        int end = path.indexOf(nameTableRow[1], start);
+        int start = nameType.first.length();
+        int end = path.indexOf(nameType.second, start);
         return path.substring(start, end);
     }
 
     /**
-     * @param typeString a string such as "language", "script", "territory", "region", ...
-     * @return the corresponding NameType
+     * Get the NameType represented by the given string. For backward compatibility, allow for:
+     * uppercase or lowercase; hyphens in place of underscores; "exemplar-city" for TZ_EXEMPLAR;
+     * "key|type" for KEY_TYPE; and "region" for TERRITORY
+     *
+     * @param typeString a string such as "language", "script", "tz-generic-long", "key|type", ...
+     * @return the corresponding NameType, or NONE
      */
     public static NameType typeNameToCode(String typeString) {
-        if (typeString.equalsIgnoreCase("region")) {
-            typeString = "territory";
-        }
-        int index = INDEX_NONE;
-        for (int i = 0; i <= INDEX_MAX; ++i) {
-            String[] nameTableRow = NameTable[i];
-            String s = nameTableRow[nameTableRow.length - 1];
-            if (typeString.equalsIgnoreCase(s)) {
-                index = i;
-                break;
+        String s = typeString.toUpperCase().replace("-", "_");
+        try {
+            return NameType.valueOf(s);
+        } catch (IllegalArgumentException e) {
+            switch (s) {
+                case "EXEMPLAR_CITY":
+                    return TZ_EXEMPLAR;
+                case "KEY|TYPE":
+                    return KEY_TYPE;
+                case "REGION":
+                    return TERRITORY;
             }
         }
-        if (index == INDEX_NONE) {
-            return NONE;
-        }
-        return fromNameTableIndex(index);
+        return NONE;
     }
 
     /**
@@ -277,15 +207,6 @@ public enum NameType {
      * @return the string
      */
     public String getPathStart() {
-        int index = this.nameTableIndex();
-        return NameTable[index][0];
-    }
-
-    private static int getIndexFromTable(String xpath) {
-        for (int i = 0; i < NameTable.length; ++i) {
-            if (!xpath.startsWith(NameTable[i][0])) continue;
-            if (xpath.indexOf(NameTable[i][1], NameTable[i][0].length()) >= 0) return i;
-        }
-        return INDEX_NONE;
+        return first;
     }
 }

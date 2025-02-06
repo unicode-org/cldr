@@ -139,7 +139,7 @@ public class TestPaths extends TestFmwkPlus {
             for (Iterator<String> it = file.iteratorDefault(); it.hasNext(); ) {
                 String path = it.next();
                 if (isExemptLocale && path.equals(exemptPathIfLocale)) {
-                    logKnownIssue("CLDR-17544", "Can't reproduce locally");
+                    logKnownIssue("CLDR-17849", "Can't reproduce locally");
                     continue;
                 }
                 if (extraPaths.contains(path)) {
@@ -253,6 +253,7 @@ public class TestPaths extends TestFmwkPlus {
                 || path.contains("/caseMinimalPairs")
                 || path.contains("/genderMinimalPairs")
                 || path.contains("/sampleName")
+                || path.contains("/localeDisplayNames/territories/territory")
         //            ||
         // path.equals("//ldml/dates/timeZoneNames/zone[@type=\"Australia/Currie\"]/exemplarCity")
         //            ||

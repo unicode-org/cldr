@@ -40,7 +40,7 @@ There are other projects which consume cldr-json directly, see [here](https://gi
 
 Most developers will use CLDR indirectly, via a set of software libraries, such as [ICU](https://icu.unicode.org/), [Closure](https://github.com/google/closure-library), or [TwitterCLDR](https://blog.x.com/engineering/en_us/a/2012/twittercldr-improving-internationalization-support-in-ruby). These libraries typically compile the CLDR data into a format that is compact and easy for the library to load and use.
 
-For those interested in the source CLDR data, it is available for each release in the XML format specified by [LDML](https://www.unicode.org/reports/tr35/). There are also tools that will convert to JSON and POSIX format. For more information, see [CLDR Releases/Downloads](downloads).
+For those interested in the source CLDR data, it is available for each release in the XML format specified by [LDML](https://www.unicode.org/reports/tr35/). There are also tools that will convert to JSON and POSIX format. For more information, see [CLDR Releases/Downloads](index/downloads).
 
 ## How to Contribute?
 

@@ -17,6 +17,13 @@ CLDR data is used by all [major software systems](/index#who-uses-cldr)
 (including all mobile phones) for their software internationalization and localization,
 adapting software to the conventions of different languages.
 
+### Locale Coverage Status
+
+CLDR 47 focused on MessageFormat 2.0 and tooling for an expansion of DDL support.
+It was a closed cycle: locale data changes were limited to bug fixes and the addition of new locales, mostly regional variants.
+
+### Changes
+
 The most significant changes in this release are:
 
    - New locales:
@@ -28,18 +35,14 @@ The most significant changes in this release are:
    - Updated and revised population data
    - Incorporates all changes from CLDR v46.1.
         - [CLDR v46.1](https://cldr.unicode.org/downloads/cldr-46#461-changes) was a special release, which many users of CLDR (including ICU) have not updated to.
-So the listed changes are relative to [CLDR v46.0](https://cldr.unicode.org/downloads/cldr-46).
+So the listed changes are relative to [CLDR v46.0](https://cldr.unicode.org/downloads/cldr-46). v46.1 included the following:
+       - Message Format 2.0 (Final Candidate)
        - More explicit well-formedness and validity constraints for unit of measurement identifiers
        - Addition of derived emoji annotations that were missing: emoji with skin tones facing right
        - Fixes to make the ja, ko, yue, zh datetimeSkeletons useful for generating the standard patterns
        - Improved date/time test data
 
 For more details, see below.
-
-### Locale Coverage Status
-
-CLDR 47 focused on MessageFormat 2.0 and tooling for an expansion of DDL support.
-It was a closed cycle: locale data changes were limited to bug fixes and the addition of new locales, mostly regional variants.
 
 #### Current Levels
 
@@ -53,7 +56,7 @@ Count | Level | Usage | Examples
 
 For a full listing, see [Coverage Levels](https://unicode.org/cldr/charts/dev/supplemental/locale_coverage.html)
 
-## [Specification Changes](https://www.unicode.org/reports/tr35/proposed.html)
+## Specification Changes
 
 **NOTE: the specification changes will be completed by the specification beta: only a few of them are listed here, and the Modifications section is not yet complete.**
 
@@ -85,7 +88,7 @@ For a full listing, see [Delta DTDs](https://unicode.org/cldr/charts/dev/supplem
 
 For a full listing, see [¤¤BCP47 Delta](https://unicode.org/cldr/charts/dev/delta/bcp47.html) and [¤¤Supplemental Delta](https://unicode.org/cldr/charts/dev/delta/supplemental-data.html)
 
-### [Locale Changes](https://unicode.org/cldr/charts/dev/delta/index.html)
+### Locale Changes
 
 - Cleanups for current pattern variants `alt="alphaNextToNumber"` and `alt="noCurrency"`: These were introduced in CLDR 42
 (per [CLDR-14336](https://unicode-org.atlassian.net/browse/CLDR-14336)) to provide a cleaner way of adjusting currency

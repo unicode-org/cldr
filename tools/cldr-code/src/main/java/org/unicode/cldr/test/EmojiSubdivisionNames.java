@@ -120,7 +120,8 @@ public class EmojiSubdivisionNames {
         }
     }
 
-    static Set<String> SUBDIVISIONS = ImmutableSet.of("gbeng", "gbsct", "gbwls");
+    /** allowable subdivisions in common/main */
+    public static Set<String> SUBDIVISIONS = ImmutableSet.of("gbeng", "gbsct", "gbwls");
 
     public static void main(String[] args) {
         System.out.print("Group\tOrd.\tLocale\tCode");

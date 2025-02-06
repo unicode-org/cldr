@@ -415,15 +415,20 @@ public class TestCLDRFile {
         final Comparator<String> comparator =
                 DtdData.getInstance(file.getDtdType()).getDtdComparator(null);
         final List<String> curr = new LinkedList<>();
-        for (Iterator<String> it = file.iterator("//supplementalData/currencyData/region[@iso3166=\"BY\"]", comparator); it.hasNext(); ) {
+        for (Iterator<String> it =
+                        file.iterator(
+                                "//supplementalData/currencyData/region[@iso3166=\"BY\"]",
+                                comparator);
+                it.hasNext(); ) {
             final String xpath = it.next();
             final XPathParts xpp = XPathParts.getFrozenInstance(xpath);
             final String iso4217 = xpp.getAttributeValue(-1, "iso4217");
             curr.add(iso4217);
         }
-        final String expect[] = {
-            "BYN", "BYR", "BYB", "RUR", "SUR"
-        };
-        assertArrayEquals(expect, curr.toArray(new String[0]), "Expected currencies in XML order (will break if BY's currency changes)");
+        final String expect[] = {"BYN", "BYR", "BYB", "RUR", "SUR"};
+        assertArrayEquals(
+                expect,
+                curr.toArray(new String[0]),
+                "Expected currencies in XML order (will break if BY's currency changes)");
     }
 }

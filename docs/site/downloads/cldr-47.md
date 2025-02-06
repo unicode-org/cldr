@@ -6,7 +6,9 @@ title: CLDR 47 Release Note
 
 | No. |    Date    | Rel. Note |  Data  |  Charts  | Spec |   Delta  | GitHub Tag | Delta DTD | CLDR JSON |
 |:---:|:----------:|:---------:|:------:|:--------:|:------------:|:---:|:----------:|:---------:|:---------:|
-|  47 | 2025-04-~~XX~~ | [v47](/index/downloads/cldr-47) | ~~[CLDR47](https://unicode.org/Public/cldr/47/)~~ | [Charts47](https://unicode.org/cldr/charts/dev) | [LDML47](https://www.unicode.org/reports/tr35/proposed.html) | [Δ47](https://unicode-org.atlassian.net/issues/?jql=project+%3D+CLDR+AND+status+%3D+Done+AND+resolution+%3D+Fixed+AND+fixVersion+%3D+%2247%22+ORDER+BY+priority+DESC) | ~~[release-47]()~~ | [ΔDtd47](https://www.unicode.org/cldr/charts/dev/supplemental/dtd_deltas.html) | ~~[47.0.0]()~~ |
+|  47 | 2025-04-~~XX~~ | [v47](/index/downloads/cldr-47) | ~~[CLDR47](https://unicode.org/Public/cldr/47/)~~ | [Charts47](https://unicode.org/cldr/charts/dev) | [LDML47](https://www.unicode.org/reports/tr35/proposed.html) | [Δ47](https://unicode-org.atlassian.net/issues/?jql=project+%3D+CLDR+AND+status+%3D+Done+AND+resolution+%3D+Fixed+AND+fixVersion+%3D+%2247%22+ORDER+BY+priority+DESC) | ~~release-47~~<br>[release-47-alpha2](https://github.com/unicode-org/cldr/releases/tag/release-47-alpha2) | [ΔDtd47](https://www.unicode.org/cldr/charts/dev/supplemental/dtd_deltas.html) | ~~47.0.0~~<br>[47.0.0-ALPHA2](https://github.com/unicode-org/cldr-json/releases/tag/47.0.0-ALPHA2) |
+
+<span style="color:red; font-weight: bold;">This is an alpha version of CLDR v47.</span>
 
 ## Overview
 
@@ -75,7 +77,22 @@ For a full listing, see [¤¤BCP47 Delta](https://unicode.org/cldr/charts/dev/de
 
 ### [Locale Changes](https://unicode.org/cldr/charts/dev/delta/index.html)
 
-- TBD
+- Cleanups for current pattern variants `alt="alphaNextToNumber"` and `alt="noCurrency"`: These were introduced in CLDR 42
+(per [CLDR-14336](https://unicode-org.atlassian.net/browse/CLDR-14336)) to provide a cleaner way of adjusting currency
+patterns when an alphabetic currency symbol is used, or when a currency-style pattern is desired without a currency symbol
+(as for use in a table). Some further adjustments were needed ([CLDR-17879](https://unicode-org.atlassian.net/browse/CLDR-17879)):
+    - Adjust coverage so that these variants are at moderate (not comprehensive) coverage for standard/accounting currency formats with
+    `numberSystem="latn"`, and so that `alt="alphaNextToNumber"` is at modern (not comprehensive) for oither relevant number systems in
+    in a locale. Coverage was already correct for other combinations of these attributes with various numberSystems.
+    - Adjust PathHeader so compact currency for relevant non-Latn number systems in a locale will appear in Survey Tool.
+    - In root, add an `alt="alphaNextToNumber"` variant for the standard/accounting currency patterns.
+    - Ensure that in the most commonly-used locales. for all relevant number systems in the locale, the standard/accounting currency
+    patterns have both `alt="alphaNextToNumber"` and `alt="noCurrency"` variants (inherting as necessary), and the compact currency
+    formats have the `alt="alphaNextToNumber"` variants.
+- As noted below in [Migration](#migration), number `<symbols>` elements and format elements (`<currencyFormats>`, `<decimalFormats>`, `<percentFormats>`, `<scientificFormats>`)
+should all have a `numberSystem` attribute, and such elements without a `numberSystem` attribute will be deprecated in CLDR 48. To
+prepare for this, in CLDR 47, all such elements were either removed (if redundant) or correct by adding a `numberSystem` attribute.
+([CLDR-17760](https://unicode-org.atlassian.net/browse/CLDR-17760))
 
 For a full listing, see [Delta Data](https://unicode.org/cldr/charts/dev/delta/index.html)
 
@@ -94,13 +111,13 @@ For a full listing, see [Delta Data](https://unicode.org/cldr/charts/dev/delta/i
 ([CLDR-18111](https://unicode-org.atlassian.net/browse/CLDR-18111))
 - Number spellout rules are improved for several other languages:
     - Bulgarian: Improve usage of ‘и’ (“and”). ([CLDR-17818](https://unicode-org.atlassian.net/browse/CLDR-17818))
-    - Catalan: ... ([CLDR-15972](https://unicode-org.atlassian.net/browse/CLDR-15972))
-    - Dutch: ... ([CLDR-17187](https://unicode-org.atlassian.net/browse/CLDR-17187))
-    - Hindi: ... ([CLDR-15278](https://unicode-org.atlassian.net/browse/CLDR-15278))
-    - Indonesian: ... ([CLDR-17730](https://unicode-org.atlassian.net/browse/CLDR-17730))
+    - Catalan: Add plural ordinal rules for both masculine and feminine, other fixes. ([CLDR-15972](https://unicode-org.atlassian.net/browse/CLDR-15972))
+    - Dutch: Add the alternate spellout-cardinal-stressed rule for specific Dutch scenarios. ([CLDR-17187](https://unicode-org.atlassian.net/browse/CLDR-17187))
+    - Hindi: Add the spellout-ordinal-masculine-oblique rule. ([CLDR-15278](https://unicode-org.atlassian.net/browse/CLDR-15278))
+    - Indonesian: Add missing semicolon that caused all ordinals to be prefixed with “pertama 2:”. ([CLDR-17730](https://unicode-org.atlassian.net/browse/CLDR-17730))
     - Lithuanian: Add all of the grammatical cases, genders and grammatical numbers for cardinals and ordinals (no  pronomial forms, and only the positive degree). ([CLDR-18110](https://unicode-org.atlassian.net/browse/CLDR-18110))
-    - Russian: ... ([CLDR-17386](https://unicode-org.atlassian.net/browse/CLDR-17386))
-    - Ukrainian: ... ([CLDR-16096](https://unicode-org.atlassian.net/browse/CLDR-16096))
+    - Russian: Fix grammatcial case names in rules, and other issues. ([CLDR-17386](https://unicode-org.atlassian.net/browse/CLDR-17386))
+    - Ukrainian: Add digits-ordinal rules. ([CLDR-16096](https://unicode-org.atlassian.net/browse/CLDR-16096))
 
 ### Segmentation Data Changes
 

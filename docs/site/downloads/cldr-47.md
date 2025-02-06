@@ -17,6 +17,11 @@ CLDR data is used by all [major software systems](/index#who-uses-cldr)
 (including all mobile phones) for their software internationalization and localization,
 adapting software to the conventions of different languages.
 
+CLDR 47 focused on MessageFormat 2.0 and tooling for an expansion of DDL support.
+It was a closed cycle: locale data changes were limited to bug fixes and the addition of new locales, mostly regional variants.
+
+### Changes
+
 The most significant changes in this release are:
 
    - New locales:
@@ -25,17 +30,19 @@ The most significant changes in this release are:
    - Updated time zone data to tzdata 2025a
    - [RBNF](#number-spellout-data-changes) (Number Spellout Data Improvements) for multiple languages
    - Assorted transforms improvements
-   - Updated language matching for Afrikaans to English (en) from Dutch (nl) [CLDR-18198](https://unicode-org.atlassian.net/browse/CLDR-18198)
-   - Ordered scripts in decending order of usage per locale [CLDR-18155](https://unicode-org.atlassian.net/browse/CLDR-18155)
-   - Fixed invalid codes [CLDR-18129](https://unicode-org.atlassian.net/browse/CLDR-18129)
-   - Updated population data
+   - Updated and revised population data
+   - Incorporates all changes from CLDR v46.1.
+        - [CLDR v46.1](https://cldr.unicode.org/downloads/cldr-46#461-changes) was a special release, which many users of CLDR (including ICU) have not updated to.
+So the listed changes are relative to [CLDR v46.0](https://cldr.unicode.org/downloads/cldr-46). v46.1 included the following:
+       - Message Format 2.0 (Final Candidate)
+       - More explicit well-formedness and validity constraints for unit of measurement identifiers
+       - Addition of derived emoji annotations that were missing: emoji with skin tones facing right
+       - Fixes to make the ja, ko, yue, zh datetimeSkeletons useful for generating the standard patterns
+       - Improved date/time test data
 
 For more details, see below.
 
 ### Locale Coverage Status
-
-CLDR 47 was a closed cycle which means that locale data changes were limited to addition of new locales, and bug fixes.
-This means that coverage levels for existing locales did not change in this release.
 
 #### Current Levels
 
@@ -49,7 +56,9 @@ Count | Level | Usage | Examples
 
 For a full listing, see [Coverage Levels](https://unicode.org/cldr/charts/dev/supplemental/locale_coverage.html)
 
-## [Specification Changes](https://www.unicode.org/reports/tr35/proposed.html)
+## Specification Changes
+
+**NOTE: the specification changes will be completed by the specification beta: only a few of them are listed here, and the Modifications section is not yet complete.**
 
 The following are the most significant changes to the specification (LDML).
 
@@ -59,10 +68,14 @@ There are many more changes that are important to implementations, such as chang
 See the [Modifications section](https://www.unicode.org/reports/tr35/proposed.html#Modifications) of the specification for details.
 
 ## Data Changes
+**TBD: Flesh out overview items**
+   - Updated language matching for Afrikaans to English (en) from Dutch (nl) [CLDR-18198](https://unicode-org.atlassian.net/browse/CLDR-18198)
+   - Ordered scripts in `<languageData>` in descending order of usage per locale [CLDR-18155](https://unicode-org.atlassian.net/browse/CLDR-18155)
+   - Fixed certain invalid codes [CLDR-18129](https://unicode-org.atlassian.net/browse/CLDR-18129)
 
 ### DTD Changes
 
-- TBD
+Most of the DTD changes were in 46.1. One additional change was to order currency values in **TBD get ticket number**
 
 For a full listing, see [Delta DTDs](https://unicode.org/cldr/charts/dev/supplemental/dtd_deltas.html).
 
@@ -75,20 +88,13 @@ For a full listing, see [Delta DTDs](https://unicode.org/cldr/charts/dev/supplem
 
 For a full listing, see [¤¤BCP47 Delta](https://unicode.org/cldr/charts/dev/delta/bcp47.html) and [¤¤Supplemental Delta](https://unicode.org/cldr/charts/dev/delta/supplemental-data.html)
 
-### [Locale Changes](https://unicode.org/cldr/charts/dev/delta/index.html)
+### Locale Changes
 
 - Cleanups for current pattern variants `alt="alphaNextToNumber"` and `alt="noCurrency"`: These were introduced in CLDR 42
 (per [CLDR-14336](https://unicode-org.atlassian.net/browse/CLDR-14336)) to provide a cleaner way of adjusting currency
 patterns when an alphabetic currency symbol is used, or when a currency-style pattern is desired without a currency symbol
-(as for use in a table). Some further adjustments were needed ([CLDR-17879](https://unicode-org.atlassian.net/browse/CLDR-17879)):
-    - Adjust coverage so that these variants are at moderate (not comprehensive) coverage for standard/accounting currency formats with
-    `numberSystem="latn"`, and so that `alt="alphaNextToNumber"` is at modern (not comprehensive) for oither relevant number systems in
-    in a locale. Coverage was already correct for other combinations of these attributes with various numberSystems.
-    - Adjust PathHeader so compact currency for relevant non-Latn number systems in a locale will appear in Survey Tool.
-    - In root, add an `alt="alphaNextToNumber"` variant for the standard/accounting currency patterns.
-    - Ensure that in the most commonly-used locales. for all relevant number systems in the locale, the standard/accounting currency
-    patterns have both `alt="alphaNextToNumber"` and `alt="noCurrency"` variants (inherting as necessary), and the compact currency
-    formats have the `alt="alphaNextToNumber"` variants.
+(as for use in a table). Gaps in the data coverage showed up, because the translators weren't shown the right values. 
+Fixes were made in  [CLDR-17879](https://unicode-org.atlassian.net/browse/CLDR-17879).
 - As noted below in [Migration](#migration), number `<symbols>` elements and format elements (`<currencyFormats>`, `<decimalFormats>`, `<percentFormats>`, `<scientificFormats>`)
 should all have a `numberSystem` attribute, and such elements without a `numberSystem` attribute will be deprecated in CLDR 48. To
 prepare for this, in CLDR 47, all such elements were either removed (if redundant) or correct by adding a `numberSystem` attribute.
@@ -103,6 +109,7 @@ For a full listing, see [Delta Data](https://unicode.org/cldr/charts/dev/delta/i
 ### Collation Data Changes
 
 - Two old `zh` collation variants are removed: big5han and gb2312.
+They are no longer typically used, and only cover a fraction of the CJK ideographs.
 ([CLDR-16062](https://unicode-org.atlassian.net/browse/CLDR-16062))
 
 ### Number Spellout Data Changes
@@ -121,15 +128,15 @@ For a full listing, see [Delta Data](https://unicode.org/cldr/charts/dev/delta/i
 
 ### Segmentation Data Changes
 
-- The word break tailorings for `fi` and `sv` are removed to align with recent discussions in the UTC
+- The word break tailorings for `fi` and `sv` are removed to align with recent changes to the root collation
 and recent changes to ICU behavior. ([CLDR-18272](https://unicode-org.atlassian.net/browse/CLDR-18272))
 
 ### Transform Data Changes
 
-- A new `Hant-Latn` transform is added, and `Hans-Latn` is added as an alias for the existing `Hani-Latn`
-transform. When the Unihan data `kMandarin` field has two values, the first is preferred for a `CN`/`Hans`
-context, and is used by the `Hani-Latn`/`Hans-Latn` transform; the second is preferred for a `TW`/`Hant`
-context, and is now used by the new `Hant-Latn` transform.
+- A new `Hant-Latn` transform is added, and `Hans-Latn` is added as an alias for the existing `Hani-Latn` transform.
+When the Unihan data `kMandarin` field has two values,
+the first is preferred for a `CN`/`Hans` context, and is used by the `Hani-Latn`/`Hans-Latn` transform;
+the second is preferred for a `TW`/`Hant` context, and is now used by the new `Hant-Latn` transform.
 ([CLDR-18080](https://unicode-org.atlassian.net/browse/CLDR-18080))
 
 ### JSON Data Changes
@@ -166,11 +173,10 @@ In 46.0, but not in 47.0:
 
 ### Tooling Changes
 
-- Assorted SurveyTool improvements including:
+There were various SurveyTool improvements targeting expansion of DDL support and error detection, such as the following:
    - Added a CLA check
-   - 
-- Improved validity checks for codes [CLDR-18129](https://unicode-org.atlassian.net/browse/CLDR-18129)
-- Improved ability to detect invalid URLs in the site and spec
+   - Improved validity checks for codes [CLDR-18129](https://unicode-org.atlassian.net/browse/CLDR-18129)
+   - Improved ability to detect invalid URLs in the site and spec
 
 ### Keyboard Changes
 
@@ -178,20 +184,17 @@ In 46.0, but not in 47.0:
 
 ## Migration
 
-- Number `<symbols>` elements and format elements (`<currencyFormats>`, `<decimalFormats>`, `<percentFormats>`, `<scientificFormats>`)
-  should all have a `numberSystem` attribute. In CLDR v48 such elements without a `numberSystem` attribute will be deprecated, and the
-  corresponding entries in root will be removed; these were only intended as a long-ago migration aid. See the relevant sections of the
-  LDML specification: [Number Symbols](https://www.unicode.org/reports/tr35/dev/tr35-numbers.html#Number_Symbols) and
-  [Number Formats](https://www.unicode.org/reports/tr35/dev/tr35-numbers.html#number-formats).
-- Any locales that are missing Core data by the end of the CLDR 48 cycle will be removed [CLDR-16004](https://unicode-org.atlassian.net/browse/CLDR-16004)
-- The default week numbering will change to ISO instead being based on the calendar week starting in CLDR 48 [CLDR-18275](https://unicode-org.atlassian.net/browse/CLDR-18275).
+- Removal of number data without `numberSystem` attributes.
+    - Number `<symbols>` elements and format elements (`<currencyFormats>`, `<decimalFormats>`, `<percentFormats>`, `<scientificFormats>`)
+should all have a `numberSystem` attribute. In CLDR v48 such elements without a `numberSystem` attribute will be deprecated, and the
+corresponding entries in root will be removed; these were only intended as a long-ago migration aid. See the relevant sections of the
+LDML specification: [Number Symbols](https://www.unicode.org/reports/tr35/dev/tr35-numbers.html#Number_Symbols) and
+[Number Formats](https://www.unicode.org/reports/tr35/dev/tr35-numbers.html#number-formats).
+- V48 advance warnings
+    - Any locales that are missing Core data by the end of the CLDR 48 cycle will be removed [CLDR-16004](https://unicode-org.atlassian.net/browse/CLDR-16004)
+    - The default week numbering will change to ISO instead being based on the calendar week starting in CLDR 48 [CLDR-18275](https://unicode-org.atlassian.net/browse/CLDR-18275).
 
 ## Known Issues
-
-1. [CLDR-17095] The region-based firstDay value (see weekData) is currently used for several different purposes. In the future, some of these functions will be separated out:
-    - The day that should be shown as the first day of the week in a calendar view.
-    - The first day of the week (day 1) for weekday numbering.
-    - The first day of the week for week-of-year calendar calculations.
 
 ## Acknowledgments
 

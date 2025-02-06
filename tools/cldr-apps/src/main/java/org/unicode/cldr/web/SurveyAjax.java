@@ -207,7 +207,7 @@ public class SurveyAjax extends HttpServlet {
             } else if (what.equals(WHAT_FLAGGED)) {
                 SurveyJSONWrapper r = newJSONStatus(request, sm);
                 mySession = CookieSession.retrieve(sess);
-                new SurveyFlaggedItems(UserRegistry.userIsTC(mySession.user)).getJson(r);
+                new SurveyFlaggedItems(UserRegistry.userIsTCOrStronger(mySession.user)).getJson(r);
                 send(r, out);
             } else if (what.equals(WHAT_STATS_BYDAYUSERLOC)) {
                 String votesAfterString = SurveyMain.getVotesAfterString();
@@ -610,7 +610,7 @@ public class SurveyAjax extends HttpServlet {
                              */
                             if (mySession.user != null
                                     && mySession.user.canImportOldVotes()
-                                    && !UserRegistry.userIsTC(mySession.user)
+                                    && !UserRegistry.userIsTCOrStronger(mySession.user)
                                     && !alreadyAutoImportedVotes(mySession.user.id, "ask")) {
                                 r.put("canAutoImport", "true");
                             }
@@ -707,7 +707,7 @@ public class SurveyAjax extends HttpServlet {
                                     if (them != null
                                             && ((them.id == mySession.user.id)
                                                     || // it's me
-                                                    UserRegistry.userIsTC(mySession.user)
+                                                    UserRegistry.userIsTCOrStronger(mySession.user)
                                                     || (UserRegistry.userIsExactlyManager(
                                                                     mySession.user)
                                                             && (them.getOrganization()
@@ -877,7 +877,7 @@ public class SurveyAjax extends HttpServlet {
      * @throws SurveyException
      */
     public void assertIsTC(CookieSession mySession) throws SurveyException {
-        if (!UserRegistry.userIsTC(mySession.user)) {
+        if (!UserRegistry.userIsTCOrStronger(mySession.user)) {
             throw new SurveyException(ErrorCode.E_NO_PERMISSION);
         }
     }
@@ -1568,7 +1568,7 @@ public class SurveyAjax extends HttpServlet {
         // sort by pathheader
         Arrays.sort(rows, Comparator.comparing(o -> ((PathHeader) o.get("pathHeader"))));
 
-        boolean useWinningVotes = UserRegistry.userIsTC(user);
+        boolean useWinningVotes = UserRegistry.userIsTCOrStronger(user);
 
         /* Some variables are only used if oldvotes != null; otherwise leave them null. */
         JSONArray contested = null; // contested = losing

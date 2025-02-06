@@ -422,7 +422,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             if (ph.getSurveyToolStatus() == PathHeader.SurveyToolStatus.DEPRECATED) return false;
             if (ph.getSurveyToolStatus() == PathHeader.SurveyToolStatus.HIDE
                     || ph.getSurveyToolStatus() == PathHeader.SurveyToolStatus.READ_ONLY) {
-                if (!UserRegistry.userIsTC(user)) return false;
+                if (!UserRegistry.userIsTCOrStronger(user)) return false;
             }
 
             if (sm.getSupplementalDataInfo().getCoverageValue(xpath, locale.getBaseName())
@@ -918,7 +918,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 throws InvalidXPathException {
             if (!getPathsForFile().contains(xpath)) {
                 if (value == null
-                        && UserRegistry.userIsTC(user)
+                        && UserRegistry.userIsTCOrStronger(user)
                         && XPathTable.getAlt(xpath) != null) {
                     synchronized (this) {
                         Set<String> set = new HashSet<>(pathsForFile);
@@ -1026,7 +1026,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 }
                 ps.executeUpdate();
 
-                if (wasFlagged && UserRegistry.userIsTC(user)) {
+                if (wasFlagged && UserRegistry.userIsTCOrStronger(user)) {
                     clearFlag(conn, locale, xpathId);
                     didClearFlag = true;
                 }

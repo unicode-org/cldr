@@ -293,7 +293,7 @@ public class UserRegistry {
         }
 
         public String toHtml(User forUser) {
-            if (forUser == null || !userIsTC(forUser)) {
+            if (forUser == null || !userIsTCOrStronger(forUser)) {
                 return "(" + org + "#" + id + ")";
             } else {
                 return "<a href='mailto:"
@@ -316,7 +316,7 @@ public class UserRegistry {
         }
 
         public String toString(User forUser) {
-            if (forUser == null || !userIsTC(forUser)) {
+            if (forUser == null || !userIsTCOrStronger(forUser)) {
                 return "(" + org + "#" + id + ")";
             } else {
                 return email
@@ -496,6 +496,10 @@ public class UserRegistry {
                     .toString();
         }
 
+        public boolean canGenerateVxml() {
+            return userIsTCOrStronger(this);
+        }
+
         public boolean canImportOldVotes() {
             return canImportOldVotes(CLDRConfig.getInstance().getPhase());
         }
@@ -513,6 +517,7 @@ public class UserRegistry {
         /** This one is hidden because it uses JSONObject and can't be serialized */
         JSONObject getPermissionsJson() throws JSONException {
             return new JSONObject()
+                    .put("userCanGenerateVxml", canGenerateVxml())
                     .put("userCanImportOldVotes", canImportOldVotes())
                     .put("userCanUseVettingSummary", userCanUseVettingSummary(this))
                     .put("userCanCreateSummarySnapshot", userCanCreateSummarySnapshot(this))
@@ -521,8 +526,10 @@ public class UserRegistry {
                     .put("userCanUseVettingParticipation", userCanUseVettingParticipation(this))
                     .put("userIsAdmin", userIsAdmin(this))
                     .put("userIsManager", getLevel().canManageSomeUsers())
-                    .put("userIsTC", userIsTC(this))
-                    .put("userIsVetter", userIsVetter(this) && !userIsTC(this))
+                    .put("userIsTC", userIsTCOrStronger(this))
+                    // Caution: userIsVetter really means user is Vetter or Manager, but not TC or
+                    // Admin. It should be renamed to avoid confusion.
+                    .put("userIsVetter", userIsVetterOrStronger(this) && !userIsTCOrStronger(this))
                     .put("userIsLocked", userIsLocked(this));
         }
 
@@ -1758,8 +1765,8 @@ public class UserRegistry {
         return (u != null) && u.getLevel().isAdmin();
     }
 
-    public static boolean userIsTC(User u) {
-        return (u != null) && u.getLevel().isTC();
+    public static boolean userIsTCOrStronger(User u) {
+        return (u != null) && u.getLevel().isTCOrStronger();
     }
 
     public static boolean userIsExactlyManager(User u) {
@@ -1770,12 +1777,12 @@ public class UserRegistry {
         return (u != null) && u.getLevel().isManagerOrStronger();
     }
 
-    public static boolean userIsVetter(User u) {
-        return (u != null) && u.getLevel().isVetter();
+    public static boolean userIsVetterOrStronger(User u) {
+        return (u != null) && u.getLevel().isVetterOrStronger();
     }
 
-    public static boolean userIsGuest(User u) {
-        return (u != null) && u.getLevel().isGuest();
+    public static boolean userIsGuestOrStronger(User u) {
+        return (u != null) && u.getLevel().isGuestOrStronger();
     }
 
     public static boolean userIsLocked(User u) {
@@ -1945,9 +1952,9 @@ public class UserRegistry {
     private static Object userCanAccessForumWhy(User u, CLDRLocale locale) {
         if (u == null) return ModifyDenial.DENY_NULL_USER; // no user, no dice
         if (!u.claSigned) return ModifyDenial.DENY_CLA_NOT_SIGNED;
-        if (!userIsGuest(u)) return ModifyDenial.DENY_NO_RIGHTS; // at least guest level
+        if (!userIsGuestOrStronger(u)) return ModifyDenial.DENY_NO_RIGHTS; // at least guest level
         if (userIsAdmin(u)) return null; // Admin can modify all
-        if (userIsTC(u)) return null; // TC can modify all
+        if (userIsTCOrStronger(u)) return null; // TC can modify all
         if (SpecialLocales.getType(locale) == SpecialLocales.Type.scratch) {
             // All users can modify the sandbox
             return null;
@@ -1986,7 +1993,7 @@ public class UserRegistry {
         if (STFactory.isReadOnlyLocale(locale)) return ModifyDenial.DENY_LOCALE_READONLY;
 
         // user must have guest level perms
-        if (!userIsGuest(u)) return ModifyDenial.DENY_NO_RIGHTS; // at least guest level
+        if (!userIsGuestOrStronger(u)) return ModifyDenial.DENY_NO_RIGHTS; // at least guest level
 
         // locales that are aliases can't be modified.
         if (sm.isLocaleAliased(locale) != null) {
@@ -2015,7 +2022,7 @@ public class UserRegistry {
         // We add more restrictions
 
         // Admin and TC users can always modify, even in closed state.
-        if (userIsAdmin(u) || userIsTC(u)) return null;
+        if (userIsTCOrStronger(u)) return null;
 
         // Otherwise, if closed, deny
         if (SurveyMain.isPhaseVettingClosed(locale)) return ModifyDenial.DENY_PHASE_CLOSED;

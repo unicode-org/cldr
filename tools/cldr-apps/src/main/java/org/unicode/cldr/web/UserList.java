@@ -96,7 +96,7 @@ public class UserList {
                 org = null; // all
             }
         }
-        canShowLocked = UserRegistry.userIsExactlyManager(me) || UserRegistry.userIsTC(me);
+        canShowLocked = UserRegistry.userIsManagerOrStronger(me);
         showLocked = canShowLocked && ctx.prefBool(PREF_SHOWLOCKED);
         isValid = isJustMe || UserRegistry.userCanListUsers(me);
     }

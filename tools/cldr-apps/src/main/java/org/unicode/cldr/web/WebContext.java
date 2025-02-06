@@ -1440,7 +1440,7 @@ public class WebContext implements Cloneable, Appendable {
         logger.fine("Session Now=" + session + ", user=" + user);
 
         // allow in administrator or TC.
-        if (!UserRegistry.userIsTC(user)) {
+        if (!UserRegistry.userIsTCOrStronger(user)) {
             if ((user != null) && (session == null)) { // user trying to log in-
                 if (CookieSession.tooManyUsers()) {
                     System.err.println(

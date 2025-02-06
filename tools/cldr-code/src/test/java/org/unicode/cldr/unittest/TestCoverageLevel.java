@@ -1073,7 +1073,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
 
         // Get root LSR codes
 
-        for (String path : root.iterableDefault()) {
+        for (String path : root.fullIterable()) {
             if (!path.startsWith("//ldml/localeDisplayNames/")) {
                 continue;
             }

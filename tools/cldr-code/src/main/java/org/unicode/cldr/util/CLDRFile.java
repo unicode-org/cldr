@@ -3144,8 +3144,7 @@ public class CLDRFile implements Freezable<CLDRFile>, LocaleStringProvider {
      * @return
      */
     public Collection<String> getExtraPaths() {
-        Set<String> toAddTo = new HashSet<>();
-        toAddTo.addAll(getRawExtraPaths());
+        Set<String> toAddTo = new HashSet<>(getRawExtraPaths());
         for (String path : this.iterableWithoutExtras()) {
             toAddTo.remove(path);
         }

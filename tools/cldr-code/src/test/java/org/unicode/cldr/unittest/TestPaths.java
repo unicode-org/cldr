@@ -254,7 +254,6 @@ public class TestPaths extends TestFmwkPlus {
                 || path.contains("/genderMinimalPairs")
                 || path.contains("/sampleName")
                 || path.contains("/localeDisplayNames/territories/territory")
-                || path.contains("/localeDisplayNames/variants/variant")
         //            ||
         // path.equals("//ldml/dates/timeZoneNames/zone[@type=\"Australia/Currie\"]/exemplarCity")
         //            ||

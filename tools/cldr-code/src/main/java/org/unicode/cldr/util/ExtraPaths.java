@@ -83,6 +83,7 @@ public class ExtraPaths {
             addPaths(NameType.LANGUAGE);
             addPaths(NameType.SCRIPT);
             addPaths(NameType.TERRITORY);
+            addPaths(NameType.VARIANT);
             addMetazones();
             pathsTemp.addAll(CONST_EXTRA_PATHS);
             paths = ImmutableSet.copyOf(pathsTemp); // preserves order (Sets.copyOf doesn't)

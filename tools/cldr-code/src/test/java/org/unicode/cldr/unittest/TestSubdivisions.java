@@ -11,10 +11,9 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.stream.Collectors;
 import java.util.Set;
 import java.util.TreeMap;
-
+import java.util.stream.Collectors;
 import org.unicode.cldr.test.EmojiSubdivisionNames;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -182,56 +181,120 @@ public class TestSubdivisions extends TestFmwkPlus {
 
         // check that there are no extra locales in subdivisions
         if (!subNotInMain.isEmpty()) {
-            errln("Locales in subdivisions but not in main: " + subNotInMain.stream().map(CLDRLocale::getBaseName).collect(Collectors.joining(",")));
+            errln(
+                    "Locales in subdivisions but not in main: "
+                            + subNotInMain.stream()
+                                    .map(CLDRLocale::getBaseName)
+                                    .collect(Collectors.joining(",")));
         }
 
         final Set<CLDRLocale> mainNotInSub = new HashSet<CLDRLocale>(mainLocales);
         mainNotInSub.removeAll(subLocales);
 
         // check that any locales not in subdivisions, don't have subdivisions…
-        mainNotInSub.parallelStream().map(l -> mainFactory.make(l.getBaseName(), false)).forEach(mainF -> {
-            // we already know that subLocales doesn't have this, but find a usable parent
-            CLDRLocale par = getParentIn(CLDRLocale.getInstance(mainF.getLocaleID()), subLocales);
-            if (par == null) {
-                errln("Could not find subdivision parent locale for" + mainF.getLocaleID());
-            } else {
-                CLDRFile subF = subFactory.make(par.getBaseName(), true);
+        mainNotInSub.parallelStream()
+                .forEach(
+                        l -> {
+                            String loc = l.getBaseName();
+                            // we already know that subLocales doesn't have this, but find a usable
+                            // parent
+                            CLDRLocale par = getParentIn(CLDRLocale.getInstance(loc), subLocales);
+                            if (par == null) {
+                                errln("Could not find subdivision parent locale for" + loc);
+                            } else {
+                                CLDRFile subF;
+                                CLDRFile mainF;
+                                // avoid sync issues with factory
+                                synchronized (CLDRFile.class) {
+                                    mainF = mainFactory.make(loc, true);
+                                    subF = subFactory.make(par.getBaseName(), true);
+                                }
 
-                for(Iterator<String> it = mainF.iterator(SUB_XPATH); it.hasNext(); ) {
-                    final String p = it.next();
-                    final String commonValue = mainF.getStringValue(p);
-                    if (commonValue!=null && !commonValue.equals(CldrUtility.INHERITANCE_MARKER) && mainF.isHere(p)) {
-                        // but, is it actually different?
-                            final String subValue = subF.getStringValue(p);
-                            if (subValue == null) {
-                                errln(mainF.getLocaleID() + ": common/main has subdivision not in common/subdivisions: " + p);
-                            } else if (!commonValue.equals(subValue)) {
-                                errln(mainF.getLocaleID() + ": common/main has subdivision different from common/subdivisions: " + p + " - " + commonValue + " vs " + subValue + " in parent " + par.getBaseName());
+                                for (Iterator<String> it = mainF.iterator(SUB_XPATH);
+                                        it.hasNext(); ) {
+                                    final String p = it.next();
+                                    final String commonValue = mainF.getStringValue(p);
+                                    if (commonValue != null
+                                            && !commonValue.equals(CldrUtility.INHERITANCE_MARKER)
+                                            && mainF.isHere(p)) {
+                                        // but, is it actually different?
+                                        final String subValue = subF.getStringValue(p);
+                                        if (subValue == null) {
+                                            errln(
+                                                    mainF.getLocaleID()
+                                                            + ": common/main has subdivision not in common/subdivisions - run CopyMainToSubdivisions : "
+                                                            + p);
+                                        } else if (!commonValue.equals(subValue)) {
+                                            errln(
+                                                    mainF.getLocaleID()
+                                                            + ": common/main has subdivision different from common/subdivisions - run CopyMainToSubdivisions : "
+                                                            + p
+                                                            + " - "
+                                                            + commonValue
+                                                            + " vs "
+                                                            + subValue
+                                                            + " in parent "
+                                                            + par.getBaseName());
+                                        }
+                                    }
+                                }
                             }
-                        }
-                }
-            }
-        });
+                        });
 
         // now, check the rest of the subdivision locales
-        inBoth.parallelStream().map(l -> subFactory.make(l.getBaseName(), true)).forEach(subF -> {
-            String loc = subF.getLocaleID();
-            CLDRFile mainF = mainFactory.make(loc, true);
-            for(Iterator<String> it = subF.iterator(SUB_XPATH); it.hasNext(); ) {
-                final String p = it.next();
-                final String subValue = subF.getStringValue(p);
-                final String commonValue = mainF.getStringValue(p);
-                if (commonValue == null) {
-                    // this is of course a common case
-                    final XPathParts xpp = XPathParts.getFrozenInstance(p);
-                    final String region = xpp.getAttributeValue(-1, "type");
-                    if (EmojiSubdivisionNames.SUBDIVISIONS.contains(region)) {
-                        errln(loc + ": common/subdivisions has subdivision not in common/main: " + p);
-                    } // else: we don't care, because we expect it to be missing from common/main
-                } else if (!commonValue.equals(subValue)) {
-                    errln(loc + ": common/main has subdivision different from common/subdivisions: " + p + " - " + commonValue + " vs " + subValue);
-                }
-            }
-        });
+        inBoth.parallelStream()
+                .forEach(
+                        l -> {
+                            String loc = l.getBaseName();
+                            CLDRFile subF;
+                            CLDRFile mainF;
+                            // avoid sync issues with factory
+                            synchronized (CLDRFile.class) {
+                                subF = subFactory.make(l.getBaseName(), true);
+                                mainF = mainFactory.make(loc, true);
+                            }
+                            for (Iterator<String> it = subF.iterator(SUB_XPATH); it.hasNext(); ) {
+                                final String p = it.next();
+                                final String subValue = subF.getStringValue(p);
+                                final String commonValue = mainF.getStringValue(p);
+                                if (commonValue == null) {
+                                    // this is of course a common case
+                                    final XPathParts xpp = XPathParts.getFrozenInstance(p);
+                                    final String region = xpp.getAttributeValue(-1, "type");
+                                    if (EmojiSubdivisionNames.SUBDIVISIONS.contains(region)) {
+                                        if (!logKnownIssue(
+                                                "CLDR-18296",
+                                                "common/subdivisions has subdivision not in common/main")) {
+                                            errln(
+                                                    loc
+                                                            + ": common/subdivisions has subdivision not in common/main: "
+                                                            + p);
+                                        }
+                                    } // else: we don't care, because we expect it to be missing
+                                    // from common/main
+                                } else if (!commonValue.equals(subValue)) {
+                                    errln(
+                                            loc
+                                                    + ": common/main differs from common/subdivisions: "
+                                                    + p
+                                                    + " - "
+                                                    + commonValue
+                                                    + " vs "
+                                                    + subValue
+                                                    + " - run CopyMainToSubdivisions");
+                                }
+                            }
+                            // look for any in common/main but not sub (these will be many fewer)
+                            for (Iterator<String> it = mainF.iterator(SUB_XPATH); it.hasNext(); ) {
+                                final String p = it.next();
+                                if (mainF.isHere(p) && !subF.isHere(p)) {
+                                    errln(
+                                            loc
+                                                    + ": common/main has path not in common/subdivisions: "
+                                                    + p
+                                                    + " - run CopyMainToSubdivisions");
+                                }
+                            }
+                        });
     }
 }

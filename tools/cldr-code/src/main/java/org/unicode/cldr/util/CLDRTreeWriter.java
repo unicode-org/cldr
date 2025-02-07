@@ -47,8 +47,16 @@ public class CLDRTreeWriter implements AutoCloseable {
 
     @Override
     public void close() throws IOException {
+        Set<CLDRLocale> missingParents = new TreeSet<CLDRLocale>();
+        // collect missing parents
         for (final CLDRLocale locale : locales) {
-            ensureParentExists(locale.getParent());
+            ensureParentExists(locale.getParent(), missingParents);
+        }
+        // effect any additions
+        for (final CLDRLocale locale : missingParents) {
+            CLDRFile wasMissing = new CLDRFile(new SimpleXMLSource(locale.getBaseName()));
+            System.out.println("# Writing missing parent: " + getFile(locale).getPath());
+            write(wasMissing); // no longer missing.
         }
         // effect any removals
         for (final CLDRLocale locale : removed) {
@@ -59,13 +67,12 @@ public class CLDRTreeWriter implements AutoCloseable {
     }
 
     /** recursively add any missing files. */
-    private void ensureParentExists(CLDRLocale locale) throws IOException {
+    private void ensureParentExists(CLDRLocale locale, Set<CLDRLocale> missingParents)
+            throws IOException {
         if (locale == null || locales.contains(locale)) return;
         if (getFile(locale).canRead() && !removed.contains(locale)) return; // parent file exists.
         // else missing, need to write
-        CLDRFile wasMissing = new CLDRFile(new SimpleXMLSource(locale.getBaseName()));
-        System.out.println("# Writing missing parent: " + getFile(locale).getPath());
-        write(wasMissing); // no longer missing.
-        ensureParentExists(locale.getParent());
+        missingParents.add(locale);
+        ensureParentExists(locale.getParent(), missingParents);
     }
 }

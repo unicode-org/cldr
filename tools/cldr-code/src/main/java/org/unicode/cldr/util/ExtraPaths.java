@@ -84,6 +84,8 @@ public class ExtraPaths {
             addPaths(NameType.SCRIPT);
             addPaths(NameType.TERRITORY);
             addPaths(NameType.VARIANT);
+            addPaths(NameType.CURRENCY);
+            addPaths(NameType.CURRENCY_SYMBOL);
             addMetazones();
             pathsTemp.addAll(CONST_EXTRA_PATHS);
             paths = ImmutableSet.copyOf(pathsTemp); // preserves order (Sets.copyOf doesn't)

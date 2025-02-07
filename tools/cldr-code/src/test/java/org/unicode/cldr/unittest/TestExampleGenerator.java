@@ -46,6 +46,7 @@ import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalScope;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalTarget;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathHeader;
@@ -959,6 +960,9 @@ public class TestExampleGenerator extends TestFmwk {
             String xpath = testPair[0];
             String expected = testPair[1];
             String value = exampleGenerator.getCldrFile().getStringValue(xpath);
+            if (value == null) {
+                value = NameType.getCode(xpath);
+            }
             String actual = simplify(exampleGenerator.getExampleHtml(xpath, value));
             assertEquals("specifics", expected, actual);
         }

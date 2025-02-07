@@ -7,6 +7,8 @@
 
 package org.unicode.cldr.util;
 
+import static org.unicode.cldr.util.StandardCodes.CodeType.tzid;
+
 import com.google.common.collect.Iterators;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.util.Freezable;
@@ -1590,31 +1592,13 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             {"zhuyin", "collation"}
         };
 
-        private static final boolean SKIP_SINGLEZONES = false;
-        private static XMLSource constructedItems = new SimpleXMLSource(CODE_FALLBACK_ID);
+        private static final XMLSource constructedItems = new SimpleXMLSource(CODE_FALLBACK_ID);
 
         static {
-            StandardCodes sc = StandardCodes.make();
-            Map<String, Set<String>> countries_zoneSet = sc.getCountryToZoneSet();
-            Map<String, String> zone_countries = sc.getZoneToCountry();
-            List<NameType> nameTypeList =
-                    List.of(NameType.CURRENCY, NameType.CURRENCY_SYMBOL, NameType.TZ_EXEMPLAR);
-            for (NameType nameType : nameTypeList) {
-                StandardCodes.CodeType codeType = nameType.toCodeType();
-                Set<String> codes = sc.getGoodAvailableCodes(codeType);
-                for (Iterator<String> codeIt = codes.iterator(); codeIt.hasNext(); ) {
-                    String code = codeIt.next();
-                    String value = code;
-                    if (nameType == NameType.TZ_EXEMPLAR) { // skip single-zone countries
-                        if (SKIP_SINGLEZONES) {
-                            String country = zone_countries.get(code);
-                            Set<String> s = countries_zoneSet.get(country);
-                            if (s != null && s.size() == 1) continue;
-                        }
-                        value = TimezoneFormatter.getFallbackName(value);
-                    }
-                    addFallbackCode(nameType, code, value);
-                }
+            for (String code : StandardCodes.make().getGoodAvailableCodes(tzid)) {
+                String value = TimezoneFormatter.getFallbackName(code);
+                String fullpath = NameType.TZ_EXEMPLAR.getKeyPath(code);
+                addFallbackCode(fullpath, value, null /* alt */);
             }
 
             addFallbackCode(
@@ -1664,22 +1648,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             constructedItems.freeze();
         }
 
-        private static void addFallbackCode(NameType nameType, String code, String value) {
-            addFallbackCode(nameType, code, value, null);
-        }
-
-        private static void addFallbackCode(
-                NameType nameType, String code, String value, String alt) {
-            String fullpath = nameType.getKeyPath(code);
-            String distinguishingPath = addFallbackCodeToConstructedItems(fullpath, value, alt);
-        }
-
         private static void addFallbackCode(String fullpath, String value, String alt) {
-            addFallbackCodeToConstructedItems(fullpath, value, alt); // ignore unneeded return value
-        }
-
-        private static String addFallbackCodeToConstructedItems(
-                String fullpath, String value, String alt) {
             if (alt != null) {
                 // Insert the @alt= string after the last occurrence of "]"
                 StringBuffer fullpathBuf = new StringBuffer(fullpath);
@@ -1688,7 +1657,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                                 .insert(fullpathBuf.lastIndexOf("]") + 1, "[@alt=\"" + alt + "\"]")
                                 .toString();
             }
-            return constructedItems.putValueAtPath(fullpath, value);
+            constructedItems.putValueAtPath(fullpath, value);
         }
 
         @Override

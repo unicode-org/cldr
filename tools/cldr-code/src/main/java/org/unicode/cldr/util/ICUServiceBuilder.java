@@ -729,14 +729,7 @@ public class ICUServiceBuilder {
                 currencySymbol = cldrFile.getWinningValueWithBailey(prefix + "symbol");
             }
             if (currencySymbol == null) {
-                throw new NullPointerException(
-                        cldrFile.getSourceLocation(prefix + "symbol")
-                                + ": "
-                                + cldrFile.getLocaleID()
-                                + ": "
-                                + ": null currencySymbol for "
-                                + prefix
-                                + "symbol");
+                currencySymbol = key1; // code fallback
             }
             String currencyDecimal = cldrFile.getWinningValueWithBailey(prefix + "decimal");
             if (currencyDecimal != null) {

@@ -1598,11 +1598,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             Map<String, Set<String>> countries_zoneSet = sc.getCountryToZoneSet();
             Map<String, String> zone_countries = sc.getZoneToCountry();
             List<NameType> nameTypeList =
-                    List.of(
-                            NameType.VARIANT,
-                            NameType.CURRENCY,
-                            NameType.CURRENCY_SYMBOL,
-                            NameType.TZ_EXEMPLAR);
+                    List.of(NameType.CURRENCY, NameType.CURRENCY_SYMBOL, NameType.TZ_EXEMPLAR);
             for (NameType nameType : nameTypeList) {
                 StandardCodes.CodeType codeType = nameType.toCodeType();
                 Set<String> codes = sc.getGoodAvailableCodes(codeType);

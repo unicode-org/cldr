@@ -713,10 +713,23 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
      * @return
      */
     private String getFallbackPath(String xpath, boolean winning, boolean checkExtraPaths) {
+        if ("//ldml/numbers/currencies/currency[@type=\"VEF\"]/symbol".equals(xpath)) {
+            System.out.println(
+                    "CLDRFile.getFallbackPath called with VEF currency path; loc = "
+                            + getLocaleID());
+        }
         if (GrammaticalFeature.pathHasFeature(xpath) != null) {
+            if ("//ldml/numbers/currencies/currency[@type=\"VEF\"]/symbol".equals(xpath)) {
+                System.out.println(
+                        "CLDRFile.getFallbackPath VEF: GrammaticalFeature.pathHasFeature");
+            }
             return getCountPathWithFallback(xpath, Count.other, winning);
         }
         if (checkExtraPaths && getRawExtraPaths().contains(xpath)) {
+            if ("//ldml/numbers/currencies/currency[@type=\"VEF\"]/symbol".equals(xpath)) {
+                System.out.println(
+                        "CLDRFile.getFallbackPath checkExtraPaths; raw contains VEF path");
+            }
             return xpath;
         }
         return null;
@@ -839,6 +852,13 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
      * @param value
      */
     public CLDRFile add(String currentFullXPath, String value) {
+        if ("//ldml/numbers/currencies/currency[@type=\"VEF\"]/symbol".equals(currentFullXPath)) {
+            System.out.println(
+                    "Adding VEF currency path in CLDRFile.add; loc = "
+                            + getLocaleID()
+                            + "; value = "
+                            + value);
+        }
         if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
         // StringValue v = new StringValue(value, currentFullXPath);
         Log.logln(
@@ -3068,6 +3088,13 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
     public Collection<String> getExtraPaths() {
         Set<String> toAddTo = new HashSet<>(getRawExtraPaths());
         for (String path : this) {
+            if ("//ldml/numbers/currencies/currency[@type=\"VEF\"]/symbol".equals(path)) {
+                if (getStringValue(path) == null) {
+                    System.out.println(
+                            "Non-extra VEF path has null value in getExtraPaths! locale = "
+                                    + getLocaleID());
+                }
+            }
             toAddTo.remove(path);
         }
         return toAddTo;

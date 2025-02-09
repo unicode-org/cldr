@@ -1,5 +1,7 @@
 package org.unicode.cldr.util;
 
+import static org.unicode.cldr.util.StandardCodes.CodeType.currency;
+
 import com.google.common.collect.ImmutableSet;
 import java.util.Collection;
 import java.util.Collections;
@@ -84,6 +86,9 @@ public class ExtraPaths {
             addPaths(NameType.SCRIPT);
             addPaths(NameType.TERRITORY);
             addPaths(NameType.VARIANT);
+            // Note: CURRENCY and CURRENCY_SYMBOL both get the same set of codes. The difference is
+            // that CURRENCY paths end in "/displayName" while CURRENCY_SYMBOL paths end in
+            // "/symbol". Compare the method addCurrencies below, which is locale-dependent.
             addPaths(NameType.CURRENCY);
             addPaths(NameType.CURRENCY_SYMBOL);
             addMetazones();
@@ -278,19 +283,14 @@ public class ExtraPaths {
 
     private static void addCurrencies(
             Set<String> toAddTo, Set<SupplementalDataInfo.PluralInfo.Count> pluralCounts) {
-        for (String code : supplementalData.getBcp47Keys().getAll("cu")) {
-            String currencyCode = code.toUpperCase();
-            toAddTo.add(
-                    "//ldml/numbers/currencies/currency[@type=\"" + currencyCode + "\"]/symbol");
-            toAddTo.add(
-                    "//ldml/numbers/currencies/currency[@type=\""
-                            + currencyCode
-                            + "\"]/displayName");
-            if (!pluralCounts.isEmpty()) {
+        // This code is locale-dependent due to pluralCounts. Compare addPaths(NameType.CURRENCY)
+        // and addPaths(NameType.CURRENCY_SYMBOL) above, which are locale-independent.
+        if (!pluralCounts.isEmpty()) {
+            for (String code : StandardCodes.make().getGoodAvailableCodes(currency)) {
                 for (SupplementalDataInfo.PluralInfo.Count count : pluralCounts) {
                     toAddTo.add(
                             "//ldml/numbers/currencies/currency[@type=\""
-                                    + currencyCode
+                                    + code
                                     + "\"]/displayName[@count=\""
                                     + count.toString()
                                     + "\"]");

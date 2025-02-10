@@ -19,9 +19,11 @@ import java.util.stream.Collectors;
 import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.TestCLDRPaths;
 import org.unicode.cldr.util.UnitConverter;
 import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.XPathParts;
@@ -422,6 +424,73 @@ public class TestBCP47 extends TestFmwk {
             typesFound.add(type);
         }
 
-        assertEquals("mu values are only temperature units for now", allowedBcp47Units, typesFound);
+        // Currently <convertUnits> - and consequently allowedBcp47Units - has a temperature unit
+        // rankine which is not supported for mu, and hence not in typesFound.
+        // Filed CLDR-18300 about this but meanwhile typesFound just needs to be a subset of
+        // allowedBcp47Units.
+        typesFound.removeAll(allowedBcp47Units);
+        if (!typesFound.isEmpty()) {
+            errln(
+                    "mu values should only be temperature units for now, but they include "
+                            + typesFound);
+        }
+    }
+
+    public void TestNoNewBCP47Aliases() {
+        if (!TestCLDRPaths.canUseArchiveDirectory()) {
+            return; // Test depends on having previous release in archive
+        }
+        SupplementalDataInfo SDI_LAST =
+                SupplementalDataInfo.getInstance(
+                        CLDRPaths.LAST_RELEASE_DIRECTORY + "common/supplemental/");
+        if (SDI_LAST == null) {
+            errln("Cannot get SupplementalDataInfo for last release");
+            return;
+        }
+        Relation<R2<String, String>, String> bcp47keyType_aliases_last = SDI_LAST.getBcp47Aliases();
+
+        for (String bcp47Key : bcp47key_types.keySet()) {
+            // First check aliases for the key itself
+            final R2<String, String> keyOnly = Row.of(bcp47Key, "");
+            Set<String> keyAliases = bcp47keyType_aliases.get(keyOnly);
+            if (keyAliases != null) {
+                Set<String> keyAliasesLast =
+                        CldrUtility.ifNull(
+                                bcp47keyType_aliases_last.get(keyOnly),
+                                Collections.<String>emptySet());
+                Set<String> newKeyAliases = new HashSet(keyAliases); // get modifiable version
+                newKeyAliases.removeAll(keyAliasesLast);
+                if (!newKeyAliases.isEmpty()) {
+                    errln("New aliases found for key " + bcp47Key + ": " + newKeyAliases);
+                }
+            }
+            // Now check aliases for the values, except for key "tz"
+            if (bcp47Key.equals("tz")) {
+                continue; // values for key "tz" are allowed to have new aliases, which are tzdata
+                // zone names
+            }
+            for (String bcp47Type : bcp47key_types.get(bcp47Key)) {
+                final R2<String, String> keyValue = Row.of(bcp47Key, bcp47Type);
+                Set<String> keyTypeAliases = bcp47keyType_aliases.get(keyValue);
+                if (keyTypeAliases != null) {
+                    Set<String> keyTypeAliasesLast =
+                            CldrUtility.ifNull(
+                                    bcp47keyType_aliases_last.get(keyValue),
+                                    Collections.<String>emptySet());
+                    Set<String> newKeyTypeAliases =
+                            new HashSet(keyTypeAliases); // get modifiable version
+                    newKeyTypeAliases.removeAll(keyTypeAliasesLast);
+                    if (!newKeyTypeAliases.isEmpty()) {
+                        errln(
+                                "New aliases found for key-type "
+                                        + bcp47Key
+                                        + "-"
+                                        + bcp47Type
+                                        + ": "
+                                        + newKeyTypeAliases);
+                    }
+                }
+            }
+        }
     }
 }

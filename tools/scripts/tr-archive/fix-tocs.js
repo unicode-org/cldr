@@ -107,7 +107,9 @@ async function processFile(f) {
             .replace(oldcopyright, `$1 $2–${newyear} Unicode`)
             .replace(badlink, '$1tr35$3.md')
             .replace(badlink2, '$1tr35.md#')
-            .replace(badlink3, '(tr35.md)'));
+            .replace(badlink3, '(tr35.md)')
+            // replace ./tr35… with tr35…
+            .replace(/\]\(\.\/tr35/g, '](tr35'));
     }
 
     // Write the whole file to disk.

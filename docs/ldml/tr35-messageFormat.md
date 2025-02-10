@@ -3265,7 +3265,7 @@ The option `currency` MUST NOT be used to override the currency of an implementa
 Using this option in such a case results in a _Bad Option_ error.
 
 The value of the _operand_'s `currency` MUST be either a string containing a
-well-formed [Unicode Currency Identifier](./tr35.md#UnicodeCurrencyIdentifier)
+well-formed [Unicode Currency Identifier](tr35.md#UnicodeCurrencyIdentifier)
 or an implementation-defined currency type.
 Although currency codes are expected to be uppercase,
 implementations SHOULD treat them in a case-insensitive manner.
@@ -3353,7 +3353,7 @@ The following options and their values are required to be available on the funct
    -  `plural` (default)
    -  `exact`
 - `currency`
-   - well-formed [Unicode Currency Identifier](./tr35.md#UnicodeCurrencyIdentifier)
+   - well-formed [Unicode Currency Identifier](tr35.md#UnicodeCurrencyIdentifier)
      (no default)
 - `compactDisplay` (this option only has meaning when combined with the option `notation=compact`)
    - `short` (default)
@@ -4056,7 +4056,7 @@ The following _options_ and their values are RECOMMENDED to be available on
 the functions `:datetime`, `:date`, and `:time`.
 
 - `calendar`
-  - valid [Unicode Calendar Identifier](./tr35.md#UnicodeCalendarIdentifier)
+  - valid [Unicode Calendar Identifier](tr35.md#UnicodeCalendarIdentifier)
 - `numberingSystem`
   - valid [Unicode Number System Identifier](tr35.md#UnicodeNumberSystemIdentifier)
 
@@ -4132,7 +4132,7 @@ Values matching the following ABNF are always accepted:
 u-locale-option = unicode_bcp47_locale_id *(o "," o unicode_bcp47_locale_id)
 ```
 using `unicode_bcp47_locale_id` as defined for
-[Unicode Locale Identifier](./tr35.md#unicode_bcp47_locale_id).
+[Unicode Locale Identifier](tr35.md#unicode_bcp47_locale_id).
 
 Implementations MAY support additional language tags,
 such as private-use or grandfathered tags,

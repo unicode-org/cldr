@@ -56,7 +56,7 @@ The LDML specification is divided into the following parts:
   * [Design Goals](#design-goals)
   * [Design Restrictions](#design-restrictions)
 * [Messages and their Syntax](#messages-and-their-syntax)
-  * [Well-formed vs Valid Messages](#well-formed-vs-valid-messages)
+  * [Well-formed vs. Valid Messages](#well-formed-vs-valid-messages)
 * [The Message](#the-message)
   * [Declarations](#declarations)
   * [Complex Body](#complex-body)
@@ -81,6 +81,7 @@ The LDML specification is divided into the following parts:
   * [Escape Sequences](#escape-sequences)
   * [Whitespace](#whitespace)
 * [Complete ABNF](#complete-abnf)
+  * [`message.abnf`](#messageabnf)
 * [Formatting](#formatting)
   * [Introduction](#introduction)
   * [Formatting Context](#formatting-context)
@@ -125,7 +126,7 @@ The LDML specification is divided into the following parts:
     * [Bad Option](#bad-option)
     * [Bad Variant Key](#bad-variant-key)
     * [Unsupported Operation](#unsupported-operation)
-* [Default Function Registry](#default-function-registry)
+* [MessageFormat 2.0 Default Function Registry](#messageformat-20-default-function-registry)
   * [String Value Selection and Formatting](#string-value-selection-and-formatting)
     * [The `:string` function](#the-string-function)
       * [Operands](#operands)
@@ -186,12 +187,12 @@ The LDML specification is divided into the following parts:
       * [Resolved Value](#resolved-value)
     * [Date and Time Operands](#date-and-time-operands)
     * [Date and Time Override Options](#date-and-time-override-options)
-* [Unicode Namespace](#unicode-namespace)
+* [MessageFormat 2.0 Unicode Namespace](#messageformat-20-unicode-namespace)
   * [Options](#options)
     * [`u:id`](#uid)
     * [`u:locale`](#ulocale)
     * [`u:dir`](#udir)
-* [Data Model](#data-model)
+* [MessageFormat 2.0 Data Model](#messageformat-20-data-model)
   * [Messages](#messages)
   * [Patterns](#patterns)
   * [Expressions](#expressions)
@@ -415,7 +416,7 @@ during the [formatting](./formatting.md) of a _message_ at runtime.
 
 The complete formal syntax of a _message_ is described by the [ABNF](./message.abnf).
 
-### Well-formed vs Valid Messages
+### Well-formed vs. Valid Messages
 
 A _message_ is **_<dfn>well-formed</dfn>_** if it satisfies all the rules of the grammar.
 Attempting to parse a _message_ that is not _well-formed_ will result in a _Syntax Error_.
@@ -1312,7 +1313,7 @@ ws = SP / HTAB / CR / LF / %x3000
 
 ## Complete ABNF
 
-The grammar is formally defined in `message.abnf`, reproduced below.
+The grammar is formally defined in [`message.abnf`](#messageabnf), reproduced below.
 using the ABNF notation [[STD68](https://www.rfc-editor.org/info/std68)],
 including the modifications found in [RFC 7405](https://www.rfc-editor.org/rfc/rfc7405).
 
@@ -1328,7 +1329,7 @@ local = %x2E.6C.6F.63.61.6C  ; ".local"
 match = %x2E.6D.61.74.63.68  ; ".match"
 ```
 
-- `message.abnf`
+### `message.abnf`
 
 ```abnf
 message           = simple-message / complex-message
@@ -2780,7 +2781,7 @@ A **_<dfn>Unsupported Operation</dfn>_** error is an implementation-specific err
 that occurs when a given _option_, _option_ value, _operand_ value, or some combination
 of these are incompatible or not supported by a given _function_ or its _function handler_.
 
-## Default Function Registry
+## MessageFormat 2.0 Default Function Registry
 
 This section defines the **REQUIRED** _functions_ which are REQUIRED for conformance with this specification,
 along with **RECOMMENDED** _functions_ that SHOULD be implemented to support
@@ -4080,7 +4081,7 @@ available in the functions `:datetime`, `:date`, and `:time`.
 > (sometimes called a _plain_ or _local_ time value) by removing
 > the association with a specific time zone.
 
-## Unicode Namespace
+## MessageFormat 2.0 Unicode Namespace
 
 The `u:` _namespace_ is reserved for the definition of _options_
 which affect the _function context_ of the specific _expressions_
@@ -4173,7 +4174,7 @@ or a _variable_ whose _resolved value_ is one of these _literals_:
 For other values, a _Bad Option_ error is emitted
 and the value of the `u:dir` option is ignored.
 
-## Data Model
+## MessageFormat 2.0 Data Model
 
 This section defines a data model representation of MessageFormat 2 _messages_.
 

@@ -2422,7 +2422,7 @@ Used in the `to=`
 
 The `from=` attribute MUST match the `from-match` rule in this grammar. Not all strings which match this grammar are valid, specifically
 
-The following is the [LDML EBNF](./tr35.md#ebnf) format for the grammar:
+The following is the [LDML EBNF](tr35.md#ebnf) format for the grammar:
 
 
 ```ebnf
@@ -2578,7 +2578,7 @@ NMTOKEN  ::= NAMECHAR+
 
 This is the grammar for the `<transform to="…"/>` attribute.  The `to=` attribute MUST match the `to-replacement` rule in this grammar. Not all strings which match this grammar are valid:
 
-The following is the [LDML EBNF](./tr35.md#ebnf) format for the grammar:
+The following is the [LDML EBNF](tr35.md#ebnf) format for the grammar:
 
 ```ebnf
 [ vc: A referenced capture group must be present in the from= match string. ]

@@ -47,159 +47,159 @@ The LDML specification is divided into the following parts:
 
 ## <a name="Contents">Contents of Part 9, Message Format</a>
 
-- [Introduction](#introduction)
-    + [Conformance](#conformance)
-    + [Terminology and Conventions](#terminology-and-conventions)
-    + [Stability Policy](#stability-policy)
-- [Syntax](#syntax)
-    + [Introduction](#introduction-1)
-    + [Design Goals](#design-goals)
-    + [Design Restrictions](#design-restrictions)
-  * [Messages and their Syntax](#messages-and-their-syntax)
-    + [Well-formed vs. Valid Messages](#well-formed-vs-valid-messages)
-  * [The Message](#the-message)
-    + [Declarations](#declarations)
-    + [Complex Body](#complex-body)
-  * [Pattern](#pattern)
-    + [Quoted Pattern](#quoted-pattern)
-    + [Text](#text)
-    + [Placeholder](#placeholder)
-  * [Matcher](#matcher)
-    + [Selector](#selector)
-    + [Variant](#variant)
-      - [Key](#key)
-  * [Expressions](#expressions)
-    + [Operand](#operand)
-      - [Function](#function)
-        * [Options](#options)
-  * [Markup](#markup)
-  * [Attributes](#attributes)
-  * [Other Syntax Elements](#other-syntax-elements)
-    + [Keywords](#keywords)
-    + [Literals](#literals)
-    + [Names and Identifiers](#names-and-identifiers)
-    + [Escape Sequences](#escape-sequences)
-    + [Whitespace](#whitespace)
-  * [Complete ABNF](#complete-abnf)
-- [`message.abnf`](#-messageabnf-)
-- [Formatting](#formatting)
-  * [Introduction](#introduction-2)
+* [Introduction](#introduction)
+  * [Conformance](#conformance)
+  * [Terminology and Conventions](#terminology-and-conventions)
+  * [Stability Policy](#stability-policy)
+* [Syntax](#syntax)
+  * [Introduction](#introduction)
+  * [Design Goals](#design-goals)
+  * [Design Restrictions](#design-restrictions)
+* [Messages and their Syntax](#messages-and-their-syntax)
+  * [Well-formed vs. Valid Messages](#well-formed-vs-valid-messages)
+* [The Message](#the-message)
+  * [Declarations](#declarations)
+  * [Complex Body](#complex-body)
+* [Pattern](#pattern)
+  * [Quoted Pattern](#quoted-pattern)
+  * [Text](#text)
+  * [Placeholder](#placeholder)
+* [Matcher](#matcher)
+  * [Selector](#selector)
+  * [Variant](#variant)
+    * [Key](#key)
+* [Expressions](#expressions)
+  * [Operand](#operand)
+    * [Function](#function)
+      * [Options](#options)
+* [Markup](#markup)
+* [Attributes](#attributes)
+* [Other Syntax Elements](#other-syntax-elements)
+  * [Keywords](#keywords)
+  * [Literals](#literals)
+  * [Names and Identifiers](#names-and-identifiers)
+  * [Escape Sequences](#escape-sequences)
+  * [Whitespace](#whitespace)
+* [Complete ABNF](#complete-abnf)
+  * [`message.abnf`](#messageabnf)
+* [Formatting](#formatting)
+  * [Introduction](#introduction)
   * [Formatting Context](#formatting-context)
   * [Resolved Values](#resolved-values)
   * [Expression and Markup Resolution](#expression-and-markup-resolution)
-    + [Literal Resolution](#literal-resolution)
-    + [Variable Resolution](#variable-resolution)
-    + [Function Resolution](#function-resolution)
-      - [Function Handler](#function-handler)
-      - [Option Resolution](#option-resolution)
-    + [Markup Resolution](#markup-resolution)
-    + [Fallback Resolution](#fallback-resolution)
+    * [Literal Resolution](#literal-resolution)
+    * [Variable Resolution](#variable-resolution)
+    * [Function Resolution](#function-resolution)
+      * [Function Handler](#function-handler)
+      * [Option Resolution](#option-resolution)
+    * [Markup Resolution](#markup-resolution)
+    * [Fallback Resolution](#fallback-resolution)
   * [Pattern Selection](#pattern-selection)
-    + [Resolve Selectors](#resolve-selectors)
-    + [Resolve Preferences](#resolve-preferences)
-    + [Filter Variants](#filter-variants)
-    + [Sort Variants](#sort-variants)
-    + [Examples](#examples)
-      - [Example 1](#example-1)
-      - [Example 2](#example-2)
-      - [Example 3](#example-3)
-  * [Formatting](#formatting-1)
-    + [Examples](#examples-1)
-    + [Formatting Fallback Values](#formatting-fallback-values)
-    + [Handling Bidirectional Text](#handling-bidirectional-text)
-- [Errors](#errors)
+    * [Resolve Selectors](#resolve-selectors)
+    * [Resolve Preferences](#resolve-preferences)
+    * [Filter Variants](#filter-variants)
+    * [Sort Variants](#sort-variants)
+    * [Examples](#examples)
+      * [Example 1](#example-1)
+      * [Example 2](#example-2)
+      * [Example 3](#example-3)
+  * [Formatting](#formatting)
+    * [Examples](#examples)
+    * [Formatting Fallback Values](#formatting-fallback-values)
+    * [Handling Bidirectional Text](#handling-bidirectional-text)
+* [Errors](#errors)
   * [Error Handling](#error-handling)
   * [Syntax Errors](#syntax-errors)
   * [Data Model Errors](#data-model-errors)
-    + [Variant Key Mismatch](#variant-key-mismatch)
-    + [Missing Fallback Variant](#missing-fallback-variant)
-    + [Missing Selector Annotation](#missing-selector-annotation)
-    + [Duplicate Declaration](#duplicate-declaration)
-    + [Duplicate Option Name](#duplicate-option-name)
-    + [Duplicate Variant](#duplicate-variant)
+  * [Variant Key Mismatch](#variant-key-mismatch)
+    * [Missing Fallback Variant](#missing-fallback-variant)
+    * [Missing Selector Annotation](#missing-selector-annotation)
+    * [Duplicate Declaration](#duplicate-declaration)
+    * [Duplicate Option Name](#duplicate-option-name)
+    * [Duplicate Variant](#duplicate-variant)
   * [Resolution Errors](#resolution-errors)
-    + [Unresolved Variable](#unresolved-variable)
-    + [Unknown Function](#unknown-function)
-    + [Bad Selector](#bad-selector)
+    * [Unresolved Variable](#unresolved-variable)
+    * [Unknown Function](#unknown-function)
+    * [Bad Selector](#bad-selector)
   * [Message Function Errors](#message-function-errors)
-    + [Bad Operand](#bad-operand)
-    + [Bad Option](#bad-option)
-    + [Bad Variant Key](#bad-variant-key)
-    + [Unsupported Operation](#unsupported-operation)
-- [MessageFormat 2.0 Default Function Registry](#messageformat-20-default-function-registry)
+    * [Bad Operand](#bad-operand)
+    * [Bad Option](#bad-option)
+    * [Bad Variant Key](#bad-variant-key)
+    * [Unsupported Operation](#unsupported-operation)
+* [MessageFormat 2.0 Default Function Registry](#messageformat-20-default-function-registry)
   * [String Value Selection and Formatting](#string-value-selection-and-formatting)
-    + [The `:string` function](#the---string--function)
-      - [Operands](#operands)
-      - [Options](#options-1)
-      - [Resolved Value](#resolved-value)
-      - [Selection](#selection)
-      - [Formatting](#formatting-2)
+    * [The `:string` function](#the-string-function)
+      * [Operands](#operands)
+      * [Options](#options)
+      * [Resolved Value](#resolved-value)
+      * [Selection](#selection)
+      * [Formatting](#formatting)
   * [Numeric Value Selection and Formatting](#numeric-value-selection-and-formatting)
-    + [The `:number` function](#the---number--function)
-      - [Operands](#operands-1)
-      - [Options](#options-2)
-        * [Default Value of `select` Option](#default-value-of--select--option)
+    * [The `:number` function](#the-number-function)
+      * [Operands](#operands)
+      * [Options](#options)
+        * [Default Value of `select` Option](#default-value-of-select-option)
         * [Percent Style](#percent-style)
-      - [Resolved Value](#resolved-value-1)
-      - [Selection](#selection-1)
-    + [The `:integer` function](#the---integer--function)
-      - [Operands](#operands-2)
-      - [Options](#options-3)
-        * [Default Value of `select` Option](#default-value-of--select--option-1)
-        * [Percent Style](#percent-style-1)
-      - [Resolved Value](#resolved-value-2)
-      - [Selection](#selection-2)
-    + [The `:math` function](#the---math--function)
-      - [Operands](#operands-3)
-      - [Options](#options-4)
-      - [Resolved Value](#resolved-value-3)
-      - [Selection](#selection-3)
-    + [The `:currency` function](#the---currency--function)
-      - [Operands](#operands-4)
-      - [Options](#options-5)
-      - [Resolved Value](#resolved-value-4)
-      - [Selection](#selection-4)
-    + [The `:unit` function](#the---unit--function)
-      - [Operands](#operands-5)
-      - [Options](#options-6)
-      - [Resolved Value](#resolved-value-5)
-      - [Selection](#selection-5)
-      - [Unit Conversion](#unit-conversion)
-    + [Number Operands](#number-operands)
-    + [Digit Size Options](#digit-size-options)
-    + [Number Selection](#number-selection)
-      - [Rule Selection](#rule-selection)
-      - [Exact Literal Match Serialization](#exact-literal-match-serialization)
+      * [Resolved Value](#resolved-value)
+      * [Selection](#selection)
+  * [The `:integer` function](#the-integer-function)
+    * [Operands](#operands)
+    * [Options](#options)
+      * [Default Value of `select` Option](#default-value-of-select-option)
+      * [Percent Style](#percent-style)
+    * [Resolved Value](#resolved-value)
+    * [Selection](#selection)
+    * [The `:math` function](#the-math-function)
+      * [Operands](#operands)
+      * [Options](#options)
+      * [Resolved Value](#resolved-value)
+      * [Selection](#selection)
+    * [The `:currency` function](#the-currency-function)
+      * [Operands](#operands)
+      * [Options](#options)
+      * [Resolved Value](#resolved-value)
+      * [Selection](#selection)
+    * [The `:unit` function](#the-unit-function)
+      * [Operands](#operands)
+      * [Options](#options)
+      * [Resolved Value](#resolved-value)
+      * [Selection](#selection)
+      * [Unit Conversion](#unit-conversion)
+    * [Number Operands](#number-operands)
+    * [Digit Size Options](#digit-size-options)
+    * [Number Selection](#number-selection)
+      * [Rule Selection](#rule-selection)
+      * [Exact Literal Match Serialization](#exact-literal-match-serialization)
   * [Date and Time Value Formatting](#date-and-time-value-formatting)
-    + [The `:datetime` function](#the---datetime--function)
-      - [Operands](#operands-6)
-      - [Options](#options-7)
+    * [The `:datetime` function](#the-datetime-function)
+      * [Operands](#operands)
+      * [Options](#options)
         * [Style Options](#style-options)
         * [Field Options](#field-options)
-      - [Resolved Value](#resolved-value-6)
-    + [The `:date` function](#the---date--function)
-      - [Operands](#operands-7)
-      - [Options](#options-8)
-      - [Resolved Value](#resolved-value-7)
-    + [The `:time` function](#the---time--function)
-      - [Operands](#operands-8)
-      - [Options](#options-9)
-      - [Resolved Value](#resolved-value-8)
-    + [Date and Time Operands](#date-and-time-operands)
-    + [Date and Time Override Options](#date-and-time-override-options)
-- [MessageFormat 2.0 Unicode Namespace](#messageformat-20-unicode-namespace)
-  * [Options](#options-10)
-    + [`u:id`](#-u-id-)
-    + [`u:locale`](#-u-locale-)
-    + [`u:dir`](#-u-dir-)
-- [MessageFormat 2.0 Data Model](#messageformat-20-data-model)
+      * [Resolved Value](#resolved-value)
+    * [The `:date` function](#the-date-function)
+      * [Operands](#operands)
+      * [Options](#options)
+      * [Resolved Value](#resolved-value)
+    * [The `:time` function](#the-time-function)
+      * [Operands](#operands)
+      * [Options](#options)
+      * [Resolved Value](#resolved-value)
+    * [Date and Time Operands](#date-and-time-operands)
+    * [Date and Time Override Options](#date-and-time-override-options)
+* [MessageFormat 2.0 Unicode Namespace](#messageformat-20-unicode-namespace)
+  * [Options](#options)
+    * [`u:id`](#uid)
+    * [`u:locale`](#ulocale)
+    * [`u:dir`](#udir)
+* [MessageFormat 2.0 Data Model](#messageformat-20-data-model)
   * [Messages](#messages)
   * [Patterns](#patterns)
-  * [Expressions](#expressions-1)
-  * [Markup](#markup-1)
-  * [Attributes](#attributes-1)
+  * [Expressions](#expressions)
+  * [Markup](#markup)
+  * [Attributes](#attributes)
   * [Extensions](#extensions)
-- [Appendices](#appendices)
+* [Appendices](#appendices)
   * [Security Considerations](#security-considerations)
   * [Acknowledgements](#acknowledgements)
 
@@ -335,7 +335,7 @@ based on this version being invalid.
 >     whose data model representation would be a new interface
 >     that is not recognized by this version's data model.
 
-# Syntax
+## Syntax
 
 ### Introduction
 
@@ -433,7 +433,7 @@ A **_<dfn>message</dfn>_** is the complete template for a specific message forma
 
 A **_<dfn>variable</dfn>_** is a _name_ associated to a _resolved value_.
 
-An **_<dfn>external variable</dfn>_** is a _variable_ 
+An **_<dfn>external variable</dfn>_** is a _variable_
 whose _name_ and initial value are supplied by the caller
 to MessageFormat or available in the _formatting context_.
 Only an _external variable_ can appear as an _operand_ in an _input declaration_.
@@ -450,14 +450,14 @@ A **_<dfn>local variable</dfn>_** is a _variable_ created as the result of a _lo
 > [!NOTE]
 > _Text_ and _quoted literals_ allow unpaired surrogate code points
 > (`U+D800` to `U+DFFF`).
-> This is for compatibility with formats or data structures 
-> that use the UTF-16 encoding 
+> This is for compatibility with formats or data structures
+> that use the UTF-16 encoding
 > and do not check for unpaired surrogates.
 > (Strings in Java or JavaScript are examples of this.)
 > These code points SHOULD NOT be used in a _message_.
 > Unpaired surrogate code points are likely an indication of mistakes
 > or errors in the creation, serialization, or processing of the _message_.
-> Many processes will convert them to 
+> Many processes will convert them to
 > &#xfffd; U+FFFD REPLACEMENT CHARACTER
 > during processing or display.
 > Implementations not based on UTF-16 might not be able to represent
@@ -550,8 +550,8 @@ input-declaration = input o variable-expression
 local-declaration = local s variable o "=" o expression
 ```
 
-_Variables_, once declared, MUST NOT be redeclared. 
-A _message_ that does any of the following is not _valid_ and will produce a 
+_Variables_, once declared, MUST NOT be redeclared.
+A _message_ that does any of the following is not _valid_ and will produce a
 _Duplicate Declaration_ error during processing:
 - A _declaration_ MUST NOT bind a _variable_
   that appears as a _variable_ anywhere within a previous _declaration_.
@@ -601,9 +601,9 @@ during the formatting process.
 
 ### Quoted Pattern
 
-A **_<dfn>quoted pattern</dfn>_** is a _pattern_ that is "quoted" to prevent 
-interference with other parts of the _message_. 
-A _quoted pattern_ starts with a sequence of two U+007B LEFT CURLY BRACKET `{{` 
+A **_<dfn>quoted pattern</dfn>_** is a _pattern_ that is "quoted" to prevent
+interference with other parts of the _message_.
+A _quoted pattern_ starts with a sequence of two U+007B LEFT CURLY BRACKET `{{`
 and ends with a sequence of two U+007D RIGHT CURLY BRACKET `}}`.
 
 ```abnf
@@ -668,7 +668,7 @@ Otherwise, care must be taken to ensure that pattern-significant whitespace is p
 >
 > ```properties
 > hello = {{   Hello   }}
-> hello2=\   Hello  \ 
+> hello2=\   Hello  \
 > ```
 
 ### Placeholder
@@ -967,7 +967,7 @@ markup = "{" o "#" identifier *(s option) *(s attribute) o ["/"] "}"  ; open and
 > {#button}Submit{/button} or {#img alt=|Cancel| /}.
 > ```
 
-> A _message_ containing _markup_ that uses _options_ to pair 
+> A _message_ containing _markup_ that uses _options_ to pair
 > two closing markup _placeholders_ to the one open markup _placeholder_:
 >
 > ```
@@ -1077,7 +1077,7 @@ Implementations MUST NOT distinguish between _quoted literals_ and _unquoted lit
 that have the same sequence of code points.
 
 _Unquoted literals_ can contain a _name_ or consist of a _number-literal_.
-A _number-literal_ uses the same syntax as JSON and is intended for the encoding 
+A _number-literal_ uses the same syntax as JSON and is intended for the encoding
 of number values in _operands_ or _options_, or as _keys_ for _variants_.
 
 ```abnf
@@ -1089,7 +1089,7 @@ number-literal   = ["-"] (%x30 / (%x31-39 *DIGIT)) ["." 1*DIGIT] [%i"e" ["-" / "
 
 ### Names and Identifiers
 
-A **_<dfn>name</dfn>_** is a character sequence used in an _identifier_ 
+A **_<dfn>name</dfn>_** is a character sequence used in an _identifier_
 or as the name for a _variable_
 or the value of an _unquoted literal_.
 
@@ -1114,7 +1114,7 @@ has been applied to both.
 > implementations can often substitute checking for actually applying normalization
 > to _name_ values.
 
-Valid content for _names_ is based on <cite>Namespaces in XML 1.0</cite>'s 
+Valid content for _names_ is based on <cite>Namespaces in XML 1.0</cite>'s
 [NCName](https://www.w3.org/TR/xml-names/#NT-NCName).
 This is different from XML's [Name](https://www.w3.org/TR/xml/#NT-Name)
 in that it MUST NOT contain a U+003A COLON `:`.
@@ -1128,7 +1128,7 @@ Otherwise, the set of characters allowed in a _name_ is large.
 An **_<dfn>identifier</dfn>_** is a character sequence that
 identifies a _function_, _markup_, or _option_.
 Each _identifier_ consists of a _name_ optionally preceeded by
-a _namespace_. 
+a _namespace_.
 When present, the _namespace_ is separated from the _name_ by a
 U+003A COLON `:`.
 Built-in _functions_ and their _options_ do not have a _namespace_ identifier.
@@ -1198,16 +1198,16 @@ backslash    = %x5C ; U+005C REVERSE SOLIDUS "\"
 
 When writing or generating a _message_, escape sequences SHOULD NOT be used
 unless required by the syntax.
-That is, inside _literals_ only escape `|` 
+That is, inside _literals_ only escape `|`
 and inside _patterns_ only escape `{` and `}`.
 
 ### Whitespace
 
 The syntax limits whitespace characters outside of a _pattern_ to the following:
-`U+0009 CHARACTER TABULATION` (tab), 
+`U+0009 CHARACTER TABULATION` (tab),
 `U+000A LINE FEED` (new line),
-`U+000D CARRIAGE RETURN`, 
-`U+3000 IDEOGRAPHIC SPACE`, 
+`U+000D CARRIAGE RETURN`,
+`U+3000 IDEOGRAPHIC SPACE`,
 or `U+0020 SPACE`.
 
 Inside _patterns_ and _quoted literals_,
@@ -1215,7 +1215,7 @@ whitespace is part of the content and is recorded and stored verbatim.
 Whitespace is not significant outside translatable text, except where required by the syntax.
 
 There are two whitespace productions in the syntax.
-**_<dfn>Optional whitespace</dfn>_** is whitespace that is not required by the syntax, 
+**_<dfn>Optional whitespace</dfn>_** is whitespace that is not required by the syntax,
 but which users might want to include to increase the readability of a _message_.
 **_<dfn>Required whitespace</dfn>_** is whitespace that is required by the syntax.
 
@@ -1225,13 +1225,13 @@ These can assist users in presenting _messages_ that contain right-to-left
 text, _literals_, or _names_ (including those for _functions_, _options_,
 _option values_, and _keys_)
 
-_Messages_ that contain right-to-left (aka RTL) characters SHOULD use one of the 
+_Messages_ that contain right-to-left (aka RTL) characters SHOULD use one of the
 following mechanisms to make messages display intelligibly in plain-text editors:
 
 1. Use paired isolating bidi controls `U+2066 LEFT-TO-RIGHT ISOLATE` ("LRI")
    and `U+2069 POP DIRECTIONAL ISOLATE` ("PDI") as permitted by the ABNF around
    parts of any _message_ containing RTL characters:
-   - _inside_ of _placeholder_ markers `{` and `}` 
+   - _inside_ of _placeholder_ markers `{` and `}`
    - _outside_ _quoted-pattern_ markers `{{` and `}}`
    - _outside_ of _variable_, _function_, _markup_, or _attribute_,
      including the identifying sigil (e.g. `<LRI>$var</PDI>` or `<LRI>:ns:name</PDI>`)
@@ -1252,7 +1252,7 @@ following mechanisms to make messages display intelligibly in plain-text editors
 >   (instead put them outside of quoted _patterns_, such as `<LRI>{{...}}<PDI>`)
 > - do not put them outside _placeholders_,
 >   (instead put them inside the _placeholder_, such as `{<LRI>$foo :number<PDI>}`)
->   
+>
 > Controls placed inside _literal_ quotes or quoted _patterns_ are part of the _literal_
 > or _pattern_.
 > Controls in a _pattern_ will appear in the output of the message.
@@ -1272,14 +1272,14 @@ These definitions of _whitespace_ implement
 [UAX#31 Requirement R3a-2](https://www.unicode.org/reports/tr31/#R3a-2).
 It is a profile of R3a-1 in that specification because:
 - The following pattern whitespace characters are not allowed:
-  `U+000B FORM FEED`, 
-  `U+000C VERTICAL TABULATION`, 
-  `U+0085 NEXT LINE`, 
-  `U+2028 LINE SEPARATOR` and 
+  `U+000B FORM FEED`,
+  `U+000C VERTICAL TABULATION`,
+  `U+0085 NEXT LINE`,
+  `U+2028 LINE SEPARATOR` and
   `U+2029 PARAGRAPH SEPARATOR`.
 - The character `U+3000 IDEOGRAPHIC SPACE`
   _is_ interpreted as whitespace.
- - The following directional marks and isolates 
+ - The following directional marks and isolates
    are treated as ignorable format controls:
    `U+061C ARABIC LETTER MARK`,
    `U+200E LEFT-TO-RIGHT MARK`,
@@ -1289,7 +1289,7 @@ It is a profile of R3a-1 in that specification because:
    `U+2068 FIRST STRONG ISOLATE`,
    and `U+2069 POP DIRECTIONAL ISOLATE`.
    (The character `U+061C` is an addition according to R3a.)
-   
+
 
 > [!NOTE]
 > The character U+3000 IDEOGRAPHIC SPACE is included in whitespace for
@@ -1313,13 +1313,13 @@ ws = SP / HTAB / CR / LF / %x3000
 
 ## Complete ABNF
 
-The grammar is formally defined in [`message.abnf`](./message.abnf)
+The grammar is formally defined in [`message.abnf`](#messageabnf), reproduced below.
 using the ABNF notation [[STD68](https://www.rfc-editor.org/info/std68)],
 including the modifications found in [RFC 7405](https://www.rfc-editor.org/rfc/rfc7405).
 
 RFC7405 defines a variation of ABNF that is case-sensitive.
 Some ABNF tools are only compatible with the specification found in
-[RFC 5234](https://www.rfc-editor.org/rfc/rfc5234). 
+[RFC 5234](https://www.rfc-editor.org/rfc/rfc5234).
 To make `message.abnf` compatible with that version of ABNF, replace
 the rules of the same name with this block:
 
@@ -1329,7 +1329,7 @@ local = %x2E.6C.6F.63.61.6C  ; ".local"
 match = %x2E.6D.61.74.63.68  ; ".match"
 ```
 
-# `message.abnf`
+### `message.abnf`
 
 ```abnf
 message           = simple-message / complex-message
@@ -1430,9 +1430,9 @@ bidi = %x061C / %x200E / %x200F / %x2066-2069
 ws = SP / HTAB / CR / LF / %x3000
 ```
 
-# Formatting
+## Formatting
 
-## Introduction
+### Introduction
 
 This section defines the behavior of a MessageFormat 2.0 implementation
 when formatting a _message_ for display in a user interface, or for some later processing.
@@ -1510,7 +1510,7 @@ nor be made available to _function handlers_.
 > particularly since such a _function handler_ can present a remote execution hazard.
 >
 
-## Formatting Context
+### Formatting Context
 
 A _message_'s **_<dfn>formatting context</dfn>_** represents the data and procedures that are required
 for the _message_'s _expression resolution_, _pattern selection_ and _formatting_.
@@ -1536,7 +1536,7 @@ At a minimum, it includes:
 
 Implementations MAY include additional fields in their _formatting context_.
 
-## Resolved Values
+### Resolved Values
 
 A **_<dfn>resolved value</dfn>_** is the result of resolving a _text_, _literal_, _variable_, _expression_, or _markup_.
 The _resolved value_ is determined using the _formatting context_.
@@ -1603,7 +1603,7 @@ and different implementations MAY choose to perform different levels of resoluti
 > or automatically wrap each variable as a `MessageValue` to provide a uniform interface
 > for custom functions.
 
-## Expression and Markup Resolution
+### Expression and Markup Resolution
 
 _Expressions_ are used in _declarations_ and _patterns_.
 _Markup_ is only used in _patterns_.
@@ -1649,7 +1649,7 @@ Its _resolved value_ is defined by _literal resolution_.
 > {{You have {42 :number}}}
 > ```
 
-### Literal Resolution
+#### Literal Resolution
 
 The _resolved value_ of a _text_ or a _literal_ contains
 the character sequence of the _text_ or _literal_
@@ -1679,7 +1679,7 @@ whether its value was originally a _quoted literal_ or an _unquoted literal_.
 > }
 > ```
 
-### Variable Resolution
+#### Variable Resolution
 
 To resolve the value of a _variable_,
 its _name_ is used to identify either a local variable or an input variable.
@@ -1697,7 +1697,7 @@ a _fallback value_ is used as the _resolved value_ of the _variable_.
 The _fallback value_ representation of a _variable_ has a string representation
 consisting of the U+0024 DOLLAR SIGN `$` followed by the _name_ of the _variable_.
 
-### Function Resolution
+#### Function Resolution
 
 To resolve an _expression_ with a _function_,
 the following steps are taken:
@@ -1755,10 +1755,10 @@ the following steps are taken:
    Specifically, if the cause of the failure was that the datatype, value, or format of the
    _operand_ did not match that expected by the _function_,
    the _function_ SHOULD cause a _Bad Operand_ error to be emitted.
-  
+
    In all failure cases, return a _fallback value_ as the _resolved value_ of the _expression_.
 
-#### Function Handler
+##### Function Handler
 
 A **_<dfn>function handler</dfn>_** is an implementation-defined process
 such as a function or method
@@ -1790,10 +1790,10 @@ and execution time SHOULD be limited.
 
 Implementation-defined _functions_ SHOULD use an implementation-defined _namespace_.
 
-#### Option Resolution
+##### Option Resolution
 
 **_<dfn>Option resolution</dfn>_** is the process of computing the _options_
-for a given _expression_. 
+for a given _expression_.
 _Option resolution_ results in a mapping of string _identifiers_ to _values_.
 The order of _options_ MUST NOT be significant.
 
@@ -1825,7 +1825,7 @@ This mapping can be empty.
 > These are not included in the _option resolution_ result,
 > and need to be processed separately by a _function handler_.
 
-### Markup Resolution
+#### Markup Resolution
 
 Unlike _functions_, the resolution of _markup_ is not customizable.
 
@@ -1841,7 +1841,7 @@ Such `u:` options MAY be removed from the resolved mapping of _options_.
 
 The resolution of _markup_ MUST always succeed.
 
-### Fallback Resolution
+#### Fallback Resolution
 
 A **_<dfn>fallback value</dfn>_** is the _resolved value_ for
 an _expression_ or _variable_ when that _expression_ or _variable_ fails to resolve.
@@ -1930,7 +1930,7 @@ _Pattern selection_ is not supported for _fallback values_.
 > }
 > ```
 
-## Pattern Selection
+### Pattern Selection
 
 If the _message_ being formatted is not _well-formed_ and _valid_,
 the result of pattern selection is a _pattern_ consisting of a single _fallback value_
@@ -2004,7 +2004,7 @@ This selection method is defined in more detail below.
 An implementation MAY use any pattern selection method,
 as long as its observable behavior matches the results of the method defined here.
 
-### Resolve Selectors
+#### Resolve Selectors
 
 First, resolve the values of each _selector_:
 
@@ -2021,7 +2021,7 @@ First, resolve the values of each _selector_:
 The form of the _resolved values_ is determined by each implementation,
 along with the manner of determining their support for selection.
 
-### Resolve Preferences
+#### Resolve Preferences
 
 Next, using `res`, resolve the preferential order for all message keys:
 
@@ -2053,7 +2053,7 @@ If calling MatchSelectorKeys encounters any error,
 a _Bad Selector_ error is emitted
 and an empty list is returned.
 
-### Filter Variants
+#### Filter Variants
 
 Then, using the preferential key orders `pref`,
 filter the list of _variants_ to the ones that match with some preference:
@@ -2073,7 +2073,7 @@ filter the list of _variants_ to the ones that match with some preference:
          1. Continue the outer loop on message _variants_.
    1. Append `var` as the last element of the list `vars`.
 
-### Sort Variants
+#### Sort Variants
 
 Finally, sort the list of variants `vars` and select the _pattern_:
 
@@ -2112,11 +2112,11 @@ as long as it satisfies the following requirements:
 1. The sort is stable (pairs of tuples from `sortable` that are equal
    in their first element have the same relative order in `sorted`).
 
-### Examples
+#### Examples
 
 _This section is non-normative._
 
-#### Example 1
+##### Example 1
 
 Presuming a minimal implementation which only supports `:string` _function_
 which matches keys by using string comparison,
@@ -2153,7 +2153,7 @@ foo foo {{All foo}}
 4. As the list `vars` only has one entry, it does not need to be sorted.<br>
    The pattern `Otherwise` of the third variant is selected.
 
-#### Example 2
+##### Example 2
 
 Alternatively, with the same implementation and formatting context as in Example 1,
 pattern selection would proceed as follows for this message:
@@ -2195,7 +2195,7 @@ foo bar {{Foo and bar}}
 
 5. The pattern `Foo and bar` of the most preferred `foo bar` variant is selected.
 
-#### Example 3
+##### Example 3
 
 A more-complex example is the matching found in selection APIs
 such as ICU's `PluralFormat`.
@@ -2236,7 +2236,7 @@ one {{Category match for {$count}}}
 
 4. The pattern `Exact match for {$count}` of the most preferred `1` variant is selected.
 
-## Formatting
+### Formatting
 
 After _pattern selection_,
 each _text_ and _placeholder_ part of the selected _pattern_ is resolved and formatted.
@@ -2265,7 +2265,7 @@ MUST be an empty string.
 Implementations MAY offer functionality for customizing this,
 such as by emitting XML-ish tags for each _markup_.
 
-### Examples
+#### Examples
 
 _This section is non-normative._
 
@@ -2279,7 +2279,7 @@ _This section is non-normative._
 2. A formatter in a web browser could format a message as a DOM fragment
    rather than as a representation of its HTML source.
 
-### Formatting Fallback Values
+#### Formatting Fallback Values
 
 If the resolved _pattern_ includes any _fallback values_
 and the formatting result is a concatenated string or a sequence of strings,
@@ -2293,9 +2293,9 @@ and a U+007D RIGHT CURLY BRACKET `}`.
 > unless a fallback string is defined in the _formatting context_,
 > in which case that string would be used instead.
 
-### Handling Bidirectional Text
+#### Handling Bidirectional Text
 
-_Messages_ contain text. Any text can be 
+_Messages_ contain text. Any text can be
 [bidirectional text](https://www.w3.org/TR/i18n-glossary/#dfn-bidirectional-text).
 That is, the text can can consist of a mixture of left-to-right and right-to-left spans of text.
 The display of bidirectional text is defined by the
@@ -2314,9 +2314,9 @@ The directionality of the formatted _message_ as a whole is provided by the _for
 
 When a _message_ is formatted, _placeholders_ are replaced
 with their formatted representation.
-Applying the Unicode Bidirectional Algorithm to the text of a formatted _message_ 
+Applying the Unicode Bidirectional Algorithm to the text of a formatted _message_
 (including its formatted parts)
-can result in unexpected or undesirable 
+can result in unexpected or undesirable
 [spillover effects](https://www.w3.org/TR/i18n-glossary/#dfn-spillover-effects).
 Applying [bidi isolation](https://www.w3.org/TR/i18n-glossary/#dfn-bidi-isolation)
 to each affected formatted value helps avoid this spillover in a formatted _message_.
@@ -2333,7 +2333,7 @@ isolating such parts to ensure that the formatted value displays correctly in a 
 
 > For example, an implementation could provide a `:currency` formatting function
 > which inserts strongly directional characters, such as U+200F RIGHT-TO-LEFT MARK (RLM),
-> U+200E LEFT-TO-RIGHT MARK (LRM), or U+061C ARABIC LETTER MARKER (ALM), 
+> U+200E LEFT-TO-RIGHT MARK (LRM), or U+061C ARABIC LETTER MARKER (ALM),
 > to coerce proper display of the sign and currency symbol next to a formatted number.
 > An example of this is formatting the value `-1234.56` as the currency `AED`
 > in the `ar-AE` locale. The formatted value appears like this:
@@ -2343,7 +2343,7 @@ isolating such parts to ensure that the formatted value displays correctly in a 
 > The code point sequence for this string, as produced by the ICU4J `NumberFormat` function,
 > includes **U+200F U+200E** at the start and **U+200F** at the end of the string.
 > If it did not do this, the same string would appear like this instead:
-> 
+>
 > ![image](https://github.com/unicode-org/message-format-wg/assets/69082/6cc7f16f-8d9b-400b-a333-ae2ddb316edb)
 
 A **_<dfn>bidirectional isolation strategy<dfn>_** is functionality in the formatter's
@@ -2353,7 +2353,7 @@ The **_<dfn>Default Bidi Strategy<dfn>_** is a _bidirectional isolation strategy
 isolating Unicode control characters around _placeholder_'s formatted values.
 It is primarily intended for use in plain-text strings, where markup or other mechanisms
 are not available.
-Implementations MUST provide the _Default Bidi Strategy_ as one of the 
+Implementations MUST provide the _Default Bidi Strategy_ as one of the
 _bidirectional isolation strategies_.
 
 Implementations MAY provide other _bidirectional isolation strategies_.
@@ -2390,10 +2390,10 @@ The _Default Bidi Strategy_ is defined as follows:
          and postfix it with U+2069 POP DIRECTIONAL ISOLATE.
 
 
-# Errors
+## Errors
 
 Errors can occur during the processing of a _message_.
-Some errors can be detected statically, 
+Some errors can be detected statically,
 such as those due to problems with _message_ syntax,
 violations of requirements in the data model,
 or requirements defined by a _function_.
@@ -2401,7 +2401,7 @@ Other errors might be detected during selection or formatting of a given _messag
 Where available, the use of validation tools is recommended,
 as early detection of errors makes their correction easier.
 
-## Error Handling
+### Error Handling
 
 _Syntax Errors_ and _Data Model Errors_ apply to all message processors,
 and MUST be emitted as soon as possible.
@@ -2418,15 +2418,15 @@ or _declarations_ that are never referenced during _formatting_.
 
 When formatting a _message_ with one or more errors,
 an implementation MUST provide a mechanism to discover and identify
-at least one of the errors. 
+at least one of the errors.
 The exact form of error signaling is implementation defined.
 Some examples include throwing an exception,
-returning an error code, 
+returning an error code,
 or providing a function or method for enumerating any errors.
 
 For all _valid_ _messages_,
 an implementation MUST enable a user to get a formatted result.
-The formatted result might include _fallback values_ 
+The formatted result might include _fallback values_
 such as when a _placeholder_'s _expression_ produced an error
 during formatting.
 
@@ -2443,7 +2443,7 @@ or calling MatchSelectorKeys with its resolved value,
 the _selector_ MUST NOT match any _variant_ _key_ other than the catch-all `*`
 and a _Bad Selector_ error MUST be emitted.
 
-## Syntax Errors
+### Syntax Errors
 
 **_<dfn>Syntax Errors</dfn>_** occur when the syntax representation of a message is not _well-formed_.
 
@@ -2465,7 +2465,7 @@ and a _Bad Selector_ error MUST be emitted.
 > .local $var = {|no message body|}
 > ```
 
-## Data Model Errors
+### Data Model Errors
 
 **_<dfn>Data Model Errors</dfn>_** occur when a message is not _valid_ due to
 violating one of the semantic requirements on its structure.
@@ -2493,7 +2493,7 @@ does not equal the number of _selectors_.
 > * * {{Otherwise}}
 > ```
 
-### Missing Fallback Variant
+#### Missing Fallback Variant
 
 A **_<dfn>Missing Fallback Variant</dfn>_** error occurs when the message
 does not include a _variant_ with only catch-all keys.
@@ -2515,7 +2515,7 @@ does not include a _variant_ with only catch-all keys.
 > * 1 {{Second is one}}
 > ```
 
-### Missing Selector Annotation
+#### Missing Selector Annotation
 
 A **_<dfn>Missing Selector Annotation</dfn>_** error occurs when the _message_
 contains a _selector_ that does not
@@ -2543,7 +2543,7 @@ directly or indirectly reference a _declaration_ with a _function_.
 > * {{Value is not one}}
 > ```
 
-### Duplicate Declaration
+#### Duplicate Declaration
 
 A **_<dfn>Duplicate Declaration</dfn>_** error occurs when a _variable_ is declared more than once.
 Note that an input _variable_ is implicitly declared when it is first used,
@@ -2574,7 +2574,7 @@ so explicitly declaring it after such use is also an error.
 > {{{$var} cannot be redefined. {$var2} cannot refer to itself}}
 > ```
 
-### Duplicate Option Name
+#### Duplicate Option Name
 
 A **_<dfn>Duplicate Option Name</dfn>_** error occurs when the same _identifier_
 appears on the left-hand side of more than one _option_ in the same _expression_.
@@ -2590,7 +2590,7 @@ appears on the left-hand side of more than one _option_ in the same _expression_
 > {{This is {$foo}}}
 > ```
 
-### Duplicate Variant
+#### Duplicate Variant
 
 A **_<dfn>Duplicate Variant</dfn>_** error occurs when the
 same list of _keys_ is used for more than one _variant_.
@@ -2614,12 +2614,12 @@ same list of _keys_ is used for more than one _variant_.
 > *   *     {{The default variant}}
 > ```
 
-## Resolution Errors
+### Resolution Errors
 
 **_<dfn>Resolution Errors</dfn>_** occur when the runtime value of a part of a message
 cannot be determined.
 
-### Unresolved Variable
+#### Unresolved Variable
 
 An **_<dfn>Unresolved Variable</dfn>_** error occurs when a variable reference cannot be resolved.
 
@@ -2638,7 +2638,7 @@ An **_<dfn>Unresolved Variable</dfn>_** error occurs when a variable reference c
 > * {{The value is not one.}}
 > ```
 
-### Unknown Function
+#### Unknown Function
 
 An **_<dfn>Unknown Function</dfn>_** error occurs when an _expression_ includes
 a reference to a function which cannot be resolved.
@@ -2658,7 +2658,7 @@ a reference to a function which cannot be resolved.
 > * {{The value is not one.}}
 > ```
 
-### Bad Selector
+#### Bad Selector
 
 A **_<dfn>Bad Selector</dfn>_** error occurs when a message includes a _selector_
 with a _resolved value_ which does not support selection.
@@ -2672,13 +2672,13 @@ with a _resolved value_ which does not support selection.
 > * {{The due date is {$day}}}
 > ```
 
-## Message Function Errors
+### Message Function Errors
 
 A **_<dfn>Message Function Error</dfn>_** is any error that occurs
 when calling a _function handler_
 or which depends on validation associated with a specific function.
 
-Implementations SHOULD provide a way for _function handlers_ to emit 
+Implementations SHOULD provide a way for _function handlers_ to emit
 (or cause to be emitted) any of the types of error defined in this section.
 Implementations MAY also provide implementation-defined _Message Function Error_ types.
 
@@ -2711,7 +2711,7 @@ Implementations MAY also provide implementation-defined _Message Function Error_
 > Your {$field} is {$id :get field=$field}
 > ```
 
-### Bad Operand
+#### Bad Operand
 
 A **_<dfn>Bad Operand</dfn>_** error is any error that occurs due to the content or format of the _operand_,
 such as when the _operand_ provided to a _function_ during _function resolution_ does not match one of the
@@ -2736,7 +2736,7 @@ for that specific _function_.
 > * {{The value is not one.}}
 > ```
 
-### Bad Option
+#### Bad Option
 
 A **_<dfn>Bad Option</dfn>_** error is an error that occurs when there is
 an implementation-defined error with an _option_ or its value.
@@ -2757,7 +2757,7 @@ These might include:
 > The answer is {42 :number minimumFractionDigits=foo}.
 > ```
 
-### Bad Variant Key
+#### Bad Variant Key
 
 A **_<dfn>Bad Variant Key</dfn>_** error is an error that occurs when a _variant_ _key_
 does not match the expected implementation-defined format.
@@ -2775,13 +2775,13 @@ does not match the expected implementation-defined format.
 > *     {{The value is not one.}}
 > ```
 
-### Unsupported Operation
+#### Unsupported Operation
 
 A **_<dfn>Unsupported Operation</dfn>_** error is an implementation-specific error
 that occurs when a given _option_, _option_ value, _operand_ value, or some combination
 of these are incompatible or not supported by a given _function_ or its _function handler_.
 
-# MessageFormat 2.0 Default Function Registry
+## MessageFormat 2.0 Default Function Registry
 
 This section defines the **REQUIRED** _functions_ which are REQUIRED for conformance with this specification,
 along with **RECOMMENDED** _functions_ that SHOULD be implemented to support
@@ -2798,13 +2798,13 @@ Accepting a _function_ or its _options_ does not mean that a particular output i
 Implementations MAY emit an _Unsupported Operation_ error for _options_
 or _option_ values that they cannot support.
 
-_Functions_ can define _options_. 
+_Functions_ can define _options_.
 An _option_ can be **REQUIRED** or **RECOMMENDED**.
 
 Implementations MUST _accept_ each **REQUIRED** _function_ and
 MUST _accept_ all _options_ defined as **REQUIRED** for those _functions_.
 
-Implementations SHOULD _accept_ each **RECOMMENDED** _function_. 
+Implementations SHOULD _accept_ each **RECOMMENDED** _function_.
 For each such _function_, the implementation MUST accept all _options_
 listed as **REQUIRED** for that _function_.
 
@@ -2813,7 +2813,7 @@ Implementations SHOULD _accept_ _options_ that are marked as **RECOMMENDED**.
 Implementations MAY _accept_ _functions_ not defined in this specification.
 In addition, implementations SHOULD provide mechanisms for users to
 register and use user-defined _functions_ and their associated _functional handlers_.
-Functions not defined by any version of this specification SHOULD use 
+Functions not defined by any version of this specification SHOULD use
 an implementation-defined or user-defined _namespace_.
 
 Implementations MAY implement additional _options_ not defined
@@ -2839,7 +2839,7 @@ Such values can be useful to users in cases where local usage and support exists
 > - A Java implementation might _accept_ a `java.time.chrono.Chronology` object
 >   as a value for the _date/time override option_ `calendar`
 > - ICU4J's implementation might _accept_ a `com.ibm.icu.text.NumberingSystem` object
->   instead of using a [Unicode Numbering System Identifier](https://cldr-smoke.unicode.org/spec/main/ldml/tr35.html#UnicodeNumberSystemIdentifier)
+>   instead of using a [Unicode Numbering System Identifier](tr35.md#UnicodeNumberSystemIdentifier)
 >   for the option `numberingSystem` in _functions_ such as `:number` or `:integer`.
 
 Future versions of this specification MAY define additional _options_ and _option_ values,
@@ -2851,13 +2851,13 @@ which currently format with no error, but which could produce errors
 when formatted with a later edition of this specification.
 Therefore, using _options_ not explicitly defined here is NOT RECOMMENDED.
 
-## String Value Selection and Formatting
+### String Value Selection and Formatting
 
-### The `:string` function
+#### The `:string` function
 
 The function `:string` provides string selection and formatting.
 
-#### Operands
+##### Operands
 
 The _operand_ of `:string` is either any implementation-defined type
 that is a string or for which conversion to a string is supported,
@@ -2875,27 +2875,28 @@ All other values produce a _Bad Operand_ error.
 > classes according to their local needs, including, where appropriate,
 > coercion to string.
 
-#### Options
+##### Options
 
 The function `:string` has no _options_.
 
 > [!NOTE]
 > While `:string` has no built- in _options_,
-> _options_ in the `u:` _namespace_ can be used. 
-> For example: 
+> _options_ in the `u:` _namespace_ can be used.
+> For example:
 >```
 > {$s :string u:dir=ltr u:locale=fr-CA}
 >```
-#### Resolved Value
+
+##### Resolved Value
 
 The _resolved value_ of an _expression_ with a `:string` _function_
 contains the string value of the _operand_ of the annotated _expression_,
 together with its resolved locale and directionality.
 None of the _options_ set on the _expression_ are part of the _resolved value_.
 
-#### Selection
+##### Selection
 
-When implementing [`MatchSelectorKeys(resolvedSelector, keys)`](/spec/formatting.md#resolve-preferences)
+When implementing [`MatchSelectorKeys(resolvedSelector, keys)`](#resolve-preferences)
 where `resolvedSelector` is the _resolved value_ of a _selector_
 and `keys` is a list of strings,
 the `:string` selector function performs as described below.
@@ -2922,7 +2923,7 @@ the `:string` selector function performs as described below.
 > *             {{Matches the string "space key"}}
 > ```
 
-#### Formatting
+##### Formatting
 
 The `:string` function returns the string value of the _resolved value_ of the _operand_.
 
@@ -2931,21 +2932,21 @@ The `:string` function returns the string value of the _resolved value_ of the _
 > Users SHOULD encode _messages_ and their parts in Unicode Normalization Form C (NFC)
 > unless there is a very good reason not to.
 
-## Numeric Value Selection and Formatting
+### Numeric Value Selection and Formatting
 
-### The `:number` function
+#### The `:number` function
 
 The function `:number` is a selector and formatter for numeric values.
 
-#### Operands
+##### Operands
 
 The function `:number` requires a [Number Operand](#number-operands) as its _operand_.
 
-#### Options
+##### Options
 
 Some options do not have default values defined in this specification.
 The defaults for these options are implementation-dependent.
-In general, the default values for such options depend on the locale, 
+In general, the default values for such options depend on the locale,
 the value of other options, or both.
 
 > [!NOTE]
@@ -2967,7 +2968,7 @@ The following options and their values are required to be available on the funct
    - `engineering`
    - `compact`
 - `numberingSystem`
-   - valid [Unicode Number System Identifier](https://cldr-smoke.unicode.org/spec/main/ldml/tr35.html#UnicodeNumberSystemIdentifier)
+   - valid [Unicode Number System Identifier](tr35.md#UnicodeNumberSystemIdentifier)
      (default is locale-specific)
 - `signDisplay`
    -  `auto` (default)
@@ -3011,7 +3012,7 @@ The following options and their values are required to be available on the funct
   - `halfFloor`
   - `halfExpand` (default)
   - `halfTrunc`
-  - `halfEven` 
+  - `halfEven`
 
 If the _operand_ of the _expression_ is an implementation-defined type,
 such as the _resolved value_ of an _expression_ with a `:number` or `:integer` _annotation_,
@@ -3027,13 +3028,13 @@ with _options_ on the _expression_ taking priority over any option values of the
 > would be formatted with the resolved options
 > `{ notation: 'scientific', minimumFractionDigits: '1' }`.
 
-##### Default Value of `select` Option
+###### Default Value of `select` Option
 
-The value `plural` is the default for the option `select` 
+The value `plural` is the default for the option `select`
 because it is the most common use case for numeric selection.
-It can be used for exact value matches but also allows for the grammatical needs of 
+It can be used for exact value matches but also allows for the grammatical needs of
 languages using CLDR's plural rules.
-This might not be noticeable in the source language (particularly English), 
+This might not be noticeable in the source language (particularly English),
 but can cause problems in target locales that the original developer is not considering.
 
 > For example, a naive developer might use a special message for the value `1` without
@@ -3049,8 +3050,9 @@ but can cause problems in target locales that the original developer is not cons
 > The `one` variant is needed by languages such as Polish or Russian.
 > Such locales typically also require other keywords such as `two`, `few`, and `many`.
 
-##### Percent Style
-When implementing `style=percent`, the numeric value of the _operand_ 
+###### Percent Style
+
+When implementing `style=percent`, the numeric value of the _operand_
 MUST be multiplied by 100 for the purposes of formatting.
 
 > For example,
@@ -3060,31 +3062,31 @@ MUST be multiplied by 100 for the purposes of formatting.
 > should format in a manner similar to:
 > > The total was 50%.
 
-#### Resolved Value
+##### Resolved Value
 
 The _resolved value_ of an _expression_ with a `:number` _function_
 contains an implementation-defined numerical value
 of the _operand_ of the annotated _expression_,
 together with the resolved options' values.
 
-#### Selection
+##### Selection
 
 The _function_ `:number` performs selection as described in [Number Selection](#number-selection) below.
 
 ### The `:integer` function
 
-The function `:integer` is a selector and formatter for matching or formatting numeric 
+The function `:integer` is a selector and formatter for matching or formatting numeric
 values as integers.
 
-#### Operands
+##### Operands
 
 The function `:integer` requires a [Number Operand](#number-operands) as its _operand_.
 
-#### Options
+##### Options
 
 Some options do not have default values defined in this specification.
 The defaults for these options are implementation-dependent.
-In general, the default values for such options depend on the locale, 
+In general, the default values for such options depend on the locale,
 the value of other options, or both.
 
 > [!NOTE]
@@ -3092,14 +3094,14 @@ the value of other options, or both.
 > [options](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#options)
 > in JavaScript's `Intl.NumberFormat`.
 
-The following options and their values are required in the default registry to be available on the 
+The following options and their values are required in the default registry to be available on the
 function `:integer`:
 - `select`
    -  `plural` (default)
    -  `ordinal`
    -  `exact`
 - `numberingSystem`
-   - valid [Unicode Number System Identifier](https://cldr-smoke.unicode.org/spec/main/ldml/tr35.html#UnicodeNumberSystemIdentifier)
+   - valid [Unicode Number System Identifier](tr35.md#UnicodeNumberSystemIdentifier)
      (default is locale-specific)
 - `signDisplay`
    -  `auto` (default)
@@ -3132,13 +3134,13 @@ Option values with the following names are however discarded if included in the 
 - `maximumFractionDigits`
 - `minimumSignificantDigits`
 
-##### Default Value of `select` Option
+###### Default Value of `select` Option
 
-The value `plural` is the default for the option `select` 
+The value `plural` is the default for the option `select`
 because it is the most common use case for numeric selection.
-It can be used for exact value matches but also allows for the grammatical needs of 
+It can be used for exact value matches but also allows for the grammatical needs of
 languages using CLDR's plural rules.
-This might not be noticeable in the source language (particularly English), 
+This might not be noticeable in the source language (particularly English),
 but can cause problems in target locales that the original developer is not considering.
 
 > For example, a naive developer might use a special message for the value `1` without
@@ -3154,8 +3156,9 @@ but can cause problems in target locales that the original developer is not cons
 > The `one` variant is needed by languages such as Polish or Russian.
 > Such locales typically also require other keywords such as `two`, `few`, and `many`.
 
-##### Percent Style
-When implementing `style=percent`, the numeric value of the _operand_ 
+###### Percent Style
+
+When implementing `style=percent`, the numeric value of the _operand_
 MUST be multiplied by 100 for the purposes of formatting.
 
 > For example,
@@ -3165,18 +3168,18 @@ MUST be multiplied by 100 for the purposes of formatting.
 > should format in a manner similar to:
 > > The total was 50%.
 
-#### Resolved Value
+##### Resolved Value
 
 The _resolved value_ of an _expression_ with an `:integer` _function_
 contains the implementation-defined integer value
 of the _operand_ of the annotated _expression_,
 together with the resolved options' values.
 
-#### Selection
+##### Selection
 
 The _function_ `:integer` performs selection as described in [Number Selection](#number-selection) below.
 
-### The `:math` function
+#### The `:math` function
 
 The function `:math` is a selector and formatter for matching or formatting
 numeric values to which a mathematical operation has been applied.
@@ -3194,11 +3197,11 @@ numeric values to which a mathematical operation has been applied.
 > * *   {{{$name} and {$others_count} other users liked your post.}}
 > ```
 
-#### Operands
+##### Operands
 
 The function `:math` requires a [Number Operand](#number-operands) as its _operand_.
 
-#### Options
+##### Options
 
 The options on `:math` are exclusive with each other,
 and exactly one option is always required.
@@ -3216,7 +3219,7 @@ or if an _option_ value is not a [digit size option](#digit-size-options),
 a _Bad Option_ error is emitted
 and a _fallback value_ used as the _resolved value_ of the _expression_.
 
-#### Resolved Value
+##### Resolved Value
 
 The _resolved value_ of an _expression_ with a `:math` _function_
 contains the implementation-defined numeric value
@@ -3238,21 +3241,21 @@ The `:math` _options_ are not included in the resolved option values.
 
 > [!NOTE]
 > Implementations can encounter practical limits with `:math` _expressions_,
-> such as the result of adding two integers exceeding 
+> such as the result of adding two integers exceeding
 > the storage or precision of some implementation-defined number type.
 > In such cases, implementations can emit an _Unsupported Operation_ error
 > or they might just silently overflow the underlying data value.
 
-#### Selection
+##### Selection
 
 The _function_ `:math` performs selection as described in [Number Selection](#number-selection) below.
 
-### The `:currency` function
+#### The `:currency` function
 
-The function `:currency` is a selector and formatter for currency values, 
+The function `:currency` is a selector and formatter for currency values,
 which are a specialized form of numeric selection and formatting.
 
-#### Operands
+##### Operands
 
 The _operand_ of the `:currency` function can be one of any number of
 implementation-defined types,
@@ -3263,7 +3266,7 @@ The option `currency` MUST NOT be used to override the currency of an implementa
 Using this option in such a case results in a _Bad Option_ error.
 
 The value of the _operand_'s `currency` MUST be either a string containing a
-well-formed [Unicode Currency Identifier](https://cldr-smoke.unicode.org/spec/main/ldml/tr35.html#UnicodeCurrencyIdentifier)
+well-formed [Unicode Currency Identifier](tr35.md#UnicodeCurrencyIdentifier)
 or an implementation-defined currency type.
 Although currency codes are expected to be uppercase,
 implementations SHOULD treat them in a case-insensitive manner.
@@ -3280,7 +3283,7 @@ A [Number Operand](#number-operands) without a `currency` _option_ results in a 
 
 > [!NOTE]
 > The `currency` is only required to be well-formed rather than checked for validity.
-> This allows new currency codes to be defined 
+> This allows new currency codes to be defined
 > (there are many recent examples of this occuring).
 > It also avoids requiring implementations to check currency codes for validity,
 > although implementations are permitted to emit _Bad Option_ or _Bad Operand_ for invalid codes.
@@ -3300,11 +3303,11 @@ A [Number Operand](#number-operands) without a `currency` _option_ results in a 
 > }
 > ```
 
-#### Options
+##### Options
 
 Some options do not have default values defined in this specification.
 The defaults for these options are implementation-dependent.
-In general, the default values for such options depend on the locale, 
+In general, the default values for such options depend on the locale,
 the currency,
 the value of other options, or all of these.
 
@@ -3315,7 +3318,7 @@ Setting some other number of `fractionDigits` allows greater precision display
 (such as when performing currency conversions or other specialized operations)
 or disabling fraction digits if set to `0`.
 
-The _option_ `trailingZeroDisplay` has a value `stripIfInteger` that is useful 
+The _option_ `trailingZeroDisplay` has a value `stripIfInteger` that is useful
 for displaying currencies with their fraction digits removed when the fraction
 part of the _operand_ is zero.
 This is sometimes used in _messages_ to make the displayed value omit the fraction part
@@ -3351,7 +3354,7 @@ The following options and their values are required to be available on the funct
    -  `plural` (default)
    -  `exact`
 - `currency`
-   - well-formed [Unicode Currency Identifier](https://cldr-smoke.unicode.org/spec/main/ldml/tr35.html#UnicodeCurrencyIdentifier)
+   - well-formed [Unicode Currency Identifier](tr35.md#UnicodeCurrencyIdentifier)
      (no default)
 - `compactDisplay` (this option only has meaning when combined with the option `notation=compact`)
    - `short` (default)
@@ -3360,7 +3363,7 @@ The following options and their values are required to be available on the funct
    - `standard` (default)
    - `compact`
 - `numberingSystem`
-   - valid [Unicode Number System Identifier](https://cldr-smoke.unicode.org/spec/main/ldml/tr35.html#UnicodeNumberSystemIdentifier)
+   - valid [Unicode Number System Identifier](tr35.md#UnicodeNumberSystemIdentifier)
      (default is locale-specific)
 - `currencySign`
   - `accounting`
@@ -3420,25 +3423,25 @@ with _options_ on the _expression_ taking priority over any option values of the
 > would be formatted with the resolved options
 > `{ currencySign: 'accounting', trailingZeroDisplay: 'stripIfInteger', currency: 'USD' }`.
 
-#### Resolved Value
+##### Resolved Value
 
 The _resolved value_ of an _expression_ with a `:currency` _function_
 contains an implementation-defined currency value
 of the _operand_ of the annotated _expression_,
 together with the resolved options' values.
 
-#### Selection
+##### Selection
 
 The _function_ `:currency` performs selection as described in [Number Selection](#number-selection) below.
 
-### The `:unit` function
+#### The `:unit` function
 
 The _function_ `:unit` is **Proposed** for inclusion in the next release of this specification but has not yet been finalized.
 The _function_ `:unit` is proposed to be a **RECOMMENDED** selector and formatter for unitized values,
 that is, for numeric values associated with a unit of measurement.
 This is a specialized form of numeric selection and formatting.
 
-#### Operands
+##### Operands
 
 The _operand_ of the `:unit` function can be one of any number of
 implementation-defined types,
@@ -3447,7 +3450,7 @@ or it can be a [Number Operand](#number-operands), as long as the _option_
 `unit` is provided.
 
 The value of the _operand_'s `unit` SHOULD be either a string containing a
-valid [Unit Identifier](https://www.unicode.org/reports/tr35/tr35-general.html#unit-identifiers)
+valid [Unit Identifier](tr35-general.md#unit-identifiers)
 or an implementation-defined unit type.
 
 A [Number Operand](#number-operands) without a `unit` _option_ results in a _Bad Operand_ error.
@@ -3471,11 +3474,11 @@ A [Number Operand](#number-operands) without a `unit` _option_ results in a _Bad
 > }
 > ```
 
-#### Options
+##### Options
 
 Some _options_ do not have default values defined in this specification.
 The defaults for these _options_ are implementation-dependent.
-In general, the default values for such _options_ depend on the locale, 
+In general, the default values for such _options_ depend on the locale,
 the unit,
 the value of other _options_, or all of these.
 
@@ -3488,10 +3491,10 @@ The following options and their values are required to be available on the funct
    -  `plural` (default)
    -  `exact`
 - `unit`
-   - valid [Unit Identifier](https://www.unicode.org/reports/tr35/tr35-general.html#unit-identifiers)
+   - valid [Unit Identifier](tr35-general.md#unit-identifiers)
      (no default)
 - `usage` \[RECOMMENDED\]
-    - valid [Unicode Unit Preference](https://www.unicode.org/reports/tr35/tr35-info.html#unit-preferences)
+    - valid [Unicode Unit Preference](tr35-info.md#unit-preferences)
       (no default, see [Unit Conversion](#unit-conversion) below)
 - `unitDisplay`
   - `short` (default)
@@ -3504,7 +3507,7 @@ The following options and their values are required to be available on the funct
    - `standard` (default)
    - `compact`
 - `numberingSystem`
-   - valid [Unicode Number System Identifier](https://cldr-smoke.unicode.org/spec/main/ldml/tr35.html#UnicodeNumberSystemIdentifier)
+   - valid [Unicode Number System Identifier](tr35.md#UnicodeNumberSystemIdentifier)
      (default is locale-specific)
 - `signDisplay`
    -  `auto` (default)
@@ -3558,18 +3561,18 @@ with _options_ on the _expression_ taking priority over any _option_ values of t
 > would have the resolved options:
 > `{ unit: 'furlong', minimumFractionDigits: '2', minimumIntegerDigits: '1' }`.
 
-#### Resolved Value
+##### Resolved Value
 
 The _resolved value_ of an _expression_ with a `:unit` _function_
 consist of an implementation-defined unit value
 of the _operand_ of the annotated _expression_,
 together with the resolved _options_ and their resolved values.
 
-#### Selection
+##### Selection
 
 The _function_ `:unit` performs selection as described in [Number Selection](#number-selection) below.
 
-#### Unit Conversion
+##### Unit Conversion
 
 Implementations MAY support conversion to the locale's preferred units via the `usage` _option_.
 Implementing this _option_ is optional.
@@ -3598,14 +3601,14 @@ Implementations MUST NOT substitute the unit without performing the associated c
 
 
 
-### Number Operands
+#### Number Operands
 
 The _operand_ of a number function is either an implementation-defined type or
-a literal whose contents match the `number-literal` production in the [ABNF](/spec/message.abnf).
+a literal whose contents match the `number-literal` production in the [ABNF](#complete-abnf).
 All other values produce a _Bad Operand_ error.
 
 > For example, in Java, any subclass of `java.lang.Number` plus the primitive
-> types (`byte`, `short`, `int`, `long`, `float`, `double`, etc.) 
+> types (`byte`, `short`, `int`, `long`, `float`, `double`, etc.)
 > might be considered as the "implementation-defined numeric types".
 > Implementations in other programming languages would define different types
 > or classes according to their local needs.
@@ -3613,7 +3616,7 @@ All other values produce a _Bad Operand_ error.
 > [!NOTE]
 > String values passed as variables in the _formatting context_'s
 > _input mapping_ can be formatted as numeric values as long as their
-> contents match the `number-literal` production in the [ABNF](/spec/message.abnf).
+> contents match the `number-literal` production in the [ABNF](#complete-abnf).
 >
 > For example, if the value of the variable `num` were the string
 > `-1234.567`, it would behave identically to the local
@@ -3631,7 +3634,7 @@ All other values produce a _Bad Operand_ error.
 > or the type `com.ibm.icu.util.CurrencyAmount` can be used to set the currency and related
 > options (such as the number of fraction digits).
 
-### Digit Size Options
+#### Digit Size Options
 
 Some _options_ of number _functions_ are defined to take a "digit size option".
 The _function handlers_ for number _functions_ use these _options_ to control aspects of numeric display
@@ -3654,7 +3657,7 @@ If the value of a digit size option does not evaluate as a non-negative integer,
 or if the value exceeds any implementation-defined upper limit
 or any option-specific lower limit, a _Bad Option Error_ is emitted.
 
-### Number Selection
+#### Number Selection
 
 Number selection has three modes:
 - `exact` selection matches the operand to explicit numeric keys exactly
@@ -3663,7 +3666,7 @@ Number selection has three modes:
 - `ordinal` selection matches the operand to explicit numeric keys exactly
   followed by an ordinal rule category if there is no explicit match
 
-When implementing [`MatchSelectorKeys(resolvedSelector, keys)`](/spec/formatting.md#resolve-preferences)
+When implementing [`MatchSelectorKeys(resolvedSelector, keys)`](#resolve-preferences)
 where `resolvedSelector` is the _resolved value_ of a _selector_
 and `keys` is a list of strings,
 numeric selectors perform as described below.
@@ -3687,9 +3690,9 @@ numeric selectors perform as described below.
 > Implementations are not required to implement this exactly as written.
 > However, the observed behavior must be consistent with what is described here.
 
-#### Rule Selection
+##### Rule Selection
 
-Rule selection is intended to support the grammatical matching needs of different 
+Rule selection is intended to support the grammatical matching needs of different
 languages/locales in order to support plural or ordinal numeric values.
 
 If the _option_ `select` is set to `exact`, rule-based selection is not used.
@@ -3712,13 +3715,13 @@ Apply the rules to the _resolved value_ of the _operand_ and the relevant functi
 and return the resulting keyword.
 If no rules match, return `other`.
 
-If the option `select` is set to `plural`, the rules applied to selection SHOULD be 
-the CLDR plural rule data of type `cardinal`. 
+If the option `select` is set to `plural`, the rules applied to selection SHOULD be
+the CLDR plural rule data of type `cardinal`.
 See [charts](https://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html)
 for examples.
 
-If the option `select` is set to `ordinal`, the rules applied to selection SHOULD be 
-the CLDR plural rule data of type `ordinal`. 
+If the option `select` is set to `ordinal`, the rules applied to selection SHOULD be
+the CLDR plural rule data of type `ordinal`.
 See [charts](https://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html)
 for examples.
 
@@ -3745,7 +3748,7 @@ for examples.
 > | 27 | `other` | 27 dní |
 > | 2.4 | `many` | 2,4 dne |
 
-#### Exact Literal Match Serialization
+##### Exact Literal Match Serialization
 
 If the numeric value of `resolvedSelector` is an integer
 and none of the following options are set for `resolvedSelector`,
@@ -3771,7 +3774,7 @@ Otherwise, the serialized form of the numeric value is implementation-defined.
 > might work in specific implementation-defined ways.
 > Users should avoid depending on these types of keys in message selection.
 
-## Date and Time Value Formatting
+### Date and Time Value Formatting
 
 This subsection describes the functions and options for date/time formatting.
 Selection based on date and time values is not required in this release.
@@ -3782,7 +3785,7 @@ Selection based on date and time values is not required in this release.
 > The types of queries found in implementations such as `java.time.TemporalAccessor`
 > are complex and user expectations may be inconsistent with good I18N practices.
 
-### The `:datetime` function
+#### The `:datetime` function
 
 The function `:datetime` is used to format date/time values, including
 the ability to compose user-specified combinations of fields.
@@ -3795,17 +3798,17 @@ If no options are specified, this function defaults to the following:
 > in JavaScript and with `{d,date}` in ICU MessageFormat 1.0.
 > This is because, unlike those implementations, `:datetime` is distinct from `:date` and `:time`.
 
-#### Operands
+##### Operands
 
-The _operand_ of the `:datetime` function is either 
+The _operand_ of the `:datetime` function is either
 an implementation-defined date/time type
 or a _date/time literal value_, as defined in [Date and Time Operand](#date-and-time-operands).
 All other _operand_ values produce a _Bad Operand_ error.
 
-#### Options
+##### Options
 
-The `:datetime` function can use either the appropriate _style options_ 
-or can use a collection of _field options_ (but not both) to control the formatted 
+The `:datetime` function can use either the appropriate _style options_
+or can use a collection of _field options_ (but not both) to control the formatted
 output.
 _Date/time override options_ can be combined with either _style options_ or _field options_.
 
@@ -3823,7 +3826,7 @@ with _options_ on the _expression_ taking priority over any option values of the
 > [options](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/resolvedOptions#description)
 > in JavaScript's `Intl.DateTimeFormat`.
 
-##### Style Options
+###### Style Options
 
 The function `:datetime` has these _style options_.
 - `dateStyle`
@@ -3837,7 +3840,7 @@ The function `:datetime` has these _style options_.
   - `medium`
   - `short`
 
-##### Field Options
+###### Field Options
 
 _Field options_ describe which fields to include in the formatted output
 and what format to use for that field.
@@ -3899,28 +3902,28 @@ The function `:datetime` has the following options:
   - `shortGeneric`
   - `longGeneric`
 
-#### Resolved Value
+##### Resolved Value
 
 The _resolved value_ of an _expression_ with a `:datetime` _function_
 contains an implementation-defined date/time value
 of the _operand_ of the annotated _expression_,
 together with the resolved options values.
 
-### The `:date` function
+#### The `:date` function
 
 The function `:date` is used to format the date portion of date/time values.
 
 If no options are specified, this function defaults to the following:
 - `{$d :date}` is the same as `{$d :date style=medium}`
 
-#### Operands
+##### Operands
 
-The _operand_ of the `:date` function is either 
+The _operand_ of the `:date` function is either
 an implementation-defined date/time type
 or a _date/time literal value_, as defined in [Date and Time Operand](#date-and-time-operands).
 All other _operand_ values produce a _Bad Operand_ error.
 
-#### Options
+##### Options
 
 The function `:date` has these _options_:
 - `style`
@@ -3935,7 +3938,7 @@ it can include other option values.
 Any _operand_ option values matching the `:datetime` _style options_ or _field options_ are ignored,
 as is any `style` option.
 
-#### Resolved Value
+##### Resolved Value
 
 The _resolved value_ of an _expression_ with a `:date` _function_
 is implementation-defined.
@@ -3944,21 +3947,21 @@ An implementation MAY emit a _Bad Operand_ or _Bad Option_ error (as appropriate
 when a _variable_ annotated directly or indirectly by a `:date` _annotation_
 is used as an _operand_ or an _option_ value.
 
-### The `:time` function
+#### The `:time` function
 
 The function `:time` is used to format the time portion of date/time values.
 
 If no options are specified, this function defaults to the following:
 - `{$t :time}` is the same as `{$t :time style=short}`
 
-#### Operands
+##### Operands
 
-The _operand_ of the `:time` function is either 
+The _operand_ of the `:time` function is either
 an implementation-defined date/time type
 or a _date/time literal value_, as defined in [Date and Time Operand](#date-and-time-operands).
 All other _operand_ values produce a _Bad Operand_ error.
 
-#### Options
+##### Options
 
 The function `:time` has these _options_:
 - `style`
@@ -3973,7 +3976,7 @@ it can include other option values.
 Any _operand_ option values matching the `:datetime` _style options_ or _field options_ are ignored,
 as is any `style` option.
 
-#### Resolved Value
+##### Resolved Value
 
 The _resolved value_ of an _expression_ with a `:time` _function_
 is implementation-defined.
@@ -3982,9 +3985,9 @@ An implementation MAY emit a _Bad Operand_ or _Bad Option_ error (as appropriate
 when a _variable_ annotated directly or indirectly by a `:time` _annotation_
 is used as an _operand_ or an _option_ value.
 
-### Date and Time Operands
+#### Date and Time Operands
 
-The _operand_ of a date/time function is either 
+The _operand_ of a date/time function is either
 an implementation-defined date/time type
 or a _date/time literal value_, as defined below.
 All other _operand_ values produce a _Bad Operand_ error.
@@ -4006,8 +4009,8 @@ When the offset is not present, implementations SHOULD use a floating time type
 For more information, see [Working with Timezones](https://w3c.github.io/timezone).
 
 > [!IMPORTANT]
-> The [ABNF](/spec/message.abnf) and [syntax](/spec/syntax.md) of MF2
-> do not formally define date/time literals. 
+> The [ABNF](#complete-abnf) and [syntax](#syntax) of MF2
+> do not formally define date/time literals.
 > This means that a _message_ can be syntactically valid but produce
 > a _Bad Operand_ error at runtime.
 
@@ -4032,7 +4035,7 @@ For more information, see [Working with Timezones](https://w3c.github.io/timezon
 > See: https://datatracker.ietf.org/doc/draft-ietf-sedate-datetime-extended/
 
 
-### Date and Time Override Options
+#### Date and Time Override Options
 
 **_<dfn>Date/time override options</dfn>_** are _options_ that allow an _expression_ to
 override values set by the current locale,
@@ -4054,9 +4057,9 @@ The following _options_ and their values are RECOMMENDED to be available on
 the functions `:datetime`, `:date`, and `:time`.
 
 - `calendar`
-  - valid [Unicode Calendar Identifier](https://cldr-smoke.unicode.org/spec/main/ldml/tr35.html#UnicodeCalendarIdentifier)
+  - valid [Unicode Calendar Identifier](tr35.md#UnicodeCalendarIdentifier)
 - `numberingSystem`
-  - valid [Unicode Number System Identifier](https://cldr-smoke.unicode.org/spec/main/ldml/tr35.html#UnicodeNumberSystemIdentifier)
+  - valid [Unicode Number System Identifier](tr35.md#UnicodeNumberSystemIdentifier)
 
 The following _option_ and its values are **Proposed** for
 inclusion in the next release of this specification but have not yet been
@@ -4067,18 +4070,18 @@ available in the functions `:datetime`, `:date`, and `:time`.
 - `timeZone`
   - A valid time zone identifier
     (see [TZDB](https://www.iana.org/time-zones)
-    and [LDML](https://www.unicode.org/reports/tr35/tr35-dates.html#Time_Zone_Names)
+    and [LDML](tr35-dates.md#Time_Zone_Names)
     for information on identifiers)
   - `local`
   - `UTC`
-  
+
 > [!NOTE]
 > The value `local` permits a _message_ to convert a date/time value
 > into a [floating](https://www.w3.org/TR/timezone/#floating) time value
 > (sometimes called a _plain_ or _local_ time value) by removing
 > the association with a specific time zone.
 
-# MessageFormat 2.0 Unicode Namespace
+## MessageFormat 2.0 Unicode Namespace
 
 The `u:` _namespace_ is reserved for the definition of _options_
 which affect the _function context_ of the specific _expressions_
@@ -4090,12 +4093,12 @@ It might also be used to define _functions_ in a future release.
 The CLDR Technical Committee of the Unicode Consortium
 manages the specification for this namespace, hence the _namespace_ `u:`.
 
-## Options
+### Options
 
 This section describes common **_<dfn>`u:` options</dfn>_** which each implementation SHOULD support
 for all _functions_ and _markup_.
 
-### `u:id`
+#### `u:id`
 
 A string value that is included as an `id` or other suitable value
 in the formatted parts for the _placeholder_,
@@ -4109,7 +4112,7 @@ or can be resolved to a string without error.
 For other values, a _Bad Option_ error is emitted
 and the `u:id` option is ignored.
 
-### `u:locale`
+#### `u:locale`
 
 Replaces the _locale_ defined in the _function context_ for this _expression_.
 
@@ -4130,7 +4133,7 @@ Values matching the following ABNF are always accepted:
 u-locale-option = unicode_bcp47_locale_id *(o "," o unicode_bcp47_locale_id)
 ```
 using `unicode_bcp47_locale_id` as defined for
-[Unicode Locale Identifier](https://cldr-smoke.unicode.org/spec/main/ldml/tr35.html#unicode_bcp47_locale_id).
+[Unicode Locale Identifier](tr35.md#unicode_bcp47_locale_id).
 
 Implementations MAY support additional language tags,
 such as private-use or grandfathered tags,
@@ -4145,7 +4148,7 @@ This might be because the locale specified is not supported
 or because the language tag is not well-formed,
 not valid, or some other reason.
 
-### `u:dir`
+#### `u:dir`
 
 Replaces the base directionality defined in
 the _function context_ for this _expression_
@@ -4171,7 +4174,7 @@ or a _variable_ whose _resolved value_ is one of these _literals_:
 For other values, a _Bad Option_ error is emitted
 and the value of the `u:dir` option is ignored.
 
-# MessageFormat 2.0 Data Model
+## MessageFormat 2.0 Data Model
 
 This section defines a data model representation of MessageFormat 2 _messages_.
 
@@ -4179,11 +4182,11 @@ Implementations are not required to use this data model for their internal repre
 Neither are they required to provide an interface that accepts or produces
 representations of this data model.
 
-The major reason this specification provides a data model is to allow interchange of 
+The major reason this specification provides a data model is to allow interchange of
 the logical representation of a _message_ between different implementations.
 This includes mapping legacy formatting syntaxes (such as MessageFormat 1)
 to a MessageFormat 2 implementation.
-Another use would be in converting to or from translation formats without 
+Another use would be in converting to or from translation formats without
 the need to continually parse and serialize all or part of a message.
 
 Implementations that expose APIs supporting the production, consumption, or transformation of a
@@ -4228,11 +4231,11 @@ declarations, options, and attributes to be optional rather than required proper
 
 > [!IMPORTANT]
 > The data model uses the field name `name` to denote various interface identifiers.
-> In the MessageFormat 2 [syntax](/spec/syntax.md), the source for these `name` fields
+> In the MessageFormat 2 [syntax](#syntax), the source for these `name` fields
 > sometimes uses the production `identifier`.
 > This happens when the named item, such as a _function_, supports namespacing.
 
-## Messages
+### Messages
 
 A `SelectMessage` corresponds to a syntax message that includes _selectors_.
 A message without _selectors_ and with a single _pattern_ is represented by a `PatternMessage`.
@@ -4299,7 +4302,7 @@ interface CatchallKey {
 }
 ```
 
-## Patterns
+### Patterns
 
 Each `Pattern` contains a linear sequence of text and placeholders corresponding to potential output of a message.
 
@@ -4310,7 +4313,7 @@ including escape sequence processing.
 `Expression` wraps each of the potential _expression_ shapes.
 `Markup` wraps each of the potential _markup_ shapes.
 
-Implementations MUST NOT rely on the set of `Expression` and 
+Implementations MUST NOT rely on the set of `Expression` and
 `Markup` interfaces defined in this document being exhaustive.
 Future versions of this specification might define additional
 expressions or markup.
@@ -4345,7 +4348,7 @@ interface FunctionExpression {
 }
 ```
 
-## Expressions
+### Expressions
 
 The `Literal` and `VariableRef` correspond to the the _literal_ and _variable_ syntax rules.
 When they are used as the `body` of an `Expression`,
@@ -4385,11 +4388,11 @@ interface FunctionRef {
 type Options = Map<string, Literal | VariableRef>;
 ```
 
-## Markup
+### Markup
 
 A `Markup` object has a `kind` of either `"open"`, `"standalone"`, or `"close"`,
 each corresponding to _open_, _standalone_, and _close_ _markup_.
-The `name` in these does not include the starting sigils `#` and `/` 
+The `name` in these does not include the starting sigils `#` and `/`
 or the ending sigil `/`.
 The `options` for markup use the same key-value mapping as `FunctionRef`.
 
@@ -4403,7 +4406,7 @@ interface Markup {
 }
 ```
 
-## Attributes
+### Attributes
 
 `Attributes` is a key-value mapping
 used to represent the _expression_ and _markup_ _attributes_.
@@ -4414,7 +4417,7 @@ _Attributes_ with no value are represented by `true` here.
 type Attributes = Map<string, Literal | true>;
 ```
 
-## Extensions
+### Extensions
 
 Implementations MAY extend this data model with additional interfaces,
 as well as adding new fields to existing interfaces.
@@ -4429,9 +4432,9 @@ However, when using this data model to represent an invalid message,
 an implementation MAY do so.
 This is intended to allow for the representation of "junk" or invalid content within messages.
 
-# Appendices
+## Appendices
 
-## Security Considerations
+### Security Considerations
 
 MessageFormat 2.0 _patterns_ are meant to allow a _message_ to include any string value
 which users might normally wish to use in their environment.
@@ -4440,7 +4443,7 @@ to appear in a valid string.
 In many cases, certain types of characters, such as invisible control characters,
 require escaping by these host formats.
 In other cases, strings are not permitted to contain certain characters at all.
-Since _messages_ are subject to the restrictions and limitations of their 
+Since _messages_ are subject to the restrictions and limitations of their
 host environments, their serializations and resource formats,
 that might be sufficient to prevent most problems.
 However, MessageFormat itself does not supply such a restriction.
@@ -4454,16 +4457,16 @@ that abnormally affect the display of the _message_
 when viewed as source code, or in resource formats or translation tools,
 but do not generate errors from MessageFormat parsers or processing APIs.
 
-Bidirectional text containing right-to-left characters (such as used for Arabic or Hebrew) 
-also poses a potential source of confusion for users. 
-Since MessageFormat 2.0's syntax makes use of 
-keywords and symbols that are left-to-right or consist of neutral characters 
-(including characters subject to mirroring under the Unicode Bidirectional Algorithm), 
+Bidirectional text containing right-to-left characters (such as used for Arabic or Hebrew)
+also poses a potential source of confusion for users.
+Since MessageFormat 2.0's syntax makes use of
+keywords and symbols that are left-to-right or consist of neutral characters
+(including characters subject to mirroring under the Unicode Bidirectional Algorithm),
 it is possible to create messages that,
-when displayed in source code, or in resource formats or translation tools, 
+when displayed in source code, or in resource formats or translation tools,
 have a misleading appearance or are difficult to parse visually.
 
-For more information, see \[[UTS#55](https://unicode.org/reports/tr55/)\] 
+For more information, see \[[UTS#55](https://unicode.org/reports/tr55/)\]
 <cite>Unicode Source Code Handling</cite>.
 
 MessageFormat 2.0 implementations might allow end-users to install
@@ -4474,34 +4477,34 @@ fingerprinting, and other types of bad behavior.
 Any installed code needs to be appropriately sandboxed.
 In addition, end-users need to be aware of the risks involved.
 
-## Acknowledgements
+### Acknowledgements
 
 Special thanks to the following people for their contributions to making MessageFormat v2.
 The following people contributed to our github repo and are listed in order by contribution size:
 
-Addison Phillips, 
-Eemeli Aro, 
-Romulo Cintra, 
-Stanisław Małolepszy, 
-Tim Chevalier, 
-Elango Cheran, 
-Richard Gibson, 
-Mihai Niță, 
-Mark Davis, 
-Steven R. Loomis, 
-Shane F. Carr, 
-Matt Radbourne, 
-Caleb Maclennan, 
-David Filip, 
-Daniel Minor, 
+Addison Phillips,
+Eemeli Aro,
+Romulo Cintra,
+Stanisław Małolepszy,
+Tim Chevalier,
+Elango Cheran,
+Richard Gibson,
+Mihai Niță,
+Mark Davis,
+Steven R. Loomis,
+Shane F. Carr,
+Matt Radbourne,
+Caleb Maclennan,
+David Filip,
+Daniel Minor,
 Christopher Dieringer,
 Bruno Haible,
 Danny Gleckler,
-George Rhoten, 
-Ujjwal Sharma, 
-Daniel Ehrenberg, 
-Markus Scherer, 
-Zibi Braniecki, 
+George Rhoten,
+Ujjwal Sharma,
+Daniel Ehrenberg,
+Markus Scherer,
+Zibi Braniecki,
 Lionel Rowe,
 Luca Casonato,
 and Rafael Xavier de Souza.

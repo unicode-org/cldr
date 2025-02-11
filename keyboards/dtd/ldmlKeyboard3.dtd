@@ -49,6 +49,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!ATTLIST info indicator CDATA #IMPLIED >
     <!--@MATCH:any-->
     <!--@VALUE-->
+<!ATTLIST info attribution CDATA #IMPLIED >
+    <!--@MATCH:any-->
+    <!--@VALUE-->
 
 <!ELEMENT settings EMPTY >
     <!--@ORDERED-->

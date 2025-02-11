@@ -103,7 +103,7 @@ public class Ldml2JsonConverter {
         annotationsDerived,
         bcp47(false, false),
         transforms(false, false),
-        subdivisions(false, true);
+        subdivisions(true, true);
 
         private final boolean isTiered;
         private final boolean hasLocales;
@@ -1707,7 +1707,9 @@ public class Ldml2JsonConverter {
                         + "cldr-packages.json and PACKAGES.md");
         PrintWriter pkgs = FileUtilities.openUTF8Writer(outputDir + "/..", "PACKAGES.md");
 
-        pkgs.println("# CLDR JSON Packages");
+        pkgs.println("# CLDR-JSON Package List");
+        pkgs.println();
+        pkgs.println("## Packages");
         pkgs.println();
 
         LdmlConfigFileReader uberReader = new LdmlConfigFileReader();
@@ -1730,7 +1732,20 @@ public class Ldml2JsonConverter {
             final String baseName = e.getKey();
 
             if (baseName.equals("IGNORE") || baseName.equals("cal")) continue;
-            if (baseName.equals("core") || baseName.equals("rbnf") || baseName.equals("bcp47")) {
+
+            boolean tiered = !baseName.equals("core");
+            // If it's a known un-tiered enum type, skip tiered.
+            try {
+                RunType r = RunType.valueOf(baseName);
+                if (!r.tiered()) {
+                    tiered = false;
+                }
+            } catch (IllegalArgumentException t) {
+                // ignored
+            }
+
+            // if not tiered
+            if (!tiered) {
                 JsonObject packageEntry = new JsonObject();
                 packageEntry.addProperty("description", e.getValue());
                 packageEntry.addProperty("name", CLDR_PKG_PREFIX + baseName);
@@ -1762,7 +1777,7 @@ public class Ldml2JsonConverter {
                 }
             }
         }
-        pkgs.println();
+
         for (Map.Entry<String, String> e : pkgsToDesc.entrySet()) {
             pkgs.println("### [" + e.getKey() + "](./cldr-json/" + e.getKey() + "/)");
             pkgs.println();
@@ -1770,8 +1785,8 @@ public class Ldml2JsonConverter {
                 pkgs.println(
                         " - **Note: Deprecated** see [CLDR-16465](https://unicode-org.atlassian.net/browse/CLDR-16465).");
             }
-            pkgs.println(" - " + e.getValue());
-            pkgs.println(" - " + getNpmBadge(e.getKey()));
+            pkgs.println("- " + e.getValue());
+            pkgs.println("- " + getNpmBadge(e.getKey()));
             pkgs.println();
         }
         obj.add("packages", packages);

@@ -1,5 +1,7 @@
 package org.unicode.cldr.util;
 
+import static org.unicode.cldr.util.StandardCodes.CodeType.currency;
+
 import com.google.common.collect.ImmutableSet;
 import java.util.Collection;
 import java.util.Collections;
@@ -276,19 +278,14 @@ public class ExtraPaths {
 
     private static void addCurrencies(
             Set<String> toAddTo, Set<SupplementalDataInfo.PluralInfo.Count> pluralCounts) {
-        for (String code : supplementalData.getBcp47Keys().getAll("cu")) {
-            String currencyCode = code.toUpperCase();
-            toAddTo.add(
-                    "//ldml/numbers/currencies/currency[@type=\"" + currencyCode + "\"]/symbol");
-            toAddTo.add(
-                    "//ldml/numbers/currencies/currency[@type=\""
-                            + currencyCode
-                            + "\"]/displayName");
-            if (!pluralCounts.isEmpty()) {
+        // This code is locale-dependent due to pluralCounts.
+        // Locale-independent currency paths are added elsewhere.
+        if (!pluralCounts.isEmpty()) {
+            for (String code : StandardCodes.make().getGoodAvailableCodes(currency)) {
                 for (SupplementalDataInfo.PluralInfo.Count count : pluralCounts) {
                     toAddTo.add(
                             "//ldml/numbers/currencies/currency[@type=\""
-                                    + currencyCode
+                                    + code
                                     + "\"]/displayName[@count=\""
                                     + count.toString()
                                     + "\"]");

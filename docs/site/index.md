@@ -6,10 +6,10 @@ title: Unicode CLDR Project
 
 ## News
 
+- **2025-02-06 [CLDR 47](downloads/cldr-47) alpha available for testing**
+- **2024-12-18 [CLDR 46.1](downloads/cldr-46) released**
 - **2024-10-24 [CLDR 46](downloads/cldr-46) released**
 - **2024-04-17 [CLDR 45](downloads/cldr-45) released**
-- **2023-12-13 [CLDR 44.1](downloads/cldr-44#h.nvqx283jwsx) released (an update to CLDR v44)**
-- **2023-10-31 [CLDR 44](downloads/cldr-44) released**
 
 
 ## What is CLDR?

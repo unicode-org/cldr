@@ -509,7 +509,7 @@ public class TestCheckCLDR extends TestFmwk {
                         assertNotNull(locale + " " + path, resolved.getStringValue(path));
                         break;
                     default:
-                        if (!logKnownIssue("CLDR-18294", "Null with inheritance mark")) {
+                        if (!logKnownIssue("CLDR-18309", "Null with inheritance mark")) {
                             errln("Null with inheritance mark:\t" + locale + "\t" + path);
                         }
                 }

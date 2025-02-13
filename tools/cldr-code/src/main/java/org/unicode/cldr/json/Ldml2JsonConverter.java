@@ -596,10 +596,10 @@ public class Ldml2JsonConverter {
             if (cv > coverageValue) {
                 continue;
             }
-            // Discard root identity element unless the locale is root
-            // TODO: CLDR-17790 this code should not be needed.
+
+            // TODO: CLDR-17790 known issue - //ldml/identity inherits when it shouldn't.
             rootIdentityMatcher.reset(fullPath);
-            if (rootIdentityMatcher.matches() && !"root".equals(locID)) {
+            if (rootIdentityMatcher.matches() && !file.isHere(fullPath)) {
                 continue;
             }
 

@@ -56,6 +56,7 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CLDRURLS;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.DateConstants;
@@ -98,6 +99,8 @@ import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 import org.unicode.cldr.util.SupplementalDataInfo.SampleList;
 import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.Validity.Status;
+import org.unicode.cldr.util.XMLFileReader;
+import org.unicode.cldr.util.XPathParts;
 
 public class TestSupplementalInfo extends TestFmwkPlus {
     static CLDRConfig testInfo = CLDRConfig.getInstance();
@@ -1748,6 +1751,91 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                                         + cni.digits);
                     }
                 }
+            }
+        }
+    }
+
+    private List<Row.R3<String, CurrencyDateInfo, String>> currencyDataRegionEntries =
+            new ArrayList<Row.R3<String, CurrencyDateInfo, String>>();
+
+    public void TestCurrencyDataOrder() {
+        // We need to check the order of currencyData/region entries in the xml file, so use
+        // XMLFileReader to get a list of the necessary item data in file order instead of
+        // accessing through SupplementalDataInfo
+        CurrencyDataHandler currencyDataHandler = new CurrencyDataHandler();
+        XMLFileReader xfr = new XMLFileReader().setHandler(currencyDataHandler);
+        String pathToSupplemental =
+                CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY + "supplementalData.xml";
+        xfr.read(pathToSupplemental, -1, true);
+        currencyDataHandler.cleanup();
+
+        // Now check the list order
+        R3<String, CurrencyDateInfo, String> lastEntry = Row.of("", null, "");
+        for (R3<String, CurrencyDateInfo, String> entry : currencyDataRegionEntries) {
+            String iso3166 = entry.get0();
+            String lastIso3166 = lastEntry.get0();
+            int compareRegions = iso3166.compareTo(lastIso3166);
+            if (compareRegions < 0) {
+                String path = entry.get2();
+                errln(
+                        " currencyData/region "
+                                + iso3166
+                                + " not after "
+                                + lastIso3166
+                                + "; path: "
+                                + path);
+            } else if (compareRegions == 0) {
+                // Check entries within a given region
+                CurrencyDateInfo currencyDateInfo = entry.get1();
+                CurrencyDateInfo lastCurrencyDateInfo = lastEntry.get1();
+                if (currencyDateInfo.isLegalTender() && !lastCurrencyDateInfo.isLegalTender()) {
+                    String path = entry.get2();
+                    errln(
+                            " For currencyData/region "
+                                    + iso3166
+                                    + ", entries with tender=false should be last; path: "
+                                    + path);
+                }
+                // We do not enforce any other ordering of currency entries (i.e. by date range
+                // and/or currency code) since that ordering carries meaning; per
+                // https://www.unicode.org/reports/tr35/tr35-numbers.html#Supplemental_Currency_Data,
+                // "The [xml file] *ordering* of the elements in the list tells us which was the
+                // primary currency during any period in time."
+            } // else we are starting a new region in order
+            lastEntry = entry;
+        }
+    }
+
+    class CurrencyDataHandler extends XMLFileReader.SimpleHandler {
+        public void cleanup() {} // Finish processing anything left in the file
+
+        @Override
+        public void handlePathValue(String path, String value) {
+            try {
+                XPathParts parts = XPathParts.getFrozenInstance(path);
+                if (parts.size() < 4) {
+                    return;
+                }
+                String currencyData = parts.getElement(1);
+                String region = parts.getElement(2);
+                String currency = parts.getElement(3);
+                if (!currencyData.equals("currencyData")
+                        || !region.equals("region")
+                        || !currency.equals("currency")) {
+                    return;
+                }
+                String iso3166 = parts.getAttributeValue(2, "iso3166"); // required
+                String iso4217 = parts.getAttributeValue(3, "iso4217"); // required
+                String fromDate = parts.getAttributeValue(3, "from"); // optional
+                String toDate = parts.getAttributeValue(3, "to"); // optional
+                String tender = parts.getAttributeValue(3, "tender"); // optional
+                CurrencyDateInfo currencyDateInfo =
+                        new CurrencyDateInfo(iso4217, fromDate, toDate, tender);
+                currencyDataRegionEntries.add(Row.of(iso3166, currencyDateInfo, path));
+            } catch (Exception e) {
+                throw (IllegalArgumentException)
+                        new IllegalArgumentException("path: " + path + ",\tvalue: " + value)
+                                .initCause(e);
             }
         }
     }

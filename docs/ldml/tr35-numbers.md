@@ -1000,6 +1000,8 @@ That is, each `currency` element will list an interval in which it was valid. Th
 <currency iso4217="YUN" from="1994-01-01" to="1994-07-22"/>
 ```
 
+All `currency` elements with `tender="false"` should be at the end of the list for a given `region`. 
+
 The `from` element is limited by the fact that ISO 4217 does not go very far back in time, so there may be no ISO code for the previous currency.
 
 Currencies change relatively frequently. There are different types of changes:

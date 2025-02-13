@@ -703,8 +703,25 @@ public class SupplementalDataInfo {
 
         @Override
         public int compareTo(CurrencyDateInfo o) {
+            // Sort first by isLegalTender
+            if (isLegalTender && !o.isLegalTender) {
+                return -1;
+            }
+            if (!isLegalTender && o.isLegalTender) {
+                return 1;
+            }
+            // Note that sorting using criteria other than the above loses info, because per
+            // https://www.unicode.org/reports/tr35/tr35-numbers.html#Supplemental_Currency_Data,
+            // "The [xml file] *ordering* of the elements in the list tells us which was the
+            // primary currency during any period in time." However we do keep the further
+            // comparison steps below to preserve a unique ordering of CurrencyDateInfo items; we
+            // just make the ordering closer to the file order by sorting the dateRange newest
+            // first (CLDR-15693).
+            //
+            // Then sort by date range
             int result = dateRange.compareTo(o.dateRange);
-            if (result != 0) return result;
+            if (result != 0) return -result; // want *newest* "to" first, then newest "from"
+            // then by currency
             return currency.compareTo(o.currency);
         }
 

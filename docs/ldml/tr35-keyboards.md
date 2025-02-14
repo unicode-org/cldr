@@ -2507,6 +2507,7 @@ set-member
          ::= text-char
            | char-range
            | match-marker
+           | escaped-codepoint
 char-range
          ::= range-edge '-' range-edge
 range-edge

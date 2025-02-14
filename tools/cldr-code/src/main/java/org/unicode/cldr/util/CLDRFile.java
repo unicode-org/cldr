@@ -1564,12 +1564,12 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
 
     private static class FullIterable implements Iterable<String>, SimpleIterator<String> {
         private final CLDRFile file;
-        private final Iterator<String> fileIterator; // dataSource only
+        private final Iterator<String> iteratorWithoutExtras;
         private Iterator<String> extraPaths;
 
         FullIterable(CLDRFile file) {
             this.file = file;
-            this.fileIterator = file.dataSource.iterator(); // file.iteratorWithoutExtras();
+            this.iteratorWithoutExtras = file.iteratorWithoutExtras();
         }
 
         @Override
@@ -1581,8 +1581,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
 
         @Override
         public String next() {
-            if (fileIterator.hasNext()) {
-                return fileIterator.next();
+            if (iteratorWithoutExtras.hasNext()) {
+                return iteratorWithoutExtras.next();
             }
             if (extraPaths == null) {
                 extraPaths = file.getExtraPaths().iterator();

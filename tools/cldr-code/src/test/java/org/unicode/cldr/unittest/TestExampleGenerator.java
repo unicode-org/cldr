@@ -1108,7 +1108,7 @@ public class TestExampleGenerator extends TestFmwk {
         checkDayPeriod("pl", "stand-alone", "morning1", "〖06:00 – 10:00⁻〗");
 
         checkDayPeriod(
-                "en", "format", "night1", "〖00:00 – 06:00⁻; 21:00 – 24:00⁻〗〖❬3:00 ❭at night〗");
+                "en", "format", "night1", "〖21:00 – 24:00⁻〗〖❬10:30 ❭at night〗");
         checkDayPeriod("en", "stand-alone", "night1", "〖00:00 – 06:00⁻; 21:00 – 24:00⁻〗");
 
         checkDayPeriod("en", "format", "noon", "〖12:00〗〖❬12:00 ❭noon〗");
@@ -1133,7 +1133,7 @@ public class TestExampleGenerator extends TestFmwk {
         checkDayPeriodsForLocale(
                 "en",
                 "Bhm",
-                "〖3:00 at night〗〖9:00 in the morning〗〖12:00 noon〗〖3:00 in the afternoon〗〖7:30 in the evening〗");
+                "〖6:00 in the morning〗〖12:00 noon〗〖3:00 in the afternoon〗〖7:30 in the evening〗〖10:30 at night〗");
         checkDayPeriodsForLocale(
                 "it",
                 "Bhm",

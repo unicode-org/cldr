@@ -1474,7 +1474,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         return s;
     }
 
-    private final boolean DEFAULT_ITERATION_INCLUDES_EXTRAS = true;
+    private final boolean DEFAULT_ITERATION_INCLUDES_EXTRAS = false;
 
     public Iterator<String> iterator() {
         if (DEFAULT_ITERATION_INCLUDES_EXTRAS) {

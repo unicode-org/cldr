@@ -889,15 +889,15 @@ public class TestCheckCLDR extends TestFmwk {
                 DayPeriod.morning1,
                 Subtype.dateSymbolCollision
             },
+            {Type.format, DayPeriod.night1, Type.format, DayPeriod.afternoon1, Subtype.none},
+            {Type.format, DayPeriod.night1, Type.format, DayPeriod.evening1, Subtype.none},
             {
                 Type.format,
-                DayPeriod.night1,
+                DayPeriod.morning1,
                 Type.format,
                 DayPeriod.afternoon1,
-                Subtype.none
+                Subtype.dateSymbolCollision
             },
-            {Type.format, DayPeriod.night1, Type.format, DayPeriod.evening1, Subtype.none},
-            {Type.format, DayPeriod.morning1, Type.format, DayPeriod.afternoon1, Subtype.dateSymbolCollision},
             {
                 Type.format,
                 DayPeriod.morning1,

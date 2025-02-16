@@ -9,6 +9,7 @@
 package org.unicode.cldr.util;
 
 import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Iterators;
 import com.google.common.util.concurrent.UncheckedExecutionException;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
@@ -110,7 +111,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
     private static boolean LOG_PROGRESS = false;
 
     public static boolean HACK_ORDER = false;
-    private static boolean DEBUG_LOGGING = false;
+    private static final boolean DEBUG_LOGGING = false;
 
     public static final String SUPPLEMENTAL_NAME = "supplementalData";
 
@@ -1449,7 +1450,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
      * Utility to restrict to files matching a given regular expression. The expression does not
      * contain ".xml". Note that supplementalData is always skipped, and root is always included.
      */
-    public static Set<String> getMatchingXMLFiles(File sourceDirs[], Matcher m) {
+    public static Set<String> getMatchingXMLFiles(File[] sourceDirs, Matcher m) {
         Set<String> s = new TreeSet<>();
 
         for (File dir : sourceDirs) {
@@ -1473,22 +1474,68 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         return s;
     }
 
-    @Override
+    private final boolean DEFAULT_ITERATION_INCLUDES_EXTRAS = false;
+
     public Iterator<String> iterator() {
-        return dataSource.iterator();
+        if (DEFAULT_ITERATION_INCLUDES_EXTRAS) {
+            return Iterators.filter(fullIterable().iterator(), p -> getStringValue(p) != null);
+        } else {
+            return iteratorWithoutExtras();
+        }
     }
 
-    public synchronized Iterator<String> iterator(String prefix) {
-        return dataSource.iterator(prefix);
+    public Iterator<String> iterator(String prefix) {
+        if (DEFAULT_ITERATION_INCLUDES_EXTRAS) {
+            if (prefix == null || prefix.isEmpty()) {
+                return iterator();
+            }
+            return Iterators.filter(iterator(), p -> p.startsWith(prefix));
+        } else {
+            return iteratorWithoutExtras(prefix);
+        }
     }
 
     public Iterator<String> iterator(Matcher pathFilter) {
-        return dataSource.iterator(pathFilter);
+        if (DEFAULT_ITERATION_INCLUDES_EXTRAS) {
+            if (pathFilter == null) {
+                return iterator();
+            }
+            return Iterators.filter(iterator(), p -> pathFilter.reset(p).matches());
+        } else {
+            return iteratorWithoutExtras(pathFilter);
+        }
     }
 
     public Iterator<String> iterator(String prefix, Comparator<String> comparator) {
+        if (comparator == null) {
+            throw new IllegalArgumentException("iterator requires non-null comparator");
+        }
+        if (DEFAULT_ITERATION_INCLUDES_EXTRAS) {
+            Iterator<String> it =
+                    (prefix == null || prefix.isEmpty()) ? iterator() : iterator(prefix);
+            Set<String> orderedSet = new TreeSet<>(comparator);
+            it.forEachRemaining(orderedSet::add);
+            return orderedSet.iterator();
+        } else {
+            return iteratorWithoutExtras(prefix, comparator);
+        }
+    }
+
+    private Iterator<String> iteratorWithoutExtras() {
+        return dataSource.iterator();
+    }
+
+    private synchronized Iterator<String> iteratorWithoutExtras(String prefix) {
+        return dataSource.iterator(prefix);
+    }
+
+    private Iterator<String> iteratorWithoutExtras(Matcher pathFilter) {
+        return dataSource.iterator(pathFilter);
+    }
+
+    private Iterator<String> iteratorWithoutExtras(String prefix, Comparator<String> comparator) {
         Iterator<String> it =
-                (prefix == null || prefix.length() == 0)
+                (prefix == null || prefix.isEmpty())
                         ? dataSource.iterator()
                         : dataSource.iterator(prefix);
         if (comparator == null) return it;
@@ -1497,29 +1544,45 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         return orderedSet.iterator();
     }
 
+    public Iterable<String> iterableDefault() {
+        if (DEFAULT_ITERATION_INCLUDES_EXTRAS) {
+            // same as fullIterable except skip paths with null values
+            Iterable<String> it = new FullIterable(this);
+            return () -> Iterators.filter(it.iterator(), p -> getStringValue(p) != null);
+        } else {
+            return iterableWithoutExtras();
+        }
+    }
+
+    private Iterable<String> iterableWithoutExtras() {
+        return this::iteratorWithoutExtras;
+    }
+
     public Iterable<String> fullIterable() {
         return new FullIterable(this);
     }
 
-    public static class FullIterable implements Iterable<String>, SimpleIterator<String> {
+    private static class FullIterable implements Iterable<String>, SimpleIterator<String> {
         private final CLDRFile file;
-        private final Iterator<String> fileIterator;
+        private final Iterator<String> iteratorWithoutExtras;
         private Iterator<String> extraPaths;
 
         FullIterable(CLDRFile file) {
             this.file = file;
-            this.fileIterator = file.iterator();
+            this.iteratorWithoutExtras = file.iteratorWithoutExtras();
         }
 
         @Override
         public Iterator<String> iterator() {
+            // With.toIterator relies on the next() method to turn this FullIterable into an
+            // Iterator
             return With.toIterator(this);
         }
 
         @Override
         public String next() {
-            if (fileIterator.hasNext()) {
-                return fileIterator.next();
+            if (iteratorWithoutExtras.hasNext()) {
+                return iteratorWithoutExtras.next();
             }
             if (extraPaths == null) {
                 extraPaths = file.getExtraPaths().iterator();
@@ -3067,7 +3130,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
      */
     public Collection<String> getExtraPaths() {
         Set<String> toAddTo = new HashSet<>(getRawExtraPaths());
-        for (String path : this) {
+        for (String path : this.iterableWithoutExtras()) {
             toAddTo.remove(path);
         }
         return toAddTo;
@@ -3128,7 +3191,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
     private List<String> getRawExtraPathsPrivate() {
         Set<String> toAddTo = new HashSet<>();
         ExtraPaths.addConstant(toAddTo);
-        ExtraPaths.addLocaleDependent(toAddTo, this, getLocaleID());
+        ExtraPaths.addLocaleDependent(toAddTo, this.iterableWithoutExtras(), getLocaleID());
         return toAddTo.stream().map(String::intern).collect(Collectors.toList());
     }
 
@@ -3370,18 +3433,6 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
             return new GlossonymConstructor(this).getValue(xpath);
         }
         return null;
-    }
-
-    /**
-     * Get the string value for the given path in this locale, without resolving to any other path
-     * or locale.
-     *
-     * @param xpath the given path
-     * @return the string value, unresolved
-     */
-    private String getStringValueUnresolved(String xpath) {
-        CLDRFile sourceFileUnresolved = this.getUnresolved();
-        return sourceFileUnresolved.getStringValue(xpath);
     }
 
     /**

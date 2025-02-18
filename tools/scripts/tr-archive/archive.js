@@ -3,7 +3,7 @@ const { marked } = require("marked");
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 const path = require("path");
-const markedAlert = require('marked-alert');
+const markedAlert = require("marked-alert");
 
 // Setup some options for our markdown renderer
 marked.setOptions({
@@ -32,7 +32,7 @@ marked.use(markedAlert());
  * @returns {Promise<string>} name of output file (for status update)
  */
 async function renderit(infile) {
-  const gtag = (await fs.readFile('gtag.html', 'utf-8')).trim();
+  const gtag = (await fs.readFile("gtag.html", "utf-8")).trim();
   console.log(`Reading ${infile}`);
   basename = path.basename(infile, ".md");
   const outfile = path.join(path.dirname(infile), `${basename}.html`);
@@ -56,18 +56,22 @@ async function renderit(infile) {
   // add CSS to HEAD
   head.innerHTML =
     head.innerHTML +
-    gtag + '\n' +
+    "\n" +
+    gtag +
+    "\n" +
     `<meta charset="utf-8">\n` +
     `<link rel='stylesheet' type='text/css' media='screen' href='../reports-v2.css'>\n` +
-    `<link rel='stylesheet' type='text/css' media='screen' href='tr35.css'>\n`;
+    `<link rel='stylesheet' type='text/css' media='screen' href='css/tr35.css'>\n`;
 
   // Assume there's not already a title and that we need to add one.
   if (dom.window.document.getElementsByTagName("title").length >= 1) {
     console.log("Already had a <title>… not changing.");
   } else {
     const title = document.createElement("title");
-    const first_h1_text = document.getElementsByTagName("h1")[0].textContent.replace(')Part', ') Part');
-    title.appendChild(document.createTextNode(first_h1_text))
+    const first_h1_text = document
+      .getElementsByTagName("h1")[0]
+      .textContent.replace(")Part", ") Part");
+    title.appendChild(document.createTextNode(first_h1_text));
     head.appendChild(title);
   }
 
@@ -76,7 +80,7 @@ async function renderit(infile) {
   header.setAttribute("class", "header");
 
   // taken from prior TRs, read from the header in 'header.html'
-  header.innerHTML = (await fs.readFile('header.html', 'utf-8')).trim();
+  header.innerHTML = (await fs.readFile("header.html", "utf-8")).trim();
 
   // Move all elements out of the top level body and into a subelement
   // The subelement is <div class="body"/>
@@ -87,14 +91,14 @@ async function renderit(infile) {
   let sawFirstTable = false;
   for (const e of body.childNodes) {
     body.removeChild(e);
-    if (div.childNodes.length === 0 && e.tagName === 'P') {
+    if (div.childNodes.length === 0 && e.tagName === "P") {
       // update title element to <h2 class="uaxtitle"/>
-      const newTitle = document.createElement('h2');
+      const newTitle = document.createElement("h2");
       newTitle.setAttribute("class", "uaxtitle");
       newTitle.appendChild(document.createTextNode(e.textContent));
       div.appendChild(newTitle);
     } else {
-      if (!sawFirstTable && e.tagName === 'TABLE') {
+      if (!sawFirstTable && e.tagName === "TABLE") {
         // Update first table to simple width=90%
         // The first table is the document header (Author, etc.)
         e.setAttribute("class", "simple");
@@ -104,6 +108,7 @@ async function renderit(infile) {
       div.appendChild(e);
     }
   }
+  body.innerHTML = body.innerHTML.trim(); // trim whitespae
 
   /**
    * create a <SCRIPT/> object.
@@ -113,7 +118,7 @@ async function renderit(infile) {
    * @param {string} obj.code code for script as text
    * @returns
    */
-  function getScript({src, code})  {
+  function getScript({ src, code }) {
     const script = dom.window.document.createElement("script");
     if (src) {
       script.setAttribute("src", src);
@@ -126,10 +131,14 @@ async function renderit(infile) {
 
   // body already has no content to it at this point.
   // Add all the pieces back.
-  body.appendChild(getScript({ src: './js/anchor.min.js' }));
+  body.appendChild(document.createTextNode("\n\n  "));
+  body.appendChild(document.createComment(`Header from header.html`));
+  body.appendChild(document.createTextNode("\n"));
   body.appendChild(header);
+  body.appendChild(document.createTextNode("\n\n  "));
+  body.appendChild(document.createComment(`Converted from ${basename}.md`));
+  body.appendChild(document.createTextNode("\n"));
   body.appendChild(div);
-
   // now, fix all links from  ….md#…  to ….html#…
   for (const e of dom.window.document.getElementsByTagName("a")) {
     const href = e.getAttribute("href");
@@ -141,11 +150,23 @@ async function renderit(infile) {
     }
   }
 
+  body.appendChild(document.createTextNode("\n\n  "));
+  body.appendChild(document.createComment("additional scripts and fixups"));
+  body.appendChild(document.createTextNode("\n  "));
+
+  body.appendChild(getScript({ src: "./js/anchor.min.js" }));
+  body.appendChild(document.createTextNode("\n  "));
+  body.appendChild(getScript({ src: "./js/tr35search.js" }));
+  body.appendChild(document.createTextNode("\n  "));
+
   // put this last
-  body.appendChild(getScript({
-    // This invokes anchor.js
-    code: `anchors.add('h1, h2, h3, h4, h5, h6, caption, dfn');`
-  }));
+  body.appendChild(
+    getScript({
+      // This invokes anchor.js
+      code: `anchors.add('h1, h2, h3, h4, h5, h6, caption, dfn');`,
+    })
+  );
+  body.appendChild(document.createTextNode("\n"));
 
   // Now, fixup captions
   // Look for:  <h6>Table: …</h6> followed by <table>…</table>
@@ -154,12 +175,12 @@ async function renderit(infile) {
   const toRemove = [];
   for (const h6 of h6es) {
     if (!h6.innerHTML.startsWith("Table: ")) {
-      console.error('Does not start with Table: ' + h6.innerHTML);
+      console.error("Does not start with Table: " + h6.innerHTML);
       continue; // no 'Table:' marker.
     }
     const next = h6.nextElementSibling;
-    if (next.tagName !== 'TABLE') {
-      console.error('Not a following table for ' + h6.innerHTML);
+    if (next.tagName !== "TABLE") {
+      console.error("Not a following table for " + h6.innerHTML);
       continue; // Next item is not a table. Maybe a PRE or something.
     }
     const caption = dom.window.document.createElement("caption");
@@ -182,24 +203,23 @@ async function renderit(infile) {
   const anchors = dom.window.document.getElementsByTagName("a");
   for (const a of anchors) {
     // a needs to have a name
-    const aname = a.getAttribute('name');
+    const aname = a.getAttribute("name");
     if (!aname) continue;
     // parent needs to have a single child node and its own 'id'.
     const parent = a.parentElement;
     if (parent.childElementCount !== 1) continue;
-    const parid = parent.getAttribute('id');
-    if(!parid) continue;
+    const parid = parent.getAttribute("id");
+    if (!parid) continue;
     // Criteria met. swap the name and id
-    parent.setAttribute('id', aname);
-    a.setAttribute('name', parid);
+    parent.setAttribute("id", aname);
+    a.setAttribute("name", parid);
   }
 
   // OK, done munging the DOM, write it out.
   console.log(`Writing ${outfile}`);
 
   // TODO: we assume that DOCTYPE is not written.
-  await fs.writeFile(outfile, `<!DOCTYPE html>\n`
-                              + dom.serialize());
+  await fs.writeFile(outfile, `<!DOCTYPE html>\n` + dom.serialize());
   return outfile;
 }
 

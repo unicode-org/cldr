@@ -85,7 +85,7 @@ fixed-class-char = "s" / "S" / "t" / "r" / "n" / "f" / "v" / backslash / "$" / "
 
 set-class = "[" set-negator set-members "]"
 set-members = set-member *(set-member)
-set-member = text-char / char-range / match-marker
+set-member = text-char / char-range / match-marker / escaped-codepoint
 char-range = range-edge "-" range-edge
 range-edge = escaped-codepoint / range-char
 set-negator = "^" / ""

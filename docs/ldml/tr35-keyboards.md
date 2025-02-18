@@ -923,11 +923,16 @@ _Attribute:_ `indicator`
 
 _Attribute:_ `attribution`
 
-> The `attribution` attribute describes a short string which gives some indication of the origin of the keyboard design, if different from the author of the layout file.
-> For example, an external standards or other body may have originated the layout used in the document.
+> The `attribution` attribute describes a short string which gives some indication of the originating entity of the keyboard design, if different from the author of the layout file.
+> For example, an external standards body or other entity may have originated the layout used in the document.
+> This attribute does not imply endorsement by the named entity.
 >
 > This attribute is not localized.
 > There is no requirement that an implementation display, store, or otherwise process this attribute.
+
+```xml
+<info attribution="Malta Standards Authority"/>
+```
 
 * * *
 

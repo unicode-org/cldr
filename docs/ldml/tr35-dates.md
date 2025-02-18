@@ -108,10 +108,11 @@ The LDML specification is divided into the following parts:
       * [Alignment](#Semantic_Skeleton_Alignment)
       * [Year Style](#Semantic_Skeleton_Year_Style)
       * [Hour Cycle](#Semantic_Skeleton_Hour_Cycle)
-      * [Fractional Second Digits](#Semantic_Skeleton_Fractional_Second_Digits)
+      * [Time Precision](#Semantic_Skeleton_Time_Precision)
       * [Time Zone Style](#Semantic_Skeleton_Time_Zone_Style)
   * [Generating Patterns for Semantic Skeletons](#Generating_Patterns_for_Semantic_Skeletons)
     * [Mapping to Standard Skeletons](#mapping-to-standard-skeletons)
+      * [Time Precision Skeleton Variations](#Semantic_Time_Precision_Skeleton_Variations)
       * [Year Style Skeleton Variations](#Semantic_Year_Style_Skeleton_Variations)
   * [Semantic Skeleton Conformance](#Semantic_Skeleton_Conformance)
 

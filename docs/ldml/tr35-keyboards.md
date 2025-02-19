@@ -659,6 +659,11 @@ For further details about the choice of locale ID, see [Keyboard IDs](#keyboard-
   …
 </keyboard3>
 ```
+
+_Attribute:_ `draft`
+
+If this attribute is present, it indicates the status of all the data in this keyboard layout. See [draft attribute](tr35.md#attribute-draft) for further details.
+
 * * *
 
 ### Element: import

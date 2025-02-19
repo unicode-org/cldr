@@ -936,6 +936,8 @@ public abstract class CheckCLDR implements CheckAccessor {
             shortDateFieldInconsistentLength,
             illegalParameterValue,
             illegalAnnotationCode,
+            nullOrEmptyValue,
+            ttsAnnotationMissing,
             illegalCharacter;
 
             @Override

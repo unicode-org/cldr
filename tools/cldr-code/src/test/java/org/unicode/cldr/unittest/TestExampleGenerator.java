@@ -1108,7 +1108,7 @@ public class TestExampleGenerator extends TestFmwk {
         checkDayPeriod("pl", "stand-alone", "morning1", "〖06:00 – 10:00⁻〗");
 
         checkDayPeriod("en", "format", "night1", "〖21:00 – 24:00⁻〗〖❬10:30 ❭at night〗");
-        checkDayPeriod("en", "stand-alone", "night1", "〖00:00 – 06:00⁻; 21:00 – 24:00⁻〗");
+        checkDayPeriod("en", "stand-alone", "night1", "〖21:00 – 24:00⁻〗");
 
         checkDayPeriod("en", "format", "noon", "〖12:00〗〖❬12:00 ❭noon〗");
         checkDayPeriod("en", "format", "midnight", "〖00:00〗〖❬12:00 ❭midnight〗");

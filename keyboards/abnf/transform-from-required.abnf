@@ -81,11 +81,11 @@ class = fixed-class / set-class
 
 fixed-class = backslash fixed-class-char
 
-fixed-class-char = "s" / "S" / "t" / "r" / "n" / "f" / "v" / backslash / "$" / "d" / "w" / "D" / "W" / "0"
+fixed-class-char = "s" / "S" / "t" / "r" / "n" / "f" / "v" / "d" / "w" / "D" / "W"
 
 set-class = "[" set-negator set-members "]"
 set-members = set-member *(set-member)
-set-member = text-char / char-range / match-marker / escaped-codepoint
+set-member = char-range / range-char / match-marker / escaped-codepoint
 char-range = range-edge "-" range-edge
 range-edge = escaped-codepoint / range-char
 set-negator = "^" / ""
@@ -95,12 +95,16 @@ set-negator = "^" / ""
 ; normal text
 text-char         = content-char / ws / escaped-char / "-" / ":"
 ; text in a range sequence
-range-char        = content-char / ws / escaped-char / "."/ "|" / "{" / "}"
+range-char        = content-char / ws / escaped-range-char / "." / "|" / "{" / "}"
 ; group for everything BUT syntax chars.
 content-char      = ASCII-PUNCT / ALPHA / DIGIT / NON-ASCII
 
 ; Character escapes
-escaped-char = backslash ( backslash / "{" / "|" / "}" )
+escaped-char = backslash ( escapable-char )
+escapable-char = backslash / "$" / "{" / "|" / "}" / "(" / ")" / "*" / "+" / "." / "/" / "?" / "[" / "]" / "^"
+
+escaped-range-char = backslash escapable-range-char
+escapable-range-char = escapable-char / "-"
 
 backslash    = %x5C ; U+005C REVERSE SOLIDUS "\"
 ws = SP / HTAB / CR / LF / %x3000

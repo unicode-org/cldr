@@ -2233,7 +2233,7 @@ _Attribute:_ `from` (required)
     `{x,y}`
 
     `x` and `y` are required single digits (`1` to `9`) representing the minimum and maximum number of occurrences.
-    
+
     `x` must be ≥ 0, `y` must be ≥ x and ≥ 1. 
 
     Unbounded quantifiers such as `{3,}` are not allowed.
@@ -2515,20 +2515,17 @@ fixed-class-char
            | 'n'
            | 'f'
            | 'v'
-           | '\'
-           | '$'
            | 'd'
            | 'w'
            | 'D'
            | 'W'
-           | '0'
 set-class
          ::= '[' set-negator set-members ']'
 set-members
          ::= set-member+
 set-member
-         ::= text-char
-           | char-range
+         ::= char-range
+           | range-char
            | match-marker
            | escaped-codepoint
 char-range
@@ -2547,7 +2544,7 @@ text-char
 range-char
          ::= content-char
            | ws
-           | escaped-char
+           | escaped-range-char
            | '.'
            | '|'
            | '{'
@@ -2558,7 +2555,28 @@ content-char
            | DIGIT
            | NON-ASCII
 escaped-char
-         ::= '\' ( '\' | '{' | '|' | '}' )
+         ::= '\' escapable-char
+escapable-char
+         ::= '\'
+           | '$'
+           | '{'
+           | '|'
+           | '}'
+           | '('
+           | ')'
+           | '*'
+           | '+'
+           | '.'
+           | '/'
+           | '?'
+           | '['
+           | ']'
+           | '^'
+escaped-range-char
+         ::= '\' escapable-range-char
+escapable-range-char
+         ::= escapable-char
+           | '-'
 ws       ::= [ #x3000]
            | HTAB
            | CR

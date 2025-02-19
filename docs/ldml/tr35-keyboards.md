@@ -2195,30 +2195,48 @@ _Attribute:_ `from` (required)
     The hex escaping is case insensitive. The value may not match a surrogate or illegal character, nor a marker character.
     The form `\u{…}` is preferred as it is the same regardless of codepoint length.
 
-- **Fixed character classes and escapes**
+- **Fixed character classes**
 
-    `\s \S \t \r \n \f \v \\ \$ \d \w \D \W \0`
+    `\s \S \t \r \n \f \v \d \w \D \W`
 
     The value of these classes do not change with Unicode versions.
 
     `\s` for example is exactly `[\f\n\r\t\v\u{00a0}\u{1680}\u{2000}-\u{200a}\u{2028}\u{2029}\u{202f}\u{205f}\u{3000}\u{feff}]`
 
-    `\\` and `\$` evaluate to `\` and `$`, respectively.
+- **Escapes**
+
+    `\$ \( \) \* \+ \. \/ \? \[ \\ \] \^ \{ \| \}`
+
+    For example, `\\`, `\*`, and `\$` match `\`, `*`, and `$`, respectively.
+
+    Some of these characters (such as `*`) aren't actually used as syntax in the keyboard transform syntax.
+    However, they are required to be escaped in keyboard transforms, to avoid confusion or problems with characters which are syntax in regular expressions.
+
+    Sequences not listed here as **Fixed Character Classes** nor as **Escapes** are disallowed.
+    For example, `\0` (octal escape) and `\1` (backreference) are not allowed.
+    `\a` is not defined as a character class and is also disallowed.
 
 - **Character classes**
 
     `[abc]` `[^def]` `[a-z]` `[ॲऄ-आइ-ऋ]` `[\u{093F}-\u{0944}\u{0962}\u{0963}]`
 
-    - supported
-    - no Unicode properties such as `\p{…}`
-    - Warning: Character classes look superficially similar to [`uset`](#element-uset) elements, but they are distinct and referenced with the `$[...usetId]` notation in transforms. The `uset` notation cannot be embedded directly in a transform.
+    If the character class begins with a caret (`^`) then it is a negation, matching all characters except for those listed.
+
+    Unicode properties such as `\p{…}` are not allowed.
+
+    One additional escape is allowed within character classes besides those listed above: `\-`, for escaping the hyphen character.
+
+    **Note**: Character classes look superficially similar to [`uset`](#element-uset) elements, but they are distinct and referenced with the `$[...usetId]` notation in transforms. The `uset` notation cannot be embedded directly in a transform.
 
 - **Bounded quantifier**
 
     `{x,y}`
 
-    `x` and `y` are required single digits representing the minimum and maximum number of occurrences.
-    `x` must be ≥ 0, `y` must be ≥ x and ≥ 1
+    `x` and `y` are required single digits (`1` to `9`) representing the minimum and maximum number of occurrences.
+    
+    `x` must be ≥ 0, `y` must be ≥ x and ≥ 1. 
+
+    Unbounded quantifiers such as `{3,}` are not allowed.
 
 - **Optional Specifier**
 

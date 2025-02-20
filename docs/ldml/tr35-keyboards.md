@@ -2213,8 +2213,9 @@ _Attribute:_ `from` (required)
     However, they are required to be escaped in keyboard transforms, to avoid confusion or problems with characters which are syntax in regular expressions.
 
     Sequences not listed here as **Fixed Character Classes** nor as **Escapes** are disallowed.
-    For example, `\0` (octal escape) and `\1` (backreference) are not allowed.
-    `\a` is not defined as a character class and is also disallowed.
+    For example:
+    * `\0` (octal escape) and `\1` (backreference) are not allowed.
+    * `\a` is not defined as a character class and is also disallowed.
 
 - **Character classes**
 
@@ -2232,7 +2233,7 @@ _Attribute:_ `from` (required)
 
     `{x,y}`
 
-    `x` and `y` are required single digits (`1` to `9`) representing the minimum and maximum number of occurrences.
+    `x` and `y` are required single digits (`0` to `9`) representing the minimum and maximum number of occurrences.
 
     `x` must be ≥ 0, `y` must be ≥ x and ≥ 1. 
 

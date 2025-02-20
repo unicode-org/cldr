@@ -101,7 +101,7 @@ content-char      = ASCII-PUNCT / ALPHA / DIGIT / NON-ASCII
 
 ; Character escapes
 escaped-char = backslash ( escapable-char )
-escapable-char = backslash / "$" / "{" / "|" / "}" / "(" / ")" / "*" / "+" / "." / "/" / "?" / "[" / "]" / "^"
+escapable-char = "." / "(" / ")" / "?" / "[" / backslash / "]" / "{" / "}" / "*" / "/" / "^" / "+" / "|" / "$"
 
 escaped-range-char = backslash escapable-range-char
 escapable-range-char = escapable-char / "-"

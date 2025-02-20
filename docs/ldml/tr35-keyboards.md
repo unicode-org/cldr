@@ -2205,7 +2205,7 @@ _Attribute:_ `from` (required)
 
 - **Escapes**
 
-    `\$ \( \) \* \+ \. \/ \? \[ \\ \] \^ \{ \| \}`
+    `\. \( \) \? \[ \\ \] \{ \} \* \/ \^ \+ \| \$`
 
     For example, `\\`, `\*`, and `\$` match `\`, `*`, and `$`, respectively.
 
@@ -2448,7 +2448,6 @@ The `from=` attribute MUST match the `from-match` rule in this grammar. Not all 
 
 The following is the [LDML EBNF](tr35.md#ebnf) format for the grammar:
 
-
 ```ebnf
 [ wfc: No more than 9 capture groups may be present. ]
 [ vc: all variables referenced must be defined in the <variables> element ]
@@ -2558,21 +2557,21 @@ content-char
 escaped-char
          ::= '\' escapable-char
 escapable-char
-         ::= '\'
-           | '$'
-           | '{'
-           | '|'
-           | '}'
+         ::= '.'
            | '('
            | ')'
-           | '*'
-           | '+'
-           | '.'
-           | '/'
            | '?'
            | '['
+           | '\'
            | ']'
+           | '{'
+           | '}'
+           | '*'
+           | '/'
            | '^'
+           | '+'
+           | '|'
+           | '$'
 escaped-range-char
          ::= '\' escapable-range-char
 escapable-range-char

@@ -4,7 +4,7 @@ const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 const path = require("path");
 const markedAlert = require("marked-alert");
-
+const matter = require("gray-matter");
 // Setup some options for our markdown renderer
 marked.setOptions({
   renderer: new marked.Renderer(),
@@ -34,9 +34,13 @@ marked.use(markedAlert());
 async function renderit(infile) {
   const gtag = (await fs.readFile("gtag.html", "utf-8")).trim();
   console.log(`Reading ${infile}`);
-  basename = path.basename(infile, ".md");
+  const basename = path.basename(infile, ".md");
   const outfile = path.join(path.dirname(infile), `${basename}.html`);
   let f1 = await fs.readFile(infile, "utf-8");
+  // any metadata on the file?
+  const { data, content } = matter(f1);
+
+  f1 = content; // skip the frontmatter (YAML block within ---)
 
   // oh the irony of removing a BOM before posting to unicode.org
   if (f1.charCodeAt(0) == 0xfeff) {
@@ -215,6 +219,11 @@ async function renderit(infile) {
     a.setAttribute("name", parid);
   }
 
+  // If the document requests it, linkify terms
+  if (data.linkify) {
+    linkify(dom.window.document);
+  }
+
   // OK, done munging the DOM, write it out.
   console.log(`Writing ${outfile}`);
 
@@ -246,3 +255,70 @@ fixall().then(
     process.exitCode = 1;
   }
 );
+
+function linkify(document) {
+  const terms = findTerms(document);
+  const missing = new Set();
+  const used = new Set();
+  const links = document.querySelectorAll("em");
+
+  links.forEach((item) => {
+    const target = generateId(item.textContent);
+    if (terms.has(target)) {
+      const el = item.lastElementChild ?? item;
+      el.innerHTML = `<a href="#${target}">${item.textContent}</a>`;
+
+      used.add(target);
+    } else {
+      missing.add(target);
+    }
+  });
+
+  if (missing.size > 0) {
+    console.log("Potentially missing definitions:");
+    Array.from(missing)
+      .sort()
+      .forEach((item) => {
+        console.log(item);
+      });
+  }
+
+  if (terms.size === used.size) return;
+  console.log("Some definitions were not used:");
+  Array.from(terms).forEach((item) => {
+    if (!used.has(item)) {
+      console.log(item);
+    }
+  });
+}
+
+function findTerms(document) {
+  const terms = new Set();
+  let duplicateCount = 0;
+  document.querySelectorAll("dfn").forEach((item) => {
+    const term = generateId(item.textContent);
+    if (term.length === 0) return; // skip empty terms
+    if (terms.has(term)) {
+      console.log(`Duplicate term: ${term}`);
+      duplicateCount++;
+    }
+    terms.add(term);
+    item.setAttribute("id", term);
+  });
+
+  if (duplicateCount > 0) {
+    console.log("Duplicate Terms: " + duplicateCount);
+  }
+  return terms;
+}
+
+function generateId(term) {
+  const id = term.toLowerCase().replace(/\s+/g, "-"); // Replaces spaces safely
+  // TODO: do better than hardcoding the one case in message-format
+  if (id.endsWith("rategies")) {
+    return id.slice(0, -3) + "y";
+  } else if (id.endsWith("s") && id !== "status") {
+    return id.slice(0, -1);
+  }
+  return id;
+}

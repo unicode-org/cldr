@@ -382,6 +382,9 @@ function getLanguageAndDirection() {
 function getLinkUrlAndText(theRow, item) {
   let linkUrl = null;
   let linkText = null;
+  if ("591f8c536c00463d" == theRow.xpstrid) {
+    console.log("Got 591f8c536c00463d in getLinkUrlAndText");
+  }
   if (
     item?.value === cldrSurvey.INHERITANCE_MARKER &&
     (theRow?.inheritedLocale || theRow?.inheritedXpid)

@@ -11,6 +11,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 import org.junit.jupiter.api.Test;
 import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.util.CLDRConfig;
@@ -19,6 +20,7 @@ import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.PreferredAndAllowedHour;
+import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
 public class TestTimeCycle {
@@ -128,6 +130,19 @@ public class TestTimeCycle {
                             + skippedLocales);
         }
         if (!failedLocales.isEmpty()) {
+            Set<String> failedLocaleNames = new TreeSet<>();
+            for (CLDRLocale loc : failedLocales.keySet()) {
+                failedLocaleNames.add(loc.toString());
+            }
+            Set<String> intersection =
+                    worldFallback.stream()
+                            .filter(failedLocaleNames::contains)
+                            .collect(Collectors.toSet());
+            logger.info(
+                    "TestTimeCycle intersection of failed and worldFallback "
+                            + intersection.size()
+                            + ": "
+                            + intersection);
             for (Map.Entry<CLDRLocale, String> entry : failedLocales.entrySet()) {
                 logger.severe(entry.getKey() + " " + entry.getValue());
             }
@@ -157,7 +172,7 @@ public class TestTimeCycle {
             prefAndAllowedHr = timeData.get(region);
             if (prefAndAllowedHr == null) {
                 worldFallback.add(localeID);
-                prefAndAllowedHr = timeData.get("001" /* world */);
+                prefAndAllowedHr = timeData.get(StandardCodes.NO_COUNTRY /* 001, world */);
                 if (prefAndAllowedHr == null) {
                     return null;
                 }

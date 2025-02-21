@@ -36,6 +36,11 @@ public class TestTimeCycle {
 
     private final boolean USE_ICU_DATA = false; // temporary, debugging
 
+    /**
+     * TODO: find the preferred calendar for the locale (based on data from
+     * SupplementalDataInfo.getCalendars(region)), and if it is not Gregorian then also check the
+     * shortTimeFormat for that. Reference: https://unicode-org.atlassian.net/browse/CLDR-13589
+     */
     private final String calendarType = LDMLConstants.GREGORIAN; /* or LDMLConstants.GENERIC? */
 
     private final String shortTimePath =
@@ -110,7 +115,7 @@ public class TestTimeCycle {
         }
         if (!worldFallback.isEmpty()) {
             logger.info(
-                    "TestTimeCycle skipped "
+                    "TestTimeCycle found "
                             + worldFallback.size()
                             + " world-fallback locales: "
                             + worldFallback);
@@ -139,7 +144,6 @@ public class TestTimeCycle {
             String localeID,
             Map<String, String> likelySubtags,
             Set<String> worldFallback) {
-
         PreferredAndAllowedHour prefAndAllowedHr = timeData.get(localeID);
         if (prefAndAllowedHr == null) {
             LocaleIDParser lp = new LocaleIDParser();
@@ -159,25 +163,6 @@ public class TestTimeCycle {
                 }
             }
         }
-        return patternFromHourStyle(prefAndAllowedHr.preferred);
-    }
-
-    private String patternFromHourStyle(PreferredAndAllowedHour.HourStyle hourStyle) {
-        switch (hourStyle) {
-            case H:
-            case Hb:
-            case HB:
-                return "H";
-            case k:
-                return "k";
-            case K:
-                return "K";
-            case h:
-            case hb:
-            case hB:
-                return "h";
-            default:
-                return null;
-        }
+        return prefAndAllowedHr.preferred.base.name();
     }
 }

@@ -1,3 +1,6 @@
+---
+linkify: true
+---
 ## Unicode Technical Standard #35
 
 # Unicode Locale Data Markup Language (LDML)<br/>Part 9: Message Format

@@ -7,11 +7,15 @@ import com.ibm.icu.text.DateTimePatternGenerator;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.util.ULocale;
 import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
+import java.util.TreeSet;
 import java.util.logging.Logger;
 import org.junit.jupiter.api.Test;
 import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.PreferredAndAllowedHour;
@@ -30,9 +34,14 @@ public class TestTimeCycle {
 
     private final char[] timeCycleChars = {'H', 'h', 'K', 'k'};
 
-    private final boolean USE_ICU_DATA = false;
+    private final boolean USE_ICU_DATA = false; // temporary, debugging
 
     private final String calendarType = LDMLConstants.GREGORIAN; /* or LDMLConstants.GENERIC? */
+
+    private final String shortTimePath =
+            "//ldml/dates/calendars/calendar[@type=\""
+                    + calendarType
+                    + "\"]/timeFormats/timeFormatLength[@type=\"short\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]";
 
     /**
      * Test that in all available locales, the standard time format matches the region's preferred
@@ -48,13 +57,14 @@ public class TestTimeCycle {
         SupplementalDataInfo sdi = testInfo.getSupplementalDataInfo();
         Map<String /* region */, PreferredAndAllowedHour> timeData = sdi.getTimeData();
         Map<String, String> likelySubtags = sdi.getLikelySubtags();
-        int failureNumber = 0;
+        Set<String> skippedLocales = new TreeSet<>(), worldFallback = new TreeSet<>();
+        Map<CLDRLocale, String> failedLocales = new TreeMap<>();
         for (String localeID : cldrFactory.getAvailable()) {
+            CLDRLocale loc = CLDRLocale.getInstance(localeID);
             CLDRFile cldrFile = cldrFactory.make(localeID, true);
             ULocale uloc = new ULocale(localeID);
             DateFormat dfmt = DateFormat.getTimeInstance(DateFormat.SHORT, uloc);
-            String jPattern;
-            String shortPattern;
+            String jPattern, shortPattern;
             DateTimePatternGenerator dtpg;
             if (USE_ICU_DATA) {
                 dtpg = DateTimePatternGenerator.getInstance(uloc);
@@ -62,63 +72,73 @@ public class TestTimeCycle {
                 shortPattern = ((SimpleDateFormat) dfmt).toPattern(); // e.g., "h:mm a" or "HH:mm"
             } else {
                 dtpg = DateTimePatternGenerator.getEmptyInstance();
-                jPattern = getCldrJPatternForLocale(timeData, localeID, likelySubtags);
+                jPattern = getJPattern(timeData, localeID, likelySubtags, worldFallback);
                 if (jPattern == null) {
-                    failOrLog("Got null jPattern, locale = " + localeID);
+                    failedLocales.put(loc, "Null jPattern");
                     continue;
                 }
-                String shortTimePath =
-                        "//ldml/dates/calendars/calendar[@type=\""
-                                + calendarType
-                                + "\"]/timeFormats/timeFormatLength[@type=\"short\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]";
                 shortPattern = cldrFile.getWinningValue(shortTimePath);
                 if (shortPattern == null) {
-                    failOrLog("Got null shortTimePath, locale = " + localeID);
+                    failedLocales.put(loc, "Null shortTimePath");
+                    continue;
+                }
+                if (CLDRLocale.ROOT.equals(loc.getParent()) && !cldrFile.isHere(shortTimePath)) {
+                    skippedLocales.add(localeID);
                     continue;
                 }
             }
-            // convert to skeletons to make it easier to check for hour character (eliminates
+            // Convert to skeletons to make it easier to check for hour character (eliminates
             // literals, repeats, etc.)
             String shortPatSkeleton = dtpg.getBaseSkeleton(shortPattern); // e.g., "ahm" or "Hm"
             String jPatSkeleton = dtpg.getBaseSkeleton(jPattern); // e.g., "ah" or "H"
-            System.out.println(
-                    "testJjMapping "
-                            + localeID
-                            + "\t["
-                            + jPattern
-                            + "] ["
-                            + jPatSkeleton
-                            + "] ["
-                            + shortPattern
-                            + "] ["
-                            + shortPatSkeleton
-                            + "]");
             for (char timeCycleChar : timeCycleChars) {
                 boolean has1 = jPatSkeleton.indexOf(timeCycleChar) >= 0;
                 boolean has2 = shortPatSkeleton.indexOf(timeCycleChar) >= 0;
                 if (has1 && !has2) {
                     String calType = USE_ICU_DATA ? dfmt.getCalendar().getType() : calendarType;
-                    failOrLog(
-                            ++failureNumber
-                                    + " locale "
-                                    + localeID
-                                    + ", calendar "
-                                    + calType
-                                    + ", expected "
+                    failedLocales.put(
+                            loc,
+                            calType
+                                    + " expected "
                                     + timeCycleChar
-                                    + " to occur in both patterns "
+                                    + " in both "
                                     + jPattern
                                     + " and "
                                     + shortPattern);
                 }
             }
         }
+        if (!worldFallback.isEmpty()) {
+            logger.info(
+                    "TestTimeCycle skipped "
+                            + worldFallback.size()
+                            + " world-fallback locales: "
+                            + worldFallback);
+        }
+        if (!skippedLocales.isEmpty()) {
+            logger.info(
+                    "TestTimeCycle skipped "
+                            + skippedLocales.size()
+                            + " top-level locales without explicit timeFormatLength: "
+                            + skippedLocales);
+        }
+        if (!failedLocales.isEmpty()) {
+            for (Map.Entry<CLDRLocale, String> entry : failedLocales.entrySet()) {
+                logger.severe(entry.getKey() + " " + entry.getValue());
+            }
+            fail(
+                    "TestTimeCycle failed "
+                            + failedLocales.size()
+                            + " locales: "
+                            + failedLocales.keySet());
+        }
     }
 
-    private String getCldrJPatternForLocale(
+    private String getJPattern(
             Map<String, PreferredAndAllowedHour> timeData,
             String localeID,
-            Map<String, String> likelySubtags) {
+            Map<String, String> likelySubtags,
+            Set<String> worldFallback) {
 
         PreferredAndAllowedHour prefAndAllowedHr = timeData.get(localeID);
         if (prefAndAllowedHr == null) {
@@ -128,23 +148,11 @@ public class TestTimeCycle {
                 String loc2 = likelySubtags.get(localeID);
                 if (loc2 != null && !loc2.isEmpty()) {
                     region = lp.set(loc2).getRegion();
-                    System.out.println(
-                            "getCldrJPatternForLocale "
-                                    + localeID
-                                    + " loc2 = "
-                                    + loc2
-                                    + " region = "
-                                    + region);
                 }
             }
             prefAndAllowedHr = timeData.get(region);
             if (prefAndAllowedHr == null) {
-                System.out.println(
-                        "getCldrJPatternForLocale "
-                                + localeID
-                                + " get (region "
-                                + region
-                                + ") null, falling back to 001");
+                worldFallback.add(localeID);
                 prefAndAllowedHr = timeData.get("001" /* world */);
                 if (prefAndAllowedHr == null) {
                     return null;
@@ -169,16 +177,7 @@ public class TestTimeCycle {
             case hB:
                 return "h";
             default:
-                failOrLog("Cannot get pattern for " + hourStyle);
                 return null;
-        }
-    }
-
-    private void failOrLog(String message) {
-        if (false) {
-            fail(message);
-        } else {
-            logger.severe(message);
         }
     }
 }

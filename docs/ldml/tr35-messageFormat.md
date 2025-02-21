@@ -3,7 +3,7 @@ linkify: true
 ---
 ## Unicode Technical Standard #35
 
-# Unicode Locale Data Markup Language (LDML)<br/>Part 9: Message Format
+# Unicode Locale Data Markup Language (LDML)<br/>Part 9: MessageFormat
 
 |Version|47 (draft)              |
 |-------|------------------------|
@@ -46,10 +46,11 @@ The LDML specification is divided into the following parts:
 *   Part 6: [Supplemental](tr35-info.md#Contents) (supplemental data)
 *   Part 7: [Keyboards](tr35-keyboards.md#Contents) (keyboard mappings)
 *   Part 8: [Person Names](tr35-personNames.md#Contents) (person names)
-*   Part 9: [MessageFormat](tr35-messageFormat.md#Contents) (message format)
+*   Part 9: [MessageFormat](tr35-messageFormat.md#Contents) (messageformat)
 
-## <a name="Contents">Contents of Part 9, Message Format</a>
+## <a name="Contents">Contents of Part 9, MessageFormat</a>
 
+* [Table of Contents](#table-of-contents)
 * [Introduction](#introduction)
   * [Conformance](#conformance)
   * [Terminology and Conventions](#terminology-and-conventions)
@@ -83,16 +84,17 @@ The LDML specification is divided into the following parts:
   * [Escape Sequences](#escape-sequences)
     * [Whitespace](#whitespace)
   * [Complete ABNF](#complete-abnf)
-* [`message.abnf`](#messageabnf)
+* [message.abnf](#message-abnf)
 * [Formatting](#formatting)
   * [Formatting Context](#formatting-context)
   * [Resolved Values](#resolved-values)
   * [Expression and Markup Resolution](#expression-and-markup-resolution)
-    * [Literal Resolution](#literal-resolution)
-    * [Variable Resolution](#variable-resolution)
-    * [Function Resolution](#function-resolution)
-      * [Function Handler](#function-handler)
-      * [Option Resolution](#option-resolution)
+    * [Expression Resolution](#expression-resolution)
+      * [Literal Resolution](#literal-resolution)
+      * [Variable Resolution](#variable-resolution)
+      * [Function Resolution](#function-resolution)
+        * [Function Handler](#function-handler)
+        * [Option Resolution](#option-resolution)
     * [Markup Resolution](#markup-resolution)
     * [Fallback Resolution](#fallback-resolution)
   * [Pattern Selection](#pattern-selection)
@@ -195,10 +197,13 @@ The LDML specification is divided into the following parts:
   * [Markup Model](#markup-model)
   * [Attribute Model](#attribute-model)
   * [Model Extensions](#model-extensions)
-  * [`message.json`](#messagejson)
+  * [`message.json`](#message-json)
 * [Appendices](#appendices)
   * [Security Considerations](#security-considerations)
   * [Acknowledgements](#acknowledgements)
+
+## Table of Contents
+
 
 ## Introduction
 
@@ -261,7 +266,7 @@ A reference to a _term_ looks like this.
 
 ### Stability Policy
 
-Updates to this specification will not make any valid _message_ invalid.
+Updates to this specification will not make any _valid_ _message_ become not _valid_.
 
 Updates to this specification will not specify an _error_ for any _message_
 that previously did not specify an _error_.
@@ -274,7 +279,7 @@ of any syntax defined in this specification.
 
 Updates to this specification will not remove any _default functions_.
 
-Updates to this specification will not remove any _options_ or _option_ values
+Updates to this specification will not remove any _options_ or _option values_
 defined for _default functions_.
 
 > [!IMPORTANT]
@@ -282,7 +287,7 @@ defined for _default functions_.
 > the provisions of this stability policy.
 >
 > _Functions_ or _options_ marked as **Draft** are not stable.
-> Their name, _operands_, and _options_/_values_, and other requirements
+> Their name, _operands_, and _options_/_option values_, and other requirements
 > might change or be removed before being declared **Stable** in a future release.
 
 > [!NOTE]
@@ -294,19 +299,7 @@ defined for _default functions_.
 > (such as due to the release of new CLDR versions).
 
 Updates to this specification will only reserve, define, or require
-_function_ _identifiers_ and _function_ _option_ _identifiers_
-which satisfy either of the following two requirements:
-- Includes no _namespace_,
-  and has a _name_ consisting of characters in the ranges a-z, A-Z, and 0-9,
-  and the characters U+002E FULL STOP `.`, U+002D HYPHEN-MINUS `-`, and U+005F LOW LINE `_`.
-- Uses a _namespace_ consisting of a single character in the ranges a-z and A-Z.
-
-All other _identifiers_ in these categories are reserved for the use of implementations or users.
-
-> [!IMPORTANT]
-> Implementation-defined or user-defined _functions_ and _function_ _options_
-> SHOULD use a _namespace_ as part of their _identifiers_
-> to help avoid collisions with other implementations.
+_identifiers_ which are _reserved identifiers_.
 
 Future versions of this specification will not introduce changes
 to the data model that would result in a data model representation
@@ -325,8 +318,8 @@ based on this version being invalid.
 > - Future versions may define additional _default functions_.
 >   or may reserve the names of _functions_ for the purposes of interoperability.
 > - Future versions may define additional _options_ to existing functions.
-> - Future versions may define additional _option_ values for existing _options_.
-> - Future versions may deprecate (but not remove) _keywords_, _functions_, _options_, or _option_ values.
+> - Future versions may define additional _option values_ for existing _options_.
+> - Future versions may deprecate (but not remove) _keywords_, _functions_, _options_, or _option values_.
 > - Future versions of this specification may introduce changes
 >   to the data model that would result in future data model representations
 >   not being valid for implementations of this version of the data model.
@@ -411,7 +404,7 @@ This part of the MessageFormat specification defines the syntax for a _message_,
 along with the concepts and terminology needed when processing a _message_
 during the [formatting](#formatting) of a _message_ at runtime.
 
-The complete formal syntax of a _message_ is described by the [ABNF](#messageabnf).
+The complete formal syntax of a _message_ is described by the [ABNF](#message-abnf).
 
 #### Well-formed vs. Valid Messages
 
@@ -705,7 +698,7 @@ otherwise, a corresponding _Data Model Error_ will be produced during processing
 - _Duplicate Variant_:
   Each _variant_ MUST use a list of _keys_ that is unique from that
   of all other _variants_ in the _message_.
-  _Literal_ _keys_ are compared by their contents, not their syntactical appearance.
+  _Literal_ _keys_ are compared by their _string values_, not their syntactical appearance.
 
 ```abnf
 matcher         = match-statement s variant *(o variant)
@@ -806,7 +799,7 @@ that matches all values for a given _selector_.
 
 The value of each _literal_ _key_ MUST be treated as if it were in
 [Unicode Normalization Form C](https://unicode.org/reports/tr15/) ("NFC").
-Two _literal_ _keys_ are considered equal if they are canonically equivalent strings,
+Two _literal_ _keys_ are considered equal if their _string values_ are canonically equivalent strings,
 that is, if they consist of the same sequence of Unicode code points after
 Unicode Normalization Form C has been applied to both.
 
@@ -904,10 +897,10 @@ function = ":" identifier *(s option)
 An **_<dfn>option</dfn>_** is a key-value pair
 containing a named argument that is passed to a _function_.
 
-An _option_ has an _identifier_ and a _value_.
-The _identifier_ is separated from the _value_ by an U+003D EQUALS SIGN `=` along with
+An _option_ has an _identifier_ and an _option value_.
+The _identifier_ is separated from the _option value_ by an U+003D EQUALS SIGN `=` along with
 optional whitespace.
-The value of an _option_ can be either a _literal_ or a _variable_.
+The **_<dfn>option value</dfn>_** can be either a _literal_ or a _variable_.
 
 Multiple _options_ are permitted in a _function_.
 _Options_ are separated from the preceding _function_ _identifier_
@@ -996,7 +989,7 @@ and they can be treated as code comments.
 
 _Attributes_ are prefixed by a U+0040 COMMERCIAL AT `@` sign,
 followed by an _identifier_.
-An _attribute_ MAY have a _literal_ _value_ which is separated from the _identifier_
+An _attribute_ MAY have a _literal_ value which is separated from the _identifier_
 by an U+003D EQUALS SIGN `=` along with optional whitespace.
 
 Multiple _attributes_ are permitted in an _expression_ or _markup_.
@@ -1048,7 +1041,7 @@ of _text_ in various parts of a _message_.
 A _literal_ can appear
 as a _key_ value,
 as the _operand_ of a _literal-expression_,
-or in the value of an _option_.
+or as an _option value_.
 A _literal_ MAY include any Unicode code point except for U+0000 NULL.
 
 All code points are preserved.
@@ -1078,8 +1071,9 @@ escaped as `\\` and `\|`.
 
 An **_<dfn>unquoted literal</dfn>_** is a _literal_ that does not require the `|`
 quotes around it to be distinct from the rest of the _message_ syntax.
-An _unquoted literal_ MAY be used when the content of the _literal_
-contains no whitespace and otherwise matches the `unquoted-literal` production.
+An _unquoted literal_ MAY be used when the _string value_ of the _literal_
+matches the `unquoted-literal` production.
+It will thus contain no whitespace (nor certain other characters).
 Implementations MUST NOT distinguish between _quoted literals_ and _unquoted literals_
 that have the same sequence of code points.
 
@@ -1091,6 +1085,11 @@ literal          = quoted-literal / unquoted-literal
 quoted-literal   = "|" *(quoted-char / escaped-char) "|"
 unquoted-literal = 1*name-char
 ```
+The **_<dfn>string value</dfn>_** of a _literal_ 
+for _unquoted literals_ is the text content of that _literal_;
+or for _quoted literals_, the text content of that _literal_ 
+after removing the enclosing `|` characters
+then unescaping any escaped characters.
 
 #### Names and Identifiers
 
@@ -1129,7 +1128,7 @@ The _names_ are [immutable identifiers](https://www.unicode.org/reports/tr31/#Im
 An **_<dfn>identifier</dfn>_** is a character sequence that
 identifies a _function_, _markup_, or _option_.
 Each _identifier_ consists of a _name_ optionally preceeded by
-a _namespace_. 
+a **_<dfn>namespace</dfn>_**. 
 When present, the _namespace_ is separated from the _name_ by a
 U+003A COLON `:`.
 Built-in _functions_ and their _options_ do not have a _namespace_ identifier.
@@ -1219,11 +1218,29 @@ name-char  = name-start / DIGIT / "-" / "."
 > * Surrogate code points (`GC=Cs`)
 > * Non-Characters (`NChar`)
 
-This syntax allows a wide range of characters in _names_ and _identifiers_.
+A **_<dfn>reserved identifier</dfn>_** is one that satisfies the following conditions:
+- Includes no _namespace_ or uses a _namespace_ consisting of a single letter
+  in the ranges a-z and A-Z.
+- Has a _name_ that matches the following ABNF:
+```abnf
+reserved-identifier = ALPHA *[ALPHA / DIGIT / "." / "-" / "_"]
+```
+
+A **_<dfn>custom identifier</dfn>_** is any _identifier_ that is not a _reserved identifier_.
+
+> [!NOTE]
+> Choose a _custom identifier_ for any _functions_, _markup_, or _attributes_ not defined by this specification.
+> Use a _namespace_ in a _custom identifier_ to identify a _function_ that is not a _default function_
+> or when defining a custom _option_ for a _default function_.
+>
+> _Variable_ _names_ are encouraged to use _reserved identifiers_.
+> _Option_ _names_ for custom _functions_ are encouraged to use _reserved identifiers_.
+
+The syntax allows a wide range of characters in _names_ and _identifiers_.
 Implementers and authors of _functions_ and _messages_,
-including _functions_, _options_, and _operands_ (variable names),
+including _functions_, _options_, and _variables_,
 SHOULD avoid creating _names_ that could produce confusion or harm usability
-by choosing names consistent with the following guidelines.
+by choosing _names_ consistent with the following guidelines.
 MessageFormat tools, such as linters, SHOULD warn when _names_ chosen by users
 violate these constraints.
 >
@@ -1256,14 +1273,15 @@ and inside _patterns_ only escape `{` and `}`.
 
 #### Whitespace
 
-The syntax limits whitespace characters outside of a _pattern_ to the following:
+Outside of the _text_ parts of _patterns_ and outside of _quoted literals_
+the syntax limits whitespace characters to the following:
 `U+0009 CHARACTER TABULATION` (tab), 
 `U+000A LINE FEED` (new line),
 `U+000D CARRIAGE RETURN`, 
 `U+3000 IDEOGRAPHIC SPACE`, 
 or `U+0020 SPACE`.
 
-Inside _patterns_ and _quoted literals_,
+In the _text_ parts of _patterns_ and in _quoted literals_,
 whitespace is part of the content and is recorded and stored verbatim.
 Whitespace is not significant outside translatable text, except where required by the syntax.
 
@@ -1291,7 +1309,7 @@ following mechanisms to make messages display intelligibly in plain-text editors
 2. Use the 'local-effect' bidi marks
    `U+061C ARABIC LETTER MARK`, `U+200E LEFT-TO-RIGHT MARK` or
    `U+200F RIGHT-TO-LEFT MARK` as permitted by the ABNF before or after _identifiers_,
-   _names_, unquoted _literals_, or _option_ values,
+   _names_, unquoted _literals_, or _option values_,
    especially when the values contain a mix of neutral, weakly directional, and
    strongly directional characters.
 
@@ -1366,7 +1384,7 @@ ws = SP / HTAB / CR / LF / %x3000
 
 ### Complete ABNF
 
-The grammar is formally defined in [`message.abnf`](#messageabnf)
+The grammar is formally defined in [`message.abnf`](#message-abnf)
 using the ABNF notation [[STD68](https://www.rfc-editor.org/info/std68)],
 including the modifications found in [RFC 7405](https://www.rfc-editor.org/rfc/rfc7405).
 
@@ -1382,7 +1400,7 @@ local = %x2E.6C.6F.63.61.6C  ; ".local"
 match = %x2E.6D.61.74.63.68  ; ".match"
 ```
 
-## `message.abnf`
+## message.abnf
 
 ```abnf
 message           = simple-message / complex-message
@@ -1647,9 +1665,12 @@ as well as a flag to indicate whether
 its formatted representation requires isolation
 from the surrounding text.
 
-To allow for _function handlers_ to ensure that certain _option_ values are set by _literals_,
-the _resolved value_ of each _option_ value MUST include information about 
-whether the _option_ value is a _literal_ or a _variable_.
+For each _option value_, the _resolved value_ MUST indicate if the value
+was directly set with a _literal_, as opposed to being resolved from a _variable_.
+This is to allow _functions handlers_ to require specific _options_ to be set using _literals_.
+
+> For example, the _default functions_ `:number` and `:integer` require that the _option_
+> `select` be set with a _literal_ _option value_ (`plural`, `ordinal`, or `exact`). 
 
 The form that _resolved values_ take is implementation-dependent,
 and different implementations MAY choose to perform different levels of resolution.
@@ -1679,7 +1700,7 @@ and different implementations MAY choose to perform different levels of resoluti
 >   calling the `selectKeys(keys)` method of its _resolved value_
 >   did not emit an error.
 > - Using a _variable_, the _resolved value_ of an _expression_
->   could be used as an _operand_ or _option_ value if
+>   could be used as an _operand_ or _option value_ if
 >   calling the `getValue()` method of its _resolved value_ did not emit an error.
 >   In this use case, the `resolvedOptions()` method could also
 >   provide a set of option values that could be taken into account by the called function.
@@ -1698,6 +1719,9 @@ and different implementations MAY choose to perform different levels of resoluti
 _Expressions_ are used in _declarations_ and _patterns_.
 _Markup_ is only used in _patterns_.
 
+#### Expression Resolution
+
+**_<dfn>Expression resolution</dfn>_** determines the value of an _expression_.
 Depending on the presence or absence of a _variable_ or _literal_ operand and a _function_,
 the _resolved value_ of the _expression_ is determined as follows:
 
@@ -1739,14 +1763,13 @@ Its _resolved value_ is defined by _literal resolution_.
 > {{You have {42 :number}}}
 > ```
 
-#### Literal Resolution
+##### Literal Resolution
 
-The _resolved value_ of a _text_ or a _literal_ contains
+**_<dfn>Literal resolution</dfn>_** : The _resolved value_ of a _text_ or a _literal_ contains
 the character sequence of the _text_ or _literal_
 after any character escape has been converted to the escaped character.
 
-When a _literal_ is used as an _operand_
-or on the right-hand side of an _option_,
+When a _literal_ is used as an _operand_ or as an _option value_,
 the formatting function MUST treat its _resolved value_ the same
 whether its value was originally a _quoted literal_ or an _unquoted literal_.
 
@@ -1769,9 +1792,9 @@ whether its value was originally a _quoted literal_ or an _unquoted literal_.
 > }
 > ```
 
-#### Variable Resolution
+##### Variable Resolution
 
-To resolve the value of a _variable_,
+**_<dfn>Variable resolution</dfn>_** : To resolve the value of a _variable_,
 its _name_ is used to identify either a local variable or an input variable.
 If a _declaration_ exists for the _variable_, its _resolved value_ is used.
 Otherwise, the _variable_ is an implicit reference to an input value,
@@ -1787,9 +1810,9 @@ a _fallback value_ is used as the _resolved value_ of the _variable_.
 The _fallback value_ representation of a _variable_ has a string representation
 consisting of the U+0024 DOLLAR SIGN `$` followed by the _name_ of the _variable_.
 
-#### Function Resolution
+##### Function Resolution
 
-To resolve an _expression_ with a _function_,
+**_<dfn>Function resolution</dfn>_** : To resolve an _expression_ with a _function_,
 the following steps are taken:
 
 1. If the _expression_ includes an _operand_, resolve its value.
@@ -1828,7 +1851,7 @@ the following steps are taken:
    - The resolved mapping of _options_.
    - If the _expression_ includes an _operand_, its _resolved value_.
 
-   The form that resolved _operand_ and _option_ values take is implementation-defined.
+   The form that resolved _operand_ and _option values_ take is implementation-defined.
 
    An implementation MAY pass additional arguments to the _function handler_,
    as long as reasonable precautions are taken to keep the function interface
@@ -1836,6 +1859,7 @@ the following steps are taken:
 
 6. If the call succeeds,
    resolve the value of the _expression_ as the result of that function call.
+   The value MUST NOT be marked as a _literal_ _option value_.
 
    If the call fails or does not return a valid value,
    emit the appropriate _Message Function Error_ for the failure.
@@ -1848,7 +1872,7 @@ the following steps are taken:
   
    In all failure cases, return a _fallback value_ as the _resolved value_ of the _expression_.
 
-##### Function Handler
+###### Function Handler
 
 A **_<dfn>function handler</dfn>_** is an implementation-defined process
 such as a function or method
@@ -1861,7 +1885,7 @@ An implementation MAY allow custom functions to be defined by users.
 Implementations that provide a means for defining custom functions
 MUST provide a means for _function handlers_
 to return _resolved values_ that contain enough information
-to be used as _operands_ or _option_ values in subsequent _expressions_.
+to be used as _operands_ or _option values_ in subsequent _expressions_.
 
 The _resolved value_ returned by a _function handler_
 MAY be different from the value of the _operand_ of the _function_.
@@ -1880,7 +1904,7 @@ and execution time SHOULD be limited.
 
 Implementation-defined _functions_ SHOULD use an implementation-defined _namespace_.
 
-##### Option Resolution
+###### Option Resolution
 
 **_<dfn>Option resolution</dfn>_** is the process of computing the _options_
 for a given _expression_. 
@@ -1897,12 +1921,12 @@ For each _option_:
 1. Let `res` be a new empty mapping.
 1. For each _option_:
    1. Let `id` be the string value of the _identifier_ of the _option_.
-   1. Let `rv` be the _resolved value_ of the _option_ value.
+   1. Let `rv` be the _resolved value_ of the _option value_.
    1. If `rv` is a _fallback value_:
       1. If supported, emit a _Bad Option_ error.
    1. Else:
-      1. If the _option_ value was set by a _literal_:
-         1. Include that information in `rv`.
+      1. If the _option value_ consists of a _literal_:
+         1. Mark `rv` as a _literal_ _option value_.
       1. Set `res[id]` to be `rv`.
 1. Return `res`.
 
@@ -1919,13 +1943,14 @@ This mapping can be empty.
 
 #### Markup Resolution
 
+**_<dfn>Markup resolution</dfn>_** determines the value of _markup_.
 Unlike _functions_, the resolution of _markup_ is not customizable.
 
 The _resolved value_ of _markup_ includes the following fields:
 
 - The type of the markup: open, standalone, or close
 - The _identifier_ of the _markup_
-- The resolved _options_ values after _option resolution_.
+- The resolved mapping of _options_ after _option resolution_.
 
 If the resolved mapping of _options_ includes any _`u:` options_
 supported by the implementation, process them as specified.
@@ -1937,8 +1962,8 @@ The resolution of _markup_ MUST always succeed.
 
 A **_<dfn>fallback value</dfn>_** is the _resolved value_ for
 an _expression_ or _variable_ when that _expression_ or _variable_ fails to resolve.
-It contains a string representation that is used for its formatting,
-and no option values.
+It contains a string representation that is used for its formatting.
+All _options_ are removed.
 
 The _resolved value_ of _text_, _literal_, and _markup_ MUST NOT be a _fallback value_.
 
@@ -1950,7 +1975,7 @@ An _expression_ fails to resolve when:
 
 - A _variable_ used as its _operand_ resolves to a _fallback value_.
   Note that an _expression_ does not necessarily fail to resolve
-  if an _option_ resolves with a _fallback value_.
+  if an _option value_ resolves with a _fallback value_.
 - No _function handler_ is found for a _function_ _identifier_.
 - Calling a _function handler_ fails or does not return a valid value.
 
@@ -2055,11 +2080,6 @@ according to their _key_ values and selecting the first one.
 > > many {{ }}
 > > *    {{Only used by fractions in Polish.}}
 > > ```
->
-> During the Final Candidate review period, feedback from users and implementers is desired about
-> whether to relax the requirement that such a "fallback _variant_" appear in
-> every message, versus the potential for a _message_ to fail at runtime
-> because no matching _variant_ is available.
 
 The number of _keys_ in each _variant_ MUST equal the number of _selectors_.
 
@@ -2428,7 +2448,7 @@ isolating such parts to ensure that the formatted value displays correctly in a 
 > An example of this is formatting the value `-1234.56` as the currency `AED`
 > in the `ar-AE` locale. The formatted value appears like this:
 > ```
-> ‎-1,234.56 د.إ.‏
+> ‎-1,234.56 د.إ.‏
 > ```
 > The code point sequence for this string, as produced by the ICU4J `NumberFormat` function,
 > includes **U+200F U+200E** at the start and **U+200F** at the end of the string.
@@ -2477,15 +2497,15 @@ The _Default Bidi Strategy_ is defined as follows:
          1. Else:
             1. Append U+2066 LEFT-TO-RIGHT ISOLATE to `out`.
             1. Append `fmt` to `out`.
-            1. Append U+2069 POP DIRECTIONAL ISOLATE to `out`.
+            1. Append U+2069 POP DIRECTIONAL ISOLATE to `out`.
       1. Else if `dir` is `'RTL'`:
          1. Append U+2067 RIGHT-TO-LEFT ISOLATE to `out.`
          1. Append `fmt` to `out`.
-         1. Append U+2069 POP DIRECTIONAL ISOLATE to `out`.
+         1. Append U+2069 POP DIRECTIONAL ISOLATE to `out`.
       1. Else:
          1. Append U+2068 FIRST STRONG ISOLATE to `out`.
          1. Append `fmt` to `out`.
-         1. Append U+2069 POP DIRECTIONAL ISOLATE to `out`.
+         1. Append U+2069 POP DIRECTIONAL ISOLATE to `out`.
 1. Emit `out` as the formatted output of the message.
 
 > [!NOTE]
@@ -2506,7 +2526,6 @@ The _Default Bidi Strategy_ is defined as follows:
 > Directionality SHOULD NOT be determined by introspecting
 > the character sequence in the formatted string representation
 > of `resval`.
-
 
 ## Errors
 
@@ -2857,13 +2876,13 @@ for that specific _function_.
 #### Bad Option
 
 A **_<dfn>Bad Option</dfn>_** error is an error that occurs when there is
-an implementation-defined error with an _option_ or its value.
+an implementation-defined error with an _option_ or an _option value_.
 These might include:
 - A required _option_ is missing.
 - Mutually exclusive _options_ are supplied.
-- An _option_ value provided to a _function_ during _function resolution_
+- An _option value_ provided to a _function_ during _function resolution_
    does not match one of the implementation-defined types or values for that _function_;
-   or in which the literal _option_ value does not have the required format
+   or in which the _string value_ of an _option_ does not have the required format
    and thus cannot be processed into one of the expected
    implementation-defined types for that specific _function_.
 
@@ -2896,7 +2915,7 @@ does not match the expected implementation-defined format.
 #### Unsupported Operation
 
 A **_<dfn>Unsupported Operation</dfn>_** error is an implementation-specific error
-that occurs when a given _option_, _option_ value, _operand_ value, or some combination
+that occurs when a given _option_, _option value_, _operand_, or some combination
 of these are incompatible or not supported by a given _function_ or its _function handler_.
 
 ## Default Functions
@@ -2911,11 +2930,11 @@ emit an _Unknown Function_ error for that _function_'s _identifier_.
 To _accept_ an _option_ means that a _function handler_ MUST NOT
 emit a _Bad Option_ error for that _option_'s _identifier_ when used with the _function_
 it is defined for
-and MUST NOT emit a _Bad Option_ error for any of the _option_ values
+and MUST NOT emit a _Bad Option_ error for any of the _option values_
 defined for that _option_.
 Accepting a _function_ or its _options_ does not mean that a particular output is produced.
 Implementations MAY emit an _Unsupported Operation_ error for _options_
-or _option_ values that they cannot support.
+or _option values_ that they cannot support.
 
 _Functions_ can define _options_. 
 An _option_ can be REQUIRED or RECOMMENDED.
@@ -2940,11 +2959,11 @@ by any version of this specification for _default functions_.
 Such _options_ MUST use an implementation-specific _namespace_.
 
 Implementations MAY _accept_, for _options_ defined in this specification,
-_option_ values which are not defined in this specification.
+_option values_ which are not defined in this specification.
 However, such values might become defined with a different meaning in the future,
 including with a different, incompatible name
 or using an incompatible value space.
-Supporting implementation-specific _option_ values for _default functions_ is NOT RECOMMENDED.
+Supporting implementation-specific _option values_ for _default functions_ is NOT RECOMMENDED.
 
 Implementations MAY _accept_, for _operands_ or _options_ defined in this specification,
 values with implementation-defined types.
@@ -2957,11 +2976,11 @@ Such values can be useful to users in cases where local usage and support exists
 > - A Java implementation might _accept_ a `java.time.chrono.Chronology` object
 >   as a value for the _date/time override option_ `calendar`
 
-Future versions of this specification MAY define additional _options_ and _option_ values,
+Future versions of this specification MAY define additional _options_ and _option values_,
 subject to the rules in the [Stability Policy](#stability-policy),
 for _functions_ found in this specification.
 As implementations are permitted to ignore _options_ that they do not support,
-it is possible to write _messages_ using _options_ not defined below
+it is possible to write _messages_ using _options_ not defined here
 which currently format with no error, but which could produce errors
 when formatted with a later edition of this specification.
 Therefore, using _options_ not explicitly defined here is NOT RECOMMENDED.
@@ -2995,7 +3014,7 @@ All other values produce a _Bad Operand_ error.
 The function `:string` has no _options_.
 
 > [!NOTE]
-> While `:string` has no built- in _options_,
+> While `:string` has no built-in _options_,
 > _options_ in the `u:` _namespace_ can be used.
 > For example:
 >
@@ -3067,11 +3086,11 @@ In general, the default values for such options depend on the locale,
 the value of other options, or both.
 
 > [!NOTE]
-> The names of _options_ and their _values_ were derived from the
+> The names of _options_ and their _option values_ were derived from the
 > [options](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#options)
 > in JavaScript's `Intl.NumberFormat`.
 
-The following options and their values are REQUIRED to be available on the function `:number`:
+The following _options_ are REQUIRED to be available on the function `:number`:
 
 - `select` (see [Number Selection](#number-selection) below)
   - `plural` (default)
@@ -3089,15 +3108,15 @@ The following options and their values are REQUIRED to be available on the funct
   - `never`
   - `min2`
 - `minimumIntegerDigits`
-  - ([digit size option](#digit-size-options), default: `1`)
+  - _digit size option_, default: `1`
 - `minimumFractionDigits`
-  - ([digit size option](#digit-size-options))
+  - _digit size option_
 - `maximumFractionDigits`
-  - ([digit size option](#digit-size-options))
+  - _digit size option_
 - `minimumSignificantDigits`
-  - ([digit size option](#digit-size-options))
+  - _digit size option_
 - `maximumSignificantDigits`
-  - ([digit size option](#digit-size-options))
+  - _digit size option_
 - `trailingZeroDisplay`
   - `auto` (default)
   - `stripIfInteger`
@@ -3122,7 +3141,7 @@ If the _operand_ of the _expression_ is an implementation-defined type,
 such as the _resolved value_ of an _expression_ with a `:number` or `:integer` _annotation_,
 it can include option values.
 These are included in the resolved option values of the _expression_,
-with _options_ on the _expression_ taking priority over any option values of the _operand_.
+with _options_ on the _expression_ taking priority over any options of the _operand_.
 
 > For example, the _placeholder_ in this _message_:
 >
@@ -3162,11 +3181,11 @@ In general, the default values for such options depend on the locale,
 the value of other options, or both.
 
 > [!NOTE]
-> The names of _options_ and their _values_ were derived from the
+> The names of _options_ and their _option values_ were derived from the
 > [options](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#options)
 > in JavaScript's `Intl.NumberFormat`.
 
-The following options and their values are REQUIRED to be available on the function `:integer`:
+The following _options_ are REQUIRED to be available on the function `:integer`:
 
 - `select` (see [Number Selection](#number-selection) below)
   - `plural` (default)
@@ -3184,16 +3203,16 @@ The following options and their values are REQUIRED to be available on the funct
   - `never`
   - `min2`
 - `minimumIntegerDigits`
-  - ([digit size option](#digit-size-options), default: `1`)
+  - _digit size option_, default: `1`
 - `maximumSignificantDigits`
-  - ([digit size option](#digit-size-options))
+  - _digit size option_
 
 If the _operand_ of the _expression_ is an implementation-defined type,
 such as the _resolved value_ of an _expression_ with a `:number` or `:integer` _annotation_,
 it can include option values.
 In general, these are included in the resolved option values of the _expression_,
-with _options_ on the _expression_ taking priority over any option values of the _operand_.
-Option values with the following names are however discarded if included in the _operand_:
+with _options_ on the _expression_ taking priority over any options of the _operand_.
+Options with the following names are however discarded if included in the _operand_:
 
 - `minimumFractionDigits`
 - `maximumFractionDigits`
@@ -3239,19 +3258,19 @@ The function `:math` requires a [Number Operand](#number-operands) as its _opera
 
 ##### Options
 
-The options on `:math` are exclusive with each other,
-and exactly one option is always required.
-The options do not have default values.
+The _options_ on `:math` are exclusive with each other,
+and exactly one _option_ is always required.
+The _options_ do not have default values.
 
-The following options and their values are REQUIRED to be available on the function `:math`:
+The following _options_ are REQUIRED to be available on the function `:math`:
 
 - `add`
-  - ([digit size option](#digit-size-options))
+  - _digit size option_
 - `subtract`
-  - ([digit size option](#digit-size-options))
+  - _digit size option_
 
-If no options or more than one option is set,
-or if an _option_ value is not a [digit size option](#digit-size-options),
+If no _options_ or more than one _option_ is set,
+or if an _option value_ is not a _digit size option_,
 a _Bad Option_ error is emitted
 and a _fallback value_ used as the _resolved value_ of the _expression_.
 
@@ -3261,13 +3280,13 @@ The _resolved value_ of an _expression_ with a `:math` _function_
 contains the implementation-defined numeric value
 of the _operand_ of the annotated _expression_.
 
-If the `add` option is set,
+If the `add` _option_ is set,
 the numeric value of the _resolved value_ is formed by incrementing
-the numeric value of the _operand_ by the integer value of the digit size option value.
+the numeric value of the _operand_ by the integer value of the _digit size option_.
 
-If the `subtract` option is set,
+If the `subtract` _option_ is set,
 the numeric value of the _resolved value_ is formed by decrementing
-the numeric value of the _operand_ by the integer value of the digit size option value.
+the numeric value of the _operand_ by the integer value of the _digit size option_.
 
 If the _operand_ of the _expression_ is an implementation-defined numeric type,
 such as the _resolved value_ of an _expression_ with a `:number` or `:integer` _annotation_,
@@ -3300,10 +3319,10 @@ which are a specialized form of numeric formatting.
 The _operand_ of the `:currency` function can be one of any number of
 implementation-defined types,
 each of which contains a numerical `value` and a `currency`;
-or it can be a [Number Operand](#number-operands), as long as the option
+or it can be a [Number Operand](#number-operands), as long as the _option_
 `currency` is provided.
-The option `currency` MUST NOT be used to override the currency of an implementation-defined type.
-Using this option in such a case results in a _Bad Option_ error.
+The _option_ `currency` MUST NOT be used to override the currency of an implementation-defined type.
+Using this _option_ in such a case results in a _Bad Option_ error.
 
 The value of the _operand_'s `currency` MUST be either a string containing a
 well-formed [Unicode Currency Identifier](tr35.md#UnicodeCurrencyIdentifier)
@@ -3360,7 +3379,7 @@ Setting some other number of `fractionDigits` allows greater precision display
 (such as when performing currency conversions or other specialized operations)
 or disabling fraction digits if set to `0`.
 
-The _option_ `trailingZeroDisplay` has a value `stripIfInteger` that is useful
+The _option_ `trailingZeroDisplay` has an _option value_ `stripIfInteger` that is useful
 for displaying currencies with their fraction digits removed when the fraction
 part of the _operand_ is zero.
 This is sometimes used in _messages_ to make the displayed value omit the fraction part
@@ -3384,16 +3403,16 @@ automatically.
 > The special price is $5.01.
 > ```
 
-Implementations MAY internally alias option values that they do not have data or a backing implementation for.
+Implementations MAY internally alias _option values_ that they do not have data or a backing implementation for.
 Notably, the `currencyDisplay` option has a rich set of values that mirrors developments in CLDR data.
 Some implementations might not be able to produce all of these formats for every currency.
 
 > [!NOTE]
-> Except where noted otherwise, the names of _options_ and their _values_ were derived from the
+> Except where noted otherwise, the names of _options_ and their _option values_ were derived from the
 > [options](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#options)
 > in JavaScript's `Intl.NumberFormat`.
 
-The following options and their values are REQUIRED to be available on the function `:currency`:
+The following _options_ are REQUIRED to be available on the function `:currency`:
 
 - `currency`
   - well-formed [Unicode Currency Identifier](tr35.md#UnicodeCurrencyIdentifier)
@@ -3413,14 +3432,14 @@ The following options and their values are REQUIRED to be available on the funct
   - `never`
   - `min2`
 - `minimumIntegerDigits`
-  - ([digit size option](#digit-size-options), default: `1`)
+  - _digit size option_, default: `1`
 - `fractionDigits` (unlike number/integer formats, the fraction digits for currency formatting are fixed)
   - `auto` (default) (the number of digits used by the currency)
-  - ([digit size option](#digit-size-options))
+  - _digit size option_
 - `minimumSignificantDigits`
-  - ([digit size option](#digit-size-options))
+  - _digit size option_
 - `maximumSignificantDigits`
-  - ([digit size option](#digit-size-options))
+  - _digit size option_
 - `trailingZeroDisplay`
   - `auto` (default)
   - `stripIfInteger`
@@ -3445,7 +3464,7 @@ If the _operand_ of the _expression_ is an implementation-defined type,
 such as the _resolved value_ of an _expression_ with a `:currency` _annotation_,
 it can include option values.
 These are included in the resolved option values of the _expression_,
-with _options_ on the _expression_ taking priority over any option values of the _operand_.
+with _options_ on the _expression_ taking priority over any options of the _operand_.
 
 > For example, the _placeholder_ in this _message_:
 >
@@ -3516,7 +3535,7 @@ In general, the default values for such _options_ depend on the locale,
 the unit,
 the value of other _options_, or all of these.
 
-The following options and their values are REQUIRED to be available on the function `:unit`,
+The following _options_ are REQUIRED to be available on the function `:unit`,
 unless otherwise indicated:
 
 - `unit`
@@ -3541,15 +3560,15 @@ unless otherwise indicated:
   - `never`
   - `min2`
 - `minimumIntegerDigits`
-  - ([digit size option](#digit-size-options), default: `1`)
+  - _digit size option_, default: `1`
 - `minimumFractionDigits`
-  - ([digit size option](#digit-size-options))
+  - _digit size option_
 - `maximumFractionDigits`
-  - ([digit size option](#digit-size-options))
+  - _digit size option_
 - `minimumSignificantDigits`
-  - ([digit size option](#digit-size-options))
+  - _digit size option_
 - `maximumSignificantDigits`
-  - ([digit size option](#digit-size-options))
+  - _digit size option_
 - `roundingPriority`
   - `auto` (default)
   - `morePrecision`
@@ -3569,9 +3588,9 @@ unless otherwise indicated:
 
 If the _operand_ of the _expression_ is an implementation-defined type,
 such as the _resolved value_ of an _expression_ with a `:unit` _annotation_,
-it can include _option_ values.
-These are included in the resolved _option_ values of the _expression_,
-with _options_ on the _expression_ taking priority over any _option_ values of the _operand_.
+it can include option values.
+These are included in the resolved option values of the _expression_,
+with _options_ on the _expression_ taking priority over any options of the _operand_.
 
 > For example, the _placeholder_ in this _message_:
 >
@@ -3588,13 +3607,13 @@ with _options_ on the _expression_ taking priority over any _option_ values of t
 The _resolved value_ of an _expression_ with a `:unit` _function_
 consist of an implementation-defined unit value
 of the _operand_ of the annotated _expression_,
-together with the resolved _options_ and their resolved values.
+together with the resolved options and their resolved values.
 
 ##### Unit Conversion
 
 Implementations MAY support conversion to the locale's preferred units via the `usage` _option_.
 Implementing this _option_ is optional.
-Not all `usage` values are compatible with a given unit.
+Not all `usage` _option values_ are compatible with a given unit.
 Implementations SHOULD emit an _Unsupported Operation_ error if the requested conversion is not supported.
 
 > For example, trying to convert a `length` unit (such as "meters")
@@ -3624,7 +3643,7 @@ Implementations MUST NOT substitute the unit without performing the associated c
 #### Number Operands
 
 The _operand_ of a number function is either an implementation-defined type or
-a literal whose contents match the following `number-literal` production.
+a _literal_ whose contents match the following `number-literal` production.
 All other values produce a _Bad Operand_ error.
 
 ```abnf
@@ -3661,34 +3680,36 @@ number-literal = ["-"] (%x30 / (%x31-39 *DIGIT)) ["." 1*DIGIT] [%i"e" ["-" / "+"
 
 #### Digit Size Options
 
-Some _options_ of number _functions_ are defined to take a "digit size option".
+Some _options_ of number _functions_ are defined to take a _digit size option_.
 The _function handlers_ for number _functions_ use these _options_ to control aspects of numeric display
 such as the number of fraction, integer, or significant digits.
 
-A "digit size option" is an _option_ value that the _function_ interprets
-as a small integer value greater than or equal to zero.
+A **_<dfn>digit size option</dfn>_** is an _option_ 
+whose _option value_ is interpreted by the _function_
+as a small integer greater than or equal to zero.
 Implementations MAY define an upper limit on the _resolved value_
-of a digit size option consistent with that implementation's practical limits.
+of a _digit size option_ consistent with that implementation's practical limits.
 
-In most cases, the value of a digit size option will be a string that
+In most cases, the value of a _digit size option_ will be a string that
 encodes the value as a non-negative integer.
-Implementations MAY also accept implementation-defined types as the value.
-When provided as a string, the representation of a digit size option matches the following ABNF:
+Implementations MAY also accept implementation-defined types as the _option value_.
+When provided as a string, the representation of a _digit size option_ matches the following ABNF:
 
 ```abnf
 digit-size-option = "0" / (("1"-"9") [DIGIT])
 ```
 
-If the value of a digit size option does not evaluate as a non-negative integer,
-or if the value exceeds any implementation-defined upper limit
-or any option-specific lower limit, a _Bad Option Error_ is emitted.
+If the value of a _digit size option_ does not evaluate as a non-negative integer,
+or if the value exceeds any implementation-defined and option-specific upper or lower limit,
+a _Bad Option_ error is emitted.
 
 #### Number Selection
 
-The value of the `select` _option_ MUST be set by a _literal_,
-as otherwise the _message_ might not be translatable.
-If this value is set by a _variable_ or
-the option value of an implementation-defined type used as an _operand_,
+The _option value_ of the `select` _option_ MUST be set by a _literal_.
+Allowing a _variable_ _option value_ for `select` would produce a _message_ that
+is impossible to translate because the set of _keys_ is tied to the _selector_ chosen.
+If the _option value_ is a _variable_ or
+if the `select` option is set by an implementation-defined type used as an _operand_,
 a _Bad Option Error_ is emitted and
 the _resolved value_ of the expression MUST NOT support selection.
 The formatting of the _resolved value_ is not affected by the `select` _option_.
@@ -3727,7 +3748,7 @@ numeric selectors perform as described below.
 
 ##### Default Value of `select` Option
 
-The value `plural` is the default for the option `select`
+The _option value_ `plural` is the default for the _option_ `select`
 because it is the most common use case for numeric selection.
 It can be used for exact value matches but also allows for the grammatical needs of
 languages using CLDR's plural rules.
@@ -3753,7 +3774,7 @@ but can cause problems in target locales that the original developer is not cons
 Rule selection is intended to support the grammatical matching needs of different
 languages/locales in order to support plural or ordinal numeric values.
 
-If the _option_ `select` is set to `exact`, rule-based selection is not used.
+If the `select` _option value_ is `exact`, rule-based selection is not used.
 Otherwise rule selection matches the _operand_, as modified by function _options_, to exactly one of these keywords:
 `zero`, `one`, `two`, `few`, `many`, or `other`.
 The keyword `other` is the default.
@@ -3773,12 +3794,12 @@ Apply the rules to the _resolved value_ of the _operand_ and the relevant functi
 and return the resulting keyword.
 If no rules match, return `other`.
 
-If the option `select` is set to `plural`, the rules applied to selection SHOULD be
+If the `select` _option value_ is `plural`, the rules applied to selection SHOULD be
 the CLDR plural rule data of type `cardinal`.
 See [charts](https://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html)
 for examples.
 
-If the option `select` is set to `ordinal`, the rules applied to selection SHOULD be
+If the `select` _option value_ is `ordinal`, the rules applied to selection SHOULD be
 the CLDR plural rule data of type `ordinal`.
 See [charts](https://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html)
 for examples.
@@ -3880,18 +3901,20 @@ a _Bad Option_ error is emitted
 and a _fallback value_ used as the _resolved value_ of the _expression_.
 
 If the _operand_ of the _expression_ is an implementation-defined date/time type,
-it can include _style options_, _field options_, or other option values.
+it can include _style options_, _field options_, or other _options_.
 These are included in the resolved option values of the _expression_,
-with _options_ on the _expression_ taking priority over any option values of the _operand_.
+with _options_ on the _expression_ taking priority over any options of the _operand_.
 
 > [!NOTE]
-> The names of _options_ and their _values_ were derived from the
+> The names of _options_ and their _option values_ were derived from the
 > [options](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/resolvedOptions#description)
 > in JavaScript's `Intl.DateTimeFormat`.
 
 ###### Style Options
 
-The function `:datetime` has these _style options_.
+**_<dfn>Style options</dfn>_** pertain to the overall styling or appearance of the formatted output.
+
+The following _style options_ are REQUIRED to be available on the function `:datetime`:
 
 - `dateStyle`
   - `full`
@@ -3906,14 +3929,14 @@ The function `:datetime` has these _style options_.
 
 ###### Field Options
 
-_Field options_ describe which fields to include in the formatted output
+**_<dfn>Field options</dfn>_** describe which fields to include in the formatted output
 and what format to use for that field.
 
-> [!NOTE] 
+> [!NOTE]
 > _Field options_ do not have default values because they are only to be used
 > to compose the formatter.
 
-The function `:datetime` has the following _field options_:
+The following _field options_ are REQUIRED to be available on the function `:datetime`:
 
 - `weekday`
   - `long`
@@ -3982,7 +4005,7 @@ All other _operand_ values produce a _Bad Operand_ error.
 
 The function `:date` has these _options_:
 
-- `style`
+- `style` \[REQUIRED\]
   - `full`
   - `long`
   - `medium` (default)
@@ -3991,7 +4014,7 @@ The function `:date` has these _options_:
 
 If the _operand_ of the _expression_ is an implementation-defined date/time type,
 it can include other option values.
-Any _operand_ option values matching the `:datetime` _style options_ or _field options_ are ignored,
+Any _operand_ options matching the `:datetime` _style options_ or _field options_ are ignored,
 as is any `style` option.
 
 ##### Resolved Value
@@ -4001,7 +4024,7 @@ is implementation-defined.
 
 An implementation MAY emit a _Bad Operand_ or _Bad Option_ error (as appropriate)
 when a _variable_ annotated directly or indirectly by a `:date` _annotation_
-is used as an _operand_ or an _option_ value.
+is used as an _operand_ or an _option value_.
 
 #### The `:time` function
 
@@ -4022,7 +4045,7 @@ All other _operand_ values produce a _Bad Operand_ error.
 
 The function `:time` has these _options_:
 
-- `style`
+- `style` \[REQUIRED\]
   - `full`
   - `long`
   - `medium`
@@ -4031,7 +4054,7 @@ The function `:time` has these _options_:
 
 If the _operand_ of the _expression_ is an implementation-defined date/time type,
 it can include other option values.
-Any _operand_ option values matching the `:datetime` _style options_ or _field options_ are ignored,
+Any _operand_ options matching the `:datetime` _style options_ or _field options_ are ignored,
 as is any `style` option.
 
 ##### Resolved Value
@@ -4041,7 +4064,7 @@ is implementation-defined.
 
 An implementation MAY emit a _Bad Operand_ or _Bad Option_ error (as appropriate)
 when a _variable_ annotated directly or indirectly by a `:time` _annotation_
-is used as an _operand_ or an _option_ value.
+is used as an _operand_ or an _option value_.
 
 #### Date and Time Operands
 
@@ -4067,7 +4090,7 @@ When the offset is not present, implementations SHOULD use a floating time type
 For more information, see [Working with Timezones](https://w3c.github.io/timezone).
 
 > [!IMPORTANT]
-> The [ABNF](/#message.abnf) and [syntax](#syntax) of MF2
+> The [ABNF](#message-abnf) and [syntax](#syntax) of MF2
 > do not formally define date/time literals.
 > This means that a _message_ can be syntactically valid but produce
 > a _Bad Operand_ error at runtime.
@@ -4104,20 +4127,7 @@ or embedded in an implementation-defined date/time _operand_ value.
 > These _options_ do not have default values because they are only to be used
 > as overrides for locale-and-value dependent implementation-defined defaults.
 
-The following _option_ and its values are REQUIRED to be available on
-the functions `:datetime` and `:time`:
-
-- `hour12`
-  - `true`
-  - `false`
-
-The following _option_ and its values are RECOMMENDED to be available on
-the functions `:datetime`, `:date`, and `:time`.
-
-- `calendar`
-  - valid [Unicode Calendar Identifier](tr35.md#UnicodeCalendarIdentifier)
-
-The following _option_ and its values are REQUIRED to be available on
+The following _option_ is REQUIRED to be available on
 the functions `:datetime`, `:date`, and `:time`.
 
 - `timeZone`
@@ -4133,6 +4143,19 @@ the functions `:datetime`, `:date`, and `:time`.
 > into a [floating](https://www.w3.org/TR/timezone/#floating) time value
 > (sometimes called a _plain_ or _local_ time value) by removing
 > the association with a specific time zone.
+
+The following _option_ is REQUIRED to be available on
+the functions `:datetime` and `:time`:
+
+- `hour12`
+  - `true`
+  - `false`
+
+The following _option_ is RECOMMENDED to be available on
+the functions `:datetime`, `:date`, and `:time`.
+
+- `calendar`
+  - valid [Unicode Calendar Identifier](tr35.md#UnicodeCalendarIdentifier)
 
 ## Unicode Namespace
 
@@ -4170,11 +4193,11 @@ or any other structured formatted results.
 
 Ignored when formatting a message to a string.
 
-The value of the `u:id` _option_ MUST be a _literal_ or a
+The `u:id` _option value_ MUST be a _literal_ or a
 _variable_ whose _resolved value_ is either a string
 or can be resolved to a string without error.
 For other values, a _Bad Option_ error is emitted
-and the `u:id` option is ignored.
+and the `u:id` _option_ and its _option value_ are ignored.
 
 #### `u:locale`
 
@@ -4192,7 +4215,7 @@ language tags,
 or an implementation-defined list of such tags.
 
 If this _option_ is set on _markup_, a _Bad Option_ error is emitted
-and the value of the `u:locale` _option_ is ignored.
+and the `u:locale` _option_ and its _option value_ are ignored.
 
 During processing, the `u:locale` _option_
 MUST be removed from the resolved mapping of _options_
@@ -4212,7 +4235,7 @@ When the value of `u:locale` is set by a _variable_,
 implementations MAY support non-string values otherwise representing locales.
 
 Implementations MAY emit a _Bad Option_ error
-and MAY ignore the value of the `u:locale` _option_ as a whole
+and MAY ignore the `u:locale` _option_ and _option value_ as a whole
 or any of the entries in the list of language tags.
 This might be because the locale specified is not supported
 or because the language tag is not well-formed,
@@ -4226,16 +4249,16 @@ Replaces the base directionality defined in
 the _function context_ for this _expression_
 and applies bidirectional isolation to it.
 
-If this option is set on _markup_, a _Bad Option_ error is emitted
-and the value of the `u:dir` option is ignored.
+If this _option_ is set on _markup_, a _Bad Option_ error is emitted
+and the `u:dir` _option_ and its _option value_ are ignored.
 
-During processing, the `u:dir` option
+During processing, the `u:dir` _option_
 MUST be removed from the resolved mapping of _options_
 before calling the _function handler_.
 Its value is retained in the _resolved value_ of the _expression_.
 
-The value of the `u:dir` _option_ MUST be one of the following _literal_ values
-or a _variable_ whose _resolved value_ is one of these _literals_:
+The `u:dir` _option value_ MUST be one of the following _literal_ values
+or a _variable_ whose _resolved value_ is one of the following strings:
 - `ltr`: left-to-right directionality
 - `rtl`: right-to-left directionality
 - `auto`: directionality determined from _expression_ contents
@@ -4244,7 +4267,7 @@ or a _variable_ whose _resolved value_ is one of these _literals_:
    requiring isolation of the _expression_ value.
 
 For other values, a _Bad Option_ error is emitted
-and the value of the `u:dir` option is ignored.
+and the `u:dir` _option_ and its _option value_ are ignored.
 
 ## Interchange Data Model
 
@@ -4281,7 +4304,7 @@ This data model might also be used to:
 
 To ensure compatibility across all platforms,
 this interchange data model is defined here using TypeScript notation.
-An equivalent JSON Schema definition [`message.json`](#messagejson) is also provided,
+An equivalent JSON Schema definition [`message.json`](#message-json) is also provided,
 for use with message data encoded as JSON or compatible formats, such as YAML.
 
 Note that while the data model description below is the canonical one,
@@ -4759,20 +4782,7 @@ Addison Phillips,
 and Daniel Minor.
 Romulo Cintra chaired the chair group.
 
-
-
 * * *
 
 © 2001–2025 Unicode, Inc.
 This publication is protected by copyright, and permission must be obtained from Unicode, Inc.
-prior to any reproduction, modification, or other use not permitted by the [Terms of Use](https://www.unicode.org/copyright.html).
-Specifically, you may make copies of this publication and may annotate and translate it solely for personal or internal business purposes and not for public distribution,
-provided that any such permitted copies and modifications fully reproduce all copyright and other legal notices contained in the original.
-You may not make copies of or modifications to this publication for public distribution, or incorporate it in whole or in part into any product or publication without the express written permission of Unicode.
-
-Use of all Unicode Products, including this publication, is governed by the Unicode [Terms of Use](https://www.unicode.org/copyright.html).
-The authors, contributors, and publishers have taken care in the preparation of this publication,
-but make no express or implied representation or warranty of any kind and assume no responsibility or liability for errors or omissions or for consequential or incidental damages that may arise therefrom.
-This publication is provided “AS-IS” without charge as a convenience to users.
-
-Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the United States and other countries.

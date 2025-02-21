@@ -28,7 +28,7 @@ The [UTS #35: Locale Data Markup Language (LDML)](https://www.unicode.org/report
 - New sections may be added to the specification with the status of _Technical Preview_ or _Final Candidate_. That depends on how comprehensive the new section is, what type of feedback the Technical Committee requires, and whether the feedback period needs to extend across one or more releases. These terms mean:
     - **Technical Preview** - The specification section is fairly complete but not stable, included in the release to gather feedback.
 Features may be modified or removed based upon feedback.
-A section in Technical Preview may remain in Technical Preview in the following release if more feedback is needed, or could advance to Final Canidate or to stable.
+A section in Technical Preview may remain in Technical Preview in the following release if more feedback is needed, or could advance to Final Candidate or to stable.
 It is similar to elements marked with [@TECHPREVIEW in the DTD as described in the LDML](https://www.unicode.org/reports/tr35/#dtd-annotations).
     - **Final Candidate** - The specification section is complete and considered ready for release, and is expected to become stable in the next release. An optional Final Candidate stage follows a period of feedback in Technical Preview where final feedback is desired. Changes will only be made if serious issues are discovered during this feedback period.
     - **Stable** - The specification section has been approved as stable by the Technical Committee, any changes must be backward compatible. Deprecated elements will remain, although their usage is strongly discouraged.

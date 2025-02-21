@@ -872,7 +872,8 @@ Element containing informative properties about the layout, for displaying in us
       name="…name"
       author="…author"
       layout="…hint of the layout"
-      indicator="…short identifier" />
+      indicator="…short identifier"
+      attribution="…attribution" />
 ```
 
 > <small>
@@ -901,10 +902,12 @@ _Attribute:_ `name` (required)
 
 * * *
 
-
 _Attribute:_ `author`
 
 > The `author` attribute value contains the name of the author of the layout file.
+> There is no requirement that an implementation display, store, or otherwise process this informative attribute.
+
+* * *
 
 _Attribute:_ `layout`
 
@@ -912,12 +915,29 @@ _Attribute:_ `layout`
 >
 > This attribute is not localized, but is an informative identifier for implementation use.
 
+* * *
+
 _Attribute:_ `indicator`
 
 > The `indicator` attribute describes a short string to be used in currently selected layout indicator, such as `US`, `SI9` etc.
 > Typically, this is shown on a UI element that allows switching keyboard layouts and/or input languages.
 >
 > This attribute is not localized.
+
+* * *
+
+_Attribute:_ `attribution`
+
+> The `attribution` attribute describes a short string which gives some indication of the originating entity of the keyboard design, if different from the author of the layout file.
+> For example, an external standards body or other entity may have originated the layout used in the document.
+> This attribute does not imply endorsement by the named entity.
+>
+> This attribute is not localized.
+> There is no requirement that an implementation display, store, or otherwise process this attribute.
+
+```xml
+<info attribution="Malta Standards Authority"/>
+```
 
 * * *
 

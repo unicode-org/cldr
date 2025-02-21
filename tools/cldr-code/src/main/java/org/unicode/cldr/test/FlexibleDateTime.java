@@ -35,7 +35,7 @@ import org.unicode.cldr.util.XPathParts;
  * Test class for trying different approaches to flexible date/time. Internal Use. Once we figure
  * out what approach to take, this should turn into the test file for the data.
  */
-class FlexibleDateTime {
+public class FlexibleDateTime {
     static final boolean DEBUG = false;
     static final boolean SHOW_MATCHING = false;
     static final boolean SHOW2 = false;

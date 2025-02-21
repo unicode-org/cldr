@@ -30,7 +30,7 @@ import org.unicode.cldr.util.XPathParts;
  *
  * @author markdavis
  */
-public class FlexibleDateFromCLDR {
+class FlexibleDateFromCLDR {
     DateTimePatternGenerator gen = DateTimePatternGenerator.getEmptyInstance();
     private transient ICUServiceBuilder icuServiceBuilder = new ICUServiceBuilder();
 

@@ -328,7 +328,7 @@ function addSelectedItem(theRow) {
   const { language, direction } = getLanguageAndDirection();
   selectedItemWrapper.setLanguageAndDirection(language, direction);
 
-  const description = getItemDescription(item?.pClass, theRow?.inheritedLocale);
+  const description = getItemDescription(item?.pClass, theRow);
   selectedItemWrapper.setDescription(description);
 
   const { linkUrl, linkText } = getLinkUrlAndText(theRow, item);
@@ -399,7 +399,7 @@ function getLinkUrlAndText(theRow, item) {
     }
     if (xpstrid === theRow.xpstrid && loc === cldrStatus.getCurrentLocale()) {
       // following the alias would come back to the current item; no link
-      linkText = cldrText.get("noFollowAlias");
+      // and no link text either
     } else {
       linkText = cldrText.get("followAlias");
       linkUrl = "#/" + loc + "//" + xpstrid;
@@ -907,17 +907,22 @@ function createVoter(v) {
   return div;
 }
 
-function getItemDescription(itemClass, inheritedLocale) {
+function getItemDescription(itemClass, theRow) {
   /*
    * itemClass may be "winner, "alias", "fallback", "fallback_code", "fallback_root", or "loser".
    *  See getPClass in DataPage.java.*
    */
+  const inheritedLocale = theRow?.inheritedLocale;
   if (itemClass === "fallback") {
     const locName = cldrLoad.getLocaleName(inheritedLocale);
     return cldrText.sub("item_description_fallback", [locName]);
   } else if (itemClass === "alias") {
     if (inheritedLocale === cldrStatus.getCurrentLocale()) {
-      return cldrText.get("item_description_alias_same_locale");
+      return cldrText.get(
+        theRow.inheritedXpid
+          ? "item_description_alias_same_locale"
+          : "noFollowAlias"
+      );
     } else {
       const locName = cldrLoad.getLocaleName(inheritedLocale);
       return cldrText.sub("item_description_alias_diff_locale", [locName]);

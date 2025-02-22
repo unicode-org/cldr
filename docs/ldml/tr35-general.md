@@ -979,7 +979,7 @@ per
     * The normalized form has no exponents that are not multiples of 3, and the shortest form given that exponent restriction:
          * per-1e2 ⇒ per-100
          * per-1000 ⇒ per-1e3
-	 * per-10000 ⇒ per-10e3
+         * per-10000 ⇒ per-10e3
   
 <a name='dimensionality_prefix' href='#dimensionality_prefix'>dimensionality_prefix</a> 
 <br/>:= "square-" 

@@ -767,8 +767,9 @@ public class TestDtdData extends TestFmwk {
                         || elementName.equals("deriveCompound")
                                 && (attribute.equals("feature") || attribute.equals("structure"))
                         || (elementName.equals("nameOrderLocalesDefault")
-                                && attribute.equals("order"));
-
+                                && attribute.equals("order"))
+                        || (elementName.equals("scriptVariant")
+                                && (attribute.equals("type") || attribute.equals("id"))
             case keyboard3:
                 if (elementName.equals("keyboard3") && attribute.equals("locale")
                         || elementName.equals("layers") && attribute.equals("formId")

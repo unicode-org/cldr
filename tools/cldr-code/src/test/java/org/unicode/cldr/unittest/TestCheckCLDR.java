@@ -865,8 +865,7 @@ public class TestCheckCLDR extends TestFmwk {
                 Subtype.dateSymbolCollision
             },
 
-            // 00-06 night1
-            // 06-12 morning1
+            // 00-12 morning1
             // 12-18 afternoon1
             // 18-21 evening1
             // 21-24 night1
@@ -874,7 +873,7 @@ public class TestCheckCLDR extends TestFmwk {
             // So for a 12hour time, we have:
             //
             // 12  1  2  3  4  5  6  7  8  9 10 11
-            //  n  n  n  n  n  n  m  m  m  m  m  m
+            //  m  m  m  m  m  m  m  m  m  m  m  m
             //  a  a  a  a  a  a  e  e  e  n  n  n
 
             // Formatting has looser collision rules, because it is always paired with a time.
@@ -890,15 +889,15 @@ public class TestCheckCLDR extends TestFmwk {
                 DayPeriod.morning1,
                 Subtype.dateSymbolCollision
             },
+            {Type.format, DayPeriod.night1, Type.format, DayPeriod.afternoon1, Subtype.none},
+            {Type.format, DayPeriod.night1, Type.format, DayPeriod.evening1, Subtype.none},
             {
                 Type.format,
-                DayPeriod.night1,
+                DayPeriod.morning1,
                 Type.format,
                 DayPeriod.afternoon1,
                 Subtype.dateSymbolCollision
             },
-            {Type.format, DayPeriod.night1, Type.format, DayPeriod.evening1, Subtype.none},
-            {Type.format, DayPeriod.morning1, Type.format, DayPeriod.afternoon1, Subtype.none},
             {
                 Type.format,
                 DayPeriod.morning1,

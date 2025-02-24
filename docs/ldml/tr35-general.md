@@ -1311,7 +1311,13 @@ There can be at most one "per" pattern used in producing a compound unit, while 
   …
 ```
 
-Some units already have 'precomputed' forms, such as **kilometer-per-hour**; where such units exist, they should be used in preference.
+**format(numericValue, unitId, locale, length, caseVariant)**
+
+format(numericValue, unitPattern) substitutes the numericValue (formatted for the locale) into the unitPattern.
+
+Some unitIds already have patterns for the locale, including variants for length, pluralCategory, and caseVariant.
+This includes simple units such as **meter** and more complex units like **kilometer-per-hour**.
+Where such patterns exist, they should be used in preference (using fallbacks for caseVariant and length if needed).
 
 If there is no precomputed form, the following process in pseudocode is used to generate a pattern for the compound unit.
 
@@ -1327,10 +1333,16 @@ If there is no precomputed form, the following process in pseudocode is used to 
 5.  Divide the unitId into numerator (the part before the "-per-") and denominator (the part after the "-per-). If both are empty, fail
 6.  Set both globalPlaceholder and globalPlaceholderPosition to be empty
 7.  Set numeratorUnitString to patternTimes(numerator, length, per0(pluralCategory), per0(caseVariant))
-8.  Set denominatorUnitString to patternTimes(denominator, length, per1(pluralCategory), per1(caseVariant))
-9.  Set perPattern to be getValue(per, locale, length)
-10.  If the denominatorString is empty, set result to numeratorString, otherwise set result to format(perPattern, numeratorUnitString, denominatorUnitString)
-11. return format(result, globalPlaceholder, globalPlaceholderPosition)
+8.  If the denominator starts with a unit_constant
+    *  Set denominatorUnitString to format(unitConstant, pattern(denominator, length, getPluralCategory(locale, unitConstant), per1(caseVariant))
+    *  Otherwise set denominatorUnitString to patternTimes(denominator, length, per1(getPluralCategory(locale, 1)), per1(caseVariant))
+10.  Set perPattern to be getValue(per, locale, length)
+11.  If the denominatorString is empty, set result to numeratorString, otherwise set result to format(perPattern, numeratorUnitString, denominatorUnitString)
+12. return format(result, globalPlaceholder, globalPlaceholderPosition)
+
+**getPluralCategory(locale, constant)**
+
+1. Return the pluralCategory for the constant, given the locale.
 
 **patternTimes(product_unit, locale, length, pluralCategory, caseVariant)**
 

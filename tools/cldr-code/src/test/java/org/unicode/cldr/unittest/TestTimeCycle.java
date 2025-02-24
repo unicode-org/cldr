@@ -1,6 +1,7 @@
 package org.unicode.cldr.unittest;
 
 import static org.junit.jupiter.api.Assertions.fail;
+import static org.unicode.cldr.util.XMLSource.ROOT_ID;
 
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.DateTimePatternGenerator;
@@ -27,91 +28,85 @@ public class TestTimeCycle {
 
     private static final Logger logger = Logger.getLogger(TestTimeCycle.class.getName());
 
-    /**
-     * "j requests the preferred hour-cycle type for the locale (it gets mapped to one of H, h, k,
-     * or K)" References: https://www.unicode.org/reports/tr35/tr35-dates.html#dfst-hour
-     * https://unicode-org.github.io/icu/userguide/format_parse/datetime/
-     */
-    private final String jSkeleton = "j";
-
     private final char[] timeCycleChars = {'H', 'h', 'K', 'k'};
-
-    private final boolean USE_ICU_DATA = false; // temporary, debugging
-
-    /**
-     * TODO: find the preferred calendar for the locale (based on data from
-     * SupplementalDataInfo.getCalendars(region)), and if it is not Gregorian then also check the
-     * shortTimeFormat for that. Reference: https://unicode-org.atlassian.net/browse/CLDR-13589
-     */
-    private final String calendarType = LDMLConstants.GREGORIAN; /* or LDMLConstants.GENERIC? */
-
-    private final String shortTimePath =
-            "//ldml/dates/calendars/calendar[@type=\""
-                    + calendarType
-                    + "\"]/timeFormats/timeFormatLength[@type=\"short\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]";
 
     /**
      * Test that in all available locales, the standard time format matches the region's preferred
      * time cycle.
      *
-     * <p>This is similar to icu4j DateTimeGeneratorTest.testJjMapping. It uses current CLDR data,
+     * <p>This is related to icu4j DateTimeGeneratorTest.testJjMapping. It uses current CLDR data,
      * not ICU data.
      */
     @Test
-    public void testJjMapping() {
+    public void testTimeFormatMatchesRegion() {
         CLDRConfig testInfo = CLDRConfig.getInstance();
         Factory cldrFactory = testInfo.getCldrFactory();
         SupplementalDataInfo sdi = testInfo.getSupplementalDataInfo();
         Map<String /* region */, PreferredAndAllowedHour> timeData = sdi.getTimeData();
         Map<String, String> likelySubtags = sdi.getLikelySubtags();
-        Set<String> skippedLocales = new TreeSet<>(), worldFallback = new TreeSet<>();
+        Set<String> topNoValueLocales = new TreeSet<>(),
+                worldFallback = new TreeSet<>(),
+                dcLocales = new TreeSet<>();
         Map<CLDRLocale, String> failedLocales = new TreeMap<>();
+        Set<ULocale> ulocales = Set.of(DateFormat.getAvailableULocales());
         for (String localeID : cldrFactory.getAvailable()) {
+            if (ROOT_ID.equals(localeID)) {
+                continue;
+            }
             CLDRLocale loc = CLDRLocale.getInstance(localeID);
             CLDRFile cldrFile = cldrFactory.make(localeID, true);
             ULocale uloc = new ULocale(localeID);
-            DateFormat dfmt = DateFormat.getTimeInstance(DateFormat.SHORT, uloc);
-            String jPattern, shortPattern;
-            DateTimePatternGenerator dtpg;
-            if (USE_ICU_DATA) {
-                dtpg = DateTimePatternGenerator.getInstance(uloc);
-                jPattern = dtpg.getBestPattern(jSkeleton); // e.g., "h a" or "HH" or "H时"
-                shortPattern = ((SimpleDateFormat) dfmt).toPattern(); // e.g., "h:mm a" or "HH:mm"
-            } else {
-                dtpg = DateTimePatternGenerator.getEmptyInstance();
-                jPattern = getJPattern(timeData, localeID, likelySubtags, worldFallback);
-                if (jPattern == null) {
-                    failedLocales.put(loc, "Null jPattern");
-                    continue;
-                }
-                shortPattern = cldrFile.getWinningValue(shortTimePath);
-                if (shortPattern == null) {
-                    failedLocales.put(loc, "Null shortTimePath");
-                    continue;
-                }
-                if (CLDRLocale.ROOT.equals(loc.getParent()) && !cldrFile.isHere(shortTimePath)) {
-                    skippedLocales.add(localeID);
-                    continue;
-                }
+            if (!ulocales.contains(uloc)) {
+                logger.info("Locale " + localeID + " is not in DateFormat.getAvailableULocales");
             }
+            CLDRLocale dcParent = sdi.getBaseFromDefaultContent(loc);
+            if (dcParent != null) {
+                dcLocales.add(localeID);
+                continue;
+            }
+            DateTimePatternGenerator dtpg = DateTimePatternGenerator.getEmptyInstance();
+            String jPattern = getRegionHourFormat(timeData, localeID, likelySubtags, worldFallback);
+            if (jPattern == null) {
+                failedLocales.put(loc, "Null jPattern");
+                continue;
+            }
+            /*
+             * TODO: find the preferred calendar for the locale (based on data from
+             * SupplementalDataInfo.getCalendars(region)), and if it is not Gregorian then also check the
+             * shortTimeFormat for that. Reference: https://unicode-org.atlassian.net/browse/CLDR-13589
+             */
+            String calendarType = LDMLConstants.GREGORIAN;
+            String shortTimePath =
+                    "//ldml/dates/calendars/calendar[@type=\""
+                            + calendarType
+                            + "\"]/timeFormats/timeFormatLength[@type=\"short\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]";
+            String shortPattern = cldrFile.getWinningValue(shortTimePath);
+            if (shortPattern == null) {
+                failedLocales.put(loc, "Null shortTimePath");
+                continue;
+            }
+            if (CLDRLocale.ROOT.equals(loc.getParent()) && !cldrFile.isHere(shortTimePath)) {
+                topNoValueLocales.add(localeID);
+                continue;
+            }
+
             // Convert to skeletons to make it easier to check for hour character (eliminates
             // literals, repeats, etc.)
             String shortPatSkeleton = dtpg.getBaseSkeleton(shortPattern); // e.g., "ahm" or "Hm"
             String jPatSkeleton = dtpg.getBaseSkeleton(jPattern); // e.g., "ah" or "H"
+            logger.info(
+                    "Using CLDR data; locale "
+                            + localeID
+                            + "; jPatSkeleton = "
+                            + jPatSkeleton
+                            + "; shortPatSkeleton = "
+                            + shortPatSkeleton);
             for (char timeCycleChar : timeCycleChars) {
-                boolean has1 = jPatSkeleton.indexOf(timeCycleChar) >= 0;
-                boolean has2 = shortPatSkeleton.indexOf(timeCycleChar) >= 0;
-                if (has1 && !has2) {
-                    String calType = USE_ICU_DATA ? dfmt.getCalendar().getType() : calendarType;
+                if (jPatSkeleton.indexOf(timeCycleChar) >= 0
+                        && shortPatSkeleton.indexOf(timeCycleChar) < 0) {
                     failedLocales.put(
                             loc,
-                            calType
-                                    + " expected "
-                                    + timeCycleChar
-                                    + " in both "
-                                    + jPattern
-                                    + " and "
-                                    + shortPattern);
+                            calendarType + " expected " + timeCycleChar + " in " + shortPattern);
                 }
             }
         }
@@ -122,12 +117,19 @@ public class TestTimeCycle {
                             + " world-fallback locales: "
                             + worldFallback);
         }
-        if (!skippedLocales.isEmpty()) {
+        if (!dcLocales.isEmpty()) {
             logger.info(
                     "TestTimeCycle skipped "
-                            + skippedLocales.size()
+                            + dcLocales.size()
+                            + " default-content locales: "
+                            + dcLocales);
+        }
+        if (!topNoValueLocales.isEmpty()) {
+            logger.info(
+                    "TestTimeCycle skipped "
+                            + topNoValueLocales.size()
                             + " top-level locales without explicit timeFormatLength: "
-                            + skippedLocales);
+                            + topNoValueLocales);
         }
         if (!failedLocales.isEmpty()) {
             Set<String> failedLocaleNames = new TreeSet<>();
@@ -154,7 +156,7 @@ public class TestTimeCycle {
         }
     }
 
-    private String getJPattern(
+    private String getRegionHourFormat(
             Map<String, PreferredAndAllowedHour> timeData,
             String localeID,
             Map<String, String> likelySubtags,
@@ -179,5 +181,92 @@ public class TestTimeCycle {
             }
         }
         return prefAndAllowedHr.preferred.base.name();
+    }
+
+    /**
+     * Test that in all available locales, the standard time format matches the region's preferred
+     * time cycle.
+     *
+     * <p>This is similar to icu4j DateTimeGeneratorTest.testJjMapping and it uses ICU data. It is
+     * here only temporarily for debugging.
+     */
+    @Test
+    public void testJjMappingWithICU() {
+        CLDRConfig testInfo = CLDRConfig.getInstance();
+        Factory cldrFactory = testInfo.getCldrFactory();
+        SupplementalDataInfo sdi = testInfo.getSupplementalDataInfo();
+        Set<String> dcLocales = new TreeSet<>();
+        Map<CLDRLocale, String> failedLocales = new TreeMap<>();
+        Set<ULocale> ulocales = Set.of(DateFormat.getAvailableULocales());
+        for (String localeID : cldrFactory.getAvailable()) {
+            if (ROOT_ID.equals(localeID)) {
+                continue;
+            }
+            CLDRLocale loc = CLDRLocale.getInstance(localeID);
+            ULocale uloc = new ULocale(localeID);
+            if (!ulocales.contains(uloc)) {
+                logger.info("Locale " + localeID + " is not in DateFormat.getAvailableULocales");
+            }
+            CLDRLocale dcParent = sdi.getBaseFromDefaultContent(loc);
+            if (dcParent != null) {
+                dcLocales.add(localeID);
+                continue;
+            }
+            DateFormat dfmt = DateFormat.getTimeInstance(DateFormat.SHORT, uloc);
+            DateTimePatternGenerator dtpg = DateTimePatternGenerator.getInstance(uloc);
+            /*
+             * "j requests the preferred hour-cycle type for the locale (it gets mapped to one of H, h, k,
+             * or K)" References: https://www.unicode.org/reports/tr35/tr35-dates.html#dfst-hour
+             * https://unicode-org.github.io/icu/userguide/format_parse/datetime/
+             */
+            String jSkeleton = "j";
+            String jPattern = dtpg.getBestPattern(jSkeleton); // e.g., "h a" or "HH" or "H时"
+            String shortPattern =
+                    ((SimpleDateFormat) dfmt).toPattern(); // e.g., "h:mm a" or "HH:mm"
+
+            // Convert to skeletons to make it easier to check for hour character (eliminates
+            // literals, repeats, etc.)
+            String shortPatSkeleton = dtpg.getBaseSkeleton(shortPattern); // e.g., "ahm" or "Hm"
+            String jPatSkeleton = dtpg.getBaseSkeleton(jPattern); // e.g., "ah" or "H"
+            logger.info(
+                    "Using ICU data; locale "
+                            + localeID
+                            + "; jPatSkeleton = "
+                            + jPatSkeleton
+                            + "; shortPatSkeleton = "
+                            + shortPatSkeleton);
+            for (char timeCycleChar : timeCycleChars) {
+                if (jPatSkeleton.indexOf(timeCycleChar) >= 0
+                        && shortPatSkeleton.indexOf(timeCycleChar) < 0) {
+                    String calType = dfmt.getCalendar().getType();
+                    failedLocales.put(
+                            loc,
+                            calType
+                                    + " expected "
+                                    + timeCycleChar
+                                    + " in both "
+                                    + jPattern
+                                    + " and "
+                                    + shortPattern);
+                }
+            }
+        }
+        if (!dcLocales.isEmpty()) {
+            logger.info(
+                    "testJjMappingWithICU skipped "
+                            + dcLocales.size()
+                            + " default-content locales: "
+                            + dcLocales);
+        }
+        if (!failedLocales.isEmpty()) {
+            for (Map.Entry<CLDRLocale, String> entry : failedLocales.entrySet()) {
+                logger.severe(entry.getKey() + " " + entry.getValue());
+            }
+            fail(
+                    "testJjMappingWithICU failed "
+                            + failedLocales.size()
+                            + " locales: "
+                            + failedLocales.keySet());
+        }
     }
 }

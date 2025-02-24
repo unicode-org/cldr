@@ -445,6 +445,8 @@
 //supplementalData/languageData/language[@type="%A"]/_%E			; Supplemental ; Language ; $1 ; $2 ; HIDE
 //supplementalData/languageData/language[@type="%A"][@alt="%A"]/_%E			; Supplemental ; Language ; $1 ; $3-$2 ; HIDE
 
+//supplementalData/scriptData/scriptVariant[@type="%A"][@id="%A"]/_%A			; Supplemental ; Script ; variant-$1-$2 ; $3 ; HIDE
+
 //supplementalData/transforms/transform[@source="%A"][@target="%A"][@direction="%A"]/%E			; Supplemental ; Transform ; &transform($3,$1,$2) ; $4 ; HIDE
 //supplementalData/transforms/transform[@source="%A"][@target="%A"][@variant="%A"][@direction="%A"]/%E			; Supplemental ; Transform ;  &transform($4,$1,$2,$3) ; $5 ; HIDE
 //supplementalData/transforms/transform[@source="%A"][@target="%A"]			; Supplemental ; Transform ; &transform("?",$1,$2) ; ? ; HIDE

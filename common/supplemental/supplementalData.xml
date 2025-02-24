@@ -2457,22 +2457,22 @@ XXX Code for transations where no currency is involved
 		<language type="zza" territories="TR" alt="secondary"/>
 	</languageData>
 	<scriptData>
-		<script type="compound" id='Hanb' base='Hani Bopo'/> <!-- Han with Bopomofo (alias for Han + Bopomofo) -->
-		<script type="compound" id='Jpan' base='Hani Hira Kana'/> <!-- Japanese (alias for Han + Hiragana + Katakana) -->
-		<script type="compound" id='Hrkt' base='Hira Kana'/> <!-- Japanese syllabaries (alias for Hiragana + Katakana) -->
-		<script type="compound" id='Kore' base='Hang Hani'/> <!-- Korean (alias for Hangul + Han) -->
+		<scriptVariant type="compound" id='Hanb' base='Hani Bopo'/> <!-- Han with Bopomofo (alias for Han + Bopomofo) -->
+		<scriptVariant type="compound" id='Jpan' base='Hani Hira Kana'/> <!-- Japanese (alias for Han + Hiragana + Katakana) -->
+		<scriptVariant type="compound" id='Hrkt' base='Hira Kana'/> <!-- Japanese syllabaries (alias for Hiragana + Katakana) -->
+		<scriptVariant type="compound" id='Kore' base='Hang Hani'/> <!-- Korean (alias for Hangul + Han) -->
 	
-		<script type="visual" id='Aran' base='Arab'/> <!-- Arabic (Nastaliq variant) -->
-		<script type="visual" id='Cyrs' base='Cyrl'/> <!-- Cyrillic (Old Church Slavonic variant) -->
-		<script type="visual" id='Latf' base='Latn'/> <!-- Latin (Fraktur variant) -->
-		<script type="visual" id='Latg' base='Latn'/> <!-- Latin (Gaelic variant) -->
-		<script type="visual" id='Syrn' base='Syrc'/> <!-- Syriac (Eastern variant) -->
-		<script type="visual" id='Syre' base='Syrc'/> <!-- Syriac (Estrangelo variant) -->
-		<script type="visual" id='Syrj' base='Syrc'/> <!-- Syriac (Western variant) -->
+		<scriptVariant type="visual" id='Aran' base='Arab'/> <!-- Arabic (Nastaliq variant) -->
+		<scriptVariant type="visual" id='Cyrs' base='Cyrl'/> <!-- Cyrillic (Old Church Slavonic variant) -->
+		<scriptVariant type="visual" id='Latf' base='Latn'/> <!-- Latin (Fraktur variant) -->
+		<scriptVariant type="visual" id='Latg' base='Latn'/> <!-- Latin (Gaelic variant) -->
+		<scriptVariant type="visual" id='Syrn' base='Syrc'/> <!-- Syriac (Eastern variant) -->
+		<scriptVariant type="visual" id='Syre' base='Syrc'/> <!-- Syriac (Estrangelo variant) -->
+		<scriptVariant type="visual" id='Syrj' base='Syrc'/> <!-- Syriac (Western variant) -->
 	
-		<script type="subset" id='Jamo' base='Hang'/> <!-- Jamo (alias for Jamo subset of Hangul) -->
-		<script type="subset" id='Hans' base='Hani'/> <!-- Han (Simplified variant) -->
-		<script type="subset" id='Hant' base='Hani'/> <!-- Han (Traditional variant) -->
+		<scriptVariant type="subset" id='Jamo' base='Hang'/> <!-- Jamo (alias for Jamo subset of Hangul) -->
+		<scriptVariant type="subset" id='Hans' base='Hani'/> <!-- Han (Simplified variant) -->
+		<scriptVariant type="subset" id='Hant' base='Hani'/> <!-- Han (Traditional variant) -->
 	</scriptData>
  <!-- See http://unicode.org/cldr/data/diff/supplemental/territory_language_information.html for more information on territoryInfo. -->
 	<territoryInfo>

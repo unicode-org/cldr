@@ -4,6 +4,8 @@ package org.unicode.cldr.web;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public abstract class UserSettings implements Comparable<UserSettings> {
     /**
@@ -102,5 +104,26 @@ public abstract class UserSettings implements Comparable<UserSettings> {
         final String j = get(name, null);
         if (j == null || j.isBlank()) return null;
         return gson.fromJson(j, clazz);
+    }
+
+    // enum with the names of client visible settings
+    public enum ClientVisibleSettings {
+        // enable a web keyboard (Keyman)
+        webkeyboard,
+    };
+
+    public JSONObject getClientJSON() throws JSONException {
+        JSONObject j = new JSONObject();
+        for (final ClientVisibleSettings s : ClientVisibleSettings.values()) {
+            final String v = get(s.name(), null);
+            if (v != null) {
+                j.put(s.name(), v);
+            }
+        }
+        if (j.length() > 0) {
+            return j;
+        } else {
+            return null;
+        }
     }
 }

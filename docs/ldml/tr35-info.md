@@ -2,8 +2,8 @@
 
 # Unicode Locale Data Markup Language (LDML)<br/>Part 6: Supplemental
 
-|Version|46.1         |
-|-------|-------------|
+|Version|47 (draft) |
+|-------|-----------|
 |Editors|Steven Loomis (<a href="mailto:srloomis@unicode.org">srloomis@unicode.org</a>) and <a href="tr35.md#Acknowledgments">other CLDR committee members|
 
 For the full header, summary, and status, see [Part 1: Core](tr35.md).
@@ -16,12 +16,12 @@ This is a partial document, describing only those parts of the LDML that are rel
 
 ### _Status_
 
-<!-- _This is a draft document which may be updated, replaced, or superseded by other documents at any time.
+_This is a draft document which may be updated, replaced, or superseded by other documents at any time.
 Publication does not imply endorsement by the Unicode Consortium.
-This is not a stable document; it is inappropriate to cite this document as other than a work in progress._ -->
+This is not a stable document; it is inappropriate to cite this document as other than a work in progress._
 
-_This document has been reviewed by Unicode members and other interested parties, and has been approved for publication by the Unicode Consortium.
-This is a stable document and may be used as reference material or cited as a normative reference by other specifications._
+<!-- _This document has been reviewed by Unicode members and other interested parties, and has been approved for publication by the Unicode Consortium.
+This is a stable document and may be used as reference material or cited as a normative reference by other specifications._ -->
 
 > _**A Unicode Technical Standard (UTS)** is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS._
 
@@ -1273,11 +1273,12 @@ If there is no valid -mu value, the following steps are used to determine a regi
 1. If there is a valid -ms value then let USM  be the corresponding value in column 2 of the table below.
 Otherwise FR is not used. In either case continue with step 2.
 2. If there is a valid -rg region portion of the rg value, let R be that region, and go to Compute the category.
-	* See the table above for the examples `usut`, `usabc`, and `abcdef`
-4. If there is a valid region in the locale, let R be that region, and go to Compute the category.
-5. Otherwise, compute the likely subtags for the locale.
-     1. If there is a likely region, then let R be that region, and go to Compute the category.
-	 2. Otherwise, let R be 001, and go to Compute the category
+    * In the table above, this would handle the examples `usut`, `uszzzz`, and `usabc`, resulting in R = US.
+    * Because the example `abzzzz` has an invalid region portion, no region is found and processing continues with step 3.
+3. If there is a valid region in the locale, let R be that region, and go to Compute the category.
+4. Otherwise, compute the likely subtags for the locale.
+    1. If there is a likely region, then let R be that region, and go to Compute the category.
+    2. Otherwise, let R be 001, and go to Compute the category
 
 | Key-Value   | Unit Systems Match          | Fallback Region for Unit Preferences |
 |-------------|-----------------------------|--------------------------------------|
@@ -1470,7 +1471,7 @@ As an example, ICU only uses the unit preferences (with rg, ms, and/or mu and th
 
 * * *
 
-© 2024–2024 Unicode, Inc.
+© 2001–2025 Unicode, Inc.
 This publication is protected by copyright, and permission must be obtained from Unicode, Inc.
 prior to any reproduction, modification, or other use not permitted by the [Terms of Use](https://www.unicode.org/copyright.html).
 Specifically, you may make copies of this publication and may annotate and translate it solely for personal or internal business purposes and not for public distribution,

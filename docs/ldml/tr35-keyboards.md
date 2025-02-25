@@ -659,6 +659,11 @@ For further details about the choice of locale ID, see [Keyboard IDs](#keyboard-
   …
 </keyboard3>
 ```
+
+_Attribute:_ `draft`
+
+If this attribute is present, it indicates the status of all the data in this keyboard layout. See [draft attribute](tr35.md#attribute-draft) for further details.
+
 * * *
 
 ### Element: import
@@ -867,7 +872,8 @@ Element containing informative properties about the layout, for displaying in us
       name="…name"
       author="…author"
       layout="…hint of the layout"
-      indicator="…short identifier" />
+      indicator="…short identifier"
+      attribution="…attribution" />
 ```
 
 > <small>
@@ -896,10 +902,12 @@ _Attribute:_ `name` (required)
 
 * * *
 
-
 _Attribute:_ `author`
 
 > The `author` attribute value contains the name of the author of the layout file.
+> There is no requirement that an implementation display, store, or otherwise process this informative attribute.
+
+* * *
 
 _Attribute:_ `layout`
 
@@ -907,12 +915,29 @@ _Attribute:_ `layout`
 >
 > This attribute is not localized, but is an informative identifier for implementation use.
 
+* * *
+
 _Attribute:_ `indicator`
 
 > The `indicator` attribute describes a short string to be used in currently selected layout indicator, such as `US`, `SI9` etc.
 > Typically, this is shown on a UI element that allows switching keyboard layouts and/or input languages.
 >
 > This attribute is not localized.
+
+* * *
+
+_Attribute:_ `attribution`
+
+> The `attribution` attribute describes a short string which gives some indication of the originating entity of the keyboard design, if different from the author of the layout file.
+> For example, an external standards body or other entity may have originated the layout used in the document.
+> This attribute does not imply endorsement by the named entity.
+>
+> This attribute is not localized.
+> There is no requirement that an implementation display, store, or otherwise process this attribute.
+
+```xml
+<info attribution="Malta Standards Authority"/>
+```
 
 * * *
 
@@ -2190,30 +2215,49 @@ _Attribute:_ `from` (required)
     The hex escaping is case insensitive. The value may not match a surrogate or illegal character, nor a marker character.
     The form `\u{…}` is preferred as it is the same regardless of codepoint length.
 
-- **Fixed character classes and escapes**
+- **Fixed character classes**
 
-    `\s \S \t \r \n \f \v \\ \$ \d \w \D \W \0`
+    `\s \S \t \r \n \f \v \d \w \D \W`
 
     The value of these classes do not change with Unicode versions.
 
     `\s` for example is exactly `[\f\n\r\t\v\u{00a0}\u{1680}\u{2000}-\u{200a}\u{2028}\u{2029}\u{202f}\u{205f}\u{3000}\u{feff}]`
 
-    `\\` and `\$` evaluate to `\` and `$`, respectively.
+- **Escapes**
+
+    `\. \( \) \? \[ \\ \] \{ \} \* \/ \^ \+ \| \$`
+
+    For example, `\\`, `\*`, and `\$` match `\`, `*`, and `$`, respectively.
+
+    Some of these characters (such as `*`) aren't actually used as syntax in the keyboard transform syntax.
+    However, they are required to be escaped in keyboard transforms, to avoid confusion or problems with characters which are syntax in regular expressions.
+
+    Sequences not listed here as **Fixed Character Classes** nor as **Escapes** are disallowed.
+    For example:
+    * `\0` (octal escape) and `\1` (backreference) are not allowed.
+    * `\a` is not defined as a character class and is also disallowed.
 
 - **Character classes**
 
     `[abc]` `[^def]` `[a-z]` `[ॲऄ-आइ-ऋ]` `[\u{093F}-\u{0944}\u{0962}\u{0963}]`
 
-    - supported
-    - no Unicode properties such as `\p{…}`
-    - Warning: Character classes look superficially similar to [`uset`](#element-uset) elements, but they are distinct and referenced with the `$[...usetId]` notation in transforms. The `uset` notation cannot be embedded directly in a transform.
+    If the character class begins with a caret (`^`) then it is a negation, matching all characters except for those listed.
+
+    Unicode properties such as `\p{…}` are not allowed.
+
+    One additional escape is allowed within character classes besides those listed above: `\-`, for escaping the hyphen character.
+
+    **Note**: Character classes look superficially similar to [`uset`](#element-uset) elements, but they are distinct and referenced with the `$[...usetId]` notation in transforms. The `uset` notation cannot be embedded directly in a transform.
 
 - **Bounded quantifier**
 
     `{x,y}`
 
-    `x` and `y` are required single digits representing the minimum and maximum number of occurrences.
-    `x` must be ≥ 0, `y` must be ≥ x and ≥ 1
+    `x` and `y` are required single digits (`0` to `9`) representing the minimum and maximum number of occurrences.
+
+    `x` must be ≥ 0, `y` must be ≥ x and ≥ 1. 
+
+    Unbounded quantifiers such as `{3,}` are not allowed.
 
 - **Optional Specifier**
 
@@ -2424,7 +2468,6 @@ The `from=` attribute MUST match the `from-match` rule in this grammar. Not all 
 
 The following is the [LDML EBNF](tr35.md#ebnf) format for the grammar:
 
-
 ```ebnf
 [ wfc: No more than 9 capture groups may be present. ]
 [ vc: all variables referenced must be defined in the <variables> element ]
@@ -2492,21 +2535,19 @@ fixed-class-char
            | 'n'
            | 'f'
            | 'v'
-           | '\'
-           | '$'
            | 'd'
            | 'w'
            | 'D'
            | 'W'
-           | '0'
 set-class
          ::= '[' set-negator set-members ']'
 set-members
          ::= set-member+
 set-member
-         ::= text-char
-           | char-range
+         ::= char-range
+           | range-char
            | match-marker
+           | escaped-codepoint
 char-range
          ::= range-edge '-' range-edge
 range-edge
@@ -2523,7 +2564,7 @@ text-char
 range-char
          ::= content-char
            | ws
-           | escaped-char
+           | escaped-range-char
            | '.'
            | '|'
            | '{'
@@ -2534,7 +2575,28 @@ content-char
            | DIGIT
            | NON-ASCII
 escaped-char
-         ::= '\' ( '\' | '{' | '|' | '}' )
+         ::= '\' escapable-char
+escapable-char
+         ::= '.'
+           | '('
+           | ')'
+           | '?'
+           | '['
+           | '\'
+           | ']'
+           | '{'
+           | '}'
+           | '*'
+           | '/'
+           | '^'
+           | '+'
+           | '|'
+           | '$'
+escaped-range-char
+         ::= '\' escapable-range-char
+escapable-range-char
+         ::= escapable-char
+           | '-'
 ws       ::= [ #x3000]
            | HTAB
            | CR

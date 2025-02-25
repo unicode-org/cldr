@@ -308,6 +308,7 @@ public class PathHeader implements Comparable<PathHeader> {
         WeekData(SectionId.Supplemental),
         Measurement(SectionId.Supplemental),
         Language(SectionId.Supplemental),
+        Script(SectionId.Supplemental),
         RBNF(SectionId.Supplemental),
         Segmentation(SectionId.Supplemental),
         DayPeriod(SectionId.Supplemental),

@@ -16,6 +16,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!ATTLIST keyboard3 xmlns CDATA #IMPLIED >
     <!--@MATCH:any-->
     <!--@METADATA-->
+<!ATTLIST keyboard3 draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+    <!--@METADATA-->
 
 <!ELEMENT import EMPTY >
 <!ATTLIST import path CDATA #REQUIRED >
@@ -47,6 +49,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
     <!--@MATCH:any-->
     <!--@VALUE-->
 <!ATTLIST info indicator CDATA #IMPLIED >
+    <!--@MATCH:any-->
+    <!--@VALUE-->
+<!ATTLIST info attribution CDATA #IMPLIED >
     <!--@MATCH:any-->
     <!--@VALUE-->
 

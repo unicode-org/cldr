@@ -42,6 +42,7 @@ import org.unicode.cldr.util.CLDRInfo.CandidateInfo;
 import org.unicode.cldr.util.CLDRInfo.PathValueInfo;
 import org.unicode.cldr.util.CLDRInfo.UserInfo;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.DayPeriodInfo;
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
@@ -50,6 +51,7 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.GrammarInfo;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathHeader;
@@ -476,8 +478,10 @@ public class TestCheckCLDR extends TestFmwk {
         LanguageTagParser ltp = new LanguageTagParser();
         Set<String> locales = new HashSet<>();
         for (String locale : getInclusion() <= 5 ? eightPointLocales : factory.getAvailable()) {
+            checkNullWithInheritanceMark(locale);
+
             /*
-             * Only test locales without regions. E.g., test "pt", skip "pt_PT"
+             * For checkLocale, only test locales without regions. E.g., test "pt", skip "pt_PT"
              */
             if (ltp.set(locale).getRegion().isEmpty()) {
                 locales.add(locale);
@@ -489,6 +493,28 @@ public class TestCheckCLDR extends TestFmwk {
         // (And in fact this test seems faster without it)
         locales.forEach(locale -> checkLocale(test, locale, null, unique));
         logln("Count:\t" + locales.size());
+    }
+
+    private void checkNullWithInheritanceMark(String locale) {
+        CLDRFile resolved = cldrFactory.make(locale, true);
+        CLDRFile unresolved = resolved.getUnresolved();
+        for (String path : unresolved.fullIterable()) {
+            String value = unresolved.getStringValue(path);
+            if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
+                switch (NameType.fromPath(path)) {
+                    case LANGUAGE:
+                    case SCRIPT:
+                    case TERRITORY:
+                    case VARIANT:
+                        assertNotNull(locale + " " + path, resolved.getStringValue(path));
+                        break;
+                    default:
+                        if (!logKnownIssue("CLDR-18309", "Null with inheritance mark")) {
+                            errln("Null with inheritance mark:\t" + locale + "\t" + path);
+                        }
+                }
+            }
+        }
     }
 
     public void TestA() {
@@ -839,8 +865,7 @@ public class TestCheckCLDR extends TestFmwk {
                 Subtype.dateSymbolCollision
             },
 
-            // 00-06 night1
-            // 06-12 morning1
+            // 00-12 morning1
             // 12-18 afternoon1
             // 18-21 evening1
             // 21-24 night1
@@ -848,7 +873,7 @@ public class TestCheckCLDR extends TestFmwk {
             // So for a 12hour time, we have:
             //
             // 12  1  2  3  4  5  6  7  8  9 10 11
-            //  n  n  n  n  n  n  m  m  m  m  m  m
+            //  m  m  m  m  m  m  m  m  m  m  m  m
             //  a  a  a  a  a  a  e  e  e  n  n  n
 
             // Formatting has looser collision rules, because it is always paired with a time.
@@ -864,15 +889,15 @@ public class TestCheckCLDR extends TestFmwk {
                 DayPeriod.morning1,
                 Subtype.dateSymbolCollision
             },
+            {Type.format, DayPeriod.night1, Type.format, DayPeriod.afternoon1, Subtype.none},
+            {Type.format, DayPeriod.night1, Type.format, DayPeriod.evening1, Subtype.none},
             {
                 Type.format,
-                DayPeriod.night1,
+                DayPeriod.morning1,
                 Type.format,
                 DayPeriod.afternoon1,
                 Subtype.dateSymbolCollision
             },
-            {Type.format, DayPeriod.night1, Type.format, DayPeriod.evening1, Subtype.none},
-            {Type.format, DayPeriod.morning1, Type.format, DayPeriod.afternoon1, Subtype.none},
             {
                 Type.format,
                 DayPeriod.morning1,

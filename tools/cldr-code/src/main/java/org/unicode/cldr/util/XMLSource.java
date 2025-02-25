@@ -1590,6 +1590,15 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             {"zhuyin", "collation"}
         };
 
+        // Start, reference: https://unicode-org.atlassian.net/browse/CLDR-18294
+        // These codes are exceptional in the sense that adding code-fallback for them is expected
+        // to be temporary for v47, and different handling will be implemented in v48.
+        private static final String[] exceptionalLanguageTypes = {"gaa", "luo", "vai"};
+        private static final String[] exceptionalScriptTypes = {
+            "Ahom", "Arab", "Bali", "Cham", "Jamo", "Modi", "Newa", "Thai", "Toto"
+        };
+        // End, reference: https://unicode-org.atlassian.net/browse/CLDR-18294
+
         private static final boolean SKIP_SINGLEZONES = false;
         private static XMLSource constructedItems = new SimpleXMLSource(CODE_FALLBACK_ID);
 
@@ -1616,6 +1625,17 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                     addFallbackCode(nameType, code, value);
                 }
             }
+
+            // Start, reference: https://unicode-org.atlassian.net/browse/CLDR-18294
+            for (String code : exceptionalLanguageTypes) {
+                constructedItems.putValueAtPath(NameType.LANGUAGE.getKeyPath(code), code);
+            }
+            for (String code : exceptionalScriptTypes) {
+                constructedItems.putValueAtPath(NameType.SCRIPT.getKeyPath(code), code);
+            }
+            constructedItems.putValueAtPath(
+                    "//ldml/dates/timeZoneNames/metazone[@type=\"Acre\"]/long/generic", "Acre");
+            // End, reference: https://unicode-org.atlassian.net/browse/CLDR-18294
 
             addFallbackCode(
                     "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/eras/eraAbbr/era[@type=\"0\"]",

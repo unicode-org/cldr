@@ -108,10 +108,11 @@ The LDML specification is divided into the following parts:
       * [Alignment](#Semantic_Skeleton_Alignment)
       * [Year Style](#Semantic_Skeleton_Year_Style)
       * [Hour Cycle](#Semantic_Skeleton_Hour_Cycle)
-      * [Fractional Second Digits](#Semantic_Skeleton_Fractional_Second_Digits)
+      * [Time Precision](#Semantic_Skeleton_Time_Precision)
       * [Time Zone Style](#Semantic_Skeleton_Time_Zone_Style)
   * [Generating Patterns for Semantic Skeletons](#Generating_Patterns_for_Semantic_Skeletons)
     * [Mapping to Standard Skeletons](#mapping-to-standard-skeletons)
+      * [Time Precision Skeleton Variations](#Semantic_Time_Precision_Skeleton_Variations)
       * [Year Style Skeleton Variations](#Semantic_Year_Style_Skeleton_Variations)
   * [Semantic Skeleton Conformance](#Semantic_Skeleton_Conformance)
 
@@ -2476,29 +2477,23 @@ Note: A _calendar period_ is distinct from a _date_ because it cannot be paired 
 
 ##### <a name="Semantic_Time_Field_Sets" href="#Semantic_Time_Field_Sets">Time Field Sets</a>
 
-A _time field set_ refers to a particular time of day. Low-order fields, such as the minute or second, could be omitted.
+The **Time** field signifies the time of day.
 
-The fields that may be included in a time field set are:
+Whether to include the Hour, Minute, Second, or Fractional Second is configured with the [Time Precision](#Time_Precision) option.
 
-1. **Hour:** The hour, possibly with a day period, depending on factors such as the length, locale, and hour cycle locale keyword.
-2. **Minute:** The minute within an hour.
-3. **Second:** The second within a minute, a decimal number that may include fractional digits. See the [Fractional Second Digits](#Semantic_Skeleton_Fractional_Second_Digits) option.
+| Field Set | Example         |
+|-----------|-----------------|
+| { Time }  | 4:03 pm	/ 16:03 |
 
-The valid time field sets are in the following table:
-
-| Field Set                | Example (en-US) | Example (en-GB) |
-|--------------------------|-----------------|-----------------|
-| { Hour }                 | 4 pm            | 16h             |
-| { Hour, Minute }         | 4:03 pm         | 16:03           |
-| { Hour, Minute, Second } | 4:03:51 pm      | 16:03:51        |
-
-Note: Minute and Second are not valid time field sets on their own because they do not refer to a particular time of day. They must be interpreted in the context of an explicit hour.
+Note: A day period (AM/PM) may be implied by the time field, depending on factors such as the length, locale, and hour cycle locale keyword.
 
 Note: Durations, such as "3 minutes and 12 seconds" (or 3:12), are not handled through the skeleton mechanisms.
 
 ##### <a name="Semantic_Time_Zone_Field_Sets" href="#Semantic_Time_Zone_Field_Sets">Time Zone Field Sets</a>
 
-A _time zone field set_ refers to a particular time zone. There is only one time zone field and one time zone field set, but the rendering can be configured with the [Zone Style](#Semantic_Skeleton_Time_Zone_Style) option.
+The **Zone** field signifies the time zone.
+
+The rendering can be configured with the [Zone Style](#Semantic_Skeleton_Time_Zone_Style) option.
 
 | Field Set | Example                             |
 |-----------|-------------------------------------|
@@ -2510,10 +2505,10 @@ Date, calendar period, and time field sets can be combined in certain ways shown
 
 | Categories              | Example Field Set          | Example Output       |
 |-------------------------|----------------------------|----------------------|
-| Date + Time             | { Month, Day, Hour }       | January 1 at 4 pm    |
+| Date + Time             | { Month, Day, Time }       | January 1 at 4 pm    |
 | Date + Time Zone        | { Month, Day, Zone }       | January 1, PT        |
-| Date + Time + Time Zone | { Month, Day, Hour, Zone } | January 1 at 4 pm PT |
-| Time + Time Zone        | { Hour, Zone }             | 4 pm PT              |
+| Date + Time + Time Zone | { Month, Day, Time, Zone } | January 1 at 4 pm PT |
+| Time + Time Zone        | { Time, Zone }             | 4 pm PT              |
 
 Note: "Date + Time Zone" is a valid combination because it refers to a specific span of time. "January 1, PST" refers to the span of time starting at `01-01T00:00-0800` and ending before `01-02T00:00-0800` (with an implied year).
 
@@ -2570,9 +2565,9 @@ The _year style_ defines the level of precision to use when displaying the year.
 
 1. **Auto:** Display the year with full or partial precision, and display the era if needed to disambiguate the year, depending on locale, calendar, and length.
 2. **Full:** Display the year with full precision, and display the era if needed to disambiguate the year, depending on locale and calendar.
-3. **With era:** Display the year with full precision, and always display the era.
+3. **WithEra:** Display the year with full precision, and always display the era.
 
-Going down the list, the three options can be seen as requiring additional context. "Auto" gives translators the most flexibility; "full" requires that the year be displayed with full precision; and "with era" additionally requires that the era field be displayed.
+Going down the list, the three options can be seen as requiring additional context. "Auto" gives translators the most flexibility; "Full" requires that the year be displayed with full precision; and "WithEra" additionally requires that the era field be displayed.
 
 Implementations could choose to use heuristics such as the following:
 
@@ -2587,7 +2582,7 @@ Examples in Gregorian:
 |------------|---------|---------|--------|---------|
 | Auto       | ‘20     | 1500    | 750 AD | 500 BC  |
 | Full       | 2020    | 1500    | 750 AD | 500 BC  |
-| With era   | 2020 AD | 1500 AD | 750 AD | 500 BC  |
+| WithEra    | 2020 AD | 1500 AD | 750 AD | 500 BC  |
 
 Note: This algorithm and the list of choices is likely to evolve as CLDR learns more about era display customs in different regions and calendar systems, and it may become normative.
 
@@ -2611,18 +2606,25 @@ Typically, locales will display a day period on H11 and H12, but the day period 
 
 Note: An option could be added in the future to give the developer more control over how day periods are displayed or to disable day periods when there is sufficient context.
 
-##### <a name="Semantic_Skeleton_Fractional_Second_Digits" href="#Semantic_Skeleton_Fractional_Second_Digits">Fractional Second Digits</a>
+##### <a name="Semantic_Skeleton_Time_Precision" href="#Semantic_Skeleton_Time_Precision">Time Precision</a>
 
-**Required Field: Second**
+**Required Field: Time**
 
-**Default Value: Auto**
+**Default Value: Second**
 
-The _fractional second digits_ option defines how many fractional digits should be displayed in the second field. The choices are:
+The _time precision_ option defines how precisely the time of day should be displayed. The choices are:
 
-1. **Auto:** Display fractional digits if they are provided in the input. Do not pad with trailing zeros.
-2. An integer from 0 to 9: display exactly this many fractional digits. Extra digits may be truncated (rounded toward zero), and trailing zeros may be added.
+1. **Hour:** Display the time to the hour. Drop minutes and seconds.
+2. **Minute:** Display the time to the minute. Drop seconds.
+3. **MinuteOptional:** Display the time to the minute, but drop minutes if they are zero. Drop seconds.
+4. **Second:** Display the time to the second. Drop fractional seconds.
+5. **FractionalSecond** paired with an integer from 1 to 9: Display the time to the second, and include the specified number of fractional digits.
+
+If the input contains more precision than the specified _time precision_ option, extra precision is truncated. For example, "11:59:59" can be displayed as one of "11h", "11:59", or "11:59:59", but never "12h" or "noon".
 
 Note: The finest level of precision is currently specified as nanoseconds, consistent with the requirements of many popular datetime libraries.
+
+Note: The default value of time precision may change as more options are added.
 
 ##### <a name="Semantic_Skeleton_Time_Zone_Style" href="#Semantic_Skeleton_Time_Zone_Style">Time Zone Style</a>
 
@@ -2653,27 +2655,34 @@ A semantic skeleton can be mapped to a standard skeleton, which in turn can be m
 
 #### Mapping to Standard Skeletons
 
-The selected fields in the field set should be converted to standard skeleton symbols according to the following table. "Standalone" should be used when the field set contains only one field. Hour is broken down by [hour cycle](#Semantic_Skeleton_Hour_Cycle), and Zone is broken down by [time zone style](#Semantic_Skeleton_Time_Zone_Style).
+To convert from a semantic skeleton to a standard skeleton, use the following procedure:
 
-| Semantic Field               | Long   | Medium | Short  |
-|------------------------------|--------|--------|--------|
-| Year                         | \*     | \*     | \*     |
-| Month                        | \*     | \*     | \*     |
-| Month (Standalone)           | LLLL   | LLL    | L      |
-| Day                          | \*     | \*     | \*     |
-| Weekday                      | EEEE   | EEE    | EEE    |
-| Weekday (Standalone)         | EEEE   | EEE    | EEEEE  |
-| Hour - Auto                  | C      | C      | C      |
-| Hour - H11, H12              | h      | h      | h      |
-| Hour - H23, H24              | H      | H      | H      |
-| Minute                       | m      | m      | m      |
-| Second                       | s      | s      | s      |
-| Zone - Generic               | v      | v      | v      |
-| Zone - Generic (Standalone)  | vvvv   | vvvv   | v      |
-| Zone - Specific              | z      | z      | z      |
-| Zone - Specific (Standalone) | zzzz   | zzzz   | z      |
-| Zone - Location              | VVVV   | VVVV   | VVVV   |
-| Zone - Offset                | O      | O      | O      |
+1. Map the semantic fields to standard fields according to the following table.
+2. Apply the [time precision adjustment](#Semantic_Time_Precision_Skeleton_Variations), which may depend on the value being formatted.
+3. Apply the [year style adjustment](#Semantic_Year_Style_Skeleton_Variations), which may depend on the value being formatted.
+
+The following table contains the basic mapping from a semantic field to a standard field. The special columns indicate:
+
+- Standalone: whether the specified field is the only field in the semantic skeleton. "N/A" means to use the same standard field for both standalone and non-standalone.
+- Option: for Time, this is the [hour cycle](#Semantic_Skeleton_Hour_Cycle), and for Zone, this is the [time zone style](#Semantic_Skeleton_Time_Zone_Style).
+
+| Semantic Field | Standalone? | Option   | Long   | Medium | Short  |
+|----------------|-------------|----------|--------|--------|--------|
+| Year           | N/A         | N/A      | \*     | \*     | \*     |
+| Month          | No          | N/A      | \*     | \*     | \*     |
+| Month          | Yes         | N/A      | LLLL   | LLL    | L      |
+| Day            | N/A         | N/A      | \*     | \*     | \*     |
+| Weekday        | No          | N/A      | EEEE   | EEE    | EEE    |
+| Weekday        | Yes         | N/A      | EEEE   | EEE    | EEEEE  |
+| Time           | N/A         | unset    | C      | C      | C      |
+| Time           | N/A         | H11, H12 | h      | h      | h      |
+| Time           | N/A         | H23, H24 | H      | H      | H      |
+| Zone           | No          | Generic  | v      | v      | v      |
+| Zone           | Yes         | Generic  | vvvv   | vvvv   | v      |
+| Zone           | No          | Specific | z      | z      | z      |
+| Zone           | Yes         | Specific | zzzz   | zzzz   | z      |
+| Zone           | N/A         | Location | VVVV   | VVVV   | VVVV   |
+| Zone           | N/A         | Offset   | O      | O      | O      |
 
 \* Lengths for Year, Month, and Day are taken from the [datetimeSkeleton](#dateFormats) in the Long, Medium, and Short variants. The era field, if present, should be included with the Year. For example, in en-US, CLDR 46, the datetimeSkeletons are:
 
@@ -2697,13 +2706,23 @@ This means that the Year, Month, and Day semantic field mapping in en-US should 
 | Month          | Japanese  | MMMM   | MMM    | M      |
 | Day            | Japanese  | d      | d      | d      |
 
+##### <a name="Semantic_Time_Precision_Skeleton_Variations" href="#Semantic_Time_Precision_Skeleton_Variations">Time Precision Skeleton Variations</a>
+
+The [time precision](#Semantic_Skeleton_Time_Precision) should change the skeleton for all lengths as follows:
+
+- Hour: No change.
+- Minute: Add "m"
+- MinuteOptional: Add "m" if the input has a nonzero minute
+- Second: Add "m" and "s"
+- FractionalSecond: Add "m", "s", and a number of "S" characters equal to the integer option
+
 ##### <a name="Semantic_Year_Style_Skeleton_Variations" href="#Semantic_Year_Style_Skeleton_Variations">Year Style Skeleton Variations</a>
 
 The [year style](#Semantic_Skeleton_Year_Style) should change the skeleton for all lengths as follows:
 
 - Auto: No change from datetimeSkeleton (note: could be "y", "yy", "yG", or another combination of year and era fields)
-- Full: Replace "yy" with "y"
-- With era: Replace "yy" with "y" and add "G" if there is not already an era field
+- Full or Auto resolving to Full: Replace "yy" with "y"
+- WithEra or Auto/Full resolving to WithEra: Replace "yy" with "y" and add "G" if there is not already an era field
 
 ### <a name="Semantic_Skeleton_Conformance" href="#Semantic_Skeleton_Conformance">Semantic Skeleton Conformance</a>
 

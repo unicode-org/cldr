@@ -9,13 +9,24 @@ import * as assert from "node:assert";
 import { forEachAbnf } from "../lib/util.mjs";
 import { getParseFunction } from "../lib/index.mjs";
 
+function sanitize(str) {
+  return str.replace(/[\s]+/g, (s) =>
+       [...s].map((s) => {
+        if (s === '\n') return '\\n';
+        if (s === '\r') return '\\r';
+        if (s === ' ') return ' ';
+        return `\\u{${s.codePointAt(0).toString(16)}}`;
+       }));
+}
+
 async function assertTest({ t, abnfPath, testText, expect }) {
   const parser = await getParseFunction(abnfPath);
   for (const str of testText
+    .replaceAll('\r\n', '\n')
     .trim()
     .split("\n")
     .filter((l) => !/^#/.test(l))) {
-    await t.test(`"${str}"`, async (t) => {
+    await t.test(`"${sanitize(str)}"`, async (t) => {
       if (!expect) {
         assert.throws(
           () => parser(str),

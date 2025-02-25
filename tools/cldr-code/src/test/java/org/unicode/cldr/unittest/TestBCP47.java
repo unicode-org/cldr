@@ -78,9 +78,6 @@ public class TestBCP47 extends TestFmwk {
     }
 
     public void TestEnglishKeyTranslations() {
-        logKnownIssue(
-                "cldr7631",
-                "Using just warnings for now, until issues are resolved. Change WARNING/ERROR when removing this.");
         ChainedMap.M3<String, String, String> foundEnglish =
                 ChainedMap.of(
                         new TreeMap<String, Object>(), new TreeMap<String, Object>(), String.class);
@@ -103,14 +100,11 @@ public class TestBCP47 extends TestFmwk {
                     if (keyTrans != null) {
                         engKey = keyAlias;
                         foundEnglish.put(engKey, "", keyTrans);
-                        msg(
+                        warnln(
                                 "Type for English 'key' translation is "
                                         + engKey
                                         + ", while bcp47 is "
-                                        + bcp47Key,
-                                WARNING,
-                                true,
-                                true);
+                                        + bcp47Key);
                         break;
                     }
                 }
@@ -125,17 +119,14 @@ public class TestBCP47 extends TestFmwk {
                                 Collections.<String>emptySet(),
                                 keyTrans));
             } else {
-                msg(
+                errln(
                         showData(
                                 bcp47Key,
                                 "",
                                 SUPPLEMENTAL_DATA_INFO.getBcp47Descriptions().get(keyRow),
                                 keyAliases,
                                 Collections.<String>emptySet(),
-                                "MISSING"),
-                        ERROR,
-                        true,
-                        true);
+                                "MISSING"));
             }
             if (bcp47Key.equals("tz")) {
                 continue;
@@ -156,8 +147,8 @@ public class TestBCP47 extends TestFmwk {
             final String type = extra.get1();
             final String trans = extra.get2();
             if (foundEnglish.get(key, type) == null) {
-                if (key.equals("x")) {
-                    msg(
+                if (key.equals("x") || key.equals("t")) {
+                    logln(
                             "OK Extra English: "
                                     + showData(
                                             key,
@@ -165,12 +156,12 @@ public class TestBCP47 extends TestFmwk {
                                             "MISSING",
                                             Collections.<String>emptySet(),
                                             Collections.<String>emptySet(),
-                                            trans),
-                            LOG,
-                            true,
-                            true);
+                                            trans));
+                } else if (type.equals("big5han") || type.equals("gb2312han")) {
+                    logKnownIssue(
+                            "CLDR-18307", "Remove English names for deprecated collation types");
                 } else {
-                    msg(
+                    errln(
                             "*Extra English: "
                                     + showData(
                                             key,
@@ -178,10 +169,7 @@ public class TestBCP47 extends TestFmwk {
                                             "MISSING",
                                             Collections.<String>emptySet(),
                                             Collections.<String>emptySet(),
-                                            trans),
-                            ERROR,
-                            true,
-                            true);
+                                            trans));
                 }
             }
         }
@@ -223,7 +211,7 @@ public class TestBCP47 extends TestFmwk {
                 if (trans != null) {
                     engType = typeAlias;
                     foundEnglish.put(engKey, engType, trans);
-                    msg(
+                    warnln(
                             "Type for English 'key+type' translation is "
                                     + engKey
                                     + "+"
@@ -231,10 +219,7 @@ public class TestBCP47 extends TestFmwk {
                                     + ", while bcp47 is "
                                     + bcp47Key
                                     + "+"
-                                    + bcp47Type,
-                            WARNING,
-                            true,
-                            true);
+                                    + bcp47Type);
                     break;
                 }
             }
@@ -260,17 +245,14 @@ public class TestBCP47 extends TestFmwk {
                             typeAliases,
                             trans));
         } else {
-            msg(
+            errln(
                     showData(
                             bcp47Key,
                             bcp47Type,
                             SUPPLEMENTAL_DATA_INFO.getBcp47Descriptions().get(row),
                             keyAliases,
                             typeAliases,
-                            "MISSING"),
-                    ERROR,
-                    true,
-                    true);
+                            "MISSING"));
         }
     }
 

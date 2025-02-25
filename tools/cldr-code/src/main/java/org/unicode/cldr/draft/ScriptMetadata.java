@@ -56,7 +56,8 @@ public class ScriptMetadata {
         ORIGIN_COUNTRY("Origin Country"),
         DENSITY("~Density"),
         LANG_CODE,
-        HAS_CASE("Has Case?");
+        HAS_CASE("Has Case?"),
+        COMPLEX_BRK_REQ("Needs Custom Brk Itr?");
 
         int columnNumber = -1;
         final Set<String> names = new HashSet<>();
@@ -124,9 +125,18 @@ public class ScriptMetadata {
         YES
     }
 
+    public enum ComplexBrk {
+        UNKNOWN,
+        NO,
+        W,
+        WL,
+    }
+
     static StandardCodes SC = StandardCodes.make();
     static EnumLookup<Shaping> shapingLookup =
             EnumLookup.of(Shaping.class, null, "n/a", Shaping.UNKNOWN);
+    static EnumLookup<ComplexBrk> complexBrkLookup =
+            EnumLookup.of(ComplexBrk.class, null, "n/a", ComplexBrk.UNKNOWN);
     static EnumLookup<Trinary> trinaryLookup =
             EnumLookup.of(Trinary.class, null, "n/a", Trinary.UNKNOWN);
     static EnumLookup<IdUsage> idUsageLookup =
@@ -157,6 +167,7 @@ public class ScriptMetadata {
         public final Trinary lbLetters;
         public final Trinary hasCase;
         public final Shaping shapingReq;
+        public final ComplexBrk complexBrkReq;
         public final Trinary ime;
         public final int density;
         public final String originCountry;
@@ -179,6 +190,7 @@ public class ScriptMetadata {
             rtl = trinaryLookup.forString(Column.RTL.getItem(items));
             lbLetters = trinaryLookup.forString(Column.LB_LETTERS.getItem(items));
             shapingReq = shapingLookup.forString(Column.SHAPING_REQ.getItem(items));
+            complexBrkReq = complexBrkLookup.forString(Column.COMPLEX_BRK_REQ.getItem(items));
             ime = trinaryLookup.forString(Column.IME.getItem(items));
             hasCase = trinaryLookup.forString(Column.HAS_CASE.getItem(items));
             density = Column.DENSITY.getInt(items, -1);
@@ -245,6 +257,7 @@ public class ScriptMetadata {
             lbLetters = other.lbLetters;
             hasCase = other.hasCase;
             shapingReq = other.shapingReq;
+            complexBrkReq = other.complexBrkReq;
             ime = "IME:YES".equals(string) ? Trinary.YES : other.ime;
             density = other.density;
             originCountry = other.originCountry;
@@ -288,6 +301,8 @@ public class ScriptMetadata {
                     + ime
                     + "\tCase: "
                     + hasCase
+                    + "Segmentation:"
+                    + complexBrkReq
                     + "\tDensity: "
                     + density;
         }

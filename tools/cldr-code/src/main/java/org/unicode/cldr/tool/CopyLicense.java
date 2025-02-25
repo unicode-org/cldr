@@ -8,6 +8,10 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRTool;
 import org.unicode.cldr.util.CldrUtility;
 
+/**
+ * Note: CLDR-18205: There are two copies of LICENSE to work around Eclipse bug
+ * https://github.com/eclipse-m2e/m2e-core/issues/1912
+ */
 @CLDRTool(alias = "copylicense", description = "copy LICENSE file from root into subdirectory")
 public class CopyLicense {
 

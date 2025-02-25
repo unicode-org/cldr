@@ -8,6 +8,10 @@ import java.util.stream.Collectors;
 import org.junit.jupiter.api.Test;
 import org.unicode.cldr.util.CldrUtility;
 
+/**
+ * Note: CLDR-18205: There are two copies of LICENSE to work around Eclipse bug
+ * https://github.com/eclipse-m2e/m2e-core/issues/1912
+ */
 public class TestCopyLicense {
     @Test
     void TestLicenseFileCopy() {

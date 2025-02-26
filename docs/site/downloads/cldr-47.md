@@ -196,7 +196,7 @@ LDML specification: [Number Symbols](https://www.unicode.org/reports/tr35/47/tr3
 [Number Formats](https://www.unicode.org/reports/tr35/47/tr35-numbers.html#number-formats).
 - V48 advance warnings
     - Any locales that are missing Core data by the end of the CLDR 48 cycle will be removed [CLDR-16004](https://unicode-org.atlassian.net/browse/CLDR-16004)
-    - The default week numbering will change to ISO instead being based on the calendar week starting in CLDR 48 [CLDR-18275](https://unicode-org.atlassian.net/browse/CLDR-18275).
+    - In LDML 48, week-of-year calculation will change to always apply week numbers based on the ISO-8601 convention where week 1 is the week with the first Thursday of the year, ignoring the `minDays` and `firstDay` variables for the purpose of week-of-year calculations. [CLDR-18275](https://unicode-org.atlassian.net/browse/CLDR-18275).
 
 ## Known Issues
 

@@ -50,7 +50,6 @@ The LDML specification is divided into the following parts:
 
 ## <a name="Contents">Contents of Part 9, MessageFormat</a>
 
-* [Table of Contents](#table-of-contents)
 * [Introduction](#introduction)
   * [Conformance](#conformance)
   * [Terminology and Conventions](#terminology-and-conventions)
@@ -84,7 +83,7 @@ The LDML specification is divided into the following parts:
   * [Escape Sequences](#escape-sequences)
     * [Whitespace](#whitespace)
   * [Complete ABNF](#complete-abnf)
-* [message.abnf](#message-abnf)
+* [message.abnf](#messageabnf)
 * [Formatting](#formatting)
   * [Formatting Context](#formatting-context)
   * [Resolved Values](#resolved-values)
@@ -197,11 +196,10 @@ The LDML specification is divided into the following parts:
   * [Markup Model](#markup-model)
   * [Attribute Model](#attribute-model)
   * [Model Extensions](#model-extensions)
-  * [`message.json`](#message-json)
+  * [`message.json`](#messagejson)
 * [Appendices](#appendices)
   * [Security Considerations](#security-considerations)
   * [Acknowledgements](#acknowledgements)
-
 
 ## Introduction
 
@@ -402,7 +400,7 @@ This part of the MessageFormat specification defines the syntax for a _message_,
 along with the concepts and terminology needed when processing a _message_
 during the [formatting](#formatting) of a _message_ at runtime.
 
-The complete formal syntax of a _message_ is described by the [ABNF](#message-abnf).
+The complete formal syntax of a _message_ is described by the [ABNF](#messageabnf).
 
 #### Well-formed vs. Valid Messages
 
@@ -1382,7 +1380,7 @@ ws = SP / HTAB / CR / LF / %x3000
 
 ### Complete ABNF
 
-The grammar is formally defined in [`message.abnf`](#message-abnf)
+The grammar is formally defined in [`message.abnf`](#messageabnf)
 using the ABNF notation [[STD68](https://www.rfc-editor.org/info/std68)],
 including the modifications found in [RFC 7405](https://www.rfc-editor.org/rfc/rfc7405).
 
@@ -4088,7 +4086,7 @@ When the offset is not present, implementations SHOULD use a floating time type
 For more information, see [Working with Timezones](https://w3c.github.io/timezone).
 
 > [!IMPORTANT]
-> The [ABNF](#message-abnf) and [syntax](#syntax) of MF2
+> The [ABNF](#messageabnf) and [syntax](#syntax) of MF2
 > do not formally define date/time literals.
 > This means that a _message_ can be syntactically valid but produce
 > a _Bad Operand_ error at runtime.

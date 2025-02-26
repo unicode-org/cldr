@@ -50,7 +50,6 @@ The LDML specification is divided into the following parts:
 
 ## <a name="Contents">Contents of Part 9, MessageFormat</a>
 
-* [Table of Contents](#table-of-contents)
 * [Introduction](#introduction)
   * [Conformance](#conformance)
   * [Terminology and Conventions](#terminology-and-conventions)
@@ -84,7 +83,7 @@ The LDML specification is divided into the following parts:
   * [Escape Sequences](#escape-sequences)
     * [Whitespace](#whitespace)
   * [Complete ABNF](#complete-abnf)
-* [message.abnf](#message-abnf)
+* [message.abnf](#messageabnf)
 * [Formatting](#formatting)
   * [Formatting Context](#formatting-context)
   * [Resolved Values](#resolved-values)
@@ -197,11 +196,10 @@ The LDML specification is divided into the following parts:
   * [Markup Model](#markup-model)
   * [Attribute Model](#attribute-model)
   * [Model Extensions](#model-extensions)
-  * [`message.json`](#message-json)
+  * [`message.json`](#messagejson)
 * [Appendices](#appendices)
   * [Security Considerations](#security-considerations)
   * [Acknowledgements](#acknowledgements)
-
 
 ## Introduction
 

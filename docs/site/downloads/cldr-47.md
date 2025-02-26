@@ -64,6 +64,30 @@ The following are the most significant changes to the specification (LDML).
 - Don't produce "Unknown City Time" for VVV and VVVV, use localized offset format instead [CLDR-18237](https://unicode-org.atlassian.net/browse/CLDR-18237)
 - **TBD** (including Message Format, Part 9)
 
+
+- Made MessageFormat stable and made the stability policy normative. This includes the following changes:
+  - Added or clarified terminology
+    - Defined option value, literal key, string value, and digit size option formally.
+    - Replaced the concept of a "function registry" with default functions and u: namespace functions and options.
+    - Changed the data model to be called the "Interchange Data Model"
+  - Modified portions of the syntax (ABNF)
+    - Removed number-literal from the ABNF and moved its definition to the default functions for numeric formatting.
+    - Changed (expanded) the range of characters allowed in an unquoted literal and simplified syntax character set definitions.
+  - Revised the Default Bidi Strategy.
+  - Enabled functions to know whether an option value was set using a literal or a variable, which is necessary for some function's selection mechanism (see below).
+  - Updated the default functions:
+    - Only three default functions are stable: :string, :number, and :integer. Other functions are Draft.
+    - Some options have been removed, modified, or made optional.
+    - The select option on :number and :integer functions now accepts only literal values.
+    - Removed the style percent from :number and :integer pending future standardization.
+    - The u: namespace options u:id and u:dir are optional; u:locale is Draft.
+  - Clarified how to include the character "*" in a key.
+  - In addition, the following changes were made in v46.1:
+    - Removed all of the reserved and private use syntax constructs, simplifying the grammar.
+    - Changed the structure of the .match (selector) to require use of .local or .input declarations. This is a breaking change for existing messages.
+    - Added support for bidirectional isolates and marks, and clarified whitespace handling to better enable messages that contain right-to-left and mixed direction identifiers and text.
+
+
 There are many more changes that are important to implementations, such as changes to certain identifier syntax and various algorithms.
 See the [Modifications section](https://www.unicode.org/reports/tr35/proposed.html#Modifications) of the specification for details.
 

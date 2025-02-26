@@ -4300,7 +4300,7 @@ This data model might also be used to:
 
 To ensure compatibility across all platforms,
 this interchange data model is defined here using TypeScript notation.
-An equivalent JSON Schema definition [`message.json`](#message-json) is also provided,
+An equivalent JSON Schema definition [`message.json`](#messagejson) is also provided,
 for use with message data encoded as JSON or compatible formats, such as YAML.
 
 Note that while the data model description below is the canonical one,

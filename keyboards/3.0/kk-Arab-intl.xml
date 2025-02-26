@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keyboard3 xmlns="https://schemas.unicode.org/cldr/46/keyboard3" locale="kk-Arab" conformsTo="46">
+    <!-- Kazakhs living now in China, Pakistan, Afghanistan, Iran
+    and other countries of the Middle East use the Arabic script.-->
+    <locales>
+        <locale id="kk" />
+    </locales>
+    <version number="1.0.0" />
+    <info name="Kazakh Arabic (International)" author="Murat Karibay" indicator="kk" layout="QWERTY" />
+
+    <keys>
+        <import base="cldr" path="46/keys-Zyyy-punctuation.xml" />
+		<import base="cldr" path="46/keys-Zyyy-currency.xml" />
+
+		<!-- switch keys -->
+		<key id="base" layerId="base" />
+		<key id="numeric" layerId="numeric" />
+		<key id="shift" layerId="shift" />
+		<key id="symbol" layerId="symbol" />
+
+        <!-- basic letters -->
+        <key id="a" output="ا" />
+        <key id="b" output="ب" />
+        <key id="c" output="ع" />
+        <key id="d" output="د" />
+        <key id="e" output="ە" />
+        <key id="f" output="ء" />
+        <key id="g" output="گ" />
+        <key id="h" output="ح" />
+        <key id="i" output="ى" />
+        <key id="j" output="ج" />
+        <key id="k" output="ك" />
+        <key id="l" output="ل" />
+        <key id="m" output="م" />
+        <key id="n" output="ن" />
+        <key id="o" output="و" />
+        <key id="p" output="پ" />
+        <key id="q" output="ق" />
+        <key id="r" output="ر" />
+        <key id="s" output="س" />
+        <key id="t" output="ت" />
+        <key id="u" output="ۇ" />
+        <key id="v" output="ڭ" />
+        <key id="w" output="ۋ" />
+        <key id="x" output="ش" />
+        <key id="y" output="ي" />
+        <key id="z" output="ز" />
+
+        <!-- letters for loanwords -->
+        <key id="ch" output="چ" />
+        <key id="fi" output="ف" />
+        <key id="ha" output="ھ" />
+        <key id="vi" output="ۆ" />
+
+        <!-- punctuations -->
+        <key id="arabic-comma" output="،" />
+        <key id="arabic-question" output="؟" />
+        <key id="arabic-semicolon" output="؛" />
+        <key id="close-jaqsha" output="«" />
+        <key id="open-jaqsha" output="»" />
+
+    </keys>
+    <layers formId="us">
+        <layer modifiers="none">
+            <row keys="1 2 3 4 5 6 7 8 9 0 hyphen equal" />
+            <row keys="q w e r t y u i o p close-square open-square backslash" />
+            <row keys="a s d f g h j k l arabic-semicolon apos" />
+            <row keys="z x c v b n m arabic-comma period slash" />
+            <row keys="space" />
+        </layer>
+        <layer modifiers="shift">
+            <row keys="bang at hash dollar percent caret amp asterisk close-paren open-paren underscore plus" />
+            <row keys="q w e r t y u i o p close-jaqsha open-jaqsha pipe" />
+            <row keys="a s d fi g ha j k l colon double-quote" />
+            <row keys="z x ch vi b n m close-angle open-angel arabic-question" />
+            <row keys="space" />
+        </layer>
+    </layers>
+
+    <layers formId="touch" minDeviceWidth="150">
+		<!-- optional attribute for min physical device size -->
+		<layer id="base">
+			<row keys="q w e r t y u i o p" />
+			<row keys="a s d f g h j k l" />
+			<row keys="shift z x c v b n m" />
+			<row keys="numeric extra space enter" />
+		</layer>
+
+		<layer id="shift">
+			<row keys="q w e r t y u i o p" />
+			<row keys="a s d fi g ha j k l" />
+			<row keys="base z x ch vi b n m" />
+			<row keys="numeric extra space enter" />
+		</layer>
+
+		<layer id="numeric">
+			<row keys="1 2 3 4 5 6 7 8 9 0" />
+			<row keys="hyphen slash colon arabic-semicolon open-paren close-paren yen amp at double-quote" />
+			<row keys="symbol period arabic-comma arabic-question bang double-quote" />
+			<row keys="base extra space enter" />
+		</layer>
+
+		<layer id="symbol">
+			<row keys="open-square close-square open-curly close-curly hash percent caret asterisk plus equal" />
+			<row keys="underscore backslash pipe tilde close-jaqsha open-jaqsha euro pound dollar bullet" />
+			<row keys="numeric period comma question bang double-quote" />
+			<row keys="base extra space enter" />
+		</layer>
+	</layers>
+</keyboard3>

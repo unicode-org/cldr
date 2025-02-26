@@ -1427,6 +1427,8 @@ XXX Code for transations where no currency is involved
 		<language type="bs" scripts="Latn Cyrl" territories="BA"/>
 		<language type="bsc" scripts="Latn"/>
 		<language type="bsc" territories="SN" alt="secondary"/>
+		<language type="bsq" scripts="Latn"/>
+		<language type="bsq" scripts="Bass" alt="secondary"/>
 		<language type="bss" scripts="Latn"/>
 		<language type="bto" scripts="Latn"/>
 		<language type="btv" scripts="Deva"/>
@@ -1808,6 +1810,7 @@ XXX Code for transations where no currency is involved
 		<language type="kok" territories="IN" alt="secondary"/>
 		<language type="kos" scripts="Latn"/>
 		<language type="kpe" scripts="Latn"/>
+		<language type="kpe" territories="LR" alt="secondary"/>
 		<language type="kpy" scripts="Cyrl"/>
 		<language type="kr" scripts="Latn"/>
 		<language type="krc" scripts="Cyrl"/>
@@ -1816,6 +1819,7 @@ XXX Code for transations where no currency is involved
 		<language type="kri" territories="SL" alt="secondary"/>
 		<language type="krj" scripts="Latn"/>
 		<language type="krl" scripts="Latn"/>
+		<language type="kro" scripts="Latn"/>
 		<language type="kru" scripts="Deva"/>
 		<language type="kru" territories="IN" alt="secondary"/>
 		<language type="ks" scripts="Arab Deva"/>
@@ -1868,6 +1872,7 @@ XXX Code for transations where no currency is involved
 		<language type="lif" scripts="Deva Limb"/>
 		<language type="lij" scripts="Latn"/>
 		<language type="lil" scripts="Latn"/>
+		<language type="lir" territories="LR" alt="secondary"/>
 		<language type="lis" scripts="Lisu"/>
 		<language type="liv" scripts="Latn"/>
 		<language type="ljp" scripts="Latn"/>
@@ -2456,12 +2461,12 @@ XXX Code for transations where no currency is involved
 		<language type="zza" scripts="Latn"/>
 		<language type="zza" territories="TR" alt="secondary"/>
 	</languageData>
-	<scriptData>
+		<scriptData>
 		<scriptVariant type="compound" id='Hanb' base='Hani Bopo'/> <!-- Han with Bopomofo (alias for Han + Bopomofo) -->
 		<scriptVariant type="compound" id='Jpan' base='Hani Hira Kana'/> <!-- Japanese (alias for Han + Hiragana + Katakana) -->
 		<scriptVariant type="compound" id='Hrkt' base='Hira Kana'/> <!-- Japanese syllabaries (alias for Hiragana + Katakana) -->
 		<scriptVariant type="compound" id='Kore' base='Hang Hani'/> <!-- Korean (alias for Hangul + Han) -->
-	
+
 		<scriptVariant type="visual" id='Aran' base='Arab'/> <!-- Arabic (Nastaliq variant) -->
 		<scriptVariant type="visual" id='Cyrs' base='Cyrl'/> <!-- Cyrillic (Old Church Slavonic variant) -->
 		<scriptVariant type="visual" id='Latf' base='Latn'/> <!-- Latin (Fraktur variant) -->
@@ -2469,7 +2474,7 @@ XXX Code for transations where no currency is involved
 		<scriptVariant type="visual" id='Syrn' base='Syrc'/> <!-- Syriac (Eastern variant) -->
 		<scriptVariant type="visual" id='Syre' base='Syrc'/> <!-- Syriac (Estrangelo variant) -->
 		<scriptVariant type="visual" id='Syrj' base='Syrc'/> <!-- Syriac (Western variant) -->
-	
+
 		<scriptVariant type="subset" id='Jamo' base='Hang'/> <!-- Jamo (alias for Jamo subset of Hangul) -->
 		<scriptVariant type="subset" id='Hans' base='Hani'/> <!-- Han (Simplified variant) -->
 		<scriptVariant type="subset" id='Hant' base='Hani'/> <!-- Han (Traditional variant) -->
@@ -3567,9 +3572,17 @@ XXX Code for transations where no currency is involved
 		</territory>
 		<territory type="LR" gdp="8884000000" literacyPercent="60.8" population="5437250">	<!--Liberia-->
 			<languagePopulation type="en" populationPercent="83" officialStatus="official" references="R1046"/>	<!--English-->
-			<languagePopulation type="kpe" populationPercent="14"/>	<!--Kpelle-->
-			<languagePopulation type="vai" populationPercent="2.6" references="R1271"/>	<!--Vai-->
-			<languagePopulation type="men" populationPercent="0.48"/>	<!--Mende-->
+			<languagePopulation type="lir" populationPercent="74" references="R1084"/>	<!--Liberian English-->
+			<languagePopulation type="kpe" populationPercent="20" references="R1124"/>	<!--Kpelle-->
+			<languagePopulation type="bsq" populationPercent="14" references="R1124"/>	<!--Bassa-->
+			<languagePopulation type="kro" populationPercent="10" references="R1124"/>	<!--Kru-->
+			<languagePopulation type="grb" populationPercent="9.9" references="R1124"/>	<!--Grebo-->
+			<languagePopulation type="dnj" literacyPercent="1" populationPercent="7.9" references="R1124"/>	<!--Dan-->
+			<languagePopulation type="mev" populationPercent="7.2" references="R1124"/>	<!--Mano-->
+			<languagePopulation type="kss" populationPercent="4.3" references="R1124"/>	<!--Southern Kisi-->
+			<languagePopulation type="vai" populationPercent="3.8" references="R1124"/>	<!--Vai-->
+			<languagePopulation type="bza" populationPercent="2.9" references="R1124"/>	<!--Bandi-->
+			<languagePopulation type="men" populationPercent="1.7" references="R1124"/>	<!--Mende-->
 			<languagePopulation type="ff" populationPercent="0" references="R1150"/>	<!--Fula-->
 			<languagePopulation type="ff_Adlm" populationPercent="0" references="R1150"/>	<!--Fula (Adlam)-->
 			<languagePopulation type="vai_Latn" populationPercent="0" references="R1272"/>	<!--Vai (Latin)-->
@@ -5636,6 +5649,7 @@ XXX Code for transations where no currency is involved
 		<reference type="R1081" uri="https://www.cia.gov/cia/publications/factbook/geos/tz.html">English (official, primary language of commerce, administration, and higher education)</reference>
 		<reference type="R1082" uri="http://www.ethnologue.com/show_language.asp?code=eng">Ethnologue lists 1 million 2nd lang users of English; no other good figures found.</reference>
 		<reference type="R1083" uri="http://www.bhas.ba/index.php?option=com_content&amp;view=article&amp;id=52&amp;itemid=80&amp;lang=en&amp;Itemid="> also: http://en.wikipedia.org/wiki/Bosnian_language</reference>
+		<reference type="R1084" uri="https://en.wikipedia.org/wiki/Liberian_Kreyol">[missing]</reference>
 		<reference type="R1085" uri="https://www.dsec.gov.mo/getAttachment/6cb29f2f-524a-488f-aed3-4d7207bb109e/E_CEN_PUB_2021_Y.aspx">2021 Census, counting people who are fluent in the language</reference>
 		<reference type="R1086">5% writing pop estimated in absence of other data</reference>
 		<reference type="R1087" uri="http://www.ethnologue.com/show_language.asp?code=rkt">[missing]</reference>
@@ -5675,6 +5689,7 @@ XXX Code for transations where no currency is involved
 		<reference type="R1121" uri="http://www.nvtc.gov/lotw/months/march/Azerbaijani.html#writ">Latin script official, used 98.8% of pop * 90% for the usage figure</reference>
 		<reference type="R1122" uri="http://en.wikipedia.org/wiki/Swahili_language">- five eastern provinces of the DRC are Swahili speaking. Nearly half the 66 million Congolese speak it.</reference>
 		<reference type="R1123" uri="http://en.wikipedia.org/wiki/Kazakh_language">[missing]</reference>
+		<reference type="R1124" uri="https://lisgis.gov.lr/censusreport/thematic/ThematicReportonPopulationSizeDistributionandStructure.pdf">2022 Census number of people in Ethnic group</reference>
 		<reference type="R1125" uri="http://en.wikipedia.org/wiki/Alsatian_language">[missing]</reference>
 		<reference type="R1126" uri="http://www.ethnologue.com/show_language.asp?code=rwr">[missing]</reference>
 		<reference type="R1127" uri="http://en.wikipedia.org/wiki/Swahili_language">- Most educated Kenyans are able to communicate fluently in Swahili, since it is a compulsory subject in school</reference>
@@ -5815,7 +5830,6 @@ XXX Code for transations where no currency is involved
 		<reference type="R1268" uri="http://en.wikipedia.org/wiki/Esperanto">http://en.wikipedia.org/wiki/Akademio_Internacia_de_la_Sciencoj_San_Marino - estimate 100% of the academy can use Esperanto; the language is used as 1st language of instruction; academy has 300 &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;members&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;.</reference>
 		<reference type="R1269" uri="https://en.wikipedia.org/wiki/Sundanese_language">recognized in West Java</reference>
 		<reference type="R1270">Mainly unwritten</reference>
-		<reference type="R1271">Vai script is the main script for this language.</reference>
 		<reference type="R1272">Latin listed as being used (Scriptsource) but no pop figures available.</reference>
 		<reference type="R1273" uri="https://www.dsec.gov.mo/getAttachment/7a3b17c2-22cc-4197-9bd5-ccc6eec388a2/E_CEN_PUB_2011_Y.aspx">2011 Census -- the language is not distinguished in the 2021 census</reference>
 		<reference type="R1274" uri="http://www.ethnologue.com/language/mgh">but no literacy data</reference>

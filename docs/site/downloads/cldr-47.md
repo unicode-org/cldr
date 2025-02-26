@@ -84,7 +84,7 @@ The following are the most significant changes to the specification (LDML).
   - Clarified how to include the character "*" in a key.
   - In addition, the following changes were made in v46.1:
     - Removed all of the reserved and private use syntax constructs, simplifying the grammar.
-    - Changed the structure of the .match (selector) to require use of .local or .input declarations. This is a breaking change for existing messages.
+    - Changed the structure of the .match (selector) to require use of .local or .input declarations.
     - Added support for bidirectional isolates and marks, and clarified whitespace handling to better enable messages that contain right-to-left and mixed direction identifiers and text.
 
 

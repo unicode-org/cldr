@@ -5,6 +5,30 @@ const { JSDOM } = jsdom;
 const path = require("path");
 const markedAlert = require("marked-alert");
 const matter = require("gray-matter");
+const AnchorJS = require("anchor-js");
+
+// this one is closer to GitHub, it seems.
+const amh = require("anchor-markdown-header");
+
+// array of elements to put anhors on
+const ELEMENTS = "h2 h3 h4 h5 h6 caption dfn".split(" ");
+
+// Not great, but do this so AnchorJS will work
+global.document = new jsdom.JSDOM(`...`).window.document;
+const anchorjs = new AnchorJS();
+
+/** give the anchor as Anchor.js would do it */
+function anchorurlify(t) {
+  // undocumented
+  return anchorjs.urlify(t);
+}
+
+/** give the anchor as GFM probably would do it */
+function gfmurlify(t) {
+  const md = amh(t); // '[message.abnf](#messageabnf)'
+  return /.*\(#([^)]+)\)/.exec(md)[1];
+}
+
 // Setup some options for our markdown renderer
 marked.setOptions({
   renderer: new marked.Renderer(),
@@ -167,7 +191,7 @@ async function renderit(infile) {
   body.appendChild(
     getScript({
       // This invokes anchor.js
-      code: `anchors.add('h1, h2, h3, h4, h5, h6, caption, dfn');`,
+      code: `anchors.add('${ELEMENTS.join(", ")}');`,
     })
   );
   body.appendChild(document.createTextNode("\n"));
@@ -222,6 +246,27 @@ async function renderit(infile) {
   // If the document requests it, linkify terms
   if (data.linkify) {
     linkify(dom.window.document);
+  }
+
+  // find any link ids that are likely to be mismatches with GFM
+  // Workaround: https://github.com/bryanbraun/anchorjs/issues/197
+  for (const tag of ELEMENTS) {
+    for (const e of dom.window.document.getElementsByTagName(tag)) {
+      const id = e.getAttribute("id");
+      if (id) continue; // skip elements that already have an id
+      const txt = e.textContent.trim();
+      const anchor_id = anchorurlify(txt);
+      const gfm_id = gfmurlify(txt);
+      if (anchor_id !== gfm_id) {
+        // emit fixups
+        console.log({ txt, gfm_id, anchor_id });
+        if (dom.window.document.getElementById(gfm_id)) {
+          console.error(`${basename}: duplicate id ${gfm_id}`);
+        } else {
+          e.setAttribute("id", gfm_id);
+        }
+      }
+    }
   }
 
   // OK, done munging the DOM, write it out.

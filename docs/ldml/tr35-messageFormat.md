@@ -400,7 +400,7 @@ This part of the MessageFormat specification defines the syntax for a _message_,
 along with the concepts and terminology needed when processing a _message_
 during the [formatting](#formatting) of a _message_ at runtime.
 
-The complete formal syntax of a _message_ is described by the [ABNF](#message-abnf).
+The complete formal syntax of a _message_ is described by the [ABNF](#messageabnf).
 
 #### Well-formed vs. Valid Messages
 
@@ -1380,7 +1380,7 @@ ws = SP / HTAB / CR / LF / %x3000
 
 ### Complete ABNF
 
-The grammar is formally defined in [`message.abnf`](#message-abnf)
+The grammar is formally defined in [`message.abnf`](#messageabnf)
 using the ABNF notation [[STD68](https://www.rfc-editor.org/info/std68)],
 including the modifications found in [RFC 7405](https://www.rfc-editor.org/rfc/rfc7405).
 
@@ -4086,7 +4086,7 @@ When the offset is not present, implementations SHOULD use a floating time type
 For more information, see [Working with Timezones](https://w3c.github.io/timezone).
 
 > [!IMPORTANT]
-> The [ABNF](#message-abnf) and [syntax](#syntax) of MF2
+> The [ABNF](#messageabnf) and [syntax](#syntax) of MF2
 > do not formally define date/time literals.
 > This means that a _message_ can be syntactically valid but produce
 > a _Bad Operand_ error at runtime.
@@ -4300,7 +4300,7 @@ This data model might also be used to:
 
 To ensure compatibility across all platforms,
 this interchange data model is defined here using TypeScript notation.
-An equivalent JSON Schema definition [`message.json`](#message-json) is also provided,
+An equivalent JSON Schema definition [`message.json`](#messagejson) is also provided,
 for use with message data encoded as JSON or compatible formats, such as YAML.
 
 Note that while the data model description below is the canonical one,

@@ -22,8 +22,12 @@ It was a closed cycle: locale data changes were limited to bug fixes and the add
 
 ### Changes
 
-The most significant changes in this release are:
+This release note includes all changes from [CLDR v46.1](https://cldr.unicode.org/downloads/cldr-46#461-changes), 
+a special release, which many users of CLDR (including ICU) have not updated to.
 
+The most significant changes in this release are the following:
+
+   - MessageFormat has advanced from Final Candidate to Stable. For details, see below.
    - New locales:
       - Core data for Coptic (cop), Haitian Creole (ht)
       - Locale data for 11 English locales and Cantonese (Macau) (yue_Hant_MO)
@@ -31,14 +35,9 @@ The most significant changes in this release are:
    - [RBNF](#number-spellout-data-changes) (Rule Based Number Formatting): Number spellout data improvements for multiple languages
    - Assorted transforms improvements
    - Updated and revised population data
-   - Incorporates all changes from CLDR v46.1.
-        - [CLDR v46.1](https://cldr.unicode.org/downloads/cldr-46#461-changes) was a special release, which many users of CLDR (including ICU) have not updated to.
-So the listed changes are relative to [CLDR v46.0](https://cldr.unicode.org/downloads/cldr-46). v46.1 included the following:
-       - Message Format 2.0 (Final Candidate)
-       - More explicit well-formedness and validity constraints for unit of measurement identifiers
-       - Addition of derived emoji annotations that were missing: emoji with skin tones facing right
-       - Fixes to make the ja, ko, yue, zh datetimeSkeletons useful for generating the standard patterns
-       - Improved date/time test data
+   - Addition of derived emoji annotations that were missing: emoji with skin tones facing right
+   - Fixes to make the ja, ko, yue, zh datetimeSkeletons useful for generating the standard patterns
+   - Improved date/time test data
 
 For more details, see below.
 
@@ -50,57 +49,68 @@ Count | Level | Usage | Examples
 16 | Moderate | Suitable for “document content” internationalization, eg. in spreadsheet | Akan, Balóchi [Látin], brezhoneg, Cebuano, føroyskt, IsiXhosa, Māori, sardu, veneto, Wolof, татар, тоҷикӣ, कांगड़ी‎, … |
 55 | Basic | Suitable for locale selection, eg. choice of language on mobile phone | Basa Sunda, emakhuwa, Esperanto, eʋegbe, Frysk, Malti, босански (ћирилица), କୁୱି (ଅଡ଼ିଆ), కువి (తెలుగు), ᱥᱟᱱᱛᱟᱲᱤ, ᓀᐦᐃᓇᐍᐏᐣ‬, ꆈꌠꉙ‎, … |
 
+**TBD: update the above**
+
 \* Note: Each release, the number of items needed for Modern and Moderate increases. So locales without active contributors may drop down in coverage level.
 
 For a full listing, see [Coverage Levels](https://unicode.org/cldr/charts/47/supplemental/locale_coverage.html)
 
+## MessageFormat 2.0 now Stable
+
+Software needs to construct messages that incorporate various pieces of information.
+The complexities of the world's languages make this challenging. 
+MessageFormat 2.0 enables developers and translators to create natural-sounding user interfaces
+that can appear in any language and support the needs of various cultures.
+
+The new MessageFormat defines the data model, syntax, processing, and conformance requirements
+for the next generation of dynamic messages. 
+It is intended for adoption by programming languages, software libraries, and software localization tooling. 
+It enables the integration of internationalization APIs (such as date or number formats) and grammatical matching (such as plurals or genders). 
+It is extensible, allowing software developers to create formatting or message selection logic that add on to the core capabilities. 
+Its data model provides the means of representing existing syntaxes, thus enabling gradual adoption by users of older formatting systems.
+
+Tech Preview implementations are available in C++, Java, and JavaScript:
+
+* **ICU4J, Java:** [com.ibm.icu.message2](https://unicode-org.github.io/icu-docs/apidoc/dev/icu4j/index.html?com/ibm/icu/message2/package-summary.html), part of ICU 76, is a tech preview implementation of the MessageFormat 2.0, together with a formatting API. See the [ICU User Guide](https://unicode-org.github.io/icu/userguide/format_parse/messages/mf2.html) for examples and a quickstart guide, and [Trying MF 2.0 Final Candidate](https://unicode-org.github.io/icu/userguide/format_parse/messages/try-mf2.html) to try a “Hello World”.  
+* **ICU4C, C++:** [icu::message2::MessageFormatter](https://unicode-org.github.io/icu-docs/apidoc/released/icu4c/classicu_1_1message2_1_1MessageFormatter.html), part of ICU 76, is a tech preview implementation of MessageFormat 2.0, together with a formatting API. See the [ICU User Guide](https://unicode-org.github.io/icu/userguide/format_parse/messages/mf2.html) for examples and a quickstart guide, and [Trying MF 2.0 Final Candidate](https://unicode-org.github.io/icu/userguide/format_parse/messages/try-mf2.html) to try a “Hello World”.  
+* **Javascript:** [messageformat](https://github.com/messageformat/messageformat/tree/main/mf2/messageformat) 4.0 provides a formatter and conversion tools for the MessageFormat 2 syntax, together with a polyfill of the runtime API proposed for ECMA-402.
+
+(Because of the timing, these implement a slightly earlier version of the spec, but can be used for initial evaluation, testing, and experimentation.)
+
 ## Specification Changes
 
-**NOTE: The specification changes will be completed by the specification beta. 
-Only a sample is listed here, and the Modifications section is not yet complete.**
+The following is a summary of the most significant changes to the specification (LDML) since CLDR 46.
+For more information, see [LDML 47 beta](https://unicode.org/reports/tr35/dev/tr35.html#modifications).
 
-The following are the most significant changes to the specification (LDML).
-
-- Don't produce "Unknown City Time" for VVV and VVVV, use localized offset format instead [CLDR-18237](https://unicode-org.atlassian.net/browse/CLDR-18237)
-- **TBD** (including Message Format, Part 9)
-
-
-- Made MessageFormat stable and made the stability policy normative. This includes the following changes:
-  - Added or clarified terminology
-    - Defined option value, literal key, string value, and digit size option formally.
-    - Replaced the concept of a "function registry" with default functions and u: namespace functions and options.
-    - Changed the data model to be called the "Interchange Data Model"
-  - Modified portions of the syntax (ABNF)
-    - Removed number-literal from the ABNF and moved its definition to the default functions for numeric formatting.
-    - Changed (expanded) the range of characters allowed in an unquoted literal and simplified syntax character set definitions.
-  - Revised the Default Bidi Strategy.
-  - Enabled functions to know whether an option value was set using a literal or a variable, which is necessary for some function's selection mechanism (see below).
-  - Updated the default functions:
-    - Only three default functions are stable: :string, :number, and :integer. Other functions are Draft.
-    - Some options have been removed, modified, or made optional.
-    - The select option on :number and :integer functions now accepts only literal values.
-    - Removed the style percent from :number and :integer pending future standardization.
-    - The u: namespace options u:id and u:dir are optional; u:locale is Draft.
-  - Clarified how to include the character "*" in a key.
-  - In addition, the following changes were made in v46.1:
-    - Removed all of the reserved and private use syntax constructs, simplifying the grammar.
-    - Changed the structure of the .match (selector) to require use of .local or .input declarations.
-    - Added support for bidirectional isolates and marks, and clarified whitespace handling to better enable messages that contain right-to-left and mixed direction identifiers and text.
-
+- Many changes to MessageFormat, including:
+    - Now stable, with the stabiliy policy now normative.
+    - Added and clarified terminology
+    - Modified portions of the syntax (ABNF)
+    - Revised the Default Bidi Strategy, and added support for bidirectional isolates and marks
+    - Enabled functions to know whether an option value was set using a literal or a variable, which is necessary for some function's selection mechanism (see below).
+    - Updated the default functions
+        - Only three default functions are stable: :string, :number, and :integer. Other functions are Draft.
+- Added a Time Precision option to Semantic Datetime Skeletons, replacing discrete time fields
+- Significant changes in Timezones, Unit Identifiers, Keyboard Transforms, Currency elements, and others.
+- Moved @MATCH documentation to the site (it is for internal tooling)
 
 There are many more changes that are important to implementations, such as changes to certain identifier syntax and various algorithms.
 See the [Modifications section](https://www.unicode.org/reports/tr35/proposed.html#Modifications) of the specification for details.
 
 ## Data Changes
 
-**TBD: Flesh out overview items**
-   - Updated language matching for Afrikaans to English (en) from Dutch (nl) [CLDR-18198](https://unicode-org.atlassian.net/browse/CLDR-18198)
-   - Ordered scripts in `<languageData>` in descending order of usage per locale [CLDR-18155](https://unicode-org.atlassian.net/browse/CLDR-18155)
-   - Fixed certain invalid codes [CLDR-18129](https://unicode-org.atlassian.net/browse/CLDR-18129)
+- Updated language matching for Afrikaans to English (en) from Dutch (nl) [CLDR-18198](https://unicode-org.atlassian.net/browse/CLDR-18198)
+- Ordered scripts in `<languageData>` in descending order of usage per locale [CLDR-18155](https://unicode-org.atlassian.net/browse/CLDR-18155)
+- Fixed certain invalid codes [CLDR-18129](https://unicode-org.atlassian.net/browse/CLDR-18129)
+- **TBD: add others**
 
 ### DTD Changes
-
-Most of the DTD changes were in 46.1. One additional change was to order currency values in **TBD get ticket number**
+Changes include:
+- Ordering currencies used in each region
+- Adding script data (for example, relating Jpan to its component scripts)
+- Adding the attribution attribute to keyboards
+- Most of the DTD changes were to tighten up the validity constaints (@MATCH) on various attributes.
+These don't affect implementations.
 
 For a full listing, see [Delta DTDs](https://unicode.org/cldr/charts/dev/supplemental/dtd_deltas.html).
 
@@ -109,7 +119,7 @@ For a full listing, see [Delta DTDs](https://unicode.org/cldr/charts/dev/supplem
 - Ordered scripts in decending order of usage per locale [CLDR-18155](https://unicode-org.atlassian.net/browse/CLDR-18155)
 - Updated language matching for Afrikaans to English (en) from Dutch (nl) [CLDR-18198](https://unicode-org.atlassian.net/browse/CLDR-18198)
 - Fixed invalid codes [CLDR-18129](https://unicode-org.atlassian.net/browse/CLDR-18129)
-- **TBD**
+- **TBD: add others**
 
 For a full listing, see [¤¤BCP47 Delta](https://unicode.org/cldr/charts/dev/delta/bcp47.html) and [¤¤Supplemental Delta](https://unicode.org/cldr/charts/dev/delta/supplemental-data.html)
 
@@ -218,9 +228,16 @@ should all have a `numberSystem` attribute. In CLDR v48 such elements without a 
 corresponding entries in root will be removed; these were only intended as a long-ago migration aid. See the relevant sections of the
 LDML specification: [Number Symbols](https://www.unicode.org/reports/tr35/47/tr35-numbers.html#Number_Symbols) and
 [Number Formats](https://www.unicode.org/reports/tr35/47/tr35-numbers.html#number-formats).
-- V48 advance warnings
-    - Any locales that are missing Core data by the end of the CLDR 48 cycle will be removed [CLDR-16004](https://unicode-org.atlassian.net/browse/CLDR-16004)
-    - The default week numbering will change to ISO instead being based on the calendar week starting in CLDR 48 [CLDR-18275](https://unicode-org.atlassian.net/browse/CLDR-18275).
+
+### V48 advance warnings
+The following changes are planned for CLDR 48. Please plan accordingly to avoid disruption.
+
+- Any locales that are missing Core data by the end of the CLDR 48 cycle will be removed [CLDR-16004](https://unicode-org.atlassian.net/browse/CLDR-16004)
+- The default week numbering will change to ISO instead being based on the calendar week starting in CLDR 48 [CLDR-18275](https://unicode-org.atlassian.net/browse/CLDR-18275). The calendar week data will be more clearly targeted at matching usage in displayed month calendars.
+- The likely language for Belarus is slated to change to Russian
+- The top elements in supplementalData.xml and supplementalMetadata.xml files are slated to be organized more logically and moved into separate files.
+This will make it easier for implementations to filter out data that they don't need, and make internal maintenance easier.
+This will not affect the data: just which file it is located in.
 
 ## Known Issues
 

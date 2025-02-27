@@ -135,9 +135,6 @@ public class ConvertLanguageData {
         try (final BufferedReader oldFile = FileUtilities.openUTF8Reader(oldSupp);
                 final PrintWriter newFile = FileUtilities.openUTF8Writer(genSupp);
                 final PrintWriter newLsraw = FileUtilities.openUTF8Writer(genLsraw); ) {
-            // load elements we care about
-            CldrUtility.copyUpTo(
-                    oldFile, PatternCache.get("\\s*<languageData>\\s*"), newFile, false);
 
             Set<String> available = cldrFactory.getAvailable();
 
@@ -210,9 +207,19 @@ public class ConvertLanguageData {
             // showAllBasicLanguageData(allLanguageData, "old");
             getLanguage2Scripts(sortedInput);
 
-            writeNewBasicData2(newFile, sortedInput);
-            // writeNewBasicData(sortedInput);
+            // Over the old supplementalData file until we hit <languageData>
+            CldrUtility.copyUpTo(
+                    oldFile, PatternCache.get("\\s*<languageData>\\s*"), newFile, false);
 
+            // Generate a brand new <languageData> and clean the old <languageData> from the buffer
+            writeBasicLanguageData(newFile, sortedInput);
+            CldrUtility.copyUpTo(oldFile, PatternCache.get("\\s*</languageData>\\s*"), null, false);
+
+            // <scriptData> is in between <languageData> and <territoryInfo> but it is not
+            // generated, so copy it over
+            CldrUtility.copyUpTo(oldFile, PatternCache.get("\\s*</scriptData>\\s*"), newFile, true);
+
+            // Generate a new <territoryInfo>
             writeTerritoryLanguageData(newFile, failures, sortedInput);
 
             checkBasicData(localeToRowData);
@@ -220,8 +227,6 @@ public class ConvertLanguageData {
             Set<String> defaultLocaleContent = new TreeSet<>();
 
             showDefaults(cldrParents, nf, defaultContent, localeToRowData, defaultLocaleContent);
-
-            // showContent(available);
 
             // certain items are overridden
 
@@ -237,12 +242,20 @@ public class ConvertLanguageData {
 
             showFailures(failures);
 
+            // Clear out the buffer of the old file, effectively skipping over the previous
+            // territoryInfo
             CldrUtility.copyUpTo(
                     oldFile, PatternCache.get("\\s*</territoryInfo>\\s*"), null, false);
+            // Copy over everything after <territoryInfo> until <references>, for instance
+            // <measurementData> and <parentLocales>
             CldrUtility.copyUpTo(oldFile, PatternCache.get("\\s*<references>\\s*"), newFile, false);
             // generateIso639_2Data(newFile);
+
+            // Fill out a new <references> file
             references.printReferences(newFile);
             CldrUtility.copyUpTo(oldFile, PatternCache.get("\\s*</references>\\s*"), null, false);
+
+            // Copy everything after <references>
             CldrUtility.copyUpTo(oldFile, null, newFile, false);
 
             getLanguageScriptSpreadsheet(newLsraw);
@@ -310,7 +323,7 @@ public class ConvertLanguageData {
      *
      * @param sortedInput
      */
-    private static void writeNewBasicData2(PrintWriter out, Set<RowData> sortedInput) {
+    private static void writeBasicLanguageData(PrintWriter out, Set<RowData> sortedInput) {
         double cutoff = 0.2; // 20%
 
         LanguageTagParser ltp = new LanguageTagParser();
@@ -1145,7 +1158,7 @@ public class ConvertLanguageData {
         LanguageTagParser ltp = new LanguageTagParser();
 
         out.println(
-                " <!-- See http://unicode.org/cldr/data/diff/supplemental/territory_language_information.html for more information on territoryInfo. -->");
+                "\t<!-- See https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html for more information on territoryInfo. -->");
         out.println("\t<territoryInfo>");
 
         for (RowData row : sortedInput) {

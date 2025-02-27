@@ -99,11 +99,6 @@ See the [Modifications section](https://www.unicode.org/reports/tr35/proposed.ht
 
 ## Data Changes
 
-- Updated language matching for Afrikaans to English (en) from Dutch (nl) [CLDR-18198](https://unicode-org.atlassian.net/browse/CLDR-18198)
-- Ordered scripts in `<languageData>` in descending order of usage per locale [CLDR-18155](https://unicode-org.atlassian.net/browse/CLDR-18155)
-- Fixed certain invalid codes [CLDR-18129](https://unicode-org.atlassian.net/browse/CLDR-18129)
-- **TBD: add others**
-
 ### DTD Changes
 Changes include:
 - Ordering currencies used in each region
@@ -113,6 +108,9 @@ Changes include:
 These don't affect implementations.
 
 For a full listing, see [Delta DTDs](https://unicode.org/cldr/charts/dev/supplemental/dtd_deltas.html).
+
+### Locale Data Changes
+- **TBD: add others**
 
 ### Supplemental Data Changes
 
@@ -125,12 +123,17 @@ For a full listing, see [¤¤BCP47 Delta](https://unicode.org/cldr/charts/dev/de
 
 ### Locale Changes
 
-- Cleanups for current pattern variants `alt="alphaNextToNumber"` and `alt="noCurrency"`: These were introduced in CLDR 42
+- Updated language matching for Afrikaans to English (en) from Dutch (nl) [CLDR-18198](https://unicode-org.atlassian.net/browse/CLDR-18198)
+- Ordered scripts in `<languageData>` in descending order of usage per locale [CLDR-18155](https://unicode-org.atlassian.net/browse/CLDR-18155)
+- Fixed certain invalid codes [CLDR-18129](https://unicode-org.atlassian.net/browse/CLDR-18129)
+- Cleanups for current pattern variants `alt="alphaNextToNumber"` and `alt="noCurrency"`:
+    - These were introduced in CLDR 42
 (per [CLDR-14336](https://unicode-org.atlassian.net/browse/CLDR-14336)) to provide a cleaner way of adjusting currency
 patterns when an alphabetic currency symbol is used, or when a currency-style pattern is desired without a currency symbol
 (as for use in a table). Gaps in the data coverage showed up, because the translators weren't shown the right values. 
 Fixes were made in  [CLDR-17879](https://unicode-org.atlassian.net/browse/CLDR-17879).
-- As noted below in [Migration](#migration), number `<symbols>` elements and format elements (`<currencyFormats>`, `<decimalFormats>`, `<percentFormats>`, `<scientificFormats>`)
+- Fixed missing `numberSystem` attributes
+    - As noted below in [Migration](#migration), number `<symbols>` elements and format elements (`<currencyFormats>`, `<decimalFormats>`, `<percentFormats>`, `<scientificFormats>`)
 should all have a `numberSystem` attribute, and such elements without a `numberSystem` attribute will be deprecated in CLDR 48. To
 prepare for this, in CLDR 47, all such elements were either removed (if redundant) or correct by adding a `numberSystem` attribute.
 ([CLDR-17760](https://unicode-org.atlassian.net/browse/CLDR-17760))

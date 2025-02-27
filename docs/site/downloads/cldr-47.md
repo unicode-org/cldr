@@ -83,7 +83,7 @@ The following is a summary of the most significant changes to the specification 
 For more information, see [LDML 47 beta](https://unicode.org/reports/tr35/dev/tr35.html#modifications).
 
 - Many changes to MessageFormat, including:
-    - Now stable, with the stabiliy policy now normative.
+    - Now stable, with the stability policy now normative.
     - Added and clarified terminology
     - Modified portions of the syntax (ABNF)
     - Revised the Default Bidi Strategy, and added support for bidirectional isolates and marks
@@ -102,9 +102,9 @@ See the [Modifications section](https://www.unicode.org/reports/tr35/proposed.ht
 ### DTD Changes
 Changes include:
 - Ordering currencies used in each region
-- Adding script data (for example, relating Jpan to its component scripts)
+- Adding script data (for example, relating the script code `Jpan` to its component script codes)
 - Adding the attribution attribute to keyboards
-- Most of the DTD changes were to tighten up the validity constaints (@MATCH) on various attributes.
+- Most of the DTD changes were to tighten up the validity constraints (@MATCH) on various attributes.
 These don't affect implementations.
 
 For a full listing, see [Delta DTDs](https://unicode.org/cldr/charts/dev/supplemental/dtd_deltas.html).
@@ -114,7 +114,7 @@ For a full listing, see [Delta DTDs](https://unicode.org/cldr/charts/dev/supplem
 
 ### Supplemental Data Changes
 
-- Ordered scripts in decending order of usage per locale [CLDR-18155](https://unicode-org.atlassian.net/browse/CLDR-18155)
+- Ordered scripts in descending order of usage per locale [CLDR-18155](https://unicode-org.atlassian.net/browse/CLDR-18155)
 - Updated language matching for Afrikaans to English (en) from Dutch (nl) [CLDR-18198](https://unicode-org.atlassian.net/browse/CLDR-18198)
 - Fixed invalid codes [CLDR-18129](https://unicode-org.atlassian.net/browse/CLDR-18129)
 - **TBD: add others**
@@ -151,14 +151,14 @@ They are no longer typically used, and only cover a fraction of the CJK ideograp
 - Number spellout rules are added for Gujarati.
 ([CLDR-18111](https://unicode-org.atlassian.net/browse/CLDR-18111))
 - Number spellout rules are improved for several other languages:
-    - Bulgarian: Improve usage of ‘и’ (“and”). ([CLDR-17818](https://unicode-org.atlassian.net/browse/CLDR-17818))
-    - Catalan: Add plural ordinal rules for both masculine and feminine, other fixes. ([CLDR-15972](https://unicode-org.atlassian.net/browse/CLDR-15972))
-    - Dutch: Add the alternate spellout-cardinal-stressed rule for specific Dutch scenarios. ([CLDR-17187](https://unicode-org.atlassian.net/browse/CLDR-17187))
-    - Hindi: Add the spellout-ordinal-masculine-oblique rule. ([CLDR-15278](https://unicode-org.atlassian.net/browse/CLDR-15278))
-    - Indonesian: Add missing semicolon that caused all ordinals to be prefixed with “pertama 2:”. ([CLDR-17730](https://unicode-org.atlassian.net/browse/CLDR-17730))
-    - Lithuanian: Add all of the grammatical cases, genders and grammatical numbers for cardinals and ordinals (no  pronomial forms, and only the positive degree). ([CLDR-18110](https://unicode-org.atlassian.net/browse/CLDR-18110))
-    - Russian: Fix grammatcial case names in rules, and other issues. ([CLDR-17386](https://unicode-org.atlassian.net/browse/CLDR-17386))
-    - Ukrainian: Add digits-ordinal rules. ([CLDR-16096](https://unicode-org.atlassian.net/browse/CLDR-16096))
+    - Bulgarian: Improved usage of ‘и’ (“and”). ([CLDR-17818](https://unicode-org.atlassian.net/browse/CLDR-17818))
+    - Catalan: Added plural ordinal rules for both masculine and feminine, other fixes. ([CLDR-15972](https://unicode-org.atlassian.net/browse/CLDR-15972))
+    - Dutch: Added the alternate spellout-cardinal-stressed rule for specific Dutch scenarios. ([CLDR-17187](https://unicode-org.atlassian.net/browse/CLDR-17187))
+    - Hindi: Added the spellout-ordinal-masculine-oblique rule. ([CLDR-15278](https://unicode-org.atlassian.net/browse/CLDR-15278))
+    - Indonesian: Added missing semicolon that caused all ordinals to be prefixed with “pertama 2:”. ([CLDR-17730](https://unicode-org.atlassian.net/browse/CLDR-17730))
+    - Lithuanian: Added all of the grammatical cases, genders and grammatical numbers for cardinals and ordinals (no  pronominal forms, and only the positive degree). ([CLDR-18110](https://unicode-org.atlassian.net/browse/CLDR-18110))
+    - Russian: Fixed grammatical case names in rules, and other issues. ([CLDR-17386](https://unicode-org.atlassian.net/browse/CLDR-17386))
+    - Ukrainian: Added digits-ordinal rules. ([CLDR-16096](https://unicode-org.atlassian.net/browse/CLDR-16096))
 
 ### Segmentation Data Changes
 

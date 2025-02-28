@@ -238,8 +238,8 @@ The following changes are planned for CLDR 48. Please plan accordingly to avoid 
 - The default week numbering will change to ISO instead being based on the calendar week starting in CLDR 48 [CLDR-18275](https://unicode-org.atlassian.net/browse/CLDR-18275). The calendar week data will be more clearly targeted at matching usage in displayed month calendars.
 - The likely language for Belarus is slated to change to Russian [CLDR-14479](https://unicode-org.atlassian.net/browse/CLDR-14479)
 - The major components in [supplementalData.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalData.xml) and [supplementalMetadata.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalMetadata.xml) files are slated to be organized more logically and moved into separate files.
-    - This will make it easier for implementations to filter out data that they don't need, and make internal maintenance easier. This will not affect the data: just which file it is located in. Plan to update XML and JSON parsers accordingly.
-- Additionally, language and territory data in &lt;languageData /&gt; and &lt;territoryInfo /&gt; data will receive significant updates to improve accuracy and maintainability [CLDR-18087](https://unicode-org.atlassian.net/issues/CLDR-18087)
+    - This will make it easier for implementations to filter out data that they don't need, and make internal maintenance easier. This will not affect the data: just which file it is located in. Please plan to update XML and JSON parsers accordingly.
+- Additionally, language and territory data in `languageData` and `territoryInfo` data will receive significant updates to improve accuracy and maintainability [CLDR-18087](https://unicode-org.atlassian.net/issues/CLDR-18087)
 
 ## Known Issues
 

@@ -22,7 +22,7 @@ It was a closed cycle: locale data changes were limited to bug fixes and the add
 
 ### Changes
 
-This release note includes all changes from [CLDR v46.1](https://cldr.unicode.org/downloads/cldr-46#461-changes), 
+This release note includes all changes from [CLDR v46.1](cldr-46#461-changes), 
 a special release, which many users of CLDR (including ICU) have not updated to.
 
 The most significant changes in this release are the following:
@@ -80,7 +80,7 @@ Tech Preview implementations are available in C++, Java, and JavaScript:
 ## Specification Changes
 
 The following is a summary of the most significant changes to the specification (LDML) since CLDR 46.
-For more information, see [LDML 47 beta](https://unicode.org/reports/tr35/dev/tr35.html#modifications).
+For more information, see [LDML 47 beta](https://unicode.org/reports/tr35/47/tr35.html#modifications).
 
 - Many changes to MessageFormat, including:
     - Now stable, with the stability policy now normative.
@@ -109,19 +109,18 @@ These don't affect implementations.
 
 For a full listing, see [Delta DTDs](https://unicode.org/cldr/charts/dev/supplemental/dtd_deltas.html).
 
-### Locale Data Changes
-- **TBD: add others**
-
 ### Supplemental Data Changes
 
-- Ordered scripts in descending order of usage per locale [CLDR-18155](https://unicode-org.atlassian.net/browse/CLDR-18155)
+- Ordered scripts in `<languageData>` in descending order of usage per locale [CLDR-18155](https://unicode-org.atlassian.net/browse/CLDR-18155)
 - Updated language matching for Afrikaans to English (en) from Dutch (nl) [CLDR-18198](https://unicode-org.atlassian.net/browse/CLDR-18198)
 - Fixed invalid codes [CLDR-18129](https://unicode-org.atlassian.net/browse/CLDR-18129)
+- Updated various language population numbers for [Bouvet Island](https://unicode-org.atlassian.net/browse/CLDR-9791), [Canada](https://unicode-org.atlassian.net/browse/CLDR-15391), [El Salvador](https://unicode-org.atlassian.net/browse/CLDR-11567), [Macau](https://unicode-org.atlassian.net/browse/CLDR-10478), [Mauritius](https://unicode-org.atlassian.net/browse/CLDR-18002), [Sierra Leone](https://unicode-org.atlassian.net/browse/CLDR-18002), [South Georgia and Bouvet Islands](https://unicode-org.atlassian.net/browse/CLDR-9791), [Tokelau](https://unicode-org.atlassian.net/browse/CLDR-18002), and [Zambia](https://unicode-org.atlassian.net/browse/CLDR-18002). Also for [French across the world](https://unicode-org.atlassian.net/browse/CLDR-11888).
+- Fixed [matching languages to likely subtags](https://www.unicode.org/cldr/charts/47/supplemental/likely_subtags.html) for many languages in the above countries as well as: [Malay (individual language)](https://unicode-org.atlassian.net/browse/CLDR-10015), [Serbian in Russia](https://unicode-org.atlassian.net/browse/CLDR-14088), and [Sudanese Arabic](https://unicode-org.atlassian.net/browse/CLDR-10015).
 - **TBD: add others**
 
 For a full listing, see [¤¤BCP47 Delta](https://unicode.org/cldr/charts/dev/delta/bcp47.html) and [¤¤Supplemental Delta](https://unicode.org/cldr/charts/dev/delta/supplemental-data.html)
 
-### Locale Changes
+### Locale Data Changes
 
 - Updated language matching for Afrikaans to English (en) from Dutch (nl) [CLDR-18198](https://unicode-org.atlassian.net/browse/CLDR-18198)
 - Ordered scripts in `<languageData>` in descending order of usage per locale [CLDR-18155](https://unicode-org.atlassian.net/browse/CLDR-18155)
@@ -156,7 +155,7 @@ They are no longer typically used, and only cover a fraction of the CJK ideograp
     - Dutch: Added the alternate spellout-cardinal-stressed rule for specific Dutch scenarios. ([CLDR-17187](https://unicode-org.atlassian.net/browse/CLDR-17187))
     - Hindi: Added the spellout-ordinal-masculine-oblique rule. ([CLDR-15278](https://unicode-org.atlassian.net/browse/CLDR-15278))
     - Indonesian: Added missing semicolon that caused all ordinals to be prefixed with “pertama 2:”. ([CLDR-17730](https://unicode-org.atlassian.net/browse/CLDR-17730))
-    - Lithuanian: Added all of the grammatical cases, genders and grammatical numbers for cardinals and ordinals (no  pronominal forms, and only the positive degree). ([CLDR-18110](https://unicode-org.atlassian.net/browse/CLDR-18110))
+    - Lithuanian: Added all of the grammatical cases, genders and grammatical numbers for cardinals and ordinals (no pronominal forms, and only the positive degree). ([CLDR-18110](https://unicode-org.atlassian.net/browse/CLDR-18110))
     - Russian: Fixed grammatical case names in rules, and other issues. ([CLDR-17386](https://unicode-org.atlassian.net/browse/CLDR-17386))
     - Ukrainian: Added digits-ordinal rules. ([CLDR-16096](https://unicode-org.atlassian.net/browse/CLDR-16096))
 
@@ -237,10 +236,10 @@ The following changes are planned for CLDR 48. Please plan accordingly to avoid 
 
 - Any locales that are missing Core data by the end of the CLDR 48 cycle will be removed [CLDR-16004](https://unicode-org.atlassian.net/browse/CLDR-16004)
 - The default week numbering will change to ISO instead being based on the calendar week starting in CLDR 48 [CLDR-18275](https://unicode-org.atlassian.net/browse/CLDR-18275). The calendar week data will be more clearly targeted at matching usage in displayed month calendars.
-- The likely language for Belarus is slated to change to Russian
-- The top elements in supplementalData.xml and supplementalMetadata.xml files are slated to be organized more logically and moved into separate files.
-This will make it easier for implementations to filter out data that they don't need, and make internal maintenance easier.
-This will not affect the data: just which file it is located in.
+- The likely language for Belarus is slated to change to Russian [CLDR-14479](https://unicode-org.atlassian.net/browse/CLDR-14479)
+- The major components in [supplementalData.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalData.xml) and [supplementalMetadata.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalMetadata.xml) files are slated to be organized more logically and moved into separate files.
+    - This will make it easier for implementations to filter out data that they don't need, and make internal maintenance easier. This will not affect the data: just which file it is located in. Plan to update XML and JSON parsers accordingly.
+- Additionally, language and territory data in &lt;languageData /&gt; and &lt;territoryInfo /&gt; data will receive significant updates to improve accuracy and maintainability [CLDR-18087](https://unicode-org.atlassian.net/issues/CLDR-18087)
 
 ## Known Issues
 

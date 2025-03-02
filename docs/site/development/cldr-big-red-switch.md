@@ -4,15 +4,13 @@ title: 'CLDR: Big Red Switch'
 
 # CLDR: Big Red Switch
 
-## What to do before we release for CLDR version X (current version X \= 28\):
+The BRS (Big Red Switch) is the checklist of tasks that need to be completed in order to release the next version of CLDR.
 
-*All: remember to make sure that the* ***target: X*** *is set on all the X bugs, otherwise the Release Changes link won't pick them up.*
+For members of the CLDR TC: [Spreadsheet View](https://docs.google.com/spreadsheets/d/1D0wohmpmnW369UiTLeTm_UHT7y5mVISretDYM0m289I/edit?gid=169833626#gid=169833626&fvid=271364825)
 
-*Items marked \* are for the "Little Red Switch": dot\-dot releases (supplemental data, ids, timezones, small spec fixes). Items marked \*\* are only done for a LRS if there was a DTD change.*
+The checklist can be filtered to see open tasks by going to Data > Change view and selecting the 'Skip/Done/Moot' filter.
 
-### Trial New Version (Let us know if you need write access!)
-
-(For editors: [List View of BRS](/development/cldr-big-red-switch/list-view-of-brs), [Spreadsheet View](https://docs.google.com/spreadsheets/d/1dIOLxKX2gW7BRDVdMBH9qr1GdxpPj8Bc1Pe-02p_92k/edit#gid=0))
+TODO: List all major types of tasks with their definitions and link to pages with descriptions.
 
 ## Contributor Message
 

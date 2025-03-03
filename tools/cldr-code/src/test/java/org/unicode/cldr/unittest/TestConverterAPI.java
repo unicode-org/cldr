@@ -1,70 +1,65 @@
 package org.unicode.cldr.unittest;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Locale;
-import java.util.concurrent.ExecutionException;
-import java.util.stream.Collectors;
-
-import org.unicode.cldr.icu.dev.test.TestFmwk;
-import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.Rational;
-import org.unicode.cldr.util.UnitConverter;
-import org.unicode.cldr.util.UnitConverter.ConversionInfo;
-
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
-import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ComparisonChain;
 import com.google.common.collect.Streams;
 import com.google.common.util.concurrent.UncheckedExecutionException;
 import com.ibm.icu.number.LocalizedNumberFormatter;
 import com.ibm.icu.number.NumberFormatter;
 import com.ibm.icu.number.Precision;
 import com.ibm.icu.util.Output;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Locale;
+import java.util.Set;
+import java.util.TreeSet;
+import java.util.concurrent.ExecutionException;
+import java.util.stream.Collectors;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
+import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.Rational;
+import org.unicode.cldr.util.Timer;
+import org.unicode.cldr.util.UnitConverter;
+import org.unicode.cldr.util.UnitConverter.ConversionInfo;
+import org.unicode.cldr.util.UnitConverter.UnitId;
 
 public class TestConverterAPI extends TestFmwk {
 
-    private static final Joiner JOIN_SEMI = Joiner.on(';');
+    private static final Joiner JOIN_EMPTY = Joiner.on("");
     private static final Splitter SPLIT_SEMI = Splitter.on(';');
-
-    public static interface AbstractMeasureUnit {
-        /** Can be converted to other unit */
-        public boolean isConvertibleTo(AbstractMeasureUnit other);
-
-        public String getNormalizedIdentifier();
-
-        public String getBaseIdentifier();
-    }
+    private static final UnitConverter unitConverter =
+            CLDRConfig.getInstance().getSupplementalDataInfo().getUnitConverter();
 
     /**
      * Adds conversion info and a baseIdentifier to MeasureUnit, and supplies utility functions for
-     * conversion.
+     * conversion. MixedUnits are supported by having a (normally null) subunits field.
      */
-    public static class MeasureUnit implements AbstractMeasureUnit {
+    public static class MeasureUnit implements Comparable<MeasureUnit> {
 
         /**
          * Create a MeasureUnit from a unicode_unit-identifier. Internally there is a cache, so in
          * the normal case this should be fast.
          */
-        public static AbstractMeasureUnit from(String unitId) {
+        public static MeasureUnit from(String unitId) {
             try {
                 if (unitId.contains("-and-")) {
-                    return MixedMeasureUnit.from(unitId);
+                    return mixedCache.get(unitId);
                 }
-                return cache.get(unitId);
+                return unmixedCache.get(unitId);
             } catch (ExecutionException e) {
                 throw (RuntimeException) e.getCause();
             }
         }
 
         /** Can be converted to other unit */
-        @Override
-        public boolean isConvertibleTo(AbstractMeasureUnit other) {
+        public boolean isConvertibleTo(MeasureUnit other) {
             // could be optimized slightly if we 'interned' the baseIdentifier
             return getBaseIdentifier().equals(other.getBaseIdentifier());
         }
@@ -72,7 +67,7 @@ public class TestConverterAPI extends TestFmwk {
         /** Get the reciprocal; eg, foot-per-second ⇒ second-per-foot */
         public MeasureUnit reciprocal() {
             try {
-                return cache.get(reciprocalOf(normalizedIdentifier));
+                return unmixedCache.get(reciprocalOf(normalizedIdentifier));
             } catch (ExecutionException e) {
                 throw (RuntimeException) e.getCause();
             }
@@ -84,7 +79,10 @@ public class TestConverterAPI extends TestFmwk {
             return normalizedIdentifier;
         }
 
-        @Override
+        public boolean isMixed() {
+            return subunits != null;
+        }
+
         public String getNormalizedIdentifier() {
             return normalizedIdentifier;
         }
@@ -93,7 +91,6 @@ public class TestConverterAPI extends TestFmwk {
             return conversionInfo;
         }
 
-        @Override
         public String getBaseIdentifier() {
             return baseIdentifier;
         }
@@ -106,130 +103,16 @@ public class TestConverterAPI extends TestFmwk {
             return conversionInfo.convertBackwards(other);
         }
 
-        // INTERNALS
-
-        private static final UnitConverter unitConverter =
-                CLDRConfig.getInstance().getSupplementalDataInfo().getUnitConverter();
-        private static final LoadingCache<String, MeasureUnit> cache =
-                CacheBuilder.newBuilder()
-                        .maximumSize(1000)
-                        .build(
-                                new CacheLoader<String, MeasureUnit>() {
-                                    @Override
-                                    public MeasureUnit load(String unitId) {
-                                        // normalize later
-                                        Output<String> baseUnitOut = new Output<>();
-                                        ConversionInfo ci =
-                                                unitConverter.parseUnitId(
-                                                        unitId, baseUnitOut, false);
-                                        return new MeasureUnit(unitId, ci, baseUnitOut.value);
-                                    }
-                                });
-
-        protected final String normalizedIdentifier;
-        protected final ConversionInfo conversionInfo;
-        protected final String baseIdentifier;
-
-        /*
-         * Note:  In CLDR, ConversionInfo contains:
-         *    public final Rational factor;
-         *    public final Rational offset;
-         *    public String special;
-         *    public boolean specialInverse; // only used with special
-         *
-         *    convert(amount) is normally return amount.multiply(factor).add(offset);
-         */
-
-        private MeasureUnit(
-                String normalizedIdentifier, ConversionInfo conversionInfo, String baseIdentifier) {
-            if (conversionInfo == null) {
-                throw new IllegalArgumentException(
-                        "«" + normalizedIdentifier + "»: Illegal unicode unit identifier");
-            }
-            this.normalizedIdentifier = normalizedIdentifier;
-            this.conversionInfo = conversionInfo;
-            this.baseIdentifier = baseIdentifier;
-        }
-
-        private String reciprocalOf(String value) {
-            // This is only called in rare cases, so no need to really optimize
-            // Input is guaranteed to be normalized, if original is
-            if (value.startsWith("per-")) {
-                return value.substring(4);
-            }
-            int index = value.indexOf("-per-");
-            if (index < 0) {
-                return "per-" + value;
-            }
-            return value.substring(index + 5) + "-per-" + value.substring(0, index);
-        }
-
-        public boolean isSmallerThan(MeasureUnit other) {
-            return conversionInfo.compareTo(other.conversionInfo) < 0;
-        }
-    }
-
-    private static class MixedMeasureUnit implements AbstractMeasureUnit {
-        // not caching for now
-        public static MixedMeasureUnit from(String unitId) {
-            List<MeasureUnit> parts = new ArrayList<>();
-            Splitter.on("-and-")
-                    .split(unitId)
-                    .forEach(x -> parts.add((MeasureUnit) MeasureUnit.from(x)));
-
-            // Verify that the units are in decreasing order, and all comparable
-            MeasureUnit lastPart = null;
-            for (int i = 0; i < parts.size(); ++i) {
-                MeasureUnit part = parts.get(i);
-                if (lastPart != null) {
-                    if (!part.isConvertibleTo(lastPart)) {
-                        throw new IllegalArgumentException(
-                                "«"
-                                        + unitId
-                                        + "»: "
-                                        + lastPart
-                                        + " & "
-                                        + part
-                                        + " are not convertible");
-                    }
-                    if (!part.isSmallerThan(lastPart)) {
-                        throw new IllegalArgumentException(
-                                "«" + unitId + "»: " + lastPart + " is not smaller than " + part);
-                    }
-                }
-                lastPart = part;
-            }
-            if (lastPart == null) {
-                throw new IllegalArgumentException("«" + unitId + "» has no units");
-            }
-
-            return new MixedMeasureUnit(unitId, parts);
-        }
-
-        public static MixedMeasureUnit from(MeasureUnit unit) {
-            return new MixedMeasureUnit(unit.getNormalizedIdentifier(), ImmutableList.of(unit));
-        }
-
-        @Override
-        public boolean isConvertibleTo(AbstractMeasureUnit other) {
-            return getBaseIdentifier().equals(other.getBaseIdentifier());
-        }
-
-        private final String normalizedIdentifier;
-        private final List<MeasureUnit> subunits;
-
-        @Override
-        public String getNormalizedIdentifier() {
-            return normalizedIdentifier;
-        }
-
-        @Override
-        public String getBaseIdentifier() {
-            return subunits.get(0).baseIdentifier;
-        }
+        // a negative value in a list is represented by *every* value being negative;
+        // formatting  will change that as necessary
 
         public Rational convertToBase(List<Rational> amounts) {
-            // a negative value in a list is represented by *every* value being negative
+            if (subunits == null) {
+                if (amounts.size() != 1) {
+                    throw new IllegalArgumentException();
+                }
+                return convertToBase(amounts.get(0));
+            }
             if (amounts.size() > subunits.size()) {
                 throw new IllegalArgumentException();
             }
@@ -242,8 +125,14 @@ public class TestConverterAPI extends TestFmwk {
             return sum;
         }
 
-        public List<Rational> convertFromBase(Rational amount) {
-            // By convention, only the first in the list is negative, eg -3 foot 2 inches
+        // a negative value in a list is represented by *every* value being negative;
+        // formatting  will change that as necessary
+
+        public List<Rational> convertFromBaseToMixed(Rational amount) {
+            if (subunits == null) {
+                return List.of(conversionInfo.convertBackwards(amount));
+            }
+
             List<Rational> result = new ArrayList<>();
             int last = subunits.size() - 1;
             for (int i = 0; i <= last; ++i) {
@@ -260,15 +149,142 @@ public class TestConverterAPI extends TestFmwk {
             return result;
         }
 
-        /** Returns just the string name, not the conversion info or base identifier */
-        @Override
-        public String toString() {
-            return normalizedIdentifier;
+        public List<MeasureUnit> getSubunits() {
+            return subunits;
         }
 
-        private MixedMeasureUnit(String normalizedIdentifier, List<MeasureUnit> subunits) {
+        @Override
+        public int compareTo(MeasureUnit o) {
+            return ComparisonChain.start()
+                    .compare(baseIdentifier, o.baseIdentifier)
+                    .compare(conversionInfo, o.conversionInfo)
+                    .compare(normalizedIdentifier, normalizedIdentifier) // break ties
+                    .result();
+        }
+
+        // INTERNALS
+
+        private static final LoadingCache<String, MeasureUnit> unmixedCache =
+                CacheBuilder.newBuilder()
+                        .maximumSize(1000)
+                        .build(
+                                new CacheLoader<String, MeasureUnit>() {
+                                    @Override
+                                    public MeasureUnit load(String unitId) {
+                                        Output<String> baseUnitOut = new Output<>();
+                                        ConversionInfo ci =
+                                                unitConverter.parseUnitId(
+                                                        unitId, baseUnitOut, false);
+                                        String normalized = normalize(unitId);
+                                        return new MeasureUnit(
+                                                normalized, ci, baseUnitOut.value, null);
+                                    }
+                                });
+        private static final LoadingCache<String, MeasureUnit> mixedCache =
+                CacheBuilder.newBuilder()
+                        .maximumSize(50)
+                        .build(
+                                new CacheLoader<String, MeasureUnit>() {
+                                    @Override
+                                    public MeasureUnit load(String unitId) {
+                                        List<MeasureUnit> parts = getParts(unitId);
+                                        String normalized = Joiner.on("-and-").join(parts);
+                                        MeasureUnit part0 = parts.get(0);
+                                        return new MeasureUnit(
+                                                normalized,
+                                                part0.conversionInfo,
+                                                part0.baseIdentifier,
+                                                List.copyOf(parts));
+                                    }
+                                });
+
+        private final String normalizedIdentifier;
+        private final ConversionInfo
+                conversionInfo; // if subunits ≠ null, identical to first subunit's value
+        private final String
+                baseIdentifier; // if subunits ≠ null, identical to first subunit's value
+        private final List<MeasureUnit> subunits; // null except for mixed units
+
+        /*
+         * Note:  In CLDR, ConversionInfo contains:
+         *    public final Rational factor;
+         *    public final Rational offset;
+         *    public String special;
+         *    public boolean specialInverse; // only used with special
+         *
+         *    convert(amount) is normally return amount.multiply(factor).add(offset);
+         */
+
+        private MeasureUnit(
+                String normalizedIdentifier,
+                ConversionInfo conversionInfo,
+                String baseIdentifier,
+                List<MeasureUnit> subunits) {
             this.normalizedIdentifier = normalizedIdentifier;
-            this.subunits = ImmutableList.copyOf(subunits);
+            this.conversionInfo = conversionInfo;
+            this.baseIdentifier = baseIdentifier;
+            this.subunits = subunits;
+        }
+
+        private String reciprocalOf(String value) {
+            // This is only called in rare cases, so no need to really optimize
+            // Input is guaranteed to be normalized, if original is
+            if (value.startsWith("per-")) {
+                return value.substring(4);
+            }
+            int index = value.indexOf("-per-");
+            if (index < 0) {
+                return "per-" + value;
+            }
+            return value.substring(index + 5) + "-per-" + value.substring(0, index);
+        }
+
+        public boolean isSmallerThan(MeasureUnit other) {
+            return conversionInfo == null
+                    ? other.conversionInfo != null
+                    : other.conversionInfo == null
+                            ? false
+                            : conversionInfo.compareTo(other.conversionInfo) < 0;
+        }
+
+        private static List<MeasureUnit> getParts(String unitId) {
+            // normalize by sorting the segments between -and- and dropping duplicates
+            Set<MeasureUnit> sortedParts = new TreeSet<>(Comparator.reverseOrder());
+            Splitter.on("-and-").split(unitId).forEach(x -> sortedParts.add(MeasureUnit.from(x)));
+            List<MeasureUnit> parts = new ArrayList<>(sortedParts);
+            if (parts.size() < 2) {
+                throw new IllegalArgumentException(JOIN_EMPTY.join("«", unitId, "» has ≤1 unit"));
+            }
+
+            // Verify that the units are all comparable
+            MeasureUnit lastPart = null;
+            for (int i = 0; i < parts.size(); ++i) {
+                MeasureUnit part = parts.get(i);
+                if (lastPart != null) {
+                    if (!part.isConvertibleTo(lastPart)) {
+                        throw new IllegalArgumentException(
+                                JOIN_EMPTY.join(
+                                        "«",
+                                        unitId,
+                                        "»: ",
+                                        lastPart,
+                                        " & ",
+                                        part,
+                                        " are not convertible"));
+                    }
+                }
+                lastPart = part;
+            }
+            if (lastPart == null) {
+                throw new IllegalArgumentException(JOIN_EMPTY.join("«", unitId, "» has no units"));
+            }
+
+            return parts;
+        }
+
+        public static String normalize(String unitId) {
+            UnitId id = unitConverter.createUnitId(unitId);
+            return id.toString();
         }
     }
 
@@ -285,6 +301,15 @@ public class TestConverterAPI extends TestFmwk {
         }
 
         /**
+         * Convert amounts with sourceUnits into result targetUnits. Use if either source or target
+         * is a MixedMeasureUnit. (Can be used if both are MeasureUnits, but less efficient.)
+         */
+        public static List<Double> convertDoubles(
+                List<Double> amounts, MeasureUnit sourceUnit, MeasureUnit targetUnit) {
+            return doubleList(convert(listDoubleToRational(amounts), sourceUnit, targetUnit));
+        }
+
+        /**
          * Convert amount sourceUnit into result targetUnits. Only works for non-mixed units. Normal
          * conversion cost is 2 multiplies and 2 adds
          */
@@ -293,6 +318,31 @@ public class TestConverterAPI extends TestFmwk {
             return convert(Rational.of(amount), sourceUnits, targetUnits).toBigDecimal();
         }
 
+        /**
+         * Convert amounts with sourceUnits into result targetUnits. Use if either source or target
+         * is a MixedMeasureUnit. (Can be used if both are MeasureUnits, but less efficient.)
+         */
+        public static List<BigDecimal> convertBigDecimals(
+                List<BigDecimal> amounts, MeasureUnit sourceUnits, MeasureUnit targetUnits) {
+            return bigDecimalList(
+                    convert(listBigDecimalToRational(amounts), sourceUnits, targetUnits));
+        }
+
+        /**
+         * Convert amounts with sourceUnits into result targetUnits. Use if either source or target
+         * is a MixedMeasureUnit. (Can be used if both are MeasureUnits, but less efficient.)<br>
+         * [Rationals are the CLDR implementation's native numeric form, to preserve precision.]
+         */
+        public static List<Rational> convert(
+                List<Rational> amounts, MeasureUnit sourceUnits, MeasureUnit targetUnits) {
+            return targetUnits.convertFromBaseToMixed(sourceUnits.convertToBase(amounts));
+        }
+
+        /**
+         * Convert amount sourceUnit into result targetUnits. Only works for non-mixed units. Normal
+         * conversion cost is 2 multiplies and 2 adds.<br>
+         * [Rationals are the CLDR implementation's native numeric form, to preserve precision.]
+         */
         public static Rational convert(
                 Rational amountRational, MeasureUnit sourceUnits, MeasureUnit targetUnits) {
             MeasureUnit reciprocalUnit = checkAndReverseIfNeeded(sourceUnits, targetUnits);
@@ -302,38 +352,6 @@ public class TestConverterAPI extends TestFmwk {
             }
             Rational result = targetUnits.convertFromBase(intermediate);
             return result;
-        }
-
-        /**
-         * Convert amounts with sourceUnits into result targetUnits. Use if either source or target
-         * is a MixedMeasureUnit. (Can be used if both are MeasureUnits, but less efficient.)
-         */
-        public static List<Double> convertDoubles(
-                List<Double> amounts, MixedMeasureUnit sourceUnit, MixedMeasureUnit targetUnit) {
-            return doubleList(convert(listDoubleToRational(amounts), sourceUnit, targetUnit));
-        }
-
-        /**
-         * Convert amounts with sourceUnits into result targetUnits. Use if either source or target
-         * is a MixedMeasureUnit. (Can be used if both are MeasureUnits, but less efficient.)
-         */
-        public static List<BigDecimal> convertBigDecimals(
-                List<BigDecimal> amounts,
-                MixedMeasureUnit sourceUnits,
-                MixedMeasureUnit targetUnits) {
-            return bigDecimalList(
-                    convert(listBigDecimalToRational(amounts), sourceUnits, targetUnits));
-        }
-
-        /**
-         * Convert amounts with sourceUnits into result targetUnits. Use if either source or target
-         * is a MixedMeasureUnit. (Can be used if both are MeasureUnits, but less efficient.)
-         */
-        public static List<Rational> convert(
-                List<Rational> amounts,
-                MixedMeasureUnit sourceUnits,
-                MixedMeasureUnit targetUnits) {
-            return targetUnits.convertFromBase(sourceUnits.convertToBase(amounts));
         }
 
         // INTERNALS
@@ -363,7 +381,114 @@ public class TestConverterAPI extends TestFmwk {
                     .precision(Precision.maxSignificantDigits(10))
                     .locale(Locale.ENGLISH);
 
-    public void testBasic() {
+    public void testIds() {
+        String[][] tests = {
+            {"foot-per-minute", "foot-per-minute", "meter-per-second", "null"},
+            {"foot-foot", "square-foot", "square-meter", "null"}, // normalized to use powers
+            {"foot-and-inch", "foot-and-inch", "meter", "[foot, inch]"},
+            {"inch-and-foot", "foot-and-inch", "meter", "[foot, inch]"}, // normalized to fix order
+            {
+                "foot-and-foot-and-inch", "foot-and-inch", "meter", "[foot, inch]"
+            }, // normalized to remove duplicates
+            {"xxx-foobar", "xxx-foobar", null, "null"}, // private use
+            {"foot-and-meter", "meter-and-foot", "meter", "[meter, foot]"}, // weird but allowed
+
+            // errors
+            {"foot-and-foot", "«foot-and-foot» has ≤1 unit", "", ""},
+            {"foot-and-pound", "«foot-and-pound»: foot & pound are not convertible", "", ""},
+        };
+        for (String[] test : tests) {
+            MeasureUnit unitId = null;
+            String actual = null;
+            try {
+                unitId = MeasureUnit.from(test[0]);
+            } catch (UncheckedExecutionException e) {
+                actual = e.getCause().getMessage();
+            } catch (Exception e) {
+                actual = e.getMessage();
+            }
+            if (actual != null) {
+                assertEquals(Arrays.asList(test) + "", test[1], actual);
+                continue;
+            }
+            assertEquals(
+                    Arrays.asList(test) + " normalized", test[1], unitId.getNormalizedIdentifier());
+            assertEquals(
+                    Arrays.asList(test) + " baseIdentifier", test[2], unitId.getBaseIdentifier());
+            assertEquals(
+                    Arrays.asList(test) + " subunits",
+                    test[3],
+                    String.valueOf(unitId.getSubunits()));
+        }
+    }
+
+    class DoubleConversionInfo {
+        final double factor;
+        final double offset;
+
+        DoubleConversionInfo(ConversionInfo other) {
+            factor = other.factor.doubleValue();
+            offset = other.offset.doubleValue();
+        }
+
+        double convertToBase(double source) {
+            return source * factor + offset;
+        }
+
+        double convertFromBase(double source) {
+            return (source - offset) / factor;
+        }
+    }
+
+    public void testSpeed() {
+        // warmup
+        double result = 0;
+        for (int i = 0; i < 10; ++i) {
+            MeasureUnit mu1 = MeasureUnit.from("foot-per-second");
+            MeasureUnit mu2 = MeasureUnit.from("kilometer-per-hour");
+            result += UnitConverter2.convert(3.4, mu1, mu2);
+        }
+
+        Timer t = new Timer();
+
+        final int iterations = 1_000_000;
+        t.start();
+        for (int i = 0; i < iterations; ++i) {
+            MeasureUnit mu1 = MeasureUnit.from("foot-per-second");
+            MeasureUnit mu2 = MeasureUnit.from("kilometer-per-hour");
+            result += UnitConverter2.convert(3.4, mu1, mu2);
+        }
+        t.stop();
+        warnln(
+                "CLDR rationals: "
+                        + t.getNanoseconds() / (double) iterations
+                        + " ns/iteration; iterations: "
+                        + nf.format(iterations));
+
+        MeasureUnit mu1a = MeasureUnit.from("foot-per-second");
+        MeasureUnit mu2a = MeasureUnit.from("kilometer-per-hour");
+
+        // simulate doubles
+        DoubleConversionInfo dci1 = new DoubleConversionInfo(mu1a.getConversionInfo());
+        DoubleConversionInfo dci2 = new DoubleConversionInfo(mu2a.getConversionInfo());
+
+        t.start();
+        for (int i = 0; i < iterations; ++i) {
+            MeasureUnit mu1 = MeasureUnit.from("foot-per-second");
+            ConversionInfo x1 = mu1.getConversionInfo();
+            MeasureUnit mu2 = MeasureUnit.from("kilometer-per-hour");
+            ConversionInfo x2 = mu2.getConversionInfo();
+            result += dci2.convertFromBase(dci1.convertToBase(3.4d));
+        }
+        t.stop();
+        warnln(
+                "Simulating doubles: "
+                        + t.getNanoseconds() / (double) iterations
+                        + " ns/iteration; iterations: "
+                        + nf.format(iterations));
+    }
+
+    public void testConversions() {
         String[][] tests = {
             {"3", "foot-per-second", "kilometer-per-hour", "3.29184"},
             {"3", "foot-per-second", "hour-per-kilometer", "0.3037814718"},
@@ -376,16 +501,7 @@ public class TestConverterAPI extends TestFmwk {
             {"6;2.75", "yard-and-foot", "foot-and-inch", "20;9"},
 
             // errors
-
-            {"1", "foobar", "kilogram", "«foobar»: Illegal unicode unit identifier"},
             {"3", "foot-per-second", "kilogram", "foot-per-second is not convertible to kilogram"},
-            {
-                "1;2",
-                "foot-and-pound",
-                "kilogram",
-                "«foot-and-pound»: foot & pound are not convertible"
-            },
-            {"1;2", "inch-and-foot", "kilogram", "«inch-and-foot»: inch is not smaller than foot"},
         };
         int testNumber = 0;
         for (String[] test : tests) {
@@ -395,42 +511,34 @@ public class TestConverterAPI extends TestFmwk {
                 String expected = test[3];
                 String title = null;
                 try {
-                    if (!test[0].contains(";") && !test[3].contains(";")) { // unmixed units
+                    MeasureUnit source = MeasureUnit.from(test[1]);
+                    MeasureUnit target = MeasureUnit.from(test[2]);
+                    if (!source.isMixed() && !target.isMixed()) { // unmixed units
                         if (isDouble) {
                             title = " double";
                             // do unmixed units
                             double amount = Double.parseDouble(test[0]);
-                            MeasureUnit source = (MeasureUnit) MeasureUnit.from(test[1]);
-                            MeasureUnit target = (MeasureUnit) MeasureUnit.from(test[2]);
                             double result = UnitConverter2.convert(amount, source, target);
                             actual = nf.format(result).toString();
                         } else {
                             title = " BigDecimal";
                             BigDecimal amount = new BigDecimal(test[0]);
-                            MeasureUnit source = (MeasureUnit) MeasureUnit.from(test[1]);
-                            MeasureUnit target = (MeasureUnit) MeasureUnit.from(test[2]);
                             BigDecimal result = UnitConverter2.convert(amount, source, target);
-                            actual = nf.format(result).toString(); // downgrade to double for
-                            // testing
+                            actual = nf.format(result).toString();
                         }
                     } else { // do mixed units
                         if (isDouble) {
                             title = " double";
                             List<Double> amounts = listDoubleFrom(test[0]);
-                            MixedMeasureUnit source = MixedMeasureUnit.from(test[1]);
-                            MixedMeasureUnit target = MixedMeasureUnit.from(test[2]);
                             List<Double> result =
                                     UnitConverter2.convertDoubles(amounts, source, target);
-                            actual = stringFromList(result);
+                            actual = stringFromListNumber(result);
                         } else {
                             title = " BigDecimal";
                             List<BigDecimal> amount = listBigDecimalFrom(test[0]);
-                            MixedMeasureUnit source = MixedMeasureUnit.from(test[1]);
-                            MixedMeasureUnit target = MixedMeasureUnit.from(test[2]);
                             List<BigDecimal> result =
                                     UnitConverter2.convertBigDecimals(amount, source, target);
-                            actual = stringFromList(result);
-                            // testing
+                            actual = stringFromListNumber(result);
                         }
                     }
                 } catch (UncheckedExecutionException e) {
@@ -446,7 +554,7 @@ public class TestConverterAPI extends TestFmwk {
         }
     }
 
-    private <N extends Number> String stringFromList(List<N> result) {
+    private <N extends Number> String stringFromListNumber(List<N> result) {
         return result.stream().map(x -> nf.format(x)).collect(Collectors.joining(";"));
     }
 

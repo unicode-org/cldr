@@ -15,20 +15,17 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.concurrent.ExecutionException;
+import java.util.stream.Collectors;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.Rational;
 import org.unicode.cldr.util.UnitConverter;
 import org.unicode.cldr.util.UnitConverter.ConversionInfo;
-import org.unicode.cldr.util.UnitConverter.UnitId;
 
 /**
  * Adds conversion info and a baseIdentifier to MeasureUnit, and supplies utility functions for
  * conversion. MixedUnits are supported by having a (normally null) subunits field.
  */
 public class MeasureUnit2 implements Comparable<MeasureUnit2> {
-    static final UnitConverter unitConverter =
-            CLDRConfig.getInstance().getSupplementalDataInfo().getUnitConverter();
-
     /**
      * Create a MeasureUnit from a unicode_unit-identifier. Internally there is a cache, so in the
      * normal case this should be fast.
@@ -44,17 +41,13 @@ public class MeasureUnit2 implements Comparable<MeasureUnit2> {
         }
     }
 
-    /** Returns just the string name, not the conversion info or base identifier */
-    @Override
-    public String toString() {
-        return normalizedIdentifier;
-    }
-
-    // MOST of the following could be package private
-    // or even private, if the UnitConverter2 static methods were moved here
-
     /** Can be converted to other unit */
     public boolean isConvertibleTo(MeasureUnit2 other) {
+        return isDirectlyConvertibleTo(other)
+                || (!isMixed() && isDirectlyConvertibleTo(other.reciprocal()));
+    }
+
+    public boolean isDirectlyConvertibleTo(MeasureUnit2 other) {
         // could be optimized slightly if we 'interned' the baseIdentifier
         return getBaseIdentifier().equals(other.getBaseIdentifier());
     }
@@ -84,34 +77,166 @@ public class MeasureUnit2 implements Comparable<MeasureUnit2> {
         return baseIdentifier;
     }
 
-    public final Rational convertToBase(Rational other) {
+    /** Returns just the string name, not the conversion info or base identifier */
+    @Override
+    public String toString() {
+        return normalizedIdentifier;
+    }
+
+    @Override
+    public int hashCode() {
+        return normalizedIdentifier.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return this == obj
+                || (obj instanceof MeasureUnit2)
+                        && normalizedIdentifier.equals(((MeasureUnit2) obj).normalizedIdentifier);
+    }
+
+    @Override
+    public int compareTo(MeasureUnit2 o) {
+        return ComparisonChain.start()
+                .compare(baseIdentifier, o.baseIdentifier)
+                .compare(conversionInfo, o.conversionInfo)
+                .compare(normalizedIdentifier, normalizedIdentifier) // break ties
+                .result();
+    }
+
+    // Conversions
+
+    /**
+     * Convert amount sourceUnit into result targetUnits. Only works for non-mixed units. Normal
+     * conversion cost is 2 multiplies and 2 adds
+     */
+    public static double convert(double amount, MeasureUnit2 sourceUnit, MeasureUnit2 targetUnit) {
+        boolean reverse = reverseNeededAndThrowNonConvertible(sourceUnit, targetUnit);
+        double intermediate = sourceUnit.convertToBase(amount);
+        if (reverse) {
+            intermediate = 1d / intermediate;
+        }
+        double result = targetUnit.convertFromBase(intermediate);
+        return result;
+    }
+
+    /**
+     * Convert amounts with sourceUnits into result targetUnits. Use if either source or target is a
+     * MixedMeasureUnit. (Can be used if both are MeasureUnits, but less efficient.) A negative
+     * value in a list is represented by *every* value being negative; formatting would change that
+     * as necessary.
+     */
+    public static List<Double> convertDoubles(
+            List<Double> amounts, MeasureUnit2 sourceUnit, MeasureUnit2 targetUnit) {
+        // for now, just call the Rational version
+        return doubleList(convert(listDoubleToRational(amounts), sourceUnit, targetUnit));
+    }
+
+    /**
+     * Convert amount sourceUnit into result targetUnits. Only works for non-mixed units. Normal
+     * conversion cost is 2 multiplies and 2 adds
+     */
+    public static BigDecimal convert(
+            BigDecimal amount, MeasureUnit2 sourceUnit, MeasureUnit2 targetUnit) {
+        boolean reverse = reverseNeededAndThrowNonConvertible(sourceUnit, targetUnit);
+        BigDecimal intermediate = sourceUnit.convertToBase(amount);
+        if (reverse) {
+            intermediate = BigDecimal.ONE.divide(intermediate, MathContext.DECIMAL64);
+        }
+        BigDecimal result = targetUnit.convertFromBase(intermediate);
+        return result;
+    }
+
+    /**
+     * Convert amounts with sourceUnits into result targetUnits. Use if either source or target is a
+     * MixedMeasureUnit. (Can be used if both are MeasureUnits, but less efficient.) A negative
+     * value in a list is represented by *every* value being negative; formatting would change that
+     * as necessary.
+     */
+    public static List<BigDecimal> convertBigDecimals(
+            List<BigDecimal> amounts, MeasureUnit2 sourceUnits, MeasureUnit2 targetUnits) {
+        // for now, just call the Rational version
+        return bigDecimalList(convert(listBigDecimalToRational(amounts), sourceUnits, targetUnits));
+    }
+
+    /**
+     * Convert amount sourceUnit into result targetUnits. Only works for non-mixed units. Normal
+     * conversion cost is 2 multiplies and 2 adds.<br>
+     * [Rationals are the CLDR implementation's native numeric form, to preserve precision.]
+     */
+    public static Rational convert(
+            Rational amountRational, MeasureUnit2 sourceUnits, MeasureUnit2 targetUnits) {
+        boolean reverse = reverseNeededAndThrowNonConvertible(sourceUnits, targetUnits);
+        Rational intermediate = sourceUnits.convertToBase(amountRational);
+        if (reverse) {
+            intermediate = intermediate.reciprocal();
+        }
+        Rational result = targetUnits.convertFromBase(intermediate);
+        return result;
+    }
+
+    /**
+     * Convert amounts with sourceUnits into result targetUnits. Use if either source or target is a
+     * MixedMeasureUnit. (Can be used if both are MeasureUnits, but less efficient.)<br>
+     * [Rationals are the CLDR implementation's native numeric form, to preserve precision.] A
+     * negative value in a list is represented by *every* value being negative; formatting would
+     * change that as necessary.
+     */
+    public static List<Rational> convert(
+            List<Rational> amounts, MeasureUnit2 sourceUnits, MeasureUnit2 targetUnits) {
+        throwNonConvertible(sourceUnits, targetUnits);
+        return targetUnits.convertFromBaseToMixed(sourceUnits.convertToBase(amounts));
+    }
+
+    // INTERNALS
+
+    static final UnitConverter unitConverter =
+            CLDRConfig.getInstance().getSupplementalDataInfo().getUnitConverter();
+
+    private final String normalizedIdentifier;
+
+    // Is null iff non mixed units
+    private final List<MeasureUnit2> subunits;
+
+    // If subunits ≠ null, identical to first subunit's value
+    private final String baseIdentifier;
+
+    // If subunits ≠ null, identical to first subunit's values
+    // We only need this for the numeric values we support;
+    // it saves on conversion performance
+
+    private final ConversionInfo conversionInfo;
+    private final DoubleConversionInfo doubleConversionInfo;
+    private final BigDecimalConversionInfo bigDecimalConversionInfo;
+
+    private final Rational convertToBase(Rational other) {
         return conversionInfo.convert(other);
     }
 
-    public final Rational convertFromBase(Rational other) {
+    private final Rational convertFromBase(Rational other) {
         return conversionInfo.convertBackwards(other);
     }
 
-    public double convertToBase(double other) {
+    private double convertToBase(double other) {
         return doubleConversionInfo.convertToBase(other);
     }
 
-    public double convertFromBase(double other) {
+    private double convertFromBase(double other) {
         return doubleConversionInfo.convertFromBase(other);
     }
 
-    public BigDecimal convertToBase(BigDecimal other) {
+    private BigDecimal convertToBase(BigDecimal other) {
         return bigDecimalConversionInfo.convertToBase(other);
     }
 
-    public BigDecimal convertFromBase(BigDecimal other) {
+    private BigDecimal convertFromBase(BigDecimal other) {
         return bigDecimalConversionInfo.convertFromBase(other);
     }
 
     // a negative value in a list is represented by *every* value being negative;
     // formatting  will change that as necessary
 
-    public Rational convertToBase(List<Rational> amounts) {
+    private Rational convertToBase(List<Rational> amounts) {
         if (subunits == null) {
             if (amounts.size() != 1) {
                 throw new IllegalArgumentException();
@@ -133,7 +258,7 @@ public class MeasureUnit2 implements Comparable<MeasureUnit2> {
     // a negative value in a list is represented by *every* value being negative;
     // formatting  will change that as necessary
 
-    public List<Rational> convertFromBaseToMixed(Rational amount) {
+    private List<Rational> convertFromBaseToMixed(Rational amount) {
         if (subunits == null) {
             return List.of(conversionInfo.convertBackwards(amount));
         }
@@ -154,16 +279,42 @@ public class MeasureUnit2 implements Comparable<MeasureUnit2> {
         return result;
     }
 
-    @Override
-    public int compareTo(MeasureUnit2 o) {
-        return ComparisonChain.start()
-                .compare(baseIdentifier, o.baseIdentifier)
-                .compare(conversionInfo, o.conversionInfo)
-                .compare(normalizedIdentifier, normalizedIdentifier) // break ties
-                .result();
+    private static boolean reverseNeededAndThrowNonConvertible(
+            MeasureUnit2 source, MeasureUnit2 target) {
+        if (!source.isDirectlyConvertibleTo(target)) {
+            // check for unusual case: eg, meter-per-second to second-per-meter
+            MeasureUnit2 reciprocalUnit = source.reciprocal();
+            throwNonConvertible(source, reciprocalUnit, target);
+            return true;
+        }
+        return false;
     }
 
-    // INTERNALS
+    private static void throwNonConvertible(MeasureUnit2 a, MeasureUnit2 b) {
+        throwNonConvertible(a, a, b);
+    }
+
+    private static void throwNonConvertible(MeasureUnit2 original, MeasureUnit2 a, MeasureUnit2 b) {
+        if (!a.isDirectlyConvertibleTo(b)) {
+            throw new IllegalArgumentException(original + " and " + b + " are not convertible");
+        }
+    }
+
+    static List<Rational> listDoubleToRational(List<Double> amounts) {
+        return amounts.stream().map(d -> Rational.of(d.doubleValue())).collect(Collectors.toList());
+    }
+
+    static List<Rational> listBigDecimalToRational(List<BigDecimal> amounts) {
+        return amounts.stream().map(d -> Rational.of(d)).collect(Collectors.toList());
+    }
+
+    static List<Double> doubleList(List<Rational> amounts) {
+        return amounts.stream().map(r -> r.doubleValue()).collect(Collectors.toList());
+    }
+
+    static List<BigDecimal> bigDecimalList(List<Rational> amounts) {
+        return amounts.stream().map(r -> r.toBigDecimal()).collect(Collectors.toList());
+    }
 
     private static final LoadingCache<String, MeasureUnit2> unmixedCache =
             CacheBuilder.newBuilder()
@@ -175,9 +326,14 @@ public class MeasureUnit2 implements Comparable<MeasureUnit2> {
                                     Output<String> baseUnitOut = new Output<>();
                                     ConversionInfo ci =
                                             unitConverter.parseUnitId(unitId, baseUnitOut, false);
-                                    String normalized = normalize(unitId);
-                                    return new MeasureUnit2(
-                                            normalized, ci, baseUnitOut.value, null);
+                                    String normalized =
+                                            unitConverter.createUnitId(unitId).toString();
+                                    String baseUnit =
+                                            unitConverter
+                                                    .createUnitId(baseUnitOut.value)
+                                                    .resolve()
+                                                    .toString();
+                                    return new MeasureUnit2(normalized, ci, baseUnit, null);
                                 }
                             });
     private static final LoadingCache<String, MeasureUnit2> mixedCache =
@@ -197,15 +353,6 @@ public class MeasureUnit2 implements Comparable<MeasureUnit2> {
                                             List.copyOf(parts));
                                 }
                             });
-
-    private final String normalizedIdentifier;
-    private final ConversionInfo
-            conversionInfo; // if subunits ≠ null, identical to first subunit's value
-    final String baseIdentifier; // if subunits ≠ null, identical to first subunit's value
-    private final List<MeasureUnit2> subunits; // null except for mixed units
-
-    private final DoubleConversionInfo doubleConversionInfo;
-    private final BigDecimalConversionInfo bigDecimalConversionInfo;
 
     /*
      * Note:  In CLDR, ConversionInfo contains:
@@ -243,14 +390,6 @@ public class MeasureUnit2 implements Comparable<MeasureUnit2> {
         return value.substring(index + 5) + "-per-" + value.substring(0, index);
     }
 
-    private boolean isSmallerThan(MeasureUnit2 other) {
-        return conversionInfo == null
-                ? other.conversionInfo != null
-                : other.conversionInfo == null
-                        ? false
-                        : conversionInfo.compareTo(other.conversionInfo) < 0;
-    }
-
     private static List<MeasureUnit2> getParts(String unitId) {
         // normalize by sorting the segments between -and- and dropping duplicates
         Set<MeasureUnit2> sortedParts = new TreeSet<>(Comparator.reverseOrder());
@@ -286,11 +425,6 @@ public class MeasureUnit2 implements Comparable<MeasureUnit2> {
         }
 
         return parts;
-    }
-
-    private static String normalize(String unitId) {
-        UnitId id = unitConverter.createUnitId(unitId);
-        return id.toString();
     }
 
     private static class DoubleConversionInfo {

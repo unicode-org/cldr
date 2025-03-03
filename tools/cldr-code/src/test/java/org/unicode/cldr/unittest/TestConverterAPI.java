@@ -1,5 +1,25 @@
 package org.unicode.cldr.unittest;
 
+import java.math.BigDecimal;
+import java.math.MathContext;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Locale;
+import java.util.Set;
+import java.util.TreeSet;
+import java.util.concurrent.ExecutionException;
+import java.util.stream.Collectors;
+
+import org.unicode.cldr.icu.dev.test.TestFmwk;
+import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.Rational;
+import org.unicode.cldr.util.Timer;
+import org.unicode.cldr.util.UnitConverter;
+import org.unicode.cldr.util.UnitConverter.ConversionInfo;
+import org.unicode.cldr.util.UnitConverter.UnitId;
+
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.google.common.cache.CacheBuilder;
@@ -12,23 +32,6 @@ import com.ibm.icu.number.LocalizedNumberFormatter;
 import com.ibm.icu.number.NumberFormatter;
 import com.ibm.icu.number.Precision;
 import com.ibm.icu.util.Output;
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Locale;
-import java.util.Set;
-import java.util.TreeSet;
-import java.util.concurrent.ExecutionException;
-import java.util.stream.Collectors;
-import org.unicode.cldr.icu.dev.test.TestFmwk;
-import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.Rational;
-import org.unicode.cldr.util.Timer;
-import org.unicode.cldr.util.UnitConverter;
-import org.unicode.cldr.util.UnitConverter.ConversionInfo;
-import org.unicode.cldr.util.UnitConverter.UnitId;
 
 public class TestConverterAPI extends TestFmwk {
 
@@ -95,6 +98,8 @@ public class TestConverterAPI extends TestFmwk {
             return baseIdentifier;
         }
 
+        // NOTE there are extra methods, etc for testing
+
         public final Rational convertToBase(Rational other) {
             return conversionInfo.convert(other);
         }
@@ -102,6 +107,23 @@ public class TestConverterAPI extends TestFmwk {
         public final Rational convertFromBase(Rational other) {
             return conversionInfo.convertBackwards(other);
         }
+
+        public final double convertToBase(double other) {
+            return doubleConversionInfo.convertToBase(other);
+        }
+
+        public final double convertFromBase(double other) {
+            return doubleConversionInfo.convertFromBase(other);
+        }
+
+        public final BigDecimal convertToBase(BigDecimal other) {
+            return bigDecimalConversionInfo.convertToBase(other);
+        }
+
+        public final BigDecimal convertFromBase(BigDecimal other) {
+            return bigDecimalConversionInfo.convertFromBase(other);
+        }
+
 
         // a negative value in a list is represented by *every* value being negative;
         // formatting  will change that as necessary
@@ -205,6 +227,9 @@ public class TestConverterAPI extends TestFmwk {
                 baseIdentifier; // if subunits ≠ null, identical to first subunit's value
         private final List<MeasureUnit> subunits; // null except for mixed units
 
+        private final DoubleConversionInfo doubleConversionInfo;
+        private final BigDecimalConversionInfo bigDecimalConversionInfo;
+
         /*
          * Note:  In CLDR, ConversionInfo contains:
          *    public final Rational factor;
@@ -224,6 +249,8 @@ public class TestConverterAPI extends TestFmwk {
             this.conversionInfo = conversionInfo;
             this.baseIdentifier = baseIdentifier;
             this.subunits = subunits;
+            doubleConversionInfo = new DoubleConversionInfo(conversionInfo);
+            bigDecimalConversionInfo = new BigDecimalConversionInfo(conversionInfo);
         }
 
         private String reciprocalOf(String value) {
@@ -300,6 +327,17 @@ public class TestConverterAPI extends TestFmwk {
             return convert(Rational.of(amount), sourceUnit, targetUnit).doubleValue();
         }
 
+        public static double convert2(
+            double amount, MeasureUnit sourceUnit, MeasureUnit targetUnit) {
+            boolean reverse = checkAndReverseIfNeeded(sourceUnit, targetUnit);
+            double intermediate = sourceUnit.convertToBase(amount);
+            if (reverse) {
+                intermediate = 1d/intermediate;
+            }
+            double result = targetUnit.convertFromBase(intermediate);
+        return result;
+        }
+
         /**
          * Convert amounts with sourceUnits into result targetUnits. Use if either source or target
          * is a MixedMeasureUnit. (Can be used if both are MeasureUnits, but less efficient.)
@@ -316,6 +354,17 @@ public class TestConverterAPI extends TestFmwk {
         public static BigDecimal convert(
                 BigDecimal amount, MeasureUnit sourceUnits, MeasureUnit targetUnits) {
             return convert(Rational.of(amount), sourceUnits, targetUnits).toBigDecimal();
+        }
+
+        public static BigDecimal convert2(
+            BigDecimal amount, MeasureUnit sourceUnit, MeasureUnit targetUnit) {
+            boolean reverse = checkAndReverseIfNeeded(sourceUnit, targetUnit);
+            BigDecimal intermediate = sourceUnit.convertToBase(amount);
+            if (reverse) {
+                intermediate = BigDecimal.ONE.divide(intermediate, MathContext.DECIMAL64);
+            }
+            BigDecimal result = targetUnit.convertFromBase(intermediate);
+        return result;
         }
 
         /**
@@ -345,9 +394,9 @@ public class TestConverterAPI extends TestFmwk {
          */
         public static Rational convert(
                 Rational amountRational, MeasureUnit sourceUnits, MeasureUnit targetUnits) {
-            MeasureUnit reciprocalUnit = checkAndReverseIfNeeded(sourceUnits, targetUnits);
+            boolean reverse = checkAndReverseIfNeeded(sourceUnits, targetUnits);
             Rational intermediate = sourceUnits.convertToBase(amountRational);
-            if (reciprocalUnit != null) {
+            if (reverse) {
                 intermediate = intermediate.reciprocal();
             }
             Rational result = targetUnits.convertFromBase(intermediate);
@@ -356,11 +405,10 @@ public class TestConverterAPI extends TestFmwk {
 
         // INTERNALS
 
-        private static MeasureUnit checkAndReverseIfNeeded(MeasureUnit source, MeasureUnit target) {
-            MeasureUnit reciprocalUnit = null;
+        private static boolean checkAndReverseIfNeeded(MeasureUnit source, MeasureUnit target) {
             if (!source.isConvertibleTo(target)) {
-                // check for unusual case, meter-per-second to second-per-meter
-                reciprocalUnit = source.reciprocal();
+                // check for unusual case: eg, meter-per-second to second-per-meter
+                MeasureUnit reciprocalUnit = source.reciprocal();
                 if (!reciprocalUnit.isConvertibleTo(target)) {
                     throw new IllegalArgumentException(
                             source.normalizedIdentifier
@@ -368,7 +416,7 @@ public class TestConverterAPI extends TestFmwk {
                                     + target.baseIdentifier);
                 }
             }
-            return reciprocalUnit;
+            return true;
         }
     }
 
@@ -422,7 +470,7 @@ public class TestConverterAPI extends TestFmwk {
         }
     }
 
-    class DoubleConversionInfo {
+    static class DoubleConversionInfo {
         final double factor;
         final double offset;
 
@@ -440,56 +488,96 @@ public class TestConverterAPI extends TestFmwk {
         }
     }
 
+    static class BigDecimalConversionInfo {
+        final BigDecimal factor;
+        final BigDecimal offset;
+
+        BigDecimalConversionInfo(ConversionInfo other) {
+            factor = other.factor.toBigDecimal();
+            offset = other.offset.toBigDecimal();
+        }
+
+        BigDecimal convertToBase(BigDecimal source) {
+            return source.multiply(factor).add(offset);
+        }
+
+        BigDecimal convertFromBase(BigDecimal source) {
+            return source.subtract(offset).divide(factor, MathContext.DECIMAL64);
+        }
+    }
+
+
     public void testSpeed() {
         // warmup
-        double result = 0;
-        for (int i = 0; i < 10; ++i) {
+        boolean result = true;
+        double amount = 3.4d;
+        BigDecimal bd3_4 = BigDecimal.valueOf(amount);
+        Rational r3_4 = Rational.of(amount);
+
+        final int iterations = 10_000_000;
+        warnln("iterations: "
+            + nf.format(iterations));
+
+        for (int i = 0; i < 1000; ++i) {
             MeasureUnit mu1 = MeasureUnit.from("foot-per-second");
             MeasureUnit mu2 = MeasureUnit.from("kilometer-per-hour");
-            result += UnitConverter2.convert(3.4, mu1, mu2);
+            result ^= 0d == UnitConverter2.convert(amount, mu1, mu2);
+            result ^= BigDecimal.ZERO.equals(UnitConverter2.convert2(bd3_4, mu1, mu2));
+            result ^= Rational.ZERO.equals(UnitConverter2.convert(r3_4, mu1, mu2));
         }
 
         Timer t = new Timer();
 
-        final int iterations = 1_000_000;
+
+
+        // Doubles
+
         t.start();
         for (int i = 0; i < iterations; ++i) {
             MeasureUnit mu1 = MeasureUnit.from("foot-per-second");
             MeasureUnit mu2 = MeasureUnit.from("kilometer-per-hour");
-            result += UnitConverter2.convert(3.4, mu1, mu2);
+            result ^= 0d == UnitConverter2.convert2(amount, mu1, mu2);
+        }
+        t.stop();
+        warnln(
+                "Doubles: "
+                        + t.getNanoseconds() / (double) iterations
+                        + " ns/iteration");
+
+        // Big Decimals
+
+        t.start();
+        for (int i = 0; i < iterations; ++i) {
+            MeasureUnit mu1 = MeasureUnit.from("foot-per-second");
+            MeasureUnit mu2 = MeasureUnit.from("kilometer-per-hour");
+            result ^= BigDecimal.ZERO.equals(UnitConverter2.convert2(bd3_4, mu1, mu2));
+        }
+        t.stop();
+        warnln(
+                "BigDecimal64: "
+                        + t.getNanoseconds() / (double) iterations
+                        + " ns/iteration");
+
+
+        // Rationals
+
+        t.start();
+        for (int i = 0; i < iterations; ++i) {
+            MeasureUnit mu1 = MeasureUnit.from("foot-per-second");
+            MeasureUnit mu2 = MeasureUnit.from("kilometer-per-hour");
+            result ^= Rational.ZERO.equals(UnitConverter2.convert(r3_4, mu1, mu2));
         }
         t.stop();
         warnln(
                 "CLDR rationals: "
                         + t.getNanoseconds() / (double) iterations
-                        + " ns/iteration; iterations: "
-                        + nf.format(iterations));
-
-        MeasureUnit mu1a = MeasureUnit.from("foot-per-second");
-        MeasureUnit mu2a = MeasureUnit.from("kilometer-per-hour");
-
-        // simulate doubles
-        DoubleConversionInfo dci1 = new DoubleConversionInfo(mu1a.getConversionInfo());
-        DoubleConversionInfo dci2 = new DoubleConversionInfo(mu2a.getConversionInfo());
-
-        t.start();
-        for (int i = 0; i < iterations; ++i) {
-            MeasureUnit mu1 = MeasureUnit.from("foot-per-second");
-            ConversionInfo x1 = mu1.getConversionInfo();
-            MeasureUnit mu2 = MeasureUnit.from("kilometer-per-hour");
-            ConversionInfo x2 = mu2.getConversionInfo();
-            result += dci2.convertFromBase(dci1.convertToBase(3.4d));
-        }
-        t.stop();
-        warnln(
-                "Simulating doubles: "
-                        + t.getNanoseconds() / (double) iterations
-                        + " ns/iteration; iterations: "
-                        + nf.format(iterations));
+                        + " ns/iteration");
     }
 
     public void testConversions() {
         String[][] tests = {
+            {"3", "foot", "meter", "0.9144"},
+            {"0.9144", "meter", "foot", "3"},
             {"3", "foot-per-second", "kilometer-per-hour", "3.29184"},
             {"3", "foot-per-second", "hour-per-kilometer", "0.3037814718"},
             {"3", "newton", "pound-mile-per-square-minute", "14.79480106"},
@@ -518,12 +606,12 @@ public class TestConverterAPI extends TestFmwk {
                             title = " double";
                             // do unmixed units
                             double amount = Double.parseDouble(test[0]);
-                            double result = UnitConverter2.convert(amount, source, target);
+                            double result = UnitConverter2.convert2(amount, source, target);
                             actual = nf.format(result).toString();
                         } else {
                             title = " BigDecimal";
                             BigDecimal amount = new BigDecimal(test[0]);
-                            BigDecimal result = UnitConverter2.convert(amount, source, target);
+                            BigDecimal result = UnitConverter2.convert2(amount, source, target);
                             actual = nf.format(result).toString();
                         }
                     } else { // do mixed units

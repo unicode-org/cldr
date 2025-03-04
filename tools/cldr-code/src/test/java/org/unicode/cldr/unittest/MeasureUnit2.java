@@ -30,7 +30,7 @@ public class MeasureUnit2 implements Comparable<MeasureUnit2> {
      * Create a MeasureUnit from a unicode_unit-identifier. Internally there is a cache, so in the
      * normal case this should be fast.
      */
-    public static MeasureUnit2 from(String unitId) {
+    public static MeasureUnit2 forIdentifier(String unitId) {
         try {
             if (unitId.contains("-and-")) {
                 return mixedCache.get(unitId);
@@ -104,7 +104,47 @@ public class MeasureUnit2 implements Comparable<MeasureUnit2> {
                 .result();
     }
 
-    // Conversions
+    // For comparison in development, show two different options
+
+    // non-static conversions
+
+    /** Convert amount sourceUnits into an amount in this unit */
+    public double convertFrom(double amount, MeasureUnit2 sourceUnit) {
+        return convert(amount, sourceUnit, this);
+    }
+
+    /** Convert amount sourceUnits into an amount in this unit */
+    public List<Double> convertDoublesFrom(List<Double> amount, MeasureUnit2 sourceUnit) {
+        return convertDoubles(amount, sourceUnit, this);
+    }
+
+    /** Convert amount sourceUnits into an amount in this unit */
+    public BigDecimal convertFrom(BigDecimal amount, MeasureUnit2 sourceUnit) {
+        return convert(amount, sourceUnit, this);
+    }
+
+    /** Convert amount sourceUnits into an amount in this unit */
+    public List<BigDecimal> convertBigDecimalFrom(
+            List<BigDecimal> amount, MeasureUnit2 sourceUnit) {
+        return convertBigDecimals(amount, sourceUnit, this);
+    }
+
+    /** Convert amount sourceUnits into an amount in this unit */
+    public Rational convertFrom(Rational amount, MeasureUnit2 sourceUnit) {
+        return convert(amount, sourceUnit, this);
+    }
+
+    /** Convert amount sourceUnits into an amount in this unit */
+    public List<Rational> convertRationalFrom(List<Rational> amount, MeasureUnit2 sourceUnit) {
+        return convert(amount, sourceUnit, this);
+    }
+
+    // just for example
+    public double convertFrom(Measure2 measure) {
+        return convert(measure.number.doubleValue(), measure.unit, this);
+    }
+
+    // Static conversions
 
     /**
      * Convert amount sourceUnit into result targetUnits. Only works for non-mixed units. Normal
@@ -121,15 +161,15 @@ public class MeasureUnit2 implements Comparable<MeasureUnit2> {
     }
 
     /**
-     * Convert amounts with sourceUnits into result targetUnits. Use if either source or target is a
+     * Convert amount with sourceUnits into result targetUnits. Use if either source or target is a
      * MixedMeasureUnit. (Can be used if both are MeasureUnits, but less efficient.) A negative
      * value in a list is represented by *every* value being negative; formatting would change that
      * as necessary.
      */
     public static List<Double> convertDoubles(
-            List<Double> amounts, MeasureUnit2 sourceUnit, MeasureUnit2 targetUnit) {
+            List<Double> amount, MeasureUnit2 sourceUnit, MeasureUnit2 targetUnit) {
         // for now, just call the Rational version
-        return doubleList(convert(listDoubleToRational(amounts), sourceUnit, targetUnit));
+        return doubleList(convert(listDoubleToRational(amount), sourceUnit, targetUnit));
     }
 
     /**
@@ -148,15 +188,15 @@ public class MeasureUnit2 implements Comparable<MeasureUnit2> {
     }
 
     /**
-     * Convert amounts with sourceUnits into result targetUnits. Use if either source or target is a
+     * Convert amount with sourceUnits into result targetUnits. Use if either source or target is a
      * MixedMeasureUnit. (Can be used if both are MeasureUnits, but less efficient.) A negative
      * value in a list is represented by *every* value being negative; formatting would change that
      * as necessary.
      */
     public static List<BigDecimal> convertBigDecimals(
-            List<BigDecimal> amounts, MeasureUnit2 sourceUnits, MeasureUnit2 targetUnits) {
+            List<BigDecimal> amount, MeasureUnit2 sourceUnits, MeasureUnit2 targetUnits) {
         // for now, just call the Rational version
-        return bigDecimalList(convert(listBigDecimalToRational(amounts), sourceUnits, targetUnits));
+        return bigDecimalList(convert(listBigDecimalToRational(amount), sourceUnits, targetUnits));
     }
 
     /**
@@ -176,16 +216,16 @@ public class MeasureUnit2 implements Comparable<MeasureUnit2> {
     }
 
     /**
-     * Convert amounts with sourceUnits into result targetUnits. Use if either source or target is a
+     * Convert amount with sourceUnits into result targetUnits. Use if either source or target is a
      * MixedMeasureUnit. (Can be used if both are MeasureUnits, but less efficient.)<br>
      * [Rationals are the CLDR implementation's native numeric form, to preserve precision.] A
      * negative value in a list is represented by *every* value being negative; formatting would
      * change that as necessary.
      */
     public static List<Rational> convert(
-            List<Rational> amounts, MeasureUnit2 sourceUnits, MeasureUnit2 targetUnits) {
+            List<Rational> amount, MeasureUnit2 sourceUnits, MeasureUnit2 targetUnits) {
         throwNonConvertible(sourceUnits, targetUnits);
-        return targetUnits.convertFromBaseToMixed(sourceUnits.convertToBase(amounts));
+        return targetUnits.convertFromBaseToMixed(sourceUnits.convertToBase(amount));
     }
 
     // INTERNALS
@@ -236,21 +276,21 @@ public class MeasureUnit2 implements Comparable<MeasureUnit2> {
     // a negative value in a list is represented by *every* value being negative;
     // formatting  will change that as necessary
 
-    private Rational convertToBase(List<Rational> amounts) {
+    private Rational convertToBase(List<Rational> amount) {
         if (subunits == null) {
-            if (amounts.size() != 1) {
+            if (amount.size() != 1) {
                 throw new IllegalArgumentException();
             }
-            return convertToBase(amounts.get(0));
+            return convertToBase(amount.get(0));
         }
-        if (amounts.size() > subunits.size()) {
+        if (amount.size() > subunits.size()) {
             throw new IllegalArgumentException();
         }
         Rational sum = Rational.ZERO;
-        for (int i = 0; i < amounts.size(); ++i) {
-            Rational amount = amounts.get(i);
+        for (int i = 0; i < amount.size(); ++i) {
+            Rational amounti = amount.get(i);
             MeasureUnit2 unit = subunits.get(i);
-            sum = sum.add(unit.convertToBase(amount));
+            sum = sum.add(unit.convertToBase(amounti));
         }
         return sum;
     }
@@ -300,20 +340,20 @@ public class MeasureUnit2 implements Comparable<MeasureUnit2> {
         }
     }
 
-    static List<Rational> listDoubleToRational(List<Double> amounts) {
-        return amounts.stream().map(d -> Rational.of(d.doubleValue())).collect(Collectors.toList());
+    static List<Rational> listDoubleToRational(List<Double> amount) {
+        return amount.stream().map(d -> Rational.of(d.doubleValue())).collect(Collectors.toList());
     }
 
-    static List<Rational> listBigDecimalToRational(List<BigDecimal> amounts) {
-        return amounts.stream().map(d -> Rational.of(d)).collect(Collectors.toList());
+    static List<Rational> listBigDecimalToRational(List<BigDecimal> amount) {
+        return amount.stream().map(d -> Rational.of(d)).collect(Collectors.toList());
     }
 
-    static List<Double> doubleList(List<Rational> amounts) {
-        return amounts.stream().map(r -> r.doubleValue()).collect(Collectors.toList());
+    static List<Double> doubleList(List<Rational> amount) {
+        return amount.stream().map(r -> r.doubleValue()).collect(Collectors.toList());
     }
 
-    static List<BigDecimal> bigDecimalList(List<Rational> amounts) {
-        return amounts.stream().map(r -> r.toBigDecimal()).collect(Collectors.toList());
+    static List<BigDecimal> bigDecimalList(List<Rational> amount) {
+        return amount.stream().map(r -> r.toBigDecimal()).collect(Collectors.toList());
     }
 
     private static final LoadingCache<String, MeasureUnit2> unmixedCache =
@@ -393,7 +433,9 @@ public class MeasureUnit2 implements Comparable<MeasureUnit2> {
     private static List<MeasureUnit2> getParts(String unitId) {
         // normalize by sorting the segments between -and- and dropping duplicates
         Set<MeasureUnit2> sortedParts = new TreeSet<>(Comparator.reverseOrder());
-        Splitter.on("-and-").split(unitId).forEach(x -> sortedParts.add(MeasureUnit2.from(x)));
+        Splitter.on("-and-")
+                .split(unitId)
+                .forEach(x -> sortedParts.add(MeasureUnit2.forIdentifier(x)));
         List<MeasureUnit2> parts = new ArrayList<>(sortedParts);
         if (parts.size() < 2) {
             throw new IllegalArgumentException(
@@ -461,5 +503,18 @@ public class MeasureUnit2 implements Comparable<MeasureUnit2> {
         BigDecimal convertFromBase(BigDecimal source) {
             return source.subtract(offset).divide(factor, MathContext.DECIMAL64);
         }
+    }
+
+    // just for quick example
+
+    public static class Measure2 {
+
+        public Measure2(double amount, MeasureUnit2 mu1) {
+            this.number = amount;
+            this.unit = mu1;
+        }
+
+        private Number number;
+        private MeasureUnit2 unit;
     }
 }

@@ -1,19 +1,5 @@
 package org.unicode.cldr.unittest;
 
-import java.math.BigDecimal;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.stream.Collectors;
-
-import org.unicode.cldr.icu.dev.test.TestFmwk;
-import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.Rational;
-import org.unicode.cldr.util.Timer;
-import org.unicode.cldr.util.UnitConverter;
-
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.google.common.cache.CacheBuilder;
@@ -24,7 +10,21 @@ import com.google.common.util.concurrent.UncheckedExecutionException;
 import com.ibm.icu.number.LocalizedNumberFormatter;
 import com.ibm.icu.number.NumberFormatter;
 import com.ibm.icu.number.Precision;
+import com.ibm.icu.util.Measure;
 import com.ibm.icu.util.MeasureUnit;
+import java.math.BigDecimal;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.stream.Collectors;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
+import org.unicode.cldr.unittest.MeasureUnit2.Measure2;
+import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.Rational;
+import org.unicode.cldr.util.Timer;
+import org.unicode.cldr.util.UnitConverter;
 
 public class TestConverterAPI extends TestFmwk {
 
@@ -60,7 +60,7 @@ public class TestConverterAPI extends TestFmwk {
             MeasureUnit2 unitId = null;
             String actual = null;
             try {
-                unitId = MeasureUnit2.from(test[0]);
+                unitId = MeasureUnit2.forIdentifier(test[0]);
             } catch (UncheckedExecutionException e) {
                 actual = e.getCause().getMessage();
             } catch (Exception e) {
@@ -88,8 +88,6 @@ public class TestConverterAPI extends TestFmwk {
     }
 
     public void testConversions() {
-        MeasureUnit icu;
-
         String[][] tests = {
             {"3", "foot", "meter", "0.9144"},
             {"0.9144", "meter", "foot", "3"},
@@ -120,8 +118,8 @@ public class TestConverterAPI extends TestFmwk {
                 String expected = test[3];
                 String title = " " + numeric.toString();
                 try {
-                    MeasureUnit2 source = MeasureUnit2.from(test[1]);
-                    MeasureUnit2 target = MeasureUnit2.from(test[2]);
+                    MeasureUnit2 source = MeasureUnit2.forIdentifier(test[1]);
+                    MeasureUnit2 target = MeasureUnit2.forIdentifier(test[2]);
                     if (!source.isMixed() && !target.isMixed()) { // unmixed units
                         switch (numeric) {
                             case doubleFloat:
@@ -198,6 +196,40 @@ public class TestConverterAPI extends TestFmwk {
         }
     }
 
+    public void testSamples() {
+        MeasureUnit icuMeasureUnit;
+        Measure icuMeasure;
+
+        double amount = 3.4d;
+
+        MeasureUnit2 mu1 = MeasureUnit2.forIdentifier("foot-per-second");
+        MeasureUnit2 mu2 = MeasureUnit2.forIdentifier("kilometer-per-hour");
+
+        double result1static = MeasureUnit2.convert(amount, mu1, mu2);
+
+        double result2nonstatic = mu2.convertFrom(amount, mu1);
+
+        assertEquals("nonstatic is same as static", result1static, result2nonstatic);
+
+        double result3d =
+                MeasureUnit2.forIdentifier("kilometer-per-hour")
+                        .convertFrom(amount, MeasureUnit2.forIdentifier("foot-per-second"));
+
+        assertEquals("in-place is same as static", result1static, result3d);
+
+        Measure2 measure = new Measure2(amount, mu1);
+
+        double result2measure = mu2.convertFrom(measure);
+
+        assertEquals("nonstatic is same as static", result1static, result2measure);
+
+        MeasureUnit2 mu3 = MeasureUnit2.forIdentifier("foot-and-inch");
+        MeasureUnit2 mu4 = MeasureUnit2.forIdentifier("meter-and-centimeter");
+
+        List<Double> resultA = mu4.convertDoublesFrom(List.of(10d, 3d), mu3);
+        assertEquals("mixed", List.of(3.0d, 12.42d), resultA);
+    }
+
     public void testSpeed() {
         // warmup
         boolean result = true;
@@ -207,11 +239,14 @@ public class TestConverterAPI extends TestFmwk {
 
         // Warmup
 
-        final int iterations = 1_000_000; // TODO 100x if -e10
+        final int iterations =
+                getInclusion() < 6
+                        ? 1_000_000
+                        : 100_000_000; // use larger number with -e6 or greater
 
         for (int i = 0; i < 1000000; ++i) {
-            MeasureUnit2 mu1 = MeasureUnit2.from("foot-per-second");
-            MeasureUnit2 mu2 = MeasureUnit2.from("kilometer-per-hour");
+            MeasureUnit2 mu1 = MeasureUnit2.forIdentifier("foot-per-second");
+            MeasureUnit2 mu2 = MeasureUnit2.forIdentifier("kilometer-per-hour");
             result ^= 0d == MeasureUnit2.convert(amount, mu1, mu2);
             result ^= BigDecimal.ZERO.equals(MeasureUnit2.convert(bd3_4, mu1, mu2));
             result ^= Rational.ZERO.equals(MeasureUnit2.convert(r3_4, mu1, mu2));
@@ -223,8 +258,8 @@ public class TestConverterAPI extends TestFmwk {
         // Doubles w/ existing
 
         t.start();
-        MeasureUnit2 mu1 = MeasureUnit2.from("foot-per-second");
-        MeasureUnit2 mu2 = MeasureUnit2.from("kilometer-per-hour");
+        MeasureUnit2 mu1 = MeasureUnit2.forIdentifier("foot-per-second");
+        MeasureUnit2 mu2 = MeasureUnit2.forIdentifier("kilometer-per-hour");
 
         for (int i = 0; i < iterations; ++i) {
             result ^= 0d == MeasureUnit2.convert(amount, mu1, mu2);
@@ -241,10 +276,10 @@ public class TestConverterAPI extends TestFmwk {
             for (int i = 0; i < iterations; ++i) {
                 MeasureUnit2 mu1d =
                         unboundedCache.computeIfAbsent(
-                                "foot-per-second", x -> MeasureUnit2.from(x));
+                                "foot-per-second", x -> MeasureUnit2.forIdentifier(x));
                 MeasureUnit2 mu2d =
                         unboundedCache.computeIfAbsent(
-                                "kilometer-per-hour", x -> MeasureUnit2.from(x));
+                                "kilometer-per-hour", x -> MeasureUnit2.forIdentifier(x));
 
                 result ^= 0d == MeasureUnit2.convert(amount, mu1d, mu2d);
             }
@@ -263,7 +298,7 @@ public class TestConverterAPI extends TestFmwk {
                                 new CacheLoader<String, MeasureUnit2>() {
                                     @Override
                                     public MeasureUnit2 load(String unitId) {
-                                        return MeasureUnit2.from(unitId);
+                                        return MeasureUnit2.forIdentifier(unitId);
                                     }
                                 });
 
@@ -285,8 +320,8 @@ public class TestConverterAPI extends TestFmwk {
 
         t.start();
         for (int i = 0; i < iterations; ++i) {
-            MeasureUnit2 mu1d = MeasureUnit2.from("foot-per-second");
-            MeasureUnit2 mu2d = MeasureUnit2.from("kilometer-per-hour");
+            MeasureUnit2 mu1d = MeasureUnit2.forIdentifier("foot-per-second");
+            MeasureUnit2 mu2d = MeasureUnit2.forIdentifier("kilometer-per-hour");
             result ^= 0d == MeasureUnit2.convert(amount, mu1d, mu2d);
         }
         t.stop();
@@ -297,8 +332,8 @@ public class TestConverterAPI extends TestFmwk {
         int iterations5 = iterations / 5;
         t.start();
         for (int i = 0; i < iterations5; ++i) {
-            MeasureUnit2 mu1d = MeasureUnit2.from("foot-per-second");
-            MeasureUnit2 mu2d = MeasureUnit2.from("kilometer-per-hour");
+            MeasureUnit2 mu1d = MeasureUnit2.forIdentifier("foot-per-second");
+            MeasureUnit2 mu2d = MeasureUnit2.forIdentifier("kilometer-per-hour");
             result ^= BigDecimal.ZERO.equals(MeasureUnit2.convert(bd3_4, mu1d, mu2d));
         }
         t.stop();
@@ -309,8 +344,8 @@ public class TestConverterAPI extends TestFmwk {
         int iterations25 = iterations / 25;
         t.start();
         for (int i = 0; i < iterations25; ++i) {
-            MeasureUnit2 mu1d = MeasureUnit2.from("foot-per-second");
-            MeasureUnit2 mu2d = MeasureUnit2.from("kilometer-per-hour");
+            MeasureUnit2 mu1d = MeasureUnit2.forIdentifier("foot-per-second");
+            MeasureUnit2 mu2d = MeasureUnit2.forIdentifier("kilometer-per-hour");
             result ^= Rational.ZERO.equals(MeasureUnit2.convert(r3_4, mu1d, mu2d));
         }
         t.stop();

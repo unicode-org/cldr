@@ -48,6 +48,33 @@ updates:
       - srl295
 
   - package-ecosystem: "npm"
+    directory: "/docs/site"
+    schedule:
+      interval: "monthly"
+    commit-message:
+      include: scope
+      prefix: "CLDR-18356 site:"
+    assignees:
+      - btangmu
+      - srl295
+    reviewers:
+      - btangmu
+      - srl295
+
+  - package-ecosystem: "npm"
+    directory: "/tools/st-prom-exporter"
+    schedule:
+      interval: "monthly"
+    commit-message:
+      include: scope
+      prefix: "CLDR-18356 exporter:"
+    assignees:
+      - srl295
+    reviewers:
+      - btangmu
+      - srl295
+
+  - package-ecosystem: "npm"
     directory: "/tools/scripts/keyboard-abnf-tests"
     schedule:
       interval: "monthly"

@@ -3,6 +3,7 @@ package org.unicode.cldr.tool;
 import java.io.File;
 import java.io.IOException;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.DateTimeFormats;
 import org.unicode.cldr.util.FileCopier;
 import org.unicode.cldr.util.VerifyCompactNumbers;
@@ -25,6 +26,12 @@ public class GenerateAllCharts {
         if (!mainDir.isDirectory()) {
             throw new IOException("Main dir doesn't exist: " + mainDir);
         }
+        FileCopier.copy(CldrUtility.class, "data/LICENSE", CLDRPaths.CHART_DIRECTORY, "LICENSE");
+        FileCopier.copy(
+                GenerateAllCharts.class,
+                "README-CHARTS.md",
+                CLDRPaths.CHART_DIRECTORY,
+                "README.md");
         FileCopier.copy(GenerateAllCharts.class, "index.css", CLDRPaths.CHART_DIRECTORY);
 
         FileCopier.copy(

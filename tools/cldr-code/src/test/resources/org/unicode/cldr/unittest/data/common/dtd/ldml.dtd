@@ -1720,7 +1720,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!ATTLIST relativePeriod draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 
-<!ELEMENT timeZoneNames ( alias | ( hourFormat*, hoursFormat*, gmtFormat*, gmtZeroFormat*, gmtUnknownFormat*, regionFormat*, fallbackFormat*, fallbackRegionFormat*, abbreviationFallback*, preferenceOrdering*, singleCountries*, default*, zone*, metazone*, special* ) ) >
+<!ELEMENT timeZoneNames ( alias | ( hourFormat*, hoursFormat*, gmtFormat*, gmtUnknownFormat*, regionFormat*, fallbackFormat*, fallbackRegionFormat*, abbreviationFallback*, preferenceOrdering*, singleCountries*, default*, zone*, metazone*, special* ) ) >
 <!ATTLIST timeZoneNames draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -1756,15 +1756,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 <!ATTLIST gmtFormat references CDATA #IMPLIED >
-    <!--@METADATA-->
-
-<!ELEMENT gmtZeroFormat ( #PCDATA ) >
-<!ATTLIST gmtZeroFormat alt NMTOKENS #IMPLIED >
-    <!--@MATCH:literal/variant-->
-<!ATTLIST gmtZeroFormat draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
-    <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
-<!ATTLIST gmtZeroFormat references CDATA #IMPLIED >
     <!--@METADATA-->
 
 <!ELEMENT regionFormat ( #PCDATA ) >

@@ -222,9 +222,6 @@ public class ExampleDependencies {
                             "//ldml/localeDisplayNames/localeDisplayPattern/localePattern",
                             "//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator")
                     .putAll(
-                            "//ldml/dates/timeZoneNames/gmtZeroFormat",
-                            "//ldml/dates/calendars/calendar[@type=\"*\"]/dateTimeFormats/appendItems/appendItem[@request=\"*\"]")
-                    .putAll(
                             "//ldml/dates/timeZoneNames/hourFormat",
                             "//ldml/dates/timeZoneNames/gmtFormat",
                             "//ldml/localeDisplayNames/localeDisplayPattern/localeKeyTypePattern",

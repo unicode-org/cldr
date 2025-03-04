@@ -80,7 +80,9 @@ class LdmlConvertRules {
                     "pluralRanges:pluralRange:end",
                     "pluralRules:pluralRule:count",
                     "styleNames:styleName:subtype",
-                    "styleNames:styleName:alt");
+                    "styleNames:styleName:alt",
+                    // supplemental
+                    "scriptData:scriptVariant:type");
 
     /**
      * The set of attributes that should become part of the name in form of
@@ -161,8 +163,8 @@ class LdmlConvertRules {
                     "transforms:transform:variant",
 
                     // in common/supplemental/languageInfo.xml
-                    "languageMatches:languageMatch:desired",
-                    "languageMatches:languageMatch:supported");
+                    "languageMatch:languageMatch:supported",
+                    "languageMatch:languageMatch:desired");
 
     /**
      * The set of element:attribute pair in which the attribute should be treated as value. All the
@@ -376,7 +378,7 @@ class LdmlConvertRules {
                             + "|.*/character-fallback[^/]*/character[^/]*/"
                             + "|.*/rbnfrule[^/]*/"
                             + "|.*/ruleset[^/]*/"
-                            + "|.*/languageMatching[^/]*/languageMatches[^/]*/"
+                            + "|.*/languageMatching[^/]*/[^/]*/languageMatch[^/]*/"
                             + "|.*/unitPreferences/[^/]*/[^/]*/"
                             + "|.*/windowsZones[^/]*/mapTimezones[^/]*/"
                             + "|.*/metaZones[^/]*/mapTimezones[^/]*/"
@@ -396,6 +398,8 @@ class LdmlConvertRules {
     public static final Pattern VALUE_IS_SPACESEP_ARRAY =
             PatternCache.get(
                     "(grammaticalCase|grammaticalGender|grammaticalDefiniteness|nameOrderLocales|component)");
+
+    public static final Pattern VALUE_IS_PLUSSEP_ARRAY = PatternCache.get("(matchVariable)");
 
     /**
      * Indicates that the child value of this element needs to be separated into array items. For
@@ -645,6 +649,10 @@ class LdmlConvertRules {
         return SPLITTABLE_ATTRS;
     }
 
+    public static final boolean valueIsPlussepArray(final String nodeName, String parent) {
+        return VALUE_IS_PLUSSEP_ARRAY.matcher(nodeName).matches();
+    }
+
     public static final boolean valueIsSpacesepArray(final String nodeName, String parent) {
         return VALUE_IS_SPACESEP_ARRAY.matcher(nodeName).matches()
                 || (parent != null && CHILD_VALUE_IS_SPACESEP_ARRAY.contains(parent));
@@ -653,14 +661,29 @@ class LdmlConvertRules {
     static final Set<String> BOOLEAN_OMIT_FALSE =
             ImmutableSet.of(
                     // attribute names within bcp47 that are booleans, but omitted if false.
-                    "deprecated");
+                    "deprecated",
+                    // langauge match
+                    "oneway");
 
     // These attributes are booleans, and should be omitted if false
     public static final boolean attrIsBooleanOmitFalse(
             final String fullPath, final String nodeName, final String parent, final String key) {
         return (fullPath != null
                 && (fullPath.startsWith("//supplementalData/metaZones/metazoneIds")
-                        || fullPath.startsWith("//ldmlBCP47/keyword/key"))
+                        || fullPath.startsWith("//ldmlBCP47/keyword/key")
+                        || fullPath.startsWith("//supplementalData/languageMatching"))
                 && BOOLEAN_OMIT_FALSE.contains(key));
+    }
+
+    static final Set<String> ATTR_IS_NUMBER =
+            ImmutableSet.of(
+                    // language match
+                    "distance");
+
+    public static final boolean attrIsNumber(
+            final String fullPath, final String nodeName, final String parent, final String key) {
+        return (fullPath != null
+                && nodeName.equals("languageMatch")
+                && ATTR_IS_NUMBER.contains(key));
     }
 }

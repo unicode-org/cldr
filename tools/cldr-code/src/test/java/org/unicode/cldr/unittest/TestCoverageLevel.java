@@ -779,6 +779,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
                     && region.length() < 3) { // do not want numeric codes like 001, 419
                 targetsAndSublocales.addRegion(region);
             }
+            // TODO CLDR-5708 Add regions from territoryInfo
         }
 
         for (String language : langToTargetsAndSublocales.keySet()) {

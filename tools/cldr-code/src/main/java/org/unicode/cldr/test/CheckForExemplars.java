@@ -762,7 +762,8 @@ public class CheckForExemplars extends FactoryCheckCLDR {
                 continue;
             }
             for (String curScript : langData.getScripts()) {
-                scriptToTerritories.putAll(curScript, langData.getTerritories());
+                // TODO CLDR-5708 add substitution
+                // scriptToTerritories.putAll(curScript, langData.getTerritories());
             }
         }
 

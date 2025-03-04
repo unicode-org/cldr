@@ -22,7 +22,6 @@ import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 
@@ -126,33 +125,11 @@ public class TestSupplementalData {
         return temp;
     }
 
+    // TODO probably delete
     static void checkAgainstLanguageScript() {
         Relation<String, String> otherTerritoryToLanguages =
                 Relation.<String, String>of(
                         new TreeMap<String, Set<String>>(), TreeSet.class, null);
-        // get other language data
-        for (String language : sc.getGoodAvailableCodes("language")) {
-            Set<BasicLanguageData> newLanguageData =
-                    supplementalData.getBasicLanguageData(language);
-            if (newLanguageData != null) {
-                for (BasicLanguageData languageData : newLanguageData) {
-                    Set<String> territories = new TreeSet<>(languageData.getTerritories());
-                    territories.addAll(languageData.getTerritories());
-                    if (territories != null) {
-                        Set<String> scripts = new TreeSet<>(languageData.getScripts());
-                        scripts.addAll(languageData.getScripts());
-                        if (scripts == null || scripts.size() < 2) {
-                            otherTerritoryToLanguages.putAll(territories, language);
-                        } else {
-                            for (String script : scripts) {
-                                otherTerritoryToLanguages.putAll(
-                                        territories, language + "_" + script);
-                            }
-                        }
-                    }
-                }
-            }
-        }
         // compare them, listing differences
         NameGetter nameGetter = english.nameGetter();
         for (String territory : sc.getGoodAvailableCodes("territory")) {

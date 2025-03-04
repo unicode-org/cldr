@@ -354,11 +354,7 @@ public class TestLocale extends TestFmwkPlus {
 
                 // we'd better have a separate likelySubtag
                 if (parentIsRoot && !hasLikelySubtag) {
-                    errln(
-                            "Missing likely subtags for: "
-                                    + locale
-                                    + " "
-                                    + TestInheritance.suggestLikelySubtagFor(locale));
+                    errln("Missing likely subtags for: " + locale);
                 }
             }
 
@@ -366,11 +362,7 @@ public class TestLocale extends TestFmwkPlus {
 
             if (!hasScript && !hasRegion) {
                 if (!hasLikelySubtag) {
-                    errln(
-                            "Missing likely subtags for: "
-                                    + locale
-                                    + " "
-                                    + TestInheritance.suggestLikelySubtagFor(locale));
+                    errln("Missing likely subtags for: " + locale);
                 }
             }
         }

@@ -481,7 +481,7 @@ public class TestInheritance extends TestFmwk {
             // suggestLikelySubtagFor(base));
             // }
             if (defaultContent == null) {
-                errln("Missing default content for: " + base + "  " + suggestLikelySubtagFor(base));
+                errln("Missing default content for: " + base);
                 continue;
             }
             Set<String> scripts = base2scripts.get(base);
@@ -720,70 +720,6 @@ public class TestInheritance extends TestFmwk {
         }
     }
 
-    /**
-     * Suggest a likely subtag
-     *
-     * @param base
-     * @return
-     */
-    static String suggestLikelySubtagFor(String base) {
-        SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
-
-        CLDRLocale loc = CLDRLocale.getInstance(base);
-
-        if (!loc.getLanguage().equals(base)) {
-            return " (no suggestion- not a simple language locale)"; // no
-            // suggestion
-            // unless
-            // just
-            // a
-            // language
-            // locale.
-        }
-        Set<BasicLanguageData> basicData = sdi.getBasicLanguageData(base);
-
-        for (BasicLanguageData bld : basicData) {
-            if (bld.getType()
-                    == org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type.primary) {
-                Set<String> scripts = bld.getScripts();
-                Set<String> territories = bld.getTerritories();
-
-                if (scripts.size() == 1) {
-                    if (territories.size() == 1) {
-                        return createSuggestion(
-                                loc,
-                                CLDRLocale.getInstance(
-                                        base
-                                                + "_"
-                                                + scripts.iterator().next()
-                                                + "_"
-                                                + territories.iterator().next()));
-                    }
-                }
-                return "(no suggestion - multiple scripts or territories)";
-            }
-        }
-        return ("(no suggestion- no data)");
-    }
-
-    /** Format and return a suggested likelysubtag */
-    private static String createSuggestion(CLDRLocale loc, CLDRLocale toLoc) {
-        return " Suggest this to likelySubtags.xml:        <likelySubtag from=\""
-                + loc
-                + "\" to=\""
-                + toLoc
-                + "\"/>\n"
-                + "        <!--{ "
-                + loc.getDisplayName()
-                + "; ?; ? } => { "
-                + loc.getDisplayName()
-                + "; "
-                + toLoc.toULocale().getDisplayScript()
-                + "; "
-                + toLoc.toULocale().getDisplayCountry()
-                + " }-->";
-    }
-
     public void TestDeprecatedTerritoryDataLocaleIds() {
         HashSet<String> checked = new HashSet<>();
         for (String language : dataInfo.getLanguagesForTerritoriesPopulationData()) {
@@ -802,10 +738,6 @@ public class TestInheritance extends TestFmwk {
                 for (String script : datum.getScripts()) {
                     checkValidCode(language + "_" + script, "script", script, false);
                     checked.add(script);
-                }
-                for (String region : datum.getTerritories()) {
-                    checkValidCode(language + "_" + region, "territory", region, false);
-                    checked.add(region);
                 }
             }
         }

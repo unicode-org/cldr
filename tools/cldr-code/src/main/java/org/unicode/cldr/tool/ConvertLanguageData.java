@@ -399,8 +399,6 @@ public class ConvertLanguageData {
         for (String languageSubtag : allLanguages) {
             Relation<BasicLanguageData.Type, String> status_scripts =
                     language_status_scripts.get(languageSubtag);
-            Relation<BasicLanguageData.Type, String> status_territories =
-                    language_status_territories.get(languageSubtag);
 
             // check against old:
             Map<BasicLanguageData.Type, BasicLanguageData> oldData =
@@ -414,8 +412,6 @@ public class ConvertLanguageData {
             EnumMap<BasicLanguageData.Type, BasicLanguageData> newData =
                     new EnumMap<>(BasicLanguageData.Type.class);
             for (BasicLanguageData.Type status : BasicLanguageData.Type.values()) {
-                Set<String> territories =
-                        status_territories == null ? null : status_territories.getAll(status);
                 Map<String, Integer> scriptsByPopulationAtThisLevel = new TreeMap<>();
                 String likelyScript = supplementalData.getDefaultScript(languageSubtag);
                 if (status_scripts != null) {
@@ -429,7 +425,7 @@ public class ConvertLanguageData {
                             }
                             scriptsByPopulationAtThisLevel.put(script, population);
 
-                            // Artifical add 1 billion population to the current likely subtag.
+                            // Artificially add 1 billion population to the current likely subtag.
                             // This overrides the order for a few languages where there is a good
                             // reason for the likely subtag to not match the population. For
                             // instance, Azeribaijani's online presence is focused in Latin. This
@@ -442,7 +438,6 @@ public class ConvertLanguageData {
                     }
                 }
                 BasicLanguageData bld = new BasicLanguageData();
-                bld.setTerritories(territories);
                 bld.setScripts(scriptsByPopulationAtThisLevel);
                 bld.setType(status);
                 bld.freeze();
@@ -524,9 +519,6 @@ public class ConvertLanguageData {
             for (String s : i.getScripts()) {
                 result.put(s, i.getType());
             }
-            for (String s : i.getTerritories()) {
-                result.put(s, i.getType());
-            }
         }
         return result;
     }
@@ -543,7 +535,6 @@ public class ConvertLanguageData {
         }
         // get primary combinations
         Set<String> primaryCombos = new TreeSet<>();
-        Set<String> basicCombos = new TreeSet<>();
         for (String languageSubtag : language2BasicLanguageData.keySet()) {
             for (BasicLanguageData item : language2BasicLanguageData.getAll(languageSubtag)) {
                 Set<String> scripts = new TreeSet<>();
@@ -551,27 +542,6 @@ public class ConvertLanguageData {
                 languageToScripts.putAll(StandardCodes.fixLanguageTag(languageSubtag), scripts);
                 if (scripts.size() == 0) {
                     scripts.add("Zzzz");
-                }
-                Set<String> territories = new TreeSet<>();
-                territories.addAll(item.getTerritories());
-                if (territories.size() == 0) {
-                    territories.add("ZZ");
-                    continue;
-                }
-
-                for (String script : scripts) {
-                    for (String territory : territories) {
-                        String locale =
-                                StandardCodes.fixLanguageTag(languageSubtag)
-                                        // + (script.equals("Zzzz") ? "" :
-                                        // languageToScripts.getAll(languageSubtag).size() <= 1 ? ""
-                                        // : "_" + script)
-                                        + (territories.equals("ZZ") ? "" : "_" + territory);
-                        if (item.getType() != BasicLanguageData.Type.secondary) {
-                            primaryCombos.add(locale);
-                        }
-                        basicCombos.add(locale);
-                    }
                 }
             }
         }
@@ -692,15 +662,6 @@ public class ConvertLanguageData {
             }
             return scripts;
         }
-    }
-
-    private static <K, V> void putUnique(Map<K, V> map, K key, V value) {
-        V oldValue = map.get(key);
-        if (oldValue != null && !oldValue.equals(value)) {
-            throw new IllegalArgumentException(
-                    "Duplicate value for <" + key + ">: <" + oldValue + ">, <" + value + ">");
-        }
-        map.put(key, value);
     }
 
     private static <K, W> void putAll(Map<K, Set<W>> map, K key, Set<W> values) {
@@ -2334,41 +2295,21 @@ public class ConvertLanguageData {
                     scriptsByPopulation.put(script, 1);
                 }
             }
-            // now territories
-            Set<String> territories = new TreeSet<>();
-            if (parts.length > 4) {
-                String[] territoryList = parts[4].split("\\s*[;,-]\\s*");
-                for (String territoryName : territoryList) {
-                    if (territoryName.equals("ISO/DIS 639") || territoryName.equals("3")) continue;
-                    String territoryCode =
-                            CountryCodeConverter.getCodeFromName(territoryName, true);
-                    if (territoryCode == null) {
-                        BadItem.ERROR.show(
-                                "no name found for territory",
-                                "<" + territoryName + ">",
-                                languageSubtag);
-                    } else {
-                        territories.add(territoryCode);
-                    }
-                }
-            }
-            // <language type="de" scripts="Latn" territories="IT" alt="secondary"/>
+            // <language type="de" scripts="Latn" alt="secondary"/>
             // we're going to go ahead and set these all to secondary.
             if (scriptsByPopulation.size() != 0) {
                 language2BasicLanguageData.put(
                         languageSubtag,
                         new BasicLanguageData()
                                 .setType(BasicLanguageData.Type.primary)
-                                .setScripts(scriptsByPopulation)
-                                .setTerritories(territories));
+                                .setScripts(scriptsByPopulation));
             }
             if (scriptsByPopulationSecondary.size() != 0) {
                 language2BasicLanguageData.put(
                         languageSubtag,
                         new BasicLanguageData()
                                 .setType(BasicLanguageData.Type.secondary)
-                                .setScripts(scriptsByPopulationSecondary)
-                                .setTerritories(territories));
+                                .setScripts(scriptsByPopulationSecondary));
             }
         }
         in.close();

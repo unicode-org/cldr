@@ -48,14 +48,6 @@ public class LanguageTest extends TestFmwk {
                     addMap(script2language, script, language, type);
                     scriptSet.add(script);
                 }
-                Set<String> territories = basic.getTerritories();
-                if (territories != null && territories.size() != 0) {
-                    String territory = territories.iterator().next();
-                    addMap(language2territory, language, territory, type);
-                    if (script != null) {
-                        addMap(script2territory, territory, language, type);
-                    }
-                }
             }
         }
         for (String language : supplementalDataInfo.getBasicLanguageDataLanguages()) {

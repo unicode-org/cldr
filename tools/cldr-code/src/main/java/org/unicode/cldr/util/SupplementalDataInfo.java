@@ -333,9 +333,6 @@ public class SupplementalDataInfo {
 
         private Map<String, Integer> scriptsByPopulation = new TreeMap<>();
 
-        // TODO CLDR-5708 completely remove territories
-        private Set<String> territories = Collections.emptySet();
-
         public Type getType() {
             return type;
         }
@@ -363,13 +360,6 @@ public class SupplementalDataInfo {
             return setScripts(scriptsByPopulation);
         }
 
-        public BasicLanguageData setTerritories(String territoryTokens) {
-            return setTerritories(
-                    territoryTokens == null
-                            ? null
-                            : WHITESPACE_SPLITTER.splitToList(territoryTokens));
-        }
-
         public BasicLanguageData setScripts(Map<String, Integer> newScripts) {
             if (frozen) {
                 throw new UnsupportedOperationException();
@@ -383,22 +373,8 @@ public class SupplementalDataInfo {
             return this;
         }
 
-        public BasicLanguageData setTerritories(Collection<String> territoryTokens) {
-            if (frozen) {
-                throw new UnsupportedOperationException();
-            }
-            territories = Collections.emptySet();
-            if (territoryTokens != null) {
-                for (String territory : territoryTokens) {
-                    addTerritory(territory);
-                }
-            }
-            return this;
-        }
-
         public BasicLanguageData set(BasicLanguageData other) {
             scripts = other.scripts;
-            territories = other.territories;
             return this;
         }
 
@@ -406,12 +382,8 @@ public class SupplementalDataInfo {
             return scripts;
         }
 
-        public Set<String> getTerritories() {
-            return territories;
-        }
-
         public String toString(String languageSubtag) {
-            if (scripts.size() == 0 && territories.size() == 0) return "";
+            if (scripts.size() == 0) return "";
             List<String> sortedScripts =
                     scriptsByPopulation.entrySet().stream()
                             .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
@@ -441,8 +413,6 @@ public class SupplementalDataInfo {
             if (0 != (result = type.compareTo(o.type))) return result;
             if (0 != (result = IterableComparator.compareIterables(scripts, o.scripts)))
                 return result;
-            if (0 != (result = IterableComparator.compareIterables(territories, o.territories)))
-                return result;
             return 0;
         }
 
@@ -453,8 +423,7 @@ public class SupplementalDataInfo {
 
         @Override
         public int hashCode() {
-            // TODO Auto-generated method stub
-            return ((type.ordinal() * 37 + scripts.hashCode()) * 37) + territories.hashCode();
+            return ((type.ordinal() * 37 + scripts.hashCode()) * 37);
         }
 
         public BasicLanguageData addScript(String script, Integer population) {
@@ -479,18 +448,6 @@ public class SupplementalDataInfo {
             return this;
         }
 
-        public BasicLanguageData addTerritory(String territory) {
-            // simple error checking
-            if (territory.length() != 2) {
-                throw new IllegalArgumentException("Illegal Territory: " + territory);
-            }
-            if (territories == Collections.EMPTY_SET) {
-                territories = new LinkedHashSet<>();
-            }
-            territories.add(territory);
-            return this;
-        }
-
         boolean frozen = false;
 
         @Override
@@ -504,9 +461,6 @@ public class SupplementalDataInfo {
             if (scripts != Collections.EMPTY_SET) {
                 scripts = Collections.unmodifiableSet(scripts);
             }
-            if (territories != Collections.EMPTY_SET) {
-                territories = Collections.unmodifiableSet(territories);
-            }
             return this;
         }
 
@@ -514,7 +468,6 @@ public class SupplementalDataInfo {
         public BasicLanguageData cloneAsThawed() {
             BasicLanguageData result = new BasicLanguageData();
             result.scripts = new TreeSet<>(scripts);
-            result.territories = new TreeSet<>(territories);
             return this;
         }
 
@@ -2452,19 +2405,16 @@ public class SupplementalDataInfo {
 
         private void handleLanguageData(XPathValue parts) {
             // <languageData>
-            // <language type="aa" scripts="Latn" territories="DJ ER ET"/> <!--
+            // <language type="aa" scripts="Latn" /> <!--
             // Reflecting submitted data, cldrbug #1013 -->
-            // <language type="ab" scripts="Cyrl" territories="GE"
-            // alt="secondary"/>
+            // <language type="ab" scripts="Cyrl" alt="secondary"/>
             String language = parts.getAttributeValue(2, "type");
             BasicLanguageData languageData = new BasicLanguageData();
             languageData.setType(
                     parts.getAttributeValue(2, "alt") == null
                             ? BasicLanguageData.Type.primary
                             : BasicLanguageData.Type.secondary);
-            languageData
-                    .setScriptsWithoutPopulation(parts.getAttributeValue(2, "scripts"))
-                    .setTerritories(parts.getAttributeValue(2, "territories"));
+            languageData.setScriptsWithoutPopulation(parts.getAttributeValue(2, "scripts"));
             Map<Type, BasicLanguageData> map = languageToBasicLanguageData.get(language);
             if (map == null) {
                 languageToBasicLanguageData.put(
@@ -3087,11 +3037,6 @@ public class SupplementalDataInfo {
             if (script.length() > 0) {
                 scriptsAndRegions.addScript(script, 0 /* 0 = no population data yet */);
             }
-            String region = locale.getCountry();
-            if (region.length() > 0
-                    && region.length() < 3) { // per CLDR TC, do not want 001, 419 etc.
-                scriptsAndRegions.addTerritory(region);
-            }
         }
         for (String language : langToScriptsRegions.keySet()) {
             BasicLanguageData scriptsAndRegions = langToScriptsRegions.get(language);
@@ -3156,42 +3101,9 @@ public class SupplementalDataInfo {
         return targetScripts;
     }
 
+    // This gets data from LikelySubtags but we should also get data from <territoryInfo>
     private Set<String> getTargetTerritories(String language) {
         Set<String> targetTerritories = new HashSet<>();
-        Set<String> secondaryTerritories = new HashSet<>();
-        try {
-            Set<BasicLanguageData> langData = getBasicLanguageData(language);
-            Iterator<BasicLanguageData> ldi = langData.iterator();
-            while (ldi.hasNext()) {
-                BasicLanguageData bl = ldi.next();
-                Set<String> addTerritories = bl.territories;
-                if (addTerritories != null) {
-                    if (bl.getType() == BasicLanguageData.Type.secondary) {
-                        secondaryTerritories.addAll(addTerritories);
-                    } else {
-                        targetTerritories.addAll(addTerritories);
-                    }
-                }
-            }
-            Map<String, BasicLanguageData> languageToScriptsAndRegions =
-                    getLanguageToScriptsAndRegions();
-            if (languageToScriptsAndRegions != null) {
-                BasicLanguageData scriptsAndRegions = languageToScriptsAndRegions.get(language);
-                if (scriptsAndRegions != null) {
-                    targetTerritories.addAll(scriptsAndRegions.getTerritories());
-                }
-            }
-        } catch (Exception e) {
-            // fall through
-        }
-        if (targetTerritories.size() == 0) {
-            getFallbackTargetTerritories(language, targetTerritories, secondaryTerritories);
-        }
-        return targetTerritories;
-    }
-
-    private void getFallbackTargetTerritories(
-            String language, Set<String> targetTerritories, Set<String> secondaryTerritories) {
         String region = null;
         String maximized = new LikelySubtags().maximize(language);
         if (maximized != null) {
@@ -3200,11 +3112,10 @@ public class SupplementalDataInfo {
         }
         if (region != null) {
             targetTerritories.add(region);
-        } else if (secondaryTerritories.size() > 0) {
-            targetTerritories.addAll(secondaryTerritories);
         } else {
             targetTerritories.add("ZZ");
         }
+        return targetTerritories;
     }
 
     private Set<String> getCalendars(Set<String> territories) {

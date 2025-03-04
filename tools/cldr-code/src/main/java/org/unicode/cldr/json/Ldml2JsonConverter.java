@@ -2539,7 +2539,8 @@ public class Ldml2JsonConverter {
             if (node != null) {
                 logger.finest(() -> "Leaf Node: " + node.getUntransformedPath() + " ." + key);
             }
-            if (LdmlConvertRules.ATTRVALUE_AS_ARRAY_SET.contains(key)) {
+            if (LdmlConvertRules.ATTRVALUE_AS_ARRAY_SET.contains(key) ||
+                nodeName.equals("scriptVariant") && key.equals("base")) {
                 String[] strings = attrValue.trim().split("\\s+");
                 JsonArray a = new JsonArray();
                 o.add(attrAsKey, a);

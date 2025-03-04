@@ -184,4 +184,6 @@
 < (.*)/languageMatches([^/]*)/languageMatch([^/]*)$
 > $1/languageMatches$2/languageMatch/languageMatch$3
 
-
+# Script variant
+< (.*)/scriptVariant\[@type="([^"]*)"\](.*)$
+> $1/scriptVariants/$2/scriptVariant$3

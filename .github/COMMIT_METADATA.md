@@ -25,6 +25,7 @@
 - cbdd59767072c7ca154faae2d3b59ad6ad67dd1d CLDR-16650 v44 cherry-pick maint-43 to main
 - f534e312f9c5b6984e5a941746adff08eff66c50 CLDR-16577 v44 merge maint-43 to main
 - 09c8e1082808f97608c39062897a7b844d50c18e CLDR-17277 v45 accidental merge commit
+- 83d1b3369426bccee315011b78c606bf948d13cb CLDR-13589 v47 locale time cycle
 
 ### The following are items to skip for a certain CLDR version.
 ### Format: `# SKIP v00` followed by a list of commits to skip for that version (same structure as above)

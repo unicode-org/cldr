@@ -230,7 +230,11 @@ public class Dashboard {
      * @return the ReviewOutput
      */
     public ReviewOutput get(
-            CLDRLocale locale, UserRegistry.User user, Level coverageLevel, String xpath) {
+            CLDRLocale locale,
+            UserRegistry.User user,
+            Level coverageLevel,
+            String xpath,
+            boolean includeOther) {
         final SurveyMain sm = CookieSession.sm;
         Organization usersOrg = Organization.unaffiliated;
         if (user != null) {
@@ -242,6 +246,10 @@ public class Dashboard {
                         sm.getSupplementalDataInfo(), sourceFactory, new STUsersChoice(sm));
         EnumSet<NotificationCategory> choiceSet =
                 VettingViewer.getDashboardNotificationCategories(usersOrg);
+        if (includeOther) {
+            // user requested all categories
+            choiceSet.add(NotificationCategory.other);
+        }
         VettingParameters args = new VettingParameters(choiceSet, locale, coverageLevel);
         if (user != null) {
             args.setUserAndOrganization(user.id, usersOrg);

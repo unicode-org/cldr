@@ -46,6 +46,7 @@ import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LocaleNames;
 import org.unicode.cldr.util.LocaleScriptInfo;
 import org.unicode.cldr.util.LocaleValidator;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.LstrType;
@@ -394,9 +395,6 @@ public class GenerateLikelySubtags {
                                 {"rif_Latn", "rif_Latn_MA"},
                                 {"rif_Tfng", "rif_Tfng_MA"},
                                 {"rif_MA", "rif_Latn_MA"}, // Ibid
-                                {"shi", "shi_Tfng_MA"},
-                                {"shi_Tfng", "shi_Tfng_MA"},
-                                {"shi_MA", "shi_Tfng_MA"},
                                 {"sr_Latn", "sr_Latn_RS"},
                                 {"ss", "ss_Latn_ZA"},
                                 {"ss_Latn", "ss_Latn_ZA"},
@@ -431,12 +429,6 @@ public class GenerateLikelySubtags {
                                 {"und_SS", "en_Latn_SS"},
                                 {"vo", "vo_Latn_001"},
                                 {"vo_Latn", "vo_Latn_001"},
-                                //                                {"yi", "yi_Hebr_001"},
-                                //                                {"yi_Hebr", "yi_Hebr_001"},
-                                {"yue", "yue_Hant_HK"},
-                                {"yue_Hant", "yue_Hant_HK"},
-                                {"yue_Hans", "yue_Hans_CN"},
-                                {"yue_CN", "yue_Hans_CN"},
                                 {"zh_Hani", "zh_Hani_CN"},
                                 {"zh_Bopo", "zh_Bopo_TW"},
                                 {"ccp", "ccp_Cakm_BD"},
@@ -506,6 +498,10 @@ public class GenerateLikelySubtags {
                                 {"arc_Hatr", "arc_Hatr_IQ"},
                                 {"hnj_Hmng", "hnj_Hmng_LA"},
                                 {"bap_Krai", "bap_Krai_IN"},
+
+                                // Temporary additions to fix bad script mappings
+                                // See https://unicode-org.atlassian.net/browse/CLDR-18121
+                                {"sga", "sga_Latn_IE"},
                             });
 
     /**
@@ -666,7 +662,7 @@ public class GenerateLikelySubtags {
     public static String getNameSafe(String oldValue) {
         try {
             if (oldValue != null) {
-                String result = english.getName(oldValue);
+                String result = english.nameGetter().getNameFromIdentifier(oldValue);
                 if (result.startsWith("Unknown language ")) {
                     result = result.substring("Unknown language ".length());
                 }
@@ -739,7 +735,7 @@ public class GenerateLikelySubtags {
                     //                        // if (SHOW_ADD)
                     //                        // System.out.println("Skipping:\t" + writtenLanguage
                     // + "\t" + region + "\t"
-                    //                        // + english.getName(locale)
+                    //                        // + english.nameGetter().getName(locale)
                     //                        // + "\t-- too small:\t" +
                     // number.format(literatePopulation));
                     //                        // continue;
@@ -1691,13 +1687,14 @@ public class GenerateLikelySubtags {
         return spacing.join(
                 (lang.equals(LocaleNames.UND)
                         ? "?"
-                        : english.getName(CLDRFile.LANGUAGE_NAME, lang)),
+                        : english.nameGetter().getNameFromTypeEnumCode(NameType.LANGUAGE, lang)),
                 (script == null || script.equals("")
                         ? "?"
-                        : english.getName(CLDRFile.SCRIPT_NAME, script)),
+                        : english.nameGetter().getNameFromTypeEnumCode(NameType.SCRIPT, script)),
                 (region == null || region.equals("")
                         ? "?"
-                        : english.getName(CLDRFile.TERRITORY_NAME, region)));
+                        : english.nameGetter()
+                                .getNameFromTypeEnumCode(NameType.TERRITORY, region)));
     }
 
     static final String SEPARATOR =

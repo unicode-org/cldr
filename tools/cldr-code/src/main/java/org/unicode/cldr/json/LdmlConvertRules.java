@@ -18,8 +18,7 @@ class LdmlConvertRules {
 
     /** File sets that will not be processed in JSON transformation. */
     public static final ImmutableSet<String> IGNORE_FILE_SET =
-            ImmutableSet.of(
-                    "attributeValueValidity", "coverageLevels", "postalCodeData", "subdivisions");
+            ImmutableSet.of("attributeValueValidity", "coverageLevels", "postalCodeData");
 
     /**
      * The attribute list that should become part of the name in form of name-(attribute)-(value).
@@ -424,12 +423,8 @@ class LdmlConvertRules {
         "//ldml/numbers/otherNumberingSystems/finance"
     };
 
-    /**
-     * Root language id pattern should be discarded in all locales except root, even though the path
-     * will exist in a resolved CLDRFile.
-     */
-    public static final Pattern ROOT_IDENTITY_PATTERN =
-            Pattern.compile("//ldml/identity/language\\[@type=\"root\"\\]");
+    /** resolved identity should be discarded if inherited, known issue CLDR-17790 */
+    public static final Pattern ROOT_IDENTITY_PATTERN = Pattern.compile("//ldml/identity.*");
 
     /**
      * Version (coming from DTD) should be discarded everywhere. This information is now in

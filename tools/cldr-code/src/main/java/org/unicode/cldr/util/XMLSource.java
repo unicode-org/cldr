@@ -30,6 +30,7 @@ import java.util.TreeMap;
 import java.util.WeakHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.LocaleInheritanceInfo.Reason;
 import org.unicode.cldr.util.XPathParts.Comments;
@@ -45,7 +46,6 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
     public static final String ROOT_ID = "root";
     public static final boolean USE_PARTS_IN_ALIAS = false;
     private static final String TRACE_INDENT = " "; // "\t"
-    private static Map<String, String> allowDuplicates = new HashMap<>();
 
     private String localeID;
     private boolean nonInheriting;
@@ -57,7 +57,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
     /**
      * This class represents a source location of an XPath.
      *
-     * @see com.ibm.icu.dev.test.TestFmwk.SourceLocation
+     * @see TestFmwk.SourceLocation
      */
     public static class SourceLocation {
         static final String FILE_PREFIX = "file://";
@@ -272,11 +272,6 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             putFullPathAtDPath(distinguishingXPath, fixedPath[0]);
         }
         return distinguishingXPath;
-    }
-
-    /** Gets those paths that allow duplicates */
-    public static Map<String, String> getPathsAllowingDuplicates() {
-        return allowDuplicates;
     }
 
     /** A listener for XML source data. */
@@ -1595,88 +1590,52 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             {"zhuyin", "collation"}
         };
 
+        // Start, reference: https://unicode-org.atlassian.net/browse/CLDR-18294
+        // These codes are exceptional in the sense that adding code-fallback for them is expected
+        // to be temporary for v47, and different handling will be implemented in v48.
+        private static final String[] exceptionalLanguageTypes = {"gaa", "luo", "vai"};
+        private static final String[] exceptionalScriptTypes = {
+            "Ahom", "Arab", "Bali", "Cham", "Jamo", "Modi", "Newa", "Thai", "Toto"
+        };
+        // End, reference: https://unicode-org.atlassian.net/browse/CLDR-18294
+
         private static final boolean SKIP_SINGLEZONES = false;
         private static XMLSource constructedItems = new SimpleXMLSource(CODE_FALLBACK_ID);
 
         static {
             StandardCodes sc = StandardCodes.make();
             Map<String, Set<String>> countries_zoneSet = sc.getCountryToZoneSet();
-            Map<String, String> zone_countries = sc.getZoneToCounty();
-
-            for (int typeNo = 0; typeNo <= CLDRFile.TZ_START; ++typeNo) {
-                String type = CLDRFile.getNameName(typeNo);
-                String type2 =
-                        (typeNo == CLDRFile.CURRENCY_SYMBOL)
-                                ? CLDRFile.getNameName(CLDRFile.CURRENCY_NAME)
-                                : (typeNo >= CLDRFile.TZ_START) ? "tzid" : type;
-                Set<String> codes = sc.getSurveyToolDisplayCodes(type2);
+            Map<String, String> zone_countries = sc.getZoneToCountry();
+            List<NameType> nameTypeList =
+                    List.of(NameType.CURRENCY, NameType.CURRENCY_SYMBOL, NameType.TZ_EXEMPLAR);
+            for (NameType nameType : nameTypeList) {
+                StandardCodes.CodeType codeType = nameType.toCodeType();
+                Set<String> codes = sc.getGoodAvailableCodes(codeType);
                 for (Iterator<String> codeIt = codes.iterator(); codeIt.hasNext(); ) {
                     String code = codeIt.next();
                     String value = code;
-                    if (typeNo == CLDRFile.TZ_EXEMPLAR) { // skip single-zone countries
+                    if (nameType == NameType.TZ_EXEMPLAR) { // skip single-zone countries
                         if (SKIP_SINGLEZONES) {
                             String country = zone_countries.get(code);
                             Set<String> s = countries_zoneSet.get(country);
                             if (s != null && s.size() == 1) continue;
                         }
                         value = TimezoneFormatter.getFallbackName(value);
-                    } else if (typeNo == CLDRFile.LANGUAGE_NAME) {
-                        if (ROOT_ID.equals(value)) {
-                            continue;
-                        }
                     }
-                    addFallbackCode(typeNo, code, value);
+                    addFallbackCode(nameType, code, value);
                 }
             }
 
-            String[] extraCodes = {
-                "ar_001", "de_AT", "de_CH", "en_AU", "en_CA", "en_GB", "en_US", "es_419", "es_ES",
-                "es_MX", "fa_AF", "fr_CA", "fr_CH", "frc", "hi_Latn", "lou", "nds_NL", "nl_BE",
-                "pt_BR", "pt_PT", "ro_MD", "sw_CD", "zh_Hans", "zh_Hant"
-            };
-            for (String extraCode : extraCodes) {
-                addFallbackCode(CLDRFile.LANGUAGE_NAME, extraCode, extraCode);
+            // Start, reference: https://unicode-org.atlassian.net/browse/CLDR-18294
+            for (String code : exceptionalLanguageTypes) {
+                constructedItems.putValueAtPath(NameType.LANGUAGE.getKeyPath(code), code);
             }
-
-            addFallbackCode(CLDRFile.LANGUAGE_NAME, "en_GB", "en_GB", "short");
-            addFallbackCode(CLDRFile.LANGUAGE_NAME, "en_US", "en_US", "short");
-            addFallbackCode(CLDRFile.LANGUAGE_NAME, "az", "az", "short");
-
-            addFallbackCode(CLDRFile.LANGUAGE_NAME, "ckb", "ckb", "menu");
-            addFallbackCode(CLDRFile.LANGUAGE_NAME, "ckb", "ckb", "variant");
-            addFallbackCode(CLDRFile.LANGUAGE_NAME, "hi_Latn", "hi_Latn", "variant");
-            addFallbackCode(CLDRFile.LANGUAGE_NAME, "yue", "yue", "menu");
-            addFallbackCode(CLDRFile.LANGUAGE_NAME, "zh", "zh", "menu");
-            addFallbackCode(CLDRFile.LANGUAGE_NAME, "zh_Hans", "zh", "long");
-            addFallbackCode(CLDRFile.LANGUAGE_NAME, "zh_Hant", "zh", "long");
-
-            addFallbackCode(CLDRFile.SCRIPT_NAME, "Hans", "Hans", "stand-alone");
-            addFallbackCode(CLDRFile.SCRIPT_NAME, "Hant", "Hant", "stand-alone");
-
-            addFallbackCode(CLDRFile.TERRITORY_NAME, "GB", "GB", "short");
-            addFallbackCode(CLDRFile.TERRITORY_NAME, "HK", "HK", "short");
-            addFallbackCode(CLDRFile.TERRITORY_NAME, "MO", "MO", "short");
-            addFallbackCode(CLDRFile.TERRITORY_NAME, "PS", "PS", "short");
-            addFallbackCode(CLDRFile.TERRITORY_NAME, "US", "US", "short");
-
-            addFallbackCode(
-                    CLDRFile.TERRITORY_NAME, "CD", "CD", "variant"); // add other geopolitical items
-            addFallbackCode(CLDRFile.TERRITORY_NAME, "CG", "CG", "variant");
-            addFallbackCode(CLDRFile.TERRITORY_NAME, "CI", "CI", "variant");
-            addFallbackCode(CLDRFile.TERRITORY_NAME, "CZ", "CZ", "variant");
-            addFallbackCode(CLDRFile.TERRITORY_NAME, "FK", "FK", "variant");
-            addFallbackCode(CLDRFile.TERRITORY_NAME, "TL", "TL", "variant");
-            addFallbackCode(CLDRFile.TERRITORY_NAME, "SZ", "SZ", "variant");
-            addFallbackCode(CLDRFile.TERRITORY_NAME, "IO", "IO", "biot");
-            addFallbackCode(CLDRFile.TERRITORY_NAME, "IO", "IO", "chagos");
-
-            // new alternate name
-
-            addFallbackCode(CLDRFile.TERRITORY_NAME, "NZ", "NZ", "variant");
-            addFallbackCode(CLDRFile.TERRITORY_NAME, "TR", "TR", "variant");
-
-            addFallbackCode(CLDRFile.TERRITORY_NAME, "XA", "XA");
-            addFallbackCode(CLDRFile.TERRITORY_NAME, "XB", "XB");
+            for (String code : exceptionalScriptTypes) {
+                constructedItems.putValueAtPath(NameType.SCRIPT.getKeyPath(code), code);
+            }
+            constructedItems.putValueAtPath(
+                    "//ldml/dates/timeZoneNames/metazone[@type=\"Acre\"]/long/generic", "Acre");
+            // End, reference: https://unicode-org.atlassian.net/browse/CLDR-18294
 
             addFallbackCode(
                     "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/eras/eraAbbr/era[@type=\"0\"]",
@@ -1723,25 +1682,19 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                         typeDisplayNames[i][0]);
             }
             constructedItems.freeze();
-            allowDuplicates = Collections.unmodifiableMap(allowDuplicates);
         }
 
-        private static void addFallbackCode(int typeNo, String code, String value) {
-            addFallbackCode(typeNo, code, value, null);
-        }
-
-        private static void addFallbackCode(int typeNo, String code, String value, String alt) {
-            String fullpath = CLDRFile.getKey(typeNo, code);
-            String distinguishingPath = addFallbackCodeToConstructedItems(fullpath, value, alt);
-            if (typeNo == CLDRFile.LANGUAGE_NAME
-                    || typeNo == CLDRFile.SCRIPT_NAME
-                    || typeNo == CLDRFile.TERRITORY_NAME) {
-                allowDuplicates.put(distinguishingPath, code);
-            }
+        private static void addFallbackCode(NameType nameType, String code, String value) {
+            addFallbackCode(nameType, code, value, null);
         }
 
         private static void addFallbackCode(
-                String fullpath, String value, String alt) { // assumes no allowDuplicates for this
+                NameType nameType, String code, String value, String alt) {
+            String fullpath = nameType.getKeyPath(code);
+            String distinguishingPath = addFallbackCodeToConstructedItems(fullpath, value, alt);
+        }
+
+        private static void addFallbackCode(String fullpath, String value, String alt) {
             addFallbackCodeToConstructedItems(fullpath, value, alt); // ignore unneeded return value
         }
 

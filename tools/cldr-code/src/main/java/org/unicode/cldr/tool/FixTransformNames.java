@@ -20,6 +20,7 @@ import org.unicode.cldr.util.CLDRTransforms.Direction;
 import org.unicode.cldr.util.CLDRTransforms.ParsedTransformID;
 import org.unicode.cldr.util.CLDRTransforms.Visibility;
 import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.CodeType;
 import org.unicode.cldr.util.With;
@@ -41,7 +42,7 @@ public class FixTransformNames {
     private void run(String[] args) {
         CLDRFile file = testInfo.getEnglish();
         for (String lang : StandardCodes.make().getAvailableCodes(CodeType.language)) {
-            String name = file.getName(lang);
+            String name = file.nameGetter().getNameFromIdentifier(lang);
             if (!name.equals(lang)) {
                 fieldToCode.put(name, lang);
                 languageCodes.add(lang);
@@ -244,25 +245,25 @@ public class FixTransformNames {
         ltp.set(target);
         if (ltp.getLanguage().equals("und")) {
             String result = "";
-            result = add(result, CLDRFile.SCRIPT_NAME, ltp.getScript());
-            result = add(result, CLDRFile.TERRITORY_NAME, ltp.getRegion());
+            result = add(result, NameType.SCRIPT, ltp.getScript());
+            result = add(result, NameType.TERRITORY, ltp.getRegion());
             for (String v : ltp.getVariants()) {
-                result = add(result, CLDRFile.VARIANT_NAME, v);
+                result = add(result, NameType.VARIANT, v);
             }
             return result;
         }
-        return english.getName(target.replace('-', '_'));
+        return english.nameGetter().getNameFromIdentifier(target.replace('-', '_'));
     }
 
-    private String add(String result, int type, String code) {
+    private String add(String result, NameType type, String code) {
         if (code.isEmpty()) {
             return result;
         }
         if (result.length() != 0) {
             result += ", ";
         }
-        String temp = english.getName(type, code);
-        if (type == CLDRFile.SCRIPT_NAME && fieldToCode.containsKey(temp)) {
+        String temp = english.nameGetter().getNameFromTypeEnumCode(type, code);
+        if (type == NameType.SCRIPT && fieldToCode.containsKey(temp)) {
             temp += "*";
         }
         return result + (temp == null ? code : temp);

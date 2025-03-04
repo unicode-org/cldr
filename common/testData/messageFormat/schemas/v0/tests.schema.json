@@ -118,6 +118,9 @@
         "src": {
           "$ref": "#/$defs/src"
         },
+        "bidiIsolation": {
+          "$ref": "#/$defs/bidiIsolation"
+        },
         "params": {
           "$ref": "#/$defs/params"
         },
@@ -146,6 +149,9 @@
         "src": {
           "$ref": "#/$defs/src"
         },
+        "bidiIsolation": {
+          "$ref": "#/$defs/bidiIsolation"
+        },
         "params": {
           "$ref": "#/$defs/params"
         },
@@ -171,6 +177,10 @@
     "src": {
       "description": "The MF2 syntax source.",
       "type": "string"
+    },
+    "bidiIsolation": {
+      "description": "The bidi isolation strategy.",
+      "enum": ["default", "none"]
     },
     "params": {
       "description": "Parameters to pass in to the formatter for resolving external variables.",
@@ -244,6 +254,23 @@
             }
           },
           {
+            "description": "Bidi isolation part.",
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "value"
+            ],
+            "properties": {
+              "type": {
+                "const": "bidiIsolation"
+              },
+              "value": {
+                "enum": ["\u2066", "\u2067", "\u2068", "\u2069"]
+              }
+            }
+          },
+          {
             "description": "Message markup part.",
             "type": "object",
             "additionalProperties": false,
@@ -267,6 +294,9 @@
                 "type": "string"
               },
               "name": {
+                "type": "string"
+              },
+              "id": {
                 "type": "string"
               },
               "options": {

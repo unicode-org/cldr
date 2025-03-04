@@ -4,7 +4,6 @@ import com.google.common.base.Joiner;
 import com.google.common.base.Objects;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
-import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.impl.Row.R2;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
@@ -12,12 +11,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.LsrvCanonicalizer;
 import org.unicode.cldr.util.LsrvCanonicalizer.ReplacementRule;
 import org.unicode.cldr.util.LsrvCanonicalizer.TestDataTypes;
 import org.unicode.cldr.util.LsrvCanonicalizer.XLanguageTag;
+import org.unicode.cldr.util.NameGetter;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.LstrField;
 import org.unicode.cldr.util.StandardCodes.LstrType;
@@ -295,11 +297,19 @@ public class TestLsrvCanonicalizer extends TestFmwk {
                         continue;
                     }
                     CLDRFile english = CLDRConfig.getInstance().getEnglish();
-                    String typeName = english.getName(typeCompat, subtag);
+                    NameGetter englishNameGetter = english.nameGetter();
+                    NameType nameType = type.toNameType();
+                    if (nameType == NameType.NONE) {
+                        System.out.println(
+                                "TestAgainstLanguageSubtagRegistry skipping type " + type);
+                        continue;
+                    }
+                    String typeName = englishNameGetter.getNameFromTypeEnumCode(nameType, subtag);
                     String replacementName =
                             preferredValueCompat == null
                                     ? "???"
-                                    : english.getName(typeCompat, replacementString);
+                                    : englishNameGetter.getNameFromTypeEnumCode(
+                                            nameType, replacementString);
                     addExceptions.add(
                             ".put(\""
                                     + subtag

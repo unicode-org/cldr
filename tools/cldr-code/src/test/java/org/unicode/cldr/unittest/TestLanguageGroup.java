@@ -5,7 +5,6 @@ import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Multimaps;
 import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.util.ULocale;
 import java.util.Collection;
 import java.util.HashSet;
@@ -13,6 +12,7 @@ import java.util.List;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Containment;
@@ -126,7 +126,7 @@ public class TestLanguageGroup extends TestFmwk {
             case "grk":
                 return "Hellenic";
             default:
-                return ENGLISH.getName(code).replace(" [Other]", "");
+                return ENGLISH.nameGetter().getNameFromIdentifier(code).replace(" [Other]", "");
         }
     }
 

@@ -7,7 +7,6 @@
 
 package org.unicode.cldr.web;
 
-import com.ibm.icu.dev.util.ElapsedTimer;
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.util.ULocale;
 import java.sql.Connection;
@@ -21,6 +20,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.unicode.cldr.icu.dev.util.ElapsedTimer;
 import org.unicode.cldr.util.*;
 import org.unicode.cldr.web.SurveyException.ErrorCode;
 import org.unicode.cldr.web.UserRegistry.User;
@@ -198,7 +198,7 @@ public class SurveyForum {
                             && !u.email.isEmpty()
                             && !(UserRegistry.userIsLocked(u)
                                     || UserRegistry.userIsExactlyAnonymous(u))) {
-                        if (UserRegistry.userIsVetter(u)) {
+                        if (UserRegistry.userIsVetterOrStronger(u)) {
                             cc_emails.add(u.id);
                         } else {
                             bcc_emails.add(u.id);
@@ -301,7 +301,7 @@ public class SurveyForum {
             return; // don't notify the poster of their own action
         }
         UserRegistry.User rootPoster = sm.reg.getInfo(rootPosterId);
-        if (UserRegistry.userIsTC(rootPoster)) {
+        if (UserRegistry.userIsTCOrStronger(rootPoster)) {
             cc_emails.add(rootPosterId);
         }
     }
@@ -316,7 +316,7 @@ public class SurveyForum {
      */
     private boolean userCanUsePostType(PostInfo postInfo) {
         User user = postInfo.getUser();
-        boolean isTC = UserRegistry.userIsTC(user);
+        boolean isTC = UserRegistry.userIsTCOrStronger(user);
         if (!isTC && SurveyMain.isPhaseReadonly()) {
             return false;
         }

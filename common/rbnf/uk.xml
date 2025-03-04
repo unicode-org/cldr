@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
-Copyright © 1991-2016 Unicode, Inc.
-CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+Copyright © 1991-2024 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
+SPDX-License-Identifier: Unicode-DFS-2016
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
     <identity>
@@ -131,8 +132,19 @@ For terms of use, see http://www.unicode.org/copyright.html
         </rulesetGrouping>
         <rulesetGrouping type="OrdinalRules">
             <ruleset type="digits-ordinal">
+                <rbnfrule value="0">=%digits-ordinal-masculine=;</rbnfrule>
+            </ruleset>
+            <ruleset type="digits-ordinal-masculine">
                 <rbnfrule value="-x">−→→;</rbnfrule>
-                <rbnfrule value="0">=#,##0=;</rbnfrule>
+                <rbnfrule value="0">=#,##0=-$(ordinal,few{ій}other{ий})$;</rbnfrule>
+            </ruleset>
+            <ruleset type="digits-ordinal-neuter">
+                <rbnfrule value="-x">−→→;</rbnfrule>
+                <rbnfrule value="0">=#,##0=-$(ordinal,few{є}other{е})$;</rbnfrule>
+            </ruleset>
+            <ruleset type="digits-ordinal-feminine">
+                <rbnfrule value="-x">−→→;</rbnfrule>
+                <rbnfrule value="0">=#,##0=-$(ordinal,few{я}other{а})$;</rbnfrule>
             </ruleset>
         </rulesetGrouping>
     </rbnf>

@@ -1,20 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-Copyright © 1991-2024 Unicode, Inc.
+Copyright © 1991-2025 Unicode, Inc.
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <!--
-  Note: conformsTo= references a previous release here,
-  because this keyboard does not depend on schema or data from later CLDR versions.
+  Note: conformsTo= may reference a previous release,
+  if this keyboard does not depend on schema or data from later CLDR versions.
 -->
-<keyboard3 xmlns="https://schemas.unicode.org/cldr/45/keyboard3" locale="mt" conformsTo="45">
+<keyboard3 xmlns="https://schemas.unicode.org/cldr/47/keyboard3" locale="mt" conformsTo="47">
+
     <locales>
         <!-- English is also an official language in Malta.-->
         <locale id="en" />
     </locales>
-    <info name="Maltese" author="Steven R. Loomis" layout="QWERTY" indicator="MT" />
-    <!-- MSA 100:2002 -->
+
+    <info
+        name="Malti (48-key, MSA 100:2002)"
+        author="Steven R. Loomis"
+        layout="QWERTY"
+        indicator="MT"
+        attribution="Malta Standards Authority"
+    />
 
     <keys>
         <!-- imports -->
@@ -47,7 +54,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
         <key id="c-cedilla" output="ç" />
     </keys>
 
-     <!-- 48-key -->
+    <!-- 48-key -->
     <layers formId="iso">
         <layer modifiers="none">
             <row keys="c-tikka 1 2 3 4 5 6 7 8 9 0 hyphen equal" />

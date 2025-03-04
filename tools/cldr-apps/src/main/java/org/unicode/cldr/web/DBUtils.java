@@ -4,7 +4,6 @@
 package org.unicode.cldr.web;
 
 import com.google.common.io.CharStreams;
-import com.ibm.icu.dev.util.ElapsedTimer;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -47,6 +46,7 @@ import org.apache.ibatis.jdbc.ScriptRunner;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.unicode.cldr.icu.dev.util.ElapsedTimer;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRConfig.Environment;
 import org.unicode.cldr.util.CLDRLocale;

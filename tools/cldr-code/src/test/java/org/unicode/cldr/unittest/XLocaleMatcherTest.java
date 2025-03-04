@@ -2,9 +2,7 @@ package org.unicode.cldr.unittest;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
-import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.util.LocaleMatcher;
 import com.ibm.icu.util.LocalePriorityList;
 import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
@@ -17,6 +15,8 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.draft.XLocaleDistance;
 import org.unicode.cldr.draft.XLocaleDistance.DistanceOption;
 import org.unicode.cldr.draft.XLocaleMatcher;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
+import org.unicode.cldr.icu.util.LocaleMatcher;
 
 /**
  * Test the XLocaleMatcher.
@@ -83,7 +83,8 @@ public class XLocaleMatcherTest extends TestFmwk {
     // {
     //                continue;
     //            }
-    //            System.out.println(locale + "\t" + CONFIG.getEnglish().getName(locale) + "\t" +
+    //            System.out.println(locale + "\t" +
+    // CONFIG.getEnglish().nameGetter().getName(locale) + "\t" +
     // parentId + "\t" + parentIdSimple);
     //        }
     //    }

@@ -1,8 +1,8 @@
 package org.unicode.cldr.unittest.web;
 
 /** Copyright (C) 2012-2023 Unicode */
-import com.ibm.icu.dev.test.TestFmwk;
 import java.util.Set;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.util.*;
 import org.unicode.cldr.web.LocaleMaxSizer;
 import org.unicode.cldr.web.SurveyMain;

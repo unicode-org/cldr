@@ -248,7 +248,9 @@ let fetchErr = "";
 
 let viewSetDataCallback = null;
 
-function doFetch(callback) {
+function doFetch(callback, opts) {
+  opts = opts || {};
+  const { includeOther } = opts;
   viewSetDataCallback = callback;
   fetchErr = "";
   const locale = cldrStatus.getCurrentLocale();
@@ -257,7 +259,8 @@ function doFetch(callback) {
     fetchErr = cldrText.get("dash_needs_locale_and_coverage");
     return;
   }
-  const url = `api/summary/dashboard/${locale}/${level}`;
+  const qs = includeOther ? "?includeOther=true" : "";
+  const url = `api/summary/dashboard/${locale}/${level}${qs}`;
   cldrAjax
     .doFetch(url)
     .then(cldrAjax.handleFetchErrors)

@@ -272,7 +272,9 @@ public class VerifyZones {
             }
             CLDRFile cldrFile = factory2.make(localeID, true);
             PrintWriter out = FileUtilities.openUTF8Writer(DIR, localeID + ".html");
-            String title = "Verify Time Zones: " + englishCldrFile.getName(localeID);
+            String title =
+                    "Verify Time Zones: "
+                            + englishCldrFile.nameGetter().getNameFromIdentifier(localeID);
             out.println(
                     "<!doctype HTML PUBLIC '-//W3C//DTD HTML 4.0 Transitional//EN'><html><head>\n"
                             + "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>\n"
@@ -290,7 +292,7 @@ public class VerifyZones {
             out.println("</body></html>");
             out.close();
 
-            indexMap.put(english.getName(localeID), localeID + ".html");
+            indexMap.put(english.nameGetter().getNameFromIdentifier(localeID), localeID + ".html");
         }
         try (PrintWriter index = DateTimeFormats.openIndex(DIR, "Time Zones")) {
             DateTimeFormats.writeIndexMap(indexMap, index);
@@ -452,7 +454,10 @@ public class VerifyZones {
             String grouping = row.getContainer();
             TimeZone currentZone = TimeZone.getTimeZone(tzid);
             TimeZone tz = currentZone;
-            String englishGrouping = englishCldrFile.getName(CLDRFile.TERRITORY_NAME, grouping);
+            String englishGrouping =
+                    englishCldrFile
+                            .nameGetter()
+                            .getNameFromTypeEnumCode(NameType.TERRITORY, grouping);
 
             String metazoneInfo =
                     englishGrouping
@@ -468,7 +473,9 @@ public class VerifyZones {
                 continue;
             }
             String englishTerritory =
-                    englishCldrFile.getName(CLDRFile.TERRITORY_NAME, countryCode2);
+                    englishCldrFile
+                            .nameGetter()
+                            .getNameFromTypeEnumCode(NameType.TERRITORY, countryCode2);
             output.addRow()
                     .addCell(metazoneInfo)
                     .addCell(englishTerritory + ": " + tzid.replace("/", "/\u200B"));

@@ -181,7 +181,8 @@ public class ChartLanguageGroups extends Chart {
                 ? "All"
                 : langCode.equals("zh")
                         ? "Mandarin Chinese"
-                        : ENGLISH.getName(CLDRFile.LANGUAGE_NAME, langCode)
+                        : ENGLISH.nameGetter()
+                                .getNameFromTypeEnumCode(NameType.LANGUAGE, langCode)
                                 .replace(" (Other)", "")
                                 .replace(" languages", "");
     }

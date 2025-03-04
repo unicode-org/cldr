@@ -30,6 +30,7 @@ import org.unicode.cldr.util.CollatorHelper;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Log;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.TransliteratorUtilities;
 
@@ -309,7 +310,7 @@ class GenerateStatistics {
         String nativeName, englishName;
         draftLanguages.add(lang);
         nativeName = getFixedLanguageName(localeID, langScript);
-        englishName = english.getName(langScript);
+        englishName = english.nameGetter().getNameFromIdentifier(langScript);
         if (!lang.equals("en") && nativeName.equals(englishName)) {
             Log.logln(
                     (isDraft ? "D" : "")
@@ -399,7 +400,7 @@ class GenerateStatistics {
             }
         }
         CLDRFile cldr = factory.make(localeID, true);
-        return cldr.getName(lang);
+        return cldr.nameGetter().getNameFromIdentifier(lang);
     }
 
     /**
@@ -414,7 +415,7 @@ class GenerateStatistics {
             }
         }
         CLDRFile cldr = factory.make(localeID, true);
-        String name = cldr.getName("territory", country);
+        String name = cldr.nameGetter().getNameFromTypeEnumCode(NameType.TERRITORY, country);
         if (false && HACK) {
             Object trial = fixCountryNames.get(name);
             if (trial != null) {

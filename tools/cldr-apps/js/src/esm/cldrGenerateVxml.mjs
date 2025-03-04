@@ -39,7 +39,7 @@ function canGenerateVxml() {
 function viewMounted(setData) {
   callbackToSetData = setData;
   const perm = cldrStatus.getPermissions();
-  canGenerate = Boolean(perm?.userIsAdmin);
+  canGenerate = Boolean(perm?.userCanGenerateVxml);
 }
 
 function start() {

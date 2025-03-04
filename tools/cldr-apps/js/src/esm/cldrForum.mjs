@@ -18,6 +18,12 @@ import * as cldrVue from "./cldrVue.mjs";
 
 import ForumButton from "../views/ForumButton.vue";
 
+/**
+ * Used in URLs such as https://st.unicode.org/cldr-apps/v#forum/fr//135795
+ * Also hard-coded in cldrLoad.getSpecial
+ */
+const SPECIAL_FORUM = "forum";
+
 class PostInfo {
   constructor(postType) {
     this.postType = postType;
@@ -289,7 +295,7 @@ function loadHandlerForSubmit(data) {
   if (data.err) {
     cldrNotify.error("Error posting to Forum", data.err);
   } else if (data.ret && data.ret.length > 0) {
-    if (cldrStatus.getCurrentSpecial() === "forum") {
+    if (cldrStatus.getCurrentSpecial() === SPECIAL_FORUM) {
       cldrLoad.reloadV(); // main Forum page
     } else {
       cldrForumPanel.updatePosts(null); // Info Panel
@@ -443,11 +449,14 @@ function parseContent(posts, context) {
         ) {
           cldrStatus.setCurrentLocale(locmap.getLanguage(post.locale));
         }
+        const alreadyForum = cldrStatus.getCurrentSpecial() == SPECIAL_FORUM;
+        if (!alreadyForum) {
+          cldrStatus.setCurrentSpecial(SPECIAL_FORUM);
+        }
         cldrStatus.setCurrentPage("");
         cldrStatus.setCurrentId(post.id);
         cldrLoad.replaceHash();
-        if (cldrStatus.getCurrentSpecial() != "forum") {
-          cldrStatus.setCurrentSpecial("forum");
+        if (!alreadyForum) {
           cldrLoad.reloadV();
         }
         return cldrEvent.stopPropagation(e);
@@ -1234,7 +1243,7 @@ function getSummaryClassElements() {
  * Load or reload the main Forum page
  */
 function reload() {
-  cldrStatus.setCurrentSpecial("forum");
+  cldrStatus.setCurrentSpecial(SPECIAL_FORUM);
   cldrStatus.setCurrentId("");
   cldrStatus.setCurrentPage("");
   cldrLoad.reloadV();

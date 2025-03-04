@@ -2,7 +2,9 @@ package org.unicode.cldr.util;
 
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableSet;
+import com.ibm.icu.util.ICUUncheckedIOException;
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.LinkedHashMap;
@@ -38,6 +40,11 @@ public class Validity {
     }
 
     public static Validity getInstance(String validityDirectory) {
+        try {
+            validityDirectory = new File(validityDirectory).getCanonicalFile().toString();
+        } catch (IOException e) {
+            throw new ICUUncheckedIOException(e);
+        }
         Validity result = cache.get(validityDirectory);
         if (result == null) {
             final Validity value = new Validity(validityDirectory);
@@ -79,7 +86,7 @@ public class Validity {
                 codeToStatus.put(type, subCodeToStatus = new LinkedHashMap<>());
             }
 
-            XMLFileReader.loadPathValues(basePath + file, lineData, true);
+            XMLFileReader.loadPathValues(new File(basePath, file).toString(), lineData, true);
             for (Pair<String, String> item : lineData) {
                 XPathValue parts = SimpleXPathParts.getFrozenInstance(item.getFirst());
                 if (!"id".equals(parts.getElement(-1))) {

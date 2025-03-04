@@ -1,6 +1,7 @@
 package org.unicode.cldr.util;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
@@ -13,6 +14,7 @@ import java.io.File;
 import java.nio.file.Path;
 import java.util.Comparator;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 import org.junit.jupiter.api.BeforeAll;
@@ -271,14 +273,8 @@ public class TestCLDRFile {
             assertEquals(
                     List.of(
                             new LocaleInheritanceInfo(
-                                    XMLSource.CODE_FALLBACK_ID, GERMAN, Reason.constructed),
-                            new LocaleInheritanceInfo(
                                     XMLSource.ROOT_ID,
                                     "//ldml/localeDisplayNames/localeDisplayPattern/localePattern",
-                                    Reason.constructed),
-                            new LocaleInheritanceInfo(
-                                    XMLSource.CODE_FALLBACK_ID,
-                                    "//ldml/localeDisplayNames/territories/territory[@type=\"CH\"]",
                                     Reason.constructed),
                             new LocaleInheritanceInfo(XMLSource.ROOT_ID, p, Reason.none),
                             new LocaleInheritanceInfo(null, p, Reason.codeFallback)),
@@ -322,15 +318,9 @@ public class TestCLDRFile {
             assertEquals(
                     List.of(
                             new LocaleInheritanceInfo(
-                                    XMLSource.CODE_FALLBACK_ID, GERMAN, Reason.constructed),
-                            new LocaleInheritanceInfo(
                                     XMLSource
                                             .CODE_FALLBACK_ID /* test data does not have this in root */,
                                     "//ldml/localeDisplayNames/localeDisplayPattern/localePattern",
-                                    Reason.constructed),
-                            new LocaleInheritanceInfo(
-                                    XMLSource.CODE_FALLBACK_ID,
-                                    "//ldml/localeDisplayNames/territories/territory[@type=\"CH\"]",
                                     Reason.constructed),
                             new LocaleInheritanceInfo(locale, p, Reason.none),
                             new LocaleInheritanceInfo(XMLSource.ROOT_ID, p, Reason.none),
@@ -388,5 +378,49 @@ public class TestCLDRFile {
                     () -> baselineFactory.make("de_RU".toString(), true));
             baselineFactory.make("es_MX".toString(), true);
         }
+    }
+
+    @Test
+    public void TestTypeNameToCode() {
+        assertEquals(NameType.LANGUAGE, NameType.typeNameToCode("language"));
+        assertEquals(NameType.TERRITORY, NameType.typeNameToCode("territory"));
+        assertEquals(NameType.VARIANT, NameType.typeNameToCode("variant"));
+        assertEquals(NameType.CURRENCY, NameType.typeNameToCode("currency"));
+        assertEquals(NameType.CURRENCY_SYMBOL, NameType.typeNameToCode("currency-symbol"));
+        assertEquals(NameType.TZ_EXEMPLAR, NameType.typeNameToCode("exemplar-city"));
+        assertEquals(NameType.TZ_GENERIC_LONG, NameType.typeNameToCode("tz-generic-long"));
+        assertEquals(NameType.TZ_GENERIC_SHORT, NameType.typeNameToCode("tz-generic-short"));
+        assertEquals(NameType.TZ_STANDARD_LONG, NameType.typeNameToCode("tz-standard-long"));
+        assertEquals(NameType.TZ_STANDARD_SHORT, NameType.typeNameToCode("tz-standard-short"));
+        assertEquals(NameType.TZ_DAYLIGHT_LONG, NameType.typeNameToCode("tz-daylight-long"));
+        assertEquals(NameType.TZ_DAYLIGHT_SHORT, NameType.typeNameToCode("tz-daylight-short"));
+        assertEquals(NameType.KEY, NameType.typeNameToCode("key"));
+        assertEquals(NameType.KEY_TYPE, NameType.typeNameToCode("key|type"));
+        assertEquals(NameType.SUBDIVISION, NameType.typeNameToCode("subdivision"));
+    }
+
+    @Test
+    public void TestDTDOrder() {
+        CLDRFile file = factory.make("supplementalData", false);
+
+        // This is to simulate what is in the LDML2JsonConverter
+        final Comparator<String> comparator =
+                DtdData.getInstance(file.getDtdType()).getDtdComparator(null);
+        final List<String> curr = new LinkedList<>();
+        for (Iterator<String> it =
+                        file.iterator(
+                                "//supplementalData/currencyData/region[@iso3166=\"BY\"]",
+                                comparator);
+                it.hasNext(); ) {
+            final String xpath = it.next();
+            final XPathParts xpp = XPathParts.getFrozenInstance(xpath);
+            final String iso4217 = xpp.getAttributeValue(-1, "iso4217");
+            curr.add(iso4217);
+        }
+        final String expect[] = {"BYN", "BYR", "BYB", "RUR", "SUR"};
+        assertArrayEquals(
+                expect,
+                curr.toArray(new String[0]),
+                "Expected currencies in XML order (will break if BY's currency changes)");
     }
 }

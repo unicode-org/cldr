@@ -1,7 +1,6 @@
 package org.unicode.cldr.unittest;
 
 import com.google.common.collect.ImmutableSet;
-import com.ibm.icu.util.MatchElementAttribute;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -15,6 +14,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.Stack;
 import java.util.TreeSet;
+import org.unicode.cldr.icu.util.MatchElementAttribute;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
@@ -139,7 +139,7 @@ public class TestPaths extends TestFmwkPlus {
             for (Iterator<String> it = file.iterator(); it.hasNext(); ) {
                 String path = it.next();
                 if (isExemptLocale && path.equals(exemptPathIfLocale)) {
-                    logKnownIssue("CLDR-17544", "Can't reproduce locally");
+                    logKnownIssue("CLDR-17849", "Can't reproduce locally");
                     continue;
                 }
                 if (extraPaths.contains(path)) {
@@ -201,6 +201,8 @@ public class TestPaths extends TestFmwkPlus {
                             + locale
                             + ",\t Value=null, \tPath: "
                             + path
+                            + ",\t Source: "
+                            + source
                             + ",\t IsExtraPath: "
                             + isExtraPath);
         }
@@ -253,6 +255,7 @@ public class TestPaths extends TestFmwkPlus {
                 || path.contains("/caseMinimalPairs")
                 || path.contains("/genderMinimalPairs")
                 || path.contains("/sampleName")
+                || path.contains("/localeDisplayNames/territories/territory")
         //            ||
         // path.equals("//ldml/dates/timeZoneNames/zone[@type=\"Australia/Currie\"]/exemplarCity")
         //            ||

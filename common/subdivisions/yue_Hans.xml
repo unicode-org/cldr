@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -135,8 +135,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="bdb" draft="provisional">吉大港专区</subdivision>
 			<subdivision type="bdc" draft="provisional">达卡专区</subdivision>
 			<subdivision type="bebru" draft="provisional">布鲁塞尔首都区</subdivision>
+			<subdivision type="bevan" draft="provisional">安特卫普省</subdivision>
+			<subdivision type="bevbr" draft="provisional">弗拉芒布拉邦</subdivision>
 			<subdivision type="bevlg" draft="provisional">法兰德斯</subdivision>
+			<subdivision type="bevli" draft="provisional">林堡省 (比利时)</subdivision>
+			<subdivision type="bevov" draft="provisional">东法兰德斯</subdivision>
+			<subdivision type="bevwv" draft="provisional">西法兰德斯</subdivision>
 			<subdivision type="bewal" draft="provisional">华隆</subdivision>
+			<subdivision type="bewbr" draft="provisional">华隆布拉邦</subdivision>
+			<subdivision type="bewht" draft="provisional">埃诺</subdivision>
+			<subdivision type="bewlg" draft="provisional">列日省</subdivision>
+			<subdivision type="bewlx" draft="provisional">卢森堡省</subdivision>
+			<subdivision type="bewna" draft="provisional">那慕尔省</subdivision>
 			<subdivision type="bg23" draft="provisional">索菲亚</subdivision>
 			<subdivision type="bnbe" draft="provisional">马来奕县</subdivision>
 			<subdivision type="bnbm" draft="provisional">摩拉县</subdivision>
@@ -249,6 +259,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="clnb" draft="provisional">纽夫莱大区</subdivision>
 			<subdivision type="clrm" draft="provisional">圣地亚哥都会大区</subdivision>
 			<subdivision type="clta" draft="provisional">塔拉帕卡大区</subdivision>
+			<subdivision type="clvs" draft="provisional">瓦尔帕莱索大区</subdivision>
 			<subdivision type="cnah" draft="provisional">安徽</subdivision>
 			<subdivision type="cnbj" draft="provisional">北京</subdivision>
 			<subdivision type="cncq" draft="provisional">重庆</subdivision>
@@ -286,6 +297,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="coant" draft="provisional">晏托卡省</subdivision>
 			<subdivision type="codc" draft="provisional">波哥大</subdivision>
 			<subdivision type="cz10" draft="provisional">布拉格</subdivision>
+			<subdivision type="cz32" draft="provisional">柏辛州</subdivision>
 			<subdivision type="debb" draft="provisional">勃兰登堡</subdivision>
 			<subdivision type="debe" draft="provisional">柏林</subdivision>
 			<subdivision type="debw" draft="provisional">巴登－乌腾堡</subdivision>
@@ -303,6 +315,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="dest" draft="provisional">萨克逊－雁候</subdivision>
 			<subdivision type="deth" draft="provisional">脱灵根</subdivision>
 			<subdivision type="djdj" draft="provisional">吉布提城</subdivision>
+			<subdivision type="dk81" draft="provisional">北日德兰大区</subdivision>
+			<subdivision type="dk82" draft="provisional">中日德兰大区</subdivision>
+			<subdivision type="dk83" draft="provisional">南丹麦大区</subdivision>
+			<subdivision type="dk84" draft="provisional">首都大区</subdivision>
 			<subdivision type="dk85" draft="provisional">舍兰大区</subdivision>
 			<subdivision type="egalx" draft="provisional">亚历山大省</subdivision>
 			<subdivision type="egasn" draft="provisional">阿斯旺省</subdivision>
@@ -318,8 +334,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="esan" draft="provisional">安达卢西亚</subdivision>
 			<subdivision type="esar" draft="provisional">亚拉冈</subdivision>
 			<subdivision type="esas" draft="provisional">阿斯图里亚斯</subdivision>
+			<subdivision type="esav" draft="provisional">阿维拉省</subdivision>
 			<subdivision type="esb" draft="provisional">巴萨隆拿省</subdivision>
 			<subdivision type="esba" draft="provisional">巴达何斯省</subdivision>
+			<subdivision type="esbi" draft="provisional">比斯开省</subdivision>
+			<subdivision type="esbu" draft="provisional">布尔戈斯省</subdivision>
+			<subdivision type="esc" draft="provisional">拉科鲁尼亚省</subdivision>
 			<subdivision type="esca" draft="provisional">加的斯省</subdivision>
 			<subdivision type="escb" draft="provisional">坎塔布里亚</subdivision>
 			<subdivision type="escc" draft="provisional">卡舍利斯省</subdivision>
@@ -327,6 +347,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="escl" draft="provisional">卡斯提亚与利昂</subdivision>
 			<subdivision type="escm" draft="provisional">卡斯提亚-拉曼查</subdivision>
 			<subdivision type="escn" draft="provisional">加那利群岛</subdivision>
+			<subdivision type="esco" draft="provisional">哥多华省 (西班牙)</subdivision>
 			<subdivision type="esct" draft="provisional">加泰隆尼亚</subdivision>
 			<subdivision type="esex" draft="provisional">易斯特里马杜拉</subdivision>
 			<subdivision type="esga" draft="provisional">加利西亚</subdivision>
@@ -339,25 +360,61 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="esl" draft="provisional">莱里达省</subdivision>
 			<subdivision type="esle" draft="provisional">利昂省</subdivision>
 			<subdivision type="eslo" draft="provisional">拉里奥哈</subdivision>
+			<subdivision type="eslu" draft="provisional">卢高省</subdivision>
 			<subdivision type="esma" draft="provisional">马拉加省</subdivision>
 			<subdivision type="esmc" draft="provisional">穆尔西亚自治区</subdivision>
 			<subdivision type="esmd" draft="provisional">马德里自治区</subdivision>
 			<subdivision type="esml" draft="provisional">梅利利亚</subdivision>
 			<subdivision type="esna" draft="provisional">纳华拉</subdivision>
 			<subdivision type="esnc" draft="provisional">纳华拉²</subdivision>
+			<subdivision type="esor" draft="provisional">欧伦萨省</subdivision>
+			<subdivision type="esp" draft="provisional">帕伦西亚省</subdivision>
 			<subdivision type="espm" draft="provisional">巴利亚利群岛²</subdivision>
 			<subdivision type="espv" draft="provisional">巴斯克自治区</subdivision>
 			<subdivision type="esri" draft="provisional">拉里奥哈²</subdivision>
 			<subdivision type="ess" draft="provisional">坎塔布里亚²</subdivision>
 			<subdivision type="essa" draft="provisional">萨拉曼卡省</subdivision>
 			<subdivision type="esse" draft="provisional">西维尔省</subdivision>
+			<subdivision type="essg" draft="provisional">塞哥维亚省</subdivision>
 			<subdivision type="esso" draft="provisional">索里亚省</subdivision>
+			<subdivision type="esss" draft="provisional">吉普斯夸省</subdivision>
 			<subdivision type="est" draft="provisional">塔拉戈纳省</subdivision>
 			<subdivision type="este" draft="provisional">特鲁埃尔省</subdivision>
 			<subdivision type="esv" draft="provisional">华伦西亚省</subdivision>
 			<subdivision type="esvc" draft="provisional">华伦西亚自治区</subdivision>
+			<subdivision type="esvi" draft="provisional">阿拉瓦省</subdivision>
 			<subdivision type="esz" draft="provisional">萨拉戈萨省</subdivision>
+			<subdivision type="esza" draft="provisional">萨莫拉省</subdivision>
 			<subdivision type="etaa" draft="provisional">阿迪斯阿贝巴</subdivision>
+			<subdivision type="etaf" draft="provisional">阿法尔州</subdivision>
+			<subdivision type="etam" draft="provisional">岩哈拉州</subdivision>
+			<subdivision type="etbe" draft="provisional">本尚古勒-古马兹州</subdivision>
+			<subdivision type="etdd" draft="provisional">德雷达华</subdivision>
+			<subdivision type="etga" draft="provisional">甘贝拉州</subdivision>
+			<subdivision type="etha" draft="provisional">哈勒尔州</subdivision>
+			<subdivision type="etor" draft="provisional">奥罗米亚州</subdivision>
+			<subdivision type="etsi" draft="provisional">锡达马州</subdivision>
+			<subdivision type="etso" draft="provisional">索马里州</subdivision>
+			<subdivision type="etsw" draft="provisional">西南埃塞俄比亚人民州</subdivision>
+			<subdivision type="etti" draft="provisional">提格雷州</subdivision>
+			<subdivision type="fi02" draft="provisional">南卡尔亚拉</subdivision>
+			<subdivision type="fi03" draft="provisional">南博滕</subdivision>
+			<subdivision type="fi04" draft="provisional">南萨窝</subdivision>
+			<subdivision type="fi05" draft="provisional">卡伊努</subdivision>
+			<subdivision type="fi06" draft="provisional">坎塔海梅</subdivision>
+			<subdivision type="fi07" draft="provisional">中博滕</subdivision>
+			<subdivision type="fi08" draft="provisional">中芬兰</subdivision>
+			<subdivision type="fi09" draft="provisional">屈米</subdivision>
+			<subdivision type="fi10" draft="provisional">纳兰</subdivision>
+			<subdivision type="fi11" draft="provisional">皮尔卡</subdivision>
+			<subdivision type="fi12" draft="provisional">博滕</subdivision>
+			<subdivision type="fi13" draft="provisional">北卡尔亚拉</subdivision>
+			<subdivision type="fi14" draft="provisional">北博滕</subdivision>
+			<subdivision type="fi15" draft="provisional">北萨窝</subdivision>
+			<subdivision type="fi16" draft="provisional">派亚特海梅</subdivision>
+			<subdivision type="fi17" draft="provisional">萨塔昆塔</subdivision>
+			<subdivision type="fi18" draft="provisional">新地区</subdivision>
+			<subdivision type="fi19" draft="provisional">西南芬兰</subdivision>
 			<subdivision type="fmtrk" draft="provisional">楚克州</subdivision>
 			<subdivision type="fr01" draft="provisional">安</subdivision>
 			<subdivision type="fr02" draft="provisional">埃纳</subdivision>
@@ -367,6 +424,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr04" draft="provisional">上普罗旺斯阿尔卑斯</subdivision>
 			<subdivision type="fr05" draft="provisional">上阿尔卑斯</subdivision>
 			<subdivision type="fr06" draft="provisional">滨海阿尔卑斯</subdivision>
+			<subdivision type="fr6ae" draft="provisional">阿尔萨斯</subdivision>
 			<subdivision type="fr07" draft="provisional">阿尔代什</subdivision>
 			<subdivision type="fr08" draft="provisional">亚丁</subdivision>
 			<subdivision type="fr09" draft="provisional">阿列日</subdivision>
@@ -457,6 +515,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr94" draft="provisional">马恩河谷</subdivision>
 			<subdivision type="fr95" draft="provisional">华兹河谷</subdivision>
 			<subdivision type="fr971" draft="provisional">瓜德罗普</subdivision>
+			<subdivision type="fr972" draft="provisional">马提尼克</subdivision>
+			<subdivision type="fr973" draft="provisional">法属圭亚那</subdivision>
+			<subdivision type="fr974" draft="provisional">留尼旺</subdivision>
 			<subdivision type="frara" draft="provisional">奥文尼－隆河－阿尔卑斯</subdivision>
 			<subdivision type="frbfc" draft="provisional">布尔冈-法朗殊-康堤</subdivision>
 			<subdivision type="frbre" draft="provisional">布礼斯大区</subdivision>
@@ -500,7 +561,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbdor" draft="provisional">多实郡</subdivision>
 			<subdivision type="gbedh" draft="provisional">爱丁堡</subdivision>
 			<subdivision type="gbeln" draft="provisional">东洛锡安</subdivision>
-			<subdivision type="gbeng" draft="provisional">英伦</subdivision>
+			<subdivision type="gbeng">英伦</subdivision>
 			<subdivision type="gbery" draft="provisional">东约郡</subdivision>
 			<subdivision type="gbess" draft="provisional">雅息士郡</subdivision>
 			<subdivision type="gbesx" draft="provisional">东修适士</subdivision>
@@ -543,7 +604,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbrut" draft="provisional">律伦郡</subdivision>
 			<subdivision type="gbsaw" draft="provisional">山威</subdivision>
 			<subdivision type="gbscb" draft="provisional">苏格兰边区</subdivision>
-			<subdivision type="gbsct" draft="provisional">苏格兰</subdivision>
+			<subdivision type="gbsct">苏格兰</subdivision>
 			<subdivision type="gbsfk" draft="provisional">修福郡</subdivision>
 			<subdivision type="gbshr" draft="provisional">史乐郡</subdivision>
 			<subdivision type="gbsom" draft="provisional">森麻锡郡</subdivision>
@@ -559,7 +620,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbwar" draft="provisional">窝域郡</subdivision>
 			<subdivision type="gbwgn" draft="provisional">韦根都市自治市</subdivision>
 			<subdivision type="gbwil" draft="provisional">渭州郡</subdivision>
-			<subdivision type="gbwls" draft="provisional">威尔斯</subdivision>
+			<subdivision type="gbwls">威尔斯</subdivision>
 			<subdivision type="gbwor" draft="provisional">窝士打郡</subdivision>
 			<subdivision type="gbwsm" draft="provisional">西敏市</subdivision>
 			<subdivision type="gbwsx" draft="provisional">西修适士</subdivision>
@@ -572,6 +633,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gr69" draft="provisional">阿索斯山</subdivision>
 			<subdivision type="gwbs" draft="provisional">比绍</subdivision>
 			<subdivision type="hnib" draft="provisional">海湾群岛省</subdivision>
+			<subdivision type="hr05" draft="provisional">华拉斯汀县</subdivision>
 			<subdivision type="hr13" draft="provisional">扎达尔县</subdivision>
 			<subdivision type="hr21" draft="provisional">萨格勒布</subdivision>
 			<subdivision type="hubu" draft="provisional">布达佩斯</subdivision>
@@ -631,9 +693,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="inar" draft="provisional">阿鲁纳恰尔</subdivision>
 			<subdivision type="inas" draft="provisional">阿萨姆邦</subdivision>
 			<subdivision type="inbr" draft="provisional">比哈尔邦</subdivision>
+			<subdivision type="incg" draft="provisional">查蒂斯加尔邦</subdivision>
 			<subdivision type="inch" draft="provisional">昌迪加尔</subdivision>
 			<subdivision type="inct" draft="provisional">恰蒂斯加尔邦</subdivision>
 			<subdivision type="indd" draft="provisional">达曼-第乌</subdivision>
+			<subdivision type="indh" draft="provisional">达德拉-纳加尔哈维利-达曼-第乌</subdivision>
 			<subdivision type="indl" draft="provisional">德里</subdivision>
 			<subdivision type="indn" draft="provisional">达德拉-纳加尔哈维利</subdivision>
 			<subdivision type="inga" draft="provisional">果阿</subdivision>
@@ -652,16 +716,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="inmp" draft="provisional">中央邦</subdivision>
 			<subdivision type="inmz" draft="provisional">米佐拉姆邦</subdivision>
 			<subdivision type="innl" draft="provisional">那加兰邦</subdivision>
+			<subdivision type="inod" draft="provisional">奥迪沙邦</subdivision>
 			<subdivision type="inor" draft="provisional">奥里萨邦</subdivision>
 			<subdivision type="inpb" draft="provisional">旁遮普邦</subdivision>
 			<subdivision type="inpy" draft="provisional">本地治里</subdivision>
 			<subdivision type="inrj" draft="provisional">拉贾斯坦邦</subdivision>
 			<subdivision type="insk" draft="provisional">锡金</subdivision>
-			<subdivision type="intg" draft="provisional">泰伦加纳邦</subdivision>
 			<subdivision type="intn" draft="provisional">淡米尔纳德邦</subdivision>
 			<subdivision type="intr" draft="provisional">特里普拉邦</subdivision>
+			<subdivision type="ints" draft="provisional">泰伦加纳邦</subdivision>
+			<subdivision type="inuk" draft="provisional">北阿坎德邦</subdivision>
 			<subdivision type="inup" draft="provisional">北方邦</subdivision>
-			<subdivision type="inut" draft="provisional">北阿坎德邦</subdivision>
 			<subdivision type="inwb" draft="provisional">西孟加拉邦</subdivision>
 			<subdivision type="iqan" draft="provisional">安巴省</subdivision>
 			<subdivision type="iqar" draft="provisional">艾比尔省</subdivision>
@@ -713,6 +778,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ir29" draft="provisional">南呼罗珊省</subdivision>
 			<subdivision type="ir30" draft="provisional">厄尔布尔士省</subdivision>
 			<subdivision type="isaku" draft="provisional">阿克雷里</subdivision>
+			<subdivision type="isrkv" draft="provisional">雷克雅未克</subdivision>
 			<subdivision type="it21" draft="provisional">皮耶蒙</subdivision>
 			<subdivision type="it23" draft="provisional">欧斯达山谷大区</subdivision>
 			<subdivision type="it25" draft="provisional">伦巴第大区</subdivision>
@@ -740,9 +806,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="itbt" draft="provisional">巴列他-安德里亚-特拉尼省</subdivision>
 			<subdivision type="itca" draft="provisional">卡利亚里省</subdivision>
 			<subdivision type="itch" draft="provisional">基替省</subdivision>
+			<subdivision type="itcs" draft="provisional">高臣扎省</subdivision>
 			<subdivision type="itct" draft="provisional">卡坦尼亚省</subdivision>
+			<subdivision type="itcz" draft="provisional">卡坦扎罗省</subdivision>
 			<subdivision type="itfg" draft="provisional">霍治亚省</subdivision>
+			<subdivision type="itfr" draft="provisional">费辛隆尼省</subdivision>
+			<subdivision type="itkr" draft="provisional">克罗托内省</subdivision>
 			<subdivision type="itle" draft="provisional">坜车省</subdivision>
+			<subdivision type="itlt" draft="provisional">勒天拿省</subdivision>
 			<subdivision type="itme" draft="provisional">墨西拿省</subdivision>
 			<subdivision type="itmi" draft="provisional">米兰省</subdivision>
 			<subdivision type="itmn" draft="provisional">曼图亚省</subdivision>
@@ -750,11 +821,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="itno" draft="provisional">罗华拉省</subdivision>
 			<subdivision type="itpe" draft="provisional">皮斯卡拉省</subdivision>
 			<subdivision type="itrc" draft="provisional">雷焦卡拉布里亚省</subdivision>
+			<subdivision type="itri" draft="provisional">列蒂省</subdivision>
 			<subdivision type="itrm" draft="provisional">罗马省</subdivision>
 			<subdivision type="itta" draft="provisional">塔兰托省</subdivision>
 			<subdivision type="itte" draft="provisional">泰拉莫省</subdivision>
 			<subdivision type="itto" draft="provisional">拖连奴省</subdivision>
 			<subdivision type="itve" draft="provisional">威尼斯省</subdivision>
+			<subdivision type="itvt" draft="provisional">维特波省</subdivision>
+			<subdivision type="itvv" draft="provisional">威宝华伦缇亚省</subdivision>
 			<subdivision type="jp01" draft="provisional">北海道</subdivision>
 			<subdivision type="jp02" draft="provisional">青森县</subdivision>
 			<subdivision type="jp03" draft="provisional">岩手县</subdivision>
@@ -803,7 +877,31 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="jp46" draft="provisional">鹿儿岛县</subdivision>
 			<subdivision type="jp47" draft="provisional">冲绳县</subdivision>
 			<subdivision type="kggb" draft="provisional">比什凯克</subdivision>
+			<subdivision type="kh1" draft="provisional">班迭棉芷省</subdivision>
+			<subdivision type="kh2" draft="provisional">马德望省</subdivision>
+			<subdivision type="kh3" draft="provisional">磅湛省</subdivision>
+			<subdivision type="kh4" draft="provisional">磅清扬省</subdivision>
+			<subdivision type="kh5" draft="provisional">磅士卑省</subdivision>
+			<subdivision type="kh6" draft="provisional">磅通省</subdivision>
+			<subdivision type="kh7" draft="provisional">贡布省</subdivision>
+			<subdivision type="kh8" draft="provisional">甘丹省</subdivision>
+			<subdivision type="kh9" draft="provisional">国公省</subdivision>
+			<subdivision type="kh10" draft="provisional">桔井省</subdivision>
+			<subdivision type="kh11" draft="provisional">蒙多基里省</subdivision>
 			<subdivision type="kh12" draft="provisional">金边</subdivision>
+			<subdivision type="kh13" draft="provisional">柏威夏省</subdivision>
+			<subdivision type="kh14" draft="provisional">波萝勉省</subdivision>
+			<subdivision type="kh15" draft="provisional">菩萨省</subdivision>
+			<subdivision type="kh16" draft="provisional">拉达那基里省</subdivision>
+			<subdivision type="kh17" draft="provisional">暹粒省</subdivision>
+			<subdivision type="kh18" draft="provisional">施亚努省</subdivision>
+			<subdivision type="kh19" draft="provisional">上丁省</subdivision>
+			<subdivision type="kh20" draft="provisional">柴桢省</subdivision>
+			<subdivision type="kh21" draft="provisional">茶胶省</subdivision>
+			<subdivision type="kh22" draft="provisional">奥多棉芷省</subdivision>
+			<subdivision type="kh23" draft="provisional">白马省</subdivision>
+			<subdivision type="kh24" draft="provisional">拜连省</subdivision>
+			<subdivision type="kh25" draft="provisional">特本卡蒙省</subdivision>
 			<subdivision type="kig" draft="provisional">骄拔群岛</subdivision>
 			<subdivision type="kip" draft="provisional">凤凰群岛</subdivision>
 			<subdivision type="knk" draft="provisional">圣杰氏岛</subdivision>
@@ -820,6 +918,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="kp10" draft="provisional">两江道</subdivision>
 			<subdivision type="kp13" draft="provisional">罗先</subdivision>
 			<subdivision type="kp14" draft="provisional">南浦特别市</subdivision>
+			<subdivision type="kp15" draft="provisional">开城</subdivision>
 			<subdivision type="kr11" draft="provisional">首尔</subdivision>
 			<subdivision type="kr26" draft="provisional">釜山</subdivision>
 			<subdivision type="kr27" draft="provisional">大邱</subdivision>
@@ -837,24 +936,40 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="kr48" draft="provisional">庆尚南道</subdivision>
 			<subdivision type="kr49" draft="provisional">济州特别自治道</subdivision>
 			<subdivision type="kr50" draft="provisional">世宗特别自治市</subdivision>
-			<subdivision type="kzakm" draft="provisional">厄莫拉州</subdivision>
-			<subdivision type="kzakt" draft="provisional">厄托别州</subdivision>
-			<subdivision type="kzala" draft="provisional">阿拉木图</subdivision>
-			<subdivision type="kzalm" draft="provisional">阿拉木图州</subdivision>
-			<subdivision type="kzast" draft="provisional">阿斯塔纳</subdivision>
-			<subdivision type="kzaty" draft="provisional">阿特劳州</subdivision>
-			<subdivision type="kzkar" draft="provisional">卡拉干达州</subdivision>
-			<subdivision type="kzkus" draft="provisional">哥斯塔里州</subdivision>
-			<subdivision type="kzkzy" draft="provisional">基孜罗达州</subdivision>
-			<subdivision type="kzman" draft="provisional">曼节斯套州</subdivision>
-			<subdivision type="kzpav" draft="provisional">巴甫洛达州</subdivision>
-			<subdivision type="kzsev" draft="provisional">北哈萨克州</subdivision>
-			<subdivision type="kzshy" draft="provisional">苫勤</subdivision>
-			<subdivision type="kzvos" draft="provisional">东哈萨克州</subdivision>
-			<subdivision type="kzyuz" draft="provisional">突厥斯坦州</subdivision>
-			<subdivision type="kzzap" draft="provisional">西哈萨克州</subdivision>
-			<subdivision type="kzzha" draft="provisional">江布州</subdivision>
+			<subdivision type="kz11" draft="provisional">厄莫拉州</subdivision>
+			<subdivision type="kz15" draft="provisional">厄托别州</subdivision>
+			<subdivision type="kz19" draft="provisional">阿拉木图州</subdivision>
+			<subdivision type="kz23" draft="provisional">阿特劳州</subdivision>
+			<subdivision type="kz27" draft="provisional">西哈萨克州</subdivision>
+			<subdivision type="kz31" draft="provisional">江布州</subdivision>
+			<subdivision type="kz35" draft="provisional">卡拉干达州</subdivision>
+			<subdivision type="kz39" draft="provisional">哥斯塔里州</subdivision>
+			<subdivision type="kz43" draft="provisional">基孜罗达州</subdivision>
+			<subdivision type="kz47" draft="provisional">曼节斯套州</subdivision>
+			<subdivision type="kz55" draft="provisional">巴甫洛达州</subdivision>
+			<subdivision type="kz59" draft="provisional">北哈萨克州</subdivision>
+			<subdivision type="kz61" draft="provisional">突厥斯坦州</subdivision>
+			<subdivision type="kz63" draft="provisional">东哈萨克州</subdivision>
+			<subdivision type="kz71" draft="provisional">阿斯塔纳</subdivision>
+			<subdivision type="kz75" draft="provisional">阿拉木图</subdivision>
+			<subdivision type="kz79" draft="provisional">苫勤</subdivision>
+			<subdivision type="laat" draft="provisional">阿速坡省</subdivision>
+			<subdivision type="labk" draft="provisional">博胶省</subdivision>
+			<subdivision type="labl" draft="provisional">博利敢赛省</subdivision>
+			<subdivision type="lach" draft="provisional">占巴塞省</subdivision>
+			<subdivision type="laho" draft="provisional">华潘省</subdivision>
+			<subdivision type="lakh" draft="provisional">甘蒙省</subdivision>
+			<subdivision type="lalm" draft="provisional">琅南他省</subdivision>
 			<subdivision type="lalp" draft="provisional">龙帕邦省</subdivision>
+			<subdivision type="laou" draft="provisional">奥冬塞省</subdivision>
+			<subdivision type="laph" draft="provisional">丰沙利省</subdivision>
+			<subdivision type="lasl" draft="provisional">沙拉湾省</subdivision>
+			<subdivision type="lasv" draft="provisional">沙湾拿吉省</subdivision>
+			<subdivision type="lavi" draft="provisional">永珍省</subdivision>
+			<subdivision type="laxa" draft="provisional">沙耶武利省</subdivision>
+			<subdivision type="laxe" draft="provisional">塞公省</subdivision>
+			<subdivision type="laxi" draft="provisional">川圹省</subdivision>
+			<subdivision type="laxs" draft="provisional">赛宋奔省</subdivision>
 			<subdivision type="li11" draft="provisional">华杜兹</subdivision>
 			<subdivision type="ltal" draft="provisional">阿里特斯县</subdivision>
 			<subdivision type="ltkl" draft="provisional">卡赖佩达县</subdivision>
@@ -876,6 +991,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="lyba" draft="provisional">班加西</subdivision>
 			<subdivision type="macas" draft="provisional">卡萨布兰卡</subdivision>
 			<subdivision type="mafes" draft="provisional">非斯</subdivision>
+			<subdivision type="mamar" draft="provisional">马拉喀什</subdivision>
 			<subdivision type="marab" draft="provisional">剌八</subdivision>
 			<subdivision type="matng" draft="provisional">丹吉尔</subdivision>
 			<subdivision type="mcmc" draft="provisional">蒙地卡罗</subdivision>
@@ -886,8 +1002,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mhmaj" draft="provisional">马祖卢</subdivision>
 			<subdivision type="mk85" draft="provisional">斯科普里</subdivision>
 			<subdivision type="mlbko" draft="provisional">巴马科</subdivision>
+			<subdivision type="mm01" draft="provisional">实皆省</subdivision>
+			<subdivision type="mm02" draft="provisional">勃固省</subdivision>
+			<subdivision type="mm03" draft="provisional">马圭省</subdivision>
+			<subdivision type="mm04" draft="provisional">曼德拉省</subdivision>
+			<subdivision type="mm05" draft="provisional">德连达依省</subdivision>
+			<subdivision type="mm06" draft="provisional">仰光省</subdivision>
 			<subdivision type="mm07" draft="provisional">爱耶也华地省</subdivision>
+			<subdivision type="mm11" draft="provisional">克钦邦</subdivision>
+			<subdivision type="mm12" draft="provisional">克耶邦</subdivision>
+			<subdivision type="mm13" draft="provisional">克伦邦</subdivision>
+			<subdivision type="mm14" draft="provisional">钦邦</subdivision>
+			<subdivision type="mm15" draft="provisional">孟邦</subdivision>
+			<subdivision type="mm16" draft="provisional">若开邦</subdivision>
 			<subdivision type="mm17" draft="provisional">掸邦</subdivision>
+			<subdivision type="mm18" draft="provisional">内比都联邦区</subdivision>
 			<subdivision type="mn1" draft="provisional">乌兰巴托</subdivision>
 			<subdivision type="mn035" draft="provisional">鄂尔浑</subdivision>
 			<subdivision type="mn037" draft="provisional">达尔汗乌拉</subdivision>
@@ -910,6 +1039,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mn069" draft="provisional">巴彦洪戈尔盟</subdivision>
 			<subdivision type="mn071" draft="provisional">巴彦乌列盖</subdivision>
 			<subdivision type="mn073" draft="provisional">后杭爱</subdivision>
+			<subdivision type="mt03" draft="provisional">比尔古</subdivision>
 			<subdivision type="mt60" draft="provisional">华列他</subdivision>
 			<subdivision type="muag" draft="provisional">阿加莱加群岛</subdivision>
 			<subdivision type="mubl" draft="provisional">黑河区</subdivision>
@@ -994,9 +1124,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="nlze" draft="provisional">西兰</subdivision>
 			<subdivision type="nlzh" draft="provisional">南荷兰</subdivision>
 			<subdivision type="no03" draft="provisional">奥斯陆</subdivision>
+			<subdivision type="no11" draft="provisional">罗加兰</subdivision>
+			<subdivision type="no15" draft="provisional">默勒鲁姆斯达尔</subdivision>
 			<subdivision type="no18" draft="provisional">诺兰郡</subdivision>
 			<subdivision type="no21" draft="provisional">斯瓦尔巴群岛</subdivision>
 			<subdivision type="no22" draft="provisional">扬马延岛</subdivision>
+			<subdivision type="no34" draft="provisional">内陆郡</subdivision>
+			<subdivision type="no42" draft="provisional">阿格德尔</subdivision>
+			<subdivision type="no46" draft="provisional">韦斯特兰</subdivision>
+			<subdivision type="no50" draft="provisional">特伦德拉格</subdivision>
 			<subdivision type="nr14" draft="provisional">亚伦</subdivision>
 			<subdivision type="nzcit" draft="provisional">漆咸群岛</subdivision>
 			<subdivision type="pgncd" draft="provisional">莫士比港</subdivision>
@@ -1017,7 +1153,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ph15" draft="provisional">科迪勒拉</subdivision>
 			<subdivision type="ph40" draft="provisional">卡拉巴松</subdivision>
 			<subdivision type="ph41" draft="provisional">民马罗巴</subdivision>
+			<subdivision type="philn" draft="provisional">北伊罗戈省</subdivision>
+			<subdivision type="phils" draft="provisional">南伊罗戈省</subdivision>
+			<subdivision type="phlun" draft="provisional">联合省</subdivision>
 			<subdivision type="phmas" draft="provisional">马士弼</subdivision>
+			<subdivision type="phpan" draft="provisional">班诗兰省</subdivision>
 			<subdivision type="phsor" draft="provisional">索索贡省</subdivision>
 			<subdivision type="pkba" draft="provisional">俾路支省</subdivision>
 			<subdivision type="pkkp" draft="provisional">西北边境省</subdivision>
@@ -1041,6 +1181,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="pl32" draft="provisional">西波美拉尼亚省</subdivision>
 			<subdivision type="pt20" draft="provisional">亚速尔</subdivision>
 			<subdivision type="pt30" draft="provisional">马德拉</subdivision>
+			<subdivision type="pw010" draft="provisional">安加尔</subdivision>
 			<subdivision type="pyasu" draft="provisional">亚松森</subdivision>
 			<subdivision type="qada" draft="provisional">多哈</subdivision>
 			<subdivision type="rob" draft="provisional">布加勒斯特</subdivision>
@@ -1381,6 +1522,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="tz28" draft="provisional">卡塔维区</subdivision>
 			<subdivision type="tz29" draft="provisional">恩琼贝区</subdivision>
 			<subdivision type="tz30" draft="provisional">锡米尤区</subdivision>
+			<subdivision type="tz31" draft="provisional">森圭区</subdivision>
 			<subdivision type="ua05" draft="provisional">文尼察州</subdivision>
 			<subdivision type="ua07" draft="provisional">沃伦州</subdivision>
 			<subdivision type="ua09" draft="provisional">卢甘斯克州</subdivision>

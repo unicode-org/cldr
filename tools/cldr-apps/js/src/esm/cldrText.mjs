@@ -569,6 +569,7 @@ const strings = {
   notification_category_warning:
     "The Survey Tool detected a warning about the winning value.",
   notification_category_reports: "A Report has not been completed.",
+  notification_category_other: "All other values",
 
   progress_page: "Your voting in this page",
   progress_voter: "Your voting in this locale",

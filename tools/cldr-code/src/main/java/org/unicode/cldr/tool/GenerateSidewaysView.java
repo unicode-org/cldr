@@ -10,7 +10,6 @@ package org.unicode.cldr.tool;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
-import com.ibm.icu.dev.util.UOption;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.UnicodeMap;
 import com.ibm.icu.impl.Utility;
@@ -42,6 +41,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.icu.dev.util.UOption;
 import org.unicode.cldr.tool.ShowData.DataShower;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
@@ -612,7 +612,7 @@ public class GenerateSidewaysView {
         String core = item;
         item = toHTML.transform(item);
         if (name) {
-            item = english.getName(core);
+            item = english.nameGetter().getNameFromIdentifier(core);
             item = item == null ? "<i>null</i>" : toHTML.transform(item);
         }
         if (draft) {

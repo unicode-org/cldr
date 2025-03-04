@@ -34,7 +34,6 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.draft.ScriptMetadata;
-import org.unicode.cldr.draft.ScriptMetadata.IdUsage;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
@@ -50,6 +49,8 @@ import org.unicode.cldr.util.LanguageTagCanonicalizer;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.LocaleIDParser.Level;
+import org.unicode.cldr.util.NameGetter;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SpreadSheet;
@@ -119,6 +120,7 @@ public class ConvertLanguageData {
 
     static Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
     static CLDRFile english = cldrFactory.make("en", true);
+    static final NameGetter englishNameGetter = english.nameGetter();
 
     static SupplementalDataInfo supplementalData =
             SupplementalDataInfo.getInstance(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
@@ -133,9 +135,6 @@ public class ConvertLanguageData {
         try (final BufferedReader oldFile = FileUtilities.openUTF8Reader(oldSupp);
                 final PrintWriter newFile = FileUtilities.openUTF8Writer(genSupp);
                 final PrintWriter newLsraw = FileUtilities.openUTF8Writer(genLsraw); ) {
-            // load elements we care about
-            CldrUtility.copyUpTo(
-                    oldFile, PatternCache.get("\\s*<languageData>\\s*"), newFile, false);
 
             Set<String> available = cldrFactory.getAvailable();
 
@@ -208,9 +207,19 @@ public class ConvertLanguageData {
             // showAllBasicLanguageData(allLanguageData, "old");
             getLanguage2Scripts(sortedInput);
 
-            writeNewBasicData2(newFile, sortedInput);
-            // writeNewBasicData(sortedInput);
+            // Over the old supplementalData file until we hit <languageData>
+            CldrUtility.copyUpTo(
+                    oldFile, PatternCache.get("\\s*<languageData>\\s*"), newFile, false);
 
+            // Generate a brand new <languageData> and clean the old <languageData> from the buffer
+            writeBasicLanguageData(newFile, sortedInput);
+            CldrUtility.copyUpTo(oldFile, PatternCache.get("\\s*</languageData>\\s*"), null, false);
+
+            // <scriptData> is in between <languageData> and <territoryInfo> but it is not
+            // generated, so copy it over
+            CldrUtility.copyUpTo(oldFile, PatternCache.get("\\s*</scriptData>\\s*"), newFile, true);
+
+            // Generate a new <territoryInfo>
             writeTerritoryLanguageData(newFile, failures, sortedInput);
 
             checkBasicData(localeToRowData);
@@ -218,8 +227,6 @@ public class ConvertLanguageData {
             Set<String> defaultLocaleContent = new TreeSet<>();
 
             showDefaults(cldrParents, nf, defaultContent, localeToRowData, defaultLocaleContent);
-
-            // showContent(available);
 
             // certain items are overridden
 
@@ -235,12 +242,20 @@ public class ConvertLanguageData {
 
             showFailures(failures);
 
+            // Clear out the buffer of the old file, effectively skipping over the previous
+            // territoryInfo
             CldrUtility.copyUpTo(
                     oldFile, PatternCache.get("\\s*</territoryInfo>\\s*"), null, false);
+            // Copy over everything after <territoryInfo> until <references>, for instance
+            // <measurementData> and <parentLocales>
             CldrUtility.copyUpTo(oldFile, PatternCache.get("\\s*<references>\\s*"), newFile, false);
             // generateIso639_2Data(newFile);
+
+            // Fill out a new <references> file
             references.printReferences(newFile);
             CldrUtility.copyUpTo(oldFile, PatternCache.get("\\s*</references>\\s*"), null, false);
+
+            // Copy everything after <references>
             CldrUtility.copyUpTo(oldFile, null, newFile, false);
 
             getLanguageScriptSpreadsheet(newLsraw);
@@ -260,7 +275,7 @@ public class ConvertLanguageData {
 
     public static String getLanguageCodeAndName(String code) {
         if (code == null) return null;
-        return english.getName(code) + " [" + code + "]";
+        return englishNameGetter.getNameFromIdentifier(code) + " [" + code + "]";
     }
 
     private static String getReplacement(String oldDefault, Set<String> defaultLocaleContent) {
@@ -308,19 +323,24 @@ public class ConvertLanguageData {
      *
      * @param sortedInput
      */
-    private static void writeNewBasicData2(PrintWriter out, Set<RowData> sortedInput) {
+    private static void writeBasicLanguageData(PrintWriter out, Set<RowData> sortedInput) {
         double cutoff = 0.2; // 20%
 
-        // Relation<String, BasicLanguageData> newLanguageData = new Relation(new TreeMap(),
-        // TreeSet.class);
         LanguageTagParser ltp = new LanguageTagParser();
         Map<String, Relation<BasicLanguageData.Type, String>> language_status_territories =
                 new TreeMap<>();
-        // Map<String, Pair<String, String>> languageToBestCountry;
-        for (RowData rowData : sortedInput) {
-            if (rowData.countryCode.equals("ZZ")) continue;
-            ltp.set(rowData.languageCode);
+        Map<String, TreeMap<String, Integer>> language_script_populations = new TreeMap<>();
+        Set<String> warnings = new LinkedHashSet<>();
+
+        // Get all of the rows of country<->language populations
+        // At certain thresholds add territory information
+        // [New] Also add script information
+        for (RowData languageInCountryData : sortedInput) {
+            if (languageInCountryData.countryCode.equals("ZZ")) continue;
+            ltp.set(languageInCountryData.languageCode);
             String languageCode = ltp.getLanguage();
+
+            // Add the territory if it is official or otherwise major
             Relation<BasicLanguageData.Type, String> status_territories =
                     language_status_territories.get(languageCode);
             if (status_territories == null) {
@@ -331,12 +351,43 @@ public class ConvertLanguageData {
                                         new TreeMap<BasicLanguageData.Type, Set<String>>(),
                                         TreeSet.class));
             }
-            if (rowData.officialStatus.isMajor()) {
-                status_territories.put(BasicLanguageData.Type.primary, rowData.countryCode);
-            } else if (rowData.officialStatus.isOfficial()
-                    || rowData.getLanguagePopulation() >= cutoff * rowData.countryPopulation
-                    || rowData.getLanguagePopulation() >= 1000000) {
-                status_territories.put(BasicLanguageData.Type.secondary, rowData.countryCode);
+            if (languageInCountryData.officialStatus.isMajor()) {
+                // Output will look like <language type="sw" territories="TZ"/>
+                status_territories.put(
+                        BasicLanguageData.Type.primary, languageInCountryData.countryCode);
+            } else if (languageInCountryData.officialStatus.isOfficial()
+                    || languageInCountryData.getLanguagePopulation()
+                            >= cutoff * languageInCountryData.countryPopulation
+                    || languageInCountryData.getLanguagePopulation() >= 1000000) {
+                // Output will look like <language type="sw" territories="CD" alt="secondary"/>
+                status_territories.put(
+                        BasicLanguageData.Type.secondary, languageInCountryData.countryCode);
+            }
+
+            // Add the population for the script
+            // language_status_territories.get(languageCode);
+            String script = ltp.getScript();
+
+            // If the script isn't specified, use the default one from LikelySubtags
+            if (script == null || script == "") {
+                script = supplementalData.getDefaultScript(languageCode);
+            }
+
+            // If we have a script, add to its population to the index
+            if (script != null && script != "") {
+                Integer currentPopulation = 0;
+                TreeMap<String, Integer> scriptsByPopulation =
+                        language_script_populations.get(languageCode);
+                if (scriptsByPopulation == null) {
+                    language_script_populations.put(
+                            languageCode, scriptsByPopulation = new TreeMap<String, Integer>());
+                } else if (scriptsByPopulation.containsKey(script)) {
+                    currentPopulation = scriptsByPopulation.get(script);
+                }
+                scriptsByPopulation.put(
+                        script,
+                        currentPopulation
+                                + (int) languageInCountryData.getLiterateLanguagePopulation());
             }
         }
 
@@ -344,7 +395,6 @@ public class ConvertLanguageData {
         allLanguages.addAll(language_status_scripts.keySet());
         // now add all the remaining language-script info
         // <language type="sv" scripts="Latn" territories="AX FI SE"/>
-        Set<String> warnings = new LinkedHashSet<>();
         out.println("\t<languageData>");
         for (String languageSubtag : allLanguages) {
             Relation<BasicLanguageData.Type, String> status_scripts =
@@ -359,16 +409,41 @@ public class ConvertLanguageData {
                 oldData = Collections.emptyMap();
             }
 
+            Map<String, Integer> scriptsByPopulationAnyLevel =
+                    language_script_populations.get(languageSubtag);
             EnumMap<BasicLanguageData.Type, BasicLanguageData> newData =
                     new EnumMap<>(BasicLanguageData.Type.class);
             for (BasicLanguageData.Type status : BasicLanguageData.Type.values()) {
-                Set<String> scripts = status_scripts == null ? null : status_scripts.getAll(status);
                 Set<String> territories =
                         status_territories == null ? null : status_territories.getAll(status);
-                if (scripts == null && territories == null) continue;
+                Map<String, Integer> scriptsByPopulationAtThisLevel = new TreeMap<>();
+                String likelyScript = supplementalData.getDefaultScript(languageSubtag);
+                if (status_scripts != null) {
+                    Set<String> scriptsAtThisLevel = status_scripts.getAll(status);
+                    if (scriptsAtThisLevel != null) {
+                        for (String script : scriptsAtThisLevel) {
+                            int population = 0;
+                            if (scriptsByPopulationAnyLevel != null
+                                    && scriptsByPopulationAnyLevel.containsKey(script)) {
+                                population = scriptsByPopulationAnyLevel.get(script);
+                            }
+                            scriptsByPopulationAtThisLevel.put(script, population);
+
+                            // Artifical add 1 billion population to the current likely subtag.
+                            // This overrides the order for a few languages where there is a good
+                            // reason for the likely subtag to not match the population. For
+                            // instance, Azeribaijani's online presence is focused in Latin. This
+                            // also orders the scripts when we don't have population data but have a
+                            // distinct likely subtag.
+                            if (script.equals(likelyScript)) {
+                                scriptsByPopulationAtThisLevel.put(script, 1000000000);
+                            }
+                        }
+                    }
+                }
                 BasicLanguageData bld = new BasicLanguageData();
                 bld.setTerritories(territories);
-                bld.setScripts(scripts);
+                bld.setScripts(scriptsByPopulationAtThisLevel);
                 bld.setType(status);
                 bld.freeze();
                 newData.put(status, bld);
@@ -376,35 +451,22 @@ public class ConvertLanguageData {
 
             // compare
             if (!CldrUtility.equals(oldData.entrySet(), newData.entrySet())) {
-                for (String problem : compare(oldData, newData)) {
+                for (String problem : compareBasicLanguageData(oldData, newData)) {
                     warnings.add(
                             BadItem.DETAIL.toString(
                                     "changing <languageData>",
-                                    languageSubtag + "\t" + english.getName(languageSubtag),
+                                    languageSubtag
+                                            + "\t"
+                                            + englishNameGetter.getNameFromIdentifier(
+                                                    languageSubtag),
                                     problem));
                 }
             }
 
             for (BasicLanguageData bld : newData.values()) {
-                Set<String> scripts = bld.getScripts();
-                Set<String> territories = bld.getTerritories();
-                BasicLanguageData.Type status = bld.getType();
-                out.println(
-                        "\t\t<language type=\""
-                                + languageSubtag
-                                + "\""
-                                + (scripts.isEmpty()
-                                        ? ""
-                                        : " scripts=\"" + CldrUtility.join(scripts, " ") + "\"")
-                                + (territories.isEmpty()
-                                        ? ""
-                                        : " territories=\""
-                                                + CldrUtility.join(territories, " ")
-                                                + "\"")
-                                + (status == BasicLanguageData.Type.primary
-                                        ? ""
-                                        : " alt=\"secondary\"")
-                                + "/>");
+                if (bld.getTerritories().size() > 0 || bld.getScripts().size() > 0) {
+                    out.println(bld.toString(languageSubtag));
+                }
             }
         }
         out.println("\t</languageData>");
@@ -420,7 +482,7 @@ public class ConvertLanguageData {
         }
     }
 
-    private static List<String> compare(
+    private static List<String> compareBasicLanguageData(
             Map<BasicLanguageData.Type, BasicLanguageData> oldData,
             Map<BasicLanguageData.Type, BasicLanguageData> newData) {
         Map<String, BasicLanguageData.Type> oldDataToType = getDataToType(oldData.values(), true);
@@ -435,12 +497,10 @@ public class ConvertLanguageData {
             BasicLanguageData.Type oldValue = oldDataToType.get(s);
             BasicLanguageData.Type newValue = newDataToType.get(s);
             if (!CldrUtility.equals(oldValue, newValue)) {
+                NameType nameType = s.length() == 4 ? NameType.SCRIPT : NameType.TERRITORY;
+                String name = englishNameGetter.getNameFromTypeEnumCode(nameType, s);
                 temp.setLength(0);
-                temp.append("[")
-                        .append(s)
-                        .append(":")
-                        .append(english.getName(s.length() == 4 ? "script" : "region", s))
-                        .append("] ");
+                temp.append("[").append(s).append(":").append(name).append("] ");
                 if (oldValue == null) {
                     temp.append(" added as ").append(newValue);
                 } else if (newValue == null) {
@@ -988,7 +1048,9 @@ public class ConvertLanguageData {
         static Map<String, String> oldToFixed = new HashMap<>();
 
         public String getLanguageName() {
-            String cldrResult = getExcelQuote(english.getName(languageCode, true));
+            String cldrResult =
+                    getExcelQuote(
+                            englishNameGetter.getNameFromIdentifierCompoundOnly(languageCode));
             //            String result = getLanguageName2();
             //            if (!result.equalsIgnoreCase(cldrResult)) {
             //                if (null == oldToFixed.put(result, cldrResult)) {
@@ -1048,6 +1110,10 @@ public class ConvertLanguageData {
         private double getLanguagePopulation() {
             return languagePopulation;
         }
+
+        private double getLiterateLanguagePopulation() {
+            return languagePopulation * languageLiteracy;
+        }
     }
 
     public static String getExcelQuote(String comment) {
@@ -1062,7 +1128,10 @@ public class ConvertLanguageData {
 
     public static String getCountryCodeAndName(String code) {
         if (code == null) return null;
-        return english.getName(CLDRFile.TERRITORY_NAME, code) + " [" + code + "]";
+        return englishNameGetter.getNameFromTypeEnumCode(NameType.TERRITORY, code)
+                + " ["
+                + code
+                + "]";
     }
 
     static class RowComparator implements Comparator<RowData> {
@@ -1089,7 +1158,7 @@ public class ConvertLanguageData {
         LanguageTagParser ltp = new LanguageTagParser();
 
         out.println(
-                " <!-- See http://unicode.org/cldr/data/diff/supplemental/territory_language_information.html for more information on territoryInfo. -->");
+                "\t<!-- See https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html for more information on territoryInfo. -->");
         out.println("\t<territoryInfo>");
 
         for (RowData row : sortedInput) {
@@ -2026,7 +2095,8 @@ public class ConvertLanguageData {
                 if (!checkCode(LstrType.language, language, row)) continue;
                 for (String script : scripts.split("\\s+")) {
                     if (!checkCode(LstrType.script, script, row)) continue;
-                    // if the script is not modern, demote
+
+                    // Make sure the script has information
                     Info scriptInfo = ScriptMetadata.getInfo(script);
                     if (scriptInfo == null) {
                         BadItem.ERROR.toString(
@@ -2035,24 +2105,8 @@ public class ConvertLanguageData {
                                 row);
                         continue;
                     }
-                    IdUsage idUsage = scriptInfo.idUsage;
-                    if (status == BasicLanguageData.Type.primary
-                            && idUsage != IdUsage.RECOMMENDED) {
-                        if (idUsage == IdUsage.ASPIRATIONAL || idUsage == IdUsage.LIMITED_USE) {
-                            BadItem.WARNING.toString(
-                                    "Script has unexpected usage; make secondary if a Recommended script is used widely for the langauge",
-                                    idUsage + ", " + script + "=" + getULocaleScriptName(script),
-                                    row);
-                        } else {
-                            BadItem.ERROR.toString(
-                                    "Script is not modern; make secondary",
-                                    idUsage + ", " + script + "=" + getULocaleScriptName(script),
-                                    row);
-                            status = BasicLanguageData.Type.secondary;
-                        }
-                    }
 
-                    // if the language is not modern, demote
+                    // Make sure the language code is valid
                     if (LOCALE_ALIAS_INFO.get("language").containsKey(language)) {
                         BadItem.ERROR.toString(
                                 "Remove/Change deprecated language",
@@ -2063,14 +2117,6 @@ public class ConvertLanguageData {
                                         + LOCALE_ALIAS_INFO.get("language").get(language),
                                 row);
                         continue;
-                    }
-                    if (status == BasicLanguageData.Type.primary
-                            && !sc.isModernLanguage(language)) {
-                        BadItem.ERROR.toString(
-                                "Should be secondary, language is not modern",
-                                language + " " + getLanguageName(language),
-                                row);
-                        status = BasicLanguageData.Type.secondary;
                     }
 
                     addLanguage2Script(language, status, script);
@@ -2278,8 +2324,8 @@ public class ConvertLanguageData {
             Set<String> fullScriptList = sc.getGoodAvailableCodes("script");
 
             String[] scriptList = parts[2].split("[;,]\\s*");
-            Set<String> scripts = new TreeSet<>();
-            Set<String> scriptsAlt = new TreeSet<>();
+            Map<String, Integer> scriptsByPopulation = new TreeMap<>();
+            Map<String, Integer> scriptsByPopulationSecondary = new TreeMap<>();
             for (String script : scriptList) {
                 if (script.length() == 0) continue;
                 boolean alt = false;
@@ -2297,9 +2343,9 @@ public class ConvertLanguageData {
                                     + "> not found in "
                                     + fullScriptList);
                 } else if (alt) {
-                    scriptsAlt.add(script);
+                    scriptsByPopulationSecondary.put(script, 0);
                 } else {
-                    scripts.add(script);
+                    scriptsByPopulation.put(script, 1);
                 }
             }
             // now territories
@@ -2322,20 +2368,20 @@ public class ConvertLanguageData {
             }
             // <language type="de" scripts="Latn" territories="IT" alt="secondary"/>
             // we're going to go ahead and set these all to secondary.
-            if (scripts.size() != 0) {
+            if (scriptsByPopulation.size() != 0) {
                 language2BasicLanguageData.put(
                         languageSubtag,
                         new BasicLanguageData()
-                                .setType(BasicLanguageData.Type.secondary)
-                                .setScripts(scripts)
+                                .setType(BasicLanguageData.Type.primary)
+                                .setScripts(scriptsByPopulation)
                                 .setTerritories(territories));
             }
-            if (scriptsAlt.size() != 0) {
+            if (scriptsByPopulationSecondary.size() != 0) {
                 language2BasicLanguageData.put(
                         languageSubtag,
                         new BasicLanguageData()
                                 .setType(BasicLanguageData.Type.secondary)
-                                .setScripts(scriptsAlt)
+                                .setScripts(scriptsByPopulationSecondary)
                                 .setTerritories(territories));
             }
         }
@@ -2576,17 +2622,17 @@ public class ConvertLanguageData {
     }
 
     private static String getULocaleLocaleName(String languageCode) {
-        return english.getName(languageCode, true);
+        return englishNameGetter.getNameFromIdentifierCompoundOnly(languageCode);
         // return new ULocale(languageCode).getDisplayName();
     }
 
     private static String getULocaleScriptName(String scriptCode) {
-        return english.getName(CLDRFile.SCRIPT_NAME, scriptCode);
+        return englishNameGetter.getNameFromTypeEnumCode(NameType.SCRIPT, scriptCode);
         // return ULocale.getDisplayScript("und_" + scriptCode, ULocale.ENGLISH);
     }
 
     private static String getULocaleCountryName(String countryCode) {
-        return english.getName(CLDRFile.TERRITORY_NAME, countryCode);
+        return englishNameGetter.getNameFromTypeEnumCode(NameType.TERRITORY, countryCode);
         // return ULocale.getDisplayCountry("und_" + countryCode, ULocale.ENGLISH);
     }
 }

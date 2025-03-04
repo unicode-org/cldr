@@ -121,6 +121,10 @@ The LDML specification is divided into the following parts:
     * [Additional Features](#additional-features)
     * [Disallowed Regex Features](#disallowed-regex-features)
     * [Replacement syntax](#replacement-syntax)
+    * [Transform Grammar](#transform-grammar)
+      * [Transform From Grammar](#transform-from-grammar)
+      * [Transform To Grammar](#transform-to-grammar)
+      * [ABNF](#abnf)
   * [Element: reorder](#element-reorder)
     * [Using `<import>` with `<reorder>` elements](#using-import-with-reorder-elements)
     * [Example Post-reorder transforms](#example-post-reorder-transforms)
@@ -655,6 +659,11 @@ For further details about the choice of locale ID, see [Keyboard IDs](#keyboard-
   …
 </keyboard3>
 ```
+
+_Attribute:_ `draft`
+
+If this attribute is present, it indicates the status of all the data in this keyboard layout. See [draft attribute](tr35.md#attribute-draft) for further details.
+
 * * *
 
 ### Element: import
@@ -863,7 +872,8 @@ Element containing informative properties about the layout, for displaying in us
       name="…name"
       author="…author"
       layout="…hint of the layout"
-      indicator="…short identifier" />
+      indicator="…short identifier"
+      attribution="…attribution" />
 ```
 
 > <small>
@@ -892,10 +902,12 @@ _Attribute:_ `name` (required)
 
 * * *
 
-
 _Attribute:_ `author`
 
 > The `author` attribute value contains the name of the author of the layout file.
+> There is no requirement that an implementation display, store, or otherwise process this informative attribute.
+
+* * *
 
 _Attribute:_ `layout`
 
@@ -903,12 +915,29 @@ _Attribute:_ `layout`
 >
 > This attribute is not localized, but is an informative identifier for implementation use.
 
+* * *
+
 _Attribute:_ `indicator`
 
 > The `indicator` attribute describes a short string to be used in currently selected layout indicator, such as `US`, `SI9` etc.
 > Typically, this is shown on a UI element that allows switching keyboard layouts and/or input languages.
 >
 > This attribute is not localized.
+
+* * *
+
+_Attribute:_ `attribution`
+
+> The `attribution` attribute describes a short string which gives some indication of the originating entity of the keyboard design, if different from the author of the layout file.
+> For example, an external standards body or other entity may have originated the layout used in the document.
+> This attribute does not imply endorsement by the named entity.
+>
+> This attribute is not localized.
+> There is no requirement that an implementation display, store, or otherwise process this attribute.
+
+```xml
+<info attribution="Malta Standards Authority"/>
+```
 
 * * *
 
@@ -2186,30 +2215,49 @@ _Attribute:_ `from` (required)
     The hex escaping is case insensitive. The value may not match a surrogate or illegal character, nor a marker character.
     The form `\u{…}` is preferred as it is the same regardless of codepoint length.
 
-- **Fixed character classes and escapes**
+- **Fixed character classes**
 
-    `\s \S \t \r \n \f \v \\ \$ \d \w \D \W \0`
+    `\s \S \t \r \n \f \v \d \w \D \W`
 
     The value of these classes do not change with Unicode versions.
 
     `\s` for example is exactly `[\f\n\r\t\v\u{00a0}\u{1680}\u{2000}-\u{200a}\u{2028}\u{2029}\u{202f}\u{205f}\u{3000}\u{feff}]`
 
-    `\\` and `\$` evaluate to `\` and `$`, respectively.
+- **Escapes**
+
+    `\. \( \) \? \[ \\ \] \{ \} \* \/ \^ \+ \| \$`
+
+    For example, `\\`, `\*`, and `\$` match `\`, `*`, and `$`, respectively.
+
+    Some of these characters (such as `*`) aren't actually used as syntax in the keyboard transform syntax.
+    However, they are required to be escaped in keyboard transforms, to avoid confusion or problems with characters which are syntax in regular expressions.
+
+    Sequences not listed here as **Fixed Character Classes** nor as **Escapes** are disallowed.
+    For example:
+    * `\0` (octal escape) and `\1` (backreference) are not allowed.
+    * `\a` is not defined as a character class and is also disallowed.
 
 - **Character classes**
 
     `[abc]` `[^def]` `[a-z]` `[ॲऄ-आइ-ऋ]` `[\u{093F}-\u{0944}\u{0962}\u{0963}]`
 
-    - supported
-    - no Unicode properties such as `\p{…}`
-    - Warning: Character classes look superficially similar to [`uset`](#element-uset) elements, but they are distinct and referenced with the `$[...usetId]` notation in transforms. The `uset` notation cannot be embedded directly in a transform.
+    If the character class begins with a caret (`^`) then it is a negation, matching all characters except for those listed.
+
+    Unicode properties such as `\p{…}` are not allowed.
+
+    One additional escape is allowed within character classes besides those listed above: `\-`, for escaping the hyphen character.
+
+    **Note**: Character classes look superficially similar to [`uset`](#element-uset) elements, but they are distinct and referenced with the `$[...usetId]` notation in transforms. The `uset` notation cannot be embedded directly in a transform.
 
 - **Bounded quantifier**
 
     `{x,y}`
 
-    `x` and `y` are required single digits representing the minimum and maximum number of occurrences.
-    `x` must be ≥ 0, `y` must be ≥ x and ≥ 1
+    `x` and `y` are required single digits (`0` to `9`) representing the minimum and maximum number of occurrences.
+
+    `x` must be ≥ 0, `y` must be ≥ x and ≥ 1. 
+
+    Unbounded quantifiers such as `{3,}` are not allowed.
 
 - **Optional Specifier**
 
@@ -2411,6 +2459,298 @@ Used in the `to=`
     `\m{Some_marker}`
 
     Emits the named mark. Also see [Markers](#markers).
+
+#### Transform Grammar
+
+##### Transform From Grammar
+
+The `from=` attribute MUST match the `from-match` rule in this grammar. Not all strings which match this grammar are valid, specifically
+
+The following is the [LDML EBNF](tr35.md#ebnf) format for the grammar:
+
+```ebnf
+[ wfc: No more than 9 capture groups may be present. ]
+[ vc: all variables referenced must be defined in the <variables> element ]
+
+from-match
+         ::= '^'? atoms
+atoms    ::= atom ( '|'? atom )*
+atom     ::= quark quantifier?
+quark    ::= non-group
+           | group
+non-group
+         ::= simple-matcher
+           | escaped-codepoints
+           | variable
+variable ::= string-variable
+           | set-variable
+string-variable
+         ::= '${' var-id '}'
+set-variable
+         ::= '$[' var-id ']'
+var-id   ::= IDCHAR+
+group    ::= capturing-group
+           | non-capturing-group
+quantifier
+         ::= bounded-quantifier
+           | '?'
+escaped-codepoints
+         ::= '\' 'u' '{' codepoints-hex '}'
+escaped-codepoint
+         ::= '\' 'u' '{' codepoint-hex '}'
+bounded-quantifier
+         ::= '{' DIGIT ',' DIGIT '}'
+non-capturing-group
+         ::= '(' '?' ':' atoms ')'
+capturing-group
+         ::= '(' catoms ')'
+catoms   ::= catom+
+catom    ::= cquark quantifier?
+cquark   ::= non-group
+codepoints-hex
+         ::= codepoint-hex ( ' ' codepoint-hex )*
+codepoint-hex
+         ::= LHEXDIG ( LHEXDIG ( LHEXDIG ( LHEXDIG ( LHEXDIG LHEXDIG? )? )? )? )?
+simple-matcher
+         ::= text-char
+           | class
+           | '.'
+           | match-marker
+match-marker
+         ::= '\m{.}'
+           | match-named-marker
+match-named-marker
+         ::= '\m{' marker-id '}'
+marker-id
+         ::= NMTOKEN
+class    ::= fixed-class
+           | set-class
+fixed-class
+         ::= '\' fixed-class-char
+fixed-class-char
+         ::= 's'
+           | 'S'
+           | 't'
+           | 'r'
+           | 'n'
+           | 'f'
+           | 'v'
+           | 'd'
+           | 'w'
+           | 'D'
+           | 'W'
+set-class
+         ::= '[' set-negator set-members ']'
+set-members
+         ::= set-member+
+set-member
+         ::= char-range
+           | range-char
+           | match-marker
+           | escaped-codepoint
+char-range
+         ::= range-edge '-' range-edge
+range-edge
+         ::= escaped-codepoint
+           | range-char
+set-negator
+         ::= '^'?
+text-char
+         ::= content-char
+           | ws
+           | escaped-char
+           | '-'
+           | ':'
+range-char
+         ::= content-char
+           | ws
+           | escaped-range-char
+           | '.'
+           | '|'
+           | '{'
+           | '}'
+content-char
+         ::= ASCII-PUNCT
+           | ALPHA
+           | DIGIT
+           | NON-ASCII
+escaped-char
+         ::= '\' escapable-char
+escapable-char
+         ::= '.'
+           | '('
+           | ')'
+           | '?'
+           | '['
+           | '\'
+           | ']'
+           | '{'
+           | '}'
+           | '*'
+           | '/'
+           | '^'
+           | '+'
+           | '|'
+           | '$'
+escaped-range-char
+         ::= '\' escapable-range-char
+escapable-range-char
+         ::= escapable-char
+           | '-'
+ws       ::= [ #x3000]
+           | HTAB
+           | CR
+           | LF
+IDCHAR   ::= ALPHA
+           | DIGIT
+           | '_'
+ASCII-PUNCT
+         ::= [!-#%-',/;->_`#x7E-#x7F]
+NON-ASCII
+         ::= [#x7E-#xD7FF#xE000-#x10FFFF]
+DIGIT    ::= [0-9]
+ALPHA    ::= [A-Za-z]
+HTAB     ::= #xF900
+LF       ::= #xA
+CR       ::= #xD
+HEXDIG   ::= DIGIT
+           | 'A'
+           | 'B'
+           | 'C'
+           | 'D'
+           | 'E'
+           | 'F'
+LHEXDIG  ::= HEXDIG
+           | 'a'
+           | 'b'
+           | 'c'
+           | 'd'
+           | 'e'
+           | 'f'
+NAMESTARTCHAR
+         ::= [:_#xC0-#xD6#xD8-#xF6#xF8-#x2FF#x370-#x37D#x37F-#x1FFF#x200C-#x200D#x2070-#x218F#x2C00-#x2FEF#x3001-#xD7FF#xF900-#xFDCF#xFDF0-#xFFFD#x10000-#x10FFFF]
+           | ALPHA
+NAMECHAR ::= NAMESTARTCHAR
+           | [-.#xB7#x300-#x36F#x203F-#x2040]
+           | DIGIT
+NMTOKEN  ::= NAMECHAR+
+```
+
+##### Transform To Grammar
+
+This is the grammar for the `<transform to="…"/>` attribute.  The `to=` attribute MUST match the `to-replacement` rule in this grammar. Not all strings which match this grammar are valid:
+
+The following is the [LDML EBNF](tr35.md#ebnf) format for the grammar:
+
+```ebnf
+[ vc: A referenced capture group must be present in the from= match string. ]
+[ vc: The `$[1:…]` set format may only be used where there is exactly one capture group with a set variable on the from= match string. ]
+[ vc: all variables referenced must be defined in the <variables> element ]
+
+to-replacement
+         ::= atoms
+atoms    ::= atom*
+atom     ::= replacement-char
+           | escaped-char
+           | group-reference
+           | escaped-codepoints
+           | named-marker
+           | string-variable
+           | mapped-set
+replacement-char
+         ::= content-char
+           | ws
+           | '-'
+           | ':'
+           | '('
+           | ')'
+           | '.'
+           | '*'
+           | '+'
+           | '?'
+           | '['
+           | ']'
+           | '^'
+           | '{'
+           | '}'
+           | '|'
+escaped-char
+         ::= '\' ( '\' | '$' )
+           | '$$'
+group-reference
+         ::= '$' DIGIT
+escaped-codepoints
+         ::= '\' 'u' '{' codepoints-hex '}'
+codepoints-hex
+         ::= codepoint-hex ( ' ' codepoint-hex )*
+codepoint-hex
+         ::= LHEXDIG ( LHEXDIG ( LHEXDIG ( LHEXDIG ( LHEXDIG LHEXDIG? )? )? )? )?
+named-marker
+         ::= '\m{' marker-id '}'
+marker-id
+         ::= NMTOKEN
+string-variable
+         ::= '${' var-id '}'
+var-id   ::= IDCHAR+
+mapped-set
+         ::= '$[1:' var-id ']'
+content-char
+         ::= ASCII-PUNCT
+           | ALPHA
+           | DIGIT
+           | NON-ASCII
+ws       ::= [ #x3000]
+           | HTAB
+           | CR
+           | LF
+IDCHAR   ::= ALPHA
+           | DIGIT
+           | '_'
+ASCII-PUNCT
+         ::= [!-#%-',/;->_`#x7E-#x7F]
+NON-ASCII
+         ::= [#x7E-#xD7FF#xE000-#x10FFFF]
+DIGIT    ::= [0-9]
+ALPHA    ::= [A-Za-z]
+HTAB     ::= #xF900
+LF       ::= #xA
+CR       ::= #xD
+HEXDIG   ::= DIGIT
+           | 'A'
+           | 'B'
+           | 'C'
+           | 'D'
+           | 'E'
+           | 'F'
+LHEXDIG  ::= HEXDIG
+           | 'a'
+           | 'b'
+           | 'c'
+           | 'd'
+           | 'e'
+           | 'f'
+NAMESTARTCHAR
+         ::= [:_#xC0-#xD6#xD8-#xF6#xF8-#x2FF#x370-#x37D#x37F-#x1FFF#x200C-#x200D#x2070-#x218F#x2C00-#x2FEF#x3001-#xD7FF#xF900-#xFDCF#xFDF0-#xFFFD#x10000-#x10FFFF]
+           | ALPHA
+NAMECHAR ::= NAMESTARTCHAR
+           | [-.#xB7#x300-#x36F#x203F-#x2040]
+           | DIGIT
+NMTOKEN  ::= NAMECHAR+
+```
+
+##### ABNF
+
+The grammar for the transform rules is also available in ABNF notation [[STD68](https://www.rfc-editor.org/info/std68)],
+including the modifications found in [RFC 7405](https://www.rfc-editor.org/rfc/rfc7405).
+
+RFC7405 defines a variation of ABNF that is case-sensitive.
+Some ABNF tools are only compatible with the specification found in
+[RFC 5234](https://www.rfc-editor.org/rfc/rfc5234).
+
+The ABNF files are located in the `keyboards/abnf` directory in the CLDR source directory.  (The EBNF above was converted from the ABNF files.)
+
+ * `transform-from-required.abnf`
+ * `transform-to-required.abnf`
 
 * * *
 
@@ -2873,7 +3213,7 @@ The following are the design principles for the IDs.
 
 * * *
 
-© 2024–2024 Unicode, Inc.
+© 2001–2025 Unicode, Inc.
 This publication is protected by copyright, and permission must be obtained from Unicode, Inc.
 prior to any reproduction, modification, or other use not permitted by the [Terms of Use](https://www.unicode.org/copyright.html).
 Specifically, you may make copies of this publication and may annotate and translate it solely for personal or internal business purposes and not for public distribution,

@@ -31,6 +31,7 @@ import org.unicode.cldr.util.Emoji;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleNames;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.StandardCodes;
@@ -176,7 +177,9 @@ public class GenerateDerivedAnnotations {
                         if (main == null) {
                             main = cldrFactory.make(locale, true);
                         }
-                        shortName = main.getName(CLDRFile.CURRENCY_NAME, currencyCode);
+                        shortName =
+                                main.nameGetter()
+                                        .getNameFromTypeEnumCode(NameType.CURRENCY, currencyCode);
                         if (shortName.contentEquals(currencyCode)) {
                             shortName = null; // don't want fallback raw code
                         }
@@ -216,7 +219,7 @@ public class GenerateDerivedAnnotations {
                                 + "\t"
                                 + level
                                 + "\t"
-                                + english.getName(locale)
+                                + english.nameGetter().getNameFromIdentifier(locale)
                                 + "\t"
                                 + failures.size()
                                 + "\t"

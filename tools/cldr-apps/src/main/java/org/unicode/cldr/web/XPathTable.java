@@ -9,7 +9,6 @@
 
 package org.unicode.cldr.web;
 
-import com.ibm.icu.dev.util.ElapsedTimer;
 import com.ibm.icu.impl.Utility;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -23,6 +22,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.logging.Logger;
 import org.unicode.cldr.icu.LDMLConstants;
+import org.unicode.cldr.icu.dev.util.ElapsedTimer;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRConfig.Environment;
 import org.unicode.cldr.util.LDMLUtilities;

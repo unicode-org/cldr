@@ -10,8 +10,8 @@ import java.util.Set;
 import java.util.TreeSet;
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.Validity.Status;
@@ -34,13 +34,17 @@ public class CheckLanguageNameCoverage {
                                 "ku", "la", "lb", "mg", "mt", "mi", "sm", "gd", "st", "sn", "so",
                                 "su", "tg", "xh", "yi", "yo"));
         for (String langCode : targets) {
-            String path = CLDRFile.getKey(CLDRFile.LANGUAGE_NAME, langCode);
+            String path = NameType.LANGUAGE.getKeyPath(langCode);
             Level level = coverages.getLevel(path);
             System.out.println(
-                    langCode + "\t" + level + "\t" + config.getEnglish().getName(langCode));
+                    langCode
+                            + "\t"
+                            + level
+                            + "\t"
+                            + config.getEnglish().nameGetter().getNameFromIdentifier(langCode));
         }
         for (String langCode : map.keySet()) {
-            String path = CLDRFile.getKey(CLDRFile.LANGUAGE_NAME, langCode);
+            String path = NameType.LANGUAGE.getKeyPath(langCode);
             Level level = coverages.getLevel(path);
             if (level == null) continue;
             levelToLangs.put(level, langCode);

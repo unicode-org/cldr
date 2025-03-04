@@ -64,6 +64,8 @@ dogit() {
         git checkout -f ${GITHUB_SHA}
         echo "HEAD is now at" $(git rev-parse --short HEAD) "!"
      fi
+     echo "Git GC, this might take a sec"
+     git gc --auto --prune
 }
 
 # Check git first, before undeploying. Want to exit early

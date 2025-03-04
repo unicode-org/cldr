@@ -128,7 +128,12 @@ public class TestUtilities {
             "zh_Hans_US_SAAHO"
         };
         for (String test : tests) {
-            System.out.println(test + "\t" + english.getName(test) + "\t" + french.getName(test));
+            System.out.println(
+                    test
+                            + "\t"
+                            + english.nameGetter().getNameFromIdentifier(test)
+                            + "\t"
+                            + french.nameGetter().getNameFromIdentifier(test));
         }
     }
 
@@ -1010,24 +1015,32 @@ public class TestUtilities {
         Factory mainCldrFactory =
                 Factory.make(CLDRPaths.COMMON_DIRECTORY + "main" + File.separator, ".*");
         CLDRFile english = mainCldrFactory.make("en", true);
+        NameGetter englishNameGetter = english.nameGetter();
         PrintWriter out =
                 FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "country_language_names.txt");
         StandardCodes sc = StandardCodes.make();
         for (Iterator<String> it = sc.getGoodAvailableCodes("language").iterator();
                 it.hasNext(); ) {
             String code = it.next();
-            out.println(code + "\t" + english.getName(CLDRFile.LANGUAGE_NAME, code));
+            out.println(
+                    code
+                            + "\t"
+                            + englishNameGetter.getNameFromTypeEnumCode(NameType.LANGUAGE, code));
         }
         out.println("****");
         for (Iterator<String> it = sc.getGoodAvailableCodes("territory").iterator();
                 it.hasNext(); ) {
             String code = it.next();
-            out.println(code + "\t" + english.getName(CLDRFile.TERRITORY_NAME, code));
+            out.println(
+                    code
+                            + "\t"
+                            + englishNameGetter.getNameFromTypeEnumCode(NameType.TERRITORY, code));
         }
         out.println("****");
         for (Iterator<String> it = sc.getGoodAvailableCodes("script").iterator(); it.hasNext(); ) {
             String code = it.next();
-            out.println(code + "\t" + english.getName(CLDRFile.SCRIPT_NAME, code));
+            out.println(
+                    code + "\t" + englishNameGetter.getNameFromTypeEnumCode(NameType.SCRIPT, code));
         }
         out.close();
     }

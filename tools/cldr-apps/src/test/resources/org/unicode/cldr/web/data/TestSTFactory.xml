@@ -236,4 +236,8 @@
 	<!-- 8 votes is not enough to change an already-approved item, so the original value (comma) should still be approved -->
 	<verify status="approved" locale="fr" xpath="//ldml/numbers/symbols[@numberSystem='latn']/decimal">,</verify>
 
+	<vote name="A" locale="mul" xpath="//ldml/dates/timeZoneNames/metazone[@type='Alaska']/long/generic">aksalA</vote>
+	<vote name="B" locale="mul" xpath="//ldml/dates/timeZoneNames/metazone[@type='Alaska']/long/generic">aksalA</vote>
+	<vote name="C" locale="mul" xpath="//ldml/dates/timeZoneNames/metazone[@type='Alaska']/long/generic">aksalA</vote>
+	<verify status="approved" locale="mul" xpath="//ldml/dates/timeZoneNames/metazone[@type='Alaska']/long/generic" >aksalA</verify>
 </TestSTFactory>

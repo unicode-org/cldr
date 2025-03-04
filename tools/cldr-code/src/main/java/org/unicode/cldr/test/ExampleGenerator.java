@@ -68,6 +68,8 @@ import org.unicode.cldr.util.GrammarInfo.GrammaticalTarget;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.NameGetter;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.PathDescription;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.PluralSamples;
@@ -752,11 +754,12 @@ public class ExampleGenerator {
             final CLDRFile cldrFile2 = getCldrFile();
             switch (parts.getElement(2)) {
                 case "nameOrderLocales":
+                    NameGetter nameGetter2 = cldrFile2.nameGetter();
                     for (String localeId : PersonNameFormatter.SPLIT_SPACE.split(value)) {
                         final String name =
                                 localeId.equals("und")
                                         ? "«any other»"
-                                        : cldrFile2.getName(localeId);
+                                        : nameGetter2.getNameFromIdentifier(localeId);
                         examples.add(localeId + " = " + name);
                     }
                     break;
@@ -901,7 +904,7 @@ public class ExampleGenerator {
         if ("category-list".equals(parts.getAttributeValue(-1, "type"))) {
             CLDRFile cfile = getCldrFile();
             SimpleFormatter initialPattern = SimpleFormatter.compile(setBackground(value));
-            String path = CLDRFile.getKey(CLDRFile.TERRITORY_NAME, "FR");
+            String path = NameType.TERRITORY.getKeyPath("FR");
             String regionName = cfile.getStringValue(path);
             String flagName =
                     cfile.getStringValue("//ldml/characterLabels/characterLabel[@type=\"flag\"]");
@@ -955,7 +958,7 @@ public class ExampleGenerator {
             CLDRFile cfile,
             SimpleFormatter initialPattern,
             List<String> examples) {
-        String path = CLDRFile.getKey(CLDRFile.TERRITORY_NAME, isoRegionCode);
+        String path = NameType.TERRITORY.getKeyPath(isoRegionCode);
         String regionName = cfile.getStringValue(path);
         examples.add(
                 invertBackground(
@@ -2408,12 +2411,20 @@ public class ExampleGenerator {
                     return; // fail, skip
                 }
             } else {
-                result = setBackground(cldrFile.getName(CLDRFile.TERRITORY_NAME, countryCode));
+                result =
+                        setBackground(
+                                cldrFile.nameGetter()
+                                        .getNameFromTypeEnumCode(NameType.TERRITORY, countryCode));
             }
         } else if (parts.contains("zone")) { // {0} Time
             result = value; // trivial -- is this beneficial?
         } else if (parts.contains("regionFormat")) { // {0} Time
-            result = format(value, setBackground(cldrFile.getName(CLDRFile.TERRITORY_NAME, "JP")));
+            result =
+                    format(
+                            value,
+                            setBackground(
+                                    cldrFile.nameGetter()
+                                            .getNameFromTypeEnumCode(NameType.TERRITORY, "JP")));
             result =
                     addExampleResult(
                             format(
@@ -3101,12 +3112,13 @@ public class ExampleGenerator {
                     element.equals("localeKeyTypePattern") ? "uz-Arab-u-tz-etadd" : "uz-Arab-AF");
             locales.add("uz-Arab-AF-u-tz-etadd-nu-arab");
             // String[] examples = new String[locales.size()];
+            NameGetter nameGetter = cldrFile.nameGetter();
             for (int i = 0; i < locales.size(); i++) {
                 examples.add(
                         invertBackground(
-                                cldrFile.getName(
+                                nameGetter.getNameFromIdentifierEtc(
                                         locales.get(i),
-                                        false,
+                                        NameGetter.NameOpt.DEFAULT,
                                         localeKeyTypePattern,
                                         localePattern,
                                         localeSeparator)));
@@ -3155,11 +3167,11 @@ public class ExampleGenerator {
                     if (languageName == null) {
                         languageName =
                                 cldrFile.getStringValueWithBailey(
-                                        CLDRFile.getKey(CLDRFile.LANGUAGE_NAME, ltp.getLanguage()));
+                                        NameType.LANGUAGE.getKeyPath(ltp.getLanguage()));
                         if (languageName == null) {
                             languageName =
                                     cldrFile.getStringValueWithBailey(
-                                            CLDRFile.getKey(CLDRFile.LANGUAGE_NAME, "en"));
+                                            NameType.LANGUAGE.getKeyPath("en"));
                         }
                         if (languageName == null) {
                             languageName = ltp.getLanguage();
@@ -3168,11 +3180,11 @@ public class ExampleGenerator {
                     if (scriptName == null) {
                         scriptName =
                                 cldrFile.getStringValueWithBailey(
-                                        CLDRFile.getKey(CLDRFile.SCRIPT_NAME, ltp.getScript()));
+                                        NameType.SCRIPT.getKeyPath(ltp.getScript()));
                         if (scriptName == null) {
                             scriptName =
                                     cldrFile.getStringValueWithBailey(
-                                            CLDRFile.getKey(CLDRFile.SCRIPT_NAME, "Latn"));
+                                            NameType.SCRIPT.getKeyPath("Latn"));
                         }
                         if (scriptName == null) {
                             scriptName = ltp.getScript();
@@ -3181,11 +3193,11 @@ public class ExampleGenerator {
                     if (territoryName == null) {
                         territoryName =
                                 cldrFile.getStringValueWithBailey(
-                                        CLDRFile.getKey(CLDRFile.TERRITORY_NAME, ltp.getRegion()));
+                                        NameType.TERRITORY.getKeyPath(ltp.getRegion()));
                         if (territoryName == null) {
                             territoryName =
                                     cldrFile.getStringValueWithBailey(
-                                            CLDRFile.getKey(CLDRFile.TERRITORY_NAME, "US"));
+                                            NameType.TERRITORY.getKeyPath("US"));
                         }
                         if (territoryName == null) {
                             territoryName = ltp.getRegion();

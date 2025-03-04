@@ -330,14 +330,11 @@ public class VoteResolver<T> {
                             PERMANENT_VOTES);
         }
 
-        // The following methods were moved here from UserRegistry
-        // TODO: remove this todo notice
-
         public boolean isAdmin() {
             return stlevel <= admin.stlevel;
         }
 
-        public boolean isTC() {
+        public boolean isTCOrStronger() {
             return stlevel <= tc.stlevel;
         }
 
@@ -349,11 +346,11 @@ public class VoteResolver<T> {
             return stlevel <= manager.stlevel;
         }
 
-        public boolean isVetter() {
+        public boolean isVetterOrStronger() {
             return stlevel <= vetter.stlevel;
         }
 
-        public boolean isGuest() {
+        public boolean isGuestOrStronger() {
             return stlevel <= guest.stlevel;
         }
 
@@ -372,11 +369,11 @@ public class VoteResolver<T> {
          * @param myOrg
          */
         public boolean isAdminForOrg(Organization myOrg, Organization target) {
-            return isAdmin() || ((isTC() || stlevel == manager.stlevel) && (myOrg == target));
+            return isAdmin() || (isManagerOrStronger() && (myOrg == target));
         }
 
         public boolean canImportOldVotes(CheckCLDR.Phase inPhase) {
-            return isVetter() && (inPhase == Phase.SUBMISSION);
+            return isVetterOrStronger() && (inPhase == Phase.SUBMISSION);
         }
 
         public boolean canListUsers() {
@@ -384,15 +381,15 @@ public class VoteResolver<T> {
         }
 
         public boolean canCreateUsers() {
-            return isTC() || isExactlyManager();
+            return isManagerOrStronger();
         }
 
         public boolean canEmailUsers() {
-            return isTC() || isExactlyManager();
+            return isManagerOrStronger();
         }
 
         public boolean canModifyUsers() {
-            return isTC() || isExactlyManager();
+            return isManagerOrStronger();
         }
 
         public boolean canCreateOtherOrgs() {
@@ -410,7 +407,7 @@ public class VoteResolver<T> {
                 // false here.
                 // This is probably desired!
             }
-            return isGuest();
+            return isGuestOrStronger();
         }
 
         public boolean canCreateSummarySnapshot() {
@@ -418,7 +415,7 @@ public class VoteResolver<T> {
         }
 
         public boolean canMonitorForum() {
-            return isTC() || isExactlyManager();
+            return isManagerOrStronger();
         }
 
         public boolean canSetInterestLocales() {
@@ -604,7 +601,7 @@ public class VoteResolver<T> {
         private final Map<Organization, T> orgToAdd = new EnumMap<>(Organization.class);
 
         private T baileyValue;
-        private boolean baileySet; // was the bailey value set
+        private boolean baileySet; // was the bailey value set (possibly to null)
 
         OrganizationToValueAndVote() {
             for (Organization org : Organization.values()) {
@@ -1011,16 +1008,15 @@ public class VoteResolver<T> {
      * Get the bailey value (what the inherited value would be if there were no explicit value) for
      * this VoteResolver.
      *
-     * <p>Throw an exception if !baileySet.
+     * <p>Throw an exception if !baileySet, in order to detect programming errors where
+     * getBaileyValue might be called before setBaileyValue.
      *
-     * @return the bailey value.
-     *     <p>Called by STFactory.PerLocaleData.getResolverInternal in the special circumstance
-     *     where getWinningValue has returned INHERITANCE_MARKER.
+     * @return the bailey value (which may be null).
      */
-    public T getBaileyValue() {
+    private T getBaileyValue() {
         if (!organizationToValueAndVote.baileySet) {
             throw new IllegalArgumentException(
-                    "setBaileyValue must be called before getBaileyValue");
+                    "setBaileyValue must be called before getBaileyValue (even if the value is null)");
         }
         return organizationToValueAndVote.baileyValue;
     }
@@ -1029,8 +1025,11 @@ public class VoteResolver<T> {
      * Set the Bailey value (what the inherited value would be if there were no explicit value).
      * This value is used in handling any CldrUtility.INHERITANCE_MARKER. This value must be set
      * <i>before</i> adding values. Usually by calling CLDRFile.getBaileyValue().
+     *
+     * @param baileyValue the value to be set, or null
      */
     public void setBaileyValue(T baileyValue) {
+        // baileySet gets true here, even if baileyValue is null
         organizationToValueAndVote.baileySet = true;
         organizationToValueAndVote.baileyValue = baileyValue;
     }
@@ -1208,7 +1207,7 @@ public class VoteResolver<T> {
 
         /*
          * If there are no (unconflicted) votes, return baseline (trunk) if not null,
-         * else INHERITANCE_MARKER if baileySet, else NO_WINNING_VALUE.
+         * else INHERITANCE_MARKER if baileyValue isn't null, else NO_WINNING_VALUE.
          * Avoid setting winningValue to null. VoteResolver should be fully in charge of vote resolution.
          */
         if (sortedValues.size() == 0) {
@@ -1219,7 +1218,7 @@ public class VoteResolver<T> {
                         "Winning Value: '%s' with status '%s' because there were no unconflicted votes.",
                         winningValue, winningStatus);
                 // Declare the winner here, because we're about to return from the function
-            } else if (organizationToValueAndVote.baileySet) {
+            } else if (getBaileyValue() != null) {
                 setWinningValue((T) CldrUtility.INHERITANCE_MARKER);
                 winningStatus = Status.missing;
                 annotateTranscript(
@@ -1343,11 +1342,10 @@ public class VoteResolver<T> {
      */
     private boolean combineInheritanceWithBaileyForVoting(
             Set<T> sortedValues, HashMap<T, Long> voteCount) {
-        if (organizationToValueAndVote.baileySet == false
-                || organizationToValueAndVote.baileyValue == null) {
+        T hardValue = getBaileyValue();
+        if (hardValue == null) {
             return false;
         }
-        T hardValue = organizationToValueAndVote.baileyValue;
         T softValue = (T) CldrUtility.INHERITANCE_MARKER;
         /*
          * Check containsKey before get, to avoid NullPointerException.
@@ -1875,8 +1873,8 @@ public class VoteResolver<T> {
     public String toString() {
         return "{"
                 + "bailey: "
-                + (organizationToValueAndVote.baileySet
-                        ? ("“" + organizationToValueAndVote.baileyValue + "” ")
+                + (organizationToValueAndVote.baileyValue != null
+                        ? ("“" + getBaileyValue() + "” ")
                         : "none ")
                 + "baseline: {"
                 + baselineValue
@@ -2159,9 +2157,9 @@ public class VoteResolver<T> {
         return orgVote == null
                 || orgVote.equals(value)
                 || (CldrUtility.INHERITANCE_MARKER.equals(value)
-                        && orgVote.equals(organizationToValueAndVote.baileyValue))
+                        && orgVote.equals(getBaileyValue()))
                 || (CldrUtility.INHERITANCE_MARKER.equals(orgVote)
-                        && value.equals(organizationToValueAndVote.baileyValue));
+                        && value.equals(getBaileyValue()));
     }
 
     /**

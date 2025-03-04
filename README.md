@@ -10,13 +10,13 @@ For current CLDR release information, see [cldr.unicode.org](https://cldr.unicod
 
 ## Status
 
-Update: 2024-10-25
+Update: 2025-02-25
 
 <!-- [inapplicable lines are commented out.]-->
-**Note:**  CLDR 47 is in development and not recommended for use at this stage.
+<!--**Note:**  CLDR 47 is in development and not recommended for use at this stage.-->
 <!--**Note:**  This is the milestone 1 version of CLDR 47, intended for those wishing to do pre-release testing. It is not recommended for production use.-->
 <!--**Note:** This is a preliminary version of CLDR 47, intended for those wishing to do pre-release testing. It is not recommended for production use.-->
-<!-- **Note:**  This is a pre-release candidate version of CLDR 47, intended for testing. It is not recommended for production use. -->
+**Note:**  This is a pre-release candidate version of CLDR 47, intended for testing. It is not recommended for production use.
 <!--This is the final release version of CLDR 47.-->
 
 ### What is CLDR?
@@ -45,7 +45,7 @@ A source formatter is now used, please see [spotless](./tools/README.md#spotless
 
 ### Copyright & Licenses
 
-Copyright © 2004-2024 Unicode, Inc. Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the United States and other countries.
+Copyright © 2004-2025 Unicode, Inc. Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the United States and other countries.
 
 A CLA is required to contribute to this project - please refer to the [CONTRIBUTING.md](./CONTRIBUTING.md) file (or start a Pull Request) for more information.
 

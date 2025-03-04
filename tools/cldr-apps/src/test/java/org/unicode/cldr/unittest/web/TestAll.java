@@ -5,12 +5,12 @@ package org.unicode.cldr.unittest.web;
 
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
-import com.ibm.icu.dev.test.TestFmwk.TestGroup;
-import com.ibm.icu.dev.test.TestLog;
 import java.io.File;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.logging.Logger;
+import org.unicode.cldr.icu.dev.test.TestFmwk.TestGroup;
+import org.unicode.cldr.icu.dev.test.TestLog;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRConfig.Environment;

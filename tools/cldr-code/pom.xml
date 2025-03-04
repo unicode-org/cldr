@@ -70,16 +70,9 @@
 				<directory>src/main/resources</directory>
 			</resource>
 			<resource>
-		       <directory>${project.basedir}/../..</directory>
-			   <!-- This is put here so that it can be read by CldrUtility, even outside of a jar -->
-		       <targetPath>${project.build.directory}/classes/org/unicode/cldr/util/data</targetPath>
-				<includes>
-					<include>LICENSE</include>
-				</includes>
-			</resource>
-			<resource>
-		       <directory>${project.basedir}/../..</directory>
-			   <!-- This is put here so that it shows up in the final .jar in an expected spot -->
+			   <!-- Note: the copy of the LICENSE file needs to be kept in sync with the one at the root of the repo. -->
+		       <directory>src/main/resources/org/unicode/cldr/util/data/</directory>
+			   <!-- This copies LICENSE here so that it shows up in the final .jar in an expected spot -->
 			   <!-- Note: icu4j keeps its license file at the root, /LICENSE. We won't conflict. -->
 		       <targetPath>META-INF</targetPath>
 				<includes>

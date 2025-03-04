@@ -8,10 +8,10 @@
  */
 package org.unicode.cldr.icu;
 
-import com.ibm.icu.dev.util.UOption;
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import org.unicode.cldr.icu.dev.util.UOption;
 import org.unicode.cldr.util.LDMLUtilities;
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;

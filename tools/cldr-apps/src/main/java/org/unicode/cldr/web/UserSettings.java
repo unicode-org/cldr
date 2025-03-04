@@ -3,6 +3,7 @@
 package org.unicode.cldr.web;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 public abstract class UserSettings implements Comparable<UserSettings> {
     /**
@@ -92,7 +93,7 @@ public abstract class UserSettings implements Comparable<UserSettings> {
     }
 
     public void setJson(String name, Object o) {
-        final Gson gson = new Gson();
+        final Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").create();
         set(name, gson.toJson(o));
     }
 

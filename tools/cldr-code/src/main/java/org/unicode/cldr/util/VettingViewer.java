@@ -480,37 +480,45 @@ public class VettingViewer<T> {
                     (baselineFileUnresolved == null)
                             ? null
                             : baselineFileUnresolved.getWinningValue(path);
-            if (skipForLimitedSubmission(path, errorStatus, oldValue)) {
-                return;
+            final boolean skip = skipForLimitedSubmission(path, errorStatus, oldValue);
+            if (!skip) {
+                if (!onlyRecordErrors
+                        && choices.contains(NotificationCategory.changedOldValue)
+                        && changedFromBaseline(path, value, oldValue, sourceFile)) {
+                    problems.add(NotificationCategory.changedOldValue);
+                    vc.problemCounter.increment(NotificationCategory.changedOldValue);
+                }
+                if (!onlyRecordErrors
+                        && choices.contains(NotificationCategory.inheritedChanged)
+                        && inheritedChangedFromBaseline(path, value, sourceFile)) {
+                    problems.add(NotificationCategory.inheritedChanged);
+                    vc.problemCounter.increment(NotificationCategory.inheritedChanged);
+                }
+                VoteResolver.VoteStatus voteStatus =
+                        userVoteStatus.getStatusForUsersOrganization(
+                                sourceFile, path, organization);
+                boolean itemsOkIfVoted = (voteStatus == VoteResolver.VoteStatus.ok);
+                MissingStatus missingStatus =
+                        onlyRecordErrors
+                                ? null
+                                : recordMissingChangedEtc(path, itemsOkIfVoted, value, oldValue);
+                recordChoice(errorStatus, itemsOkIfVoted, onlyRecordErrors);
+                if (!onlyRecordErrors) {
+                    recordLosingDisputedEtc(path, voteStatus, missingStatus);
+                }
             }
-            if (!onlyRecordErrors
-                    && choices.contains(NotificationCategory.changedOldValue)
-                    && changedFromBaseline(path, value, oldValue, sourceFile)) {
-                problems.add(NotificationCategory.changedOldValue);
-                vc.problemCounter.increment(NotificationCategory.changedOldValue);
-            }
-            if (!onlyRecordErrors
-                    && choices.contains(NotificationCategory.inheritedChanged)
-                    && inheritedChangedFromBaseline(path, value, sourceFile)) {
-                problems.add(NotificationCategory.inheritedChanged);
-                vc.problemCounter.increment(NotificationCategory.inheritedChanged);
-            }
-            VoteResolver.VoteStatus voteStatus =
-                    userVoteStatus.getStatusForUsersOrganization(sourceFile, path, organization);
-            boolean itemsOkIfVoted = (voteStatus == VoteResolver.VoteStatus.ok);
-            MissingStatus missingStatus =
-                    onlyRecordErrors
-                            ? null
-                            : recordMissingChangedEtc(path, itemsOkIfVoted, value, oldValue);
-            recordChoice(errorStatus, itemsOkIfVoted, onlyRecordErrors);
-            if (!onlyRecordErrors) {
-                recordLosingDisputedEtc(path, voteStatus, missingStatus);
+            // add the catch-all value
+            if (!pathLevelIsTooHigh
+                    && problems.isEmpty()
+                    && choices.contains(NotificationCategory.other)) {
+                problems.add(NotificationCategory.other);
             }
             if (pathLevelIsTooHigh && problems.isEmpty()) {
                 return;
             }
-            updateVotedOrAbstained(path);
-
+            if (!skip) {
+                updateVotedOrAbstained(path);
+            }
             if (!problems.isEmpty() && sorted != null) {
                 reasonsToPaths.clear();
                 R2<SectionId, PageId> group = Row.of(ph.getSectionId(), ph.getPageId());
@@ -1335,7 +1343,10 @@ public class VettingViewer<T> {
     private String getName(String localeID) {
         Set<String> contents = supplementalDataInfo.getEquivalentsForLocale(localeID);
         // put in special character that can be split on later
-        return englishFile.getName(localeID, true, CLDRFile.SHORT_ALTS)
+        return englishFile
+                        .nameGetter()
+                        .getNameFromIdentifierOptAlt(
+                                localeID, NameGetter.NameOpt.COMPOUND_ONLY, CLDRFile.SHORT_ALTS)
                 + SPLIT_CHAR
                 + gatherCodes(contents);
     }
@@ -1417,6 +1428,12 @@ public class VettingViewer<T> {
          */
         ALIASED,
 
+        /**
+         * The value is not from a different path -- but it is from a different locale
+         * specification, eg. from `fr` instead of `ht`.
+         */
+        FROM_RELATED_LANGUAGE,
+
         /** See ABSENT */
         MISSING_OK,
 
@@ -1456,6 +1473,11 @@ public class VettingViewer<T> {
                         path, status, false); // does not skip inheritance marker
 
         boolean isAliased = !path.equals(status.pathWhereFound);
+
+        boolean isSourceLocaleDifferent =
+                !sourceLocale.equals(sourceLocaleID)
+                        && !sourceLocale.equals(
+                                "no") /* Norwegian has multiple ISO codes even though its practically the same locale */;
         if (DEBUG) {
             if (path.equals("//ldml/characterLabels/characterLabelPattern[@type=\"subscript\"]")) {
                 int debug = 0;
@@ -1497,7 +1519,11 @@ public class VettingViewer<T> {
                                 ? MissingStatus.ROOT_OK
                                 : isParentRoot ? MissingStatus.ABSENT : MissingStatus.ALIASED;
             } else if (!isAliased) {
-                result = MissingStatus.PRESENT;
+                if (isSourceLocaleDifferent) {
+                    result = MissingStatus.FROM_RELATED_LANGUAGE;
+                } else {
+                    result = MissingStatus.PRESENT;
+                }
             } else if (isParentRoot) { // We handle ALIASED specially, depending on whether the
                 // parent is root or not.
                 result =
@@ -1667,6 +1693,7 @@ public class VettingViewer<T> {
 
             switch (missingStatus) {
                 case ABSENT:
+                case FROM_RELATED_LANGUAGE:
                     missingCounter.add(level, 1);
                     if (missingPaths != null) {
                         missingPaths.put(missingStatus, path);
@@ -1702,9 +1729,9 @@ public class VettingViewer<T> {
 
     public static EnumSet<NotificationCategory> getDashboardNotificationCategories(
             Organization usersOrg) {
-        EnumSet<NotificationCategory> choiceSet = EnumSet.allOf(NotificationCategory.class);
+        EnumSet<NotificationCategory> choices = EnumSet.allOf(NotificationCategory.class);
         if (orgIsNeutralForSummary(usersOrg)) {
-            choiceSet =
+            choices =
                     EnumSet.of(
                             NotificationCategory.error,
                             NotificationCategory.warning,
@@ -1713,14 +1740,16 @@ public class VettingViewer<T> {
                             NotificationCategory.missingCoverage);
             // skip weLost, englishChanged, changedOldValue, abstained
         }
-        return choiceSet;
+        choices.remove(NotificationCategory.other); // expect this one to be added explicitly
+        return choices;
     }
 
     public static EnumSet<NotificationCategory> getPriorityItemsSummaryCategories(
             Organization org) {
-        EnumSet<NotificationCategory> set = getDashboardNotificationCategories(org);
-        set.remove(NotificationCategory.abstained);
-        return set;
+        EnumSet<NotificationCategory> choices = getDashboardNotificationCategories(org);
+        choices.remove(NotificationCategory.abstained);
+        choices.remove(NotificationCategory.other); // expect this one to be added explicitly
+        return choices;
     }
 
     public static EnumSet<NotificationCategory> getLocaleCompletionCategories() {

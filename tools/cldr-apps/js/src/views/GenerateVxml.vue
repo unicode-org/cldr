@@ -84,7 +84,9 @@ defineExpose({
 </script>
 
 <template>
-  <div v-if="!hasPermission">Please log in as Admin to use this feature.</div>
+  <div v-if="!hasPermission">
+    Please log in as a user with sufficient permissions.
+  </div>
   <div v-else>
     <p v-if="status != STATUS.INIT">Generation Status: {{ status }}</p>
     <p class="buttons">

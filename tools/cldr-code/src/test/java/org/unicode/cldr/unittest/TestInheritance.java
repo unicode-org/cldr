@@ -2,7 +2,6 @@ package org.unicode.cldr.unittest;
 
 import com.google.common.base.Joiner;
 import com.google.common.collect.Sets;
-import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row.R2;
 import java.io.IOException;
@@ -21,6 +20,7 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRConfig;
@@ -32,6 +32,7 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Iso3166Data;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -167,7 +168,12 @@ public class TestInheritance extends TestFmwk {
                 if (!testOrg.contains(language)) {
                     continue;
                 }
-                System.out.print(language + "\t" + testInfo.getEnglish().getName(language));
+                System.out.print(
+                        language
+                                + "\t"
+                                + testInfo.getEnglish()
+                                        .nameGetter()
+                                        .getNameFromIdentifier(language));
 
                 M3<OfficialStatus, String, Boolean> officialChildren =
                         languageToOfficialChildren.get(language);
@@ -194,14 +200,20 @@ public class TestInheritance extends TestFmwk {
             LanguageTagParser ltp = new LanguageTagParser().set(s);
             String script = ltp.getScript();
             if (script.length() != 0) {
-                b.append(testInfo.getEnglish().getName(CLDRFile.SCRIPT_NAME, script));
+                b.append(
+                        testInfo.getEnglish()
+                                .nameGetter()
+                                .getNameFromTypeEnumCode(NameType.SCRIPT, script));
             }
             String region = ltp.getRegion();
             if (region.length() != 0) {
                 if (script.length() != 0) {
                     b.append("-");
                 }
-                b.append(testInfo.getEnglish().getName(CLDRFile.TERRITORY_NAME, region));
+                b.append(
+                        testInfo.getEnglish()
+                                .nameGetter()
+                                .getNameFromTypeEnumCode(NameType.TERRITORY, region));
             }
             b.append(" [").append(s);
             if (showStatus) {
@@ -820,7 +832,7 @@ public class TestInheritance extends TestFmwk {
                                 + ","
                                 + " but "
                                 + language
-                                + " is missing in language_script.txt");
+                                + " is missing in language_script.tsv");
                 continue;
             }
             for (BasicLanguageData entry : data.values()) {
@@ -839,7 +851,7 @@ public class TestInheritance extends TestFmwk {
                             + language
                             + " doesn't have "
                             + script
-                            + " in language_script.txt");
+                            + " in language_script.tsv");
         }
     }
 

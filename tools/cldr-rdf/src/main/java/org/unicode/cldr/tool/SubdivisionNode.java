@@ -35,6 +35,8 @@ import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.ChainedMap.M3;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.NameGetter;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.StandardCodes;
@@ -63,6 +65,7 @@ public class SubdivisionNode {
             CaseMap.toTitle().wholeString().noLowercase();
     static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
     static final CLDRFile ENGLISH_CLDR = CLDR_CONFIG.getEnglish();
+    static final NameGetter englishNameGetter = ENGLISH_CLDR.nameGetter();
     static final Normalizer2 nfc = Normalizer2.getNFCInstance();
 
     public static String convertToCldr(String regionOrSubdivision) {
@@ -263,7 +266,7 @@ public class SubdivisionNode {
                     SubdivisionInfo.SUBDIVISION_ALIASES_FORMER.get(value);
             if (subdivisionAlias != null) {
                 String country = subdivisionAlias.get0().get(0);
-                cldrName = ENGLISH_CLDR.getName(CLDRFile.TERRITORY_NAME, country);
+                cldrName = englishNameGetter.getNameFromTypeEnumCode(NameType.TERRITORY, country);
                 if (cldrName != null) {
                     return fixName(cldrName);
                 }
@@ -612,7 +615,7 @@ public class SubdivisionNode {
                     result.append(", ");
                 }
                 if (SubdivisionNames.isRegionCode(s)) {
-                    result.append(ENGLISH_CLDR.getName(CLDRFile.TERRITORY_NAME, s));
+                    result.append(englishNameGetter.getNameFromTypeEnumCode(NameType.TERRITORY, s));
                 } else {
                     result.append(sdset.getBestName(s, useIso));
                 }

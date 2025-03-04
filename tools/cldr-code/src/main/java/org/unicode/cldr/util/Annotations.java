@@ -54,6 +54,8 @@ public class Annotations {
     private final Set<String> annotations;
     private final String tts;
 
+    static final Splitter SPLIT_SPACE_OMIT = Splitter.on(" ").omitEmptyStrings();
+
     static {
         ANNOTATIONS_FACTORY = CLDRConfig.getInstance().getAnnotationsFactory();
         ALL_LOCALES = ANNOTATIONS_FACTORY.getAvailable();
@@ -245,6 +247,9 @@ public class Annotations {
                 new SubdivisionNames("en", "main");
 
         private static final String BLACK_RIGHTWARDS_ARROW = "\u27A1";
+
+        private static final String JOINER_RIGHTWARDS =
+                EmojiConstants.JOINER_STRING + BLACK_RIGHTWARDS_ARROW;
         private static final String BLACK_LEFTWARDS_ARROW = "\u2B05";
         // CLDRConfig.getInstance().getAnnotationsFactory().make("en", false);
 
@@ -400,12 +405,14 @@ public class Annotations {
             return baseData.keySet();
         }
 
-        private Annotations synthesize(String code, Transform<String, String> otherSource) {
+        /** Public only for testing */
+        public Annotations synthesize(String code, Transform<String, String> otherSource) {
             if (code.equals("👱🏻‍♂")) {
                 int debug = 0;
             }
             String shortName = null;
             int len = code.codePointCount(0, code.length());
+            code = code.replace(EmojiConstants.EMOJI_VARIANT_STRING, "");
             boolean isKeycap10 = code.equals("🔟");
             if (len == 1 && !isKeycap10) {
                 String tempName = null;
@@ -427,7 +434,7 @@ public class Annotations {
                 }
             } else if (EmojiConstants.REGIONAL_INDICATORS.containsAll(code)) {
                 String countryCode = EmojiConstants.getFlagCode(code);
-                String path = CLDRFile.getKey(CLDRFile.TERRITORY_NAME, countryCode);
+                String path = NameType.TERRITORY.getKeyPath(countryCode);
                 String regionName = getStringValue(path);
                 if (regionName == null) {
                     regionName = ENGLISH_MARKER + ENGLISH.getStringValueWithBailey(path);
@@ -470,38 +477,11 @@ public class Annotations {
                 }
             }
             if (code.contains(EmojiConstants.JOINER_STRING)) {
-                if (code.contains(BLACK_RIGHTWARDS_ARROW)) {
-                    String code2 =
-                            code.replace(EmojiConstants.JOINER_STRING + BLACK_RIGHTWARDS_ARROW, "");
-                    if (!Objects.equal(code2, code)) {
-                        Set<String> keywords = getKeywords(code2);
-                        String baseName = getShortName(code2);
-                        if (baseName == null
-                                || keywords == null
-                                || rightwardsArrowPattern == null) {
-                            return null;
-                        }
-                        shortName = rightwardsArrowPattern.format(baseName);
-                        return new Annotations(keywords, shortName);
-                    }
-                } else if (code.contains(BLACK_LEFTWARDS_ARROW)) {
-                    throw new UnsupportedOperationException(
-                            "Implement if leftwards emoji are added");
+                if (code.contains(JOINER_RIGHTWARDS)) {
+                    code = code.replace(JOINER_RIGHTWARDS, "");
+                    rem += BLACK_RIGHTWARDS_ARROW;
+                    // fall through because it might contain male/female sign
                 }
-                //                if (code.endsWith(EmojiConstants.JOINER_MALE_SIGN)){
-                //                    if (matchesInitialPattern(code)) { // "👮🏼‍♂️","police
-                // officer: man, medium-light skin tone"
-                //                        rem = EmojiConstants.MAN + rem;
-                //                        code =
-                // code.substring(0,code.length()-EmojiConstants.JOINER_MALE_SIGN.length());
-                //                    } // otherwise "🚴🏿‍♂️","man biking: dark skin tone"
-                //                } else if (code.endsWith(EmojiConstants.JOINER_FEMALE_SIGN)){
-                //                    if (matchesInitialPattern(code)) { //
-                //                        rem = EmojiConstants.WOMAN + rem;
-                //                        code =
-                // code.substring(0,code.length()-EmojiConstants.JOINER_FEMALE_SIGN.length());
-                //                    }
-                //                } else
                 if (code.contains(EmojiConstants.KISS)) {
                     rem = code + rem;
                     code = "💏";
@@ -571,9 +551,13 @@ public class Annotations {
             boolean hackBlond = EmojiConstants.HAIR_EXPLICIT.contains(base.codePointAt(0));
             Collection<String> arguments = new ArrayList<>();
             int lastSkin = -1;
-
+            boolean addRightFacing = false;
             for (int mod : CharSequences.codePoints(rem)) {
                 if (ignore.contains(mod)) {
+                    continue;
+                }
+                if (mod == BLACK_RIGHTWARDS_ARROW.codePointAt(0)) {
+                    addRightFacing = true;
                     continue;
                 }
                 if (EmojiConstants.MODIFIERS.contains(mod)) {
@@ -623,6 +607,11 @@ public class Annotations {
                     arguments.add(modName);
                     annotations.add(modName);
                 }
+            }
+            if (addRightFacing) {
+                final String rightFacing = rightwardsArrowPattern.format("").trim();
+                arguments.add(rightFacing);
+                annotations.addAll(SPLIT_SPACE_OMIT.splitToList(rightFacing));
             }
             if (!arguments.isEmpty()) {
                 shortName = pattern.format(shortName, listPattern.format(arguments));

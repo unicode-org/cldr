@@ -48,7 +48,7 @@ public class TestDayPeriods extends TestFmwkPlus {
             logln(
                     locale
                             + "\t"
-                            + CONFIG.getEnglish().getName(locale)
+                            + CONFIG.getEnglish().nameGetter().getNameFromIdentifier(locale)
                             + "\t"
                             + dayPeriodFormat
                             + "\t"

@@ -1,0 +1,10 @@
+# Processed by LdmlConfigFileReader
+
+# These are earlier in the file to keep the packageDesc in one place.
+package=subdivisions ; packageDesc=Translated versions of locale display name elements: subdivisions.
+
+# mapping paths to sections
+section=subdivisions ; path=//cldr/subdivisions/localeDisplayNames/subdivisions/.* ; package=subdivisions
+
+# Depedencies
+dependency=core ; package=subdivisions

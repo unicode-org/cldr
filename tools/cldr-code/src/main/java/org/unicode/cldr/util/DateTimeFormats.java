@@ -1100,7 +1100,8 @@ public class DateTimeFormats {
                 System.out.println("Skipping default content: " + localeID);
                 continue;
             }
-            sorted.put(englishFile.getName(localeID, true), localeID);
+            sorted.put(
+                    englishFile.nameGetter().getNameFromIdentifierCompoundOnly(localeID), localeID);
         }
 
         writeCss(DIR);

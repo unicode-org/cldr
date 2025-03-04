@@ -106,7 +106,7 @@ public class GenerateComparison {
         unifiedList.addAll(newList);
         Set<R2<String, String>> pairs = new TreeSet<>();
         for (String code : unifiedList) {
-            pairs.add(Row.of(english.getName(code), code));
+            pairs.add(Row.of(english.nameGetter().getNameFromIdentifier(code), code));
         }
 
         prettyPathMaker = new PrettyPath();
@@ -197,7 +197,7 @@ public class GenerateComparison {
             // TODO Sort by the pretty form
             // Set<R2<String,String>> pathPairs = new TreeSet();
             // for (String code : unifiedList) {
-            // pairs.add(Row.make(code, english.getName(code)));
+            // pairs.add(Row.make(code, english.nameGetter().getName(code)));
             // }
 
             // Initialize sets
@@ -205,7 +205,7 @@ public class GenerateComparison {
             // href='likely_subtags.html#und_{0}'>{0}</a>",
             // "class='source'", true)
 
-            final String localeDisplayName = english.getName(locale);
+            final String localeDisplayName = english.nameGetter().getNameFromIdentifier(locale);
             TablePrinter table =
                     new TablePrinter()
                             .setCaption("Changes in " + localeDisplayName + " (" + locale + ")")

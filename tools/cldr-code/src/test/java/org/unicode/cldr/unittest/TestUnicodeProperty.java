@@ -6,9 +6,9 @@
  */
 package org.unicode.cldr.unittest;
 
-import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.text.UnicodeSet;
 import java.util.List;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.util.props.ICUPropertyFactory;
 import org.unicode.cldr.util.props.UnicodeProperty;
 import org.unicode.cldr.util.props.UnicodeProperty.Factory;

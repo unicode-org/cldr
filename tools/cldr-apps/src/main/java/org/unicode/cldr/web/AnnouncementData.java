@@ -1,11 +1,11 @@
 package org.unicode.cldr.web;
 
-import com.ibm.icu.dev.util.ElapsedTimer;
 import java.sql.*;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
+import org.unicode.cldr.icu.dev.util.ElapsedTimer;
 import org.unicode.cldr.test.SubmissionLocales;
 import org.unicode.cldr.util.*;
 import org.unicode.cldr.web.api.Announcements;
@@ -505,11 +505,11 @@ public class AnnouncementData {
             if (Announcements.AUDIENCE_EVERYONE.equals(audience)) {
                 return true;
             } else if (Announcements.AUDIENCE_VETTERS.equals(audience)) {
-                return userLevel.isVetter();
+                return userLevel.isVetterOrStronger();
             } else if (Announcements.AUDIENCE_MANAGERS.equals(audience)) {
                 return userLevel.isManagerOrStronger();
             } else if (Announcements.AUDIENCE_TC.equals(audience)) {
-                return userLevel.isTC();
+                return userLevel.isTCOrStronger();
             } else {
                 logger.severe("Unrecognized audience: " + audience);
                 return false;

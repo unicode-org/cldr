@@ -102,7 +102,8 @@ public class Ldml2JsonConverter {
         annotations,
         annotationsDerived,
         bcp47(false, false),
-        transforms(false, false);
+        transforms(false, false),
+        subdivisions(true, true);
 
         private final boolean isTiered;
         private final boolean hasLocales;
@@ -595,10 +596,10 @@ public class Ldml2JsonConverter {
             if (cv > coverageValue) {
                 continue;
             }
-            // Discard root identity element unless the locale is root
-            // TODO: CLDR-17790 this code should not be needed.
+
+            // TODO: CLDR-17790 known issue - //ldml/identity inherits when it shouldn't.
             rootIdentityMatcher.reset(fullPath);
-            if (rootIdentityMatcher.matches() && !"root".equals(locID)) {
+            if (rootIdentityMatcher.matches() && !file.isHere(fullPath)) {
                 continue;
             }
 
@@ -748,6 +749,8 @@ public class Ldml2JsonConverter {
                 outFilename = filename + ".json";
             } else if (type == RunType.transforms) {
                 outFilename = filename + ".json";
+            } else if (type == RunType.subdivisions) {
+                outFilename = filename + ".json";
             } else if (js.section.equals("other")) {
                 // If you see other-___.json, it means items that were missing from
                 // JSON_config_*.txt
@@ -786,7 +789,8 @@ public class Ldml2JsonConverter {
                         }
                     } else if (type == RunType.rbnf
                             || type == RunType.bcp47
-                            || type == RunType.transforms) {
+                            || type == RunType.transforms
+                            || type == RunType.subdivisions) {
                         // untiered, just use the name
                         js.packageName = type.name();
                         tier = "";
@@ -962,6 +966,7 @@ public class Ldml2JsonConverter {
                                 }
                             }
                         }
+                        postprocessAfterAdd(out, item);
                     }
 
                     resolveSortingItems(out, nodesForLastItem, sortingItems);
@@ -1039,6 +1044,43 @@ public class Ldml2JsonConverter {
             System.out.print(outStr);
         }
         return totalItemsInFile;
+    }
+
+    /**
+     * Provide an opportunity to fix up the JsonObject before write, after items were added.
+     *
+     * @param out the JsonObject which already reflects 'item'
+     * @param item the original CLDR item
+     */
+    private void postprocessAfterAdd(JsonObject out, CldrItem item) {
+        if (item.getUntransformedPath().contains("timeZoneNames/zone")) {
+            // add _type values into the time zone tree
+            try {
+                JsonObject sub = out;
+                for (final CldrNode n : item.getNodesInPath()) {
+                    if (n.getNodeKeyName().equals("cldr")) {
+                        continue; // skip the top 'cldr' node
+                    }
+                    if (!n.getName().equals("zone") && n.getParent().equals("zone")) {
+                        // child of zone, but not a zone - add the type.
+                        sub.addProperty("_type", "zone");
+                        break;
+                    } else {
+                        JsonElement je = sub.get(n.getNodeKeyName());
+                        if (je == null) {
+                            // then add it! Because we run before the sorting,
+                            // we can run where the parent isn't added yet.
+                            je = new JsonObject();
+                            sub.add(n.getNodeKeyName(), je);
+                        }
+                        sub = je.getAsJsonObject(); // traverse into the JSON DOM..
+                    }
+                }
+            } catch (ParseException e) {
+                System.err.println("Error adding _type in tree for " + item.getUntransformedPath());
+                e.printStackTrace();
+            }
+        }
     }
 
     /**
@@ -1665,7 +1707,9 @@ public class Ldml2JsonConverter {
                         + "cldr-packages.json and PACKAGES.md");
         PrintWriter pkgs = FileUtilities.openUTF8Writer(outputDir + "/..", "PACKAGES.md");
 
-        pkgs.println("# CLDR JSON Packages");
+        pkgs.println("# CLDR-JSON Package List");
+        pkgs.println();
+        pkgs.println("## Packages");
         pkgs.println();
 
         LdmlConfigFileReader uberReader = new LdmlConfigFileReader();
@@ -1688,7 +1732,20 @@ public class Ldml2JsonConverter {
             final String baseName = e.getKey();
 
             if (baseName.equals("IGNORE") || baseName.equals("cal")) continue;
-            if (baseName.equals("core") || baseName.equals("rbnf") || baseName.equals("bcp47")) {
+
+            boolean tiered = !baseName.equals("core");
+            // If it's a known un-tiered enum type, skip tiered.
+            try {
+                RunType r = RunType.valueOf(baseName);
+                if (!r.tiered()) {
+                    tiered = false;
+                }
+            } catch (IllegalArgumentException t) {
+                // ignored
+            }
+
+            // if not tiered
+            if (!tiered) {
                 JsonObject packageEntry = new JsonObject();
                 packageEntry.addProperty("description", e.getValue());
                 packageEntry.addProperty("name", CLDR_PKG_PREFIX + baseName);
@@ -1720,7 +1777,7 @@ public class Ldml2JsonConverter {
                 }
             }
         }
-        pkgs.println();
+
         for (Map.Entry<String, String> e : pkgsToDesc.entrySet()) {
             pkgs.println("### [" + e.getKey() + "](./cldr-json/" + e.getKey() + "/)");
             pkgs.println();
@@ -1728,8 +1785,8 @@ public class Ldml2JsonConverter {
                 pkgs.println(
                         " - **Note: Deprecated** see [CLDR-16465](https://unicode-org.atlassian.net/browse/CLDR-16465).");
             }
-            pkgs.println(" - " + e.getValue());
-            pkgs.println(" - " + getNpmBadge(e.getKey()));
+            pkgs.println("- " + e.getValue());
+            pkgs.println("- " + getNpmBadge(e.getKey()));
             pkgs.println();
         }
         obj.add("packages", packages);

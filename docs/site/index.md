@@ -6,10 +6,11 @@ title: Unicode CLDR Project
 
 ## News
 
+- **2025-02-27 [CLDR 47](downloads/cldr-47) beta available for testing and specification review**
+- **2025-02-06 [CLDR 47](downloads/cldr-47) alpha available for testing**
+- **2024-12-18 [CLDR 46.1](downloads/cldr-46) released**
 - **2024-10-24 [CLDR 46](downloads/cldr-46) released**
 - **2024-04-17 [CLDR 45](downloads/cldr-45) released**
-- **2023-12-13 [CLDR 44.1](downloads/cldr-44#h.nvqx283jwsx) released (an update to CLDR v44)**
-- **2023-10-31 [CLDR 44](downloads/cldr-44) released**
 
 
 ## What is CLDR?
@@ -40,7 +41,7 @@ There are other projects which consume cldr-json directly, see [here](https://gi
 
 Most developers will use CLDR indirectly, via a set of software libraries, such as [ICU](https://icu.unicode.org/), [Closure](https://github.com/google/closure-library), or [TwitterCLDR](https://blog.x.com/engineering/en_us/a/2012/twittercldr-improving-internationalization-support-in-ruby). These libraries typically compile the CLDR data into a format that is compact and easy for the library to load and use.
 
-For those interested in the source CLDR data, it is available for each release in the XML format specified by [LDML](https://www.unicode.org/reports/tr35/). There are also tools that will convert to JSON and POSIX format. For more information, see [CLDR Releases/Downloads](downloads).
+For those interested in the source CLDR data, it is available for each release in the XML format specified by [LDML](https://www.unicode.org/reports/tr35/). There are also tools that will convert to JSON and POSIX format. For more information, see [CLDR Releases/Downloads](index/downloads).
 
 ## How to Contribute?
 

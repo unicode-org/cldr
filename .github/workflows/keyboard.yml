@@ -37,5 +37,7 @@ jobs:
         run: npm install -g @keymanapp/kmc
       - name: Compile Keyboards
         run: kmc --error-reporting build keyboards/3.0/*.xml
+      - name: Check ABNF
+        run: 'cd tools/scripts/keyboard-abnf-tests && npm ci && npm t'
       - name: Run Kbd Charts
         run: 'cd docs/charts/keyboards && npm ci && npm run build'

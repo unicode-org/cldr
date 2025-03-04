@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -139,6 +139,7 @@ annotations.
 			<language type="cop">Coptic</language>
 			<language type="cps">Capiznon</language>
 			<language type="cr">Cree</language>
+			<language type="cr" alt="long">Woods Cree</language>
 			<language type="crg">Michif</language>
 			<language type="crh">Crimean Tatar</language>
 			<language type="crj">Southern East Cree</language>
@@ -152,7 +153,6 @@ annotations.
 			<language type="csw">Swampy Cree</language>
 			<language type="cu">Church Slavic</language>
 			<language type="cv">Chuvash</language>
-			<language type="cwd">Woods Cree</language>
 			<language type="cy">Welsh</language>
 			<language type="da">Danish</language>
 			<language type="dak">Dakota</language>
@@ -256,7 +256,6 @@ annotations.
 			<language type="hak">Hakka Chinese</language>
 			<language type="haw">Hawaiian</language>
 			<language type="hax">Southern Haida</language>
-			<language type="hdn">Northern Haida</language>
 			<language type="he">Hebrew</language>
 			<language type="hi">Hindi</language>
 			<language type="hi_Latn">Hindi (Latin)</language>
@@ -284,7 +283,6 @@ annotations.
 			<language type="ig">Igbo</language>
 			<language type="ii">Sichuan Yi</language>
 			<language type="ik">Inupiaq</language>
-			<language type="ike">Eastern Canadian Inuktitut</language>
 			<language type="ikt">Western Canadian Inuktitut</language>
 			<language type="ilo">Iloko</language>
 			<language type="inh">Ingush</language>
@@ -474,7 +472,6 @@ annotations.
 			<language type="oj">Ojibwa</language>
 			<language type="ojb">Northwestern Ojibwa</language>
 			<language type="ojc">Central Ojibwa</language>
-			<language type="ojg">Eastern Ojibwa</language>
 			<language type="ojs">Oji-Cree</language>
 			<language type="ojw">Western Ojibwa</language>
 			<language type="oka">Okanagan</language>
@@ -999,6 +996,7 @@ annotations.
 			<territory type="BZ">Belize</territory>
 			<territory type="CA">Canada</territory>
 			<territory type="CC">Cocos (Keeling) Islands</territory>
+			<territory type="CC" alt="short">Cocos Islands</territory>
 			<territory type="CD">Congo - Kinshasa</territory>
 			<territory type="CD" alt="variant">Congo (DRC)</territory>
 			<territory type="CF">Central African Republic</territory>
@@ -1161,6 +1159,7 @@ annotations.
 			<territory type="PL">Poland</territory>
 			<territory type="PM">St. Pierre &amp; Miquelon</territory>
 			<territory type="PN">Pitcairn Islands</territory>
+			<territory type="PN" alt="short">Pitcairn</territory>
 			<territory type="PR">Puerto Rico</territory>
 			<territory type="PS">Palestinian Territories</territory>
 			<territory type="PS" alt="short">Palestine</territory>
@@ -3914,6 +3913,13 @@ annotations.
 			<regionFormat type="daylight">{0} Daylight Time</regionFormat>
 			<regionFormat type="standard">{0} Standard Time</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<short>
+					<generic>HST</generic>
+					<standard>HST</standard>
+					<daylight>HDT</daylight>
+				</short>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>Coordinated Universal Time</standard>
@@ -3921,6 +3927,21 @@ annotations.
 			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>Unknown City</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Macquarie">
+				<exemplarCity>Macquarie Island</exemplarCity>
+			</zone>
+			<zone type="Australia/Lord_Howe">
+				<exemplarCity>Lord Howe Island</exemplarCity>
+			</zone>
+			<zone type="Indian/Cocos">
+				<exemplarCity>Cocos Islands</exemplarCity>
+			</zone>
+			<zone type="Pacific/Easter">
+				<exemplarCity>Easter Island</exemplarCity>
+			</zone>
+			<zone type="Indian/Christmas">
+				<exemplarCity>Christmas Island</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
 				<long>
@@ -3935,12 +3956,11 @@ annotations.
 			<zone type="Asia/Qostanay">
 				<exemplarCity>Kostanay</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<short>
-					<generic>HST</generic>
-					<standard>HST</standard>
-					<daylight>HDT</daylight>
-				</short>
+			<zone type="Pacific/Norfolk">
+				<exemplarCity>Norfolk Island</exemplarCity>
+			</zone>
+			<zone type="Pacific/Wake">
+				<exemplarCity>Wake Island</exemplarCity>
 			</zone>
 			<zone type="Asia/Saigon">
 				<exemplarCity>Ho Chi Minh City</exemplarCity>
@@ -4123,7 +4143,7 @@ annotations.
 			</metazone>
 			<metazone type="Australia_Central">
 				<long>
-					<generic>Central Australia Time</generic>
+					<generic>Australian Central Time</generic>
 					<standard>Australian Central Standard Time</standard>
 					<daylight>Australian Central Daylight Time</daylight>
 				</long>
@@ -4137,14 +4157,14 @@ annotations.
 			</metazone>
 			<metazone type="Australia_Eastern">
 				<long>
-					<generic>Eastern Australia Time</generic>
+					<generic>Australian Eastern Time</generic>
 					<standard>Australian Eastern Standard Time</standard>
 					<daylight>Australian Eastern Daylight Time</daylight>
 				</long>
 			</metazone>
 			<metazone type="Australia_Western">
 				<long>
-					<generic>Western Australia Time</generic>
+					<generic>Australian Western Time</generic>
 					<standard>Australian Western Standard Time</standard>
 					<daylight>Australian Western Daylight Time</daylight>
 				</long>
@@ -4189,7 +4209,7 @@ annotations.
 			</metazone>
 			<metazone type="Brunei">
 				<long>
-					<standard>Brunei Darussalam Time</standard>
+					<standard>Brunei Time</standard>
 				</long>
 			</metazone>
 			<metazone type="Cape_Verde">
@@ -4251,7 +4271,7 @@ annotations.
 				<long>
 					<generic>Cook Islands Time</generic>
 					<standard>Cook Islands Standard Time</standard>
-					<daylight>Cook Islands Half Summer Time</daylight>
+					<daylight>Cook Islands Summer Time</daylight>
 				</long>
 			</metazone>
 			<metazone type="Cuba">
@@ -4268,12 +4288,12 @@ annotations.
 			</metazone>
 			<metazone type="DumontDUrville">
 				<long>
-					<standard>Dumont-d’Urville Time</standard>
+					<standard>Dumont d’Urville Time</standard>
 				</long>
 			</metazone>
 			<metazone type="East_Timor">
 				<long>
-					<standard>East Timor Time</standard>
+					<standard>Timor-Leste Time</standard>
 				</long>
 			</metazone>
 			<metazone type="Easter">
@@ -4490,9 +4510,9 @@ annotations.
 			</metazone>
 			<metazone type="Kamchatka">
 				<long>
-					<generic>Petropavlovsk-Kamchatski Time</generic>
-					<standard>Petropavlovsk-Kamchatski Standard Time</standard>
-					<daylight>Petropavlovsk-Kamchatski Summer Time</daylight>
+					<generic>Kamchatka Time</generic>
+					<standard>Kamchatka Standard Time</standard>
+					<daylight>Kamchatka Summer Time</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kazakhstan">
@@ -4675,7 +4695,7 @@ annotations.
 			</metazone>
 			<metazone type="North_Mariana">
 				<long>
-					<standard>North Mariana Islands Time</standard>
+					<standard>Northern Mariana Islands Time</standard>
 				</long>
 			</metazone>
 			<metazone type="Novosibirsk">
@@ -4749,12 +4769,12 @@ annotations.
 			</metazone>
 			<metazone type="Ponape">
 				<long>
-					<standard>Ponape Time</standard>
+					<standard>Pohnpei Time</standard>
 				</long>
 			</metazone>
 			<metazone type="Pyongyang">
 				<long>
-					<standard>Pyongyang Time</standard>
+					<standard>North Korea Time</standard>
 				</long>
 			</metazone>
 			<metazone type="Qyzylorda">
@@ -4832,9 +4852,9 @@ annotations.
 			</metazone>
 			<metazone type="Taipei">
 				<long>
-					<generic>Taipei Time</generic>
-					<standard>Taipei Standard Time</standard>
-					<daylight>Taipei Daylight Time</daylight>
+					<generic>Taiwan Time</generic>
+					<standard>Taiwan Standard Time</standard>
+					<daylight>Taiwan Daylight Time</daylight>
 				</long>
 			</metazone>
 			<metazone type="Tajikistan">

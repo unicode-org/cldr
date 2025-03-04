@@ -916,13 +916,25 @@ See [Unit_Conversion](tr35-info.md#Unit_Conversion).
 <br/>   | long_unit_identifier
 
 <a name='core_unit_identifier' href='#core_unit_identifier'>core_unit_identifier</a> 
-<br/>:= product_unit ("-" per "-" product_unit)\*  
-<br/>   | per "-" product_unit ("-" per "-" product_unit)\*
-* *Examples:*  
-    * foot-per-second-per-second  
-    * per-second  
+<br/>:= product_unit ("-" per "-" product_unit)\*
+<br/>   | per "-" product_unit\*
+<br/>   | per "-" product_unit ("-" per "-" product_unit)\*   // unnormalized
+* *Examples:*
+
+| normalized | unnormalized |
+| :---- | :---- |
+| foot-per-square-second | foot-per-second-per-second |
+| per-meter-second | |
+| per-1000 | per-100-10 |
+| per-10000-meter-second | per-10-meter-10-second-10 |
 * *Notes:*
-    * The normalized form will have only one "per"
+    * The segment before the first `per` is called the `numerator`; it may be empty
+    * The segment after the first `per` is called the `denominator`; it may be empty
+    * unit_constants in the numerator are deprecated, and need not be supported in APIs or formatting
+        * They may be supported internally, such as for conversion.
+    * The normalized form has:
+       * at most one `per`
+       * at most one unit_constant; and that only immediately after a `per`
 
 per 
 <br/>:= "per"
@@ -943,10 +955,9 @@ per
     * 100
 
 <a name='pu_single_unit' href='#pu_single_unit'>pu_single_unit</a> 
-<br/>:= "xxx-" single_unit 
-<br/>   | "x-" single_unit
+<br/>:= := ("xxx-" | "x-") [a-z0-9]{3,8}
 * *Examples:*
-    * xxx-square-knuts (a Harry Potter unit)  
+    * square-xxx-knuts (a Harry Potter unit)  
 * *Notes:*
     * "x-" is only for backwards compatibility; it is deprecated and should not be generated
     * See [Private-Use Units](https://github.com/unicode-org/cldr/edit/main/docs/ldml/tr35-general.md#Private_Use_Units)
@@ -959,10 +970,16 @@ per
   * per-200-pound
   * per-12
 * [ wfc:  The numeric value of the unit constant must be an integer greater than one. ]
-* *Notes:*
-    * The normal interpretation of `e` is used, where 2e6 \= 2×10⁶.
-    * The `e` notation is optional: per-100-kilometer and per-1e2-kilometer are equivalent unit\_identifiers.
-    * When constructing identifiers, exponents should be greater than 3 and multiples of 3, even though parsers must accept the wider range.
+* [ wfc:  The string length of the unit constant must be less than 9 characters. ]
+* * *Notes:*
+    * The normal interpretation of `e` is used, where 2e6 \= 2×10⁶
+    * Implementations must support the numbers {1-14, 20, 144, 1eN for N <= 18}
+        * They may support additional values, up to what is expressible with 8 characters.
+    * The `e` notation is optional: `per-100-kilometer` and `per-1e2-kilometer` are equivalent unit\_identifiers
+    * The normalized form has no exponents that are not multiples of 3, and the shortest form given that exponent restriction:
+         * per-1e2 ⇒ per-100
+         * per-1000 ⇒ per-1e3
+         * per-10000 ⇒ per-10e3
   
 <a name='dimensionality_prefix' href='#dimensionality_prefix'>dimensionality_prefix</a> 
 <br/>:= "square-" 
@@ -1058,8 +1075,8 @@ grouping
     * The locale data for currency display names is supplied in the `currencies` element, not in the `units` element.
 
 Note that while the syntax allows for unit_constants in multiple places, the typical use case is only one instance, after a "-per-".
-The normalized form of a unit identifier has at most one unit_constant in the numerator and one in the denominator.
-For example, `2-kilowatt-7-hour-per-3-meter-5-second` has the equivalent normalized form `14-kilowatt-hour-per-15-meter-second`.
+The normalized, non-deprecated form of a unit identifier has at most one unit_constant in the denominator immediately after the per.
+For example, `kilowatt-hour-per-3-meter-5-second` has the equivalent normalized form `kilowatt-hour-per-15-meter-second`.
 
 The simple_unit structure does not allow for any two simple_units to overlap.
 That is, there are no cases where simple_unit1 consists of X-Y and simple_unit2 consists of Y-Z.
@@ -1294,23 +1311,38 @@ There can be at most one "per" pattern used in producing a compound unit, while 
   …
 ```
 
-Some units already have 'precomputed' forms, such as **kilometer-per-hour**; where such units exist, they should be used in preference.
+**format(numericValue, unitId, locale, length, caseVariant)**
+
+format(numericValue, unitPattern) substitutes the numericValue (formatted for the locale) into the unitPattern.
+
+Some unitIds already have patterns for the locale, including variants for length, pluralCategory, and caseVariant.
+This includes simple units such as **meter** and more complex units like **kilometer-per-hour**.
+Where such patterns exist, they should be used in preference (using fallbacks for caseVariant and length if needed).
 
 If there is no precomputed form, the following process in pseudocode is used to generate a pattern for the compound unit.
 
 **pattern(unitId, locale, length, pluralCategory, caseVariant)**
 
 1.  If the unitId is empty or invalid, fail
-2.  Put the unitId into normalized order: hour-kilowatt => kilowatt-hour, meter-square-meter-per-second-second => cubic-meter-per-square-second
-3.  Set result to be getValue(unitId with length, pluralCategory, caseVariant)
+2.  Put the unitId into normalized format, including order:
+    * hour-kilowatt ⇒ kilowatt-hour
+    * meter-square-meter-per-second-second ⇒ cubic-meter-per-square-second
+    * per-10-meter-10-second-10 ⇒ per-10000-meter-second
+4.  Set result to be getValue(unitId with length, pluralCategory, caseVariant)
     1. If result is not empty, return it
-4.  Divide the unitId into numerator (the part before the "-per-") and denominator (the part after the "-per-). If both are empty, fail
-5.  Set both globalPlaceholder and globalPlaceholderPosition to be empty
-6.  Set numeratorUnitString to patternTimes(numerator, length, per0(pluralCategory), per0(caseVariant))
-7.  Set denominatorUnitString to patternTimes(denominator, length, per1(pluralCategory), per1(caseVariant))
-8.  Set perPattern to be getValue(per, locale, length)
-9.  If the denominatorString is empty, set result to numeratorString, otherwise set result to format(perPattern, numeratorUnitString, denominatorUnitString)
-10. return format(result, globalPlaceholder, globalPlaceholderPosition)
+5.  Divide the unitId into numerator (the part before the "-per-") and denominator (the part after the "-per-). If both are empty, fail
+6.  Set both globalPlaceholder and globalPlaceholderPosition to be empty
+7.  Set numeratorUnitString to patternTimes(numerator, length, per0(pluralCategory), per0(caseVariant))
+8.  If the denominator starts with a unit_constant
+    *  Set denominatorUnitString to format(unitConstant, pattern(denominator, length, getPluralCategory(locale, unitConstant), per1(caseVariant))
+    *  Otherwise set denominatorUnitString to patternTimes(denominator, length, per1(getPluralCategory(locale, 1)), per1(caseVariant))
+10.  Set perPattern to be getValue(per, locale, length)
+11.  If the denominatorString is empty, set result to numeratorString, otherwise set result to format(perPattern, numeratorUnitString, denominatorUnitString)
+12. return format(result, globalPlaceholder, globalPlaceholderPosition)
+
+**getPluralCategory(locale, constant)**
+
+1. Return the pluralCategory for the constant, given the locale.
 
 **patternTimes(product_unit, locale, length, pluralCategory, caseVariant)**
 
@@ -3134,7 +3166,7 @@ For example, for gram-per-meter, the first line above means:
 
 * * *
 
-© 2024–2024 Unicode, Inc.
+© 2001–2025 Unicode, Inc.
 This publication is protected by copyright, and permission must be obtained from Unicode, Inc.
 prior to any reproduction, modification, or other use not permitted by the [Terms of Use](https://www.unicode.org/copyright.html).
 Specifically, you may make copies of this publication and may annotate and translate it solely for personal or internal business purposes and not for public distribution,

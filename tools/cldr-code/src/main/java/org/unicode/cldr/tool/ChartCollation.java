@@ -29,6 +29,7 @@ import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.FileCopier;
+import org.unicode.cldr.util.NameGetter;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.XMLFileReader;
@@ -228,7 +229,14 @@ public class ChartCollation extends Chart {
             if (!data.containsKey("standard")) {
                 addCollator(data, "standard", (RuleBasedCollator) null);
             }
-            new Subchart(ENGLISH.getName(locale, true, CLDRFile.SHORT_ALTS), locale, data)
+            new Subchart(
+                            ENGLISH.nameGetter()
+                                    .getNameFromIdentifierOptAlt(
+                                            locale,
+                                            NameGetter.NameOpt.COMPOUND_ONLY,
+                                            CLDRFile.SHORT_ALTS),
+                            locale,
+                            data)
                     .writeChart(anchors);
         }
     }

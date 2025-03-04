@@ -1,0 +1,18 @@
+{
+  "name": "@unicode-org/keyboard-abnf-tests",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [],
+  "author": "Steven R. Loomis <srl295@codehivetx.us>",
+  "license": "Unicode-3.0",
+  "description": "Tests for the keyboard ABNF",
+  "private": true,
+  "dependencies": {
+    "abnf": "^4.3.1",
+    "fast-xml-parser": "^4.5.1",
+    "peggy": "^4.2.0"
+  }
+}

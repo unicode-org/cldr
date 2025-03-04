@@ -1,0 +1,95 @@
+; Copyright (c) 2025 Unicode, Inc.
+; For terms of use, see http://www.unicode.org/copyright.html
+; SPDX-License-Identifier: Unicode-3.0
+; CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+
+; This is an ABNF grammar for the CLDR Keyboard spec transform to= (replacement) match syntax.
+; Note that there are sample matching/failing data files in tools/scripts/keyboard-abnf-tests/
+
+; An entire <transform to="..." /> string.
+; An empty string is valid, meaning deletion.
+; Also note that a string may match this ABNF but be invalid according to the spec - which see.
+to-replacement          = atoms
+
+; a sequence of items for the output production
+atoms             = *(atom)
+
+; each atom can be one of several things
+atom = replacement-char / escaped-char / group-reference / escaped-codepoints / named-marker / string-variable / mapped-set
+
+; normal text being output
+replacement-char         = content-char / ws / "-" / ":" / "(" / ")" / "." / "*" / "+" / "?" / "[" / "]" / "^" / "{" / "}" / "|"
+
+; Character escapes
+escaped-char = backslash ( backslash / "$" ) / "$$"
+
+; reference to a capture group
+group-reference = "$" DIGIT
+
+; hex codepoint such as \u{01234}
+escaped-codepoints           = backslash "u" "{" codepoints-hex "}"
+
+; multiple hex codepoints
+codepoints-hex = codepoint-hex *(SP codepoint-hex)
+
+; one hex codepoint (1-6 digits)
+codepoint-hex =  1*6LHEXDIG
+
+; a specific marker ID.
+named-marker = "\m{" marker-id "}"
+
+; marker id is nmtoken, but may be UAX31 in the future.
+marker-id = NMTOKEN
+
+
+; substitution of a string variable
+string-variable = "${" var-id "}"
+
+; variable ID
+var-id = 1*32IDCHAR
+
+; special case for a mapped set variable
+mapped-set = "$[1:" var-id "]"
+
+; group for everything BUT syntax chars.
+content-char      =  ASCII-PUNCT / ALPHA / DIGIT / NON-ASCII
+
+; \
+backslash    = %x5C ; U+005C REVERSE SOLIDUS "\"
+
+; whitespace
+ws = SP / HTAB / CR / LF / %x3000
+
+IDCHAR = ALPHA / DIGIT / "_"
+; below is same as transform-from for maintenance
+; ASCII-CTRLS        = %x01-08       ; omit NULL (%x00), HTAB (%x09) and LF (%x0A)
+;                   / %x0B-0C        ; omit CR (%x0D)
+;                   / %x0E-1F        ; omit SP (%x20)
+ASCII-PUNCT        = %x21-23       ; omit DOLLAR
+                  / %x25-27        ; omit () * +
+                  / %x2C           ; omit . (%x2E) and - (%x2D)
+                  / %x2F           ; skip over digits and :
+                  / %x3B-3E        ; omit ? 3f
+                  / %x5F           ; omit upper A-Z and [\]^
+                  / %x60           ; omit a-z {|}
+                  / %x7E-7F        ; just for completeness
+NON-ASCII =         %x7E-D7FF      ; omit surrogates
+                  / %xE000-10FFFF  ; that's the rest. (TODO: omit other non-characters)
+
+; from STD-68
+DIGIT          =  %x30-39             ; 0-9
+ALPHA          =  %x41-5A / %x61-7A   ; A-Z / a-z
+SP             =  %x20
+HTAB           =  %xF900              ; horizontal tab
+LF             =  %x0A                ; linefeed
+CR             =  %x0D                ; carriage return
+HEXDIG         =  DIGIT / "A" / "B" / "C" / "D" / "E" / "F"
+; like HEXDIG but lowercase also
+LHEXDIG         =  HEXDIG / "a" / "b" / "c" / "d" / "e" / "f"
+
+; from XML
+NAMESTARTCHAR   =   	":" / ALPHA / "_" / %xC0-D6 / %xD8-F6 / %xF8-2FF / %x370-37D / %x37F-1FFF / %x200C-200D / %x2070-218F / %x2C00-2FEF / %x3001-D7FF / %xF900-FDCF / %xFDF0-FFFD
+NAMESTARTCHAR   =/  %x10000-10FFFF    ; SKIP-NODE-ABNF: TODO: <https://github.com/hildjj/node-abnf/issues/25>
+
+NAMECHAR	   =   	NAMESTARTCHAR / "-" / "." / DIGIT / %xB7 / %x0300-036F / %x203F-2040
+NMTOKEN	   =   	1*NAMECHAR

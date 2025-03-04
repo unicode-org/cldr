@@ -157,7 +157,7 @@ public class VoteAPIHelper {
         try {
             /** if true, hide emails. TODO: CLDR-16829 remove this parameter */
             final boolean redacted =
-                    ((mySession.user == null) || (!mySession.user.getLevel().isGuest()));
+                    ((mySession.user == null) || (!mySession.user.getLevel().isGuestOrStronger()));
             final RowResponse r = getRowsResponse(args, sm, locale, mySession, redacted);
             return Response.ok(r).build();
         } catch (Throwable t) {
@@ -402,7 +402,13 @@ public class VoteAPIHelper {
             String baseXp, CLDRLocale locale, CookieSession mySession) {
         Level coverageLevel = Level.get(mySession.getEffectiveCoverageLevel(locale.toString()));
         Dashboard.ReviewOutput ro =
-                new Dashboard().get(locale, mySession.user, coverageLevel, baseXp);
+                new Dashboard()
+                        .get(
+                                locale,
+                                mySession.user,
+                                coverageLevel,
+                                baseXp,
+                                false /* includeOther */);
         return ro.getNotifications();
     }
 

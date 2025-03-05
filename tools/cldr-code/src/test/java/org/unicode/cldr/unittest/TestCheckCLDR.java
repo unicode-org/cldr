@@ -51,7 +51,6 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.GrammarInfo;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
-import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathHeader;
@@ -501,18 +500,7 @@ public class TestCheckCLDR extends TestFmwk {
         for (String path : unresolved.fullIterable()) {
             String value = unresolved.getStringValue(path);
             if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
-                switch (NameType.fromPath(path)) {
-                    case LANGUAGE:
-                    case SCRIPT:
-                    case TERRITORY:
-                    case VARIANT:
-                        assertNotNull(locale + " " + path, resolved.getStringValue(path));
-                        break;
-                    default:
-                        if (!logKnownIssue("CLDR-18309", "Null with inheritance mark")) {
-                            errln("Null with inheritance mark:\t" + locale + "\t" + path);
-                        }
-                }
+                assertNotNull(locale + " " + path, resolved.getStringValue(path));
             }
         }
     }

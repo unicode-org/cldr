@@ -6,9 +6,9 @@ title: CLDR 47 Release Note
 
 | No. |    Date    | Rel. Note |  Data  |  Charts  | Spec |   Delta  | GitHub Tag | Delta DTD | CLDR JSON |
 |:---:|:----------:|:---------:|:------:|:--------:|:------------:|:---:|:----------:|:---------:|:---------:|
-|  47 | 2025-04-~~XX~~ | [v47](/index/downloads/cldr-47) | ~~[CLDR47](https://unicode.org/Public/cldr/47/)~~ | [Charts47](https://unicode.org/cldr/charts/dev) | [LDML47](https://www.unicode.org/reports/tr35/proposed.html) | [Δ47](https://unicode-org.atlassian.net/issues/?jql=project+%3D+CLDR+AND+status+%3D+Done+AND+resolution+%3D+Fixed+AND+fixVersion+%3D+%2247%22+ORDER+BY+priority+DESC) | ~~release-47~~<br>[release-47-alpha2](https://github.com/unicode-org/cldr/releases/tag/release-47-alpha2) | [ΔDtd47](https://www.unicode.org/cldr/charts/dev/supplemental/dtd_deltas.html) | ~~47.0.0~~<br>[47.0.0-ALPHA2](https://github.com/unicode-org/cldr-json/releases/tag/47.0.0-ALPHA2) |
+|  47 | 2025-04-~~XX~~ | [v47](/index/downloads/cldr-47) | ~~[CLDR47](https://unicode.org/Public/cldr/47/)~~ | [Charts47](https://unicode.org/cldr/charts/dev) | [LDML47](https://www.unicode.org/reports/tr35/proposed.html) | [Δ47](https://unicode-org.atlassian.net/issues/?jql=project+%3D+CLDR+AND+status+%3D+Done+AND+resolution+%3D+Fixed+AND+fixVersion+%3D+%2247%22+ORDER+BY+priority+DESC) | ~~release-47~~<br>[release-47-beta2](https://github.com/unicode-org/cldr/releases/tag/release-47-beta2) | [ΔDtd47](https://www.unicode.org/cldr/charts/dev/supplemental/dtd_deltas.html) | ~~47.0.0~~<br>[47.0.0-BETA1](https://github.com/unicode-org/cldr-json/releases/tag/47.0.0-BETA1) |
 
-<span style="color:red; font-weight: bold;">This is an alpha version of CLDR v47.</span>
+<span style="color:red; font-weight: bold;">This is an beta version of CLDR v47.</span>
 
 ## Overview
 
@@ -22,8 +22,12 @@ It was a closed cycle: locale data changes were limited to bug fixes and the add
 
 ### Changes
 
-The most significant changes in this release are:
+This release note includes all changes from [CLDR v46.1](cldr-46#461-changes), 
+a special release, which many users of CLDR (including ICU) have not updated to.
 
+The most significant changes in this release are the following:
+
+   - MessageFormat has advanced from Final Candidate to Stable. For details, see below.
    - New locales:
       - Core data for Coptic (cop), Haitian Creole (ht)
       - Locale data for 11 English locales and Cantonese (Macau) (yue_Hant_MO)
@@ -31,14 +35,9 @@ The most significant changes in this release are:
    - [RBNF](#number-spellout-data-changes) (Rule Based Number Formatting): Number spellout data improvements for multiple languages
    - Assorted transforms improvements
    - Updated and revised population data
-   - Incorporates all changes from CLDR v46.1.
-        - [CLDR v46.1](https://cldr.unicode.org/downloads/cldr-46#461-changes) was a special release, which many users of CLDR (including ICU) have not updated to.
-So the listed changes are relative to [CLDR v46.0](https://cldr.unicode.org/downloads/cldr-46). v46.1 included the following:
-       - Message Format 2.0 (Final Candidate)
-       - More explicit well-formedness and validity constraints for unit of measurement identifiers
-       - Addition of derived emoji annotations that were missing: emoji with skin tones facing right
-       - Fixes to make the ja, ko, yue, zh datetimeSkeletons useful for generating the standard patterns
-       - Improved date/time test data
+   - Addition of derived emoji annotations that were missing: emoji with skin tones facing right
+   - Fixes to make the ja, ko, yue, zh datetimeSkeletons useful for generating the standard patterns
+   - Improved date/time test data
 
 For more details, see below.
 
@@ -50,53 +49,90 @@ Count | Level | Usage | Examples
 16 | Moderate | Suitable for “document content” internationalization, eg. in spreadsheet | Akan, Balóchi [Látin], brezhoneg, Cebuano, føroyskt, IsiXhosa, Māori, sardu, veneto, Wolof, татар, тоҷикӣ, कांगड़ी‎, … |
 55 | Basic | Suitable for locale selection, eg. choice of language on mobile phone | Basa Sunda, emakhuwa, Esperanto, eʋegbe, Frysk, Malti, босански (ћирилица), କୁୱି (ଅଡ଼ିଆ), కువి (తెలుగు), ᱥᱟᱱᱛᱟᱲᱤ, ᓀᐦᐃᓇᐍᐏᐣ‬, ꆈꌠꉙ‎, … |
 
+**TBD: update the above**
+
 \* Note: Each release, the number of items needed for Modern and Moderate increases. So locales without active contributors may drop down in coverage level.
 
 For a full listing, see [Coverage Levels](https://unicode.org/cldr/charts/47/supplemental/locale_coverage.html)
 
+## MessageFormat 2.0 now Stable
+
+Software needs to construct messages that incorporate various pieces of information.
+The complexities of the world's languages make this challenging. 
+MessageFormat 2.0 enables developers and translators to create natural-sounding user interfaces
+that can appear in any language and support the needs of various cultures.
+
+The new MessageFormat defines the data model, syntax, processing, and conformance requirements
+for the next generation of dynamic messages. 
+It is intended for adoption by programming languages, software libraries, and software localization tooling. 
+It enables the integration of internationalization APIs (such as date or number formats) and grammatical matching (such as plurals or genders). 
+It is extensible, allowing software developers to create formatting or message selection logic that add on to the core capabilities. 
+Its data model provides the means of representing existing syntaxes, thus enabling gradual adoption by users of older formatting systems.
+
+Tech Preview implementations are available in C++, Java, and JavaScript:
+
+* **ICU4J, Java:** [com.ibm.icu.message2](https://unicode-org.github.io/icu-docs/apidoc/dev/icu4j/index.html?com/ibm/icu/message2/package-summary.html), part of ICU 76, is a tech preview implementation of the MessageFormat 2.0, together with a formatting API. See the [ICU User Guide](https://unicode-org.github.io/icu/userguide/format_parse/messages/mf2.html) for examples and a quickstart guide, and [Trying MF 2.0 Final Candidate](https://unicode-org.github.io/icu/userguide/format_parse/messages/try-mf2.html) to try a “Hello World”.  
+* **ICU4C, C++:** [icu::message2::MessageFormatter](https://unicode-org.github.io/icu-docs/apidoc/released/icu4c/classicu_1_1message2_1_1MessageFormatter.html), part of ICU 76, is a tech preview implementation of MessageFormat 2.0, together with a formatting API. See the [ICU User Guide](https://unicode-org.github.io/icu/userguide/format_parse/messages/mf2.html) for examples and a quickstart guide, and [Trying MF 2.0 Final Candidate](https://unicode-org.github.io/icu/userguide/format_parse/messages/try-mf2.html) to try a “Hello World”.  
+* **Javascript:** [messageformat](https://github.com/messageformat/messageformat/tree/main/mf2/messageformat) 4.0 provides a formatter and conversion tools for the MessageFormat 2 syntax, together with a polyfill of the runtime API proposed for ECMA-402.
+
+(Because of the timing, these implement a slightly earlier version of the spec, but can be used for initial evaluation, testing, and experimentation.)
+
 ## Specification Changes
 
-**NOTE: The specification changes will be completed by the specification beta. 
-Only a sample is listed here, and the Modifications section is not yet complete.**
+The following is a summary of the most significant changes to the specification (LDML) since CLDR 46.
+For more information, see [LDML 47 beta](https://unicode.org/reports/tr35/47/tr35.html#modifications).
 
-The following are the most significant changes to the specification (LDML).
-
-- Don't produce "Unknown City Time" for VVV and VVVV, use localized offset format instead [CLDR-18237](https://unicode-org.atlassian.net/browse/CLDR-18237)
-- **TBD** (including Message Format, Part 9)
+- Many changes to MessageFormat, including:
+    - Now stable, with the stability policy now normative.
+    - Added and clarified terminology
+    - Modified portions of the syntax (ABNF)
+    - Revised the Default Bidi Strategy, and added support for bidirectional isolates and marks
+    - Enabled functions to know whether an option value was set using a literal or a variable, which is necessary for some function's selection mechanism (see below).
+    - Updated the default functions
+        - Only three default functions are stable: :string, :number, and :integer. Other functions are Draft.
+- Added a Time Precision option to Semantic Datetime Skeletons, replacing discrete time fields
+- Significant changes in Timezones, Unit Identifiers, Keyboard Transforms, Currency elements, and others.
+- Moved @MATCH documentation to the site (it is for internal tooling)
 
 There are many more changes that are important to implementations, such as changes to certain identifier syntax and various algorithms.
 See the [Modifications section](https://www.unicode.org/reports/tr35/proposed.html#Modifications) of the specification for details.
 
 ## Data Changes
 
-**TBD: Flesh out overview items**
-   - Updated language matching for Afrikaans to English (en) from Dutch (nl) [CLDR-18198](https://unicode-org.atlassian.net/browse/CLDR-18198)
-   - Ordered scripts in `<languageData>` in descending order of usage per locale [CLDR-18155](https://unicode-org.atlassian.net/browse/CLDR-18155)
-   - Fixed certain invalid codes [CLDR-18129](https://unicode-org.atlassian.net/browse/CLDR-18129)
-
 ### DTD Changes
-
-Most of the DTD changes were in 46.1. One additional change was to order currency values in **TBD get ticket number**
+Changes include:
+- Ordering currencies used in each region
+- Adding script data (for example, relating the script code `Jpan` to its component script codes)
+- Adding the attribution attribute to keyboards
+- Most of the DTD changes were to tighten up the validity constraints (@MATCH) on various attributes.
+These don't affect implementations.
 
 For a full listing, see [Delta DTDs](https://unicode.org/cldr/charts/dev/supplemental/dtd_deltas.html).
 
 ### Supplemental Data Changes
 
-- Ordered scripts in decending order of usage per locale [CLDR-18155](https://unicode-org.atlassian.net/browse/CLDR-18155)
+- Ordered scripts in `<languageData>` in descending order of usage per locale [CLDR-18155](https://unicode-org.atlassian.net/browse/CLDR-18155)
 - Updated language matching for Afrikaans to English (en) from Dutch (nl) [CLDR-18198](https://unicode-org.atlassian.net/browse/CLDR-18198)
 - Fixed invalid codes [CLDR-18129](https://unicode-org.atlassian.net/browse/CLDR-18129)
-- **TBD**
+- Updated various language population numbers for [Bouvet Island](https://unicode-org.atlassian.net/browse/CLDR-9791), [Canada](https://unicode-org.atlassian.net/browse/CLDR-15391), [El Salvador](https://unicode-org.atlassian.net/browse/CLDR-11567), [Macau](https://unicode-org.atlassian.net/browse/CLDR-10478), [Mauritius](https://unicode-org.atlassian.net/browse/CLDR-18002), [Sierra Leone](https://unicode-org.atlassian.net/browse/CLDR-18002), [South Georgia and Bouvet Islands](https://unicode-org.atlassian.net/browse/CLDR-9791), [Tokelau](https://unicode-org.atlassian.net/browse/CLDR-18002), and [Zambia](https://unicode-org.atlassian.net/browse/CLDR-18002). Also for [French across the world](https://unicode-org.atlassian.net/browse/CLDR-11888).
+- Fixed [matching languages to likely subtags](https://www.unicode.org/cldr/charts/47/supplemental/likely_subtags.html) for many languages in the above countries as well as: [Malay (individual language)](https://unicode-org.atlassian.net/browse/CLDR-10015), [Serbian in Russia](https://unicode-org.atlassian.net/browse/CLDR-14088), and [Sudanese Arabic](https://unicode-org.atlassian.net/browse/CLDR-10015).
+- **TBD: add others**
 
 For a full listing, see [¤¤BCP47 Delta](https://unicode.org/cldr/charts/dev/delta/bcp47.html) and [¤¤Supplemental Delta](https://unicode.org/cldr/charts/dev/delta/supplemental-data.html)
 
-### Locale Changes
+### Locale Data Changes
 
-- Cleanups for current pattern variants `alt="alphaNextToNumber"` and `alt="noCurrency"`: These were introduced in CLDR 42
+- Updated language matching for Afrikaans to English (en) from Dutch (nl) [CLDR-18198](https://unicode-org.atlassian.net/browse/CLDR-18198)
+- Ordered scripts in `<languageData>` in descending order of usage per locale [CLDR-18155](https://unicode-org.atlassian.net/browse/CLDR-18155)
+- Fixed certain invalid codes [CLDR-18129](https://unicode-org.atlassian.net/browse/CLDR-18129)
+- Cleanups for current pattern variants `alt="alphaNextToNumber"` and `alt="noCurrency"`:
+    - These were introduced in CLDR 42
 (per [CLDR-14336](https://unicode-org.atlassian.net/browse/CLDR-14336)) to provide a cleaner way of adjusting currency
 patterns when an alphabetic currency symbol is used, or when a currency-style pattern is desired without a currency symbol
 (as for use in a table). Gaps in the data coverage showed up, because the translators weren't shown the right values. 
 Fixes were made in  [CLDR-17879](https://unicode-org.atlassian.net/browse/CLDR-17879).
-- As noted below in [Migration](#migration), number `<symbols>` elements and format elements (`<currencyFormats>`, `<decimalFormats>`, `<percentFormats>`, `<scientificFormats>`)
+- Fixed missing `numberSystem` attributes
+    - As noted below in [Migration](#migration), number `<symbols>` elements and format elements (`<currencyFormats>`, `<decimalFormats>`, `<percentFormats>`, `<scientificFormats>`)
 should all have a `numberSystem` attribute, and such elements without a `numberSystem` attribute will be deprecated in CLDR 48. To
 prepare for this, in CLDR 47, all such elements were either removed (if redundant) or correct by adding a `numberSystem` attribute.
 ([CLDR-17760](https://unicode-org.atlassian.net/browse/CLDR-17760))
@@ -114,14 +150,14 @@ They are no longer typically used, and only cover a fraction of the CJK ideograp
 - Number spellout rules are added for Gujarati.
 ([CLDR-18111](https://unicode-org.atlassian.net/browse/CLDR-18111))
 - Number spellout rules are improved for several other languages:
-    - Bulgarian: Improve usage of ‘и’ (“and”). ([CLDR-17818](https://unicode-org.atlassian.net/browse/CLDR-17818))
-    - Catalan: Add plural ordinal rules for both masculine and feminine, other fixes. ([CLDR-15972](https://unicode-org.atlassian.net/browse/CLDR-15972))
-    - Dutch: Add the alternate spellout-cardinal-stressed rule for specific Dutch scenarios. ([CLDR-17187](https://unicode-org.atlassian.net/browse/CLDR-17187))
-    - Hindi: Add the spellout-ordinal-masculine-oblique rule. ([CLDR-15278](https://unicode-org.atlassian.net/browse/CLDR-15278))
-    - Indonesian: Add missing semicolon that caused all ordinals to be prefixed with “pertama 2:”. ([CLDR-17730](https://unicode-org.atlassian.net/browse/CLDR-17730))
-    - Lithuanian: Add all of the grammatical cases, genders and grammatical numbers for cardinals and ordinals (no  pronomial forms, and only the positive degree). ([CLDR-18110](https://unicode-org.atlassian.net/browse/CLDR-18110))
-    - Russian: Fix grammatcial case names in rules, and other issues. ([CLDR-17386](https://unicode-org.atlassian.net/browse/CLDR-17386))
-    - Ukrainian: Add digits-ordinal rules. ([CLDR-16096](https://unicode-org.atlassian.net/browse/CLDR-16096))
+    - Bulgarian: Improved usage of ‘и’ (“and”). ([CLDR-17818](https://unicode-org.atlassian.net/browse/CLDR-17818))
+    - Catalan: Added plural ordinal rules for both masculine and feminine, other fixes. ([CLDR-15972](https://unicode-org.atlassian.net/browse/CLDR-15972))
+    - Dutch: Added the alternate spellout-cardinal-stressed rule for specific Dutch scenarios. ([CLDR-17187](https://unicode-org.atlassian.net/browse/CLDR-17187))
+    - Hindi: Added the spellout-ordinal-masculine-oblique rule. ([CLDR-15278](https://unicode-org.atlassian.net/browse/CLDR-15278))
+    - Indonesian: Added missing semicolon that caused all ordinals to be prefixed with “pertama 2:”. ([CLDR-17730](https://unicode-org.atlassian.net/browse/CLDR-17730))
+    - Lithuanian: Added all of the grammatical cases, genders and grammatical numbers for cardinals and ordinals (no pronominal forms, and only the positive degree). ([CLDR-18110](https://unicode-org.atlassian.net/browse/CLDR-18110))
+    - Russian: Fixed grammatical case names in rules, and other issues. ([CLDR-17386](https://unicode-org.atlassian.net/browse/CLDR-17386))
+    - Ukrainian: Added digits-ordinal rules. ([CLDR-16096](https://unicode-org.atlassian.net/browse/CLDR-16096))
 
 ### Segmentation Data Changes
 
@@ -194,9 +230,16 @@ should all have a `numberSystem` attribute. In CLDR v48 such elements without a 
 corresponding entries in root will be removed; these were only intended as a long-ago migration aid. See the relevant sections of the
 LDML specification: [Number Symbols](https://www.unicode.org/reports/tr35/47/tr35-numbers.html#Number_Symbols) and
 [Number Formats](https://www.unicode.org/reports/tr35/47/tr35-numbers.html#number-formats).
-- V48 advance warnings
-    - Any locales that are missing Core data by the end of the CLDR 48 cycle will be removed [CLDR-16004](https://unicode-org.atlassian.net/browse/CLDR-16004)
-    - The default week numbering will change to ISO instead being based on the calendar week starting in CLDR 48 [CLDR-18275](https://unicode-org.atlassian.net/browse/CLDR-18275).
+
+### V48 advance warnings
+The following changes are planned for CLDR 48. Please plan accordingly to avoid disruption.
+
+- Any locales that are missing Core data by the end of the CLDR 48 cycle will be removed [CLDR-16004](https://unicode-org.atlassian.net/browse/CLDR-16004)
+- The default week numbering will change to ISO instead being based on the calendar week starting in CLDR 48 [CLDR-18275](https://unicode-org.atlassian.net/browse/CLDR-18275). The calendar week data will be more clearly targeted at matching usage in displayed month calendars.
+- The likely language for Belarus is slated to change to Russian [CLDR-14479](https://unicode-org.atlassian.net/browse/CLDR-14479)
+- The major components in [supplementalData.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalData.xml) and [supplementalMetadata.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalMetadata.xml) files are slated to be organized more logically and moved into separate files.
+    - This will make it easier for implementations to filter out data that they don't need, and make internal maintenance easier. This will not affect the data: just which file it is located in. Please plan to update XML and JSON parsers accordingly.
+- Additionally, language and territory data in `languageData` and `territoryInfo` data will receive significant updates to improve accuracy and maintainability [CLDR-18087](https://unicode-org.atlassian.net/issues/CLDR-18087)
 
 ## Known Issues
 

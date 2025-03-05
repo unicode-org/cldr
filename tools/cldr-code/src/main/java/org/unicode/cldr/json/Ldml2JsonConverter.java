@@ -2029,9 +2029,11 @@ public class Ldml2JsonConverter {
             String rawAttrValue = attrAsValueMap.get(key);
             String value = escapeValue(rawAttrValue);
             // attribute is prefixed with "_" when being used as key.
-            String attrAsKey = "_" + key;
-            if (LdmlConvertRules.attrIsBooleanOmitFalse(
-                    node.getUntransformedPath(), node.getName(), node.getParent(), key)) {
+            String attrAsKey = attrToKey(key);
+            final String fullPath = node.getUntransformedPath();
+            final String nodeName = node.getName();
+            final String parent = node.getParent();
+            if (LdmlConvertRules.attrIsBooleanOmitFalse(fullPath, nodeName, parent, key)) {
                 final Boolean v = Boolean.parseBoolean(rawAttrValue);
                 if (v) {
                     o.getAsJsonObject().addProperty(attrAsKey, v);
@@ -2053,11 +2055,11 @@ public class Ldml2JsonConverter {
                         localeRules.getAsJsonObject().add(name, sibling);
                     }
                     // get the 'parent' attribute, which wil be the value
-                    final String parent =
+                    final String parentAttr =
                             XPathParts.getFrozenInstance(node.getUntransformedPath())
                                     .getAttributeValue(-1, "parent");
                     // finally, we add something like "nonLikelyScript: und"
-                    sibling.getAsJsonObject().addProperty(value, parent);
+                    sibling.getAsJsonObject().addProperty(value, parentAttr);
                 } else {
                     o.getAsJsonObject().addProperty(attrAsKey, value);
                 }
@@ -2144,7 +2146,13 @@ public class Ldml2JsonConverter {
                         cldrNode.getName(),
                         cldrNode.getParent(),
                         cldrNode);
-                out.add(o);
+                // hack as we need to hoist languageMatch one level
+                if (o.has("languageMatch")) {
+                    // note: doesn't apply to the languageMatch: [] array container - it's an array.
+                    out.add(o.get("languageMatch"));
+                } else {
+                    out.add(o);
+                }
             }
             // the last node is closed, remove it.
             nodesInPath.remove(nodesNum - 1);
@@ -2169,7 +2177,10 @@ public class Ldml2JsonConverter {
             o.add(objName, oo);
             for (String key : attrAsValueMap.keySet()) {
                 // attribute is prefixed with "_" when being used as key.
-                oo.addProperty("_" + key, escapeValue(attrAsValueMap.get(key)));
+                final String attrAsKey = attrToKey(key);
+                final String rawValue = attrAsValueMap.get(key);
+                final String v = escapeValue(rawValue);
+                oo.addProperty(attrAsKey, v);
             }
 
             JsonElement o2 = out;
@@ -2183,6 +2194,11 @@ public class Ldml2JsonConverter {
 
         nodesForLastItem.clear();
         nodesForLastItem.addAll(nodesInPath);
+    }
+
+    /** attribute is prefixed with _ when used as a JSON key */
+    private String attrToKey(String key) {
+        return "_" + key;
     }
 
     private void writeRbnfLeafNode(
@@ -2508,21 +2524,30 @@ public class Ldml2JsonConverter {
         }
 
         JsonObject o = new JsonObject();
+        if (!out.isJsonObject()) {
+            throw new IllegalArgumentException(
+                    "At "
+                            + node.getUntransformedPath()
+                            + " - out is not an object:"
+                            + out
+                            + " to add "
+                            + objName);
+        }
         out.getAsJsonObject().add(objName, o);
 
         if (!value.isEmpty()) {
             o.addProperty("_value", value);
         }
-
+        final String fullPath = node.getUntransformedPath();
         for (final String key : attrAsValueMap.keySet()) {
             String rawAttrValue = attrAsValueMap.get(key);
             String attrValue = escapeValue(rawAttrValue);
             // attribute is prefixed with "_" when being used as key.
-            String attrAsKey = "_" + key;
+            String attrAsKey = attrToKey(key);
             if (node != null) {
-                logger.finest(() -> "Leaf Node: " + node.getUntransformedPath() + " ." + key);
+                logger.finest(() -> "Leaf Node: " + fullPath + " ." + key);
             }
-            if (LdmlConvertRules.ATTRVALUE_AS_ARRAY_SET.contains(key)) {
+            if (LdmlConvertRules.attrValueAsArraySet(nodeName, key)) {
                 String[] strings = attrValue.trim().split("\\s+");
                 JsonArray a = new JsonArray();
                 o.add(attrAsKey, a);
@@ -2530,12 +2555,14 @@ public class Ldml2JsonConverter {
                     a.add(s);
                 }
             } else if (node != null
-                    && LdmlConvertRules.attrIsBooleanOmitFalse(
-                            node.getUntransformedPath(), nodeName, parent, key)) {
+                    && LdmlConvertRules.attrIsBooleanOmitFalse(fullPath, nodeName, parent, key)) {
                 final Boolean v = Boolean.parseBoolean(rawAttrValue);
                 if (v) {
                     o.addProperty(attrAsKey, v);
                 } // else: omit falsy value
+            } else if (LdmlConvertRules.attrIsNumber(fullPath, nodeName, parent, key)) {
+                final Long v = Long.parseLong(rawAttrValue);
+                o.getAsJsonObject().addProperty(attrAsKey, v);
             } else {
                 o.addProperty(attrAsKey, attrValue);
             }
@@ -2543,10 +2570,15 @@ public class Ldml2JsonConverter {
     }
 
     private void outputSpaceSepArray(JsonElement out, String objName, String v) throws IOException {
+        // split this, so "a b c" becomes ["a","b","c"]
+        outputArray(out, objName, v.trim().split(" "));
+    }
+
+    private void outputArray(JsonElement out, String objName, String[] v) throws IOException {
         JsonArray a = new JsonArray();
         out.getAsJsonObject().add(objName, a);
         // split this, so "a b c" becomes ["a","b","c"]
-        for (final String s : v.trim().split(" ")) {
+        for (final String s : v) {
             if (!s.isEmpty()) {
                 a.add(s);
             }

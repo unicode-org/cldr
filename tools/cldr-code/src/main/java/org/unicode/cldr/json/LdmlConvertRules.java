@@ -340,6 +340,12 @@ class LdmlConvertRules {
                     .add("values") // for unitIdComponents - may need to be more specific here
                     .freeze();
 
+    public static boolean attrValueAsArraySet(final String nodeName, final String key) {
+        return LdmlConvertRules.ATTRVALUE_AS_ARRAY_SET.contains(key)
+                || (nodeName.equals("scriptVariant") && key.equals("base"))
+                || (nodeName.equals("paradigmLocales") && key.equals("locales"));
+    }
+
     /**
      * Following is the list of elements that need to be sorted before output.
      *
@@ -398,8 +404,6 @@ class LdmlConvertRules {
     public static final Pattern VALUE_IS_SPACESEP_ARRAY =
             PatternCache.get(
                     "(grammaticalCase|grammaticalGender|grammaticalDefiniteness|nameOrderLocales|component)");
-
-    public static final Pattern VALUE_IS_PLUSSEP_ARRAY = PatternCache.get("(matchVariable)");
 
     /**
      * Indicates that the child value of this element needs to be separated into array items. For
@@ -649,10 +653,6 @@ class LdmlConvertRules {
         return SPLITTABLE_ATTRS;
     }
 
-    public static final boolean valueIsPlussepArray(final String nodeName, String parent) {
-        return VALUE_IS_PLUSSEP_ARRAY.matcher(nodeName).matches();
-    }
-
     public static final boolean valueIsSpacesepArray(final String nodeName, String parent) {
         return VALUE_IS_SPACESEP_ARRAY.matcher(nodeName).matches()
                 || (parent != null && CHILD_VALUE_IS_SPACESEP_ARRAY.contains(parent));
@@ -675,6 +675,7 @@ class LdmlConvertRules {
                 && BOOLEAN_OMIT_FALSE.contains(key));
     }
 
+    /** attributes that should be treated as a number in JSON */
     static final Set<String> ATTR_IS_NUMBER =
             ImmutableSet.of(
                     // language match
@@ -683,7 +684,7 @@ class LdmlConvertRules {
     public static final boolean attrIsNumber(
             final String fullPath, final String nodeName, final String parent, final String key) {
         return (fullPath != null
-                && nodeName.equals("languageMatch")
+                && fullPath.startsWith("//supplementalData/languageMatching")
                 && ATTR_IS_NUMBER.contains(key));
     }
 }

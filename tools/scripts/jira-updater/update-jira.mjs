@@ -23,19 +23,14 @@ const {
 
 const DONE_ICON = "✅";
 const GEAR_ICON = "⚙️";
-// const NONE_ICON = "∅";
-// const PACKAGE_ICON = "📦";
-// const SECTION_ICON = "📍";
 const TYPE_ICON = "📂";
-// const WARN_ICON = "⚠️";
-// const POINT_ICON = "👉";
 const MISSING_ICON = "❌";
 const LAND_ICON = "🛬";
 
-
-// DEBUG&&console.dir({JIRA_HOST, JIRA_EMAIL, JIRA_APITOKEN});
 if (!JIRA_HOST || !JIRA_EMAIL || !JIRA_APITOKEN) {
-  throw Error(`${MISSING_ICON} Configuration error: set JIRA_HOST, JIRA_EMAIL, JIRA_APITOKEN`);
+  console.error(`${MISSING_ICON} Configuration error: set JIRA_HOST, JIRA_EMAIL, JIRA_APITOKEN`);
+  console.error(`TODO CLDR-15400: Need to make this work from forks`);
+  return; // don't fail the build at present, since this will be common for forks
 }
 
 if (!PR_TITLE) throw Error(`${MISSING_ICON} PR_TITLE unset, something is wrong`);

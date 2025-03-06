@@ -10,7 +10,7 @@ on:
 jobs:
     update_jira:
         # we only want to run this on unicode-org/cldr
-        if: github.repository == 'srl295/cldr'
+        if: github.repository == 'unicode-org/cldr'
         runs-on: ubuntu-latest
         steps:
         - name: Checkout CLDR

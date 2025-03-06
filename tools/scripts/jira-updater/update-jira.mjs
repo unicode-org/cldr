@@ -131,7 +131,7 @@ async function main() {
           content: [
             {
               type: "text",
-              text: `@${GITHUB_ACTOR} merged a PR to ${GITHUB_REPOSITORY}:${MERGED_TO}`
+              text: `@${GITHUB_ACTOR} merged a PR to ${GITHUB_REPOSITORY}:${mergedTo}`
             }
           ]
         },
@@ -145,7 +145,7 @@ async function main() {
             {
               "type": "inlineCard",
               "attrs": {
-                "url": `https://github.com/${GITHUB_REPOSITORY}/pull/${PR_NUMBER}`,
+                "url": `https://github.com/${GITHUB_REPOSITORY}/pull/${PR_NUMBER || ''}`,
               }
             },
             {

@@ -239,7 +239,8 @@ The following changes are planned for CLDR 48. Please plan accordingly to avoid 
 - The likely language for Belarus is slated to change to Russian [CLDR-14479](https://unicode-org.atlassian.net/browse/CLDR-14479)
 - The major components in [supplementalData.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalData.xml) and [supplementalMetadata.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalMetadata.xml) files are slated to be organized more logically and moved into separate files.
     - This will make it easier for implementations to filter out data that they don't need, and make internal maintenance easier. This will not affect the data: just which file it is located in. Please plan to update XML and JSON parsers accordingly.
-- Additionally, language and territory data in `languageData` and `territoryInfo` data will receive significant updates to improve accuracy and maintainability [CLDR-18087](https://unicode-org.atlassian.net/issues/CLDR-18087)
+- The `languageData` element and/or some of its attributes may be deprecated, and their data removed. [CLDR-18087](https://unicode-org.atlassian.net/issues/CLDR-18087)
+- The `<version number="$Revision$">` may be deprecated and data removed. The #FIXED values in the DTD may also be retired in favor of explicit values. [CLDR-18377](https://unicode-org.atlassian.net/browse/CLDR-18377), [CLDR-14161](https://unicode-org.atlassian.net/browse/CLDR-14161)
 
 ## Known Issues
 

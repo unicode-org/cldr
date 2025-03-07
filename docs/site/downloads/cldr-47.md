@@ -102,12 +102,14 @@ See the [Modifications section](https://www.unicode.org/reports/tr35/proposed.ht
 ### DTD Changes
 Changes include:
 - Ordering currencies used in each region
-- Adding script data (for example, relating the script code `Jpan` to its component script codes)
+- [CLDR-17531][] Adding script data (for example, relating the script code `Jpan` to its component script codes)
 - Adding the attribution attribute to keyboards
 - Most of the DTD changes were to tighten up the validity constraints (@MATCH) on various attributes.
 These don't affect implementations.
 
 For a full listing, see [Delta DTDs](https://unicode.org/cldr/charts/dev/supplemental/dtd_deltas.html).
+
+Also see other changes listed under [keyboards](#keyboard-changes).
 
 ### Supplemental Data Changes
 
@@ -221,6 +223,8 @@ There were various SurveyTool improvements targeting expansion of DDL support an
 ### Keyboard Changes
 
 > **Note**: for the v48 timeframe, additional processes are being developed for broad intake of keyboards.
+
+Spec and DTD changes:
 
 - [CLDR-16836][] [CLDR-18318][] [CLDR-18319][] Added EBNF for keyboard transform format to the spec, and ABNF data files.
   This provides rigorous definition of the allowed keyboard transform format, as well as programmatic validation of the keyboard transform format.

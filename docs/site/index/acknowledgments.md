@@ -77,6 +77,7 @@ Many other people have made significant contributions to CLDR and LDML, includin
 - Dr. Anaha Hiini
 - Anastasia Golikova (Анастасия Голикова)
 - Andra Artemova
+- André Bargull
 - André de Souza Mucciolo
 - André Malafaya Baptista
 - André Stryger
@@ -114,6 +115,7 @@ Many other people have made significant contributions to CLDR and LDML, includin
 - Anushri Pawar
 - Aram Palyan (Արամ Պալյան)
 - Ariundhati Raaj (അരുന്ധതി രാജ്)
+- Arjan Mels
 - Artur Klauser
 - Aruna Kumar KR (ಅರುಣ ಕುಮಾರ ಕೆ ಆರ್‌)
 - Arvinder Singh Kang (ਅਰਵਿੰਦਰ ਸਿੰਘ ਕੰਗ)
@@ -245,6 +247,7 @@ Many other people have made significant contributions to CLDR and LDML, includin
 - Dary Mihova (Дари Михова)
 - David Beaumont
 - David Corbett
+- David H Bebawy
 - David Korczynski
 - David Lucien
 - David Luo (罗凌)
@@ -315,6 +318,7 @@ Many other people have made significant contributions to CLDR and LDML, includin
 - Elva Bian (边文静)
 - Elvana Tufa
 - Emil Soleyman-Zomalan (ܐܡܝܠ ܣܘܠܝܡܢ ܙܘܡܠܢ)
+- Emily Roth
 - Enol Puente Suárez
 - Enrique Galdeano Clavería
 - Er. Saroj Chakma (𑄃𑄨𑄃𑄢𑄴. 𑄥𑄧𑄢𑄮𑄎𑄧 𑄌𑄋𑄴𑄟𑄳𑄦)
@@ -517,6 +521,7 @@ Many other people have made significant contributions to CLDR and LDML, includin
 - Keghani Kouzoujian (Գեղանի Գուզուճեան)
 - Keith Stribley
 - Kelechi Precious Nwachukwu
+- Ken Paupanakis ᑫᐣ   ᐸᐹᓇᑭᐢ
 - Kent Karlsson
 - Kentaroh Noji (野地 健太郎)
 - Keshan Sodimana (කේෂාන් සෝදිමාන)
@@ -574,6 +579,7 @@ Many other people have made significant contributions to CLDR and LDML, includin
 - Lo Quentin
 - Lokosh (Joshua D. Hinson)
 - Louis-Aimé de Fouquières
+- Louise Campbell ᓫᐅᐄᐢ   ᑳᒼᐸᓫ
 - Luca Meloni
 - Luca Rabinelli
 - Luke Sandberg
@@ -594,6 +600,7 @@ Many other people have made significant contributions to CLDR and LDML, includin
 - Manoj MK (മനോജ് എം.കെ)
 - Mansur Kabirov (Мансур Кабиров)
 - Manuel Coltorti
+- Manuel Strehl
 - Marc Liyanage
 - Marc-André Séguin
 - Marcel Schneider
@@ -677,6 +684,7 @@ Many other people have made significant contributions to CLDR and LDML, includin
 - Muhammad Noor (𐴔𐴟𐴇𐴝𐴔𐴝𐴊 𐴕𐴦𐴟𐴌)
 - Murat Karibay (Мұрат Кәрібай)
 - Musa Abubakar
+- Mustafa Akbay
 - Muthu Nedumaran (முத்து நெடுமாறன்)
 - Myriam Bedmar Martín
 - Myron Nechypor

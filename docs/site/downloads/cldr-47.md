@@ -6,7 +6,7 @@ title: CLDR 47 Release Note
 
 | No. |    Date    | Rel. Note |  Data  |  Charts  | Spec |   Delta  | GitHub Tag | Delta DTD | CLDR JSON |
 |:---:|:----------:|:---------:|:------:|:--------:|:------------:|:---:|:----------:|:---------:|:---------:|
-|  47 | 2025-04-~~XX~~ | [v47](/index/downloads/cldr-47) | ~~[CLDR47](https://unicode.org/Public/cldr/47/)~~ | [Charts47](https://unicode.org/cldr/charts/dev) | [LDML47](https://www.unicode.org/reports/tr35/proposed.html) | [Δ47](https://unicode-org.atlassian.net/issues/?jql=project+%3D+CLDR+AND+status+%3D+Done+AND+resolution+%3D+Fixed+AND+fixVersion+%3D+%2247%22+ORDER+BY+priority+DESC) | ~~release-47~~<br>[release-47-beta2](https://github.com/unicode-org/cldr/releases/tag/release-47-beta2) | [ΔDtd47](https://www.unicode.org/cldr/charts/dev/supplemental/dtd_deltas.html) | ~~47.0.0~~<br>[47.0.0-BETA1](https://github.com/unicode-org/cldr-json/releases/tag/47.0.0-BETA1) |
+|  47 | 2025-04-~~XX~~ | [v47](/index/downloads/cldr-47) | ~~[CLDR47](https://unicode.org/Public/cldr/47/)~~ | [Charts47](https://unicode.org/cldr/charts/dev) | [LDML47](https://www.unicode.org/reports/tr35/proposed.html) | [Δ47](https://unicode-org.atlassian.net/issues/?jql=project+%3D+CLDR+AND+status+%3D+Done+AND+resolution+%3D+Fixed+AND+fixVersion+%3D+%2247%22+ORDER+BY+priority+DESC) | ~~release-47~~<br>[release-47-beta2](https://github.com/unicode-org/cldr/releases/tag/release-47-beta2) | [ΔDtd47](https://www.unicode.org/cldr/charts/dev/supplemental/dtd_deltas.html) | ~~47.0.0~~<br>[47.0.0-BETA2](https://github.com/unicode-org/cldr-json/releases/tag/47.0.0-BETA2) |
 
 <span style="color:red; font-weight: bold;">This is an beta version of CLDR v47.</span>
 
@@ -22,7 +22,7 @@ It was a closed cycle: locale data changes were limited to bug fixes and the add
 
 ### Changes
 
-This release note includes all changes from [CLDR v46.1](cldr-46#461-changes), 
+This release note includes all changes from [CLDR v46.1](cldr-46.md#461-changes), 
 a special release, which many users of CLDR (including ICU) have not updated to.
 
 The most significant changes in this release are the following:
@@ -116,6 +116,7 @@ For a full listing, see [Delta DTDs](https://unicode.org/cldr/charts/dev/supplem
 - Fixed invalid codes [CLDR-18129](https://unicode-org.atlassian.net/browse/CLDR-18129)
 - Updated various language population numbers for [Bouvet Island](https://unicode-org.atlassian.net/browse/CLDR-9791), [Canada](https://unicode-org.atlassian.net/browse/CLDR-15391), [El Salvador](https://unicode-org.atlassian.net/browse/CLDR-11567), [Macau](https://unicode-org.atlassian.net/browse/CLDR-10478), [Mauritius](https://unicode-org.atlassian.net/browse/CLDR-18002), [Sierra Leone](https://unicode-org.atlassian.net/browse/CLDR-18002), [South Georgia and Bouvet Islands](https://unicode-org.atlassian.net/browse/CLDR-9791), [Tokelau](https://unicode-org.atlassian.net/browse/CLDR-18002), and [Zambia](https://unicode-org.atlassian.net/browse/CLDR-18002). Also for [French across the world](https://unicode-org.atlassian.net/browse/CLDR-11888).
 - Fixed [matching languages to likely subtags](https://www.unicode.org/cldr/charts/47/supplemental/likely_subtags.html) for many languages in the above countries as well as: [Malay (individual language)](https://unicode-org.atlassian.net/browse/CLDR-10015), [Serbian in Russia](https://unicode-org.atlassian.net/browse/CLDR-14088), and [Sudanese Arabic](https://unicode-org.atlassian.net/browse/CLDR-10015).
+- Added script metadata [CLDR-17531][]
 - **TBD: add others**
 
 For a full listing, see [¤¤BCP47 Delta](https://unicode.org/cldr/charts/dev/delta/bcp47.html) and [¤¤Supplemental Delta](https://unicode.org/cldr/charts/dev/delta/supplemental-data.html)
@@ -178,6 +179,8 @@ the second is preferred for a `TW`/`Hant` context, and is now used by the new `H
 - [CLDR-17176][] Timezone data now has a `_type: "zone"` attribute indicating which objects are leaf timezones (`America/Argentina/Catamarca` is a timezone, `America/Argentina` is not.)
 - [CLDR-18133][] Currency data preserves the priority order (highest to lowest) of preferred currencies. This was an error in the DTD.
 - [CLDR-18277][] Package name for transforms was incorrectly generated.
+- [CLDR-10397][] `languageMatching.json` was restructured and reformatted, as it was previously unusable due to critical missing data
+- [CLDR-17531][] `scriptMetadata.json` is a new file in cldr-core, with metadata on varaints of ISO 15924 scripts.
 
 ### File Changes
 
@@ -219,8 +222,10 @@ There were various SurveyTool improvements targeting expansion of DDL support an
 
 > **Note**: for the v48 timeframe, additional processes are being developed for broad intake of keyboards.
 
-- [CLDR-16836][] Added EBNF for keyboard transform format to the spec, and ABNF data files.
+- [CLDR-16836][] [CLDR-18318][] [CLDR-18319][] Added EBNF for keyboard transform format to the spec, and ABNF data files.
   This provides rigorous definition of the allowed keyboard transform format, as well as programmatic validation of the keyboard transform format.
+- [CLDR-17971][] Added `<info attribution=…` attribute
+- [CLDR-18324][] Added `<keyboard3 draft=…` attribute
 
 ## Migration
 
@@ -257,12 +262,17 @@ in particular, see [Exhibit 1](https://unicode.org/copyright.html#Exhibit1).
 
 For web pages with different views of CLDR data, see [charts](/index/charts).
 
+[CLDR-10397]: https://unicode-org.atlassian.net/browse/CLDR-10397
 [CLDR-11874]: https://unicode-org.atlassian.net/browse/CLDR-11874
 [CLDR-16526]: https://unicode-org.atlassian.net/browse/CLDR-16526
 [CLDR-16836]: https://unicode-org.atlassian.net/browse/CLDR-16836
 [CLDR-17176]: https://unicode-org.atlassian.net/browse/CLDR-17176
+[CLDR-17531]: https://unicode-org.atlassian.net/browse/CLDR-17531
 [CLDR-17612]: https://unicode-org.atlassian.net/browse/CLDR-17612
+[CLDR-17971]: https://unicode-org.atlassian.net/browse/CLDR-17971
 [CLDR-18133]: https://unicode-org.atlassian.net/browse/CLDR-18133
 [CLDR-18219]: https://unicode-org.atlassian.net/browse/CLDR-18219
 [CLDR-18277]: https://unicode-org.atlassian.net/browse/CLDR-18277
-
+[CLDR-18318]: https://unicode-org.atlassian.net/browse/CLDR-18318
+[CLDR-18319]: https://unicode-org.atlassian.net/browse/CLDR-18319
+[CLDR-18324]: https://unicode-org.atlassian.net/browse/CLDR-18324

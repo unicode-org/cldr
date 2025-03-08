@@ -3697,6 +3697,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         private User user = null;
         private final int users = CookieSession.getUserCount();
         private String sessionMessage = null;
+        private JSONObject settings = null;
 
         private final Runtime r = Runtime.getRuntime();
         double memtotal = r.totalMemory() / 1024000.0;
@@ -3708,31 +3709,36 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
              * Doc for JSONObject.put(string, object), says: "It [object] should be of one of these types:
              * Boolean, Double, Integer, JSONArray, JSONObject, Long, String, or the JSONObject.NULL object."
              */
-            return new JSONObject()
-                    .put("contextPath", contextPath)
-                    .put("dbopen", dbopen)
-                    .put("dbused", dbused)
-                    .put("observers", observers)
-                    .put("isBusted", isBusted)
-                    .put("isPhaseBeta", isPhaseBeta)
-                    .put("isSetup", isSetup)
-                    .put("isUnofficial", isUnofficial)
-                    .put("newVersion", newVersion)
-                    .put("organizationName", organizationName)
-                    .put("pages", pages)
-                    .put("permissions", permissions)
-                    .put("phase", phase)
-                    .put("extendedPhase", extendedPhase)
-                    .put("sessionId", sessionId)
-                    .put("sessionMessage", sessionMessage)
-                    .put("specialHeader", specialHeader)
-                    .put("surveyRunningStamp", surveyRunningStamp)
-                    .put("sysload", sysload)
-                    .put("memtotal", memtotal)
-                    .put("memfree", memfree)
-                    .put("uptime", uptime)
-                    .put("user", user) // allowed since User implements JSONString?
-                    .put("users", users);
+            final JSONObject j =
+                    new JSONObject()
+                            .put("contextPath", contextPath)
+                            .put("dbopen", dbopen)
+                            .put("dbused", dbused)
+                            .put("observers", observers)
+                            .put("isBusted", isBusted)
+                            .put("isPhaseBeta", isPhaseBeta)
+                            .put("isSetup", isSetup)
+                            .put("isUnofficial", isUnofficial)
+                            .put("newVersion", newVersion)
+                            .put("organizationName", organizationName)
+                            .put("pages", pages)
+                            .put("permissions", permissions)
+                            .put("phase", phase)
+                            .put("extendedPhase", extendedPhase)
+                            .put("sessionId", sessionId)
+                            .put("sessionMessage", sessionMessage)
+                            .put("specialHeader", specialHeader)
+                            .put("surveyRunningStamp", surveyRunningStamp)
+                            .put("sysload", sysload)
+                            .put("memtotal", memtotal)
+                            .put("memfree", memfree)
+                            .put("uptime", uptime)
+                            .put("user", user) // allowed since User implements JSONString?
+                            .put("users", users);
+            if (settings != null) {
+                j.put("settings", settings);
+            }
+            return j;
         }
 
         @Override
@@ -3767,6 +3773,11 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 sessionId = mySession.id;
                 user = mySession.user;
                 sessionMessage = mySession.getMessage();
+                try {
+                    settings = mySession.getSettingsJSON();
+                } catch (JSONException j) {
+                    SurveyLog.logException(logger, j, "getting user session for " + sessionId);
+                }
             }
         }
     }

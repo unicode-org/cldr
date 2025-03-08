@@ -312,7 +312,7 @@ public class CheckWidths extends CheckCLDR {
                                         Special.PLACEHOLDERS)
                             })
                     .add(
-                            "//ldml/dates/timeZoneNames/(gmtFormat|gmtZeroFormat)",
+                            "//ldml/dates/timeZoneNames/(gmtFormat|gmtZeroFormat|gmtUnknownFormat)",
                             new Limit[] { // GMT{0}, GMT
                                 new Limit(
                                         5 * EM,

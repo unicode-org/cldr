@@ -930,7 +930,9 @@ public class TestExampleGenerator extends TestFmwk {
             String value = cldrFile.getStringValue(xpath);
             String actual = exampleGenerator.getExampleHtml(xpath, value);
             if (actual == null) {
-                if (!xpath.contains("singleCountries") && !xpath.contains("gmtZeroFormat")) {
+                if (!xpath.contains("singleCountries")
+                        && !xpath.contains("gmtZeroFormat")
+                        && !xpath.contains("gmtUnknownFormat")) {
                     errln("Null value for " + value + "\t" + xpath);
                     // for debugging
                     exampleGenerator.getExampleHtml(xpath, value);

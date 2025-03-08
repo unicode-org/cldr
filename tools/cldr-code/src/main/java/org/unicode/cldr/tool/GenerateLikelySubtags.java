@@ -481,7 +481,6 @@ public class GenerateLikelySubtags {
                                 {"und_Arab_AZ", "az_Arab_AZ"},
                                 {"und_Cyrl_BG", "bg_Cyrl_BG"},
                                 {"und_Tibt_BT", "dz_Tibt_BT"},
-                                {"und_Cyrl_BY", "be_Cyrl_BY"},
                                 {"und_Arab_CC", "ms_Arab_CC"},
                                 {"und_Ethi_ER", "ti_Ethi_ER"},
                                 {"und_Arab_IR", "fa_Arab_IR"},

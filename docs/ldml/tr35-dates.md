@@ -2479,7 +2479,7 @@ Note: A _calendar period_ is distinct from a _date_ because it cannot be paired 
 
 The **Time** field signifies the time of day.
 
-Whether to include the Hour, Minute, Second, or Fractional Second is configured with the [Time Precision](#Time_Precision) option.
+Whether to include the Hour, Minute, Second, or Fractional Second is configured with the [Time Precision](#Semantic_Skeleton_Time_Precision) option.
 
 | Field Set | Example         |
 |-----------|-----------------|

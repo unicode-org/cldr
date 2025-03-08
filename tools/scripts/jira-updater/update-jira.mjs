@@ -12,14 +12,15 @@ const {
   // from repo
   JIRA_HOST, JIRA_EMAIL, JIRA_APITOKEN, JIRA_FIELD,
   // from workflow
-  PR_TITLE, MERGED_TO, PR_NUMBER,
+  MERGED_TO,
   // Github stuff, we'll take what we can get
   GITHUB_REPOSITORY,
   GITHUB_ACTOR,
-  GITHUB_WORKFLOW,
   GITHUB_SHA,
 } = process.env;
 
+// extract PR title from process (see workflow)
+const [, , PR_TITLE] = process.argv;
 
 const DONE_ICON = "✅";
 const GEAR_ICON = "⚙️";
@@ -28,9 +29,7 @@ const MISSING_ICON = "❌";
 const LAND_ICON = "🛬";
 
 if (!JIRA_HOST || !JIRA_EMAIL || !JIRA_APITOKEN) {
-  console.error(`${MISSING_ICON} Configuration error: set JIRA_HOST, JIRA_EMAIL, JIRA_APITOKEN`);
-  console.error(`TODO CLDR-15400: Need to make this work from forks`);
-  return; // don't fail the build at present, since this will be common for forks
+  throw Error(`${MISSING_ICON} Configuration error: set JIRA_HOST, JIRA_EMAIL, JIRA_APITOKEN`);
 }
 
 if (!PR_TITLE) throw Error(`${MISSING_ICON} PR_TITLE unset, something is wrong`);
@@ -52,10 +51,17 @@ const client = new Version3Client({
 });
 
 async function main() {
-  const resp = /^([A-Z]+-[0-9]+)/.exec(PR_TITLE);
+  let resp = /^([A-Z]+-[0-9]+)/.exec(PR_TITLE);
   if (!resp || !resp[1]) throw Error(`${MISSING_ICON} Could not find JIRA ticket in ${PR_TITLE}`);
   const issueIdOrKey = resp[1];
-  const mergedTo = MERGED_TO;
+  // graceful behavior if the PR # is missing
+  resp = /\(#([0-9]+)\)\s*$/.exec(PR_TITLE);
+  let PR_NUMBER = undefined;
+  if (resp && resp[1]) {
+    PR_NUMBER = resp[1];
+  }
+  if (!PR_NUMBER) console.error(`${MISSING_ICON} Could not find PR# in ${PR_TITLE}`);
+  const mergedTo = MERGED_TO.replace(/^refs\/heads\//,'');
 
   console.log(`${GEAR_ICON} Logging in`);
 
@@ -66,7 +72,7 @@ async function main() {
     throw Error(`${MISSING_ICON} JIRA Authentication error: ${e}`);
   }
 
-  console.log(`${TYPE_ICON} Updating ${issueIdOrKey} on Jira with a merge to ${mergedTo}…`);
+  console.log(`${TYPE_ICON} Updating ${issueIdOrKey} on Jira with a merge to ${mergedTo} from ${PR_NUMBER}`);
 
   const ourField = JIRA_FIELD || 'Merged'; // could be a config option later
 
@@ -125,7 +131,7 @@ async function main() {
           content: [
             {
               type: "text",
-              text: `@${GITHUB_ACTOR} merged a PR to ${GITHUB_REPOSITORY}:${MERGED_TO}`
+              text: `@${GITHUB_ACTOR} merged a PR to ${GITHUB_REPOSITORY}:${mergedTo}`
             }
           ]
         },
@@ -139,7 +145,17 @@ async function main() {
             {
               "type": "inlineCard",
               "attrs": {
-                "url": `https://github.com/${GITHUB_REPOSITORY}/pull/${PR_NUMBER}`,
+                "url": `https://github.com/${GITHUB_REPOSITORY}/pull/${PR_NUMBER || ''}`,
+              }
+            },
+            {
+              type: "text",
+              text: `\n`
+            },
+            {
+              "type": "inlineCard",
+              "attrs": {
+                "url": `https://github.com/${GITHUB_REPOSITORY}/commit/${GITHUB_SHA}`,
               }
             }
           ]

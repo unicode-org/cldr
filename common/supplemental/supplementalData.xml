@@ -1446,7 +1446,9 @@ XXX Code for transations where no currency is involved
 		<language type="bzx" scripts="Latn"/>
 		<language type="ca" scripts="Latn" territories="AD"/>
 		<language type="ca" territories="ES" alt="secondary"/>
+		<language type="caa" territories="GT" alt="secondary"/>
 		<language type="cad" scripts="Latn"/>
+		<language type="cak" territories="GT" alt="secondary"/>
 		<language type="car" scripts="Latn"/>
 		<language type="cay" scripts="Latn"/>
 		<language type="cch" scripts="Latn"/>
@@ -1760,6 +1762,7 @@ XXX Code for transations where no currency is involved
 		<language type="kdt" scripts="Thai"/>
 		<language type="kea" scripts="Latn"/>
 		<language type="kea" territories="CV" alt="secondary"/>
+		<language type="kek" territories="GT" alt="secondary"/>
 		<language type="ken" scripts="Latn"/>
 		<language type="kfo" scripts="Latn"/>
 		<language type="kfr" scripts="Deva"/>
@@ -2122,6 +2125,7 @@ XXX Code for transations where no currency is involved
 		<language type="quc" territories="GT" alt="secondary"/>
 		<language type="qug" scripts="Latn"/>
 		<language type="qug" territories="EC" alt="secondary"/>
+		<language type="quv" territories="GT" alt="secondary"/>
 		<language type="raj" scripts="Deva"/>
 		<language type="raj" territories="IN" alt="secondary"/>
 		<language type="rap" scripts="Latn"/>
@@ -2371,6 +2375,7 @@ XXX Code for transations where no currency is involved
 		<language type="unx" scripts="Beng Deva"/>
 		<language type="ur" scripts="Arab" territories="PK"/>
 		<language type="ur" territories="GB IN" alt="secondary"/>
+		<language type="usp" territories="GT" alt="secondary"/>
 		<language type="uz" scripts="Latn Cyrl Arab" territories="UZ"/>
 		<language type="uz" territories="AF" alt="secondary"/>
 		<language type="vai" scripts="Vaii Latn"/>
@@ -2418,6 +2423,7 @@ XXX Code for transations where no currency is involved
 		<language type="xcr" scripts="Cari"/>
 		<language type="xh" scripts="Latn"/>
 		<language type="xh" territories="ZA" alt="secondary"/>
+		<language type="xin" territories="GT" alt="secondary"/>
 		<language type="xlc" scripts="Lyci"/>
 		<language type="xld" scripts="Lydi"/>
 		<language type="xmf" scripts="Geor"/>
@@ -3206,8 +3212,31 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="en" populationPercent="100" officialStatus="official" references="R1338"/>	<!--English-->
 		</territory>
 		<territory type="GT" gdp="223200000000" literacyPercent="75.9" population="18255200">	<!--Guatemala-->
-			<languagePopulation type="es" populationPercent="93" officialStatus="official" references="R1227"/>	<!--Spanish-->
-			<languagePopulation type="quc" populationPercent="7" officialStatus="official_regional" references="R1289"/>	<!--Kʼicheʼ-->
+			<languagePopulation type="es" populationPercent="88" officialStatus="official" references="R1130"/>	<!--Spanish-->
+			<languagePopulation type="cak" populationPercent="8.8" officialStatus="official_regional" references="R1137"/>	<!--Kaqchikel-->
+			<languagePopulation type="kek" populationPercent="8.8" references="R1130"/>	<!--Kekchí-->
+			<languagePopulation type="quc" populationPercent="8.6" officialStatus="official_regional" references="R1161"/>	<!--Kʼicheʼ-->
+			<languagePopulation type="mam" populationPercent="4.6" references="R1130"/>	<!--Mam-->
+			<languagePopulation type="en" populationPercent="3.1" references="R1130"/>	<!--English-->
+			<languagePopulation type="kjb" populationPercent="1.2" references="R1130"/>	<!--Q'anjob'al-->
+			<languagePopulation type="poh" populationPercent="1.2" references="R1130"/>	<!--Poqomchi'-->
+			<languagePopulation type="acr" populationPercent="1.1" references="R1130"/>	<!--Achi-->
+			<languagePopulation type="kek" populationPercent="0.89" officialStatus="official_regional" references="R1168"/>	<!--Kekchí-->
+			<languagePopulation type="tzj" populationPercent="0.61" references="R1130"/>	<!--Tz'utujil-->
+			<languagePopulation type="knj" populationPercent="0.58" references="R1130"/>	<!--Western Kanjobal-->
+			<languagePopulation type="cac" populationPercent="0.43" references="R1130"/>	<!--Chuj-->
+			<languagePopulation type="jac" populationPercent="0.31" references="R1130"/>	<!--Popti'-->
+			<languagePopulation type="aqu" populationPercent="0.26" references="R1130"/>	<!--aqu-->
+			<languagePopulation type="caa" populationPercent="0.13" officialStatus="official_regional" references="R1170"/>	<!--Chortí-->
+			<languagePopulation type="poc" populationPercent="0.09" references="R1130"/>	<!--Poqomam-->
+			<languagePopulation type="quv" populationPercent="0.054" officialStatus="official_regional" references="R1168"/>	<!--Sacapulteco-->
+			<languagePopulation type="usp" populationPercent="0.045" officialStatus="official_regional" references="R1168"/>	<!--Uspanteco-->
+			<languagePopulation type="qum" populationPercent="0.036" references="R1130"/>	<!--Sipacapense-->
+			<languagePopulation type="cab" populationPercent="0.027" references="R1130"/>	<!--Garifuna-->
+			<languagePopulation type="ttc" populationPercent="0.027" references="R1130"/>	<!--Tektiteko-->
+			<languagePopulation type="xin" populationPercent="0.027" officialStatus="official_regional" references="R1252"/>	<!--Xinca-->
+			<languagePopulation type="mop" populationPercent="0.018" references="R1130"/>	<!--Mopán Maya-->
+			<languagePopulation type="itz" populationPercent="0.0091" references="R1130"/>	<!--Itzá-->
 		</territory>
 		<territory type="GU" gdp="5793000000" literacyPercent="99" population="169532">	<!--Guam-->
 			<languagePopulation type="en" populationPercent="91" officialStatus="de_facto_official"/>	<!--English-->
@@ -5702,6 +5731,7 @@ XXX Code for transations where no currency is involved
 		<reference type="R1134" uri="http://en.wikipedia.org/wiki/Swahili_language">- Baganda generally don't speak Swahili, but it is in common use among the 25 million people elsewhere in the country, and is currently being implemented in schools nationwide (use 75% of Cpop for this figure)</reference>
 		<reference type="R1135" uri="https://en.wikipedia.org/wiki/Talian_dialect">[missing]</reference>
 		<reference type="R1136" uri="https://en.wikipedia.org/wiki/Chipilo_Venetian_dialect">[missing]</reference>
+		<reference type="R1137" uri="https://www.censopoblacion.gt/archivos/resultados_censo2018.pdf">2018 Census, counting both maternal and secondary language usage. Co-official in Sacatepéquez</reference>
 		<reference type="R1138" uri="http://en.wikipedia.org/wiki/Breton_language">http://www.ofis-bzh.org/fr/langue_bretonne/chiffres_cles/index.php France blocks other languages in state schools; 1.4% attended Breton schools and 3% is estimated as family transmission rate</reference>
 		<reference type="R1139" uri="http://en.wikipedia.org/wiki/Pashto_language">15.8% of population</reference>
 		<reference type="R1140" uri="http://en.wikipedia.org/wiki/Cornish_language">The 2008 estimate is ~2000 speakers due to revival efforts</reference>
@@ -5725,13 +5755,16 @@ XXX Code for transations where no currency is involved
 		<reference type="R1158" uri="http://en.wikipedia.org/wiki/Languages_of_Pakistan#Punjabi">Spoken by 70% of population, assumed to use Arabic script in Pakistan</reference>
 		<reference type="R1159" uri="http://en.wikipedia.org/wiki/Chuvash_language#Language_use">Reported to be (regional) official in Chuvashia, central Russia: taught at schools. However: http://cv.wikipedia.org/ Chuvash Wikipedia on-line.</reference>
 		<reference type="R1160" uri="https://www.ethnologue.com/language/pis">[missing]</reference>
+		<reference type="R1161" uri="https://www.censopoblacion.gt/archivos/resultados_censo2018.pdf">2018 Census, counting both maternal and secondary language usage. Co-official in Quiché and Totonicapán</reference>
 		<reference type="R1162" uri="https://www.cia.gov/cia/publications/factbook/fields/2098.html">'A lingua franca and a first language for 10% of the population but understood by 95%' http://en.wikipedia.org/wiki/Krio_language</reference>
 		<reference type="R1163" uri="http://en.wikipedia.org/wiki/Suriname#Languages">Dutch is spoken as a mother tongue by about 60% of the Surinamese, while most others speak it as a second or third language.</reference>
 		<reference type="R1164" uri="http://en.wikipedia.org/wiki/Isan_language">main language of trade and comm. in Isan region, except ... media where it gives way to Thai; now largely an unwritten language. 10% writing pop estimated in absence of other data</reference>
 		<reference type="R1165" uri="http://en.wikipedia.org/wiki/Uyghur_language">- primarily written using an Arabic-derived alphabet</reference>
 		<reference type="R1166" uri="https://en.wikipedia.org/wiki/Sark#Economy">and https://islandstudies.com/files/2016/11/Guernsey-Herm-Sark.pdf - extrapolated GDP from per capita x population</reference>
 		<reference type="R1167" uri="http://www.ethnologue.com/show_language.asp?code=nds">understood by 10 million, perhaps. Figure is questionable writing pop artificially set to 5% see also: http://en.wikipedia.org/wiki/Low_German (understood by 10 million people, and native to about 3 million people all around northern Germany)</reference>
+		<reference type="R1168" uri="https://www.censopoblacion.gt/archivos/resultados_censo2018.pdf">2018 Census, counting both maternal and secondary language usage. Co-official in Quiché</reference>
 		<reference type="R1169" uri="http://en.wikipedia.org/wiki/Mayotte#Languages">See the 2006 language survey data for 2nd langs = Shimaore</reference>
+		<reference type="R1170" uri="https://www.censopoblacion.gt/archivos/resultados_censo2018.pdf">2018 Census, counting both maternal and secondary language usage. Co-official in Chiquimula</reference>
 		<reference type="R1171">Common lingua franca, widely used. High literacy.</reference>
 		<reference type="R1172" uri="https://en.wikipedia.org/wiki/Lombard_language#Usage">but subtracting 270,000 per https://en.wikipedia.org/wiki/Swiss_Italian</reference>
 		<reference type="R1173" uri="https://en.wikipedia.org/wiki/Levantine_Arabic#Speakers_by_country">[missing]</reference>
@@ -5788,7 +5821,6 @@ XXX Code for transations where no currency is involved
 		<reference type="R1224" uri="http://en.wikipedia.org/wiki/Blin_language">[missing]</reference>
 		<reference type="R1225" uri="https://www.cia.gov/library/publications/the-world-factbook/geos/gh.html">English official in education, 36.1% 2000 census</reference>
 		<reference type="R1226" uri="http://www.ethnologue.com/show_language.asp?code=saf">no other info available for now</reference>
-		<reference type="R1227" uri="http://en.wikipedia.org/wiki/Guatemala#Language">https://www.cia.gov/cia/publications/factbook/geos/gt.html Spanish official</reference>
 		<reference type="R1228" uri="http://www.ethnologue.com/show_language.asp?code=rkt">language also called Kamta in India</reference>
 		<reference type="R1229" uri="http://en.wikipedia.org/wiki/Languages_of_Brunei">Modern use of Arabic (Jawi) seems to be minimal, but is co-official with ms; set to 5% for now.</reference>
 		<reference type="R1230" uri="http://en.wikipedia.org/wiki/Khmu_language">[missing]</reference>
@@ -5813,6 +5845,7 @@ XXX Code for transations where no currency is involved
 		<reference type="R1249" uri="https://en.wikipedia.org/wiki/Ladin_language">population figure from CLDR-17483 ticket</reference>
 		<reference type="R1250">No Data Available at present.</reference>
 		<reference type="R1251">co-official in South Tyrol</reference>
+		<reference type="R1252" uri="https://www.censopoblacion.gt/archivos/resultados_censo2018.pdf">2018 Census, counting both maternal and secondary language usage. Co-official in Suchitepéquez</reference>
 		<reference type="R1253">in Trieste and  Gorizia</reference>
 		<reference type="R1254" uri="http://unicode.org/cldr/trac/attachment/ticket/5887/zgh-ISO639-2-certif.pdf">[missing]</reference>
 		<reference type="R1255">Information on the Latin/Cyrillic script percentages for Montenegro not currently found.</reference>
@@ -5848,7 +5881,6 @@ XXX Code for transations where no currency is involved
 		<reference type="R1286">No figures available for this language.  Estimating at 5%.</reference>
 		<reference type="R1287" uri="http://en.wikipedia.org/wiki/Mapuche_language">[missing]</reference>
 		<reference type="R1288" uri="http://en.wikipedia.org/wiki/Quechua_language">[missing]</reference>
-		<reference type="R1289" uri="http://en.wikipedia.org/wiki/K'iche'_language">[missing]</reference>
 		<reference type="R1290" uri="http://en.wikipedia.org/wiki/Census_in_Armenia">- near-zero Azeri population in last census http://en.wikipedia.org/wiki/Azerbaijanis_in_Armenia#Current_situation</reference>
 		<reference type="R1291">No figures available for breakdown of Latin vs. N'Ko for Bambara.  The 2% figure is an estimate.</reference>
 		<reference type="R1292" uri="http://www.ethnologue.com/show_language.asp?code=hsb">pop 13k. Figure is questionable writing pop artificially set to 5% see also http://en.wikipedia.org/wiki/Upper_Sorbian</reference>

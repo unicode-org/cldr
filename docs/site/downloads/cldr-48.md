@@ -19,6 +19,8 @@ CLDR 48 was an open submission cycle allowing contributors to supply data for th
 data that is widely used to support much of the world’s software.
 This data is also a factor in determining which languages are supported on mobile phones and computer operating systems. 
 
+### Changes
+
 The most significant changes in this release are:
 
 - TBD
@@ -26,6 +28,7 @@ The most significant changes in this release are:
 For more details, see below.
 
 ### Locale Coverage Status
+
 #### Current Levels
 
 Count | Level | Usage | Examples
@@ -47,7 +50,7 @@ xx | Basic | Suitable for locale selection, eg. choice of language on mobile pho
 
 For a full listing, see [Coverage Levels](https://unicode.org/cldr/charts/dev/supplemental/locale_coverage.html)
 
-## [Specification Changes](https://www.unicode.org/reports/tr35/proposed.html)
+## Specification Changes
 
 The following are the most significant changes to the specification (LDML).
 
@@ -70,7 +73,7 @@ For a full listing, see [Delta DTDs](https://unicode.org/cldr/charts/dev/supplem
 
 For a full listing, see [¤¤BCP47 Delta](https://unicode.org/cldr/charts/dev/delta/bcp47.html) and [¤¤Supplemental Delta](https://unicode.org/cldr/charts/dev/delta/supplemental-data.html)
 
-### [Locale Changes](https://unicode.org/cldr/charts/dev/delta/index.html)
+### Locale Changes
 
 - TBD
 
@@ -80,11 +83,19 @@ For a full listing, see [Delta Data](https://unicode.org/cldr/charts/dev/delta/i
 
 - TBD
 
-### Emoji Search Keywords
+### Collation Data Changes
 
 - TBD
 
-### Collation Data Changes
+### Number Spellout Data Changes
+
+- TBD
+
+### Segmentation Data Changes
+
+- TBD
+
+### Transform Data Changes
 
 - TBD
 
@@ -108,6 +119,20 @@ For a full listing, see [Delta Data](https://unicode.org/cldr/charts/dev/delta/i
 
 - TBD
 
+### V48 advance warnings
+The following changes are planned for CLDR 48. Please plan accordingly to avoid disruption.
+
+- Any locales that are missing Core data by the end of the CLDR 48 cycle will be removed [CLDR-16004][]
+- The default week numbering will change to ISO instead being based on the calendar week starting in CLDR 48 [CLDR-18275][]. The calendar week data will be more clearly targeted at matching usage in displayed month calendars.
+- The likely language for Belarus is slated to change to Russian [CLDR-14479][]
+- The major components in [supplementalData.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalData.xml) and [supplementalMetadata.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalMetadata.xml) files are slated to be organized more logically and moved into separate files.
+    - This will make it easier for implementations to filter out data that they don't need, and make internal maintenance easier. This will not affect the data: just which file it is located in. Please plan to update XML and JSON parsers accordingly.
+- Additionally, language and territory data in `languageData` and `territoryInfo` data will receive significant updates to improve accuracy and maintainability [CLDR-18087][]
+
+### V49 advance warnings
+
+- TBD
+
 ## Known Issues
 
 - [CLDR-18219][] `common/subdivisions` data files contained additional values that should not be present.
@@ -125,3 +150,9 @@ The Unicode [Terms of Use](https://unicode.org/copyright.html) apply to CLDR dat
 in particular, see [Exhibit 1](https://unicode.org/copyright.html#Exhibit1).
 
 For web pages with different views of CLDR data, see [http://cldr.unicode.org/index/charts](/index/charts).
+
+[CLDR-18087]: https://unicode-org.atlassian.net/browse/CLDR-18087
+[CLDR-18219]: https://unicode-org.atlassian.net/browse/CLDR-18219
+[CLDR-18275]: https://unicode-org.atlassian.net/browse/CLDR-18275
+[CLDR-16004]: https://unicode-org.atlassian.net/browse/CLDR-16004
+[CLDR-14479]: https://unicode-org.atlassian.net/browse/CLDR-14479

@@ -92,7 +92,7 @@ The following table lists the files for each released version. For license infor
 | Data | A set of zip files containing the contents of the release (the files are complete in themselves, and do not require files from earlier releases -- for the structure of the zip file, see [Repository Organization](/index/downloads#Repository_Organization)). |
 | Charts | A set of charts showing some of the data in the release. |
 | Spec | The version of [UTS #35: LDML](https://www.unicode.org/reports/tr35/) that corresponds to the release. |
-| Delta Tickets | A list of all the tickets (fixes and features) in the release, which can be used to get the precise corresponding file changes (Some earlier releases are not available in this way due to the JIRA migration, but all of the information is available in GitHub or JIRA.) |
+| Delta Tickets | A list of all the tickets (fixes and features) in the release, which can be used to get the precise corresponding file changes. (Some earlier releases are not available in this way due to the JIRA migration, but all of the information is available in GitHub or JIRA.) |
 | Github Tag | The files in the release, accessible via [Repository Access](/index/downloads#latest_draft_version). |
 | Delta DTDs | A link pointing to charts of changes in the DTDs since the previous version. |
 

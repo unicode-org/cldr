@@ -1443,6 +1443,7 @@ XXX Code for transations where no currency is involved
 		<language type="byn" scripts="Ethi"/>
 		<language type="byv" scripts="Latn"/>
 		<language type="bze" scripts="Latn"/>
+		<language type="bzj" territories="BZ" alt="secondary"/>
 		<language type="bzx" scripts="Latn"/>
 		<language type="ca" scripts="Latn" territories="AD"/>
 		<language type="ca" territories="ES" alt="secondary"/>
@@ -1728,6 +1729,7 @@ XXX Code for transations where no currency is involved
 		<language type="it" territories="DE FR HR MT US" alt="secondary"/>
 		<language type="iu" scripts="Cans Latn"/>
 		<language type="iu" territories="CA" alt="secondary"/>
+		<language type="ixl" territories="GT" alt="secondary"/>
 		<language type="izh" scripts="Latn"/>
 		<language type="ja" scripts="Jpan" territories="JP"/>
 		<language type="jam" scripts="Latn"/>
@@ -2705,8 +2707,11 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="be" populationPercent="26" officialStatus="official" references="R1130"/>	<!--Belarusian-->
 		</territory>
 		<territory type="BZ" gdp="5257000000" literacyPercent="76.9" population="415789">	<!--Belize-->
-			<languagePopulation type="en" populationPercent="100" officialStatus="official"/>	<!--English-->
-			<languagePopulation type="es" populationPercent="28"/>	<!--Spanish-->
+			<languagePopulation type="en" populationPercent="77" officialStatus="official" references="R1227"/>	<!--English-->
+			<languagePopulation type="es" populationPercent="55" references="R1227"/>	<!--Spanish-->
+			<languagePopulation type="bzj" populationPercent="50" references="R1227"/>	<!--Belize Kriol English-->
+			<languagePopulation type="kek" populationPercent="6.5" references="R1227"/>	<!--Kekchí-->
+			<languagePopulation type="mop" populationPercent="4" references="R1227"/>	<!--Mopán Maya-->
 		</territory>
 		<territory type="CA" gdp="2238000000000" literacyPercent="99" population="38794800">	<!--Canada-->
 			<languagePopulation type="en" populationPercent="87" officialStatus="official" references="R1019"/>	<!--English-->
@@ -3221,7 +3226,7 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="kjb" populationPercent="1.2" references="R1130"/>	<!--Q'anjob'al-->
 			<languagePopulation type="poh" populationPercent="1.2" references="R1130"/>	<!--Poqomchi'-->
 			<languagePopulation type="acr" populationPercent="1.1" references="R1130"/>	<!--Achi-->
-			<languagePopulation type="kek" populationPercent="0.89" officialStatus="official_regional" references="R1168"/>	<!--Kekchí-->
+			<languagePopulation type="ixl" populationPercent="0.89" officialStatus="official_regional" references="R1168"/>	<!--Ixil-->
 			<languagePopulation type="tzj" populationPercent="0.61" references="R1130"/>	<!--Tz'utujil-->
 			<languagePopulation type="knj" populationPercent="0.58" references="R1130"/>	<!--Western Kanjobal-->
 			<languagePopulation type="cac" populationPercent="0.43" references="R1130"/>	<!--Chuj-->
@@ -5821,6 +5826,7 @@ XXX Code for transations where no currency is involved
 		<reference type="R1224" uri="http://en.wikipedia.org/wiki/Blin_language">[missing]</reference>
 		<reference type="R1225" uri="https://www.cia.gov/library/publications/the-world-factbook/geos/gh.html">English official in education, 36.1% 2000 census</reference>
 		<reference type="R1226" uri="http://www.ethnologue.com/show_language.asp?code=saf">no other info available for now</reference>
+		<reference type="R1227" uri="https://sib.org.bz/census/2022-census/">2022 Belize Census</reference>
 		<reference type="R1228" uri="http://www.ethnologue.com/show_language.asp?code=rkt">language also called Kamta in India</reference>
 		<reference type="R1229" uri="http://en.wikipedia.org/wiki/Languages_of_Brunei">Modern use of Arabic (Jawi) seems to be minimal, but is co-official with ms; set to 5% for now.</reference>
 		<reference type="R1230" uri="http://en.wikipedia.org/wiki/Khmu_language">[missing]</reference>

@@ -6,6 +6,7 @@ title: CLDR Releases/Downloads
 
 *Each release of the Unicode CLDR is a stable release and may be used as reference material or cited as a normative reference by other specifications. Each version, once published, is absolutely stable and will never change. Implementations may also apply [CLDR Corrigenda](/index/corrigenda) to a release. Bug reports and feature requests for subsequent versions may be filed at [Bug Reports](/index/bug-reports).*
 
+
 ## Downloads
 
 The following table lists the files for each released version. For license information, see the Unicode [Terms of Use](https://unicode.org/copyright.html). The top two rows have permalinks for the latest version and the latest development version (snapshot). They are followed by the specific release versions. See Key to Header Links below chart.
@@ -85,22 +86,23 @@ The following table lists the files for each released version. For license infor
 
 | Item | Description|
 |:----:|:-----------|
-| No. | CLDR Version Number |
-| Date | CLDR Version Release Date |
-| Rel. Note | A general description of the contents of the release, relevant notes about the release including migration warnings |
-| Data | A set of zip files containing the contents of the release (the files are complete in themselves, and do not require files from earlier releases -- for the structure of the zip file, see [Repository Organization](/index/downloads#Repository_Organization)) |
+| No. | CLDR Version Number. |
+| Date | CLDR Version Release Date. |
+| Rel. Note | A general description of the contents of the release, relevant notes about the release including migration warnings. |
+| Data | A set of zip files containing the contents of the release (the files are complete in themselves, and do not require files from earlier releases -- for the structure of the zip file, see [Repository Organization](/index/downloads#Repository_Organization)). |
 | Charts | A set of charts showing some of the data in the release. |
-| Spec | The version of [UTS #35: LDML](https://www.unicode.org/reports/tr35/) that corresponds to the release |
-| Delta Tickets | A list of all the tickets (fixes and features) in the release, which be used to get the precise corresponding file changes (Some earlier releases are not available in this way due to the JIRA migration, but all of the information is available in GitHub or JIRA.) |
-| Github Tag | The files in the release, accessible via via [Repository Access](/index/downloads#latest_draft_version). For more details see  CLDR Releases (Downloads) |
-| Delta DTDs | A link pointing to a charts of changes in the DTDs over time. |
-
+| Spec | The version of [UTS #35: LDML](https://www.unicode.org/reports/tr35/) that corresponds to the release. |
+| Delta Tickets | A list of all the tickets (fixes and features) in the release, which can be used to get the precise corresponding file changes (Some earlier releases are not available in this way due to the JIRA migration, but all of the information is available in GitHub or JIRA.) |
+| Github Tag | The files in the release, accessible via [Repository Access](/index/downloads#latest_draft_version). |
+| Delta DTDs | A link pointing to charts of changes in the DTDs since the previous version. |
 
 Access to the latest working snapshot of CLDR, and access to data collected for other platforms is available through the web. The **Github Tag** can be used to get the contents of the release, as described below.
 
+
 ## JSON Data
 
-The JSON data is packaged and released int the CLDR-JSON repository. See https://github.com/unicode-cldr/cldr-json for more information.
+The JSON data is packaged and released in the CLDR-JSON repository. See https://github.com/unicode-cldr/cldr-json for more information.
+
 
 ## Repository Access
 
@@ -109,6 +111,7 @@ CLDR files are maintained in a git source code repository at https://github.com/
 **Note**: On Sep 14, 2021, the main branch was renamed to 'main', please see [This Page](/development/main-rename) for how to fix.
 
 There are several ways to access the repository contents.
+
 
 ### Simple Browsing
 
@@ -171,13 +174,15 @@ At the top level of each GitHub repository tree, there are a number of special f
 
 The common, dtd, and tools folders are in each release.
 
+
 ## POSIX Data
 
-**Note**: Beginning with CLDR v21, the CLDR project no longer publishes POSIX-format locale sources as part of its distribution. The POSIX locale generation tools will continue to be made available as a part of the release. Developers who require POSIX compliant locales can generate them using these tools.
+**Note**: Beginning with CLDR 21, the CLDR project no longer publishes POSIX-format locale sources as part of its distribution. The POSIX locale generation tools will continue to be made available as a part of the release. Developers who require POSIX compliant locales can generate them using these tools.
 
 CLDR had historically included reference versions of POSIX-format locale source files that are generated using the default options for each supported locale. The reference versions of POSIX source information contain those data fields that are included in the POSIX specification.
 
 Many operating system platforms provide additional extensions to the minimal POSIX required field set. Individual implementations may require addition of the platform-specific fields or a non-default character repertoire in order to provide full functionality on a given POSIX compliant operating system. As of the current release, the POSIX locale generation tools do not generate such platform-specific extensions, but they can be modified to support this.
+
 
 ## CLDR 1.0 Release
 

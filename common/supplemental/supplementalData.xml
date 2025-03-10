@@ -2461,7 +2461,7 @@ XXX Code for transations where no currency is involved
 		<language type="zza" scripts="Latn"/>
 		<language type="zza" territories="TR" alt="secondary"/>
 	</languageData>
-		<scriptData>
+	<scriptData>
 		<scriptVariant type="compound" id='Hanb' base='Hani Bopo'/> <!-- Han with Bopomofo (alias for Han + Bopomofo) -->
 		<scriptVariant type="compound" id='Jpan' base='Hani Hira Kana'/> <!-- Japanese (alias for Han + Hiragana + Katakana) -->
 		<scriptVariant type="compound" id='Hrkt' base='Hira Kana'/> <!-- Japanese syllabaries (alias for Hiragana + Katakana) -->
@@ -2695,8 +2695,8 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="af" populationPercent="0.24"/>	<!--Afrikaans-->
 		</territory>
 		<territory type="BY" gdp="254400000000" literacyPercent="99.6" population="9501450">	<!--Belarus-->
-			<languagePopulation type="be" populationPercent="100" officialStatus="official"/>	<!--Belarusian-->
-			<languagePopulation type="ru" populationPercent="12" officialStatus="official"/>	<!--Russian-->
+			<languagePopulation type="ru" populationPercent="71" officialStatus="official" references="R1130"/>	<!--Russian-->
+			<languagePopulation type="be" populationPercent="26" officialStatus="official" references="R1130"/>	<!--Belarusian-->
 		</territory>
 		<territory type="BZ" gdp="5257000000" literacyPercent="76.9" population="415789">	<!--Belize-->
 			<languagePopulation type="en" populationPercent="100" officialStatus="official"/>	<!--English-->
@@ -5695,6 +5695,7 @@ XXX Code for transations where no currency is involved
 		<reference type="R1127" uri="http://en.wikipedia.org/wiki/Swahili_language">- Most educated Kenyans are able to communicate fluently in Swahili, since it is a compulsory subject in school</reference>
 		<reference type="R1128" uri="http://en.wikipedia.org/wiki/Gagauz_language">[missing]</reference>
 		<reference type="R1129" uri="http://www.ethnologue.com/show_language.asp?code=skr">[missing]</reference>
+		<reference type="R1130" uri="https://www.belstat.gov.by/upload/iblock/345/34515eeb3bb5f4ea5ca53b72290e9595.pdf">2019 Belarus Census</reference>
 		<reference type="R1131" uri="http://en.wikipedia.org/wiki/Singapore">  English is the first language learned by half the children by the time they reach preschool age; using 92.6% of pop for the English figure</reference>
 		<reference type="R1132" uri="https://observatoire.francophonie.org//wp-content/uploads/2022/03/odsef-lfdm-2022.pdf">Organisation internationale de la Francophonie Meta-study. Data from 2012 and 2016 Eurostat studies on first and second language usage across Europe</reference>
 		<reference type="R1133" uri="http://en.wikipedia.org/wiki/Swahili_language">- 90 percent of approximately 39 million Tanzanians speak Swahili</reference>

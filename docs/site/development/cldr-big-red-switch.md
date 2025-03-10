@@ -20,12 +20,12 @@ TODO: List all major types of tasks with their definitions and link to pages wit
 - [@New, by fix version](https://unicode-org.atlassian.net/issues/?filter=10801) - All untriaged issues sorted by fix version when available.
 - [@New + Agenda, by date](https://unicode-org.atlassian.net/issues/?filter=10802)
 - [@Agenda](https://unicode-org.atlassian.net/issues/?filter=10158) - All issues tagged for TC discussion.
-- [CLDR + ICU helpwanted](https://unicode-org.atlassian.net/issues/?filter=10202) - Tickets tagged as 'Help Wanted' by the CLDR or ICU Technical Committees
+- [CLDR + ICU helpwanted](https://unicode-org.atlassian.net/issues/?filter=10202) - Tickets tagged as 'Help Wanted' by the CLDR or ICU Technical Committees.
 
 ### Ticket Reviewing
 
 - [@Pending Reviews](https://unicode-org.atlassian.net/issues/?filter=10062) - All CLDR tickets currently in review.
-- [@My Reviews](https://unicode-org.atlassian.net/issues/?filter=10179) - CLDR tickets in review assigned to the viewer.
+- [@My Reviews](https://unicode-org.atlassian.net/issues/?filter=10179) - CLDR tickets in review assigned to oneself.
 
 ### Release tracking
 
@@ -36,7 +36,7 @@ TODO: List all major types of tasks with their definitions and link to pages wit
 
 #### SBRS filters
 
-- [@labels=vetter-data](https://unicode-org.atlassian.net/issues/?filter=10735) - All issues that are expected to impact vetters during data submission 
+- [@labels=vetter-data](https://unicode-org.atlassian.net/issues/?filter=10735) - All issues that are expected to impact vetters during data submission.
 
 #### CLDR alpha filters
 

@@ -255,15 +255,26 @@ async function renderit(infile) {
       const id = e.getAttribute("id");
       if (id) continue; // skip elements that already have an id
       const txt = e.textContent.trim();
+      const mytag = `<${e.tagName}>${txt}</${e.tagName}>`; // for log
       const anchor_id = anchorurlify(txt);
       const gfm_id = gfmurlify(txt);
       if (anchor_id !== gfm_id) {
         // emit fixups
-        console.log({ txt, gfm_id, anchor_id });
+        // console.log({ txt, gfm_id, anchor_id });
         if (dom.window.document.getElementById(gfm_id)) {
-          console.error(`${basename}: duplicate id ${gfm_id}`);
+          console.error(`${basename}: ${mytag}: duplicate id #${anchor_id} and #${gfm_id}`);
         } else {
           e.setAttribute("id", gfm_id);
+        }
+      }
+      // for "simple" anchors such as "## Parts" add the original-case anchor also
+      if (/^[a-zA-Z.]+$/.test(txt) && txt !== anchor_id) {
+        if (dom.window.document.getElementById(txt)) {
+          console.error(`${basename}: ${mytag}: original-case anchor already at #${txt}`);
+        } else {
+          const suba = dom.window.document.createElement('a');
+          suba.setAttribute('id', txt); // <a id="Parts" /> as a link target
+          e.appendChild(suba);
         }
       }
     }

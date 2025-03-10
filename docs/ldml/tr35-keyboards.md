@@ -33,7 +33,7 @@ Unicode Technical Reports are governed by the Unicode [Terms of Use](https://www
 
 See also [Compatibility Notice](#compatibility-notice).
 
-## <a name="Parts" href="#Parts">Parts</a>
+## Parts
 
 The LDML specification is divided into the following parts:
 

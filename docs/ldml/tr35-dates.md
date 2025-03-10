@@ -31,7 +31,7 @@ For the latest version of the Unicode Standard see [[Unicode](https://www.unicod
 For more information see [About Unicode Technical Reports](https://www.unicode.org/reports/about-reports.html) and the [Specifications FAQ](https://www.unicode.org/faq/specifications.html).
 Unicode Technical Reports are governed by the Unicode [Terms of Use](https://www.unicode.org/copyright.html)._
 
-## <a name="Parts" href="#Parts">Parts</a>
+## Parts
 
 The LDML specification is divided into the following parts:
 
@@ -79,7 +79,7 @@ The LDML specification is divided into the following parts:
   * Table: [timeZoneNames Elements Used for Fallback](#timeZoneNames_Elements_Used_for_Fallback)
   * [Metazone Names](#Metazone_Names)
 * [Supplemental Time Zone Data](#Supplemental_Time_Zone_Data)
-  * [Metazones](#Metazones)
+  * [Metazones](#metazones)
   * [Windows Zones](#Windows_Zones)
   * [Primary Zones](#Primary_Zones)
 * [Using Time Zone Names](#Using_Time_Zone_Names)
@@ -1553,7 +1553,7 @@ The `commonlyUsed` element is now deprecated. The CLDR committee has found it ne
 
 ## <a name="Supplemental_Time_Zone_Data" href="#Supplemental_Time_Zone_Data">Supplemental Time Zone Data</a>
 
-### <a name="Metazones" href="#Metazones">Metazones</a>
+### Metazones
 
 ```xml
 <!ELEMENT metaZones (metazoneInfo?, mapTimezones?) >

@@ -23,6 +23,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.icu.dev.test.TestLog;
 import org.unicode.cldr.test.CheckCLDR.Phase;
+import org.unicode.cldr.test.SubmissionLocales;
 
 /**
  * Basic information about the CLDR environment. Use CLDRConfig.getInstance() to create your
@@ -90,6 +91,8 @@ public class CLDRConfig extends Properties {
             if (instance == null) {
                 // this is the "normal" branch for tools and such
                 instance = new CLDRConfig();
+                // attempt to set CLDR_DIR automatically
+                CldrUtility.tryCurrentDirAsCldrDir();
                 CldrUtility.checkValidDirectory(
                         instance.getProperty(CldrUtility.DIR_KEY),
                         "You have to set -DCLDR_DIR=<validdirectory>");

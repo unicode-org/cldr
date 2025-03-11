@@ -10,7 +10,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!ELEMENT keyboard3 ( import*, locales?, version?, info, settings?, displays?, keys?, flicks?, forms?, layers*, variables?, transforms*, special* ) >
 <!ATTLIST keyboard3 locale CDATA #REQUIRED >
     <!--@MATCH:validity/bcp47-wellformed-->
-<!ATTLIST keyboard3 conformsTo (45 | 46 | 47) #REQUIRED >
+<!ATTLIST keyboard3 conformsTo (45 | 46 | 47 | 48) #REQUIRED >
     <!--@MATCH:version-->
     <!--@METADATA-->
 <!ATTLIST keyboard3 xmlns CDATA #IMPLIED >
@@ -34,7 +34,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!ATTLIST version number CDATA #IMPLIED >
     <!--@MATCH:semver-->
     <!--@VALUE-->
-<!ATTLIST version cldrVersion CDATA #FIXED "47" >
+<!ATTLIST version cldrVersion CDATA #FIXED "48" >
     <!--@MATCH:version-->
     <!--@METADATA-->
 

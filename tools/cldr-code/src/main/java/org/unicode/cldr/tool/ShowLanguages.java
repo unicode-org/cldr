@@ -85,6 +85,8 @@ import org.unicode.cldr.util.XPathParts;
 @CLDRTool(alias = "showlanguages", description = "Generate Language info charts")
 public class ShowLanguages {
     private static final boolean SHOW_NATIVE = true;
+    private static final boolean SHOW_SKIPPED = false;
+    private static int skipped = 0;
 
     static Comparator col =
             new org.unicode.cldr.util.MultiComparator(
@@ -110,6 +112,12 @@ public class ShowLanguages {
         // cldrFactory = Factory.make(Utility.COMMON_DIRECTORY + "../dropbox/extra2/", ".*");
         // printLanguageData(cldrFactory, "language_info2.txt");
         System.out.println("Done - wrote into " + FormattedFileWriter.CHART_TARGET_DIR);
+        if (skipped > 0) {
+            System.err.println(
+                    "*** WARNING ***\nTODO CLDR-1129: "
+                            + skipped
+                            + " skipped xpath(s) - set SHOW_SKIPPED=true to debug.");
+        }
     }
 
     /** */
@@ -985,7 +993,10 @@ public class ShowLanguages {
                     }
                 }
                 if (path.indexOf("/generation") >= 0 || path.indexOf("/version") >= 0) continue;
-                System.out.println("Skipped Element: " + path);
+                skipped++;
+                if (SHOW_SKIPPED) {
+                    System.out.println("Skipped Element: " + path);
+                }
             }
 
             for (String territory : supplementalDataInfo.getTerritoriesWithPopulationData()) {

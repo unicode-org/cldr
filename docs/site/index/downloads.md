@@ -344,7 +344,8 @@ The 1.0 version of CLDR is described here for historical interest only. It was h
 [CLDR37]: https://unicode.org/Public/cldr/37/
 [Charts37]: https://www.unicode.org/cldr/charts/37/
 [LDML37]: https://www.unicode.org/reports/tr35/tr35-59/tr35.html
-[Δ37]: https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2237%22%20ORDER%20BY%20component%20ASC%2C%20priority%20DESC%2C%20created%20ASC) | [release-37](https://github.com/unicode-org/cldr/tree/release-37
+[Δ37]: https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2237%22%20ORDER%20BY%20component%20ASC%2C%20priority%20DESC%2C%20created%20ASC
+[release-37]: https://github.com/unicode-org/cldr/tree/release-37
 [ΔDtd37]: https://www.unicode.org/cldr/charts/37/supplemental/dtd_deltas.html
 [37.0.0]: https://github.com/unicode-org/cldr-json/releases/tag/37.0.0
 
@@ -402,7 +403,7 @@ The 1.0 version of CLDR is described here for historical interest only. It was h
 [Charts34*]: https://www.unicode.org/cldr/charts/34/
 [LDML33*]: https://www.unicode.org/reports/tr35/tr35-51/tr35.html
 [~~Δ33.1~~]: https://unicode.org/cldr/trac/query?resolution=fixed&milestone=33.1&group=component&max=999
-[release-33-1]: https://github.com/unicode-org/cldr/releases/tag/release-33-1/)
+[release-33-1]: https://github.com/unicode-org/cldr/releases/tag/release-33-1/
 [ΔDtd33]: https://www.unicode.org/cldr/charts/33/supplemental/dtd_deltas.html
 [*]: https://unicode.org/cldr/trac/changeset?reponame=&new=HEAD@tags/release-33/common/dtd&old=HEAD@tags/release-33-1/common/dtd
 
@@ -422,7 +423,7 @@ The 1.0 version of CLDR is described here for historical interest only. It was h
 [LDML32]: https://www.unicode.org/reports/tr35/tr35-49/tr35.html
 [~~Δ32.0.1~~]: https://unicode.org/cldr/trac/query?resolution=fixed&milestone=32.0.1&group=component&max=999
 [release-32-0-1]: https://github.com/unicode-org/cldr/releases/tag/release-32-0-1/
-[ΔDtd32]: https://www.unicode.org/cldr/charts/32/supplemental/dtd_deltas.html)
+[ΔDtd32]: https://www.unicode.org/cldr/charts/32/supplemental/dtd_deltas.html
 
 <!-- 32 release: 2017-11-01 -->
 [v32]: /index/downloads/cldr-32
@@ -456,7 +457,8 @@ The 1.0 version of CLDR is described here for historical interest only. It was h
 [CLDR30.0.3]: https://unicode.org/Public/cldr/30.0.3/
 [Charts30]: https://www.unicode.org/cldr/charts/30/
 [LDML30]: https://www.unicode.org/reports/tr35/tr35-45/tr35.html
-[~~Δ30.0.3~~]: https://unicode.org/cldr/trac/query?status=closed&status=reviewing&revw=!&milestone=30.0.3&group=component&max=999&col=id&col=summary&order=priority) | [release-30-0-3](https://github.com/unicode-org/cldr/releases/tag/release-30-0-3
+[~~Δ30.0.3~~]: https://unicode.org/cldr/trac/query?status=closed&status=reviewing&revw=!&milestone=30.0.3&group=component&max=999&col=id&col=summary&order=priority
+[release-30-0-3]: https://github.com/unicode-org/cldr/releases/tag/release-30-0-3
 
 <!-- 30.0.2 release: 2016-10-17 -->
 [CLDR30.0.2]: https://unicode.org/Public/cldr/30.0.2/
@@ -486,7 +488,7 @@ The 1.0 version of CLDR is described here for historical interest only. It was h
 [CLDR29]: https://unicode.org/Public/cldr/29/
 [Charts29]: https://www.unicode.org/cldr/charts/29/
 [LDML29]: https://www.unicode.org/reports/tr35/tr35-43/tr35.html
-[~~Δ29~~]: https://unicode.org/cldr/trac/query?status=closed&status=reviewing&resolution=fixed&milestone=29&group=component&max=999&col=id&col=summary)
+[~~Δ29~~]: https://unicode.org/cldr/trac/query?status=closed&status=reviewing&resolution=fixed&milestone=29&group=component&max=999&col=id&col=summary
 [release-29]: https://github.com/unicode-org/cldr/releases/tag/release-29
 
 <!-- 28 release: 2015-09-17 -->
@@ -565,7 +567,7 @@ The 1.0 version of CLDR is described here for historical interest only. It was h
 [Charts22]: https://www.unicode.org/cldr/charts/22/index.html
 [LDML22]: https://www.unicode.org/reports/tr35/tr35-27.html
 [~~Δ22~~]: https://unicode.org/cldr/trac/query?max=900&milestone=22dvet&milestone=22dres&milestone=22&milestone=22dsub&order=priority
-[release-22](https://github.com/unicode-org/cldr/releases/tag/release-22)
+[release-22]: https://github.com/unicode-org/cldr/releases/tag/release-22
 
 <!-- 21.0.2 release: 2012-06-06 -->
 [LDML21.0.1]: https://www.unicode.org/reports/tr35/tr35-25.html

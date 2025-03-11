@@ -13,21 +13,21 @@ The following table lists the files for each released version. For license infor
 
 | No. | Date | Rel. Note | Data | Charts | Spec | Delta Tickets | GitHub Tag | Delta DTD | CLDR JSON |
 |:---:|:----------:|:---------:|:------:|:--------:|:------------:|:---:|:----------:|:---------:|:---------:|
-| Latest |  | [latest-version](/index/downloads/latest) | [latest-data](https://unicode.org/Public/cldr/46/) | [latest-charts](https://www.unicode.org/cldr/charts/46/index.html) | [latest-ldml](https://www.unicode.org/reports/tr35/) | [latest-tickets](https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2246%22%20ORDER%20BY%20created%20ASC) | [release-46](https://github.com/unicode-org/cldr/tree/release-46) | [latest-delta-dtd](https://www.unicode.org/cldr/charts/46/supplemental/dtd_deltas.html) | See release notes |
-| Dev |  | [dev-version](/index/downloads/dev) |  | [dev-charts](https://unicode.org/cldr/charts/dev) | [dev-ldml](https://www.unicode.org/reports/tr35/proposed.html) | [dev-tickets](https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2246%22%20ORDER%20BY%20created%20ASC) | [main](https://github.com/unicode-org/cldr.git) | [dev-delta-dtd](https://www.unicode.org/cldr/charts/dev/supplemental/dtd_deltas.html) | See release notes |
-| 46.1 | 2024-12-18 | [v46.1](/index/downloads/cldr-46#461-changes) | n/a | [Charts46.1](https://unicode.org/cldr/charts/46.1/) | [LDML46.1](https://www.unicode.org/reports/tr35/tr35-74/tr35.html) | [Δ46.1](https://unicode-org.atlassian.net/issues/?jql=project+%3D+CLDR+AND+status+%3D+Done+AND+resolution+%3D+Fixed+AND+fixVersion+%3D+%2246.1%22+ORDER+BY+priority+DESC) | [release-46-1](https://github.com/unicode-org/cldr/releases/tag/release-46-1) | [ΔDtd46.1](https://www.unicode.org/cldr/charts/46.1/supplemental/dtd_deltas.html) | [46.1.0](https://github.com/unicode-org/cldr-json/releases/tag/46.1.0) |
-|  46 | 2024-10-24 | [v46](/index/downloads/cldr-46) | [CLDR46](https://unicode.org/Public/cldr/46/) | [Charts46](https://unicode.org/cldr/charts/46/) | [LDML46](https://www.unicode.org/reports/tr35/tr35-73/tr35.html) | [Δ46](https://unicode-org.atlassian.net/issues/?jql=project+%3D+CLDR+AND+status+%3D+Done+AND+resolution+%3D+Fixed+AND+fixVersion+%3D+%2246%22+ORDER+BY+priority+DESC) | [release-46](https://github.com/unicode-org/cldr/releases/tag/release-46) | [ΔDtd46](https://www.unicode.org/cldr/charts/46/supplemental/dtd_deltas.html) | [46.0.0](https://github.com/unicode-org/cldr-json/releases/tag/46.0.0) |
-| 45 | 2024-04-17 | [v45](/index/downloads/cldr-45) | [CLDR45](https://unicode.org/Public/cldr/45/) | [Charts45](https://unicode.org/cldr/charts/45/) | [LDML45](https://www.unicode.org/reports/tr35/tr35-72/tr35.html) | [Δ45](https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2245%22%20ORDER%20BY%20component%20ASC%2C%20priority%20DESC%2C%20created%20ASC) | [release-45](https://github.com/unicode-org/cldr/tree/release-45) | [ΔDtd45](https://unicode.org/cldr/charts/45/supplemental/dtd_deltas.html) | [45.0.0](https://github.com/unicode-org/cldr-json/releases/tag/45.0.0) |
-| 44.1 | 2023-12-13 | [v44.1](/index/downloads/cldr-44#h.nvqx283jwsx) | n/a | n/a | [LDML44.1](https://www.unicode.org/reports/tr35/tr35-71/tr35.html) | [Δ44.1](https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2244%2E1%22%20ORDER%20BY%20component%20ASC%2C%20priority%20DESC%2C%20created%20ASC) | [release-44-1](https://github.com/unicode-org/cldr/tree/release-44-1) | See [44.1 Changes](/index/downloads/cldr-44#h.nvqx283jwsx) | [44.1.0](https://github.com/unicode-org/cldr-json/releases/tag/44.1.0) |
-| 44 | 2023-10-31 | [v44](/index/downloads/cldr-44) | [CLDR44](https://unicode.org/Public/cldr/44/) | [Charts44](https://unicode.org/cldr/charts/44/) | [LDML44](https://www.unicode.org/reports/tr35/tr35-70/tr35.html) | [Δ44](https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2244%22%20ORDER%20BY%20component%20ASC%2C%20priority%20DESC%2C%20created%20ASC) | [release-44](https://github.com/unicode-org/cldr/tree/release-44) | [ΔDtd44](https://unicode.org/cldr/charts/44/supplemental/dtd_deltas.html) | [44.0.0](https://github.com/unicode-org/cldr-json/releases/tag/44.0.0) |
-| 43.1 | 2023-06-15 | [v43.1](/index/downloads/cldr-43#h.qobmda543waj) | n/a | n/a | [LDML43.1](https://www.unicode.org/reports/tr35/tr35-69/tr35.html) | [Δ43.1](https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2243%2E1%22%20ORDER%20BY%20component%20ASC%2C%20priority%20DESC%2C%20created%20ASC) | [release-43-1](https://github.com/unicode-org/cldr/tree/release-43-1) | See [43.1 Changes](/index/downloads/cldr-43#h.qobmda543waj) | [43.1.0](https://github.com/unicode-org/cldr-json/releases/tag/43.1.0) |
-| 43 | 2023-04-12 | [v43](/index/downloads/cldr-43) | [CLDR43](https://unicode.org/Public/cldr/43/) | [Charts43](https://www.unicode.org/cldr/charts/43/) | [LDML43](https://www.unicode.org/reports/tr35/tr35-68/tr35.html) | [Δ43](https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20in%20(Fixed%2C%20%22Fix%20in%20Survey%20Tool%20(CLDR)%22%2C%20%22Fixed%20non-repo%22)%20AND%20fixVersion%20%3D%20%2243%22%20ORDER%20BY%20resolution%20ASC%2C%20component%20ASC%2C%20priority%20DESC%2C%20created%20ASC) | [release-43](https://github.com/unicode-org/cldr/tree/release-43) | [ΔDtd43](https://www.unicode.org/cldr/charts/43/supplemental/dtd_deltas.html) | [43.0.0](https://github.com/unicode-org/cldr-json/releases/tag/43.0.0) |
-| 42 | 2022-10-19 | [v42](/index/downloads/cldr-42) | [CLDR42](https://unicode.org/Public/cldr/42/) | [Charts42](https://www.unicode.org/cldr/charts/42/) | [LDML42](https://www.unicode.org/reports/tr35/tr35-67/tr35.html) | [Δ42](https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20in%20(Fixed%2C%20%22Fix%20in%20Survey%20Tool%20(CLDR)%22%2C%20%22Fixed%20non-repo%22)%20AND%20fixVersion%20%3D%20%2242%22%20ORDER%20BY%20resolution%20ASC%2C%20component%20ASC%2C%20priority%20DESC%2C%20created%20ASC) | [release-42](https://github.com/unicode-org/cldr/tree/release-42) | [ΔDtd42](https://www.unicode.org/cldr/charts/42/supplemental/dtd_deltas.html) | [42.0.0](https://github.com/unicode-org/cldr-json/releases/tag/42.0.0) |
-| 41 | 2022-04-06 | [v41](/index/downloads/cldr-41) | [CLDR41](https://unicode.org/Public/cldr/41/) | [Charts41](https://www.unicode.org/cldr/charts/41/) | [LDML41](https://www.unicode.org/reports/tr35/tr35-66/tr35.html) | [Δ41](https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2241%22%20ORDER%20BY%20component%20ASC%2C%20priority%20DESC%2C%20created%20ASC) | [release-41](https://github.com/unicode-org/cldr/tree/release-41) | [ΔDtd41](https://www.unicode.org/cldr/charts/41/supplemental/dtd_deltas.html) | [41.0.0](https://github.com/unicode-org/cldr-json/releases/tag/41.0.0) |
-| 40 | 2021-10-27 | [v40](/index/downloads/cldr-40) | [CLDR40](https://unicode.org/Public/cldr/40/) | [Charts40](https://www.unicode.org/cldr/charts/40/) | [LDML40](https://www.unicode.org/reports/tr35/tr35-65/tr35.html) | [Δ40](https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2240%22%20ORDER%20BY%20component%20ASC%2C%20priority%20DESC%2C%20created%20ASC) | [release-40](https://github.com/unicode-org/cldr/tree/release-40) | [ΔDtd40](https://www.unicode.org/cldr/charts/40/supplemental/dtd_deltas.html) | [40.0.0](https://github.com/unicode-org/cldr-json/releases/tag/40.0.0) |
-| 39 | 2021-04-07 | [v39](/index/downloads/cldr-39) | [CLDR39](https://unicode.org/Public/cldr/39/) | [Charts39](https://www.unicode.org/cldr/charts/39/) | [LDML39](https://www.unicode.org/reports/tr35/tr35-63/tr35.html) | [Δ39](https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2239%22%20ORDER%20BY%20component%20ASC%2C%20priority%20DESC%2C%20created%20ASC) | [release-39](https://github.com/unicode-org/cldr/tree/release-39) | [ΔDtd39](https://www.unicode.org/cldr/charts/39/supplemental/dtd_deltas.html) | [39.0.0](https://github.com/unicode-org/cldr-json/releases/tag/39.0.0) |
-| 38.1 | 2020-12-17  | [v38.1](/index/downloads/cldr-38?pli=1#TOC-CLDR-38.1)    | [CLDR38.1](https://unicode.org/Public/cldr/38.1) | [Charts38.1](https://www.unicode.org/cldr/charts/38.1/index.html)   | [LDML38](https://www.unicode.org/reports/tr35/tr35-61/tr35.html) | [Δ38.1](https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2238%2E1%22%20ORDER%20BY%20component%20ASC%2C%20priority%20DESC%2C%20created%20ASC)   | [release-38-1](https://github.com/unicode-org/cldr/tree/release-38-1)   | [ΔDtd38.1](https://www.unicode.org/cldr/charts/38.1/supplemental/dtd_deltas.html)   | [38.1.0](https://github.com/unicode-org/cldr-json/releases/tag/38.1.0) |
-| 38 | 2020-10-28  | [v38](/index/downloads/cldr-38) | [CLDR38](https://unicode.org/Public/cldr/38/) | [Charts38](https://www.unicode.org/cldr/charts/38/)   | [LDML38](https://www.unicode.org/reports/tr35/tr35-61/tr35.html)   | [Δ38](https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2238%22%20ORDER%20BY%20component%20ASC%2C%20priority%20DESC%2C%20created%20ASC) | [release-38](https://github.com/unicode-org/cldr/tree/release-38) | [ΔDtd38](https://www.unicode.org/cldr/charts/38/supplemental/dtd_deltas.html) | [38.0.0](https://github.com/unicode-org/cldr-json/releases/tag/38.0.0) |
+| Latest |  | [latest-version][] | [latest-data][] | [latest-charts][] | [latest-ldml][] | [latest-tickets][] | [release-46][]| [latest-delta-dtd][] | See release notes |
+| Dev |  | [dev-version][] |  | [dev-charts][]| [dev-ldml[] | [dev-tickets][] | [main][]| [dev-delta-dtd][] | See release notes |
+| 46.1 | 2024-12-18 | [v46.1][] | n/a | [Charts46.1][] | [LDML46.1][] | [Δ46.1][] | [ΔDtd46.1][] |
+|  46 | 2024-10-24 | [v46][] | [CLDR46][] | [Charts46][] | [LDML46][] | [Δ46][] | [release-46][] | [ΔDtd46][] | [46.0.0][] |
+| 45 | 2024-04-17 | [v45][] | [CLDR45][] | [Charts45][] | [LDML45][] | [Δ45][] | [release-45][] | [ΔDtd45][] | [45.0.0][] |
+| 44.1 | 2023-12-13 | [v44.1][] | n/a | n/a | [LDML44.1][] | [Δ44.1][] | [release-44-1][] | See [44.1 Changes][] | [44.1.0][] |
+| 44 | 2023-10-31 | [v44][] | [CLDR44][] | [Charts44][] | [LDML44][] | [Δ44][] | [release-44][] | [ΔDtd44][] | [44.0.0][] |
+| 43.1 | 2023-06-15 | [v43.1][] | n/a | n/a | [LDML43.1][] | [Δ43.1][] | [release-43-1][] | See [43.1 Changes][] | [43.1.0][] |
+| 43 | 2023-04-12 | [v43][] | [CLDR43][] | [Charts43][] | [LDML43][] | [Δ43][] | [release-43][] | [ΔDtd43][] | [43.0.0][] |
+| 42 | 2022-10-19 | [v42][] | [CLDR42][] | [Charts42][] | [LDML42][] | [Δ42][] | [release-42][] | [ΔDtd42][] | [42.0.0][] |
+| 41 | 2022-04-06 | [v41][] | [CLDR41][] | [Charts41][] | [LDML41][] | [Δ41][] | [release-41][] | [ΔDtd41][] | [41.0.0][] |
+| 40 | 2021-10-27 | [v40][] | [CLDR40][]| [Charts40][] | [LDML40][] | [Δ40][] | [release-40][] | [ΔDtd40][] | [40.0.0][] |
+| 39 | 2021-04-07 | [v39][] | [CLDR39][] | [Charts39][] | [LDML39][] | [Δ39][] | [release-39][] | [ΔDtd39][] | [39.0.0][] |
+| 38.1 | 2020-12-17  | [v38.1][] | [CLDR38.1][] | [Charts38.1][] | [LDML38][] | [Δ38.1][] | [release-38-1][] | [ΔDtd38.1][] | [38.1.0][] |
+| 38 | 2020-10-28  | [v38][] | [CLDR38][] | [Charts38][] | [LDML38][] | [Δ38][] | [ΔDtd38][] | [38.0.0][] |
 | 37 | 2020-04-23 | [v37](/index/downloads/cldr-37) | [CLDR37](https://unicode.org/Public/cldr/37/) | [Charts37](https://www.unicode.org/cldr/charts/37/) | [LDML37](https://www.unicode.org/reports/tr35/tr35-59/tr35.html) | [Δ37](https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2237%22%20ORDER%20BY%20component%20ASC%2C%20priority%20DESC%2C%20created%20ASC) | [release-37](https://github.com/unicode-org/cldr/tree/release-37) |   [ΔDtd37](https://www.unicode.org/cldr/charts/37/supplemental/dtd_deltas.html) | [37.0.0](https://github.com/unicode-org/cldr-json/releases/tag/37.0.0) |
 | 36.1 | 2020-03-11 | v36.1 | [CLDR36.1](https://unicode.org/Public/cldr/36.1/) | [Charts36.1](https://www.unicode.org/cldr/charts/36.1/) | [LDML36](https://www.unicode.org/reports/tr35/tr35-57/tr35.html) | [Δ36.1](https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20fixVersion%20%3D%20%2236.1%22%20ORDER%20BY%20component%20ASC%2C%20priority%20DESC%2C%20created%20ASC) | [release-36-1](https://github.com/unicode-org/cldr/tree/release-36-1) |   [ΔDtd36.1](https://www.unicode.org/cldr/charts/36.1/supplemental/dtd_deltas.html) | n/a |
 | 36 | 2019-10-04 | [v36](/index/downloads/cldr-36) | [CLDR36](https://unicode.org/Public/cldr/36/) | [Charts36](https://www.unicode.org/cldr/charts/36/) | [LDML36](https://www.unicode.org/reports/tr35/tr35-57/tr35.html) | [Δ36](https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2236%22%20ORDER%20BY%20created%20ASC) | [release-36](https://github.com/unicode-org/cldr/tree/release-36) |   [ΔDtd36](https://www.unicode.org/cldr/charts/36/supplemental/dtd_deltas.html) | [36.0.0](https://github.com/unicode-org/cldr-json/releases/tag/36.0.0) |
@@ -195,4 +195,148 @@ The 1.0 version of CLDR is described here for historical interest only. It was h
 | 1.0 Namespace: | https://www.openi18n.org/spec/ldml |
 | 1.0 DTDs: | https://www.openi18n.org/spec/ldml/1.0/ldml.dtd |
 |  | https://www.openi18n.org/spec/ldml/1.0/ldmlSupplemental.dtd |
+
+[CLDR-18087]: https://unicode-org.atlassian.net/browse/CLDR-18087
+
+<!-- Latest release -->
+[latest-version]: /index/downloads/latest
+[latest-data]: https://unicode.org/Public/cldr/46/
+[latest-charts]: https://www.unicode.org/cldr/charts/46/index.html
+[latest-ldml]: https://www.unicode.org/reports/tr35/
+[latest-tickets]: https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2246%22%20ORDER%20BY%20created%20ASC
+[latest-delta-dtd]: https://www.unicode.org/cldr/charts/46/supplemental/dtd_deltas.html)
+
+<!-- Dev release -->
+[dev-version]: /index/downloads/dev)
+[dev-charts]: https://unicode.org/cldr/charts/dev
+[dev-ldml]: https://www.unicode.org/reports/tr35/proposed.html
+[dev-tickets]: https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2246%22%20ORDER%20BY%20created%20ASC)
+[main]: https://github.com/unicode-org/cldr.git)
+[dev-delta-dtd]: (https://www.unicode.org/cldr/charts/dev/supplemental/dtd_deltas.html)
+
+<!-- 46.1 release: 2024-12-18 -->
+[v46.1]: /index/downloads/cldr-46#461-changes
+[Charts46.1]: https://unicode.org/cldr/charts/46.1/
+[LDML46.1]: https://www.unicode.org/reports/tr35/tr35-74/tr35.html
+[Δ46.1]: https://unicode-org.atlassian.net/issues/?jql=project+%3D+CLDR+AND+status+%3D+Done+AND+resolution+%3D+Fixed+AND+fixVersion+%3D+%2246.1%22+ORDER+BY+priority+DESC
+[release-46-1]: https://github.com/unicode-org/cldr/releases/tag/release-46-1
+[ΔDtd46.1]: https://www.unicode.org/cldr/charts/46.1/supplemental/dtd_deltas.html
+[46.1.0]: https://github.com/unicode-org/cldr-json/releases/tag/46.1.0
+
+<!-- 46 release: 2024-10-24 -->
+[v46]: /index/downloads/cldr-46
+[CLDR46]: https://unicode.org/Public/cldr/46/
+[Charts46]: https://unicode.org/cldr/charts/46/
+[LDML46]: https://www.unicode.org/reports/tr35/tr35-73/tr35.html
+[Δ46]: https://unicode-org.atlassian.net/issues/?jql=project+%3D+CLDR+AND+status+%3D+Done+AND+resolution+%3D+Fixed+AND+fixVersion+%3D+%2246%22+ORDER+BY+priority+DESC
+[release-46]: https://github.com/unicode-org/cldr/releases/tag/release-46
+[ΔDtd46]: https://www.unicode.org/cldr/charts/46/supplemental/dtd_deltas.html
+[46.0.0]: https://github.com/unicode-org/cldr-json/releases/tag/46.0.0
+
+<!-- 45 release: 2024-04-17 -->
+[v45]: /index/downloads/cldr-45
+[CLDR45]: https://unicode.org/Public/cldr/45/
+[Charts45]: https://unicode.org/cldr/charts/45/
+[LDML45]: https://www.unicode.org/reports/tr35/tr35-72/tr35.html
+[Δ45]: https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2245%22%20ORDER%20BY%20component%20ASC%2C%20priority%20DESC%2C%20created%20ASC
+[release-45]: https://github.com/unicode-org/cldr/tree/release-45
+[ΔDtd45]: https://unicode.org/cldr/charts/45/supplemental/dtd_deltas.html
+[45.0.0]: https://github.com/unicode-org/cldr-json/releases/tag/45.0.0
+
+<!-- 44.1 release: 2023-12-13 -->
+[v44.1]: /index/downloads/cldr-44#h.nvqx283jwsx
+[LDML44.1]: https://www.unicode.org/reports/tr35/tr35-71/tr35.html
+[Δ44.1]: https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2244%2E1%22%20ORDER%20BY%20component%20ASC%2C%20priority%20DESC%2C%20created%20ASC)
+[release-44-1]: https://github.com/unicode-org/cldr/tree/release-44-1
+[44.1 Changes]: /index/downloads/cldr-44#h.nvqx283jwsx
+[44.1.0]: https://github.com/unicode-org/cldr-json/releases/tag/44.1.0)
+
+<!-- 44 release: 2023-10-31 -->
+[v44]: /index/downloads/cldr-44
+[CLDR44]: https://unicode.org/Public/cldr/44/
+[Charts44]: https://unicode.org/cldr/charts/44/
+[LDML44]: https://www.unicode.org/reports/tr35/tr35-70/tr35.html
+[Δ44]: https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2244%22%20ORDER%20BY%20component%20ASC%2C%20priority%20DESC%2C%20created%20ASC)
+[release-44]: https://github.com/unicode-org/cldr/tree/release-44
+[ΔDtd44]: https://unicode.org/cldr/charts/44/supplemental/dtd_deltas.html
+[44.0.0]: https://github.com/unicode-org/cldr-json/releases/tag/44.0.0
+
+<!-- 43.1 release: 2023-06-15 -->
+[v43.1]: /index/downloads/cldr-43#h.qobmda543waj
+[LDML43.1]: https://www.unicode.org/reports/tr35/tr35-69/tr35.html
+[Δ43.1]: https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2243%2E1%22%20ORDER%20BY%20component%20ASC%2C%20priority%20DESC%2C%20created%20ASC
+[release-43-1]: https://github.com/unicode-org/cldr/tree/release-43-1
+[43.1 Changes]: /index/downloads/cldr-43#h.qobmda543waj
+[43.1.0]: https://github.com/unicode-org/cldr-json/releases/tag/43.1.0
+
+<!-- 43 release: 2023-04-12 -->
+[v43]: /index/downloads/cldr-43
+[CLDR43]: https://unicode.org/Public/cldr/43/
+[Charts43]: https://www.unicode.org/cldr/charts/43/
+[LDML43]: https://www.unicode.org/reports/tr35/tr35-68/tr35.html
+[Δ43]: https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20in%20(Fixed%2C%20%22Fix%20in%20Survey%20Tool%20(CLDR)%22%2C%20%22Fixed%20non-repo%22)%20AND%20fixVersion%20%3D%20%2243%22%20ORDER%20BY%20resolution%20ASC%2C%20component%20ASC%2C%20priority%20DESC%2C%20created%20ASC
+[release-43]: https://github.com/unicode-org/cldr/tree/release-43
+[ΔDtd43]: https://www.unicode.org/cldr/charts/43/supplemental/dtd_deltas.html
+[43.0.0]: https://github.com/unicode-org/cldr-json/releases/tag/43.0.0
+
+<!-- 42 release: 2022-10-19 -->
+[v42]: /index/downloads/cldr-42
+[CLDR42]: https://unicode.org/Public/cldr/42/
+[Charts42]: https://www.unicode.org/cldr/charts/42/
+[LDML42]: https://www.unicode.org/reports/tr35/tr35-67/tr35.html
+[Δ42]: https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20in%20(Fixed%2C%20%22Fix%20in%20Survey%20Tool%20(CLDR)%22%2C%20%22Fixed%20non-repo%22)%20AND%20fixVersion%20%3D%20%2242%22%20ORDER%20BY%20resolution%20ASC%2C%20component%20ASC%2C%20priority%20DESC%2C%20created%20ASC
+[release-42]: https://github.com/unicode-org/cldr/tree/release-42
+[ΔDtd42]: https://www.unicode.org/cldr/charts/42/supplemental/dtd_deltas.html
+[42.0.0]: https://github.com/unicode-org/cldr-json/releases/tag/42.0.0
+
+<!-- 41 release: 2022-04-06 -->
+[v41]: /index/downloads/cldr-41
+[CLDR41]: https://unicode.org/Public/cldr/41/
+[Charts41]: https://www.unicode.org/cldr/charts/41/
+[LDML41]: https://www.unicode.org/reports/tr35/tr35-66/tr35.html
+[Δ41]: https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2241%22%20ORDER%20BY%20component%20ASC%2C%20priority%20DESC%2C%20created%20ASC
+[release-41]: https://github.com/unicode-org/cldr/tree/release-41
+[ΔDtd41]: https://www.unicode.org/cldr/charts/41/supplemental/dtd_deltas.html
+[41.0.0]: https://github.com/unicode-org/cldr-json/releases/tag/41.0.0
+
+<!-- 40 release: 2022-04-06 -->
+[v40]: /index/downloads/cldr-40
+[CLDR40]: https://unicode.org/Public/cldr/40/)
+[Charts40]: https://www.unicode.org/cldr/charts/40/ 
+[LDML40]: https://www.unicode.org/reports/tr35/tr35-65/tr35.html
+[Δ40]: https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2240%22%20ORDER%20BY%20component%20ASC%2C%20priority%20DESC%2C%20created%20ASC
+[release-40]: https://github.com/unicode-org/cldr/tree/release-40
+[ΔDtd40]: https://www.unicode.org/cldr/charts/40/supplemental/dtd_deltas.html
+[40.0.0]: https://github.com/unicode-org/cldr-json/releases/tag/40.0.0
+
+<!-- 39 release: 2021-04-07 -->
+[v39]: /index/downloads/cldr-39
+[CLDR39]: https://unicode.org/Public/cldr/39/
+[Charts39]: https://www.unicode.org/cldr/charts/39/
+[LDML39]: https://www.unicode.org/reports/tr35/tr35-63/tr35.html
+[Δ39]: https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2239%22%20ORDER%20BY%20component%20ASC%2C%20priority%20DESC%2C%20created%20ASC)
+[release-39]: https://github.com/unicode-org/cldr/tree/release-39
+[ΔDtd39]: https://www.unicode.org/cldr/charts/39/supplemental/dtd_deltas.html
+[39.0.0]: https://github.com/unicode-org/cldr-json/releases/tag/39.0.0
+
+<!-- 38.1 release: 2020-12-17 -->
+[v38.1]: /index/downloads/cldr-38?pli=1#TOC-CLDR-38.1
+[CLDR38.1]: https://unicode.org/Public/cldr/38.1
+[Charts38.1]: https://www.unicode.org/cldr/charts/38.1/index.html
+[LDML38]: https://www.unicode.org/reports/tr35/tr35-61/tr35.html
+[Δ38.1]: https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2238%2E1%22%20ORDER%20BY%20component%20ASC%2C%20priority%20DESC%2C%20created%20ASC)
+[release-38-1]: https://github.com/unicode-org/cldr/tree/release-38-1
+[ΔDtd38.1]: https://www.unicode.org/cldr/charts/38.1/supplemental/dtd_deltas.html
+[38.1.0]: https://github.com/unicode-org/cldr-json/releases/tag/38.1.0
+
+<!-- 38 release: 2020-10-28 -->
+[v38]: /index/downloads/cldr-38
+[CLDR38]: https://unicode.org/Public/cldr/38/
+[Charts38]: https://www.unicode.org/cldr/charts/38/
+[LDML38]: https://www.unicode.org/reports/tr35/tr35-61/tr35.html
+[Δ38]: https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2238%22%20ORDER%20BY%20component%20ASC%2C%20priority%20DESC%2C%20created%20ASC
+[release-38]: https://github.com/unicode-org/cldr/tree/release-38
+[ΔDtd38]: https://www.unicode.org/cldr/charts/38/supplemental/dtd_deltas.html
+[38.0.0]: https://github.com/unicode-org/cldr-json/releases/tag/38.0.0
+
 

@@ -22,7 +22,7 @@ It was a closed cycle: locale data changes were limited to bug fixes and the add
 
 ### Changes
 
-This release note includes all changes from [CLDR v46.1](cldr-46.md#461-changes), 
+This release note includes all changes from [CLDR v46.1](./cldr-46.md#461-changes), 
 a special release, which many users of CLDR (including ICU) have not updated to.
 
 The most significant changes in this release are the following:
@@ -80,7 +80,7 @@ Tech Preview implementations are available in C++, Java, and JavaScript:
 ## Specification Changes
 
 The following is a summary of the most significant changes to the specification (LDML) since CLDR 46.
-For more information, see [LDML 47 beta](https://unicode.org/reports/tr35/47/tr35.html#modifications).
+For more information, see [LDML 47](https://unicode.org/reports/tr35/47/tr35.html#modifications).
 
 - Many changes to MessageFormat, including:
     - Now stable, with the stability policy now normative.

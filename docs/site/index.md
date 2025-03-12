@@ -15,13 +15,14 @@ title: Unicode CLDR Project
 
 ## What is CLDR?
 
-The Unicode Common Locale Data Repository (CLDR) provides key building blocks for software to support the world's languages, with the largest and most extensive standard repository of locale data available. This data is used by a [wide spectrum of companies](#who-uses-cldr) for their software internationalization and localization, adapting software to the conventions of different languages for such common software tasks. It includes:
+The Unicode Common Locale Data Repository (CLDR) provides key building blocks for software to support the world's languages, with the largest and most extensive standard repository of locale data available. This data is supplied by contributors for their languages via the [CLDR SurveyTool](#translations-and-other-language-data).
+
+CLDR is used by a [wide spectrum of companies](#who-uses-cldr) for their software internationalization and localization, adapting software to the conventions of different languages for such common software tasks. It includes:
 - **Locale-specific patterns for formatting and parsing:** dates, times, timezones, numbers and currency values, measurement units,…
 - **Translations of names:** languages, scripts, countries and regions, currencies, eras, months, weekdays, day periods, time zones, cities, and time units, emoji characters and sequences (and search keywords),…
 - **Language & script information:** characters used; plural cases; gender of lists; capitalization; rules for sorting & searching; writing direction; transliteration rules; rules for spelling out numbers; rules for segmenting text into graphemes, words, and sentences; keyboard layouts…
 - **Country information:** language usage, currency information, calendar preference, week conventions,…
 - **Validity:** Definitions, aliases, and validity information for Unicode locales, languages, scripts, regions, and extensions,…
-
 
 CLDR uses the XML format provided by [UTS #35: Unicode Locale Data Markup Language (LDML)](https://www.unicode.org/reports/tr35/). LDML is a format used not only for CLDR, but also for general interchange of locale data, such as in Microsoft's .NET.
 
@@ -49,7 +50,7 @@ CLDR is a collaborative project, which benefits by having people join and contri
 
 #### Translations and other language data
 
-CLDR has an online tool to gather data, the [Survey Tool](index/survey-tool). The Survey Tool is open twice a year to gather data for new structure, and make corrections in previously-released data.
+CLDR has an online tool to gather data, the [Survey Tool](index/survey-tool). The Survey Tool is usually open once a year to gather data for new structure, and make corrections in previously-released data.
 
 - For languages that are already available in the Survey Tool, see [picking a locale](translation/getting-started/guide#picking-locales). If your locale is not already available in the Survey Tool, see [Adding new locales](requesting_changes#adding-new-locales).
     -   Contribute as an individual (vetter) for your language by [setting up an account](index/survey-tool/survey-tool-accounts)

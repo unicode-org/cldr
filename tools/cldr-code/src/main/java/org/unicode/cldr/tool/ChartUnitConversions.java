@@ -18,6 +18,7 @@ import org.unicode.cldr.util.UnitConverter.UnitId;
 import org.unicode.cldr.util.UnitConverter.UnitSystem;
 
 public class ChartUnitConversions extends Chart {
+    private static final boolean DUMP_UNIT_TABLE_TO_STDOUT = false;
 
     public static final String QUANTITY_MSG =
             "The units are grouped and ordered by Quantity (which are based on the NIST quantities, see "
@@ -170,10 +171,12 @@ public class ChartUnitConversions extends Chart {
                     .finishRow();
         }
         pw.write(tablePrinter.toTable());
-        PrintWriter pw2 = new PrintWriter(System.out);
-        tablePrinter.toTsv(pw2);
-        pw2.flush();
-        pw2.close();
+        if (DUMP_UNIT_TABLE_TO_STDOUT) {
+            PrintWriter pw2 = new PrintWriter(System.out);
+            tablePrinter.toTsv(pw2);
+            pw2.flush();
+            pw2.close();
+        }
         //        for (R4<UnitId, UnitSystem, Rational, String> sk : all) {
         //            System.out.println(String.format("%s\t%s\t%s\t%s", sk.get0(), sk.get1(),
         // sk.get2(), sk.get3()));

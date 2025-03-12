@@ -15,7 +15,7 @@ title: Unicode CLDR Project
 
 ## What is CLDR?
 
-The Unicode Common Locale Data Repository (CLDR) provides key building blocks for software to support the world's languages, with the largest and most extensive standard repository of locale data available. This data is supplied by contributors for their languages via the [CLDR SurveyTool](#translations-and-other-language-data).
+The Unicode Common Locale Data Repository (CLDR) provides key building blocks for software to support the world's languages with the largest and most extensive standard repository of locale data available. This data is supplied by contributors for their languages via the [CLDR SurveyTool](#translations-and-other-language-data).
 
 CLDR is used by a [wide spectrum of companies](#who-uses-cldr) for their software internationalization and localization, adapting software to the conventions of different languages for such common software tasks. It includes:
 - **Locale-specific patterns for formatting and parsing:** dates, times, timezones, numbers and currency values, measurement units,…

@@ -1714,7 +1714,7 @@ Otherwise, when the offset from GMT is zero, the style specified by the `<gmtZer
 * "UTC"
 * "Гринуич"
 
-Otherwise, when the offset from GMT is not known, the style specified by the `<gmtUnknownFormat>` element is used:
+Otherwise (that is, when the offset from GMT is not known), the style specified by the `<gmtUnknownFormat>` element is used:
 
 * "GMT+?"
 * "UTC+?"

@@ -39,11 +39,11 @@ jobs:
     - name: Build cldr.pages.dev
       run: 'cd docs/site && jekyll build'
     - name: Pre-install Wrangler
-      if: github.event.pull_request.head.repo.full_name == 'unicode-org/cldr'
+      if: (github.event_name == 'push') || (github.event.pull_request.head.repo.full_name == 'unicode-org/cldr')
       run: npm i -g wrangler@3.x
       # see https://github.com/cloudflare/wrangler-action/issues/286
     - name: Deploy cldr.pages.dev
-      if: github.event.pull_request.head.repo.full_name == 'unicode-org/cldr'
+      if: (github.event_name == 'push') || (github.event.pull_request.head.repo.full_name == 'unicode-org/cldr')
       id: deploy
       uses: cloudflare/wrangler-action@v3
       with:

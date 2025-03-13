@@ -204,15 +204,15 @@ The 1.0 version of CLDR is described here for historical interest only. It was h
 [latest-charts]: https://www.unicode.org/cldr/charts/46/index.html
 [latest-ldml]: https://www.unicode.org/reports/tr35/
 [latest-tickets]: https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2246%22%20ORDER%20BY%20created%20ASC
-[latest-delta-dtd]: https://www.unicode.org/cldr/charts/46/supplemental/dtd_deltas.html)
+[latest-delta-dtd]: https://www.unicode.org/cldr/charts/46/supplemental/dtd_deltas.html
 
 <!-- Dev release -->
-[dev-version]: /index/downloads/dev)
+[dev-version]: /index/downloads/dev
 [dev-charts]: https://unicode.org/cldr/charts/dev
 [dev-ldml]: https://www.unicode.org/reports/tr35/proposed.html
-[dev-tickets]: https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2246%22%20ORDER%20BY%20created%20ASC)
-[main]: https://github.com/unicode-org/cldr.git)
-[dev-delta-dtd]: (https://www.unicode.org/cldr/charts/dev/supplemental/dtd_deltas.html)
+[dev-tickets]: https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2246%22%20ORDER%20BY%20created%20ASC
+[main]: https://github.com/unicode-org/cldr.git
+[dev-delta-dtd]: https://www.unicode.org/cldr/charts/dev/supplemental/dtd_deltas.html
 
 <!-- 46.1 release: 2024-12-18 -->
 [v46.1]: /index/downloads/cldr-46#461-changes
@@ -246,17 +246,17 @@ The 1.0 version of CLDR is described here for historical interest only. It was h
 <!-- 44.1 release: 2023-12-13 -->
 [v44.1]: /index/downloads/cldr-44#h.nvqx283jwsx
 [LDML44.1]: https://www.unicode.org/reports/tr35/tr35-71/tr35.html
-[Δ44.1]: https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2244%2E1%22%20ORDER%20BY%20component%20ASC%2C%20priority%20DESC%2C%20created%20ASC)
+[Δ44.1]: https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2244%2E1%22%20ORDER%20BY%20component%20ASC%2C%20priority%20DESC%2C%20created%20ASC
 [release-44-1]: https://github.com/unicode-org/cldr/tree/release-44-1
 [44.1 Changes]: /index/downloads/cldr-44#h.nvqx283jwsx
-[44.1.0]: https://github.com/unicode-org/cldr-json/releases/tag/44.1.0)
+[44.1.0]: https://github.com/unicode-org/cldr-json/releases/tag/44.1.0
 
 <!-- 44 release: 2023-10-31 -->
 [v44]: /index/downloads/cldr-44
 [CLDR44]: https://unicode.org/Public/cldr/44/
 [Charts44]: https://unicode.org/cldr/charts/44/
 [LDML44]: https://www.unicode.org/reports/tr35/tr35-70/tr35.html
-[Δ44]: https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2244%22%20ORDER%20BY%20component%20ASC%2C%20priority%20DESC%2C%20created%20ASC)
+[Δ44]: https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2244%22%20ORDER%20BY%20component%20ASC%2C%20priority%20DESC%2C%20created%20ASC
 [release-44]: https://github.com/unicode-org/cldr/tree/release-44
 [ΔDtd44]: https://unicode.org/cldr/charts/44/supplemental/dtd_deltas.html
 [44.0.0]: https://github.com/unicode-org/cldr-json/releases/tag/44.0.0
@@ -301,7 +301,7 @@ The 1.0 version of CLDR is described here for historical interest only. It was h
 
 <!-- 40 release: 2022-04-06 -->
 [v40]: /index/downloads/cldr-40
-[CLDR40]: https://unicode.org/Public/cldr/40/)
+[CLDR40]: https://unicode.org/Public/cldr/40/
 [Charts40]: https://www.unicode.org/cldr/charts/40/ 
 [LDML40]: https://www.unicode.org/reports/tr35/tr35-65/tr35.html
 [Δ40]: https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2240%22%20ORDER%20BY%20component%20ASC%2C%20priority%20DESC%2C%20created%20ASC
@@ -314,7 +314,7 @@ The 1.0 version of CLDR is described here for historical interest only. It was h
 [CLDR39]: https://unicode.org/Public/cldr/39/
 [Charts39]: https://www.unicode.org/cldr/charts/39/
 [LDML39]: https://www.unicode.org/reports/tr35/tr35-63/tr35.html
-[Δ39]: https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2239%22%20ORDER%20BY%20component%20ASC%2C%20priority%20DESC%2C%20created%20ASC)
+[Δ39]: https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2239%22%20ORDER%20BY%20component%20ASC%2C%20priority%20DESC%2C%20created%20ASC
 [release-39]: https://github.com/unicode-org/cldr/tree/release-39
 [ΔDtd39]: https://www.unicode.org/cldr/charts/39/supplemental/dtd_deltas.html
 [39.0.0]: https://github.com/unicode-org/cldr-json/releases/tag/39.0.0
@@ -324,7 +324,7 @@ The 1.0 version of CLDR is described here for historical interest only. It was h
 [CLDR38.1]: https://unicode.org/Public/cldr/38.1
 [Charts38.1]: https://www.unicode.org/cldr/charts/38.1/index.html
 [LDML38]: https://www.unicode.org/reports/tr35/tr35-61/tr35.html
-[Δ38.1]: https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2238%2E1%22%20ORDER%20BY%20component%20ASC%2C%20priority%20DESC%2C%20created%20ASC)
+[Δ38.1]: https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2238%2E1%22%20ORDER%20BY%20component%20ASC%2C%20priority%20DESC%2C%20created%20ASC
 [release-38-1]: https://github.com/unicode-org/cldr/tree/release-38-1
 [ΔDtd38.1]: https://www.unicode.org/cldr/charts/38.1/supplemental/dtd_deltas.html
 [38.1.0]: https://github.com/unicode-org/cldr-json/releases/tag/38.1.0
@@ -362,7 +362,7 @@ The 1.0 version of CLDR is described here for historical interest only. It was h
 [CLDR36]: https://unicode.org/Public/cldr/36/
 [Charts36]: https://www.unicode.org/cldr/charts/36/
 [LDML36]: https://www.unicode.org/reports/tr35/tr35-57/tr35.html
-[Δ36]: https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2236%22%20ORDER%20BY%20created%20ASC)
+[Δ36]: https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2236%22%20ORDER%20BY%20created%20ASC
 [release-36]: https://github.com/unicode-org/cldr/tree/release-36
 [ΔDtd36]: https://www.unicode.org/cldr/charts/36/supplemental/dtd_deltas.html
 [36.0.0]: https://github.com/unicode-org/cldr-json/releases/tag/36.0.0
@@ -383,9 +383,9 @@ The 1.0 version of CLDR is described here for historical interest only. It was h
 [Charts35.1]: https://www.unicode.org/cldr/charts/35/
 [LDML35]: https://www.unicode.org/reports/tr35/tr35-55/tr35.html
 [Δ35]: https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20fixVersion%20%3D%20%2235%22%20ORDER%20BY%20created%20ASC
-[release-35]: https://github.com/unicode-org/cldr/tree/release-35)
+[release-35]: https://github.com/unicode-org/cldr/tree/release-35
 [ΔDtd35]: https://www.unicode.org/cldr/charts/35/supplemental/dtd_deltas.html
-[35.0.0]: https://github.com/unicode-org/cldr-json/releases/tag/35.0.0)
+[35.0.0]: https://github.com/unicode-org/cldr-json/releases/tag/35.0.0
 
 <!-- 34 release: 2018-10-15 -->
 [v34]: /index/downloads/cldr-34
@@ -665,8 +665,8 @@ The 1.0 version of CLDR is described here for historical interest only. It was h
 
 <!-- 1.4.1 release: 2006-11-03 -->
 [CLDR1.4.1]: https://unicode.org/Public/cldr/1.4.1/
-[LDML1.4.1]: https://www.unicode.org/reports/tr35/tr35-7.html)
-[~~Δ1.4.1~~]: https://unicode.org/cldr/trac/query?status=closed&col=id&col=summary&milestone=1.4.1)
+[LDML1.4.1]: https://www.unicode.org/reports/tr35/tr35-7.html
+[~~Δ1.4.1~~]: https://unicode.org/cldr/trac/query?status=closed&col=id&col=summary&milestone=1.4.1
 
 <!-- 1.4 release: 2006-07-17 -->
 [CLDR1.4]: https://unicode.org/Public/cldr/1.4.0/

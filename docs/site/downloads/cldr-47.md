@@ -21,7 +21,7 @@ It was a closed cycle: locale data changes were limited to bug fixes and the add
 
 ### Changes
 
-This release note includes all changes from [CLDR v46.1](/downloads/cldr-46.md#461-changes), 
+This release note includes all changes from [CLDR v46.1](/downloads/cldr-46#461-changes), 
 a special release, which many users of CLDR (including ICU) have not updated to.
 
 The most significant changes in this release are the following:

@@ -1,14 +1,13 @@
 ---
 title: CLDR 47 Release Note
+date: 2025-03-13
+tag: release-47
+json: 47.0.0
 ---
-
-# CLDR 47 Release Note
 
 | No. |    Date    | Rel. Note |  Data  |  Charts  | Spec |   Delta  | GitHub Tag | Delta DTD | CLDR JSON |
 |:---:|:----------:|:---------:|:------:|:--------:|:------------:|:---:|:----------:|:---------:|:---------:|
-|  47 | 2025-04-~~XX~~ | [v47](/index/downloads/cldr-47) | ~~[CLDR47](https://unicode.org/Public/cldr/47/)~~ | [Charts47](https://unicode.org/cldr/charts/dev) | [LDML47](https://www.unicode.org/reports/tr35/proposed.html) | [Δ47](https://unicode-org.atlassian.net/issues/?jql=project+%3D+CLDR+AND+status+%3D+Done+AND+resolution+%3D+Fixed+AND+fixVersion+%3D+%2247%22+ORDER+BY+priority+DESC) | ~~release-47~~<br>[release-47-beta2](https://github.com/unicode-org/cldr/releases/tag/release-47-beta2) | [ΔDtd47](https://www.unicode.org/cldr/charts/dev/supplemental/dtd_deltas.html) | ~~47.0.0~~<br>[47.0.0-BETA2](https://github.com/unicode-org/cldr-json/releases/tag/47.0.0-BETA2) |
-
-<span style="color:red; font-weight: bold;">This is an beta version of CLDR v47.</span>
+|  47 | 2025-03-13 | [v47][] | [CLDR47][] | [Charts47][] | [LDML47][] | [Δ47][] | [release-47][] | [ΔDtd47] | [47.0.0][] |
 
 ## Overview
 
@@ -95,7 +94,7 @@ For more information, see [LDML 47](https://unicode.org/reports/tr35/47/tr35.htm
 - Moved @MATCH documentation to the site (it is for internal tooling)
 
 There are many more changes that are important to implementations, such as changes to certain identifier syntax and various algorithms.
-See the [Modifications section](https://www.unicode.org/reports/tr35/proposed.html#Modifications) of the specification for details.
+See the [Modifications section](https://www.unicode.org/reports/tr35/47/tr35.html#Modifications) of the specification for details.
 
 ## Data Changes
 
@@ -107,7 +106,7 @@ Changes include:
 - Most of the DTD changes were to tighten up the validity constraints (@MATCH) on various attributes.
 These don't affect implementations.
 
-For a full listing, see [Delta DTDs](https://unicode.org/cldr/charts/dev/supplemental/dtd_deltas.html).
+For a full listing, see [Delta DTDs][ΔDtd47].
 
 Also see other changes listed under [keyboards](#keyboard-changes).
 
@@ -121,7 +120,7 @@ Also see other changes listed under [keyboards](#keyboard-changes).
 - Added script metadata [CLDR-17531][]
 - **TBD: add others**
 
-For a full listing, see [¤¤BCP47 Delta](https://unicode.org/cldr/charts/dev/delta/bcp47.html) and [¤¤Supplemental Delta](https://unicode.org/cldr/charts/dev/delta/supplemental-data.html)
+For a full listing, see [¤¤BCP47 Delta](https://unicode.org/cldr/charts/47/delta/bcp47.html) and [¤¤Supplemental Delta](https://unicode.org/cldr/charts/47/delta/supplemental-data.html)
 
 ### Locale Data Changes
 
@@ -140,7 +139,7 @@ should all have a `numberSystem` attribute, and such elements without a `numberS
 prepare for this, in CLDR 47, all such elements were either removed (if redundant) or correct by adding a `numberSystem` attribute.
 ([CLDR-17760](https://unicode-org.atlassian.net/browse/CLDR-17760))
 
-For a full listing, see [Delta Data](https://unicode.org/cldr/charts/dev/delta/index.html)
+For a full listing, see [Delta Data](https://unicode.org/cldr/charts/47/delta/index.html)
 
 ### Collation Data Changes
 
@@ -281,3 +280,11 @@ For web pages with different views of CLDR data, see [charts](/index/charts).
 [CLDR-18318]: https://unicode-org.atlassian.net/browse/CLDR-18318
 [CLDR-18319]: https://unicode-org.atlassian.net/browse/CLDR-18319
 [CLDR-18324]: https://unicode-org.atlassian.net/browse/CLDR-18324
+[CLDR47]: https://unicode.org/Public/cldr/47/
+[Charts47]: https://unicode.org/cldr/charts/47
+[LDML47]: https://www.unicode.org/reports/tr35/47
+[Δ47]: https://unicode-org.atlassian.net/issues/?jql=project+%3D+CLDR+AND+status+%3D+Done+AND+resolution+%3D+Fixed+AND+fixVersion+%3D+%2247%22+ORDER+BY+priority+DESC
+[release-47]: https://github.com/unicode-org/cldr/releases/tag/release-47
+[ΔDtd47]: https://www.unicode.org/cldr/charts/47/supplemental/dtd_deltas.html
+[47.0.0]: https://github.com/unicode-org/cldr-json/releases/tag/47.0.0
+[v47]: /downloads/cldr-47

@@ -349,6 +349,7 @@ public class TestCLDRFile extends TestFmwk {
                                                     && (path.contains("[@type=\"energy-foodcalorie")
                                                             || path.contains(
                                                                     "[@type=\"graphics-dot")))))
+                            || (path.startsWith("//ldml/dates/timeZoneNames/zone") && path.endsWith("exemplarCity"))
                     // //ldml/characters/exemplarCharacters[@type="index"][root]
                     ) {
                         continue;

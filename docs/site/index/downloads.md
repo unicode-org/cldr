@@ -13,7 +13,7 @@ The following table lists the files for each released version. For license infor
 
 | No. | Date | Rel. Note | Data | Charts | Spec | Delta Tickets | GitHub Tag | Delta DTD | CLDR JSON |
 |:---:|:----------:|:---------:|:------:|:--------:|:------------:|:---:|:----------:|:---------:|:---------:|
-| Latest |  | [latest-version][] | [latest-data][] | [latest-charts][] | [latest-ldml][] | [latest-tickets][] | [release-46][]| [latest-delta-dtd][] | See release notes |
+| Latest |  | [latest-version][] | [latest-data][] | [latest-charts][] | [latest-ldml][] | [latest-tickets][] | [release-47][]| [latest-delta-dtd][] | See release notes |
 | Dev |  | [dev-version][] |  | [dev-charts][]| [dev-ldml][] | [dev-tickets][] | [main][]| [dev-delta-dtd][] | See release notes |
 |  47 | 2025-03-13 | [v47][] | [CLDR47][] | [Charts47][] | [LDML47][] | [Δ47][] | [release-47][] | [ΔDtd47] | [47.0.0][] |
 | 46.1 | 2024-12-18 | [v46.1][] | n/a | [Charts46.1][] | [LDML46.1][] | [Δ46.1][] | [release-46-1][] | [ΔDtd46.1][] | [46.1.0][] |
@@ -199,11 +199,11 @@ The 1.0 version of CLDR is described here for historical interest only. It was h
 
 <!-- Latest release -->
 [latest-version]: /index/downloads/latest
-[latest-data]: https://unicode.org/Public/cldr/46/
-[latest-charts]: https://www.unicode.org/cldr/charts/46/index.html
+[latest-data]: https://unicode.org/Public/cldr/latest/
+[latest-charts]: https://www.unicode.org/cldr/charts/latest/index.html
 [latest-ldml]: https://www.unicode.org/reports/tr35/
-[latest-tickets]: https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2246%22%20ORDER%20BY%20created%20ASC
-[latest-delta-dtd]: https://www.unicode.org/cldr/charts/46/supplemental/dtd_deltas.html
+[latest-tickets]: https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2247%22%20ORDER%20BY%20created%20ASC
+[latest-delta-dtd]: https://www.unicode.org/cldr/charts/latest/supplemental/dtd_deltas.html
 
 <!-- Dev release -->
 [dev-version]: /index/downloads/dev

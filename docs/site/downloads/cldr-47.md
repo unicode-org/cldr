@@ -243,13 +243,16 @@ LDML specification: [Number Symbols](https://www.unicode.org/reports/tr35/47/tr3
 ### V48 advance warnings
 The following changes are planned for CLDR 48. Please plan accordingly to avoid disruption.
 
-- Any locales that are missing Core data by the end of the CLDR 48 cycle will be removed [CLDR-16004](https://unicode-org.atlassian.net/browse/CLDR-16004)
-- The default week numbering will change to ISO instead being based on the calendar week starting in CLDR 48 [CLDR-18275](https://unicode-org.atlassian.net/browse/CLDR-18275). The calendar week data will be more clearly targeted at matching usage in displayed month calendars.
-- The likely language for Belarus is slated to change to Russian [CLDR-14479](https://unicode-org.atlassian.net/browse/CLDR-14479)
+- Any locales that are missing Core data by the end of the CLDR 48 cycle will be removed. [CLDR-16004][]
+- Week-of-year calculation will be updated to always apply week numbers based on the ISO-8601 convention. [CLDR-18275][]
+   - We have received feedback that in countries where weeks are numbered (typically for business or government), the ISO standard is followed rather than the conventions that are used for wall calendars.
+   - Week 1 is the week with the first Thursday of the year.
+   - Week-of-year numbering will ignore the `minDays` and `firstDay` variables for the purpose of week-of-year calculations.
+- The likely language for Belarus is slated to change to Russian. [CLDR-14479][]
 - The major components in [supplementalData.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalData.xml) and [supplementalMetadata.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalMetadata.xml) files are slated to be organized more logically and moved into separate files.
     - This will make it easier for implementations to filter out data that they don't need, and make internal maintenance easier. This will not affect the data: just which file it is located in. Please plan to update XML and JSON parsers accordingly.
-- The `languageData` element and/or some of its attributes may be deprecated, and their data removed. [CLDR-18087](https://unicode-org.atlassian.net/issues/CLDR-18087)
-- The `<version number="$Revision$">` may be deprecated and data removed. The #FIXED values in the DTD may also be retired in favor of explicit values. [CLDR-18377](https://unicode-org.atlassian.net/browse/CLDR-18377), [CLDR-14161](https://unicode-org.atlassian.net/browse/CLDR-14161)
+- The `languageData` element and/or some of its attributes may be deprecated, and their data removed. [CLDR-18087][]
+- The `<version number="$Revision$">` may be deprecated and data removed. The #FIXED values in the DTD may also be retired in favor of explicit values. [CLDR-18377][], [CLDR-14161][]
 
 ## Known Issues
 
@@ -269,15 +272,22 @@ For web pages with different views of CLDR data, see [charts](/index/charts).
 
 [CLDR-10397]: https://unicode-org.atlassian.net/browse/CLDR-10397
 [CLDR-11874]: https://unicode-org.atlassian.net/browse/CLDR-11874
+[CLDR-14161]: https://unicode-org.atlassian.net/browse/CLDR-14161
+[CLDR-14479]: https://unicode-org.atlassian.net/browse/CLDR-14479
+[CLDR-16004]: https://unicode-org.atlassian.net/browse/CLDR-16004
 [CLDR-16526]: https://unicode-org.atlassian.net/browse/CLDR-16526
 [CLDR-16836]: https://unicode-org.atlassian.net/browse/CLDR-16836
 [CLDR-17176]: https://unicode-org.atlassian.net/browse/CLDR-17176
 [CLDR-17531]: https://unicode-org.atlassian.net/browse/CLDR-17531
 [CLDR-17612]: https://unicode-org.atlassian.net/browse/CLDR-17612
 [CLDR-17971]: https://unicode-org.atlassian.net/browse/CLDR-17971
+[CLDR-18087]: https://unicode-org.atlassian.net/issues/CLDR-18087
 [CLDR-18133]: https://unicode-org.atlassian.net/browse/CLDR-18133
 [CLDR-18219]: https://unicode-org.atlassian.net/browse/CLDR-18219
+[CLDR-18275]: https://unicode-org.atlassian.net/browse/CLDR-18275
 [CLDR-18277]: https://unicode-org.atlassian.net/browse/CLDR-18277
 [CLDR-18318]: https://unicode-org.atlassian.net/browse/CLDR-18318
 [CLDR-18319]: https://unicode-org.atlassian.net/browse/CLDR-18319
 [CLDR-18324]: https://unicode-org.atlassian.net/browse/CLDR-18324
+[CLDR-18377]: https://unicode-org.atlassian.net/browse/CLDR-18377
+

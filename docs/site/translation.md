@@ -24,7 +24,7 @@ When a section below changes, the date will be in the header.
 
 ## Status and Schedule
 
-The Survey Tool has been closed for version 46. For version 47, it is not yet open for [General Submission](translation/getting-started/survey-tool-phases#survey-tool-phase-general-submission). The General Submission phase will be followed by the [Vetting phase](translation/getting-started/survey-tool-phases#survey-tool-phase-vetting).
+The Survey Tool was not open for submission for CLDR 47. The Survey Tool will open for CLDR 48 [General Submission](translation/getting-started/survey-tool-phases#survey-tool-phase-general-submission) in April 2025. The General Submission phase will be followed by the [Vetting phase](translation/getting-started/survey-tool-phases#survey-tool-phase-vetting).
 
 - **Disconnect error**. If you see a persistent Loading error with a disconnect message or other odd behavior, please [empty your cache](translation/getting-started/empty-cache).
 - Survey Tool email notification may be going to your spam folder. Check your spam folder regularly.

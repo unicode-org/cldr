@@ -6,20 +6,6 @@
  */
 package org.unicode.cldr.test;
 
-import com.google.common.base.Joiner;
-import com.google.common.collect.Multiset;
-import com.google.common.collect.Multiset.Entry;
-import com.google.common.collect.TreeMultiset;
-import com.ibm.icu.impl.Relation;
-import com.ibm.icu.lang.UScript;
-import com.ibm.icu.text.Collator;
-import com.ibm.icu.text.DateTimePatternGenerator;
-import com.ibm.icu.text.Normalizer2;
-import com.ibm.icu.text.PluralRules;
-import com.ibm.icu.text.PluralRules.PluralType;
-import com.ibm.icu.text.Transform;
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.util.ULocale;
 import java.util.BitSet;
 import java.util.Date;
 import java.util.HashMap;
@@ -30,6 +16,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -49,6 +36,21 @@ import org.unicode.cldr.util.SupplementalDataInfo.CurrencyDateInfo;
 import org.unicode.cldr.util.UnicodeSetPrettyPrinter;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
+
+import com.google.common.base.Joiner;
+import com.google.common.collect.Multiset;
+import com.google.common.collect.Multiset.Entry;
+import com.google.common.collect.TreeMultiset;
+import com.ibm.icu.impl.Relation;
+import com.ibm.icu.lang.UScript;
+import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.DateTimePatternGenerator;
+import com.ibm.icu.text.Normalizer2;
+import com.ibm.icu.text.PluralRules;
+import com.ibm.icu.text.PluralRules.PluralType;
+import com.ibm.icu.text.Transform;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.ULocale;
 
 public class CheckForExemplars extends FactoryCheckCLDR {
     private static final UnicodeSet RTL_CONTROLS = new UnicodeSet("[\\u061C\\u200E\\u200F]");
@@ -94,6 +96,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
 
     static final UnicodeSet START_PAREN = new UnicodeSet("[[:Ps:]]").freeze();
     static final UnicodeSet END_PAREN = new UnicodeSet("[[:Pe:]]").freeze();
+    static final UnicodeSet UNIT_DISALLOWED_PARENS = new UnicodeSet(START_PAREN).addAll(END_PAREN).removeAll(new UnicodeSet("[\\[\\]［］]")).freeze();
     static final UnicodeSet ALL_CURRENCY_SYMBOLS = new UnicodeSet("[[:Sc:]]").freeze();
     static final UnicodeSet LETTER = new UnicodeSet("[[A-Za-z]]").freeze();
     static final UnicodeSet NUMBERS = new UnicodeSet("[[:N:]]").freeze();
@@ -471,8 +474,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
                     IGNORE_PLACEHOLDER_PARENTHESES.matcher(value).replaceAll("");
             disallowed =
                     new UnicodeSet()
-                            .addAll(START_PAREN)
-                            .addAll(END_PAREN)
+                            .addAll(UNIT_DISALLOWED_PARENS)
                             .retainAll(noValidParentheses);
             if (!disallowed.isEmpty()) {
                 addMissingMessage(
@@ -755,7 +757,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         // Get mapping of scripts to the territories that use that script in
         // any of their primary languages.
         Relation scriptToTerritories =
-                new Relation(new HashMap<String, Set<String>>(), HashSet.class);
+                new Relation(new HashMap<>(), HashSet.class);
         for (String lang : sdi.getBasicLanguageDataLanguages()) {
             BasicLanguageData langData = sdi.getBasicLanguageDataMap(lang).get(Type.primary);
             if (langData == null) {
@@ -768,7 +770,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
 
         // For each territory, get all of its legal tender currencies.
         Date now = DateConstants.NOW;
-        scriptToCurrencies = new Relation(new HashMap<String, Set<String>>(), HashSet.class);
+        scriptToCurrencies = new Relation(new HashMap<>(), HashSet.class);
         for (Object curScript : scriptToTerritories.keySet()) {
             Set<String> territories = scriptToTerritories.get(curScript);
             Set<String> currencies = new HashSet<>();

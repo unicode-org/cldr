@@ -193,7 +193,6 @@
 			<attributeValues dtds='supplementalData' elements='info' attributes='rounding' type='regex'>[0-9]+</attributeValues>
 			<attributeValues dtds='ldml' elements='key' attributes='type'>$_bcp47_keys</attributeValues>
 			<attributeValues dtds='supplementalData' elements='language' attributes='scripts' type='list'>$_script</attributeValues>
-			<attributeValues dtds='supplementalData' elements='language' attributes='territories' type='list'>$_region</attributeValues>
 			<attributeValues dtds='ldml' elements='language' attributes='type'>$localeOrDeprecated</attributeValues>
 			<attributeValues dtds='supplementalData' elements='language' attributes='variants'>$_variant</attributeValues>
 			<attributeValues dtds='supplementalData' elements='languageAlias' attributes='replacement' type='locale'/>

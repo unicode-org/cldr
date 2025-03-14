@@ -147,6 +147,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!ATTLIST language territories NMTOKENS #IMPLIED >
     <!--@MATCH:set/validity/region-->
     <!--@VALUE-->
+    <!--@DEPRECATED-->
 <!ATTLIST language variants NMTOKENS #IMPLIED >
     <!--@VALUE-->
 <!ATTLIST language draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >

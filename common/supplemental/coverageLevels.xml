@@ -237,18 +237,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 		would cause many supported locales to drop in coverage. During the next regular submission cycle, please remove these rules
 		and encourage linguists to fix these values.
 		********************* -->
-		<!-- <coverageLevel	value="modern" inLanguage="de"	match="units/unitLength[@type='%unitLengths']/unit[@type='speed-light-speed']/unitPattern[@count='%anyAttribute']/[@case='%anyAttribute']"/>
+		
+		<coverageLevel	value="modern" inLanguage="de"	match="units/unitLength[@type='%unitLengths']/unit[@type='speed-light-speed']/unitPattern[@count='%anyAttribute']/[@case='%anyAttribute']"/>
 		<coverageLevel	value="modern"	match="units/unitLength[@type='%unitLengths']/unit[@type='speed-light-speed']/unitPattern[@count='%anyAttribute']"/>
-		<coverageLevel	value="modern"	match="units/unitLength[@type='%unitLengths']/unit[@type='speed-light-speed']/displayName"/> -->
-		<coverageLevel	value="comprehensive"	match="units/unitLength[@type='%unitLengths']/unit[@type='speed-light-speed']/unitPattern[@count='%anyAttribute'][@case='%anyAttribute']"/>
+		<coverageLevel	value="modern"	match="units/unitLength[@type='%unitLengths']/unit[@type='speed-light-speed']/displayName"/>
 
-		<!-- <coverageLevel inTerritory="%unitBeaufortRegions" value="modern" match="units/unitLength[@type='%unitLengths']/unit[@type='speed-beaufort']/unitPattern[@count='%anyAttribute'][@case='%anyAttribute']"/>
+		<coverageLevel inTerritory="%unitBeaufortRegions" value="modern" match="units/unitLength[@type='%unitLengths']/unit[@type='speed-beaufort']/unitPattern[@count='%anyAttribute'][@case='%anyAttribute']"/>
 		<coverageLevel inTerritory="%unitBeaufortRegions" value="modern" match="units/unitLength[@type='%unitLengths']/unit[@type='speed-beaufort']/unitPattern[@count='%anyAttribute']"/>
-		//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
-modern //ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="accusative"]
-//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="accusative"] -->
-		<coverageLevel	value="comprehensive"	match="units/unitLength[@type='%unitLengths']/unit[@type='speed-light-speed']/unitPattern[@count='%anyAttribute']"/>
-		<coverageLevel	value="comprehensive"	match="units/unitLength[@type='%unitLengths']/unit[@type='speed-light-speed']/displayName"/>
 
     <!-- TestCoverageCompleteness {
       Error: (TestCoverageLevel.java:729) Comprehensive & no exception for path =>      //ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
@@ -261,6 +256,7 @@ modern //ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/uni
       Error: (TestCoverageLevel.java:849) pl (0) Broken Logical Grouping: modern => [//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"][@case="accusative"], //ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"][@case="genitive"], //ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"][@case="accusative"], //ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"][@case="genitive"], //ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="accusative"], //ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="genitive"], //ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="accusative"], //ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="genitive"]]
       Error: (TestCoverageLevel.java:849) pl (0) Broken Logical Grouping: comprehensive => [//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"], //ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"], //ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"], //ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]]
     } (1.309s) FAILED (4 failure(s)) -->
+    
 		<!-- *********************
 		Modified Basic rules (v41)
 		These contain a mixture of basic and moderate.

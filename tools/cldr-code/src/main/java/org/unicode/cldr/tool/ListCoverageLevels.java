@@ -10,6 +10,7 @@ import com.google.common.collect.Multimap;
 import com.google.common.collect.Multiset;
 import com.google.common.collect.TreeMultimap;
 import com.google.common.collect.TreeMultiset;
+import com.ibm.icu.util.Output;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
@@ -22,6 +23,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.TreeSet;
 import java.util.function.Function;
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.util.CLDRConfig;
@@ -37,9 +39,26 @@ import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.UnitConverter;
+import org.unicode.cldr.util.UnitConverter.TargetInfo;
+import org.unicode.cldr.util.Validity;
+import org.unicode.cldr.util.XPathParts;
 
 public class ListCoverageLevels {
+
+    static final Joiner JOIN_TAB = Joiner.on('\t').useForNull("null");
+
+    enum Locales {
+        all,
+        modern_cldr,
+        specific
+    }
+
+    private static final Set<String> VALID_REGULAR_UNITS =
+            Validity.getInstance().getStatusToCodes(LstrType.unit).get(Validity.Status.regular);
+
     public static void main(String[] args) {
         CLDRConfig config = CLDRConfig.getInstance();
         StandardCodes sc = StandardCodes.make();
@@ -49,9 +68,25 @@ public class ListCoverageLevels {
         PathStarrer starrer = new PathStarrer().setSubstitutionPattern("*");
         Factory mainAndAnnotationsFactory = config.getMainAndAnnotationsFactory();
 
-        Set<String> toTest =
-                sc.getLocaleCoverageLocales(Organization.cldr, EnumSet.of(Level.MODERN));
-        // ImmutableSortedSet.of("it", "root", "ja");
+        Locales localesToTest = Locales.specific;
+
+        Set<String> toTest;
+        switch (localesToTest) {
+            default:
+                toTest = mainAndAnnotationsFactory.getAvailable();
+                break;
+            case modern_cldr:
+                toTest = sc.getLocaleCoverageLocales(Organization.cldr, EnumSet.of(Level.MODERN));
+                break;
+            case specific:
+                toTest = ImmutableSortedSet.of("it", "en", "ja", "root");
+                break;
+        }
+
+        UnitConverter unitConverter = sdi.getUnitConverter();
+        Map<String, TargetInfo> conversionData = unitConverter.getInternalConversionData();
+        Set<String> shortUnits = new TreeSet<>(conversionData.keySet());
+
         // mainAndAnnotationsFactory.getAvailable();
         final Set<CLDRLocale> ALL;
         {
@@ -61,19 +96,41 @@ public class ListCoverageLevels {
         }
 
         Map<Level, Multiset<String>> levelToCounter = new TreeMap<>();
+        Map<Level, Multiset<String>> unitLevelToCounter = new TreeMap<>();
+        Multimap<String, String> unitToLocales = TreeMultimap.create();
+
         for (Level level : Level.values()) {
             levelToCounter.put(level, TreeMultiset.create());
+            unitLevelToCounter.put(level, TreeMultiset.create());
         }
         for (String locale : toTest) {
             CLDRFile file = mainAndAnnotationsFactory.make(locale, false);
-            CoverageLevel2 coverageLeveler = CoverageLevel2.getInstance(locale);
+            CoverageLevel2 coverageLeveler = null;
+            try {
+                coverageLeveler = CoverageLevel2.getInstance(locale);
+            } catch (Exception e) {
+            }
             System.out.println(locale);
             for (String path : file) {
-                Level level = coverageLeveler.getLevel(path);
+                Level level =
+                        coverageLeveler == null
+                                ? Level.COMPREHENSIVE
+                                : coverageLeveler.getLevel(path);
                 String skeleton = starrer.set(path);
                 levelToCounter.get(level).add(skeleton);
+                if (path.startsWith("//ldml/units/unitLength")
+                        && !path.contains("coordinateUnit")
+                        && !path.endsWith("/alias")) {
+                    XPathParts parts = XPathParts.getFrozenInstance(path);
+                    String longUnitId = parts.getAttributeValue(3, "type");
+                    // unitLevelToCounter.get(level).add(longUnitId);
+                    unitToLocales.put(longUnitId, locale);
+                }
             }
         }
+
+        System.out.println("\nSkeletons\n");
+
         for (Entry<Level, Multiset<String>> entry : levelToCounter.entrySet()) {
             Level level = entry.getKey();
             Multiset<String> counter = entry.getValue();
@@ -82,7 +139,34 @@ public class ListCoverageLevels {
                         level + "\t" + skeleton.getCount() + "\t" + skeleton.getElement());
             }
         }
+
+        System.out.println("\nUnits\n");
+        System.out.println(
+                JOIN_TAB.join(
+                        "level",
+                        "count",
+                        "longId",
+                        "unitId",
+                        "quantity",
+                        "base unit",
+                        "factor",
+                        "systems"));
+
+        Set<String> validAndFound = new TreeSet<>();
+        validAndFound.addAll(VALID_REGULAR_UNITS);
+        validAndFound.addAll(unitToLocales.keySet());
+
+        for (String longUnitId : validAndFound) {
+            String unit = longUnitId;
+            showUnit(unitConverter, unitToLocales.get(unit), unit);
+            shortUnits.remove(unitConverter.getShortId(unit));
+        }
+
         if (true) return;
+
+        System.out.println("\nDetails\n");
+
+        //        if (true) return;
 
         M4<Level, String, Attributes, Boolean> data =
                 ChainedMap.of(
@@ -191,6 +275,38 @@ public class ListCoverageLevels {
                 }
             }
         }
+    }
+
+    private static void showUnit(
+            UnitConverter unitConverter, Collection<String> locales, String longUnitId) {
+        String unit = unitConverter.getShortId(longUnitId);
+        String systems = "?";
+        try {
+            systems = unitConverter.getSystems(unit).toString();
+        } catch (Exception e) {
+        }
+        Output<String> baseUnitOut = new Output<>();
+        UnitConverter.ConversionInfo conversionInfo = null;
+        try {
+            conversionInfo = unitConverter.parseUnitId(unit, baseUnitOut, false);
+        } catch (Exception e) {
+        }
+
+        double factor = conversionInfo == null ? Double.NaN : conversionInfo.factor.doubleValue();
+
+        if (locales == null) {
+            locales = Set.of();
+        }
+
+        System.out.println(
+                JOIN_TAB.join(
+                        locales,
+                        longUnitId,
+                        unit,
+                        unitConverter.getQuantityFromUnit(unit, false),
+                        baseUnitOut,
+                        factor,
+                        systems.toString()));
     }
 
     private static String getLocaleName(Set<CLDRLocale> all, Set<CLDRLocale> locales) {

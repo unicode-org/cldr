@@ -187,13 +187,21 @@ public class TestUnits extends TestFmwk {
     private Map<String, String> BASE_UNIT_TO_QUANTITY = converter.getBaseUnitToQuantity();
 
     public void TestSpaceInNarrowUnits() {
-        final CLDRFile english = CLDR_CONFIG.getEnglish();
+        checkSpaceInNarrowUnits(CLDR_CONFIG.getEnglish());
+    }
+
+    private void checkSpaceInNarrowUnits(final CLDRFile cldrFile) {
         final Matcher m = Pattern.compile("narrow.*unitPattern").matcher("");
-        for (String path : english) {
+        for (String path : cldrFile) {
             if (m.reset(path).find()) {
-                String value = english.getStringValue(path);
+                String value = cldrFile.getStringValue(path);
                 if (value.contains("} ")) {
-                    errln(path + " fails, «" + value + "» contains } + space");
+                    errln(
+                            cldrFile.getLocaleID()
+                                    + path
+                                    + " fails, «"
+                                    + value
+                                    + "» contains } + space; should be NNBSP \\u202F");
                 }
             }
         }
@@ -500,6 +508,11 @@ public class TestUnits extends TestFmwk {
             {"foot", "12", "inch"},
             {"gallon", "4", "quart"},
             {"gallon", "16", "cup"},
+            {"fluid-ounce-metric", "0.03", "liter"},
+            {"cup-imperial", "10", "fluid-ounce-imperial"},
+            {"pint-imperial", "20", "fluid-ounce-imperial"},
+            {"quart-imperial", "40", "fluid-ounce-imperial"},
+            {"gallon-imperial", "160", "fluid-ounce-imperial"},
         };
         for (String[] test : tests) {
             String sourceUnit = test[0];
@@ -2378,20 +2391,34 @@ public class TestUnits extends TestFmwk {
         ImmutableSet<String> unitLongIdsEnglish =
                 ImmutableSet.copyOf(getUnits(CLDR_CONFIG.getEnglish(), new TreeSet<>()));
 
-        final Set<String> longUntranslatedUnitIds =
-                converter.getLongIds(UnitConverter.UNTRANSLATED_UNIT_NAMES);
+        //        final Set<String> longUntranslatedUnitIds =
+        //                converter.getLongIds(UnitConverter.UNTRANSLATED_UNIT_NAMES);
 
-        ImmutableSet<String> onlyEnglish = ImmutableSet.of("pressure-gasoline-energy-density");
+        // English and root have the same units, and have the same as valid
+
         assertSameCollections(
-                "root unit IDs",
-                "English",
-                unitLongIdsRoot,
-                Sets.difference(
-                        Sets.difference(unitLongIdsEnglish, longUntranslatedUnitIds), onlyEnglish));
+                "VALID_REGULAR_UNITS",
+                "unitLongIdsEnglish",
+                VALID_REGULAR_UNITS,
+                unitLongIdsEnglish);
+        assertSameCollections(
+                "VALID_REGULAR_UNITS", "unitLongIdsRoot", VALID_REGULAR_UNITS, unitLongIdsRoot);
+
+        //        ImmutableSet<String> onlyEnglish =
+        // ImmutableSet.of("pressure-gasoline-energy-density");
+        //        assertSameCollections(
+        //                "root unit IDs",
+        //                "English",
+        //                unitLongIdsRoot,
+        //                unitLongIdsEnglish
+        //                Sets.difference(
+        //                        Sets.difference(unitLongIdsEnglish, longUntranslatedUnitIds),
+        // onlyEnglish)
+        //                );
 
         final Set<String> validRootUnitIdsMinusOddballs = unitLongIdsRoot;
-        final Set<String> validLongUnitIdsMinusOddballs =
-                minus(validLongUnitIds, longUntranslatedUnitIds);
+        final Set<String> validLongUnitIdsMinusOddballs = unitLongIdsEnglish;
+        // minus(validLongUnitIds, longUntranslatedUnitIds);
         assertSuperset(
                 "valid regular",
                 "root unit IDs",

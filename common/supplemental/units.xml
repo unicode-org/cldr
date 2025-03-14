@@ -181,10 +181,12 @@ For terms of use, see http://www.unicode.org/copyright.html
         <convertUnit source='dram' baseUnit='cubic-meter' factor='gal_to_m3/128*8' systems="ussystem"/>
         <convertUnit source='teaspoon' baseUnit='cubic-meter' factor='gal_to_m3/16*48' systems="ussystem"/>
         <convertUnit source='tablespoon' baseUnit='cubic-meter' factor='gal_to_m3/256' systems="ussystem"/>
+        <convertUnit source='fluid-ounce-metric' baseUnit='cubic-meter' factor='0.03*0.001' systems="metric_adjacent"/>
         <convertUnit source='fluid-ounce-imperial' baseUnit='cubic-meter' factor='gal_imp_to_m3/160' systems="uksystem"/>
         <convertUnit source='fluid-ounce' baseUnit='cubic-meter' factor='gal_to_m3/128' systems="ussystem"/>
         <convertUnit source='jigger' baseUnit='cubic-meter' factor='gal_to_m3*3/128*2' systems="ussystem"/>
         <convertUnit source='cup' baseUnit='cubic-meter' factor='gal_to_m3/16' systems="ussystem"/>
+        <convertUnit source='cup-imperial' baseUnit='cubic-meter' factor='gal_imp_to_m3/16' systems="uksystem"/>
         <convertUnit source='cup-metric' baseUnit='cubic-meter' factor='0.00025'  systems="metric_adjacent"/>
         <convertUnit source='pint' baseUnit='cubic-meter' factor='gal_to_m3/8' systems="ussystem"/>
         <convertUnit source='pint-metric' baseUnit='cubic-meter' factor='0.0005' systems="metric_adjacent"/>
@@ -215,7 +217,7 @@ For terms of use, see http://www.unicode.org/copyright.html
         <convertUnit source='mile' baseUnit='meter' factor='ft_to_m*5280' systems="ussystem uksystem"/>
         <convertUnit source='nautical-mile' baseUnit='meter' factor='1852' systems="ussystem uksystem si_acceptable"/>
         <convertUnit source='mile-scandinavian' baseUnit='meter' factor='10000' systems="metric_adjacent"/>
-        <convertUnit source='100-kilometer' baseUnit='meter' factor='100000' systems="si metric"/>
+        <!--  <convertUnit source='100-kilometer' baseUnit='meter' factor='100000' systems="si metric"/> -->
         <convertUnit source='earth-radius' baseUnit='meter' factor='6.3781E6' systems="astronomical"/>
         <convertUnit source='solar-radius' baseUnit='meter' factor='695700000' systems="astronomical"/>
         <convertUnit source='astronomical-unit' baseUnit='meter' factor='meters_per_AU' systems="astronomical si_acceptable"/>

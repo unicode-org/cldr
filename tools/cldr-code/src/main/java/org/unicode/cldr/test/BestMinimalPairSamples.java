@@ -143,7 +143,7 @@ public class BestMinimalPairSamples {
             ImmutableSet.of(
                     "concentr-ofglucose",
                     "concentr-portion",
-                    "length-100-kilometer",
+                    // "length-100-kilometer",
                     "pressure-ofhg");
 
     public CaseAndGenderSamples loadCaches() {
@@ -360,7 +360,7 @@ public class BestMinimalPairSamples {
     }
 
     static final Set<String> WORSE =
-            ImmutableSet.of("length-100-kilometer", "length-mile-scandinavian");
+            ImmutableSet.of("length-mile-scandinavian"); // "length-100-kilometer",
     static final Set<String> BEST =
             ImmutableSet.of(
                     "duration-year",

@@ -202,14 +202,14 @@ The 1.0 version of CLDR is described here for historical interest only. It was h
 [latest-data]: https://unicode.org/Public/cldr/latest/
 [latest-charts]: https://www.unicode.org/cldr/charts/latest/index.html
 [latest-ldml]: https://www.unicode.org/reports/tr35/
-[latest-tickets]: https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2247%22%20ORDER%20BY%20created%20ASC
+[latest-tickets]: https://unicode-org.atlassian.net/issues/?filter=10838
 [latest-delta-dtd]: https://www.unicode.org/cldr/charts/latest/supplemental/dtd_deltas.html
 
 <!-- Dev release -->
 [dev-version]: /index/downloads/dev
 [dev-charts]: https://unicode.org/cldr/charts/dev
 [dev-ldml]: https://www.unicode.org/reports/tr35/proposed.html
-[dev-tickets]: https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2246%22%20ORDER%20BY%20created%20ASC
+[dev-tickets]: https://unicode-org.atlassian.net/issues/?filter=10837
 [main]: https://github.com/unicode-org/cldr.git
 [dev-delta-dtd]: https://www.unicode.org/cldr/charts/dev/supplemental/dtd_deltas.html
 
@@ -217,7 +217,7 @@ The 1.0 version of CLDR is described here for historical interest only. It was h
 [CLDR47]: https://unicode.org/Public/cldr/47/
 [Charts47]: https://unicode.org/cldr/charts/47
 [LDML47]: https://www.unicode.org/reports/tr35/47
-[Δ47]: https://unicode-org.atlassian.net/issues/?jql=project+%3D+CLDR+AND+status+%3D+Done+AND+resolution+%3D+Fixed+AND+fixVersion+%3D+%2247%22+ORDER+BY+priority+DESC
+[Δ47]: https://unicode-org.atlassian.net/issues/?filter=10836
 [release-47]: https://github.com/unicode-org/cldr/releases/tag/release-47
 [ΔDtd47]: https://www.unicode.org/cldr/charts/47/supplemental/dtd_deltas.html
 [47.0.0]: https://github.com/unicode-org/cldr-json/releases/tag/47.0.0
@@ -227,7 +227,7 @@ The 1.0 version of CLDR is described here for historical interest only. It was h
 [v46.1]: /index/downloads/cldr-46#461-changes
 [Charts46.1]: https://unicode.org/cldr/charts/46.1/
 [LDML46.1]: https://www.unicode.org/reports/tr35/tr35-74/tr35.html
-[Δ46.1]: https://unicode-org.atlassian.net/issues/?jql=project+%3D+CLDR+AND+status+%3D+Done+AND+resolution+%3D+Fixed+AND+fixVersion+%3D+%2246.1%22+ORDER+BY+priority+DESC
+[Δ46.1]: https://unicode-org.atlassian.net/issues/?filter=10835
 [release-46-1]: https://github.com/unicode-org/cldr/releases/tag/release-46-1
 [ΔDtd46.1]: https://www.unicode.org/cldr/charts/46.1/supplemental/dtd_deltas.html
 [46.1.0]: https://github.com/unicode-org/cldr-json/releases/tag/46.1.0
@@ -237,7 +237,7 @@ The 1.0 version of CLDR is described here for historical interest only. It was h
 [CLDR46]: https://unicode.org/Public/cldr/46/
 [Charts46]: https://unicode.org/cldr/charts/46/
 [LDML46]: https://www.unicode.org/reports/tr35/tr35-73/tr35.html
-[Δ46]: https://unicode-org.atlassian.net/issues/?jql=project+%3D+CLDR+AND+status+%3D+Done+AND+resolution+%3D+Fixed+AND+fixVersion+%3D+%2246%22+ORDER+BY+priority+DESC
+[Δ46]: https://unicode-org.atlassian.net/issues/?filter=10834
 [release-46]: https://github.com/unicode-org/cldr/releases/tag/release-46
 [ΔDtd46]: https://www.unicode.org/cldr/charts/46/supplemental/dtd_deltas.html
 [46.0.0]: https://github.com/unicode-org/cldr-json/releases/tag/46.0.0

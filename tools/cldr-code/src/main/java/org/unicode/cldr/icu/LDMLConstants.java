@@ -91,6 +91,7 @@ public class LDMLConstants {
     public static final String HOURS_FORMAT = "hoursFormat";
     public static final String GMT_FORMAT = "gmtFormat";
     public static final String GMT_ZERO_FORMAT = "gmtZeroFormat";
+    public static final String GMT_UNKNOWN_FORMAT = "gmtUnknownFormat";
     public static final String REGION_FORMAT = "regionFormat";
     public static final String FALLBACK_FORMAT = "fallbackFormat";
     public static final String ABBREVIATION_FALLBACK = "abbreviationFallback";

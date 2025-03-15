@@ -2,7 +2,9 @@ package org.unicode.cldr.util;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.ImmutableSetMultimap;
 import com.google.common.collect.Multimap;
+import com.google.common.collect.Multimaps;
 import com.google.common.collect.Sets;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.impl.Relation;
@@ -10,11 +12,13 @@ import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.UnicodeSet;
 import java.io.File;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
@@ -52,9 +56,14 @@ public class CoreCoverageInfo {
         plurals(Level.MODERATE, Sublevel.start),
         collation(Level.MODERATE),
 
-        grammar(Level.MODERN, Sublevel.start),
+        spelled_cardinals(Level.MODERN),
+        spelled_ordinals(Level.MODERN),
+        digit_ordinals(Level.MODERN),
+
         ordinals(Level.MODERN),
         romanization(Level.MODERN),
+
+        grammar(Level.MODERN, Sublevel.start),
         ;
 
         public static final Set<CoreItems> ALL = ImmutableSet.copyOf(CoreItems.values());
@@ -139,6 +148,18 @@ public class CoreCoverageInfo {
                     "//supplementalData/plurals[@type=\"ordinal\"]/pluralRules[@locales=\""
                             + locale
                             + "\"]/pluralRule[@count=\"other\"]");
+        }
+
+        Collection<String> rbnfTypes = RbnfData.INSTANCE.getLocaleToRbnfType(baseLanguage);
+
+        if (!rbnfTypes.contains("spellout-cardinal")) {
+            detailedErrors.put(CoreItems.spelled_cardinals, RbnfData.INSTANCE.CARDINAL_PATH);
+        }
+        if (!rbnfTypes.contains("spellout-ordinal")) {
+            detailedErrors.put(CoreItems.spelled_ordinals, RbnfData.INSTANCE.CARDINAL_PATH);
+        }
+        if (!rbnfTypes.contains("digit-ordinal")) {
+            detailedErrors.put(CoreItems.digit_ordinals, RbnfData.INSTANCE.CARDINAL_PATH);
         }
 
         //      (01) Default content script and region (normally: normally country with largest
@@ -344,5 +365,54 @@ public class CoreCoverageInfo {
 
     private static boolean hasFile(SpecialDir type, String filename) {
         return SPECIAL_FILES.get(type).contains(filename);
+    }
+
+    public enum RbnfData {
+        INSTANCE;
+
+        private Multimap<String, String> localeToRbnfTypes;
+        private Multimap<String, String> rbnfTypeToLocales;
+
+        {
+            Multimap<String, String> _localeToRbnfType = TreeMultimap.create();
+            Factory factory = CLDRConfig.getInstance().getRBNFFactory();
+            for (String locale : factory.getAvailable()) {
+                CLDRFile cldrFile = factory.make(locale, false);
+                for (String dpath : cldrFile) {
+                    String path = cldrFile.getFullXPath(dpath);
+                    XPathParts parts = XPathParts.getFrozenInstance(path);
+                    if (!"rbnf".equals(parts.getElement(1))
+                            || !"ruleset".equals(parts.getElement(3))
+                            || "private".equals(parts.getAttributeValue(3, "access"))) {
+                        continue;
+                    }
+                    String rbnfType = parts.getAttributeValue(3, "type");
+                    if (rbnfType.startsWith("spellout-cardinal-")
+                            || rbnfType.startsWith("spellout-ordinal-")
+                            || rbnfType.startsWith("digits-ordinal-")) {
+                        int index2 = rbnfType.indexOf('-', rbnfType.indexOf('-') + 1);
+                        rbnfType = rbnfType.substring(0, index2);
+                    }
+                    _localeToRbnfType.put(locale, rbnfType);
+                }
+            }
+            localeToRbnfTypes = ImmutableSetMultimap.copyOf(_localeToRbnfType);
+            rbnfTypeToLocales =
+                    ImmutableSetMultimap.copyOf(
+                            Multimaps.invertFrom(_localeToRbnfType, TreeMultimap.create()));
+
+            for (Entry<String, Collection<String>> entry : rbnfTypeToLocales.asMap().entrySet()) {
+                System.out.println(entry);
+            }
+        }
+
+        public Collection<String> getLocaleToRbnfType(String locale) {
+            return localeToRbnfTypes.get(locale);
+        }
+
+        public final String CARDINAL_PATH =
+                "//ldml/rbnf/rulesetGrouping[@type=\"SpelloutRules\"]/ruleset[@type=\"spellout-cardinal\"]";
+        public final String ORDINAL_PATH =
+                "//ldml/rbnf/rulesetGrouping[@type=\"SpelloutRules\"]/ruleset[@type=\"spellout-cardinal\"]";
     }
 }

@@ -1826,7 +1826,7 @@ When the data for a given format is not available, a fallback format is used. Th
      * falling back to the special ID "unk" (Unknown)
    * VV - long time zone ID (no fallback necessary, because this is the input)
    * VVV - exemplar city
-     * falling back to the localized exemplar city for the unknown zone (Etc/Unknown), for example "Unknown City" for English
+     * falling back to the localized exemplar city for the unknown zone (Etc/Unknown), for example "Unknown Location" for English
    * VVVV - generic location
      * falling back to long localized GMT
 
@@ -2304,7 +2304,7 @@ Notes for the table below:
     <tr><td>VV</td><td>America/Los_Angeles</td><td colspan="2">The long time zone ID.</td></tr>
     <tr><td>VVV</td><td>Los Angeles</td>
         <td colspan="2">The exemplar city (location) for the time zone.
-                        Where that is unavailable, the localized exemplar city name for the special zone <i>Etc/Unknown</i> is used as the fallback (for example, "Unknown City").</td></tr>
+                        Where that is unavailable, the localized exemplar city name for the special zone <i>Etc/Unknown</i> is used as the fallback (for example, "Unknown Location").</td></tr>
     <tr><td>VVVV</td><td>Los Angeles Time</td>
         <td colspan="2">The <i>generic location format</i>.
                         Where that is unavailable, falls back to the <i>long localized GMT format</i> ("OOOO"; Note: Fallback is only necessary with a GMT-style Time Zone ID, like Etc/GMT-830.)<br/>

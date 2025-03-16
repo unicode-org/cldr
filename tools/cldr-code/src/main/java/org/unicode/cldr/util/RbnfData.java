@@ -1,15 +1,14 @@
 package org.unicode.cldr.util;
 
-import java.util.Map;
-import java.util.TreeMap;
-
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
+import java.util.Map;
+import java.util.TreeMap;
 
 public enum RbnfData {
     INSTANCE;
 
-    private final Map<String, Multimap<String, String>> localeToRbnfTypes;
+    private final Map<String, Multimap<String, String>> localeToTypesToSubtypes;
     private final Multimap<String, String> rbnfTypeToLocales;
 
     {
@@ -50,7 +49,7 @@ public enum RbnfData {
                 _rbnfTypeToLocales.put(rbnfType, locale);
             }
         }
-        this.localeToRbnfTypes = CldrUtility.protectCollection(_localeToRbnfType);
+        this.localeToTypesToSubtypes = CldrUtility.protectCollection(_localeToRbnfType);
         this.rbnfTypeToLocales = CldrUtility.protectCollection(_rbnfTypeToLocales);
     }
 
@@ -58,8 +57,8 @@ public enum RbnfData {
         return rbnfTypeToLocales;
     }
 
-    public Map<String, Multimap<String, String>> getLocaleToRbnfTypes() {
-        return localeToRbnfTypes;
+    public Map<String, Multimap<String, String>> getLocaleToTypesToSubtypes() {
+        return localeToTypesToSubtypes;
     }
 
     public String getPath(String rbnfType) {

@@ -1,14 +1,14 @@
 package org.unicode.cldr.unittest;
 
-import java.util.ArrayList;
-import java.util.Collection;
+import com.google.common.collect.ImmutableMultimap;
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.LinkedHashMultimap;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.Sets;
+import com.google.common.collect.TreeMultimap;
 import java.util.Collections;
 import java.util.EnumSet;
-import java.util.List;
-import java.util.Map.Entry;
 import java.util.Set;
-import java.util.TreeSet;
-
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -18,18 +18,8 @@ import org.unicode.cldr.util.CoreCoverageInfo.CoreItems;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathHeader;
-import org.unicode.cldr.util.RbnfData;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
-
-import com.google.common.base.Joiner;
-import com.google.common.base.Splitter;
-import com.google.common.collect.ImmutableMultimap;
-import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.LinkedHashMultimap;
-import com.google.common.collect.Multimap;
-import com.google.common.collect.Sets;
-import com.google.common.collect.TreeMultimap;
 
 public class TestCoverage extends TestFmwkPlus {
     private static final boolean DEBUG = false;
@@ -51,14 +41,14 @@ public class TestCoverage extends TestFmwkPlus {
         Multimap<CoreItems, String> errors = LinkedHashMultimap.create();
         Set<CoreItems> coreCoverage = CoreCoverageInfo.getCoreCoverageInfo(engCldrFile, errors);
         if (!assertEquals("English should be complete", all, coreCoverage)) {
-            showDiff("Missing", all, coreCoverage);
+            showDiff("English Missing", all, coreCoverage);
         }
-        CLDRFile skimpyLocale = testInfo.getCldrFactory().make("asa", false);
+        CLDRFile skimpyLocale = testInfo.getCldrFactory().make("asa", true);
         errors.clear();
         coreCoverage = CoreCoverageInfo.getCoreCoverageInfo(skimpyLocale, errors);
         if (!assertEquals("Skimpy locale should not be complete", none, coreCoverage)) {
-            showDiff("Missing", all, coreCoverage);
-            showDiff("Extra", coreCoverage, none);
+            showDiff("Skimpy Missing", all, coreCoverage);
+            showDiff("Skimpy Extra", coreCoverage, none);
         }
     }
 
@@ -218,54 +208,6 @@ public class TestCoverage extends TestFmwkPlus {
             CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(sdi, locale);
             Level actual = coverageLevel.getLevel(path);
             assertEquals(String.format("locale:%s, path:%s", locale, path), expected, actual);
-        }
-    }
-
-    public void testRbnf() {
-        Joiner joinTab = Joiner.on('\t');
-        Joiner joinCommaSpace = Joiner.on(", ");
-        Splitter splitDash = Splitter.on('-');
-        System.out.println("\nLocale to type to subtype");
-        Set<String> keys = RbnfData.INSTANCE.getRbnfTypeToLocales().keySet();
-        System.out.println("locale\t" + joinTab.join(keys));
-
-        Multimap<String, String> typeToSubtype = TreeMultimap.create();
-
-        for (Entry<String, Multimap<String, String>> entry :
-                RbnfData.INSTANCE.getLocaleToRbnfTypes().entrySet()) {
-            String locale = entry.getKey();
-            List<String> row = new ArrayList<>();
-            row.add(locale);
-            for (String key : keys) {
-                Collection<String> values = entry.getValue().get(key);
-                row.add(values == null ? "" : joinCommaSpace.join(values));
-                typeToSubtype.putAll(key, values);
-            }
-            System.out.println(joinTab.join(row));
-        }
-        System.out.println("\nType to subtype");
-        Set<String> allPieces = new TreeSet<>();
-        Set<String> allSubtypes = new TreeSet<>();
-
-        for (Entry<String, Collection<String>> entry :
-            typeToSubtype.asMap().entrySet()) {
-            Collection<String> values = entry.getValue();
-            allSubtypes.addAll(values);
-            Set<String> pieces = new TreeSet<>();
-            values.stream().forEach(x -> pieces.addAll(splitDash.splitToList(x)));
-            System.out.println(joinTab.join(entry.getKey(), joinCommaSpace.join(values), joinCommaSpace.join(pieces)));
-            allPieces.addAll(pieces);
-        }
-        System.out.println("\nAll subtypes");
-        System.out.println(joinCommaSpace.join(allSubtypes));
-
-        System.out.println("\nAll pieces");
-        System.out.println(joinCommaSpace.join(allPieces));
-
-        System.out.println("\nSubtype to locale");
-        for (Entry<String, Collection<String>> entry :
-                RbnfData.INSTANCE.getRbnfTypeToLocales().asMap().entrySet()) {
-            System.out.println(entry.getKey() + "\t" + joinCommaSpace.join(entry.getValue()));
         }
     }
 }

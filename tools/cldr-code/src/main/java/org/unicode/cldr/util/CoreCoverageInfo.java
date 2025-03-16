@@ -52,9 +52,9 @@ public class CoreCoverageInfo {
         plurals(Level.MODERATE, Sublevel.start),
         collation(Level.MODERATE),
 
-        spelled_cardinals(Level.MODERN),
-        spelled_ordinals(Level.MODERN),
-        digit_ordinals(Level.MODERN),
+        spellout_cardinal(Level.MODERN),
+        spellout_ordinal(Level.MODERN),
+        digits_ordinals(Level.MODERN),
 
         ordinals(Level.MODERN),
         romanization(Level.MODERN),
@@ -107,7 +107,8 @@ public class CoreCoverageInfo {
             CLDRFile resolvedFile, Multimap<CoreItems, String> detailedErrors) {
         detailedErrors.clear();
         if (!resolvedFile.isResolved()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(
+                    "Don't call on unresolved locales: " + resolvedFile.getLocaleID());
         }
         CLDRFile file = resolvedFile.getUnresolved();
         String locale = file.getLocaleID();
@@ -146,9 +147,9 @@ public class CoreCoverageInfo {
                             + "\"]/pluralRule[@count=\"other\"]");
         }
 
-        rbnfHelper(baseLanguage, "spellout-cardinal", detailedErrors, CoreItems.spelled_cardinals);
-        rbnfHelper(baseLanguage, "spellout-ordinal", detailedErrors, CoreItems.spelled_ordinals);
-        rbnfHelper(baseLanguage, "digit-ordinal", detailedErrors, CoreItems.digit_ordinals);
+        rbnfHelper(baseLanguage, "spellout-cardinal", detailedErrors, CoreItems.spellout_cardinal);
+        rbnfHelper(baseLanguage, "spellout-ordinal", detailedErrors, CoreItems.spellout_ordinal);
+        rbnfHelper(baseLanguage, "digits-ordinal", detailedErrors, CoreItems.digits_ordinals);
 
         //      (01) Default content script and region (normally: normally country with largest
         // population using that language, and normal script for that).
@@ -303,7 +304,8 @@ public class CoreCoverageInfo {
             String rbnfType,
             Multimap<CoreItems, String> detailedErrors,
             CoreItems coreItems) {
-        Multimap<String, String> typeInfo = RbnfData.INSTANCE.getLocaleToRbnfTypes().get(locale);
+        Multimap<String, String> typeInfo =
+                RbnfData.INSTANCE.getLocaleToTypesToSubtypes().get(locale);
         if (typeInfo == null || !typeInfo.containsKey(rbnfType)) {
             detailedErrors.put(coreItems, RbnfData.INSTANCE.getPath(rbnfType));
         }

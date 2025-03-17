@@ -300,15 +300,23 @@ public class CoreCoverageInfo {
     }
 
     private static void rbnfHelper(
-            String locale,
+            String stringLocale,
             String rbnfType,
             Multimap<CoreItems, String> detailedErrors,
             CoreItems coreItems) {
-        Multimap<String, String> typeInfo =
-                RbnfData.INSTANCE.getLocaleToTypesToSubtypes().get(locale);
-        if (typeInfo == null || !typeInfo.containsKey(rbnfType)) {
-            detailedErrors.put(coreItems, RbnfData.INSTANCE.getPath(rbnfType));
+        CLDRLocale cldrLocale = CLDRLocale.getInstance(stringLocale);
+        while (cldrLocale != null // if either null or root, we fail
+                && !cldrLocale.equals(CLDRLocale.ROOT)) {
+            Multimap<String, String> typeInfo =
+                    RbnfData.INSTANCE.getLocaleToTypesToSubtypes().get(cldrLocale.toString());
+            if (typeInfo != null // if we succeed, just return
+                    && typeInfo.containsKey(rbnfType)) {
+                return;
+            }
+            // otherwise try the parent
+            cldrLocale = cldrLocale.getParent();
         }
+        detailedErrors.put(coreItems, RbnfData.INSTANCE.getPath(rbnfType));
     }
 
     private static final String[][] ROMANIZATION_PATHS = {

@@ -397,11 +397,14 @@ public class CheckForExemplars extends FactoryCheckCLDR {
                             result);
                 }
             }
-        } else if (path.contains("/gmtFormat") || path.contains("/gmtZeroFormat")) {
+        } else if (path.contains("/gmtFormat")
+                || path.contains("/gmtZeroFormat")
+                || path.contains("/gmtUnknownFormat")) {
             if (null
                     != (disallowed =
                             containsAllCountingParens(exemplars, exemplarsPlusAscii, value))) {
-                disallowed.removeAll(LETTER); // Allow ASCII A-Z in gmtFormat and gmtZeroFormat
+                disallowed.removeAll(
+                        LETTER); // Allow ASCII A-Z in gmtFormat, gmtZeroFormat, gmtUnknownFormat
                 if (disallowed.size() > 0) {
                     addMissingMessage(
                             disallowed,

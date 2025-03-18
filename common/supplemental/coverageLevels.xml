@@ -164,16 +164,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageVariable key="%timeZones" value="(Africa|America|Antarctica|Arctic|Asia|Australia|Atlantic|Europe|Indian|Pacific)(/[A-Za-z_\-]++){1,2}"/>
 		<coverageVariable key="%traditionalCollationLanguages" value="(bn|es|kn|sa)"/>
 		<coverageVariable key="%transformNameTypes" value="(BGN|Numeric|Tone|UNGEGN|x-(Accents|Fullwidth|Halfwidth|Jamo|Pinyin|Publishing))"/>
+		
 		<coverageVariable key="%unitDurationTypes" value="duration-(year|month|week|day|hour|minute|second|millisecond)"/>
 		<coverageVariable key="%unitLengths" value="(long|short|narrow)"/>
-		<coverageVariable key="%unitNonNarrowLengths" value="(long|short)"/>
-		<coverageVariable key="%unitsCommonMetric" value="(concentr-percent|consumption-liter-per-100-kilometer|length-(centi|milli|kilo)?meter|mass-(kilo)?gram|temperature-celsius|speed-kilometer-per-hour|volume-liter)"/>
-		<coverageVariable key="%unitsCommonUS" value="(length-(inch|foot|yard|mile)|mass-(ounce|pound)|temperature-fahrenheit|speed-mile-per-hour)"/>
 		<coverageVariable key="%unitsEnglish" value="(length-fathom|length-furlong|mass-stone|volume-bushel|energy-british-thermal-unit)"/>
-		<coverageVariable key="%unitsNonEnglish" value="[a-z]++-(?!(furlong|fathom|stone|bushel|mile-nautical))([a-z]++([-a-z]++)?)"/>
-		<coverageVariable key="%unitsNonLightSpeed" value="[a-z]++-(?!(light-speed))"/>
 		<coverageVariable key="%unitsOther" value="(length-(picometer|light-year)|pressure-(hectopascal|inch-ofhg|millibar)|acceleration-g-force|angle-(degree|minute|second)|area-(acre|hectare|square-(foot|kilometer|meter|mile))|power-(horsepower|kilowatt|watt)|speed-meter-per-second|volume-cubic-(mile|kilometer))"/>
 		<coverageVariable key="%unitBeaufortRegions" value="(CN|DE|GB|GR|HK|MO|MT|NL|TW|US)"/>
+
 		<coverageVariable key="%variantTypes" value="([A-Z0-9]++)"/>
 		<coverageVariable key="%wideAbbr" value="(wide|abbreviated)"/>
 		<coverageVariable key="%yesNo" value="(yes|no)"/>
@@ -229,34 +226,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 
 		<coverageLevel value="moderate" match="characters/exemplarCharacters[@type='%anyAlphaNum']"/>
 
-
 		<!-- *********************
-		Temporary overrides for https://unicode-org.atlassian.net/browse/CLDR-18258
-
-		These overrides help us ignore values that were added not during a submission cycle. If interpreted normally, it
-		would cause many supported locales to drop in coverage. During the next regular submission cycle, please remove these rules
-		and encourage linguists to fix these values.
+		Temporary overrides to avoid values that were added in a non-submission cycle
+		This avoids a temporary drop in coverage. 
+		Make this empty for submission cycles.
 		********************* -->
 		
-		<coverageLevel	value="modern" inLanguage="de"	match="units/unitLength[@type='%unitLengths']/unit[@type='speed-light-speed']/unitPattern[@count='%anyAttribute']/[@case='%anyAttribute']"/>
-		<coverageLevel	value="modern"	match="units/unitLength[@type='%unitLengths']/unit[@type='speed-light-speed']/unitPattern[@count='%anyAttribute']"/>
-		<coverageLevel	value="modern"	match="units/unitLength[@type='%unitLengths']/unit[@type='speed-light-speed']/displayName"/>
-
-		<coverageLevel inTerritory="%unitBeaufortRegions" value="modern" match="units/unitLength[@type='%unitLengths']/unit[@type='speed-beaufort']/unitPattern[@count='%anyAttribute'][@case='%anyAttribute']"/>
-		<coverageLevel inTerritory="%unitBeaufortRegions" value="modern" match="units/unitLength[@type='%unitLengths']/unit[@type='speed-beaufort']/unitPattern[@count='%anyAttribute']"/>
-
-    <!-- TestCoverageCompleteness {
-      Error: (TestCoverageLevel.java:729) Comprehensive & no exception for path =>      //ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
-      Error: (TestCoverageLevel.java:729) Comprehensive & no exception for path =>      //ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName
-      Error: (TestCoverageLevel.java:729) Comprehensive & no exception for path =>      //ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
-      Error: (TestCoverageLevel.java:729) Comprehensive & no exception for path =>      //ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
-      Error: (TestCoverageLevel.java:729) Comprehensive & no exception for path =>      //ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName
-      Error: (TestCoverageLevel.java:729) Comprehensive & no exception for path =>      //ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
-	   Error: (TestCoverageLevel.java:849) de (0) Broken Logical Grouping: comprehensive => [//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"], //ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]]
-      Error: (TestCoverageLevel.java:849) pl (0) Broken Logical Grouping: modern => [//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"][@case="accusative"], //ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"][@case="genitive"], //ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"][@case="accusative"], //ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"][@case="genitive"], //ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="accusative"], //ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="genitive"], //ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="accusative"], //ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="genitive"]]
-      Error: (TestCoverageLevel.java:849) pl (0) Broken Logical Grouping: comprehensive => [//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"], //ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"], //ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"], //ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]]
-    } (1.309s) FAILED (4 failure(s)) -->
-    
+		<!--  currently empty -->
+		
 		<!-- *********************
 		Modified Basic rules (v41)
 		These contain a mixture of basic and moderate.
@@ -968,16 +945,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel inTerritory="AE" value="moderate" match="dates/timeZoneNames/metazone[@type='%metazone60_AE_stdonly']/long/standard"/>
 		<coverageLevel inTerritory="AE" value="moderate" match="dates/timeZoneNames/metazone[@type='%metazone60_AE_stdonly']/short/standard"/>
 
-		<!--
-		Move to modern to avoid crossing logical groups
-		<coverageLevel value="moderate" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitDurationTypes']/unitPattern[@count='%anyAttribute']"/>
-		<coverageLevel value="moderate" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitDurationTypes']/displayName"/>
-		<coverageLevel value="moderate" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsCommonMetric']/unitPattern[@count='%anyAttribute']"/>
-		<coverageLevel value="moderate" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsCommonMetric']/displayName"/>
-		<coverageLevel inTerritory="US" value="moderate" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsCommonUS']/unitPattern[@count='%anyAttribute']"/>
-		<coverageLevel inTerritory="US" value="moderate" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsCommonUS']/displayName"/>
-		  -->
-
 		<coverageLevel value="moderate" match="listPatterns/listPattern[@type='%anyAlphaNum']/listPatternPart[@type='%anyAlphaNum']"/>
 		<coverageLevel value="moderate" match="numbers/minimalPairs/pluralMinimalPairs[@count='%anyAlphaNum']"/>
 		<coverageLevel value="moderate" match="numbers/minimalPairs/ordinalMinimalPairs[@ordinal='%anyAlphaNum']"/>
@@ -1017,17 +984,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="moderate" match="numbers/symbols[@numberSystem='latn']/perMille"/>
 		<coverageLevel value="moderate" match="numbers/symbols[@numberSystem='latn']/infinity"/>
 		<coverageLevel value="moderate" match="numbers/symbols[@numberSystem='latn']/nan"/>
-		<!--
-		Move to modern to avoid crossing logical groups
 
-		<coverageLevel value="modern" match="units/unitLength[@type='%unitLengths']/compoundUnit[@type='%anyAttribute']/compoundUnitPattern1[@count='%anyAttribute']"/>
-		<coverageLevel value="moderate" match="units/unitLength[@type='%unitLengths']/compoundUnit[@type='%anyAttribute']/compoundUnitPattern1"/>
-		<coverageLevel value="moderate" match="units/unitLength[@type='%unitLengths']/compoundUnit[@type='%anyAttribute']/unitPrefixPattern"/>
-
-		<coverageLevel value="moderate" match="units/unitLength[@type='%unitNonNarrowLengths']/unit[@type='%unitsNonEnglish']/unitPattern[@count='%anyAttribute']"/>
-		<coverageLevel value="moderate" match="units/unitLength[@type='%unitNonNarrowLengths']/unit[@type='%unitsNonEnglish']/displayName"/>
-		<coverageLevel value="moderate" match="units/unitLength[@type='%unitNonNarrowLengths']/unit[@type='%unitsNonEnglish']/perUnitPattern"/>
-		-->
 		<coverageLevel value="moderate" match="units/unitLength[@type='%unitLengths']/compoundUnit[@type='%anyAttribute']/compoundUnitPattern"/>
 		<coverageLevel value="moderate" match="units/unitLength[@type='%unitLengths']/coordinateUnit/coordinateUnitPattern[@type='%anyAlphaNum']"/>
 		<coverageLevel value="moderate" match="units/unitLength[@type='%unitLengths']/coordinateUnit/displayName"/>

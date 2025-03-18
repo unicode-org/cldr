@@ -125,9 +125,12 @@ import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
 public class TestUnits extends TestFmwkPlus {
-    private static final Joiner JOIN_TAB = Joiner.on('\t').useForNull("∅");
+    static final Joiner JOIN_TAB = Joiner.on('\t').useForNull("∅");
+    static final Joiner JOIN_SPACE = Joiner.on(' ').useForNull("∅");
+
     private static final StandardCodes STANDARD_CODES = StandardCodes.make();
     private static final boolean DEBUG = System.getProperty("TestUnits:DEBUG") != null;
+    private static final boolean SHOW_UNITS = System.getProperty("TestUnits:SHOW_UNITS") != null;
     private static final boolean TEST_ICU = System.getProperty("TestUnits:TEST_ICU") != null;
 
     private static final Joiner JOIN_COMMA = Joiner.on(", ");
@@ -153,6 +156,7 @@ public class TestUnits extends TestFmwkPlus {
     private static final Set<String> DEPRECATED_REGULAR_UNITS =
             Validity.getInstance().getStatusToCodes(LstrType.unit).get(Validity.Status.deprecated);
     public static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
+    private static final Factory CLDR_FACTORY = CLDR_CONFIG.getCldrFactory();
     private static final Integer INTEGER_ONE = 1;
 
     public static boolean getFlag(String flag) {
@@ -338,8 +342,6 @@ public class TestUnits extends TestFmwkPlus {
     }
 
     public void TestCompoundUnit3() {
-        Factory factory = CLDR_CONFIG.getCldrFactory();
-
         Map<String, String> prefixToType = new LinkedHashMap<>();
         for (String[] prefixRow : PREFIX_NAME_TYPE) {
             prefixToType.put(prefixRow[0], prefixRow[1]);
@@ -349,7 +351,7 @@ public class TestUnits extends TestFmwkPlus {
         Set<String> localesToTest = ImmutableSet.of("en"); // factory.getAvailableLanguages();
         int testCount = 0;
         for (String locale : localesToTest) {
-            CLDRFile file = factory.make(locale, true);
+            CLDRFile file = CLDR_FACTORY.make(locale, true);
             // ExampleGenerator exampleGenerator = getExampleGenerator(locale);
             PluralInfo pluralInfo = SDI.getPlurals(PluralType.cardinal, locale);
             final boolean isEnglish = locale.contentEquals("en");
@@ -1582,8 +1584,6 @@ public class TestUnits extends TestFmwkPlus {
         }
     }
 
-    static final Joiner JOIN_SPACE = Joiner.on(' ');
-
     private void checkUnitPreferences(UnitPreferences uprefs) {
         Set<String> usages = new LinkedHashSet<>();
         for (Entry<String, Map<String, Multimap<Set<String>, UnitPreference>>> entry1 :
@@ -2385,7 +2385,7 @@ public class TestUnits extends TestFmwkPlus {
                         .filter(x -> converter.isSimple(x))
                         .map((String x) -> Units.LONG_TO_SHORT.inverse().get(x))
                         .collect(Collectors.toSet());
-        CLDRFile root = CLDR_CONFIG.getCldrFactory().make("root", true);
+        CLDRFile root = CLDR_FACTORY.make("root", true);
         ImmutableSet<String> unitLongIdsRoot = ImmutableSet.copyOf(getUnits(root, new TreeSet<>()));
         ImmutableSet<String> unitLongIdsEnglish =
                 ImmutableSet.copyOf(getUnits(CLDR_CONFIG.getEnglish(), new TreeSet<>()));
@@ -2850,7 +2850,7 @@ public class TestUnits extends TestFmwkPlus {
         CheckUnits checkUnits = new CheckUnits();
         PathHeader.Factory phf = PathHeader.getFactory();
         for (String locale : Arrays.asList("en", "fr", "de", "pl", "el")) {
-            CLDRFile cldrFile = CLDR_CONFIG.getCldrFactory().make(locale, true);
+            CLDRFile cldrFile = CLDR_FACTORY.make(locale, true);
 
             Options options = new Options();
             List<CheckStatus> possibleErrors = new ArrayList<>();
@@ -2881,7 +2881,7 @@ public class TestUnits extends TestFmwkPlus {
             return;
         }
         for (String locale : Arrays.asList("pl", "ru")) {
-            CLDRFile cldrFile = CLDR_CONFIG.getCldrFactory().make(locale, true);
+            CLDRFile cldrFile = CLDR_FACTORY.make(locale, true);
             GrammarInfo gi = SDI.getGrammarInfo(locale);
             Collection<String> rawCases =
                     gi.get(
@@ -4575,25 +4575,90 @@ public class TestUnits extends TestFmwkPlus {
     }
 
     public void testCoverage() {
-        String longUnit = "//ldml/units/unitLength[@type=\"long\"]/unit";
+        Map<String, String> aliasedShortUnits = getAliasedLongShortIds();
+
+        if (SHOW_UNITS) {
+            System.out.println("Aliased units: ");
+            System.out.println(aliasedShortUnits);
+            showSystems(VALID_REGULAR_UNITS);
+        }
+        Set<String> validShortNoAliases =
+                Sets.difference(VALID_SHORT_UNITS, aliasedShortUnits.keySet());
+
+        String longUnit = "//ldml/units/unitLength[@type=\"short\"]/unit";
         Multimap<Level, String> enCoverage = getCoverage("en", longUnit);
-        Collection<String> enModern = enCoverage.get(Level.MODERN);
-        warnln("enModern " + enModern);
-        assertSameCollections("VALID_REGULAR_UNITS", "en Modern", VALID_SHORT_UNITS, enModern);
-        warnln("deModern " + enModern);
+        Set<String> enModern = (Set<String>) enCoverage.get(Level.MODERN);
+        assertSameCollections(
+                "VALID_REGULAR_UNITS",
+                "en Modern",
+                validShortNoAliases,
+                Sets.difference(enModern, aliasedShortUnits.keySet()));
         Multimap<Level, String> deCoverage = getCoverage("de", longUnit);
+        Set<String> deModern = (Set<String>) deCoverage.get(Level.MODERN);
         assertSameCollections(
                 "VALID_REGULAR_UNITS",
                 "de Modern",
-                VALID_SHORT_UNITS,
-                deCoverage.get(Level.MODERN));
+                validShortNoAliases,
+                Sets.difference(deModern, aliasedShortUnits.keySet()));
+
+        if (SHOW_UNITS) {
+            System.out.println("enModern " + enModern);
+            System.out.println("deModern " + enModern);
+        }
+    }
+
+    private Map<String, String> getAliasedLongShortIds() {
+        Map<String, String> result = new TreeMap<>();
+        String shortUnitAlias = "//ldml/units/unitLength[@type=\"short\"]/unit";
+        CLDRFile root = CLDR_FACTORY.make("root", false);
+
+        for (String path : root.fullIterable()) {
+            if (path.startsWith(shortUnitAlias) && path.contains("/alias")) {
+                XPathParts parts = XPathParts.getFrozenInstance(root.getFullXPath(path));
+                String type = parts.getAttributeValue(3, "type");
+                String target = parts.getAttributeValue(4, "path");
+                target =
+                        target.substring(
+                                "../unit[@type='".length(), target.length() - "']".length());
+                result.put(converter.getShortId(type), converter.getShortId(target));
+            }
+        }
+        return ImmutableMap.copyOf(result);
+    }
+
+    private void showSystems(Set<String> longUnits) {
+        String name = "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"{0}\"]/displayName";
+        String gender = "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"{0}\"]/gender";
+        String accusativeOne =
+                "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"{0}\"]/unitPattern[@count=\"one\"][@case=\"accusative\"]";
+        System.out.println();
+        CLDRFile deUnresolved = CLDR_FACTORY.make("de", false);
+        for (String longUnit : longUnits) {
+            String shortId = converter.getShortId(longUnit);
+            Set<UnitSystem> systems = converter.getSystemsEnum(shortId);
+            String quantity = converter.getQuantityFromUnit(shortId, DEBUG);
+            String baseUnit = quantity == null ? null : converter.getBaseUnitFromQuantity(quantity);
+            boolean inGerman = deUnresolved.getStringValue(name.replace("{0}", longUnit)) != null;
+            boolean inGermanGender =
+                    deUnresolved.getStringValue(gender.replace("{0}", longUnit)) != null;
+            boolean inGermanGrammar =
+                    deUnresolved.getStringValue(accusativeOne.replace("{0}", longUnit)) != null;
+            System.out.println(
+                    JOIN_TAB.join(
+                            longUnit,
+                            shortId,
+                            quantity,
+                            JOIN_SPACE.join(systems),
+                            inGerman,
+                            inGermanGender,
+                            inGermanGrammar));
+        }
     }
 
     private Multimap<Level, String> getCoverage(String locale, String xpathPrefix) {
         // ldml/units/unitLength[@type="long"]/unit[@type="acceleration-g-force"]/...
         TreeMultimap<Level, String> result = TreeMultimap.create();
-        CLDRFile cldrFile = CLDR_CONFIG.getCldrFactory().make(locale, true);
-        System.out.println(cldrFile.getLocaleID());
+        CLDRFile cldrFile = CLDR_FACTORY.make(locale, true);
         for (String xpath : cldrFile.fullIterable()) {
             if (xpath.startsWith(xpathPrefix)) {
                 XPathParts parts = XPathParts.getFrozenInstance(xpath);

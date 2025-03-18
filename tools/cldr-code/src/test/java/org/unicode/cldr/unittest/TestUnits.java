@@ -1,41 +1,5 @@
 package org.unicode.cldr.unittest;
 
-import com.google.common.base.Joiner;
-import com.google.common.base.Splitter;
-import com.google.common.collect.BiMap;
-import com.google.common.collect.Comparators;
-import com.google.common.collect.ComparisonChain;
-import com.google.common.collect.HashMultimap;
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.ImmutableMultimap;
-import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.ImmutableSortedSet;
-import com.google.common.collect.LinkedHashMultimap;
-import com.google.common.collect.Multimap;
-import com.google.common.collect.Multimaps;
-import com.google.common.collect.Ordering;
-import com.google.common.collect.Sets;
-import com.google.common.collect.Sets.SetView;
-import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.impl.Row;
-import com.ibm.icu.impl.Row.R2;
-import com.ibm.icu.impl.Row.R3;
-import com.ibm.icu.number.FormattedNumber;
-import com.ibm.icu.number.LocalizedNumberFormatter;
-import com.ibm.icu.number.Notation;
-import com.ibm.icu.number.NumberFormatter;
-import com.ibm.icu.number.NumberFormatter.UnitWidth;
-import com.ibm.icu.number.Precision;
-import com.ibm.icu.number.UnlocalizedNumberFormatter;
-import com.ibm.icu.text.MessageFormat;
-import com.ibm.icu.text.PluralRules;
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.util.ICUUncheckedIOException;
-import com.ibm.icu.util.Measure;
-import com.ibm.icu.util.MeasureUnit;
-import com.ibm.icu.util.Output;
-import com.ibm.icu.util.ULocale;
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
@@ -67,8 +31,8 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
+
 import org.unicode.cldr.draft.FileUtilities;
-import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.Options;
 import org.unicode.cldr.test.CheckUnits;
@@ -125,7 +89,44 @@ import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
-public class TestUnits extends TestFmwk {
+import com.google.common.base.Joiner;
+import com.google.common.base.Splitter;
+import com.google.common.collect.BiMap;
+import com.google.common.collect.Comparators;
+import com.google.common.collect.ComparisonChain;
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableMultimap;
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.ImmutableSortedSet;
+import com.google.common.collect.LinkedHashMultimap;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.Multimaps;
+import com.google.common.collect.Ordering;
+import com.google.common.collect.Sets;
+import com.google.common.collect.Sets.SetView;
+import com.google.common.collect.TreeMultimap;
+import com.ibm.icu.impl.Row;
+import com.ibm.icu.impl.Row.R2;
+import com.ibm.icu.impl.Row.R3;
+import com.ibm.icu.number.FormattedNumber;
+import com.ibm.icu.number.LocalizedNumberFormatter;
+import com.ibm.icu.number.Notation;
+import com.ibm.icu.number.NumberFormatter;
+import com.ibm.icu.number.NumberFormatter.UnitWidth;
+import com.ibm.icu.number.Precision;
+import com.ibm.icu.number.UnlocalizedNumberFormatter;
+import com.ibm.icu.text.MessageFormat;
+import com.ibm.icu.text.PluralRules;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.ICUUncheckedIOException;
+import com.ibm.icu.util.Measure;
+import com.ibm.icu.util.MeasureUnit;
+import com.ibm.icu.util.Output;
+import com.ibm.icu.util.ULocale;
+
+public class TestUnits extends TestFmwkPlus {
     private static final Joiner JOIN_TAB = Joiner.on('\t').useForNull("∅");
     private static final StandardCodes STANDARD_CODES = StandardCodes.make();
     private static final boolean DEBUG = System.getProperty("TestUnits:DEBUG") != null;
@@ -4573,5 +4574,33 @@ public class TestUnits extends TestFmwk {
 
     public String clean(String unitPattern) {
         return unitPattern.replace("{0}", "").replace("{1}", "").trim();
+    }
+
+    public void testCoverage() {
+        String longUnit = "//ldml/units/unitLength[@type=\"long\"]/unit";
+        Multimap<Level, String> enCoverage = getCoverage("en", longUnit);
+        Collection<String> enModern = enCoverage.get(Level.MODERN);
+        warnln("enModern " + enModern);
+        assertSameCollections("VALID_REGULAR_UNITS", "en Modern", VALID_SHORT_UNITS, enModern);
+        warnln("deModern " + enModern);
+        Multimap<Level, String> deCoverage = getCoverage("de", longUnit);
+        assertSameCollections("VALID_REGULAR_UNITS", "de Modern", VALID_SHORT_UNITS, deCoverage.get(Level.MODERN));
+    }
+
+    private Multimap<Level, String> getCoverage(String locale, String xpathPrefix) {
+      //ldml/units/unitLength[@type="long"]/unit[@type="acceleration-g-force"]/...
+        TreeMultimap<Level, String> result = TreeMultimap.create();
+        CLDRFile cldrFile = CLDR_CONFIG.getCldrFactory().make(locale, true);
+        System.out.println(cldrFile.getLocaleID());
+        for (String xpath : cldrFile.fullIterable()) {
+            if (xpath.startsWith(xpathPrefix)) {
+                XPathParts parts = XPathParts.getFrozenInstance(xpath);
+                Level level = SDI.getCoverageLevel(xpath, locale);
+                String type = parts.getAttributeValue(3, "type");
+                String shortUnit = converter.getShortId(type);
+                result.put(level, shortUnit);
+            }
+        }
+        return result;
     }
 }

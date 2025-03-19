@@ -1720,18 +1720,9 @@ Use padauk or MM3 if available, otherwise Mon3.
   font-family:padauk,Myanmar3,'MON3 Anonta 1';
 }
 
-@font-face {
-	font-family:'NotoSerifNyiakengPuachueHmong-Bold';
-	src:local('NotoSerifNyiakengPuachueHmong-Bold'),url('fonts/NotoSerifNyiakengPuachueHmong-Bold.otf');
-}
-
-@font-face {
-	font-family:'NotoSerifNyiakengPuachueHmong-Regular';
-	src:local('NotoSerifNyiakengPuachueHmong-Regular'),url('fonts/NotoSerifNyiakengPuachueHmong-Regular.ttf');
-}
 
 :lang(hnj) {
-	font-family: "NotoSerifNyiakengPuachueHmong-Regular"
+	font-family: "NotoSerifNyiakengPuachueHmong-Regular", "Noto Serif NP Hmong"
 }
 
 .voteInfo_perValue {

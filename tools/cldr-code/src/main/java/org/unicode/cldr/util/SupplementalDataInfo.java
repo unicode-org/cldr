@@ -5349,42 +5349,12 @@ public class SupplementalDataInfo {
                         @Override
                         public Set<String> get() {
                             Set<String> availableLongTz = sc.getAvailableCodes(CodeType.tzid);
-                            Set<String> result = null;
-                            if (true) { // hack for now
-                                final Set<String> hack =
-                                        Set.of(
-                                                "America/Santa_Isabel",
-                                                "Australia/Currie",
-                                                "America/Yellowknife",
-                                                "America/Rainy_River",
-                                                "America/Thunder_Bay",
-                                                "America/Nipigon",
-                                                "America/Pangnirtung",
-                                                "Europe/Uzhgorod",
-                                                "Europe/Zaporozhye",
-                                                "Pacific/Johnston");
-                                result = Set.copyOf(Sets.difference(availableLongTz, hack));
-                            } else { // TODO restore when CLDR-17412 is fixed
-                                Map<String, String> aliasToRegular =
-                                        bcp47KeyToAliasToSubtype.get("tz");
-                                Map<String, Bcp47KeyInfo> subtypeToInfo =
-                                        bcp47KeyToSubtypeToInfo.get("tz");
-                                result =
-                                        availableLongTz.stream()
-                                                .filter(
-                                                        x -> {
-                                                            String shortId = aliasToRegular.get(x);
-                                                            Bcp47KeyInfo info =
-                                                                    subtypeToInfo.get(shortId);
-                                                            System.out.println(
-                                                                    String.format(
-                                                                            "%s %s %s",
-                                                                            x, shortId, info));
-                                                            return !info.deprecated;
-                                                        })
-                                                .collect(Collectors.toUnmodifiableSet());
-                            }
-                            return result;
+                            return availableLongTz.stream()
+                                    .filter(
+                                            x -> {
+                                                return zone_territory.get(x) != null;
+                                            })
+                                    .collect(Collectors.toUnmodifiableSet());
                         }
                     });
 

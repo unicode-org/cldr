@@ -94,6 +94,11 @@ public class CheckForExemplars extends FactoryCheckCLDR {
 
     static final UnicodeSet START_PAREN = new UnicodeSet("[[:Ps:]]").freeze();
     static final UnicodeSet END_PAREN = new UnicodeSet("[[:Pe:]]").freeze();
+    static final UnicodeSet UNIT_DISALLOWED_PARENS =
+            new UnicodeSet(START_PAREN)
+                    .addAll(END_PAREN)
+                    .removeAll(new UnicodeSet("[\\[\\]［］]"))
+                    .freeze();
     static final UnicodeSet ALL_CURRENCY_SYMBOLS = new UnicodeSet("[[:Sc:]]").freeze();
     static final UnicodeSet LETTER = new UnicodeSet("[[A-Za-z]]").freeze();
     static final UnicodeSet NUMBERS = new UnicodeSet("[[:N:]]").freeze();
@@ -470,10 +475,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
             String noValidParentheses =
                     IGNORE_PLACEHOLDER_PARENTHESES.matcher(value).replaceAll("");
             disallowed =
-                    new UnicodeSet()
-                            .addAll(START_PAREN)
-                            .addAll(END_PAREN)
-                            .retainAll(noValidParentheses);
+                    new UnicodeSet().addAll(UNIT_DISALLOWED_PARENS).retainAll(noValidParentheses);
             if (!disallowed.isEmpty()) {
                 addMissingMessage(
                         disallowed,
@@ -754,8 +756,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
 
         // Get mapping of scripts to the territories that use that script in
         // any of their primary languages.
-        Relation scriptToTerritories =
-                new Relation(new HashMap<String, Set<String>>(), HashSet.class);
+        Relation scriptToTerritories = new Relation(new HashMap<>(), HashSet.class);
         for (String lang : sdi.getBasicLanguageDataLanguages()) {
             BasicLanguageData langData = sdi.getBasicLanguageDataMap(lang).get(Type.primary);
             if (langData == null) {
@@ -768,7 +769,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
 
         // For each territory, get all of its legal tender currencies.
         Date now = DateConstants.NOW;
-        scriptToCurrencies = new Relation(new HashMap<String, Set<String>>(), HashSet.class);
+        scriptToCurrencies = new Relation(new HashMap<>(), HashSet.class);
         for (Object curScript : scriptToTerritories.keySet()) {
             Set<String> territories = scriptToTerritories.get(curScript);
             Set<String> currencies = new HashSet<>();

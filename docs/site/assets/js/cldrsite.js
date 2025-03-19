@@ -214,12 +214,48 @@ const PageContents = {
   `,
 };
 
+const SearchBox = {
+  components: {},
+  props: {},
+  methods: {
+    keyup(event) {
+      if (event.key === "Enter" || event?.keycode === 13) {
+        this.search();
+      }
+    },
+    updateSearch(event) {
+      this.searchText = event.target.value;
+    },
+    search() {
+      const text = this.searchText;
+      if (!text || !text.trim()) return;
+      const u = new URL(
+        "https://www.google.com/search?q=site%3Acldr.unicode.org%2F+"
+      );
+      let q = u.searchParams.get("q");
+      q = q + text; // append their search
+      u.searchParams.set("q", q);
+      document.location.assign(u); // Go!
+    },
+  },
+  setup() {
+    const searchText = ref("");
+    return {
+      searchText,
+    };
+  },
+  template: `
+    <input size="30" placeholder="Search CLDR…" @keyup="keyup" :value="searchText" @input="updateSearch"/><button id="searchbutton" title="search" @click="search">🔎</button>
+  `,
+};
+
 const app = Vue.createApp(
   {
     components: {
       AncestorPages,
       SubPagesPopup,
       SiteMap,
+      SearchBox,
     },
     setup(props) {
       // the tree.json data
@@ -331,6 +367,9 @@ const app = Vue.createApp(
        <div class="breadcrumb">
         <AncestorPages :ancestorPages="ancestorPages"/>
 
+        </div>
+        <div id="searchbox">
+          <SearchBox />
         </div>
        </div>
     </div>`,

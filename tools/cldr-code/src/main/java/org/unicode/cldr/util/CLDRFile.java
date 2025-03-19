@@ -1533,7 +1533,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         return dataSource.iterator(pathFilter);
     }
 
-    private Iterator<String> iteratorWithoutExtras(String prefix, Comparator<String> comparator) {
+    public Iterator<String> iteratorWithoutExtras(String prefix, Comparator<String> comparator) {
         Iterator<String> it =
                 (prefix == null || prefix.isEmpty())
                         ? dataSource.iterator()

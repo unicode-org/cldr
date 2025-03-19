@@ -29,6 +29,11 @@ TODO: List all major types of tasks with their definitions and link to pages wit
 
 ### Release tracking
 
+#### Downloads page
+
+- [latest-tickets](https://unicode-org.atlassian.net/issues/?filter=10838) - All issues with status 'Fixed' in the *latest version* (the most recently released version of CLDR).
+- [dev-tickets](https://unicode-org.atlassian.net/issues/?filter=10837) - All issues with status 'Fixed' in the *dev* (the CLDR version currently under development).
+
 #### General filters
 
 - [@CURR CLDR (vXX)](https://unicode-org.atlassian.net/issues/?filter=10438) - All issues targeting the current release regardless of status.

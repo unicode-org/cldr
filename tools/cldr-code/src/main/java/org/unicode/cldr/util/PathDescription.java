@@ -251,7 +251,7 @@ public class PathDescription {
                     + "The pattern used to compose generic fallback time zone names, such as 'Germany Time'. Note: before translating, be sure to read "
                     + CLDRURLS.TZ_CITY_NAMES
                     + ".\n"
-                    + "^//ldml/dates/timeZoneNames/(fallback|fallbackRegion|gmtZero|gmt|hour|region)Format"
+                    + "^//ldml/dates/timeZoneNames/(fallback|fallbackRegion|gmtZero|gmtUnknown|gmt|hour|region)Format"
                     + RegexLookup.SEPARATOR
                     + "The {1} pattern used to compose time zone names. Note: before translating, be sure to read "
                     + CLDRURLS.TZ_CITY_NAMES

@@ -72,6 +72,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!ATTLIST type iana CDATA #IMPLIED >
     <!--@MATCH:regex/^[A-Za-z]+(/[A-Za-z_\-]+)+$-->
     <!--@VALUE-->
+<!ATTLIST type region CDATA #IMPLIED >
+    <!--@MATCH:regex/^[A-Z]{2}$-->
+    <!--@VALUE-->
 
 <!ELEMENT attribute EMPTY >
 <!ATTLIST attribute name NMTOKEN #REQUIRED >

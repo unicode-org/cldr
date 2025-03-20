@@ -4580,7 +4580,7 @@ public class TestUnits extends TestFmwkPlus {
         if (SHOW_UNITS) {
             System.out.println("Aliased units: ");
             System.out.println(aliasedShortUnits);
-            showSystems(VALID_REGULAR_UNITS);
+            showSystems("de", VALID_REGULAR_UNITS);
         }
         Set<String> validShortNoAliases =
                 Sets.difference(VALID_SHORT_UNITS, aliasedShortUnits.keySet());
@@ -4626,23 +4626,71 @@ public class TestUnits extends TestFmwkPlus {
         return ImmutableMap.copyOf(result);
     }
 
-    private void showSystems(Set<String> longUnits) {
-        String name = "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"{0}\"]/displayName";
-        String gender = "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"{0}\"]/gender";
-        String accusativeOne =
+    enum Present {
+        yes,
+        no,
+        na;
+
+        static Present from(Boolean b) {
+            return b == null ? na : b ? yes : no;
+        }
+    }
+
+    private void showSystems(String locale, Set<String> longUnits) {
+        String displayNamePath =
+                "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"{0}\"]/displayName";
+        String genderPath = "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"{0}\"]/gender";
+        String accusativeOnePath =
                 "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"{0}\"]/unitPattern[@count=\"one\"][@case=\"accusative\"]";
-        System.out.println();
-        CLDRFile deUnresolved = CLDR_FACTORY.make("de", false);
+        System.out.println("\n" + locale);
+        GrammarInfo grammarInfo = SDI.getGrammarInfo(locale);
+
+        Collection<String> genders =
+                grammarInfo.get(
+                        GrammaticalTarget.nominal,
+                        GrammaticalFeature.grammaticalGender,
+                        GrammaticalScope.units);
+        Collection<String> cases =
+                grammarInfo.get(
+                        GrammaticalTarget.nominal,
+                        GrammaticalFeature.grammaticalCase,
+                        GrammaticalScope.units);
+
+        System.out.println(
+                JOIN_TAB.join(
+                        "long unitId",
+                        "short unitId",
+                        "quantity",
+                        "systems",
+                        "displayName",
+                        "gender",
+                        "accusative"));
+
+        CLDRFile deUnresolved = CLDR_FACTORY.make(locale, false);
+
         for (String longUnit : longUnits) {
             String shortId = converter.getShortId(longUnit);
             Set<UnitSystem> systems = converter.getSystemsEnum(shortId);
             String quantity = converter.getQuantityFromUnit(shortId, DEBUG);
             String baseUnit = quantity == null ? null : converter.getBaseUnitFromQuantity(quantity);
-            boolean inGerman = deUnresolved.getStringValue(name.replace("{0}", longUnit)) != null;
-            boolean inGermanGender =
-                    deUnresolved.getStringValue(gender.replace("{0}", longUnit)) != null;
-            boolean inGermanGrammar =
-                    deUnresolved.getStringValue(accusativeOne.replace("{0}", longUnit)) != null;
+            Present inGerman =
+                    Present.from(
+                            deUnresolved.getStringValue(displayNamePath.replace("{0}", longUnit))
+                                    != null);
+            Present inGermanGender =
+                    Present.from(
+                            genders.isEmpty()
+                                    ? null
+                                    : deUnresolved.getStringValue(
+                                                    genderPath.replace("{0}", longUnit))
+                                            != null);
+            Present inGermanGrammar =
+                    Present.from(
+                            cases.isEmpty()
+                                    ? null
+                                    : deUnresolved.getStringValue(
+                                                    accusativeOnePath.replace("{0}", longUnit))
+                                            != null);
             System.out.println(
                     JOIN_TAB.join(
                             longUnit,

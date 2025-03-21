@@ -257,3 +257,7 @@
 ^//ldml/numbers/rationalFormats\[@numberSystem="%A"]/rationalPattern ; {0}=NUMERATOR integer or negative integer; {1}=DENOMINATOR integer
 ^//ldml/numbers/rationalFormats\[@numberSystem="%A"]/integerAndRationalPattern ; {0}=INTEGER integer or negative integer; {1}=RATIONAL formatted positive rational
 ^//ldml/numbers/rationalFormats\[@numberSystem="%A"]/integerAndRationalPattern\[@alt="%A"] ; {0}=INTEGER integer or negative integer; {1}=RATIONAL formatted positive rational
+
+^//ldml/numbers/rationalFormats/rationalPattern ; {0}=NUMERATOR integer or negative integer; {1}=DENOMINATOR integer
+^//ldml/numbers/rationalFormats/integerAndRationalPattern ; {0}=INTEGER integer or negative integer; {1}=RATIONAL formatted positive rational
+^//ldml/numbers/rationalFormats/integerAndRationalPattern\[@alt="%A"] ; {0}=INTEGER integer or negative integer; {1}=RATIONAL formatted positive rational

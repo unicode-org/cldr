@@ -70,6 +70,7 @@ import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.NameGetter;
 import org.unicode.cldr.util.NameType;
+import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathDescription;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.PluralSamples;
@@ -101,6 +102,7 @@ import org.unicode.cldr.util.personname.SimpleNameObject;
  * @author markdavis
  */
 public class ExampleGenerator {
+    private static final String FSLASH = "\u2044";
     private static final String INTERNAL = "internal: ";
     private static final String SUBTRACTS = "➖";
     private static final String ADDS = "➕";
@@ -141,6 +143,8 @@ public class ExampleGenerator {
     private static final String endItalic = "</i>";
     private static final String startSup = "<sup>";
     private static final String endSup = "</sup>";
+    private static final String startSub = "<sub>";
+    private static final String endSub = "</sub>";
     private static final String backgroundAutoStart = "<span class='cldr_background_auto'>";
     private static final String backgroundAutoEnd = "</span>";
     private String backgroundStart = "<span class='cldr_substituted'>"; // overrideable
@@ -160,6 +164,8 @@ public class ExampleGenerator {
     private static final String exampleStartRTLSymbol = "\uE23F";
     private static final String exampleStartHeaderSymbol = "\uE240";
     private static final String exampleEndSymbol = "\uE241";
+    private static final String startSubSymbol = "\uE242";
+    private static final String endSubSymbol = "\uE243";
 
     private static final String contextheader =
             "Key: " + backgroundAutoStartSymbol + "neutral" + backgroundAutoEndSymbol + ", RTL";
@@ -2859,16 +2865,33 @@ public class ExampleGenerator {
                 isLatin ? null : icuServiceBuilder.getNumberFormat("0", numberSystem);
 
         String element = parts.getElement(-1);
+        String num;
+        String den;
+
         switch (element) {
             case "rationalPattern":
+                List<Pair<String, String>> fractionPairs = new ArrayList<>();
+                Pair<String, String> extraPair = null;
                 if (isLatin) {
-                    examples.add(value.replace("{0}", "1").replace("{1}", "2"));
-                    examples.add("½");
-                    examples.add("¹⁄₂");
+                    num = "1";
+                    den = "2";
+                    extraPair = Pair.of("¹", "₂");
                 } else {
+                    num = numberFormat.format(1);
+                    den = numberFormat.format(2);
+                }
+                fractionPairs.add(Pair.of(num, den));
+                fractionPairs.add(
+                        Pair.of(
+                                startSupSymbol + num + endSupSymbol,
+                                startSubSymbol + den + endSubSymbol));
+                if (extraPair != null) {
+                    fractionPairs.add(extraPair);
+                }
+                for (Pair<String, String> pair : fractionPairs) {
                     examples.add(
-                            value.replace("{0}", numberFormat.format(1))
-                                    .replace("{1}", numberFormat.format(2)));
+                            value.replace("{0}", setBackground(pair.getFirst()))
+                                    .replace("{1}", setBackground(pair.getSecond())));
                 }
                 break;
             case "integerAndRationalPattern":
@@ -2883,22 +2906,36 @@ public class ExampleGenerator {
                 String rationalPart = cldrFile.getStringValue(parts2.toString());
                 Set<String> fractions = new LinkedHashSet<>();
                 String base;
+                String extra = null;
                 if (isLatin) {
                     base = "3";
-                    if (true) {
-                        fractions.add(rationalPart.replace("{0}", "1").replace("{1}", "2"));
-                    }
-                    fractions.add("½");
-                    fractions.add("¹⁄₂");
+                    num = "1";
+                    den = "2";
+                    extra = "½";
                 } else {
                     base = numberFormat.format(3);
-                    fractions.add(
-                            rationalPart
-                                    .replace("{0}", numberFormat.format(1))
-                                    .replace("{1}", numberFormat.format(2)));
+                    num = numberFormat.format(1);
+                    den = numberFormat.format(2);
                 }
+                if (!superSub) {
+                    fractions.add(rationalPart.replace("{0}", num).replace("{1}", den));
+                }
+                if (extra != null) {
+                    fractions.add(extra);
+                }
+                fractions.add(
+                        startSupSymbol
+                                + num
+                                + endSupSymbol
+                                + FSLASH
+                                + startSubSymbol
+                                + den
+                                + endSubSymbol);
+
                 for (String r : fractions) {
-                    examples.add(value.replace("{0}", base).replace("{1}", r));
+                    examples.add(
+                            value.replace("{0}", setBackground(base))
+                                    .replace("{1}", setBackground(r)));
                 }
                 break;
             case "rationalUsage":
@@ -3447,7 +3484,9 @@ public class ExampleGenerator {
                         .replace(startItalicSymbol, startItalic)
                         .replace(endItalicSymbol, endItalic)
                         .replace(startSupSymbol, startSup)
-                        .replace(endSupSymbol, endSup);
+                        .replace(endSupSymbol, endSup)
+                        .replace(startSubSymbol, startSub)
+                        .replace(endSubSymbol, endSub);
         // If we are not showing context, we use exampleSeparatorSymbol between examples,
         // and then need to add the initial exampleStart and final exampleEnd.
         return (input.contains(exampleStartAutoSymbol))

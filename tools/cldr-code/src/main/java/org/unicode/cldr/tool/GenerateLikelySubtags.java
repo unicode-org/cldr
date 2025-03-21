@@ -1752,6 +1752,7 @@ public class GenerateLikelySubtags {
             for (Entry<String, LSRSource> entry : silData.entrySet()) {
                 CLDRLocale source = CLDRLocale.getInstance(entry.getKey());
                 String lang = source.getLanguage();
+                // HERE add ISO 639 check
                 if (!fluffup.containsKey(lang)) {
                     silMap.put(entry.getKey(), entry.getValue().getLsrString());
                     if (!entry.getValue().getSources().isEmpty()) {

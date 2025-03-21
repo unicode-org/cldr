@@ -69,6 +69,8 @@ public class GenerateScriptMetadata {
                             + i.ime
                             + "; "
                             + i.hasCase
+                            + "; "
+                            + i.complexBrkReq
                             + comment);
             // RTL? LB letters? Shaping Req? IME? Has Case?
         }

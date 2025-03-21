@@ -794,7 +794,7 @@ public class DisplayAndInputProcessor {
         ExemplarType exemplarType =
                 !path.contains("exemplarCharacters")
                         ? null
-                        : type == null ? ExemplarType.main : ExemplarType.valueOf(type);
+                        : type == null ? ExemplarType.main : ExemplarType.from(type);
         value = getCleanedUnicodeSet(exemplar, exemplarType);
         return value;
     }

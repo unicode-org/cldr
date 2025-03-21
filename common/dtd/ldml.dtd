@@ -456,7 +456,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
     <!--@DEPRECATED-->
 
 <!ELEMENT exemplarCharacters ( #PCDATA | cp )* >
-<!ATTLIST exemplarCharacters type (auxiliary | standard | punctuation | currencySymbol | index | numbers) #IMPLIED >
+<!ATTLIST exemplarCharacters type (standard | auxiliary | numbers | numbers-auxiliary | punctuation | punctuation-auxiliary | punctuation-person | index | currencySymbol) #IMPLIED >
     <!--@DEPRECATED:currencySymbol-->
 <!ATTLIST exemplarCharacters alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/variant-->

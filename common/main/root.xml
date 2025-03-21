@@ -3931,6 +3931,243 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<decimalFormats numberSystem="wcho">
 			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
 		</decimalFormats>
+		<rationalFormats numberSystem="latn">
+			<rationalPattern>{0}⁄{1}</rationalPattern>
+			<integerAndRationalPattern>{0}&#x202F;{1}</integerAndRationalPattern>
+			<integerAndRationalPattern alt="superSub">{0}&#x200b;{1}</integerAndRationalPattern>
+			<rationalUsage>used</rationalUsage> <!-- unknown vs unused vs used -->
+		</rationalFormats>
+		<rationalFormats>
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="adlm">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="ahom">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="arab">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="arabext">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="bali">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="beng">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="bhks">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="brah">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="cakm">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="cham">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="deva">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="diak">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="fullwide">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="gara">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="gong">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="gonm">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="gujr">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="gukh">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="guru">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="hanidec">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="hmng">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="hmnp">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="java">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="kali">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="kawi">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="khmr">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="knda">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="krai">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="lana">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="lanatham">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="laoo">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="lepc">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="limb">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="mathbold">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="mathdbl">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="mathmono">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="mathsanb">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="mathsans">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="mlym">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="modi">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="mong">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="mroo">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="mtei">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="mymr">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="mymrepka">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="mymrpao">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="mymrshan">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="mymrtlng">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="nagm">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="newa">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="nkoo">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="olck">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="onao">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="orya">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="osma">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="outlined">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="rohg">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="saur">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="segment">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="shrd">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="sind">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="sinh">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="sora">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="sund">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="sunu">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="takr">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="talu">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="tamldec">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="telu">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="thai">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="tibt">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="tirh">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="tnsa">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="vaii">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="wara">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="wcho">
+			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
 		<scientificFormats>
 			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
 		</scientificFormats>

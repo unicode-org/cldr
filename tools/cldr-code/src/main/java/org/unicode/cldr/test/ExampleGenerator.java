@@ -289,7 +289,7 @@ public class ExampleGenerator {
      * to extract this data directly from supplementaldata.xml
      */
     public static final Map<String, List<Date>> CALENDAR_ERAS =
-            new HashMap<String, List<Date>>() {
+            new HashMap<>() {
                 { // month 0-indexed. start/end days adjusted by +/- 2, respectively
                     put(
                             "gregorian",
@@ -331,7 +331,7 @@ public class ExampleGenerator {
 
     // map relativeTimePattern counts to numeric examples
     public static final Map<String, String> COUNTS =
-            new HashMap<String, String>() {
+            new HashMap<>() {
                 {
                     put("zero", "0");
                     put("one", "1");
@@ -572,10 +572,12 @@ public class ExampleGenerator {
             } else if (parts.contains("numbers")) {
                 if (parts.contains("currencyFormat")) {
                     handleCurrencyFormat(parts, value, showContexts, examples);
-                } else {
+                } else if (!parts.contains("rationalFormats")) {
                     handleDecimalFormat(parts, value, showContexts, examples);
                 }
             }
+        } else if (parts.contains("rationalFormats")) {
+            handleRationalFormat(parts, value, showContexts, examples);
         } else if (parts.contains("minimumGroupingDigits")) {
             handleMinimumGrouping(parts, value, examples);
         } else if (parts.getElement(2).contains("symbols")) {
@@ -2677,8 +2679,7 @@ public class ExampleGenerator {
                     DayPeriodInfo dayPeriodInfo =
                             supplementalDataInfo.getDayPeriods(
                                     DayPeriodInfo.Type.format, cldrFile.getLocaleID());
-                    Set<DayPeriod> dayPeriods =
-                            new LinkedHashSet<DayPeriod>(dayPeriodInfo.getPeriods());
+                    Set<DayPeriod> dayPeriods = new LinkedHashSet<>(dayPeriodInfo.getPeriods());
                     for (DayPeriod dayPeriod : dayPeriods) {
                         if (dayPeriod.equals(
                                 DayPeriod.midnight)) { // suppress midnight, see ICU-12278 bug
@@ -2842,6 +2843,67 @@ public class ExampleGenerator {
         // have positive and negative
         example = addExampleResult(formatNumber(numberFormat, -sampleNum2), example, showContexts);
         examples.add(example);
+    }
+
+    /**
+     * Creates examples for decimal formats.
+     *
+     * @param value
+     * @return
+     */
+    private void handleRationalFormat(
+            XPathParts parts, String value, boolean showContexts, List<String> examples) {
+        String numberSystem = parts.getAttributeValue(2, "numberSystem"); // null if not present
+        boolean isLatin = numberSystem == null || numberSystem.equals("latn");
+        DecimalFormat numberFormat =
+                isLatin ? null : icuServiceBuilder.getNumberFormat("0", numberSystem);
+
+        String element = parts.getElement(-1);
+        switch (element) {
+            case "rationalPattern":
+                if (isLatin) {
+                    examples.add(value.replace("{0}", "1").replace("{1}", "2"));
+                    examples.add("½");
+                    examples.add("¹⁄₂");
+                } else {
+                    examples.add(
+                            value.replace("{0}", numberFormat.format(1))
+                                    .replace("{1}", numberFormat.format(2)));
+                }
+                break;
+            case "integerAndRationalPattern":
+                boolean superSub =
+                        "superSub"
+                                .equals(parts.getAttributeValue(-1, "alt")); // null if not present
+                // get rationalPattern
+                XPathParts parts2 =
+                        parts.cloneAsThawed()
+                                .setElement(-1, "rationalPattern")
+                                .setAttribute(-1, "alt", null);
+                String rationalPart = cldrFile.getStringValue(parts2.toString());
+                Set<String> fractions = new LinkedHashSet<>();
+                String base;
+                if (isLatin) {
+                    base = "3";
+                    if (true) {
+                        fractions.add(rationalPart.replace("{0}", "1").replace("{1}", "2"));
+                    }
+                    fractions.add("½");
+                    fractions.add("¹⁄₂");
+                } else {
+                    base = numberFormat.format(3);
+                    fractions.add(
+                            rationalPart
+                                    .replace("{0}", numberFormat.format(1))
+                                    .replace("{1}", numberFormat.format(2)));
+                }
+                for (String r : fractions) {
+                    examples.add(value.replace("{0}", base).replace("{1}", r));
+                }
+                break;
+            case "rationalUsage":
+                return;
+        }
     }
 
     private String formatCountDecimal(DecimalFormat numberFormat, String countValue) {

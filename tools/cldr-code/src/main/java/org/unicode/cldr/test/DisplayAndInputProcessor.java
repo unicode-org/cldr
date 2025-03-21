@@ -1143,6 +1143,14 @@ public class DisplayAndInputProcessor {
     public static String getCanonicalPattern(String inpattern, NumericType type, boolean isPOSIX) {
         // TODO fix later to properly handle quoted ;
 
+        if (type == NumericType.RATIONAL) {
+            return inpattern
+                    .replace(
+                            "}{",
+                            "}\u202F{") // make sure there is at least a NNBSP between numbers, so
+                    // we don't get 33/4 instead of 3 3/4.
+                    .replace("/", "\u2044"); // use FRACTION SLASH instead of ASCII slash
+        }
         DecimalFormat df = new DecimalFormat(inpattern);
         if (type == NumericType.DECIMAL_ABBREVIATED
                 || type == NumericType.CURRENCY_ABBREVIATED
@@ -1185,11 +1193,12 @@ public class DisplayAndInputProcessor {
         DECIMAL_ABBREVIATED(),
         PERCENT(new int[] {1, 0, 0}, new int[] {1, 0, 0}),
         SCIENTIFIC(new int[] {0, 0, 0}, new int[] {1, 6, 6}),
+        RATIONAL,
         NOT_NUMERIC;
 
         private static final Pattern NUMBER_PATH =
                 Pattern.compile(
-                        "//ldml/numbers/((currency|decimal|percent|scientific)Formats|currencies/currency).*");
+                        "//ldml/numbers/((currency|decimal|percent|scientific|rational)Formats|currencies/currency).*");
         private int[] digitCount;
         private int[] posixDigitCount;
 
@@ -1205,7 +1214,9 @@ public class DisplayAndInputProcessor {
          */
         public static NumericType getNumericType(String xpath) {
             Matcher matcher = NUMBER_PATH.matcher(xpath);
-            if (!xpath.contains("/pattern")) {
+            if (xpath.contains("rational")) {
+                return RATIONAL;
+            } else if (!xpath.contains("/pattern")) {
                 return NOT_NUMERIC;
             } else if (matcher.matches()) {
                 if (matcher.group(1).equals("currencies/currency")) {

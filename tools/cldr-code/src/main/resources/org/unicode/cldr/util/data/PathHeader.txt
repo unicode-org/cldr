@@ -19,7 +19,7 @@
 %H = ([hH])
 %L = (long|short|narrow)
 %M = (Alaska_Hawaii|Bering|Dominican|Goose_Bay|Greenland_Central|Dutch_Guiana|Africa_FarWestern|Liberia|British|Irish|Kuybyshev|Sverdlovsk|Baku|Tbilisi|Turkey|Yerevan|Aktyubinsk|Ashkhabad|Dushanbe|Frunze|Kizilorda|Oral|Samarkand|Shevchenko|Tashkent|Uralsk|Urumqi|Dacca|Karachi|Borneo|Malaya|Kwajalein)
-%N = (gregorian|generic|buddhist|chinese|coptic|dangi|ethiopic|hebrew|indian|islamic|japanese|persian|roc)
+%N = (gregorian|generic|buddhist|chinese|coptic|dangi|ethiopic|hebrew|indian|islamic|japanese|persian|roc|iso8601)
 # calendar systems that should use Gregorian months (just Gregorian)
 # We don't list roc, etc here because their months are hidden.
 %G = (gregorian)

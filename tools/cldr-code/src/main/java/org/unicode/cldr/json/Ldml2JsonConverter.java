@@ -562,7 +562,8 @@ public class Ldml2JsonConverter {
         // read paths in DTD order. The order is critical for JSON processing.
         final CLDRFile.Status status = new CLDRFile.Status();
         for (Iterator<String> it =
-                        file.iterator("", DtdData.getInstance(fileDtdType).getDtdComparator(null));
+                        file.iteratorWithoutExtras(
+                                "", DtdData.getInstance(fileDtdType).getDtdComparator(null));
                 it.hasNext(); ) {
             int cv = Level.UNDETERMINED.getLevel();
             final String path = it.next();

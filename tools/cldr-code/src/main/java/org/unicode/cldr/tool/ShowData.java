@@ -187,13 +187,13 @@ public class ShowData {
 
                 // get all of the paths
                 Set<String> allPaths = new HashSet<>();
-                file.forEach(allPaths::add);
+                file.iterableWithoutExtras().forEach(allPaths::add);
 
                 if (!locale.equals("root")) {
                     for (String childLocale : children) {
                         CLDRFile childCldrFile = cldrFactory.make(childLocale, false);
                         if (childCldrFile != null) {
-                            childCldrFile.forEach(allPaths::add);
+                            childCldrFile.iterableWithoutExtras().forEach(allPaths::add);
                         }
                         sublocales.put(childLocale, childCldrFile);
                     }

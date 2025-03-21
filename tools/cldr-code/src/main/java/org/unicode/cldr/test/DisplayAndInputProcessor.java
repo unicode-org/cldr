@@ -197,8 +197,8 @@ public class DisplayAndInputProcessor {
     public static final Set<String> LANGUAGES_USING_MODIFIER_APOSTROPHE =
             new HashSet<>(
                     Arrays.asList(
-                            "br", "bss", "cad", "cic", "cch", "gn", "ha", "ha_Latn", "lkt", "mgo",
-                            "mic", "moh", "mus", "nnh", "qu", "quc", "uk", "uz", "uz_Latn"));
+                            "br", "bss", "cad", "cic", "cch", "gn", "ha", "ha_Latn", "kek", "lkt",
+                            "mgo", "mic", "moh", "mus", "nnh", "qu", "quc", "uk", "uz", "uz_Latn"));
 
     // Ş ş Ţ ţ  =>  Ș ș Ț ț
     private static final char[][] ROMANIAN_CONVERSIONS = {

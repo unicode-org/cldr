@@ -1822,7 +1822,8 @@ XXX Code for transations where no currency is involved
 		<language type="myx" scripts="Latn"/>
 		<language type="myz" scripts="Mand"/>
 		<language type="mzn" scripts="Arab"/>
-		<language type="nan" scripts="Hans" />
+		<language type="na" scripts="Latn"/>
+		<language type="nan" scripts="Hans"/>
 		<language type="nan" scripts="Hant" alt="secondary"/>
 		<language type="nap" scripts="Latn"/>
 		<language type="naq" scripts="Latn"/>
@@ -2233,10 +2234,10 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="mk" populationPercent="0.47"/>	<!--Macedonian-->
 		</territory>
 		<territory type="AM" gdp="57730000000" literacyPercent="99.6" population="2976770">	<!--Armenia-->
-			<languagePopulation type="hy" populationPercent="99" officialStatus="official" references="R1170"/>	<!--Armenian-->
-			<languagePopulation type="ru" populationPercent="65" references="R1170"/>	<!--Russian-->
-			<languagePopulation type="ku" writingPercent="5" populationPercent="3.3" references="R1168"/>	<!--Kurdish-->
-			<languagePopulation type="ku_Cyrl" populationPercent="3.3" references="R1252"/>	<!--Kurdish (Cyrillic)-->
+			<languagePopulation type="hy" populationPercent="99" officialStatus="official" references="R1041"/>	<!--Armenian-->
+			<languagePopulation type="ru" populationPercent="65" references="R1041"/>	<!--Russian-->
+			<languagePopulation type="ku" writingPercent="5" populationPercent="3.3" references="R1346"/>	<!--Kurdish-->
+			<languagePopulation type="ku_Cyrl" populationPercent="3.3" references="R1376"/>	<!--Kurdish (Cyrillic)-->
 			<languagePopulation type="az" populationPercent="0" references="R1290"/>	<!--Azerbaijani-->
 		</territory>
 		<territory type="AO" gdp="265900000000" literacyPercent="70.4" population="37202100">	<!--Angola-->
@@ -2287,8 +2288,8 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="az" populationPercent="89" officialStatus="official" references="R1120"/>	<!--Azerbaijani-->
 			<languagePopulation type="az_Cyrl" populationPercent="9.9" officialStatus="official" references="R1121"/>	<!--Azerbaijani (Cyrillic)-->
 			<languagePopulation type="tly" populationPercent="9.8"/>	<!--Talysh-->
-			<languagePopulation type="ku" writingPercent="5" populationPercent="0.24" references="R1331"/>	<!--Kurdish-->
-			<languagePopulation type="ku_Cyrl" populationPercent="0.24" references="R1271"/>	<!--Kurdish (Cyrillic)-->
+			<languagePopulation type="ku" writingPercent="5" populationPercent="0.24" references="R1377"/>	<!--Kurdish-->
+			<languagePopulation type="ku_Cyrl" populationPercent="0.24" references="R1378"/>	<!--Kurdish (Cyrillic)-->
 			<languagePopulation type="ttt" populationPercent="0.22"/>	<!--Muslim Tat-->
 			<languagePopulation type="tkr" populationPercent="0.16"/>	<!--Tsakhur-->
 		</territory>
@@ -2693,7 +2694,7 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="arq" populationPercent="83"/>	<!--Algerian Arabic-->
 			<languagePopulation type="ar" populationPercent="74" officialStatus="official"/>	<!--Arabic-->
 			<languagePopulation type="fr" populationPercent="33" officialStatus="official" references="R1349"/>	<!--French-->
-			<languagePopulation type="mey" populationPercent="11" references="R1371"/>	<!--Hassaniyya-->
+			<languagePopulation type="mey" populationPercent="11" references="R1379"/>	<!--Hassaniyya-->
 			<languagePopulation type="kab" literacyPercent="10" populationPercent="7.8" references="R1293"/>	<!--Kabyle-->
 			<languagePopulation type="en" populationPercent="7"/>	<!--English-->
 		</territory>
@@ -3373,7 +3374,7 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="shi_Latn" writingPercent="5" populationPercent="8.7" references="R1181"/>	<!--Tachelhit (Latin)-->
 			<languagePopulation type="rif" writingPercent="5" populationPercent="4.9"/>	<!--Riffian-->
 			<languagePopulation type="rif_Tfng" writingPercent="5" populationPercent="4.9"/>	<!--Riffian (Tifinagh)-->
-			<languagePopulation type="mey" populationPercent="0.82" references="R1329"/>	<!--Hassaniyya-->
+			<languagePopulation type="mey" populationPercent="0.82" references="R1380"/>	<!--Hassaniyya-->
 			<languagePopulation type="es" populationPercent="0.065"/>	<!--Spanish-->
 		</territory>
 		<territory type="MC" gdp="7672000000" literacyPercent="99" population="31813">	<!--Monaco-->
@@ -3457,7 +3458,7 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="fr" populationPercent="81" officialStatus="official" references="R1361"/>	<!--French-->
 		</territory>
 		<territory type="MR" gdp="30400000000" literacyPercent="58.6" population="4328040">	<!--Mauritania-->
-			<languagePopulation type="mey" populationPercent="87" references="R1161"/>	<!--Hassaniyya-->
+			<languagePopulation type="mey" populationPercent="87" references="R1381"/>	<!--Hassaniyya-->
 			<languagePopulation type="ar" populationPercent="85" officialStatus="official"/>	<!--Arabic-->
 			<languagePopulation type="fr" populationPercent="13" references="R1339"/>	<!--French-->
 			<languagePopulation type="ff" populationPercent="5.7"/>	<!--Fula-->
@@ -5353,6 +5354,7 @@ XXX Code for transations where no currency is involved
 		<reference type="R1038" uri="https://www.cia.gov/cia/publications/factbook/fields/2098.html">[missing]</reference>
 		<reference type="R1039" uri="https://www.cia.gov/cia/publications/factbook/geos/ls.html">German official</reference>
 		<reference type="R1040" uri="http://rosstat.gov.ru/vpn_popul">2020 Russian Census</reference>
+		<reference type="R1041" uri="https://www.armstat.am/en/?nid=82&amp;id=2623">2022 Census</reference>
 		<reference type="R1042" uri="https://www.cia.gov/cia/publications/factbook/geos/nl.html">Used CIA literacy figure times population, added 'Vlaams' population</reference>
 		<reference type="R1043" uri="http://www.cso.ie/census/documents/Final%20Principal%20Demographic%20Results%202006.pdf">[missing]</reference>
 		<reference type="R1044" uri="http://www.ethnologue.com/show_language.asp?code=mri">70,000 in 1991, 100,000 who understand it, but do not speak it ; ethnic pop 530,000 in 2002</reference>
@@ -5657,6 +5659,7 @@ XXX Code for transations where no currency is involved
 		<reference type="R1343" uri="https://observatoire.francophonie.org//wp-content/uploads/2022/03/odsef-lfdm-2022.pdf">Organisation internationale de la Francophonie Meta-study. Data from 1994 study</reference>
 		<reference type="R1344" uri="https://observatoire.francophonie.org//wp-content/uploads/2022/03/odsef-lfdm-2022.pdf">Organisation internationale de la Francophonie Meta-study. Data from 2009 and 2012 studies</reference>
 		<reference type="R1345" uri="https://www.bfs.admin.ch/bfs/de/home/statistiken/bevoelkerung/sprachen-religionen/sprachen.html">Regelmässig verwendete Sprachen - Percent of people that regularly use the language</reference>
+		<reference type="R1346">Latin alphabet usage for Kurdish also present but actual amount unknown</reference>
 		<reference type="R1347" uri="https://observatoire.francophonie.org//wp-content/uploads/2022/03/odsef-lfdm-2022.pdf">Organisation internationale de la Francophonie Meta-study. Data from 2014 census</reference>
 		<reference type="R1348" uri="https://observatoire.francophonie.org//wp-content/uploads/2022/03/odsef-lfdm-2022.pdf">Organisation internationale de la Francophonie Meta-study. Data from 2010 questionnaire</reference>
 		<reference type="R1349" uri="https://observatoire.francophonie.org//wp-content/uploads/2022/03/odsef-lfdm-2022.pdf">Organisation internationale de la Francophonie Meta-study. Data from 2008 Census</reference>
@@ -5686,5 +5689,11 @@ XXX Code for transations where no currency is involved
 		<reference type="R1373" uri="https://www.ethnologue.com/sample/ess/HN/">from 2013 Honduras census</reference>
 		<reference type="R1374" uri="https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=9810021601">Canada 2021 Census language 'Knowledge of Language'; official status from Wikipedia Languages_of_Canada</reference>
 		<reference type="R1375">Regis, Riccardo. 'Su pianificazione, standardizzazione, polinomia: due esempi' Zeitschrift für romanische Philologie, vol. 128, no. 1, 2012, pp. 88-133.</reference>
+		<reference type="R1376">Number &amp; script usage hard to pin down because of many speakers in contested Nagorno Karabakh region.</reference>
+		<reference type="R1377">Latin alphabet usage also present but exact breakdown unknown</reference>
+		<reference type="R1378">Cyrillic usage for Kurdish may no longer be as dominant but it used to be</reference>
+		<reference type="R1379" uri="https://www.ethnologue.com/country/dz/languages">citation from 2016</reference>
+		<reference type="R1380" uri="https://www.ethnologue.com/country/MA/languages">2026 citation</reference>
+		<reference type="R1381" uri="https://www.ethnologue.com/country/mr/languages">Citation from 2016</reference>
 	</references>
 </supplementalData>

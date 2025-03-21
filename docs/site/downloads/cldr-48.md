@@ -63,7 +63,7 @@ See the [Modifications section](https://www.unicode.org/reports/tr35/proposed.ht
 
 ### DTD Changes
 
-- TBD
+- `territories` attribute of `languageData` in [`supplementalData.xml`](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalData.xml) removed. While it was a nice proxy to count the most important territories for each language, it was not clear and it was ripe for mis-understanding. ([CLDR-5708][])
 
 For a full listing, see [Delta DTDs](https://unicode.org/cldr/charts/dev/supplemental/dtd_deltas.html).
 
@@ -151,6 +151,7 @@ in particular, see [Exhibit 1](https://unicode.org/copyright.html#Exhibit1).
 
 For web pages with different views of CLDR data, see [http://cldr.unicode.org/index/charts](/index/charts).
 
+[CLDR-5708]: https://unicode-org.atlassian.net/browse/CLDR-5708
 [CLDR-18087]: https://unicode-org.atlassian.net/browse/CLDR-18087
 [CLDR-18219]: https://unicode-org.atlassian.net/browse/CLDR-18219
 [CLDR-18275]: https://unicode-org.atlassian.net/browse/CLDR-18275

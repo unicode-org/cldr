@@ -9,10 +9,12 @@ import java.util.Set;
 import java.util.TreeSet;
 import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
+import org.unicode.cldr.test.DisplayAndInputProcessor.NumericType;
 import org.unicode.cldr.test.DisplayAndInputProcessor.PathSpaceType;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.ExemplarType;
+import org.unicode.cldr.util.CodePointEscaper;
 import org.unicode.cldr.util.Factory;
 
 public class TestDisplayAndInputProcessor extends TestFmwk {
@@ -904,6 +906,27 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
         dat = new KeywordCaseTestData(array, expectedArray);
         if (!dat.filtersAsExpected()) {
             errln("Resulting set differs from expected set 3");
+        }
+    }
+
+    public void TestRationals() {
+        String[][] tests = {{"{0}/{1}", "{0}⁄{1}"}, {"{0}{1}/{2}", "{0} {1}⁄{2}"}};
+        for (String[] test : tests) {
+            String rational = test[0];
+            String expected = test[1];
+            String actual =
+                    DisplayAndInputProcessor.getCanonicalPattern(
+                            rational, NumericType.RATIONAL, false);
+            String example = rational.replace("{0}", "1").replace("{1}", "2").replace("{2}", "3");
+            assertEquals(
+                    "example: "
+                            + CodePointEscaper.toEscaped(example)
+                            + ", source"
+                            + rational
+                            + ", actual"
+                            + CodePointEscaper.toEscaped(actual),
+                    expected,
+                    actual);
         }
     }
 }

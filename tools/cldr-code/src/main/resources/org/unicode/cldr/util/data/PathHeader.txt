@@ -181,6 +181,18 @@
 //ldml/numbers/%EFormats[@numberSystem="latn"]/%EFormatLength[@type="(short)"]/%EFormat[@type="%A"]/pattern[@type="%A"][@count="%A"] ; Numbers ; Compact Decimal Formatting ; Short Formats &numberingSystem(latn) ; &count2($6-digits-$3-$7)
 //ldml/numbers/%EFormats[@numberSystem="%A"]/%EFormatLength[@type="(short)"]/%EFormat[@type="%A"]/pattern[@type="%A"][@count="%A"] ; Numbers ; Compact Decimal Formatting (Other Numbering Systems) ; Short Formats &numberingSystem($2) ; &count2($7-digits-$4-$8) ; HIDE
 
+
+//ldml/numbers/rationalFormats/rationalPattern												; Numbers ; Number Formatting Patterns ; Rationals-Latin 				; Rational
+//ldml/numbers/rationalFormats/integerAndRationalPattern[@alt="%A"]  						; Numbers ; Number Formatting Patterns ; Rationals-Latin 				; Integer + Rational ($2)
+//ldml/numbers/rationalFormats/integerAndRationalPattern 									; Numbers ; Number Formatting Patterns ; Rationals-Latin 				; Integer + Rational
+//ldml/numbers/rationalFormats/rationalUsage  												; Numbers ; Number Formatting Patterns ; Rationals-Latin 				; Usage
+
+//ldml/numbers/rationalFormats[@numberSystem="%A"]/rationalPattern 							; Numbers ; Number Formatting Patterns ; Rationals-&numberingSystem($1)	; Rational
+//ldml/numbers/rationalFormats[@numberSystem="%A"]/integerAndRationalPattern[@alt="%A"] 	; Numbers ; Number Formatting Patterns ; Rationals-&numberingSystem($1)	; Integer + Rational ($2)
+//ldml/numbers/rationalFormats[@numberSystem="%A"]/integerAndRationalPattern 				; Numbers ; Number Formatting Patterns ; Rationals-&numberingSystem($1)	; Integer + Rational
+//ldml/numbers/rationalFormats[@numberSystem="%A"]/rationalUsage  							; Numbers ; Number Formatting Patterns ; Rationals-&numberingSystem($1)	; Usage
+
+
 ### Currencies
 
 //ldml/numbers/currencies/currency[@type="%A"]/displayName[@count="%A"]     ; Currencies ; &continentFromCurrency($1) ; &categoryFromCurrency($1) ; &count($1-name-$2)

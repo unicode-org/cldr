@@ -100,7 +100,7 @@ public enum CodePointEscaper {
             new UnicodeSet("[\\uFE0F\\U000E0020-\\U000E007F]").freeze();
 
     public static final UnicodeSet FORCE_ESCAPE =
-            new UnicodeSet("[[:DI:][:Pat_WS:][:WSpace:][:C:][:Z:]]")
+            new UnicodeSet("[[:DI:][:Pat_WS:][:WSpace:][:C:][:Z:]\u200B]")
                     .addAll(getNamedEscapes())
                     .removeAll(EMOJI_INVISIBLES)
                     .freeze();

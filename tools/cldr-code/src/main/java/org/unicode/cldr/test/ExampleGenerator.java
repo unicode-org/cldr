@@ -2,6 +2,7 @@ package org.unicode.cldr.test;
 
 import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.impl.number.DecimalQuantity;
@@ -54,6 +55,7 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.ExemplarType;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
+import org.unicode.cldr.util.CLDRFileOverride;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CodePointEscaper;
@@ -84,6 +86,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.UnitConverter;
+import org.unicode.cldr.util.UnitConverter.UnitId;
 import org.unicode.cldr.util.UnitConverter.UnitSystem;
 import org.unicode.cldr.util.Units;
 import org.unicode.cldr.util.XListFormatter.ListTypeLength;
@@ -289,7 +292,7 @@ public class ExampleGenerator {
      * to extract this data directly from supplementaldata.xml
      */
     public static final Map<String, List<Date>> CALENDAR_ERAS =
-            new HashMap<String, List<Date>>() {
+            new HashMap<>() {
                 { // month 0-indexed. start/end days adjusted by +/- 2, respectively
                     put(
                             "gregorian",
@@ -331,7 +334,7 @@ public class ExampleGenerator {
 
     // map relativeTimePattern counts to numeric examples
     public static final Map<String, String> COUNTS =
-            new HashMap<String, String>() {
+            new HashMap<>() {
                 {
                     put("zero", "0");
                     put("one", "1");
@@ -403,6 +406,16 @@ public class ExampleGenerator {
      */
     public void setVerboseErrors(boolean verbosity) {
         this.verboseErrors = verbosity;
+    }
+
+    /**
+     * Create an Example Generator. If this is shared across threads, it must be synchronized.
+     *
+     * @param resolvedCldrFile
+     * @param englishFile
+     */
+    public ExampleGenerator(CLDRFile resolvedCldrFile) {
+        this(resolvedCldrFile, CLDRConfig.getInstance().getEnglish());
     }
 
     /**
@@ -1362,8 +1375,33 @@ public class ExampleGenerator {
         if (parts.getElement(-1).equals("unitPattern")) {
             String count = parts.getAttributeValue(-1, "count");
             DecimalQuantity amount = getBest(Count.valueOf(count));
+
             if (amount != null) {
-                addFormattedUnits(examples, parts, unitPattern, shortUnitId, amount);
+                if (shortUnitId.equals("light-speed")) {
+                    Map<String, String> overrideMap =
+                            ImmutableMap.of(parts.toString(), unitPattern);
+                    // add examples showing usage
+                    examples.add("Used as a fallback in the following:");
+                    CLDRFileOverride cldrFileOverride = new CLDRFileOverride(cldrFile, overrideMap);
+                    addFormattedUnitsConstructed(
+                            cldrFileOverride, examples, parts, "light-speed-second", amount);
+                    addFormattedUnitsConstructed(
+                            cldrFileOverride, examples, parts, "light-speed-minute", amount);
+                    addFormattedUnitsConstructed(
+                            cldrFileOverride, examples, parts, "light-speed-hour", amount);
+                    addFormattedUnitsConstructed(
+                            cldrFileOverride, examples, parts, "light-speed-day", amount);
+                    addFormattedUnitsConstructed(
+                            cldrFileOverride, examples, parts, "light-speed-week", amount);
+                    addFormattedUnitsConstructed(
+                            cldrFileOverride, examples, parts, "light-speed-month", amount);
+                    examples.add("Compare with:");
+                    addFormattedUnitsConstructed(
+                            cldrFileOverride, examples, parts, "light-year", amount);
+                    return;
+                } else {
+                    addFormattedUnits(examples, parts, unitPattern, shortUnitId, amount);
+                }
             }
         }
         // add related units
@@ -1404,6 +1442,25 @@ public class ExampleGenerator {
         }
     }
 
+    private void addFormattedUnitsConstructed(
+            CLDRFile file,
+            List<String> examples,
+            XPathParts parts,
+            String shortUnitId,
+            DecimalQuantity amount) {
+        UnitId unitId = UNIT_CONVERTER.createUnitId(shortUnitId);
+        // ldml/units/unitLength[@type=\"long\"]/unit[@type=\"speed-light-speed\"]/unitPattern[@count=\"one\"]
+        String pattern =
+                unitId.toString(
+                        file,
+                        parts.getAttributeValue(2, "type"),
+                        parts.getAttributeValue(-1, "count"),
+                        null,
+                        null,
+                        true);
+        addSimpleFormattedUnits(examples, pattern, amount);
+    }
+
     /**
      * Handles paths like:<br>
      * //ldml/units/unitLength[@type="long"]/unit[@type="volume-fluid-ounce-imperial"]/unitPattern[@count="other"]
@@ -1418,12 +1475,7 @@ public class ExampleGenerator {
          * PluralRules.FixedDecimal is deprecated, but deprecated in ICU is
          * also used to mark internal methods (which are OK for us to use in CLDR).
          */
-        DecimalFormat numberFormat;
-        String formattedAmount;
-        numberFormat = icuServiceBuilder.getNumberFormat(1);
-        formattedAmount = numberFormat.format(amount.toBigDecimal());
-        examples.add(
-                format(unitPattern, backgroundStartSymbol + formattedAmount + backgroundEndSymbol));
+        String formattedAmount = addSimpleFormattedUnits(examples, unitPattern, amount);
 
         if (parts.getElement(-2).equals("unit")) {
             if (unitPattern != null) {
@@ -1487,6 +1539,18 @@ public class ExampleGenerator {
                 }
             }
         }
+    }
+
+    private String addSimpleFormattedUnits(
+            List<String> examples, String unitPattern, DecimalQuantity amount) {
+        DecimalFormat numberFormat;
+        String formattedAmount;
+        numberFormat = icuServiceBuilder.getNumberFormat(1);
+        formattedAmount = numberFormat.format(amount.toBigDecimal());
+
+        examples.add(
+                format(unitPattern, backgroundStartSymbol + formattedAmount + backgroundEndSymbol));
+        return formattedAmount;
     }
 
     private String getConstrastingCase(
@@ -2677,8 +2741,7 @@ public class ExampleGenerator {
                     DayPeriodInfo dayPeriodInfo =
                             supplementalDataInfo.getDayPeriods(
                                     DayPeriodInfo.Type.format, cldrFile.getLocaleID());
-                    Set<DayPeriod> dayPeriods =
-                            new LinkedHashSet<DayPeriod>(dayPeriodInfo.getPeriods());
+                    Set<DayPeriod> dayPeriods = new LinkedHashSet<>(dayPeriodInfo.getPeriods());
                     for (DayPeriod dayPeriod : dayPeriods) {
                         if (dayPeriod.equals(
                                 DayPeriod.midnight)) { // suppress midnight, see ICU-12278 bug

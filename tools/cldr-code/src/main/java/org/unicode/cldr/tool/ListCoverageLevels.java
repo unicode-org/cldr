@@ -1,5 +1,16 @@
 package org.unicode.cldr.tool;
 
+import com.google.common.base.Joiner;
+import com.google.common.collect.Comparators;
+import com.google.common.collect.ComparisonChain;
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.ImmutableSortedSet;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.Multiset;
+import com.google.common.collect.TreeMultimap;
+import com.google.common.collect.TreeMultiset;
+import com.ibm.icu.util.Output;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
@@ -14,7 +25,6 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.function.Function;
-
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -34,23 +44,15 @@ import org.unicode.cldr.util.UnitConverter;
 import org.unicode.cldr.util.UnitConverter.TargetInfo;
 import org.unicode.cldr.util.XPathParts;
 
-import com.google.common.base.Joiner;
-import com.google.common.collect.Comparators;
-import com.google.common.collect.ComparisonChain;
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.ImmutableSortedSet;
-import com.google.common.collect.Multimap;
-import com.google.common.collect.Multiset;
-import com.google.common.collect.TreeMultimap;
-import com.google.common.collect.TreeMultiset;
-import com.ibm.icu.util.Output;
-
 public class ListCoverageLevels {
 
     static final Joiner JOIN_TAB = Joiner.on('\t').useForNull("null");
 
-    enum Locales {all, modern_cldr, specific}
+    enum Locales {
+        all,
+        modern_cldr,
+        specific
+    }
 
     public static void main(String[] args) {
         CLDRConfig config = CLDRConfig.getInstance();
@@ -65,16 +67,19 @@ public class ListCoverageLevels {
 
         Set<String> toTest;
         switch (localesToTest) {
-        default: toTest = mainAndAnnotationsFactory.getAvailable();
-            break;
-        case modern_cldr: toTest = sc.getLocaleCoverageLocales(Organization.cldr, EnumSet.of(Level.MODERN));
-            break;
-        case specific: toTest = ImmutableSortedSet.of("it", "en", "ja");
-            break;
+            default:
+                toTest = mainAndAnnotationsFactory.getAvailable();
+                break;
+            case modern_cldr:
+                toTest = sc.getLocaleCoverageLocales(Organization.cldr, EnumSet.of(Level.MODERN));
+                break;
+            case specific:
+                toTest = ImmutableSortedSet.of("it", "en", "ja");
+                break;
         }
 
-       UnitConverter unitConverter = sdi.getUnitConverter();
-    Map<String, TargetInfo> conversionData = unitConverter.getInternalConversionData();
+        UnitConverter unitConverter = sdi.getUnitConverter();
+        Map<String, TargetInfo> conversionData = unitConverter.getInternalConversionData();
         Set<String> shortUnits = new TreeSet<>(conversionData.keySet());
 
         // mainAndAnnotationsFactory.getAvailable();
@@ -99,7 +104,8 @@ public class ListCoverageLevels {
                 Level level = coverageLeveler.getLevel(path);
                 String skeleton = starrer.set(path);
                 levelToCounter.get(level).add(skeleton);
-                if (path.startsWith("//ldml/units/unitLength") && !path.contains("coordinateUnit")) {
+                if (path.startsWith("//ldml/units/unitLength")
+                        && !path.contains("coordinateUnit")) {
                     XPathParts parts = XPathParts.getFrozenInstance(path);
                     String unit = unitConverter.getShortId(parts.getAttributeValue(3, "type"));
                     unitLevelToCounter.get(level).add(unit);
@@ -119,9 +125,16 @@ public class ListCoverageLevels {
         }
 
         System.out.println("\nUnits\n");
-        System.out.println(JOIN_TAB.join(
-            "level", "count", "longId", "unitId", "quantity", "base unit", "factor", "systems"));
-
+        System.out.println(
+                JOIN_TAB.join(
+                        "level",
+                        "count",
+                        "longId",
+                        "unitId",
+                        "quantity",
+                        "base unit",
+                        "factor",
+                        "systems"));
 
         for (Entry<Level, Multiset<String>> entry : unitLevelToCounter.entrySet()) {
             Level level = entry.getKey();
@@ -138,7 +151,7 @@ public class ListCoverageLevels {
 
         System.out.println("\nDetails\n");
 
-//        if (true) return;
+        //        if (true) return;
 
         M4<Level, String, Attributes, Boolean> data =
                 ChainedMap.of(
@@ -256,18 +269,30 @@ public class ListCoverageLevels {
         } catch (Exception e) {
         }
         String longId = unitConverter.getLongId(unit);
-        String prefix = longId == null || !longId.contains("-") ? null :longId.substring(0, longId.indexOf('-'));
+        String prefix =
+                longId == null || !longId.contains("-")
+                        ? null
+                        : longId.substring(0, longId.indexOf('-'));
 
         Output<String> baseUnitOut = new Output<>();
         UnitConverter.ConversionInfo conversionInfo = null;
         try {
-            conversionInfo = unitConverter.parseUnitId(unit, baseUnitOut , false);
-        } catch (Exception e) {}
+            conversionInfo = unitConverter.parseUnitId(unit, baseUnitOut, false);
+        } catch (Exception e) {
+        }
 
         double factor = conversionInfo == null ? Double.NaN : conversionInfo.factor.doubleValue();
 
-        System.out.println(JOIN_TAB.join(
-                level, count, longId, unit, unitConverter.getQuantityFromUnit(unit, false), baseUnitOut, factor, systems.toString()));
+        System.out.println(
+                JOIN_TAB.join(
+                        level,
+                        count,
+                        longId,
+                        unit,
+                        unitConverter.getQuantityFromUnit(unit, false),
+                        baseUnitOut,
+                        factor,
+                        systems.toString()));
     }
 
     private static String getLocaleName(Set<CLDRLocale> all, Set<CLDRLocale> locales) {

@@ -153,8 +153,7 @@ public class TestCLDRFile {
             /*final String value = */ file.getStringValue(xpath);
         }
 
-        for (Iterator<String> i = file.iterator(); i.hasNext(); ) {
-            final String xpath = i.next();
+        for (String xpath : file) {
             assertNotNull(xpath, subdir + ":" + id + " xpath");
             /*final String value = */ file.getStringValue(xpath);
         }

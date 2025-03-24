@@ -512,8 +512,7 @@ public class CLDRTest extends TestFmwk {
             }
             collisions.clear();
 
-            for (Iterator<String> it2 = item.iterator(); it2.hasNext(); ) {
-                String xpath = it2.next();
+            for (String xpath : item) {
                 NameType nameType = NameType.fromPath(xpath);
                 if (nameType == NameType.NONE) continue;
                 String value = item.getStringValue(xpath);
@@ -550,8 +549,7 @@ public class CLDRTest extends TestFmwk {
      */
     public static void checkAttributeValidity(
             CLDRFile item, Map<String, Set<String>> badCodes, Set<String> xpathFailures) {
-        for (Iterator<String> it2 = item.iterator(); it2.hasNext(); ) {
-            String xpath = it2.next();
+        for (String xpath : item) {
             XPathParts parts = XPathParts.getFrozenInstance(item.getFullXPath(xpath));
             for (int i = 0; i < parts.size(); ++i) {
                 if (parts.getAttributeCount(i) == 0) {
@@ -761,8 +759,7 @@ public class CLDRTest extends TestFmwk {
         boolean SHOW = false;
         Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
         CLDRFile supp = cldrFactory.make(CLDRFile.SUPPLEMENTAL_NAME, false);
-        for (Iterator<String> it = supp.iterator(); it.hasNext(); ) {
-            String path = it.next();
+        for (String path : supp) {
             try {
                 XPathParts parts = XPathParts.getFrozenInstance(supp.getFullXPath(path));
                 Map<String, String> m;
@@ -1359,8 +1356,7 @@ public class CLDRTest extends TestFmwk {
             // Walk through all the xpaths, adding to currentValues
             // Whenever two values for the same xpath are different, we remove from currentValues,
             // and add to okValues
-            for (Iterator<String> it2 = item.iterator(); it2.hasNext(); ) {
-                String xpath = it2.next();
+            for (String xpath : item) {
                 if (xpath.indexOf("[@type=\"narrow\"]") >= 0) {
                     String value = item.getStringValue(xpath);
                     // logln("\tTesting: " + value + "\t path: " + xpath);

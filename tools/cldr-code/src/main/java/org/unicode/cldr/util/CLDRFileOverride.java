@@ -13,20 +13,22 @@ public class CLDRFileOverride extends CLDRFile {
      * XMLSource source
      */
     public CLDRFileOverride(CLDRFile sourceFile, Map<String, String> valueOverrides) {
-        super(new DelegateXMLSource(sourceFile.dataSource, valueOverrides));
+        super(new XMLSourceMapOverride(sourceFile.dataSource, valueOverrides));
     }
 
     /**
-     * Overrides the values of the source. The keys of the overrides must already be in the
-     * XMLSource source
+     * Overrides the values of the source. <br>
+     * The keys of the overrides must already be in the XMLSource source as DPaths. And the full
+     * paths cannot be changed <br>
+     * Note: this is similar to the top-level DelegateXMLSource in the apps directory, but not the
+     * same, since it provides for the map.
      */
-    public static class DelegateXMLSource extends XMLSource {
-        /** May be mutated by subclass. */
-        protected XMLSource delegate;
+    public static class XMLSourceMapOverride extends XMLSource {
+        private XMLSource delegate;
 
-        protected Map<String, String> overrides;
+        private Map<String, String> overrides;
 
-        public DelegateXMLSource(XMLSource source, Map<String, String> overrides) {
+        public XMLSourceMapOverride(XMLSource source, Map<String, String> overrides) {
             overrides.keySet().stream()
                     .forEach(
                             x -> {
@@ -147,7 +149,11 @@ public class CLDRFileOverride extends CLDRFile {
 
         @Override
         public void getPathsWithValue(String valueToMatch, String pathPrefix, Set<String> result) {
-            delegate.getPathsWithValue(valueToMatch, pathPrefix, result);
+            throw new UnsupportedOperationException("support later when needed");
+            // TODO (if needed)
+            // call delegate.getPathsWithValue(valueToMatch, pathPrefix, result);
+            // remove the items that collide with the map
+            // then look through the map to see if any matches there need to be added
         }
 
         @Override

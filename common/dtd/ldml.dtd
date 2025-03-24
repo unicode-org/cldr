@@ -1972,7 +1972,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 
 <!-- ######################################################### -->
 
-<!ELEMENT numbers ( alias | ( defaultNumberingSystem*, otherNumberingSystems*, minimumGroupingDigits*, symbols*, decimalFormats*, scientificFormats*, percentFormats*, currencyFormats*, currencies?, miscPatterns*, minimalPairs*, special* ) ) >
+<!ELEMENT numbers ( alias | ( defaultNumberingSystem*, otherNumberingSystems*, minimumGroupingDigits*, symbols*, decimalFormats*, rationalFormats*, scientificFormats*, percentFormats*, currencyFormats*, currencies?, miscPatterns*, minimalPairs*, special* ) ) >
 <!ATTLIST numbers alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/variant-->
 <!ATTLIST numbers draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
@@ -2275,6 +2275,29 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!ATTLIST decimalFormat validSubLocales CDATA #IMPLIED >
     <!--@VALUE-->
     <!--@DEPRECATED-->
+
+<!ELEMENT rationalFormats ( alias | ( rationalPattern*,  integerAndRationalPattern*, rationalUsage*, special* ) ) >
+<!ATTLIST rationalFormats numberSystem CDATA #IMPLIED >
+    <!--@MATCH:bcp47/nu-->
+
+<!ELEMENT rationalPattern ( #PCDATA ) >
+<!ATTLIST rationalPattern alt NMTOKENS #IMPLIED >
+    <!--@MATCH:literal/variant-->
+<!ATTLIST rationalPattern draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+    <!--@METADATA-->
+    
+<!ELEMENT integerAndRationalPattern ( #PCDATA ) >
+<!ATTLIST integerAndRationalPattern alt NMTOKENS #IMPLIED >
+    <!--@MATCH:literal/superSub-->
+<!ATTLIST integerAndRationalPattern draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+    <!--@METADATA-->
+    
+<!ELEMENT rationalUsage ( #PCDATA ) >
+<!ATTLIST rationalUsage alt NMTOKENS #IMPLIED >
+    <!--@MATCH:literal/variant-->
+<!ATTLIST rationalUsage draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+    <!--@METADATA-->
+
 
 <!ELEMENT scientificFormats ( alias | ( default*, scientificFormatLength*, special* ) ) >
 <!ATTLIST scientificFormats draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >

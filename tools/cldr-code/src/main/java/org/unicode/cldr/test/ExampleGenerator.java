@@ -70,6 +70,7 @@ import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.NameGetter;
 import org.unicode.cldr.util.NameType;
+import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathDescription;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.PluralSamples;
@@ -101,6 +102,7 @@ import org.unicode.cldr.util.personname.SimpleNameObject;
  * @author markdavis
  */
 public class ExampleGenerator {
+    private static final String FSLASH = "\u2044";
     private static final String INTERNAL = "internal: ";
     private static final String SUBTRACTS = "➖";
     private static final String ADDS = "➕";
@@ -141,6 +143,8 @@ public class ExampleGenerator {
     private static final String endItalic = "</i>";
     private static final String startSup = "<sup>";
     private static final String endSup = "</sup>";
+    private static final String startSub = "<sub>";
+    private static final String endSub = "</sub>";
     private static final String backgroundAutoStart = "<span class='cldr_background_auto'>";
     private static final String backgroundAutoEnd = "</span>";
     private String backgroundStart = "<span class='cldr_substituted'>"; // overrideable
@@ -160,6 +164,8 @@ public class ExampleGenerator {
     private static final String exampleStartRTLSymbol = "\uE23F";
     private static final String exampleStartHeaderSymbol = "\uE240";
     private static final String exampleEndSymbol = "\uE241";
+    private static final String startSubSymbol = "\uE242";
+    private static final String endSubSymbol = "\uE243";
 
     private static final String contextheader =
             "Key: " + backgroundAutoStartSymbol + "neutral" + backgroundAutoEndSymbol + ", RTL";
@@ -289,7 +295,7 @@ public class ExampleGenerator {
      * to extract this data directly from supplementaldata.xml
      */
     public static final Map<String, List<Date>> CALENDAR_ERAS =
-            new HashMap<String, List<Date>>() {
+            new HashMap<>() {
                 { // month 0-indexed. start/end days adjusted by +/- 2, respectively
                     put(
                             "gregorian",
@@ -331,7 +337,7 @@ public class ExampleGenerator {
 
     // map relativeTimePattern counts to numeric examples
     public static final Map<String, String> COUNTS =
-            new HashMap<String, String>() {
+            new HashMap<>() {
                 {
                     put("zero", "0");
                     put("one", "1");
@@ -572,10 +578,12 @@ public class ExampleGenerator {
             } else if (parts.contains("numbers")) {
                 if (parts.contains("currencyFormat")) {
                     handleCurrencyFormat(parts, value, showContexts, examples);
-                } else {
+                } else if (!parts.contains("rationalFormats")) {
                     handleDecimalFormat(parts, value, showContexts, examples);
                 }
             }
+        } else if (parts.contains("rationalFormats")) {
+            handleRationalFormat(parts, value, showContexts, examples);
         } else if (parts.contains("minimumGroupingDigits")) {
             handleMinimumGrouping(parts, value, examples);
         } else if (parts.getElement(2).contains("symbols")) {
@@ -2677,8 +2685,7 @@ public class ExampleGenerator {
                     DayPeriodInfo dayPeriodInfo =
                             supplementalDataInfo.getDayPeriods(
                                     DayPeriodInfo.Type.format, cldrFile.getLocaleID());
-                    Set<DayPeriod> dayPeriods =
-                            new LinkedHashSet<DayPeriod>(dayPeriodInfo.getPeriods());
+                    Set<DayPeriod> dayPeriods = new LinkedHashSet<>(dayPeriodInfo.getPeriods());
                     for (DayPeriod dayPeriod : dayPeriods) {
                         if (dayPeriod.equals(
                                 DayPeriod.midnight)) { // suppress midnight, see ICU-12278 bug
@@ -2842,6 +2849,98 @@ public class ExampleGenerator {
         // have positive and negative
         example = addExampleResult(formatNumber(numberFormat, -sampleNum2), example, showContexts);
         examples.add(example);
+    }
+
+    /**
+     * Creates examples for decimal formats.
+     *
+     * @param value
+     * @return
+     */
+    private void handleRationalFormat(
+            XPathParts parts, String value, boolean showContexts, List<String> examples) {
+        String numberSystem = parts.getAttributeValue(2, "numberSystem"); // null if not present
+        boolean isLatin = numberSystem == null || numberSystem.equals("latn");
+        DecimalFormat numberFormat =
+                isLatin ? null : icuServiceBuilder.getNumberFormat("0", numberSystem);
+
+        String element = parts.getElement(-1);
+        String num;
+        String den;
+
+        switch (element) {
+            case "rationalPattern":
+                List<Pair<String, String>> fractionPairs = new ArrayList<>();
+                Pair<String, String> extraPair = null;
+                if (isLatin) {
+                    num = "1";
+                    den = "2";
+                    extraPair = Pair.of("¹", "₂");
+                } else {
+                    num = numberFormat.format(1);
+                    den = numberFormat.format(2);
+                }
+                fractionPairs.add(Pair.of(num, den));
+                fractionPairs.add(
+                        Pair.of(
+                                startSupSymbol + num + endSupSymbol,
+                                startSubSymbol + den + endSubSymbol));
+                if (extraPair != null) {
+                    fractionPairs.add(extraPair);
+                }
+                for (Pair<String, String> pair : fractionPairs) {
+                    examples.add(
+                            value.replace("{0}", setBackground(pair.getFirst()))
+                                    .replace("{1}", setBackground(pair.getSecond())));
+                }
+                break;
+            case "integerAndRationalPattern":
+                boolean superSub =
+                        "superSub"
+                                .equals(parts.getAttributeValue(-1, "alt")); // null if not present
+                // get rationalPattern
+                XPathParts parts2 =
+                        parts.cloneAsThawed()
+                                .setElement(-1, "rationalPattern")
+                                .setAttribute(-1, "alt", null);
+                String rationalPart = cldrFile.getStringValue(parts2.toString());
+                Set<String> fractions = new LinkedHashSet<>();
+                String base;
+                String extra = null;
+                if (isLatin) {
+                    base = "3";
+                    num = "1";
+                    den = "2";
+                    extra = "½";
+                } else {
+                    base = numberFormat.format(3);
+                    num = numberFormat.format(1);
+                    den = numberFormat.format(2);
+                }
+                if (!superSub) {
+                    fractions.add(rationalPart.replace("{0}", num).replace("{1}", den));
+                }
+                if (extra != null) {
+                    fractions.add(extra);
+                }
+                fractions.add(
+                        startSupSymbol
+                                + num
+                                + endSupSymbol
+                                + FSLASH
+                                + startSubSymbol
+                                + den
+                                + endSubSymbol);
+
+                for (String r : fractions) {
+                    examples.add(
+                            value.replace("{0}", setBackground(base))
+                                    .replace("{1}", setBackground(r)));
+                }
+                break;
+            case "rationalUsage":
+                return;
+        }
     }
 
     private String formatCountDecimal(DecimalFormat numberFormat, String countValue) {
@@ -3385,7 +3484,9 @@ public class ExampleGenerator {
                         .replace(startItalicSymbol, startItalic)
                         .replace(endItalicSymbol, endItalic)
                         .replace(startSupSymbol, startSup)
-                        .replace(endSupSymbol, endSup);
+                        .replace(endSupSymbol, endSup)
+                        .replace(startSubSymbol, startSub)
+                        .replace(endSubSymbol, endSub);
         // If we are not showing context, we use exampleSeparatorSymbol between examples,
         // and then need to add the initial exampleStart and final exampleEnd.
         return (input.contains(exampleStartAutoSymbol))

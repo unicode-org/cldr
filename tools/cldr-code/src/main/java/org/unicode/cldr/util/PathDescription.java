@@ -13,6 +13,7 @@ import java.util.TreeSet;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.unicode.cldr.util.RegexLookup.Finder;
 
 public class PathDescription {
     /** Remember to quote any [ character! */
@@ -258,7 +259,7 @@ public class PathDescription {
                     + ".\n"
 
                     /*
-                     * Warning: the longer match must come first
+                     * Warning: the longer match and more specific match must come first!
                      */
                     + "^//ldml/units/unitLength\\[@type=\"([^\"]*)\"]/compoundUnit\\[@type=\"([^\"]*)\"]/compoundUnitPattern1"
                     + RegexLookup.SEPARATOR
@@ -510,10 +511,45 @@ public class PathDescription {
                     + "Sample names for person name format examples (enter ∅∅∅ for optional unused fields). For more information, please see "
                     + CLDRURLS.PERSON_NAME_FORMATS
                     + ".\n"
-                    + "^//ldml/numbers/([a-z]*)Formats(\\[@numberSystem=\"([^\"]*)\"])?/\\1FormatLength/\\1Format\\[@type=\"standard\"]/pattern\\[@type=\"standard\"]$"
+                    + "^//ldml/numbers/rationalFormats/rationalPattern"
                     + RegexLookup.SEPARATOR
-                    + "Special pattern used to compose {1} numbers. Note: before translating, be sure to read "
-                    + CLDRURLS.NUMBER_PATTERNS
+                    + "A pattern that is used to format a rational fraction (eg, ½), using the numerator and denominator"
+                    + CLDRURLS.NUMBERS_HELP
+                    + ".\n"
+                    + "^//ldml/numbers/rationalFormats/integerAndRationalPattern\\[@alt=\"([^\"]*)\"]"
+                    + RegexLookup.SEPARATOR
+                    + "A pattern that is used to “glue” an integer and a formatted rational fraction (eg, ½) together; only used when the rational fraction does not start with an un-superscripted digit"
+                    + CLDRURLS.NUMBERS_HELP
+                    + ".\n"
+                    + "^//ldml/numbers/rationalFormats/integerAndRationalPattern"
+                    + RegexLookup.SEPARATOR
+                    + "A pattern that is used to “glue” an integer and a formatted rational fraction (eg, ½) together"
+                    + CLDRURLS.NUMBERS_HELP
+                    + ".\n"
+                    + "^//ldml/numbers/rationalFormats/rationalUsage"
+                    + RegexLookup.SEPARATOR
+                    + "A value that is used to indicate the usage of rational fractions (eg, ½) in your language; only pick “unused” if it never occurs, even with text translated or transliterated from another language"
+                    + CLDRURLS.NUMBERS_HELP
+                    + ".\n"
+                    + "^//ldml/numbers/rationalFormats\\[@numberSystem=\"([^\"]*)\"]/rationalPattern"
+                    + RegexLookup.SEPARATOR
+                    + "A pattern that is used to format a rational fraction (eg, ½), using the numerator and denominator"
+                    + CLDRURLS.NUMBERS_HELP
+                    + ".\n"
+                    + "^//ldml/numbers/rationalFormats\\[@numberSystem=\"([^\"]*)\"]/integerAndRationalPattern\\[@alt=\"([^\"]*)\"]"
+                    + RegexLookup.SEPARATOR
+                    + "A pattern that is used to “glue” an integer and a formatted rational fraction (eg, ½) together; only used when the rational fraction does not start with an un-superscripted digit"
+                    + CLDRURLS.NUMBERS_HELP
+                    + ".\n"
+                    + "^//ldml/numbers/rationalFormats\\[@numberSystem=\"([^\"]*)\"]/integerAndRationalPattern"
+                    + RegexLookup.SEPARATOR
+                    + "A pattern that is used to “glue” an integer and a formatted rational fraction (eg, ½) together"
+                    + CLDRURLS.NUMBERS_HELP
+                    + ".\n"
+                    + "^//ldml/numbers/rationalFormats\\[@numberSystem=\"([^\"]*)\"]/rationalUsage"
+                    + RegexLookup.SEPARATOR
+                    + "A value that is used to indicate the usage of rational fractions (eg, ½) in your language; only pick “unused” if it never occurs, even with text translated or transliterated from another language"
+                    + CLDRURLS.NUMBERS_HELP
                     + ".\n"
                     + "^//ldml/numbers/currencyFormats\\[@numberSystem=\"([^\"]*)\"]/currencyFormatLength/currencyFormat\\[@type=\"standard\"]/pattern\\[@type=\"standard\"]\\[@alt=\"alphaNextToNumber\"]"
                     + RegexLookup.SEPARATOR
@@ -533,6 +569,15 @@ public class PathDescription {
                     + "^//ldml/numbers/currencyFormats/currencySpacing/([a-zA-Z]*)/([a-zA-Z]*)"
                     + RegexLookup.SEPARATOR
                     + "Special pattern used to compose currency signs ($1/$2) with numbers. Note: before translating, be sure to read "
+                    + CLDRURLS.NUMBER_PATTERNS
+                    + ".\n"
+
+                    // the following matches remaining number formats. It must go AFTER specific
+                    // ones.
+
+                    + "^//ldml/numbers/([a-z]*)Formats(\\[@numberSystem=\"([^\"]*)\"])?/\\1FormatLength/\\1Format\\[@type=\"standard\"]/pattern\\[@type=\"standard\"]$"
+                    + RegexLookup.SEPARATOR
+                    + "Special pattern used to compose {1} numbers. Note: before translating, be sure to read "
                     + CLDRURLS.NUMBER_PATTERNS
                     + ".\n"
                     + "^//ldml/listPatterns/listPattern/listPatternPart\\[@type=\"2\"]"
@@ -912,6 +957,12 @@ public class PathDescription {
     public String getRawDescription(String path, Object context) {
         status.clear();
         return pathHandling.get(path, context, pathArguments);
+    }
+
+    public String getRawDescription(
+            String path, Object context, Output<Finder> matcherFound, Set<String> failures) {
+        status.clear();
+        return pathHandling.get(path, context, pathArguments, matcherFound, failures);
     }
 
     public String getDescription(String path, String value, Object context) {

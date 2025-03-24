@@ -71,12 +71,12 @@ public class UnitConverter implements Freezable<UnitConverter> {
     public static final Set<String> HACK_SKIP_UNIT_NAMES =
             ImmutableSet.of(
                     // skip dot because pixel is preferred
-                    "dot-per-centimeter",
-                    "dot-per-inch",
+                    "dot-per-centimeter", "dot-per-inch"
                     // skip because a component is not translated
-                    "liter-per-100-kilometer",
-                    "millimeter-ofhg",
-                    "inch-ofhg");
+                    //                    "liter-per-100-kilometer",
+                    //                    "millimeter-ofhg",
+                    //                    "inch-ofhg"
+                    );
 
     final RationalParser rationalParser;
     final Function<String, UnitIdComponentType> componentTypeData;

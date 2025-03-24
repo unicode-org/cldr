@@ -2,7 +2,6 @@ package org.unicode.cldr.tool;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
@@ -42,8 +41,7 @@ public class DiffWithParent {
                     CLDRFile parent = cldrFactory.make(parentLocale, true); // use
                     // resolved
                     // parent
-                    for (Iterator<String> it = file.iterator(); it.hasNext(); ) {
-                        String path = it.next();
+                    for (String path : file) {
                         String value = file.getStringValue(path);
                         String fullPath = file.getFullXPath(path);
                         String pvalue = parent.getStringValue(path);

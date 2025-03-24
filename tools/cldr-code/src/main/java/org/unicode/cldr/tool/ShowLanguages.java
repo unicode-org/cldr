@@ -832,8 +832,7 @@ public class ShowLanguages {
 
         public LanguageInfo(Factory cldrFactory) throws IOException {
             CLDRFile supp = cldrFactory.make(CLDRFile.SUPPLEMENTAL_NAME, false);
-            for (Iterator<String> it = supp.iterator(); it.hasNext(); ) {
-                String path = it.next();
+            for (String path : supp) {
                 String fullPath = supp.getFullXPath(path);
                 if (fullPath == null) {
                     supp.getFullXPath(path);

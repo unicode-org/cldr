@@ -17,7 +17,7 @@ import * as cldrVue from "./esm/cldrVue.mjs";
 import * as cldrMonitoring from "./esm/cldrMonitoring.mjs";
 
 // fonts (see surveytool.css)
-import "@fontsource/noto-serif-np-hmong"; 
+import "@fontsource/noto-serif-np-hmong";
 import "glyphicons-only-bootstrap/css/bootstrap.min.css";
 
 // kick off the top level monitoring

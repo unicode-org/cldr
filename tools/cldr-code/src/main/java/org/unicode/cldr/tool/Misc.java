@@ -1128,16 +1128,14 @@ public class Misc {
         CLDRFile english = cldrFactory.make("en", true);
         Collator col = Collator.getInstance(new ULocale(locale));
         CLDRFile supp = cldrFactory.make(CLDRFile.SUPPLEMENTAL_NAME, false);
-        for (Iterator<String> it = supp.iterator(); it.hasNext(); ) {
-            String path = it.next();
+        for (String path : supp) {
             XPathParts parts = XPathParts.getFrozenInstance(supp.getFullXPath(path));
             Map<String, String> m = parts.findAttributes("language");
         }
 
         // territories
         Map<String, Collection<String>> groups = new TreeMap<>();
-        for (Iterator<String> it = supp.iterator(); it.hasNext(); ) {
-            String path = it.next();
+        for (String path : supp) {
             XPathParts parts = XPathParts.getFrozenInstance(supp.getFullXPath(path));
             Map<String, String> m = parts.findAttributes("territoryContainment");
             if (m == null) continue;

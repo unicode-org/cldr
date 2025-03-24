@@ -209,6 +209,7 @@ public class TestExampleGenerator extends TestFmwk {
                     "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/eras/eraNarrow/era[@type=\"([^\"]*+)\"][@alt=\"([^\"]*+)\"]",
                     "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/months/monthContext[@type=\"([^\"]*+)\"]/monthWidth[@type=\"([^\"]*+)\"]/month[@type=\"([^\"]*+)\"][@yeartype=\"([^\"]*+)\"]",
                     "//ldml/dates/timeZoneNames/gmtZeroFormat",
+                    "//ldml/dates/timeZoneNames/gmtUnknownFormat",
                     "//ldml/numbers/minimumGroupingDigits",
                     "//ldml/numbers/symbols/timeSeparator",
                     "//ldml/numbers/symbols[@numberSystem=\"([^\"]*+)\"]/timeSeparator",
@@ -930,7 +931,9 @@ public class TestExampleGenerator extends TestFmwk {
             String value = cldrFile.getStringValue(xpath);
             String actual = exampleGenerator.getExampleHtml(xpath, value);
             if (actual == null) {
-                if (!xpath.contains("singleCountries") && !xpath.contains("gmtZeroFormat")) {
+                if (!xpath.contains("singleCountries")
+                        && !xpath.contains("gmtZeroFormat")
+                        && !xpath.contains("gmtUnknownFormat")) {
                     errln("Null value for " + value + "\t" + xpath);
                     // for debugging
                     exampleGenerator.getExampleHtml(xpath, value);
@@ -2075,6 +2078,7 @@ public class TestExampleGenerator extends TestFmwk {
                 "//ldml/characters/moreInformation"
                         + "//ldml/dates/fields/field[@type=\"*\"]/relative[@type=\"*\"]"
                         + "//ldml/dates/timeZoneNames/gmtZeroFormat"
+                        + "//ldml/dates/timeZoneNames/gmtUnknownFormat"
                         + "//ldml/dates/timeZoneNames/metazone[@type=\"*\"]/short/standard"
                         + "//ldml/numbers/symbols[@numberSystem=\"*\"]/infinity"
                         + "//ldml/numbers/symbols[@numberSystem=\"*\"]/nan"

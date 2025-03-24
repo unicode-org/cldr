@@ -4593,12 +4593,47 @@ public class TestUnits extends TestFmwkPlus {
                 "en Modern",
                 validShortNoAliases,
                 Sets.difference(enModern, aliasedShortUnits.keySet()));
+        final Set<String> enOrJaOnly =
+                Set.of(
+                        "bu-jp",
+                        "cho",
+                        "se-jp",
+                        "fortnight",
+                        "british-thermal-unit",
+                        "british-thermal-unit-it",
+                        "chain",
+                        "fathom",
+                        "furlong",
+                        "jo-jp",
+                        "ken",
+                        "ri-jp",
+                        "rin",
+                        "rod",
+                        "shaku-cloth",
+                        "shaku-length",
+                        "sun",
+                        "fun",
+                        "slug",
+                        "stone",
+                        "gasoline-energy-density",
+                        "rankine",
+                        "bushel",
+                        "cup-imperial",
+                        "cup-jp",
+                        // "fluid-ounce-metric",
+                        "koku",
+                        "kosaji",
+                        "osaji",
+                        "pint-imperial",
+                        "sai",
+                        "shaku",
+                        "to-jp");
         Multimap<Level, String> deCoverage = getCoverage("de", longUnit);
         Set<String> deModern = (Set<String>) deCoverage.get(Level.MODERN);
         assertSameCollections(
                 "VALID_REGULAR_UNITS",
                 "de Modern",
-                validShortNoAliases,
+                Sets.difference(validShortNoAliases, enOrJaOnly),
                 Sets.difference(deModern, aliasedShortUnits.keySet()));
 
         if (SHOW_UNITS) {

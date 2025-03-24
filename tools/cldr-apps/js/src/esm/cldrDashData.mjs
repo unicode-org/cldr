@@ -244,19 +244,20 @@ class DashEntry {
   }
 }
 
-let fetchErr = "";
-
 let viewSetDataCallback = null;
 
+/**
+ * @param {Function} callback called with results of data load
+ * @returns
+ */
 function doFetch(callback, opts) {
   opts = opts || {};
   const { includeOther } = opts;
   viewSetDataCallback = callback;
-  fetchErr = "";
   const locale = cldrStatus.getCurrentLocale();
   const level = cldrCoverage.effectiveName(locale);
   if (!locale || !level) {
-    fetchErr = cldrText.get("dash_needs_locale_and_coverage");
+    callback(null, cldrText.get("dash_needs_locale_and_coverage"));
     return;
   }
   const qs = includeOther ? "?includeOther=true" : "";
@@ -267,16 +268,10 @@ function doFetch(callback, opts) {
     .then((data) => data.json())
     .then(setData)
     .catch((err) => {
-      const msg = "Error loading Dashboard data: " + err;
-      console.error(msg);
-      fetchErr = msg;
+      cldrNotify.exception(err, "Loading dashboard data");
+      callback(null, `Error loading dashboard data: ${err}`);
     });
 }
-
-function getFetchError() {
-  return fetchErr;
-}
-
 /**
  * Set the data for the Dashboard, converting from json to a DashData object
  *
@@ -486,7 +481,6 @@ async function getLocaleErrors(locale) {
 export {
   doFetch,
   downloadXlsx,
-  getFetchError,
   getLocaleErrors,
   saveEntryCheckmark,
   setData,

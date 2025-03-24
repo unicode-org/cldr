@@ -2057,8 +2057,8 @@ public class TestExampleGenerator extends TestFmwk {
             {
                 "cs",
                 "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"speed-light-speed\"]/unitPattern[@count=\"one\"]",
-                "〖Used as a fallback in the following:〗〖❬1❭ světlo⋅sekunda〗〖❬1❭ světlo⋅minuta〗〖❬1❭ světlo⋅hodina〗〖❬1❭ světlo⋅den〗〖❬1❭ světlo⋅týden〗〖❬1❭ světlo⋅měsíc〗〖Compare with:〗〖❬1❭ světelný rok〗",
-                "expected"
+                "{0} světlo",
+                "〖Used as a fallback in the following:〗〖❬1❭ světlo⋅sekunda〗〖❬1❭ světlo⋅minuta〗〖❬1❭ světlo⋅hodina〗〖❬1❭ světlo⋅den〗〖❬1❭ světlo⋅týden〗〖❬1❭ světlo⋅měsíc〗〖Compare with:〗〖❬1❭ světelný rok〗"
             },
             {
                 "fr",

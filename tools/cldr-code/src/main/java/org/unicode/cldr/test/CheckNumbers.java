@@ -235,7 +235,7 @@ public class CheckNumbers extends FactoryCheckCLDR {
 
         // quick bail from all other cases
         NumericType type = NumericType.getNumericType(path);
-        if (type == NumericType.NOT_NUMERIC) {
+        if (type == NumericType.NOT_NUMERIC || type == NumericType.RATIONAL) {
             return this; // skip
         }
         XPathParts parts = XPathParts.getFrozenInstance(path);

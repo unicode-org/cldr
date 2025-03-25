@@ -2311,7 +2311,7 @@ public class TestExampleGenerator extends TestFmwk {
             {
                 "en",
                 "//ldml/numbers/rationalFormats[@numberSystem=\"latn\"]/integerAndRationalPattern",
-                "〖❬3❭❰NBTSP❱❬1⁄2❭〗〖❬3❭❰NBTSP❱❬½❭〗〖❬3❭❰NBTSP❱❬<sup>1</sup>⁄<sub>2</sub>❭〗"
+                "〖❬3❭❰NBTSP❱❬❰WJ❱1❰WJ❱⁄❰WJ❱2❰WJ❱❭〗〖❬3❭❰NBTSP❱❬½❭〗〖❬3❭❰NBTSP❱❬<sup>1</sup>⁄<sub>2</sub>❭〗"
             },
             {
                 "en",
@@ -2327,7 +2327,7 @@ public class TestExampleGenerator extends TestFmwk {
             {
                 "hi",
                 "//ldml/numbers/rationalFormats[@numberSystem=\"deva\"]/integerAndRationalPattern",
-                "〖❬३❭❰NBTSP❱❬१⁄२❭〗〖❬३❭❰NBTSP❱❬<sup>१</sup>⁄<sub>२</sub>❭〗"
+                "〖❬३❭❰NBTSP❱❬❰WJ❱१❰WJ❱⁄❰WJ❱२❰WJ❱❭〗〖❬३❭❰NBTSP❱❬<sup>१</sup>⁄<sub>२</sub>❭〗"
             },
             {
                 "hi",

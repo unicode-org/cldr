@@ -283,6 +283,8 @@ public class CheckDates extends FactoryCheckCLDR {
             }
         }
 
+        checkIso8601(path, value);
+
         try {
             if (path.contains("[@type=\"abbreviated\"]")) {
                 // ensures abbreviated <= wide for quarters, months, days, dayPeriods
@@ -639,6 +641,99 @@ public class CheckDates extends FactoryCheckCLDR {
             }
         }
         return this;
+    }
+
+    static final Set<Integer> expectedField =
+            Set.of(
+                    DateTimePatternGenerator.YEAR,
+                    DateTimePatternGenerator.QUARTER,
+                    DateTimePatternGenerator.MONTH,
+                    DateTimePatternGenerator.DAY,
+                    DateTimePatternGenerator.WEEKDAY,
+                    DateTimePatternGenerator.HOUR,
+                    DateTimePatternGenerator.MINUTE,
+                    DateTimePatternGenerator.SECOND,
+                    DateTimePatternGenerator.ZONE);
+
+    /**
+     * Returns null if the path is not a calendar path for iso8601, or if it is ok for iso8601.<br>
+     * Otherwise returns a string with the error.
+     *
+     * @param path
+     * @param value
+     * @return
+     */
+    // This is public for testing
+
+    public static String checkIso8601(String path, String value) {
+        // ldml/dates/calendars/calendars/dateFormats/dateFormatLength
+        XPathParts parts = XPathParts.getFrozenInstance(path);
+        if (!"iso8601".equals(parts.getAttributeValue(3, "type"))) {
+            return null;
+        }
+        String key = parts.getElement(5);
+        boolean isInterval = false;
+        switch (key) {
+            case "dateTimeFormatLength":
+            case "appendItem":
+                int index0 = value.indexOf("{0}");
+                int index1 = value.indexOf("{1}");
+                if (index0 > index1) {
+                    return "Field out of order: {1}…{0}";
+                }
+                return null;
+            case "dateFormatLength":
+            case "timeFormatLength":
+            case "availableFormats":
+                break;
+            case "intervalFormats":
+                isInterval = true;
+                break;
+            default:
+                return null;
+        }
+        // verify the order is year month dow hour minute second
+        // there is no other field
+        // time is 24 hour (0..23)
+        DateTimePatternGenerator.FormatParser parser = new DateTimePatternGenerator.FormatParser();
+        VariableField lastField = null;
+        Set<Integer> fieldTypesSoFar = new LinkedHashSet<>();
+
+        for (Object p : parser.set(value).getItems()) {
+            if (!(p instanceof VariableField)) {
+                continue;
+            }
+            VariableField field = (VariableField) p;
+            int type = field.getType();
+            if (!expectedField.contains(type)) {
+                return "Disallowed field: " + field;
+            }
+            // The two parts of an interval are identified by when you hit the same type of field
+            // twice
+            // like y - y, or M d - M
+            if (fieldTypesSoFar.contains(type)) {
+                if (isInterval) { // so one freebe for intervals
+                    isInterval = false;
+                    fieldTypesSoFar.clear(); // entering second part of interval
+                    lastField = null;
+                } else {
+                    return "Duplicate field: " + field;
+                }
+            }
+
+            // the type values are guaranteed to be in ascending numerical order, eg year=1,
+            // month=3,...
+            // so they are out of order if type < last type
+            if (lastField != null) {
+                int lastType = lastField.getType();
+                if (lastType > type) {
+                    return "Field out of order: " + lastField + "…" + field;
+                }
+            }
+            fieldTypesSoFar.add(type);
+            lastField = field;
+        }
+        return null;
     }
 
     public CheckStatus.Type errorOrIfBuildWarning() {

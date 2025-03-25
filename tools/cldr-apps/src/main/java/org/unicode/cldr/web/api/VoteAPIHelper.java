@@ -357,8 +357,7 @@ public class VoteAPIHelper {
         c.example = i.getExample();
         c.history = i.getHistory();
         c.isBaselineValue = i.isBaselineValue();
-        c.pClass =
-                i.getPClass(); // it might be better to pass underlying values (not CSS class) to FE
+        c.pClass = i.getCandidateStatus().toString();
         c.rawValue = i.getValue();
         c.tests = getConvertedTests(i.getTests());
         c.value = i.getProcessedValue();

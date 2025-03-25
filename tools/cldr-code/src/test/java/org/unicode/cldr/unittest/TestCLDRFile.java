@@ -63,7 +63,7 @@ import org.unicode.cldr.util.XPathParts;
 /**
  * This is the original TestFwmk test case for CLDRFile.
  *
- * @see {@link org.unicode.cldr.util.TestCLDRFile}
+ * @see {@link TestCLDRFileMore}
  * @see {@link org.unicode.cldr.util.CLDRFile}
  */
 public class TestCLDRFile extends TestFmwk {

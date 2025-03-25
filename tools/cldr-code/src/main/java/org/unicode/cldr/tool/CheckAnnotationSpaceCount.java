@@ -6,7 +6,7 @@ import org.unicode.cldr.util.Annotations;
 import org.unicode.cldr.util.Annotations.AnnotationSet;
 import org.unicode.cldr.util.CollatorHelper;
 
-public class CheckAnnotations {
+public class CheckAnnotationSpaceCount {
     public static void main(String[] args) {
         AnnotationSet data = Annotations.getDataSet("en");
         Set<String> sorted = new TreeSet<>(CollatorHelper.EMOJI_COLLATOR);

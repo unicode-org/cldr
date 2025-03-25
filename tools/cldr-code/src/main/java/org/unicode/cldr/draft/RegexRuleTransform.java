@@ -11,7 +11,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.unicode.cldr.draft.PatternFixer.Target;
 
-public class RegexTransformBuilder {
+public class RegexRuleTransform {
     static final boolean DEBUG = false;
     private static final boolean SKIP_BAD = true;
 

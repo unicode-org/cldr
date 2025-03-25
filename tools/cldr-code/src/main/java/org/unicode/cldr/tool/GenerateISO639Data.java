@@ -28,7 +28,7 @@ import org.unicode.cldr.util.XPathParts.Comments.CommentType;
 @CLDRTool(
         alias = "langdata",
         description = "Generate a list of ISO639 language data. Use '--en' to build en.xml.")
-public class GenerateLanguageData {
+public class GenerateISO639Data {
     // static StandardCodes sc = StandardCodes.make();
     static SupplementalDataInfo supplementalData =
             SupplementalDataInfo.getInstance(CLDRPaths.SUPPLEMENTAL_DIRECTORY);
@@ -57,7 +57,7 @@ public class GenerateLanguageData {
             newEn.addComment(
                     "//ldml",
                     "by "
-                            + GenerateLanguageData.class.getSimpleName()
+                            + GenerateISO639Data.class.getSimpleName()
                             + " from Iso639Data v"
                             + Iso639Data.getVersion()
                             + " on "

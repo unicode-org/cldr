@@ -7,11 +7,11 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Differ;
 
-public class TestMetadata extends TestFmwk {
+public class TestMetadataEquals extends TestFmwk {
     static CLDRConfig testInfo = CLDRConfig.getInstance();
 
     public static void main(String[] args) {
-        new TestMetadata().run(args);
+        new TestMetadataEquals().run(args);
     }
 
     // disable, since we no longer have 3 different sources.

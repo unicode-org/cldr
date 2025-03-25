@@ -12,10 +12,10 @@ import org.unicode.cldr.util.TestShimUtils;
 
 /** a JUnit test that calls TestAll. */
 @NotThreadSafe
-class TestShim {
+class TestShimWeb {
     @Test
     public void TestAll() {
-        String args[] = TestShimUtils.getArgs(TestShim.class, "-n -q");
+        String args[] = TestShimUtils.getArgs(TestShimWeb.class, "-n -q");
         // regular main() will System.exit() which is not too friendly.
         // call this instead.
         int errCount = TestAll.main(args, new PrintWriter(System.out)); // TODO: parameterize

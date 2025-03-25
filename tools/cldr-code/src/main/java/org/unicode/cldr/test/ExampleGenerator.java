@@ -106,6 +106,8 @@ import org.unicode.cldr.util.personname.SimpleNameObject;
  */
 public class ExampleGenerator {
     private static final String FSLASH = "\u2044";
+    private static final String WJ = "\u2060";
+
     private static final String INTERNAL = "internal: ";
     private static final String SUBTRACTS = "➖";
     private static final String ADDS = "➕";
@@ -2982,7 +2984,12 @@ public class ExampleGenerator {
                     den = numberFormat.format(2);
                 }
                 if (!superSub) {
-                    fractions.add(rationalPart.replace("{0}", num).replace("{1}", den));
+                    // put WG around elements so that the fraction slash doesn't change their
+                    // formatting
+                    fractions.add(
+                            rationalPart
+                                    .replace("{0}", WJ + num + WJ)
+                                    .replace("{1}", WJ + den + WJ));
                 }
                 if (extra != null) {
                     fractions.add(extra);

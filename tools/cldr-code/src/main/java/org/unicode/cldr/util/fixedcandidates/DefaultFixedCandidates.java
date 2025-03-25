@@ -17,6 +17,10 @@ public class DefaultFixedCandidates {
 
         // add any lists of fixed providers
         providers.addAll(PersonNameCandidateProviders.personNameProviders);
+        providers.add(
+                FixedCandidateProvider.forXPath(
+                        "//ldml/numbers/rationalFormats/rationalUsage",
+                        List.of("never", "sometimes")));
 
         // add any special locale-sensitive providers.
 

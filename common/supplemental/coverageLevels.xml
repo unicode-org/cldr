@@ -520,11 +520,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel	value="basic"	 	match="numbers/currencyFormats[@numberSystem='latn']/currencyFormatLength/currencyFormat%stdPattern"/>
 		<coverageLevel	value="moderate"	match="numbers/currencyFormats[@numberSystem='latn']/unitPattern[@count='%anyAttribute']"/>
 
-		<!-- Moved compact decimal/currency formats for latn up from below, chnage base forms to moderate -->
+		<!-- Moved compact decimal/currencyrational formats for latn up from below, chnage base forms to moderate -->
+		
 		<coverageLevel	value="modern"		match="numbers/currencyFormats[@numberSystem='latn']/currencyFormatLength[@type='short']/currencyFormat[@type='standard']/pattern[@type='%compactDecimalTypes'][@count='%anyAttribute'][@alt='%anyAttribute']"/>
 		<coverageLevel	value="moderate"	match="numbers/currencyFormats[@numberSystem='latn']/currencyFormatLength[@type='short']/currencyFormat[@type='standard']/pattern[@type='%compactDecimalTypes'][@count='%anyAttribute']"/>
-		<coverageLevel	value="moderate"	match="numbers/decimalFormats[@numberSystem='latn']/decimalFormatLength[@type='%shortLong']/decimalFormat[@type='standard']/pattern[@type='%compactDecimalTypes'][@count='%anyAttribute']"/>
-
+		<coverageLevel	value="moderate"	match="numbers/decimalFormats[@numberSystem='latn']/decimalFormatLength[@type='%shortLong']/decimalFormat[@type='standard']/pattern[@type='%compactDecimalTypes'][@count='%anyAttribute']"/>		
+		
 		<!-- non-latn default number systems, standard formats for decimal/currency/percent/etc also at basic per TC 2024-05-08 -->
 
 		<!-- *********************
@@ -1035,79 +1036,133 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="modern" match="dates/fields/field[@type='minute']/relative[@type='0']"/>
 		<coverageLevel value="modern" match="dates/fields/field[@type='second']/relative[@type='0']"/>
 		<coverageLevel value="modern" match="dates/fields/field[@type='quarter']/relative[@type='(-1|0|1)']"/>
-
+		
+		<coverageLevel	value="modern"		match="numbers/rationalFormats/rationalPattern"/>
+		<coverageLevel	value="modern"		match="numbers/rationalFormats/integerAndRationalPattern"/>
+		<coverageLevel	value="modern"		match="numbers/rationalFormats/integerAndRationalPattern[@alt='%anyAttribute']"/>
+		<coverageLevel	value="modern"		match="numbers/rationalFormats@numberSystem='latn'/rationalPattern"/>
+		<coverageLevel	value="modern"		match="numbers/rationalFormats@numberSystem='latn'/integerAndRationalPattern"/>
+		<coverageLevel	value="modern"		match="numbers/rationalFormats@numberSystem='latn'/integerAndRationalPattern[@alt='%anyAttribute']"/>
+		
 		<coverageLevel inScript="%adlmDefaultScripts" value="modern" match="numbers/symbols[@numberSystem='adlm']/approximatelySign"/>
 		<coverageLevel inScript="%adlmDefaultScripts" value="modern" match="numbers/symbols[@numberSystem='adlm']/exponential"/>
 		<coverageLevel inScript="%adlmDefaultScripts" value="modern" match="numbers/symbols[@numberSystem='adlm']/superscriptingExponent"/>
 		<coverageLevel inScript="%adlmDefaultScripts" value="modern" match="numbers/symbols[@numberSystem='adlm']/perMille"/>
 		<coverageLevel inScript="%adlmDefaultScripts" value="modern" match="numbers/symbols[@numberSystem='adlm']/infinity"/>
 		<coverageLevel inScript="%adlmDefaultScripts" value="modern" match="numbers/symbols[@numberSystem='adlm']/nan"/>
+		<coverageLevel inScript="%adlmDefaultScripts" value="modern" match="numbers/rationalFormats[@numberSystem='adlm']/rationalPattern"/>
+		<coverageLevel inScript="%adlmDefaultScripts" value="modern" match="numbers/rationalFormats[@numberSystem='adlm']/integerAndRationalPattern"/>
+		<coverageLevel inScript="%adlmDefaultScripts" value="modern" match="numbers/rationalFormats[@numberSystem='adlm']/integerAndRationalPattern[@alt='%anyAttribute']"/>
+		
 		<coverageLevel inLanguage="%arabDefaultLanguages" inScript="Arab" value="modern" match="numbers/symbols[@numberSystem='arab']/approximatelySign"/>
 		<coverageLevel inLanguage="%arabDefaultLanguages" inScript="Arab" value="modern" match="numbers/symbols[@numberSystem='arab']/exponential"/>
 		<coverageLevel inLanguage="%arabDefaultLanguages" inScript="Arab" value="modern" match="numbers/symbols[@numberSystem='arab']/superscriptingExponent"/>
 		<coverageLevel inLanguage="%arabDefaultLanguages" inScript="Arab" value="modern" match="numbers/symbols[@numberSystem='arab']/perMille"/>
 		<coverageLevel inLanguage="%arabDefaultLanguages" inScript="Arab" value="modern" match="numbers/symbols[@numberSystem='arab']/infinity"/>
 		<coverageLevel inLanguage="%arabDefaultLanguages" inScript="Arab" value="modern" match="numbers/symbols[@numberSystem='arab']/nan"/>
+		<coverageLevel inLanguage="%arabDefaultLanguages" inScript="Arab" value="modern" match="numbers/rationalFormats[@numberSystem='arab']/rationalPattern"/>
+		<coverageLevel inLanguage="%arabDefaultLanguages" inScript="Arab" value="modern" match="numbers/rationalFormats[@numberSystem='arab']/integerAndRationalPattern"/>
+		<coverageLevel inLanguage="%arabDefaultLanguages" inScript="Arab" value="modern" match="numbers/rationalFormats[@numberSystem='arab']/integerAndRationalPattern[@alt='%anyAttribute']"/>
+
 		<coverageLevel inLanguage="%arabextDefaultLanguages" inScript="Arab" value="modern" match="numbers/symbols[@numberSystem='arabext']/approximatelySign"/>
 		<coverageLevel inLanguage="%arabextDefaultLanguages" inScript="Arab" value="modern" match="numbers/symbols[@numberSystem='arabext']/exponential"/>
 		<coverageLevel inLanguage="%arabextDefaultLanguages" inScript="Arab" value="modern" match="numbers/symbols[@numberSystem='arabext']/superscriptingExponent"/>
 		<coverageLevel inLanguage="%arabextDefaultLanguages" inScript="Arab" value="modern" match="numbers/symbols[@numberSystem='arabext']/perMille"/>
 		<coverageLevel inLanguage="%arabextDefaultLanguages" inScript="Arab" value="modern" match="numbers/symbols[@numberSystem='arabext']/infinity"/>
 		<coverageLevel inLanguage="%arabextDefaultLanguages" inScript="Arab" value="modern" match="numbers/symbols[@numberSystem='arabext']/nan"/>
+		<coverageLevel inLanguage="%arabextDefaultLanguages" inScript="Arab" value="modern" match="numbers/rationalFormats[@numberSystem='arabext']/rationalPattern"/>
+		<coverageLevel inLanguage="%arabextDefaultLanguages" inScript="Arab" value="modern" match="numbers/rationalFormats[@numberSystem='arabext']/integerAndRationalPattern"/>
+		<coverageLevel inLanguage="%arabextDefaultLanguages" inScript="Arab" value="modern" match="numbers/rationalFormats[@numberSystem='arabext']/integerAndRationalPattern[@alt='%anyAttribute']"/>
+
 		<coverageLevel inScript="%bengDefaultScripts" value="modern" match="numbers/symbols[@numberSystem='beng']/approximatelySign"/>
 		<coverageLevel inScript="%bengDefaultScripts" value="modern" match="numbers/symbols[@numberSystem='beng']/exponential"/>
 		<coverageLevel inScript="%bengDefaultScripts" value="modern" match="numbers/symbols[@numberSystem='beng']/superscriptingExponent"/>
 		<coverageLevel inScript="%bengDefaultScripts" value="modern" match="numbers/symbols[@numberSystem='beng']/perMille"/>
 		<coverageLevel inScript="%bengDefaultScripts" value="modern" match="numbers/symbols[@numberSystem='beng']/infinity"/>
 		<coverageLevel inScript="%bengDefaultScripts" value="modern" match="numbers/symbols[@numberSystem='beng']/nan"/>
+		<coverageLevel inScript="%bengDefaultScripts" value="modern" match="numbers/rationalFormats[@numberSystem='beng']/rationalPattern"/>
+		<coverageLevel inScript="%bengDefaultScripts" value="modern" match="numbers/rationalFormats[@numberSystem='beng']/integerAndRationalPattern"/>
+		<coverageLevel inScript="%bengDefaultScripts" value="modern" match="numbers/rationalFormats[@numberSystem='beng']/integerAndRationalPattern[@alt='%anyAttribute']"/>
+
 		<coverageLevel inScript="%cakmDefaultScripts" value="modern" match="numbers/symbols[@numberSystem='cakm']/approximatelySign"/>
 		<coverageLevel inScript="%cakmDefaultScripts" value="modern" match="numbers/symbols[@numberSystem='cakm']/exponential"/>
 		<coverageLevel inScript="%cakmDefaultScripts" value="modern" match="numbers/symbols[@numberSystem='cakm']/superscriptingExponent"/>
 		<coverageLevel inScript="%cakmDefaultScripts" value="modern" match="numbers/symbols[@numberSystem='cakm']/perMille"/>
 		<coverageLevel inScript="%cakmDefaultScripts" value="modern" match="numbers/symbols[@numberSystem='cakm']/infinity"/>
 		<coverageLevel inScript="%cakmDefaultScripts" value="modern" match="numbers/symbols[@numberSystem='cakm']/nan"/>
+		<coverageLevel inScript="%cakmDefaultScripts" value="modern" match="numbers/rationalFormats[@numberSystem='cakm']/rationalPattern"/>
+		<coverageLevel inScript="%cakmDefaultScripts" value="modern" match="numbers/rationalFormats[@numberSystem='cakm']/integerAndRationalPattern"/>
+		<coverageLevel inScript="%cakmDefaultScripts" value="modern" match="numbers/rationalFormats[@numberSystem='cakm']/integerAndRationalPattern[@alt='%anyAttribute']"/>
+
 		<coverageLevel inLanguage="%devaDefaultLanguages" inScript="Deva" value="modern" match="numbers/symbols[@numberSystem='deva']/approximatelySign"/>
 		<coverageLevel inLanguage="%devaDefaultLanguages" inScript="Deva" value="modern" match="numbers/symbols[@numberSystem='deva']/exponential"/>
 		<coverageLevel inLanguage="%devaDefaultLanguages" inScript="Deva" value="modern" match="numbers/symbols[@numberSystem='deva']/superscriptingExponent"/>
 		<coverageLevel inLanguage="%devaDefaultLanguages" inScript="Deva" value="modern" match="numbers/symbols[@numberSystem='deva']/perMille"/>
 		<coverageLevel inLanguage="%devaDefaultLanguages" inScript="Deva" value="modern" match="numbers/symbols[@numberSystem='deva']/infinity"/>
 		<coverageLevel inLanguage="%devaDefaultLanguages" inScript="Deva" value="modern" match="numbers/symbols[@numberSystem='deva']/nan"/>
+		<coverageLevel inLanguage="%devaDefaultLanguages" inScript="Deva" value="modern" match="numbers/rationalFormats[@numberSystem='deva']/rationalPattern"/>
+		<coverageLevel inLanguage="%devaDefaultLanguages" inScript="Deva" value="modern" match="numbers/rationalFormats[@numberSystem='deva']/integerAndRationalPattern"/>
+		<coverageLevel inLanguage="%devaDefaultLanguages" inScript="Deva" value="modern" match="numbers/rationalFormats[@numberSystem='deva']/integerAndRationalPattern[@alt='%anyAttribute']"/>
+
 		<coverageLevel inScript="%hmnpDefaultScripts" value="modern" match="numbers/symbols[@numberSystem='hmnp']/approximatelySign"/>
 		<coverageLevel inScript="%hmnpDefaultScripts" value="modern" match="numbers/symbols[@numberSystem='hmnp']/exponential"/>
 		<coverageLevel inScript="%hmnpDefaultScripts" value="modern" match="numbers/symbols[@numberSystem='hmnp']/superscriptingExponent"/>
 		<coverageLevel inScript="%hmnpDefaultScripts" value="modern" match="numbers/symbols[@numberSystem='hmnp']/perMille"/>
 		<coverageLevel inScript="%hmnpDefaultScripts" value="modern" match="numbers/symbols[@numberSystem='hmnp']/infinity"/>
 		<coverageLevel inScript="%hmnpDefaultScripts" value="modern" match="numbers/symbols[@numberSystem='hmnp']/nan"/>
+		<coverageLevel inScript="%hmnpDefaultScripts" value="modern" match="numbers/rationalFormats[@numberSystem='hmnp']/rationalPattern"/>
+		<coverageLevel inScript="%hmnpDefaultScripts" value="modern" match="numbers/rationalFormats[@numberSystem='hmnp']/integerAndRationalPattern"/>
+		<coverageLevel inScript="%hmnpDefaultScripts" value="modern" match="numbers/rationalFormats[@numberSystem='hmnp']/integerAndRationalPattern[@alt='%anyAttribute']"/>
+
 		<coverageLevel inScript="%mteiDefaultScripts" value="modern" match="numbers/symbols[@numberSystem='mtei']/approximatelySign"/>
 		<coverageLevel inScript="%mteiDefaultScripts" value="modern" match="numbers/symbols[@numberSystem='mtei']/exponential"/>
 		<coverageLevel inScript="%mteiDefaultScripts" value="modern" match="numbers/symbols[@numberSystem='mtei']/superscriptingExponent"/>
 		<coverageLevel inScript="%mteiDefaultScripts" value="modern" match="numbers/symbols[@numberSystem='mtei']/perMille"/>
 		<coverageLevel inScript="%mteiDefaultScripts" value="modern" match="numbers/symbols[@numberSystem='mtei']/infinity"/>
 		<coverageLevel inScript="%mteiDefaultScripts" value="modern" match="numbers/symbols[@numberSystem='mtei']/nan"/>
+		<coverageLevel inScript="%mteiDefaultScripts" value="modern" match="numbers/rationalFormats[@numberSystem='mtei']/rationalPattern"/>
+		<coverageLevel inScript="%mteiDefaultScripts" value="modern" match="numbers/rationalFormats[@numberSystem='mtei']/integerAndRationalPattern"/>
+		<coverageLevel inScript="%mteiDefaultScripts" value="modern" match="numbers/rationalFormats[@numberSystem='mtei']/integerAndRationalPattern[@alt='%anyAttribute']"/>
+
 		<coverageLevel inLanguage="%mymrDefaultLanguages" value="modern" match="numbers/symbols[@numberSystem='mymr']/approximatelySign"/>
 		<coverageLevel inLanguage="%mymrDefaultLanguages" value="modern" match="numbers/symbols[@numberSystem='mymr']/exponential"/>
 		<coverageLevel inLanguage="%mymrDefaultLanguages" value="modern" match="numbers/symbols[@numberSystem='mymr']/superscriptingExponent"/>
 		<coverageLevel inLanguage="%mymrDefaultLanguages" value="modern" match="numbers/symbols[@numberSystem='mymr']/perMille"/>
 		<coverageLevel inLanguage="%mymrDefaultLanguages" value="modern" match="numbers/symbols[@numberSystem='mymr']/infinity"/>
 		<coverageLevel inLanguage="%mymrDefaultLanguages" value="modern" match="numbers/symbols[@numberSystem='mymr']/nan"/>
+		<coverageLevel inLanguage="%mymrDefaultLanguages" value="modern" match="numbers/rationalFormats[@numberSystem='mymr']/rationalPattern"/>
+		<coverageLevel inLanguage="%mymrDefaultLanguages" value="modern" match="numbers/rationalFormats[@numberSystem='mymr']/integerAndRationalPattern"/>
+		<coverageLevel inLanguage="%mymrDefaultLanguages" value="modern" match="numbers/rationalFormats[@numberSystem='mymr']/integerAndRationalPattern[@alt='%anyAttribute']"/>
+
 		<coverageLevel inLanguage="%nkooDefaultLanguages" value="modern" match="numbers/symbols[@numberSystem='nkoo']/approximatelySign"/>
 		<coverageLevel inLanguage="%nkooDefaultLanguages" value="modern" match="numbers/symbols[@numberSystem='nkoo']/exponential"/>
 		<coverageLevel inLanguage="%nkooDefaultLanguages" value="modern" match="numbers/symbols[@numberSystem='nkoo']/superscriptingExponent"/>
 		<coverageLevel inLanguage="%nkooDefaultLanguages" value="modern" match="numbers/symbols[@numberSystem='nkoo']/perMille"/>
 		<coverageLevel inLanguage="%nkooDefaultLanguages" value="modern" match="numbers/symbols[@numberSystem='nkoo']/infinity"/>
 		<coverageLevel inLanguage="%nkooDefaultLanguages" value="modern" match="numbers/symbols[@numberSystem='nkoo']/nan"/>
+		<coverageLevel inLanguage="%nkooDefaultLanguages" value="modern" match="numbers/rationalFormats[@numberSystem='nkoo']/rationalPattern"/>
+		<coverageLevel inLanguage="%nkooDefaultLanguages" value="modern" match="numbers/rationalFormats[@numberSystem='nkoo']/integerAndRationalPattern"/>
+		<coverageLevel inLanguage="%nkooDefaultLanguages" value="modern" match="numbers/rationalFormats[@numberSystem='nkoo']/integerAndRationalPattern[@alt='%anyAttribute']"/>
+
 		<coverageLevel inScript="%olckDefaultScripts" value="modern" match="numbers/symbols[@numberSystem='olck']/approximatelySign"/>
 		<coverageLevel inScript="%olckDefaultScripts" value="modern" match="numbers/symbols[@numberSystem='olck']/exponential"/>
 		<coverageLevel inScript="%olckDefaultScripts" value="modern" match="numbers/symbols[@numberSystem='olck']/superscriptingExponent"/>
 		<coverageLevel inScript="%olckDefaultScripts" value="modern" match="numbers/symbols[@numberSystem='olck']/perMille"/>
 		<coverageLevel inScript="%olckDefaultScripts" value="modern" match="numbers/symbols[@numberSystem='olck']/infinity"/>
 		<coverageLevel inScript="%olckDefaultScripts" value="modern" match="numbers/symbols[@numberSystem='olck']/nan"/>
+		<coverageLevel inScript="%olckDefaultScripts" value="modern" match="numbers/rationalFormats[@numberSystem='olck']/rationalPattern"/>
+		<coverageLevel inScript="%olckDefaultScripts" value="modern" match="numbers/rationalFormats[@numberSystem='olck']/integerAndRationalPattern"/>
+		<coverageLevel inScript="%olckDefaultScripts" value="modern" match="numbers/rationalFormats[@numberSystem='olck']/integerAndRationalPattern[@alt='%anyAttribute']"/>
+
 		<coverageLevel inLanguage="%tibtDefaultLanguages" value="modern" match="numbers/symbols[@numberSystem='tibt']/approximatelySign"/>
 		<coverageLevel inLanguage="%tibtDefaultLanguages" value="modern" match="numbers/symbols[@numberSystem='tibt']/exponential"/>
 		<coverageLevel inLanguage="%tibtDefaultLanguages" value="modern" match="numbers/symbols[@numberSystem='tibt']/superscriptingExponent"/>
 		<coverageLevel inLanguage="%tibtDefaultLanguages" value="modern" match="numbers/symbols[@numberSystem='tibt']/perMille"/>
 		<coverageLevel inLanguage="%tibtDefaultLanguages" value="modern" match="numbers/symbols[@numberSystem='tibt']/infinity"/>
 		<coverageLevel inLanguage="%tibtDefaultLanguages" value="modern" match="numbers/symbols[@numberSystem='tibt']/nan"/>
+		<coverageLevel inLanguage="%tibtDefaultLanguages" value="modern" match="numbers/rationalFormats[@numberSystem='tibt']/rationalPattern"/>
+		<coverageLevel inLanguage="%tibtDefaultLanguages" value="modern" match="numbers/rationalFormats[@numberSystem='tibt']/integerAndRationalPattern"/>
+		<coverageLevel inLanguage="%tibtDefaultLanguages" value="modern" match="numbers/rationalFormats[@numberSystem='tibt']/integerAndRationalPattern[@alt='%anyAttribute']"/>
 
 		<coverageLevel inLanguage="%arabNativeLanguages" inScript="Arab" value="modern" match="numbers/symbols[@numberSystem='arab']/approximatelySign"/>
 		<coverageLevel inLanguage="%arabNativeLanguages" inScript="Arab" value="modern" match="numbers/symbols[@numberSystem='arab']/exponential"/>
@@ -1115,18 +1170,30 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel inLanguage="%arabNativeLanguages" inScript="Arab" value="modern" match="numbers/symbols[@numberSystem='arab']/perMille"/>
 		<coverageLevel inLanguage="%arabNativeLanguages" inScript="Arab" value="modern" match="numbers/symbols[@numberSystem='arab']/infinity"/>
 		<coverageLevel inLanguage="%arabNativeLanguages" inScript="Arab" value="modern" match="numbers/symbols[@numberSystem='arab']/nan"/>
+		<coverageLevel inLanguage="%arabNativeLanguages" inScript="Arab" value="modern" match="numbers/rationalFormats[@numberSystem='arab']/rationalPattern"/>
+		<coverageLevel inLanguage="%arabNativeLanguages" inScript="Arab" value="modern" match="numbers/rationalFormats[@numberSystem='arab']/integerAndRationalPattern"/>
+		<coverageLevel inLanguage="%arabNativeLanguages" inScript="Arab" value="modern" match="numbers/rationalFormats[@numberSystem='arab']/integerAndRationalPattern[@alt='%anyAttribute']"/>
+
 		<coverageLevel inLanguage="%arabextNativeLanguages" inScript="Arab" value="modern" match="numbers/symbols[@numberSystem='arabext']/approximatelySign"/>
 		<coverageLevel inLanguage="%arabextNativeLanguages" inScript="Arab" value="modern" match="numbers/symbols[@numberSystem='arabext']/exponential"/>
 		<coverageLevel inLanguage="%arabextNativeLanguages" inScript="Arab" value="modern" match="numbers/symbols[@numberSystem='arabext']/superscriptingExponent"/>
 		<coverageLevel inLanguage="%arabextNativeLanguages" inScript="Arab" value="modern" match="numbers/symbols[@numberSystem='arabext']/perMille"/>
 		<coverageLevel inLanguage="%arabextNativeLanguages" inScript="Arab" value="modern" match="numbers/symbols[@numberSystem='arabext']/infinity"/>
 		<coverageLevel inLanguage="%arabextNativeLanguages" inScript="Arab" value="modern" match="numbers/symbols[@numberSystem='arabext']/nan"/>
+		<coverageLevel inLanguage="%arabextNativeLanguages" inScript="Arab" value="modern" match="numbers/rationalFormats[@numberSystem='arabext']/rationalPattern"/>
+		<coverageLevel inLanguage="%arabextNativeLanguages" inScript="Arab" value="modern" match="numbers/rationalFormats[@numberSystem='arabext']/integerAndRationalPattern"/>
+		<coverageLevel inLanguage="%arabextNativeLanguages" inScript="Arab" value="modern" match="numbers/rationalFormats[@numberSystem='arabext']/integerAndRationalPattern[@alt='%anyAttribute']"/>
+
 		<coverageLevel inLanguage="%devaNativeLanguages" inScript="Deva" value="modern" match="numbers/symbols[@numberSystem='deva']/approximatelySign"/>
 		<coverageLevel inLanguage="%devaNativeLanguages" inScript="Deva" value="modern" match="numbers/symbols[@numberSystem='deva']/exponential"/>
 		<coverageLevel inLanguage="%devaNativeLanguages" inScript="Deva" value="modern" match="numbers/symbols[@numberSystem='deva']/superscriptingExponent"/>
 		<coverageLevel inLanguage="%devaNativeLanguages" inScript="Deva" value="modern" match="numbers/symbols[@numberSystem='deva']/perMille"/>
 		<coverageLevel inLanguage="%devaNativeLanguages" inScript="Deva" value="modern" match="numbers/symbols[@numberSystem='deva']/infinity"/>
 		<coverageLevel inLanguage="%devaNativeLanguages" inScript="Deva" value="modern" match="numbers/symbols[@numberSystem='deva']/nan"/>
+		<coverageLevel inLanguage="%devaNativeLanguages" value="modern" match="numbers/rationalFormats[@numberSystem='deva']/rationalPattern"/>
+		<coverageLevel inLanguage="%devaNativeLanguages" value="modern" match="numbers/rationalFormats[@numberSystem='deva']/integerAndRationalPattern"/>
+		<coverageLevel inLanguage="%devaNativeLanguages" value="modern" match="numbers/rationalFormats[@numberSystem='deva']/integerAndRationalPattern[@alt='%anyAttribute']"/>
+
 		<coverageLevel inScript="%gujrNativeScripts" value="modern" match="numbers/symbols[@numberSystem='gujr']/approximatelySign"/>
 		<coverageLevel inScript="%gujrNativeScripts" value="modern" match="numbers/symbols[@numberSystem='gujr']/exponential"/>
 		<coverageLevel inScript="%gujrNativeScripts" value="modern" match="numbers/symbols[@numberSystem='gujr']/superscriptingExponent"/>
@@ -1139,12 +1206,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel inScript="%guruNativeScripts" value="modern" match="numbers/symbols[@numberSystem='guru']/perMille"/>
 		<coverageLevel inScript="%guruNativeScripts" value="modern" match="numbers/symbols[@numberSystem='guru']/infinity"/>
 		<coverageLevel inScript="%guruNativeScripts" value="modern" match="numbers/symbols[@numberSystem='guru']/nan"/>
+		<coverageLevel inScript="%guruNativeScripts" value="modern" match="numbers/rationalFormats[@numberSystem='guru']/rationalPattern"/>
+		<coverageLevel inScript="%guruNativeScripts" value="modern" match="numbers/rationalFormats[@numberSystem='guru']/integerAndRationalPattern"/>
+		<coverageLevel inScript="%guruNativeScripts" value="modern" match="numbers/rationalFormats[@numberSystem='guru']/integerAndRationalPattern[@alt='%anyAttribute']"/>
+
 		<coverageLevel inLanguage="%hanidecNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='hanidec']/approximatelySign"/>
 		<coverageLevel inLanguage="%hanidecNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='hanidec']/exponential"/>
 		<coverageLevel inLanguage="%hanidecNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='hanidec']/superscriptingExponent"/>
 		<coverageLevel inLanguage="%hanidecNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='hanidec']/perMille"/>
 		<coverageLevel inLanguage="%hanidecNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='hanidec']/infinity"/>
 		<coverageLevel inLanguage="%hanidecNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='hanidec']/nan"/>
+		<coverageLevel inLanguage="%hanidecNativeLanguages" value="modern" match="numbers/rationalFormats[@numberSystem='hanidec']/rationalPattern"/>
+		<coverageLevel inLanguage="%hanidecNativeLanguages" value="modern" match="numbers/rationalFormats[@numberSystem='hanidec']/integerAndRationalPattern"/>
+		<coverageLevel inLanguage="%hanidecNativeLanguages" value="modern" match="numbers/rationalFormats[@numberSystem='hanidec']/integerAndRationalPattern[@alt='%anyAttribute']"/>
+
 		<coverageLevel inScript="%hansfinFinanceScripts" value="modern" match="numbers/symbols[@numberSystem='hansfin']/approximatelySign"/>
 		<coverageLevel inScript="%hansfinFinanceScripts" value="modern" match="numbers/symbols[@numberSystem='hansfin']/exponential"/>
 		<coverageLevel inScript="%hansfinFinanceScripts" value="modern" match="numbers/symbols[@numberSystem='hansfin']/superscriptingExponent"/>
@@ -1157,90 +1232,149 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel inScript="%hantfinFinanceScripts" value="modern" match="numbers/symbols[@numberSystem='hantfin']/perMille"/>
 		<coverageLevel inScript="%hantfinFinanceScripts" value="modern" match="numbers/symbols[@numberSystem='hantfin']/infinity"/>
 		<coverageLevel inScript="%hantfinFinanceScripts" value="modern" match="numbers/symbols[@numberSystem='hantfin']/nan"/>
+		<coverageLevel inScript="%hantfinFinanceScripts" value="modern" match="numbers/rationalFormats[@numberSystem='hantfin']/rationalPattern"/>
+		<coverageLevel inScript="%hantfinFinanceScripts" value="modern" match="numbers/rationalFormats[@numberSystem='hantfin']/integerAndRationalPattern"/>
+		<coverageLevel inScript="%hantfinFinanceScripts" value="modern" match="numbers/rationalFormats[@numberSystem='hantfin']/integerAndRationalPattern[@alt='%anyAttribute']"/>
+
 		<coverageLevel inLanguage="%jpanfinFinanceLanguages" value="modern" match="numbers/symbols[@numberSystem='jpanfin']/approximatelySign"/>
 		<coverageLevel inLanguage="%jpanfinFinanceLanguages" value="modern" match="numbers/symbols[@numberSystem='jpanfin']/exponential"/>
 		<coverageLevel inLanguage="%jpanfinFinanceLanguages" value="modern" match="numbers/symbols[@numberSystem='jpanfin']/superscriptingExponent"/>
 		<coverageLevel inLanguage="%jpanfinFinanceLanguages" value="modern" match="numbers/symbols[@numberSystem='jpanfin']/perMille"/>
 		<coverageLevel inLanguage="%jpanfinFinanceLanguages" value="modern" match="numbers/symbols[@numberSystem='jpanfin']/infinity"/>
 		<coverageLevel inLanguage="%jpanfinFinanceLanguages" value="modern" match="numbers/symbols[@numberSystem='jpanfin']/nan"/>
+		<coverageLevel inLanguage="%jpanfinFinanceLanguages" value="modern" match="numbers/rationalFormats[@numberSystem='jpanfin']/rationalPattern"/>
+		<coverageLevel inLanguage="%jpanfinFinanceLanguages" value="modern" match="numbers/rationalFormats[@numberSystem='jpanfin']/integerAndRationalPattern"/>
+		<coverageLevel inLanguage="%jpanfinFinanceLanguages" value="modern" match="numbers/rationalFormats[@numberSystem='jpanfin']/integerAndRationalPattern[@alt='%anyAttribute']"/>
+
 		<coverageLevel inLanguage="%javaNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='java']/approximatelySign"/>
 		<coverageLevel inLanguage="%javaNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='java']/exponential"/>
 		<coverageLevel inLanguage="%javaNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='java']/superscriptingExponent"/>
 		<coverageLevel inLanguage="%javaNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='java']/perMille"/>
 		<coverageLevel inLanguage="%javaNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='java']/infinity"/>
 		<coverageLevel inLanguage="%javaNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='java']/nan"/>
+		<coverageLevel inLanguage="%javaNativeLanguages" value="modern" match="numbers/rationalFormats[@numberSystem='java']/rationalPattern"/>
+		<coverageLevel inLanguage="%javaNativeLanguages" value="modern" match="numbers/rationalFormats[@numberSystem='java']/integerAndRationalPattern"/>
+		<coverageLevel inLanguage="%javaNativeLanguages" value="modern" match="numbers/rationalFormats[@numberSystem='java']/integerAndRationalPattern[@alt='%anyAttribute']"/>
+
 		<coverageLevel inLanguage="%khmrNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='khmr']/approximatelySign"/>
 		<coverageLevel inLanguage="%khmrNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='khmr']/exponential"/>
 		<coverageLevel inLanguage="%khmrNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='khmr']/superscriptingExponent"/>
 		<coverageLevel inLanguage="%khmrNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='khmr']/perMille"/>
 		<coverageLevel inLanguage="%khmrNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='khmr']/infinity"/>
 		<coverageLevel inLanguage="%khmrNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='khmr']/nan"/>
+		<coverageLevel inLanguage="%khmrNativeLanguages" value="modern" match="numbers/rationalFormats[@numberSystem='khmr']/rationalPattern"/>
+		<coverageLevel inLanguage="%khmrNativeLanguages" value="modern" match="numbers/rationalFormats[@numberSystem='khmr']/integerAndRationalPattern"/>
+		<coverageLevel inLanguage="%khmrNativeLanguages" value="modern" match="numbers/rationalFormats[@numberSystem='khmr']/integerAndRationalPattern[@alt='%anyAttribute']"/>
+
 		<coverageLevel inLanguage="%kndaNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='knda']/approximatelySign"/>
 		<coverageLevel inLanguage="%kndaNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='knda']/exponential"/>
 		<coverageLevel inLanguage="%kndaNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='knda']/superscriptingExponent"/>
 		<coverageLevel inLanguage="%kndaNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='knda']/perMille"/>
 		<coverageLevel inLanguage="%kndaNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='knda']/infinity"/>
 		<coverageLevel inLanguage="%kndaNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='knda']/nan"/>
+		<coverageLevel inLanguage="%kndaNativeLanguages" value="modern" match="numbers/rationalFormats[@numberSystem='knda']/rationalPattern"/>
+		<coverageLevel inLanguage="%kndaNativeLanguages" value="modern" match="numbers/rationalFormats[@numberSystem='knda']/integerAndRationalPattern"/>
+		<coverageLevel inLanguage="%kndaNativeLanguages" value="modern" match="numbers/rationalFormats[@numberSystem='knda']/integerAndRationalPattern[@alt='%anyAttribute']"/>
+
 		<coverageLevel inLanguage="%laooNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='laoo']/approximatelySign"/>
 		<coverageLevel inLanguage="%laooNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='laoo']/exponential"/>
 		<coverageLevel inLanguage="%laooNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='laoo']/superscriptingExponent"/>
 		<coverageLevel inLanguage="%laooNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='laoo']/perMille"/>
 		<coverageLevel inLanguage="%laooNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='laoo']/infinity"/>
 		<coverageLevel inLanguage="%laooNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='laoo']/nan"/>
+		<coverageLevel inLanguage="%laooNativeLanguages" value="modern" match="numbers/rationalFormats[@numberSystem='laoo']/rationalPattern"/>
+		<coverageLevel inLanguage="%laooNativeLanguages" value="modern" match="numbers/rationalFormats[@numberSystem='laoo']/integerAndRationalPattern"/>
+		<coverageLevel inLanguage="%laooNativeLanguages" value="modern" match="numbers/rationalFormats[@numberSystem='laoo']/integerAndRationalPattern[@alt='%anyAttribute']"/>
+
 		<coverageLevel inLanguage="%mlymNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='mlym']/approximatelySign"/>
 		<coverageLevel inLanguage="%mlymNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='mlym']/exponential"/>
 		<coverageLevel inLanguage="%mlymNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='mlym']/superscriptingExponent"/>
 		<coverageLevel inLanguage="%mlymNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='mlym']/perMille"/>
 		<coverageLevel inLanguage="%mlymNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='mlym']/infinity"/>
 		<coverageLevel inLanguage="%mlymNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='mlym']/nan"/>
+		<coverageLevel inLanguage="%mlymNativeLanguages" value="modern" match="numbers/rationalFormats[@numberSystem='mlym']/rationalPattern"/>
+		<coverageLevel inLanguage="%mlymNativeLanguages" value="modern" match="numbers/rationalFormats[@numberSystem='mlym']/integerAndRationalPattern"/>
+		<coverageLevel inLanguage="%mlymNativeLanguages" value="modern" match="numbers/rationalFormats[@numberSystem='mlym']/integerAndRationalPattern[@alt='%anyAttribute']"/>
+
 		<coverageLevel inScript="%mongNativeScripts" value="modern" match="numbers/symbols[@numberSystem='mong']/approximatelySign"/>
 		<coverageLevel inScript="%mongNativeScripts" value="modern" match="numbers/symbols[@numberSystem='mong']/exponential"/>
 		<coverageLevel inScript="%mongNativeScripts" value="modern" match="numbers/symbols[@numberSystem='mong']/superscriptingExponent"/>
 		<coverageLevel inScript="%mongNativeScripts" value="modern" match="numbers/symbols[@numberSystem='mong']/perMille"/>
 		<coverageLevel inScript="%mongNativeScripts" value="modern" match="numbers/symbols[@numberSystem='mong']/infinity"/>
 		<coverageLevel inScript="%mongNativeScripts" value="modern" match="numbers/symbols[@numberSystem='mong']/nan"/>
+		<coverageLevel inScript="%mongNativeScripts" value="modern" match="numbers/rationalFormats[@numberSystem='mong']/rationalPattern"/>
+		<coverageLevel inScript="%mongNativeScripts" value="modern" match="numbers/rationalFormats[@numberSystem='mong']/integerAndRationalPattern"/>
+		<coverageLevel inScript="%mongNativeScripts" value="modern" match="numbers/rationalFormats[@numberSystem='mong']/integerAndRationalPattern[@alt='%anyAttribute']"/>
+
 		<coverageLevel inScript="%nkooNativeScripts" value="modern" match="numbers/symbols[@numberSystem='nkoo']/approximatelySign"/>
 		<coverageLevel inScript="%nkooNativeScripts" value="modern" match="numbers/symbols[@numberSystem='nkoo']/exponential"/>
 		<coverageLevel inScript="%nkooNativeScripts" value="modern" match="numbers/symbols[@numberSystem='nkoo']/superscriptingExponent"/>
 		<coverageLevel inScript="%nkooNativeScripts" value="modern" match="numbers/symbols[@numberSystem='nkoo']/perMille"/>
 		<coverageLevel inScript="%nkooNativeScripts" value="modern" match="numbers/symbols[@numberSystem='nkoo']/infinity"/>
 		<coverageLevel inScript="%nkooNativeScripts" value="modern" match="numbers/symbols[@numberSystem='nkoo']/nan"/>
+		<coverageLevel inScript="%nkooNativeScripts" value="modern" match="numbers/rationalFormats[@numberSystem='nkoo']/rationalPattern"/>
+		<coverageLevel inScript="%nkooNativeScripts" value="modern" match="numbers/rationalFormats[@numberSystem='nkoo']/integerAndRationalPattern"/>
+		<coverageLevel inScript="%nkooNativeScripts" value="modern" match="numbers/rationalFormats[@numberSystem='nkoo']/integerAndRationalPattern[@alt='%anyAttribute']"/>
+
 		<coverageLevel inScript="%oryaNativeScripts" value="modern" match="numbers/symbols[@numberSystem='orya']/approximatelySign"/>
 		<coverageLevel inScript="%oryaNativeScripts" value="modern" match="numbers/symbols[@numberSystem='orya']/exponential"/>
 		<coverageLevel inScript="%oryaNativeScripts" value="modern" match="numbers/symbols[@numberSystem='orya']/superscriptingExponent"/>
 		<coverageLevel inScript="%oryaNativeScripts" value="modern" match="numbers/symbols[@numberSystem='orya']/perMille"/>
 		<coverageLevel inScript="%oryaNativeScripts" value="modern" match="numbers/symbols[@numberSystem='orya']/infinity"/>
 		<coverageLevel inScript="%oryaNativeScripts" value="modern" match="numbers/symbols[@numberSystem='orya']/nan"/>
+		<coverageLevel inScript="%oryaNativeScripts" value="modern" match="numbers/rationalFormats[@numberSystem='orya']/rationalPattern"/>
+		<coverageLevel inScript="%oryaNativeScripts" value="modern" match="numbers/rationalFormats[@numberSystem='orya']/integerAndRationalPattern"/>
+		<coverageLevel inScript="%oryaNativeScripts" value="modern" match="numbers/rationalFormats[@numberSystem='orya']/integerAndRationalPattern[@alt='%anyAttribute']"/>
+
 		<coverageLevel inLanguage="%tamldecNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='tamldec']/approximatelySign"/>
 		<coverageLevel inLanguage="%tamldecNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='tamldec']/exponential"/>
 		<coverageLevel inLanguage="%tamldecNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='tamldec']/superscriptingExponent"/>
 		<coverageLevel inLanguage="%tamldecNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='tamldec']/perMille"/>
 		<coverageLevel inLanguage="%tamldecNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='tamldec']/infinity"/>
 		<coverageLevel inLanguage="%tamldecNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='tamldec']/nan"/>
+		<coverageLevel inLanguage="%tamldecNativeLanguages" value="modern" match="numbers/rationalFormats[@numberSystem='tamldec']/rationalPattern"/>
+		<coverageLevel inLanguage="%tamldecNativeLanguages" value="modern" match="numbers/rationalFormats[@numberSystem='tamldec']/integerAndRationalPattern"/>
+		<coverageLevel inLanguage="%tamldecNativeLanguages" value="modern" match="numbers/rationalFormats[@numberSystem='tamldec']/integerAndRationalPattern[@alt='%anyAttribute']"/>
+
 		<coverageLevel inScript="%teluNativeScripts" value="modern" match="numbers/symbols[@numberSystem='telu']/approximatelySign"/>
 		<coverageLevel inScript="%teluNativeScripts" value="modern" match="numbers/symbols[@numberSystem='telu']/exponential"/>
 		<coverageLevel inScript="%teluNativeScripts" value="modern" match="numbers/symbols[@numberSystem='telu']/superscriptingExponent"/>
 		<coverageLevel inScript="%teluNativeScripts" value="modern" match="numbers/symbols[@numberSystem='telu']/perMille"/>
 		<coverageLevel inScript="%teluNativeScripts" value="modern" match="numbers/symbols[@numberSystem='telu']/infinity"/>
 		<coverageLevel inScript="%teluNativeScripts" value="modern" match="numbers/symbols[@numberSystem='telu']/nan"/>
+		<coverageLevel inScript="%teluNativeScripts" value="modern" match="numbers/rationalFormats[@numberSystem='telu']/rationalPattern"/>
+		<coverageLevel inScript="%teluNativeScripts" value="modern" match="numbers/rationalFormats[@numberSystem='telu']/integerAndRationalPattern"/>
+		<coverageLevel inScript="%teluNativeScripts" value="modern" match="numbers/rationalFormats[@numberSystem='telu']/integerAndRationalPattern[@alt='%anyAttribute']"/>
+
 		<coverageLevel inLanguage="%thaiNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='thai']/approximatelySign"/>
 		<coverageLevel inLanguage="%thaiNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='thai']/exponential"/>
 		<coverageLevel inLanguage="%thaiNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='thai']/superscriptingExponent"/>
 		<coverageLevel inLanguage="%thaiNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='thai']/perMille"/>
 		<coverageLevel inLanguage="%thaiNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='thai']/infinity"/>
 		<coverageLevel inLanguage="%thaiNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='thai']/nan"/>
+		<coverageLevel inLanguage="%thaiNativeLanguages" value="modern" match="numbers/rationalFormats[@numberSystem='thai']/rationalPattern"/>
+		<coverageLevel inLanguage="%thaiNativeLanguages" value="modern" match="numbers/rationalFormats[@numberSystem='thai']/integerAndRationalPattern"/>
+		<coverageLevel inLanguage="%thaiNativeLanguages" value="modern" match="numbers/rationalFormats[@numberSystem='thai']/integerAndRationalPattern[@alt='%anyAttribute']"/>
+
 		<coverageLevel inLanguage="%tibtNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='tibt']/approximatelySign"/>
 		<coverageLevel inLanguage="%tibtNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='tibt']/exponential"/>
 		<coverageLevel inLanguage="%tibtNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='tibt']/superscriptingExponent"/>
 		<coverageLevel inLanguage="%tibtNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='tibt']/perMille"/>
 		<coverageLevel inLanguage="%tibtNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='tibt']/infinity"/>
 		<coverageLevel inLanguage="%tibtNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='tibt']/nan"/>
+		<coverageLevel inLanguage="%tibtNativeLanguages" value="modern" match="numbers/rationalFormats[@numberSystem='tibt']/rationalPattern"/>
+		<coverageLevel inLanguage="%tibtNativeLanguages" value="modern" match="numbers/rationalFormats[@numberSystem='tibt']/integerAndRationalPattern"/>
+		<coverageLevel inLanguage="%tibtNativeLanguages" value="modern" match="numbers/rationalFormats[@numberSystem='tibt']/integerAndRationalPattern[@alt='%anyAttribute']"/>
+
 		<coverageLevel inLanguage="%vaiiNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='vaii']/approximatelySign"/>
 		<coverageLevel inLanguage="%vaiiNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='vaii']/exponential"/>
 		<coverageLevel inLanguage="%vaiiNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='vaii']/superscriptingExponent"/>
 		<coverageLevel inLanguage="%vaiiNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='vaii']/perMille"/>
 		<coverageLevel inLanguage="%vaiiNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='vaii']/infinity"/>
 		<coverageLevel inLanguage="%vaiiNativeLanguages" value="modern" match="numbers/symbols[@numberSystem='vaii']/nan"/>
+		<coverageLevel inLanguage="%vaiiNativeLanguages" value="modern" match="numbers/rationalFormats[@numberSystem='vaii']/rationalPattern"/>
+		<coverageLevel inLanguage="%vaiiNativeLanguages" value="modern" match="numbers/rationalFormats[@numberSystem='vaii']/integerAndRationalPattern"/>
+		<coverageLevel inLanguage="%vaiiNativeLanguages" value="modern" match="numbers/rationalFormats[@numberSystem='vaii']/integerAndRationalPattern[@alt='%anyAttribute']"/>
 
 		<!-- Moved compact decimal/currency formats for latn up with other base formats -->
 		<coverageLevel value="modern" match="numbers/currencyFormats[@numberSystem='latn']/currencyPatternAppendISO"/>

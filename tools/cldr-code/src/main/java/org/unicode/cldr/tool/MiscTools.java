@@ -56,7 +56,7 @@ import org.unicode.cldr.util.ZoneParser.RuleLine;
 import org.unicode.cldr.util.ZoneParser.ZoneLine;
 
 /** Grab-bag set of tools that needs to be rationalized. */
-public class Misc {
+public class MiscTools {
     static Factory cldrFactory;
     static CLDRFile english;
     static CLDRFile resolvedRoot;
@@ -151,7 +151,7 @@ public class Misc {
             UOption.parseArgs(args, options);
             if (options[HELP1].doesOccur || options[HELP1].doesOccur) {
                 System.out.println(HELP_TEXT);
-                CldrUtility.showMethods(Misc.class);
+                CldrUtility.showMethods(MiscTools.class);
                 return;
             }
             cldrFactory = Factory.make(options[SOURCEDIR].value + "/main/", options[MATCH].value);
@@ -204,7 +204,7 @@ public class Misc {
             if (options[FUNCTION].doesOccur) {
                 String function = options[FUNCTION].value;
 
-                CldrUtility.callMethod(function, Misc.class);
+                CldrUtility.callMethod(function, MiscTools.class);
             }
 
             // getZoneData();

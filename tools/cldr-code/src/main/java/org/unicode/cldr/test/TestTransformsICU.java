@@ -7,7 +7,7 @@ import java.lang.reflect.Method;
 import org.unicode.cldr.util.CLDRTransforms;
 import org.unicode.cldr.util.CldrUtility;
 
-public class TestTransforms {
+public class TestTransformsICU {
 
     public static void main(String[] args) throws IOException {
         // checkRegistry();

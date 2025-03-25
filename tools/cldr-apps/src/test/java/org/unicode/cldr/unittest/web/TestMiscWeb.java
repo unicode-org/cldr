@@ -11,9 +11,9 @@ import org.unicode.cldr.web.WebContext;
 /**
  * @author srl
  */
-public class TestMisc extends TestFmwk {
+public class TestMiscWeb extends TestFmwk {
     public static void main(String[] args) {
-        new TestMisc().run(args);
+        new TestMiscWeb().run(args);
     }
 
     public void TestLocaleMaxSizer() {

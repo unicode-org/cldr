@@ -4,7 +4,7 @@ import java.util.*;
 import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.util.*;
 
-public class TestVettingViewer extends TestFmwk {
+public class TestVettingViewerCategories extends TestFmwk {
 
     public void TestNotificationCategories() {
         final Organization org = VettingViewer.getNeutralOrgForSummary();

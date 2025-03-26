@@ -513,7 +513,7 @@ public class PathDescription {
                     + ".\n"
                     + "^//ldml/numbers/rationalFormats/rationalPattern"
                     + RegexLookup.SEPARATOR
-                    + "A pattern that is used to format a rational fraction (eg, ½), using the numerator and denominator"
+                    + "A pattern that is used to format a rational fraction (eg, ½), using the numerator and denominator "
                     + CLDRURLS.NUMBERS_HELP
                     + ".\n"
                     + "^//ldml/numbers/rationalFormats/integerAndRationalPattern\\[@alt=\"([^\"]*)\"]"

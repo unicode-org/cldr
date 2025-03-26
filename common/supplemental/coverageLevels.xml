@@ -1037,10 +1037,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="modern" match="dates/fields/field[@type='second']/relative[@type='0']"/>
 		<coverageLevel value="modern" match="dates/fields/field[@type='quarter']/relative[@type='(-1|0|1)']"/>
 		
-		<coverageLevel	value="modern"		match="numbers/rationalFormats@numberSystem='latn'/rationalPattern"/>
-		<coverageLevel	value="modern"		match="numbers/rationalFormats@numberSystem='latn'/rationalUsage"/>
-		<coverageLevel	value="modern"		match="numbers/rationalFormats@numberSystem='latn'/integerAndRationalPattern"/>
-		<coverageLevel	value="modern"		match="numbers/rationalFormats@numberSystem='latn'/integerAndRationalPattern[@alt='%anyAttribute']"/>
+		<coverageLevel	value="modern"		match="numbers/rationalFormats[@numberSystem='latn']/rationalPattern"/>
+		<coverageLevel	value="modern"		match="numbers/rationalFormats[@numberSystem='latn']/rationalUsage"/>
+		<coverageLevel	value="modern"		match="numbers/rationalFormats[@numberSystem='latn']/integerAndRationalPattern"/>
+		<coverageLevel	value="modern"		match="numbers/rationalFormats[@numberSystem='latn']/integerAndRationalPattern[@alt='%anyAttribute']"/>
 		
 		<coverageLevel inScript="%adlmDefaultScripts" value="modern" match="numbers/symbols[@numberSystem='adlm']/approximatelySign"/>
 		<coverageLevel inScript="%adlmDefaultScripts" value="modern" match="numbers/symbols[@numberSystem='adlm']/exponential"/>

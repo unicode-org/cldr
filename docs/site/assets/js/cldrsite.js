@@ -4,11 +4,30 @@ const { ref } = Vue;
 // first thing.
 anchors.add("h1, h2, h3, h4, h5, h6");
 
+const coll = Intl.Collator([], {
+  usage: "search",
+  sensitivity: "base",
+  ignorePunctuation: "true",
+});
+
+/**
+ * @param {string} t string to search for
+ * @param {string} full full text to search on
+ * @returns
+ */
 function searchMatch(t, full) {
+  // normalize input strings
   t = t.trim().toLowerCase();
   full = full.trim().toLowerCase();
+
+  // exact exact match
   if (t == full) return true;
-  if (full.indexOf(t) !== -1) return true;
+  // substring match
+  if (full.includes(t)) return true;
+  // next, try search collator
+  if (coll.compare(t, full) == 0) return true;
+
+  // sorry, no match
   return false;
 }
 
@@ -263,13 +282,14 @@ const SearchBox = {
     updateSearch(event) {
       this.searchText = event.target.value;
       const t = this.searchText?.trim();
-      this.searchResults = [];
+      this.clearSearchResults();
       if (t) {
         this.localSearch();
       }
     },
     // do the google search
     webSearch() {
+      this.clearSearchResults(); // as we are leaving this page
       const text = this.searchText;
       if (!text || !text.trim()) return;
       const u = new URL(
@@ -283,19 +303,27 @@ const SearchBox = {
     // handle the X (clear) button
     clearSearch() {
       this.searchText = "";
+      this.clearSearchResults();
+    },
+    clearSearchResults() {
       this.searchResults = [];
+      this.headerResults = [];
     },
     // attempt a local search
     localSearch() {
       const t = this.searchText?.trim();
+      this.clearSearchResults();
+      if (t.length <= 1) return; // don't search on one letter
       const pathAndTitle = Object.entries(this.tree.value.usermap).map(
         ([href, { title }]) => ({ href, title })
       );
-      const candidates = [
+      this.headerResults = [
         ...this.pageContents
           .filter(({ title }) => searchMatch(t, title))
           // don't match the H1
           .filter(({ style }) => style != "headingH1"),
+      ];
+      this.searchResults = [
         ...pathAndTitle
           .filter(
             ({ href, title }) => searchMatch(t, href) || searchMatch(t, title)
@@ -303,28 +331,40 @@ const SearchBox = {
           // need to add a preceding slash to the href
           .map(({ href, title }) => ({ href: `/${href}`, title })),
       ];
-      this.searchResults = candidates;
     },
   },
   setup(props) {
     const searchText = ref("");
+    const headerResults = ref([]);
     const searchResults = ref([]);
     const pageContents = ref(processAnchorElements(anchors.elements));
     return {
       searchText,
+      headerResults,
       searchResults,
       pageContents,
     };
   },
   template: `
     <input size="30" placeholder="Search CLDR…" @keyup="keyup" :value="searchText" @input="updateSearch"/><button id="searchbutton" title="search" @click="webSearch">🔎</button>
-    <button v-show="searchText" id="clearsearch" title="clear search" @click="clearSearch">X</button>
+    <button v-show="searchText" id="clearsearch" title="clear search" @click="clearSearch">✕</button>
+    <div class="searchResults" v-if="headerResults?.length">
+      <i>Matching headings on this page:</i>
+      <ul>
+        <li v-for="r of headerResults.slice(0,max)" :key="href">
+          <a :href="r.href">{{ r.title }}</a>
+        </li>
+        <li v-show="headerResults?.length > max"><a @click="webSearch">More…</a></li>
+      </ul>
+    </div>
     <div class="searchResults" v-if="searchResults?.length">
-      <i v-if="searchResults">You may be looking for:</i>
-      <li v-for="r of searchResults.slice(0,max)" :key="href">
-        <a :href="r.href">{{ r.title }}</a>
-      </li>
-      <li v-show="searchResults?.length > max" @click="webSearch">More…</li>
+      <i>Matching page titles:</i>
+      <ul>
+        <li v-for="r of searchResults.slice(0,max)" :key="href">
+          <a :href="r.href">{{ r.title }}</a>
+        </li>
+        <li v-show="searchResults?.length > max"><a @click="webSearch">More…</a></li>
+      </ul>
       <i v-if="searchResults">or, press Enter to search the site.</i>
     </div>
   `,

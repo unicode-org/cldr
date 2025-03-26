@@ -2403,70 +2403,74 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="be" populationPercent="26" officialStatus="official" references="R1130"/>	<!--Belarusian-->
 		</territory>
 		<territory type="BZ" gdp="5257000000" literacyPercent="76.9" population="415789">	<!--Belize-->
-			<languagePopulation type="en" populationPercent="100" officialStatus="official"/>	<!--English-->
-			<languagePopulation type="es" populationPercent="28"/>	<!--Spanish-->
+			<languagePopulation type="en" populationPercent="77" officialStatus="official" references="R1161"/>	<!--English-->
+			<languagePopulation type="es" populationPercent="55" references="R1161"/>	<!--Spanish-->
+			<languagePopulation type="bzj" populationPercent="50" references="R1161"/>	<!--Belize Kriol English-->
+			<languagePopulation type="kek" populationPercent="6.5" references="R1161"/>	<!--Kekchí-->
+			<languagePopulation type="mop" populationPercent="4" references="R1161"/>	<!--Mopán Maya-->
+			<languagePopulation type="cab" populationPercent="1.9" references="R1161"/>	<!--Garifuna-->
 		</territory>
 		<territory type="CA" gdp="2238000000000" literacyPercent="99" population="38794800">	<!--Canada-->
-			<languagePopulation type="en" populationPercent="87" officialStatus="official" references="R1019"/>	<!--English-->
+			<languagePopulation type="en" populationPercent="87" officialStatus="official" references="R1374"/>	<!--English-->
 			<languagePopulation type="fr" populationPercent="29" officialStatus="official" references="R1341"/>	<!--French-->
-			<languagePopulation type="es" populationPercent="3.2" references="R1019"/>	<!--Spanish-->
-			<languagePopulation type="zh" populationPercent="2.7" references="R1019"/>	<!--Chinese-->
-			<languagePopulation type="pa" populationPercent="2.6" references="R1019"/>	<!--Punjabi-->
-			<languagePopulation type="ar" populationPercent="2.3" references="R1019"/>	<!--Arabic-->
-			<languagePopulation type="hi" populationPercent="2.1" references="R1019"/>	<!--Hindi-->
-			<languagePopulation type="fil" populationPercent="2" references="R1019"/>	<!--Filipino-->
-			<languagePopulation type="yue" populationPercent="2" references="R1019"/>	<!--Cantonese-->
-			<languagePopulation type="it" populationPercent="1.5" references="R1019"/>	<!--Italian-->
-			<languagePopulation type="de" populationPercent="1.2" references="R1019"/>	<!--German-->
-			<languagePopulation type="ur" populationPercent="1.1" references="R1019"/>	<!--Urdu-->
-			<languagePopulation type="pt" populationPercent="0.93" references="R1019"/>	<!--Portuguese-->
-			<languagePopulation type="ru" populationPercent="0.85" references="R1019"/>	<!--Russian-->
-			<languagePopulation type="ta" populationPercent="0.65" references="R1019"/>	<!--Tamil-->
-			<languagePopulation type="vi" populationPercent="0.64" references="R1019"/>	<!--Vietnamese-->
-			<languagePopulation type="fa" populationPercent="0.61" references="R1019"/>	<!--Persian-->
-			<languagePopulation type="gu" populationPercent="0.58" references="R1019"/>	<!--Gujarati-->
-			<languagePopulation type="pl" populationPercent="0.56" references="R1019"/>	<!--Polish-->
-			<languagePopulation type="ko" populationPercent="0.56" references="R1019"/>	<!--Korean-->
-			<languagePopulation type="el" populationPercent="0.4" references="R1019"/>	<!--Greek-->
-			<languagePopulation type="uk" populationPercent="0.36" references="R1019"/>	<!--Ukrainian-->
-			<languagePopulation type="bn" populationPercent="0.33" references="R1019"/>	<!--Bangla-->
-			<languagePopulation type="ro" populationPercent="0.32" references="R1019"/>	<!--Romanian-->
-			<languagePopulation type="nl" populationPercent="0.3" references="R1019"/>	<!--Dutch-->
-			<languagePopulation type="ja" populationPercent="0.27" references="R1019"/>	<!--Japanese-->
-			<languagePopulation type="sr" populationPercent="0.23" references="R1019"/>	<!--Serbian-->
-			<languagePopulation type="tr" populationPercent="0.22" references="R1019"/>	<!--Turkish-->
-			<languagePopulation type="hr" populationPercent="0.2" references="R1019"/>	<!--Croatian-->
-			<languagePopulation type="hu" populationPercent="0.18" references="R1019"/>	<!--Hungarian-->
-			<languagePopulation type="so" populationPercent="0.16" references="R1019"/>	<!--Somali-->
-			<languagePopulation type="iu" literacyPercent="30" populationPercent="0.11" officialStatus="official_regional" references="R1019"/>	<!--Inuktitut-->
-			<languagePopulation type="iu_Latn" literacyPercent="30" populationPercent="0.11" officialStatus="official_regional" references="R1019"/>	<!--Inuktitut (Latin)-->
-			<languagePopulation type="pdt" populationPercent="0.11" references="R1019"/>	<!--Plautdietsch-->
-			<languagePopulation type="oj" populationPercent="0.072" references="R1019"/>	<!--Ojibwa-->
-			<languagePopulation type="ojs" populationPercent="0.042" references="R1019"/>	<!--Oji-Cree-->
-			<languagePopulation type="crk" populationPercent="0.033" officialStatus="official_regional" references="R1019"/>	<!--Plains Cree-->
-			<languagePopulation type="chp" populationPercent="0.032" officialStatus="official_regional" references="R1019"/>	<!--Chipewyan-->
-			<languagePopulation type="moe" populationPercent="0.03" references="R1019"/>	<!--Innu-aimun-->
-			<languagePopulation type="mic" populationPercent="0.024" references="R1019"/>	<!--Mi'kmaw-->
-			<languagePopulation type="atj" populationPercent="0.018" references="R1019"/>	<!--Atikamekw-->
-			<languagePopulation type="bla" populationPercent="0.017" references="R1019"/>	<!--Siksiká-->
-			<languagePopulation type="cr" populationPercent="0.013" references="R1019"/>	<!--Cree-->
-			<languagePopulation type="crl" populationPercent="0.013" references="R1019"/>	<!--Northern East Cree-->
-			<languagePopulation type="csw" populationPercent="0.012" references="R1019"/>	<!--Swampy Cree-->
-			<languagePopulation type="war" populationPercent="0.012" references="R1019"/>	<!--Waray-->
-			<languagePopulation type="ojw" populationPercent="0.0094" references="R1019"/>	<!--Western Ojibwa-->
-			<languagePopulation type="den" populationPercent="0.006" officialStatus="official_regional" references="R1019"/>	<!--Slave-->
-			<languagePopulation type="dgr" populationPercent="0.0055" officialStatus="official_regional" references="R1019"/>	<!--Dogrib-->
-			<languagePopulation type="crg" populationPercent="0.0049" references="R1019"/>	<!--Michif-->
-			<languagePopulation type="moh" populationPercent="0.0041" references="R1019"/>	<!--Mohawk-->
-			<languagePopulation type="dak" populationPercent="0.0039" references="R1019"/>	<!--Dakota-->
-			<languagePopulation type="hur" populationPercent="0.0036" references="R1019"/>	<!--Halkomelem-->
-			<languagePopulation type="nsk" populationPercent="0.0027" references="R1019"/>	<!--Naskapi-->
-			<languagePopulation type="clc" populationPercent="0.0022" references="R1019"/>	<!--Chilcotin-->
-			<languagePopulation type="kwk" populationPercent="0.0021" references="R1019"/>	<!--Kwakʼwala-->
-			<languagePopulation type="pqm" populationPercent="0.0021" references="R1019"/>	<!--Maliseet-Passamaquoddy-->
-			<languagePopulation type="oka" populationPercent="0.0018" references="R1019"/>	<!--Okanagan-->
-			<languagePopulation type="lil" populationPercent="0.0015" references="R1019"/>	<!--Lillooet-->
-			<languagePopulation type="gwi" populationPercent="0.0008" officialStatus="official_regional" references="R1019"/>	<!--Gwichʼin-->
+			<languagePopulation type="es" populationPercent="3.2" references="R1374"/>	<!--Spanish-->
+			<languagePopulation type="zh" populationPercent="2.7" references="R1374"/>	<!--Chinese-->
+			<languagePopulation type="pa" populationPercent="2.6" references="R1374"/>	<!--Punjabi-->
+			<languagePopulation type="ar" populationPercent="2.3" references="R1374"/>	<!--Arabic-->
+			<languagePopulation type="hi" populationPercent="2.1" references="R1374"/>	<!--Hindi-->
+			<languagePopulation type="fil" populationPercent="2" references="R1374"/>	<!--Filipino-->
+			<languagePopulation type="yue" populationPercent="2" references="R1374"/>	<!--Cantonese-->
+			<languagePopulation type="it" populationPercent="1.5" references="R1374"/>	<!--Italian-->
+			<languagePopulation type="de" populationPercent="1.2" references="R1374"/>	<!--German-->
+			<languagePopulation type="ur" populationPercent="1.1" references="R1374"/>	<!--Urdu-->
+			<languagePopulation type="pt" populationPercent="0.93" references="R1374"/>	<!--Portuguese-->
+			<languagePopulation type="ru" populationPercent="0.85" references="R1374"/>	<!--Russian-->
+			<languagePopulation type="ta" populationPercent="0.65" references="R1374"/>	<!--Tamil-->
+			<languagePopulation type="vi" populationPercent="0.64" references="R1374"/>	<!--Vietnamese-->
+			<languagePopulation type="fa" populationPercent="0.61" references="R1374"/>	<!--Persian-->
+			<languagePopulation type="gu" populationPercent="0.58" references="R1374"/>	<!--Gujarati-->
+			<languagePopulation type="pl" populationPercent="0.56" references="R1374"/>	<!--Polish-->
+			<languagePopulation type="ko" populationPercent="0.56" references="R1374"/>	<!--Korean-->
+			<languagePopulation type="el" populationPercent="0.4" references="R1374"/>	<!--Greek-->
+			<languagePopulation type="uk" populationPercent="0.36" references="R1374"/>	<!--Ukrainian-->
+			<languagePopulation type="bn" populationPercent="0.33" references="R1374"/>	<!--Bangla-->
+			<languagePopulation type="ro" populationPercent="0.32" references="R1374"/>	<!--Romanian-->
+			<languagePopulation type="nl" populationPercent="0.3" references="R1374"/>	<!--Dutch-->
+			<languagePopulation type="ja" populationPercent="0.27" references="R1374"/>	<!--Japanese-->
+			<languagePopulation type="sr" populationPercent="0.23" references="R1374"/>	<!--Serbian-->
+			<languagePopulation type="tr" populationPercent="0.22" references="R1374"/>	<!--Turkish-->
+			<languagePopulation type="hr" populationPercent="0.2" references="R1374"/>	<!--Croatian-->
+			<languagePopulation type="hu" populationPercent="0.18" references="R1374"/>	<!--Hungarian-->
+			<languagePopulation type="so" populationPercent="0.16" references="R1374"/>	<!--Somali-->
+			<languagePopulation type="iu" literacyPercent="30" populationPercent="0.11" officialStatus="official_regional" references="R1374"/>	<!--Inuktitut-->
+			<languagePopulation type="iu_Latn" literacyPercent="30" populationPercent="0.11" officialStatus="official_regional" references="R1374"/>	<!--Inuktitut (Latin)-->
+			<languagePopulation type="pdt" populationPercent="0.11" references="R1374"/>	<!--Plautdietsch-->
+			<languagePopulation type="oj" populationPercent="0.072" references="R1374"/>	<!--Ojibwa-->
+			<languagePopulation type="ojs" populationPercent="0.042" references="R1374"/>	<!--Oji-Cree-->
+			<languagePopulation type="crk" populationPercent="0.033" officialStatus="official_regional" references="R1374"/>	<!--Plains Cree-->
+			<languagePopulation type="chp" populationPercent="0.032" officialStatus="official_regional" references="R1374"/>	<!--Chipewyan-->
+			<languagePopulation type="moe" populationPercent="0.03" references="R1374"/>	<!--Innu-aimun-->
+			<languagePopulation type="mic" populationPercent="0.024" references="R1374"/>	<!--Mi'kmaw-->
+			<languagePopulation type="atj" populationPercent="0.018" references="R1374"/>	<!--Atikamekw-->
+			<languagePopulation type="bla" populationPercent="0.017" references="R1374"/>	<!--Siksiká-->
+			<languagePopulation type="cr" populationPercent="0.013" references="R1374"/>	<!--Cree-->
+			<languagePopulation type="crl" populationPercent="0.013" references="R1374"/>	<!--Northern East Cree-->
+			<languagePopulation type="csw" populationPercent="0.012" references="R1374"/>	<!--Swampy Cree-->
+			<languagePopulation type="war" populationPercent="0.012" references="R1374"/>	<!--Waray-->
+			<languagePopulation type="ojw" populationPercent="0.0094" references="R1374"/>	<!--Western Ojibwa-->
+			<languagePopulation type="den" populationPercent="0.006" officialStatus="official_regional" references="R1374"/>	<!--Slave-->
+			<languagePopulation type="dgr" populationPercent="0.0055" officialStatus="official_regional" references="R1374"/>	<!--Dogrib-->
+			<languagePopulation type="crg" populationPercent="0.0049" references="R1374"/>	<!--Michif-->
+			<languagePopulation type="moh" populationPercent="0.0041" references="R1374"/>	<!--Mohawk-->
+			<languagePopulation type="dak" populationPercent="0.0039" references="R1374"/>	<!--Dakota-->
+			<languagePopulation type="hur" populationPercent="0.0036" references="R1374"/>	<!--Halkomelem-->
+			<languagePopulation type="nsk" populationPercent="0.0027" references="R1374"/>	<!--Naskapi-->
+			<languagePopulation type="clc" populationPercent="0.0022" references="R1374"/>	<!--Chilcotin-->
+			<languagePopulation type="kwk" populationPercent="0.0021" references="R1374"/>	<!--Kwakʼwala-->
+			<languagePopulation type="pqm" populationPercent="0.0021" references="R1374"/>	<!--Maliseet-Passamaquoddy-->
+			<languagePopulation type="oka" populationPercent="0.0018" references="R1374"/>	<!--Okanagan-->
+			<languagePopulation type="lil" populationPercent="0.0015" references="R1374"/>	<!--Lillooet-->
+			<languagePopulation type="gwi" populationPercent="0.0008" officialStatus="official_regional" references="R1374"/>	<!--Gwichʼin-->
 		</territory>
 		<territory type="CC" gdp="35090000" literacyPercent="99" population="593">	<!--Cocos (Keeling) Islands-->
 			<languagePopulation type="ms_Arab" populationPercent="84"/>	<!--Malay (Arabic)-->
@@ -2493,7 +2497,7 @@ XXX Code for transations where no currency is involved
 		</territory>
 		<territory type="CH" gdp="733800000000" literacyPercent="99" population="8860570">	<!--Switzerland-->
 			<languagePopulation type="de" populationPercent="76" officialStatus="official" references="R1345"/>	<!--German-->
-			<languagePopulation type="gsw" writingPercent="5" populationPercent="66" officialStatus="de_facto_official" references="R1346"/>	<!--Swiss German-->
+			<languagePopulation type="gsw" writingPercent="5" populationPercent="66" officialStatus="de_facto_official" references="R1019"/>	<!--Swiss German-->
 			<languagePopulation type="en" populationPercent="45" references="R1345"/>	<!--English-->
 			<languagePopulation type="fr" populationPercent="39" officialStatus="official" references="R1345"/>	<!--French-->
 			<languagePopulation type="it" populationPercent="15" officialStatus="official" references="R1345"/>	<!--Italian-->
@@ -2910,8 +2914,32 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="en" populationPercent="100" officialStatus="official" references="R1338"/>	<!--English-->
 		</territory>
 		<territory type="GT" gdp="223200000000" literacyPercent="75.9" population="18255200">	<!--Guatemala-->
-			<languagePopulation type="es" populationPercent="93" officialStatus="official" references="R1227"/>	<!--Spanish-->
-			<languagePopulation type="quc" populationPercent="7" officialStatus="official_regional" references="R1289"/>	<!--Kʼicheʼ-->
+			<languagePopulation type="es" populationPercent="88" officialStatus="official" references="R1168"/>	<!--Spanish-->
+			<languagePopulation type="cak" populationPercent="8.8" officialStatus="official_regional" references="R1170"/>	<!--Kaqchikel-->
+			<languagePopulation type="kek" populationPercent="8.8" references="R1168"/>	<!--Kekchí-->
+			<languagePopulation type="quc" populationPercent="8.6" officialStatus="official_regional" references="R1252"/>	<!--Kʼicheʼ-->
+			<languagePopulation type="mam" populationPercent="4.6" references="R1168"/>	<!--Mam-->
+			<languagePopulation type="en" populationPercent="3.1" references="R1168"/>	<!--English-->
+			<languagePopulation type="kjb" populationPercent="1.2" references="R1168"/>	<!--Q'anjob'al-->
+			<languagePopulation type="poh" populationPercent="1.2" references="R1168"/>	<!--Poqomchi'-->
+			<languagePopulation type="acr" populationPercent="1.1" references="R1168"/>	<!--Achi-->
+			<languagePopulation type="ixl" populationPercent="0.89" officialStatus="official_regional" references="R1271"/>	<!--Ixil-->
+			<languagePopulation type="tzj" populationPercent="0.61" references="R1168"/>	<!--Tz'utujil-->
+			<languagePopulation type="knj" populationPercent="0.58" references="R1168"/>	<!--Western Kanjobal-->
+			<languagePopulation type="cac" populationPercent="0.43" references="R1168"/>	<!--Chuj-->
+			<languagePopulation type="jac" populationPercent="0.31" references="R1168"/>	<!--Popti'-->
+			<languagePopulation type="agu" populationPercent="0.26" references="R1168"/>	<!--Aguacateco-->
+			<languagePopulation type="caa" populationPercent="0.13" officialStatus="official_regional" references="R1329"/>	<!--Chortí-->
+			<languagePopulation type="poc" populationPercent="0.09" references="R1168"/>	<!--Poqomam-->
+			<languagePopulation type="quv" populationPercent="0.054" officialStatus="official_regional" references="R1271"/>	<!--Sacapulteco-->
+			<languagePopulation type="usp" populationPercent="0.045" officialStatus="official_regional" references="R1271"/>	<!--Uspanteco-->
+			<languagePopulation type="qum" populationPercent="0.036" references="R1168"/>	<!--Sipacapense-->
+			<languagePopulation type="cab" populationPercent="0.027" references="R1168"/>	<!--Garifuna-->
+			<languagePopulation type="ttc" populationPercent="0.027" references="R1168"/>	<!--Tektiteko-->
+			<languagePopulation type="xin" populationPercent="0.027" officialStatus="official_regional" references="R1331"/>	<!--Xinca-->
+			<languagePopulation type="ckz" populationPercent="0.018" references="R1371"/>	<!--Cakchiquel-Quiché Mixed Language-->
+			<languagePopulation type="mop" populationPercent="0.018" references="R1168"/>	<!--Mopán Maya-->
+			<languagePopulation type="itz" populationPercent="0.0091" references="R1168"/>	<!--Itzá-->
 		</territory>
 		<territory type="GU" gdp="5793000000" literacyPercent="99" population="169532">	<!--Guam-->
 			<languagePopulation type="en" populationPercent="91" officialStatus="de_facto_official"/>	<!--English-->
@@ -2937,7 +2965,8 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="und" literacyPercent="100" populationPercent="100" references="R1064"/>	<!--Unknown language-->
 		</territory>
 		<territory type="HN" gdp="68850000000" literacyPercent="85.1" population="9529190">	<!--Honduras-->
-			<languagePopulation type="es" populationPercent="78" officialStatus="official"/>	<!--Spanish-->
+			<languagePopulation type="es" populationPercent="91" officialStatus="official" references="R1372"/>	<!--Spanish-->
+			<languagePopulation type="cab" populationPercent="0.47" references="R1373"/>	<!--Garifuna-->
 			<languagePopulation type="en" populationPercent="0.44"/>	<!--English-->
 		</territory>
 		<territory type="HR" gdp="159300000000" literacyPercent="98.9" population="4150120">	<!--Croatia-->
@@ -3150,7 +3179,7 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="sc" populationPercent="1.7"/>	<!--Sardinian-->
 			<languagePopulation type="de" populationPercent="1.6" references="R1251"/>	<!--German-->
 			<languagePopulation type="vec" populationPercent="1.3" officialStatus="official_regional" references="R1295"/>	<!--Venetian-->
-			<languagePopulation type="pms" populationPercent="1.1" references="R1041"/>	<!--Piedmontese-->
+			<languagePopulation type="pms" populationPercent="1.1" references="R1375"/>	<!--Piedmontese-->
 			<languagePopulation type="nap" writingPercent="5" populationPercent="0.97" references="R1148"/>	<!--Neapolitan-->
 			<languagePopulation type="lij" populationPercent="0.86"/>	<!--Ligurian-->
 			<languagePopulation type="scn" writingPercent="5" populationPercent="0.82" references="R1149"/>	<!--Sicilian-->
@@ -3916,9 +3945,9 @@ XXX Code for transations where no currency is involved
 		</territory>
 		<territory type="SV" gdp="71960000000" literacyPercent="84.5" population="6628700">	<!--El Salvador-->
 			<languagePopulation type="es" populationPercent="89" officialStatus="official"/>	<!--Spanish-->
-			<languagePopulation type="ccr" populationPercent="0.056"/>	<!--Cacaopera-->
-			<languagePopulation type="ppl" populationPercent="0.041"/>	<!--Pipil-->
-			<languagePopulation type="len" populationPercent="0.02"/>	<!--Lenca-->
+			<languagePopulation type="ccr" populationPercent="0.056" references="R1227"/>	<!--Cacaopera-->
+			<languagePopulation type="ppl" populationPercent="0.041" references="R1289"/>	<!--Pipil-->
+			<languagePopulation type="len" populationPercent="0.02" references="R1289"/>	<!--Lenca-->
 		</territory>
 		<territory type="SX" gdp="1912000000" literacyPercent="99" population="46215">	<!--Sint Maarten-->
 			<languagePopulation type="en" populationPercent="68" officialStatus="official" references="R1238"/>	<!--English-->
@@ -5288,7 +5317,7 @@ XXX Code for transations where no currency is involved
 		<reference type="R1016" uri="http://www.ethnologue.com/show_language.asp?code=sco">100k+ native, plus 1.5 mil 2nd lang speakers. For languages not customarily written, the writing population is artificially set to 5% in the absence of better information.</reference>
 		<reference type="R1017">For languages not customarily written, the writing population is artificially set to 5% in the absence of better information.</reference>
 		<reference type="R1018" uri="https://www.cia.gov/cia/publications/factbook/geos/gj.html">English official; the figure is derived from literacy * lang pop</reference>
-		<reference type="R1019" uri="https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=9810021601">Canada 2021 Census language &quot;Knowledge of Language&quot;; official status from Wikipedia Languages_of_Canada</reference>
+		<reference type="R1019" uri="https://www.bfs.admin.ch/bfs/de/home/statistiken/bevoelkerung/sprachen-religionen/sprachen.html">Regelmässig verwendete Sprachen - Percent of people that regularly use the language; literacy is mostly in standard German. For languages not customarily written, the writing population is artificially set to 5% in the absence of better information.</reference>
 		<reference type="R1020" uri="http://en.wikipedia.org/wiki/Ascension_Island">[missing]</reference>
 		<reference type="R1021">Actually literacy in Nko writing unknown but historically they used the Latin script</reference>
 		<reference type="R1022" uri="https://www.cia.gov/cia/publications/factbook/geos/gi.html">English official, the figure is derived from literacy * lang pop</reference>
@@ -5310,7 +5339,6 @@ XXX Code for transations where no currency is involved
 		<reference type="R1038" uri="https://www.cia.gov/cia/publications/factbook/fields/2098.html">[missing]</reference>
 		<reference type="R1039" uri="https://www.cia.gov/cia/publications/factbook/geos/ls.html">German official</reference>
 		<reference type="R1040" uri="http://rosstat.gov.ru/vpn_popul">2020 Russian Census</reference>
-		<reference type="R1041">Regis, Riccardo. &quot;Su pianificazione, standardizzazione, polinomia: due esempi&quot; Zeitschrift für romanische Philologie, vol. 128, no. 1, 2012, pp. 88-133.</reference>
 		<reference type="R1042" uri="https://www.cia.gov/cia/publications/factbook/geos/nl.html">Used CIA literacy figure times population, added 'Vlaams' population</reference>
 		<reference type="R1043" uri="http://www.cso.ie/census/documents/Final%20Principal%20Demographic%20Results%202006.pdf">[missing]</reference>
 		<reference type="R1044" uri="http://www.ethnologue.com/show_language.asp?code=mri">70,000 in 1991, 100,000 who understand it, but do not speak it ; ethnic pop 530,000 in 2002</reference>
@@ -5430,13 +5458,16 @@ XXX Code for transations where no currency is involved
 		<reference type="R1158" uri="http://en.wikipedia.org/wiki/Languages_of_Pakistan#Punjabi">Spoken by 70% of population, assumed to use Arabic script in Pakistan</reference>
 		<reference type="R1159" uri="http://en.wikipedia.org/wiki/Chuvash_language#Language_use">Reported to be (regional) official in Chuvashia, central Russia: taught at schools. However: http://cv.wikipedia.org/ Chuvash Wikipedia on-line.</reference>
 		<reference type="R1160" uri="https://www.ethnologue.com/language/pis">[missing]</reference>
+		<reference type="R1161" uri="https://sib.org.bz/census/2022-census/">2022 Belize Census</reference>
 		<reference type="R1162" uri="https://www.cia.gov/cia/publications/factbook/fields/2098.html">'A lingua franca and a first language for 10% of the population but understood by 95%' http://en.wikipedia.org/wiki/Krio_language</reference>
 		<reference type="R1163" uri="http://en.wikipedia.org/wiki/Suriname#Languages">Dutch is spoken as a mother tongue by about 60% of the Surinamese, while most others speak it as a second or third language.</reference>
 		<reference type="R1164" uri="http://en.wikipedia.org/wiki/Isan_language">main language of trade and comm. in Isan region, except ... media where it gives way to Thai; now largely an unwritten language. 10% writing pop estimated in absence of other data</reference>
 		<reference type="R1165" uri="http://en.wikipedia.org/wiki/Uyghur_language">- primarily written using an Arabic-derived alphabet</reference>
 		<reference type="R1166" uri="https://en.wikipedia.org/wiki/Sark#Economy">and https://islandstudies.com/files/2016/11/Guernsey-Herm-Sark.pdf - extrapolated GDP from per capita x population</reference>
 		<reference type="R1167" uri="http://www.ethnologue.com/show_language.asp?code=nds">understood by 10 million, perhaps. Figure is questionable writing pop artificially set to 5% see also: http://en.wikipedia.org/wiki/Low_German (understood by 10 million people, and native to about 3 million people all around northern Germany)</reference>
+		<reference type="R1168" uri="https://www.censopoblacion.gt/archivos/resultados_censo2018.pdf">2018 Census, counting both maternal and secondary language usage</reference>
 		<reference type="R1169" uri="http://en.wikipedia.org/wiki/Mayotte#Languages">See the 2006 language survey data for 2nd langs = Shimaore</reference>
+		<reference type="R1170" uri="https://www.censopoblacion.gt/archivos/resultados_censo2018.pdf">2018 Census, counting both maternal and secondary language usage. Co-official in Sacatepéquez</reference>
 		<reference type="R1171">Common lingua franca, widely used. High literacy.</reference>
 		<reference type="R1172" uri="https://en.wikipedia.org/wiki/Lombard_language#Usage">but subtracting 270,000 per https://en.wikipedia.org/wiki/Swiss_Italian</reference>
 		<reference type="R1173" uri="https://en.wikipedia.org/wiki/Levantine_Arabic#Speakers_by_country">[missing]</reference>
@@ -5493,7 +5524,7 @@ XXX Code for transations where no currency is involved
 		<reference type="R1224" uri="http://en.wikipedia.org/wiki/Blin_language">[missing]</reference>
 		<reference type="R1225" uri="https://www.cia.gov/library/publications/the-world-factbook/geos/gh.html">English official in education, 36.1% 2000 census</reference>
 		<reference type="R1226" uri="http://www.ethnologue.com/show_language.asp?code=saf">no other info available for now</reference>
-		<reference type="R1227" uri="http://en.wikipedia.org/wiki/Guatemala#Language">https://www.cia.gov/cia/publications/factbook/geos/gt.html Spanish official</reference>
+		<reference type="R1227" uri="ttps://translatorswithoutborders.org/language-data-for-el-salvador">[missing]</reference>
 		<reference type="R1228" uri="http://www.ethnologue.com/show_language.asp?code=rkt">language also called Kamta in India</reference>
 		<reference type="R1229" uri="http://en.wikipedia.org/wiki/Languages_of_Brunei">Modern use of Arabic (Jawi) seems to be minimal, but is co-official with ms; set to 5% for now.</reference>
 		<reference type="R1230" uri="http://en.wikipedia.org/wiki/Khmu_language">[missing]</reference>
@@ -5518,6 +5549,7 @@ XXX Code for transations where no currency is involved
 		<reference type="R1249" uri="https://en.wikipedia.org/wiki/Ladin_language">population figure from CLDR-17483 ticket</reference>
 		<reference type="R1250">No Data Available at present.</reference>
 		<reference type="R1251">co-official in South Tyrol</reference>
+		<reference type="R1252" uri="https://www.censopoblacion.gt/archivos/resultados_censo2018.pdf">2018 Census, counting both maternal and secondary language usage. Co-official in Quiché and Totonicapán</reference>
 		<reference type="R1253">in Trieste and  Gorizia</reference>
 		<reference type="R1254" uri="http://unicode.org/cldr/trac/attachment/ticket/5887/zgh-ISO639-2-certif.pdf">[missing]</reference>
 		<reference type="R1255">Information on the Latin/Cyrillic script percentages for Montenegro not currently found.</reference>
@@ -5536,6 +5568,7 @@ XXX Code for transations where no currency is involved
 		<reference type="R1268" uri="http://en.wikipedia.org/wiki/Esperanto">http://en.wikipedia.org/wiki/Akademio_Internacia_de_la_Sciencoj_San_Marino - estimate 100% of the academy can use Esperanto; the language is used as 1st language of instruction; academy has 300 &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;members&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;.</reference>
 		<reference type="R1269" uri="https://en.wikipedia.org/wiki/Sundanese_language">recognized in West Java</reference>
 		<reference type="R1270">Mainly unwritten</reference>
+		<reference type="R1271" uri="https://www.censopoblacion.gt/archivos/resultados_censo2018.pdf">2018 Census, counting both maternal and secondary language usage. Co-official in Quiché</reference>
 		<reference type="R1272">Latin listed as being used (Scriptsource) but no pop figures available.</reference>
 		<reference type="R1273" uri="https://www.dsec.gov.mo/getAttachment/7a3b17c2-22cc-4197-9bd5-ccc6eec388a2/E_CEN_PUB_2011_Y.aspx">2011 Census -- the language is not distinguished in the 2021 census</reference>
 		<reference type="R1274" uri="http://www.ethnologue.com/language/mgh">but no literacy data</reference>
@@ -5553,7 +5586,7 @@ XXX Code for transations where no currency is involved
 		<reference type="R1286">No figures available for this language.  Estimating at 5%.</reference>
 		<reference type="R1287" uri="http://en.wikipedia.org/wiki/Mapuche_language">[missing]</reference>
 		<reference type="R1288" uri="http://en.wikipedia.org/wiki/Quechua_language">[missing]</reference>
-		<reference type="R1289" uri="http://en.wikipedia.org/wiki/K'iche'_language">[missing]</reference>
+		<reference type="R1289" uri="https://translatorswithoutborders.org/language-data-for-el-salvador">[missing]</reference>
 		<reference type="R1290" uri="http://en.wikipedia.org/wiki/Census_in_Armenia">- near-zero Azeri population in last census http://en.wikipedia.org/wiki/Azerbaijanis_in_Armenia#Current_situation</reference>
 		<reference type="R1291">No figures available for breakdown of Latin vs. N'Ko for Bambara.  The 2% figure is an estimate.</reference>
 		<reference type="R1292" uri="http://www.ethnologue.com/show_language.asp?code=hsb">pop 13k. Figure is questionable writing pop artificially set to 5% see also http://en.wikipedia.org/wiki/Upper_Sorbian</reference>
@@ -5593,7 +5626,9 @@ XXX Code for transations where no currency is involved
 		<reference type="R1326" uri="https://www.ethnologue.com/language/osa">[missing]</reference>
 		<reference type="R1327" uri="https://pt.wikipedia.org/wiki/Nheengatu">[missing]</reference>
 		<reference type="R1328">Mainly in Guangdong Prov, ~70-80 million. Script unspecified so both listed</reference>
+		<reference type="R1329" uri="https://www.censopoblacion.gt/archivos/resultados_censo2018.pdf">2018 Census, counting both maternal and secondary language usage. Co-official in Chiquimula</reference>
 		<reference type="R1330" uri="https://en.wikipedia.org/wiki/Languages_of_the_United_Kingdom">Analyzed from 2011 UK census and other sources</reference>
+		<reference type="R1331" uri="https://www.censopoblacion.gt/archivos/resultados_censo2018.pdf">2018 Census, counting both maternal and secondary language usage. Co-official in Suchitepéquez</reference>
 		<reference type="R1332" uri="https://statisticsmaldives.gov.mv/statistical-release-iii-education">2014 Maldives: 98% literacy in Divehi, 75% in English</reference>
 		<reference type="R1333" uri="https://en.wikipedia.org/wiki/Taiwanese_Hakka">[missing]</reference>
 		<reference type="R1334" uri="https://en.wikipedia.org/wiki/Laz_people#cite_note-ethnologue-1">[missing]</reference>
@@ -5608,7 +5643,6 @@ XXX Code for transations where no currency is involved
 		<reference type="R1343" uri="https://observatoire.francophonie.org//wp-content/uploads/2022/03/odsef-lfdm-2022.pdf">Organisation internationale de la Francophonie Meta-study. Data from 1994 study</reference>
 		<reference type="R1344" uri="https://observatoire.francophonie.org//wp-content/uploads/2022/03/odsef-lfdm-2022.pdf">Organisation internationale de la Francophonie Meta-study. Data from 2009 and 2012 studies</reference>
 		<reference type="R1345" uri="https://www.bfs.admin.ch/bfs/de/home/statistiken/bevoelkerung/sprachen-religionen/sprachen.html">Regelmässig verwendete Sprachen - Percent of people that regularly use the language</reference>
-		<reference type="R1346" uri="https://www.bfs.admin.ch/bfs/de/home/statistiken/bevoelkerung/sprachen-religionen/sprachen.html">Regelmässig verwendete Sprachen - Percent of people that regularly use the language; literacy is mostly in standard German. For languages not customarily written, the writing population is artificially set to 5% in the absence of better information.&quot;</reference>
 		<reference type="R1347" uri="https://observatoire.francophonie.org//wp-content/uploads/2022/03/odsef-lfdm-2022.pdf">Organisation internationale de la Francophonie Meta-study. Data from 2014 census</reference>
 		<reference type="R1348" uri="https://observatoire.francophonie.org//wp-content/uploads/2022/03/odsef-lfdm-2022.pdf">Organisation internationale de la Francophonie Meta-study. Data from 2010 questionnaire</reference>
 		<reference type="R1349" uri="https://observatoire.francophonie.org//wp-content/uploads/2022/03/odsef-lfdm-2022.pdf">Organisation internationale de la Francophonie Meta-study. Data from 2008 Census</reference>
@@ -5633,5 +5667,10 @@ XXX Code for transations where no currency is involved
 		<reference type="R1368" uri="https://observatoire.francophonie.org//wp-content/uploads/2022/03/odsef-lfdm-2022.pdf">Organisation internationale de la Francophonie Meta-study. Data from 2014</reference>
 		<reference type="R1369" uri="https://observatoire.francophonie.org//wp-content/uploads/2022/03/odsef-lfdm-2022.pdf">Organisation internationale de la Francophonie Meta-study. Data from 2010 census</reference>
 		<reference type="R1370" uri="https://observatoire.francophonie.org//wp-content/uploads/2022/03/odsef-lfdm-2022.pdf">Organisation internationale de la Francophonie Meta-study. Data from 2007 Census</reference>
+		<reference type="R1371" uri="https://www.ethnologue.com/country/gt/languages">1998 SIL study, cited in Ethnologue</reference>
+		<reference type="R1372" uri="https://www.ethnologue.com/sample/ess/HN/">from Instituto Cervantes 2021</reference>
+		<reference type="R1373" uri="https://www.ethnologue.com/sample/ess/HN/">from 2013 Honduras census</reference>
+		<reference type="R1374" uri="https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=9810021601">Canada 2021 Census language 'Knowledge of Language'; official status from Wikipedia Languages_of_Canada</reference>
+		<reference type="R1375">Regis, Riccardo. 'Su pianificazione, standardizzazione, polinomia: due esempi' Zeitschrift für romanische Philologie, vol. 128, no. 1, 2012, pp. 88-133.</reference>
 	</references>
 </supplementalData>

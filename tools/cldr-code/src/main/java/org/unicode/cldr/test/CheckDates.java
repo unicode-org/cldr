@@ -1,6 +1,8 @@
 package org.unicode.cldr.test;
 
 import com.google.common.base.Joiner;
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Lists;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.text.DateIntervalInfo;
@@ -283,7 +285,16 @@ public class CheckDates extends FactoryCheckCLDR {
             }
         }
 
-        checkIso8601(path, value);
+        String errorMessage = checkIso8601(path, value);
+        if (errorMessage != null) {
+            CheckStatus item =
+                    new CheckStatus()
+                            .setCause(this)
+                            .setMainType(CheckStatus.errorType)
+                            .setSubtype(Subtype.incorrectDatePattern)
+                            .setMessage(errorMessage);
+            result.add(item);
+        }
 
         try {
             if (path.contains("[@type=\"abbreviated\"]")) {
@@ -643,17 +654,24 @@ public class CheckDates extends FactoryCheckCLDR {
         return this;
     }
 
+    // ORDERED SET (the ordering is used in toOrder)
+
     static final Set<Integer> expectedField =
-            Set.of(
+            ImmutableSet.of(
+                    DateTimePatternGenerator.ERA,
                     DateTimePatternGenerator.YEAR,
                     DateTimePatternGenerator.QUARTER,
                     DateTimePatternGenerator.MONTH,
                     DateTimePatternGenerator.DAY,
+                    DateTimePatternGenerator.WEEK_OF_MONTH,
+                    DateTimePatternGenerator.WEEK_OF_YEAR,
                     DateTimePatternGenerator.WEEKDAY,
                     DateTimePatternGenerator.HOUR,
                     DateTimePatternGenerator.MINUTE,
                     DateTimePatternGenerator.SECOND,
+                    DateTimePatternGenerator.DAYPERIOD,
                     DateTimePatternGenerator.ZONE);
+    static final List<Integer> toOrder = Lists.reverse(List.copyOf(expectedField));
 
     /**
      * Returns null if the path is not a calendar path for iso8601, or if it is ok for iso8601.<br>
@@ -675,13 +693,23 @@ public class CheckDates extends FactoryCheckCLDR {
         boolean isInterval = false;
         switch (key) {
             case "dateTimeFormatLength":
-            case "appendItem":
-                int index0 = value.indexOf("{0}");
-                int index1 = value.indexOf("{1}");
-                if (index0 > index1) {
-                    return "Field out of order: {1}…{0}";
+                {
+                    int index0 = value.indexOf("{0}");
+                    int index1 = value.indexOf("{1}");
+                    if (index0 < index1) {
+                        return "Field out of order: {0}…{1}";
+                    }
+                    return null;
                 }
-                return null;
+            case "appendItem":
+                {
+                    int index0 = value.indexOf("{0}");
+                    int index1 = value.indexOf("{1}");
+                    if (index0 > index1) {
+                        return "Field out of order: {1}…{0}";
+                    }
+                    return null;
+                }
             case "dateFormatLength":
             case "timeFormatLength":
             case "availableFormats":
@@ -692,9 +720,10 @@ public class CheckDates extends FactoryCheckCLDR {
             default:
                 return null;
         }
-        // verify the order is year month dow hour minute second
-        // there is no other field
-        // time is 24 hour (0..23)
+        // verify
+        //  the order is the same as in expectedField
+        //  there is no other field
+        //  time is 24 hour (0..23)
         DateTimePatternGenerator.FormatParser parser = new DateTimePatternGenerator.FormatParser();
         VariableField lastField = null;
         Set<Integer> fieldTypesSoFar = new LinkedHashSet<>();
@@ -721,12 +750,11 @@ public class CheckDates extends FactoryCheckCLDR {
                 }
             }
 
-            // the type values are guaranteed to be in ascending numerical order, eg year=1,
-            // month=3,...
-            // so they are out of order if type < last type
+            // the type values are out of order if lastType < type (using toOrder for the ordering)
+
             if (lastField != null) {
                 int lastType = lastField.getType();
-                if (lastType > type) {
+                if (toOrder.indexOf(lastType) < toOrder.indexOf(type)) {
                     return "Field out of order: " + lastField + "…" + field;
                 }
             }

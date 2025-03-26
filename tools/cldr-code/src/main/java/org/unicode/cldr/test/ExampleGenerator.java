@@ -106,6 +106,8 @@ import org.unicode.cldr.util.personname.SimpleNameObject;
  */
 public class ExampleGenerator {
     private static final String FSLASH = "\u2044";
+    private static final String ISOLATE_FSLASH = "\u200C\u2044\u200C";
+
     private static final String INTERNAL = "internal: ";
     private static final String SUBTRACTS = "➖";
     private static final String ADDS = "➕";
@@ -2934,6 +2936,7 @@ public class ExampleGenerator {
 
         switch (element) {
             case "rationalPattern":
+                Pair<String, String> simpleFractionPair = null;
                 List<Pair<String, String>> fractionPairs = new ArrayList<>();
                 Pair<String, String> extraPair = null;
                 if (isLatin) {
@@ -2944,7 +2947,8 @@ public class ExampleGenerator {
                     num = numberFormat.format(1);
                     den = numberFormat.format(2);
                 }
-                fractionPairs.add(Pair.of(num, den));
+                simpleFractionPair = Pair.of(num, den);
+                fractionPairs.add(simpleFractionPair);
                 fractionPairs.add(
                         Pair.of(
                                 startSupSymbol + num + endSupSymbol,
@@ -2952,6 +2956,15 @@ public class ExampleGenerator {
                 if (extraPair != null) {
                     fractionPairs.add(extraPair);
                 }
+
+                // for the simple case, we add an example with an isolated fraction slash, to show
+                // what "plain" numbers would look like.
+                examples.add(
+                        value.replace(FSLASH, ISOLATE_FSLASH)
+                                .replace("{0}", setBackground(simpleFractionPair.getFirst()))
+                                .replace("{1}", setBackground(simpleFractionPair.getSecond())));
+
+                // We then add all of them without isolating the fraction slash
                 for (Pair<String, String> pair : fractionPairs) {
                     examples.add(
                             value.replace("{0}", setBackground(pair.getFirst()))
@@ -2982,7 +2995,13 @@ public class ExampleGenerator {
                     den = numberFormat.format(2);
                 }
                 if (!superSub) {
-                    fractions.add(rationalPart.replace("{0}", num).replace("{1}", den));
+                    // put WG around elements so that the fraction slash doesn't change their
+                    // formatting
+                    fractions.add(
+                            rationalPart
+                                    .replace(FSLASH, ISOLATE_FSLASH)
+                                    .replace("{0}", num)
+                                    .replace("{1}", den));
                 }
                 if (extra != null) {
                     fractions.add(extra);

@@ -1876,6 +1876,9 @@ public class TestExampleGenerator extends TestFmwk {
     }
 
     public void TestForMissing() {
+
+        // IF this fails for items that don't need examples, look at HANDLE_MISSING
+
         Factory factory = info.getCldrFactory(); // don't worry about examples for annotations
         DtdData dtdData = DtdData.getInstance(DtdType.ldml);
         PathHeader.Factory phf = PathHeader.getFactory();
@@ -2134,6 +2137,7 @@ public class TestExampleGenerator extends TestFmwk {
         String[][] data = {
             // mul➔«Multiple languages»; zxx➔«No linguistic content»
             {SKIP, "//ldml/localeDisplayNames/languages/language[@type=\"*\"]", "mul", "zxx"},
+            {SKIP, "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/rationalUsage", "*"},
             {
                 SKIP,
                 "//ldml/characters/moreInformation"
@@ -2306,12 +2310,12 @@ public class TestExampleGenerator extends TestFmwk {
             {
                 "en",
                 "//ldml/numbers/rationalFormats[@numberSystem=\"latn\"]/rationalPattern",
-                "〖❬1❭⁄❬2❭〗〖❬<sup>1</sup>❭⁄❬<sub>2</sub>❭〗〖❬¹❭⁄❬₂❭〗"
+                "〖❬1❭❰ZWNJ❱⁄❰ZWNJ❱❬2❭〗〖❬1❭⁄❬2❭〗〖❬<sup>1</sup>❭⁄❬<sub>2</sub>❭〗〖❬¹❭⁄❬₂❭〗"
             },
             {
                 "en",
                 "//ldml/numbers/rationalFormats[@numberSystem=\"latn\"]/integerAndRationalPattern",
-                "〖❬3❭❰NBTSP❱❬1⁄2❭〗〖❬3❭❰NBTSP❱❬½❭〗〖❬3❭❰NBTSP❱❬<sup>1</sup>⁄<sub>2</sub>❭〗"
+                "〖❬3❭❰NBTSP❱❬1❰ZWNJ❱⁄❰ZWNJ❱2❭〗〖❬3❭❰NBTSP❱❬½❭〗〖❬3❭❰NBTSP❱❬<sup>1</sup>⁄<sub>2</sub>❭〗"
             },
             {
                 "en",
@@ -2322,12 +2326,12 @@ public class TestExampleGenerator extends TestFmwk {
             {
                 "hi",
                 "//ldml/numbers/rationalFormats[@numberSystem=\"deva\"]/rationalPattern",
-                "〖❬१❭⁄❬२❭〗〖❬<sup>१</sup>❭⁄❬<sub>२</sub>❭〗"
+                "〖❬१❭❰ZWNJ❱⁄❰ZWNJ❱❬२❭〗〖❬१❭⁄❬२❭〗〖❬<sup>१</sup>❭⁄❬<sub>२</sub>❭〗"
             },
             {
                 "hi",
                 "//ldml/numbers/rationalFormats[@numberSystem=\"deva\"]/integerAndRationalPattern",
-                "〖❬३❭❰NBTSP❱❬१⁄२❭〗〖❬३❭❰NBTSP❱❬<sup>१</sup>⁄<sub>२</sub>❭〗"
+                "〖❬३❭❰NBTSP❱❬१❰ZWNJ❱⁄❰ZWNJ❱२❭〗〖❬३❭❰NBTSP❱❬<sup>१</sup>⁄<sub>२</sub>❭〗"
             },
             {
                 "hi",

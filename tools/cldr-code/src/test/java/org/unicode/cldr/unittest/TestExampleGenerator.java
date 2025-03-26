@@ -2306,12 +2306,12 @@ public class TestExampleGenerator extends TestFmwk {
             {
                 "en",
                 "//ldml/numbers/rationalFormats[@numberSystem=\"latn\"]/rationalPattern",
-                "〖❬1❭⁄❬2❭〗〖❬<sup>1</sup>❭⁄❬<sub>2</sub>❭〗〖❬¹❭⁄❬₂❭〗"
+                "〖❬1❭❰ZWNJ❱⁄❰ZWNJ❱❬2❭〗〖❬1❭⁄❬2❭〗〖❬<sup>1</sup>❭⁄❬<sub>2</sub>❭〗〖❬¹❭⁄❬₂❭〗"
             },
             {
                 "en",
                 "//ldml/numbers/rationalFormats[@numberSystem=\"latn\"]/integerAndRationalPattern",
-                "〖❬3❭❰NBTSP❱❬❰WJ❱1❰WJ❱⁄❰WJ❱2❰WJ❱❭〗〖❬3❭❰NBTSP❱❬½❭〗〖❬3❭❰NBTSP❱❬<sup>1</sup>⁄<sub>2</sub>❭〗"
+                "〖❬3❭❰NBTSP❱❬1❰ZWNJ❱⁄❰ZWNJ❱2❭〗〖❬3❭❰NBTSP❱❬½❭〗〖❬3❭❰NBTSP❱❬<sup>1</sup>⁄<sub>2</sub>❭〗"
             },
             {
                 "en",
@@ -2322,12 +2322,12 @@ public class TestExampleGenerator extends TestFmwk {
             {
                 "hi",
                 "//ldml/numbers/rationalFormats[@numberSystem=\"deva\"]/rationalPattern",
-                "〖❬१❭⁄❬२❭〗〖❬<sup>१</sup>❭⁄❬<sub>२</sub>❭〗"
+                "〖❬१❭❰ZWNJ❱⁄❰ZWNJ❱❬२❭〗〖❬१❭⁄❬२❭〗〖❬<sup>१</sup>❭⁄❬<sub>२</sub>❭〗"
             },
             {
                 "hi",
                 "//ldml/numbers/rationalFormats[@numberSystem=\"deva\"]/integerAndRationalPattern",
-                "〖❬३❭❰NBTSP❱❬❰WJ❱१❰WJ❱⁄❰WJ❱२❰WJ❱❭〗〖❬३❭❰NBTSP❱❬<sup>१</sup>⁄<sub>२</sub>❭〗"
+                "〖❬३❭❰NBTSP❱❬१❰ZWNJ❱⁄❰ZWNJ❱२❭〗〖❬३❭❰NBTSP❱❬<sup>१</sup>⁄<sub>२</sub>❭〗"
             },
             {
                 "hi",

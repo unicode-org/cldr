@@ -3957,7 +3957,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<rationalPattern>{0}⁄{1}</rationalPattern>
 			<integerAndRationalPattern>{0}&#x202F;{1}</integerAndRationalPattern>
 			<integerAndRationalPattern alt="superSub">{0}&#x200b;{1}</integerAndRationalPattern>
-			<rationalUsage>used</rationalUsage> <!-- unknown vs unused vs used -->
+			<rationalUsage>sometimes</rationalUsage>
 		</rationalFormats>
 		<rationalFormats>
 			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>

@@ -1876,6 +1876,9 @@ public class TestExampleGenerator extends TestFmwk {
     }
 
     public void TestForMissing() {
+
+        // IF this fails for items that don't need examples, look at HANDLE_MISSING
+
         Factory factory = info.getCldrFactory(); // don't worry about examples for annotations
         DtdData dtdData = DtdData.getInstance(DtdType.ldml);
         PathHeader.Factory phf = PathHeader.getFactory();
@@ -2134,6 +2137,7 @@ public class TestExampleGenerator extends TestFmwk {
         String[][] data = {
             // mul➔«Multiple languages»; zxx➔«No linguistic content»
             {SKIP, "//ldml/localeDisplayNames/languages/language[@type=\"*\"]", "mul", "zxx"},
+            {SKIP, "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/rationalUsage", "*"},
             {
                 SKIP,
                 "//ldml/characters/moreInformation"

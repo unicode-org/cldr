@@ -868,6 +868,15 @@ header .nav div#searchbox {
   margin-inline-start: auto;
 }
 
+div.searchResults {
+  position: absolute;
+  background-color: white;
+  padding: 1em;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
 body.page a.showmap {
   color: white;
   text-decoration: none;

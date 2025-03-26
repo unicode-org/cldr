@@ -79,7 +79,7 @@ public class SearchAPI {
             @RequestBody(required = true) SearchRequest request) {
         final CookieSession mySession = Auth.getSession(session);
         // User must be logged in to use query function
-        if (mySession == null || mySession.user == null) {
+        if (mySession == null) {
             return Auth.noSessionResponse();
         }
 
@@ -115,7 +115,7 @@ public class SearchAPI {
             @PathParam("token") String token, @HeaderParam(Auth.SESSION_HEADER) String session) {
         final CookieSession mySession = Auth.getSession(session);
         // User must be logged in to use query function
-        if (mySession == null || mySession.user == null) {
+        if (mySession == null) {
             return Auth.noSessionResponse();
         }
 
@@ -140,7 +140,7 @@ public class SearchAPI {
             @PathParam("token") String token, @HeaderParam(Auth.SESSION_HEADER) String session) {
         final CookieSession mySession = Auth.getSession(session);
         // User must be logged in to use query function
-        if (mySession == null || mySession.user == null) {
+        if (mySession == null) {
             return Auth.noSessionResponse();
         }
 

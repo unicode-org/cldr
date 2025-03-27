@@ -273,6 +273,7 @@ For terms of use, see http://www.unicode.org/copyright.html
         <convertUnit source='percent' baseUnit='portion' factor='1/100' systems="metric_adjacent ussystem uksystem"/>
         <convertUnit source='karat' baseUnit='portion' factor='1/24' systems="metric_adjacent ussystem uksystem"/>
         <convertUnit source='portion' baseUnit='portion' systems="metric_adjacent ussystem uksystem"/>
+        <convertUnit source='part' baseUnit='portion' systems="metric_adjacent ussystem uksystem"/> <!-- alternate name for portion -->
         
         <!-- digital -->
         <convertUnit source='bit' baseUnit='bit' systems="metric_adjacent prefixable ussystem uksystem"/>

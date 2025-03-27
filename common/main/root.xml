@@ -3191,7 +3191,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>
-			<gmtZeroFormat>GMT</gmtZeroFormat>
+			<metazone type="GMT">
+				<short>
+					<standard>GMT</standard>
+				</short>
+			</metazone>
 			<gmtUnknownFormat>GMT+?</gmtUnknownFormat>
 			<regionFormat>{0}</regionFormat>
 			<regionFormat type="daylight">{0} (+1)</regionFormat>

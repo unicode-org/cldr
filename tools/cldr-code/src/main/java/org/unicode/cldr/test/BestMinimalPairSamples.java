@@ -142,7 +142,7 @@ public class BestMinimalPairSamples {
     static final Set<String> SKIP_CASE =
             ImmutableSet.of(
                     "concentr-ofglucose",
-                    "concentr-portion",
+                    "concentr-part",
                     // "length-100-kilometer",
                     "pressure-ofhg");
 

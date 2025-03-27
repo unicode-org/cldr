@@ -325,12 +325,18 @@ const SearchBox = {
       ];
       this.searchResults = [
         ...pathAndTitle
-          .filter(
-            ({ href, title }) => searchMatch(t, href) || searchMatch(t, title)
-          )
+          .filter(({ href, title }) => searchMatch(t, title))
           // need to add a preceding slash to the href
           .map(({ href, title }) => ({ href: `/${href}`, title })),
       ];
+      if (!this.searchResults.length) {
+        this.searchResults = [
+          ...pathAndTitle
+            .filter(({ href, title }) => searchMatch(t, href))
+            // need to add a preceding slash to the href
+            .map(({ href, title }) => ({ href: `/${href}`, title })),
+        ];
+      }
     },
   },
   setup(props) {
@@ -354,7 +360,7 @@ const SearchBox = {
         <li v-for="r of headerResults.slice(0,max)" :key="href">
           <a :href="r.href">{{ r.title }}</a>
         </li>
-        <li v-show="headerResults?.length > max"><a @click="webSearch">More…</a></li>
+        <li class="searchMax" v-show="headerResults?.length > max">…</li>
       </ul>
     </div>
     <div class="searchResults" v-if="searchResults?.length">
@@ -363,7 +369,7 @@ const SearchBox = {
         <li v-for="r of searchResults.slice(0,max)" :key="href">
           <a :href="r.href">{{ r.title }}</a>
         </li>
-        <li v-show="searchResults?.length > max"><a @click="webSearch">More…</a></li>
+        <li class="searchMax" v-show="searchResults?.length > max">…</li>
       </ul>
       <i v-if="searchResults">or, press Enter to search the site.</i>
     </div>

@@ -3815,7 +3815,12 @@ public class TestUnits extends TestFmwkPlus {
                     continue;
                 }
 
-                UnitId mul = id1.times(id2);
+                UnitId mul;
+                try {
+                    mul = id1.times(id2);
+                } catch (RuntimeException e) {
+                    throw e; // for debugging
+                }
                 String standardMul = converter.getStandardUnit(mul.toString());
                 if (!skipUnit(standardMul)) {
                     if (standard1.compareTo(standard2) < 0) { // suppress because commutes

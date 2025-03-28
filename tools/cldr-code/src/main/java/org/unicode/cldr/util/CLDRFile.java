@@ -1431,6 +1431,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
 
     private final boolean DEFAULT_ITERATION_INCLUDES_EXTRAS = true;
 
+    @Override
     public Iterator<String> iterator() {
         if (DEFAULT_ITERATION_INCLUDES_EXTRAS) {
             return Iterators.filter(fullIterable().iterator(), p -> getStringValue(p) != null);
@@ -3278,13 +3279,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
     }
 
     public String getKeyValueName(String key, String value) {
-        String result =
-                getStringValue(
-                        "//ldml/localeDisplayNames/types/type[@key=\""
-                                + key
-                                + "\"][@type=\""
-                                + value
-                                + "\"]");
+        String result = getStringValue(getPathForKeyType(key, value));
         if (result == null) {
             Relation<R2<String, String>, String> toAliases =
                     SupplementalDataInfo.getInstance().getBcp47Aliases();
@@ -3299,13 +3294,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
                 }
                 for (String keyAlias : keyAliases) {
                     for (String valueAlias : valueAliases) {
-                        result =
-                                getStringValue(
-                                        "//ldml/localeDisplayNames/types/type[@key=\""
-                                                + keyAlias
-                                                + "\"][@type=\""
-                                                + valueAlias
-                                                + "\"]");
+                        result = getStringValue(getPathForKeyType(keyAlias, valueAlias));
                         if (result != null) {
                             break;
                         }
@@ -3314,6 +3303,14 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
             }
         }
         return result;
+    }
+
+    public static String getPathForKey(String key) {
+        return "//ldml/localeDisplayNames/keys/key[@type=\"" + key + "\"]";
+    }
+
+    public static String getPathForKeyType(String key, String type) {
+        return "//ldml/localeDisplayNames/types/type[@key=\"" + key + "\"][@type=\"" + type + "\"]";
     }
 
     /**

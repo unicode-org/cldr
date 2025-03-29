@@ -182,11 +182,6 @@
 //ldml/numbers/%EFormats[@numberSystem="%A"]/%EFormatLength[@type="(short)"]/%EFormat[@type="%A"]/pattern[@type="%A"][@count="%A"] ; Numbers ; Compact Decimal Formatting (Other Numbering Systems) ; Short Formats &numberingSystem($2) ; &count2($7-digits-$4-$8) ; HIDE
 
 
-//ldml/numbers/rationalFormats/rationalPattern												; Numbers ; Number Formatting Patterns ; Rationals-Latin 				; Rational
-//ldml/numbers/rationalFormats/integerAndRationalPattern[@alt="%A"]  						; Numbers ; Number Formatting Patterns ; Rationals-Latin 				; Integer + Rational ($2)
-//ldml/numbers/rationalFormats/integerAndRationalPattern 									; Numbers ; Number Formatting Patterns ; Rationals-Latin 				; Integer + Rational
-//ldml/numbers/rationalFormats/rationalUsage  												; Numbers ; Number Formatting Patterns ; Rationals-Latin 				; Usage
-
 //ldml/numbers/rationalFormats[@numberSystem="%A"]/rationalPattern 							; Numbers ; Number Formatting Patterns ; Rationals-&numberingSystem($1)	; Rational
 //ldml/numbers/rationalFormats[@numberSystem="%A"]/integerAndRationalPattern[@alt="%A"] 	; Numbers ; Number Formatting Patterns ; Rationals-&numberingSystem($1)	; Integer + Rational ($2)
 //ldml/numbers/rationalFormats[@numberSystem="%A"]/integerAndRationalPattern 				; Numbers ; Number Formatting Patterns ; Rationals-&numberingSystem($1)	; Integer + Rational
@@ -397,6 +392,11 @@
 //ldml/numbers/symbols/%E                                                                               ; Special ; Deprecated ; latn ; symbols-$1 ; HIDE
 //ldml/numbers/%EFormats/%EFormatLength/%EFormat[@type="%A"]/pattern[@type="%A"]                        ; Special ; Deprecated ; $1 ; pattern-$5-$4 ; HIDE
 //ldml/numbers/%EFormats/%EFormatLength[@type="%A"]/%EFormat[@type="%A"]/pattern[@type="%A"]            ; Special ; Deprecated ; $1 ; pattern-$3-$6 ; HIDE
+
+//ldml/numbers/rationalFormats/rationalPattern												; Special ; Deprecated ; Rationals-Latin 				; Rational ; HIDE
+//ldml/numbers/rationalFormats/integerAndRationalPattern[@alt="%A"]  						; Special ; Deprecated ; Rationals-Latin 				; Integer + Rational ($2) ; HIDE
+//ldml/numbers/rationalFormats/integerAndRationalPattern 									; Special ; Deprecated ; Rationals-Latin 				; Integer + Rational ; HIDE
+//ldml/numbers/rationalFormats/rationalUsage  												; Special ; Deprecated ; Rationals-Latin 				; Usage ; HIDE
 
 //ldml/numbers/symbols/.*                                               ; Numbers ; Deprecated ; Deprecated ; Deprecated
 //ldml/numbers/%EFormats/.*      										; Numbers ; Deprecated ; Deprecated ; Deprecated

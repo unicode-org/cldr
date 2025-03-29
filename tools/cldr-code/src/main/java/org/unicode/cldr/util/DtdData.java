@@ -1653,9 +1653,11 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                                         "concentr-milligram-per-deciliter",
                                         "concentr-millimole-per-liter",
                                         "concentr-item",
-                                        "concentr-portion",
-                                        "concentr-permillion",
+                                        "concentr-portion", // deprecated
+                                        "concentr-part",
+                                        "concentr-permillion", // deprecated
                                         "concentr-part-per-million", // deprecated
+                                        "concentr-part-per-1e6",
                                         "concentr-percent",
                                         "concentr-permille",
                                         "concentr-permyriad",
@@ -1873,7 +1875,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                                         "volume-koku",
                                         "speed-light-speed",
                                         "mass-fun",
-                                        "concentr-portion-per-1e9",
+                                        "concentr-portion-per-1e9", // deprecated
+                                        "concentr-part-per-1e9",
                                         "duration-night"))
                         .freeze();
     }

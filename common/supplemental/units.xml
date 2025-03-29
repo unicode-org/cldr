@@ -136,7 +136,7 @@ For terms of use, see http://www.unicode.org/copyright.html
         
         <unitQuantity baseUnit='per-second' quantity='radioactivity'/>
 
-        <unitQuantity baseUnit='portion' quantity='portion' status='simple'/>
+        <unitQuantity baseUnit='part' quantity='portion' status='simple'/>
         
         <unitQuantity baseUnit='bit' quantity='digital' status='simple'/>
         
@@ -267,12 +267,11 @@ For terms of use, see http://www.unicode.org/copyright.html
         <convertUnit source='mole' baseUnit='item' factor='item_per_mole' systems="si metric prefixable"/>
         
         <!-- portion -->
-        <convertUnit source='permillion' baseUnit='portion' factor='1/1000000' systems="metric_adjacent ussystem uksystem"/>
-        <convertUnit source='permyriad' baseUnit='portion' factor='1/10000' systems="metric_adjacent ussystem uksystem"/>
-        <convertUnit source='permille' baseUnit='portion' factor='1/1000' systems="metric_adjacent ussystem uksystem"/>
-        <convertUnit source='percent' baseUnit='portion' factor='1/100' systems="metric_adjacent ussystem uksystem"/>
-        <convertUnit source='karat' baseUnit='portion' factor='1/24' systems="metric_adjacent ussystem uksystem"/>
-        <convertUnit source='portion' baseUnit='portion' systems="metric_adjacent ussystem uksystem"/>
+        <convertUnit source='permyriad' baseUnit='part' factor='1/10000' systems="metric_adjacent ussystem uksystem"/>
+        <convertUnit source='permille' baseUnit='part' factor='1/1000' systems="metric_adjacent ussystem uksystem"/>
+        <convertUnit source='percent' baseUnit='part' factor='1/100' systems="metric_adjacent ussystem uksystem"/>
+        <convertUnit source='karat' baseUnit='part' factor='1/24' systems="metric_adjacent ussystem uksystem"/>
+        <convertUnit source='part' baseUnit='part' systems="metric_adjacent ussystem uksystem"/>
         
         <!-- digital -->
         <convertUnit source='bit' baseUnit='bit' systems="metric_adjacent prefixable ussystem uksystem"/>
@@ -623,15 +622,16 @@ For terms of use, see http://www.unicode.org/copyright.html
             <unitAlias type="liter-per-100kilometers" replacement="liter-per-100-kilometer" reason="deprecated"/>
             <unitAlias type="meter-per-second-squared" replacement="meter-per-square-second" reason="deprecated"/>
             <unitAlias type="millimeter-of-mercury" replacement="millimeter-ofhg" reason="deprecated"/>
-            <unitAlias type="part-per-million" replacement="permillion" reason="deprecated"/>
+            <unitAlias type="part-per-million" replacement="part-per-1e6" reason="deprecated"/>
             <unitAlias type="pound-foot" replacement="pound-force-foot" reason="deprecated"/>
             <unitAlias type="pound-per-square-inch" replacement="pound-force-per-square-inch" reason="deprecated"/>
             <unitAlias type="milligram-per-deciliter" replacement="milligram-ofglucose-per-deciliter" reason="deprecated"/>
             <unitAlias type="metric-ton" replacement="tonne" reason="deprecated"/>
+            <unitAlias type="permillion" replacement="part-per-1e6" reason="deprecated"/>
+            <unitAlias type="portion-per-1e9" replacement="part-per-1e9" reason="deprecated"/>
+            
          
-            <!-- 
-            <unitAlias type="emu-of-inductance" replacement="abhenry" reason="deprecated"/>
-             -->
+            <!-- Usage aliases -->
             
             <usageAlias type="music-track" replacement="media" reason="deprecated"/>
             <usageAlias type="tv-program" replacement="media" reason="deprecated"/>

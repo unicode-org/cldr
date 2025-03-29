@@ -66,7 +66,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
     static final Splitter SPACE_SPLITTER = Splitter.on(' ').trimResults().omitEmptyStrings();
 
     public static final Set<String> UNTRANSLATED_UNIT_NAMES =
-            ImmutableSet.of("portion", "ofglucose", "100-kilometer", "ofhg");
+            ImmutableSet.of("ofglucose", "100-kilometer", "ofhg");
 
     public static final Set<String> HACK_SKIP_UNIT_NAMES =
             ImmutableSet.of(
@@ -127,7 +127,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
                     "pixel",
                     "em",
                     "revolution",
-                    "portion",
+                    "part",
                     "night");
 
     public void addQuantityInfo(String baseUnit, String quantity, String status) {
@@ -1249,12 +1249,13 @@ public class UnitConverter implements Freezable<UnitConverter> {
         public String shortConstant(BigInteger source) {
             // don't bother optimizing
             String result = source.toString();
-            if (result.length() < 8) {
+            if (result.length() < 6) {
                 return result;
             }
             Matcher matcher = TRAILING_ZEROS.matcher(result);
             if (matcher.find()) {
                 int zeroCount = matcher.group().length();
+                zeroCount = zeroCount - (zeroCount % 3); // make sure a power of 3
                 return result.substring(0, result.length() - zeroCount) + "e" + zeroCount;
             }
             return result;

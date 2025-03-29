@@ -1178,7 +1178,7 @@ public class TestUnits extends TestFmwkPlus {
                     "permille",
                     "percent",
                     "karat",
-                    "portion",
+                    "part",
                     "minute",
                     "hour",
                     "day",
@@ -3226,8 +3226,8 @@ public class TestUnits extends TestFmwkPlus {
 
         checkNormalization("test case", "newton-meter");
         checkNormalization("test case", "acre-foot");
-        checkNormalization("test case", "portion-per-1e9");
-        checkNormalization("test case", "portion-per-1000");
+        checkNormalization("test case", "part-per-1e9");
+        checkNormalization("test case", "part-per-1000");
         checkNormalization("test case", "1e9-meter");
         checkNormalization("test case", "1000-meter");
 
@@ -3815,7 +3815,12 @@ public class TestUnits extends TestFmwkPlus {
                     continue;
                 }
 
-                UnitId mul = id1.times(id2);
+                UnitId mul;
+                try {
+                    mul = id1.times(id2);
+                } catch (RuntimeException e) {
+                    throw e; // for debugging
+                }
                 String standardMul = converter.getStandardUnit(mul.toString());
                 if (!skipUnit(standardMul)) {
                     if (standard1.compareTo(standard2) < 0) { // suppress because commutes

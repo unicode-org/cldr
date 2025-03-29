@@ -2,6 +2,7 @@ package org.unicode.cldr.util.fixedcandidates;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -9,15 +10,22 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.google.common.collect.ImmutableSet;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import org.junit.jupiter.api.Test;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.RegexUtilities;
 import org.unicode.cldr.util.fixedcandidates.FixedCandidateProvider.CompoundFixedCandidateProvider;
 
 public class TestFixedCandidateProvider {
     private static final String MASS_GENDER_XPATH =
             "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"mass-ton\"]/gender";
+
+    private static final String RATIONAL_USAGE_XPATH =
+            "//ldml/numbers/rationalFormats[@numberSystem=\"latn\"]/rationalUsage";
 
     @Test
     void testFixed() {
@@ -48,7 +56,7 @@ public class TestFixedCandidateProvider {
         red,
         green,
         blue
-    };
+    }
 
     @Test
     void testEnum() {
@@ -69,6 +77,26 @@ public class TestFixedCandidateProvider {
                 () ->
                         assertArrayEquals(
                                 stopGoColorsList, stopGo.apply("//colors/stopGo").toArray()));
+    }
+
+    @Test
+    void testRationalUsage() {
+        final CLDRLocale en = CLDRLocale.getInstance("en");
+        final FixedCandidateProvider candidates_en = DefaultFixedCandidates.forLocale(en);
+        Collection<String> actualRaw = candidates_en.apply(RATIONAL_USAGE_XPATH);
+        Set<String> actual = actualRaw == null ? null : Set.copyOf(actualRaw);
+
+        // When a regex fails, this can be used to debug the failure.
+        if (false) {
+            Matcher matcher =
+                    Pattern.compile(
+                                    "//ldml/numbers/rationalFormats\\[@numberSystem=\"[^\"]*\"\\]/rationalUsage")
+                            .matcher(RATIONAL_USAGE_XPATH);
+            String mismatch = RegexUtilities.showMismatch(matcher, RATIONAL_USAGE_XPATH);
+            System.out.println(mismatch);
+        }
+
+        assertEquals(Set.of("never", "sometimes"), actual, RATIONAL_USAGE_XPATH);
     }
 
     @Test

@@ -511,45 +511,30 @@ public class PathDescription {
                     + "Sample names for person name format examples (enter ∅∅∅ for optional unused fields). For more information, please see "
                     + CLDRURLS.PERSON_NAME_FORMATS
                     + ".\n"
-                    + "^//ldml/numbers/rationalFormats/rationalPattern"
-                    + RegexLookup.SEPARATOR
-                    + "A pattern that is used to format a rational fraction (eg, ½), using the numerator and denominator "
-                    + CLDRURLS.NUMBERS_HELP
-                    + ".\n"
-                    + "^//ldml/numbers/rationalFormats/integerAndRationalPattern\\[@alt=\"([^\"]*)\"]"
-                    + RegexLookup.SEPARATOR
-                    + "A pattern that is used to “glue” an integer and a formatted rational fraction (eg, ½) together; only used when the rational fraction does not start with an un-superscripted digit"
-                    + CLDRURLS.NUMBERS_HELP
-                    + ".\n"
-                    + "^//ldml/numbers/rationalFormats/integerAndRationalPattern"
-                    + RegexLookup.SEPARATOR
-                    + "A pattern that is used to “glue” an integer and a formatted rational fraction (eg, ½) together"
-                    + CLDRURLS.NUMBERS_HELP
-                    + ".\n"
-                    + "^//ldml/numbers/rationalFormats/rationalUsage"
-                    + RegexLookup.SEPARATOR
-                    + "A value that is used to indicate the usage of rational fractions (eg, ½) in your language; only pick “unused” if it never occurs, even with text translated or transliterated from another language"
-                    + CLDRURLS.NUMBERS_HELP
-                    + ".\n"
                     + "^//ldml/numbers/rationalFormats\\[@numberSystem=\"([^\"]*)\"]/rationalPattern"
                     + RegexLookup.SEPARATOR
-                    + "A pattern that is used to format a rational fraction (eg, ½), using the numerator and denominator"
-                    + CLDRURLS.NUMBERS_HELP
+                    + "A pattern that is used to format a rational fraction (eg, ½), using the numerator and denominator. "
+                    + "See "
+                    + CLDRURLS.RATIONAL_NUMBERS_HELP
                     + ".\n"
                     + "^//ldml/numbers/rationalFormats\\[@numberSystem=\"([^\"]*)\"]/integerAndRationalPattern\\[@alt=\"([^\"]*)\"]"
                     + RegexLookup.SEPARATOR
-                    + "A pattern that is used to “glue” an integer and a formatted rational fraction (eg, ½) together; only used when the rational fraction does not start with an un-superscripted digit"
-                    + CLDRURLS.NUMBERS_HELP
+                    + "A pattern that is used to “glue” an integer and a formatted rational fraction (eg, ½) together; "
+                    + "only used when the rational fraction does not start with an un-superscripted digit. "
+                    + "See "
+                    + CLDRURLS.RATIONAL_NUMBERS_HELP
                     + ".\n"
                     + "^//ldml/numbers/rationalFormats\\[@numberSystem=\"([^\"]*)\"]/integerAndRationalPattern"
                     + RegexLookup.SEPARATOR
-                    + "A pattern that is used to “glue” an integer and a formatted rational fraction (eg, ½) together"
-                    + CLDRURLS.NUMBERS_HELP
+                    + "A pattern that is used to “glue” an integer and a formatted rational fraction (eg, ½) together. "
+                    + "See "
+                    + CLDRURLS.RATIONAL_NUMBERS_HELP
                     + ".\n"
                     + "^//ldml/numbers/rationalFormats\\[@numberSystem=\"([^\"]*)\"]/rationalUsage"
                     + RegexLookup.SEPARATOR
                     + "A value that is used to indicate the usage of rational fractions (eg, ½) in your language; "
-                    + "only pick “never” if it never occurs with this numbering system in your language, even with text translated or transliterated from another language. "
+                    + "only pick “never” if it never occurs with this numbering system in your language, "
+                    + "even with text translated or transliterated from another language. "
                     + "See "
                     + CLDRURLS.RATIONAL_NUMBERS_HELP
                     + ".\n"

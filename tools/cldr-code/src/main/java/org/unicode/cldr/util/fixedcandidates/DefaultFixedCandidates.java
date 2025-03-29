@@ -19,7 +19,7 @@ public class DefaultFixedCandidates {
         providers.addAll(PersonNameCandidateProviders.personNameProviders);
         providers.add(
                 FixedCandidateProvider.forXPathPattern(
-                        "//ldml/numbers/rationalFormats(?:\\[@numberingSystem=[^]]*\\])?/rationalUsage",
+                        "//ldml/numbers/rationalFormats\\[@numberingSystem=[^]]*\\]/rationalUsage",
                         List.of("never", "sometimes")));
 
         // add any special locale-sensitive providers.

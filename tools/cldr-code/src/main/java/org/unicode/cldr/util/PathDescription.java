@@ -548,8 +548,10 @@ public class PathDescription {
                     + ".\n"
                     + "^//ldml/numbers/rationalFormats\\[@numberSystem=\"([^\"]*)\"]/rationalUsage"
                     + RegexLookup.SEPARATOR
-                    + "A value that is used to indicate the usage of rational fractions (eg, ½) in your language; only pick “never” if it never occurs with this numbering system in your language, even with text translated or transliterated from another language. See https://cldr.unicode.org/translation/number-currency-formats/number-and-currency-patterns#rational-formatting"
-                    + CLDRURLS.NUMBERS_HELP
+                    + "A value that is used to indicate the usage of rational fractions (eg, ½) in your language; "
+                    + "only pick “never” if it never occurs with this numbering system in your language, even with text translated or transliterated from another language. "
+                    + "See "
+                    + CLDRURLS.RATIONAL_NUMBERS_HELP
                     + ".\n"
                     + "^//ldml/numbers/currencyFormats\\[@numberSystem=\"([^\"]*)\"]/currencyFormatLength/currencyFormat\\[@type=\"standard\"]/pattern\\[@type=\"standard\"]\\[@alt=\"alphaNextToNumber\"]"
                     + RegexLookup.SEPARATOR

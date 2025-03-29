@@ -938,7 +938,8 @@ public abstract class CheckCLDR implements CheckAccessor {
             illegalAnnotationCode,
             nullOrEmptyValue,
             ttsAnnotationMissing,
-            illegalCharacter;
+            illegalCharacter,
+            forbiddenValue;
 
             @Override
             public String toString() {

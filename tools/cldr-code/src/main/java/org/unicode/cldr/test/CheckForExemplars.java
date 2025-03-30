@@ -51,12 +51,15 @@ import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
 public class CheckForExemplars extends FactoryCheckCLDR {
-    private static final UnicodeSet RTL_CONTROLS = new UnicodeSet("[\\u061C\\u200E\\u200F]");
+    public static final UnicodeSet RTL_CONTROLS =
+            new UnicodeSet("[\\u061C\\u200E\\u200F]").freeze();
 
-    private static final UnicodeSet ILLEGAL_RTL_CONTROLS =
+    public static final UnicodeSet ILLEGAL_RTL_CONTROLS =
             new UnicodeSet("[\\u202A-\\u202E\\u2066-\\u2069]");
 
-    private static final UnicodeSet RTL = new UnicodeSet("[[:bc=AL:][:bc=R:]]");
+    public static final UnicodeSet LB_JOIN_CONTROLS = new UnicodeSet("[\\u200B\\u2060]").freeze();
+
+    public static final UnicodeSet RTL = new UnicodeSet("[[:bc=AL:][:bc=R:]]").freeze();
 
     private static final String STAND_IN = "#";
 
@@ -264,7 +267,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
             exemplars.add(STAND_IN);
         }
 
-        exemplars.addAll(CheckExemplars.AlwaysOK).freeze();
+        exemplars.addAll(CheckExemplars.AlwaysOK).addAll(LB_JOIN_CONTROLS).freeze();
         exemplarsPlusAscii = new UnicodeSet(exemplars).addAll(ASCII).freeze();
 
         skip = false;

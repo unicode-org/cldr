@@ -145,7 +145,7 @@ public abstract class CLDRURLS {
     public static final String NUMBER_PATTERNS =
             "https://cldr.unicode.org/translation/number-currency-formats/number-and-currency-patterns#h.j899g3kk2p1z";
     public static final String RATIONAL_NUMBERS_HELP =
-            "https://cldr.unicode.org/translation/number-currency-formats/number-and-currency-patterns#rational-formatting";
+            "[Rational Number Formatting](https://cldr.unicode.org/translation/number-currency-formats/number-and-currency-patterns#rational-formatting)";
     public static final String PARSE_LENIENT =
             "https://cldr.unicode.org/translation/core-data/characters#h.j3x0cwalqgqt";
     public static final String PERSON_NAME_FORMATS =

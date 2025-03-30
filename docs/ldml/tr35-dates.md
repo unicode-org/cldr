@@ -1896,7 +1896,7 @@ Some of the examples are drawn from real data, while others are for illustration
            * "Pacific Time (Whitehorse)"
 5. For the location formats (generic or specific):
    1. Get the _regionFormat_ format according to type (generic, standard, or daylight).
-   2. From the TZDB get the country code for the zone, and determine whether there is only one timezone in the country. 
+   2. Determine whether there is only one timezone in the region associated with the timezone (see [Time Zone Identifiers](tr35.md#Time_Zone_Identifiers)). 
       1. If there is only one timezone or if the zone id is in the `<primaryZones>` list, continue with short country name, if it exists, otherwise the country name.
       2. Otherwise, continue with the localized name of the exemplar city for the zone.
    3. Format the region format obtained in step 1 with the location obtained in step 2.

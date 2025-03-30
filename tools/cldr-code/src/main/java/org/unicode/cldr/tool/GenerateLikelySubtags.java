@@ -503,6 +503,9 @@ public class GenerateLikelySubtags {
                                 // Temporary additions to fix bad script mappings
                                 // See https://unicode-org.atlassian.net/browse/CLDR-18121
                                 {"sga", "sga_Latn_IE"},
+
+                                // Perserve data now that dek has been merged with sqm
+                                {"sqm", "sqm_Latn_CF"},
                             });
 
     /**

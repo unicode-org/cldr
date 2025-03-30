@@ -157,9 +157,6 @@ public class TestBCP47 extends TestFmwk {
                                             Collections.<String>emptySet(),
                                             Collections.<String>emptySet(),
                                             trans));
-                } else if (type.equals("big5han") || type.equals("gb2312han")) {
-                    logKnownIssue(
-                            "CLDR-18307", "Remove English names for deprecated collation types");
                 } else {
                     errln(
                             "*Extra English: "

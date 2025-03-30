@@ -2309,7 +2309,7 @@ public class TestExampleGenerator extends TestFmwk {
             {
                 "en",
                 "//ldml/numbers/rationalFormats[@numberSystem=\"latn\"]/integerAndRationalPattern[@alt=\"superSub\"]",
-                "〖❬3❭❰WNJ❱❬½❭〗〖❬3❭❰WNJ❱❬<sup>1</sup>⁄<sub>2</sub>❭〗"
+                "〖❬3❭❰WJ❱❬½❭〗〖❬3❭❰WJ❱❬<sup>1</sup>⁄<sub>2</sub>❭〗"
             },
             {"en", "//ldml/numbers/rationalFormats[@numberSystem=\"latn\"]/rationalUsage", null},
             {
@@ -2325,7 +2325,7 @@ public class TestExampleGenerator extends TestFmwk {
             {
                 "hi",
                 "//ldml/numbers/rationalFormats[@numberSystem=\"deva\"]/integerAndRationalPattern[@alt=\"superSub\"]",
-                "〖❬३❭❰WNJ❱❬<sup>१</sup>⁄<sub>२</sub>❭〗"
+                "〖❬३❭❰WJ❱❬<sup>१</sup>⁄<sub>२</sub>❭〗"
             },
             {"hi", "//ldml/numbers/rationalFormats[@numberSystem=\"deva\"]/rationalUsage", null},
         };

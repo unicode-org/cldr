@@ -100,6 +100,8 @@ jobs:
       - name: Checkout CLDR archive
         run: >
           mkdir -v ../cldr-archive && java -jar tools/cldr-code/target/cldr-code.jar checkout-archive
+        env:
+          GIT_LFS_SKIP_SMUDGE: 1
       - name: Build liberty server
         run: >
           mvn -s .github/workflows/mvn-settings.xml -B  -pl cldr-apps liberty:create liberty:deploy liberty:package -Dinclude=usr --file tools/pom.xml

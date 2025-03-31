@@ -20,6 +20,8 @@ import com.ibm.icu.text.PluralRules.PluralType;
 import com.ibm.icu.text.Transform;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.BitSet;
 import java.util.Date;
 import java.util.HashMap;
@@ -63,9 +65,18 @@ public class CheckForExemplars extends FactoryCheckCLDR {
 
     private static final String STAND_IN = "#";
 
-    // private final UnicodeSet commonAndInherited = new
-    // UnicodeSet(CheckExemplars.Allowed).complement();
-    // "[[:script=common:][:script=inherited:][:alphabetic=false:]]");
+    /**
+     * These values, and their uppercase variants, are forbidden for any path. They should all be
+     * lowercase.
+     */
+    private static final List<String> FORBIDDEN_VALUES = new ArrayList<>(Arrays.asList("n/a"));
+
+    private static final String FORBIDDEN_VALUE_MESSAGE =
+            "This value is forbidden for any path. If you believe this item is not an error, "
+                    + "add a forum post with an explanation about why this value is not an error. "
+                    + "The CLDR Technical Committee will reply to your forum post if they need any more information in "
+                    + "order to resolve the error or next steps on how to resolve if they still believe it is an error.";
+
     static String[] EXEMPLAR_SKIPS = {
         "/currencySpacing",
         "/exemplarCharacters",
@@ -329,7 +340,13 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         }
 
         // Check all paths for illegal characters, even EXEMPLAR_SKIPS
-        checkIllegalCharacters(path, value, result);
+        checkIllegalCharacters(value, result);
+
+        // If you believe this item is not an error, add forum post with an explanation about why
+        // the current value is not an error. The CLDR Technical Committee will reply to your forum
+        // post if they need any more information in order to resolve the error or next steps on how
+        // to resolve if they still believe it is an error
+        checkForbiddenValues(value, result);
 
         if (containsPart(path, EXEMPLAR_SKIPS)) {
             return this;
@@ -583,7 +600,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
 
     // Check for characters that are always illegal in values.
     // Currently those are just the paired bidi marks.
-    private void checkIllegalCharacters(String path, String value, List<CheckStatus> result) {
+    private void checkIllegalCharacters(String value, List<CheckStatus> result) {
         if (ILLEGAL_RTL_CONTROLS.containsSome(value)) {
             result.add(
                     new CheckStatus()
@@ -592,6 +609,17 @@ public class CheckForExemplars extends FactoryCheckCLDR {
                             .setSubtype(Subtype.illegalCharacter)
                             .setMessage(
                                     "Bidi markup can only include LRM RLM ALM, not paired characters such as FSI PDI"));
+        }
+    }
+
+    private void checkForbiddenValues(String value, List<CheckStatus> result) {
+        if (FORBIDDEN_VALUES.contains(value.toLowerCase())) {
+            result.add(
+                    new CheckStatus()
+                            .setCause(this)
+                            .setMainType(CheckStatus.errorType)
+                            .setSubtype(Subtype.forbiddenValue)
+                            .setMessage(FORBIDDEN_VALUE_MESSAGE));
         }
     }
 

@@ -939,7 +939,8 @@ public abstract class CheckCLDR implements CheckAccessor {
             nullOrEmptyValue,
             ttsAnnotationMissing,
             illegalCharacter,
-            missingNumberingSystem;
+            missingNumberingSystem,
+            forbiddenValue;
 
             @Override
             public String toString() {

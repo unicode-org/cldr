@@ -3426,9 +3426,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<native>latn</native>
 		</otherNumberingSystems>
 		<minimumGroupingDigits>1</minimumGroupingDigits>
-		<symbols>
-			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
-		</symbols>
 		<symbols numberSystem="adlm">
 			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
 		</symbols>
@@ -3696,9 +3693,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<symbols numberSystem="wcho">
 			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
 		</symbols>
-		<decimalFormats>
-			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
-		</decimalFormats>
 		<decimalFormats numberSystem="adlm">
 			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
 		</decimalFormats>
@@ -3959,9 +3953,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<integerAndRationalPattern alt="superSub">{0}&#x200b;{1}</integerAndRationalPattern>
 			<rationalUsage>sometimes</rationalUsage>
 		</rationalFormats>
-		<rationalFormats>
-			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
-		</rationalFormats>
 		<rationalFormats numberSystem="adlm">
 			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
 		</rationalFormats>
@@ -4190,9 +4181,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<rationalFormats numberSystem="wcho">
 			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
 		</rationalFormats>
-		<scientificFormats>
-			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
-		</scientificFormats>
 		<scientificFormats numberSystem="adlm">
 			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
 		</scientificFormats>
@@ -4428,9 +4416,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<scientificFormats numberSystem="wcho">
 			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
 		</scientificFormats>
-		<percentFormats>
-			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
-		</percentFormats>
 		<percentFormats numberSystem="adlm">
 			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
 		</percentFormats>
@@ -4670,9 +4655,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<percentFormats numberSystem="wcho">
 			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
 		</percentFormats>
-		<currencyFormats>
-			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
-		</currencyFormats>
 		<currencyFormats numberSystem="adlm">
 			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
 		</currencyFormats>

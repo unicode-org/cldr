@@ -148,9 +148,6 @@ public class TestExampleGenerator extends TestFmwk {
                     "//ldml/numbers/currencies/currency[@type=\"([^\"]*+)\"]/displayName",
                     "//ldml/localeDisplayNames/measurementSystemNames/measurementSystemName[@type=\"([^\"]*+)\"]",
                     // old format
-                    "//ldml/numbers/symbols/infinity",
-                    "//ldml/numbers/symbols/list",
-                    "//ldml/numbers/symbols/nan",
                     "//ldml/posix/messages/nostr",
                     "//ldml/posix/messages/yesstr",
                     "//ldml/contextTransforms/contextTransformUsage[@type=\"([^\"]*+)\"]/contextTransform[@type=\"([^\"]*+)\"]",
@@ -180,13 +177,6 @@ public class TestExampleGenerator extends TestFmwk {
      */
     static final Set<String> TEMPORARY_EXCLUDED_EXAMPLES =
             ImmutableSet.of(
-                    "//ldml/numbers/currencyFormats/currencySpacing/beforeCurrency/currencyMatch",
-                    "//ldml/numbers/currencyFormats/currencySpacing/beforeCurrency/surroundingMatch",
-                    "//ldml/numbers/currencyFormats/currencySpacing/beforeCurrency/insertBetween",
-                    "//ldml/numbers/currencyFormats/currencySpacing/afterCurrency/currencyMatch",
-                    "//ldml/numbers/currencyFormats/currencySpacing/afterCurrency/surroundingMatch",
-                    "//ldml/numbers/currencyFormats/currencySpacing/afterCurrency/insertBetween",
-                    "//ldml/numbers/currencyFormats/currencyPatternAppendISO", // TODO see
                     // CLDR-14831
                     "//ldml/numbers/currencyFormats[@numberSystem=\"([^\"]*+)\"]/currencySpacing/beforeCurrency/currencyMatch",
                     "//ldml/numbers/currencyFormats[@numberSystem=\"([^\"]*+)\"]/currencySpacing/beforeCurrency/surroundingMatch",
@@ -216,7 +206,6 @@ public class TestExampleGenerator extends TestFmwk {
                     "//ldml/dates/timeZoneNames/gmtZeroFormat",
                     "//ldml/dates/timeZoneNames/gmtUnknownFormat",
                     "//ldml/numbers/minimumGroupingDigits",
-                    "//ldml/numbers/symbols/timeSeparator",
                     "//ldml/numbers/symbols[@numberSystem=\"([^\"]*+)\"]/timeSeparator",
                     "//ldml/units/unitLength[@type=\"([^\"]*+)\"]/unit[@type=\"([^\"]*+)\"]/displayName",
                     "//ldml/units/unitLength[@type=\"([^\"]*+)\"]/unit[@type=\"([^\"]*+)\"]/perUnitPattern",
@@ -1202,7 +1191,7 @@ public class TestExampleGenerator extends TestFmwk {
      */
     public void TestExampleGeneratorConsistency() throws IOException {
         final String EVIL_PATH =
-                "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"short\"]/currencyFormat[@type=\"standard\"]/pattern[@type=\"10000\"][@count=\"one\"]";
+                "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength[@type=\"short\"]/currencyFormat[@type=\"standard\"]/pattern[@type=\"10000\"][@count=\"one\"]";
         final String SPECIAL_PATH = "//ldml/numbers/currencies/currency[@type=\"EUR\"]/symbol";
         final String EXPECTED_TO_CONTAIN = "456,79";
 

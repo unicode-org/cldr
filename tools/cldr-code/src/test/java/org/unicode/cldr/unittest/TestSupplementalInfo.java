@@ -1594,7 +1594,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                 // TODO 17397: remove isKnownIssue and the if around errln when the logknown issue
                 // goes away.
                 final boolean skipKnownIssue =
-                        currency.equals("ANG")
+                        currency.equals("XCG")
                                 && isoCountries.isEmpty()
                                 && cldrCountries.equals(Set.of("CW", "SX"))
                                 && logKnownIssue("CLDR-17397", "Mismatched codes " + cldrCountries);

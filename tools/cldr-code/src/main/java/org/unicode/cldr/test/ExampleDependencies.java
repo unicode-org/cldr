@@ -8,23 +8,86 @@ public class ExampleDependencies {
             new ImmutableSetMultimap.Builder<String, String>()
                     .putAll(
                             "//ldml/characterLabels/characterLabelPattern[@type=\"*\"]",
-                            "//ldml/characterLabels/characterLabel[@type=\"*\"]")
+                            "//ldml/characterLabels/characterLabel[@type=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/characterLabels/characterLabelPattern[@type=\"*\"][@count=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/characterLabels/characterLabel[@type=\"*\"]",
-                            "//ldml/characterLabels/characterLabelPattern[@type=\"*\"]")
+                            "//ldml/characterLabels/characterLabelPattern[@type=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/characters/ellipsis[@type=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/characters/exemplarCharacters",
-                            "//ldml/characters/exemplarCharacters[@type=\"*\"]")
+                            "//ldml/characters/exemplarCharacters[@type=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/characters/exemplarCharacters[@type=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/characters/moreInformation",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/characters/parseLenients[@scope=\"*\"][@level=\"*\"]/parseLenient[@sample=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/contextTransforms/contextTransformUsage[@type=\"*\"]/contextTransform[@type=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/cyclicNameSets/cyclicNameSet[@type=\"*\"]/cyclicNameContext[@type=\"*\"]/cyclicNameWidth[@type=\"*\"]/cyclicName[@type=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/dateFormats/dateFormatLength[@type=\"*\"]/dateFormat[@type=\"*\"]/datetimeSkeleton",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/dateFormats/dateFormatLength[@type=\"*\"]/dateFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/dates/calendars/calendar[@type=\"*\"]/dateTimeFormats/dateTimeFormatLength[@type=\"*\"]/dateTimeFormat[@type=\"*\"]/pattern[@type=\"*\"]")
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/dateTimeFormats/dateTimeFormatLength[@type=\"*\"]/dateTimeFormat[@type=\"*\"]/pattern[@type=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/dateFormats/dateFormatLength[@type=\"*\"]/dateFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/dateTimeFormats/appendItems/appendItem[@request=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"*\"]",
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/dayPeriods/dayPeriodContext[@type=\"*\"]/dayPeriodWidth[@type=\"*\"]/dayPeriod[@type=\"*\"]",
-                            "//ldml/dates/calendars/calendar[@type=\"*\"]/dayPeriods/dayPeriodContext[@type=\"*\"]/dayPeriodWidth[@type=\"*\"]/dayPeriod[@type=\"*\"][@alt=\"*\"]")
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/dayPeriods/dayPeriodContext[@type=\"*\"]/dayPeriodWidth[@type=\"*\"]/dayPeriod[@type=\"*\"][@alt=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraAbbr/era[@type=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraAbbr/era[@type=\"*\"][@alt=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraNames/era[@type=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraNames/era[@type=\"*\"][@alt=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraNarrow/era[@type=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraNarrow/era[@type=\"*\"][@alt=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/months/monthContext[@type=\"*\"]/monthWidth[@type=\"*\"]/month[@type=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/months/monthContext[@type=\"*\"]/monthWidth[@type=\"*\"]/month[@type=\"*\"][@yeartype=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/quarters/quarterContext[@type=\"*\"]/quarterWidth[@type=\"*\"]/quarter[@type=\"*\"]",
+                            "//ldml/dates/fields/field[@type=\"*\"]/relativePeriod",
+                            "//ldml/dates/fields/field[@type=\"*\"]/relativeTime[@type=\"*\"]/relativeTimePattern[@count=\"*\"]",
+                            "//ldml/dates/fields/field[@type=\"*\"]/relative[@type=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"*\"][@alt=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"*\"][@count=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/dateTimeFormats/dateTimeFormatLength[@type=\"*\"]/dateTimeFormat[@type=\"*\"]/pattern[@type=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/dateTimeFormats/intervalFormats/intervalFormatFallback",
-                            "//ldml/dates/calendars/calendar[@type=\"*\"]/dateTimeFormats/dateTimeFormatLength[@type=\"*\"]/dateTimeFormat[@type=\"*\"]/pattern[@type=\"*\"]")
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/dateTimeFormats/dateTimeFormatLength[@type=\"*\"]/dateTimeFormat[@type=\"*\"]/pattern[@type=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"*\"]/greatestDifference[@id=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"*\"]/greatestDifference[@id=\"*\"][@alt=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/dayPeriods/dayPeriodContext[@type=\"*\"]/dayPeriodWidth[@type=\"*\"]/dayPeriod[@type=\"*\"]",
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/dateFormats/dateFormatLength[@type=\"*\"]/dateFormat[@type=\"*\"]/pattern[@type=\"*\"]",
@@ -38,8 +101,20 @@ public class ExampleDependencies {
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"*\"]/greatestDifference[@id=\"*\"][@alt=\"*\"]",
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/dayPeriods/dayPeriodContext[@type=\"*\"]/dayPeriodWidth[@type=\"*\"]/dayPeriod[@type=\"*\"]",
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/dayPeriods/dayPeriodContext[@type=\"*\"]/dayPeriodWidth[@type=\"*\"]/dayPeriod[@type=\"*\"][@alt=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraAbbr/era[@type=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraAbbr/era[@type=\"*\"][@alt=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraNames/era[@type=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraNames/era[@type=\"*\"][@alt=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraNarrow/era[@type=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraNarrow/era[@type=\"*\"][@alt=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/months/monthContext[@type=\"*\"]/monthWidth[@type=\"*\"]/month[@type=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/months/monthContext[@type=\"*\"]/monthWidth[@type=\"*\"]/month[@type=\"*\"][@yeartype=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/quarters/quarterContext[@type=\"*\"]/quarterWidth[@type=\"*\"]/quarter[@type=\"*\"]",
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/timeFormats/timeFormatLength[@type=\"*\"]/timeFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/timeFormats/timeFormatLength[@type=\"*\"]/timeFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
+                            "//ldml/dates/fields/field[@type=\"*\"]/relativePeriod",
+                            "//ldml/dates/fields/field[@type=\"*\"]/relativeTime[@type=\"*\"]/relativeTimePattern[@count=\"*\"]",
+                            "//ldml/dates/fields/field[@type=\"*\"]/relative[@type=\"*\"]",
                             "//ldml/dates/timeZoneNames/gmtFormat",
                             "//ldml/dates/timeZoneNames/hourFormat",
                             "//ldml/dates/timeZoneNames/metazone[@type=\"*\"]/long/daylight",
@@ -51,8 +126,12 @@ public class ExampleDependencies {
                             "//ldml/localeDisplayNames/localeDisplayPattern/localeKeyTypePattern",
                             "//ldml/localeDisplayNames/localeDisplayPattern/localePattern",
                             "//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern",
                             "//ldml/units/durationUnit[@type=\"*\"]/durationUnitPattern",
                             "//ldml/units/durationUnit[@type=\"*\"]/durationUnitPattern[@alt=\"*\"]")
+                    .putAll(
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/dayPeriods/dayPeriodContext[@type=\"*\"]/dayPeriodWidth[@type=\"*\"]/dayPeriod[@type=\"*\"][@alt=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/days/dayContext[@type=\"*\"]/dayWidth[@type=\"*\"]/day[@type=\"*\"]",
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/dateFormats/dateFormatLength[@type=\"*\"]/dateFormat[@type=\"*\"]/pattern[@type=\"*\"]",
@@ -66,8 +145,20 @@ public class ExampleDependencies {
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"*\"]/greatestDifference[@id=\"*\"][@alt=\"*\"]",
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/dayPeriods/dayPeriodContext[@type=\"*\"]/dayPeriodWidth[@type=\"*\"]/dayPeriod[@type=\"*\"]",
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/dayPeriods/dayPeriodContext[@type=\"*\"]/dayPeriodWidth[@type=\"*\"]/dayPeriod[@type=\"*\"][@alt=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraAbbr/era[@type=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraAbbr/era[@type=\"*\"][@alt=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraNames/era[@type=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraNames/era[@type=\"*\"][@alt=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraNarrow/era[@type=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraNarrow/era[@type=\"*\"][@alt=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/months/monthContext[@type=\"*\"]/monthWidth[@type=\"*\"]/month[@type=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/months/monthContext[@type=\"*\"]/monthWidth[@type=\"*\"]/month[@type=\"*\"][@yeartype=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/quarters/quarterContext[@type=\"*\"]/quarterWidth[@type=\"*\"]/quarter[@type=\"*\"]",
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/timeFormats/timeFormatLength[@type=\"*\"]/timeFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/timeFormats/timeFormatLength[@type=\"*\"]/timeFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
+                            "//ldml/dates/fields/field[@type=\"*\"]/relativePeriod",
+                            "//ldml/dates/fields/field[@type=\"*\"]/relativeTime[@type=\"*\"]/relativeTimePattern[@count=\"*\"]",
+                            "//ldml/dates/fields/field[@type=\"*\"]/relative[@type=\"*\"]",
                             "//ldml/dates/timeZoneNames/gmtFormat",
                             "//ldml/dates/timeZoneNames/hourFormat",
                             "//ldml/dates/timeZoneNames/metazone[@type=\"*\"]/long/daylight",
@@ -79,8 +170,12 @@ public class ExampleDependencies {
                             "//ldml/localeDisplayNames/localeDisplayPattern/localeKeyTypePattern",
                             "//ldml/localeDisplayNames/localeDisplayPattern/localePattern",
                             "//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern",
                             "//ldml/units/durationUnit[@type=\"*\"]/durationUnitPattern",
                             "//ldml/units/durationUnit[@type=\"*\"]/durationUnitPattern[@alt=\"*\"]")
+                    .putAll(
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/days/dayContext[@type=\"*\"]/dayWidth[@type=\"*\"]/day[@type=\"*\"][@alt=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraAbbr/era[@type=\"*\"]",
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/dateFormats/dateFormatLength[@type=\"*\"]/dateFormat[@type=\"*\"]/pattern[@type=\"*\"]",
@@ -94,8 +189,20 @@ public class ExampleDependencies {
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"*\"]/greatestDifference[@id=\"*\"][@alt=\"*\"]",
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/dayPeriods/dayPeriodContext[@type=\"*\"]/dayPeriodWidth[@type=\"*\"]/dayPeriod[@type=\"*\"]",
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/dayPeriods/dayPeriodContext[@type=\"*\"]/dayPeriodWidth[@type=\"*\"]/dayPeriod[@type=\"*\"][@alt=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraAbbr/era[@type=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraAbbr/era[@type=\"*\"][@alt=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraNames/era[@type=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraNames/era[@type=\"*\"][@alt=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraNarrow/era[@type=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraNarrow/era[@type=\"*\"][@alt=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/months/monthContext[@type=\"*\"]/monthWidth[@type=\"*\"]/month[@type=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/months/monthContext[@type=\"*\"]/monthWidth[@type=\"*\"]/month[@type=\"*\"][@yeartype=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/quarters/quarterContext[@type=\"*\"]/quarterWidth[@type=\"*\"]/quarter[@type=\"*\"]",
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/timeFormats/timeFormatLength[@type=\"*\"]/timeFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/timeFormats/timeFormatLength[@type=\"*\"]/timeFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
+                            "//ldml/dates/fields/field[@type=\"*\"]/relativePeriod",
+                            "//ldml/dates/fields/field[@type=\"*\"]/relativeTime[@type=\"*\"]/relativeTimePattern[@count=\"*\"]",
+                            "//ldml/dates/fields/field[@type=\"*\"]/relative[@type=\"*\"]",
                             "//ldml/dates/timeZoneNames/gmtFormat",
                             "//ldml/dates/timeZoneNames/hourFormat",
                             "//ldml/dates/timeZoneNames/metazone[@type=\"*\"]/long/daylight",
@@ -107,8 +214,12 @@ public class ExampleDependencies {
                             "//ldml/localeDisplayNames/localeDisplayPattern/localeKeyTypePattern",
                             "//ldml/localeDisplayNames/localeDisplayPattern/localePattern",
                             "//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern",
                             "//ldml/units/durationUnit[@type=\"*\"]/durationUnitPattern",
                             "//ldml/units/durationUnit[@type=\"*\"]/durationUnitPattern[@alt=\"*\"]")
+                    .putAll(
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraAbbr/era[@type=\"*\"][@alt=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraNames/era[@type=\"*\"]",
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/dateFormats/dateFormatLength[@type=\"*\"]/dateFormat[@type=\"*\"]/pattern[@type=\"*\"]",
@@ -122,8 +233,20 @@ public class ExampleDependencies {
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"*\"]/greatestDifference[@id=\"*\"][@alt=\"*\"]",
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/dayPeriods/dayPeriodContext[@type=\"*\"]/dayPeriodWidth[@type=\"*\"]/dayPeriod[@type=\"*\"]",
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/dayPeriods/dayPeriodContext[@type=\"*\"]/dayPeriodWidth[@type=\"*\"]/dayPeriod[@type=\"*\"][@alt=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraAbbr/era[@type=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraAbbr/era[@type=\"*\"][@alt=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraNames/era[@type=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraNames/era[@type=\"*\"][@alt=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraNarrow/era[@type=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraNarrow/era[@type=\"*\"][@alt=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/months/monthContext[@type=\"*\"]/monthWidth[@type=\"*\"]/month[@type=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/months/monthContext[@type=\"*\"]/monthWidth[@type=\"*\"]/month[@type=\"*\"][@yeartype=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/quarters/quarterContext[@type=\"*\"]/quarterWidth[@type=\"*\"]/quarter[@type=\"*\"]",
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/timeFormats/timeFormatLength[@type=\"*\"]/timeFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/timeFormats/timeFormatLength[@type=\"*\"]/timeFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
+                            "//ldml/dates/fields/field[@type=\"*\"]/relativePeriod",
+                            "//ldml/dates/fields/field[@type=\"*\"]/relativeTime[@type=\"*\"]/relativeTimePattern[@count=\"*\"]",
+                            "//ldml/dates/fields/field[@type=\"*\"]/relative[@type=\"*\"]",
                             "//ldml/dates/timeZoneNames/gmtFormat",
                             "//ldml/dates/timeZoneNames/hourFormat",
                             "//ldml/dates/timeZoneNames/metazone[@type=\"*\"]/long/daylight",
@@ -135,8 +258,24 @@ public class ExampleDependencies {
                             "//ldml/localeDisplayNames/localeDisplayPattern/localeKeyTypePattern",
                             "//ldml/localeDisplayNames/localeDisplayPattern/localePattern",
                             "//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern",
                             "//ldml/units/durationUnit[@type=\"*\"]/durationUnitPattern",
                             "//ldml/units/durationUnit[@type=\"*\"]/durationUnitPattern[@alt=\"*\"]")
+                    .putAll(
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraNames/era[@type=\"*\"][@alt=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraNarrow/era[@type=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraNarrow/era[@type=\"*\"][@alt=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/monthPatterns/monthPatternContext[@type=\"*\"]/monthPatternWidth[@type=\"*\"]/monthPattern[@type=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/months/monthContext[@type=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/months/monthContext[@type=\"*\"]/monthWidth[@type=\"*\"]/month[@type=\"*\"]",
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/dateFormats/dateFormatLength[@type=\"*\"]/dateFormat[@type=\"*\"]/pattern[@type=\"*\"]",
@@ -150,9 +289,21 @@ public class ExampleDependencies {
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"*\"]/greatestDifference[@id=\"*\"][@alt=\"*\"]",
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/dayPeriods/dayPeriodContext[@type=\"*\"]/dayPeriodWidth[@type=\"*\"]/dayPeriod[@type=\"*\"]",
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/dayPeriods/dayPeriodContext[@type=\"*\"]/dayPeriodWidth[@type=\"*\"]/dayPeriod[@type=\"*\"][@alt=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraAbbr/era[@type=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraAbbr/era[@type=\"*\"][@alt=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraNames/era[@type=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraNames/era[@type=\"*\"][@alt=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraNarrow/era[@type=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraNarrow/era[@type=\"*\"][@alt=\"*\"]",
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/monthPatterns/monthPatternContext[@type=\"*\"]/monthPatternWidth[@type=\"*\"]/monthPattern[@type=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/months/monthContext[@type=\"*\"]/monthWidth[@type=\"*\"]/month[@type=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/months/monthContext[@type=\"*\"]/monthWidth[@type=\"*\"]/month[@type=\"*\"][@yeartype=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/quarters/quarterContext[@type=\"*\"]/quarterWidth[@type=\"*\"]/quarter[@type=\"*\"]",
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/timeFormats/timeFormatLength[@type=\"*\"]/timeFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/timeFormats/timeFormatLength[@type=\"*\"]/timeFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
+                            "//ldml/dates/fields/field[@type=\"*\"]/relativePeriod",
+                            "//ldml/dates/fields/field[@type=\"*\"]/relativeTime[@type=\"*\"]/relativeTimePattern[@count=\"*\"]",
+                            "//ldml/dates/fields/field[@type=\"*\"]/relative[@type=\"*\"]",
                             "//ldml/dates/timeZoneNames/gmtFormat",
                             "//ldml/dates/timeZoneNames/hourFormat",
                             "//ldml/dates/timeZoneNames/metazone[@type=\"*\"]/long/daylight",
@@ -164,8 +315,12 @@ public class ExampleDependencies {
                             "//ldml/localeDisplayNames/localeDisplayPattern/localeKeyTypePattern",
                             "//ldml/localeDisplayNames/localeDisplayPattern/localePattern",
                             "//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern",
                             "//ldml/units/durationUnit[@type=\"*\"]/durationUnitPattern",
                             "//ldml/units/durationUnit[@type=\"*\"]/durationUnitPattern[@alt=\"*\"]")
+                    .putAll(
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/months/monthContext[@type=\"*\"]/monthWidth[@type=\"*\"]/month[@type=\"*\"][@yeartype=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/quarters/quarterContext[@type=\"*\"]/quarterWidth[@type=\"*\"]/quarter[@type=\"*\"]",
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/dateFormats/dateFormatLength[@type=\"*\"]/dateFormat[@type=\"*\"]/pattern[@type=\"*\"]",
@@ -179,8 +334,20 @@ public class ExampleDependencies {
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"*\"]/greatestDifference[@id=\"*\"][@alt=\"*\"]",
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/dayPeriods/dayPeriodContext[@type=\"*\"]/dayPeriodWidth[@type=\"*\"]/dayPeriod[@type=\"*\"]",
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/dayPeriods/dayPeriodContext[@type=\"*\"]/dayPeriodWidth[@type=\"*\"]/dayPeriod[@type=\"*\"][@alt=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraAbbr/era[@type=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraAbbr/era[@type=\"*\"][@alt=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraNames/era[@type=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraNames/era[@type=\"*\"][@alt=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraNarrow/era[@type=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraNarrow/era[@type=\"*\"][@alt=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/months/monthContext[@type=\"*\"]/monthWidth[@type=\"*\"]/month[@type=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/months/monthContext[@type=\"*\"]/monthWidth[@type=\"*\"]/month[@type=\"*\"][@yeartype=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/quarters/quarterContext[@type=\"*\"]/quarterWidth[@type=\"*\"]/quarter[@type=\"*\"]",
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/timeFormats/timeFormatLength[@type=\"*\"]/timeFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/timeFormats/timeFormatLength[@type=\"*\"]/timeFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
+                            "//ldml/dates/fields/field[@type=\"*\"]/relativePeriod",
+                            "//ldml/dates/fields/field[@type=\"*\"]/relativeTime[@type=\"*\"]/relativeTimePattern[@count=\"*\"]",
+                            "//ldml/dates/fields/field[@type=\"*\"]/relative[@type=\"*\"]",
                             "//ldml/dates/timeZoneNames/gmtFormat",
                             "//ldml/dates/timeZoneNames/hourFormat",
                             "//ldml/dates/timeZoneNames/metazone[@type=\"*\"]/long/daylight",
@@ -192,8 +359,15 @@ public class ExampleDependencies {
                             "//ldml/localeDisplayNames/localeDisplayPattern/localeKeyTypePattern",
                             "//ldml/localeDisplayNames/localeDisplayPattern/localePattern",
                             "//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern",
                             "//ldml/units/durationUnit[@type=\"*\"]/durationUnitPattern",
                             "//ldml/units/durationUnit[@type=\"*\"]/durationUnitPattern[@alt=\"*\"]")
+                    .putAll(
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/timeFormats/timeFormatLength[@type=\"*\"]/timeFormat[@type=\"*\"]/datetimeSkeleton",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/timeFormats/timeFormatLength[@type=\"*\"]/timeFormat[@type=\"*\"]/datetimeSkeleton[@alt=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/timeFormats/timeFormatLength[@type=\"*\"]/timeFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/dateTimeFormats/appendItems/appendItem[@request=\"*\"]",
@@ -206,74 +380,147 @@ public class ExampleDependencies {
                             "//ldml/dates/timeZoneNames/metazone[@type=\"*\"]/short/standard",
                             "//ldml/localeDisplayNames/localeDisplayPattern/localeKeyTypePattern",
                             "//ldml/localeDisplayNames/localeDisplayPattern/localePattern",
-                            "//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator")
+                            "//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/timeFormats/timeFormatLength[@type=\"*\"]/timeFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/dates/fields/field[@type=\"*\"]/displayName",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/dates/fields/field[@type=\"*\"]/displayName[@alt=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/dates/fields/field[@type=\"*\"]/relativePeriod",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/dates/fields/field[@type=\"*\"]/relativeTime[@type=\"*\"]/relativeTimePattern[@count=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/dates/fields/field[@type=\"*\"]/relative[@type=\"*\"]",
-                            "//ldml/dates/calendars/calendar[@type=\"*\"]/dateTimeFormats/dateTimeFormatLength[@type=\"*\"]/dateTimeFormat[@type=\"*\"]/pattern[@type=\"*\"]")
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/dateTimeFormats/dateTimeFormatLength[@type=\"*\"]/dateTimeFormat[@type=\"*\"]/pattern[@type=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/dates/timeZoneNames/fallbackFormat",
                             "//ldml/localeDisplayNames/localeDisplayPattern/localeKeyTypePattern",
                             "//ldml/localeDisplayNames/localeDisplayPattern/localePattern",
-                            "//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator")
+                            "//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/dates/timeZoneNames/gmtFormat",
                             "//ldml/dates/timeZoneNames/hourFormat",
                             "//ldml/localeDisplayNames/localeDisplayPattern/localeKeyTypePattern",
                             "//ldml/localeDisplayNames/localeDisplayPattern/localePattern",
-                            "//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator")
+                            "//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/dates/timeZoneNames/gmtUnknownFormat",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/dates/timeZoneNames/gmtZeroFormat",
-                            "//ldml/dates/calendars/calendar[@type=\"*\"]/dateTimeFormats/appendItems/appendItem[@request=\"*\"]")
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/dateTimeFormats/appendItems/appendItem[@request=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/dates/timeZoneNames/hourFormat",
                             "//ldml/dates/timeZoneNames/gmtFormat",
                             "//ldml/localeDisplayNames/localeDisplayPattern/localeKeyTypePattern",
                             "//ldml/localeDisplayNames/localeDisplayPattern/localePattern",
-                            "//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator")
+                            "//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/dates/timeZoneNames/metazone[@type=\"*\"]/long/daylight",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/dates/timeZoneNames/metazone[@type=\"*\"]/long/generic",
-                            "//ldml/dates/timeZoneNames/fallbackFormat")
+                            "//ldml/dates/timeZoneNames/fallbackFormat",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/dates/timeZoneNames/metazone[@type=\"*\"]/long/standard",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/dates/timeZoneNames/metazone[@type=\"*\"]/short/daylight",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/dates/timeZoneNames/metazone[@type=\"*\"]/short/generic",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/dates/timeZoneNames/metazone[@type=\"*\"]/short/standard",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/dates/timeZoneNames/regionFormat",
                             "//ldml/localeDisplayNames/localeDisplayPattern/localeKeyTypePattern",
                             "//ldml/localeDisplayNames/localeDisplayPattern/localePattern",
-                            "//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator")
+                            "//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/dates/timeZoneNames/regionFormat[@type=\"*\"]",
                             "//ldml/localeDisplayNames/localeDisplayPattern/localeKeyTypePattern",
                             "//ldml/localeDisplayNames/localeDisplayPattern/localePattern",
-                            "//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator")
+                            "//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/dates/timeZoneNames/zone[@type=\"*\"]/exemplarCity",
                             "//ldml/dates/timeZoneNames/fallbackFormat",
                             "//ldml/dates/timeZoneNames/regionFormat",
-                            "//ldml/dates/timeZoneNames/regionFormat[@type=\"*\"]")
+                            "//ldml/dates/timeZoneNames/regionFormat[@type=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/dates/timeZoneNames/zone[@type=\"*\"]/exemplarCity[@alt=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/dates/timeZoneNames/zone[@type=\"*\"]/long/daylight",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/dates/timeZoneNames/zone[@type=\"*\"]/long/standard",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/dates/timeZoneNames/zone[@type=\"*\"]/short/daylight",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/dates/timeZoneNames/zone[@type=\"*\"]/short/generic",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/dates/timeZoneNames/zone[@type=\"*\"]/short/standard",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/delimiters/alternateQuotationEnd",
                             "//ldml/delimiters/alternateQuotationStart",
                             "//ldml/delimiters/quotationEnd",
-                            "//ldml/delimiters/quotationStart")
+                            "//ldml/delimiters/quotationStart",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/delimiters/alternateQuotationStart",
                             "//ldml/delimiters/alternateQuotationEnd",
                             "//ldml/delimiters/quotationEnd",
-                            "//ldml/delimiters/quotationStart")
+                            "//ldml/delimiters/quotationStart",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/delimiters/quotationEnd",
                             "//ldml/delimiters/alternateQuotationEnd",
                             "//ldml/delimiters/alternateQuotationStart",
-                            "//ldml/delimiters/quotationStart")
+                            "//ldml/delimiters/quotationStart",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/delimiters/quotationStart",
                             "//ldml/delimiters/alternateQuotationEnd",
                             "//ldml/delimiters/alternateQuotationStart",
-                            "//ldml/delimiters/quotationEnd")
+                            "//ldml/delimiters/quotationEnd",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/layout/orientation/characterOrder",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/layout/orientation/lineOrder",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/listPatterns/listPattern/listPatternPart[@type=\"*\"]",
-                            "//ldml/listPatterns/listPattern/listPatternPart[@type=\"*\"]")
+                            "//ldml/listPatterns/listPattern/listPatternPart[@type=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/listPatterns/listPattern[@type=\"*\"]/listPatternPart[@type=\"*\"]",
-                            "//ldml/listPatterns/listPattern[@type=\"*\"]/listPatternPart[@type=\"*\"]")
+                            "//ldml/listPatterns/listPattern[@type=\"*\"]/listPatternPart[@type=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/localeDisplayNames/codePatterns/codePattern[@type=\"*\"]",
                             "//ldml/localeDisplayNames/languages/language[@type=\"*\"]",
@@ -281,14 +528,15 @@ public class ExampleDependencies {
                             "//ldml/localeDisplayNames/scripts/script[@type=\"*\"]",
                             "//ldml/localeDisplayNames/scripts/script[@type=\"*\"][@alt=\"*\"]",
                             "//ldml/localeDisplayNames/territories/territory[@type=\"*\"]",
-                            "//ldml/localeDisplayNames/territories/territory[@type=\"*\"][@alt=\"*\"]")
+                            "//ldml/localeDisplayNames/territories/territory[@type=\"*\"][@alt=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/localeDisplayNames/keys/key[@type=\"*\"]",
                             "//ldml/localeDisplayNames/localeDisplayPattern/localeKeyTypePattern",
                             "//ldml/localeDisplayNames/localeDisplayPattern/localePattern",
-                            "//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator")
+                            "//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
-                            "//ldml/localeDisplayNames/languages/language[@type=\"*\"]",
                             "//ldml/localeDisplayNames/languages/language[@type=\"*\"]",
                             "//ldml/localeDisplayNames/localeDisplayPattern/localeKeyTypePattern",
                             "//ldml/localeDisplayNames/localeDisplayPattern/localePattern",
@@ -297,17 +545,19 @@ public class ExampleDependencies {
                             "//ldml/localeDisplayNames/scripts/script[@type=\"*\"][@alt=\"*\"]",
                             "//ldml/localeDisplayNames/territories/territory[@type=\"*\"]",
                             "//ldml/localeDisplayNames/territories/territory[@type=\"*\"][@alt=\"*\"]",
-                            "//ldml/personNames/nameOrderLocales[@order=\"*\"]")
+                            "//ldml/personNames/nameOrderLocales[@order=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/localeDisplayNames/languages/language[@type=\"*\"][@alt=\"*\"]",
                             "//ldml/localeDisplayNames/languages/language[@type=\"*\"]",
-                            "//ldml/localeDisplayNames/languages/language[@type=\"*\"][@alt=\"*\"]")
+                            "//ldml/localeDisplayNames/languages/language[@type=\"*\"][@alt=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/localeDisplayNames/localeDisplayPattern/localeKeyTypePattern",
-                            "//ldml/localeDisplayNames/languages/language[@type=\"*\"]",
                             "//ldml/localeDisplayNames/localeDisplayPattern/localePattern",
                             "//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator",
-                            "//ldml/personNames/nameOrderLocales[@order=\"*\"]")
+                            "//ldml/personNames/nameOrderLocales[@order=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/localeDisplayNames/localeDisplayPattern/localePattern",
                             "//ldml/localeDisplayNames/languages/language[@type=\"*\"]",
@@ -318,7 +568,8 @@ public class ExampleDependencies {
                             "//ldml/localeDisplayNames/scripts/script[@type=\"*\"][@alt=\"*\"]",
                             "//ldml/localeDisplayNames/territories/territory[@type=\"*\"]",
                             "//ldml/localeDisplayNames/territories/territory[@type=\"*\"][@alt=\"*\"]",
-                            "//ldml/personNames/nameOrderLocales[@order=\"*\"]")
+                            "//ldml/personNames/nameOrderLocales[@order=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator",
                             "//ldml/localeDisplayNames/languages/language[@type=\"*\"]",
@@ -329,7 +580,11 @@ public class ExampleDependencies {
                             "//ldml/localeDisplayNames/scripts/script[@type=\"*\"][@alt=\"*\"]",
                             "//ldml/localeDisplayNames/territories/territory[@type=\"*\"]",
                             "//ldml/localeDisplayNames/territories/territory[@type=\"*\"][@alt=\"*\"]",
-                            "//ldml/personNames/nameOrderLocales[@order=\"*\"]")
+                            "//ldml/personNames/nameOrderLocales[@order=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/localeDisplayNames/measurementSystemNames/measurementSystemName[@type=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/localeDisplayNames/scripts/script[@type=\"*\"]",
                             "//ldml/localeDisplayNames/languages/language[@type=\"*\"]",
@@ -338,11 +593,16 @@ public class ExampleDependencies {
                             "//ldml/localeDisplayNames/localeDisplayPattern/localePattern",
                             "//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator",
                             "//ldml/localeDisplayNames/territories/territory[@type=\"*\"]",
-                            "//ldml/localeDisplayNames/territories/territory[@type=\"*\"][@alt=\"*\"]")
+                            "//ldml/localeDisplayNames/territories/territory[@type=\"*\"][@alt=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/localeDisplayNames/scripts/script[@type=\"*\"][@alt=\"*\"]",
                             "//ldml/localeDisplayNames/scripts/script[@type=\"*\"]",
-                            "//ldml/localeDisplayNames/scripts/script[@type=\"*\"][@alt=\"*\"]")
+                            "//ldml/localeDisplayNames/scripts/script[@type=\"*\"][@alt=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/localeDisplayNames/subdivisions/subdivision[@type=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/localeDisplayNames/territories/territory[@type=\"*\"]",
                             "//ldml/characterLabels/characterLabelPattern[@type=\"*\"]",
@@ -358,11 +618,13 @@ public class ExampleDependencies {
                             "//ldml/localeDisplayNames/localeDisplayPattern/localePattern",
                             "//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator",
                             "//ldml/localeDisplayNames/scripts/script[@type=\"*\"]",
-                            "//ldml/localeDisplayNames/scripts/script[@type=\"*\"][@alt=\"*\"]")
+                            "//ldml/localeDisplayNames/scripts/script[@type=\"*\"][@alt=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/localeDisplayNames/territories/territory[@type=\"*\"][@alt=\"*\"]",
                             "//ldml/localeDisplayNames/territories/territory[@type=\"*\"]",
-                            "//ldml/localeDisplayNames/territories/territory[@type=\"*\"][@alt=\"*\"]")
+                            "//ldml/localeDisplayNames/territories/territory[@type=\"*\"][@alt=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/localeDisplayNames/types/type[@key=\"*\"][@type=\"*\"]",
                             "//ldml/delimiters/alternateQuotationEnd",
@@ -371,51 +633,51 @@ public class ExampleDependencies {
                             "//ldml/delimiters/quotationStart",
                             "//ldml/localeDisplayNames/localeDisplayPattern/localeKeyTypePattern",
                             "//ldml/localeDisplayNames/localeDisplayPattern/localePattern",
-                            "//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator")
+                            "//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/localeDisplayNames/types/type[@key=\"*\"][@type=\"*\"][@alt=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/localeDisplayNames/variants/variant[@type=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/localeDisplayNames/variants/variant[@type=\"*\"][@alt=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/decimal",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/displayName[@count=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol[@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"][@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/unitPattern[@count=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"][@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/unitPattern[@count=\"*\"]")
+                            "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/unitPattern[@count=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/displayName",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/displayName[@count=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol[@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"][@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/unitPattern[@count=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"][@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/unitPattern[@count=\"*\"]")
+                            "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/unitPattern[@count=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/displayName[@count=\"*\"]",
-                            "//ldml/numbers/currencyFormats/unitPattern[@count=\"*\"]",
-                            "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/unitPattern[@count=\"*\"]")
+                            "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/unitPattern[@count=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/numbers/currencies/currency[@type=\"*\"]/group",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/grouping",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/displayName[@count=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol[@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"][@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/unitPattern[@count=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
@@ -426,90 +688,85 @@ public class ExampleDependencies {
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/displayName[@count=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol[@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"][@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/unitPattern[@count=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"][@alt=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/unitPattern[@count=\"*\"]")
                     .putAll(
-                            "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol",
-                            "//ldml/numbers/currencies/currency[@type=\"*\"]/displayName[@count=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"][@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/unitPattern[@count=\"*\"]",
-                            "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
-                            "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"][@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/unitPattern[@count=\"*\"]")
+                            "//ldml/numbers/currencies/currency[@type=\"*\"]/pattern[@type=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
-                            "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/currencies/currency[@type=\"*\"]/displayName[@count=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol",
-                            "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol[@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"][@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/unitPattern[@count=\"*\"]",
-                            "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
-                            "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"][@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/unitPattern[@count=\"*\"]")
-                    .putAll(
-                            "//ldml/numbers/currencyFormats/currencySpacing/afterCurrency/currencyMatch",
-                            "//ldml/listPatterns/listPattern[@type=\"*\"]/listPatternPart[@type=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/displayName[@count=\"*\"]",
-                            "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol",
-                            "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol[@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"][@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/unitPattern[@count=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"][@alt=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/unitPattern[@count=\"*\"]",
-                            "//ldml/numbers/decimalFormats/decimalFormatLength/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/decimalFormats/decimalFormatLength[@type=\"*\"]/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol[@alt=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"]",
+                            "//ldml/numbers/currencies/currency[@type=\"*\"]/displayName[@count=\"*\"]",
+                            "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol",
+                            "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol[@alt=\"*\"]",
+                            "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"]",
+                            "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
+                            "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
+                            "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"][@alt=\"*\"]",
+                            "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/unitPattern[@count=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"][@alt=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyPatternAppendISO",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencySpacing/afterCurrency/currencyMatch",
+                            "//ldml/listPatterns/listPattern[@type=\"*\"]/listPatternPart[@type=\"*\"]",
+                            "//ldml/numbers/currencies/currency[@type=\"*\"]/displayName[@count=\"*\"]",
+                            "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol",
+                            "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol[@alt=\"*\"]",
+                            "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"]",
+                            "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
+                            "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
+                            "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"][@alt=\"*\"]",
+                            "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/unitPattern[@count=\"*\"]",
                             "//ldml/numbers/decimalFormats[@numberSystem=\"*\"]/decimalFormatLength/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/decimalFormats[@numberSystem=\"*\"]/decimalFormatLength[@type=\"*\"]/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
                             "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"*\"]",
                             "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"*\"]",
                             "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"*\"]",
+                            "//ldml/numbers/minimumGroupingDigits",
                             "//ldml/numbers/miscPatterns[@numberSystem=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/percentFormats/percentFormatLength/percentFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/percentFormats[@numberSystem=\"*\"]/percentFormatLength/percentFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/scientificFormats/scientificFormatLength/scientificFormat[@type=\"*\"]/pattern[@type=\"*\"]",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/integerAndRationalPattern",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/integerAndRationalPattern[@alt=\"*\"]",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/rationalPattern",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/rationalUsage",
                             "//ldml/numbers/scientificFormats[@numberSystem=\"*\"]/scientificFormatLength/scientificFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/symbols/approximatelySign",
-                            "//ldml/numbers/symbols/decimal",
-                            "//ldml/numbers/symbols/exponential",
-                            "//ldml/numbers/symbols/group",
-                            "//ldml/numbers/symbols/minusSign",
-                            "//ldml/numbers/symbols/perMille",
-                            "//ldml/numbers/symbols/percentSign",
-                            "//ldml/numbers/symbols/plusSign",
-                            "//ldml/numbers/symbols/superscriptingExponent",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/approximatelySign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/decimal",
+                            "//ldml/numbers/symbols[@numberSystem=\"*\"]/decimal[@alt=\"*\"]",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/exponential",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/group",
+                            "//ldml/numbers/symbols[@numberSystem=\"*\"]/group[@alt=\"*\"]",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/minusSign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/perMille",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/percentSign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/plusSign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/superscriptingExponent",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern1[@count=\"*\"]",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern1[@count=\"*\"][@case=\"*\"]",
@@ -519,51 +776,41 @@ public class ExampleDependencies {
                             "//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/unitPattern[@count=\"*\"]",
                             "//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/unitPattern[@count=\"*\"][@case=\"*\"]")
                     .putAll(
-                            "//ldml/numbers/currencyFormats/currencySpacing/afterCurrency/insertBetween",
+                            "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencySpacing/afterCurrency/insertBetween",
                             "//ldml/listPatterns/listPattern[@type=\"*\"]/listPatternPart[@type=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/displayName[@count=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol[@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"][@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/unitPattern[@count=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"][@alt=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/unitPattern[@count=\"*\"]",
-                            "//ldml/numbers/decimalFormats/decimalFormatLength/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/decimalFormats/decimalFormatLength[@type=\"*\"]/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
                             "//ldml/numbers/decimalFormats[@numberSystem=\"*\"]/decimalFormatLength/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/decimalFormats[@numberSystem=\"*\"]/decimalFormatLength[@type=\"*\"]/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
                             "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"*\"]",
                             "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"*\"]",
                             "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"*\"]",
+                            "//ldml/numbers/minimumGroupingDigits",
                             "//ldml/numbers/miscPatterns[@numberSystem=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/percentFormats/percentFormatLength/percentFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/percentFormats[@numberSystem=\"*\"]/percentFormatLength/percentFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/scientificFormats/scientificFormatLength/scientificFormat[@type=\"*\"]/pattern[@type=\"*\"]",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/integerAndRationalPattern",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/integerAndRationalPattern[@alt=\"*\"]",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/rationalPattern",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/rationalUsage",
                             "//ldml/numbers/scientificFormats[@numberSystem=\"*\"]/scientificFormatLength/scientificFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/symbols/approximatelySign",
-                            "//ldml/numbers/symbols/decimal",
-                            "//ldml/numbers/symbols/exponential",
-                            "//ldml/numbers/symbols/group",
-                            "//ldml/numbers/symbols/minusSign",
-                            "//ldml/numbers/symbols/perMille",
-                            "//ldml/numbers/symbols/percentSign",
-                            "//ldml/numbers/symbols/plusSign",
-                            "//ldml/numbers/symbols/superscriptingExponent",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/approximatelySign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/decimal",
+                            "//ldml/numbers/symbols[@numberSystem=\"*\"]/decimal[@alt=\"*\"]",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/exponential",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/group",
+                            "//ldml/numbers/symbols[@numberSystem=\"*\"]/group[@alt=\"*\"]",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/minusSign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/perMille",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/percentSign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/plusSign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/superscriptingExponent",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern1[@count=\"*\"]",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern1[@count=\"*\"][@case=\"*\"]",
@@ -573,51 +820,41 @@ public class ExampleDependencies {
                             "//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/unitPattern[@count=\"*\"]",
                             "//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/unitPattern[@count=\"*\"][@case=\"*\"]")
                     .putAll(
-                            "//ldml/numbers/currencyFormats/currencySpacing/afterCurrency/surroundingMatch",
+                            "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencySpacing/afterCurrency/surroundingMatch",
                             "//ldml/listPatterns/listPattern[@type=\"*\"]/listPatternPart[@type=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/displayName[@count=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol[@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"][@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/unitPattern[@count=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"][@alt=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/unitPattern[@count=\"*\"]",
-                            "//ldml/numbers/decimalFormats/decimalFormatLength/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/decimalFormats/decimalFormatLength[@type=\"*\"]/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
                             "//ldml/numbers/decimalFormats[@numberSystem=\"*\"]/decimalFormatLength/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/decimalFormats[@numberSystem=\"*\"]/decimalFormatLength[@type=\"*\"]/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
                             "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"*\"]",
                             "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"*\"]",
                             "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"*\"]",
+                            "//ldml/numbers/minimumGroupingDigits",
                             "//ldml/numbers/miscPatterns[@numberSystem=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/percentFormats/percentFormatLength/percentFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/percentFormats[@numberSystem=\"*\"]/percentFormatLength/percentFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/scientificFormats/scientificFormatLength/scientificFormat[@type=\"*\"]/pattern[@type=\"*\"]",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/integerAndRationalPattern",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/integerAndRationalPattern[@alt=\"*\"]",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/rationalPattern",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/rationalUsage",
                             "//ldml/numbers/scientificFormats[@numberSystem=\"*\"]/scientificFormatLength/scientificFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/symbols/approximatelySign",
-                            "//ldml/numbers/symbols/decimal",
-                            "//ldml/numbers/symbols/exponential",
-                            "//ldml/numbers/symbols/group",
-                            "//ldml/numbers/symbols/minusSign",
-                            "//ldml/numbers/symbols/perMille",
-                            "//ldml/numbers/symbols/percentSign",
-                            "//ldml/numbers/symbols/plusSign",
-                            "//ldml/numbers/symbols/superscriptingExponent",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/approximatelySign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/decimal",
+                            "//ldml/numbers/symbols[@numberSystem=\"*\"]/decimal[@alt=\"*\"]",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/exponential",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/group",
+                            "//ldml/numbers/symbols[@numberSystem=\"*\"]/group[@alt=\"*\"]",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/minusSign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/perMille",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/percentSign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/plusSign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/superscriptingExponent",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern1[@count=\"*\"]",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern1[@count=\"*\"][@case=\"*\"]",
@@ -627,51 +864,41 @@ public class ExampleDependencies {
                             "//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/unitPattern[@count=\"*\"]",
                             "//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/unitPattern[@count=\"*\"][@case=\"*\"]")
                     .putAll(
-                            "//ldml/numbers/currencyFormats/currencySpacing/beforeCurrency/currencyMatch",
+                            "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencySpacing/beforeCurrency/currencyMatch",
                             "//ldml/listPatterns/listPattern[@type=\"*\"]/listPatternPart[@type=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/displayName[@count=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol[@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"][@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/unitPattern[@count=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"][@alt=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/unitPattern[@count=\"*\"]",
-                            "//ldml/numbers/decimalFormats/decimalFormatLength/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/decimalFormats/decimalFormatLength[@type=\"*\"]/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
                             "//ldml/numbers/decimalFormats[@numberSystem=\"*\"]/decimalFormatLength/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/decimalFormats[@numberSystem=\"*\"]/decimalFormatLength[@type=\"*\"]/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
                             "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"*\"]",
                             "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"*\"]",
                             "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"*\"]",
+                            "//ldml/numbers/minimumGroupingDigits",
                             "//ldml/numbers/miscPatterns[@numberSystem=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/percentFormats/percentFormatLength/percentFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/percentFormats[@numberSystem=\"*\"]/percentFormatLength/percentFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/scientificFormats/scientificFormatLength/scientificFormat[@type=\"*\"]/pattern[@type=\"*\"]",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/integerAndRationalPattern",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/integerAndRationalPattern[@alt=\"*\"]",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/rationalPattern",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/rationalUsage",
                             "//ldml/numbers/scientificFormats[@numberSystem=\"*\"]/scientificFormatLength/scientificFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/symbols/approximatelySign",
-                            "//ldml/numbers/symbols/decimal",
-                            "//ldml/numbers/symbols/exponential",
-                            "//ldml/numbers/symbols/group",
-                            "//ldml/numbers/symbols/minusSign",
-                            "//ldml/numbers/symbols/perMille",
-                            "//ldml/numbers/symbols/percentSign",
-                            "//ldml/numbers/symbols/plusSign",
-                            "//ldml/numbers/symbols/superscriptingExponent",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/approximatelySign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/decimal",
+                            "//ldml/numbers/symbols[@numberSystem=\"*\"]/decimal[@alt=\"*\"]",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/exponential",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/group",
+                            "//ldml/numbers/symbols[@numberSystem=\"*\"]/group[@alt=\"*\"]",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/minusSign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/perMille",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/percentSign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/plusSign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/superscriptingExponent",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern1[@count=\"*\"]",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern1[@count=\"*\"][@case=\"*\"]",
@@ -681,51 +908,41 @@ public class ExampleDependencies {
                             "//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/unitPattern[@count=\"*\"]",
                             "//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/unitPattern[@count=\"*\"][@case=\"*\"]")
                     .putAll(
-                            "//ldml/numbers/currencyFormats/currencySpacing/beforeCurrency/insertBetween",
+                            "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencySpacing/beforeCurrency/insertBetween",
                             "//ldml/listPatterns/listPattern[@type=\"*\"]/listPatternPart[@type=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/displayName[@count=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol[@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"][@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/unitPattern[@count=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"][@alt=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/unitPattern[@count=\"*\"]",
-                            "//ldml/numbers/decimalFormats/decimalFormatLength/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/decimalFormats/decimalFormatLength[@type=\"*\"]/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
                             "//ldml/numbers/decimalFormats[@numberSystem=\"*\"]/decimalFormatLength/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/decimalFormats[@numberSystem=\"*\"]/decimalFormatLength[@type=\"*\"]/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
                             "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"*\"]",
                             "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"*\"]",
                             "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"*\"]",
+                            "//ldml/numbers/minimumGroupingDigits",
                             "//ldml/numbers/miscPatterns[@numberSystem=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/percentFormats/percentFormatLength/percentFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/percentFormats[@numberSystem=\"*\"]/percentFormatLength/percentFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/scientificFormats/scientificFormatLength/scientificFormat[@type=\"*\"]/pattern[@type=\"*\"]",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/integerAndRationalPattern",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/integerAndRationalPattern[@alt=\"*\"]",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/rationalPattern",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/rationalUsage",
                             "//ldml/numbers/scientificFormats[@numberSystem=\"*\"]/scientificFormatLength/scientificFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/symbols/approximatelySign",
-                            "//ldml/numbers/symbols/decimal",
-                            "//ldml/numbers/symbols/exponential",
-                            "//ldml/numbers/symbols/group",
-                            "//ldml/numbers/symbols/minusSign",
-                            "//ldml/numbers/symbols/perMille",
-                            "//ldml/numbers/symbols/percentSign",
-                            "//ldml/numbers/symbols/plusSign",
-                            "//ldml/numbers/symbols/superscriptingExponent",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/approximatelySign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/decimal",
+                            "//ldml/numbers/symbols[@numberSystem=\"*\"]/decimal[@alt=\"*\"]",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/exponential",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/group",
+                            "//ldml/numbers/symbols[@numberSystem=\"*\"]/group[@alt=\"*\"]",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/minusSign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/perMille",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/percentSign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/plusSign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/superscriptingExponent",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern1[@count=\"*\"]",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern1[@count=\"*\"][@case=\"*\"]",
@@ -735,51 +952,41 @@ public class ExampleDependencies {
                             "//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/unitPattern[@count=\"*\"]",
                             "//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/unitPattern[@count=\"*\"][@case=\"*\"]")
                     .putAll(
-                            "//ldml/numbers/currencyFormats/currencySpacing/beforeCurrency/surroundingMatch",
+                            "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencySpacing/beforeCurrency/surroundingMatch",
                             "//ldml/listPatterns/listPattern[@type=\"*\"]/listPatternPart[@type=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/displayName[@count=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol[@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"][@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/unitPattern[@count=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"][@alt=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/unitPattern[@count=\"*\"]",
-                            "//ldml/numbers/decimalFormats/decimalFormatLength/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/decimalFormats/decimalFormatLength[@type=\"*\"]/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
                             "//ldml/numbers/decimalFormats[@numberSystem=\"*\"]/decimalFormatLength/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/decimalFormats[@numberSystem=\"*\"]/decimalFormatLength[@type=\"*\"]/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
                             "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"*\"]",
                             "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"*\"]",
                             "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"*\"]",
+                            "//ldml/numbers/minimumGroupingDigits",
                             "//ldml/numbers/miscPatterns[@numberSystem=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/percentFormats/percentFormatLength/percentFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/percentFormats[@numberSystem=\"*\"]/percentFormatLength/percentFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/scientificFormats/scientificFormatLength/scientificFormat[@type=\"*\"]/pattern[@type=\"*\"]",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/integerAndRationalPattern",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/integerAndRationalPattern[@alt=\"*\"]",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/rationalPattern",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/rationalUsage",
                             "//ldml/numbers/scientificFormats[@numberSystem=\"*\"]/scientificFormatLength/scientificFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/symbols/approximatelySign",
-                            "//ldml/numbers/symbols/decimal",
-                            "//ldml/numbers/symbols/exponential",
-                            "//ldml/numbers/symbols/group",
-                            "//ldml/numbers/symbols/minusSign",
-                            "//ldml/numbers/symbols/perMille",
-                            "//ldml/numbers/symbols/percentSign",
-                            "//ldml/numbers/symbols/plusSign",
-                            "//ldml/numbers/symbols/superscriptingExponent",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/approximatelySign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/decimal",
+                            "//ldml/numbers/symbols[@numberSystem=\"*\"]/decimal[@alt=\"*\"]",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/exponential",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/group",
+                            "//ldml/numbers/symbols[@numberSystem=\"*\"]/group[@alt=\"*\"]",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/minusSign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/perMille",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/percentSign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/plusSign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/superscriptingExponent",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern1[@count=\"*\"]",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern1[@count=\"*\"][@case=\"*\"]",
@@ -789,26 +996,26 @@ public class ExampleDependencies {
                             "//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/unitPattern[@count=\"*\"]",
                             "//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/unitPattern[@count=\"*\"][@case=\"*\"]")
                     .putAll(
-                            "//ldml/numbers/currencyFormats/unitPattern[@count=\"*\"]",
-                            "//ldml/numbers/currencies/currency[@type=\"*\"]/displayName[@count=\"*\"]")
+                            "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/unitPattern[@count=\"*\"]",
+                            "//ldml/numbers/currencies/currency[@type=\"*\"]/displayName[@count=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
-                            "//ldml/numbers/decimalFormats/decimalFormatLength/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"]",
+                            "//ldml/numbers/decimalFormats[@numberSystem=\"*\"]/decimalFormatLength/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/listPatterns/listPattern[@type=\"*\"]/listPatternPart[@type=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/displayName[@count=\"*\"]",
-                            "//ldml/numbers/currencyFormats/unitPattern[@count=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/unitPattern[@count=\"*\"]",
                             "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"*\"]",
                             "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"*\"]",
                             "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"*\"]",
+                            "//ldml/numbers/minimumGroupingDigits",
                             "//ldml/numbers/miscPatterns[@numberSystem=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/symbols/approximatelySign",
-                            "//ldml/numbers/symbols/decimal",
-                            "//ldml/numbers/symbols/group",
-                            "//ldml/numbers/symbols/minusSign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/approximatelySign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/decimal",
+                            "//ldml/numbers/symbols[@numberSystem=\"*\"]/decimal[@alt=\"*\"]",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/group",
+                            "//ldml/numbers/symbols[@numberSystem=\"*\"]/group[@alt=\"*\"]",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/minusSign",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern1[@count=\"*\"]",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern1[@count=\"*\"][@case=\"*\"]",
@@ -817,6 +1024,9 @@ public class ExampleDependencies {
                             "//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/perUnitPattern",
                             "//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/unitPattern[@count=\"*\"]",
                             "//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/unitPattern[@count=\"*\"][@case=\"*\"]")
+                    .putAll(
+                            "//ldml/numbers/decimalFormats[@numberSystem=\"*\"]/decimalFormatLength[@type=\"*\"]/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/numbers/defaultNumberingSystem",
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/dateFormats/dateFormatLength[@type=\"*\"]/dateFormat[@type=\"*\"]/pattern[@type=\"*\"]",
@@ -830,32 +1040,17 @@ public class ExampleDependencies {
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/displayName[@count=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol[@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"][@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/unitPattern[@count=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
+                            "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"][@alt=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/unitPattern[@count=\"*\"]",
-                            "//ldml/numbers/decimalFormats/decimalFormatLength/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/decimalFormats/decimalFormatLength[@type=\"*\"]/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
                             "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"*\"]",
                             "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"*\"]",
                             "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"*\"]",
+                            "//ldml/numbers/minimumGroupingDigits",
                             "//ldml/numbers/miscPatterns[@numberSystem=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/percentFormats/percentFormatLength/percentFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/scientificFormats/scientificFormatLength/scientificFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/symbols/approximatelySign",
-                            "//ldml/numbers/symbols/decimal",
-                            "//ldml/numbers/symbols/exponential",
-                            "//ldml/numbers/symbols/group",
-                            "//ldml/numbers/symbols/minusSign",
-                            "//ldml/numbers/symbols/perMille",
-                            "//ldml/numbers/symbols/percentSign",
-                            "//ldml/numbers/symbols/plusSign",
-                            "//ldml/numbers/symbols/superscriptingExponent",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern1[@count=\"*\"]",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern1[@count=\"*\"][@case=\"*\"]",
@@ -865,73 +1060,101 @@ public class ExampleDependencies {
                             "//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/unitPattern[@count=\"*\"]",
                             "//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/unitPattern[@count=\"*\"][@case=\"*\"]")
                     .putAll(
+                            "//ldml/numbers/defaultNumberingSystem[@alt=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
                             "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern",
                             "//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/unitPattern[@count=\"*\"]",
                             "//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/unitPattern[@count=\"*\"][@case=\"*\"]")
                     .putAll(
-                            "//ldml/numbers/percentFormats/percentFormatLength/percentFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/symbols/perMille",
-                            "//ldml/numbers/symbols/percentSign",
-                            "//ldml/numbers/symbols[@numberSystem=\"*\"]/perMille",
-                            "//ldml/numbers/symbols[@numberSystem=\"*\"]/percentSign")
+                            "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
-                            "//ldml/numbers/scientificFormats/scientificFormatLength/scientificFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/symbols/exponential",
-                            "//ldml/numbers/symbols/plusSign",
-                            "//ldml/numbers/symbols/superscriptingExponent",
+                            "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/numbers/minimumGroupingDigits",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/numbers/miscPatterns[@numberSystem=\"*\"]/pattern[@type=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/numbers/otherNumberingSystems/finance",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/numbers/otherNumberingSystems/native",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/numbers/otherNumberingSystems/traditional",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/numbers/percentFormats[@numberSystem=\"*\"]/percentFormatLength/percentFormat[@type=\"*\"]/pattern[@type=\"*\"]",
+                            "//ldml/numbers/symbols[@numberSystem=\"*\"]/perMille",
+                            "//ldml/numbers/symbols[@numberSystem=\"*\"]/percentSign",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/integerAndRationalPattern",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/integerAndRationalPattern[@alt=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/rationalPattern",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/integerAndRationalPattern",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/integerAndRationalPattern[@alt=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/rationalUsage",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/numbers/scientificFormats[@numberSystem=\"*\"]/scientificFormatLength/scientificFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/exponential",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/plusSign",
-                            "//ldml/numbers/symbols[@numberSystem=\"*\"]/superscriptingExponent")
+                            "//ldml/numbers/symbols[@numberSystem=\"*\"]/superscriptingExponent",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
-                            "//ldml/numbers/symbols/minusSign",
-                            "//ldml/numbers/symbols/approximatelySign")
-                    .putAll("//ldml/numbers/symbols/percentSign", "//ldml/numbers/symbols/perMille")
+                            "//ldml/numbers/symbols[@numberSystem=\"*\"]/approximatelySign",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/currencyDecimal",
                             "//ldml/listPatterns/listPattern[@type=\"*\"]/listPatternPart[@type=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/displayName[@count=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol[@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"][@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/unitPattern[@count=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"][@alt=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/unitPattern[@count=\"*\"]",
-                            "//ldml/numbers/decimalFormats/decimalFormatLength/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/decimalFormats/decimalFormatLength[@type=\"*\"]/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
                             "//ldml/numbers/decimalFormats[@numberSystem=\"*\"]/decimalFormatLength/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/decimalFormats[@numberSystem=\"*\"]/decimalFormatLength[@type=\"*\"]/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
                             "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"*\"]",
                             "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"*\"]",
                             "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"*\"]",
+                            "//ldml/numbers/minimumGroupingDigits",
                             "//ldml/numbers/miscPatterns[@numberSystem=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/percentFormats/percentFormatLength/percentFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/percentFormats[@numberSystem=\"*\"]/percentFormatLength/percentFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/scientificFormats/scientificFormatLength/scientificFormat[@type=\"*\"]/pattern[@type=\"*\"]",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/integerAndRationalPattern",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/integerAndRationalPattern[@alt=\"*\"]",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/rationalPattern",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/rationalUsage",
                             "//ldml/numbers/scientificFormats[@numberSystem=\"*\"]/scientificFormatLength/scientificFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/symbols/approximatelySign",
-                            "//ldml/numbers/symbols/decimal",
-                            "//ldml/numbers/symbols/exponential",
-                            "//ldml/numbers/symbols/group",
-                            "//ldml/numbers/symbols/minusSign",
-                            "//ldml/numbers/symbols/perMille",
-                            "//ldml/numbers/symbols/percentSign",
-                            "//ldml/numbers/symbols/plusSign",
-                            "//ldml/numbers/symbols/superscriptingExponent",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/approximatelySign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/decimal",
+                            "//ldml/numbers/symbols[@numberSystem=\"*\"]/decimal[@alt=\"*\"]",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/exponential",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/group",
+                            "//ldml/numbers/symbols[@numberSystem=\"*\"]/group[@alt=\"*\"]",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/minusSign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/perMille",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/percentSign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/plusSign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/superscriptingExponent",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern1[@count=\"*\"]",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern1[@count=\"*\"][@case=\"*\"]",
@@ -946,46 +1169,36 @@ public class ExampleDependencies {
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/displayName[@count=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol[@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"][@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/unitPattern[@count=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"][@alt=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/unitPattern[@count=\"*\"]",
-                            "//ldml/numbers/decimalFormats/decimalFormatLength/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/decimalFormats/decimalFormatLength[@type=\"*\"]/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
                             "//ldml/numbers/decimalFormats[@numberSystem=\"*\"]/decimalFormatLength/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/decimalFormats[@numberSystem=\"*\"]/decimalFormatLength[@type=\"*\"]/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
                             "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"*\"]",
                             "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"*\"]",
                             "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"*\"]",
+                            "//ldml/numbers/minimumGroupingDigits",
                             "//ldml/numbers/miscPatterns[@numberSystem=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/percentFormats/percentFormatLength/percentFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/percentFormats[@numberSystem=\"*\"]/percentFormatLength/percentFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/scientificFormats/scientificFormatLength/scientificFormat[@type=\"*\"]/pattern[@type=\"*\"]",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/integerAndRationalPattern",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/integerAndRationalPattern[@alt=\"*\"]",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/rationalPattern",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/rationalUsage",
                             "//ldml/numbers/scientificFormats[@numberSystem=\"*\"]/scientificFormatLength/scientificFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/symbols/approximatelySign",
-                            "//ldml/numbers/symbols/decimal",
-                            "//ldml/numbers/symbols/exponential",
-                            "//ldml/numbers/symbols/group",
-                            "//ldml/numbers/symbols/minusSign",
-                            "//ldml/numbers/symbols/perMille",
-                            "//ldml/numbers/symbols/percentSign",
-                            "//ldml/numbers/symbols/plusSign",
-                            "//ldml/numbers/symbols/superscriptingExponent",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/approximatelySign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/decimal",
+                            "//ldml/numbers/symbols[@numberSystem=\"*\"]/decimal[@alt=\"*\"]",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/exponential",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/group",
+                            "//ldml/numbers/symbols[@numberSystem=\"*\"]/group[@alt=\"*\"]",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/minusSign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/perMille",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/percentSign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/plusSign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/superscriptingExponent",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern1[@count=\"*\"]",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern1[@count=\"*\"][@case=\"*\"]",
@@ -1000,45 +1213,35 @@ public class ExampleDependencies {
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/displayName[@count=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol[@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"][@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/unitPattern[@count=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"][@alt=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/unitPattern[@count=\"*\"]",
-                            "//ldml/numbers/decimalFormats/decimalFormatLength/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/decimalFormats/decimalFormatLength[@type=\"*\"]/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
                             "//ldml/numbers/decimalFormats[@numberSystem=\"*\"]/decimalFormatLength/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/decimalFormats[@numberSystem=\"*\"]/decimalFormatLength[@type=\"*\"]/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
                             "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"*\"]",
                             "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"*\"]",
                             "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"*\"]",
+                            "//ldml/numbers/minimumGroupingDigits",
                             "//ldml/numbers/miscPatterns[@numberSystem=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/percentFormats/percentFormatLength/percentFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/percentFormats[@numberSystem=\"*\"]/percentFormatLength/percentFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/scientificFormats/scientificFormatLength/scientificFormat[@type=\"*\"]/pattern[@type=\"*\"]",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/integerAndRationalPattern",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/integerAndRationalPattern[@alt=\"*\"]",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/rationalPattern",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/rationalUsage",
                             "//ldml/numbers/scientificFormats[@numberSystem=\"*\"]/scientificFormatLength/scientificFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/symbols/approximatelySign",
-                            "//ldml/numbers/symbols/decimal",
-                            "//ldml/numbers/symbols/exponential",
-                            "//ldml/numbers/symbols/group",
-                            "//ldml/numbers/symbols/minusSign",
-                            "//ldml/numbers/symbols/perMille",
-                            "//ldml/numbers/symbols/percentSign",
-                            "//ldml/numbers/symbols/plusSign",
-                            "//ldml/numbers/symbols/superscriptingExponent",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/approximatelySign",
+                            "//ldml/numbers/symbols[@numberSystem=\"*\"]/decimal[@alt=\"*\"]",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/exponential",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/group",
+                            "//ldml/numbers/symbols[@numberSystem=\"*\"]/group[@alt=\"*\"]",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/minusSign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/perMille",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/percentSign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/plusSign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/superscriptingExponent",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern1[@count=\"*\"]",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern1[@count=\"*\"][@case=\"*\"]",
@@ -1048,50 +1251,43 @@ public class ExampleDependencies {
                             "//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/unitPattern[@count=\"*\"]",
                             "//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/unitPattern[@count=\"*\"][@case=\"*\"]")
                     .putAll(
+                            "//ldml/numbers/symbols[@numberSystem=\"*\"]/decimal[@alt=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/exponential",
                             "//ldml/listPatterns/listPattern[@type=\"*\"]/listPatternPart[@type=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/displayName[@count=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol[@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"][@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/unitPattern[@count=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"][@alt=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/unitPattern[@count=\"*\"]",
-                            "//ldml/numbers/decimalFormats/decimalFormatLength/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/decimalFormats/decimalFormatLength[@type=\"*\"]/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
                             "//ldml/numbers/decimalFormats[@numberSystem=\"*\"]/decimalFormatLength/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/decimalFormats[@numberSystem=\"*\"]/decimalFormatLength[@type=\"*\"]/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
                             "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"*\"]",
                             "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"*\"]",
                             "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"*\"]",
+                            "//ldml/numbers/minimumGroupingDigits",
                             "//ldml/numbers/miscPatterns[@numberSystem=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/percentFormats/percentFormatLength/percentFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/percentFormats[@numberSystem=\"*\"]/percentFormatLength/percentFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/scientificFormats/scientificFormatLength/scientificFormat[@type=\"*\"]/pattern[@type=\"*\"]",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/integerAndRationalPattern",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/integerAndRationalPattern[@alt=\"*\"]",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/rationalPattern",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/rationalUsage",
                             "//ldml/numbers/scientificFormats[@numberSystem=\"*\"]/scientificFormatLength/scientificFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/symbols/approximatelySign",
-                            "//ldml/numbers/symbols/decimal",
-                            "//ldml/numbers/symbols/exponential",
-                            "//ldml/numbers/symbols/group",
-                            "//ldml/numbers/symbols/minusSign",
-                            "//ldml/numbers/symbols/perMille",
-                            "//ldml/numbers/symbols/percentSign",
-                            "//ldml/numbers/symbols/plusSign",
-                            "//ldml/numbers/symbols/superscriptingExponent",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/approximatelySign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/decimal",
+                            "//ldml/numbers/symbols[@numberSystem=\"*\"]/decimal[@alt=\"*\"]",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/group",
+                            "//ldml/numbers/symbols[@numberSystem=\"*\"]/group[@alt=\"*\"]",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/minusSign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/perMille",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/percentSign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/plusSign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/superscriptingExponent",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern1[@count=\"*\"]",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern1[@count=\"*\"][@case=\"*\"]",
@@ -1106,45 +1302,35 @@ public class ExampleDependencies {
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/displayName[@count=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol[@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"][@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/unitPattern[@count=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"][@alt=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/unitPattern[@count=\"*\"]",
-                            "//ldml/numbers/decimalFormats/decimalFormatLength/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/decimalFormats/decimalFormatLength[@type=\"*\"]/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
                             "//ldml/numbers/decimalFormats[@numberSystem=\"*\"]/decimalFormatLength/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/decimalFormats[@numberSystem=\"*\"]/decimalFormatLength[@type=\"*\"]/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
                             "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"*\"]",
                             "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"*\"]",
                             "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"*\"]",
+                            "//ldml/numbers/minimumGroupingDigits",
                             "//ldml/numbers/miscPatterns[@numberSystem=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/percentFormats/percentFormatLength/percentFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/percentFormats[@numberSystem=\"*\"]/percentFormatLength/percentFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/scientificFormats/scientificFormatLength/scientificFormat[@type=\"*\"]/pattern[@type=\"*\"]",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/integerAndRationalPattern",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/integerAndRationalPattern[@alt=\"*\"]",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/rationalPattern",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/rationalUsage",
                             "//ldml/numbers/scientificFormats[@numberSystem=\"*\"]/scientificFormatLength/scientificFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/symbols/approximatelySign",
-                            "//ldml/numbers/symbols/decimal",
-                            "//ldml/numbers/symbols/exponential",
-                            "//ldml/numbers/symbols/group",
-                            "//ldml/numbers/symbols/minusSign",
-                            "//ldml/numbers/symbols/perMille",
-                            "//ldml/numbers/symbols/percentSign",
-                            "//ldml/numbers/symbols/plusSign",
-                            "//ldml/numbers/symbols/superscriptingExponent",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/approximatelySign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/decimal",
+                            "//ldml/numbers/symbols[@numberSystem=\"*\"]/decimal[@alt=\"*\"]",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/exponential",
+                            "//ldml/numbers/symbols[@numberSystem=\"*\"]/group[@alt=\"*\"]",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/minusSign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/perMille",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/percentSign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/plusSign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/superscriptingExponent",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern1[@count=\"*\"]",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern1[@count=\"*\"][@case=\"*\"]",
@@ -1153,52 +1339,45 @@ public class ExampleDependencies {
                             "//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/perUnitPattern",
                             "//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/unitPattern[@count=\"*\"]",
                             "//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/unitPattern[@count=\"*\"][@case=\"*\"]")
+                    .putAll(
+                            "//ldml/numbers/symbols[@numberSystem=\"*\"]/group[@alt=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/infinity",
                             "//ldml/listPatterns/listPattern[@type=\"*\"]/listPatternPart[@type=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/displayName[@count=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol[@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"][@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/unitPattern[@count=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"][@alt=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/unitPattern[@count=\"*\"]",
-                            "//ldml/numbers/decimalFormats/decimalFormatLength/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/decimalFormats/decimalFormatLength[@type=\"*\"]/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
                             "//ldml/numbers/decimalFormats[@numberSystem=\"*\"]/decimalFormatLength/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/decimalFormats[@numberSystem=\"*\"]/decimalFormatLength[@type=\"*\"]/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
                             "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"*\"]",
                             "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"*\"]",
                             "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"*\"]",
+                            "//ldml/numbers/minimumGroupingDigits",
                             "//ldml/numbers/miscPatterns[@numberSystem=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/percentFormats/percentFormatLength/percentFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/percentFormats[@numberSystem=\"*\"]/percentFormatLength/percentFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/scientificFormats/scientificFormatLength/scientificFormat[@type=\"*\"]/pattern[@type=\"*\"]",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/integerAndRationalPattern",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/integerAndRationalPattern[@alt=\"*\"]",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/rationalPattern",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/rationalUsage",
                             "//ldml/numbers/scientificFormats[@numberSystem=\"*\"]/scientificFormatLength/scientificFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/symbols/approximatelySign",
-                            "//ldml/numbers/symbols/decimal",
-                            "//ldml/numbers/symbols/exponential",
-                            "//ldml/numbers/symbols/group",
-                            "//ldml/numbers/symbols/minusSign",
-                            "//ldml/numbers/symbols/perMille",
-                            "//ldml/numbers/symbols/percentSign",
-                            "//ldml/numbers/symbols/plusSign",
-                            "//ldml/numbers/symbols/superscriptingExponent",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/approximatelySign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/decimal",
+                            "//ldml/numbers/symbols[@numberSystem=\"*\"]/decimal[@alt=\"*\"]",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/exponential",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/group",
+                            "//ldml/numbers/symbols[@numberSystem=\"*\"]/group[@alt=\"*\"]",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/minusSign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/perMille",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/percentSign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/plusSign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/superscriptingExponent",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern1[@count=\"*\"]",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern1[@count=\"*\"][@case=\"*\"]",
@@ -1213,46 +1392,36 @@ public class ExampleDependencies {
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/displayName[@count=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol[@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"][@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/unitPattern[@count=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"][@alt=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/unitPattern[@count=\"*\"]",
-                            "//ldml/numbers/decimalFormats/decimalFormatLength/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/decimalFormats/decimalFormatLength[@type=\"*\"]/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
                             "//ldml/numbers/decimalFormats[@numberSystem=\"*\"]/decimalFormatLength/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/decimalFormats[@numberSystem=\"*\"]/decimalFormatLength[@type=\"*\"]/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
                             "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"*\"]",
                             "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"*\"]",
                             "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"*\"]",
+                            "//ldml/numbers/minimumGroupingDigits",
                             "//ldml/numbers/miscPatterns[@numberSystem=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/percentFormats/percentFormatLength/percentFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/percentFormats[@numberSystem=\"*\"]/percentFormatLength/percentFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/scientificFormats/scientificFormatLength/scientificFormat[@type=\"*\"]/pattern[@type=\"*\"]",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/integerAndRationalPattern",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/integerAndRationalPattern[@alt=\"*\"]",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/rationalPattern",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/rationalUsage",
                             "//ldml/numbers/scientificFormats[@numberSystem=\"*\"]/scientificFormatLength/scientificFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/symbols/approximatelySign",
-                            "//ldml/numbers/symbols/decimal",
-                            "//ldml/numbers/symbols/exponential",
-                            "//ldml/numbers/symbols/group",
-                            "//ldml/numbers/symbols/minusSign",
-                            "//ldml/numbers/symbols/perMille",
-                            "//ldml/numbers/symbols/percentSign",
-                            "//ldml/numbers/symbols/plusSign",
-                            "//ldml/numbers/symbols/superscriptingExponent",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/approximatelySign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/decimal",
+                            "//ldml/numbers/symbols[@numberSystem=\"*\"]/decimal[@alt=\"*\"]",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/exponential",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/group",
+                            "//ldml/numbers/symbols[@numberSystem=\"*\"]/group[@alt=\"*\"]",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/minusSign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/perMille",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/percentSign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/plusSign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/superscriptingExponent",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern1[@count=\"*\"]",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern1[@count=\"*\"][@case=\"*\"]",
@@ -1267,45 +1436,35 @@ public class ExampleDependencies {
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/displayName[@count=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol[@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"][@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/unitPattern[@count=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"][@alt=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/unitPattern[@count=\"*\"]",
-                            "//ldml/numbers/decimalFormats/decimalFormatLength/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/decimalFormats/decimalFormatLength[@type=\"*\"]/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
                             "//ldml/numbers/decimalFormats[@numberSystem=\"*\"]/decimalFormatLength/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/decimalFormats[@numberSystem=\"*\"]/decimalFormatLength[@type=\"*\"]/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
                             "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"*\"]",
                             "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"*\"]",
                             "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"*\"]",
+                            "//ldml/numbers/minimumGroupingDigits",
                             "//ldml/numbers/miscPatterns[@numberSystem=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/percentFormats/percentFormatLength/percentFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/percentFormats[@numberSystem=\"*\"]/percentFormatLength/percentFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/scientificFormats/scientificFormatLength/scientificFormat[@type=\"*\"]/pattern[@type=\"*\"]",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/integerAndRationalPattern",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/integerAndRationalPattern[@alt=\"*\"]",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/rationalPattern",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/rationalUsage",
                             "//ldml/numbers/scientificFormats[@numberSystem=\"*\"]/scientificFormatLength/scientificFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/symbols/approximatelySign",
-                            "//ldml/numbers/symbols/decimal",
-                            "//ldml/numbers/symbols/exponential",
-                            "//ldml/numbers/symbols/group",
-                            "//ldml/numbers/symbols/minusSign",
-                            "//ldml/numbers/symbols/perMille",
-                            "//ldml/numbers/symbols/percentSign",
-                            "//ldml/numbers/symbols/plusSign",
-                            "//ldml/numbers/symbols/superscriptingExponent",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/approximatelySign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/decimal",
+                            "//ldml/numbers/symbols[@numberSystem=\"*\"]/decimal[@alt=\"*\"]",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/exponential",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/group",
+                            "//ldml/numbers/symbols[@numberSystem=\"*\"]/group[@alt=\"*\"]",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/perMille",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/percentSign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/plusSign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/superscriptingExponent",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern1[@count=\"*\"]",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern1[@count=\"*\"][@case=\"*\"]",
@@ -1320,46 +1479,36 @@ public class ExampleDependencies {
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/displayName[@count=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol[@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"][@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/unitPattern[@count=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"][@alt=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/unitPattern[@count=\"*\"]",
-                            "//ldml/numbers/decimalFormats/decimalFormatLength/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/decimalFormats/decimalFormatLength[@type=\"*\"]/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
                             "//ldml/numbers/decimalFormats[@numberSystem=\"*\"]/decimalFormatLength/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/decimalFormats[@numberSystem=\"*\"]/decimalFormatLength[@type=\"*\"]/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
                             "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"*\"]",
                             "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"*\"]",
                             "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"*\"]",
+                            "//ldml/numbers/minimumGroupingDigits",
                             "//ldml/numbers/miscPatterns[@numberSystem=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/percentFormats/percentFormatLength/percentFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/percentFormats[@numberSystem=\"*\"]/percentFormatLength/percentFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/scientificFormats/scientificFormatLength/scientificFormat[@type=\"*\"]/pattern[@type=\"*\"]",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/integerAndRationalPattern",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/integerAndRationalPattern[@alt=\"*\"]",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/rationalPattern",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/rationalUsage",
                             "//ldml/numbers/scientificFormats[@numberSystem=\"*\"]/scientificFormatLength/scientificFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/symbols/approximatelySign",
-                            "//ldml/numbers/symbols/decimal",
-                            "//ldml/numbers/symbols/exponential",
-                            "//ldml/numbers/symbols/group",
-                            "//ldml/numbers/symbols/minusSign",
-                            "//ldml/numbers/symbols/perMille",
-                            "//ldml/numbers/symbols/percentSign",
-                            "//ldml/numbers/symbols/plusSign",
-                            "//ldml/numbers/symbols/superscriptingExponent",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/approximatelySign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/decimal",
+                            "//ldml/numbers/symbols[@numberSystem=\"*\"]/decimal[@alt=\"*\"]",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/exponential",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/group",
+                            "//ldml/numbers/symbols[@numberSystem=\"*\"]/group[@alt=\"*\"]",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/minusSign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/perMille",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/percentSign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/plusSign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/superscriptingExponent",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern1[@count=\"*\"]",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern1[@count=\"*\"][@case=\"*\"]",
@@ -1374,45 +1523,35 @@ public class ExampleDependencies {
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/displayName[@count=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol[@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"][@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/unitPattern[@count=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"][@alt=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/unitPattern[@count=\"*\"]",
-                            "//ldml/numbers/decimalFormats/decimalFormatLength/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/decimalFormats/decimalFormatLength[@type=\"*\"]/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
                             "//ldml/numbers/decimalFormats[@numberSystem=\"*\"]/decimalFormatLength/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/decimalFormats[@numberSystem=\"*\"]/decimalFormatLength[@type=\"*\"]/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
                             "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"*\"]",
                             "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"*\"]",
                             "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"*\"]",
+                            "//ldml/numbers/minimumGroupingDigits",
                             "//ldml/numbers/miscPatterns[@numberSystem=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/percentFormats/percentFormatLength/percentFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/percentFormats[@numberSystem=\"*\"]/percentFormatLength/percentFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/scientificFormats/scientificFormatLength/scientificFormat[@type=\"*\"]/pattern[@type=\"*\"]",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/integerAndRationalPattern",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/integerAndRationalPattern[@alt=\"*\"]",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/rationalPattern",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/rationalUsage",
                             "//ldml/numbers/scientificFormats[@numberSystem=\"*\"]/scientificFormatLength/scientificFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/symbols/approximatelySign",
-                            "//ldml/numbers/symbols/decimal",
-                            "//ldml/numbers/symbols/exponential",
-                            "//ldml/numbers/symbols/group",
-                            "//ldml/numbers/symbols/minusSign",
-                            "//ldml/numbers/symbols/perMille",
-                            "//ldml/numbers/symbols/percentSign",
-                            "//ldml/numbers/symbols/plusSign",
-                            "//ldml/numbers/symbols/superscriptingExponent",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/approximatelySign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/decimal",
+                            "//ldml/numbers/symbols[@numberSystem=\"*\"]/decimal[@alt=\"*\"]",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/exponential",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/group",
+                            "//ldml/numbers/symbols[@numberSystem=\"*\"]/group[@alt=\"*\"]",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/minusSign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/percentSign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/plusSign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/superscriptingExponent",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern1[@count=\"*\"]",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern1[@count=\"*\"][@case=\"*\"]",
@@ -1427,45 +1566,35 @@ public class ExampleDependencies {
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/displayName[@count=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol[@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"][@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/unitPattern[@count=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"][@alt=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/unitPattern[@count=\"*\"]",
-                            "//ldml/numbers/decimalFormats/decimalFormatLength/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/decimalFormats/decimalFormatLength[@type=\"*\"]/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
                             "//ldml/numbers/decimalFormats[@numberSystem=\"*\"]/decimalFormatLength/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/decimalFormats[@numberSystem=\"*\"]/decimalFormatLength[@type=\"*\"]/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
                             "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"*\"]",
                             "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"*\"]",
                             "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"*\"]",
+                            "//ldml/numbers/minimumGroupingDigits",
                             "//ldml/numbers/miscPatterns[@numberSystem=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/percentFormats/percentFormatLength/percentFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/percentFormats[@numberSystem=\"*\"]/percentFormatLength/percentFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/scientificFormats/scientificFormatLength/scientificFormat[@type=\"*\"]/pattern[@type=\"*\"]",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/integerAndRationalPattern",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/integerAndRationalPattern[@alt=\"*\"]",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/rationalPattern",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/rationalUsage",
                             "//ldml/numbers/scientificFormats[@numberSystem=\"*\"]/scientificFormatLength/scientificFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/symbols/approximatelySign",
-                            "//ldml/numbers/symbols/decimal",
-                            "//ldml/numbers/symbols/exponential",
-                            "//ldml/numbers/symbols/group",
-                            "//ldml/numbers/symbols/minusSign",
-                            "//ldml/numbers/symbols/perMille",
-                            "//ldml/numbers/symbols/percentSign",
-                            "//ldml/numbers/symbols/plusSign",
-                            "//ldml/numbers/symbols/superscriptingExponent",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/approximatelySign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/decimal",
+                            "//ldml/numbers/symbols[@numberSystem=\"*\"]/decimal[@alt=\"*\"]",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/exponential",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/group",
+                            "//ldml/numbers/symbols[@numberSystem=\"*\"]/group[@alt=\"*\"]",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/minusSign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/perMille",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/plusSign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/superscriptingExponent",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern1[@count=\"*\"]",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern1[@count=\"*\"][@case=\"*\"]",
@@ -1480,45 +1609,35 @@ public class ExampleDependencies {
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/displayName[@count=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol[@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
-                            "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"][@alt=\"*\"]",
-                            "//ldml/numbers/currencyFormats/unitPattern[@count=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyFormatLength[@type=\"*\"]/currencyFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"][@alt=\"*\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/unitPattern[@count=\"*\"]",
-                            "//ldml/numbers/decimalFormats/decimalFormatLength/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/decimalFormats/decimalFormatLength[@type=\"*\"]/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
                             "//ldml/numbers/decimalFormats[@numberSystem=\"*\"]/decimalFormatLength/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/decimalFormats[@numberSystem=\"*\"]/decimalFormatLength[@type=\"*\"]/decimalFormat[@type=\"*\"]/pattern[@type=\"*\"][@count=\"*\"]",
                             "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"*\"]",
                             "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"*\"]",
                             "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"*\"]",
+                            "//ldml/numbers/minimumGroupingDigits",
                             "//ldml/numbers/miscPatterns[@numberSystem=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/percentFormats/percentFormatLength/percentFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/numbers/percentFormats[@numberSystem=\"*\"]/percentFormatLength/percentFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/scientificFormats/scientificFormatLength/scientificFormat[@type=\"*\"]/pattern[@type=\"*\"]",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/integerAndRationalPattern",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/integerAndRationalPattern[@alt=\"*\"]",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/rationalPattern",
+                            "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/rationalUsage",
                             "//ldml/numbers/scientificFormats[@numberSystem=\"*\"]/scientificFormatLength/scientificFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/numbers/symbols/approximatelySign",
-                            "//ldml/numbers/symbols/decimal",
-                            "//ldml/numbers/symbols/exponential",
-                            "//ldml/numbers/symbols/group",
-                            "//ldml/numbers/symbols/minusSign",
-                            "//ldml/numbers/symbols/perMille",
-                            "//ldml/numbers/symbols/percentSign",
-                            "//ldml/numbers/symbols/plusSign",
-                            "//ldml/numbers/symbols/superscriptingExponent",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/approximatelySign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/decimal",
+                            "//ldml/numbers/symbols[@numberSystem=\"*\"]/decimal[@alt=\"*\"]",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/exponential",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/group",
+                            "//ldml/numbers/symbols[@numberSystem=\"*\"]/group[@alt=\"*\"]",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/minusSign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/perMille",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/percentSign",
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/superscriptingExponent",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern1[@count=\"*\"]",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern1[@count=\"*\"][@case=\"*\"]",
@@ -1527,6 +1646,9 @@ public class ExampleDependencies {
                             "//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/perUnitPattern",
                             "//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/unitPattern[@count=\"*\"]",
                             "//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/unitPattern[@count=\"*\"][@case=\"*\"]")
+                    .putAll(
+                            "//ldml/numbers/symbols[@numberSystem=\"*\"]/superscriptingExponent",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/timeSeparator",
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/dateFormats/dateFormatLength[@type=\"*\"]/dateFormat[@type=\"*\"]/pattern[@type=\"*\"]",
@@ -1535,7 +1657,11 @@ public class ExampleDependencies {
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"*\"][@alt=\"*\"]",
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"*\"][@count=\"*\"]",
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/timeFormats/timeFormatLength[@type=\"*\"]/timeFormat[@type=\"*\"]/pattern[@type=\"*\"]",
-                            "//ldml/dates/calendars/calendar[@type=\"*\"]/timeFormats/timeFormatLength[@type=\"*\"]/timeFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]")
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/timeFormats/timeFormatLength[@type=\"*\"]/timeFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/numbers/symbols[@numberSystem=\"*\"]/timeSeparator[@alt=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/personNames/foreignSpaceReplacement",
                             "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
@@ -1561,18 +1687,78 @@ public class ExampleDependencies {
                             "//ldml/personNames/sampleName[@item=\"*\"]/nameField[@type=\"*\"]",
                             "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
+                            "//ldml/posix/messages/nostr",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/posix/messages/yesstr",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/typographicNames/axisName[@type=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/typographicNames/featureName[@type=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/typographicNames/featureName[@type=\"*\"][@alt=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/typographicNames/styleName[@type=\"*\"][@subtype=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/typographicNames/styleName[@type=\"*\"][@subtype=\"*\"][@alt=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/units/durationUnit[@type=\"*\"]/durationUnitPattern",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/units/durationUnit[@type=\"*\"]/durationUnitPattern[@alt=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern1",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern1[@count=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern1[@count=\"*\"][@case=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern1[@count=\"*\"][@gender=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern1[@count=\"*\"][@gender=\"*\"][@case=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/unitPrefixPattern",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/units/unitLength[@type=\"*\"]/coordinateUnit/coordinateUnitPattern[@type=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/units/unitLength[@type=\"*\"]/coordinateUnit/displayName",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
                             "//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/displayName",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern1",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/unitPrefixPattern")
                     .putAll(
                             "//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/gender",
                             "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"*\"]",
-                            "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"*\"]")
+                            "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/perUnitPattern",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/unitPattern[@count=\"*\"]",
                             "//ldml/listPatterns/listPattern[@type=\"*\"]/listPatternPart[@type=\"*\"]",
                             "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"*\"]",
                             "//ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern1[@count=\"*\"]",
                             "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern1[@count=\"*\"][@case=\"*\"]",
@@ -1582,6 +1768,7 @@ public class ExampleDependencies {
                     .putAll(
                             "//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/unitPattern[@count=\"*\"][@case=\"*\"]",
                             "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern",
                             "//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/unitPattern[@count=\"*\"]",
                             "//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/unitPattern[@count=\"*\"][@case=\"*\"]")
                     .build();

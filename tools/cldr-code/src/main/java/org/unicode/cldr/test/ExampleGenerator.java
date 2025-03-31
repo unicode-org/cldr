@@ -2345,7 +2345,8 @@ public class ExampleGenerator {
     private String getUnitPattern(String unitType, final boolean isCurrency, Count count) {
         return cldrFile.getStringValue(
                 isCurrency
-                        ? "//ldml/numbers/currencyFormats/unitPattern" + countAttribute(count)
+                        ? "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/unitPattern"
+                                + countAttribute(count)
                         : "//ldml/units/unit[@type=\""
                                 + unitType
                                 + "\"]/unitPattern"

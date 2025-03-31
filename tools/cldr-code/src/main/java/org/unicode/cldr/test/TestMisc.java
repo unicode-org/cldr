@@ -178,7 +178,7 @@ public class TestMisc {
         ExampleGenerator eg = new ExampleGenerator(englishFile, englishFile);
         System.out.println(
                 eg.getHelpHtml(
-                        "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@draft=\"provisional\"]",
+                        "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@draft=\"provisional\"]",
                         ""));
         System.out.println(eg.getHelpHtml("/exemplarCharacters", ""));
         System.out.println(eg.getHelpHtml("/calendar/pattern", ""));

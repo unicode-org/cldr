@@ -560,18 +560,18 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
                         "ፊደል",
                         PathSpaceType.allowNbsp),
                 new PathSpaceData(
-                        "//ldml/numbers/currencyFormats/currencySpacing/beforeCurrency/insertBetween",
+                        "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencySpacing/beforeCurrency/insertBetween",
                         "\u00A0  ding \u00A0\u00A0 dong \u00A0",
                         "ding\u00A0dong",
                         PathSpaceType.allowNbsp),
                 new PathSpaceData(
-                        "//ldml/numbers/symbols/nan",
+                        "//ldml/numbers/symbols[@numberSystem=\"latn\"]/nan",
                         "\u00A0  HA   HU \u00A0",
                         "HA\u00A0HU",
                         PathSpaceType.allowNbsp),
 
                 // removed temporarily per CLDR-16210
-                // new PathSpaceData("//ldml/numbers/symbols/nan",
+                // new PathSpaceData("//ldml/numbers/symbols[@numberSystem=\"latn\"]/nan",
                 //    "\u202F  BA \u202F  BU \u202F", "BA\u00A0BU", PathSpaceType.allowNbsp),
 
                 new PathSpaceData(

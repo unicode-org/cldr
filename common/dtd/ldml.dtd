@@ -2277,7 +2277,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
     <!--@DEPRECATED-->
 
 <!ELEMENT rationalFormats ( alias | ( rationalPattern*,  integerAndRationalPattern*, rationalUsage*, special* ) ) >
-<!ATTLIST rationalFormats numberSystem CDATA #IMPLIED >
+<!ATTLIST rationalFormats numberSystem CDATA #REQUIRED >
     <!--@MATCH:bcp47/nu-->
 
 <!ELEMENT rationalPattern ( #PCDATA ) >

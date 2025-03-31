@@ -55,7 +55,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
             new UnicodeSet("[\\u061C\\u200E\\u200F]").freeze();
 
     public static final UnicodeSet ILLEGAL_RTL_CONTROLS =
-            new UnicodeSet("[\\u202A-\\u202E\\u2066-\\u2069]");
+            new UnicodeSet("[\\u202A-\\u202E\\u2066-\\u2069]").freeze();
 
     public static final UnicodeSet LB_JOIN_CONTROLS = new UnicodeSet("[\\u200B\\u2060]").freeze();
 

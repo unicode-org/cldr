@@ -136,7 +136,7 @@ class FlexibleDateFromCLDR {
      * @param fullPath
      */
     public void checkFlexibles(String path, String value, String fullPath) {
-        if (path.indexOf("numbers/symbols/decimal") >= 0) {
+        if (path.indexOf("numbers/symbols[@numberSystem=\"latn\"]/decimal") >= 0) {
             gen.setDecimal(value);
             return;
         }

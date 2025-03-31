@@ -203,9 +203,7 @@
 ^//ldml/characterLabels/characterLabelPattern\[@type="%A"][@count="%A"] ; {0}=COUNT 3
 ^//ldml/characterLabels/characterLabelPattern\[@type="%A"] ; {0}=CATEGORY_TYPE animal or nature
 
-^//ldml/numbers/currencyFormats/unitPattern ; {0}=NUMBER 3; {1}=CURRENCY_NAME Dollars
 ^//ldml/numbers/currencyFormats\[@numberSystem="%A"]/unitPattern ; {0}=NUMBER 3; {1}=CURRENCY_NAME Dollars
-^//ldml/numbers/currencyFormats/currencyPatternAppendISO ; {0}=CURRENCY_FORMAT ¤#,##0.00
 ^//ldml/numbers/currencyFormats\[@numberSystem="%A"]/currencyPatternAppendISO ; {0}=CURRENCY_FORMAT ¤#,##0.00
 
 ^//ldml/numbers/miscPatterns\[@numberSystem="%A"]/pattern\[@type=\"range\"] ; {0}=START_NUMBER 3 ; {1}=END_NUMBER 5
@@ -240,8 +238,6 @@
 
 ^//ldml/units/unitLength\[@type="%L"]/unit\[@type="%A"]/unitPattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_UNITS 3
 ^//ldml/units/unitLength\[@type="%L"]/unit\[@type="%A"]/perUnitPattern ; {0}=NUMBER_OF_UNITS 3
-
-# ^//ldml/numbers/currencyFormats/unitPattern\[@count="(%A)"]  ;  {0}=NUMBER 3 ; {1}=UNIT hour(s)
 
 ^//ldml/characters/ellipsis\[@type="final"] ; {0}=FIRST_PART_OF_TEXT very long na
 ^//ldml/characters/ellipsis\[@type="initial"] ; {0}=LAST_PART_OF_TEXT ry long name

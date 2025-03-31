@@ -131,9 +131,9 @@ public class CLDRTest extends TestFmwk {
     /** Check to make sure that the currency formats are kosher. */
     public void TestCurrencyFormats() {
         // String decimal =
-        // "//ldml/numbers/decimalFormats/decimalFormatLength/decimalFormat[@type=\"standard\"]/";
+        // "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength/decimalFormat[@type=\"standard\"]/";
         // String currency =
-        // "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"standard\"]/";
+        // "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength/currencyFormat[@type=\"standard\"]/";
         for (String locale : locales) {
             boolean isPOSIX = locale.indexOf("POSIX") >= 0;
             logln("Testing: " + locale);

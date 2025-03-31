@@ -212,11 +212,6 @@ public class PathDescription {
                     + "Specifies the vertical direction of text in the language. Valid values are \"top-to-bottom\" or \"bottom-to-top\". For more information, see "
                     + CLDRURLS.UNITS_MISC_HELP
                     + ".\n"
-                    + "^//ldml/numbers/symbols/(\\w++)"
-                    + RegexLookup.SEPARATOR
-                    + "The {1} symbol used in the localized form of numbers. Note: before translating, be sure to read "
-                    + CLDRURLS.NUMBERS_HELP
-                    + ".\n"
                     + "^//ldml/numbers/symbols\\[@numberSystem=\"([a-z]*)\"]/(\\w++)"
                     + RegexLookup.SEPARATOR
                     + "The {2} symbol used in the {1} numbering system. NOTE: especially for the decimal and grouping symbol, before translating, be sure to read "
@@ -386,9 +381,9 @@ public class PathDescription {
                     + "[ICU Syntax] Special pattern used to compose duration units. Note: before translating, be sure to read "
                     + CLDRURLS.PLURALS_HELP
                     + ".\n"
-                    + "^//ldml/numbers/decimalFormats/decimalFormatLength\\[@type=\"([^\"]*)\"]/decimalFormat\\[@type=\"([^\"]*)\"]/pattern\\[@type=\"([^\"]*)\"]"
+                    + "^//ldml/numbers/decimalFormats\\[@numberSystem=\"([^\"]*)\"]/decimalFormatLength\\[@type=\"([^\"]*)\"]/decimalFormat\\[@type=\"([^\"]*)\"]/pattern\\[@type=\"([^\"]*)\"]"
                     + RegexLookup.SEPARATOR
-                    + "Special pattern used for a short version of numbers with the same number of digits as {3}. Note: before translating, be sure to read "
+                    + "Special pattern used for a short version of numbers with the same number of digits as {4}. Note: before translating, be sure to read "
                     + CLDRURLS.NUMBERS_SHORT
                     + ".\n"
                     + "^//ldml/numbers/currencyFormats\\[@numberSystem=\"([^\"]*)\"]/currencyFormatLength\\[@type=\"short\"]/currencyFormat\\[@type=\"standard\"]/pattern\\[@type=\"(\\d+)\"]\\[@count=\"([^\"]+)\"]"
@@ -406,11 +401,6 @@ public class PathDescription {
                     + "Special decimal pattern used to obtain the long plural forms of numbers with the same number of digits as {2}. See "
                     + CLDRURLS.NUMBERS_PLURAL
                     + " for details.\n"
-                    + "^//ldml/numbers/currencyFormats/currencyPatternAppendISO"
-                    + RegexLookup.SEPARATOR
-                    + "Pattern used to combine a regular currency format with an ISO 4217 code (¤¤). For more information, please see "
-                    + CLDRURLS.NUMBER_PATTERNS
-                    + ".\n"
                     + "^//ldml/numbers/currencyFormats\\[@numberSystem=\"([^\"]*)\"]/currencyPatternAppendISO"
                     + RegexLookup.SEPARATOR
                     + "Pattern used to combine a regular currency format with an ISO 4217 code (¤¤). For more information, please see "
@@ -553,9 +543,9 @@ public class PathDescription {
                     + "Special pattern used to compose currency values for accounting purposes. Note: before translating, be sure to read "
                     + CLDRURLS.NUMBER_PATTERNS
                     + ".\n"
-                    + "^//ldml/numbers/currencyFormats/currencySpacing/([a-zA-Z]*)/([a-zA-Z]*)"
+                    + "^//ldml/numbers/currencyFormats\\[@numberSystem=\"([^\"]*)\"]/currencySpacing/([a-zA-Z]*)/([a-zA-Z]*)"
                     + RegexLookup.SEPARATOR
-                    + "Special pattern used to compose currency signs ($1/$2) with numbers. Note: before translating, be sure to read "
+                    + "Special pattern used to compose currency signs ($2/$3) with numbers. Note: before translating, be sure to read "
                     + CLDRURLS.NUMBER_PATTERNS
                     + ".\n"
 

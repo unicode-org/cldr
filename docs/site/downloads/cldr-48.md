@@ -69,7 +69,19 @@ For a full listing, see [Delta DTDs](https://unicode.org/cldr/charts/dev/supplem
 
 ### Supplemental Data Changes
 
-- TBD
+- [language_script.tsv](https://github.com/unicode-org/cldr/blob/main/tools/cldr-code/src/main/resources/org/unicode/cldr/util/data/language_script.tsv) updated to include only one "Primary" writing system for languages that used to have multiple options ([CLDR-18114][]). Notable changes are:
+  - Panjabi `pa` has the primary  to Gurumukhi `Guru` because widespread usage is in the Gurumukhi script -- while most speakers are in Pakistan `PK`, written usage remains Gurumukhi.
+  - Azerbaijani `az` and Northern Kurdish `ku` primarily are used in Latin `Latn`.
+  - Chinese languages `zh`, `hak`, and `nan` are matched to Simplified Han writing `Hans` -- except Cantonese `yue`, which is known for a preference in Traditional Han writing `Hant`.
+  - Hassiniyya `mey` was missing significant data, it should be associated with the Arabic `Arab` writing system by default, not Latin `Latn`.
+- Errors in likely subtags addressed
+   - The default language for Belarus `BY` is now Russian `ru`, reflecting modern usage. ([CLDR-14479][])
+   - Literary Chinese `lzh` was written in Traditional Han writing `Hant`. ([CLDR-16715][])
+- Likely subtags updated because of prior mentioned primary script matches.
+  - Northern Kurdish `ku` now matched to Cyrillic writing in the CIS countries. ([CLDR-18114][])
+  - Hassiniyya `mey` updated to default to `mey_Arab_DZ` instead of `mey_Latn_SN` ([CLDR-18114][])
+  - See other likely subtags updated in [the Supplemental Data Delta page](https://www.unicode.org/cldr/charts/48/delta/supplemental-data.html#Likely)
+
 
 For a full listing, see [¤¤BCP47 Delta](https://unicode.org/cldr/charts/dev/delta/bcp47.html) and [¤¤Supplemental Delta](https://unicode.org/cldr/charts/dev/delta/supplemental-data.html)
 
@@ -152,8 +164,11 @@ in particular, see [Exhibit 1](https://unicode.org/copyright.html#Exhibit1).
 For web pages with different views of CLDR data, see [http://cldr.unicode.org/index/charts](/index/charts).
 
 [CLDR-5708]: https://unicode-org.atlassian.net/browse/CLDR-5708
+[CLDR-14479]: https://unicode-org.atlassian.net/browse/CLDR-14479
+[CLDR-16004]: https://unicode-org.atlassian.net/browse/CLDR-16004
+[CLDR-16715]: https://unicode-org.atlassian.net/browse/CLDR-16715
 [CLDR-18087]: https://unicode-org.atlassian.net/browse/CLDR-18087
+[CLDR-18113]: https://unicode-org.atlassian.net/browse/CLDR-18113
+[CLDR-18114]: https://unicode-org.atlassian.net/browse/CLDR-18114
 [CLDR-18219]: https://unicode-org.atlassian.net/browse/CLDR-18219
 [CLDR-18275]: https://unicode-org.atlassian.net/browse/CLDR-18275
-[CLDR-16004]: https://unicode-org.atlassian.net/browse/CLDR-16004
-[CLDR-14479]: https://unicode-org.atlassian.net/browse/CLDR-14479

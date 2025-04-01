@@ -2586,20 +2586,21 @@ public class ExampleGenerator {
         if (parts.contains("dateTimeFormat")) { // date-time combining patterns
             // ldml/dates/calendars/calendar[@type="*"]/dateTimeFormats/dateTimeFormatLength[@type="*"]/dateTimeFormat[@type="standard"]/pattern[@type="standard"]
             // ldml/dates/calendars/calendar[@type="*"]/dateTimeFormats/dateTimeFormatLength[@type="*"]/dateTimeFormat[@type="atTime"]/pattern[@type="standard"]
+            // ldml/dates/calendars/calendar[@type="*"]/dateTimeFormats/dateTimeFormatLength[@type="*"]/dateTimeFormat[@type="relative"]/pattern[@type="standard"]
             String formatType =
                     parts.findAttributeValue("dateTimeFormat", "type"); // "standard" or "atTime"
             String length =
                     parts.findAttributeValue(
                             "dateTimeFormatLength", "type"); // full, long, medium, short
 
-            // For all types, show
+            // For non-relative types, show
             // - date (of same length) with a single full time, or long time (abbreviated zone) if
             // the date is short
             // - date (of same length) with a single short time
             // For the standard patterns, add
             // - date (of same length) with a short time range
             // - relative date with a short time range
-            // For the atTime patterns, add
+            // For the relative patterns, add
             // - relative date with a single short time
 
             // ldml/dates/calendars/calendar[@type="*"]/dateFormats/dateFormatLength[@type="*"]/dateFormat[@type="standard"]/pattern[@type="standard"]
@@ -2633,29 +2634,32 @@ public class ExampleGenerator {
             String tlfResult = tlf.format(DATE_SAMPLE);
             String tsfResult = tsf.format(DATE_SAMPLE); // DATE_SAMPLE is in the afternoon
 
-            // Handle date plus a single full time.
-            // We need to process the dateTimePattern as a date pattern (not only a message format)
-            // so
-            // we handle it with SimpleDateFormat, plugging the date and time formats in as literal
-            // text.
-            examples.add(
-                    cldrFile.glueDateTimeFormatWithGluePattern(
-                            setBackground(dfResult),
-                            setBackground(tlfResult),
-                            calendar,
-                            value,
-                            icuServiceBuilder));
+            if (!formatType.contentEquals("relative")) {
+                // Handle date plus a single full time.
+                // We need to process the dateTimePattern as a date pattern (not only a message
+                // format)
+                // so
+                // we handle it with SimpleDateFormat, plugging the date and time formats in as
+                // literal
+                // text.
+                examples.add(
+                        cldrFile.glueDateTimeFormatWithGluePattern(
+                                setBackground(dfResult),
+                                setBackground(tlfResult),
+                                calendar,
+                                value,
+                                icuServiceBuilder));
 
-            // Handle date plus a single short time.
-            examples.add(
-                    cldrFile.glueDateTimeFormatWithGluePattern(
-                            setBackground(dfResult),
-                            setBackground(tsfResult),
-                            calendar,
-                            value,
-                            icuServiceBuilder));
-
-            if (!formatType.contentEquals("atTime")) {
+                // Handle date plus a single short time.
+                examples.add(
+                        cldrFile.glueDateTimeFormatWithGluePattern(
+                                setBackground(dfResult),
+                                setBackground(tsfResult),
+                                calendar,
+                                value,
+                                icuServiceBuilder));
+            }
+            if (formatType.contentEquals("standard")) {
                 // Examples for standard pattern
 
                 // Create a time range (from morning to afternoon, using short time formats). For
@@ -2691,7 +2695,8 @@ public class ExampleGenerator {
                                     value,
                                     icuServiceBuilder));
                 }
-            } else {
+            }
+            if (formatType.contentEquals("relative")) {
                 // Examples for atTime pattern
 
                 // Handle relative date plus a single short time.

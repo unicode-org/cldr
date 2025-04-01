@@ -1266,11 +1266,12 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
      * <pre>
      *   //ldml/dates/calendars/calendar[@type="*"]/dateTimeFormats/dateTimeFormatLength[@type="*"]/dateTimeFormat[@type="standard"]/pattern[@type="standard"]
      *   //ldml/dates/calendars/calendar[@type="*"]/dateTimeFormats/dateTimeFormatLength[@type="*"]/dateTimeFormat[@type="atTime"]/pattern[@type="standard"]
+     *   //ldml/dates/calendars/calendar[@type="*"]/dateTimeFormats/dateTimeFormatLength[@type="*"]/dateTimeFormat[@type="relative"]/pattern[@type="standard"]
      * </pre>
      *
      * @param calendar
      * @param length
-     * @param formatType "standard" or "atTime"
+     * @param formatType "standard" or "atTime" or "relative"
      * @return
      */
     private String getDateTimeFormatXpath(String calendar, String length, String formatType) {

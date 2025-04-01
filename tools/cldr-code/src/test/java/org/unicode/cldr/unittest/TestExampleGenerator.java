@@ -844,10 +844,15 @@ public class TestExampleGenerator extends TestFmwk {
                 exampleGenerator,
                 "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/dateTimeFormatLength[@type=\"short\"]/dateTimeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]");
         checkValue(
-                "DateTimeCombo long std",
-                "〖❬September 5, 1999❭ at ❬1:25:59 PM Eastern Standard Time❭〗〖❬September 5, 1999❭ at ❬1:25 PM❭〗〖❬today❭ at ❬1:25 PM❭〗",
+                "DateTimeCombo long atTime",
+                "〖❬September 5, 1999❭ at ❬1:25:59 PM Eastern Standard Time❭〗〖❬September 5, 1999❭ at ❬1:25 PM❭〗",
                 exampleGenerator,
                 "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/dateTimeFormatLength[@type=\"long\"]/dateTimeFormat[@type=\"atTime\"]/pattern[@type=\"standard\"]");
+        checkValue(
+                "DateTimeCombo long relative",
+                "〖❬today❭ at ❬1:25 PM❭〗",
+                exampleGenerator,
+                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/dateTimeFormatLength[@type=\"long\"]/dateTimeFormat[@type=\"relative\"]/pattern[@type=\"standard\"]");
     }
 
     public void TestDateSymbols() {

@@ -744,7 +744,12 @@ public class PathDescription {
                     + ".\n"
                     + "^//ldml/dates/calendars/calendar\\[@type=\"([^\"]*)\"]/dateTimeFormats/dateTimeFormatLength\\[@type=\"([^\"]*)\"]/dateTimeFormat\\[@type=\"atTime\"]/pattern\\[@type=\"([^\"]*)\"]"
                     + RegexLookup.SEPARATOR
-                    + "Provide the {2} version of the date-time pattern suitable for expressing a date at a specific time. Note: before translating, be sure to read "
+                    + "Provide the {2} version of the date-time pattern suitable for expressing a standard date (e.g. \"March 20\") at a specific time. Note: before translating, be sure to read "
+                    + CLDRURLS.DATE_TIME_PATTERNS
+                    + ".\n"
+                    + "^//ldml/dates/calendars/calendar\\[@type=\"([^\"]*)\"]/dateTimeFormats/dateTimeFormatLength\\[@type=\"([^\"]*)\"]/dateTimeFormat\\[@type=\"relative\"]/pattern\\[@type=\"([^\"]*)\"]"
+                    + RegexLookup.SEPARATOR
+                    + "Provide the {2} version of the date-time pattern suitable for expressing a relative date (e.g. \"tomorrow\") at a specific time. Note: before translating, be sure to read "
                     + CLDRURLS.DATE_TIME_PATTERNS
                     + ".\n"
                     + "^//ldml/dates/calendars/calendar\\[@type=\"([^\"]*)\"]/dateFormats/dateFormatLength\\[@type=\"([^\"]*)\"]/dateFormat\\[@type=\"([^\"]*)\"]/pattern\\[@type=\"([^\"]*)\"]"

@@ -1510,7 +1510,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                             "weeHours")
                     .freeze();
     static MapComparator<String> dateTimeFormatOrder =
-            new MapComparator<String>().add("standard", "atTime").freeze();
+            new MapComparator<String>().add("standard", "atTime", "relative").freeze();
     static MapComparator<String> listPatternOrder =
             new MapComparator<String>().add("start", "middle", "end", "2", "3").freeze();
     static MapComparator<String> widthOrder =

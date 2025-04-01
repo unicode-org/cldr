@@ -102,6 +102,30 @@ public class TestCoverage extends TestFmwkPlus {
                 Level.MODERATE,
                 8
             },
+            {
+                "en",
+                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/dateTimeFormatLength[@type=\"long\"]/dateTimeFormat[@type=\"atTime\"]/pattern[@type=\"standard\"]",
+                Level.MODERATE,
+                8
+            },
+            {
+                "en",
+                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/dateTimeFormatLength[@type=\"long\"]/dateTimeFormat[@type=\"relative\"]/pattern[@type=\"standard\"]",
+                Level.MODERATE,
+                8
+            },
+            {
+                "ja",
+                "//ldml/dates/calendars/calendar[@type=\"japanese\"]/dateTimeFormats/dateTimeFormatLength[@type=\"long\"]/dateTimeFormat[@type=\"atTime\"]/pattern[@type=\"standard\"]",
+                Level.MODERATE,
+                8
+            },
+            {
+                "ja",
+                "//ldml/dates/calendars/calendar[@type=\"japanese\"]/dateTimeFormats/dateTimeFormatLength[@type=\"long\"]/dateTimeFormat[@type=\"relative\"]/pattern[@type=\"standard\"]",
+                Level.MODERATE,
+                8
+            },
         };
         PathHeader.Factory phf = PathHeader.getFactory(testInfo.getEnglish());
         for (Object[] test : tests) {

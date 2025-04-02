@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -3038,7 +3038,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Asia/Phnom_Penh">
 				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
-			<zone type="Pacific/Kanton">
+			<zone type="Pacific/Enderbury">
 				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
@@ -3157,9 +3157,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity draft="unconfirmed">Ulan Bator</exemplarCity>
-			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
@@ -3902,13 +3899,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic draft="unconfirmed">oa da Ciña</generic>
 					<standard draft="unconfirmed">oa standard da Ciña</standard>
 					<daylight draft="unconfirmed">oa de stæ da Ciña</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic draft="unconfirmed">oa de Choibalsan</generic>
-					<standard draft="unconfirmed">oa standard de Choibalsan</standard>
-					<daylight draft="unconfirmed">oa de stæ de Choibalsan</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">
@@ -5975,7 +5965,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one" draft="unconfirmed">{0} elemento</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} elementi</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName draft="unconfirmed">parte pe mion</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} parte pe mion</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} parte pe mion</unitPattern>
@@ -7004,7 +6994,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} elem.</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
@@ -8033,7 +8023,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one" draft="unconfirmed">{0}elem</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}elem</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0}ppm</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}ppm</unitPattern>

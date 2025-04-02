@@ -114,7 +114,7 @@ public class XPathAlt {
             if (session == null) {
                 return Auth.noSessionResponse();
             }
-            if (!UserRegistry.userIsTC(session.user)) {
+            if (!UserRegistry.userIsTCOrStronger(session.user)) {
                 return Response.status(403, "Forbidden").build();
             }
             session.userDidAction();

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1210,13 +1210,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="calendar" type="roc">Мингуо-календар</type>
 			<type key="cf" type="account">Сметководствен формат на валута</type>
 			<type key="cf" type="standard">Стандарден формат на валута</type>
-			<type key="collation" type="big5han">Традиционално кинеско сортирање</type>
 			<type key="collation" type="compat" draft="contributed">Претходно подредување</type>
 			<type key="collation" type="dictionary" draft="contributed">Подредување по азбучен редослед</type>
 			<type key="collation" type="ducet">Стандардно подредување во уникод</type>
 			<type key="collation" type="emoji" draft="contributed">Подредување емотикони</type>
 			<type key="collation" type="eor" draft="contributed">Европски правила за подредување</type>
-			<type key="collation" type="gb2312han">Поедноставено кинеско сортирање</type>
 			<type key="collation" type="phonebook">Азбучен редослед</type>
 			<type key="collation" type="pinyin">Сортирање Pinyin</type>
 			<type key="collation" type="reformed" draft="contributed">Реформирано подредување</type>
@@ -4084,6 +4082,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<regionFormat type="daylight">↑↑↑</regionFormat>
 			<regionFormat type="standard">↑↑↑</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>Хонолулу</exemplarCity>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>Координирано универзално време</standard>
@@ -4699,9 +4700,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Пном Пен</exemplarCity>
 			</zone>
 			<zone type="Pacific/Enderbury">
-				<exemplarCity>Ендербери</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kanton">
 				<exemplarCity>Кантон</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
@@ -4820,9 +4818,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>Улан Батор</exemplarCity>
-			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity>Чојбалсан</exemplarCity>
 			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity>Макао</exemplarCity>
@@ -5223,9 +5218,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Nome">
 				<exemplarCity>Ном</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>Хонолулу</exemplarCity>
-			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>Енкориџ</exemplarCity>
 			</zone>
@@ -5582,13 +5574,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Време во Кина</generic>
 					<standard>Стандардно време во Кина</standard>
 					<daylight>Летно сметање на времето во Кина</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>Време во Чојбалсан</generic>
-					<standard>Стандардно време во Чојбалсан</standard>
-					<daylight>Летно време во Чојбалсан</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">
@@ -7943,7 +7928,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>делови на милион</displayName>
 				<unitPattern count="one">{0} дел на милион</unitPattern>
 				<unitPattern count="other">{0} дела на милион</unitPattern>
@@ -8785,7 +8770,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} светлина</unitPattern>
 				<unitPattern count="other">{0} светлини</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>делови на милијарда</displayName>
 				<unitPattern count="one">{0} дел на милијарда</unitPattern>
 				<unitPattern count="other">{0} дела на милијарда</unitPattern>
@@ -9027,7 +9012,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} ставка</unitPattern>
 				<unitPattern count="other">{0} ставки</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -9869,7 +9854,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} светлина</unitPattern>
 				<unitPattern count="other">{0} светлини</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -10111,7 +10096,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -10953,7 +10938,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} светлина</unitPattern>
 				<unitPattern count="other">{0} светлини</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>

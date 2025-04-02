@@ -36,6 +36,7 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CollatorHelper;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LocaleIDParser;
@@ -137,16 +138,22 @@ public class Misc {
                     break;
                 }
             }
-            System.out.println(string + "\t" + defCon + "\t" + english.getName(defCon));
+            System.out.println(
+                    string
+                            + "\t"
+                            + defCon
+                            + "\t"
+                            + english.nameGetter().getNameFromIdentifier(defCon));
         }
     }
 
     private static void showSortKey() {
         String[] tests = "a ä A ぁ あ ァ ｧ ア ｱ ㋐".split(" ");
-        RuleBasedCollator c = (RuleBasedCollator) Collator.getInstance(ULocale.ENGLISH);
+        RuleBasedCollator c = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
         c.setStrength(RuleBasedCollator.QUATERNARY);
         c.setCaseLevel(true);
         c.setHiraganaQuaternary(true);
+        // Do not freeze the collator since it is changed in the innermost "for" loop below
         for (String test : tests) {
             for (boolean caseLevel : new boolean[] {false, true}) {
                 c.setCaseLevel(caseLevel);
@@ -319,14 +326,14 @@ public class Misc {
         String[] locales =
                 "en ru nl en-GB fr de it pl pt-BR es tr th ja zh-CN zh-TW ko ar bg sr uk ca hr cs da fil fi hu id lv lt no pt-PT ro sk sl es-419 sv vi el iw fa hi am af et is ms sw zu bn mr ta eu fr-CA gl zh-HK ur gu kn ml te"
                         .split(" ");
-        Set<String> nameAndInfo = new TreeSet<>(info.getCollator());
+        Set<String> nameAndInfo = new TreeSet<>(CollatorHelper.EMOJI_COLLATOR);
         for (String localeCode : locales) {
             String baseLanguage = ltp.set(localeCode).getLanguage();
             R2<List<String>, String> temp = lang2replacement.get(baseLanguage);
             if (temp != null) {
                 baseLanguage = temp.get0().get(0);
             }
-            String englishName = english.getName(baseLanguage);
+            String englishName = english.nameGetter().getNameFromIdentifier(baseLanguage);
             CLDRFile cldrFile = factory.make(baseLanguage, false);
             UnicodeSet set = cldrFile.getExemplarSet("", WinningChoice.WINNING);
             int script = -1;
@@ -337,7 +344,7 @@ public class Misc {
                     break;
                 }
             }
-            String nativeName = cldrFile.getName(baseLanguage);
+            String nativeName = cldrFile.nameGetter().getNameFromIdentifier(baseLanguage);
             nameAndInfo.add(
                     englishName
                             + "\t"

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1017,13 +1017,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="calendar" type="roc">kalendar minguo</type>
 			<type key="cf" type="account">format valutor llogaritës</type>
 			<type key="cf" type="standard">format valutor standard</type>
-			<type key="collation" type="big5han">Radhitje e kinezishtes tradicionale - Big5</type>
 			<type key="collation" type="compat">Radhitja e mëparshme, për pajtueshmëri</type>
 			<type key="collation" type="dictionary">Radhitje fjalori</type>
 			<type key="collation" type="ducet">radhitje unikode e parazgjedhur</type>
 			<type key="collation" type="emoji">Radhitje Emoji</type>
 			<type key="collation" type="eor">Rregulla evropiane radhitjeje</type>
-			<type key="collation" type="gb2312han">Radhitje e kinezishtes së thjeshtësuar - GB2312</type>
 			<type key="collation" type="phonebook">Radhitje libri telefonik</type>
 			<type key="collation" type="pinyin">Radhitje pinini</type>
 			<type key="collation" type="search">kërkim i përgjithshëm</type>
@@ -2839,6 +2837,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<regionFormat type="daylight">Ora verore: {0}</regionFormat>
 			<regionFormat type="standard">Ora standarde: {0}</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>Honolulu</exemplarCity>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>Ora universale e koordinuar</standard>
@@ -3454,9 +3455,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Pnom-Pen</exemplarCity>
 			</zone>
 			<zone type="Pacific/Enderbury">
-				<exemplarCity>Enderbur</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kanton">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
@@ -3575,9 +3573,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>Ulanbatar</exemplarCity>
-			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity>Çoibalsan</exemplarCity>
 			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity>Makao</exemplarCity>
@@ -3978,9 +3973,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Nome">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>Honolulu</exemplarCity>
-			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>Ankorejxh</exemplarCity>
 			</zone>
@@ -4363,13 +4355,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Ora e Kinës</generic>
 					<standard>Ora standarde e Kinës</standard>
 					<daylight>Ora verore e Kinës</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>Ora e Çoibalsanit</generic>
-					<standard>Ora standarde e Çoibalsanit</standard>
-					<daylight>Ora verore e Çoibalsanit</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">
@@ -6537,7 +6522,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>pjesë për milion</displayName>
 				<unitPattern count="one">{0} pjesë për milion</unitPattern>
 				<unitPattern count="other">{0} pjesë për milion</unitPattern>
@@ -7374,12 +7359,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} çerek imperial</unitPattern>
 				<unitPattern count="other">{0} çerekë imperialë</unitPattern>
 			</unit>
-			<unit type="speed-light-speed">
-				<displayName>shpejtësi drite</displayName>
-				<unitPattern count="one">{0} shpejtësi drite</unitPattern>
-				<unitPattern count="other">{0} shpejtësi drite</unitPattern>
-			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>pjesë për miliard</displayName>
 				<unitPattern count="one">{0} pjesë për miliard</unitPattern>
 				<unitPattern count="other">{0} pjesë për miliard</unitPattern>
@@ -7621,7 +7601,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} njësi</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -8458,12 +8438,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="speed-light-speed">
-				<displayName>shpejtësi drite</displayName>
-				<unitPattern count="one">{0} shpejtësi drite</unitPattern>
-				<unitPattern count="other">{0} shpejtësi drite</unitPattern>
-			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -8705,7 +8680,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -9542,12 +9517,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="speed-light-speed">
-				<displayName>shpejtësi drite</displayName>
-				<unitPattern count="one">{0} shp. dr.</unitPattern>
-				<unitPattern count="other">{0} shp. dr.</unitPattern>
-			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>

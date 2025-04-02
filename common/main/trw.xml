@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -2453,9 +2453,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity draft="unconfirmed">اولان باتار</exemplarCity>
 			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity draft="unconfirmed">چوئبالسان</exemplarCity>
-			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity draft="unconfirmed">مسیؤ</exemplarCity>
 			</zone>
@@ -3194,13 +3191,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic draft="unconfirmed">چین سی وَخ</generic>
 					<standard draft="unconfirmed">چین سٹینڈرڈ ٹائم</standard>
 					<daylight draft="unconfirmed">چینی ڈے لائٹ ٹائم</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic draft="unconfirmed">کوئبلسان ٹائم</generic>
-					<standard draft="unconfirmed">کوئبلسان سٹینڈرڈ ٹائم</standard>
-					<daylight draft="unconfirmed">کوائبلسان سمر ٹائم</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">
@@ -4991,7 +4981,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName draft="unconfirmed">ملی مولس فی لیٹر</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0} ملی مول فی لیٹر</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName draft="unconfirmed">فی ملین حصے</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0} فی ملین حصے</unitPattern>
 			</unit>
@@ -5842,7 +5832,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName draft="unconfirmed">ملی مول/لیٹر</displayName>
 				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName draft="unconfirmed">حصے/ملین</displayName>
 				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>

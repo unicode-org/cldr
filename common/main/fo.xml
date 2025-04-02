@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -2608,6 +2608,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<regionFormat type="daylight">{0} summartíð</regionFormat>
 			<regionFormat type="standard">{0} vanlig tíð</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>Honolulu</exemplarCity>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>Samskipað heimstíð</standard>
@@ -3223,9 +3226,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Enderbury">
-				<exemplarCity>Enderbury</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kanton">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
@@ -3343,9 +3343,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
-				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
-			<zone type="Asia/Choibalsan">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Macau">
@@ -3747,9 +3744,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="America/Nome">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>Honolulu</exemplarCity>
-			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
@@ -4092,13 +4086,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>Kina tíð</generic>
 					<standard>Kina vanlig tíð</standard>
 					<daylight>Kina summartíð</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>Choibalsan tíð</generic>
-					<standard>Choibalsan vanlig tíð</standard>
-					<daylight>Choibalsan summartíð</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">
@@ -6228,7 +6215,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} lutur</unitPattern>
 				<unitPattern count="other">{0} lutir</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>partar fyri hvørja millión</displayName>
 				<unitPattern count="one">{0} partur fyri hvørja millión</unitPattern>
 				<unitPattern count="other">{0} partar fyri hvørja millión</unitPattern>
@@ -7065,7 +7052,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} ljós</unitPattern>
 				<unitPattern count="other">{0} ljós</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>partar fyri hvørja milliard</displayName>
 				<unitPattern count="one">{0} part fyri hvørja milliard</unitPattern>
 				<unitPattern count="other">{0} partar fyri hvørja milliard</unitPattern>
@@ -7305,7 +7292,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} lutur</unitPattern>
 				<unitPattern count="other">{0} lutir</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>partar/millión</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} pt./mill.</unitPattern>
@@ -8142,7 +8129,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} ljós</unitPattern>
 				<unitPattern count="other">{0} ljós</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>partar/milliard</displayName>
 				<unitPattern count="one">{0} part/mia.</unitPattern>
 				<unitPattern count="other">{0} partar/mia.</unitPattern>
@@ -8382,7 +8369,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0}lutur</unitPattern>
 				<unitPattern count="other">{0} lutir</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>pt./mill.</displayName>
 				<unitPattern count="one">{0}pt./mill</unitPattern>
 				<unitPattern count="other">{0}pt./mill</unitPattern>
@@ -9219,7 +9206,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0}ljós</unitPattern>
 				<unitPattern count="other">{0}ljós</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>partar/mia.</displayName>
 				<unitPattern count="one">{0}part/mia.</unitPattern>
 				<unitPattern count="other">{0}partar/mia.</unitPattern>

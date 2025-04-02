@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -735,10 +735,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="calendar" type="japanese">japantɔwo ƒe kalenda</type>
 			<type key="calendar" type="persian">persiatɔwo ƒe kalenda</type>
 			<type key="calendar" type="roc">china repɔbliktɔwo ƒe kalenda tso 1912</type>
-			<type key="collation" type="big5han">blema chinatɔwo ƒe ɖoɖomɔ nu</type>
 			<type key="collation" type="dictionary">nuɖoɖo ɖe nyagɔmeɖegbalẽ ƒe ɖoɖomɔ nu</type>
 			<type key="collation" type="ducet">nuɖoɖo ɖe unicode ƒe ɖoɖo nu</type>
-			<type key="collation" type="gb2312han">chinagbe yeye ƒe ɖoɖomɔ nu</type>
 			<type key="collation" type="phonebook">fonegbalẽ me ɖoɖomɔ nu</type>
 			<type key="collation" type="pinyin">pinyin ɖoɖomɔ nu</type>
 			<type key="collation" type="search">nudidi hena zazã gbadza</type>
@@ -2309,6 +2307,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<regionFormat type="daylight">{0} ŋkekemeɣeyiɣi</regionFormat>
 			<regionFormat type="standard">{0} game ɖoɖoea</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>Honolulu</exemplarCity>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>Xexeme gaƒoƒoɖoanyi me</standard>
@@ -2924,7 +2925,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Enderbury">
-				<exemplarCity>Enderbury</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -3038,9 +3039,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
-				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
-			<zone type="Asia/Choibalsan">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Macau">
@@ -3439,9 +3437,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="America/Nome">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>Honolulu</exemplarCity>
-			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
@@ -3833,13 +3828,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>China gaƒoƒo me</generic>
 					<standard>China nutome gaƒoƒo me</standard>
 					<daylight>China kele gaƒoƒo me</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>Choibalsan gaƒoƒo me</generic>
-					<standard>Choibalsan nutome gaƒoƒo me</standard>
-					<daylight>Choibalsan dzomeŋɔli gaƒoƒo me</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">

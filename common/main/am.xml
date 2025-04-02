@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -996,10 +996,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="colCaseFirst" type="upper">አቢይ ሆሄ መጀመሪያ ደርድር</type>
 			<type key="colCaseLevel" type="no">ያለመልከፊደል ትብ ደርድር</type>
 			<type key="colCaseLevel" type="yes">በመልከፊደል ትብ ደርድር</type>
-			<type key="collation" type="big5han">የባህላዊ ቻይንኛ የድርድር ቅደም ተከተል - ትልቅ5</type>
 			<type key="collation" type="dictionary">የመዝገበ ቃላት የድርድር ቅደም ተከተል</type>
 			<type key="collation" type="ducet">የነባሪ ዩኒኮድ የድርድር ቅደም ተከተል</type>
-			<type key="collation" type="gb2312han">የቀለለ የቻይንኛ የድርደራ ቅደም ተከተል - GB2312</type>
 			<type key="collation" type="phonebook">የስልክ ደብተር ድርድር ቅደም ተከተል</type>
 			<type key="collation" type="phonetic">የፎነቲክ ድርደራ ቅደም ተከተል</type>
 			<type key="collation" type="pinyin">ፒንይን የድርድር ቅደም ተከተል</type>
@@ -3578,6 +3576,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<regionFormat type="daylight">{0} የቀን ብርሃን ሰዓት</regionFormat>
 			<regionFormat type="standard">{0} መደበኛ ሰዓት</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>ሆኖሉሉ</exemplarCity>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>የተቀነባበረ ሁለገብ ሰዓት</standard>
@@ -4193,9 +4194,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>ፍኖም ፔንህ</exemplarCity>
 			</zone>
 			<zone type="Pacific/Enderbury">
-				<exemplarCity>ኢንደርበሪ</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kanton">
 				<exemplarCity>ካንቶን</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
@@ -4314,9 +4312,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>ኡላአንባአታር</exemplarCity>
-			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity>ቾይባልሳን</exemplarCity>
 			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity>ማካኡ</exemplarCity>
@@ -4717,9 +4712,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Nome">
 				<exemplarCity>ኖሜ</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>ሆኖሉሉ</exemplarCity>
-			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>አንኮራጅ</exemplarCity>
 			</zone>
@@ -5069,13 +5061,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>የቻይና ሰዓት</generic>
 					<standard>የቻይና መደበኛ ሰዓት</standard>
 					<daylight>የቻይና የቀን ብርሃን ሰዓት</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>የቾይባልሳ ሰዓት አቆጣጠር</generic>
-					<standard>የቾይባልሳን መደበኛ የሰዓት አቆጣጠር</standard>
-					<daylight>የቾይባልሳን የበጋ የሰዓት አቆጣጠር</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">
@@ -7326,7 +7311,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ንጥሎች</unitPattern>
 				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="accusative">{0} ክፍል በየሚሊዮን</unitPattern>
@@ -8374,7 +8359,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ብርሃን</unitPattern>
 				<unitPattern count="other" case="accusative">{0} ብርሃን</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
@@ -8620,7 +8605,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ንጥል</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -9462,7 +9447,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} ብርሃን</unitPattern>
 				<unitPattern count="other">{0} ብርሃን</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -9704,7 +9689,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -10546,7 +10531,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} ብርሃን</unitPattern>
 				<unitPattern count="other">{0} ብርሃን</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>

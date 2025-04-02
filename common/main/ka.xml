@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1137,10 +1137,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="calendar" type="roc">ჩინეთის რესპუბლიკის კალენდარი</type>
 			<type key="cf" type="account">ვალუტის ბუღალტრული ფორმატი</type>
 			<type key="cf" type="standard">ვალუტის სტანდარტული ფორმატი</type>
-			<type key="collation" type="big5han">ტრადიციული ჩინური</type>
 			<type key="collation" type="dictionary" draft="unconfirmed">ლექსიკონით</type>
 			<type key="collation" type="ducet">უნიკოდის ნაგულისხმევი დახარისხების თანმიმდევრობა</type>
-			<type key="collation" type="gb2312han">გამარტივებული ჩინური</type>
 			<type key="collation" type="phonebook" draft="unconfirmed">ტელეფონის წიგნით</type>
 			<type key="collation" type="pinyin" draft="unconfirmed">პინ-ინი</type>
 			<type key="collation" type="reformed" draft="unconfirmed">რეფორმირებული</type>
@@ -3033,6 +3031,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<regionFormat type="daylight">{0} ზაფხულის დრო</regionFormat>
 			<regionFormat type="standard">{0} სტანდარტული დრო</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>ჰონოლულუ</exemplarCity>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>მსოფლიო კოორდინირებული დრო</standard>
@@ -3648,9 +3649,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>პნომპენი</exemplarCity>
 			</zone>
 			<zone type="Pacific/Enderbury">
-				<exemplarCity>ენდერბური</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kanton">
 				<exemplarCity>კანტონი</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
@@ -3769,9 +3767,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>ულანბატარი</exemplarCity>
-			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity>ჩოიბალსანი</exemplarCity>
 			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity>მაკაო</exemplarCity>
@@ -4172,9 +4167,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Nome">
 				<exemplarCity>ნომი</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>ჰონოლულუ</exemplarCity>
-			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>ენქორაჯი</exemplarCity>
 			</zone>
@@ -4517,13 +4509,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>ჩინეთის დრო</generic>
 					<standard>ჩინეთის სტანდარტული დრო</standard>
 					<daylight>ჩინეთის დროის სარტყელი</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>ჩოიბალსანის დრო</generic>
-					<standard>ჩოიბალსანის სტანდარტული დრო</standard>
-					<daylight>ჩოიბალსანის ზაფხულის დრო</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">
@@ -6906,7 +6891,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} ერთეული</unitPattern>
 				<unitPattern count="other">{0} ერთეული</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>ნაწილი მილიონზე</displayName>
 				<unitPattern count="one">{0} ნაწილი მილიონზე</unitPattern>
 				<unitPattern count="other">{0} ნაწილი მილიონზე</unitPattern>
@@ -7743,12 +7728,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} ბრიტანული კვარტი</unitPattern>
 				<unitPattern count="other">{0} ბრიტანული კვარტი</unitPattern>
 			</unit>
-			<unit type="speed-light-speed">
-				<displayName>სინათლის სიჩქარე</displayName>
-				<unitPattern count="one">{0}-მაგი სინათლის სიჩქარე</unitPattern>
-				<unitPattern count="other">{0}-მაგი სინათლის სიჩქარე</unitPattern>
-			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>ნაწილი მილიარდზე</displayName>
 				<unitPattern count="one">{0} ნაწილი მილიარდზე</unitPattern>
 				<unitPattern count="other">{0} ნაწილი მილიარდზე</unitPattern>
@@ -7990,7 +7970,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ერთე.</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>ნაწილი/მილიონზე</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -8827,12 +8807,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ბრიტ. კვარტი</unitPattern>
 			</unit>
-			<unit type="speed-light-speed">
-				<displayName>სინათლის სიჩქ.</displayName>
-				<unitPattern count="one">{0}-მაგი სინათ. სიჩქ.</unitPattern>
-				<unitPattern count="other">{0}-მაგი სინათ. სიჩქ.</unitPattern>
-			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>ნაწილი/მილიარდზე</displayName>
 				<unitPattern count="one">{0} ნ/მ</unitPattern>
 				<unitPattern count="other">{0} ნ/მ</unitPattern>
@@ -9333,12 +9308,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0}ლ</unitPattern>
 				<unitPattern count="other">{0}ლ</unitPattern>
 			</unit>
-			<unit type="speed-light-speed">
-				<displayName>c</displayName>
-				<unitPattern count="one">{0} c</unitPattern>
-				<unitPattern count="other">{0} c</unitPattern>
-			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>ნ/მ</displayName>
 			</unit>
 			<unit type="duration-night">

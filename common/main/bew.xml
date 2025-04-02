@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1028,7 +1028,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<variant type="FONNAPA" draft="unconfirmed">Hurup Pengucapan Amrik Lor</variant>
 			<variant type="FONUPA" draft="unconfirmed">Hurup Pengucapan Ural</variant>
 			<variant type="FONXSAMP" draft="unconfirmed">Hurup Pengucapan X-SAMPA</variant>
-			<variant type="GALLO">↑↑↑</variant>
 			<variant type="GASCON" draft="unconfirmed">Gaskon</variant>
 			<variant type="GRCLASS" draft="unconfirmed">Èjaan Oksitan Klasik</variant>
 			<variant type="GRITAL" draft="unconfirmed">Èjaan Oksitan Keitalian</variant>
@@ -1124,13 +1123,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="calendar" type="roc" draft="unconfirmed">Almenak Bingkok</type>
 			<type key="cf" type="account" draft="unconfirmed">Pormat Mata Uang Pembukuan</type>
 			<type key="cf" type="standard" draft="unconfirmed">Pormat Mata Uang Pakem</type>
-			<type key="collation" type="big5han" draft="unconfirmed">Rèntètan Sortir Tionghoa Terdisionil - Big5</type>
 			<type key="collation" type="compat" draft="unconfirmed">Rèntètan Sortir Sebelonnya, bakal kecocokan</type>
 			<type key="collation" type="dictionary" draft="unconfirmed">Rèntètan Sortir Kamus</type>
 			<type key="collation" type="ducet" draft="unconfirmed">Rèntètan Sortir Bawaan Unicode</type>
 			<type key="collation" type="emoji" draft="unconfirmed">Rèntètan Sortir Émoji</type>
 			<type key="collation" type="eor" draft="unconfirmed">Aturan Pengrèntètan Èropa</type>
-			<type key="collation" type="gb2312han" draft="unconfirmed">Rèntètan Sortir Tionghoa Ringkes - GB2312</type>
 			<type key="collation" type="phonebook" draft="unconfirmed">Rèntètan Sortir Buku Telepon</type>
 			<type key="collation" type="pinyin" draft="unconfirmed">Rèntètan Sortir Pin-in</type>
 			<type key="collation" type="reformed" draft="unconfirmed">Rèntètan Sortir Kerobah</type>
@@ -3358,7 +3355,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Asia/Phnom_Penh">
 				<exemplarCity draft="unconfirmed">Penom Pèn</exemplarCity>
 			</zone>
-			<zone type="Pacific/Kanton">
+			<zone type="Pacific/Enderbury">
 				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
@@ -3474,9 +3471,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity draft="unconfirmed">Ulanbator</exemplarCity>
-			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity draft="unconfirmed">Coibalsan</exemplarCity>
 			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity draft="unconfirmed">Makao</exemplarCity>
@@ -4145,13 +4139,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic draft="unconfirmed">Waktu Tiongkok</generic>
 					<standard draft="unconfirmed">Waktu Pakem Tiongkok</standard>
 					<daylight draft="unconfirmed">Waktu Musim Pentèr Tiongkok</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic draft="unconfirmed">Waktu Coibalsan</generic>
-					<standard draft="unconfirmed">Waktu Pakem Coibalsan</standard>
-					<daylight draft="unconfirmed">Waktu Musim Pentèr Coibalsan</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">
@@ -6062,7 +6049,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName draft="unconfirmed">↑↑↑</displayName>
 				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName draft="unconfirmed">bagèan per juta</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0} bagèan per juta</unitPattern>
 			</unit>
@@ -6926,7 +6913,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName draft="unconfirmed">biji</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0} biji</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName draft="unconfirmed">bagèan/juta</displayName>
 				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
@@ -7790,7 +7777,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName draft="unconfirmed">↑↑↑</displayName>
 				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
 				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
@@ -8845,7 +8832,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<nameField type="given" draft="unconfirmed">Ada Cornelia</nameField>
 			<nameField type="given-informal" draft="unconfirmed">Neele</nameField>
 			<nameField type="given2" draft="unconfirmed">César Martín</nameField>
-			<nameField type="surname-prefix">↑↑↑</nameField>
 			<nameField type="surname-core" draft="unconfirmed">Brühl</nameField>
 			<nameField type="surname2" draft="unconfirmed">González Domingo</nameField>
 			<nameField type="generation" draft="unconfirmed">Jr</nameField>

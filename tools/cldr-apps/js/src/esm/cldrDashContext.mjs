@@ -4,7 +4,9 @@
  */
 
 import * as cldrDrag from "./cldrDrag.mjs";
+import * as cldrLoad from "./cldrLoad.mjs";
 import * as cldrNotify from "./cldrNotify.mjs";
+import * as cldrStatus from "./cldrStatus.mjs";
 import * as cldrVue from "./cldrVue.mjs";
 
 import DashboardWidget from "../views/DashboardWidget.vue";
@@ -20,12 +22,37 @@ const NEIGHBOR_SECTION_ID = "VotingEtcSection";
 let wrapper = null;
 
 /**
- * Is the Info Panel currently displayed?
+ * Is the Dashboard currently displayed?
  */
-let visible = false;
+let dashVisible = false;
+
+/**
+ * Does the user want the Dashboard to be displayed when appropriate?
+ * It is hidden automatically when there is a "special" view for which
+ * it is inappropriate. When returning to the non-special vetting view,
+ * the Dashboard should be displayed again, unless the user has indicated, by clicking
+ * its close box, that they don't want to see it.
+ */
+let dashWanted = true;
 
 function isVisible() {
-  return visible; // boolean
+  return dashVisible; // boolean
+}
+
+/**
+ * Should the Dashboard be shown?
+ *
+ * Default is true when called the first time.
+ * Subsequently, remember whether the user has left it open or closed.
+ *
+ * @returns true if the Dashboard should be shown, else false
+ */
+function shouldBeShown() {
+  if (!dashWanted) {
+    return false;
+  }
+  const spec = cldrStatus.getCurrentSpecial();
+  return !spec || spec === cldrLoad.GENERAL_SPECIAL;
 }
 
 function wireUpOpenButtons() {
@@ -39,7 +66,7 @@ function wireUpOpenButtons() {
  * Create or reopen the DashboardWidget Vue component
  */
 function insert() {
-  if (visible) {
+  if (dashVisible) {
     return; // already inserted and visible
   }
   try {
@@ -61,7 +88,7 @@ function insert() {
  * Show the Dashboard
  */
 function show() {
-  if (visible) {
+  if (dashVisible) {
     return;
   }
   const vote = document.getElementById(NEIGHBOR_SECTION_ID);
@@ -74,16 +101,22 @@ function show() {
     for (let i = 0; i < els.length; i++) {
       els[i].style.display = "none";
     }
-    visible = true;
+    dashVisible = dashWanted = true;
     cldrDrag.enable(vote, dash, true /* up/down */);
   }
 }
 
 /**
  * Hide the Dashboard
+ *
+ * @param {Boolean} userWantsHidden true if closing because user clicked close box (or equivalent),
+ *       false if closing because switching to a "special" view where the Dashboard doesn't belong
  */
-function hide() {
-  if (!visible) {
+function hide(userWantsHidden) {
+  if (userWantsHidden === undefined) {
+    console.error("cldrDashContext.hide was called with undefined parameter");
+  }
+  if (!dashVisible) {
     return;
   }
   const vote = document.getElementById(NEIGHBOR_SECTION_ID);
@@ -95,18 +128,19 @@ function hide() {
     for (let i = 0; i < els.length; i++) {
       els[i].style.display = "inline";
     }
-    visible = false;
+    dashVisible = false;
+    dashWanted = !userWantsHidden;
   }
 }
 
 function updateRow(json) {
-  if (visible) {
+  if (dashVisible) {
     wrapper?.updatePath(json);
   }
 }
 
 function updateWithCoverage(newLevel) {
-  if (visible) {
+  if (dashVisible) {
     wrapper?.handleCoverageChanged(newLevel);
   }
 }
@@ -115,6 +149,7 @@ export {
   hide,
   insert,
   isVisible,
+  shouldBeShown,
   updateRow,
   updateWithCoverage,
   wireUpOpenButtons,

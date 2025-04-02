@@ -11,7 +11,6 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.EnumSet;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Objects;
 import java.util.Set;
 import java.util.TreeMap;
@@ -208,11 +207,11 @@ public class QuickCheck {
             DisplayAndInputProcessor displayAndInputProcessor =
                     new DisplayAndInputProcessor(file, false);
 
-            System.out.println(locale + "\t-\t" + english.getName(locale));
+            System.out.println(
+                    locale + "\t-\t" + english.nameGetter().getNameFromIdentifier(locale));
             DtdType dtdType = null;
 
-            for (Iterator<String> it = file.iterator(); it.hasNext(); ) {
-                String path = it.next();
+            for (String path : file) {
                 if (path.endsWith("/alias")) {
                     continue;
                 }
@@ -340,8 +339,8 @@ public class QuickCheck {
             }
 
             CLDRFile root = cldrFactory.make("root", true);
-            for (Iterator<String> it = root.iterator(); it.hasNext(); ) {
-                pathToLocale.removeAll(it.next());
+            for (String path : root) {
+                pathToLocale.removeAll(path);
             }
             if (showInfo)
                 for (String path : pathToLocale.keySet()) {

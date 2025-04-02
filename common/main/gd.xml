@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1341,13 +1341,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="calendar" type="roc">Mìosachan Poblachd na Sìne</type>
 			<type key="cf" type="account">Fòrmat airgeadra na cunntasachd</type>
 			<type key="cf" type="standard">Fòrmat stannardach an airgeadra</type>
-			<type key="collation" type="big5han">Òrdugh seòrsachaidh na Sìnise Tradaiseanta - Big5</type>
 			<type key="collation" type="compat">Òrdugh seòrsachaidh roimhe a chum co-chòrdalachd</type>
 			<type key="collation" type="dictionary">Òrdugh seòrsachaidh an fhaclair</type>
 			<type key="collation" type="ducet">Òrdugh seòrsachaidh Unicode bunaiteach</type>
 			<type key="collation" type="emoji">Òrdugh seòrsachaidh Emoji</type>
 			<type key="collation" type="eor">Òrdugh seòrsachaidh Eòrpach</type>
-			<type key="collation" type="gb2312han">Òrdugh seòrsachaidh na Sìnise Simplichte - GB2312</type>
 			<type key="collation" type="phonebook">Òrdugh seòrsachaidh nan leabhraichean-fòn</type>
 			<type key="collation" type="pinyin">Òrdugh seòrsachaidh Pinyin</type>
 			<type key="collation" type="search">Lorg coitcheann</type>
@@ -4434,6 +4432,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<regionFormat type="daylight">Tìde samhraidh: {0}</regionFormat>
 			<regionFormat type="standard">Bun-àm: {0}</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<short>
+					<generic>HST</generic>
+					<standard>HST</standard>
+					<daylight>HDT</daylight>
+				</short>
+				<exemplarCity>Honolulu</exemplarCity>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>Àm Uile-choitcheann Co-òrdanaichte</standard>
@@ -5058,9 +5064,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Enderbury">
-				<exemplarCity>Enderbury</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kanton">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
@@ -5178,9 +5181,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Khovd</exemplarCity>
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
-				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
-			<zone type="Asia/Choibalsan">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Macau">
@@ -5581,14 +5581,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="America/Nome">
 				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
-			<zone type="Pacific/Honolulu">
-				<short>
-					<generic>HST</generic>
-					<standard>HST</standard>
-					<daylight>HDT</daylight>
-				</short>
-				<exemplarCity>Honolulu</exemplarCity>
 			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -6002,13 +5994,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>Àm na Sìne</generic>
 					<standard>Bun-àm na Sìne</standard>
 					<daylight>Tìde samhraidh na Sìne</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>Àm Choibalsan</generic>
-					<standard>Bun-àm Choibalsan</standard>
-					<daylight>Tìde samhraidh Choibalsan</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">
@@ -10737,7 +10722,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="few">{0} nithean</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>pàirt sa mhillean</displayName>
 				<unitPattern count="one">{0} phàirt sa mhillean</unitPattern>
 				<unitPattern count="two">{0} phàirt sa mhillean</unitPattern>
@@ -11907,7 +11892,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="few">{0} solasan</unitPattern>
 				<unitPattern count="other">{0} solas</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>pàirt sa bhillean</displayName>
 				<unitPattern count="one">{0} phàirt sa bhillean</unitPattern>
 				<unitPattern count="two">{0} phàirt sa bhillean</unitPattern>
@@ -12199,7 +12184,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="few">{0} nith</unitPattern>
 				<unitPattern count="other">{0} nì</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="two">↑↑↑</unitPattern>
@@ -13369,7 +13354,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="few">{0} solasan</unitPattern>
 				<unitPattern count="other">{0} solas</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>pàirt/billean</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="two">↑↑↑</unitPattern>
@@ -13661,7 +13646,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="few">{0}nith</unitPattern>
 				<unitPattern count="other">{0}nì</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">{0}ppm</unitPattern>
 				<unitPattern count="two">{0}ppm</unitPattern>
@@ -14831,7 +14816,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="few">{0}solas.</unitPattern>
 				<unitPattern count="other">{0}solas</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">{0}ppb</unitPattern>
 				<unitPattern count="two">{0}ppb</unitPattern>

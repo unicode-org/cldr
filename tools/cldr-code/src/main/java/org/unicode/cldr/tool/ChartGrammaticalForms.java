@@ -166,7 +166,7 @@ public class ChartGrammaticalForms extends Chart {
             }
             Set<String> failures = new LinkedHashSet<>();
             GrammarInfo grammarInfo = SDI.getGrammarInfo(localeId, false);
-            String localeName = CONFIG.getEnglish().getName(localeId);
+            String localeName = CONFIG.getEnglish().nameGetter().getNameFromIdentifier(localeId);
             for (GrammaticalFeature feature : GrammaticalFeature.values()) {
                 Map<GrammaticalScope, Set<String>> scopeToValues =
                         grammarInfo.get(GrammaticalTarget.nominal, feature);
@@ -905,7 +905,7 @@ public class ChartGrammaticalForms extends Chart {
                             powerTable));
 
             if (!info.isEmpty()) {
-                String name = ENGLISH.getName(locale);
+                String name = ENGLISH.nameGetter().getNameFromIdentifier(locale);
                 new Subchart(name + ": Unit Grammar Info", locale, info).writeChart(anchors);
             }
         }

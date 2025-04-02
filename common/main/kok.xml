@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -3074,9 +3074,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>फ्नोम पेन्ह</exemplarCity>
 			</zone>
 			<zone type="Pacific/Enderbury">
-				<exemplarCity>इंडरबरी</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kanton">
 				<exemplarCity>कांटोन</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
@@ -3195,9 +3192,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>उलानबतार</exemplarCity>
-			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity>चोईबाल्सन</exemplarCity>
 			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity>मकाव</exemplarCity>
@@ -3940,13 +3934,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>चीन वेळ</generic>
 					<standard>चीन प्रमाणित वेळ</standard>
 					<daylight>चीन डेलायट वेळ</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>चोईबाल्सन वेळ</generic>
-					<standard>चोईबाल्सन प्रमाणित वेळ</standard>
-					<daylight>चोईबाल्सन ग्रीष्म वेळ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">
@@ -5871,7 +5858,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0} वस्ती</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>पार्ट पर मिलियन</displayName>
 				<unitPattern count="other">{0} पार्ट पर मिलियन</unitPattern>
 			</unit>
@@ -6549,7 +6536,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>प्रकाश</displayName>
 				<unitPattern count="other">{0} प्रकाश</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -6766,7 +6753,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>वस्त</displayName>
 				<unitPattern count="other">{0} वस्त</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>पार्ट/मिलियन</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -7444,7 +7431,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>प्रकाश</displayName>
 				<unitPattern count="other">{0} प्रकाश</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -7661,7 +7648,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0}वस्त</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>ppm</displayName>
 				<unitPattern count="other">{0}ppm</unitPattern>
 			</unit>
@@ -8339,7 +8326,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>प्रकाश</displayName>
 				<unitPattern count="other">{0} प्रकाश</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>

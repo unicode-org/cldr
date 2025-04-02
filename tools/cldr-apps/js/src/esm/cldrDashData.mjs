@@ -248,16 +248,19 @@ let fetchErr = "";
 
 let viewSetDataCallback = null;
 
-function doFetch(callback) {
+function doFetch(callback, opts) {
+  opts = opts || {};
+  const { includeOther } = opts;
   viewSetDataCallback = callback;
   fetchErr = "";
   const locale = cldrStatus.getCurrentLocale();
   const level = cldrCoverage.effectiveName(locale);
   if (!locale || !level) {
-    fetchErr = "Please choose a locale and a coverage level first.";
+    fetchErr = cldrText.get("dash_needs_locale_and_coverage");
     return;
   }
-  const url = `api/summary/dashboard/${locale}/${level}`;
+  const qs = includeOther ? "?includeOther=true" : "";
+  const url = `api/summary/dashboard/${locale}/${level}${qs}`;
   cldrAjax
     .doFetch(url)
     .then(cldrAjax.handleFetchErrors)
@@ -473,10 +476,10 @@ async function downloadXlsx(data, locale, cb) {
 
 /**
  * @param {string} locale locale to list for
- * @returns {Array<CheckStatusSummary>}
+ * @returns {Promise<Array<CheckStatusSummary>>}
  */
 async function getLocaleErrors(locale) {
-  const client = cldrClient.getClient();
+  const client = await cldrClient.getClient();
   return await client.apis.voting.getLocaleErrors({ locale });
 }
 

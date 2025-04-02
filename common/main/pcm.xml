@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -3007,9 +3007,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Fnọ́m Pẹn</exemplarCity>
 			</zone>
 			<zone type="Pacific/Enderbury">
-				<exemplarCity>Ẹ́ndábẹ́ri</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kanton">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
@@ -3128,9 +3125,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>Ulanbáta</exemplarCity>
-			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity>Choibálsan</exemplarCity>
 			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity>Makáo</exemplarCity>
@@ -3873,13 +3867,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>Chaína Taim</generic>
 					<standard>Chaína Fíksd Taim</standard>
 					<daylight>Chaína Délaít Taim</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>Choibálsan Taim</generic>
-					<standard>Choibálsan Fíksd Taim</standard>
-					<daylight>Choibálsan Họ́t Sízin Taim</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">
@@ -5991,7 +5978,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>Pat-dẹm Fọ Ích Míliọn</displayName>
 				<unitPattern count="one">{0} Pat Fọ Ích Míliọn</unitPattern>
 				<unitPattern count="other">{0} Pat Fọ Ích Míliọn</unitPattern>
@@ -6832,7 +6819,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} laít</unitPattern>
 				<unitPattern count="other">{0} laít</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>pat fọ ích bíliọn</displayName>
 				<unitPattern count="one">{0} pat fọ ích bíliọn</unitPattern>
 				<unitPattern count="other">{0} pat fọ ích bíliọn</unitPattern>
@@ -7074,7 +7061,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>Pat/Míliọn</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} pfim</unitPattern>
@@ -7523,9 +7510,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-tonne">
-				<displayName>T</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>M. Tọn-dẹm</displayName>
+				<unitPattern count="one">{0} M. Tọn</unitPattern>
+				<unitPattern count="other">{0} M. Tọn</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>↑↑↑</displayName>
@@ -7914,7 +7901,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} laít</unitPattern>
 				<unitPattern count="other">{0} laít</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>pat/bíliọn</displayName>
 				<unitPattern count="one">{0} pfib</unitPattern>
 				<unitPattern count="other">{0} pfib</unitPattern>
@@ -8156,7 +8143,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>Pfim</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -8996,7 +8983,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0}laít</unitPattern>
 				<unitPattern count="other">{0}laít</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>pfib</displayName>
 				<unitPattern count="one">{0}pfib</unitPattern>
 				<unitPattern count="other">{0}pfib</unitPattern>

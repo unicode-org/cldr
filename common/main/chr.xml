@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -2420,6 +2420,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<regionFormat type="daylight">{0} ᎪᎯ ᎢᎦ ᎠᏟᎢᎵᏒ</regionFormat>
 			<regionFormat type="standard">{0} ᎠᏟᎶᏍᏗ ᎠᏟᎢᎵᏒ</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<short>
+					<generic>HST</generic>
+					<standard>HST</standard>
+					<daylight>HDT</daylight>
+				</short>
+				<exemplarCity>ᎭᏃᎷᎷ</exemplarCity>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>ᎢᎩᏠᏱ ᏂᎦᏓ ᎠᏟᎢᎵᏒ</standard>
@@ -3035,9 +3043,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>ᎿᎻ ᏇᏂ</exemplarCity>
 			</zone>
 			<zone type="Pacific/Enderbury">
-				<exemplarCity>ᎡᏂᏇᎵ</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kanton">
 				<exemplarCity>ᎧᏛᏂ</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
@@ -3156,9 +3161,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>ᎤᎳᏂᏆᏔ</exemplarCity>
-			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity>ᏦᏱᏆᎵᏌᏂ</exemplarCity>
 			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity>ᎹᎧᎤ</exemplarCity>
@@ -3559,14 +3561,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="America/Nome">
 				<exemplarCity>ᏃᎺ</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<short>
-					<generic>HST</generic>
-					<standard>HST</standard>
-					<daylight>HDT</daylight>
-				</short>
-				<exemplarCity>ᎭᏃᎷᎷ</exemplarCity>
-			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>ᎠᏂᎪᎴᏥ</exemplarCity>
 			</zone>
@@ -3939,13 +3933,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>ᏓᎶᏂᎨᏍᏛ ᎠᏟᎢᎵᏒ</generic>
 					<standard>ᏓᎶᏂᎨᏍᏛ ᎠᏟᎶᏍᏗ ᎠᏟᎢᎵᏒ</standard>
 					<daylight>ᏓᎶᏂᎨᏍᏛ ᎪᎯ ᎢᎦ ᎠᏟᎢᎵᏒ</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>ᏦᏱᏆᎵᏌᏂ ᎠᏟᎢᎵᏒ</generic>
-					<standard>ᏦᏱᏆᎵᏌᏂ ᎠᏟᎶᏍᏗ ᎠᏟᎢᎵᏒ</standard>
-					<daylight>ᏦᏱᏆᎵᏌᏂ ᎪᎩ ᎠᏟᎢᎵᏒ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">
@@ -6088,7 +6075,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>ᏚᏙᏢᏒ ᎢᏳᏆᏗᏅᏛ ᎢᏳᏓᎵ</displayName>
 				<unitPattern count="one">{0} ᎤᏙᏢᏒ ᎢᏳᏆᏗᏅᏛ ᎢᏳᏓᎵ</unitPattern>
 				<unitPattern count="other">{0} ᏚᏙᏢᏒ ᎢᏳᏆᏗᏅᏛ ᎢᏳᏓᎵ</unitPattern>
@@ -6925,7 +6912,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} ᎠᏨᏍᏗ</unitPattern>
 				<unitPattern count="other">{0} ᎠᏨᏍᏗ</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>ᏚᏙᏢᏒ ᎢᏳᏓᎵ ᎢᏳᏔᎵᎳᏗᏅᏛ</displayName>
 				<unitPattern count="one">{0} ᎤᏙᏢᏒ ᎢᏳᏓᎵ ᎢᏳᏔᎵᎳᏗᏅᏛ</unitPattern>
 				<unitPattern count="other">{0} ᏚᏙᏢᏒ ᎢᏳᏓᎵ ᎢᏳᏔᎵᎳᏗᏅᏛ</unitPattern>
@@ -7167,7 +7154,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} ᏑᏓᎴᎩ</unitPattern>
 				<unitPattern count="other">{0} ᎢᏳᏓᎴᎩ</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>ᏚᏙᏢᏒ/ᎢᏳᏆᏗᏅᏛ</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -8004,7 +7991,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} ᎠᏨᏍᏗ</unitPattern>
 				<unitPattern count="other">{0} ᎠᏨᏍᏗ</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>ᏚᏙᏢᏒ/ᎢᏳᏔᎵᎳᏗᏅᏛ</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -8246,7 +8233,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>ppm</displayName>
 				<unitPattern count="one">{0}ppm</unitPattern>
 				<unitPattern count="other">{0}ppm</unitPattern>
@@ -9083,7 +9070,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0}ᎠᏨᏍᏗ</unitPattern>
 				<unitPattern count="other">{0}ᎠᏨᏍᏗ</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">{0}ppb</unitPattern>
 				<unitPattern count="other">{0}ppb</unitPattern>

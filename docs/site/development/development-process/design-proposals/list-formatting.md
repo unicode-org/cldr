@@ -63,4 +63,3 @@ Note that a higher level needs to handle the cases of zero and one element. Typi
 To account for the issue Philip raises, we might want to have alt values for a semi-colon (like) variant.
 
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

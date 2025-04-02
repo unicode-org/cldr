@@ -5,10 +5,10 @@ import com.google.common.collect.Iterables;
 import com.google.common.collect.TreeMultimap;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonStreamParser;
+import com.ibm.icu.util.ICUUncheckedIOException;
 import java.io.File;
 import java.io.IOException;
 import java.io.Reader;
-import java.io.UncheckedIOException;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Map.Entry;
@@ -277,7 +277,7 @@ public class VerifyConverterResults {
             JsonStreamParser gsonParser = new JsonStreamParser(reader);
             gsonParser.forEachRemaining((JsonElement x) -> process(x, accummulatedValues));
         } catch (IOException e) {
-            throw new UncheckedIOException(e);
+            throw new ICUUncheckedIOException(e);
         }
     }
 

@@ -1,8 +1,8 @@
-## Unicode Technical Standard #35 Tech Preview
+## Unicode Technical Standard #35
 
 # Unicode Locale Data Markup Language (LDML)<br/>Part 7: Keyboards
 
-|Version|46 (draft)   |
+|Version|48 (draft)   |
 |-------|-------------|
 |Editors|Steven Loomis (<a href="mailto:srloomis@unicode.org">srloomis@unicode.org</a>) and <a href="tr35.md#Acknowledgments">other CLDR committee members</a>|
 
@@ -13,11 +13,6 @@ For the full header, summary, and status, see [Part 1: Core](tr35.md).
 This document describes parts of an XML format (_vocabulary_) for the exchange of structured locale data. This format is used in the [Unicode Common Locale Data Repository](https://www.unicode.org/cldr/).
 
 This is a partial document, describing keyboards. For the other parts of the LDML see the [main LDML document](tr35.md) and the links above.
-
-_Note:_
-Some links may lead to in-development or older
-versions of the data files.
-See <https://cldr.unicode.org> for up-to-date CLDR release data.
 
 ### _Status_
 
@@ -30,8 +25,11 @@ This is a stable document and may be used as reference material or cited as a no
 
 > _**A Unicode Technical Standard (UTS)** is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS._
 
-_Please submit corrigenda and other comments with the CLDR bug reporting form [[Bugs](tr35.md#Bugs)]. Related information that is useful in understanding this document is found in the [References](tr35.md#References). For the latest version of the Unicode Standard see [[Unicode](tr35.md#Unicode)]. For a list of current Unicode Technical Reports see [[Reports](tr35.md#Reports)]. For more information about versions of the Unicode Standard, see [[Versions](tr35.md#Versions)]._
-
+_Please submit corrigenda and other comments with the CLDR bug reporting form [[Bugs](https://cldr.unicode.org/index/bug-reports)].
+Related information that is useful in understanding this document is found in the [References](#References).
+For the latest version of the Unicode Standard see [[Unicode](https://www.unicode.org/versions/latest/)].
+For more information see [About Unicode Technical Reports](https://www.unicode.org/reports/about-reports.html) and the [Specifications FAQ](https://www.unicode.org/faq/specifications.html).
+Unicode Technical Reports are governed by the Unicode [Terms of Use](https://www.unicode.org/copyright.html)._
 
 See also [Compatibility Notice](#compatibility-notice).
 
@@ -123,6 +121,10 @@ The LDML specification is divided into the following parts:
     * [Additional Features](#additional-features)
     * [Disallowed Regex Features](#disallowed-regex-features)
     * [Replacement syntax](#replacement-syntax)
+    * [Transform Grammar](#transform-grammar)
+      * [Transform From Grammar](#transform-from-grammar)
+      * [Transform To Grammar](#transform-to-grammar)
+      * [ABNF](#abnf)
   * [Element: reorder](#element-reorder)
     * [Using `<import>` with `<reorder>` elements](#using-import-with-reorder-elements)
     * [Example Post-reorder transforms](#example-post-reorder-transforms)
@@ -512,7 +514,7 @@ See [UAX #15](https://www.unicode.org/reports/tr15/#Description_Norm) for an ove
 
 #### Example Normalization with Markers
 
-**Example 1**
+**Example 1a**
 
 Consider this example, without markers:
 
@@ -521,7 +523,7 @@ Consider this example, without markers:
 
 The combining marks are reordered.
 
-**Example 2**
+**Example 1b**
 
 If we add markers:
 
@@ -626,10 +628,13 @@ This is the top level element. All other elements defined below are under this e
 
 _Attribute:_ `conformsTo` (required)
 
-This attribute value distinguishes the keyboard from prior versions,
-and it also specifies the minimum CLDR major version required.
+This attribute value specifies the minimum supported CLDR major version required to properly interpret this keyboard.
 
-This attribute value must be a whole number of `45` or greater. See [`cldrVersion`](tr35-info.md#version-information)
+The value must be a whole number of `45` or greater. See [`cldrVersion`](tr35-info.md#version-information)
+
+CLDR's stability policy is such that keyboards which conform to a CLDR version automatically are conformant to all future versions. In other words, a layout with `conformsTo="45"` could be changed to `conformsTo="46"` with no other changes and the layout would remain conformant.
+
+To promote wider interchange, authors and tooling should use the minimum `conformsTo` value necessary to support the keyboard.
 
 ```xml
 <keyboard3 … conformsTo="45"/>
@@ -654,6 +659,11 @@ For further details about the choice of locale ID, see [Keyboard IDs](#keyboard-
   …
 </keyboard3>
 ```
+
+_Attribute:_ `draft`
+
+If this attribute is present, it indicates the status of all the data in this keyboard layout. See [draft attribute](tr35.md#attribute-draft) for further details.
+
 * * *
 
 ### Element: import
@@ -862,7 +872,8 @@ Element containing informative properties about the layout, for displaying in us
       name="…name"
       author="…author"
       layout="…hint of the layout"
-      indicator="…short identifier" />
+      indicator="…short identifier"
+      attribution="…attribution" />
 ```
 
 > <small>
@@ -891,10 +902,12 @@ _Attribute:_ `name` (required)
 
 * * *
 
-
 _Attribute:_ `author`
 
 > The `author` attribute value contains the name of the author of the layout file.
+> There is no requirement that an implementation display, store, or otherwise process this informative attribute.
+
+* * *
 
 _Attribute:_ `layout`
 
@@ -902,12 +915,29 @@ _Attribute:_ `layout`
 >
 > This attribute is not localized, but is an informative identifier for implementation use.
 
+* * *
+
 _Attribute:_ `indicator`
 
 > The `indicator` attribute describes a short string to be used in currently selected layout indicator, such as `US`, `SI9` etc.
 > Typically, this is shown on a UI element that allows switching keyboard layouts and/or input languages.
 >
 > This attribute is not localized.
+
+* * *
+
+_Attribute:_ `attribution`
+
+> The `attribution` attribute describes a short string which gives some indication of the originating entity of the keyboard design, if different from the author of the layout file.
+> For example, an external standards body or other entity may have originated the layout used in the document.
+> This attribute does not imply endorsement by the named entity.
+>
+> This attribute is not localized.
+> There is no requirement that an implementation display, store, or otherwise process this attribute.
+
+```xml
+<info attribution="Malta Standards Authority"/>
+```
 
 * * *
 
@@ -1806,10 +1836,10 @@ _Attribute:_ `value` (required)
 <variables>
     <string id="cluster_hi" value="हि" /> <!-- a string -->
     <string id="zwnj" value="\u{200C}"/> <!-- single codepoint -->
-    <string id="acute" value="\m{acute}"/> <!-- refer to a marker -->
+    <string id="grave" value="\m{grave}"/> <!-- refer to a marker -->
     <string id="backquote" value="`"/>
-    <string id="zwnj_acute" value="${zwnj}${acute}"  /> <!-- Combine two variables -->
-    <string id="zwnj_sp_acute" value="${zwnj}\u{0020}${acute}"  /> <!-- Combine two variables -->
+    <string id="zwnj_grave" value="${zwnj}${grave}"  /> <!-- Combine two variables -->
+    <string id="zwnj_sp_grave" value="${zwnj}\u{0020}${grave}"  /> <!-- Combine two variables -->
 </variables>
 ```
 
@@ -1822,10 +1852,10 @@ These may be then used in multiple contexts:
 …
 <!-- as part of a key bag  -->
 <key id="hi_key" output="${cluster_hi}" />
-<key id="acute_key" output="${acute}" />
+<key id="grave_key" output="${grave}" />
 …
-<!-- Display ´ instead of the non-displayable marker -->
-<display output="${acute}" display="${backquote}" />
+<!-- Display ` instead of the non-displayable marker -->
+<display output="${grave}" display="${backquote}" />
 ```
 
 * * *
@@ -2185,30 +2215,49 @@ _Attribute:_ `from` (required)
     The hex escaping is case insensitive. The value may not match a surrogate or illegal character, nor a marker character.
     The form `\u{…}` is preferred as it is the same regardless of codepoint length.
 
-- **Fixed character classes and escapes**
+- **Fixed character classes**
 
-    `\s \S \t \r \n \f \v \\ \$ \d \w \D \W \0`
+    `\s \S \t \r \n \f \v \d \w \D \W`
 
     The value of these classes do not change with Unicode versions.
 
     `\s` for example is exactly `[\f\n\r\t\v\u{00a0}\u{1680}\u{2000}-\u{200a}\u{2028}\u{2029}\u{202f}\u{205f}\u{3000}\u{feff}]`
 
-    `\\` and `\$` evaluate to `\` and `$`, respectively.
+- **Escapes**
+
+    `\. \( \) \? \[ \\ \] \{ \} \* \/ \^ \+ \| \$`
+
+    For example, `\\`, `\*`, and `\$` match `\`, `*`, and `$`, respectively.
+
+    Some of these characters (such as `*`) aren't actually used as syntax in the keyboard transform syntax.
+    However, they are required to be escaped in keyboard transforms, to avoid confusion or problems with characters which are syntax in regular expressions.
+
+    Sequences not listed here as **Fixed Character Classes** nor as **Escapes** are disallowed.
+    For example:
+    * `\0` (octal escape) and `\1` (backreference) are not allowed.
+    * `\a` is not defined as a character class and is also disallowed.
 
 - **Character classes**
 
     `[abc]` `[^def]` `[a-z]` `[ॲऄ-आइ-ऋ]` `[\u{093F}-\u{0944}\u{0962}\u{0963}]`
 
-    - supported
-    - no Unicode properties such as `\p{…}`
-    - Warning: Character classes look superficially similar to [`uset`](#element-uset) elements, but they are distinct and referenced with the `$[...usetId]` notation in transforms. The `uset` notation cannot be embedded directly in a transform.
+    If the character class begins with a caret (`^`) then it is a negation, matching all characters except for those listed.
+
+    Unicode properties such as `\p{…}` are not allowed.
+
+    One additional escape is allowed within character classes besides those listed above: `\-`, for escaping the hyphen character.
+
+    **Note**: Character classes look superficially similar to [`uset`](#element-uset) elements, but they are distinct and referenced with the `$[...usetId]` notation in transforms. The `uset` notation cannot be embedded directly in a transform.
 
 - **Bounded quantifier**
 
     `{x,y}`
 
-    `x` and `y` are required single digits representing the minimum and maximum number of occurrences.
-    `x` must be ≥ 0, `y` must be ≥ x and ≥ 1
+    `x` and `y` are required single digits (`0` to `9`) representing the minimum and maximum number of occurrences.
+
+    `x` must be ≥ 0, `y` must be ≥ x and ≥ 1. 
+
+    Unbounded quantifiers such as `{3,}` are not allowed.
 
 - **Optional Specifier**
 
@@ -2393,7 +2442,7 @@ Used in the `to=`
 
     - The `from=` and `to=` sides of the pattern must both be using `set` variables. There is no way to insert a set literal on either side and avoid using a variable.
 
-    - The two variables (here `upper` and `lower`) must have exactly the same number of whitespace-separated items. Leading and trailing space (such as at the end of `lower`) is ignored. A variable without any spaces is considered to be a set variable of exactly one item.
+    - The two variables (here `upper` and `lower`) must have exactly the same number of whitespace-separated items. Leading and trailing space is ignored. A variable without any spaces is considered to be a set variable of exactly one item.
 
     - As described in [Additional Features](#additional-features), the `upper` set variable as used here matches as if it is `((?:A|B|CC|D|E|FF|G))`, showing the enclosing capturing group. When text from the input context matches this expression, and all above conditions are met, the mapping proceeds as follows:
 
@@ -2410,6 +2459,298 @@ Used in the `to=`
     `\m{Some_marker}`
 
     Emits the named mark. Also see [Markers](#markers).
+
+#### Transform Grammar
+
+##### Transform From Grammar
+
+The `from=` attribute MUST match the `from-match` rule in this grammar. Not all strings which match this grammar are valid, specifically
+
+The following is the [LDML EBNF](tr35.md#ebnf) format for the grammar:
+
+```ebnf
+[ wfc: No more than 9 capture groups may be present. ]
+[ vc: all variables referenced must be defined in the <variables> element ]
+
+from-match
+         ::= '^'? atoms
+atoms    ::= atom ( '|'? atom )*
+atom     ::= quark quantifier?
+quark    ::= non-group
+           | group
+non-group
+         ::= simple-matcher
+           | escaped-codepoints
+           | variable
+variable ::= string-variable
+           | set-variable
+string-variable
+         ::= '${' var-id '}'
+set-variable
+         ::= '$[' var-id ']'
+var-id   ::= IDCHAR+
+group    ::= capturing-group
+           | non-capturing-group
+quantifier
+         ::= bounded-quantifier
+           | '?'
+escaped-codepoints
+         ::= '\' 'u' '{' codepoints-hex '}'
+escaped-codepoint
+         ::= '\' 'u' '{' codepoint-hex '}'
+bounded-quantifier
+         ::= '{' DIGIT ',' DIGIT '}'
+non-capturing-group
+         ::= '(' '?' ':' atoms ')'
+capturing-group
+         ::= '(' catoms ')'
+catoms   ::= catom+
+catom    ::= cquark quantifier?
+cquark   ::= non-group
+codepoints-hex
+         ::= codepoint-hex ( ' ' codepoint-hex )*
+codepoint-hex
+         ::= LHEXDIG ( LHEXDIG ( LHEXDIG ( LHEXDIG ( LHEXDIG LHEXDIG? )? )? )? )?
+simple-matcher
+         ::= text-char
+           | class
+           | '.'
+           | match-marker
+match-marker
+         ::= '\m{.}'
+           | match-named-marker
+match-named-marker
+         ::= '\m{' marker-id '}'
+marker-id
+         ::= NMTOKEN
+class    ::= fixed-class
+           | set-class
+fixed-class
+         ::= '\' fixed-class-char
+fixed-class-char
+         ::= 's'
+           | 'S'
+           | 't'
+           | 'r'
+           | 'n'
+           | 'f'
+           | 'v'
+           | 'd'
+           | 'w'
+           | 'D'
+           | 'W'
+set-class
+         ::= '[' set-negator set-members ']'
+set-members
+         ::= set-member+
+set-member
+         ::= char-range
+           | range-char
+           | match-marker
+           | escaped-codepoint
+char-range
+         ::= range-edge '-' range-edge
+range-edge
+         ::= escaped-codepoint
+           | range-char
+set-negator
+         ::= '^'?
+text-char
+         ::= content-char
+           | ws
+           | escaped-char
+           | '-'
+           | ':'
+range-char
+         ::= content-char
+           | ws
+           | escaped-range-char
+           | '.'
+           | '|'
+           | '{'
+           | '}'
+content-char
+         ::= ASCII-PUNCT
+           | ALPHA
+           | DIGIT
+           | NON-ASCII
+escaped-char
+         ::= '\' escapable-char
+escapable-char
+         ::= '.'
+           | '('
+           | ')'
+           | '?'
+           | '['
+           | '\'
+           | ']'
+           | '{'
+           | '}'
+           | '*'
+           | '/'
+           | '^'
+           | '+'
+           | '|'
+           | '$'
+escaped-range-char
+         ::= '\' escapable-range-char
+escapable-range-char
+         ::= escapable-char
+           | '-'
+ws       ::= [ #x3000]
+           | HTAB
+           | CR
+           | LF
+IDCHAR   ::= ALPHA
+           | DIGIT
+           | '_'
+ASCII-PUNCT
+         ::= [!-#%-',/;->_`#x7E-#x7F]
+NON-ASCII
+         ::= [#x7E-#xD7FF#xE000-#x10FFFF]
+DIGIT    ::= [0-9]
+ALPHA    ::= [A-Za-z]
+HTAB     ::= #xF900
+LF       ::= #xA
+CR       ::= #xD
+HEXDIG   ::= DIGIT
+           | 'A'
+           | 'B'
+           | 'C'
+           | 'D'
+           | 'E'
+           | 'F'
+LHEXDIG  ::= HEXDIG
+           | 'a'
+           | 'b'
+           | 'c'
+           | 'd'
+           | 'e'
+           | 'f'
+NAMESTARTCHAR
+         ::= [:_#xC0-#xD6#xD8-#xF6#xF8-#x2FF#x370-#x37D#x37F-#x1FFF#x200C-#x200D#x2070-#x218F#x2C00-#x2FEF#x3001-#xD7FF#xF900-#xFDCF#xFDF0-#xFFFD#x10000-#x10FFFF]
+           | ALPHA
+NAMECHAR ::= NAMESTARTCHAR
+           | [-.#xB7#x300-#x36F#x203F-#x2040]
+           | DIGIT
+NMTOKEN  ::= NAMECHAR+
+```
+
+##### Transform To Grammar
+
+This is the grammar for the `<transform to="…"/>` attribute.  The `to=` attribute MUST match the `to-replacement` rule in this grammar. Not all strings which match this grammar are valid:
+
+The following is the [LDML EBNF](tr35.md#ebnf) format for the grammar:
+
+```ebnf
+[ vc: A referenced capture group must be present in the from= match string. ]
+[ vc: The `$[1:…]` set format may only be used where there is exactly one capture group with a set variable on the from= match string. ]
+[ vc: all variables referenced must be defined in the <variables> element ]
+
+to-replacement
+         ::= atoms
+atoms    ::= atom*
+atom     ::= replacement-char
+           | escaped-char
+           | group-reference
+           | escaped-codepoints
+           | named-marker
+           | string-variable
+           | mapped-set
+replacement-char
+         ::= content-char
+           | ws
+           | '-'
+           | ':'
+           | '('
+           | ')'
+           | '.'
+           | '*'
+           | '+'
+           | '?'
+           | '['
+           | ']'
+           | '^'
+           | '{'
+           | '}'
+           | '|'
+escaped-char
+         ::= '\' ( '\' | '$' )
+           | '$$'
+group-reference
+         ::= '$' DIGIT
+escaped-codepoints
+         ::= '\' 'u' '{' codepoints-hex '}'
+codepoints-hex
+         ::= codepoint-hex ( ' ' codepoint-hex )*
+codepoint-hex
+         ::= LHEXDIG ( LHEXDIG ( LHEXDIG ( LHEXDIG ( LHEXDIG LHEXDIG? )? )? )? )?
+named-marker
+         ::= '\m{' marker-id '}'
+marker-id
+         ::= NMTOKEN
+string-variable
+         ::= '${' var-id '}'
+var-id   ::= IDCHAR+
+mapped-set
+         ::= '$[1:' var-id ']'
+content-char
+         ::= ASCII-PUNCT
+           | ALPHA
+           | DIGIT
+           | NON-ASCII
+ws       ::= [ #x3000]
+           | HTAB
+           | CR
+           | LF
+IDCHAR   ::= ALPHA
+           | DIGIT
+           | '_'
+ASCII-PUNCT
+         ::= [!-#%-',/;->_`#x7E-#x7F]
+NON-ASCII
+         ::= [#x7E-#xD7FF#xE000-#x10FFFF]
+DIGIT    ::= [0-9]
+ALPHA    ::= [A-Za-z]
+HTAB     ::= #xF900
+LF       ::= #xA
+CR       ::= #xD
+HEXDIG   ::= DIGIT
+           | 'A'
+           | 'B'
+           | 'C'
+           | 'D'
+           | 'E'
+           | 'F'
+LHEXDIG  ::= HEXDIG
+           | 'a'
+           | 'b'
+           | 'c'
+           | 'd'
+           | 'e'
+           | 'f'
+NAMESTARTCHAR
+         ::= [:_#xC0-#xD6#xD8-#xF6#xF8-#x2FF#x370-#x37D#x37F-#x1FFF#x200C-#x200D#x2070-#x218F#x2C00-#x2FEF#x3001-#xD7FF#xF900-#xFDCF#xFDF0-#xFFFD#x10000-#x10FFFF]
+           | ALPHA
+NAMECHAR ::= NAMESTARTCHAR
+           | [-.#xB7#x300-#x36F#x203F-#x2040]
+           | DIGIT
+NMTOKEN  ::= NAMECHAR+
+```
+
+##### ABNF
+
+The grammar for the transform rules is also available in ABNF notation [[STD68](https://www.rfc-editor.org/info/std68)],
+including the modifications found in [RFC 7405](https://www.rfc-editor.org/rfc/rfc7405).
+
+RFC7405 defines a variation of ABNF that is case-sensitive.
+Some ABNF tools are only compatible with the specification found in
+[RFC 5234](https://www.rfc-editor.org/rfc/rfc5234).
+
+The ABNF files are located in the `keyboards/abnf` directory in the CLDR source directory.  (The EBNF above was converted from the ABNF files.)
+
+ * `transform-from-required.abnf`
+ * `transform-to-required.abnf`
 
 * * *
 
@@ -2704,7 +3045,7 @@ Keyboarding applications typically work, but are not required to, in one of two 
 
 **_text editing_**
 
-> text editing happens when a user moves the cursor into some previously entered text which may have been entered by someone else. As such, there is no way to know in which order things were typed, but a user will still want appropriate behaviour when they press backspace. This may involve deleting more than one character or replacing a sequence of characters with a different sequence.
+> text editing happens when a user moves the cursor into some previously entered text which may have been entered by someone else. As such, there is no way to know in which order things were typed, but a user will still want appropriate behavior when they press backspace. This may involve deleting more than one character or replacing a sequence of characters with a different sequence.
 
 In text editing mode, different keyboard layouts may behave differently in the same textual context. The backspace transform allows the keyboard layout to specify the effect of pressing backspace in a particular textual context. This is done by specifying a set of backspace rules that match a string before the cursor and replace it with another string. The rules are expressed within a `transforms type="backspace"` element.
 
@@ -2872,9 +3213,16 @@ The following are the design principles for the IDs.
 
 * * *
 
-Copyright © 2001–2024 Unicode, Inc. All Rights Reserved. The Unicode Consortium makes no expressed or implied warranty of any kind, and assumes no liability for errors or omissions. No liability is assumed for incidental and consequential damages in connection with or arising out of the use of the information or programs contained or accompanying this technical report. The Unicode [Terms of Use](https://www.unicode.org/copyright.html) apply.
+© 2001–2025 Unicode, Inc.
+This publication is protected by copyright, and permission must be obtained from Unicode, Inc.
+prior to any reproduction, modification, or other use not permitted by the [Terms of Use](https://www.unicode.org/copyright.html).
+Specifically, you may make copies of this publication and may annotate and translate it solely for personal or internal business purposes and not for public distribution,
+provided that any such permitted copies and modifications fully reproduce all copyright and other legal notices contained in the original.
+You may not make copies of or modifications to this publication for public distribution, or incorporate it in whole or in part into any product or publication without the express written permission of Unicode.
 
-Unicode and the Unicode logo are trademarks of Unicode, Inc., and are registered in some jurisdictions.
+Use of all Unicode Products, including this publication, is governed by the Unicode [Terms of Use](https://www.unicode.org/copyright.html).
+The authors, contributors, and publishers have taken care in the preparation of this publication,
+but make no express or implied representation or warranty of any kind and assume no responsibility or liability for errors or omissions or for consequential or incidental damages that may arise therefrom.
+This publication is provided “AS-IS” without charge as a convenience to users.
 
-
-[keyboard-workgroup]: https://cldr.unicode.org/index/keyboard-workgroup
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the United States and other countries.

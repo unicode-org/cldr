@@ -3,7 +3,6 @@ package org.unicode.cldr.unittest;
 import com.google.common.base.Joiner;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.dev.test.TestFmwk;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -17,6 +16,7 @@ import java.util.List;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.DtdData;
@@ -585,7 +585,14 @@ public class TestDtdData extends TestFmwk {
                     new HashSet<>(
                             Arrays.asList("name", "reorder", "row", "settings", "transform")));
 
+    /**
+     * This function has the purpose of validating that the DTD doesn't change without updating this
+     * test. "old" means "expected" (and so throughout this test)
+     */
     public static boolean isOrderedOld(String element, DtdType type) {
+        // currency is ordered in ldmlSupplemental, but not in ldml, so handle it here.
+        if (type == DtdType.supplementalData && element.equals("currency")) return true;
+
         switch (type) {
             case keyboardTest3:
                 return orderedKeyboardTestElements.contains(element);
@@ -759,9 +766,10 @@ public class TestDtdData extends TestFmwk {
                                 && attribute.equals("locales")
                         || elementName.equals("deriveCompound")
                                 && (attribute.equals("feature") || attribute.equals("structure"))
-                        || (elementName.equals("nameOrderLocalesDefault")
-                                && attribute.equals("order"));
-
+                        || elementName.equals("nameOrderLocalesDefault")
+                                && attribute.equals("order")
+                        || elementName.equals("scriptVariant")
+                                && (attribute.equals("type") || attribute.equals("id"));
             case keyboard3:
                 if (elementName.equals("keyboard3") && attribute.equals("locale")
                         || elementName.equals("layers") && attribute.equals("formId")

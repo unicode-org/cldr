@@ -128,7 +128,12 @@ public class TestUtilities {
             "zh_Hans_US_SAAHO"
         };
         for (String test : tests) {
-            System.out.println(test + "\t" + english.getName(test) + "\t" + french.getName(test));
+            System.out.println(
+                    test
+                            + "\t"
+                            + english.nameGetter().getNameFromIdentifier(test)
+                            + "\t"
+                            + french.nameGetter().getNameFromIdentifier(test));
         }
     }
 
@@ -233,14 +238,11 @@ public class TestUtilities {
             if (maxNumeric < numeric) maxNumeric = numeric;
         }
         // get the differences (and sort them)
-        RuleBasedCollator eng = (RuleBasedCollator) Collator.getInstance();
-        eng.setNumericCollation(true);
-
-        Set<String> extra = new TreeSet<>(eng);
+        Set<String> extra = new TreeSet<>(CollatorHelper.ROOT_NUMERIC);
         extra.addAll(map_timezone_integer.keySet());
         extra.removeAll(timezones);
         System.out.println("Extra: " + extra);
-        Set<String> needed = new TreeSet<>(eng);
+        Set<String> needed = new TreeSet<>(CollatorHelper.ROOT_NUMERIC);
         needed.addAll(timezones);
         needed.removeAll(map_timezone_integer.keySet());
         System.out.println("Needed: " + needed);
@@ -1013,24 +1015,32 @@ public class TestUtilities {
         Factory mainCldrFactory =
                 Factory.make(CLDRPaths.COMMON_DIRECTORY + "main" + File.separator, ".*");
         CLDRFile english = mainCldrFactory.make("en", true);
+        NameGetter englishNameGetter = english.nameGetter();
         PrintWriter out =
                 FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "country_language_names.txt");
         StandardCodes sc = StandardCodes.make();
         for (Iterator<String> it = sc.getGoodAvailableCodes("language").iterator();
                 it.hasNext(); ) {
             String code = it.next();
-            out.println(code + "\t" + english.getName(CLDRFile.LANGUAGE_NAME, code));
+            out.println(
+                    code
+                            + "\t"
+                            + englishNameGetter.getNameFromTypeEnumCode(NameType.LANGUAGE, code));
         }
         out.println("****");
         for (Iterator<String> it = sc.getGoodAvailableCodes("territory").iterator();
                 it.hasNext(); ) {
             String code = it.next();
-            out.println(code + "\t" + english.getName(CLDRFile.TERRITORY_NAME, code));
+            out.println(
+                    code
+                            + "\t"
+                            + englishNameGetter.getNameFromTypeEnumCode(NameType.TERRITORY, code));
         }
         out.println("****");
         for (Iterator<String> it = sc.getGoodAvailableCodes("script").iterator(); it.hasNext(); ) {
             String code = it.next();
-            out.println(code + "\t" + english.getName(CLDRFile.SCRIPT_NAME, code));
+            out.println(
+                    code + "\t" + englishNameGetter.getNameFromTypeEnumCode(NameType.SCRIPT, code));
         }
         out.close();
     }

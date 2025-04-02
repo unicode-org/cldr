@@ -1,12 +1,12 @@
 package org.unicode.cldr.unittest;
 
-import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.text.UnicodeSet;
 import java.util.Arrays;
 import java.util.BitSet;
 import java.util.Set;
 import org.unicode.cldr.draft.IdentifierInfo;
 import org.unicode.cldr.draft.IdentifierInfo.IdentifierStatus;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 
 public class TestIdentifierInfo extends TestFmwk {
 

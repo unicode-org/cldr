@@ -131,10 +131,6 @@
 >
 
 #
-< (.*/transforms/transform[^/]*)/(.*)
-> $1/tRules/$2
-
-#
 < (.*)\[@territories="([^"]*)"\](.*)\[@alt="variant"\](.*)
 > $1\[@territories="$2-alt-variant"\]
 
@@ -173,3 +169,21 @@
 # ParentLocales
 < (.*/parentLocales)\[@component="([^"]*)"\]/(parentLocale)(.*)$
 > $1/$2$4
+
+# Transform - drop terminal tRule element
+< //supplementalData/transforms/transform(.*)/tRule.*$
+> //supplementalData/transforms/transform$1/_rulesFile
+
+# Language matching
+< (.*)/languageMatches([^/]*)/matchVariable([^/]*)$
+> $1/languageMatches$2/matchVariables/matchVariable$3
+
+< (.*)/languageMatches([^/]*)/paradigmLocales([^/]*)$
+> $1/languageMatches$2/paradigmLocales$3
+
+< (.*)/languageMatches([^/]*)/languageMatch([^/]*)$
+> $1/languageMatches$2/languageMatch/languageMatch$3
+
+# Script variant
+< (.*)/scriptVariant\[@type="([^"]*)"\](.*)$
+> $1/scriptVariants/$2/scriptVariant$3

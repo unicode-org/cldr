@@ -26,6 +26,7 @@ import org.unicode.cldr.util.XPathParts;
 
 public class CheckDisplayCollisions extends FactoryCheckCLDR {
     private static final String DEBUG_PATH_PART = "-mass"; // example:
+
     // "//ldml/dates/fields/field[@type=\"sun-narrow\"]/relative[@type=\"-1\"]";
     /** Set to true to get verbose logging of path removals */
     private static final boolean LOG_PATH_REMOVALS = false;

@@ -62,4 +62,3 @@ So with this in mind, I would like to propose the following structure to be adde
 
 Finding the appropriate coverage level value would then be a matter of searching the coverageLevel entries in numeric order by value looking for a match of the path vs. "//ldml/" + "regular expression". In other words, we would not specifically include "//ldml" in the expressions, since they would all start with that. Once a given xpath's coverage level value was determined, it shouldn't be too hard for us to simply filter out fields whose coverage level was higher then the requested. I suppose that we will need some wildcards similar to what Mark has started working on in his path filtering proposal.
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

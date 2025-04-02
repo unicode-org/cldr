@@ -90,7 +90,7 @@ The current choice between “format” and “standalone” forms conflates all
 
 ### 3. Related docs
 
-Mark had some [discussion and ideas](https://cldr.unicode.org/development/development-process/design-proposals/consistent-casing) in [#2269](http://unicode.org/cldr/trac/ticket/2269).
+Mark had some [discussion and ideas](/development/development-process/design-proposals/consistent-casing) in [#2269](http://unicode.org/cldr/trac/ticket/2269).
 
 ## C. Outline of proposed solution
 
@@ -112,7 +112,7 @@ If no context-based name transforms are needed, the \<contextTransforms> element
 
 My initial thought was to include these elements (as many as necessary) inside each relevant name element: \<languages>, \<months>, \<days>, etc. As an example for Czech:
 
- \<months> \<monthContext type="format"> … \<contextTransforms> \<contextTransform type="uiListOrMenu">titlecase-firstword\</capitalizationContext> \</contextTransforms> \</monthContext> \</months> 
+ \<months> \<monthContext type="format"> … \<contextTransforms> \<contextTransform type="uiListOrMenu">titlecase-firstword\</capitalizationContext> \</contextTransforms> \</monthContext> \</months>
 
 This would involve additions to the DTD everywhere we wanted to add these, which is a bit cumbersome. An initial list of where these should be added:
 
@@ -185,11 +185,10 @@ Table body cells, key for desired casing (upper section of cell for language): L
 
 Table body cells, color code:
 
- 
+
 
 Here is the table:
 
- 
 
-  
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)
+
+

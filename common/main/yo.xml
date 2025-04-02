@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -2952,9 +2952,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Pacific/Enderbury">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
-			<zone type="Pacific/Kanton">
-				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
 			<zone type="Pacific/Kiritimati">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
@@ -3070,9 +3067,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
-				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
-			<zone type="Asia/Choibalsan">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Macau">
@@ -3816,13 +3810,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>Àkókò Ṣáínà</generic>
 					<standard>Àkókò Ìfẹnukòsí Ṣáínà</standard>
 					<daylight>Àkókò Ojúmọmọ Ṣáínà</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>Àkókò Choibalsan</generic>
-					<standard>Àkókò Ìfẹnukòsí Choibalsan</standard>
-					<daylight>Àkókò Sọmà Choibalsan</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">
@@ -5724,7 +5711,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>àwọ́n ohun</displayName>
 				<unitPattern count="other">{0} àwon ohun</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -5814,8 +5801,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="duration-year">
 				<displayName>ọ̀dún</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
-				<perUnitPattern>{0} ọd</perUnitPattern>
+				<unitPattern count="other">{0} ọ̀dún</unitPattern>
 			</unit>
 			<unit type="duration-quarter">
 				<displayName>idamerin</displayName>
@@ -6402,7 +6388,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>ìmọ́lẹ̀</displayName>
 				<unitPattern count="other">{0} ìmọ́lẹ̀</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>ẹ̀yà nínú ìdá blíọ̀nù</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -6619,7 +6605,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>ohun</displayName>
 				<unitPattern count="other">{0} ohun</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>ara/milíọ̀nù</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -6710,7 +6696,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="duration-year">
 				<displayName>ọd</displayName>
 				<unitPattern count="other">{0} ọd</unitPattern>
-				<perUnitPattern>{0}/ọd</perUnitPattern>
 			</unit>
 			<unit type="duration-quarter">
 				<displayName>idame</displayName>
@@ -7297,7 +7282,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>ìmọ́lẹ̀</displayName>
 				<unitPattern count="other">{0} ìmọ́lẹ̀</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -7514,7 +7499,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0}ohun</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0}ppm</unitPattern>
 			</unit>
@@ -7603,9 +7588,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-year">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<displayName>ọd</displayName>
+				<unitPattern count="other">{0} ọd</unitPattern>
 			</unit>
 			<unit type="duration-quarter">
 				<displayName>↑↑↑</displayName>
@@ -8192,7 +8176,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>ìmọ́lẹ̀</displayName>
 				<unitPattern count="other">{0}ìmọ́lẹ̀</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>

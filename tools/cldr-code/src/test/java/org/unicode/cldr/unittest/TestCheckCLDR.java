@@ -1,7 +1,6 @@
 package org.unicode.cldr.unittest;
 
 import com.google.common.collect.ImmutableList;
-import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R5;
 import com.ibm.icu.text.UnicodeSet;
@@ -19,6 +18,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
@@ -42,6 +42,7 @@ import org.unicode.cldr.util.CLDRInfo.CandidateInfo;
 import org.unicode.cldr.util.CLDRInfo.PathValueInfo;
 import org.unicode.cldr.util.CLDRInfo.UserInfo;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.DayPeriodInfo;
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
@@ -469,34 +470,17 @@ public class TestCheckCLDR extends TestFmwk {
         checkLocale(test, localeID, "?", null);
     }
 
-    /** adjust the logging level of checks */
-    public java.util.logging.Level pushCheckLevel() {
-        java.util.logging.Level oldLevel = null;
-        if (logKnownIssue(
-                "CLDR-17320",
-                "turning off CheckCLDR logging to avoid thousands of log messages, please fix internal stack traces")) {
-            oldLevel = CheckCLDR.setLoggerLevel(java.util.logging.Level.OFF);
-        }
-        return oldLevel;
-    }
-
-    /** undo the effect of a pushCheckLevel */
-    public void popCheckLevel(java.util.logging.Level oldLevel) {
-        if (oldLevel != null) {
-            CheckCLDR.setLoggerLevel(oldLevel);
-        }
-    }
-
     public void TestAllLocales() {
-        java.util.logging.Level oldLevel = pushCheckLevel();
         CheckCLDR test = CheckCLDR.getCheckAll(factory, INDIVIDUAL_TESTS);
         CheckCLDR.setDisplayInformation(english);
         Set<String> unique = new HashSet<>();
         LanguageTagParser ltp = new LanguageTagParser();
         Set<String> locales = new HashSet<>();
         for (String locale : getInclusion() <= 5 ? eightPointLocales : factory.getAvailable()) {
+            checkNullWithInheritanceMark(locale);
+
             /*
-             * Only test locales without regions. E.g., test "pt", skip "pt_PT"
+             * For checkLocale, only test locales without regions. E.g., test "pt", skip "pt_PT"
              */
             if (ltp.set(locale).getRegion().isEmpty()) {
                 locales.add(locale);
@@ -508,18 +492,25 @@ public class TestCheckCLDR extends TestFmwk {
         // (And in fact this test seems faster without it)
         locales.forEach(locale -> checkLocale(test, locale, null, unique));
         logln("Count:\t" + locales.size());
-        popCheckLevel(oldLevel);
+    }
+
+    private void checkNullWithInheritanceMark(String locale) {
+        CLDRFile resolved = cldrFactory.make(locale, true);
+        CLDRFile unresolved = resolved.getUnresolved();
+        for (String path : unresolved.fullIterable()) {
+            String value = unresolved.getStringValue(path);
+            if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
+                assertNotNull(locale + " " + path, resolved.getStringValue(path));
+            }
+        }
     }
 
     public void TestA() {
-        final java.util.logging.Level oldLevel = pushCheckLevel();
-
         CheckCLDR test = CheckCLDR.getCheckAll(factory, INDIVIDUAL_TESTS);
         CheckCLDR.setDisplayInformation(english);
         Set<String> unique = new HashSet<>();
 
         checkLocale(test, "ko", null, unique);
-        popCheckLevel(oldLevel);
     }
 
     public void checkLocale(
@@ -862,8 +853,7 @@ public class TestCheckCLDR extends TestFmwk {
                 Subtype.dateSymbolCollision
             },
 
-            // 00-06 night1
-            // 06-12 morning1
+            // 00-12 morning1
             // 12-18 afternoon1
             // 18-21 evening1
             // 21-24 night1
@@ -871,7 +861,7 @@ public class TestCheckCLDR extends TestFmwk {
             // So for a 12hour time, we have:
             //
             // 12  1  2  3  4  5  6  7  8  9 10 11
-            //  n  n  n  n  n  n  m  m  m  m  m  m
+            //  m  m  m  m  m  m  m  m  m  m  m  m
             //  a  a  a  a  a  a  e  e  e  n  n  n
 
             // Formatting has looser collision rules, because it is always paired with a time.
@@ -887,15 +877,15 @@ public class TestCheckCLDR extends TestFmwk {
                 DayPeriod.morning1,
                 Subtype.dateSymbolCollision
             },
+            {Type.format, DayPeriod.night1, Type.format, DayPeriod.afternoon1, Subtype.none},
+            {Type.format, DayPeriod.night1, Type.format, DayPeriod.evening1, Subtype.none},
             {
                 Type.format,
-                DayPeriod.night1,
+                DayPeriod.morning1,
                 Type.format,
                 DayPeriod.afternoon1,
                 Subtype.dateSymbolCollision
             },
-            {Type.format, DayPeriod.night1, Type.format, DayPeriod.evening1, Subtype.none},
-            {Type.format, DayPeriod.morning1, Type.format, DayPeriod.afternoon1, Subtype.none},
             {
                 Type.format,
                 DayPeriod.morning1,
@@ -1407,7 +1397,12 @@ public class TestCheckCLDR extends TestFmwk {
                         counter.add(LimitedStatus.disallowed, 1);
                     }
                 }
-                System.out.print(locale + "\t" + english.getName(locale) + "\t" + cldrLevel);
+                System.out.print(
+                        locale
+                                + "\t"
+                                + english.nameGetter().getNameFromIdentifier(locale)
+                                + "\t"
+                                + cldrLevel);
                 for (LimitedStatus limitedStatus : LimitedStatus.values()) {
                     System.out.print("\t" + limitedStatus + ":\t" + counter.get(limitedStatus));
                 }

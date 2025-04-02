@@ -8,7 +8,6 @@
  */
 package org.unicode.cldr.posix;
 
-import com.ibm.icu.dev.util.UOption;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
@@ -23,6 +22,7 @@ import java.util.List;
 import java.util.ListIterator;
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.icu.SimpleConverter;
+import org.unicode.cldr.icu.dev.util.UOption;
 import org.unicode.cldr.util.CldrUtility;
 
 /**

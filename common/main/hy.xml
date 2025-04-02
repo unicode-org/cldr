@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -2561,6 +2561,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<regionFormat type="daylight">↑↑↑</regionFormat>
 			<regionFormat type="standard">↑↑↑</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>Հոնոլուլու</exemplarCity>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>Համաշխարհային կոորդինացված ժամանակ</standard>
@@ -3176,9 +3179,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Պնոմպեն</exemplarCity>
 			</zone>
 			<zone type="Pacific/Enderbury">
-				<exemplarCity>Էնդերբերի կղզի</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kanton">
 				<exemplarCity>Կանտոն</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
@@ -3297,9 +3297,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>Ուլան Բատոր</exemplarCity>
-			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity>Չոյբալսան</exemplarCity>
 			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity>Մակաո</exemplarCity>
@@ -3700,9 +3697,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Nome">
 				<exemplarCity>Նոմ</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>Հոնոլուլու</exemplarCity>
-			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>Անքորիջ</exemplarCity>
 			</zone>
@@ -4045,13 +4039,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Չինաստանի ժամանակ</generic>
 					<standard>Չինաստանի ստանդարտ ժամանակ</standard>
 					<daylight>Չինաստանի ամառային ժամանակ</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>Չոյբալսանի ժամանակ</generic>
-					<standard>Չոյբալսանի ստանդարտ ժամանակ</standard>
-					<daylight>Չոյբալսանի ամառային ժամանակ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">
@@ -6307,7 +6294,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="instrumental">{0} միույթով</unitPattern>
 				<unitPattern count="other" case="locative">{0} միույթում</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>մաս միլիոնի վրա</displayName>
 				<unitPattern count="one">{0} մաս միլիոնի վրա</unitPattern>
 				<unitPattern count="one" case="ablative">{0} մասից միլիոնի վրա</unitPattern>
@@ -7936,20 +7923,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="speed-light-speed">
-				<displayName>լույսի արագություն</displayName>
-				<unitPattern count="one">{0} լույսի արագություն</unitPattern>
-				<unitPattern count="one" case="ablative">{0} լույսի արագությունից</unitPattern>
-				<unitPattern count="one" case="dative">{0} լույսի արագությանը</unitPattern>
-				<unitPattern count="one" case="instrumental">{0} լույսի արագությամբ</unitPattern>
-				<unitPattern count="one" case="locative">{0} լույսի արագությունում</unitPattern>
-				<unitPattern count="other">{0} լույսի արագություն</unitPattern>
-				<unitPattern count="other" case="ablative">{0} լույսի արագությունից</unitPattern>
-				<unitPattern count="other" case="dative">{0} լույսի արագությանը</unitPattern>
-				<unitPattern count="other" case="instrumental">{0} լույսի արագությամբ</unitPattern>
-				<unitPattern count="other" case="locative">{0} լույսի արագությունում</unitPattern>
-			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>մաս միլիարդի վրա</displayName>
 				<unitPattern count="one">{0} մաս միլիարդի վրա</unitPattern>
 				<unitPattern count="one" case="ablative">{0} մասից միլիարդի վրա</unitPattern>
@@ -8207,7 +8181,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} միույթ</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>մաս/միլիոն</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} մմվ</unitPattern>
@@ -9044,12 +9018,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} անգլիական քվարտ</unitPattern>
 			</unit>
-			<unit type="speed-light-speed">
-				<displayName>լույսի արագություն</displayName>
-				<unitPattern count="one">{0} լույսի արագություն</unitPattern>
-				<unitPattern count="other">{0} լույսի արագություն</unitPattern>
-			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>մաս/միլիարդ</displayName>
 				<unitPattern count="one">{0} մմլրդվ</unitPattern>
 				<unitPattern count="other">{0} մմլրդվ</unitPattern>
@@ -9291,7 +9260,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0}միույթ</unitPattern>
 				<unitPattern count="other">{0}միույթ</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>մմվ</displayName>
 				<unitPattern count="one">{0}մմվ</unitPattern>
 				<unitPattern count="other">{0}մմվ</unitPattern>
@@ -10128,12 +10097,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="speed-light-speed">
-				<displayName>լույսի արագություն</displayName>
-				<unitPattern count="one">{0}լույսի արագություն</unitPattern>
-				<unitPattern count="other">{0}լույսի արագություն</unitPattern>
-			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>մմլրդվ</displayName>
 				<unitPattern count="one">{0}մմլրդվ</unitPattern>
 				<unitPattern count="other">{0}մմլրդվ</unitPattern>

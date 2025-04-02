@@ -9,6 +9,7 @@ import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
+import com.ibm.icu.util.Output;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -48,6 +49,8 @@ import org.unicode.cldr.util.GrammarInfo.GenderValues;
 import org.unicode.cldr.util.Iso3166Data;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.NameGetter;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathDescription;
@@ -61,6 +64,7 @@ import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.PatternPlaceholders;
 import org.unicode.cldr.util.PatternPlaceholders.PlaceholderInfo;
 import org.unicode.cldr.util.PatternPlaceholders.PlaceholderStatus;
+import org.unicode.cldr.util.RegexLookup.Finder;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
@@ -71,6 +75,9 @@ import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 
 public class TestPathHeader extends TestFmwkPlus {
+    private static final boolean LIST_FAILURES =
+            System.getProperty("TestPathHeader:LIST_FAILURES") != null;
+
     private static final DtdType DEBUG_DTD_TYPE = null; // DtdType.supplementalData;
     private static final String COMMON_DIR = CLDRPaths.BASE_DIRECTORY + "common/";
     private static final boolean DEBUG = false;
@@ -82,6 +89,7 @@ public class TestPathHeader extends TestFmwkPlus {
     static final CLDRConfig info = CLDRConfig.getInstance();
     static final Factory factory = info.getCommonAndSeedAndMainAndAnnotationsFactory();
     static final CLDRFile english = factory.make("en", true);
+    static final NameGetter englishNameGetter = english.nameGetter();
     static final SupplementalDataInfo supplemental = info.getSupplementalDataInfo();
     static PathHeader.Factory pathHeaderFactory = PathHeader.getFactory(english);
     private EnumSet<PageId> badZonePages = EnumSet.of(PageId.UnknownT);
@@ -790,23 +798,34 @@ public class TestPathHeader extends TestFmwkPlus {
         String starred = starrer.set(path);
         if (alreadySeen.contains(starred)) {
             return;
-        } else if (description == null) {
-            errln("Path has no description:\t" + value + "\t" + path);
+        }
+        String errorDescription = null;
+        if (description == null) {
+            errorDescription = ("Path has no description:\t" + value + "\t" + path);
         } else if (!description.contains("https://")) {
-            errln("Description has no URL:\t" + description + "\t" + value + "\t" + path);
+            errorDescription =
+                    ("Description has no URL:\t" + description + "\t" + value + "\t" + path);
         } else if (!normal.reset(description).find()) {
-            errln(
-                    "Description has generic URL, fix to be specific:\t"
+            errorDescription =
+                    ("Description has generic URL, fix to be specific:\t"
                             + description
                             + "\t"
                             + value
                             + "\t"
                             + path);
         } else if (description == PathDescription.MISSING_DESCRIPTION) {
-            errln("Fallback Description:\t" + value + "\t" + path);
+            errorDescription = ("Fallback Description:\t" + value + "\t" + path);
         } else {
             return;
         }
+        // for debugging
+        Output<Finder> matcherFound = new Output<>();
+        Set<String> failures = new TreeSet<>();
+        pathDescription.getRawDescription(path, value, matcherFound, failures);
+        if (LIST_FAILURES) {
+            failures.stream().forEach(System.out::println);
+        }
+        errln(errorDescription);
         // Add if we had a problem, keeping us from being overwhelmed with
         // errors.
         alreadySeen.add(starred);
@@ -857,7 +876,7 @@ public class TestPathHeader extends TestFmwkPlus {
     private String getNameAndOrder(String territory) {
         return territory
                 + "\t"
-                + english.getName(CLDRFile.TERRITORY_NAME, territory)
+                + englishNameGetter.getNameFromTypeEnumCode(NameType.TERRITORY, territory)
                 + "\t"
                 + Containment.getOrder(territory);
     }
@@ -976,10 +995,12 @@ public class TestPathHeader extends TestFmwkPlus {
                 assertEquals("S. America special case", "005", revision);
             }
             if (isVerbose()) {
-                String name = english.getName(CLDRFile.TERRITORY_NAME, cont);
-                String name2 = english.getName(CLDRFile.TERRITORY_NAME, sub);
-                String name3 = english.getName(CLDRFile.TERRITORY_NAME, territory);
-                String name4 = english.getName(CLDRFile.TERRITORY_NAME, revision);
+                String name = englishNameGetter.getNameFromTypeEnumCode(NameType.TERRITORY, cont);
+                String name2 = englishNameGetter.getNameFromTypeEnumCode(NameType.TERRITORY, sub);
+                String name3 =
+                        englishNameGetter.getNameFromTypeEnumCode(NameType.TERRITORY, territory);
+                String name4 =
+                        englishNameGetter.getNameFromTypeEnumCode(NameType.TERRITORY, revision);
 
                 logln(
                         metazone + "\t" + continent + "\t" + name + "\t" + name2 + "\t" + name3
@@ -1298,9 +1319,7 @@ public class TestPathHeader extends TestFmwkPlus {
                     logln(" \t" + file);
                     for (Pair<String, String> pathValue :
                             XMLFileReader.loadPathValues(
-                                    dir2 + "/" + file,
-                                    new ArrayList<Pair<String, String>>(),
-                                    true)) {
+                                    dir2 + "/" + file, new ArrayList<>(), true)) {
                         final String path = pathValue.getFirst();
                         final String value = pathValue.getSecond();
                         //                        logln("\t\t" + path);
@@ -1571,6 +1590,7 @@ public class TestPathHeader extends TestFmwkPlus {
             assertEquals("No quotes in pathheader", false, trial.toString().contains("\""));
         }
     }
+
     /**
      * Make sure that the PathHeader sort order is consistent with the grammatical feature orders
      * "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"volume-liter\"]/displayName"

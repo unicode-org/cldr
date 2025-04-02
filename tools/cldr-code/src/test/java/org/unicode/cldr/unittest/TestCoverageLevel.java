@@ -10,7 +10,6 @@ import com.google.common.collect.Sets;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
-import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R4;
 import com.ibm.icu.text.CompactDecimalFormat;
 import com.ibm.icu.text.CompactDecimalFormat.CompactStyle;
@@ -52,6 +51,8 @@ import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleNames;
 import org.unicode.cldr.util.LogicalGrouping;
 import org.unicode.cldr.util.LogicalGrouping.PathType;
+import org.unicode.cldr.util.NameGetter;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.Factory;
@@ -70,7 +71,8 @@ import org.unicode.cldr.util.XPathParts;
 
 public class TestCoverageLevel extends TestFmwkPlus {
 
-    private static final boolean SHOW_LSR_DATA = false;
+    private static final boolean SHOW_LSR_DATA =
+            CLDRConfig.getInstance().getProperty("SHOW_LSR_DATA", false);
 
     private static CLDRConfig testInfo = CLDRConfig.getInstance();
     private static final StandardCodes STANDARD_CODES = StandardCodes.make();
@@ -368,48 +370,6 @@ public class TestCoverageLevel extends TestFmwkPlus {
 
     private static final boolean DEBUG = false;
 
-    static class TypeName implements Transform<String, String> {
-        private final int field;
-        private final Map<String, R2<List<String>, String>> dep;
-
-        public TypeName(int field) {
-            this.field = field;
-            switch (field) {
-                case CLDRFile.LANGUAGE_NAME:
-                    dep = SDI.getLocaleAliasInfo().get("language");
-                    break;
-                case CLDRFile.TERRITORY_NAME:
-                    dep = SDI.getLocaleAliasInfo().get("territory");
-                    break;
-                case CLDRFile.SCRIPT_NAME:
-                    dep = SDI.getLocaleAliasInfo().get("script");
-                    break;
-                default:
-                    dep = null;
-                    break;
-            }
-        }
-
-        @Override
-        public String transform(String source) {
-            String result = ENGLISH.getName(field, source);
-            String extra = "";
-            if (field == CLDRFile.LANGUAGE_NAME) {
-                String lang = isBigLanguage(source);
-                extra = lang == null ? "X" : lang;
-            } else if (field == CLDRFile.CURRENCY_NAME) {
-                Date last = currencyToLast.get(source);
-                extra = last == null ? "?" : last.compareTo(NOW) < 0 ? "old" : "";
-            }
-            R2<List<String>, String> depValue = dep == null ? null : dep.get(source);
-            if (depValue != null) {
-                extra += extra.isEmpty() ? "" : "-";
-                extra += depValue.get1();
-            }
-            return result + (extra.isEmpty() ? "" : "\t" + extra);
-        }
-    }
-
     RegexLookup<Level> exceptions =
             RegexLookup.of(
                             null,
@@ -530,7 +490,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
         final Pattern collation100 =
                 PatternCache.get(
                         "("
-                                + "big5han|compat|dictionary|emoji|eor|gb2312han|phonebook|phonetic|pinyin|searchjl|stroke|traditional|unihan|zhuyin)");
+                                + "compat|dictionary|emoji|eor|phonebook|phonetic|pinyin|searchjl|stroke|traditional|unihan|zhuyin)");
 
         SupplementalDataInfo sdi = testInfo.getSupplementalDataInfo();
         CLDRFile english = testInfo.getEnglish();
@@ -761,6 +721,9 @@ public class TestCoverageLevel extends TestFmwkPlus {
                 // Skip paths for narrow unit fields.
                 if ("narrow".equals(xpp.findAttributeValue("unitLength", "type"))
                         || path.endsWith("/compoundUnitPattern1")) {
+                    continue;
+                } else if (path.contains("light-speed")) {
+                    // Temporary overrides for https://unicode-org.atlassian.net/browse/CLDR-18258
                     continue;
                 }
             } else if (xpp.contains("posix")) {
@@ -1102,8 +1065,9 @@ public class TestCoverageLevel extends TestFmwkPlus {
         }
     }
 
-    public void testLSR() {
+    public void testLSR() { // LSR = Language/Script/Region
         SupplementalDataInfo supplementalData = testInfo.getSupplementalDataInfo();
+
         org.unicode.cldr.util.Factory factory = testInfo.getCldrFactory();
         CLDRFile root = factory.make(LocaleNames.ROOT, true);
         CoverageLevel2 coverageLevel =
@@ -1115,7 +1079,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
 
         // Get root LSR codes
 
-        for (String path : root) {
+        for (String path : root.fullIterable()) {
             if (!path.startsWith("//ldml/localeDisplayNames/")) {
                 continue;
             }
@@ -1160,34 +1124,30 @@ public class TestCoverageLevel extends TestFmwkPlus {
             addBestLevel(scripts, ltp.getScript(), languageLevel);
             addBestLevel(regions, ltp.getRegion(), languageLevel);
         }
-        regions.remove("");
-        scripts.remove("");
-
         // get the data
 
         Map<String, CoverageStatus> data = new TreeMap<>();
 
-        // This is a map from integers (representing language, script or region; should rewrite to
-        // use enums)
-        // to a row of data:
+        // This is a map from NameType to a row of data:
         //      name,
         //      map code => best cldr org level,
         //      codes in root
         //      expected coverage levels levels
         // should change the row of data into a class; would be much easier to understand
 
-        ImmutableMap<Integer, R4<String, Map<String, Level>, Set<String>, Level>> typeToInfo =
+        ImmutableMap<NameType, R4<String, Map<String, Level>, Set<String>, Level>> typeToInfo =
                 ImmutableMap.of(
-                        CLDRFile.LANGUAGE_NAME,
+                        NameType.LANGUAGE,
                         Row.of("language", langs, langsRoot, Level.MODERN),
-                        CLDRFile.SCRIPT_NAME,
+                        NameType.SCRIPT,
                         Row.of("script", scripts, scriptsRoot, Level.MODERATE),
-                        CLDRFile.TERRITORY_NAME,
+                        NameType.TERRITORY,
                         Row.of("region", regions, regionsRoot, Level.MODERATE));
 
-        for (Entry<Integer, R4<String, Map<String, Level>, Set<String>, Level>> typeAndInfo :
+        NameGetter englishNameGetter = testInfo.getEnglish().nameGetter();
+        for (Entry<NameType, R4<String, Map<String, Level>, Set<String>, Level>> typeAndInfo :
                 typeToInfo.entrySet()) {
-            int type = typeAndInfo.getKey();
+            NameType type = typeAndInfo.getKey();
             String name = typeAndInfo.getValue().get0();
             Map<String, Level> idPartMap =
                     typeAndInfo.getValue().get1(); // map from code to best cldr level
@@ -1196,8 +1156,8 @@ public class TestCoverageLevel extends TestFmwkPlus {
                     typeAndInfo.getValue().get3(); // it looks like the targetLevel is ignored
 
             for (String code : Sets.union(idPartMap.keySet(), setRoot)) {
-                String displayName = testInfo.getEnglish().getName(type, code);
-                String path = CLDRFile.getKey(type, code);
+                String displayName = englishNameGetter.getNameFromTypeEnumCode(type, code);
+                String path = type.getKeyPath(code);
                 Level level = coverageLevel.getLevel(path);
                 data.put(
                         name + "\t" + code,
@@ -1295,17 +1255,9 @@ public class TestCoverageLevel extends TestFmwkPlus {
     }
 
     private void addBestLevel(Map<String, Level> codeToBestLevel, String code, Level level) {
-        if (level != Level.UNDETERMINED) {
-            int debug = 0;
-        }
-        Level old = codeToBestLevel.get(code);
-        if (old == null) {
-            codeToBestLevel.put(code, level);
-        } else if (level.compareTo(old) > 0) {
-            codeToBestLevel.put(code, level);
-        } else if (level != old) {
-            int debug = 0;
-        }
+        if (code.isEmpty()) return; // ignore empty strings from tags such as ca__VALENCIA
+        final Level old = codeToBestLevel.get(code);
+        codeToBestLevel.put(code, Level.max(old, level));
     }
 
     public void TestEnglishCoverage() {

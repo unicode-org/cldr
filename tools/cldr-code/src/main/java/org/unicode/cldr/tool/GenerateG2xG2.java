@@ -25,6 +25,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -134,8 +135,7 @@ public class GenerateG2xG2 {
             String code = it.next();
             String priority = priorityMap.get(code);
             if (priority == null) continue;
-            int type = getType(code);
-            // if (type != CLDRFile.TERRITORY_NAME) continue;
+            NameType type = getType(code);
             priority_set.add(new String[] {priority, type + "", code});
         }
         String lastPriority = "";
@@ -166,15 +166,15 @@ public class GenerateG2xG2 {
             CLDRFile sourceData = cldrFactory.make(sourceLocale, true);
             pw.println();
             String title = sourceLocale;
-            checkItems(pw, title, sourceData, CLDRFile.LANGUAGE_NAME, targetLanguageSet);
-            checkItems(pw, title, sourceData, CLDRFile.SCRIPT_NAME, targetScriptSet);
-            checkItems(pw, title, sourceData, CLDRFile.TERRITORY_NAME, targetRegionSet);
-            checkItems(pw, title, sourceData, CLDRFile.CURRENCY_NAME, targetCurrencySet);
+            checkItems(pw, title, sourceData, NameType.LANGUAGE, targetLanguageSet);
+            checkItems(pw, title, sourceData, NameType.SCRIPT, targetScriptSet);
+            checkItems(pw, title, sourceData, NameType.TERRITORY, targetRegionSet);
+            checkItems(pw, title, sourceData, NameType.CURRENCY, targetCurrencySet);
             // only check timezones if exemplar characters don't include a-z
             String v = sourceData.getStringValue("//ldml/characters/exemplarCharacters");
             UnicodeSet exemplars = new UnicodeSet(v);
             if (exemplars.contains('a', 'z')) continue;
-            checkItems(pw, title, sourceData, CLDRFile.TZ_EXEMPLAR, targetTZSet);
+            checkItems(pw, title, sourceData, NameType.TZ_EXEMPLAR, targetTZSet);
         }
         pw.println();
         pw.println("Sizes - incremental");
@@ -219,7 +219,8 @@ public class GenerateG2xG2 {
                 String territory = it.next();
                 if (territory.charAt(0) < 'A') continue;
                 String locale = "haw-" + territory;
-                System.out.print(locale + ": " + english.getName(locale) + ", ");
+                System.out.print(
+                        locale + ": " + english.nameGetter().getNameFromIdentifier(locale) + ", ");
             }
             if (true) return true;
         }
@@ -232,7 +233,10 @@ public class GenerateG2xG2 {
             for (Iterator it = testSet.iterator(); it.hasNext(); ) {
                 String country = (String) it.next();
                 System.out.println(
-                        country + "\t" + english.getName(CLDRFile.CURRENCY_NAME, country));
+                        country
+                                + "\t"
+                                + english.nameGetter()
+                                        .getNameFromTypeEnumCode(NameType.CURRENCY, country));
             }
             return true;
         } else if (choice == 0) { // get available
@@ -317,7 +321,7 @@ public class GenerateG2xG2 {
             PrintWriter pw,
             String sourceLocale,
             CLDRFile sourceData,
-            int type,
+            NameType type,
             Set<String> targetItemSet) {
         for (Iterator<String> it2 = targetItemSet.iterator(); it2.hasNext(); ) {
             String item = it2.next();
@@ -335,9 +339,9 @@ public class GenerateG2xG2 {
                                 + "\t"
                                 + sourceLocale
                                 + "\t("
-                                + english.getName(sourceLocale)
+                                + english.nameGetter().getNameFromIdentifier(sourceLocale)
                                 + ": "
-                                + sourceData.getName(sourceLocale)
+                                + sourceData.nameGetter().getNameFromIdentifier(sourceLocale)
                                 + ")"
                                 + "\t"
                                 + priorityMap.get(item)
@@ -354,40 +358,40 @@ public class GenerateG2xG2 {
         return getItemName(data, getType(item), item);
     }
 
-    private static int getType(String item) {
-        int type = CLDRFile.LANGUAGE_NAME;
-        if (item.indexOf('/') >= 0) type = CLDRFile.TZ_EXEMPLAR; // America/Los_Angeles
-        else if (item.length() == 4) type = CLDRFile.SCRIPT_NAME; // Hant
-        else if (item.charAt(0) <= '9') type = CLDRFile.TERRITORY_NAME; // 001
+    private static NameType getType(String item) {
+        NameType type = NameType.LANGUAGE;
+        if (item.indexOf('/') >= 0) type = NameType.TZ_EXEMPLAR; // America/Los_Angeles
+        else if (item.length() == 4) type = NameType.SCRIPT; // Hant
+        else if (item.charAt(0) <= '9') type = NameType.TERRITORY; // 001
         else if (item.charAt(0) < 'a') {
-            if (item.length() == 3) type = CLDRFile.CURRENCY_NAME;
-            else type = CLDRFile.TERRITORY_NAME; // US or USD
+            if (item.length() == 3) type = NameType.CURRENCY;
+            else type = NameType.TERRITORY; // US or USD
         }
         return type;
     }
 
     private static String getTypeName(String item) {
         switch (getType(item)) {
-            case CLDRFile.LANGUAGE_NAME:
+            case LANGUAGE:
                 return "Lang";
-            case CLDRFile.TZ_EXEMPLAR:
+            case TZ_EXEMPLAR:
                 return "Zone";
-            case CLDRFile.SCRIPT_NAME:
+            case SCRIPT:
                 return "Script";
-            case CLDRFile.TERRITORY_NAME:
+            case TERRITORY:
                 return "Region";
-            case CLDRFile.CURRENCY_NAME:
+            case CURRENCY:
                 return "Curr.";
         }
         return "?";
     }
 
-    private static String getItemName(CLDRFile data, int type, String item) {
+    private static String getItemName(CLDRFile data, NameType type, String item) {
         String result;
-        if (type == CLDRFile.LANGUAGE_NAME) {
-            result = data.getName(item);
-        } else if (type != CLDRFile.TZ_EXEMPLAR) {
-            result = data.getName(type, item);
+        if (type == NameType.LANGUAGE) {
+            result = data.nameGetter().getNameFromIdentifier(item);
+        } else if (type != NameType.TZ_EXEMPLAR) {
+            result = data.nameGetter().getNameFromTypeEnumCode(type, item);
         } else {
             String prefix = "//ldml/dates/timeZoneNames/zone[@type=\"" + item + "\"]/exemplarCity";
             result = data.getStringValue(prefix);

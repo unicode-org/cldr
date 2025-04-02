@@ -2,7 +2,7 @@
 
 # Unicode Locale Data Markup Language (LDML)<br/>Part 3: Numbers
 
-|Version|46 (draft)|
+|Version|48 (draft)|
 |-------|----------|
 |Editors|Shane F. Carr (<a href="mailto:shane@unicode.org">shane@unicode.org</a>) and <a href="tr35.md#Acknowledgments">other CLDR committee members|
 
@@ -25,7 +25,11 @@ This is a stable document and may be used as reference material or cited as a no
 
 > _**A Unicode Technical Standard (UTS)** is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS._
 
-_Please submit corrigenda and other comments with the CLDR bug reporting form [[Bugs](tr35.md#Bugs)]. Related information that is useful in understanding this document is found in the [References](tr35.md#References). For the latest version of the Unicode Standard see [[Unicode](tr35.md#Unicode)]. For a list of current Unicode Technical Reports see [[Reports](tr35.md#Reports)]. For more information about versions of the Unicode Standard, see [[Versions](tr35.md#Versions)]._
+_Please submit corrigenda and other comments with the CLDR bug reporting form [[Bugs](https://cldr.unicode.org/index/bug-reports)].
+Related information that is useful in understanding this document is found in the [References](#References).
+For the latest version of the Unicode Standard see [[Unicode](https://www.unicode.org/versions/latest/)].
+For more information see [About Unicode Technical Reports](https://www.unicode.org/reports/about-reports.html) and the [Specifications FAQ](https://www.unicode.org/faq/specifications.html).
+Unicode Technical Reports are governed by the Unicode [Terms of Use](https://www.unicode.org/copyright.html)._
 
 ## <a name="Parts" href="#Parts">Parts</a>
 
@@ -256,7 +260,7 @@ The available number symbols are as follows:
 Example:
 
 ```xml
-<symbols>
+<symbols numberSystem="latn>
     <decimal>.</decimal>
     <group>,</group>
     <list>;</list>
@@ -277,7 +281,7 @@ Example:
 ```xml
 <!ATTLIST symbols numberSystem CDATA #IMPLIED >
 ```
-The `numberSystem` attribute is used to specify that the given number symbols are to be used when the given numbering system is active. Number symbols can only be defined for numbering systems of the "numeric" type, since any special symbols required for an algorithmic numbering system should be specified by the RBNF formatting rules used for that numbering system. By default, number symbols without a specific `numberSystem` attribute are assumed to be used for the "latn" numbering system, which is western (ASCII) digits. Locales that specify a numbering system other than "latn" as the default should also specify number formatting symbols that are appropriate for use within the context of the given numbering system. For example, a locale that uses the Arabic-Indic digits as its default would likely use an Arabic comma for the grouping separator rather than the ASCII comma.
+The `numberSystem` attribute is used to specify that the given number symbols are to be used when the given numbering system is active. Number symbols can only be defined for numbering systems of the "numeric" type, since any special symbols required for an algorithmic numbering system should be specified by the RBNF formatting rules used for that numbering system. By default, number symbols without a specific `numberSystem` attribute are assumed to be used for the "latn" numbering system, which is western (ASCII) digits; however, number symbols without a specific `numberSystem` attribute should not be used and will be deprecated in CLDR v48. Locales that specify a numbering system other than "latn" as the default should also specify number formatting symbols that are appropriate for use within the context of the given numbering system. For example, a locale that uses the Arabic-Indic digits as its default would likely use an Arabic comma for the grouping separator rather than the ASCII comma.
 For more information on numbering systems and their definitions, see _[Section 1: Numbering Systems](#Numbering_Systems)_.
 
 ### <a name="Number_Formats" href="#Number_Formats">Number Formats</a>
@@ -310,7 +314,7 @@ Different formats are provided for different contexts, as follows:
 Example:
 
 ```xml
-<decimalFormats>
+<decimalFormats numberSystem="latn">
   <decimalFormatLength type="long">
     <decimalFormat>
       <pattern>#,##0.###</pattern>
@@ -318,7 +322,7 @@ Example:
   </decimalFormatLength>
 </decimalFormats>
 
-<scientificFormats>
+<scientificFormats numberSystem="latn">
   <default type="long"/>
   <scientificFormatLength type="long">
     <scientificFormat>
@@ -332,7 +336,7 @@ Example:
   </scientificFormatLength>
 </scientificFormats>
 
-<percentFormats>
+<percentFormats numberSystem="latn">
   <percentFormatLength type="long">
     <percentFormat>
       <pattern>#,##0%</pattern>
@@ -345,7 +349,7 @@ Example:
 <!ATTLIST symbols numberSystem CDATA #IMPLIED >
 ```
 
-The `numberSystem` attribute is used to specify that the given number formatting pattern(s) are to be used when the given numbering system is active. By default, number formatting patterns without a specific `numberSystem` attribute are assumed to be used for the "latn" numbering system, which is western (ASCII) digits. Locales that specify a numbering system other than "latn" as the default should also specify number formatting patterns that are appropriate for use within the context of the given numbering system.
+The `numberSystem` attribute is used to specify that the given number formatting pattern(s) are to be used when the given numbering system is active. By default, number formatting patterns without a specific `numberSystem` attribute are assumed to be used for the "latn" numbering system, which is western (ASCII) digits; however, number formatting patterns without a specific `numberSystem` attribute should not be used and will be deprecated in CLDR v48. Locales that specify a numbering system other than "latn" as the default should also specify number formatting patterns that are appropriate for use within the context of the given numbering system.
 For more information on numbering systems and their definitions, see _[Section 1: Numbering Systems](#Numbering_Systems)_.
 
 #### <a name="Compact_Number_Formats" href="#Compact_Number_Formats">Compact Number Formats</a>
@@ -946,7 +950,10 @@ Each `currencyData` element contains one `fractions` element followed by one or 
 The `fractions` element contains any number of `info` elements, with the following attributes:
 
 * **iso4217:** the ISO 4217 code for the currency in question. If a particular currency does not occur in the fractions list, then it is given the defaults listed for the next two attributes.
-* **digits:** the minimum and maximum number of decimal digits normally formatted. The default is 2. For example, in the en_US locale with the default value of 2 digits, the value 1 USD would format as "$1.00", and the value 1.123 USD would format as → "$1.12".
+* **digits:** the minimum and maximum number of decimal digits normally formatted. 
+The default is 2. 
+For example, in the en_US locale with the default value of 2 digits, the value 1 USD would format as "$1.00", and the value 1.123 USD would format as → "$1.12". 
+This value of this field is based on the "minor unit" value from ISO 4217, but may deviate from ISO 4217 where there is compelling evidence for different customary practice.
 * **rounding:** the rounding increment, in units of 10<sup>-digits</sup>. The default is 0, which means no rounding is to be done. Therefore, rounding=0 and rounding=1 have identical behavior. Thus with fraction digits of 2 and rounding increment of 5, numeric values are rounded to the nearest 0.05 units in formatting. With fraction digits of 0 and rounding increment of 50, numeric values are rounded to the nearest 50.
 * **cashDigits:** the number of decimal digits to be used when formatting quantities used in cash transactions (as opposed to a quantity that would appear in a more formal setting, such as on a bank statement). If absent, the value of "digits" should be used as a default.
 * **cashRounding:** the cash rounding increment, in units of 10-cashDigits. The default is 0, which means no rounding is to be done; and as with rounding, this has the same effect as cashRounding="1". This is the rounding increment to be used when formatting quantities used in cash transactions (as opposed to a quantity that would appear in a more formal setting, such as on a bank statement). If absent, the value of "rounding" should be used as a default.
@@ -992,6 +999,8 @@ That is, each `currency` element will list an interval in which it was valid. Th
 <currency iso4217="YUD" from="1994-01-24" to="2002-05-15"/>
 <currency iso4217="YUN" from="1994-01-01" to="1994-07-22"/>
 ```
+
+All `currency` elements with `tender="false"` should be at the end of the list for a given `region`. 
 
 The `from` element is limited by the fact that ISO 4217 does not go very far back in time, so there may be no ISO code for the previous currency.
 
@@ -1039,7 +1048,7 @@ This happens even if nouns are invariant; even if all English nouns were invaria
 1. 1 sheep **is** here. Do you want to buy **it**?
 2. 2 sheep **are** here. Do you want to buy **them**?
 
-For more information, see [Determining-Plural-Categories](https://cldr.unicode.org/index/cldr-spec/plural-rules#h.44ozdx564iez).
+For more information, see [Determining-Plural-Categories](https://cldr.unicode.org/index/cldr-spec/plural-rules#determining-plural-categories).
 
 English does not have a separate plural category for “zero”, because it does not require a different message for “0”. For example, the same message can be used below, with just the numeric placeholder changing.
 
@@ -1475,6 +1484,16 @@ To add spacing, insert a non-breaking space (U+00A0) at the positions in item 2 
 
 * * *
 
-Copyright © 2001–2024 Unicode, Inc. All Rights Reserved. The Unicode Consortium makes no expressed or implied warranty of any kind, and assumes no liability for errors or omissions. No liability is assumed for incidental and consequential damages in connection with or arising out of the use of the information or programs contained or accompanying this technical report. The Unicode [Terms of Use](https://www.unicode.org/copyright.html) apply.
+© 2001–2025 Unicode, Inc.
+This publication is protected by copyright, and permission must be obtained from Unicode, Inc.
+prior to any reproduction, modification, or other use not permitted by the [Terms of Use](https://www.unicode.org/copyright.html).
+Specifically, you may make copies of this publication and may annotate and translate it solely for personal or internal business purposes and not for public distribution,
+provided that any such permitted copies and modifications fully reproduce all copyright and other legal notices contained in the original.
+You may not make copies of or modifications to this publication for public distribution, or incorporate it in whole or in part into any product or publication without the express written permission of Unicode.
 
-Unicode and the Unicode logo are trademarks of Unicode, Inc., and are registered in some jurisdictions.
+Use of all Unicode Products, including this publication, is governed by the Unicode [Terms of Use](https://www.unicode.org/copyright.html).
+The authors, contributors, and publishers have taken care in the preparation of this publication,
+but make no express or implied representation or warranty of any kind and assume no responsibility or liability for errors or omissions or for consequential or incidental damages that may arise therefrom.
+This publication is provided “AS-IS” without charge as a convenience to users.
+
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the United States and other countries.

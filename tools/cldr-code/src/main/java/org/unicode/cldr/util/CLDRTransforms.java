@@ -15,7 +15,6 @@ import com.ibm.icu.text.UnicodeFilter;
 import com.ibm.icu.util.ICUUncheckedIOException;
 import java.io.File;
 import java.io.IOException;
-import java.io.UncheckedIOException;
 import java.io.Writer;
 import java.util.Arrays;
 import java.util.Collection;
@@ -57,6 +56,7 @@ public class CLDRTransforms {
     }
 
     final Set<String> overridden = new HashSet<>();
+
     // final DependencyOrder dependencyOrder = new DependencyOrder();
 
     //    static public class RegexFindFilenameFilter implements FilenameFilter {
@@ -600,7 +600,11 @@ public class CLDRTransforms {
                 return "Indic";
             }
             try {
-                String name = CLDRConfig.getInstance().getEnglish().getName(sourceOrTarget);
+                String name =
+                        CLDRConfig.getInstance()
+                                .getEnglish()
+                                .nameGetter()
+                                .getNameFromIdentifier(sourceOrTarget);
                 return name;
             } catch (Exception e) {
                 return sourceOrTarget;
@@ -831,6 +835,7 @@ public class CLDRTransforms {
     }
 
     static boolean ALREADY_REGISTERED = false;
+
     /**
      * Register just those transliterators that are different than ICU. TODO: check against the file
      * system to make sure the list is accurate.
@@ -927,7 +932,7 @@ public class CLDRTransforms {
                 }
             }
         } catch (IOException e) {
-            throw new UncheckedIOException(e);
+            throw new ICUUncheckedIOException(e);
         }
         return output;
     }
@@ -1091,6 +1096,7 @@ public class CLDRTransforms {
         }
         return ImmutableSet.copyOf(orderedDependents);
     }
+
     // fails match: :: [:Latin:] fullwidth-halfwidth ();
 
     static final Pattern TRANSLIT_FINDER =
@@ -1105,6 +1111,7 @@ public class CLDRTransforms {
                             + "\\s*\\)"
                             + ")?"
                             + "\\s*;\\s*(#.*)?");
+
     //    static {
     //        Matcher matcher = TRANSLIT_FINDER.matcher("::[:Latin:] fullwidth-halfwidth();");
     //        System.out.println(matcher.matches());
@@ -1128,5 +1135,21 @@ public class CLDRTransforms {
             }
         }
         return "";
+    }
+
+    public class CLDRTransformsJsonIndex {
+        /** raw list of available IDs */
+        public String[] available =
+                getAvailableIds().stream()
+                        .map((String id) -> id.replace(".xml", ""))
+                        .sorted()
+                        .collect(Collectors.toList())
+                        .toArray(new String[0]);
+    }
+
+    /** This gets the metadata (index file) exposed as cldr-json/cldr-transforms/transforms.json */
+    public CLDRTransformsJsonIndex getJsonIndex() {
+        final CLDRTransformsJsonIndex index = new CLDRTransformsJsonIndex();
+        return index;
     }
 }

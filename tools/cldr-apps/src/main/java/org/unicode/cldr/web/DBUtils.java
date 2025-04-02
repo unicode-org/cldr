@@ -4,7 +4,6 @@
 package org.unicode.cldr.web;
 
 import com.google.common.io.CharStreams;
-import com.ibm.icu.dev.util.ElapsedTimer;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -47,6 +46,7 @@ import org.apache.ibatis.jdbc.ScriptRunner;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.unicode.cldr.icu.dev.util.ElapsedTimer;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRConfig.Environment;
 import org.unicode.cldr.util.CLDRLocale;
@@ -67,6 +67,7 @@ public class DBUtils {
     private static final String JDBC_SURVEYTOOL = ("jdbc/SurveyTool");
     private static DataSource datasource = null;
     private String connectionUrl = null;
+
     /**
      * @Deprecated
      */
@@ -93,9 +94,13 @@ public class DBUtils {
     public static final String DB_SQL_BINCOLLATE = " COLLATE latin1_bin ";
     public static final String DB_SQL_ENGINE_INNO = "ENGINE=InnoDB";
     public static final String DB_SQL_MB4 = " CHARACTER SET utf8mb4 COLLATE utf8mb4_bin";
+
+    // This could be useful for debugging but is not accurate, since it is not decremented
+    // when a connection is auto-closed as with "try (Connection conn = ...)"
     public static int db_number_open = 0;
     public static int db_number_used = 0;
     private static final int db_UnicodeType = java.sql.Types.BLOB;
+
     /** the StackTracker can track unclosed connections */
     private static final StackTracker tracker = DEBUG ? new StackTracker() : null;
 
@@ -622,6 +627,7 @@ public class DBUtils {
                                         && !s.getClassName().startsWith("java.")));
         return callerElement.toString();
     }
+
     /**
      * Get an Autocommit Connection. Will be AutoCommit=true
      *
@@ -635,10 +641,11 @@ public class DBUtils {
                 c.setAutoCommit(true);
                 return c;
             }
+            db_number_open++;
             return datasource.getConnection();
         } catch (SQLException se) {
             se.printStackTrace();
-            SurveyMain.busted("Fatal in getConnection()", se);
+            SurveyMain.busted("Fatal in getAConnection()", se);
             return null;
         }
     }
@@ -651,6 +658,7 @@ public class DBUtils {
      */
     private static Connection getDBConnectionFor(final String connectionUrl) {
         try {
+            db_number_open++;
             return DriverManager.getConnection(connectionUrl);
         } catch (SQLException e) {
             throw new RuntimeException("getConnection() failed for url", e);

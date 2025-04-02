@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1291,12 +1291,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="colCaseFirst" type="upper" draft="contributed">大文字優先で並べ替え</type>
 			<type key="colCaseLevel" type="no" draft="contributed">大文字小文字を区別しないで並べ替え</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">大文字小文字を区別して並べ替え</type>
-			<type key="collation" type="big5han">繁体字中国語順(Big5)</type>
 			<type key="collation" type="compat">以前の順序（互換性）</type>
 			<type key="collation" type="dictionary">辞書順</type>
 			<type key="collation" type="ducet">ユニコード照合順</type>
 			<type key="collation" type="eor" draft="contributed">ヨーロッパ言語文字の並べ替え規則</type>
-			<type key="collation" type="gb2312han">簡体字中国語順(GB2312)</type>
 			<type key="collation" type="phonebook">電話帳順</type>
 			<type key="collation" type="phonetic">音声順による並べ替え</type>
 			<type key="collation" type="pinyin">ピンイン順</type>
@@ -1466,13 +1464,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>GGGGy年M月d日EEEE</pattern>
-							<datetimeSkeleton>GGGGyMEEEEd</datetimeSkeleton>
+							<datetimeSkeleton>GGGGyMMMEEEEd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
 							<pattern>GGGGy年M月d日</pattern>
-							<datetimeSkeleton>GGGGyMd</datetimeSkeleton>
+							<datetimeSkeleton>GGGGyMMMd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
@@ -2406,13 +2404,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>Gy年M月d日(EEEE)</pattern>
-							<datetimeSkeleton>GyMEEEEd</datetimeSkeleton>
+							<datetimeSkeleton>GyMMMEEEEd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
 							<pattern>Gy年M月d日</pattern>
-							<datetimeSkeleton>GyMd</datetimeSkeleton>
+							<datetimeSkeleton>GyMMMd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
@@ -2980,13 +2978,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>y年M月d日EEEE</pattern>
-							<datetimeSkeleton>yMEEEEd</datetimeSkeleton>
+							<datetimeSkeleton>yMMMEEEEd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
 							<pattern>y年M月d日</pattern>
-							<datetimeSkeleton>yMd</datetimeSkeleton>
+							<datetimeSkeleton>yMMMd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
@@ -4150,7 +4148,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<dateFormatLength type="medium">
 						<dateFormat>
 							<pattern numbers="y=jpanyear">Gy年M月d日</pattern>
-							<datetimeSkeleton numbers="y=jpanyear">GyMd</datetimeSkeleton>
+							<datetimeSkeleton numbers="y=jpanyear">GyMMMd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -4972,6 +4970,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<regionFormat type="daylight">{0}夏時間</regionFormat>
 			<regionFormat type="standard">{0}標準時</regionFormat>
 			<fallbackFormat>{1}（{0}）</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>ホノルル</exemplarCity>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>協定世界時</standard>
@@ -5587,9 +5588,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>プノンペン</exemplarCity>
 			</zone>
 			<zone type="Pacific/Enderbury">
-				<exemplarCity>エンダーベリー島</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kanton">
 				<exemplarCity>カントン島</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
@@ -5708,9 +5706,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>ウランバートル</exemplarCity>
-			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity>チョイバルサン</exemplarCity>
 			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity>マカオ</exemplarCity>
@@ -6111,9 +6106,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Nome">
 				<exemplarCity>ノーム</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>ホノルル</exemplarCity>
-			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>アンカレッジ</exemplarCity>
 			</zone>
@@ -6496,13 +6488,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>中国時間</generic>
 					<standard>中国標準時</standard>
 					<daylight>中国夏時間</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>チョイバルサン時間</generic>
-					<standard>チョイバルサン標準時</standard>
-					<daylight>チョイバルサン夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">
@@ -7303,7 +7288,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<currencyFormat type="standard">
 					<pattern>¤#,##0.00</pattern>
 					<pattern alt="alphaNextToNumber" draft="provisional">¤ #,##0.00</pattern>
-					<pattern alt="noCurrency" draft="provisional">↑↑↑</pattern>
+					<pattern alt="noCurrency" draft="provisional">#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>¤#,##0.00;(¤#,##0.00)</pattern>
@@ -9181,7 +9166,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -9931,7 +9916,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -10148,7 +10133,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>項目</displayName>
 				<unitPattern count="other">{0} 項目</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -10898,7 +10883,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>分 - 質量</displayName>
 				<unitPattern count="other">{0} 分 - 質量</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -11115,7 +11100,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0}項目</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0}ppm</unitPattern>
 			</unit>
@@ -11865,7 +11850,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>分</displayName>
 				<unitPattern count="other">{0}分</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0}ppb</unitPattern>
 			</unit>

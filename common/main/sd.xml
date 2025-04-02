@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -2839,6 +2839,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<regionFormat type="daylight">{0} ڏينهن جو وقت</regionFormat>
 			<regionFormat type="standard">{0} معياري وقت</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>هونو لولو</exemplarCity>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>گڏيل دنياوي وقت</standard>
@@ -3457,9 +3460,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>فنام پينه</exemplarCity>
 			</zone>
 			<zone type="Pacific/Enderbury">
-				<exemplarCity>اينڊربري</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kanton">
 				<exemplarCity>ڪانٽن</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
@@ -3578,9 +3578,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>اولان باتر</exemplarCity>
-			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity>چوئي بيلسن</exemplarCity>
 			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity>مڪائو</exemplarCity>
@@ -3981,9 +3978,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="America/Nome">
 				<exemplarCity>نوم</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>هونو لولو</exemplarCity>
-			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>اينڪريج</exemplarCity>
 			</zone>
@@ -4326,13 +4320,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>چين جو وقت</generic>
 					<standard>چائنا جو معياري وقت</standard>
 					<daylight>چائنا جي ڏينهن جو وقت</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>چوئي بيلسن جو وقت</generic>
-					<standard>چوئي بيلسن جو معياري وقت</standard>
-					<daylight>چوئي بيلسن جي اونهاري جو وقت</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">
@@ -6588,7 +6575,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>حصا في ملين</displayName>
 				<unitPattern count="one">{0} حصو في ملين</unitPattern>
 				<unitPattern count="other">{0} حصا في ملين</unitPattern>
@@ -7430,7 +7417,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} نوري</unitPattern>
 				<unitPattern count="other">{0} نوري</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>حصا في ارب</displayName>
 				<unitPattern count="one">{0} حصو في ارب</unitPattern>
 				<unitPattern count="other">{0} حصا في ارب</unitPattern>
@@ -7672,7 +7659,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} آئٽم</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -8514,7 +8501,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} نوري</unitPattern>
 				<unitPattern count="other">{0} نوري</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>حصا/ارب</displayName>
 				<unitPattern count="one">{0} ح ف ا</unitPattern>
 				<unitPattern count="other">{0} ح ف ا</unitPattern>
@@ -8756,7 +8743,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -9598,7 +9585,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0}نوري</unitPattern>
 				<unitPattern count="other">{0}نوري</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>ح ف ا</displayName>
 				<unitPattern count="one">{0}ح ف ا</unitPattern>
 				<unitPattern count="other">{0}ح ف ا</unitPattern>

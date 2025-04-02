@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1175,10 +1175,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="calendar" type="roc">Календар Републике Кине</type>
 			<type key="cf" type="account">рачуноводствени формат валуте</type>
 			<type key="cf" type="standard">стандардни формат валуте</type>
-			<type key="collation" type="big5han">Традиционално кинеско сортирање</type>
 			<type key="collation" type="dictionary" draft="contributed">Редослед сортирања у речнику</type>
 			<type key="collation" type="ducet">задани Unicode редослијед сортирања</type>
-			<type key="collation" type="gb2312han">Поједностављено кинеско сортирање</type>
 			<type key="collation" type="phonebook">Сортирање као телефонски именик</type>
 			<type key="collation" type="pinyin">Пињин сортирање</type>
 			<type key="collation" type="reformed" draft="contributed">Реформисани редослед сортирања</type>
@@ -3377,6 +3375,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<regionFormat type="daylight">↑↑↑</regionFormat>
 			<regionFormat type="standard">↑↑↑</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>Хонолулу</exemplarCity>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>Координисано универзално вријеме</standard>
@@ -3992,9 +3993,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Пном Пен</exemplarCity>
 			</zone>
 			<zone type="Pacific/Enderbury">
-				<exemplarCity>Ендербери</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kanton">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
@@ -4113,9 +4111,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>Улан Батор</exemplarCity>
-			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity>Чојбалсан</exemplarCity>
 			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity>Макау</exemplarCity>
@@ -4516,9 +4511,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="America/Nome">
 				<exemplarCity>Ном</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>Хонолулу</exemplarCity>
-			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>Енкориџ</exemplarCity>
 			</zone>
@@ -4896,13 +4888,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>Кина вријеме</generic>
 					<standard>Кина стандардно вријеме</standard>
 					<daylight>Кина љетње рачунање времена</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>Чојбалсан вријеме</generic>
-					<standard>Чојбалсан стандардно вријеме</standard>
-					<daylight>Чојбалсан љетње рачунање времена</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">

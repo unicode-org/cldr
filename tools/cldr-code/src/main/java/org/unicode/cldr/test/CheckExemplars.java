@@ -11,6 +11,7 @@ import com.ibm.icu.util.ULocale;
 import java.util.BitSet;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Locale;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -55,6 +56,7 @@ public class CheckExemplars extends FactoryCheckCLDR {
         }
         AlwaysOK.freeze();
     }
+
     // TODO Fix some of these characters
     private static final UnicodeSet SPECIAL_ALLOW =
             new UnicodeSet(
@@ -101,10 +103,13 @@ public class CheckExemplars extends FactoryCheckCLDR {
 
     public enum ExemplarType {
         main(AllowedInExemplars, "(specific-script - uppercase - invisibles + \u0130)", true),
-        punctuation(ALLOWED_IN_PUNCTUATION, "punctuation", false),
         auxiliary(ALLOWED_IN_AUX, "(specific-script - uppercase - invisibles + \u0130)", true),
-        index(UAllowedInExemplars, "(specific-script - invisibles)", false),
+        punctuation(ALLOWED_IN_PUNCTUATION, "punctuation", false),
+        punctuation_auxiliary(ALLOWED_IN_PUNCTUATION, "punctuation-auxiliary", false),
+        punctuation_person(ALLOWED_IN_PUNCTUATION, "punctuation-person", false),
         numbers(UAllowedInNumbers, "(specific-script - invisibles)", false),
+        numbers_auxiliary(UAllowedInNumbers, "(specific-script - invisibles)", false),
+        index(UAllowedInExemplars, "(specific-script - invisibles)", false),
     // currencySymbol(AllowedInExemplars, "(specific-script - uppercase - invisibles + \u0130)",
     // false)
     ;
@@ -122,6 +127,12 @@ public class CheckExemplars extends FactoryCheckCLDR {
             this.message = message;
             this.toRemove = new UnicodeSet(allowed).complement().freeze();
             this.convertUppercase = convertUppercase;
+        }
+
+        public static ExemplarType from(String name) {
+            return name == null
+                    ? ExemplarType.main
+                    : ExemplarType.valueOf(name.replace('-', '_').toLowerCase(Locale.ROOT));
         }
     }
 
@@ -176,8 +187,7 @@ public class CheckExemplars extends FactoryCheckCLDR {
         if (!accept(result)) return this;
         XPathParts oparts = XPathParts.getFrozenInstance(path);
         final String exemplarString = oparts.findAttributeValue("exemplarCharacters", "type");
-        ExemplarType type =
-                exemplarString == null ? ExemplarType.main : ExemplarType.valueOf(exemplarString);
+        ExemplarType type = ExemplarType.from(exemplarString);
         checkExemplar(value, result, type);
 
         // check relation to auxiliary set
@@ -302,6 +312,16 @@ public class CheckExemplars extends FactoryCheckCLDR {
 
     private void checkParse(
             String path, String fullPath, String value, Options options, List<CheckStatus> result) {
+        if (value == null) {
+            CheckStatus message =
+                    new CheckStatus()
+                            .setCause(this)
+                            .setMainType(CheckStatus.errorType)
+                            .setSubtype(Subtype.badParseLenient)
+                            .setMessage("null value");
+            result.add(message);
+            return;
+        }
         try {
             XPathParts oparts = XPathParts.getFrozenInstance(path);
             // only thing we do is make sure that the sample is in the value

@@ -318,8 +318,6 @@ public class SupplementalDataInfo {
         }
     }
 
-    static final Pattern WHITESPACE_PATTERN = PatternCache.get("\\s+");
-
     /** Simple language/script/region information */
     public static class BasicLanguageData
             implements Comparable<BasicLanguageData>,
@@ -333,6 +331,9 @@ public class SupplementalDataInfo {
 
         private Set<String> scripts = Collections.emptySet();
 
+        private Map<String, Integer> scriptsByPopulation = new TreeMap<>();
+
+        // TODO CLDR-18087 completely remove territories
         private Set<String> territories = Collections.emptySet();
 
         public Type getType() {
@@ -344,30 +345,40 @@ public class SupplementalDataInfo {
             return this;
         }
 
-        public BasicLanguageData setScripts(String scriptTokens) {
-            return setScripts(
-                    scriptTokens == null
-                            ? null
-                            : Arrays.asList(WHITESPACE_PATTERN.split(scriptTokens)));
+        // Adding scripts but leaving 0 as a placeholder when there is no population data
+        // input: a whitespace-separated list of scripts
+        public BasicLanguageData setScriptsWithoutPopulation(String scriptTokens) {
+            return setScriptsWithoutPopulation(
+                    scriptTokens == null ? null : WHITESPACE_SPLITTER.splitToList(scriptTokens));
+        }
+
+        // Adding scripts but leaving 0 as a placeholder when there is no population data
+        public BasicLanguageData setScriptsWithoutPopulation(Collection<String> scripts) {
+            Map<String, Integer> scriptsByPopulation = new TreeMap<>();
+            if (scripts != null) {
+                for (String script : scripts) {
+                    scriptsByPopulation.put(script, 0);
+                }
+            }
+            return setScripts(scriptsByPopulation);
         }
 
         public BasicLanguageData setTerritories(String territoryTokens) {
             return setTerritories(
                     territoryTokens == null
                             ? null
-                            : Arrays.asList(WHITESPACE_PATTERN.split(territoryTokens)));
+                            : WHITESPACE_SPLITTER.splitToList(territoryTokens));
         }
 
-        public BasicLanguageData setScripts(Collection<String> scriptTokens) {
+        public BasicLanguageData setScripts(Map<String, Integer> newScripts) {
             if (frozen) {
                 throw new UnsupportedOperationException();
             }
             // TODO add error checking
             scripts = Collections.emptySet();
-            if (scriptTokens != null) {
-                for (String script : scriptTokens) {
-                    addScript(script);
-                }
+            scriptsByPopulation = new TreeMap<>();
+            if (newScripts != null) {
+                addScripts(newScripts);
             }
             return this;
         }
@@ -401,15 +412,17 @@ public class SupplementalDataInfo {
 
         public String toString(String languageSubtag) {
             if (scripts.size() == 0 && territories.size() == 0) return "";
+            List<String> sortedScripts =
+                    scriptsByPopulation.entrySet().stream()
+                            .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
+                            .map(Map.Entry::getKey)
+                            .collect(Collectors.toList());
             return "\t\t<language type=\""
                     + languageSubtag
                     + "\""
                     + (scripts.size() == 0
                             ? ""
-                            : " scripts=\"" + CldrUtility.join(scripts, " ") + "\"")
-                    + (territories.size() == 0
-                            ? ""
-                            : " territories=\"" + CldrUtility.join(territories, " ") + "\"")
+                            : " scripts=\"" + CldrUtility.join(sortedScripts, " ") + "\"")
                     + (type == Type.primary ? "" : " alt=\"" + type + "\"")
                     + "/>";
         }
@@ -419,7 +432,6 @@ public class SupplementalDataInfo {
             return "["
                     + type
                     + (scripts.isEmpty() ? "" : "; scripts=" + Joiner.on(" ").join(scripts))
-                    + (scripts.isEmpty() ? "" : "; territories=" + Joiner.on(" ").join(territories))
                     + "]";
         }
 
@@ -445,15 +457,25 @@ public class SupplementalDataInfo {
             return ((type.ordinal() * 37 + scripts.hashCode()) * 37) + territories.hashCode();
         }
 
-        public BasicLanguageData addScript(String script) {
+        public BasicLanguageData addScript(String script, Integer population) {
             // simple error checking
             if (script.length() != 4) {
                 throw new IllegalArgumentException("Illegal Script: " + script);
             }
             if (scripts == Collections.EMPTY_SET) {
-                scripts = new TreeSet<>();
+                scripts = new LinkedHashSet<>(); // retain order
+                scriptsByPopulation = new TreeMap<>();
             }
             scripts.add(script);
+
+            // Add population data
+            Integer currentPopulation = scriptsByPopulation.get(script);
+            if (currentPopulation == null) {
+                scriptsByPopulation.put(script, population);
+            } else if (population > 0) {
+                // TODO CLDR-18087 maybe do some ambiguity testing
+                scriptsByPopulation.put(script, population);
+            } // Ignore 0 population if we already have a script entry
             return this;
         }
 
@@ -463,7 +485,7 @@ public class SupplementalDataInfo {
                 throw new IllegalArgumentException("Illegal Territory: " + territory);
             }
             if (territories == Collections.EMPTY_SET) {
-                territories = new TreeSet<>();
+                territories = new LinkedHashSet<>();
             }
             territories.add(territory);
             return this;
@@ -496,9 +518,9 @@ public class SupplementalDataInfo {
             return this;
         }
 
-        public void addScripts(Set<String> scripts2) {
-            for (String script : scripts2) {
-                addScript(script);
+        private void addScripts(Map<String, Integer> newScripts) {
+            for (Map.Entry<String, Integer> entry : newScripts.entrySet()) {
+                addScript(entry.getKey(), entry.getValue());
             }
         }
     }
@@ -677,8 +699,25 @@ public class SupplementalDataInfo {
 
         @Override
         public int compareTo(CurrencyDateInfo o) {
+            // Sort first by isLegalTender
+            if (isLegalTender && !o.isLegalTender) {
+                return -1;
+            }
+            if (!isLegalTender && o.isLegalTender) {
+                return 1;
+            }
+            // Note that sorting using criteria other than the above loses info, because per
+            // https://www.unicode.org/reports/tr35/tr35-numbers.html#Supplemental_Currency_Data,
+            // "The [xml file] *ordering* of the elements in the list tells us which was the
+            // primary currency during any period in time." However we do keep the further
+            // comparison steps below to preserve a unique ordering of CurrencyDateInfo items; we
+            // just make the ordering closer to the file order by sorting the dateRange newest
+            // first (CLDR-15693).
+            //
+            // Then sort by date range
             int result = dateRange.compareTo(o.dateRange);
-            if (result != 0) return result;
+            if (result != 0) return -result; // want *newest* "to" first, then newest "from"
+            // then by currency
             return currency.compareTo(o.currency);
         }
 
@@ -1312,7 +1351,7 @@ public class SupplementalDataInfo {
         if (unitAliases != null) { // don't load unless the information is there (for old releases);
             unitConverter.addAliases(unitAliases);
         }
-        unitConverter.freeze();
+        unitConverter.freeze(new File(directory, "../validity").toString());
         rationalParser.freeze();
         unitPreferences.freeze();
 
@@ -1361,6 +1400,7 @@ public class SupplementalDataInfo {
 
         LanguageTagParser languageTagParser =
                 null; // postpone assignment until needed, to avoid re-entrance of
+
         // SupplementalDataInfo.getInstance
 
         /** Finish processing anything left hanging in the file. */
@@ -1658,7 +1698,7 @@ public class SupplementalDataInfo {
 
         private boolean handleLanguageGroups(String value, XPathValue parts) {
             String parent = parts.getAttributeValue(-1, "parent");
-            List<String> children = WHITESPACE_SPLTTER.splitToList(value);
+            List<String> children = WHITESPACE_SPLITTER.splitToList(value);
             languageGroups.putAll(parent, children);
             return true;
         }
@@ -1834,7 +1874,7 @@ public class SupplementalDataInfo {
             switch (parts.getElement(3)) {
                 case "paradigmLocales":
                     List<String> locales =
-                            WHITESPACE_SPLTTER.splitToList(parts.getAttributeValue(3, "locales"));
+                            WHITESPACE_SPLITTER.splitToList(parts.getAttributeValue(3, "locales"));
                     // TODO
                     //                LanguageMatchData languageMatchData =
                     // languageMatchData.get(type);
@@ -2165,8 +2205,13 @@ public class SupplementalDataInfo {
                     }
                     return true;
                 } else if (level3.equals("attributeValues")) {
-                    AttributeValidityInfo.add(
-                            parts.getAttributes(-1), value, attributeValidityInfo);
+                    // the keyboard directory disappeared in new versions.
+                    // supplementalData/metadata/validity/attributeValues[@dtds="keyboard"][@elements="keyMap"][@attributes="modifiers"][@type="TODO"]
+                    final String dtdsValue = parts.getAttributeValue(-1, "dtds");
+                    if (!"keyboard".equals(dtdsValue) && !"platform".equals(dtdsValue)) {
+                        AttributeValidityInfo.add(
+                                parts.getAttributes(-1), value, attributeValidityInfo);
+                    }
                     return true;
                 }
             } else if (level2.equals("serialElements")) {
@@ -2418,7 +2463,7 @@ public class SupplementalDataInfo {
                             ? BasicLanguageData.Type.primary
                             : BasicLanguageData.Type.secondary);
             languageData
-                    .setScripts(parts.getAttributeValue(2, "scripts"))
+                    .setScriptsWithoutPopulation(parts.getAttributeValue(2, "scripts"))
                     .setTerritories(parts.getAttributeValue(2, "territories"));
             Map<Type, BasicLanguageData> map = languageToBasicLanguageData.get(language);
             if (map == null) {
@@ -3040,7 +3085,7 @@ public class SupplementalDataInfo {
             }
             String script = locale.getScript();
             if (script.length() > 0) {
-                scriptsAndRegions.addScript(script);
+                scriptsAndRegions.addScript(script, 0 /* 0 = no population data yet */);
             }
             String region = locale.getCountry();
             if (region.length() > 0
@@ -5074,7 +5119,7 @@ public class SupplementalDataInfo {
         return directory;
     }
 
-    public static final Splitter WHITESPACE_SPLTTER =
+    public static final Splitter WHITESPACE_SPLITTER =
             Splitter.on(PatternCache.get("\\s+")).omitEmptyStrings();
 
     public static final class AttributeValidityInfo {
@@ -5122,7 +5167,7 @@ public class SupplementalDataInfo {
                 this.dtds = Collections.singleton(DtdType.ldml);
             } else {
                 Set<DtdType> temp = EnumSet.noneOf(DtdType.class);
-                for (String s : WHITESPACE_SPLTTER.split(dtds)) {
+                for (String s : WHITESPACE_SPLITTER.split(dtds)) {
                     temp.add(DtdType.fromElement(s));
                 }
                 this.dtds = Collections.unmodifiableSet(temp);
@@ -5131,10 +5176,10 @@ public class SupplementalDataInfo {
             this.elements =
                     elements == null
                             ? Collections.EMPTY_SET
-                            : With.in(WHITESPACE_SPLTTER.split(elements))
+                            : With.in(WHITESPACE_SPLITTER.split(elements))
                                     .toUnmodifiableCollection(new HashSet<String>());
             this.attributes =
-                    With.in(WHITESPACE_SPLTTER.split(attributes))
+                    With.in(WHITESPACE_SPLITTER.split(attributes))
                             .toUnmodifiableCollection(new HashSet<String>());
             this.order = order;
         }

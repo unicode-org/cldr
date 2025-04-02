@@ -1,10 +1,19 @@
 
-name: Publish to gh-pages
+name: gh-pages
+
+# Note: we have a foot in two camps here, maybe more
+#
+# - docs/ldml is the spec, and it gets special handling and generation. Ends up cldr-smoke for now
+# - docs/rfc needs to end up somewhere. for now, generate to github.io
+
+# - docs/site is an entire 'site' that gets deployed to what will be cldr.unicode.org
+#    This is now handled in site.yml
 
 permissions:
   pages: write
   deployments: write
   id-token: write
+  actions: read
 
 on:
   pull_request:
@@ -34,7 +43,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nodetr-
             nodetr-
-      - uses: nodenv/actions/node-version@v3 # setup using .node-version
+      - uses: nodenv/actions/node-version@v4 # setup using .node-version
       - name: Run TR archiver
         # Note: will update ToC if out of date
         run: 'cd tools/scripts/tr-archive/ && npm ci && npm run build'
@@ -52,12 +61,28 @@ jobs:
         # Warn, don't fail yet
         run: npx markdownlint-cli *.md {specs,docs}/*.md || (echo Warning, please fix these ; true)
       - name: Note any changes
+        # if the archiver had to update anything, or if anchors changed
         run: git status ; git diff
+      - name: Restore lychee cache
+        uses: actions/cache@v3
+        with:
+          path: .lycheecache
+          key: cache-lychee-${{ github.sha }}
+          restore-keys: cache-lychee-
+      - name: Run lychee
+        uses: lycheeverse/lychee-action@v1
+        with:
+            args: "-n --cache --max-cache-age 10d docs/rfc docs/ldml"
+            fail: false
+            format: markdown
+            output: linkcheck.md
+      - name: Link Checker Summary
+        run: cat linkcheck.md >> $GITHUB_STEP_SUMMARY
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.2
           bundler-cache: true
-      - name: Build Jekyll part of the site
+      - name: Build Jekyll part of the site (not spec, not site/)
         run: |
           gem install bundler github-pages kramdown-parser-gfm  # should pull in jekyll, etc.
           cd docs &&  github-pages build && mkdir -vp ../_site/ldml
@@ -67,7 +92,7 @@ jobs:
         run: 'cp -vr tools/scripts/tr-archive/dist/* ./_site/ldml/ && cp tools/scripts/tr-archive/reports-v2.css ./_site/'
       - name: Deploy to GitHub Pages (main)
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3
       - name: Deploy to Smoketest
         if: github.repository == 'unicode-org/cldr' && github.event_name == 'push'
         shell: bash
@@ -88,7 +113,8 @@ jobs:
           echo "::endgroup::"
           echo "Now go to https://cldr-smoke.unicode.org/spec/"$(basename ${GITHUB_REF_NAME})
   deploy:
-    if: github.repository == 'unicode-org/cldr' && github.event_name == 'push'
+    # only deploy from main branch of main repo
+    if: github.repository == 'unicode-org/cldr' && github.event_name == 'push' && github.ref == 'refs/heads/main'
     environment:
       name: github-pages
       url: ${{steps.deployment.outputs.page_url}}
@@ -97,7 +123,7 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4.0.5
     # only run one deployment at once.
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}

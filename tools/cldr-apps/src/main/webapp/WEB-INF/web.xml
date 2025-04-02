@@ -32,6 +32,10 @@
 		<servlet-name>v</servlet-name>
 		<servlet-class>org.unicode.cldr.web.SurveyTool</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>github-login</servlet-name>
+		<servlet-class>org.unicode.cldr.web.auth.GithubLoginServlet</servlet-class>
+	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>SurveyMain</servlet-name>
@@ -40,6 +44,10 @@
 	<servlet-mapping>
 		<servlet-name>v</servlet-name>
 		<url-pattern>/v</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>github-login</servlet-name>
+		<url-pattern>/github-login</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>/index.jsp</welcome-file>
@@ -50,11 +58,11 @@
 		<servlet-name>SurveyAjax</servlet-name>
 		<servlet-class>org.unicode.cldr.web.SurveyAjax</servlet-class>
 	</servlet>
-	<!-- <filter> <filter-name>ExpiresFilter</filter-name> <filter-class>org.apache.catalina.filters.ExpiresFilter</filter-class> 
-		<init-param> <param-name>ExpiresByType image</param-name> <param-value>access 
-		plus 10 minutes</param-value> </init-param> <init-param> <param-name>ExpiresByType 
-		text/css</param-name> <param-value>access plus 10 minutes</param-value> </init-param> 
-		<init-param> <param-name>ExpiresByType text/javascript</param-name> <param-value>access 
+	<!-- <filter> <filter-name>ExpiresFilter</filter-name> <filter-class>org.apache.catalina.filters.ExpiresFilter</filter-class>
+		<init-param> <param-name>ExpiresByType image</param-name> <param-value>access
+		plus 10 minutes</param-value> </init-param> <init-param> <param-name>ExpiresByType
+		text/css</param-name> <param-value>access plus 10 minutes</param-value> </init-param>
+		<init-param> <param-name>ExpiresByType text/javascript</param-name> <param-value>access
 		plus 5 minutes</param-value> </init-param> </filter> -->
 	<servlet-mapping>
 		<servlet-name>SurveyAjax</servlet-name>
@@ -77,7 +85,7 @@
 			org.apache.commons.fileupload.servlet.FileCleanerCleanup
 		</listener-class>
 	</listener>
-	<!-- <filter-mapping> <filter-name>ExpiresFilter</filter-name> <url-pattern>/*</url-pattern> 
+	<!-- <filter-mapping> <filter-name>ExpiresFilter</filter-name> <url-pattern>/*</url-pattern>
 		<dispatcher>REQUEST</dispatcher> </filter-mapping> -->
 	<context-param>
 		<param-name>clearReferencesStopTimerThreads</param-name>

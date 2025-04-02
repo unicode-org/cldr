@@ -157,7 +157,7 @@ public class VoteAPIHelper {
         try {
             /** if true, hide emails. TODO: CLDR-16829 remove this parameter */
             final boolean redacted =
-                    ((mySession.user == null) || (!mySession.user.getLevel().isGuest()));
+                    ((mySession.user == null) || (!mySession.user.getLevel().isGuestOrStronger()));
             final RowResponse r = getRowsResponse(args, sm, locale, mySession, redacted);
             return Response.ok(r).build();
         } catch (Throwable t) {
@@ -185,9 +185,8 @@ public class VoteAPIHelper {
         String xp = null;
 
         if (args.xpstrid == null && args.page != null) {
-            try {
-                pageId = PageId.valueOf(args.page);
-            } catch (IllegalArgumentException iae) {
+            pageId = PageId.forString(args.page);
+            if (pageId == null) {
                 throw new SurveyException(ErrorCode.E_BAD_SECTION);
             }
             if (pageId.getSectionId() == org.unicode.cldr.util.PathHeader.SectionId.Special) {
@@ -358,8 +357,7 @@ public class VoteAPIHelper {
         c.example = i.getExample();
         c.history = i.getHistory();
         c.isBaselineValue = i.isBaselineValue();
-        c.pClass =
-                i.getPClass(); // it might be better to pass underlying values (not CSS class) to FE
+        c.pClass = i.getCandidateStatus().toString();
         c.rawValue = i.getValue();
         c.tests = getConvertedTests(i.getTests());
         c.value = i.getProcessedValue();
@@ -402,7 +400,13 @@ public class VoteAPIHelper {
             String baseXp, CLDRLocale locale, CookieSession mySession) {
         Level coverageLevel = Level.get(mySession.getEffectiveCoverageLevel(locale.toString()));
         Dashboard.ReviewOutput ro =
-                new Dashboard().get(locale, mySession.user, coverageLevel, baseXp);
+                new Dashboard()
+                        .get(
+                                locale,
+                                mySession.user,
+                                coverageLevel,
+                                baseXp,
+                                false /* includeOther */);
         return ro.getNotifications();
     }
 
@@ -436,6 +440,7 @@ public class VoteAPIHelper {
             return new STError(se).build();
         }
     }
+
     /**
      * this function is the implementation of handleVote() but does not use any jax-rs, for unit
      * tests

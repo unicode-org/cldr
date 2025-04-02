@@ -55,6 +55,7 @@ const INFO_VOTE_TICKET_ID = "info-panel-vote-and-ticket";
 const INFO_REGIONAL_ID = "info-panel-regional";
 const INFO_FORUM_ID = "info-panel-forum";
 const INFO_XPATH_ID = "info-panel-xpath";
+const INFO_BOTTOM_ID = "info-panel-bottom";
 
 /**
  * Initialize the Info Panel
@@ -118,6 +119,7 @@ function insertLegacyElement(containerEl) {
   appendDiv(el, INFO_REGIONAL_ID);
   appendDiv(el, INFO_FORUM_ID);
   appendDiv(el, INFO_XPATH_ID);
+  appendDiv(el, INFO_BOTTOM_ID);
 }
 
 function appendDiv(el, id) {
@@ -247,6 +249,7 @@ function show(str, tr, hideIfLast, fn) {
   addRegionalSidewaysMenu(tr);
   addForumPanel(tr);
   addXpath(tr);
+  addBottom();
   addVoterInfoHover();
 }
 
@@ -325,7 +328,7 @@ function addSelectedItem(theRow) {
   const { language, direction } = getLanguageAndDirection();
   selectedItemWrapper.setLanguageAndDirection(language, direction);
 
-  const description = getItemDescription(item?.pClass, theRow?.inheritedLocale);
+  const description = getItemDescription(item?.pClass, theRow);
   selectedItemWrapper.setDescription(description);
 
   const { linkUrl, linkText } = getLinkUrlAndText(theRow, item);
@@ -396,7 +399,7 @@ function getLinkUrlAndText(theRow, item) {
     }
     if (xpstrid === theRow.xpstrid && loc === cldrStatus.getCurrentLocale()) {
       // following the alias would come back to the current item; no link
-      linkText = cldrText.get("noFollowAlias");
+      // and no link text either
     } else {
       linkText = cldrText.get("followAlias");
       linkUrl = "#/" + loc + "//" + xpstrid;
@@ -450,6 +453,19 @@ function addForumPanel(tr) {
   if (tr) {
     el.appendChild(fragment);
   }
+}
+
+/**
+ * An empty paragraph at the bottom of the info panel enables scrolling
+ * to bring the bottom content fully into view without being overlapped
+ * by the xpath shown by addXpath
+ */
+function addBottom() {
+  const el = document.getElementById(INFO_BOTTOM_ID);
+  if (!el) {
+    return;
+  }
+  el.innerHTML = "<p>&nbsp;</p>";
 }
 
 function addXpath(tr) {
@@ -891,17 +907,22 @@ function createVoter(v) {
   return div;
 }
 
-function getItemDescription(itemClass, inheritedLocale) {
+function getItemDescription(itemClass, theRow) {
   /*
    * itemClass may be "winner, "alias", "fallback", "fallback_code", "fallback_root", or "loser".
    *  See getPClass in DataPage.java.*
    */
+  const inheritedLocale = theRow?.inheritedLocale;
   if (itemClass === "fallback") {
     const locName = cldrLoad.getLocaleName(inheritedLocale);
     return cldrText.sub("item_description_fallback", [locName]);
   } else if (itemClass === "alias") {
     if (inheritedLocale === cldrStatus.getCurrentLocale()) {
-      return cldrText.get("item_description_alias_same_locale");
+      return cldrText.get(
+        theRow.inheritedXpid
+          ? "item_description_alias_same_locale"
+          : "noFollowAlias"
+      );
     } else {
       const locName = cldrLoad.getLocaleName(inheritedLocale);
       return cldrText.sub("item_description_alias_diff_locale", [locName]);

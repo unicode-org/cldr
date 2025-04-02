@@ -10,7 +10,7 @@ Time zones (such as "Pacific Time" or "France Time") can be formatted in differe
 
 - "metazone" names, such as "Pacific Time" or "Pacific Standard Time", that can apply to segments of a country or groups of countries.
 - location (country or city) based names, such as "Paris Time" or "Japan Standard Time"
-    - These are constructed using patterns (see below), plus [Country/Region Names](https://cldr.unicode.org/translation/displaynames/countryregion-territory-names) and City Names.
+    - These are constructed using patterns (see below), plus [Country/Region Names](/translation/displaynames/countryregion-territory-names) and City Names.
     - When a "metazone" name is absent, a location based name is used as a fallback.
 - raw offsets, like "GMT+10:00"
     - These are constructed using patterns (see below).
@@ -34,6 +34,7 @@ The following special patterns are used in formatting timezones.
 |---|---|---|---|---|
 | gmtFormat | GMT{0}<br /> *or*<br /> GMT{ HOURS_FROM_GMT } | GMT -2:00 | **GMT Pattern.** Modify this field if the format for GMT time uses different letters, such as  HUA+0200  for  GMT+02:00 , or if the letters GMT occur after the time. Make sure you include the  {0} ; that is where the actual time value will go! |  |
 | gmtZeroFormat | GMT | GMT | **GMT Zero Pattern.**  *This field must be consistent with the GMT Pattern.* |  |
+| gmtUnknownFormat | GMT+? | GMT+? | **GMT Unknown Pattern.**  *This field must be consistent with the GMT Pattern.* |  |
 | hourFormat | +HH:mm;-HH:mm | GMT -02:00 | **GMT Hours Pattern.** This field controls the format for the time used with the GMT Pattern. It contains two patterns separated by a ";". The first controls positive time values (and zero), and the second controls the negative values. So to get  *GMT+02.00* for positive values, and  *GMT-02.00* for negative values, you'd use *+HH.mm;-HH.mm*. |  |
 | regionFormat | {0} Time<br /> *or*<br /> { COUNTRY } Time / { CITY } Time | Bolivia Time | **Location-Based Time Zone Pattern.** For generic references to time zones, the country is used if possible, composed with a pattern that in English appears as "{0}  **Time** ". Thus a time zone may appear as "Malaysia  **Time** " or " **Hora de**  Malasia". If the country has multiple time zones, then a city is used to distinguish which one, thus "Argentina (La Rioja)  **Time** ".<br /><br /> Some languages would normally have grammatical adjustments depending on what the name of the city is. For example, one might need "12:43 pm  **Tempo d'** Australia" but "12:43 pm  **Tempo de**   Paris". In that case, there are two approaches:<br /><br /> 1. Use "{0}", which will give results like "12:43 pm Australia" and "12:43 pm Paris", or<br /> 2. Use a "form-style" phrasing such as " **Tempo de:**  {0}", which will give results like "12:43 pm  **Tempo de:**  Australia" and "12:43 pm **Tempo de:**  Paris". |  |
 | regionFormat-standard | {0} Standard Time<br /> *or*<br /> { COUNTRY } Standard Time / { CITY } Standard Time | Bolivia Standard Time |  |   |
@@ -74,6 +75,5 @@ The city name may also be used in formatted times, such as:
 
 **Unique Names**
 
-City names must be unique. See [Country/Region Names](https://cldr.unicode.org/translation/displaynames/countryregion-territory-names) for techniques.
+City names must be unique. See [Country/Region Names](/translation/displaynames/countryregion-territory-names) for techniques.
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

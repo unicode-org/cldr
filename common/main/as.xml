@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -887,9 +887,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="calendar" type="roc">চীনা প্ৰজাতন্ত্ৰৰ কেলেণ্ডাৰ</type>
 			<type key="cf" type="account">গাণনিক মুদ্ৰা সজ্জা</type>
 			<type key="cf" type="standard">মান্য মুদ্ৰা সজ্জা</type>
-			<type key="collation" type="big5han" draft="contributed">পৰম্পৰাগত চীনা শৃঙ্খলাবদ্ধ কৰাৰ ক্ৰম - Big5</type>
 			<type key="collation" type="ducet">ডিফ’ল্ট ইউনিকোড সজোৱা ক্ৰম</type>
-			<type key="collation" type="gb2312han" draft="contributed">সৰল চীনা শৃঙ্খলাবদ্ধ কৰাৰ ক্ৰম - GB2312</type>
 			<type key="collation" type="phonebook" draft="contributed">টেলিফোন বহিৰ মতেশৃঙ্খলাবদ্ধ কৰাৰ ক্ৰম</type>
 			<type key="collation" type="pinyin" draft="contributed">পিন্‌য়িন শৃঙ্খলাবদ্ধ কৰাৰ ক্ৰম</type>
 			<type key="collation" type="search">সাধাৰণ উদ্দেশ্যে অনুসন্ধান</type>
@@ -1434,30 +1432,30 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="am">পূৰ্বাহ্ন</dayPeriod>
+							<dayPeriod type="pm">অপৰাহ্ন</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="narrow">
 							<dayPeriod type="am">↑↑↑</dayPeriod>
 							<dayPeriod type="pm">↑↑↑</dayPeriod>
 						</dayPeriodWidth>
-						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am">am</dayPeriod>
-							<dayPeriod type="pm">pm</dayPeriod>
-						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">AM</dayPeriod>
-							<dayPeriod type="pm">PM</dayPeriod>
+							<dayPeriod type="am">↑↑↑</dayPeriod>
+							<dayPeriod type="pm">↑↑↑</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
 						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am">AM</dayPeriod>
-							<dayPeriod type="pm">PM</dayPeriod>
+							<dayPeriod type="am">↑↑↑</dayPeriod>
+							<dayPeriod type="pm">↑↑↑</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am">AM</dayPeriod>
-							<dayPeriod type="pm">PM</dayPeriod>
+							<dayPeriod type="am">↑↑↑</dayPeriod>
+							<dayPeriod type="pm">↑↑↑</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">AM</dayPeriod>
-							<dayPeriod type="pm">PM</dayPeriod>
+							<dayPeriod type="am">↑↑↑</dayPeriod>
+							<dayPeriod type="pm">↑↑↑</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
@@ -3128,9 +3126,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>নোম পেন্‌হ</exemplarCity>
 			</zone>
 			<zone type="Pacific/Enderbury">
-				<exemplarCity>এণ্ডৰবাৰী</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kanton">
 				<exemplarCity>কেণ্টন</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
@@ -3249,9 +3244,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>উলানবাটাৰ</exemplarCity>
-			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity>কোইবাল্ছন</exemplarCity>
 			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity>মাকাও</exemplarCity>
@@ -3996,13 +3988,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>চীনৰ ডেলাইট সময়</daylight>
 				</long>
 			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>কোইবাল্ছনৰ সময়</generic>
-					<standard>কোইবাল্ছনৰ মান সময়</standard>
-					<daylight>কোইবাল্ছনৰ গ্ৰীষ্মকালীন সময়</daylight>
-				</long>
-			</metazone>
 			<metazone type="Christmas">
 				<long>
 					<standard>খ্ৰীষ্টমাছ দ্বীপৰ সময়</standard>
@@ -4671,9 +4656,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<native>beng</native>
 		</otherNumberingSystems>
 		<minimumGroupingDigits>↑↑↑</minimumGroupingDigits>
-		<symbols>
-			<timeSeparator draft="unconfirmed">.</timeSeparator>
-		</symbols>
 		<symbols numberSystem="beng">
 			<decimal>↑↑↑</decimal>
 			<group>↑↑↑</group>
@@ -4699,6 +4681,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<perMille>↑↑↑</perMille>
 			<infinity>↑↑↑</infinity>
 			<nan>↑↑↑</nan>
+			<timeSeparator draft="unconfirmed">.</timeSeparator>
 		</symbols>
 		<decimalFormats numberSystem="beng">
 			<decimalFormatLength>
@@ -6157,7 +6140,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>প্ৰতি মিলিয়নত ভাগ</displayName>
 				<unitPattern count="one">প্ৰতি মিলিয়নত {0} ভাগ</unitPattern>
 				<unitPattern count="other">প্ৰতি মিলিয়নত {0} ভাগ</unitPattern>
@@ -6999,7 +6982,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} আলোক</unitPattern>
 				<unitPattern count="other">{0} আলোক</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>প্ৰতি বিলিয়নত অংশ</displayName>
 				<unitPattern count="one">{0} প্ৰতি বিলিয়নত অংশ</unitPattern>
 				<unitPattern count="other">{0} প্ৰতি বিলিয়নত অংশ</unitPattern>
@@ -7241,7 +7224,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} টা আইটেম</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>ভাগ/মিলিয়ন</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -8083,7 +8066,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} আলোক</unitPattern>
 				<unitPattern count="other">{0} আলোক</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>অংশ/বিলিয়ন</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -8325,7 +8308,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>ppm</displayName>
 				<unitPattern count="one">{0}ppm</unitPattern>
 				<unitPattern count="other">{0}ppm</unitPattern>
@@ -9167,7 +9150,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0}আলোক</unitPattern>
 				<unitPattern count="other">{0}আলোক</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">{0}ppb</unitPattern>
 				<unitPattern count="other">{0}ppb</unitPattern>

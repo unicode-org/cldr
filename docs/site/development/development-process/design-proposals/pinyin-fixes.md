@@ -32,4 +32,3 @@ Where there are multiple readings in Unihan, they are given in the format with -
 
 [pinyinSortComparison.txt](https://drive.google.com/file/d/1XFMmbjipcf6pTH2VOJ_KOnjSdpkvyLcq/view?usp=sharing)
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

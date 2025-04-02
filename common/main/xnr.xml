@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -903,9 +903,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="calendar" type="roc">चीनी गणतंत्र पंचांग</type>
 			<type key="cf" type="account">लेखांकन मुद्रा प्रारूप</type>
 			<type key="cf" type="standard">मानक मुद्रा प्रारूप</type>
-			<type key="collation" type="big5han">पारम्पारिक चीनी वर्गीकरण</type>
 			<type key="collation" type="ducet">डिफ़ॉल्ट यूनिकोड सॉर्ट क्रम</type>
-			<type key="collation" type="gb2312han">सरलीकृत चीनी वर्गीकरण</type>
 			<type key="collation" type="phonebook">फोनबुक छंटाई क्रम</type>
 			<type key="collation" type="pinyin">पिनयीन वर्गीकरण</type>
 			<type key="collation" type="search">सामान्य-उद्देश्य खोज</type>
@@ -2795,7 +2793,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Asia/Phnom_Penh">
 				<exemplarCity>नोम पेन्ह</exemplarCity>
 			</zone>
-			<zone type="Pacific/Kanton">
+			<zone type="Pacific/Enderbury">
 				<exemplarCity>कैंटन</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
@@ -2914,9 +2912,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>उलानबातर</exemplarCity>
-			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity>चोइबालसन</exemplarCity>
 			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity>मकाऊ</exemplarCity>
@@ -3658,13 +3653,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>चीन दे ध्याड़े दे उजाले दा टैम</daylight>
 				</long>
 			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>कॉइबाल्सन दा टैम</generic>
-					<standard>कॉइबाल्सन दा मानक टैम</standard>
-					<daylight>कॉइबाल्सन दी तोंदिया दा टैम</daylight>
-				</long>
-			</metazone>
 			<metazone type="Christmas">
 				<long>
 					<standard>क्रिसमस टापू दा टैम</standard>
@@ -4345,6 +4333,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<infinity>↑↑↑</infinity>
 			<nan>↑↑↑</nan>
 		</symbols>
+		<decimalFormats numberSystem="deva">
+			<decimalFormatLength>
+				<decimalFormat>
+					<pattern>↑↑↑</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
 		<decimalFormats numberSystem="latn">
 			<decimalFormatLength>
 				<decimalFormat>
@@ -4384,6 +4379,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
+		<scientificFormats numberSystem="deva">
+			<scientificFormatLength>
+				<scientificFormat>
+					<pattern>↑↑↑</pattern>
+				</scientificFormat>
+			</scientificFormatLength>
+		</scientificFormats>
 		<scientificFormats numberSystem="latn">
 			<scientificFormatLength>
 				<scientificFormat>
@@ -4391,6 +4393,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</scientificFormat>
 			</scientificFormatLength>
 		</scientificFormats>
+		<percentFormats numberSystem="deva">
+			<percentFormatLength>
+				<percentFormat>
+					<pattern>↑↑↑</pattern>
+				</percentFormat>
+			</percentFormatLength>
+		</percentFormats>
 		<percentFormats numberSystem="latn">
 			<percentFormatLength>
 				<percentFormat>
@@ -4398,6 +4407,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</percentFormat>
 			</percentFormatLength>
 		</percentFormats>
+		<currencyFormats numberSystem="deva">
+			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern alt="noCurrency">↑↑↑</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
 		<currencyFormats numberSystem="latn">
 			<currencyFormatLength>
 				<currencyFormat type="standard">

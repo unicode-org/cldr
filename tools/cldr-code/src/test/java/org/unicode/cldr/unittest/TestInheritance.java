@@ -2,7 +2,6 @@ package org.unicode.cldr.unittest;
 
 import com.google.common.base.Joiner;
 import com.google.common.collect.Sets;
-import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row.R2;
 import java.io.IOException;
@@ -21,7 +20,7 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
-import org.unicode.cldr.tool.GenerateMaximalLocales;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRConfig;
@@ -33,6 +32,7 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Iso3166Data;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -168,7 +168,12 @@ public class TestInheritance extends TestFmwk {
                 if (!testOrg.contains(language)) {
                     continue;
                 }
-                System.out.print(language + "\t" + testInfo.getEnglish().getName(language));
+                System.out.print(
+                        language
+                                + "\t"
+                                + testInfo.getEnglish()
+                                        .nameGetter()
+                                        .getNameFromIdentifier(language));
 
                 M3<OfficialStatus, String, Boolean> officialChildren =
                         languageToOfficialChildren.get(language);
@@ -195,14 +200,20 @@ public class TestInheritance extends TestFmwk {
             LanguageTagParser ltp = new LanguageTagParser().set(s);
             String script = ltp.getScript();
             if (script.length() != 0) {
-                b.append(testInfo.getEnglish().getName(CLDRFile.SCRIPT_NAME, script));
+                b.append(
+                        testInfo.getEnglish()
+                                .nameGetter()
+                                .getNameFromTypeEnumCode(NameType.SCRIPT, script));
             }
             String region = ltp.getRegion();
             if (region.length() != 0) {
                 if (script.length() != 0) {
                     b.append("-");
                 }
-                b.append(testInfo.getEnglish().getName(CLDRFile.TERRITORY_NAME, region));
+                b.append(
+                        testInfo.getEnglish()
+                                .nameGetter()
+                                .getNameFromTypeEnumCode(NameType.TERRITORY, region));
             }
             b.append(" [").append(s);
             if (showStatus) {
@@ -362,7 +373,10 @@ public class TestInheritance extends TestFmwk {
                             "nn",
                             "nb",
                             // Per CLDR-15276 hi-Latn can have an explicit parent
-                            "hi_Latn"));
+                            "hi_Latn",
+                            // Per CLDR-17587 Haitian Creole is largely influenced by French and is
+                            // best boot-strapped by French
+                            "ht"));
 
     public void TestParentLocaleInvariants() {
         // Testing invariant relationships in parent locales - See
@@ -818,7 +832,7 @@ public class TestInheritance extends TestFmwk {
                                 + ","
                                 + " but "
                                 + language
-                                + " is missing in language_script.txt");
+                                + " is missing in language_script.tsv");
                 continue;
             }
             for (BasicLanguageData entry : data.values()) {
@@ -837,7 +851,7 @@ public class TestInheritance extends TestFmwk {
                             + language
                             + " doesn't have "
                             + script
-                            + " in language_script.txt");
+                            + " in language_script.tsv");
         }
     }
 
@@ -885,50 +899,6 @@ public class TestInheritance extends TestFmwk {
     LanguageTagParser ltp = new LanguageTagParser();
 
     Matcher aliasMatcher = PatternCache.get("//ldml.*/alias.*").matcher("");
-
-    private String minimize(Map<String, String> likelySubtags, String locale) {
-        String result = GenerateMaximalLocales.minimize(locale, likelySubtags, false);
-        if (result == null) {
-            LanguageTagParser ltp3 = new LanguageTagParser().set(locale);
-            List<String> variants = ltp3.getVariants();
-            Map<String, String> extensions = ltp3.getExtensions();
-            Set<String> emptySet = Collections.emptySet();
-            ltp3.setVariants(emptySet);
-            Map<String, String> emptyMap = Collections.emptyMap();
-            ltp3.setExtensions(emptyMap);
-            String newLocale = ltp3.toString();
-            result = GenerateMaximalLocales.minimize(newLocale, likelySubtags, false);
-            if (result != null) {
-                ltp3.set(result);
-                ltp3.setVariants(variants);
-                ltp3.setExtensions(extensions);
-                result = ltp3.toString();
-            }
-        }
-        return result;
-    }
-
-    private String maximize(Map<String, String> likelySubtags, String locale) {
-        String result = GenerateMaximalLocales.maximize(locale, likelySubtags);
-        if (result == null) {
-            LanguageTagParser ltp3 = new LanguageTagParser().set(locale);
-            List<String> variants = ltp3.getVariants();
-            Map<String, String> extensions = ltp3.getExtensions();
-            Set<String> emptySet = Collections.emptySet();
-            ltp3.setVariants(emptySet);
-            Map<String, String> emptyMap = Collections.emptyMap();
-            ltp3.setExtensions(emptyMap);
-            String newLocale = ltp3.toString();
-            result = GenerateMaximalLocales.maximize(newLocale, likelySubtags);
-            if (result != null) {
-                ltp3.set(result);
-                ltp3.setVariants(variants);
-                ltp3.setExtensions(extensions);
-                result = ltp3.toString();
-            }
-        }
-        return result;
-    }
 
     // TODO move this into central utilities
     public static boolean equals(CharSequence string, int codePoint) {

@@ -5,8 +5,9 @@
     <p class="special_general" v-if="specialGeneral" v-html="specialGeneral" />
     <button
       @click="insertDashboard"
-      class="cldr-nav-btn btn-primary open-dash general-open-dash"
+      class="cldr-nav-btn btn-primary open-dash"
       type="button"
+      v-if="dashButtonShouldBeVisible()"
     >
       Open Dashboard
     </button>
@@ -29,6 +30,7 @@ export default {
       specialGeneral: null,
     };
   },
+
   mounted() {
     const locmap = cldrLoad.getTheLocaleMap();
     const bund = locmap.getLocaleInfo(cldrStatus.getCurrentLocale());
@@ -52,8 +54,17 @@ export default {
     }
 
     this.specialGeneral = cldrText.get("generalSpecialGuidance");
+
+    if (cldrDashContext.shouldBeShown()) {
+      cldrDashContext.insert();
+    }
   },
+
   methods: {
+    dashButtonShouldBeVisible() {
+      return !cldrDashContext.isVisible();
+    },
+
     insertDashboard() {
       cldrDashContext.insert();
     },
@@ -62,8 +73,13 @@ export default {
 </script>
 
 <style>
-button.general-open-dash {
-  /* We only want THIS button to float, not all Open Dashboard buttons. */
+button.open-dash {
   float: right;
+}
+
+p.special_general {
+  margin: 1em;
+  padding: 1em;
+  border: 2px solid gray;
 }
 </style>

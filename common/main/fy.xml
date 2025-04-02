@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1145,10 +1145,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colCaseFirst" type="upper" draft="contributed">Eerst sortearje op haadletters</type>
 			<type key="colCaseLevel" type="no" draft="contributed">Net haadlettergefoelich sortearje</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">Hoofdlettergevoelig sortearje</type>
-			<type key="collation" type="big5han" draft="contributed">Tradisjonele-Sineeske soartear oarder - Big5</type>
 			<type key="collation" type="dictionary" draft="contributed">Wurdboeksortearfolgorde</type>
 			<type key="collation" type="ducet" draft="contributed">Standert Unikoade-sortearfolgorde</type>
-			<type key="collation" type="gb2312han" draft="contributed">Ferienfâldigde-Sineeske sortearfolgorde - GB2312</type>
 			<type key="collation" type="phonebook" draft="contributed">Telefoanboeksortearfolgorde</type>
 			<type key="collation" type="phonetic" draft="contributed">Fonetyske sortearfolgorde</type>
 			<type key="collation" type="pinyin" draft="contributed">Pinyinvolgorde</type>
@@ -5188,13 +5186,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic draft="contributed">Sineeske tiid</generic>
 					<standard draft="contributed">Sineeske standerttiid</standard>
 					<daylight draft="contributed">Sineeske simmertiid</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic draft="contributed">Tsjojbalsan tiid</generic>
-					<standard draft="contributed">Tsjojbalsan standerttiid</standard>
-					<daylight draft="contributed">Tsjojbalsan simmertiid</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">

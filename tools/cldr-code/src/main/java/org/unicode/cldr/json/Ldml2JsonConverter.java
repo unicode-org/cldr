@@ -23,6 +23,7 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -49,6 +50,7 @@ import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CLDRTool;
+import org.unicode.cldr.util.CLDRTransforms;
 import org.unicode.cldr.util.CLDRURLS;
 import org.unicode.cldr.util.CalculatedCoverageLevels;
 import org.unicode.cldr.util.CldrUtility;
@@ -88,6 +90,7 @@ public class Ldml2JsonConverter {
     private static final String CLDR_PKG_PREFIX = "cldr-";
     private static final String FULL_TIER_SUFFIX = "-full";
     private static final String MODERN_TIER_SUFFIX = "-modern";
+    private static final String TRANSFORM_RAW_SUFFIX = ".txt";
     private static Logger logger = Logger.getLogger(Ldml2JsonConverter.class.getName());
 
     enum RunType {
@@ -98,7 +101,9 @@ public class Ldml2JsonConverter {
         rbnf(false, true),
         annotations,
         annotationsDerived,
-        bcp47(false, false);
+        bcp47(false, false),
+        transforms(false, false),
+        subdivisions(true, true);
 
         private final boolean isTiered;
         private final boolean hasLocales;
@@ -112,6 +117,7 @@ public class Ldml2JsonConverter {
             this.isTiered = isTiered;
             this.hasLocales = hasLocales;
         }
+
         /**
          * Is it split into modern/full?
          *
@@ -120,6 +126,7 @@ public class Ldml2JsonConverter {
         public boolean tiered() {
             return isTiered;
         }
+
         /**
          * Does it have locale IDs?
          *
@@ -128,6 +135,7 @@ public class Ldml2JsonConverter {
         public boolean locales() {
             return hasLocales;
         }
+
         /**
          * return the options as a pipe-delimited list
          *
@@ -554,7 +562,8 @@ public class Ldml2JsonConverter {
         // read paths in DTD order. The order is critical for JSON processing.
         final CLDRFile.Status status = new CLDRFile.Status();
         for (Iterator<String> it =
-                        file.iterator("", DtdData.getInstance(fileDtdType).getDtdComparator(null));
+                        file.iteratorWithoutExtras(
+                                "", DtdData.getInstance(fileDtdType).getDtdComparator(null));
                 it.hasNext(); ) {
             int cv = Level.UNDETERMINED.getLevel();
             final String path = it.next();
@@ -588,10 +597,10 @@ public class Ldml2JsonConverter {
             if (cv > coverageValue) {
                 continue;
             }
-            // Discard root identity element unless the locale is root
-            // TODO: CLDR-17790 this code should not be needed.
+
+            // TODO: CLDR-17790 known issue - //ldml/identity inherits when it shouldn't.
             rootIdentityMatcher.reset(fullPath);
-            if (rootIdentityMatcher.matches() && !"root".equals(locID)) {
+            if (rootIdentityMatcher.matches() && !file.isHere(fullPath)) {
                 continue;
             }
 
@@ -739,6 +748,10 @@ public class Ldml2JsonConverter {
                 outFilename = filenameAsLangTag + ".json";
             } else if (type == RunType.bcp47) {
                 outFilename = filename + ".json";
+            } else if (type == RunType.transforms) {
+                outFilename = filename + ".json";
+            } else if (type == RunType.subdivisions) {
+                outFilename = filename + ".json";
             } else if (js.section.equals("other")) {
                 // If you see other-___.json, it means items that were missing from
                 // JSON_config_*.txt
@@ -775,11 +788,12 @@ public class Ldml2JsonConverter {
                         if (type == RunType.main) {
                             avl.full.add(filenameAsLangTag);
                         }
-                    } else if (type == RunType.rbnf) {
-                        js.packageName = "rbnf";
-                        tier = "";
-                    } else if (type == RunType.bcp47) {
-                        js.packageName = "bcp47";
+                    } else if (type == RunType.rbnf
+                            || type == RunType.bcp47
+                            || type == RunType.transforms
+                            || type == RunType.subdivisions) {
+                        // untiered, just use the name
+                        js.packageName = type.name();
                         tier = "";
                     }
                     if (js.packageName != null) {
@@ -884,6 +898,24 @@ public class Ldml2JsonConverter {
                             }
                         }
 
+                        if (item.getUntransformedPath()
+                                .startsWith("//supplementalData/transforms")) {
+                            // here, write the raw data
+                            final String rawTransformFile = filename + TRANSFORM_RAW_SUFFIX;
+                            try (PrintWriter outf =
+                                    FileUtilities.openUTF8Writer(outputDir, rawTransformFile)) {
+                                outf.println(item.getValue().trim());
+                                // note: not logging the write here- it will be logged when the
+                                // .json file is written.
+                            }
+                            final String path = item.getPath();
+                            item.setPath(fixTransformPath(path));
+                            final String fullPath = item.getFullPath();
+                            item.setFullPath(fixTransformPath(fullPath));
+                            // the value is now the raw filename
+                            item.setValue(rawTransformFile);
+                        }
+
                         // some items need to be split to multiple item before processing. None
                         // of those items need to be sorted.
                         // Applies to SPLITTABLE_ATTRS attributes.
@@ -935,6 +967,7 @@ public class Ldml2JsonConverter {
                                 }
                             }
                         }
+                        postprocessAfterAdd(out, item);
                     }
 
                     resolveSortingItems(out, nodesForLastItem, sortingItems);
@@ -943,7 +976,31 @@ public class Ldml2JsonConverter {
                         outputUnitPreferenceData(js, theItems, out, nodesForLastItem);
                     }
 
-                    // closeNodes(out, nodesForLastItem.size() - 2, 0);
+                    // Special processing for transforms.
+                    if (type == RunType.transforms) {
+                        final JsonObject jo = out.getAsJsonObject("transforms");
+                        if (jo == null || jo.isEmpty()) {
+                            throw new RuntimeException(
+                                    "Could not get transforms object in " + filename);
+                        }
+                        @SuppressWarnings("unchecked")
+                        final Entry<String, JsonElement>[] s = jo.entrySet().toArray(new Entry[0]);
+                        if (s == null || s.length != 1) {
+                            throw new RuntimeException(
+                                    "Could not get 1 subelement of transforms in " + filename);
+                        }
+                        // key doesn't matter.
+                        // move subitem up
+                        out = s[0].getValue().getAsJsonObject();
+                        final Entry<String, JsonElement>[] s2 =
+                                out.entrySet().toArray(new Entry[0]);
+                        if (s2 == null || s2.length != 1) {
+                            throw new RuntimeException(
+                                    "Could not get 1 sub-subelement of transforms in " + filename);
+                        }
+                        // move sub-subitem up.
+                        out = s2[0].getValue().getAsJsonObject();
+                    }
 
                     // write JSON
                     try (PrintWriter outf = FileUtilities.openUTF8Writer(outputDir, outFilename)) {
@@ -988,6 +1045,88 @@ public class Ldml2JsonConverter {
             System.out.print(outStr);
         }
         return totalItemsInFile;
+    }
+
+    /**
+     * Provide an opportunity to fix up the JsonObject before write, after items were added.
+     *
+     * @param out the JsonObject which already reflects 'item'
+     * @param item the original CLDR item
+     */
+    private void postprocessAfterAdd(JsonObject out, CldrItem item) {
+        if (item.getUntransformedPath().contains("timeZoneNames/zone")) {
+            // add _type values into the time zone tree
+            try {
+                JsonObject sub = out;
+                for (final CldrNode n : item.getNodesInPath()) {
+                    if (n.getNodeKeyName().equals("cldr")) {
+                        continue; // skip the top 'cldr' node
+                    }
+                    if (!n.getName().equals("zone") && n.getParent().equals("zone")) {
+                        // child of zone, but not a zone - add the type.
+                        sub.addProperty("_type", "zone");
+                        break;
+                    } else {
+                        JsonElement je = sub.get(n.getNodeKeyName());
+                        if (je == null) {
+                            // then add it! Because we run before the sorting,
+                            // we can run where the parent isn't added yet.
+                            je = new JsonObject();
+                            sub.add(n.getNodeKeyName(), je);
+                        }
+                        sub = je.getAsJsonObject(); // traverse into the JSON DOM..
+                    }
+                }
+            } catch (ParseException e) {
+                System.err.println("Error adding _type in tree for " + item.getUntransformedPath());
+                e.printStackTrace();
+            }
+        }
+    }
+
+    /**
+     * Fixup an XPathParts with a specific transform element
+     *
+     * @param xpp the XPathParts to modify
+     * @param attribute the attribute name, such as "alias"
+     */
+    private static final void fixTransformPath(final XPathParts xpp, final String attribute) {
+        final String v = xpp.getAttributeValue(-2, attribute); // on penultimate element
+        if (v == null) return;
+        final Set<String> aliases = new HashSet<>();
+        final Set<String> bcpAliases = new HashSet<>();
+        for (final String s : v.split(" ")) {
+            final String q = Locale.forLanguageTag(s).toLanguageTag();
+            if (s.equals(q)) {
+                // bcp47 round trips- add to bcp list
+                bcpAliases.add(s);
+            } else {
+                // different - add to other aliases.
+                aliases.add(s);
+            }
+        }
+        if (aliases.isEmpty()) {
+            xpp.removeAttribute(-2, attribute);
+        } else {
+            xpp.setAttribute(-2, attribute, String.join(" ", aliases.toArray(new String[0])));
+        }
+        if (bcpAliases.isEmpty()) {
+            xpp.removeAttribute(-2, attribute + "Bcp47");
+        } else {
+            xpp.setAttribute(
+                    -2, attribute + "Bcp47", String.join(" ", bcpAliases.toArray(new String[0])));
+        }
+    }
+
+    /**
+     * Fixup a transform path, expanding the alias and backwardAlias into bcp47 and non-bcp47
+     * attributes.
+     */
+    private static final String fixTransformPath(final String path) {
+        final XPathParts xpp = XPathParts.getFrozenInstance(path).cloneAsThawed();
+        fixTransformPath(xpp, "alias");
+        fixTransformPath(xpp, "backwardAlias");
+        return xpp.toString();
     }
 
     private static String valueSectionsFormat(int values, int sections) {
@@ -1036,6 +1175,7 @@ public class Ldml2JsonConverter {
     }
 
     Pattern IS_REGION_CODE = PatternCache.get("([A-Z][A-Z])|([0-9][0-9][0-9])");
+
     /**
      * Bottleneck for converting Unicode Locale ID (root, ca_ES_VALENCIA) to String for filename or
      * data item. If strictBcp47 is true (default) then it will convert to (und, ca-ES-valencia)
@@ -1453,6 +1593,24 @@ public class Ldml2JsonConverter {
         outf.close();
     }
 
+    public void writeTransformMetadata(String outputDir) throws IOException {
+        final String dirName = outputDir + "/cldr-" + RunType.transforms.name();
+        final String fileName = RunType.transforms.name() + ".json";
+        PrintWriter outf = FileUtilities.openUTF8Writer(dirName, fileName);
+        System.out.println(
+                PACKAGE_ICON
+                        + " Creating packaging file => "
+                        + dirName
+                        + File.separator
+                        + fileName);
+        JsonObject obj = new JsonObject();
+        obj.add(
+                RunType.transforms.name(),
+                gson.toJsonTree(CLDRTransforms.getInstance().getJsonIndex()));
+        outf.println(gson.toJson(obj));
+        outf.close();
+    }
+
     public void writeCoverageLevels(String outputDir) throws IOException {
         try (PrintWriter outf =
                 FileUtilities.openUTF8Writer(outputDir + "/cldr-core", "coverageLevels.json"); ) {
@@ -1550,7 +1708,9 @@ public class Ldml2JsonConverter {
                         + "cldr-packages.json and PACKAGES.md");
         PrintWriter pkgs = FileUtilities.openUTF8Writer(outputDir + "/..", "PACKAGES.md");
 
-        pkgs.println("# CLDR JSON Packages");
+        pkgs.println("# CLDR-JSON Package List");
+        pkgs.println();
+        pkgs.println("## Packages");
         pkgs.println();
 
         LdmlConfigFileReader uberReader = new LdmlConfigFileReader();
@@ -1573,7 +1733,20 @@ public class Ldml2JsonConverter {
             final String baseName = e.getKey();
 
             if (baseName.equals("IGNORE") || baseName.equals("cal")) continue;
-            if (baseName.equals("core") || baseName.equals("rbnf") || baseName.equals("bcp47")) {
+
+            boolean tiered = !baseName.equals("core");
+            // If it's a known un-tiered enum type, skip tiered.
+            try {
+                RunType r = RunType.valueOf(baseName);
+                if (!r.tiered()) {
+                    tiered = false;
+                }
+            } catch (IllegalArgumentException t) {
+                // ignored
+            }
+
+            // if not tiered
+            if (!tiered) {
                 JsonObject packageEntry = new JsonObject();
                 packageEntry.addProperty("description", e.getValue());
                 packageEntry.addProperty("name", CLDR_PKG_PREFIX + baseName);
@@ -1605,7 +1778,7 @@ public class Ldml2JsonConverter {
                 }
             }
         }
-        pkgs.println();
+
         for (Map.Entry<String, String> e : pkgsToDesc.entrySet()) {
             pkgs.println("### [" + e.getKey() + "](./cldr-json/" + e.getKey() + "/)");
             pkgs.println();
@@ -1613,8 +1786,8 @@ public class Ldml2JsonConverter {
                 pkgs.println(
                         " - **Note: Deprecated** see [CLDR-16465](https://unicode-org.atlassian.net/browse/CLDR-16465).");
             }
-            pkgs.println(" - " + e.getValue());
-            pkgs.println(" - " + getNpmBadge(e.getKey()));
+            pkgs.println("- " + e.getValue());
+            pkgs.println("- " + getNpmBadge(e.getKey()));
             pkgs.println();
         }
         obj.add("packages", packages);
@@ -1857,9 +2030,11 @@ public class Ldml2JsonConverter {
             String rawAttrValue = attrAsValueMap.get(key);
             String value = escapeValue(rawAttrValue);
             // attribute is prefixed with "_" when being used as key.
-            String attrAsKey = "_" + key;
-            if (LdmlConvertRules.attrIsBooleanOmitFalse(
-                    node.getUntransformedPath(), node.getName(), node.getParent(), key)) {
+            String attrAsKey = attrToKey(key);
+            final String fullPath = node.getUntransformedPath();
+            final String nodeName = node.getName();
+            final String parent = node.getParent();
+            if (LdmlConvertRules.attrIsBooleanOmitFalse(fullPath, nodeName, parent, key)) {
                 final Boolean v = Boolean.parseBoolean(rawAttrValue);
                 if (v) {
                     o.getAsJsonObject().addProperty(attrAsKey, v);
@@ -1881,11 +2056,11 @@ public class Ldml2JsonConverter {
                         localeRules.getAsJsonObject().add(name, sibling);
                     }
                     // get the 'parent' attribute, which wil be the value
-                    final String parent =
+                    final String parentAttr =
                             XPathParts.getFrozenInstance(node.getUntransformedPath())
                                     .getAttributeValue(-1, "parent");
                     // finally, we add something like "nonLikelyScript: und"
-                    sibling.getAsJsonObject().addProperty(value, parent);
+                    sibling.getAsJsonObject().addProperty(value, parentAttr);
                 } else {
                     o.getAsJsonObject().addProperty(attrAsKey, value);
                 }
@@ -1972,7 +2147,13 @@ public class Ldml2JsonConverter {
                         cldrNode.getName(),
                         cldrNode.getParent(),
                         cldrNode);
-                out.add(o);
+                // hack as we need to hoist languageMatch one level
+                if (o.has("languageMatch")) {
+                    // note: doesn't apply to the languageMatch: [] array container - it's an array.
+                    out.add(o.get("languageMatch"));
+                } else {
+                    out.add(o);
+                }
             }
             // the last node is closed, remove it.
             nodesInPath.remove(nodesNum - 1);
@@ -1997,7 +2178,10 @@ public class Ldml2JsonConverter {
             o.add(objName, oo);
             for (String key : attrAsValueMap.keySet()) {
                 // attribute is prefixed with "_" when being used as key.
-                oo.addProperty("_" + key, escapeValue(attrAsValueMap.get(key)));
+                final String attrAsKey = attrToKey(key);
+                final String rawValue = attrAsValueMap.get(key);
+                final String v = escapeValue(rawValue);
+                oo.addProperty(attrAsKey, v);
             }
 
             JsonElement o2 = out;
@@ -2011,6 +2195,11 @@ public class Ldml2JsonConverter {
 
         nodesForLastItem.clear();
         nodesForLastItem.addAll(nodesInPath);
+    }
+
+    /** attribute is prefixed with _ when used as a JSON key */
+    private String attrToKey(String key) {
+        return "_" + key;
     }
 
     private void writeRbnfLeafNode(
@@ -2225,6 +2414,8 @@ public class Ldml2JsonConverter {
                 if (Boolean.parseBoolean(options.get("packagelist").getValue())) {
                     writePackageList(outputDir);
                 }
+            } else if (type == RunType.transforms) {
+                writeTransformMetadata(outputDir);
             }
         }
     }
@@ -2334,21 +2525,30 @@ public class Ldml2JsonConverter {
         }
 
         JsonObject o = new JsonObject();
+        if (!out.isJsonObject()) {
+            throw new IllegalArgumentException(
+                    "At "
+                            + node.getUntransformedPath()
+                            + " - out is not an object:"
+                            + out
+                            + " to add "
+                            + objName);
+        }
         out.getAsJsonObject().add(objName, o);
 
         if (!value.isEmpty()) {
             o.addProperty("_value", value);
         }
-
+        final String fullPath = node.getUntransformedPath();
         for (final String key : attrAsValueMap.keySet()) {
             String rawAttrValue = attrAsValueMap.get(key);
             String attrValue = escapeValue(rawAttrValue);
             // attribute is prefixed with "_" when being used as key.
-            String attrAsKey = "_" + key;
+            String attrAsKey = attrToKey(key);
             if (node != null) {
-                logger.finest(() -> "Leaf Node: " + node.getUntransformedPath() + " ." + key);
+                logger.finest(() -> "Leaf Node: " + fullPath + " ." + key);
             }
-            if (LdmlConvertRules.ATTRVALUE_AS_ARRAY_SET.contains(key)) {
+            if (LdmlConvertRules.attrValueAsArraySet(nodeName, key)) {
                 String[] strings = attrValue.trim().split("\\s+");
                 JsonArray a = new JsonArray();
                 o.add(attrAsKey, a);
@@ -2356,12 +2556,14 @@ public class Ldml2JsonConverter {
                     a.add(s);
                 }
             } else if (node != null
-                    && LdmlConvertRules.attrIsBooleanOmitFalse(
-                            node.getUntransformedPath(), nodeName, parent, key)) {
+                    && LdmlConvertRules.attrIsBooleanOmitFalse(fullPath, nodeName, parent, key)) {
                 final Boolean v = Boolean.parseBoolean(rawAttrValue);
                 if (v) {
                     o.addProperty(attrAsKey, v);
                 } // else: omit falsy value
+            } else if (LdmlConvertRules.attrIsNumber(fullPath, nodeName, parent, key)) {
+                final Long v = Long.parseLong(rawAttrValue);
+                o.getAsJsonObject().addProperty(attrAsKey, v);
             } else {
                 o.addProperty(attrAsKey, attrValue);
             }
@@ -2369,10 +2571,15 @@ public class Ldml2JsonConverter {
     }
 
     private void outputSpaceSepArray(JsonElement out, String objName, String v) throws IOException {
+        // split this, so "a b c" becomes ["a","b","c"]
+        outputArray(out, objName, v.trim().split(" "));
+    }
+
+    private void outputArray(JsonElement out, String objName, String[] v) throws IOException {
         JsonArray a = new JsonArray();
         out.getAsJsonObject().add(objName, a);
         // split this, so "a b c" becomes ["a","b","c"]
-        for (final String s : v.trim().split(" ")) {
+        for (final String s : v) {
             if (!s.isEmpty()) {
                 a.add(s);
             }

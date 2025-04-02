@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1047,12 +1047,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="colCaseFirst" type="upper" draft="contributed">Najprv radiť veľké písmená</type>
 			<type key="colCaseLevel" type="no" draft="contributed">Pri radení nerozlišovať veľké a malé písmená</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">Pri radení rozlišovať veľké a malé písmená</type>
-			<type key="collation" type="big5han">tradičné čínske zoradenie – Big5</type>
 			<type key="collation" type="compat">predchádzajúce zoradenie, kompatibilita</type>
 			<type key="collation" type="dictionary">slovníkové zoradenie</type>
 			<type key="collation" type="ducet">predvolené zoradenie unicode</type>
 			<type key="collation" type="eor" draft="contributed">európske zoradenie</type>
-			<type key="collation" type="gb2312han">zjednodušené čínske zoradenie – GB2312</type>
 			<type key="collation" type="phonebook">lexikografické zoradenie</type>
 			<type key="collation" type="phonetic">fonetické zoradenie</type>
 			<type key="collation" type="pinyin">zoradenie pchin-jin</type>
@@ -3402,6 +3400,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<regionFormat type="daylight">↑↑↑</regionFormat>
 			<regionFormat type="standard">↑↑↑</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<short>
+					<generic draft="contributed">HST</generic>
+					<standard draft="contributed">HST</standard>
+					<daylight draft="contributed">HDT</daylight>
+				</short>
+				<exemplarCity>Honolulu</exemplarCity>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>koordinovaný svetový čas</standard>
@@ -4020,9 +4026,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Phnom Pénh</exemplarCity>
 			</zone>
 			<zone type="Pacific/Enderbury">
-				<exemplarCity>Enderbury</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kanton">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
@@ -4141,9 +4144,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>Ulanbátar</exemplarCity>
-			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity>Čojbalsan</exemplarCity>
 			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -4544,14 +4544,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Nome">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<short>
-					<generic draft="contributed">HST</generic>
-					<standard draft="contributed">HST</standard>
-					<daylight draft="contributed">HDT</daylight>
-				</short>
-				<exemplarCity>Honolulu</exemplarCity>
-			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
@@ -4934,13 +4926,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>čínsky čas</generic>
 					<standard>čínsky štandardný čas</standard>
 					<daylight>čínsky letný čas</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>čojbalsanský čas</generic>
-					<standard>čojbalsanský štandardný čas</standard>
-					<daylight>čojbalsanský letný čas</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">
@@ -5800,63 +5785,113 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>#,##0.00 ¤</pattern>
-					<pattern alt="noCurrency" draft="provisional">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
+					<pattern alt="noCurrency" draft="provisional">#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>#,##0.00 ¤;(#,##0.00 ¤)</pattern>
+					<pattern alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern alt="noCurrency">#,##0.00;(#,##0.00)</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyFormatLength type="short">
 				<currencyFormat type="standard">
 					<pattern type="1000" count="one">↑↑↑</pattern>
+					<pattern type="1000" count="one" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="1000" count="few">↑↑↑</pattern>
+					<pattern type="1000" count="few" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="1000" count="many">↑↑↑</pattern>
+					<pattern type="1000" count="many" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="1000" count="other">0 tis'.' ¤</pattern>
+					<pattern type="1000" count="other" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="10000" count="one">↑↑↑</pattern>
+					<pattern type="10000" count="one" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="10000" count="few">↑↑↑</pattern>
+					<pattern type="10000" count="few" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="10000" count="many">↑↑↑</pattern>
+					<pattern type="10000" count="many" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="10000" count="other">00 tis'.' ¤</pattern>
+					<pattern type="10000" count="other" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="100000" count="one">↑↑↑</pattern>
+					<pattern type="100000" count="one" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="100000" count="few">↑↑↑</pattern>
+					<pattern type="100000" count="few" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="100000" count="many">↑↑↑</pattern>
+					<pattern type="100000" count="many" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="100000" count="other">000 tis'.' ¤</pattern>
+					<pattern type="100000" count="other" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="1000000" count="one">↑↑↑</pattern>
+					<pattern type="1000000" count="one" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="1000000" count="few">↑↑↑</pattern>
+					<pattern type="1000000" count="few" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="1000000" count="many">↑↑↑</pattern>
+					<pattern type="1000000" count="many" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="1000000" count="other">0 mil'.' ¤</pattern>
+					<pattern type="1000000" count="other" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="10000000" count="one">↑↑↑</pattern>
+					<pattern type="10000000" count="one" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="10000000" count="few">↑↑↑</pattern>
+					<pattern type="10000000" count="few" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="10000000" count="many">↑↑↑</pattern>
+					<pattern type="10000000" count="many" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="10000000" count="other">00 mil'.' ¤</pattern>
+					<pattern type="10000000" count="other" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="100000000" count="one">↑↑↑</pattern>
+					<pattern type="100000000" count="one" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="100000000" count="few">↑↑↑</pattern>
+					<pattern type="100000000" count="few" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="100000000" count="many">↑↑↑</pattern>
+					<pattern type="100000000" count="many" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="100000000" count="other">000 mil'.' ¤</pattern>
+					<pattern type="100000000" count="other" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="1000000000" count="one">↑↑↑</pattern>
+					<pattern type="1000000000" count="one" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="1000000000" count="few">↑↑↑</pattern>
+					<pattern type="1000000000" count="few" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="1000000000" count="many">↑↑↑</pattern>
+					<pattern type="1000000000" count="many" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="1000000000" count="other">0 mld'.' ¤</pattern>
+					<pattern type="1000000000" count="other" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="10000000000" count="one">↑↑↑</pattern>
+					<pattern type="10000000000" count="one" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="10000000000" count="few">↑↑↑</pattern>
+					<pattern type="10000000000" count="few" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="10000000000" count="many">↑↑↑</pattern>
+					<pattern type="10000000000" count="many" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="10000000000" count="other">00 mld'.' ¤</pattern>
+					<pattern type="10000000000" count="other" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="100000000000" count="one">↑↑↑</pattern>
+					<pattern type="100000000000" count="one" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="100000000000" count="few">↑↑↑</pattern>
+					<pattern type="100000000000" count="few" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="100000000000" count="many">↑↑↑</pattern>
+					<pattern type="100000000000" count="many" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="100000000000" count="other">000 mld'.' ¤</pattern>
+					<pattern type="100000000000" count="other" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="1000000000000" count="one">↑↑↑</pattern>
+					<pattern type="1000000000000" count="one" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="1000000000000" count="few">↑↑↑</pattern>
+					<pattern type="1000000000000" count="few" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="1000000000000" count="many">↑↑↑</pattern>
+					<pattern type="1000000000000" count="many" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="1000000000000" count="other">0 bil'.' ¤</pattern>
+					<pattern type="1000000000000" count="other" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="10000000000000" count="one">↑↑↑</pattern>
+					<pattern type="10000000000000" count="one" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="10000000000000" count="few">↑↑↑</pattern>
+					<pattern type="10000000000000" count="few" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="10000000000000" count="many">↑↑↑</pattern>
+					<pattern type="10000000000000" count="many" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="10000000000000" count="other">00 bil'.' ¤</pattern>
+					<pattern type="10000000000000" count="other" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="100000000000000" count="one">↑↑↑</pattern>
+					<pattern type="100000000000000" count="one" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="100000000000000" count="few">↑↑↑</pattern>
+					<pattern type="100000000000000" count="few" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="100000000000000" count="many">↑↑↑</pattern>
+					<pattern type="100000000000000" count="many" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="100000000000000" count="other">000 bil'.' ¤</pattern>
+					<pattern type="100000000000000" count="other" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
@@ -9140,7 +9175,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="instrumental">{0} položkami</unitPattern>
 				<unitPattern count="other" case="locative">{0} položkách</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<gender>feminine</gender>
 				<displayName>milióntiny</displayName>
 				<unitPattern count="one">{0} milióntina</unitPattern>
@@ -12401,35 +12436,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} britského kvartu</unitPattern>
 				<unitPattern count="other">{0} britských kvartov</unitPattern>
 			</unit>
-			<unit type="speed-light-speed">
-				<gender>feminine</gender>
-				<displayName>rýchlosť svetla</displayName>
-				<unitPattern count="one">{0} rýchlosť svetla</unitPattern>
-				<unitPattern count="one" case="accusative">{0} rýchlosť svetla</unitPattern>
-				<unitPattern count="one" case="dative">{0} rýchlosti svetla</unitPattern>
-				<unitPattern count="one" case="genitive">{0} rýchlosti svetla</unitPattern>
-				<unitPattern count="one" case="instrumental">{0} rýchlosťou svetla</unitPattern>
-				<unitPattern count="one" case="locative">{0} rýchlosti svetla</unitPattern>
-				<unitPattern count="few">{0} rýchlosti svetla</unitPattern>
-				<unitPattern count="few" case="accusative">{0} rýchlosti svetla</unitPattern>
-				<unitPattern count="few" case="dative">{0} rýchlostiam svetla</unitPattern>
-				<unitPattern count="few" case="genitive">{0} rýchlostí svetla</unitPattern>
-				<unitPattern count="few" case="instrumental">{0} rýchlosťami svetla</unitPattern>
-				<unitPattern count="few" case="locative">{0} rýchlostiach svetla</unitPattern>
-				<unitPattern count="many">{0} rýchlosti svetla</unitPattern>
-				<unitPattern count="many" case="accusative">{0} rýchlosti svetla</unitPattern>
-				<unitPattern count="many" case="dative">{0} rýchlosti svetla</unitPattern>
-				<unitPattern count="many" case="genitive">{0} rýchlosti svetla</unitPattern>
-				<unitPattern count="many" case="instrumental">{0} rýchlosti svetla</unitPattern>
-				<unitPattern count="many" case="locative">{0} rýchlosti svetla</unitPattern>
-				<unitPattern count="other">{0} rýchlostí svetla</unitPattern>
-				<unitPattern count="other" case="accusative">{0} rýchlostí svetla</unitPattern>
-				<unitPattern count="other" case="dative">{0} rýchlostiam svetla</unitPattern>
-				<unitPattern count="other" case="genitive">{0} rýchlostí svetla</unitPattern>
-				<unitPattern count="other" case="instrumental">{0} rýchlosťami svetla</unitPattern>
-				<unitPattern count="other" case="locative">{0} rýchlostiach svetla</unitPattern>
-			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<gender>feminine</gender>
 				<displayName>častice na miliardu</displayName>
 				<unitPattern count="one">{0} častica na miliardu</unitPattern>
@@ -12609,7 +12616,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<compoundUnitPattern1 count="other">↑↑↑</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="times">
-				<compoundUnitPattern>{0}{1}</compoundUnitPattern>
+				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
 				<displayName>jednotka preťaženia</displayName>
@@ -12763,7 +12770,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} pol.</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="few">↑↑↑</unitPattern>
@@ -13926,14 +13933,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} qt Imp</unitPattern>
 			</unit>
-			<unit type="speed-light-speed">
-				<displayName>c0</displayName>
-				<unitPattern count="one">{0} c0</unitPattern>
-				<unitPattern count="few">{0} c0</unitPattern>
-				<unitPattern count="many">{0} c0</unitPattern>
-				<unitPattern count="other">{0} c0</unitPattern>
-			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="few">↑↑↑</unitPattern>
@@ -14225,7 +14225,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="few">↑↑↑</unitPattern>
@@ -15388,14 +15388,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="speed-light-speed">
-				<displayName>c0</displayName>
-				<unitPattern count="one">{0} c0</unitPattern>
-				<unitPattern count="few">{0} c0</unitPattern>
-				<unitPattern count="many">{0} c0</unitPattern>
-				<unitPattern count="other">{0} c0</unitPattern>
-			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="few">↑↑↑</unitPattern>

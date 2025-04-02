@@ -22,6 +22,7 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.PluralRulesUtil;
@@ -232,12 +233,39 @@ public class CheckNumbers extends FactoryCheckCLDR {
             }
         }
 
-        // quick bail from all other cases
+        // Check that symbols are for an explicit number system;
+        // note that symbols are skipped for checks after this point.
+        if (path.indexOf("/symbols") >= 0) {
+            XPathParts symbolParts = XPathParts.getFrozenInstance(path);
+            if (symbolParts.getAttributeValue(2, "numberSystem") == null) {
+                result.add(
+                        new CheckStatus()
+                                .setCause(this)
+                                .setMainType(CheckStatus.errorType)
+                                .setSubtype(Subtype.missingNumberingSystem)
+                                .setMessage(
+                                        "Symbols must have an explicit numberSystem attribute."));
+            }
+        }
+
+        // quick bail from all other cases (including symbols)
         NumericType type = NumericType.getNumericType(path);
-        if (type == NumericType.NOT_NUMERIC) {
+        if (type == NumericType.NOT_NUMERIC || type == NumericType.RATIONAL) {
             return this; // skip
         }
         XPathParts parts = XPathParts.getFrozenInstance(path);
+
+        // Check that number formats are for an explicit number system.
+        String numberSystem = parts.getAttributeValue(2, "numberSystem");
+        if (numberSystem == null) {
+            result.add(
+                    new CheckStatus()
+                            .setCause(this)
+                            .setMainType(CheckStatus.errorType)
+                            .setSubtype(Subtype.missingNumberingSystem)
+                            .setMessage(
+                                    "Number formats must have an explicit numberSystem attribute."));
+        }
 
         boolean isPositive = true;
         for (String patternPart : SEMI_SPLITTER.split(value)) {
@@ -577,7 +605,7 @@ public class CheckNumbers extends FactoryCheckCLDR {
     private void checkCurrencyFormats(
             String path, String fullPath, String value, List result, boolean generateExamples)
             throws ParseException {
-        DecimalFormat x = icuServiceBuilder.getCurrencyFormat(CLDRFile.getCode(path));
+        DecimalFormat x = icuServiceBuilder.getCurrencyFormat(NameType.getCode(path));
         addOrTestSamples(x, x.toPattern(), value, result, generateExamples);
     }
 

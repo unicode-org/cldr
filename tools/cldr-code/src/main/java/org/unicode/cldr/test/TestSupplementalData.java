@@ -16,6 +16,8 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.NameGetter;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.StandardCodes;
@@ -152,6 +154,7 @@ public class TestSupplementalData {
             }
         }
         // compare them, listing differences
+        NameGetter nameGetter = english.nameGetter();
         for (String territory : sc.getGoodAvailableCodes("territory")) {
             Set<String> languages = supplementalData.getTerritoryToLanguages(territory);
             Set<String> otherLanguages = otherTerritoryToLanguages.getAll(territory);
@@ -161,10 +164,11 @@ public class TestSupplementalData {
                 languagesLeftover.removeAll(otherLanguages);
                 Set<String> otherLanguagesLeftover = new TreeSet<>(otherLanguages);
                 otherLanguagesLeftover.removeAll(languages);
-                String territoryString = english.getName(CLDRFile.TERRITORY_NAME, territory);
+                String territoryString =
+                        nameGetter.getNameFromTypeEnumCode(NameType.TERRITORY, territory);
                 if (otherLanguagesLeftover.size() != 0) {
                     for (String other : otherLanguagesLeftover) {
-                        String name = english.getName(other);
+                        String name = nameGetter.getNameFromIdentifier(other);
                         System.out.println(
                                 territoryString + "\t" + territory + "\t" + name + "\t" + other);
                     }

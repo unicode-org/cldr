@@ -13,6 +13,7 @@ import java.util.TreeSet;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.unicode.cldr.util.RegexLookup.Finder;
 
 public class PathDescription {
     /** Remember to quote any [ character! */
@@ -211,11 +212,6 @@ public class PathDescription {
                     + "Specifies the vertical direction of text in the language. Valid values are \"top-to-bottom\" or \"bottom-to-top\". For more information, see "
                     + CLDRURLS.UNITS_MISC_HELP
                     + ".\n"
-                    + "^//ldml/numbers/symbols/(\\w++)"
-                    + RegexLookup.SEPARATOR
-                    + "The {1} symbol used in the localized form of numbers. Note: before translating, be sure to read "
-                    + CLDRURLS.NUMBERS_HELP
-                    + ".\n"
                     + "^//ldml/numbers/symbols\\[@numberSystem=\"([a-z]*)\"]/(\\w++)"
                     + RegexLookup.SEPARATOR
                     + "The {2} symbol used in the {1} numbering system. NOTE: especially for the decimal and grouping symbol, before translating, be sure to read "
@@ -251,14 +247,14 @@ public class PathDescription {
                     + "The pattern used to compose generic fallback time zone names, such as 'Germany Time'. Note: before translating, be sure to read "
                     + CLDRURLS.TZ_CITY_NAMES
                     + ".\n"
-                    + "^//ldml/dates/timeZoneNames/(fallback|fallbackRegion|gmtZero|gmt|hour|region)Format"
+                    + "^//ldml/dates/timeZoneNames/(fallback|fallbackRegion|gmtZero|gmtUnknown|gmt|hour|region)Format"
                     + RegexLookup.SEPARATOR
                     + "The {1} pattern used to compose time zone names. Note: before translating, be sure to read "
                     + CLDRURLS.TZ_CITY_NAMES
                     + ".\n"
 
                     /*
-                     * Warning: the longer match must come first
+                     * Warning: the longer match and more specific match must come first!
                      */
                     + "^//ldml/units/unitLength\\[@type=\"([^\"]*)\"]/compoundUnit\\[@type=\"([^\"]*)\"]/compoundUnitPattern1"
                     + RegexLookup.SEPARATOR
@@ -385,9 +381,9 @@ public class PathDescription {
                     + "[ICU Syntax] Special pattern used to compose duration units. Note: before translating, be sure to read "
                     + CLDRURLS.PLURALS_HELP
                     + ".\n"
-                    + "^//ldml/numbers/decimalFormats/decimalFormatLength\\[@type=\"([^\"]*)\"]/decimalFormat\\[@type=\"([^\"]*)\"]/pattern\\[@type=\"([^\"]*)\"]"
+                    + "^//ldml/numbers/decimalFormats\\[@numberSystem=\"([^\"]*)\"]/decimalFormatLength\\[@type=\"([^\"]*)\"]/decimalFormat\\[@type=\"([^\"]*)\"]/pattern\\[@type=\"([^\"]*)\"]"
                     + RegexLookup.SEPARATOR
-                    + "Special pattern used for a short version of numbers with the same number of digits as {3}. Note: before translating, be sure to read "
+                    + "Special pattern used for a short version of numbers with the same number of digits as {4}. Note: before translating, be sure to read "
                     + CLDRURLS.NUMBERS_SHORT
                     + ".\n"
                     + "^//ldml/numbers/currencyFormats\\[@numberSystem=\"([^\"]*)\"]/currencyFormatLength\\[@type=\"short\"]/currencyFormat\\[@type=\"standard\"]/pattern\\[@type=\"(\\d+)\"]\\[@count=\"([^\"]+)\"]"
@@ -405,11 +401,6 @@ public class PathDescription {
                     + "Special decimal pattern used to obtain the long plural forms of numbers with the same number of digits as {2}. See "
                     + CLDRURLS.NUMBERS_PLURAL
                     + " for details.\n"
-                    + "^//ldml/numbers/currencyFormats/currencyPatternAppendISO"
-                    + RegexLookup.SEPARATOR
-                    + "Pattern used to combine a regular currency format with an ISO 4217 code (¤¤). For more information, please see "
-                    + CLDRURLS.NUMBER_PATTERNS
-                    + ".\n"
                     + "^//ldml/numbers/currencyFormats\\[@numberSystem=\"([^\"]*)\"]/currencyPatternAppendISO"
                     + RegexLookup.SEPARATOR
                     + "Pattern used to combine a regular currency format with an ISO 4217 code (¤¤). For more information, please see "
@@ -510,10 +501,32 @@ public class PathDescription {
                     + "Sample names for person name format examples (enter ∅∅∅ for optional unused fields). For more information, please see "
                     + CLDRURLS.PERSON_NAME_FORMATS
                     + ".\n"
-                    + "^//ldml/numbers/([a-z]*)Formats(\\[@numberSystem=\"([^\"]*)\"])?/\\1FormatLength/\\1Format\\[@type=\"standard\"]/pattern\\[@type=\"standard\"]$"
+                    + "^//ldml/numbers/rationalFormats\\[@numberSystem=\"([^\"]*)\"]/rationalPattern"
                     + RegexLookup.SEPARATOR
-                    + "Special pattern used to compose {1} numbers. Note: before translating, be sure to read "
-                    + CLDRURLS.NUMBER_PATTERNS
+                    + "A pattern that is used to format a rational fraction (eg, ½), using the numerator and denominator. "
+                    + "See "
+                    + CLDRURLS.RATIONAL_NUMBERS_HELP
+                    + ".\n"
+                    + "^//ldml/numbers/rationalFormats\\[@numberSystem=\"([^\"]*)\"]/integerAndRationalPattern\\[@alt=\"([^\"]*)\"]"
+                    + RegexLookup.SEPARATOR
+                    + "A pattern that is used to “glue” an integer and a formatted rational fraction (eg, ½) together; "
+                    + "only used when the rational fraction does not start with an un-superscripted digit. "
+                    + "See "
+                    + CLDRURLS.RATIONAL_NUMBERS_HELP
+                    + ".\n"
+                    + "^//ldml/numbers/rationalFormats\\[@numberSystem=\"([^\"]*)\"]/integerAndRationalPattern"
+                    + RegexLookup.SEPARATOR
+                    + "A pattern that is used to “glue” an integer and a formatted rational fraction (eg, ½) together. "
+                    + "See "
+                    + CLDRURLS.RATIONAL_NUMBERS_HELP
+                    + ".\n"
+                    + "^//ldml/numbers/rationalFormats\\[@numberSystem=\"([^\"]*)\"]/rationalUsage"
+                    + RegexLookup.SEPARATOR
+                    + "A value that is used to indicate the usage of rational fractions (eg, ½) in your language; "
+                    + "**only** pick “never” if it never occurs with this numbering system in your language, "
+                    + "including text translated from another language. "
+                    + "See "
+                    + CLDRURLS.RATIONAL_NUMBERS_HELP
                     + ".\n"
                     + "^//ldml/numbers/currencyFormats\\[@numberSystem=\"([^\"]*)\"]/currencyFormatLength/currencyFormat\\[@type=\"standard\"]/pattern\\[@type=\"standard\"]\\[@alt=\"alphaNextToNumber\"]"
                     + RegexLookup.SEPARATOR
@@ -530,9 +543,18 @@ public class PathDescription {
                     + "Special pattern used to compose currency values for accounting purposes. Note: before translating, be sure to read "
                     + CLDRURLS.NUMBER_PATTERNS
                     + ".\n"
-                    + "^//ldml/numbers/currencyFormats/currencySpacing/([a-zA-Z]*)/([a-zA-Z]*)"
+                    + "^//ldml/numbers/currencyFormats\\[@numberSystem=\"([^\"]*)\"]/currencySpacing/([a-zA-Z]*)/([a-zA-Z]*)"
                     + RegexLookup.SEPARATOR
-                    + "Special pattern used to compose currency signs ($1/$2) with numbers. Note: before translating, be sure to read "
+                    + "Special pattern used to compose currency signs ($2/$3) with numbers. Note: before translating, be sure to read "
+                    + CLDRURLS.NUMBER_PATTERNS
+                    + ".\n"
+
+                    // the following matches remaining number formats. It must go AFTER specific
+                    // ones.
+
+                    + "^//ldml/numbers/([a-z]*)Formats(\\[@numberSystem=\"([^\"]*)\"])?/\\1FormatLength/\\1Format\\[@type=\"standard\"]/pattern\\[@type=\"standard\"]$"
+                    + RegexLookup.SEPARATOR
+                    + "Special pattern used to compose {1} numbers. Note: before translating, be sure to read "
                     + CLDRURLS.NUMBER_PATTERNS
                     + ".\n"
                     + "^//ldml/listPatterns/listPattern/listPatternPart\\[@type=\"2\"]"
@@ -722,7 +744,12 @@ public class PathDescription {
                     + ".\n"
                     + "^//ldml/dates/calendars/calendar\\[@type=\"([^\"]*)\"]/dateTimeFormats/dateTimeFormatLength\\[@type=\"([^\"]*)\"]/dateTimeFormat\\[@type=\"atTime\"]/pattern\\[@type=\"([^\"]*)\"]"
                     + RegexLookup.SEPARATOR
-                    + "Provide the {2} version of the date-time pattern suitable for expressing a date at a specific time. Note: before translating, be sure to read "
+                    + "Provide the {2} version of the date-time pattern suitable for expressing a standard date (e.g. \"March 20\") at a specific time. Note: before translating, be sure to read "
+                    + CLDRURLS.DATE_TIME_PATTERNS
+                    + ".\n"
+                    + "^//ldml/dates/calendars/calendar\\[@type=\"([^\"]*)\"]/dateTimeFormats/dateTimeFormatLength\\[@type=\"([^\"]*)\"]/dateTimeFormat\\[@type=\"relative\"]/pattern\\[@type=\"([^\"]*)\"]"
+                    + RegexLookup.SEPARATOR
+                    + "Provide the {2} version of the date-time pattern suitable for expressing a relative date (e.g. \"tomorrow\") at a specific time. Note: before translating, be sure to read "
                     + CLDRURLS.DATE_TIME_PATTERNS
                     + ".\n"
                     + "^//ldml/dates/calendars/calendar\\[@type=\"([^\"]*)\"]/dateFormats/dateFormatLength\\[@type=\"([^\"]*)\"]/dateFormat\\[@type=\"([^\"]*)\"]/pattern\\[@type=\"([^\"]*)\"]"
@@ -860,7 +887,7 @@ public class PathDescription {
 
     private static final StandardCodes STANDARD_CODES = StandardCodes.make();
     private static final Map<String, String> ZONE2COUNTRY =
-            STANDARD_CODES.zoneParser.getZoneToCounty();
+            STANDARD_CODES.zoneParser.getZoneToCountry();
 
     static RegexLookup<String> parseLookupString() {
         return new RegexLookup<String>().loadFromString(pathDescriptionString);
@@ -912,6 +939,12 @@ public class PathDescription {
     public String getRawDescription(String path, Object context) {
         status.clear();
         return pathHandling.get(path, context, pathArguments);
+    }
+
+    public String getRawDescription(
+            String path, Object context, Output<Finder> matcherFound, Set<String> failures) {
+        status.clear();
+        return pathHandling.get(path, context, pathArguments, matcherFound, failures);
     }
 
     public String getDescription(String path, String value, Object context) {
@@ -994,7 +1027,9 @@ public class PathDescription {
                     code = "the timezone “" + codeName + "”";
                     found = true;
                 } else if (country != null) {
-                    String countryName = english.getName("territory", country);
+                    String countryName =
+                            english.nameGetter()
+                                    .getNameFromTypeEnumCode(NameType.TERRITORY, country);
                     if (countryName != null) {
                         if (!codeName.equals(countryName)) {
                             code = "the city “" + codeName + "” (in " + countryName + ")";
@@ -1012,7 +1047,8 @@ public class PathDescription {
                     MessageFormat.format(MessageFormat.autoQuoteApostrophe(description), code);
         } else if (path.contains("exemplarCity")) {
             String regionCode = ZONE2COUNTRY.get(attributes.get(0));
-            String englishRegionName = english.getName(CLDRFile.TERRITORY_NAME, regionCode);
+            String englishRegionName =
+                    english.nameGetter().getNameFromTypeEnumCode(NameType.TERRITORY, regionCode);
             description =
                     MessageFormat.format(
                             MessageFormat.autoQuoteApostrophe(description), englishRegionName);

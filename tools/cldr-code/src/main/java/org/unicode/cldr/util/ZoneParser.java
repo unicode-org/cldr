@@ -30,7 +30,7 @@ public class ZoneParser {
     /**
      * @return mapping from zone id to country. If a zone has no country, then XX is used.
      */
-    public Map<String, String> getZoneToCounty() {
+    public Map<String, String> getZoneToCountry() {
         if (zone_to_country == null) make_zone_to_country();
         return zone_to_country;
     }
@@ -642,7 +642,8 @@ public class ZoneParser {
                     {"Europe/Kyiv", "Europe/Kiev"},
                     {"Pacific/Pohnpei", "Pacific/Ponape"},
                     {"Pacific/Chuuk", "Pacific/Truk"},
-                    {"Pacific/Honolulu", "Pacific/Johnston"}
+                    {"Pacific/Honolulu", "Pacific/Johnston"},
+                    {"Pacific/Kanton", "Pacific/Enderbury"}
                 };
         FIX_UNSTABLE_TZIDS = CldrUtility.asMap(FIX_UNSTABLE_TZID_DATA);
     }

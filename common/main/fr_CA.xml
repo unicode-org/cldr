@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1106,12 +1106,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="calendar" type="roc">↑↑↑</type>
 			<type key="cf" type="account">↑↑↑</type>
 			<type key="cf" type="standard">↑↑↑</type>
-			<type key="collation" type="big5han">ordre de tri chinois traditionnel - Big5</type>
 			<type key="collation" type="compat">↑↑↑</type>
 			<type key="collation" type="dictionary">ordre de tri du dictionnaire</type>
 			<type key="collation" type="ducet">↑↑↑</type>
 			<type key="collation" type="eor">ordre multilingue européen</type>
-			<type key="collation" type="gb2312han">ordre de tri chinois simplifié - GB2312</type>
 			<type key="collation" type="phonebook">ordre de tri de l’annuaire</type>
 			<type key="collation" type="phonetic">↑↑↑</type>
 			<type key="collation" type="pinyin">ordre de tri pinyin</type>
@@ -3524,6 +3522,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<regionFormat type="daylight">{0} (heure avancée)</regionFormat>
 			<regionFormat type="standard">{0} (heure normale)</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>↑↑↑</standard>
@@ -4141,9 +4142,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Pacific/Enderbury">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
-			<zone type="Pacific/Kanton">
-				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
 			<zone type="Pacific/Kiritimati">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
@@ -4259,9 +4257,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
-				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
-			<zone type="Asia/Choibalsan">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Macau">
@@ -4663,9 +4658,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="America/Nome">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
@@ -5063,13 +5055,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>heure de Chine</generic>
 					<standard>heure normale de Chine</standard>
 					<daylight>heure avancée de Chine</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>↑↑↑</generic>
-					<standard>↑↑↑</standard>
-					<daylight>heure avancée de Choibalsan</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">
@@ -7260,7 +7245,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<gender>↑↑↑</gender>
 				<displayName>parties par million</displayName>
 				<unitPattern count="one">{0} partie par million</unitPattern>
@@ -8241,7 +8226,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<gender>↑↑↑</gender>
 				<displayName>parties par milliard</displayName>
 				<unitPattern count="one">{0} partie par milliard</unitPattern>
@@ -8485,7 +8470,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} item</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -9327,7 +9312,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>p.p. 10⁹</displayName>
 				<unitPattern count="one">{0} p.p. 10⁹</unitPattern>
 				<unitPattern count="other">{0} p.p. 10⁹</unitPattern>
@@ -9569,7 +9554,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -10411,7 +10396,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>p.p. 10⁹</displayName>
 				<unitPattern count="one">{0}pp10⁹</unitPattern>
 				<unitPattern count="other">{0}pp10⁹</unitPattern>

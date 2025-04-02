@@ -6,7 +6,7 @@ title: Currency Names and Symbols
 
 ## Currency Names must be Unique
 
-Currency names must be unique; the same name can't be used for two different currency codes. 
+Currency names must be unique; the same name can't be used for two different currency codes.
 
 When a country replaces a currency:
 
@@ -25,7 +25,7 @@ Guidelines:
 
 ## Symbols
 
-The following general guidelines are used for currency symbols. These guidelines are also subject to the CLDR [Currency Process](https://cldr.unicode.org/index/cldr-spec/currency-process).
+The following general guidelines are used for currency symbols. These guidelines are also subject to the CLDR [Currency Process](/index/cldr-spec/currency-process).
 
 1. If a symbol is not widely recognized around the world (eg shekel ₪)
 	1. Where the currency is official in a country, use that symbol in locales with that country (eg IL)
@@ -42,4 +42,3 @@ The following general guidelines are used for currency symbols. These guidelines
 
 These are only general guidelines, and may need to be overridden in particular cases. Certain symbols like the dollar sign are particularly tricky, because they are used by a great many countries.
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

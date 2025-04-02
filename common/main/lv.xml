@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1083,12 +1083,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="colCaseFirst" type="upper">Kārtot pēc pirmā lielā burta</type>
 			<type key="colCaseLevel" type="no">Kārtot reģistrnejutīgas rakstzīmes</type>
 			<type key="colCaseLevel" type="yes">Kārtot reģistrjutīgās rakstzīmes</type>
-			<type key="collation" type="big5han">tradicionālās ķīniešu valodas kārtošanas secība - Big5</type>
 			<type key="collation" type="compat" draft="contributed">saderīgā kārtošanas secība</type>
 			<type key="collation" type="dictionary">Vārdnīcas kārtošanas secība</type>
 			<type key="collation" type="ducet">noklusējuma unikoda kārtošanas secība</type>
 			<type key="collation" type="eor" draft="contributed">Eiropas rakstību kārtošanas secīa</type>
-			<type key="collation" type="gb2312han">vienkāršotās ķīniešu valodas kārtošanas secība - GB2312</type>
 			<type key="collation" type="phonebook">tālruņu grāmatas kārtošanas secība</type>
 			<type key="collation" type="phonetic">Fonētiskā kārtošanas secība</type>
 			<type key="collation" type="pinyin">piņjiņa kārtošanas secība</type>
@@ -3260,6 +3258,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<regionFormat type="daylight">{0}: vasaras laiks</regionFormat>
 			<regionFormat type="standard">{0}: standarta laiks</regionFormat>
 			<fallbackFormat>{0} ({1})</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>Honolulu</exemplarCity>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>Universālais koordinētais laiks</standard>
@@ -3875,9 +3876,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Pnompeņa</exemplarCity>
 			</zone>
 			<zone type="Pacific/Enderbury">
-				<exemplarCity>Enderberija</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kanton">
 				<exemplarCity>Kantona</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
@@ -3996,9 +3994,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>Ulanbatora</exemplarCity>
-			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity>Čoibalsana</exemplarCity>
 			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity>Makao</exemplarCity>
@@ -4399,9 +4394,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Nome">
 				<exemplarCity>Noma</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>Honolulu</exemplarCity>
-			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>Ankurāža</exemplarCity>
 			</zone>
@@ -4751,13 +4743,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Ķīnas laiks</generic>
 					<standard>Ķīnas ziemas laiks</standard>
 					<daylight>Ķīnas vasaras laiks</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>Čoibalsanas laiks</generic>
-					<standard>Čoibalsanas ziemas laiks</standard>
-					<daylight>Čoibalsanas vasaras laiks</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">
@@ -7582,7 +7567,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="genitive">{0} vienumu</unitPattern>
 				<unitPattern count="other" case="locative">{0} vienumos</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<gender>feminine</gender>
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="zero">{0} miljono daļu</unitPattern>
@@ -9888,7 +9873,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="genitive">{0} gaismu</unitPattern>
 				<unitPattern count="other" case="locative">{0} gaismās</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<gender>feminine</gender>
 				<displayName>miljarddaļas</displayName>
 				<unitPattern count="zero">{0} miljarddaļu</unitPattern>
@@ -10181,7 +10166,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} vienums</unitPattern>
 				<unitPattern count="other">{0} vienumi</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>miljonās daļas</displayName>
 				<unitPattern count="zero">↑↑↑</unitPattern>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -11187,7 +11172,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} gaisma</unitPattern>
 				<unitPattern count="other">{0} gaismas</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>miljarddaļas</displayName>
 				<unitPattern count="zero">↑↑↑</unitPattern>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -11454,7 +11439,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="zero">↑↑↑</unitPattern>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -12460,7 +12445,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} gaisma</unitPattern>
 				<unitPattern count="other">{0} gaismas</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>miljarddaļas</displayName>
 				<unitPattern count="zero">↑↑↑</unitPattern>
 				<unitPattern count="one">↑↑↑</unitPattern>

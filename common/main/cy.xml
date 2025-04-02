@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1044,11 +1044,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="calendar" type="roc">Calendr Gweriniaeth Tseina</type>
 			<type key="cf" type="account">Fformat Arian Cyfrifeg</type>
 			<type key="cf" type="standard">Fformat Arian Safonol</type>
-			<type key="collation" type="big5han">Trefn Traddodiadol Tsieina - Big5</type>
 			<type key="collation" type="dictionary">Trefn Geiriadur</type>
 			<type key="collation" type="ducet">Trefn Rhagosodedig Unicode</type>
 			<type key="collation" type="eor">Rheolau trefnu Ewropeaidd</type>
-			<type key="collation" type="gb2312han">Trefn Symledig Tsieina - GB2312</type>
 			<type key="collation" type="phonebook">Trefn Llyfr Ffôn</type>
 			<type key="collation" type="pinyin">Trefn Pinyin</type>
 			<type key="collation" type="search">Chwilio at Ddibenion Cyffredinol</type>
@@ -3020,6 +3018,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<regionFormat type="daylight">Amser Haf {0}</regionFormat>
 			<regionFormat type="standard">Amser Safonol {0}</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>Honolulu</exemplarCity>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>Amser Cyffredniol Cydlynol</standard>
@@ -3635,9 +3636,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Enderbury">
-				<exemplarCity>Enderbury</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kanton">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
@@ -3756,9 +3754,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>Ulan Bator</exemplarCity>
-			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity>Macau</exemplarCity>
@@ -4159,9 +4154,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Nome">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>Honolulu</exemplarCity>
-			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
@@ -4504,13 +4496,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Amser Tsieina</generic>
 					<standard>Amser Safonol Tsieina</standard>
 					<daylight>Amser Haf Tsieina</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>Amser Choibalsan</generic>
-					<standard>Amser Safonol Choibalsan</standard>
-					<daylight>Amser Haf Choibalsan</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">
@@ -8643,7 +8628,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>rhannau pob miliwn</displayName>
 				<unitPattern count="zero">{0} rhan pob miliwn</unitPattern>
 				<unitPattern count="one">{0} rhan pob miliwn</unitPattern>
@@ -10141,7 +10126,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">golau</unitPattern>
 				<unitPattern count="other">{0} golau</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>rhannau fesul biliwn</displayName>
 				<unitPattern count="zero">ppb</unitPattern>
 				<unitPattern count="one">{0} rhan fesul biliwn</unitPattern>
@@ -10483,7 +10468,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} eitem</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>rhan/miliwn</displayName>
 				<unitPattern count="zero">↑↑↑</unitPattern>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -11981,7 +11966,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} golau</unitPattern>
 				<unitPattern count="other">{0} golau</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>rhannau/biliwn</displayName>
 				<unitPattern count="zero">↑↑↑</unitPattern>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -12323,7 +12308,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="zero">↑↑↑</unitPattern>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -13821,7 +13806,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} golau</unitPattern>
 				<unitPattern count="other">{0} golau</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="zero">↑↑↑</unitPattern>
 				<unitPattern count="one">{0}ppb</unitPattern>

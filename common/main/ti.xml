@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -2813,6 +2813,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<regionFormat type="daylight">ናይ {0} መዓልቲ ግዘ</regionFormat>
 			<regionFormat type="standard">ናይ መደበኛ ጊዜ {0} ግዘ</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>ሆኖሉሉ</exemplarCity>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>ዝተሳነየ ኣድማሳዊ ግዜ</standard>
@@ -3428,9 +3431,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>ፕኖም ፐን</exemplarCity>
 			</zone>
 			<zone type="Pacific/Enderbury">
-				<exemplarCity>ኤንደርበሪ</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kanton">
 				<exemplarCity>ካንቶን</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
@@ -3549,9 +3549,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>ኡላን ባቶር</exemplarCity>
-			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity>ቾይባልሳን</exemplarCity>
 			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity>ማካው</exemplarCity>
@@ -3952,9 +3949,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="America/Nome">
 				<exemplarCity>ነውም</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>ሆኖሉሉ</exemplarCity>
-			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>ኣንኮረጅ</exemplarCity>
 			</zone>
@@ -4304,13 +4298,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>ናይ ቻይና ግዘ</generic>
 					<standard>ናይ መደበኛ ቻይና ግዘ</standard>
 					<daylight>ናይ መዓልቲ ቻይና ግዘ</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>ናይ ቾይባልሳን ግዘ</generic>
-					<standard>ናይ መደበኛ ቾይባልሳን ግዘ</standard>
-					<daylight>ናይ ክረምቲ ቾይባልሳን ግዘ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">
@@ -6587,7 +6574,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} ኣቕሓ</unitPattern>
 				<unitPattern count="other">{0} ኣቕሑ</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>ክፍልታት ኣብ ሚልዮን</displayName>
 				<unitPattern count="one">{0} ክፍልታት ኣብ ሚልዮን</unitPattern>
 				<unitPattern count="other">{0} ክፍልታት ኣብ ሚልዮን</unitPattern>
@@ -7424,7 +7411,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} ብርሃን</unitPattern>
 				<unitPattern count="other">{0} ብርሃን</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>ክፍልታት ኣብ ሓደ ቢልዮን</displayName>
 				<unitPattern count="one">{0} ክፍልታት ኣብ ሓደ ቢልዮን</unitPattern>
 				<unitPattern count="other">{0} ክፍልታት ኣብ ሓደ ቢልዮን</unitPattern>
@@ -7664,7 +7651,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} ኣቕሓ</unitPattern>
 				<unitPattern count="other">{0} ኣቕሑ</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>ክፍልታት/ሚልዮን</displayName>
 				<unitPattern count="one">{0} ክፍልታት ኣብ ሚልዮን</unitPattern>
 				<unitPattern count="other">{0} ክፍልታት ኣብ ሚልዮን</unitPattern>
@@ -8501,7 +8488,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} ብርሃን</unitPattern>
 				<unitPattern count="other">{0} ብርሃን</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>ክፍልታት/ሓደ ቢልዮን</displayName>
 				<unitPattern count="one">{0} ክፍልታት ኣብ ሓደ ቢልዮን</unitPattern>
 				<unitPattern count="other">{0} ክፍልታት ኣብ ሓደ ቢልዮን</unitPattern>
@@ -8741,7 +8728,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0}ኣቕሓ</unitPattern>
 				<unitPattern count="other">{0}ኣቕሑ</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>ክፍልታት ኣብ ሚልዮን</displayName>
 				<unitPattern count="one">{0}ክፍልታት ኣብ ሚልዮን</unitPattern>
 				<unitPattern count="other">{0}ክፍልታት ኣብ ሚልዮን</unitPattern>
@@ -9578,7 +9565,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0}ብርሃን</unitPattern>
 				<unitPattern count="other">{0}ብርሃን</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>ክፍልታት ኣብ ሓደ ቢልዮን</displayName>
 				<unitPattern count="one">{0}ክፍልታት ኣብ ሓደ ቢልዮን</unitPattern>
 				<unitPattern count="other">{0}ክፍልታት ኣብ ሓደ ቢልዮን</unitPattern>

@@ -66,20 +66,20 @@
 			<variable id='$languageNonTcLtBasic' type='choice'>
 				 aa ab agq ak an ann apc arn asa
 				 ba bal bas bem bew bez bgn blt bm bo bss byn
-				 cad cch ccp ce cgg cho cic ckb co cu
+				 cad cch ccp ce cgg cho cic ckb co cop cu
 				 dav dje dua dv dyo dz
 				 ebu ee ewo
 				 ff frr fur
 				 gaa gez gn gsw guz gv
-				 haw hnj
+				 haw hnj ht
 				 ii io iu
 				 jbo jgo jmc
-				 kaa kab kaj kam kcg kde ken khq ki kkj kl kln kpe ksb ksf ksh kw
-				 la lag lg lkt lld ln lrc ltg lu luo luy
+				 kaa kab kaj kam kcg kde kek ken khq ki kkj kl kln kpe ksb ksf ksh kw
+				 la lag lg lkt lld ln lrc ltg lu luo luy lzz
 				 mas mdf mer mfe mhn mg mgh mgo mic moh mua mus myv mzn
 				 naq nb nd nmg nnh nr nso nus nv ny nyn om
 				 os osa
-				 pap pis
+				 pap pis pms
 				 quc
 				 rhg rif rn rof rw rwk
 				 saq sbp scn sdh se seh ses sg shi shn sid skr sma smj smn sms sn ss ssy st
@@ -193,7 +193,6 @@
 			<attributeValues dtds='supplementalData' elements='info' attributes='rounding' type='regex'>[0-9]+</attributeValues>
 			<attributeValues dtds='ldml' elements='key' attributes='type'>$_bcp47_keys</attributeValues>
 			<attributeValues dtds='supplementalData' elements='language' attributes='scripts' type='list'>$_script</attributeValues>
-			<attributeValues dtds='supplementalData' elements='language' attributes='territories' type='list'>$_region</attributeValues>
 			<attributeValues dtds='ldml' elements='language' attributes='type'>$localeOrDeprecated</attributeValues>
 			<attributeValues dtds='supplementalData' elements='language' attributes='variants'>$_variant</attributeValues>
 			<attributeValues dtds='supplementalData' elements='languageAlias' attributes='replacement' type='locale'/>

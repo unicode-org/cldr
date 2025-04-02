@@ -11,8 +11,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
-import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.Validity;
@@ -124,7 +124,9 @@ public class ChartSubdivisions extends Chart {
                 }
                 tablePrinter
                         .addRow()
-                        .addCell(ENGLISH.getName(CLDRFile.TERRITORY_NAME, region))
+                        .addCell(
+                                ENGLISH.nameGetter()
+                                        .getNameFromTypeEnumCode(NameType.TERRITORY, region))
                         .addCell(region)
                         .addCell(name1)
                         // .addCell(type)
@@ -139,7 +141,9 @@ public class ChartSubdivisions extends Chart {
             Set<String> regionAliases = inverseAliases.get(region);
             tablePrinter
                     .addRow()
-                    .addCell(ENGLISH.getName(CLDRFile.TERRITORY_NAME, region))
+                    .addCell(
+                            ENGLISH.nameGetter()
+                                    .getNameFromTypeEnumCode(NameType.TERRITORY, region))
                     .addCell(region)
                     .addCell(
                             regionAliases == null

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -2449,6 +2449,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<regionFormat type="daylight">ម៉ោង​ពេល​ថ្ងៃ​នៅ​ {0}</regionFormat>
 			<regionFormat type="standard">ម៉ោង​ស្តង់ដារ​នៅ ​{0}</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>ហូណូលូលូ</exemplarCity>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>ម៉ោងសកលដែលមានការសម្រួល</standard>
@@ -3064,9 +3067,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>ភ្នំពេញ</exemplarCity>
 			</zone>
 			<zone type="Pacific/Enderbury">
-				<exemplarCity>អ៊ីនដឺប៊ូរី</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kanton">
 				<exemplarCity>កាន់តុន</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
@@ -3185,9 +3185,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>អ៊ូឡង់បាទ័រ</exemplarCity>
-			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity>ឈូបាល់សាន</exemplarCity>
 			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity>ម៉ាកាវ</exemplarCity>
@@ -3588,9 +3585,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Nome">
 				<exemplarCity>ណូម</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>ហូណូលូលូ</exemplarCity>
-			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>អង់ចូរ៉ាក</exemplarCity>
 			</zone>
@@ -3933,13 +3927,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>ម៉ោង​នៅ​ចិន</generic>
 					<standard>ម៉ោង​ស្តង់ដារ​នៅ​ចិន</standard>
 					<daylight>ម៉ោង​ពេល​ថ្ងៃ​នៅ​ចិន</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>ម៉ោង​នៅ​ឆូបាល់សាន</generic>
-					<standard>ម៉ោង​ស្តង់ដារ​នៅ​ឆូបាល់សាន</standard>
-					<daylight>ម៉ោង​នៅ​ឆូបាល់សាននារដូវ​ក្ដៅ​</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">
@@ -5896,7 +5883,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>ផ្នែកក្នុងមួយលាន</displayName>
 				<unitPattern count="other">{0} ផ្នែកក្នុងមួយលាន</unitPattern>
 			</unit>
@@ -6574,7 +6561,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ពន្លឺ</displayName>
 				<unitPattern count="other">{0} ពន្លឺ</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>ផ្នែកក្នុងមួយប៊ីលាន</displayName>
 				<unitPattern count="other">{0} ផ្នែកក្នុងមួយប៊ីលាន</unitPattern>
 			</unit>
@@ -6791,7 +6778,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>របស់</displayName>
 				<unitPattern count="other">{0} របស់</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -7469,7 +7456,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ពន្លឺ</displayName>
 				<unitPattern count="other">{0} ពន្លឺ</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>ផ្នែក/ប៊ីលាន</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -7686,7 +7673,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -8364,7 +8351,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ពន្លឺ</displayName>
 				<unitPattern count="other">{0} ពន្លឺ</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0}ppb</unitPattern>
 			</unit>

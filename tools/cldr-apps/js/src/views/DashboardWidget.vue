@@ -55,6 +55,14 @@
           </template>
         </span>
         <span class="right-control">
+          <span
+            title="Include ALL paths in selected coverage level. May be very large!"
+            v-if="!includeOther"
+            class="cldr-nav-btn"
+            @click="reloadIncludeOther"
+          >
+            <input type="checkbox" />&nbsp;Other
+          </span>
           <a-spin v-if="downloadMessage">
             <i>{{ downloadMessage }}</i>
           </a-spin>
@@ -214,6 +222,7 @@ export default {
       catCheckboxIsUnchecked: {}, // default unchecked = false, checked = true
       catIsHidden: {}, // default hidden = false, visible = true
       updatingVisibility: false,
+      includeOther: false,
     };
   },
 
@@ -287,16 +296,28 @@ export default {
       this.fetchData();
     },
 
+    reloadIncludeOther() {
+      this.catIsHidden["Other"] = false;
+      this.catCheckboxIsUnchecked["Other"] = false;
+      this.includeOther = true;
+      this.reloadDashboard();
+    },
+    reloadWithoutOther() {
+      this.includeOther = false;
+      this.reloadDashboard();
+    },
     fetchData() {
       this.locale = cldrStatus.getCurrentLocale();
       this.level = cldrCoverage.effectiveName(this.locale);
       if (!this.locale || !this.level) {
-        this.fetchErr = "Please choose a locale and a coverage level first.";
+        // This sometimes happens when locale is defined but level is not yet defined,
+        // but it changes so quickly (the level gets defined) that it isn't visible
+        this.fetchErr = cldrText.get("dash_needs_locale_and_coverage");
         return;
       }
       this.localeName = cldrLoad.getLocaleName(this.locale);
       this.loadingMessage = `Loading ${this.localeName} dashboard at ${this.level} level`;
-      cldrDashData.doFetch(this.setData);
+      cldrDashData.doFetch(this.setData, { includeOther: this.includeOther });
       this.fetchErr = cldrDashData.getFetchError();
     },
 
@@ -359,7 +380,7 @@ export default {
     },
 
     closeDashboard() {
-      cldrDashContext.hide();
+      cldrDashContext.hide(true /* userWantsHidden */);
     },
 
     abbreviate(category) {
@@ -432,6 +453,14 @@ export default {
       // long delay between the time the user clicks the checkbox and the time that the checkbox
       // changes its state.
       // NOTE: this complication may be unnecessary now that DashboardScroller is in use.
+      if (category === "Other") {
+        // special case: Unchecking Other reloads without Other.
+        nextTick().then(() => {
+          this.reloadWithoutOther();
+        });
+        return;
+      }
+
       this.catCheckboxIsUnchecked[category] = !event.target.checked; // redundant?
       const USE_NEXT_TICK = true;
       this.updatingVisibility = true;

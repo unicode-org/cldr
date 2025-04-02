@@ -19,7 +19,7 @@ jobs:
     - uses: actions/checkout@v4
       with:
         lfs: false # not needed for this job, as we don’t currently do a Java build
-    - uses: nodenv/actions/node-version@v3 # setup using .node-version
+    - uses: nodenv/actions/node-version@v4 # setup using .node-version
     - name: Cache webpack
       uses: actions/cache@v4
       with:
@@ -41,6 +41,7 @@ jobs:
     - name: Run JS tests
       # stopgap: fail this if it takes too long
       timeout-minutes: 10
-      run: (cd tools/cldr-apps/js && npm t)
+      # TODO: See CLDR-17780 work around mocha-headless-chrome issue
+      run: (cd tools/cldr-apps/js && npm t -- -- -a no-sandbox -a disable-setuid-sandbox)
     - name: Run Webpack production build
       run: (cd tools/cldr-apps/js && npm run build)

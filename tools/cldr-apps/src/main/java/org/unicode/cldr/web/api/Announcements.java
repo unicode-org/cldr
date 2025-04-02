@@ -11,8 +11,10 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
+import org.unicode.cldr.test.SubmissionLocales;
 import org.unicode.cldr.util.LocaleNormalizer;
 import org.unicode.cldr.util.LocaleSet;
+import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.web.*;
 
 @ApplicationScoped
@@ -25,15 +27,29 @@ public class Announcements {
     public static final String AUDIENCE_EVERYONE = "Everyone";
 
     public static final String ORGS_MINE = "Mine";
+
+    /** all TC orgs, as defined by {@link Organization#isTCOrg()} */
     public static final String ORGS_TC = "TC";
+
+    /** excluding TC orgs, as defined by {@link Organization#isTCOrg()} */
+    public static final String ORGS_NON_TC = "NonTC";
+
+    /** All organizations */
     public static final String ORGS_ALL = "All";
+
+    /**
+     * Special value for ddl (non tc) locales. This special value for locales sends to all locales,
+     * but only those which are currently not defined as TC Locales by the SubmissionLocales class.
+     * {@link SubmissionLocales#isTcLocale(org.unicode.cldr.util.CLDRLocale)}
+     */
+    public static final String LOCS_NON_TC = "!";
 
     private static final Set<String> validAudiences =
             new HashSet<>(
                     Arrays.asList(
                             AUDIENCE_TC, AUDIENCE_MANAGERS, AUDIENCE_VETTERS, AUDIENCE_EVERYONE));
     private static final Set<String> validOrgs =
-            new HashSet<>(Arrays.asList(ORGS_MINE, ORGS_TC, ORGS_ALL));
+            new HashSet<>(Arrays.asList(ORGS_MINE, ORGS_NON_TC, ORGS_TC, ORGS_ALL));
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -69,7 +85,7 @@ public class Announcements {
         if (session == null) {
             return Auth.noSessionResponse();
         }
-        if (!UserRegistry.userIsGuest(session.user)) { // userIsGuest means "is guest or stronger"
+        if (!UserRegistry.userIsGuestOrStronger(session.user)) {
             return Response.status(403, "Forbidden").build();
         }
         session.userDidAction();
@@ -207,7 +223,7 @@ public class Announcements {
         // Only TC or Admin can specify orgs other than ORGS_MINE
         if (!UserRegistry.userIsManagerOrStronger(session.user)
                 || (!ORGS_MINE.equals(request.orgs)
-                        && !UserRegistry.userIsTC(session.user))) { // userIsTC means TC or stronger
+                        && !UserRegistry.userIsTCOrStronger(session.user))) {
             return Response.status(403, "Forbidden").build();
         }
         final AnnouncementSubmissionResponse response = new AnnouncementSubmissionResponse();
@@ -242,6 +258,9 @@ public class Announcements {
         @Schema(description = "locales")
         public String locs = null;
 
+        @Schema(description = "localeType: one of 'all', 'ddl', or 'choose'", example = "choose")
+        public String localeType = null;
+
         @Schema(description = "orgs")
         public String orgs = null;
 
@@ -250,7 +269,14 @@ public class Announcements {
         }
 
         public void normalize() {
-            if (locs != null) {
+            if ("ddl".equals(localeType)) {
+                // special value for ddl (non-tc) locales.
+                // "ddl" means non-tc locales.
+                locs = LOCS_NON_TC;
+            } else if ("all".equals(localeType)) {
+                // all locales
+                locs = null;
+            } else if (locs != null) {
                 String normalized = LocaleNormalizer.normalizeQuietly(locs);
                 LocaleSet locSet = LocaleNormalizer.setFromStringQuietly(normalized, null);
                 LocaleSet langSet = locSet.combineRegionalVariants();
@@ -305,7 +331,7 @@ public class Announcements {
         if (session == null) {
             return Auth.noSessionResponse();
         }
-        if (!UserRegistry.userIsGuest(session.user)) { // means guest or stronger
+        if (!UserRegistry.userIsGuestOrStronger(session.user)) {
             return Response.status(403, "Forbidden").build();
         }
         final CheckReadResponse response = new CheckReadResponse();

@@ -5,6 +5,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
@@ -27,7 +28,8 @@ public class GetLanguageData {
         System.out.println("Code\tLang\tLpop\tApprox. Gdp");
         for (String language : sdata.getLanguages()) {
             final long pop = languageToPop.getCount(language);
-            System.out.print(language + "\t" + english.getName(language));
+            System.out.print(
+                    language + "\t" + english.nameGetter().getNameFromIdentifier(language));
             if (pop > 0) {
                 Pair<OfficialStatus, String> status = isOfficialLanguageOfEUCountry(language);
                 System.out.print(
@@ -70,7 +72,8 @@ public class GetLanguageData {
                 System.out.println(
                         territory //
                                 + "\t"
-                                + english.getName("territory", territory) //
+                                + english.nameGetter()
+                                        .getNameFromTypeEnumCode(NameType.TERRITORY, territory) //
                                 + "\t"
                                 + territoryPop //
                                 + "\t"

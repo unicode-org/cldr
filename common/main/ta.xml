@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1113,12 +1113,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="colCaseFirst" type="upper">முதலில் பேரெழுத்துகளை வரிசைப்படுத்து</type>
 			<type key="colCaseLevel" type="no">எழுத்து உணர்வின்றி வரிசைபடுத்து</type>
 			<type key="colCaseLevel" type="yes">எழுத்து உணர்வில் வரிசைபடுத்து</type>
-			<type key="collation" type="big5han">பாரம்பரிய சீன வரிசை வடிவம் - Big5</type>
 			<type key="collation" type="compat" draft="contributed">முந்தைய வரிசை வடிவம், இணக்கத்தன்மைக்கு</type>
 			<type key="collation" type="dictionary">அகராதி வரிசை முறை</type>
 			<type key="collation" type="ducet">இயல்புநிலை யுனிகோட் வரிசை முறை</type>
 			<type key="collation" type="eor" draft="contributed">ஐரோப்பிய வரிசைப்படுத்தல் விதிகள்</type>
-			<type key="collation" type="gb2312han">எளிமையாக்கப்பட்ட சீன வரிசை வடிவம் - GB2312</type>
 			<type key="collation" type="phonebook">தொலைபேசி புத்தக வரிசை முறை</type>
 			<type key="collation" type="phonetic">ஒலியியல் வரிசைப்படுத்தல் முறை</type>
 			<type key="collation" type="pinyin">பின்யின் வரிசை முறை</type>
@@ -1584,6 +1582,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateTimeFormat type="atTime">
 							<pattern>{1} அன்று {0}</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern draft="contributed">↑↑↑</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
 						<dateTimeFormat>
@@ -1591,6 +1592,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
 							<pattern>{1} அன்று {0}</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern draft="contributed">↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="medium">
@@ -1600,6 +1604,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateTimeFormat type="atTime">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern draft="contributed">↑↑↑</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
 						<dateTimeFormat>
@@ -1607,6 +1614,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
 							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern draft="contributed">↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
@@ -2168,6 +2178,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateTimeFormat type="atTime">
 							<pattern>{1} அன்று {0}</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern draft="contributed">↑↑↑</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
 						<dateTimeFormat>
@@ -2175,6 +2188,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
 							<pattern>{1} அன்று {0}</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern draft="contributed">↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="medium">
@@ -2184,6 +2200,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateTimeFormat type="atTime">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern draft="contributed">↑↑↑</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
 						<dateTimeFormat>
@@ -2191,6 +2210,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
 							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern draft="contributed">↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
@@ -3493,6 +3515,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<regionFormat type="daylight">{0} பகலொளி நேரம்</regionFormat>
 			<regionFormat type="standard">{0} நிலையான நேரம்</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>ஹோனோலூலூ</exemplarCity>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>ஒருங்கிணைந்த சர்வதேச நேரம்</standard>
@@ -4108,9 +4133,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>ஃப்னோம் பென்</exemplarCity>
 			</zone>
 			<zone type="Pacific/Enderbury">
-				<exemplarCity>எண்டர்பரி</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kanton">
 				<exemplarCity>கேன்டன்</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
@@ -4229,9 +4251,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>உலான்பாட்டர்</exemplarCity>
-			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity>சோய்பால்சான்</exemplarCity>
 			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity>மகாவு</exemplarCity>
@@ -4632,9 +4651,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Nome">
 				<exemplarCity>நோம்</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>ஹோனோலூலூ</exemplarCity>
-			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>அங்கோரேஜ்</exemplarCity>
 			</zone>
@@ -5012,13 +5028,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>சீன நேரம்</generic>
 					<standard>சீன நிலையான நேரம்</standard>
 					<daylight>சீன பகலொளி நேரம்</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>சோய்பால்சன் நேரம்</generic>
-					<standard>சோய்பால்சன் நிலையான நேரம்</standard>
-					<daylight>சோய்பால்சன் கோடை நேரம்</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">
@@ -5863,7 +5872,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>¤#,##,##0.00</pattern>
-					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
+					<pattern alt="noCurrency" draft="contributed">#,##,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>¤#,##0.00;(¤#,##0.00)</pattern>
@@ -5874,33 +5884,53 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength type="short">
 				<currencyFormat type="standard">
 					<pattern type="1000" count="one">↑↑↑</pattern>
+					<pattern type="1000" count="one" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="1000" count="other">¤ 0ஆ</pattern>
+					<pattern type="1000" count="other" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="10000" count="one">↑↑↑</pattern>
+					<pattern type="10000" count="one" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="10000" count="other">¤ 00ஆ</pattern>
+					<pattern type="10000" count="other" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="100000" count="one">↑↑↑</pattern>
+					<pattern type="100000" count="one" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="100000" count="other">¤ 000ஆ</pattern>
+					<pattern type="100000" count="other" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="1000000" count="one">↑↑↑</pattern>
+					<pattern type="1000000" count="one" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="1000000" count="other">¤ 0மி</pattern>
+					<pattern type="1000000" count="other" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="10000000" count="one">↑↑↑</pattern>
+					<pattern type="10000000" count="one" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="10000000" count="other">¤ 00மி</pattern>
+					<pattern type="10000000" count="other" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="100000000" count="one">↑↑↑</pattern>
+					<pattern type="100000000" count="one" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="100000000" count="other">¤ 000மி</pattern>
+					<pattern type="100000000" count="other" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="1000000000" count="one">¤ 0பி</pattern>
 					<pattern type="1000000000" count="one" alt="alphaNextToNumber" draft="contributed">↑↑↑</pattern>
 					<pattern type="1000000000" count="other">¤0பி</pattern>
 					<pattern type="1000000000" count="other" alt="alphaNextToNumber" draft="contributed">¤ 0பி</pattern>
 					<pattern type="10000000000" count="one">↑↑↑</pattern>
+					<pattern type="10000000000" count="one" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="10000000000" count="other">¤ 00பி</pattern>
+					<pattern type="10000000000" count="other" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="100000000000" count="one">¤ 000பி</pattern>
 					<pattern type="100000000000" count="one" alt="alphaNextToNumber" draft="contributed">↑↑↑</pattern>
 					<pattern type="100000000000" count="other">¤000பி</pattern>
 					<pattern type="100000000000" count="other" alt="alphaNextToNumber" draft="contributed">¤ 000பி</pattern>
 					<pattern type="1000000000000" count="one">↑↑↑</pattern>
+					<pattern type="1000000000000" count="one" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="1000000000000" count="other">¤ 0டி</pattern>
+					<pattern type="1000000000000" count="other" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="10000000000000" count="one">↑↑↑</pattern>
+					<pattern type="10000000000000" count="one" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="10000000000000" count="other">¤ 00டி</pattern>
+					<pattern type="10000000000000" count="other" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="100000000000000" count="one">↑↑↑</pattern>
+					<pattern type="100000000000000" count="one" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern type="100000000000000" count="other">¤ 000டி</pattern>
+					<pattern type="100000000000000" count="other" alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
@@ -5911,6 +5941,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>¤#,##0.00</pattern>
+					<pattern alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
 					<pattern alt="noCurrency">#,##,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -7333,7 +7364,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="accusative">{0} உருப்படிகளை</unitPattern>
 				<unitPattern count="other" case="dative">{0} உருப்படிகளுக்கு</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>பகுதிகள்/மில்லியன்</displayName>
 				<unitPattern count="one">{0} பகுதி/மில்லியன்</unitPattern>
 				<unitPattern count="one" case="ablative">{0} பகுதி/மில்லியனில்</unitPattern>
@@ -8785,7 +8816,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="accusative" draft="contributed">{0} ஒளிவேகத்தை</unitPattern>
 				<unitPattern count="other" case="dative" draft="contributed">{0} ஒளிவேகத்திற்கு</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>பார்ட்ஸ்/பில்லியன்</displayName>
 				<unitPattern count="one" draft="contributed">{0} பார்ட்ஸ்/பில்லியன்</unitPattern>
 				<unitPattern count="one" case="ablative" draft="contributed">{0} பார்ட்ஸ்/பில்லியனில்</unitPattern>
@@ -9039,7 +9070,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} உருப்படி</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>ப./மி.</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ப./மி.</unitPattern>
@@ -9881,7 +9912,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} ஒளிவேகம்</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} ஒளிவேகம்</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName draft="contributed">பார்ட்ஸ்/பில்லியன்</displayName>
 				<unitPattern count="one">{0} பார்ட்ஸ்/பில்லியன்</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} பார்ட்ஸ்/பில்லியன்</unitPattern>
@@ -10123,7 +10154,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0}உருப்படி</unitPattern>
 				<unitPattern count="other">{0}உருப்படி</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">{0}ப./மி.</unitPattern>
 				<unitPattern count="other">{0}ப./மி.</unitPattern>
@@ -10965,7 +10996,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one" draft="contributed">{0}ஒ.வே</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}ஒ.வே</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName draft="contributed">பா/பி</displayName>
 				<unitPattern count="one" draft="contributed">{0} பா/பி</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} பா/பி</unitPattern>

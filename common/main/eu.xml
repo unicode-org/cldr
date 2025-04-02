@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1146,13 +1146,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="colCaseFirst" type="upper">Ordenatu maiuskulak lehenik</type>
 			<type key="colCaseLevel" type="no">Ordenatu maiuskulak eta minuskulak bereizi gabe</type>
 			<type key="colCaseLevel" type="yes">Ordenatu maiuskulak eta minuskulak bereizita</type>
-			<type key="collation" type="big5han">Txinera tradizionalaren alfabetoa-Big5</type>
 			<type key="collation" type="compat">Aurreko hurrenkera, bateragarria izateko</type>
 			<type key="collation" type="dictionary">Hurrenkera alfabetikoa</type>
 			<type key="collation" type="ducet">Unicode hurrenkera lehenetsia</type>
 			<type key="collation" type="emoji">Emojien hurrenkera</type>
 			<type key="collation" type="eor">Europako ordenatzeko arauak</type>
-			<type key="collation" type="gb2312han">Txinera sinplifikatuaren alfabetoa -GB2312</type>
 			<type key="collation" type="phonebook">Telefonoen zerrenda</type>
 			<type key="collation" type="phonetic">Ordenatzeko irizpide fonetikoa</type>
 			<type key="collation" type="pinyin">Pinyin hurrenkera</type>
@@ -2535,7 +2533,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="UMMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="UMMMd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="y">↑↑↑</dateFormatItem>
-						<dateFormatItem id="yMd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyy">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyMd">↑↑↑</dateFormatItem>
@@ -2839,7 +2836,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="MMMMd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="y">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yM">↑↑↑</dateFormatItem>
-						<dateFormatItem id="yMd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yMEd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yMMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yMMMd">↑↑↑</dateFormatItem>
@@ -3947,7 +3943,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="UMMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="UMMMd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="y">↑↑↑</dateFormatItem>
-						<dateFormatItem id="yMd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyy">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyMd">↑↑↑</dateFormatItem>
@@ -8525,6 +8520,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<regionFormat type="daylight">{0} (udako ordua)</regionFormat>
 			<regionFormat type="standard">{0} aldeko ordu estandarra</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<short>
+					<generic>HST</generic>
+					<standard>HST</standard>
+					<daylight>HDT</daylight>
+				</short>
+				<exemplarCity>Honolulu</exemplarCity>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>ordu unibertsal koordinatua</standard>
@@ -9143,9 +9146,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Enderbury">
-				<exemplarCity>Enderbury</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kanton">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
@@ -9264,9 +9264,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>Ulan Bator</exemplarCity>
-			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity>Txoibalsan</exemplarCity>
 			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity>Macau</exemplarCity>
@@ -9666,14 +9663,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="America/Nome">
 				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
-			<zone type="Pacific/Honolulu">
-				<short>
-					<generic>HST</generic>
-					<standard>HST</standard>
-					<daylight>HDT</daylight>
-				</short>
-				<exemplarCity>Honolulu</exemplarCity>
 			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -10087,13 +10076,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Txinako ordua</generic>
 					<standard>Txinako ordu estandarra</standard>
 					<daylight>Txinako udako ordua</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>Txoibalsango ordua</generic>
-					<standard>Txoibalsango ordu estandarra</standard>
-					<daylight>Txoibalsango udako ordua</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">
@@ -15713,7 +15695,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>zati milioi bakoitzeko</displayName>
 				<unitPattern count="one">{0} zati milioi bakoitzeko</unitPattern>
 				<unitPattern count="other">{0} zati milioi bakoitzeko</unitPattern>
@@ -16555,7 +16537,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} argi</unitPattern>
 				<unitPattern count="other">{0} argi</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>zati mila milioiko</displayName>
 				<unitPattern count="one">{0} zati mila milioiko</unitPattern>
 				<unitPattern count="other">{0} zati mila milioiko</unitPattern>
@@ -16797,7 +16779,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} elementu</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>zati/milioi</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -17639,7 +17621,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} argi</unitPattern>
 				<unitPattern count="other">{0} argi</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>zati / mila milioi</displayName>
 				<unitPattern count="one">{0} zati / m. m.</unitPattern>
 				<unitPattern count="other">{0} zati / m. m.</unitPattern>
@@ -17881,7 +17863,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -18723,7 +18705,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} a.</unitPattern>
 				<unitPattern count="other">{0} a.</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>zati / m. m.</displayName>
 				<unitPattern count="one">{0} zati / m. m.</unitPattern>
 				<unitPattern count="other">{0} zati / m. m.</unitPattern>

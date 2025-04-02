@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -3299,6 +3299,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<regionFormat type="daylight">{0} ਪ੍ਰਕਾਸ਼ ਵੇਲਾ</regionFormat>
 			<regionFormat type="standard">{0} ਮਿਆਰੀ ਵੇਲਾ</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>ਹੋਨੋਲੁਲੂ</exemplarCity>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>ਕੋਔਰਡੀਨੇਟੇਡ ਵਿਆਪਕ ਵੇਲਾ</standard>
@@ -3914,9 +3917,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>ਫਨੋਮ ਪੇਨਹ</exemplarCity>
 			</zone>
 			<zone type="Pacific/Enderbury">
-				<exemplarCity>ਏਂਡਰਬਰੀ</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kanton">
 				<exemplarCity>ਕੈਂਟੋਨ</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
@@ -4035,9 +4035,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>ਉਲਾਨਬਾਤਰ</exemplarCity>
-			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity>ਚੋਇਲਬਾਲਸਨ</exemplarCity>
 			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity>ਮਕਾਉ</exemplarCity>
@@ -4438,9 +4435,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Nome">
 				<exemplarCity>ਨੋਮ</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>ਹੋਨੋਲੁਲੂ</exemplarCity>
-			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>ਐਂਕਰੇਜ</exemplarCity>
 			</zone>
@@ -4809,13 +4803,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>ਚੀਨ ਵੇਲਾ</generic>
 					<standard>ਚੀਨ ਮਿਆਰੀ ਵੇਲਾ</standard>
 					<daylight>ਚੀਨ ਪ੍ਰਕਾਸ਼ ਵੇਲਾ</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>ਚੌਇਬਾਲਸਨ ਵੇਲਾ</generic>
-					<standard>ਚੌਇਬਾਲਸਨ ਮਿਆਰੀ ਵੇਲਾ</standard>
-					<daylight>ਚੌਇਬਾਲਸਨ ਗਰਮੀਆਂ ਦਾ ਵੇਲਾ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">
@@ -7393,7 +7380,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 				<unitPattern count="other" case="oblique">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<gender>masculine</gender>
 				<displayName>ਹਿੱਸੇ ਪ੍ਰਤੀ ਮਿਲੀਅਨ</displayName>
 				<unitPattern count="one">{0} ਹਿੱਸਾ ਪ੍ਰਤੀ ਮਿਲੀਅਨ</unitPattern>
@@ -8535,7 +8522,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ਪ੍ਰਕਾਸ਼</unitPattern>
 				<unitPattern count="other" case="oblique">{0} ਪ੍ਰਕਾਸ਼</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<gender>masculine</gender>
 				<displayName>ਹਿੱਸਾ ਪ੍ਰਤੀ ਅਰਬ</displayName>
 				<unitPattern count="one">{0} ਹਿੱਸਾ ਪ੍ਰਤੀ ਅਰਬ</unitPattern>
@@ -8783,7 +8770,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} ਆਈਟਮ</unitPattern>
 				<unitPattern count="other">{0} ਆਈਟਮਾਂ</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>ਹਿੱਸੇ/ਮਿਲੀਅਨ</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -9625,7 +9612,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} ਪ੍ਰਕਾਸ਼</unitPattern>
 				<unitPattern count="other">{0} ਪ੍ਰਕਾਸ਼</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>ਹਿੱਸਾ/ਅਰਬ</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -9867,7 +9854,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0}ਆਈਟਮ</unitPattern>
 				<unitPattern count="other">{0}ਆਈਟਮ</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -10709,7 +10696,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} ਪ੍ਰਕਾਸ਼</unitPattern>
 				<unitPattern count="other">{0} ਪ੍ਰਕਾਸ਼</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>

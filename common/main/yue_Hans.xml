@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -88,6 +88,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="bjn">班亚尔文</language>
 			<language type="bkm">康姆文</language>
 			<language type="bla">锡克锡卡文</language>
+			<language type="blo">阿尼文</language>
 			<language type="bm">班巴拉文</language>
 			<language type="bn">孟加拉文</language>
 			<language type="bo">藏文</language>
@@ -341,6 +342,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="kv">科米文</language>
 			<language type="kw">康瓦耳文</language>
 			<language type="kwk">夸夸瓦拉文</language>
+			<language type="kxv">库维文</language>
 			<language type="ky">吉尔吉斯文</language>
 			<language type="la">拉丁文</language>
 			<language type="lad">拉迪诺文</language>
@@ -637,6 +639,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="vi">越南文</language>
 			<language type="vls">西佛兰德文</language>
 			<language type="vmf">美茵-法兰克尼亚文</language>
+			<language type="vmw">马库瓦文</language>
 			<language type="vo">沃拉普克文</language>
 			<language type="vot">沃提克文</language>
 			<language type="vro">佛罗文</language>
@@ -652,6 +655,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="xal">卡尔梅克文</language>
 			<language type="xh">科萨文</language>
 			<language type="xmf">明格列尔文</language>
+			<language type="xnr">康格里文</language>
 			<language type="xog">索加文</language>
 			<language type="yao">瑶文</language>
 			<language type="yap">雅浦文</language>
@@ -1277,11 +1281,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colCaseFirst" type="upper" draft="contributed">优先排序大写</type>
 			<type key="colCaseLevel" type="no" draft="contributed">不分大小写排序</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">依大小写排序</type>
-			<type key="collation" type="big5han">繁体中文排序 - Big5</type>
 			<type key="collation" type="dictionary">字典排序</type>
 			<type key="collation" type="ducet">预设 Unicode 排序</type>
 			<type key="collation" type="eor" draft="contributed">欧洲排序规则</type>
-			<type key="collation" type="gb2312han">简体中文排序 - GB2312</type>
 			<type key="collation" type="phonebook">电话簿排序</type>
 			<type key="collation" type="phonetic">发音排序</type>
 			<type key="collation" type="pinyin">拼音排序</type>
@@ -1445,19 +1447,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>Gy年M月d日EEEE</pattern>
-							<datetimeSkeleton>GyMEEEEd</datetimeSkeleton>
+							<datetimeSkeleton>GyMMMEEEEd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
 							<pattern>Gy年M月d日</pattern>
-							<datetimeSkeleton>GyMd</datetimeSkeleton>
+							<datetimeSkeleton>GyMMMd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
 							<pattern>Gy年M月d日</pattern>
-							<datetimeSkeleton>GyMd</datetimeSkeleton>
+							<datetimeSkeleton>GyMMMd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -2311,19 +2313,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>Gy年MM月d日EEEE</pattern>
-							<datetimeSkeleton>GyMMEEEEd</datetimeSkeleton>
+							<datetimeSkeleton>GyMMMEEEEd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
 							<pattern>Gy年MM月d日</pattern>
-							<datetimeSkeleton>GyMMd</datetimeSkeleton>
+							<datetimeSkeleton>GyMMMd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
 							<pattern>Gy年MM月d日</pattern>
-							<datetimeSkeleton>GyMMd</datetimeSkeleton>
+							<datetimeSkeleton>GyMMMd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -2864,19 +2866,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>y年M月d日EEEE</pattern>
-							<datetimeSkeleton>yMEEEEd</datetimeSkeleton>
+							<datetimeSkeleton>yMMMEEEEd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
 							<pattern>y年M月d日</pattern>
-							<datetimeSkeleton>yMd</datetimeSkeleton>
+							<datetimeSkeleton>yMMMd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
 							<pattern>y年M月d日</pattern>
-							<datetimeSkeleton>yMd</datetimeSkeleton>
+							<datetimeSkeleton>yMMMd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -3258,19 +3260,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>Gy年M月d日EEEE</pattern>
-							<datetimeSkeleton>GyMEEEEd</datetimeSkeleton>
+							<datetimeSkeleton>GyMMMEEEEd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
 							<pattern>Gy年M月d日</pattern>
-							<datetimeSkeleton>GyMd</datetimeSkeleton>
+							<datetimeSkeleton>GyMMMd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
 							<pattern>Gy年M月d日</pattern>
-							<datetimeSkeleton>GyMd</datetimeSkeleton>
+							<datetimeSkeleton>GyMMMd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -3478,19 +3480,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>Gy年M月d日EEEE</pattern>
-							<datetimeSkeleton>GyMEEEEd</datetimeSkeleton>
+							<datetimeSkeleton>GyMMMEEEEd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
 							<pattern>Gy年M月d日</pattern>
-							<datetimeSkeleton>GyMd</datetimeSkeleton>
+							<datetimeSkeleton>GyMMMd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
 							<pattern>Gy年M月d日</pattern>
-							<datetimeSkeleton>GyMd</datetimeSkeleton>
+							<datetimeSkeleton>GyMMMd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -3775,19 +3777,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>Gy年M月d日EEEE</pattern>
-							<datetimeSkeleton>GyMEEEEd</datetimeSkeleton>
+							<datetimeSkeleton>GyMMMEEEEd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
 							<pattern>Gy年M月d日</pattern>
-							<datetimeSkeleton>GyMd</datetimeSkeleton>
+							<datetimeSkeleton>GyMMMd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
 							<pattern>Gy年M月d日</pattern>
-							<datetimeSkeleton>GyMd</datetimeSkeleton>
+							<datetimeSkeleton>GyMMMd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -3964,19 +3966,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>Gy年M月d日EEEE</pattern>
-							<datetimeSkeleton>GyMEEEEd</datetimeSkeleton>
+							<datetimeSkeleton>GyMMMEEEEd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
 							<pattern>Gy年M月d日</pattern>
-							<datetimeSkeleton>GyMd</datetimeSkeleton>
+							<datetimeSkeleton>GyMMMd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
 							<pattern>Gy年M月d日</pattern>
-							<datetimeSkeleton>GyMd</datetimeSkeleton>
+							<datetimeSkeleton>GyMMMd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -4590,6 +4592,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<regionFormat type="daylight">↑↑↑</regionFormat>
 			<regionFormat type="standard">↑↑↑</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>檀香山</exemplarCity>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>协调世界时间</standard>
@@ -5205,9 +5210,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>金边</exemplarCity>
 			</zone>
 			<zone type="Pacific/Enderbury">
-				<exemplarCity>恩得伯理岛</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kanton">
 				<exemplarCity>坎顿</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
@@ -5326,9 +5328,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>乌兰巴托</exemplarCity>
-			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity>乔巴山</exemplarCity>
 			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity>中华人民共和国澳门特别行政区</exemplarCity>
@@ -5729,9 +5728,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="America/Nome">
 				<exemplarCity>诺姆</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>檀香山</exemplarCity>
-			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>安克拉治</exemplarCity>
 			</zone>
@@ -6116,13 +6112,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>中国夏令时间</daylight>
 				</long>
 			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>乔巴山时间</generic>
-					<standard>乔巴山标准时间</standard>
-					<daylight>乔巴山夏令时间</daylight>
-				</long>
-			</metazone>
 			<metazone type="Christmas">
 				<long>
 					<standard>圣诞岛时间</standard>
@@ -6371,6 +6360,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>彼得罗巴甫洛夫斯克时间</generic>
 					<standard>彼得罗巴甫洛夫斯克标准时间</standard>
 					<daylight>彼得罗巴甫洛夫斯克日光节约时间</daylight>
+				</long>
+			</metazone>
+			<metazone type="Kazakhstan">
+				<long>
+					<standard>哈萨克时间</standard>
 				</long>
 			</metazone>
 			<metazone type="Kazakhstan_Eastern">
@@ -8799,7 +8793,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -9473,6 +9467,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="speed-light-speed">
+				<displayName>光速</displayName>
+				<unitPattern count="other">{0} 光速</unitPattern>
+			</unit>
+			<unit type="concentr-part-per-1e9">
+				<displayName>十亿分点浓度</displayName>
+				<unitPattern count="other">{0} 十亿分点浓度</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>晚</displayName>
+				<unitPattern count="other">{0} 晚</unitPattern>
+				<perUnitPattern>{0}/晚</perUnitPattern>
+			</unit>
 			<coordinateUnit>
 				<displayName>↑↑↑</displayName>
 				<coordinateUnitPattern type="east">↑↑↑</coordinateUnitPattern>
@@ -9681,7 +9688,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>项</displayName>
 				<unitPattern count="other">{0} 项</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>百万分率</displayName>
 				<unitPattern count="other">{0} 百万分率</unitPattern>
 			</unit>
@@ -10355,6 +10362,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>英制夸脱</displayName>
 				<unitPattern count="other">{0} 英制夸脱</unitPattern>
 			</unit>
+			<unit type="speed-light-speed">
+				<displayName>光速</displayName>
+				<unitPattern count="other">{0} 光速</unitPattern>
+			</unit>
+			<unit type="concentr-part-per-1e9">
+				<displayName>浓度/十亿</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>晚</displayName>
+				<unitPattern count="other">{0} 晚</unitPattern>
+				<perUnitPattern>{0}/晚</perUnitPattern>
+			</unit>
 			<coordinateUnit>
 				<displayName>方向</displayName>
 				<coordinateUnitPattern type="east">东经{0}</coordinateUnitPattern>
@@ -10563,7 +10583,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -11237,6 +11257,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="speed-light-speed">
+				<displayName>光速</displayName>
+				<unitPattern count="other">{0}光速</unitPattern>
+			</unit>
+			<unit type="concentr-part-per-1e9">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">{0}ppb</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>晚</displayName>
+				<unitPattern count="other">{0}晚</unitPattern>
+				<perUnitPattern>{0}/晚</perUnitPattern>
+			</unit>
 			<coordinateUnit>
 				<displayName>↑↑↑</displayName>
 				<coordinateUnitPattern type="east">↑↑↑</coordinateUnitPattern>
@@ -11663,10 +11696,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<nameField type="title">先生</nameField>
 			<nameField type="given">大文</nameField>
 			<nameField type="given-informal">小二</nameField>
-			<nameField type="given2">↑↑↑</nameField>
-			<nameField type="surname-prefix">↑↑↑</nameField>
-			<nameField type="surname-core">↑↑↑</nameField>
-			<nameField type="surname2">↑↑↑</nameField>
 			<nameField type="generation">小</nameField>
 			<nameField type="credentials">博士</nameField>
 		</sampleName>

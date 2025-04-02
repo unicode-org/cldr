@@ -8,7 +8,6 @@ package org.unicode.cldr.tool;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
-import com.ibm.icu.dev.util.UOption;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.DateTimePatternGenerator;
@@ -39,6 +38,7 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.icu.dev.util.UOption;
 import org.unicode.cldr.test.CLDRTest;
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
@@ -55,6 +55,7 @@ import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CLDRTool;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CollatorHelper;
 import org.unicode.cldr.util.DateTimeCanonicalizer;
 import org.unicode.cldr.util.DateTimeCanonicalizer.DateTimePatternType;
 import org.unicode.cldr.util.DowngradePaths;
@@ -76,7 +77,6 @@ import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StringId;
 import org.unicode.cldr.util.SupplementalDataInfo;
-// import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.VoteResolver;
@@ -651,11 +651,13 @@ public class CLDRModify {
                             + "Use -? for help.");
         }
         if (i == FIX && givenOptions.value != null) {
-            final UnicodeSet allowedFilters = new UnicodeSet().add('P').add('Q').add('k');
+            final UnicodeSet allowedFilters = new UnicodeSet().add('P').add('k').add('E').add('m');
             for (char c : givenOptions.value.toCharArray()) {
                 if (!allowedFilters.contains(c)) {
                     throw new IllegalArgumentException(
-                            "The filter " + c + " is currently disabled, see CLDR-17144");
+                            "The filter "
+                                    + c
+                                    + " is currently disabled, see CLDR-17144 and CLDR-17765");
                 }
             }
         }
@@ -1631,6 +1633,22 @@ public class CLDRModify {
                     }
                 });
 
+        // Remove inheritance marker if there is no value to inherit
+        fixList.add(
+                'm',
+                "Remove inheritance from missing (null) value",
+                new CLDRFilter() {
+                    @Override
+                    public void handlePath(String xpath) {
+                        String value = cldrFileToFilter.getStringValue(xpath);
+                        if (CldrUtility.INHERITANCE_MARKER.equals(value)
+                                && getResolved().getStringValue(xpath) == null) {
+                            String fullXPath = cldrFileToFilter.getFullXPath(xpath);
+                            remove(fullXPath, "would inherit from missing value");
+                        }
+                    }
+                });
+
         fixList.add(
                 't',
                 "Fix missing count values groups",
@@ -2100,7 +2118,7 @@ public class CLDRModify {
                 "add annotation names to keywords",
                 new CLDRFilter() {
                     Set<String> available = Annotations.getAllAvailable();
-                    TreeSet<String> sorted = new TreeSet<>(Collator.getInstance(ULocale.ROOT));
+                    TreeSet<String> sorted = new TreeSet<>(CollatorHelper.ROOT_COLLATOR);
                     CLDRFile resolved;
                     Set<String> handledCharacters = new HashSet<>();
                     boolean isTop;
@@ -2324,9 +2342,8 @@ public class CLDRModify {
                                             || newPath == null
                                             || newValue == null) {
                                         throw new IllegalArgumentException(
-                                                "Bad arguments, must have non-null for one of:"
-                                                        + "path, value, new_path, new_value "
-                                                        + ":\n\t"
+                                                action.action
+                                                        + ": must have no path nor value = null AND new_path or new_value:\n\t"
                                                         + entry);
                                     }
                                     String newPathString = newPath.getPath(getResolved());
@@ -2345,8 +2362,8 @@ public class CLDRModify {
                                     if ((pathMatch == null && valueMatch == null)
                                             || (newPath == null && newValue == null)) {
                                         throw new IllegalArgumentException(
-                                                "Bad arguments, must have "
-                                                        + "(path!=null OR value=null) AND (new_path!=null OR new_value!=null):\n\t"
+                                                action.action
+                                                        + ": must have (path or value) AND (new_path or new_value):\n\t"
                                                         + entry);
                                     }
                                     break;
@@ -2354,8 +2371,8 @@ public class CLDRModify {
                                 case delete:
                                     if (newPath != null || newValue != null) {
                                         throw new IllegalArgumentException(
-                                                "Bad arguments, must have "
-                                                        + "newPath=null, newValue=null"
+                                                action.action
+                                                        + ": must have no new_path nor new_value:\n\t"
                                                         + entry);
                                     }
                                     break;
@@ -3011,6 +3028,55 @@ public class CLDRModify {
                 });
 
         fixList.add(
+                'E',
+                "Fix null/inherited values in en.xml",
+                new CLDRFilter() {
+                    final SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
+                    final String LOCALE_ID = "en";
+                    final CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(sdi, LOCALE_ID);
+                    boolean skip = false;
+
+                    @Override
+                    public void handleStart() {
+                        skip = !getLocaleID().equals(LOCALE_ID);
+                    }
+
+                    @Override
+                    public void handlePath(String xpath) {
+                        if (skip) {
+                            return;
+                        }
+                        if (coverageLevel.getLevel(xpath).getLevel() > Level.MODERN.getLevel()) {
+                            return;
+                        }
+                        String value = cldrFileToFilter.getStringValue(xpath);
+                        String message;
+                        if (value == null) {
+                            message = "fix null";
+                        } else if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
+                            message = "fix inheritance marker";
+                        } else {
+                            return;
+                        }
+                        String resolvedValue = getResolved().getStringValue(xpath);
+                        if (resolvedValue != null) {
+                            String fullPath = cldrFileToFilter.getFullXPath(xpath);
+                            replace(fullPath, fullPath, resolvedValue, message);
+                        }
+                    }
+
+                    @Override
+                    public void handleEnd() {
+                        if (skip) {
+                            return;
+                        }
+                        for (final String xpath : cldrFileToFilter.getExtraPaths()) {
+                            handlePath(xpath);
+                        }
+                    }
+                });
+
+        fixList.add(
                 'D',
                 "Downgrade paths",
                 new CLDRFilter() {
@@ -3260,8 +3326,7 @@ public class CLDRModify {
 
     /** Internal */
     public static void testJavaSemantics() {
-        Collator caseInsensitive = Collator.getInstance(ULocale.ROOT);
-        caseInsensitive.setStrength(Collator.SECONDARY);
+        Collator caseInsensitive = CollatorHelper.ROOT_SECONDARY;
         Set<String> setWithCaseInsensitive = new TreeSet<>(caseInsensitive);
         setWithCaseInsensitive.addAll(Arrays.asList(new String[] {"a", "b", "c"}));
         Set<String> plainSet = new TreeSet<>();

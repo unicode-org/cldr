@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1027,13 +1027,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="calendar" type="roc" draft="unconfirmed">مينگۋو كۇنتىزبەسى</type>
 			<type key="cf" type="account" draft="unconfirmed">ەسەپتىك اقشا ءپىشىمى</type>
 			<type key="cf" type="standard" draft="unconfirmed">ستاندارتتى اقشا ءپىشىمى</type>
-			<type key="collation" type="big5han" draft="unconfirmed">ءداستۇرلى قىتاي ءتىلىنىڭ سۇرىپتاۋ رەتى - Big5</type>
 			<type key="collation" type="compat" draft="unconfirmed">سايكەستىككە ارنالعان الدىڭعى سۇرىپتاۋ رەتى</type>
 			<type key="collation" type="dictionary" draft="unconfirmed">سوزدىك بويىنشا سۇرىپتاۋ رەتى</type>
 			<type key="collation" type="ducet" draft="unconfirmed">ادەپكى ۋنيكود سۇرىپتاۋ رەتى</type>
 			<type key="collation" type="emoji" draft="unconfirmed">ەموجي سۇرىپتاۋ رەتى</type>
 			<type key="collation" type="eor" draft="unconfirmed">ەۋروپالىق رەتتەۋ ەرەجەلەرى</type>
-			<type key="collation" type="gb2312han" draft="unconfirmed">جەڭىلدەتىلگەن قىتاي ءتىلىنىڭ سۇرىپتاۋ رەتى - GB2312</type>
 			<type key="collation" type="phonebook" draft="unconfirmed">تەلەفون كىتاپشاسىنىڭ سۇرىپتاۋ رەتى</type>
 			<type key="collation" type="pinyin" draft="unconfirmed">پينين سۇرىپتاۋ رەتى</type>
 			<type key="collation" type="search" draft="unconfirmed">جالپى ماقساتتاعى ىزدەۋ</type>
@@ -3426,7 +3424,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Asia/Phnom_Penh">
 				<exemplarCity draft="unconfirmed">پنومپەن</exemplarCity>
 			</zone>
-			<zone type="Pacific/Kanton">
+			<zone type="Pacific/Enderbury">
 				<exemplarCity draft="unconfirmed">كانتون</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
@@ -3545,9 +3543,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity draft="unconfirmed">ۇلانباتىر</exemplarCity>
-			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity draft="unconfirmed">چويبالسان</exemplarCity>
 			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity draft="unconfirmed">ماكاو</exemplarCity>
@@ -4326,13 +4321,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic draft="unconfirmed">قىتاي ۋاقىتى</generic>
 					<standard draft="unconfirmed">قىتاي ستاندارتتى ۋاقىتى</standard>
 					<daylight draft="unconfirmed">قىتاي جازعى ۋاقىتى</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic draft="unconfirmed">چويبالسان ۋاقىتى</generic>
-					<standard draft="unconfirmed">چويبالسان ستاندارتتى ۋاقىتى</standard>
-					<daylight draft="unconfirmed">چويبالسان جازعى ۋاقىتى</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">
@@ -6743,7 +6731,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one" draft="unconfirmed">{0} ەلەمەنت</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} ەلەمەنت</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName draft="unconfirmed">ميلليوندىق ۇلەس</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} ميلليوندىق ۇلەس</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} ميلليوندىق ۇلەس</unitPattern>
@@ -7565,7 +7553,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one" draft="unconfirmed">{0} جارىق</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} جارىق</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName draft="unconfirmed">ميللياردتىق ۇلەس</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} ميىللياردتىق ۇلەس</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} ميللياردتىق ۇلەس</unitPattern>
@@ -7805,7 +7793,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one" draft="unconfirmed">{0} ەلەمەنت</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} ەلەمەنت</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName draft="unconfirmed">ميلليوندىق ۇلەس</displayName>
 				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
@@ -8627,7 +8615,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one" draft="unconfirmed">{0} جارىق</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} جارىق</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName draft="unconfirmed">ميللياردتىق ۇلەس</displayName>
 				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
@@ -8867,7 +8855,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one" draft="unconfirmed">{0} ەلەمەنت</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} ەلەمەنت</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName draft="unconfirmed">ميلليوندىق ۇلەس</displayName>
 				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
@@ -9689,7 +9677,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one" draft="unconfirmed">{0} جارىق</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} جارىق</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName draft="unconfirmed">ميللياردتىق ۇلەس</displayName>
 				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>

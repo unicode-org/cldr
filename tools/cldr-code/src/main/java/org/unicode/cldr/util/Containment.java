@@ -60,6 +60,7 @@ public class Containment {
     static final Map<String, Integer> toOrder = new LinkedHashMap<>();
     static int level = 0;
     static int order;
+
     /** track whether any errors, such as loops, were detected */
     public static boolean hadErrors = false;
 

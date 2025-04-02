@@ -1,0 +1,23 @@
+# Copyright (c) 2025 Unicode, Inc.
+# For terms of use, see http://www.unicode.org/copyright.html
+# SPDX-License-Identifier: Unicode-3.0
+# CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+#
+# This is a sample data file, wherein every line is a VALID <transform to= > string.
+Replaced
+# next line is blank
+
+# literals
+$$
+\$
+\\
+# entire matched substring
+You picked: $0
+$0
+# specified capture group
+Firstly, $1. Secondly, $2. Thirdly, $3. Fourthly, $4. Fifthly, $5. Sixthly, $6. Seventhly, $7. Eighthly, $8. Umpteenthly, $9
+# insert a variable
+My answer is variable: ${variable}
+# mapped set
+$[1:lowercase]
+# marker

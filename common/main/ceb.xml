@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1944,9 +1944,6 @@ the LDML specification (http://unicode.org/reports/tr35/)
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Enderbury">
-				<exemplarCity>Enderbury</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kanton">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
@@ -2064,9 +2061,6 @@ the LDML specification (http://unicode.org/reports/tr35/)
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
-				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
-			<zone type="Asia/Choibalsan">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Macau">
@@ -2810,13 +2804,6 @@ the LDML specification (http://unicode.org/reports/tr35/)
 					<generic>Oras sa China</generic>
 					<standard>Standard nga Oras sa China</standard>
 					<daylight>Daylight nga Oras sa China</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>Oras sa Choibalsan</generic>
-					<standard>Standard nga Oras sa Choibalsan</standard>
-					<daylight>Oras sa Ting-init sa Choibalsan</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">
@@ -4885,7 +4872,7 @@ the LDML specification (http://unicode.org/reports/tr35/)
 				<unitPattern count="one">{0} ka millimole kada litro</unitPattern>
 				<unitPattern count="other">{0} ka mga millimole kada litro</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>mga part per million</displayName>
 				<unitPattern count="one">{0} ka part per million</unitPattern>
 				<unitPattern count="other">{0} ka mga part per million</unitPattern>
@@ -5900,7 +5887,7 @@ the LDML specification (http://unicode.org/reports/tr35/)
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>mga part/million</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>

@@ -34,7 +34,7 @@ public class ChartSupplemental extends Chart {
 
     @Override
     public String getTitle() {
-        return ENGLISH.getName(locale) + ": Overall Errors";
+        return ENGLISH.nameGetter().getNameFromIdentifier(locale) + ": Overall Errors";
     }
 
     @Override

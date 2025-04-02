@@ -4,11 +4,8 @@ import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
 import com.google.common.collect.ImmutableSet;
-import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.dev.test.TestLog;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.RuleBasedCollator;
-import com.ibm.icu.util.ULocale;
 import com.ibm.icu.util.VersionInfo;
 import java.io.File;
 import java.io.FilenameFilter;
@@ -23,7 +20,10 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
+import org.unicode.cldr.icu.dev.test.TestLog;
 import org.unicode.cldr.test.CheckCLDR.Phase;
+import org.unicode.cldr.test.SubmissionLocales;
 
 /**
  * Basic information about the CLDR environment. Use CLDRConfig.getInstance() to create your
@@ -37,6 +37,7 @@ public class CLDRConfig extends Properties {
     public static boolean SKIP_SEED = System.getProperty("CLDR_SKIP_SEED") != null;
     private static final long serialVersionUID = -2605254975303398336L;
     public static boolean DEBUG = false;
+
     /** This is the special implementation which will be used, i.e. CLDRConfigImpl */
     public static final String SUBCLASS = CLDRConfig.class.getName() + "Impl";
 
@@ -90,6 +91,8 @@ public class CLDRConfig extends Properties {
             if (instance == null) {
                 // this is the "normal" branch for tools and such
                 instance = new CLDRConfig();
+                // attempt to set CLDR_DIR automatically
+                CldrUtility.tryCurrentDirAsCldrDir();
                 CldrUtility.checkValidDirectory(
                         instance.getProperty(CldrUtility.DIR_KEY),
                         "You have to set -DCLDR_DIR=<validdirectory>");
@@ -339,8 +342,7 @@ public class CLDRConfig extends Properties {
             try {
                 colRoot = new RuleBasedCollator(rules);
             } catch (Exception e) {
-                colRoot = (RuleBasedCollator) getInstance().getCollator();
-                return colRoot;
+                return CollatorHelper.EMOJI_COLLATOR;
             }
             colRoot.setStrength(Collator.IDENTICAL);
             colRoot.setNumericCollation(true);
@@ -356,37 +358,6 @@ public class CLDRConfig extends Properties {
     @SuppressWarnings("unchecked")
     public final Comparator<String> getComparatorRoot() {
         return (Comparator) (getCollatorRoot());
-    }
-
-    private static final class CollatorHelper {
-        static final Collator EMOJI_COLLATOR = makeEmojiCollator();
-
-        private static final Collator makeEmojiCollator() {
-            final RuleBasedCollator col =
-                    (RuleBasedCollator)
-                            Collator.getInstance(ULocale.forLanguageTag("en-u-co-emoji"));
-            col.setStrength(Collator.IDENTICAL);
-            col.setNumericCollation(true);
-            col.freeze();
-            return col;
-        }
-
-        static final Collator ROOT_NUMERIC = makeRootNumeric();
-
-        private static final Collator makeRootNumeric() {
-            RuleBasedCollator _ROOT_COL = (RuleBasedCollator) Collator.getInstance(ULocale.ENGLISH);
-            _ROOT_COL.setNumericCollation(true);
-            _ROOT_COL.freeze();
-            return _ROOT_COL;
-        }
-    }
-
-    public Collator getCollator() {
-        return CollatorHelper.EMOJI_COLLATOR;
-    }
-
-    public Collator getRootNumeric() {
-        return CollatorHelper.ROOT_NUMERIC;
     }
 
     public synchronized Phase getPhase() {
@@ -554,6 +525,7 @@ public class CLDRConfig extends Properties {
         public File getCldrDir() {
             return this.cldrDir;
         }
+
         // singleton
         private static FileWrapper fileWrapperInstance = new FileWrapper();
 
@@ -604,10 +576,13 @@ public class CLDRConfig extends Properties {
 
     /** TODO: better place for these constants? */
     private static final String COMMON_DIR = "common";
+
     /** TODO: better place for these constants? */
     private static final String EXEMPLARS_DIR = "exemplars";
+
     /** TODO: better place for these constants? */
     private static final String SEED_DIR = "seed";
+
     /** TODO: better place for these constants? */
     private static final String KEYBOARDS_DIR = "keyboards";
 

@@ -7,7 +7,6 @@
 //
 package org.unicode.cldr.web;
 
-import com.ibm.icu.dev.util.ElapsedTimer;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 import java.io.IOException;
@@ -27,6 +26,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import org.unicode.cldr.icu.dev.util.ElapsedTimer;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRLocale;
@@ -1440,7 +1440,7 @@ public class WebContext implements Cloneable, Appendable {
         logger.fine("Session Now=" + session + ", user=" + user);
 
         // allow in administrator or TC.
-        if (!UserRegistry.userIsTC(user)) {
+        if (!UserRegistry.userIsTCOrStronger(user)) {
             if ((user != null) && (session == null)) { // user trying to log in-
                 if (CookieSession.tooManyUsers()) {
                     System.err.println(
@@ -1635,5 +1635,19 @@ public class WebContext implements Cloneable, Appendable {
         if (session != null) {
             session.setMessage(s);
         }
+    }
+
+    /** Get session if there is one, but don't create one */
+    public static CookieSession peekSession(HttpServletRequest request) {
+        String aNum = getCookieValue(request, Auth.SESSION_HEADER);
+        if (aNum != null) {
+            logger.info("peeked session ID from cookie" + aNum);
+            CookieSession session = CookieSession.retrieveWithoutTouch(aNum);
+            logger.fine("Peeked session From cookie " + Auth.SESSION_HEADER + " : " + session);
+            return session;
+        } else {
+            logger.info("NO SESSION ID in peeked cookie");
+        }
+        return null;
     }
 }

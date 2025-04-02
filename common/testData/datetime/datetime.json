@@ -1,0 +1,2926 @@
+[
+  {
+    "timeLength": "short",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "12:00 AM"
+  },
+  {
+    "timeLength": "short",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "8:50 AM"
+  },
+  {
+    "timeLength": "short",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "12:00 PM"
+  },
+  {
+    "dateLength": "medium",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "Jan 1, 2000"
+  },
+  {
+    "dateLength": "medium",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "Jul 1, 2024"
+  },
+  {
+    "dateLength": "medium",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "Jul 15, 2014"
+  },
+  {
+    "dateLength": "full",
+    "timeLength": "short",
+    "dateTimeFormatType": "atTime",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "Saturday, January 1, 2000 at 12:00 AM"
+  },
+  {
+    "dateLength": "full",
+    "timeLength": "short",
+    "dateTimeFormatType": "atTime",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "Monday, July 1, 2024 at 8:50 AM"
+  },
+  {
+    "dateLength": "full",
+    "timeLength": "short",
+    "dateTimeFormatType": "atTime",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "Tuesday, July 15, 2014 at 12:00 PM"
+  },
+  {
+    "dateLength": "full",
+    "timeLength": "short",
+    "dateTimeFormatType": "standard",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "Saturday, January 1, 2000, 12:00 AM"
+  },
+  {
+    "dateLength": "full",
+    "timeLength": "short",
+    "dateTimeFormatType": "standard",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "Monday, July 1, 2024, 8:50 AM"
+  },
+  {
+    "dateLength": "full",
+    "timeLength": "short",
+    "dateTimeFormatType": "standard",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "Tuesday, July 15, 2014, 12:00 PM"
+  },
+  {
+    "dateLength": "short",
+    "timeLength": "full",
+    "dateTimeFormatType": "atTime",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "1/1/00, 12:00:00 AM Greenwich Mean Time"
+  },
+  {
+    "dateLength": "short",
+    "timeLength": "full",
+    "dateTimeFormatType": "atTime",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2000-01-01T00:00+10:30[Australia/Adelaide]",
+    "expected": "1/1/00, 12:00:00 AM Australian Central Daylight Time"
+  },
+  {
+    "dateLength": "short",
+    "timeLength": "full",
+    "dateTimeFormatType": "atTime",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "7/1/24, 8:50:07 AM Greenwich Mean Time"
+  },
+  {
+    "dateLength": "short",
+    "timeLength": "full",
+    "dateTimeFormatType": "atTime",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2024-07-01T08:50:07+09:30[Australia/Adelaide]",
+    "expected": "7/1/24, 8:50:07 AM Australian Central Standard Time"
+  },
+  {
+    "dateLength": "short",
+    "timeLength": "full",
+    "dateTimeFormatType": "atTime",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "7/15/14, 12:00:00 PM Greenwich Mean Time"
+  },
+  {
+    "dateLength": "short",
+    "timeLength": "full",
+    "dateTimeFormatType": "atTime",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2014-07-15T12:00+09:30[Australia/Adelaide]",
+    "expected": "7/15/14, 12:00:00 PM Australian Central Standard Time"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "yyMdEEE",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "Sat, 1/1/00"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "yyMdEEE",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "Mon, 7/1/24"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "yyMdEEE",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "Tue, 7/15/14"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "medium",
+    "classicalSkeleton": "yMMMdEEE",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "Sat, Jan 1, 2000"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "medium",
+    "classicalSkeleton": "yMMMdEEE",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "Mon, Jul 1, 2024"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "medium",
+    "classicalSkeleton": "yMMMdEEE",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "Tue, Jul 15, 2014"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "yMMMMdEEEE",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "Saturday, January 1, 2000"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "yMMMMdEEEE",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "Monday, July 1, 2024"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "yMMMMdEEEE",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "Tuesday, July 15, 2014"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "GyMdEEE",
+    "yearStyle": "with_era",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "Sat, 1 1, 2000 AD"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "GyMdEEE",
+    "yearStyle": "with_era",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "Mon, 7 1, 2024 AD"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "GyMdEEE",
+    "yearStyle": "with_era",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "Tue, 7 15, 2014 AD"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "medium",
+    "classicalSkeleton": "GyMMMdEEE",
+    "yearStyle": "with_era",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "Sat, Jan 1, 2000 AD"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "medium",
+    "classicalSkeleton": "GyMMMdEEE",
+    "yearStyle": "with_era",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "Mon, Jul 1, 2024 AD"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "medium",
+    "classicalSkeleton": "GyMMMdEEE",
+    "yearStyle": "with_era",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "Tue, Jul 15, 2014 AD"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "GyMMMMdEEEE",
+    "yearStyle": "with_era",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "Saturday, January 1, 2000 AD"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "GyMMMMdEEEE",
+    "yearStyle": "with_era",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "Monday, July 1, 2024 AD"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "GyMMMMdEEEE",
+    "yearStyle": "with_era",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "Tuesday, July 15, 2014 AD"
+  },
+  {
+    "semanticSkeleton": "Z",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "zzzz",
+    "zoneStyle": "specific",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "Greenwich Mean Time"
+  },
+  {
+    "semanticSkeleton": "Z",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "zzzz",
+    "zoneStyle": "specific",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2000-01-01T00:00+10:30[Australia/Adelaide]",
+    "expected": "Australian Central Daylight Time"
+  },
+  {
+    "semanticSkeleton": "Z",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "VVVV",
+    "zoneStyle": "location",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "GMT"
+  },
+  {
+    "semanticSkeleton": "Z",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "VVVV",
+    "zoneStyle": "location",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2000-01-01T00:00+10:30[Australia/Adelaide]",
+    "expected": "Adelaide Time"
+  },
+  {
+    "semanticSkeleton": "Z",
+    "classicalSkeleton": "vvvv",
+    "zoneStyle": "generic",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "Greenwich Mean Time"
+  },
+  {
+    "semanticSkeleton": "Z",
+    "classicalSkeleton": "vvvv",
+    "zoneStyle": "generic",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2000-01-01T00:00+10:30[Australia/Adelaide]",
+    "expected": "Australian Central Time"
+  },
+  {
+    "semanticSkeleton": "Z",
+    "classicalSkeleton": "O",
+    "zoneStyle": "offset",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "GMT"
+  },
+  {
+    "semanticSkeleton": "Z",
+    "classicalSkeleton": "O",
+    "zoneStyle": "offset",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2000-01-01T00:00+10:30[Australia/Adelaide]",
+    "expected": "GMT+10:30"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "Mdjmsz",
+    "zoneStyle": "specific",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "1/1, 12:00:00 AM GMT"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "Mdjmsz",
+    "zoneStyle": "specific",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2000-01-01T00:00+10:30[Australia/Adelaide]",
+    "expected": "1/1, 12:00:00 AM GMT+10:30"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "MMMMdjmsz",
+    "zoneStyle": "specific",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "January 1, 12:00:00 AM GMT"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "MMMMdjmsz",
+    "zoneStyle": "specific",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2000-01-01T00:00+10:30[Australia/Adelaide]",
+    "expected": "January 1, 12:00:00 AM GMT+10:30"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "MdjmsVVVV",
+    "zoneStyle": "location",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "1/1, 12:00:00 AM GMT"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "MdjmsVVVV",
+    "zoneStyle": "location",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2000-01-01T00:00+10:30[Australia/Adelaide]",
+    "expected": "1/1, 12:00:00 AM Adelaide Time"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "MMMMdjmsVVVV",
+    "zoneStyle": "location",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "January 1, 12:00:00 AM GMT"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "MMMMdjmsVVVV",
+    "zoneStyle": "location",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2000-01-01T00:00+10:30[Australia/Adelaide]",
+    "expected": "January 1, 12:00:00 AM Adelaide Time"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "Mdjmsv",
+    "zoneStyle": "generic",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "1/1, 12:00:00 AM GMT"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "Mdjmsv",
+    "zoneStyle": "generic",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2000-01-01T00:00+10:30[Australia/Adelaide]",
+    "expected": "1/1, 12:00:00 AM Adelaide Time"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "MMMMdjmsv",
+    "zoneStyle": "generic",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "January 1, 12:00:00 AM GMT"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "MMMMdjmsv",
+    "zoneStyle": "generic",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2000-01-01T00:00+10:30[Australia/Adelaide]",
+    "expected": "January 1, 12:00:00 AM Adelaide Time"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "MdjmsO",
+    "zoneStyle": "offset",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "1/1, 12:00:00 AM GMT"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "MdjmsO",
+    "zoneStyle": "offset",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2000-01-01T00:00+10:30[Australia/Adelaide]",
+    "expected": "1/1, 12:00:00 AM GMT+10:30"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "MMMMdjmsO",
+    "zoneStyle": "offset",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "January 1, 12:00:00 AM GMT"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "MMMMdjmsO",
+    "zoneStyle": "offset",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2000-01-01T00:00+10:30[Australia/Adelaide]",
+    "expected": "January 1, 12:00:00 AM GMT+10:30"
+  },
+  {
+    "semanticSkeleton": "M",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "LLLL",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "January"
+  },
+  {
+    "semanticSkeleton": "M",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "LLLL",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "July"
+  },
+  {
+    "semanticSkeleton": "M",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "LLLL",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "July"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "jms",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "12:00:00 AM"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "jms",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "8:50:07 AM"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "jms",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "12:00:00 PM"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "hms",
+    "hourCycle": "H12",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "12:00:00 AM"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "hms",
+    "hourCycle": "H12",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "8:50:07 AM"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "hms",
+    "hourCycle": "H12",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "12:00:00 PM"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "medium",
+    "classicalSkeleton": "hms",
+    "hourCycle": "H12",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "12:00:00 AM"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "medium",
+    "classicalSkeleton": "hms",
+    "hourCycle": "H12",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "8:50:07 AM"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "medium",
+    "classicalSkeleton": "hms",
+    "hourCycle": "H12",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "12:00:00 PM"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "hms",
+    "hourCycle": "H12",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "12:00:00 AM"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "hms",
+    "hourCycle": "H12",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "8:50:07 AM"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "hms",
+    "hourCycle": "H12",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "12:00:00 PM"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "Hms",
+    "hourCycle": "H23",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "00:00:00"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "Hms",
+    "hourCycle": "H23",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "08:50:07"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "Hms",
+    "hourCycle": "H23",
+    "calendar": "gregorian",
+    "locale": "en",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "12:00:00"
+  },
+  {
+    "timeLength": "short",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "١٢:٠٠ ص"
+  },
+  {
+    "timeLength": "short",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "٨:٥٠ ص"
+  },
+  {
+    "timeLength": "short",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "١٢:٠٠ م"
+  },
+  {
+    "dateLength": "medium",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "٢٤ رمضان ١٤٢٠ هـ"
+  },
+  {
+    "dateLength": "medium",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "٢٤ ذو الحجة ١٤٤٥ هـ"
+  },
+  {
+    "dateLength": "medium",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "١٧ رمضان ١٤٣٥ هـ"
+  },
+  {
+    "dateLength": "full",
+    "timeLength": "short",
+    "dateTimeFormatType": "atTime",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "السبت، ٢٤ رمضان ١٤٢٠ هـ في ١٢:٠٠ ص"
+  },
+  {
+    "dateLength": "full",
+    "timeLength": "short",
+    "dateTimeFormatType": "atTime",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "الاثنين، ٢٤ ذو الحجة ١٤٤٥ هـ في ٨:٥٠ ص"
+  },
+  {
+    "dateLength": "full",
+    "timeLength": "short",
+    "dateTimeFormatType": "atTime",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "الثلاثاء، ١٧ رمضان ١٤٣٥ هـ في ١٢:٠٠ م"
+  },
+  {
+    "dateLength": "full",
+    "timeLength": "short",
+    "dateTimeFormatType": "standard",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "السبت، ٢٤ رمضان ١٤٢٠ هـ، ١٢:٠٠ ص"
+  },
+  {
+    "dateLength": "full",
+    "timeLength": "short",
+    "dateTimeFormatType": "standard",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "الاثنين، ٢٤ ذو الحجة ١٤٤٥ هـ، ٨:٥٠ ص"
+  },
+  {
+    "dateLength": "full",
+    "timeLength": "short",
+    "dateTimeFormatType": "standard",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "الثلاثاء، ١٧ رمضان ١٤٣٥ هـ، ١٢:٠٠ م"
+  },
+  {
+    "dateLength": "short",
+    "timeLength": "full",
+    "dateTimeFormatType": "atTime",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "٢٤‏/٩‏/١٤٢٠ هـ, ١٢:٠٠:٠٠ ص توقيت غرينتش"
+  },
+  {
+    "dateLength": "short",
+    "timeLength": "full",
+    "dateTimeFormatType": "atTime",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2000-01-01T00:00+10:30[Australia/Adelaide]",
+    "expected": "٢٤‏/٩‏/١٤٢٠ هـ, ١٢:٠٠:٠٠ ص توقيت وسط أستراليا الصيفي"
+  },
+  {
+    "dateLength": "short",
+    "timeLength": "full",
+    "dateTimeFormatType": "atTime",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "٢٤‏/١٢‏/١٤٤٥ هـ, ٨:٥٠:٠٧ ص توقيت غرينتش"
+  },
+  {
+    "dateLength": "short",
+    "timeLength": "full",
+    "dateTimeFormatType": "atTime",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2024-07-01T08:50:07+09:30[Australia/Adelaide]",
+    "expected": "٢٤‏/١٢‏/١٤٤٥ هـ, ٨:٥٠:٠٧ ص توقيت وسط أستراليا الرسمي"
+  },
+  {
+    "dateLength": "short",
+    "timeLength": "full",
+    "dateTimeFormatType": "atTime",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "١٧‏/٩‏/١٤٣٥ هـ, ١٢:٠٠:٠٠ م توقيت غرينتش"
+  },
+  {
+    "dateLength": "short",
+    "timeLength": "full",
+    "dateTimeFormatType": "atTime",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2014-07-15T12:00+09:30[Australia/Adelaide]",
+    "expected": "١٧‏/٩‏/١٤٣٥ هـ, ١٢:٠٠:٠٠ م توقيت وسط أستراليا الرسمي"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "GGGGGyMdEEE",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "السبت، ٢٤ ٩ ١٤٢٠ هـ"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "GGGGGyMdEEE",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "الاثنين، ٢٤ ١٢ ١٤٤٥ هـ"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "GGGGGyMdEEE",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "الثلاثاء، ١٧ ٩ ١٤٣٥ هـ"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "medium",
+    "classicalSkeleton": "GyMMMdEEE",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "السبت، ٢٤ رمضان ١٤٢٠ هـ"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "medium",
+    "classicalSkeleton": "GyMMMdEEE",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "الاثنين، ٢٤ ذو الحجة ١٤٤٥ هـ"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "medium",
+    "classicalSkeleton": "GyMMMdEEE",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "الثلاثاء، ١٧ رمضان ١٤٣٥ هـ"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "GyMMMMdEEEE",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "السبت، ٢٤ رمضان ١٤٢٠ هـ"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "GyMMMMdEEEE",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "الاثنين، ٢٤ ذو الحجة ١٤٤٥ هـ"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "GyMMMMdEEEE",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "الثلاثاء، ١٧ رمضان ١٤٣٥ هـ"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "GGGGGyMdEEE",
+    "yearStyle": "with_era",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "السبت، ٢٤ ٩ ١٤٢٠ هـ"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "GGGGGyMdEEE",
+    "yearStyle": "with_era",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "الاثنين، ٢٤ ١٢ ١٤٤٥ هـ"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "GGGGGyMdEEE",
+    "yearStyle": "with_era",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "الثلاثاء، ١٧ ٩ ١٤٣٥ هـ"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "medium",
+    "classicalSkeleton": "GyMMMdEEE",
+    "yearStyle": "with_era",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "السبت، ٢٤ رمضان ١٤٢٠ هـ"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "medium",
+    "classicalSkeleton": "GyMMMdEEE",
+    "yearStyle": "with_era",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "الاثنين، ٢٤ ذو الحجة ١٤٤٥ هـ"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "medium",
+    "classicalSkeleton": "GyMMMdEEE",
+    "yearStyle": "with_era",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "الثلاثاء، ١٧ رمضان ١٤٣٥ هـ"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "GyMMMMdEEEE",
+    "yearStyle": "with_era",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "السبت، ٢٤ رمضان ١٤٢٠ هـ"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "GyMMMMdEEEE",
+    "yearStyle": "with_era",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "الاثنين، ٢٤ ذو الحجة ١٤٤٥ هـ"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "GyMMMMdEEEE",
+    "yearStyle": "with_era",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "الثلاثاء، ١٧ رمضان ١٤٣٥ هـ"
+  },
+  {
+    "semanticSkeleton": "Z",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "zzzz",
+    "zoneStyle": "specific",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "توقيت غرينتش"
+  },
+  {
+    "semanticSkeleton": "Z",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "zzzz",
+    "zoneStyle": "specific",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2000-01-01T00:00+10:30[Australia/Adelaide]",
+    "expected": "توقيت وسط أستراليا الصيفي"
+  },
+  {
+    "semanticSkeleton": "Z",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "VVVV",
+    "zoneStyle": "location",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "غرينتش"
+  },
+  {
+    "semanticSkeleton": "Z",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "VVVV",
+    "zoneStyle": "location",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2000-01-01T00:00+10:30[Australia/Adelaide]",
+    "expected": "توقيت أديليد"
+  },
+  {
+    "semanticSkeleton": "Z",
+    "classicalSkeleton": "vvvv",
+    "zoneStyle": "generic",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "توقيت غرينتش"
+  },
+  {
+    "semanticSkeleton": "Z",
+    "classicalSkeleton": "vvvv",
+    "zoneStyle": "generic",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2000-01-01T00:00+10:30[Australia/Adelaide]",
+    "expected": "توقيت وسط أستراليا"
+  },
+  {
+    "semanticSkeleton": "Z",
+    "classicalSkeleton": "O",
+    "zoneStyle": "offset",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "غرينتش"
+  },
+  {
+    "semanticSkeleton": "Z",
+    "classicalSkeleton": "O",
+    "zoneStyle": "offset",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2000-01-01T00:00+10:30[Australia/Adelaide]",
+    "expected": "غرينتش+١٠:٣٠"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "Mdjmsz",
+    "zoneStyle": "specific",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "٢٤‏/٩، ١٢:٠٠:٠٠ ص غرينتش"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "Mdjmsz",
+    "zoneStyle": "specific",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2000-01-01T00:00+10:30[Australia/Adelaide]",
+    "expected": "٢٤‏/٩، ١٢:٠٠:٠٠ ص غرينتش+١٠:٣٠"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "MMMMdjmsz",
+    "zoneStyle": "specific",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "٢٤ رمضان، ١٢:٠٠:٠٠ ص غرينتش"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "MMMMdjmsz",
+    "zoneStyle": "specific",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2000-01-01T00:00+10:30[Australia/Adelaide]",
+    "expected": "٢٤ رمضان، ١٢:٠٠:٠٠ ص غرينتش+١٠:٣٠"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "MdjmsVVVV",
+    "zoneStyle": "location",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "٢٤‏/٩، ١٢:٠٠:٠٠ ص غرينتش"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "MdjmsVVVV",
+    "zoneStyle": "location",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2000-01-01T00:00+10:30[Australia/Adelaide]",
+    "expected": "٢٤‏/٩، ١٢:٠٠:٠٠ ص توقيت أديليد"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "MMMMdjmsVVVV",
+    "zoneStyle": "location",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "٢٤ رمضان، ١٢:٠٠:٠٠ ص غرينتش"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "MMMMdjmsVVVV",
+    "zoneStyle": "location",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2000-01-01T00:00+10:30[Australia/Adelaide]",
+    "expected": "٢٤ رمضان، ١٢:٠٠:٠٠ ص توقيت أديليد"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "Mdjmsv",
+    "zoneStyle": "generic",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "٢٤‏/٩، ١٢:٠٠:٠٠ ص غرينتش"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "Mdjmsv",
+    "zoneStyle": "generic",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2000-01-01T00:00+10:30[Australia/Adelaide]",
+    "expected": "٢٤‏/٩، ١٢:٠٠:٠٠ ص توقيت أديليد"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "MMMMdjmsv",
+    "zoneStyle": "generic",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "٢٤ رمضان، ١٢:٠٠:٠٠ ص غرينتش"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "MMMMdjmsv",
+    "zoneStyle": "generic",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2000-01-01T00:00+10:30[Australia/Adelaide]",
+    "expected": "٢٤ رمضان، ١٢:٠٠:٠٠ ص توقيت أديليد"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "MdjmsO",
+    "zoneStyle": "offset",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "٢٤‏/٩، ١٢:٠٠:٠٠ ص غرينتش"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "MdjmsO",
+    "zoneStyle": "offset",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2000-01-01T00:00+10:30[Australia/Adelaide]",
+    "expected": "٢٤‏/٩، ١٢:٠٠:٠٠ ص غرينتش+١٠:٣٠"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "MMMMdjmsO",
+    "zoneStyle": "offset",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "٢٤ رمضان، ١٢:٠٠:٠٠ ص غرينتش"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "MMMMdjmsO",
+    "zoneStyle": "offset",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2000-01-01T00:00+10:30[Australia/Adelaide]",
+    "expected": "٢٤ رمضان، ١٢:٠٠:٠٠ ص غرينتش+١٠:٣٠"
+  },
+  {
+    "semanticSkeleton": "M",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "LLLL",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "رمضان"
+  },
+  {
+    "semanticSkeleton": "M",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "LLLL",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "ذو الحجة"
+  },
+  {
+    "semanticSkeleton": "M",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "LLLL",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "رمضان"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "jms",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "١٢:٠٠:٠٠ ص"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "jms",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "٨:٥٠:٠٧ ص"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "jms",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "١٢:٠٠:٠٠ م"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "hms",
+    "hourCycle": "H12",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "١٢:٠٠:٠٠ ص"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "hms",
+    "hourCycle": "H12",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "٨:٥٠:٠٧ ص"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "hms",
+    "hourCycle": "H12",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "١٢:٠٠:٠٠ م"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "medium",
+    "classicalSkeleton": "hms",
+    "hourCycle": "H12",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "١٢:٠٠:٠٠ ص"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "medium",
+    "classicalSkeleton": "hms",
+    "hourCycle": "H12",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "٨:٥٠:٠٧ ص"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "medium",
+    "classicalSkeleton": "hms",
+    "hourCycle": "H12",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "١٢:٠٠:٠٠ م"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "hms",
+    "hourCycle": "H12",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "١٢:٠٠:٠٠ ص"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "hms",
+    "hourCycle": "H12",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "٨:٥٠:٠٧ ص"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "hms",
+    "hourCycle": "H12",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "١٢:٠٠:٠٠ م"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "Hms",
+    "hourCycle": "H23",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "٠٠:٠٠:٠٠"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "Hms",
+    "hourCycle": "H23",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "٠٨:٥٠:٠٧"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "Hms",
+    "hourCycle": "H23",
+    "calendar": "islamic-civil",
+    "locale": "ar-SA",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "١٢:٠٠:٠٠"
+  },
+  {
+    "timeLength": "short",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "00:00"
+  },
+  {
+    "timeLength": "short",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "08:50"
+  },
+  {
+    "timeLength": "short",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "12:00"
+  },
+  {
+    "dateLength": "medium",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "1 ม.ค. 2543"
+  },
+  {
+    "dateLength": "medium",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "1 ก.ค. 2567"
+  },
+  {
+    "dateLength": "medium",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "15 ก.ค. 2557"
+  },
+  {
+    "dateLength": "full",
+    "timeLength": "short",
+    "dateTimeFormatType": "atTime",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "วันเสาร์ที่ 1 มกราคม พ.ศ. 2543 เวลา 00:00"
+  },
+  {
+    "dateLength": "full",
+    "timeLength": "short",
+    "dateTimeFormatType": "atTime",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "วันจันทร์ที่ 1 กรกฎาคม พ.ศ. 2567 เวลา 08:50"
+  },
+  {
+    "dateLength": "full",
+    "timeLength": "short",
+    "dateTimeFormatType": "atTime",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "วันอังคารที่ 15 กรกฎาคม พ.ศ. 2557 เวลา 12:00"
+  },
+  {
+    "dateLength": "full",
+    "timeLength": "short",
+    "dateTimeFormatType": "standard",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "วันเสาร์ที่ 1 มกราคม พ.ศ. 2543 00:00"
+  },
+  {
+    "dateLength": "full",
+    "timeLength": "short",
+    "dateTimeFormatType": "standard",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "วันจันทร์ที่ 1 กรกฎาคม พ.ศ. 2567 08:50"
+  },
+  {
+    "dateLength": "full",
+    "timeLength": "short",
+    "dateTimeFormatType": "standard",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "วันอังคารที่ 15 กรกฎาคม พ.ศ. 2557 12:00"
+  },
+  {
+    "dateLength": "short",
+    "timeLength": "full",
+    "dateTimeFormatType": "atTime",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "1/1/43 0 นาฬิกา 00 นาที 00 วินาที เวลามาตรฐานกรีนิช"
+  },
+  {
+    "dateLength": "short",
+    "timeLength": "full",
+    "dateTimeFormatType": "atTime",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2000-01-01T00:00+10:30[Australia/Adelaide]",
+    "expected": "1/1/43 0 นาฬิกา 00 นาที 00 วินาที เวลาออมแสงทางตอนกลางของออสเตรเลีย"
+  },
+  {
+    "dateLength": "short",
+    "timeLength": "full",
+    "dateTimeFormatType": "atTime",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "1/7/67 8 นาฬิกา 50 นาที 07 วินาที เวลามาตรฐานกรีนิช"
+  },
+  {
+    "dateLength": "short",
+    "timeLength": "full",
+    "dateTimeFormatType": "atTime",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2024-07-01T08:50:07+09:30[Australia/Adelaide]",
+    "expected": "1/7/67 8 นาฬิกา 50 นาที 07 วินาที เวลามาตรฐานทางตอนกลางของออสเตรเลีย"
+  },
+  {
+    "dateLength": "short",
+    "timeLength": "full",
+    "dateTimeFormatType": "atTime",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "15/7/57 12 นาฬิกา 00 นาที 00 วินาที เวลามาตรฐานกรีนิช"
+  },
+  {
+    "dateLength": "short",
+    "timeLength": "full",
+    "dateTimeFormatType": "atTime",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2014-07-15T12:00+09:30[Australia/Adelaide]",
+    "expected": "15/7/57 12 นาฬิกา 00 นาที 00 วินาที เวลามาตรฐานทางตอนกลางของออสเตรเลีย"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "yyMdEEE",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "ส. 1/1/43"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "yyMdEEE",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "จ. 1/7/67"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "yyMdEEE",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "อ. 15/7/57"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "medium",
+    "classicalSkeleton": "yMMMdEEE",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "ส. 1 ม.ค. 2543"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "medium",
+    "classicalSkeleton": "yMMMdEEE",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "จ. 1 ก.ค. 2567"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "medium",
+    "classicalSkeleton": "yMMMdEEE",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "อ. 15 ก.ค. 2557"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "yMMMMdEEEE",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "วันเสาร์ที่ 1 มกราคม 2543"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "yMMMMdEEEE",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "วันจันทร์ที่ 1 กรกฎาคม 2567"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "yMMMMdEEEE",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "วันอังคารที่ 15 กรกฎาคม 2557"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "GyMdEEE",
+    "yearStyle": "with_era",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "ส. 1 1 พ.ศ. 2543"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "GyMdEEE",
+    "yearStyle": "with_era",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "จ. 1 7 พ.ศ. 2567"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "GyMdEEE",
+    "yearStyle": "with_era",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "อ. 15 7 พ.ศ. 2557"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "medium",
+    "classicalSkeleton": "GyMMMdEEE",
+    "yearStyle": "with_era",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "ส. 1 ม.ค. พ.ศ. 2543"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "medium",
+    "classicalSkeleton": "GyMMMdEEE",
+    "yearStyle": "with_era",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "จ. 1 ก.ค. พ.ศ. 2567"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "medium",
+    "classicalSkeleton": "GyMMMdEEE",
+    "yearStyle": "with_era",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "อ. 15 ก.ค. พ.ศ. 2557"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "GyMMMMdEEEE",
+    "yearStyle": "with_era",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "วันเสาร์ที่ 1 มกราคม พ.ศ. 2543"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "GyMMMMdEEEE",
+    "yearStyle": "with_era",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "วันจันทร์ที่ 1 กรกฎาคม พ.ศ. 2567"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "GyMMMMdEEEE",
+    "yearStyle": "with_era",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "วันอังคารที่ 15 กรกฎาคม พ.ศ. 2557"
+  },
+  {
+    "semanticSkeleton": "Z",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "zzzz",
+    "zoneStyle": "specific",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "เวลามาตรฐานกรีนิช"
+  },
+  {
+    "semanticSkeleton": "Z",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "zzzz",
+    "zoneStyle": "specific",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2000-01-01T00:00+10:30[Australia/Adelaide]",
+    "expected": "เวลาออมแสงทางตอนกลางของออสเตรเลีย"
+  },
+  {
+    "semanticSkeleton": "Z",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "VVVV",
+    "zoneStyle": "location",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "GMT"
+  },
+  {
+    "semanticSkeleton": "Z",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "VVVV",
+    "zoneStyle": "location",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2000-01-01T00:00+10:30[Australia/Adelaide]",
+    "expected": "เวลาแอดิเลด"
+  },
+  {
+    "semanticSkeleton": "Z",
+    "classicalSkeleton": "vvvv",
+    "zoneStyle": "generic",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "เวลามาตรฐานกรีนิช"
+  },
+  {
+    "semanticSkeleton": "Z",
+    "classicalSkeleton": "vvvv",
+    "zoneStyle": "generic",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2000-01-01T00:00+10:30[Australia/Adelaide]",
+    "expected": "เวลาออสเตรเลียกลาง"
+  },
+  {
+    "semanticSkeleton": "Z",
+    "classicalSkeleton": "O",
+    "zoneStyle": "offset",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "GMT"
+  },
+  {
+    "semanticSkeleton": "Z",
+    "classicalSkeleton": "O",
+    "zoneStyle": "offset",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2000-01-01T00:00+10:30[Australia/Adelaide]",
+    "expected": "GMT+10:30"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "Mdjmsz",
+    "zoneStyle": "specific",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "1/1 0 นาฬิกา 00 นาที 00 วินาที GMT"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "Mdjmsz",
+    "zoneStyle": "specific",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2000-01-01T00:00+10:30[Australia/Adelaide]",
+    "expected": "1/1 0 นาฬิกา 00 นาที 00 วินาที GMT+10:30"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "MMMMdjmsz",
+    "zoneStyle": "specific",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "1 มกราคม 0 นาฬิกา 00 นาที 00 วินาที GMT"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "MMMMdjmsz",
+    "zoneStyle": "specific",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2000-01-01T00:00+10:30[Australia/Adelaide]",
+    "expected": "1 มกราคม 0 นาฬิกา 00 นาที 00 วินาที GMT+10:30"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "MdjmsVVVV",
+    "zoneStyle": "location",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "1/1 0 นาฬิกา 00 นาที 00 วินาที GMT"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "MdjmsVVVV",
+    "zoneStyle": "location",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2000-01-01T00:00+10:30[Australia/Adelaide]",
+    "expected": "1/1 0 นาฬิกา 00 นาที 00 วินาที เวลาแอดิเลด"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "MMMMdjmsVVVV",
+    "zoneStyle": "location",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "1 มกราคม 0 นาฬิกา 00 นาที 00 วินาที GMT"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "MMMMdjmsVVVV",
+    "zoneStyle": "location",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2000-01-01T00:00+10:30[Australia/Adelaide]",
+    "expected": "1 มกราคม 0 นาฬิกา 00 นาที 00 วินาที เวลาแอดิเลด"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "Mdjmsv",
+    "zoneStyle": "generic",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "1/1 0 นาฬิกา 00 นาที 00 วินาที GMT"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "Mdjmsv",
+    "zoneStyle": "generic",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2000-01-01T00:00+10:30[Australia/Adelaide]",
+    "expected": "1/1 0 นาฬิกา 00 นาที 00 วินาที เวลาแอดิเลด"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "MMMMdjmsv",
+    "zoneStyle": "generic",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "1 มกราคม 0 นาฬิกา 00 นาที 00 วินาที GMT"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "MMMMdjmsv",
+    "zoneStyle": "generic",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2000-01-01T00:00+10:30[Australia/Adelaide]",
+    "expected": "1 มกราคม 0 นาฬิกา 00 นาที 00 วินาที เวลาแอดิเลด"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "MdjmsO",
+    "zoneStyle": "offset",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "1/1 0 นาฬิกา 00 นาที 00 วินาที GMT"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "MdjmsO",
+    "zoneStyle": "offset",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2000-01-01T00:00+10:30[Australia/Adelaide]",
+    "expected": "1/1 0 นาฬิกา 00 นาที 00 วินาที GMT+10:30"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "MMMMdjmsO",
+    "zoneStyle": "offset",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "1 มกราคม 0 นาฬิกา 00 นาที 00 วินาที GMT"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "MMMMdjmsO",
+    "zoneStyle": "offset",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2000-01-01T00:00+10:30[Australia/Adelaide]",
+    "expected": "1 มกราคม 0 นาฬิกา 00 นาที 00 วินาที GMT+10:30"
+  },
+  {
+    "semanticSkeleton": "M",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "LLLL",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "มกราคม"
+  },
+  {
+    "semanticSkeleton": "M",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "LLLL",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "กรกฎาคม"
+  },
+  {
+    "semanticSkeleton": "M",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "LLLL",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "กรกฎาคม"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "jms",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "00:00:00"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "jms",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "08:50:07"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "jms",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "12:00:00"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "hms",
+    "hourCycle": "H12",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "12:00:00 ก่อนเที่ยง"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "hms",
+    "hourCycle": "H12",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "8:50:07 ก่อนเที่ยง"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "hms",
+    "hourCycle": "H12",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "12:00:00 หลังเที่ยง"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "medium",
+    "classicalSkeleton": "hms",
+    "hourCycle": "H12",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "12:00:00 ก่อนเที่ยง"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "medium",
+    "classicalSkeleton": "hms",
+    "hourCycle": "H12",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "8:50:07 ก่อนเที่ยง"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "medium",
+    "classicalSkeleton": "hms",
+    "hourCycle": "H12",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "12:00:00 หลังเที่ยง"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "hms",
+    "hourCycle": "H12",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "12:00:00 ก่อนเที่ยง"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "hms",
+    "hourCycle": "H12",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "8:50:07 ก่อนเที่ยง"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "hms",
+    "hourCycle": "H12",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "12:00:00 หลังเที่ยง"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "Hms",
+    "hourCycle": "H23",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "00:00:00"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "Hms",
+    "hourCycle": "H23",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "08:50:07"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "Hms",
+    "hourCycle": "H23",
+    "calendar": "buddhist",
+    "locale": "th-TH",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "12:00:00"
+  },
+  {
+    "timeLength": "short",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "0:00"
+  },
+  {
+    "timeLength": "short",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "8:50"
+  },
+  {
+    "timeLength": "short",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "12:00"
+  },
+  {
+    "dateLength": "medium",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "平成12年1月1日"
+  },
+  {
+    "dateLength": "medium",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "令和6年7月1日"
+  },
+  {
+    "dateLength": "medium",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "平成26年7月15日"
+  },
+  {
+    "dateLength": "full",
+    "timeLength": "short",
+    "dateTimeFormatType": "atTime",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "平成12年1月1日土曜日 0:00"
+  },
+  {
+    "dateLength": "full",
+    "timeLength": "short",
+    "dateTimeFormatType": "atTime",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "令和6年7月1日月曜日 8:50"
+  },
+  {
+    "dateLength": "full",
+    "timeLength": "short",
+    "dateTimeFormatType": "atTime",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "平成26年7月15日火曜日 12:00"
+  },
+  {
+    "dateLength": "full",
+    "timeLength": "short",
+    "dateTimeFormatType": "standard",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "平成12年1月1日土曜日 0:00"
+  },
+  {
+    "dateLength": "full",
+    "timeLength": "short",
+    "dateTimeFormatType": "standard",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "令和6年7月1日月曜日 8:50"
+  },
+  {
+    "dateLength": "full",
+    "timeLength": "short",
+    "dateTimeFormatType": "standard",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "平成26年7月15日火曜日 12:00"
+  },
+  {
+    "dateLength": "short",
+    "timeLength": "full",
+    "dateTimeFormatType": "atTime",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "H12/1/1 0時00分00秒 グリニッジ標準時"
+  },
+  {
+    "dateLength": "short",
+    "timeLength": "full",
+    "dateTimeFormatType": "atTime",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2000-01-01T00:00+10:30[Australia/Adelaide]",
+    "expected": "H12/1/1 0時00分00秒 オーストラリア中部夏時間"
+  },
+  {
+    "dateLength": "short",
+    "timeLength": "full",
+    "dateTimeFormatType": "atTime",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "R6/7/1 8時50分07秒 グリニッジ標準時"
+  },
+  {
+    "dateLength": "short",
+    "timeLength": "full",
+    "dateTimeFormatType": "atTime",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2024-07-01T08:50:07+09:30[Australia/Adelaide]",
+    "expected": "R6/7/1 8時50分07秒 オーストラリア中部標準時"
+  },
+  {
+    "dateLength": "short",
+    "timeLength": "full",
+    "dateTimeFormatType": "atTime",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "H26/7/15 12時00分00秒 グリニッジ標準時"
+  },
+  {
+    "dateLength": "short",
+    "timeLength": "full",
+    "dateTimeFormatType": "atTime",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2014-07-15T12:00+09:30[Australia/Adelaide]",
+    "expected": "H26/7/15 12時00分00秒 オーストラリア中部標準時"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "GGGGGyMdEEE",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "H12年1月1日土"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "GGGGGyMdEEE",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "R6年7月1日月"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "GGGGGyMdEEE",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "H26年7月15日火"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "medium",
+    "classicalSkeleton": "GyMMMdEEE",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "平成12年1月1日(土)"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "medium",
+    "classicalSkeleton": "GyMMMdEEE",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "令和6年7月1日(月)"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "medium",
+    "classicalSkeleton": "GyMMMdEEE",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "平成26年7月15日(火)"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "GyMMMdEEEE",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "平成12年1月1日土曜日"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "GyMMMdEEEE",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "令和6年7月1日月曜日"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "GyMMMdEEEE",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "平成26年7月15日火曜日"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "GGGGGyMdEEE",
+    "yearStyle": "with_era",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "H12年1月1日土"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "GGGGGyMdEEE",
+    "yearStyle": "with_era",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "R6年7月1日月"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "GGGGGyMdEEE",
+    "yearStyle": "with_era",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "H26年7月15日火"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "medium",
+    "classicalSkeleton": "GyMMMdEEE",
+    "yearStyle": "with_era",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "平成12年1月1日(土)"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "medium",
+    "classicalSkeleton": "GyMMMdEEE",
+    "yearStyle": "with_era",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "令和6年7月1日(月)"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "medium",
+    "classicalSkeleton": "GyMMMdEEE",
+    "yearStyle": "with_era",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "平成26年7月15日(火)"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "GyMMMdEEEE",
+    "yearStyle": "with_era",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "平成12年1月1日土曜日"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "GyMMMdEEEE",
+    "yearStyle": "with_era",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "令和6年7月1日月曜日"
+  },
+  {
+    "semanticSkeleton": "YMDE",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "GyMMMdEEEE",
+    "yearStyle": "with_era",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "平成26年7月15日火曜日"
+  },
+  {
+    "semanticSkeleton": "Z",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "zzzz",
+    "zoneStyle": "specific",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "グリニッジ標準時"
+  },
+  {
+    "semanticSkeleton": "Z",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "zzzz",
+    "zoneStyle": "specific",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2000-01-01T00:00+10:30[Australia/Adelaide]",
+    "expected": "オーストラリア中部夏時間"
+  },
+  {
+    "semanticSkeleton": "Z",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "VVVV",
+    "zoneStyle": "location",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "GMT"
+  },
+  {
+    "semanticSkeleton": "Z",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "VVVV",
+    "zoneStyle": "location",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2000-01-01T00:00+10:30[Australia/Adelaide]",
+    "expected": "アデレード時間"
+  },
+  {
+    "semanticSkeleton": "Z",
+    "classicalSkeleton": "vvvv",
+    "zoneStyle": "generic",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "グリニッジ標準時"
+  },
+  {
+    "semanticSkeleton": "Z",
+    "classicalSkeleton": "vvvv",
+    "zoneStyle": "generic",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2000-01-01T00:00+10:30[Australia/Adelaide]",
+    "expected": "オーストラリア中部時間"
+  },
+  {
+    "semanticSkeleton": "Z",
+    "classicalSkeleton": "O",
+    "zoneStyle": "offset",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "GMT"
+  },
+  {
+    "semanticSkeleton": "Z",
+    "classicalSkeleton": "O",
+    "zoneStyle": "offset",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2000-01-01T00:00+10:30[Australia/Adelaide]",
+    "expected": "GMT+10:30"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "Mdjmsz",
+    "zoneStyle": "specific",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "1/1 0:00:00 GMT"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "Mdjmsz",
+    "zoneStyle": "specific",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2000-01-01T00:00+10:30[Australia/Adelaide]",
+    "expected": "1/1 0:00:00 GMT+10:30"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "MMMdjmsz",
+    "zoneStyle": "specific",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "1月1日 0:00:00 GMT"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "MMMdjmsz",
+    "zoneStyle": "specific",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2000-01-01T00:00+10:30[Australia/Adelaide]",
+    "expected": "1月1日 0:00:00 GMT+10:30"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "MdjmsVVVV",
+    "zoneStyle": "location",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "1/1 0時00分00秒 GMT"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "MdjmsVVVV",
+    "zoneStyle": "location",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2000-01-01T00:00+10:30[Australia/Adelaide]",
+    "expected": "1/1 0時00分00秒 アデレード時間"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "MMMdjmsVVVV",
+    "zoneStyle": "location",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "1月1日 0時00分00秒 GMT"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "MMMdjmsVVVV",
+    "zoneStyle": "location",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2000-01-01T00:00+10:30[Australia/Adelaide]",
+    "expected": "1月1日 0時00分00秒 アデレード時間"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "Mdjmsv",
+    "zoneStyle": "generic",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "1/1 0時00分00秒 GMT"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "Mdjmsv",
+    "zoneStyle": "generic",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2000-01-01T00:00+10:30[Australia/Adelaide]",
+    "expected": "1/1 0時00分00秒 アデレード時間"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "MMMdjmsv",
+    "zoneStyle": "generic",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "1月1日 0時00分00秒 GMT"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "MMMdjmsv",
+    "zoneStyle": "generic",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2000-01-01T00:00+10:30[Australia/Adelaide]",
+    "expected": "1月1日 0時00分00秒 アデレード時間"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "MdjmsO",
+    "zoneStyle": "offset",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "1/1 0時00分00秒 GMT"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "MdjmsO",
+    "zoneStyle": "offset",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2000-01-01T00:00+10:30[Australia/Adelaide]",
+    "expected": "1/1 0時00分00秒 GMT+10:30"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "MMMdjmsO",
+    "zoneStyle": "offset",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "1月1日 0時00分00秒 GMT"
+  },
+  {
+    "semanticSkeleton": "MDTZ",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "MMMdjmsO",
+    "zoneStyle": "offset",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2000-01-01T00:00+10:30[Australia/Adelaide]",
+    "expected": "1月1日 0時00分00秒 GMT+10:30"
+  },
+  {
+    "semanticSkeleton": "M",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "LLLL",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "1月"
+  },
+  {
+    "semanticSkeleton": "M",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "LLLL",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "7月"
+  },
+  {
+    "semanticSkeleton": "M",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "LLLL",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "7月"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "jms",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "0:00:00"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "jms",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "8:50:07"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "jms",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "12:00:00"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "hms",
+    "hourCycle": "H12",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "午前0:00:00"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "hms",
+    "hourCycle": "H12",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "午前8:50:07"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "short",
+    "classicalSkeleton": "hms",
+    "hourCycle": "H12",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "午後0:00:00"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "medium",
+    "classicalSkeleton": "hms",
+    "hourCycle": "H12",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "午前0:00:00"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "medium",
+    "classicalSkeleton": "hms",
+    "hourCycle": "H12",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "午前8:50:07"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "medium",
+    "classicalSkeleton": "hms",
+    "hourCycle": "H12",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "午後0:00:00"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "hms",
+    "hourCycle": "H12",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "午前0:00:00"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "hms",
+    "hourCycle": "H12",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "午前8:50:07"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "hms",
+    "hourCycle": "H12",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "午後0:00:00"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "Hms",
+    "hourCycle": "H23",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2000-01-01T00:00Z[Etc/GMT]",
+    "expected": "0:00:00"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "Hms",
+    "hourCycle": "H23",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2024-07-01T08:50:07Z[Etc/GMT]",
+    "expected": "8:50:07"
+  },
+  {
+    "semanticSkeleton": "T",
+    "semanticSkeletonLength": "long",
+    "classicalSkeleton": "Hms",
+    "hourCycle": "H23",
+    "calendar": "japanese",
+    "locale": "ja-JP",
+    "input": "2014-07-15T12:00Z[Etc/GMT]",
+    "expected": "12:00:00"
+  }
+]

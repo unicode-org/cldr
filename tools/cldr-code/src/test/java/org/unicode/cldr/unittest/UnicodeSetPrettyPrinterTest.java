@@ -7,7 +7,6 @@
 package org.unicode.cldr.unittest;
 
 import com.google.common.base.Joiner;
-import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.UnicodeSet;
@@ -19,6 +18,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.ExemplarType;
@@ -196,6 +196,7 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
     }
 
     final Matcher matchLocale; // fine-grained control for verbose
+
     // use -DUnicodeSetPrettyPrinterTest:showAnyway=.* for all
     {
         String matchString = System.getProperty("UnicodeSetPrettyPrinterTest:showAnyway");

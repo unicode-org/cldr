@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -2441,6 +2441,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<regionFormat type="daylight">{0} နွေရာသီ စံတော်ချိန်</regionFormat>
 			<regionFormat type="standard">{0} စံတော်ချိန်</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>ဟိုနိုလူလူ</exemplarCity>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>ညှိထားသည့် ကမ္ဘာ့ စံတော်ချိန်</standard>
@@ -3056,9 +3059,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>ဖနွမ်ပင်</exemplarCity>
 			</zone>
 			<zone type="Pacific/Enderbury">
-				<exemplarCity>အန်ဒါဘူရီ</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kanton">
 				<exemplarCity>ကန်တွန်</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
@@ -3177,9 +3177,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>ဥလန်ဘာတော</exemplarCity>
-			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity>ချွဲဘောဆန်</exemplarCity>
 			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity>မကာအို</exemplarCity>
@@ -3580,9 +3577,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Nome">
 				<exemplarCity>နိုမီ</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>ဟိုနိုလူလူ</exemplarCity>
-			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>အန်ကာရေ့ဂျ်</exemplarCity>
 			</zone>
@@ -3925,13 +3919,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>တရုတ် အချိန်</generic>
 					<standard>တရုတ် စံတော်ချိန်</standard>
 					<daylight>တရုတ် နွေရာသီ အချိန်</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>ချွဲဘော်ဆန်း အချိန်</generic>
-					<standard>ချွဲဘော်ဆန်း စံတော်ချိန်</standard>
-					<daylight>ချွဲဘော်ဆန်း နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">
@@ -5952,7 +5939,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">တစ်သန်းပုံ {0} ပုံ</unitPattern>
 			</unit>
@@ -6630,7 +6617,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>အလင်း</displayName>
 				<unitPattern count="other">{0} အလင်း</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>သန်းတစ်ထောင်ပုံ တစ်ပုံ</displayName>
 				<unitPattern count="other">သန်းတစ်ထောင်ပုံ {0} ပုံ</unitPattern>
 			</unit>
@@ -6847,7 +6834,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>တစ်သန်းပုံ တစ်ပုံ</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -7525,7 +7512,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>အလင်း</displayName>
 				<unitPattern count="other">{0} အလင်း</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>သန်းတစ်ထောင်ပုံ တစ်ပုံ</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -7742,7 +7729,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -8420,7 +8407,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>အလင်း</displayName>
 				<unitPattern count="other">{0}အလင်း</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0}ppb</unitPattern>
 			</unit>

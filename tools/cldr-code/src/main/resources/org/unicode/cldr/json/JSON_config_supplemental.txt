@@ -16,6 +16,7 @@ section=territoryContainment ; path=//cldr/supplemental/territoryContainment/.* 
 section=languageData ; path=//cldr/supplemental/languageData/.* ; package=core
 section=languageGroups ; path=//cldr/supplemental/languageGroups/.* ; package=core
 section=languageMatching ; path=//cldr/supplemental/languageMatching/.* ; package=core
+section=scriptData ; path=//cldr/supplemental/scriptData/.* ; package=core
 section=territoryInfo ; path=//cldr/supplemental/territoryInfo/.* ; package=core
 section=calendarData ; path=//cldr/supplemental/calendarData/.* ; package=core
 section=calendarPreferenceData ; path=//cldr/supplemental/calendarPreferenceData/.* ; package=core
@@ -34,6 +35,7 @@ section=aliases ; path=//cldr/supplemental/metadata/alias/(language|script|subdi
 section=units ; path=//cldr/supplemental/(unitConstants|unitQuantities|convertUnits|unitPrefixes).* ; package=core
 section=unitsMetadata ; path=//cldr/supplemental/metadata/.*/(unitAlias|usageAlias).* ; package=core
 section=unitIdComponents ; path=//cldr/supplemental/unitIdComponents/.* ; package=core
+section=subdivisionContainment ; path=//cldr/supplemental/subdivisionContainment/.* ; package=core
 
 # ignored items
 section=IGNORE ; path=//cldr/supplemental/metadata/serialElements.* ; package=IGNORE

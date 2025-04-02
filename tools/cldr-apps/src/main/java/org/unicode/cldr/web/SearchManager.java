@@ -2,6 +2,8 @@ package org.unicode.cldr.web;
 
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
+import java.io.Closeable;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -13,9 +15,11 @@ import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.PathHeader;
 
-public class SearchManager {
+public class SearchManager implements Closeable {
     static final Logger logger = SurveyLog.forClass(SearchManager.class);
 
     /** The request of a search */
@@ -33,7 +37,7 @@ public class SearchManager {
     }
 
     /** Struct for one single result */
-    public static final class SearchResult {
+    public static final class SearchResult implements Comparable<SearchResult> {
         @Schema(description = "xpath to the resource")
         public String xpath;
 
@@ -51,6 +55,28 @@ public class SearchManager {
             this.context = context;
             this.locale = locale;
             this.xpstrid = XPathTable.getStringIDString(xpath);
+        }
+
+        @Override
+        public int compareTo(SearchResult o) {
+            if (this == o) return 0;
+            int rc = 0;
+            if (rc == 0) rc = this.xpath.compareTo(o.xpath);
+            if (rc == 0) rc = this.locale.compareTo(o.locale);
+            if (rc == 0) rc = this.context.compareTo(o.context);
+            return rc;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (!(o instanceof SearchResult)) return false;
+            return (compareTo((SearchResult) o) == 0);
+        }
+
+        @Override
+        public String toString() {
+            return locale + ":" + xpath + "=" + context;
         }
     }
 
@@ -109,6 +135,11 @@ public class SearchManager {
                     isOngoing ? "ongoing" : "stopped",
                     results.size());
         }
+
+        @Schema(hidden = true)
+        public boolean isEmpty() {
+            return (results.isEmpty());
+        }
     }
 
     /** A search in progress */
@@ -139,9 +170,67 @@ public class SearchManager {
             this.future = SurveyThreadManager.getExecutorService().submit(this);
         }
 
+        final CLDRLocale EN = CLDRLocale.getInstance("en");
+
         @Override
         public Search call() throws Exception {
             // first, simple search of exact values
+            addExactMatches(locale);
+
+            CLDRLocale cLoc = CLDRLocale.getInstance(locale);
+            CLDRLocale parLoc = cLoc.getParent();
+            while (response.isEmpty() && parLoc != null) {
+                addExactMatches(parLoc.getBaseName());
+                parLoc = parLoc.getParent();
+            }
+
+            // add codes (in the locale)
+            addCodes(locale);
+
+            // Add English (if we didn't already search it)
+            if (response.isEmpty() && !cLoc.childOf(EN)) {
+                addExactMatches(EN.getBaseName());
+            }
+
+            // All done (for now!)
+            response.complete();
+
+            return this;
+        }
+
+        private void addCodes(final String locale) {
+            final CLDRFile resolvedFile = factory.make(locale, true);
+            for (final String x : resolvedFile.fullIterable()) {
+                // match exact xpath
+                if (x.equals(request.value)) {
+                    response.addResult(new SearchResult(x, "Exact XPath", locale));
+                    return;
+                }
+
+                final PathHeader ph = phf.fromPath(x);
+                if (ph.getCode().equalsIgnoreCase(request.value)) {
+                    response.addResult(new SearchResult(x, "code: " + ph.getCode(), locale));
+                    return;
+                }
+            }
+            // now try partial
+            for (final String x : resolvedFile.fullIterable()) {
+                // match partial xpath
+                if (x.startsWith(request.value)) {
+                    response.addResult(new SearchResult(x, "Partial XPath", locale));
+                    return;
+                }
+
+                // partial code
+                final PathHeader ph = phf.fromPath(x);
+                if (ph.getCode().contains(request.value)) {
+                    response.addResult(new SearchResult(x, "code: " + ph.getCode(), locale));
+                    return;
+                }
+            }
+        }
+
+        private CLDRFile addExactMatches(final String locale) {
             CLDRFile file = factory.make(locale, false);
             Set<String> xresult = new TreeSet<>();
             file.getPathsWithValue(request.value, "", null, xresult);
@@ -154,11 +243,7 @@ public class SearchManager {
                 // done.
                 response.addResult(new SearchResult(xpath, request.value, locale));
             }
-
-            // All done (for now!)
-            response.complete();
-
-            return this;
+            return file;
         }
 
         public void stop() {
@@ -172,8 +257,11 @@ public class SearchManager {
     final Cache<Object, Object> searches =
             CacheBuilder.newBuilder().expireAfterWrite(10, TimeUnit.MINUTES).build();
 
+    private org.unicode.cldr.util.PathHeader.Factory phf;
+
     private SearchManager(Factory f) {
         this.factory = f;
+        this.phf = PathHeader.getFactory(f.make("en", true));
     }
 
     /**
@@ -226,5 +314,14 @@ public class SearchManager {
         searches.invalidate(token);
         s.stop();
         return true;
+    }
+
+    @Override
+    public void close() throws IOException {
+        // attempt to shut down all running searches
+        for (final Object k : searches.asMap().keySet()) {
+            deleteSearch((String) k);
+        }
+        searches.invalidateAll();
     }
 }

@@ -1,22 +1,16 @@
 ---
-title: CLDR Keyboard Subcommittee
+title: CLDR Keyboard Working Group
 ---
 
-# CLDR Keyboard Subcommittee
+# CLDR Keyboard Working Group
 
-The CLDR Keyboard Subcommittee is developing a new cross-platform standard XML format for use by keyboard authors for inclusion in the CLDR source repository.
-
-## News
-
-2023-Feb-29: The CLDR-TC has authorized the proposed specification to be released as stable (out of Technical Preview).
-
-2023-May-15: The CLDR-TC has authorized [Public Review Issue #476](https://www.unicode.org/review/pri476/) of the proposed specification, as a "Technical Preview." The PRI closed on 2023-Jul-15.
+The CLDR Keyboard Subcommittee is responsible for the development and maintenance of a standard cross-platform XML format for use by keyboard authors.
 
 ## Background
 
 **CLDR (Common Locale Data Repository)**
 
-Computing devices have become increasingly personal and increasingly affordable to the point that they are now within reach of most people on the planet. The diverse linguistic requirements of the world's 7+ billion people do not scale to traditional models of software development. In response to this, Unicode [CLDR](https://cldr.unicode.org/) has emerged as a standards-based solution that empowers specialist and community input, as a means of balancing the needs of language communities with the technologies of major platform and service providers.
+Computing devices have become increasingly personal and increasingly affordable to the point that they are now within reach of most people on the planet. The diverse linguistic requirements of the world's 7+ billion people do not scale to traditional models of software development. In response to this, Unicode [CLDR](/) has emerged as a standards-based solution that empowers specialist and community input, as a means of balancing the needs of language communities with the technologies of major platform and service providers.
 
 ![alt-text](../images/keyboard-workgroup-keyboards.jpeg)
 
@@ -48,10 +42,10 @@ Keyboard support is part of a multi-step, often multi-year process of enabling a
 
 Three critical parts of initial support for a language in content are:
 
-- Encoding, in [the Unicode Standard](https://www.unicode.org/standard/standard.html)   
+- Encoding, in [the Unicode Standard](https://www.unicode.org/standard/standard.html)
 - Display, including fonts and text layout
 - Input
-    
+
 
 Today, the vast majority of the languages of the world are already in the Unicode encoding. The open-source Noto font provides a wide range of fonts to support display, and the Unicode character properties play a vital role in display. However, input support often lags many years behind when a script is added to Unicode.
 
@@ -67,16 +61,19 @@ The CLDR Keyboard Subcommittee was formed and has been meeting since mid-2020. I
 
 ### What is the current status?
 
+Discussion
+
+- The Keyboard WG is actively working on requirements and processes for the repository of CLDR Keyboard data [CLDR-17254](https://unicode-org.atlassian.net/browse/CLDR-17254)
+
 Release
 
-Updates to LDML (UTS#35) Part 7: Keyboards are scheduled to be released as part of [CLDR v45](https://cldr.unicode.org/index/downloads/cldr-45).
+- Updates to LDML (UTS#35) Part 7: Keyboards have been released as part of [CLDR v45](/index/downloads/cldr-45).
 
 Implementations
 
-- The [SIL Keyman](https://keyman.com/ldml/) project is actively working on an open-source implementation of the LDML format.
-    
+- The [SIL Keyman](https://keyman.com/ldml/) project has shipped an open-source implementation of the LDML format in Keyman 17.0 (Desktop, and Developer tools).
+
 ### How can I get involved?
 
 If you want to be engaged in this workgroup, please contact the CLDR Keyboard Subcommittee via the [Unicode contact form](https://corp.unicode.org/reporting/staff-contact.html).
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

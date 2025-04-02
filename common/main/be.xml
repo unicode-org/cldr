@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -2903,6 +2903,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<regionFormat type="daylight">Летні час: {0}</regionFormat>
 			<regionFormat type="standard">Стандартны час: {0}</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>Ганалулу</exemplarCity>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>Універсальны каардынаваны час</standard>
@@ -3518,9 +3521,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Пнампень</exemplarCity>
 			</zone>
 			<zone type="Pacific/Enderbury">
-				<exemplarCity>Эндэрберы</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kanton">
 				<exemplarCity>Кантон</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
@@ -3639,9 +3639,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>Улан-Батар</exemplarCity>
-			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity>Чайбалсан</exemplarCity>
 			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity>Макаа</exemplarCity>
@@ -4042,9 +4039,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Nome">
 				<exemplarCity>Ном</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>Ганалулу</exemplarCity>
-			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>Анкарыдж</exemplarCity>
 			</zone>
@@ -4387,13 +4381,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Час Кітая</generic>
 					<standard>Стандартны час Кітая</standard>
 					<daylight>Летні час Кітая</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>Час Чайбалсана</generic>
-					<standard>Стандартны час Чайбалсана</standard>
-					<daylight>Летні час Чайбалсана</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">
@@ -6949,7 +6936,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} элементаў</unitPattern>
 				<unitPattern count="other">{0} элемента</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>часткі на мільён</displayName>
 				<unitPattern count="one">{0} частка на мільён</unitPattern>
 				<unitPattern count="few">{0} часткі на мільён</unitPattern>
@@ -8112,14 +8099,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="speed-light-speed">
-				<displayName>хуткасць святла</displayName>
-				<unitPattern count="one">{0} хуткасць святла</unitPattern>
-				<unitPattern count="few">{0} хуткасці святла</unitPattern>
-				<unitPattern count="many">{0} хуткасцей святла</unitPattern>
-				<unitPattern count="other">{0} хуткасці святла</unitPattern>
-			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>частак на мільярд</displayName>
 				<unitPattern count="one">{0} частка на мільярд</unitPattern>
 				<unitPattern count="few">{0} часткі на мільярд</unitPattern>
@@ -8411,7 +8391,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} элем.</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="few">↑↑↑</unitPattern>
@@ -9574,14 +9554,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} брыт. кварт</unitPattern>
 				<unitPattern count="other">{0} брыт. кварты</unitPattern>
 			</unit>
-			<unit type="speed-light-speed">
-				<displayName>хутк. св.</displayName>
-				<unitPattern count="one">{0} хутк. св.</unitPattern>
-				<unitPattern count="few">{0} хутк. св.</unitPattern>
-				<unitPattern count="many">{0} хутк. св.</unitPattern>
-				<unitPattern count="other">{0} хутк. св.</unitPattern>
-			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>частак/мільярд</displayName>
 				<unitPattern count="one">{0} ч/млрд</unitPattern>
 				<unitPattern count="few">{0} ч/млрд</unitPattern>
@@ -9873,7 +9846,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="few">↑↑↑</unitPattern>
@@ -11036,14 +11009,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="speed-light-speed">
-				<displayName>хутк. св.</displayName>
-				<unitPattern count="one">{0} хутк. св.</unitPattern>
-				<unitPattern count="few">{0} хутк. св.</unitPattern>
-				<unitPattern count="many">{0} хутк. св.</unitPattern>
-				<unitPattern count="other">{0} хутк. св.</unitPattern>
-			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>ч/млрд</displayName>
 				<unitPattern count="one">{0} ч/млрд</unitPattern>
 				<unitPattern count="few">{0} ч/млрд</unitPattern>

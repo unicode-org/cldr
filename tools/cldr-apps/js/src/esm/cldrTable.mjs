@@ -9,6 +9,7 @@
  */
 
 import * as cldrAddAlt from "./cldrAddAlt.mjs";
+import * as cldrAddValue from "./cldrAddValue.mjs";
 import * as cldrAjax from "./cldrAjax.mjs";
 import * as cldrCoverage from "./cldrCoverage.mjs";
 import * as cldrDashContext from "./cldrDashContext.mjs";
@@ -502,12 +503,10 @@ function reallyUpdateRow(tr, theRow) {
   const comparisonCell = tr.querySelector(".comparisoncell");
   const proposedCell = tr.querySelector(".proposedcell");
   const otherCell = tr.querySelector(".othercell");
-  const addCell = tr.canModify ? tr.querySelector(".addcell") : null;
-
-  /*
-   * "Add" button, potentially used by updateRowOthersCell and/or by otherCell or addCell
-   */
-  const formAdd = document.createElement("form");
+  const addCell =
+    tr.canChange && !theRow.fixedCandidates
+      ? tr.querySelector(".addcell")
+      : null;
 
   /*
    * Update the "status cell", a.k.a. the "A" column.
@@ -557,17 +556,15 @@ function reallyUpdateRow(tr, theRow) {
    * Set up the "other cell", a.k.a. the "Others" column.
    */
   if (otherCell) {
-    updateRowOthersCell(tr, theRow, otherCell, protoButton, formAdd);
+    updateRowOthersCell(tr, theRow, otherCell, protoButton);
   }
 
   /*
    * If the user can make changes, add "+" button for adding new candidate item.
    */
-  if (tr.canChange) {
-    if (addCell) {
-      cldrDom.removeAllChildNodes(addCell);
-      addCell.appendChild(formAdd);
-    }
+  if (addCell) {
+    cldrDom.removeAllChildNodes(addCell);
+    cldrAddValue.addButton(addCell, theRow.xpstrid);
   }
 
   /*
@@ -841,127 +838,14 @@ function updateRowProposedWinningCell(tr, theRow, cell, protoButton) {
  * @param theRow the data from the server for this row
  * @param cell the table cell
  * @param protoButton
- * @param formAdd
  *
  * Called by updateRow.
  */
-function updateRowOthersCell(tr, theRow, cell, protoButton, formAdd) {
+function updateRowOthersCell(tr, theRow, cell, protoButton) {
   let hadOtherItems = false;
   cldrDom.removeAllChildNodes(cell); // other
   cldrSurvey.setLang(cell);
 
-  if (tr.canModify && !tr.theRow.fixedCandidates) {
-    formAdd.role = "form";
-    formAdd.className = "form-inline";
-    const buttonAdd = document.createElement("div");
-    const btn = document.createElement("button");
-    buttonAdd.className = "button-add form-group";
-
-    toAddVoteButton(btn);
-
-    buttonAdd.appendChild(btn);
-    formAdd.appendChild(buttonAdd);
-
-    const input = document.createElement("input");
-    let popup;
-    input.className = "form-control input-add";
-    input.id = "input-add-translation";
-    cldrSurvey.setLang(input);
-    input.placeholder = "Add a translation";
-    const copyWinning = document.createElement("button");
-    copyWinning.className = "copyWinning btn btn-info btn-xs";
-    copyWinning.title = "Copy Winning";
-    copyWinning.type = "button";
-    copyWinning.innerHTML =
-      '<span class="glyphicon glyphicon-arrow-right"></span> Winning';
-    copyWinning.onclick = function (e) {
-      let theValue = getValidWinningValue(theRow);
-      if (theValue === cldrSurvey.INHERITANCE_MARKER || theValue === null) {
-        theValue = theRow.inheritedDisplayValue;
-      }
-      input.value = theValue || null;
-      input.focus();
-    };
-    const copyEnglish = document.createElement("button");
-    copyEnglish.className = "copyEnglish btn btn-info btn-xs";
-    copyEnglish.title = "Copy English";
-    copyEnglish.type = "button";
-    copyEnglish.innerHTML =
-      '<span class="glyphicon glyphicon-arrow-right"></span> English';
-    copyEnglish.onclick = function (e) {
-      input.value = theRow.displayName || null;
-      input.focus();
-    };
-    btn.onclick = function (e) {
-      //if no input, add one
-      if ($(buttonAdd).parent().find("input").length == 0) {
-        //hide other
-        $.each($("button.vote-submit"), function () {
-          toAddVoteButton(this);
-        });
-
-        //transform the button
-        toSubmitVoteButton(btn);
-        $(buttonAdd)
-          .popover({
-            content: " ",
-          })
-          .popover("show");
-        popup = $(buttonAdd).parent().find(".popover-content");
-        popup.append(input);
-        if (theRow.displayName) {
-          popup.append(copyEnglish);
-        }
-        const winVal = getValidWinningValue(theRow);
-        if (winVal || theRow.inheritedValue) {
-          popup.append(copyWinning);
-        }
-        popup
-          .closest(".popover")
-          .css("top", popup.closest(".popover").position().top - 19);
-        input.focus();
-
-        //enter pressed
-        $(input).keydown(function (e) {
-          const newValue = $(this).val();
-          if (e.keyCode == 13) {
-            //enter pressed
-            if (newValue) {
-              addValueVote(
-                cell,
-                tr,
-                theRow,
-                newValue,
-                cldrSurvey.cloneAnon(protoButton)
-              );
-            } else {
-              toAddVoteButton(btn);
-            }
-          } else if (e.keyCode === 27) {
-            toAddVoteButton(btn);
-          }
-        });
-      } else {
-        const newValue = input.value;
-
-        if (newValue) {
-          addValueVote(
-            cell,
-            tr,
-            theRow,
-            newValue,
-            cldrSurvey.cloneAnon(protoButton)
-          );
-        } else {
-          toAddVoteButton(btn);
-        }
-        cldrEvent.stopPropagation(e);
-        return false;
-      }
-      cldrEvent.stopPropagation(e);
-      return false;
-    };
-  }
   /*
    * Add the other vote info -- that is, vote info for the "Others" column.
    */
@@ -1031,9 +915,6 @@ function addVitem(td, tr, theRow, item, newButton) {
   subSpan.className = "subSpan";
   cldrVote.appendItem(subSpan, displayValue, item.pClass);
   choiceField.appendChild(subSpan);
-
-  checkLRmarker(choiceField, item.value);
-
   if (item.isBaselineValue == true) {
     cldrDom.appendIcon(
       choiceField,
@@ -1041,6 +922,7 @@ function addVitem(td, tr, theRow, item, newButton) {
       cldrText.get("voteInfo_baseline_desc")
     );
   }
+  checkLRmarker(choiceField, item.value);
   if (item.votes && !isWinner) {
     if (
       item.valueHash == theRow.voteVhash &&
@@ -1185,7 +1067,6 @@ function appendExampleIcon(parent, text, loc) {
   return el;
 }
 
-// caution: this is called from other modules as well as by appendExampleIcon
 function appendExample(parent, text, loc) {
   const el = document.createElement("div");
   el.className = "d-example well well-sm";
@@ -1193,51 +1074,6 @@ function appendExample(parent, text, loc) {
   cldrSurvey.setLang(el, loc);
   parent.appendChild(el);
   return el;
-}
-
-/**
- * Handle new value submission
- *
- * @param td
- * @param tr
- * @param theRow
- * @param newValue
- * @param newButton
- */
-function addValueVote(td, tr, theRow, newValue, newButton) {
-  tr.inputTd = td; // cause the proposed item to show up in the right box
-  cldrVote.handleWiredClick(tr, theRow, "", newValue, newButton);
-}
-
-/**
- * Transform input + submit button to the add button for the "add translation"
- *
- * @param btn
- */
-function toAddVoteButton(btn) {
-  btn.className = "btn btn-primary";
-  btn.title = "Add";
-  btn.type = "submit";
-  btn.innerHTML = '<span class="glyphicon glyphicon-plus"></span>';
-  $(btn).parent().popover("destroy");
-  $(btn).tooltip("destroy").tooltip();
-  $(btn).closest("form").next(".subSpan").show();
-  $(btn).parent().children("input").remove();
-}
-
-/**
- * Transform the add button to a submit
- *
- * @param btn the button
- * @return the transformed button (return value is ignored by caller)
- */
-function toSubmitVoteButton(btn) {
-  btn.innerHTML = '<span class="glyphicon glyphicon-ok-circle"></span>';
-  btn.className = "btn btn-success vote-submit";
-  btn.title = "Submit";
-  $(btn).tooltip("destroy").tooltip();
-  $(btn).closest("form").next(".subSpan").hide();
-  return btn;
 }
 
 /**
@@ -1429,10 +1265,10 @@ function resetLastShown() {
 export {
   NO_WINNING_VALUE,
   EMPTY_ELEMENT_VALUE,
-  appendExample,
   getPageUrl,
   getRowApprovalStatusClass,
   getStatusIcon,
+  getValidWinningValue,
   goToHeaderId,
   insertRows,
   isHeaderId,

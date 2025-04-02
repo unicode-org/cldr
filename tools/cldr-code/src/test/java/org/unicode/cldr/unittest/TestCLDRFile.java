@@ -5,7 +5,6 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
 import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.text.NumberFormat;
@@ -29,6 +28,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.CLDRConfig;
@@ -63,7 +63,7 @@ import org.unicode.cldr.util.XPathParts;
 /**
  * This is the original TestFwmk test case for CLDRFile.
  *
- * @see {@link org.unicode.cldr.util.TestCLDRFile}
+ * @see {@link TestCLDRFileMore}
  * @see {@link org.unicode.cldr.util.CLDRFile}
  */
 public class TestCLDRFile extends TestFmwk {
@@ -85,7 +85,7 @@ public class TestCLDRFile extends TestFmwk {
         };
         CLDRFile english = testInfo.getEnglish();
         for (String[] test : tests) {
-            assertEquals("", test[1], english.getName(test[0]));
+            assertEquals("", test[1], english.nameGetter().getNameFromIdentifier(test[0]));
         }
     }
 
@@ -190,8 +190,15 @@ public class TestCLDRFile extends TestFmwk {
                     path.contains("/metazone")
                                     || path.contains("/timeZoneNames")
                                     || path.contains("/gender")
+                                    || path.startsWith(
+                                            "//ldml/localeDisplayNames/languages/language")
+                                    || path.startsWith("//ldml/localeDisplayNames/scripts/script")
+                                    || path.startsWith(
+                                            "//ldml/localeDisplayNames/territories/territory")
+                                    || path.startsWith("//ldml/localeDisplayNames/variants/variant")
                                     || path.startsWith("//ldml/numbers/currencies/currency")
                                     || path.startsWith("//ldml/personNames/sampleName")
+                                    || path.contains("/availableFormats")
                             ? PlaceholderStatus.DISALLOWED
                             : path.contains("/compoundUnitPattern1")
                                     ? PlaceholderStatus.REQUIRED
@@ -225,9 +232,6 @@ public class TestCLDRFile extends TestFmwk {
                 final CLDRFile cldrFile = fullCldrFactory.make(locale, true);
                 Set<String> sorted2 = new TreeSet<>(cldrFile.getExtraPaths());
                 for (String path : sorted2) {
-                    if (path.contains("speed-beaufort")) {
-                        continue; // special case
-                    }
                     if (path.contains("/gender")
                             || path.contains("@gender")
                             || path.contains("@case")) {
@@ -912,13 +916,13 @@ public class TestCLDRFile extends TestFmwk {
                 continue;
             }
             String value = swissHighGerman.getStringValue(xpath);
-            if (value.indexOf('ß') >= 0) {
+            if (value != null && value.indexOf('ß') >= 0) {
                 warnln("«" + value + "» contains ß at " + xpath);
             }
         }
     }
 
-    public void TestExtraPaths() {
+    public void testExtraPaths2() {
         List<String> testCases =
                 Arrays.asList(
                         "//ldml/localeDisplayNames/languages/language[@type=\"ccp\"]",
@@ -992,6 +996,38 @@ public class TestCLDRFile extends TestFmwk {
                 }
                 System.out.println(
                         String.format("%s\t%s\t%s", path, status.pathWhereFound, localeWhereFound));
+            }
+        }
+    }
+
+    public void TestInheritedIdentity() {
+        final Map<String, Set<String>> elementToPaths = new TreeMap<>();
+
+        final CLDRFile f = CLDRConfig.getInstance().getCLDRFile("hi_Latn_IN", true);
+        for (final String s : f.fullIterable()) {
+            if (s.startsWith("//ldml/identity")) {
+                final String element = XPathParts.getFrozenInstance(s).getElement(-1);
+                final Set<String> setForElement =
+                        elementToPaths.computeIfAbsent(element, (ignored) -> new TreeSet<>());
+                assertTrue(
+                        "Duplicate XPath: " + s + " in " + f.getLocaleID(), setForElement.add(s));
+                if (!f.isHere(s)) {
+                    // this path should not be inherited
+                    if (!logKnownIssue("CLDR-17790", "//ldml/identity has inherited paths")) {
+                        errln("Inherited path " + s + " in " + f.getLocaleID());
+                    }
+                }
+            }
+        }
+        for (final Set<String> set : elementToPaths.values()) {
+            if (set.size() > 1) {
+                if (!logKnownIssue(
+                        "CLDR-17790",
+                        "//ldml/identity has duplicate resolved paths for elements")) {
+                    errln(
+                            "Duplicate //ldml/identity paths: "
+                                    + String.join(" ", set.toArray(new String[0])));
+                }
             }
         }
     }

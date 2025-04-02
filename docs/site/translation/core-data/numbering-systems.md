@@ -41,4 +41,3 @@ Indicate "1" for grouping separator starting at 4 digit-numbers (i.e. 1,000 and 
 
 Note that this is just the default, and the grouping separator may be retained in lists, or removed in other circumstances. For example, in English the "," is used by default, but not in addresses ("12345 Baker Street"), in 4-digit years (2014, but 12,000 BC), and certain other cases.
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

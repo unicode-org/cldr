@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1110,12 +1110,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="colCaseFirst" type="upper" draft="contributed">Vẽnhrá mág to kuprãg</type>
 			<type key="colCaseLevel" type="no" draft="contributed">Vẽnhrá mág mré ũn kẽsir tỹ ũn’ũn mỹ kuprẽg</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">Vẽnhrá mág mré ũn kẽsir tỹ ũn’ũn kỹ kuprẽg</type>
-			<type key="collation" type="big5han">Sĩnẽj Vỹsa ke to ke pẽ - Big5</type>
 			<type key="collation" type="compat" draft="contributed">Ẽgno tá jẽnẽ já kỹ ta ki já</type>
 			<type key="collation" type="dictionary">Vẽnhrá Nỹtĩj-fẽ nỹtĩ há</type>
 			<type key="collation" type="ducet">Unicode to ke pẽ</type>
 			<type key="collation" type="eor" draft="contributed">Orópa tá vẽnhvin han to ke</type>
-			<type key="collation" type="gb2312han">Sĩnẽj ke to ke (sĩmpri há) - GB2312</type>
 			<type key="collation" type="phonebook">Terefonĩ Risita to ke</type>
 			<type key="collation" type="phonetic" draft="contributed">Fonẽtika to ke kuprãg</type>
 			<type key="collation" type="pinyin">Pin-yin to nỹtĩ</type>
@@ -2880,6 +2878,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<regionFormat type="daylight">Prỹg kã óra kar {0}</regionFormat>
 			<regionFormat type="standard">Óra pẽ {0}</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>Honãruru</exemplarCity>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>Ga-kar Óra Vẽnh-krén-ja</standard>
@@ -3494,9 +3495,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Asia/Phnom_Penh">
 				<exemplarCity>Fynãg Pẽj</exemplarCity>
 			</zone>
-			<zone type="Pacific/Enderbury">
-				<exemplarCity>Ẽnnermuri</exemplarCity>
-			</zone>
 			<zone type="Pacific/Kiritimati">
 				<exemplarCity>Kiritimỹti</exemplarCity>
 			</zone>
@@ -3613,9 +3611,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>Uran Mator</exemplarCity>
-			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity>Sojmarsỹ</exemplarCity>
 			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity>Mỹkau</exemplarCity>
@@ -4013,9 +4008,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Nome">
 				<exemplarCity>Jyjy</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>Honãruru</exemplarCity>
-			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>Ỹkoragi</exemplarCity>
 			</zone>
@@ -4408,13 +4400,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Óra Sĩnỹ tá</generic>
 					<standard>Óra Pã Sĩnỹ tá</standard>
 					<daylight>Rỹ Kã óra Sĩnỹ tá</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>Óra Sojmarsỹ tá</generic>
-					<standard>Óra Pã Sojmarsỹ tá</standard>
-					<daylight>Rỹ Kã óra Sojmarsỹ tá</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">
@@ -7132,7 +7117,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} mĩrimol ritru ki</unitPattern>
 				<unitPattern count="other">{0} mĩrimol ag ritru ki</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>milhão ki kupar ‘e</displayName>
 				<unitPattern count="one">{0} kupar milhão ki</unitPattern>
 				<unitPattern count="other">{0} kupar 'e milhão ki</unitPattern>
@@ -8008,7 +7993,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} mmol/l</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>kupar ‘e/milhão ki</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>

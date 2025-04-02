@@ -41,14 +41,14 @@ public class TestCoverage extends TestFmwkPlus {
         Multimap<CoreItems, String> errors = LinkedHashMultimap.create();
         Set<CoreItems> coreCoverage = CoreCoverageInfo.getCoreCoverageInfo(engCldrFile, errors);
         if (!assertEquals("English should be complete", all, coreCoverage)) {
-            showDiff("Missing", all, coreCoverage);
+            showDiff("English Missing", all, coreCoverage);
         }
-        CLDRFile skimpyLocale = testInfo.getCldrFactory().make("asa", false);
+        CLDRFile skimpyLocale = testInfo.getCldrFactory().make("asa", true);
         errors.clear();
         coreCoverage = CoreCoverageInfo.getCoreCoverageInfo(skimpyLocale, errors);
         if (!assertEquals("Skimpy locale should not be complete", none, coreCoverage)) {
-            showDiff("Missing", all, coreCoverage);
-            showDiff("Extra", coreCoverage, none);
+            showDiff("Skimpy Missing", all, coreCoverage);
+            showDiff("Skimpy Extra", coreCoverage, none);
         }
     }
 
@@ -71,6 +71,60 @@ public class TestCoverage extends TestFmwkPlus {
                 "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]",
                 Level.MODERATE,
                 20
+            },
+            {
+                "en",
+                "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@alt=\"alphaNextToNumber\"]",
+                Level.MODERATE,
+                8
+            },
+            {
+                "en",
+                "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength[@type=\"short\"]/currencyFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"other\"][@alt=\"alphaNextToNumber\"]",
+                Level.MODERN,
+                8
+            },
+            {
+                "en",
+                "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength[@type=\"short\"]/currencyFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"other\"]",
+                Level.MODERATE,
+                8
+            },
+            {
+                "ar",
+                "//ldml/numbers/currencyFormats[@numberSystem=\"arab\"]/currencyFormatLength[@type=\"short\"]/currencyFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"other\"][@alt=\"alphaNextToNumber\"]",
+                Level.MODERN,
+                8
+            },
+            {
+                "ar",
+                "//ldml/numbers/currencyFormats[@numberSystem=\"arab\"]/currencyFormatLength[@type=\"short\"]/currencyFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"other\"]",
+                Level.MODERATE,
+                8
+            },
+            {
+                "en",
+                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/dateTimeFormatLength[@type=\"long\"]/dateTimeFormat[@type=\"atTime\"]/pattern[@type=\"standard\"]",
+                Level.MODERATE,
+                8
+            },
+            {
+                "en",
+                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/dateTimeFormatLength[@type=\"long\"]/dateTimeFormat[@type=\"relative\"]/pattern[@type=\"standard\"]",
+                Level.MODERATE,
+                8
+            },
+            {
+                "ja",
+                "//ldml/dates/calendars/calendar[@type=\"japanese\"]/dateTimeFormats/dateTimeFormatLength[@type=\"long\"]/dateTimeFormat[@type=\"atTime\"]/pattern[@type=\"standard\"]",
+                Level.MODERATE,
+                8
+            },
+            {
+                "ja",
+                "//ldml/dates/calendars/calendar[@type=\"japanese\"]/dateTimeFormats/dateTimeFormatLength[@type=\"long\"]/dateTimeFormat[@type=\"relative\"]/pattern[@type=\"standard\"]",
+                Level.MODERATE,
+                8
             },
         };
         PathHeader.Factory phf = PathHeader.getFactory(testInfo.getEnglish());
@@ -135,7 +189,7 @@ public class TestCoverage extends TestFmwkPlus {
     }
 
     private String getLocaleAndName(String locale) {
-        return locale + "\t" + testInfo.getEnglish().getName(locale);
+        return locale + "\t" + testInfo.getEnglish().nameGetter().getNameFromIdentifier(locale);
     }
 
     private String showColumn(Set items) {

@@ -200,6 +200,7 @@ public class ChartLocaleGrowth {
 
     static {
         Object[][] mapping = {
+            {VersionInfo.getInstance(46), 2024},
             {VersionInfo.getInstance(44), 2023},
             {VersionInfo.getInstance(42), 2022},
             {VersionInfo.getInstance(40), 2021},

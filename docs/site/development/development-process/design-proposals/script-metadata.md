@@ -16,7 +16,7 @@ lines/characters =
 
 - as in the locale orientation element.
 
-spaces = 
+spaces =
 
 - true if the script normally uses spaces to separate words
 
@@ -35,4 +35,3 @@ sample = character with distinctive glyph that can be used to represent the scri
 The orientation field in a locale would only be used for overriding.
 
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

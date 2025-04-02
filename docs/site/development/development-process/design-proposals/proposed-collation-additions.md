@@ -85,4 +85,3 @@ This attribute indicates to clients that the collation is intended only for \<im
 **Update CLDR 26 (2014)**: A collation type is marked "private" via a type naming convention, rather than an attribute, so that it is easy for an implementation to omit such a type from a list of available types without reading its data. See [CLDR ticket #3949 comment:18](http://unicode.org/cldr/trac/ticket/3949#comment:18).
 
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

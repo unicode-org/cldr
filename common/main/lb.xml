@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1125,11 +1125,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="calendar" type="japanese">Japanesche Kalenner</type>
 			<type key="calendar" type="persian">Persesche Kalenner</type>
 			<type key="calendar" type="roc">Kalenner vun der Republik China</type>
-			<type key="collation" type="big5han">Traditionellt Chinesesch - Big5</type>
 			<type key="collation" type="dictionary">Lexikographesch Zortéierreiefolleg</type>
 			<type key="collation" type="ducet">Unicode-Zortéierung</type>
 			<type key="collation" type="eor">Europäesch Zortéierregelen</type>
-			<type key="collation" type="gb2312han">Vereinfacht Chinesesch - GB2312</type>
 			<type key="collation" type="phonebook">Telefonsbuch-Zortéierung</type>
 			<type key="collation" type="pinyin">Pinyin-Zortéierregelen</type>
 			<type key="collation" type="search">Allgemeng Sich</type>
@@ -2895,13 +2893,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>Chinesesch Zäit</generic>
 					<standard>Chinesesch Normalzäit</standard>
 					<daylight>Chinesesch Summerzäit</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>Choibalsan-Zäit</generic>
-					<standard>Choibalsan-Normalzäit</standard>
-					<daylight>Choibalsan-Summerzäit</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">

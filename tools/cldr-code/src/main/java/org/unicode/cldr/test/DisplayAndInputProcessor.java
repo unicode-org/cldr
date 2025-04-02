@@ -137,6 +137,7 @@ public class DisplayAndInputProcessor {
     /** string of whitespace, possibly including NBSP and/or NNBSP, ie., [\u00A0\t\n\r\u202F]+ */
     private static final Pattern WHITESPACE_AND_NBSP_TO_NORMALIZE =
             PatternCache.get("[\\s\\u00A0]+");
+
     // Reverted 2022-12-08 from:
     // private static final Pattern WHITESPACE_AND_NBSP_TO_NORMALIZE =
     // PatternCache.get("[\\s\\u00A0\\u202F]+");
@@ -144,6 +145,7 @@ public class DisplayAndInputProcessor {
     /** one or more NBSP (or NNBSP) followed by one or more regular spaces */
     private static final Pattern NBSP_PLUS_SPACE_TO_NORMALIZE =
             PatternCache.get("\\u00A0+\\u0020+");
+
     // Reverted 2022-12-08 from:
     // private static final Pattern NBSP_PLUS_SPACE_TO_NORMALIZE =
     // PatternCache.get("[\\u00A0\\u202F]+\\u0020+");
@@ -151,6 +153,7 @@ public class DisplayAndInputProcessor {
     /** one or more regular spaces followed by one or more NBSP (or NNBSP) */
     private static final Pattern SPACE_PLUS_NBSP_TO_NORMALIZE =
             PatternCache.get("\\u0020+\\u00A0+");
+
     // Reverted 2022-12-08 from:
     // private static final Pattern SPACE_PLUS_NBSP_TO_NORMALIZE =
     // PatternCache.get("\\u0020+[\\u00A0\\u202F]+");
@@ -194,8 +197,8 @@ public class DisplayAndInputProcessor {
     public static final Set<String> LANGUAGES_USING_MODIFIER_APOSTROPHE =
             new HashSet<>(
                     Arrays.asList(
-                            "br", "bss", "cad", "cic", "cch", "gn", "ha", "ha_Latn", "lkt", "mgo",
-                            "mic", "moh", "mus", "nnh", "qu", "quc", "uk", "uz", "uz_Latn"));
+                            "br", "bss", "cad", "cic", "cch", "gn", "ha", "ha_Latn", "kek", "lkt",
+                            "mgo", "mic", "moh", "mus", "nnh", "qu", "quc", "uk", "uz", "uz_Latn"));
 
     // Ş ş Ţ ţ  =>  Ș ș Ț ț
     private static final char[][] ROMANIAN_CONVERSIONS = {
@@ -791,7 +794,7 @@ public class DisplayAndInputProcessor {
         ExemplarType exemplarType =
                 !path.contains("exemplarCharacters")
                         ? null
-                        : type == null ? ExemplarType.main : ExemplarType.valueOf(type);
+                        : type == null ? ExemplarType.main : ExemplarType.from(type);
         value = getCleanedUnicodeSet(exemplar, exemplarType);
         return value;
     }
@@ -1140,6 +1143,14 @@ public class DisplayAndInputProcessor {
     public static String getCanonicalPattern(String inpattern, NumericType type, boolean isPOSIX) {
         // TODO fix later to properly handle quoted ;
 
+        if (type == NumericType.RATIONAL) {
+            return inpattern
+                    .replace(
+                            "}{",
+                            "}\u202F{") // make sure there is at least a NNBSP between numbers, so
+                    // we don't get 33/4 instead of 3 3/4.
+                    .replace("/", "\u2044"); // use FRACTION SLASH instead of ASCII slash
+        }
         DecimalFormat df = new DecimalFormat(inpattern);
         if (type == NumericType.DECIMAL_ABBREVIATED
                 || type == NumericType.CURRENCY_ABBREVIATED
@@ -1182,11 +1193,12 @@ public class DisplayAndInputProcessor {
         DECIMAL_ABBREVIATED(),
         PERCENT(new int[] {1, 0, 0}, new int[] {1, 0, 0}),
         SCIENTIFIC(new int[] {0, 0, 0}, new int[] {1, 6, 6}),
+        RATIONAL,
         NOT_NUMERIC;
 
         private static final Pattern NUMBER_PATH =
                 Pattern.compile(
-                        "//ldml/numbers/((currency|decimal|percent|scientific)Formats|currencies/currency).*");
+                        "//ldml/numbers/((currency|decimal|percent|scientific|rational)Formats|currencies/currency).*");
         private int[] digitCount;
         private int[] posixDigitCount;
 
@@ -1202,7 +1214,9 @@ public class DisplayAndInputProcessor {
          */
         public static NumericType getNumericType(String xpath) {
             Matcher matcher = NUMBER_PATH.matcher(xpath);
-            if (!xpath.contains("/pattern")) {
+            if (xpath.contains("rational")) {
+                return RATIONAL;
+            } else if (!xpath.contains("/pattern")) {
                 return NOT_NUMERIC;
             } else if (matcher.matches()) {
                 if (matcher.group(1).equals("currencies/currency")) {

@@ -2,7 +2,6 @@ package org.unicode.cldr.web;
 
 import static org.unicode.cldr.web.XPathTable.getStringIDString;
 
-import com.ibm.icu.dev.util.ElapsedTimer;
 import com.ibm.icu.text.UnicodeSet;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -31,6 +30,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.unicode.cldr.icu.LDMLConstants;
+import org.unicode.cldr.icu.dev.util.ElapsedTimer;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckForCopy;
@@ -207,7 +207,7 @@ public class SurveyAjax extends HttpServlet {
             } else if (what.equals(WHAT_FLAGGED)) {
                 SurveyJSONWrapper r = newJSONStatus(request, sm);
                 mySession = CookieSession.retrieve(sess);
-                new SurveyFlaggedItems(UserRegistry.userIsTC(mySession.user)).getJson(r);
+                new SurveyFlaggedItems(UserRegistry.userIsTCOrStronger(mySession.user)).getJson(r);
                 send(r, out);
             } else if (what.equals(WHAT_STATS_BYDAYUSERLOC)) {
                 String votesAfterString = SurveyMain.getVotesAfterString();
@@ -610,7 +610,7 @@ public class SurveyAjax extends HttpServlet {
                              */
                             if (mySession.user != null
                                     && mySession.user.canImportOldVotes()
-                                    && !UserRegistry.userIsTC(mySession.user)
+                                    && !UserRegistry.userIsTCOrStronger(mySession.user)
                                     && !alreadyAutoImportedVotes(mySession.user.id, "ask")) {
                                 r.put("canAutoImport", "true");
                             }
@@ -707,7 +707,7 @@ public class SurveyAjax extends HttpServlet {
                                     if (them != null
                                             && ((them.id == mySession.user.id)
                                                     || // it's me
-                                                    UserRegistry.userIsTC(mySession.user)
+                                                    UserRegistry.userIsTCOrStronger(mySession.user)
                                                     || (UserRegistry.userIsExactlyManager(
                                                                     mySession.user)
                                                             && (them.getOrganization()
@@ -877,7 +877,7 @@ public class SurveyAjax extends HttpServlet {
      * @throws SurveyException
      */
     public void assertIsTC(CookieSession mySession) throws SurveyException {
-        if (!UserRegistry.userIsTC(mySession.user)) {
+        if (!UserRegistry.userIsTCOrStronger(mySession.user)) {
             throw new SurveyException(ErrorCode.E_NO_PERMISSION);
         }
     }
@@ -904,7 +904,7 @@ public class SurveyAjax extends HttpServlet {
         r.put("time_now", System.currentTimeMillis());
     }
 
-    private JSONArray searchResults(String q, CLDRLocale l) {
+    private JSONArray searchResults(String q, CLDRLocale l) throws JSONException {
         JSONArray results = new JSONArray();
 
         if (q != null) {
@@ -938,21 +938,20 @@ public class SurveyAjax extends HttpServlet {
         }
     }
 
-    private void searchPathheader(JSONArray results, CLDRLocale l, String q) {
+    private void searchPathheader(JSONArray results, CLDRLocale l, String q) throws JSONException {
         if (l == null) {
             return; // don't search with no locale
         }
-        try {
-            PathHeader.PageId page = PathHeader.PageId.valueOf(q);
+        PathHeader.PageId page = PathHeader.PageId.forString(q);
+        if (page != null) {
             results.put(
                     new JSONObject()
                             .put("page", page.name())
                             .put("section", page.getSectionId().name()));
-        } catch (Throwable t) {
-            //
         }
+
         try {
-            PathHeader.SectionId section = PathHeader.SectionId.valueOf(q);
+            PathHeader.SectionId section = PathHeader.SectionId.forString(q);
             results.put(new JSONObject().put("section", section.name()));
         } catch (Throwable t) {
             //
@@ -1568,7 +1567,7 @@ public class SurveyAjax extends HttpServlet {
         // sort by pathheader
         Arrays.sort(rows, Comparator.comparing(o -> ((PathHeader) o.get("pathHeader"))));
 
-        boolean useWinningVotes = UserRegistry.userIsTC(user);
+        boolean useWinningVotes = UserRegistry.userIsTCOrStronger(user);
 
         /* Some variables are only used if oldvotes != null; otherwise leave them null. */
         JSONArray contested = null; // contested = losing

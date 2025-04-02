@@ -88,6 +88,7 @@ public class BagFormatter {
             PrintWriter pw, String name1, UnicodeSet set1, String name2, UnicodeSet set2) {
         showSetDifferences(pw, name1, set1, name2, set2, -1);
     }
+
     /**
      * Compare two UnicodeSets, and show the differences
      *
@@ -698,6 +699,7 @@ public class BagFormatter {
             this.source = source;
             this.limit = source.length();
         }
+
         /**
          * Find next word, including trailing spaces
          *
@@ -734,6 +736,7 @@ public class BagFormatter {
     private class RangeFinder {
         int start, limit;
         private int veryLimit;
+
         // String label, value;
         void reset(int rangeStart, int rangeLimit) {
             limit = rangeStart;
@@ -1104,6 +1107,7 @@ public class BagFormatter {
     public Transliterator getFixName() {
         return fixName;
     }
+
     /**
      * @param fixName The fixName to set.
      */

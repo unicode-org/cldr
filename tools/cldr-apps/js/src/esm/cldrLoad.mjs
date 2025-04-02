@@ -40,6 +40,13 @@ import { h } from "vue";
 
 const CLDR_LOAD_DEBUG = false;
 
+/**
+ * This value for the "special" page description, as returned by cldrStatus.getCurrentSpecial(),
+ * corresponds to the situation in which a locale has been chosen but no section/page has been
+ * chosen for that locale. It corresponds to GeneralInfo.vue.
+ */
+const GENERAL_SPECIAL = "general";
+
 let locmap = new LocaleMap(null); // a localemap that always returns the code
 // locmap will be modified later with locmap = new LocaleMap(json.locmap)
 
@@ -110,11 +117,14 @@ function doHashChange(event) {
   const changedSpecial = oldSpecial != curSpecial;
   const changedPage = oldPage != trimNull(cldrStatus.getCurrentPage());
   if (changedLocale || (changedSpecial && curSpecial)) {
-    cldrDashContext.hide();
+    cldrDashContext.hide(false /* userWantsHidden */);
   }
   if (changedLocale || changedSpecial || changedPage) {
     console.log("# hash changed, (loc, etc) reloadingV..");
     reloadV();
+    if (cldrDashContext.shouldBeShown()) {
+      cldrDashContext.insert();
+    }
   } else if (
     oldId != cldrStatus.getCurrentId() &&
     cldrStatus.getCurrentId() != ""
@@ -610,8 +620,8 @@ function specialLoad(itemLoadInfo, curSpecial, theDiv) {
   const special = getSpecial(curSpecial); // special is an object; curSpecial is a string
   if (special && special.load) {
     cldrEvent.hideOverlayAndSidebar();
-    if (curSpecial !== "general") {
-      cldrDashContext.hide();
+    if (curSpecial !== GENERAL_SPECIAL) {
+      cldrDashContext.hide(false /* userWantsHidden */);
     }
     cldrInfo.closePanel(false /* userWantsHidden */);
     // Most special.load() functions do not use a parameter; an exception is
@@ -622,11 +632,11 @@ function specialLoad(itemLoadInfo, curSpecial, theDiv) {
       );
     }
     special.load(curSpecial);
-  } else if (curSpecial !== "general") {
+  } else if (curSpecial !== GENERAL_SPECIAL) {
     // Avoid recursion.
     unspecialLoad(itemLoadInfo, theDiv);
   } else {
-    // This will only be called if 'general' is a missing special.
+    // This will only be called if 'general' (GENERAL_SPECIAL) is a missing special.
     handleMissingSpecial(curSpecial);
   }
 }
@@ -641,8 +651,8 @@ function unspecialLoad(itemLoadInfo, theDiv) {
       if (CLDR_LOAD_DEBUG) {
         console.log("cldrLoad.unspecialLoad: running specialLoad(general)");
       }
-      cldrStatus.setCurrentSpecial("general");
-      specialLoad(itemLoadInfo, "general", theDiv);
+      cldrStatus.setCurrentSpecial(GENERAL_SPECIAL);
+      specialLoad(itemLoadInfo, GENERAL_SPECIAL, theDiv);
     } else if (curId === "!") {
       // TODO: clarify when and why this would happen
       if (CLDR_LOAD_DEBUG) {
@@ -1143,7 +1153,14 @@ function flipToEmptyOther() {
 
 function coverageUpdate() {
   cldrCoverage.updateCoverage(flipper.get(pages.data));
-  handleCoverageChanged(cldrCoverage.effectiveName());
+  const curLocale = cldrStatus.getCurrentLocale();
+  if (!curLocale) {
+    console.error(
+      "cldrLoad.coverageUpdate called when current locale not defined"
+    );
+    return;
+  }
+  handleCoverageChanged(cldrCoverage.effectiveName(curLocale));
 }
 
 function setLoading(loading) {
@@ -1168,6 +1185,7 @@ export {
   flipToEmptyOther,
   flipToGenericNoLocale,
   flipToOtherDiv,
+  GENERAL_SPECIAL,
   getHash,
   getLocaleDir,
   getLocaleInfo,

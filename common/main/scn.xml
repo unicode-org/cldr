@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -2402,7 +2402,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Asia/Phnom_Penh">
 				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
-			<zone type="Pacific/Kanton">
+			<zone type="Pacific/Enderbury">
 				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
@@ -2521,9 +2521,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
-			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity draft="unconfirmed">Cuibbàlsan</exemplarCity>
 			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity draft="unconfirmed">Macau</exemplarCity>
@@ -3296,13 +3293,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic draft="unconfirmed">Ura dâ Cina</generic>
 					<standard draft="unconfirmed">Ura sulari dâ Cina</standard>
 					<daylight draft="unconfirmed">Ura ligali dâ Cina</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic draft="unconfirmed">Ura di Cuibbàlsan</generic>
-					<standard draft="unconfirmed">Ura sulari di Cuibbàlsan</standard>
-					<daylight draft="unconfirmed">Ura ligali di Cuibbàlsan</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">
@@ -5426,8 +5416,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="range" draft="unconfirmed">↑↑↑</pattern>
 		</miscPatterns>
 		<minimalPairs>
-			<pluralMinimalPairs count="one" draft="unconfirmed">{0} jornu</pluralMinimalPairs>
-			<pluralMinimalPairs count="other" draft="unconfirmed">{0} jorna</pluralMinimalPairs>
+			<pluralMinimalPairs count="one">{0} jornu</pluralMinimalPairs>
+			<pluralMinimalPairs count="many">{0} di jorna</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">{0} jorna</pluralMinimalPairs>
 		</minimalPairs>
 	</numbers>
 	<units>

@@ -1,11 +1,13 @@
 /**
  * cldrSurvey: encapsulate miscellaneous Survey Tool functions
  */
+import * as cldrAddValue from "./cldrAddValue.mjs";
 import * as cldrAjax from "./cldrAjax.mjs";
 import * as cldrCoverage from "./cldrCoverage.mjs";
 import * as cldrCoverageReset from "./cldrCoverageReset.mjs";
 import * as cldrDom from "./cldrDom.mjs";
 import * as cldrEvent from "./cldrEvent.mjs";
+import * as cldrForum from "./cldrForum.mjs";
 import * as cldrGui from "./cldrGui.mjs";
 import * as cldrLoad from "./cldrLoad.mjs";
 import * as cldrMenu from "./cldrMenu.mjs";
@@ -103,25 +105,10 @@ function getXpathMap() {
 /**
  * Is the keyboard or input widget 'busy'? i.e., it's a bad time to change the DOM
  *
- * @return true if window.getSelection().anchorNode.className contains "dijitInp" or "popover-content",
- *		 else false
- *
- * "popover-content" identifies the little input window, created using bootstrap, that appears when the
- * user clicks an add ("+") button. Added "popover-content" per https://unicode.org/cldr/trac/ticket/11265.
- *
- * Called only from CldrSurveyVettingLoader.js
+ * @return true if busy
  */
 function isInputBusy() {
-  if (!window.getSelection) {
-    return false;
-  }
-  var sel = window.getSelection();
-  if (sel && sel.anchorNode && sel.anchorNode.className) {
-    if (sel.anchorNode.className.indexOf("popover-content") != -1) {
-      return true;
-    }
-  }
-  return false;
+  return cldrAddValue.isFormVisible() || cldrForum.isFormVisible();
 }
 
 function createGravatar(user) {

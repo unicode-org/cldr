@@ -1,13 +1,10 @@
 package org.unicode.cldr.tool;
 
-import com.ibm.icu.dev.util.UOption;
-import com.ibm.icu.text.Collator;
-import com.ibm.icu.text.RuleBasedCollator;
-import com.ibm.icu.util.ULocale;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeSet;
+import org.unicode.cldr.icu.dev.util.UOption;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
@@ -29,12 +26,6 @@ public class CompareData {
     };
 
     String[] directoryList = {"main", "collation", "segmentations"};
-
-    static RuleBasedCollator uca = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
-
-    {
-        uca.setNumericCollation(true);
-    }
 
     static PrettyPath prettyPathMaker = new PrettyPath();
     static CLDRFile english;
@@ -72,8 +63,7 @@ public class CompareData {
                 try {
                     CLDRFile oldFile = oldFactory.make(locale, false);
                     pathsSeen.clear();
-                    for (Iterator<String> it2 = file.iterator(); it2.hasNext(); ) {
-                        String path = it2.next();
+                    for (String path : file) {
                         String value = file.getStringValue(path);
                         String oldValue = oldFile.getStringValue(path);
                         if (oldValue == null) {
@@ -85,8 +75,7 @@ public class CompareData {
                         }
                         pathsSeen.add(path);
                     }
-                    for (Iterator<String> it2 = oldFile.iterator(); it2.hasNext(); ) {
-                        String path = it2.next();
+                    for (String path : oldFile) {
                         if (!pathsSeen.contains(path)) {
                             deletedItems++;
                         }

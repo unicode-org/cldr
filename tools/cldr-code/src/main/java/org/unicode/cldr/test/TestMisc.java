@@ -38,6 +38,7 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.Iso639Data.Scope;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.NameGetter;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleFactory;
@@ -177,7 +178,7 @@ public class TestMisc {
         ExampleGenerator eg = new ExampleGenerator(englishFile, englishFile);
         System.out.println(
                 eg.getHelpHtml(
-                        "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@draft=\"provisional\"]",
+                        "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@draft=\"provisional\"]",
                         ""));
         System.out.println(eg.getHelpHtml("/exemplarCharacters", ""));
         System.out.println(eg.getHelpHtml("/calendar/pattern", ""));
@@ -236,8 +237,9 @@ public class TestMisc {
             int vote = Level.getDefaultWeight("google", desiredLocale);
             rel.add(new Pair<>(vote, desiredLocale));
         }
+        NameGetter nameGetter = english.nameGetter();
         for (Pair<Integer, String> p : rel) {
-            System.out.println(p + "\t" + english.getName(p.getSecond()));
+            System.out.println(p + "\t" + nameGetter.getNameFromIdentifier(p.getSecond()));
         }
     }
 
@@ -562,8 +564,7 @@ public class TestMisc {
             if (cldrFile.isNonInheriting()) {
                 continue;
             }
-            for (Iterator<String> it2 = cldrFile.iterator(); it2.hasNext(); ) {
-                String path = it2.next();
+            for (String path : cldrFile) {
                 if (dtdType == null) {
                     dtdType = DtdType.fromPath(path);
                 }
@@ -605,8 +606,7 @@ public class TestMisc {
         String requestedLocale = "en";
         CLDRFile cldrFile = cldrFactory.make(requestedLocale, true);
         CLDRFile.Status status = new CLDRFile.Status();
-        for (Iterator<String> it = cldrFile.iterator(); it.hasNext(); ) {
-            String requestedPath = it.next();
+        for (String requestedPath : cldrFile) {
             String localeWhereFound = cldrFile.getSourceLocaleID(requestedPath, status);
             if (!localeWhereFound.equals(requestedLocale)
                     || !status.pathWhereFound.equals(requestedPath)) {

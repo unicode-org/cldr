@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1151,12 +1151,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="calendar" type="roc">deiziadur Republik Sina</type>
 			<type key="cf" type="account">furmad unanenn jediñ</type>
 			<type key="cf" type="standard">furmad moneiz standart</type>
-			<type key="collation" type="big5han">urzh rummañ sinaek hengounel - Big5</type>
 			<type key="collation" type="dictionary">urzh rummañ ar geriadur</type>
 			<type key="collation" type="ducet">urzh rummañ Unicode dre ziouer</type>
 			<type key="collation" type="emoji">urzh rummañ ar fromlunioù</type>
 			<type key="collation" type="eor">reolennoù urzhiañ europat</type>
-			<type key="collation" type="gb2312han">urzh rummañ sinaek eeunaet - GB2312</type>
 			<type key="collation" type="phonebook">urzh rummañ al levr-pellgomz</type>
 			<type key="collation" type="pinyin">urzh rummañ pinyin</type>
 			<type key="collation" type="search">enklask hollek</type>
@@ -7137,6 +7135,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<regionFormat type="daylight">eur hañv {0}</regionFormat>
 			<regionFormat type="standard">eur cʼhoañv {0}</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>Honolulu</exemplarCity>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>amzer hollvedel kenurzhiet</standard>
@@ -7742,9 +7743,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Asia/Phnom_Penh">
 				<exemplarCity>Phnum Pénh</exemplarCity>
 			</zone>
-			<zone type="Pacific/Enderbury">
-				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
 			<zone type="Pacific/Kiritimati">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
@@ -7842,9 +7840,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
-				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
-			<zone type="Asia/Choibalsan">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Macau">
@@ -8237,9 +8232,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="America/Nome">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>Honolulu</exemplarCity>
-			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
@@ -8593,13 +8585,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>eur Sina</generic>
 					<standard>eur cʼhoañv Sina</standard>
 					<daylight>eur hañv Sina</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>eur Choibalsan</generic>
-					<standard>eur cʼhoañv Choibalsan</standard>
-					<daylight>eur hañv Choibalsan</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">
@@ -14255,7 +14240,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} mmol/l</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="two">↑↑↑</unitPattern>
@@ -15843,7 +15828,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="many">{0}mmol/l</unitPattern>
 				<unitPattern count="other">{0}mmol/l</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">{0}ppm</unitPattern>
 				<unitPattern count="two">{0}ppm</unitPattern>

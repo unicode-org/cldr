@@ -1,9 +1,9 @@
 package org.unicode.cldr.draft;
 
-import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.NumberFormat;
 import java.util.Random;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.util.Timer;
 
 public class GapStringTest extends TestFmwk {

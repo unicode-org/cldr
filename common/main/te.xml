@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1118,12 +1118,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="colCaseFirst" type="upper">ముందు అప్పర్‌కేస్‌ని క్రమబద్ధీకరించు</type>
 			<type key="colCaseLevel" type="no">కేస్ ఇన్‌సెన్సిటివ్‌ను క్రమబద్ధీకరించు</type>
 			<type key="colCaseLevel" type="yes">కేస్ సెన్సిటివ్‌ని క్రమబద్ధీకరించు</type>
-			<type key="collation" type="big5han">సాంప్రదాయ చైనీస్ క్రమబద్ధీకరణ క్రమం - Big5</type>
 			<type key="collation" type="compat" draft="contributed">మునుపటి క్రమబద్ధీకరణ క్రమం, అనుకూలం</type>
 			<type key="collation" type="dictionary">నిఘంటువు క్రమబద్ధీకరణ క్రమం</type>
 			<type key="collation" type="ducet">డిఫాల్ట్ యూనీకోడ్ క్రమబద్ధీకరణ క్రమం</type>
 			<type key="collation" type="eor" draft="contributed">యురోపియన్ క్రమబద్ధీకరణ నిబంధనలు</type>
-			<type key="collation" type="gb2312han">సరళీకృత చైనీస్ క్రమబద్ధీకరణ క్రమం - GB2312</type>
 			<type key="collation" type="phonebook">ఫోన్‌బుక్ క్రమబద్ధీకరణ క్రమం</type>
 			<type key="collation" type="phonetic">ధ్వని ఉచ్ఛారిత క్రమబద్ధీకరణ క్రమం</type>
 			<type key="collation" type="pinyin">పిన్‌యిన్ క్రమబద్ధీకరణ క్రమం</type>
@@ -1239,7 +1237,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<parseLenient sample="£">↑↑↑</parseLenient>
 			<parseLenient sample="¥">↑↑↑</parseLenient>
 			<parseLenient sample="₩">↑↑↑</parseLenient>
-			<parseLenient sample="₹">[₹ ₨ {రూ} {రూ.} {Rp} {Rs}]</parseLenient>
+			<parseLenient sample="₹">[₹ {రూ} {రూ.} {Rp} {Rs}₨]</parseLenient>
 		</parseLenients>
 		<parseLenients scope="number" level="lenient">
 			<parseLenient sample="-">[\-－﹣ ‑ ‒ −⁻₋ ➖]</parseLenient>
@@ -3418,6 +3416,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<regionFormat type="daylight">{0} పగటి వెలుతురు సమయం</regionFormat>
 			<regionFormat type="standard">{0} ప్రామాణిక సమయం</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>హోనోలులు</exemplarCity>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>సమన్వయ సార్వజనీన సమయం</standard>
@@ -4033,9 +4034,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>నోమ్‌పెన్హ్</exemplarCity>
 			</zone>
 			<zone type="Pacific/Enderbury">
-				<exemplarCity>ఎండర్బెరీ</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kanton">
 				<exemplarCity>కాంతోన్</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
@@ -4154,9 +4152,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>ఉలాన్బాటర్</exemplarCity>
-			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity>చోయిబాల్సన్</exemplarCity>
 			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity>మకావ్</exemplarCity>
@@ -4557,9 +4552,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Nome">
 				<exemplarCity>నోమ్</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>హోనోలులు</exemplarCity>
-			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>యాంకరేజ్</exemplarCity>
 			</zone>
@@ -4937,13 +4929,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>చైనా సమయం</generic>
 					<standard>చైనా ప్రామాణిక సమయం</standard>
 					<daylight>చైనా పగటి వెలుతురు సమయం</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>చోయిబల్సాన్ సమయం</generic>
-					<standard>చోయిబల్సాన్ ప్రామాణిక సమయం</standard>
-					<daylight>చోయిబల్సాన్ వేసవి సమయం</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">
@@ -7214,7 +7199,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ఐటమ్‌లు</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">{0} భాగం/మిలియన్</unitPattern>
 				<unitPattern count="other">{0} భాగాలు/మిలియన్</unitPattern>
@@ -8060,7 +8045,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} లైట్</unitPattern>
 				<unitPattern count="other">{0} లైట్</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>ప్రతి బిలియన్‌కి భాగాలు</displayName>
 				<unitPattern count="one">ప్రతి బిలియన్‌కి {0} భాగం</unitPattern>
 				<unitPattern count="other">ప్రతి బిలియన్‌కి {0} భాగాలు</unitPattern>
@@ -8302,7 +8287,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ఐటమ్</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>భాగాలు/మిలియన్</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} భా./మి.</unitPattern>
@@ -9144,7 +9129,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} లైట్</unitPattern>
 				<unitPattern count="other">{0} లైట్</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>భాగాలు/బిలియన్</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -9386,7 +9371,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0}ఐటమ్</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -10228,7 +10213,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} లైట్</unitPattern>
 				<unitPattern count="other">{0} లైట్</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>

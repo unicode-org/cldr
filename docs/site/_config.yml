@@ -1,0 +1,23 @@
+# This is the config file for cldr.unicode.org
+
+name: CLDR Site
+title: CLDR Site
+
+markdown: kramdown
+input: GFM
+
+destination: ../../_site
+
+# Google Analytics
+ga_tracking: UA-7672775-1
+ga_tracking_anonymize_ip: true # Use GDPR compliant Google Analytics settings
+
+# everything should default to the 'page' layout
+defaults:
+  - scope:
+      path: ''
+    values:
+      layout: page
+
+include:
+  - _redirects

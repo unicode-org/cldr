@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1027,13 +1027,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="calendar" type="roc">Mingu-Chini sáldar</type>
 			<type key="cf" type="account">Hesáb, Zarr Káleb</type>
 			<type key="cf" type="standard">Zarray anjárén káleb</type>
-			<type key="collation" type="big5han">Chini Rabyati Red o band</type>
 			<type key="collation" type="compat">Pésari Red o band, pa hamdapiá</type>
 			<type key="collation" type="dictionary">Labzbaladi Red o band</type>
 			<type key="collation" type="ducet">Aslén Yunikodi Red o band</type>
 			<type key="collation" type="emoji">Emóji Red o band</type>
 			<type key="collation" type="eor">Yuropi Red o bandi Rahband</type>
-			<type key="collation" type="gb2312han">Sádah kortagén Chini Red o band - GB2312</type>
 			<type key="collation" type="phonebook">Pawnbokki Red o band</type>
 			<type key="collation" type="pinyin">Pinyi Red o band</type>
 			<type key="collation" type="search">Ám Kári Shóház</type>
@@ -4096,7 +4094,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Asia/Phnom_Penh">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
-			<zone type="Pacific/Kanton">
+			<zone type="Pacific/Enderbury">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
@@ -4215,9 +4213,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>Ulánbátar</exemplarCity>
-			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity>Makáó</exemplarCity>
@@ -4960,13 +4955,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>Chinay wahd</generic>
 					<standard>Chinay anjári wahd</standard>
 					<daylight>Chinay róchi wahd</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>Choibalsan wahd</generic>
-					<standard>Choibalsan anjári wahd</standard>
-					<daylight>Choibalsan garmági wahd</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">

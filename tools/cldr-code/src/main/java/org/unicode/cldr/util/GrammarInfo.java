@@ -71,6 +71,7 @@ public class GrammarInfo implements Freezable<GrammarInfo> {
         terminative;
         public static Comparator<String> COMPARATOR = EnumComparator.create(CaseValues.class);
     }
+
     /**
      * There is no standard order of grammatical gender values across languages. The ordering uses
      * Polish order https://en.wikipedia.org/wiki/Polish_grammar#Gender as a base (since it has most
@@ -140,6 +141,7 @@ public class GrammarInfo implements Freezable<GrammarInfo> {
         public CharSequence getSymbol() {
             return symbol;
         }
+
         /** Gets the default value. The parameter only needs to be set for grammaticalGender */
         public String getDefault(Collection<String> featureValuesFromGrammaticalInfo) {
             return this == grammaticalGender
@@ -541,6 +543,7 @@ public class GrammarInfo implements Freezable<GrammarInfo> {
                     "volume-quart",
                     "volume-tablespoon",
                     "volume-teaspoon");
+
     // compounds
     // "kilogram-per-cubic-meter", "kilometer-per-liter", "concentr-gram-per-mole",
     // "speed-mile-per-second", "volumetricflow-cubic-foot-per-second",
@@ -763,6 +766,7 @@ public class GrammarInfo implements Freezable<GrammarInfo> {
     }
 
     public static final boolean DEBUG = false;
+
     /** Internal class for thread-safety */
     static class UnitsToAddGrammar {
         static final Set<String> data;

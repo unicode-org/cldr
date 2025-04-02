@@ -1,304 +1,487 @@
-# Modify non-emoji
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="_"]; new_value=dash | line | low | underdash | underline
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="―"]; new_value=bar | dash | horizontal | line
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="・"]; new_value=dot | dots | interpunct | katakana | middle | middot
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="؛"]; new_value=arabic | semi-colon | semicolon
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="!"]; new_value=bang | exclamation | mark | point
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="¡"]; new_value=bang | exclamation | inverted | mark | point
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="?"]; new_value=mark | question
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="¿"]; new_value=inverted | mark | question
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="؟"]; new_value=arabic | mark | question
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="."]; new_value=dot | full | period | stop
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="。"]; new_value=full | ideographic | period | stop
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="'"]; new_value=apostrophe | quote | single | typewriter
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="‘"]; new_value=apostrophe | left | quote | single | smart
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="’"]; new_value=apostrophe | quote | right | single | smart
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="‚"]; new_value=apostrophe | low | quote | right
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="“"]; new_value=double | left | mark | quotation | quote | smart
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="”"]; new_value=double | mark | quotation | quote | right | smart
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="„"]; new_value=double | low | mark | quotation | quote | right | smart
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="«"]; new_value=angle | brackets | carets | chevron | guillemet | left | quote
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="»"]; new_value=angle | brackets | carets | chevron | guillemet | quote | right
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp=")"]; new_value=bracket | close | paren | parens | parenthesis | round
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="["]; new_value=bracket | crotchet | open | square
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="]"]; new_value=bracket | close | crotchet | square
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="{"]; new_value=brace | bracket | curly | gullwing | open
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="}"]; new_value=brace | bracket | close | curly | gullwing
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="〈"]; new_value=angle | bracket | brackets | chevron | diamond | open | pointy | tuple
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="〉"]; new_value=angle | bracket | brackets | chevron | close | diamond | pointy | tuple
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="《"]; new_value=angle | bracket | double | open
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="》"]; new_value=angle | bracket | close | double
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="「"]; new_value=bracket | corner | open
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="」"]; new_value=bracket | close | corner
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="『"]; new_value=bracket | corner | hollow | open
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="』"]; new_value=bracket | close | corner | hollow
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="【"]; new_value=black | bracket | lens | lenticular | open
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="】"]; new_value=black | bracket | close | lens | lenticular
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="〔"]; new_value=bracket | open | shell | tortoise
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="〕"]; new_value=bracket | close | shell | tortoise
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="〖"]; new_value=bracket | hollow | lens | lenticular | open
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="〗"]; new_value=bracket | close | hollow | lens | lenticular
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="¶"]; new_value=alinea | mark | paragraph | paraph | pilcrow
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="@"]; new_value=ampersat | arobase | arroba | at | at-sign | commercial | mark | sign | strudel
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="\"]; new_value=backslash | reverse | solidus | whack
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="%"]; new_value=cent | per | per-cent | percent
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="‰"]; new_value=mil | mille | per | permil | permille
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="†"]; new_value=dagger | obelisk | obelus | sign
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="‡"]; new_value=dagger | double | obelisk | obelus | sign
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="‧"]; new_value=dash | hyphen | hyphenation | point
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="″"]; new_value=double | prime
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="‴"]; new_value=prime | triple
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="※"]; new_value=mark | reference
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="^"]; new_value=accent | caret | chevron | circumflex | control | hat | pointer | power | sign | wedge | xor
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="←"]; new_value=arrow | left | left-pointing
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↚"]; new_value=arrow | leftwards | stroke
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="→"]; new_value=arrow | right | right-pointing
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↛"]; new_value=arrow | rightwards | stroke
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↑"]; new_value=arrow | up | up-pointing
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↓"]; new_value=arrow | down | down-pointing
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↜"]; new_value=arrow | leftwards | wave
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↝"]; new_value=arrow | rightwards | wave
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↞"]; new_value=arrow | headed | leftwards | two
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↟"]; new_value=arrow | headed | two | upwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↠"]; new_value=arrow | headed | rightwards | two
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↡"]; new_value=arrow | downwards | headed | two
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↢"]; new_value=arrow | leftwards | tail
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↣"]; new_value=arrow | rightwards | tail
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↤"]; new_value=arrow | bar | from | leftwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↥"]; new_value=arrow | bar | from | upwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↦"]; new_value=arrow | bar | from | rightwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↧"]; new_value=arrow | bar | downwards | from
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↨"]; new_value=arrow | base | down | up | with
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↫"]; new_value=arrow | leftwards | loop
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↬"]; new_value=arrow | loop | rightwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↭"]; new_value=arrow | left | right | wave
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↯"]; new_value=arrow | downwards | zigzag
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↰"]; new_value=arrow | leftwards | tip | upwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↱"]; new_value=arrow | rightwards | tip | upwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↲"]; new_value=arrow | downwards | leftwards | tip
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↳"]; new_value=arrow | downwards | rightwards | tip
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↴"]; new_value=arrow | corner | downwards | rightwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↵"]; new_value=arrow | corner | downwards | leftwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↶"]; new_value=anticlockwise | arrow | semicircle | top
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↷"]; new_value=arrow | clockwise | semicircle | top
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↸"]; new_value=arrow | bar | long | north | west
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↹"]; new_value=arrow | bar | bars | leftwards | over | rightwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↺"]; new_value=anticlockwise | arrow | circle | open
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↻"]; new_value=arrow | circle | clockwise | open
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↼"]; new_value=barb | harpoon | leftwards | upwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↽"]; new_value=barb | downwards | harpoon | leftwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↾"]; new_value=barb | harpoon | rightwards | upwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↿"]; new_value=barb | harpoon | leftwards | upwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇀"]; new_value=barb | harpoon | rightwards | upwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇁"]; new_value=barb | downwards | harpoon | rightwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇂"]; new_value=barb | downwards | harpoon | rightwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇃"]; new_value=barb | downwards | harpoon | leftwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇄"]; new_value=arrow | leftwards | over | rightwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇅"]; new_value=and | arrow | arrows | down | down-pointing | up | up-pointing
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇆"]; new_value=arrow | arrows | left | left-pointing | over | right | right-pointing
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇇"]; new_value=arrows | leftwards | paired
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇈"]; new_value=arrows | paired | upwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇉"]; new_value=arrows | paired | rightwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇊"]; new_value=arrows | downwards | paired
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇋"]; new_value=harpoon | leftwards | over | rightwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇌"]; new_value=harpoon | leftwards | over | rightwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇐"]; new_value=arrow | double | leftwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇍"]; new_value=arrow | double | leftwards | stroke
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇑"]; new_value=arrow | double | upwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇒"]; new_value=arrow | double | rightwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇏"]; new_value=arrow | double | rightwards | stroke
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇓"]; new_value=arrow | double | downwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇔"]; new_value=arrow | double | left | right
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇎"]; new_value=arrow | double | left | right | stroke
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇖"]; new_value=arrow | double | north | west
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇗"]; new_value=arrow | double | east | north
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇘"]; new_value=arrow | double | east | south
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇙"]; new_value=arrow | double | south | west
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇚"]; new_value=arrow | leftwards | triple
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇛"]; new_value=arrow | rightwards | triple
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇜"]; new_value=arrow | leftwards | squiggle
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇝"]; new_value=arrow | rightwards | squiggle
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇞"]; new_value=arrow | double | stroke | upwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇟"]; new_value=arrow | double | downwards | stroke
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇠"]; new_value=arrow | dashed | leftwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇡"]; new_value=arrow | dashed | upwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇢"]; new_value=arrow | dashed | rightwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇣"]; new_value=arrow | dashed | downwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇤"]; new_value=arrow | bar | leftwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇥"]; new_value=arrow | bar | rightwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇦"]; new_value=arrow | hollow | leftwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇧"]; new_value=arrow | hollow | upwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇨"]; new_value=arrow | hollow | rightwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇩"]; new_value=arrow | downwards | hollow
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇪"]; new_value=arrow | bar | from | hollow | upwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇵"]; new_value=arrow | downwards | leftwards | upwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="∀"]; new_value=all | any | for | given | universal
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="∂"]; new_value=differential | partial
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="∃"]; new_value=exists | there
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="∅"]; new_value=empty | mathematics | operator | set
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="∈"]; new_value=contains | element | membership | of | set
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="∉"]; new_value=an | element | not
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="∋"]; new_value=as | contains | element | member
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="∎"]; new_value=end | halmos | proof | q.e.d. | qed | tombstone
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="∏"]; new_value=logic | n-ary | product
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="∑"]; new_value=mathematics | n-ary | summation
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="+"]; new_value=add | plus | sign
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="÷"]; new_value=divide | division | obelus | sign
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="×"]; new_value=multiplication | multiply | sign | times
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="<"]; new_value=less | less-than | open | tag | than
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="≮"]; new_value=inequality | less-than | mathematics | not
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="≠"]; new_value=equal | inequality | inequation | not
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp=">"]; new_value=close | greater | greater-than | tag | than
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="≯"]; new_value=greater-than | inequality | mathematics | not
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="|"]; new_value=bar | line | pike | pipe | sheffer | stick | stroke | vbar | vertical
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="−"]; new_value=minus | sign | subtract
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="∕"]; new_value=division | slash | stroke | virgule
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⁄"]; new_value=fraction | slash | stroke | virgule
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="∗"]; new_value=asterisk | operator | star
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="∘"]; new_value=composition | operator | ring
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="∙"]; new_value=bullet | operator
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="∞"]; new_value=infinity | sign
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="∟"]; new_value=angle | mathematics | right
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="∧"]; new_value=ac | and | atque | logical | wedge
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="∬"]; new_value=calculus | double | integral
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="∮"]; new_value=contour | integral
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="∼"]; new_value=operator | tilde
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="∽"]; new_value=reversed | tilde
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="∾"]; new_value=inverted | lazy | s
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="≃"]; new_value=asymptote | asymptotically | equal | mathematics
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="≅"]; new_value=approximately | congruence | equal | equality | isomorphism | mathematics
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="≈"]; new_value=almost | approximate | approximation | equal
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="≌"]; new_value=all | equal | equality | mathematics
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="≒"]; new_value=approximately | equal | image | the
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="≖"]; new_value=equal | equality | in | mathematics | ring
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="≡"]; new_value=exact | identical | to | triple
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="≣"]; new_value=equality | equivalent | mathematics | strictly
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="≤"]; new_value=equal | equals | inequality | less-than | or
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="≥"]; new_value=equal | equals | greater-than | inequality | or
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="≦"]; new_value=equal | inequality | less-than | mathematics | over
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="≧"]; new_value=equal | greater-than | inequality | mathematics | over
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="≪"]; new_value=inequality | less-than | mathematics | much
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="≫"]; new_value=greater-than | inequality | mathematics | much
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="≳"]; new_value=equivalent | greater-than | inequality | mathematics
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="≺"]; new_value=mathematics | operator | precedes | set
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="≻"]; new_value=mathematics | operator | set | succeeds
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⊁"]; new_value=does | mathematics | not | operator | set | succeed
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⊂"]; new_value=of | set | subset
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⊃"]; new_value=mathematics | operator | set | superset
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⊆"]; new_value=equal | subset
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⊇"]; new_value=equal | equality | mathematics | superset
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⊕"]; new_value=circled | plus
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⊖"]; new_value=circled | difference | erosion | minus | symmetric
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⊗"]; new_value=circled | product | tensor | times
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⊘"]; new_value=circled | division | division-like | mathematics | slash
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⊙"]; new_value=circled | dot | operator | XNOR
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⊚"]; new_value=circled | operator | ring
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⊛"]; new_value=asterisk | circled | operator
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⊞"]; new_value=addition-like | mathematics | plus | squared
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⊟"]; new_value=mathematics | minus | squared | subtraction-like
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⊥"]; new_value=eet | falsum | tack | up
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⊮"]; new_value=does | force | not
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⊰"]; new_value=mathematics | operator | precedes | relation | set | under
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⊱"]; new_value=mathematics | operator | relation | set | succeeds | under
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⋭"]; new_value=as | contain | does | equal | group | mathematics | normal | not | subgroup | theory
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⊹"]; new_value=conjugate | hermitian | mathematics | matrix | self-adjoint | square
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⊿"]; new_value=mathematics | right | right-angled | triangle
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⋁"]; new_value=disjunction | logic | logical | n-ary | or
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⋂"]; new_value=intersection | mathematics | n-ary | operator | set
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⋃"]; new_value=mathematics | n-ary | operator | set | union
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⋅"]; new_value=dot | operator
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⋆"]; new_value=operator | star
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⋈"]; new_value=binary | bowtie | join | natural | operator
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⋒"]; new_value=double | intersection | mathematics | operator | set
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⋘"]; new_value=inequality | less-than | mathematics | much | very
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⋙"]; new_value=greater-than | inequality | mathematics | much | very
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⋮"]; new_value=ellipsis | mathematics | vertical
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⋯"]; new_value=ellipsis | horizontal | midline
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⋰"]; new_value=diagonal | ellipsis | mathematics | right | up
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⋱"]; new_value=diagonal | down | ellipsis | mathematics | right
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="■"]; new_value=filled | square
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="□"]; new_value=hollow | square
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="▢"]; new_value=corners | hollow | rounded | square | with
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="▣"]; new_value=containing | filled | hollow | square
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="▤"]; new_value=fill | horizontal | square | with
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="▥"]; new_value=fill | square | vertical | with
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="▦"]; new_value=crosshatch | fill | orthogonal | square
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="▧"]; new_value=fill | left | lower | right | square | upper
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="▨"]; new_value=fill | left | lower | right | square | upper
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="▩"]; new_value=crosshatch | diagonal | fill | square
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="▬"]; new_value=filled | rectangle
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="▭"]; new_value=hollow | rectangle
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="▮"]; new_value=filled | rectangle | vertical
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="▰"]; new_value=filled | parallelogram
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="▲"]; new_value=arrow | filled | triangle | up | up-pointing
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="△"]; new_value=hollow | triangle | up-pointing
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="▴"]; new_value=filled | small | triangle | up-pointing
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="▵"]; new_value=hollow | small | triangle | up-pointing
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="▷"]; new_value=hollow | right-pointing | triangle
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="▸"]; new_value=filled | right-pointing | small | triangle
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="▹"]; new_value=hollow | right-pointing | small | triangle
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="►"]; new_value=filled | pointer | right-pointing
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="▻"]; new_value=hollow | pointer | right-pointing
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="▼"]; new_value=arrow | down | down-pointing | filled | triangle
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="▽"]; new_value=down-pointing | hollow | triangle
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="▾"]; new_value=down-pointing | filled | small | triangle
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="▿"]; new_value=down-pointing | hollow | small | triangle
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◁"]; new_value=hollow | left-pointing | triangle
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◂"]; new_value=filled | left-pointing | small | triangle
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◃"]; new_value=hollow | left-pointing | small | triangle
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◄"]; new_value=filled | left-pointing | pointer
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◅"]; new_value=hollow | left-pointing | pointer
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◆"]; new_value=diamond | filled
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◇"]; new_value=diamond | hollow
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◈"]; new_value=containing | diamond | filled | hollow
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◉"]; new_value=cicles | circle | circled | concentric | containing | dot | filled | fisheye | hollow | ward
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="○"]; new_value=circle | hollow | ring
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◌"]; new_value=circle | dotted
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◍"]; new_value=circle | fill | vertical | with
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◎"]; new_value=circle | circles | concentric | double | target
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="●"]; new_value=circle | filled
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◐"]; new_value=circle | filled | half | left
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◑"]; new_value=circle | filled | half | right
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◒"]; new_value=circle | filled | half | lower
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◓"]; new_value=circle | filled | half | upper
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◔"]; new_value=circle | filled | quadrant | right | upper
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◕"]; new_value=all | but | circle | filled | left | quadrant | upper
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◖"]; new_value=circle | filled | half | left
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◗"]; new_value=circle | filled | half | right
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◘"]; new_value=bullet | inverse
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◙"]; new_value=circle | containing | filled | hollow | inverse | square
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◜"]; new_value=arc | circular | left | quadrant | upper
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◝"]; new_value=arc | circular | quadrant | right | upper
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◞"]; new_value=arc | circular | lower | quadrant | right
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◟"]; new_value=arc | circular | left | lower | quadrant
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◠"]; new_value=circle | half | upper
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◡"]; new_value=circle | half | lower
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◢"]; new_value=filled | lower | right | triangle
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◣"]; new_value=filled | left | lower | triangle
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◤"]; new_value=filled | left | triangle | upper
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◥"]; new_value=filled | right | triangle | upper
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◦"]; new_value=bullet | hollow
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◯"]; new_value=circle | hollow | large | ring
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◳"]; new_value=hollow | quadrant | right | square | upper
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◷"]; new_value=circle | hollow | quadrant | right | upper | with
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◿"]; new_value=lower | right | triangle
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⨧"]; new_value=plus | subscript | two
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⨯"]; new_value=cross | product | vector
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⨼"]; new_value=interior | product
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⩣"]; new_value=double | logical | or | underbar
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⩽"]; new_value=equal | less-than | slanted
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⪍"]; new_value=above | equal | less-than | similar
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⪚"]; new_value=double-line | equal | greater-than | inequality | mathematics
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⪺"]; new_value=above | almost | equal | not | succeeds
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↮"]; new_value=arrow | left | right | stroke
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="₣"]; new_value=currency | franc | french
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="₰"]; new_value=currency | german | penny | pfennig
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="₶"]; new_value=currency | livre | tournois
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="₹"]; new_value=currency | indian | rupee
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="µ"]; new_value=measure | micro | sign
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="♯"]; new_value=dièse | diesis | music | note | sharp
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="$"]; new_value=dollar | money | peso | USD
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="£"]; new_value=currency | EGP | GBP | pound
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="¥"]; new_value=CNY | currency | JPY | yen | yuan
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="€"]; new_value=currency | EUR | euro
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="₿"]; new_value=bitcoin | BTC
+#Locale	Action=add;	Path	Value
+#Locale	Action=add;	Value	Path
+locale=ak;	action=add;	new_value=mfeɛ {0};	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="duration-year"]/unitPattern[@count="one"]
+locale=ak;	action=add;	new_value=mfeɛ {0};	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="duration-year"]/unitPattern[@count="other"]
+locale=cs;	action=add;	new_value=↑↑↑;	new_path=//ldml/units/unitLength[@type="short"]/compoundUnit[@type="times"]/compoundUnitPattern
+locale=da;	action=add;	new_value=↑↑↑;	new_path=//ldml/units/unitLength[@type="long"]/compoundUnit[@type="times"]/compoundUnitPattern
+locale=da;	action=add;	new_value=↑↑↑;	new_path=//ldml/units/unitLength[@type="narrow"]/compoundUnit[@type="times"]/compoundUnitPattern
+locale=da;	action=add;	new_value=↑↑↑;	new_path=//ldml/units/unitLength[@type="short"]/compoundUnit[@type="times"]/compoundUnitPattern
+locale=ig;	action=add;	new_value=Ọtụtụ Afọ;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="duration-year"]/displayName
+locale=ig;	action=add;	new_value={0} Ọtụtụ Afọ;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="duration-year"]/unitPattern[@count="other"]
+locale=it;	action=add;	new_value=↑↑↑;	new_path=//ldml/units/unitLength[@type="long"]/compoundUnit[@type="times"]/compoundUnitPattern
+locale=nl;	action=add;	new_value=↑↑↑;	new_path=//ldml/units/unitLength[@type="short"]/compoundUnit[@type="times"]/compoundUnitPattern
+locale=nn;	action=add;	new_value=↑↑↑;	new_path=//ldml/units/unitLength[@type="short"]/compoundUnit[@type="times"]/compoundUnitPattern
+locale=sk;	action=add;	new_value=↑↑↑;	new_path=//ldml/units/unitLength[@type="short"]/compoundUnit[@type="times"]/compoundUnitPattern
+locale=ti;	action=add;	new_value=ዓመታት;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="duration-year"]/displayName
+locale=ti;	action=add;	new_value={0}/ዓመታት;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="duration-year"]/perUnitPattern
+locale=ti;	action=add;	new_value={0} ዓመት;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="duration-year"]/unitPattern[@count="one"]
+locale=ti;	action=add;	new_value={0} ዓመታት;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="duration-year"]/unitPattern[@count="other"]
+locale=ti;	action=add;	new_value=ዓመታት;	new_path=//ldml/units/unitLength[@type="narrow"]/unit[@type="duration-year"]/displayName
+locale=ti;	action=add;	new_value={0}/ዓመት;	new_path=//ldml/units/unitLength[@type="narrow"]/unit[@type="duration-year"]/perUnitPattern
+locale=ti;	action=add;	new_value={0} ዓመት;	new_path=//ldml/units/unitLength[@type="narrow"]/unit[@type="duration-year"]/unitPattern[@count="one"]
+locale=ti;	action=add;	new_value={0}ዓመት;	new_path=//ldml/units/unitLength[@type="narrow"]/unit[@type="duration-year"]/unitPattern[@count="other"]
+locale=ti;	action=add;	new_value=ዓመታት;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="duration-year"]/displayName
+locale=ti;	action=add;	new_value={0}/ዓመት;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="duration-year"]/perUnitPattern
+locale=ti;	action=add;	new_value={0} ዓመት;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="duration-year"]/unitPattern[@count="one"]
+locale=ti;	action=add;	new_value={0} ዓመታት;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="duration-year"]/unitPattern[@count="other"]
+locale=yo;	action=add;	new_value=ọ̀dún;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="duration-year"]/displayName
+locale=yo;	action=add;	new_value={0} ọ̀dún;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="duration-year"]/unitPattern[@count="other"]
+locale=yo;	action=add;	new_value=ọd;	new_path=//ldml/units/unitLength[@type="narrow"]/unit[@type="duration-year"]/displayName
+locale=yo;	action=add;	new_value={0} ọd;	new_path=//ldml/units/unitLength[@type="narrow"]/unit[@type="duration-year"]/unitPattern[@count="other"]
+locale=yo;	action=add;	new_value=ọd;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="duration-year"]/displayName
+locale=yo;	action=add;	new_value={0} ọd;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="duration-year"]/unitPattern[@count="other"]
+locale=ar;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName
+locale=ar;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/gender
+locale=ar;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"]
+locale=ar;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"]
+locale=ar;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=ar;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=ar;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="two"]
+locale=ar;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="zero"]
+locale=ar;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName
+locale=ar;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"]
+locale=ar;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"]
+locale=ar;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=ar;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=ar;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="two"]
+locale=ar;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="zero"]
+locale=ar;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName
+locale=ar;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"]
+locale=ar;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"]
+locale=ar;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=ar;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=ar;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="two"]
+locale=ar;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="zero"]
+locale=be;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName
+locale=be;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"]
+locale=be;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"]
+locale=be;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=be;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=be;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName
+locale=be;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"]
+locale=be;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"]
+locale=be;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=be;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=be;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName
+locale=be;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"]
+locale=be;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"]
+locale=be;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=be;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=bn;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName
+locale=bn;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=bn;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=bn;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName
+locale=bn;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=bn;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=bn;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName
+locale=bn;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=bn;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=bs;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName
+locale=bs;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"]
+locale=bs;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=bs;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=bs;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName
+locale=bs;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"]
+locale=bs;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=bs;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=bs;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName
+locale=bs;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"]
+locale=bs;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=bs;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=da;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName
+locale=da;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/gender
+locale=da;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=da;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="genitive"]
+locale=da;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=da;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="genitive"]
+locale=da;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName
+locale=da;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=da;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=da;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName
+locale=da;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=da;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=de;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName
+locale=de;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/gender
+locale=de;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=de;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="accusative"]
+locale=de;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="dative"]
+locale=de;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="genitive"]
+locale=de;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=de;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="accusative"]
+locale=de;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="dative"]
+locale=de;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="genitive"]
+locale=de;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName
+locale=de;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=de;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=de;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName
+locale=de;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=de;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=et;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName
+locale=et;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=et;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=et;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName
+locale=et;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=et;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=et;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName
+locale=et;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=et;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=fa;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName
+locale=fa;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=fa;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=fa;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName
+locale=fa;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=fa;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=fa;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName
+locale=fa;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=fa;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=fi;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName
+locale=fi;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=fi;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="elative"]
+locale=fi;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="genitive"]
+locale=fi;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="illative"]
+locale=fi;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="partitive"]
+locale=fi;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=fi;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="elative"]
+locale=fi;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="genitive"]
+locale=fi;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="illative"]
+locale=fi;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="partitive"]
+locale=fi;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName
+locale=fi;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=fi;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=fi;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName
+locale=fi;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=fi;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=fil;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName
+locale=fil;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=fil;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=fil;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName
+locale=fil;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=fil;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=fil;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName
+locale=fil;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=fil;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=ga;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName
+locale=ga;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"]
+locale=ga;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"]
+locale=ga;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=ga;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=ga;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="two"]
+locale=ga;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName
+locale=ga;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"]
+locale=ga;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"]
+locale=ga;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=ga;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=ga;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="two"]
+locale=ga;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName
+locale=ga;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"]
+locale=ga;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"]
+locale=ga;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=ga;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=ga;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="two"]
+locale=hu;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName[@draft="contributed"]
+locale=hu;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="accusative"][@draft="contributed"]
+locale=hu;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="instrumental"][@draft="contributed"]
+locale=hu;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="terminative"][@draft="contributed"]
+locale=hu;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="translative"][@draft="contributed"]
+locale=hu;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@draft="contributed"]
+locale=hu;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="accusative"][@draft="contributed"]
+locale=hu;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="instrumental"][@draft="contributed"]
+locale=hu;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="terminative"][@draft="contributed"]
+locale=hu;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="translative"][@draft="contributed"]
+locale=hu;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@draft="contributed"]
+locale=hu;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName[@draft="contributed"]
+locale=hu;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@draft="contributed"]
+locale=hu;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@draft="contributed"]
+locale=hu;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName[@draft="contributed"]
+locale=hu;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@draft="contributed"]
+locale=hu;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@draft="contributed"]
+locale=hy;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName
+locale=hy;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=hy;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="ablative"]
+locale=hy;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="dative"]
+locale=hy;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="instrumental"]
+locale=hy;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="locative"]
+locale=hy;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=hy;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="ablative"]
+locale=hy;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="dative"]
+locale=hy;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="instrumental"]
+locale=hy;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="locative"]
+locale=hy;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName
+locale=hy;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=hy;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=hy;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName
+locale=hy;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=hy;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=ig;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="duration-year"]/perUnitPattern
+locale=ig;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="duration-year"]/displayName
+locale=ig;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="duration-year"]/perUnitPattern
+locale=ig;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="duration-year"]/unitPattern[@count="other"]
+locale=ig;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="duration-year"]/displayName
+locale=ig;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="duration-year"]/perUnitPattern
+locale=ig;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="duration-year"]/unitPattern[@count="other"]
+locale=is;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName
+locale=is;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/gender
+locale=is;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=is;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="accusative"]
+locale=is;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="dative"]
+locale=is;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="genitive"]
+locale=is;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=is;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="accusative"]
+locale=is;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="dative"]
+locale=is;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="genitive"]
+locale=is;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName
+locale=is;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=is;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=is;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName
+locale=is;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=is;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=it;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName
+locale=it;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/gender[@draft="contributed"]
+locale=it;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@draft="contributed"]
+locale=it;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@draft="contributed"]
+locale=it;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName
+locale=it;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@draft="contributed"]
+locale=it;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@draft="contributed"]
+locale=it;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName
+locale=it;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@draft="contributed"]
+locale=it;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@draft="contributed"]
+locale=ka;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName
+locale=ka;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=ka;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=ka;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName
+locale=ka;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=ka;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=ka;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName
+locale=ka;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=ka;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=ko;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName
+locale=ko;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=ko;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName
+locale=ko;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=ko;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName
+locale=ko;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/gender
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"][@case="accusative"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"][@case="dative"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"][@case="genitive"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"][@case="instrumental"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"][@case="locative"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"][@case="accusative"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"][@case="dative"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"][@case="genitive"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"][@case="instrumental"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"][@case="locative"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="accusative"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="dative"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="genitive"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="instrumental"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="locative"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="accusative"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="dative"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="genitive"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="instrumental"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="locative"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=ml;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName
+locale=ml;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=ml;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=ml;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName
+locale=ml;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=ml;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=ml;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName
+locale=ml;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=ml;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=mn;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName
+locale=mn;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=mn;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=mn;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName
+locale=mn;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=mn;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=mn;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName
+locale=mn;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=mn;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=ps;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName
+locale=ps;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=ps;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=ps;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName
+locale=ps;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=ps;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=ps;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName
+locale=ps;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=ps;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/gender
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"][@case="accusative"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"][@case="dative"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"][@case="genitive"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"][@case="instrumental"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"][@case="prepositional"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"][@case="accusative"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"][@case="dative"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"][@case="genitive"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"][@case="instrumental"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"][@case="prepositional"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="accusative"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="dative"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="genitive"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="instrumental"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="prepositional"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="accusative"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="dative"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="genitive"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="instrumental"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="prepositional"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/gender
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"][@case="accusative"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"][@case="dative"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"][@case="genitive"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"][@case="instrumental"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"][@case="locative"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"][@case="accusative"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"][@case="dative"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"][@case="genitive"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"][@case="instrumental"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"][@case="locative"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="accusative"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="dative"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="genitive"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="instrumental"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="locative"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="accusative"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="dative"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="genitive"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="instrumental"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="locative"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=sq;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName
+locale=sq;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=sq;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=sq;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName
+locale=sq;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=sq;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=sq;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName
+locale=sq;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=sq;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/gender
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"][@case="accusative"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"][@case="dative"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"][@case="genitive"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"][@case="instrumental"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"][@case="locative"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"][@case="accusative"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"][@case="dative"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"][@case="genitive"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"][@case="instrumental"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"][@case="locative"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="accusative"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="dative"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="genitive"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="instrumental"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="locative"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="accusative"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="dative"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="genitive"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="instrumental"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="locative"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=uz;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName
+locale=uz;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=uz;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=uz;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName
+locale=uz;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=uz;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=uz;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName
+locale=uz;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=uz;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=vi;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName
+locale=vi;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=vi;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName
+locale=vi;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=vi;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName
+locale=vi;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=yo;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="duration-year"]/perUnitPattern
+locale=yo;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="duration-year"]/perUnitPattern
+locale=yo;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="duration-year"]/perUnitPattern
+locale=zh_Hant;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName
+locale=zh_Hant;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=zh_Hant;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName
+locale=zh_Hant;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=zh_Hant;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName
+locale=zh_Hant;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=zu;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="duration-year"]/displayName
+locale=zu;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="duration-year"]/perUnitPattern
+locale=zu;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="duration-year"]/unitPattern[@count="one"]
+locale=zu;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="duration-year"]/unitPattern[@count="other"]
+locale=zu;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName
+locale=zu;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=zu;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=zu;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="duration-year"]/displayName
+locale=zu;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="duration-year"]/perUnitPattern
+locale=zu;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="duration-year"]/unitPattern[@count="one"]
+locale=zu;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="duration-year"]/unitPattern[@count="other"]
+locale=zu;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName
+locale=zu;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=zu;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=zu;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="duration-year"]/displayName
+locale=zu;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="duration-year"]/perUnitPattern
+locale=zu;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="duration-year"]/unitPattern[@count="one"]
+locale=zu;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="duration-year"]/unitPattern[@count="other"]
+locale=zu;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName
+locale=zu;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=zu;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]

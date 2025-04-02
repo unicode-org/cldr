@@ -4,6 +4,9 @@
 const CLDR_TEXT_DEBUG = false;
 
 const strings = {
+  dash_needs_locale_and_coverage:
+    "Please choose a locale and a coverage level first.",
+
   downgradedDeletionSuccessHeader: "Success",
   downgradedDeletionSuccessDetail:
     "The imported votes for downgraded paths were successfully deleted",
@@ -485,6 +488,7 @@ const strings = {
   special_add_user: "Add a Survey Tool user",
   special_auto_import: "Import Old Winning Votes",
   special_bulk_close_posts: "Bulk Close Posts",
+  special_cla: "Contributor License Agreement",
   special_createAndLogin: "Create and Login",
   special_default: "Missing Page",
   special_dashboard: "Dashboard",
@@ -494,6 +498,7 @@ const strings = {
   special_forum: "Forum Posts",
   special_forum_participation: "Forum Participation",
   special_general: "General Info",
+  special_generate_vxml: "Generate VXML",
   special_list_emails: "List Email Addresses",
   special_list_users: "List Users",
   special_locales: "Locale List",
@@ -564,6 +569,7 @@ const strings = {
   notification_category_warning:
     "The Survey Tool detected a warning about the winning value.",
   notification_category_reports: "A Report has not been completed.",
+  notification_category_other: "All other values",
 
   progress_page: "Your voting in this page",
   progress_voter: "Your voting in this locale",

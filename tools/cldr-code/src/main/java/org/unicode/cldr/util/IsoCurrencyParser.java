@@ -224,8 +224,7 @@ public class IsoCurrencyParser {
         // to the ISO 4217 Maintenance agency attempting to get them removed. Once that happens,
         // we can remove these as well.
         // SVC - El Salvador Colon - not used anymore ( uses USD instead )
-        // ZWL - Last Zimbabwe Dollar - abandoned due to hyper-inflation.
-        Set<String> KNOWN_BAD_ISO_DATA_CODES = new TreeSet<>(Arrays.asList("SVC", "ZWL"));
+        Set<String> KNOWN_BAD_ISO_DATA_CODES = new TreeSet<>(Arrays.asList("SVC"));
         String country_code;
         String currency_name;
         String alphabetic_code;

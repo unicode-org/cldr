@@ -14,7 +14,6 @@ import com.ibm.icu.util.ULocale;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.io.UncheckedIOException;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
@@ -53,7 +52,7 @@ public class ShowPlurals {
         try {
             new ShowPlurals().printPlurals(english, null, pw, cldrFactory);
         } catch (IOException e) {
-            throw new UncheckedIOException(e);
+            throw new ICUUncheckedIOException(e);
         }
     }
 
@@ -169,7 +168,7 @@ public class ShowPlurals {
             if (localeFilter != null && !localeFilter.equals(locale) || locale.equals("root")) {
                 continue;
             }
-            final String name = english.getName(locale);
+            final String name = english.nameGetter().getNameFromIdentifier(locale);
             String canonicalLocale = canonicalizer.transform(locale);
             if (!locale.equals(canonicalLocale)) {
                 String redirect =

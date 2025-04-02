@@ -6,9 +6,9 @@ title: Unicode Extensions for BCP 47
 
 [IETF BCP 47 *Tags for Identifying Languages*](https://www.rfc-editor.org/info/bcp47) defines the language identifiers (tags) used on the Internet and in many standards. It has an extension mechanism that allows additional information to be included. The Unicode Consortium is the maintainer of the extension ‘u’ for Locale Extensions, as described in [rfc6067](https://datatracker.ietf.org/doc/html/rfc6067), and the extension 't' for Transformed Content, as described in [rfc6497](https://datatracker.ietf.org/doc/html/rfc6497).
 
-- The subtags available for use in the 'u' extension provide language tag extensions that provide for additional information needed for identifying locales. The 'u' subtags consist of a set of keys and associated values (types). For example, a locale identifier for British English with numeric collation has the following form: en-GB-**u-kn-true**    
+- The subtags available for use in the 'u' extension provide language tag extensions that provide for additional information needed for identifying locales. The 'u' subtags consist of a set of keys and associated values (types). For example, a locale identifier for British English with numeric collation has the following form: en-GB-**u-kn-true**
 - The subtags available for use in the 't' extension provide language tag extensions that provide for additional information needed for identifying transformed content, or a request to transform content in a certain way. For example, the language tag "ja-Kana-t-it" can be used as a content tag indicates Japanese Katakana transformed from Italian. It can also be used as a request for a given transformation.
-    
+
 
 For more details on the valid subtags for these extensions, their syntax, and their meanings, see LDML Section 3.7 [*Unicode BCP 47 Extension Data*](https://www.unicode.org/reports/tr35/#Locale_Extension_Key_and_Type_Data).
 
@@ -42,4 +42,3 @@ Each release has an associated data directory of the form "http://unicode.org/Pu
 
 For each release after CLDR 1.8, types introduced in that release are also marked in the data files by the XML attribute "since", such as in the following example: \<type name="adp" since="1.9"/\>
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

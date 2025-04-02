@@ -812,10 +812,6 @@ function locInfo(loc) {
   return locmap.getLocaleInfo(loc);
 }
 
-function setOverrideDir(dir) {
-  overridedir = dir;
-}
-
 /**
  * Set the dir and lang attributes for a node that represents
  * a CLDR value.
@@ -823,7 +819,7 @@ function setOverrideDir(dir) {
  * @param {Node} node DOM node
  * @param {String} loc locale
  */
-function setLang(node, loc) {
+function setLang(node, loc, overridedir) {
   var info = locInfo(loc);
 
   if (overridedir) {
@@ -979,7 +975,6 @@ export {
   localizeFlyover,
   parseStatusAction,
   setLang,
-  setOverrideDir,
   setShower,
   showLoader,
   testsToHtml,

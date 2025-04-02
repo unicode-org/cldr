@@ -22,13 +22,16 @@ import org.unicode.cldr.web.SurveyMain;
 import org.unicode.cldr.web.SurveyMain.Phase;
 import org.unicode.cldr.web.UserRegistry;
 import org.unicode.cldr.web.WebContext;
+import org.unicode.cldr.web.util.JSONException;
+import org.unicode.cldr.web.util.JSONObject;
+import org.unicode.cldr.web.util.JSONString;
 
 /**
  * This is a concrete implementation of CLDRConfig customized for SurveyTool usage. Its main
  * distinction is that it uses the "cldr.properties" file in the server root rather than environment
  * variables.
  */
-public class CLDRConfigImpl extends CLDRConfig {
+public class CLDRConfigImpl extends CLDRConfig implements JSONString {
     private static final String CODE_HASH_KEY = "CLDR_CODE_HASH";
     private static final String DATA_HASH_KEY = "CLDR_DATA_HASH";
 
@@ -434,6 +437,22 @@ public class CLDRConfigImpl extends CLDRConfig {
         } else {
             return null; // Setting is disallowed (silently?)
         }
+    }
+
+    @Override
+    public String toJSONString() throws JSONException {
+        return toJSONObject().toString();
+    }
+
+    public JSONObject toJSONObject() throws JSONException {
+        JSONObject ret = new JSONObject();
+
+        ret.put("CLDR_HEADER", ""); // always show these
+        for (Entry<Object, Object> e : survprops.entrySet()) {
+            ret.put(e.getKey().toString(), e.getValue().toString());
+        }
+
+        return ret;
     }
 
     @Override

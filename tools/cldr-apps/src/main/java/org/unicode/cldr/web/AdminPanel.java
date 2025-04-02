@@ -144,7 +144,7 @@ public class AdminPanel {
 
     private void showSettings(SurveyJSONWrapper r) throws JSONException {
         CLDRConfigImpl cci = (CLDRConfigImpl) (CLDRConfig.getInstance());
-        JSONObject all = new JSONObject().put("all", cci.toJSONObject());
+        JSONObject all = new JSONObject().put("all", cci);
         r.put("settings", all);
     }
 

@@ -52,8 +52,8 @@ public class TestSTFactory {
 
     @BeforeAll
     public static void setup() {
-        // if (TestAll.skipIfNoDb()) return;
-        // TestAll.setupTestDb();
+        if (TestAll.skipIfNoDb()) return;
+        TestAll.setupTestDb();
     }
 
     /** validate the phase and mode */

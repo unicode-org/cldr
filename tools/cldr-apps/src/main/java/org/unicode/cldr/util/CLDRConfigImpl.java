@@ -10,15 +10,11 @@ import java.io.PrintWriter;
 import java.net.URL;
 import java.util.Date;
 import java.util.Enumeration;
-import java.util.Map.Entry;
 import java.util.Properties;
 import java.util.jar.JarFile;
 import java.util.jar.Manifest;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.json.JSONString;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.web.CookieSession;
 import org.unicode.cldr.web.SurveyLog;
@@ -32,7 +28,7 @@ import org.unicode.cldr.web.WebContext;
  * distinction is that it uses the "cldr.properties" file in the server root rather than environment
  * variables.
  */
-public class CLDRConfigImpl extends CLDRConfig implements JSONString {
+public class CLDRConfigImpl extends CLDRConfig {
     private static final String CODE_HASH_KEY = "CLDR_CODE_HASH";
     private static final String DATA_HASH_KEY = "CLDR_DATA_HASH";
 
@@ -438,22 +434,6 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
         } else {
             return null; // Setting is disallowed (silently?)
         }
-    }
-
-    @Override
-    public String toJSONString() throws JSONException {
-        return toJSONObject().toString();
-    }
-
-    public JSONObject toJSONObject() throws JSONException {
-        JSONObject ret = new JSONObject();
-
-        ret.put("CLDR_HEADER", ""); // always show these
-        for (Entry<Object, Object> e : survprops.entrySet()) {
-            ret.put(e.getKey().toString(), e.getValue().toString());
-        }
-
-        return ret;
     }
 
     @Override

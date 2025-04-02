@@ -38,21 +38,24 @@ TODO: List all major types of tasks with their definitions and link to pages wit
 
 - [@CURR CLDR (vXX)](https://unicode-org.atlassian.net/issues/?filter=10438) - All issues targeting the current release regardless of status.
 - [@CLDR Known Issues](https://unicode-org.atlassian.net/issues/?filter=10237) - Current list of known issues.
+- [@CURR mine — v48, current phase+](https://unicode-org.atlassian.net/issues/?filter=10074) - CLDR tickets in review assigned to oneself for the current and future phases of the release in development.
 
 #### SBRS filters
 
 - [@labels=vetter-data](https://unicode-org.atlassian.net/issues/?filter=10735) - All issues that are expected to impact vetters during data submission.
+- [@SBRS My tickets Current Milestone (vXX)](https://unicode-org.atlassian.net/issues/?filter=10030) - CLDR SBRS tickets for the dev version assigned to oneself.
 
 #### CLDR alpha filters
 
 - [@CURR icu-data](https://unicode-org.atlassian.net/issues/?filter=10144) - Open tickets which impact data used by ICU, and therefore may be disruptive to ICU if changed too late.
 - [@alpha-critical](https://unicode-org.atlassian.net/issues/?filter=10245) - Open tickets which must be done in preparation for public alpha.
-- [@CURR - my open tickets not in brs, charts, docs-spec, site](https://unicode-org.atlassian.net/issues/?filter=10256) - Open tickets excluding docs, spec, charts and BRS tasks for current fix version. 
+- [@CURR - my open tickets not in brs, charts, docs-spec, site](https://unicode-org.atlassian.net/issues/?filter=10256) - Open tickets excluding docs, spec, charts and BRS tasks for current fix version.
+- [@CURR - open tickets not in brs, charts, site, docs-spec, test-data](https://unicode-org.atlassian.net/issues/?filter=10230) - Open tickets excluding brs, charts, site, docs-spec, test-data for current fix version.
 
 #### CLDR beta filters
 
 - [@beta-critical](https://unicode-org.atlassian.net/issues/?filter=10247) - Open tickets which must be done in preparation for data beta or public beta.
-
+- [@CURR docs-spec Accepted](https://unicode-org.atlassian.net/issues/?filter=10339) - All open CLDR spec tickets for the version currently in development.
 
 ## Contributor Message
 

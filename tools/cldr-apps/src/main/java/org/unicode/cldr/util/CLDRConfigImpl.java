@@ -448,8 +448,8 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
         JSONObject ret = new JSONObject();
 
         ret.put("CLDR_HEADER", ""); // always show these
-        for (Entry<Object, Object> e : survprops.entrySet()) {
-            ret.put(e.getKey().toString(), e.getValue().toString());
+        for (final Object k : survprops.keySet()) {
+            ret.put(k.toString(), survprops.get(k).toString());
         }
 
         return ret;

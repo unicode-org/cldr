@@ -18,10 +18,9 @@ import org.junit.jupiter.api.Test;
 import org.opentest4j.MultipleFailuresError;
 import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.test.CoverageLevel2;
-import org.unicode.cldr.testutil.TestWithKnownIssues;
 import org.unicode.cldr.tool.ToolConstants;
 
-public class TestCoverageLevel2 extends TestWithKnownIssues {
+public class TestCoverageLevel2 {
 
     final int ITERATIONS = 100000; // keep this low for normal testing
 
@@ -235,9 +234,12 @@ public class TestCoverageLevel2 extends TestWithKnownIssues {
                                             "coverageLevels.xml has level > %s for these %s: %s",
                                             failIfAbove, plural, notInCoverage.toString());
                     if (!notInCoverage.isEmpty() && plural.equals("variants")) {
-                        if (logKnownIssue("CLDR-18480", formatter.get())) {
-                            return;
-                        }
+                        // TODO CLDR-18481 need logKnownIssue in JUnit
+                        // if (logKnownIssue("CLDR-18480", formatter.get())) {
+                        //     return;
+                        // }
+                        System.err.println("CLDR-18400: known issue: " + formatter.get());
+                        return;
                     }
                     assertTrue(notInCoverage.isEmpty(), formatter);
                 });

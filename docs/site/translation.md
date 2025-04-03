@@ -102,6 +102,22 @@ Seven new emoji have been added (images above). These were released in Unicode 1
 
 As new locales reach Basic Coverage, their language names have been added for locales targeting modern coverage: Anii, Kuvi, …, Zhuang
 
+### DateTime formats
+
+There is a new “-relative” variant for [Date-Time Combined Formats](/translation/date-time/date-time-patterns#date-time-combined-formats).
+
+Before CLDR 48, there were two variants:
+- A “standard” variant for combining date with time, typically without literal text. In English this was “{1}, {0}”
+and resulted in combined date patterns like “March 20, 3:00 PM“, “March 20, 3:00-5:00 PM”, “tomorrow, 3:00 PM”, “tomorrow, 3:00-5:00 PM”, “in 2 days, 3:00 PM”
+- An “atTime” variant for combining date with a single time (not a range). For longer styles in English this was “{1} 'at' {0}”
+and resulted in combined date patterns like “March 20 at 3:00 PM“, “tomorrow at 3:00 PM”, “2 days ago at 3:00 PM”.
+
+However, in some languages the use of a relative date such as “tomorrow” or “2 days ago” required a different combining pattern than for a fixed date like “March 20”.
+So in CLDR 48 a new “relative” variant is introduced. This will be used (instead of the “atTime” variant) for the combination
+of a relative date and a single time. If you do not supply this, that combination will fall back to using the “standard” variant;
+in English that would produce “tomorrow, 3:00 PM”. If instead you want the same combining behavior for a relative date with a single time as for a
+fvfixed date with single time (as was the case in CLDR 47 and earlier), then for each length style copy the existing “atTime” form to the new “relative” form.
+
 ### Metazones
 
 There is a new metazone for Kazakhstan (which merged its two time zones).

@@ -298,7 +298,7 @@ If there is no “-atTime” variant, the standard variant will be used for this
 this “-relative” form may have a combining word linking the date and the time, for example “{1} 'at' {0}” to produce an English example like “tomorrow at 1:30 PM”.
 If there is no “-relative” variant, the standard variant will be used for this combination.
 
-_Before CLDR 42, there was only one variant for these. In English that variant used the “-atTime” style, as did many other locales. For CLDR 42, that  “-⁠atTime” data was moved to the “-⁠atTime” variants, and the standard data was initially extrapolated from the mediu or short formats without literal text._
+_Before CLDR 42, there was only one variant for these. In English that variant used the “-atTime” style, as did many other locales. For CLDR 42, that  “-⁠atTime” data was moved to the “-⁠atTime” variants, and the standard data was initially extrapolated from the medium or short formats without literal text._
 
 _In CLDR 48, the “-relative” variant is split out of the “-atTime” variant to allow a different combining form to be used when the date part is relative (“tomorrow”) instead of a fixed date (“March 20”).
 If you want the combination of a relative date and single time to be formatted as it was in CLDR 47, then you will need to copy the “-atTime” variant data to the new “-relative” variant._

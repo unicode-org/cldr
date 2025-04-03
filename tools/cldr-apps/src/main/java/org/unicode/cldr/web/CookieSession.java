@@ -22,6 +22,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.logging.Logger;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.StandardCodes;
@@ -936,5 +938,17 @@ public class CookieSession {
 
     public void setMessage(String s) {
         sessionMessage = s;
+    }
+
+    /* get any extra settings for the client as a JSONObject, or null */
+    public JSONObject getSettingsJSON() throws JSONException {
+        // right now, only user settings, but could expose others
+        if (user == null) return null;
+        final JSONObject userSettings = user.settings().getClientJSON();
+        if (userSettings != null) {
+            return new JSONObject().put("user", userSettings);
+        } else {
+            return null;
+        }
     }
 }

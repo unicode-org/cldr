@@ -26,9 +26,6 @@ import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.icu.dev.util.ElapsedTimer;
 import org.unicode.cldr.test.CheckCLDR;
@@ -37,17 +34,35 @@ import org.unicode.cldr.test.CheckForCopy;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.SubmissionLocales;
 import org.unicode.cldr.test.TestCache;
-import org.unicode.cldr.util.*;
+import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRConfigImpl;
+import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRInfo.CandidateInfo;
 import org.unicode.cldr.util.CLDRInfo.UserInfo;
+import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CoverageInfo;
+import org.unicode.cldr.util.DateTimeFormats;
+import org.unicode.cldr.util.DowngradePaths;
 import org.unicode.cldr.util.DtdData.IllegalByDtdException;
+import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.PathHeader;
+import org.unicode.cldr.util.SpecialLocales;
+import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.VoteType;
 import org.unicode.cldr.util.VoterReportStatus.ReportId;
+import org.unicode.cldr.util.XMLSource;
+import org.unicode.cldr.util.XMLUploader;
+import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.web.BallotBox.InvalidXPathException;
 import org.unicode.cldr.web.BallotBox.VoteNotAcceptedException;
 import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
 import org.unicode.cldr.web.SurveyException.ErrorCode;
 import org.unicode.cldr.web.UserRegistry.User;
 import org.unicode.cldr.web.WebContext.HTMLDirection;
+import org.unicode.cldr.web.util.JSONArray;
+import org.unicode.cldr.web.util.JSONException;
+import org.unicode.cldr.web.util.JSONObject;
 
 /**
  * Servlet implementation class SurveyAjax
@@ -1086,7 +1101,7 @@ public class SurveyAjax extends HttpServlet {
         }
     }
 
-    private static JSONObject createJSONLocMap(SurveyMain sm) throws JSONException {
+    static JSONObject createJSONLocMap(SurveyMain sm) throws JSONException {
         JSONObject locmap = new JSONObject();
         // locales will have info about each locale, including name
         JSONObject locales = new JSONObject();
@@ -1107,7 +1122,7 @@ public class SurveyAjax extends HttpServlet {
             locale.put("bcp47", loc.toLanguageTag());
 
             HTMLDirection dir = sm.getHTMLDirectionFor(loc);
-            if (!dir.toString().equals("ltr")) {
+            if (dir != HTMLDirection.LEFT_TO_RIGHT) {
                 locale.put("dir", dir);
             }
 
@@ -1398,7 +1413,7 @@ public class SurveyAjax extends HttpServlet {
             oldvotes.put("locale", locale);
             oldvotes.put("localeDisplayName", locale.getDisplayName());
             HTMLDirection dir = sm.getHTMLDirectionFor(locale);
-            oldvotes.put("dir", dir); // e.g., LEFT_TO_RIGHT
+            oldvotes.put("dir", dir); // e.g., "ltr"
             if (isSubmit) {
                 submitOldVotes(user, sm, locale, confirmList, newVotesTable, oldvotes);
             } else {

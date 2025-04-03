@@ -6,6 +6,7 @@
 
 package org.unicode.cldr.web;
 
+import com.google.gson.JsonSyntaxException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -22,9 +23,6 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.json.JSONString;
 import org.unicode.cldr.icu.dev.util.ElapsedTimer;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.util.CLDRConfig;
@@ -39,6 +37,9 @@ import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoteResolver.Level;
 import org.unicode.cldr.util.VoteResolver.VoterInfo;
 import org.unicode.cldr.util.VoterInfoList;
+import org.unicode.cldr.web.util.JSONException;
+import org.unicode.cldr.web.util.JSONObject;
+import org.unicode.cldr.web.util.JSONString;
 
 /**
  * This class represents the list of all registered users. It contains an inner class,
@@ -493,7 +494,7 @@ public class UserRegistry {
                     .put("orgName", vrOrg().getDisplayName())
                     .put("id", id)
                     .put("claSigned", claSigned)
-                    .toString();
+                    .toJSONString();
         }
 
         public boolean canGenerateVxml() {
@@ -612,7 +613,12 @@ public class UserRegistry {
             } else if (ClaSignature.CLA_ORGS.contains(getOrganization())) {
                 return new ClaSignature(getOrganization());
             }
-            return settings().getJson(ClaSignature.CLA_KEY, ClaSignature.class);
+            try {
+                return settings().getJson(ClaSignature.CLA_KEY, ClaSignature.class);
+            } catch (JsonSyntaxException jsx) {
+                logger.log(java.util.logging.Level.SEVERE, "Could not deserialize CLA", jsx);
+                return null;
+            }
         }
     }
 

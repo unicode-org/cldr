@@ -87,8 +87,6 @@ const timerSpeed = 15000; // 15 seconds
 const fastTimerSpeed = 3000; // 3 seconds
 let statusTimeout = null;
 
-let overridedir = null;
-
 /************************/
 
 function getDidUnbust() {
@@ -812,18 +810,15 @@ function locInfo(loc) {
   return locmap.getLocaleInfo(loc);
 }
 
-function setOverrideDir(dir) {
-  overridedir = dir;
-}
-
 /**
  * Set the dir and lang attributes for a node that represents
  * a CLDR value.
  * Also appends the 'cldrValue' class to the node.
- * @param {Node} node DOM node
- * @param {String} loc locale
+ * @param {Node} node DOM node to be set
+ * @param {String} loc locale (default locale if falsy)
+ * @param {String} overridedir override the directionality (not used if falsy)
  */
-function setLang(node, loc) {
+function setLang(node, loc, overridedir) {
   var info = locInfo(loc);
 
   if (overridedir) {
@@ -979,7 +974,6 @@ export {
   localizeFlyover,
   parseStatusAction,
   setLang,
-  setOverrideDir,
   setShower,
   showLoader,
   testsToHtml,

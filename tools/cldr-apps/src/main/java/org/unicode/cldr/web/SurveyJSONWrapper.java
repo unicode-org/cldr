@@ -7,9 +7,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
@@ -18,6 +15,9 @@ import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.web.SurveyException.ErrorCode;
+import org.unicode.cldr.web.util.JSONArray;
+import org.unicode.cldr.web.util.JSONException;
+import org.unicode.cldr.web.util.JSONObject;
 
 /**
  * Consolidate my JSONify functions here.
@@ -40,7 +40,7 @@ public final class SurveyJSONWrapper {
 
     @Override
     public String toString() {
-        return j.toString();
+        return j.toJSONString();
     }
 
     /**

@@ -27,6 +27,7 @@ import {
   Col,
   Collapse,
   CollapsePanel,
+  ConfigProvider,
   Form,
   Input,
   List,
@@ -67,6 +68,7 @@ function setup(app) {
   app.component("a-col", Col);
   app.component("a-collapse-panel", CollapsePanel);
   app.component("a-collapse", Collapse);
+  app.component("a-config-provider", ConfigProvider);
   app.component("a-form-item", Form.Item);
   app.component("a-form", Form);
   app.component("a-input-password", Input.Password);

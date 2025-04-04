@@ -92,7 +92,7 @@ describe("cldrSurvey.setLang", function () {
     expect(n.lang).to.equal("bn");
     expect(n.dir).to.equal("ltr");
   });
-  it("should be able to a node with ar language", () => {
+  it("should be able to set a node with ar language", () => {
     const n = document.createElement("span");
     expect(n).to.be.ok;
     cldrSurvey.setLang(n, "ar");
@@ -106,7 +106,7 @@ describe("cldrSurvey.setLang", function () {
     expect(n.lang).to.equal("bn");
     expect(n.dir).to.equal("ltr");
   });
-  it("should be able to a node with default ar language", () => {
+  it("should be able to set a node with default ar language", () => {
     cldrStatus.setCurrentLocale("ar");
     const n = document.createElement("span");
     expect(n).to.be.ok;
@@ -114,7 +114,7 @@ describe("cldrSurvey.setLang", function () {
     expect(n.lang).to.equal("ar");
     expect(n.dir).to.equal("rtl");
   });
-  it("should be able to a node with default bn language", () => {
+  it("should be able to set a node with default bn language", () => {
     cldrStatus.setCurrentLocale("bn");
     const n = document.createElement("span");
     expect(n).to.be.ok;
@@ -122,7 +122,7 @@ describe("cldrSurvey.setLang", function () {
     expect(n.lang).to.equal("bn");
     expect(n.dir).to.equal("ltr");
   });
-  it("should be able to a node with override ar language", () => {
+  it("should be able to set a node with override ar language", () => {
     cldrStatus.setCurrentLocale("ar");
     const n = document.createElement("span");
     expect(n).to.be.ok;
@@ -130,7 +130,7 @@ describe("cldrSurvey.setLang", function () {
     expect(n.lang).to.equal("ar");
     expect(n.dir).to.equal("ltr");
   });
-  it("should be able to a node with override bn language", () => {
+  it("should be able to set a node with override bn language", () => {
     cldrStatus.setCurrentLocale("bn");
     const n = document.createElement("span");
     expect(n).to.be.ok;

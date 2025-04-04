@@ -802,7 +802,7 @@ function appendExtraAttributes(container, theRow) {
  * @param loc optional
  * @returns locale bundle
  */
-function locInfo(loc) {
+export function locInfo(loc) {
   if (!loc) {
     loc = cldrStatus.getCurrentLocale();
   }

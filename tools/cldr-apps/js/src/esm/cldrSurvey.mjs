@@ -821,9 +821,17 @@ function locInfo(loc) {
 function setLang(node, loc, overridedir) {
   var info = locInfo(loc);
 
+  function assertValidDir(d) {
+    if (d != "rtl" && d != "ltr") {
+      throw Error(`${d} should be either ltr or rtl`);
+    }
+  }
+
   if (overridedir) {
+    assertValidDir(overridedir);
     node.dir = overridedir;
   } else if (info && info.dir) {
+    assertValidDir(info.dir);
     node.dir = info.dir;
   }
 

@@ -80,7 +80,12 @@ function startup() {
           .popover({
             html: true,
             placement: "top",
-            content: example.html(),
+            content: `<div class='d-example-popover' lang='${example.attr(
+              "lang"
+            )}' dir='${example.attr("dir")}'>
+                        ${example.html()}
+            </div>`,
+            dir: example.dir,
           })
           .popover("show");
       }

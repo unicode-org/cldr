@@ -10,6 +10,8 @@ const formTop = ref(0);
 const formIsVisible = ref(false);
 const inputToFocus = ref(null);
 
+const { dir } = defineProps(["dir"]);
+
 function setXpathStringId(id) {
   xpstrid.value = id;
 }
@@ -57,37 +59,37 @@ defineExpose({
 </script>
 
 <template>
-  <div>
-    <!-- If use a-button instead of button, form positioning fails -->
-    <button class="plus" type="button" @click="showModal">
-      ✚
-      <!-- U+271A HEAVY GREEK CROSS -->
-    </button>
-    <a-modal
-      v-model:visible="formIsVisible"
-      :closable="false"
-      :footer="null"
-      :style="{
-        position: 'sticky',
-        left: formLeft + 'px',
-        top: formTop + 'px',
-      }"
-      @ok="onSubmit"
-    >
+  <!-- If use a-button instead of button, form positioning fails -->
+  <button class="plus" type="button" @click="showModal">
+    ✚
+    <!-- U+271A HEAVY GREEK CROSS -->
+  </button>
+  <a-modal
+    v-model:visible="formIsVisible"
+    :closable="false"
+    :footer="null"
+    :style="{
+      position: 'sticky',
+      left: formLeft + 'px',
+      top: formTop + 'px',
+    }"
+    @ok="onSubmit"
+  >
+    <a-config-provider :direction="dir">
       <a-input
         v-model:value="newValue"
         placeholder="Add a translation"
         ref="inputToFocus"
         @keydown.enter="onSubmit"
       />
-      <div class="button-container">
-        <a-button @click="onEnglish">→English</a-button>
-        <a-button @click="onWinning">→Winning</a-button>
-        <a-button type="cancel" @click="onCancel">Cancel</a-button>
-        <a-button type="primary" @click="onSubmit">Submit</a-button>
-      </div>
-    </a-modal>
-  </div>
+    </a-config-provider>
+    <div class="button-container">
+      <a-button @click="onEnglish">→English</a-button>
+      <a-button @click="onWinning">→Winning</a-button>
+      <a-button type="cancel" @click="onCancel">Cancel</a-button>
+      <a-button type="primary" @click="onSubmit">Submit</a-button>
+    </div>
+  </a-modal>
 </template>
 
 <style scoped>

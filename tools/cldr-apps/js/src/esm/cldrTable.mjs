@@ -562,7 +562,7 @@ function reallyUpdateRow(tr, theRow) {
    */
   if (addCell) {
     cldrDom.removeAllChildNodes(addCell);
-    cldrAddValue.addButton(addCell, theRow.xpstrid);
+    cldrAddValue.addValueButton(addCell, theRow.xpstrid, theRow.dir);
   }
 
   /*
@@ -786,7 +786,7 @@ function updateRowEnglishComparisonCell(tr, theRow, cell) {
   }
   listen(null, tr, cell, null);
   if (cldrStatus.getPermissions()?.userIsTC) {
-    cldrAddAlt.addButton(cell, theRow.xpstrid);
+    cldrAddAlt.addAltButton(cell, theRow.xpstrid, theRow.dir);
   }
   cell.isSetup = true;
 }

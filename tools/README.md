@@ -1,6 +1,6 @@
-# CLDR Tools
+# CLDR `tools` directory
 
-This is a stub page, for further details see the top [README](../README.md#contributing) or <https://cldr.unicode.org>.
+This directory contains source code for internal tools for processing CLDR data.
 
 ## Spotless
 
@@ -14,4 +14,6 @@ Some IDEs can integrate the formatter via plugins, which can minimize the need t
 * VSCode: Follow the [instructions](https://code.visualstudio.com/docs/java/java-linting#_formatter) in "Applying formatter settings", but use the same `android-formatting.xml` link mentioned for Eclipse (ex: `"java.format.settings.url": "https://raw.githubusercontent.com/aosp-mirror/platform_development/master/ide/eclipse/android-formatting.xml",`).  Also use the profile name corresponding to that XML file: (ex: `"java.format.settings.profile": "Android",`).
 * IntelliJ: Use the [official plugin](https://plugins.jetbrains.com/plugin/8527-google-java-format/) for the formatter.
 
-(This documentation is from the Unicode project [https://github.com/unicode-org/unicodetools](unicodetools))
+## More information
+
+For copyright, terms of use, and further details, see the top [README](../README.md).

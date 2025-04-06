@@ -5252,8 +5252,8 @@ annotations.
 		</decimalFormats>
 		<rationalFormats numberSystem="latn">
 			<rationalPattern>{0}⁄{1}</rationalPattern>
-			<integerAndRationalPattern>{0}&#x202F;{1}</integerAndRationalPattern>
-			<integerAndRationalPattern alt="superSub">{0}&#x2060;{1}</integerAndRationalPattern>
+			<integerAndRationalPattern>{0} {1}</integerAndRationalPattern>
+			<integerAndRationalPattern alt="superSub">{0}⁠{1}</integerAndRationalPattern>
 			<rationalUsage>sometimes</rationalUsage>
 		</rationalFormats>
 		<scientificFormats numberSystem="latn">
@@ -7269,6 +7269,11 @@ annotations.
 				<unitPattern count="one">{0} item</unitPattern>
 				<unitPattern count="other">{0} items</unitPattern>
 			</unit>
+			<unit type="concentr-part">
+				<displayName>parts</displayName>
+				<unitPattern count="one">{0} part</unitPattern>
+				<unitPattern count="other">{0} parts</unitPattern>
+			</unit>
 			<unit type="concentr-part-per-1e6">
 				<displayName>parts per million</displayName>
 				<unitPattern count="one">{0} part per million</unitPattern>
@@ -7293,6 +7298,11 @@ annotations.
 				<displayName>moles</displayName>
 				<unitPattern count="one">{0} mole</unitPattern>
 				<unitPattern count="other">{0} moles</unitPattern>
+			</unit>
+			<unit type="concentr-ofglucose">
+				<displayName>of glucose</displayName>
+				<unitPattern count="one">{0} of glucose</unitPattern>
+				<unitPattern count="other">{0} of glucose</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>liters per kilometer</displayName>
@@ -7831,6 +7841,11 @@ annotations.
 				<unitPattern count="one">{0} millimeter of mercury</unitPattern>
 				<unitPattern count="other">{0} millimeters of mercury</unitPattern>
 			</unit>
+			<unit type="pressure-ofhg">
+				<displayName>of mercury</displayName>
+				<unitPattern count="one">{0} of mercury</unitPattern>
+				<unitPattern count="other">{0} of mercury</unitPattern>
+			</unit>
 			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>pounds-force per square inch</displayName>
 				<unitPattern count="one">{0} pound-force per square inch</unitPattern>
@@ -8009,6 +8024,11 @@ annotations.
 				<unitPattern count="one">{0} metric cup</unitPattern>
 				<unitPattern count="other">{0} metric cups</unitPattern>
 			</unit>
+			<unit type="volume-fluid-ounce-metric">
+				<displayName>metric fluid ounces</displayName>
+				<unitPattern count="one">{0} metric fluid ounce</unitPattern>
+				<unitPattern count="other">{0} metric fluid ounces</unitPattern>
+			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>acre-feet</displayName>
 				<unitPattern count="one">{0} acre-foot</unitPattern>
@@ -8041,10 +8061,20 @@ annotations.
 				<unitPattern count="one">{0} pint</unitPattern>
 				<unitPattern count="other">{0} pints</unitPattern>
 			</unit>
+			<unit type="volume-pint-imperial">
+				<displayName>pints Imperial</displayName>
+				<unitPattern count="one">{0} pint Imperial</unitPattern>
+				<unitPattern count="other">{0} pints Imperial</unitPattern>
+			</unit>
 			<unit type="volume-cup">
 				<displayName>cups</displayName>
 				<unitPattern count="one">{0} cup</unitPattern>
 				<unitPattern count="other">{0} cups</unitPattern>
+			</unit>
+			<unit type="volume-cup-imperial">
+				<displayName>cups Imperial</displayName>
+				<unitPattern count="one">{0} cup Imperial</unitPattern>
+				<unitPattern count="other">{0} cups Imperial</unitPattern>
 			</unit>
 			<unit type="volume-fluid-ounce">
 				<displayName>fluid ounces</displayName>
@@ -8106,15 +8136,200 @@ annotations.
 				<unitPattern count="one">{0} Imp. quart</unitPattern>
 				<unitPattern count="other">{0} Imp. quarts</unitPattern>
 			</unit>
+			<unit type="angle-steradian">
+				<displayName>steradians</displayName>
+				<unitPattern count="one">{0} steradian</unitPattern>
+				<unitPattern count="other">{0} steradians</unitPattern>
+			</unit>
+			<unit type="concentr-katal">
+				<displayName>katals</displayName>
+				<unitPattern count="one">{0} katal</unitPattern>
+				<unitPattern count="other">{0} katals</unitPattern>
+			</unit>
+			<unit type="electric-coulomb">
+				<displayName>coulombs</displayName>
+				<unitPattern count="one">{0} coulomb</unitPattern>
+				<unitPattern count="other">{0} coulombs</unitPattern>
+			</unit>
+			<unit type="electric-farad">
+				<displayName>farads</displayName>
+				<unitPattern count="one">{0} farad</unitPattern>
+				<unitPattern count="other">{0} farads</unitPattern>
+			</unit>
+			<unit type="electric-henry">
+				<displayName>henrys</displayName>
+				<unitPattern count="one">{0} henry</unitPattern>
+				<unitPattern count="other">{0} henrys</unitPattern>
+			</unit>
+			<unit type="electric-siemens">
+				<displayName>siemens</displayName>
+				<unitPattern count="one">{0} siemens</unitPattern>
+				<unitPattern count="other">{0} siemens</unitPattern>
+			</unit>
+			<unit type="energy-calorie-it">
+				<displayName>calories [IT]</displayName>
+				<unitPattern count="one">{0} calorie [IT]</unitPattern>
+				<unitPattern count="other">{0} calories [IT]</unitPattern>
+			</unit>
+			<unit type="energy-british-thermal-unit-it">
+				<displayName>British thermal units [IT]</displayName>
+				<unitPattern count="one">{0} British thermal unit [IT]</unitPattern>
+				<unitPattern count="other">{0} British thermal units [IT]</unitPattern>
+			</unit>
+			<unit type="energy-becquerel">
+				<displayName>becquerels</displayName>
+				<unitPattern count="one">{0} becquerel</unitPattern>
+				<unitPattern count="other">{0} becquerels</unitPattern>
+			</unit>
+			<unit type="energy-sievert">
+				<displayName>sieverts</displayName>
+				<unitPattern count="one">{0} sievert</unitPattern>
+				<unitPattern count="other">{0} sieverts</unitPattern>
+			</unit>
+			<unit type="energy-gray">
+				<displayName>grays</displayName>
+				<unitPattern count="one">{0} gray</unitPattern>
+				<unitPattern count="other">{0} grays</unitPattern>
+			</unit>
+			<unit type="force-kilogram-force">
+				<displayName>kilograms-force</displayName>
+				<unitPattern count="one">{0} kilogram-force</unitPattern>
+				<unitPattern count="other">{0} kilograms-force</unitPattern>
+			</unit>
+			<unit type="length-rod">
+				<displayName>rods</displayName>
+				<unitPattern count="one">{0} rod</unitPattern>
+				<unitPattern count="other">{0} rods</unitPattern>
+			</unit>
+			<unit type="length-chain">
+				<displayName>chains</displayName>
+				<unitPattern count="one">{0} chain</unitPattern>
+				<unitPattern count="other">{0} chains</unitPattern>
+			</unit>
+			<unit type="magnetic-tesla">
+				<displayName>teslas</displayName>
+				<unitPattern count="one">{0} tesla</unitPattern>
+				<unitPattern count="other">{0} teslas</unitPattern>
+			</unit>
+			<unit type="magnetic-weber">
+				<displayName>webers</displayName>
+				<unitPattern count="one">{0} weber</unitPattern>
+				<unitPattern count="other">{0} webers</unitPattern>
+			</unit>
+			<unit type="temperature-rankine">
+				<displayName>rankines</displayName>
+				<unitPattern count="one">{0} rankine</unitPattern>
+				<unitPattern count="other">{0} rankines</unitPattern>
+			</unit>
+			<unit type="duration-fortnight">
+				<displayName>fortnights</displayName>
+				<unitPattern count="one">{0} fortnight</unitPattern>
+				<unitPattern count="other">{0} fortnights</unitPattern>
+			</unit>
+			<unit type="mass-slug">
+				<displayName>slugs</displayName>
+				<unitPattern count="one">{0} slug</unitPattern>
+				<unitPattern count="other">{0} slugs</unitPattern>
+			</unit>
 			<unit type="pressure-gasoline-energy-density">
 				<displayName>of gasoline equivalent</displayName>
 				<unitPattern count="one">{0} of gasoline equivalent</unitPattern>
 				<unitPattern count="other">{0} of gasoline equivalent</unitPattern>
 			</unit>
+			<unit type="length-rin">
+				<displayName>rin [JP]</displayName>
+				<unitPattern count="one">{0} rin [JP]</unitPattern>
+				<unitPattern count="other">{0} rin [JP]</unitPattern>
+			</unit>
+			<unit type="length-sun">
+				<displayName>sun [JP]</displayName>
+				<unitPattern count="one">{0} sun [JP]</unitPattern>
+				<unitPattern count="other">{0} sun [JP]</unitPattern>
+			</unit>
+			<unit type="length-shaku-length">
+				<displayName>shaku [JP]</displayName>
+				<unitPattern count="one">{0} shaku [JP]</unitPattern>
+				<unitPattern count="other">{0} shaku [JP]</unitPattern>
+			</unit>
+			<unit type="length-shaku-cloth">
+				<displayName>shaku [cloth, JP]</displayName>
+				<unitPattern count="one">{0} shaku [cloth, JP]</unitPattern>
+				<unitPattern count="other">{0} shaku [cloth, JP]</unitPattern>
+			</unit>
+			<unit type="length-ken">
+				<displayName>ken [JP]</displayName>
+				<unitPattern count="one">{0} ken [JP]</unitPattern>
+				<unitPattern count="other">{0} ken [JP]</unitPattern>
+			</unit>
+			<unit type="length-jo-jp">
+				<displayName>jo [JP]</displayName>
+				<unitPattern count="one">{0} jo [JP]</unitPattern>
+				<unitPattern count="other">{0} jo [JP]</unitPattern>
+			</unit>
+			<unit type="length-ri-jp">
+				<displayName>ri [JP]</displayName>
+				<unitPattern count="one">{0} ri [JP]</unitPattern>
+				<unitPattern count="other">{0} ri [JP]</unitPattern>
+			</unit>
+			<unit type="area-bu-jp">
+				<displayName>bu [JP]</displayName>
+				<unitPattern count="one">{0} bu [JP]</unitPattern>
+				<unitPattern count="other">{0} bu [JP]</unitPattern>
+			</unit>
+			<unit type="area-se-jp">
+				<displayName>se [JP]</displayName>
+				<unitPattern count="one">{0} se [JP]</unitPattern>
+				<unitPattern count="other">{0} se [JP]</unitPattern>
+			</unit>
+			<unit type="area-cho">
+				<displayName>cho [JP]</displayName>
+				<unitPattern count="one">{0} cho [JP]</unitPattern>
+				<unitPattern count="other">{0} cho [JP]</unitPattern>
+			</unit>
+			<unit type="volume-kosaji">
+				<displayName>kosaji [JP]</displayName>
+				<unitPattern count="one">{0} kosaji [JP]</unitPattern>
+				<unitPattern count="other">{0} kosaji [JP]</unitPattern>
+			</unit>
+			<unit type="volume-osaji">
+				<displayName>osaji [JP]</displayName>
+				<unitPattern count="one">{0} osaji [JP]</unitPattern>
+				<unitPattern count="other">{0} osaji [JP]</unitPattern>
+			</unit>
+			<unit type="volume-cup-jp">
+				<displayName>cup [JP]</displayName>
+				<unitPattern count="one">{0} cup [JP]</unitPattern>
+				<unitPattern count="other">{0} cup [JP]</unitPattern>
+			</unit>
+			<unit type="volume-shaku">
+				<displayName>shaku [volume, JP]</displayName>
+				<unitPattern count="one">{0} shaku [volume, JP]</unitPattern>
+				<unitPattern count="other">{0} shaku [volume, JP]</unitPattern>
+			</unit>
+			<unit type="volume-sai">
+				<displayName>sai [JP]</displayName>
+				<unitPattern count="one">{0} sai [JP]</unitPattern>
+				<unitPattern count="other">{0} sai [JP]</unitPattern>
+			</unit>
+			<unit type="volume-to-jp">
+				<displayName>to [JP]</displayName>
+				<unitPattern count="one">{0} to [JP]</unitPattern>
+				<unitPattern count="other">{0} to [JP]</unitPattern>
+			</unit>
+			<unit type="volume-koku">
+				<displayName>koku [JP]</displayName>
+				<unitPattern count="one">{0} koku [JP]</unitPattern>
+				<unitPattern count="other">{0} koku [JP]</unitPattern>
+			</unit>
 			<unit type="speed-light-speed">
 				<displayName>light</displayName>
 				<unitPattern count="one">{0} light</unitPattern>
 				<unitPattern count="other">{0} light</unitPattern>
+			</unit>
+			<unit type="mass-fun">
+				<displayName>fun [JP]</displayName>
+				<unitPattern count="one">{0} fun [JP]</unitPattern>
+				<unitPattern count="other">{0} fun [JP]</unitPattern>
 			</unit>
 			<unit type="concentr-part-per-1e9">
 				<displayName>parts per billion</displayName>
@@ -8127,49 +8342,6 @@ annotations.
 				<unitPattern count="other">{0} nights</unitPattern>
 				<perUnitPattern>{0} per night</perUnitPattern>
 			</unit>
-<unit type='concentr-katal'><displayName>katals</displayName><unitPattern count='one'>{0} katal</unitPattern><unitPattern count='other'>{0} katals</unitPattern></unit>
-<unit type='concentr-ofglucose'><displayName>of glucose</displayName><unitPattern count='one'>{0} of glucose</unitPattern><unitPattern count='other'>{0} of glucose</unitPattern></unit>
-<unit type='duration-fortnight'><displayName>fortnights</displayName><unitPattern count='one'>{0} fortnight</unitPattern><unitPattern count='other'>{0} fortnights</unitPattern></unit>
-<unit type='electric-farad'><displayName>farads</displayName><unitPattern count='one'>{0} farad</unitPattern><unitPattern count='other'>{0} farads</unitPattern></unit>
-<unit type='electric-coulomb'><displayName>coulombs</displayName><unitPattern count='one'>{0} coulomb</unitPattern><unitPattern count='other'>{0} coulombs</unitPattern></unit>
-<unit type='electric-siemens'><displayName>siemens</displayName><unitPattern count='one'>{0} siemens</unitPattern><unitPattern count='other'>{0} siemens</unitPattern></unit>
-<unit type='electric-henry'><displayName>henrys</displayName><unitPattern count='one'>{0} henry</unitPattern><unitPattern count='other'>{0} henrys</unitPattern></unit>
-<unit type='energy-british-thermal-unit-it'><displayName>British thermal units [IT]</displayName><unitPattern count='one'>{0} British thermal unit [IT]</unitPattern><unitPattern count='other'>{0} British thermal units [IT]</unitPattern></unit>
-<unit type='energy-calorie-it'><displayName>calories [IT]</displayName><unitPattern count='one'>{0} calorie [IT]</unitPattern><unitPattern count='other'>{0} calories [IT]</unitPattern></unit>
-<unit type='force-kilogram-force'><displayName>kilograms-force</displayName><unitPattern count='one'>{0} kilogram-force</unitPattern><unitPattern count='other'>{0} kilograms-force</unitPattern></unit>
-<unit type='energy-gray'><displayName>grays</displayName><unitPattern count='one'>{0} gray</unitPattern><unitPattern count='other'>{0} grays</unitPattern></unit>
-<unit type='energy-sievert'><displayName>sieverts</displayName><unitPattern count='one'>{0} sievert</unitPattern><unitPattern count='other'>{0} sieverts</unitPattern></unit>
-<unit type='length-chain'><displayName>chains</displayName><unitPattern count='one'>{0} chain</unitPattern><unitPattern count='other'>{0} chains</unitPattern></unit>
-<unit type='length-rod'><displayName>rods</displayName><unitPattern count='one'>{0} rod</unitPattern><unitPattern count='other'>{0} rods</unitPattern></unit>
-<unit type='magnetic-weber'><displayName>webers</displayName><unitPattern count='one'>{0} weber</unitPattern><unitPattern count='other'>{0} webers</unitPattern></unit>
-<unit type='magnetic-tesla'><displayName>teslas</displayName><unitPattern count='one'>{0} tesla</unitPattern><unitPattern count='other'>{0} teslas</unitPattern></unit>
-<unit type='mass-slug'><displayName>slugs</displayName><unitPattern count='one'>{0} slug</unitPattern><unitPattern count='other'>{0} slugs</unitPattern></unit>
-<unit type='concentr-part'><displayName>parts</displayName><unitPattern count='one'>{0} part</unitPattern><unitPattern count='other'>{0} parts</unitPattern></unit>
-<unit type='pressure-ofhg'><displayName>of mercury</displayName><unitPattern count='one'>{0} of mercury</unitPattern><unitPattern count='other'>{0} of mercury</unitPattern></unit>
-<unit type='energy-becquerel'><displayName>becquerels</displayName><unitPattern count='one'>{0} becquerel</unitPattern><unitPattern count='other'>{0} becquerels</unitPattern></unit>
-<unit type='angle-steradian'><displayName>steradians</displayName><unitPattern count='one'>{0} steradian</unitPattern><unitPattern count='other'>{0} steradians</unitPattern></unit>
-<unit type='temperature-rankine'><displayName>rankines</displayName><unitPattern count='one'>{0} rankine</unitPattern><unitPattern count='other'>{0} rankines</unitPattern></unit>
-<unit type='volume-pint-imperial'><displayName>pints Imperial</displayName><unitPattern count='one'>{0} pint Imperial</unitPattern><unitPattern count='other'>{0} pints Imperial</unitPattern></unit>
-<unit type='volume-cup-imperial'><displayName>cups Imperial</displayName><unitPattern count='one'>{0} cup Imperial</unitPattern><unitPattern count='other'>{0} cups Imperial</unitPattern></unit>
-<unit type='volume-fluid-ounce-metric'><displayName>metric fluid ounces</displayName><unitPattern count='one'>{0} metric fluid ounce</unitPattern><unitPattern count='other'>{0} metric fluid ounces</unitPattern></unit>
-<unit type='area-bu-jp'><displayName>bu [JP]</displayName><unitPattern count='one'>{0} bu [JP]</unitPattern><unitPattern count='other'>{0} bu [JP]</unitPattern></unit>
-<unit type='area-cho'><displayName>cho [JP]</displayName><unitPattern count='one'>{0} cho [JP]</unitPattern><unitPattern count='other'>{0} cho [JP]</unitPattern></unit>
-<unit type='area-se-jp'><displayName>se [JP]</displayName><unitPattern count='one'>{0} se [JP]</unitPattern><unitPattern count='other'>{0} se [JP]</unitPattern></unit>
-<unit type='length-jo-jp'><displayName>jo [JP]</displayName><unitPattern count='one'>{0} jo [JP]</unitPattern><unitPattern count='other'>{0} jo [JP]</unitPattern></unit>
-<unit type='length-ken'><displayName>ken [JP]</displayName><unitPattern count='one'>{0} ken [JP]</unitPattern><unitPattern count='other'>{0} ken [JP]</unitPattern></unit>
-<unit type='length-ri-jp'><displayName>ri [JP]</displayName><unitPattern count='one'>{0} ri [JP]</unitPattern><unitPattern count='other'>{0} ri [JP]</unitPattern></unit>
-<unit type='length-rin'><displayName>rin [JP]</displayName><unitPattern count='one'>{0} rin [JP]</unitPattern><unitPattern count='other'>{0} rin [JP]</unitPattern></unit>
-<unit type='length-shaku-cloth'><displayName>shaku [cloth, JP]</displayName><unitPattern count='one'>{0} shaku [cloth, JP]</unitPattern><unitPattern count='other'>{0} shaku [cloth, JP]</unitPattern></unit>
-<unit type='length-shaku-length'><displayName>shaku [JP]</displayName><unitPattern count='one'>{0} shaku [JP]</unitPattern><unitPattern count='other'>{0} shaku [JP]</unitPattern></unit>
-<unit type='length-sun'><displayName>sun [JP]</displayName><unitPattern count='one'>{0} sun [JP]</unitPattern><unitPattern count='other'>{0} sun [JP]</unitPattern></unit>
-<unit type='mass-fun'><displayName>fun [JP]</displayName><unitPattern count='one'>{0} fun [JP]</unitPattern><unitPattern count='other'>{0} fun [JP]</unitPattern></unit>
-<unit type='volume-cup-jp'><displayName>cup [JP]</displayName><unitPattern count='one'>{0} cup [JP]</unitPattern><unitPattern count='other'>{0} cup [JP]</unitPattern></unit>
-<unit type='volume-koku'><displayName>koku [JP]</displayName><unitPattern count='one'>{0} koku [JP]</unitPattern><unitPattern count='other'>{0} koku [JP]</unitPattern></unit>
-<unit type='volume-kosaji'><displayName>kosaji [JP]</displayName><unitPattern count='one'>{0} kosaji [JP]</unitPattern><unitPattern count='other'>{0} kosaji [JP]</unitPattern></unit>
-<unit type='volume-osaji'><displayName>osaji [JP]</displayName><unitPattern count='one'>{0} osaji [JP]</unitPattern><unitPattern count='other'>{0} osaji [JP]</unitPattern></unit>
-<unit type='volume-sai'><displayName>sai [JP]</displayName><unitPattern count='one'>{0} sai [JP]</unitPattern><unitPattern count='other'>{0} sai [JP]</unitPattern></unit>
-<unit type='volume-shaku'><displayName>shaku [volume, JP]</displayName><unitPattern count='one'>{0} shaku [volume, JP]</unitPattern><unitPattern count='other'>{0} shaku [volume, JP]</unitPattern></unit>
-<unit type='volume-to-jp'><displayName>to [JP]</displayName><unitPattern count='one'>{0} to [JP]</unitPattern><unitPattern count='other'>{0} to [JP]</unitPattern></unit>
 			<coordinateUnit>
 				<displayName>cardinal direction</displayName>
 				<coordinateUnitPattern type="east">{0} east</coordinateUnitPattern>
@@ -8401,6 +8573,11 @@ annotations.
 				<unitPattern count="one">{0} item</unitPattern>
 				<unitPattern count="other">{0} items</unitPattern>
 			</unit>
+			<unit type="concentr-part">
+				<displayName>part</displayName>
+				<unitPattern count="one">{0} part</unitPattern>
+				<unitPattern count="other">{0} part</unitPattern>
+			</unit>
 			<unit type="concentr-part-per-1e6">
 				<displayName>parts/million</displayName>
 				<unitPattern count="one">{0} ppm</unitPattern>
@@ -8425,6 +8602,11 @@ annotations.
 				<displayName>mole</displayName>
 				<unitPattern count="one">{0} mol</unitPattern>
 				<unitPattern count="other">{0} mol</unitPattern>
+			</unit>
+			<unit type="concentr-ofglucose">
+				<displayName>Glc</displayName>
+				<unitPattern count="one">{0} Glc</unitPattern>
+				<unitPattern count="other">{0} Glc</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>liters/km</displayName>
@@ -8963,6 +9145,11 @@ annotations.
 				<unitPattern count="one">{0} mmHg</unitPattern>
 				<unitPattern count="other">{0} mmHg</unitPattern>
 			</unit>
+			<unit type="pressure-ofhg">
+				<displayName>of Hg</displayName>
+				<unitPattern count="one">{0} of Hg</unitPattern>
+				<unitPattern count="other">{0} of Hg</unitPattern>
+			</unit>
 			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>psi</displayName>
 				<unitPattern count="one">{0} psi</unitPattern>
@@ -9141,6 +9328,11 @@ annotations.
 				<unitPattern count="one">{0} mc</unitPattern>
 				<unitPattern count="other">{0} mc</unitPattern>
 			</unit>
+			<unit type="volume-fluid-ounce-metric">
+				<displayName>fl oz m.</displayName>
+				<unitPattern count="one">{0} fl oz m.</unitPattern>
+				<unitPattern count="other">{0} fl oz m.</unitPattern>
+			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>acre ft</displayName>
 				<unitPattern count="one">{0} ac ft</unitPattern>
@@ -9172,10 +9364,20 @@ annotations.
 				<unitPattern count="one">{0} pt</unitPattern>
 				<unitPattern count="other">{0} pt</unitPattern>
 			</unit>
+			<unit type="volume-pint-imperial">
+				<displayName>pt Imp.</displayName>
+				<unitPattern count="one">{0} pt Imp.</unitPattern>
+				<unitPattern count="other">{0} pt Imp.</unitPattern>
+			</unit>
 			<unit type="volume-cup">
 				<displayName>cups</displayName>
 				<unitPattern count="one">{0} c</unitPattern>
 				<unitPattern count="other">{0} c</unitPattern>
+			</unit>
+			<unit type="volume-cup-imperial">
+				<displayName>cup Imp</displayName>
+				<unitPattern count="one">{0} cup Imp.</unitPattern>
+				<unitPattern count="other">{0} cup Imp.</unitPattern>
 			</unit>
 			<unit type="volume-fluid-ounce">
 				<displayName>fl oz</displayName>
@@ -9237,15 +9439,200 @@ annotations.
 				<unitPattern count="one">{0} qt-Imp.</unitPattern>
 				<unitPattern count="other">{0} qt-Imp.</unitPattern>
 			</unit>
+			<unit type="angle-steradian">
+				<displayName>sr</displayName>
+				<unitPattern count="one">{0} sr</unitPattern>
+				<unitPattern count="other">{0} sr</unitPattern>
+			</unit>
+			<unit type="concentr-katal">
+				<displayName>kat</displayName>
+				<unitPattern count="one">{0} kat</unitPattern>
+				<unitPattern count="other">{0} kat</unitPattern>
+			</unit>
+			<unit type="electric-coulomb">
+				<displayName>C</displayName>
+				<unitPattern count="one">{0} C</unitPattern>
+				<unitPattern count="other">{0} C</unitPattern>
+			</unit>
+			<unit type="electric-farad">
+				<displayName>F</displayName>
+				<unitPattern count="one">{0} F</unitPattern>
+				<unitPattern count="other">{0} F</unitPattern>
+			</unit>
+			<unit type="electric-henry">
+				<displayName>H</displayName>
+				<unitPattern count="one">{0} H</unitPattern>
+				<unitPattern count="other">{0} H</unitPattern>
+			</unit>
+			<unit type="electric-siemens">
+				<displayName>S</displayName>
+				<unitPattern count="one">{0} S</unitPattern>
+				<unitPattern count="other">{0} S</unitPattern>
+			</unit>
+			<unit type="energy-calorie-it">
+				<displayName>cal-IT</displayName>
+				<unitPattern count="one">{0} cal-IT</unitPattern>
+				<unitPattern count="other">{0} cal-IT</unitPattern>
+			</unit>
+			<unit type="energy-british-thermal-unit-it">
+				<displayName>BTU-IT</displayName>
+				<unitPattern count="one">{0} BTU-IT</unitPattern>
+				<unitPattern count="other">{0} BT-IT</unitPattern>
+			</unit>
+			<unit type="energy-becquerel">
+				<displayName>Bq</displayName>
+				<unitPattern count="one">{0} Bq</unitPattern>
+				<unitPattern count="other">{0} Bq</unitPattern>
+			</unit>
+			<unit type="energy-sievert">
+				<displayName>Sv</displayName>
+				<unitPattern count="one">{0} Sv</unitPattern>
+				<unitPattern count="other">{0} Sv</unitPattern>
+			</unit>
+			<unit type="energy-gray">
+				<displayName>Gy</displayName>
+				<unitPattern count="one">{0} Gy</unitPattern>
+				<unitPattern count="other">{0} Gy</unitPattern>
+			</unit>
+			<unit type="force-kilogram-force">
+				<displayName>kgf</displayName>
+				<unitPattern count="one">{0} kgf</unitPattern>
+				<unitPattern count="other">{0} kgf</unitPattern>
+			</unit>
+			<unit type="length-rod">
+				<displayName>rd</displayName>
+				<unitPattern count="one">{0} rd</unitPattern>
+				<unitPattern count="other">{0} rd</unitPattern>
+			</unit>
+			<unit type="length-chain">
+				<displayName>ch</displayName>
+				<unitPattern count="one">{0} ch</unitPattern>
+				<unitPattern count="other">{0} ch</unitPattern>
+			</unit>
+			<unit type="magnetic-tesla">
+				<displayName>T</displayName>
+				<unitPattern count="one">{0} T</unitPattern>
+				<unitPattern count="other">{0} T</unitPattern>
+			</unit>
+			<unit type="magnetic-weber">
+				<displayName>Wb</displayName>
+				<unitPattern count="one">{0} Wb</unitPattern>
+				<unitPattern count="other">{0} Wb</unitPattern>
+			</unit>
+			<unit type="temperature-rankine">
+				<displayName>°R</displayName>
+				<unitPattern count="one">{0} °R</unitPattern>
+				<unitPattern count="other">{0} °R</unitPattern>
+			</unit>
+			<unit type="duration-fortnight">
+				<displayName>fw</displayName>
+				<unitPattern count="one">{0} fw</unitPattern>
+				<unitPattern count="other">{0} fw</unitPattern>
+			</unit>
+			<unit type="mass-slug">
+				<displayName>slug</displayName>
+				<unitPattern count="one">{0} slug</unitPattern>
+				<unitPattern count="other">{0} slug</unitPattern>
+			</unit>
 			<unit type="pressure-gasoline-energy-density">
 				<displayName>gas-equiv</displayName>
 				<unitPattern count="one">{0} gas-equiv</unitPattern>
 				<unitPattern count="other">{0} gas-equiv</unitPattern>
 			</unit>
+			<unit type="length-rin">
+				<displayName>rin [JP]</displayName>
+				<unitPattern count="one">{0} rin [JP]</unitPattern>
+				<unitPattern count="other">{0} rin [JP]</unitPattern>
+			</unit>
+			<unit type="length-sun">
+				<displayName>sun [JP]</displayName>
+				<unitPattern count="one">{0} sun [JP]</unitPattern>
+				<unitPattern count="other">{0} sun [JP]</unitPattern>
+			</unit>
+			<unit type="length-shaku-length">
+				<displayName>shaku [JP]</displayName>
+				<unitPattern count="one">{0} shaku [JP]</unitPattern>
+				<unitPattern count="other">{0} shaku [JP]</unitPattern>
+			</unit>
+			<unit type="length-shaku-cloth">
+				<displayName>shaku [cloth, JP]</displayName>
+				<unitPattern count="one">{0} shaku [cloth, JP]</unitPattern>
+				<unitPattern count="other">{0} shaku [cloth, JP]</unitPattern>
+			</unit>
+			<unit type="length-ken">
+				<displayName>ken [JP]</displayName>
+				<unitPattern count="one">{0} ken [JP]</unitPattern>
+				<unitPattern count="other">{0} ken [JP]</unitPattern>
+			</unit>
+			<unit type="length-jo-jp">
+				<displayName>jo [JP]</displayName>
+				<unitPattern count="one">{0} jo [JP]</unitPattern>
+				<unitPattern count="other">{0} jo [JP]</unitPattern>
+			</unit>
+			<unit type="length-ri-jp">
+				<displayName>ri [JP]</displayName>
+				<unitPattern count="one">{0} ri [JP]</unitPattern>
+				<unitPattern count="other">{0} ri [JP]</unitPattern>
+			</unit>
+			<unit type="area-bu-jp">
+				<displayName>bu [JP]</displayName>
+				<unitPattern count="one">{0} bu [JP]</unitPattern>
+				<unitPattern count="other">{0} bu [JP]</unitPattern>
+			</unit>
+			<unit type="area-se-jp">
+				<displayName>se [JP]</displayName>
+				<unitPattern count="one">{0} se [JP]</unitPattern>
+				<unitPattern count="other">{0} se [JP]</unitPattern>
+			</unit>
+			<unit type="area-cho">
+				<displayName>cho [JP]</displayName>
+				<unitPattern count="one">{0} cho [JP]</unitPattern>
+				<unitPattern count="other">{0} cho [JP]</unitPattern>
+			</unit>
+			<unit type="volume-kosaji">
+				<displayName>kosaji [JP]</displayName>
+				<unitPattern count="one">{0} kosaji [JP]</unitPattern>
+				<unitPattern count="other">{0} kosaji [JP]</unitPattern>
+			</unit>
+			<unit type="volume-osaji">
+				<displayName>osaji [JP]</displayName>
+				<unitPattern count="one">{0} osaji [JP]</unitPattern>
+				<unitPattern count="other">{0} osaji [JP]</unitPattern>
+			</unit>
+			<unit type="volume-cup-jp">
+				<displayName>cup [JP]</displayName>
+				<unitPattern count="one">{0} cup [JP]</unitPattern>
+				<unitPattern count="other">{0} cup [JP]</unitPattern>
+			</unit>
+			<unit type="volume-shaku">
+				<displayName>shaku [vol, JP]</displayName>
+				<unitPattern count="one">{0} shaku [vol, JP]</unitPattern>
+				<unitPattern count="other">{0} shaku [vol, JP]</unitPattern>
+			</unit>
+			<unit type="volume-sai">
+				<displayName>sai [JP]</displayName>
+				<unitPattern count="one">{0} sai [JP]</unitPattern>
+				<unitPattern count="other">{0} sai [JP]</unitPattern>
+			</unit>
+			<unit type="volume-to-jp">
+				<displayName>to [JP]</displayName>
+				<unitPattern count="one">{0} to [JP]</unitPattern>
+				<unitPattern count="other">{0} to [JP]</unitPattern>
+			</unit>
+			<unit type="volume-koku">
+				<displayName>koku [JP]</displayName>
+				<unitPattern count="one">{0} koku [JP]</unitPattern>
+				<unitPattern count="other">{0} koku [JP]</unitPattern>
+			</unit>
 			<unit type="speed-light-speed">
 				<displayName>light</displayName>
 				<unitPattern count="one">{0} light</unitPattern>
 				<unitPattern count="other">{0} light</unitPattern>
+			</unit>
+			<unit type="mass-fun">
+				<displayName>fun [JP]</displayName>
+				<unitPattern count="one">{0} fun [JP]</unitPattern>
+				<unitPattern count="other">{0} fun [JP]</unitPattern>
 			</unit>
 			<unit type="concentr-part-per-1e9">
 				<displayName>parts/billion</displayName>
@@ -9258,49 +9645,6 @@ annotations.
 				<unitPattern count="other">{0} nights</unitPattern>
 				<perUnitPattern>{0}/night</perUnitPattern>
 			</unit>
-			<unit type='concentr-katal'><displayName>kat</displayName><unitPattern count='one'>{0} kat</unitPattern><unitPattern count='other'>{0} kat</unitPattern></unit>
-<unit type='concentr-ofglucose'><displayName>Glc</displayName><unitPattern count='one'>{0} Glc</unitPattern><unitPattern count='other'>{0} Glc</unitPattern></unit>
-<unit type='duration-fortnight'><displayName>fw</displayName><unitPattern count='one'>{0} fw</unitPattern><unitPattern count='other'>{0} fw</unitPattern></unit>
-<unit type='electric-farad'><displayName>F</displayName><unitPattern count='one'>{0} F</unitPattern><unitPattern count='other'>{0} F</unitPattern></unit>
-<unit type='electric-coulomb'><displayName>C</displayName><unitPattern count='one'>{0} C</unitPattern><unitPattern count='other'>{0} C</unitPattern></unit>
-<unit type='electric-siemens'><displayName>S</displayName><unitPattern count='one'>{0} S</unitPattern><unitPattern count='other'>{0} S</unitPattern></unit>
-<unit type='electric-henry'><displayName>H</displayName><unitPattern count='one'>{0} H</unitPattern><unitPattern count='other'>{0} H</unitPattern></unit>
-<unit type='energy-british-thermal-unit-it'><displayName>BTU-IT</displayName><unitPattern count='one'>{0} BTU-IT</unitPattern><unitPattern count='other'>{0} BT-IT</unitPattern></unit>
-<unit type='energy-calorie-it'><displayName>cal-IT</displayName><unitPattern count='one'>{0} cal-IT</unitPattern><unitPattern count='other'>{0} cal-IT</unitPattern></unit>
-<unit type='force-kilogram-force'><displayName>kgf</displayName><unitPattern count='one'>{0} kgf</unitPattern><unitPattern count='other'>{0} kgf</unitPattern></unit>
-<unit type='energy-gray'><displayName>Gy</displayName><unitPattern count='one'>{0} Gy</unitPattern><unitPattern count='other'>{0} Gy</unitPattern></unit>
-<unit type='energy-sievert'><displayName>Sv</displayName><unitPattern count='one'>{0} Sv</unitPattern><unitPattern count='other'>{0} Sv</unitPattern></unit>
-<unit type='length-chain'><displayName>ch</displayName><unitPattern count='one'>{0} ch</unitPattern><unitPattern count='other'>{0} ch</unitPattern></unit>
-<unit type='length-rod'><displayName>rd</displayName><unitPattern count='one'>{0} rd</unitPattern><unitPattern count='other'>{0} rd</unitPattern></unit>
-<unit type='magnetic-weber'><displayName>Wb</displayName><unitPattern count='one'>{0} Wb</unitPattern><unitPattern count='other'>{0} Wb</unitPattern></unit>
-<unit type='magnetic-tesla'><displayName>T</displayName><unitPattern count='one'>{0} T</unitPattern><unitPattern count='other'>{0} T</unitPattern></unit>
-<unit type='mass-slug'><displayName>slug</displayName><unitPattern count='one'>{0} slug</unitPattern><unitPattern count='other'>{0} slug</unitPattern></unit>
-<unit type='concentr-part'><displayName>part</displayName><unitPattern count='one'>{0} part</unitPattern><unitPattern count='other'>{0} part</unitPattern></unit>
-<unit type='pressure-ofhg'><displayName>of Hg</displayName><unitPattern count='one'>{0} of Hg</unitPattern><unitPattern count='other'>{0} of Hg</unitPattern></unit>
-<unit type='energy-becquerel'><displayName>Bq</displayName><unitPattern count='one'>{0} Bq</unitPattern><unitPattern count='other'>{0} Bq</unitPattern></unit>
-<unit type='angle-steradian'><displayName>sr</displayName><unitPattern count='one'>{0} sr</unitPattern><unitPattern count='other'>{0} sr</unitPattern></unit>
-<unit type='temperature-rankine'><displayName>°R</displayName><unitPattern count='one'>{0} °R</unitPattern><unitPattern count='other'>{0} °R</unitPattern></unit>
-<unit type='volume-pint-imperial'><displayName>pt Imp.</displayName><unitPattern count='one'>{0} pt Imp.</unitPattern><unitPattern count='other'>{0} pt Imp.</unitPattern></unit>
-<unit type='volume-cup-imperial'><displayName>cup Imp</displayName><unitPattern count='one'>{0} cup Imp.</unitPattern><unitPattern count='other'>{0} cup Imp.</unitPattern></unit>
-<unit type='volume-fluid-ounce-metric'><displayName>fl oz m.</displayName><unitPattern count='one'>{0} fl oz m.</unitPattern><unitPattern count='other'>{0} fl oz m.</unitPattern></unit>
-<unit type='area-bu-jp'><displayName>bu [JP]</displayName><unitPattern count='one'>{0} bu [JP]</unitPattern><unitPattern count='other'>{0} bu [JP]</unitPattern></unit>
-<unit type='area-cho'><displayName>cho [JP]</displayName><unitPattern count='one'>{0} cho [JP]</unitPattern><unitPattern count='other'>{0} cho [JP]</unitPattern></unit>
-<unit type='area-se-jp'><displayName>se [JP]</displayName><unitPattern count='one'>{0} se [JP]</unitPattern><unitPattern count='other'>{0} se [JP]</unitPattern></unit>
-<unit type='length-jo-jp'><displayName>jo [JP]</displayName><unitPattern count='one'>{0} jo [JP]</unitPattern><unitPattern count='other'>{0} jo [JP]</unitPattern></unit>
-<unit type='length-ken'><displayName>ken [JP]</displayName><unitPattern count='one'>{0} ken [JP]</unitPattern><unitPattern count='other'>{0} ken [JP]</unitPattern></unit>
-<unit type='length-ri-jp'><displayName>ri [JP]</displayName><unitPattern count='one'>{0} ri [JP]</unitPattern><unitPattern count='other'>{0} ri [JP]</unitPattern></unit>
-<unit type='length-rin'><displayName>rin [JP]</displayName><unitPattern count='one'>{0} rin [JP]</unitPattern><unitPattern count='other'>{0} rin [JP]</unitPattern></unit>
-<unit type='length-shaku-cloth'><displayName>shaku [cloth, JP]</displayName><unitPattern count='one'>{0} shaku [cloth, JP]</unitPattern><unitPattern count='other'>{0} shaku [cloth, JP]</unitPattern></unit>
-<unit type='length-shaku-length'><displayName>shaku [JP]</displayName><unitPattern count='one'>{0} shaku [JP]</unitPattern><unitPattern count='other'>{0} shaku [JP]</unitPattern></unit>
-<unit type='length-sun'><displayName>sun [JP]</displayName><unitPattern count='one'>{0} sun [JP]</unitPattern><unitPattern count='other'>{0} sun [JP]</unitPattern></unit>
-<unit type='mass-fun'><displayName>fun [JP]</displayName><unitPattern count='one'>{0} fun [JP]</unitPattern><unitPattern count='other'>{0} fun [JP]</unitPattern></unit>
-<unit type='volume-cup-jp'><displayName>cup [JP]</displayName><unitPattern count='one'>{0} cup [JP]</unitPattern><unitPattern count='other'>{0} cup [JP]</unitPattern></unit>
-<unit type='volume-koku'><displayName>koku [JP]</displayName><unitPattern count='one'>{0} koku [JP]</unitPattern><unitPattern count='other'>{0} koku [JP]</unitPattern></unit>
-<unit type='volume-kosaji'><displayName>kosaji [JP]</displayName><unitPattern count='one'>{0} kosaji [JP]</unitPattern><unitPattern count='other'>{0} kosaji [JP]</unitPattern></unit>
-<unit type='volume-osaji'><displayName>osaji [JP]</displayName><unitPattern count='one'>{0} osaji [JP]</unitPattern><unitPattern count='other'>{0} osaji [JP]</unitPattern></unit>
-<unit type='volume-sai'><displayName>sai [JP]</displayName><unitPattern count='one'>{0} sai [JP]</unitPattern><unitPattern count='other'>{0} sai [JP]</unitPattern></unit>
-<unit type='volume-shaku'><displayName>shaku [vol, JP]</displayName><unitPattern count='one'>{0} shaku [vol, JP]</unitPattern><unitPattern count='other'>{0} shaku [vol, JP]</unitPattern></unit>
-<unit type='volume-to-jp'><displayName>to [JP]</displayName><unitPattern count='one'>{0} to [JP]</unitPattern><unitPattern count='other'>{0} to [JP]</unitPattern></unit>
 			<coordinateUnit>
 				<displayName>direction</displayName>
 				<coordinateUnitPattern type="east">{0} E</coordinateUnitPattern>
@@ -9530,6 +9874,11 @@ annotations.
 				<unitPattern count="one">{0}item</unitPattern>
 				<unitPattern count="other">{0}items</unitPattern>
 			</unit>
+			<unit type="concentr-part">
+				<displayName>part</displayName>
+				<unitPattern count="one">{0} part</unitPattern>
+				<unitPattern count="other">{0} part</unitPattern>
+			</unit>
 			<unit type="concentr-part-per-1e6">
 				<displayName>ppm</displayName>
 				<unitPattern count="one">{0}ppm</unitPattern>
@@ -9554,6 +9903,11 @@ annotations.
 				<displayName>mol</displayName>
 				<unitPattern count="one">{0}mol</unitPattern>
 				<unitPattern count="other">{0}mol</unitPattern>
+			</unit>
+			<unit type="concentr-ofglucose">
+				<displayName>Glc</displayName>
+				<unitPattern count="one">{0} Glc</unitPattern>
+				<unitPattern count="other">{0} Glc</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>L/km</displayName>
@@ -10092,6 +10446,11 @@ annotations.
 				<unitPattern count="one">{0}mmHg</unitPattern>
 				<unitPattern count="other">{0}mmHg</unitPattern>
 			</unit>
+			<unit type="pressure-ofhg">
+				<displayName>of Hg</displayName>
+				<unitPattern count="one">{0} of Hg</unitPattern>
+				<unitPattern count="other">{0} of Hg</unitPattern>
+			</unit>
 			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>psi</displayName>
 				<unitPattern count="one">{0}psi</unitPattern>
@@ -10270,6 +10629,11 @@ annotations.
 				<unitPattern count="one">{0}mc</unitPattern>
 				<unitPattern count="other">{0}mc</unitPattern>
 			</unit>
+			<unit type="volume-fluid-ounce-metric">
+				<displayName>fl oz m.</displayName>
+				<unitPattern count="one">{0} fl oz m.</unitPattern>
+				<unitPattern count="other">{0} fl oz m.</unitPattern>
+			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>acre ft</displayName>
 				<unitPattern count="one">{0}ac ft</unitPattern>
@@ -10302,10 +10666,20 @@ annotations.
 				<unitPattern count="one">{0}pt</unitPattern>
 				<unitPattern count="other">{0}pt</unitPattern>
 			</unit>
+			<unit type="volume-pint-imperial">
+				<displayName>pt Imp.</displayName>
+				<unitPattern count="one">{0} pt Imp.</unitPattern>
+				<unitPattern count="other">{0} pt Imp.</unitPattern>
+			</unit>
 			<unit type="volume-cup">
 				<displayName>cup</displayName>
 				<unitPattern count="one">{0}c</unitPattern>
 				<unitPattern count="other">{0}c</unitPattern>
+			</unit>
+			<unit type="volume-cup-imperial">
+				<displayName>cup Imp</displayName>
+				<unitPattern count="one">{0} cup Imp.</unitPattern>
+				<unitPattern count="other">{0} cup Imp.</unitPattern>
 			</unit>
 			<unit type="volume-fluid-ounce">
 				<displayName>fl oz</displayName>
@@ -10367,15 +10741,200 @@ annotations.
 				<unitPattern count="one">{0}qt-Imp.</unitPattern>
 				<unitPattern count="other">{0}qt-Imp.</unitPattern>
 			</unit>
+			<unit type="angle-steradian">
+				<displayName>sr</displayName>
+				<unitPattern count="one">{0} sr</unitPattern>
+				<unitPattern count="other">{0} sr</unitPattern>
+			</unit>
+			<unit type="concentr-katal">
+				<displayName>kat</displayName>
+				<unitPattern count="one">{0} kat</unitPattern>
+				<unitPattern count="other">{0} kat</unitPattern>
+			</unit>
+			<unit type="electric-coulomb">
+				<displayName>C</displayName>
+				<unitPattern count="one">{0} C</unitPattern>
+				<unitPattern count="other">{0} C</unitPattern>
+			</unit>
+			<unit type="electric-farad">
+				<displayName>F</displayName>
+				<unitPattern count="one">{0} F</unitPattern>
+				<unitPattern count="other">{0} F</unitPattern>
+			</unit>
+			<unit type="electric-henry">
+				<displayName>H</displayName>
+				<unitPattern count="one">{0} H</unitPattern>
+				<unitPattern count="other">{0} H</unitPattern>
+			</unit>
+			<unit type="electric-siemens">
+				<displayName>S</displayName>
+				<unitPattern count="one">{0} S</unitPattern>
+				<unitPattern count="other">{0} S</unitPattern>
+			</unit>
+			<unit type="energy-calorie-it">
+				<displayName>cal-IT</displayName>
+				<unitPattern count="one">{0} cal-IT</unitPattern>
+				<unitPattern count="other">{0} cal-IT</unitPattern>
+			</unit>
+			<unit type="energy-british-thermal-unit-it">
+				<displayName>BTU-IT</displayName>
+				<unitPattern count="one">{0} BTU-IT</unitPattern>
+				<unitPattern count="other">{0} BT-IT</unitPattern>
+			</unit>
+			<unit type="energy-becquerel">
+				<displayName>Bq</displayName>
+				<unitPattern count="one">{0} Bq</unitPattern>
+				<unitPattern count="other">{0} Bq</unitPattern>
+			</unit>
+			<unit type="energy-sievert">
+				<displayName>Sv</displayName>
+				<unitPattern count="one">{0} Sv</unitPattern>
+				<unitPattern count="other">{0} Sv</unitPattern>
+			</unit>
+			<unit type="energy-gray">
+				<displayName>Gy</displayName>
+				<unitPattern count="one">{0} Gy</unitPattern>
+				<unitPattern count="other">{0} Gy</unitPattern>
+			</unit>
+			<unit type="force-kilogram-force">
+				<displayName>kgf</displayName>
+				<unitPattern count="one">{0} kgf</unitPattern>
+				<unitPattern count="other">{0} kgf</unitPattern>
+			</unit>
+			<unit type="length-rod">
+				<displayName>rd</displayName>
+				<unitPattern count="one">{0} rd</unitPattern>
+				<unitPattern count="other">{0} rd</unitPattern>
+			</unit>
+			<unit type="length-chain">
+				<displayName>ch</displayName>
+				<unitPattern count="one">{0} ch</unitPattern>
+				<unitPattern count="other">{0} ch</unitPattern>
+			</unit>
+			<unit type="magnetic-tesla">
+				<displayName>T</displayName>
+				<unitPattern count="one">{0} T</unitPattern>
+				<unitPattern count="other">{0} T</unitPattern>
+			</unit>
+			<unit type="magnetic-weber">
+				<displayName>Wb</displayName>
+				<unitPattern count="one">{0} Wb</unitPattern>
+				<unitPattern count="other">{0} Wb</unitPattern>
+			</unit>
+			<unit type="temperature-rankine">
+				<displayName>°R</displayName>
+				<unitPattern count="one">{0} °R</unitPattern>
+				<unitPattern count="other">{0} °R</unitPattern>
+			</unit>
+			<unit type="duration-fortnight">
+				<displayName>fw</displayName>
+				<unitPattern count="one">{0} fw</unitPattern>
+				<unitPattern count="other">{0} fw</unitPattern>
+			</unit>
+			<unit type="mass-slug">
+				<displayName>slug</displayName>
+				<unitPattern count="one">{0} slug</unitPattern>
+				<unitPattern count="other">{0} slug</unitPattern>
+			</unit>
 			<unit type="pressure-gasoline-energy-density">
 				<displayName>gas-equiv</displayName>
 				<unitPattern count="one">{0}gas-equiv</unitPattern>
 				<unitPattern count="other">{0}gas-equiv</unitPattern>
 			</unit>
+			<unit type="length-rin">
+				<displayName>rin [JP]</displayName>
+				<unitPattern count="one">{0} rin [JP]</unitPattern>
+				<unitPattern count="other">{0} rin [JP]</unitPattern>
+			</unit>
+			<unit type="length-sun">
+				<displayName>sun [JP]</displayName>
+				<unitPattern count="one">{0} sun [JP]</unitPattern>
+				<unitPattern count="other">{0} sun [JP]</unitPattern>
+			</unit>
+			<unit type="length-shaku-length">
+				<displayName>shaku [JP]</displayName>
+				<unitPattern count="one">{0} shaku [JP]</unitPattern>
+				<unitPattern count="other">{0} shaku [JP]</unitPattern>
+			</unit>
+			<unit type="length-shaku-cloth">
+				<displayName>shaku [cloth, JP]</displayName>
+				<unitPattern count="one">{0} shaku [cloth, JP]</unitPattern>
+				<unitPattern count="other">{0} shaku [cloth, JP]</unitPattern>
+			</unit>
+			<unit type="length-ken">
+				<displayName>ken [JP]</displayName>
+				<unitPattern count="one">{0} ken [JP]</unitPattern>
+				<unitPattern count="other">{0} ken [JP]</unitPattern>
+			</unit>
+			<unit type="length-jo-jp">
+				<displayName>jo [JP]</displayName>
+				<unitPattern count="one">{0} jo [JP]</unitPattern>
+				<unitPattern count="other">{0} jo [JP]</unitPattern>
+			</unit>
+			<unit type="length-ri-jp">
+				<displayName>ri [JP]</displayName>
+				<unitPattern count="one">{0} ri [JP]</unitPattern>
+				<unitPattern count="other">{0} ri [JP]</unitPattern>
+			</unit>
+			<unit type="area-bu-jp">
+				<displayName>bu [JP]</displayName>
+				<unitPattern count="one">{0} bu [JP]</unitPattern>
+				<unitPattern count="other">{0} bu [JP]</unitPattern>
+			</unit>
+			<unit type="area-se-jp">
+				<displayName>se [JP]</displayName>
+				<unitPattern count="one">{0} se [JP]</unitPattern>
+				<unitPattern count="other">{0} se [JP]</unitPattern>
+			</unit>
+			<unit type="area-cho">
+				<displayName>cho [JP]</displayName>
+				<unitPattern count="one">{0} cho [JP]</unitPattern>
+				<unitPattern count="other">{0} cho [JP]</unitPattern>
+			</unit>
+			<unit type="volume-kosaji">
+				<displayName>kosaji [JP]</displayName>
+				<unitPattern count="one">{0} kosaji [JP]</unitPattern>
+				<unitPattern count="other">{0} kosaji [JP]</unitPattern>
+			</unit>
+			<unit type="volume-osaji">
+				<displayName>osaji [JP]</displayName>
+				<unitPattern count="one">{0} osaji [JP]</unitPattern>
+				<unitPattern count="other">{0} osaji [JP]</unitPattern>
+			</unit>
+			<unit type="volume-cup-jp">
+				<displayName>cup [JP]</displayName>
+				<unitPattern count="one">{0} cup [JP]</unitPattern>
+				<unitPattern count="other">{0} cup [JP]</unitPattern>
+			</unit>
+			<unit type="volume-shaku">
+				<displayName>shaku [vol, JP]</displayName>
+				<unitPattern count="one">{0} shaku [vol, JP]</unitPattern>
+				<unitPattern count="other">{0} shaku [vol, JP]</unitPattern>
+			</unit>
+			<unit type="volume-sai">
+				<displayName>sai [JP]</displayName>
+				<unitPattern count="one">{0} sai [JP]</unitPattern>
+				<unitPattern count="other">{0} sai [JP]</unitPattern>
+			</unit>
+			<unit type="volume-to-jp">
+				<displayName>to [JP]</displayName>
+				<unitPattern count="one">{0} to [JP]</unitPattern>
+				<unitPattern count="other">{0} to [JP]</unitPattern>
+			</unit>
+			<unit type="volume-koku">
+				<displayName>koku [JP]</displayName>
+				<unitPattern count="one">{0} koku [JP]</unitPattern>
+				<unitPattern count="other">{0} koku [JP]</unitPattern>
+			</unit>
 			<unit type="speed-light-speed">
 				<displayName>light</displayName>
 				<unitPattern count="one">{0}light</unitPattern>
 				<unitPattern count="other">{0}light</unitPattern>
+			</unit>
+			<unit type="mass-fun">
+				<displayName>fun [JP]</displayName>
+				<unitPattern count="one">{0} fun [JP]</unitPattern>
+				<unitPattern count="other">{0} fun [JP]</unitPattern>
 			</unit>
 			<unit type="concentr-part-per-1e9">
 				<displayName>ppb</displayName>
@@ -10388,49 +10947,6 @@ annotations.
 				<unitPattern count="other">{0}nights</unitPattern>
 				<perUnitPattern>{0}/night</perUnitPattern>
 			</unit>
-<unit type='concentr-katal'><displayName>kat</displayName><unitPattern count='one'>{0} kat</unitPattern><unitPattern count='other'>{0} kat</unitPattern></unit>
-<unit type='concentr-ofglucose'><displayName>Glc</displayName><unitPattern count='one'>{0} Glc</unitPattern><unitPattern count='other'>{0} Glc</unitPattern></unit>
-<unit type='duration-fortnight'><displayName>fw</displayName><unitPattern count='one'>{0} fw</unitPattern><unitPattern count='other'>{0} fw</unitPattern></unit>
-<unit type='electric-farad'><displayName>F</displayName><unitPattern count='one'>{0} F</unitPattern><unitPattern count='other'>{0} F</unitPattern></unit>
-<unit type='electric-coulomb'><displayName>C</displayName><unitPattern count='one'>{0} C</unitPattern><unitPattern count='other'>{0} C</unitPattern></unit>
-<unit type='electric-siemens'><displayName>S</displayName><unitPattern count='one'>{0} S</unitPattern><unitPattern count='other'>{0} S</unitPattern></unit>
-<unit type='electric-henry'><displayName>H</displayName><unitPattern count='one'>{0} H</unitPattern><unitPattern count='other'>{0} H</unitPattern></unit>
-<unit type='energy-british-thermal-unit-it'><displayName>BTU-IT</displayName><unitPattern count='one'>{0} BTU-IT</unitPattern><unitPattern count='other'>{0} BT-IT</unitPattern></unit>
-<unit type='energy-calorie-it'><displayName>cal-IT</displayName><unitPattern count='one'>{0} cal-IT</unitPattern><unitPattern count='other'>{0} cal-IT</unitPattern></unit>
-<unit type='force-kilogram-force'><displayName>kgf</displayName><unitPattern count='one'>{0} kgf</unitPattern><unitPattern count='other'>{0} kgf</unitPattern></unit>
-<unit type='energy-gray'><displayName>Gy</displayName><unitPattern count='one'>{0} Gy</unitPattern><unitPattern count='other'>{0} Gy</unitPattern></unit>
-<unit type='energy-sievert'><displayName>Sv</displayName><unitPattern count='one'>{0} Sv</unitPattern><unitPattern count='other'>{0} Sv</unitPattern></unit>
-<unit type='length-chain'><displayName>ch</displayName><unitPattern count='one'>{0} ch</unitPattern><unitPattern count='other'>{0} ch</unitPattern></unit>
-<unit type='length-rod'><displayName>rd</displayName><unitPattern count='one'>{0} rd</unitPattern><unitPattern count='other'>{0} rd</unitPattern></unit>
-<unit type='magnetic-weber'><displayName>Wb</displayName><unitPattern count='one'>{0} Wb</unitPattern><unitPattern count='other'>{0} Wb</unitPattern></unit>
-<unit type='magnetic-tesla'><displayName>T</displayName><unitPattern count='one'>{0} T</unitPattern><unitPattern count='other'>{0} T</unitPattern></unit>
-<unit type='mass-slug'><displayName>slug</displayName><unitPattern count='one'>{0} slug</unitPattern><unitPattern count='other'>{0} slug</unitPattern></unit>
-<unit type='concentr-part'><displayName>part</displayName><unitPattern count='one'>{0} part</unitPattern><unitPattern count='other'>{0} part</unitPattern></unit>
-<unit type='pressure-ofhg'><displayName>of Hg</displayName><unitPattern count='one'>{0} of Hg</unitPattern><unitPattern count='other'>{0} of Hg</unitPattern></unit>
-<unit type='energy-becquerel'><displayName>Bq</displayName><unitPattern count='one'>{0} Bq</unitPattern><unitPattern count='other'>{0} Bq</unitPattern></unit>
-<unit type='angle-steradian'><displayName>sr</displayName><unitPattern count='one'>{0} sr</unitPattern><unitPattern count='other'>{0} sr</unitPattern></unit>
-<unit type='temperature-rankine'><displayName>°R</displayName><unitPattern count='one'>{0} °R</unitPattern><unitPattern count='other'>{0} °R</unitPattern></unit>
-<unit type='volume-pint-imperial'><displayName>pt Imp.</displayName><unitPattern count='one'>{0} pt Imp.</unitPattern><unitPattern count='other'>{0} pt Imp.</unitPattern></unit>
-<unit type='volume-cup-imperial'><displayName>cup Imp</displayName><unitPattern count='one'>{0} cup Imp.</unitPattern><unitPattern count='other'>{0} cup Imp.</unitPattern></unit>
-<unit type='volume-fluid-ounce-metric'><displayName>fl oz m.</displayName><unitPattern count='one'>{0} fl oz m.</unitPattern><unitPattern count='other'>{0} fl oz m.</unitPattern></unit>
-<unit type='area-bu-jp'><displayName>bu [JP]</displayName><unitPattern count='one'>{0} bu [JP]</unitPattern><unitPattern count='other'>{0} bu [JP]</unitPattern></unit>
-<unit type='area-cho'><displayName>cho [JP]</displayName><unitPattern count='one'>{0} cho [JP]</unitPattern><unitPattern count='other'>{0} cho [JP]</unitPattern></unit>
-<unit type='area-se-jp'><displayName>se [JP]</displayName><unitPattern count='one'>{0} se [JP]</unitPattern><unitPattern count='other'>{0} se [JP]</unitPattern></unit>
-<unit type='length-jo-jp'><displayName>jo [JP]</displayName><unitPattern count='one'>{0} jo [JP]</unitPattern><unitPattern count='other'>{0} jo [JP]</unitPattern></unit>
-<unit type='length-ken'><displayName>ken [JP]</displayName><unitPattern count='one'>{0} ken [JP]</unitPattern><unitPattern count='other'>{0} ken [JP]</unitPattern></unit>
-<unit type='length-ri-jp'><displayName>ri [JP]</displayName><unitPattern count='one'>{0} ri [JP]</unitPattern><unitPattern count='other'>{0} ri [JP]</unitPattern></unit>
-<unit type='length-rin'><displayName>rin [JP]</displayName><unitPattern count='one'>{0} rin [JP]</unitPattern><unitPattern count='other'>{0} rin [JP]</unitPattern></unit>
-<unit type='length-shaku-cloth'><displayName>shaku [cloth, JP]</displayName><unitPattern count='one'>{0} shaku [cloth, JP]</unitPattern><unitPattern count='other'>{0} shaku [cloth, JP]</unitPattern></unit>
-<unit type='length-shaku-length'><displayName>shaku [JP]</displayName><unitPattern count='one'>{0} shaku [JP]</unitPattern><unitPattern count='other'>{0} shaku [JP]</unitPattern></unit>
-<unit type='length-sun'><displayName>sun [JP]</displayName><unitPattern count='one'>{0} sun [JP]</unitPattern><unitPattern count='other'>{0} sun [JP]</unitPattern></unit>
-<unit type='mass-fun'><displayName>fun [JP]</displayName><unitPattern count='one'>{0} fun [JP]</unitPattern><unitPattern count='other'>{0} fun [JP]</unitPattern></unit>
-<unit type='volume-cup-jp'><displayName>cup [JP]</displayName><unitPattern count='one'>{0} cup [JP]</unitPattern><unitPattern count='other'>{0} cup [JP]</unitPattern></unit>
-<unit type='volume-koku'><displayName>koku [JP]</displayName><unitPattern count='one'>{0} koku [JP]</unitPattern><unitPattern count='other'>{0} koku [JP]</unitPattern></unit>
-<unit type='volume-kosaji'><displayName>kosaji [JP]</displayName><unitPattern count='one'>{0} kosaji [JP]</unitPattern><unitPattern count='other'>{0} kosaji [JP]</unitPattern></unit>
-<unit type='volume-osaji'><displayName>osaji [JP]</displayName><unitPattern count='one'>{0} osaji [JP]</unitPattern><unitPattern count='other'>{0} osaji [JP]</unitPattern></unit>
-<unit type='volume-sai'><displayName>sai [JP]</displayName><unitPattern count='one'>{0} sai [JP]</unitPattern><unitPattern count='other'>{0} sai [JP]</unitPattern></unit>
-<unit type='volume-shaku'><displayName>shaku [vol, JP]</displayName><unitPattern count='one'>{0} shaku [vol, JP]</unitPattern><unitPattern count='other'>{0} shaku [vol, JP]</unitPattern></unit>
-<unit type='volume-to-jp'><displayName>to [JP]</displayName><unitPattern count='one'>{0} to [JP]</unitPattern><unitPattern count='other'>{0} to [JP]</unitPattern></unit>
 			<coordinateUnit>
 				<displayName>direction</displayName>
 				<coordinateUnitPattern type="east">{0}E</coordinateUnitPattern>

@@ -2166,7 +2166,8 @@ public class TestExampleGenerator extends TestFmwk {
                 "//ldml/localeDisplayNames/keys/key[@type=\"*\"]"
                         + "//ldml/localeDisplayNames/measurementSystemNames/measurementSystemName[@type=\"*\"]"
                         + "//ldml/localeDisplayNames/subdivisions/subdivision[@type=\"*\"]"
-                        + "//ldml/localeDisplayNames/types/type[@key=\"*\"][@type=\"*\"]",
+                        + "//ldml/localeDisplayNames/types/type[@key=\"*\"][@type=\"*\"]"
+                        + "//ldml/localeDisplayNames/types/type[@key=\"*\"][@type=\"*\"][@alt=\"*\"]",
                 "*"
             },
             {

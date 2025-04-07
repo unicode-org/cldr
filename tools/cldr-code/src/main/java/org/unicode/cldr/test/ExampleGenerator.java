@@ -3450,6 +3450,36 @@ public class ExampleGenerator {
                 }
                 return;
             }
+        } else if (parts.getElement(-1).equals("type")) {
+            // <keys><key type="collation">Calendar</key>
+            // <types><type key="collation" type="dictionary">Dictionary Sort Order</type>
+            // <types><type key="collation" type="dictionary" scope="core">Dictionary</type>
+            String kpath = "//ldml/localeDisplayNames/keys/key[@type=\"collation\"]";
+            String ktppath = "//ldml/localeDisplayNames/localeDisplayPattern/localeKeyTypePattern";
+            String ktpath =
+                    "//ldml/localeDisplayNames/types/type[@key=\"collation\"][@type=\"dictionary\"]";
+            String ktspath =
+                    "//ldml/localeDisplayNames/types/type[@key=\"collation\"][@type=\"dictionary\"][@scope=\"core\"]";
+            String key = parts.getAttributeValue(-1, "key");
+            String type = parts.getAttributeValue(-1, "type");
+            String scope = parts.getAttributeValue(-1, "scope");
+
+            String keyPath = kpath.replace("collation", key);
+            if (scope == null) {
+                // TBD, show contrast
+            } else {
+                String keyName = getCldrFile().getStringValue(keyPath);
+                examples.add(setBackground(keyName));
+                examples.add(setBackground("   others…"));
+                examples.add(setBackground("   ") + value);
+                examples.add(setBackground("   …others"));
+                String keyTypePattern = getCldrFile().getStringValue(ktppath);
+                String combined =
+                        invertBackground(
+                                MessageFormat.format(
+                                        keyTypePattern, keyName, setBackground(value)));
+                examples.add(combined);
+            }
         }
     }
 

@@ -980,6 +980,7 @@ export {
   hideLoader,
   isInputBusy,
   localizeFlyover,
+  locInfo,
   parseStatusAction,
   setLang,
   setShower,

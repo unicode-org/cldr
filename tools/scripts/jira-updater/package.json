@@ -1,6 +1,6 @@
 {
   "name": "@unicode-org/jira-updater",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "update-jira.mjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -23,5 +23,10 @@
   "private": false,
   "publishConfig": {
     "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/unicode-org/cldr.git",
+    "directory": "tools/scripts/jira-updater"
   }
 }

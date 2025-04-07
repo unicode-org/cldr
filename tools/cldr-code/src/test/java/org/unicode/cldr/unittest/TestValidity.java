@@ -586,6 +586,7 @@ public class TestValidity extends TestFmwkPlus {
         return diff;
     }
 
+    // Shows the items in set A that are not in set B
     private <T> Set<T> showMinus(String title, LstrType lstrType, Set<T> a, Set<T> b) {
         if (a == null) {
             a = Collections.emptySet();

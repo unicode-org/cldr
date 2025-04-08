@@ -277,6 +277,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
     <!--@MATCH:bcp47/anykey-->
 <!ATTLIST type type NMTOKEN #REQUIRED >
     <!--@MATCH:bcp47/anyvalue-->
+<!ATTLIST type scope NMTOKEN #IMPLIED >
+    <!--@MATCH:literal/core-->
 <!ATTLIST type alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/short, variant-->
 <!ATTLIST type draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >

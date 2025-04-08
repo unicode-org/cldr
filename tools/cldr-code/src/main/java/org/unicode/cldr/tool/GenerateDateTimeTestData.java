@@ -1117,32 +1117,32 @@ public class GenerateDateTimeTestData {
         }
     }
 
+    // more manually defined inputs
+
+    static List<Pair<ULocale, Calendar>> LOCALE_CALENDAR_PAIRS =
+        List.of(
+            Pair.of(ULocale.ENGLISH, new GregorianCalendar()),
+            Pair.of(ULocale.forLanguageTag("ar-SA"), new IslamicCalendar()),
+            Pair.of(ULocale.forLanguageTag("th-TH"), new BuddhistCalendar()),
+            Pair.of(ULocale.forLanguageTag("ja-JP"), new JapaneseCalendar()));
+
+    static List<LocalDateTime> DATE_TIMES =
+        List.of(
+            LocalDateTime.of(2000, 1, 1, 0, 0, 0),
+            LocalDateTime.of(2024, 7, 1, 8, 50, 7),
+            // Ramadan in Summer at 12:00 noon in the year 2014
+            LocalDateTime.of(2014, 7, 15, 12, 0, 0));
+
+    static List<LocalDateTime> DATE_TIME_ONE_ONLY = List.of(DATE_TIMES.get(0));
+
+    // TODO: add a 3rd time zone dynamically, which is the default time zone for the current
+    //    locale in question when iterating over all locales
+    static List<TimeZone> STATIC_TIME_ZONES =
+        List.of(TimeZone.GMT_ZONE, TimeZone.getTimeZone("Australia/Adelaide"));
+
+    static List<TimeZone> STATIC_TIME_ZONE_ONE_ONLY = List.of(STATIC_TIME_ZONES.get(0));
+
     public static ImmutableSet<TestCase> getKernelTestCases() {
-
-        // more manually defined inputs
-
-        List<Pair<ULocale, Calendar>> LOCALE_CALENDAR_PAIRS =
-                List.of(
-                        Pair.of(ULocale.ENGLISH, new GregorianCalendar()),
-                        Pair.of(ULocale.forLanguageTag("ar-SA"), new IslamicCalendar()),
-                        Pair.of(ULocale.forLanguageTag("th-TH"), new BuddhistCalendar()),
-                        Pair.of(ULocale.forLanguageTag("ja-JP"), new JapaneseCalendar()));
-
-        List<LocalDateTime> DATE_TIMES =
-                List.of(
-                        LocalDateTime.of(2000, 1, 1, 0, 0, 0),
-                        LocalDateTime.of(2024, 7, 1, 8, 50, 7),
-                        // Ramadan in Summer at 12:00 noon in the year 2014
-                        LocalDateTime.of(2014, 7, 15, 12, 0, 0));
-
-        List<LocalDateTime> DATE_TIME_ONE_ONLY = List.of(DATE_TIMES.get(0));
-
-        // TODO: add a 3rd time zone dynamically, which is the default time zone for the current
-        //    locale in question when iterating over all locales
-        List<TimeZone> STATIC_TIME_ZONES =
-                List.of(TimeZone.GMT_ZONE, TimeZone.getTimeZone("Australia/Adelaide"));
-
-        List<TimeZone> STATIC_TIME_ZONE_ONE_ONLY = List.of(STATIC_TIME_ZONES.get(0));
 
         // setup of return value
 

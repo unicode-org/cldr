@@ -2166,7 +2166,8 @@ public class TestExampleGenerator extends TestFmwk {
                 "//ldml/localeDisplayNames/keys/key[@type=\"*\"]"
                         + "//ldml/localeDisplayNames/measurementSystemNames/measurementSystemName[@type=\"*\"]"
                         + "//ldml/localeDisplayNames/subdivisions/subdivision[@type=\"*\"]"
-                        + "//ldml/localeDisplayNames/types/type[@key=\"*\"][@type=\"*\"]",
+                        + "//ldml/localeDisplayNames/types/type[@key=\"*\"][@type=\"*\"]"
+                        + "//ldml/localeDisplayNames/types/type[@key=\"*\"][@type=\"*\"][@alt=\"*\"]",
                 "*"
             },
             {
@@ -2356,5 +2357,29 @@ public class TestExampleGenerator extends TestFmwk {
                     expected,
                     actual);
         }
+    }
+
+    public void TestKeyTypeScope() {
+        // <keys><key type="collation">Calendar</key>
+        // <types><type key="collation" type="dictionary">Dictionary Sort Order</type>
+        // <types><type key="collation" type="dictionary" scope="core">Dictionary</type>
+        String kpath = "//ldml/localeDisplayNames/keys/key[@type=\"collation\"]";
+        String path =
+                "//ldml/localeDisplayNames/types/type[@key=\"collation\"][@type=\"dictionary\"]";
+        String spath =
+                "//ldml/localeDisplayNames/types/type[@key=\"collation\"][@type=\"dictionary\"][@scope=\"core\"]";
+        CLDRFile cldrFile = CLDRConfig.getInstance().getCldrFactory().make("en", true);
+        ExampleGenerator eg = getExampleGenerator("en");
+
+        cldrFile.iterator("//ldml/localeDisplayNames/types/type");
+        String value = cldrFile.getStringValue(path);
+        String svalue = cldrFile.getStringValue(spath);
+        String actual = ExampleGenerator.simplify(eg.getExampleHtml(path, value));
+        String sactual = ExampleGenerator.simplify(eg.getExampleHtml(spath, svalue));
+        assertEquals("plain", null, actual);
+        assertEquals(
+                "scope=core",
+                "〖❬Sort Order❭〗〖❬   others…❭〗〖❬   ❭Dictionary〗〖❬   …others❭〗〖❬Sort Order: ❭Dictionary〗",
+                sactual);
     }
 }

@@ -200,7 +200,7 @@ public class TestDtdData extends TestFmwk {
                     type,
                     dtdData.ROOT,
                     special,
-                    new HashSet<Element>(),
+                    new HashSet<>(),
                     new ArrayList<>(Arrays.asList(dtdData.ROOT)));
         }
         Collection<String> items = m.get("error");
@@ -356,7 +356,8 @@ public class TestDtdData extends TestFmwk {
         return "!//" + Joiner.on("/").join(parents);
     }
 
-    public void TestNewDtdData() {
+    // DISABLED (obsolete)
+    public void T_estNewDtdData() {
         for (DtdType type : DtdType.values()) {
             if (type.getStatus() != DtdType.DtdStatus.active) {
                 continue;

@@ -349,6 +349,14 @@ public class TestBCP47 extends TestFmwk {
             if (BOGUS_TZIDS.contains(tzid)) {
                 continue;
             }
+            if (tzid.equals("Antarctica/South_Pole")) {
+                // This non-canonical alias was moved from one zone to another per CLDR-16439;
+                // skip test until we have an ICU updated to reflect this.
+                logKnownIssue(
+                        "CLDR-18361",
+                        "BRS 48 task, update ICU4J libs for CLDR after 48m1 integration to ICU");
+                continue;
+            }
             String bcp47Id = aliasToId.get(tzid);
             if (!assertNotNull(tzid, bcp47Id)) {
                 missingAliases.add(tzid);

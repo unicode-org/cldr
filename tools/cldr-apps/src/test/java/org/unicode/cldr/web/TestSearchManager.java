@@ -82,6 +82,23 @@ public class TestSearchManager {
     }
 
     @Test
+    void TestCodeCH() throws InterruptedException {
+        final String XPATH = "//ldml/localeDisplayNames/scripts/script[@type=\"Gujr\"]";
+        final String searchText = "CH";
+        final String locale = "de_CH";
+        assertAll(
+                "looking for " + searchText + " in " + locale,
+                () ->
+                        testOneSearchResult(
+                                XPATH,
+                                searchText,
+                                locale,
+                                locale,
+                                "code: " + searchText) // should match in the locale
+                );
+    }
+
+    @Test
     void TestKorean() throws InterruptedException {
         final String XPATH =
                 "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"wide\"]/month[@type=\"3\"]";

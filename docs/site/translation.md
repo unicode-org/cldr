@@ -17,8 +17,6 @@ During Submission, please read the CLDR Training (if new to the survey tool), pl
 
 ### Updates
 
-- TBD
-
 When a section below changes, the date will be in the header.
 
 ## Status and Schedule
@@ -37,17 +35,36 @@ Most of the following are relevant to locales at the Modern Coverage Level.
 
 TBD - New emoji will be added the week of April 21st.
 
-### New/expanded units
+### Locale display names
 
-1. TBD
-
-### Language names
+#### More language names
 
 As new locales reach Basic Coverage, their language names have been added for locales targeting modern coverage: TBD
 
+#### Languages whose English name changed
+
+- tkl: English name changed to Tokelauan. [CLDR-11231](https://unicode-org.atlassian.net/browse/CLDR-11231)
+
+#### Scripts
+
+There are 5 new scripts for Unicode 17. Currently the names are in English: Beria Erfe, Chisoi, Sidetic, Tai Yo, Tolong Siki.
+Coverage for other languages is at comprehensive; if there is a need to have coverage at lower level in some locale,
+please file a ticket. [CLDR-18283](https://unicode-org.atlassian.net/browse/CLDR-18283)
+
+#### ISO 8601 calendar name
+
+This is a variant of the Gregorian calendar whose formats always use year-month-day ordering and a 24-hour time cycle.
+The English name has changed to reflect that (and also added a variant); locales should update accordingly:
+-calendar-iso8601: Gregorian (Year First)
+-calendar-iso8601-variant: ISO 8601 Order
+
+[CLDR-18447](https://unicode-org.atlassian.net/browse/CLDR-18447)
+
 ### DateTime formats
 
-There is a new “-relative” variant for [Date-Time Combined Formats](/translation/date-time/date-time-patterns#date-time-combined-formats).
+#### New “relative” variant for date-time combining pattern
+
+There is a new “-relative” variant for [Date-Time Combined Formats](/translation/date-time/date-time-patterns#date-time-combined-formats). [CLDR-18350](https://unicode-org.atlassian.net/browse/CLDR-18350)
 
 Before CLDR 48, there were two variants:
 - A “standard” variant for combining date with time, typically without literal text. In English this was “{1}, {0}”
@@ -61,9 +78,69 @@ of a relative date and a single time. If you do not supply this, that combinatio
 in English that would produce “tomorrow, 3:00 PM”. If instead you want the same combining behavior for a relative date with a single time as for a
 fvfixed date with single time (as was the case in CLDR 47 and earlier), then for each length style copy the existing “atTime” form to the new “relative” form.
 
-### Metazones
+### Timezones, metazones and exemplar cities
 
-TBD
+#### New `gmtUnknownFormat`
+
+Normally time zones formatted using UTC offset (like xxxx) use the `gmtFormat` pattern (“GMT{0}” in root). The new `gmtUnknownFormat` is used when formatting time zones using a UTC offset for cases when the offset or zone is unknown. The root value “GMT+?” need not be changed if it works for your locale; hoever it should be consistent with the `gmtFormat` and `gmtZeroFormat` in your locale. See [Time Zones and City names](translation/time-zones-and-city-names) [CLDR-18236](https://unicode-org.atlassian.net/browse/CLDR-18236)
+
+#### “Unknown City” → “Unknown Location”
+
+For zone `Etc/Unknown`, the exemplarCity name was changed in English from “Unknown City” to “Unknown Location”; other locales should update accordingly. [CLDR-18262](https://unicode-org.atlassian.net/browse/CLDR-18262)
+
+#### Changes to the root and/or English names of many exemplar cities and some metazones
+
+(TBD [CLDR-18249](https://unicode-org.atlassian.net/browse/CLDR-18249)
+
+### Number formats
+
+#### Currency patterns alphaNextToNumber, noCurrency
+
+There actually added in CLDR 42 per (CLDR-14336)[https://unicode-org.atlassian.net/browse/CLDR-14336]. However, they were not properly set up for coverage and inheritance, and were not presented to many vetters. These issue were corrected in CLDR 47 per [CLDR-17879](https://unicode-org.atlassian.net/browse/CLDR-17879), which adjusted the data for some locales (and made it draft="provisional"). Many vetters will see these for the first time in CLDR 48.
+- The `alphaNextToNumber` patterns should be used when currency symbol is alphabetic, such as “USD”; in this case the m=pattern may add a space to offset the currency symbol from the numeric value, if the standard pattern does not already include a space.
+- The `alphaNextToNumber` patterns should be used when the currency amount should be formatted without a currency symbol, as in a table of values all using the same currency. This pattern must not include the currency symbol pattern character ‘¤’.
+
+For more information see [Number and currency patterns](/translation/number-currency-formats/number-and-currency-patterns).
+
+#### Rational formats
+
+These describe the formatting of rational fractions such as ¾ or combinations of integers and fractions such as 5½. [CLDR-17570](https://unicode-org.atlassian.net/browse/CLDR-17570)
+
+Here are the the English values and a short description of their purpose; for more information see (TBD):
+- `rationalFormats-rationalPattern`: “{0}⁄{1}” - The format for a rational fraction with arbitrary numerator and denominator; the English pattern uses the Unicode character ‘⁄’ U+2044 FRACTION SLASH which causes composition of fractions such as 22⁄7.
+- `rationalFormats-integerAndRationalPattern`: “{0} {1}” - The format for combining an integer with a rational fraction composed using the pattern above; the English pattern uses U+202F NARROW NO-BREAK SPACE (NNBSP) to produce a small no-break space.
+- `rationalFormats-integerAndRationalPattern-superSub`: “{0}⁠{1}” - The format for combining an integer with a rational fraction using (TBD); the English pattern uses U+2060 WORD JOINER, a zero-width no-break space.
+- `rationalFormats-rationalUsage`: “sometimes” - An indication of the extent to which rational fractions are used in the locale; may be one of “never”, “sometimes”, ... (TBD)
+
+### Units
+
+#### Rework certain concentration units 
+
+The keys for two units changed (the translations can probably remain the same) and there is one new unit that is used for constructing certain other kinds of concentration units. [CLDR-18274](https://unicode-org.atlassian.net/browse/CLDR-18274):
+- key `permillion` changed to `concentr-part-per-1e6`; English values remain “parts per million”, “{0} part per million”, etc.
+- key `portion-per-1e9` changed to `concentr-part-per-1e9`; English values remain “parts per billion”, “{0} part per billion”, etc.
+- new key `part` used for constructing arbitrary concentrations such as “parts per 100,000”; English values “parts”, “{0} part”, etc.
+
+#### Many new units in English
+
+Mnny new units were added in English. In general these are very specific and vetters will not be
+asked to translate them for other locales, so coverage will be comprehensive. If some of these units
+would be useful in particualr locales, please file a ticekt and the coverage can be adjusted.
+[CLDR-18215](https://unicode-org.atlassian.net/browse/CLDR-18215)
+
+The units (English names) are: 
+- angle: steradians 
+- area: bu [JP], cho [JP], se [JP] (Japanese units)
+- duration: fortnights 
+- concentr: katals 
+- electric: coulombs, farads, henrys, siemens 
+- energy: becquerels, British thermal units [IT], calories [IT], grays, sieverts 
+- force: kilograms-force 
+- length: chains, rods; jo [JP], ken [JP], ri [JP], rin [JP], shaku [cloth, JP], >shaku [JP], sun [JP] (Japanese units)
+- magnetic: teslas , webers 
+- mass: slugs; fun [JP] (Japanese unit)
+- temperature: rankines 
+- volume: metric fluid ounces; cups Imperial, pints Imperial; cup [JP], koku [JP], kosaji [JP], osaji [JP], sai [JP], shaku [volume, JP], to [JP] (Japanese units)
 
 ## Survey Tool
 
@@ -112,7 +189,7 @@ This list will be updated as fixes are made available in Survey Tool Production.
 Last updated: 2025-04-07
 
 1. [CLDR-17694](https://unicode-org.atlassian.net/browse/CLDR-17694) - Back button in browser fails in forum under certain conditions
-1. [CLDR-17658](https://unicode-org.atlassian.net/browse/CLDR-17658) - Dashboard slowness
+2. [CLDR-17658](https://unicode-org.atlassian.net/browse/CLDR-17658) - Dashboard slowness
 
 ## Recent Changes
 

@@ -34,7 +34,7 @@ public class Iso639Data {
 
     static Map<String, Scope> toScope;
 
-    static Map<String, List<String>> toHeirarchy;
+    static Map<String, List<String>> toHierarchy;
 
     static Map<String, Type> toType;
 
@@ -246,12 +246,12 @@ public class Iso639Data {
         return Scope.Individual;
     }
 
-    /** Returns the ISO 639-5 heirarchy if available, otherwise null. */
-    public static List<String> getHeirarchy(String languageSubtag) {
-        if (toHeirarchy == null) {
+    /** Returns the ISO 639-5 hierarchy if available, otherwise null. */
+    public static List<String> getHierarchy(String languageSubtag) {
+        if (toHierarchy == null) {
             getData();
         }
-        return toHeirarchy.get(languageSubtag);
+        return toHierarchy.get(languageSubtag);
     }
 
     public static Type getType(String languageSubtag) {
@@ -473,7 +473,7 @@ public class Iso639Data {
             }
             in.close();
 
-            Map<String, String> toHeirarchyTemp = new TreeMap<>();
+            Map<String, String> toHierarchyTemp = new TreeMap<>();
             in = CldrUtility.getUTF8Data("external/Iso639-5.html");
             String lastCode = null;
             int column = 0;
@@ -535,8 +535,8 @@ public class Iso639Data {
                                 lastCode = result.toString();
                                 break;
                             case 5:
-                                String old = toHeirarchyTemp.get(lastCode);
-                                toHeirarchyTemp.put(
+                                String old = toHierarchyTemp.get(lastCode);
+                                toHierarchyTemp.put(
                                         lastCode,
                                         old == null || old.length() == 0
                                                 ? result.toString().trim()
@@ -571,18 +571,18 @@ public class Iso639Data {
 
             in.close();
 
-            Pattern SPLIT_HEIRARCHY = PatternCache.get("\\s*:\\s*");
-            toHeirarchy = new TreeMap<>();
-            // for (String code : toHeirarchyTemp.keySet()) {
-            // System.out.println(code + " => " + toHeirarchyTemp.get(code));
+            Pattern SPLIT_HIERARCHY = PatternCache.get("\\s*:\\s*");
+            toHierarchy = new TreeMap<>();
+            // for (String code : toHierarchyTemp.keySet()) {
+            // System.out.println(code + " => " + toHierarchyTemp.get(code));
             // }
-            for (String code : toHeirarchyTemp.keySet()) {
-                String valueString = toHeirarchyTemp.get(code);
-                String[] values = SPLIT_HEIRARCHY.split(valueString);
+            for (String code : toHierarchyTemp.keySet()) {
+                String valueString = toHierarchyTemp.get(code);
+                String[] values = SPLIT_HIERARCHY.split(valueString);
                 for (String value : values) {
-                    if (toScope.get(value) == null && toHeirarchyTemp.get(value) == null) {
+                    if (toScope.get(value) == null && toHierarchyTemp.get(value) == null) {
                         throw new IllegalArgumentException(
-                                "Unexpected value in heirarchy:\t"
+                                "Unexpected value in hierarchy:\t"
                                         + value
                                         + "\t"
                                         + code
@@ -590,7 +590,7 @@ public class Iso639Data {
                                         + valueString);
                     }
                 }
-                toHeirarchy.put(code, Arrays.asList(values));
+                toHierarchy.put(code, Arrays.asList(values));
             }
             // System.out.println("Size:\t" + toNames.size());
 
@@ -602,7 +602,7 @@ public class Iso639Data {
             fromBiblio3 = Collections.unmodifiableMap(fromBiblio3);
             toScope = Collections.unmodifiableMap(toScope);
             toType = Collections.unmodifiableMap(toType);
-            toHeirarchy = Collections.unmodifiableMap(toHeirarchy);
+            toHierarchy = Collections.unmodifiableMap(toHierarchy);
 
             toNames.freeze();
             toRetirements.freeze();

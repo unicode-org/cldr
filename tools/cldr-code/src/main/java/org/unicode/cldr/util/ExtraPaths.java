@@ -66,7 +66,12 @@ public class ExtraPaths {
                             "//ldml/personNames/sampleName[@item=\"foreignFull\"]/nameField[@type=\"surname-core\"]",
                             "//ldml/personNames/sampleName[@item=\"foreignFull\"]/nameField[@type=\"surname2\"]",
                             "//ldml/personNames/sampleName[@item=\"foreignFull\"]/nameField[@type=\"generation\"]",
-                            "//ldml/personNames/sampleName[@item=\"foreignFull\"]/nameField[@type=\"credentials\"]"));
+                            "//ldml/personNames/sampleName[@item=\"foreignFull\"]/nameField[@type=\"credentials\"]",
+
+                            // core/extension for language names (languages at modern or moderate)
+
+                            "//ldml/localeDisplayNames/languages/language[@type=\"ku\"][@menu=\"core\"]",
+                            "//ldml/localeDisplayNames/languages/language[@type=\"ku\"][@menu=\"extension\"]"));
 
     public static void addConstant(Collection<String> toAddTo) {
         toAddTo.addAll(SingletonHelper.INSTANCE.paths);

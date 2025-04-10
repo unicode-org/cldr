@@ -47,6 +47,7 @@
 ^//ldml/localeDisplayNames/territories/territory\[@type="(CD|DG|CG|003|021|ZA|018|FK|MK|MM|TW|HK|MO)"]; ROOT territory; Warning - the region {0} requires special attention! Note: before translating, be sure to read %COUNTRY_NAMES.
 ^//ldml/localeDisplayNames/scripts/script\[@type="(Z[^"]*)"]; ROOT script; The name of the script (writing system) with Unicode script code = {0}. Note: before translating, be sure to read %SCRIPT_NAMES.
 ^//ldml/dates/timeZoneNames/zone\[@type="([^"]*)"]/exemplarCity; ROOT timezone; The name of {0}. For more information, see %TZ_CITY_NAMES.
+^//ldml/localeDisplayNames/languages/language\[@type="([^"]*)"]\[@menu="([^"]*)"]; ROOT language; The name of the language with Unicode language code = {0}, _and_ menu type = {0}. **Be sure to read about this in %LANGUAGE_NAMES**.
 ^//ldml/localeDisplayNames/languages/language\[@type="([^"]*)"]; ROOT language; The name of the language with Unicode language code = {0}. For more information, see %LANGUAGE_NAMES.
 ^//ldml/localeDisplayNames/scripts/script\[@type="([^"]*)"]; ROOT script; The name of the script (writing system) with Unicode script code = {0}. For more information, see %SCRIPT_NAMES.
 ^//ldml/localeDisplayNames/territories/territory\[@type="([^"]*)"]; ROOT territory; The name of the country or region with Unicode region code = {0}. For more information, see %COUNTRY_NAMES.

@@ -5,7 +5,6 @@ import com.google.common.base.Objects;
 import com.google.common.collect.ComparisonChain;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Sets;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
@@ -1771,7 +1770,8 @@ public class GenerateLikelySubtags {
         }
     }
 
-    // Check if the language code is a collection of languages (ISO 639-5). Otherwise its probably an individual one or maybe a macrolanguage.
+    // Check if the language code is a collection of languages (ISO 639-5). Otherwise its probably
+    // an individual one or maybe a macrolanguage.
     private static Boolean isLanguageCollection(String language) {
         return Iso639Data.getHierarchy(language) != null;
     }

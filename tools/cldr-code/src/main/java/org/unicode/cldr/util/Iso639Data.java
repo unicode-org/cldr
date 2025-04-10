@@ -423,7 +423,7 @@ public class Iso639Data {
             // System.out.println("Size:\t" + toNames.size());
             in.close();
 
-            // TODO https://unicode-org.atlassian.net/browse/CLDR-18499 Find an up-to-date source 
+            // TODO https://unicode-org.atlassian.net/browse/CLDR-18499 Find an up-to-date source
             in = CldrUtility.getUTF8Data("ISO-639-2_values_8bits.txt");
             // An alpha-3 (bibliographic) code,
             // an alpha-3 (terminologic) code (when given),
@@ -466,7 +466,8 @@ public class Iso639Data {
                         toAlpha3.put(languageSubtag, alpha3);
                         fromAlpha3.put(alpha3, languageSubtag);
                     }
-                    // Warning: This is not always correct. Deprecated ISO 639-3 codes will also appear here
+                    // Warning: This is not always correct. Deprecated ISO 639-3 codes will also
+                    // appear here
                     toScope.put(languageSubtag, Scope.Collection);
                     toType.put(languageSubtag, Type.Special);
                     toNames.putAll(languageSubtag, Arrays.asList(english));

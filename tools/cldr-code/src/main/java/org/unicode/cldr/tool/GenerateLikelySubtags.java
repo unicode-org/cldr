@@ -42,6 +42,7 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Containment;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LocaleNames;
 import org.unicode.cldr.util.LocaleScriptInfo;
@@ -995,6 +996,10 @@ public class GenerateLikelySubtags {
                 System.out.println(JOIN_LS.join("Failure in ScriptMetaData: " + ltp, errors));
                 continue;
             }
+            if (isLanguageCollection(likelyLanguage)) {
+                // Dropping language collections
+                continue;
+            }
             final String result = likelyLanguage + "_" + script + "_" + originCountry;
             add("und_" + script, result, toMaximized, "S->LR•", LocaleOverride.KEEP_EXISTING);
             add(likelyLanguage, result, toMaximized, "L->SR•", LocaleOverride.KEEP_EXISTING);
@@ -1682,7 +1687,7 @@ public class GenerateLikelySubtags {
             for (Entry<String, LSRSource> entry : silData.entrySet()) {
                 CLDRLocale source = CLDRLocale.getInstance(entry.getKey());
                 String lang = source.getLanguage();
-                if (!fluffup.containsKey(lang)) {
+                if (!fluffup.containsKey(lang) && !isLanguageCollection(lang)) {
                     silMap.put(entry.getKey(), entry.getValue().getLsrString());
                     if (!entry.getValue().getSources().isEmpty()) {
                         silOrigins.put(entry.getKey(), entry.getValue().getSourceString());
@@ -1764,5 +1769,10 @@ public class GenerateLikelySubtags {
                                 + "  }");
             }
         }
+    }
+
+    // Check if the language code is a collection of languages (ISO 639-5). Otherwise its probably an individual one or maybe a macrolanguage.
+    private static Boolean isLanguageCollection(String language) {
+        return Iso639Data.getHierarchy(language) != null;
     }
 }

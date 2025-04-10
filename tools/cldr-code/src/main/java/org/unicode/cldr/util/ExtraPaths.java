@@ -128,11 +128,17 @@ public class ExtraPaths {
                     addAltPath("az", "short", nameType);
                     addAltPath("ckb", "menu", nameType);
                     addAltPath("ckb", "variant", nameType);
+                    addAltPath("gan", "menu", nameType);
+                    addAltPath("hak", "menu", nameType);
                     addAltPath("hi_Latn", "variant", nameType);
+                    addAltPath("hsn", "menu", nameType);
+                    addAltPath("lzh", "menu", nameType);
+                    addAltPath("nan", "menu", nameType);
+                    addAltPath("wuu", "menu", nameType);
                     addAltPath("yue", "menu", nameType);
                     addAltPath("zh", "menu", nameType);
-                    addAltPath("zh_Hans", "long", nameType);
-                    addAltPath("zh_Hant", "long", nameType);
+                    addAltPath("zh_Hans", "menu", nameType);
+                    addAltPath("zh_Hant", "menu", nameType);
                     break;
                 case SCRIPT:
                     addAltPath("Hans", "stand-alone", nameType);

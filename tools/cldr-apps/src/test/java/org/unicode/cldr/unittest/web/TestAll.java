@@ -73,22 +73,22 @@ public class TestAll extends TestGroup {
                 "Error: variable " + var + " " + err + ", please set -D" + var + sugg);
     }
 
+    /** This is the entrypoint from the command line */
     public static void main(String[] args) {
-        main(args, null);
-        /* NOTREACHED */
+        if (main(args, null) != 0) {
+            System.exit(1);
+        }
     }
 
+    /** This is the entrypoint from JUnit */
     public static int main(String[] args, PrintWriter logs) {
+        /** Setup stuff */
         CheckCLDR.setDisplayInformation(CLDRConfig.getInstance().getEnglish());
         args = TestAll.doResetDb(args);
+
+        /** boilerplate */
         TestAll test = new TestAll();
-        if (logs != null) {
-            return test.run(args, logs);
-        } else {
-            test.run(args);
-            /* NOTREACHED */
-            return -1; // does not actually return
-        }
+        return test.run(args, logs);
     }
 
     public static String[] doResetDb(String[] args) {

@@ -1,19 +1,17 @@
 package org.unicode.cldr.tool;
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.Set;
-import java.util.stream.StreamSupport;
-
-import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.Factory;
-
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableSortedSet;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.Set;
+import java.util.stream.StreamSupport;
+import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.Factory;
 
 public class ListSplittableDisplayNames {
     private static final Joiner JOIN_TAB = Joiner.on('\t');
@@ -63,11 +61,12 @@ public class ListSplittableDisplayNames {
                     "Tutchone");
 
     public static void main(String[] args) {
-        showSplit("en", "//ldml/localeDisplayNames/languages");
-        // showSplit("en", "//ldml/localeDisplayNames/territories/territory");
+        showSplit("en", "//ldml/localeDisplayNames/languages", languageCores);
+        System.out.println();
+        showSplit("en", "//ldml/localeDisplayNames/territories/territory", null);
     }
 
-    private static void showSplit(String locale, String pathPrefix) {
+    private static void showSplit(String locale, String pathPrefix, Set<String> allow) {
         Multimap<String, String> wordToPath = TreeMultimap.create();
         CLDRFile cldrFile = CLDR_FACTORY.make(locale, true);
         for (Iterator<String> it = cldrFile.iterator(pathPrefix); it.hasNext(); ) {
@@ -83,7 +82,7 @@ public class ListSplittableDisplayNames {
             StreamSupport.stream(Splitter.on(' ').split(value).spliterator(), false)
                     .forEach(
                             x -> {
-                                if (languageCores.contains(x)) {
+                                if (allow == null || allow.contains(x)) {
                                     wordToPath.put(x, fullPath);
                                 }
                             });

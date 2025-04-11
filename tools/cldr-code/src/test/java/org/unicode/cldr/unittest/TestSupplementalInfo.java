@@ -1300,7 +1300,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             }
             Scope languageScope = getScope(language, lstregLanguageInfo);
             if (languageScope == Scope.Macrolanguage) {
-                if (Iso639Data.getHeirarchy(language) != null) {
+                if (Iso639Data.getHierarchy(language) != null) {
                     continue main; // is real family
                 }
                 Set<String> replacements = replacementToReplaced.getAll(language);

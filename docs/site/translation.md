@@ -70,8 +70,8 @@ please file a ticket. [CLDR-18283](https://unicode-org.atlassian.net/browse/CLDR
 
 This is a variant of the Gregorian calendar whose formats always use year-month-day ordering and a 24-hour time cycle.
 The English name has changed to reflect that (and also added a variant); locales should update accordingly:
--calendar-iso8601: Gregorian (Year First)
--calendar-iso8601-variant: ISO 8601 Order
+- calendar-iso8601: Gregorian (Year First)
+- calendar-iso8601-variant: ISO 8601 Order
 
 Please go though the ISO8601 fields. You should change separators to match what is acceptable in your language. However, do not change the ordering of the elements, which should be strictly the following order (for any that occur in a particular pattern):
 * year - month - day - day-of-week - hour - minute - second
@@ -124,6 +124,10 @@ For zone `Etc/Unknown`, the exemplarCity name was changed in English from “Unk
 There actually added in CLDR 42 per (CLDR-14336)[https://unicode-org.atlassian.net/browse/CLDR-14336]. However, they were not properly set up for coverage and inheritance, and were not presented to many vetters. These issue were corrected in CLDR 47 per [CLDR-17879](https://unicode-org.atlassian.net/browse/CLDR-17879), which adjusted the data for some locales (and made it draft="provisional"). Many vetters will see these for the first time in CLDR 48.
 -->
 - The `alphaNextToNumber` patterns should be used when currency symbol is alphabetic, such as “USD”; in this case the m=pattern may add a space to offset the currency symbol from the numeric value, if the standard pattern does not already include a space.
+    - **Note that some currency units may only be alphabetic at the start or end, such as CA$ or $CA.
+This pattern will be used if an alphabetic character would end up being adjacent to a number in the regular pattern.
+So suppose that the regular pattern is "¤#,##0" and this pattern is "¤ #,##0":
+$CA would use this pattern ("$CA 123"), but CA$ would just use the regular pattern to get "CA$123".**
 - The `alphaNextToNumber` patterns should be used when the currency amount should be formatted without a currency symbol, as in a table of values all using the same currency. This pattern must not include the currency symbol pattern character ‘¤’.
 
 For more information see [Number and currency patterns](/translation/number-currency-formats/number-and-currency-patterns).

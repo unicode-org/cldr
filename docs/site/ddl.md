@@ -2,7 +2,7 @@
 title: 'DDL Working Group'
 ---
 
-Need help with your locale? Please visit our new help page: [DDL Help](/ddl/help)
+Need help with your locale? Please visit our new help page: [DDL Help](/translation/ddl)
 
 The Common Locale Data Repository (CLDR) is [widely used](/index), and the content has grown dramatically over the years with participation by organizations of all types and sizes, as well as many individual contributors.
 

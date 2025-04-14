@@ -63,6 +63,24 @@ public class DataPage {
     /** The DisplayAndInputProcessor for this DataPage */
     private DisplayAndInputProcessor processor = null;
 
+    public enum CandidateStatus {
+        ALIAS,
+        FALLBACK,
+        FALLBACK_CODE,
+        FALLBACK_ROOT,
+        LOSER,
+        WINNER;
+
+        /**
+         * At least temporarily, the front end has dependencies on these names being lowercase.
+         *
+         * @return the name converted to lowercase
+         */
+        public String toString() {
+            return this.name().toLowerCase();
+        }
+    }
+
     /**
      * A DataRow represents a "row" of data - a single distinguishing xpath
      *
@@ -254,47 +272,32 @@ public class DataPage {
             }
 
             /**
-             * Get the class for this CandidateItem
+             * Get the CandidateStatus for this CandidateItem
              *
-             * @return the class as a string, for example, "winner"
-             *     <p>All return values: "winner", "alias", "fallback", "fallback_code",
-             *     "fallback_root", "loser".
-             *     <p>Called by CandidateItem.toJSONString (for item.pClass)
-             *     <p>Relationships between class, color, and inheritance
-             *     (http://cldr.unicode.org/translation/getting-started/guide#TOC-Inheritance): "The
-             *     inherited values are color coded: 1. Darker [blue] The original is from a parent
-             *     locale, such as if you are working in Latin American Spanish (es_419), this value
-             *     is inherited from European Spanish (es). [corresponds with "fallback" and
-             *     {background-color: #5bc0de;}] 2. Lighter [violet] The original is in the same
-             *     locale, but has a different ID (row). [corresponds with "alias" and
-             *     {background-color: #ddf;}] 3. Red The original is from the root." [corresponds
-             *     with "fallback_root" or "fallback_code" and {background-color: #FFDDDD;}]
+             * @return the CandidateStatus, for example, CandidateStatus.WINNER
              */
-            public String getPClass() {
+            public CandidateStatus getCandidateStatus() {
                 if (rawValue.equals(CldrUtility.INHERITANCE_MARKER)) {
                     if (pathWhereFound != null) {
-                        return "alias";
+                        return CandidateStatus.ALIAS;
                     }
-                    if (getInheritedLocale() != null
-                            && XMLSource.CODE_FALLBACK_ID.equals(
-                                    getInheritedLocale().getBaseName())) {
-                        return "fallback_code";
+                    if (inheritedLocale != null) {
+                        if (XMLSource.CODE_FALLBACK_ID.equals(inheritedLocale.getBaseName())) {
+                            return CandidateStatus.FALLBACK_CODE;
+                        }
+                        if (XMLSource.ROOT_ID.equals(inheritedLocale.getBaseName())) {
+                            return CandidateStatus.FALLBACK_ROOT;
+                        }
                     }
-                    if (getInheritedLocale() != null
-                            && XMLSource.ROOT_ID.equals(getInheritedLocale().getBaseName())) {
-                        return "fallback_root";
-                    }
-                    return "fallback";
-                }
-                if (winningValue != null && winningValue.equals(rawValue)) {
+                    return CandidateStatus.FALLBACK;
+                } else if (rawValue.equals(winningValue)) {
                     /*
-                     * An item can be both winning and inherited (alias/fallback). If an item is both
-                     * winning and inherited, then its class/style/color is determined by inheritance,
-                     * not by whether it's winning.
+                     * An item can be both winning and inherited, and then this method may already have returned a value
+                     * (ALIAS/FALLBACK...) other than WINNER. The front end may decide its class/style/color on that basis.
                      */
-                    return "winner";
+                    return CandidateStatus.WINNER;
                 }
-                return "loser";
+                return CandidateStatus.LOSER;
             }
 
             /**
@@ -397,7 +400,7 @@ public class DataPage {
          *
          * <p>It is the inheritance path for "sideways" inheritance.
          *
-         * <p>If not null it may cause getPClass to return "alias".
+         * <p>If not null it may cause getCandidateStatus to return CandidateStatus.ALIAS.
          */
         private String pathWhereFound = null;
 
@@ -1080,10 +1083,6 @@ public class DataPage {
          */
         public boolean isUnvotableRoot(String val) {
             return unvotableRootValue != null && unvotableRootValue.equals(val);
-        }
-
-        public CLDRLocale getInheritedLocale() {
-            return inheritedLocale;
         }
 
         public String getInheritedLocaleName() {

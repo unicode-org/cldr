@@ -106,7 +106,7 @@ public class TestAll extends TestGroup {
                     // removals (if not additions)
                     TestIntHash.class.getName(),
                     TestXPathTable.class.getName(),
-                    TestMisc.class.getName(),
+                    TestMiscWeb.class.getName(),
                     TestUserSettingsData.class.getName(),
                     TestAnnotationVotes.class.getName(),
                     TestUserRegistry.class.getName(),

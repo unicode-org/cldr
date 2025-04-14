@@ -68,7 +68,6 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 import org.unicode.cldr.draft.FileUtilities;
-import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.Options;
 import org.unicode.cldr.test.CheckUnits;
@@ -125,10 +124,13 @@ import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
-public class TestUnits extends TestFmwk {
-    private static final Joiner JOIN_TAB = Joiner.on('\t').useForNull("∅");
+public class TestUnits extends TestFmwkPlus {
+    static final Joiner JOIN_TAB = Joiner.on('\t').useForNull("∅");
+    static final Joiner JOIN_SPACE = Joiner.on(' ').useForNull("∅");
+
     private static final StandardCodes STANDARD_CODES = StandardCodes.make();
     private static final boolean DEBUG = System.getProperty("TestUnits:DEBUG") != null;
+    private static final boolean SHOW_UNITS = System.getProperty("TestUnits:SHOW_UNITS") != null;
     private static final boolean TEST_ICU = System.getProperty("TestUnits:TEST_ICU") != null;
 
     private static final Joiner JOIN_COMMA = Joiner.on(", ");
@@ -154,6 +156,7 @@ public class TestUnits extends TestFmwk {
     private static final Set<String> DEPRECATED_REGULAR_UNITS =
             Validity.getInstance().getStatusToCodes(LstrType.unit).get(Validity.Status.deprecated);
     public static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
+    private static final Factory CLDR_FACTORY = CLDR_CONFIG.getCldrFactory();
     private static final Integer INTEGER_ONE = 1;
 
     public static boolean getFlag(String flag) {
@@ -187,13 +190,21 @@ public class TestUnits extends TestFmwk {
     private Map<String, String> BASE_UNIT_TO_QUANTITY = converter.getBaseUnitToQuantity();
 
     public void TestSpaceInNarrowUnits() {
-        final CLDRFile english = CLDR_CONFIG.getEnglish();
+        checkSpaceInNarrowUnits(CLDR_CONFIG.getEnglish());
+    }
+
+    private void checkSpaceInNarrowUnits(final CLDRFile cldrFile) {
         final Matcher m = Pattern.compile("narrow.*unitPattern").matcher("");
-        for (String path : english) {
+        for (String path : cldrFile) {
             if (m.reset(path).find()) {
-                String value = english.getStringValue(path);
+                String value = cldrFile.getStringValue(path);
                 if (value.contains("} ")) {
-                    errln(path + " fails, «" + value + "» contains } + space");
+                    errln(
+                            cldrFile.getLocaleID()
+                                    + path
+                                    + " fails, «"
+                                    + value
+                                    + "» contains } + space; should be NNBSP \\u202F");
                 }
             }
         }
@@ -331,8 +342,6 @@ public class TestUnits extends TestFmwk {
     }
 
     public void TestCompoundUnit3() {
-        Factory factory = CLDR_CONFIG.getCldrFactory();
-
         Map<String, String> prefixToType = new LinkedHashMap<>();
         for (String[] prefixRow : PREFIX_NAME_TYPE) {
             prefixToType.put(prefixRow[0], prefixRow[1]);
@@ -342,7 +351,7 @@ public class TestUnits extends TestFmwk {
         Set<String> localesToTest = ImmutableSet.of("en"); // factory.getAvailableLanguages();
         int testCount = 0;
         for (String locale : localesToTest) {
-            CLDRFile file = factory.make(locale, true);
+            CLDRFile file = CLDR_FACTORY.make(locale, true);
             // ExampleGenerator exampleGenerator = getExampleGenerator(locale);
             PluralInfo pluralInfo = SDI.getPlurals(PluralType.cardinal, locale);
             final boolean isEnglish = locale.contentEquals("en");
@@ -500,6 +509,11 @@ public class TestUnits extends TestFmwk {
             {"foot", "12", "inch"},
             {"gallon", "4", "quart"},
             {"gallon", "16", "cup"},
+            {"fluid-ounce-metric", "0.03", "liter"},
+            {"cup-imperial", "10", "fluid-ounce-imperial"},
+            {"pint-imperial", "20", "fluid-ounce-imperial"},
+            {"quart-imperial", "40", "fluid-ounce-imperial"},
+            {"gallon-imperial", "160", "fluid-ounce-imperial"},
         };
         for (String[] test : tests) {
             String sourceUnit = test[0];
@@ -1164,7 +1178,7 @@ public class TestUnits extends TestFmwk {
                     "permille",
                     "percent",
                     "karat",
-                    "portion",
+                    "part",
                     "minute",
                     "hour",
                     "day",
@@ -1569,8 +1583,6 @@ public class TestUnits extends TestFmwk {
             warnln("Use  -DTestUnits:SHOW_PREFS to get the reformatted source");
         }
     }
-
-    static final Joiner JOIN_SPACE = Joiner.on(' ');
 
     private void checkUnitPreferences(UnitPreferences uprefs) {
         Set<String> usages = new LinkedHashSet<>();
@@ -2373,25 +2385,39 @@ public class TestUnits extends TestFmwk {
                         .filter(x -> converter.isSimple(x))
                         .map((String x) -> Units.LONG_TO_SHORT.inverse().get(x))
                         .collect(Collectors.toSet());
-        CLDRFile root = CLDR_CONFIG.getCldrFactory().make("root", true);
+        CLDRFile root = CLDR_FACTORY.make("root", true);
         ImmutableSet<String> unitLongIdsRoot = ImmutableSet.copyOf(getUnits(root, new TreeSet<>()));
         ImmutableSet<String> unitLongIdsEnglish =
                 ImmutableSet.copyOf(getUnits(CLDR_CONFIG.getEnglish(), new TreeSet<>()));
 
-        final Set<String> longUntranslatedUnitIds =
-                converter.getLongIds(UnitConverter.UNTRANSLATED_UNIT_NAMES);
+        //        final Set<String> longUntranslatedUnitIds =
+        //                converter.getLongIds(UnitConverter.UNTRANSLATED_UNIT_NAMES);
 
-        ImmutableSet<String> onlyEnglish = ImmutableSet.of("pressure-gasoline-energy-density");
+        // English and root have the same units, and have the same as valid
+
         assertSameCollections(
-                "root unit IDs",
-                "English",
-                unitLongIdsRoot,
-                Sets.difference(
-                        Sets.difference(unitLongIdsEnglish, longUntranslatedUnitIds), onlyEnglish));
+                "VALID_REGULAR_UNITS",
+                "unitLongIdsEnglish",
+                VALID_REGULAR_UNITS,
+                unitLongIdsEnglish);
+        assertSameCollections(
+                "VALID_REGULAR_UNITS", "unitLongIdsRoot", VALID_REGULAR_UNITS, unitLongIdsRoot);
+
+        //        ImmutableSet<String> onlyEnglish =
+        // ImmutableSet.of("pressure-gasoline-energy-density");
+        //        assertSameCollections(
+        //                "root unit IDs",
+        //                "English",
+        //                unitLongIdsRoot,
+        //                unitLongIdsEnglish
+        //                Sets.difference(
+        //                        Sets.difference(unitLongIdsEnglish, longUntranslatedUnitIds),
+        // onlyEnglish)
+        //                );
 
         final Set<String> validRootUnitIdsMinusOddballs = unitLongIdsRoot;
-        final Set<String> validLongUnitIdsMinusOddballs =
-                minus(validLongUnitIds, longUntranslatedUnitIds);
+        final Set<String> validLongUnitIdsMinusOddballs = unitLongIdsEnglish;
+        // minus(validLongUnitIds, longUntranslatedUnitIds);
         assertSuperset(
                 "valid regular",
                 "root unit IDs",
@@ -2824,7 +2850,7 @@ public class TestUnits extends TestFmwk {
         CheckUnits checkUnits = new CheckUnits();
         PathHeader.Factory phf = PathHeader.getFactory();
         for (String locale : Arrays.asList("en", "fr", "de", "pl", "el")) {
-            CLDRFile cldrFile = CLDR_CONFIG.getCldrFactory().make(locale, true);
+            CLDRFile cldrFile = CLDR_FACTORY.make(locale, true);
 
             Options options = new Options();
             List<CheckStatus> possibleErrors = new ArrayList<>();
@@ -2855,7 +2881,7 @@ public class TestUnits extends TestFmwk {
             return;
         }
         for (String locale : Arrays.asList("pl", "ru")) {
-            CLDRFile cldrFile = CLDR_CONFIG.getCldrFactory().make(locale, true);
+            CLDRFile cldrFile = CLDR_FACTORY.make(locale, true);
             GrammarInfo gi = SDI.getGrammarInfo(locale);
             Collection<String> rawCases =
                     gi.get(
@@ -3200,8 +3226,8 @@ public class TestUnits extends TestFmwk {
 
         checkNormalization("test case", "newton-meter");
         checkNormalization("test case", "acre-foot");
-        checkNormalization("test case", "portion-per-1e9");
-        checkNormalization("test case", "portion-per-1000");
+        checkNormalization("test case", "part-per-1e9");
+        checkNormalization("test case", "part-per-1000");
         checkNormalization("test case", "1e9-meter");
         checkNormalization("test case", "1000-meter");
 
@@ -3789,7 +3815,12 @@ public class TestUnits extends TestFmwk {
                     continue;
                 }
 
-                UnitId mul = id1.times(id2);
+                UnitId mul;
+                try {
+                    mul = id1.times(id2);
+                } catch (RuntimeException e) {
+                    throw e; // for debugging
+                }
                 String standardMul = converter.getStandardUnit(mul.toString());
                 if (!skipUnit(standardMul)) {
                     if (standard1.compareTo(standard2) < 0) { // suppress because commutes
@@ -4546,5 +4577,185 @@ public class TestUnits extends TestFmwk {
 
     public String clean(String unitPattern) {
         return unitPattern.replace("{0}", "").replace("{1}", "").trim();
+    }
+
+    public void testCoverage() {
+        Map<String, String> aliasedShortUnits = getAliasedLongShortIds();
+
+        if (SHOW_UNITS) {
+            System.out.println("Aliased units: ");
+            System.out.println(aliasedShortUnits);
+            showSystems("de", VALID_REGULAR_UNITS);
+        }
+        Set<String> validShortNoAliases =
+                Sets.difference(VALID_SHORT_UNITS, aliasedShortUnits.keySet());
+
+        String longUnit = "//ldml/units/unitLength[@type=\"short\"]/unit";
+        Multimap<Level, String> enCoverage = getCoverage("en", longUnit);
+        Set<String> enModern = (Set<String>) enCoverage.get(Level.MODERN);
+        assertSameCollections(
+                "VALID_REGULAR_UNITS",
+                "en Modern",
+                validShortNoAliases,
+                Sets.difference(enModern, aliasedShortUnits.keySet()));
+        final Set<String> enOrJaOnly =
+                Set.of(
+                        "bu-jp",
+                        "cho",
+                        "se-jp",
+                        "fortnight",
+                        "british-thermal-unit",
+                        "british-thermal-unit-it",
+                        "chain",
+                        "fathom",
+                        "furlong",
+                        "jo-jp",
+                        "ken",
+                        "ri-jp",
+                        "rin",
+                        "rod",
+                        "shaku-cloth",
+                        "shaku-length",
+                        "sun",
+                        "fun",
+                        "slug",
+                        "stone",
+                        "gasoline-energy-density",
+                        "rankine",
+                        "bushel",
+                        "cup-imperial",
+                        "cup-jp",
+                        // "fluid-ounce-metric",
+                        "koku",
+                        "kosaji",
+                        "osaji",
+                        "pint-imperial",
+                        "sai",
+                        "shaku",
+                        "to-jp");
+        Multimap<Level, String> deCoverage = getCoverage("de", longUnit);
+        Set<String> deModern = (Set<String>) deCoverage.get(Level.MODERN);
+        assertSameCollections(
+                "VALID_REGULAR_UNITS",
+                "de Modern",
+                Sets.difference(validShortNoAliases, enOrJaOnly),
+                Sets.difference(deModern, aliasedShortUnits.keySet()));
+
+        if (SHOW_UNITS) {
+            System.out.println("enModern " + enModern);
+            System.out.println("deModern " + enModern);
+        }
+    }
+
+    private Map<String, String> getAliasedLongShortIds() {
+        Map<String, String> result = new TreeMap<>();
+        String shortUnitAlias = "//ldml/units/unitLength[@type=\"short\"]/unit";
+        CLDRFile root = CLDR_FACTORY.make("root", false);
+
+        for (String path : root.fullIterable()) {
+            if (path.startsWith(shortUnitAlias) && path.contains("/alias")) {
+                XPathParts parts = XPathParts.getFrozenInstance(root.getFullXPath(path));
+                String type = parts.getAttributeValue(3, "type");
+                String target = parts.getAttributeValue(4, "path");
+                target =
+                        target.substring(
+                                "../unit[@type='".length(), target.length() - "']".length());
+                result.put(converter.getShortId(type), converter.getShortId(target));
+            }
+        }
+        return ImmutableMap.copyOf(result);
+    }
+
+    enum Present {
+        yes,
+        no,
+        na;
+
+        static Present from(Boolean b) {
+            return b == null ? na : b ? yes : no;
+        }
+    }
+
+    private void showSystems(String locale, Set<String> longUnits) {
+        String displayNamePath =
+                "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"{0}\"]/displayName";
+        String genderPath = "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"{0}\"]/gender";
+        String accusativeOnePath =
+                "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"{0}\"]/unitPattern[@count=\"one\"][@case=\"accusative\"]";
+        System.out.println("\n" + locale);
+        GrammarInfo grammarInfo = SDI.getGrammarInfo(locale);
+
+        Collection<String> genders =
+                grammarInfo.get(
+                        GrammaticalTarget.nominal,
+                        GrammaticalFeature.grammaticalGender,
+                        GrammaticalScope.units);
+        Collection<String> cases =
+                grammarInfo.get(
+                        GrammaticalTarget.nominal,
+                        GrammaticalFeature.grammaticalCase,
+                        GrammaticalScope.units);
+
+        System.out.println(
+                JOIN_TAB.join(
+                        "long unitId",
+                        "short unitId",
+                        "quantity",
+                        "systems",
+                        "displayName",
+                        "gender",
+                        "accusative"));
+
+        CLDRFile deUnresolved = CLDR_FACTORY.make(locale, false);
+
+        for (String longUnit : longUnits) {
+            String shortId = converter.getShortId(longUnit);
+            Set<UnitSystem> systems = converter.getSystemsEnum(shortId);
+            String quantity = converter.getQuantityFromUnit(shortId, DEBUG);
+            String baseUnit = quantity == null ? null : converter.getBaseUnitFromQuantity(quantity);
+            Present inGerman =
+                    Present.from(
+                            deUnresolved.getStringValue(displayNamePath.replace("{0}", longUnit))
+                                    != null);
+            Present inGermanGender =
+                    Present.from(
+                            genders.isEmpty()
+                                    ? null
+                                    : deUnresolved.getStringValue(
+                                                    genderPath.replace("{0}", longUnit))
+                                            != null);
+            Present inGermanGrammar =
+                    Present.from(
+                            cases.isEmpty()
+                                    ? null
+                                    : deUnresolved.getStringValue(
+                                                    accusativeOnePath.replace("{0}", longUnit))
+                                            != null);
+            System.out.println(
+                    JOIN_TAB.join(
+                            longUnit,
+                            shortId,
+                            quantity,
+                            JOIN_SPACE.join(systems),
+                            inGerman,
+                            inGermanGender,
+                            inGermanGrammar));
+        }
+    }
+
+    private Multimap<Level, String> getCoverage(String locale, String xpathPrefix) {
+        // ldml/units/unitLength[@type="long"]/unit[@type="acceleration-g-force"]/...
+        TreeMultimap<Level, String> result = TreeMultimap.create();
+        CLDRFile cldrFile = CLDR_FACTORY.make(locale, true);
+        for (String xpath : cldrFile.fullIterable()) {
+            if (xpath.startsWith(xpathPrefix)) {
+                XPathParts parts = XPathParts.getFrozenInstance(xpath);
+                Level level = SDI.getCoverageLevel(xpath, locale);
+                String type = parts.getAttributeValue(3, "type");
+                String shortUnit = converter.getShortId(type);
+                result.put(level, shortUnit);
+            }
+        }
+        return result;
     }
 }

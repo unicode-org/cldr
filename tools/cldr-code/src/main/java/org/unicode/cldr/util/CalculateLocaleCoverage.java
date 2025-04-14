@@ -166,7 +166,7 @@ public class CalculateLocaleCoverage {
 
         logger.info(Joiner.on("\n").join(languageToRegion.asMap().entrySet()));
 
-        logger.info("# Checking: " + availableLanguages);
+        logger.info("# Calculating locale coverage: " + availableLanguages);
 
         NumberFormat percentFormat = NumberFormat.getPercentInstance(Locale.ENGLISH);
         percentFormat.setMaximumFractionDigits(1);

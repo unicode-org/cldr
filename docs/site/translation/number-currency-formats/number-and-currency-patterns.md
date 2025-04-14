@@ -128,3 +128,16 @@ X digit-two
 
 Xdigit-other
 
+## Rational Formatting
+
+There are special patterns for formatting rational fractions, such as in the following:
+
+![Screenshot 2025-03-29 at 17 46 03](https://github.com/user-attachments/assets/1a5a3ba5-e38e-49f5-9219-b1cd1d35ad08)
+
+As usual, different numbering systems used in your language can have different patterns. Here are the different fields for you to vote for.
+
+1. **Rational** — A pattern that is used to format a rational fraction (eg, ½), using the numerator and denominator. For most languages, there is a special kind of ‘slash’ character that is used to separate the numerator and denominator. In well-constructed fonts, this will cause the digits before that slash to be superscripted, and the digits after to be subscripted. Only change this if your language doesn't use a slash for rational fractions.
+2. **Integer + Rational** — This pattern is used to “glue” an integer and a formatted rational fraction together, such as 3 + ½, to get 3 ½ (**with** a space). This pattern is to be used when an implementation **has not** verified that the digits before the slash will be superscripted, and the number would look like 31/2 if it doesn't.
+3. **Integer + Rational** — This pattern is used to “glue” an integer and a formatted rational fraction together, such as 3 + ½, to get 3½ (**without** a space). This pattern is to be used if the implementation **has** verified that superscripting is performed.
+4. **Usage** — Set this value to indicate the usage of rational fractions (eg, ½) in your language; only pick `never` if they are _never_ used with this numbering system in your language, including text translated from another language. If they have at least occasional use, including in speech or in special contexts like cooking (eg, ½ liter), pick `sometimes`. Even your answer is `never`, _you still need to vote for the best patterns above_; typically that will be to vote for the inherited values.
+

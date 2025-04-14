@@ -4,6 +4,49 @@ const { ref } = Vue;
 // first thing.
 anchors.add("h1, h2, h3, h4, h5, h6");
 
+const coll = Intl.Collator([], {
+  usage: "search",
+  sensitivity: "base",
+  ignorePunctuation: "true",
+});
+
+/**
+ * @param {string} t string to search for
+ * @param {string} full full text to search on
+ * @returns
+ */
+function searchMatch(t, full) {
+  // normalize input strings
+  t = t.trim().toLowerCase();
+  full = full.trim().toLowerCase();
+
+  // exact exact match
+  if (t == full) return true;
+  // substring match
+  if (full.includes(t)) return true;
+  // next, try search collator
+  if (coll.compare(t, full) == 0) return true;
+
+  // sorry, no match
+  return false;
+}
+
+/** flatten anchor.elements into a flat map */
+function processAnchorElements(anchorElements) {
+  if (!anchorElements) return [];
+  let objects = anchorElements?.map(({ textContent, id, tagName }) => ({
+    title: textContent,
+    href: `#${id}`,
+    children: null,
+    style: `heading${tagName}`,
+  }));
+  if (objects[0]?.title === this.ourTitle) {
+    objects = objects.slice(1);
+  }
+  if (!objects?.length) return null;
+  return objects;
+}
+
 // site management
 
 let myPath = window.location.pathname.slice(1) || "index.html";
@@ -214,12 +257,132 @@ const PageContents = {
   `,
 };
 
+const SearchBox = {
+  components: {},
+  props: {
+    // sitemap
+    tree: {
+      type: Object,
+      required: true,
+    },
+    max: {
+      type: Number,
+      default: 5,
+      required: false,
+    },
+  },
+  methods: {
+    // handler: check for enter key
+    keyup(event) {
+      if (event.key === "Enter" || event?.keycode === 13) {
+        this.webSearch();
+      }
+    },
+    // update the search box
+    updateSearch(event) {
+      this.searchText = event.target.value;
+      const t = this.searchText?.trim();
+      this.clearSearchResults();
+      if (t) {
+        this.localSearch();
+      }
+    },
+    // do the google search
+    webSearch() {
+      this.clearSearchResults(); // as we are leaving this page
+      const text = this.searchText;
+      if (!text || !text.trim()) return;
+      const u = new URL(
+        "https://www.google.com/search?q=site%3Acldr.unicode.org%2F+"
+      );
+      let q = u.searchParams.get("q");
+      q = q + text; // append their search
+      u.searchParams.set("q", q);
+      document.location.assign(u); // Go!
+    },
+    // handle the X (clear) button
+    clearSearch() {
+      this.searchText = "";
+      this.clearSearchResults();
+    },
+    clearSearchResults() {
+      this.searchResults = [];
+      this.headerResults = [];
+    },
+    // attempt a local search
+    localSearch() {
+      const t = this.searchText?.trim();
+      this.clearSearchResults();
+      if (t.length <= 1) return; // don't search on one letter
+      const pathAndTitle = Object.entries(this.tree.value.usermap).map(
+        ([href, { title }]) => ({ href, title })
+      );
+      this.headerResults = [
+        ...this.pageContents
+          .filter(({ title }) => searchMatch(t, title))
+          // don't match the H1
+          .filter(({ style }) => style != "headingH1"),
+      ];
+      this.searchResults = [
+        ...pathAndTitle
+          .filter(({ href, title }) => searchMatch(t, title))
+          // need to add a preceding slash to the href
+          .map(({ href, title }) => ({ href: `/${href}`, title })),
+      ];
+      if (!this.searchResults.length) {
+        this.searchResults = [
+          ...pathAndTitle
+            .filter(({ href, title }) => searchMatch(t, href))
+            // need to add a preceding slash to the href
+            .map(({ href, title }) => ({ href: `/${href}`, title })),
+        ];
+      }
+    },
+  },
+  setup(props) {
+    const searchText = ref("");
+    const headerResults = ref([]);
+    const searchResults = ref([]);
+    const pageContents = ref(processAnchorElements(anchors.elements));
+    return {
+      searchText,
+      headerResults,
+      searchResults,
+      pageContents,
+    };
+  },
+  template: `
+    <input size="30" placeholder="Search CLDR…" @keyup="keyup" :value="searchText" @input="updateSearch"/><button id="searchbutton" title="search" @click="webSearch">🔎</button>
+    <button v-show="searchText" id="clearsearch" title="clear search" @click="clearSearch">✕</button>
+    <div class="searchResults" v-if="headerResults?.length">
+      <i>Matching headings on this page:</i>
+      <ul>
+        <li v-for="r of headerResults.slice(0,max)" :key="href">
+          <a :href="r.href">{{ r.title }}</a>
+        </li>
+        <li class="searchMax" v-show="headerResults?.length > max">…</li>
+      </ul>
+    </div>
+    <div class="searchResults" v-if="searchResults?.length">
+      <i>Matching page titles:</i>
+      <ul>
+        <li v-for="r of searchResults.slice(0,max)" :key="href">
+          <a :href="r.href">{{ r.title }}</a>
+        </li>
+        <li class="searchMax" v-show="searchResults?.length > max">…</li>
+      </ul>
+      <i v-if="searchResults">or, press Enter to search the site.</i>
+    </div>
+  `,
+};
+
 const app = Vue.createApp(
   {
     components: {
       AncestorPages,
       SubPagesPopup,
       SiteMap,
+      SearchBox,
     },
     setup(props) {
       // the tree.json data
@@ -331,6 +494,9 @@ const app = Vue.createApp(
        <div class="breadcrumb">
         <AncestorPages :ancestorPages="ancestorPages"/>
 
+        </div>
+        <div id="searchbox">
+          <SearchBox :tree="tree" />
         </div>
        </div>
     </div>`,
@@ -474,19 +640,7 @@ if (myPath === "sitemap.html") {
         },
         contents() {
           // For now we generate a flat map
-          // this
-          let objects = this.anchorElements?.map(
-            ({ textContent, id, tagName }) => ({
-              title: textContent,
-              href: `#${id}`,
-              children: null,
-              style: `heading${tagName}`,
-            })
-          );
-          if (objects[0]?.title === this.ourTitle) {
-            objects = objects.slice(1);
-          }
-          if (!objects?.length) return null;
+          const objects = processAnchorElements(this.anchorElements);
           return objects;
         },
         ourTitle() {

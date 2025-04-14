@@ -1510,7 +1510,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                             "weeHours")
                     .freeze();
     static MapComparator<String> dateTimeFormatOrder =
-            new MapComparator<String>().add("standard", "atTime").freeze();
+            new MapComparator<String>().add("standard", "atTime", "relative").freeze();
     static MapComparator<String> listPatternOrder =
             new MapComparator<String>().add("start", "middle", "end", "2", "3").freeze();
     static MapComparator<String> widthOrder =
@@ -1653,9 +1653,11 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                                         "concentr-milligram-per-deciliter",
                                         "concentr-millimole-per-liter",
                                         "concentr-item",
-                                        "concentr-portion",
-                                        "concentr-permillion",
+                                        "concentr-portion", // deprecated
+                                        "concentr-part",
+                                        "concentr-permillion", // deprecated
                                         "concentr-part-per-million", // deprecated
+                                        "concentr-part-per-1e6",
                                         "concentr-percent",
                                         "concentr-permille",
                                         "concentr-permyriad",
@@ -1723,7 +1725,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                                         "graphics-dot-per-inch",
                                         "graphics-dot",
                                         "length-earth-radius",
-                                        "length-100-kilometer",
+                                        "length-100-kilometer", // deprecated
                                         "length-kilometer",
                                         "length-meter",
                                         "length-decimeter",
@@ -1812,6 +1814,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                                         "volume-milliliter",
                                         "volume-pint-metric",
                                         "volume-cup-metric",
+                                        "volume-fluid-ounce-metric",
                                         "volume-acre-foot",
                                         "volume-bushel",
                                         "volume-gallon",
@@ -1820,6 +1823,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                                         "volume-pint",
                                         "volume-pint-imperial",
                                         "volume-cup",
+                                        "volume-cup-imperial",
                                         "volume-fluid-ounce",
                                         "volume-fluid-ounce-imperial",
                                         "volume-tablespoon",
@@ -1871,7 +1875,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                                         "volume-koku",
                                         "speed-light-speed",
                                         "mass-fun",
-                                        "concentr-portion-per-1e9",
+                                        "concentr-portion-per-1e9", // deprecated
+                                        "concentr-part-per-1e9",
                                         "duration-night"))
                         .freeze();
     }

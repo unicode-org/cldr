@@ -14,6 +14,7 @@ import { TestCldrGui } from "./TestCldrGui.mjs";
 import { TestCldrListUsers } from "./TestCldrListUsers.mjs";
 import { TestCldrProgress } from "./TestCldrProgress.mjs";
 import { TestCldrStatus } from "./TestCldrStatus.mjs";
+import { TestCldrSurvey } from "./TestCldrSurvey.mjs";
 import { TestCldrTable } from "./TestCldrTable.mjs";
 import { TestCldrText } from "./TestCldrText.mjs";
 
@@ -36,6 +37,7 @@ export default {
   TestCldrListUsers,
   TestCldrProgress,
   TestCldrStatus,
+  TestCldrSurvey,
   TestCldrTable,
   TestCldrTest,
   TestCldrText,

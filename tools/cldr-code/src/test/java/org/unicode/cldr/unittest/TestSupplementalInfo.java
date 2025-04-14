@@ -1300,7 +1300,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             }
             Scope languageScope = getScope(language, lstregLanguageInfo);
             if (languageScope == Scope.Macrolanguage) {
-                if (Iso639Data.getHeirarchy(language) != null) {
+                if (Iso639Data.getHierarchy(language) != null) {
                     continue main; // is real family
                 }
                 Set<String> replacements = replacementToReplaced.getAll(language);
@@ -1594,7 +1594,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                 // TODO 17397: remove isKnownIssue and the if around errln when the logknown issue
                 // goes away.
                 final boolean skipKnownIssue =
-                        currency.equals("ANG")
+                        currency.equals("XCG")
                                 && isoCountries.isEmpty()
                                 && cldrCountries.equals(Set.of("CW", "SX"))
                                 && logKnownIssue("CLDR-17397", "Mismatched codes " + cldrCountries);
@@ -1881,6 +1881,9 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                 }
             } else {
                 BasicLanguageData data = scriptInfo.get(Type.primary);
+
+                // TODO CLDR-18102 change what primary and secondary scripts are handled
+
                 if (data == null) {
                     data = scriptInfo.get(Type.secondary);
                 }
@@ -2173,7 +2176,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                 SUPPLEMENTAL.getLanguageAndTerritoryPopulationData(b ? "zh" : "zh_Hans", "CN");
         PopulationData yueCNData =
                 SUPPLEMENTAL.getLanguageAndTerritoryPopulationData("yue_Hans", "CN");
-        assertTrue("yue*10 < zh", yueCNData.getPopulation() < zhCNData.getPopulation());
+        assertTrue("yue < zh", yueCNData.getPopulation() < zhCNData.getPopulation());
     }
 
     public void Test10765() { //

@@ -65,7 +65,7 @@
 			<limit>MAXIMUM</limit>
 			<measure>DISPLAY_WIDTH</measure>
 			<special>PLACEHOLDERS</special>
-			<pathName>//ldml/dates/timeZoneNames/(gmtFormat|gmtZeroFormat)</pathName>
+			<pathName>//ldml/dates/timeZoneNames/(gmtFormat|gmtZeroFormat|gmtUnknownFormat)</pathName>
 		</path>
 		<!-- // Narrow items .add("//ldml/dates/calendars/calendar.*[@type=\"narrow\"](?!/cyclic|/dayPeriod|/monthPattern)", 
 			new Limit[] { new Limit(1.5 * EM, 2.25 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, 

@@ -17,14 +17,11 @@ During Submission, please read the CLDR Training (if new to the survey tool), pl
 
 ### Updates
 
-- There are substantial changes to the guidance on dealing with Emoji. Be sure to read the updates in **New Areas**!
-- The Survey Tool Approval column has new icons in the Approval column; see **Survey Tool**.
-
 When a section below changes, the date will be in the header.
 
 ## Status and Schedule
 
-The Survey Tool was not open for submission for CLDR 47. The Survey Tool will open for CLDR 48 [General Submission](translation/getting-started/survey-tool-phases#survey-tool-phase-general-submission) in April 2025. The General Submission phase will be followed by the [Vetting phase](translation/getting-started/survey-tool-phases#survey-tool-phase-vetting).
+The Survey Tool is currently being prepared to open for CLDR 48 [General Submission](translation/getting-started/survey-tool-phases#survey-tool-phase-general-submission) in April 2025. The General Submission phase will be followed by the [Vetting phase](translation/getting-started/survey-tool-phases#survey-tool-phase-vetting).
 
 - **Disconnect error**. If you see a persistent Loading error with a disconnect message or other odd behavior, please [empty your cache](translation/getting-started/empty-cache).
 - Survey Tool email notification may be going to your spam folder. Check your spam folder regularly.
@@ -32,79 +29,118 @@ The Survey Tool was not open for submission for CLDR 47. The Survey Tool will op
 
 ## New Areas
 
-![alt-text](./images/translation-horizontal-emojis.png)
-
 Most of the following are relevant to locales at the Modern Coverage Level.
 
 ### New emoji
 
-Seven new emoji have been added (images above). These were released in Unicode 16 in September 2024.
+TBD - New emoji will be added the week of April 21st.
 
-### Emoji search keywords
+### Locale display names
 
-1. **Important Notes**
-    1. **The Additions from WhatsApp are not listed as Missing in the Dashboard.**
-        1. **They are listed instead under the Abstained label, and show up with ☑️ in the main window in the A column.**
-        2. **So be sure the Abstained label is checked.**
-        3. **If you have too many Abstained items to deal with, handle the emoji first.**
-    2. **The usage model is:**
-        1. The user types one or more words in an emoji search field.
-        2. Each word successively narrows a number of emoji in a results box.
-            - heart → 🥰 😘 😻 💌 💘 💝 💖 💗 💓 💞 💕 💟 ❣️ 💔 ❤️‍🔥 ❤️‍🩹 ❤️ 🩷 🧡 💛 💚 💙 🩵 💜 🤎 🖤 🩶 🤍 💋 🫰 🫶 🫀 💏 💑 🏠 🏡 ♥️ 🩺
-            -  Blue → 🥶 😰 💙 🩵 🫐 👕 👖 📘 🧿 🔵 🟦 🔷 🔹 🏳️‍⚧️
-            - heart blue → 💙 🩵
-        3. A word with no hits is ignored
-            - \[heart | blue | confabulation\] is equivalent to \[heart | blue\]
-        4. As the user types a word, each character added to the word narrows the results.
-        5. Whenever the list is short enough to scan, the user will mouse-click on the right emoji - so it doesn't have to be narrowed too far.
-            - In the following, the user would just click on 🎉 if that works for them.
-                1. celebrate → 🥳 🥂 🎈 🎉 🎊 🪅
-        6. The order of words doesn't matter; nor does upper- versus lowercase.
-    3. **The limits on the number of keywords per emoji have been relaxed** in the beginning, but will be decreased to the final limit (20) soon. So please work on reducing duplicates and breaking up multi-word search keywords.
-    4. **Don't follow the English emoji names and keywords literally**; they are *just* for comparison. The names and keywords should reflect **your** cultural associations with the emoji images, and should match what **users of your language** are most likely to search in order to find emoji.
-        1. English phrases like "give up" = surrender are often translated as single words in other languages. *Don't just translate each word!* For example, in \[**hold** |… | **shut** |… | **tongue** |… | **up** |… | **your**\], the corresponding phrases are "shut up" and "hold your tongue".
-2. **Steps**
-    1. **Break up multi-word keywords (see the usage model). For example,**
-        1. Where *white flag* (🏳️) has \[white waving flag | white flag\] , it is better to replace that with \[white | waving | flag\].
-        2. Because of the usage model, this works far better.
-        3. Reduce or remove "[stopwords](https://www.opinosis-analytics.com/knowledge-base/stop-words-explained/)", except with close associations, such as \[down\] with *thumbs down* (👎)
-    2. **Reduce duplicates (and uncommon synonyms) in meaning. For example,**
-        1. If you see \[jump | jumping | bounding | leaping | prancing\], it is better to replace that with just \[jump\] unless you are confident people will frequently use the other forms.
-        2. Because each character narrows the results, \[jumping\] is not necessary if you have \[jump\].
-            - Favor the prefixes: \[jump\] is better than \[jumping\]
-            - Keep forms where one character word is not the prefix of another, eg \[race | racing\] and \[ride | riding\]
-    3. **Add equivalents among gender alternates. For example,**
-        1. If a *man scientist* (👨‍🔬) has \[researcher\], add the equivalent to both *women scientist* (👩‍🔬) and *scientist* (🧑‍🔬).
-        2. Those equivalents may have different forms in your language, depending on the gender. For example, Forscher (man) vs Forscherin (woman) in German.
-    4. **Avoid:**
-        1. Names of specific people or places except for close associations, such as \[Japan | Japanese \] with *map of Japan* (🗾) or *sushi* (🍣).
-            - Fictional characters or places are ok, if first used before 1855.
-            - Certain other names have been verified to be in the public domain (Pinocchio, Dracula).
-            - Don't add others (post-1855) without verifying with the TC.
-        2.  Intellectual Property (IP), such as trademarks or names of products, companies, books or movies
-        3. Religious references, except for close associations, such as \[Christian | church | chapel\] with *church* ( ⛪), \[cherub | church\] with *baby angel* (👼), \[islam | Muslim | ramadan\] with *star and crescent* (☪️)
-        4. Specific terms for sexuality, unless strongly associated with the emoji, eg \[lgbt|lgbtq |... \] for *rainbow* (🌈), *rainbow flag* (🏳️‍🌈), and *transgender flag* (🏳️‍⚧️).
-    5.  **Note:** The English values have also been reviewed and modified for these rules.
+#### More language names
 
-### New/expanded units
+As new locales reach Basic Coverage, their language names have been added for locales targeting modern coverage: TBD
 
-1. Additional units:
-    1. **night**, as in "your hotel reservation is for **3 nights**".
-    2. **light-speed**, a special unit used in combination with a duration, such as "[light-second](https://en.wikipedia.org/wiki/Light-second)". Because of that limited usage, typically the "-speed" suffix is dropped, and the "light" typically doesn't change for inflections (incl. plurals) - *but this may vary by language.*
-    3. **portion-per-1e9**, which will normally be translated as something like [parts per billion](https://en.wikipedia.org/wiki/Parts-per_notation).
-2. Additional grammatical forms have been added for a few units.
-    1. point - meaning the [typographical measurement](https://en.wikipedia.org/wiki/Point_%28typography%29).
-    2. milligram-ofglucose-per-deciliter - used for blood sugar measurement
-    3. millimeter-ofhg - used for pressure measurements
-    4. Beaufort - used for [wind speed](https://en.wikipedia.org/wiki/Beaufort_scale) (only in certain countries)
+#### Languages whose English name changed
 
-### Language names
+- tkl: English name changed to Tokelauan. [CLDR-11231](https://unicode-org.atlassian.net/browse/CLDR-11231)
 
-As new locales reach Basic Coverage, their language names have been added for locales targeting modern coverage: Anii, Kuvi, …, Zhuang
+#### Scripts
 
-### Metazones
+There are 5 new scripts for Unicode 17. Currently the names are in English: Beria Erfe, Chisoi, Sidetic, Tai Yo, Tolong Siki.
+Coverage for other languages is at comprehensive; if there is a need to have coverage at lower level in some locale,
+please file a ticket. [CLDR-18283](https://unicode-org.atlassian.net/browse/CLDR-18283)
 
-There is a new metazone for Kazakhstan (which merged its two time zones).
+#### ISO 8601 calendar name
+
+This is a variant of the Gregorian calendar whose formats always use year-month-day ordering and a 24-hour time cycle.
+The English name has changed to reflect that (and also added a variant); locales should update accordingly:
+-calendar-iso8601: Gregorian (Year First)
+-calendar-iso8601-variant: ISO 8601 Order
+
+[CLDR-18447](https://unicode-org.atlassian.net/browse/CLDR-18447)
+
+### DateTime formats
+
+#### New “relative” variant for date-time combining pattern
+
+There is a new “-relative” variant for [Date-Time Combined Formats](/translation/date-time/date-time-patterns#date-time-combined-formats). [CLDR-18350](https://unicode-org.atlassian.net/browse/CLDR-18350)
+
+Before CLDR 48, there were two variants:
+- A “standard” variant for combining date with time, typically without literal text. In English this was “{1}, {0}”
+and resulted in combined date patterns like “March 20, 3:00 PM“, “March 20, 3:00-5:00 PM”, “tomorrow, 3:00 PM”, “tomorrow, 3:00-5:00 PM”, “in 2 days, 3:00 PM”
+- An “atTime” variant for combining date with a single time (not a range). For longer styles in English this was “{1} 'at' {0}”
+and resulted in combined date patterns like “March 20 at 3:00 PM“, “tomorrow at 3:00 PM”, “2 days ago at 3:00 PM”.
+
+However, in some languages the use of a relative date such as “tomorrow” or “2 days ago” required a different combining pattern than for a fixed date like “March 20”.
+So in CLDR 48 a new “relative” variant is introduced. This will be used (instead of the “atTime” variant) for the combination
+of a relative date and a single time. If you do not supply this, that combination will fall back to using the “standard” variant;
+in English that would produce “tomorrow, 3:00 PM”. If instead you want the same combining behavior for a relative date with a single time as for a
+fvfixed date with single time (as was the case in CLDR 47 and earlier), then for each length style copy the existing “atTime” form to the new “relative” form.
+
+### Timezones, metazones and exemplar cities
+
+#### New `gmtUnknownFormat`
+
+Normally time zones formatted using UTC offset (like xxxx) use the `gmtFormat` pattern (“GMT{0}” in root). The new `gmtUnknownFormat` is used when formatting time zones using a UTC offset for cases when the offset or zone is unknown. The root value “GMT+?” need not be changed if it works for your locale; hoever it should be consistent with the `gmtFormat` and `gmtZeroFormat` in your locale. See [Time Zones and City names](translation/time-zones-and-city-names) [CLDR-18236](https://unicode-org.atlassian.net/browse/CLDR-18236)
+
+#### “Unknown City” → “Unknown Location”
+
+For zone `Etc/Unknown`, the exemplarCity name was changed in English from “Unknown City” to “Unknown Location”; other locales should update accordingly. [CLDR-18262](https://unicode-org.atlassian.net/browse/CLDR-18262)
+
+#### Changes to the root and/or English names of many exemplar cities and some metazones
+
+(TBD [CLDR-18249](https://unicode-org.atlassian.net/browse/CLDR-18249)
+
+### Number formats
+
+#### Currency patterns alphaNextToNumber, noCurrency
+
+There actually added in CLDR 42 per (CLDR-14336)[https://unicode-org.atlassian.net/browse/CLDR-14336]. However, they were not properly set up for coverage and inheritance, and were not presented to many vetters. These issue were corrected in CLDR 47 per [CLDR-17879](https://unicode-org.atlassian.net/browse/CLDR-17879), which adjusted the data for some locales (and made it draft="provisional"). Many vetters will see these for the first time in CLDR 48.
+- The `alphaNextToNumber` patterns should be used when currency symbol is alphabetic, such as “USD”; in this case the m=pattern may add a space to offset the currency symbol from the numeric value, if the standard pattern does not already include a space.
+- The `alphaNextToNumber` patterns should be used when the currency amount should be formatted without a currency symbol, as in a table of values all using the same currency. This pattern must not include the currency symbol pattern character ‘¤’.
+
+For more information see [Number and currency patterns](/translation/number-currency-formats/number-and-currency-patterns).
+
+#### Rational formats
+
+These describe the formatting of rational fractions such as ¾ or combinations of integers and fractions such as 5½. [CLDR-17570](https://unicode-org.atlassian.net/browse/CLDR-17570)
+
+Here are the the English values and a short description of their purpose; for more information see (TBD):
+- `rationalFormats-rationalPattern`: “{0}⁄{1}” - The format for a rational fraction with arbitrary numerator and denominator; the English pattern uses the Unicode character ‘⁄’ U+2044 FRACTION SLASH which causes composition of fractions such as 22⁄7.
+- `rationalFormats-integerAndRationalPattern`: “{0} {1}” - The format for combining an integer with a rational fraction composed using the pattern above; the English pattern uses U+202F NARROW NO-BREAK SPACE (NNBSP) to produce a small no-break space.
+- `rationalFormats-integerAndRationalPattern-superSub`: “{0}⁠{1}” - The format for combining an integer with a rational fraction using (TBD); the English pattern uses U+2060 WORD JOINER, a zero-width no-break space.
+- `rationalFormats-rationalUsage`: “sometimes” - An indication of the extent to which rational fractions are used in the locale; may be one of “never”, “sometimes”, ... (TBD)
+
+### Units
+
+#### Rework certain concentration units 
+
+The keys for two units changed (the translations can probably remain the same) and there is one new unit that is used for constructing certain other kinds of concentration units. [CLDR-18274](https://unicode-org.atlassian.net/browse/CLDR-18274):
+- key `permillion` changed to `concentr-part-per-1e6`; English values remain “parts per million”, “{0} part per million”, etc.
+- key `portion-per-1e9` changed to `concentr-part-per-1e9`; English values remain “parts per billion”, “{0} part per billion”, etc.
+- new key `part` used for constructing arbitrary concentrations such as “parts per 100,000”; English values “parts”, “{0} part”, etc.
+
+#### Many new units in English
+
+Mnny new units were added in English. In general these are very specific and vetters will not be
+asked to translate them for other locales, so coverage will be comprehensive. If some of these units
+would be useful in particualr locales, please file a ticekt and the coverage can be adjusted.
+[CLDR-18215](https://unicode-org.atlassian.net/browse/CLDR-18215)
+
+The units (English names) are: 
+- angle: steradians 
+- area: bu [JP], cho [JP], se [JP] (Japanese units)
+- duration: fortnights 
+- concentr: katals 
+- electric: coulombs, farads, henrys, siemens 
+- energy: becquerels, British thermal units [IT], calories [IT], grays, sieverts 
+- force: kilograms-force 
+- length: chains, rods; jo [JP], ken [JP], ri [JP], rin [JP], shaku [cloth, JP], >shaku [JP], sun [JP] (Japanese units)
+- magnetic: teslas , webers 
+- mass: slugs; fun [JP] (Japanese unit)
+- temperature: rankines 
+- volume: metric fluid ounces; cups Imperial, pints Imperial; cup [JP], koku [JP], kosaji [JP], osaji [JP], sai [JP], shaku [volume, JP], to [JP] (Japanese units)
 
 ## Survey Tool
 
@@ -112,16 +148,17 @@ Once trained and up to speed on [Critical reminders](#critical-reminders-for-all
 
 ### Survey Tool Changes
 
+1. The ability to search in the Survey Tool has been added in [CLDR-18423][] and supports searching for: values, English value, and for the codes
 1. There has been substantial performance work that will show up for the first time. If there are performance issues, please file a ticket with a row URL and an explanation for what happened.
-2. In the Dashboard, you can filter the messages instead of jumping to the first one. In the Dashboard header, each notification category (such as "Missing" or "Abstained") has a checkbox determining whether it is shown or hidden.
-3. In each row of the vetting page, there is now a visible icon when there are forum messages at the right side of the English column:
+1. In the Dashboard, you can filter the messages instead of jumping to the first one. In the Dashboard header, each notification category (such as "Missing" or "Abstained") has a checkbox determining whether it is shown or hidden.
+1. In each row of the vetting page, there is now a visible icon when there are forum messages at the right side of the English column:
     1. 👁️‍🗨️ if there are any open posts
-    2. 💬 if there are posts, but all are closed
-4. For Units and a few other sections, the Pages have changed to reduce the size on the page to improve performance.
+    1. 💬 if there are posts, but all are closed
+1. For Units and a few other sections, the Pages have changed to reduce the size on the page to improve performance.
     1. Pages may be split, and/or retitled
-    2. Rows may move to a different page.
-5. In the Dashboard, the Abstains items will now only have one entry per page. You can use that entry to go to its page, and then fix Abstains on that page. Once you are done on that page, hit the Dashboard refresh button (↺). This fixes a performance problem for people with a large number of Abstains, and reduces clutter in the Dashboard.
-6. The symbols in the A column have been changed to be searchable in browsers (with *Find in Page*) and stand out more on the page. See below for a table. They override the symbols in [Survey Tool Guide: Icons](translation/getting-started/guide#icons).
+    1. Rows may move to a different page.
+1. In the Dashboard, the Abstains items will now only have one entry per page. You can use that entry to go to its page, and then fix Abstains on that page. Once you are done on that page, hit the Dashboard refresh button (↺). This fixes a performance problem for people with a large number of Abstains, and reduces clutter in the Dashboard.
+1. The symbols in the A column have been changed to be searchable in browsers (with *Find in Page*) and stand out more on the page. See below for a table. They override the symbols in [Survey Tool Guide: Icons](translation/getting-started/guide#icons).
 
 ### Important Notes
 
@@ -140,19 +177,19 @@ Once trained and up to speed on [Critical reminders](#critical-reminders-for-all
 
 ## Known Issues
 
+Last updated: 2025-04-07
+
 This list will be updated as fixes are made available in Survey Tool Production. If you find a problem, please [file a ticket](requesting_changes), but please review this list first to avoid creating duplicate tickets.
 
-1. [CLDR-17694](https://unicode-org.atlassian.net/browse/CLDR-17694) - Back button in browser fails in forum under certain conditions
-2. [CLDR-17693](https://unicode-org.atlassian.net/browse/CLDR-17693) SurveyTool fatal in getDBConnection
-3. [CLDR-17658](https://unicode-org.atlassian.net/browse/CLDR-17658) - Dashboard slowness
-4. Images for the plain symbols. Non-emoji such as [€](https://st.unicode.org/cldr-apps/v#/fr/OtherSymbols/47925556fd2904b5), √, », ¹, §, ... do not have images in the Info Panell. \[[CLDR-13477](https://unicode-org.atlassian.net/browse/CLDR-13477)\]**Workaround**: Look at the Code column; unlike the new emoji, your browser should display them there.
-5. [CLDR-17683](https://unicode-org.atlassian.net/browse/CLDR-17683) - Some items are not able to be flagged for TC review. This is being investigated.Meanwhile, Please enter forum posts meanwhile with any comments.
+1. Images for the plain symbols. Non-emoji such as [€](https://st.unicode.org/cldr-apps/v#/fr/OtherSymbols/47925556fd2904b5), √, », ¹, §, ... do not have images in the Info Panel. [CLDR-13477](https://unicode-org.atlassian.net/browse/CLDR-13477) **Workaround**: Look at the Code column; unlike the new emoji, your browser should display them there.
+1. [CLDR-17683](https://unicode-org.atlassian.net/browse/CLDR-17683) - Some items are not able to be flagged for TC review. This is being investigated.Meanwhile, Please enter forum posts meanwhile with any comments.
 
 ## Resolved Issues
 
-1. [CLDR-17465](https://unicode-org.atlassian.net/browse/CLDR-17465) - dashboard download fails
-2. [CLDR-17671](https://unicode-org.atlassian.net/browse/CLDR-17671) - survey tool search fails
-3. [CLDR-17652](https://unicode-org.atlassian.net/browse/CLDR-17652) - Manual import of votes fails
+Last updated: 2025-04-07
+
+1. [CLDR-17694](https://unicode-org.atlassian.net/browse/CLDR-17694) - Back button in browser fails in forum under certain conditions
+2. [CLDR-17658](https://unicode-org.atlassian.net/browse/CLDR-17658) - Dashboard slowness
 
 ## Recent Changes
 
@@ -197,4 +234,8 @@ You're already familiar with the CLDR process, but do keep the following in mind
     2. [Time zones](translation/time-zones-and-city-names)
     3. [Plural forms](translation/getting-started/plurals)
 
-*Tip: The links in the [Info Panel](translation/getting-started/guide#info-panel) will point you to relevant instructions for the entry you're editing/vetting. Use it if in doubt.*
+*Tip: The links in the [Info Panel](translation/getting-started/guide#info-panel) will point you to relevant instructions for the
+entry you're editing/vetting. Use it if in doubt.*
+
+[CLDR-18423]: https://unicode-org.atlassian.net/browse/CLDR-18423
+[CLDR-17694]: https://unicode-org.atlassian.net/browse/CLDR-17694

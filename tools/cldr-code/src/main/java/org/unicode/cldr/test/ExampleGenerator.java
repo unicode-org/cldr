@@ -2,6 +2,7 @@ package org.unicode.cldr.test;
 
 import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.impl.number.DecimalQuantity;
@@ -54,6 +55,7 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.ExemplarType;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
+import org.unicode.cldr.util.CLDRFileOverride;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CodePointEscaper;
@@ -70,6 +72,7 @@ import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.NameGetter;
 import org.unicode.cldr.util.NameType;
+import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathDescription;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.PluralSamples;
@@ -84,6 +87,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.TransliteratorUtilities;
 import org.unicode.cldr.util.UnitConverter;
+import org.unicode.cldr.util.UnitConverter.UnitId;
 import org.unicode.cldr.util.UnitConverter.UnitSystem;
 import org.unicode.cldr.util.Units;
 import org.unicode.cldr.util.XListFormatter.ListTypeLength;
@@ -101,6 +105,9 @@ import org.unicode.cldr.util.personname.SimpleNameObject;
  * @author markdavis
  */
 public class ExampleGenerator {
+    private static final String FSLASH = "\u2044";
+    private static final String ISOLATE_FSLASH = "\u200C\u2044\u200C";
+
     private static final String INTERNAL = "internal: ";
     private static final String SUBTRACTS = "➖";
     private static final String ADDS = "➕";
@@ -141,6 +148,8 @@ public class ExampleGenerator {
     private static final String endItalic = "</i>";
     private static final String startSup = "<sup>";
     private static final String endSup = "</sup>";
+    private static final String startSub = "<sub>";
+    private static final String endSub = "</sub>";
     private static final String backgroundAutoStart = "<span class='cldr_background_auto'>";
     private static final String backgroundAutoEnd = "</span>";
     private String backgroundStart = "<span class='cldr_substituted'>"; // overrideable
@@ -160,6 +169,8 @@ public class ExampleGenerator {
     private static final String exampleStartRTLSymbol = "\uE23F";
     private static final String exampleStartHeaderSymbol = "\uE240";
     private static final String exampleEndSymbol = "\uE241";
+    private static final String startSubSymbol = "\uE242";
+    private static final String endSubSymbol = "\uE243";
 
     private static final String contextheader =
             "Key: " + backgroundAutoStartSymbol + "neutral" + backgroundAutoEndSymbol + ", RTL";
@@ -289,7 +300,7 @@ public class ExampleGenerator {
      * to extract this data directly from supplementaldata.xml
      */
     public static final Map<String, List<Date>> CALENDAR_ERAS =
-            new HashMap<String, List<Date>>() {
+            new HashMap<>() {
                 { // month 0-indexed. start/end days adjusted by +/- 2, respectively
                     put(
                             "gregorian",
@@ -331,7 +342,7 @@ public class ExampleGenerator {
 
     // map relativeTimePattern counts to numeric examples
     public static final Map<String, String> COUNTS =
-            new HashMap<String, String>() {
+            new HashMap<>() {
                 {
                     put("zero", "0");
                     put("one", "1");
@@ -403,6 +414,16 @@ public class ExampleGenerator {
      */
     public void setVerboseErrors(boolean verbosity) {
         this.verboseErrors = verbosity;
+    }
+
+    /**
+     * Create an Example Generator. If this is shared across threads, it must be synchronized.
+     *
+     * @param resolvedCldrFile
+     * @param englishFile
+     */
+    public ExampleGenerator(CLDRFile resolvedCldrFile) {
+        this(resolvedCldrFile, CLDRConfig.getInstance().getEnglish());
     }
 
     /**
@@ -572,10 +593,12 @@ public class ExampleGenerator {
             } else if (parts.contains("numbers")) {
                 if (parts.contains("currencyFormat")) {
                     handleCurrencyFormat(parts, value, showContexts, examples);
-                } else {
+                } else if (!parts.contains("rationalFormats")) {
                     handleDecimalFormat(parts, value, showContexts, examples);
                 }
             }
+        } else if (parts.contains("rationalFormats")) {
+            handleRationalFormat(parts, value, showContexts, examples);
         } else if (parts.contains("minimumGroupingDigits")) {
             handleMinimumGrouping(parts, value, examples);
         } else if (parts.getElement(2).contains("symbols")) {
@@ -1362,8 +1385,33 @@ public class ExampleGenerator {
         if (parts.getElement(-1).equals("unitPattern")) {
             String count = parts.getAttributeValue(-1, "count");
             DecimalQuantity amount = getBest(Count.valueOf(count));
+
             if (amount != null) {
-                addFormattedUnits(examples, parts, unitPattern, shortUnitId, amount);
+                if (shortUnitId.equals("light-speed")) {
+                    Map<String, String> overrideMap =
+                            ImmutableMap.of(parts.toString(), unitPattern);
+                    // add examples showing usage
+                    examples.add("Used as a fallback in the following:");
+                    CLDRFileOverride cldrFileOverride = new CLDRFileOverride(cldrFile, overrideMap);
+                    addFormattedUnitsConstructed(
+                            cldrFileOverride, examples, parts, "light-speed-second", amount);
+                    addFormattedUnitsConstructed(
+                            cldrFileOverride, examples, parts, "light-speed-minute", amount);
+                    addFormattedUnitsConstructed(
+                            cldrFileOverride, examples, parts, "light-speed-hour", amount);
+                    addFormattedUnitsConstructed(
+                            cldrFileOverride, examples, parts, "light-speed-day", amount);
+                    addFormattedUnitsConstructed(
+                            cldrFileOverride, examples, parts, "light-speed-week", amount);
+                    addFormattedUnitsConstructed(
+                            cldrFileOverride, examples, parts, "light-speed-month", amount);
+                    examples.add("Compare with:");
+                    addFormattedUnitsConstructed(
+                            cldrFileOverride, examples, parts, "light-year", amount);
+                    return;
+                } else {
+                    addFormattedUnits(examples, parts, unitPattern, shortUnitId, amount);
+                }
             }
         }
         // add related units
@@ -1404,6 +1452,25 @@ public class ExampleGenerator {
         }
     }
 
+    private void addFormattedUnitsConstructed(
+            CLDRFile file,
+            List<String> examples,
+            XPathParts parts,
+            String shortUnitId,
+            DecimalQuantity amount) {
+        UnitId unitId = UNIT_CONVERTER.createUnitId(shortUnitId);
+        // ldml/units/unitLength[@type=\"long\"]/unit[@type=\"speed-light-speed\"]/unitPattern[@count=\"one\"]
+        String pattern =
+                unitId.toString(
+                        file,
+                        parts.getAttributeValue(2, "type"),
+                        parts.getAttributeValue(-1, "count"),
+                        null,
+                        null,
+                        true);
+        addSimpleFormattedUnits(examples, pattern, amount);
+    }
+
     /**
      * Handles paths like:<br>
      * //ldml/units/unitLength[@type="long"]/unit[@type="volume-fluid-ounce-imperial"]/unitPattern[@count="other"]
@@ -1418,12 +1485,7 @@ public class ExampleGenerator {
          * PluralRules.FixedDecimal is deprecated, but deprecated in ICU is
          * also used to mark internal methods (which are OK for us to use in CLDR).
          */
-        DecimalFormat numberFormat;
-        String formattedAmount;
-        numberFormat = icuServiceBuilder.getNumberFormat(1);
-        formattedAmount = numberFormat.format(amount.toBigDecimal());
-        examples.add(
-                format(unitPattern, backgroundStartSymbol + formattedAmount + backgroundEndSymbol));
+        String formattedAmount = addSimpleFormattedUnits(examples, unitPattern, amount);
 
         if (parts.getElement(-2).equals("unit")) {
             if (unitPattern != null) {
@@ -1487,6 +1549,18 @@ public class ExampleGenerator {
                 }
             }
         }
+    }
+
+    private String addSimpleFormattedUnits(
+            List<String> examples, String unitPattern, DecimalQuantity amount) {
+        DecimalFormat numberFormat;
+        String formattedAmount;
+        numberFormat = icuServiceBuilder.getNumberFormat(1);
+        formattedAmount = numberFormat.format(amount.toBigDecimal());
+
+        examples.add(
+                format(unitPattern, backgroundStartSymbol + formattedAmount + backgroundEndSymbol));
+        return formattedAmount;
     }
 
     private String getConstrastingCase(
@@ -2271,7 +2345,8 @@ public class ExampleGenerator {
     private String getUnitPattern(String unitType, final boolean isCurrency, Count count) {
         return cldrFile.getStringValue(
                 isCurrency
-                        ? "//ldml/numbers/currencyFormats/unitPattern" + countAttribute(count)
+                        ? "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/unitPattern"
+                                + countAttribute(count)
                         : "//ldml/units/unit[@type=\""
                                 + unitType
                                 + "\"]/unitPattern"
@@ -2511,20 +2586,21 @@ public class ExampleGenerator {
         if (parts.contains("dateTimeFormat")) { // date-time combining patterns
             // ldml/dates/calendars/calendar[@type="*"]/dateTimeFormats/dateTimeFormatLength[@type="*"]/dateTimeFormat[@type="standard"]/pattern[@type="standard"]
             // ldml/dates/calendars/calendar[@type="*"]/dateTimeFormats/dateTimeFormatLength[@type="*"]/dateTimeFormat[@type="atTime"]/pattern[@type="standard"]
+            // ldml/dates/calendars/calendar[@type="*"]/dateTimeFormats/dateTimeFormatLength[@type="*"]/dateTimeFormat[@type="relative"]/pattern[@type="standard"]
             String formatType =
                     parts.findAttributeValue("dateTimeFormat", "type"); // "standard" or "atTime"
             String length =
                     parts.findAttributeValue(
                             "dateTimeFormatLength", "type"); // full, long, medium, short
 
-            // For all types, show
+            // For non-relative types, show
             // - date (of same length) with a single full time, or long time (abbreviated zone) if
             // the date is short
             // - date (of same length) with a single short time
             // For the standard patterns, add
             // - date (of same length) with a short time range
             // - relative date with a short time range
-            // For the atTime patterns, add
+            // For the relative patterns, add
             // - relative date with a single short time
 
             // ldml/dates/calendars/calendar[@type="*"]/dateFormats/dateFormatLength[@type="*"]/dateFormat[@type="standard"]/pattern[@type="standard"]
@@ -2558,29 +2634,32 @@ public class ExampleGenerator {
             String tlfResult = tlf.format(DATE_SAMPLE);
             String tsfResult = tsf.format(DATE_SAMPLE); // DATE_SAMPLE is in the afternoon
 
-            // Handle date plus a single full time.
-            // We need to process the dateTimePattern as a date pattern (not only a message format)
-            // so
-            // we handle it with SimpleDateFormat, plugging the date and time formats in as literal
-            // text.
-            examples.add(
-                    cldrFile.glueDateTimeFormatWithGluePattern(
-                            setBackground(dfResult),
-                            setBackground(tlfResult),
-                            calendar,
-                            value,
-                            icuServiceBuilder));
+            if (!formatType.contentEquals("relative")) {
+                // Handle date plus a single full time.
+                // We need to process the dateTimePattern as a date pattern (not only a message
+                // format)
+                // so
+                // we handle it with SimpleDateFormat, plugging the date and time formats in as
+                // literal
+                // text.
+                examples.add(
+                        cldrFile.glueDateTimeFormatWithGluePattern(
+                                setBackground(dfResult),
+                                setBackground(tlfResult),
+                                calendar,
+                                value,
+                                icuServiceBuilder));
 
-            // Handle date plus a single short time.
-            examples.add(
-                    cldrFile.glueDateTimeFormatWithGluePattern(
-                            setBackground(dfResult),
-                            setBackground(tsfResult),
-                            calendar,
-                            value,
-                            icuServiceBuilder));
-
-            if (!formatType.contentEquals("atTime")) {
+                // Handle date plus a single short time.
+                examples.add(
+                        cldrFile.glueDateTimeFormatWithGluePattern(
+                                setBackground(dfResult),
+                                setBackground(tsfResult),
+                                calendar,
+                                value,
+                                icuServiceBuilder));
+            }
+            if (formatType.contentEquals("standard")) {
                 // Examples for standard pattern
 
                 // Create a time range (from morning to afternoon, using short time formats). For
@@ -2616,7 +2695,8 @@ public class ExampleGenerator {
                                     value,
                                     icuServiceBuilder));
                 }
-            } else {
+            }
+            if (formatType.contentEquals("relative")) {
                 // Examples for atTime pattern
 
                 // Handle relative date plus a single short time.
@@ -2677,8 +2757,7 @@ public class ExampleGenerator {
                     DayPeriodInfo dayPeriodInfo =
                             supplementalDataInfo.getDayPeriods(
                                     DayPeriodInfo.Type.format, cldrFile.getLocaleID());
-                    Set<DayPeriod> dayPeriods =
-                            new LinkedHashSet<DayPeriod>(dayPeriodInfo.getPeriods());
+                    Set<DayPeriod> dayPeriods = new LinkedHashSet<>(dayPeriodInfo.getPeriods());
                     for (DayPeriod dayPeriod : dayPeriods) {
                         if (dayPeriod.equals(
                                 DayPeriod.midnight)) { // suppress midnight, see ICU-12278 bug
@@ -2842,6 +2921,115 @@ public class ExampleGenerator {
         // have positive and negative
         example = addExampleResult(formatNumber(numberFormat, -sampleNum2), example, showContexts);
         examples.add(example);
+    }
+
+    /**
+     * Creates examples for decimal formats.
+     *
+     * @param value
+     * @return
+     */
+    private void handleRationalFormat(
+            XPathParts parts, String value, boolean showContexts, List<String> examples) {
+        String numberSystem = parts.getAttributeValue(2, "numberSystem"); // null if not present
+        boolean isLatin = numberSystem == null || numberSystem.equals("latn");
+        DecimalFormat numberFormat =
+                isLatin ? null : icuServiceBuilder.getNumberFormat("0", numberSystem);
+
+        String element = parts.getElement(-1);
+        String num;
+        String den;
+
+        switch (element) {
+            case "rationalPattern":
+                Pair<String, String> simpleFractionPair = null;
+                List<Pair<String, String>> fractionPairs = new ArrayList<>();
+                Pair<String, String> extraPair = null;
+                if (isLatin) {
+                    num = "1";
+                    den = "2";
+                    extraPair = Pair.of("¹", "₂");
+                } else {
+                    num = numberFormat.format(1);
+                    den = numberFormat.format(2);
+                }
+                simpleFractionPair = Pair.of(num, den);
+                fractionPairs.add(simpleFractionPair);
+                fractionPairs.add(
+                        Pair.of(
+                                startSupSymbol + num + endSupSymbol,
+                                startSubSymbol + den + endSubSymbol));
+                if (extraPair != null) {
+                    fractionPairs.add(extraPair);
+                }
+
+                // for the simple case, we add an example with an isolated fraction slash, to show
+                // what "plain" numbers would look like.
+                examples.add(
+                        value.replace(FSLASH, ISOLATE_FSLASH)
+                                .replace("{0}", setBackground(simpleFractionPair.getFirst()))
+                                .replace("{1}", setBackground(simpleFractionPair.getSecond())));
+
+                // We then add all of them without isolating the fraction slash
+                for (Pair<String, String> pair : fractionPairs) {
+                    examples.add(
+                            value.replace("{0}", setBackground(pair.getFirst()))
+                                    .replace("{1}", setBackground(pair.getSecond())));
+                }
+                break;
+            case "integerAndRationalPattern":
+                boolean superSub =
+                        "superSub"
+                                .equals(parts.getAttributeValue(-1, "alt")); // null if not present
+                // get rationalPattern
+                XPathParts parts2 =
+                        parts.cloneAsThawed()
+                                .setElement(-1, "rationalPattern")
+                                .setAttribute(-1, "alt", null);
+                String rationalPart = cldrFile.getStringValue(parts2.toString());
+                Set<String> fractions = new LinkedHashSet<>();
+                String base;
+                String extra = null;
+                if (isLatin) {
+                    base = "3";
+                    num = "1";
+                    den = "2";
+                    extra = "½";
+                } else {
+                    base = numberFormat.format(3);
+                    num = numberFormat.format(1);
+                    den = numberFormat.format(2);
+                }
+                if (!superSub) {
+                    // put WG around elements so that the fraction slash doesn't change their
+                    // formatting
+                    fractions.add(
+                            rationalPart
+                                    .replace(FSLASH, ISOLATE_FSLASH)
+                                    .replace("{0}", num)
+                                    .replace("{1}", den));
+                }
+                if (extra != null) {
+                    fractions.add(extra);
+                }
+                fractions.add(
+                        startSupSymbol
+                                + num
+                                + endSupSymbol
+                                + FSLASH
+                                + startSubSymbol
+                                + den
+                                + endSubSymbol);
+
+                for (String r : fractions) {
+                    examples.add(
+                            value.replace("{0}", setBackground(base))
+                                    .replace("{1}", setBackground(r)));
+                }
+                break;
+            case "rationalUsage":
+                return;
+        }
     }
 
     private String formatCountDecimal(DecimalFormat numberFormat, String countValue) {
@@ -3103,7 +3291,6 @@ public class ExampleGenerator {
                     getLocaleDisplayPattern("localeKeyTypePattern", element, value);
             String localePattern = getLocaleDisplayPattern("localePattern", element, value);
             String localeSeparator = getLocaleDisplayPattern("localeSeparator", element, value);
-
             List<String> locales = new ArrayList<>();
             if (element.equals("localePattern")) {
                 locales.add("uz-AF");
@@ -3141,6 +3328,34 @@ public class ExampleGenerator {
                 return;
             } else {
                 value = setBackground(value);
+
+                String menuAttr = parts.getAttributeValue(-1, "menu");
+                if (menuAttr != null) { // show core plus extension
+                    String core, extension;
+                    XPathParts other = parts.cloneAsThawed();
+                    switch (menuAttr) {
+                        case "core":
+                            core = value;
+                            extension =
+                                    cldrFile.getStringValue(
+                                            other.setAttribute(-1, "menu", "extension").toString());
+                            break;
+                        default:
+                            core =
+                                    cldrFile.getStringValue(
+                                            other.setAttribute(-1, "menu", "core").toString());
+                            extension = value;
+                            break;
+                    }
+                    String localePattern =
+                            getCldrFile()
+                                    .getStringValue(
+                                            "//ldml/localeDisplayNames/localeDisplayPattern/localePattern");
+                    examples.add(
+                            invertBackground(MessageFormat.format(localePattern, core, extension)));
+                    return;
+                }
+
                 String nameType = parts.getElement(3);
 
                 Map<String, String> likely = supplementalDataInfo.getLikelySubtags();
@@ -3261,6 +3476,36 @@ public class ExampleGenerator {
                     examples.add(invertBackground(format(codePattern, value)));
                 }
                 return;
+            }
+        } else if (parts.getElement(-1).equals("type")) {
+            // <keys><key type="collation">Calendar</key>
+            // <types><type key="collation" type="dictionary">Dictionary Sort Order</type>
+            // <types><type key="collation" type="dictionary" scope="core">Dictionary</type>
+            String kpath = "//ldml/localeDisplayNames/keys/key[@type=\"collation\"]";
+            String ktppath = "//ldml/localeDisplayNames/localeDisplayPattern/localeKeyTypePattern";
+            String ktpath =
+                    "//ldml/localeDisplayNames/types/type[@key=\"collation\"][@type=\"dictionary\"]";
+            String ktspath =
+                    "//ldml/localeDisplayNames/types/type[@key=\"collation\"][@type=\"dictionary\"][@scope=\"core\"]";
+            String key = parts.getAttributeValue(-1, "key");
+            String type = parts.getAttributeValue(-1, "type");
+            String scope = parts.getAttributeValue(-1, "scope");
+
+            String keyPath = kpath.replace("collation", key);
+            if (scope == null) {
+                // TBD, show contrast
+            } else {
+                String keyName = getCldrFile().getStringValue(keyPath);
+                examples.add(setBackground(keyName));
+                examples.add(setBackground("   others…"));
+                examples.add(setBackground("   ") + value);
+                examples.add(setBackground("   …others"));
+                String keyTypePattern = getCldrFile().getStringValue(ktppath);
+                String combined =
+                        invertBackground(
+                                MessageFormat.format(
+                                        keyTypePattern, keyName, setBackground(value)));
+                examples.add(combined);
             }
         }
     }
@@ -3385,7 +3630,9 @@ public class ExampleGenerator {
                         .replace(startItalicSymbol, startItalic)
                         .replace(endItalicSymbol, endItalic)
                         .replace(startSupSymbol, startSup)
-                        .replace(endSupSymbol, endSup);
+                        .replace(endSupSymbol, endSup)
+                        .replace(startSubSymbol, startSub)
+                        .replace(endSubSymbol, endSub);
         // If we are not showing context, we use exampleSeparatorSymbol between examples,
         // and then need to add the initial exampleStart and final exampleEnd.
         return (input.contains(exampleStartAutoSymbol))

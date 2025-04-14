@@ -1531,6 +1531,10 @@ public class PathHeader implements Comparable<PathHeader> {
                                     || "ZZ".equals(theTerritory)) {
                                 if ("Etc/Unknown".equals(source0)) {
                                     theTerritory = "ZZ";
+                                    // TODO (ICU-23096): remove else-if branch below once ICU's
+                                    // snapshot version is uploaded.
+                                } else if ("America/Coyhaique".equals(source0)) {
+                                    theTerritory = "CL";
                                 } else {
                                     throw new IllegalArgumentException(
                                             "ICU needs zone update? Source: "
@@ -1614,6 +1618,7 @@ public class PathHeader implements Comparable<PathHeader> {
                                             .put("gmtFormat", "GMT Format")
                                             .put("hourFormat", "GMT Hours/Minutes Format")
                                             .put("gmtZeroFormat", "GMT Zero Format")
+                                            .put("gmtUnknownFormat", "GMT Unknown Format")
                                             .put("fallbackFormat", "Location Fallback Format")
                                             .freeze();
                             final List<String> fieldOrder =
@@ -1624,6 +1629,7 @@ public class PathHeader implements Comparable<PathHeader> {
                                             "gmtFormat",
                                             "hourFormat",
                                             "gmtZeroFormat",
+                                            "gmtUnknownFormat",
                                             "fallbackFormat");
 
                             if (fieldOrder.contains(source)) {

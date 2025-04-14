@@ -333,6 +333,7 @@ public class SupplementalDataInfo {
 
         private Map<String, Integer> scriptsByPopulation = new TreeMap<>();
 
+        // TODO CLDR-18087 completely remove territories
         private Set<String> territories = Collections.emptySet();
 
         public Type getType() {
@@ -422,10 +423,6 @@ public class SupplementalDataInfo {
                     + (scripts.size() == 0
                             ? ""
                             : " scripts=\"" + CldrUtility.join(sortedScripts, " ") + "\"")
-                    // TODO (CLDR-5708) remove territory data
-                    + (territories.size() == 0
-                            ? ""
-                            : " territories=\"" + CldrUtility.join(territories, " ") + "\"")
                     + (type == Type.primary ? "" : " alt=\"" + type + "\"")
                     + "/>";
         }
@@ -435,7 +432,6 @@ public class SupplementalDataInfo {
             return "["
                     + type
                     + (scripts.isEmpty() ? "" : "; scripts=" + Joiner.on(" ").join(scripts))
-                    + (scripts.isEmpty() ? "" : "; territories=" + Joiner.on(" ").join(territories))
                     + "]";
         }
 

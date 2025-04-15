@@ -684,7 +684,6 @@ public class CheckDates extends FactoryCheckCLDR {
         for (char timeCycleChar : timeCycleChars) {
             if (jPatSkeleton.indexOf(timeCycleChar) >= 0
                     && shortPatSkeleton.indexOf(timeCycleChar) < 0) {
-                System.out.println("Got one in checkTimeFormatMatchesRegion");
                 String message =
                         "Time format does not match region; expected "
                                 + timeCycleChar
@@ -693,7 +692,7 @@ public class CheckDates extends FactoryCheckCLDR {
                 CheckStatus item =
                         new CheckStatus()
                                 .setCause(this)
-                                .setMainType(CheckStatus.warningType)
+                                .setMainType(CheckStatus.errorType)
                                 .setSubtype(Subtype.inconsistentTimePattern)
                                 .setMessage(message);
                 result.add(item);

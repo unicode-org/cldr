@@ -87,7 +87,12 @@ For a full listing, see [¤¤BCP47 Delta](https://unicode.org/cldr/charts/dev/de
 
 ### Locale Changes
 
-- Kurdish (Kurmanji) `ku` split from 1 locale `ku_TR` into 6 locales across 2 scripts and 4 countries: `ku_Latn_TR` is now the default but there are now entries for Syria (in Latin and Arabic writing), Iraq (in Latin and Arabic writing), and Iran (in Arabic writing). ([CLDR-18311][])
+- Kurdish (Kurmanji) `ku` split from 1 locale `ku_TR` into 5 locales across 2 scripts and 4 countries. ([CLDR-18311][])
+  - `ku_Latn_TR`: Kurdish (Kurmanji, Latin alphabet, Turkey) default for Kurdish (Kurmanji) `ku` and `ku_Latn`
+  - `ku_Latn_SY`: Kurdish (Kurmanji, Latin alphabet, Syria)
+  - `ku_Latn_IQ`: Kurdish (Kurmanji, Latin alphabet, Iraq)
+  - `ku_Arab_IQ`: Kurdish (Kurmanji, Arabic writing, Iraq), default for Kurdish (Kurmanji, Arabic writing) `ku_Arab`
+  - `ku_Arab_IR`: Kurdish (Kurmanji, Arabic writing, Iran)
 
 For a full listing, see [Delta Data](https://unicode.org/cldr/charts/dev/delta/index.html)
 

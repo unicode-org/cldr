@@ -92,7 +92,14 @@ public class PathHeader implements Comparable<PathHeader> {
          * Changes are allowed as READ_WRITE, but field is always displayed as LTR, even in RTL
          * locales (used for patterns).
          */
-        LTR_ALWAYS
+        LTR_ALWAYS;
+
+        /**
+         * @returns true if visible in surveytool
+         */
+        public final boolean visible() {
+            return (this != DEPRECATED && this != HIDE);
+        }
     }
 
     private static final EnumNames<SectionId> SectionIdNames = new EnumNames<>();

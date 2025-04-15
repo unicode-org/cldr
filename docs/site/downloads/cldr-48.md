@@ -87,7 +87,7 @@ For a full listing, see [¤¤BCP47 Delta](https://unicode.org/cldr/charts/dev/de
 
 ### Locale Changes
 
-- TBD
+- Kurdish (Kurmanji) `ku` split from 1 locale `ku_TR` into 6 locales across 2 scripts and 4 countries: `ku_Latn_TR` is now the default but there are now entries for Syria (in Latin and Arabic writing), Iraq (in Latin and Arabic writing), and Iran (in Arabic writing). ([CLDR-18311][])
 
 For a full listing, see [Delta Data](https://unicode.org/cldr/charts/dev/delta/index.html)
 
@@ -172,3 +172,4 @@ For web pages with different views of CLDR data, see [http://cldr.unicode.org/in
 [CLDR-18114]: https://unicode-org.atlassian.net/browse/CLDR-18114
 [CLDR-18219]: https://unicode-org.atlassian.net/browse/CLDR-18219
 [CLDR-18275]: https://unicode-org.atlassian.net/browse/CLDR-18275
+[CLDR-18311]: https://unicode-org.atlassian.net/browse/CLDR-18311

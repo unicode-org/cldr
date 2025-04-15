@@ -2382,4 +2382,29 @@ public class TestExampleGenerator extends TestFmwk {
                 "〖❬Sort Order❭〗〖❬   others…❭〗〖❬   ❭Dictionary〗〖❬   …others❭〗〖❬Sort Order: ❭Dictionary〗",
                 sactual);
     }
+
+    public void testLanguageMenuAttributes() {
+        String[][] tests = {
+            {
+                "//ldml/localeDisplayNames/languages/language[@type=\"ku\"][@menu=\"core\"]",
+                "〖Kurdish❬ (Kurmanji)❭〗"
+            },
+            {
+                "//ldml/localeDisplayNames/languages/language[@type=\"ku\"][@menu=\"extension\"]",
+                "〖❬Kurdish (❭Kurmanji❬)❭〗"
+            }
+        };
+        ExampleGenerator eg = getExampleGenerator("en");
+
+        CLDRFile cldrFile = CLDRConfig.getInstance().getCldrFactory().make("en", true);
+
+        for (String[] test : tests) {
+            String path = test[0];
+            String expected = test[1];
+            String value = cldrFile.getStringValue(path);
+            String exampleHtml = eg.getExampleHtml(path, value);
+            String actual = ExampleGenerator.simplify(exampleHtml);
+            assertEquals(path, expected, actual);
+        }
+    }
 }

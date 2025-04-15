@@ -399,10 +399,8 @@ public class LikelySubtagsTest extends TestFmwk {
         }
     }
 
-    // typically historical script that don't need to  be in likely subtags
-
-    static final Set<String> KNOWN_SCRIPTS_WITHOUT_LIKELY_SUBTAGS =
-            ImmutableSet.of("Hatr", "Cpmn", "Ougr");
+    // These historical scripts don't have a language with an ISO tag (as of 2025-04-11)
+    static final Set<String> KNOWN_SCRIPTS_WITHOUT_LIKELY_SUBTAGS = ImmutableSet.of("Cpmn", "Nshu");
 
     public void TestMissingInfoForScript() {
         VersionInfo icuUnicodeVersion = UCharacter.getUnicodeVersion();
@@ -415,19 +413,7 @@ public class LikelySubtagsTest extends TestFmwk {
                 // we minimize away und_X, when the code puts in en...US
                 continue;
             }
-            // Temporary exception for CLDR 46 Unicode 16 (CLDR-17226) because
-            // GenerateMaximalLocales is currently not usable.
-            if (script.equals("Aghb")) {
-                // The script metadata for Aghb=Caucasian_Albanian changed
-                // the likely region from Russia to Azerbaijan, and
-                // the likely language from udi=Udi to xag=Old Udi.
-                // Error: likelySubtags.xml has wrong language for script (und_Aghb).
-                // Should not be udi_Aghb_RU, but Script Metadata suggests something like:
-                // {"und_Aghb", "xag_Aghb_AZ"},
-                continue;
-            }
             Info i = ScriptMetadata.getInfo(script);
-            // System.out.println(i);
             String likelyLanguage = i.likelyLanguage;
             String originCountry = i.originCountry;
             String undScript = "und_" + script;
@@ -450,15 +436,6 @@ public class LikelySubtagsTest extends TestFmwk {
                 }
             } else if (!exceptions2.contains(likelyExpansion)
                     && !likelyExpansion.startsWith(langScript)) {
-                // if
-                // (logKnownIssue("Cldrbug:7181","Missing script metadata for "
-                // + script)
-                // && (script.equals("Tfng") || script.equals("Brah"))) {
-                // logln("Wrong likely language for script (und_" + script +
-                // "). Should not be " + likelyExpansion
-                // + ", but something like:\t " + showOverride(script,
-                // originCountry, langScript));
-                // } else {
                 errln(
                         "likelySubtags.xml has wrong language for script (und_"
                                 + script
@@ -471,10 +448,6 @@ public class LikelySubtagsTest extends TestFmwk {
                 logln("OK: " + undScript + " => " + likelyExpansion);
             }
         }
-        /**
-         * und_Bopo => zh_Bopo_TW und_Copt => cop_Copt_EG // fix 002 und_Dsrt => en_Dsrt_US // fix
-         * US
-         */
     }
 
     public String showOverride(String script, String originCountry, String langScript) {
@@ -760,10 +733,7 @@ public class LikelySubtagsTest extends TestFmwk {
         //        System.out.println("\t\t" + Joiner.on("\n\t\t").join(possibleFixes));
     }
 
-    private static final Joiner JOIN_LS = Joiner.on(CldrUtility.LINE_SEPARATOR);
-
     public void testToAttributeValidityStatus() {
-        Multimap<String, String> badFieldsToLocales = TreeMultimap.create();
         for (String s : likely.values()) {
             LanguageTagParser ltp = new LanguageTagParser().set(s);
             Set<String> errors = new LinkedHashSet<>();

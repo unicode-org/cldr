@@ -3291,7 +3291,6 @@ public class ExampleGenerator {
                     getLocaleDisplayPattern("localeKeyTypePattern", element, value);
             String localePattern = getLocaleDisplayPattern("localePattern", element, value);
             String localeSeparator = getLocaleDisplayPattern("localeSeparator", element, value);
-
             List<String> locales = new ArrayList<>();
             if (element.equals("localePattern")) {
                 locales.add("uz-AF");
@@ -3329,6 +3328,34 @@ public class ExampleGenerator {
                 return;
             } else {
                 value = setBackground(value);
+
+                String menuAttr = parts.getAttributeValue(-1, "menu");
+                if (menuAttr != null) { // show core plus extension
+                    String core, extension;
+                    XPathParts other = parts.cloneAsThawed();
+                    switch (menuAttr) {
+                        case "core":
+                            core = value;
+                            extension =
+                                    cldrFile.getStringValue(
+                                            other.setAttribute(-1, "menu", "extension").toString());
+                            break;
+                        default:
+                            core =
+                                    cldrFile.getStringValue(
+                                            other.setAttribute(-1, "menu", "core").toString());
+                            extension = value;
+                            break;
+                    }
+                    String localePattern =
+                            getCldrFile()
+                                    .getStringValue(
+                                            "//ldml/localeDisplayNames/localeDisplayPattern/localePattern");
+                    examples.add(
+                            invertBackground(MessageFormat.format(localePattern, core, extension)));
+                    return;
+                }
+
                 String nameType = parts.getElement(3);
 
                 Map<String, String> likely = supplementalDataInfo.getLikelySubtags();

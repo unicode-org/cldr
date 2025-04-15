@@ -2358,4 +2358,53 @@ public class TestExampleGenerator extends TestFmwk {
                     actual);
         }
     }
+
+    public void TestKeyTypeScope() {
+        // <keys><key type="collation">Calendar</key>
+        // <types><type key="collation" type="dictionary">Dictionary Sort Order</type>
+        // <types><type key="collation" type="dictionary" scope="core">Dictionary</type>
+        String kpath = "//ldml/localeDisplayNames/keys/key[@type=\"collation\"]";
+        String path =
+                "//ldml/localeDisplayNames/types/type[@key=\"collation\"][@type=\"dictionary\"]";
+        String spath =
+                "//ldml/localeDisplayNames/types/type[@key=\"collation\"][@type=\"dictionary\"][@scope=\"core\"]";
+        CLDRFile cldrFile = CLDRConfig.getInstance().getCldrFactory().make("en", true);
+        ExampleGenerator eg = getExampleGenerator("en");
+
+        cldrFile.iterator("//ldml/localeDisplayNames/types/type");
+        String value = cldrFile.getStringValue(path);
+        String svalue = cldrFile.getStringValue(spath);
+        String actual = ExampleGenerator.simplify(eg.getExampleHtml(path, value));
+        String sactual = ExampleGenerator.simplify(eg.getExampleHtml(spath, svalue));
+        assertEquals("plain", null, actual);
+        assertEquals(
+                "scope=core",
+                "〖❬Sort Order❭〗〖❬   others…❭〗〖❬   ❭Dictionary〗〖❬   …others❭〗〖❬Sort Order: ❭Dictionary〗",
+                sactual);
+    }
+
+    public void testLanguageMenuAttributes() {
+        String[][] tests = {
+            {
+                "//ldml/localeDisplayNames/languages/language[@type=\"ku\"][@menu=\"core\"]",
+                "〖Kurdish❬ (Kurmanji)❭〗"
+            },
+            {
+                "//ldml/localeDisplayNames/languages/language[@type=\"ku\"][@menu=\"extension\"]",
+                "〖❬Kurdish (❭Kurmanji❬)❭〗"
+            }
+        };
+        ExampleGenerator eg = getExampleGenerator("en");
+
+        CLDRFile cldrFile = CLDRConfig.getInstance().getCldrFactory().make("en", true);
+
+        for (String[] test : tests) {
+            String path = test[0];
+            String expected = test[1];
+            String value = cldrFile.getStringValue(path);
+            String exampleHtml = eg.getExampleHtml(path, value);
+            String actual = ExampleGenerator.simplify(exampleHtml);
+            assertEquals(path, expected, actual);
+        }
+    }
 }

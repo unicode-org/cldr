@@ -47,6 +47,7 @@
 ^//ldml/localeDisplayNames/territories/territory\[@type="(CD|DG|CG|003|021|ZA|018|FK|MK|MM|TW|HK|MO)"]; ROOT territory; Warning - the region {0} requires special attention! Note: before translating, be sure to read %COUNTRY_NAMES.
 ^//ldml/localeDisplayNames/scripts/script\[@type="(Z[^"]*)"]; ROOT script; The name of the script (writing system) with Unicode script code = {0}. Note: before translating, be sure to read %SCRIPT_NAMES.
 ^//ldml/dates/timeZoneNames/zone\[@type="([^"]*)"]/exemplarCity; ROOT timezone; The name of {0}. For more information, see %TZ_CITY_NAMES.
+^//ldml/localeDisplayNames/languages/language\[@type="([^"]*)"]\[@menu="([^"]*)"]; ROOT language; The name of the language with Unicode language code = {0}, _and_ menu type = {0}. **Be sure to read about this in %LANGUAGE_NAMES**.
 ^//ldml/localeDisplayNames/languages/language\[@type="([^"]*)"]; ROOT language; The name of the language with Unicode language code = {0}. For more information, see %LANGUAGE_NAMES.
 ^//ldml/localeDisplayNames/scripts/script\[@type="([^"]*)"]; ROOT script; The name of the script (writing system) with Unicode script code = {0}. For more information, see %SCRIPT_NAMES.
 ^//ldml/localeDisplayNames/territories/territory\[@type="([^"]*)"]; ROOT territory; The name of the country or region with Unicode region code = {0}. For more information, see %COUNTRY_NAMES.
@@ -70,6 +71,16 @@
 ^//ldml/localeDisplayNames/types/type\[@key="lb"]\[@type="([^"]*)"]; The name of “{1} line break style”. For more information, please see %KEY_NAMES.
 ^//ldml/localeDisplayNames/types/type\[@key="([^"]*)"]\[@type="([^"]*)"]; The name of the “{2} {1}”. For more information, please see %KEY_NAMES.
 ^//ldml/localeDisplayNames/keys/key\[@type="([^"]*)"]; The name of the system for “{1}”. For more information, please see %KEY_NAMES.
+
+^//ldml/localeDisplayNames/types/type\[@key="collation"]\[@type="([^"]*)"]\[@scope="([^"]*)"]; The _core_ name of “{1} collation” (sorting order) — **without the key name**. For more information, please see %KEY_NAMES.
+^//ldml/localeDisplayNames/types/type\[@key="numbers"]\[@type="([^"]*)"]\[@scope="([^"]*)"]; The _core_ name of “{1} number system” — **without the key name**. For more information, please see %KEY_NAMES.
+^//ldml/localeDisplayNames/types/type\[@key="calendar"]\[@type="roc"]\[@scope="([^"]*)"]; The _core_ name of “roc calendar” (common names include “Minguo Calendar”, “Republic of China Calendar”, and “Republican Calendar”) — **without the key name**. For more information, please see %KEY_NAMES.
+^//ldml/localeDisplayNames/types/type\[@key="calendar"]\[@type="([^"]*)"]\[@scope="([^"]*)"]; The _core_ name of “{1} calendar” — **without the key name**. For more information, please see %KEY_NAMES.
+^//ldml/localeDisplayNames/types/type\[@key="em"]\[@type="([^"]*)"]\[@scope="([^"]*)"]; The _core_ name of “emoji presentation style {1}” — **without the key name**. For more information, please see %KEY_NAMES.
+^//ldml/localeDisplayNames/types/type\[@key="fw"]\[@type="([^"]*)"]\[@scope="([^"]*)"]; The _core_ name of “first day of the week is {1}” — **without the key name**. For more information, please see %KEY_NAMES.
+^//ldml/localeDisplayNames/types/type\[@key="lb"]\[@type="([^"]*)"]\[@scope="([^"]*)"]; The _core_ name of “{1} line break style” — **without the key name**. For more information, please see %KEY_NAMES.
+^//ldml/localeDisplayNames/types/type\[@key="([^"]*)"]\[@type="([^"]*)"]\[@scope="([^"]*)"]; The _core_ name of the “{2} {1}” — **without the key name**. For more information, please see %KEY_NAMES.
+
 ^//ldml/localeDisplayNames/variants/variant[@type="([^"]*)"]; The name of the language variant with code {1}”. For more information, please see %LANGUAGE_NAMES.
 ^//ldml/characters/exemplarCharacters$; Defines the set of characters used in your language. _You may not edit or vote on this item at this time._ Before filing any tickets to request changes, be sure to read [exemplars](%EXEMPLAR_CHARACTERS).
 ^//ldml/characters/exemplarCharacters\[@type="([^"]*)"]; Defines the set of characters used in your language for the “{1}” category. You may not edit or vote on this item at this time. Before filing any tickets to request changes, be sure to read %EXEMPLAR_CHARACTERS.

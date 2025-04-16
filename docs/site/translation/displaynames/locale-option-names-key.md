@@ -8,7 +8,7 @@ Locales can have special variants, to indicate the use of particular calendars, 
 
 ## Locale Option Names
 
-Here are the names of Options to be translated.
+Here are examples of names of Options to be translated.
 
 | Option | Meaning   |
 |---|---|
@@ -20,24 +20,19 @@ Here are the names of Options to be translated.
 
 ## Locale Option Value Names
 
-The following are some examples of Option+Value combinations that need translation. Where the Value for the Option is not from a small set (Currency and Private Use), then the Locale Option Pattern is used (see [Language/Locale Name Patterns](/translation/displaynames/languagelocale-name-patterns).
+There are two kinds of option value names: the Long name and the Core name. The Long name includes the name of the Option while the Core name does not. Here are examples of what that can look like:
 
-| Option | Value | English Name | Meaning |
-|---|---|---|---|
-| Calendar | buddhist | Buddhist Calendar | Buddhist Calendar  |
-| Collation | dict | Dictionary Sort Order | The ordering used in dictionaries, where that is distinct from other forms (such as in Sinhala) |
-| Collation | phonebk | Phonebook Sort Order | The ordering used in phonebooks, where that is distinct from other forms (such as in German) |
-| Collation  | trad | Traditional Sort Order | An ordering used traditionally (in contrast to later conventions) |
-| Collation | reformed   | Reformed Sort Order  | Reformed collation (as opposed to earlier traditions — such as in Swedish) |
-| Collation | phonetic   | Phonetic Sort Order  | A phonetic ordering based on pronunciation. It may interleave different scripts, if multiple scripts are in common use. |
-| Collation  | direct | Direct Sort Order | The code-point order (in the Unicode charts) |
-| Collation | unihan   | Radical-Stroke Sort Order | Unihan radical-stroke ordering for CJK characters (those used in Chinese, Japanese, and Korean. |
-| Collation  | pinyin | Pinyin Sort Order | An ordering based on Pinyin (for Chinese) |
-| Collation  | stroke | Stroke Sort Order | An ordering based on stroke-count (for Chinese) |
-| Collation  | gb2312han | Simplified Sort Order - GB2312 | An ordering based on the character encoding GB2312 (for Chinese) |
-| Collation  | big5han | Traditional Sort Order - Big5 | An ordering based on the character encoding Big5 (for Chinese)  |
-| Numbers | armn | Armenian Numerals | The numbering system that uses Armenian digits. |
+| Code | Name |
+| -- | -- |
+| `calendar` | Kalender |
+| `calendar-buddhist` | Buddhistischer Kalender |
+| `calendar-buddhist-core` | Buddhistischer |
 
-For transform names (BGN, Numeric, Tone, UNGEGN, x-Accents, x-Fullwidth, x-Halfwidth, x-Jamo, x-Pinyin, x-Publishing), see [Transforms](/translation/transforms).
-
-
+The core name is used in two ways: 
+- In locale names with Locale Option Pattern, like "English (Calendar: Buddhist)"
+- In menu listings or pull-downs, where the Option code is used as the header, such as:
+    - **Calendar**
+        - Buddhist
+        - Chinese
+        - Coptic
+        - …

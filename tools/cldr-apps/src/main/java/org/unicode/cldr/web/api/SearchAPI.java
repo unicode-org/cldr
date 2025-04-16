@@ -1,5 +1,6 @@
 package org.unicode.cldr.web.api;
 
+import java.util.concurrent.ExecutionException;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -121,11 +122,16 @@ public class SearchAPI {
 
         final SearchManager searchManager = SearchAPIHelper.getSearchManager();
 
-        SearchResponse search = searchManager.getSearch(token);
-        if (search == null) {
-            return Response.status(Status.NOT_FOUND).build();
+        try {
+            final SearchResponse search = searchManager.getSearch(token);
+            if (search == null) {
+                return Response.status(Status.NOT_FOUND).build();
+            }
+            return Response.ok(search).build();
+        } catch (ExecutionException e) {
+            // error was thrown searching.
+            return Response.status(500, e.getCause().getMessage()).build();
         }
-        return Response.ok(search).build();
     }
 
     @Path("/status/{token}")

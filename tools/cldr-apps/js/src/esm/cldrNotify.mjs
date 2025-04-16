@@ -51,6 +51,14 @@ function open(message, description, onClick) {
   });
 }
 
+function logInfo(message, description) {
+  if (hasDataDog) {
+    datadogLogs.logger.info(message, { description });
+  } else {
+    console.log(message);
+  }
+}
+
 /**
  * Display a warning notification
  *
@@ -58,14 +66,26 @@ function open(message, description, onClick) {
  * @param {String} description the more detailed description
  */
 function warning(message, description) {
-  if (hasDataDog) {
-    datadogLogs.logger.warn(message, { description });
-  }
+  logWarning(message, description);
   notification.warning({
     message: message,
     description: description,
     duration: MEDIUM_DURATION,
   });
+}
+
+/**
+ * Log a warning
+ *
+ * @param {String} message the title
+ * @param {String} description the more detailed description
+ */
+function logWarning(message, description) {
+  if (hasDataDog) {
+    datadogLogs.logger.warn(message, { description });
+  } else {
+    console.warn(message);
+  }
 }
 
 /**
@@ -75,9 +95,7 @@ function warning(message, description) {
  * @param {String} description the more detailed description
  */
 function error(message, description) {
-  if (hasDataDog) {
-    datadogLogs.logger.error(message, { description });
-  }
+  logError(message, description);
   notification.error({
     message: message,
     description: description,
@@ -86,12 +104,24 @@ function error(message, description) {
 }
 
 /**
+ * Log an error
+ *
+ * @param {String} message the title
+ * @param {String} description the more detailed description
+ */
+function logError(message, description) {
+  if (hasDataDog) {
+    datadogLogs.logger.error(message, { description });
+  } else {
+    console.error(message);
+  }
+}
+
+/**
  * Display an error notification, and when the user closes it, call the callback function
  */
 function errorWithCallback(message, description, callback) {
-  if (hasDataDog) {
-    datadogLogs.logger.error(message, { description });
-  }
+  logError(message, description);
   notification.error({
     message: message,
     description: description,
@@ -101,12 +131,22 @@ function errorWithCallback(message, description, callback) {
 }
 
 /**
- * Display an error notification for an exception
+ * Log and Display an error notification for an exception
  *
  * @param {Object|String} e the Error that was thrown and caught
  * @param {String} context a description of where it was caught
  */
 function exception(e, context) {
+  e = logException(e, context);
+  notification.error({
+    message: "Internal error: " + e.name + " " + context,
+    description: e.message,
+    duration: NO_TIMEOUT,
+  });
+}
+
+/** Just log an exception */
+function logException(e, context) {
   if (typeof e === "string") {
     e = {
       name: "",
@@ -116,11 +156,9 @@ function exception(e, context) {
   if (hasDataDog) {
     datadogLogs.logger.error(context, {}, e);
   }
-  notification.error({
-    message: "Internal error: " + e.name + " " + context,
-    description: e.message,
-    duration: NO_TIMEOUT,
-  });
+  console.error(e.message + " " + context);
+  console.error(e); // log with stack trace
+  return e;
 }
 
 /**
@@ -150,4 +188,15 @@ function openWithHtml(message, description) {
   }
 }
 
-export { error, errorWithCallback, exception, open, openWithHtml, warning };
+export {
+  error,
+  errorWithCallback,
+  exception,
+  logError,
+  logException,
+  logInfo,
+  logWarning,
+  open,
+  openWithHtml,
+  warning,
+};

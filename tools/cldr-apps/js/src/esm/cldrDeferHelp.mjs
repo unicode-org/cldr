@@ -2,6 +2,8 @@
  * cldrDeferHelp: encapsulate code related to showing language descriptions in the Info Panel
  */
 import { marked } from "./cldrMarked.mjs";
+import * as cldrNotify from "./cldrNotify.mjs";
+
 const defaultEndpoint = "https://dbpedia.org/sparql/";
 const format = "JSON";
 const abstractLang = "en";
@@ -56,15 +58,18 @@ function subloadAbstract(resource) {
 
   // This query simply returns the abstract result for the specific resource.
   // The query is so small that browsers persistently cache the GET request.
+  //
+  // We include the hostname so that the cache is specific to this instance.
   sparqlQuery(
     `PREFIX  dbo:  <http://dbpedia.org/ontology/>
-  PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-  SELECT ?abstract ?primaryTopic
-  WHERE {
-      <${resource}> dbo:abstract ?abstract .
-      <${resource}> foaf:isPrimaryTopicOf ?primaryTopic
-      FILTER langMatches(lang(?abstract), "${abstractLang}")
-  } LIMIT 1`
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+SELECT ?abstract ?primaryTopic
+WHERE {
+    <${resource}> dbo:abstract ?abstract .
+    <${resource}> foaf:isPrimaryTopicOf ?primaryTopic
+    FILTER langMatches(lang(?abstract), "${abstractLang}")
+} LIMIT 1
+# Query from ${window.location.hostname} - cldr.unicode.org`
   ).then(
     ({ results }) => {
       let seeAlso = resource;
@@ -85,7 +90,12 @@ function subloadAbstract(resource) {
       );
     },
     (err) => {
-      absContent.text(`Err loading ${resource}: ${err}`);
+      cldrNotify.logException(err, `Loading ${resource}`);
+      absContent.text(
+        `Error: Could not load ${resource} : ${
+          err?.status || err?.message || ""
+        }`
+      );
     }
   );
 

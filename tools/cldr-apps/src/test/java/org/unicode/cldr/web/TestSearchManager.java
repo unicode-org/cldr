@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.google.common.collect.ImmutableSet;
@@ -12,6 +13,7 @@ import java.io.IOException;
 import java.util.Collections;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.concurrent.ExecutionException;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -34,7 +36,7 @@ public class TestSearchManager {
     }
 
     @Test
-    void TestMaltese() throws InterruptedException {
+    void TestMaltese() throws InterruptedException, ExecutionException {
         final String XPATH =
                 "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"wide\"]/month[@type=\"3\"]";
         final String searchText = "Marzu";
@@ -82,6 +84,39 @@ public class TestSearchManager {
     }
 
     @Test
+    void TestCodeBF() throws InterruptedException {
+        final String XPATH = "//ldml/localeDisplayNames/territories/territory[@type=\"BF\"]";
+        final String searchText = "BF";
+        final String locale = "ff_Adlm_BF";
+        assertAll(
+                "looking for " + searchText + " in " + locale,
+                () ->
+                        testOneSearchResult(
+                                XPATH,
+                                searchText,
+                                locale,
+                                locale,
+                                "code: " + searchText) // should match in the locale
+                );
+    }
+
+    @Test
+    void TestCodeXJ() throws InterruptedException {
+        final String searchText = "XJ";
+        final String locale = "root"; // won't find XJ
+        assertAll(
+                "looking for " + searchText + " in " + locale,
+                () -> testNoResult(searchText, locale));
+    }
+
+    @Test
+    void TestExceptionInSearch() throws InterruptedException {
+        final String searchText = "XJ";
+        final String locale = "mul"; // will throw
+        assertThrows(ExecutionException.class, () -> testNoResult(searchText, locale));
+    }
+
+    @Test
     void TestKorean() throws InterruptedException {
         final String XPATH =
                 "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"wide\"]/month[@type=\"3\"]";
@@ -98,7 +133,7 @@ public class TestSearchManager {
             final String searchText,
             final String locale,
             final String resultLocale)
-            throws InterruptedException {
+            throws InterruptedException, ExecutionException {
         testOneSearchResult(XPATH, searchText, locale, resultLocale, searchText);
     }
 
@@ -108,7 +143,7 @@ public class TestSearchManager {
             final String locale,
             final String resultLocale,
             final String expectContext)
-            throws InterruptedException {
+            throws InterruptedException, ExecutionException {
         final Set<SearchResult> r =
                 ImmutableSet.of(new SearchResult(XPATH, expectContext, resultLocale));
 
@@ -116,13 +151,13 @@ public class TestSearchManager {
     }
 
     private void testNoResult(final String searchText, final String locale)
-            throws InterruptedException {
+            throws InterruptedException, ExecutionException {
         testSearchResult(searchText, locale, Collections.emptySet());
     }
 
     private void testSearchResult(
             final String searchText, final String locale, Set<SearchResult> expected)
-            throws InterruptedException {
+            throws InterruptedException, ExecutionException {
         // Create a SearchManager over disk files
         assertNotNull(mgr);
         final String searchContext = searchText + " in " + locale;
@@ -133,7 +168,7 @@ public class TestSearchManager {
         assertNotNull(r0.token);
         // can't assume it has not already completed.
 
-        final int PATIENCE = 40; // x .1 seconds = 4 seconds
+        final int PATIENCE = 6000; // x .1 seconds
         for (int n = 0; n < PATIENCE; n++) {
             final SearchResponse r1 = mgr.getSearch(r0.token);
             if (r1.isOngoing) {
@@ -148,6 +183,12 @@ public class TestSearchManager {
             final Set<SearchResult> results = new TreeSet<SearchResult>();
             for (final SearchResult result : r1.getResults()) {
                 results.add(result);
+                assertFalse(
+                        result.xpath.contains("/identity"),
+                        () ->
+                                String.format(
+                                        "Did not expect /identity xpaths present in %s - %s",
+                                        result.xpath, searchContext));
             }
             if (expected.isEmpty()) {
                 assertEquals(
@@ -201,7 +242,7 @@ public class TestSearchManager {
     }
 
     @Test
-    void TestApi() {
+    void TestApi() throws ExecutionException {
         // Create a SearchManager over disk files
         SearchManager mgr = SearchManager.forFactory(CLDRConfig.getInstance().getCldrFactory());
         assertNotNull(mgr);

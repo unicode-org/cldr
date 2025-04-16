@@ -73,12 +73,11 @@ The English name has changed to reflect that (and also added a variant); locales
 - calendar-iso8601: Gregorian (Year First)
 - calendar-iso8601-variant: ISO 8601 Order
 
-Please go though the ISO8601 fields. You should change separators to match what is acceptable in your language. However, do not change the ordering of the elements, which should be strictly the following order (for any that occur in a particular pattern):
+<!-- Please go though the ISO8601 fields. You should change separators to match what is acceptable in your language. However, do not change the ordering of the elements, which should be strictly the following order (for any that occur in a particular pattern):
 * year - month - day - day-of-week - hour - minute - second
 
 Also avoid changing the width of numeric fields (like `dd`).
 
-<!-- Let's not add ticket numbers — there is already enough for vetters to read, and the tickets will often be confusing to people or take more time to read and puzzle out than is worth it. Fine to leave them here, commented out, for our usage.
 [CLDR-18447](https://unicode-org.atlassian.net/browse/CLDR-18447) -->
 
 ### DateTime formats
@@ -229,7 +228,8 @@ Last updated: 2025-04-07
 
 This list will be updated as fixes are made available in Survey Tool Production. If you find a problem, please [file a ticket](requesting_changes), but please review this list first to avoid creating duplicate tickets.
 
-1. Images for the plain symbols. Non-emoji such as [€](https://st.unicode.org/cldr-apps/v#/fr/OtherSymbols/47925556fd2904b5), √, », ¹, §, ... do not have images in the Info Panel. [CLDR-13477](https://unicode-org.atlassian.net/browse/CLDR-13477) **Workaround**: Look at the Code column; unlike the new emoji, your browser should display them there.
+1. Redirect from read-only locale to the default content locale does not work [CLDR-18513][]
+2. Images for the plain symbols. Non-emoji such as [€](https://st.unicode.org/cldr-apps/v#/fr/OtherSymbols/47925556fd2904b5), √, », ¹, §, ... do not have images in the Info Panel. [CLDR-13477](https://unicode-org.atlassian.net/browse/CLDR-13477) **Workaround**: Look at the Code column; unlike the new emoji, your browser should display them there.
 1. [CLDR-17683](https://unicode-org.atlassian.net/browse/CLDR-17683) - Some items are not able to be flagged for TC review. This is being investigated.Meanwhile, Please enter forum posts meanwhile with any comments.
 
 ## Resolved Issues
@@ -285,5 +285,6 @@ You're already familiar with the CLDR process, but do keep the following in mind
 *Tip: The links in the [Info Panel](translation/getting-started/guide#info-panel) will point you to relevant instructions for the
 entry you're editing/vetting. Use it if in doubt.*
 
+[CLDR-18513]: https://unicode-org.atlassian.net/browse/CLDR-18513
 [CLDR-18423]: https://unicode-org.atlassian.net/browse/CLDR-18423
 [CLDR-17694]: https://unicode-org.atlassian.net/browse/CLDR-17694

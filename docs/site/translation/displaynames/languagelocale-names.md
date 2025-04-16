@@ -35,7 +35,37 @@ For languages that are part of a larger family, the Survey Tool may request tran
 
 If your standard translation of the language name already puts the family name first (as in “Kurdish, Central”) then you can supply the same name as the menu variant.
 
-## Other variants
+### Core and Extensions
 
-Some languages may have other variant forms. For example, “ckb” may in English be called “Central Kurdish” or “Sorani Kurdish”; the former is used as the standard name for English, and the latter is the variant. In other languages the equivalent of “Sorani Kurdish” may be used as the standard name; if there is also an equivalent for “Central Kurdish” it may be supplied as the variant. If there is only one form in your language, please use it for both the standard and the variant form.
+Sometimes languages and other fields need further qualitification in the context of a menu. For example, when there is only one variant of French shown in a menu, it is fine to just list the language as follows.
+* English
+* French
+* German
 
+However, when there are multiple variants, it is clearer to list each one, such as:
+* English
+* French (Canada)
+* French (France)
+* German
+
+When the variants differ not by region or script, but by another qualifier, then you may see codes with "-core" or "-extension", as in the following.
+
+<img src="kurdish-example.png" />
+
+In these cases, supply the translated name of the qualifier (Kurmanji), and of the core.
+The core should omit the qualification (if any), and the extension should include it. For example, for Sorani Kurdish, you would see:
+
+Code | English
+-- | --
+ckb | Sorani Kurdish
+ckb-core | Kurdish
+ckb-extension | Sorani
+
+When users see this in a menu, they'll see the core names, with the extensions treated like script or region variants, as in the following:
+
+* English
+* French (Canada)
+* French (France)
+* German
+* Kurdish (Kurmanji)
+* Kurdish (Sorani)

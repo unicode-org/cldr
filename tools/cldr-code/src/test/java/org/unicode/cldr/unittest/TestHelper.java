@@ -38,8 +38,6 @@ import org.unicode.cldr.util.VoteResolver.VoterInfo;
 import org.unicode.cldr.util.props.ICUPropertyFactory;
 
 public class TestHelper extends TestFmwkPlus {
-    public static boolean DEBUG = true;
-
     private static final UnicodeSet DIGITS = new UnicodeSet("[0-9]");
     static CLDRConfig testInfo = CLDRConfig.getInstance();
     private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO =
@@ -596,12 +594,10 @@ public class TestHelper extends TestFmwkPlus {
             ph = PathHeader.getFactory(testInfo.getEnglish()).fromPath(xpath);
         }
         resolver.setLocale(CLDRLocale.getInstance(locale), ph);
-        if (!assertEquals(
+        assertEquals(
                 locale + " verifyRequiredVotes: " + ph.toString(),
                 required,
-                resolver.getRequiredVotes())) {
-            int debug = 0;
-        }
+                resolver.getRequiredVotes());
     }
 
     public void TestRequiredVotes() {
@@ -1477,6 +1473,8 @@ public class TestHelper extends TestFmwkPlus {
 
     /** Check that expected paths are Aliased, and have debugging code */
     public void TestMissingGrammar() {
+        final boolean DEBUG = true; // TODO CLDR-18524 What's the purpose of this flag?
+
         // https://cldr-smoke.unicode.org/cldr-apps/v#/hu/Length/a4915bf505ffb49
         final String path =
                 "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"length-meter\"]/unitPattern[@count=\"one\"][@case=\"accusative\"]";
@@ -1544,6 +1542,12 @@ public class TestHelper extends TestFmwkPlus {
         assertEquals(locale + " missingCounter (2)", sizes[2], missingCounter.getTotal());
         assertEquals(locale + " missingPaths (3)", sizes[3], missingPaths.size());
         assertEquals(locale + " unconfirmedPaths (4)", sizes[4], unconfirmedPaths.size());
+
+        // showStatusResults does not throw any errors, so skip it as a known issue
+        if (!logKnownIssue("CLDR-18524", "showStatusResults() produces thousands of warnings")) {
+            return;
+        }
+
         showStatusResults(
                 locale,
                 foundCounter,
@@ -1574,6 +1578,11 @@ public class TestHelper extends TestFmwkPlus {
                     missingCounter,
                     missingPaths,
                     unconfirmedPaths);
+        } else {
+            // !debug
+            if (!logKnownIssue("CLDR-18524", "DEBUG is false - remove the debug flag from tests")) {
+                return;
+            }
         }
     }
 

@@ -1544,7 +1544,7 @@ public class TestHelper extends TestFmwkPlus {
         assertEquals(locale + " unconfirmedPaths (4)", sizes[4], unconfirmedPaths.size());
 
         // showStatusResults does not throw any errors, so skip it as a known issue
-        if (!logKnownIssue("CLDR-18524", "showStatusResults() produces thousands of warnings")) {
+        if (logKnownIssue("CLDR-18524", "showStatusResults() produces thousands of warnings")) {
             return;
         }
 

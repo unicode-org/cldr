@@ -3,6 +3,7 @@
  */
 import { marked } from "./cldrMarked.mjs";
 import * as cldrNotify from "./cldrNotify.mjs";
+import { fetch } from "./cldrAjax.mjs";
 
 const defaultEndpoint = "https://dbpedia.org/sparql/";
 

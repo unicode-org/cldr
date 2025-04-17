@@ -13,11 +13,12 @@ const SLASH_API_SLASH = "/api/";
  * Call the standard js fetch function, possibly with additional handling suitable
  * for Survey Tool such as setting session headers and debugging
  *
- * Session headers are automatically added
+ * Session headers are automatically added.
+ * Only use this for calling back to the Survey Tool, otherwise session headers will leak.
  *
  * @param {String} resource the url or other resource, or Request object
  * @param {Object} init an object containing any custom settings for the request
- * @returns a Promise that resolves to a Response object
+ * @returns {Promise<Response>}
  */
 function doFetch(resource, init) {
   if (ST_AJAX_DEBUG) {
@@ -26,6 +27,12 @@ function doFetch(resource, init) {
   init = addSessionHeader(init);
   return fetch(resource, init);
 }
+
+/**
+ * re-exported global fetch, in case we want to do any logging or customization.
+ * Use this for non-SurveyTool (external) queries
+ */
+const fetch = window.fetch;
 
 /**
  * If the current user has a session id, add it to the fetch headers, creating
@@ -254,6 +261,7 @@ function isApiUrl(url) {
 
 export {
   doFetch,
+  fetch,
   handleFetchErrors,
   makeApiUrl,
   makePostData,

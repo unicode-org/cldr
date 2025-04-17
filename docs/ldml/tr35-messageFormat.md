@@ -5,7 +5,7 @@ linkify: true
 
 # Unicode Locale Data Markup Language (LDML)<br/>Part 9: MessageFormat
 
-|Version|47 (draft)              |
+|Version|48 (draft)              |
 |-------|------------------------|
 |Editors|Addison Phillips and [other CLDR committee members](tr35.md#Acknowledgments)|
 

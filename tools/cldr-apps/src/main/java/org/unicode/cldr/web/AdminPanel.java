@@ -8,12 +8,12 @@ import java.util.Map;
 import java.util.Random;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRConfigImpl;
 import org.unicode.cldr.util.VoteResolver;
+import org.unicode.cldr.web.util.JSONArray;
+import org.unicode.cldr.web.util.JSONException;
+import org.unicode.cldr.web.util.JSONObject;
 
 public class AdminPanel {
     public void getJson(
@@ -144,7 +144,7 @@ public class AdminPanel {
 
     private void showSettings(SurveyJSONWrapper r) throws JSONException {
         CLDRConfigImpl cci = (CLDRConfigImpl) (CLDRConfig.getInstance());
-        JSONObject all = new JSONObject().put("all", cci.toJSONObject());
+        JSONObject all = new JSONObject().put("all", cci);
         r.put("settings", all);
     }
 

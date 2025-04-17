@@ -6,8 +6,8 @@ title: CLDR 46 Release Note
 
 | No. |    Date    | Rel. Note |  Data  |  Charts  | Spec |   Delta  | GitHub Tag | Delta DTD | CLDR JSON |
 |:---:|:----------:|:---------:|:------:|:--------:|:------------:|:---:|:----------:|:---------:|:---------:|
-|  46 | 2024-10-24 | [v46](/index/downloads/cldr-46) | [CLDR46](https://unicode.org/Public/cldr/46/) | [Charts46](https://unicode.org/cldr/charts/46/) | [LDML46](https://www.unicode.org/reports/tr35/tr35-73/tr35.html) | [Δ46](https://unicode-org.atlassian.net/issues/?jql=project+%3D+CLDR+AND+status+%3D+Done+AND+resolution+%3D+Fixed+AND+fixVersion+%3D+%2246%22+ORDER+BY+priority+DESC) | [release-46](https://github.com/unicode-org/cldr/releases/tag/release-46) | [ΔDtd46](https://www.unicode.org/cldr/charts/46/supplemental/dtd_deltas.html) | [46.0.0](https://github.com/unicode-org/cldr-json/releases/tag/46.0.0) |
-| 46.1 | 2024-12-18 | [v46.1](/index/downloads/cldr-46#461-changes) | n/a | [Charts46.1](https://unicode.org/cldr/charts/46.1/) | [LDML46.1](https://www.unicode.org/reports/tr35/tr35-74/tr35.html) | [Δ46.1](https://unicode-org.atlassian.net/issues/?jql=project+%3D+CLDR+AND+status+%3D+Done+AND+resolution+%3D+Fixed+AND+fixVersion+%3D+%2246.1%22+ORDER+BY+priority+DESC) | [release-46-1](https://github.com/unicode-org/cldr/releases/tag/release-46-1) | [ΔDtd46.1](https://www.unicode.org/cldr/charts/46.1/supplemental/dtd_deltas.html) | [46.1.0](https://github.com/unicode-org/cldr-json/releases/tag/46.1.0) |
+|  46 | 2024-10-24 | [v46][] | [CLDR46][] | [Charts46][] | [LDML46][] | [Δ46][]| [release-46][] | [ΔDtd46][] | [46.0.0][] |
+| 46.1 | 2024-12-18 | [v46.1][] | n/a | [Charts46.1][]| [LDML46.1][]| [Δ46.1][] | [release-46-1][] | [ΔDtd46.1][] | [46.1.0][] |
 
 ## Overview
 
@@ -90,7 +90,7 @@ For the reason why, see the algorithm in [Likely Subtags](https://www.unicode.or
     - The regions have been cleaned up: there are no entries with `ZZ`, and `001` is limited to artifical languages such as Interlingua. The only other macroregion code is in `und_419 → es_Latn_419` (Spanish‧Latin‧Latin America)
 5. Macrolanguage mapping / locale canonicalization
    - Parent and defaultContent mappings have been added for Kara-Kalpak (`kaa`) and Konkani (`kok`); defaultContent mappings have been added for Kazakh (`kk`), Ladin (`lld`), Latgalian (`ltg`), Mócheno (`mhn`), and Chinese (Latin, China) (`zh_Latn_CN`).
-   - The predominant language encompassed by "kok" (Konkani macrolanguage) has been changed from "knn" (Konkani / individual language) to "gom" (Goan Konkani) in [CLDR-17121](https://unicode-org.atlassian.net/browse/CLDR-17121)
+   - The predominant language encompassed by "kok" (Konkani macrolanguage) has been changed from "knn" (Konkani / individual language) to "gom" (Goan Konkani) in [CLDR-17121][]
      - The TC found that the predominant encompassed language is "gom" according to local governments and also industry practice; and the CLDR data in the "kok" locale has really been "gom" not "knn".
      - As a result, "knn" no longer canonicalizes to "kok"; instead, "gom" now canonicalizes to "kok".
      - CLDR follows long-standing industry practice in using a macrolanguage subtag instead of the predominant encompassed language. Other examples include the use of "zh" for Mandarin ("cmn") and the use of "ar" for Standard Arabic ("arb").
@@ -282,6 +282,7 @@ These matched the ordering of two legacy character encodings. [CLDR-16062][]
     - The first day of the week for week-of-year calendar calculations.
 1. [CLDR-18056][] “facing right” emojis are missing the skin tone in annotationsDerived
 1. [CLDR-18080][] Han-Latin transform worse due to a change for 著 in Unicode 16
+1. [CLDR-18407][] Unexpected time formatting patterns in Assamese, reverted in [CLDR-18415][] and will be fixed once day period data is validated.
 
 ### Fixed Issues
 
@@ -332,11 +333,34 @@ in particular, see [Exhibit 1](https://unicode.org/copyright.html#Exhibit1).
 
 For web pages with different views of CLDR data, see [http://cldr.unicode.org/index/charts](/index/charts).
 
+
 [CLDR-16062]: https://unicode-org.atlassian.net/browse/CLDR-16062
 [CLDR-16465]: https://unicode-org.atlassian.net/browse/CLDR-16465
 [CLDR-16720]: https://unicode-org.atlassian.net/browse/CLDR-16720
 [CLDR-17095]: https://unicode-org.atlassian.net/browse/CLDR-17095
+[CLDR-17121]: https://unicode-org.atlassian.net/browse/CLDR-17121
 [CLDR-17948]: https://unicode-org.atlassian.net/browse/CLDR-17948
 [CLDR-18056]: https://unicode-org.atlassian.net/browse/CLDR-18056
 [CLDR-17610]: https://unicode-org.atlassian.net/browse/CLDR-17610
 [CLDR-18080]: https://unicode-org.atlassian.net/browse/CLDR-18080
+[CLDR-18407]: https://unicode-org.atlassian.net/browse/CLDR-18407
+[CLDR-18415]: https://unicode-org.atlassian.net/browse/CLDR-18415
+
+<!-- CLDR 46 - 2024-10-24 - Release links-->
+[v46]: /index/downloads/cldr-46
+[CLDR46]: https://unicode.org/Public/cldr/46/
+[Charts46]: https://unicode.org/cldr/charts/46/
+[LDML46]: https://www.unicode.org/reports/tr35/tr35-73/tr35.html
+[Δ46]: https://unicode-org.atlassian.net/issues/?filter=10834
+[release-46]: https://github.com/unicode-org/cldr/releases/tag/release-46
+[ΔDtd46]: https://www.unicode.org/cldr/charts/46/supplemental/dtd_deltas.html
+[46.0.0]: https://github.com/unicode-org/cldr-json/releases/tag/46.0.0
+
+<!-- CLDR 46.1 - 2024-12-18 - Release links-->
+[v46.1]: /index/downloads/cldr-46#461-changes
+[Charts46.1]: https://unicode.org/cldr/charts/46.1/
+[LDML46.1]: https://www.unicode.org/reports/tr35/tr35-74/tr35.html
+[Δ46.1]: https://unicode-org.atlassian.net/issues/?filter=10835
+[release-46-1]: https://github.com/unicode-org/cldr/releases/tag/release-46-1
+[ΔDtd46.1]: https://www.unicode.org/cldr/charts/46.1/supplemental/dtd_deltas.html
+[46.1.0]: https://github.com/unicode-org/cldr-json/releases/tag/46.1.0

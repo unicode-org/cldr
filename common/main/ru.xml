@@ -1183,13 +1183,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="colCaseFirst" type="upper" draft="contributed">Приоритетная сортировка слов в верхнем регистре</type>
 			<type key="colCaseLevel" type="no" draft="contributed">Сортировка вне зависимости от регистра</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">Сортировка с учетом регистра</type>
-			<type key="collation" type="big5han">традиционный китайский - Big5</type>
 			<type key="collation" type="compat">совместимый порядок сортировки</type>
 			<type key="collation" type="dictionary">словарный порядок сортировки</type>
 			<type key="collation" type="ducet">cтандартная сортировка Unicode</type>
 			<type key="collation" type="emoji" draft="contributed">эмодзи</type>
 			<type key="collation" type="eor" draft="contributed">европейские правила сортировки</type>
-			<type key="collation" type="gb2312han">упрощенный китайский - GB2312</type>
 			<type key="collation" type="phonebook">порядок телефонной книги</type>
 			<type key="collation" type="phonetic">фонетический порядок сортировки</type>
 			<type key="collation" type="pinyin">пиньинь</type>
@@ -4746,9 +4744,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Пномпень</exemplarCity>
 			</zone>
 			<zone type="Pacific/Enderbury">
-				<exemplarCity>о-в Эндербери</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kanton">
 				<exemplarCity>Кантон</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
@@ -9310,7 +9305,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
 				<unitPattern count="other" case="prepositional">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<gender>feminine</gender>
 				<displayName>миллионные доли</displayName>
 				<unitPattern count="one">{0} миллионная доля</unitPattern>
@@ -13840,7 +13835,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other" case="vocative">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<gender>feminine</gender>
 				<displayName>миллиардные доли</displayName>
 				<unitPattern count="one">{0} миллиардная доля</unitPattern>
@@ -14174,7 +14169,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} объектов</unitPattern>
 				<unitPattern count="other">{0} объекта</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="few">↑↑↑</unitPattern>
@@ -15337,7 +15332,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} имп. кварт.</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="few">↑↑↑</unitPattern>
@@ -15629,7 +15624,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="few">↑↑↑</unitPattern>
@@ -16792,7 +16787,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="few">↑↑↑</unitPattern>

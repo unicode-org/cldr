@@ -41,14 +41,14 @@ public class TestCoverage extends TestFmwkPlus {
         Multimap<CoreItems, String> errors = LinkedHashMultimap.create();
         Set<CoreItems> coreCoverage = CoreCoverageInfo.getCoreCoverageInfo(engCldrFile, errors);
         if (!assertEquals("English should be complete", all, coreCoverage)) {
-            showDiff("Missing", all, coreCoverage);
+            showDiff("English Missing", all, coreCoverage);
         }
-        CLDRFile skimpyLocale = testInfo.getCldrFactory().make("asa", false);
+        CLDRFile skimpyLocale = testInfo.getCldrFactory().make("asa", true);
         errors.clear();
         coreCoverage = CoreCoverageInfo.getCoreCoverageInfo(skimpyLocale, errors);
         if (!assertEquals("Skimpy locale should not be complete", none, coreCoverage)) {
-            showDiff("Missing", all, coreCoverage);
-            showDiff("Extra", coreCoverage, none);
+            showDiff("Skimpy Missing", all, coreCoverage);
+            showDiff("Skimpy Extra", coreCoverage, none);
         }
     }
 
@@ -99,6 +99,30 @@ public class TestCoverage extends TestFmwkPlus {
             {
                 "ar",
                 "//ldml/numbers/currencyFormats[@numberSystem=\"arab\"]/currencyFormatLength[@type=\"short\"]/currencyFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"other\"]",
+                Level.MODERATE,
+                8
+            },
+            {
+                "en",
+                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/dateTimeFormatLength[@type=\"long\"]/dateTimeFormat[@type=\"atTime\"]/pattern[@type=\"standard\"]",
+                Level.MODERATE,
+                8
+            },
+            {
+                "en",
+                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/dateTimeFormatLength[@type=\"long\"]/dateTimeFormat[@type=\"relative\"]/pattern[@type=\"standard\"]",
+                Level.MODERATE,
+                8
+            },
+            {
+                "ja",
+                "//ldml/dates/calendars/calendar[@type=\"japanese\"]/dateTimeFormats/dateTimeFormatLength[@type=\"long\"]/dateTimeFormat[@type=\"atTime\"]/pattern[@type=\"standard\"]",
+                Level.MODERATE,
+                8
+            },
+            {
+                "ja",
+                "//ldml/dates/calendars/calendar[@type=\"japanese\"]/dateTimeFormats/dateTimeFormatLength[@type=\"long\"]/dateTimeFormat[@type=\"relative\"]/pattern[@type=\"standard\"]",
                 Level.MODERATE,
                 8
             },

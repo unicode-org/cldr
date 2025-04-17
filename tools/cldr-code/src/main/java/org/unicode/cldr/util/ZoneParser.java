@@ -642,7 +642,8 @@ public class ZoneParser {
                     {"Europe/Kyiv", "Europe/Kiev"},
                     {"Pacific/Pohnpei", "Pacific/Ponape"},
                     {"Pacific/Chuuk", "Pacific/Truk"},
-                    {"Pacific/Honolulu", "Pacific/Johnston"}
+                    {"Pacific/Honolulu", "Pacific/Johnston"},
+                    {"Pacific/Kanton", "Pacific/Enderbury"}
                 };
         FIX_UNSTABLE_TZIDS = CldrUtility.asMap(FIX_UNSTABLE_TZID_DATA);
     }

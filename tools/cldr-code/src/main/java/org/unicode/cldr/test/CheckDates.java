@@ -1,6 +1,8 @@
 package org.unicode.cldr.test;
 
 import com.google.common.base.Joiner;
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Lists;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.text.DateIntervalInfo;
@@ -281,6 +283,17 @@ public class CheckDates extends FactoryCheckCLDR {
                                         getValues(getResolvedCldrFileToCheck(), problem.values()));
                 result.add(item);
             }
+        }
+
+        String errorMessage = checkIso8601(path, value);
+        if (errorMessage != null) {
+            CheckStatus item =
+                    new CheckStatus()
+                            .setCause(this)
+                            .setMainType(CheckStatus.errorType)
+                            .setSubtype(Subtype.incorrectDatePattern)
+                            .setMessage(errorMessage);
+            result.add(item);
         }
 
         try {
@@ -639,6 +652,116 @@ public class CheckDates extends FactoryCheckCLDR {
             }
         }
         return this;
+    }
+
+    // ORDERED SET (the ordering is used in toOrder)
+
+    static final Set<Integer> expectedField =
+            ImmutableSet.of(
+                    DateTimePatternGenerator.ERA,
+                    DateTimePatternGenerator.YEAR,
+                    DateTimePatternGenerator.QUARTER,
+                    DateTimePatternGenerator.MONTH,
+                    DateTimePatternGenerator.DAY,
+                    DateTimePatternGenerator.WEEK_OF_MONTH,
+                    DateTimePatternGenerator.WEEK_OF_YEAR,
+                    DateTimePatternGenerator.WEEKDAY,
+                    DateTimePatternGenerator.HOUR,
+                    DateTimePatternGenerator.MINUTE,
+                    DateTimePatternGenerator.SECOND,
+                    DateTimePatternGenerator.DAYPERIOD,
+                    DateTimePatternGenerator.ZONE);
+    static final List<Integer> toOrder = Lists.reverse(List.copyOf(expectedField));
+
+    /**
+     * Returns null if the path is not a calendar path for iso8601, or if it is ok for iso8601.<br>
+     * Otherwise returns a string with the error.
+     *
+     * @param path
+     * @param value
+     * @return
+     */
+    // This is public for testing
+
+    public static String checkIso8601(String path, String value) {
+        // ldml/dates/calendars/calendars/dateFormats/dateFormatLength
+        XPathParts parts = XPathParts.getFrozenInstance(path);
+        if (!"iso8601".equals(parts.getAttributeValue(3, "type"))) {
+            return null;
+        }
+        String key = parts.getElement(5);
+        boolean isInterval = false;
+        switch (key) {
+            case "dateTimeFormatLength":
+                {
+                    int index0 = value.indexOf("{0}");
+                    int index1 = value.indexOf("{1}");
+                    if (index0 < index1) {
+                        return "Field out of order: {0}…{1}";
+                    }
+                    return null;
+                }
+            case "appendItem":
+                {
+                    int index0 = value.indexOf("{0}");
+                    int index1 = value.indexOf("{1}");
+                    if (index0 > index1) {
+                        return "Field out of order: {1}…{0}";
+                    }
+                    return null;
+                }
+            case "dateFormatLength":
+            case "timeFormatLength":
+            case "availableFormats":
+                break;
+            case "intervalFormats":
+                isInterval = true;
+                break;
+            default:
+                return null;
+        }
+        // verify
+        //  the order is the same as in expectedField
+        //  there is no other field
+        //  time is 24 hour (0..23)
+        DateTimePatternGenerator.FormatParser parser = new DateTimePatternGenerator.FormatParser();
+        VariableField lastField = null;
+        Set<Integer> fieldTypesSoFar = new LinkedHashSet<>();
+
+        for (Object p : parser.set(value).getItems()) {
+            if (!(p instanceof VariableField)) {
+                continue;
+            }
+            VariableField field = (VariableField) p;
+            int type = field.getType();
+            if (!expectedField.contains(type)) {
+                return "Disallowed field: " + field;
+            }
+            // The two parts of an interval are identified by when you hit the same type of field
+            // twice
+            // like y - y, or M d - M
+            if (fieldTypesSoFar.contains(type)) {
+                if (isInterval) { // so one freebe for intervals
+                    isInterval = false;
+                    fieldTypesSoFar.clear(); // entering second part of interval
+                    lastField = null;
+                } else {
+                    return "Duplicate field: " + field;
+                }
+            }
+
+            // the type values are out of order if lastType < type (using toOrder for the ordering)
+
+            if (lastField != null) {
+                int lastType = lastField.getType();
+                if (toOrder.indexOf(lastType) < toOrder.indexOf(type)) {
+                    return "Field out of order: " + lastField + "…" + field;
+                }
+            }
+            fieldTypesSoFar.add(type);
+            lastField = field;
+        }
+        return null;
     }
 
     public CheckStatus.Type errorOrIfBuildWarning() {

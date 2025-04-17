@@ -1291,12 +1291,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="colCaseFirst" type="upper" draft="contributed">大文字優先で並べ替え</type>
 			<type key="colCaseLevel" type="no" draft="contributed">大文字小文字を区別しないで並べ替え</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">大文字小文字を区別して並べ替え</type>
-			<type key="collation" type="big5han">繁体字中国語順(Big5)</type>
 			<type key="collation" type="compat">以前の順序（互換性）</type>
 			<type key="collation" type="dictionary">辞書順</type>
 			<type key="collation" type="ducet">ユニコード照合順</type>
 			<type key="collation" type="eor" draft="contributed">ヨーロッパ言語文字の並べ替え規則</type>
-			<type key="collation" type="gb2312han">簡体字中国語順(GB2312)</type>
 			<type key="collation" type="phonebook">電話帳順</type>
 			<type key="collation" type="phonetic">音声順による並べ替え</type>
 			<type key="collation" type="pinyin">ピンイン順</type>
@@ -5590,9 +5588,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>プノンペン</exemplarCity>
 			</zone>
 			<zone type="Pacific/Enderbury">
-				<exemplarCity>エンダーベリー島</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kanton">
 				<exemplarCity>カントン島</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
@@ -9171,7 +9166,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -9921,7 +9916,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -10138,7 +10133,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>項目</displayName>
 				<unitPattern count="other">{0} 項目</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -10888,7 +10883,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>分 - 質量</displayName>
 				<unitPattern count="other">{0} 分 - 質量</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -11105,7 +11100,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0}項目</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0}ppm</unitPattern>
 			</unit>
@@ -11855,7 +11850,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>分</displayName>
 				<unitPattern count="other">{0}分</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0}ppb</unitPattern>
 			</unit>

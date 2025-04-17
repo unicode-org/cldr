@@ -1293,12 +1293,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="colCaseFirst" type="upper" draft="contributed">จัดเรียงตัวพิมพ์ใหญ่ก่อน</type>
 			<type key="colCaseLevel" type="no" draft="contributed">จัดเรียงตามความสำคัญของตัวพิมพ์</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">จัดเรียงความสำคัญของตัวพิมพ์</type>
-			<type key="collation" type="big5han">ลำดับการจัดเรียงตามอักษรจีนดั้งเดิม</type>
 			<type key="collation" type="compat">ลำดับการจัดเรียงก่อนหน้านี้ ตามความเหมาะสม</type>
 			<type key="collation" type="dictionary">ลำดับการจัดเรียงตามพจนานุกรม</type>
 			<type key="collation" type="ducet">ลำดับการจัดเรียงตาม Unicode เริ่มต้น</type>
 			<type key="collation" type="eor" draft="contributed">กฎการเรียงลำดับตามแบบยุโรป</type>
-			<type key="collation" type="gb2312han">ลำดับการจัดเรียงตามอักษรจีนประยุกต์</type>
 			<type key="collation" type="phonebook">ลำดับการจัดเรียงตามสมุดโทรศัพท์</type>
 			<type key="collation" type="phonetic">ลำดับการจัดเรียงตามการออกเสียง</type>
 			<type key="collation" type="pinyin">ลำดับการจัดเรียงตามการถอดเสียงภาษาจีน</type>
@@ -5230,9 +5228,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>พนมเปญ</exemplarCity>
 			</zone>
 			<zone type="Pacific/Enderbury">
-				<exemplarCity>เอนเดอร์เบอรี</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kanton">
 				<exemplarCity>แคนทอน</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
@@ -8670,7 +8665,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>ส่วนต่อล้าน</displayName>
 				<unitPattern count="other">{0} ส่วนต่อล้าน</unitPattern>
 			</unit>
@@ -9348,7 +9343,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>แสง</displayName>
 				<unitPattern count="other">{0} แสง</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>ส่วนต่อพันล้าน</displayName>
 				<unitPattern count="other">{0} ส่วนต่อพันล้าน</unitPattern>
 			</unit>
@@ -9565,7 +9560,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>รายการ</displayName>
 				<unitPattern count="other">{0} รายการ</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>ส่วน/ล้าน</displayName>
 				<unitPattern count="other">{0} สตล.</unitPattern>
 			</unit>
@@ -10243,7 +10238,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>แสง</displayName>
 				<unitPattern count="other">{0} แสง</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>ส่วน/พันล้าน</displayName>
 				<unitPattern count="other">{0} สตพล.</unitPattern>
 			</unit>
@@ -10460,7 +10455,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0}รายการ</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>สตล.</displayName>
 				<unitPattern count="other">{0}สตล.</unitPattern>
 			</unit>
@@ -11138,7 +11133,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>แสง</displayName>
 				<unitPattern count="other">{0}แสง</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>สตพล.</displayName>
 				<unitPattern count="other">{0}สตพล.</unitPattern>
 			</unit>

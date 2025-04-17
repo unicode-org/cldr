@@ -464,7 +464,7 @@ public class ConvertLanguageData {
             }
 
             for (BasicLanguageData bld : newData.values()) {
-                if (bld.getTerritories().size() > 0 || bld.getScripts().size() > 0) {
+                if (bld.getScripts().size() > 0) {
                     out.println(bld.toString(languageSubtag));
                 }
             }
@@ -582,6 +582,7 @@ public class ConvertLanguageData {
             ltp.set(rawLocale);
             String locale =
                     ltp.getLanguage()
+                            + (ltp.getScript().length() == 0 ? "" : "_" + ltp.getScript())
                             + (ltp.getRegion().length() == 0 ? "" : "_" + ltp.getRegion());
             population.add(locale);
             RowData rowData = localeToRowData.get(rawLocale);
@@ -639,20 +640,6 @@ public class ConvertLanguageData {
                                     0,
                                     false)
                             + "\"");
-        }
-
-        Set<String> inPopulationButNotBasic = new TreeSet<>(populationOver20);
-        inPopulationButNotBasic.removeAll(basicCombos);
-        for (Iterator<String> it = inPopulationButNotBasic.iterator(); it.hasNext(); ) {
-            String locale = it.next();
-            if (locale.endsWith("_ZZ")) {
-                it.remove();
-            }
-        }
-        for (String locale : inPopulationButNotBasic) {
-            BadItem.WARNING.show(
-                    "In Population>20% but not Basic Data",
-                    locale + " " + getLanguageName(locale), localeToRowData.get(locale).toString());
         }
     }
 

@@ -1000,11 +1000,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="calendar" type="roc">↑↑↑</type>
 			<type key="cf" type="account">↑↑↑</type>
 			<type key="cf" type="standard">↑↑↑</type>
-			<type key="collation" type="big5han">↑↑↑</type>
 			<type key="collation" type="compat">prethodni redoslijed sortiranja, zbog kompatibilnosti</type>
 			<type key="collation" type="dictionary">redoslijed sortiranja u rječniku</type>
 			<type key="collation" type="ducet">podrazumijevani Unicode redoslijed sortiranja</type>
-			<type key="collation" type="gb2312han">↑↑↑</type>
 			<type key="collation" type="phonebook">↑↑↑</type>
 			<type key="collation" type="phonetic">fonetski redoslijed sortiranja</type>
 			<type key="collation" type="pinyin">↑↑↑</type>
@@ -3441,9 +3439,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Enderbury">
-				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kanton">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
@@ -6827,7 +6822,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<gender>↑↑↑</gender>
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -8833,7 +8828,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other" case="genitive">{0} svjetala</unitPattern>
 				<unitPattern count="other" case="instrumental">{0} svjetala</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<gender>↑↑↑</gender>
 				<displayName>dijelovi na milijardu</displayName>
 				<unitPattern count="one">{0} dio na milijardu</unitPattern>
@@ -9118,7 +9113,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="few">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="few">↑↑↑</unitPattern>
@@ -10124,7 +10119,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="few">{0} svjetla</unitPattern>
 				<unitPattern count="other">{0} svjetala</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>dijelovi/milijarda</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="few">↑↑↑</unitPattern>
@@ -10389,7 +10384,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="few">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="few">↑↑↑</unitPattern>
@@ -11395,7 +11390,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="few">{0} svjetla</unitPattern>
 				<unitPattern count="other">{0} svjetala</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>dijelovi/milijarda</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="few">↑↑↑</unitPattern>

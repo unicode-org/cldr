@@ -81,7 +81,7 @@ class FlexibleDateFromCLDR {
 
     /** */
     public void showFlexibles() {
-        Map<String, String> items = gen.getSkeletons(new LinkedHashMap<String, String>());
+        Map<String, String> items = gen.getSkeletons(new LinkedHashMap<>());
         System.out.println("ERRORS");
         for (Iterator<String> it = failureMap.keySet().iterator(); it.hasNext(); ) {
             String item = it.next();
@@ -105,7 +105,7 @@ class FlexibleDateFromCLDR {
             System.out.println("\t\"" + skeleton + "\"\t=>\t\"" + items.get(skeleton) + "\"");
         }
         System.out.println("REDUNDANTS");
-        Collection<String> redundants = gen.getRedundants(new ArrayList<String>());
+        Collection<String> redundants = gen.getRedundants(new ArrayList<>());
         for (String item : redundants) {
             System.out.println("\t" + item);
         }
@@ -136,7 +136,7 @@ class FlexibleDateFromCLDR {
      * @param fullPath
      */
     public void checkFlexibles(String path, String value, String fullPath) {
-        if (path.indexOf("numbers/symbols/decimal") >= 0) {
+        if (path.indexOf("numbers/symbols[@numberSystem=\"latn\"]/decimal") >= 0) {
             gen.setDecimal(value);
             return;
         }
@@ -318,8 +318,12 @@ class FlexibleDateFromCLDR {
                     && strippedPattern.indexOf('U') < 0) {
                 // If skeleton has G, pattern should have G (or for cyclic calendars like
                 // chinese/dangi, r and/or U)
-                failure =
-                        "Skeleton includes 'G' (era) but pattern does not have 'G' (or 'r' or 'U' for chinese/dangi calendars)";
+                XPathParts parts = XPathParts.getFrozenInstance(path);
+                String calendar = parts.getAttributeValue(3, "type");
+                if (!calendar.equals("iso8601")) {
+                    failure =
+                            "Skeleton includes 'G' (era) but pattern does not have 'G' (or 'r' or 'U' for chinese/dangi calendars)";
+                }
             }
         }
         return failure;

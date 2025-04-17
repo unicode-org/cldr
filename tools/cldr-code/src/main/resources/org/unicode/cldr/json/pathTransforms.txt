@@ -173,3 +173,17 @@
 # Transform - drop terminal tRule element
 < //supplementalData/transforms/transform(.*)/tRule.*$
 > //supplementalData/transforms/transform$1/_rulesFile
+
+# Language matching
+< (.*)/languageMatches([^/]*)/matchVariable([^/]*)$
+> $1/languageMatches$2/matchVariables/matchVariable$3
+
+< (.*)/languageMatches([^/]*)/paradigmLocales([^/]*)$
+> $1/languageMatches$2/paradigmLocales$3
+
+< (.*)/languageMatches([^/]*)/languageMatch([^/]*)$
+> $1/languageMatches$2/languageMatch/languageMatch$3
+
+# Script variant
+< (.*)/scriptVariant\[@type="([^"]*)"\](.*)$
+> $1/scriptVariants/$2/scriptVariant$3

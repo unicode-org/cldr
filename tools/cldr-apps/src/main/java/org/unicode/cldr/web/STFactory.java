@@ -1990,7 +1990,10 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         return tests;
     }
 
-    public Collection<String> getFixedCandidates(CLDRLocale locale, String xpath) {
+    /**
+     * @return set of candidates or null
+     */
+    public final Collection<String> getFixedCandidates(CLDRLocale locale, String xpath) {
         return diskDataCache.get(locale).getFixedCandidates(xpath);
     }
 }

@@ -1047,12 +1047,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="colCaseFirst" type="upper" draft="contributed">Najprv radiť veľké písmená</type>
 			<type key="colCaseLevel" type="no" draft="contributed">Pri radení nerozlišovať veľké a malé písmená</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">Pri radení rozlišovať veľké a malé písmená</type>
-			<type key="collation" type="big5han">tradičné čínske zoradenie – Big5</type>
 			<type key="collation" type="compat">predchádzajúce zoradenie, kompatibilita</type>
 			<type key="collation" type="dictionary">slovníkové zoradenie</type>
 			<type key="collation" type="ducet">predvolené zoradenie unicode</type>
 			<type key="collation" type="eor" draft="contributed">európske zoradenie</type>
-			<type key="collation" type="gb2312han">zjednodušené čínske zoradenie – GB2312</type>
 			<type key="collation" type="phonebook">lexikografické zoradenie</type>
 			<type key="collation" type="phonetic">fonetické zoradenie</type>
 			<type key="collation" type="pinyin">zoradenie pchin-jin</type>
@@ -4028,9 +4026,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Phnom Pénh</exemplarCity>
 			</zone>
 			<zone type="Pacific/Enderbury">
-				<exemplarCity>Enderbury</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kanton">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
@@ -9180,7 +9175,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="instrumental">{0} položkami</unitPattern>
 				<unitPattern count="other" case="locative">{0} položkách</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<gender>feminine</gender>
 				<displayName>milióntiny</displayName>
 				<unitPattern count="one">{0} milióntina</unitPattern>
@@ -12441,7 +12436,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} britského kvartu</unitPattern>
 				<unitPattern count="other">{0} britských kvartov</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<gender>feminine</gender>
 				<displayName>častice na miliardu</displayName>
 				<unitPattern count="one">{0} častica na miliardu</unitPattern>
@@ -12775,7 +12770,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} pol.</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="few">↑↑↑</unitPattern>
@@ -13938,7 +13933,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} qt Imp</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="few">↑↑↑</unitPattern>
@@ -14230,7 +14225,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="few">↑↑↑</unitPattern>
@@ -15393,7 +15388,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="few">↑↑↑</unitPattern>

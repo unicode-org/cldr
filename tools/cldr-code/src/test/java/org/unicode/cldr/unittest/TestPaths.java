@@ -7,7 +7,6 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -136,8 +135,7 @@ public class TestPaths extends TestFmwkPlus {
             logln("Testing path headers and values for locale => " + locale);
             final Collection<String> extraPaths = file.getExtraPaths();
 
-            for (Iterator<String> it = file.iterator(); it.hasNext(); ) {
-                String path = it.next();
+            for (String path : file) {
                 if (isExemptLocale && path.equals(exemptPathIfLocale)) {
                     logKnownIssue("CLDR-17849", "Can't reproduce locally");
                     continue;

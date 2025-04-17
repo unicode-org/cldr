@@ -374,7 +374,7 @@ public class ShowLocaleCoverage {
 
             System.out.println(Joiner.on("\n").join(languageToRegion.asMap().entrySet()));
 
-            System.out.println("# Checking: " + availableLanguages);
+            System.out.println("# Writing coverage: " + availableLanguages);
 
             NumberFormat percentFormat = NumberFormat.getPercentInstance(Locale.ENGLISH);
             percentFormat.setMaximumFractionDigits(1);

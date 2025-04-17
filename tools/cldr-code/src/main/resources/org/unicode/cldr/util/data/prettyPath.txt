@@ -128,6 +128,7 @@ $element=[a-zA-Z0-9]+;
 '$%%/days/default' > '|default|dayFormat';
 '$%%/dateTimeFormats/dateTimeFormatLength/dateTimeFormat[@type="standard"]/pattern[@type="standard"]' > '|pattern|date+time';
 '$%%/dateTimeFormats/dateTimeFormatLength/dateTimeFormat[@type="atTime"]/pattern[@type="standard"]' > '|pattern|date+atTime';
+'$%%/dateTimeFormats/dateTimeFormatLength/dateTimeFormat[@type="relative"]/pattern[@type="standard"]' > '|pattern|date+relative';
 '$%%/dateTimeFormats/alias' > '|date+time|alias';
 '$%%/dateFormats/alias' > '|date|alias';
 '$%%/timeFormats/alias' > '|time|alias';
@@ -156,7 +157,6 @@ $element=[a-zA-Z0-9]+;
 '/numbers/currencies/currency[@type="' ($avalue) '"]/' ($element) '[@type="' ($avalue) '"]' > '0-names|currency|' $1 ':' $2 '-' $3;
 '/numbers/currencies/currency[@type="' ($avalue) '"]/' ($element) > '0-names|currency|' $1 ':' $2;
 
-'/numbers/symbols/' (.*) > '2-number|symbol|' $1;
 '/numbers/symbols[@numberSystem="latn"]/' (.*) > '2-number|symbol|' $1;
 '/numbers/symbols[@numberSystem="' ($avalue) '"]/' (.*) > '2-number|symbol|' $2 '-' $1;
 

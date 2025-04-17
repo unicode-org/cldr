@@ -79,7 +79,7 @@ class SearchClient {
     const client = await this.client;
     const { body } = await client.apis.search.newSearch(
       {
-        locale: cldrStatus.getCurrentLocale(), // TODO: || 'und'?
+        locale: cldrStatus.getCurrentLocale() || "en", // search in English if not specified.
       },
       {
         requestBody: {

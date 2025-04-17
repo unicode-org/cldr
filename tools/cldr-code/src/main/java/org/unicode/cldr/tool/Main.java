@@ -1,6 +1,5 @@
 package org.unicode.cldr.tool;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
@@ -43,7 +42,7 @@ class Main {
 
             System.err.println(">> " + c.getName());
 
-            tryCurrentDirAsCldrDir();
+            CldrUtility.tryCurrentDirAsCldrDir();
             invoke(c, args2);
         }
     }
@@ -76,24 +75,6 @@ class Main {
             throw new IllegalArgumentException("Class not found and not an alias: " + mainClass);
         }
         return c;
-    }
-
-    /**
-     * If CLDR_DIR is not set as a system property, try to set it. This does not invoke the
-     * CLDRConfig mechanism, and so would be ignored if run from (say) the SurveyTool environment.
-     */
-    public static void tryCurrentDirAsCldrDir() {
-        try {
-            if (System.getProperty(CldrUtility.DIR_KEY) == null) {
-                if (new File("./common/main/root.xml").exists()) {
-                    System.err.println(
-                            "Note: CLDR_DIR was unset but you seem to be in a CLDR directory. Setting -DCLDR_DIR=.");
-                    System.setProperty(CldrUtility.DIR_KEY, ".");
-                }
-            }
-        } catch (SecurityException t) {
-            // ignore
-        }
     }
 
     public static void printUsage() {

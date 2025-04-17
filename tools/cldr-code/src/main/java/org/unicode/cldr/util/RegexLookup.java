@@ -4,6 +4,7 @@ import com.google.common.base.Splitter;
 import com.ibm.icu.text.Transform;
 import com.ibm.icu.util.Output;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -782,7 +783,7 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
     }
 
     public static Transform<String, RegexFinder> RegexFinderTransform =
-            new Transform<String, RegexFinder>() {
+            new Transform<>() {
                 @Override
                 public RegexFinder transform(String source) {
                     return new RegexFinder(source);
@@ -794,7 +795,7 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
      * //. To work better with XPaths.
      */
     public static Transform<String, RegexFinder> RegexFinderTransformPath =
-            new Transform<String, RegexFinder>() {
+            new Transform<>() {
                 @Override
                 public RegexFinder transform(String source) {
                     final String newSource = source.replace("[@", "\\[@");
@@ -808,7 +809,7 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
      * //, and ' is changed to ". To work better with XPaths.
      */
     public static Transform<String, RegexFinder> RegexFinderTransformPath2 =
-            new Transform<String, RegexFinder>() {
+            new Transform<>() {
                 @Override
                 public RegexFinder transform(String source) {
                     final String newSource = source.replace("[@", "\\[@").replace('\'', '"');
@@ -860,7 +861,7 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
             Object context,
             Output<String[]> arguments,
             Output<Finder> matcherFound,
-            List<String> failures) {
+            Collection<String> failures) {
 
         if (_lookupType == RegexLookup.LookupType.STAR_PATTERN_LOOKUP) {
             //   T ret = SPEntries.get(source, context, arguments, matcherFound);

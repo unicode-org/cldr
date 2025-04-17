@@ -128,4 +128,10 @@ If the natural word for both "point" and "dot" is the same, such as *punkt*, the
 
 A few languages have special words for **year, month, week,** or **day** when they are used in context of a person's age. Other languages may simply use the same terms for each one, and do not require separate translation.
 
+### Concentrations
+
+There are certain predefined units for concentrations, such as `part-per-1e6` “parts per million” and `part-per-1e9` “parts per billion”.
+In addition there is a component `part` “parts” (new in CLDR 48) that can be used in conjunction with the `per` pattern to compose
+arbitrary concentrations such as “parts per 100,000”.
+
 

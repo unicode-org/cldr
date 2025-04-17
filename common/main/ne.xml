@@ -1120,9 +1120,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="calendar" type="roc">चिनियाँ गणतन्त्रको पात्रो</type>
 			<type key="cf" type="account">लेखासम्बन्धी मुद्राको ढाँचा</type>
 			<type key="cf" type="standard">मानक मुद्राको ढाँचा</type>
-			<type key="collation" type="big5han" draft="contributed">परम्परागत चिनिँया क्रमबद्धता पद्दति - बिग फाइभ</type>
 			<type key="collation" type="ducet">पूर्वनिर्धारित युनिकोडको क्रमबद्धता सूची</type>
-			<type key="collation" type="gb2312han" draft="contributed">सरलिकृत चिनियाँ क्रमबद्धता पद्दति-गीबीटुथ्रीवानटु</type>
 			<type key="collation" type="phonebook" draft="contributed">टेलिफोन पुस्तिका क्रमबद्धतापद्दति</type>
 			<type key="collation" type="pinyin" draft="contributed">पिनयिन क्रमबद्धता पद्दति</type>
 			<type key="collation" type="search">सामान्य उद्देशीय खोजी</type>
@@ -3556,9 +3554,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>फेनोम फेन</exemplarCity>
 			</zone>
 			<zone type="Pacific/Enderbury">
-				<exemplarCity>एन्डरबरी</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kanton">
 				<exemplarCity>कान्टोन</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
@@ -6595,7 +6590,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -7437,7 +7432,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">प्रकाश</unitPattern>
 				<unitPattern count="other">{0} प्रकाश</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>अंश प्रति बरब</displayName>
 				<unitPattern count="one">{0} अंश प्रति अरब</unitPattern>
 				<unitPattern count="other">{0} अंश प्रति अरब</unitPattern>
@@ -7679,7 +7674,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} वस्तु</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -8521,7 +8516,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} प्रकाश</unitPattern>
 				<unitPattern count="other">{0} प्रकाश</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>अंश/अरब</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -8763,7 +8758,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">{0}ppm</unitPattern>
 				<unitPattern count="other">{0}ppm</unitPattern>
@@ -9605,7 +9600,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0}प्रकाश</unitPattern>
 				<unitPattern count="other">{0}प्रकाशा</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">{0}ppb</unitPattern>
 				<unitPattern count="other">{0}ppb</unitPattern>

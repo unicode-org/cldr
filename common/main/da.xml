@@ -1208,12 +1208,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="colCaseFirst" type="upper" draft="contributed">Sortér med store bogstaver først</type>
 			<type key="colCaseLevel" type="no" draft="contributed">Sortér uden forskel på store og små bogstaver</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">Sortér med skelnen mellem store og små bogstaver</type>
-			<type key="collation" type="big5han">sorteringsrækkefølge uforkortet kinesisk - Big5</type>
 			<type key="collation" type="compat">tidligere sorteringsrækkefølge, kompatibilitet</type>
 			<type key="collation" type="dictionary">sorteringsrækkefølge for ordbog</type>
 			<type key="collation" type="ducet">Unicode-standardsorteringsrækkefølge</type>
 			<type key="collation" type="eor" draft="contributed">europæisk sorteringsrækkefølge</type>
-			<type key="collation" type="gb2312han">sorteringsrækkefølge forkortet kinesisk - GB2312</type>
 			<type key="collation" type="phonebook">sorteringsrækkefølge i telefonbøger</type>
 			<type key="collation" type="phonetic">fonetisk sorteringsrækkefølge</type>
 			<type key="collation" type="pinyin">pinyin-baseret sorteringsrækkefølge</type>
@@ -3763,9 +3761,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Enderbury">
-				<exemplarCity>Enderbury</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kanton">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
@@ -7568,7 +7563,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 				<unitPattern count="other" case="genitive">{0} enheders</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<gender>common</gender>
 				<displayName>parts per million</displayName>
 				<unitPattern count="one">{0} part per million</unitPattern>
@@ -8741,7 +8736,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} britisk quart</unitPattern>
 				<unitPattern count="other">{0} britiske quarts</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<gender>common</gender>
 				<displayName>milliardtedele</displayName>
 				<unitPattern count="one">{0} milliardtedel</unitPattern>
@@ -8989,7 +8984,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} enhed</unitPattern>
 				<unitPattern count="other">{0} enheder</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -9826,7 +9821,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} britisk qt</unitPattern>
 				<unitPattern count="other">{0} britiske qt</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>dele/milliard</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -10068,7 +10063,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -10905,7 +10900,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} br. qt.</unitPattern>
 				<unitPattern count="other">{0} br. qt.</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>

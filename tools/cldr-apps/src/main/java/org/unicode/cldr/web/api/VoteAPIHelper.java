@@ -185,9 +185,8 @@ public class VoteAPIHelper {
         String xp = null;
 
         if (args.xpstrid == null && args.page != null) {
-            try {
-                pageId = PageId.valueOf(args.page);
-            } catch (IllegalArgumentException iae) {
+            pageId = PageId.forString(args.page);
+            if (pageId == null) {
                 throw new SurveyException(ErrorCode.E_BAD_SECTION);
             }
             if (pageId.getSectionId() == org.unicode.cldr.util.PathHeader.SectionId.Special) {
@@ -358,8 +357,7 @@ public class VoteAPIHelper {
         c.example = i.getExample();
         c.history = i.getHistory();
         c.isBaselineValue = i.isBaselineValue();
-        c.pClass =
-                i.getPClass(); // it might be better to pass underlying values (not CSS class) to FE
+        c.pClass = i.getCandidateStatus().toString();
         c.rawValue = i.getValue();
         c.tests = getConvertedTests(i.getTests());
         c.value = i.getProcessedValue();

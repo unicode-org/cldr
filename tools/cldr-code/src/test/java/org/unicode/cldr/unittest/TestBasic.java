@@ -426,8 +426,7 @@ public class TestBasic extends TestFmwkPlus {
                             .freeze();
             UnicodeSet badSoFar = new UnicodeSet();
 
-            for (Iterator<String> it = file.iterator(); it.hasNext(); ) {
-                String path = it.next();
+            for (String path : file) {
                 if (path.endsWith("/alias")) {
                     continue;
                 }
@@ -545,8 +544,7 @@ public class TestBasic extends TestFmwkPlus {
             if (file.isNonInheriting()) continue;
             logln(locale + "\t-\t" + english.nameGetter().getNameFromIdentifier(locale));
 
-            for (Iterator<String> it = file.iterator(); it.hasNext(); ) {
-                String path = it.next();
+            for (String path : file) {
                 if (path.endsWith("/alias")) {
                     continue;
                 }
@@ -621,8 +619,7 @@ public class TestBasic extends TestFmwkPlus {
 
             logln(locale + "\t-\t" + english.nameGetter().getNameFromIdentifier(locale));
 
-            for (Iterator<String> it = file.iterator(); it.hasNext(); ) {
-                String path = it.next();
+            for (String path : file) {
                 if (dtdType == null) {
                     dtdType = DtdType.fromPath(path);
                 }
@@ -805,8 +802,7 @@ public class TestBasic extends TestFmwkPlus {
                 continue;
             }
             // we check that the default content locale is always empty
-            for (Iterator<String> it = cldrFile.iterator(); it.hasNext(); ) {
-                String path = it.next();
+            for (String path : cldrFile) {
                 if (path.contains("/identity")) {
                     continue;
                 }

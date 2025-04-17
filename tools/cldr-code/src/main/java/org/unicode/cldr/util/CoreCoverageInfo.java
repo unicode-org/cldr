@@ -52,9 +52,14 @@ public class CoreCoverageInfo {
         plurals(Level.MODERATE, Sublevel.start),
         collation(Level.MODERATE),
 
-        grammar(Level.MODERN, Sublevel.start),
+        spellout_cardinal(Level.MODERN),
+        spellout_ordinal(Level.MODERN),
+        digits_ordinals(Level.MODERN),
+
         ordinals(Level.MODERN),
         romanization(Level.MODERN),
+
+        grammar(Level.MODERN, Sublevel.start),
         ;
 
         public static final Set<CoreItems> ALL = ImmutableSet.copyOf(CoreItems.values());
@@ -102,7 +107,8 @@ public class CoreCoverageInfo {
             CLDRFile resolvedFile, Multimap<CoreItems, String> detailedErrors) {
         detailedErrors.clear();
         if (!resolvedFile.isResolved()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(
+                    "Don't call on unresolved locales: " + resolvedFile.getLocaleID());
         }
         CLDRFile file = resolvedFile.getUnresolved();
         String locale = file.getLocaleID();
@@ -140,6 +146,10 @@ public class CoreCoverageInfo {
                             + locale
                             + "\"]/pluralRule[@count=\"other\"]");
         }
+
+        rbnfHelper(baseLanguage, "spellout-cardinal", detailedErrors, CoreItems.spellout_cardinal);
+        rbnfHelper(baseLanguage, "spellout-ordinal", detailedErrors, CoreItems.spellout_ordinal);
+        rbnfHelper(baseLanguage, "digits-ordinal", detailedErrors, CoreItems.digits_ordinals);
 
         //      (01) Default content script and region (normally: normally country with largest
         // population using that language, and normal script for that).
@@ -287,6 +297,26 @@ public class CoreCoverageInfo {
 
         // finalize
         return ImmutableSet.copyOf(Sets.difference(CoreItems.ALL, detailedErrors.keySet()));
+    }
+
+    private static void rbnfHelper(
+            String stringLocale,
+            String rbnfType,
+            Multimap<CoreItems, String> detailedErrors,
+            CoreItems coreItems) {
+        CLDRLocale cldrLocale = CLDRLocale.getInstance(stringLocale);
+        while (cldrLocale != null // if either null or root, we fail
+                && !cldrLocale.equals(CLDRLocale.ROOT)) {
+            Multimap<String, String> typeInfo =
+                    RbnfData.INSTANCE.getLocaleToTypesToSubtypes().get(cldrLocale.toString());
+            if (typeInfo != null // if we succeed, just return
+                    && typeInfo.containsKey(rbnfType)) {
+                return;
+            }
+            // otherwise try the parent
+            cldrLocale = cldrLocale.getParent();
+        }
+        detailedErrors.put(coreItems, RbnfData.INSTANCE.getPath(rbnfType));
     }
 
     private static final String[][] ROMANIZATION_PATHS = {

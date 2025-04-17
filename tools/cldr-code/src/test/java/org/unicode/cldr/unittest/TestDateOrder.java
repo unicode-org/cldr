@@ -20,6 +20,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
 import org.unicode.cldr.icu.dev.test.TestFmwk;
+import org.unicode.cldr.test.CheckDates;
 import org.unicode.cldr.test.DateOrder;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -388,5 +389,84 @@ public class TestDateOrder extends TestFmwk {
             lastString = "'" + lastString + "'";
         }
         return lastString;
+    }
+
+    public void testIso8601() {
+
+        // ldml/dates/calendars/calendar[@type="iso8601"]/dateFormats/dateFormatLength[@type="full"]/dateFormat[@type="standard"]/pattern[@type="standard"] y MMMM d, EEEE
+        // ldml/dates/calendars/calendar[@type="iso8601"]/timeFormats/timeFormatLength[@type="full"]/timeFormat[@type="standard"]/pattern[@type="standard"] HH:mm:ss zzzz
+        // ldml/dates/calendars/calendar[@type="iso8601"]/dateTimeFormats/dateTimeFormatLength[@type="full"]/dateTimeFormat[@type="standard"]/pattern[@type="standard"] {1} {0}
+        // ldml/dates/calendars/calendar[@type="iso8601"]/dateTimeFormats/availableFormats/dateFormatItem[@id="MMMMW"][@count="other"] MMMM 'week' W
+        // ldml/dates/calendars/calendar[@type="iso8601"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Bh"]/greatestDifference[@id="B"] h B – h B
+
+        // This covers all the cases, with successful and failure cases.
+
+        String[][] tests = {
+            // only the first 6 elements of the path matter
+            {
+                "//ldml/dates/calendars/calendar[@type=\"iso8601\"]/dateFormats/dateFormatLength",
+                "M y",
+                "Field out of order: M…y"
+            },
+            {
+                "//ldml/dates/calendars/calendar[@type=\"iso8601\"]/dateFormats/dateFormatLength",
+                "y M",
+                null
+            },
+            {
+                "//ldml/dates/calendars/calendar[@type=\"iso8601\"]/timeFormats/timeFormatLength",
+                "M M",
+                "Duplicate field: M"
+            },
+            {
+                "//ldml/dates/calendars/calendar[@type=\"iso8601\"]/dateTimeFormats/availableFormats",
+                "d M y",
+                "Field out of order: d…M"
+            },
+            {
+                "//ldml/dates/calendars/calendar[@type=\"iso8601\"]/dateTimeFormats/availableFormats",
+                "y M d",
+                null
+            },
+            {
+                "//ldml/dates/calendars/calendar[@type=\"iso8601\"]/dateTimeFormats/intervalFormats",
+                "y M d - d M",
+                "Field out of order: d…M"
+            },
+            {
+                "//ldml/dates/calendars/calendar[@type=\"iso8601\"]/dateTimeFormats/intervalFormats",
+                "y M d - M d",
+                null
+            },
+            {
+                "//ldml/dates/calendars/calendar[@type=\"iso8601\"]/dateTimeFormats/dateTimeFormatLength",
+                "{1} {0}",
+                "Field out of order: {1}…{0}"
+            },
+            {
+                "//ldml/dates/calendars/calendar[@type=\"iso8601\"]/dateTimeFormats/dateTimeFormatLength",
+                "{0} {1}",
+                null
+            },
+            {
+                "//ldml/dates/calendars/calendar[@type=\"iso8601\"]/appendItems/appendItem",
+                "{1} {0}",
+                "Field out of order: {1}…{0}"
+            },
+            {
+                "//ldml/dates/calendars/calendar[@type=\"iso8601\"]/appendItems/appendItem",
+                "{0} {1}",
+                null
+            },
+        };
+        int count = 0;
+        for (String[] test : tests) {
+            ++count;
+            String path = test[0];
+            String value = test[1];
+            String expected = test[2];
+            String actual = CheckDates.checkIso8601(path, value);
+            assertEquals(path + " " + value, expected, actual);
+        }
     }
 }

@@ -177,8 +177,6 @@ function insertRowsIntoTbody(theTable, reuseTable) {
   for (let i in rowList) {
     const k = rowList[i];
     const theRow = theRows[k];
-    const dir = theRow.dir;
-    cldrSurvey.setOverrideDir(dir != null ? dir : null);
     /*
      * Don't regenerate the headings if we're re-using an existing table.
      */
@@ -564,7 +562,7 @@ function reallyUpdateRow(tr, theRow) {
    */
   if (addCell) {
     cldrDom.removeAllChildNodes(addCell);
-    cldrAddValue.addButton(addCell, theRow.xpstrid);
+    cldrAddValue.addValueButton(addCell, theRow.xpstrid, theRow.dir);
   }
 
   /*
@@ -788,7 +786,7 @@ function updateRowEnglishComparisonCell(tr, theRow, cell) {
   }
   listen(null, tr, cell, null);
   if (cldrStatus.getPermissions()?.userIsTC) {
-    cldrAddAlt.addButton(cell, theRow.xpstrid);
+    cldrAddAlt.addAltButton(cell, theRow.xpstrid, theRow.dir);
   }
   cell.isSetup = true;
 }
@@ -809,7 +807,7 @@ function updateRowProposedWinningCell(tr, theRow, cell, protoButton) {
     const flagIcon = cldrSurvey.addIcon(cell, "s-flag");
     flagIcon.title = cldrText.get("flag_desc");
   }
-  cldrSurvey.setLang(cell);
+  cldrSurvey.setLang(cell, null, theRow.dir);
   tr.proposedcell = cell;
 
   /*
@@ -844,7 +842,7 @@ function updateRowProposedWinningCell(tr, theRow, cell, protoButton) {
 function updateRowOthersCell(tr, theRow, cell, protoButton) {
   let hadOtherItems = false;
   cldrDom.removeAllChildNodes(cell); // other
-  cldrSurvey.setLang(cell);
+  cldrSurvey.setLang(cell, null, theRow.dir);
 
   /*
    * Add the other vote info -- that is, vote info for the "Others" column.

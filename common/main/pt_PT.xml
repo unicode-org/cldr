@@ -1063,12 +1063,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="colCaseFirst" type="upper" draft="contributed">Ordenar por maiúsculas</type>
 			<type key="colCaseLevel" type="no" draft="contributed">Ordenar insensível a maiúsculas/minúsculas</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">Ordenar sensível a maiúsculas/minúsculas</type>
-			<type key="collation" type="big5han">Ordem do chinês tradicional - Big5</type>
 			<type key="collation" type="compat">↑↑↑</type>
 			<type key="collation" type="dictionary">↑↑↑</type>
 			<type key="collation" type="ducet">↑↑↑</type>
 			<type key="collation" type="eor" draft="contributed">Regras de ordenação europeias</type>
-			<type key="collation" type="gb2312han">Ordem do chinês simplificado - GB2312</type>
 			<type key="collation" type="phonebook">Ordem da lista telefónica</type>
 			<type key="collation" type="phonetic">↑↑↑</type>
 			<type key="collation" type="pinyin">Ordem de pinyin</type>
@@ -3578,9 +3576,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Enderbury">
-				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kanton">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
@@ -6926,7 +6921,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<gender>↑↑↑</gender>
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -7908,7 +7903,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<gender>↑↑↑</gender>
 				<displayName>partes por mil milhões</displayName>
 				<unitPattern count="one">{0} parte por mil milhões</unitPattern>
@@ -8152,7 +8147,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -8994,7 +8989,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>partes/mil milhões</displayName>
 				<unitPattern count="one">{0} ppmm</unitPattern>
 				<unitPattern count="other">{0} ppmm</unitPattern>
@@ -9236,7 +9231,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -10078,7 +10073,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>ppmm</displayName>
 				<unitPattern count="one">{0} ppmm</unitPattern>
 				<unitPattern count="other">{0} ppmm</unitPattern>

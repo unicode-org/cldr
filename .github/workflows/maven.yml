@@ -1,5 +1,10 @@
 name: cldr-mvn
 
+env:
+  ## uncomment only ONE of these
+  # CLDR_CHECK_MODE: FINAL_TESTING
+  CLDR_CHECK_MODE: BUILD
+
 on:
   push:
   pull_request:
@@ -100,6 +105,8 @@ jobs:
       - name: Checkout CLDR archive
         run: >
           mkdir -v ../cldr-archive && java -jar tools/cldr-code/target/cldr-code.jar checkout-archive
+        env:
+          GIT_LFS_SKIP_SMUDGE: 1
       - name: Build liberty server
         run: >
           mvn -s .github/workflows/mvn-settings.xml -B  -pl cldr-apps liberty:create liberty:deploy liberty:package -Dinclude=usr --file tools/pom.xml
@@ -194,7 +201,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: run CLDR console check
-        run: java -DCLDR_GITHUB_ANNOTATIONS=true -DCLDR_DIR=$(pwd) -Xmx6g -jar tools/cldr-code/target/cldr-code.jar check -S common,seed -e -z FINAL_TESTING
+        run: java -DCLDR_GITHUB_ANNOTATIONS=true -DCLDR_DIR=$(pwd) -Xmx6g -jar tools/cldr-code/target/cldr-code.jar check -S common,seed -e -z ${CLDR_CHECK_MODE}
   deploy:
     # don't run deploy on manual builds!
     if: github.repository == 'unicode-org/cldr' && github.event_name == 'push' && github.ref == 'refs/heads/main' && github.event.inputs.git-ref == ''

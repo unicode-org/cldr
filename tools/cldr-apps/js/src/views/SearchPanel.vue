@@ -27,6 +27,8 @@
 <script lang="js">
 import { ref } from "vue";
 import { SearchClient } from "../esm/cldrSearch.mjs";
+import { getCurrentLocale } from "../esm/cldrStatus.mjs";
+
 import { notification } from "ant-design-vue";
 
 /**
@@ -61,7 +63,7 @@ export default {
                 context, locale, xpstrid, xpath,
               }) => ({
                 title: context,
-                link: `#/${locale}//${xpstrid}`,
+                link: `#/${getCurrentLocale() || locale}//${xpstrid}`,
                 xpath,
               }));
               if (searchResults.value.length > 5) {

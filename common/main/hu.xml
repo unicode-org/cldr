@@ -1182,13 +1182,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="colCaseFirst" type="upper" draft="contributed">Nagybetűs szavak rendezése előre</type>
 			<type key="colCaseLevel" type="no" draft="contributed">Kis- és nagybetűket meg nem különböztető rendezés</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">Rendezés kisbetű-nagybetű szerint</type>
-			<type key="collation" type="big5han">Hagyományos kínai sorrend - Big5</type>
 			<type key="collation" type="compat">Előző rendezési sorrend a kompatibilitás érdekében</type>
 			<type key="collation" type="dictionary">Szótári rendezési sorrend</type>
 			<type key="collation" type="ducet">Alapértelmezett Unicode rendezési sorrend</type>
 			<type key="collation" type="emoji" draft="contributed">Emodzsi rendezési sorrend</type>
 			<type key="collation" type="eor">Európai rendezési szabályok</type>
-			<type key="collation" type="gb2312han">Egyszerűsített kínai sorrend - GB2312</type>
 			<type key="collation" type="phonebook">Telefonkönyv sorrend</type>
 			<type key="collation" type="phonetic">Fonetikus rendezési sorrend</type>
 			<type key="collation" type="pinyin">Pinyin sorrend</type>
@@ -4076,9 +4074,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Enderbury">
-				<exemplarCity>Enderbury</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kanton">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
@@ -8122,7 +8117,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="terminative">{0} itemig</unitPattern>
 				<unitPattern count="other" case="translative">{0} itemmé</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">{0} részecske/millió</unitPattern>
 				<unitPattern count="one" case="accusative">{0} részecske/milliót</unitPattern>
@@ -9776,7 +9771,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="terminative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other" case="translative" draft="contributed">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
@@ -10034,7 +10029,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>részecske/millió</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -10876,7 +10871,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -11118,7 +11113,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>ppm</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -11960,7 +11955,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>

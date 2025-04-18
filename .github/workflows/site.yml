@@ -18,10 +18,10 @@ on:
         paths:
         #  - "tools/scripts/tr-archive/**"
          - "docs/site/**"
-         - '.github/workflows/site.yml'
-
+         - '.github/workflows/site.yml'    
 jobs:
   cloudflare:
+    if: github.event_name == 'push' || github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     environment: cloudflare
     steps:
@@ -39,9 +39,11 @@ jobs:
     - name: Build cldr.pages.dev
       run: 'cd docs/site && jekyll build'
     - name: Pre-install Wrangler
+      if: (github.event_name == 'push') || (github.event.pull_request.head.repo.full_name == 'unicode-org/cldr')
       run: npm i -g wrangler@3.x
       # see https://github.com/cloudflare/wrangler-action/issues/286
     - name: Deploy cldr.pages.dev
+      if: (github.event_name == 'push') || (github.event.pull_request.head.repo.full_name == 'unicode-org/cldr')
       id: deploy
       uses: cloudflare/wrangler-action@v3
       with:
@@ -50,7 +52,7 @@ jobs:
         command: pages deploy ./_site --project-name=cldr
     - name: Add deploy comment to PR
       uses: actions/github-script@v7
-      if: github.event_name == 'pull_request'
+      if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == 'unicode-org/cldr'
       with:
         script: |
           github.rest.issues.createComment({

@@ -43,7 +43,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nodetr-
             nodetr-
-      - uses: nodenv/actions/node-version@v3 # setup using .node-version
+      - uses: nodenv/actions/node-version@v4 # setup using .node-version
       - name: Run TR archiver
         # Note: will update ToC if out of date
         run: 'cd tools/scripts/tr-archive/ && npm ci && npm run build'
@@ -112,9 +112,9 @@ jobs:
           rsync -cav --delete-after -e "ssh -o UserKnownHostsFile=${HOME}/.knownhosts -i ${HOME}/.key -p ${CCC_PORT}" ./_site/ ${CCC_USER}@${CCC_HOST}:spec/$(basename ${GITHUB_REF_NAME})/
           echo "::endgroup::"
           echo "Now go to https://cldr-smoke.unicode.org/spec/"$(basename ${GITHUB_REF_NAME})
-
   deploy:
-    if: github.repository == 'unicode-org/cldr' && github.event_name == 'push'
+    # only deploy from main branch of main repo
+    if: github.repository == 'unicode-org/cldr' && github.event_name == 'push' && github.ref == 'refs/heads/main'
     environment:
       name: github-pages
       url: ${{steps.deployment.outputs.page_url}}

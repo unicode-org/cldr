@@ -11,9 +11,6 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.concurrent.ExecutionException;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleSet;
@@ -21,6 +18,9 @@ import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.web.UserRegistry.User;
+import org.unicode.cldr.web.util.JSONArray;
+import org.unicode.cldr.web.util.JSONException;
+import org.unicode.cldr.web.util.JSONObject;
 
 public class SurveyVettingParticipation {
     private static final int GUEST_STLEVEL = VoteResolver.Level.guest.getSTLevel();

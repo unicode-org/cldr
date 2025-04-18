@@ -1144,12 +1144,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="colCaseFirst" type="upper" draft="contributed">Ordenar empezando por mayúsculas</type>
 			<type key="colCaseLevel" type="no" draft="contributed">Ordenar sin distinguir entre mayúsculas y minúsculas</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">Ordenar distinguiendo entre mayúsculas y minúsculas</type>
-			<type key="collation" type="big5han">orden del chino tradicional - Big5</type>
 			<type key="collation" type="compat">orden anterior, para compatibilidad</type>
 			<type key="collation" type="dictionary">orden de diccionario</type>
 			<type key="collation" type="ducet">orden predeterminado de Unicode</type>
 			<type key="collation" type="eor" draft="contributed">reglas de ordenación europeas</type>
-			<type key="collation" type="gb2312han">orden del chino simplificado - GB2312</type>
 			<type key="collation" type="phonebook">orden de listín telefónico</type>
 			<type key="collation" type="phonetic">orden fonético</type>
 			<type key="collation" type="pinyin">orden pinyin</type>
@@ -4210,9 +4208,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Enderbury">
-				<exemplarCity>Enderbury</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kanton">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
@@ -7870,7 +7865,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<gender>feminine</gender>
 				<displayName>partes por millón</displayName>
 				<unitPattern count="one">{0} parte por millón</unitPattern>
@@ -8853,7 +8848,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} luz</unitPattern>
 				<unitPattern count="other">{0} luz</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<gender>feminine</gender>
 				<displayName>partes por millardo</displayName>
 				<unitPattern count="one">{0} parte por millardo</unitPattern>
@@ -9097,7 +9092,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} ítem</unitPattern>
 				<unitPattern count="other">{0} ítems</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -9939,7 +9934,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} luz</unitPattern>
 				<unitPattern count="other">{0} luz</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>partes/millardo</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -10181,7 +10176,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0}ít</unitPattern>
 				<unitPattern count="other">{0}ít</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">{0}ppm</unitPattern>
 				<unitPattern count="other">{0}ppm</unitPattern>
@@ -11023,7 +11018,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0}luz</unitPattern>
 				<unitPattern count="other">{0}luz</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
+			<unit type="concentr-part-per-1e9">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">{0}ppb</unitPattern>
 				<unitPattern count="other">{0}ppb</unitPattern>

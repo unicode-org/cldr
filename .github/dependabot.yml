@@ -32,6 +32,20 @@ updates:
     reviewers:
       - btangmu
       - srl295
+      
+  - package-ecosystem: "npm"
+    directory: "/tools/scripts/jira-updater"
+    schedule:
+      interval: "monthly"
+    commit-message:
+      include: scope
+      prefix: "CLDR-18356 js:"
+    assignees:
+      - btangmu
+      - srl295
+    reviewers:
+      - btangmu
+      - srl295
 
   - package-ecosystem: "npm"
     directory: "/tools/scripts/tr-archive"
@@ -42,6 +56,33 @@ updates:
       prefix: "CLDR-18356 tr:"
     assignees:
       - btangmu
+      - srl295
+    reviewers:
+      - btangmu
+      - srl295
+
+  - package-ecosystem: "npm"
+    directory: "/docs/site"
+    schedule:
+      interval: "monthly"
+    commit-message:
+      include: scope
+      prefix: "CLDR-18356 site:"
+    assignees:
+      - btangmu
+      - srl295
+    reviewers:
+      - btangmu
+      - srl295
+
+  - package-ecosystem: "npm"
+    directory: "/tools/st-prom-exporter"
+    schedule:
+      interval: "monthly"
+    commit-message:
+      include: scope
+      prefix: "CLDR-18356 exporter:"
+    assignees:
       - srl295
     reviewers:
       - btangmu

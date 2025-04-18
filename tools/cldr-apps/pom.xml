@@ -26,7 +26,7 @@
 	<parent>
 		<groupId>org.unicode.cldr</groupId>
 		<artifactId>cldr-all</artifactId>
-		<version>47.0-SNAPSHOT</version>
+		<version>48.0-SNAPSHOT</version>
 	</parent>
 
 	<dependencies>
@@ -65,7 +65,6 @@
 			<version>${assertj-version}</version>
 			<scope>test</scope>
 		</dependency>
-
 
 		<!-- icu -->
 		<dependency>
@@ -109,12 +108,6 @@
 		<dependency>
 			<groupId>com.sun.activation</groupId>
 			<artifactId>javax.activation</artifactId>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.json/json -->
-		<dependency>
-			<groupId>org.json</groupId>
-			<artifactId>json</artifactId>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.jsoup/jsoup -->

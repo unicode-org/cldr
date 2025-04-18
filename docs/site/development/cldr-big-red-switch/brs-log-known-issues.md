@@ -30,11 +30,11 @@ Steps:
 
 4. Let's see if any of these are declared to be fixed.
 
-    Copy and paste that entire "known issues" section (between the `1 Known Issues` and `<< ALL TESTS PASSED >>`) into the new Jira ticket created above.
+    Copy and paste that entire "known issues" section (between the `1 Known Issues` and `<< ALL TESTS PASSED >>`) into the new Jira ticket created above.  It might be best to create these into an "Expand" section, so that it doesn't take up as much screen space.
 
     Jira will linkify the tickets, making it easy to see what each one's status is.
 
-5. _For any tickets that are listed as "Fixed"_ see if the test still fails as below.  These are command line instructions, they can be converted into `-D` properties for eclipse, etc.
+5. _For any tickets that are listed as "DONE" or "REVIEWING"_ see if the test still fails as below.  These are command line instructions, they can be converted into `-D` properties for eclipse, etc.
 
     ```shell
     mvn test --file tools/pom.xml -pl cldr-code -Dtest=org.unicode.cldr.unittest.TestShim '-Dorg.unicode.cldr.unittest.testArgs=-prop:logKnownIssue=no -filter:TestChinese'
@@ -52,3 +52,5 @@ Steps:
     ```
 
 6. Tests should pass again (without special options), with updated logKnownIssues updates, after you make your change.  Check your changes into a PR and send it for review, etc.
+
+7. Finally, click through all of the Jira tickets (either from the ticket you created, or from the command line).  Make sure each one has the `LogKnownIssues` label set.

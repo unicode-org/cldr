@@ -63,7 +63,7 @@ import org.unicode.cldr.util.XPathParts;
 /**
  * This is the original TestFwmk test case for CLDRFile.
  *
- * @see {@link org.unicode.cldr.util.TestCLDRFile}
+ * @see {@link TestCLDRFileMore}
  * @see {@link org.unicode.cldr.util.CLDRFile}
  */
 public class TestCLDRFile extends TestFmwk {
@@ -196,6 +196,7 @@ public class TestCLDRFile extends TestFmwk {
                                     || path.startsWith(
                                             "//ldml/localeDisplayNames/territories/territory")
                                     || path.startsWith("//ldml/localeDisplayNames/variants/variant")
+                                    || path.startsWith("//ldml/localeDisplayNames/types/type")
                                     || path.startsWith("//ldml/numbers/currencies/currency")
                                     || path.startsWith("//ldml/personNames/sampleName")
                                     || path.contains("/availableFormats")
@@ -232,11 +233,6 @@ public class TestCLDRFile extends TestFmwk {
                 final CLDRFile cldrFile = fullCldrFactory.make(locale, true);
                 Set<String> sorted2 = new TreeSet<>(cldrFile.getExtraPaths());
                 for (String path : sorted2) {
-                    if (path.contains("speed-beaufort") || path.contains("speed-light-speed")) {
-                        continue; // special case
-                        // Light-speed should eventually be restored but for now is ignored for
-                        // https://unicode-org.atlassian.net/browse/CLDR-18258
-                    }
                     if (path.contains("/gender")
                             || path.contains("@gender")
                             || path.contains("@case")) {

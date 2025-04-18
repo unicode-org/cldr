@@ -20,15 +20,19 @@ public enum CodePointEscaper {
     TAB(9, "tab"),
     LF(0xA, "line feed"),
     CR(0xD, "carriage return"),
+
+    // Spaces
     SP(0x20, "space", "ASCII space"),
     TSP(0x2009, "thin space", "Aka ‘narrow space’"),
-    NBSP(0xA0, "no-break space", "Same as space, but doesn’t line wrap."),
 
+    // No-break versions
+    NBSP(0xA0, "no-break space", "Same as space, but doesn’t line wrap."),
     NBTSP(
             0x202F,
             "no-break thin space",
             "Same as thin space, but doesn’t line wrap. Aka 'narrow no-break space'"),
 
+    // Line Break control
     WNJ(
             0x200B,
             "allow line wrap after, aka ZWSP",
@@ -73,6 +77,13 @@ public enum CodePointEscaper {
     ESCS('❰', "escape start", "heavy open angle bracket"),
     ESCE('❱', "escape end", "heavy close angle bracket");
 
+    // Alternates: Thin vs Narrow, order of NB vs those
+    public static final CodePointEscaper NSP = TSP;
+    public static final CodePointEscaper NBNSP = NBTSP;
+    public static final CodePointEscaper NNBSP = NBTSP;
+    public static final CodePointEscaper TNBSP = NBTSP;
+    public static final CodePointEscaper ZWSP = WNJ;
+
     public static final char RANGE_SYNTAX = (char) RANGE.getCodePoint();
     public static final char ESCAPE_START = (char) ESCS.getCodePoint();
     public static final char ESCAPE_END = (char) ESCE.getCodePoint();
@@ -100,7 +111,7 @@ public enum CodePointEscaper {
             new UnicodeSet("[\\uFE0F\\U000E0020-\\U000E007F]").freeze();
 
     public static final UnicodeSet FORCE_ESCAPE =
-            new UnicodeSet("[[:DI:][:Pat_WS:][:WSpace:][:C:][:Z:]]")
+            new UnicodeSet("[[:DI:][:Pat_WS:][:WSpace:][:C:][:Z:]\u200B\u2060]")
                     .addAll(getNamedEscapes())
                     .removeAll(EMOJI_INVISIBLES)
                     .freeze();

@@ -795,7 +795,10 @@ body.page .subpages a.hasChildren:after {
   color: black;
   top: 0.5em;
   left: 0.5em;
-  margin: 0em;
+  margin-top: 0em;
+  margin-right: 0em;
+  margin-left: 0.5em;
+  margin-bottom: 0.5em;
   padding: 0.3em;
   max-width: 30%;
   border: 1pt solid #99f;
@@ -861,6 +864,19 @@ header .nav a.uplink {
   color: white;
 }
 
+header .nav div#searchbox {
+  margin-inline-start: auto;
+}
+
+div.searchResults {
+  position: absolute;
+  background-color: white;
+  padding: 1em;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
 body.page a.showmap {
   color: white;
   text-decoration: none;
@@ -870,6 +886,10 @@ body.sitemappage a.showmap,
 body.sitemappage a.showmap:visited {
   color: lightgray;
   text-decoration: none;
+}
+
+li.searchMax {
+  list-style-type: none;
 }
 
 .showmap {

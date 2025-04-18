@@ -2,7 +2,7 @@
 
 # Unicode Locale Data Markup Language (LDML)<br/>Part 4: Dates
 
-|Version|47 (draft)        |
+|Version|48 (draft)        |
 |-------|------------------|
 |Editors|Peter Edberg and <a href="tr35.md#Acknowledgments">other CLDR committee members</a>|
 
@@ -600,12 +600,18 @@ Date/Time formats have the following form:
             <dateTimeFormat type="atTime">
                 <pattern>{1} 'at' {0}</pattern>
             </dateTimeFormat>
+            <dateTimeFormat type="relative">
+                <pattern>{1} 'at' {0}</pattern>
+            </dateTimeFormat>
         </dateTimeFormatLength>
         <dateTimeFormatLength type="long">
             <dateTimeFormat>
                 <pattern>{1}, {0}</pattern>
             </dateTimeFormat>
             <dateTimeFormat type="atTime">
+                <pattern>{1} 'at' {0}</pattern>
+            </dateTimeFormat>
+            <dateTimeFormat type="relative">
                 <pattern>{1} 'at' {0}</pattern>
             </dateTimeFormat>
         </dateTimeFormatLength>
@@ -672,7 +678,7 @@ These formats allow for date and time formats to be composed in various ways.
 <!ATTLIST dateTimeFormatLength type ( full | long | medium | short ) #IMPLIED >
 <!ELEMENT dateTimeFormat (alias | (pattern*, displayName*, special*))>
 <!ATTLIST dateTimeFormat type NMTOKEN "standard" >
-    <!--@MATCH:literal/standard, atTime-->
+    <!--@MATCH:literal/standard, atTime, relative-->
 ```
 
 The `dateTimeFormat` element works like the dateFormats and timeFormats, except that the pattern is of the form "{1} {0}", where {0} is replaced by the time format, and {1} is replaced by the date format, with results such as "8/27/06 7:31 AM". Except for the substitution markers {0} and {1}, text in the dateTimeFormat is interpreted as part of a date/time pattern, and is subject to the same rules described in [Date Format Patterns](#Date_Format_Patterns). This includes the need to enclose ASCII letters in single quotes if they are intended to represent literal text.
@@ -688,12 +694,15 @@ When combining a standard date pattern with a standard time pattern, start with 
 
 For each `dateTimeFormatLength`, there is a standard `dateTimeFormat`. In addition to the placeholders {0} and {1}, this should not have characters other than space and punctuation; it should impose no grammatical context that might require specific grammatical forms for the date and/or time. For English, this might be “{1}, {0}”.
 
-In addition, especially for the full and long `dateTimeFormatLength`s, there may be a `dateTimeFormat` with `type="atTime"`. This is used to indicate an event at a specific time, and may impose specific grammatical requirements on the formats for date and/or time. For English, this might be “{1} 'at' {0}”.
+In addition, especially for the full and long `dateTimeFormatLength`s, there may be `dateTimeFormat`s with `type="atTime"` and/or `type="relative"`. These are used to indicate an event at a specific time, and may impose specific grammatical requirements on the formats for date and/or time. For English, this might be “{1} 'at' {0}”.
 
 The default guidelines for choosing which `dateTimeFormat` to use for a given `dateTimeFormatLength` are as follows:
 * If an interval is being formatted, use the standard combining pattern to produce e.g. “March 15, 3:00 – 5:00 PM” or “March 15, 9:00 AM – March 16, 5:00 PM”.
-* If a single date or relative date is being combined with a single time, by default use the atTime pattern (if available) to produce an event time: “March 15 at 3:00 PM” or “tomorrow at 3:00 PM”.  However, at least in the case of combining a single date and time, APIs should also offer a “current time” option of using the standard combining pattern to produce a format more suitable for indicating  the current time: “March 15, 3:00 PM”.
-* For all other uses of these patterns, use the standard pattern.
+* If a single date or relative date is being combined with a single time:
+    * For a single date with a single time, by default use the `atTime` pattern (if available) to produce an event time: “March 15 at 3:00 PM”. If there is no `atTime` pattern, use the `standard` pattern.
+    * For a relative date with a single time, by default use the `relative` pattern (if available) to produce an event time: “tomorrow at 3:00 PM”. If there is no `relative` pattern, use the `standard` pattern.
+    * However, at least in the case of combining a single date and time, APIs should also offer a “current time” option of using the `standard` combining pattern to produce a format more suitable for indicating  the current time: “March 15, 3:00 PM”.
+* For all other uses of these patterns, use the `standard` pattern.
 
 #### <a name="availableFormats_appendItems" href="#availableFormats_appendItems">Elements availableFormats, appendItems</a>
 
@@ -1355,11 +1364,12 @@ For examples, see [Day Periods Chart](https://www.unicode.org/cldr/charts/46/sup
 ## <a name="Time_Zone_Names" href="#Time_Zone_Names">Time Zone Names</a>
 
 ```xml
-<!ELEMENT timeZoneNames (alias | (hourFormat*, gmtFormat*, gmtZeroFormat*, regionFormat*, fallbackFormat*, zone*, metazone*, special*)) >
+<!ELEMENT timeZoneNames (alias | (hourFormat*, gmtFormat*, gmtZeroFormat*, gmtUnknownFormat*, regionFormat*, fallbackFormat*, zone*, metazone*, special*)) >
 
 <!ELEMENT hourFormat ( #PCDATA ) >
 <!ELEMENT gmtFormat ( #PCDATA ) >
 <!ELEMENT gmtZeroFormat ( #PCDATA ) >
+<!ELEMENT gmtUnknownFormat ( #PCDATA ) >
 
 <!ELEMENT regionFormat ( #PCDATA ) >
 <!ATTLIST regionFormat type ( standard | daylight ) #IMPLIED >
@@ -1471,7 +1481,8 @@ The following subelements of `<timeZoneNames>` are used to control the fallback 
     <tr><td>"-1200"</td></tr>
 <tr><td rowspan="2">gmtFormat</td><td>"GMT{0}"</td><td>"GMT-0800"</td></tr>
     <tr><td>"{0}ВпГ"</td><td>"-0800ВпГ"</td></tr>
-<tr><td>gmtZeroFormat</td><td>"GMT"</td><td>Specifies how GMT/UTC with no explicit offset (implied 0 offset) should be represented.</td></tr>
+<tr><td>gmtZeroFormat</td><td>"GMT"</td><td>Specifies how GMT/UTC with an offset of zero should be represented.</td></tr>
+<tr><td>gmtUnknownFormat</td><td>"GMT"</td><td>Specifies how GMT/UTC with an unknown offset should be represented.</td></tr>
 <tr><td rowspan="2">regionFormat</td><td>"{0} Time"</td><td>"Japan Time"</td></tr>
     <tr><td>"Hora de {0}"</td><td>"Hora de Japón"</td></tr>
 <tr><td rowspan="2">regionFormat type="daylight"<br>(or "standard")</td><td>"{0} Daylight Time"</td><td>"France Daylight Time"</td></tr><tr><td>"horario de verano de {0}"</td><td>"horario de verano de Francia"</td></tr>
@@ -1699,7 +1710,9 @@ Note: A generic location format is constructed by a part of time zone ID represe
 
 **Specific location format:** This format does not have a symbol, but is used in the fallback chain for the _specific non-location format_. Like the _generic location format_ it uses time zone locations, but formats these in a zone-variant aware way, e.g. "France Summer Time".
 
-**Localized GMT format:** A constant, specific offset from GMT (or UTC), which may be in a translated form. There are two styles for this. The first is used when there is an explicit non-zero offset from GMT; this style is specified by the `<gmtFormat>` element and `<hourFormat>` element. The long format always uses 2-digit hours field and minutes field, with optional 2-digit seconds field. The short format is intended for the shortest representation and uses hour fields without leading zero, with optional 2-digit minutes and seconds fields. The digits used for hours, minutes and seconds fields in this format are the locale's default decimal digits:
+**Localized GMT format:** A constant, specific offset from GMT (or UTC), which may be in a translated form. There are three styles for this: 
+
+The first is used when there is an explicit non-zero offset from GMT; this style is specified by the `<gmtFormat>` element and `<hourFormat>` element. The long format always uses 2-digit hours field and minutes field, with optional 2-digit seconds field. The short format is intended for the shortest representation and uses hour fields without leading zero, with optional 2-digit minutes and seconds fields. The digits used for hours, minutes and seconds fields in this format are the locale's default decimal digits:
 
 * "GMT+03:30" (long)
 * "GMT+3:30" (short)
@@ -1707,11 +1720,17 @@ Note: A generic location format is constructed by a part of time zone ID represe
 * "UTC-3" (short)
 * "Гринуич+03:30" (long)
 
-Otherwise (when the offset from GMT is zero, referring to GMT itself) the style specified by the `<gmtZeroFormat>` element is used:
+The second is used when there is an explicit zero offset from GMT. It is specified by the `<gmtZeroFormat>` element:
 
 * "GMT"
 * "UTC"
 * "Гринуич"
+
+The third is used when the offset from GMT is unknown. It is specified by the `<gmtUnknownFormat>` element:
+
+* "GMT+?"
+* "UTC+?"
+* "Гринуич+?"
 
 **ISO 8601 time zone formats:** The formats based on the [[ISO 8601](tr35.md#ISO8601)]  local time difference from UTC ("+" sign is used when local time offset is 0), or the UTC indicator ("Z" - only when the local time offset is 0 and the specifier X\* is used). The ISO 8601 basic format does not use a separator character between hours and minutes field, while the extended format uses colon (':') as the separator. The ISO 8601 basic format with hours and minutes fields is equivalent to RFC 822 zone format.
 
@@ -1826,7 +1845,7 @@ When the data for a given format is not available, a fallback format is used. Th
      * falling back to the special ID "unk" (Unknown)
    * VV - long time zone ID (no fallback necessary, because this is the input)
    * VVV - exemplar city
-     * falling back to the localized exemplar city for the unknown zone (Etc/Unknown), for example "Unknown City" for English
+     * falling back to the localized exemplar city for the unknown zone (Etc/Unknown), for example "Unknown Location" for English
    * VVVV - generic location
      * falling back to long localized GMT
 
@@ -1845,6 +1864,7 @@ Some of the examples are drawn from real data, while others are for illustration
    * America/Los_Angeles → "HMG-07:00" // daylight time
    * Etc/GMT+3 → "GMT-03.00" // note that _TZ_ TZIDs have inverse polarity!
    * Etc/Unknown → "GMT+07:00" // if the offset is known
+   * Etc/Unknown → "GMT+?" // if the offset is not known
 
     **Note:** The digits should be whatever are appropriate for the locale used to format the time zone, not necessarily from the western digits, 0..9. For example, they might be from ०..९.
 
@@ -1885,7 +1905,7 @@ Some of the examples are drawn from real data, while others are for illustration
            * "Pacific Time (Whitehorse)"
 5. For the location formats (generic or specific):
    1. Get the _regionFormat_ format according to type (generic, standard, or daylight).
-   2. From the TZDB get the country code for the zone, and determine whether there is only one timezone in the country. 
+   2. Determine whether there is only one timezone in the region associated with the timezone (see [Time Zone Identifiers](tr35.md#Time_Zone_Identifiers)). 
       1. If there is only one timezone or if the zone id is in the `<primaryZones>` list, continue with short country name, if it exists, otherwise the country name.
       2. Otherwise, continue with the localized name of the exemplar city for the zone.
    3. Format the region format obtained in step 1 with the location obtained in step 2.
@@ -2304,7 +2324,7 @@ Notes for the table below:
     <tr><td>VV</td><td>America/Los_Angeles</td><td colspan="2">The long time zone ID.</td></tr>
     <tr><td>VVV</td><td>Los Angeles</td>
         <td colspan="2">The exemplar city (location) for the time zone.
-                        Where that is unavailable, the localized exemplar city name for the special zone <i>Etc/Unknown</i> is used as the fallback (for example, "Unknown City").</td></tr>
+                        Where that is unavailable, the localized exemplar city name for the special zone <i>Etc/Unknown</i> is used as the fallback (for example, "Unknown Location").</td></tr>
     <tr><td>VVVV</td><td>Los Angeles Time</td>
         <td colspan="2">The <i>generic location format</i>.
                         Where that is unavailable, falls back to the <i>long localized GMT format</i> ("OOOO"; Note: Fallback is only necessary with a GMT-style Time Zone ID, like Etc/GMT-830.)<br/>
@@ -2479,7 +2499,7 @@ Note: A _calendar period_ is distinct from a _date_ because it cannot be paired 
 
 The **Time** field signifies the time of day.
 
-Whether to include the Hour, Minute, Second, or Fractional Second is configured with the [Time Precision](#Time_Precision) option.
+Whether to include the Hour, Minute, Second, or Fractional Second is configured with the [Time Precision](#Semantic_Skeleton_Time_Precision) option.
 
 | Field Set | Example         |
 |-----------|-----------------|

@@ -13,6 +13,7 @@ import java.util.TreeSet;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutionException;
+import org.unicode.cldr.tool.LikelySubtags;
 
 /**
  * This class implements a CLDR UTS#35 compliant locale. It differs from ICU and Java locales in
@@ -707,5 +708,16 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
 
     public String getRegion() {
         return getCountry();
+    }
+
+    private String getMaximalLocaleString() {
+        return new LikelySubtags().maximize(getBaseName());
+    }
+
+    /** get the maximized version of this locale or null if not set */
+    public CLDRLocale getMaximal() {
+        final String max = getMaximalLocaleString();
+        if (max == null) return null;
+        return getInstance(max);
     }
 }

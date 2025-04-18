@@ -62,14 +62,19 @@ public class GenerateDateTimeTestData {
      * type.
      *
      * <p>atTime = the word "at" is inserted between the date and time when formatting both date &
-     * time together.
+     * time together, at least for long and full dates.
+     *
+     * <p>relative = the word "at" may be inserted between the date and time when formatting both
+     * date & time together for long and full dates, depending on the grammatical requirements onf
+     * the language.
      *
      * <p>standard = do not insert the word "at". (ex: in `en`, there may or may not be a comma
      * instead to separate)
      */
     enum DateTimeFormatType {
         STANDARD("standard"),
-        AT_TIME("atTime");
+        AT_TIME("atTime"),
+        RELATIVE("relative");
 
         public final String label;
 

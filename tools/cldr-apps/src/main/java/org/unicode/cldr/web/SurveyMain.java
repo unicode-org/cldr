@@ -55,9 +55,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.json.JSONString;
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.icu.dev.util.ElapsedTimer;
 import org.unicode.cldr.test.CheckCLDR;
@@ -92,6 +89,9 @@ import org.unicode.cldr.util.TimeDiff;
 import org.unicode.cldr.web.UserRegistry.User;
 import org.unicode.cldr.web.WebContext.HTMLDirection;
 import org.unicode.cldr.web.api.Summary;
+import org.unicode.cldr.web.util.JSONException;
+import org.unicode.cldr.web.util.JSONObject;
+import org.unicode.cldr.web.util.JSONString;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
@@ -3730,7 +3730,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                     .put("sysload", sysload)
                     .put("memtotal", memtotal)
                     .put("memfree", memfree)
-                    .put("uptime", uptime)
+                    .put("uptime", uptime.toString())
                     .put("user", user) // allowed since User implements JSONString?
                     .put("users", users);
         }

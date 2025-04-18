@@ -57,9 +57,10 @@ As new locales reach Basic Coverage, their language names have been added for lo
 
 #### Core/Extensions
 
-There is a new mechanism for better menu names. When you see a **Code** with `-core` or `-extension`, please read [Core and Extensions](/displaynames/languagelocale-names#core-and-extensions).
+There is a new mechanism for better menu names. When you see a **Code** with `-core` or `-extension`, please read [Locale Option Value Names](/translation/displaynames/locale-option-names-key#locale-option-value-names).
 
 #### Scripts
+
 
 There are 5 new scripts for Unicode 17. Currently the names are in English: Beria Erfe, Chisoi, Sidetic, Tai Yo, Tolong Siki.
 Coverage for other languages is at comprehensive. 
@@ -163,6 +164,8 @@ The keys for two units changed (the translations can probably remain the same) a
 
 **Please check over the values for `concentr-part-per-1e6` and `concentr-part-per-1e9` in your locale.
 Some languages had used the equivalent of "millionths" instead of the equivalent of "parts per million".**
+
+For more information see [Concentrations](/translation/units/unit-names-and-patterns#concentrations).
 
 #### Many new units in English
 

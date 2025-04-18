@@ -8,6 +8,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.io.Writer;
 import java.util.Date;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.icu.dev.test.TestFmwk.TestGroup;
 import org.unicode.cldr.util.CLDRConfig;
 
@@ -147,29 +148,36 @@ public class TestAll extends TestGroup {
         }
     }
 
+    /** This is the entrypoint from the command line */
     public static void main(String[] args) {
-        int errCount = runTests(args);
-        if (errCount != 0) {
-            System.exit(1);
-        }
-    }
-
-    /** Run all tests, but do not System.exit at the end. */
-    public static int runTests(String[] args) {
+        // Special cldr-code setup and options
         final boolean doTimeStamps = false;
         TimeStampingPrintWriter tspw = new TimeStampingPrintWriter(System.out);
         if (!doTimeStamps) {
             tspw.setFormatableDate(new NullFormatableDate());
         }
         long startTime = System.currentTimeMillis();
-        int errCount = CLDRConfig.getInstance().setTestLog(new TestAll()).run(args, tspw);
+        int errCount = main(args, tspw);
         long endTime = System.currentTimeMillis();
         DateDisplayBean dispBean = new DateDisplayBean(endTime - startTime);
         StringBuffer sb = new StringBuffer();
         sb.append("Tests took ");
         sb.append(dispBean.toString());
         System.out.println(sb.toString());
-        return errCount;
+
+        if (errCount != 0) {
+            System.exit(1);
+        }
+    }
+
+    /** This is the entrypoint from JUnit */
+    public static int main(String[] args, PrintWriter logs) {
+        /** Setup stuff */
+        // No setup stuff for cldr-code currently.
+
+        /** boilerplate */
+        TestFmwk test = CLDRConfig.getInstance().setTestLog(new TestAll());
+        return test.run(args, logs);
     }
 
     public TestAll() {

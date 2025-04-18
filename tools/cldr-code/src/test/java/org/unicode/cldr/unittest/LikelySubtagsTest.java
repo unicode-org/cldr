@@ -352,7 +352,7 @@ public class LikelySubtagsTest extends TestFmwk {
                 if (covLevel == null || !covLevel.isAtLeast(Level.BASIC)) {
                     // https://unicode-org.atlassian.net/browse/CLDR-17857
                     if (logKnownIssue(
-                            "CLDR-17857",
+                            "CLDR-17857", // TODO CLDR-17857 - circular
                             "English translation should not be required for sub-basic language name")) {
                         continue; // skip error
                     }

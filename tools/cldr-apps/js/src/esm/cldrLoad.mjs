@@ -957,22 +957,15 @@ function trimNull(x) {
  */
 function myLoad(url, message, handler, postData, headers) {
   const otime = new Date().getTime();
-  console.log("MyLoad: " + url + " for " + message);
   const errorHandler = function (err, request) {
-    console.log("Error: " + err);
-    cldrNotify.error(`Could not fetch ${message}`, `Error: ${err.toString()}`);
+    cldrNotify.exception(err, `Fetching ${message}`);
     handler(null);
   };
   const loadHandler = function (json) {
-    console.log(
-      "        " + url + " loaded in " + (new Date().getTime() - otime) + "ms"
-    );
     try {
       handler(json);
     } catch (e) {
-      console.log(
-        "Error in ajax post [" + message + "]  " + e.message + " / " + e.name
-      );
+      cldrNotify.logException(e, "Error in ajax post [" + message + "]");
       cldrRetry.handleDisconnect(
         "Exception while loading: " +
           message +

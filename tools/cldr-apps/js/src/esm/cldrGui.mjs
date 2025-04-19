@@ -16,7 +16,7 @@ import * as cldrVue from "./cldrVue.mjs";
 
 import MainHeader from "../views/MainHeader.vue";
 
-const GUI_DEBUG = true;
+const GUI_DEBUG = false;
 
 const runGuiId = "st-run-gui";
 
@@ -53,6 +53,7 @@ function run() {
     cldrProgress.insertWidget("CompletionSpan");
     cldrInfo.initialize("ItemInfoContainer", "MainContentPane", "open-right");
   } catch (e) {
+    cldrNotify.logException(e, `Initial load`);
     return Promise.reject(e);
   }
   return ensureSession().then(completeStartupWithSession);
@@ -94,7 +95,8 @@ function loginCallback(logintoken) {
   }
 }
 
-function loginFailure() {
+function loginFailure(e) {
+  cldrNotify.logException(e, `SurveyTool did not create a session`);
   throw new Error("SurveyTool did not create a session. Try back later.");
 }
 
@@ -134,9 +136,6 @@ function insertHeader() {
     const gui = document.getElementById(runGuiId);
     mainHeaderWrapper = cldrVue.mountAsFirstChild(MainHeader, gui);
   } catch (e) {
-    console.error(
-      "Error mounting main header vue " + e.message + " / " + e.name
-    );
     cldrNotify.exception(e, "while loading MainHeader");
   }
 }

@@ -31,6 +31,7 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
+import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.ApproximateWidth;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
@@ -45,6 +46,7 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.LocaleNames;
 import org.unicode.cldr.util.LogicalGrouping;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PatternCache;
@@ -663,10 +665,13 @@ public class CheckDates extends FactoryCheckCLDR {
     }
 
     private void checkTimeFormatMatchesRegion(String value, List<CheckStatus> result) {
+        String localeID = getResolvedCldrFileToCheck().getLocaleID();
+        if (LocaleNames.ROOT.equals(localeID)) {
+            return;
+        }
         DateTimePatternGenerator dtpg = DateTimePatternGenerator.getEmptyInstance();
         Map<String /* region */, PreferredAndAllowedHour> timeData = sdi.getTimeData();
         Map<String, String> likelySubtags = sdi.getLikelySubtags();
-        String localeID = getResolvedCldrFileToCheck().getLocaleID();
         String jPattern = getRegionHourFormat(timeData, localeID, likelySubtags);
         if (jPattern == null) {
             CheckStatus item =
@@ -692,7 +697,7 @@ public class CheckDates extends FactoryCheckCLDR {
                 CheckStatus item =
                         new CheckStatus()
                                 .setCause(this)
-                                .setMainType(CheckStatus.errorType)
+                                .setMainType(CheckStatus.warningType)
                                 .setSubtype(Subtype.inconsistentTimePattern)
                                 .setMessage(message);
                 result.add(item);
@@ -713,6 +718,15 @@ public class CheckDates extends FactoryCheckCLDR {
                 String loc2 = likelySubtags.get(localeID);
                 if (loc2 != null && !loc2.isEmpty()) {
                     region = lp.set(loc2).getRegion();
+                }
+                if (region == null || region.isEmpty()) {
+                    // If localeID has a script but not a region, likelySubtags may
+                    // not have an entry for that combination of language and script.
+                    // Use LikelySubtags.maximize. Examples: bal_Latn to bal_Latn_PK, kok_Latn to
+                    // kok_Latn_IN, ks_Deva to ks_Deva_IN, kxv_Deva to kxv_Deva_IN, ms_Arab to
+                    // ms_Arab_MY, and vai_Latn to vai_Latn_LR.
+                    String locMax = new LikelySubtags().maximize(localeID);
+                    region = lp.set(locMax).getRegion();
                 }
             }
             prefAndAllowedHr = timeData.get(region);

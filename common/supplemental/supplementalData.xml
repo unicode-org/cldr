@@ -1689,7 +1689,7 @@ XXX Code for transations where no currency is involved
 		<language type="ksf" scripts="Latn"/>
 		<language type="ksh" scripts="Latn"/>
 		<language type="ku" scripts="Latn"/>
-		<language type="ku" scripts="Cyrl Arab" alt="secondary"/>
+		<language type="ku" scripts="Arab Cyrl" alt="secondary"/>
 		<language type="kum" scripts="Cyrl"/>
 		<language type="kut" scripts="Latn"/>
 		<language type="kv" scripts="Cyrl"/>
@@ -3150,7 +3150,8 @@ XXX Code for transations where no currency is involved
 		<territory type="IQ" gdp="572900000000" literacyPercent="78.5" population="42083400">	<!--Iraq-->
 			<languagePopulation type="ar" populationPercent="68" officialStatus="official"/>	<!--Arabic-->
 			<languagePopulation type="en" populationPercent="35"/>	<!--English-->
-			<languagePopulation type="ckb" populationPercent="20" officialStatus="official_regional" references="R1073"/>	<!--Central Kurdish-->
+			<languagePopulation type="ckb" populationPercent="12" officialStatus="official_regional" references="R1382"/>	<!--Central Kurdish-->
+			<languagePopulation type="ku_Arab" populationPercent="10" references="R1382"/>	<!--Kurdish (Arabic)-->
 			<languagePopulation type="az_Arab" populationPercent="1.8" officialStatus="official_regional"/>	<!--Azerbaijani (Arabic)-->
 			<languagePopulation type="fa" populationPercent="0.87"/>	<!--Persian-->
 			<languagePopulation type="lrc" populationPercent="0.61" references="R1310"/>	<!--Northern Luri-->
@@ -3161,8 +3162,7 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="az_Arab" populationPercent="24"/>	<!--Azerbaijani (Arabic)-->
 			<languagePopulation type="mzn" populationPercent="5"/>	<!--Mazanderani-->
 			<languagePopulation type="glk" populationPercent="4.6"/>	<!--Gilaki-->
-			<languagePopulation type="ckb" populationPercent="3.9" references="R1212"/>	<!--Central Kurdish-->
-			<languagePopulation type="sdh" populationPercent="3.7" references="R1312"/>	<!--Southern Kurdish-->
+			<languagePopulation type="sdh" populationPercent="4.5" references="R1383"/>	<!--Southern Kurdish-->
 			<languagePopulation type="tk" populationPercent="2.8"/>	<!--Turkmen-->
 			<languagePopulation type="lrc" literacyPercent="10" populationPercent="2.1"/>	<!--Northern Luri-->
 			<languagePopulation type="ar" populationPercent="2"/>	<!--Arabic-->
@@ -3172,6 +3172,8 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="luz" populationPercent="1.2"/>	<!--Southern Luri-->
 			<languagePopulation type="lki" populationPercent="0.76" references="R1212"/>	<!--Laki-->
 			<languagePopulation type="kaa" populationPercent="0.67" references="R1199"/>	<!--Kara-Kalpak-->
+			<languagePopulation type="ckb" populationPercent="0.63" references="R1383"/>	<!--Central Kurdish-->
+			<languagePopulation type="ku_Arab" populationPercent="0.56" references="R1383"/>	<!--Kurdish (Arabic)-->
 			<languagePopulation type="bgn" writingPercent="5" populationPercent="0.56" references="R1209"/>	<!--Western Balochi-->
 			<languagePopulation type="prd" populationPercent="0.5"/>	<!--Parsi-Dari-->
 			<languagePopulation type="hy" populationPercent="0.24"/>	<!--Armenian-->
@@ -5391,7 +5393,6 @@ XXX Code for transations where no currency is involved
 		<reference type="R1070" uri="http://en.wikipedia.org/wiki/List_of_countries_by_English-speaking_population">The figure is from Wikipedia article on http://en.wikipedia.org/wiki/List_of_countries_by_English-speaking_population The figure is from Wikipedia article on English-speaking populations</reference>
 		<reference type="R1071" uri="https://www.cia.gov/cia/publications/factbook/geos/wz.html">[missing]</reference>
 		<reference type="R1072" uri="http://en.wikipedia.org/wiki/List_of_countries_by_English-speaking_population"> The figure is from Wikipedia article on English-speaking populations</reference>
-		<reference type="R1073" uri="https://www.cia.gov/library/publications/the-world-factbook/geos/iz.html">Lang pop est, CIA factbook 15-20% country pop</reference>
 		<reference type="R1074" uri="https://www.cia.gov/cia/publications/factbook/geos/sv.html">CIA Factbook</reference>
 		<reference type="R1075" uri="http://en.wikipedia.org/wiki/Canary_islands">[missing]</reference>
 		<reference type="R1076" uri="https://www.cia.gov/cia/publications/factbook/geos/tt.html">CIA Factbook. See also http://www.jsmp.minihub.org/Reports/jsmpreports/Language%20Report/LanguageReport(english).pdf</reference>
@@ -5630,7 +5631,6 @@ XXX Code for transations where no currency is involved
 		<reference type="R1309" uri="https://en.wikipedia.org/wiki/Faroese_language">[missing]</reference>
 		<reference type="R1310" uri="http://www.ethnologue.com/language/lrc">[missing]</reference>
 		<reference type="R1311" uri="http://www.ethnologue.com/show_language.asp?code=cld">syr is a macrolang containing cld and aii)</reference>
-		<reference type="R1312" uri="http://www.ethnologue.com/language/sdh">[missing]</reference>
 		<reference type="R1313" uri="https://www.ethnologue.com/language/wni">[missing]</reference>
 		<reference type="R1314" uri="http://www.axl.cefan.ulaval.ca/afrique/soudan.htm">[missing]</reference>
 		<reference type="R1315" uri="https://en.wikipedia.org/wiki/Languages_of_Brazil">[missing]</reference>
@@ -5700,5 +5700,7 @@ XXX Code for transations where no currency is involved
 		<reference type="R1379" uri="https://www.ethnologue.com/country/dz/languages">citation from 2016</reference>
 		<reference type="R1380" uri="https://www.ethnologue.com/country/MA/languages">2026 citation</reference>
 		<reference type="R1381" uri="https://www.ethnologue.com/country/mr/languages">Citation from 2016</reference>
+		<reference type="R1382" uri="https://www.axl.cefan.ulaval.ca/asie/irak-1general.htm">[missing]</reference>
+		<reference type="R1383" uri="https://www.axl.cefan.ulaval.ca/asie/iran.htm">[missing]</reference>
 	</references>
 </supplementalData>

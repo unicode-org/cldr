@@ -42,7 +42,7 @@ Sometimes languages and other fields need further qualitification in the context
 * French
 * German
 
-However, when there are multiple variants, it is clearer to list each one, such as:
+However, when there are multiple variants, it is clearer to show the variant information, such as:
 * English
 * French (Canada)
 * French (France)

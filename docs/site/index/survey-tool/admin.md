@@ -22,13 +22,13 @@ The following SQL will update a single user (id 12) with a specific organization
 ```sql
 -- get ready to update
 -- find the set kind for SignedCla
-set @SET_CLA = (select set_id from set_kinds where set_name = 'SignedCla'); 
-set @UPDATE_ORG = 'airbnb'; set @SIGNED_DATE='2023-08-28'; set @CLDR_VER='48';
+SET @SET_CLA = (SELECT set_id FROM set_kinds WHERE set_name = 'SignedCla'); 
+SET @UPDATE_ORG = 'airbnb'; SET @SIGNED_DATE='2023-08-28'; SET @CLDR_VER='48';
 SET @UPDATE_USER = 12;
 SELECT @SET_CLA,@UPDATE_ORG,@SIGNED_DATE,@CLDR_VER,@UPDATEUSER; -- verify vars
 -- Update ONE USER
 REPLACE INTO set_values (usr_id, set_id, set_value) 
-  values (@UPDATE_USER, @SET_CLA, 
+  VALUES (@UPDATE_USER, @SET_CLA, 
     CONCAT('{"email":"-","name":"-","employer":"', 
         @UPDATE_ORG, 
         '","corporate":"true","version":"',
@@ -38,9 +38,9 @@ REPLACE INTO set_values (usr_id, set_id, set_value)
         '","readonly":"true"}')
     );
 -- update ALL USERS
-select id from CLDR_USERS where org = @UPDATE_ORG;
+SELECT id from CLDR_USERS WHERE org = @UPDATE_ORG;
 -- now, double check (dumps the entire table)
-select usr_id, set_id, set_value, CONVERT(set_value USING utf8) as j from set_values where set_id = @SET_CLA and usr_id = @UPDATE_USER;
+SELECT usr_id, set_id, set_value, CONVERT(set_value USING utf8) AS j FROM set_values WHERE set_id = @SET_CLA AND usr_id = @UPDATE_USER;
 ```
 
 ### Updating the Organization status of an entire organization

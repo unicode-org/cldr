@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.TreeMap;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Consumer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -14,7 +14,12 @@ import java.util.regex.Pattern;
  * an instance of this to manage known issues
  */
 public class UnicodeKnownIssues {
-    private Map<String, List<String>> knownIssues = new TreeMap<>();
+    private Map<String, List<String>> knownIssues = new ConcurrentHashMap<>();
+
+    /** clear all known issues */
+    public void clear() {
+        knownIssues.clear();
+    }
 
     /**
      * Max number of lines to show by default (including the "more") unless -allKnownIssues is
@@ -92,7 +97,7 @@ public class UnicodeKnownIssues {
      * @param logFn consumer for Strings (e.g. System.out::println)
      * @return true if (!allKnownIssues) and we had to curtail
      */
-    boolean printKnownIssues(Consumer<String> logFn) {
+    public boolean printKnownIssues(Consumer<String> logFn) {
         if (knownIssues.isEmpty()) {
             return false;
         }

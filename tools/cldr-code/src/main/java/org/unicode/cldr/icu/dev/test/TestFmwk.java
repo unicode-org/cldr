@@ -853,7 +853,7 @@ public class TestFmwk extends AbstractTestLog {
      * @return true unless -prop:logKnownIssue=no is specified in the test command line argument.
      */
     public boolean logKnownIssue(String ticket, String comment) {
-        if (getBooleanProperty("logKnownIssue", true)) {
+        if (params.hasLogKnownIssue()) {
             StringBuffer path = new StringBuffer();
             params.stack.appendPath(path);
             params.knownIssues.logKnownIssue(path.toString(), ticket, comment);
@@ -868,24 +868,11 @@ public class TestFmwk extends AbstractTestLog {
     }
 
     public String getProperty(String key) {
-        String val = null;
-        if (key != null && key.length() > 0 && params.props != null) {
-            val = (String) params.props.get(key.toLowerCase());
-        }
-        return val;
+        return params.getProperty(key);
     }
 
     public boolean getBooleanProperty(String key, boolean defVal) {
-        String s = getProperty(key);
-        if (s != null) {
-            if (s.equalsIgnoreCase("yes") || s.equals("true")) {
-                return true;
-            }
-            if (s.equalsIgnoreCase("no") || s.equalsIgnoreCase("false")) {
-                return false;
-            }
-        }
-        return defVal;
+        return params.getBooleanProperty(key, defVal);
     }
 
     protected TimeZone safeGetTimeZone(String id) {
@@ -1174,6 +1161,31 @@ public class TestFmwk extends AbstractTestLog {
 
         private TestParams() {}
 
+        public String getProperty(String key) {
+            String val = null;
+            if (key != null && key.length() > 0 && props != null) {
+                val = (String) props.get(key.toLowerCase());
+            }
+            return val;
+        }
+
+        public boolean getBooleanProperty(String key, boolean defVal) {
+            String s = getProperty(key);
+            if (s != null) {
+                if (s.equalsIgnoreCase("yes") || s.equals("true")) {
+                    return true;
+                }
+                if (s.equalsIgnoreCase("no") || s.equalsIgnoreCase("false")) {
+                    return false;
+                }
+            }
+            return defVal;
+        }
+
+        public boolean hasLogKnownIssue() {
+            return getBooleanProperty("logKnownIssue", true);
+        }
+
         public static TestParams create(String arglist, PrintWriter log) {
             String[] args = null;
             if (arglist != null && arglist.length() > 0) {
@@ -1354,7 +1366,7 @@ public class TestFmwk extends AbstractTestLog {
             return errorSummary == null ? "" : errorSummary.toString();
         }
 
-        public void init() {
+        public TestParams init() {
             indentLevel = 0;
             needLineFeed = false;
             suppressIndent = false;
@@ -1365,6 +1377,11 @@ public class TestFmwk extends AbstractTestLog {
             random = seed == 0 ? null : new Random(seed);
 
             knownIssues = new UnicodeKnownIssues(allKnownIssues);
+            return this;
+        }
+
+        public UnicodeKnownIssues getKnownIssues() {
+            return knownIssues;
         }
 
         public class State {

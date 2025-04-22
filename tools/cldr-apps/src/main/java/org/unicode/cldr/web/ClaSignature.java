@@ -75,7 +75,7 @@ public final class ClaSignature {
         // If this is too noisy, we can move it elsewhere
         System.out.println(
                 "ADD_CLA_ORGS="
-                        + ClaSignature.CLA_ORGS.stream()
+                        + orgs.stream()
                                 .map((Organization o) -> o.name())
                                 .collect(Collectors.joining(" ")));
 

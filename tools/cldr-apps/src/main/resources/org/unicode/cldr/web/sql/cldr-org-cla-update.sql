@@ -17,7 +17,7 @@ BEGIN
     DECLARE usr_name VARCHAR(256);
     -- cursor for users in the org
     DECLARE done INT DEFAULT FALSE;
-	DECLARE usr CURSOR FOR select id, email, name FROM cldr_users WHERE org = my_org; 
+	DECLARE usr CURSOR FOR SELECT id, email, name FROM cldr_users WHERE org = my_org; 
     DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
     -- get the set_id for set_cla
 	SELECT set_id FROM set_kinds WHERE set_name = 'SignedCla' INTO set_cla;
@@ -34,9 +34,10 @@ BEGIN
                 '","corporate":"true","version":"', my_version,
                 '","signed":"', signed_date,
                 '","readonly":"true"}');
-		select usr_id, set_cla, @v; 
+		-- Uncomment the following line to get a debug trace of each row.
+        -- SELECT usr_id, set_cla, @v; 
         REPLACE INTO set_values (usr_id, set_id, set_value) 
- 			values (usr_id, set_cla, @v);
+ 			VALUES (usr_id, set_cla, @v);
     END LOOP;
 END;;
 DELIMITER ;

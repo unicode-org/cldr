@@ -2,7 +2,9 @@ package org.unicode.cldr.web;
 
 import java.util.Date;
 import java.util.EnumSet;
+import java.util.stream.Collectors;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.Organization;
 
 public final class ClaSignature {
@@ -41,21 +43,44 @@ public final class ClaSignature {
      * Organizations which are known to have signed the CLA. Update this from
      * https://www.unicode.org/policies/corporate-cla-list/
      */
-    public static final EnumSet<Organization> CLA_ORGS =
-            EnumSet.of(
-                    Organization.adobe,
-                    Organization.airbnb,
-                    Organization.apple,
-                    Organization.cherokee,
-                    Organization.google,
-                    Organization.ibm,
-                    Organization.meta,
-                    Organization.microsoft,
-                    Organization.mozilla,
-                    Organization.netflix,
-                    Organization.sil,
-                    Organization.wikimedia,
-                    Organization.surveytool);
+    public static final EnumSet<Organization> CLA_ORGS = getClaOrgs();
+
+    private static final EnumSet<Organization> getClaOrgs() {
+        EnumSet<Organization> orgs =
+                EnumSet.of(
+                        Organization.adobe,
+                        Organization.airbnb,
+                        Organization.apple,
+                        Organization.cherokee,
+                        Organization.google,
+                        Organization.ibm,
+                        Organization.meta,
+                        Organization.microsoft,
+                        Organization.mozilla,
+                        Organization.netflix,
+                        Organization.sil,
+                        Organization.wikimedia,
+                        Organization.surveytool);
+        final String additionalOrgs = CLDRConfig.getInstance().getProperty("ADD_CLA_ORGS", "");
+        if (additionalOrgs != null && !additionalOrgs.isEmpty()) {
+            for (final String o : additionalOrgs.trim().split(" ")) {
+                final Organization org = Organization.fromString(o);
+                if (org != null) {
+                    orgs.add(org);
+                } else {
+                    System.err.println("Bad organization in ADD_CLA_ORGS: " + o);
+                }
+            }
+        }
+        // If this is too noisy, we can move it elsewhere
+        System.out.println(
+                "ADD_CLA_ORGS="
+                        + ClaSignature.CLA_ORGS.stream()
+                                .map((Organization o) -> o.name())
+                                .collect(Collectors.joining(" ")));
+
+        return orgs;
+    }
 
     public ClaSignature() {}
 

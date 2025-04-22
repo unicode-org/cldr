@@ -924,6 +924,9 @@ public class WebContext implements Cloneable, Appendable {
         if (message == null) {
             message = "[" + icon + "]";
         }
+        // The image file name such as "vote.png" is constructed here.
+        // Files such as "vote.png" may be referenced here without their full names
+        // occuring anywhere in the source code.
         return "<img alt='["
                 + icon
                 + "]' style='width: 16px; height: 16px; border: 0;' src='"

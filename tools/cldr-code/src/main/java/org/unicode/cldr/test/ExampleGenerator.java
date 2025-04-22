@@ -312,7 +312,11 @@ public class ExampleGenerator {
                             List.of(
                                     new GregorianCalendar(1989, 0, 10).getTime(),
                                     new GregorianCalendar(2019, 4, 3).getTime()));
-                    put("islamic", List.of(new GregorianCalendar(622, 6, 17).getTime()));
+                    put(
+                            "islamic",
+                            List.of(
+                                    new GregorianCalendar(622, 6, 17).getTime(),
+                                    new GregorianCalendar(622, 6, 12).getTime()));
                     put("chinese", List.of(new GregorianCalendar(-2636, 0, 03).getTime()));
                     put("hebrew", List.of(new GregorianCalendar(-3760, 9, 9).getTime()));
                     put("buddhist", List.of(new GregorianCalendar(-542, 0, 03).getTime()));

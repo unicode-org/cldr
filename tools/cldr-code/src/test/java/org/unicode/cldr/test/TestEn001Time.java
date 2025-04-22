@@ -22,7 +22,7 @@ public class TestEn001Time {
                     path.startsWith(TIME_FORMAT_PREFIX),
                     "Path starts with " + TIME_FORMAT_PREFIX + ": " + path);
             assertFalse(
-                    path.startsWith(TIMEZONE_NAME_PREFIX) && path.contains("short"),
+                    path.startsWith(TIMEZONE_NAME_PREFIX) && path.contains(TIMEZONE_NAME_SHORT),
                     "Path starts with "
                             + TIMEZONE_NAME_PREFIX
                             + " + and contains "

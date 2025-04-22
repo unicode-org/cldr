@@ -52,14 +52,27 @@ When the variants differ not by region or script, but by another qualifier, then
 
 <img src="kurdish-example.png" />
 
-In these cases, supply the translated name of the qualifier (Kurmanji), and of the core.
-The core should omit the qualification (if any), and the extension should include it. For example, for Sorani Kurdish, you would see:
+There are two separate cases.
+1. All of the variants have a qualifier (eg, Northern Sotho, Southern Sotho)
+2. One of the variants does not have a qualifier (eg, Kurdish, Sorani Kurdish)
+
+In these cases:
+
+Code | Your Action
+--|--
+xx-core | Supply the name of the core (eg, Kurdish or Sotho) according to your language. In Case 2 above, this is the same as the “regular” (xx) value.
+xx-extension | Supply the name of a qualifier (eg, Kurmanji, Southern, or Northern). 
+
+Examples:
 
 Code | English
 -- | --
 ckb | Sorani Kurdish
 ckb-core | Kurdish
 ckb-extension | Sorani
+ku | Kurdish
+ku-core | Kurdish
+ku-extension | Kurmanji
 
 When users see this in a menu, they'll see the core names, with the extensions treated like script or region variants, as in the following:
 
@@ -69,3 +82,5 @@ When users see this in a menu, they'll see the core names, with the extensions t
 * German
 * Kurdish (Kurmanji)
 * Kurdish (Sorani)
+
+The separation of the core and extension can also be used in other contexts than messages.

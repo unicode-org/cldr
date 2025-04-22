@@ -21,7 +21,7 @@
           {{ unreadAnnouncementCount }}</a
         >
       </li>
-      <li v-if="coverageLevel && !needCla">
+      <li v-if="coverageLevel">
         <label for="coverageLevel">Coverage:</label>
         <select
           id="coverageLevel"
@@ -52,11 +52,6 @@
           <option :key="n" v-for="n in voteCountMenu">{{ n }}</option>
         </select>
       </li>
-      <li>
-        <a href="https://cldr.unicode.org/translation/" target="_blank"
-          >Instructions</a
-        >
-      </li>
       <a-alert
         v-if="needCla"
         @click="showCla"
@@ -64,6 +59,11 @@
         type="error"
         show-icon
       />
+      <li>
+        <a href="https://cldr.unicode.org/translation/" target="_blank"
+          >Instructions</a
+        >
+      </li>
       <li id="st-special-header" class="specialmessage">{{ specialHeader }}</li>
       <li>
         <a

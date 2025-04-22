@@ -6,6 +6,15 @@ title: "Survey Tool Administrator's Page"
 
 Note: A SurveyTool restart will be required to flush the CLA settings cache.
 
+### Adding a CLA org
+
+You can set a property in `cldr.properties` to temporarily add an Organization, pending a code update
+
+```properties
+# any orgs listed here will be added to the list of CLA orgs
+ADD_CLA_ORGS=cherokee
+```
+
 ### Updating the Organization status of a single user
 
 The following SQL will update a single user (id 12) with a specific organization

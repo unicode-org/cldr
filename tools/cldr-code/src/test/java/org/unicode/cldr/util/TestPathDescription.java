@@ -17,7 +17,7 @@ public class TestPathDescription {
         assertFalse(lookup.size() == 0, "lookup is empty");
         String references = parser.getReferences();
         assertNotNull(references);
-        assertFalse(parser.getReferences().trim().isBlank());
+        assertFalse(parser.getReferences().trim().isEmpty());
 
         // To print out the regex tree:
         // System.out.println(lookup.toString());

@@ -10,6 +10,7 @@ Example Entry:
 
 1. The first line beginning with `###` is a comment and can be used to describe that section. It can be blank, just `###`.
     If it begins with `ROOT` it has special placeholders.
+    If it begins with `SKIP` it will be ignored.
 2. Next is a bullet entry `-` with a regex in backticks.
 3. Finally is markdown, continuing up to the next line beginning with `#`.  Please keep all URLs in [References](#references), which is copied to every markdown fragment. This way we can share URLs and use more natural sounding links.
 4. Double hash (`##`) are used to group sections. These may not be blank. The last section is special and is named `References`.
@@ -974,7 +975,7 @@ The pattern used for the date/time interval skeleton “{2}” when the greatest
 
 - `^//ldml/dates/calendars/calendar\[@type="[^"]*"]/cyclicNameSets/cyclicNameSet\[@type="([^"]*)"]/cyclicNameContext\[@type="([^"]*)"]/cyclicNameWidth\[@type="([^"]*)"]/cyclicName\[@type="([^"]*)"]`
 
-Provide the {2} and {3} version of type {4} in the {1} name cycle. For more information, please see [DATE_TIME_NAMES_CYCLIC].
+Provide the {2} and {3} version of type {4} in the {1} name cycle. For more information, please see [Date/time cyclic names].
 
 ###
 
@@ -1085,7 +1086,7 @@ This section is appended to every markdown fragment.
 [Currency Names]: https://cldr.unicode.org/translation/currency-names-and-symbols
 [Date Time]: https://cldr.unicode.org/translation/date-time/date-time-names#h.ewzjebmpoi4k
 [Date Time Names]: https://cldr.unicode.org/translation/date-time/date-time-names
-[DATE_TIME_NAMES_CYCLIC]: https://cldr.unicode.org/translation/date-time/date-time-names#h.h0vy2eyzcj0n
+[Date/time cyclic names]: https://cldr.unicode.org/translation/date-time/date-time-names#h.h0vy2eyzcj0n
 [Date Time Fields]: https://cldr.unicode.org/translation/date-time/date-time-names#h.8wfk3599ck9x
 [Month Names]: https://cldr.unicode.org/translation/date-time/date-time-names#h.fww3pfyk0uwn
 [Relative Dates]: https://cldr.unicode.org/translation/date-time/date-time-names#h.aevw0tiix80v

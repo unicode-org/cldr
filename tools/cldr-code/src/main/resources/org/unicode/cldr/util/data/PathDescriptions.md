@@ -1,8 +1,5 @@
 # Data for generating descriptions of paths in Survey Tool
 
-- TODO: CHARACTERS_HELP should match CLDRURLS.CHARACTERS_HELP in CLDRUrls.java, and so forth.
-- there should be a unit test to find any issues - Reference: https://unicode-org.atlassian.net/browse/CLDR-16755
-
 Example Entry:
 
     ### First Day of the Week

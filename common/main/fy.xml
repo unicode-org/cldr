@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
@@ -1265,7 +1265,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<exemplarCharacters type="auxiliary">[æ ò ù]</exemplarCharacters>
 		<exemplarCharacters type="index">[A B C D E F G H I J K L M N O P R S T U V W X Z]</exemplarCharacters>
 		<exemplarCharacters type="numbers">↑↑↑</exemplarCharacters>
-		<exemplarCharacters type="punctuation">[\- ‐‑ – — , ; \: ! ? . … '‘’ &quot;“” ( ) \[ \] § @ * / \&amp; # † ‡ ′ ″]</exemplarCharacters>
+		<exemplarCharacters type="punctuation">[\- ‐‑ – — , ; \: ! ? . … '‘’ "“” ( ) \[ \] § @ * / \&amp; # † ‡ ′ ″]</exemplarCharacters>
 		<ellipsis type="final" draft="contributed">↑↑↑</ellipsis>
 		<ellipsis type="initial" draft="contributed">↑↑↑</ellipsis>
 		<ellipsis type="medial" draft="contributed">↑↑↑</ellipsis>
@@ -8188,8 +8188,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-inch">
-				<unitPattern count="one" draft="contributed">{0}&quot;</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}&quot;</unitPattern>
+				<unitPattern count="one" draft="contributed">{0}"</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}"</unitPattern>
 			</unit>
 			<unit type="length-light-year">
 				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>

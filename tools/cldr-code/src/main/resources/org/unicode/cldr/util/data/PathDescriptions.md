@@ -1087,7 +1087,7 @@ This section is appended to every markdown fragment.
 [Date Time]: https://cldr.unicode.org/translation/date-time/date-time-names#h.ewzjebmpoi4k
 [Date Time Names]: https://cldr.unicode.org/translation/date-time/date-time-names
 [Date/time cyclic names]: https://cldr.unicode.org/translation/date-time/date-time-names#h.h0vy2eyzcj0n
-[Date Time Fields]: https://cldr.unicode.org/translation/date-time/date-time-names#h.8wfk3599ck9x
+[Date Time Fields]: https://cldr.unicode.org/translation/date-time/date-time-names#date-field-names
 [Month Names]: https://cldr.unicode.org/translation/date-time/date-time-names#h.fww3pfyk0uwn
 [Relative Dates]: https://cldr.unicode.org/translation/date-time/date-time-names#h.aevw0tiix80v
 [Date Time Patterns]: https://cldr.unicode.org/translation/date-time/date-time-patterns

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
 Copyright © 1991-2014 Unicode, Inc.
@@ -8,7 +8,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
-		<language type="ko" /> 
+		<language type="ko"/> 
 	</identity>
 	<collations>
 		<collation type="standard">
@@ -494,7 +494,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				&힐<<*詰犵纈襭頡黠
 			]]></cr>
 		</collation>
-		<collation type="search" >
+		<collation type="search">
 			<cr><![CDATA[
 				[import und-u-co-search]
 				# Additional Korean search rules for Korean locale
@@ -888,7 +888,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				&\u110C\u110C=\u110D<<<\u3149  # HANGUL CHOSEONG SSANGCIEUC, HANGUL LETTER SSANGCIEUC
 			]]></cr>
 		</collation>
-		<collation type='unihan'>
+		<collation type="unihan">
 			<cr><![CDATA[
 				[import und-u-co-private-unihan]
 				[reorder Hang Hani]

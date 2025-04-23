@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
 <!--
 Copyright © 1991-2013 Unicode, Inc.
@@ -85,7 +85,7 @@ $v_start = [ワヰヱヲ]゙ ;
 $voweled_basekana = [ァ-オカキクケコサシスセソタチッツテトナ-ノハヒフヘホマ-ヲヵヶ] ;
 # if ン is followed by $n_quoter, then it needs an
 # apostrophe after its romaji form to disambiguate it.
-# e.g., ン ア ! =  ナ, so represent as &quot;n'a&quot;, not &quot;na&quot;.
+# e.g., ン ア ! =  ナ, so represent as "n'a", not "na".
 $n_quoter  =  [ア イ ウ エ オ ナ ニ ヌ ネ ノ ヤ ユ ヨ ン] ;
 $small_y = [ャィュェョ] ;
 $iteration = ゝ ;

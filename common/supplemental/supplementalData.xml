@@ -1,11 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
 <!--
 Copyright © 1991-2025 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see https://www.unicode.org/copyright.html
 -->
-
 <supplementalData>
     <version number="$Revision$"/>
     <currencyData>
@@ -2174,22 +2173,22 @@ XXX Code for transations where no currency is involved
 		<language type="zza" scripts="Latn"/>
 	</languageData>
 	<scriptData>
-		<scriptVariant type="compound" id='Hanb' base='Hani Bopo'/> <!-- Han with Bopomofo (alias for Han + Bopomofo) -->
-		<scriptVariant type="compound" id='Jpan' base='Hani Hira Kana'/> <!-- Japanese (alias for Han + Hiragana + Katakana) -->
-		<scriptVariant type="compound" id='Hrkt' base='Hira Kana'/> <!-- Japanese syllabaries (alias for Hiragana + Katakana) -->
-		<scriptVariant type="compound" id='Kore' base='Hang Hani'/> <!-- Korean (alias for Hangul + Han) -->
+		<scriptVariant type="compound" id="Hanb" base="Hani Bopo"/> <!-- Han with Bopomofo (alias for Han + Bopomofo) -->
+		<scriptVariant type="compound" id="Jpan" base="Hani Hira Kana"/> <!-- Japanese (alias for Han + Hiragana + Katakana) -->
+		<scriptVariant type="compound" id="Hrkt" base="Hira Kana"/> <!-- Japanese syllabaries (alias for Hiragana + Katakana) -->
+		<scriptVariant type="compound" id="Kore" base="Hang Hani"/> <!-- Korean (alias for Hangul + Han) -->
 
-		<scriptVariant type="visual" id='Aran' base='Arab'/> <!-- Arabic (Nastaliq variant) -->
-		<scriptVariant type="visual" id='Cyrs' base='Cyrl'/> <!-- Cyrillic (Old Church Slavonic variant) -->
-		<scriptVariant type="visual" id='Latf' base='Latn'/> <!-- Latin (Fraktur variant) -->
-		<scriptVariant type="visual" id='Latg' base='Latn'/> <!-- Latin (Gaelic variant) -->
-		<scriptVariant type="visual" id='Syrn' base='Syrc'/> <!-- Syriac (Eastern variant) -->
-		<scriptVariant type="visual" id='Syre' base='Syrc'/> <!-- Syriac (Estrangelo variant) -->
-		<scriptVariant type="visual" id='Syrj' base='Syrc'/> <!-- Syriac (Western variant) -->
+		<scriptVariant type="visual" id="Aran" base="Arab"/> <!-- Arabic (Nastaliq variant) -->
+		<scriptVariant type="visual" id="Cyrs" base="Cyrl"/> <!-- Cyrillic (Old Church Slavonic variant) -->
+		<scriptVariant type="visual" id="Latf" base="Latn"/> <!-- Latin (Fraktur variant) -->
+		<scriptVariant type="visual" id="Latg" base="Latn"/> <!-- Latin (Gaelic variant) -->
+		<scriptVariant type="visual" id="Syrn" base="Syrc"/> <!-- Syriac (Eastern variant) -->
+		<scriptVariant type="visual" id="Syre" base="Syrc"/> <!-- Syriac (Estrangelo variant) -->
+		<scriptVariant type="visual" id="Syrj" base="Syrc"/> <!-- Syriac (Western variant) -->
 
-		<scriptVariant type="subset" id='Jamo' base='Hang'/> <!-- Jamo (alias for Jamo subset of Hangul) -->
-		<scriptVariant type="subset" id='Hans' base='Hani'/> <!-- Han (Simplified variant) -->
-		<scriptVariant type="subset" id='Hant' base='Hani'/> <!-- Han (Traditional variant) -->
+		<scriptVariant type="subset" id="Jamo" base="Hang"/> <!-- Jamo (alias for Jamo subset of Hangul) -->
+		<scriptVariant type="subset" id="Hans" base="Hani"/> <!-- Han (Simplified variant) -->
+		<scriptVariant type="subset" id="Hant" base="Hani"/> <!-- Han (Traditional variant) -->
 	</scriptData>
 	<!-- See https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html for more information on territoryInfo. -->
 	<territoryInfo>
@@ -4283,7 +4282,7 @@ XXX Code for transations where no currency is involved
     <!-- End of Generated Data: see https://cldr.unicode.org/development/updating-codes -->
     <calendarData>
         <calendar type="gregorian">
-           <calendarSystem type="solar" />
+           <calendarSystem type="solar"/>
            <eras>
                <era type="0" end="0-12-31" code="gregory-inverse" aliases="bc bce"/>
                <era type="1" start="1-01-01" code="gregory" aliases="ad ce"/>
@@ -4292,8 +4291,8 @@ XXX Code for transations where no currency is involved
         <calendar type="generic"/>
                 <!-- gregorian territories are assumed, so these are all in addition -->
         <calendar type="japanese">
-          <calendarSystem type="solar" />
-          <inheritEras calendar="gregorian" />
+          <calendarSystem type="solar"/>
+          <inheritEras calendar="gregorian"/>
           <eras>
               <era type="0" start="645-6-19"/>
               <era type="1" start="650-2-15"/>
@@ -4535,35 +4534,35 @@ XXX Code for transations where no currency is involved
           </eras>
         </calendar>
         <calendar type="islamic">
-          <calendarSystem type="lunar" />
+          <calendarSystem type="lunar"/>
           <eras>
               <era type="0" start="622-7-15" code="islamic" aliases="ah"/>
               <era type="1" end="622-7-14" code="islamic-inverse" aliases="bh"/>
           </eras>
         </calendar>
         <calendar type="islamic-civil">
-          <calendarSystem type="lunar" />
+          <calendarSystem type="lunar"/>
           <eras>
               <era type="0" start="622-7-16" code="islamic-civil" aliases="islamicc ah"/>
               <era type="1" end="622-7-15" code="islamic-civil-inverse" aliases="bh"/>
           </eras>
         </calendar>
         <calendar type="islamic-rgsa">
-          <calendarSystem type="lunar" />
+          <calendarSystem type="lunar"/>
           <eras>
               <era type="0" start="622-7-15" code="islamic-rgsa" aliases="ah"/>
               <era type="1" end="622-7-14" code="islamic-rgsa-inverse" aliases="bh"/>
           </eras>
         </calendar>
         <calendar type="islamic-tbla">
-          <calendarSystem type="lunar" />
+          <calendarSystem type="lunar"/>
           <eras>
               <era type="0" start="622-7-15" code="islamic-tbla" aliases="ah"/>
               <era type="1" end="622-7-14" code="islamic-tbla-inverse" aliases="bh"/>
           </eras>
         </calendar>
         <calendar type="islamic-umalqura">
-          <calendarSystem type="lunar" />
+          <calendarSystem type="lunar"/>
           <eras>
               <era type="0" start="622-7-15" code="islamic-umalqura" aliases="ah"/>
               <era type="1" end="622-7-14" code="islamic-umalqura-inverse" aliases="bh"/>
@@ -4582,7 +4581,7 @@ XXX Code for transations where no currency is involved
           </eras>
         </calendar>
         <calendar type="buddhist">
-          <calendarSystem type="solar" />
+          <calendarSystem type="solar"/>
           <eras>
               <era type="0" start="-542-01-01" code="buddhist" aliases="be"/>
           </eras>
@@ -4651,76 +4650,14 @@ XXX Code for transations where no currency is involved
     </calendarPreferenceData>
 	<weekData>
 		<minDays count="1" territories="001 GU UM US VI"/>
-        <minDays count="4" territories="
-			AD AN AT AX
-			BE BG
-			CH CZ
-			DE DK
-			EE ES
-			FI FJ FO FR
-			GB GF GG GI GP GR
-			HU
-			IE IM IS IT
-			JE
-			LI LT LU
-			MC MQ
-			NL NO
-			PL PT
-			RE RU
-			SE SJ SK SM
-			VA"
-		/>
+        <minDays count="4" territories="    AD AN AT AX    BE BG    CH CZ    DE DK    EE ES    FI FJ FO FR    GB GF GG GI GP GR    HU    IE IM IS IT    JE    LI LT LU    MC MQ    NL NO    PL PT    RE RU    SE SJ SK SM    VA"/>
 
 		<!-- Note, this firstDay is for the first day of the week in a calendar page view. -->
 		<!-- The first workday of the week (after the weekend) is distinct, and can be determined as the day after the weekendEnd day. -->
-          <firstDay day="mon"  territories="
-			001
-			AD AE AI AL AM AN AR AT AU AX AZ
-			BA BE BG BM BN BY
-			CH CL CM CN CR CY CZ
-			DE DK
-			EC EE ES
-			FI FJ FO FR
-			GB GE GF GP GR
-			HR HU
-			IE IT
-			KG KZ
-			LB LI LK LT LU LV
-			MC MD ME MK MN MQ MY
-			NL NO NZ
-			PL
-			RE RO RS RU
-			SE SI SK SM
-			TJ TM TR
-			UA UY UZ
-			VA VN
-			XK"
-		  />
+          <firstDay day="mon" territories="    001    AD AE AI AL AM AN AR AT AU AX AZ    BA BE BG BM BN BY    CH CL CM CN CR CY CZ    DE DK    EC EE ES    FI FJ FO FR    GB GE GF GP GR    HR HU    IE IT    KG KZ    LB LI LK LT LU LV    MC MD ME MK MN MQ MY    NL NO NZ    PL    RE RO RS RU    SE SI SK SM    TJ TM TR    UA UY UZ    VA VN    XK"/>
 		<firstDay day="fri" territories="MV"/>
 		<firstDay day="sat" territories="AF BH DJ DZ EG IQ IR JO KW LY OM QA SD SY"/>
-          <firstDay day="sun"  territories="
-			AG AS
-			BD BR BS BT BW BZ
-			CA CO
-			DM DO
-			ET
-			GT GU
-			HK HN
-			ID IL IN IS
-			JM JP
-			KE KH KR
-			LA
-			MH MM MO MT MX MZ
-			NI NP
-			PA PE PH PK PR PT PY
-			SA SG SV
-			TH TT TW
-			UM US
-			VE VI
-			WS
-			YE
-			ZA ZW"
-          />
+          <firstDay day="sun" territories="    AG AS    BD BR BS BT BW BZ    CA CO    DM DO    ET    GT GU    HK HN    ID IL IN IS    JM JP    KE KH KR    LA    MH MM MO MT MX MZ    NI NP    PA PE PH PK PR PT PY    SA SG SV    TH TT TW    UM US    VE VI    WS    YE    ZA ZW"/>
 		<firstDay day="sun" territories="GB" alt="variant" references="Shorter Oxford Dictionary (5th edition, 2002)"/>
 		<weekendStart day="thu" territories="AF"/>
 		<weekendStart day="fri" territories="BH DZ EG IL IQ IR JO KW LY OM QA SA SD SY YE"/>
@@ -4760,8 +4697,7 @@ XXX Code for transations where no currency is involved
 		<hours preferred="H" allowed="H h hB hb" regions="EA IC KG KM LK MA af_ZA es_BR es_ES es_GQ"/>
 		<hours preferred="H" allowed="H K h" regions="JP"/>
 		<hours preferred="H" allowed="H hb hB h" regions="AF LA"/>
-		<hours preferred="H" allowed="H hB"
-			regions="AD AM AO AT AW BE BF BJ BL BR CG CI CV CW DE EE FR GA GF GN GP GW HR IL IT KZ MC MD MF MQ MZ NC NL PM PT RE RO SI SR ST TG TR WF YT ku_SY"/>
+		<hours preferred="H" allowed="H hB" regions="AD AM AO AT AW BE BF BJ BL BR CG CI CV CW DE EE FR GA GF GN GP GW HR IL IT KZ MC MD MF MQ MZ NC NL PM PT RE RO SI SR ST TG TR WF YT ku_SY"/>
 		<hours preferred="H" allowed="H hB h" regions="AZ BA BG CH GE LI ME RS UA UZ XK"/>
 		<hours preferred="H" allowed="H hB h hb" regions="ES GQ"/>
 		<hours preferred="H" allowed="H hB hb h" regions="CN LV TL zu_ZA"/>
@@ -4771,8 +4707,7 @@ XXX Code for transations where no currency is involved
 		<hours preferred="h" allowed="h H hb hB" regions="CY GR"/>
 		<hours preferred="h" allowed="h H hB" regions="AL TD"/>
 		<hours preferred="h" allowed="h H hB hb" regions="419 AR BO CL CO CR CU DO EC GT HN KP KR MX NI NA PA PE PR PY SV UY VE"/>
-		<hours preferred="h" allowed="h hb H hB"
-			regions="AG AU BB BM BS CA DM FJ FM GD GM GU GY JM KI KN KY LC LR MH MP MW NZ SB SG SL SS SZ TC TT UM US VC VG VI ZM en_001 en_HK en_MY"/>
+		<hours preferred="h" allowed="h hb H hB" regions="AG AU BB BM BS CA DM FJ FM GD GM GU GY JM KI KN KY LC LR MH MP MW NZ SB SG SL SS SZ TC TT UM US VC VG VI ZM en_001 en_HK en_MY"/>
 		<hours preferred="h" allowed="h hB H" regions="BD PK"/>
 		<hours preferred="h" allowed="h hB hb H" regions="AE BH DZ EG EH HK IQ JO KW LB LY MO MR OM PH PS QA SA SD SY TN YE ar_001"/>
 		<hours preferred="h" allowed="hb hB h H" regions="BN MY"/>
@@ -4784,13 +4719,13 @@ XXX Code for transations where no currency is involved
 
     <measurementData>
           <!-- measurementSystem will be deprecated in next release; replaced by enhanced preferences -->
-          <measurementSystem type="metric"  territories="001"/>
-          <measurementSystem type="US"  territories="LR US"/>
+          <measurementSystem type="metric" territories="001"/>
+          <measurementSystem type="US" territories="LR US"/>
           <measurementSystem type="metric" category="temperature" territories="LR MM"/>
           <measurementSystem type="US" category="temperature" territories="BS BZ KY PR PW"/>
-          <measurementSystem type="UK"  territories="GB MM"/>
-          <paperSize type="A4"  territories="001"/>
-          <paperSize type="US-Letter"  territories="BZ CA CL CO CR GT MX NI PA PH PR SV US VE"/>
+          <measurementSystem type="UK" territories="GB MM"/>
+          <paperSize type="A4" territories="001"/>
+          <paperSize type="US-Letter" territories="BZ CA CL CO CR GT MX NI PA PH PR SV US VE"/>
     </measurementData>
 
 	<!-- <unitPreferenceData> moved to units.txt -->
@@ -5511,7 +5446,7 @@ XXX Code for transations where no currency is involved
 		<reference type="R1189" uri="http://en.wikipedia.org/wiki/Rombo_language">[missing]</reference>
 		<reference type="R1190" uri="https://www.cia.gov/library/publications/the-world-factbook/geos/UM.html">basically unihabited, officially ; http://www.census.gov/prod/cen2000/phc3-us-pt1.pdf</reference>
 		<reference type="R1191" uri="https://www.cia.gov/library/publications/the-world-factbook/geos/bl.html">http://lanic.utexas.edu/project/tilan/reports/rtf359/bolivia1.html Spanish is the official language, only about 60-70% of the population speaks it at all ;</reference>
-		<reference type="R1192" uri="http://en.wikipedia.org/wiki/Demographics_of_Chile#Languages">Spanish &quot;&quot;universal&quot;&quot;, set to 98%</reference>
+		<reference type="R1192" uri="http://en.wikipedia.org/wiki/Demographics_of_Chile#Languages">Spanish ""universal"", set to 98%</reference>
 		<reference type="R1193" uri="http://en.wikipedia.org/wiki/Costa_Rica">https://www.cia.gov/library/publications/the-world-factbook/geos/cs.html</reference>
 		<reference type="R1194" uri="https://en.wikipedia.org/wiki/Anii_language/">[missing]</reference>
 		<reference type="R1195" uri="https://www.cia.gov/library/publications/the-world-factbook/geos/in.html">[missing]</reference>
@@ -5535,7 +5470,7 @@ XXX Code for transations where no currency is involved
 		<reference type="R1213" uri="http://ec.europa.eu/education/languages/archive/languages/langmin/euromosaic/pol3_en.html">- regional lang community status, taught in some schools</reference>
 		<reference type="R1214" uri="http://www.tatar.ru/">- 52.9% of Tatarstan is ethnic Tatar, the pop figure is an upper bound</reference>
 		<reference type="R1215"> http://en.wikipedia.org/wiki/Interlingua#Community Has a regular conf in Sweden, also Brazil; an auxiliary language with tiny population worldwide</reference>
-		<reference type="R1216">This is base pop for &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;fub&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot; lang code; ff shows as a macrolanguage</reference>
+		<reference type="R1216">This is base pop for """"""""""""""""""""""""""""""""fub"""""""""""""""""""""""""""""""" lang code; ff shows as a macrolanguage</reference>
 		<reference type="R1217" uri="http://www.ethnologue.com/language/bkm">[missing]</reference>
 		<reference type="R1218" uri="http://en.wikipedia.org/wiki/Vietnamese_language">(could be higher if 2nd lang included; no data yet)</reference>
 		<reference type="R1219" uri="https://en.wikipedia.org/wiki/Taiwanese_Hokkien">[missing]</reference>
@@ -5587,7 +5522,7 @@ XXX Code for transations where no currency is involved
 		<reference type="R1265">Estimate based on 90% of literate pop &gt; 15 years (71% of Cpop) can use English, for lack of official number of users</reference>
 		<reference type="R1266" uri="http://www.ethnologue.com/language/mgh">low litreracy ~5%</reference>
 		<reference type="R1267" uri="http://www.ethnologue.com/language/jgo">2nd lang literacy 30%</reference>
-		<reference type="R1268" uri="http://en.wikipedia.org/wiki/Esperanto">http://en.wikipedia.org/wiki/Akademio_Internacia_de_la_Sciencoj_San_Marino - estimate 100% of the academy can use Esperanto; the language is used as 1st language of instruction; academy has 300 &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;members&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;.</reference>
+		<reference type="R1268" uri="http://en.wikipedia.org/wiki/Esperanto">http://en.wikipedia.org/wiki/Akademio_Internacia_de_la_Sciencoj_San_Marino - estimate 100% of the academy can use Esperanto; the language is used as 1st language of instruction; academy has 300 """"""""""""""""""""""""""""""""members"""""""""""""""""""""""""""""""".</reference>
 		<reference type="R1269" uri="https://en.wikipedia.org/wiki/Sundanese_language">recognized in West Java</reference>
 		<reference type="R1270">Mainly unwritten</reference>
 		<reference type="R1271" uri="https://www.censopoblacion.gt/archivos/resultados_censo2018.pdf">2018 Census, counting both maternal and secondary language usage. Co-official in Quiché</reference>

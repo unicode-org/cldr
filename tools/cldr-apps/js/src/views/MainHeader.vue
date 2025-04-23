@@ -55,7 +55,7 @@
       <a-alert
         v-if="needCla"
         @click="showCla"
-        message="CLA must be signed before data can be input"
+        message="CLA must be signed before data can be input (click here)"
         type="error"
         show-icon
       />

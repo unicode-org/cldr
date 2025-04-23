@@ -237,6 +237,19 @@ function parentOfType(tag, obj) {
   return parentOfType(tag, obj.parentElement);
 }
 
+/** CLDR conventional target= for documentation */
+const TARGET_DOCS = "CLDR-ST-DOCS";
+
+/** set target=TARGET_DOCS on all <a< nodes */
+function setDocTargets(n) {
+  if (n.tagName == "A") {
+    n.setAttribute("target", TARGET_DOCS);
+  }
+  for (const c of n?.children) {
+    setDocTargets(c);
+  }
+}
+
 export {
   addClass,
   appendIcon,
@@ -249,5 +262,7 @@ export {
   removeAllChildNodes,
   removeClass,
   setDisplayed,
+  setDocTargets,
+  TARGET_DOCS,
   updateIf,
 };

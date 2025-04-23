@@ -8,7 +8,8 @@ import java.util.regex.Pattern;
 public class PathDescriptionParser {
     private static final String PROLOGUE = "PROLOGUE";
     private static final String REFERENCES = "References";
-    final RegexLookup<Pair<String, String>> lookup = new RegexLookup<>();
+    final RegexLookup<Pair<String, String>> lookup =
+            new RegexLookup<>(RegexLookup.LookupType.OPTIMIZED_DIRECTORY_PATTERN_LOOKUP);
 
     // running instance variables
     String section = ""; // ## title
@@ -60,7 +61,10 @@ public class PathDescriptionParser {
         } else if (inReferences()) {
             processReference(line);
         } else if (line.startsWith("- `")) {
-            processRegex(line);
+            if (!line.endsWith("`")) {
+                throw new IllegalArgumentException("Bad regex line " + line);
+            }
+            processRegex(line.substring(3, line.length() - 1));
         } else {
             processBody(line);
         }
@@ -71,6 +75,7 @@ public class PathDescriptionParser {
     }
 
     private void processRegex(String line) {
+        Pattern.compile(line); // make sure it compiles
         patterns.add(line);
     }
 

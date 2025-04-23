@@ -3753,22 +3753,7 @@ public class ExampleGenerator {
             return null;
         }
         int start = 0;
-        StringBuilder buffer = new StringBuilder();
-
-        Matcher URLMatcher = URL_PATTERN.matcher("");
-        while (URLMatcher.reset(description).find(start)) {
-            final String url = URLMatcher.group();
-            buffer.append(
-                            TransliteratorUtilities.toHTML.transliterate(
-                                    description.substring(start, URLMatcher.start())))
-                    .append("<a target='CLDR-ST-DOCS' href='")
-                    .append(url)
-                    .append("'>")
-                    .append(url)
-                    .append("</a>");
-            start = URLMatcher.end();
-        }
-        buffer.append(TransliteratorUtilities.toHTML.transliterate(description.substring(start)));
+        StringBuilder buffer = new StringBuilder(description);
         if (AnnotationUtil.pathIsAnnotation(xpath)) {
             XPathParts emoji = XPathParts.getFrozenInstance(xpath);
             String cp = emoji.getAttributeValue(-1, "cp");

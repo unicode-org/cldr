@@ -58,6 +58,11 @@ public class PathDescription {
         return pathDescriptionString;
     }
 
+    /** for tests */
+    static final RegexLookup<Pair<String, String>> getPathHandling() {
+        return pathHandling;
+    }
+
     // set in construction
 
     private final CLDRFile english;
@@ -114,8 +119,16 @@ public class PathDescription {
         status.clear();
 
         final Pair<String, String> entry = pathHandling.get(path, context, pathArguments);
-        String description = entry.getFirst();
-        String markdown = entry.getSecond();
+        String description;
+        String markdown;
+        if (entry == null) {
+            markdown = MISSING_DESCRIPTION;
+            description = null;
+        } else {
+            description = entry.getFirst();
+            markdown = entry.getSecond();
+        }
+
         if (description == null || description.isEmpty()) {
             description = MISSING_DESCRIPTION;
         } else if (description.startsWith("SKIP")) {
@@ -214,7 +227,7 @@ public class PathDescription {
             markdown =
                     MessageFormat.format(
                             MessageFormat.autoQuoteApostrophe(markdown), englishRegionName);
-        } else if (!MISSING_DESCRIPTION.equals(description) || description.isBlank()) {
+        } else if (entry != null) {
             markdown =
                     MessageFormat.format(
                             MessageFormat.autoQuoteApostrophe(markdown),

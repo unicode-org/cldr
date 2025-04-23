@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 public class TestPathDescription {
     @Test
@@ -16,5 +18,17 @@ public class TestPathDescription {
         String references = parser.getReferences();
         assertNotNull(references);
         assertFalse(parser.getReferences().trim().isBlank());
+
+        // To print out the regex tree:
+        // System.out.println(lookup.toString());
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+        // xpath
+        "//ldml/localeDisplayNames/languages/language[@type=\"ml\"]",
+    })
+    public void testPresent(final String xpath) {
+        assertNotNull(PathDescription.getPathHandling().get(xpath), () -> xpath);
     }
 }

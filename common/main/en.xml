@@ -3447,26 +3447,28 @@ annotations.
 						<era type="1">Minguo</era>
 					</eraAbbr>
 				</eras>
-				<dateTimeFormats>
+				<dateFormats>
 					<dateFormatLength type="full">
-						<dateTimeFormat>
+						<dateFormat>
 							<pattern draft="contributed">EEEE, MMMM d, y G</pattern>
-						</dateTimeFormat>
-					<dateTimeFormatLength type="long">
-						<dateTimeFormat>
+						</dateFormat>
+					<dateFormatLength type="long">
+						<dateFormat>
 							<pattern draft="contributed">MMMM d, y G</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>	
-					<dateTimeFormatLength type="medium">
-						<dateTimeFormat>
+						</dateFormat>
+					</dateFormatLength>	
+					<dateFormatLength type="medium">
+						<dateFormat>
 							<pattern draft="contributed">MMM d, y G</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="short">
-						<dateTimeFormat>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
 							<pattern draft="contributed">M/d/y GGGGG</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="E">ccc</dateFormatItem>

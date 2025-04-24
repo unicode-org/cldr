@@ -863,53 +863,61 @@ Provide the {2} and {3} version of the name for quarter {4}. For more informatio
 
 Provide the name (as it would appear in menus) for the field “{1}”. For more information, please see [Date Time Fields].
 
-###
+### Relative Today
 
 - `^//ldml/dates/fields/field\[@type="day"]/relative\[@type="0"]`
 
 Provide the name for today. For more information, please see [Relative Dates].
+The lettercasing should be appropriate for the top example. If the lettercasing is then wrong for the bottom example, please file a ticket to fix contextTransforms/relative/stand-alone.
 
-###
+### Relative before-today
 
 - `^//ldml/dates/fields/field\[@type="day"]/relative\[@type="-([^"]*)"]`
 
 Provide a name for the day, {1} before today. For more information, please see [Relative Dates].
+The lettercasing should be appropriate for the top example. If the lettercasing is then wrong for the bottom example, please file a ticket to fix contextTransforms/relative/stand-alone.
 
-###
+### Relative after-today
 
 - `^//ldml/dates/fields/field\[@type="day"]/relative\[@type="([^"]*)"]`
 
 Provide a name for the day, {1} after today. For more information, please see [Relative Dates].
+The lettercasing should be appropriate for the top example. If the lettercasing is then wrong for the bottom example, please file a ticket to fix contextTransforms/relative/stand-alone.
 
-###
+### This X
 
 - `^//ldml/dates/fields/field\[@type="([^"]*)"]/relative\[@type="0"]`
 
 Provide the name for “this {2}”. For more information, please see [Relative Dates].
+The lettercasing should be appropriate for the top example. If the lettercasing is then wrong for the bottom example, please file a ticket to fix contextTransforms/relative/stand-alone.
 
-###
+### Last X
 
 - `^//ldml/dates/fields/field\[@type="([^"]*)"]/relative\[@type="-1"]`
 
 Provide a name for “last {1}”. For more information, please see [Relative Dates].
+The lettercasing should be appropriate for the top example. If the lettercasing is then wrong for the bottom example, please file a ticket to fix contextTransforms/relative/stand-alone.
 
-###
+### Next X
 
 - `^//ldml/dates/fields/field\[@type="([^"]*)"]/relative\[@type="1"]`
 
 Provide a name for “next {1}”. For more information, please see [Relative Dates].
+The lettercasing should be appropriate for the top example. If the lettercasing is then wrong for the bottom example, please file a ticket to fix contextTransforms/relative/stand-alone.
 
-###
+### Future Pattern
 
 - `^//ldml/dates/fields/field\[@type="([^"]*)"]/relativeTime\[@type="future"]/relativeTimePattern\[@count="([^"]*)"]`
 
 Provide a pattern used to display times in the future. For more information, please see [Date Time Names].
+The lettercasing should be appropriate for the top example. If the lettercasing is then wrong for the bottom example, please file a ticket to fix contextTransforms/relative/stand-alone.
 
-###
+### Past Pattern
 
 - `^//ldml/dates/fields/field\[@type="([^"]*)"]/relativeTime\[@type="past"]/relativeTimePattern\[@count="([^"]*)"]`
 
 Provide a pattern used to display times in the past. For more information, please see [Date Time Names].
+The lettercasing should be appropriate for the top example. If the lettercasing is then wrong for the bottom example, please file a ticket to fix contextTransforms/relative/stand-alone.
 
 ###
 

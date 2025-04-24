@@ -1084,7 +1084,7 @@ This section is appended to every markdown fragment.
 [Compound Units]: https://cldr.unicode.org/translation/units/unit-names-and-patterns#compound-units
 [Country Names]: https://cldr.unicode.org/translation/displaynames/countryregion-territory-names
 [Currency Names]: https://cldr.unicode.org/translation/currency-names-and-symbols
-[Date Time]: https://cldr.unicode.org/translation/date-time/date-time-names#h.ewzjebmpoi4k
+[Date Time]: https://cldr.unicode.org/translation/date-time/date-time-names#datetime-names
 [Date Time Names]: https://cldr.unicode.org/translation/date-time/date-time-names
 [Date/time cyclic names]: https://cldr.unicode.org/translation/date-time/date-time-names#h.h0vy2eyzcj0n
 [Date Time Fields]: https://cldr.unicode.org/translation/date-time/date-time-names#date-field-names

@@ -1,7 +1,6 @@
 package org.unicode.cldr.web;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -16,9 +15,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.json.JSONException;
 import org.unicode.cldr.util.CLDRURLS;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.web.util.JSONException;
+import org.unicode.cldr.web.util.JsonUtil;
 
 public class SurveyTool extends HttpServlet {
     static final Logger logger = SurveyLog.forClass(SurveyTool.class);
@@ -240,7 +240,7 @@ public class SurveyTool extends HttpServlet {
         }
     }
 
-    private static final Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    private static final Gson gson = JsonUtil.gson();
 
     private final class STManifest {
         public String jsfiles[];

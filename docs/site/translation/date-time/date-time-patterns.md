@@ -4,7 +4,7 @@ title: Date/Time Patterns
 
 # Date/Time Patterns
 
-_Last updated: 2018-May-14_
+_Last updated: 2025-Apr-01_
 
 ## Patterns Introduction
 
@@ -286,46 +286,53 @@ What you want to pay attention to are:
 - Remove a space if your language does not use spaces, which is common for many East Asian languages
 - Add a comma, or other punctuation that your language requires between the patterns
 
-There are four formats: full, long, medium, and short. _Each of these may come in two variants_:
+There are four format length styles: full, long, medium, and short. Each of these may come in up to three variants:
 
-- _The “-atTime” variant, which specifies a date at a particular time, typically for an event. In the longer formats (such as full and long), this “-atTime” form may have a combining word betwen the date and the time, for example “{1} 'at' {0}” to produce an English example like “Sunday, September 25 at 1:30 PM”)._
-- _The standard variant, which is used for multuple purposes and typically does not include any literal text, for example “{1}, {0}”. Usage examples include:_
-	- _Wall clock time: “Sunday, September 25, 1:30 PM”_
-	- _Combining a date with a time range: “Sunday, September 25, 1:30 – 3:00 PM”_
+- The standard variant (required), which is used for multiple purposes and typically does not include any literal text, for example “{1}, {0}”. Usage examples include:
+	- Wall clock time: “Sunday, September 25, 1:30 PM”
+	- Combining a date with a time range: “Sunday, September 25, 1:30 – 3:00 PM”
+- The “-atTime” variant, which specifies a **fixed** date at a particular time, typically for an event. In the longer formats (such as full and long),
+this “-atTime” form may have a combining word linking the date and the time, for example “{1} 'at' {0}” to produce an English example like “Sunday, September 25 at 1:30 PM”).
+If there is no “-atTime” variant, the standard variant will be used for this combination.
+- The “-relative” variant _(new in CLDR 48)_, which specifies a **relative** date at a particular time, typically for an event. In the longer formats (such as full and long),
+this “-relative” form may have a combining word linking the date and the time, for example “{1} 'at' {0}” to produce an English example like “tomorrow at 1:30 PM”.
+If there is no “-relative” variant, the standard variant will be used for this combination.
 
-_Before CLDR 42, there was only one variant for these. In English that variant used the “-atTime” style, as did many other locales. For CLDR 42, that  “-⁠atTime” data has been moved to the “-⁠atTime” variants, and the standard data has initially been extrapolated from the mediu or short formats without literal text. However, it needs to be checked._
+_Before CLDR 42, there was only one variant for these. In English that variant used the “-atTime” style, as did many other locales. For CLDR 42, that  “-⁠atTime” data was moved to the “-⁠atTime” variants, and the standard data was initially extrapolated from the medium or short formats without literal text._
 
-The determination of which to use by developers using CLDR data is normally based on the date style, for example:
+_In CLDR 48, the “-relative” variant is split out of the “-atTime” variant to allow a different combining form to be used when the date part is relative (“tomorrow”) instead of a fixed date (“March 20”).
+If you want the combination of a relative date and single time to be formatted as it was in CLDR 47, then you will need to copy the “-atTime” variant data to the new “-relative” variant._
+
+The determination of which length style to use by developers using CLDR data is normally based on the date style, for example:
 
 - If the date has a full month and weekday name, use the **full** combining pattern.
 - If the date has numeric month, use the **short** version of the combining pattern.
 
 Following are examples on how the data can be different by locale with different combinations of format length. (note: {1}=date format with {0}= time format)
 
- 
 
 Another way to look at the example with original patterns and combined result:
 
 | Pattern     |  English |  German |  Japanese |
 |---|---|---|---|
 |   [Full](https://st.unicode.org/cldr-apps/v#/fr/Gregorian/4caf0def588f4e8) {1} 'at' {0}<br /><br /> {Full form of the date format} at {full form of the time format}  |  {1} 'at' {0}<br /><br /> Sunday, September 5, 1999  at  1:25:59 PM Eastern Standard Time |  {1} 'um' {0}<br /><br /> Sonntag, 5. September 1999 um 13:25:59 Nordamerikanische Ostküsten-Normalzeit |  {1} {0}<br /><br /> 1999年9月5日日曜日 13時25分59秒 アメリカ東部標準時 |
-|   [Medium](https://st.unicode.org/cldr-apps/v#/fr/Gregorian/7a365a21694f0127)   {1}, {0}<br /><br /> {medium form of the date format}, {medium form of the time format}<br /><br /> Notice the comma and space between the date portion and the time portion. |  {1}, {0}<br /><br /> Sep 5, 1999, 1:25:59 PM  |  {1}, {0}  Result: 05.09.1999, 13:25:59 |  {1} {0}<br /><br /> 1999/09/05 13:25:59 |
+|   [Medium](https://st.unicode.org/cldr-apps/v#/fr/Gregorian/7a365a21694f0127)   {1}, {0}<br /><br /> {medium form of the date format}, {medium form of the time format}<br /><br /> Notice the comma and space between the date portion and the time portion. |  {1}, {0}<br /><br /> Sep 5, 1999, 1:25:59 PM  |  {1}, {0}<br /><br /> 05.09.1999, 13:25:59 |  {1} {0}<br /><br /> 1999/09/05 13:25:59 |
 
-|  |  |  |  |
-|---|---|---|---|
+
 | date pattern | time pattern | date-time combining pattern used | formatted example |
+|---|---|---|---|
 | MMMM d, y | h:mm a | [long]  {1} 'at' {0} | September 14, 1999 at 1:25 PM |
 | M/d/yy | h:mm a | [short] {1}, {0} | 9/14/99, 1:25 PM |
 
-|  |  |  |
-|---|---|---|
+
+## Week-Of Patterns
+
 | Survey Tool field |  English pattern | Pattern characters |
+|---|---|---|
 |  yw-one |  'week' w 'of' Y  (example: Week 37 of 2009) | w designates the number of the week within a year calculated for week-of year purposes and indicated using the pattern character Y (instead of the normal year designator y). The year indicated by Y typically begins on the locale’s first day of the week and ends on the last day of the week, so its transitions may differ by a few days from the standard year indicated by y. |
 |  yw-other |  'week' w 'of' Y |  |
 |  MMMMW-one |  'week' W 'of' MMMM  (example: Week 3 of April) | W designates the number of the week within the month |
 |  MMMMW-other |  'week' W 'of' MMMM |  |
-
-## Week-Of Patterns
 
 The week-of date patterns were introduced in CLDR 30 for enumerating week count in larger periods, e.g. “week 15 of 2016” or “week 4 of April”. The Survey Tool fields and corresponding English entries are shown below:
 

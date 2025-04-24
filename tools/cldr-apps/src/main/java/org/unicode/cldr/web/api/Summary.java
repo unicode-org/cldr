@@ -33,11 +33,11 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
-import org.json.JSONException;
 import org.unicode.cldr.util.*;
 import org.unicode.cldr.web.*;
 import org.unicode.cldr.web.Dashboard.ReviewOutput;
 import org.unicode.cldr.web.VettingViewerQueue.LoadingPolicy;
+import org.unicode.cldr.web.util.JSONException;
 
 @ApplicationScoped
 @Path("/summary")

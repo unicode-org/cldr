@@ -107,7 +107,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageVariable key="%language60_TD" value="(shu|dzg|kbl|mde|mua|sba)"/>
 		<!-- See CLDR-16673: All basic+ locales (per coverageLevels.txt) MUST have their language's name at least at level 80 (modern), except for those on exception list -->
 		<!-- Can use MinimizeRegex.java to "unpack" the compressed lists that are painful to edit -->
-		<coverageVariable key="%language80" value="(af|ak|am|ar|as|az|be|bg|bgc|bho|bn|brx|bs|ca|ceb|cs|cv|cy|da|de|doi|ee|el|en|es|et|eu|fa|fi|fil|fr|ga|gaa|gd|gl|gu|ha|he|hi|hr|hu|hy|id|ig|ii|is|it|ja|jv|ka|kk|km|kn|ko|kok|ks|ky|lo|lt|lv|mai|mi|mk|ml|mn|mni|mr|ms|my|ne|nl|nn|no|nso|om|or|pa|pcm|pl|ps|pt|raj|ro|ru|rw|sa|sat|sd|si|sk|sl|so|sq|sr|st|su|sv|sw|ta|te|tg|th|ti|tk|tn|tr|tt|uk|ur|uz|vi|wo|xh|yo|yue|zh|zu|ast|blo|br|chr|csw|dsb|eo|ff|fo|fy|hsb|ia|ie|kea|kgp|ku|kxv|lb|lij|lmo|mt|nds|nqo|oc|prg|qu|rm|sah|sc|syr|szl|to|ug|vec|vmw|xnr|yrl|za|mul|root|zxx|und)"/>
+		<coverageVariable key="%language80" value="(af|ak|am|ar|as|az|bal|be|bg|bgc|bho|bn|brx|bs|ca|ceb|cs|cv|cy|da|de|doi|ee|el|en|es|et|eu|fa|fi|fil|fr|ga|gaa|gd|gl|gu|ha|he|hi|hr|hu|hy|id|ig|ii|is|it|ja|jv|ka|kk|km|kn|ko|kok|ks|ky|lo|lt|lv|mai|mi|mk|ml|mn|mni|mr|ms|my|ne|nl|nn|no|nso|om|or|pa|pcm|pl|ps|pt|raj|ro|ru|rw|sa|sat|sd|si|sk|sl|so|sq|sr|st|su|sv|sw|ta|te|tg|th|ti|tk|tn|tr|tt|uk|ur|uz|vi|wo|xh|yo|yue|zh|zu|ast|blo|br|chr|csw|dsb|eo|ff|fo|fy|hsb|ia|ie|kea|kgp|ku|kxv|lb|lij|lmo|mt|nds|nqo|oc|prg|qu|rm|sah|sc|syr|szl|to|ug|vec|vmw|xnr|yrl|za|mul|root|zxx|und)"/>
 		<coverageVariable key="%lbTypes80" value="(strict|normal|loose)"/>
 		<coverageVariable key="%lwTypes" value="(normal|breakall|keepall|phrase)"/>
 		<coverageVariable key="%m0Types80" value="(bgn|prprname|ungegn)"/>
@@ -176,6 +176,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageVariable key="%yesNo" value="(yes|no)"/>
 
 		<coverageVariable key="%anyAttribute" value='([^\x{22}]++)'/>
+		<coverageVariable key="%A" value='([^\x{22}]++)'/>
 
 		<!-- Number system coverage by language and/or script; default number system items at various levels, native & finance system items at moderate (for content) or modern -->
 		<coverageVariable key="%adlmDefaultScripts" value="(Adlm)"/>
@@ -253,13 +254,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel	value="basic"	 	match="localeDisplayNames/codePatterns/codePattern[@type='(language|script|territory)']"/>
 
 		<coverageLevel	value="basic"	 	match="localeDisplayNames/languages/language[@type='${Target-Language}']"/>
+		<coverageLevel	value="basic"	 	match="localeDisplayNames/languages/language[@type='${Target-Language}'][@menu='%anyAttribute']"/>
 		<coverageLevel	value="basic"	 	match="localeDisplayNames/languages/language[@type='${Target-Language}'][@alt='%anyAttribute']"/>
+		<coverageLevel	value="basic"	 	match="localeDisplayNames/languages/language[@type='${Target-Language}'][@alt='%anyAttribute'][@menu='%anyAttribute']"/>
 		<coverageLevel	value="basic"	 	match="localeDisplayNames/languages/language[@type='en']"/>
+		<coverageLevel	value="basic"	 	match="localeDisplayNames/languages/language[@type='en'][@menu='%anyAttribute']"/>
 		<coverageLevel	value="basic"	 	match="localeDisplayNames/languages/language[@type='en'][@alt='%anyAttribute']"/>
+		<coverageLevel	value="basic"	 	match="localeDisplayNames/languages/language[@type='en'][@alt='%anyAttribute'][@menu='%anyAttribute']"/>
 		<coverageLevel	value="moderate"	 	match="localeDisplayNames/languages/language[@type='%language30']"/>
+		<coverageLevel	value="moderate"	 	match="localeDisplayNames/languages/language[@type='%language30'][@menu='%anyAttribute']"/>
 		<coverageLevel	value="moderate"	 	match="localeDisplayNames/languages/language[@type='%language30'][@alt='%anyAttribute']"/>
+		<coverageLevel	value="moderate"	 	match="localeDisplayNames/languages/language[@type='%language30'][@alt='%anyAttribute'][@menu='%anyAttribute']"/>
 		<coverageLevel	value="moderate"	 	match="localeDisplayNames/languages/language[@type='%language40']"/>
+		<coverageLevel	value="moderate"	 	match="localeDisplayNames/languages/language[@type='%language40'][@menu='%anyAttribute']"/>
 		<coverageLevel	value="moderate"	 	match="localeDisplayNames/languages/language[@type='%language40'][@alt='%anyAttribute']"/>
+		<coverageLevel	value="moderate"	 	match="localeDisplayNames/languages/language[@type='%language40'][@alt='%anyAttribute'][@menu='%anyAttribute']"/>
 
 		<coverageLevel	value="basic"	 	match="localeDisplayNames/scripts/script[@type='${Target-Scripts}']"/>
 		<coverageLevel	value="moderate"	 	match="localeDisplayNames/scripts/script[@type='%script30']"/>
@@ -279,46 +288,87 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel	value="moderate"	 	match="localeDisplayNames/annotationPatterns/annotationPattern[@type='(flag|keycap|emoji|combined)']"/>
 
 		<coverageLevel	value="moderate"	 	match="localeDisplayNames/localeDisplayPattern/localeKeyTypePattern"/>
+		<coverageLevel	value="moderate"	 	match="localeDisplayNames/types/type[@key='calendar'][@type='${Calendar-List}'][@scope='%A']"/>
 		<coverageLevel	value="moderate"	 	match="localeDisplayNames/types/type[@key='calendar'][@type='${Calendar-List}']"/>
+		<coverageLevel	value="moderate"	 	match="localeDisplayNames/types/type[@key='calendar'][@type='gregorian'][@scope='%A']"/>
 		<coverageLevel	value="moderate"	 	match="localeDisplayNames/types/type[@key='calendar'][@type='gregorian']"/>
+		<coverageLevel	value="moderate"	inLanguage="zh"	match="localeDisplayNames/types/type[@key='collation'][@type='(pinyin|stroke|zhuyin)'][@scope='%A']"/>
 		<coverageLevel	value="moderate"	inLanguage="zh"	match="localeDisplayNames/types/type[@key='collation'][@type='(pinyin|stroke|zhuyin)']"/>
+		<coverageLevel	value="moderate"	inLanguage="si"	match="localeDisplayNames/types/type[@key='collation'][@type='dictionary'][@scope='%A']"/>
 		<coverageLevel	value="moderate"	inLanguage="si"	match="localeDisplayNames/types/type[@key='collation'][@type='dictionary']"/>
+		<coverageLevel	value="moderate"	inLanguage="%phonebookCollationLanguages"	match="localeDisplayNames/types/type[@key='collation'][@type='phonebook'][@scope='%A']"/>
 		<coverageLevel	value="moderate"	inLanguage="%phonebookCollationLanguages"	match="localeDisplayNames/types/type[@key='collation'][@type='phonebook']"/>
+		<coverageLevel	value="moderate"	 	match="localeDisplayNames/types/type[@key='collation'][@type='standard'][@scope='%A']"/>
 		<coverageLevel	value="moderate"	 	match="localeDisplayNames/types/type[@key='collation'][@type='standard']"/>
+		<coverageLevel	value="moderate"	inLanguage="%traditionalCollationLanguages"	match="localeDisplayNames/types/type[@key='collation'][@type='traditional'][@scope='%A']"/>
 		<coverageLevel	value="moderate"	inLanguage="%traditionalCollationLanguages"	match="localeDisplayNames/types/type[@key='collation'][@type='traditional']"/>
+		<coverageLevel	value="moderate"	inLanguage="%CJK_Languages"	match="localeDisplayNames/types/type[@key='collation'][@type='unihan'][@scope='%A']"/>
 		<coverageLevel	value="moderate"	inLanguage="%CJK_Languages"	match="localeDisplayNames/types/type[@key='collation'][@type='unihan']"/>
+		<coverageLevel	value="moderate"	 	match="localeDisplayNames/types/type[@key='numbers'][@type='latn'][@scope='%A']"/>
 		<coverageLevel	value="moderate"	 	match="localeDisplayNames/types/type[@key='numbers'][@type='latn']"/>
+		<coverageLevel	value="moderate"	inLanguage="%hanidecNativeLanguages"	match="localeDisplayNames/types/type[@key='numbers'][@type='(hanidec|hans|hansfin|hant|hantfin)'][@scope='%A']"/>
 		<coverageLevel	value="moderate"	inLanguage="%hanidecNativeLanguages"	match="localeDisplayNames/types/type[@key='numbers'][@type='(hanidec|hans|hansfin|hant|hantfin)']"/>
+		<coverageLevel	value="moderate"	inScript="Arab"	match="localeDisplayNames/types/type[@key='numbers'][@type='arab'][@scope='%A']"/>
 		<coverageLevel	value="moderate"	inScript="Arab"	match="localeDisplayNames/types/type[@key='numbers'][@type='arab']"/>
+		<coverageLevel	value="moderate"	inLanguage="%arabextAllLanguages"	match="localeDisplayNames/types/type[@key='numbers'][@type='arabext'][@scope='%A']"/>
 		<coverageLevel	value="moderate"	inLanguage="%arabextAllLanguages"	match="localeDisplayNames/types/type[@key='numbers'][@type='arabext']"/>
+		<coverageLevel	value="moderate"	inScript="Armn"	match="localeDisplayNames/types/type[@key='numbers'][@type='armn(low)?'][@scope='%A']"/>
 		<coverageLevel	value="moderate"	inScript="Armn"	match="localeDisplayNames/types/type[@key='numbers'][@type='armn(low)?']"/>
+		<coverageLevel	value="moderate"	inScript="Beng"	match="localeDisplayNames/types/type[@key='numbers'][@type='beng'][@scope='%A']"/>
 		<coverageLevel	value="moderate"	inScript="Beng"	match="localeDisplayNames/types/type[@key='numbers'][@type='beng']"/>
+		<coverageLevel	value="moderate"	inScript="Cakm"	match="localeDisplayNames/types/type[@key='numbers'][@type='cakm'][@scope='%A']"/>
 		<coverageLevel	value="moderate"	inScript="Cakm"	match="localeDisplayNames/types/type[@key='numbers'][@type='cakm']"/>
+		<coverageLevel	value="moderate"	inScript="Deva"	match="localeDisplayNames/types/type[@key='numbers'][@type='deva'][@scope='%A']"/>
 		<coverageLevel	value="moderate"	inScript="Deva"	match="localeDisplayNames/types/type[@key='numbers'][@type='deva']"/>
+		<coverageLevel	value="moderate"	inScript="Ethi"	match="localeDisplayNames/types/type[@key='numbers'][@type='ethi'][@scope='%A']"/>
 		<coverageLevel	value="moderate"	inScript="Ethi"	match="localeDisplayNames/types/type[@key='numbers'][@type='ethi']"/>
+		<coverageLevel	value="moderate"	inLanguage="%CJK_Languages"	match="localeDisplayNames/types/type[@key='numbers'][@type='fullwide'][@scope='%A']"/>
 		<coverageLevel	value="moderate"	inLanguage="%CJK_Languages"	match="localeDisplayNames/types/type[@key='numbers'][@type='fullwide']"/>
+		<coverageLevel	value="moderate"	inScript="Geor"	match="localeDisplayNames/types/type[@key='numbers'][@type='geor'][@scope='%A']"/>
 		<coverageLevel	value="moderate"	inScript="Geor"	match="localeDisplayNames/types/type[@key='numbers'][@type='geor']"/>
+		<coverageLevel	value="moderate"	inScript="Grek"	match="localeDisplayNames/types/type[@key='numbers'][@type='grek(low)?'][@scope='%A']"/>
 		<coverageLevel	value="moderate"	inScript="Grek"	match="localeDisplayNames/types/type[@key='numbers'][@type='grek(low)?']"/>
+		<coverageLevel	value="moderate"	inScript="Gujr"	match="localeDisplayNames/types/type[@key='numbers'][@type='gujr'][@scope='%A']"/>
 		<coverageLevel	value="moderate"	inScript="Gujr"	match="localeDisplayNames/types/type[@key='numbers'][@type='gujr']"/>
+		<coverageLevel	value="moderate"	inScript="Guru"	match="localeDisplayNames/types/type[@key='numbers'][@type='guru'][@scope='%A']"/>
 		<coverageLevel	value="moderate"	inScript="Guru"	match="localeDisplayNames/types/type[@key='numbers'][@type='guru']"/>
+		<coverageLevel	value="moderate"	inScript="Hebr"	match="localeDisplayNames/types/type[@key='numbers'][@type='hebr'][@scope='%A']"/>
 		<coverageLevel	value="moderate"	inScript="Hebr"	match="localeDisplayNames/types/type[@key='numbers'][@type='hebr']"/>
+		<coverageLevel	value="moderate"	inScript="Hmnp"	match="localeDisplayNames/types/type[@key='numbers'][@type='hmnp'][@scope='%A']"/>
 		<coverageLevel	value="moderate"	inScript="Hmnp"	match="localeDisplayNames/types/type[@key='numbers'][@type='hmnp']"/>
+		<coverageLevel	value="moderate"	inLanguage="ja"	match="localeDisplayNames/types/type[@key='numbers'][@type='jpan(fin)?'][@scope='%A']"/>
 		<coverageLevel	value="moderate"	inLanguage="ja"	match="localeDisplayNames/types/type[@key='numbers'][@type='jpan(fin)?']"/>
+		<coverageLevel	value="moderate"	inLanguage="jv"	match="localeDisplayNames/types/type[@key='numbers'][@type='java'][@scope='%A']"/>
 		<coverageLevel	value="moderate"	inLanguage="jv"	match="localeDisplayNames/types/type[@key='numbers'][@type='java']"/>
+		<coverageLevel	value="moderate"	inScript="Khmr"	match="localeDisplayNames/types/type[@key='numbers'][@type='khmr'][@scope='%A']"/>
 		<coverageLevel	value="moderate"	inScript="Khmr"	match="localeDisplayNames/types/type[@key='numbers'][@type='khmr']"/>
+		<coverageLevel	value="moderate"	inScript="Knda"	match="localeDisplayNames/types/type[@key='numbers'][@type='knda'][@scope='%A']"/>
 		<coverageLevel	value="moderate"	inScript="Knda"	match="localeDisplayNames/types/type[@key='numbers'][@type='knda']"/>
+		<coverageLevel	value="moderate"	inScript="Laoo"	match="localeDisplayNames/types/type[@key='numbers'][@type='laoo'][@scope='%A']"/>
 		<coverageLevel	value="moderate"	inScript="Laoo"	match="localeDisplayNames/types/type[@key='numbers'][@type='laoo']"/>
+		<coverageLevel	value="moderate"	inScript="Mlym"	match="localeDisplayNames/types/type[@key='numbers'][@type='mlym'][@scope='%A']"/>
 		<coverageLevel	value="moderate"	inScript="Mlym"	match="localeDisplayNames/types/type[@key='numbers'][@type='mlym']"/>
+		<coverageLevel	value="moderate"	inScript="Mong"	match="localeDisplayNames/types/type[@key='numbers'][@type='mong'][@scope='%A']"/>
 		<coverageLevel	value="moderate"	inScript="Mong"	match="localeDisplayNames/types/type[@key='numbers'][@type='mong']"/>
+		<coverageLevel	value="moderate"	inScript="Mtei"	match="localeDisplayNames/types/type[@key='numbers'][@type='mtei'][@scope='%A']"/>
 		<coverageLevel	value="moderate"	inScript="Mtei"	match="localeDisplayNames/types/type[@key='numbers'][@type='mtei']"/>
+		<coverageLevel	value="moderate"	inScript="Mymr"	match="localeDisplayNames/types/type[@key='numbers'][@type='mymr(shan)?'][@scope='%A']"/>
 		<coverageLevel	value="moderate"	inScript="Mymr"	match="localeDisplayNames/types/type[@key='numbers'][@type='mymr(shan)?']"/>
+		<coverageLevel	value="moderate"	inScript="Nkoo"	match="localeDisplayNames/types/type[@key='numbers'][@type='nkoo'][@scope='%A']"/>
 		<coverageLevel	value="moderate"	inScript="Nkoo"	match="localeDisplayNames/types/type[@key='numbers'][@type='nkoo']"/>
+		<coverageLevel	value="moderate"	inScript="Olck"	match="localeDisplayNames/types/type[@key='numbers'][@type='olck'][@scope='%A']"/>
 		<coverageLevel	value="moderate"	inScript="Olck"	match="localeDisplayNames/types/type[@key='numbers'][@type='olck']"/>
+		<coverageLevel	value="moderate"	inScript="Orya"	match="localeDisplayNames/types/type[@key='numbers'][@type='orya'][@scope='%A']"/>
 		<coverageLevel	value="moderate"	inScript="Orya"	match="localeDisplayNames/types/type[@key='numbers'][@type='orya']"/>
+		<coverageLevel	value="moderate"	inScript="Taml"	match="localeDisplayNames/types/type[@key='numbers'][@type='taml(dec)?'][@scope='%A']"/>
 		<coverageLevel	value="moderate"	inScript="Taml"	match="localeDisplayNames/types/type[@key='numbers'][@type='taml(dec)?']"/>
+		<coverageLevel	value="moderate"	inScript="Telu"	match="localeDisplayNames/types/type[@key='numbers'][@type='telu'][@scope='%A']"/>
 		<coverageLevel	value="moderate"	inScript="Telu"	match="localeDisplayNames/types/type[@key='numbers'][@type='telu']"/>
+		<coverageLevel	value="moderate"	inScript="Thai"	match="localeDisplayNames/types/type[@key='numbers'][@type='thai'][@scope='%A']"/>
 		<coverageLevel	value="moderate"	inScript="Thai"	match="localeDisplayNames/types/type[@key='numbers'][@type='thai']"/>
+		<coverageLevel	value="moderate"	inScript="Tibt"	match="localeDisplayNames/types/type[@key='numbers'][@type='tibt'][@scope='%A']"/>
 		<coverageLevel	value="moderate"	inScript="Tibt"	match="localeDisplayNames/types/type[@key='numbers'][@type='tibt']"/>
+		<coverageLevel	value="moderate"	inLanguage="vai"	match="localeDisplayNames/types/type[@key='numbers'][@type='vaii'][@scope='%A']"/>
 		<coverageLevel	value="moderate"	inLanguage="vai"	match="localeDisplayNames/types/type[@key='numbers'][@type='vaii']"/>
 
 		<coverageLevel	value="basic"		match="dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='format']/monthWidth[@type='wide']/month[@type='%monthTypes']"/>
@@ -342,8 +392,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 
 		<coverageLevel	value="basic"	 	match="dates/calendars/calendar[@type='gregorian']/dayPeriods/dayPeriodContext[@type='format']/dayPeriodWidth[@type='wide']/dayPeriod[@type='(am|pm)']"/>
 
-		<coverageLevel	value="moderate"	 	match="dates/calendars/calendar[@type='(gregorian|iso8601)']/dateFormats/dateFormatLength[@type='%fullMedium']/dateFormat%stdPattern"/>
-		<coverageLevel	value="moderate"		match="dates/calendars/calendar[@type='(gregorian|iso8601)']/dateFormats/dateFormatLength[@type='%shortLong']/dateFormat%stdPattern"/>
+		<coverageLevel	value="moderate"	 	match="dates/calendars/calendar[@type='gregorian']/dateFormats/dateFormatLength[@type='%fullMedium']/dateFormat%stdPattern"/>
+		<coverageLevel	value="moderate"		match="dates/calendars/calendar[@type='gregorian']/dateFormats/dateFormatLength[@type='%shortLong']/dateFormat%stdPattern"/>
 		<coverageLevel	value="moderate"		match="dates/calendars/calendar[@type='generic']/dateFormats/dateFormatLength[@type='%shortLong']/dateFormat%stdPattern"/>
 		<coverageLevel	value="moderate"	 	match="dates/calendars/calendar[@type='generic']/dateFormats/dateFormatLength[@type='%fullMedium']/dateFormat%stdPattern"/>
 		<coverageLevel	value="moderate"	inTerritory="%chineseCalendarTerritories"	match="dates/calendars/calendar[@type='chinese']/dateFormats/dateFormatLength[@type='%dateTimeFormatLengths']/dateFormat%stdPattern"/>
@@ -361,11 +411,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel	value="moderate"	 	match="dates/calendars/calendar[@type='generic']/dateTimeFormats/dateTimeFormatLength[@type='%dateTimeFormatLengths']/dateTimeFormat%atTimePattern"/>
 		<coverageLevel	value="moderate"	 	match="dates/calendars/calendar[@type='generic']/dateTimeFormats/dateTimeFormatLength[@type='%dateTimeFormatLengths']/dateTimeFormat%relativePattern"/>
 
-		<coverageLevel	value="basic"	 	match="dates/calendars/calendar[@type='(gregorian|iso8601)']/dateTimeFormats/intervalFormats/intervalFormatFallback"/>
+		<coverageLevel	value="basic"	 	match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/intervalFormats/intervalFormatFallback"/>
 		<coverageLevel	value="moderate"	 	match="dates/calendars/calendar[@type='generic']/dateTimeFormats/intervalFormats/intervalFormatFallback"/>
+		<coverageLevel	value="comprehensive"	 	match="dates/calendars/calendar[@type='iso8601']/dateTimeFormats/intervalFormats/intervalFormatFallback"/>
 
-		<coverageLevel	value="basic"	 	match="dates/calendars/calendar[@type='(gregorian|iso8601)']/dateTimeFormats/availableFormats/dateFormatItem[@id='%basicDateSkeletons']"/>
-		<coverageLevel	value="moderate"	 	match="dates/calendars/calendar[@type='(gregorian|iso8601)']/dateTimeFormats/availableFormats/dateFormatItem[@id='%anyAttribute']"/>
+		<coverageLevel	value="basic"	 	match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/availableFormats/dateFormatItem[@id='%basicDateSkeletons']"/>
+		<coverageLevel	value="moderate"	 	match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/availableFormats/dateFormatItem[@id='%anyAttribute']"/>
+		<coverageLevel	value="comprehensive"	 	match="dates/calendars/calendar[@type='iso8601']/dateTimeFormats/availableFormats/dateFormatItem[@id='%anyAttribute']"/>
 
 		<coverageLevel	value="moderate"	 	match="dates/calendars/calendar[@type='gregorian']/eras/eraAbbr/era[@type='(0|1)']"/>
 		<coverageLevel	value="moderate"	 	match="dates/calendars/calendar[@type='gregorian']/eras/eraAbbr/era[@type='(0|1)'][@alt='variant']"/>
@@ -389,10 +441,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel	value="basic"	 	match="dates/timeZoneNames/fallbackFormat"/>
 		<coverageLevel	value="basic"	 	match="dates/timeZoneNames/gmtFormat"/>
 		<coverageLevel	value="basic"	 	match="dates/timeZoneNames/gmtZeroFormat"/>
-		<coverageLevel	value="basic"	 	match="dates/timeZoneNames/gmtUnknownFormat"/>
 		<coverageLevel	value="basic"	 	match="dates/timeZoneNames/hourFormat"/>
 		<coverageLevel	value="basic"	 	match="dates/timeZoneNames/metazone[@type='GMT']/long/standard"/>
 
+		<coverageLevel	value="moderate"	 	match="dates/timeZoneNames/gmtUnknownFormat"/>
 		<coverageLevel	value="moderate"	 	match="dates/timeZoneNames/zone[@type='Etc/UTC']/long/standard"/>
 		<coverageLevel	value="moderate"	 	match="dates/timeZoneNames/zone[@type='Etc/Unknown']/exemplarCity"/>
 		<coverageLevel	value="moderate"	 	match="dates/timeZoneNames/zone[@type='${Target-TimeZones}']/exemplarCity"/>
@@ -662,25 +714,43 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel	value="moderate"	inTerritory="TW"	match="dates/calendars/calendar[@type='roc']/dateFormats/dateFormatLength[@type='%dateTimeFormatLengths']/dateFormat%stdPattern"/>
 
 		<coverageLevel value="moderate" match="localeDisplayNames/languages/language[@type='%language60']"/>
+		<coverageLevel value="moderate" match="localeDisplayNames/languages/language[@type='%language60'][@menu='%anyAttribute']"/>
 		<coverageLevel value="moderate" match="localeDisplayNames/languages/language[@type='%language60'][@alt='%anyAttribute']"/>
+		<coverageLevel value="moderate" match="localeDisplayNames/languages/language[@type='%language60'][@alt='%anyAttribute'][@menu='%anyAttribute']"/>
 		<coverageLevel inTerritory="CF" value="moderate" match="localeDisplayNames/languages/language[@type='sg']"/>
+		<coverageLevel inTerritory="CF" value="moderate" match="localeDisplayNames/languages/language[@type='sg'][@menu='%anyAttribute']"/>
 		<coverageLevel inTerritory="CF" value="moderate" match="localeDisplayNames/languages/language[@type='sg'][@alt='%anyAttribute']"/>
+		<coverageLevel inTerritory="CF" value="moderate" match="localeDisplayNames/languages/language[@type='sg'][@alt='%anyAttribute'][@menu='%anyAttribute']"/>
 		<coverageLevel inTerritory="CG" value="moderate" match="localeDisplayNames/languages/language[@type='(kg|ln)']"/>
+		<coverageLevel inTerritory="CG" value="moderate" match="localeDisplayNames/languages/language[@type='(kg|ln)'][@menu='%anyAttribute']"/>
 		<coverageLevel inTerritory="CG" value="moderate" match="localeDisplayNames/languages/language[@type='(kg|ln)'][@alt='%anyAttribute']"/>
+		<coverageLevel inTerritory="CG" value="moderate" match="localeDisplayNames/languages/language[@type='(kg|ln)'][@alt='%anyAttribute'][@menu='%anyAttribute']"/>
 		<coverageLevel inTerritory="CM" value="moderate" match="localeDisplayNames/languages/language[@type='%language60_CM']"/>
+		<coverageLevel inTerritory="CM" value="moderate" match="localeDisplayNames/languages/language[@type='%language60_CM'][@menu='%anyAttribute']"/>
 		<coverageLevel inTerritory="CM" value="moderate" match="localeDisplayNames/languages/language[@type='%language60_CM'][@alt='%anyAttribute']"/>
+		<coverageLevel inTerritory="CM" value="moderate" match="localeDisplayNames/languages/language[@type='%language60_CM'][@alt='%anyAttribute'][@menu='%anyAttribute']"/>
 		<coverageLevel inTerritory="EU" value="moderate" match="localeDisplayNames/languages/language[@type='%language60_EU']"/>
+		<coverageLevel inTerritory="EU" value="moderate" match="localeDisplayNames/languages/language[@type='%language60_EU'][@menu='%anyAttribute']"/>
 		<coverageLevel inTerritory="EU" value="moderate" match="localeDisplayNames/languages/language[@type='%language60_EU'][@alt='%anyAttribute']"/>
+		<coverageLevel inTerritory="EU" value="moderate" match="localeDisplayNames/languages/language[@type='%language60_EU'][@alt='%anyAttribute'][@menu='%anyAttribute']"/>
 		<coverageLevel inTerritory="GA" value="moderate" match="localeDisplayNames/languages/language[@type='%language60_GA']"/>
+		<coverageLevel inTerritory="GA" value="moderate" match="localeDisplayNames/languages/language[@type='%language60_GA'][@menu='%anyAttribute']"/>
 		<coverageLevel inTerritory="GA" value="moderate" match="localeDisplayNames/languages/language[@type='%language60_GA'][@alt='%anyAttribute']"/>
+		<coverageLevel inTerritory="GA" value="moderate" match="localeDisplayNames/languages/language[@type='%language60_GA'][@alt='%anyAttribute'][@menu='%anyAttribute']"/>
 		<coverageLevel inTerritory="NG" value="moderate" match="localeDisplayNames/languages/language[@type='%language60_NG']"/>
+		<coverageLevel inTerritory="NG" value="moderate" match="localeDisplayNames/languages/language[@type='%language60_NG'][@menu='%anyAttribute']"/>
 		<coverageLevel inTerritory="NG" value="moderate" match="localeDisplayNames/languages/language[@type='%language60_NG'][@alt='%anyAttribute']"/>
+		<coverageLevel inTerritory="NG" value="moderate" match="localeDisplayNames/languages/language[@type='%language60_NG'][@alt='%anyAttribute'][@menu='%anyAttribute']"/>
 		<coverageLevel inTerritory="TD" value="moderate" match="localeDisplayNames/languages/language[@type='%language60_TD']"/>
+		<coverageLevel inTerritory="TD" value="moderate" match="localeDisplayNames/languages/language[@type='%language60_TD'][@menu='%anyAttribute']"/>
 		<coverageLevel inTerritory="TD" value="moderate" match="localeDisplayNames/languages/language[@type='%language60_TD'][@alt='%anyAttribute']"/>
+		<coverageLevel inTerritory="TD" value="moderate" match="localeDisplayNames/languages/language[@type='%language60_TD'][@alt='%anyAttribute'][@menu='%anyAttribute']"/>
 		<coverageLevel value="moderate" match="localeDisplayNames/scripts/script[@type='%script60']"/>
 		<coverageLevel value="moderate" match="localeDisplayNames/territories/territory[@type='%territory60']"/>
 		<coverageLevel inTerritory="EU" value="moderate" match="localeDisplayNames/territories/territory[@type='%territory60_EU']"/>
+		<coverageLevel value="moderate" match="localeDisplayNames/types/type[@key='calendar'][@type='iso8601'][@scope='%A']"/>
 		<coverageLevel value="moderate" match="localeDisplayNames/types/type[@key='calendar'][@type='iso8601']"/>
+		<coverageLevel value="moderate" match="localeDisplayNames/types/type[@key='calendar'][@type='iso8601'][@alt='variant']"/>
 		<coverageLevel value="moderate" match="numbers/currencies/currency[@type='%currency60']/symbol"/>
 		<coverageLevel value="moderate" match="numbers/currencies/currency[@type='%currency60']/symbol[@alt='(narrow|variant)']"/>
 		<coverageLevel value="moderate" match="numbers/currencies/currency[@type='%currency60']/displayName"/>
@@ -936,6 +1006,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel inTerritory="%islamicCalendarTerritories" value="modern" match="dates/calendars/calendar[@type='islamic']/dateTimeFormats/availableFormats/dateFormatItem[@id='%dateFormatItems']"/>
 		<coverageLevel inTerritory="JP" value="modern" match="dates/calendars/calendar[@type='japanese']/dateTimeFormats/availableFormats/dateFormatItem[@id='%dateFormatItems']"/>
 		<coverageLevel inTerritory="TW" value="modern" match="dates/calendars/calendar[@type='roc']/dateTimeFormats/availableFormats/dateFormatItem[@id='%dateFormatItems']"/>
+		<coverageLevel value="comprehensive" match="dates/calendars/calendar[@type='iso8601']/dateTimeFormats/availableFormats/dateFormatItem[@id='%dateFormatItems']"/>
 		<coverageLevel value="moderate" match="dates/calendars/calendar[@type='(gregorian|iso8601)']/dateTimeFormats/intervalFormats/intervalFormatItem[@id='%intervalFormatDateItems']/greatestDifference[@id='%intervalFormatGDiff']"/>
 		<coverageLevel value="moderate" match="dates/calendars/calendar[@type='(gregorian|iso8601)']/dateTimeFormats/intervalFormats/intervalFormatItem[@id='%intervalFormatTimeItems']/greatestDifference[@id='%intervalFormatGDiff']"/>
 		<coverageLevel value="moderate" match="dates/calendars/calendar[@type='generic']/dateTimeFormats/intervalFormats/intervalFormatItem[@id='%intervalFormatDateItems']/greatestDifference[@id='%intervalFormatGDiff']"/>
@@ -948,7 +1019,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="moderate" match="dates/timeZoneNames/metazone[@type='%metazone60']/long/daylight"/>
 		<coverageLevel value="moderate" match="dates/timeZoneNames/metazone[@type='%metazone60_stdonly']/long/standard"/>
 		<coverageLevel inTerritory="AE" value="moderate" match="dates/timeZoneNames/metazone[@type='%metazone60_AE_stdonly']/long/standard"/>
-		<coverageLevel inTerritory="AE" value="moderate" match="dates/timeZoneNames/metazone[@type='%metazone60_AE_stdonly']/short/standard"/>
 
 		<coverageLevel value="moderate" match="listPatterns/listPattern[@type='%anyAlphaNum']/listPatternPart[@type='%anyAlphaNum']"/>
 		<coverageLevel value="moderate" match="numbers/minimalPairs/pluralMinimalPairs[@count='%anyAlphaNum']"/>
@@ -995,25 +1065,42 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="moderate" match="units/unitLength[@type='%unitLengths']/coordinateUnit/displayName"/>
 
 		<coverageLevel value="modern" match="localeDisplayNames/languages/language[@type='%language80']"/>
+		<coverageLevel value="modern" match="localeDisplayNames/languages/language[@type='%language80'][@menu='%anyAttribute']"/>
 		<coverageLevel value="modern" match="localeDisplayNames/languages/language[@type='%language80'][@alt='%anyAttribute']"/>
+		<coverageLevel value="modern" match="localeDisplayNames/languages/language[@type='%language80'][@alt='%anyAttribute'][@menu='%anyAttribute']"/>
 		<coverageLevel value="modern" match="localeDisplayNames/scripts/script[@type='%script80']"/>
 		<coverageLevel value="modern" match="localeDisplayNames/scripts/script[@type='%script80'][@alt='%anyAttribute']"/>
 		<coverageLevel value="modern" match="localeDisplayNames/keys/key[@type='%anyAttribute']"/>
 		<coverageLevel inLanguage="pt" value="modern" match="localeDisplayNames/variants/variant[@type='%ptVariants']"/>
+		<coverageLevel value="modern" match="localeDisplayNames/types/type[@key='collation'][@type='%collationType80'][@scope='%A']"/>
 		<coverageLevel value="modern" match="localeDisplayNames/types/type[@key='collation'][@type='%collationType80']"/>
+		<coverageLevel inLanguage="%collationType80TopLangs" value="modern" match="localeDisplayNames/types/type[@key='collation'][@type='%collationType80ForTopLangs'][@scope='%A']"/>
 		<coverageLevel inLanguage="%collationType80TopLangs" value="modern" match="localeDisplayNames/types/type[@key='collation'][@type='%collationType80ForTopLangs']"/>
+		<coverageLevel value="modern" match="localeDisplayNames/types/type[@key='numbers'][@type='%numberingSystem80'][@scope='%A']"/>
 		<coverageLevel value="modern" match="localeDisplayNames/types/type[@key='numbers'][@type='%numberingSystem80']"/>
+		<coverageLevel value="modern" match="localeDisplayNames/types/type[@key='cf'][@type='%cfTypes'][@scope='%A']"/>
 		<coverageLevel value="modern" match="localeDisplayNames/types/type[@key='cf'][@type='%cfTypes']"/>
+		<coverageLevel value="modern" match="localeDisplayNames/types/type[@key='em'][@type='%emTypes'][@scope='%A']"/>
 		<coverageLevel value="modern" match="localeDisplayNames/types/type[@key='em'][@type='%emTypes']"/>
+		<coverageLevel value="modern" match="localeDisplayNames/types/type[@key='fw'][@type='%fwTypes'][@scope='%A']"/>
 		<coverageLevel value="modern" match="localeDisplayNames/types/type[@key='fw'][@type='%fwTypes']"/>
+		<coverageLevel value="modern" match="localeDisplayNames/types/type[@key='lw'][@type='%lwTypes'][@scope='%A']"/>
 		<coverageLevel value="modern" match="localeDisplayNames/types/type[@key='lw'][@type='%lwTypes']"/>
+		<coverageLevel value="modern" match="localeDisplayNames/types/type[@key='lb'][@type='%lbTypes80'][@scope='%A']"/>
 		<coverageLevel value="modern" match="localeDisplayNames/types/type[@key='lb'][@type='%lbTypes80']"/>
+		<coverageLevel value="modern" match="localeDisplayNames/types/type[@key='hc'][@type='%hcTypes80'][@scope='%A']"/>
 		<coverageLevel value="modern" match="localeDisplayNames/types/type[@key='hc'][@type='%hcTypes80']"/>
+		<coverageLevel value="modern" match="localeDisplayNames/types/type[@key='ms'][@type='%msTypes80'][@scope='%A']"/>
 		<coverageLevel value="modern" match="localeDisplayNames/types/type[@key='ms'][@type='%msTypes80']"/>
+		<coverageLevel value="modern" match="localeDisplayNames/types/type[@key='ss'][@type='%ssTypes'][@scope='%A']"/>
 		<coverageLevel value="modern" match="localeDisplayNames/types/type[@key='ss'][@type='%ssTypes']"/>
+		<coverageLevel value="modern" match="localeDisplayNames/types/type[@key='d0'][@type='%d0Types80'][@scope='%A']"/>
 		<coverageLevel value="modern" match="localeDisplayNames/types/type[@key='d0'][@type='%d0Types80']"/>
+		<coverageLevel value="modern" match="localeDisplayNames/types/type[@key='m0'][@type='%m0Types80'][@scope='%A']"/>
 		<coverageLevel value="modern" match="localeDisplayNames/types/type[@key='m0'][@type='%m0Types80']"/>
+		<coverageLevel value="modern" match="localeDisplayNames/types/type[@key='t0'][@type='%t0Types80'][@scope='%A']"/>
 		<coverageLevel value="modern" match="localeDisplayNames/types/type[@key='t0'][@type='%t0Types80']"/>
+		<coverageLevel value="modern" match="localeDisplayNames/types/type[@key='kr'][@type='(currency|digit|punct|space|symbol)'][@scope='%A']"/>
 		<coverageLevel value="modern" match="localeDisplayNames/types/type[@key='kr'][@type='(currency|digit|punct|space|symbol)']"/>
 		<coverageLevel value="modern" match="dates/calendars/calendar[@type='(gregorian|iso8601)']/dateTimeFormats/intervalFormats/intervalFormatItem[@id='%intervalFormatTimeItemsDayPer']/greatestDifference[@id='%intervalFormatGDiff']"/>
 		<coverageLevel value="modern" match="dates/calendars/calendar[@type='generic']/dateTimeFormats/intervalFormats/intervalFormatItem[@id='%intervalFormatTimeItemsDayPer']/greatestDifference[@id='%intervalFormatGDiff']"/>
@@ -1460,6 +1547,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		
 		<!--  END Other Units -->
 
+		<coverageLevel value="modern" match="localeDisplayNames/types/type[@key='calendar'][@type='%calendarType80'][@scope='%A']"/>
 		<coverageLevel value="modern" match="localeDisplayNames/types/type[@key='calendar'][@type='%calendarType80']"/>
 
 		<coverageLevel value="modern" match="characterLabels/characterLabel[@type='%anyAttribute']"/>

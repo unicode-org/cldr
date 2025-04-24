@@ -17,7 +17,6 @@ import org.eclipse.microprofile.openapi.annotations.parameters.Parameter;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
-import org.json.JSONArray;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
@@ -34,6 +33,7 @@ import org.unicode.cldr.web.SubtypeToURLMap;
 import org.unicode.cldr.web.SurveyForum;
 import org.unicode.cldr.web.UserRegistry.ModifyDenial;
 import org.unicode.cldr.web.api.VoteAPIHelper.VoteEntry;
+import org.unicode.cldr.web.util.JSONArray;
 
 @Path("/voting")
 @Tag(name = "voting", description = "APIs for voting and retrieving vote and row data")

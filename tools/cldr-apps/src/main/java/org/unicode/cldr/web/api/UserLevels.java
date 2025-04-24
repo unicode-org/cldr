@@ -9,9 +9,9 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
-import org.json.JSONObject;
 import org.unicode.cldr.web.CookieSession;
 import org.unicode.cldr.web.UserRegistry;
+import org.unicode.cldr.web.util.JSONObject;
 
 @Path("/userlevels")
 @Tag(name = "userlevels", description = "Get the list of Survey Tool user levels")

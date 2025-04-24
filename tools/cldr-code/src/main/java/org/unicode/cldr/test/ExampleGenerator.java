@@ -312,7 +312,11 @@ public class ExampleGenerator {
                             List.of(
                                     new GregorianCalendar(1989, 0, 10).getTime(),
                                     new GregorianCalendar(2019, 4, 3).getTime()));
-                    put("islamic", List.of(new GregorianCalendar(622, 6, 17).getTime()));
+                    put(
+                            "islamic",
+                            List.of(
+                                    new GregorianCalendar(622, 6, 17).getTime(),
+                                    new GregorianCalendar(622, 6, 12).getTime()));
                     put("chinese", List.of(new GregorianCalendar(-2636, 0, 03).getTime()));
                     put("hebrew", List.of(new GregorianCalendar(-3760, 9, 9).getTime()));
                     put("buddhist", List.of(new GregorianCalendar(-542, 0, 03).getTime()));
@@ -3291,7 +3295,6 @@ public class ExampleGenerator {
                     getLocaleDisplayPattern("localeKeyTypePattern", element, value);
             String localePattern = getLocaleDisplayPattern("localePattern", element, value);
             String localeSeparator = getLocaleDisplayPattern("localeSeparator", element, value);
-
             List<String> locales = new ArrayList<>();
             if (element.equals("localePattern")) {
                 locales.add("uz-AF");
@@ -3329,6 +3332,34 @@ public class ExampleGenerator {
                 return;
             } else {
                 value = setBackground(value);
+
+                String menuAttr = parts.getAttributeValue(-1, "menu");
+                if (menuAttr != null) { // show core plus extension
+                    String core, extension;
+                    XPathParts other = parts.cloneAsThawed();
+                    switch (menuAttr) {
+                        case "core":
+                            core = value;
+                            extension =
+                                    cldrFile.getStringValue(
+                                            other.setAttribute(-1, "menu", "extension").toString());
+                            break;
+                        default:
+                            core =
+                                    cldrFile.getStringValue(
+                                            other.setAttribute(-1, "menu", "core").toString());
+                            extension = value;
+                            break;
+                    }
+                    String localePattern =
+                            getCldrFile()
+                                    .getStringValue(
+                                            "//ldml/localeDisplayNames/localeDisplayPattern/localePattern");
+                    examples.add(
+                            invertBackground(MessageFormat.format(localePattern, core, extension)));
+                    return;
+                }
+
                 String nameType = parts.getElement(3);
 
                 Map<String, String> likely = supplementalDataInfo.getLikelySubtags();
@@ -3449,6 +3480,36 @@ public class ExampleGenerator {
                     examples.add(invertBackground(format(codePattern, value)));
                 }
                 return;
+            }
+        } else if (parts.getElement(-1).equals("type")) {
+            // <keys><key type="collation">Calendar</key>
+            // <types><type key="collation" type="dictionary">Dictionary Sort Order</type>
+            // <types><type key="collation" type="dictionary" scope="core">Dictionary</type>
+            String kpath = "//ldml/localeDisplayNames/keys/key[@type=\"collation\"]";
+            String ktppath = "//ldml/localeDisplayNames/localeDisplayPattern/localeKeyTypePattern";
+            String ktpath =
+                    "//ldml/localeDisplayNames/types/type[@key=\"collation\"][@type=\"dictionary\"]";
+            String ktspath =
+                    "//ldml/localeDisplayNames/types/type[@key=\"collation\"][@type=\"dictionary\"][@scope=\"core\"]";
+            String key = parts.getAttributeValue(-1, "key");
+            String type = parts.getAttributeValue(-1, "type");
+            String scope = parts.getAttributeValue(-1, "scope");
+
+            String keyPath = kpath.replace("collation", key);
+            if (scope == null) {
+                // TBD, show contrast
+            } else {
+                String keyName = getCldrFile().getStringValue(keyPath);
+                examples.add(setBackground(keyName));
+                examples.add(setBackground("   others…"));
+                examples.add(setBackground("   ") + value);
+                examples.add(setBackground("   …others"));
+                String keyTypePattern = getCldrFile().getStringValue(ktppath);
+                String combined =
+                        invertBackground(
+                                MessageFormat.format(
+                                        keyTypePattern, keyName, setBackground(value)));
+                examples.add(combined);
             }
         }
     }

@@ -23,7 +23,7 @@
 			SNAPSHOT for the ICU version that we want, so this should only need updating
 			when the ICU version changes e.g. from 74.0.1, to 74.1, to 75.0.1, then to 75.1.
 			You can use github actions in icu to manually push the latest SNAPSHOT version. -->
-		<icu4j.version>77.1-SNAPSHOT</icu4j.version>
+		<icu4j.version>78.0.1-SNAPSHOT</icu4j.version>
 		<junit.jupiter.version>5.8.2</junit.jupiter.version>
 		<maven-surefire-plugin-version>3.3.1</maven-surefire-plugin-version>
 		<assertj-version>3.26.3</assertj-version>
@@ -119,13 +119,6 @@
 				<groupId>com.sun.activation</groupId>
 				<artifactId>javax.activation</artifactId>
 				<version>1.2.0</version>
-			</dependency>
-
-			<!-- https://mvnrepository.com/artifact/org.json/json -->
-			<dependency>
-				<groupId>org.json</groupId>
-				<artifactId>json</artifactId>
-				<version>20231013</version>
 			</dependency>
 
 			<!-- HTTP client -->
@@ -354,7 +347,7 @@
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>license-maven-plugin</artifactId>
-					<version>2.2.0</version>
+					<version>2.5.0</version>
 				</plugin>
 			</plugins>
 		</pluginManagement>

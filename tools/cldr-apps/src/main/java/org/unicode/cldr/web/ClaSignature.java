@@ -44,6 +44,7 @@ public final class ClaSignature {
     public static final EnumSet<Organization> CLA_ORGS =
             EnumSet.of(
                     Organization.adobe,
+                    Organization.airbnb,
                     Organization.apple,
                     Organization.cherokee,
                     Organization.google,
@@ -51,6 +52,7 @@ public final class ClaSignature {
                     Organization.meta,
                     Organization.microsoft,
                     Organization.mozilla,
+                    Organization.netflix,
                     Organization.sil,
                     Organization.wikimedia,
                     Organization.surveytool);

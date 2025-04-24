@@ -42,11 +42,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 	<characters>
 		<exemplarCharacters>[]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[]</exemplarCharacters>
-		<exemplarCharacters type="numbers">[\- − , . % ‰ + 0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
+		<exemplarCharacters type="numbers">[\- ‑ , . % ‰ + − 0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
 		<exemplarCharacters type="numbers-auxiliary">[]</exemplarCharacters>
-		<exemplarCharacters type="punctuation">[\- ‐ ‑ , ; \: ! ? . ( ) \[ \] \{ \}]</exemplarCharacters>
+		<exemplarCharacters type="punctuation">[\- ‐‑ , ; \: ! ? . ( ) \[ \] \{ \}]</exemplarCharacters>
 		<exemplarCharacters type="punctuation-auxiliary">[]</exemplarCharacters>
-		<exemplarCharacters type="punctuation-person">[\- ‐ ‑ . , /]</exemplarCharacters>
+		<exemplarCharacters type="punctuation-person">[\- ‐‑ , . /]</exemplarCharacters>
 		<ellipsis type="final">{0}…</ellipsis>
 		<ellipsis type="initial">…{0}</ellipsis>
 		<ellipsis type="medial">{0}…{1}</ellipsis>
@@ -1856,6 +1856,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</eraNames>
 					<eraAbbr>
 						<era type="0">AH</era>
+						<era type="1">BH</era>
 					</eraAbbr>
 					<eraNarrow>
 						<alias source="locale" path="../eraAbbr"/>
@@ -3995,12 +3996,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<decimalFormats numberSystem="wcho">
 			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
 		</decimalFormats>
-		<rationalFormats numberSystem="latn">
-			<rationalPattern>{0}⁄{1}</rationalPattern>
-			<integerAndRationalPattern>{0}&#x202F;{1}</integerAndRationalPattern>
-			<integerAndRationalPattern alt="superSub">{0}&#x2060;{1}</integerAndRationalPattern>
-			<rationalUsage>sometimes</rationalUsage>
-		</rationalFormats>
 		<rationalFormats numberSystem="adlm">
 			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
 		</rationalFormats>
@@ -4093,6 +4088,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		</rationalFormats>
 		<rationalFormats numberSystem="laoo">
 			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
+		</rationalFormats>
+		<rationalFormats numberSystem="latn">
+			<rationalPattern>{0}⁄{1}</rationalPattern>
+			<integerAndRationalPattern>{0} {1}</integerAndRationalPattern>
+			<integerAndRationalPattern alt="superSub">{0}⁠{1}</integerAndRationalPattern>
+			<rationalUsage>sometimes</rationalUsage>
 		</rationalFormats>
 		<rationalFormats numberSystem="lepc">
 			<alias source="locale" path="../rationalFormats[@numberSystem='latn']"/>
@@ -5766,6 +5767,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>item</displayName>
 				<unitPattern count="other">{0} item</unitPattern>
 			</unit>
+			<unit type="concentr-part">
+				<displayName>part</displayName>
+				<unitPattern count="other">{0} part</unitPattern>
+			</unit>
 			<unit type="concentr-part-per-1e6">
 				<displayName>ppm</displayName>
 				<unitPattern count="other">{0} ppm</unitPattern>
@@ -5785,6 +5790,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="concentr-mole">
 				<displayName>mol</displayName>
 				<unitPattern count="other">{0} mol</unitPattern>
+			</unit>
+			<unit type="concentr-ofglucose">
+				<displayName>glucose</displayName>
+				<unitPattern count="other">{0} Glc</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>L/km</displayName>
@@ -6227,6 +6236,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>mm Hg</displayName>
 				<unitPattern count="other">{0} mm Hg</unitPattern>
 			</unit>
+			<unit type="pressure-ofhg">
+				<displayName>Hg</displayName>
+				<unitPattern count="other">{0} Hg</unitPattern>
+			</unit>
 			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>psi</displayName>
 				<unitPattern count="other">{0} psi</unitPattern>
@@ -6370,6 +6383,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>mcup</displayName>
 				<unitPattern count="other">{0} mc</unitPattern>
 			</unit>
+			<unit type="volume-fluid-ounce-metric">
+				<displayName>fl oz m.</displayName>
+				<unitPattern count="other">{0} fl oz m.</unitPattern>
+			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>ac ft</displayName>
 				<unitPattern count="other">{0} ac ft</unitPattern>
@@ -6396,9 +6413,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>pt</displayName>
 				<unitPattern count="other">{0} pt</unitPattern>
 			</unit>
+			<unit type="volume-pint-imperial">
+				<displayName>pint Imp.</displayName>
+				<unitPattern count="other">{0} pt Imp.</unitPattern>
+			</unit>
 			<unit type="volume-cup">
 				<displayName>cup</displayName>
 				<unitPattern count="other">{0} c</unitPattern>
+			</unit>
+			<unit type="volume-cup-imperial">
+				<displayName>cup Imp.</displayName>
+				<unitPattern count="other">{0} cup Imp.</unitPattern>
 			</unit>
 			<unit type="volume-fluid-ounce">
 				<displayName>US fl oz</displayName>
@@ -6448,9 +6473,161 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>qt Imp</displayName>
 				<unitPattern count="other">{0} qt Imp.</unitPattern>
 			</unit>
+			<unit type="angle-steradian">
+				<displayName>sr</displayName>
+				<unitPattern count="other">{0} sr</unitPattern>
+			</unit>
+			<unit type="concentr-katal">
+				<displayName>kat</displayName>
+				<unitPattern count="other">{0} kat</unitPattern>
+			</unit>
+			<unit type="electric-coulomb">
+				<displayName>C</displayName>
+				<unitPattern count="other">{0} C</unitPattern>
+			</unit>
+			<unit type="electric-farad">
+				<displayName>F</displayName>
+				<unitPattern count="other">{0} F</unitPattern>
+			</unit>
+			<unit type="electric-henry">
+				<displayName>H</displayName>
+				<unitPattern count="other">{0} H</unitPattern>
+			</unit>
+			<unit type="electric-siemens">
+				<displayName>S</displayName>
+				<unitPattern count="other">{0} S</unitPattern>
+			</unit>
+			<unit type="energy-calorie-it">
+				<displayName>calorie-IT</displayName>
+				<unitPattern count="other">{0} cal-IT</unitPattern>
+			</unit>
+			<unit type="energy-british-thermal-unit-it">
+				<displayName>BTU-IT</displayName>
+				<unitPattern count="other">{0} BTU-IT</unitPattern>
+			</unit>
+			<unit type="energy-becquerel">
+				<displayName>Bq</displayName>
+				<unitPattern count="other">{0} Bq</unitPattern>
+			</unit>
+			<unit type="energy-sievert">
+				<displayName>Sv</displayName>
+				<unitPattern count="other">{0} Sv</unitPattern>
+			</unit>
+			<unit type="energy-gray">
+				<displayName>Gy</displayName>
+				<unitPattern count="other">{0} Gy</unitPattern>
+			</unit>
+			<unit type="force-kilogram-force">
+				<displayName>kgf</displayName>
+				<unitPattern count="other">{0} kgf</unitPattern>
+			</unit>
+			<unit type="length-rod">
+				<displayName>rod</displayName>
+				<unitPattern count="other">{0} rod</unitPattern>
+			</unit>
+			<unit type="length-chain">
+				<displayName>chain</displayName>
+				<unitPattern count="other">{0} chain</unitPattern>
+			</unit>
+			<unit type="magnetic-tesla">
+				<displayName>T</displayName>
+				<unitPattern count="other">{0} T</unitPattern>
+			</unit>
+			<unit type="magnetic-weber">
+				<displayName>Wb</displayName>
+				<unitPattern count="other">{0} Wb</unitPattern>
+			</unit>
+			<unit type="temperature-rankine">
+				<displayName>°R</displayName>
+				<unitPattern count="other">{0} °R</unitPattern>
+			</unit>
+			<unit type="duration-fortnight">
+				<displayName>fortnight</displayName>
+				<unitPattern count="other">{0} fw</unitPattern>
+			</unit>
+			<unit type="mass-slug">
+				<displayName>slug</displayName>
+				<unitPattern count="other">{0} slug</unitPattern>
+			</unit>
+			<unit type="pressure-gasoline-energy-density">
+				<displayName>gas E</displayName>
+				<unitPattern count="other">{0} gas E</unitPattern>
+			</unit>
+			<unit type="length-rin">
+				<displayName>rin [JP]</displayName>
+				<unitPattern count="other">{0} rin [JP]</unitPattern>
+			</unit>
+			<unit type="length-sun">
+				<displayName>sun [JP]</displayName>
+				<unitPattern count="other">{0} sun [JP]</unitPattern>
+			</unit>
+			<unit type="length-shaku-length">
+				<displayName>shaku [JP]</displayName>
+				<unitPattern count="other">{0} shaku [JP]</unitPattern>
+			</unit>
+			<unit type="length-shaku-cloth">
+				<displayName>shaku [cloth, JP]</displayName>
+				<unitPattern count="other">{0} shaku [cloth, JP]</unitPattern>
+			</unit>
+			<unit type="length-ken">
+				<displayName>ken [JP]</displayName>
+				<unitPattern count="other">{0} ken [JP]</unitPattern>
+			</unit>
+			<unit type="length-jo-jp">
+				<displayName>jo [JP]</displayName>
+				<unitPattern count="other">{0} jo [JP]</unitPattern>
+			</unit>
+			<unit type="length-ri-jp">
+				<displayName>ri [JP]</displayName>
+				<unitPattern count="other">{0} ri [JP]</unitPattern>
+			</unit>
+			<unit type="area-bu-jp">
+				<displayName>bu [JP]</displayName>
+				<unitPattern count="other">{0} bu [JP]</unitPattern>
+			</unit>
+			<unit type="area-se-jp">
+				<displayName>se [JP]</displayName>
+				<unitPattern count="other">{0} se [JP]</unitPattern>
+			</unit>
+			<unit type="area-cho">
+				<displayName>cho [JP]</displayName>
+				<unitPattern count="other">{0} cho [JP]</unitPattern>
+			</unit>
+			<unit type="volume-kosaji">
+				<displayName>kosaji [JP]</displayName>
+				<unitPattern count="other">{0} kosaji [JP]</unitPattern>
+			</unit>
+			<unit type="volume-osaji">
+				<displayName>osaji [JP]</displayName>
+				<unitPattern count="other">{0} osaji [JP]</unitPattern>
+			</unit>
+			<unit type="volume-cup-jp">
+				<displayName>cup [JP]</displayName>
+				<unitPattern count="other">{0} cup [JP]</unitPattern>
+			</unit>
+			<unit type="volume-shaku">
+				<displayName>shaku [vol, JP]</displayName>
+				<unitPattern count="other">{0} shaku [vol, JP]</unitPattern>
+			</unit>
+			<unit type="volume-sai">
+				<displayName>sai [JP]</displayName>
+				<unitPattern count="other">{0} sai [JP]</unitPattern>
+			</unit>
+			<unit type="volume-to-jp">
+				<displayName>to [JP]</displayName>
+				<unitPattern count="other">{0} to [JP]</unitPattern>
+			</unit>
+			<unit type="volume-koku">
+				<displayName>koku [JP]</displayName>
+				<unitPattern count="other">{0} koku [JP]</unitPattern>
+			</unit>
 			<unit type="speed-light-speed">
 				<displayName>light</displayName>
 				<unitPattern count="other">{0} light</unitPattern>
+			</unit>
+			<unit type="mass-fun">
+				<displayName>fun [JP]</displayName>
+				<unitPattern count="other">{0} fun [JP]</unitPattern>
 			</unit>
 			<unit type="concentr-part-per-1e9">
 				<displayName>ppb</displayName>
@@ -6461,50 +6638,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} night</unitPattern>
 				<perUnitPattern>{0}/night</perUnitPattern>
 			</unit>
-<unit type='concentr-katal'><displayName>kat</displayName><unitPattern count='other'>{0} kat</unitPattern></unit>
-<unit type='concentr-ofglucose'><displayName>glucose</displayName><unitPattern count='other'>{0} Glc</unitPattern></unit>
-<unit type='duration-fortnight'><displayName>fortnight</displayName><unitPattern count='other'>{0} fw</unitPattern></unit>
-<unit type='electric-farad'><displayName>F</displayName><unitPattern count='other'>{0} F</unitPattern></unit>
-<unit type='electric-coulomb'><displayName>C</displayName><unitPattern count='other'>{0} C</unitPattern></unit>
-<unit type='electric-siemens'><displayName>S</displayName><unitPattern count='other'>{0} S</unitPattern></unit>
-<unit type='electric-henry'><displayName>H</displayName><unitPattern count='other'>{0} H</unitPattern></unit>
-<unit type='energy-british-thermal-unit-it'><displayName>BTU-IT</displayName><unitPattern count='other'>{0} BTU-IT</unitPattern></unit>
-<unit type='energy-calorie-it'><displayName>calorie-IT</displayName><unitPattern count='other'>{0} cal-IT</unitPattern></unit>
-<unit type='force-kilogram-force'><displayName>kgf</displayName><unitPattern count='other'>{0} kgf</unitPattern></unit>
-<unit type='energy-gray'><displayName>Gy</displayName><unitPattern count='other'>{0} Gy</unitPattern></unit>
-<unit type='energy-sievert'><displayName>Sv</displayName><unitPattern count='other'>{0} Sv</unitPattern></unit>
-<unit type='length-chain'><displayName>chain</displayName><unitPattern count='other'>{0} chain</unitPattern></unit>
-<unit type='length-rod'><displayName>rod</displayName><unitPattern count='other'>{0} rod</unitPattern></unit>
-<unit type='magnetic-weber'><displayName>Wb</displayName><unitPattern count='other'>{0} Wb</unitPattern></unit>
-<unit type='magnetic-tesla'><displayName>T</displayName><unitPattern count='other'>{0} T</unitPattern></unit>
-<unit type='mass-slug'><displayName>slug</displayName><unitPattern count='other'>{0} slug</unitPattern></unit>
-<unit type='concentr-part'><displayName>part</displayName><unitPattern count='other'>{0} part</unitPattern></unit>
-<unit type='pressure-ofhg'><displayName>Hg</displayName><unitPattern count='other'>{0} Hg</unitPattern></unit>
-<unit type='energy-becquerel'><displayName>Bq</displayName><unitPattern count='other'>{0} Bq</unitPattern></unit>
-<unit type='angle-steradian'><displayName>sr</displayName><unitPattern count='other'>{0} sr</unitPattern></unit>
-<unit type='temperature-rankine'><displayName>°R</displayName><unitPattern count='other'>{0} °R</unitPattern></unit>
-<unit type='volume-pint-imperial'><displayName>pint Imp.</displayName><unitPattern count='other'>{0} pt Imp.</unitPattern></unit>
-<unit type='volume-cup-imperial'><displayName>cup Imp.</displayName><unitPattern count='other'>{0} cup Imp.</unitPattern></unit>
-<unit type='volume-fluid-ounce-metric'><displayName>fl oz m.</displayName><unitPattern count='other'>{0} fl oz m.</unitPattern></unit>
-<unit type='pressure-gasoline-energy-density'><displayName>gas E</displayName><unitPattern count='other'>{0} gas E</unitPattern></unit>
-<unit type='area-bu-jp'><displayName>bu [JP]</displayName><unitPattern count='other'>{0} bu [JP]</unitPattern></unit>
-<unit type='area-cho'><displayName>cho [JP]</displayName><unitPattern count='other'>{0} cho [JP]</unitPattern></unit>
-<unit type='area-se-jp'><displayName>se [JP]</displayName><unitPattern count='other'>{0} se [JP]</unitPattern></unit>
-<unit type='length-jo-jp'><displayName>jo [JP]</displayName><unitPattern count='other'>{0} jo [JP]</unitPattern></unit>
-<unit type='length-ken'><displayName>ken [JP]</displayName><unitPattern count='other'>{0} ken [JP]</unitPattern></unit>
-<unit type='length-ri-jp'><displayName>ri [JP]</displayName><unitPattern count='other'>{0} ri [JP]</unitPattern></unit>
-<unit type='length-rin'><displayName>rin [JP]</displayName><unitPattern count='other'>{0} rin [JP]</unitPattern></unit>
-<unit type='length-shaku-cloth'><displayName>shaku [cloth, JP]</displayName><unitPattern count='other'>{0} shaku [cloth, JP]</unitPattern></unit>
-<unit type='length-shaku-length'><displayName>shaku [JP]</displayName><unitPattern count='other'>{0} shaku [JP]</unitPattern></unit>
-<unit type='length-sun'><displayName>sun [JP]</displayName><unitPattern count='other'>{0} sun [JP]</unitPattern></unit>
-<unit type='mass-fun'><displayName>fun [JP]</displayName><unitPattern count='other'>{0} fun [JP]</unitPattern></unit>
-<unit type='volume-cup-jp'><displayName>cup [JP]</displayName><unitPattern count='other'>{0} cup [JP]</unitPattern></unit>
-<unit type='volume-koku'><displayName>koku [JP]</displayName><unitPattern count='other'>{0} koku [JP]</unitPattern></unit>
-<unit type='volume-kosaji'><displayName>kosaji [JP]</displayName><unitPattern count='other'>{0} kosaji [JP]</unitPattern></unit>
-<unit type='volume-osaji'><displayName>osaji [JP]</displayName><unitPattern count='other'>{0} osaji [JP]</unitPattern></unit>
-<unit type='volume-sai'><displayName>sai [JP]</displayName><unitPattern count='other'>{0} sai [JP]</unitPattern></unit>
-<unit type='volume-shaku'><displayName>shaku [vol, JP]</displayName><unitPattern count='other'>{0} shaku [vol, JP]</unitPattern></unit>
-<unit type='volume-to-jp'><displayName>to [JP]</displayName><unitPattern count='other'>{0} to [JP]</unitPattern></unit>
 			<coordinateUnit>
 				<displayName>direction</displayName>
 				<coordinateUnitPattern type="east">{0}E</coordinateUnitPattern>

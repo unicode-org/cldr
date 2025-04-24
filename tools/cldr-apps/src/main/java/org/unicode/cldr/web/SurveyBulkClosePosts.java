@@ -6,10 +6,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Logger;
-import org.json.JSONException;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.XMLSource;
+import org.unicode.cldr.web.util.JSONException;
 
 public class SurveyBulkClosePosts {
 

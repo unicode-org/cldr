@@ -10,8 +10,11 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.unicode.cldr.util.CLDRFile;
@@ -117,6 +120,7 @@ public class SearchManager implements Closeable {
 
         /** Mark the search as complete. */
         synchronized void complete() {
+            logger.finest(() -> "completing..");
             if (isComplete || !isOngoing) return;
             isComplete = true;
             isOngoing = false;
@@ -167,20 +171,22 @@ public class SearchManager implements Closeable {
         public void begin() {
             // TODO: could look up cached results here.
 
-            this.future = SurveyThreadManager.getExecutorService().submit(this);
+            future = SurveyThreadManager.getExecutorService().submit(this);
         }
 
         final CLDRLocale EN = CLDRLocale.getInstance("en");
 
         @Override
         public Search call() throws Exception {
+            logger.finest("begin call()");
             // first, simple search of exact values
             addExactMatches(locale);
-
             CLDRLocale cLoc = CLDRLocale.getInstance(locale);
             CLDRLocale parLoc = cLoc.getParent();
             while (response.isEmpty() && parLoc != null) {
-                addExactMatches(parLoc.getBaseName());
+                final String parLocName = parLoc.getBaseName();
+                logger.finest(() -> " trying " + parLocName);
+                addExactMatches(parLocName);
                 parLoc = parLoc.getParent();
             }
 
@@ -192,6 +198,7 @@ public class SearchManager implements Closeable {
                 addExactMatches(EN.getBaseName());
             }
 
+            logger.finest(() -> "completing");
             // All done (for now!)
             response.complete();
 
@@ -199,30 +206,32 @@ public class SearchManager implements Closeable {
         }
 
         private void addCodes(final String locale) {
+            logger.finest(() -> "AddCodes " + locale);
             final CLDRFile resolvedFile = factory.make(locale, true);
+            logger.finest(() -> "AddCodes made resolved " + locale);
+
             for (final String x : resolvedFile.fullIterable()) {
+                final PathHeader ph = phf.fromPath(x);
+                if (!ph.getSurveyToolStatus().visible()) continue; // skip invisible paths
+
                 // match exact xpath
                 if (x.equals(request.value)) {
                     response.addResult(new SearchResult(x, "Exact XPath", locale));
                     return;
                 }
 
-                final PathHeader ph = phf.fromPath(x);
-                if (ph.getCode().equalsIgnoreCase(request.value)) {
-                    response.addResult(new SearchResult(x, "code: " + ph.getCode(), locale));
-                    return;
-                }
-            }
-            // now try partial
-            for (final String x : resolvedFile.fullIterable()) {
                 // match partial xpath
                 if (x.startsWith(request.value)) {
                     response.addResult(new SearchResult(x, "Partial XPath", locale));
                     return;
                 }
 
+                if (ph.getCode().equalsIgnoreCase(request.value)) {
+                    response.addResult(new SearchResult(x, "code: " + ph.getCode(), locale));
+                    return;
+                }
+
                 // partial code
-                final PathHeader ph = phf.fromPath(x);
                 if (ph.getCode().contains(request.value)) {
                     response.addResult(new SearchResult(x, "code: " + ph.getCode(), locale));
                     return;
@@ -231,7 +240,9 @@ public class SearchManager implements Closeable {
         }
 
         private CLDRFile addExactMatches(final String locale) {
+            logger.finest(() -> "AEM " + locale + " on " + factory);
             CLDRFile file = factory.make(locale, false);
+            logger.finest(() -> "AEM called make on " + locale);
             Set<String> xresult = new TreeSet<>();
             file.getPathsWithValue(request.value, "", null, xresult);
             for (final String xpath : xresult) {
@@ -239,6 +250,10 @@ public class SearchManager implements Closeable {
                 if (!file.isHere(xpath)) {
                     continue;
                 }
+
+                final PathHeader ph = phf.fromPath(xpath);
+                if (!ph.getSurveyToolStatus().visible()) continue; // skip invisible paths
+
                 // Add incrementally. A user may get a partial result if they request before we are
                 // done.
                 response.addResult(new SearchResult(xpath, request.value, locale));
@@ -294,11 +309,35 @@ public class SearchManager implements Closeable {
      *
      * @param token
      * @return
+     * @throws TimeoutException
+     * @throws ExecutionException
+     * @throws InterruptedException
      */
-    public SearchResponse getSearch(final String token) {
-        Search s = (Search) searches.getIfPresent(token);
-        if (s == null) return null;
-        return s.response;
+    public SearchResponse getSearch(final String token) throws ExecutionException {
+        final Search s = (Search) searches.getIfPresent(token);
+        if (s == null) return null; // not present
+        try {
+            return s.future.get(1, TimeUnit.SECONDS).response;
+        } catch (InterruptedException | TimeoutException e) {
+            // the exception here isn't interesting
+            logger.log(
+                    Level.FINEST,
+                    () ->
+                            String.format(
+                                    "Search %s was interrupted or timeout, but will return best available result: %s",
+                                    token, e.toString()));
+            return s.response;
+        } catch (ExecutionException e) {
+            logger.log(
+                    Level.WARNING,
+                    e,
+                    () ->
+                            String.format(
+                                    "Search %s had exception %s",
+                                    token, e.getCause().getMessage()));
+            s.response.complete(); // mark as complete
+            throw e;
+        }
     }
 
     /**

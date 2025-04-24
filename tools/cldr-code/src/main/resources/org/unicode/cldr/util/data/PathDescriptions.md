@@ -51,7 +51,7 @@ The name of the language with Unicode language code = {0}. For more information,
 
 - `^//ldml/localeDisplayNames/scripts/script\[@type="([^"]*)"]`
 
-; The name of the script (writing system) with Unicode script code = {0}. For more information, see [Script Names].
+The name of the script (writing system) with Unicode script code = {0}. For more information, see [Script Names].
 
 ### ROOT territory
 
@@ -214,7 +214,7 @@ The _core_ name of the “{2} {1}” — **without the key name**. For more info
 
 - `^//ldml/localeDisplayNames/variants/variant[@type="([^"]*)"]`
 
-The name of the language variant with code {1}”. For more information, please see [Language Names].
+The name of the language variant with code {0}. For more information, please see [Language Names].
 
 ###
 
@@ -542,6 +542,8 @@ Currency format used for numbers of type {2}. For more information, please see [
 
 Format used to indicate a range of numbers. The '{'0'}' and '{'1'}' in the pattern represent the lowest and highest numbers in the range, respectively. For more information, please see [Units Misc Help].
 
+<!-- note: see TestPathDescription.java if you change this text-->
+
 ###
 
 - `^//ldml/numbers/miscPatterns\[@numberSystem="([^"]*)"]/pattern\[@type="atLeast"]`
@@ -831,19 +833,19 @@ Provide the {2} and {3} version of the name for day-of-the-week {4}. For more in
 
 - `^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/eras/eraAbbr/era\[@type="([^"]*)"]`
 
-Provide the format-abbreviated version of the name for era {4}. For more information, please see [Date Time Names].
+Provide the format-abbreviated version of the name for era {2}. For more information, please see [Date Time Names].
 
 ###
 
 - `^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/eras/eraNames/era\[@type="([^"]*)"]`
 
-Provide the format-wide version of the name for era {4}. For more information, please see [Date Time Names].
+Provide the format-wide version of the name for era {1}. For more information, please see [Date Time Names].
 
 ###
 
 - `^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/eras/eraNarrow/era\[@type="([^"]*)"]`
 
-Provide the format-narrow version of the name for era {4}. For more information, please see [Date Time Names].
+Provide the format-narrow version of the name for era {1}. For more information, please see [Date Time Names].
 
 ###
 
@@ -1001,7 +1003,7 @@ The name of the transform “{1}”. For more information, please see [Transform
 
 - `^//ldml/localeDisplayNames/codePatterns/codePattern[@type="([^"]*)"]`
 
-The pattern to be used when displaying a name for a character {1}. For more information, please see [Locale Patterns].
+The pattern to be used when displaying a name for a character {0}. For more information, please see [Locale Patterns].
 
 ###
 

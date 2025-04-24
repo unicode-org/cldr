@@ -66,11 +66,9 @@ More information is available in the [Exemplars section of the Unicode Sets page
 
 ### Locale display names
 
-#### More language names
+#### Languages names which were added or changed in English
 
-As new locales reach Basic Coverage, their language names have been added for locales targeting modern coverage. These include: **TBD**
-
-#### Languages whose English name changed
+As new locales reach Basic Coverage, their language names are added for locales targeting modern coverage. This will be happening the week of April 28th.
 
 - tkl: English name changed to Tokelauan.
 <!-- Let's not add ticket numbers, except for Known Issues — there is already enough for vetters to read, and the tickets will often be confusing to people or take more time to read and puzzle out than is worth it. Fine to leave them in the document, but commented out, for our usage. 
@@ -81,7 +79,6 @@ As new locales reach Basic Coverage, their language names have been added for lo
 There is a new mechanism for better menu names. When you see a **Code** with `-core` or `-extension`, please read [Locale Option Value Names](/translation/displaynames/locale-option-names-key#locale-option-value-names).
 
 #### Scripts
-
 
 There are 5 new scripts for Unicode 17. Currently the names are in English: Beria Erfe, Chisoi, Sidetic, Tai Yo, Tolong Siki.
 Coverage for other languages is at comprehensive. 
@@ -137,7 +134,61 @@ For zone `Etc/Unknown`, the exemplarCity name was changed in English from “Unk
 
 #### Changes to the root and/or English names of many exemplar cities and some metazones
 
-(TBD [CLDR-18249](https://unicode-org.atlassian.net/browse/CLDR-18249)
+Exemplar cities added or changed in English
+
+- Africa/El_Aaiun: El Aaiún
+- Africa/Lome: Lomé
+- Africa/Ndjamena: N’Djamena
+- America/Araguaina: Araguaína
+- America/Argentina/Rio_Gallegos: Río Gallegos
+- America/Argentina/Tucuman: Tucumán
+- America/Belem: Belém
+- America/Bogota: Bogotá
+- America/Cordoba: Córdoba
+- America/Cuiaba: Cuiabá
+- America/Eirunepe: Eirunepé			
+- America/Maceio: Maceió
+- America/Mazatlan: Mazatlán
+- America/Mexico_City: Ciudad de México
+- America/Miquelon: Saint-Pierre
+- America/Santarem: Santarém
+- America/Sao_Paulo: São Paulo
+- Antarctica/Rothera: Rothera Station
+- Antarctica/Palmer: Palmer Land
+- Antarctica/Troll: Troll Station
+- Antarctica/Syowa: Showa Station
+- Antarctica/Mawson: Mawson Station
+- Antarctica/Vostok: Vostok Station
+- Antarctica/Casey: Casey Station
+- Antarctica/DumontDUrville: Dumont d’Urville Station
+- Antarctica/McMurdo: McMurdo Station
+- Asia/Aqtau: Aktau
+- Asia/Hovd: Khovd
+- Asia/Qyzylorda: Kyzylorda
+- Asia/Urumqi: Ürümqi
+- Atlantic/Canary: Canarias
+- Europe/Busingen: Büsingen
+- Europe/Chisinau: Chișinău
+- Europe/Tirane: Tirana
+- Indian/Chagos: Chagos Archipelago
+- Indian/Comoro: Comoros
+- Indian/Kerguelen: Kerguelen Islands
+- Indian/Mahe: Mahé
+- Pacific/Chatham: Chatham Islands
+- Pacific/Galapagos: Galápagos
+- Pacific/Kwajalein: Kwajalein Atoll
+- Pacific/Marquesas: Marquesas Islands
+- Pacific/Midway: Midway Atoll
+- Pacific/Noumea: Nouméa
+- Pacific/Pitcairn: Pitcairn Islands
+- Pacific/Wallis: Wallis & Futuna
+
+Metazones:
+
+- Hovd Time changed to Khovd Time
+- Qyzylorda Time changed to Kyzylorda Time
+
+<!-- [CLDR-18249](https://unicode-org.atlassian.net/browse/CLDR-18249) -->
 
 ### Number formats
 

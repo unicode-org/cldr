@@ -106,13 +106,22 @@ public class PathDescription {
 
     public String getRawDescription(String path, Object context) {
         status.clear();
-        return pathHandling.get(path, context, pathArguments).getSecond();
+        final Pair<String, String> entry = pathHandling.get(path, context, pathArguments);
+        if (entry == null) {
+            return null;
+        }
+        return entry.getSecond();
     }
 
     public String getRawDescription(
             String path, Object context, Output<Finder> matcherFound, Set<String> failures) {
         status.clear();
-        return pathHandling.get(path, context, pathArguments, matcherFound, failures).getSecond();
+        final Pair<String, String> entry =
+                pathHandling.get(path, context, pathArguments, matcherFound, failures);
+        if (entry == null) {
+            return null;
+        }
+        return entry.getSecond();
     }
 
     public String getDescription(String path, String value, Object context) {

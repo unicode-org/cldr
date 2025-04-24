@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 public class TestPathDescription {
     @Test
@@ -27,10 +27,12 @@ public class TestPathDescription {
     }
 
     @ParameterizedTest
-    @CsvSource({
-        // xpath
-        "//ldml/localeDisplayNames/languages/language[@type=\"ml\"]",
-    })
+    @ValueSource(
+            strings = {
+                // xpath
+                "//ldml/localeDisplayNames/languages/language[@type=\"ml\"]",
+                "//ldml/dates/timeZoneNames/zone[@type=\"Asia/Kuching\"]/exemplarCity"
+            })
     public void testPresent(final String xpath) {
         assertNotNull(PathDescription.getPathHandling().get(xpath), () -> xpath);
     }

@@ -21,7 +21,7 @@ When a section below changes, the date will be in the header.
 
 ## Status and Schedule
 
-The Survey Tool is currently being prepared to open for CLDR 48 [General Submission](translation/getting-started/survey-tool-phases#survey-tool-phase-general-submission) in April 2025. The General Submission phase will be followed by the [Vetting phase](translation/getting-started/survey-tool-phases#survey-tool-phase-vetting).
+The Survey Tool is now open for [General Submission](translation/getting-started/survey-tool-phases#survey-tool-phase-general-submission) for CLDR 48. The General Submission phase will be followed by the [Vetting phase](translation/getting-started/survey-tool-phases#survey-tool-phase-vetting) starting on June 11th.
 
 - **Disconnect error**. If you see a persistent Loading error with a disconnect message or other odd behavior, please [empty your cache](translation/getting-started/empty-cache).
 - Survey Tool email notification may be going to your spam folder. Check your spam folder regularly.
@@ -306,8 +306,9 @@ Last updated: 2025-04-23
 
 This list will be updated as fixes are made available in Survey Tool Production. If you find a problem, please [file a ticket](requesting_changes), but please review this list first to avoid creating duplicate tickets.
 
-1. Images for the plain symbols. Non-emoji such as [€](https://st.unicode.org/cldr-apps/v#/fr/OtherSymbols/47925556fd2904b5), √, », ¹, §, ... do not have images in the Info Panel. [CLDR-13477](https://unicode-org.atlassian.net/browse/CLDR-13477) **Workaround**: Look at the Code column; unlike the new emoji, your browser should display them there.
-2. [CLDR-17683](https://unicode-org.atlassian.net/browse/CLDR-17683) - Some items are not able to be flagged for TC review. This is being investigated. Meanwhile, Please enter forum posts meanwhile with any comments.
+1. [CLDR-17829][] some links in the Info panel not displaying properly
+2. Images for the plain symbols. Non-emoji such as [€](https://st.unicode.org/cldr-apps/v#/fr/OtherSymbols/47925556fd2904b5), √, », ¹, §, ... do not have images in the Info Panel. [CLDR-13477](https://unicode-org.atlassian.net/browse/CLDR-13477) **Workaround**: Look at the Code column; unlike the new emoji, your browser should display them there.
+3. [CLDR-17683](https://unicode-org.atlassian.net/browse/CLDR-17683) - Some items are not able to be flagged for TC review. This is being investigated. Meanwhile, Please enter forum posts meanwhile with any comments.
 
 ## Resolved Issues
 
@@ -366,3 +367,4 @@ entry you're editing/vetting. Use it if in doubt.*
 [CLDR-18513]: https://unicode-org.atlassian.net/browse/CLDR-18513
 [CLDR-18423]: https://unicode-org.atlassian.net/browse/CLDR-18423
 [CLDR-17694]: https://unicode-org.atlassian.net/browse/CLDR-17694
+[CLDR-17829]: https://unicode-org.atlassian.net/browse/CLDR-17829

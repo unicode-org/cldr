@@ -888,7 +888,7 @@ The lettercasing should be appropriate for the top example. If the lettercasing 
 
 - `^//ldml/dates/fields/field\[@type="([^"]*)"]/relative\[@type="0"]`
 
-Provide the name for “this {2}”. For more information, please see [Relative Dates].
+Provide the name for “this {1}”. For more information, please see [Relative Dates].
 The lettercasing should be appropriate for the top example. If the lettercasing is then wrong for the bottom example, please file a ticket to fix contextTransforms/relative/stand-alone.
 
 ### Last X
@@ -1031,7 +1031,7 @@ The words that should be ignored in sorting in your language. For more informati
 
 - `^//ldml/dates/timeZoneNames/zone\[@type="([^"]*)"]/([^/]*)/(.*)`
 
-Override for the $3-$2 timezone name for $1. For more information, see [Time Zone City Names].
+Override for the {3}-{2} timezone name for {1}. For more information, see [Time Zone City Names].
 
 ###
 

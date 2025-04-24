@@ -14,7 +14,9 @@ function addDeferredHelpTo(fragment, helpHtml, resource, translationHint) {
     helpHtml = marked(helpHtml);
   }
   // Always have help (if available).
-  const theHelp = $("<div/>", {});
+  const theHelp = $("<div/>", {
+    class: "alert alert-info fix-popover-help",
+  });
   // helpHtml and translationHint are loaded immediately in the DataPage, no separate query needed
   if (
     translationHint &&

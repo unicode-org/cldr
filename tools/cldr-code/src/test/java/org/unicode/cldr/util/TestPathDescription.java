@@ -21,6 +21,9 @@ public class TestPathDescription {
 
         // To print out the regex tree:
         // System.out.println(lookup.toString());
+        assertFalse(
+                parser.getReferences().contains("#h."),
+                "PathDescriptions.md refers to broken anchor #h.… (old Google Sites)");
     }
 
     @ParameterizedTest

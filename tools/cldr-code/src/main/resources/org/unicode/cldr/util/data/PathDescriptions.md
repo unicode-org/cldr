@@ -1077,6 +1077,7 @@ A set of keywords for a character or sequence. For more information, see [Short 
 
 <!--
 This section is appended to every markdown fragment.
+All links should be https://cldr.unicode.org/translation/
 -->
 
 [Characters]: https://cldr.unicode.org/translation/characters
@@ -1086,29 +1087,29 @@ This section is appended to every markdown fragment.
 [Currency Names]: https://cldr.unicode.org/translation/currency-names-and-symbols
 [Date Time]: https://cldr.unicode.org/translation/date-time/date-time-names#datetime-names
 [Date Time Names]: https://cldr.unicode.org/translation/date-time/date-time-names
-[Date/time cyclic names]: https://cldr.unicode.org/translation/date-time/date-time-names#h.h0vy2eyzcj0n
+[Date/time cyclic names]: https://cldr.unicode.org/translation/date-time/date-time-names#non-gregorian-calendar-considerations
 [Date Time Fields]: https://cldr.unicode.org/translation/date-time/date-time-names#date-field-names
-[Month Names]: https://cldr.unicode.org/translation/date-time/date-time-names#h.fww3pfyk0uwn
-[Relative Dates]: https://cldr.unicode.org/translation/date-time/date-time-names#h.aevw0tiix80v
+[Month Names]: https://cldr.unicode.org/translation/date-time/date-time-names#months-of-the-year
+[Relative Dates]: https://cldr.unicode.org/translation/date-time/date-time-names#relative-date-and-time
 [Date Time Patterns]: https://cldr.unicode.org/translation/date-time/date-time-patterns
 [Exemplar Characters]: https://cldr.unicode.org/translation/core-data/exemplars
 [Grammatical Inflection]: https://cldr.unicode.org/translation/grammatical-inflection
-[Key Names]: https://cldr.unicode.org/translation/displaynames/countryregion-territory-names#h.x27jspwj91af
+[Key Names]: https://cldr.unicode.org/translation/displaynames/countryregion-territory-names#geopolitically-sensitive-names
 [Language Names]: https://cldr.unicode.org/translation/displaynames/languagelocale-names
 [Lists]: https://cldr.unicode.org/translation/miscellaneous-displaying-lists
 [Locale Patterns]: https://cldr.unicode.org/translation/displaynames/languagelocale-name-patterns
 [Numbering Systems]: https://cldr.unicode.org/translation/core-data/numbering-systems
 [Numbers]: https://cldr.unicode.org/translation/currency-names-and-symbols
-[Plural Numbers]: https://cldr.unicode.org/translation/number-currency-formats/number-and-currency-patterns#h.mnb2fmj0pt72
-[Short Numbers]: https://cldr.unicode.org/translation/number-currency-formats/number-and-currency-patterns#h.eradhhuxzqqz
-[Number Patterns]: https://cldr.unicode.org/translation/number-currency-formats/number-and-currency-patterns#h.j899g3kk2p1z
+[Plural Numbers]: https://cldr.unicode.org/translation/number-currency-formats/number-and-currency-patterns#plural-forms-of-numbers
+[Short Numbers]: https://cldr.unicode.org/translation/number-currency-formats/number-and-currency-patterns#compact-decimal-formatting
+[Number Patterns]: https://cldr.unicode.org/translation/number-currency-formats/number-and-currency-patterns#types-of-number-patterns
 [Rational Numbers]: https://cldr.unicode.org/translation/number-currency-formats/number-and-currency-patterns#rational-formatting
-[Parse Lenient]: https://cldr.unicode.org/translation/core-data/characters#h.j3x0cwalqgqt
+[Parse Lenient]: https://cldr.unicode.org/translation/core-data/characters#parse-parse-lenient
 [Person Name Formats]: https://cldr.unicode.org/translation/miscellaneous-person-name-formats
 [Plurals]: https://cldr.unicode.org/translation/getting-started/plurals
-[Plural Minimal Pairs]: https://cldr.unicode.org/translation/getting-started/plurals#h.pnla5cp3nl4l
+[Plural Minimal Pairs]: https://cldr.unicode.org/translation/getting-started/plurals#minimal-pairs
 [Script Names]: https://cldr.unicode.org/translation/displaynames/script-names
-[Short Character Names]: https://cldr.unicode.org/translation/characters/short-names-and-keywords#h.4a8wthj27m74
+[Short Character Names]: https://cldr.unicode.org/translation/characters/short-names-and-keywords#short-character-names
 [Transforms]: https://cldr.unicode.org/translation/transforms
 [Typography]: https://cldr.unicode.org/translation/characters/typographic-names
 [Time Zone City Names]: https://cldr.unicode.org/translation/time-zones-and-city-names

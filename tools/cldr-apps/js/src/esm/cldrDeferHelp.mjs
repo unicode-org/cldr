@@ -2,6 +2,7 @@
  * cldrDeferHelp: encapsulate code related to showing language descriptions in the Info Panel
  */
 import { marked } from "./cldrMarked.mjs";
+import * as cldrDom from "./cldrDom.mjs";
 const defaultEndpoint = "https://dbpedia.org/sparql/";
 const format = "JSON";
 const abstractLang = "en";
@@ -45,7 +46,7 @@ function addDeferredHelpTo(fragment, helpHtml, resource, translationHint) {
     const absDiv = subloadAbstract(resource);
     theHelp.append(absDiv);
   }
-
+  cldrDom.setDocTargets(theHelp[0]); // apply to DOM object, not jQuery object
   $(fragment).append(theHelp);
 }
 

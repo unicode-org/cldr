@@ -4,6 +4,7 @@ import java.io.File;
 import java.time.Instant;
 import java.util.logging.Logger;
 import org.apache.jena.sparql.lang.sparql_11.ParseException;
+import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.rdf.AbstractCache;
 import org.unicode.cldr.rdf.MapAll;
 import org.unicode.cldr.util.CLDRCacheDir;
@@ -25,7 +26,15 @@ class AbstractCacheManager {
             return null;
         }
 
-        return cache.get(xpath);
+        String response = cache.get(xpath);
+        if (response == null && xpath.contains(LDMLConstants.ALT)) {
+            // try with alt removed
+            final String removed = XPathTable.removeAlt(xpath);
+            if (!removed.equals(xpath)) {
+                response = cache.get(removed);
+            }
+        }
+        return response;
     }
 
     public boolean setup = false;

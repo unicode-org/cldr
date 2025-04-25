@@ -3104,10 +3104,10 @@ public class ExampleGenerator {
     private void handleEras(XPathParts parts, String value, List<String> examples) {
         String calendarId = parts.getAttributeValue(3, "type");
         String type = parts.getAttributeValue(-1, "type");
-        String id =
-                (calendarId.startsWith("islamic"))
-                        ? "islamic"
-                        : calendarId; // islamic variations map to same sample
+        String id = calendarId;
+        if (id.equals("generic") || id.equals("iso8601")) {
+            id = "gregorian"; // use Gregorian eras, 'generic' is not in the data
+        }
         final SupplementalCalendarData.CalendarData calendarData =
                 supplementalDataInfo.getCalendarData().get(id);
 
@@ -3123,21 +3123,48 @@ public class ExampleGenerator {
         GregorianCalendar startCal = forDateString(eraData.getStart());
         GregorianCalendar endCal = forDateString(eraData.getEnd());
 
-        if (startCal == null && endCal == null) return; // no data
+        final SupplementalCalendarData.EraData prevEra = calendarData.get(typeIndex - 1);
+        final SupplementalCalendarData.EraData nextEra = calendarData.get(typeIndex + 1);
 
-        if (startCal != null && endCal != null) {
-            // go 2 days before end
-            endCal.roll(Calendar.JULIAN_DAY, -2);
-            if (endCal.before(startCal)) {
-                endCal = startCal;
-            }
-        } else if (startCal == null) {
-            endCal.roll(Calendar.JULIAN_DAY, -2);
-        } else if (endCal == null) {
-            endCal = forDateString("2002-07-15"); // CLDR repo root commit
+        if (startCal == null && prevEra != null && prevEra.getEnd() != null) {
+            startCal = forDateString(prevEra.getEnd());
+            // shift forward so we are in the next era
+            startCal.setTimeInMillis(startCal.getTimeInMillis() + (DateConstants.MILLIS_PER_DAY));
+        }
+        if (endCal == null && nextEra != null && nextEra.getStart() != null) {
+            endCal = forDateString(nextEra.getStart());
+            // shift backward so we are in the prev era
+            endCal.setTimeInMillis(endCal.getTimeInMillis() - (DateConstants.MILLIS_PER_DAY));
         }
 
-        final Date sample = endCal.getTime();
+        GregorianCalendar sampleDate = null;
+
+        if (startCal != null && endCal != null) {
+            // roll back a day to not hit the edge
+            sampleDate = endCal;
+            sampleDate.setTimeInMillis(
+                    sampleDate.getTimeInMillis() - (DateConstants.MILLIS_PER_DAY));
+        } else if (startCal == null && endCal != null) {
+            // roll back a day to not hit the edge
+            sampleDate = endCal;
+            sampleDate.setTimeInMillis(
+                    sampleDate.getTimeInMillis() - (DateConstants.MILLIS_PER_DAY));
+        } else if (startCal != null && endCal == null) {
+            sampleDate = forDateString("2002-07-15"); // CLDR repo root commit
+            if (sampleDate.before(startCal)) {
+                sampleDate = startCal;
+                sampleDate.setTimeInMillis(
+                        sampleDate.getTimeInMillis() + (DateConstants.MILLIS_PER_DAY));
+            }
+        } else {
+            // System.err.println("No good date for " + eraData);
+            // TODO: should be an error in TestSupplementalDataInfo
+            sampleDate = null;
+        }
+
+        if (sampleDate == null) return; // could not find the time
+
+        final Date sample = sampleDate.getTime();
 
         String skeleton = "Gy";
         String checkPath =

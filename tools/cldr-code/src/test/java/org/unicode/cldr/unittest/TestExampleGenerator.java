@@ -1734,7 +1734,7 @@ public class TestExampleGenerator extends TestFmwk {
         ExampleGenerator exampleGeneratorZh = getExampleGenerator("zh");
         checkValue(
                 "japanese type=235 abbreviated",
-                "〖平成1年〗",
+                "〖平成31年〗",
                 exampleGeneratorJa,
                 "//ldml/dates/calendars/calendar[@type=\"japanese\"]/eras/eraAbbr/era[@type=\"235\"]");
         checkValue(
@@ -1749,7 +1749,7 @@ public class TestExampleGenerator extends TestFmwk {
                 "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/eras/eraNames/era[@type=\"0\"][@alt=\"variant\"]");
         checkValue(
                 "roc type=1 abbreviated",
-                "〖民国1年〗",
+                "〖民国91年〗",
                 exampleGeneratorZh,
                 "//ldml/dates/calendars/calendar[@type=\"roc\"]/eras/eraAbbr/era[@type=\"1\"]");
     }

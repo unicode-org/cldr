@@ -1,6 +1,7 @@
 package org.unicode.cldr.util;
 
 import com.ibm.icu.impl.locale.XCldrStub.ImmutableMap;
+import com.ibm.icu.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -10,7 +11,7 @@ import org.unicode.cldr.icu.LDMLConstants;
 
 public class SupplementalCalendarData implements Iterable<String> {
     /** an <era> element */
-    public static class EraData {
+    public static class EraData implements Comparable<EraData> {
         static final int INDEX = 4; // index of our element
 
         /** the <era> xpath */
@@ -33,6 +34,14 @@ public class SupplementalCalendarData implements Iterable<String> {
             return xpath.getAttributeValue(INDEX, LDMLConstants.END);
         }
 
+        public GregorianCalendar getStartCalendar() {
+            return forDateString(getStart());
+        }
+
+        public GregorianCalendar getEndCalendar() {
+            return forDateString(getEnd());
+        }
+
         public String getCode() {
             return xpath.getAttributeValue(INDEX, LDMLConstants.CODE);
         }
@@ -48,6 +57,44 @@ public class SupplementalCalendarData implements Iterable<String> {
             return String.format(
                     "ERA %d, [%s-%s] code=%s, aliases=%s",
                     getType(), getStart(), getEnd(), getCode(), String.join(",", getAliases()));
+        }
+
+        private static final GregorianCalendar forDateString(String ymd) {
+            if (ymd == null) return null;
+            int multiplier = 1;
+            if (ymd.startsWith("-")) {
+                multiplier = -1;
+                ymd = ymd.substring(1);
+            }
+            final String[] parts = ymd.split("-");
+            try {
+                return new GregorianCalendar(
+                        multiplier * Integer.parseInt(parts[0]),
+                        Integer.parseInt(parts[1]) - 1,
+                        Integer.parseInt(parts[2]));
+            } catch (NumberFormatException nfe) {
+                throw new IllegalArgumentException("While parsing date string " + ymd, nfe);
+            }
+        }
+
+        private GregorianCalendar getLatest() {
+            GregorianCalendar l = getEndCalendar();
+            if (l == null) l = getStartCalendar();
+            return l;
+        }
+
+        /** only works within the same cal system */
+        @Override
+        public int compareTo(EraData o) {
+            final GregorianCalendar l = getLatest();
+            final GregorianCalendar ol = o.getLatest();
+            if (l == null || ol == null) {
+                // compare by id
+                return Integer.compare(getType(), o.getType());
+            } else {
+                // compare by date
+                return l.compareTo(ol);
+            }
         }
     }
 

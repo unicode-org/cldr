@@ -3120,19 +3120,34 @@ public class ExampleGenerator {
         if (eraData == null) {
             return; // no era data
         }
-        GregorianCalendar startCal = forDateString(eraData.getStart());
-        GregorianCalendar endCal = forDateString(eraData.getEnd());
+        GregorianCalendar startCal = eraData.getStartCalendar();
+        GregorianCalendar endCal = eraData.getEndCalendar();
 
-        final SupplementalCalendarData.EraData prevEra = calendarData.get(typeIndex - 1);
-        final SupplementalCalendarData.EraData nextEra = calendarData.get(typeIndex + 1);
+        final SupplementalCalendarData.EraData eminusone = calendarData.get(typeIndex - 1);
+        final SupplementalCalendarData.EraData eplusone = calendarData.get(typeIndex + 1);
+
+        SupplementalCalendarData.EraData prevEra = null;
+        SupplementalCalendarData.EraData nextEra = null;
+
+        // see if we can find the 'prev' and 'next' era by date
+        if (eminusone != null && eminusone.compareTo(eraData) < 0) {
+            prevEra = eminusone;
+        } else if (eplusone != null && eplusone.compareTo(eraData) < 0) {
+            prevEra = eplusone;
+        }
+        if (eminusone != null && eminusone.compareTo(eraData) > 0) {
+            nextEra = eminusone;
+        } else if (eplusone != null && eplusone.compareTo(eraData) > 0) {
+            nextEra = eplusone;
+        }
 
         if (startCal == null && prevEra != null && prevEra.getEnd() != null) {
-            startCal = forDateString(prevEra.getEnd());
+            startCal = prevEra.getEndCalendar();
             // shift forward so we are in the next era
             startCal.setTimeInMillis(startCal.getTimeInMillis() + (DateConstants.MILLIS_PER_DAY));
         }
         if (endCal == null && nextEra != null && nextEra.getStart() != null) {
-            endCal = forDateString(nextEra.getStart());
+            endCal = nextEra.getStartCalendar();
             // shift backward so we are in the prev era
             endCal.setTimeInMillis(endCal.getTimeInMillis() - (DateConstants.MILLIS_PER_DAY));
         }
@@ -3150,7 +3165,7 @@ public class ExampleGenerator {
             sampleDate.setTimeInMillis(
                     sampleDate.getTimeInMillis() - (DateConstants.MILLIS_PER_DAY));
         } else if (startCal != null && endCal == null) {
-            sampleDate = forDateString("2002-07-15"); // CLDR repo root commit
+            sampleDate = new GregorianCalendar(2002, 6, 15); // CLDR repo root commit
             if (sampleDate.before(startCal)) {
                 sampleDate = startCal;
                 sampleDate.setTimeInMillis(
@@ -3181,24 +3196,6 @@ public class ExampleGenerator {
         dfs.setEras(eraNames);
         sdf.setDateFormatSymbols(dfs);
         examples.add(sdf.format(sample));
-    }
-
-    private GregorianCalendar forDateString(String ymd) {
-        if (ymd == null) return null;
-        int multiplier = 1;
-        if (ymd.startsWith("-")) {
-            multiplier = -1;
-            ymd = ymd.substring(1);
-        }
-        final String[] parts = ymd.split("-");
-        try {
-            return new GregorianCalendar(
-                    multiplier * Integer.parseInt(parts[0]),
-                    Integer.parseInt(parts[1]) - 1,
-                    Integer.parseInt(parts[2]));
-        } catch (NumberFormatException nfe) {
-            throw new IllegalArgumentException("While parsing date string " + ymd, nfe);
-        }
     }
 
     /**

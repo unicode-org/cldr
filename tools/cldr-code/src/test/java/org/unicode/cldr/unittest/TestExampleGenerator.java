@@ -1961,7 +1961,7 @@ public class TestExampleGenerator extends TestFmwk {
                     continue;
                 }
                 Level level = SDI.getCoverageLevel(xpath, "en");
-                if (level.compareTo(Level.COMPREHENSIVE) == 0) {
+                if (level.isAtLeast(Level.COMPREHENSIVE)) {
                     continue;
                 }
                 String starred = ps.set(xpath);

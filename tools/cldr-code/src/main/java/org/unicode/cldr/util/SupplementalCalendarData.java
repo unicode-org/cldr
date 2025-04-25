@@ -10,7 +10,7 @@ import org.unicode.cldr.icu.LDMLConstants;
 
 public class SupplementalCalendarData implements Iterable<String> {
     /** an <era> element */
-    static class EraData {
+    public static class EraData {
         static final int INDEX = 4; // index of our element
 
         /** the <era> xpath */
@@ -52,7 +52,7 @@ public class SupplementalCalendarData implements Iterable<String> {
     }
 
     /** a <calendar type=> element */
-    static class CalendarData implements Iterable<Integer> {
+    public static class CalendarData implements Iterable<Integer> {
         static final int INDEX = 3; // index of our element
 
         /** the <calendarSystem> xpath */

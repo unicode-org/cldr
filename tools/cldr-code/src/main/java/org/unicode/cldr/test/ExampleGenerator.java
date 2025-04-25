@@ -81,6 +81,7 @@ import org.unicode.cldr.util.Rational;
 import org.unicode.cldr.util.Rational.FormatStyle;
 import org.unicode.cldr.util.ScriptToExemplars;
 import org.unicode.cldr.util.SimpleUnicodeSetFormatter;
+import org.unicode.cldr.util.SupplementalCalendarData;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.CurrencyNumberInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
@@ -292,58 +293,6 @@ public class ExampleGenerator {
     private final boolean isRTL;
 
     HelpMessages helpMessages;
-
-    /* For each calendar type, maps the closest two eras to 2025
-     * defined in that calendar to their corresponding start/end date.
-     * Dates are adjusted to be 2 days after official era start date and
-     * 2 days before era end date to avoid time zone issues.
-     * TODO: include methods for calendarData in supplementalDataInfo API
-     * to extract this data directly from supplementaldata.xml
-     */
-    public static final Map<String, List<Date>> CALENDAR_ERAS =
-            new HashMap<>() {
-                { // month 0-indexed. start/end days adjusted by +/- 2, respectively
-                    put(
-                            "gregorian",
-                            List.of(
-                                    new GregorianCalendar(0, 11, 29).getTime(),
-                                    new GregorianCalendar(1, 0, 03).getTime()));
-                    put(
-                            "japanese",
-                            List.of(
-                                    new GregorianCalendar(1989, 0, 10).getTime(),
-                                    new GregorianCalendar(2019, 4, 3).getTime()));
-                    put(
-                            "islamic",
-                            List.of(
-                                    new GregorianCalendar(622, 6, 17).getTime(),
-                                    new GregorianCalendar(622, 6, 12).getTime()));
-                    put("chinese", List.of(new GregorianCalendar(-2636, 0, 03).getTime()));
-                    put("hebrew", List.of(new GregorianCalendar(-3760, 9, 9).getTime()));
-                    put("buddhist", List.of(new GregorianCalendar(-542, 0, 03).getTime()));
-                    put(
-                            "coptic",
-                            List.of(
-                                    new GregorianCalendar(284, 07, 26).getTime(),
-                                    new GregorianCalendar(284, 07, 31).getTime()));
-                    put("persian", List.of(new GregorianCalendar(622, 0, 03).getTime()));
-                    put("dangi", List.of(new GregorianCalendar(-2332, 0, 03).getTime()));
-                    put(
-                            "ethiopic",
-                            List.of(
-                                    new GregorianCalendar(8, 07, 26).getTime(),
-                                    new GregorianCalendar(8, 07, 31).getTime()));
-                    put(
-                            "ethiopic-amete-alem",
-                            List.of(new GregorianCalendar(-5492, 07, 27).getTime()));
-                    put("indian", List.of(new GregorianCalendar(79, 0, 03).getTime()));
-                    put(
-                            "roc",
-                            List.of(
-                                    new GregorianCalendar(1911, 11, 29).getTime(),
-                                    new GregorianCalendar(1912, 0, 03).getTime()));
-                }
-            };
 
     // map relativeTimePattern counts to possible numeric examples.
     // For few , many, and other there is not a single number that is in that category for
@@ -3151,10 +3100,7 @@ public class ExampleGenerator {
                         setBackground(dateFormat.format(DATE_SAMPLE2))));
     }
 
-    /**
-     * Add examples for eras. First checks if there is info for this calendar type and this era type
-     * in the CALENDAR_ERAS map, then generates a sample date based on this info and formats it
-     */
+    /** Add examples for eras. Generates a sample date based on this info and formats it */
     private void handleEras(XPathParts parts, String value, List<String> examples) {
         String calendarId = parts.getAttributeValue(3, "type");
         String type = parts.getAttributeValue(-1, "type");
@@ -3162,19 +3108,37 @@ public class ExampleGenerator {
                 (calendarId.startsWith("islamic"))
                         ? "islamic"
                         : calendarId; // islamic variations map to same sample
-        if (!CALENDAR_ERAS.containsKey(id)) {
-            return;
+        final SupplementalCalendarData.CalendarData calendarData =
+                supplementalDataInfo.getCalendarData().get(id);
+
+        if (calendarData == null) {
+            throw new IllegalArgumentException("Could not load supplementalCalendarData for " + id);
         }
-        int typeIndex = Integer.parseInt(type);
-        if (calendarId.equals("japanese")) {
-            if (typeIndex < 235) { // examples only for 2 most recent eras
-                return;
-            } else {
-                typeIndex %= 235; // map to length 2 list
+        final int typeIndex = Integer.parseInt(type);
+
+        final SupplementalCalendarData.EraData eraData = calendarData.get(typeIndex);
+        if (eraData == null) {
+            return; // no era data
+        }
+        GregorianCalendar startCal = forDateString(eraData.getStart());
+        GregorianCalendar endCal = forDateString(eraData.getEnd());
+
+        if (startCal == null && endCal == null) return; // no data
+
+        if (startCal != null && endCal != null) {
+            // go 2 days before end
+            endCal.roll(Calendar.JULIAN_DAY, -2);
+            if (endCal.before(startCal)) {
+                endCal = startCal;
             }
+        } else if (startCal == null) {
+            endCal.roll(Calendar.JULIAN_DAY, -2);
+        } else if (endCal == null) {
+            endCal = forDateString("2002-07-15"); // CLDR repo root commit
         }
-        List<Date> eraDates = CALENDAR_ERAS.get(id);
-        Date sample = eraDates.get(typeIndex);
+
+        final Date sample = endCal.getTime();
+
         String skeleton = "Gy";
         String checkPath =
                 "//ldml/dates/calendars/calendar[@type=\""
@@ -3190,6 +3154,24 @@ public class ExampleGenerator {
         dfs.setEras(eraNames);
         sdf.setDateFormatSymbols(dfs);
         examples.add(sdf.format(sample));
+    }
+
+    private GregorianCalendar forDateString(String ymd) {
+        if (ymd == null) return null;
+        int multiplier = 1;
+        if (ymd.startsWith("-")) {
+            multiplier = -1;
+            ymd = ymd.substring(1);
+        }
+        final String[] parts = ymd.split("-");
+        try {
+            return new GregorianCalendar(
+                    multiplier * Integer.parseInt(parts[0]),
+                    Integer.parseInt(parts[1]) - 1,
+                    Integer.parseInt(parts[2]));
+        } catch (NumberFormatException nfe) {
+            throw new IllegalArgumentException("While parsing date string " + ymd, nfe);
+        }
     }
 
     /**

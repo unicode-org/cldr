@@ -65,6 +65,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
+import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.tool.SubdivisionNames;
@@ -1447,6 +1448,9 @@ public class SupplementalDataInfo {
                     if (handleTerritoryInfo(parts)) {
                         return;
                     }
+                } else if (level1.equals(LDMLConstants.CALENDAR_DATA)) {
+                    calendarDataParser.accept(parts);
+                    return;
                 } else if (level1.equals("calendarPreferenceData")) {
                     handleCalendarPreferenceData(parts);
                     return;
@@ -2554,6 +2558,13 @@ public class SupplementalDataInfo {
     private Set<String> languageNonTcLtBasic = new TreeSet<>();
 
     private Set<String> CLDRScriptCodes;
+
+    private final SupplementalCalendarData.Parser calendarDataParser =
+            new SupplementalCalendarData.Parser();
+
+    public SupplementalCalendarData getCalendarData() {
+        return calendarDataParser.get();
+    }
 
     /**
      * Get the population data for a language. Warning: if the language has script variants, cycle

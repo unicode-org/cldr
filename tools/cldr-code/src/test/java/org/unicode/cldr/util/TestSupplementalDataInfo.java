@@ -90,4 +90,34 @@ public class TestSupplementalDataInfo {
             }
         }
     }
+
+    @Test
+    void TestCalendarData() {
+        final SupplementalDataInfo sdi = CLDRConfig.getInstance().getSupplementalDataInfo();
+
+        SupplementalCalendarData cal = sdi.getCalendarData();
+
+        assertNotNull(cal);
+
+        // dumpCalendarData(cal);
+        assertNotNull(cal.get("gregorian"));
+        assertNotNull(cal.get("japanese"));
+        assertEquals("solar", cal.get("gregorian").getSystemType());
+        assertEquals("717-11-17", cal.get("japanese").get(8).getStart());
+    }
+
+    // private void dumpCalendarData(SupplementalCalendarData cal) {
+    //     for(final String calType : cal) {
+    //         System.out.println("Calendar: " + calType);
+    //         final CalendarData c = cal.get(calType);
+    //         assertNotNull(c, calType);
+    //         System.out.println("  system : " + c.getSystemType());
+    //         System.out.println("  inherit: " + c.getInheritEras());
+    //         for (final Integer n : c) {
+    //             System.out.println("* " + n);
+    //             final EraData e = c.get(n);
+    //             System.out.println("   " + e);
+    //         }
+    //     }
+    // }
 }

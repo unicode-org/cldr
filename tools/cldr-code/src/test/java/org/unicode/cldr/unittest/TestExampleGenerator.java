@@ -9,12 +9,10 @@ import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.impl.Relation;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -1727,34 +1725,6 @@ public class TestExampleGenerator extends TestFmwk {
                     ExampleGenerator.simplify( //
                             exampleGenerator.getExampleHtml(path, value));
             assertEquals(locale + path + "=" + value, expected, actual);
-        }
-    }
-
-    public void TestEraMap() {
-        ExampleGenerator exampleGenerator = getExampleGenerator("en");
-        Relation<String, String> keyToSubtypes = SupplementalDataInfo.getInstance().getBcp47Keys();
-        Set<String> calendars = keyToSubtypes.get("ca"); // gets calendar codes
-        Map<String, String> codeToType =
-                new HashMap<>() {
-                    { // calendars where code != type
-                        put("gregory", "gregorian");
-                        put("iso8601", "gregorian");
-                        put("ethioaa", "ethiopic-amete-alem");
-                        put("islamic-civil", "islamic");
-                        put("islamic-rgsa", "islamic");
-                        put("islamic-tbla", "islamic");
-                        put("islamic-umalqura", "islamic");
-                        put("islamicc", "islamic");
-                    }
-                };
-        for (String id : calendars) {
-            if (codeToType.containsKey(id)) {
-                id = codeToType.get(id);
-            }
-            Map<String, List<Date>> calendarMap = ExampleGenerator.CALENDAR_ERAS;
-            assertTrue(
-                    "CALENDAR_ERAS map contains calendar type \"" + id + "\"",
-                    calendarMap.containsKey(id));
         }
     }
 

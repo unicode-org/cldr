@@ -4,19 +4,20 @@ The most effective way to contribute to CLDR locale data is by means of an autho
 This provides the ability to have multiple vetters (aka Survey Tool contributors), and manage those vetters independently of the CLDR Technical Committee:
 adding adding or locking vetters and tracking vetter progress.
 In addition, the vetters in a CLDR Organization get increased voting weight: 4 times the weight of a guest vetter.
-Typically a CLDR Organization is limited to a single language; but in certain cases that limitation is raised.
+Typically a CLDR Organization is limited by the CLDR TC to a fixed set of languages; this is often a single language, but sometimes more than one.
 
 ## Expectations
 In turn, each CLDR Organization also has the responsibility of managing its vetters, resolving any disputes between _its_ vetters, 
 responding to requests from members of the CLDR Technical Committee, 
 and working with _other_ CLDR Organizations to resolve any disputes via the Survey Tool forum.
-It must agree to use native speakers, who must agree to follow the guidance provided by the Survey Tool documentation, 
+It must agree to use native speakers or people who work with native speakers,
+who must agree to follow the guidance provided by the Survey Tool documentation, 
 including follow [customary modern use](https://cldr.unicode.org/index/cldr-spec/definitions) for the language, 
 and work to resolve conflicts within the Organization and between Organizations.
 
-CLDR Organzations may contract with a [language service company](https://www.nimdzi.com/nimdzi-100-2025#ranking-of-the-top-100-lsps) for vetters
-or authorize another entity (such as a community organization) to handle their contributions, 
-while others provide use their own staff, or organize volunteers.
+CLDR Organzations may contract with a [language service company](https://www.nimdzi.com/nimdzi-100-2025#ranking-of-the-top-100-lsps)
+or another entity such as a community organization to handle their contributions, 
+while others use their own staff, or organize volunteers.
 
 ## Becoming a CLDR Organization
 

@@ -3144,12 +3144,13 @@ public class ExampleGenerator {
         if (startCal == null && prevEra != null && prevEra.getEnd() != null) {
             startCal = prevEra.getEndCalendar();
             // shift forward so we are in the next era
-            startCal.setTimeInMillis(startCal.getTimeInMillis() + (DateConstants.MILLIS_PER_DAY));
+            startCal.setTimeInMillis(
+                    startCal.getTimeInMillis() + DateConstants.MILLIS_PER_TWO_DAYS);
         }
         if (endCal == null && nextEra != null && nextEra.getStart() != null) {
             endCal = nextEra.getStartCalendar();
             // shift backward so we are in the prev era
-            endCal.setTimeInMillis(endCal.getTimeInMillis() - (DateConstants.MILLIS_PER_DAY));
+            endCal.setTimeInMillis(endCal.getTimeInMillis() - DateConstants.MILLIS_PER_TWO_DAYS);
         }
 
         GregorianCalendar sampleDate = null;
@@ -3158,18 +3159,18 @@ public class ExampleGenerator {
             // roll back a day to not hit the edge
             sampleDate = endCal;
             sampleDate.setTimeInMillis(
-                    sampleDate.getTimeInMillis() - (DateConstants.MILLIS_PER_DAY));
+                    sampleDate.getTimeInMillis() - DateConstants.MILLIS_PER_TWO_DAYS);
         } else if (startCal == null && endCal != null) {
             // roll back a day to not hit the edge
             sampleDate = endCal;
             sampleDate.setTimeInMillis(
-                    sampleDate.getTimeInMillis() - (DateConstants.MILLIS_PER_DAY));
+                    sampleDate.getTimeInMillis() - DateConstants.MILLIS_PER_TWO_DAYS);
         } else if (startCal != null && endCal == null) {
             sampleDate = new GregorianCalendar(2002, 6, 15); // CLDR repo root commit
             if (sampleDate.before(startCal)) {
                 sampleDate = startCal;
                 sampleDate.setTimeInMillis(
-                        sampleDate.getTimeInMillis() + (DateConstants.MILLIS_PER_DAY));
+                        sampleDate.getTimeInMillis() + DateConstants.MILLIS_PER_TWO_DAYS);
             }
         } else {
             // System.err.println("No good date for " + eraData);

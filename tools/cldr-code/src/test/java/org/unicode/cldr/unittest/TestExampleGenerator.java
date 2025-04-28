@@ -1811,30 +1811,42 @@ public class TestExampleGenerator extends TestFmwk {
     public void TestRelative() {
         ExampleGenerator exampleGeneratorIt = getExampleGenerator("it");
         ExampleGenerator exampleGeneratorAm = getExampleGenerator("am");
+        ExampleGenerator exampleGeneratorCs = getExampleGenerator("cs");
+        ExampleGenerator exampleGeneratorLv = getExampleGenerator("lv");
         checkValue(
                 "it relative day type 2",
-                "〖Dopodomani (5 settembre)〗〖5 settembre (dopodomani)〗",
+                "〖Set letter case for top example:〗〖5 settembre (dopodomani)〗〖dopodomani (5 settembre)〗〖See letter case instructions at right.〗",
                 exampleGeneratorIt,
                 "//ldml/dates/fields/field[@type=\"day\"]/relative[@type=\"2\"]");
         checkValue(
                 "it relative hour future-other",
-                "〖Tra ❬10❭ ore (18:25)〗〖18:25 (tra ❬10❭ ore)〗",
+                "〖Set letter case for top example:〗〖18:25 (tra ❬100❭ ore)〗〖tra ❬100❭ ore (18:25)〗〖See letter case instructions at right.〗",
                 exampleGeneratorIt,
                 "//ldml/dates/fields/field[@type=\"hour\"]/relativeTime[@type=\"future\"]/relativeTimePattern[@count=\"other\"]");
         checkValue(
                 "it relative year past-one",
-                "〖❬1❭ anno fa (settembre 1999)〗〖settembre 1999 (❬1❭ anno fa)〗",
+                "〖Set letter case for top example:〗〖settembre 1999 (❬1❭ anno fa)〗〖❬1❭ anno fa (settembre 1999)〗〖See letter case instructions at right.〗",
                 exampleGeneratorIt,
                 "//ldml/dates/fields/field[@type=\"year\"]/relativeTime[@type=\"past\"]/relativeTimePattern[@count=\"one\"]");
         checkValue(
                 "am relative month future-one",
-                "〖በ❬1❭ ወር ውስጥ (ሴፕቴምበር 1999)〗〖ሴፕቴምበር 1999 (በ❬1❭ ወር ውስጥ)〗",
+                "〖Set letter case for top example:〗〖ሴፕቴምበር 1999 (በ❬1❭ ወር ውስጥ)〗〖በ❬1❭ ወር ውስጥ (ሴፕቴምበር 1999)〗〖See letter case instructions at right.〗",
                 exampleGeneratorAm,
                 "//ldml/dates/fields/field[@type=\"month\"]/relativeTime[@type=\"future\"]/relativeTimePattern[@count=\"one\"]");
         checkValue(
                 "am relative month future-other",
-                "〖በ❬10❭ ወራት ውስጥ (ሴፕቴምበር 1999)〗〖ሴፕቴምበር 1999 (በ❬10❭ ወራት ውስጥ)〗",
+                "〖Set letter case for top example:〗〖ሴፕቴምበር 1999 (በ❬100❭ ወራት ውስጥ)〗〖በ❬100❭ ወራት ውስጥ (ሴፕቴምበር 1999)〗〖See letter case instructions at right.〗",
                 exampleGeneratorAm,
+                "//ldml/dates/fields/field[@type=\"month\"]/relativeTime[@type=\"future\"]/relativeTimePattern[@count=\"other\"]");
+        checkValue(
+                "cs relative hour past-many",
+                "〖Set letter case for top example:〗〖18:25 (před ❬0,5❭ hodiny)〗〖Před ❬0,5❭ hodiny (18:25)〗〖See letter case instructions at right.〗",
+                exampleGeneratorCs,
+                "//ldml/dates/fields/field[@type=\"hour\"]/relativeTime[@type=\"past\"]/relativeTimePattern[@count=\"many\"]");
+        checkValue(
+                "lv relative month future-other",
+                "〖Set letter case for top example:〗〖1999. g. septembris (pēc ❬22❭ mēnešiem)〗〖pēc ❬22❭ mēnešiem (1999. g. septembris)〗〖See letter case instructions at right.〗",
+                exampleGeneratorLv,
                 "//ldml/dates/fields/field[@type=\"month\"]/relativeTime[@type=\"future\"]/relativeTimePattern[@count=\"other\"]");
     }
 

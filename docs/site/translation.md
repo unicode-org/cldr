@@ -21,11 +21,30 @@ When a section below changes, the date will be in the header.
 
 ## Status and Schedule
 
-The Survey Tool is currently being prepared to open for CLDR 48 [General Submission](translation/getting-started/survey-tool-phases#survey-tool-phase-general-submission) in April 2025. The General Submission phase will be followed by the [Vetting phase](translation/getting-started/survey-tool-phases#survey-tool-phase-vetting).
+The Survey Tool is now open for [General Submission](translation/getting-started/survey-tool-phases#survey-tool-phase-general-submission) for CLDR 48. The General Submission phase will be followed by the [Vetting phase](translation/getting-started/survey-tool-phases#survey-tool-phase-vetting) starting on June 11th.
 
 - **Disconnect error**. If you see a persistent Loading error with a disconnect message or other odd behavior, please [empty your cache](translation/getting-started/empty-cache).
 - Survey Tool email notification may be going to your spam folder. Check your spam folder regularly.
 - "**Same as code**" errors - when translating codes for items such as languages, regions, scripts, and keys, it is normally an error to select the code itself as the translated name. If the error appears under Typography, you can ignore it. \[[CLDR-13552](https://unicode-org.atlassian.net/browse/CLDR-13552)\]
+
+## New languages
+
+The following new languages are available in the Survey Tool for submission during the CLDR 48 period:
+
+- Buryat (bua)
+- Coptic (cop)
+- Haitian Creole (ht)
+- Kazakh (Latin) (kk_Latn)
+- Laki (lki)
+- Laz (lzz)
+- Luri Bakhtiari (bqi)
+- Nselxcin (Okanagan) (oka)
+- Pāli (pi)
+- Piedmontese (pms)
+- Q’eqchi’ (kek)
+- Samogitian (sgs)
+- Sunuwar (suz)
+- Chinese (Latin) (zh-Latn)
 
 ## New Areas
 
@@ -33,7 +52,7 @@ Most of the following are relevant to locales at the Modern Coverage Level.
 
 ### New emoji
 
-New emoji will be added the week of April 21st.
+New emoji will be added the week of April 28th.
 
 ### Core Data
 There are new Alphabetic Information items.
@@ -43,13 +62,13 @@ There are new Alphabetic Information items.
 This should be a small list such as “.” or “-”.
 Do **not** include ‘fanciful’ characters such as emoji or [kaomoji](https://en.wikipedia.org/wiki/Kaomoji).
 
+More information is available in the [Exemplars section of the Unicode Sets page](https://cldr.unicode.org/translation/core-data/exemplars#exemplar-characters)
+
 ### Locale display names
 
-#### More language names
+#### Languages names which were added or changed in English
 
-As new locales reach Basic Coverage, their language names have been added for locales targeting modern coverage. These include: **TBD**
-
-#### Languages whose English name changed
+As new locales reach Basic Coverage, their language names are added for locales targeting modern coverage. This will be happening the week of April 28th.
 
 - tkl: English name changed to Tokelauan.
 <!-- Let's not add ticket numbers, except for Known Issues — there is already enough for vetters to read, and the tickets will often be confusing to people or take more time to read and puzzle out than is worth it. Fine to leave them in the document, but commented out, for our usage. 
@@ -60,7 +79,6 @@ As new locales reach Basic Coverage, their language names have been added for lo
 There is a new mechanism for better menu names. When you see a **Code** with `-core` or `-extension`, please read [Locale Option Value Names](/translation/displaynames/locale-option-names-key#locale-option-value-names).
 
 #### Scripts
-
 
 There are 5 new scripts for Unicode 17. Currently the names are in English: Beria Erfe, Chisoi, Sidetic, Tai Yo, Tolong Siki.
 Coverage for other languages is at comprehensive. 
@@ -73,6 +91,8 @@ This is a variant of the Gregorian calendar whose formats always use year-month-
 The English name has changed to reflect that (and also added a variant); locales should update accordingly:
 - calendar-iso8601: Gregorian (Year First)
 - calendar-iso8601-variant: ISO 8601 Order
+
+Patterns for this calendar may be added during the week of April 28th.
 
 <!-- Please go though the ISO8601 fields. You should change separators to match what is acceptable in your language. However, do not change the ordering of the elements, which should be strictly the following order (for any that occur in a particular pattern):
 * year - month - day - day-of-week - hour - minute - second
@@ -114,7 +134,61 @@ For zone `Etc/Unknown`, the exemplarCity name was changed in English from “Unk
 
 #### Changes to the root and/or English names of many exemplar cities and some metazones
 
-(TBD [CLDR-18249](https://unicode-org.atlassian.net/browse/CLDR-18249)
+Exemplar cities added or changed in English
+
+- Africa/El_Aaiun: El Aaiún
+- Africa/Lome: Lomé
+- Africa/Ndjamena: N’Djamena
+- America/Araguaina: Araguaína
+- America/Argentina/Rio_Gallegos: Río Gallegos
+- America/Argentina/Tucuman: Tucumán
+- America/Belem: Belém
+- America/Bogota: Bogotá
+- America/Cordoba: Córdoba
+- America/Cuiaba: Cuiabá
+- America/Eirunepe: Eirunepé			
+- America/Maceio: Maceió
+- America/Mazatlan: Mazatlán
+- America/Mexico_City: Ciudad de México
+- America/Miquelon: Saint-Pierre
+- America/Santarem: Santarém
+- America/Sao_Paulo: São Paulo
+- Antarctica/Rothera: Rothera Station
+- Antarctica/Palmer: Palmer Land
+- Antarctica/Troll: Troll Station
+- Antarctica/Syowa: Showa Station
+- Antarctica/Mawson: Mawson Station
+- Antarctica/Vostok: Vostok Station
+- Antarctica/Casey: Casey Station
+- Antarctica/DumontDUrville: Dumont d’Urville Station
+- Antarctica/McMurdo: McMurdo Station
+- Asia/Aqtau: Aktau
+- Asia/Hovd: Khovd
+- Asia/Qyzylorda: Kyzylorda
+- Asia/Urumqi: Ürümqi
+- Atlantic/Canary: Canarias
+- Europe/Busingen: Büsingen
+- Europe/Chisinau: Chișinău
+- Europe/Tirane: Tirana
+- Indian/Chagos: Chagos Archipelago
+- Indian/Comoro: Comoros
+- Indian/Kerguelen: Kerguelen Islands
+- Indian/Mahe: Mahé
+- Pacific/Chatham: Chatham Islands
+- Pacific/Galapagos: Galápagos
+- Pacific/Kwajalein: Kwajalein Atoll
+- Pacific/Marquesas: Marquesas Islands
+- Pacific/Midway: Midway Atoll
+- Pacific/Noumea: Nouméa
+- Pacific/Pitcairn: Pitcairn Islands
+- Pacific/Wallis: Wallis & Futuna
+
+Metazones:
+
+- Hovd Time changed to Khovd Time
+- Qyzylorda Time changed to Kyzylorda Time
+
+<!-- [CLDR-18249](https://unicode-org.atlassian.net/browse/CLDR-18249) -->
 
 ### Number formats
 
@@ -141,7 +215,7 @@ Here are the the English values and a short description of their purpose:
 - `rationalFormats-rationalPattern`: “{0}⁄{1}” - The format for a rational fraction with arbitrary numerator and denominator; the English pattern uses the Unicode character ‘⁄’ U+2044 FRACTION SLASH which causes composition of fractions such as 22⁄7.
 - `rationalFormats-integerAndRationalPattern`: “{0} {1}” - The format for combining an integer with a rational fraction composed using the pattern above; the English pattern uses U+202F NARROW NO-BREAK SPACE (NNBSP) to produce a small no-break space.
 - `rationalFormats-integerAndRationalPattern-superSub`: “{0}⁠{1}” - The format for combining an integer with a rational fraction using composed using the pattern above; the English pattern uses U+2060 WORD JOINER, a zero-width no-break space.
-- `rationalFormats-rationalUsage`: “sometimes” - An indication of the extent to which rational fractions are used in the locale; may be one of “never”, “sometimes”, ... (TBD)
+- `rationalFormats-rationalUsage`: “sometimes” - An indication of the extent to which rational fractions are used in the locale; may be one of “never”, “sometimes”, ...
 
 If an integer and fraction (5½) is best expressed in your language with a space between them (5 ½),
 then copy the pattern from integerAndRationalPattern to integerAndRationalPattern-superSub.
@@ -207,8 +281,9 @@ Once trained and up to speed on [Critical reminders](#critical-reminders-for-all
 1. For Units and a few other sections, the Pages have changed to reduce the size on the page to improve performance.
     1. Pages may be split, and/or retitled
     1. Rows may move to a different page.
-1. In the Dashboard, the Abstains items will now only have one entry per page. You can use that entry to go to its page, and then fix Abstains on that page. Once you are done on that page, hit the Dashboard refresh button (↺). This fixes a performance problem for people with a large number of Abstains, and reduces clutter in the Dashboard.
 1. The symbols in the A column have been changed to be searchable in browsers (with *Find in Page*) and stand out more on the page. See below for a table. They override the symbols in [Survey Tool Guide: Icons](translation/getting-started/guide#icons).
+
+See [Recent changes](https://cldr.unicode.org/translation#recent-changes) for additional recent changes in the Survey Tool.
 
 ### Important Notes
 
@@ -227,20 +302,21 @@ Once trained and up to speed on [Critical reminders](#critical-reminders-for-all
 
 ## Known Issues
 
-Last updated: 2025-04-07
+Last updated: 2025-04-23
 
 This list will be updated as fixes are made available in Survey Tool Production. If you find a problem, please [file a ticket](requesting_changes), but please review this list first to avoid creating duplicate tickets.
 
-1. Redirect from read-only locale to the default content locale does not work [CLDR-18513][]
+1. [CLDR-17829][] some links in the Info panel not displaying properly
 2. Images for the plain symbols. Non-emoji such as [€](https://st.unicode.org/cldr-apps/v#/fr/OtherSymbols/47925556fd2904b5), √, », ¹, §, ... do not have images in the Info Panel. [CLDR-13477](https://unicode-org.atlassian.net/browse/CLDR-13477) **Workaround**: Look at the Code column; unlike the new emoji, your browser should display them there.
-1. [CLDR-17683](https://unicode-org.atlassian.net/browse/CLDR-17683) - Some items are not able to be flagged for TC review. This is being investigated.Meanwhile, Please enter forum posts meanwhile with any comments.
+3. [CLDR-17683](https://unicode-org.atlassian.net/browse/CLDR-17683) - Some items are not able to be flagged for TC review. This is being investigated. Meanwhile, Please enter forum posts meanwhile with any comments.
 
 ## Resolved Issues
 
-Last updated: 2025-04-07
+Last updated: 2025-04-23
 
-1. [CLDR-17694](https://unicode-org.atlassian.net/browse/CLDR-17694) - Back button in browser fails in forum under certain conditions
-2. [CLDR-17658](https://unicode-org.atlassian.net/browse/CLDR-17658) - Dashboard slowness
+1. Redirect from read-only locale to the default content locale does not work [CLDR-18513][]
+2. [CLDR-17694](https://unicode-org.atlassian.net/browse/CLDR-17694) - Back button in browser fails in forum under certain conditions
+3. [CLDR-17658](https://unicode-org.atlassian.net/browse/CLDR-17658) - Dashboard slowness
 
 ## Recent Changes
 
@@ -273,11 +349,11 @@ Before getting started to contribute data in CLDR, and jumping in to using the S
 You're already familiar with the CLDR process, but do keep the following in mind:
 
 1. **Aim at commonly used language** - CLDR should reflect *common-usage* standards **not** *academic /official* standards (unless commonly followed). Keep that perspective in mind.
-2. **Carefully consider changes to existing standards** - any change to an existing CLDR standard should be carefully considered and discussed with your fellow linguists in the CLDR [Forum](translation/getting-started/guide#forum). Remember your change will be reflected across thousands of online products!
+2. **Carefully consider changes to existing standards** - any change to a value from a previous CLDR release (blue star) should be carefully considered and discussed with your fellow linguists in the CLDR [Forum](translation/getting-started/guide#forum). Remember your change will be reflected across thousands of online products — and potentially almost all online users of your language.
 3. **Keep consistency across logical groups** - ensure that all related entries are consistent. If you change the name of a weekday, make sure it's reflected across all related items. Check that the order of month and day are consistent in all the date formats, etc.
     - *Tip: The [Reports](translation/getting-started/review-formats) are a great way to validate consistency across related logical groups, e.g. translations of date formats. Use them to proofread your work for consistency.*
-4. **Avoid voting for English** - for items that do not work in your language, don't simply use English. Find a solution that works for your language. For example, if your language doesn't have a concept of calendar "quarters", use a translation that describes the concept "three-month period" rather than "quarter-of-a-year".
-5. **Watch out for complex sections** and read the instructions carefully if in doubt:
+5. **Avoid voting for English** - for items that do not work in your language, don't simply use English. Find a solution that works for your language. For example, if your language doesn't have a concept of calendar "quarters", use a translation that describes the concept "three-month period" rather than "quarter-of-a-year".
+6. **Watch out for complex sections** and read the instructions carefully if in doubt:
     1. [Date & Time](translation/date-time/date-time-names)
         - [Names](translation/date-time/date-time-names)
         - [Patterns](translation/date-time)
@@ -291,3 +367,4 @@ entry you're editing/vetting. Use it if in doubt.*
 [CLDR-18513]: https://unicode-org.atlassian.net/browse/CLDR-18513
 [CLDR-18423]: https://unicode-org.atlassian.net/browse/CLDR-18423
 [CLDR-17694]: https://unicode-org.atlassian.net/browse/CLDR-17694
+[CLDR-17829]: https://unicode-org.atlassian.net/browse/CLDR-17829

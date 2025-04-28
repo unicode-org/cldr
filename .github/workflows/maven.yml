@@ -45,6 +45,21 @@ jobs:
             ${{ runner.os }}-mavenspotless-
       - name: Check Java style
         run: mvn --file=tools/pom.xml spotless:check || (echo "Style checker failed. Formatting changes can be applied by 'mvn spotless:apply'" && exit 1)
+      - name: Restore lychee cache
+        uses: actions/cache@v3
+        with:
+          path: .lycheecache
+          key: cache-lychee-${{ github.sha }}
+          restore-keys: cache-lychee-
+      - name: Run lychee on PathDescriptions.md
+        uses: lycheeverse/lychee-action@v1
+        with:
+            args: "-n --cache --max-cache-age 10d tools/cldr-code/src/main/resources/org/unicode/cldr/util/data/PathDescriptions.md"
+            fail: true
+            format: markdown
+            output: linkcheck.md
+      - name: Link Checker Summary PathDescriptions.md
+        run: cat linkcheck.md >> $GITHUB_STEP_SUMMARY
   build:
     runs-on: ubuntu-latest
     steps:

@@ -270,6 +270,9 @@ public class DateTimeFormats {
                                         + calendarID
                                         + "\"]/dateTimeFormats/availableFormats/dateFormatItem"))) {
             XPathParts parts = XPathParts.getFrozenInstance(path);
+            if ("ascii".equals(parts.findAttributeValue("dateFormatItem", "alt"))) {
+                continue;
+            }
             String key = parts.getAttributeValue(-1, "id");
             String value = file.getStringValue(path);
             if (key.equals(DEBUG_SKELETON)) {

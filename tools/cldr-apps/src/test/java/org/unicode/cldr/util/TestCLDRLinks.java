@@ -1,6 +1,7 @@
 package org.unicode.cldr.util;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
@@ -65,6 +66,11 @@ public class TestCLDRLinks {
         assertURLOK(url, xpath);
     }
 
+    @Test
+    void testPathDescriptionProvider() {
+        assertNotEquals(0, pathDescriptionProvider().count());
+    }
+
     /**
      * Provider for above test
      *
@@ -83,6 +89,7 @@ public class TestCLDRLinks {
 
         final Map<String, String> urls = new TreeMap<String, String>();
 
+        // this gets any URLs that are not in the footer
         for (final String xpath : english.fullIterable()) {
             final String description = pathDescriptionFactory.getRawDescription(xpath, null);
             // System.out.println(description);
@@ -90,6 +97,15 @@ public class TestCLDRLinks {
                 urls.putIfAbsent(url, xpath);
             }
         }
+
+        // this gets all URLs in references
+        PathDescriptionParser pathDescriptionParser = new PathDescriptionParser();
+        pathDescriptionParser.parse(PathDescription.getPathDescriptionString());
+        for (final String url : urlsFromString(pathDescriptionParser.getReferences())) {
+            urls.putIfAbsent(url, "PathDescriptions.md");
+        }
+
+        assertNotEquals(0, urls.size(), "PathDescription had no urls");
         return urls.entrySet().stream().map(e -> Arguments.of(e.getKey(), e.getValue()));
     }
 

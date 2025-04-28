@@ -302,6 +302,7 @@ public class CLDRConfig extends Properties {
         static final Factory SINGLETON = SimpleFactory.make(paths, ".*");
     }
 
+    /** The "full" factory is currently common (previously common and seed) */
     public final Factory getFullCldrFactory() {
         return FullCldrFactoryHelper.SINGLETON;
     }

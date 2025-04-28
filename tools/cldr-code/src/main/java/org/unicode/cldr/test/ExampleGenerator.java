@@ -9,6 +9,7 @@ import com.ibm.icu.impl.number.DecimalQuantity;
 import com.ibm.icu.impl.number.DecimalQuantity_DualStorageBCD;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.BreakIterator;
+import com.ibm.icu.text.CaseMap;
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.DateFormatSymbols;
 import com.ibm.icu.text.DateTimePatternGenerator;
@@ -312,7 +313,11 @@ public class ExampleGenerator {
                             List.of(
                                     new GregorianCalendar(1989, 0, 10).getTime(),
                                     new GregorianCalendar(2019, 4, 3).getTime()));
-                    put("islamic", List.of(new GregorianCalendar(622, 6, 17).getTime()));
+                    put(
+                            "islamic",
+                            List.of(
+                                    new GregorianCalendar(622, 6, 17).getTime(),
+                                    new GregorianCalendar(622, 6, 12).getTime()));
                     put("chinese", List.of(new GregorianCalendar(-2636, 0, 03).getTime()));
                     put("hebrew", List.of(new GregorianCalendar(-3760, 9, 9).getTime()));
                     put("buddhist", List.of(new GregorianCalendar(-542, 0, 03).getTime()));
@@ -340,18 +345,38 @@ public class ExampleGenerator {
                 }
             };
 
-    // map relativeTimePattern counts to numeric examples
-    public static final Map<String, String> COUNTS =
+    // map relativeTimePattern counts to possible numeric examples.
+    // For few , many, and other there is not a single number that is in that category for
+    // all locales, so we provide a list of values that might be good examples and use the
+    // first that is in the category for the locale. Decimal fractions should be at the end.
+    public static final Map<String, List<String>> COUNTS =
             new HashMap<>() {
                 {
-                    put("zero", "0");
-                    put("one", "1");
-                    put("two", "2");
-                    put("few", "3");
-                    put("many", "5");
-                    put("other", "10");
+                    put("zero", List.of("0"));
+                    put("one", List.of("1"));
+                    put("two", List.of("2"));
+                    put("few", List.of("3" /*gv*/, "20" /*gv*/));
+                    put(
+                            "many",
+                            List.of(
+                                    "11" /*ar pl ru uk*/,
+                                    "1000000" /*ca es fr it pt*/,
+                                    "6" /*cy*/,
+                                    "7" /*ga*/,
+                                    "21" /*kw*/,
+                                    "0.5" /*cs sk lt*/));
+                    put(
+                            "other",
+                            List.of(
+                                    "100" /*ar cs de en es fr he it*/,
+                                    "22" /*lv prg*/,
+                                    "23" /*gv*/,
+                                    "14" /*ceb fil tl*/,
+                                    "0.5" /*pl ru uk*/));
                 }
             };
+
+    private static final CaseMap.Title TITLECASE = CaseMap.toTitle().wholeString().noLowercase();
 
     public CLDRFile getCldrFile() {
         return cldrFile;
@@ -3226,25 +3251,74 @@ public class ExampleGenerator {
         } else {
             skeleton = "MMMMd";
         }
-        String checkPath =
+        String availableFormatPath =
                 "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\""
                         + skeleton
                         + "\"]";
-        String dateFormat = cldrFile.getWinningValue(checkPath);
+        String dateFormat = cldrFile.getWinningValue(availableFormatPath);
         SimpleDateFormat sdf = icuServiceBuilder.getDateFormat("gregorian", dateFormat);
         String sampleDate = sdf.format(DATE_SAMPLE);
-        String example1 =
-                value.substring(0, 1).toUpperCase() + value.substring(1) + " (" + sampleDate + ")";
-        String example2 = sampleDate + " (" + value + ")";
+
+        String contextTransformPath =
+                "//ldml/contextTransforms/contextTransformUsage[@type=\"relative\"]/contextTransform[@type=\"stand-alone\"]";
+        String contextTransformValue = cldrFile.getWinningValue(contextTransformPath);
+        String example1 = sampleDate + " (" + value + ")"; // value in middle-of-sentence usage
+        if (contextTransformValue != null && contextTransformValue.equals("titlecase-firstword")) {
+            value =
+                    TITLECASE.apply(
+                            Locale.forLanguageTag(getCldrFile().getLocaleID()),
+                            null,
+                            value); // locale-sensitive titlecasing
+        }
+        String example2 =
+                value
+                        + " ("
+                        + sampleDate
+                        + ")"; // value in stand-alone usage, titlecasing per contextTransform
+
+        examples.add("Set letter case for top example:");
         if (parts.contains("relativeTimePattern")) { // has placeholder
             String count = parts.getAttributeValue(-1, "count");
-            String exampleCount = COUNTS.get(count);
+            // Pick an appropriate example for this count, depends on the locale's plural rules
+            List<String> exampleCounts = COUNTS.get(count);
+            String exampleCount = exampleCounts.get(0); // default example for count
+            // if default example, does not work for the locale, override below
+            if (exampleCounts.size() > 1) {
+                int exampleCountSize = exampleCounts.size();
+                DecimalQuantitySamples samples =
+                        pluralInfo.getPluralRules().getDecimalSamples(count, SampleType.INTEGER);
+                if (samples == null) {
+                    // this locale has no integer samples for this count so use the decimal fraction
+                    // example at the end of the list
+                    exampleCount = exampleCounts.get(exampleCountSize - 1);
+                } else {
+                    Map<Count, String> countToStringExamplesMap =
+                            pluralInfo.getCountToStringExamplesMap();
+                    String stringExamples = countToStringExamplesMap.get(Count.valueOf(count));
+                    // skip the default value already set
+                    for (int i = 1; i < exampleCountSize; i++) {
+                        String exampleCountTest = exampleCounts.get(i);
+                        if (stringExamples.contains(exampleCountTest)) {
+                            exampleCount = exampleCountTest;
+                            break;
+                        }
+                    }
+                }
+            }
+            if (!exampleCount.contains(".")) {
+                DecimalFormat df = icuServiceBuilder.getNumberFormat("0");
+                exampleCount = df.format(Integer.parseInt(exampleCount));
+            } else {
+                DecimalFormat df = icuServiceBuilder.getNumberFormat("0.0");
+                exampleCount = df.format(Double.parseDouble(exampleCount));
+            }
             examples.add(invertBackground(format(setBackground(example1), exampleCount)));
             examples.add(invertBackground(format(setBackground(example2), exampleCount)));
         } else {
             examples.add(format(example1));
             examples.add(format(example2));
         }
+        examples.add("See letter case instructions at right.");
     }
 
     /**
@@ -3749,22 +3823,7 @@ public class ExampleGenerator {
             return null;
         }
         int start = 0;
-        StringBuilder buffer = new StringBuilder();
-
-        Matcher URLMatcher = URL_PATTERN.matcher("");
-        while (URLMatcher.reset(description).find(start)) {
-            final String url = URLMatcher.group();
-            buffer.append(
-                            TransliteratorUtilities.toHTML.transliterate(
-                                    description.substring(start, URLMatcher.start())))
-                    .append("<a target='CLDR-ST-DOCS' href='")
-                    .append(url)
-                    .append("'>")
-                    .append(url)
-                    .append("</a>");
-            start = URLMatcher.end();
-        }
-        buffer.append(TransliteratorUtilities.toHTML.transliterate(description.substring(start)));
+        StringBuilder buffer = new StringBuilder(description);
         if (AnnotationUtil.pathIsAnnotation(xpath)) {
             XPathParts emoji = XPathParts.getFrozenInstance(xpath);
             String cp = emoji.getAttributeValue(-1, "cp");

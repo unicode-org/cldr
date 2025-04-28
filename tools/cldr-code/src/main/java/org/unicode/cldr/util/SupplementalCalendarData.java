@@ -1,6 +1,9 @@
 package org.unicode.cldr.util;
 
-import com.ibm.icu.impl.locale.XCldrStub.ImmutableMap;
+import com.google.common.base.Suppliers;
+import com.google.common.collect.ComparisonChain;
+import com.google.common.collect.ImmutableMap;
+import com.ibm.icu.util.Freezable;
 import com.ibm.icu.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -15,35 +18,48 @@ public class SupplementalCalendarData implements Iterable<String> {
         static final int INDEX = 4; // index of our element
 
         /** the <era> xpath */
-        private final XPathValue xpath;
+        private final String start;
+
+        private final String end;
+        private final String code;
+        private final int type;
+        private final String calendarType; // for comparison
+        private final GregorianCalendar startCalendar;
+        private final GregorianCalendar endCalendar;
 
         EraData(final XPathValue xpath) {
-            this.xpath = xpath;
-            // TODO: validate (in unit test)
+            calendarType = xpath.getAttributeValue(2, LDMLConstants.TYPE);
+            type = Integer.parseInt(xpath.getAttributeValue(INDEX, LDMLConstants.TYPE));
+
+            start = xpath.getAttributeValue(INDEX, LDMLConstants.START);
+            startCalendar = forDateString(start);
+            end = xpath.getAttributeValue(INDEX, LDMLConstants.END);
+            endCalendar = forDateString(end);
+            code = xpath.getAttributeValue(INDEX, LDMLConstants.CODE);
         }
 
         public int getType() {
-            return Integer.parseInt(xpath.getAttributeValue(INDEX, LDMLConstants.TYPE));
+            return type;
         }
 
         public String getStart() {
-            return xpath.getAttributeValue(INDEX, LDMLConstants.START);
+            return start;
         }
 
         public String getEnd() {
-            return xpath.getAttributeValue(INDEX, LDMLConstants.END);
+            return end;
         }
 
         public GregorianCalendar getStartCalendar() {
-            return forDateString(getStart());
+            return startCalendar;
         }
 
         public GregorianCalendar getEndCalendar() {
-            return forDateString(getEnd());
+            return endCalendar;
         }
 
         public String getCode() {
-            return xpath.getAttributeValue(INDEX, LDMLConstants.CODE);
+            return code;
         }
 
         public String[] getAliases() {
@@ -86,38 +102,32 @@ public class SupplementalCalendarData implements Iterable<String> {
         /** only works within the same cal system */
         @Override
         public int compareTo(EraData o) {
-            final GregorianCalendar l = getLatest();
-            final GregorianCalendar ol = o.getLatest();
-            if (l == null || ol == null) {
-                // compare by id
-                return Integer.compare(getType(), o.getType());
-            } else {
-                // compare by date
-                return l.compareTo(ol);
-            }
+            return ComparisonChain.start()
+                    .compare(calendarType, o.calendarType)
+                    .compare(getLatest(), o.getLatest())
+                    .compare(getType(), o.getType())
+                    .result();
         }
     }
 
     /** a <calendar type=> element */
-    public static class CalendarData implements Iterable<Integer> {
+    public static class CalendarData implements Iterable<Integer>, Freezable<CalendarData> {
         static final int INDEX = 3; // index of our element
 
         /** the <calendarSystem> xpath */
-        private XPathValue system = null;
+        private String system = null;
 
         /** the <inheritEras> xpath */
-        private XPathValue inheritEras = null;
+        private String inheritEras = null;
 
         private Map<Integer, EraData> eras = new HashMap<Integer, EraData>();
 
         public String getSystemType() {
-            if (system == null) return null;
-            return system.getAttributeValue(INDEX, LDMLConstants.TYPE);
+            return system;
         }
 
         public String getInheritEras() {
-            if (inheritEras == null) return null;
-            return inheritEras.getAttributeValue(INDEX, LDMLConstants.CALENDAR);
+            return inheritEras;
         }
 
         @Override
@@ -127,6 +137,32 @@ public class SupplementalCalendarData implements Iterable<String> {
 
         public EraData get(Integer era) {
             return eras.get(era);
+        }
+
+        @Override
+        public CalendarData cloneAsThawed() {
+            throw new UnsupportedOperationException("Unimplemented 'cloneAsThawed'");
+        }
+
+        @Override
+        public CalendarData freeze() {
+            eras = ImmutableMap.copyOf(eras);
+            return this;
+        }
+
+        @Override
+        public boolean isFrozen() {
+            return (eras instanceof ImmutableMap);
+        }
+
+        void setSystemXPath(XPathValue xpath) {
+            if (isFrozen()) throw new UnsupportedOperationException("frozen");
+            system = xpath.getAttributeValue(INDEX, LDMLConstants.TYPE);
+        }
+
+        void setInheritEras(XPathValue xpath) {
+            if (isFrozen()) throw new UnsupportedOperationException("frozen");
+            inheritEras = xpath.getAttributeValue(INDEX, LDMLConstants.CALENDAR);
         }
     }
 
@@ -194,25 +230,29 @@ public class SupplementalCalendarData implements Iterable<String> {
             if (c.inheritEras != null) {
                 throw new IllegalArgumentException("Duplicate calendar inheritEras: " + x);
             }
-            c.inheritEras = x;
+            c.setInheritEras(x);
         }
 
         private void acceptCalendarSystem(XPathValue x, CalendarData c) {
             if (c.system != null) {
                 throw new IllegalArgumentException("Duplicate calendar system: " + x);
             }
-            c.system = x;
+            c.setSystemXPath(x);
         }
 
+        final Supplier<SupplementalCalendarData> supplier =
+                Suppliers.memoize(() -> new SupplementalCalendarData(typeToCalendar));
+
+        /** Calling get() freezes the data, so, only call get() once all data is loaded. */
         @Override
         public SupplementalCalendarData get() {
-            return new SupplementalCalendarData(typeToCalendar);
+            return supplier.get();
         }
     }
 
     private SupplementalCalendarData(Map<String, CalendarData> m) {
-        // TODO: freeze all types
-        // m.forEach(c -> c.freeze());
+        // freeze all types
+        m.values().forEach(c -> c.freeze());
         this.typeToCalendar = ImmutableMap.copyOf(m);
     }
 

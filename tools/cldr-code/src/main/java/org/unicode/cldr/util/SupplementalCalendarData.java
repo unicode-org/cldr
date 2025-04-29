@@ -208,8 +208,6 @@ public class SupplementalCalendarData implements Iterable<String> {
         public SupplementalCalendarData get() {
             return new SupplementalCalendarData(typeToCalendar);
         }
-
-        
     }
 
     private SupplementalCalendarData(Map<String, CalendarData> m) {

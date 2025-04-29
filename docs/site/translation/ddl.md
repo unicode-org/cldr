@@ -2,33 +2,27 @@
 title: 'DDL: Help Center'
 ---
 
-Hello!
-
+The purpose of this page is to help speakers of [Digitally Disadvantaged Languages (DDL)](/ddl) make use of the CLDR Survey Tool and processes.
 Thank you for your contributions and work on your language!
 
-This is a landing page to help speakers of [Digitally Disadvantaged Languages (DDL)](/ddl).
+## Contribute to a CLDR Locale
 
-Please select one of the subpages.
+A CLDR locale is an important part of helping to get your language supported on laptops, phones, and so on.  
 
-Also, be sure to review the [Information Hub for Linguists].
+Here is an outline of those steps:
 
-## Organizations
+1. Ensure that the characters needed to write your language are encoded in Unicode. Luckily, this is already the case for the vast majority of modern languages. If not, see [Unicode Proposals]. Until this is done (which can take years), none of the further steps can be done.
+2. If no existing keyboards handle your language, see if there are installable keyboards that can. [Keyman] is a good source.
+3. Contribute to getting locale data into CLDR. The most effective way to contribute is via a [CLDR Organization].
 
-... please consider creating a [CLDR Organization] 
+Note: Having a CLDR locale at [Basic Coverage][Coverage] is a necessary step for being selectable on many platforms. Users still may need to install keyboards and/or fonts in order to use the language. That can enable using your language within applications. And Coverage at Moderate and Modern can improve the capabilities of those applications to handle your language.
 
-### Users
+### Individual Contributors
 
-... then you can see [Managing users]...
-
-### If the locale is missing
-
-If you need to add a new locale that isn’t currently assigned to your organization, follow these instructions:
-
-1. Verify the locale is visible in the Survey Tool. If not, fill out the form: [Core Data for New Locales].
-
-2. [File a ticket] requesting to add the locale to your organization's `Locales.txt` file.
-
-3. When the locale is added to the Survey Tool and the Locales.txt file has been added, you can then grant your vetters access to that language. See [Managing users].
+1. Verify the locale is visible in the [Survey Tool][Survey Tool Home]
+    1. If not, fill out the form: [Core Data for New Locales].
+2. Fill out the form to request an account: [Request a Survey Tool Account]
+3. Review the [Information Hub for Linguists]
 
 ## Support
 
@@ -37,6 +31,9 @@ To get support, use the [DDL Support] form.
 [DDL Support]: https://unicode.org/cldr/ddl-support
 [Information Hub for Linguists]: /translation
 [CLDR Organization]: /index/survey-tool/cldr-organization
-[Managing Users]: /index/survey-tool/managing-users
 [Core Data for New Locales]: /index/cldr-spec/core-data-for-new-locales
-[File a ticket]: /requesting_changes#how-to-file-a-ticket
+[Unicode Proposals]: https://www.unicode.org/pending/proposals.html
+[Keyman]: https://keyman.com/
+[Coverage]: /index/survey-tool/coverage
+[Survey Tool Home]: https://st.unicode.org
+[Request a Survey Tool Account]: /index/survey-tool/survey-tool-accounts

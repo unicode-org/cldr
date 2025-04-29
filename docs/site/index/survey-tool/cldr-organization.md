@@ -45,7 +45,13 @@ We will contact you with any further questions and with the updates on the reque
 While we are processing your request, you may continue to use guest accounts.
 We can transfer guest accounts into your organization later, preserving all of the voting data.
 
+## Guide for Organization Managers
+
+You will privide us with the email of the person who will be the first Manager for your CLDR Organization.
+When their account is set up, that Manager can create other Manager or Vetter accounts — See [Managing Users].
+
 [language service company]: https://www.nimdzi.com/nimdzi-100-2025#ranking-of-the-top-100-lsps
 [Unicode Membership Levels]: https://home.unicode.org/membership/members/
 [customary modern use]: /index/cldr-spec/definitions
 [Request for CLDR Organization]: https://forms.gle/HgpSYTFqnsrmYSNs7
+[Managing Users]: /index/survey-tool/managing-users

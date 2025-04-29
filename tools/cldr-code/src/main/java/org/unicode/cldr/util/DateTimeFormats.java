@@ -157,9 +157,8 @@ public class DateTimeFormats {
     /**
      * Set a CLDRFile and calendar. Must be done before calling addTable.
      *
-     * Note: currently, this method will initialize the datetime pattern in `dateFormatItem`
-     * by taking "default" values only. That is to say, any alternate values, patterns annotated
-     * with an attribute like `alt="ascii"` will be skipped over and not returned.
+     * Note: currently, this method will skip `alt="ascii"` elements of `dateFormatItem`.
+     * This may be configurable in the future. See CLDR-18580
      *
      * @param file
      * @param calendarID
@@ -172,9 +171,8 @@ public class DateTimeFormats {
     /**
      * Set a CLDRFile and calendar. Must be done before calling addTable.
      *
-     * Note: currently, this method will initialize the datetime pattern in `dateFormatItem`
-     * by taking "default" values only. That is to say, any alternate values, patterns annotated
-     * with an attribute like `alt="ascii"` will be skipped over and not returned.
+     * Note: currently, this method will skip `alt="ascii"` elements of `dateFormatItem`.
+     * This may be configurable in the future. See CLDR-18580
      *
      * @param file
      * @param calendarID
@@ -279,6 +277,7 @@ public class DateTimeFormats {
                                         + "\"]/dateTimeFormats/availableFormats/dateFormatItem"))) {
             XPathParts parts = XPathParts.getFrozenInstance(path);
             if ("ascii".equals(parts.findAttributeValue("dateFormatItem", "alt"))) {
+                // TODO(CLDR-18580): Make this configurable.
                 continue;
             }
             String key = parts.getAttributeValue(-1, "id");

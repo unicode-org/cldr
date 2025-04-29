@@ -19,6 +19,7 @@ import org.unicode.cldr.test.CheckConsistentCasing.CasingTypeAndErrFlag;
 import org.unicode.cldr.test.CheckConsistentCasing.Category;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.ExemplarType;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
@@ -141,7 +142,9 @@ public class CasingInfo {
 
             // Save casing information about the locale.
             CLDRFile file = cldrFactory.make(localeID, true);
-            UnicodeSet examplars = file.getExemplarSet("", WinningChoice.NORMAL);
+            UnicodeSet examplars =
+                    file.getExemplarSet(
+                            ExemplarType.main, WinningChoice.NORMAL, UnicodeSet.CASE_INSENSITIVE);
             localeUsesCasing.put(localeID, examplars.containsSome(allCaps));
             createCasingXml(localeID, CheckConsistentCasing.getSamples(file));
         }

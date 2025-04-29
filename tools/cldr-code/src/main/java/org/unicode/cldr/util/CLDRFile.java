@@ -2370,11 +2370,6 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         return this;
     }
 
-    public UnicodeSet getExemplarSet(String type, WinningChoice winningChoice) {
-        return getExemplarSet(
-                ExemplarType.fromString(type), winningChoice, UnicodeSet.CASE_INSENSITIVE);
-    }
-
     public UnicodeSet getExemplarSet(ExemplarType type, WinningChoice winningChoice) {
         return getExemplarSet(type, winningChoice, UnicodeSet.CASE_INSENSITIVE);
     }
@@ -2404,7 +2399,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         }
 
         public static ExemplarType fromString(String type) {
-            return type.isEmpty() ? main : stringToPathID.get(type);
+            return type == null || type.isEmpty() ? main : stringToPathID.get(type);
         }
 
         String pathID() {

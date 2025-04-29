@@ -17,6 +17,7 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.ExemplarType;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
@@ -274,7 +275,9 @@ class ExtractMessages {
                 throw new RuntimeException("Skipping " + locale);
             }
             cldrFile = cldrFactory.make(locale, false);
-            UnicodeSet exemplars = cldrFile.getExemplarSet("", WinningChoice.WINNING);
+            UnicodeSet exemplars =
+                    cldrFile.getExemplarSet(
+                            ExemplarType.main, WinningChoice.WINNING, UnicodeSet.CASE_INSENSITIVE);
             usesLatin = exemplars != null && exemplars.containsSome(LATIN_SCRIPT);
             for (DataHandler dataHandler : dataHandlers) {
                 dataHandler.reset(cldrFile);

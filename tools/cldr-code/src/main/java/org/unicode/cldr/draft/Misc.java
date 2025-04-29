@@ -34,6 +34,7 @@ import org.unicode.cldr.tool.ToolConfig;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.ExemplarType;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CollatorHelper;
@@ -335,7 +336,9 @@ public class Misc {
             }
             String englishName = english.nameGetter().getNameFromIdentifier(baseLanguage);
             CLDRFile cldrFile = factory.make(baseLanguage, false);
-            UnicodeSet set = cldrFile.getExemplarSet("", WinningChoice.WINNING);
+            UnicodeSet set =
+                    cldrFile.getExemplarSet(
+                            ExemplarType.main, WinningChoice.WINNING, UnicodeSet.CASE_INSENSITIVE);
             int script = -1;
             for (String s : set) {
                 int cp = s.codePointAt(0);

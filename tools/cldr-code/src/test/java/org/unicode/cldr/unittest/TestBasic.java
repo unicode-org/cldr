@@ -763,7 +763,9 @@ public class TestBasic extends TestFmwkPlus {
     }
 
     private UnicodeSet safeExemplars(CLDRFile file, String string) {
-        final UnicodeSet result = file.getExemplarSet(string, WinningChoice.NORMAL);
+        final UnicodeSet result =
+                file.getExemplarSet(
+                        ExemplarType.main, WinningChoice.NORMAL, UnicodeSet.CASE_INSENSITIVE);
         return result != null ? result : new UnicodeSet();
     }
 
@@ -1152,18 +1154,29 @@ public class TestBasic extends TestFmwkPlus {
                     logln(name + " is missing " + MissingType.plurals.toString());
                     warnings.put(MissingType.plurals, "missing");
                 }
-                UnicodeSet main = cldrFile.getExemplarSet("", WinningChoice.WINNING);
+                UnicodeSet main =
+                        cldrFile.getExemplarSet(
+                                ExemplarType.main,
+                                WinningChoice.WINNING,
+                                UnicodeSet.CASE_INSENSITIVE);
                 if (main == null || main.isEmpty()) {
                     errln("  " + name + " is missing " + MissingType.main_exemplars.toString());
                     errors.put(MissingType.main_exemplars, "missing");
                 }
-                UnicodeSet index = cldrFile.getExemplarSet("index", WinningChoice.WINNING);
+                UnicodeSet index =
+                        cldrFile.getExemplarSet(
+                                ExemplarType.main,
+                                WinningChoice.WINNING,
+                                UnicodeSet.CASE_INSENSITIVE);
                 if (index == null || index.isEmpty()) {
                     logln(name + " is missing " + MissingType.index_exemplars.toString());
                     warnings.put(MissingType.index_exemplars, "missing");
                 }
                 UnicodeSet punctuation =
-                        cldrFile.getExemplarSet("punctuation", WinningChoice.WINNING);
+                        cldrFile.getExemplarSet(
+                                ExemplarType.fromString("punctuation"),
+                                WinningChoice.WINNING,
+                                UnicodeSet.CASE_INSENSITIVE);
                 if (punctuation == null || punctuation.isEmpty()) {
                     logln(name + " is missing " + MissingType.punct_exemplars.toString());
                     warnings.put(MissingType.punct_exemplars, "missing");

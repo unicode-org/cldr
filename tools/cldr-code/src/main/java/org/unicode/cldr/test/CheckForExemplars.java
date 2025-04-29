@@ -35,6 +35,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.ExemplarType;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.DateConstants;
 import org.unicode.cldr.util.Factory;
@@ -224,7 +225,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
 
         CLDRFile resolvedFile = getResolvedCldrFileToCheck();
         boolean[] ok = new boolean[1];
-        exemplars = safeGetExemplars("", possibleErrors, resolvedFile, ok);
+        exemplars = safeGetExemplars(ExemplarType.main, possibleErrors, resolvedFile, ok);
 
         if (exemplars == null) {
             CheckStatus item =
@@ -251,7 +252,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         // if (temp != null) exemplars.addAll(temp);
         UnicodeSet auxiliary =
                 safeGetExemplars(
-                        "auxiliary",
+                        ExemplarType.auxiliary,
                         possibleErrors,
                         resolvedFile,
                         ok); // resolvedFile.getExemplarSet("auxiliary",
@@ -263,7 +264,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         if (CheckExemplars.USE_PUNCTUATION) {
             UnicodeSet punctuation =
                     safeGetExemplars(
-                            "punctuation",
+                            ExemplarType.punctuation,
                             possibleErrors,
                             resolvedFile,
                             ok); // resolvedFile.getExemplarSet("auxiliary",
@@ -294,10 +295,15 @@ public class CheckForExemplars extends FactoryCheckCLDR {
     }
 
     private UnicodeSet safeGetExemplars(
-            String type, List<CheckStatus> possibleErrors, CLDRFile resolvedFile, boolean[] ok) {
+            ExemplarType type,
+            List<CheckStatus> possibleErrors,
+            CLDRFile resolvedFile,
+            boolean[] ok) {
         UnicodeSet result = null;
         try {
-            result = resolvedFile.getExemplarSet(type, CLDRFile.WinningChoice.WINNING);
+            result =
+                    resolvedFile.getExemplarSet(
+                            type, CLDRFile.WinningChoice.WINNING, UnicodeSet.CASE_INSENSITIVE);
             ok[0] = true;
         } catch (IllegalArgumentException iae) {
             possibleErrors.add(

@@ -157,6 +157,10 @@ public class DateTimeFormats {
     /**
      * Set a CLDRFile and calendar. Must be done before calling addTable.
      *
+     * Note: currently, this method will initialize the datetime pattern in `dateFormatItem`
+     * by taking "default" values only. That is to say, any alternate values, patterns annotated
+     * with an attribute like `alt="ascii"` will be skipped over and not returned.
+     *
      * @param file
      * @param calendarID
      * @return
@@ -167,6 +171,10 @@ public class DateTimeFormats {
 
     /**
      * Set a CLDRFile and calendar. Must be done before calling addTable.
+     *
+     * Note: currently, this method will initialize the datetime pattern in `dateFormatItem`
+     * by taking "default" values only. That is to say, any alternate values, patterns annotated
+     * with an attribute like `alt="ascii"` will be skipped over and not returned.
      *
      * @param file
      * @param calendarID

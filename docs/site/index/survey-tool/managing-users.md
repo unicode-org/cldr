@@ -6,7 +6,7 @@ title: Managing Users
 
 If you have a TC or Manager level account, you can manage other translators (users). When data submission starts, you'll want to Lock the users who are no longer active, add new users, and send messages to your users. For the old users you'll want to resend passwords \-\- it is simplest just to do that for everyone once you've added new users.
 
-When you create users, you give them permissions and choose which locales they are to work on. It is also important that you set your organization's coverage levels appropriately, see "[Setting your Organization's Coverage levels](/index/survey-tool/coverage)".
+When you create users, you give them permissions and choose which locales they are to work on. It is also important that you set your [organization][CLDR Organization]'s coverage levels appropriately, see "[Setting your Organization's Coverage levels](/index/survey-tool/coverage)".
 
 ## Managing Users
 
@@ -124,3 +124,5 @@ Later on, in the vetting phase, you can send messages with the outstanding dispu
 		2. OR (unusual case) under languages in http://www.ietf.org/internet\-drafts/draft\-ietf\-ltru\-4645bis\-04\.txt
 		3. However, watch for mistakes, eg someone using "tw" to mean Taiwanese, when it actually means "Twi"
 
+
+[CLDR Organization]: /index/survey-tool/cldr-organization

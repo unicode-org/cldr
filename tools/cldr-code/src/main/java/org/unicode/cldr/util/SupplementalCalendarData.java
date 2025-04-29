@@ -1,12 +1,16 @@
 package org.unicode.cldr.util;
 
+import com.google.common.base.CharMatcher;
+import com.google.common.base.Splitter;
 import com.google.common.base.Suppliers;
 import com.google.common.collect.ComparisonChain;
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.ibm.icu.util.Freezable;
 import com.ibm.icu.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
@@ -24,19 +28,43 @@ public class SupplementalCalendarData implements Iterable<String> {
         private final String code;
         private final int type;
         private final String calendarType; // for comparison
-        private final GregorianCalendar startCalendar;
-        private final GregorianCalendar endCalendar;
+        private final long startTime;
+        private final long endTime;
+
+        private final List<String> aliases;
 
         EraData(final XPathValue xpath) {
             calendarType = xpath.getAttributeValue(2, LDMLConstants.TYPE);
             type = Integer.parseInt(xpath.getAttributeValue(INDEX, LDMLConstants.TYPE));
 
             start = xpath.getAttributeValue(INDEX, LDMLConstants.START);
-            startCalendar = forDateString(start);
+            final GregorianCalendar startCalendar = dateStringToCalendar(start);
+            if (startCalendar != null) {
+                startTime = startCalendar.getTimeInMillis();
+            } else {
+                startTime = Long.MIN_VALUE;
+            }
+
             end = xpath.getAttributeValue(INDEX, LDMLConstants.END);
-            endCalendar = forDateString(end);
+            final GregorianCalendar endCalendar = dateStringToCalendar(end);
+            if (endCalendar != null) {
+                endTime = endCalendar.getTimeInMillis();
+            } else {
+                endTime = Long.MAX_VALUE;
+            }
+
             code = xpath.getAttributeValue(INDEX, LDMLConstants.CODE);
+
+            final String aliasString = xpath.getAttributeValue(INDEX, LDMLConstants.ALIASES);
+            if (aliasString == null) {
+                aliases = ImmutableList.of();
+            } else {
+                aliases = LIST_SPLITTER.splitToList(aliasString);
+            }
         }
+
+        private static final Splitter LIST_SPLITTER =
+                Splitter.on(CharMatcher.whitespace()).omitEmptyStrings();
 
         public int getType() {
             return type;
@@ -50,32 +78,30 @@ public class SupplementalCalendarData implements Iterable<String> {
             return end;
         }
 
-        public GregorianCalendar getStartCalendar() {
-            return startCalendar;
+        public long getStartTime() {
+            return startTime;
         }
 
-        public GregorianCalendar getEndCalendar() {
-            return endCalendar;
+        public long getEndTime() {
+            return endTime;
         }
 
         public String getCode() {
             return code;
         }
 
-        public String[] getAliases() {
-            final String s = xpath.getAttributeValue(INDEX, LDMLConstants.ALIASES);
-            if (s == null) return "".split(" "); // empty array
-            return s.split(" ");
+        public List<String> getAliases() {
+            return aliases;
         }
 
         @Override
         public String toString() {
             return String.format(
                     "ERA %d, [%s-%s] code=%s, aliases=%s",
-                    getType(), getStart(), getEnd(), getCode(), String.join(",", getAliases()));
+                    getType(), getStart(), getEnd(), getCode(), getAliases());
         }
 
-        private static final GregorianCalendar forDateString(String ymd) {
+        private static final GregorianCalendar dateStringToCalendar(String ymd) {
             if (ymd == null) return null;
             int multiplier = 1;
             if (ymd.startsWith("-")) {
@@ -104,8 +130,7 @@ public class SupplementalCalendarData implements Iterable<String> {
         public int compareTo(EraData o) {
             return ComparisonChain.start()
                     .compare(calendarType, o.calendarType)
-                    .compare(getLatest(), o.getLatest())
-                    .compare(getType(), o.getType())
+                    .compare(getLatestTime(), o.getLatestTime())
                     .result();
         }
     }

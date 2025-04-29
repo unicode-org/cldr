@@ -1,6 +1,6 @@
 package org.unicode.cldr.util;
 
-import com.ibm.icu.impl.locale.XCldrStub.ImmutableMap;
+import com.google.common.collect.ImmutableMap;
 import com.ibm.icu.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -208,11 +208,11 @@ public class SupplementalCalendarData implements Iterable<String> {
         public SupplementalCalendarData get() {
             return new SupplementalCalendarData(typeToCalendar);
         }
+
+        
     }
 
     private SupplementalCalendarData(Map<String, CalendarData> m) {
-        // TODO: freeze all types
-        // m.forEach(c -> c.freeze());
         this.typeToCalendar = ImmutableMap.copyOf(m);
     }
 

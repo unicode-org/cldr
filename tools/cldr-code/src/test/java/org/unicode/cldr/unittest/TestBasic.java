@@ -51,6 +51,7 @@ import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
+import org.unicode.cldr.util.CLDRFile.ExemplarType;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CLDRPaths;
@@ -58,6 +59,7 @@ import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.ChainedMap.M4;
 import org.unicode.cldr.util.CharacterFallbacks;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CodePointEscaper;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.DiscreteComparator;
 import org.unicode.cldr.util.DiscreteComparator.Ordering;
@@ -74,14 +76,18 @@ import org.unicode.cldr.util.InputStreamFactory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.NameGetter;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathUtilities;
+import org.unicode.cldr.util.SimpleUnicodeSetFormatter;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.TestCLDRPaths;
+import org.unicode.cldr.util.UnicodeRelation;
+import org.unicode.cldr.util.UnicodeSets;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 import org.xml.sax.ErrorHandler;
@@ -92,9 +98,11 @@ import org.xml.sax.XMLReader;
 
 public class TestBasic extends TestFmwkPlus {
 
+    private static final Joiner TAB_JOINER = Joiner.on('\t');
+
     private static final boolean DEBUG = false;
 
-    static CLDRConfig testInfo = CLDRConfig.getInstance();
+    static final CLDRConfig testInfo = CLDRConfig.getInstance();
 
     private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO =
             testInfo.getSupplementalDataInfo();
@@ -1707,5 +1715,61 @@ public class TestBasic extends TestFmwkPlus {
         return bcp47Keys.entrySet().stream()
                 .map(x -> Pair.of(x.getKey(), x.getValue()))
                 .collect(Collectors.toCollection(TreeSet::new));
+    }
+
+    /** The goal for this is investigation; will turn into regular test */
+    public void testExemplarCategories() {
+        CLDRFile root = testInfo.getRoot();
+        CLDRFile english = testInfo.getEnglish();
+        NameGetter engNames = new NameGetter(english);
+        for (ExemplarType id : CLDRFile.ExemplarType.values()) {
+            assertNotNull(
+                    id.toString(), root.getExemplarSet(id, WinningChoice.WINNING).toPattern(false));
+        }
+        final UnicodeSet mainExpected =
+                new UnicodeSet("[\\p{L}\\p{M}]")
+                        .add(CodePointEscaper.WNJ.getCodePoint())
+                        .add(CodePointEscaper.ZWNJ.getCodePoint())
+                        .add(CodePointEscaper.ZWJ.getCodePoint())
+                        .freeze();
+        final UnicodeSet auxExpected =
+                new UnicodeSet(mainExpected)
+                        .add(CodePointEscaper.LRM.getCodePoint())
+                        .add(CodePointEscaper.RLM.getCodePoint())
+                        .freeze();
+        UnicodeRelation<String> allUnexpected = new UnicodeRelation<>();
+        SimpleUnicodeSetFormatter susf = new SimpleUnicodeSetFormatter();
+        for (String localeId : testInfo.getCldrFactory().getAvailable()) {
+            CLDRFile cldrFile = testInfo.getCldrFactory().make(localeId, false);
+            for (ExemplarType id : List.of(ExemplarType.main, ExemplarType.auxiliary)) {
+                UnicodeSet raw = cldrFile.getExemplarSet(id, WinningChoice.WINNING);
+                UnicodeSet exemplars = new UnicodeSet(raw).removeAll(raw.strings());
+                if (exemplars.isEmpty()) {
+                    continue;
+                }
+                final UnicodeSet expected = id == ExemplarType.main ? mainExpected : auxExpected;
+                UnicodeSet unexpected = UnicodeSets.removeAllFlattening(exemplars, expected);
+
+                if (!unexpected.isEmpty()) {
+                    warnln(
+                            TAB_JOINER.join(
+                                    localeId,
+                                    engNames.getNameFromIdentifier(localeId),
+                                    id,
+                                    susf.format(unexpected),
+                                    unexpected));
+                    allUnexpected.addAll(unexpected, id + "");
+                }
+            }
+        }
+        for (String id : allUnexpected.values()) {
+            warnln(
+                    TAB_JOINER.join(
+                            "all",
+                            "",
+                            id,
+                            susf.format(allUnexpected.getKeys(id)),
+                            allUnexpected.getKeys(id)));
+        }
     }
 }

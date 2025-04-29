@@ -1432,6 +1432,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
 
     private final boolean DEFAULT_ITERATION_INCLUDES_EXTRAS = true;
 
+    @Override
     public Iterator<String> iterator() {
         if (DEFAULT_ITERATION_INCLUDES_EXTRAS) {
             return Iterators.filter(fullIterable().iterator(), p -> getStringValue(p) != null);
@@ -2370,7 +2371,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
     }
 
     public UnicodeSet getExemplarSet(String type, WinningChoice winningChoice) {
-        return getExemplarSet(type, winningChoice, UnicodeSet.CASE_INSENSITIVE);
+        return getExemplarSet(
+                ExemplarType.fromString(type), winningChoice, UnicodeSet.CASE_INSENSITIVE);
     }
 
     public UnicodeSet getExemplarSet(ExemplarType type, WinningChoice winningChoice) {
@@ -2386,16 +2388,28 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         main,
         auxiliary,
         index,
+        numbers,
+        numbers_auxiliary,
         punctuation,
-        numbers;
+        punctuation_auxiliary,
+        punctuation_person,
+        ;
+        private final String pathID;
+        static final Map<String, ExemplarType> stringToPathID =
+                Arrays.asList(ExemplarType.values()).stream()
+                        .collect(Collectors.toMap(x -> x.pathID, x -> x));
+
+        private ExemplarType() {
+            pathID = name().replace('_', '-');
+        }
 
         public static ExemplarType fromString(String type) {
-            return type.isEmpty() ? main : valueOf(type);
+            return type.isEmpty() ? main : stringToPathID.get(type);
         }
-    }
 
-    public UnicodeSet getExemplarSet(String type, WinningChoice winningChoice, int option) {
-        return getExemplarSet(ExemplarType.fromString(type), winningChoice, option);
+        String pathID() {
+            return pathID;
+        }
     }
 
     public UnicodeSet getExemplarSet(ExemplarType type, WinningChoice winningChoice, int option) {
@@ -2424,7 +2438,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
 
     public static String getExemplarPath(ExemplarType type) {
         return "//ldml/characters/exemplarCharacters"
-                + (type == ExemplarType.main ? "" : "[@type=\"" + type + "\"]");
+                + (type == ExemplarType.main ? "" : "[@type=\"" + type.pathID() + "\"]");
     }
 
     public enum NumberingSystem {

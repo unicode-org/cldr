@@ -18,6 +18,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import org.unicode.cldr.tool.LanguageCodeConverter;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.ExemplarType;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
@@ -329,8 +330,8 @@ public class ExemplarInfo {
                     System.out.print("");
                 }
                 CLDRFile file = ExemplarInfo.cldrFactory.make(cldrLanguage, true);
-                exemplars1 = file.getExemplarSet("", WinningChoice.WINNING, 0);
-                auxiliary1 = file.getExemplarSet("auxiliary", WinningChoice.WINNING, 0);
+                exemplars1 = file.getExemplarSet(ExemplarType.main, WinningChoice.WINNING, 0);
+                auxiliary1 = file.getExemplarSet(ExemplarType.auxiliary, WinningChoice.WINNING, 0);
             } catch (Exception e) {
                 System.out.println(
                         "Can't read "

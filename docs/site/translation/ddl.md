@@ -15,7 +15,9 @@ Here is an outline of those steps:
 2. If no existing keyboards handle your language, see if there are installable keyboards that can. [Keyman] is a good source.
 3. Contribute to getting locale data into CLDR. The most effective way to contribute is via a [CLDR Organization].
 
-Note: Having a CLDR locale at [Basic Coverage][Coverage] is a necessary step for being selectable on many platforms. Users still may need to install keyboards and/or fonts in order to use the language. That can enable using your language within applications. And Coverage at Moderate and Modern can improve the capabilities of those applications to handle your language.
+Notes:
+ - Having a CLDR locale at [Basic Coverage][Coverage] is a necessary step for being selectable on many platforms. Users still may need to install keyboards and/or fonts in order to use the language. That can enable using your language within applications. And Coverage at Moderate and Modern can improve the capabilities of those applications to handle your language.
+- Applications and platforms decide which languages and locales they support; therefore, having a CLDR locale is no guarentee that it will be supported on any given application or platform.
 
 ### Individual Contributors
 

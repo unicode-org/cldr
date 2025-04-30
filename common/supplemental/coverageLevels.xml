@@ -76,7 +76,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageVariable key="%dateFormatItems" value="((E|d|Ed|EEEEd)|((Gy|y|yyyy|U)?(M|Md|MEd|MEEEEd|MMM|MMMd|MMMEd|MMMEEEEd|MMMM|MMMMd|MMMMEd|MMMMEEEEd))|((Gy|y|yyyy)(QQQ|QQQQ)?))"/>
 		<coverageVariable key="%dateFormatItemsAll" value="(G{0,5}(y|U){0,4}Q{0,4}(M|L){0,5}(E|c){0,5}d{0,2}(H|h){0,2}m{0,2}s{0,2}(v|z|Z){0,4})"/>
 		<coverageVariable key="%dateTimeFormatLengths" value="(full|long|medium|short)"/>
-		<coverageVariable key="%iso8601IDs" value='([^\\x{22}]*(Gy|y[MQw]|M[EdW]|Ed)[^\\x{22}]*)'/> <!-- two different date characters. Because they are ordered we can test pairs -->
+		<coverageVariable key="%iso8601IDs" value='([^\x{22}]*(Gy|y[MQw]|M[EdW]|Ed)[^\x{22}]*)'/> <!-- two different date characters. Because they are ordered we can test pairs -->
 
 		<coverageVariable key="%emTypes" value="(default|emoji|text)"/>
 		<coverageVariable key="%fullMedium" value="(full|medium)"/>

@@ -74,6 +74,8 @@ import org.unicode.cldr.util.XPathParts;
 
 public class TestCoverageLevel extends TestFmwkPlus {
 
+    private static final boolean DEBUG = System.getProperty("TestCoverageLevel") != null;
+
     private static final boolean SHOW_LSR_DATA =
             CLDRConfig.getInstance().getProperty("SHOW_LSR_DATA", false);
 
@@ -370,8 +372,6 @@ public class TestCoverageLevel extends TestFmwkPlus {
     }
 
     static final Date NOW = new Date();
-
-    private static final boolean DEBUG = false;
 
     RegexLookup<Level> exceptions =
             RegexLookup.of(
@@ -1474,11 +1474,11 @@ public class TestCoverageLevel extends TestFmwkPlus {
                                 String.format(
                                         "level:%s, locale:%s, path:%s",
                                         level.toString(), locale, path));
-                    } else {
-                        //                        warnln(
-                        //                                String.format(
-                        //                                        "level:%s, locale:%s, path:%s",
-                        //                                        level.toString(), locale, path));
+                    } else if (DEBUG) {
+                        warnln(
+                                String.format(
+                                        "level:%s, locale:%s, path:%s",
+                                        level.toString(), locale, path));
                     }
                 }
             }

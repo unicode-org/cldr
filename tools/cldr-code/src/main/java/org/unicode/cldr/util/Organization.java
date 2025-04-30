@@ -26,6 +26,10 @@ public enum Organization {
     breton("Office of Breton Lang"),
     cherokee("Cherokee Nation"),
     choctaw("Choctaw Nation"),
+    chuvash_sih(
+            "Chuvash SIH",
+            "Chuvash State Institute of Humanities",
+            "Чăваш патшалăх гуманитарии ăслăлăхсен институчĕ"),
     cldr("Cldr"),
     gaeilge("Foras na Gaeilge"),
     georgia_isi("Georgia ISI"),

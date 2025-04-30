@@ -157,8 +157,8 @@ public class DateTimeFormats {
     /**
      * Set a CLDRFile and calendar. Must be done before calling addTable.
      *
-     * Note: currently, this method will skip `alt="ascii"` elements of `dateFormatItem`.
-     * This may be configurable in the future. See CLDR-18580
+     * <p>Note: currently, this method will skip `alt="ascii"` elements of `dateFormatItem`. This
+     * may be configurable in the future. See CLDR-18580
      *
      * @param file
      * @param calendarID
@@ -171,8 +171,8 @@ public class DateTimeFormats {
     /**
      * Set a CLDRFile and calendar. Must be done before calling addTable.
      *
-     * Note: currently, this method will skip `alt="ascii"` elements of `dateFormatItem`.
-     * This may be configurable in the future. See CLDR-18580
+     * <p>Note: currently, this method will skip `alt="ascii"` elements of `dateFormatItem`. This
+     * may be configurable in the future. See CLDR-18580
      *
      * @param file
      * @param calendarID

@@ -34,6 +34,10 @@ public enum Organization {
     ibm("IBM"),
     india("India MIT"),
     iran_hci("Iran HCI"),
+    kazakh_tbi(
+            "Kazakh TBI",
+            "The Institute of Linguistics named after Akhmet Baitursunuly",
+            "Ахмет Байтұрсынұлы атындағы Тіл білімі институты"),
     kendra("Kendra (Nepal)"),
     kotoistus("Kotoistus (Finnish IT Ctr)"),
     kunsill_malti(

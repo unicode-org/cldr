@@ -500,6 +500,7 @@ annotations.
 			<language type="pfl">Palatine German</language>
 			<language type="phn">Phoenician</language>
 			<language type="pi">Pali</language>
+			<language type="pi" alt="variant">Pāli</language>
 			<language type="pis">Pijin</language>
 			<language type="pl">Polish</language>
 			<language type="pms">Piedmontese</language>
@@ -3251,8 +3252,13 @@ annotations.
 					</monthContext>
 				</months>
 				<eras>
+					<eraNames>
+						<era type="0">Anno Hegirae</era>
+						<era type="1">Before Hijrah</era>
+					</eraNames>
 					<eraAbbr>
 						<era type="0">AH</era>
+						<era type="1">BH</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>

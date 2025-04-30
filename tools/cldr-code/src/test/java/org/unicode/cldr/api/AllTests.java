@@ -6,7 +6,7 @@ import com.google.common.collect.ImmutableList;
 import java.io.PrintWriter;
 import org.junit.jupiter.api.Test;
 import org.unicode.cldr.icu.dev.test.TestFmwk.TestGroup;
-import org.unicode.cldr.util.TestShimUtils;
+import org.unicode.cldr.util.ShimmedMain;
 
 public class AllTests extends TestGroup {
     private static final ImmutableList<Class<?>> TEST_CLASSES =
@@ -37,6 +37,6 @@ public class AllTests extends TestGroup {
 
     @Test
     public void runApiTests() {
-        main(TestShimUtils.getArgs(AllTests.class, "-n -q"));
+        main(ShimmedMain.getArgs(AllTests.class, "-n -q"));
     }
 }

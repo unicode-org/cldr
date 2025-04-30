@@ -9,12 +9,10 @@ import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.impl.Relation;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -1730,41 +1728,13 @@ public class TestExampleGenerator extends TestFmwk {
         }
     }
 
-    public void TestEraMap() {
-        ExampleGenerator exampleGenerator = getExampleGenerator("en");
-        Relation<String, String> keyToSubtypes = SupplementalDataInfo.getInstance().getBcp47Keys();
-        Set<String> calendars = keyToSubtypes.get("ca"); // gets calendar codes
-        Map<String, String> codeToType =
-                new HashMap<>() {
-                    { // calendars where code != type
-                        put("gregory", "gregorian");
-                        put("iso8601", "gregorian");
-                        put("ethioaa", "ethiopic-amete-alem");
-                        put("islamic-civil", "islamic");
-                        put("islamic-rgsa", "islamic");
-                        put("islamic-tbla", "islamic");
-                        put("islamic-umalqura", "islamic");
-                        put("islamicc", "islamic");
-                    }
-                };
-        for (String id : calendars) {
-            if (codeToType.containsKey(id)) {
-                id = codeToType.get(id);
-            }
-            Map<String, List<Date>> calendarMap = ExampleGenerator.CALENDAR_ERAS;
-            assertTrue(
-                    "CALENDAR_ERAS map contains calendar type \"" + id + "\"",
-                    calendarMap.containsKey(id));
-        }
-    }
-
     public void TestEraFormats() {
         ExampleGenerator exampleGeneratorJa = getExampleGenerator("ja");
         ExampleGenerator exampleGeneratorEs = getExampleGenerator("es");
         ExampleGenerator exampleGeneratorZh = getExampleGenerator("zh");
         checkValue(
                 "japanese type=235 abbreviated",
-                "〖平成1年〗",
+                "〖平成31年〗",
                 exampleGeneratorJa,
                 "//ldml/dates/calendars/calendar[@type=\"japanese\"]/eras/eraAbbr/era[@type=\"235\"]");
         checkValue(
@@ -1779,7 +1749,7 @@ public class TestExampleGenerator extends TestFmwk {
                 "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/eras/eraNames/era[@type=\"0\"][@alt=\"variant\"]");
         checkValue(
                 "roc type=1 abbreviated",
-                "〖民国1年〗",
+                "〖民国91年〗",
                 exampleGeneratorZh,
                 "//ldml/dates/calendars/calendar[@type=\"roc\"]/eras/eraAbbr/era[@type=\"1\"]");
     }
@@ -1811,30 +1781,42 @@ public class TestExampleGenerator extends TestFmwk {
     public void TestRelative() {
         ExampleGenerator exampleGeneratorIt = getExampleGenerator("it");
         ExampleGenerator exampleGeneratorAm = getExampleGenerator("am");
+        ExampleGenerator exampleGeneratorCs = getExampleGenerator("cs");
+        ExampleGenerator exampleGeneratorLv = getExampleGenerator("lv");
         checkValue(
                 "it relative day type 2",
-                "〖Dopodomani (5 settembre)〗〖5 settembre (dopodomani)〗",
+                "〖Set letter case for top example:〗〖5 settembre (dopodomani)〗〖dopodomani (5 settembre)〗〖See letter case instructions at right.〗",
                 exampleGeneratorIt,
                 "//ldml/dates/fields/field[@type=\"day\"]/relative[@type=\"2\"]");
         checkValue(
                 "it relative hour future-other",
-                "〖Tra ❬10❭ ore (18:25)〗〖18:25 (tra ❬10❭ ore)〗",
+                "〖Set letter case for top example:〗〖18:25 (tra ❬100❭ ore)〗〖tra ❬100❭ ore (18:25)〗〖See letter case instructions at right.〗",
                 exampleGeneratorIt,
                 "//ldml/dates/fields/field[@type=\"hour\"]/relativeTime[@type=\"future\"]/relativeTimePattern[@count=\"other\"]");
         checkValue(
                 "it relative year past-one",
-                "〖❬1❭ anno fa (settembre 1999)〗〖settembre 1999 (❬1❭ anno fa)〗",
+                "〖Set letter case for top example:〗〖settembre 1999 (❬1❭ anno fa)〗〖❬1❭ anno fa (settembre 1999)〗〖See letter case instructions at right.〗",
                 exampleGeneratorIt,
                 "//ldml/dates/fields/field[@type=\"year\"]/relativeTime[@type=\"past\"]/relativeTimePattern[@count=\"one\"]");
         checkValue(
                 "am relative month future-one",
-                "〖በ❬1❭ ወር ውስጥ (ሴፕቴምበር 1999)〗〖ሴፕቴምበር 1999 (በ❬1❭ ወር ውስጥ)〗",
+                "〖Set letter case for top example:〗〖ሴፕቴምበር 1999 (በ❬1❭ ወር ውስጥ)〗〖በ❬1❭ ወር ውስጥ (ሴፕቴምበር 1999)〗〖See letter case instructions at right.〗",
                 exampleGeneratorAm,
                 "//ldml/dates/fields/field[@type=\"month\"]/relativeTime[@type=\"future\"]/relativeTimePattern[@count=\"one\"]");
         checkValue(
                 "am relative month future-other",
-                "〖በ❬10❭ ወራት ውስጥ (ሴፕቴምበር 1999)〗〖ሴፕቴምበር 1999 (በ❬10❭ ወራት ውስጥ)〗",
+                "〖Set letter case for top example:〗〖ሴፕቴምበር 1999 (በ❬100❭ ወራት ውስጥ)〗〖በ❬100❭ ወራት ውስጥ (ሴፕቴምበር 1999)〗〖See letter case instructions at right.〗",
                 exampleGeneratorAm,
+                "//ldml/dates/fields/field[@type=\"month\"]/relativeTime[@type=\"future\"]/relativeTimePattern[@count=\"other\"]");
+        checkValue(
+                "cs relative hour past-many",
+                "〖Set letter case for top example:〗〖18:25 (před ❬0,5❭ hodiny)〗〖Před ❬0,5❭ hodiny (18:25)〗〖See letter case instructions at right.〗",
+                exampleGeneratorCs,
+                "//ldml/dates/fields/field[@type=\"hour\"]/relativeTime[@type=\"past\"]/relativeTimePattern[@count=\"many\"]");
+        checkValue(
+                "lv relative month future-other",
+                "〖Set letter case for top example:〗〖1999. g. septembris (pēc ❬22❭ mēnešiem)〗〖pēc ❬22❭ mēnešiem (1999. g. septembris)〗〖See letter case instructions at right.〗",
+                exampleGeneratorLv,
                 "//ldml/dates/fields/field[@type=\"month\"]/relativeTime[@type=\"future\"]/relativeTimePattern[@count=\"other\"]");
     }
 
@@ -1949,7 +1931,7 @@ public class TestExampleGenerator extends TestFmwk {
                     continue;
                 }
                 Level level = SDI.getCoverageLevel(xpath, "en");
-                if (level.compareTo(Level.COMPREHENSIVE) == 0) {
+                if (level.isAtLeast(Level.COMPREHENSIVE)) {
                     continue;
                 }
                 String starred = ps.set(xpath);

@@ -4,8 +4,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import com.ibm.icu.impl.Relation;
 import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.util.ULocale;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 import org.junit.jupiter.api.Test;
 import org.unicode.cldr.util.SupplementalDataInfo.ApprovalRequirementMatcher;
 import org.unicode.cldr.util.SupplementalDataInfo.ParentLocaleComponent;
@@ -90,4 +94,60 @@ public class TestSupplementalDataInfo {
             }
         }
     }
+
+    @Test
+    void TestCalendarData() {
+        final SupplementalDataInfo sdi = CLDRConfig.getInstance().getSupplementalDataInfo();
+
+        SupplementalCalendarData cal = sdi.getCalendarData();
+
+        assertNotNull(cal);
+
+        // dumpCalendarData(cal);
+        assertNotNull(cal.get("gregorian"));
+        assertNotNull(cal.get("japanese"));
+        assertEquals("solar", cal.get("gregorian").getSystemType());
+        assertEquals("717-11-17", cal.get("japanese").get(8).getStart());
+
+        // moved from TestExampleGenerator.TestEraMap
+        Relation<String, String> keyToSubtypes = SupplementalDataInfo.getInstance().getBcp47Keys();
+        Set<String> calendars = keyToSubtypes.get("ca"); // gets calendar codes
+        Map<String, String> codeToType =
+                new HashMap<>() {
+                    { // calendars where code != type
+                        put("gregory", "gregorian");
+                        put("iso8601", "gregorian");
+                        put("ethioaa", "ethiopic-amete-alem");
+                        put("islamic-civil", "islamic");
+                        put("islamic-rgsa", "islamic");
+                        put("islamic-tbla", "islamic");
+                        put("islamic-umalqura", "islamic");
+                        put("islamicc", "islamic");
+                    }
+                };
+        for (String id : calendars) {
+            if (codeToType.containsKey(id)) {
+                id = codeToType.get(id);
+            }
+            final String calId = id;
+            assertNotNull(
+                    cal.get(calId),
+                    () -> "calendar supplemental data missing calendar type \"" + calId + "\"");
+        }
+    }
+
+    // private void dumpCalendarData(SupplementalCalendarData cal) {
+    //     for(final String calType : cal) {
+    //         System.out.println("Calendar: " + calType);
+    //         final CalendarData c = cal.get(calType);
+    //         assertNotNull(c, calType);
+    //         System.out.println("  system : " + c.getSystemType());
+    //         System.out.println("  inherit: " + c.getInheritEras());
+    //         for (final Integer n : c) {
+    //             System.out.println("* " + n);
+    //             final EraData e = c.get(n);
+    //             System.out.println("   " + e);
+    //         }
+    //     }
+    // }
 }

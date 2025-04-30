@@ -52,6 +52,7 @@ public enum Organization {
     lakota_lc("Lakota LC"),
     lao_dpt("Lao Posts/Telecom"),
     longnow("The Long Now Foundation", "Long Now", "PanLex", "Utilika", "Utilka Foundation"),
+    mayan_lpp("Mayan LPP", "Mayan Languages Preservation Project"),
     meta("Meta", "Facebook"),
     microsoft("Microsoft"),
     mikmaw_kinamatnewey("Mi'kmaw Kina'matnewey"),

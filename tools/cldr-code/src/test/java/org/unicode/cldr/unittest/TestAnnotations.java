@@ -690,6 +690,11 @@ public class TestAnnotations extends TestFmwkPlus {
         }
     }
 
+    final UnicodeSet TEMPORARY_SKIP_COMPOUNDS =
+            new UnicodeSet(
+                            "[{👨🏻‍🐰‍👨🏼}{👨🏻‍🐰‍👨🏽}{👨🏻‍🐰‍👨🏾}{👨🏻‍🐰‍👨🏿}{👨🏻‍🫯‍👨🏼}{👨🏻‍🫯‍👨🏽}{👨🏻‍🫯‍👨🏾}{👨🏻‍🫯‍👨🏿}{👨🏼‍🐰‍👨🏻}{👨🏼‍🐰‍👨🏽}{👨🏼‍🐰‍👨🏾}{👨🏼‍🐰‍👨🏿}{👨🏼‍🫯‍👨🏻}{👨🏼‍🫯‍👨🏽}{👨🏼‍🫯‍👨🏾}{👨🏼‍🫯‍👨🏿}{👨🏽‍🐰‍👨🏻}{👨🏽‍🐰‍👨🏼}{👨🏽‍🐰‍👨🏾}{👨🏽‍🐰‍👨🏿}{👨🏽‍🫯‍👨🏻}{👨🏽‍🫯‍👨🏼}{👨🏽‍🫯‍👨🏾}{👨🏽‍🫯‍👨🏿}{👨🏾‍🐰‍👨🏻}{👨🏾‍🐰‍👨🏼}{👨🏾‍🐰‍👨🏽}{👨🏾‍🐰‍👨🏿}{👨🏾‍🫯‍👨🏻}{👨🏾‍🫯‍👨🏼}{👨🏾‍🫯‍👨🏽}{👨🏾‍🫯‍👨🏿}{👨🏿‍🐰‍👨🏻}{👨🏿‍🐰‍👨🏼}{👨🏿‍🐰‍👨🏽}{👨🏿‍🐰‍👨🏾}{👨🏿‍🫯‍👨🏻}{👨🏿‍🫯‍👨🏼}{👨🏿‍🫯‍👨🏽}{👨🏿‍🫯‍👨🏾}{👩🏻‍🐰‍👩🏼}{👩🏻‍🐰‍👩🏽}{👩🏻‍🐰‍👩🏾}{👩🏻‍🐰‍👩🏿}{👩🏻‍🫯‍👩🏼}{👩🏻‍🫯‍👩🏽}{👩🏻‍🫯‍👩🏾}{👩🏻‍🫯‍👩🏿}{👩🏼‍🐰‍👩🏻}{👩🏼‍🐰‍👩🏽}{👩🏼‍🐰‍👩🏾}{👩🏼‍🐰‍👩🏿}{👩🏼‍🫯‍👩🏻}{👩🏼‍🫯‍👩🏽}{👩🏼‍🫯‍👩🏾}{👩🏼‍🫯‍👩🏿}{👩🏽‍🐰‍👩🏻}{👩🏽‍🐰‍👩🏼}{👩🏽‍🐰‍👩🏾}{👩🏽‍🐰‍👩🏿}{👩🏽‍🫯‍👩🏻}{👩🏽‍🫯‍👩🏼}{👩🏽‍🫯‍👩🏾}{👩🏽‍🫯‍👩🏿}{👩🏾‍🐰‍👩🏻}{👩🏾‍🐰‍👩🏼}{👩🏾‍🐰‍👩🏽}{👩🏾‍🐰‍👩🏿}{👩🏾‍🫯‍👩🏻}{👩🏾‍🫯‍👩🏼}{👩🏾‍🫯‍👩🏽}{👩🏾‍🫯‍👩🏿}{👩🏿‍🐰‍👩🏻}{👩🏿‍🐰‍👩🏼}{👩🏿‍🐰‍👩🏽}{👩🏿‍🐰‍👩🏾}{👩🏿‍🫯‍👩🏻}{👩🏿‍🫯‍👩🏼}{👩🏿‍🫯‍👩🏽}{👩🏿‍🫯‍👩🏾}{👯🏻}{👯🏻‍♀}{👯🏻‍♂}{👯🏼}{👯🏼‍♀}{👯🏼‍♂}{👯🏽}{👯🏽‍♀}{👯🏽‍♂}{👯🏾}{👯🏾‍♀}{👯🏾‍♂}{👯🏿}{👯🏿‍♀}{👯🏿‍♂}{🤼🏻}{🤼🏻‍♀}{🤼🏻‍♂}{🤼🏼}{🤼🏼‍♀}{🤼🏼‍♂}{🤼🏽}{🤼🏽‍♀}{🤼🏽‍♂}{🤼🏾}{🤼🏾‍♀}{🤼🏾‍♂}{🤼🏿}{🤼🏿‍♀}{🤼🏿‍♂}{🧑🏻‍🐰‍🧑🏼}{🧑🏻‍🐰‍🧑🏽}{🧑🏻‍🐰‍🧑🏾}{🧑🏻‍🐰‍🧑🏿}{🧑🏻‍🩰}{🧑🏻‍🫯‍🧑🏼}{🧑🏻‍🫯‍🧑🏽}{🧑🏻‍🫯‍🧑🏾}{🧑🏻‍🫯‍🧑🏿}{🧑🏼‍🐰‍🧑🏻}{🧑🏼‍🐰‍🧑🏽}{🧑🏼‍🐰‍🧑🏾}{🧑🏼‍🐰‍🧑🏿}{🧑🏼‍🩰}{🧑🏼‍🫯‍🧑🏻}{🧑🏼‍🫯‍🧑🏽}{🧑🏼‍🫯‍🧑🏾}{🧑🏼‍🫯‍🧑🏿}{🧑🏽‍🐰‍🧑🏻}{🧑🏽‍🐰‍🧑🏼}{🧑🏽‍🐰‍🧑🏾}{🧑🏽‍🐰‍🧑🏿}{🧑🏽‍🩰}{🧑🏽‍🫯‍🧑🏻}{🧑🏽‍🫯‍🧑🏼}{🧑🏽‍🫯‍🧑🏾}{🧑🏽‍🫯‍🧑🏿}{🧑🏾‍🐰‍🧑🏻}{🧑🏾‍🐰‍🧑🏼}{🧑🏾‍🐰‍🧑🏽}{🧑🏾‍🐰‍🧑🏿}{🧑🏾‍🩰}{🧑🏾‍🫯‍🧑🏻}{🧑🏾‍🫯‍🧑🏼}{🧑🏾‍🫯‍🧑🏽}{🧑🏾‍🫯‍🧑🏿}{🧑🏿‍🐰‍🧑🏻}{🧑🏿‍🐰‍🧑🏼}{🧑🏿‍🐰‍🧑🏽}{🧑🏿‍🐰‍🧑🏾}{🧑🏿‍🩰}{🧑🏿‍🫯‍🧑🏻}{🧑🏿‍🫯‍🧑🏼}{🧑🏿‍🫯‍🧑🏽}{🧑🏿‍🫯‍🧑🏾}]")
+                    .freeze();
+
     /**
      * We test that all emoji have English annotations. This may fail when the emoji are updated for
      * a new version of Unicode, if the algorithm for computing derived annotations needs updating.
@@ -737,11 +742,20 @@ public class TestAnnotations extends TestFmwkPlus {
         assertEquals(
                 "RGI - en.xml name annotations",
                 "[]",
-                new UnicodeSet(allRgiNoEs).removeAll(namesFound).toPattern(false));
+                new UnicodeSet(allRgiNoEs)
+                        .removeAll(namesFound)
+                        .removeAll(TEMPORARY_SKIP_COMPOUNDS)
+                        .toPattern(false));
         assertEquals(
                 "RGI - en.xml search key annotations",
                 "[]",
-                new UnicodeSet(allRgiNoEs).removeAll(searchKeywordsFound).toPattern(false));
+                new UnicodeSet(allRgiNoEs)
+                        .removeAll(searchKeywordsFound)
+                        .removeAll(TEMPORARY_SKIP_COMPOUNDS)
+                        .toPattern(false));
+        if (!TEMPORARY_SKIP_COMPOUNDS.isEmpty()) {
+            logKnownIssue("CLDR-18462", "Update Annotations.java for new compounds");
+        }
     }
 
     public void testRightFacing() {

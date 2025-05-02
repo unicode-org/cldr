@@ -1427,8 +1427,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
             Multimap<Level, PathHeader> sorted = TreeMultimap.create();
             for (String path : cldrFile) {
                 if (!path.startsWith("//ldml/dates/calendars/calendar[@type=\"iso8601\"]")
-                        || path.endsWith("/alias")
-                        || path.contains("[@type=\"standard\"]")) {
+                        || path.endsWith("/alias")) {
                     continue;
                 }
                 Level actual = coverageLevel.getLevel(path);
@@ -1461,7 +1460,10 @@ public class TestCoverageLevel extends TestFmwkPlus {
                     boolean expectedComprehensive =
                             comprehesiveElements.stream().anyMatch(x -> containing(parts, x));
                     if (!expectedComprehensive) {
-                        if (id != null) {
+                        if (path.endsWith("/pattern[@type=\"standard\"]")
+                                && !path.contains("/dateFormat[@type=\"standard\"]")) {
+                            expectedComprehensive = true;
+                        } else if (id != null) {
                             boolean keepIdS = keepIds.contains(id);
                             if (keepIdS) {
                                 keepIdSet.add(id);
@@ -1482,7 +1484,9 @@ public class TestCoverageLevel extends TestFmwkPlus {
                                         locale,
                                         ph.getPageId(),
                                         ph.getHeader(),
-                                        ph.getCode()));
+                                        ph.getCode(),
+                                        cldrFile.getStringValue(path),
+                                        path));
                     } else if (DEBUG) {
                         warnln(
                                 Joiners.TAB.join(
@@ -1491,7 +1495,8 @@ public class TestCoverageLevel extends TestFmwkPlus {
                                         locale,
                                         ph.getPageId(),
                                         ph.getHeader(),
-                                        ph.getCode()));
+                                        ph.getCode(),
+                                        cldrFile.getStringValue(path)));
                     }
                 }
             }

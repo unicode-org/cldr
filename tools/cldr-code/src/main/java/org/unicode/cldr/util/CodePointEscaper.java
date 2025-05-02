@@ -110,6 +110,18 @@ public enum CodePointEscaper {
     public static final UnicodeSet EMOJI_INVISIBLES =
             new UnicodeSet("[\\uFE0F\\U000E0020-\\U000E007F]").freeze();
 
+    /** Includes unassigned, surrogate, noncharacters. Some Cf are visibles! */
+    public static final UnicodeSet INVISIBLES =
+            new UnicodeSet(
+                    "[[:Cc:][:Cn:][:Z:][:Cs:][:Co:][[:Cf:]-[\\u0600-\\u0605\\u06dd\\u070f\\u0890-\\u0891\\u08e2\\U000110BD\\U000110CD]]]");
+
+    /** Invisibles we have a name for */
+    public static final UnicodeSet NAMED_INVISIBLES =
+            INVISIBLES
+                    .retainAll(CodePointEscaper.getNamedEscapes())
+                    .remove(SP.getCodePoint()) // don't need to include space
+                    .freeze();
+
     public static final UnicodeSet FORCE_ESCAPE =
             new UnicodeSet("[[:DI:][:Pat_WS:][:WSpace:][:C:][:Z:]\u200B\u2060]")
                     .addAll(getNamedEscapes())
@@ -254,7 +266,7 @@ public enum CodePointEscaper {
     private static final String HAS_NAME = " ≡ ";
 
     public static String toExample(int codePoint) {
-        CodePointEscaper cpe = _fromCodePoint.get(codePoint);
+        CodePointEscaper cpe = forCodePoint(codePoint);
         if (cpe == null) { // hex
             final String name = UCharacter.getExtendedName(codePoint);
             return codePointToEscaped(codePoint)
@@ -265,6 +277,14 @@ public enum CodePointEscaper {
                     + HAS_NAME
                     + cpe.shortName; // TODO show hover with cpe.description
         }
+    }
+
+    static CodePointEscaper forCodePoint(int codePoint) {
+        return _fromCodePoint.get(codePoint);
+    }
+
+    static CodePointEscaper forCodePoint(String str) {
+        return forCodePoint(str.codePointAt(0));
     }
 
     /**

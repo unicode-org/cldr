@@ -35,7 +35,6 @@ The following new languages are available in the Survey Tool for submission duri
 - Coptic (cop)
 - Haitian Creole (ht)
 - Kazakh (Latin) (kk_Latn)
-- Laki (lki)
 - Laz (lzz)
 - Luri Bakhtiari (bqi)
 - Nselxcin (Okanagan) (oka)
@@ -52,7 +51,9 @@ Most of the following are relevant to locales at the Modern Coverage Level.
 
 ### New emoji
 
-New emoji will be added the week of April 28th.
+Seven new emoji have been added (images below). These were released in Unicode 17 in September 2025.
+
+![emoji image](/images/Unicode17emoji.png)
 
 ### Core Data
 There are new Alphabetic Information items.
@@ -92,14 +93,12 @@ The English name has changed to reflect that (and also added a variant); locales
 - calendar-iso8601: Gregorian (Year First)
 - calendar-iso8601-variant: ISO 8601 Order
 
-Patterns for this calendar may be added during the week of April 28th.
-
-<!-- Please go though the ISO8601 fields. You should change separators to match what is acceptable in your language. However, do not change the ordering of the elements, which should be strictly the following order (for any that occur in a particular pattern):
-* year - month - day - day-of-week - hour - minute - second
+Please go though the ISO8601 fields. You should change separators to match what is acceptable in your language. However, do not change the ordering of the elements, which should be strictly the following order (for any that occur in a particular pattern):
+* era - year - month - day - day-of-week - hour - minute - second
 
 Also avoid changing the width of numeric fields (like `dd`).
 
-[CLDR-18447](https://unicode-org.atlassian.net/browse/CLDR-18447) -->
+<!-- [CLDR-18447](https://unicode-org.atlassian.net/browse/CLDR-18447) -->
 
 ### DateTime formats
 
@@ -302,19 +301,20 @@ See [Recent changes](https://cldr.unicode.org/translation#recent-changes) for ad
 
 ## Known Issues
 
-Last updated: 2025-04-23
+Last updated: 2025-05-02
 
 This list will be updated as fixes are made available in Survey Tool Production. If you find a problem, please [file a ticket](requesting_changes), but please review this list first to avoid creating duplicate tickets.
 
-1. [CLDR-17829][] some links in the Info panel not displaying properly
-2. Images for the plain symbols. Non-emoji such as [€](https://st.unicode.org/cldr-apps/v#/fr/OtherSymbols/47925556fd2904b5), √, », ¹, §, ... do not have images in the Info Panel. [CLDR-13477](https://unicode-org.atlassian.net/browse/CLDR-13477) **Workaround**: Look at the Code column; unlike the new emoji, your browser should display them there.
-3. [CLDR-17683](https://unicode-org.atlassian.net/browse/CLDR-17683) - Some items are not able to be flagged for TC review. This is being investigated. Meanwhile, Please enter forum posts meanwhile with any comments.
+1. [[CLDR-18577][] - If your language does not have a variant value, you can vote for inheritance from the standard version.
+2. [CLDR-17829][] - some links in the Info panel not displaying properly
+3. [CLDR-13477][] - Images for the plain symbols. Non-emoji such as [€](https://st.unicode.org/cldr-apps/v#/fr/OtherSymbols/47925556fd2904b5), √, », ¹, §, ... do not have images in the Info Panel.  **Workaround**: Look at the Code column; unlike the new emoji, your browser should display them there.
+4. [CLDR-17683][] - Some items are not able to be flagged for TC review. This is being investigated. Meanwhile, Please enter forum posts meanwhile with any comments.
 
 ## Resolved Issues
 
-Last updated: 2025-04-23
+Last updated: 2025-05-02
 
-1. Redirect from read-only locale to the default content locale does not work [CLDR-18513][]
+1. [CLDR-18513][] - Redirect from read-only locale to the default content locale does not work
 2. [CLDR-17694](https://unicode-org.atlassian.net/browse/CLDR-17694) - Back button in browser fails in forum under certain conditions
 3. [CLDR-17658](https://unicode-org.atlassian.net/browse/CLDR-17658) - Dashboard slowness
 
@@ -364,7 +364,12 @@ You're already familiar with the CLDR process, but do keep the following in mind
 *Tip: The links in the [Info Panel](translation/getting-started/guide#info-panel) will point you to relevant instructions for the
 entry you're editing/vetting. Use it if in doubt.*
 
-[CLDR-18513]: https://unicode-org.atlassian.net/browse/CLDR-18513
-[CLDR-18423]: https://unicode-org.atlassian.net/browse/CLDR-18423
+<!-- Tickets are in ascending order for easier maintence -->
+
+[CLDR-13477]: https://unicode-org.atlassian.net/browse/CLDR-13477
+[CLDR-17683]: https://unicode-org.atlassian.net/browse/CLDR-17683
 [CLDR-17694]: https://unicode-org.atlassian.net/browse/CLDR-17694
 [CLDR-17829]: https://unicode-org.atlassian.net/browse/CLDR-17829
+[CLDR-18577]: https://unicode-org.atlassian.net/browse/CLDR-18577
+[CLDR-18513]: https://unicode-org.atlassian.net/browse/CLDR-18513
+[CLDR-18423]: https://unicode-org.atlassian.net/browse/CLDR-18423

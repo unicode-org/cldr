@@ -52,8 +52,7 @@ public class CharInfo {
     }
 
     public static final class EscapedCharInfo {
-        public final String invisibleRegex = CodePointEscaper.INVISIBLES.toPattern(true);
-        public final String namedInvisibleRegex = CodePointEscaper.NAMED_INVISIBLES.toPattern(true);
+        public final String forceEscapeRegex = CodePointEscaper.FORCE_ESCAPE.toPattern(true);
         public final Map<String, EscapedCharEntry> names = new HashMap<>();
 
         EscapedCharInfo() {

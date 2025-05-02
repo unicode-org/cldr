@@ -3,7 +3,7 @@
  */
 import * as cldrAjax from "./cldrAjax.mjs";
 import * as cldrDashContext from "./cldrDashContext.mjs";
-import * as cldrEscaper from "./cldrEscaper.mjs";
+import * as cldrEscaperLoader from "./cldrEscaperLoader.mjs";
 import * as cldrEvent from "./cldrEvent.mjs";
 import * as cldrForum from "./cldrForum.mjs";
 import * as cldrInfo from "./cldrInfo.mjs";
@@ -65,7 +65,7 @@ async function initialSetup() {
   await Promise.all([
     ensureSession(), // that we have a session
     // any other things can go here
-    cldrEscaper.load(),
+    cldrEscaperLoader.load(),
     // TODO: locale map
     // TOOD: initial menus
   ]);

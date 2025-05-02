@@ -65,7 +65,7 @@ async function initialSetup() {
   await Promise.all([
     ensureSession(), // that we have a session
     // any other things can go here
-    cldrEscaperLoader.load(),
+    cldrEscaperLoader.updateEscaperFromServer(),
     // TODO: locale map
     // TOOD: initial menus
   ]);

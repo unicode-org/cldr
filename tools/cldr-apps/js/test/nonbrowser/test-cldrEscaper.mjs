@@ -10,7 +10,7 @@ function uplus(ch) {
 
 describe("cldrEscaper test", function () {
   describe("LRM/RLM test", function () {
-    for (const ch of ["\u200E", "\u200F"]) {
+    for (const ch of ["\u200E", "\u200F", "\uFFF0"]) {
       it(`returns true for ${uplus(ch)}`, function () {
         expect(cldrEscaper.needsEscaping(ch)).to.be.ok;
       });
@@ -30,6 +30,12 @@ describe("cldrEscaper test", function () {
       expect(html).to.be.ok;
       expect(html).to.contain('class="visible-mark"');
       expect(html).to.contain("RLM");
+    });
+    it(`Should return hex for a unknown str`, () => {
+      const html = cldrEscaper.getEscapedHtml(`\uFFF0`); // U+200F / U+200F here
+      expect(html).to.be.ok;
+      expect(html).to.contain('class="visible-mark"');
+      expect(html).to.contain("U+FFF0");
     });
   });
 });

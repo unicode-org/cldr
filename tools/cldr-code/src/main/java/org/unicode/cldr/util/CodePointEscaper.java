@@ -116,6 +116,10 @@ public enum CodePointEscaper {
                     .removeAll(EMOJI_INVISIBLES)
                     .freeze();
 
+    /** set to be escaped in the surveytool */
+    public static final UnicodeSet ESCAPE_IN_SURVEYTOOL =
+            FORCE_ESCAPE.cloneAsThawed().remove(SP.getCodePoint()).freeze();
+
     public static final UnicodeSet NON_SPACING = new UnicodeSet("[[:Mn:][:Me:]]").freeze();
 
     public static final UnicodeSet FORCE_ESCAPE_WITH_NONSPACING =

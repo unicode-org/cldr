@@ -1,7 +1,7 @@
 let data = null;
 
 const staticInfo = {
-  forceEscapeRegex: "[\\u200e\\u200f]",
+  forceEscapeRegex: "[\\u200e\\u200f\\uFFF0]",
   names: {
     "\u200e": { name: "LRM" },
     "\u200f": { name: "RLM" },
@@ -10,7 +10,11 @@ const staticInfo = {
 
 /** updates content and recompiles regex */
 export function updateInfo(escapedCharInfo) {
-  const forceEscape = new RegExp(escapedCharInfo.forceEscapeRegex, "u");
+  const updatedRegex = escapedCharInfo.forceEscapeRegex
+    .replace(/\\ /g, " ")
+    .replace(/\\U[0]*([0-9a-fA-F]+)/g, `\\u{$1}`);
+  console.log(updatedRegex);
+  const forceEscape = new RegExp(updatedRegex, "u");
   data = { escapedCharInfo, forceEscape };
 }
 
@@ -43,8 +47,9 @@ export function getCharInfo(str) {
 /** Unconditionally escape (without testing) */
 function escapeHtml(str) {
   return str.replace(data?.forceEscape, (o) => {
-    const e = getCharInfo(o);
-    if (!e) return o; // could not find the entry
+    const e = getCharInfo(o) || {
+      name: `U+${Number(o.codePointAt(0)).toString(16).toUpperCase()}`,
+    };
     return `<span class="visible-mark" title="${e.shortName || e.name}\n ${
       e.description || ""
     }">${e.name}</span>`;

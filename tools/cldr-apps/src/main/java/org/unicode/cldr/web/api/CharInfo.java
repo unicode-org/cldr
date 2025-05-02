@@ -52,7 +52,8 @@ public class CharInfo {
     }
 
     public static final class EscapedCharInfo {
-        public final String forceEscapeRegex = CodePointEscaper.FORCE_ESCAPE.toPattern(true);
+        public final String forceEscapeRegex =
+                CodePointEscaper.ESCAPE_IN_SURVEYTOOL.toPattern(true);
         public final Map<String, EscapedCharEntry> names = new HashMap<>();
 
         EscapedCharInfo() {

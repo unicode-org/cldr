@@ -58,6 +58,7 @@ import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.Factory;
+import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.RegexLookup;
@@ -1431,7 +1432,11 @@ public class TestCoverageLevel extends TestFmwkPlus {
                     continue;
                 }
                 Level actual = coverageLevel.getLevel(path);
-                sorted.put(actual, PathHeader.getFactory().fromPath(path));
+                PathHeader ph = PathHeader.getFactory().fromPath(path);
+                ph.getPageId();
+                if (ph.getPageId() != PageId.Suppress) {
+                    sorted.put(actual, ph);
+                }
             }
             Set<String> ids = new TreeSet<>();
             Set<String> keepIdSet = new TreeSet<>();
@@ -1471,14 +1476,22 @@ public class TestCoverageLevel extends TestFmwkPlus {
                     }
                     if (Level.CORE_TO_MODERN.contains(level) == expectedComprehensive) {
                         errln(
-                                String.format(
-                                        "level:%s, locale:%s, path:%s",
-                                        level.toString(), locale, path));
+                                Joiners.TAB.join(
+                                        "",
+                                        level.toString(),
+                                        locale,
+                                        ph.getPageId(),
+                                        ph.getHeader(),
+                                        ph.getCode()));
                     } else if (DEBUG) {
                         warnln(
-                                String.format(
-                                        "level:%s, locale:%s, path:%s",
-                                        level.toString(), locale, path));
+                                Joiners.TAB.join(
+                                        "",
+                                        level.toString(),
+                                        locale,
+                                        ph.getPageId(),
+                                        ph.getHeader(),
+                                        ph.getCode()));
                     }
                 }
             }

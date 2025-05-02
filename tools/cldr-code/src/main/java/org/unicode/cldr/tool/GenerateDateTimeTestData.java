@@ -24,6 +24,7 @@ import java.time.ZonedDateTime;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 import java.util.regex.Matcher;
@@ -39,6 +40,7 @@ import org.unicode.cldr.util.DateTimeFormats;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.SimpleFactory.NoSourceDirectoryException;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.TempPrintWriter;
 
@@ -284,9 +286,15 @@ public class GenerateDateTimeTestData {
     }
 
     public static final Optional<CLDRFile> getCLDRFile(String locale) {
-        CLDRFile cldrFile =
+        CLDRFile cldrFile;
+
+        try {
+            cldrFile =
                 CLDR_FACTORY.make(
-                        locale, true, DraftStatus.contributed); // don't include provisional data
+                    locale, true, DraftStatus.contributed); // don't include provisional data
+        } catch (NoSourceDirectoryException nsde) {
+            return Optional.empty();
+        }
 
         // This is the CLDR "effective coverage level"
         Level coverageLevel =
@@ -1041,7 +1049,7 @@ public class GenerateDateTimeTestData {
         return sb.toString();
     }
 
-    private static TestCase convertTestCaseInputToTestCase(
+    private static TestCase convertTestCaseInputToTestCaseForNonSemanticSkeleton(
             ICUServiceBuilder icuServiceBuilder,
             CLDRFile localeCldrFile,
             TestCaseInput testCaseInput) {
@@ -1081,13 +1089,21 @@ public class GenerateDateTimeTestData {
         return result;
     }
 
+    /**
+     * Primary function for converting a {@code TestCaseInput} into a {@code TestCase}, with the
+     * logic to handle semantic skeleton inputs differently from non-semantic skeleton inputs.
+     * @param icuServiceBuilder
+     * @param localeCldrFile
+     * @param testCaseInput
+     * @return
+     */
     private static TestCase computeTestCase(
             ICUServiceBuilder icuServiceBuilder,
             CLDRFile localeCldrFile,
             TestCaseInput testCaseInput) {
 
         if (testCaseInput.fieldStyleCombo.semanticSkeleton == null) {
-            return convertTestCaseInputToTestCase(icuServiceBuilder, localeCldrFile, testCaseInput);
+            return convertTestCaseInputToTestCaseForNonSemanticSkeleton(icuServiceBuilder, localeCldrFile, testCaseInput);
         } else {
             String calendarStr = testCaseInput.calendar.getType();
             String skeleton =
@@ -1117,7 +1133,9 @@ public class GenerateDateTimeTestData {
         }
     }
 
-    // more manually defined inputs
+    //-----------
+    // begin: manually defined dimensions of iteration value sets
+    //-----------
 
     static List<Pair<ULocale, Calendar>> LOCALE_CALENDAR_PAIRS =
         List.of(
@@ -1141,6 +1159,10 @@ public class GenerateDateTimeTestData {
         List.of(TimeZone.GMT_ZONE, TimeZone.getTimeZone("Australia/Adelaide"));
 
     static List<TimeZone> STATIC_TIME_ZONE_ONE_ONLY = List.of(STATIC_TIME_ZONES.get(0));
+
+    //-----------
+    // end: manually defined dimensions of iteration value sets
+    //-----------
 
     public static ImmutableSet<TestCase> getKernelTestCases() {
 
@@ -1204,6 +1226,63 @@ public class GenerateDateTimeTestData {
         }
 
         return builder.build();
+    }
+
+    public static boolean isCLDRLocaleAtLeastModern(String localeStr) {
+        // This is the CLDR "effective coverage level"
+        Level coverageLevel =
+            CalculatedCoverageLevels.getInstance()
+                .getEffectiveCoverageLevel(localeStr);
+
+        return !(coverageLevel == null || !coverageLevel.isAtLeast(Level.MODERN));
+    }
+
+    public static ImmutableSet<TestCase> getAllTestCases() {
+        Set<TestCase> kernelSet = getKernelTestCases();
+
+        ImmutableSet.Builder<TestCase> newCasesBuilder = ImmutableSet.builder();
+
+        ICUServiceBuilder icuServiceBuilder = new ICUServiceBuilder();
+
+
+        // append kernel to result builder
+        newCasesBuilder.addAll(kernelSet);
+
+
+        // iterate over all locales, cross each locale with kernel set, append to result builder
+        Set<String> availableCLDRLanguages = CLDR_FACTORY.getAvailableLanguages();
+        availableCLDRLanguages.stream()
+            .filter(GenerateDateTimeTestData::isCLDRLocaleAtLeastModern)
+            .map(locStr -> new ULocale(locStr))
+            .sequential() // cannot go parallel when used shared object ICUServiceBuilder
+            .filter(Objects::nonNull)
+            .forEach(locale -> {
+                String locName = locale.getName();
+                CLDRFile cldrFile = getCLDRFile(locName).orElse(null);
+                if (cldrFile == null) {
+                    return;
+                }
+                icuServiceBuilder.clearCache();
+                icuServiceBuilder.setCldrFile(cldrFile);
+                kernelSet.stream()
+                    .map(testCase -> testCase.testCaseInput)
+                    .map(testCaseInput -> {
+                        // manually create a "deep copy" object to avoid unwanted mutation
+                        TestCaseInput newInput = new TestCaseInput();
+                        // override locale
+                        testCaseInput.locale = locale;
+                        // copy over all other fields
+                        newInput.timeZone = testCaseInput.timeZone;
+                        newInput.fieldStyleCombo = testCaseInput.fieldStyleCombo;
+                        newInput.dateTime = testCaseInput.dateTime;
+                        newInput.calendar = testCaseInput.calendar;
+                        return newInput;
+                    })
+                    .map(testCaseInput -> computeTestCase(icuServiceBuilder, cldrFile, testCaseInput))
+                    .forEach(newCasesBuilder::add);
+            });
+
+        return newCasesBuilder.build();
     }
 
     /**
@@ -1281,7 +1360,7 @@ public class GenerateDateTimeTestData {
         try (TempPrintWriter pw =
                 TempPrintWriter.openUTF8Writer(
                         CLDRPaths.TEST_DATA + OUTPUT_SUBDIR, OUTPUT_FILENAME)) {
-            ImmutableSet<TestCase> testCases = getKernelTestCases();
+            ImmutableSet<TestCase> testCases = getAllTestCases();
             List<TestCaseSerde> testCaseSerdes =
                     testCases.stream()
                             .map(GenerateDateTimeTestData::convertTestCaseToSerialize)

@@ -3,7 +3,6 @@ package org.unicode.cldr.tool;
 import com.google.common.collect.ComparisonChain;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.ImmutableSortedSet;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
 import com.google.common.collect.Sets.SetView;
@@ -18,8 +17,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
@@ -29,7 +26,6 @@ import org.unicode.cldr.util.Joiners;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathHeader;
-import org.unicode.cldr.util.Splitters;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.XPathParts;
 
@@ -48,24 +44,6 @@ public class ListProblemDates {
                     : Sets.difference(
                             StandardCodes.make().getLocaleCoverageLocales(Organization.cldr),
                             StandardCodes.make().getLocaleCoverageLocales(Organization.special));
-
-    private static final UnicodeSet NON_CORE = new UnicodeSet("[EGvz]");
-    private static final Set<String> corePaths =
-            ImmutableSortedSet.of("yMd", "yMMMd", "yyyyMd", "yyyyMMMd", "yyyyMMMMd", "Hms", "hms");
-    private static final Matcher coreMatchers = Pattern.compile("y+M+d+|h+m+s").matcher("");
-
-    private static final String AVAIL =
-            "//ldml/dates/calendars/calendar[@type=\"{0}\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"{1}\"]";
-    private static final String INTERVAL =
-            "//ldml/dates/calendars/calendar[@type=\"{0}\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"{1}\"]/greatestDifference[@id=\"{2}\"]";
-
-    private static final List<String> ALL_SKELETONS =
-            Splitters.COMMA_SP.splitToList(
-                    "y, Gy, yyyy, yM, GyM, yMMM, GyMMM, yMMMM, yyyyM, GyMMMM, yyyyMM, yyyyMMM, yyyyMMMM, "
-                            + "yMd, GyMd, yMEd, GyMEd, yMMMd, GyMMMd, yMMMEd, yyyyMd, GyMMMEd, GyMMMMd, yyyyMEd, GyMMMMEd, yyyyMMMd, yyyyMMMEd, yyyyMMMMd, GyMMMEEEEd, yyyyMEEEEd, yyyyMMMMEd, yyyyMMMEEEEd, "
-                            + "d, Ed, EEEEd, M, MMM, Md, MEd, MMMd, MMMEd, MMMMd, MEEEEd, MMMEEEEd, "
-                            + "yw, yQQQ, yQQQQ, yyyyQQQ, yyyyQQQQ, UM, UMMM, UMd, UMMMd, MMMMW, "
-                            + "H, h, Bh, Hv, hv, Hm, hm, Bhm, EHm, Ehm, Hmv, hmv, EBhm, Hms, hms, Bhms, EHms, Ehms, Hmsv, hmsv, EBhms, E, ms");
 
     private static long sampleDate = Instant.parse(SAMPLE_ISO_DATE).toEpochMilli();
 
@@ -432,30 +410,4 @@ public class ListProblemDates {
             return parts;
         }
     }
-
-    //    private static String getCore(String id) {
-    //        for (String coreId : corePaths) {
-    //            int pos = id.indexOf(coreId);
-    //            if (pos >= 0) {
-    //                if (pos >= 0 && coreId.length() == id.length()) { // skip same values
-    //                    break;
-    //                }
-    //                if (pos != 0 && id.charAt(pos - 1) == coreId.charAt(0)) {
-    //                    continue; // we have a boundary condition, like coreId = yMMMd and id =
-    // yyMMMd
-    //                }
-    //                int endPos = pos + coreId.length();
-    //                if (endPos != id.length()
-    //                        && id.charAt(endPos) == coreId.charAt(coreId.length() - 1)) {
-    //                    continue; // we have a boundary condition, like coreId = yMMMd and id =
-    // yyMMMd
-    //                }
-    //                if (id.contains("B")) { // B can change ordering
-    //                    continue;
-    //                }
-    //                return coreId;
-    //            }
-    //        }
-    //        return ""; // failed
-    //    }
 }

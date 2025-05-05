@@ -1,0 +1,19 @@
+services:
+  cldr-apps:
+    build: .
+    ports:
+      - 9080
+    volumes:
+      - ../..:/srv/st/src/cldr:ro
+      #- cldr-cache:/srv/st/config/.cache:rw
+    depends_on:
+      - db
+    links:
+      - db
+  db:
+    image: mysql
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: yes
+      MYSQL_USER: surveytool
+      MYSQL_PASSWORD: surveytoolpw
+      MYSQL_DATABASE: cldrdb

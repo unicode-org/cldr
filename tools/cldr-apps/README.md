@@ -39,6 +39,8 @@ Please use the parent [CLDR/tools/pom.xml](../pom.xml) with maven to build and r
 MYSQL_USER=surveytool
 MYSQL_PASSWORD=your_strong_password
 MYSQL_DB=cldrdb
+MYSQL_PORT=3306
+MYSQL_HOST=localhost
 ```
 
 - Use `mvn --file=tools/pom.xml -DskipTests=true -pl cldr-apps liberty:dev` to run a development
@@ -144,6 +146,27 @@ org.unicode.cldr.util.CLDRConfigImpl.cldrHome=/Users/srl295/src/cldr-st/config
 ```
 
 You will also want to make sure this directory exists and is writeable. You can move the existing `cldr.properties` and other files to that directory.
+
+## Docker Testing
+
+### Setup
+
+This may be excessive but it works
+
+```shell
+# clean out webpack build
+rm -rf tools/cldr-apps/src/main/webapp/dist ./tools/cldr-apps/target/cldr-apps/dist/
+# build
+mvn clean compile package -DskipTests=true
+# create server package
+mvn  -pl cldr-apps liberty:clean liberty:create liberty:deploy liberty:package -Dinclude=usr --file tools/pom.xml -DskipTests=true
+```
+
+### Build and run
+
+```shell
+docker compose up cldr-apps
+```
 
 ### Licenses
 

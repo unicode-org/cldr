@@ -5,7 +5,7 @@ services:
       - 9080
     volumes:
       - ../..:/srv/st/src/cldr:ro
-      #- cldr-cache:/srv/st/config/.cache:rw
+      - cldrcache:/srv/st/config/.cache:rw
     depends_on:
       - db
     links:
@@ -17,3 +17,24 @@ services:
       MYSQL_USER: surveytool
       MYSQL_PASSWORD: surveytoolpw
       MYSQL_DATABASE: cldrdb
+  webdriver:
+    build: ../cldr-apps-webdriver
+    depends_on:
+      - cldr-apps
+      - selenium
+    links:
+      - cldr-apps
+      - selenium
+    volumes:
+      # cache these two
+      - mavencache:/root/.m2
+      - webdrivertarget:/workarea/target
+  selenium:
+    image: selenium/standalone-firefox:4.32.0-20250505
+    shm_size: 2gb
+    
+
+volumes:
+  mavencache:
+  webdrivertarget:
+  cldrcache:

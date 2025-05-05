@@ -1,16 +1,5 @@
 package org.unicode.cldr.util;
 
-import com.google.common.base.Splitter;
-import com.ibm.icu.impl.Relation;
-import com.ibm.icu.impl.Row;
-import com.ibm.icu.impl.UnicodeMap;
-import com.ibm.icu.lang.UCharacter;
-import com.ibm.icu.text.Collator;
-import com.ibm.icu.text.Transform;
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.util.ICUException;
-import com.ibm.icu.util.Output;
-import com.ibm.icu.util.ULocale;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.EnumMap;
@@ -28,6 +17,7 @@ import java.util.TreeSet;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
 import org.unicode.cldr.tool.LikelySubtags;
@@ -35,6 +25,18 @@ import org.unicode.cldr.util.RegexLookup.Finder;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.With.SimpleIterator;
 import org.unicode.cldr.util.personname.PersonNameFormatter;
+
+import com.google.common.base.Splitter;
+import com.ibm.icu.impl.Relation;
+import com.ibm.icu.impl.Row;
+import com.ibm.icu.impl.UnicodeMap;
+import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.Transform;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.ICUException;
+import com.ibm.icu.util.Output;
+import com.ibm.icu.util.ULocale;
 
 /**
  * Provides a mechanism for dividing up LDML paths into understandable categories, eg for the Survey
@@ -196,7 +198,7 @@ public class PathHeader implements Comparable<PathHeader> {
         Fields(SectionId.DateTime),
         Relative(SectionId.DateTime),
         Gregorian(SectionId.DateTime),
-        ISO8601(SectionId.DateTime, "ISO 8601"),
+        Gregorian_YMD(SectionId.DateTime, "Gregorian YMD"),
         Generic(SectionId.DateTime),
         Buddhist(SectionId.DateTime),
         Chinese(SectionId.DateTime),
@@ -1245,7 +1247,7 @@ public class PathHeader implements Comparable<PathHeader> {
                                         .put("roc", "Minguo")
                                         .put("Ethioaa", "Ethiopic Amete Alem")
                                         .put("Gregory", "Gregorian")
-                                        .put("iso8601", "ISO 8601")
+                                        .put("iso8601", "Gregorian YMD")
                                         .freeze();
 
                         @Override

@@ -103,7 +103,7 @@ Please go though the Gregorian Calendar (Year First) fields.
     * other text separating non-numeric fields (era, day-of-week,  day-periods, zones)
     * special forms ([stand-alone vs. formatting]) as needed: M → L, E → c
 * You should not change other features:
-    * The ordering of fields in the pattern should be strictly the following order (for any that occur in a particular pattern).
+    * The ordering of fields in the pattern should be strictly the following order (for any that occur in a particular pattern):
         * era - year - month - day - day-of-week - hour - minute - second
     * Each numeric field should be consistently 2 digits: MM, dd, HH, hh, mm, ss
     * Each string field should match the Code in width: G, MMM, MMMM, E, EEE

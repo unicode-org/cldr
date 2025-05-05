@@ -9,7 +9,6 @@ import com.google.common.collect.Sets.SetView;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.text.UnicodeSet;
 import java.time.Instant;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -20,6 +19,7 @@ import java.util.TreeSet;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.Joiners;
@@ -30,53 +30,61 @@ import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.XPathParts;
 
 public class ListProblemDates {
+    private static final SetView<String> TC_LOCALES =
+            Sets.difference(
+                    StandardCodes.make().getLocaleCoverageLocales(Organization.cldr),
+                    StandardCodes.make().getLocaleCoverageLocales(Organization.special));
     private static final String SAMPLE_ISO_DATE = "2020-01-02T03:04:05Z";
     private static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
     private static final Factory FACTORY = CLDR_CONFIG.getCldrFactory();
 
     private static final boolean VERBOSE = false;
     private static final boolean ALL_LOCALES = true;
+    private static final boolean OTHER_CALENDARS = true;
     private static final Set<String> calendars = Set.of("gregorian");
+    private static final Set<String> ROOT = Set.of("root");
+    private static final Set<String> NON_ROOT = Sets.difference(TC_LOCALES, Set.of("root"));
 
-    private static final Collection<String> targets =
-            !ALL_LOCALES
-                    ? Arrays.asList("am")
-                    : Sets.difference(
-                            StandardCodes.make().getLocaleCoverageLocales(Organization.cldr),
-                            StandardCodes.make().getLocaleCoverageLocales(Organization.special));
+    private static final Collection<String> targets = !ALL_LOCALES ? ROOT : TC_LOCALES;
 
     private static long sampleDate = Instant.parse(SAMPLE_ISO_DATE).toEpochMilli();
 
     public static void main(String[] args) {
-        ImmutableMultimap<String, Pair<String, String>> rootIds = getIds(List.of("root"));
+        ImmutableMultimap<String, Pair<String, String>> rootIds = getIds(ROOT);
         System.out.println("# ROOT skeletons");
         System.out.println(rootIds.keySet());
 
-        ImmutableMultimap<String, Pair<String, String>> allIds =
-                getIds(FACTORY.getAvailableLanguages());
-        System.out.println("\n# ALL skeletons");
-        System.out.println(allIds.keySet());
+        ImmutableMultimap<String, Pair<String, String>> allIds = getIds(NON_ROOT);
+
+        Set<String> tcMinusRootIds =
+                ImmutableSet.copyOf(Sets.difference(allIds.keySet(), rootIds.keySet()));
+        Set<String> rootMinusTcIds =
+                ImmutableSet.copyOf(Sets.difference(rootIds.keySet(), allIds.keySet()));
+
+        System.out.println("\n# TC-Root skeletons");
+        System.out.println(tcMinusRootIds);
 
         // comparison
-        SetView<String> notRoot = Sets.difference(allIds.keySet(), rootIds.keySet());
-        if (!notRoot.isEmpty()) {
-            System.out.println("\n# Missing from root");
-            notRoot.stream()
+        if (!tcMinusRootIds.isEmpty()) {
+            System.out.println("\n# in TC minus Root");
+            tcMinusRootIds.stream()
                     .map(x -> x + "\t" + bestCalendar(allIds.asMap().get(x)))
                     .forEach(System.out::println);
-            System.out.println("ERROR: " + notRoot);
+            System.out.println("ERROR: " + tcMinusRootIds);
         }
-        SetView<String> extra = Sets.difference(rootIds.keySet(), allIds.keySet());
-        if (!extra.isEmpty()) {
-            System.out.println("\n# Only from root");
-            System.out.println("ERROR: " + extra);
+        if (!rootMinusTcIds.isEmpty()) {
+            System.out.println("\n# in Root only");
+            rootMinusTcIds.stream()
+                    .map(x -> x + "\t" + bestCalendar(allIds.asMap().get(x)))
+                    .forEach(System.out::println);
+            System.out.println("ERROR: " + rootMinusTcIds);
         }
 
         System.out.println("\n# Variant lengths: root");
         showVariants(rootIds.keySet());
 
-        System.out.println("\n# Variant lengths: others");
-        showVariants(notRoot);
+        System.out.println("\n# Variant lengths: other locales");
+        showVariants(tcMinusRootIds);
 
         //        UnicodeSet allCharacters = new UnicodeSet();
         //        notRoot.stream().forEach(x -> allCharacters.addAll(x));
@@ -88,7 +96,9 @@ public class ListProblemDates {
         //        rootCharacters.freeze();
         //        System.out.println("\n# Root skeleton characters:\t" + rootCharacters);
 
-        final Set<String> nullCores = new TreeSet<>();
+        final Multimap<List<String>, String> coreIdXIdTolocales =
+                TreeMultimap.create(
+                        new CldrUtility.CollectionComparator<String>(), Comparator.naturalOrder());
 
         System.out.println("\n# Non-inclusions: sample = " + SAMPLE_ISO_DATE);
 
@@ -115,7 +125,7 @@ public class ListProblemDates {
                 }
 
                 String calendar = parts.getAttributeValue(3, "type");
-                if (!calendars.contains(calendar)) {
+                if (calendars.contains(calendar) == OTHER_CALENDARS) {
                     continue;
                 }
 
@@ -126,7 +136,6 @@ public class ListProblemDates {
                 String path = ph.getOriginalPath();
                 String pattern = cldrFile.getStringValue(path);
                 if (pattern == null) {
-                    nullCores.add(path);
                     continue;
                 }
                 XPathParts parts = XPathParts.getFrozenInstance(path);
@@ -143,6 +152,7 @@ public class ListProblemDates {
 
                     String corePattern = cldrFile.getStringValue(corePath);
                     if (corePattern == null) {
+                        coreIdXIdTolocales.put(List.of(calendar, id, coreId), locale);
                         continue;
                     }
                     if (!containsWithoutBridges(pattern, corePattern)) {
@@ -150,6 +160,7 @@ public class ListProblemDates {
                                 Joiners.TAB.join(
                                         "FAIL",
                                         locale,
+                                        calendar,
                                         id,
                                         coreId,
                                         pattern,
@@ -163,6 +174,7 @@ public class ListProblemDates {
                                 Joiners.TAB.join(
                                         "OK",
                                         locale,
+                                        calendar,
                                         id,
                                         coreId,
                                         pattern,
@@ -175,7 +187,10 @@ public class ListProblemDates {
                 }
             }
         }
-        System.out.println(Joiners.N.join(nullCores));
+        System.out.println("\n# Missing cores");
+        coreIdXIdTolocales.asMap().entrySet().stream()
+                .forEach(
+                        x -> System.out.println(x.getKey() + "\t" + Joiners.SP.join(x.getValue())));
     }
 
     private static String formatDate(ICUServiceBuilder service, String calendar, String pattern) {

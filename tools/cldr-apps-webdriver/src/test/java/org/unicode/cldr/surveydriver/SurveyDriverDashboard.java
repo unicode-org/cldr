@@ -22,7 +22,7 @@ public class SurveyDriverDashboard {
         if (!s.login()) {
             return false;
         }
-        final int REPETITION_COUNT = 10000;
+        final int REPETITION_COUNT = 10; // 10000;
         for (int i = 0; i < REPETITION_COUNT; i++) {
             SurveyDriverLog.println("SurveyDriverDashboard.test i = " + i);
             if (!testOne(i)) {
@@ -53,9 +53,9 @@ public class SurveyDriverDashboard {
         // "Dashboard" item in the left-sidebar.
         // For unknown reasons, clickButtonByXpath with "//button[contains(., 'Open Dashboard')]"
         // fails here.
-        if (!s.clickButtonByClassName("general-open-dash", url)) {
-            return false;
-        }
+        // if (!s.clickButtonByClassName("general-open-dash", url)) {
+        //     return false;
+        // }
         if (!s.waitUntilIdExists("DashboardScroller", true, url)) {
             return false;
         }

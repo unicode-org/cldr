@@ -128,6 +128,12 @@ jobs:
           -DskipTests=true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Test with Webdriver
+        # See tools/cldr-apps/README.md
+        # note: needs *un* cleaned-up liberty server (see next step) because
+        # we run the raw .jar file
+        run: >
+          cd tools/cldr-apps && docker compose run --rm -it webdriver
       - name: Cleanup liberty server
         run: >
           zip tools/cldr-apps/target/cldr-apps.zip  -d  wlp/usr/servers/cldr/apps/expanded/\*

@@ -239,7 +239,7 @@ Code | Default Value | Description
 `Rational` | {0}⁄{1} | The format for a rational fraction with arbitrary numerator and denominator; the English pattern uses the Unicode character ‘⁄’ U+2044 FRACTION SLASH which causes composition of fractions such as <sup>22</sup>⁄<sub>7</sub>.
 `Integer + Rational` | {0} {1} | The format for combining an integer with a rational fraction composed using the pattern above; the English pattern uses U+202F NARROW NO-BREAK SPACE (NNBSP) to produce a `non-breaking thin space`.
 `Integer + Rational-superSub` | {0}⁠{1} | The format for combining an integer with a rational fraction using composed using the pattern above; the English pattern uses U+2060 WORD JOINER, a zero-width no-break space.
-`Usage` | sometimes | An indication of the extent to which rational fractions are used in the locale; may be one of `never` or `sometimes`
+`Usage` | sometimes | An indication of the extent to which rational fractions are used in the locale; must be either `never` or `sometimes`.
 
 **If** an integer and fraction (5½) is best expressed in your language with a space between them (5 ½),
 then copy the pattern from integerAndRationalPattern to integerAndRationalPattern-superSub.

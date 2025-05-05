@@ -102,6 +102,7 @@ public class SurveyDriverCredentials {
         if (host == null || host.isEmpty()) {
             host = "http://localhost:9080";
         }
+        System.out.println(PROPS_URL_KEY+"="+host);
         return host;
     }
 
@@ -110,6 +111,7 @@ public class SurveyDriverCredentials {
         if (host == null || host.isEmpty()) {
             host = "http://localhost:4444";
         }
+        System.out.println(PROPS_WEBDRIVER_KEY+"="+host);
         return host;
     }
 }

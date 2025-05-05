@@ -98,10 +98,17 @@ Date & Time / Gregorian YMD | … | …
 Locale Display Names / Keys | calendar-iso8601 | Gregorian Calendar (Year First)
 
 Please go though the Gregorian Calendar (Year First) fields.
-* You should change separators to match what is acceptable in your language. 
-* The ordering of fields in the pattern should be strictly the following order (for any that occur in a particular pattern).
-    * era - year - month - day - day-of-week - hour - minute - second
-* Avoid changing the width of numeric fields (like `dd`).
+* You should change to what is most customary in your language:
+    * punctuation (/, -, :, ., …) around numeric fields
+    * other text separating non-numeric fields (era, day-of-week,  day-periods, zones)
+    * special forms ([stand-alone vs. formatting]) as needed: M → L, E → c
+* You should not change other features:
+    * The ordering of fields in the pattern should be strictly the following order (for any that occur in a particular pattern).
+        * era - year - month - day - day-of-week - hour - minute - second
+    * Each numeric field should be consistently 2 digits: MM, dd, HH, hh, mm, ss
+    * Each string field should match the Code in width: G, MMM, MMMM, E, EEE
+        * But should use a different letter for [stand-alone vs. formatting] as needed.
+
 It is helpful to have a second window up showing the **Date & Time / Gregorian** equivalents, so that you can be consistent (except for ordering) with the **Gregorian** calendar.
 
 <!-- [CLDR-18447](https://unicode-org.atlassian.net/browse/CLDR-18447) -->
@@ -388,3 +395,4 @@ entry you're editing/vetting. Use it if in doubt.*
 [CLDR-18577]: https://unicode-org.atlassian.net/browse/CLDR-18577
 [CLDR-18513]: https://unicode-org.atlassian.net/browse/CLDR-18513
 [CLDR-18423]: https://unicode-org.atlassian.net/browse/CLDR-18423
+[stand-alone vs. formatting]: https://cldr.unicode.org/translation/date-time/date-time-patterns#when-to-use-standalone-vs-formatting

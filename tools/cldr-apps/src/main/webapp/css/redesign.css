@@ -242,6 +242,12 @@ h3.collapse-review > span:first-child {position: relative; top: -220px;display: 
 	display: flex;
 	border: 1px solid #0FF;
 }
+.data .visible-mark::before{
+	content: '<';
+}
+.data .visible-mark::after{
+	content: '>';
+}
 .data .visible-mark{
 	background-color: #d9edf7;
 	border-color: #bce8f1;

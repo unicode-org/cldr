@@ -3,6 +3,7 @@
  */
 import * as cldrAjax from "./cldrAjax.mjs";
 import * as cldrDashContext from "./cldrDashContext.mjs";
+import * as cldrEscaperLoader from "./cldrEscaperLoader.mjs";
 import * as cldrEvent from "./cldrEvent.mjs";
 import * as cldrForum from "./cldrForum.mjs";
 import * as cldrInfo from "./cldrInfo.mjs";
@@ -55,7 +56,19 @@ function run() {
   } catch (e) {
     return Promise.reject(e);
   }
-  return ensureSession().then(completeStartupWithSession);
+  // We load
+  return initialSetup().then(completeStartupWithSession);
+}
+
+/** Hook for loading all things we want loaded - locales, menus, etc */
+async function initialSetup() {
+  await Promise.all([
+    ensureSession(), // that we have a session
+    // any other things can go here
+    cldrEscaperLoader.updateEscaperFromServer(),
+    // TODO: locale map
+    // TOOD: initial menus
+  ]);
 }
 
 async function ensureSession() {

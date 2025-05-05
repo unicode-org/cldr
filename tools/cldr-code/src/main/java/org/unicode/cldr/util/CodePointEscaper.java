@@ -116,6 +116,10 @@ public enum CodePointEscaper {
                     .removeAll(EMOJI_INVISIBLES)
                     .freeze();
 
+    /** set to be escaped in the surveytool */
+    public static final UnicodeSet ESCAPE_IN_SURVEYTOOL =
+            FORCE_ESCAPE.cloneAsThawed().remove(SP.getCodePoint()).freeze();
+
     public static final UnicodeSet NON_SPACING = new UnicodeSet("[[:Mn:][:Me:]]").freeze();
 
     public static final UnicodeSet FORCE_ESCAPE_WITH_NONSPACING =
@@ -254,7 +258,7 @@ public enum CodePointEscaper {
     private static final String HAS_NAME = " ≡ ";
 
     public static String toExample(int codePoint) {
-        CodePointEscaper cpe = _fromCodePoint.get(codePoint);
+        CodePointEscaper cpe = forCodePoint(codePoint);
         if (cpe == null) { // hex
             final String name = UCharacter.getExtendedName(codePoint);
             return codePointToEscaped(codePoint)
@@ -265,6 +269,14 @@ public enum CodePointEscaper {
                     + HAS_NAME
                     + cpe.shortName; // TODO show hover with cpe.description
         }
+    }
+
+    static CodePointEscaper forCodePoint(int codePoint) {
+        return _fromCodePoint.get(codePoint);
+    }
+
+    static CodePointEscaper forCodePoint(String str) {
+        return forCodePoint(str.codePointAt(0));
     }
 
     /**

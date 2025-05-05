@@ -168,6 +168,14 @@ mvn  -pl cldr-apps liberty:clean liberty:create liberty:deploy liberty:package -
 docker compose up cldr-apps
 ```
 
+### webdriver
+
+This will compile and launch the webdriver.
+
+```shell
+docker compose run --rm -it webdriver
+```
+
 ### Licenses
 
 See the main [README.md](../../README.md).

@@ -5,7 +5,6 @@ services:
       - 9080
     volumes:
       - ../..:/srv/st/src/cldr:ro
-      - cldrcache:/srv/st/config/.cache:rw
     depends_on:
       - db
     links:
@@ -30,11 +29,9 @@ services:
       - mavencache:/root/.m2
       - webdrivertarget:/workarea/target
   selenium:
-    image: selenium/standalone-firefox:4.32.0-20250505
+    image: selenium/standalone-firefox:4.16.1
     shm_size: 2gb
     
-
 volumes:
   mavencache:
   webdrivertarget:
-  cldrcache:

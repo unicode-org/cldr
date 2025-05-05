@@ -25,7 +25,7 @@ The Survey Tool is now open for [General Submission](translation/getting-started
 
 - **Disconnect error**. If you see a persistent Loading error with a disconnect message or other odd behavior, please [empty your cache](translation/getting-started/empty-cache).
 - Survey Tool email notification may be going to your spam folder. Check your spam folder regularly.
-- "**Same as code**" errors - when translating codes for items such as languages, regions, scripts, and keys, it is normally an error to select the code itself as the translated name. If the error appears under Typography, you can ignore it. \[[CLDR-13552](https://unicode-org.atlassian.net/browse/CLDR-13552)\]
+- "**Same as code**" errors - when translating codes for items such as languages, regions, scripts, and keys, it is normally an error to select the code itself as the translated name. If the error appears under Typography, you can ignore it. <!-- [[CLDR-13552](https://unicode-org.atlassian.net/browse/CLDR-13552)\] -->
 
 ## New languages
 
@@ -86,17 +86,23 @@ Coverage for other languages is at comprehensive.
 <!-- I don't think we want to encourage this: ... if there is a need to have coverage at lower level in some locale,
 please file a ticket. [CLDR-18283](https://unicode-org.atlassian.net/browse/CLDR-18283) -->
 
-#### ISO 8601 calendar
+#### Gregorian Calendar (Year First) calendar
 
 This is a variant of the Gregorian calendar whose formats always use year-month-day ordering and a 24-hour time cycle.
-The English name has changed to reflect that (and also added a variant); locales should update accordingly:
-- calendar-iso8601: Gregorian (Year First)
-- calendar-iso8601-variant: ISO 8601 Order
+*Note: the code is `iso8601`, but disregard that; it will be changed after submission.*
 
-Please go though the ISO8601 fields. You should change separators to match what is acceptable in your language. However, do not change the ordering of the elements, which should be strictly the following order (for any that occur in a particular pattern):
-* era - year - month - day - day-of-week - hour - minute - second
+Page | Code | English
+-|-|-
+Date & Time / Gregorian YMD | yMMMd | y MMM d
+Date & Time / Gregorian YMD | … | …
+Locale Display Names / Keys | calendar-iso8601 | Gregorian Calendar (Year First)
 
-Also avoid changing the width of numeric fields (like `dd`).
+Please go though the Gregorian Calendar (Year First) fields.
+* You should change separators to match what is acceptable in your language. 
+* The ordering of fields in the pattern should be strictly the following order (for any that occur in a particular pattern).
+    * era - year - month - day - day-of-week - hour - minute - second
+* Avoid changing the width of numeric fields (like `dd`).
+It is helpful to have a second window up showing the **Date & Time / Gregorian** equivalents, so that you can be consistent (except for ordering) with the **Gregorian** calendar.
 
 <!-- [CLDR-18447](https://unicode-org.atlassian.net/browse/CLDR-18447) -->
 
@@ -115,7 +121,9 @@ and resulted in combined date patterns like “March 20 at 3:00 PM“, “tomorr
 
 However, in some languages the use of a relative date such as “tomorrow” or “2 days ago” required a different combining pattern than for a fixed date like “March 20”.
 So in CLDR 48 a new “relative” variant is introduced. This will be used (instead of the “atTime” variant) for the combination
-of a relative date and a single time. If you do not supply this, that combination will fall back to using the “standard” variant;
+of a relative date and a single time.
+
+If you do not supply this, that combination will fall back to using the “standard” variant;
 in English that would produce “tomorrow, 3:00 PM”. If instead you want the same combining behavior for a relative date with a single time as for a
 fvfixed date with single time (as was the case in CLDR 47 and earlier), then for each length style copy the existing “atTime” form to the new “relative” form.
 
@@ -133,7 +141,10 @@ For zone `Etc/Unknown`, the exemplarCity name was changed in English from “Unk
 
 #### Changes to the root and/or English names of many exemplar cities and some metazones
 
-Exemplar cities added or changed in English
+Exemplar cities added or changed in English.
+This was typically to move towards the official spelling in the country in question, such as retaining accents.
+You should check these, but don't hesitate to retain the older version(<image src='https://github.com/unicode-org/cldr/blob/main/tools/cldr-apps/src/main/webapp/star.png'>) if it is a different script or more customary in your language.
+For example, English still uses "Mexico City" instead of "Ciudad de México".
 
 - Africa/El_Aaiun: El Aaiún
 - Africa/Lome: Lomé
@@ -201,29 +212,34 @@ There actually added in CLDR 42 per (CLDR-14336)[https://unicode-org.atlassian.n
 This pattern will be used if an alphabetic character would end up being adjacent to a number in the regular pattern.
 So suppose that the regular pattern is "¤#,##0" and this pattern is "¤ #,##0":
 $CA would use this pattern ("$CA 123"), but CA$ would just use the regular pattern to get "CA$123".**
-- The `alphaNextToNumber` patterns should be used when the currency amount should be formatted without a currency symbol, as in a table of values all using the same currency. This pattern must not include the currency symbol pattern character ‘¤’.
+- The `noCurrency` patterns should be used when the currency amount is to be formatted without a currency symbol, as in a table of values all using the same currency. This pattern must not include the currency symbol pattern character ‘¤’.
 
 For more information see [Number and currency patterns](/translation/number-currency-formats/number-and-currency-patterns).
 
 #### Rational formats
 
-These describe the formatting of rational fractions such as ¾ or combinations of integers and fractions such as 5½. 
+These patterns specify the formatting of rational fractions in your language. 
+Rational fractions contain a numerator and denominator, such as ½, and may also have an integer, such a 5½.
+There are two different "combination patterns", needed because sometimes fonts don't properly support fractions (such as displaying 5 1/2), and need two patterns: one with a space and one without.
+It can be tricky to understand the difference, so be sure to carefully read [Rational Formatting](https://cldr.unicode.org/translation/number-currency-formats/number-and-currency-patterns#rational-formatting) before making any changes.
+
 <!-- [CLDR-17570](https://unicode-org.atlassian.net/browse/CLDR-17570) -->
 
 Here are the the English values and a short description of their purpose:
-- `rationalFormats-rationalPattern`: “{0}⁄{1}” - The format for a rational fraction with arbitrary numerator and denominator; the English pattern uses the Unicode character ‘⁄’ U+2044 FRACTION SLASH which causes composition of fractions such as 22⁄7.
-- `rationalFormats-integerAndRationalPattern`: “{0} {1}” - The format for combining an integer with a rational fraction composed using the pattern above; the English pattern uses U+202F NARROW NO-BREAK SPACE (NNBSP) to produce a small no-break space.
-- `rationalFormats-integerAndRationalPattern-superSub`: “{0}⁠{1}” - The format for combining an integer with a rational fraction using composed using the pattern above; the English pattern uses U+2060 WORD JOINER, a zero-width no-break space.
-- `rationalFormats-rationalUsage`: “sometimes” - An indication of the extent to which rational fractions are used in the locale; may be one of “never”, “sometimes”, ...
 
-If an integer and fraction (5½) is best expressed in your language with a space between them (5 ½),
+Code | Default Value | Description
+- | - | -
+`Rational` | {0}⁄{1} | The format for a rational fraction with arbitrary numerator and denominator; the English pattern uses the Unicode character ‘⁄’ U+2044 FRACTION SLASH which causes composition of fractions such as 22⁄7.
+`Integer + Rational` | {0} {1} | The format for combining an integer with a rational fraction composed using the pattern above; the English pattern uses U+202F NARROW NO-BREAK SPACE (NNBSP) to produce a small no-break space.
+`Integer + Rational-superSub` | {0}⁠{1} | The format for combining an integer with a rational fraction using composed using the pattern above; the English pattern uses U+2060 WORD JOINER, a zero-width no-break space.
+`Usage` | sometimes | An indication of the extent to which rational fractions are used in the locale; may be one of `never` or `sometimes`
+
+**If** an integer and fraction (5½) is best expressed in your language with a space between them (5 ½),
 then copy the pattern from integerAndRationalPattern to integerAndRationalPattern-superSub.
 However, you **cannot** do the reverse.
 Some fonts and rendering systems don't properly handle the fraction slash, and the user would see something like 51/2 (fifty-one halves).
 So in that case, implementations must have the integerAndRationalPattern with a space in it to fall back on,
 unless they have verified that the font / rendering system supports superscripting the numerator.
-
-See [Rational Formatting](https://cldr.unicode.org/translation/number-currency-formats/number-and-currency-patterns#rational-formatting) for more information.
 
 ### Units
 
@@ -243,8 +259,7 @@ For more information see [Concentrations](/translation/units/unit-names-and-patt
 #### Many new units in English
 
 Mnny new units were added in English. 
-Vetters will not be asked to translate the non-metric units  for other languages.
-However, the metric ones are used in scientific contexts, and will need to be translated.
+The _metric_ ones are used in scientific contexts, and will need to be translated in all languages.
 However, the case inflections (accusative, dative, etc) will not be requested. 
 <!-- In general these are very specific and vetters will not be
 asked to translate them for other locales, so coverage will be comprehensive. If some of these units

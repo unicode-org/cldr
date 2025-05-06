@@ -921,7 +921,7 @@ function addVitem(td, tr, theRow, item, newButton) {
       cldrText.get("voteInfo_baseline_desc")
     );
   }
-  checkLRmarker(choiceField, item.value);
+  checkLRmarker(choiceField, displayValue);
   if (item.votes && !isWinner) {
     if (
       item.valueHash == theRow.voteVhash &&

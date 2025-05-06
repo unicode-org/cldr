@@ -10,10 +10,7 @@ const staticInfo = {
 
 /** updates content and recompiles regex */
 export function updateInfo(escapedCharInfo) {
-  const updatedRegex = escapedCharInfo.forceEscapeRegex
-    .replace(/\\ /g, " ")
-    .replace(/\\U[0]*([0-9a-fA-F]+)/g, `\\u{$1}`);
-  console.log(updatedRegex);
+  const updatedRegex = escapedCharInfo.forceEscapeRegex;
   const forceEscape = new RegExp(updatedRegex, "u");
   data = { escapedCharInfo, forceEscape };
 }

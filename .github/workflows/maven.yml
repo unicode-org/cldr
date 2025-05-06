@@ -140,12 +140,13 @@ jobs:
           ( docker compose stop selenium ; docker compose up -d selenium ; docker compose run --rm webdriver ) || true
         working-directory: tools/cldr-apps
       - name: Run client tests against ST
-        run: npm run client-test
-        working-directory: tools/cldr-apps/js
+        run: docker compose run --rm client-test
+        working-directory: tools/cldr-apps
       - name: Shut down containers
         run: docker compose stop || true
         working-directory: tools/cldr-apps
       - name: Cleanup liberty server
+        # we remove the 'expanded' version of the .war file, to save space
         run: >
           zip tools/cldr-apps/target/cldr-apps.zip  -d  wlp/usr/servers/cldr/apps/expanded/\*
       - name: Upload cldr-apps.zip

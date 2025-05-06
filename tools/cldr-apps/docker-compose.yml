@@ -38,17 +38,13 @@ services:
     links:
       - cldr-apps
   client-test:
+    build:
+      context: .
+      dockerfile: client-test.Dockerfile
     image: node:slim
-    volumes:
-      - ./js/test:/home/node/app/test:ro
-      - ./js/package.json:/home/node/app/package.json:ro
-      - ./js/package-lock.json:/home/node/app/package-lock.json:ro
     working_dir: /home/node/app
-    environment:
-      CLDR_VAP: admin_vap
-      SURVEYTOOL_URL: http://cldr-apps:9080
     command:
-      "npm ci && npm run client-test"
+      "npm run client-test"
 volumes:
   mavencache:
   webdrivertarget:

@@ -53,7 +53,7 @@ public class CharInfo {
 
     public static final class EscapedCharInfo {
         public final String forceEscapeRegex =
-                CodePointEscaper.ESCAPE_IN_SURVEYTOOL.toPattern(true);
+                CodePointEscaper.regexPattern(CodePointEscaper.ESCAPE_IN_SURVEYTOOL, "\\u{", "}");
         public final Map<String, EscapedCharEntry> names = new HashMap<>();
 
         EscapedCharInfo() {

@@ -6,6 +6,7 @@ import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import java.util.Locale;
+import java.util.stream.Collectors;
 
 /**
  * Provide a set of code point abbreviations. Includes conversions to and from codepoints, including
@@ -312,6 +313,26 @@ public enum CodePointEscaper {
         return result == null
                 ? Integer.toString(codePoint, 16).toUpperCase(Locale.ROOT)
                 : result.toString();
+    }
+
+    /** Create a regex pattern from a UnicodeSet */
+    public static String regexPattern(UnicodeSet unicodeSet) {
+        return "["
+                + unicodeSet
+                        .rangeStream()
+                        .map(
+                                x ->
+                                        (hexEscape(x.codepoint)
+                                                + (x.codepointEnd == x.codepoint
+                                                        ? ""
+                                                        : "-" + hexEscape(x.codepointEnd))))
+                        .collect(Collectors.joining())
+                + "]";
+    }
+
+    // return hex form of single character
+    public static String hexEscape(int codepoint) {
+        return "\\x{" + Integer.toHexString(codepoint) + "}";
     }
 
     public static final String getHtmlRows(

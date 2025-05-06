@@ -133,7 +133,12 @@ jobs:
         # note: needs *un* cleaned-up liberty server (see next step) because
         # we run the raw .jar file
         run: >
-          cd tools/cldr-apps && docker compose run --rm -it webdriver
+          docker compose up -d cldr-apps &&
+          docker compose up -d selenium &&
+          sleep 5 &&
+          docker compose run --rm webdriver ||
+          ( docker compose stop selenium ; docker compose up -d selenium ; docker compose run --rm webdriver ) || true
+        working-directory: tools/cldr-apps
       - name: Cleanup liberty server
         run: >
           zip tools/cldr-apps/target/cldr-apps.zip  -d  wlp/usr/servers/cldr/apps/expanded/\*

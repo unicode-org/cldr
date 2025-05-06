@@ -4,4 +4,4 @@ FROM maven:3-eclipse-temurin-17-alpine
 WORKDIR /workarea
 COPY . /workarea
 COPY surveydriver-docker.properties /workarea/surveydriver.properties
-CMD ["mvn", "test"]
+CMD ["mvn", "-B", "test"]

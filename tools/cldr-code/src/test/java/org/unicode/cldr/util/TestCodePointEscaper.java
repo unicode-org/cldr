@@ -24,8 +24,9 @@ public class TestCodePointEscaper {
 
     @Test
     void testRegex() {
+        // The pre/post fixes vary by regex engine. For Java it is these.
         final String forceEscapeRegex =
-                CodePointEscaper.regexPattern(CodePointEscaper.ESCAPE_IN_SURVEYTOOL);
+                CodePointEscaper.regexPattern(CodePointEscaper.ESCAPE_IN_SURVEYTOOL, "\\x{", "}");
 
         final Matcher matcher = Pattern.compile(forceEscapeRegex).matcher("");
 

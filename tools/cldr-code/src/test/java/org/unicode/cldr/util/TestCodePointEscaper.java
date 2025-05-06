@@ -24,25 +24,29 @@ public class TestCodePointEscaper {
 
     @Test
     void testRegex() {
-        // NOTE: A UnicodeSet pattern may look like regex, but the syntax is not the same.
-        // So we can't use UnicodeSet.toPattern()
-
         final String forceEscapeRegex =
                 CodePointEscaper.regexPattern(CodePointEscaper.ESCAPE_IN_SURVEYTOOL);
 
         final Matcher matcher = Pattern.compile(forceEscapeRegex).matcher("");
+
+        int shouldFail = 'A';
+        assertFalse(
+                matcher.reset(stringToScan(shouldFail)).find(),
+                () -> "For " + CodePointEscaper.hexEscape(shouldFail));
+
+        int shouldSucceed = 0x202F;
+        assertTrue(
+                matcher.reset(stringToScan(shouldSucceed)).find(),
+                () -> "For " + CodePointEscaper.hexEscape(shouldSucceed));
+
+        // NOTE: A UnicodeSet pattern may look like regex, but the syntax is not the same.
+        // So we can't use UnicodeSet.toPattern()
 
         for (final int e : CodePointEscaper.ESCAPE_IN_SURVEYTOOL.codePoints()) {
             assertTrue(
                     matcher.reset(stringToScan(e)).find(),
                     () -> "For " + CodePointEscaper.hexEscape(e));
         }
-
-        // example where should fail
-        int shouldFail = 'A';
-        assertFalse(
-                matcher.reset(stringToScan(shouldFail)).find(),
-                () -> "For " + CodePointEscaper.hexEscape(shouldFail));
     }
 
     private String stringToScan(final int e) {

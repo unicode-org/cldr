@@ -6,6 +6,7 @@ import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import java.util.Locale;
+import java.util.stream.Collectors;
 
 /**
  * Provide a set of code point abbreviations. Includes conversions to and from codepoints, including
@@ -312,6 +313,51 @@ public enum CodePointEscaper {
         return result == null
                 ? Integer.toString(codePoint, 16).toUpperCase(Locale.ROOT)
                 : result.toString();
+    }
+
+    /**
+     * Create a regex pattern from a UnicodeSet; use
+     *
+     * @param escapePrefix use "\\x{" for Java, "\\u{" for some others
+     * @param escapePostfix typically "}"
+     */
+    public static String regexPattern(
+            UnicodeSet unicodeSet, String escapePrefix, String escapePostfix) {
+        return "["
+                + unicodeSet
+                        .rangeStream()
+                        .map(
+                                x ->
+                                        (hexEscape(x.codepoint, escapePrefix, escapePostfix)
+                                                + (x.codepointEnd == x.codepoint
+                                                        ? ""
+                                                        : "-"
+                                                                + hexEscape(
+                                                                        x.codepointEnd,
+                                                                        escapePrefix,
+                                                                        escapePostfix))))
+                        .collect(Collectors.joining())
+                + "]";
+    }
+
+    public static String regexPattern(UnicodeSet unicodeSet) {
+        return regexPattern(unicodeSet, "\\x{", "}");
+    }
+
+    /**
+     * Return hex form of single character
+     *
+     * @param codepoint
+     * @param escapePrefix
+     * @param escapePostfix
+     * @return
+     */
+    public static String hexEscape(int codepoint, String escapePrefix, String escapePostfix) {
+        return escapePrefix + Integer.toHexString(codepoint) + escapePostfix;
+    }
+
+    public static String hexEscape(int codepoint) {
+        return hexEscape(codepoint, "\\x{", "}");
     }
 
     public static final String getHtmlRows(

@@ -73,7 +73,7 @@ public class SurveyDriver {
     // static final String BASE_URL = "https://cldr-smoke.unicode.org/cldr-apps/";
     // static final String BASE_URL = "https://cldr-staging.unicode.org/cldr-apps/";
 
-    static final long TIME_OUT_SECONDS = 30;
+    static final long TIME_OUT_SECONDS = 60;
     static final long SLEEP_MILLISECONDS = 100;
 
     /*

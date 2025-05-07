@@ -264,7 +264,7 @@ jobs:
           -Dexec.args="--schema=keyboards/dtd/ldmlKeyboardTest.xsd keyboards/test"
           || (echo 'Schema failed, rerun GenerateDtd' ; exit 0)
   servertest:
-    name: "Test the cldr-apps server locally"
+    name: "Docker test cldr-apps"
     needs:
       - package
     runs-on: ubuntu-latest

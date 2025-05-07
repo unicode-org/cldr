@@ -296,7 +296,7 @@ jobs:
       run: docker compose pull -q
       working-directory: tools/cldr-apps
     - name: Bringup Containers
-      run: docker-compose up -d cldr-apps selenium
+      run: docker compose up -d cldr-apps selenium
       working-directory: tools/cldr-apps
     - name: Run webdriver first time (may fail)
       run: docker compose run --rm webdriver ; docker compose restart selenium

@@ -763,6 +763,8 @@ function updateRowEnglishComparisonCell(tr, theRow, cell) {
     cell.appendChild(
       cldrDom.createChunk(theRow.displayName, "span", "subSpan")
     );
+    // add possible <LRM>, etc escaped text to English
+    checkLRmarker(cell, theRow.displayName);
   } else {
     cell.appendChild(document.createTextNode(""));
     if (!trHint) {
@@ -1015,7 +1017,17 @@ function checkLRmarker(field, value) {
     if (escapedValue) {
       const lrm = document.createElement("div");
       lrm.className = "lrmarker-container";
-      lrm.innerHTML = escapedValue;
+      const lrmtext = document.createElement("div");
+      lrmtext.innerHTML = escapedValue;
+      lrmtext.className = "lrmarker-text";
+      lrm.appendChild(lrmtext);
+      const moreInfo = cldrDom.createChunk("ⓘ", "a", "hiddenMoreInfo");
+      moreInfo.setAttribute(
+        "href",
+        "https://cldr.unicode.org/translation/getting-started/guide#special-characters"
+      );
+      lrm.appendChild(moreInfo);
+      lrm.setAttribute("title", "Special characters, click ⓘ for details.");
       field.appendChild(lrm);
     }
   }

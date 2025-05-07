@@ -763,6 +763,8 @@ function updateRowEnglishComparisonCell(tr, theRow, cell) {
     cell.appendChild(
       cldrDom.createChunk(theRow.displayName, "span", "subSpan")
     );
+    // add possible <LRM>, etc escaped text to English
+    checkLRmarker(cell, theRow.displayName);
   } else {
     cell.appendChild(document.createTextNode(""));
     if (!trHint) {

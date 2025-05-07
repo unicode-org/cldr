@@ -44,11 +44,12 @@ export function getCharInfo(str) {
 /** Unconditionally escape (without testing) */
 function escapeHtml(str) {
   return str.replace(data?.forceEscape, (o) => {
-    const e = getCharInfo(o) || {
-      name: `U+${Number(o.codePointAt(0)).toString(16).toUpperCase()}`,
-    };
-    return `<span class="visible-mark" title="${e.shortName || e.name}\n ${
-      e.description || ""
-    }">${e.name}</span>`;
+    const hexName = `U+${Number(o.codePointAt(0)).toString(16).toUpperCase()}`;
+    let e = getCharInfo(o) || {};
+    const name = e.name || e.shortName;
+    const body = name || hexName;
+    const description = e.description;
+    const title = `${e.shortName || ""} ${hexName}\n${description || ""}`;
+    return `<span class="visible-mark" title="${title}">${body}</span>`;
   });
 }

@@ -8,15 +8,14 @@ If you have a TC or Manager level account, you can manage other translators (use
 
 When you create users, you give them permissions and choose which locales they are to work on. It is also important that you set your [organization][CLDR Organization]'s coverage levels appropriately, see "[Setting your Organization's Coverage levels](/index/survey-tool/coverage)".
 
-## Managing Users
-
-Open the survey tool, and click on the gear icon in the top left, then pick **List \<myorg\> Users**
-
-![image](../../images/index/managingUsers0.png)
-
-The tool might feel a bit awkward to use, so ask if you have any questions. 
+The tool might feel a bit awkward to use, so please ask if you have any questions.
 
 Note that you shouldn't use your TC or Manager account for voting; that should only be done for carrying out committee decisions. What most people do is open a second account as a Vetter if they have a language they want to contribute to.
+
+## To manage Users
+
+Under [the ☰ menu](https://st.unicode.org/cldr-apps/v#menu///), choose "[List *Org-name* Users](https://st.unicode.org/cldr-apps/v#account///)".
+
 
 ## To add a user
 
@@ -24,15 +23,15 @@ Click on \[Add User] at the top:
 
 ![image](../../images/index/managingUsers1.png)
 
-![image](../../images/index/managingUsers2.png)
-
 Set the name, email, and the locale(s) they are responsible for.
 
-![image](../../images/index/managingUsers3.jpg)
+![image](../../images/index/managingUsers2.png)
 
 Set the Userlevel based on your assessment of the person's skill. Normally this is "Vetter". You can use "Street" for volunteers whom you don't know. People don't have to come from your organization as long as you have confidence in them.
 
-- See the [CLDR Process](/index/process) page for a description of the user levels and their privileges.
+See the [CLDR Process](/index/process) page for a description of the user levels and their privileges.
+
+![image](../../images/index/managingUsers3.jpg)
 
 *Known bug: if you try to create a user and that email address already has an account, you get an unknown error message. Often this is because the user is locked. Click on "Show locked users", find the person, and change the status (see below).*
 
@@ -54,11 +53,11 @@ Remind the new user that **they are still responsible for inherited votes**, and
 
 **Make sure you let your users know that they should use their Survey Tool password *only* for the Survey Tool, since it is often sent to them in email.**
 
-1. In the Action column, pick Send Password for each user you want to send their password to. Then hit the \[Do Action] button at the top or bottom of the screen to send the password to all selected users.
+1. In the Action column, pick Send Password for each user you want to send their password to. Then click the \[Do Action] button at the top or bottom of the screen to send the password to all selected users.
 2. If you want to do a bunch at a time, use the "Set menus" box on the left to fill in the Action columns
 	1. "all" means the type of user, so pick one or more of those (eg TC).
 	2. "to" means what you want to do (eg Resend password).
-	3. Hit the "list" button to set the Action menus for those users.
+	3. Click the "list" button to set the Action menus for those users.
 
 ![image](../../images/index/managingUsers4.jpg)
 
@@ -68,7 +67,7 @@ You'll see a \[Change] button. Click it to do the action (eg resending passwords
 
 ## To log in as one of your users
 
-You might sometimes want to log in as one of your users, for testing. Click on the magnifying glass:
+You will sometimes need to log in as one of your users for testing. Click on the magnifying glass:
 
 ![image](../../images/index/managingUsers6.png)
 
@@ -86,7 +85,7 @@ At the bottom, click the box for "Check this box to compose a message to..."
 
 ![image](../../images/index/managingUsers9.jpg)
 
-Click \[Do Action], and it will take you to a box to compose your message.
+Click \[Do Action], and it will take you to a text box to compose your message.
 
 ![image](../../images/index/managingUsers10.jpg)
 
@@ -101,42 +100,25 @@ Later on, in the vetting phase, you can send messages with the outstanding dispu
 ## To change users' status
 
 1. Click on the magnifying glass in the left column. You zoom in on that user, and have more Actions in the action column.
-2. Click the one you want, and hit \[Do Action]
+2. Click the one you want, and click \[Do Action]
 3. Normally you don't want to delete users \-\- you want to lock them. (Deleting removes information about what they've submitted so far.)
 
-## NEEDS WORK: To check that all of your important locales have vetters assigned
+##To check that all of your important locales have vetters assigned
 
-1. Click the "Show Vetting Participation" link at the left, under the top gray bar.
-2. The gray locales are ones that are not a priority for your organization according to the coverage information. (If it's wrong, see "[Changing Your Organization's Coverage Levels](/index/survey-tool/coverage)".)
+1. Under [the ☰ menu](https://st.unicode.org/cldr-apps/v#menu///), choose "[Vetting Participation](https://st.unicode.org/cldr-apps/v#vetting_participation///)". It may take a while to load.
+2. The listed locales are ones that are a priority for your organization according to the coverage information. (If it's wrong, see "[Changing Your Organization's Coverage Levels](/index/survey-tool/coverage)".)
 3. If you need new locales added, let your committee representative know.
-4. To see what the participation of your vetters has been recently, click on the Participation Shown link at the top
-	1. Note: this has a bug currently where the table becomes very wide \-\- you'll have to scroll or expand your window.
+4. Under each locale, the currently active users are listed. The ones listed with yellow background have not participated in the current cycle. The ones with gray background have participated, and their vote count is shown.
+5. Note that locales are listed in ISO code order, so for example "Chinese" is listed at the bottom for "zh".
 
-## NEEDS WORK: To see how your translators are doing
+##To see how your translators are doing
 
-1. Open the "Priority Items Summary" in the Gear menu.
-2. Click on Recalculate.
-3. Take a break, get a cup of coffee (may take several minutes).
-4. You will get a table that summarizes the status for each locale.
-5. We often find it useful to copy parts of that table into a spreadsheet for comparison and analysis.
-6. ~~To see what your translators have done, in the Gear menu go to~~ ~~**Priority Items Summary**~~
-7. ~~login to the Survey Tool and go to 'Manage … Users' and then to 'Show Vetting Participation' (link at top left).~~
-8. ~~You get a view of your translators.~~
-9. ~~Click on the link "Participation Shown (click to toggle) is currently On / Off ".~~
-	1. ~~Note: there is a bug with the top table causing it to be too wide. Maximize your screen size (and use a wide screen if you have one).~~
-10. ~~Go get a cup of coffee (this will take a little while)~~
-11. ~~At the bottom of the screen, you'll see a list of who has participated, and how many submits and votes they've each made.~~
+1. Under [the ☰ menu](https://st.unicode.org/cldr-apps/v#menu///), choose "[Priority Items Summary](https://st.unicode.org/cldr-apps/v#vsummary///)".
+2. You will be shown a recent snapshot of the summary with UTC time stamp. If this snapshot is not recent enough for your needs, you can create a new with the button "Create New Summary" under the tables. Note that this will take several minutes.
+4. You will get different tables for different coverage levels. The header row is repeated throughout the table for easier readability - this is expected.
+5. We often find it useful to copy parts of that table into a spreadsheet application for comparison and analysis.
+6. The table will let you look up number of issues in various categories in the locales, the same information your users have access to in the [Dashboard](/translation/getting-started/guide#dashboard).
 
-## NEEDS WORK: To check if you have "bad" locales (locales assigned that aren't in CLDR)
-
-1. Go to Coverage (up at the top right in the survey tool).
-2. If you see the following message, then some of your users have bogus locales OR locales that aren't in CLDR: **Warning: locale designations not matching locales in CLDR: X....**
-4. Go to Manage Users (top right), and look at the users signed up to these locales.
-5. When they are bogus fix them (work with translator to replace by real locale IDs).
-6. When they are valid, you may propose to the committee that we add a locale:
-	1. Valid ones are under languages in en.xml
-	2. OR (unusual case) under languages in http://www.ietf.org/internet\-drafts/draft\-ietf\-ltru\-4645bis\-04\.txt
-	3. However, watch for mistakes, eg someone using "tw" to mean Taiwanese, when it actually means "Twi"
 
 
 [CLDR Organization]: /index/survey-tool/cldr-organization

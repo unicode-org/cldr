@@ -303,14 +303,16 @@ jobs:
     - name: Bringup Containers
       run: docker compose up -d cldr-apps selenium
       working-directory: tools/cldr-apps
-    - name: Build webdriver first time
-      # The actual run will fail, which is why we retry
-      run: docker compose run -v ~/.m2/repository:/root/.m2/repository:rw --rm webdriver || ( echo this may fail the first time && true)
+    - name: Build webdriver
+      run: docker compose run -v ~/.m2/repository:/root/.m2/repository:rw --rm webdriver mvn -B test-compile
+      working-directory: tools/cldr-apps
+    - name: Test with Webdriver, ignoring result due to CLDR-18613
+      run: docker compose run -v ~/.m2/repository:/root/.m2/repository:rw --rm webdriver || ( echo this may fail the first time see https://unicode-org.atlassian.net/browse/CLDR-18613 && true)
       working-directory: tools/cldr-apps
     - name: Test with Webdriver
       # See tools/cldr-apps/README.md
       run: >
-        docker compose restart selenium && sleep 5 && docker compose run -v ~/.m2/repository:/root/.m2/repository:rw --rm webdriver || ( docker compose exec -it cldr-apps tail /logs/messages.log ; false )
+        docker compose run -v ~/.m2/repository:/root/.m2/repository:rw --rm webdriver || ( docker compose exec -it cldr-apps tail /logs/messages.log ; false )
       working-directory: tools/cldr-apps
     - name: Prepare client tests
       run: docker run --rm -v ~/.npm:/root/.npm:rw -v $(pwd)/js:/home/node/app:rw -w /home/node/app node npm ci

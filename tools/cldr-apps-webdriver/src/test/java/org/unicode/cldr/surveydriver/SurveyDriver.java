@@ -73,7 +73,7 @@ public class SurveyDriver {
     // static final String BASE_URL = "https://cldr-smoke.unicode.org/cldr-apps/";
     // static final String BASE_URL = "https://cldr-staging.unicode.org/cldr-apps/";
 
-    static final long TIME_OUT_SECONDS = 60;
+    static final long TIME_OUT_SECONDS = SurveyDriverCredentials.getTimeOut();
     static final long SLEEP_MILLISECONDS = 100;
 
     /*
@@ -102,25 +102,28 @@ public class SurveyDriver {
     public static void runTests() {
         SurveyDriver s = new SurveyDriver();
         s.setUp();
-        if (TEST_VETTING_TABLE) {
-            assertTrue(SurveyDriverVettingTable.testVettingTable(s));
+        try {
+            if (TEST_VETTING_TABLE) {
+                assertTrue(SurveyDriverVettingTable.testVettingTable(s));
+            }
+            if (TEST_FAST_VOTING) {
+                assertTrue(s.testFastVoting());
+            }
+            if (TEST_LOCALES_AND_PAGES) {
+                assertTrue(s.testAllLocalesAndPages());
+            }
+            if (TEST_ANNOTATION_VOTING) {
+                assertTrue(s.testAnnotationVoting());
+            }
+            if (TEST_XML_UPLOADER) {
+                assertTrue(new SurveyDriverXMLUploader(s).testXMLUploader());
+            }
+            if (TEST_DASHBOARD) {
+                assertTrue(new SurveyDriverDashboard(s).test());
+            }
+        } finally {
+            s.tearDown();
         }
-        if (TEST_FAST_VOTING) {
-            assertTrue(s.testFastVoting());
-        }
-        if (TEST_LOCALES_AND_PAGES) {
-            assertTrue(s.testAllLocalesAndPages());
-        }
-        if (TEST_ANNOTATION_VOTING) {
-            assertTrue(s.testAnnotationVoting());
-        }
-        if (TEST_XML_UPLOADER) {
-            assertTrue(new SurveyDriverXMLUploader(s).testXMLUploader());
-        }
-        if (TEST_DASHBOARD) {
-            assertTrue(new SurveyDriverDashboard(s).test());
-        }
-        s.tearDown();
     }
 
     /** Set up the driver and its "wait" object. */
@@ -135,6 +138,7 @@ public class SurveyDriver {
         // options.addArguments("auto-open-devtools-for-tabs"); // this works, but makes window too
         // narrow
         if (USE_REMOTE_WEBDRIVER) {
+            System.out.println("Getting remote session from " + REMOTE_WEBDRIVER_URL);
             try {
                 driver = new RemoteWebDriver(new URL(REMOTE_WEBDRIVER_URL + "/wd/hub"), options);
             } catch (MalformedURLException e) {
@@ -171,6 +175,7 @@ public class SurveyDriver {
                 SurveyDriverLog.println("Sleep interrupted before driver.quit; " + e);
             }
             driver.quit();
+            driver = null; // so we only quit once
         }
     }
 

@@ -102,7 +102,7 @@ public class SurveyDriverCredentials {
         if (host == null || host.isEmpty()) {
             host = "http://localhost:9080";
         }
-        System.out.println(PROPS_URL_KEY+"="+host);
+        System.out.println(PROPS_URL_KEY + "=" + host);
         return host;
     }
 
@@ -111,7 +111,16 @@ public class SurveyDriverCredentials {
         if (host == null || host.isEmpty()) {
             host = "http://localhost:4444";
         }
-        System.out.println(PROPS_WEBDRIVER_KEY+"="+host);
+        System.out.println(PROPS_WEBDRIVER_KEY + "=" + host);
         return host;
+    }
+
+    public static int getTimeOut() {
+        String s = getProperties().get("TIME_OUT_SECONDS").toString();
+        if (s == null || s.isEmpty()) {
+            s = "60";
+        }
+        System.out.println("TIME_OUT_SECONDS=" + s);
+        return Integer.parseInt(s);
     }
 }

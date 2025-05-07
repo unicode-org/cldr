@@ -131,7 +131,8 @@ jobs:
           name: cldr-code
           path: tools/cldr-code/target/cldr-code.jar
   build:
-    name: "Build / Unit-test"
+    #Cannot change the name, it's a required step.
+    #name: "Build / Unit-test"
     runs-on: ubuntu-latest
     steps:
       - name: Clone Repository
@@ -202,7 +203,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   check:
-    name: "Run ConsoleCheckCLDR"
+    #Cannot change the name, it's a required step.
+    #name: "Run ConsoleCheckCLDR"
     runs-on: ubuntu-latest
     steps:
       - name: Clone Repository

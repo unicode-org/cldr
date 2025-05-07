@@ -101,7 +101,7 @@ Later on, in the vetting phase, you can send messages with the outstanding dispu
 
 1. Click on the magnifying glass in the left column. You zoom in on that user, and have more Actions in the action column.
 2. Click the one you want, and click \[Do Action]
-3. Normally you don't want to delete users \-\- you want to lock them. (Deleting removes information about what they've submitted so far.)
+3. If a user is inactive, lock their account. (We don't delete accounts since it removes information about what they've submitted so far.)
 
 ##To check that all of your important locales have vetters assigned
 

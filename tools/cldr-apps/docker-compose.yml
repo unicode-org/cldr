@@ -38,13 +38,16 @@ services:
     links:
       - cldr-apps
   client-test:
-    build:
-      context: .
-      dockerfile: client-test.Dockerfile
-    image: node:slim
+    image: node
+    user: "node"
     working_dir: /home/node/app
     command:
-      "npm run client-test"
+      "node_modules/.bin/mocha --reporter spec test/client/test-*.mjs"
+    volumes:
+      - ./js/:/home/node/app:ro
+    environment:
+      CLDR_VAP: admin_vap
+      SURVEYTOOL_URL: http://cldr-apps:9080
 volumes:
   mavencache:
   webdrivertarget:

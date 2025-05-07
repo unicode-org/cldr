@@ -133,6 +133,7 @@ jobs:
         # note: needs *un* cleaned-up liberty server (see next step) because
         # we run the raw .jar file
         run: >
+          docker compose pull -q &&
           docker compose up -d cldr-apps &&
           docker compose up -d selenium &&
           sleep 5 &&

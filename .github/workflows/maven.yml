@@ -297,6 +297,9 @@ jobs:
     - name: Pull Images
       run: docker compose pull -q
       working-directory: tools/cldr-apps
+    - name: Build Containers
+      run: docker compose build
+      working-directory: tools/cldr-apps
     - name: Bringup Containers
       run: docker compose up -d cldr-apps selenium
       working-directory: tools/cldr-apps
@@ -310,7 +313,7 @@ jobs:
         docker compose restart selenium && sleep 5 && docker compose run -v ~/.m2/repository:/root/.m2/repository:rw --rm webdriver || ( docker compose exec -it cldr-apps tail /logs/messages.log ; false )
       working-directory: tools/cldr-apps
     - name: Prepare client tests
-      run: docker run --rm -v ~/.npm:/home/node/.npm:rw -u node -v $(pwd)/js:/home/node/app:rw -w /home/node/app node npm ci
+      run: docker run --rm -v ~/.npm:/root/.npm:rw -v $(pwd)/js:/home/node/app:rw -w /home/node/app node npm ci
       working-directory: tools/cldr-apps
     - name: Run client tests against ST
       run: docker compose run --rm client-test || ( docker compose exec -it cldr-apps tail /logs/messages.log ; false )

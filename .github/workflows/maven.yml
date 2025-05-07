@@ -302,20 +302,18 @@ jobs:
       working-directory: tools/cldr-apps
     - name: Build webdriver first time
       # The actual run will fail, which is why we retry
-      run: docker compose run -v ~/.m2/repository:/root/.m2/repository:rw --rm webdriver || true
+      run: docker compose run -v ~/.m2/repository:/root/.m2/repository:rw --rm webdriver || ( echo this may fail the first time && true)
       working-directory: tools/cldr-apps
     - name: Test with Webdriver
       # See tools/cldr-apps/README.md
-      # note: needs *un* cleaned-up liberty server (see next step) because
-      # we run the raw .jar file
       run: >
-        docker compose restart selenium && docker compose run -v ~/.m2/repository:/root/.m2/repository:rw --rm webdriver
+        docker compose restart selenium && sleep 5 && docker compose run -v ~/.m2/repository:/root/.m2/repository:rw --rm webdriver || ( docker compose exec -it cldr-apps tail /logs/messages.log ; false )
       working-directory: tools/cldr-apps
     - name: Prepare client tests
       run: docker run --rm -v ~/.npm:/home/node/.npm:rw -u node -v $(pwd)/js:/home/node/app:rw -w /home/node/app node npm ci
       working-directory: tools/cldr-apps
     - name: Run client tests against ST
-      run: docker compose run --rm client-test
+      run: docker compose run --rm client-test || ( docker compose exec -it cldr-apps tail /logs/messages.log ; false )
       working-directory: tools/cldr-apps
     - name: Shut down containers
       run: docker compose stop || true

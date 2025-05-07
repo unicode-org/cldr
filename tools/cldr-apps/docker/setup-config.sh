@@ -1,7 +1,9 @@
 #!/bin/sh
 
 echo "Trying to determine CLDR version"
-CLDR_VERSION=$(java -jar $(find /opt/ol/wlp/usr/servers/defaultServer/ -name cldr-code*.jar) | fgrep GEN_VERSION | cut -d= -f2 | cut -d. -f1)
+java -jar /tmp/cldr-code.jar > /dev/null || exit 1
+CLDR_VERSION=$($(java -jar /tmp/cldr-code.jar) | fgrep GEN_VERSION | cut -d= -f2 | cut -d. -f1)
+rm -f /tmp/cldr-code.jar
 echo "CLDR_VERSION=${CLDR_VERSION}"
 CLDR_OLDVERSION=$(expr ${CLDR_VERSION} - 1)
 

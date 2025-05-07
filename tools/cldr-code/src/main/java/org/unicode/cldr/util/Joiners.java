@@ -6,4 +6,6 @@ public class Joiners {
     public static final Joiner VBAR = Joiner.on('|').useForNull("null");
     public static final Joiner TAB = Joiner.on('\t').useForNull("null");
     public static final Joiner COMMA_SP = Joiner.on(", ").useForNull("null");
+    public static final Joiner N = Joiner.on("\n").useForNull("null");
+    public static final Joiner SP = Joiner.on(' ').useForNull("null");
 }

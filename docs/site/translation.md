@@ -86,6 +86,8 @@ Coverage for other languages is at comprehensive.
 <!-- I don't think we want to encourage this: ... if there is a need to have coverage at lower level in some locale,
 please file a ticket. [CLDR-18283](https://unicode-org.atlassian.net/browse/CLDR-18283) -->
 
+### DateTime formats
+
 #### Gregorian Calendar (Year First) calendar
 
 This is a variant of the Gregorian calendar whose formats always use year-month-day ordering and a 24-hour time cycle. See [Year First Calendar] for more details.
@@ -93,7 +95,12 @@ This is a variant of the Gregorian calendar whose formats always use year-month-
 
 <!-- [CLDR-18447](https://unicode-org.atlassian.net/browse/CLDR-18447) -->
 
-### DateTime formats
+#### New flexible format and interval patterns 🆕
+
+There are some new patterns for you to supply. Make sure that the format is consistent with related patterns. 
+
+Note: Some locales have inconsistent patterns using eras: in some patterns using G (AD vs BC in Gregorian) but in related patterns using GGGGG (which is a narrow form: A vs B in Gregorian).
+The GGGGG is not typically needed except in special cases, such as the Japanese calendar.
 
 #### New “relative” variant for date-time combining pattern
 
@@ -290,7 +297,7 @@ See [Recent changes](https://cldr.unicode.org/translation#recent-changes) for ad
 
 - Some of the Page reorganization may continue.
 
-### New Approve Status Icons
+### New Approve Status Icons 
 
 | Symbol | Status | Notes |
 |:---:|---|---|
@@ -300,6 +307,24 @@ See [Recent changes](https://cldr.unicode.org/translation#recent-changes) for ad
 | ❌ | Unconfirmed | Not enough votes for implementations … |
 |  🕳️ | Missing | Completely missing |
 | ⬆️ | Inherited | Used in combination with ✖️ and ❌ |
+
+### Enhanced "Show Hidden" 🆕
+
+If a field contains characters that are invisible or certain characters that look like others, a special Show Hidden bar will appear below the field that helps distinguish them.
+For example, see [Example Hidden] — here is a screen-shot.
+
+![Example of hidden characters](/translation/example-hidden.png)
+
+Note that if you hover over the Show Hidden bar, you'll see the name of the special character and a short description.
+Some of the commonly used special characters are:
+* thin space — a space character that is narrower (in most fonts) than the regular one.
+* word joiner — a special invisible character that prevents linebreaks on either side
+* no-break space — a version of the regular space that doesn't allow linebreaks on either side.
+It is equivalent to a space with a word-joiner after it.
+* no-break thin space — the no-break variant of the thin-space
+* BIDI controls — LRM, RLM, ALM. These are used in bidirectional scripts (Arabic, Hebrew, etc.) to control the birectional order if needed; typically next to numbers or punctuation.
+
+For a key to all the escapes, see [Key for Show Hidden].
 
 ## Known Issues
 
@@ -377,3 +402,5 @@ entry you're editing/vetting. Use it if in doubt.*
 [CLDR-18423]: https://unicode-org.atlassian.net/browse/CLDR-18423
 [stand-alone vs. formatting]: /translation/date-time/date-time-patterns#when-to-use-standalone-vs-formatting
 [Year First Calendar]: /translation/date-time/date-time-patterns#year-first-calendar
+[Example Hidden]: https://st.unicode.org/cldr-apps/v#/USER/Number_Formatting_Patterns/67afe297d3a17a3
+[Key for Show Hidden]: https://cldr.unicode.org/translation/core-data/exemplars#key-to-escapes

@@ -308,9 +308,9 @@ jobs:
       run: >
         docker compose run --rm webdriver
       working-directory: tools/cldr-apps
-	- name: Prepare client tests
-	  run: docker run --rm -v ~/.npm:/home/node/.npm:rw -u node -v $(pwd)/js:/home/node/app:rw -w /home/node/app node npm ci
-	  working-directory: tools/cldr-apps
+    - name: Prepare client tests
+      run: docker run --rm -v ~/.npm:/home/node/.npm:rw -u node -v $(pwd)/js:/home/node/app:rw -w /home/node/app node npm ci
+      working-directory: tools/cldr-apps
     - name: Run client tests against ST
       run: docker compose run --rm client-test
       working-directory: tools/cldr-apps

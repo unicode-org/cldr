@@ -300,15 +300,16 @@ jobs:
     - name: Bringup Containers
       run: docker compose up -d cldr-apps selenium
       working-directory: tools/cldr-apps
-    - name: Run webdriver first time (may fail)
-      run: docker compose run --rm webdriver ; docker compose restart selenium
+    - name: Build webdriver first time
+      # The actual run will fail, which is why we retry
+      run: docker compose run -v ~/.m2/repository:/root/.m2/repository:rw --rm webdriver || true
       working-directory: tools/cldr-apps
     - name: Test with Webdriver
       # See tools/cldr-apps/README.md
       # note: needs *un* cleaned-up liberty server (see next step) because
       # we run the raw .jar file
       run: >
-        docker compose run --rm webdriver
+        docker compose restart selenium && docker compose run -v ~/.m2/repository:/root/.m2/repository:rw --rm webdriver
       working-directory: tools/cldr-apps
     - name: Prepare client tests
       run: docker run --rm -v ~/.npm:/home/node/.npm:rw -u node -v $(pwd)/js:/home/node/app:rw -w /home/node/app node npm ci
@@ -318,7 +319,7 @@ jobs:
       working-directory: tools/cldr-apps
     - name: Shut down containers
       run: docker compose stop || true
-      working-directory: tools/cldr-apps      
+      working-directory: tools/cldr-apps
   deploy:
     name: "Deploy to cldr-smoke for testing"
     # don't run deploy on manual builds!

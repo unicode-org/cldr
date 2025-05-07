@@ -9,7 +9,7 @@ RUN unzip -j cldr-apps.zip wlp/usr/servers/cldr/apps/cldr-apps.war
 RUN unzip -j cldr-apps.war 'WEB-INF/lib/cldr-code-*'
 RUN mv -v cldr-code-*-SNAPSHOT.jar cldr-code.jar
 
-FROM open-liberty:kernel-slim-java17-openj9 AS server
+FROM icr.io/appcafe/open-liberty:kernel-slim-java17-openj9-ubi-minimal AS server
 # copy just the server file so we get config
 COPY --from=setup /opt/ol/wlp/usr/servers/cldr/server.xml /opt/ol/wlp/usr/servers/defaultServer/server.xml
 USER root

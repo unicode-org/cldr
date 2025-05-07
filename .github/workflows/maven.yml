@@ -273,10 +273,12 @@ jobs:
       uses: actions/checkout@v4
       with:
         lfs: false
+    - run: mkdir -p tools/cldr-apps/target
     - name: Download cldr-apps.zip
       uses: actions/download-artifact@v4
       with:
         name: cldr-apps-server
+        path: tools/cldr-apps/target/cldr-apps.zip
     - name: Cache local Maven repository
       uses: actions/cache@v4
       with:

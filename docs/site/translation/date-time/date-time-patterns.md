@@ -402,3 +402,31 @@ Different calendars work with the data in Gregorian, and Generic in the followin
 	- Because the Generic calendar does not have real names for months, weekdays and eras, the Survey Tool examples generated for this calendar may be confusing.
 - Calendars that do not inherit date formats from the Generic calendar are the **East Asian lunar calendars**: Chinese (lunar) and Dangi (Korean lunar). These have special formats involving cyclic names. The Dangu calendar inherits formats from the Chinese calendar data in the same locale, while the Chinese calendar inherits formats directly from the parent locale; that parent locale may be the root locale or inherit these formats directly from the root locale. For the lunar calendars, the root locale has formats that should be reasonable for use in most locales where the lunar calendars are not one of the primary calendars.
 
+### Year First Calendar
+
+This is a variant of the Gregorian calendar whose formats always use year-month-day ordering and a 24-hour time cycle.
+*Note: the code is `iso8601`, but disregard that; it will be changed after submission.*
+
+Page | Code | English
+-|-|-
+Date & Time / Gregorian YMD | yMMMd | y MMM d
+Date & Time / Gregorian YMD | … | …
+Locale Display Names / Keys | calendar-iso8601 | Gregorian Calendar (Year First)
+
+Please go though the Gregorian Calendar (Year First) fields.
+* You should change to what is most customary in your language:
+	* punctuation (/, -, :, ., …) around numeric fields
+	* other text separating non-numeric fields (era, day-of-week,  day-periods, zones)
+	* special forms ([stand-alone vs. formatting]) as needed: M → L, E → c
+* You should not change other features:
+	* The ordering of fields in the pattern should be strictly the following order (for any that occur in a particular pattern):
+		* era - year - month - day - day-of-week - hour - minute - second
+	* Each numeric field should be consistently 2 digits: MM, dd, HH, hh, mm, ss
+	* Each string field should match the Code in width: G, MMM, MMMM, E, EEE
+		* But should use a different letter for [stand-alone vs. formatting] as needed.
+
+It is helpful to have a second window up showing the **Date & Time / Gregorian** equivalents, so that you can be consistent (except for ordering) with the **Gregorian** calendar.
+
+<!-- [CLDR-18447](https://unicode-org.atlassian.net/browse/CLDR-18447) -->
+
+[stand-alone vs. formatting]: https://cldr.unicode.org/translation/date-time/date-time-patterns#when-to-use-standalone-vs-formatting

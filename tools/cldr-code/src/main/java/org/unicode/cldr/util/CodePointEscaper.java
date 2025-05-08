@@ -32,10 +32,7 @@ public enum CodePointEscaper {
             0x200B,
             "Allow line break",
             "Invisible character allowing a line-break after. Also known as ‘ZWSP’ (zero-width space)."),
-    NB(
-            0x2060,
-            "Prevent line break",
-            "Prevents line break before or after. Also known as ‘word-joiner’."),
+    NB(0x2060, "No-break", "Prevents line break before or after. Also known as ‘word-joiner’."),
 
     // Hyphens & dashes
     NBHY(

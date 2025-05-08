@@ -31,7 +31,7 @@ Certain fields have _**sets**_ of characters (and strings) as values, called **U
 |❰NBSP❱|U+00A0|No-break space|Same as space, but doesn’t line break.
 |❰NBTSP❱|U+202F|No-break thin space|Same as thin space, but doesn’t line break. Aka 'narrow no-break space'
 |❰ALB❱|U+200B|Allow line break|Invisible character allowing a line-break after. Also known as ‘ZWSP’ (zero-width space).
-|❰NB❱|U+2060|Prevent line break|Prevents line break before or after. Also known as ‘word-joiner’.
+|❰NB❱|U+2060|No-break|Prevents line break before or after. Also known as ‘word-joiner’.
 |❰NBHY❱|U+2011|No-break hyphen|Same as a hyphen, but disallows line break after as well as before.
 |❰SHY❱|U+00AD|Soft hyphen|Invisible character allowing a line-wrap afterwards, but appears like a hyphen in most languages.
 |❰NDASH❱|U+2013|En dash|Slightly wider (–) than a hyphen (-), used for ranges of numbers or dates in some languages.

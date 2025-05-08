@@ -41,6 +41,9 @@ export function getCharInfo(str) {
   return data.escapedCharInfo?.names[str];
 }
 
+const PREFIX = "❰";
+const SUFFIX = "❱";
+
 /** Unconditionally escape (without testing) */
 function escapeHtml(str) {
   return str.replaceAll(data.forceEscape, (o) => {
@@ -50,6 +53,6 @@ function escapeHtml(str) {
     const body = name || hexName;
     const description = e.description;
     const title = `${e.shortName || ""} ${hexName}\n${description || ""}`;
-    return `<span class="visible-mark" title="${title}">${body}</span>`;
+    return `<span class="visible-mark" title="${title}">${PREFIX}${body}${SUFFIX}</span>`;
   });
 }

@@ -86,14 +86,19 @@ Coverage for other languages is at comprehensive.
 <!-- I don't think we want to encourage this: ... if there is a need to have coverage at lower level in some locale,
 please file a ticket. [CLDR-18283](https://unicode-org.atlassian.net/browse/CLDR-18283) -->
 
-#### Gregorian Calendar (Year First) calendar
+### DateTime formats
 
-This is a variant of the Gregorian calendar whose formats always use year-month-day ordering and a 24-hour time cycle. See [Year First Calendar] for more details.
+#### Gregorian Calendar (Year First) calendar
+🆕 This is a variant of the Gregorian calendar whose formats always use year-month-day ordering and a 24-hour time cycle. See [Year First Calendar] for more details.
 *Note: the code is `iso8601`, but disregard that; it will be changed after submission.*
 
 <!-- [CLDR-18447](https://unicode-org.atlassian.net/browse/CLDR-18447) -->
 
-### DateTime formats
+#### New flexible format and interval patterns 
+🆕 There are some new patterns for you to supply. Make sure that the format is consistent with related patterns. 
+
+Note: Some locales have inconsistent patterns using eras: in some patterns using G (AD vs BC in Gregorian) but in related patterns using GGGGG (which is a narrow form: A vs B in Gregorian).
+The GGGGG is not typically needed except in special cases, such as the Japanese calendar.
 
 #### New “relative” variant for date-time combining pattern
 
@@ -133,52 +138,31 @@ This was typically to move towards the official spelling in the country in quest
 You should check these, but don't hesitate to retain the older version(<image src='https://github.com/unicode-org/cldr/blob/main/tools/cldr-apps/src/main/webapp/star.png'>) if it is a different script or more customary in your language.
 For example, English still uses "Mexico City" instead of "Ciudad de México".
 
-- Africa/El_Aaiun: El Aaiún
-- Africa/Lome: Lomé
-- Africa/Ndjamena: N’Djamena
-- America/Araguaina: Araguaína
-- America/Argentina/Rio_Gallegos: Río Gallegos
-- America/Argentina/Tucuman: Tucumán
-- America/Belem: Belém
-- America/Bogota: Bogotá
-- America/Cordoba: Córdoba
-- America/Cuiaba: Cuiabá
-- America/Eirunepe: Eirunepé			
-- America/Maceio: Maceió
-- America/Mazatlan: Mazatlán
-- America/Mexico_City: Ciudad de México
-- America/Miquelon: Saint-Pierre
-- America/Santarem: Santarém
-- America/Sao_Paulo: São Paulo
-- Antarctica/Rothera: Rothera Station
-- Antarctica/Palmer: Palmer Land
-- Antarctica/Troll: Troll Station
-- Antarctica/Syowa: Showa Station
-- Antarctica/Mawson: Mawson Station
-- Antarctica/Vostok: Vostok Station
-- Antarctica/Casey: Casey Station
-- Antarctica/DumontDUrville: Dumont d’Urville Station
-- Antarctica/McMurdo: McMurdo Station
-- Asia/Aqtau: Aktau
-- Asia/Hovd: Khovd
-- Asia/Qyzylorda: Kyzylorda
-- Asia/Urumqi: Ürümqi
-- Atlantic/Canary: Canarias
-- Europe/Busingen: Büsingen
-- Europe/Chisinau: Chișinău
-- Europe/Tirane: Tirana
-- Indian/Chagos: Chagos Archipelago
-- Indian/Comoro: Comoros
-- Indian/Kerguelen: Kerguelen Islands
-- Indian/Mahe: Mahé
-- Pacific/Chatham: Chatham Islands
-- Pacific/Galapagos: Galápagos
-- Pacific/Kwajalein: Kwajalein Atoll
-- Pacific/Marquesas: Marquesas Islands
-- Pacific/Midway: Midway Atoll
-- Pacific/Noumea: Nouméa
-- Pacific/Pitcairn: Pitcairn Islands
-- Pacific/Wallis: Wallis & Futuna
+| Code | New Value | Code | New Value |
+| :---- | :---- | :---- | :---- |
+| Africa/El\_Aaiun | El Aaiún | Antarctica/Casey | Casey Station |
+| Africa/Lome | Lomé | Antarctica/DumontDUrville | Dumont d’Urville Station |
+| Africa/Ndjamena | N’Djamena | Antarctica/McMurdo | McMurdo Station |
+| America/Araguaina | Araguaína | Asia/Aqtau | Aktau |
+| America/Argentina/Rio\_Gallegos | Río Gallegos | Asia/Hovd | Khovd |
+| America/Argentina/Tucuman | Tucumán | Asia/Qyzylorda | Kyzylorda |
+| America/Belem | Belém | Asia/Urumqi | Ürümqi |
+| America/Bogota | Bogotá | Atlantic/Canary | Canarias |
+| America/Cordoba | Córdoba | Europe/Busingen | Büsingen |
+| America/Cuiaba | Cuiabá | Europe/Chisinau | Chișinău |
+| America/Eirunepe | Eirunepé | Europe/Tirane | Tirana |
+| America/Maceio | Maceió | Indian/Chagos | Chagos Archipelago |
+| America/Mazatlan | Mazatlán | Indian/Comoro | Comoros |
+| America/Mexico\_City | Ciudad de México | Indian/Kerguelen | Kerguelen Islands |
+| America/Miquelon | Saint-Pierre | Indian/Mahe | Mahé |
+| America/Santarem | Santarém | Pacific/Chatham | Chatham Islands |
+| America/Sao\_Paulo | São Paulo | Pacific/Galapagos | Galápagos |
+| Antarctica/Rothera | Rothera Station | Pacific/Kwajalein | Kwajalein Atoll |
+| Antarctica/Palmer | Palmer Land | Pacific/Marquesas | Marquesas Islands |
+| Antarctica/Troll | Troll Station | Pacific/Midway | Midway Atoll |
+| Antarctica/Syowa | Showa Station | Pacific/Noumea | Nouméa |
+| Antarctica/Mawson | Mawson Station | Pacific/Pitcairn | Pitcairn Islands |
+| Antarctica/Vostok | Vostok Station | Pacific/Wallis | Wallis & Futuna |
 
 Metazones:
 
@@ -290,7 +274,7 @@ See [Recent changes](https://cldr.unicode.org/translation#recent-changes) for ad
 
 - Some of the Page reorganization may continue.
 
-### New Approve Status Icons
+### New Approve Status Icons 
 
 | Symbol | Status | Notes |
 |:---:|---|---|
@@ -300,6 +284,23 @@ See [Recent changes](https://cldr.unicode.org/translation#recent-changes) for ad
 | ❌ | Unconfirmed | Not enough votes for implementations … |
 |  🕳️ | Missing | Completely missing |
 | ⬆️ | Inherited | Used in combination with ✖️ and ❌ |
+
+### Enhanced "Show Hidden"
+🆕 If a field contains characters that are invisible or certain characters that look like others, a special Show Hidden bar will appear below the field that helps distinguish them.
+For example, see [Example Hidden] — here is a screen-shot.
+
+![Example of hidden characters](/translation/example-hidden.png)
+
+Note that if you hover over the Show Hidden bar, you'll see the name of the special character and a short description.
+Some of the commonly used special characters are:
+* thin space — a space character that is narrower (in most fonts) than the regular one.
+* word joiner — a special invisible character that prevents linebreaks on either side
+* no-break space — a version of the regular space that doesn't allow linebreaks on either side.
+It is equivalent to a space with a word-joiner after it.
+* no-break thin space — the no-break variant of the thin-space
+* BIDI controls — LRM, RLM, ALM. These are used in bidirectional scripts (Arabic, Hebrew, etc.) to control the birectional order if needed; typically next to numbers or punctuation.
+
+For a key to all the escapes, see [Key for Show Hidden].
 
 ## Known Issues
 
@@ -377,3 +378,5 @@ entry you're editing/vetting. Use it if in doubt.*
 [CLDR-18423]: https://unicode-org.atlassian.net/browse/CLDR-18423
 [stand-alone vs. formatting]: /translation/date-time/date-time-patterns#when-to-use-standalone-vs-formatting
 [Year First Calendar]: /translation/date-time/date-time-patterns#year-first-calendar
+[Example Hidden]: https://st.unicode.org/cldr-apps/v#/USER/Number_Formatting_Patterns/67afe297d3a17a3
+[Key for Show Hidden]: https://cldr.unicode.org/translation/core-data/exemplars#key-to-escapes

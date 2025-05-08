@@ -25,6 +25,7 @@ import org.unicode.cldr.util.CLDRFile.ExemplarType;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CodePointEscaper;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.Joiners;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.SimpleUnicodeSetFormatter;
@@ -385,22 +386,26 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
                     roundtrip);
         }
         if (isVerbose()) {
-            System.out.println("Abbr.\tCode Point\tName");
+            System.out.println(Joiners.VBAR.join("", "Abbr.", "Code Point", "Name", "Description"));
+            System.out.println(Joiners.VBAR.join("", "-", "-", "-", "-"));
             for (CodePointEscaper item : CodePointEscaper.values()) {
                 System.out.println(
-                        item.codePointToEscaped()
-                                + "\tU+"
-                                + Utility.hex(item.getCodePoint(), 4)
-                                + "\t"
-                                + item.getShortName());
+                        Joiners.VBAR.join(
+                                "",
+                                item.codePointToEscaped(),
+                                "U+" + Utility.hex(item.getCodePoint(), 4),
+                                item.getShortName(),
+                                item.getDescription()));
             }
             System.out.println(
-                    CodePointEscaper.ESCAPE_START
-                            + "…"
-                            + CodePointEscaper.ESCAPE_END
-                            + "\tU+…\tOther; … = hex notation");
+                    Joiners.VBAR.join(
+                            "",
+                            CodePointEscaper.ESCAPE_START + "…" + CodePointEscaper.ESCAPE_END,
+                            "U+…",
+                            "_other_",
+                            "… = hex notation"));
         } else {
-            warnln("Use -v to see list of escapes");
+            warnln("Use TestCodePointEscaper -v to see list of escapes");
         }
     }
 
@@ -424,9 +429,9 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
     public void TestStringEscaper() {
         String[][] tests = {
             {"xyz", "xyz"},
-            {null, "❰WNJ❱xyz❰47❱", "\u200BxyzG"},
-            {"\u200Bxyz\u200B", "❰WNJ❱xyz❰WNJ❱"},
-            {"A\u200B\u00ADB", "A❰WNJ❱❰SHY❱B"},
+            {null, "❰ALB❱xyz❰47❱", "\u200BxyzG"},
+            {"\u200Bxyz\u200B", "❰ALB❱xyz❰ALB❱"},
+            {"A\u200B\u00ADB", "A❰ALB❱❰SHY❱B"},
         };
         for (String[] test : tests) {
             String source = test[0];

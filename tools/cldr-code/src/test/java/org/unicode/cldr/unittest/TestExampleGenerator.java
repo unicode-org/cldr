@@ -1683,7 +1683,7 @@ public class TestExampleGenerator extends TestFmwk {
                 "hi",
                 "//ldml/characters/exemplarCharacters[@type=\"auxiliary\"]",
                 "[ॄ‌‍]",
-                "〖‎🗝️ ॑ ॒ ॠ ॡ ॻ ॼ ॾ ॿ ॢ ॣ〗〖❰ZWNJ❱ ≡ cursive non-joiner〗〖❰ZWJ❱ ≡ cursive joiner〗〖❬internal: ❭[ॄ‌‍]〗"
+                "〖‎🗝️ ॑ ॒ ॠ ॡ ॻ ॼ ॾ ॿ ॢ ॣ〗〖❰ZWNJ❱ ≡ Cursive non-joiner〗〖❰ZWJ❱ ≡ Cursive joiner〗〖❬internal: ❭[ॄ‌‍]〗"
             },
             // TODO: This test is too fragile. Commented out for discussion in CLDR-17608
             // {
@@ -1704,13 +1704,13 @@ public class TestExampleGenerator extends TestFmwk {
                 "de",
                 "//ldml/characters/parseLenients[@scope=\"date\"][@level=\"lenient\"]/parseLenient[@sample=\"-\"]",
                 "[\\u200B \\- . ๎ ็]",
-                "〖‎➕ ❰WNJ❱ ๎ ็〗〖‎➖ ‑ /〗〖❰WNJ❱ ≡ allow line wrap after, aka ZWSP〗〖❬internal: ❭[\\-.็๎​]〗"
+                "〖‎➕ ❰ALB❱ ๎ ็〗〖‎➖ ❰NBHY❱ /〗〖❰ALB❱ ≡ Allow line break〗〖❬internal: ❭[\\-.็๎​]〗"
             },
             {
                 "de",
                 "//ldml/characters/exemplarCharacters",
                 "[\\u200B a-z ๎ ็]",
-                "〖‎➕ ❰WNJ❱ ๎ ็〗〖‎➖ ä ö ß ü〗〖❰WNJ❱ ≡ allow line wrap after, aka ZWSP〗〖❬internal: ❭[a-z็๎​]〗"
+                "〖‎➕ ❰ALB❱ ๎ ็〗〖‎➖ ä ö ß ü〗〖❰ALB❱ ≡ Allow line break〗〖❬internal: ❭[a-z็๎​]〗"
             },
             {"de", "//ldml/characters/exemplarCharacters", "a-z ❰ZWSP❱", null},
         };
@@ -2297,7 +2297,7 @@ public class TestExampleGenerator extends TestFmwk {
             {
                 "en",
                 "//ldml/numbers/rationalFormats[@numberSystem=\"latn\"]/integerAndRationalPattern[@alt=\"superSub\"]",
-                "〖❬3❭❰WJ❱❬½❭〗〖❬3❭❰WJ❱❬<sup>1</sup>⁄<sub>2</sub>❭〗"
+                "〖❬3❭❰NB❱❬½❭〗〖❬3❭❰NB❱❬<sup>1</sup>⁄<sub>2</sub>❭〗"
             },
             {"en", "//ldml/numbers/rationalFormats[@numberSystem=\"latn\"]/rationalUsage", null},
             {
@@ -2313,7 +2313,7 @@ public class TestExampleGenerator extends TestFmwk {
             {
                 "hi",
                 "//ldml/numbers/rationalFormats[@numberSystem=\"deva\"]/integerAndRationalPattern[@alt=\"superSub\"]",
-                "〖❬३❭❰WJ❱❬<sup>१</sup>⁄<sub>२</sub>❭〗"
+                "〖❬३❭❰NB❱❬<sup>१</sup>⁄<sub>२</sub>❭〗"
             },
             {"hi", "//ldml/numbers/rationalFormats[@numberSystem=\"deva\"]/rationalUsage", null},
         };

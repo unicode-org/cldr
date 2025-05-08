@@ -399,7 +399,7 @@ public class DisplayAndInputProcessor {
         return value;
     }
 
-    private boolean hasUnicodeSetValue(String path) {
+    public static boolean hasUnicodeSetValue(String path) {
         return path.startsWith("//ldml/characters/exemplarCharacters")
                 || path.startsWith("//ldml/characters/parseLenients");
     }

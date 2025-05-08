@@ -764,7 +764,9 @@ function updateRowEnglishComparisonCell(tr, theRow, cell) {
       cldrDom.createChunk(theRow.displayName, "span", "subSpan")
     );
     // add possible <LRM>, etc escaped text to English
-    checkLRmarker(cell, theRow.displayName);
+    if (!theRow.noEscaping) {
+      checkLRmarker(cell, theRow.displayName);
+    }
   } else {
     cell.appendChild(document.createTextNode(""));
     if (!trHint) {
@@ -923,7 +925,9 @@ function addVitem(td, tr, theRow, item, newButton) {
       cldrText.get("voteInfo_baseline_desc")
     );
   }
-  checkLRmarker(choiceField, displayValue);
+  if (!theRow.noEscaping) {
+    checkLRmarker(choiceField, displayValue);
+  }
   if (item.votes && !isWinner) {
     if (
       item.valueHash == theRow.voteVhash &&

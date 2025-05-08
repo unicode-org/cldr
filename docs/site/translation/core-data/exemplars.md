@@ -25,38 +25,31 @@ Certain fields have _**sets**_ of characters (and strings) as values, called **U
 
 ### Key to Escapes
 
-| Abbr. | Code Point | Name |
-|---|---|---|
-| ❰TAB❱ | U+0009 | tab |
-| ❰LF❱ | U+000A | line feed |
-| ❰CR❱ | U+000D | carriage return |
-| ❰SP❱ | U+0020 | space |
-| ❰NSP❱ | U+2009 | narrow/thin space |
-| ❰NBSP❱ | U+00A0 | no-break space |
-| ❰NNBSP❱ | U+202F | narrow/thin no-break space |
-| ❰WNJ❱ | U+200B | allow line wrap after, aka ZWSP |
-| ❰WJ❱ | U+2060 | prevent line wrap |
-| ❰SHY❱ | U+00AD | soft hyphen |
-| ❰ZWNJ❱ | U+200C | cursive non-joiner |
-| ❰ZWJ❱ | U+200D | cursive joiner |
-| ❰ALM❱ | U+061C | Arabic letter mark |
-| ❰LRM❱ | U+200E | left-right mark |
-| ❰RLM❱ | U+200F | right-left mark |
-| ❰LRO❱ | U+202D | left-right override |
-| ❰RLO❱ | U+202E | right-left override |
-| ❰PDF❱ | U+202C | end override |
-| ❰BOM❱ | U+FEFF | byte-order mark |
-| ❰ANS❱ | U+0600 | Arabic number sign |
-| ❰ASNS❱ | U+0601 | Arabic sanah sign |
-| ❰AFM❱ | U+0602 | Arabic footnote marker |
-| ❰ASFS❱ | U+0603 | Arabic safha sign |
-| ❰SAM❱ | U+070F | Syriac abbreviation mark |
-| ❰KIAQ❱ | U+17B4 | Khmer inherent aq |
-| ❰KIAA❱ | U+17B5 | Khmer inherent aa |
-| ❰RANGE❱ | U+2796 | range syntax mark |
-| ❰ESCS❱ | U+2770 | escape start |
-| ❰ESCE❱ | U+2771 | escape end |
-| ❰…❱ | U+… | Other; … = hex notation |
+|Abbr.|Code Point|Name|Description
+|-|-|-|-
+|❰TSP❱|U+2009|Thin space|Aka ‘narrow space’
+|❰NBSP❱|U+00A0|No-break space|Same as space, but doesn’t line break.
+|❰NBTSP❱|U+202F|No-break thin space|Same as thin space, but doesn’t line break. Aka 'narrow no-break space'
+|❰ALB❱|U+200B|Allow line break|Invisible character allowing a line-break after. Also known as ‘ZWSP’ (zero-width space).
+|❰NB❱|U+2060|Prevent line break|Prevents line break before or after. Also known as ‘word-joiner’.
+|❰NBHY❱|U+2011|No-break hyphen|Same as a hyphen, but disallows line break after as well as before.
+|❰SHY❱|U+00AD|Soft hyphen|Invisible character allowing a line-wrap afterwards, but appears like a hyphen in most languages.
+|❰NDASH❱|U+2013|En dash|Slightly wider (–) than a hyphen (-), used for ranges of numbers or dates in some languages.
+|❰ZWNJ❱|U+200C|Cursive non-joiner|Breaks cursive connections, where possible.
+|❰ZWJ❱|U+200D|Cursive joiner|Forces cursive connections, if possible.
+|❰LRM❱|U+200E|Left-right mark|For BIDI, invisible character that behaves like Hebrew letter.
+|❰RLM❱|U+200F|Right-left mark|For BIDI, invisible character that behaves like Latin letter.
+|❰ALM❱|U+061C|Arabic letter mark|For BIDI, invisible character that behaves like Arabic letter.
+|❰ANS❱|U+0600|Arabic number sign|For use in Exemplar sets
+|❰ASNS❱|U+0601|Arabic sanah sign|For use in Exemplar sets
+|❰AFM❱|U+0602|Arabic footnote marker|For use in Exemplar sets
+|❰ASFS❱|U+0603|Arabic safha sign|For use in Exemplar sets
+|❰SAM❱|U+070F|Syriac abbreviation mark|For use in Exemplar sets
+|❰SP❱|U+0020|Space|ASCII space, for use in Exemplar sets
+|❰RANGE❱|U+2796|Range syntax mark|heavy minus sign, for use in Exemplar sets
+|❰ESCS❱|U+2770|Escape start|heavy open angle bracket, for use in Exemplar sets
+|❰ESCE❱|U+2771|Escape end|heavy close angle bracket, for use in Exemplar sets
+|❰…❱|U+…|_other_|… = hex notation
 
 ### Examples
 

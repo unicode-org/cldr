@@ -305,6 +305,7 @@ public class VoteAPIHelper {
         row.xpathId = CookieSession.sm.xpt.getByXpath(xpath);
         row.xpstrid = XPathTable.getStringIDString(xpath);
         row.fixedCandidates = r.fixedCandidates();
+        row.noEscaping = DisplayAndInputProcessor.hasUnicodeSetValue(xpath);
         return row;
     }
 

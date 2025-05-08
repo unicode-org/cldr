@@ -242,6 +242,9 @@ public class VoteAPI {
             public int xpathId;
             public String xpstrid;
 
+            @Schema(description = "inhibit codepoint escaping of values")
+            public boolean noEscaping;
+
             @Schema(description = "prose description of voting outcome")
             public String voteTranscript;
 

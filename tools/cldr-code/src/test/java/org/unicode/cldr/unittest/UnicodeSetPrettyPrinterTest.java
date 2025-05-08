@@ -429,9 +429,9 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
     public void TestStringEscaper() {
         String[][] tests = {
             {"xyz", "xyz"},
-            {null, "❰WNJ❱xyz❰47❱", "\u200BxyzG"},
-            {"\u200Bxyz\u200B", "❰WNJ❱xyz❰WNJ❱"},
-            {"A\u200B\u00ADB", "A❰WNJ❱❰SHY❱B"},
+            {null, "❰ALB❱xyz❰47❱", "\u200BxyzG"},
+            {"\u200Bxyz\u200B", "❰ALB❱xyz❰ALB❱"},
+            {"A\u200B\u00ADB", "A❰ALB❱❰SHY❱B"},
         };
         for (String[] test : tests) {
             String source = test[0];

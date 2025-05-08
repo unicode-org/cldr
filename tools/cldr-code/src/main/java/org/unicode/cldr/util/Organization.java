@@ -26,6 +26,10 @@ public enum Organization {
     breton("Office of Breton Lang"),
     cherokee("Cherokee Nation"),
     choctaw("Choctaw Nation"),
+    chuvash_sih(
+            "Chuvash SIH",
+            "Chuvash State Institute of Humanities",
+            "Чăваш патшалăх гуманитарии ăслăлăхсен институчĕ"),
     cldr("Cldr"),
     gaeilge("Foras na Gaeilge"),
     georgia_isi("Georgia ISI"),
@@ -34,6 +38,10 @@ public enum Organization {
     ibm("IBM"),
     india("India MIT"),
     iran_hci("Iran HCI"),
+    kazakh_tbi(
+            "Kazakh TBI",
+            "The Institute of Linguistics named after Akhmet Baitursunuly",
+            "Ахмет Байтұрсынұлы атындағы Тіл білімі институты"),
     kendra("Kendra (Nepal)"),
     kotoistus("Kotoistus (Finnish IT Ctr)"),
     kunsill_malti(
@@ -44,6 +52,7 @@ public enum Organization {
     lakota_lc("Lakota LC"),
     lao_dpt("Lao Posts/Telecom"),
     longnow("The Long Now Foundation", "Long Now", "PanLex", "Utilika", "Utilka Foundation"),
+    mayan_lpp("Mayan LPP", "Mayan Languages Preservation Project"),
     meta("Meta", "Facebook"),
     microsoft("Microsoft"),
     mikmaw_kinamatnewey("Mi'kmaw Kina'matnewey"),

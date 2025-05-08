@@ -84,6 +84,20 @@ The main panel uses icons to indicate important information and possible problem
 
 (Icons for the **Dashboard** are listed in the [Dashboard Icons](#dashboard-icons) section below.)
 
+### Special Characters
+
+Some items may use special characters, especially invisible characters. 
+
+These will be shown underneath the regular value in an additional box. For example:
+
+> h:mm:ss a z
+>
+> h:mm:ss❰NBTSP❱a z
+
+This indicates that there is a special character that was not visible in the upper line, in this case a no-break thin space, U+202F.
+
+See [Key to Escapes](/translation/core-data/exemplars#key-to-escapes) for a list with some of the escape characters.
+
 ### Examples
 
 An example with an ❌ shows a case where the pattern has an inappropriate placeholder substituted. That example should be ungrammatical; if it is grammatical, then either the translated unit or the minimal pair pattern itself is incorrect. The example will show in the Info Panel, and also if you hover over the item.

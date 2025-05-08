@@ -196,7 +196,7 @@ public class PathHeader implements Comparable<PathHeader> {
         Fields(SectionId.DateTime),
         Relative(SectionId.DateTime),
         Gregorian(SectionId.DateTime),
-        ISO8601(SectionId.DateTime, "ISO 8601"),
+        Gregorian_YMD(SectionId.DateTime, "Gregorian YMD"),
         Generic(SectionId.DateTime),
         Buddhist(SectionId.DateTime),
         Chinese(SectionId.DateTime),
@@ -1245,7 +1245,7 @@ public class PathHeader implements Comparable<PathHeader> {
                                         .put("roc", "Minguo")
                                         .put("Ethioaa", "Ethiopic Amete Alem")
                                         .put("Gregory", "Gregorian")
-                                        .put("iso8601", "ISO 8601")
+                                        .put("iso8601", "Gregorian YMD")
                                         .freeze();
 
                         @Override

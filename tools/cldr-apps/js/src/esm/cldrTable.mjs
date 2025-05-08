@@ -14,6 +14,7 @@ import * as cldrAjax from "./cldrAjax.mjs";
 import * as cldrCoverage from "./cldrCoverage.mjs";
 import * as cldrDashContext from "./cldrDashContext.mjs";
 import * as cldrDom from "./cldrDom.mjs";
+import * as cldrEscaper from "./cldrEscaper.mjs";
 import * as cldrEvent from "./cldrEvent.mjs";
 import * as cldrGui from "./cldrGui.mjs";
 import * as cldrInfo from "./cldrInfo.mjs";
@@ -762,6 +763,8 @@ function updateRowEnglishComparisonCell(tr, theRow, cell) {
     cell.appendChild(
       cldrDom.createChunk(theRow.displayName, "span", "subSpan")
     );
+    // add possible <LRM>, etc escaped text to English
+    checkLRmarker(cell, theRow.displayName);
   } else {
     cell.appendChild(document.createTextNode(""));
     if (!trHint) {
@@ -920,7 +923,7 @@ function addVitem(td, tr, theRow, item, newButton) {
       cldrText.get("voteInfo_baseline_desc")
     );
   }
-  checkLRmarker(choiceField, item.value);
+  checkLRmarker(choiceField, displayValue);
   if (item.votes && !isWinner) {
     if (
       item.valueHash == theRow.voteVhash &&
@@ -1010,13 +1013,21 @@ function showItemInfoFn(theRow, item) {
  */
 function checkLRmarker(field, value) {
   if (value) {
-    if (value.indexOf("\u200E") > -1 || value.indexOf("\u200F") > -1) {
-      value = value
-        .replace(/\u200E/g, '<span class="visible-mark">&lt;LRM&gt;</span>')
-        .replace(/\u200F/g, '<span class="visible-mark">&lt;RLM&gt;</span>');
+    const escapedValue = cldrEscaper.getEscapedHtml(value);
+    if (escapedValue) {
       const lrm = document.createElement("div");
       lrm.className = "lrmarker-container";
-      lrm.innerHTML = value;
+      const lrmtext = document.createElement("div");
+      lrmtext.innerHTML = escapedValue;
+      lrmtext.className = "lrmarker-text";
+      lrm.appendChild(lrmtext);
+      const moreInfo = cldrDom.createChunk("ⓘ", "a", "hiddenMoreInfo");
+      moreInfo.setAttribute(
+        "href",
+        "https://cldr.unicode.org/translation/getting-started/guide#special-characters"
+      );
+      lrm.appendChild(moreInfo);
+      lrm.setAttribute("title", "Special characters, click ⓘ for details.");
       field.appendChild(lrm);
     }
   }

@@ -4,6 +4,7 @@ import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableListMultimap;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.ImmutableSortedSet;
 import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
@@ -46,6 +47,7 @@ import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdData.Element;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.GrammarInfo;
+import org.unicode.cldr.util.Joiners;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleNames;
@@ -56,10 +58,12 @@ import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.Factory;
+import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.RegexLookup;
 import org.unicode.cldr.util.RegexLookup.Finder;
+import org.unicode.cldr.util.Splitters;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.CoverageVariableInfo;
@@ -70,6 +74,8 @@ import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.XPathParts;
 
 public class TestCoverageLevel extends TestFmwkPlus {
+
+    private static final boolean DEBUG = System.getProperty("TestCoverageLevel") != null;
 
     private static final boolean SHOW_LSR_DATA =
             CLDRConfig.getInstance().getProperty("SHOW_LSR_DATA", false);
@@ -367,8 +373,6 @@ public class TestCoverageLevel extends TestFmwkPlus {
     }
 
     static final Date NOW = new Date();
-
-    private static final boolean DEBUG = false;
 
     RegexLookup<Level> exceptions =
             RegexLookup.of(
@@ -1390,5 +1394,123 @@ public class TestCoverageLevel extends TestFmwkPlus {
                 }
             }
         }
+    }
+
+    public void testIso8601() {
+        List<String> comprehesiveElements =
+                List.of(
+                        "timeFormat",
+                        "quarters",
+                        "eras",
+                        "dayPeriods",
+                        "days",
+                        "months",
+                        "appendItems",
+                        "intervalFormatFallback");
+        // drop IDs unless they have y+M or M+d
+        List<String> raw =
+                Splitters.VBAR.splitToList(
+                        "MMMMd|MMMMW|MMMMW|yw|yw|yQQQ|yQQQQ|Gy|Gy|GyM|GyM|GyM|GyMd|GyMd|GyMd|GyMd|GyMEd|GyMEd|GyMEd|GyMEd|GyMMM|GyMMM|GyMMM|GyMMMd|GyMMMd|GyMMMd|GyMMMd|GyMMMEd|GyMMMEd|GyMMMEd|GyMMMEd|Md|Md|MEd|MEd|MMMd|MMMd|MMMEd|MMMEd|Ed|yM|yM|yMd|yMd|yMd|yMEd|yMEd|yMEd|yMMM|yMMM|yMMMd|yMMMd|yMMMd|yMMMEd|yMMMEd|yMMMEd|yMMMM|yMMMM");
+        Set<String> keepIds = ImmutableSortedSet.copyOf(raw);
+
+        Pattern okIdPattern =
+                Pattern.compile(
+                        "[^\\x{22}]*(Gy|y[MQw]|M[EdW]|Ed)[^\\x{22}]*"); // two different [GyMEd]
+        // characters. Because they
+        // are ordered we can test
+        // pairs
+
+        for (String locale : List.of("en" /*, "de"*/)) {
+            CLDRFile cldrFile = CLDRConfig.getInstance().getCldrFactory().make(locale, true);
+            CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(locale);
+
+            Multimap<Level, PathHeader> sorted = TreeMultimap.create();
+            for (String path : cldrFile) {
+                if (!path.startsWith("//ldml/dates/calendars/calendar[@type=\"iso8601\"]")
+                        || path.endsWith("/alias")) {
+                    continue;
+                }
+                Level actual = coverageLevel.getLevel(path);
+                PathHeader ph = PathHeader.getFactory().fromPath(path);
+                ph.getPageId();
+                if (ph.getPageId() != PageId.Suppress) {
+                    sorted.put(actual, ph);
+                }
+            }
+            Set<String> ids = new TreeSet<>();
+            Set<String> keepIdSet = new TreeSet<>();
+            for (Entry<Level, Collection<PathHeader>> entry : sorted.asMap().entrySet()) {
+                Level level = entry.getKey();
+
+                for (PathHeader ph : entry.getValue()) {
+
+                    String path = ph.getOriginalPath();
+                    XPathParts parts = XPathParts.getFrozenInstance(path);
+
+                    // account for .../intervalFormatItem[@id="Gy"]/greatestDifference[@id="G"]
+                    // and for .../dateFormatItem[@id="Gy"]
+                    String id = parts.getAttributeValue(-2, "id");
+                    if (id == null) {
+                        id = parts.getAttributeValue(-1, "id");
+                    }
+                    if (id != null) {
+                        ids.add(id);
+                    }
+
+                    boolean expectedComprehensive =
+                            comprehesiveElements.stream().anyMatch(x -> containing(parts, x));
+                    if (!expectedComprehensive) {
+                        if (path.endsWith("/pattern[@type=\"standard\"]")
+                                && !path.contains("/dateFormat[@type=\"standard\"]")) {
+                            expectedComprehensive = true;
+                        } else if (id != null) {
+                            boolean keepIdS = keepIds.contains(id);
+                            if (keepIdS) {
+                                keepIdSet.add(id);
+                            } else {
+                                expectedComprehensive = !keepIdS;
+                                boolean keepIdR = okIdPattern.matcher(id).matches();
+                                if (keepIdS != keepIdR) {
+                                    throw new IllegalArgumentException("ID mismatch: " + id);
+                                }
+                            }
+                        }
+                    }
+                    if (Level.CORE_TO_MODERN.contains(level) == expectedComprehensive) {
+                        errln(
+                                Joiners.TAB.join(
+                                        "",
+                                        level.toString(),
+                                        locale,
+                                        ph.getPageId(),
+                                        ph.getHeader(),
+                                        ph.getCode(),
+                                        cldrFile.getStringValue(path),
+                                        path));
+                    } else if (DEBUG) {
+                        warnln(
+                                Joiners.TAB.join(
+                                        "",
+                                        level.toString(),
+                                        locale,
+                                        ph.getPageId(),
+                                        ph.getHeader(),
+                                        ph.getCode(),
+                                        cldrFile.getStringValue(path)));
+                    }
+                }
+            }
+            if (DEBUG) {
+                System.out.println(Joiners.VBAR.join(keepIds));
+                System.out.println(Joiner.on("|").join(ids));
+                System.out.println(Joiner.on("|").join(keepIdSet));
+                System.out.println(Joiner.on("|").join(Sets.difference(ids, keepIdSet)));
+            }
+        }
+    }
+
+    private boolean containing(XPathParts parts, String x) { // separated out for debugging
+        boolean result = parts.containsElement(x);
+        return result;
     }
 }

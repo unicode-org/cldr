@@ -4,6 +4,8 @@ title: Information Hub for Linguists
 
 # Information Hub for Linguists
 
+🆕 = Items that have been recently added. In your browser you can copy this symbol, then use ⌘-F (Mac) or Ctrl-F (Windows) to find all the places it occurs. 
+
 ### Starting Submission
 
 During Submission, please read the CLDR Training (if new to the survey tool), please focus on the missing, provisional, and errors. Please read the [Updates](#updates). For more information about the priorities during Submission, see [Survey Tool stages](translation/getting-started/survey-tool-phases).
@@ -292,13 +294,18 @@ For example, see [Example Hidden] — here is a screen-shot.
 ![Example of hidden characters](/translation/example-hidden.png)
 
 Note that if you hover over the Show Hidden bar, you'll see the name of the special character and a short description.
-Some of the commonly used special characters are:
-* thin space — a space character that is narrower (in most fonts) than the regular one.
-* word joiner — a special invisible character that prevents linebreaks on either side
-* no-break space — a version of the regular space that doesn't allow linebreaks on either side.
-It is equivalent to a space with a word-joiner after it.
-* no-break thin space — the no-break variant of the thin-space
-* BIDI controls — LRM, RLM, ALM. These are used in bidirectional scripts (Arabic, Hebrew, etc.) to control the birectional order if needed; typically next to numbers or punctuation.
+Some of the commonly used special characters are listed below, with an example from CLDR.
+
+| Symbol | Example | Show Hidden | Name | Description
+| - | - | - | - | -
+| ❰NDASH❱ | {0}–{1} | {0}❰NDASH❱{1} | En-dash | Slightly wider than a hyphen; used for ranges of numbers and dates in many languages; for clarity may have ❰TSP❱s around it.
+| ❰TSP❱ | d – d | d❰TSP❱❰NDASH❱❰TSP❱d | Thin space | A space character that is narrower (in most fonts) than the regular one.
+| ❰NB❱ | {0}⁠{1} | {0}❰NB❱{1} | No Line Break | An invisible character that doesn't allow linebreaks on either side; also limits fraction super/subscripting
+| ❰NBTSP❱ | h a | h❰NBTSP❱a | No-break thin space | A thin space that disallows linebreaks; equivalent to ❰TSP❱❰NBSP❱
+| ❰NBSP❱ | re call | ❰NBTSP❱ | No-break space | A regular space that disallows linebreaks; equivalent to adding ❰NB❱ after a space
+| ❰NBHY❱ | re‑call | re❰NBHY❱fine | No-break hyphen | A regular hyphen that disallows linebreaks
+
+The BIDI controls — ❰ALM❱ ❰LRM❱ ❰RLM❱ are used in bidirectional scripts (Arabic, Hebrew, etc.) to control the birectional order if needed; typically next to numbers or punctuation.
 
 For a key to all the escapes, see [Key for Show Hidden].
 

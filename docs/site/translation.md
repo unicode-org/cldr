@@ -4,7 +4,7 @@ title: Information Hub for Linguists
 
 # Information Hub for Linguists
 
-🆕 = Items that have been recently added. You can use the "Search…" or "Find…" in your browser‘s menu to find them on this page.
+🆕 = Items that have been recently added. In your browser you can copy this symbol, then use ⌘-F (Mac) or Ctrl-F (Windows) to find all the places it occurs. 
 
 ### Starting Submission
 

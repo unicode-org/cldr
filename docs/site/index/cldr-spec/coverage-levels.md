@@ -32,7 +32,7 @@ To filter "at that level or above", you use the fact that basic ⊂ moderate ⊂
 
 ### Migration
 
-As of v43, the files in **/seed/** have been moved to **/common/**. Older versions of CLDR separated some locale files into a 'seed' directory. Some implementations used for filtering, but the criteria for moving from seed to common were not rigorous. To maintain compatibility with the set of locales used from previous versions, an implementation may use the above process for Basic and above, but then also add locales that were previously included. For more information, see [CLDR 43 Release Note](https://cldr.unicode.org/downloads/cldr-43). 
+As of v43, the files in **/seed/** have been moved to **/common/**. Older versions of CLDR separated some locale files into a 'seed' directory. Some implementations used for filtering, but the criteria for moving from seed to common were not rigorous. To maintain compatibility with the set of locales used from previous versions, an implementation may use the above process for Basic and above, but then also add locales that were previously included. For more information, see [CLDR 43 Release Note](/downloads/cldr-43). 
 
 ## Core Data
 
@@ -72,7 +72,7 @@ Before submitting data above the Basic Level, the following must be in place:
 	- Must also include minimal pairs
 	- For more information, see [cldr\-spec/plural\-rules](/index/cldr-spec/plural-rules).
 2. Casing information (only where the language uses a cased scripts according to [ScriptMetadata.txt](https://github.com/unicode-org/cldr/blob/main/common/properties/scriptMetadata.txt))
-	- This will go into [common/casing]https://github.com/unicode-org/cldr/blob/main/common/casing/)
+	- This will go into [common/casing](https://github.com/unicode-org/cldr/blob/main/common/casing/)
 3. Collation rules \[non\-Survey Tool]
 	- This can be supplied as a list of characters, or as rule file.
 	- The list is a space\-delimited list of the characters used by the language (in the given script). The list may include multiple\-character strings, where those are treated specially. For example, if "ch" is sorted after "h" one might see "a b c d .. g h ch i j ..."

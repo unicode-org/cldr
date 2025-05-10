@@ -157,6 +157,9 @@ public class DateTimeFormats {
     /**
      * Set a CLDRFile and calendar. Must be done before calling addTable.
      *
+     * <p>Note: currently, this method will skip `alt="ascii"` elements of `dateFormatItem`. This
+     * may be configurable in the future. See CLDR-18580
+     *
      * @param file
      * @param calendarID
      * @return
@@ -167,6 +170,9 @@ public class DateTimeFormats {
 
     /**
      * Set a CLDRFile and calendar. Must be done before calling addTable.
+     *
+     * <p>Note: currently, this method will skip `alt="ascii"` elements of `dateFormatItem`. This
+     * may be configurable in the future. See CLDR-18580
      *
      * @param file
      * @param calendarID
@@ -270,6 +276,10 @@ public class DateTimeFormats {
                                         + calendarID
                                         + "\"]/dateTimeFormats/availableFormats/dateFormatItem"))) {
             XPathParts parts = XPathParts.getFrozenInstance(path);
+            if ("ascii".equals(parts.findAttributeValue("dateFormatItem", "alt"))) {
+                // TODO(CLDR-18580): Make this configurable.
+                continue;
+            }
             String key = parts.getAttributeValue(-1, "id");
             String value = file.getStringValue(path);
             if (key.equals(DEBUG_SKELETON)) {

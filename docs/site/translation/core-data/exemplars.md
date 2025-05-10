@@ -51,6 +51,18 @@ Certain fields have _**sets**_ of characters (and strings) as values, called **U
 |❰ESCE❱|U+2771|Escape end|HEAVY RIGHT-POINTING ANGLE BRACKET ORNAMENT|heavy close angle bracket, for use in Exemplar sets
 |❰…❱|U+…|_other_|… = hex notation
 
+The 🟰 indicates that the formal name is the same as the Short name (except for casing).
+
+#### Input
+In [Alphabetic Information > Characters in Use] and [Alphabetic Information > Parse] you can just copy in the Symbol listed above.
+Otherwise, you can use the Formal Name above in your CharacterViewer or CharMap, or use an Option/ALT combination with the Code Point.
+See [Unicode Characters on Mac] and [Special Characters in Windows].
+
+On a Mac, be sure to install the **Unicode Hex Input** keyboard in Settings. 
+That will enhance your Character viewer, allowing it to recognize each the Formal Name and Code point in the search box.
+Note that you won't be able to see the invisible characters (such as THIN SPACE); but you can select them.
+There are also a few direct option sequences, such as `Option -` for NDASH and `Option spacebar` for NBSP.
+
 ### Examples
 
 In the info panel, a mouse hover over the non-winning values shows a comparison to the Winning value. The ➕ { } indicates that { and } are additions to the Winning value, and ➖ ‐ – … ' ‘ ’ " “ ” § @ \* / & # † ′ ″ indicates that ➖, ‐. –. …. and so on are subtractions from the Winning value. That makes it much easier to see what the difference in the outcome would be.

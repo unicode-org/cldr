@@ -312,21 +312,7 @@ Some of the commonly used special characters are listed below, with an example f
 
 The BIDI controls — ❰ALM❱ ❰LRM❱ ❰RLM❱ are used in bidirectional scripts (Arabic, Hebrew, etc.) to control the birectional order if needed; typically next to numbers or punctuation.
 
-For a key to all the escapes, see [Key for Show Hidden].
-
-#### Input
-In [Alphabetic Information > Characters in Use] and [Alphabetic Information > Parse] you can just copy in the Symbol listed above.
-Otherwise, you can use the Hex Code or Formal Name below with your OS keyboard or Character viewer, or (sometimes) use an Option combination.
-See [Unicode Characters on Mac] and [Special Characters in Windows].
-
-| Symbol | Hex Code | Formal Name | Mac Option |
-| :---- | ----- | :---- | :---- |
-| ❰NDASH❱ | 2013 | EN DASH | `Option -` |
-| ❰TSP❱ | 2009 | THIN SPACE | \- |
-| ❰NB❱ | 2060 | WORD JOINER | \- |
-| ❰NBTSP❱ | 202F | NARROW NO-BREAK SPACE | \- |
-| ❰NBSP❱ | 00A0 | NO-BREAK SPACE | `Option spacebar` |
-| ❰NBHY❱ | 2011 | NON-BREAKING HYPHEN | \- |
+To see how to **input** these from the keyboard, and for a key to **all** the escapes, see [Key for Show Hidden].
 
 ## Known Issues
 

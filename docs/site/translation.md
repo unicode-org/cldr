@@ -303,16 +303,16 @@ Some of the commonly used special characters are listed below, with an example f
 
 | Symbol | Example | Show Hidden | Name | Description
 | - | - | - | - | -
-| ❰NDASH❱ | {0}–{1} | {0}❰NDASH❱{1} | En-dash | Slightly wider than a hyphen; used for ranges of numbers and dates in many languages; for clarity may have ❰TSP❱s around it.
+| ❰NDASH❱ | {0}–{1} | {0}❰NDASH❱{1} | En dash | Slightly wider than a hyphen; used for ranges of numbers and dates in many languages; for clarity may have ❰TSP❱s around it.
 | ❰TSP❱ | d – d | d❰TSP❱❰NDASH❱❰TSP❱d | Thin space | A space character that is narrower (in most fonts) than the regular one.
-| ❰NB❱ | {0}⁠{1} | {0}❰NB❱{1} | No Line Break | An invisible character that doesn't allow linebreaks on either side; also limits fraction super/subscripting
-| ❰NBTSP❱ | h a | h❰NBTSP❱a | No-break thin space | A thin space that disallows linebreaks; equivalent to ❰TSP❱❰NBSP❱
+| ❰NB❱ | {0}⁠{1} | {0}❰NB❱{1} | No Break | An invisible character that doesn't allow linebreaks on either side; also limits fraction super/subscripting
+| ❰NBTSP❱ | h a | h❰NBTSP❱a | No-break thin space | A thin space that disallows linebreaks; equivalent to ❰TSP❱❰NB❱
 | ❰NBSP❱ | re call | ❰NBTSP❱ | No-break space | A regular space that disallows linebreaks; equivalent to adding ❰NB❱ after a space
-| ❰NBHY❱ | re‑call | re❰NBHY❱fine | No-break hyphen | A regular hyphen that disallows linebreaks
+| ❰NBHY❱ | re‑call | re❰NBHY❱fine | No-break hyphen | A regular hyphen that disallows linebreaks; equivalent to -❰NB❱
 
 The BIDI controls — ❰ALM❱ ❰LRM❱ ❰RLM❱ are used in bidirectional scripts (Arabic, Hebrew, etc.) to control the birectional order if needed; typically next to numbers or punctuation.
 
-For a key to all the escapes, see [Key for Show Hidden].
+To see how to [**input** these from the keyboard], and for a key to **all** the escapes, see [Key for Show Hidden].
 
 ## Known Issues
 
@@ -392,3 +392,4 @@ entry you're editing/vetting. Use it if in doubt.*
 [Year First Calendar]: /translation/date-time/date-time-patterns#year-first-calendar
 [Example Hidden]: https://st.unicode.org/cldr-apps/v#/USER/Number_Formatting_Patterns/67afe297d3a17a3
 [Key for Show Hidden]: https://cldr.unicode.org/translation/core-data/exemplars#key-to-escapes
+[**input** these from the keyboard]: /translation/core-data/exemplars#input

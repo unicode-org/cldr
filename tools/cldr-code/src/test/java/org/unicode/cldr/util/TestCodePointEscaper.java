@@ -4,6 +4,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import com.ibm.icu.text.UnicodeSet;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.junit.jupiter.api.Test;
@@ -53,5 +57,60 @@ public class TestCodePointEscaper {
     private String stringToScan(final int e) {
         final int[] codepoints = {'a', e, 'b'};
         return new String(codepoints, 0, codepoints.length);
+    }
+
+    @Test
+    void testInRootAndEnglish() {
+        final UnicodeSet dashes = new UnicodeSet("[\u2011\u00AD\u2013]").freeze();
+        UnicodeSet escapeInSurveytool =
+                new UnicodeSet(CodePointEscaper.ESCAPE_IN_SURVEYTOOL).removeAll(dashes).freeze();
+        for (String locale : List.of("root", "en")) {
+            CLDRFile engUnresolved =
+                    CLDRConfig.getInstance()
+                            .getCldrFactory()
+                            .make(locale, false); // only actually present
+            Set<PathHeader> sorted = new TreeSet<>();
+
+            for (String path : engUnresolved) {
+                String value = engUnresolved.getStringValue(path);
+                if (escapeInSurveytool.containsSome(value)) {
+                    sorted.add(PathHeader.getFactory().fromPath(path));
+                }
+            }
+            for (PathHeader ph : sorted) {
+                String value = engUnresolved.getStringValue(ph.getOriginalPath());
+                boolean ok = true;
+                switch (ph.getSectionId()) {
+                    case DateTime:
+                    case Numbers:
+                    case Core_Data:
+                    case Special:
+                        continue;
+                    case Currencies:
+                        if (ph.getCode().startsWith("XOF")) {
+                            continue;
+                        }
+                        ok = false;
+                        break;
+                    case Units:
+                        if (ph.getCode().startsWith("short") || ph.getCode().startsWith("narrow")) {
+                            continue;
+                        }
+                        ok = false;
+                        break;
+
+                    default:
+                        ok = false;
+                        break;
+                }
+                assertTrue(
+                        ok,
+                        Joiners.TAB.join(
+                                locale,
+                                ph.toString(),
+                                value,
+                                CodePointEscaper.toEscaped(value, escapeInSurveytool)));
+            }
+        }
     }
 }

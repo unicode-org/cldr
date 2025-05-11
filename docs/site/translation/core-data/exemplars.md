@@ -25,31 +25,43 @@ Certain fields have _**sets**_ of characters (and strings) as values, called **U
 
 ### Key to Escapes
 
-|Abbr.|Code Point|Name|Description
-|-|-|-|-
-|❰TSP❱|U+2009|Thin space|Aka ‘narrow space’
-|❰NBSP❱|U+00A0|No-break space|Same as space, but doesn’t line break.
-|❰NBTSP❱|U+202F|No-break thin space|Same as thin space, but doesn’t line break. Aka 'narrow no-break space'
-|❰ALB❱|U+200B|Allow line break|Invisible character allowing a line-break after. Also known as ‘ZWSP’ (zero-width space).
-|❰NB❱|U+2060|No-break|Prevents line break before or after. Also known as ‘word-joiner’.
-|❰NBHY❱|U+2011|No-break hyphen|Same as a hyphen, but disallows line break after as well as before.
-|❰SHY❱|U+00AD|Soft hyphen|Invisible character allowing a line-wrap afterwards, but appears like a hyphen in most languages.
-|❰NDASH❱|U+2013|En dash|Slightly wider (–) than a hyphen (-), used for ranges of numbers or dates in some languages.
-|❰ZWNJ❱|U+200C|Cursive non-joiner|Breaks cursive connections, where possible.
-|❰ZWJ❱|U+200D|Cursive joiner|Forces cursive connections, if possible.
-|❰LRM❱|U+200E|Left-right mark|For BIDI, invisible character that behaves like Hebrew letter.
-|❰RLM❱|U+200F|Right-left mark|For BIDI, invisible character that behaves like Latin letter.
-|❰ALM❱|U+061C|Arabic letter mark|For BIDI, invisible character that behaves like Arabic letter.
-|❰ANS❱|U+0600|Arabic number sign|For use in Exemplar sets
-|❰ASNS❱|U+0601|Arabic sanah sign|For use in Exemplar sets
-|❰AFM❱|U+0602|Arabic footnote marker|For use in Exemplar sets
-|❰ASFS❱|U+0603|Arabic safha sign|For use in Exemplar sets
-|❰SAM❱|U+070F|Syriac abbreviation mark|For use in Exemplar sets
-|❰SP❱|U+0020|Space|ASCII space, for use in Exemplar sets
-|❰RANGE❱|U+2796|Range syntax mark|heavy minus sign, for use in Exemplar sets
-|❰ESCS❱|U+2770|Escape start|heavy open angle bracket, for use in Exemplar sets
-|❰ESCE❱|U+2771|Escape end|heavy close angle bracket, for use in Exemplar sets
+|Abbr.|Code Point|Short Name|Formal Name|Description
+|-|-|-|-|-
+|❰TSP❱|U+2009|Thin space|🟰|A space character that is narrower (in most fonts) than the regular one.
+|❰NBSP❱|U+00A0|No-break space|🟰|Same as space, but doesn’t line break.
+|❰NBTSP❱|U+202F|No-break thin space|NARROW NO-BREAK SPACE|Same as thin space, but doesn’t line break.
+|❰ALB❱|U+200B|Allow line break|ZERO WIDTH SPACE|Invisible character allowing a line-break. Aka ZWSP.
+|❰NB❱|U+2060|No-break|WORD JOINER|Invisible character preventing a line break.
+|❰NBHY❱|U+2011|No-break hyphen|NON-BREAKING HYPHEN|Same as a hyphen, but doesn’t line break.
+|❰SHY❱|U+00AD|Soft hyphen|🟰|Invisible character that appears like a hyphen (in most fonts/languages) if there is a line-break after it.
+|❰NDASH❱|U+2013|En dash|🟰|Slightly wider (–) than a hyphen (-), used for ranges of numbers or dates in some languages.
+|❰ZWNJ❱|U+200C|Cursive non-joiner|ZERO WIDTH NON-JOINER|Breaks cursive connections, where possible.
+|❰ZWJ❱|U+200D|Cursive joiner|ZERO WIDTH JOINER|Forces cursive connections, if possible.
+|❰LRM❱|U+200E|Left-right mark|LEFT-TO-RIGHT MARK|For BIDI, invisible character that behaves like Hebrew letter.
+|❰RLM❱|U+200F|Right-left mark|RIGHT-TO-LEFT MARK|For BIDI, invisible character that behaves like Latin letter.
+|❰ALM❱|U+061C|Arabic letter mark|🟰|For BIDI, invisible character that behaves like Arabic letter.
+|❰ANS❱|U+0600|Arabic number sign|🟰|For use in Exemplar sets
+|❰ASNS❱|U+0601|Arabic sanah sign|ARABIC SIGN SANAH|For use in Exemplar sets
+|❰AFM❱|U+0602|Arabic footnote marker|🟰|For use in Exemplar sets
+|❰ASFS❱|U+0603|Arabic safha sign|ARABIC SIGN SAFHA|For use in Exemplar sets
+|❰SAM❱|U+070F|Syriac abbreviation mark|🟰|For use in Exemplar sets
+|❰SP❱|U+0020|Space|🟰|ASCII space, for use in Exemplar sets
+|❰RANGE❱|U+2796|Range syntax mark|HEAVY MINUS SIGN|heavy minus sign, for use in Exemplar sets
+|❰ESCS❱|U+2770|Escape start|HEAVY LEFT-POINTING ANGLE BRACKET ORNAMENT|heavy open angle bracket, for use in Exemplar sets
+|❰ESCE❱|U+2771|Escape end|HEAVY RIGHT-POINTING ANGLE BRACKET ORNAMENT|heavy close angle bracket, for use in Exemplar sets
 |❰…❱|U+…|_other_|… = hex notation
+
+The 🟰 indicates that the formal name is the same as the Short name (except for casing).
+
+#### Input
+In [Alphabetic Information > Characters in Use] and [Alphabetic Information > Parse] you can just copy in the Symbol listed above.
+Otherwise, you can use the Formal Name above in your CharacterViewer or CharMap, or use an Option/ALT combination with the Code Point.
+See also [Unicode Characters on Mac] and [Special Characters in Windows].
+
+On a Mac, be sure to install the **Unicode Hex Input** keyboard in Settings. 
+That will enhance your Character viewer, allowing it to recognize each the Formal Name and Code point in the search box.
+Note that you won't be able to see the invisible characters (such as THIN SPACE); but you can select them.
+There are also a few direct option sequences, such as `Option -` for NDASH and `Option spacebar` for NBSP.
 
 ### Examples
 
@@ -115,4 +127,7 @@ Three possible solutions:
 
 The **standard** characters shouldn't contain punctuation. They also should not contain symbols, unless those symbols are only used with the language's writing system (aka script). For example, the **standard** Bengali currency symbols should contain the Bengali Rupee mark (which is Bengali-only), but should not include the $ Dollar Sign (which is common across all scripts).
 
-
+[Unicode Characters on Mac]: https://ladedu.com/how-to-enter-unicode-characters-on-a-mac
+[Special Characters in Windows]: https://support.microsoft.com/de-de/topic/how-to-use-special-characters-in-windows-documents-ec1a4e84-706e-67a5-e52b-e3ebab90313f
+[Alphabetic Information > Characters in Use]: https://st.unicode.org/cldr-apps/v#/USER/Alphabetic_Information/header_Characters_in_Use
+[Alphabetic Information > Parse]: https://st.unicode.org/cldr-apps/v#/ab/Alphabetic_Information/header_Parse

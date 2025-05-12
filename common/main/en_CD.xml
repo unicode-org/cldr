@@ -9,7 +9,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	<identity>
 		<version number="$Revision$"/>
 		<language type="en"/>
-		<territory type="LT"/>
+		<territory type="CD"/>
 	</identity>
 	<dates>
 		<calendars>
@@ -43,10 +43,4 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</calendar>
 		</calendars>
 	</dates>
-	<numbers>
-		<symbols numberSystem="latn">
-			<decimal>,</decimal>
-			<group> </group>
-		</symbols>
-	</numbers>
 </ldml>

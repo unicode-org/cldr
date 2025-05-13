@@ -182,10 +182,13 @@ function filterAllLocale(event) {
     $("a.locName").removeClass("active");
     $("#locale-list,#locale-menu").removeClass("active");
   }
-  sentenceFilter = $("input.local-search").val().toLowerCase();
-  $(".subLocaleList .locName").each(filterLocale); // filtersublocale
-  $(".topLocale .locName").each(filterLocale); // filtertolocale
-
+  try {
+    sentenceFilter = $("input.local-search").val().toLowerCase();
+    $(".subLocaleList .locName").each(filterLocale); // filtersublocale
+    $(".topLocale .locName").each(filterLocale); // filtertolocale
+  } catch (e) {
+    console.error("Caught exception in filterAllLocale: " + e);
+  }
   if (event) {
     event.preventDefault();
     event.stopPropagation();

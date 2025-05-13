@@ -493,9 +493,9 @@ public class Summary {
         }
         cs.userDidAction();
         CLDRLocale loc = CLDRLocale.getInstance(localeId);
-        // if (loc == null || !SurveyMain.getLocalesSet().contains(loc)) {
-        //    return STError.badLocale(localeId);
-        // }
+        if (loc == null || !SurveyMain.getLocalesSet().contains(loc)) {
+            return STError.badLocale(localeId);
+        }
         // *Beware*  org.unicode.cldr.util.Level (coverage) ≠ VoteResolver.Level (user)
         Level coverageLevel = org.unicode.cldr.util.Level.fromString(level);
         ReviewOutput ret =

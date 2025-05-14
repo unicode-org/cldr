@@ -589,6 +589,12 @@ const strings = {
   summary_snapshot_hover:
     "Show the Priority Items Summary snapshot with id “${0}” [${1}]",
 
+  locale_id_unusable: "Cannot set locale",
+  locale_id_unrecognized: "The locale ID is unrecognized: “${0}”.",
+  locale_id_list_unavailable: "The list of locales is unavailable.",
+  locale_id_disallowed:
+    "The locale ID contains disallowed characters. Only ASCII letters, digits, and underscore (_) are allowed.",
+
   // LocaleNormalizer.LocaleRejection
   locale_rejection_unknown: "Unknown or not in CLDR",
   locale_rejection_outside_org_coverage: "Outside of org’s coverage",
@@ -599,6 +605,7 @@ const strings = {
 
   empty_comparison_cell_hint: "not applicable to English",
 };
+
 
 /**
  * Get the string for the given key

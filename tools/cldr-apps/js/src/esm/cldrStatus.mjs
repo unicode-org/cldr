@@ -3,7 +3,7 @@
  */
 import * as cldrGui from "./cldrGui.mjs";
 import * as cldrLoad from "./cldrLoad.mjs";
-import * as cldrNotify from "./cldrNotify.mjs";
+import * as cldrLocales from "./cldrLocales.mjs";
 import { ref } from "vue";
 
 const refs = {
@@ -12,10 +12,6 @@ const refs = {
   currentId: ref(null),
   sessionId: ref(null),
 };
-
-// The current locale may be "USER" temporarily, meaning the back end should choose an appropriate locale
-// for the current user. The real locale ID should be set when a server response contains it.
-const USER_LOCALE_ID = "USER";
 
 /**
  * Update a ref-backed value.
@@ -238,9 +234,8 @@ function getCurrentLocale() {
 }
 
 function setCurrentLocale(loc) {
-  if (loc && loc !== USER_LOCALE_ID) {
-    // Could do this, but better not to: loc = loc.replace("-", "_");
-    if (!validateLocale(loc)) {
+  if (loc && loc !== cldrLocales.USER_LOCALE_ID) {
+    if (!cldrLocales.isValid(loc)) {
       return;
     }
   }
@@ -248,34 +243,10 @@ function setCurrentLocale(loc) {
   // loc may be USER_LOCALE_NAME temporarily, meaning the back end should choose an appropriate locale
   // for the current user. The real locale ID should be set when a server response contains it.
   // In the meantime, postpone calling dispatchEvent or setRef.
-  if (loc !== USER_LOCALE_ID) {
+  if (loc !== cldrLocales.USER_LOCALE_ID) {
     dispatchEvent(new Event("locale"));
     setRef("currentLocale", loc);
   }
-}
-
-function validateLocale(loc) {
-  const map = cldrLoad.getTheLocaleMap();
-  if (map?.getLocaleInfo(loc)) {
-    return true;
-  }
-  let explanation = map
-    ? "The locale ID is unrecognized."
-    : "The list of locales is unavailable.";
-  if (map) {
-    if (!/^[a-zA-Z0-9_]*$/.test(loc)) {
-      // Avoid including the bogus locale ID in the notification.
-      // If it was entered in the browser address bar and contained non-ASCII
-      // characters or reserved punctuation marks, it may be URL-encoded or
-      // otherwise distorted, in which case confusing, or even code injection.
-      explanation +=
-        " Only ASCII letters, digits, and underscore (_) are allowed.";
-    } else {
-      explanation += " [" + loc + "]";
-    }
-  }
-  cldrNotify.error("Cannot set locale", explanation);
-  return false;
 }
 
 /**

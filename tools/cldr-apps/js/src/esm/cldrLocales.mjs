@@ -7,6 +7,7 @@ import * as cldrMenu from "./cldrMenu.mjs";
 import * as cldrNotify from "./cldrNotify.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";
 import * as cldrSurvey from "./cldrSurvey.mjs";
+import * as cldrText from "./cldrText.mjs";
 
 // The current locale may be "USER" temporarily, meaning the back end should choose an appropriate locale
 // for the current user. The real locale ID should be set when a server response contains it.
@@ -69,8 +70,9 @@ function parseHash(pieces) {
 
 function isValid(loc) {
   const map = cldrLoad.getTheLocaleMap();
-  if (VALIDATE_ALL_LOCALES && map && !validatedAllLocales) {
-    validateAllLocales(map);
+  if (VALIDATE_ALL_LOCALES && !validatedAllLocales && map?.locmap?.locales) {
+    validateAllLocales(map.locmap.locales);
+    validatedAllLocales = true;
   }
   if (map?.getLocaleInfo(loc)) {
     return true;
@@ -83,40 +85,34 @@ function notifyUnusableLocale(map, loc) {
   let explanation;
   if (!map) {
     explanation = cldrText.get("locale_id_list_unavailable");
-  } else if (!LOCALE_REGEX.test(loc)) {
-    // Avoid including the bogus locale ID in the notification.
-    // If it was entered in the browser address bar and contained non-ASCII
-    // characters or reserved punctuation marks, it may be URL-encoded or
-    // otherwise distorted, in which case confusing; or even code injection.
-    explanation = cldrText.get("locale_id_disallowed");
-  } else {
+  } else if (LOCALE_REGEX.test(loc)) {
     explanation = cldrText.sub("locale_id_unrecognized", loc);
+  } else {
+    // Avoid including the bogus locale ID in the notification if it contains non-ASCII
+    // characters or reserved punctuation marks, since it may be URL-encoded or
+    // otherwise distorted, in which case confusing or even code injection (malware).
+    explanation = cldrText.get("locale_id_disallowed");
   }
   cldrNotify.error(cldrText.get("locale_id_unusable"), explanation);
 }
 
-function validateAllLocales() {
-  const map = cldrLoad.getTheLocaleMap();
-  if (!map.locmap) {
-    return; // not loaded yet
-  }
-  validatedAllLocales = true;
-  let i = 0,
-    failureCount = 0;
-  for (let loc in map.locmap.locales) {
+function validateAllLocales(locales) {
+  let count = 0;
+  let failureCount = 0;
+  for (let loc in locales) {
     if (VALIDATE_ALL_LOCALES_VERBOSE) {
-      console.log("validateAllLocales: " + i++ + " " + loc);
+      console.log("validateAllLocales: " + count + " " + loc);
     }
     if (!LOCALE_REGEX.test(loc)) {
       console.error("validateAllLocales: validation failure: " + loc);
       ++failureCount;
     }
-    ++i;
+    ++count;
   }
   if (failureCount) {
     console.error("validateAllLocales: failureCount = " + failureCount);
   } else if (VALIDATE_ALL_LOCALES_VERBOSE) {
-    console.log("validateAllLocales: zero failures");
+    console.log("validateAllLocales: success, zero failures");
   }
 }
 

@@ -606,7 +606,6 @@ const strings = {
   empty_comparison_cell_hint: "not applicable to English",
 };
 
-
 /**
  * Get the string for the given key
  *

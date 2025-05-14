@@ -9,10 +9,13 @@ import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
+import com.ibm.icu.util.TimeZone;
 import java.io.IOException;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -29,12 +32,14 @@ import org.unicode.cldr.test.CheckCLDR.Phase;
 import org.unicode.cldr.test.CheckCLDR.StatusAction;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.test.ExampleGenerator.UnitLength;
+import org.unicode.cldr.test.RelatedPathValues;
 import org.unicode.cldr.unittest.TestCheckCLDR.DummyPathValueInfo;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFileOverride;
 import org.unicode.cldr.util.CLDRInfo.UserInfo;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.CldrIntervalFormat;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CodePointEscaper;
 import org.unicode.cldr.util.Counter;
@@ -46,6 +51,8 @@ import org.unicode.cldr.util.GrammarInfo.CaseValues;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalScope;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalTarget;
+import org.unicode.cldr.util.ICUServiceBuilder;
+import org.unicode.cldr.util.Joiners;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.Pair;
@@ -2387,6 +2394,71 @@ public class TestExampleGenerator extends TestFmwk {
             String exampleHtml = eg.getExampleHtml(path, value);
             String actual = ExampleGenerator.simplify(exampleHtml);
             assertEquals(path, expected, actual);
+        }
+    }
+
+    public void testRelatedPathValues() {
+        CLDRFile cldrFile = CLDRConfig.getInstance().getCldrFactory().make("en", true);
+        Multimap<String, String> skeletons = TreeMultimap.create();
+        System.out.println();
+        for (String path : cldrFile) {
+            if (path.startsWith(
+                            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/")
+                    && !path.endsWith("/alias")) {
+                XPathParts parts = XPathParts.getFrozenInstance(path);
+                Set<String> values = RelatedPathValues.getRelatedPathValues(cldrFile, parts);
+                System.out.println(Joiners.TAB.join(cldrFile.getStringValue(path), values, path));
+                String skeleton = parts.getAttributeValue(RelatedPathValues.idElement, "id");
+                if (skeleton == null) {
+                    continue;
+                }
+                String element = parts.getElement(RelatedPathValues.dateTypeElement);
+                switch (element) {
+                    case "availableFormats":
+                    case "intervalFormats":
+                        skeletons.put(skeleton, element);
+                    default:
+                        break;
+                }
+            }
+        }
+        System.out.println();
+        for (Entry<String, Collection<String>> entry : skeletons.asMap().entrySet()) {
+            System.out.println(
+                    Joiners.TAB.join(
+                            entry.getKey(),
+                            entry.getValue().contains("availableFormats"),
+                            entry.getValue().contains("intervalFormats")));
+        }
+    }
+
+    public void testIntervalFormats() {
+        String[][] tests = {
+            {"h – h B", "h| – |h B", "12 – 1 in the afternoon"},
+            {"MdM", "Missing literal between first and second formats in «MdM»"},
+            {"Md", "Interval patterns must have two parts, with a separator between: «Md»"}
+        };
+        ICUServiceBuilder isb = ICUServiceBuilder.forLocale(CLDRLocale.getInstance("en"));
+        Date DATE1 = Date.from(Instant.parse("2025-01-01T12:00:00Z"));
+        Date DATE2 = Date.from(Instant.parse("2025-01-01T13:00:00Z"));
+
+        for (String[] test : tests) {
+            String source = test[0];
+            String expected = test[1];
+            String expected2 = test.length <= 2 ? null : test[2];
+            CldrIntervalFormat intf = null;
+            String actual;
+            try {
+                intf = CldrIntervalFormat.getInstance("gregorian", source);
+                actual = Joiners.VBAR.join(intf.firstPattern, intf.separator, intf.secondPattern);
+            } catch (Exception e) {
+                actual = e.getMessage();
+            }
+            assertEquals(source, expected, actual);
+            if (intf != null) {
+                String actual2 = intf.format(DATE1, DATE2, isb, TimeZone.GMT_ZONE);
+                assertEquals(source + DATE1 + DATE2, expected2, actual2);
+            }
         }
     }
 }

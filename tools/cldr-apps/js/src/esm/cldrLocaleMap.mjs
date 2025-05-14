@@ -65,19 +65,17 @@ class LocaleMap {
       }
       fromLast = re.lastIndex;
     }
-    out = out + str.substring(fromLast, str.length);
-    return out;
+    return out + str.substring(fromLast, str.length);
   }
 
   /**
    * Return the locale info entry
    *
-   * @param menuMap the map
    * @param locid the id - should already be canonicalized
    * @return the bundle or null
    */
   getLocaleInfo(locid) {
-    if (this.locmap && this.locmap.locales && this.locmap.locales[locid]) {
+    if (this.locmap?.locales && this.locmap.locales[locid]) {
       return this.locmap.locales[locid];
     } else {
       return null;
@@ -85,16 +83,15 @@ class LocaleMap {
   }
 
   /**
-   * Return the locale name,
+   * Return the locale name
    *
-   * @param menuMap the map
    * @param locid the id - will canonicalize
    * @return the display name - or else the id
    */
   getLocaleName(locid) {
     locid = this.canonicalizeLocaleId(locid);
     const bund = this.getLocaleInfo(locid);
-    if (bund && bund.name) {
+    if (bund?.name) {
       return bund.name;
     } else {
       return locid;
@@ -102,9 +99,8 @@ class LocaleMap {
   }
 
   /**
-   * Return the locale name,
+   * Return the locale name
    *
-   * @param menuMap the map
    * @param locid the id - will canonicalize
    * @return the display name - or else the id
    */

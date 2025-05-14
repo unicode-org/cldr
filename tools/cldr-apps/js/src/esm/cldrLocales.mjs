@@ -14,11 +14,11 @@ import * as cldrText from "./cldrText.mjs";
 const USER_LOCALE_ID = "USER";
 
 const VALIDATE_ALL_LOCALES = true;
-const VALIDATE_ALL_LOCALES_VERBOSE = true;
+const VALIDATE_ALL_LOCALES_VERBOSE = false;
 
 const LOCALE_REGEX = new RegExp("^[a-zA-Z0-9_]*$");
 
-let validatedAllLocales = false;
+let didValidateAll = false;
 
 // called as special.load
 function load() {
@@ -70,9 +70,9 @@ function parseHash(pieces) {
 
 function isValid(loc) {
   const map = cldrLoad.getTheLocaleMap();
-  if (VALIDATE_ALL_LOCALES && !validatedAllLocales && map?.locmap?.locales) {
+  if (VALIDATE_ALL_LOCALES && !didValidateAll && map?.locmap?.locales) {
     validateAllLocales(map.locmap.locales);
-    validatedAllLocales = true;
+    didValidateAll = true;
   }
   if (map?.getLocaleInfo(loc)) {
     return true;

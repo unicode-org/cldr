@@ -590,8 +590,10 @@ const strings = {
     "Show the Priority Items Summary snapshot with id “${0}” [${1}]",
 
   locale_id_unusable: "Cannot set locale",
-  locale_id_unrecognized: "The locale ID is unrecognized: “${0}”.",
   locale_id_list_unavailable: "The list of locales is unavailable.",
+  locale_id_not_string_primitive:
+    "The specified locale ID is not a string primitive.",
+  locale_id_unrecognized: "The locale ID is unrecognized: “${0}”.",
   locale_id_disallowed:
     "The locale ID contains disallowed characters. Only ASCII letters, digits, and underscore (_) are allowed.",
 

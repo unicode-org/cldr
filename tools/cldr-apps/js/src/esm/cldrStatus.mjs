@@ -2,7 +2,6 @@
  * cldrStatus: encapsulate data defining the current status of SurveyTool.
  */
 import * as cldrGui from "./cldrGui.mjs";
-import * as cldrLoad from "./cldrLoad.mjs";
 import * as cldrLocales from "./cldrLocales.mjs";
 import { ref } from "vue";
 
@@ -220,7 +219,7 @@ function setCurrentSpecial(special) {
 }
 
 /**
- * A string such as 'en', 'fr', etc., identifying a locale
+ * A string such as "en", "fr_CA", etc., identifying a locale
  *
  * Caution: cldrLoad.updateHashAndMenus makes a distinction between null and
  * empty string "" for getCurrentLocale, seemingly with the assumption that
@@ -234,13 +233,11 @@ function getCurrentLocale() {
 }
 
 function setCurrentLocale(loc) {
-  if (loc && loc !== cldrLocales.USER_LOCALE_ID) {
-    if (!cldrLocales.isValid(loc)) {
-      return;
-    }
+  if (loc && loc !== cldrLocales.USER_LOCALE_ID && !cldrLocales.isValid(loc)) {
+    return;
   }
   currentLocale = loc;
-  // loc may be USER_LOCALE_NAME temporarily, meaning the back end should choose an appropriate locale
+  // loc may be USER_LOCALE_ID temporarily, meaning the back end should choose an appropriate locale
   // for the current user. The real locale ID should be set when a server response contains it.
   // In the meantime, postpone calling dispatchEvent or setRef.
   if (loc !== cldrLocales.USER_LOCALE_ID) {

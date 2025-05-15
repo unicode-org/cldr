@@ -20,6 +20,10 @@ const LOCALE_REGEX = new RegExp("^[a-zA-Z0-9_]*$");
 
 let didValidateAll = false;
 
+// For unit testing, inhibit calling cldrNotify for locale-validation failures,
+// to avoid "global leak(s) detected: '__VUE__', '__VUE_DEVTOOLS_HOOK_REPLAY__'"
+let notificationsAreSupressed = false;
+
 // called as special.load
 function load() {
   cldrSurvey.hideLoader();
@@ -69,12 +73,15 @@ function parseHash(pieces) {
 }
 
 function isValid(loc) {
-  const map = cldrLoad.getTheLocaleMap();
-  if (VALIDATE_ALL_LOCALES && !didValidateAll && map?.locmap?.locales) {
+  // It seems safest to require the canonical id here. If canonicalizeLocaleId were
+  // called here, a caller of isValid might go on to use a non-canonical id in other contexts,
+  // maybe leading to errors such as treating the same locale as two different locales.
+  const map = cldrLoad.localeMapReady() ? cldrLoad.getTheLocaleMap() : null;
+  if (VALIDATE_ALL_LOCALES && !didValidateAll && map) {
     validateAllLocales(map.locmap.locales);
     didValidateAll = true;
   }
-  if (map?.getLocaleInfo(loc)) {
+  if (typeof loc == "string" && map?.locmap?.locales[loc]) {
     return true;
   }
   notifyUnusableLocale(map, loc);
@@ -82,9 +89,13 @@ function isValid(loc) {
 }
 
 function notifyUnusableLocale(map, loc) {
+  const problem = cldrText.get("locale_id_unusable");
   let explanation;
   if (!map) {
     explanation = cldrText.get("locale_id_list_unavailable");
+  } else if (!typeof loc == "string") {
+    // Exclude String objects and other objects and types, to avoid confusion.
+    explanation = cldrText.get("locale_id_not_string_primitive");
   } else if (LOCALE_REGEX.test(loc)) {
     explanation = cldrText.sub("locale_id_unrecognized", loc);
   } else {
@@ -93,7 +104,9 @@ function notifyUnusableLocale(map, loc) {
     // otherwise distorted, in which case confusing or even code injection (malware).
     explanation = cldrText.get("locale_id_disallowed");
   }
-  cldrNotify.error(cldrText.get("locale_id_unusable"), explanation);
+  if (!notificationsAreSupressed) {
+    cldrNotify.error(problem, explanation);
+  }
 }
 
 function validateAllLocales(locales) {
@@ -116,4 +129,22 @@ function validateAllLocales(locales) {
   }
 }
 
-export { isValid, load, parseHash, USER_LOCALE_ID };
+function suppressNotifications() {
+  notificationsAreSupressed = true;
+}
+
+/**
+ * Confirm this file compiles and runs
+ */
+function ping() {
+  return "pong";
+}
+
+export {
+  isValid,
+  load,
+  parseHash,
+  ping,
+  suppressNotifications,
+  USER_LOCALE_ID,
+};

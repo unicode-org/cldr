@@ -10,6 +10,7 @@ import * as cldrEvent from "./cldrEvent.mjs";
 import * as cldrGui from "./cldrGui.mjs";
 import * as cldrLoad from "./cldrLoad.mjs";
 import { LocaleMap } from "./cldrLocaleMap.mjs";
+import * as cldrLocales from "./cldrLocales.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";
 import * as cldrSurvey from "./cldrSurvey.mjs";
 import * as cldrText from "./cldrText.mjs";
@@ -97,7 +98,10 @@ function loadInitialMenusFromJson(json) {
   const locmap = new LocaleMap(json.locmap);
   cldrLoad.setTheLocaleMap(locmap);
 
-  if (cldrStatus.getCurrentLocale() === "USER" && json.loc) {
+  if (
+    cldrStatus.getCurrentLocale() === cldrLocales.USER_LOCALE_ID &&
+    json.loc
+  ) {
     cldrStatus.setCurrentLocale(json.loc);
   }
   setupCanModify(json); // json.canmodify

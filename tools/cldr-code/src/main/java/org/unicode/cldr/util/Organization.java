@@ -73,6 +73,7 @@ public enum Organization {
     special("High Coverage and Generated"),
     srilanka("Sri Lanka ICTA", "Sri Lanka"),
     surveytool("Survey Tool"),
+    sunuwar_ws("Sunuwar Sewa Samaj", "Sunuwar Welfare Society"),
     unaffiliated("Unaffiliated", "Guest"),
     venetian("VeC - Lengua Veneta"),
     welsh_lc("Welsh LC"),

@@ -1415,6 +1415,7 @@ public class SurveyAjax extends HttpServlet {
             HTMLDirection dir = sm.getHTMLDirectionFor(locale);
             oldvotes.put("dir", dir); // e.g., "ltr"
             if (isSubmit) {
+                logger.finest(() -> "SUBMIT old votes " + locale);
                 submitOldVotes(user, sm, locale, confirmList, newVotesTable, oldvotes);
             } else {
                 viewOldVotes(user, sm, loc, locale, newVotesTable, oldvotes);
@@ -1756,10 +1757,12 @@ public class SurveyAjax extends HttpServlet {
          * If there is already an anonymous vote for this locale+path+value, do not add
          * another one, simply return.
          */
+        logger.finest(() -> "Voting for " + xpathString);
         Set<User> voters = box.getVotesForValue(xpathString, processedValue);
         if (voters != null) {
             for (User user : voters) {
                 if (UserRegistry.userIsExactlyAnonymous(user)) {
+                    logger.finest(() -> "Already got an anon vote");
                     return;
                 }
             }
@@ -1769,12 +1772,24 @@ public class SurveyAjax extends HttpServlet {
          */
         User anonUser = getFreshAnonymousUser(box, xpathString, reg);
         if (anonUser == null) {
+            logger.finest(() -> "Could not get a fresh anon user");
             return;
         }
+        logger.finest(
+                () ->
+                        "Got fresh user "
+                                + anonUser.id
+                                + " is exactly anon "
+                                + UserRegistry.userIsExactlyAnonymous(anonUser)
+                                + " and CLA signed is "
+                                + anonUser.getCla()
+                                + " but claSigned="
+                                + anonUser.claSigned);
         /*
          * Submit the anonymous vote.
          */
         box.voteForValueWithType(anonUser, xpathString, processedValue, VoteType.MANUAL_IMPORT);
+        logger.finest(() -> "Voted " + xpathId);
         /*
          * Add a row to the IMPORT table, to avoid importing the same value repeatedly.
          * NOTE: the processed value does not always match what was saved in the old
@@ -1786,6 +1801,7 @@ public class SurveyAjax extends HttpServlet {
          * cases. See also comments for the query in getOldVotesRows.
          */
         addRowToImportTable(locale, xpathId, processedValue);
+        logger.finest(() -> "added to import table " + locale + ":" + xpathId);
     }
 
     /**

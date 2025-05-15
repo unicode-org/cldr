@@ -67,6 +67,7 @@ public enum Organization {
     rohingyazuban("Rohingya Language Council", "RLC", "Rohingya Zuban"),
     rumantscha("Lia Rumantscha"),
     sardware("Sardware", "Sardware"),
+    sicilian_cademia("Cademia Siciliana", "Sicilian Cademia"),
     sil("SIL", "SIL International"),
     silicon("Stanford SILICON"),
     special("High Coverage and Generated"),

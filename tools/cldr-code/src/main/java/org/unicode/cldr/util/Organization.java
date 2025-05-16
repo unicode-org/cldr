@@ -68,7 +68,7 @@ public enum Organization {
     rumantscha("Lia Rumantscha"),
     sardware("Sardware", "Sardware"),
     shan_iit("Shan IIT", "Shan Institute of Information Technology"),
-    sicilian_cademia("Cademia Siciliana", "Sicilian Cademia"),
+    sicilian_cademia("Cademia Siciliana", "Sicilian Academy"),
     sil("SIL", "SIL International"),
     silicon("Stanford SILICON"),
     special("High Coverage and Generated"),

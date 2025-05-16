@@ -76,7 +76,8 @@ public class CheckForCopy extends FactoryCheckCLDR {
     enum Failure {
         ok,
         same_as_english,
-        same_as_code
+        same_as_code,
+        same_as_code_and_english,
     }
 
     @Override
@@ -190,7 +191,12 @@ public class CheckForCopy extends FactoryCheckCLDR {
             }
         }
         if (reallySameAsCode(path, value2)) {
-            return Failure.same_as_code;
+            if (value.equals(english.toLowerCase())) {
+                // allow to be same as lowercased English
+                return Failure.same_as_code_and_english;
+            } else {
+                return Failure.same_as_code;
+            }
         }
         return failure;
     }
@@ -270,6 +276,17 @@ public class CheckForCopy extends FactoryCheckCLDR {
                                 .setMessage(
                                         "The value is the same as in English.", new Object[] {}));
                 break;
+            case same_as_code_and_english:
+                result.add(
+                        new CheckStatus()
+                                .setCause(this)
+                                .setMainType(CheckStatus.warningType)
+                                .setSubtype(Subtype.sameAsEnglish)
+                                .setCheckOnSubmit(false)
+                                .setMessage(
+                                        "The value is the same as the 'code' and similar to English.",
+                                        new Object[] {}));
+                break;
             case same_as_code:
                 result.add(
                         new CheckStatus()
@@ -278,7 +295,7 @@ public class CheckForCopy extends FactoryCheckCLDR {
                                 .setSubtype(Subtype.sameAsCode)
                                 .setCheckOnSubmit(false)
                                 .setMessage(
-                                        "The value is the same as the 'code'.", new Object[] {}));
+                                        "The value is the same as the 'code'", new Object[] {}));
                 break;
             default:
         }

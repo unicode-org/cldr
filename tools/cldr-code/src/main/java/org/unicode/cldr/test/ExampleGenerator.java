@@ -1784,6 +1784,17 @@ public class ExampleGenerator {
             return;
         }
         examples.add(intervalFormat.format(FIRST_INTERVAL, later));
+        Set<String> relatedPatterns = RelatedPathValues.getRelatedPathValues(cldrFile, parts);
+        if (!relatedPatterns.isEmpty()) {
+            examples.add("Comparisons:");
+            for (String pattern : relatedPatterns) {
+                SimpleDateFormat sdf =
+                        icuServiceBuilder.getDateFormat(
+                                parts.getAttributeValue(RelatedPathValues.calendarElement, "type"),
+                                pattern);
+                examples.add(sdf.format(DATE_SAMPLE));
+            }
+        }
     }
 
     private void handleDelimiters(
@@ -2037,7 +2048,7 @@ public class ExampleGenerator {
         examples.add(format(value, setBackground(sdf.format(DATE_SAMPLE)), setBackground(zone)));
     }
 
-    private class IntervalFormat {
+    public class IntervalFormat {
         @SuppressWarnings("deprecation")
         DateTimePatternGenerator.FormatParser formatParser =
                 new DateTimePatternGenerator.FormatParser();

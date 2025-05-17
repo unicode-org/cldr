@@ -27,14 +27,14 @@ describe(`client test`, async function () {
 });
 
 describe(`status test`, async () => {
-    const STATUS_URL = new URL(`SurveyAjax?what=status`, baseURI);
-    it(`Should be able to retrieve status from ${STATUS_URL}`, async () => {
-        const r = await fetch(STATUS_URL);
-        // console.dir(r);
-        expect(r).to.be.ok;
-        const body = await r.json();
-        expect(r).to.be.ok;
-        // const {surveyOK, isBusted,isSetup,status,triedToStartUp,wasInitCalled} = body;
-        // console.dir(body);
-    });
+  const STATUS_URL = new URL(`SurveyAjax?what=status`, baseURI);
+  it(`Should be able to retrieve status from ${STATUS_URL}`, async () => {
+    const r = await fetch(STATUS_URL);
+    // console.dir(r);
+    expect(r).to.be.ok;
+    const body = await r.json();
+    expect(r).to.be.ok;
+    // const {surveyOK, isBusted,isSetup,status,triedToStartUp,wasInitCalled} = body;
+    // console.dir(body);
+  });
 });

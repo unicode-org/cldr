@@ -2400,14 +2400,19 @@ public class TestExampleGenerator extends TestFmwk {
     public void testRelatedPathValues() {
         CLDRFile cldrFile = CLDRConfig.getInstance().getCldrFactory().make("en", true);
         Multimap<String, String> skeletons = TreeMultimap.create();
-        System.out.println();
+        PathHeader.Factory phf = PathHeader.getFactory();
+        Map<PathHeader, String> data = new TreeMap<>();
         for (String path : cldrFile) {
             if (path.startsWith(
                             "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/")
-                    && !path.endsWith("/alias")) {
+                    && !path.endsWith("/alias")
+                    && !path.endsWith("/intervalFormatFallback")) {
+                // ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatFallback
                 XPathParts parts = XPathParts.getFrozenInstance(path);
                 Set<String> values = RelatedPathValues.getRelatedPathValues(cldrFile, parts);
-                System.out.println(Joiners.TAB.join(cldrFile.getStringValue(path), values, path));
+                data.put(
+                        phf.fromPath(path),
+                        Joiners.TAB.join(cldrFile.getStringValue(path), values, path));
                 String skeleton = parts.getAttributeValue(RelatedPathValues.idElement, "id");
                 if (skeleton == null) {
                     continue;
@@ -2422,19 +2427,26 @@ public class TestExampleGenerator extends TestFmwk {
                 }
             }
         }
-        System.out.println();
-        for (Entry<String, Collection<String>> entry : skeletons.asMap().entrySet()) {
-            System.out.println(
-                    Joiners.TAB.join(
-                            entry.getKey(),
-                            entry.getValue().contains("availableFormats"),
-                            entry.getValue().contains("intervalFormats")));
+        if (isVerbose()) {
+            System.out.println();
+            for (Entry<PathHeader, String> entry : data.entrySet()) {
+                System.out.println(entry.getValue());
+            }
+            System.out.println();
+            for (Entry<String, Collection<String>> entry : skeletons.asMap().entrySet()) {
+                System.out.println(
+                        Joiners.TAB.join(
+                                entry.getKey(),
+                                entry.getValue().contains("availableFormats"),
+                                entry.getValue().contains("intervalFormats")));
+            }
         }
     }
 
     public void testIntervalFormats() {
         String[][] tests = {
-            {"h – h B", "h| – |h B", "12 – 1 in the afternoon"},
+            {"h – h B", "h|[h]| – |h B|[h, B]", "12 – 1 in the afternoon"},
+            {"E H – H v", "E H|[E, H]| – |H v|[H, v]", "Wed 12 – 13 GMT"},
             {"MdM", "Missing literal between first and second formats in «MdM»"},
             {"Md", "Interval patterns must have two parts, with a separator between: «Md»"}
         };
@@ -2450,15 +2462,64 @@ public class TestExampleGenerator extends TestFmwk {
             String actual;
             try {
                 intf = CldrIntervalFormat.getInstance("gregorian", source);
-                actual = Joiners.VBAR.join(intf.firstPattern, intf.separator, intf.secondPattern);
+                actual =
+                        Joiners.VBAR.join(
+                                intf.firstPattern,
+                                intf.firstFields,
+                                intf.separator,
+                                intf.secondPattern,
+                                intf.secondFields);
+                String actual2 = intf.format(DATE1, DATE2, isb, TimeZone.GMT_ZONE);
+                assertEquals(Joiners.COMMA_SP.join(source, DATE1, DATE2), expected2, actual2);
             } catch (Exception e) {
                 actual = e.getMessage();
             }
             assertEquals(source, expected, actual);
-            if (intf != null) {
-                String actual2 = intf.format(DATE1, DATE2, isb, TimeZone.GMT_ZONE);
-                assertEquals(source + DATE1 + DATE2, expected2, actual2);
+        }
+    }
+
+    public void testAvailableAndIntervalExamples() {
+        // for now, just gregorian, just English
+        String[][] tests = {
+            {"GyMMMd", "〖Sep 5, 1999 AD〗"},
+            {"GyMMMd/d", "〖Feb 13 – 14, 2008 AD〗〖Comparisons:〗〖Sep 5, 1999 AD〗〖Sep 5〗"},
+            {"GyMMMd/M", "〖Feb 13 – Mar 14, 2008 AD〗〖Comparisons:〗〖Sep 5, 1999 AD〗〖Sep 5〗"},
+            {
+                "GyMMMd/y",
+                "〖Feb 13, 2008 – Mar 14, 2009 AD〗〖Comparisons:〗〖Sep 5, 1999 AD〗〖Sep 5, 1999〗"
+            },
+            {"Hmv", "〖13:25 EST〗〖03:25 EST〗"},
+            {"Hmv/m", "〖05:07 – 05:08 GMT〗〖Comparisons:〗〖18:25 GMT〗〖18:25〗"},
+            {"Hmv/H", "〖05:07 – 06:08 GMT〗〖Comparisons:〗〖18:25 GMT〗〖18:25〗"},
+        };
+        ExampleGenerator eg = getExampleGenerator("en");
+        CLDRFile english = CLDRConfig.getInstance().getEnglish();
+        XPathParts intervalParts =
+                XPathParts.getFrozenInstance(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"Bhm\"]/greatestDifference[@id=\"B\"]")
+                        .cloneAsThawed();
+        XPathParts availableParts =
+                XPathParts.getFrozenInstance(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"MMMd\"]")
+                        .cloneAsThawed();
+        for (String[] test : tests) {
+            String source = test[0];
+            String expected = test[1];
+            String path = null;
+            int slashPos = test[0].indexOf('/');
+            if (slashPos < 0) {
+                availableParts.setAttribute(RelatedPathValues.idElement, "id", source);
+                path = availableParts.toString();
+            } else {
+                intervalParts.setAttribute(
+                        RelatedPathValues.idElement, "id", test[0].substring(0, slashPos));
+                intervalParts.setAttribute(
+                        RelatedPathValues.idElement + 1, "id", test[0].substring(slashPos + 1));
+                path = intervalParts.toString();
             }
+            String value = english.getStringValue(path);
+            String actual = ExampleGenerator.simplify(eg.getExampleHtml(path, value));
+            assertEquals(source, expected, actual);
         }
     }
 }

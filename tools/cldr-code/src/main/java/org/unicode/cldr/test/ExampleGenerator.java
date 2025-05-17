@@ -1790,7 +1790,7 @@ public class ExampleGenerator {
             for (String pattern : relatedPatterns) {
                 SimpleDateFormat sdf =
                         icuServiceBuilder.getDateFormat(
-                                parts.getAttributeValue(RelatedPathValues.calendarElement, "id"),
+                                parts.getAttributeValue(RelatedPathValues.calendarElement, "type"),
                                 pattern);
                 examples.add(sdf.format(DATE_SAMPLE));
             }

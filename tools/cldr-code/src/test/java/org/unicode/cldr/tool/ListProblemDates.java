@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
+import org.unicode.cldr.test.RelatedPathValues;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
@@ -40,7 +41,7 @@ public class ListProblemDates {
 
     private static final boolean VERBOSE = false;
     private static final boolean ALL_LOCALES = true;
-    private static final boolean OTHER_CALENDARS = true;
+    private static final boolean OTHER_CALENDARS = false;
     private static final Set<String> calendars = Set.of("gregorian");
     private static final Set<String> ROOT = Set.of("root");
     private static final Set<String> NON_ROOT = Sets.difference(TC_LOCALES, Set.of("root"));
@@ -101,6 +102,20 @@ public class ListProblemDates {
                         new CldrUtility.CollectionComparator<String>(), Comparator.naturalOrder());
 
         System.out.println("\n# Non-inclusions: sample = " + SAMPLE_ISO_DATE);
+
+        System.out.println(
+                Joiners.TAB.join(
+                        "status",
+                        "locale",
+                        "calendar",
+                        "skeleton",
+                        "core",
+                        "pattern",
+                        "core",
+                        "formatted",
+                        "core",
+                        "path",
+                        "core"));
 
         for (String locale : targets) {
 
@@ -187,10 +202,14 @@ public class ListProblemDates {
                 }
             }
         }
-        System.out.println("\n# Missing cores");
-        coreIdXIdTolocales.asMap().entrySet().stream()
-                .forEach(
-                        x -> System.out.println(x.getKey() + "\t" + Joiners.SP.join(x.getValue())));
+        if (false) {
+            System.out.println("\n# Missing cores");
+            coreIdXIdTolocales.asMap().entrySet().stream()
+                    .forEach(
+                            x ->
+                                    System.out.println(
+                                            x.getKey() + "\t" + Joiners.SP.join(x.getValue())));
+        }
     }
 
     private static String formatDate(ICUServiceBuilder service, String calendar, String pattern) {
@@ -229,30 +248,7 @@ public class ListProblemDates {
     // # All skeleton characters:   [EGHMQZcdhmsvy]
 
     private static Collection<String> getCores(String skeleton) {
-        Collection<String> cores = skeletonToCores.get(skeleton);
-        if (cores == null) {
-            cores = new TreeSet<>(SKELETON_COMPARE);
-            String newItem = addCore(skeleton, "G", cores);
-            // Removing the following, since the E and G could have different order in the resulting
-            // pattern
-            //            if (newItem != null) {
-            //                addCore(newItem, "E", cores);
-            //            }
-            addCore(skeleton, "E", cores);
-            addCore(skeleton, "v", cores);
-        }
-        skeletonToCores.put(skeleton, ImmutableSet.copyOf(cores));
-        return cores;
-    }
-
-    private static String addCore(String skeleton, String letter, Collection<String> cores) {
-        if (skeleton.contains(letter)) {
-            String newItem = skeleton.replace(letter, "");
-            if (!newItem.isEmpty() && !newItem.equals(skeleton) && cores.add(newItem)) {
-                return newItem;
-            }
-        }
-        return null;
+        return RelatedPathValues.getCores(skeleton);
     }
 
     private static void showVariants(Set<String> widthVariants) {

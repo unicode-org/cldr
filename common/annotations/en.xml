@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1190,6 +1190,8 @@ annotations.
 		<annotation cp="🧑" type="tts">person</annotation>
 		<annotation cp="👱">blond | blond-haired | human | person</annotation>
 		<annotation cp="👱" type="tts">person: blond hair</annotation>
+		<annotation cp="🧑‍🩰">ballet | dancer</annotation> <!-- 1F9D1 200D 1FA70 -->
+		<annotation cp="🧑‍🩰" type="tts">ballet dancer</annotation>
 		<annotation cp="👨">adult | bro | man</annotation>
 		<annotation cp="👨" type="tts">man</annotation>
 		<annotation cp="🧔">beard | bearded | person | whiskers</annotation>
@@ -3916,26 +3918,22 @@ annotations.
 		<annotation cp="µ" type="tts">micro sign</annotation>
 		<annotation cp="﷼">currency | rial</annotation>
 		<annotation cp="﷼" type="tts">rial</annotation>
-		
-		<!-- Generated lines from Emoji Data v17, using GenerateCldrData.java-->
-		
-		<annotation cp="🫪">anxiety | bloated | panic | shocked | surprised | vulnerable</annotation> 	<!-- 1FAEA -->
-		<annotation cp="🫪" type="tts">distorted face</annotation>
-		<annotation cp="🫯">argument | brawl | debate | disagreement | fight | ruckus | wrestle</annotation> 	<!-- 1FAEF -->
-		<annotation cp="🫯" type="tts">fight cloud</annotation>
-		<annotation cp="🫈">bigfoot | cryptid | forest | giant | hairy | sasquatch | woodwose | yeti</annotation> 	<!-- 1FAC8 -->
-		<annotation cp="🫈" type="tts">hairy creature</annotation>
-		<annotation cp="🧑‍🩰">ballet | dancer</annotation> 	<!-- 1F9D1 200D 1FA70 -->
-		<annotation cp="🧑‍🩰" type="tts">ballet dancer</annotation>
-		<annotation cp="🫍">marine | ocean | whale</annotation> 	<!-- 1FACD -->
-		<annotation cp="🫍" type="tts">orca</annotation>
-		<annotation cp="🫝">compost | eaten | food | garbage | rotten</annotation> 	<!-- 1FADD -->
-		<annotation cp="🫝" type="tts">apple core</annotation>
-		<annotation cp="🛘">avalanche | danger | disaster | earthquake | mountain | mudslide | rocks</annotation> 	<!-- 1F6D8 -->
+		<annotation cp="🛘">avalanche | danger | disaster | earthquake | mountain | mudslide | rocks</annotation> <!-- 1F6D8 -->
 		<annotation cp="🛘" type="tts">landslide</annotation>
-		<annotation cp="🪊">brass | instrument | jazz | music | sad | slide</annotation> 	<!-- 1FA8A -->
+		<annotation cp="🪊">brass | instrument | jazz | music | sad | slide</annotation> <!-- 1FA8A -->
 		<annotation cp="🪊" type="tts">trombone</annotation>
-		<annotation cp="🪎">gem | gold | jewels | loot | money | prize | silver | valuables | wealth</annotation> 	<!-- 1FA8E -->
+		<annotation cp="🪎">gem | gold | jewels | loot | money | prize | silver | valuables | wealth</annotation> <!-- 1FA8E -->
 		<annotation cp="🪎" type="tts">treasure chest</annotation>
+		<annotation cp="🫈">bigfoot | cryptid | forest | giant | hairy | sasquatch | woodwose | yeti</annotation> <!-- 1FAC8 -->
+		<annotation cp="🫈" type="tts">hairy creature</annotation>
+		<annotation cp="🫍">marine | ocean | whale</annotation> <!-- 1FACD -->
+		<annotation cp="🫍" type="tts">orca</annotation>
+		<annotation cp="🫝">compost | eaten | food | garbage | rotten</annotation> <!-- 1FADD -->
+		<annotation cp="🫝" type="tts">apple core</annotation>
+		<!-- Generated lines from Emoji Data v17, using GenerateCldrData.java -->
+		<annotation cp="🫪">anxiety | bloated | panic | shocked | surprised | vulnerable</annotation> <!-- 1FAEA -->
+		<annotation cp="🫪" type="tts">distorted face</annotation>
+		<annotation cp="🫯">argument | brawl | debate | disagreement | fight | ruckus | wrestle</annotation> <!-- 1FAEF -->
+		<annotation cp="🫯" type="tts">fight cloud</annotation>
 	</annotations>
 </ldml>

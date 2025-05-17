@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1195,6 +1195,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">E10-1122</annotation>
 		<annotation cp="👱">E10-558</annotation>
 		<annotation cp="👱" type="tts">E10-558</annotation>
+		<annotation cp="🧑‍🩰">E17-004</annotation> <!-- 1F9D1 200D 1FA70: ballet dancer -->
+		<annotation cp="🧑‍🩰" type="tts">E17-004</annotation>
 		<annotation cp="👨">E10-549</annotation>
 		<annotation cp="👨" type="tts">E10-549</annotation>
 		<annotation cp="🧔">E10-1125</annotation>
@@ -3924,26 +3926,22 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="µ" type="tts">E13-150</annotation>
 		<annotation cp="﷼">E13.1-442</annotation>
 		<annotation cp="﷼" type="tts">E13.1-442</annotation>
-		
-		<!-- Generated lines from Emoji Data v17, using GenerateCldrData.java-->
-		
-		<annotation cp="🫪">E17-001</annotation> 	<!-- 1FAEA: distorted face -->
-		<annotation cp="🫪" type="tts">E17-001</annotation>
-		<annotation cp="🫯">E17-002</annotation> 	<!-- 1FAEF: fight cloud -->
-		<annotation cp="🫯" type="tts">E17-002</annotation>
-		<annotation cp="🫈">E17-003</annotation> 	<!-- 1FAC8: hairy creature -->
-		<annotation cp="🫈" type="tts">E17-003</annotation>
-		<annotation cp="🧑‍🩰">E17-004</annotation> 	<!-- 1F9D1 200D 1FA70: ballet dancer -->
-		<annotation cp="🧑‍🩰" type="tts">E17-004</annotation>
-		<annotation cp="🫍">E17-005</annotation> 	<!-- 1FACD: orca -->
-		<annotation cp="🫍" type="tts">E17-005</annotation>
-		<annotation cp="🫝">E17-006</annotation> 	<!-- 1FADD: apple core -->
-		<annotation cp="🫝" type="tts">E17-006</annotation>
-		<annotation cp="🛘">E17-007</annotation> 	<!-- 1F6D8: landslide -->
+		<annotation cp="🛘">E17-007</annotation> <!-- 1F6D8: landslide -->
 		<annotation cp="🛘" type="tts">E17-007</annotation>
-		<annotation cp="🪊">E17-008</annotation> 	<!-- 1FA8A: trombone -->
+		<annotation cp="🪊">E17-008</annotation> <!-- 1FA8A: trombone -->
 		<annotation cp="🪊" type="tts">E17-008</annotation>
-		<annotation cp="🪎">E17-009</annotation> 	<!-- 1FA8E: treasure chest -->
+		<annotation cp="🪎">E17-009</annotation> <!-- 1FA8E: treasure chest -->
 		<annotation cp="🪎" type="tts">E17-009</annotation>
+		<annotation cp="🫈">E17-003</annotation> <!-- 1FAC8: hairy creature -->
+		<annotation cp="🫈" type="tts">E17-003</annotation>
+		<annotation cp="🫍">E17-005</annotation> <!-- 1FACD: orca -->
+		<annotation cp="🫍" type="tts">E17-005</annotation>
+		<annotation cp="🫝">E17-006</annotation> <!-- 1FADD: apple core -->
+		<annotation cp="🫝" type="tts">E17-006</annotation>
+		<!-- Generated lines from Emoji Data v17, using GenerateCldrData.java -->
+		<annotation cp="🫪">E17-001</annotation> <!-- 1FAEA: distorted face -->
+		<annotation cp="🫪" type="tts">E17-001</annotation>
+		<annotation cp="🫯">E17-002</annotation> <!-- 1FAEF: fight cloud -->
+		<annotation cp="🫯" type="tts">E17-002</annotation>
 	</annotations>
 </ldml>

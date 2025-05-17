@@ -16,7 +16,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<decimal>,</decimal>
 			<group> </group>
 		</symbols>
-    <currencyFormats numberSystem="latn">
+		<currencyFormats numberSystem="latn">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>#,##0.00 ¤</pattern>
@@ -24,7 +24,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencies>
-		  <currency type="GEL">
+			<currency type="GEL">
 				<symbol>₾</symbol>
 			</currency>
 		</currencies>

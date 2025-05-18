@@ -7,24 +7,28 @@ title: Information Hub for Linguists
 💡🆕
 
 The sequence above marks items that have been recently added. In your browser you can copy this sequence, then use ⌘-F (Mac) or Ctrl-F (Windows) to find all the places it occurs.
+- 💡🆕 Added missing date & time formats:
+  - GyM and GyMEd
+  - Time formats: EBh, Eh, EH when there is an existing EBhm, Ehm, and EHm in the calendar respectively.
+  - Changed HH patterns in available and interval formats to include a reference to hour since seeing an hour number alone is ambigious.
+- 💡🆕 The region Sark, CQ, is now in modern coverage
 - New flexible format and interval patterns
 - Gregorian Calendar (Year First) calendar
 - Enhanced "Show Hidden"
 
+When a section below changes, the date will be in the header.
+
 ### Starting Submission
 
-During Submission, please read the CLDR Training (if new to the survey tool), please focus on the missing, provisional, and errors. Please read the [Updates](#updates). For more information about the priorities during Submission, see [Survey Tool stages](translation/getting-started/survey-tool-phases).
+Before you start Submission, please read the [CLDR training](#cldr-training-for-new-linguists) (if new to the survey tool). Please prioritize the sections Missing, Provisional, and Errors.
+Please read the [Updates](#updates). For more information about the priorities during Submission, see [Survey Tool stages](translation/getting-started/survey-tool-phases).
 
 ### Prerequisites
 
-1. If you're **new to CLDR**, take the CLDR training below.
+1. If you're **new to CLDR**, take the [CLDR training](#cldr-training-for-new-linguists) below.
 2. If you're already **experienced with CLDR**, read the [Critical reminders](#critical-reminders-for-all-linguists) section (mandatory).
 3. Review the [Status and Schedule](#status-and-schedule), [New Areas](#new-areas), [Survey Tool](#survey-tool), and [Known Issues](#known-issues).
 4. Once you are ready, go to the [Survey Tool](https://st.unicode.org/cldr-apps/) and log in.
-
-### Updates
-
-When a section below changes, the date will be in the header.
 
 ## Status and Schedule
 
@@ -41,6 +45,7 @@ The following new languages are available in the Survey Tool for submission duri
 - Buryat (bua)
 - Coptic (cop)
 - Haitian Creole (ht)
+- 💡🆕 Hmong Daw (mww)
 - Kazakh (Latin) (kk_Latn)
 - Laz (lzz)
 - Luri Bakhtiari (bqi)
@@ -73,6 +78,8 @@ Do **not** include ‘fanciful’ characters such as emoji or [kaomoji](https://
 More information is available in the [Exemplars section of the Unicode Sets page](https://cldr.unicode.org/translation/core-data/exemplars#exemplar-characters)
 
 ### Locale display names
+
+💡🆕 Sark, CQ, is now in modern coverage under Locale Display Names > Territories (Europe) > Northern Europe
 
 #### Languages names which were added or changed in English
 
@@ -125,6 +132,14 @@ of a relative date and a single time.
 If you do not supply this, that combination will fall back to using the “standard” variant;
 in English that would produce “tomorrow, 3:00 PM”. If instead you want the same combining behavior for a relative date with a single time as for a
 fvfixed date with single time (as was the case in CLDR 47 and earlier), then for each length style copy the existing “atTime” form to the new “relative” form.
+
+#### Missing date & time patterns
+
+💡🆕 Some dates and times are ambiguous due to missing patterns. These additional patterns have been added to resolve this issue:
+
+  - GyM and GyMEd
+  - Time formats: EBh, Eh, EH when there is an existing EBhm, Ehm, and EHm in the respective calendar.
+  - Changed HH patterns in available and interval formats to include a reference to hour since seeing an hour number alone is ambigious.
 
 ### Timezones, metazones and exemplar cities
 
@@ -316,7 +331,7 @@ To see how to [**input** these from the keyboard], and for a key to **all** the 
 
 ## Known Issues
 
-Last updated: 2025-05-02
+Last updated: 2025-05-17
 
 This list will be updated as fixes are made available in Survey Tool Production. If you find a problem, please [file a ticket](requesting_changes), but please review this list first to avoid creating duplicate tickets.
 
@@ -324,14 +339,20 @@ This list will be updated as fixes are made available in Survey Tool Production.
 2. [CLDR-17829][] - some links in the Info panel not displaying properly
 3. [CLDR-13477][] - Images for the plain symbols. Non-emoji such as [€](https://st.unicode.org/cldr-apps/v#/fr/OtherSymbols/47925556fd2904b5), √, », ¹, §, ... do not have images in the Info Panel.  **Workaround**: Look at the Code column; unlike the new emoji, your browser should display them there.
 4. [CLDR-17683][] - Some items are not able to be flagged for TC review. This is being investigated. Meanwhile, Please enter forum posts meanwhile with any comments.
+5. [CLDR-18637][] - Some example pop-ups are showing 'undefined' instead of the expected example
+6. [CLDR-18607][] - Unable to download current votes in CSV
+7. [CLDR-18615][] - Unclear error message if a link sends you to a page that no longer exists in the Survey Tool
+8. [CLDR-18627][] - Some locale display names at comprehensive are not available in all locales
 
 ## Resolved Issues
 
-Last updated: 2025-05-02
+Last updated: 2025-05-17
 
-1. [CLDR-18513][] - Redirect from read-only locale to the default content locale does not work
-2. [CLDR-17694](https://unicode-org.atlassian.net/browse/CLDR-17694) - Back button in browser fails in forum under certain conditions
-3. [CLDR-17658](https://unicode-org.atlassian.net/browse/CLDR-17658) - Dashboard slowness
+1. 💡🆕 [CLDR-18605][] - Fix issue blocking import of winning votes from the previous cycle
+2. 💡🆕 [CLDR-18649][] - Same as root is now a warning if English is the same as root as well
+3. [CLDR-18513][] - Redirect from read-only locale to the default content locale does not work
+4. [CLDR-17694](https://unicode-org.atlassian.net/browse/CLDR-17694) - Back button in browser fails in forum under certain conditions
+5. [CLDR-17658](https://unicode-org.atlassian.net/browse/CLDR-17658) - Dashboard slowness
 
 ## Recent Changes
 
@@ -379,15 +400,21 @@ You're already familiar with the CLDR process, but do keep the following in mind
 *Tip: The links in the [Info Panel](translation/getting-started/guide#info-panel) will point you to relevant instructions for the
 entry you're editing/vetting. Use it if in doubt.*
 
-<!-- Tickets are in ascending order for easier maintence -->
 
+<!-- Tickets are in ascending order for easier maintence -->
 [CLDR-13477]: https://unicode-org.atlassian.net/browse/CLDR-13477
 [CLDR-17683]: https://unicode-org.atlassian.net/browse/CLDR-17683
 [CLDR-17694]: https://unicode-org.atlassian.net/browse/CLDR-17694
 [CLDR-17829]: https://unicode-org.atlassian.net/browse/CLDR-17829
-[CLDR-18577]: https://unicode-org.atlassian.net/browse/CLDR-18577
-[CLDR-18513]: https://unicode-org.atlassian.net/browse/CLDR-18513
 [CLDR-18423]: https://unicode-org.atlassian.net/browse/CLDR-18423
+[CLDR-18513]: https://unicode-org.atlassian.net/browse/CLDR-18513
+[CLDR-18577]: https://unicode-org.atlassian.net/browse/CLDR-18577
+[CLDR-18605]: https://unicode-org.atlassian.net/browse/CLDR-18605
+[CLDR-18607]: https://unicode-org.atlassian.net/browse/CLDR-18607
+[CLDR-18615]: https://unicode-org.atlassian.net/browse/CLDR-18615
+[CLDR-18627]: https://unicode-org.atlassian.net/browse/CLDR-18627
+[CLDR-18637]: https://unicode-org.atlassian.net/browse/CLDR-18637
+[CLDR-18649]: https://unicode-org.atlassian.net/browse/CLDR-18649
 [stand-alone vs. formatting]: /translation/date-time/date-time-patterns#when-to-use-standalone-vs-formatting
 [Year First Calendar]: /translation/date-time/date-time-patterns#year-first-calendar
 [Example Hidden]: https://st.unicode.org/cldr-apps/v#/USER/Number_Formatting_Patterns/67afe297d3a17a3

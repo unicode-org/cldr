@@ -32,7 +32,8 @@ services:
     image: selenium/standalone-chrome:latest
     shm_size: 2gb
     ports:
-      - 5900 # vnc    
+      - 5900 # vnc
+      - 7900 # novnc
     depends_on:
       - cldr-apps
     links:

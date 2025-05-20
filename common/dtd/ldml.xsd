@@ -4613,28 +4613,6 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
   
   
   
-  <xs:element name="gmtZeroFormat">
-    <xs:complexType mixed="true">
-      <xs:attribute name="alt" type="xs:NMTOKENS"/>
-      <xs:attribute name="draft">
-        <xs:simpleType>
-          <xs:restriction base="xs:token">
-            <xs:enumeration value="approved"/>
-            <xs:enumeration value="contributed"/>
-            <xs:enumeration value="provisional"/>
-            <xs:enumeration value="unconfirmed"/>
-            <xs:enumeration value="true"/>
-            <xs:enumeration value="false"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:attribute>
-      <xs:attribute name="references"/>
-    </xs:complexType>
-  </xs:element>
-  
-  
-  
-  
   <xs:element name="gmtUnknownFormat">
     <xs:complexType mixed="true">
       <xs:attribute name="alt" type="xs:NMTOKENS"/>

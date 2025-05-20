@@ -28,7 +28,7 @@ public class CheckForCopy extends FactoryCheckCLDR {
                                     + "|intervalFormatItem"
                                     + "|exemplarCharacters\\[@type=\"(currencySymbol|index)\"]"
                                     + "|scientificFormat"
-                                    + "|timeZoneNames/(hourFormat|gmtFormat|gmtZeroFormat|gmtUnknownFormat)"
+                                    + "|timeZoneNames/(hourFormat|gmtFormat|gmtUnknownFormat)"
                                     + "|dayPeriod"
                                     + "|(monthWidth|dayWidth|quarterWidth)\\[@type=\"(narrow|abbreviated)\"]"
                                     + "|exemplarCity"

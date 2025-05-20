@@ -507,6 +507,8 @@ The final table gives certain hard-coded byte values. The "trail" area is provid
 
 > 👉 **Note**: The particular primary lead bytes for Hani vs. IMPLICIT vs. TRAILING are only an example. An implementation is free to move them if it also moves the explicit TRAILING weights. This affects only a small number of explicit mappings in FractionalUCA.txt, such as for U+FFFD, U+FFFF, and the “unassigned first primary”. It is possible to use no SPECIAL bytes at all, and to use only the one primary lead byte FF for TRAILING weights.
 
+Starting with CLDR 48/Unicode 17, the root collation data files include `FractionalUCA_blanked.txt` which has the same contents as `FractionalUCA.txt` but with “blanked weights” for most non-zero collation weights. It is not useful as a _data_ file, but it is valuable for simple diffing between versions of the data, showing changes in the sort order and in the number of bytes in fractional weights.
+
 #### <a name="File_Format_UCA_Rules_txt" href="#File_Format_UCA_Rules_txt">UCA_Rules.txt</a>
 
 The format for this file uses the CLDR collation syntax, see _[Collation Tailorings](#Collation_Tailorings)_.

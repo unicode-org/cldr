@@ -1,11 +1,19 @@
 package org.unicode.cldr.util;
 
+import com.google.common.cache.CacheBuilder;
+import com.google.common.cache.CacheLoader;
+import com.google.common.cache.LoadingCache;
 import com.ibm.icu.impl.Utility;
 import java.io.File;
 import java.util.Locale;
+import java.util.concurrent.ExecutionException;
+import java.util.logging.Logger;
 import java.util.regex.Pattern;
+import javax.annotation.Nonnull;
 
 public class AnnotationUtil {
+    static final Logger logger = Logger.getLogger(AnnotationUtil.class.getSimpleName());
+
     private static final String APPS_EMOJI_DIRECTORY =
             CLDRPaths.BASE_DIRECTORY + "/tools/cldr-apps/src/main/webapp/images/emoji";
 
@@ -35,7 +43,7 @@ public class AnnotationUtil {
     public static String calculateEmojiImageFilename(String emoji) {
         String noVs = AnnotationUtil.removeEmojiVariationSelector(emoji);
         // example: emoji_1f1e7_1f1ec.png
-        String fileName = "emoji_" + Utility.hex(noVs, 4, "_").toLowerCase(Locale.ENGLISH) + ".png";
+        String fileName = "emoji_" + Utility.hex(noVs, 4, "_").toLowerCase(Locale.ROOT) + ".png";
         return fileName;
     }
 
@@ -55,9 +63,40 @@ public class AnnotationUtil {
     }
 
     public static File getEmojiImageFile(String emoji) {
-        String noVs = AnnotationUtil.removeEmojiVariationSelector(emoji);
-        String fileName = AnnotationUtil.calculateEmojiImageFilename(noVs);
+        String fileName = AnnotationUtil.calculateEmojiImageFilename(emoji);
         File file = new File(APPS_EMOJI_DIRECTORY, fileName);
         return file;
+    }
+
+    public static String getEmojiFromXPath(final String xpath) {
+        XPathParts emoji = XPathParts.getFrozenInstance(xpath);
+        String cp = emoji.getAttributeValue(-1, "cp");
+        return cp;
+    }
+
+    // cache of file presence
+    static final LoadingCache<String, Boolean> doWeHaveTheEmoji =
+            CacheBuilder.newBuilder()
+                    .build(
+                            new CacheLoader<String, Boolean>() {
+                                @Override
+                                public Boolean load(@Nonnull final String emoji) throws Exception {
+                                    return getEmojiImageFile(emoji).exists();
+                                }
+                            });
+
+    /**
+     * @return true if getEmojiImageFile is expected to return an existing file
+     */
+    public static final boolean haveEmojiImageFile(String emoji) {
+        try {
+            return doWeHaveTheEmoji.get(emoji);
+        } catch (ExecutionException e) {
+            logger.log(
+                    java.util.logging.Level.SEVERE,
+                    getEnglishAnnotationName(emoji) + " - " + getEmojiImageFile(emoji).getName(),
+                    e);
+            return false;
+        }
     }
 }

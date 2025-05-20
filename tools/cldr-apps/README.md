@@ -151,20 +151,23 @@ You will also want to make sure this directory exists and is writeable. You can 
 
 ### Setup
 
-This may be excessive but it works
+This command may be somewhat excessive in terms of what it does, but it works.
+
+TODO CLDR-14409: We should have a way to run these steps against a development server.
 
 ```shell
-# clean out webpack build
+# clean out webpack build (this tends to get large when using webpack development mode!)
 rm -rf tools/cldr-apps/src/main/webapp/dist ./tools/cldr-apps/target/cldr-apps/dist/
 # build
 mvn clean compile package -DskipTests=true
 # create server package
-mvn  -pl cldr-apps liberty:clean liberty:create liberty:deploy liberty:package -Dinclude=usr --file tools/pom.xml -DskipTests=true
+mvn --file=tools/pom.xml -pl cldr-apps liberty:create liberty:deploy liberty:package -Dinclude=usr --file tools/pom.xml -DskipTests=true
 ```
 
 ### Build and run
 
 ```shell
+cd tools/cldr-apps
 docker compose up cldr-apps
 ```
 
@@ -173,6 +176,7 @@ docker compose up cldr-apps
 This will compile and launch the [webdriver](../cldr-apps-webdriver/README.md).
 
 ```shell
+cd tools/cldr-apps
 docker compose run --rm -it webdriver
 ```
 
@@ -192,6 +196,7 @@ Want to see what the WebDriver is doing? Sure, you can.
 This will launch the [client tests](js/test/client/README.md).
 
 ```shell
+cd tools/cldr-apps
 docker compose run --rm -it client-test
 ```
 

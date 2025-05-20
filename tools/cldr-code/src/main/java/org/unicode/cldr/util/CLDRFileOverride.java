@@ -8,6 +8,8 @@ import org.unicode.cldr.util.XPathParts.Comments;
 
 public class CLDRFileOverride extends CLDRFile {
 
+    private static boolean threwException = false;
+
     /**
      * Overrides the values of the sourceFile. The keys of the overrides must already be in the
      * XMLSource source
@@ -33,7 +35,12 @@ public class CLDRFileOverride extends CLDRFile {
                     .forEach(
                             x -> {
                                 if (source.getValueAtDPath(x) == null) {
-                                    throw new IllegalArgumentException();
+                                    System.out.println(
+                                            "source.getValueAtDPath null in XMLSourceMapOverride");
+                                    if (!threwException) { // only throw once
+                                        threwException = true;
+                                        throw new IllegalArgumentException();
+                                    }
                                 }
                             });
             this.overrides = overrides;

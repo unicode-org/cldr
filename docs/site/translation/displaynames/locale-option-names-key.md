@@ -94,6 +94,8 @@ Hour cycle (12 vs 24)
 
 ### Sorting
 
+The [introduction section of the Unicode Collation Algorithm report](https://www.unicode.org/reports/tr10/#Introduction) is a good description of how collation (sorting) works in software.
+
 #### Sort Order
 
 Codes: co, collation

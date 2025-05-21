@@ -47,7 +47,7 @@ Here are examples of names of Options to be translated.
 ## Full List
 The following provides a full list of keys and values. You may see just a subset of the keys and/or their values, depending on your coverage level. (It does exclude the Transform options, because those are used less often.)
 
-Note that in many cases the values do not need to be translated, because the data is available elsewhere. For example, most numbering systems ar identified by their Script code. Those are indicated in the list below by all-uppercase Codes.
+Note that in many cases the values do not need to be translated, because the data is available elsewhere. For example, most numbering systems are identified by their Script code. Those are indicated in the list below by all-uppercase Codes.
 
 ### Dates
 

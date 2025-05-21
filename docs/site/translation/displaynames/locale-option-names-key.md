@@ -53,6 +53,7 @@ Note that in many cases the values do not need to be translated, because the dat
 
 #### Calendar  (ca, calendar)
 Calendar algorithm
+
 |Codes|English Name|Description|
 |-|-|-|
 |buddhist|Buddhist|Thai Buddhist calendar|
@@ -76,12 +77,14 @@ Calendar algorithm
 
 #### First day of week  (fw)
 First day of week
+
 |Codes|English Name|Description|
 |-|-|-|
 |DAY_OF_WEEK|_translation by other CLDR data_|Any day of the week|
 
 #### Hour Cycle (12 vs 24)  (hc, hours)
 Hour cycle (12 vs 24)
+
 |Codes|English Name|Description|
 |-|-|-|
 |h11|12 (0–11)|Hour system using 0–11; 'K' in patterns|
@@ -92,6 +95,7 @@ Hour cycle (12 vs 24)
 
 #### Sort Order  (co, collation)
 Collation type
+
 |Codes|English Name|Description|
 |-|-|-|
 |compat|Compatibility|A previous version of the ordering, for compatibility|
@@ -119,6 +123,7 @@ Collation parameter key for alternate handling
 
 #### Reversed Accent Sorting  (kb, colBackwards)
 Collation parameter key for backward collation weight
+
 |Codes|English Name|Description|
 |-|-|-|
 |false, no|_translation by other CLDR data_|No backwards (the second level to be forwards)|
@@ -126,6 +131,7 @@ Collation parameter key for backward collation weight
 
 #### Case Sensitive Sorting  (kc, colCaseLevel)
 Collation parameter key for case level
+
 |Codes|English Name|Description|
 |-|-|-|
 |false, no|_translation by other CLDR data_|No special case level handling|
@@ -133,6 +139,7 @@ Collation parameter key for case level
 
 #### Uppercase/Lowercase Ordering  (kf, colCaseFirst)
 Collation parameter key for ordering by case
+
 |Codes|English Name|Description|
 |-|-|-|
 |false, no|_translation by other CLDR data_|No special case ordering|
@@ -141,6 +148,7 @@ Collation parameter key for ordering by case
 
 #### Normalized Sorting  (kk, colNormalization)
 Collation parameter key for normalization
+
 |Codes|English Name|Description|
 |-|-|-|
 |false, no|_translation by other CLDR data_|Skip normalization|
@@ -148,6 +156,7 @@ Collation parameter key for normalization
 
 #### Numeric Sorting  (kn, colNumeric)
 Collation parameter key for numeric handling
+
 |Codes|English Name|Description|
 |-|-|-|
 |false, no|_translation by other CLDR data_|No special handling for numeric ordering|
@@ -155,6 +164,7 @@ Collation parameter key for numeric handling
 
 #### Script/Block Reordering  (kr, colReorder)
 Collation reorder codes
+
 |Codes|English Name|Description|
 |-|-|-|
 |REORDER_CODE|_translation by other CLDR data_|Other collation reorder code — for script, see LDML Part 5: Collation|
@@ -166,6 +176,7 @@ Collation reorder codes
 
 #### Sorting Strength  (ks, colStrength)
 Collation parameter key for collation strength
+
 |Codes|English Name|Description|
 |-|-|-|
 |identic, identical|The identical level|The identical level|
@@ -176,6 +187,7 @@ Collation parameter key for collation strength
 
 #### Highest Ignored  (kv)
 Collation parameter key for maxVariable, the last reordering group to be affected by ka-shifted
+
 |Codes|English Name|Description|
 |-|-|-|
 |currency|Spaces, punctuation, all symbolsSpaces, punctuation ka-shifted|Spaces, punctuation and all symbols are affected by ka-shifted|
@@ -186,12 +198,14 @@ Collation parameter key for maxVariable, the last reordering group to be affecte
 
 #### Currency  (cu, currency)
 Currency type
+
 |Codes|English Name|Description|
 |-|-|-|
 |CURRENCY_CODE|_translation by other CLDR data_|Any currency code|
 
 #### Currency Format  (cf)
 Currency format
+
 |Codes|English Name|Description|
 |-|-|-|
 |account|Accounting|Accounting currency format|
@@ -200,6 +214,7 @@ Currency format
 
 #### Measurement System  (ms, measure)
 Measurement System
+
 |Codes|English Name|Description|
 |-|-|-|
 |metric|Metric|Metric System|
@@ -208,6 +223,7 @@ Measurement System
 
 #### Measurement Unit  (mu)
 Allows setting overrides for measurement units. Currently limited to quantity=temperature, and no provision for usage or size.
+
 |Codes|English Name|Description|
 |-|-|-|
 |MEASUREMENT_UNIT|_translation by other CLDR data_|Any temperature unit|
@@ -215,6 +231,7 @@ Allows setting overrides for measurement units. Currently limited to quantity=te
 
 #### Numbers  (nu, numbers)
 Numbering system type
+
 |Codes|English Name|Description|
 |-|-|-|
 |arabext|Extended Arabic-Indic|Extended Arabic-Indic digits|
@@ -250,6 +267,7 @@ Numbering system type
 
 #### Line Break Strictness  (lb)
 Line break type
+
 |Codes|English Name|Description|
 |-|-|-|
 |loose|Loose|CSS lev 3 line-break=loose|
@@ -258,6 +276,7 @@ Line break type
 
 #### Line Breaks In Words Setting  (lw)
 Line break key for CSS lev 3 word-break options
+
 |Codes|English Name|Description|
 |-|-|-|
 |breakall|Break all|CSS lev 3 word-break=break-all, allow midword breaks unless forbidden by lb setting|
@@ -267,12 +286,14 @@ Line break key for CSS lev 3 word-break options
 
 #### Dictionary Break Exclusions  (dx)
 Scripts to exclude from dictionary break
+
 |Codes|English Name|Description|
 |-|-|-|
 |SCRIPT_CODE|_translation by other CLDR data_|ISO 15924 script code|
 
 #### Sentence Break After Abbr.  (ss)
 Sentence break parameter key to control use of suppressions data
+
 |Codes|English Name|Description|
 |-|-|-|
 |none|Off|Don't use segmentation suppressions data|
@@ -281,6 +302,7 @@ Sentence break parameter key to control use of suppressions data
 
 #### Time Zone  (tz, timezone)
 Time zone
+
 |Codes|English Name|Description|
 |-|-|-|
 |TIMEZONE_CODE|_translation by other CLDR data_|Any timezone code|
@@ -288,18 +310,21 @@ Time zone
 
 #### Region For Supplemental Data  (rg)
 Alternate region for determining certain data values (e.g. default currency and units) specified by rgScope
+
 |Codes|English Name|Description|
 |-|-|-|
 |RG_KEY_VALUE|_translation by other CLDR data_|A region code from idValidity/id[type='region'][idStatus='regular'], suffixed with 'ZZZZ'|
 
 #### Region Subdivision  (sd)
 Region subdivision
+
 |Codes|English Name|Description|
 |-|-|-|
 |SUBDIVISION_CODE|_translation by other CLDR data_|Valid unicode_subdivision_subtag for the region subtag as specified in LDML, based on subdivisionContainment data in supplementalData, prefixed by the associated unicode_region_subtag|
 
 #### Emoji Presentation  (em)
 Emoji presentation style request
+
 |Codes|English Name|Description|
 |-|-|-|
 |default|Default|use the default presentation as specified in UTR #51|
@@ -308,6 +333,7 @@ Emoji presentation style request
 
 #### Locale Variant  (va)
 Common locale variant type
+
 |Codes|English Name|Description|
 |-|-|-|
 |posix|POSIX variant|POSIX style locale variant|

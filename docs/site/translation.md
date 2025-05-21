@@ -91,7 +91,9 @@ As new locales reach Basic Coverage, their language names are added for locales 
 
 #### Core/Extensions
 
-There is a new mechanism for better menu names. When you see a **Code** with `-core` or `-extension`, please read [Locale Option Value Names](/translation/displaynames/locale-option-names-key#locale-option-value-names).
+There is a new mechanism for better menu names. When you see a **Code** with `-core` or `-extension`, please read [Locale Option Value Names](/translation/displaynames/locale-option-names-key).
+
+💡🆕 The link in the Info Panel was not pointing to [Locale Option Value Names](/translation/displaynames/locale-option-names-key); that has been fixed. There is also now a Full List of the option names on that page.
 
 #### Scripts
 

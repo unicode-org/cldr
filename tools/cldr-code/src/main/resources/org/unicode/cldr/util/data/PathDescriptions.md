@@ -6,7 +6,7 @@ Example Entry:
 
     - `^//ldml/localeDisplayNames/types/type\[@key="fw"]\[@type="([^"]*)"]`
 
-    The name of “first day of the week is {1}”. For more information, please see [Key Names].
+    The name of “first day of the week is {1}”. For more information, please see [Locale Option Names].
 
 1. The first line beginning with `###` is a comment and can be used to describe that section. It can be blank, just `###`.
     If it begins with `ROOT` it has special placeholders.
@@ -104,110 +104,110 @@ The name of the timezone for “{0}”. Note: before translating, be sure to rea
 
 - `^//ldml/localeDisplayNames/types/type\[@key="collation"]\[@type="([^"]*)"]`
 
-The name of “{1} collation” (sorting order). For more information, please see [Key Names].
+The name of “{1} collation” (sorting order). For more information, please see [Locale Option Names].
 
 ###
 
 - `^//ldml/localeDisplayNames/types/type\[@key="numbers"]\[@type="([^"]*)"]`
 
-The name of “{1} number system”. For more information, please see [Key Names].
+The name of “{1} number system”. For more information, please see [Locale Option Names].
 
 ###
 
 - `^//ldml/localeDisplayNames/types/type\[@key="calendar"]\[@type="roc"]`
 
-The name of “roc calendar” (common names include “Minguo Calendar”, “Republic of China Calendar”, and “Republican Calendar”). For more information, please see [Key Names].
+The name of “roc calendar” (common names include “Minguo Calendar”, “Republic of China Calendar”, and “Republican Calendar”). For more information, please see [Locale Option Names].
 
 ###
 
 - `^//ldml/localeDisplayNames/types/type\[@key="calendar"]\[@type="([^"]*)"]\[@alt="variant"]`
 
-The alternate name of “{1} calendar”. For more information, please see [Key Names].
+The alternate name of “{1} calendar”. For more information, please see [Locale Option Names].
 
 ###
 
 - `^//ldml/localeDisplayNames/types/type\[@key="calendar"]\[@type="([^"]*)"]`
 
-The name of “{1} calendar”. For more information, please see [Key Names].
+The name of “{1} calendar”. For more information, please see [Locale Option Names].
 
 ###
 
 - `^//ldml/localeDisplayNames/types/type\[@key="em"]\[@type="([^"]*)"]`
 
-The name of “emoji presentation style {1}”. For more information, please see [Key Names].
+The name of “emoji presentation style {1}”. For more information, please see [Locale Option Names].
 
 ### First Day of the Week
 
 - `^//ldml/localeDisplayNames/types/type\[@key="fw"]\[@type="([^"]*)"]`
 
-The name of “first day of the week is {1}”. For more information, please see [Key Names].
+The name of “first day of the week is {1}”. For more information, please see [Locale Option Names].
 
 ###
 
 - `^//ldml/localeDisplayNames/types/type\[@key="lb"]\[@type="([^"]*)"]`
 
-The name of “{1} line break style”. For more information, please see [Key Names].
+The name of “{1} line break style”. For more information, please see [Locale Option Names].
 
 ###
 
 - `^//ldml/localeDisplayNames/types/type\[@key="([^"]*)"]\[@type="([^"]*)"]`
 
-The name of the “{2} {1}”. For more information, please see [Key Names].
+The name of the “{2} {1}”. For more information, please see [Locale Option Names].
 
 ###
 
 - `^//ldml/localeDisplayNames/keys/key\[@type="([^"]*)"]`
 
-The name of the system for “{1}”. For more information, please see [Key Names].
+The name of the system for “{1}”. For more information, please see [Locale Option Names].
 
 
 ###
 
 - `^//ldml/localeDisplayNames/types/type\[@key="collation"]\[@type="([^"]*)"]\[@scope="([^"]*)"]`
 
-The _core_ name of “{1} collation” (sorting order) — **without the key name**. For more information, please see [Key Names].
+The _core_ name of “{1} collation” (sorting order) — **without the key name**. For more information, please see [Locale Option Names].
 
 ###
 
 - `^//ldml/localeDisplayNames/types/type\[@key="numbers"]\[@type="([^"]*)"]\[@scope="([^"]*)"]`
 
-The _core_ name of “{1} number system” — **without the key name**. For more information, please see [Key Names].
+The _core_ name of “{1} number system” — **without the key name**. For more information, please see [Locale Option Names].
 
 ###
 
 - `^//ldml/localeDisplayNames/types/type\[@key="calendar"]\[@type="roc"]\[@scope="([^"]*)"]`
 
-The _core_ name of “roc calendar” (common names include “Minguo Calendar”, “Republic of China Calendar”, and “Republican Calendar”) — **without the key name**. For more information, please see [Key Names].
+The _core_ name of “roc calendar” (common names include “Minguo Calendar”, “Republic of China Calendar”, and “Republican Calendar”) — **without the key name**. For more information, please see [Locale Option Names].
 
 ###
 
 - `^//ldml/localeDisplayNames/types/type\[@key="calendar"]\[@type="([^"]*)"]\[@scope="([^"]*)"]`
 
-The _core_ name of “{1} calendar” — **without the key name**. For more information, please see [Key Names].
+The _core_ name of “{1} calendar” — **without the key name**. For more information, please see [Locale Option Names].
 
 ###
 
 - `^//ldml/localeDisplayNames/types/type\[@key="em"]\[@type="([^"]*)"]\[@scope="([^"]*)"]`
 
-The _core_ name of “emoji presentation style {1}” — **without the key name**. For more information, please see [Key Names].
+The _core_ name of “emoji presentation style {1}” — **without the key name**. For more information, please see [Locale Option Names].
 
 ###
 
 - `^//ldml/localeDisplayNames/types/type\[@key="fw"]\[@type="([^"]*)"]\[@scope="([^"]*)"]`
 
-The _core_ name of “first day of the week is {1}” — **without the key name**. For more information, please see [Key Names].
+The _core_ name of “first day of the week is {1}” — **without the key name**. For more information, please see [Locale Option Names].
 
 ###
 
 - `^//ldml/localeDisplayNames/types/type\[@key="lb"]\[@type="([^"]*)"]\[@scope="([^"]*)"]`
 
-The _core_ name of “{1} line break style” — **without the key name**. For more information, please see [Key Names].
+The _core_ name of “{1} line break style” — **without the key name**. For more information, please see [Locale Option Names].
 
 ###
 
 - `^//ldml/localeDisplayNames/types/type\[@key="([^"]*)"]\[@type="([^"]*)"]\[@scope="([^"]*)"]`
 
-The _core_ name of the “{2} {1}” — **without the key name**. For more information, please see [Key Names].
+The _core_ name of the “{2} {1}” — **without the key name**. For more information, please see [Locale Option Names].
 
 
 ###
@@ -1104,7 +1104,7 @@ All links should be https://cldr.unicode.org/translation/
 [Date Time Patterns]: https://cldr.unicode.org/translation/date-time/date-time-patterns
 [Exemplar Characters]: https://cldr.unicode.org/translation/core-data/exemplars
 [Grammatical Inflection]: https://cldr.unicode.org/translation/grammatical-inflection
-[Key Names]: https://cldr.unicode.org/translation/displaynames/countryregion-territory-names#geopolitically-sensitive-names
+[Locale Option Names]: https://cldr.unicode.org/translation/displaynames/locale-option-names-key
 [Language Names]: https://cldr.unicode.org/translation/displaynames/languagelocale-names
 [Lists]: https://cldr.unicode.org/translation/miscellaneous-displaying-lists
 [Locale Patterns]: https://cldr.unicode.org/translation/displaynames/languagelocale-name-patterns

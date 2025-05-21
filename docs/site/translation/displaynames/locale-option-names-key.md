@@ -116,6 +116,7 @@ Collation type
 
 #### Ignore Symbols Sorting  (ka, colAlternate)
 Collation parameter key for alternate handling
+
 |Codes|English Name|Description|
 |-|-|-|
 |noignore, non-ignorable|Punctuation… not ignored|Variable collation elements are not reset to ignorable|
@@ -265,16 +266,7 @@ Numbering system type
 |SCRIPT_CODE-N|_translation by other CLDR data_|Any script code with numbering system|
 ### Segmentation
 
-#### Line Break Strictness  (lb)
-Line break type
-
-|Codes|English Name|Description|
-|-|-|-|
-|loose|Loose|CSS lev 3 line-break=loose|
-|normal|Normal|CSS level 3 line-break=normal, e.g. treat CJ as ID, break before hyphens for ja,zh|
-|strict|Strict|CSS level 3 line-break=strict, e.g. treat CJ as NS|
-
-#### Line Breaks In Words Setting  (lw)
+#### Line Breaks within Words  (lw)
 Line break key for CSS lev 3 word-break options
 
 |Codes|English Name|Description|
@@ -283,6 +275,15 @@ Line break key for CSS lev 3 word-break options
 |keepall|Keep all|CSS lev 3 word-break=keep-all, prohibit midword breaks except for dictionary breaks|
 |normal|Normal|CSS lev 3 word-break=normal, normal script/language behavior for midword breaks|
 |phrase|Keep in phrases|Prioritize keeping natural phrases (of multiple words) together when breaking, used in short text like title and headline|
+
+#### CJK Line Break  (lb)
+Line break type
+
+|Codes|English Name|Description|
+|-|-|-|
+|loose|Loose|CSS lev 3 line-break=loose|
+|normal|Normal|CSS level 3 line-break=normal, e.g. treat CJ as ID, break before hyphens for ja,zh|
+|strict|Strict|CSS level 3 line-break=strict, e.g. treat CJ as NS|
 
 #### Dictionary Break Exclusions  (dx)
 Scripts to exclude from dictionary break

@@ -1784,13 +1784,14 @@ public class ExampleGenerator {
             return;
         }
         examples.add(intervalFormat.format(FIRST_INTERVAL, later));
-        Set<String> relatedPatterns = RelatedPathValues.getRelatedPathValues(cldrFile, parts);
+        Set<String> relatedPatterns = RelatedDatePathValues.getRelatedPathValues(cldrFile, parts);
         if (!relatedPatterns.isEmpty()) {
             examples.add("Comparisons:");
             for (String pattern : relatedPatterns) {
                 SimpleDateFormat sdf =
                         icuServiceBuilder.getDateFormat(
-                                parts.getAttributeValue(RelatedPathValues.calendarElement, "type"),
+                                parts.getAttributeValue(
+                                        RelatedDatePathValues.calendarElement, "type"),
                                 pattern);
                 examples.add(sdf.format(DATE_SAMPLE));
             }

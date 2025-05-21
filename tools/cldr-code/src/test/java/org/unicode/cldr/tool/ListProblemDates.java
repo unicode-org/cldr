@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
-import org.unicode.cldr.test.RelatedPathValues;
+import org.unicode.cldr.test.RelatedDatePathValues;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
@@ -248,7 +248,7 @@ public class ListProblemDates {
     // # All skeleton characters:   [EGHMQZcdhmsvy]
 
     private static Collection<String> getCores(String skeleton) {
-        return RelatedPathValues.getCores(skeleton);
+        return RelatedDatePathValues.getCores(skeleton);
     }
 
     private static void showVariants(Set<String> widthVariants) {
@@ -323,34 +323,7 @@ public class ListProblemDates {
                 .result();
     }
 
-    private static Comparator<String> SKELETON_COMPARE =
-            new Comparator<>() {
-                final UnicodeSet ODD_DATE_FIELDS = new UnicodeSet("[UQWw]").freeze();
-                final UnicodeSet DATE_FIELDS =
-                        new UnicodeSet("[d G M Q U wW y]").freeze(); // E is shared
-                final UnicodeSet YEAR_FIELDS = new UnicodeSet("[yU]").freeze();
-                final UnicodeSet HOUR_FIELDS = new UnicodeSet("[Hh]").freeze();
-                final UnicodeSet TIME_FIELDS = new UnicodeSet("[B hH m s v]").freeze();
-
-                @Override
-                public int compare(String o1, String o2) {
-                    return ComparisonChain.start()
-                            .compare(DATE_FIELDS.containsSome(o2), DATE_FIELDS.containsSome(o1))
-                            .compare(
-                                    ODD_DATE_FIELDS.containsSome(o1),
-                                    ODD_DATE_FIELDS.containsSome(o2))
-                            .compare(YEAR_FIELDS.containsSome(o2), YEAR_FIELDS.containsSome(o1))
-                            .compare(o1.contains("U"), o2.contains("U"))
-                            .compare(o1.contains("M"), o2.contains("M"))
-                            .compare(o1.contains("d"), o2.contains("d"))
-                            .compare(HOUR_FIELDS.containsSome(o2), HOUR_FIELDS.containsSome(o1))
-                            .compare(o1.contains("m"), o2.contains("m"))
-                            .compare(o1.contains("s"), o2.contains("s"))
-                            .compare(o1.length(), o2.length())
-                            .compare(o1, o2)
-                            .result();
-                }
-            };
+    private static Comparator<String> SKELETON_COMPARE = RelatedDatePathValues.SKELETON_COMPARE;
 
     private static ImmutableMultimap<String, Pair<String, String>> getIds(
             Iterable<String> locales) {

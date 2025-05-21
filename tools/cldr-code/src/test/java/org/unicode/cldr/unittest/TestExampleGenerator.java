@@ -32,7 +32,7 @@ import org.unicode.cldr.test.CheckCLDR.Phase;
 import org.unicode.cldr.test.CheckCLDR.StatusAction;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.test.ExampleGenerator.UnitLength;
-import org.unicode.cldr.test.RelatedPathValues;
+import org.unicode.cldr.test.RelatedDatePathValues;
 import org.unicode.cldr.unittest.TestCheckCLDR.DummyPathValueInfo;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -2409,15 +2409,15 @@ public class TestExampleGenerator extends TestFmwk {
                     && !path.endsWith("/intervalFormatFallback")) {
                 // ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatFallback
                 XPathParts parts = XPathParts.getFrozenInstance(path);
-                Set<String> values = RelatedPathValues.getRelatedPathValues(cldrFile, parts);
+                Set<String> values = RelatedDatePathValues.getRelatedPathValues(cldrFile, parts);
                 data.put(
                         phf.fromPath(path),
                         Joiners.TAB.join(cldrFile.getStringValue(path), values, path));
-                String skeleton = parts.getAttributeValue(RelatedPathValues.idElement, "id");
+                String skeleton = parts.getAttributeValue(RelatedDatePathValues.idElement, "id");
                 if (skeleton == null) {
                     continue;
                 }
-                String element = parts.getElement(RelatedPathValues.dateTypeElement);
+                String element = parts.getElement(RelatedDatePathValues.dateTypeElement);
                 switch (element) {
                     case "availableFormats":
                     case "intervalFormats":
@@ -2508,13 +2508,13 @@ public class TestExampleGenerator extends TestFmwk {
             String path = null;
             int slashPos = test[0].indexOf('/');
             if (slashPos < 0) {
-                availableParts.setAttribute(RelatedPathValues.idElement, "id", source);
+                availableParts.setAttribute(RelatedDatePathValues.idElement, "id", source);
                 path = availableParts.toString();
             } else {
                 intervalParts.setAttribute(
-                        RelatedPathValues.idElement, "id", test[0].substring(0, slashPos));
+                        RelatedDatePathValues.idElement, "id", test[0].substring(0, slashPos));
                 intervalParts.setAttribute(
-                        RelatedPathValues.idElement + 1, "id", test[0].substring(slashPos + 1));
+                        RelatedDatePathValues.idElement + 1, "id", test[0].substring(slashPos + 1));
                 path = intervalParts.toString();
             }
             String value = english.getStringValue(path);

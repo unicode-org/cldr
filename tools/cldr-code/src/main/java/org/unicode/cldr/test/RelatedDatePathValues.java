@@ -16,7 +16,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrIntervalFormat;
 import org.unicode.cldr.util.XPathParts;
 
-public class RelatedPathValues {
+public class RelatedDatePathValues {
     public static final int calendarElement = 3;
     public static final int dateTypeElement = 5;
     public static final int idElement = 6;
@@ -30,10 +30,14 @@ public class RelatedPathValues {
                     "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"Bhm\"]/greatestDifference[@id=\"B\"]");
 
     // samples
-    // ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Bhm"]/greatestDifference[@id="B"]
-    // ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="MMMd"]
-    // ldml/dates/calendars/calendar[@type="gregorian"]/dateFormats/dateFormatLength[@type="full"]/dateFormat[@type="standard"]/pattern[@type="standard"]
-    // ldml/dates/calendars/calendar[@type="gregorian"]/timeFormats/timeFormatLength[@type="full"]/timeFormat[@type="standard"]/pattern[@type="standard"]
+    // ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats
+    //  /intervalFormatItem[@id="Bhm"]/greatestDifference[@id="B"]
+    // ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats
+    //  /dateFormatItem[@id="MMMd"]
+    // ldml/dates/calendars/calendar[@type="gregorian"]/dateFormats
+    // /dateFormatLength[@type="full"]/dateFormat[@type="standard"]/datetimeSkeleton[@type="standard"]
+    // ldml/dates/calendars/calendar[@type="gregorian"]/timeFormats
+    // /timeFormatLength[@type="full"]/timeFormat[@type="standard"]/datetimeSkeleton[@type="standard"]
     public static Set<String> getRelatedPathValues(CLDRFile cldrFile, XPathParts xparts) {
         if (xparts.size() <= idElement) {
             return Set.of();
@@ -47,6 +51,28 @@ public class RelatedPathValues {
                 break;
         }
         return Set.of();
+    }
+
+    public enum SkeletonPathType {
+        na,
+        available,
+        interval,
+        datetime;
+
+        public static SkeletonPathType fromParts(XPathParts xparts) {
+            if (xparts.size() >= idElement) {
+                switch (xparts.getElement(dateTypeElement)) {
+                    case "availableFormats":
+                        return xparts.getAttributeValue(idElement, "id") == null ? na : available;
+                    case "intervalFormats":
+                        return xparts.getAttributeValue(idElement, "id") == null ? na : interval;
+                    case "dateFormatLength":
+                    case "timeFormatLength":
+                        return "datetimeSkeleton".equals(xparts.getElement(-1)) ? datetime : na;
+                }
+            }
+            return na;
+        }
     }
 
     private static Set<String> forAvailable(CLDRFile cldrFile, XPathParts xparts) {
@@ -87,12 +113,13 @@ public class RelatedPathValues {
         String intervalId = xparts.getAttributeValue(idElement, "id");
         addAvailable(cldrFile, newAvailableParts, intervalId, result);
 
-        // Now the trickier part. The goal is to get the available formats that are parts of a whole
-        // Dec 12-13: the first is the longest, and matches the id; the first is different
+        // Now the trickier part. The goal is to get the available formats that are parts of a
+        // whole.
+        // Examples:
+        // Dec 12-13: the first is the longest, and matches the id; the second is different
         // 12 - 1 pm: the second is the longest, and matches the id; the first is different
-        // 12:30 - 45 PST: both are different, and neither
-        // Get the fields in the second part, and compute what the
-        // corresponding available pattern is.
+        // 12:30 - 45 PST: both are different, and neither matches the ID
+
         String intervalPattern = cldrFile.getStringValue(xparts.toString());
         if (intervalPattern != null) {
             CldrIntervalFormat intervalFormat =
@@ -168,7 +195,7 @@ public class RelatedPathValues {
         return null;
     }
 
-    private static Comparator<String> SKELETON_COMPARE =
+    public static Comparator<String> SKELETON_COMPARE =
             new Comparator<>() {
                 final UnicodeSet ODD_DATE_FIELDS = new UnicodeSet("[UQWw]").freeze();
                 final UnicodeSet DATE_FIELDS =

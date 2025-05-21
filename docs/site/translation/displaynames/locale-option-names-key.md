@@ -42,7 +42,7 @@ Here are examples of names of Options to be translated.
 | Calendar | Calendar system (the European calendar is called "Gregorian"; others are the Chinese Lunar Calendar, and so on.) |
 | Collation | How text is sorted (where a language has different possible ways to sort). |
 | Currency | The default currency. (The value is any currency value, such as USD.) |
-| Numbers | The numbering system in use, such as European (0,1,2), Arabic (٠, ١, ٢ ), Devanagari ( ०,  १,  २ ). <br /> - Usually these are just derived from the name of the script.<br /> - There are some special forms, such as " Simplified Chinese Financial Numerals " or " Full Width Digits ". |
+| Numbers | The numbering system in use, such as European (0,1,2), Arabic (٠, ١, ٢ ), Devanagari ( ०,  १,  २ ). <br /> - Usually these are just derived from the name of the script.<br /> - There are some special forms, such as "Simplified Chinese Financial Numerals" or "Full Width Digits". |
 
 ## Full List
 The following provides a full list of keys and values. You may see just a subset of the keys and/or their values, depending on your coverage level. (It does exclude the Transform options, because those are lesser-used.)

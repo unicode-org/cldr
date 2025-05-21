@@ -485,11 +485,11 @@ public class TestCoverageLevel extends TestFmwkPlus {
         final Pattern numberingSystem100 =
                 PatternCache.get(
                         "("
-                                + "finance|native|traditional|adlm|ahom|bali|bhks|brah|cakm|cham|cyrl|diak|"
+                                + "finance|native|traditional|adlm|ahom|bali|bhks|brah|cakm|cham|chis|cyrl|diak|"
                                 + "gara|gong|gonm|gukh|hanidays|hmng|hmnp|java|jpanyear|kali|kawi|krai|lana(tham)?|lepc|limb|"
                                 + "math(bold|dbl|mono|san[bs])|modi|mong|mroo|mtei|mymr(epka|pao|shan|tlng)|"
                                 + "nagm|newa|nkoo|olck|onao|osma|outlined|rohg|saur|segment|shrd|sin[dh]|sora|sund|sunu|"
-                                + "takr|talu|tirh|tnsa|vaii|wara|wcho)");
+                                + "takr|talu|tirh|tnsa|tols|vaii|wara|wcho)");
 
         final Pattern collation100 =
                 PatternCache.get(

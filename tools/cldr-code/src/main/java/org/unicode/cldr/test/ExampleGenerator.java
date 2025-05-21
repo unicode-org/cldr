@@ -1978,6 +1978,9 @@ public class ExampleGenerator {
         //  <ellipsis type="word-medial">{0} … {1}</ellipsis>
         String territory1 = getValueFromFormat(pathFormat, "CH");
         String territory2 = getValueFromFormat(pathFormat, "JP");
+        if (territory1 == null || territory2 == null) {
+            return;
+        }
         // if it isn't a word, break in the middle
         if (!type.contains("word")) {
             territory1 = clip(territory1, 0, 1);

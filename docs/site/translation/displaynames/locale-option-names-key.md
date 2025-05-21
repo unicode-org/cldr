@@ -6,7 +6,7 @@ title: 'Locale Option Names'
 
 Locale codes can have special variants, to indicate the use of particular calendars or other features. They can be used to select among different options in menus, and also display which options are in effect for the user. The locale codes use a special format like `de_DE`; the names for these locales are assembled from names for language, script, region, and so on. Locale codes can also carry options, such as when users want to use native digits or ASCII digits (aka Latin digits). The full name of a locale will include those options in a short format, such as _German (Germany, Buddhist Calendar)_.
 
-When displayed as a menu or in certain other contexts, the name of the _key_ for the option (such as _Calendar_) is split from the names of the different _values_ for that option (such as _Buddhist, Gregorian, Japanese_, etc.) That shorter version is called the core value.
+When displayed as a menu or in certain other contexts, the name of the _key_ for the option (such as _Calendar_) is split from the names of the different _values_ for that option (such as _Buddhist, Gregorian, Japanese_, etc.). That shorter version is called the core value.
 
 So you will be asked to translate the long name (such as _Buddhist Calendar_), plus the name of each key (_Calendar_) and the name of the "core" value (_Buddhist_). This allows systems to show users of your language what all the locale options are.
 

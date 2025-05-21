@@ -2,14 +2,16 @@ package org.unicode.cldr.util;
 
 import static org.unicode.cldr.util.StandardCodes.CodeType.currency;
 
-import com.google.common.collect.ImmutableSet;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
+
 import org.unicode.cldr.test.CheckMetazones;
+
+import com.google.common.collect.ImmutableSet;
 
 public class ExtraPaths {
     private static final boolean DEBUG = false;
@@ -123,7 +125,20 @@ public class ExtraPaths {
                             "//ldml/localeDisplayNames/types/type[@key=\"ms\"][@type=\"uksystem\"][@scope=\"core\"]",
                             "//ldml/localeDisplayNames/types/type[@key=\"ms\"][@type=\"ussystem\"][@scope=\"core\"]",
                             "//ldml/localeDisplayNames/types/type[@key=\"ss\"][@type=\"none\"][@scope=\"core\"]",
-                            "//ldml/localeDisplayNames/types/type[@key=\"ss\"][@type=\"standard\"][@scope=\"core\"]"));
+                            "//ldml/localeDisplayNames/types/type[@key=\"ss\"][@type=\"standard\"][@scope=\"core\"]",
+
+                            "//ldml/localeDisplayNames/keys/key[@type=\"calendar\"]",
+                            "//ldml/localeDisplayNames/keys/key[@type=\"cf\"]",
+                            "//ldml/localeDisplayNames/keys/key[@type=\"collation\"]",
+                            "//ldml/localeDisplayNames/keys/key[@type=\"currency\"]",
+                            "//ldml/localeDisplayNames/keys/key[@type=\"numbers\"]",
+                            "//ldml/localeDisplayNames/keys/key[@type=\"em\"]",
+                            "//ldml/localeDisplayNames/keys/key[@type=\"hc\"]",
+                            "//ldml/localeDisplayNames/keys/key[@type=\"lb\"]",
+                            "//ldml/localeDisplayNames/keys/key[@type=\"lw\"]",
+                            "//ldml/localeDisplayNames/keys/key[@type=\"ms\"]",
+                            "//ldml/localeDisplayNames/keys/key[@type=\"ss\"]"
+                        ));
 
     public static void addConstant(Collection<String> toAddTo) {
         toAddTo.addAll(SingletonHelper.INSTANCE.paths);

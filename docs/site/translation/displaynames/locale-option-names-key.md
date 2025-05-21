@@ -16,7 +16,7 @@ You will be asked to translate the long name (such as _Buddhist Calendar_), plus
 | `calendar-buddhist` | Buddhistischer Kalender |
 | `calendar-buddhist-core` | Buddhistischer |
 
-The core name is typically used in menu listings or pull-downs, where the key name is used as the header, such as:
+The core name is typically used in menu listings or pull-down menus where the key name is used as the header, such as:
     - **Calendar**
         - Buddhist
         - Chinese

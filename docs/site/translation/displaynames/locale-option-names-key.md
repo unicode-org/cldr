@@ -8,7 +8,7 @@ Locale codes can have special variants, to indicate the use of particular calend
 
 When displayed as a menu or in certain other contexts, the name of the _key_ for the option (such as _Calendar_) is split from the names of the different _values_ for that option (such as _Buddhist, Gregorian, Japanese_, etc.). That shorter version is called the core value.
 
-So you will be asked to translate the long name (such as _Buddhist Calendar_), plus the name of each key (_Calendar_) and the name of the "core" value (_Buddhist_). This allows systems to show users of your language what all the locale options are.
+You will be asked to translate the long name (such as _Buddhist Calendar_), plus the name of each key (_Calendar_) and the name of the "core" value (_Buddhist_). This allows systems to show users of your language what all the locale options are.
 
 | Code | Name |
 | -- | -- |

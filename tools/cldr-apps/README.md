@@ -164,6 +164,11 @@ mvn clean compile package -DskipTests=true
 mvn --file=tools/pom.xml -pl cldr-apps liberty:create liberty:deploy liberty:package -Dinclude=usr --file tools/pom.xml -DskipTests=true
 ```
 
+Note: if you are on an Apple Silicon or other systems, you might need to set this variable:
+
+`export DOCKER_DEFAULT_PLATFORM=linux/amd64`
+
+
 ### Build and run
 
 ```shell

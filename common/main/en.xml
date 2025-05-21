@@ -1710,11 +1710,11 @@ annotations.
 			<type key="ka" type="shifted" scope="core">Punctuation… ignored</type>
 			<type key="kf" type="lower" scope="core">Lowercase &lt; uppercase</type>
 			<type key="kf" type="upper" scope="core">Uppercase &lt; lowercase</type>
-			<type key="kr" type="currency" scope="core">Currency reordering code, see LDML Part 5: Collation</type>
-			<type key="kr" type="digit" scope="core">Digit (number) reordering code, see LDML Part 5: Collation</type>
-			<type key="kr" type="punct" scope="core">Punctuation reordering code, see LDML Part 5: Collation</type>
-			<type key="kr" type="space" scope="core">Whitespace reordering code, see LDML Part 5: Collation</type>
-			<type key="kr" type="symbol" scope="core">Symbol reordering code (other than currency), see LDML Part 5: Collation</type>
+			<type key="kr" type="currency" scope="core">Currency reordering code</type>
+			<type key="kr" type="digit" scope="core">Digit (number) reordering code</type>
+			<type key="kr" type="punct" scope="core">Punctuation reordering code</type>
+			<type key="kr" type="space" scope="core">Whitespace reordering code</type>
+			<type key="kr" type="symbol" scope="core">Symbol reordering code (other than currency)</type>
 			<type key="ks" type="identic" scope="core">The identical level</type>
 			<type key="ks" type="level1" scope="core">The primary level</type>
 			<type key="ks" type="level2" scope="core">The secondary level</type>
@@ -1731,7 +1731,7 @@ annotations.
 			<type key="numbers" type="finance" scope="core">Financial</type>
 			<type key="numbers" type="fullwide" scope="core">Full-width</type>
 			<type key="numbers" type="greklow" scope="core">Greek lowercase</type>
-			<type key="numbers" type="hanidays" scope="core">Han-character day-of-month numbering for lunar/other traditional calendars</type>
+			<type key="numbers" type="hanidays" scope="core">Han-character day-of-month numbering for traditional calendars</type>
 			<type key="numbers" type="hanidec" scope="core">Positional decimal system using Chinese number ideographs as digits</type>
 			<type key="numbers" type="hansfin" scope="core">Simplified Chinese financial</type>
 			<type key="numbers" type="hantfin" scope="core">Traditional Chinese financial</type>

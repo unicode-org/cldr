@@ -60,6 +60,7 @@ import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
 import org.unicode.cldr.web.SurveyException.ErrorCode;
 import org.unicode.cldr.web.UserRegistry.User;
 import org.unicode.cldr.web.WebContext.HTMLDirection;
+import org.unicode.cldr.web.api.VoteAPI.OldVoteImportStatus;
 import org.unicode.cldr.web.util.JSONArray;
 import org.unicode.cldr.web.util.JSONException;
 import org.unicode.cldr.web.util.JSONObject;
@@ -2083,6 +2084,12 @@ public class SurveyAjax extends HttpServlet {
          */
         int ver = Integer.parseInt(SurveyMain.getNewVersion());
         int confirmations = 0;
+        OldVoteImportStatus status = new OldVoteImportStatus(ver - oldestVersionForImportingVotes);
+        // get the session so we can update it
+        final CookieSession cs = CookieSession.retrieveUserWithoutTouch(user.email);
+        if (cs != null) {
+            cs.put(OldVoteImportStatus.KEY, status);
+        }
         while (--ver >= oldestVersionForImportingVotes) {
             String oldVotesTable =
                     DBUtils.Table.VOTE_VALUE
@@ -2104,8 +2111,14 @@ public class SurveyAjax extends HttpServlet {
                     confirmations +=
                             importAllOldWinningVotes(user, sm, oldVotesTable, newVotesTable);
                 }
+                status.remaining = count;
+                status.imported = confirmations;
             } else {
                 SurveyLog.warnOnce(logger, "Old Votes table missing: " + oldVotesTable);
+            }
+            status.versionsDone++;
+            if (cs != null) {
+                cs.put(OldVoteImportStatus.KEY, status);
             }
         }
         oldvotes.put("ok", true);

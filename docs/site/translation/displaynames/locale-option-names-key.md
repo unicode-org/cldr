@@ -51,7 +51,10 @@ Note that in many cases the values do not need to be translated, because the dat
 
 ### Dates
 
-#### Calendar  (ca, calendar)
+#### Calendar
+
+Codes: ca, calendar
+
 Calendar algorithm
 
 |Codes|English Name|Description|
@@ -75,14 +78,11 @@ Calendar algorithm
 |persian|Persian|Persian calendar|
 |roc|Minguo|Republic of China calendar|
 
-#### First day of week  (fw)
-First day of week
 
-|Codes|English Name|Description|
-|-|-|-|
-|DAY_OF_WEEK|_translation by other CLDR data_|Any day of the week|
+#### Hour Cycle
 
-#### Hour Cycle (12 vs 24)  (hc, hours)
+Codes: hc, hours
+
 Hour cycle (12 vs 24)
 
 |Codes|English Name|Description|
@@ -91,9 +91,13 @@ Hour cycle (12 vs 24)
 |h12|12 (1–12)|Hour system using 1–12; 'h' in patterns|
 |h23|24 (0–23)|Hour system using 0–23; 'H' in patterns|
 |h24|24 (1–24)|Hour system using 1–24; 'k' in patterns|
+
 ### Sorting
 
-#### Sort Order  (co, collation)
+#### Sort Order
+
+Codes: co, collation
+
 Collation type
 
 |Codes|English Name|Description|
@@ -114,7 +118,11 @@ Collation type
 |unihan|Radical-Stroke|Pinyin ordering for Latin, Unihan radical-stroke ordering for CJK characters (used in Chinese)|
 |zhuyin|Zhuyin|Pinyin ordering for Latin, zhuyin order for Bopomofo and CJK characters (used in Chinese)|
 
-#### Ignore Symbols Sorting  (ka, colAlternate)
+
+#### Ignore Symbols Sorting
+
+Codes: ka, colAlternate
+
 Collation parameter key for alternate handling
 
 |Codes|English Name|Description|
@@ -122,60 +130,38 @@ Collation parameter key for alternate handling
 |noignore, non-ignorable|Punctuation… not ignored|Variable collation elements are not reset to ignorable|
 |shifted|Punctuation… ignored|Variable collation elements are reset to zero at levels one through three|
 
-#### Reversed Accent Sorting  (kb, colBackwards)
-Collation parameter key for backward collation weight
 
-|Codes|English Name|Description|
-|-|-|-|
-|false, no|_translation by other CLDR data_|No backwards (the second level to be forwards)|
-|true, yes|_translation by other CLDR data_|The second level to be backwards|
+#### Uppercase/Lowercase Ordering
 
-#### Case Sensitive Sorting  (kc, colCaseLevel)
-Collation parameter key for case level
+Codes: kf, colCaseFirst
 
-|Codes|English Name|Description|
-|-|-|-|
-|false, no|_translation by other CLDR data_|No special case level handling|
-|true, yes|_translation by other CLDR data_|The case level is inserted in front of tertiary|
-
-#### Uppercase/Lowercase Ordering  (kf, colCaseFirst)
 Collation parameter key for ordering by case
 
 |Codes|English Name|Description|
 |-|-|-|
-|false, no|_translation by other CLDR data_|No special case ordering|
 |lower|Lowercase < uppercase|Lower case to be sorted before upper case|
 |upper|Uppercase < lowercase|Upper case to be sorted before lower case|
 
-#### Normalized Sorting  (kk, colNormalization)
-Collation parameter key for normalization
 
-|Codes|English Name|Description|
-|-|-|-|
-|false, no|_translation by other CLDR data_|Skip normalization|
-|true, yes|_translation by other CLDR data_|Convert text into Normalization Form D before calculating collation weights|
+#### Script/Block Reordering
 
-#### Numeric Sorting  (kn, colNumeric)
-Collation parameter key for numeric handling
+Codes: kr, colReorder
 
-|Codes|English Name|Description|
-|-|-|-|
-|false, no|_translation by other CLDR data_|No special handling for numeric ordering|
-|true, yes|_translation by other CLDR data_|A sequence of decimal digits is sorted at primary level with its numeric value|
-
-#### Script/Block Reordering  (kr, colReorder)
 Collation reorder codes
 
 |Codes|English Name|Description|
 |-|-|-|
-|REORDER_CODE|_translation by other CLDR data_|Other collation reorder code — for script, see LDML Part 5: Collation|
 |currency|Currency reordering code, see LDML Part 5: Collation|Currency reordering code, see LDML Part 5: Collation|
 |digit|Digit (number) reordering code, see LDML Part 5: Collation|Digit (number) reordering code, see LDML Part 5: Collation|
 |punct|Punctuation reordering code, see LDML Part 5: Collation|Punctuation reordering code, see LDML Part 5: Collation|
 |space|Whitespace reordering code, see LDML Part 5: Collation|Whitespace reordering code, see LDML Part 5: Collation|
 |symbol|Symbol reordering code (other than currency), see LDML Part 5: Collation|Symbol reordering code (other than currency), see LDML Part 5: Collation|
 
-#### Sorting Strength  (ks, colStrength)
+
+#### Sorting Strength
+
+Codes: ks, colStrength
+
 Collation parameter key for collation strength
 
 |Codes|English Name|Description|
@@ -186,7 +172,11 @@ Collation parameter key for collation strength
 |level3, tertiary|The tertiary level|The tertiary level|
 |level4, quaternary, quarternary|The quaternary level|The quaternary level|
 
-#### Highest Ignored  (kv)
+
+#### Highest Ignored
+
+Codes: kv
+
 Collation parameter key for maxVariable, the last reordering group to be affected by ka-shifted
 
 |Codes|English Name|Description|
@@ -195,25 +185,26 @@ Collation parameter key for maxVariable, the last reordering group to be affecte
 |punct|Spaces, punctuation ka-shifted|Spaces and punctuation are affected by ka-shifted (CLDR default)|
 |space|Spaces, punctuation ka-shifted|Only spaces are affected by ka-shifted|
 |symbol|Spaces, punctuation, non-currency symbols ka-shifted|Spaces, punctuation and symbols except for currency symbols are affected by ka-shifted (UCA default)|
+
 ### Currencies
 
-#### Currency  (cu, currency)
-Currency type
+#### Currency Format
 
-|Codes|English Name|Description|
-|-|-|-|
-|CURRENCY_CODE|_translation by other CLDR data_|Any currency code|
+Codes: cf
 
-#### Currency Format  (cf)
 Currency format
 
 |Codes|English Name|Description|
 |-|-|-|
 |account|Accounting|Accounting currency format|
 |standard|Standard|Standard currency format|
+
 ### Measurement
 
-#### Measurement System  (ms, measure)
+#### Measurement System
+
+Codes: ms, measure
+
 Measurement System
 
 |Codes|English Name|Description|
@@ -222,15 +213,12 @@ Measurement System
 |uksystem, imperial|UK|UK System of measurement: feet, pints, etc.; pints are 20oz|
 |ussystem|US|US System of measurement: feet, pints, etc.; pints are 16oz|
 
-#### Measurement Unit  (mu)
-Allows setting overrides for measurement units. Currently limited to quantity=temperature, and no provision for usage or size.
-
-|Codes|English Name|Description|
-|-|-|-|
-|MEASUREMENT_UNIT|_translation by other CLDR data_|Any temperature unit|
 ### Numbers
 
-#### Numbers  (nu, numbers)
+#### Numbers
+
+Codes: nu, numbers
+
 Numbering system type
 
 |Codes|English Name|Description|
@@ -262,11 +250,15 @@ Numbering system type
 |romanlow|Roman lowercase|Roman lowercase numerals — algorithmic|
 |segment|Segmented|Legacy computing segmented digits|
 |tamldec|Modern Tamil|Modern Tamil decimal digits|
-|traditio, traditional|Traditional numerals|Traditional numerals — may be algorithmic|
+|traditio, traditional|null|Traditional numerals — may be algorithmic|
 |SCRIPT_CODE-N|_translation by other CLDR data_|Any script code with numbering system|
+
 ### Segmentation
 
-#### Line Breaks within Words  (lw)
+#### Line Breaks within Words
+
+Codes: lw
+
 Line break key for CSS lev 3 word-break options
 
 |Codes|English Name|Description|
@@ -276,7 +268,11 @@ Line break key for CSS lev 3 word-break options
 |normal|Normal|CSS lev 3 word-break=normal, normal script/language behavior for midword breaks|
 |phrase|Keep in phrases|Prioritize keeping natural phrases (of multiple words) together when breaking, used in short text like title and headline|
 
-#### CJK Line Break  (lb)
+
+#### CJK Line Break
+
+Codes: lb
+
 Line break type
 
 |Codes|English Name|Description|
@@ -285,45 +281,24 @@ Line break type
 |normal|Normal|CSS level 3 line-break=normal, e.g. treat CJ as ID, break before hyphens for ja,zh|
 |strict|Strict|CSS level 3 line-break=strict, e.g. treat CJ as NS|
 
-#### Dictionary Break Exclusions  (dx)
-Scripts to exclude from dictionary break
 
-|Codes|English Name|Description|
-|-|-|-|
-|SCRIPT_CODE|_translation by other CLDR data_|ISO 15924 script code|
+#### Sentence Break After Abbr.
 
-#### Sentence Break After Abbr.  (ss)
+Codes: ss
+
 Sentence break parameter key to control use of suppressions data
 
 |Codes|English Name|Description|
 |-|-|-|
 |none|Off|Don't use segmentation suppressions data|
 |standard|On|Use segmentation suppressions data of type standard|
-### Timezone
 
-#### Time Zone  (tz, timezone)
-Time zone
-
-|Codes|English Name|Description|
-|-|-|-|
-|TIMEZONE_CODE|_translation by other CLDR data_|Any timezone code|
 ### Misc
 
-#### Region For Supplemental Data  (rg)
-Alternate region for determining certain data values (e.g. default currency and units) specified by rgScope
+#### Emoji Presentation
 
-|Codes|English Name|Description|
-|-|-|-|
-|RG_KEY_VALUE|_translation by other CLDR data_|A region code from idValidity/id[type='region'][idStatus='regular'], suffixed with 'ZZZZ'|
+Codes: em
 
-#### Region Subdivision  (sd)
-Region subdivision
-
-|Codes|English Name|Description|
-|-|-|-|
-|SUBDIVISION_CODE|_translation by other CLDR data_|Valid unicode_subdivision_subtag for the region subtag as specified in LDML, based on subdivisionContainment data in supplementalData, prefixed by the associated unicode_region_subtag|
-
-#### Emoji Presentation  (em)
 Emoji presentation style request
 
 |Codes|English Name|Description|
@@ -332,7 +307,11 @@ Emoji presentation style request
 |emoji|Emoji|use an emoji presentation for emoji characters if possible|
 |text|Text|use a text presentation for emoji characters if possible|
 
-#### Locale Variant  (va)
+
+#### Locale Variant
+
+Codes: va
+
 Common locale variant type
 
 |Codes|English Name|Description|

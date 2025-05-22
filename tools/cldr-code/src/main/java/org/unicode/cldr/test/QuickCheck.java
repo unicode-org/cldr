@@ -1,5 +1,15 @@
 package org.unicode.cldr.test;
 
+import com.google.common.collect.ImmutableSortedSet;
+import com.google.common.collect.LinkedHashMultimap;
+import com.google.common.collect.Multimap;
+import com.ibm.icu.impl.Relation;
+import com.ibm.icu.text.DateFormatSymbols;
+import com.ibm.icu.text.RuleBasedNumberFormat;
+import com.ibm.icu.text.SimpleDateFormat;
+import com.ibm.icu.text.SimpleFormatter;
+import com.ibm.icu.util.ULocale;
+import com.ibm.icu.util.ULocale.Type;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -17,7 +27,6 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.stream.Collectors;
-
 import org.unicode.cldr.tool.ToolConfig;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -42,17 +51,6 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 import org.xml.sax.XMLReader;
-
-import com.google.common.collect.ImmutableSortedSet;
-import com.google.common.collect.LinkedHashMultimap;
-import com.google.common.collect.Multimap;
-import com.ibm.icu.impl.Relation;
-import com.ibm.icu.text.DateFormatSymbols;
-import com.ibm.icu.text.RuleBasedNumberFormat;
-import com.ibm.icu.text.SimpleDateFormat;
-import com.ibm.icu.text.SimpleFormatter;
-import com.ibm.icu.util.ULocale;
-import com.ibm.icu.util.ULocale.Type;
 
 /**
  * Simple test that loads each file in the cldr directory, thus verifying that the DTD works, and

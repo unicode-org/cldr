@@ -40,6 +40,8 @@ public class TestDateOrder extends TestFmwk {
     }
 
     public void TestDateImportance() {
+        // Build test file
+
         XMLSource source = new SimpleXMLSource("xx");
         // add xpaths
         String fullDate =
@@ -61,10 +63,14 @@ public class TestDateOrder extends TestFmwk {
                 "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"yMd\"]/greatestDifference[@id=\"y\"]";
         source.putValueAtPath(intervalFormat, "d/M/y – d/M/y");
         CLDRFile cldrFile = new CLDRFile(source);
+
+        // Now test
+
         DateTimePatternGenerator.FormatParser fp = new DateTimePatternGenerator.FormatParser();
         Map<String, Map<DateOrder, String>> order =
                 DateOrder.getOrderingInfo(cldrFile, cldrFile, fp);
         assertNull("There should be no conflicts", order.get(fullDate));
+
         Collection<String> values = order.get(availableFormat).values();
         assertEquals("There should only one conflict", 1, values.size());
 
@@ -405,8 +411,13 @@ public class TestDateOrder extends TestFmwk {
             // only the first 6 elements of the path matter
             {
                 "//ldml/dates/calendars/calendar[@type=\"iso8601\"]/dateFormats/dateFormatLength",
+                "M yy",
+                "Field yy is incorrect. For a YMD calendar, the year field cannot be truncated to 2 digits."
+            },
+            {
+                "//ldml/dates/calendars/calendar[@type=\"iso8601\"]/dateFormats/dateFormatLength",
                 "M y",
-                "Field out of order: M…y"
+                "Field M cannot come before field y. A YMD calendar is special: bigger fields must come before smaller ones even when it feels unnatural in your language.  Change the text separating the fields as best you can."
             },
             {
                 "//ldml/dates/calendars/calendar[@type=\"iso8601\"]/dateFormats/dateFormatLength",
@@ -415,13 +426,13 @@ public class TestDateOrder extends TestFmwk {
             },
             {
                 "//ldml/dates/calendars/calendar[@type=\"iso8601\"]/timeFormats/timeFormatLength",
-                "M M",
-                "Duplicate field: M"
+                "M L",
+                "Field L is the same type as a previous field."
             },
             {
                 "//ldml/dates/calendars/calendar[@type=\"iso8601\"]/dateTimeFormats/availableFormats",
                 "d M y",
-                "Field out of order: d…M"
+                "Field d cannot come before field M. A YMD calendar is special: bigger fields must come before smaller ones even when it feels unnatural in your language.  Change the text separating the fields as best you can."
             },
             {
                 "//ldml/dates/calendars/calendar[@type=\"iso8601\"]/dateTimeFormats/availableFormats",
@@ -431,7 +442,7 @@ public class TestDateOrder extends TestFmwk {
             {
                 "//ldml/dates/calendars/calendar[@type=\"iso8601\"]/dateTimeFormats/intervalFormats",
                 "y M d - d M",
-                "Field out of order: d…M"
+                "Field d cannot come before field M in the 2nd part of the range. A YMD calendar is special: bigger fields must come before smaller ones even when it feels unnatural in your language.  Change the text separating the fields as best you can."
             },
             {
                 "//ldml/dates/calendars/calendar[@type=\"iso8601\"]/dateTimeFormats/intervalFormats",
@@ -440,18 +451,18 @@ public class TestDateOrder extends TestFmwk {
             },
             {
                 "//ldml/dates/calendars/calendar[@type=\"iso8601\"]/dateTimeFormats/dateTimeFormatLength",
-                "{1} {0}",
-                "Field out of order: {1}…{0}"
+                "{0} {1}",
+                "The {0} field (=time) cannot come before the {1} field (=date), in a YMD calendar."
             },
             {
                 "//ldml/dates/calendars/calendar[@type=\"iso8601\"]/dateTimeFormats/dateTimeFormatLength",
-                "{0} {1}",
+                "{1} {0}",
                 null
             },
             {
                 "//ldml/dates/calendars/calendar[@type=\"iso8601\"]/appendItems/appendItem",
                 "{1} {0}",
-                "Field out of order: {1}…{0}"
+                null
             },
             {
                 "//ldml/dates/calendars/calendar[@type=\"iso8601\"]/appendItems/appendItem",

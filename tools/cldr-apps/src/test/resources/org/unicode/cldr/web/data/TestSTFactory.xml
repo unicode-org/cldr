@@ -24,7 +24,7 @@
     <verify status="approved" locale="el" xpath="//ldml/localeDisplayNames/languages/language[@type='fr']" >the price of tea in greece</verify>
 
     <!-- cannot vote in locale ssy since this locale isn't listed for this org in Locales.txt -->
-    <user name="v_org_not_ssy" org="facebook" level="vetter" locales="*"/>
+    <user name="v_org_not_ssy" org="cldr" level="vetter" locales="*"/>
     <vote exception="true" name="v_org_not_ssy" locale="ssy" xpath="//ldml/localeDisplayNames/languages/language[@type='fr']">test</vote>
 
 	<!--  the 'name' is the real name of the user, and is also used as a handle later.

@@ -33,7 +33,7 @@ Some of the companies and organizations that use CLDR are:
 -   Microsoft (Windows, Office, Visual Studio, …)
 -   *and many others, including:* ABAS Software, Adobe, Amazon (Kindle), Amdocs, Apache, Appian, Argonne National Laboratory, Avaya, Babel (Pocoo library), BAE Systems Geospatial eXploitation Products, BEA, BluePhoenix Solutions, BMC Software, Boost, BroadJump, Business Objects, caris, CERN, CLDR Engine, Debian Linux, Dell, Eclipse, eBay, elixir-cldr, EMC Corporation, ESRI, Firebird RDBMS, FreeBSD, Gentoo Linux, GroundWork Open Source, GTK+, Harman/Becker Automotive Systems GmbH, HP, Hyperion, Inktomi, Innodata Isogen, Informatica, Intel, Interlogics, IONA, IXOS, Jikes, jQuery, Library of Congress, Mathworks, Mozilla, Netezza, OpenOffice, Oracle (Solaris, Java), Lawson Software, Leica Geosystems GIS & Mapping LLC, Mandrake Linux, OCLC, Perl, Progress Software, Python, Qt, QNX, Rogue Wave, SAP, Shutterstock, SIL, SPSS, Software AG, SuSE, Symantec, Teradata (NCR), ToolAware, Trend Micro, Twitter, Virage, webMethods, Wikimedia Foundation (Wikipedia), Wine, WMS Gaming, XyEnterprise, Yahoo!, Yelp
 
-There are other projects which consume cldr-json directly, see [here](https://github.com/unicode-org/cldr-json/blob/master/USERS.md#projects) for a list.
+There are other projects which consume [cldr-json] directly, see [here][cldr-json-users] for a list.
 
 ## How to Use?
 
@@ -80,3 +80,5 @@ The two important periods for translators are:
 
 The details for the current release are found in [Current CLDR Cycle](https://docs.google.com/spreadsheets/d/1N6inI5R84UoYlRwuCNPBOAP7ri4q2CmJmh8DC5g-S6c/edit#gid=1680747936).
 
+[cldr-json]: /index/json-format-data
+[cldr-json-users]: https://github.com/unicode-org/cldr-json/blob/master/USERS.md#projects

@@ -1,59 +1,961 @@
 #Locale	Action=add;	Path	Value
-locale=en ; action=add ; new_path=//ldml/localeDisplayNames/types/type[@key="calendar"][@type="buddhist"][@scope="core"] ; new_value=Buddhist
-locale=en ; action=add ; new_path=//ldml/localeDisplayNames/types/type[@key="calendar"][@type="chinese"][@scope="core"] ; new_value=Chinese
-locale=en ; action=add ; new_path=//ldml/localeDisplayNames/types/type[@key="calendar"][@type="coptic"][@scope="core"] ; new_value=Coptic
-locale=en ; action=add ; new_path=//ldml/localeDisplayNames/types/type[@key="calendar"][@type="dangi"][@scope="core"] ; new_value=Dangi
-locale=en ; action=add ; new_path=//ldml/localeDisplayNames/types/type[@key="calendar"][@type="ethiopic-amete-alem"][@scope="core"] ; new_value=Ethiopic Amete Alem
-locale=en ; action=add ; new_path=//ldml/localeDisplayNames/types/type[@key="calendar"][@type="ethiopic"][@scope="core"] ; new_value=Ethiopic
-locale=en ; action=add ; new_path=//ldml/localeDisplayNames/types/type[@key="calendar"][@type="gregorian"][@scope="core"] ; new_value=Gregorian
-locale=en ; action=add ; new_path=//ldml/localeDisplayNames/types/type[@key="calendar"][@type="hebrew"][@scope="core"] ; new_value=Hebrew
-locale=en ; action=add ; new_path=//ldml/localeDisplayNames/types/type[@key="calendar"][@type="indian"][@scope="core"] ; new_value=Indian National
-locale=en ; action=add ; new_path=//ldml/localeDisplayNames/types/type[@key="calendar"][@type="islamic-civil"][@scope="core"] ; new_value=Hijri (tabular, civil epoch)
-locale=en ; action=add ; new_path=//ldml/localeDisplayNames/types/type[@key="calendar"][@type="islamic-tbla"][@scope="core"] ; new_value=Hijri (tabular, astronomical epoch)
-locale=en ; action=add ; new_path=//ldml/localeDisplayNames/types/type[@key="calendar"][@type="islamic-umalqura"][@scope="core"] ; new_value=Hijri (Umm al-Qura)
-locale=en ; action=add ; new_path=//ldml/localeDisplayNames/types/type[@key="calendar"][@type="islamic"][@scope="core"] ; new_value=Hijri
-locale=en ; action=add ; new_path=//ldml/localeDisplayNames/types/type[@key="calendar"][@type="iso8601"][@scope="core"] ; new_value=Gregorian (year-first)
-locale=en ; action=add ; new_path=//ldml/localeDisplayNames/types/type[@key="calendar"][@type="japanese"][@scope="core"] ; new_value=Japanese
-locale=en ; action=add ; new_path=//ldml/localeDisplayNames/types/type[@key="calendar"][@type="persian"][@scope="core"] ; new_value=Persian
-locale=en ; action=add ; new_path=//ldml/localeDisplayNames/types/type[@key="calendar"][@type="roc"][@scope="core"] ; new_value=Minguo
-
-locale=en ; action=add ; new_path=//ldml/localeDisplayNames/types/type[@key="cf"][@type="account"][@scope="core"] ; new_value=Accounting
-locale=en ; action=add ; new_path=//ldml/localeDisplayNames/types/type[@key="cf"][@type="standard"][@scope="core"] ; new_value=Standard
-
-locale=en ; action=add ; new_path=//ldml/localeDisplayNames/types/type[@key="collation"][@type="compat"][@scope="core"] ; new_value=Compatibility
-locale=en ; action=add ; new_path=//ldml/localeDisplayNames/types/type[@key="collation"][@type="dictionary"][@scope="core"] ; new_value=Dictionary
-locale=en ; action=add ; new_path=//ldml/localeDisplayNames/types/type[@key="collation"][@type="ducet"][@scope="core"] ; new_value=Default Unicode
-locale=en ; action=add ; new_path=//ldml/localeDisplayNames/types/type[@key="collation"][@type="phonebook"][@scope="core"] ; new_value=Phonebook
-locale=en ; action=add ; new_path=//ldml/localeDisplayNames/types/type[@key="collation"][@type="phonetic"][@scope="core"] ; new_value=Phonetic
-locale=en ; action=add ; new_path=//ldml/localeDisplayNames/types/type[@key="collation"][@type="pinyin"][@scope="core"] ; new_value=Pinyin
-locale=en ; action=add ; new_path=//ldml/localeDisplayNames/types/type[@key="collation"][@type="search"][@scope="core"] ; new_value=Search
-locale=en ; action=add ; new_path=//ldml/localeDisplayNames/types/type[@key="collation"][@type="standard"][@scope="core"] ; new_value=Standard
-locale=en ; action=add ; new_path=//ldml/localeDisplayNames/types/type[@key="collation"][@type="stroke"][@scope="core"] ; new_value=Stroke
-locale=en ; action=add ; new_path=//ldml/localeDisplayNames/types/type[@key="collation"][@type="traditional"][@scope="core"] ; new_value=Traditional
-locale=en ; action=add ; new_path=//ldml/localeDisplayNames/types/type[@key="collation"][@type="unihan"][@scope="core"] ; new_value=Radical-Stroke
-locale=en ; action=add ; new_path=//ldml/localeDisplayNames/types/type[@key="collation"][@type="zhuyin"][@scope="core"] ; new_value=Zhuyin
-
-locale=en ; action=add ; new_path=//ldml/localeDisplayNames/types/type[@key="em"][@type="default"][@scope="core"] ; new_value=Default
-locale=en ; action=add ; new_path=//ldml/localeDisplayNames/types/type[@key="em"][@type="emoji"][@scope="core"] ; new_value=Emoji
-locale=en ; action=add ; new_path=//ldml/localeDisplayNames/types/type[@key="em"][@type="text"][@scope="core"] ; new_value=Text
-
-locale=en ; action=add ; new_path=//ldml/localeDisplayNames/types/type[@key="hc"][@type="h11"][@scope="core"] ; new_value=12 (0–11)
-locale=en ; action=add ; new_path=//ldml/localeDisplayNames/types/type[@key="hc"][@type="h12"][@scope="core"] ; new_value=12 (1–12)
-locale=en ; action=add ; new_path=//ldml/localeDisplayNames/types/type[@key="hc"][@type="h23"][@scope="core"] ; new_value=24 (0–23)
-locale=en ; action=add ; new_path=//ldml/localeDisplayNames/types/type[@key="hc"][@type="h24"][@scope="core"] ; new_value=24 (1–24)
-
-locale=en ; action=add ; new_path=//ldml/localeDisplayNames/types/type[@key="lb"][@type="loose"][@scope="core"] ; new_value=Loose
-locale=en ; action=add ; new_path=//ldml/localeDisplayNames/types/type[@key="lb"][@type="normal"][@scope="core"] ; new_value=Normal
-locale=en ; action=add ; new_path=//ldml/localeDisplayNames/types/type[@key="lb"][@type="strict"][@scope="core"] ; new_value=Strict
-
-locale=en ; action=add ; new_path=//ldml/localeDisplayNames/types/type[@key="lw"][@type="breakall"][@scope="core"] ; new_value=Break all
-locale=en ; action=add ; new_path=//ldml/localeDisplayNames/types/type[@key="lw"][@type="keepall"][@scope="core"] ; new_value=Keep all
-locale=en ; action=add ; new_path=//ldml/localeDisplayNames/types/type[@key="lw"][@type="normal"][@scope="core"] ; new_value=Normal
-locale=en ; action=add ; new_path=//ldml/localeDisplayNames/types/type[@key="lw"][@type="phrase"][@scope="core"] ; new_value=Keep in phrases
-
-locale=en ; action=add ; new_path=//ldml/localeDisplayNames/types/type[@key="ms"][@type="metric"][@scope="core"] ; new_value=Metric
-locale=en ; action=add ; new_path=//ldml/localeDisplayNames/types/type[@key="ms"][@type="uksystem"][@scope="core"] ; new_value=UK
-locale=en ; action=add ; new_path=//ldml/localeDisplayNames/types/type[@key="ms"][@type="ussystem"][@scope="core"] ; new_value=US
-
-locale=en ; action=add ; new_path=//ldml/localeDisplayNames/types/type[@key="ss"][@type="none"][@scope="core"] ; new_value=Off
-locale=en ; action=add ; new_path=//ldml/localeDisplayNames/types/type[@key="ss"][@type="standard"][@scope="core"] ; new_value=On
+locale=af;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | nul | knoppiesimbool
+locale=af;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | een | knoppiesimbool
+locale=af;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | twee | knoppiesimbool
+locale=af;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | drie | knoppiesimbool
+locale=af;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | vier | knoppiesimbool
+locale=af;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | vyf | knoppiesimbool
+locale=af;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | ses | knoppiesimbool
+locale=af;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | sewe | knoppiesimbool
+locale=af;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | agt | knoppiesimbool
+locale=af;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | nege | knoppiesimbool
+locale=ak;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | hwee | kiikape
+locale=ak;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | koro | kiikape
+locale=ak;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | abien | kiikape
+locale=ak;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | abiasa | kiikape
+locale=ak;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | anan | kiikape
+locale=ak;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | anum | kiikape
+locale=ak;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | asia | kiikape
+locale=ak;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | asuon | kiikape
+locale=ak;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | awɔtwe | kiikape
+locale=ak;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | akron | kiikape
+locale=am;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | ባዶ | የአብይ ሆሄ ቁልፍ ማብሪያ
+locale=am;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | አንድ | የአብይ ሆሄ ቁልፍ ማብሪያ
+locale=am;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | ሁለት | የአብይ ሆሄ ቁልፍ ማብሪያ
+locale=am;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | ሦስት | የአብይ ሆሄ ቁልፍ ማብሪያ
+locale=am;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | አራት | የአብይ ሆሄ ቁልፍ ማብሪያ
+locale=am;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | አምስት | የአብይ ሆሄ ቁልፍ ማብሪያ
+locale=am;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | ስድስት | የአብይ ሆሄ ቁልፍ ማብሪያ
+locale=am;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | ሰባት | የአብይ ሆሄ ቁልፍ ማብሪያ
+locale=am;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | ስምንት | የአብይ ሆሄ ቁልፍ ማብሪያ
+locale=am;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | ዘጠኝ | የአብይ ሆሄ ቁልፍ ማብሪያ
+locale=ar;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | صفر | مفتاح
+locale=ar;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | واحد | مفتاح
+locale=ar;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | إثنان | مفتاح
+locale=ar;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | ثلاثة | مفتاح
+locale=ar;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | أربعة | مفتاح
+locale=ar;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | خمسة | مفتاح
+locale=ar;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | ستة | مفتاح
+locale=ar;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | سبعة | مفتاح
+locale=ar;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | ثمانية | مفتاح
+locale=ar;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | تسعة | مفتاح
+locale=ar_SA;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | صفر | مفتاح
+locale=ar_SA;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | واحد | مفتاح
+locale=ar_SA;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | إثنان | مفتاح
+locale=ar_SA;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | ثلاثة | مفتاح
+locale=ar_SA;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | أربعة | مفتاح
+locale=ar_SA;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | خمسة | مفتاح
+locale=ar_SA;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | ستة | مفتاح
+locale=ar_SA;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | سبعة | مفتاح
+locale=ar_SA;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | ثمانية | مفتاح
+locale=ar_SA;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | تسعة | مفتاح
+locale=az;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | sıfır | klaviatura qapağı
+locale=az;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | bir | klaviatura qapağı
+locale=az;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | iki | klaviatura qapağı
+locale=az;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | üç | klaviatura qapağı
+locale=az;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | dörd | klaviatura qapağı
+locale=az;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | beş | klaviatura qapağı
+locale=az;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | altı | klaviatura qapağı
+locale=az;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | yeddi | klaviatura qapağı
+locale=az;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | səkkiz | klaviatura qapağı
+locale=az;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | doqquz | klaviatura qapağı
+locale=be;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | нуль | Клавіша
+locale=be;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | адзiн | Клавіша
+locale=be;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | два | Клавіша
+locale=be;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | тры | Клавіша
+locale=be;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | чатыры | Клавіша
+locale=be;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | пяць | Клавіша
+locale=be;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | шэсць | Клавіша
+locale=be;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | сем | Клавіша
+locale=be;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | восем | Клавіша
+locale=be;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | дзевяць | Клавіша
+locale=bg;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | нула | Клавиш
+locale=bg;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | едно | Клавиш
+locale=bg;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | две | Клавиш
+locale=bg;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | три | Клавиш
+locale=bg;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | четири | Клавиш
+locale=bg;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | пет | Клавиш
+locale=bg;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | шест | Клавиш
+locale=bg;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | седем | Клавиш
+locale=bg;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | осем | Клавиш
+locale=bg;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | девет | Клавиш
+locale=bn;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | শূন্য | কিক্যাপ
+locale=bn;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | এক | কিক্যাপ
+locale=bn;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | দুই | কিক্যাপ
+locale=bn;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | তিন | কিক্যাপ
+locale=bn;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | চার | কিক্যাপ
+locale=bn;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | পাঁচ | কিক্যাপ
+locale=bn;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | ছয় | কিক্যাপ
+locale=bn;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | সাত | কিক্যাপ
+locale=bn;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | আট | কিক্যাপ
+locale=bn;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | নয় | কিক্যাপ
+locale=bs;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | nula | Kapica za tipku
+locale=bs;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | jedan | Kapica za tipku
+locale=bs;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | dva | Kapica za tipku
+locale=bs;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | tri | Kapica za tipku
+locale=bs;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | četiri | Kapica za tipku
+locale=bs;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | pet | Kapica za tipku
+locale=bs;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | šest | Kapica za tipku
+locale=bs;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | sedam | Kapica za tipku
+locale=bs;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | osam | Kapica za tipku
+locale=bs;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | devet | Kapica za tipku
+locale=ca;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | zero | tecla
+locale=ca;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | u | tecla
+locale=ca;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | dos | tecla
+locale=ca;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | tres | tecla
+locale=ca;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | quatre | tecla
+locale=ca;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | cinc | tecla
+locale=ca;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | sis | tecla
+locale=ca;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | set | tecla
+locale=ca;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | vuit | tecla
+locale=ca;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | nou | tecla
+locale=ccp;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | 𑄥𑄪𑄚𑄳𑄠𑄴𑄧 | 𑄇𑄨𑄇𑄳𑄠𑄛𑄴
+locale=ccp;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | 𑄆𑄇𑄴 | 𑄇𑄨𑄇𑄳𑄠𑄛𑄴
+locale=ccp;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | 𑄘𑄨 | 𑄇𑄨𑄇𑄳𑄠𑄛𑄴
+locale=ccp;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | 𑄖𑄨𑄚𑄴 | 𑄇𑄨𑄇𑄳𑄠𑄛𑄴
+locale=ccp;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | 𑄌𑄳𑄆𑄬𑄢𑄴 | 𑄇𑄨𑄇𑄳𑄠𑄛𑄴
+locale=ccp;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | 𑄛𑄌𑄴 | 𑄇𑄨𑄇𑄳𑄠𑄛𑄴
+locale=ccp;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | 𑄍𑄧 | 𑄇𑄨𑄇𑄳𑄠𑄛𑄴
+locale=ccp;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | 𑄥𑄖𑄴 | 𑄇𑄨𑄇𑄳𑄠𑄛𑄴
+locale=ccp;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | 𑄃𑄖𑄳𑄠𑄴𑄧 | 𑄇𑄨𑄇𑄳𑄠𑄛𑄴
+locale=ccp;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | 𑄚𑄧 | 𑄇𑄨𑄇𑄳𑄠𑄛𑄴
+locale=chr;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | ꮭ ꭺꮝꮧ | ᎠᏚᎢᏍᏘᎠᎵᏚᎶ
+locale=chr;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | ꮠꮼ | ᎠᏚᎢᏍᏘᎠᎵᏚᎶ
+locale=chr;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | ꮤꮅ | ᎠᏚᎢᏍᏘᎠᎵᏚᎶ
+locale=chr;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | ꮶꭲ | ᎠᏚᎢᏍᏘᎠᎵᏚᎶ
+locale=chr;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | ꮕꭹ | ᎠᏚᎢᏍᏘᎠᎵᏚᎶ
+locale=chr;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | ꭿꮝꭹ | ᎠᏚᎢᏍᏘᎠᎵᏚᎶ
+locale=chr;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | ꮡꮣꮅ | ᎠᏚᎢᏍᏘᎠᎵᏚᎶ
+locale=chr;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | ꭶꮅꮙꭹ | ᎠᏚᎢᏍᏘᎠᎵᏚᎶ
+locale=chr;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | ꮷꮑꮃ | ᎠᏚᎢᏍᏘᎠᎵᏚᎶ
+locale=chr;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | ꮠꮑꮃ | ᎠᏚᎢᏍᏘᎠᎵᏚᎶ
+locale=cs;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | nula | klávesa
+locale=cs;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | jeden | klávesa
+locale=cs;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | dva | klávesa
+locale=cs;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | tři | klávesa
+locale=cs;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | čtyři | klávesa
+locale=cs;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | pět | klávesa
+locale=cs;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | šest | klávesa
+locale=cs;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | sedm | klávesa
+locale=cs;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | osm | klávesa
+locale=cs;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | devět | klávesa
+locale=cy;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | dim | gorchudd bysell
+locale=cy;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | un | gorchudd bysell
+locale=cy;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | dau | gorchudd bysell
+locale=cy;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | tri | gorchudd bysell
+locale=cy;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | pedwar | gorchudd bysell
+locale=cy;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | pump | gorchudd bysell
+locale=cy;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | chwech | gorchudd bysell
+locale=cy;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | saith | gorchudd bysell
+locale=cy;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | wyth | gorchudd bysell
+locale=cy;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | naw | gorchudd bysell
+locale=da;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | nul | keycap
+locale=da;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | et | keycap
+locale=da;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | to | keycap
+locale=da;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | tre | keycap
+locale=da;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | fire | keycap
+locale=da;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | fem | keycap
+locale=da;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | seks | keycap
+locale=da;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | syv | keycap
+locale=da;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | otte | keycap
+locale=da;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | ni | keycap
+locale=de;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | null | Taste
+locale=de;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | eins | Taste
+locale=de;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | zwei | Taste
+locale=de;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | drei | Taste
+locale=de;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | vier | Taste
+locale=de;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | fünf | Taste
+locale=de;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | sechs | Taste
+locale=de;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | sieben | Taste
+locale=de;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | acht | Taste
+locale=de;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | neun | Taste
+locale=de_CH;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | null | Taste
+locale=de_CH;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | eins | Taste
+locale=de_CH;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | zwei | Taste
+locale=de_CH;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | drei | Taste
+locale=de_CH;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | vier | Taste
+locale=de_CH;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | fünf | Taste
+locale=de_CH;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | sechs | Taste
+locale=de_CH;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | sieben | Taste
+locale=de_CH;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | acht | Taste
+locale=de_CH;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | neun | Taste
+locale=el;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | μηδέν | πλήκτρο
+locale=el;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | ένα | πλήκτρο
+locale=el;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | δύο | πλήκτρο
+locale=el;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | τρία | πλήκτρο
+locale=el;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | τέσσερα | πλήκτρο
+locale=el;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | πέντε | πλήκτρο
+locale=el;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | έξι | πλήκτρο
+locale=el;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | επτά | πλήκτρο
+locale=el;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | οκτώ | πλήκτρο
+locale=el;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | εννέα | πλήκτρο
+locale=en;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | zero | keycap
+locale=en;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | one | keycap
+locale=en;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | two | keycap
+locale=en;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | three | keycap
+locale=en;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | four | keycap
+locale=en;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | five | keycap
+locale=en;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | six | keycap
+locale=en;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | seven | keycap
+locale=en;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | eight | keycap
+locale=en;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | nine | keycap
+locale=en_001;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | zero | keycap
+locale=en_001;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | one | keycap
+locale=en_001;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | two | keycap
+locale=en_001;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | three | keycap
+locale=en_001;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | four | keycap
+locale=en_001;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | five | keycap
+locale=en_001;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | six | keycap
+locale=en_001;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | seven | keycap
+locale=en_001;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | eight | keycap
+locale=en_001;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | nine | keycap
+locale=en_IN;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | zero | keycap
+locale=en_IN;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | one | keycap
+locale=en_IN;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | two | keycap
+locale=en_IN;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | three | keycap
+locale=en_IN;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | four | keycap
+locale=en_IN;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | five | keycap
+locale=en_IN;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | six | keycap
+locale=en_IN;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | seven | keycap
+locale=en_IN;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | eight | keycap
+locale=en_IN;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | nine | keycap
+locale=es;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | cero | Teclas
+locale=es;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | uno | Teclas
+locale=es;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | dos | Teclas
+locale=es;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | tres | Teclas
+locale=es;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | cuatro | Teclas
+locale=es;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | cinco | Teclas
+locale=es;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | seis | Teclas
+locale=es;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | siete | Teclas
+locale=es;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | ocho | Teclas
+locale=es;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | nueve | Teclas
+locale=es_419;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | cero | tecla mayus
+locale=es_419;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | uno | tecla mayus
+locale=es_419;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | dos | tecla mayus
+locale=es_419;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | tres | tecla mayus
+locale=es_419;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | cuatro | tecla mayus
+locale=es_419;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | cinco | tecla mayus
+locale=es_419;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | seis | tecla mayus
+locale=es_419;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | siete | tecla mayus
+locale=es_419;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | ocho | tecla mayus
+locale=es_419;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | nueve | tecla mayus
+locale=es_MX;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | cero | tecla
+locale=es_MX;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | uno | tecla
+locale=es_MX;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | dos | tecla
+locale=es_MX;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | tres | tecla
+locale=es_MX;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | cuatro | tecla
+locale=es_MX;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | cinco | tecla
+locale=es_MX;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | seis | tecla
+locale=es_MX;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | siete | tecla
+locale=es_MX;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | ocho | tecla
+locale=es_MX;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | nueve | tecla
+locale=es_US;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | cero | tecla
+locale=es_US;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | uno | tecla
+locale=es_US;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | dos | tecla
+locale=es_US;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | tres | tecla
+locale=es_US;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | cuatro | tecla
+locale=es_US;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | cinco | tecla
+locale=es_US;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | seis | tecla
+locale=es_US;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | siete | tecla
+locale=es_US;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | ocho | tecla
+locale=es_US;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | nueve | tecla
+locale=et;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | null | klahv
+locale=et;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | üks | klahv
+locale=et;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | kaks | klahv
+locale=et;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | kolm | klahv
+locale=et;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | neli | klahv
+locale=et;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | viis | klahv
+locale=et;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | kuus | klahv
+locale=et;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | seitse | klahv
+locale=et;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | kaheksa | klahv
+locale=et;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | üheksa | klahv
+locale=fa;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | صفر | جلد کلید
+locale=fa;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | یک | جلد کلید
+locale=fa;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | دو | جلد کلید
+locale=fa;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | سه | جلد کلید
+locale=fa;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | چهار | جلد کلید
+locale=fa;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | پنج | جلد کلید
+locale=fa;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | شش | جلد کلید
+locale=fa;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | هفت | جلد کلید
+locale=fa;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | هشت | جلد کلید
+locale=fa;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | نه | جلد کلید
+locale=ff;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | ɓolum | keycap
+locale=ff;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | goʼo | keycap
+locale=ff;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | ɗiɗi | keycap
+locale=ff;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | tati | keycap
+locale=ff;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | nawi | keycap
+locale=ff;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | jowi | keycap
+locale=ff;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | jeegoʼo | keycap
+locale=ff;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | jeeɗiɗi | keycap
+locale=ff;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | jeetati | keycap
+locale=ff;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | jeenawi | keycap
+locale=fi;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | nolla | näppäin
+locale=fi;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | yksi | näppäin
+locale=fi;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | kaksi | näppäin
+locale=fi;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | kolme | näppäin
+locale=fi;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | neljä | näppäin
+locale=fi;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | viisi | näppäin
+locale=fi;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | kuusi | näppäin
+locale=fi;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | seitsemän | näppäin
+locale=fi;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | kahdeksan | näppäin
+locale=fi;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | yhdeksän | näppäin
+locale=fil;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | walâ | keycap
+locale=fil;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | isá | keycap
+locale=fil;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | dalawá | keycap
+locale=fil;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | tatló | keycap
+locale=fil;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | ápat | keycap
+locale=fil;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | limá | keycap
+locale=fil;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | anim | keycap
+locale=fil;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | pitó | keycap
+locale=fil;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | waló | keycap
+locale=fil;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | siyám | keycap
+locale=fo;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | null | Knappahetta
+locale=fo;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | ein | Knappahetta
+locale=fo;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | tveir | Knappahetta
+locale=fo;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | tríggir | Knappahetta
+locale=fo;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | fýre | Knappahetta
+locale=fo;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | fimm | Knappahetta
+locale=fo;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | seks | Knappahetta
+locale=fo;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | sjey | Knappahetta
+locale=fo;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | átta | Knappahetta
+locale=fo;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | níggju | Knappahetta
+locale=fr;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | zéro | touches
+locale=fr;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | un | touches
+locale=fr;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | deux | touches
+locale=fr;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | trois | touches
+locale=fr;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | quatre | touches
+locale=fr;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | cinq | touches
+locale=fr;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | six | touches
+locale=fr;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | sept | touches
+locale=fr;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | huit | touches
+locale=fr;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | neuf | touches
+locale=ga;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | a náid | caipín eochrach
+locale=ga;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | a haon | caipín eochrach
+locale=ga;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | a dó | caipín eochrach
+locale=ga;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | a trí | caipín eochrach
+locale=ga;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | a ceathair | caipín eochrach
+locale=ga;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | a cúig | caipín eochrach
+locale=ga;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | a sé | caipín eochrach
+locale=ga;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | a seacht | caipín eochrach
+locale=ga;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | a hocht | caipín eochrach
+locale=ga;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | a naoi | caipín eochrach
+locale=gu;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | શૂન્ય | કીકેપ
+locale=gu;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | એક | કીકેપ
+locale=gu;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | બે | કીકેપ
+locale=gu;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | ત્રણ | કીકેપ
+locale=gu;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | ચાર | કીકેપ
+locale=gu;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | પાંચ | કીકેપ
+locale=gu;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | છ | કીકેપ
+locale=gu;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | સાત | કીકેપ
+locale=gu;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | આઠ | કીકેપ
+locale=gu;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | નવ | કીકેપ
+locale=ha;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | sifili | maɓalli na musamman
+locale=ha;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | daya | maɓalli na musamman
+locale=ha;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | biyu | maɓalli na musamman
+locale=ha;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | uku | maɓalli na musamman
+locale=ha;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | hudu | maɓalli na musamman
+locale=ha;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | biyar | maɓalli na musamman
+locale=ha;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | shida | maɓalli na musamman
+locale=ha;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | bakwai | maɓalli na musamman
+locale=ha;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | takwas | maɓalli na musamman
+locale=ha;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | tara | maɓalli na musamman
+locale=he;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | אפס | מקש
+locale=he;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | אחת | מקש
+locale=he;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | שתיים | מקש
+locale=he;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | שלוש | מקש
+locale=he;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | ארבע | מקש
+locale=he;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | חמש | מקש
+locale=he;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | שש | מקש
+locale=he;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | שבע | מקש
+locale=he;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | שמונה | מקש
+locale=he;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | תשע | מקש
+locale=hi;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | शून्य | कीकैप
+locale=hi;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | एक | कीकैप
+locale=hi;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | दो | कीकैप
+locale=hi;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | तीन | कीकैप
+locale=hi;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | चार | कीकैप
+locale=hi;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | पाँच | कीकैप
+locale=hi;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | छह | कीकैप
+locale=hi;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | सात | कीकैप
+locale=hi;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | आठ | कीकैप
+locale=hi;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | नौ | कीकैप
+locale=hr;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | nula | tipka
+locale=hr;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | jedan | tipka
+locale=hr;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | dva | tipka
+locale=hr;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | tri | tipka
+locale=hr;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | četiri | tipka
+locale=hr;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | pet | tipka
+locale=hr;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | šest | tipka
+locale=hr;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | sedam | tipka
+locale=hr;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | osam | tipka
+locale=hr;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | devet | tipka
+locale=hu;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | nulla | gombfej
+locale=hu;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | egy | gombfej
+locale=hu;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | kettő | gombfej
+locale=hu;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | három | gombfej
+locale=hu;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | négy | gombfej
+locale=hu;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | öt | gombfej
+locale=hu;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | hat | gombfej
+locale=hu;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | hét | gombfej
+locale=hu;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | nyolc | gombfej
+locale=hu;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | kilenc | gombfej
+locale=hy;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | զրո | ստեղն
+locale=hy;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | մեկ | ստեղն
+locale=hy;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | երկու | ստեղն
+locale=hy;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | երեք | ստեղն
+locale=hy;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | չորս | ստեղն
+locale=hy;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | հինգ | ստեղն
+locale=hy;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | վեց | ստեղն
+locale=hy;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | յոթ | ստեղն
+locale=hy;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | ութ | ստեղն
+locale=hy;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | ինը | ստեղն
+locale=id;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | nol | keycap
+locale=id;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | satu | keycap
+locale=id;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | dua | keycap
+locale=id;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | tiga | keycap
+locale=id;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | empat | keycap
+locale=id;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | lima | keycap
+locale=id;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | enam | keycap
+locale=id;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | tujuh | keycap
+locale=id;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | delapan | keycap
+locale=id;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | sembilan | keycap
+locale=is;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | núll | takki
+locale=is;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | einn | takki
+locale=is;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | tveir | takki
+locale=is;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | þrír | takki
+locale=is;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | fjórir | takki
+locale=is;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | fimm | takki
+locale=is;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | sex | takki
+locale=is;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | sjó | takki
+locale=is;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | átta | takki
+locale=is;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | níu | takki
+locale=it;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | zero | tasto
+locale=it;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | uno | tasto
+locale=it;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | due | tasto
+locale=it;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | tre | tasto
+locale=it;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | quattro | tasto
+locale=it;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | cinque | tasto
+locale=it;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | sei | tasto
+locale=it;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | sette | tasto
+locale=it;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | otto | tasto
+locale=it;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | nove | tasto
+locale=ja;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | 〇 | 囲み数字
+locale=ja;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | 一 | 囲み数字
+locale=ja;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | 二 | 囲み数字
+locale=ja;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | 三 | 囲み数字
+locale=ja;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | 四 | 囲み数字
+locale=ja;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | 五 | 囲み数字
+locale=ja;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | 六 | 囲み数字
+locale=ja;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | 七 | 囲み数字
+locale=ja;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | 八 | 囲み数字
+locale=ja;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | 九 | 囲み数字
+locale=ka;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | ნული | კლავიში
+locale=ka;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | ერთი | კლავიში
+locale=ka;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | ორი | კლავიში
+locale=ka;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | სამი | კლავიში
+locale=ka;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | ოთხი | კლავიში
+locale=ka;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | ხუთი | კლავიში
+locale=ka;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | ექვსი | კლავიში
+locale=ka;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | შვიდი | კლავიში
+locale=ka;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | რვა | კლავიში
+locale=ka;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | ცხრა | კლავიში
+locale=kk;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | нөл | перне
+locale=kk;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | бір | перне
+locale=kk;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | екі | перне
+locale=kk;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | үш | перне
+locale=kk;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | төрт | перне
+locale=kk;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | бес | перне
+locale=kk;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | алты | перне
+locale=kk;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | жеті | перне
+locale=kk;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | сегіз | перне
+locale=kk;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | тоғыз | перне
+locale=kl;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | nuulu | keycap
+locale=kl;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | ataaseq | keycap
+locale=kl;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | marluk | keycap
+locale=kl;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | pingasut | keycap
+locale=kl;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | sisamat | keycap
+locale=kl;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | tallimat | keycap
+locale=kl;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | arfinillit | keycap
+locale=kl;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | arfineq-marluk | keycap
+locale=kl;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | arfineq-pingasut | keycap
+locale=kl;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | arfineq-sisamat | keycap
+locale=km;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | សូន្យ | គម្របគ្រាប់ចុច
+locale=km;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | មួយ | គម្របគ្រាប់ចុច
+locale=km;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | ពីរ | គម្របគ្រាប់ចុច
+locale=km;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | បី | គម្របគ្រាប់ចុច
+locale=km;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | បួន | គម្របគ្រាប់ចុច
+locale=km;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | ប្រាំ | គម្របគ្រាប់ចុច
+locale=km;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | ប្រាំមួយ | គម្របគ្រាប់ចុច
+locale=km;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | ប្រាំពីរ | គម្របគ្រាប់ចុច
+locale=km;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | ប្រាំបី | គម្របគ្រាប់ចុច
+locale=km;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | ប្រាំបួន | គម្របគ្រាប់ចុច
+locale=kn;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | ಶೂನ್ಯ | ಕೀಕ್ಯಾಪ್
+locale=kn;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | ಒಂದು | ಕೀಕ್ಯಾಪ್
+locale=kn;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | ಎರಡು | ಕೀಕ್ಯಾಪ್
+locale=kn;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | ಮೂರು | ಕೀಕ್ಯಾಪ್
+locale=kn;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | ನಾಲ್ಕು | ಕೀಕ್ಯಾಪ್
+locale=kn;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | ಐದು | ಕೀಕ್ಯಾಪ್
+locale=kn;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | ಆರು | ಕೀಕ್ಯಾಪ್
+locale=kn;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | ಏಳು | ಕೀಕ್ಯಾಪ್
+locale=kn;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | ಎಂಟು | ಕೀಕ್ಯಾಪ್
+locale=kn;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | ಒಂಭತ್ತು | ಕೀಕ್ಯಾಪ್
+locale=ko;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | 공 | 키 캡
+locale=ko;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | 일 | 키 캡
+locale=ko;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | 이 | 키 캡
+locale=ko;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | 삼 | 키 캡
+locale=ko;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | 사 | 키 캡
+locale=ko;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | 오 | 키 캡
+locale=ko;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | 육 | 키 캡
+locale=ko;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | 칠 | 키 캡
+locale=ko;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | 팔 | 키 캡
+locale=ko;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | 구 | 키 캡
+locale=ky;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | нөл | клавиатура калпакчасы
+locale=ky;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | бир | клавиатура калпакчасы
+locale=ky;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | эки | клавиатура калпакчасы
+locale=ky;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | үч | клавиатура калпакчасы
+locale=ky;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | төрт | клавиатура калпакчасы
+locale=ky;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | беш | клавиатура калпакчасы
+locale=ky;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | алты | клавиатура калпакчасы
+locale=ky;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | жети | клавиатура калпакчасы
+locale=ky;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | сегиз | клавиатура калпакчасы
+locale=ky;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | тогуз | клавиатура калпакчасы
+locale=lb;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | null | keycap
+locale=lb;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | eent | keycap
+locale=lb;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | zwee | keycap
+locale=lb;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | dräi | keycap
+locale=lb;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | véier | keycap
+locale=lb;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | fënnef | keycap
+locale=lb;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | sechs | keycap
+locale=lb;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | siwen | keycap
+locale=lb;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | aacht | keycap
+locale=lb;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | néng | keycap
+locale=lo;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | ศูนย์ | ແປ້ນແຄັບ
+locale=lo;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | ໜຶ່ງ | ແປ້ນແຄັບ
+locale=lo;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | ສອງ | ແປ້ນແຄັບ
+locale=lo;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | ສາມ | ແປ້ນແຄັບ
+locale=lo;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | ສີ່ | ແປ້ນແຄັບ
+locale=lo;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | ຫ້າ | ແປ້ນແຄັບ
+locale=lo;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | ຫົກ | ແປ້ນແຄັບ
+locale=lo;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | ເຈັດ | ແປ້ນແຄັບ
+locale=lo;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | ແປດ | ແປ້ນແຄັບ
+locale=lo;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | ເກົ້າ | ແປ້ນແຄັບ
+locale=lt;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | nulis | mygtukas
+locale=lt;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | vienas | mygtukas
+locale=lt;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | du | mygtukas
+locale=lt;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | trys | mygtukas
+locale=lt;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | keturi | mygtukas
+locale=lt;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | penki | mygtukas
+locale=lt;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | šeši | mygtukas
+locale=lt;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | septyni | mygtukas
+locale=lt;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | aštuoni | mygtukas
+locale=lt;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | devyni | mygtukas
+locale=lv;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | nulle | taustiņš
+locale=lv;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | viens | taustiņš
+locale=lv;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | divi | taustiņš
+locale=lv;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | trīs | taustiņš
+locale=lv;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | četri | taustiņš
+locale=lv;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | pieci | taustiņš
+locale=lv;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | seši | taustiņš
+locale=lv;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | septiņi | taustiņš
+locale=lv;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | astoņi | taustiņš
+locale=lv;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | deviņi | taustiņš
+locale=mk;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | нула | копче
+locale=mk;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | еден | копче
+locale=mk;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | два | копче
+locale=mk;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | три | копче
+locale=mk;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | четири | копче
+locale=mk;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | пет | копче
+locale=mk;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | шест | копче
+locale=mk;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | седум | копче
+locale=mk;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | осум | копче
+locale=mk;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | девет | копче
+locale=ml;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | പൂജ്യം | കീക്യാപ്പ്
+locale=ml;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | ഒന്ന് | കീക്യാപ്പ്
+locale=ml;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | രണ്ട് | കീക്യാപ്പ്
+locale=ml;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | മൂന്ന് | കീക്യാപ്പ്
+locale=ml;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | നാല് | കീക്യാപ്പ്
+locale=ml;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | അഞ്ച് | കീക്യാപ്പ്
+locale=ml;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | ആറ് | കീക്യാപ്പ്
+locale=ml;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | ഏഴ് | കീക്യാപ്പ്
+locale=ml;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | എട്ട് | കീക്യാപ്പ്
+locale=ml;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | ഒമ്പത് | കീക്യാപ്പ്
+locale=mr;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | शून्य | कीकॅप
+locale=mr;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | एक | कीकॅप
+locale=mr;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | दोन | कीकॅप
+locale=mr;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | तीन | कीकॅप
+locale=mr;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | चार | कीकॅप
+locale=mr;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | पाच | कीकॅप
+locale=mr;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | सहा | कीकॅप
+locale=mr;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | सात | कीकॅप
+locale=mr;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | आठ | कीकॅप
+locale=mr;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | नऊ | कीकॅप
+locale=ms;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | kosong | butang kekunci
+locale=ms;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | satu | butang kekunci
+locale=ms;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | dua | butang kekunci
+locale=ms;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | tiga | butang kekunci
+locale=ms;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | empat | butang kekunci
+locale=ms;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | lima | butang kekunci
+locale=ms;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | enam | butang kekunci
+locale=ms;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | tujuh | butang kekunci
+locale=ms;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | lapan | butang kekunci
+locale=ms;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | sembilan | butang kekunci
+locale=mt;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | żero | keycap
+locale=mt;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | wieħed | keycap
+locale=mt;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | tnejn | keycap
+locale=mt;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | tlieta | keycap
+locale=mt;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | erbgħa | keycap
+locale=mt;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | ħamsa | keycap
+locale=mt;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | sitta | keycap
+locale=mt;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | sebgħa | keycap
+locale=mt;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | tmienja | keycap
+locale=mt;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | disgħa | keycap
+locale=my;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | သုည | ခလုတ်
+locale=my;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | တစ် | ခလုတ်
+locale=my;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | နှစ် | ခလုတ်
+locale=my;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | သုံး | ခလုတ်
+locale=my;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | လေး | ခလုတ်
+locale=my;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | ငါး | ခလုတ်
+locale=my;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | ခြောက် | ခလုတ်
+locale=my;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | ခုနှစ် | ခလုတ်
+locale=my;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | ရှစ် | ခလုတ်
+locale=my;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | ကိုး | ခလုတ်
+locale=ne;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | शुन्य | किक्याप
+locale=ne;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | एक | किक्याप
+locale=ne;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | दुई | किक्याप
+locale=ne;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | तिन | किक्याप
+locale=ne;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | चार | किक्याप
+locale=ne;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | पाँच | किक्याप
+locale=ne;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | छ | किक्याप
+locale=ne;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | सात | किक्याप
+locale=ne;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | आठ | किक्याप
+locale=ne;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | नौ | किक्याप
+locale=nl;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | nul | toets
+locale=nl;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | een | toets
+locale=nl;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | twee | toets
+locale=nl;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | drie | toets
+locale=nl;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | vier | toets
+locale=nl;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | vijf | toets
+locale=nl;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | zes | toets
+locale=nl;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | zeven | toets
+locale=nl;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | acht | toets
+locale=nl;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | negen | toets
+locale=nn;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | null | tastar
+locale=nn;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | éin | tastar
+locale=nn;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | to | tastar
+locale=nn;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | tre | tastar
+locale=nn;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | fire | tastar
+locale=nn;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | fem | tastar
+locale=nn;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | seks | tastar
+locale=nn;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | sju | tastar
+locale=nn;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | åtte | tastar
+locale=nn;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | ni | tastar
+locale=no;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | null | taster
+locale=no;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | én | taster
+locale=no;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | to | taster
+locale=no;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | tre | taster
+locale=no;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | fire | taster
+locale=no;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | fem | taster
+locale=no;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | seks | taster
+locale=no;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | sju | taster
+locale=no;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | åtte | taster
+locale=no;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | ni | taster
+locale=om;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | zeeroo | keycap
+locale=om;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | tokko | keycap
+locale=om;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | lama | keycap
+locale=om;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | sadii | keycap
+locale=om;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | afur | keycap
+locale=om;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | shan | keycap
+locale=om;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | jaha | keycap
+locale=om;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | torba | keycap
+locale=om;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | saddet | keycap
+locale=om;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | sagal | keycap
+locale=pa;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | ਸਿਫਰ | ਕੀਕੈਪ
+locale=pa;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | ਇੱਕ | ਕੀਕੈਪ
+locale=pa;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | ਦੋ | ਕੀਕੈਪ
+locale=pa;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | ਤਿੰਨ | ਕੀਕੈਪ
+locale=pa;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | ਚਾਰ | ਕੀਕੈਪ
+locale=pa;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | ਪੰਜ | ਕੀਕੈਪ
+locale=pa;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | ਛੇ | ਕੀਕੈਪ
+locale=pa;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | ਸੱਤ | ਕੀਕੈਪ
+locale=pa;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | ਅੱਠ | ਕੀਕੈਪ
+locale=pa;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | ਨੌਂ | ਕੀਕੈਪ
+locale=pl;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | zero | klawisz
+locale=pl;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | jeden | klawisz
+locale=pl;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | dwa | klawisz
+locale=pl;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | trzy | klawisz
+locale=pl;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | cztery | klawisz
+locale=pl;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | pięć | klawisz
+locale=pl;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | sześć | klawisz
+locale=pl;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | siedem | klawisz
+locale=pl;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | osiem | klawisz
+locale=pl;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | dziewięć | klawisz
+locale=pt;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | zero | tecla
+locale=pt;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | um | tecla
+locale=pt;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | dois | tecla
+locale=pt;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | três | tecla
+locale=pt;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | quatro | tecla
+locale=pt;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | cinco | tecla
+locale=pt;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | seis | tecla
+locale=pt;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | sete | tecla
+locale=pt;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | oito | tecla
+locale=pt;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | nove | tecla
+locale=pt_PT;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | zero | tecla
+locale=pt_PT;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | um | tecla
+locale=pt_PT;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | dois | tecla
+locale=pt_PT;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | três | tecla
+locale=pt_PT;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | quatro | tecla
+locale=pt_PT;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | cinco | tecla
+locale=pt_PT;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | seis | tecla
+locale=pt_PT;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | sete | tecla
+locale=pt_PT;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | oito | tecla
+locale=pt_PT;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | nove | tecla
+locale=qu;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | chusaq | keycap
+locale=qu;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | huk | keycap
+locale=qu;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | iskay | keycap
+locale=qu;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | kinsa | keycap
+locale=qu;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | tawa | keycap
+locale=qu;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | phisqa | keycap
+locale=qu;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | suqta | keycap
+locale=qu;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | qanchis | keycap
+locale=qu;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | pusaq | keycap
+locale=qu;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | isqun | keycap
+locale=ro;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | zero | tastă
+locale=ro;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | unu | tastă
+locale=ro;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | doi | tastă
+locale=ro;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | trei | tastă
+locale=ro;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | patru | tastă
+locale=ro;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | cinci | tastă
+locale=ro;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | şase | tastă
+locale=ro;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | şapte | tastă
+locale=ro;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | opt | tastă
+locale=ro;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | nouă | tastă
+locale=root;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | 0 | keycap
+locale=root;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | 1 | keycap
+locale=root;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | 2 | keycap
+locale=root;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | 3 | keycap
+locale=root;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | 4 | keycap
+locale=root;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | 5 | keycap
+locale=root;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | 6 | keycap
+locale=root;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | 7 | keycap
+locale=root;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | 8 | keycap
+locale=root;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | 9 | keycap
+locale=ru;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | ноль | клавиши
+locale=ru;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | один | клавиши
+locale=ru;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | два | клавиши
+locale=ru;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | три | клавиши
+locale=ru;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | четыре | клавиши
+locale=ru;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | пять | клавиши
+locale=ru;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | шесть | клавиши
+locale=ru;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | семь | клавиши
+locale=ru;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | восемь | клавиши
+locale=ru;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | девять | клавиши
+locale=sk;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | nula | kláves
+locale=sk;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | jeden | kláves
+locale=sk;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | dva | kláves
+locale=sk;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | tri | kláves
+locale=sk;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | štyri | kláves
+locale=sk;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | päť | kláves
+locale=sk;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | šesť | kláves
+locale=sk;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | sedem | kláves
+locale=sk;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | osem | kláves
+locale=sk;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | deväť | kláves
+locale=sl;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | nič | keycap
+locale=sl;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | ena | keycap
+locale=sl;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | dva | keycap
+locale=sl;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | tri | keycap
+locale=sl;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | štiri | keycap
+locale=sl;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | pet | keycap
+locale=sl;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | šest | keycap
+locale=sl;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | sedem | keycap
+locale=sl;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | osem | keycap
+locale=sl;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | devet | keycap
+locale=sq;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | zero | tast
+locale=sq;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | një | tast
+locale=sq;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | dy | tast
+locale=sq;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | tre | tast
+locale=sq;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | katër | tast
+locale=sq;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | pesë | tast
+locale=sq;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | gjashtë | tast
+locale=sq;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | shtatë | tast
+locale=sq;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | tetë | tast
+locale=sq;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | nëntë | tast
+locale=sr;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | нула | тастер
+locale=sr;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | један | тастер
+locale=sr;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | два | тастер
+locale=sr;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | три | тастер
+locale=sr;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | четири | тастер
+locale=sr;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | пет | тастер
+locale=sr;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | шест | тастер
+locale=sr;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | седам | тастер
+locale=sr;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | осам | тастер
+locale=sr;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | девет | тастер
+locale=sr_Latn;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | nula | taster
+locale=sr_Latn;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | jedan | taster
+locale=sr_Latn;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | dva | taster
+locale=sr_Latn;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | tri | taster
+locale=sr_Latn;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | četiri | taster
+locale=sr_Latn;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | pet | taster
+locale=sr_Latn;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | šest | taster
+locale=sr_Latn;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | sedam | taster
+locale=sr_Latn;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | osam | taster
+locale=sr_Latn;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | devet | taster
+locale=su;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | nol | keycap
+locale=su;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | hiji | keycap
+locale=su;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | dua | keycap
+locale=su;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | tilu | keycap
+locale=su;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | opat | keycap
+locale=su;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | lima | keycap
+locale=su;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | genep | keycap
+locale=su;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | tujuh | keycap
+locale=su;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | dalapan | keycap
+locale=su;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | salapan | keycap
+locale=sv;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | noll | keycap
+locale=sv;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | ett | keycap
+locale=sv;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | två | keycap
+locale=sv;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | tre | keycap
+locale=sv;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | fyra | keycap
+locale=sv;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | fem | keycap
+locale=sv;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | sex | keycap
+locale=sv;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | sju | keycap
+locale=sv;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | åtta | keycap
+locale=sv;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | nio | keycap
+locale=sw;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | sifuri | kitufe
+locale=sw;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | moja | kitufe
+locale=sw;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | mbili | kitufe
+locale=sw;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | tatu | kitufe
+locale=sw;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | nne | kitufe
+locale=sw;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | tano | kitufe
+locale=sw;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | sita | kitufe
+locale=sw;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | saba | kitufe
+locale=sw;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | nane | kitufe
+locale=sw;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | tisa | kitufe
+locale=ta;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | பூஜ்யம் | விசை
+locale=ta;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | ஒன்று | விசை
+locale=ta;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | இரண்டு | விசை
+locale=ta;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | மூன்று | விசை
+locale=ta;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | நான்கு | விசை
+locale=ta;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | ஐந்து | விசை
+locale=ta;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | ஆறு | விசை
+locale=ta;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | ஏழு | விசை
+locale=ta;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | எட்டு | விசை
+locale=ta;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | ஒன்பது | விசை
+locale=te;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | సున్న | కీక్యాప్
+locale=te;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | ఒకటి | కీక్యాప్
+locale=te;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | రెండు | కీక్యాప్
+locale=te;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | మూడు | కీక్యాప్
+locale=te;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | నాలుగు | కీక్యాప్
+locale=te;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | ఐదు | కీక్యాప్
+locale=te;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | ఆరు | కీక్యాప్
+locale=te;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | ఏడు | కీక్యాప్
+locale=te;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | ఎనిమిది | కీక్యాప్
+locale=te;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | తొమ్మిది | కీక్యాప్
+locale=th;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | ศูนย์ | ปุ่มกดเลข
+locale=th;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | หนึ่ง | ปุ่มกดเลข
+locale=th;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | สอง | ปุ่มกดเลข
+locale=th;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | สาม | ปุ่มกดเลข
+locale=th;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | สี่ | ปุ่มกดเลข
+locale=th;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | ห้า | ปุ่มกดเลข
+locale=th;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | หก | ปุ่มกดเลข
+locale=th;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | เจ็ด | ปุ่มกดเลข
+locale=th;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | แปด | ปุ่มกดเลข
+locale=th;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | เก้า | ปุ่มกดเลข
+locale=tr;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | sıfır | tuş
+locale=tr;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | bir | tuş
+locale=tr;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | iki | tuş
+locale=tr;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | üç | tuş
+locale=tr;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | dört | tuş
+locale=tr;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | beş | tuş
+locale=tr;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | altı | tuş
+locale=tr;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | yedi | tuş
+locale=tr;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | sekiz | tuş
+locale=tr;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | dokuz | tuş
+locale=uk;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | нуль | клавіша
+locale=uk;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | один | клавіша
+locale=uk;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | два | клавіша
+locale=uk;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | три | клавіша
+locale=uk;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | чотири | клавіша
+locale=uk;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | пʼять | клавіша
+locale=uk;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | шість | клавіша
+locale=uk;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | сім | клавіша
+locale=uk;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | вісім | клавіша
+locale=uk;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | девʼять | клавіша
+locale=uz;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | nol | tugma qalpog‘i
+locale=uz;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | bir | tugma qalpog‘i
+locale=uz;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | ikki | tugma qalpog‘i
+locale=uz;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | uch | tugma qalpog‘i
+locale=uz;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | toʻrt | tugma qalpog‘i
+locale=uz;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | besh | tugma qalpog‘i
+locale=uz;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | olti | tugma qalpog‘i
+locale=uz;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | yetti | tugma qalpog‘i
+locale=uz;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | sakkiz | tugma qalpog‘i
+locale=uz;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | toʻqqiz | tugma qalpog‘i
+locale=vec;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | zero | keycap
+locale=vec;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | uno | keycap
+locale=vec;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | do | keycap
+locale=vec;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | tre | keycap
+locale=vec;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | cuatro | keycap
+locale=vec;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | sincue | keycap
+locale=vec;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | sie | keycap
+locale=vec;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | sete | keycap
+locale=vec;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | oto | keycap
+locale=vec;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | nove | keycap
+locale=vi;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | không | mũ phím
+locale=vi;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | một | mũ phím
+locale=vi;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | hai | mũ phím
+locale=vi;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | ba | mũ phím
+locale=vi;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | bốn | mũ phím
+locale=vi;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | năm | mũ phím
+locale=vi;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | sáu | mũ phím
+locale=vi;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | bảy | mũ phím
+locale=vi;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | tám | mũ phím
+locale=vi;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | chín | mũ phím
+locale=yue;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | 零 | 鍵帽
+locale=yue;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | 一 | 鍵帽
+locale=yue;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | 二 | 鍵帽
+locale=yue;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | 三 | 鍵帽
+locale=yue;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | 四 | 鍵帽
+locale=yue;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | 五 | 鍵帽
+locale=yue;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | 六 | 鍵帽
+locale=yue;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | 七 | 鍵帽
+locale=yue;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | 八 | 鍵帽
+locale=yue;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | 九 | 鍵帽
+locale=yue_Hans;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | 零 | 键帽
+locale=yue_Hans;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | 一 | 键帽
+locale=yue_Hans;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | 二 | 键帽
+locale=yue_Hans;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | 三 | 键帽
+locale=yue_Hans;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | 四 | 键帽
+locale=yue_Hans;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | 五 | 键帽
+locale=yue_Hans;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | 六 | 键帽
+locale=yue_Hans;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | 七 | 键帽
+locale=yue_Hans;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | 八 | 键帽
+locale=yue_Hans;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | 九 | 键帽
+locale=zh;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | 〇 | 按键
+locale=zh;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | 一 | 按键
+locale=zh;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | 二 | 按键
+locale=zh;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | 三 | 按键
+locale=zh;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | 四 | 按键
+locale=zh;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | 五 | 按键
+locale=zh;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | 六 | 按键
+locale=zh;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | 七 | 按键
+locale=zh;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | 八 | 按键
+locale=zh;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | 九 | 按键
+locale=zh_Hant;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | 〇 | 按鍵
+locale=zh_Hant;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | 一 | 按鍵
+locale=zh_Hant;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | 二 | 按鍵
+locale=zh_Hant;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | 三 | 按鍵
+locale=zh_Hant;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | 四 | 按鍵
+locale=zh_Hant;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | 五 | 按鍵
+locale=zh_Hant;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | 六 | 按鍵
+locale=zh_Hant;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | 七 | 按鍵
+locale=zh_Hant;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | 八 | 按鍵
+locale=zh_Hant;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | 九 | 按鍵
+locale=zh_Hant_HK;	action=add;	new_path=//ldml/annotations/annotation[@cp="0⃣"];	new_value=0 | 零 | 按鍵
+locale=zh_Hant_HK;	action=add;	new_path=//ldml/annotations/annotation[@cp="1⃣"];	new_value=1 | 一 | 按鍵
+locale=zh_Hant_HK;	action=add;	new_path=//ldml/annotations/annotation[@cp="2⃣"];	new_value=2 | 二 | 按鍵
+locale=zh_Hant_HK;	action=add;	new_path=//ldml/annotations/annotation[@cp="3⃣"];	new_value=3 | 三 | 按鍵
+locale=zh_Hant_HK;	action=add;	new_path=//ldml/annotations/annotation[@cp="4⃣"];	new_value=4 | 四 | 按鍵
+locale=zh_Hant_HK;	action=add;	new_path=//ldml/annotations/annotation[@cp="5⃣"];	new_value=5 | 五 | 按鍵
+locale=zh_Hant_HK;	action=add;	new_path=//ldml/annotations/annotation[@cp="6⃣"];	new_value=6 | 六 | 按鍵
+locale=zh_Hant_HK;	action=add;	new_path=//ldml/annotations/annotation[@cp="7⃣"];	new_value=7 | 七 | 按鍵
+locale=zh_Hant_HK;	action=add;	new_path=//ldml/annotations/annotation[@cp="8⃣"];	new_value=8 | 八 | 按鍵
+locale=zh_Hant_HK;	action=add;	new_path=//ldml/annotations/annotation[@cp="9⃣"];	new_value=9 | 九 | 按鍵

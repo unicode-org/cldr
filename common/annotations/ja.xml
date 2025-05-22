@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -3897,6 +3897,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="₽" type="tts">ルーブル</annotation>
 		<annotation cp="₿">BTC | ビットコイン | 仮想通貨 | 通貨</annotation>
 		<annotation cp="₿" type="tts">ビットコイン</annotation>
+		<annotation cp="0⃣">0 | 〇 | 囲み数字</annotation>
+		<annotation cp="1⃣">1 | 一 | 囲み数字</annotation>
+		<annotation cp="2⃣">2 | 二 | 囲み数字</annotation>
+		<annotation cp="3⃣">3 | 三 | 囲み数字</annotation>
+		<annotation cp="4⃣">4 | 四 | 囲み数字</annotation>
+		<annotation cp="5⃣">5 | 五 | 囲み数字</annotation>
+		<annotation cp="6⃣">6 | 六 | 囲み数字</annotation>
+		<annotation cp="7⃣">7 | 七 | 囲み数字</annotation>
+		<annotation cp="8⃣">8 | 八 | 囲み数字</annotation>
+		<annotation cp="9⃣">9 | 九 | 囲み数字</annotation>
 		<annotation cp="¹">1 | 上付き1 | 添え字</annotation>
 		<annotation cp="¹" type="tts">上付き1</annotation>
 		<annotation cp="²">2 | 2乗 | 上付き2 | 添え字</annotation>

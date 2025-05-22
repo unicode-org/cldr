@@ -51,7 +51,7 @@ jobs:
         apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         # use '--branch pr####' (pr###.cldr.pages.dev) for PRs, otherwise goes to cldr.unicode.org (production)
-        command: pages deploy ./_site --project-name=cldr ${{ github.event_name == 'push' && '' || format('--branch pr{0}', github.event.pull_request.number) }}
+        command: pages deploy ./_site --project-name=cldr ${{ github.event_name == 'pull_request' && format('--branch pr{0}', github.event.pull_request.number) || '' }}
     - name: Calculate changed site files
       id: prdiff
       if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == 'unicode-org/cldr'

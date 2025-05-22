@@ -1340,8 +1340,8 @@ annotations.
 			<key type="i0">Input Method</key>
 			<key type="k0">Keyboard</key>
 			<key type="kv">Highest Ignored</key>
-			<key type="lb">Line Break Strictness</key>
-			<key type="lw">Line Breaks In Words Setting</key>
+			<key type="lb">CJK Line Break</key>
+			<key type="lw">Line Breaks within Words</key>
 			<key type="m0">Transform Rules</key>
 			<key type="ms">Measurement System</key>
 			<key type="mu">Measurement Unit</key>
@@ -1470,19 +1470,19 @@ annotations.
 			<type key="d0" type="title">To Titlecase</type>
 			<type key="d0" type="upper">To Uppercase</type>
 			<type key="d0" type="zawgyi">To Zawgyi Myanmar Encoding</type>
-			<type key="em" type="default">Use Default Presentation For Emoji Characters</type>
+			<type key="em" type="default">Default Presentation For Emoji</type>
 			<type key="em" type="default" scope="core">Default</type>
-			<type key="em" type="emoji">Prefer Emoji Presentation For Emoji Characters</type>
+			<type key="em" type="emoji">Emoji Presentation For Emoji</type>
 			<type key="em" type="emoji" scope="core">Emoji</type>
-			<type key="em" type="text">Prefer Text Presentation For Emoji Characters</type>
+			<type key="em" type="text">Text Presentation For Emoji</type>
 			<type key="em" type="text" scope="core">Text</type>
-			<type key="fw" type="fri">First Day of Week Is Friday</type>
-			<type key="fw" type="mon">First Day of Week Is Monday</type>
-			<type key="fw" type="sat">First Day of Week Is Saturday</type>
-			<type key="fw" type="sun">First Day of Week Is Sunday</type>
-			<type key="fw" type="thu">First Day of Week Is Thursday</type>
-			<type key="fw" type="tue">First Day of Week Is Tuesday</type>
-			<type key="fw" type="wed">First Day of Week Is Wednesday</type>
+			<type key="fw" type="fri">First day of week: Friday</type>
+			<type key="fw" type="mon">First day of week: Monday</type>
+			<type key="fw" type="sat">First day of week: Saturday</type>
+			<type key="fw" type="sun">First day of week: Sunday</type>
+			<type key="fw" type="thu">First day of week: Thursday</type>
+			<type key="fw" type="tue">First day of week: Tuesday</type>
+			<type key="fw" type="wed">First day of week: Wednesday</type>
 			<type key="h0" type="hybrid">Hybrid</type>
 			<type key="hc" type="h11">12 Hour System (0–11)</type>
 			<type key="hc" type="h11" scope="core">12 (0–11)</type>
@@ -1699,6 +1699,65 @@ annotations.
 			<type key="ss" type="standard" scope="core">On</type>
 			<type key="t0" type="und">Unspecified Machine Translation</type>
 			<type key="va" type="posix">POSIX Compliant Locale</type>
+			
+			<!-- Added values for English -->
+			<type key="calendar" type="islamic-rgsa" scope="core">Hijri, Saudi Arabia sighting</type>
+			<type key="calendar" type="iso8601" scope="core">Gregorian YMD</type>
+			<type key="collation" type="emoji" scope="core">Emoji</type>
+			<type key="collation" type="eor" scope="core">European rules</type>
+			<type key="collation" type="searchjl" scope="core">Korean initial consonant</type>
+			<!--
+			<type key="ka" type="noignore" scope="core">Punctuation… not ignored</type>
+			<type key="ka" type="shifted" scope="core">Punctuation… ignored</type>
+			<type key="kf" type="lower" scope="core">Lowercase &lt; uppercase</type>
+			<type key="kf" type="upper" scope="core">Uppercase &lt; lowercase</type>
+			<type key="kr" type="currency" scope="core">Currency reordering code</type>
+			<type key="kr" type="digit" scope="core">Digit (number) reordering code</type>
+			<type key="kr" type="punct" scope="core">Punctuation reordering code</type>
+			<type key="kr" type="space" scope="core">Whitespace reordering code</type>
+			<type key="kr" type="symbol" scope="core">Symbol reordering code (other than currency)</type>
+			<type key="ks" type="identic" scope="core">The identical level</type>
+			<type key="ks" type="level1" scope="core">The primary level</type>
+			<type key="ks" type="level2" scope="core">The secondary level</type>
+			<type key="ks" type="level3" scope="core">The tertiary level</type>
+			<type key="ks" type="level4" scope="core">The quaternary level</type>
+			  -->
+			<type key="kv" type="currency" scope="core">Shift Spaces, punctuation, all symbols</type>
+			<type key="kv" type="punct" scope="core">Shift spaces, punctuation</type>
+			<type key="kv" type="space" scope="core">Shift spaces, punctuation</type>
+			<type key="kv" type="symbol" scope="core">Shift spaces, punctuation, non-currency symbols</type>
+			
+			<type key="numbers" type="arabext" scope="core">Extended Arabic-Indic</type>
+			<type key="numbers" type="armnlow" scope="core">Armenian lowercase</type>
+			<type key="numbers" type="finance" scope="core">Financial</type>
+			<type key="numbers" type="fullwide" scope="core">Full-width</type>
+			<type key="numbers" type="greklow" scope="core">Greek lowercase</type>
+			<type key="numbers" type="hanidays" scope="core">Han-character day-of-month numbering for traditional calendars</type>
+			<type key="numbers" type="hanidec" scope="core">Positional decimal system using Chinese number ideographs as digits</type>
+			<type key="numbers" type="hansfin" scope="core">Simplified Chinese financial</type>
+			<type key="numbers" type="hantfin" scope="core">Traditional Chinese financial</type>
+			<type key="numbers" type="jpanfin" scope="core">Japanese financial</type>
+			<type key="numbers" type="jpanyear" scope="core">Japanese first-year Gannen numbering</type>
+			<type key="numbers" type="lanatham" scope="core">Tai Tham Tham (ecclesiastical)</type>
+			<type key="numbers" type="mathbold" scope="core">Mathematical bold</type>
+			<type key="numbers" type="mathdbl" scope="core">Mathematical double-struck</type>
+			<type key="numbers" type="mathmono" scope="core">Mathematical monospace</type>
+			<type key="numbers" type="mathsanb" scope="core">Mathematical sans-serif bold</type>
+			<type key="numbers" type="mathsans" scope="core">Mathematical sans-serif</type>
+			<type key="numbers" type="mymrepka" scope="core">Myanmar Eastern Pwo Karen</type>
+			<type key="numbers" type="mymrpao" scope="core">Myanmar Pao</type>
+			<type key="numbers" type="mymrshan" scope="core">Myanmar Shan</type>
+			<type key="numbers" type="mymrtlng" scope="core">Myanmar Tai Laing</type>
+			<type key="numbers" type="native" scope="core">Native digits</type>
+			<type key="numbers" type="outlined" scope="core">Outlined</type>
+			<type key="numbers" type="roman" scope="core">Roman uppercase</type>
+			<type key="numbers" type="romanlow" scope="core">Roman lowercase</type>
+			<type key="numbers" type="segment" scope="core">Segmented</type>
+			<type key="numbers" type="tamldec" scope="core">Modern Tamil</type>
+			<type key="numbers" type="traditional" scope="core">Traditional numerals</type>
+			<type key="va" type="posix" scope="core">POSIX variant</type>
+			
+			
 		</types>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Metric</measurementSystemName>

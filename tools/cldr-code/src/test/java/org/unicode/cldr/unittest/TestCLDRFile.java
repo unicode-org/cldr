@@ -747,6 +747,7 @@ public class TestCLDRFile extends TestFmwk {
     public void TestForStrayFiles() {
         TreeSet<String> mainList =
                 new TreeSet<>(Arrays.asList(new File(CLDRPaths.MAIN_DIRECTORY).list()));
+        mainList.add("README.md");
 
         for (String dir : DtdType.ldml.directories) {
             Set<String> dirFiles =

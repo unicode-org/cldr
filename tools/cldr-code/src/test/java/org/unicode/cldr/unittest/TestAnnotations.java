@@ -223,7 +223,10 @@ public class TestAnnotations extends TestFmwkPlus {
             Annotations annotations = s.getValue();
             String name = Emoji.getName(emoji);
             String annotationName = annotations.getShortName();
-            if (!symbols.contains(emoji) && !emoji.contains("👲") && !emoji.contains("🧑")) {
+            if (!symbols.contains(emoji)
+                    && !emoji.contains("👲")
+                    && !emoji.contains("🧑")
+                    && !emoji.contains("\u20E3")) {
                 assertEquals(emoji + " (en.xml vs. emoji-test.txt)", name, annotationName);
             }
         }

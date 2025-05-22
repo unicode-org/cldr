@@ -412,12 +412,12 @@ public class TestDateOrder extends TestFmwk {
             {
                 "//ldml/dates/calendars/calendar[@type=\"iso8601\"]/dateFormats/dateFormatLength",
                 "M yy",
-                "Field yy is incorrect. For a YMD calendar, the year field cannot be truncated to 2 digits."
+                "Field yy is incorrect. For a YMD (Year-First) calendar, the year field cannot be truncated to 2 digits."
             },
             {
                 "//ldml/dates/calendars/calendar[@type=\"iso8601\"]/dateFormats/dateFormatLength",
                 "M y",
-                "Field M cannot come before field y. A YMD calendar is special: bigger fields must come before smaller ones even when it feels unnatural in your language.  Change the text separating the fields as best you can."
+                "Field M cannot come before field y. A YMD (Year-First) calendar is special: bigger fields must come before smaller ones even when it feels unnatural in your language.  Change the text separating the fields as best you can."
             },
             {
                 "//ldml/dates/calendars/calendar[@type=\"iso8601\"]/dateFormats/dateFormatLength",
@@ -432,7 +432,7 @@ public class TestDateOrder extends TestFmwk {
             {
                 "//ldml/dates/calendars/calendar[@type=\"iso8601\"]/dateTimeFormats/availableFormats",
                 "d M y",
-                "Field d cannot come before field M. A YMD calendar is special: bigger fields must come before smaller ones even when it feels unnatural in your language.  Change the text separating the fields as best you can."
+                "Field d cannot come before field M. A YMD (Year-First) calendar is special: bigger fields must come before smaller ones even when it feels unnatural in your language.  Change the text separating the fields as best you can."
             },
             {
                 "//ldml/dates/calendars/calendar[@type=\"iso8601\"]/dateTimeFormats/availableFormats",
@@ -442,7 +442,7 @@ public class TestDateOrder extends TestFmwk {
             {
                 "//ldml/dates/calendars/calendar[@type=\"iso8601\"]/dateTimeFormats/intervalFormats",
                 "y M d - d M",
-                "Field d cannot come before field M in the 2nd part of the range. A YMD calendar is special: bigger fields must come before smaller ones even when it feels unnatural in your language.  Change the text separating the fields as best you can."
+                "Field d cannot come before field M in the 2nd part of the range. A YMD (Year-First) calendar is special: bigger fields must come before smaller ones even when it feels unnatural in your language.  Change the text separating the fields as best you can."
             },
             {
                 "//ldml/dates/calendars/calendar[@type=\"iso8601\"]/dateTimeFormats/intervalFormats",
@@ -452,7 +452,7 @@ public class TestDateOrder extends TestFmwk {
             {
                 "//ldml/dates/calendars/calendar[@type=\"iso8601\"]/dateTimeFormats/dateTimeFormatLength",
                 "{0} {1}",
-                "The {0} field (=time) cannot come before the {1} field (=date), in a YMD calendar."
+                "Put the {1} field (the date) before the {1} field (the time), in a YMD (Year-First) calendar."
             },
             {
                 "//ldml/dates/calendars/calendar[@type=\"iso8601\"]/dateTimeFormats/dateTimeFormatLength",

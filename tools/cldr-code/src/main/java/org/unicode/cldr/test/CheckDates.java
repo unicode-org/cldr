@@ -787,7 +787,7 @@ public class CheckDates extends FactoryCheckCLDR {
                     int index0 = value.indexOf("{0}");
                     int index1 = value.indexOf("{1}");
                     if (index0 < index1) {
-                        return "The {0} field (=time) cannot come before the {1} field (=date), in a YMD calendar.";
+                        return "Put the {1} field (the date) before the {1} field (the time), in a YMD (Year-First) calendar.";
                     }
                     return null;
                 }
@@ -819,7 +819,7 @@ public class CheckDates extends FactoryCheckCLDR {
             VariableField field = (VariableField) p;
             int type = field.getType();
             if (!expectedField.contains(type)) {
-                return "Field " + field + " is not allowed in a YMD calendar.";
+                return "Field " + field + " is not allowed in a YMD (Year-First) calendar.";
             }
             // The two parts of an interval are identified by when you hit the same type of field
             // twice
@@ -840,7 +840,7 @@ public class CheckDates extends FactoryCheckCLDR {
                 if (field.toString().length() == 2) {
                     return "Field "
                             + field
-                            + " is incorrect. For a YMD calendar, the year field cannot be truncated to 2 digits.";
+                            + " is incorrect. For a YMD (Year-First) calendar, the year field cannot be truncated to 2 digits.";
                 }
             }
 
@@ -856,7 +856,7 @@ public class CheckDates extends FactoryCheckCLDR {
                             + (isInterval
                                     ? " in the " + intervalPosition + " part of the range"
                                     : "")
-                            + ". A YMD calendar is special: bigger fields must come before smaller ones even when it feels unnatural in your language. "
+                            + ". A YMD (Year-First) calendar is special: bigger fields must come before smaller ones even when it feels unnatural in your language. "
                             + " Change the text separating the fields as best you can.";
                 }
             }

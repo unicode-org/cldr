@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 /**
  * Copyright © 2025 Unicode, Inc.
  * For terms of use, see http://www.unicode.org/copyright.html

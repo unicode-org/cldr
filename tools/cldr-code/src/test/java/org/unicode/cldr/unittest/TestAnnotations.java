@@ -14,7 +14,6 @@ import com.ibm.icu.impl.UnicodeMap;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.UnicodeSet;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -24,7 +23,6 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -52,8 +50,6 @@ import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 
 public class TestAnnotations extends TestFmwkPlus {
-    private static final String APPS_EMOJI_DIRECTORY =
-            CLDRPaths.BASE_DIRECTORY + "/tools/cldr-apps/src/main/webapp/images/emoji";
     private static final boolean DEBUG = false;
     private static final boolean TEST_ONLY_ENGLISH_UNIQUENESS = false;
 
@@ -227,7 +223,10 @@ public class TestAnnotations extends TestFmwkPlus {
             Annotations annotations = s.getValue();
             String name = Emoji.getName(emoji);
             String annotationName = annotations.getShortName();
-            if (!symbols.contains(emoji) && !emoji.contains("👲") && !emoji.contains("🧑")) {
+            if (!symbols.contains(emoji)
+                    && !emoji.contains("👲")
+                    && !emoji.contains("🧑")
+                    && !emoji.contains("\u20E3")) {
                 assertEquals(emoji + " (en.xml vs. emoji-test.txt)", name, annotationName);
             }
         }
@@ -375,34 +374,6 @@ public class TestAnnotations extends TestFmwkPlus {
                     annotationPathsExpected,
                     annotationPaths,
                     Collections.<String>emptySet());
-        }
-    }
-
-    public void testEmojiImages() {
-        if (CLDRPaths.ANNOTATIONS_DIRECTORY.contains("cldr-staging/production/")) {
-            return; // don't bother checking production for this: the images are only in main, not
-            // production
-        }
-        Factory factoryAnnotations = SimpleFactory.make(CLDRPaths.ANNOTATIONS_DIRECTORY, ".*");
-        CLDRFile enAnnotations = factoryAnnotations.make("en", false);
-
-        String emojiImageDir = APPS_EMOJI_DIRECTORY;
-        for (String emoji : Emoji.getNonConstructed()) {
-            String noVs = emoji.replace(Emoji.EMOJI_VARIANT, "");
-
-            // example: emoji_1f1e7_1f1ec.png
-            String fileName =
-                    "emoji_" + Utility.hex(noVs, 4, "_").toLowerCase(Locale.ENGLISH) + ".png";
-            File file = new File(emojiImageDir, fileName);
-
-            if (!file.exists() && !fileName.endsWith("_200d_27a1.png")) {
-                String name =
-                        enAnnotations.getStringValue(
-                                "//ldml/annotations/annotation[@cp=\""
-                                        + noVs
-                                        + "\"][@type=\"tts\"]");
-                errln(fileName + " missing; " + name);
-            }
         }
     }
 

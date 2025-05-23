@@ -748,9 +748,9 @@ public class CheckDates extends FactoryCheckCLDR {
                     DateTimePatternGenerator.YEAR,
                     DateTimePatternGenerator.QUARTER,
                     DateTimePatternGenerator.MONTH,
-                    DateTimePatternGenerator.DAY,
                     DateTimePatternGenerator.WEEK_OF_MONTH,
                     DateTimePatternGenerator.WEEK_OF_YEAR,
+                    DateTimePatternGenerator.DAY,
                     DateTimePatternGenerator.WEEKDAY,
                     DateTimePatternGenerator.HOUR,
                     DateTimePatternGenerator.MINUTE,
@@ -780,22 +780,18 @@ public class CheckDates extends FactoryCheckCLDR {
         switch (key) {
             case "dateTimeFormatLength":
                 {
+                    // should be something like
+                    // ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/dateTimeFormatLength[@type="full"]/dateTimeFormat[@type="standard"]/pattern[@type="standard"]
+                    // {1}, {0}
+
                     int index0 = value.indexOf("{0}");
                     int index1 = value.indexOf("{1}");
                     if (index0 < index1) {
-                        return "Field out of order: {0}…{1}";
+                        return "Put the {1} field (the date) before the {1} field (the time), in a YMD (Year-First) calendar.";
                     }
                     return null;
                 }
             case "appendItem":
-                {
-                    int index0 = value.indexOf("{0}");
-                    int index1 = value.indexOf("{1}");
-                    if (index0 > index1) {
-                        return "Field out of order: {1}…{0}";
-                    }
-                    return null;
-                }
             case "dateFormatLength":
             case "timeFormatLength":
             case "availableFormats":
@@ -806,6 +802,8 @@ public class CheckDates extends FactoryCheckCLDR {
             default:
                 return null;
         }
+
+        String intervalPosition = "1st";
         // verify
         //  the order is the same as in expectedField
         //  there is no other field
@@ -821,18 +819,28 @@ public class CheckDates extends FactoryCheckCLDR {
             VariableField field = (VariableField) p;
             int type = field.getType();
             if (!expectedField.contains(type)) {
-                return "Disallowed field: " + field;
+                return "Field " + field + " is not allowed in a YMD (Year-First) calendar.";
             }
             // The two parts of an interval are identified by when you hit the same type of field
             // twice
             // like y - y, or M d - M
             if (fieldTypesSoFar.contains(type)) {
-                if (isInterval) { // so one freebe for intervals
-                    isInterval = false;
+                if (isInterval && intervalPosition.equals("1st")) { // so one freebe for intervals
+                    intervalPosition = "2nd";
                     fieldTypesSoFar.clear(); // entering second part of interval
                     lastField = null;
                 } else {
-                    return "Duplicate field: " + field;
+                    return "Field " + field + " is the same type as a previous field.";
+                }
+            }
+
+            // No year truncation
+
+            if (type == DateTimePatternGenerator.YEAR) {
+                if (field.toString().length() == 2) {
+                    return "Field "
+                            + field
+                            + " is incorrect. For a YMD (Year-First) calendar, the year field cannot be truncated to 2 digits.";
                 }
             }
 
@@ -841,7 +849,15 @@ public class CheckDates extends FactoryCheckCLDR {
             if (lastField != null) {
                 int lastType = lastField.getType();
                 if (toOrder.indexOf(lastType) < toOrder.indexOf(type)) {
-                    return "Field out of order: " + lastField + "…" + field;
+                    return "Field "
+                            + lastField
+                            + " cannot come before field "
+                            + field
+                            + (isInterval
+                                    ? " in the " + intervalPosition + " part of the range"
+                                    : "")
+                            + ". A YMD (Year-First) calendar is special: bigger fields must come before smaller ones even when it feels unnatural in your language. "
+                            + " Change the text separating the fields as best you can.";
                 }
             }
             fieldTypesSoFar.add(type);

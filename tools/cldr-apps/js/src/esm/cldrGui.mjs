@@ -2,6 +2,7 @@
  * cldrGui: encapsulate GUI functions for Survey Tool
  */
 import * as cldrAjax from "./cldrAjax.mjs";
+import * as cldrConstants from "./cldrConstants.mjs";
 import * as cldrDashContext from "./cldrDashContext.mjs";
 import * as cldrEscaperLoader from "./cldrEscaperLoader.mjs";
 import * as cldrEvent from "./cldrEvent.mjs";
@@ -279,6 +280,10 @@ const sideBySide = `
           <div id="LoadingMessageSection">Please Wait<img src="loader.gif" alt="Please Wait" /></div>
           <div id="DynamicDataSection"></div>
           <div id="OtherSection"></div>
+          <footer>
+            ${cldrConstants.COPYRIGHT}
+            See <a href='${cldrConstants.TERMS_OF_USE_URL}'>Terms of Use</a>.
+          </footer>
         </section>
       </section>
       <section id="DashboardSection"></section>

@@ -170,10 +170,29 @@ docker compose up cldr-apps
 
 ### webdriver
 
-This will compile and launch the webdriver.
+This will compile and launch the [webdriver](../cldr-apps-webdriver/README.md).
 
 ```shell
 docker compose run --rm -it webdriver
+```
+
+#### VNC into the WebDriver
+
+Want to see what the WebDriver is doing? Sure, you can.
+
+1. Start the selenium container with `docker compose up -d selenium`
+2. Get the local VNC port number: use `docker ps` and it will show up, for example look for `0.0.0.0:39999->5900/tcp` meaning that 39999 is the randomly assigned port (5900 is the VNC port number, but we don't assign that locally.). Or, get the local noVNC port number, which will be  mapped to 7900, `0.0.0.0:37777->7900/tcp` indicating port 37777
+3. For noVNC, just point a browser at <http://localhost:37777> (in the above example). In Docker Desktop, you might be able to _click_ on the port number mapped to 7900 to launch a browser.
+   For VNC, use a VNC client to connect to `localhost:39999` (for example).  <vnc://localhost:39999> might work in a browser.
+4. Enter the "secret" password, more details [here](https://github.com/SeleniumHQ/docker-selenium?tab=readme-ov-file#using-a-vnc-client).
+5. Now run the webdriver (above) and you can watch the brower go.
+
+### client tests
+
+This will launch the [client tests](js/test/client/README.md).
+
+```shell
+docker compose run --rm -it client-test
 ```
 
 ### Licenses
@@ -182,4 +201,4 @@ See the main [README.md](../../README.md).
 
 ### Copyright
 
-Copyright © 2004-2024 Unicode, Inc. Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the United States and other countries.
+Copyright © 2004-2025 Unicode, Inc. Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the United States and other countries.

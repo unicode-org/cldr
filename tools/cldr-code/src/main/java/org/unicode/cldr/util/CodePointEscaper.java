@@ -18,32 +18,26 @@ public enum CodePointEscaper {
     // The long names don't necessarily match the formal Unicode names
 
     // Spaces
-    TSP(0x2009, "Thin space", "Aka ‘narrow space’"),
+    TSP(
+            0x2009,
+            "Thin space",
+            "A space character that is narrower (in most fonts) than the regular one."),
 
     // No-break versions
     NBSP(0xA0, "No-break space", "Same as space, but doesn’t line break."),
-    NBTSP(
-            0x202F,
-            "No-break thin space",
-            "Same as thin space, but doesn’t line break. Aka 'narrow no-break space'"),
+    NBTSP(0x202F, "No-break thin space", "Same as thin space, but doesn’t line break."),
 
     // Line Break control
-    ALB(
-            0x200B,
-            "Allow line break",
-            "Invisible character allowing a line-break after. Also known as ‘ZWSP’ (zero-width space)."),
-    NB(0x2060, "No-break", "Prevents line break before or after. Also known as ‘word-joiner’."),
+    ALB(0x200B, "Allow line break", "Invisible character allowing a line-break. Aka ZWSP."),
+    NB(0x2060, "No-break", "Invisible character preventing a line break."),
 
     // Hyphens & dashes
-    NBHY(
-            0x2011,
-            "No-break hyphen",
-            "Same as a hyphen, but disallows line break after as well as before."),
+    NBHY(0x2011, "No-break hyphen", "Same as a hyphen, but doesn’t line break."),
 
     SHY(
             0x00AD,
             "Soft hyphen",
-            "Invisible character allowing a line-wrap afterwards, but appears like a hyphen in most languages."),
+            "Invisible character that appears like a hyphen (in most fonts/languages) if there is a line-break after it."),
 
     NDASH(
             0x2013,

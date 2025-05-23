@@ -196,7 +196,6 @@ public class SurveyTool extends HttpServlet {
                         + "  console.error(e);\n"
                         + "  document.getElementById('st-run-gui').innerHTML = '<h1>&#x26A0; Error: Could not load CLDR ST GUI. Try reloading?</h1> <pre>'"
                         + " + e + '</pre>\\n<hr />\\n<pre>' + (e.stack||'') + '</pre>';\n"
-                        + "  doc"
                         + "}\n"
                         + "try {\n"
                         + "  cldrBundle.runGui()\n"

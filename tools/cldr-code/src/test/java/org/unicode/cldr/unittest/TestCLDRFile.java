@@ -197,6 +197,7 @@ public class TestCLDRFile extends TestFmwk {
                                             "//ldml/localeDisplayNames/territories/territory")
                                     || path.startsWith("//ldml/localeDisplayNames/variants/variant")
                                     || path.startsWith("//ldml/localeDisplayNames/types/type")
+                                    || path.startsWith("//ldml/localeDisplayNames/keys/key")
                                     || path.startsWith("//ldml/numbers/currencies/currency")
                                     || path.startsWith("//ldml/personNames/sampleName")
                                     || path.contains("/availableFormats")

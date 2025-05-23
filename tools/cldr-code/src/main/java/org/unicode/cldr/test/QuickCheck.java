@@ -1,21 +1,32 @@
 package org.unicode.cldr.test;
 
+import com.google.common.collect.ImmutableSortedSet;
+import com.google.common.collect.LinkedHashMultimap;
+import com.google.common.collect.Multimap;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.text.DateFormatSymbols;
+import com.ibm.icu.text.RuleBasedNumberFormat;
 import com.ibm.icu.text.SimpleDateFormat;
+import com.ibm.icu.text.SimpleFormatter;
 import com.ibm.icu.util.ULocale;
+import com.ibm.icu.util.ULocale.Type;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.EnumSet;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
+import java.util.stream.Collectors;
 import org.unicode.cldr.tool.ToolConfig;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -25,6 +36,7 @@ import org.unicode.cldr.util.DateTimeFormats;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.InputStreamFactory;
+import org.unicode.cldr.util.Joiners;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.Organization;
@@ -66,8 +78,119 @@ public class QuickCheck {
     public static void main(String[] args) throws IOException {
         CLDRConfig testInfo = ToolConfig.getToolInstance();
         Factory factory = testInfo.getCldrFactory();
-        checkStock(factory);
+
+        Path annotationsDir = Path.of(CLDRPaths.ANNOTATIONS_DIRECTORY);
+        Set<String> skipped = new TreeSet<>();
+        Multimap<String, String> differs = LinkedHashMultimap.create();
+        String keycapPath = "//ldml/characterLabels/characterLabel[@type=\"keycap\"]";
+        // SimpleFormatter sf =
+        // SimpleFormatter.compile("//ldml/annotations/annotation[@cp=\"{0}\"];");
+        SimpleFormatter configLocaleValueInt =
+                SimpleFormatter.compile(
+                        "locale={0};\taction=add;\tnew_path=//ldml/annotations/annotation[@cp=\"{2}\u20E3\"];\tnew_value={1}");
+
+        String[][] metadata = {
+            {"bn", "শূন্য", "এক", "দুই", "তিন", "চার", "পাঁচ", "ছয়", "সাত", "আট", "নয়"},
+            {
+                "ha", "sifili", "daya", "biyu", "uku", "hudu", "biyar", "shida", "bakwai", "takwas",
+                "tara"
+            },
+            {"mr", "शून्य", "एक", "दोन", "तीन", "चार", "पाच", "सहा", "सात", "आठ", "नऊ"},
+            {
+                "om", "zeeroo", "tokko", "lama", "sadii", "afur", "shan", "jaha", "torba", "saddet",
+                "sagal"
+            },
+            {"pa", "ਸਿਫਰ", "ਇੱਕ", "ਦੋ", "ਤਿੰਨ", "ਚਾਰ", "ਪੰਜ", "ਛੇ", "ਸੱਤ", "ਅੱਠ", "ਨੌਂ"},
+            {
+                "te",
+                "సున్న",
+                "ఒకటి",
+                "రెండు",
+                "మూడు",
+                "నాలుగు",
+                "ఐదు",
+                "ఆరు",
+                "ఏడు",
+                "ఎనిమిది",
+                "తొమ్మిది"
+            },
+            {
+                "fil", "zero", "isa", "dalawa", "tatlo", "apat", "lima", "anim", "pito", "walo",
+                "siyam"
+            },
+            {
+                "uz", "nol", "bir", "ikki", "uch", "toʻrt", "besh", "olti", "yetti", "sakkiz",
+                "toʻqqiz"
+            },
+            {"zh_Hant_HK", "零", "一", "二", "三", "四", "五", "六", "七", "八", "九"},
+            {
+                "kn", "ಶೂನ್ಯ", "ಒಂದು", "ಎರಡು", "ಮೂರು", "ನಾಲ್ಕು", "ಐದು", "ಆರು", "ಏಳು", "ಎಂಟು",
+                "ಒಂಭತ್ತು"
+            },
+            {
+                "ml", "പൂജ്യം", "ഒന്ന്", "രണ്ട്", "മൂന്ന്", "നാല്", "അഞ്ച്", "ആറ്", "ഏഴ്", "എട്ട്",
+                "ഒമ്പത്"
+            }
+        };
+        Map<String, List<String>> metadata2 =
+                Arrays.asList(metadata).stream()
+                        .collect(
+                                Collectors.toMap(
+                                        x -> x[0],
+                                        x -> Arrays.asList(Arrays.copyOfRange(x, 1, x.length)),
+                                        (oldValue, newValue) ->
+                                                newValue, // If duplicate keys, keep the new value
+                                        TreeMap::new));
+
+        for (File files : ImmutableSortedSet.copyOf(annotationsDir.toFile().listFiles())) {
+            String name = files.getName();
+            if (!name.endsWith(".xml")) {
+                continue;
+            }
+
+            String localeString = name.substring(0, name.length() - 4);
+            ULocale locale = new ULocale(localeString);
+            RuleBasedNumberFormat formatter =
+                    new RuleBasedNumberFormat(locale, RuleBasedNumberFormat.SPELLOUT);
+            Type type = ULocale.ACTUAL_LOCALE;
+            ULocale actualLocale = formatter.getLocale(type);
+            List<String> metaItems = metadata2.get(localeString);
+            boolean haveIcu = actualLocale.equals(locale);
+            if (!haveIcu && metaItems == null) {
+                continue;
+            }
+            String keyCapValue = factory.make(localeString, true).getStringValue(keycapPath);
+            addEmoji(
+                    skipped,
+                    differs,
+                    configLocaleValueInt,
+                    localeString,
+                    formatter,
+                    metaItems,
+                    haveIcu,
+                    keyCapValue);
+        }
+        for (Entry<String, List<String>> entry : metadata2.entrySet()) {
+            String localeString = entry.getKey();
+            if (!skipped.contains(localeString)) {
+                continue;
+            }
+            String keyCapValue = factory.make(localeString, false).getStringValue(keycapPath);
+            addEmoji(
+                    skipped,
+                    differs,
+                    configLocaleValueInt,
+                    localeString,
+                    null,
+                    entry.getValue(),
+                    false,
+                    keyCapValue);
+        }
+        differs.asMap().entrySet().stream().forEach(System.out::println);
+
         if (true) return;
+
+        checkStock(factory);
         verbose = CldrUtility.getProperty("verbose", "false", "true").matches("(?i)T|TRUE");
         localeRegex = CldrUtility.getProperty("locale", ".*");
 
@@ -102,6 +225,43 @@ public class QuickCheck {
             deltaTime = System.currentTimeMillis() - startTime;
             System.out.println("Elapsed: " + deltaTime / 1000.0 + " seconds");
             System.out.println("Basic Test Passes");
+        }
+    }
+
+    private static void addEmoji(
+            Set<String> skipped,
+            Multimap<String, String> differs,
+            SimpleFormatter configLocaleValueInt,
+            String localeString,
+            RuleBasedNumberFormat formatter,
+            List<String> metaItems,
+            boolean haveIcu,
+            String keyCapValue) {
+        for (int i = 0; i < 10; ++i) {
+            String icu = haveIcu ? formatter.format(i) : null;
+            String meta = metaItems == null ? null : metaItems.get(i);
+            String best = icu != null ? icu : meta;
+            if (best == null) {
+                skipped.add(localeString);
+                continue;
+            }
+            if (icu != null & meta != null) {
+                differs.put(
+                        localeString,
+                        i
+                                + " icu:"
+                                + icu
+                                + " "
+                                + (!meta.equals(icu) ? "=" : "!=")
+                                + " meta:"
+                                + meta);
+            }
+            String iValue = String.valueOf(i);
+            List<String> valueList = Arrays.asList(iValue, best, keyCapValue);
+            String path =
+                    configLocaleValueInt.format(
+                            localeString, Joiners.VBAR_SP.join(valueList), iValue);
+            System.out.println(path);
         }
     }
 

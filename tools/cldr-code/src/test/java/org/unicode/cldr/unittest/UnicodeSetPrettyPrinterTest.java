@@ -386,15 +386,19 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
                     roundtrip);
         }
         if (isVerbose()) {
-            System.out.println(Joiners.VBAR.join("", "Abbr.", "Code Point", "Name", "Description"));
-            System.out.println(Joiners.VBAR.join("", "-", "-", "-", "-"));
+            System.out.println(
+                    Joiners.VBAR.join(
+                            "", "Abbr.", "Code Point", "Short Name", "Formal Name", "Description"));
+            System.out.println(Joiners.VBAR.join("", "-", "-", "-", "-", "-"));
             for (CodePointEscaper item : CodePointEscaper.values()) {
+                String formal = UCharacter.getExtendedName(item.getCodePoint());
                 System.out.println(
                         Joiners.VBAR.join(
                                 "",
                                 item.codePointToEscaped(),
                                 "U+" + Utility.hex(item.getCodePoint(), 4),
                                 item.getShortName(),
+                                (item.getShortName().equalsIgnoreCase(formal) ? "🟰" : formal),
                                 item.getDescription()));
             }
             System.out.println(

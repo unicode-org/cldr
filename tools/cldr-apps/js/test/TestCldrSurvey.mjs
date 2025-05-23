@@ -5,6 +5,8 @@ import * as cldrLocaleMap from "../src/esm/cldrLocaleMap.mjs";
 import * as cldrStatus from "../src/esm/cldrStatus.mjs";
 import * as cldrSurvey from "../src/esm/cldrSurvey.mjs";
 
+import * as chai from "chai";
+
 export const TestCldrSurvey = "ok";
 
 /** local function for resetting things before test calls */

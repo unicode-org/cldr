@@ -9,6 +9,7 @@ import * as cldrEvent from "./cldrEvent.mjs";
 import * as cldrForum from "./cldrForum.mjs";
 import * as cldrInfo from "./cldrInfo.mjs";
 import * as cldrLoad from "./cldrLoad.mjs";
+import * as cldrLocales from "./cldrLocales.mjs";
 import * as cldrMenu from "./cldrMenu.mjs";
 import * as cldrNotify from "./cldrNotify.mjs";
 import * as cldrProgress from "./cldrProgress.mjs";
@@ -64,12 +65,12 @@ function run() {
 /** Hook for loading all things we want loaded - locales, menus, etc */
 async function initialSetup() {
   await Promise.all([
-    ensureSession(), // that we have a session
-    // any other things can go here
+    ensureSession(),
     cldrEscaperLoader.updateEscaperFromServer(),
-    // TODO: locale map
-    // TOOD: initial menus
   ]);
+  // fetchMap requires a session, must load after ensureSession
+  await cldrLocales.fetchMap();
+  // Note: could possibly fetch initial menus here rather than later
 }
 
 async function ensureSession() {

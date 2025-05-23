@@ -2063,6 +2063,12 @@ public class TestExampleGenerator extends TestFmwk {
                 "{0} licht",
                 "〖Used as a fallback in the following:〗〖❬1❭ licht⋅seconde〗〖❬1❭ licht⋅minuut〗〖❬1❭ licht⋅uur〗〖❬1❭ licht⋅dag〗〖❬1❭ licht⋅week〗〖❬1❭ licht⋅maand〗〖Compare with:〗〖❬1❭ lichtjaar〗"
             },
+            {
+                "am",
+                "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"speed-light-speed\"]/unitPattern[@count=\"other\"][@case=\"accusative\"]",
+                "{0} ብርሃን",
+                "〖Used as a fallback in the following:〗〖❬2.6❭ ብርሃን⋅ሰከንዶች〗〖❬2.6❭ ብርሃን⋅ደቂቃዎች〗〖❬2.6❭ ብርሃን⋅ሰዓቶች〗〖❬2.6❭ ብርሃን⋅ቀናት〗〖❬2.6❭ ብርሃን⋅ሳምንታት〗〖❬2.6❭ ብርሃን⋅ወራት〗〖Compare with:〗〖❬2.6❭ የብርሃን ዓመት〗"
+            },
         };
         String lastLocale = "";
         CLDRFile baseCldrFile = null;

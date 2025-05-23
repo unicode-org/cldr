@@ -1990,6 +1990,9 @@ public class ExampleGenerator {
         //  <ellipsis type="word-medial">{0} … {1}</ellipsis>
         String territory1 = getValueFromFormat(pathFormat, "CH");
         String territory2 = getValueFromFormat(pathFormat, "JP");
+        if (territory1 == null || territory2 == null) {
+            return;
+        }
         // if it isn't a word, break in the middle
         if (!type.contains("word")) {
             territory1 = clip(territory1, 0, 1);
@@ -3835,21 +3838,25 @@ public class ExampleGenerator {
 
         // now get the description
 
-        Level level = CONFIG.getCoverageInfo().getCoverageLevel(xpath, cldrFile.getLocaleID());
+        // Level level = CONFIG.getCoverageInfo().getCoverageLevel(xpath, cldrFile.getLocaleID());
         String description = pathDescription.getDescription(xpath, value, null);
         if (description == null || description.equals("SKIP")) {
             return null;
         }
-        int start = 0;
         StringBuilder buffer = new StringBuilder(description);
         if (AnnotationUtil.pathIsAnnotation(xpath)) {
-            XPathParts emoji = XPathParts.getFrozenInstance(xpath);
-            String cp = emoji.getAttributeValue(-1, "cp");
-            String minimal = Utility.hex(cp).replace(',', '_').toLowerCase(Locale.ROOT);
-            buffer.append(
-                    "<br><img height='64px' width='auto' src='images/emoji/emoji_"
-                            + minimal
-                            + ".png'>");
+            final String cp = AnnotationUtil.getEmojiFromXPath(xpath);
+            final String hex = Utility.hex(cp, 4, " U+");
+            if (AnnotationUtil.haveEmojiImageFile(cp)) {
+                final String fn = AnnotationUtil.calculateEmojiImageFilename(cp);
+                buffer.append(
+                        "\n\n<br><img class='emojiImage' height='64px' width='auto' src='images/emoji/"
+                                + fn
+                                + "'"
+                                + " title='U+"
+                                + hex
+                                + "'>\n");
+            } // else no image available
         }
         return buffer.toString();
     }

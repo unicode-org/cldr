@@ -1,20 +1,22 @@
 package org.unicode.cldr.test;
 
-import com.google.common.cache.CacheBuilder;
-import com.google.common.cache.CacheLoader;
-import com.google.common.cache.LoadingCache;
-import com.google.common.collect.ComparisonChain;
-import com.google.common.collect.ImmutableSet;
-import com.ibm.icu.text.UnicodeSet;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.concurrent.ExecutionException;
+
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrIntervalFormat;
 import org.unicode.cldr.util.XPathParts;
+
+import com.google.common.cache.CacheBuilder;
+import com.google.common.cache.CacheLoader;
+import com.google.common.cache.LoadingCache;
+import com.google.common.collect.ComparisonChain;
+import com.google.common.collect.ImmutableSet;
+import com.ibm.icu.text.UnicodeSet;
 
 public class RelatedDatePathValues {
     public static final int calendarElement = 3;
@@ -38,6 +40,7 @@ public class RelatedDatePathValues {
     // /dateFormatLength[@type="full"]/dateFormat[@type="standard"]/datetimeSkeleton[@type="standard"]
     // ldml/dates/calendars/calendar[@type="gregorian"]/timeFormats
     // /timeFormatLength[@type="full"]/timeFormat[@type="standard"]/datetimeSkeleton[@type="standard"]
+
     public static Set<String> getRelatedPathValues(CLDRFile cldrFile, XPathParts xparts) {
         if (xparts.size() <= idElement) {
             return Set.of();
@@ -92,14 +95,13 @@ public class RelatedDatePathValues {
         return result;
     }
 
-    private static String addRelated(String skeleton, String letter, Set<String> skeletons) {
+    private static void addRelated(String skeleton, String letter, Set<String> skeletons) {
         if (skeleton.contains(letter)) {
             String newItem = skeleton.replace(letter, "");
             if (newItem.length() > 1 && !newItem.equals(skeleton)) {
                 skeletons.add(newItem);
             }
         }
-        return null;
     }
 
     private static Set<String> forInterval(CLDRFile cldrFile, XPathParts xparts) {
@@ -185,14 +187,13 @@ public class RelatedDatePathValues {
     //        return cores;
     //    }
 
-    private static String addCore(String skeleton, String letter, Collection<String> cores) {
+    private static void addCore(String skeleton, String letter, Collection<String> cores) {
         if (skeleton.contains(letter)) {
             String newItem = skeleton.replace(letter, "");
-            if (!newItem.isEmpty() && !newItem.equals(skeleton) && cores.add(newItem)) {
-                return newItem;
+            if (!newItem.isEmpty() && !newItem.equals(skeleton)) {
+                cores.add(newItem);
             }
         }
-        return null;
     }
 
     public static Comparator<String> SKELETON_COMPARE =

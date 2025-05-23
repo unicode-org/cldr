@@ -4,7 +4,7 @@
   <groupId>org.unicode.cldr.surveydriver</groupId>
   <artifactId>cldr-apps-webdriver</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <name>cldr-apps-webdriver</name>
+  <name>CLDR Apps Webdriver</name>
   <licenses>
     <license>
       <name>Unicode-3.0</name>
@@ -91,14 +91,32 @@
         <plugin>
           <artifactId>maven-jar-plugin</artifactId>
           <version>3.3.0</version>
+          <configuration>
+            <!-- skipIfEmpty prevents warning "JAR will be empty..." -->
+            <skipIfEmpty>true</skipIfEmpty>
+          </configuration>
+          <executions>
+            <execution>
+              <goals>
+                <!-- test-jar goal prevents error "The packaging for this project did not assign a file to the build artifact" -->
+                <goal>test-jar</goal>
+              </goals>
+            </execution>
+          </executions>
         </plugin>
         <plugin>
           <artifactId>maven-install-plugin</artifactId>
           <version>2.5.2</version>
+           <configuration>
+            <skipIfEmpty>true</skipIfEmpty>
+          </configuration>
         </plugin>
         <plugin>
           <artifactId>maven-deploy-plugin</artifactId>
           <version>2.8.2</version>
+          <configuration>
+            <skipIfEmpty>true</skipIfEmpty>
+          </configuration>
         </plugin>
         <!-- site lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#site_Lifecycle -->
         <plugin>

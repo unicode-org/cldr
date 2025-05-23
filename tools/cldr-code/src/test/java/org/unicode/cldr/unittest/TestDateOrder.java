@@ -22,6 +22,8 @@ import java.util.TreeSet;
 import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.test.CheckDates;
 import org.unicode.cldr.test.DateOrder;
+import org.unicode.cldr.test.RelatedDatePathValues;
+import org.unicode.cldr.test.RelatedDatePathValues.SkeletonPathType;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
@@ -478,6 +480,46 @@ public class TestDateOrder extends TestFmwk {
             String expected = test[2];
             String actual = CheckDates.checkIso8601(path, value);
             assertEquals(path + " " + value, expected, actual);
+        }
+    }
+
+    /** Test to make sure that only canonical skeletons are used. */
+    public void testSkeletons() {
+        UnicodeSet allowed = new UnicodeSet("[BEGHMQUWdhmsvwy]").freeze();
+        org.unicode.cldr.util.Factory cldrFactory = CLDRConfig.getInstance().getCldrFactory();
+        Set<String> locales = Set.of("root"); //  : cldrFactory.getAvailable();
+        for (String locale : locales) {
+            CLDRFile source = cldrFactory.make(locale, false);
+            for (String path : source) {
+                XPathParts parts = XPathParts.getFrozenInstance(path);
+                String skeleton = null;
+                SkeletonPathType stype = RelatedDatePathValues.SkeletonPathType.fromParts(parts);
+                switch (stype) {
+                    case na:
+                        continue;
+                    case available:
+                    case interval:
+                        skeleton = parts.getAttributeValue(RelatedDatePathValues.idElement, "id");
+                        break;
+                    case datetime:
+                        skeleton = source.getStringValue(path);
+                        if (skeleton == null || "↑↑↑".equals(skeleton)) {
+                            continue;
+                        }
+                        break;
+                }
+                if (!allowed.containsAll(skeleton)) {
+                    errln(
+                            "Unexpected skeleton character in "
+                                    + locale
+                                    + ", "
+                                    + path
+                                    + ", "
+                                    + skeleton
+                                    + ": "
+                                    + new UnicodeSet().addAll(skeleton).removeAll(allowed));
+                }
+            }
         }
     }
 }

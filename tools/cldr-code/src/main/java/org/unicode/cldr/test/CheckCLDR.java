@@ -940,7 +940,8 @@ public abstract class CheckCLDR implements CheckAccessor {
             ttsAnnotationMissing,
             illegalCharacter,
             missingNumberingSystem,
-            forbiddenValue;
+            forbiddenValue,
+            inconsistentCoreDatePattern;
 
             @Override
             public String toString() {

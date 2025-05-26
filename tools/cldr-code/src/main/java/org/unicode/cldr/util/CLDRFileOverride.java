@@ -9,6 +9,13 @@ import org.unicode.cldr.util.XPathParts.Comments;
 public class CLDRFileOverride extends CLDRFile {
 
     /**
+     * Silently ignore missing paths for the locale used for the Comparison Value column in Survey
+     * Tool. This happens for some light-speed unit paths with @case="accusative", which have values
+     * for some locales such as Amharic ("am") but not for English.
+     */
+    static final String COMPARISON_LOCALE = "en";
+
+    /**
      * Overrides the values of the sourceFile. The keys of the overrides must already be in the
      * XMLSource source
      */
@@ -24,16 +31,20 @@ public class CLDRFileOverride extends CLDRFile {
      * same, since it provides for the map.
      */
     public static class XMLSourceMapOverride extends XMLSource {
-        private XMLSource delegate;
+        private final XMLSource delegate;
 
-        private Map<String, String> overrides;
+        private final Map<String, String> overrides;
 
         public XMLSourceMapOverride(XMLSource source, Map<String, String> overrides) {
             overrides.keySet().stream()
                     .forEach(
                             x -> {
                                 if (source.getValueAtDPath(x) == null) {
-                                    throw new IllegalArgumentException();
+                                    String loc = source.getLocaleID();
+                                    if (!COMPARISON_LOCALE.equals(loc)) {
+                                        throw new IllegalArgumentException(
+                                                "loc=" + loc + "; path=" + x);
+                                    }
                                 }
                             });
             this.overrides = overrides;

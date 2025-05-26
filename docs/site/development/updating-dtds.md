@@ -76,7 +76,7 @@ Add the annotations.
 2. **Survey Tool Data.** Add information so that the Survey Tool can display these properly to translators
     1. PathHeader.txt (tools/java/org/unicode/cldr/util/data/) - provides the information for what section of the Survey Tool this item shows up in, and how it sorts.
         1. Edit as described in [PathHeader](/development/updating-dtds).
-    2.  PathDescription.txt (tools/java/org/unicode/cldr/util/data/) - provides a description of what the field is, for translators.
+    2.  PathDescriptions.md (tools/java/org/unicode/cldr/util/data/) - provides a description of what the field is, for translators.
         1. If it needs more explanation, add a section (or perhaps a whole page) to the translation guide, eg http://cldr.org/translation/plurals.
         2. For an example, see [8479](/index/bug-reports#TOC-Filing-a-Ticket)
     3. Placeholders.txt - provides information about the placeholders, if there can be any.
@@ -257,9 +257,9 @@ If a value has placeholders, edit Placeholders.txt:
 5. Check that the ConsoleCheckCLDR **CheckForExamplars** fails if there are no placeholders in the value
 6. Note: we should switch methods so that we don't need to quote \\\[, etc, but we haven't yet.
 
-## PathDescription
+## PathDescriptions.md
 
-This file provides a description of each kind of path, and a link to a section of https://cldr.unicode.org/translation. Easiest is to take an existing description and modify.
+This file provides a description of each kind of path, and a link to a section of https://cldr.unicode.org/translation. Docs are in the top of the file. Easiest is to take an existing description and modify.
 
 ## Coverage
 

@@ -2,12 +2,13 @@
  * cldrAjax: encapsulate client-server communication.
  */
 import * as cldrStatus from "./cldrStatus.mjs";
+import * as cldrConstants from "./cldrConstants.mjs";
 
 const ST_AJAX_DEBUG = false;
 
-const SURVEY_TOOL_SESSION_HEADER = "X-SurveyTool-Session";
+const SURVEY_TOOL_SESSION_HEADER = cldrConstants.SURVEY_TOOL_SESSION_HEADER;
 
-const SLASH_API_SLASH = "/api/";
+const SLASH_API_SLASH = cldrConstants.SLASH_API_SLASH;
 
 /**
  * Call the standard js fetch function, possibly with additional handling suitable

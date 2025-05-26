@@ -39,6 +39,8 @@ Please use the parent [CLDR/tools/pom.xml](../pom.xml) with maven to build and r
 MYSQL_USER=surveytool
 MYSQL_PASSWORD=your_strong_password
 MYSQL_DB=cldrdb
+MYSQL_PORT=3306
+MYSQL_HOST=localhost
 ```
 
 - Use `mvn --file=tools/pom.xml -DskipTests=true -pl cldr-apps liberty:dev` to run a development
@@ -145,10 +147,58 @@ org.unicode.cldr.util.CLDRConfigImpl.cldrHome=/Users/srl295/src/cldr-st/config
 
 You will also want to make sure this directory exists and is writeable. You can move the existing `cldr.properties` and other files to that directory.
 
+## Docker Testing
+
+### Setup
+
+This may be excessive but it works
+
+```shell
+# clean out webpack build
+rm -rf tools/cldr-apps/src/main/webapp/dist ./tools/cldr-apps/target/cldr-apps/dist/
+# build
+mvn clean compile package -DskipTests=true
+# create server package
+mvn  -pl cldr-apps liberty:clean liberty:create liberty:deploy liberty:package -Dinclude=usr --file tools/pom.xml -DskipTests=true
+```
+
+### Build and run
+
+```shell
+docker compose up cldr-apps
+```
+
+### webdriver
+
+This will compile and launch the [webdriver](../cldr-apps-webdriver/README.md).
+
+```shell
+docker compose run --rm -it webdriver
+```
+
+#### VNC into the WebDriver
+
+Want to see what the WebDriver is doing? Sure, you can.
+
+1. Start the selenium container with `docker compose up -d selenium`
+2. Get the local VNC port number: use `docker ps` and it will show up, for example look for `0.0.0.0:39999->5900/tcp` meaning that 39999 is the randomly assigned port (5900 is the VNC port number, but we don't assign that locally.). Or, get the local noVNC port number, which will be  mapped to 7900, `0.0.0.0:37777->7900/tcp` indicating port 37777
+3. For noVNC, just point a browser at <http://localhost:37777> (in the above example). In Docker Desktop, you might be able to _click_ on the port number mapped to 7900 to launch a browser.
+   For VNC, use a VNC client to connect to `localhost:39999` (for example).  <vnc://localhost:39999> might work in a browser.
+4. Enter the "secret" password, more details [here](https://github.com/SeleniumHQ/docker-selenium?tab=readme-ov-file#using-a-vnc-client).
+5. Now run the webdriver (above) and you can watch the brower go.
+
+### client tests
+
+This will launch the [client tests](js/test/client/README.md).
+
+```shell
+docker compose run --rm -it client-test
+```
+
 ### Licenses
 
 See the main [README.md](../../README.md).
 
 ### Copyright
 
-Copyright © 2004-2024 Unicode, Inc. Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the United States and other countries.
+Copyright © 2004-2025 Unicode, Inc. Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the United States and other countries.

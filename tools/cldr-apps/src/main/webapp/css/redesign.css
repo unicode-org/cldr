@@ -247,7 +247,29 @@ h3.collapse-review > span:first-child {position: relative; top: -220px;display: 
 	border-color: #bce8f1;
 	color: #666666;
 	margin: 0 2.5px;
+	font-size: small;
 }
+.data .visible-mark:hover{
+	color: #d9edf7;
+	background-color: #666666;
+}
+.lrmarker-container > .lrmarker-text {
+	flex-grow: 1;
+
+}
+.lrmarker-container .visible-mark{
+	flex-grow: 0;
+}
+.lrmarker-container > .hiddenMoreInfo {
+	opacity: .1;
+}
+.lrmarker-container:hover > .hiddenMoreInfo {
+	opacity: 1;
+}
+.hiddenMoreInfo{
+	color: black;
+}
+
 .data .subSpan {
 	margin-left:9px;
 	position:relative;
@@ -1134,4 +1156,13 @@ html {
 	display: none;
 	flex-direction: column;
 	overflow: hidden;
+}
+
+footer {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	border-top: 0.5em solid #eeeefe;
+	font-size: smaller;
 }

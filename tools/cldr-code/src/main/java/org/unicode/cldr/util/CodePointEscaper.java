@@ -6,83 +6,97 @@ import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import java.util.Locale;
+import java.util.stream.Collectors;
 
 /**
  * Provide a set of code point abbreviations. Includes conversions to and from codepoints, including
- * hex. Typicaly To test whether a string could have escapes, use either:
- *
- * <ul>
- *   <li>
+ * hex. <br>
+ * Use TestCodePointEscaper -v to see list of escapes
  */
 public enum CodePointEscaper {
     // These are characters found in CLDR data fields
     // The long names don't necessarily match the formal Unicode names
-    TAB(9, "tab"),
-    LF(0xA, "line feed"),
-    CR(0xD, "carriage return"),
 
     // Spaces
-    SP(0x20, "space", "ASCII space"),
-    TSP(0x2009, "thin space", "Aka ‘narrow space’"),
+    TSP(
+            0x2009,
+            "Thin space",
+            "A space character that is narrower (in most fonts) than the regular one."),
 
     // No-break versions
-    NBSP(0xA0, "no-break space", "Same as space, but doesn’t line wrap."),
-    NBTSP(
-            0x202F,
-            "no-break thin space",
-            "Same as thin space, but doesn’t line wrap. Aka 'narrow no-break space'"),
+    NBSP(0xA0, "No-break space", "Same as space, but doesn’t line break."),
+    NBTSP(0x202F, "No-break thin space", "Same as thin space, but doesn’t line break."),
 
     // Line Break control
-    WNJ(
-            0x200B,
-            "allow line wrap after, aka ZWSP",
-            "Invisible character allowing a line-wrap afterwards. Also known as ‘ZWSP’."),
-    WJ(
-            0x2060,
-            "prevent line wrap",
-            "Keeps adjacent characters from line-wrapping. Also known as ‘word-joiner’."),
+    ALB(0x200B, "Allow line break", "Invisible character allowing a line-break. Aka ZWSP."),
+    NB(0x2060, "No-break", "Invisible character preventing a line break."),
+
+    // Hyphens & dashes
+    NBHY(0x2011, "No-break hyphen", "Same as a hyphen, but doesn’t line break."),
+
     SHY(
             0x00AD,
-            "soft hyphen",
-            "Invisible character allowing a line-wrap afterwards, but appears like a hyphen in most languages."),
+            "Soft hyphen",
+            "Invisible character that appears like a hyphen (in most fonts/languages) if there is a line-break after it."),
 
-    ZWNJ(0x200C, "cursive non-joiner", "Breaks cursive connections, where possible."),
-    ZWJ(0x200D, "cursive joiner", "Forces cursive connections, if possible."),
+    NDASH(
+            0x2013,
+            "En dash",
+            "Slightly wider (–) than a hyphen (-), used for ranges of numbers or dates in some languages."),
+
+    // Cursive joining
+
+    ZWNJ(0x200C, "Cursive non-joiner", "Breaks cursive connections, where possible."),
+    ZWJ(0x200D, "Cursive joiner", "Forces cursive connections, if possible."),
+
+    // Bidi
+
+    LRM(
+            0x200E,
+            "Left-right mark",
+            "For BIDI, invisible character that behaves like Hebrew letter."),
+    RLM(0x200F, "Right-left mark", "For BIDI, invisible character that behaves like Latin letter."),
 
     ALM(
             0x061C,
             "Arabic letter mark",
             "For BIDI, invisible character that behaves like Arabic letter."),
-    LRM(
-            0x200E,
-            "left-right mark",
-            "For BIDI, invisible character that behaves like Hebrew letter."),
-    RLM(0x200F, "right-left mark", "For BIDI, invisible character that behaves like Latin letter."),
 
-    LRO(0x202D, "left-right override"),
-    RLO(0x202E, "right-left override"),
-    PDF(0x202C, "end override"),
+    // Oddball Cf characters that are in CLDR data
 
-    BOM(0xFEFF, "byte-order mark"),
+    ANS(0x0600, "Arabic number sign", "For use in Exemplar sets"),
+    ASNS(0x0601, "Arabic sanah sign", "For use in Exemplar sets"),
+    AFM(0x602, "Arabic footnote marker", "For use in Exemplar sets"),
+    ASFS(0x603, "Arabic safha sign", "For use in Exemplar sets"),
+    SAM(0x70F, "Syriac abbreviation mark", "For use in Exemplar sets"),
 
-    ANS(0x0600, "Arabic number sign"),
-    ASNS(0x0601, "Arabic sanah sign"),
-    AFM(0x602, "Arabic footnote marker"),
-    ASFS(0x603, "Arabic safha sign"),
-    SAM(0x70F, "Syriac abbreviation mark"),
-    KIAQ(0x17B4, "Khmer inherent aq"),
-    KIAA(0x17B5, "Khmer inherent aa"),
+    // Shouldn't use in CLDR
+    //    TAB(9, "Tab", "Control character"),
+    //    LF(0xA, "Line feed","Control character"),
+    //    CR(0xD, "Carriage return", "Control character"),
 
-    RANGE('➖', "range syntax mark", "heavy minus sign"),
-    ESCS('❰', "escape start", "heavy open angle bracket"),
-    ESCE('❱', "escape end", "heavy close angle bracket");
+    //        LRO(0x202D, "Left-right override"),
+    //        RLO(0x202E, "Right-left override"),
+    //        PDF(0x202C, "End override"),
+    //
+    //        BOM(0xFEFF, "byte-order mark"),
+    //
+    //  KIAQ(0x17B4, "Khmer inherent aq"),
+    //  KIAA(0x17B5, "Khmer inherent aa"),
+
+    // Intended for use in UnicodeSets
+
+    SP(0x20, "Space", "ASCII space, for use in Exemplar sets"),
+    RANGE('➖', "Range syntax mark", "heavy minus sign, for use in Exemplar sets"),
+    ESCS('❰', "Escape start", "heavy open angle bracket, for use in Exemplar sets"),
+    ESCE('❱', "Escape end", "heavy close angle bracket, for use in Exemplar sets");
 
     // Alternates: Thin vs Narrow, order of NB vs those
     public static final CodePointEscaper NSP = TSP;
     public static final CodePointEscaper NBNSP = NBTSP;
     public static final CodePointEscaper NNBSP = NBTSP;
     public static final CodePointEscaper TNBSP = NBTSP;
-    public static final CodePointEscaper ZWSP = WNJ;
+    public static final CodePointEscaper ZWSP = ALB;
 
     public static final char RANGE_SYNTAX = (char) RANGE.getCodePoint();
     public static final char ESCAPE_START = (char) ESCS.getCodePoint();
@@ -116,6 +130,10 @@ public enum CodePointEscaper {
                     .removeAll(EMOJI_INVISIBLES)
                     .freeze();
 
+    /** set to be escaped in the surveytool */
+    public static final UnicodeSet ESCAPE_IN_SURVEYTOOL =
+            FORCE_ESCAPE.cloneAsThawed().remove(SP.getCodePoint()).freeze();
+
     public static final UnicodeSet NON_SPACING = new UnicodeSet("[[:Mn:][:Me:]]").freeze();
 
     public static final UnicodeSet FORCE_ESCAPE_WITH_NONSPACING =
@@ -124,10 +142,6 @@ public enum CodePointEscaper {
     private final int codePoint;
     private final String shortName;
     private final String description;
-
-    private CodePointEscaper(int codePoint, String shortName) {
-        this(codePoint, shortName, "");
-    }
 
     private CodePointEscaper(int codePoint, String shortName, String description) {
         this.codePoint = codePoint;
@@ -192,7 +206,7 @@ public enum CodePointEscaper {
         return ESCAPE_START + rawCodePointToEscaped(codePoint) + ESCAPE_END;
     }
 
-    /** Returns the escaped form from a string */
+    /** Returns the escaped form from a string, defaulting to FORCE_ESCAPE */
     public static String toEscaped(String unescaped) {
         return toEscaped(unescaped, FORCE_ESCAPE);
     }
@@ -254,7 +268,7 @@ public enum CodePointEscaper {
     private static final String HAS_NAME = " ≡ ";
 
     public static String toExample(int codePoint) {
-        CodePointEscaper cpe = _fromCodePoint.get(codePoint);
+        CodePointEscaper cpe = forCodePoint(codePoint);
         if (cpe == null) { // hex
             final String name = UCharacter.getExtendedName(codePoint);
             return codePointToEscaped(codePoint)
@@ -265,6 +279,14 @@ public enum CodePointEscaper {
                     + HAS_NAME
                     + cpe.shortName; // TODO show hover with cpe.description
         }
+    }
+
+    static CodePointEscaper forCodePoint(int codePoint) {
+        return _fromCodePoint.get(codePoint);
+    }
+
+    static CodePointEscaper forCodePoint(String str) {
+        return forCodePoint(str.codePointAt(0));
     }
 
     /**
@@ -300,6 +322,51 @@ public enum CodePointEscaper {
         return result == null
                 ? Integer.toString(codePoint, 16).toUpperCase(Locale.ROOT)
                 : result.toString();
+    }
+
+    /**
+     * Create a regex pattern from a UnicodeSet; use
+     *
+     * @param escapePrefix use "\\x{" for Java, "\\u{" for some others
+     * @param escapePostfix typically "}"
+     */
+    public static String regexPattern(
+            UnicodeSet unicodeSet, String escapePrefix, String escapePostfix) {
+        return "["
+                + unicodeSet
+                        .rangeStream()
+                        .map(
+                                x ->
+                                        (hexEscape(x.codepoint, escapePrefix, escapePostfix)
+                                                + (x.codepointEnd == x.codepoint
+                                                        ? ""
+                                                        : "-"
+                                                                + hexEscape(
+                                                                        x.codepointEnd,
+                                                                        escapePrefix,
+                                                                        escapePostfix))))
+                        .collect(Collectors.joining())
+                + "]";
+    }
+
+    public static String regexPattern(UnicodeSet unicodeSet) {
+        return regexPattern(unicodeSet, "\\x{", "}");
+    }
+
+    /**
+     * Return hex form of single character
+     *
+     * @param codepoint
+     * @param escapePrefix
+     * @param escapePostfix
+     * @return
+     */
+    public static String hexEscape(int codepoint, String escapePrefix, String escapePostfix) {
+        return escapePrefix + Integer.toHexString(codepoint) + escapePostfix;
+    }
+
+    public static String hexEscape(int codepoint) {
+        return hexEscape(codepoint, "\\x{", "}");
     }
 
     public static final String getHtmlRows(

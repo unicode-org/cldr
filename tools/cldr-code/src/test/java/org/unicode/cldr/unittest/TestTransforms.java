@@ -961,7 +961,7 @@ public class TestTransforms extends TestFmwkPlus {
             // Suppress Common/Inherited characters that are given scx properties
             UnicodeSet suppressHack =
                     new UnicodeSet(
-                                    "[\u0301\u0300\u0306\u0302\u030C\u030A\u0308\u0303\u0307\u0304\u0309\u0310\u0323-\u0325\u0330\u0331 \u00B7 \u02BC]")
+                                    "[\u0301\u0300\u0306\u0302\u030C\u030A\u0308\u0303\u0307\u0304\u0309\u0310\u0323-\u0325\u0330\u0331 \u00B7 \u02BC \u3007 \u0E19\u0E22\u0E28\u0E39\u0E4C]")
                             .freeze();
             for (String s : suppressHack) {
                 allMissing.scriptMissing.remove(s);

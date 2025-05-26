@@ -1204,6 +1204,17 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
         if (stringPattern.contains("%")) {
             stringPattern = variables.replace(stringPattern);
         }
+        return addWithoutVariables(stringPattern, target);
+    }
+
+    /**
+     * Add a pattern/value pair, without variable substitution
+     *
+     * @param stringPattern regex to match
+     * @param target return type on match
+     * @return this, for chaining
+     */
+    public RegexLookup<T> addWithoutVariables(final String stringPattern, final T target) {
         Finder pattern0 = patternTransform.transform(stringPattern);
         return add(pattern0, target);
     }

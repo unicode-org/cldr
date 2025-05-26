@@ -402,6 +402,8 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<likelySubtag from="ku_AM" to="ku_Cyrl_AM"/>		<!--Kurdish‧?‧Armenia	➡ Kurdish‧Cyrillic‧Armenia-->
 		<likelySubtag from="ku_AZ" to="ku_Cyrl_AZ"/>		<!--Kurdish‧?‧Azerbaijan	➡ Kurdish‧Cyrillic‧Azerbaijan-->
 		<likelySubtag from="ku_GE" to="ku_Cyrl_GE"/>		<!--Kurdish‧?‧Georgia	➡ Kurdish‧Cyrillic‧Georgia-->
+		<likelySubtag from="ku_IQ" to="ku_Arab_IQ"/>		<!--Kurdish‧?‧Iraq	➡ Kurdish‧Arabic‧Iraq-->
+		<likelySubtag from="ku_IR" to="ku_Arab_IR"/>		<!--Kurdish‧?‧Iran	➡ Kurdish‧Arabic‧Iran-->
 		<likelySubtag from="ku_LB" to="ku_Arab_LB"/>		<!--Kurdish‧?‧Lebanon	➡ Kurdish‧Arabic‧Lebanon-->
 		<likelySubtag from="ku_TM" to="ku_Cyrl_TM"/>		<!--Kurdish‧?‧Turkmenistan	➡ Kurdish‧Cyrillic‧Turkmenistan-->
 		<likelySubtag from="ku_Arab" to="ku_Arab_IQ"/>		<!--Kurdish‧Arabic‧?	➡ Kurdish‧Arabic‧Iraq-->
@@ -607,6 +609,15 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<likelySubtag from="pfl" to="pfl_Latn_DE"/>		<!--Palatine German‧?‧?	➡ Palatine German‧Latin‧Germany-->
 		<likelySubtag from="pgd" to="pgd_Khar_PK"/>		<!--Gāndhārī‧?‧?	➡ Gāndhārī‧Kharoshthi‧Pakistan-->
 		<likelySubtag from="phn" to="phn_Phnx_LB"/>		<!--Phoenician‧?‧?	➡ Phoenician‧Phoenician‧Lebanon-->
+		<likelySubtag from="pi" to="pi_Latn_GB"/>		<!--Pali‧?‧?	➡ Pali‧Latin‧United Kingdom-->
+		<likelySubtag from="pi_IN" to="pi_Deva_IN"/>		<!--Pali‧?‧India	➡ Pali‧Devanagari‧India-->
+		<likelySubtag from="pi_LK" to="pi_Sinh_LK"/>		<!--Pali‧?‧Sri Lanka	➡ Pali‧Sinhala‧Sri Lanka-->
+		<likelySubtag from="pi_MM" to="pi_Mymr_MM"/>		<!--Pali‧?‧Myanmar (Burma)	➡ Pali‧Myanmar‧Myanmar (Burma)-->
+		<likelySubtag from="pi_TH" to="pi_Thai_TH"/>		<!--Pali‧?‧Thailand	➡ Pali‧Thai‧Thailand-->
+		<likelySubtag from="pi_Deva" to="pi_Deva_IN"/>		<!--Pali‧Devanagari‧?	➡ Pali‧Devanagari‧India-->
+		<likelySubtag from="pi_Mymr" to="pi_Mymr_MM"/>		<!--Pali‧Myanmar‧?	➡ Pali‧Myanmar‧Myanmar (Burma)-->
+		<likelySubtag from="pi_Sinh" to="pi_Sinh_LK"/>		<!--Pali‧Sinhala‧?	➡ Pali‧Sinhala‧Sri Lanka-->
+		<likelySubtag from="pi_Thai" to="pi_Thai_TH"/>		<!--Pali‧Thai‧?	➡ Pali‧Thai‧Thailand-->
 		<likelySubtag from="pis" to="pis_Latn_SB"/>		<!--Pijin‧?‧?	➡ Pijin‧Latin‧Solomon Islands-->
 		<likelySubtag from="pka" to="pka_Brah_IN"/>		<!--Ardhamāgadhī Prākrit‧?‧?	➡ Ardhamāgadhī Prākrit‧Brahmi‧India-->
 		<likelySubtag from="pko" to="pko_Latn_KE"/>		<!--Pökoot‧?‧?	➡ Pökoot‧Latin‧Kenya-->
@@ -724,7 +735,7 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<likelySubtag from="su" to="su_Latn_ID"/>		<!--Sundanese‧?‧?	➡ Sundanese‧Latin‧Indonesia-->
 		<likelySubtag from="suk" to="suk_Latn_TZ"/>		<!--Sukuma‧?‧?	➡ Sukuma‧Latin‧Tanzania-->
 		<likelySubtag from="sus" to="sus_Latn_GN"/>		<!--Susu‧?‧?	➡ Susu‧Latin‧Guinea-->
-		<likelySubtag from="suz" to="suz_Sunu_NP"/>		<!--Sunwar‧?‧?	➡ Sunwar‧Sunuwar‧Nepal-->
+		<likelySubtag from="suz" to="suz_Deva_NP"/>		<!--Sunwar‧?‧?	➡ Sunwar‧Devanagari‧Nepal-->
 		<likelySubtag from="sv" to="sv_Latn_SE"/>		<!--Swedish‧?‧?	➡ Swedish‧Latin‧Sweden-->
 		<likelySubtag from="sw" to="sw_Latn_TZ"/>		<!--Swahili‧?‧?	➡ Swahili‧Latin‧Tanzania-->
 		<likelySubtag from="swb" to="swb_Arab_YT"/>		<!--Comorian‧?‧?	➡ Comorian‧Arabic‧Mayotte-->
@@ -5687,7 +5698,6 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<likelySubtag from="phu" to="phu_Thai_TH" origin="sil1"/>		<!--Phuan‧?‧?	➡ Phuan‧Thai‧Thailand-->
 		<likelySubtag from="phv" to="phv_Arab_AF" origin="sil1"/>		<!--Pahlavani‧?‧?	➡ Pahlavani‧Arabic‧Afghanistan-->
 		<likelySubtag from="phw" to="phw_Deva_NP" origin="sil1"/>		<!--Phangduwali‧?‧?	➡ Phangduwali‧Devanagari‧Nepal-->
-		<likelySubtag from="pi" to="pi_Sinh_IN" origin="sil1"/>		<!--Pali‧?‧?	➡ Pali‧Sinhala‧India-->
 		<likelySubtag from="pia" to="pia_Latn_MX" origin="sil1"/>		<!--Pima Bajo‧?‧?	➡ Pima Bajo‧Latin‧Mexico-->
 		<likelySubtag from="pib" to="pib_Latn_PE" origin="sil1"/>		<!--Yine‧?‧?	➡ Yine‧Latin‧Peru-->
 		<likelySubtag from="pic" to="pic_Latn_GA" origin="sil1"/>		<!--Pinji‧?‧?	➡ Pinji‧Latin‧Gabon-->

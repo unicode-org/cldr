@@ -1,6 +1,8 @@
 import * as cldrForum from "../src/esm/cldrForum.mjs";
 import * as cldrForumFilter from "../src/esm/cldrForumFilter.mjs";
 
+import * as chai from "chai";
+
 export const TestCldrForumFilter = "ok";
 
 const assert = chai.assert;

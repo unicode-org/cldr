@@ -1187,6 +1187,7 @@ export {
   handleCoverageChanged,
   insertLocaleSpecialNote,
   linkToLocale,
+  localeMapReady,
   localeSpecialNote,
   myLoad,
   onLocaleMapReady,

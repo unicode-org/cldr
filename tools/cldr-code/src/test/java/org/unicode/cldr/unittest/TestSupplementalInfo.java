@@ -68,6 +68,7 @@ import org.unicode.cldr.util.Iso3166Data;
 import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.Iso639Data.Scope;
 import org.unicode.cldr.util.IsoCurrencyParser;
+import org.unicode.cldr.util.IsoCurrencyParser.Data;
 import org.unicode.cldr.util.LanguageTagCanonicalizer;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
@@ -1585,30 +1586,39 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             if (isoCountries == null) {
                 isoCountries = new TreeSet<>();
             }
+            // look for any historical currency
+            Relation<String, Data> historicCodeList = isoCodes.getHistoricCodeList();
+            if (historicCodeList.containsKey(currency)) {
+                for (final Data d : historicCodeList.getAll(currency)) {
+                    final Date withdrawal = d.getWithdrawalDate();
+                    if (withdrawal.compareTo(DateConstants.RECENT_HISTORY) >= 0) {
+                        warnln(
+                                String.format(
+                                        "Including recent historical ISO currency "
+                                                + currency
+                                                + " = "
+                                                + d));
+                        if (!isoCountries.add(d.getCountryCode())) {
+                            errln("Historical and non-historical duplication for " + d);
+                        }
+                    }
+                }
+            }
 
             TreeSet<String> cldrCountries = new TreeSet<>();
             for (Pair<String, CurrencyDateInfo> x : data) {
                 cldrCountries.add(x.getFirst());
             }
             if (!isoCountries.equals(cldrCountries)) {
-                // TODO 17397: remove isKnownIssue and the if around errln when the logknown issue
-                // goes away.
-                final boolean skipKnownIssue =
-                        currency.equals("XCG")
-                                && isoCountries.isEmpty()
-                                && cldrCountries.equals(Set.of("CW", "SX"))
-                                && logKnownIssue("CLDR-17397", "Mismatched codes " + cldrCountries);
-                if (!skipKnownIssue) {
-                    errln(
-                            "Mismatch between ISO and Cldr modern currencies for "
-                                    + currency
-                                    + "\tISO:"
-                                    + isoCountries
-                                    + "\tCLDR:"
-                                    + cldrCountries);
-                    showCountries("iso-cldr", isoCountries, cldrCountries, missing);
-                    showCountries("cldr-iso", cldrCountries, isoCountries, missing);
-                }
+                errln(
+                        "Mismatch between ISO and Cldr modern currencies for "
+                                + currency
+                                + "\tISO:"
+                                + isoCountries
+                                + "\tCLDR:"
+                                + cldrCountries);
+                showCountries("iso-cldr", isoCountries, cldrCountries, missing);
+                showCountries("cldr-iso", cldrCountries, isoCountries, missing);
             }
 
             if (oldMatcher.reset(name).find()) {

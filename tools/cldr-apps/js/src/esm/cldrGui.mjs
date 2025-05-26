@@ -2,11 +2,14 @@
  * cldrGui: encapsulate GUI functions for Survey Tool
  */
 import * as cldrAjax from "./cldrAjax.mjs";
+import * as cldrConstants from "./cldrConstants.mjs";
 import * as cldrDashContext from "./cldrDashContext.mjs";
+import * as cldrEscaperLoader from "./cldrEscaperLoader.mjs";
 import * as cldrEvent from "./cldrEvent.mjs";
 import * as cldrForum from "./cldrForum.mjs";
 import * as cldrInfo from "./cldrInfo.mjs";
 import * as cldrLoad from "./cldrLoad.mjs";
+import * as cldrLocales from "./cldrLocales.mjs";
 import * as cldrMenu from "./cldrMenu.mjs";
 import * as cldrNotify from "./cldrNotify.mjs";
 import * as cldrProgress from "./cldrProgress.mjs";
@@ -56,7 +59,19 @@ function run() {
     cldrNotify.logException(e, `Initial load`);
     return Promise.reject(e);
   }
-  return ensureSession().then(completeStartupWithSession);
+  // We load
+  return initialSetup().then(completeStartupWithSession);
+}
+
+/** Hook for loading all things we want loaded - locales, menus, etc */
+async function initialSetup() {
+  await Promise.all([
+    ensureSession(),
+    cldrEscaperLoader.updateEscaperFromServer(),
+  ]);
+  // fetchMap requires a session, must load after ensureSession
+  await cldrLocales.fetchMap();
+  // Note: could possibly fetch initial menus here rather than later
 }
 
 async function ensureSession() {
@@ -265,6 +280,10 @@ const sideBySide = `
           <div id="LoadingMessageSection">Please Wait<img src="loader.gif" alt="Please Wait" /></div>
           <div id="DynamicDataSection"></div>
           <div id="OtherSection"></div>
+          <footer>
+            ${cldrConstants.COPYRIGHT}
+            See <a href='${cldrConstants.TERMS_OF_USE_URL}'>Terms of Use</a>.
+          </footer>
         </section>
       </section>
       <section id="DashboardSection"></section>

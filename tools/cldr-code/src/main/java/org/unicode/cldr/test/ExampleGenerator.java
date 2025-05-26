@@ -9,6 +9,7 @@ import com.ibm.icu.impl.number.DecimalQuantity;
 import com.ibm.icu.impl.number.DecimalQuantity_DualStorageBCD;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.BreakIterator;
+import com.ibm.icu.text.CaseMap;
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.DateFormatSymbols;
 import com.ibm.icu.text.DateTimePatternGenerator;
@@ -69,7 +70,6 @@ import org.unicode.cldr.util.GrammarInfo.GrammaticalScope;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalTarget;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.LanguageTagParser;
-import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.NameGetter;
 import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.Pair;
@@ -80,6 +80,7 @@ import org.unicode.cldr.util.Rational;
 import org.unicode.cldr.util.Rational.FormatStyle;
 import org.unicode.cldr.util.ScriptToExemplars;
 import org.unicode.cldr.util.SimpleUnicodeSetFormatter;
+import org.unicode.cldr.util.SupplementalCalendarData;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.CurrencyNumberInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
@@ -191,10 +192,13 @@ public class ExampleGenerator {
         calendar.set(
                 1999, 8, 5, 13, 25, 59); // 1999-09-05 13:25:59 // calendar.set month is 0 based
         DATE_SAMPLE = calendar.getTime();
+
         calendar.set(1999, 9, 27, 13, 25, 59); // 1999-10-27 13:25:59
         DATE_SAMPLE2 = calendar.getTime();
+
         calendar.set(1999, 8, 5, 7, 0, 0); // 1999-09-05 07:00:00
         DATE_SAMPLE3 = calendar.getTime();
+
         calendar.set(1999, 8, 5, 23, 0, 0); // 1999-09-05 23:00:00
         DATE_SAMPLE4 = calendar.getTime();
 
@@ -225,19 +229,35 @@ public class ExampleGenerator {
         }
     }
 
-    private static final Date FIRST_INTERVAL = getDate(2008, 1, 13, 5, 7, 9);
+    private static final Date FIRST_INTERVAL = getDate(2008, 10, 13, 5, 7, 9);
     private static final Map<String, Date> SECOND_INTERVAL =
             CldrUtility.asMap(
                     new Object[][] {
                         {
-                            "G", getDate(1009, 2, 14, 17, 8, 10)
+                            "G", getDate(1009, 11, 14, 17, 25, 35)
                         }, // "G" mostly useful for calendars that have short eras, like Japanese
-                        {"y", getDate(2009, 2, 14, 17, 8, 10)},
-                        {"M", getDate(2008, 2, 14, 17, 8, 10)},
-                        {"d", getDate(2008, 1, 14, 17, 8, 10)},
-                        {"a", getDate(2008, 1, 13, 17, 8, 10)},
-                        {"h", getDate(2008, 1, 13, 6, 8, 10)},
-                        {"m", getDate(2008, 1, 13, 5, 8, 10)}
+                        {"y", getDate(2009, 11, 14, 17, 26, 35)},
+                        {"M", getDate(2008, 11, 14, 17, 26, 35)},
+                        {"d", getDate(2008, 10, 14, 17, 26, 35)},
+                        {"a", getDate(2008, 10, 13, 17, 26, 35)},
+                        {"h", getDate(2008, 10, 13, 6, 26, 35)},
+                        {"m", getDate(2008, 10, 13, 5, 26, 35)},
+                        {"s", getDate(2008, 10, 13, 5, 25, 35)}
+                    });
+
+    private static final Date FIRST_INTERVAL2 = getDate(2008, 1, 3, 5, 7, 9); // 2, 4, 6, 8, 10
+    private static final Map<String, Date> SECOND_INTERVAL2 =
+            CldrUtility.asMap(
+                    new Object[][] {
+                        {
+                            "G", getDate(1009, 2, 4, 18, 8, 10)
+                        }, // "G" mostly useful for calendars that have short eras, like Japanese
+                        {"y", getDate(2009, 2, 4, 18, 8, 10)},
+                        {"M", getDate(2008, 2, 4, 18, 8, 10)},
+                        {"d", getDate(2008, 1, 4, 18, 8, 10)},
+                        {"a", getDate(2008, 1, 3, 18, 8, 10)},
+                        {"h", getDate(2008, 1, 3, 6, 7, 10)},
+                        {"m", getDate(2008, 1, 3, 5, 7, 9)}
                     });
 
     public void setCachingEnabled(boolean enabled) {
@@ -292,66 +312,38 @@ public class ExampleGenerator {
 
     HelpMessages helpMessages;
 
-    /* For each calendar type, maps the closest two eras to 2025
-     * defined in that calendar to their corresponding start/end date.
-     * Dates are adjusted to be 2 days after official era start date and
-     * 2 days before era end date to avoid time zone issues.
-     * TODO: include methods for calendarData in supplementalDataInfo API
-     * to extract this data directly from supplementaldata.xml
-     */
-    public static final Map<String, List<Date>> CALENDAR_ERAS =
+    // map relativeTimePattern counts to possible numeric examples.
+    // For few , many, and other there is not a single number that is in that category for
+    // all locales, so we provide a list of values that might be good examples and use the
+    // first that is in the category for the locale. Decimal fractions should be at the end.
+    public static final Map<String, List<String>> COUNTS =
             new HashMap<>() {
-                { // month 0-indexed. start/end days adjusted by +/- 2, respectively
+                {
+                    put("zero", List.of("0"));
+                    put("one", List.of("1"));
+                    put("two", List.of("2"));
+                    put("few", List.of("3" /*gv*/, "20" /*gv*/));
                     put(
-                            "gregorian",
+                            "many",
                             List.of(
-                                    new GregorianCalendar(0, 11, 29).getTime(),
-                                    new GregorianCalendar(1, 0, 03).getTime()));
+                                    "11" /*ar pl ru uk*/,
+                                    "1000000" /*ca es fr it pt*/,
+                                    "6" /*cy*/,
+                                    "7" /*ga*/,
+                                    "21" /*kw*/,
+                                    "0.5" /*cs sk lt*/));
                     put(
-                            "japanese",
+                            "other",
                             List.of(
-                                    new GregorianCalendar(1989, 0, 10).getTime(),
-                                    new GregorianCalendar(2019, 4, 3).getTime()));
-                    put("islamic", List.of(new GregorianCalendar(622, 6, 17).getTime()));
-                    put("chinese", List.of(new GregorianCalendar(-2636, 0, 03).getTime()));
-                    put("hebrew", List.of(new GregorianCalendar(-3760, 9, 9).getTime()));
-                    put("buddhist", List.of(new GregorianCalendar(-542, 0, 03).getTime()));
-                    put(
-                            "coptic",
-                            List.of(
-                                    new GregorianCalendar(284, 07, 26).getTime(),
-                                    new GregorianCalendar(284, 07, 31).getTime()));
-                    put("persian", List.of(new GregorianCalendar(622, 0, 03).getTime()));
-                    put("dangi", List.of(new GregorianCalendar(-2332, 0, 03).getTime()));
-                    put(
-                            "ethiopic",
-                            List.of(
-                                    new GregorianCalendar(8, 07, 26).getTime(),
-                                    new GregorianCalendar(8, 07, 31).getTime()));
-                    put(
-                            "ethiopic-amete-alem",
-                            List.of(new GregorianCalendar(-5492, 07, 27).getTime()));
-                    put("indian", List.of(new GregorianCalendar(79, 0, 03).getTime()));
-                    put(
-                            "roc",
-                            List.of(
-                                    new GregorianCalendar(1911, 11, 29).getTime(),
-                                    new GregorianCalendar(1912, 0, 03).getTime()));
+                                    "100" /*ar cs de en es fr he it*/,
+                                    "22" /*lv prg*/,
+                                    "23" /*gv*/,
+                                    "14" /*ceb fil tl*/,
+                                    "0.5" /*pl ru uk*/));
                 }
             };
 
-    // map relativeTimePattern counts to numeric examples
-    public static final Map<String, String> COUNTS =
-            new HashMap<>() {
-                {
-                    put("zero", "0");
-                    put("one", "1");
-                    put("two", "2");
-                    put("few", "3");
-                    put("many", "5");
-                    put("other", "10");
-                }
-            };
+    private static final CaseMap.Title TITLECASE = CaseMap.toTitle().wholeString().noLowercase();
 
     public CLDRFile getCldrFile() {
         return cldrFile;
@@ -447,7 +439,7 @@ public class ExampleGenerator {
                 supplementalDataInfo.getGrammarInfo(localeId); // getGrammarInfo can return null
         this.englishFile = englishFile;
         this.typeIsEnglish = (resolvedCldrFile == englishFile);
-        icuServiceBuilder.setCldrFile(cldrFile);
+        icuServiceBuilder.setCldrFile(resolvedCldrFile);
 
         bestMinimalPairSamples = new BestMinimalPairSamples(cldrFile, icuServiceBuilder, false);
 
@@ -523,7 +515,6 @@ public class ExampleGenerator {
             result = constructExampleHtml(xpath, value, nonTrivial);
             cacheItem.putExample(result);
         } catch (RuntimeException e) {
-            e.printStackTrace();
             String unchained =
                     verboseErrors ? ("<br>" + finalizeBackground(unchainException(e))) : "";
             result = "<i>Parsing error. " + finalizeBackground(e.getMessage()) + "</i>" + unchained;
@@ -1770,9 +1761,6 @@ public class ExampleGenerator {
     }
 
     private void handleIntervalFormats(XPathParts parts, String value, List<String> examples) {
-        if (!parts.getAttributeValue(3, "type").equals("gregorian")) {
-            return;
-        }
         if (parts.getElement(6).equals("intervalFormatFallback")) {
             SimpleDateFormat dateFormat = new SimpleDateFormat();
             String fallbackFormat = invertBackground(setBackground(value));
@@ -1783,33 +1771,60 @@ public class ExampleGenerator {
                             dateFormat.format(SECOND_INTERVAL.get("y"))));
             return;
         }
+        addIntervalExample(FIRST_INTERVAL, SECOND_INTERVAL, parts, value, examples);
+        addIntervalExample(FIRST_INTERVAL2, SECOND_INTERVAL2, parts, value, examples);
+        Set<String> relatedPatterns = RelatedDatePathValues.getRelatedPathValues(cldrFile, parts);
+        if (!relatedPatterns.isEmpty()) {
+            examples.add("Related Flexible Dates:");
+            for (String pattern : relatedPatterns) {
+                SimpleDateFormat sdf =
+                        icuServiceBuilder.getDateFormat(
+                                parts.getAttributeValue(
+                                        RelatedDatePathValues.calendarElement, "type"),
+                                pattern);
+                examples.add(sdf.format(FIRST_INTERVAL));
+                examples.add(sdf.format(FIRST_INTERVAL2));
+            }
+        }
+        // de-dup, just in case
+        LinkedHashSet<String> dedup = new LinkedHashSet<>(examples);
+        examples.clear();
+        examples.addAll(dedup);
+    }
+
+    private void addIntervalExample(
+            Date earlier,
+            Map<String, Date> laterMap,
+            XPathParts parts,
+            String value,
+            List<String> examples) {
         String greatestDifference = parts.getAttributeValue(-1, "id");
-        /*
-         * Choose an example interval suitable for the symbol. If testing years, use an interval
-         * of more than one year, and so forth. For the purpose of choosing the interval,
-         * "H" is equivalent to "h", and so forth; map to a symbol that occurs in SECOND_INTERVAL.
-         */
+
+        // Choose an example interval suitable for the symbol. If testing years, use an interval
+        // of more than one year, and so forth. For the purpose of choosing the interval,
+        // "H" is equivalent to "h", and so forth; map to a symbol that occurs in SECOND_INTERVAL.
+
         if (greatestDifference.equals("H")) { // Hour [0-23]
             greatestDifference = "h"; // Hour [1-12]
         } else if (greatestDifference.equals("B") // flexible day periods
                 || greatestDifference.equals("b")) { // am, pm, noon, midnight
             greatestDifference = "a"; // AM, PM
         }
-        // intervalFormatFallback
-        // //ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMd"]/greatestDifference[@id="y"]
-        // find where to split the value
+        // Example:
+        // ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMd"]/greatestDifference[@id="y"]
+        // Find where to split the value
         intervalFormat.setPattern(parts, value);
-        Date later = SECOND_INTERVAL.get(greatestDifference);
-        if (later == null) {
-            /*
-             * This may still happen for some less-frequently used symbols such as "Q" (Quarter),
-             * if they ever occur in the data.
-             * Reference: https://unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table
-             * For now, such paths do not get examples.
-             */
-            return;
+        Date later = laterMap.get(greatestDifference);
+        if (later != null) {
+
+            // The later variable may be null for some less-frequently used symbols such
+            // as "Q" (Quarter).
+            // Reference:
+            // https://unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table
+            // For now, such paths do not get examples.
+
+            examples.add(intervalFormat.format(earlier, later));
         }
-        examples.add(intervalFormat.format(FIRST_INTERVAL, later));
     }
 
     private void handleDelimiters(
@@ -2004,6 +2019,9 @@ public class ExampleGenerator {
         //  <ellipsis type="word-medial">{0} … {1}</ellipsis>
         String territory1 = getValueFromFormat(pathFormat, "CH");
         String territory2 = getValueFromFormat(pathFormat, "JP");
+        if (territory1 == null || territory2 == null) {
+            return;
+        }
         // if it isn't a word, break in the middle
         if (!type.contains("word")) {
             territory1 = clip(territory1, 0, 1);
@@ -2063,7 +2081,7 @@ public class ExampleGenerator {
         examples.add(format(value, setBackground(sdf.format(DATE_SAMPLE)), setBackground(zone)));
     }
 
-    private class IntervalFormat {
+    public class IntervalFormat {
         @SuppressWarnings("deprecation")
         DateTimePatternGenerator.FormatParser formatParser =
                 new DateTimePatternGenerator.FormatParser();
@@ -2735,6 +2753,7 @@ public class ExampleGenerator {
                     if (value.contains("MMM") || value.contains("LLL")) {
                         // alpha month, do not need context examples
                         examples.add(sdf.format(DATE_SAMPLE));
+                        addRelatedAvailable(parts, calendar, numbersOverride, dfs, examples);
                         return;
                     } else {
                         // Use contextExamples if showContexts T
@@ -2751,6 +2770,7 @@ public class ExampleGenerator {
                             example = addExampleResult(sub_ten_example, example, showContexts);
                         }
                         examples.add(example);
+                        addRelatedAvailable(parts, calendar, numbersOverride, dfs, examples);
                         return;
                     }
                 } else {
@@ -2777,6 +2797,31 @@ public class ExampleGenerator {
                     return;
                 }
             }
+        }
+    }
+
+    private void addRelatedAvailable(
+            XPathParts parts,
+            String calendar,
+            String numbersOverride,
+            DateFormatSymbols dfs,
+            List<String> examples) {
+        Set<String> related = RelatedDatePathValues.getRelatedPathValues(cldrFile, parts);
+        if (!related.isEmpty()) {
+            examples.add("Related formats:");
+            related.stream()
+                    .forEach(
+                            x -> {
+                                SimpleDateFormat sdf2 =
+                                        icuServiceBuilder.getDateFormat(
+                                                calendar, x, numbersOverride);
+                                sdf2.setDateFormatSymbols(dfs);
+                                sdf2.setTimeZone(ZONE_SAMPLE);
+                                String example2 = sdf2.format(DATE_SAMPLE);
+                                if (!examples.contains(example2)) {
+                                    examples.add(example2);
+                                }
+                            });
         }
     }
 
@@ -3126,30 +3171,87 @@ public class ExampleGenerator {
                         setBackground(dateFormat.format(DATE_SAMPLE2))));
     }
 
-    /**
-     * Add examples for eras. First checks if there is info for this calendar type and this era type
-     * in the CALENDAR_ERAS map, then generates a sample date based on this info and formats it
-     */
+    /** Add examples for eras. Generates a sample date based on this info and formats it */
     private void handleEras(XPathParts parts, String value, List<String> examples) {
         String calendarId = parts.getAttributeValue(3, "type");
         String type = parts.getAttributeValue(-1, "type");
-        String id =
-                (calendarId.startsWith("islamic"))
-                        ? "islamic"
-                        : calendarId; // islamic variations map to same sample
-        if (!CALENDAR_ERAS.containsKey(id)) {
-            return;
+        String id = calendarId;
+        if (id.equals("generic") || id.equals("iso8601")) {
+            id = "gregorian"; // use Gregorian eras, 'generic' is not in the data
         }
-        int typeIndex = Integer.parseInt(type);
-        if (calendarId.equals("japanese")) {
-            if (typeIndex < 235) { // examples only for 2 most recent eras
-                return;
-            } else {
-                typeIndex %= 235; // map to length 2 list
+        final SupplementalCalendarData.CalendarData calendarData =
+                supplementalDataInfo.getCalendarData().get(id);
+
+        if (calendarData == null) {
+            throw new IllegalArgumentException("Could not load supplementalCalendarData for " + id);
+        }
+        final int typeIndex = Integer.parseInt(type);
+
+        final SupplementalCalendarData.EraData eraData = calendarData.get(typeIndex);
+        if (eraData == null) {
+            return; // no era data
+        }
+        GregorianCalendar startCal = eraData.getStartCalendar();
+        GregorianCalendar endCal = eraData.getEndCalendar();
+
+        final SupplementalCalendarData.EraData eminusone = calendarData.get(typeIndex - 1);
+        final SupplementalCalendarData.EraData eplusone = calendarData.get(typeIndex + 1);
+
+        SupplementalCalendarData.EraData prevEra = null;
+        SupplementalCalendarData.EraData nextEra = null;
+
+        // see if we can find the 'prev' and 'next' era by date
+        if (eminusone != null && eminusone.compareTo(eraData) < 0) {
+            prevEra = eminusone;
+        } else if (eplusone != null && eplusone.compareTo(eraData) < 0) {
+            prevEra = eplusone;
+        }
+        if (eminusone != null && eminusone.compareTo(eraData) > 0) {
+            nextEra = eminusone;
+        } else if (eplusone != null && eplusone.compareTo(eraData) > 0) {
+            nextEra = eplusone;
+        }
+
+        if (startCal == null && prevEra != null && prevEra.getEnd() != null) {
+            startCal = prevEra.getEndCalendar();
+            // shift forward so we are in the next era
+            startCal.setTimeInMillis(startCal.getTimeInMillis() + (DateConstants.MILLIS_PER_DAY));
+        }
+        if (endCal == null && nextEra != null && nextEra.getStart() != null) {
+            endCal = nextEra.getStartCalendar();
+            // shift backward so we are in the prev era
+            endCal.setTimeInMillis(endCal.getTimeInMillis() - (DateConstants.MILLIS_PER_DAY));
+        }
+
+        GregorianCalendar sampleDate = null;
+
+        if (startCal != null && endCal != null) {
+            // roll back a day to not hit the edge
+            sampleDate = endCal;
+            sampleDate.setTimeInMillis(
+                    sampleDate.getTimeInMillis() - (DateConstants.MILLIS_PER_DAY));
+        } else if (startCal == null && endCal != null) {
+            // roll back a day to not hit the edge
+            sampleDate = endCal;
+            sampleDate.setTimeInMillis(
+                    sampleDate.getTimeInMillis() - (DateConstants.MILLIS_PER_DAY));
+        } else if (startCal != null && endCal == null) {
+            sampleDate = new GregorianCalendar(2002, 6, 15); // CLDR repo root commit
+            if (sampleDate.before(startCal)) {
+                sampleDate = startCal;
+                sampleDate.setTimeInMillis(
+                        sampleDate.getTimeInMillis() + (DateConstants.MILLIS_PER_DAY));
             }
+        } else {
+            // System.err.println("No good date for " + eraData);
+            // TODO: should be an error in TestSupplementalDataInfo
+            sampleDate = null;
         }
-        List<Date> eraDates = CALENDAR_ERAS.get(id);
-        Date sample = eraDates.get(typeIndex);
+
+        if (sampleDate == null) return; // could not find the time
+
+        final Date sample = sampleDate.getTime();
+
         String skeleton = "Gy";
         String checkPath =
                 "//ldml/dates/calendars/calendar[@type=\""
@@ -3226,25 +3328,74 @@ public class ExampleGenerator {
         } else {
             skeleton = "MMMMd";
         }
-        String checkPath =
+        String availableFormatPath =
                 "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\""
                         + skeleton
                         + "\"]";
-        String dateFormat = cldrFile.getWinningValue(checkPath);
+        String dateFormat = cldrFile.getWinningValue(availableFormatPath);
         SimpleDateFormat sdf = icuServiceBuilder.getDateFormat("gregorian", dateFormat);
         String sampleDate = sdf.format(DATE_SAMPLE);
-        String example1 =
-                value.substring(0, 1).toUpperCase() + value.substring(1) + " (" + sampleDate + ")";
-        String example2 = sampleDate + " (" + value + ")";
+
+        String contextTransformPath =
+                "//ldml/contextTransforms/contextTransformUsage[@type=\"relative\"]/contextTransform[@type=\"stand-alone\"]";
+        String contextTransformValue = cldrFile.getWinningValue(contextTransformPath);
+        String example1 = sampleDate + " (" + value + ")"; // value in middle-of-sentence usage
+        if (contextTransformValue != null && contextTransformValue.equals("titlecase-firstword")) {
+            value =
+                    TITLECASE.apply(
+                            Locale.forLanguageTag(getCldrFile().getLocaleID()),
+                            null,
+                            value); // locale-sensitive titlecasing
+        }
+        String example2 =
+                value
+                        + " ("
+                        + sampleDate
+                        + ")"; // value in stand-alone usage, titlecasing per contextTransform
+
+        examples.add("Set letter case for top example:");
         if (parts.contains("relativeTimePattern")) { // has placeholder
             String count = parts.getAttributeValue(-1, "count");
-            String exampleCount = COUNTS.get(count);
+            // Pick an appropriate example for this count, depends on the locale's plural rules
+            List<String> exampleCounts = COUNTS.get(count);
+            String exampleCount = exampleCounts.get(0); // default example for count
+            // if default example, does not work for the locale, override below
+            if (exampleCounts.size() > 1) {
+                int exampleCountSize = exampleCounts.size();
+                DecimalQuantitySamples samples =
+                        pluralInfo.getPluralRules().getDecimalSamples(count, SampleType.INTEGER);
+                if (samples == null) {
+                    // this locale has no integer samples for this count so use the decimal fraction
+                    // example at the end of the list
+                    exampleCount = exampleCounts.get(exampleCountSize - 1);
+                } else {
+                    Map<Count, String> countToStringExamplesMap =
+                            pluralInfo.getCountToStringExamplesMap();
+                    String stringExamples = countToStringExamplesMap.get(Count.valueOf(count));
+                    // skip the default value already set
+                    for (int i = 1; i < exampleCountSize; i++) {
+                        String exampleCountTest = exampleCounts.get(i);
+                        if (stringExamples.contains(exampleCountTest)) {
+                            exampleCount = exampleCountTest;
+                            break;
+                        }
+                    }
+                }
+            }
+            if (!exampleCount.contains(".")) {
+                DecimalFormat df = icuServiceBuilder.getNumberFormat("0");
+                exampleCount = df.format(Integer.parseInt(exampleCount));
+            } else {
+                DecimalFormat df = icuServiceBuilder.getNumberFormat("0.0");
+                exampleCount = df.format(Double.parseDouble(exampleCount));
+            }
             examples.add(invertBackground(format(setBackground(example1), exampleCount)));
             examples.add(invertBackground(format(setBackground(example2), exampleCount)));
         } else {
             examples.add(format(example1));
             examples.add(format(example2));
         }
+        examples.add("See letter case instructions at right.");
     }
 
     /**
@@ -3743,36 +3894,25 @@ public class ExampleGenerator {
 
         // now get the description
 
-        Level level = CONFIG.getCoverageInfo().getCoverageLevel(xpath, cldrFile.getLocaleID());
+        // Level level = CONFIG.getCoverageInfo().getCoverageLevel(xpath, cldrFile.getLocaleID());
         String description = pathDescription.getDescription(xpath, value, null);
         if (description == null || description.equals("SKIP")) {
             return null;
         }
-        int start = 0;
-        StringBuilder buffer = new StringBuilder();
-
-        Matcher URLMatcher = URL_PATTERN.matcher("");
-        while (URLMatcher.reset(description).find(start)) {
-            final String url = URLMatcher.group();
-            buffer.append(
-                            TransliteratorUtilities.toHTML.transliterate(
-                                    description.substring(start, URLMatcher.start())))
-                    .append("<a target='CLDR-ST-DOCS' href='")
-                    .append(url)
-                    .append("'>")
-                    .append(url)
-                    .append("</a>");
-            start = URLMatcher.end();
-        }
-        buffer.append(TransliteratorUtilities.toHTML.transliterate(description.substring(start)));
+        StringBuilder buffer = new StringBuilder(description);
         if (AnnotationUtil.pathIsAnnotation(xpath)) {
-            XPathParts emoji = XPathParts.getFrozenInstance(xpath);
-            String cp = emoji.getAttributeValue(-1, "cp");
-            String minimal = Utility.hex(cp).replace(',', '_').toLowerCase(Locale.ROOT);
-            buffer.append(
-                    "<br><img height='64px' width='auto' src='images/emoji/emoji_"
-                            + minimal
-                            + ".png'>");
+            final String cp = AnnotationUtil.getEmojiFromXPath(xpath);
+            final String hex = Utility.hex(cp, 4, " U+");
+            if (AnnotationUtil.haveEmojiImageFile(cp)) {
+                final String fn = AnnotationUtil.calculateEmojiImageFilename(cp);
+                buffer.append(
+                        "\n\n<br><img class='emojiImage' height='64px' width='auto' src='images/emoji/"
+                                + fn
+                                + "'"
+                                + " title='U+"
+                                + hex
+                                + "'>\n");
+            } // else no image available
         }
         return buffer.toString();
     }

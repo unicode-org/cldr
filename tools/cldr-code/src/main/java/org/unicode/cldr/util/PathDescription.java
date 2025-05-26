@@ -19,7 +19,7 @@ import org.unicode.cldr.util.RegexLookup.Finder;
 public class PathDescription {
     /** Remember to quote any [ character! */
     private static final String pathDescriptionString =
-            CldrUtility.getUTF8Data("PathDescriptions.txt")
+            CldrUtility.getUTF8Data("PathDescriptions.md")
                     .lines()
                     .collect(Collectors.joining("\n"));
 
@@ -44,11 +44,24 @@ public class PathDescription {
     private static final Map<String, String> ZONE2COUNTRY =
             STANDARD_CODES.zoneParser.getZoneToCountry();
 
-    static RegexLookup<String> parseLookupString() {
-        return new RegexLookup<String>().loadFromString(pathDescriptionString);
+    /** <Description, Markdown> */
+    private static final PathDescriptionParser parser = new PathDescriptionParser();
+
+    private static final RegexLookup<Pair<String, String>> pathHandling =
+            parser.parse(pathDescriptionString);
+
+    /** markdown to append */
+    private static final String references = parser.getReferences();
+
+    /** for tests, returns the big string */
+    static final String getPathDescriptionString() {
+        return pathDescriptionString;
     }
 
-    private static final RegexLookup<String> pathHandling = parseLookupString();
+    /** for tests */
+    static final RegexLookup<Pair<String, String>> getPathHandling() {
+        return pathHandling;
+    }
 
     // set in construction
 
@@ -93,22 +106,41 @@ public class PathDescription {
 
     public String getRawDescription(String path, Object context) {
         status.clear();
-        return pathHandling.get(path, context, pathArguments);
+        final Pair<String, String> entry = pathHandling.get(path, context, pathArguments);
+        if (entry == null) {
+            return null;
+        }
+        return entry.getSecond();
     }
 
     public String getRawDescription(
             String path, Object context, Output<Finder> matcherFound, Set<String> failures) {
         status.clear();
-        return pathHandling.get(path, context, pathArguments, matcherFound, failures);
+        final Pair<String, String> entry =
+                pathHandling.get(path, context, pathArguments, matcherFound, failures);
+        if (entry == null) {
+            return null;
+        }
+        return entry.getSecond();
     }
 
     public String getDescription(String path, String value, Object context) {
         status.clear();
 
-        String description = pathHandling.get(path, context, pathArguments);
-        if (description == null) {
+        final Pair<String, String> entry = pathHandling.get(path, context, pathArguments);
+        String description;
+        String markdown;
+        if (entry == null) {
+            markdown = MISSING_DESCRIPTION;
+            description = null;
+        } else {
+            description = entry.getFirst();
+            markdown = entry.getSecond();
+        }
+
+        if (description == null || description.isEmpty()) {
             description = MISSING_DESCRIPTION;
-        } else if ("SKIP".equals(description)) {
+        } else if (description.startsWith("SKIP")) {
             status.add(Status.SKIP);
             if (errorHandling == ErrorHandling.SKIP) {
                 return null;
@@ -148,9 +180,7 @@ public class PathDescription {
 
         // In special cases, only use if there is a root value (languageNames, ...
         if (description.startsWith("ROOT")) {
-            int typeEnd = description.indexOf(';');
-            String type = description.substring(4, typeEnd).trim();
-            description = description.substring(typeEnd + 1).trim();
+            String type = description.substring(4).trim();
 
             boolean isMetazone = type.equals("metazone");
             String code = attributes.get(0);
@@ -198,23 +228,23 @@ public class PathDescription {
                     logger.warning("Missing country for timezone " + code);
                 }
             }
-            description =
-                    MessageFormat.format(MessageFormat.autoQuoteApostrophe(description), code);
+            markdown = MessageFormat.format(MessageFormat.autoQuoteApostrophe(markdown), code);
         } else if (path.contains("exemplarCity")) {
             String regionCode = ZONE2COUNTRY.get(attributes.get(0));
             String englishRegionName =
                     english.nameGetter().getNameFromTypeEnumCode(NameType.TERRITORY, regionCode);
-            description =
+            markdown =
                     MessageFormat.format(
-                            MessageFormat.autoQuoteApostrophe(description), englishRegionName);
-        } else if (!MISSING_DESCRIPTION.equals(description)) {
-            description =
+                            MessageFormat.autoQuoteApostrophe(markdown), englishRegionName);
+        } else if (entry != null) {
+            markdown =
                     MessageFormat.format(
-                            MessageFormat.autoQuoteApostrophe(description),
+                            MessageFormat.autoQuoteApostrophe(markdown),
                             (Object[]) pathArguments.value);
         }
 
-        return description;
+        // we always append the "References" blob
+        return markdown + "\n" + references;
     }
 
     private static boolean isRootCode(

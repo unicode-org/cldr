@@ -1,9 +1,10 @@
 /*
  * cldrDeferHelp: encapsulate code related to showing language descriptions in the Info Panel
  */
+import { fetch } from "./cldrAjax.mjs";
+import * as cldrDom from "./cldrDom.mjs";
 import { marked } from "./cldrMarked.mjs";
 import * as cldrNotify from "./cldrNotify.mjs";
-import { fetch } from "./cldrAjax.mjs";
 
 const defaultEndpoint = "https://dbpedia.org/sparql/";
 
@@ -46,7 +47,7 @@ function addDeferredHelpTo(fragment, helpHtml, resource, translationHint) {
     const absDiv = subloadAbstract(resource);
     theHelp.append(absDiv);
   }
-
+  cldrDom.setDocTargets(theHelp[0]); // apply to DOM object, not jQuery object
   $(fragment).append(theHelp);
 }
 

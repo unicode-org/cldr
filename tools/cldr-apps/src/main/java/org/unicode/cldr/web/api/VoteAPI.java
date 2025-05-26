@@ -242,6 +242,9 @@ public class VoteAPI {
             public int xpathId;
             public String xpstrid;
 
+            @Schema(description = "inhibit codepoint escaping of values")
+            public boolean noEscaping;
+
             @Schema(description = "prose description of voting outcome")
             public String voteTranscript;
 
@@ -447,5 +450,53 @@ public class VoteAPI {
                     @PathParam("locale")
                     String loc) {
         return VoteAPIHelper.handleGetLocaleErrors(loc);
+    }
+
+    @GET
+    @Path("/oldimport/status")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Operation(summary = "Get status of current old import")
+    @APIResponses(
+            value = {
+                @APIResponse(
+                        responseCode = "403",
+                        description = "Forbidden, no access to this data"),
+                @APIResponse(responseCode = "204", description = "Nothing in progress"),
+                @APIResponse(
+                        responseCode = "200",
+                        description = "Results",
+                        content =
+                                @Content(
+                                        mediaType = "application/json",
+                                        schema =
+                                                @Schema(
+                                                        implementation =
+                                                                OldVoteImportStatus.class)))
+            })
+    public Response getOldImportStatus(@HeaderParam(Auth.SESSION_HEADER) String session) {
+        final CookieSession mySession = Auth.getSession(session);
+        if (mySession == null) {
+            return Auth.noSessionResponse();
+        }
+        final OldVoteImportStatus s = (OldVoteImportStatus) mySession.get(OldVoteImportStatus.KEY);
+        if (s == null) {
+            return Response.noContent().build();
+        }
+        return Response.ok(s).build();
+    }
+
+    public static final class OldVoteImportStatus {
+        public static final String KEY = OldVoteImportStatus.class.getName();
+        public int remaining;
+        public int imported;
+        public int versionsTotal;
+        public int versionsDone;
+
+        public OldVoteImportStatus(int count) {
+            this.remaining = 0;
+            this.imported = 0;
+            this.versionsDone = 0;
+            this.versionsTotal = count;
+        }
     }
 }

@@ -13,6 +13,7 @@ import com.ibm.icu.lang.UProperty;
 import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.VersionInfo;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
@@ -26,6 +27,7 @@ import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
 import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.tool.LikelySubtags;
+import org.unicode.cldr.tool.ToolConstants;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.ExemplarType;
@@ -45,6 +47,7 @@ import org.unicode.cldr.util.ScriptToExemplars;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.TestCLDRPaths;
 import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.Validity.Status;
 
@@ -330,10 +333,15 @@ public class LikelySubtagsTest extends TestFmwk {
         }
     }
 
-    public void TestMissingInfoForLanguage() {
+    public void TestMissingInfoForLanguage() throws IOException {
         CLDRFile english = CLDR_CONFIG.getEnglish().getUnresolved();
 
-        CalculatedCoverageLevels ccl = CalculatedCoverageLevels.getInstance();
+        if (!TestCLDRPaths.canUseArchiveDirectory()) {
+            warnln("Skipping - no cldr archive");
+        }
+
+        final VersionInfo lastReleaseVi = ToolConstants.LAST_RELEASE_VI;
+        CalculatedCoverageLevels ccl = CalculatedCoverageLevels.forVersion(lastReleaseVi);
 
         for (String language : CLDR_CONFIG.getCldrFactory().getAvailableLanguages()) {
             if (language.contains("_") || language.equals("root")) {
@@ -349,15 +357,15 @@ public class LikelySubtagsTest extends TestFmwk {
             String englishName = english.getStringValue(path);
             if (englishName == null) {
                 Level covLevel = ccl.getEffectiveCoverageLevel(language);
-                if (covLevel == null || !covLevel.isAtLeast(Level.BASIC)) {
-                    // https://unicode-org.atlassian.net/browse/CLDR-17857
-                    if (logKnownIssue(
-                            "CLDR-17857",
-                            "English translation should not be required for sub-basic language name")) {
-                        continue; // skip error
-                    }
+                if (covLevel != null && covLevel.isAtLeast(Level.BASIC)) {
+                    errln(
+                            "Missing English translation for: "
+                                    + language
+                                    + " which was at "
+                                    + covLevel
+                                    + " in "
+                                    + lastReleaseVi);
                 }
-                errln("Missing English translation for: " + language + " which is at " + covLevel);
             }
         }
     }

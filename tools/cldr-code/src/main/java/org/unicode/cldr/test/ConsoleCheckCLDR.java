@@ -468,7 +468,7 @@ public class ConsoleCheckCLDR {
 
         String user = options[USER].value;
 
-        System.out.println("Source directories:\n");
+        System.out.println("# Source directories:\n");
         for (File f : sourceDirectories) {
             System.out.println(
                     "    " + f.getPath() + "\t(" + PathUtilities.getNormalizedPathString(f) + ")");
@@ -487,7 +487,7 @@ public class ConsoleCheckCLDR {
             if (checkCldr.getFilteredTestList().size() == 0) {
                 throw new IllegalArgumentException("The filter doesn't match any tests.");
             }
-            System.out.println("filtered tests: " + checkCldr.getFilteredTests());
+            System.out.println("# filtered tests: " + checkCldr.getFilteredTests());
         }
 
         Factory backCldrFactory = CLDRConfig.getInstance().getMainAndAnnotationsFactory();
@@ -1749,10 +1749,10 @@ public class ConsoleCheckCLDR {
         if (SHOW_LOCALE) {
             if (idView) {
                 System.out.println(
-                        "Locale\tID\tDesc.\t〈Eng.Value〉\t【Eng.Ex.】\t〈Loc.Value〉\t【Loc.Ex】\t⁅error/warning type⁆\t❮Error/Warning Msg❯");
+                        "# Locale\tID\tDesc.\t〈Eng.Value〉\t【Eng.Ex.】\t〈Loc.Value〉\t【Loc.Ex】\t⁅error/warning type⁆\t❮Error/Warning Msg❯");
             } else {
                 System.out.println(
-                        "Locale\tStatus\t▸PPath◂\t〈Eng.Value〉\t【Eng.Ex.】\t〈Loc.Value〉\t«fill-in»\t【Loc.Ex】\t⁅error/warning type⁆\t❮Error/Warning Msg❯\tFull Path\tAliasedSource/Path?");
+                        "# Locale\tStatus\t▸PPath◂\t〈Eng.Value〉\t【Eng.Ex.】\t〈Loc.Value〉\t«fill-in»\t【Loc.Ex】\t⁅error/warning type⁆\t❮Error/Warning Msg❯\tFull Path\tAliasedSource/Path?");
             }
         }
     }

@@ -9,10 +9,13 @@ import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
+import com.ibm.icu.util.TimeZone;
 import java.io.IOException;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -29,12 +32,14 @@ import org.unicode.cldr.test.CheckCLDR.Phase;
 import org.unicode.cldr.test.CheckCLDR.StatusAction;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.test.ExampleGenerator.UnitLength;
+import org.unicode.cldr.test.RelatedDatePathValues;
 import org.unicode.cldr.unittest.TestCheckCLDR.DummyPathValueInfo;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFileOverride;
 import org.unicode.cldr.util.CLDRInfo.UserInfo;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.CldrIntervalFormat;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CodePointEscaper;
 import org.unicode.cldr.util.Counter;
@@ -46,6 +51,8 @@ import org.unicode.cldr.util.GrammarInfo.CaseValues;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalScope;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalTarget;
+import org.unicode.cldr.util.ICUServiceBuilder;
+import org.unicode.cldr.util.Joiners;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.Pair;
@@ -2134,11 +2141,12 @@ public class TestExampleGenerator extends TestFmwk {
                         + "//ldml/typographicNames/styleName[@type=\"*\"][@subtype=\"*\"][@alt=\"*\"]",
                 "*"
             },
-            {
-                "CLDR-17945 Add examples of date intervals",
-                "//ldml/dates/calendars/calendar[@type=\"*\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"*\"]/greatestDifference[@id=\"*\"]",
-                "*"
-            },
+            //            {
+            //                "CLDR-17945 Add examples of date intervals",
+            //
+            // "//ldml/dates/calendars/calendar[@type=\"*\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"*\"]/greatestDifference[@id=\"*\"]",
+            //                "*"
+            //            },
             {
                 "CLDR-17945 Show \"{0} ¤¤\" with formatted number and ISO code, eg {0} ¤¤ becomes 3,5 EUR",
                 "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyPatternAppendISO",
@@ -2393,6 +2401,185 @@ public class TestExampleGenerator extends TestFmwk {
             String exampleHtml = eg.getExampleHtml(path, value);
             String actual = ExampleGenerator.simplify(exampleHtml);
             assertEquals(path, expected, actual);
+        }
+    }
+
+    public void testRelatedPathValues() {
+        CLDRFile cldrFile = CLDRConfig.getInstance().getCldrFactory().make("en", true);
+        Multimap<String, String> skeletons = TreeMultimap.create();
+        PathHeader.Factory phf = PathHeader.getFactory();
+        Map<PathHeader, String> data = new TreeMap<>();
+        for (String path : cldrFile) {
+            if (path.startsWith(
+                            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/")
+                    && !path.endsWith("/alias")
+                    && !path.endsWith("/intervalFormatFallback")) {
+                // ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatFallback
+                XPathParts parts = XPathParts.getFrozenInstance(path);
+                Set<String> values = RelatedDatePathValues.getRelatedPathValues(cldrFile, parts);
+                data.put(
+                        phf.fromPath(path),
+                        Joiners.TAB.join(cldrFile.getStringValue(path), values, path));
+                String skeleton = parts.getAttributeValue(RelatedDatePathValues.idElement, "id");
+                if (skeleton == null) {
+                    continue;
+                }
+                String element = parts.getElement(RelatedDatePathValues.dateTypeElement);
+                switch (element) {
+                    case "availableFormats":
+                    case "intervalFormats":
+                        skeletons.put(skeleton, element);
+                    default:
+                        break;
+                }
+            }
+        }
+        if (isVerbose()) {
+            System.out.println();
+            for (Entry<PathHeader, String> entry : data.entrySet()) {
+                System.out.println(entry.getValue());
+            }
+            System.out.println();
+            for (Entry<String, Collection<String>> entry : skeletons.asMap().entrySet()) {
+                System.out.println(
+                        Joiners.TAB.join(
+                                entry.getKey(),
+                                entry.getValue().contains("availableFormats"),
+                                entry.getValue().contains("intervalFormats")));
+            }
+        }
+    }
+
+    public void testIntervalFormats() {
+        String[][] tests = {
+            {"h – h B", "h|[h]| – |h B|[h, B]", "12 – 1 in the afternoon"},
+            {"E H – H v", "E H|[E, H]| – |H v|[H, v]", "Wed 12 – 13 GMT"},
+            {"MdM", "Missing literal between first and second formats in «MdM»"},
+            {"Md", "Interval patterns must have two parts, with a separator between: «Md»"}
+        };
+        ICUServiceBuilder isb = ICUServiceBuilder.forLocale(CLDRLocale.getInstance("en"));
+        Date DATE1 = Date.from(Instant.parse("2025-01-01T12:00:00Z"));
+        Date DATE2 = Date.from(Instant.parse("2025-01-01T13:00:00Z"));
+
+        for (String[] test : tests) {
+            String source = test[0];
+            String expected = test[1];
+            String expected2 = test.length <= 2 ? null : test[2];
+            CldrIntervalFormat intf = null;
+            String actual;
+            try {
+                intf = CldrIntervalFormat.getInstance("gregorian", source);
+                actual =
+                        Joiners.VBAR.join(
+                                intf.firstPattern,
+                                intf.firstFields,
+                                intf.separator,
+                                intf.secondPattern,
+                                intf.secondFields);
+                String actual2 = intf.format(DATE1, DATE2, isb, TimeZone.GMT_ZONE);
+                assertEquals(Joiners.COMMA_SP.join(source, DATE1, DATE2), expected2, actual2);
+            } catch (Exception e) {
+                actual = e.getMessage();
+            }
+            assertEquals(source, expected, actual);
+        }
+    }
+
+    public void testAvailableAndIntervalExamples() {
+        // for now, just gregorian, just English
+        String[][] tests = {
+
+            // Available dates
+
+            {
+                "GyMMMEd",
+                "〖Sun, Sep 5, 1999 AD〗〖Related formats:〗〖Sun, Sep 5, 1999〗〖Sep 5, 1999 AD〗"
+            },
+            {"GyMMMd", "〖Sep 5, 1999 AD〗〖Related formats:〗〖Sep 5, 1999〗"},
+            {"GyMEd", "〖Sun, 9/5/1999 AD〗〖Related formats:〗〖Sun, 9/5/1999〗〖9/5/1999 AD〗"},
+            {"GyMd", "〖9/5/1999 AD〗〖Related formats:〗〖9/5/1999〗"},
+            {"yMMMEd", "〖Sun, Sep 5, 1999〗〖Related formats:〗〖Sep 5, 1999〗"},
+            {"yMMMd", "〖Sep 5, 1999〗〖Related formats:〗〖Sep 5〗"},
+            {"yMEd", "〖Sun, 9/5/1999〗〖Related formats:〗〖9/5/1999〗"},
+            {"yMd", "〖9/5/1999〗〖Related formats:〗〖9/5〗"},
+            {"MMMEd", "〖Sun, Sep 5〗〖Related formats:〗〖Sep 5〗"},
+            {"MMMd", "〖Sep 5〗"},
+            {"MEd", "〖Sun, 9/5〗〖Related formats:〗〖9/5〗"},
+            {"Md", "〖9/5〗"},
+
+            // Available times
+
+            {"Hmv", "〖13:25 EST〗〖03:25 EST〗〖Related formats:〗〖13:25〗"},
+            {"Hv", "〖13h EST〗〖03h EST〗"},
+            {"Eh", "〖Sun 1 PM〗〖Sun 3 AM〗"},
+            {"EH", "〖Sun 13h〗〖Sun 03h〗"},
+            {"Ehm", "〖Sun 1:25 PM〗〖Sun 3:25 AM〗〖Related formats:〗〖1:25 PM〗"},
+            {"EHm", "〖Sun 13:25〗〖Sun 03:25〗〖Related formats:〗〖13:25〗"},
+            {"Ehms", "〖Sun 1:25:59 PM〗〖Sun 3:25:59 AM〗〖Related formats:〗〖1:25:59 PM〗"},
+            {"EHms", "〖Sun 13:25:59〗〖Sun 03:25:59〗〖Related formats:〗〖13:25:59〗"},
+
+            // Intervals
+            {
+                "GyMMMd/y",
+                "〖Nov 13, 2008 – Dec 14, 2009 AD〗〖Feb 3, 2008 – Mar 4, 2009 AD〗〖Related Flexible Dates:〗〖Nov 13, 2008 AD〗〖Feb 3, 2008 AD〗〖Nov 13, 2008〗〖Feb 3, 2008〗"
+            },
+            {
+                "GyMMMd/M",
+                "〖Nov 13 – Dec 14, 2008 AD〗〖Feb 3 – Mar 4, 2008 AD〗〖Related Flexible Dates:〗〖Nov 13, 2008 AD〗〖Feb 3, 2008 AD〗〖Nov 13〗〖Feb 3〗"
+            },
+            {
+                "GyMMMd/d",
+                "〖Nov 13 – 14, 2008 AD〗〖Feb 3 – 4, 2008 AD〗〖Related Flexible Dates:〗〖Nov 13, 2008 AD〗〖Feb 3, 2008 AD〗〖Nov 13〗〖Feb 3〗"
+            },
+            {
+                "GyMd/y",
+                "〖11/13/2008 – 12/14/2009 AD〗〖2/3/2008 – 3/4/2009 AD〗〖Related Flexible Dates:〗〖11/13/2008 AD〗〖2/3/2008 AD〗〖11/13/2008〗〖2/3/2008〗"
+            },
+            {
+                "GyMd/M",
+                "〖11/13/2008 – 12/14/2008 AD〗〖2/3/2008 – 3/4/2008 AD〗〖Related Flexible Dates:〗〖11/13/2008 AD〗〖2/3/2008 AD〗〖11/13/2008〗〖2/3/2008〗"
+            },
+            {
+                "GyMd/d",
+                "〖11/13/2008 – 11/14/2008 AD〗〖2/3/2008 – 2/4/2008 AD〗〖Related Flexible Dates:〗〖11/13/2008 AD〗〖2/3/2008 AD〗〖11/13/2008〗〖2/3/2008〗"
+            },
+            {
+                "Hmv/H",
+                "〖05:07 – 06:26 GMT〗〖05:07 – 06:07 GMT〗〖Related Flexible Dates:〗〖05:07 GMT〗〖05:07〗"
+            },
+            {
+                "Hmv/m",
+                "〖05:07 – 05:26 GMT〗〖05:07 – 05:07 GMT〗〖Related Flexible Dates:〗〖05:07 GMT〗〖05:07〗"
+            },
+        };
+        ExampleGenerator eg = getExampleGenerator("en");
+        CLDRFile english = CLDRConfig.getInstance().getEnglish();
+        XPathParts intervalParts =
+                XPathParts.getFrozenInstance(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"Bhm\"]/greatestDifference[@id=\"B\"]")
+                        .cloneAsThawed();
+        XPathParts availableParts =
+                XPathParts.getFrozenInstance(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"MMMd\"]")
+                        .cloneAsThawed();
+        for (String[] test : tests) {
+            String source = test[0];
+            String expected = test[1];
+            String path = null;
+            int slashPos = test[0].indexOf('/');
+            if (slashPos < 0) {
+                availableParts.setAttribute(RelatedDatePathValues.idElement, "id", source);
+                path = availableParts.toString();
+            } else {
+                intervalParts.setAttribute(
+                        RelatedDatePathValues.idElement, "id", test[0].substring(0, slashPos));
+                intervalParts.setAttribute(
+                        RelatedDatePathValues.idElement + 1, "id", test[0].substring(slashPos + 1));
+                path = intervalParts.toString();
+            }
+            String value = english.getStringValue(path);
+            String actual = ExampleGenerator.simplify(eg.getExampleHtml(path, value));
+            assertEquals(source, expected, actual);
         }
     }
 }

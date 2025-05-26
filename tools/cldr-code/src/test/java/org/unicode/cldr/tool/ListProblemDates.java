@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
+import org.unicode.cldr.test.RelatedDatePathValues;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
@@ -40,7 +41,7 @@ public class ListProblemDates {
 
     private static final boolean VERBOSE = false;
     private static final boolean ALL_LOCALES = true;
-    private static final boolean OTHER_CALENDARS = true;
+    private static final boolean OTHER_CALENDARS = false;
     private static final Set<String> calendars = Set.of("gregorian");
     private static final Set<String> ROOT = Set.of("root");
     private static final Set<String> NON_ROOT = Sets.difference(TC_LOCALES, Set.of("root"));
@@ -101,6 +102,20 @@ public class ListProblemDates {
                         new CldrUtility.CollectionComparator<String>(), Comparator.naturalOrder());
 
         System.out.println("\n# Non-inclusions: sample = " + SAMPLE_ISO_DATE);
+
+        System.out.println(
+                Joiners.TAB.join(
+                        "status",
+                        "locale",
+                        "calendar",
+                        "skeleton",
+                        "core",
+                        "pattern",
+                        "core",
+                        "formatted",
+                        "core",
+                        "path",
+                        "core"));
 
         for (String locale : targets) {
 
@@ -187,10 +202,14 @@ public class ListProblemDates {
                 }
             }
         }
-        System.out.println("\n# Missing cores");
-        coreIdXIdTolocales.asMap().entrySet().stream()
-                .forEach(
-                        x -> System.out.println(x.getKey() + "\t" + Joiners.SP.join(x.getValue())));
+        if (false) {
+            System.out.println("\n# Missing cores");
+            coreIdXIdTolocales.asMap().entrySet().stream()
+                    .forEach(
+                            x ->
+                                    System.out.println(
+                                            x.getKey() + "\t" + Joiners.SP.join(x.getValue())));
+        }
     }
 
     private static String formatDate(ICUServiceBuilder service, String calendar, String pattern) {
@@ -229,30 +248,7 @@ public class ListProblemDates {
     // # All skeleton characters:   [EGHMQZcdhmsvy]
 
     private static Collection<String> getCores(String skeleton) {
-        Collection<String> cores = skeletonToCores.get(skeleton);
-        if (cores == null) {
-            cores = new TreeSet<>(SKELETON_COMPARE);
-            String newItem = addCore(skeleton, "G", cores);
-            // Removing the following, since the E and G could have different order in the resulting
-            // pattern
-            //            if (newItem != null) {
-            //                addCore(newItem, "E", cores);
-            //            }
-            addCore(skeleton, "E", cores);
-            addCore(skeleton, "v", cores);
-        }
-        skeletonToCores.put(skeleton, ImmutableSet.copyOf(cores));
-        return cores;
-    }
-
-    private static String addCore(String skeleton, String letter, Collection<String> cores) {
-        if (skeleton.contains(letter)) {
-            String newItem = skeleton.replace(letter, "");
-            if (!newItem.isEmpty() && !newItem.equals(skeleton) && cores.add(newItem)) {
-                return newItem;
-            }
-        }
-        return null;
+        return RelatedDatePathValues.getCores(skeleton);
     }
 
     private static void showVariants(Set<String> widthVariants) {
@@ -327,34 +323,7 @@ public class ListProblemDates {
                 .result();
     }
 
-    private static Comparator<String> SKELETON_COMPARE =
-            new Comparator<>() {
-                final UnicodeSet ODD_DATE_FIELDS = new UnicodeSet("[UQWw]").freeze();
-                final UnicodeSet DATE_FIELDS =
-                        new UnicodeSet("[d G M Q U wW y]").freeze(); // E is shared
-                final UnicodeSet YEAR_FIELDS = new UnicodeSet("[yU]").freeze();
-                final UnicodeSet HOUR_FIELDS = new UnicodeSet("[Hh]").freeze();
-                final UnicodeSet TIME_FIELDS = new UnicodeSet("[B hH m s v]").freeze();
-
-                @Override
-                public int compare(String o1, String o2) {
-                    return ComparisonChain.start()
-                            .compare(DATE_FIELDS.containsSome(o2), DATE_FIELDS.containsSome(o1))
-                            .compare(
-                                    ODD_DATE_FIELDS.containsSome(o1),
-                                    ODD_DATE_FIELDS.containsSome(o2))
-                            .compare(YEAR_FIELDS.containsSome(o2), YEAR_FIELDS.containsSome(o1))
-                            .compare(o1.contains("U"), o2.contains("U"))
-                            .compare(o1.contains("M"), o2.contains("M"))
-                            .compare(o1.contains("d"), o2.contains("d"))
-                            .compare(HOUR_FIELDS.containsSome(o2), HOUR_FIELDS.containsSome(o1))
-                            .compare(o1.contains("m"), o2.contains("m"))
-                            .compare(o1.contains("s"), o2.contains("s"))
-                            .compare(o1.length(), o2.length())
-                            .compare(o1, o2)
-                            .result();
-                }
-            };
+    private static Comparator<String> SKELETON_COMPARE = RelatedDatePathValues.SKELETON_COMPARE;
 
     private static ImmutableMultimap<String, Pair<String, String>> getIds(
             Iterable<String> locales) {

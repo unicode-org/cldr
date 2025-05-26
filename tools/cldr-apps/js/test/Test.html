@@ -47,7 +47,12 @@
     <script src="https://unpkg.com/chai@4.3.6/chai.js"></script>
     <script src="https://unpkg.com/mocha/mocha.js"></script>
     <script class="mocha-init">
-      mocha.setup("bdd");
+      // Avoid "global leak(s) detected: '__VUE__', '__VUE_DEVTOOLS_HOOK_REPLAY__'"
+      // which otherwise could occur when cldrNotification functions are called
+      mocha.setup({
+        ui: "bdd",
+        global: ["__VUE__", "__VUE_DEVTOOLS_HOOK_REPLAY__"],
+      });
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="data/dash_data.mjs"></script>

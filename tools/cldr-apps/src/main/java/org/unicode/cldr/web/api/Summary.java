@@ -405,7 +405,7 @@ public class Summary {
     }
 
     public static final class CoverageStatusResponse {
-        public String levelNames[] = new String[Level.values().length];
+        public String[] levelNames = new String[Level.values().length];
         public CalculateLocaleCoverage.CoverageResult[] results;
 
         public CoverageStatusResponse(Collection<CalculateLocaleCoverage.CoverageResult> results) {
@@ -475,7 +475,8 @@ public class Summary {
                 // SummaryResults.class
             })
     public Response getDashboard(
-            @PathParam("locale") @Schema(required = true, description = "Locale ID") String locale,
+            @PathParam("locale") @Schema(required = true, description = "Locale ID")
+                    String localeId,
             @PathParam("level") @Schema(required = true, description = "Coverage Level")
                     String level,
             @QueryParam("includeOther")
@@ -486,13 +487,15 @@ public class Summary {
                             example = "true")
                     boolean includeOther,
             @HeaderParam(Auth.SESSION_HEADER) String sessionString) {
-        CLDRLocale loc = CLDRLocale.getInstance(locale);
         CookieSession cs = Auth.getSession(sessionString);
         if (cs == null) {
             return Auth.noSessionResponse();
         }
         cs.userDidAction();
-
+        CLDRLocale loc = CLDRLocale.getInstance(localeId);
+        if (loc == null || !SurveyMain.getLocalesSet().contains(loc)) {
+            return STError.badLocale(localeId);
+        }
         // *Beware*  org.unicode.cldr.util.Level (coverage) ≠ VoteResolver.Level (user)
         Level coverageLevel = org.unicode.cldr.util.Level.fromString(level);
         ReviewOutput ret =

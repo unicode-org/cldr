@@ -1,5 +1,7 @@
 import * as cldrTable from "../src/esm/cldrTable.mjs";
 
+import * as chai from "chai";
+
 export const TestCldrChecksum = "ok";
 
 const assert = chai.assert;

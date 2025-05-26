@@ -9,7 +9,7 @@ import * as cldrDom from "./cldrDom.mjs";
 import * as cldrEvent from "./cldrEvent.mjs";
 import * as cldrGui from "./cldrGui.mjs";
 import * as cldrLoad from "./cldrLoad.mjs";
-import { LocaleMap } from "./cldrLocaleMap.mjs";
+import * as cldrLocales from "./cldrLocales.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";
 import * as cldrSurvey from "./cldrSurvey.mjs";
 import * as cldrText from "./cldrText.mjs";
@@ -84,20 +84,20 @@ function makeSafe(s) {
 
 function getInitialMenusEtc() {
   const theLocale = cldrStatus.getCurrentLocale() || "root";
-  const xurl = getMenusAjaxUrl(theLocale, true /* get locmap */);
+  const xurl = getMenusAjaxUrl(
+    theLocale,
+    false /* do not fetch locale map here */
+  );
   cldrLoad.myLoad(xurl, "initial menus for " + theLocale, function (json) {
     loadInitialMenusFromJson(json);
   });
 }
 
 function loadInitialMenusFromJson(json) {
-  if (!cldrLoad.verifyJson(json, "locmap")) {
-    return;
-  }
-  const locmap = new LocaleMap(json.locmap);
-  cldrLoad.setTheLocaleMap(locmap);
-
-  if (cldrStatus.getCurrentLocale() === "USER" && json.loc) {
+  if (
+    cldrStatus.getCurrentLocale() === cldrLocales.USER_LOCALE_ID &&
+    json.loc
+  ) {
     cldrStatus.setCurrentLocale(json.loc);
   }
   setupCanModify(json); // json.canmodify
@@ -106,7 +106,7 @@ function loadInitialMenusFromJson(json) {
   const theDiv = document.createElement("div");
   theDiv.className = "localeList";
 
-  // TODO: avoid duplication of some of this code here and in cldrLocales.mjs
+  const locmap = cldrLoad.getTheLocaleMap();
   addTopLocales(theDiv, locmap);
 
   if (cldrStatus.isVisitor()) {

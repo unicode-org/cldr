@@ -35,6 +35,9 @@ public class ExampleDependencies {
                             "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/contextTransforms/contextTransformUsage[@type=\"*\"]/contextTransform[@type=\"*\"]",
+                            "//ldml/dates/fields/field[@type=\"*\"]/relativePeriod",
+                            "//ldml/dates/fields/field[@type=\"*\"]/relativeTime[@type=\"*\"]/relativeTimePattern[@count=\"*\"]",
+                            "//ldml/dates/fields/field[@type=\"*\"]/relative[@type=\"*\"]",
                             "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/cyclicNameSets/cyclicNameSet[@type=\"*\"]/cyclicNameContext[@type=\"*\"]/cyclicNameWidth[@type=\"*\"]/cyclicName[@type=\"*\"]",
@@ -54,6 +57,9 @@ public class ExampleDependencies {
                             "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"*\"]/greatestDifference[@id=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"*\"]/greatestDifference[@id=\"*\"][@alt=\"*\"]",
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/dayPeriods/dayPeriodContext[@type=\"*\"]/dayPeriodWidth[@type=\"*\"]/dayPeriod[@type=\"*\"]",
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/dayPeriods/dayPeriodContext[@type=\"*\"]/dayPeriodWidth[@type=\"*\"]/dayPeriod[@type=\"*\"][@alt=\"*\"]",
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraAbbr/era[@type=\"*\"]",
@@ -71,10 +77,14 @@ public class ExampleDependencies {
                             "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"*\"][@alt=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"*\"][@alt=\"*\"]",
                             "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"*\"][@count=\"*\"]",
                             "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"*\"][@draft=\"*\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"*\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"*\"]")
                     .putAll(
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/dateTimeFormats/dateTimeFormatLength[@type=\"*\"]/dateTimeFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
@@ -535,6 +545,7 @@ public class ExampleDependencies {
                             "//ldml/localeDisplayNames/localeDisplayPattern/localeKeyTypePattern",
                             "//ldml/localeDisplayNames/localeDisplayPattern/localePattern",
                             "//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator",
+                            "//ldml/localeDisplayNames/types/type[@key=\"*\"][@type=\"*\"][@scope=\"*\"]",
                             "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/localeDisplayNames/languages/language[@type=\"*\"]",
@@ -553,15 +564,21 @@ public class ExampleDependencies {
                             "//ldml/localeDisplayNames/languages/language[@type=\"*\"][@alt=\"*\"]",
                             "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
+                            "//ldml/localeDisplayNames/languages/language[@type=\"*\"][@menu=\"*\"]",
+                            "//ldml/localeDisplayNames/languages/language[@type=\"*\"][@menu=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
                             "//ldml/localeDisplayNames/localeDisplayPattern/localeKeyTypePattern",
                             "//ldml/localeDisplayNames/localeDisplayPattern/localePattern",
                             "//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator",
+                            "//ldml/localeDisplayNames/types/type[@key=\"*\"][@type=\"*\"][@scope=\"*\"]",
                             "//ldml/personNames/nameOrderLocales[@order=\"*\"]",
                             "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/localeDisplayNames/localeDisplayPattern/localePattern",
                             "//ldml/localeDisplayNames/languages/language[@type=\"*\"]",
                             "//ldml/localeDisplayNames/languages/language[@type=\"*\"][@alt=\"*\"]",
+                            "//ldml/localeDisplayNames/languages/language[@type=\"*\"][@menu=\"*\"]",
                             "//ldml/localeDisplayNames/localeDisplayPattern/localeKeyTypePattern",
                             "//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator",
                             "//ldml/localeDisplayNames/scripts/script[@type=\"*\"]",
@@ -637,6 +654,9 @@ public class ExampleDependencies {
                             "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/localeDisplayNames/types/type[@key=\"*\"][@type=\"*\"][@alt=\"*\"]",
+                            "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
+                    .putAll(
+                            "//ldml/localeDisplayNames/types/type[@key=\"*\"][@type=\"*\"][@scope=\"*\"]",
                             "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/localeDisplayNames/variants/variant[@type=\"*\"]",
@@ -733,6 +753,7 @@ public class ExampleDependencies {
                             "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencySpacing/afterCurrency/currencyMatch",
+                            "//ldml/dates/fields/field[@type=\"*\"]/relativeTime[@type=\"*\"]/relativeTimePattern[@count=\"*\"]",
                             "//ldml/listPatterns/listPattern[@type=\"*\"]/listPatternPart[@type=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/displayName[@count=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol",
@@ -777,6 +798,7 @@ public class ExampleDependencies {
                             "//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/unitPattern[@count=\"*\"][@case=\"*\"]")
                     .putAll(
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencySpacing/afterCurrency/insertBetween",
+                            "//ldml/dates/fields/field[@type=\"*\"]/relativeTime[@type=\"*\"]/relativeTimePattern[@count=\"*\"]",
                             "//ldml/listPatterns/listPattern[@type=\"*\"]/listPatternPart[@type=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/displayName[@count=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol",
@@ -821,6 +843,7 @@ public class ExampleDependencies {
                             "//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/unitPattern[@count=\"*\"][@case=\"*\"]")
                     .putAll(
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencySpacing/afterCurrency/surroundingMatch",
+                            "//ldml/dates/fields/field[@type=\"*\"]/relativeTime[@type=\"*\"]/relativeTimePattern[@count=\"*\"]",
                             "//ldml/listPatterns/listPattern[@type=\"*\"]/listPatternPart[@type=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/displayName[@count=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol",
@@ -865,6 +888,7 @@ public class ExampleDependencies {
                             "//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/unitPattern[@count=\"*\"][@case=\"*\"]")
                     .putAll(
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencySpacing/beforeCurrency/currencyMatch",
+                            "//ldml/dates/fields/field[@type=\"*\"]/relativeTime[@type=\"*\"]/relativeTimePattern[@count=\"*\"]",
                             "//ldml/listPatterns/listPattern[@type=\"*\"]/listPatternPart[@type=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/displayName[@count=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol",
@@ -909,6 +933,7 @@ public class ExampleDependencies {
                             "//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/unitPattern[@count=\"*\"][@case=\"*\"]")
                     .putAll(
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencySpacing/beforeCurrency/insertBetween",
+                            "//ldml/dates/fields/field[@type=\"*\"]/relativeTime[@type=\"*\"]/relativeTimePattern[@count=\"*\"]",
                             "//ldml/listPatterns/listPattern[@type=\"*\"]/listPatternPart[@type=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/displayName[@count=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol",
@@ -953,6 +978,7 @@ public class ExampleDependencies {
                             "//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/unitPattern[@count=\"*\"][@case=\"*\"]")
                     .putAll(
                             "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencySpacing/beforeCurrency/surroundingMatch",
+                            "//ldml/dates/fields/field[@type=\"*\"]/relativeTime[@type=\"*\"]/relativeTimePattern[@count=\"*\"]",
                             "//ldml/listPatterns/listPattern[@type=\"*\"]/listPatternPart[@type=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/displayName[@count=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol",
@@ -1036,6 +1062,7 @@ public class ExampleDependencies {
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"*\"][@count=\"*\"]",
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/timeFormats/timeFormatLength[@type=\"*\"]/timeFormat[@type=\"*\"]/pattern[@type=\"*\"]",
                             "//ldml/dates/calendars/calendar[@type=\"*\"]/timeFormats/timeFormatLength[@type=\"*\"]/timeFormat[@type=\"*\"]/pattern[@type=\"*\"][@alt=\"*\"]",
+                            "//ldml/dates/fields/field[@type=\"*\"]/relativeTime[@type=\"*\"]/relativeTimePattern[@count=\"*\"]",
                             "//ldml/listPatterns/listPattern[@type=\"*\"]/listPatternPart[@type=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/displayName[@count=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol",
@@ -1121,6 +1148,7 @@ public class ExampleDependencies {
                             "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/currencyDecimal",
+                            "//ldml/dates/fields/field[@type=\"*\"]/relativeTime[@type=\"*\"]/relativeTimePattern[@count=\"*\"]",
                             "//ldml/listPatterns/listPattern[@type=\"*\"]/listPatternPart[@type=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/displayName[@count=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol",
@@ -1165,6 +1193,7 @@ public class ExampleDependencies {
                             "//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/unitPattern[@count=\"*\"][@case=\"*\"]")
                     .putAll(
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/currencyGroup",
+                            "//ldml/dates/fields/field[@type=\"*\"]/relativeTime[@type=\"*\"]/relativeTimePattern[@count=\"*\"]",
                             "//ldml/listPatterns/listPattern[@type=\"*\"]/listPatternPart[@type=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/displayName[@count=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol",
@@ -1209,6 +1238,7 @@ public class ExampleDependencies {
                             "//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/unitPattern[@count=\"*\"][@case=\"*\"]")
                     .putAll(
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/decimal",
+                            "//ldml/dates/fields/field[@type=\"*\"]/relativeTime[@type=\"*\"]/relativeTimePattern[@count=\"*\"]",
                             "//ldml/listPatterns/listPattern[@type=\"*\"]/listPatternPart[@type=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/displayName[@count=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol",
@@ -1255,6 +1285,7 @@ public class ExampleDependencies {
                             "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/exponential",
+                            "//ldml/dates/fields/field[@type=\"*\"]/relativeTime[@type=\"*\"]/relativeTimePattern[@count=\"*\"]",
                             "//ldml/listPatterns/listPattern[@type=\"*\"]/listPatternPart[@type=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/displayName[@count=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol",
@@ -1298,6 +1329,7 @@ public class ExampleDependencies {
                             "//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/unitPattern[@count=\"*\"][@case=\"*\"]")
                     .putAll(
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/group",
+                            "//ldml/dates/fields/field[@type=\"*\"]/relativeTime[@type=\"*\"]/relativeTimePattern[@count=\"*\"]",
                             "//ldml/listPatterns/listPattern[@type=\"*\"]/listPatternPart[@type=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/displayName[@count=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol",
@@ -1344,6 +1376,7 @@ public class ExampleDependencies {
                             "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern")
                     .putAll(
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/infinity",
+                            "//ldml/dates/fields/field[@type=\"*\"]/relativeTime[@type=\"*\"]/relativeTimePattern[@count=\"*\"]",
                             "//ldml/listPatterns/listPattern[@type=\"*\"]/listPatternPart[@type=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/displayName[@count=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol",
@@ -1388,6 +1421,7 @@ public class ExampleDependencies {
                             "//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/unitPattern[@count=\"*\"][@case=\"*\"]")
                     .putAll(
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/list",
+                            "//ldml/dates/fields/field[@type=\"*\"]/relativeTime[@type=\"*\"]/relativeTimePattern[@count=\"*\"]",
                             "//ldml/listPatterns/listPattern[@type=\"*\"]/listPatternPart[@type=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/displayName[@count=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol",
@@ -1432,6 +1466,7 @@ public class ExampleDependencies {
                             "//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/unitPattern[@count=\"*\"][@case=\"*\"]")
                     .putAll(
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/minusSign",
+                            "//ldml/dates/fields/field[@type=\"*\"]/relativeTime[@type=\"*\"]/relativeTimePattern[@count=\"*\"]",
                             "//ldml/listPatterns/listPattern[@type=\"*\"]/listPatternPart[@type=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/displayName[@count=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol",
@@ -1475,6 +1510,7 @@ public class ExampleDependencies {
                             "//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/unitPattern[@count=\"*\"][@case=\"*\"]")
                     .putAll(
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/nan",
+                            "//ldml/dates/fields/field[@type=\"*\"]/relativeTime[@type=\"*\"]/relativeTimePattern[@count=\"*\"]",
                             "//ldml/listPatterns/listPattern[@type=\"*\"]/listPatternPart[@type=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/displayName[@count=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol",
@@ -1519,6 +1555,7 @@ public class ExampleDependencies {
                             "//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/unitPattern[@count=\"*\"][@case=\"*\"]")
                     .putAll(
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/perMille",
+                            "//ldml/dates/fields/field[@type=\"*\"]/relativeTime[@type=\"*\"]/relativeTimePattern[@count=\"*\"]",
                             "//ldml/listPatterns/listPattern[@type=\"*\"]/listPatternPart[@type=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/displayName[@count=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol",
@@ -1562,6 +1599,7 @@ public class ExampleDependencies {
                             "//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/unitPattern[@count=\"*\"][@case=\"*\"]")
                     .putAll(
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/percentSign",
+                            "//ldml/dates/fields/field[@type=\"*\"]/relativeTime[@type=\"*\"]/relativeTimePattern[@count=\"*\"]",
                             "//ldml/listPatterns/listPattern[@type=\"*\"]/listPatternPart[@type=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/displayName[@count=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol",
@@ -1605,6 +1643,7 @@ public class ExampleDependencies {
                             "//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/unitPattern[@count=\"*\"][@case=\"*\"]")
                     .putAll(
                             "//ldml/numbers/symbols[@numberSystem=\"*\"]/plusSign",
+                            "//ldml/dates/fields/field[@type=\"*\"]/relativeTime[@type=\"*\"]/relativeTimePattern[@count=\"*\"]",
                             "//ldml/listPatterns/listPattern[@type=\"*\"]/listPatternPart[@type=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/displayName[@count=\"*\"]",
                             "//ldml/numbers/currencies/currency[@type=\"*\"]/symbol",

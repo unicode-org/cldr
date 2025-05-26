@@ -192,10 +192,13 @@ public class ExampleGenerator {
         calendar.set(
                 1999, 8, 5, 13, 25, 59); // 1999-09-05 13:25:59 // calendar.set month is 0 based
         DATE_SAMPLE = calendar.getTime();
+
         calendar.set(1999, 9, 27, 13, 25, 59); // 1999-10-27 13:25:59
         DATE_SAMPLE2 = calendar.getTime();
+
         calendar.set(1999, 8, 5, 7, 0, 0); // 1999-09-05 07:00:00
         DATE_SAMPLE3 = calendar.getTime();
+
         calendar.set(1999, 8, 5, 23, 0, 0); // 1999-09-05 23:00:00
         DATE_SAMPLE4 = calendar.getTime();
 
@@ -226,19 +229,35 @@ public class ExampleGenerator {
         }
     }
 
-    private static final Date FIRST_INTERVAL = getDate(2008, 1, 13, 5, 7, 9);
+    private static final Date FIRST_INTERVAL = getDate(2008, 10, 13, 5, 7, 9);
     private static final Map<String, Date> SECOND_INTERVAL =
             CldrUtility.asMap(
                     new Object[][] {
                         {
-                            "G", getDate(1009, 2, 14, 17, 8, 10)
+                            "G", getDate(1009, 11, 14, 17, 25, 35)
                         }, // "G" mostly useful for calendars that have short eras, like Japanese
-                        {"y", getDate(2009, 2, 14, 17, 8, 10)},
-                        {"M", getDate(2008, 2, 14, 17, 8, 10)},
-                        {"d", getDate(2008, 1, 14, 17, 8, 10)},
-                        {"a", getDate(2008, 1, 13, 17, 8, 10)},
-                        {"h", getDate(2008, 1, 13, 6, 8, 10)},
-                        {"m", getDate(2008, 1, 13, 5, 8, 10)}
+                        {"y", getDate(2009, 11, 14, 17, 26, 35)},
+                        {"M", getDate(2008, 11, 14, 17, 26, 35)},
+                        {"d", getDate(2008, 10, 14, 17, 26, 35)},
+                        {"a", getDate(2008, 10, 13, 17, 26, 35)},
+                        {"h", getDate(2008, 10, 13, 6, 26, 35)},
+                        {"m", getDate(2008, 10, 13, 5, 26, 35)},
+                        {"s", getDate(2008, 10, 13, 5, 25, 35)}
+                    });
+
+    private static final Date FIRST_INTERVAL2 = getDate(2008, 1, 3, 5, 7, 9); // 2, 4, 6, 8, 10
+    private static final Map<String, Date> SECOND_INTERVAL2 =
+            CldrUtility.asMap(
+                    new Object[][] {
+                        {
+                            "G", getDate(1009, 2, 4, 18, 8, 10)
+                        }, // "G" mostly useful for calendars that have short eras, like Japanese
+                        {"y", getDate(2009, 2, 4, 18, 8, 10)},
+                        {"M", getDate(2008, 2, 4, 18, 8, 10)},
+                        {"d", getDate(2008, 1, 4, 18, 8, 10)},
+                        {"a", getDate(2008, 1, 3, 18, 8, 10)},
+                        {"h", getDate(2008, 1, 3, 6, 7, 10)},
+                        {"m", getDate(2008, 1, 3, 5, 7, 9)}
                     });
 
     public void setCachingEnabled(boolean enabled) {
@@ -420,7 +439,7 @@ public class ExampleGenerator {
                 supplementalDataInfo.getGrammarInfo(localeId); // getGrammarInfo can return null
         this.englishFile = englishFile;
         this.typeIsEnglish = (resolvedCldrFile == englishFile);
-        icuServiceBuilder.setCldrFile(cldrFile);
+        icuServiceBuilder.setCldrFile(resolvedCldrFile);
 
         bestMinimalPairSamples = new BestMinimalPairSamples(cldrFile, icuServiceBuilder, false);
 
@@ -496,7 +515,6 @@ public class ExampleGenerator {
             result = constructExampleHtml(xpath, value, nonTrivial);
             cacheItem.putExample(result);
         } catch (RuntimeException e) {
-            e.printStackTrace();
             String unchained =
                     verboseErrors ? ("<br>" + finalizeBackground(unchainException(e))) : "";
             result = "<i>Parsing error. " + finalizeBackground(e.getMessage()) + "</i>" + unchained;
@@ -1743,9 +1761,6 @@ public class ExampleGenerator {
     }
 
     private void handleIntervalFormats(XPathParts parts, String value, List<String> examples) {
-        if (!parts.getAttributeValue(3, "type").equals("gregorian")) {
-            return;
-        }
         if (parts.getElement(6).equals("intervalFormatFallback")) {
             SimpleDateFormat dateFormat = new SimpleDateFormat();
             String fallbackFormat = invertBackground(setBackground(value));
@@ -1756,33 +1771,60 @@ public class ExampleGenerator {
                             dateFormat.format(SECOND_INTERVAL.get("y"))));
             return;
         }
+        addIntervalExample(FIRST_INTERVAL, SECOND_INTERVAL, parts, value, examples);
+        addIntervalExample(FIRST_INTERVAL2, SECOND_INTERVAL2, parts, value, examples);
+        Set<String> relatedPatterns = RelatedDatePathValues.getRelatedPathValues(cldrFile, parts);
+        if (!relatedPatterns.isEmpty()) {
+            examples.add("Related Flexible Dates:");
+            for (String pattern : relatedPatterns) {
+                SimpleDateFormat sdf =
+                        icuServiceBuilder.getDateFormat(
+                                parts.getAttributeValue(
+                                        RelatedDatePathValues.calendarElement, "type"),
+                                pattern);
+                examples.add(sdf.format(FIRST_INTERVAL));
+                examples.add(sdf.format(FIRST_INTERVAL2));
+            }
+        }
+        // de-dup, just in case
+        LinkedHashSet<String> dedup = new LinkedHashSet<>(examples);
+        examples.clear();
+        examples.addAll(dedup);
+    }
+
+    private void addIntervalExample(
+            Date earlier,
+            Map<String, Date> laterMap,
+            XPathParts parts,
+            String value,
+            List<String> examples) {
         String greatestDifference = parts.getAttributeValue(-1, "id");
-        /*
-         * Choose an example interval suitable for the symbol. If testing years, use an interval
-         * of more than one year, and so forth. For the purpose of choosing the interval,
-         * "H" is equivalent to "h", and so forth; map to a symbol that occurs in SECOND_INTERVAL.
-         */
+
+        // Choose an example interval suitable for the symbol. If testing years, use an interval
+        // of more than one year, and so forth. For the purpose of choosing the interval,
+        // "H" is equivalent to "h", and so forth; map to a symbol that occurs in SECOND_INTERVAL.
+
         if (greatestDifference.equals("H")) { // Hour [0-23]
             greatestDifference = "h"; // Hour [1-12]
         } else if (greatestDifference.equals("B") // flexible day periods
                 || greatestDifference.equals("b")) { // am, pm, noon, midnight
             greatestDifference = "a"; // AM, PM
         }
-        // intervalFormatFallback
-        // //ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMd"]/greatestDifference[@id="y"]
-        // find where to split the value
+        // Example:
+        // ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMd"]/greatestDifference[@id="y"]
+        // Find where to split the value
         intervalFormat.setPattern(parts, value);
-        Date later = SECOND_INTERVAL.get(greatestDifference);
-        if (later == null) {
-            /*
-             * This may still happen for some less-frequently used symbols such as "Q" (Quarter),
-             * if they ever occur in the data.
-             * Reference: https://unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table
-             * For now, such paths do not get examples.
-             */
-            return;
+        Date later = laterMap.get(greatestDifference);
+        if (later != null) {
+
+            // The later variable may be null for some less-frequently used symbols such
+            // as "Q" (Quarter).
+            // Reference:
+            // https://unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table
+            // For now, such paths do not get examples.
+
+            examples.add(intervalFormat.format(earlier, later));
         }
-        examples.add(intervalFormat.format(FIRST_INTERVAL, later));
     }
 
     private void handleDelimiters(
@@ -2039,7 +2081,7 @@ public class ExampleGenerator {
         examples.add(format(value, setBackground(sdf.format(DATE_SAMPLE)), setBackground(zone)));
     }
 
-    private class IntervalFormat {
+    public class IntervalFormat {
         @SuppressWarnings("deprecation")
         DateTimePatternGenerator.FormatParser formatParser =
                 new DateTimePatternGenerator.FormatParser();
@@ -2711,6 +2753,7 @@ public class ExampleGenerator {
                     if (value.contains("MMM") || value.contains("LLL")) {
                         // alpha month, do not need context examples
                         examples.add(sdf.format(DATE_SAMPLE));
+                        addRelatedAvailable(parts, calendar, numbersOverride, dfs, examples);
                         return;
                     } else {
                         // Use contextExamples if showContexts T
@@ -2727,6 +2770,7 @@ public class ExampleGenerator {
                             example = addExampleResult(sub_ten_example, example, showContexts);
                         }
                         examples.add(example);
+                        addRelatedAvailable(parts, calendar, numbersOverride, dfs, examples);
                         return;
                     }
                 } else {
@@ -2753,6 +2797,31 @@ public class ExampleGenerator {
                     return;
                 }
             }
+        }
+    }
+
+    private void addRelatedAvailable(
+            XPathParts parts,
+            String calendar,
+            String numbersOverride,
+            DateFormatSymbols dfs,
+            List<String> examples) {
+        Set<String> related = RelatedDatePathValues.getRelatedPathValues(cldrFile, parts);
+        if (!related.isEmpty()) {
+            examples.add("Related formats:");
+            related.stream()
+                    .forEach(
+                            x -> {
+                                SimpleDateFormat sdf2 =
+                                        icuServiceBuilder.getDateFormat(
+                                                calendar, x, numbersOverride);
+                                sdf2.setDateFormatSymbols(dfs);
+                                sdf2.setTimeZone(ZONE_SAMPLE);
+                                String example2 = sdf2.format(DATE_SAMPLE);
+                                if (!examples.contains(example2)) {
+                                    examples.add(example2);
+                                }
+                            });
         }
     }
 

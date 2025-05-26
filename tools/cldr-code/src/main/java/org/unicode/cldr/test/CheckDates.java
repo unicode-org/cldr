@@ -57,7 +57,10 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XPathParts;
 
 public class CheckDates extends FactoryCheckCLDR {
+    private static final boolean DEBUG = false;
+
     static boolean GREGORIAN_ONLY = CldrUtility.getProperty("GREGORIAN", false);
+    private static final Set<String> CALENDARS_FOR_CORES = Set.of("gregorian", "iso8601");
 
     ICUServiceBuilder icuServiceBuilder = new ICUServiceBuilder();
     DateTimePatternGenerator.FormatParser formatParser =
@@ -179,6 +182,9 @@ public class CheckDates extends FactoryCheckCLDR {
             try {
                 flexInfo.checkFlexibles(path, value, fullPath);
             } catch (Exception e) {
+                if (DEBUG) {
+                    e.printStackTrace();
+                }
                 final String message = e.getMessage();
                 CheckStatus item =
                         new CheckStatus()
@@ -568,6 +574,9 @@ public class CheckDates extends FactoryCheckCLDR {
                     formatParser.set(value);
                     patternBasicallyOk = true;
                 } catch (RuntimeException e) {
+                    if (DEBUG) {
+                        e.printStackTrace();
+                    }
                     String message = e.getMessage();
                     CheckStatus item =
                             new CheckStatus()
@@ -640,6 +649,9 @@ public class CheckDates extends FactoryCheckCLDR {
                 }
             }
         } catch (ParseException e) {
+            if (DEBUG) {
+                e.printStackTrace();
+            }
             CheckStatus item =
                     new CheckStatus()
                             .setCause(this)
@@ -648,8 +660,9 @@ public class CheckDates extends FactoryCheckCLDR {
                             .setMessage("ParseException in creating date format {0}", e);
             result.add(item);
         } catch (Exception e) {
-            // e.printStackTrace();
-            // HACK
+            if (DEBUG) {
+                e.printStackTrace();
+            }
             String msg = e.getMessage();
             if (msg == null || !HACK_CONFLICTING.matcher(msg).find()) {
                 CheckStatus item =
@@ -1230,6 +1243,34 @@ public class CheckDates extends FactoryCheckCLDR {
                                             "For id {0}, the pattern ({1}) must contain fields M or L, plus W, and no others.",
                                             id, value));
                 }
+
+                if (CALENDARS_FOR_CORES.contains(calendar)) {
+                    Set<String> coreSkeletons = RelatedDatePathValues.getCores(id);
+                    if (!coreSkeletons.isEmpty()) {
+                        XPathParts parts = XPathParts.getFrozenInstance(path);
+                        XPathParts coreParts = parts.cloneAsThawed();
+                        for (String coreSkeleton : coreSkeletons) {
+                            coreParts.putAttributeValue(-1, "id", coreSkeleton);
+                            String coreValue =
+                                    getResolvedCldrFileToCheck()
+                                            .getStringValue(coreParts.toString());
+                            if (coreValue != null
+                                    && !RelatedDatePathValues.contains(value, coreValue)) {
+                                if (DEBUG && getLocaleID().equals("zu") && id.equals("hmsv")) {
+                                    RelatedDatePathValues.contains(value, coreValue);
+                                }
+                                result.add(
+                                        new CheckStatus()
+                                                .setCause(this)
+                                                .setMainType(CheckStatus.warningType)
+                                                .setSubtype(Subtype.inconsistentCoreDatePattern)
+                                                .setMessage(
+                                                        "“{0}” ⊅ “{1}”: the pattern for {2} should contain the pattern for {3}",
+                                                        value, coreValue, id, coreSkeleton));
+                            }
+                        }
+                    }
+                }
             }
             String failureMessage = (String) flexInfo.getFailurePath(path);
             if (failureMessage != null) {
@@ -1325,6 +1366,9 @@ public class CheckDates extends FactoryCheckCLDR {
                                                 "DateIntervalInfo.PatternInfo returns null for first or second part"));
                     }
                 } catch (Exception e) {
+                    if (DEBUG) {
+                        e.printStackTrace();
+                    }
                     result.add(
                             new CheckStatus()
                                     .setCause(this)
@@ -1728,6 +1772,9 @@ public class CheckDates extends FactoryCheckCLDR {
             try {
                 currentFormatted = df.format(d);
             } catch (Exception e) {
+                if (DEBUG) {
+                    e.printStackTrace();
+                }
                 currentFormatted = "Can't format: " + e.getMessage();
                 return;
             }
@@ -1744,6 +1791,9 @@ public class CheckDates extends FactoryCheckCLDR {
                     currentReparsed = neutralFormat.format(n);
                 }
             } catch (Exception e) {
+                if (DEBUG) {
+                    e.printStackTrace();
+                }
                 currentReparsed = "Can't parse: " + e.getMessage();
             }
         }

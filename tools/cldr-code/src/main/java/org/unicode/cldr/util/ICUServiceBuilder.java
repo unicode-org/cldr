@@ -939,8 +939,8 @@ public class ICUServiceBuilder {
             value =
                     cldrFile.getWinningValueWithBailey(
                             "//ldml/numbers/symbols[@numberSystem=\"" + numsys + "\"]/" + key);
-            if (value == null || value.length() < 1) {
-                throw new RuntimeException();
+            if (value == null || value.isEmpty()) {
+                throw new IllegalArgumentException("No value for path");
             }
             return value;
         } catch (RuntimeException e) {
@@ -951,7 +951,8 @@ public class ICUServiceBuilder {
                             + "//ldml/numbers/symbols[@numberSystem='"
                             + numsys
                             + "']/"
-                            + key);
+                            + key,
+                    e);
         }
     }
 

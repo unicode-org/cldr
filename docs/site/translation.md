@@ -156,7 +156,7 @@ For zone `Etc/Unknown`, the exemplarCity name was changed in English from “Unk
 #### Changes to the root and/or English names of many exemplar cities and some metazones
 
 Exemplar cities added or changed in English.
-This was typically to move towards the official spelling in the country in question, such as retaining accents.
+This was typically to move towards the official spelling in the country in question, such as retaining accents, or to add landscape terms such as "Island".
 You should check these, but don't hesitate to retain the older version(<image src='https://github.com/unicode-org/cldr/blob/main/tools/cldr-apps/src/main/webapp/star.png'>) if it is a different script or more customary in your language.
 For example, English still uses "Mexico City" instead of "Ciudad de México".
 
@@ -186,10 +186,34 @@ For example, English still uses "Mexico City" instead of "Ciudad de México".
 | Antarctica/Mawson | Mawson Station | Pacific/Pitcairn | Pitcairn Islands |
 | Antarctica/Vostok | Vostok Station | Pacific/Wallis | Wallis & Futuna |
 
+Update 2025-05-26:
+| Code | New Value | Code | New Value |
+| :---- | :---- | :---- | :---- |
+| America/Noronha | Fernando de Noronha | Pacific/Chatham | Chatham Islands |
+| Antarctica/Macquarie | Macquarie Island | Pacific/Easter | Easter Island |
+| Atlantic/Canary | Canaries | Pacific/Enderbury | Canton Island |
+| Atlantic/Faeroe | Faroes  | Pacific/Galapagos | Galapagos Island |
+| Australia/Lord_Howe | Lord Howe Island | Pacific/Kwajalein | Kwajalein Atoll |
+| Indian/Christmas | Christmas Island | Pacific/Norfolk | Norfolk Island |
+| Indian/Cocos | Cocos Islands | Pacific/Pitcairn | Pitcairn Islands |
+| Indian/Kerguelen | Kerguelen Islands | Pacific/Wake | Wake Island |
+
+
 Metazones:
 
-- Hovd Time changed to Khovd Time
-- Qyzylorda Time changed to Kyzylorda Time
+- _Hovd Time_ changed to _Khovd Time_
+- _Qyzylorda Time_ changed to _Kyzylorda Time_
+
+Update 2025-05-26:
+- _Apia Time_ changed to _Samoa Time_
+- _Brunei Darussalam Time_ changed to _Brunei Time_
+- _Cook Islands Half Summer Time_ changed to _Cook Islands Summer Time_
+- _East Timor Time_ changed to _Timor-Leste Time_
+- _Petropavlovsk-Kamchatski Time_ changed to _Kamchatka Time_
+- _Ponape Time_ changed to _Pohnpei Time_
+- _Pyongyang Time_ changed to _North Korea Time_
+- _Samoa Time_ changed to _American Samoa Time_
+- _Taipei Time_ changed to _Taiwan Time_
 
 <!-- [CLDR-18249](https://unicode-org.atlassian.net/browse/CLDR-18249) -->
 

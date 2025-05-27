@@ -1074,7 +1074,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<timeZoneNames>
 			<hourFormat draft="contributed">+HH:mm;−HH:mm</hourFormat>
 			<gmtFormat draft="contributed">UTC{0}</gmtFormat>
-			<gmtZeroFormat draft="contributed">UTC</gmtZeroFormat>
 			<regionFormat draft="contributed">{0} áigi</regionFormat>
 			<regionFormat type="daylight" draft="unconfirmed">{0} geassiáigi</regionFormat>
 			<regionFormat type="standard" draft="unconfirmed">{0} dábálašáigi</regionFormat>
@@ -1137,9 +1136,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<long>
 					<standard draft="contributed">Greenwich gaskka áigi</standard>
 				</long>
-				<short>
-					<standard draft="contributed">GMT</standard>
-				</short>
 			</metazone>
 			<metazone type="Moscow">
 				<long>

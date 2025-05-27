@@ -1061,7 +1061,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<timeZoneNames>
 			<hourFormat draft="contributed">↑↑↑</hourFormat>
 			<gmtFormat draft="contributed">↑↑↑</gmtFormat>
-			<gmtZeroFormat draft="contributed">↑↑↑</gmtZeroFormat>
 			<regionFormat draft="contributed">↑↑↑</regionFormat>
 			<regionFormat type="daylight" draft="contributed">↑↑↑</regionFormat>
 			<regionFormat type="standard" draft="contributed">↑↑↑</regionFormat>
@@ -1218,11 +1217,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>Курусуун кэмэ</generic>
 					<standard>Курусуун сүрүн кэмэ</standard>
 					<daylight>Курусуун сайыҥҥы кэмэ</daylight>
-				</long>
-			</metazone>
-			<metazone type="GMT">
-				<long>
-					<standard draft="contributed">GMT</standard>
 				</long>
 			</metazone>
 			<metazone type="India">

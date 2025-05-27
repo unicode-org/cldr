@@ -5457,7 +5457,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<timeZoneNames>
 			<hourFormat>+HH:mm;−HH:mm</hourFormat>
 			<gmtFormat>UTC{0}</gmtFormat>
-			<gmtZeroFormat>UTC</gmtZeroFormat>
 			<regionFormat>heure : {0}</regionFormat>
 			<regionFormat type="daylight">{0} (heure d’été)</regionFormat>
 			<regionFormat type="standard">{0} (heure standard)</regionFormat>
@@ -7169,9 +7168,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<long>
 					<standard>heure moyenne de Greenwich</standard>
 				</long>
-				<short>
-					<standard draft="unconfirmed">GMT</standard>
-				</short>
 			</metazone>
 			<metazone type="Greenland_Eastern">
 				<long>

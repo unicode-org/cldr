@@ -9,6 +9,7 @@ import * as cldrDom from "./cldrDom.mjs";
 import * as cldrEvent from "./cldrEvent.mjs";
 import * as cldrGui from "./cldrGui.mjs";
 import * as cldrLoad from "./cldrLoad.mjs";
+import { LocaleMap } from "./cldrLocaleMap.mjs";
 import * as cldrLocales from "./cldrLocales.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";
 import * as cldrSurvey from "./cldrSurvey.mjs";
@@ -84,16 +85,22 @@ function makeSafe(s) {
 
 function getInitialMenusEtc() {
   const theLocale = cldrStatus.getCurrentLocale() || "root";
-  const xurl = getMenusAjaxUrl(
-    theLocale,
-    false /* do not fetch locale map here */
-  );
+  const fetchLocaleMap = cldrGui.LOAD_LOCALES_EARLY ? false : true;
+  const xurl = getMenusAjaxUrl(theLocale, fetchLocaleMap);
   cldrLoad.myLoad(xurl, "initial menus for " + theLocale, function (json) {
     loadInitialMenusFromJson(json);
   });
 }
 
 function loadInitialMenusFromJson(json) {
+  let locmap;
+  if (!cldrGui.LOAD_LOCALES_EARLY) {
+    if (!cldrLoad.verifyJson(json, "locmap")) {
+      return;
+    }
+    locmap = new LocaleMap(json.locmap);
+    cldrLoad.setTheLocaleMap(locmap);
+  }
   if (
     cldrStatus.getCurrentLocale() === cldrLocales.USER_LOCALE_ID &&
     json.loc
@@ -106,7 +113,9 @@ function loadInitialMenusFromJson(json) {
   const theDiv = document.createElement("div");
   theDiv.className = "localeList";
 
-  const locmap = cldrLoad.getTheLocaleMap();
+  if (!locmap) {
+    locmap = cldrLoad.getTheLocaleMap();
+  }
   addTopLocales(theDiv, locmap);
 
   if (cldrStatus.isVisitor()) {

@@ -22,6 +22,8 @@ public class SurveyDriverDashboard {
         if (!s.login()) {
             return false;
         }
+        System.out.println("CLDR-18613 - try refresh to work around loading issue");
+        driver.navigate().refresh();
         final int REPETITION_COUNT = 10; // 10000;
         for (int i = 0; i < REPETITION_COUNT; i++) {
             SurveyDriverLog.println("SurveyDriverDashboard.test i = " + i);

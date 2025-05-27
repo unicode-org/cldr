@@ -308,9 +308,6 @@ jobs:
     - name: Build webdriver
       run: docker compose run -v ~/.m2/repository:/root/.m2/repository:rw --rm webdriver mvn -B test-compile
       working-directory: tools/cldr-apps
-    - name: Test with Webdriver, ignoring result due to CLDR-18613
-      run: docker compose run -v ~/.m2/repository:/root/.m2/repository:rw --rm webdriver || ( echo this may fail the first time see https://unicode-org.atlassian.net/browse/CLDR-18613 && true)
-      working-directory: tools/cldr-apps
     - name: Test with Webdriver
       # See tools/cldr-apps/README.md
       run: >

@@ -103,8 +103,6 @@ Pattern "ZZZZ" is currently used for localized GMT format. This format is constr
 
 \<gmtFormat>GMT{0}\</gmtFormat>
 
-\<gmtZeroFormat>GMT\</gmtZeroFormat>
-
 For example, UTC offset is -3:00, the output is "GMT-03:00" with above data. Unlike non-localized local time offset format, this format uses local decimal digits for hours/minutes field.
 
 This format sometimes tend to be longer than what people expect. For example, Bulgarian locale in CLDR 22 has "Гриинуич{0}" for gmtFormat. CLDR[#5382](http://unicode.org/cldr/trac/ticket/5382) proposes to add shorter version and we need a pattern for this purpose.

@@ -153,15 +153,16 @@ You will also want to make sure this directory exists and is writeable. You can 
 
 This command may be somewhat excessive in terms of what it does, but it works.
 
-TODO CLDR-14409: We should have a way to run these steps against a development server.
+TODO CLDR-14409: We should document how to run these steps against a development server (liberty:dev)
 
 ```shell
+# From the top level CLDR dir
 # clean out webpack build (this tends to get large when using webpack development mode!)
 rm -rf tools/cldr-apps/src/main/webapp/dist ./tools/cldr-apps/target/cldr-apps/dist/
 # build
-mvn clean compile package -DskipTests=true
+mvn --file=tools/pom.xml clean compile package install -DskipTests=true
 # create server package
-mvn --file=tools/pom.xml -pl cldr-apps liberty:create liberty:deploy liberty:package -Dinclude=usr --file tools/pom.xml -DskipTests=true
+mvn -pl cldr-apps liberty:create liberty:deploy liberty:package -Dinclude=usr --file tools/pom.xml -DskipTests=true
 ```
 
 Note: if you are on an Apple Silicon or other systems, you might need to set this variable:

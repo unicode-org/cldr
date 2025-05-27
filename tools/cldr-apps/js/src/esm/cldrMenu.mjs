@@ -82,17 +82,23 @@ function makeSafe(s) {
   return s.replace(/[^-_a-zA-Z0-9]/g, "");
 }
 
-function getInitialMenusEtc() {
+async function getInitialMenusEtc() {
   const theLocale = cldrStatus.getCurrentLocale() || "root";
   const xurl = getMenusAjaxUrl(
     theLocale,
     false /* do not fetch locale map here */
   );
-  cldrLoad.myLoad(xurl, "initial menus for " + theLocale, function (json) {
-    loadInitialMenusFromJson(json);
-  });
+  await fetch(xurl)
+    .then(cldrAjax.handleFetchErrors)
+    .then((r) => r.json)
+    .then((json) => loadInitialMenusFromJson(json));
 }
 
+/**
+ * Processes initial menus.
+ * Also, schedules auto import and perhaps other items
+ * @param {Object} json
+ */
 function loadInitialMenusFromJson(json) {
   if (
     cldrStatus.getCurrentLocale() === cldrLocales.USER_LOCALE_ID &&
@@ -119,6 +125,8 @@ function loadInitialMenusFromJson(json) {
 
   setupCoverageLevels(json);
 
+  // TODO: this should be ideally imperatively called from an upper level,
+  // not called in the tail of an unrelated loader function
   cldrLoad.continueInitializing(json.canAutoImport || false);
 }
 

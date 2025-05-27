@@ -151,23 +151,11 @@ You need a server zipfile to deploy.  This is a file such as `cldr-apps.zip`. Wh
 
 #### Option A: Local Build
 
-- Prerequisites: See <https://cldr.unicode.org/development/maven> and follow instructions to be able to run `mvn package` as shown on that page.
-
-- You can then create a server zipfile locally with maven using these command (from the top `cldr/` directory).  The first command does a full build of CLDR, but skips running tests.
-
-```shell
-mvn --file=tools/pom.xml install -DskipTests=true
-mvn --file=tools/pom.xml -pl cldr-apps liberty:package
-```
-
-- The output file will be in `tools/cldr-apps/target/cldr-apps.zip`
-
+- See [cldr-apps: Docker Testing](../../cldr-apps/README.md#option-a-local-build-of-a-server) for information about how to build the file `tools/cldr-apps/target/cldr-apps.zip`
 
 #### Option B: Download a Build
 
-- Server Builds are actually attached to each action run in <https://github.com/unicode-org/cldr/actions/workflows/maven.yml>, look for an artifact entitled `cldr-apps-server` at the bottom of a run.
-
-- *Warning*: Clicking on this artifact will download a zipfile named `cldr-apps-server.zip` which _contains_ `cldr-apps.zip`.  Double clicking or automatic downloading will often extract one too many levels of zipfiles. If you see a folder named `wlp` then you have extracted too much. From the command line you can unpack with `unzip cldr-apps-server.zip` which will extract `cldr-apps.zip`.
+- See [cldr-apps: Docker Testing](../../cldr-apps/README.md#option-b-download-a-server-build) for information about how to download the file `tools/cldr-apps/target/cldr-apps.zip`
 
 ### Deploy
 

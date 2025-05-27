@@ -19,6 +19,8 @@ import * as cldrVue from "./cldrVue.mjs";
 
 import MainHeader from "../views/MainHeader.vue";
 
+const LOAD_LOCALES_EARLY = false;
+
 const GUI_DEBUG = true;
 
 const runGuiId = "st-run-gui";
@@ -68,9 +70,11 @@ async function initialSetup() {
     ensureSession(),
     cldrEscaperLoader.updateEscaperFromServer(),
   ]);
-  // fetchMap requires a session, must load after ensureSession
-  await cldrLocales.fetchMap();
-  // Note: could possibly fetch initial menus here rather than later
+  if (LOAD_LOCALES_EARLY) {
+    // fetchMap requires a session, must load after ensureSession
+    await cldrLocales.fetchMap();
+    // Note: could possibly fetch initial menus here rather than later
+  }
 }
 
 async function ensureSession() {
@@ -449,6 +453,7 @@ function refreshCounterVetting() {
 }
 
 export {
+  LOAD_LOCALES_EARLY,
   refreshCounterVetting,
   run,
   setToptitleVisibility,

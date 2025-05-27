@@ -90,7 +90,7 @@ async function getInitialMenusEtc() {
   );
   await fetch(xurl)
     .then(cldrAjax.handleFetchErrors)
-    .then((r) => r.json)
+    .then((r) => r.json())
     .then((json) => loadInitialMenusFromJson(json));
 }
 

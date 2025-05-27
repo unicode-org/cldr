@@ -58,7 +58,9 @@ function run() {
   } catch (e) {
     return Promise.reject(e);
   }
-  // We load
+  // Get this ready before initial setup
+  cldrLoad.showV();
+  // We load..
   return initialSetup().then(completeStartupWithSession);
 }
 
@@ -124,7 +126,6 @@ function haveSession() {
 function completeStartupWithSession() {
   // TODO: Here is where auto import should be scheduled.
   cldrSurvey.updateStatus();
-  cldrLoad.showV();
   cldrEvent.startup();
 }
 

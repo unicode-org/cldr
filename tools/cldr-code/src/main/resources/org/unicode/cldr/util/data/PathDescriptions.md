@@ -344,7 +344,7 @@ The pattern used to compose generic fallback time zone names, such as 'Germany T
 
 ###
 
-- `^//ldml/dates/timeZoneNames/(fallback|fallbackRegion|gmtZero|gmtUnknown|gmt|hour|region)Format`
+- `^//ldml/dates/timeZoneNames/(fallback|fallbackRegion|gmtUnknown|gmt|hour|region)Format`
 
 The {1} pattern used to compose time zone names. Note: before translating, be sure to read [Time Zone City Names].
 

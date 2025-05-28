@@ -83,7 +83,7 @@ Seven new emoji have been added (images below). These were released in Unicode 1
 
 ### Core Data
 There are new Alphabetic Information items.
-- `numbers-auxiliary` — If there are are characters used in numbers that are not customarily used, but may occur, add them here instead of in `auxiliary`.
+- `numbers-auxiliary` — If there are characters used in numbers that are not customarily used, but may occur, add them here instead of in `auxiliary`.
 - `punctuation-auxiliary` — If there are punctuation characters that are not customarily used, but may occur, add them here instead of in `auxiliary`.
 - `punctuation-person` — If there are punctuation characters that are customarily used in people's names in standard documents, add them here.
 This should be a small list such as “.” or “-”.
@@ -94,7 +94,7 @@ Do **not** include ‘fanciful’ characters such as emoji or [kaomoji](https://
 But include **both** native-script names *and* foreign-script names (that are transliterated into your native script).  
 3. Include punctuation in compound names (including transliterated, such as  “让-路易·加西” or “ジャン゠ルイ・ガセー” for “Jean-Louis Gassée”) —
 For example, currently Chinese \[·] and Japanese \[゠・] are missing those characters, when compared to Wikipedia.
-4. You should include ‘look alike’ characters that are in common use, such as ＝(full-width equals) for ゠(kana double hyphen)  
+4. You should include ‘look alike’ characters that are in common use, such as ＝(full-width equals) for ゠(kana double hyphen);
 5. Include punctuation that is used in special fields like titles (“Prof. Dr”), credentials (“MD, PhD)”, and generation (“Jr.”)
 
 More information is available in the [Exemplars section of the Unicode Sets page](https://cldr.unicode.org/translation/core-data/exemplars#exemplar-characters)
@@ -154,7 +154,7 @@ For example, in the following the format with the day of the week (So) has zero-
 
 ![Screenshot 2025-05-25 at 17 39 13](https://github.com/user-attachments/assets/96c4a2d9-8e6d-4127-9d73-7836c8d78f45)
 
-New warnings are available for cases where the removal of a era (G), day-of-week (E), or timezone (v) changes the pattern unexpectedly. 
+New warnings are available for cases where the removal of an era (G), day-of-week (E), or timezone (v) changes the pattern unexpectedly. 
 In the warning below, one pattern is in the order **year-month-day** and has **zero-padded** days (dd), 
 while the other is in the order **day-month-year**, with **unpadded days** (d). 
 
@@ -181,7 +181,7 @@ of a relative date and a single time.
 
 If you do not supply this, that combination will fall back to using the “standard” variant;
 in English that would produce “tomorrow, 3:00 PM”. If instead you want the same combining behavior for a relative date with a single time as for a
-fvfixed date with single time (as was the case in CLDR 47 and earlier), then for each length style copy the existing “atTime” form to the new “relative” form.
+fixed date with single time (as was the case in CLDR 47 and earlier), then for each length style copy the existing “atTime” form to the new “relative” form.
 
 #### Missing date & time patterns
 
@@ -189,7 +189,7 @@ fvfixed date with single time (as was the case in CLDR 47 and earlier), then for
 
   - GyM and GyMEd
   - Time formats: EBh, Eh, EH when there is an existing EBhm, Ehm, and EHm in the respective calendar.
-  - Changed HH patterns in available and interval formats to include a reference to hour since seeing an hour number alone is ambigious.
+  - Changed HH patterns in available and interval formats to include a reference to hour since seeing an hour number alone is ambiguous.
 
 ### Timezones, metazones and exemplar cities
 
@@ -275,7 +275,7 @@ Metazones:
 
 #### Currency patterns alphaNextToNumber, noCurrency
 
-- The `alphaNextToNumber` patterns should be used when currency symbol is alphabetic, such as “USD”;
+- The `alphaNextToNumber` patterns should be used when a currency symbol is alphabetic, such as “USD”;
 in this case the m=pattern may add a space to offset the currency symbol from the numeric value, if the standard pattern does not already include a space.
     - **Note that some currency units may only be alphabetic at the start or end, such as CA$ or $CA.
 This pattern will be used if an alphabetic character would end up being adjacent to a number in the regular pattern.
@@ -302,15 +302,15 @@ Here are the the English values and a short description of their purpose:
 Code | Default Value | Description
 -|:-:|-
 `Rational` | {0}⁄{1} | The format for a rational fraction with arbitrary numerator and denominator; the English pattern uses the Unicode character ‘⁄’ U+2044 FRACTION SLASH which causes composition of fractions such as <sup>22</sup>⁄<sub>7</sub>.
-`Integer + Rational` | {0} {1} | The format for combining an integer with a rational fraction composed using the pattern above; the English pattern uses U+202F NARROW NO-BREAK SPACE (NNBSP) to produce a `non-breaking thin space`.
-`Integer + Rational-superSub` | {0}⁠{1} | The format for combining an integer with a rational fraction using composed using the pattern above; the English pattern uses U+2060 WORD JOINER, a zero-width no-break space.
+`Integer + Rational` | {0} {1} | The format for combining an integer with a rational fraction that is composed using the `Rational` pattern; the English pattern uses U+202F NARROW NO-BREAK SPACE (NNBSP) to produce a `non-breaking thin space`.
+`Integer + Rational-superSub` | {0}⁠{1} | The format for combining an integer with a rational fraction that is composed using the `Rational` pattern; the English pattern uses U+2060 WORD JOINER, a zero-width no-break space. **See below for the difference from `Integer + Rational`**
 `Usage` | sometimes | An indication of the extent to which rational fractions are used in the locale; must be either `never` or `sometimes`.
 
-**If** an integer and fraction (5½) is best expressed in your language with a space between them (5 ½),
-then copy the pattern from integerAndRationalPattern to integerAndRationalPattern-superSub.
+**If** an integer and fraction (**5½**) is best expressed in your language with a space between them (**5 ½**),
+then copy the pattern from `Integer + Rational` to `Integer + Rational-superSub`.
 However, you **cannot** do the reverse.
-Some fonts and rendering systems don't properly handle the fraction slash, and the user would see something like 51/2 (fifty-one halves).
-So in that case, implementations must have the integerAndRationalPattern with a space in it to fall back on,
+Some fonts and rendering systems don't properly handle the fraction slash, and the user would see something like **51/2** (fifty-one halves)!
+So in that case, implementations must have the `Integer + Rational` with a space in it to fall back on,
 unless they have verified that the font / rendering system supports superscripting the numerator.
 
 ### Units
@@ -330,7 +330,7 @@ For more information see [Concentrations](/translation/units/unit-names-and-patt
 
 #### Many new units in English
 
-Mnny new units were added in English. 
+Many new units were added in English. 
 The _metric_ ones are used in scientific contexts, and will need to be translated in all languages.
 However, the case inflections (accusative, dative, etc) will not be requested. 
 <!-- In general these are very specific and vetters will not be
@@ -405,7 +405,7 @@ Some of the commonly used special characters are listed below, with an example f
 | ❰NBSP❱ | re call | ❰NBTSP❱ | No-break space | A regular space that disallows linebreaks; equivalent to adding ❰NB❱ after a space
 | ❰NBHY❱ | re‑call | re❰NBHY❱fine | No-break hyphen | A regular hyphen that disallows linebreaks; equivalent to -❰NB❱
 
-The BIDI controls — ❰ALM❱ ❰LRM❱ ❰RLM❱ are used in bidirectional scripts (Arabic, Hebrew, etc.) to control the birectional order if needed; typically next to numbers or punctuation.
+The BIDI controls — ❰ALM❱ ❰LRM❱ ❰RLM❱ are used in bidirectional scripts (Arabic, Hebrew, etc.) to control the bidirectional order if needed; typically next to numbers or punctuation.
 
 To see how to [**input** these from the keyboard], and for a key to **all** the escapes, see [Key for Show Hidden].
 

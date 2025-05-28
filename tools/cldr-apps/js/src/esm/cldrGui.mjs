@@ -58,7 +58,9 @@ function run() {
   } catch (e) {
     return Promise.reject(e);
   }
-  // We load
+  // Get this ready before initial setup
+  cldrLoad.showV();
+  // We load..
   return initialSetup().then(completeStartupWithSession);
 }
 
@@ -66,11 +68,13 @@ function run() {
 async function initialSetup() {
   await Promise.all([
     ensureSession(),
+    // Load other things that do NOT depend on a session here.
+    cldrLocales.fetchMap(),
     cldrEscaperLoader.updateEscaperFromServer(),
   ]);
-  // fetchMap requires a session, must load after ensureSession
-  await cldrLocales.fetchMap();
-  // Note: could possibly fetch initial menus here rather than later
+  // This needs to be done before initial menus.
+  cldrLoad.parseHashAndUpdate(cldrLoad.getHash());
+  await cldrMenu.getInitialMenusEtc(); // Note: also kicks off auto import
 }
 
 async function ensureSession() {
@@ -80,7 +84,6 @@ async function ensureSession() {
     }
     return; // the session was already set
   }
-  scheduleLoadingWithSessionId();
   if (GUI_DEBUG) {
     console.log("cldrGui.ensureSession making login request");
   }
@@ -120,22 +123,9 @@ function haveSession() {
   return false;
 }
 
-/**
- * Arrange for getInitialMenusEtc to be called soon after we've gotten the session id.
- * Add a short timeout to avoid interrupting the code that sets the session id.
- */
-function scheduleLoadingWithSessionId() {
-  cldrStatus.on("sessionId", () => {
-    setTimeout(function () {
-      cldrLoad.parseHashAndUpdate(cldrLoad.getHash());
-      cldrMenu.getInitialMenusEtc();
-    }, 100 /* one tenth of a second */);
-  });
-}
-
 function completeStartupWithSession() {
+  // TODO CLDR-18681: Here is where auto import should be scheduled.
   cldrSurvey.updateStatus();
-  cldrLoad.showV();
   cldrEvent.startup();
 }
 

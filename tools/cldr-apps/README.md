@@ -149,22 +149,42 @@ You will also want to make sure this directory exists and is writeable. You can 
 
 ## Docker Testing
 
-### Setup
+These instructions set you up to use [Docker](https://docker.io) to execute a complete local test of the Survey Tool. The advantage is that you don't have to manually configure any web servers, databases, etc.
 
-This may be excessive but it works
+Note: if you are on an Apple Silicon or other systems, you might need to set this variable:
+
+`export DOCKER_DEFAULT_PLATFORM=linux/amd64`
+
+### Option A: Local build of a Server
+
+This command may be somewhat excessive in terms of what it does, but it works.
+
+TODO CLDR-14409: We should document how to run these steps against a development server (liberty:dev)
 
 ```shell
-# clean out webpack build
+# From the top level CLDR dir
+# clean out webpack build (this tends to get large when using webpack development mode!)
 rm -rf tools/cldr-apps/src/main/webapp/dist ./tools/cldr-apps/target/cldr-apps/dist/
 # build
-mvn clean compile package -DskipTests=true
+mvn --file=tools/pom.xml clean compile package install -DskipTests=true
 # create server package
-mvn  -pl cldr-apps liberty:clean liberty:create liberty:deploy liberty:package -Dinclude=usr --file tools/pom.xml -DskipTests=true
+mvn -pl cldr-apps liberty:create liberty:deploy liberty:package -Dinclude=usr --file tools/pom.xml -DskipTests=true
 ```
+
+The output file is `tools/cldr-apps/target/cldr-apps.zip` - it is a Liberty server zip.
+
+### Option B: Download a Server Build
+
+To run tests against an existing deployment, you can download a pre-built server.
+
+- Server Builds are actually attached to each action run in <https://github.com/unicode-org/cldr/actions/workflows/maven.yml>, look for an artifact entitled `cldr-apps-server` at the bottom of a run.
+
+- *Warning*: Clicking on this artifact will download a zipfile named `cldr-apps-server.zip` which _contains_ `cldr-apps.zip`.  Double clicking or automatic downloading will often extract one too many levels of zipfiles. If you see a folder named `wlp` then you have extracted too much. From the command line you can unpack with `unzip cldr-apps-server.zip` which will extract `cldr-apps.zip`.  Unpack the file to `tools/cldr-apps/target/cldr-apps.zip`
 
 ### Build and run
 
 ```shell
+cd tools/cldr-apps
 docker compose up cldr-apps
 ```
 
@@ -173,6 +193,7 @@ docker compose up cldr-apps
 This will compile and launch the [webdriver](../cldr-apps-webdriver/README.md).
 
 ```shell
+cd tools/cldr-apps
 docker compose run --rm -it webdriver
 ```
 
@@ -192,6 +213,7 @@ Want to see what the WebDriver is doing? Sure, you can.
 This will launch the [client tests](js/test/client/README.md).
 
 ```shell
+cd tools/cldr-apps
 docker compose run --rm -it client-test
 ```
 

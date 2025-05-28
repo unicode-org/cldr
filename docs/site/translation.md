@@ -4,17 +4,26 @@ title: Information Hub for Linguists
 
 # Information Hub for Linguists
 
-💡🆕
-
-The sequence above marks items that have been recently added. In your browser you can copy this sequence, then use ⌘-F (Mac) or Ctrl-F (Windows) to find all the places it occurs.
-- 💡🆕 Added missing date & time formats:
-  - GyM and GyMEd
-  - Time formats: EBh, Eh, EH when there is an existing EBhm, Ehm, and EHm in the calendar respectively.
-  - Changed HH patterns in available and interval formats to include a reference to hour since seeing an hour number alone is ambigious.
-- 💡🆕 The region Sark, CQ, is now in modern coverage
-- New flexible format and interval patterns
-- Gregorian Calendar (Year First) calendar
-- Enhanced "Show Hidden"
+The following list summarizes the recent changes, with more details in a section further down the page.
+A sequence like 🆕 2025-05-09 marks items that have been recently added.
+In your browser you can copy this sequence, then use ⌘-F (Mac) or Ctrl-F (Windows) to find all the places it occurs. 
+- **🆕 2025-05-28**
+  - Many people are not voting correctly for **Characters in Use**: [punctuation-person](https://st.unicode.org/cldr-apps/v#/USER/Alphabetic_Information/3be8e5f5960f3603)
+- **🆕 2025-05-26**
+  - Updated zone names
+  - Please review the Gregorian [flexible date/time](https://st.unicode.org/cldr-apps/v#/USER/Gregorian/header_Formats_Flexible_Date_Formats) and [interval date/time formats](https://st.unicode.org/cldr-apps/v#/USER/Gregorian/header_Formats_Intervals_Date_Formats). There are inconsistencies between formats in many locales. New examples and warnings have been added to help you see the issues.
+- 🆕 2025-05-22
+  - Added keycap emoji. These were synthesized formerly, but are now available for translation: see [Keycaps](https://st.unicode.org/cldr-apps/v#/USER/EmojiSymbols/header_keycap).
+- 🆕 2025-05-18
+  - Added missing date & time formats:
+    - GyM and GyMEd
+    - Time formats: EBh, Eh, EH when there is an existing EBhm, Ehm, and EHm in the calendar respectively.
+    - Changed HH patterns in available and interval formats to include a reference to hour since seeing an hour number alone is ambigious.
+  - The region Sark, CQ, is now in modern coverage
+- 🆕 2025-05-09
+  - New flexible format and interval patterns
+  - Gregorian Calendar (Year First) calendar
+  - 2025-05-09 Enhanced "Show Hidden"
 
 When a section below changes, the date will be in the header.
 
@@ -45,7 +54,7 @@ The following new languages are available in the Survey Tool for submission duri
 - Buryat (bua)
 - Coptic (cop)
 - Haitian Creole (ht)
-- 💡🆕 Hmong Daw (mww)
+- 🆕 2025-05-18 — Hmong Daw (mww)
 - Kazakh (Latin) (kk_Latn)
 - Laz (lzz)
 - Luri Bakhtiari (bqi)
@@ -75,11 +84,17 @@ There are new Alphabetic Information items.
 This should be a small list such as “.” or “-”.
 Do **not** include ‘fanciful’ characters such as emoji or [kaomoji](https://en.wikipedia.org/wiki/Kaomoji).
 
+**🆕 2025-05-18** — Many people are not voting correctly for **Characters in Use**: [punctuation-person](https://st.unicode.org/cldr-apps/v#/USER/Alphabetic_Information/3be8e5f5960f3603), especially for non-Latin scripts, such as Japanese and Chinese.  
+1. It should *only* have punctuation that is used in *your* language with names. But include **both** native-script names *and* foreign-script names (that are transliterated into your native script).  
+2. Include punctuation in compound names (including transliterated, such as  “让-路易·加西” or “ジャン゠ルイ・ガセー” for “Jean-Louis Gassée”) — Currently Chinese \[·] and Japanese \[゠・] are missing characters, when comparing to Wikipedia.
+3. You should include ‘look alike’ characters that are in common use, such as ＝(full-width equals) for ゠(kana double hyphen)  
+4. Include punctuation that is used in special fields like titles (“Prof. Dr”), credentials (“MD, PhD)”, and generation (“Jr.”)
+
 More information is available in the [Exemplars section of the Unicode Sets page](https://cldr.unicode.org/translation/core-data/exemplars#exemplar-characters)
 
 ### Locale display names
 
-💡🆕 Sark, CQ, is now in modern coverage under Locale Display Names > Territories (Europe) > Northern Europe
+🆕 2025-05-18 — Sark, CQ, is now in modern coverage under Locale Display Names > Territories (Europe) > Northern Europe > [Sark](https://st.unicode.org/cldr-apps/v#/USER/T_Europe/7df36d3a79aacaf4)
 
 #### Languages names which were added or changed in English
 
@@ -93,7 +108,7 @@ As new locales reach Basic Coverage, their language names are added for locales 
 
 There is a new mechanism for better menu names. When you see a **Code** with `-core` or `-extension`, please read [Locale Option Value Names](/translation/displaynames/locale-option-names-key).
 
-💡🆕 The link in the Info Panel was not pointing to [Locale Option Value Names](/translation/displaynames/locale-option-names-key); that has been fixed. There is also now a Full List of the option names on that page.
+🆕 2025-05-21 — The link in the Info Panel was not pointing to [Locale Option Value Names](/translation/displaynames/locale-option-names-key); that has been fixed. There is also now a Full List of the option names on that page.
 
 #### Scripts
 
@@ -105,16 +120,33 @@ please file a ticket. [CLDR-18283](https://unicode-org.atlassian.net/browse/CLDR
 ### DateTime formats
 
 #### Gregorian Calendar (Year First) calendar
-💡🆕 This is a variant of the Gregorian calendar whose formats always use year-month-day ordering and a 24-hour time cycle. See [Year First Calendar] for more details.
+🆕 2025-05-09 — This is a variant of the Gregorian calendar whose formats always use year-month-day ordering and a 24-hour time cycle. See [Year First Calendar] for more details.
 *Note: the code is `iso8601`, but disregard that; it will be changed after submission.*
 
 <!-- [CLDR-18447](https://unicode-org.atlassian.net/browse/CLDR-18447) -->
 
 #### New flexible format and interval patterns 
-💡🆕 There are some new patterns for you to supply. Make sure that the format is consistent with related patterns. 
+🆕 2025-05-09 — There are some new patterns for you to supply. Make sure that the format is consistent with related patterns. 
 
 Note: Some locales have inconsistent patterns using eras: in some patterns using G (AD vs BC in Gregorian) but in related patterns using GGGGG (which is a narrow form: A vs B in Gregorian).
 The GGGGG is not typically needed except in special cases, such as the Japanese calendar.
+
+**🆕 2025-05-28** — Please review the Gregorian [flexible date/time](https://st.unicode.org/cldr-apps/v#/USER/Gregorian/header_Formats_Flexible_Date_Formats) and [interval date/time formats](https://st.unicode.org/cldr-apps/v#/USER/Gregorian/header_Formats_Intervals_Date_Formats). There are inconsistencies between formats in many locales. New examples and warnings have been added to help you see the issues:
+
+Intervals have "Related Flexible Dates" that show inconsistencies between the intervals and flexible. For example, in the following the era (n.C.) is on the opposite side.
+
+![Screenshot 2025-05-25 at 17 35 42](https://github.com/user-attachments/assets/35ac8d16-2286-41c0-a978-9acb9b2aa6e5)
+
+Available formats show related formats. For example, in the following the format with the day of the week (So) has zero-padded hours, while the format without the day of the week doesn't.
+
+![Screenshot 2025-05-25 at 17 39 13](https://github.com/user-attachments/assets/96c4a2d9-8e6d-4127-9d73-7836c8d78f45)
+
+New warnings are available for cases where the removal of a era (G), day-of-week (E), or timezone (v) changes the pattern unexpectedly. In the warning below, one pattern is in the order **year-month-day** and has **zero-padded** days (dd) and while the other is in the order **day-month-year**, with **unpadded days** (d). 
+
+![Screenshot 2025-05-25 at 17 50 09](https://github.com/user-attachments/assets/8a8dbda6-e7cb-4fd9-9c76-4f49b0c8110b)
+
+**Note that (y) is favored over (yy). The former will show the year 2011 as "2011", while the latter will truncate to "11", which could be a year, month, or day: and even if it is known to be a year from the rest of the format, could be either 2011 or 1911.
+**
 
 #### New “relative” variant for date-time combining pattern
 
@@ -137,7 +169,7 @@ fvfixed date with single time (as was the case in CLDR 47 and earlier), then for
 
 #### Missing date & time patterns
 
-💡🆕 Some dates and times are ambiguous due to missing patterns. These additional patterns have been added to resolve this issue:
+🆕 2025-05-18 — Some dates and times are ambiguous due to missing patterns. These additional patterns have been added to resolve this issue:
 
   - GyM and GyMEd
   - Time formats: EBh, Eh, EH when there is an existing EBhm, Ehm, and EHm in the respective calendar.
@@ -188,7 +220,7 @@ For example, English still uses "Mexico City" instead of "Ciudad de México".
 | Antarctica/Mawson | Mawson Station | Pacific/Pitcairn | Pitcairn Islands |
 | Antarctica/Vostok | Vostok Station | Pacific/Wallis | Wallis & Futuna |
 
-Update 2025-05-26:
+🆕 2025-05-26
 
 | Code | New Value | Code | New Value |
 | :---- | :---- | :---- | :---- |
@@ -201,13 +233,12 @@ Update 2025-05-26:
 | Indian/Cocos | Cocos Islands | Pacific/Pitcairn | Pitcairn Islands |
 | Indian/Kerguelen | Kerguelen Islands | Pacific/Wake | Wake Island |
 
-
 Metazones:
 
 - _Hovd Time_ changed to _Khovd Time_
 - _Qyzylorda Time_ changed to _Kyzylorda Time_
 
-Update 2025-05-26:
+🆕 2025-05-26
 - _Apia Time_ changed to _Samoa Time_
 - _Brunei Darussalam Time_ changed to _Brunei Time_
 - _Cook Islands Half Summer Time_ changed to _Cook Islands Summer Time_
@@ -224,9 +255,6 @@ Update 2025-05-26:
 
 #### Currency patterns alphaNextToNumber, noCurrency
 
-<!-- this is unnecessary for vetters to worry about. 
-There actually added in CLDR 42 per (CLDR-14336)[https://unicode-org.atlassian.net/browse/CLDR-14336]. However, they were not properly set up for coverage and inheritance, and were not presented to many vetters. These issue were corrected in CLDR 47 per [CLDR-17879](https://unicode-org.atlassian.net/browse/CLDR-17879), which adjusted the data for some locales (and made it draft="provisional"). Many vetters will see these for the first time in CLDR 48.
--->
 - The `alphaNextToNumber` patterns should be used when currency symbol is alphabetic, such as “USD”; in this case the m=pattern may add a space to offset the currency symbol from the numeric value, if the standard pattern does not already include a space.
     - **Note that some currency units may only be alphabetic at the start or end, such as CA$ or $CA.
 This pattern will be used if an alphabetic character would end up being adjacent to a number in the regular pattern.
@@ -335,7 +363,7 @@ See [Recent changes](https://cldr.unicode.org/translation#recent-changes) for ad
 | ⬆️ | Inherited | Used in combination with ✖️ and ❌ |
 
 ### Enhanced "Show Hidden"
-💡🆕 If a field contains characters that are invisible or certain characters that look like others, a special Show Hidden bar will appear below the field that helps distinguish them.
+🆕 2025-05-09 — If a field contains characters that are invisible or certain characters that look like others, a special Show Hidden bar will appear below the field that helps distinguish them.
 For example, see [Example Hidden] — here is a screen-shot.
 
 ![Example of hidden characters](/translation/example-hidden.png)
@@ -375,8 +403,8 @@ This list will be updated as fixes are made available in Survey Tool Production.
 
 Last updated: 2025-05-17
 
-1. 💡🆕 [CLDR-18605][] - Fix issue blocking import of winning votes from the previous cycle
-2. 💡🆕 [CLDR-18649][] - Same as root is now a warning if English is the same as root as well
+1. 🆕 2025-05-18 — [CLDR-18605][] - Fix issue blocking import of winning votes from the previous cycle
+2. 🆕 2025-05-18 — [CLDR-18649][] - Same as root is now a warning if English is the same as root as well
 3. [CLDR-18513][] - Redirect from read-only locale to the default content locale does not work
 4. [CLDR-17694](https://unicode-org.atlassian.net/browse/CLDR-17694) - Back button in browser fails in forum under certain conditions
 5. [CLDR-17658](https://unicode-org.atlassian.net/browse/CLDR-17658) - Dashboard slowness

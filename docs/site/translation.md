@@ -93,7 +93,7 @@ Do **not** include ‘fanciful’ characters such as emoji or [kaomoji](https://
 1. It should *only* have punctuation that is used in *your* language with names.
 But include **both** native-script names *and* foreign-script names (that are transliterated into your native script).  
 3. Include punctuation in compound names (including transliterated, such as  “让-路易·加西” or “ジャン゠ルイ・ガセー” for “Jean-Louis Gassée”) —
-Currently Chinese \[·] and Japanese \[゠・] are missing characters, when comparing to Wikipedia.
+For example, currently Chinese \[·] and Japanese \[゠・] are missing those characters, when compared to Wikipedia.
 4. You should include ‘look alike’ characters that are in common use, such as ＝(full-width equals) for ゠(kana double hyphen)  
 5. Include punctuation that is used in special fields like titles (“Prof. Dr”), credentials (“MD, PhD)”, and generation (“Jr.”)
 
@@ -160,9 +160,9 @@ while the other is in the order **day-month-year**, with **unpadded days** (d).
 
 ![Screenshot 2025-05-25 at 17 50 09](https://github.com/user-attachments/assets/8a8dbda6-e7cb-4fd9-9c76-4f49b0c8110b)
 
-**Note that (y) is favored over (yy).
-The former will show the year 2011 as "2011", while the latter will truncate to "11", which could be a year, month, or day:
-and even if it is known to be a year from the rest of the format, could be either 2011 or 1911.**
+**Note that `y` is favored over `yy` in date patterns.**
+The `y` will show the year 2011 as "2011", while `yy` will truncate to "11", which could be a year, month, or day:
+and even if it is known to be a year, could be either 2011 or 1911.
 
 #### New “relative” variant for date-time combining pattern
 

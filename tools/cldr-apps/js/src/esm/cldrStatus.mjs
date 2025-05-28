@@ -233,12 +233,7 @@ function getCurrentLocale() {
 }
 
 function setCurrentLocale(loc) {
-  if (
-    cldrGui.LOAD_LOCALES_EARLY &&
-    loc &&
-    loc !== cldrLocales.USER_LOCALE_ID &&
-    !cldrLocales.isValid(loc)
-  ) {
+  if (loc && loc !== cldrLocales.USER_LOCALE_ID && !cldrLocales.isValid(loc)) {
     return;
   }
   currentLocale = loc;

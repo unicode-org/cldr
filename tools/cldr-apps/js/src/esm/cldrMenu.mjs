@@ -9,7 +9,6 @@ import * as cldrDom from "./cldrDom.mjs";
 import * as cldrEvent from "./cldrEvent.mjs";
 import * as cldrGui from "./cldrGui.mjs";
 import * as cldrLoad from "./cldrLoad.mjs";
-import { LocaleMap } from "./cldrLocaleMap.mjs";
 import * as cldrLocales from "./cldrLocales.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";
 import * as cldrSurvey from "./cldrSurvey.mjs";
@@ -83,24 +82,24 @@ function makeSafe(s) {
   return s.replace(/[^-_a-zA-Z0-9]/g, "");
 }
 
-function getInitialMenusEtc() {
+async function getInitialMenusEtc() {
   const theLocale = cldrStatus.getCurrentLocale() || "root";
-  const fetchLocaleMap = cldrGui.LOAD_LOCALES_EARLY ? false : true;
-  const xurl = getMenusAjaxUrl(theLocale, fetchLocaleMap);
-  cldrLoad.myLoad(xurl, "initial menus for " + theLocale, function (json) {
-    loadInitialMenusFromJson(json);
-  });
+  const xurl = getMenusAjaxUrl(
+    theLocale,
+    false /* do not fetch locale map here */
+  );
+  await fetch(xurl)
+    .then(cldrAjax.handleFetchErrors)
+    .then((r) => r.json())
+    .then((json) => loadInitialMenusFromJson(json));
 }
 
+/**
+ * Processes initial menus.
+ * Also, schedules auto import and perhaps other items
+ * @param {Object} json
+ */
 function loadInitialMenusFromJson(json) {
-  let locmap;
-  if (!cldrGui.LOAD_LOCALES_EARLY) {
-    if (!cldrLoad.verifyJson(json, "locmap")) {
-      return;
-    }
-    locmap = new LocaleMap(json.locmap);
-    cldrLoad.setTheLocaleMap(locmap);
-  }
   if (
     cldrStatus.getCurrentLocale() === cldrLocales.USER_LOCALE_ID &&
     json.loc
@@ -113,9 +112,7 @@ function loadInitialMenusFromJson(json) {
   const theDiv = document.createElement("div");
   theDiv.className = "localeList";
 
-  if (!locmap) {
-    locmap = cldrLoad.getTheLocaleMap();
-  }
+  const locmap = cldrLoad.getTheLocaleMap();
   addTopLocales(theDiv, locmap);
 
   if (cldrStatus.isVisitor()) {
@@ -128,6 +125,8 @@ function loadInitialMenusFromJson(json) {
 
   setupCoverageLevels(json);
 
+  // TODO CLDR-18681: this should be ideally imperatively called from an upper level,
+  // not called in the tail of an unrelated loader function
   cldrLoad.continueInitializing(json.canAutoImport || false);
 }
 

@@ -24,22 +24,17 @@ const LOCALE_REGEX = new RegExp("^[a-zA-Z0-9_]*$");
 let didValidateAll = false;
 
 async function fetchMap() {
+  // we use a simple load here, just basic fetch. no session.
   const url = getUrl();
-  return await cldrAjax
-    .doFetch(url)
-    .then(cldrAjax.handleFetchErrors)
+  return await fetch(url)
     .then((r) => r.json())
-    .then(setMap)
-    .catch(console.error);
+    .then(setMap);
 }
 
 function getUrl() {
+  // We use a simple URL here, no session, just loading the locale map
   const p = new URLSearchParams();
-  p.append("what", "menus"); // cf. WHAT_GET_MENUS in SurveyAjax.java
-  // p.append("_", locale);
-  p.append("locmap", "true");
-  p.append("s", cldrStatus.getSessionId());
-  p.append("cacheKill", cldrSurvey.cacheBuster());
+  p.append("what", "locmap");
   return cldrAjax.makeUrl(p);
 }
 

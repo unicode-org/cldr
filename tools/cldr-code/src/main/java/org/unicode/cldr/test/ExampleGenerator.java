@@ -412,7 +412,6 @@ public class ExampleGenerator {
      * Create an Example Generator. If this is shared across threads, it must be synchronized.
      *
      * @param resolvedCldrFile
-     * @param englishFile
      */
     public ExampleGenerator(CLDRFile resolvedCldrFile) {
         this(resolvedCldrFile, CLDRConfig.getInstance().getEnglish());
@@ -507,13 +506,16 @@ public class ExampleGenerator {
                     return null;
                 }
             }
-            ExampleCache.ExampleCacheItem cacheItem = exCache.new ExampleCacheItem(xpath, value);
-            result = cacheItem.getExample();
+            result = exCache.getExample(xpath, value);
             if (result != null) {
                 return result;
             }
             result = constructExampleHtml(xpath, value, nonTrivial);
-            cacheItem.putExample(result);
+            exCache.putExample(xpath, value, result);
+            // TODO: combine getExample and putExample into a single method that works like this:
+            // result = exCache.getExample(xpath, value, nonTrivial, (xpath, value, nonTrivial)
+            //  -> constructExampleHtml(xpath, value, nonTrivial));
+            // Reference: https://unicode-org.atlassian.net/browse/CLDR-18683
         } catch (RuntimeException e) {
             String unchained =
                     verboseErrors ? ("<br>" + finalizeBackground(unchainException(e))) : "";

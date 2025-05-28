@@ -33,58 +33,6 @@ import org.unicode.cldr.util.ThreadSafeMapOfMapOfMap;
 public class ExampleCache {
 
     /**
-     * An ExampleCacheItem is a temporary container for the info needed to get and/or put one item
-     * in the cache.
-     */
-    public class ExampleCacheItem {
-        private final String xpath;
-        private final String value;
-
-        /**
-         * starredPath, the "starred" version of xpath, is the key for the highest level of the
-         * cache, which is nested.
-         *
-         * <p>Compare starred "//ldml/localeDisplayNames/languages/language[@type=\"*\"]" with
-         * starless "//ldml/localeDisplayNames/languages/language[@type=\"aa\"]". There are fewer
-         * starred paths than starless paths. ExampleDependencies.dependencies has starred paths for
-         * that reason.
-         */
-        private String starredPath = null;
-
-        public ExampleCacheItem(String xpath, String value) {
-            this.xpath = xpath;
-            this.value = value;
-        }
-
-        /**
-         * Get the cached example html for this item, based on its xpath and value
-         *
-         * <p>The HTML string shows example(s) using that value for that path, for the locale of the
-         * ExampleGenerator we're connected to.
-         *
-         * @return the example html or null
-         */
-        public String getExample() {
-            if (!cachingIsEnabled) {
-                return null;
-            }
-            starredPath = pathStarrer.set(xpath);
-            String result = cache.get(starredPath, xpath, value);
-            return NONE.equals(result) ? null : result;
-        }
-
-        public void putExample(String result) {
-            if (cachingIsEnabled) {
-                if (starredPath == null) {
-                    throw new IllegalArgumentException(
-                            "getExample must be called before putExample to set starredPath");
-                }
-                cache.put(starredPath, xpath, value, (result == null) ? NONE : result);
-            }
-        }
-    }
-
-    /**
      * AVOID_CLEARING_CACHE: a performance optimization. Should be true except for testing. Only
      * remove keys for which the examples may be affected by this change.
      *
@@ -139,6 +87,12 @@ public class ExampleCache {
     /**
      * The PathStarrer is for getting starredPath from an ordinary (starless) path. Inclusion of
      * starred paths enables performance improvement with AVOID_CLEARING_CACHE.
+     *
+     * <p>starredPath is the key for the highest level of the nested cache.
+     *
+     * <p>Compare starred "//ldml/localeDisplayNames/languages/language[@type=\"*\"]" with starless
+     * "//ldml/localeDisplayNames/languages/language[@type=\"aa\"]". There are fewer starred paths
+     * than starless paths. ExampleDependencies.dependencies has starred paths for that reason.
      */
     private final PathStarrer pathStarrer = new PathStarrer().setSubstitutionPattern("*");
 
@@ -149,6 +103,30 @@ public class ExampleCache {
 
     public void setCachingEnabled(boolean enabled) {
         cachingIsEnabled = enabled;
+    }
+
+    /**
+     * Get the cached example html for this item, based on its xpath and value
+     *
+     * <p>The HTML string shows example(s) using that value for that path, for the locale of the
+     * ExampleGenerator we're connected to.
+     *
+     * @return the example html or null
+     */
+    public String getExample(String xpath, String value) {
+        if (!cachingIsEnabled) {
+            return null;
+        }
+        String starredPath = pathStarrer.set(xpath);
+        String result = cache.get(starredPath, xpath, value);
+        return NONE.equals(result) ? null : result;
+    }
+
+    public void putExample(String xpath, String value, String example) {
+        if (cachingIsEnabled) {
+            String starredPath = pathStarrer.set(xpath);
+            cache.put(starredPath, xpath, value, (example == null) ? NONE : example);
+        }
     }
 
     /**

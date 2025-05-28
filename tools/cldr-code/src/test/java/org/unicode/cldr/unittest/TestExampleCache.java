@@ -38,18 +38,18 @@ public class TestExampleCache extends TestFmwk {
                     .forEach(i -> doOnePath(exCache, firstPass, i));
             ThreadSafeMapOfMapOfMap.verbose = true;
         }
+        ThreadSafeMapOfMapOfMap.verbose = false;
     }
 
     private void doOnePath(ExampleCache exCache, boolean firstPass, int i) {
         String xpath = "//p" + i;
         String value = "v" + i;
         String example = "e" + i;
-        ExampleCache.ExampleCacheItem cacheItem = exCache.new ExampleCacheItem(xpath, value);
-        String result = cacheItem.getExample();
+        String result = exCache.getExample(xpath, value);
         if (firstPass) {
             assertNull("Example should be null before putExample", result);
-            cacheItem.putExample(example);
-            result = cacheItem.getExample();
+            exCache.putExample(xpath, value, example);
+            result = exCache.getExample(xpath, value);
             assertEquals("Example should match immediately", example, result);
         } else {
             assertEquals("Example should match later", example, result);

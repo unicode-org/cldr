@@ -124,7 +124,7 @@ function haveSession() {
 }
 
 function completeStartupWithSession() {
-  // TODO: Here is where auto import should be scheduled.
+  // TODO CLDR-18681: Here is where auto import should be scheduled.
   cldrSurvey.updateStatus();
   cldrEvent.startup();
 }

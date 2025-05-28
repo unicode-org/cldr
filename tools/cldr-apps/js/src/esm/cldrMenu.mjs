@@ -125,7 +125,7 @@ function loadInitialMenusFromJson(json) {
 
   setupCoverageLevels(json);
 
-  // TODO: this should be ideally imperatively called from an upper level,
+  // TODO CLDR-18681: this should be ideally imperatively called from an upper level,
   // not called in the tail of an unrelated loader function
   cldrLoad.continueInitializing(json.canAutoImport || false);
 }

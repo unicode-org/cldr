@@ -5,6 +5,7 @@ import com.google.common.collect.Multimap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.unicode.cldr.util.PathStarrer;
+import org.unicode.cldr.util.ThreadSafeMapOfMap;
 
 /**
  * Cache example html strings for ExampleGenerator.

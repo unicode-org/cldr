@@ -205,6 +205,7 @@ public class TestAll extends TestGroup {
                     "org.unicode.cldr.unittest.TestCoverageLevel",
                     "org.unicode.cldr.unittest.TestDTDAttributes",
                     "org.unicode.cldr.unittest.TestDisplayAndInputProcessor",
+                    "org.unicode.cldr.unittest.TestExampleCache",
                     "org.unicode.cldr.unittest.TestExampleGenerator",
                     "org.unicode.cldr.unittest.TestExternalCodeAPIs",
                     "org.unicode.cldr.unittest.TestFallbackIterator",

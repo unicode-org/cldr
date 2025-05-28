@@ -31,12 +31,12 @@ import org.unicode.cldr.util.PathStarrer;
  * <p>Unlike TestCache.exampleGeneratorCache, this cache doesn't get cleared to conserve memory,
  * only to adapt to changed winning values.
  */
-class ExampleCache {
+public class ExampleCache {
     /**
      * An ExampleCacheItem is a temporary container for the info needed to get and/or put one item
      * in the cache.
      */
-    class ExampleCacheItem {
+    public class ExampleCacheItem {
         private String xpath;
         private String value;
 
@@ -60,7 +60,7 @@ class ExampleCache {
         /** Finally the valueMap maps the value to the example html. */
         private Map<String, String> valueMap = null;
 
-        ExampleCacheItem(String xpath, String value) {
+        public ExampleCacheItem(String xpath, String value) {
             this.xpath = xpath;
             this.value = value;
         }
@@ -73,7 +73,7 @@ class ExampleCache {
          *
          * @return the example html or null
          */
-        String getExample() {
+        public String getExample() {
             if (!cachingIsEnabled) {
                 return null;
             }
@@ -89,10 +89,14 @@ class ExampleCache {
             return NONE.equals(result) ? null : result;
         }
 
-        void putExample(String result) {
+        public void putExample(String result) {
             if (cachingIsEnabled) {
                 if (pathMap == null) {
                     pathMap = new ConcurrentHashMap<>();
+                    if (starredPath == null) {
+                        throw new IllegalArgumentException(
+                                "getExample must be called before putExample to set starredPath");
+                    }
                     cache.put(starredPath, pathMap);
                 }
                 if (valueMap == null) {
@@ -166,7 +170,7 @@ class ExampleCache {
      */
     private boolean cachingIsEnabled = true;
 
-    void setCachingEnabled(boolean enabled) {
+    public void setCachingEnabled(boolean enabled) {
         cachingIsEnabled = enabled;
     }
 

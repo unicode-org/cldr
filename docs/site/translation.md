@@ -11,7 +11,8 @@ In your browser you can copy this sequence, then use ⌘-F (Mac) or Ctrl-F (Wind
   - Many people are not voting correctly for **Characters in Use**: [punctuation-person](https://st.unicode.org/cldr-apps/v#/USER/Alphabetic_Information/3be8e5f5960f3603)
 - **🆕 2025-05-26**
   - Updated zone names
-  - Please review the Gregorian [flexible date/time](https://st.unicode.org/cldr-apps/v#/USER/Gregorian/header_Formats_Flexible_Date_Formats) and [interval date/time formats](https://st.unicode.org/cldr-apps/v#/USER/Gregorian/header_Formats_Intervals_Date_Formats). There are inconsistencies between formats in many locales. New examples and warnings have been added to help you see the issues.
+  - Please review the Gregorian [flexible date/time](https://st.unicode.org/cldr-apps/v#/USER/Gregorian/header_Formats_Flexible_Date_Formats) and [interval date/time formats](https://st.unicode.org/cldr-apps/v#/USER/Gregorian/header_Formats_Intervals_Date_Formats).
+There are inconsistencies between formats in many locales. New examples and warnings have been added to help you see the issues.
 - 🆕 2025-05-22
   - Added keycap emoji. These were synthesized formerly, but are now available for translation: see [Keycaps](https://st.unicode.org/cldr-apps/v#/USER/EmojiSymbols/header_keycap).
 - 🆕 2025-05-18
@@ -29,8 +30,10 @@ When a section below changes, the date will be in the header.
 
 ### Starting Submission
 
-Before you start Submission, please read the [CLDR training](#cldr-training-for-new-linguists) (if new to the survey tool). Please prioritize the sections Missing, Provisional, and Errors.
-Please read the [Updates](#updates). For more information about the priorities during Submission, see [Survey Tool stages](translation/getting-started/survey-tool-phases).
+Before you start Submission, please read the [CLDR training](#cldr-training-for-new-linguists) (if new to the survey tool). 
+Please prioritize the sections Missing, Provisional, and Errors.
+Please read the [Updates](#updates). 
+For more information about the priorities during Submission, see [Survey Tool stages](translation/getting-started/survey-tool-phases).
 
 ### Prerequisites
 
@@ -41,11 +44,13 @@ Please read the [Updates](#updates). For more information about the priorities d
 
 ## Status and Schedule
 
-The Survey Tool is now open for [General Submission](translation/getting-started/survey-tool-phases#survey-tool-phase-general-submission) for CLDR 48. The General Submission phase will be followed by the [Vetting phase](translation/getting-started/survey-tool-phases#survey-tool-phase-vetting) starting on June 11th.
+The Survey Tool is now open for [General Submission](translation/getting-started/survey-tool-phases#survey-tool-phase-general-submission) for CLDR 48. 
+The General Submission phase will be followed by the [Vetting phase](translation/getting-started/survey-tool-phases#survey-tool-phase-vetting) starting on June 11th.
 
 - **Disconnect error**. If you see a persistent Loading error with a disconnect message or other odd behavior, please [empty your cache](translation/getting-started/empty-cache).
 - Survey Tool email notification may be going to your spam folder. Check your spam folder regularly.
-- "**Same as code**" errors - when translating codes for items such as languages, regions, scripts, and keys, it is normally an error to select the code itself as the translated name. If the error appears under Typography, you can ignore it. <!-- [[CLDR-13552](https://unicode-org.atlassian.net/browse/CLDR-13552)\] -->
+- "**Same as code**" errors - when translating codes for items such as languages, regions, scripts, and keys, it is normally an error to select the code itself as the translated name.
+If the error appears under Typography, you can ignore it. <!-- [[CLDR-13552](https://unicode-org.atlassian.net/browse/CLDR-13552)\] -->
 
 ## New languages
 
@@ -85,10 +90,12 @@ This should be a small list such as “.” or “-”.
 Do **not** include ‘fanciful’ characters such as emoji or [kaomoji](https://en.wikipedia.org/wiki/Kaomoji).
 
 **🆕 2025-05-18** — Many people are not voting correctly for **Characters in Use**: [punctuation-person](https://st.unicode.org/cldr-apps/v#/USER/Alphabetic_Information/3be8e5f5960f3603), especially for non-Latin scripts, such as Japanese and Chinese.  
-1. It should *only* have punctuation that is used in *your* language with names. But include **both** native-script names *and* foreign-script names (that are transliterated into your native script).  
-2. Include punctuation in compound names (including transliterated, such as  “让-路易·加西” or “ジャン゠ルイ・ガセー” for “Jean-Louis Gassée”) — Currently Chinese \[·] and Japanese \[゠・] are missing characters, when comparing to Wikipedia.
-3. You should include ‘look alike’ characters that are in common use, such as ＝(full-width equals) for ゠(kana double hyphen)  
-4. Include punctuation that is used in special fields like titles (“Prof. Dr”), credentials (“MD, PhD)”, and generation (“Jr.”)
+1. It should *only* have punctuation that is used in *your* language with names.
+But include **both** native-script names *and* foreign-script names (that are transliterated into your native script).  
+3. Include punctuation in compound names (including transliterated, such as  “让-路易·加西” or “ジャン゠ルイ・ガセー” for “Jean-Louis Gassée”) —
+Currently Chinese \[·] and Japanese \[゠・] are missing characters, when comparing to Wikipedia.
+4. You should include ‘look alike’ characters that are in common use, such as ＝(full-width equals) for ゠(kana double hyphen)  
+5. Include punctuation that is used in special fields like titles (“Prof. Dr”), credentials (“MD, PhD)”, and generation (“Jr.”)
 
 More information is available in the [Exemplars section of the Unicode Sets page](https://cldr.unicode.org/translation/core-data/exemplars#exemplar-characters)
 
@@ -101,14 +108,15 @@ More information is available in the [Exemplars section of the Unicode Sets page
 As new locales reach Basic Coverage, their language names are added for locales targeting modern coverage. This will be happening the week of April 28th.
 
 - tkl: English name changed to Tokelauan.
-<!-- Let's not add ticket numbers, except for Known Issues — there is already enough for vetters to read, and the tickets will often be confusing to people or take more time to read and puzzle out than is worth it. Fine to leave them in the document, but commented out, for our usage. 
-[CLDR-11231](https://unicode-org.atlassian.net/browse/CLDR-11231) -->
 
 #### Core/Extensions
 
-There is a new mechanism for better menu names. When you see a **Code** with `-core` or `-extension`, please read [Locale Option Value Names](/translation/displaynames/locale-option-names-key).
+There is a new mechanism for better menu names. When you see a **Code** with `-core` or `-extension`, 
+please read [Locale Option Value Names](/translation/displaynames/locale-option-names-key).
 
-🆕 2025-05-21 — The link in the Info Panel was not pointing to [Locale Option Value Names](/translation/displaynames/locale-option-names-key); that has been fixed. There is also now a Full List of the option names on that page.
+🆕 2025-05-21 — The link in the Info Panel was not pointing to [Locale Option Value Names](/translation/displaynames/locale-option-names-key); 
+that has been fixed. 
+There is also now a Full List of the option names on that page.
 
 #### Scripts
 
@@ -120,7 +128,8 @@ please file a ticket. [CLDR-18283](https://unicode-org.atlassian.net/browse/CLDR
 ### DateTime formats
 
 #### Gregorian Calendar (Year First) calendar
-🆕 2025-05-09 — This is a variant of the Gregorian calendar whose formats always use year-month-day ordering and a 24-hour time cycle. See [Year First Calendar] for more details.
+🆕 2025-05-09 — This is a variant of the Gregorian calendar whose formats always use year-month-day ordering and a 24-hour time cycle. 
+See [Year First Calendar] for more details.
 *Note: the code is `iso8601`, but disregard that; it will be changed after submission.*
 
 <!-- [CLDR-18447](https://unicode-org.atlassian.net/browse/CLDR-18447) -->
@@ -131,22 +140,29 @@ please file a ticket. [CLDR-18283](https://unicode-org.atlassian.net/browse/CLDR
 Note: Some locales have inconsistent patterns using eras: in some patterns using G (AD vs BC in Gregorian) but in related patterns using GGGGG (which is a narrow form: A vs B in Gregorian).
 The GGGGG is not typically needed except in special cases, such as the Japanese calendar.
 
-**🆕 2025-05-28** — Please review the Gregorian [flexible date/time](https://st.unicode.org/cldr-apps/v#/USER/Gregorian/header_Formats_Flexible_Date_Formats) and [interval date/time formats](https://st.unicode.org/cldr-apps/v#/USER/Gregorian/header_Formats_Intervals_Date_Formats). There are inconsistencies between formats in many locales. New examples and warnings have been added to help you see the issues:
+**🆕 2025-05-28** — Please review the Gregorian [flexible date/time](https://st.unicode.org/cldr-apps/v#/USER/Gregorian/header_Formats_Flexible_Date_Formats) and [interval date/time formats](https://st.unicode.org/cldr-apps/v#/USER/Gregorian/header_Formats_Intervals_Date_Formats). 
+There are inconsistencies between formats in many locales. 
+New examples and warnings have been added to help you see the issues:
 
-Intervals have "Related Flexible Dates" that show inconsistencies between the intervals and flexible. For example, in the following the era (n.C.) is on the opposite side.
+Intervals have "Related Flexible Dates" that show inconsistencies between the intervals and flexible. 
+For example, in the following the era (n.C.) is on the opposite side.
 
 ![Screenshot 2025-05-25 at 17 35 42](https://github.com/user-attachments/assets/35ac8d16-2286-41c0-a978-9acb9b2aa6e5)
 
-Available formats show related formats. For example, in the following the format with the day of the week (So) has zero-padded hours, while the format without the day of the week doesn't.
+Available formats show related formats. 
+For example, in the following the format with the day of the week (So) has zero-padded hours, while the format without the day of the week doesn't.
 
 ![Screenshot 2025-05-25 at 17 39 13](https://github.com/user-attachments/assets/96c4a2d9-8e6d-4127-9d73-7836c8d78f45)
 
-New warnings are available for cases where the removal of a era (G), day-of-week (E), or timezone (v) changes the pattern unexpectedly. In the warning below, one pattern is in the order **year-month-day** and has **zero-padded** days (dd) and while the other is in the order **day-month-year**, with **unpadded days** (d). 
+New warnings are available for cases where the removal of a era (G), day-of-week (E), or timezone (v) changes the pattern unexpectedly. 
+In the warning below, one pattern is in the order **year-month-day** and has **zero-padded** days (dd), 
+while the other is in the order **day-month-year**, with **unpadded days** (d). 
 
 ![Screenshot 2025-05-25 at 17 50 09](https://github.com/user-attachments/assets/8a8dbda6-e7cb-4fd9-9c76-4f49b0c8110b)
 
-**Note that (y) is favored over (yy). The former will show the year 2011 as "2011", while the latter will truncate to "11", which could be a year, month, or day: and even if it is known to be a year from the rest of the format, could be either 2011 or 1911.
-**
+**Note that (y) is favored over (yy).
+The former will show the year 2011 as "2011", while the latter will truncate to "11", which could be a year, month, or day:
+and even if it is known to be a year from the rest of the format, could be either 2011 or 1911.**
 
 #### New “relative” variant for date-time combining pattern
 
@@ -179,7 +195,11 @@ fvfixed date with single time (as was the case in CLDR 47 and earlier), then for
 
 #### New `gmtUnknownFormat`
 
-Normally time zones formatted using UTC offset (like xxxx) use the `gmtFormat` pattern (“GMT{0}” in root). The new `gmtUnknownFormat` is used when formatting time zones using a UTC offset for cases when the offset or zone is unknown. The root value “GMT+?” need not be changed if it works for your locale; however it should be consistent with the `gmtFormat` and `gmtZeroFormat` in your locale. See [Time Zones and City names](translation/time-zones-and-city-names) 
+Normally time zones formatted using UTC offset (like xxxx) use the `gmtFormat` pattern (“GMT{0}” in root). 
+The new `gmtUnknownFormat` is used when formatting time zones using a UTC offset for cases when the offset or zone is unknown. 
+The root value “GMT+?” need not be changed if it works for your locale; 
+however it should be consistent with the `gmtFormat` and `gmtZeroFormat` in your locale. 
+See [Time Zones and City names](translation/time-zones-and-city-names) 
 <!-- [CLDR-18236](https://unicode-org.atlassian.net/browse/CLDR-18236) -->
 
 #### “Unknown City” → “Unknown Location”
@@ -255,12 +275,14 @@ Metazones:
 
 #### Currency patterns alphaNextToNumber, noCurrency
 
-- The `alphaNextToNumber` patterns should be used when currency symbol is alphabetic, such as “USD”; in this case the m=pattern may add a space to offset the currency symbol from the numeric value, if the standard pattern does not already include a space.
+- The `alphaNextToNumber` patterns should be used when currency symbol is alphabetic, such as “USD”;
+in this case the m=pattern may add a space to offset the currency symbol from the numeric value, if the standard pattern does not already include a space.
     - **Note that some currency units may only be alphabetic at the start or end, such as CA$ or $CA.
 This pattern will be used if an alphabetic character would end up being adjacent to a number in the regular pattern.
 So suppose that the regular pattern is "¤#,##0" and this pattern is "¤ #,##0":
 $CA would use this pattern ("$CA 123"), but CA$ would just use the regular pattern to get "CA$123".**
-- The `noCurrency` patterns should be used when the currency amount is to be formatted without a currency symbol, as in a table of values all using the same currency. This pattern must not include the currency symbol pattern character ‘¤’.
+- The `noCurrency` patterns should be used when the currency amount is to be formatted without a currency symbol, as in a table of values all using the same currency.
+This pattern must not include the currency symbol pattern character ‘¤’.
 
 For more information see [Number and currency patterns](/translation/number-currency-formats/number-and-currency-patterns).
 
@@ -268,8 +290,10 @@ For more information see [Number and currency patterns](/translation/number-curr
 
 These patterns specify the formatting of rational fractions in your language. 
 Rational fractions contain a numerator and denominator, such as ½, and may also have an integer, such a 5½.
-There are two different "combination patterns", needed because sometimes fonts don't properly support fractions (such as displaying 5 1/2), and need two patterns: one with a space and one without.
-It can be tricky to understand the difference, so be sure to carefully read [Rational Formatting](https://cldr.unicode.org/translation/number-currency-formats/number-and-currency-patterns#rational-formatting) before making any changes.
+There are two different "combination patterns", needed because sometimes fonts don't properly support fractions (such as displaying 5 1/2),
+and need two patterns: one with a space and one without.
+It can be tricky to understand the difference,
+so be sure to carefully read [Rational Formatting](https://cldr.unicode.org/translation/number-currency-formats/number-and-currency-patterns#rational-formatting) before making any changes.
 
 <!-- [CLDR-17570](https://unicode-org.atlassian.net/browse/CLDR-17570) -->
 
@@ -363,7 +387,8 @@ See [Recent changes](https://cldr.unicode.org/translation#recent-changes) for ad
 | ⬆️ | Inherited | Used in combination with ✖️ and ❌ |
 
 ### Enhanced "Show Hidden"
-🆕 2025-05-09 — If a field contains characters that are invisible or certain characters that look like others, a special Show Hidden bar will appear below the field that helps distinguish them.
+🆕 2025-05-09 — If a field contains characters that are invisible or certain characters that look like others, 
+a special Show Hidden bar will appear below the field that helps distinguish them.
 For example, see [Example Hidden] — here is a screen-shot.
 
 ![Example of hidden characters](/translation/example-hidden.png)
@@ -440,11 +465,18 @@ Before getting started to contribute data in CLDR, and jumping in to using the S
 You're already familiar with the CLDR process, but do keep the following in mind:
 
 1. **Aim at commonly used language** - CLDR should reflect *common-usage* standards **not** *academic /official* standards (unless commonly followed). Keep that perspective in mind.
-2. **Carefully consider changes to existing standards** - any change to a value from a previous CLDR release (blue star) should be carefully considered and discussed with your fellow linguists in the CLDR [Forum](translation/getting-started/guide#forum). Remember your change will be reflected across thousands of online products — and potentially almost all online users of your language.
-3. **Keep consistency across logical groups** - ensure that all related entries are consistent. If you change the name of a weekday, make sure it's reflected across all related items. Check that the order of month and day are consistent in all the date formats, etc.
-    - *Tip: The [Reports](translation/getting-started/review-formats) are a great way to validate consistency across related logical groups, e.g. translations of date formats. Use them to proofread your work for consistency.*
-5. **Avoid voting for English** - for items that do not work in your language, don't simply use English. Find a solution that works for your language. For example, if your language doesn't have a concept of calendar "quarters", use a translation that describes the concept "three-month period" rather than "quarter-of-a-year".
-6. **Watch out for complex sections** and read the instructions carefully if in doubt:
+2. **Carefully consider changes to existing standards** - any change to a value from a previous CLDR release (blue star) should be carefully considered and discussed with your fellow linguists in the CLDR [Forum](translation/getting-started/guide#forum).
+Remember your change will be reflected across thousands of online products — and potentially almost all online users of your language.
+4. **Keep consistency across logical groups** - ensure that all related entries are consistent.
+If you change the name of a weekday, make sure it's reflected across all related items.
+Check that the order of month and day are consistent in all the date formats, etc.
+    - *Tip: The [Reports](translation/getting-started/review-formats) are a great way to validate consistency across related logical groups,
+e.g. translations of date formats.
+Use them to proofread your work for consistency.*
+6. **Avoid voting for English** - for items that do not work in your language, don't simply use English.
+Find a solution that works for your language.
+For example, if your language doesn't have a concept of calendar "quarters", use a translation that describes the concept "three-month period" rather than "quarter-of-a-year".
+7. **Watch out for complex sections** and read the instructions carefully if in doubt:
     1. [Date & Time](translation/date-time/date-time-names)
         - [Names](translation/date-time/date-time-names)
         - [Patterns](translation/date-time)

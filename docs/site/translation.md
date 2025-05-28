@@ -189,6 +189,7 @@ For example, English still uses "Mexico City" instead of "Ciudad de México".
 | Antarctica/Vostok | Vostok Station | Pacific/Wallis | Wallis & Futuna |
 
 Update 2025-05-26:
+
 | Code | New Value | Code | New Value |
 | :---- | :---- | :---- | :---- |
 | America/Noronha | Fernando de Noronha | Pacific/Chatham | Chatham Islands |

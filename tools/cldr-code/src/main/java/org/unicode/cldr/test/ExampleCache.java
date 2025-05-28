@@ -2,10 +2,8 @@ package org.unicode.cldr.test;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 import org.unicode.cldr.util.PathStarrer;
-import org.unicode.cldr.util.ThreadSafeMapOfMap;
+import org.unicode.cldr.util.ThreadSafeMapOfMapOfMap;
 
 /**
  * Cache example html strings for ExampleGenerator.
@@ -33,13 +31,14 @@ import org.unicode.cldr.util.ThreadSafeMapOfMap;
  * only to adapt to changed winning values.
  */
 public class ExampleCache {
+
     /**
      * An ExampleCacheItem is a temporary container for the info needed to get and/or put one item
      * in the cache.
      */
     public class ExampleCacheItem {
-        private String xpath;
-        private String value;
+        private final String xpath;
+        private final String value;
 
         /**
          * starredPath, the "starred" version of xpath, is the key for the highest level of the
@@ -51,15 +50,6 @@ public class ExampleCache {
          * that reason.
          */
         private String starredPath = null;
-
-        /**
-         * The cache maps each starredPath to a pathMap, which in turn maps each starless path to a
-         * valueMap.
-         */
-        private Map<String, Map<String, String>> pathMap = null;
-
-        /** Finally the valueMap maps the value to the example html. */
-        private Map<String, String> valueMap = null;
 
         public ExampleCacheItem(String xpath, String value) {
             this.xpath = xpath;
@@ -78,33 +68,18 @@ public class ExampleCache {
             if (!cachingIsEnabled) {
                 return null;
             }
-            String result = null;
             starredPath = pathStarrer.set(xpath);
-            pathMap = cache.get(starredPath);
-            if (pathMap != null) {
-                valueMap = pathMap.get(xpath);
-                if (valueMap != null) {
-                    result = valueMap.get(value);
-                }
-            }
+            String result = cache.get(starredPath, xpath, value);
             return NONE.equals(result) ? null : result;
         }
 
         public void putExample(String result) {
             if (cachingIsEnabled) {
-                if (pathMap == null) {
-                    pathMap = new ConcurrentHashMap<>();
-                    if (starredPath == null) {
-                        throw new IllegalArgumentException(
-                                "getExample must be called before putExample to set starredPath");
-                    }
-                    cache.put(starredPath, pathMap);
+                if (starredPath == null) {
+                    throw new IllegalArgumentException(
+                            "getExample must be called before putExample to set starredPath");
                 }
-                if (valueMap == null) {
-                    valueMap = new ConcurrentHashMap<>();
-                    pathMap.put(xpath, valueMap);
-                }
-                valueMap.put(value, (result == null) ? NONE : result);
+                cache.put(starredPath, xpath, value, (result == null) ? NONE : result);
             }
         }
     }
@@ -130,13 +105,14 @@ public class ExampleCache {
     private static final String NONE = "\uFFFF";
 
     /** The nested cache mapping is: starredPath → (starlessPath → (value → html)). */
-    private final Map<String, Map<String, Map<String, String>>> cache = new ConcurrentHashMap<>();
+    private final ThreadSafeMapOfMapOfMap<String, String, String, String> cache =
+            new ThreadSafeMapOfMapOfMap<>();
 
     /**
      * A clearable cache is any object that supports being cleared when a path changes. An example
      * is the cache of person name samples.
      */
-    static interface ClearableCache {
+    interface ClearableCache {
         void clear();
     }
 
@@ -149,7 +125,7 @@ public class ExampleCache {
     /**
      * Register other caches. This isn't done often, so synchronized should be ok.
      *
-     * @return
+     * @return the clearableCache
      */
     <T extends ClearableCache> T registerCache(T clearableCache, String... starredPaths) {
         synchronized (registeredCache) {
@@ -191,7 +167,7 @@ public class ExampleCache {
         if (AVOID_CLEARING_CACHE) {
             String starredA = pathStarrer.set(xpath);
             for (String starredB : ExampleDependencies.dependencies.get(starredA)) {
-                cache.remove(starredB);
+                cache.remove(starredB, xpath, null);
             }
             // TODO clean up the synchronization
             synchronized (registeredCache) {

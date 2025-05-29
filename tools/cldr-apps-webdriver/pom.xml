@@ -19,12 +19,6 @@
   </properties>
   <dependencies>
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.13.2</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>selenium-java</artifactId>
       <version>4.32.0</version>
@@ -92,17 +86,13 @@
           <artifactId>maven-jar-plugin</artifactId>
           <version>3.3.0</version>
           <configuration>
-            <!-- skipIfEmpty prevents warning "JAR will be empty..." -->
-            <skipIfEmpty>true</skipIfEmpty>
+            <archive>
+              <manifest>
+                <addClasspath>true</addClasspath>
+                <mainClass>org.unicode.cldr.surveydriver.SurveyDriver</mainClass>
+              </manifest>
+            </archive>
           </configuration>
-          <executions>
-            <execution>
-              <goals>
-                <!-- test-jar goal prevents error "The packaging for this project did not assign a file to the build artifact" -->
-                <goal>test-jar</goal>
-              </goals>
-            </execution>
-          </executions>
         </plugin>
         <plugin>
           <artifactId>maven-install-plugin</artifactId>

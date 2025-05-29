@@ -127,6 +127,9 @@ function completeStartupWithSession() {
   // TODO CLDR-18681: Here is where auto import should be scheduled.
   cldrSurvey.updateStatus();
   cldrEvent.startup();
+  if (!cldrDashContext.isVisible() && cldrDashContext.shouldBeShown()) {
+    cldrDashContext.insert();
+  }
 }
 
 /**

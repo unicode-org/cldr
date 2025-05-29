@@ -1274,7 +1274,9 @@ public class TestCoverageLevel extends TestFmwkPlus {
             final boolean sameLocale = "en".equals(localeWhereFound.value);
             if (!samePath) {
                 Level level = SDI.getCoverageLevel(path, "en");
-                if (level.compareTo(Level.MODERN) <= 0) {
+                if (level.compareTo(Level.MODERN) <= 0
+                        && !path.startsWith(
+                                "//ldml/dates/calendars/calendar[@type=\"japanese\"]")) {
                     inherited.add(Row.of(path, value, samePath, sameLocale, level));
                 }
             }

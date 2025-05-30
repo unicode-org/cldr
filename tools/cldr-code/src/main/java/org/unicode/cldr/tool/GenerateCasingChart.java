@@ -17,6 +17,7 @@ import org.unicode.cldr.test.CheckConsistentCasing.CasingTypeAndErrFlag;
 import org.unicode.cldr.test.CheckConsistentCasing.Category;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.ExemplarType;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.ChainedMap;
@@ -103,7 +104,9 @@ public class GenerateCasingChart {
                 continue;
             }
             CLDRFile cldrFile = factory.make(locale, true);
-            UnicodeSet exemplars = cldrFile.getExemplarSet("", WinningChoice.WINNING);
+            UnicodeSet exemplars =
+                    cldrFile.getExemplarSet(
+                            ExemplarType.main, WinningChoice.WINNING, UnicodeSet.CASE_INSENSITIVE);
 
             M3<ContextTransformUsage, ContextTransformType, ContextTransformValue> data =
                     ChainedMap.of(

@@ -120,7 +120,7 @@ function notifyUnusableLocale(map, loc) {
     // Exclude String objects and other objects and types, to avoid confusion.
     explanation = cldrText.get("locale_id_not_string_primitive");
   } else if (LOCALE_REGEX.test(loc)) {
-    explanation = cldrText.sub("locale_id_unrecognized", loc);
+    explanation = cldrText.sub("locale_id_unrecognized", [loc]);
   } else {
     // Avoid including the bogus locale ID in the notification if it contains non-ASCII
     // characters or reserved punctuation marks, since it may be URL-encoded or

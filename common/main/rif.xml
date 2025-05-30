@@ -1423,7 +1423,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<timeZoneNames>
 			<hourFormat draft="unconfirmed">↑↑↑</hourFormat>
 			<gmtFormat draft="unconfirmed">↑↑↑</gmtFormat>
-			<gmtZeroFormat draft="unconfirmed">↑↑↑</gmtZeroFormat>
 			<regionFormat draft="unconfirmed">akud n {0}</regionFormat>
 			<regionFormat type="daylight" draft="unconfirmed">akud unebdu n {0}</regionFormat>
 			<regionFormat type="standard" draft="unconfirmed">akud anaway n {0}</regionFormat>
@@ -2597,11 +2596,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic draft="unconfirmed">akud n jyurjya</generic>
 					<standard draft="unconfirmed">akud anaway n jyurjya</standard>
 					<daylight draft="unconfirmed">akud n uzil n jyurjya</daylight>
-				</long>
-			</metazone>
-			<metazone type="GMT">
-				<long>
-					<standard draft="unconfirmed">GMT</standard>
 				</long>
 			</metazone>
 			<metazone type="Greenland_Eastern">

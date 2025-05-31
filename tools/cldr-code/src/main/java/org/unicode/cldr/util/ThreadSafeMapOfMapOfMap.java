@@ -14,6 +14,10 @@ import java.util.concurrent.ConcurrentMap;
  * @param <V> The type of the value.
  */
 public class ThreadSafeMapOfMapOfMap<K1, K2, K3, V> {
+    @FunctionalInterface
+    public interface TriFunction<K1, K2, K3, V> {
+        V apply(K1 key1, K2 key2, K3 key3);
+    }
 
     public static boolean verbose = false;
 
@@ -79,6 +83,15 @@ public class ThreadSafeMapOfMapOfMap<K1, K2, K3, V> {
         return value;
     }
 
+    public V computeIfAbsent(K1 key1, K2 key2, K3 key3, TriFunction<K1, K2, K3, V> f) {
+        // Get or create the second-level and third-level maps.
+        // computeIfAbsent is thread-safe and ensures that the mapping function
+        // is applied only once if the key is absent.
+        return map1.computeIfAbsent(key1, k -> new ConcurrentHashMap<>())
+                .computeIfAbsent(key2, k -> new ConcurrentHashMap<>())
+                .computeIfAbsent(key3, k -> f.apply(key1, key2, k));
+    }
+
     /**
      * Removes a value from the nested map at the specified keys. The intermediate map is not
      * removed even if it becomes empty.
@@ -102,35 +115,6 @@ public class ThreadSafeMapOfMapOfMap<K1, K2, K3, V> {
             return null;
         }
         return map3.remove(key3);
-    }
-
-    /**
-     * Checks if the nested map contains a value at the specified keys.
-     *
-     * @param key1 The first-level key.
-     * @param key2 The second-level key.
-     * @param key3 The third-level key.
-     * @return true if the value exists, false otherwise.
-     */
-    public boolean containsKey(K1 key1, K2 key2, K3 key3) {
-        ConcurrentMap<K2, ConcurrentMap<K3, V>> map2 = map1.get(key1);
-        if (map2 == null) {
-            return false;
-        }
-        ConcurrentMap<K3, V> map3 = map2.get(key2);
-        if (map3 == null) {
-            return false;
-        }
-        return map3.containsKey(key3);
-    }
-
-    /**
-     * Checks if the nested map is empty.
-     *
-     * @return true if the map contains no key-value mappings, false otherwise.
-     */
-    public boolean isEmpty() {
-        return map1.isEmpty();
     }
 
     /** Clears all mappings from this nested map. */

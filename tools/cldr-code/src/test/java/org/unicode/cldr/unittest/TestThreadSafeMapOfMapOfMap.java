@@ -2,13 +2,12 @@ package org.unicode.cldr.unittest;
 
 import java.util.stream.IntStream;
 import org.unicode.cldr.icu.dev.test.TestFmwk;
-import org.unicode.cldr.test.ExampleCache;
 import org.unicode.cldr.util.ThreadSafeMapOfMapOfMap;
 
-public class TestExampleCache extends TestFmwk {
+public class TestThreadSafeMapOfMapOfMap extends TestFmwk {
 
     public static void main(String[] args) {
-        new TestExampleCache().run(args);
+        new TestThreadSafeMapOfMapOfMap().run(args);
     }
 
     /**
@@ -19,53 +18,55 @@ public class TestExampleCache extends TestFmwk {
     private boolean alreadyReportedFailure = false;
 
     public void testNonParallel() {
-        // For non-parallel testing, the size of PATH_COUNT should make little difference; don't
+        // For non-parallel testing, the size of TEST_COUNT should make little difference; don't
         // waste a lot of time.
-        final int PATH_COUNT = 1000;
-        final ExampleCache cache = new ExampleCache();
-        cache.setCachingEnabled(true);
+        final int TEST_COUNT = 1000;
+        final ThreadSafeMapOfMapOfMap<String, String, String, String> map =
+                new ThreadSafeMapOfMapOfMap();
         alreadyReportedFailure = false; // reset
         for (int pass = 0; pass < 2; pass++) {
             boolean firstPass = (pass == 0);
-            IntStream.range(0, PATH_COUNT).forEach(i -> doOnePath(cache, firstPass, i));
+            IntStream.range(0, TEST_COUNT).forEach(i -> doOnePath(map, firstPass, i));
         }
     }
 
     public void testParallel() {
-        // For parallel testing, the size of PATH_COUNT makes a big difference to whether the test
+        // For parallel testing, the size of TEST_COUNT makes a big difference to whether the test
         // passes or fails. In part, we are testing whether ExampleCache is thread-safe. If it
         // isn't, much randomness is involved. A large number is required here to make failure
         // likely if ExampleCache is not thread-safe.
-        final int PATH_COUNT = 3000000;
-        final ExampleCache cache = new ExampleCache();
-        cache.setCachingEnabled(true);
+        final int TEST_COUNT = 1000000;
+        final ThreadSafeMapOfMapOfMap<String, String, String, String> map =
+                new ThreadSafeMapOfMapOfMap();
         alreadyReportedFailure = false; // reset
         for (int pass = 0; pass < 2; pass++) {
             boolean firstPass = (pass == 0);
-            IntStream.range(0, PATH_COUNT).parallel().forEach(i -> doOnePath(cache, firstPass, i));
+            IntStream.range(0, TEST_COUNT).parallel().forEach(i -> doOnePath(map, firstPass, i));
             ThreadSafeMapOfMapOfMap.verbose = true;
         }
         ThreadSafeMapOfMapOfMap.verbose = false;
     }
 
-    private void doOnePath(ExampleCache cache, boolean firstPass, int i) {
+    private void doOnePath(
+            ThreadSafeMapOfMapOfMap<String, String, String, String> map, boolean firstPass, int i) {
         if (alreadyReportedFailure) {
             return;
         }
-        String xpath = "//p" + i;
-        String value = "v" + i;
-        String example = getExampleImmediately(value);
+        String k1 = "k1-" + i;
+        String k2 = "k2-" + i;
+        String k3 = "k3-" + i;
+        String example = getExampleImmediately(k1);
         String result;
         if (firstPass) {
-            result = cache.computeIfAbsent(xpath, value, (star, x, v) -> getExampleImmediately(v));
+            result = map.computeIfAbsent(k1, k2, k3, (kk1, kk2, kk3) -> getExampleImmediately(kk1));
             assertEquals("Example should match immediately", example, result);
             if (!example.equals(result)) {
                 alreadyReportedFailure = true;
             }
-            result = cache.computeIfAbsent(xpath, value, (star, x, v) -> getExampleSoon(v));
+            result = map.computeIfAbsent(k1, k2, k3, (kk1, kk2, kk3) -> getExampleSoon(kk1));
             assertEquals("Example should match soon", example, result);
         } else {
-            result = cache.computeIfAbsent(xpath, value, (star, x, v) -> getExampleLater(v));
+            result = map.computeIfAbsent(k1, k2, k3, (kk1, kk2, kk3) -> getExampleLater(kk1));
             assertEquals("Example should match later", example, result);
         }
         if (!example.equals(result)) {
@@ -73,15 +74,15 @@ public class TestExampleCache extends TestFmwk {
         }
     }
 
-    private static String getExampleImmediately(String value) {
-        return "e" + value;
+    private static String getExampleImmediately(String k) {
+        return "e" + k;
     }
 
-    private String getExampleSoon(String value) {
-        return "soon" + value;
+    private String getExampleSoon(String k) {
+        return "soon" + k;
     }
 
-    private String getExampleLater(String value) {
-        return "later" + value;
+    private String getExampleLater(String k) {
+        return "later" + k;
     }
 }

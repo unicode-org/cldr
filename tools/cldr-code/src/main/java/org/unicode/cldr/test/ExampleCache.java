@@ -129,6 +129,17 @@ public class ExampleCache {
         }
     }
 
+    public String computeIfAbsent(
+            String xpath,
+            String value,
+            ThreadSafeMapOfMapOfMap.TriFunction<String, String, String, String> f) {
+        if (!cachingIsEnabled) {
+            return null;
+        }
+        String starredPath = pathStarrer.set(xpath);
+        return cache.computeIfAbsent(starredPath, xpath, value, f);
+    }
+
     /**
      * Clear the cached examples for any paths whose examples might depend on the winning value of
      * the given path, since the winning value of the given path has changed.

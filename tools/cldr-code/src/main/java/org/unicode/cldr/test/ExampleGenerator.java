@@ -412,7 +412,6 @@ public class ExampleGenerator {
      * Create an Example Generator. If this is shared across threads, it must be synchronized.
      *
      * @param resolvedCldrFile
-     * @param englishFile
      */
     public ExampleGenerator(CLDRFile resolvedCldrFile) {
         this(resolvedCldrFile, CLDRConfig.getInstance().getEnglish());
@@ -507,13 +506,9 @@ public class ExampleGenerator {
                     return null;
                 }
             }
-            ExampleCache.ExampleCacheItem cacheItem = exCache.new ExampleCacheItem(xpath, value);
-            result = cacheItem.getExample();
-            if (result != null) {
-                return result;
-            }
-            result = constructExampleHtml(xpath, value, nonTrivial);
-            cacheItem.putExample(result);
+            result =
+                    exCache.computeIfAbsent(
+                            xpath, value, (star, x, v) -> constructExampleHtml(x, v, nonTrivial));
         } catch (RuntimeException e) {
             String unchained =
                     verboseErrors ? ("<br>" + finalizeBackground(unchainException(e))) : "";

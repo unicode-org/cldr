@@ -3,7 +3,6 @@ package org.unicode.cldr.unittest;
 import java.util.stream.IntStream;
 import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.test.ExampleCache;
-import org.unicode.cldr.util.ThreadSafeMapOfMapOfMap;
 
 public class TestExampleCache extends TestFmwk {
 
@@ -43,9 +42,7 @@ public class TestExampleCache extends TestFmwk {
         for (int pass = 0; pass < 2; pass++) {
             boolean firstPass = (pass == 0);
             IntStream.range(0, PATH_COUNT).parallel().forEach(i -> doOnePath(cache, firstPass, i));
-            ThreadSafeMapOfMapOfMap.verbose = true;
         }
-        ThreadSafeMapOfMapOfMap.verbose = false;
     }
 
     private void doOnePath(ExampleCache cache, boolean firstPass, int i) {

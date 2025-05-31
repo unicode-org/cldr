@@ -42,9 +42,7 @@ public class TestThreadSafeMapOfMapOfMap extends TestFmwk {
         for (int pass = 0; pass < 2; pass++) {
             boolean firstPass = (pass == 0);
             IntStream.range(0, TEST_COUNT).parallel().forEach(i -> doOnePath(map, firstPass, i));
-            ThreadSafeMapOfMapOfMap.verbose = true;
         }
-        ThreadSafeMapOfMapOfMap.verbose = false;
     }
 
     private void doOnePath(

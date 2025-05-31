@@ -3,7 +3,6 @@ package org.unicode.cldr.unittest;
 import java.util.stream.IntStream;
 import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.util.PathStarrer;
-import org.unicode.cldr.util.ThreadSafeMapOfMapOfMap;
 
 public class TestPathStarrer extends TestFmwk {
 
@@ -25,7 +24,6 @@ public class TestPathStarrer extends TestFmwk {
         final PathStarrer pathStarrer = new PathStarrer().setSubstitutionPattern("*");
         alreadyReportedFailure = false; // reset
         for (int pass = 0; pass < 2; pass++) {
-            boolean firstPass = (pass == 0);
             IntStream.range(0, TEST_COUNT).forEach(i -> doOnePath(pathStarrer, i));
         }
     }
@@ -39,7 +37,6 @@ public class TestPathStarrer extends TestFmwk {
         final PathStarrer pathStarrer = new PathStarrer().setSubstitutionPattern("*");
         alreadyReportedFailure = false; // reset
         IntStream.range(0, TEST_COUNT).parallel().forEach(i -> doOnePath(pathStarrer, i));
-        ThreadSafeMapOfMapOfMap.verbose = false;
     }
 
     private void doOnePath(PathStarrer pathStarrer, int i) {

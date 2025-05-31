@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
-Copyright © 1991-2015 Unicode, Inc.
-CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
+SPDX-License-Identifier: Unicode-DFS-2016
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
     <identity>
@@ -14,7 +15,7 @@ For terms of use, see http://www.unicode.org/copyright.html
         <rulesetGrouping type="SpelloutRules">
             <ruleset type="spellout-numbering-year">
                 <rbnfrule value="x.x">=0.0=;</rbnfrule>
-                <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
+                <rbnfrule value="0">=%spellout-ordinal-masculine-genitive=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-numbering">
                 <rbnfrule value="0">=%spellout-cardinal-masculine=;</rbnfrule>
@@ -240,7 +241,8 @@ For terms of use, see http://www.unicode.org/copyright.html
             <ruleset type="spellout-cardinal-masculine-accusative-personal">
                 <rbnfrule value="-x">minus →→;</rbnfrule>
                 <rbnfrule value="x.x">←%spellout-cardinal-masculine-accusative-personal← przecinek →→;</rbnfrule>
-                <rbnfrule value="0">=%spellout-cardinal-masculine-genitive=;</rbnfrule>
+                <rbnfrule value="0">zero;</rbnfrule>
+                <rbnfrule value="1">=%spellout-cardinal-masculine-genitive=;</rbnfrule>
                 <rbnfrule value="1000">tysiąc[ →%%spellout-cardinal-masculine-genitive-ones→];</rbnfrule>
                 <rbnfrule value="2000">←%spellout-cardinal-masculine← $(cardinal,few{tysiące}other{tysięcy})$[ →%%spellout-cardinal-masculine-genitive-ones→];</rbnfrule>
                 <rbnfrule value="1000000">milion[ →→];</rbnfrule>
@@ -432,6 +434,444 @@ For terms of use, see http://www.unicode.org/copyright.html
             <ruleset type="spellout-fraction-digits" access="private">
                 <rbnfrule value="0">=%spellout-cardinal-masculine=;</rbnfrule>
                 <rbnfrule value="10">←← →→;</rbnfrule>
+            </ruleset>
+            <ruleset type="ordinal-tens" access="private">
+                <rbnfrule value="1">jede;</rbnfrule>
+                <rbnfrule value="2">dwu;</rbnfrule>
+                <rbnfrule value="3">trzy;</rbnfrule>
+                <rbnfrule value="4">czter;</rbnfrule>
+                <rbnfrule value="5">pięt;</rbnfrule>
+                <rbnfrule value="6">szes;</rbnfrule>
+                <rbnfrule value="7">siedem;</rbnfrule>
+                <rbnfrule value="8">osiem;</rbnfrule>
+                <rbnfrule value="9">dziewięt;</rbnfrule>
+            </ruleset>
+            <ruleset type="ordinal-hundreds-isolated" access="private">
+                <rbnfrule value="2">dwu;</rbnfrule>
+                <rbnfrule value="3">trzech;</rbnfrule>
+                <rbnfrule value="4">czterech;</rbnfrule>
+                <rbnfrule value="5">=%spellout-cardinal-feminine=;</rbnfrule>
+            </ruleset>
+            <ruleset type="ordinal-thousands-isolated" access="private">
+                <rbnfrule value="2">dwu;</rbnfrule>
+                <rbnfrule value="3">trzy;</rbnfrule>
+                <rbnfrule value="4">cztero;</rbnfrule>
+                <rbnfrule value="5">pięcio;</rbnfrule>
+                <rbnfrule value="6">sześcio;</rbnfrule>
+                <rbnfrule value="7">siedmio;</rbnfrule>
+                <rbnfrule value="8">ośmio;</rbnfrule>
+                <rbnfrule value="9">dziewięcio;</rbnfrule>
+                <rbnfrule value="10">dziesięcio;</rbnfrule>
+                <rbnfrule value="11">jedenasto;</rbnfrule>
+                <rbnfrule value="12">dwunasto;</rbnfrule>
+                <rbnfrule value="13">trzynasto;</rbnfrule>
+                <rbnfrule value="14">czternasto;</rbnfrule>
+                <rbnfrule value="15">piętnasto;</rbnfrule>
+                <rbnfrule value="16">szesnasto;</rbnfrule>
+                <rbnfrule value="17">siedemnasto;</rbnfrule>
+                <rbnfrule value="18">osiemnasto;</rbnfrule>
+                <rbnfrule value="19">dziewiętnasto;</rbnfrule>
+                <rbnfrule value="20">dwudziesto[ →%%spellout-cardinal-masculine-instrumental-ones→ ];</rbnfrule>
+                <rbnfrule value="30">trzydziesto[ →%%spellout-cardinal-masculine-instrumental-ones→ ];</rbnfrule>
+                <rbnfrule value="40">czterdziesto[ →%%spellout-cardinal-masculine-instrumental-ones→ ];</rbnfrule>
+                <rbnfrule value="50">pięćdziesięcio[ →%%spellout-cardinal-masculine-instrumental-ones→ ];</rbnfrule>
+                <rbnfrule value="60">sześćdziesięcio[ →%%spellout-cardinal-masculine-instrumental-ones→ ];</rbnfrule>
+                <rbnfrule value="70">siedemdziesięcio[ →%%spellout-cardinal-masculine-instrumental-ones→ ];</rbnfrule>
+                <rbnfrule value="80">osiemdziesięcio[ →%%spellout-cardinal-masculine-instrumental-ones→ ];</rbnfrule>
+                <rbnfrule value="90">dziewięćdziesięcio[ →%%spellout-cardinal-masculine-instrumental-ones→ ];</rbnfrule>
+                <rbnfrule value="100">stu[ →%%spellout-cardinal-masculine-instrumental-ones→ ];</rbnfrule>
+                <rbnfrule value="200">dwustu[ →%%spellout-cardinal-masculine-instrumental-ones→ ];</rbnfrule>
+                <rbnfrule value="300">←%spellout-cardinal-feminine←stu[ →%%spellout-cardinal-masculine-instrumental-ones→ ];</rbnfrule>
+                <rbnfrule value="500">←%spellout-cardinal-feminine-genitive←set[ →%%spellout-cardinal-masculine-instrumental-ones→ ];</rbnfrule>
+            </ruleset>
+            <ruleset type="ordinal-hundreds-continuation" access="private">
+                <rbnfrule value="1">sto;</rbnfrule>
+                <rbnfrule value="2">dwieście;</rbnfrule>
+                <rbnfrule value="3">trzysta;</rbnfrule>
+                <rbnfrule value="4">czterysta;</rbnfrule>
+                <rbnfrule value="5">pięćset;</rbnfrule>
+                <rbnfrule value="6">sześćset;</rbnfrule>
+                <rbnfrule value="7">siedemset;</rbnfrule>
+                <rbnfrule value="8">osiemset;</rbnfrule>
+                <rbnfrule value="9">dziewięćset;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-masculine">
+                <rbnfrule value="-x">minus →→;</rbnfrule>
+                <rbnfrule value="x.x">=0.#=;</rbnfrule>
+                <rbnfrule value="0">zerowy;</rbnfrule>
+                <rbnfrule value="1">pierwszy;</rbnfrule>
+                <rbnfrule value="2">drugi;</rbnfrule>
+                <rbnfrule value="3">trzeci;</rbnfrule>
+                <rbnfrule value="4">czwarty;</rbnfrule>
+                <rbnfrule value="5">piąty;</rbnfrule>
+                <rbnfrule value="6">szósty;</rbnfrule>
+                <rbnfrule value="7">siódmy;</rbnfrule>
+                <rbnfrule value="8">ósmy;</rbnfrule>
+                <rbnfrule value="9">dziewiąty;</rbnfrule>
+                <rbnfrule value="10">dziesiąty;</rbnfrule>
+                <rbnfrule value="11">→%%ordinal-tens→nasty;</rbnfrule>
+                <rbnfrule value="20">←%%ordinal-tens←$(cardinal,few{dziesty}other{dziesiąty})$[ →→];</rbnfrule>
+                <rbnfrule value="100">[sto →→|setny];</rbnfrule>
+                <rbnfrule value="200">[←%%ordinal-hundreds-continuation← →→|←%%ordinal-hundreds-isolated←setny];</rbnfrule>
+                <rbnfrule value="1000">[tysiąc →→|tysięczny];</rbnfrule>
+                <rbnfrule value="2000">[←%spellout-cardinal-masculine← $(cardinal,few{tysiące}other{tysięcy})$ →→|←%%ordinal-thousands-isolated←tysięczny];</rbnfrule>
+                <rbnfrule value="1000000">[milion →→|milionowy];</rbnfrule>
+                <rbnfrule value="2000000">[←%spellout-cardinal-masculine← $(cardinal,few{miliony}other{milionów})$ →→|←%%ordinal-thousands-isolated←milionowy];</rbnfrule>
+                <rbnfrule value="1000000000">[miliard →→|miliardowy];</rbnfrule>
+                <rbnfrule value="2000000000">[←%spellout-cardinal-masculine← $(cardinal,few{miliardy}other{miliardów})$ →→|←%%ordinal-thousands-isolated←miliardowy];</rbnfrule>
+                <rbnfrule value="1000000000000">[bilion →→|bilionowy];</rbnfrule>
+                <rbnfrule value="2000000000000">[←%spellout-cardinal-masculine← $(cardinal,few{biliony}other{bilionów})$ →→|←%%ordinal-thousands-isolated←bilionowy];</rbnfrule>
+                <rbnfrule value="1000000000000000">[biliard →→|biliardowy];</rbnfrule>
+                <rbnfrule value="2000000000000000">[←%spellout-cardinal-masculine← $(cardinal,few{biliardy}other{biliardów})$ →→|←%%ordinal-thousands-isolated←biliardowy];</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=.;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-feminine">
+                <rbnfrule value="-x">minus →→;</rbnfrule>
+                <rbnfrule value="x.x">=0.#=;</rbnfrule>
+                <rbnfrule value="0">zerowa;</rbnfrule>
+                <rbnfrule value="1">pierwsza;</rbnfrule>
+                <rbnfrule value="2">druga;</rbnfrule>
+                <rbnfrule value="3">trzecia;</rbnfrule>
+                <rbnfrule value="4">czwarta;</rbnfrule>
+                <rbnfrule value="5">piąta;</rbnfrule>
+                <rbnfrule value="6">szósta;</rbnfrule>
+                <rbnfrule value="7">siódma;</rbnfrule>
+                <rbnfrule value="8">ósma;</rbnfrule>
+                <rbnfrule value="9">dziewiąta;</rbnfrule>
+                <rbnfrule value="10">dziesiąta;</rbnfrule>
+                <rbnfrule value="11">→%%ordinal-tens→nasta;</rbnfrule>
+                <rbnfrule value="20">←%%ordinal-tens←$(cardinal,few{dziesta}other{dziesiąta})$[ →→];</rbnfrule>
+                <rbnfrule value="100">[sto →→|setna];</rbnfrule>
+                <rbnfrule value="200">[←%%ordinal-hundreds-continuation← →→|←%%ordinal-hundreds-isolated←setna];</rbnfrule>
+                <rbnfrule value="1000">[tysiąc →→|tysięczna];</rbnfrule>
+                <rbnfrule value="2000">[←%spellout-cardinal-masculine← $(cardinal,few{tysiące}other{tysięcy})$ →→|←%%ordinal-thousands-isolated←tysięczna];</rbnfrule>
+                <rbnfrule value="1000000">[milion →→|milionowa];</rbnfrule>
+                <rbnfrule value="2000000">[←%spellout-cardinal-masculine← $(cardinal,few{miliony}other{milionów})$ →→|←%%ordinal-thousands-isolated←milionowa];</rbnfrule>
+                <rbnfrule value="1000000000">[miliard →→|miliardowa];</rbnfrule>
+                <rbnfrule value="2000000000">[←%spellout-cardinal-masculine← $(cardinal,few{miliardy}other{miliardów})$ →→|←%%ordinal-thousands-isolated←miliardowa];</rbnfrule>
+                <rbnfrule value="1000000000000">[bilion →→|bilionowa];</rbnfrule>
+                <rbnfrule value="2000000000000">[←%spellout-cardinal-masculine← $(cardinal,few{biliony}other{bilionów})$ →→|←%%ordinal-thousands-isolated←bilionowa];</rbnfrule>
+                <rbnfrule value="1000000000000000">[biliard →→|biliardowa];</rbnfrule>
+                <rbnfrule value="2000000000000000">[←%spellout-cardinal-masculine← $(cardinal,few{biliardy}other{biliardów})$ →→|←%%ordinal-thousands-isolated←biliardowa];</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=.;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-neuter">
+                <rbnfrule value="-x">minus →→;</rbnfrule>
+                <rbnfrule value="x.x">=0.#=;</rbnfrule>
+                <rbnfrule value="0">zerowe;</rbnfrule>
+                <rbnfrule value="1">pierwsze;</rbnfrule>
+                <rbnfrule value="2">drugie;</rbnfrule>
+                <rbnfrule value="3">trzecie;</rbnfrule>
+                <rbnfrule value="4">czwarte;</rbnfrule>
+                <rbnfrule value="5">piąte;</rbnfrule>
+                <rbnfrule value="6">szóste;</rbnfrule>
+                <rbnfrule value="7">siódme;</rbnfrule>
+                <rbnfrule value="8">ósme;</rbnfrule>
+                <rbnfrule value="9">dziewiąte;</rbnfrule>
+                <rbnfrule value="10">dziesiąte;</rbnfrule>
+                <rbnfrule value="11">→%%ordinal-tens→naste;</rbnfrule>
+                <rbnfrule value="20">←%%ordinal-tens←$(cardinal,few{dzieste}other{dziesiąte})$[ →→];</rbnfrule>
+                <rbnfrule value="100">[sto →→|setne];</rbnfrule>
+                <rbnfrule value="200">[←%%ordinal-hundreds-continuation← →→|←%%ordinal-hundreds-isolated←setne];</rbnfrule>
+                <rbnfrule value="1000">[tysiąc →→|tysięczne];</rbnfrule>
+                <rbnfrule value="2000">[←%spellout-cardinal-masculine← $(cardinal,few{tysiące}other{tysięcy})$ →→|←%%ordinal-thousands-isolated←tysięczne];</rbnfrule>
+                <rbnfrule value="1000000">[milion →→|milionowe];</rbnfrule>
+                <rbnfrule value="2000000">[←%spellout-cardinal-masculine← $(cardinal,few{miliony}other{milionów})$ →→|←%%ordinal-thousands-isolated←milionowe];</rbnfrule>
+                <rbnfrule value="1000000000">[miliard →→|miliardowe];</rbnfrule>
+                <rbnfrule value="2000000000">[←%spellout-cardinal-masculine← $(cardinal,few{miliardy}other{miliardów})$ →→|←%%ordinal-thousands-isolated←miliardowe];</rbnfrule>
+                <rbnfrule value="1000000000000">[bilion →→|bilionowe];</rbnfrule>
+                <rbnfrule value="2000000000000">[←%spellout-cardinal-masculine← $(cardinal,few{biliony}other{bilionów})$ →→|←%%ordinal-thousands-isolated←bilionowe];</rbnfrule>
+                <rbnfrule value="1000000000000000">[biliard →→|biliardowe];</rbnfrule>
+                <rbnfrule value="2000000000000000">[←%spellout-cardinal-masculine← $(cardinal,few{biliardy}other{biliardów})$ →→|←%%ordinal-thousands-isolated←biliardowe];</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=.;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-plural">
+                <rbnfrule value="0">=%spellout-ordinal-neuter=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-masculine-personal-plural">
+                <rbnfrule value="-x">minus →→;</rbnfrule>
+                <rbnfrule value="x.x">=0.#=;</rbnfrule>
+                <rbnfrule value="0">zerowi;</rbnfrule>
+                <rbnfrule value="1">pierwsi;</rbnfrule>
+                <rbnfrule value="2">drudzy;</rbnfrule>
+                <rbnfrule value="3">trzeci;</rbnfrule>
+                <rbnfrule value="4">czwarci;</rbnfrule>
+                <rbnfrule value="5">piąci;</rbnfrule>
+                <rbnfrule value="6">szóści;</rbnfrule>
+                <rbnfrule value="7">siódmi;</rbnfrule>
+                <rbnfrule value="8">ósmi;</rbnfrule>
+                <rbnfrule value="9">dziewiąci;</rbnfrule>
+                <rbnfrule value="10">dziesiąci;</rbnfrule>
+                <rbnfrule value="11">→%%ordinal-tens→naści;</rbnfrule>
+                <rbnfrule value="20">←%%ordinal-tens←$(cardinal,few{dzieści}other{dziesiąci})$[ →→];</rbnfrule>
+                <rbnfrule value="100">[sto →→|setni];</rbnfrule>
+                <rbnfrule value="200">[←%%ordinal-hundreds-continuation← →→|←%%ordinal-hundreds-isolated←setni];</rbnfrule>
+                <rbnfrule value="1000">[tysiąc →→|tysięczni];</rbnfrule>
+                <rbnfrule value="2000">[←%spellout-cardinal-masculine← $(cardinal,few{tysiące}other{tysięcy})$ →→|←%%ordinal-thousands-isolated←tysięczni];</rbnfrule>
+                <rbnfrule value="1000000">[milion →→|milionowi];</rbnfrule>
+                <rbnfrule value="2000000">[←%spellout-cardinal-masculine← $(cardinal,few{miliony}other{milionów})$ →→|←%%ordinal-thousands-isolated←milionowi];</rbnfrule>
+                <rbnfrule value="1000000000">[miliard →→|miliardowi];</rbnfrule>
+                <rbnfrule value="2000000000">[←%spellout-cardinal-masculine← $(cardinal,few{miliardy}other{miliardów})$ →→|←%%ordinal-thousands-isolated←miliardowi];</rbnfrule>
+                <rbnfrule value="1000000000000">[bilion →→|bilionowi];</rbnfrule>
+                <rbnfrule value="2000000000000">[←%spellout-cardinal-masculine← $(cardinal,few{biliony}other{bilionów})$ →→|←%%ordinal-thousands-isolated←bilionowi];</rbnfrule>
+                <rbnfrule value="1000000000000000">[biliard →→|biliardowi];</rbnfrule>
+                <rbnfrule value="2000000000000000">[←%spellout-cardinal-masculine← $(cardinal,few{biliardy}other{biliardów})$ →→|←%%ordinal-thousands-isolated←biliardowi];</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=.;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-masculine-genitive">
+                <rbnfrule value="0">=%spellout-ordinal-neuter-genitive=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-feminine-genitive">
+                <rbnfrule value="-x">minus →→;</rbnfrule>
+                <rbnfrule value="x.x">=0.#=;</rbnfrule>
+                <rbnfrule value="0">zerowej;</rbnfrule>
+                <rbnfrule value="1">pierwszej;</rbnfrule>
+                <rbnfrule value="2">drugiej;</rbnfrule>
+                <rbnfrule value="3">trzeciej;</rbnfrule>
+                <rbnfrule value="4">czwartej;</rbnfrule>
+                <rbnfrule value="5">piątej;</rbnfrule>
+                <rbnfrule value="6">szóstej;</rbnfrule>
+                <rbnfrule value="7">siódmej;</rbnfrule>
+                <rbnfrule value="8">ósmej;</rbnfrule>
+                <rbnfrule value="9">dziewiątej;</rbnfrule>
+                <rbnfrule value="10">dziesiątej;</rbnfrule>
+                <rbnfrule value="11">→%%ordinal-tens→nastej;</rbnfrule>
+                <rbnfrule value="20">←%%ordinal-tens←$(cardinal,few{dziestej}other{dziesiątej})$[ →→];</rbnfrule>
+                <rbnfrule value="100">[sto →→|setnej];</rbnfrule>
+                <rbnfrule value="200">[←%%ordinal-hundreds-continuation← →→|←%%ordinal-hundreds-isolated←setnej];</rbnfrule>
+                <rbnfrule value="1000">[tysiąc →→|tysięcznej];</rbnfrule>
+                <rbnfrule value="2000">[←%spellout-cardinal-masculine← $(cardinal,few{tysiące}other{tysięcy})$ →→|←%%ordinal-thousands-isolated←tysięcznej];</rbnfrule>
+                <rbnfrule value="1000000">[milion →→|milionowej];</rbnfrule>
+                <rbnfrule value="2000000">[←%spellout-cardinal-masculine← $(cardinal,few{miliony}other{milionów})$ →→|←%%ordinal-thousands-isolated←milionowej];</rbnfrule>
+                <rbnfrule value="1000000000">[miliard →→|miliardowej];</rbnfrule>
+                <rbnfrule value="2000000000">[←%spellout-cardinal-masculine← $(cardinal,few{miliardy}other{miliardów})$ →→|←%%ordinal-thousands-isolated←miliardowej];</rbnfrule>
+                <rbnfrule value="1000000000000">[bilion →→|bilionowej];</rbnfrule>
+                <rbnfrule value="2000000000000">[←%spellout-cardinal-masculine← $(cardinal,few{biliony}other{bilionów})$ →→|←%%ordinal-thousands-isolated←bilionowej];</rbnfrule>
+                <rbnfrule value="1000000000000000">[biliard →→|biliardowej];</rbnfrule>
+                <rbnfrule value="2000000000000000">[←%spellout-cardinal-masculine← $(cardinal,few{biliardy}other{biliardów})$ →→|←%%ordinal-thousands-isolated←biliardowej];</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=.;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-neuter-genitive">
+                <rbnfrule value="-x">minus →→;</rbnfrule>
+                <rbnfrule value="x.x">=0.#=;</rbnfrule>
+                <rbnfrule value="0">zerowego;</rbnfrule>
+                <rbnfrule value="1">pierwszego;</rbnfrule>
+                <rbnfrule value="2">drugiego;</rbnfrule>
+                <rbnfrule value="3">trzeciego;</rbnfrule>
+                <rbnfrule value="4">czwartego;</rbnfrule>
+                <rbnfrule value="5">piątego;</rbnfrule>
+                <rbnfrule value="6">szóstego;</rbnfrule>
+                <rbnfrule value="7">siódmego;</rbnfrule>
+                <rbnfrule value="8">ósmego;</rbnfrule>
+                <rbnfrule value="9">dziewiątego;</rbnfrule>
+                <rbnfrule value="10">dziesiątego;</rbnfrule>
+                <rbnfrule value="11">→%%ordinal-tens→nastego;</rbnfrule>
+                <rbnfrule value="20">←%%ordinal-tens←$(cardinal,few{dziestego}other{dziesiątego})$[ →→];</rbnfrule>
+                <rbnfrule value="100">[sto →→|setnego];</rbnfrule>
+                <rbnfrule value="200">[←%%ordinal-hundreds-continuation← →→|←%%ordinal-hundreds-isolated←setnego];</rbnfrule>
+                <rbnfrule value="1000">[tysiąc →→|tysięcznego];</rbnfrule>
+                <rbnfrule value="2000">[←%spellout-cardinal-masculine← $(cardinal,few{tysiące}other{tysięcy})$ →→|←%%ordinal-thousands-isolated←tysięcznego];</rbnfrule>
+                <rbnfrule value="1000000">[milion →→|milionowego];</rbnfrule>
+                <rbnfrule value="2000000">[←%spellout-cardinal-masculine← $(cardinal,few{miliony}other{milionów})$ →→|←%%ordinal-thousands-isolated←milionowego];</rbnfrule>
+                <rbnfrule value="1000000000">[miliard →→|miliardowego];</rbnfrule>
+                <rbnfrule value="2000000000">[←%spellout-cardinal-masculine← $(cardinal,few{miliardy}other{miliardów})$ →→|←%%ordinal-thousands-isolated←miliardowego];</rbnfrule>
+                <rbnfrule value="1000000000000">[bilion →→|bilionowego];</rbnfrule>
+                <rbnfrule value="2000000000000">[←%spellout-cardinal-masculine← $(cardinal,few{biliony}other{bilionów})$ →→|←%%ordinal-thousands-isolated←bilionowego];</rbnfrule>
+                <rbnfrule value="1000000000000000">[biliard →→|biliardowego];</rbnfrule>
+                <rbnfrule value="2000000000000000">[←%spellout-cardinal-masculine← $(cardinal,few{biliardy}other{biliardów})$ →→|←%%ordinal-thousands-isolated←biliardowego];</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=.;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-plural-genitive">
+                <rbnfrule value="-x">minus →→;</rbnfrule>
+                <rbnfrule value="x.x">=0.#=;</rbnfrule>
+                <rbnfrule value="0">zerowych;</rbnfrule>
+                <rbnfrule value="1">pierwszych;</rbnfrule>
+                <rbnfrule value="2">drugich;</rbnfrule>
+                <rbnfrule value="3">trzecich;</rbnfrule>
+                <rbnfrule value="4">czwartych;</rbnfrule>
+                <rbnfrule value="5">piątych;</rbnfrule>
+                <rbnfrule value="6">szóstych;</rbnfrule>
+                <rbnfrule value="7">siódmych;</rbnfrule>
+                <rbnfrule value="8">ósmych;</rbnfrule>
+                <rbnfrule value="9">dziewiątych;</rbnfrule>
+                <rbnfrule value="10">dziesiątych;</rbnfrule>
+                <rbnfrule value="11">→%%ordinal-tens→nastych;</rbnfrule>
+                <rbnfrule value="20">←%%ordinal-tens←$(cardinal,few{dziestych}other{dziesiątych})$[ →→];</rbnfrule>
+                <rbnfrule value="100">[sto →→|setnych];</rbnfrule>
+                <rbnfrule value="200">[←%%ordinal-hundreds-continuation← →→|←%%ordinal-hundreds-isolated←setnych];</rbnfrule>
+                <rbnfrule value="1000">[tysiąc →→|tysięcznych];</rbnfrule>
+                <rbnfrule value="2000">[←%spellout-cardinal-masculine← $(cardinal,few{tysiące}other{tysięcy})$ →→|←%%ordinal-thousands-isolated←tysięcznych];</rbnfrule>
+                <rbnfrule value="1000000">[milion →→|milionowych];</rbnfrule>
+                <rbnfrule value="2000000">[←%spellout-cardinal-masculine← $(cardinal,few{miliony}other{milionów})$ →→|←%%ordinal-thousands-isolated←milionowych];</rbnfrule>
+                <rbnfrule value="1000000000">[miliard →→|miliardowych];</rbnfrule>
+                <rbnfrule value="2000000000">[←%spellout-cardinal-masculine← $(cardinal,few{miliardy}other{miliardów})$ →→|←%%ordinal-thousands-isolated←miliardowych];</rbnfrule>
+                <rbnfrule value="1000000000000">[bilion →→|bilionowych];</rbnfrule>
+                <rbnfrule value="2000000000000">[←%spellout-cardinal-masculine← $(cardinal,few{biliony}other{bilionów})$ →→|←%%ordinal-thousands-isolated←bilionowych];</rbnfrule>
+                <rbnfrule value="1000000000000000">[biliard →→|biliardowych];</rbnfrule>
+                <rbnfrule value="2000000000000000">[←%spellout-cardinal-masculine← $(cardinal,few{biliardy}other{biliardów})$ →→|←%%ordinal-thousands-isolated←biliardowych];</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=.;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-masculine-dative">
+                <rbnfrule value="0">=%spellout-ordinal-neuter-dative=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-feminine-dative">
+                <rbnfrule value="0">=%spellout-ordinal-feminine-genitive=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-neuter-dative">
+                <rbnfrule value="-x">minus →→;</rbnfrule>
+                <rbnfrule value="x.x">=0.#=;</rbnfrule>
+                <rbnfrule value="0">zerowemu;</rbnfrule>
+                <rbnfrule value="1">pierwszemu;</rbnfrule>
+                <rbnfrule value="2">drugiemu;</rbnfrule>
+                <rbnfrule value="3">trzeciemu;</rbnfrule>
+                <rbnfrule value="4">czwartemu;</rbnfrule>
+                <rbnfrule value="5">piątemu;</rbnfrule>
+                <rbnfrule value="6">szóstemu;</rbnfrule>
+                <rbnfrule value="7">siódmemu;</rbnfrule>
+                <rbnfrule value="8">ósmemu;</rbnfrule>
+                <rbnfrule value="9">dziewiątemu;</rbnfrule>
+                <rbnfrule value="10">dziesiątemu;</rbnfrule>
+                <rbnfrule value="11">→%%ordinal-tens→nastemu;</rbnfrule>
+                <rbnfrule value="20">←%%ordinal-tens←$(cardinal,few{dziestemu}other{dziesiątemu})$[ →→];</rbnfrule>
+                <rbnfrule value="100">[sto →→|setnemu];</rbnfrule>
+                <rbnfrule value="200">[←%%ordinal-hundreds-continuation← →→|←%%ordinal-hundreds-isolated←setnemu];</rbnfrule>
+                <rbnfrule value="1000">[tysiąc →→|tysięcznemu];</rbnfrule>
+                <rbnfrule value="2000">[←%spellout-cardinal-masculine← $(cardinal,few{tysiące}other{tysięcy})$ →→|←%%ordinal-thousands-isolated←tysięcznemu];</rbnfrule>
+                <rbnfrule value="1000000">[milion →→|milionowemu];</rbnfrule>
+                <rbnfrule value="2000000">[←%spellout-cardinal-masculine← $(cardinal,few{miliony}other{milionów})$ →→|←%%ordinal-thousands-isolated←milionowemu];</rbnfrule>
+                <rbnfrule value="1000000000">[miliard →→|miliardowemu];</rbnfrule>
+                <rbnfrule value="2000000000">[←%spellout-cardinal-masculine← $(cardinal,few{miliardy}other{miliardów})$ →→|←%%ordinal-thousands-isolated←miliardowemu];</rbnfrule>
+                <rbnfrule value="1000000000000">[bilion →→|bilionowemu];</rbnfrule>
+                <rbnfrule value="2000000000000">[←%spellout-cardinal-masculine← $(cardinal,few{biliony}other{bilionów})$ →→|←%%ordinal-thousands-isolated←bilionowemu];</rbnfrule>
+                <rbnfrule value="1000000000000000">[biliard →→|biliardowemu];</rbnfrule>
+                <rbnfrule value="2000000000000000">[←%spellout-cardinal-masculine← $(cardinal,few{biliardy}other{biliardów})$ →→|←%%ordinal-thousands-isolated←biliardowemu];</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=.;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-plural-dative">
+                <rbnfrule value="0">=%spellout-ordinal-neuter-instrumental=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-masculine-accusative">
+                <rbnfrule value="0">=%spellout-ordinal-masculine=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-masculine-animate-accusative">
+                <rbnfrule value="0">=%spellout-ordinal-neuter-genitive=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-feminine-accusative">
+                <rbnfrule value="-x">minus →→;</rbnfrule>
+                <rbnfrule value="x.x">=0.#=;</rbnfrule>
+                <rbnfrule value="0">zerową;</rbnfrule>
+                <rbnfrule value="1">pierwszą;</rbnfrule>
+                <rbnfrule value="2">drugą;</rbnfrule>
+                <rbnfrule value="3">trzecią;</rbnfrule>
+                <rbnfrule value="4">czwartą;</rbnfrule>
+                <rbnfrule value="5">piątą;</rbnfrule>
+                <rbnfrule value="6">szóstą;</rbnfrule>
+                <rbnfrule value="7">siódmą;</rbnfrule>
+                <rbnfrule value="8">ósmą;</rbnfrule>
+                <rbnfrule value="9">dziewiątą;</rbnfrule>
+                <rbnfrule value="10">dziesiątą;</rbnfrule>
+                <rbnfrule value="11">→%%ordinal-tens→nastą;</rbnfrule>
+                <rbnfrule value="20">←%%ordinal-tens←$(cardinal,few{dziestą}other{dziesiątą})$[ →→];</rbnfrule>
+                <rbnfrule value="100">[sto →→|setną];</rbnfrule>
+                <rbnfrule value="200">[←%%ordinal-hundreds-continuation← →→|←%%ordinal-hundreds-isolated←setną];</rbnfrule>
+                <rbnfrule value="1000">[tysiąc →→|tysięczną];</rbnfrule>
+                <rbnfrule value="2000">[←%spellout-cardinal-masculine← $(cardinal,few{tysiące}other{tysięcy})$ →→|←%%ordinal-thousands-isolated←tysięczną];</rbnfrule>
+                <rbnfrule value="1000000">[milion →→|milionową];</rbnfrule>
+                <rbnfrule value="2000000">[←%spellout-cardinal-masculine← $(cardinal,few{miliony}other{milionów})$ →→|←%%ordinal-thousands-isolated←milionową];</rbnfrule>
+                <rbnfrule value="1000000000">[miliard →→|miliardową];</rbnfrule>
+                <rbnfrule value="2000000000">[←%spellout-cardinal-masculine← $(cardinal,few{miliardy}other{miliardów})$ →→|←%%ordinal-thousands-isolated←miliardową];</rbnfrule>
+                <rbnfrule value="1000000000000">[bilion →→|bilionową];</rbnfrule>
+                <rbnfrule value="2000000000000">[←%spellout-cardinal-masculine← $(cardinal,few{biliony}other{bilionów})$ →→|←%%ordinal-thousands-isolated←bilionową];</rbnfrule>
+                <rbnfrule value="1000000000000000">[biliard →→|biliardową];</rbnfrule>
+                <rbnfrule value="2000000000000000">[←%spellout-cardinal-masculine← $(cardinal,few{biliardy}other{biliardów})$ →→|←%%ordinal-thousands-isolated←biliardową];</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=.;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-neuter-accusative">
+                <rbnfrule value="0">=%spellout-ordinal-neuter=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-plural-accusative">
+                <rbnfrule value="0">=%spellout-ordinal-neuter=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-masculine-personal-plural-accusative">
+                <rbnfrule value="0">=%spellout-ordinal-plural-genitive=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-masculine-instrumental">
+                <rbnfrule value="0">=%spellout-ordinal-neuter-instrumental=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-feminine-instrumental">
+                <rbnfrule value="0">=%spellout-ordinal-feminine-accusative=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-neuter-instrumental">
+                <rbnfrule value="-x">minus →→;</rbnfrule>
+                <rbnfrule value="x.x">=0.#=;</rbnfrule>
+                <rbnfrule value="0">zerowym;</rbnfrule>
+                <rbnfrule value="1">pierwszym;</rbnfrule>
+                <rbnfrule value="2">drugim;</rbnfrule>
+                <rbnfrule value="3">trzecim;</rbnfrule>
+                <rbnfrule value="4">czwartym;</rbnfrule>
+                <rbnfrule value="5">piątym;</rbnfrule>
+                <rbnfrule value="6">szóstym;</rbnfrule>
+                <rbnfrule value="7">siódmym;</rbnfrule>
+                <rbnfrule value="8">ósmym;</rbnfrule>
+                <rbnfrule value="9">dziewiątym;</rbnfrule>
+                <rbnfrule value="10">dziesiątym;</rbnfrule>
+                <rbnfrule value="11">→%%ordinal-tens→nastym;</rbnfrule>
+                <rbnfrule value="20">←%%ordinal-tens←$(cardinal,few{dziestym}other{dziesiątym})$[ →→];</rbnfrule>
+                <rbnfrule value="100">[sto →→|setnym];</rbnfrule>
+                <rbnfrule value="200">[←%%ordinal-hundreds-continuation← →→|←%%ordinal-hundreds-isolated←setnym];</rbnfrule>
+                <rbnfrule value="1000">[tysiąc →→|tysięcznym];</rbnfrule>
+                <rbnfrule value="2000">[←%spellout-cardinal-masculine← $(cardinal,few{tysiące}other{tysięcy})$ →→|←%%ordinal-thousands-isolated←tysięcznym];</rbnfrule>
+                <rbnfrule value="1000000">[milion →→|milionowym];</rbnfrule>
+                <rbnfrule value="2000000">[←%spellout-cardinal-masculine← $(cardinal,few{miliony}other{milionów})$ →→|←%%ordinal-thousands-isolated←milionowym];</rbnfrule>
+                <rbnfrule value="1000000000">[miliard →→|miliardowym];</rbnfrule>
+                <rbnfrule value="2000000000">[←%spellout-cardinal-masculine← $(cardinal,few{miliardy}other{miliardów})$ →→|←%%ordinal-thousands-isolated←miliardowym];</rbnfrule>
+                <rbnfrule value="1000000000000">[bilion →→|bilionowym];</rbnfrule>
+                <rbnfrule value="2000000000000">[←%spellout-cardinal-masculine← $(cardinal,few{biliony}other{bilionów})$ →→|←%%ordinal-thousands-isolated←bilionowym];</rbnfrule>
+                <rbnfrule value="1000000000000000">[biliard →→|biliardowym];</rbnfrule>
+                <rbnfrule value="2000000000000000">[←%spellout-cardinal-masculine← $(cardinal,few{biliardy}other{biliardów})$ →→|←%%ordinal-thousands-isolated←biliardowym];</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=.;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-plural-instrumental">
+                <rbnfrule value="-x">minus →→;</rbnfrule>
+                <rbnfrule value="x.x">=0.#=;</rbnfrule>
+                <rbnfrule value="0">zerowymi;</rbnfrule>
+                <rbnfrule value="1">pierwszymi;</rbnfrule>
+                <rbnfrule value="2">drugimi;</rbnfrule>
+                <rbnfrule value="3">trzecimi;</rbnfrule>
+                <rbnfrule value="4">czwartymi;</rbnfrule>
+                <rbnfrule value="5">piątymi;</rbnfrule>
+                <rbnfrule value="6">szóstymi;</rbnfrule>
+                <rbnfrule value="7">siódmymi;</rbnfrule>
+                <rbnfrule value="8">ósmymi;</rbnfrule>
+                <rbnfrule value="9">dziewiątymi;</rbnfrule>
+                <rbnfrule value="10">dziesiątymi;</rbnfrule>
+                <rbnfrule value="11">→%%ordinal-tens→nastymi;</rbnfrule>
+                <rbnfrule value="20">←%%ordinal-tens←$(cardinal,few{dziestymi}other{dziesiątymi})$[ →→];</rbnfrule>
+                <rbnfrule value="100">[sto →→|setnymi];</rbnfrule>
+                <rbnfrule value="200">[←%%ordinal-hundreds-continuation← →→|←%%ordinal-hundreds-isolated←setnymi];</rbnfrule>
+                <rbnfrule value="1000">[tysiąc →→|tysięcznymi];</rbnfrule>
+                <rbnfrule value="2000">[←%spellout-cardinal-masculine← $(cardinal,few{tysiące}other{tysięcy})$ →→|←%%ordinal-thousands-isolated←tysięcznymi];</rbnfrule>
+                <rbnfrule value="1000000">[milion →→|milionowymi];</rbnfrule>
+                <rbnfrule value="2000000">[←%spellout-cardinal-masculine← $(cardinal,few{miliony}other{milionów})$ →→|←%%ordinal-thousands-isolated←milionowymi];</rbnfrule>
+                <rbnfrule value="1000000000">[miliard →→|miliardowymi];</rbnfrule>
+                <rbnfrule value="2000000000">[←%spellout-cardinal-masculine← $(cardinal,few{miliardy}other{miliardów})$ →→|←%%ordinal-thousands-isolated←miliardowymi];</rbnfrule>
+                <rbnfrule value="1000000000000">[bilion →→|bilionowymi];</rbnfrule>
+                <rbnfrule value="2000000000000">[←%spellout-cardinal-masculine← $(cardinal,few{biliony}other{bilionów})$ →→|←%%ordinal-thousands-isolated←bilionowymi];</rbnfrule>
+                <rbnfrule value="1000000000000000">[biliard →→|biliardowymi];</rbnfrule>
+                <rbnfrule value="2000000000000000">[←%spellout-cardinal-masculine← $(cardinal,few{biliardy}other{biliardów})$ →→|←%%ordinal-thousands-isolated←biliardowymi];</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=.;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-masculine-locative">
+                <rbnfrule value="0">=%spellout-ordinal-neuter-instrumental=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-feminine-locative">
+                <rbnfrule value="0">=%spellout-ordinal-feminine-genitive=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-neuter-locative">
+                <rbnfrule value="0">=%spellout-ordinal-neuter-instrumental=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-plural-locative">
+                <rbnfrule value="0">=%spellout-ordinal-plural-genitive=;</rbnfrule>
             </ruleset>
         </rulesetGrouping>
     </rbnf>

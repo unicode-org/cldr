@@ -19,8 +19,6 @@ public class ThreadSafeMapOfMapOfMap<K1, K2, K3, V> {
         V apply(K1 key1, K2 key2, K3 key3);
     }
 
-    public static boolean verbose = false;
-
     // The outermost map, mapping K1 to a ConcurrentMap of K2 to a ConcurrentMap of K3 to V.
     private final ConcurrentMap<K1, ConcurrentMap<K2, ConcurrentMap<K3, V>>> map1;
 
@@ -30,59 +28,15 @@ public class ThreadSafeMapOfMapOfMap<K1, K2, K3, V> {
     }
 
     /**
-     * Puts a value into the nested map at the specified keys. If the intermediate map does not
-     * exist, it will be created.
+     * Retrieves a value from the nested map at the specified keys. If it is absent from the map,
+     * use the provided function to compute the example html and add it to the map. If an
+     * intermediate map does not exist, it will be created.
      *
      * @param key1 The first-level key.
      * @param key2 The second-level key.
      * @param key3 The third-level key.
-     * @param value The value to be stored.
+     * @return The value associated with the keys.
      */
-    public void put(K1 key1, K2 key2, K3 key3, V value) {
-        // Get or create the second-level and third-level maps.
-        // computeIfAbsent is thread-safe and ensures that the mapping function
-        // is applied only once if the key is absent.
-        ConcurrentMap<K2, ConcurrentMap<K3, V>> map2 =
-                map1.computeIfAbsent(key1, k -> new ConcurrentHashMap<>());
-        ConcurrentMap<K3, V> map3 = map2.computeIfAbsent(key2, k -> new ConcurrentHashMap<>());
-
-        // Put the value into the third-level map.
-        map3.put(key3, value);
-    }
-
-    /**
-     * Retrieves a value from the nested map at the specified keys.
-     *
-     * @param key1 The first-level key.
-     * @param key2 The second-level key.
-     * @param key3 The third-level key.
-     * @return The value associated with the keys, or null if any key path does not exist.
-     */
-    public V get(K1 key1, K2 key2, K3 key3) {
-        // Get the second-level map. If it doesn't exist, return null.
-        ConcurrentMap<K2, ConcurrentMap<K3, V>> map2 = map1.get(key1);
-        if (map2 == null) {
-            if (verbose) {
-                System.out.println("ThreadSafeMapOfMap.get map2 = null for key1 = " + key1);
-            }
-            return null;
-        }
-        // Get the third-level map. If it doesn't exist, return null.
-        ConcurrentMap<K3, V> map3 = map2.get(key2);
-        if (map3 == null) {
-            if (verbose) {
-                System.out.println("ThreadSafeMapOfMap.get map3 = null for key2 = " + key2);
-            }
-            return null;
-        }
-        // Get the value from the third-level map.
-        V value = map3.get(key3);
-        if (verbose && value == null) {
-            System.out.println("ThreadSafeMapOfMap.get value = null for key3 = " + key3);
-        }
-        return value;
-    }
-
     public V computeIfAbsent(K1 key1, K2 key2, K3 key3, TriFunction<K1, K2, K3, V> f) {
         // Get or create the second-level and third-level maps.
         // computeIfAbsent is thread-safe and ensures that the mapping function

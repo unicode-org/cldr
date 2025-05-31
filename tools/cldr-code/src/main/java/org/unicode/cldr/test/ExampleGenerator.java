@@ -506,16 +506,9 @@ public class ExampleGenerator {
                     return null;
                 }
             }
-            result = exCache.getExample(xpath, value);
-            if (result != null) {
-                return result;
-            }
-            result = constructExampleHtml(xpath, value, nonTrivial);
-            exCache.putExample(xpath, value, result);
-            // TODO: combine getExample and putExample into a single method that works like this:
-            // result = exCache.getExample(xpath, value, nonTrivial, (xpath, value, nonTrivial)
-            //  -> constructExampleHtml(xpath, value, nonTrivial));
-            // Reference: https://unicode-org.atlassian.net/browse/CLDR-18683
+            result =
+                    exCache.computeIfAbsent(
+                            xpath, value, (star, x, v) -> constructExampleHtml(x, v, nonTrivial));
         } catch (RuntimeException e) {
             String unchained =
                     verboseErrors ? ("<br>" + finalizeBackground(unchainException(e))) : "";

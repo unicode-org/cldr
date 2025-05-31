@@ -106,29 +106,17 @@ public class ExampleCache {
     }
 
     /**
-     * Get the cached example html for this item, based on its xpath and value
+     * Get the cached example html for this item, based on its xpath and value. If it is absent from
+     * the cache, use the provided function to compute the example html and add it to the cache.
      *
      * <p>The HTML string shows example(s) using that value for that path, for the locale of the
      * ExampleGenerator we're connected to.
      *
+     * @param xpath the path
+     * @param value the value
+     * @param f the function to compute the example if it is absent
      * @return the example html or null
      */
-    public String getExample(String xpath, String value) {
-        if (!cachingIsEnabled) {
-            return null;
-        }
-        String starredPath = pathStarrer.set(xpath);
-        String result = cache.get(starredPath, xpath, value);
-        return NONE.equals(result) ? null : result;
-    }
-
-    public void putExample(String xpath, String value, String example) {
-        if (cachingIsEnabled) {
-            String starredPath = pathStarrer.set(xpath);
-            cache.put(starredPath, xpath, value, (example == null) ? NONE : example);
-        }
-    }
-
     public String computeIfAbsent(
             String xpath,
             String value,

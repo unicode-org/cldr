@@ -22,7 +22,7 @@ public class TestThreadSafeMapOfMapOfMap extends TestFmwk {
         // waste a lot of time.
         final int TEST_COUNT = 1000;
         final ThreadSafeMapOfMapOfMap<String, String, String, String> map =
-                new ThreadSafeMapOfMapOfMap();
+                new ThreadSafeMapOfMapOfMap<>();
         alreadyReportedFailure = false; // reset
         for (int pass = 0; pass < 2; pass++) {
             boolean firstPass = (pass == 0);
@@ -37,7 +37,7 @@ public class TestThreadSafeMapOfMapOfMap extends TestFmwk {
         // likely if ExampleCache is not thread-safe.
         final int TEST_COUNT = 1000000;
         final ThreadSafeMapOfMapOfMap<String, String, String, String> map =
-                new ThreadSafeMapOfMapOfMap();
+                new ThreadSafeMapOfMapOfMap<>();
         alreadyReportedFailure = false; // reset
         for (int pass = 0; pass < 2; pass++) {
             boolean firstPass = (pass == 0);

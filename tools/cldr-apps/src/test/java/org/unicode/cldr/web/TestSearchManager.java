@@ -27,7 +27,7 @@ public class TestSearchManager {
 
     @BeforeAll
     private static void setup() {
-        mgr = SearchManager.forFactory(CLDRConfig.getInstance().getCldrFactory());
+        mgr = SearchManager.forFactory(CLDRConfig.getInstance().getMainAndAnnotationsFactory());
     }
 
     @AfterAll
@@ -126,6 +126,26 @@ public class TestSearchManager {
         assertAll(
                 () -> testOneSearchResult(XPATH, searchText, locale, locale),
                 () -> testNoResult("3월3월", "ko"));
+    }
+
+    /** <annotation cp="🕗" draft="contributed"> //ldml/annotations/annotation[@cp="🕗"] */
+    @Test
+    void TestEmoji() throws InterruptedException {
+        final String CP = Character.toString(0x1F557);
+        System.out.println(CP);
+        final String XPATH = "//ldml/annotations/annotation[@cp=\"" + CP + "\"][@type=\"tts\"]";
+        final String searchText = CP;
+        final String locale = "ja";
+        assertAll(
+                "looking for " + searchText + " in " + locale,
+                () ->
+                        testOneSearchResult(
+                                XPATH,
+                                searchText,
+                                locale,
+                                locale,
+                                "tts: " + searchText) // should match in the locale
+                );
     }
 
     private void testOneSearchResult(

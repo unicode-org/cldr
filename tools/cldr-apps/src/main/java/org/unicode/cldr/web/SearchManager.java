@@ -211,6 +211,12 @@ public class SearchManager implements Closeable {
             logger.finest(() -> "AddCodes made resolved " + locale);
 
             for (final String x : resolvedFile.fullIterable()) {
+                if (x.startsWith("//ldml/annotations/annotation")
+                        && x.contains("[@cp=\"" + request.value + "\"]")
+                        && x.contains("[@type=\"tts\"]")) {
+                    response.addResult(new SearchResult(x, "tts: " + request.value, locale));
+                }
+
                 final PathHeader ph = phf.fromPath(x);
                 if (!ph.getSurveyToolStatus().visible()) continue; // skip invisible paths
 

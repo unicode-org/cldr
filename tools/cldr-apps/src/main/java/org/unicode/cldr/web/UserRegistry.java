@@ -67,7 +67,7 @@ public class UserRegistry {
             loc = "fr"; // fallback
             CookieSession.checkForExpiredSessions();
             CookieSession mySession = CookieSession.retrieve(sess);
-            if (mySession.user != null) {
+            if (mySession != null && mySession.user != null) {
                 CLDRLocale exLoc = mySession.user.exampleLocale();
                 if (exLoc != null) {
                     loc = exLoc.getBaseName();

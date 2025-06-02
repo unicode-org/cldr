@@ -124,12 +124,7 @@ public class ExampleCache {
         if (!cachingIsEnabled) {
             return null;
         }
-        // Temporary work-around for PathStarrer thread-safety bug: do not call
-        // pathStarrer.set in the trivial case where xpath does not contain brackets.
-        // This assumes starredPath equals xpath if xpath does not contain "[...]".
-        // TODO: Make PathStarrer thread-safe
-        // Reference: https://unicode-org.atlassian.net/browse/CLDR-18683
-        String starredPath = xpath.contains("[") ? pathStarrer.set(xpath) : xpath;
+        String starredPath = PathStarrer.computeIfAbsent(xpath);
         return cache.computeIfAbsent(starredPath, xpath, value, f);
     }
 

@@ -2,6 +2,7 @@ package org.unicode.cldr.unittest;
 
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.CharSequences;
+import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
 import java.util.Arrays;
@@ -761,6 +762,12 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
         assertEquals("U+0964 DEVANAGARI DANDA without spaces becomes pipe", normVal, val);
         val = daip.processInput(xpath, "a  ।  b", null);
         assertEquals("U+0964 DEVANAGARI DANDA with spaces becomes pipe", normVal, val);
+        for (String s : new UnicodeSet("[︳︱।|｜⎸⎹⏐￨❘]")) {
+            val = daip.processInput(xpath, "a" + s + "b", null);
+            assertEquals(Utility.hex(s) + UCharacter.getName(s, ","), normVal, val);
+        }
+        val = daip.processInput(xpath, "a  ┃  b", null);
+        assertEquals("Other vertical bar doesn't change", "a ┃ b", val);
     }
 
     public void TestFSR() {

@@ -6,7 +6,9 @@ title: Information Hub for Linguists
 
 The following list summarizes the recent changes, with more details in a section further down the page.
 A sequence like 🆕 2025-05-09 marks items that have been recently added.
-In your browser you can copy this sequence, then use ⌘-F (Mac) or Ctrl-F (Windows) to find all the places it occurs. 
+In your browser you can copy this sequence, then use ⌘-F (Mac) or Ctrl-F (Windows) to find all the places it occurs.
+- **🆕 2025-06-03**
+  - TBD
 - **🆕 2025-05-28**
   - Many people are not voting correctly for **Characters in Use**: [punctuation-person](https://st.unicode.org/cldr-apps/v#/USER/Alphabetic_Information/3be8e5f5960f3603)
 - **🆕 2025-05-26**

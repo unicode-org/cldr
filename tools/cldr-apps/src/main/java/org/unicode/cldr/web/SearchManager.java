@@ -264,7 +264,10 @@ public class SearchManager implements Closeable {
 
                 // Add incrementally. A user may get a partial result if they request before we are
                 // done.
-                response.addResult(new SearchResult(xpath, request.value, locale));
+                final String v = file.getStringValue(xpath);
+                if (!v.equals(request.value)) continue; // TODO: CLDR-18700
+
+                response.addResult(new SearchResult(xpath, v, locale));
             }
             return file;
         }

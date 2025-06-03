@@ -18,6 +18,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.Emoji;
 import org.unicode.cldr.web.SearchManager.SearchRequest;
 import org.unicode.cldr.web.SearchManager.SearchResponse;
 import org.unicode.cldr.web.SearchManager.SearchResult;
@@ -142,6 +143,13 @@ public class TestSearchManager {
                         testOneSearchResult(
                                 XPATH,
                                 searchText,
+                                locale,
+                                locale,
+                                "tts: " + searchText), // should match in the locale
+                () ->
+                        testOneSearchResult(
+                                XPATH,
+                                searchText + Emoji.EMOJI_VARIANT, // should still match
                                 locale,
                                 locale,
                                 "tts: " + searchText) // should match in the locale

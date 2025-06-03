@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -26,9 +27,26 @@ public class PathStarrer implements Transform<String, String> {
     private static final Pattern ATTRIBUTE_PATTERN_OLD = PatternCache.get("=\"([^\"]*)\"");
     private final StringBuilder starredPathOld = new StringBuilder();
 
+    private static final ConcurrentHashMap<String, String> STAR_CACHE = new ConcurrentHashMap<>();
+
+    /** Thread-safe version, only STAR_PATTERN */
+    public static String computeIfAbsent(String path) {
+        return STAR_CACHE.computeIfAbsent(
+                path,
+                x -> {
+                    XPathParts parts = XPathParts.getFrozenInstance(x).cloneAsThawed();
+                    for (int i = 0; i < parts.size(); ++i) {
+                        for (String key : parts.getAttributeKeys(i)) {
+                            parts.setAttribute(i, key, STAR_PATTERN);
+                        }
+                    }
+                    return parts.toString();
+                });
+    }
+
     public String set(String path) {
         XPathParts parts = XPathParts.getFrozenInstance(path).cloneAsThawed();
-        return set(parts, Collections.<String>emptySet());
+        return set(parts, Collections.emptySet());
     }
 
     /**

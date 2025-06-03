@@ -24,8 +24,9 @@ Compare the list of commits since the last push to production
 
 - Open [Comparing changes][]
 - Change the tag on the left to the most recent push to production tag, and keep `compare:` on the right as `compare: main`
+   - Survey Tool releases are automatically tagged production/yyyy-MM-dd-xxxxz
 
-TODO: Add image
+![Commit Checker Workflow](/images/development/comparing-changes-for-push-to-production.png)
 
 ### 3. Notify the TC
 

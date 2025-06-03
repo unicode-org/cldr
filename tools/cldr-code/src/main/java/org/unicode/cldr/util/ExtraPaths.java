@@ -272,17 +272,20 @@ public class ExtraPaths {
                             + " in "
                             + supplementalData.getDirectory().getAbsolutePath());
         }
-        Set<SupplementalDataInfo.PluralInfo.Count> pluralCounts = Collections.emptySet();
-        addUnitPlurals(toAddTo, file, plurals);
+        Set<SupplementalDataInfo.PluralInfo.Count> pluralCounts =
+                (plurals != null) ? plurals.getAdjustedCounts() : Collections.emptySet();
+        addUnitPlurals(toAddTo, file, plurals, pluralCounts);
         addDayPlurals(toAddTo, localeID);
         addCurrencies(toAddTo, pluralCounts);
         addGrammar(toAddTo, pluralCounts, localeID);
     }
 
     private static void addUnitPlurals(
-            Set<String> toAddTo, Iterable<String> file, SupplementalDataInfo.PluralInfo plurals) {
+            Set<String> toAddTo,
+            Iterable<String> file,
+            SupplementalDataInfo.PluralInfo plurals,
+            Set<SupplementalDataInfo.PluralInfo.Count> pluralCounts) {
         if (plurals != null) {
-            Set<SupplementalDataInfo.PluralInfo.Count> pluralCounts = plurals.getAdjustedCounts();
             Set<SupplementalDataInfo.PluralInfo.Count> pluralCountsRaw = plurals.getCounts();
             if (pluralCountsRaw.size() != 1) {
                 // we get all the root paths with count

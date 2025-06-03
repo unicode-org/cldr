@@ -18,7 +18,16 @@ There is usually a weekly push to production when the Survey Tool is open for su
 
 Decide who will be the checker and the pusher for the current push to production.
 
-### 2. Notify the TC
+### 2. Make sure all fixes are ready for the push to production
+
+Compare the list of commits since the last push to production
+
+- Open [Comparing changes][]
+- Change the tag on the left to the most recent push to production tag, and keep `compare:` on the right as `compare: main`
+
+TODO: Add image
+
+### 3. Notify the TC
 
 Email the CLDR TC to ask people to hold off merging any changes until the push to production completes.
 
@@ -77,11 +86,11 @@ Email the CLDR TC to ask people to hold off merging any changes until the push t
 
 1. Send email with the CLDR_CODE_HASH and results and Quick UI verification to Pusher with the CLDR TC on cc.
 2. Pusher pushes to production (Github action - see screenshot below) for the verified CLDR_CODE_HASH version.
-3. Pusher adds the label:in-production to all the items on Check for Push to Production.
 4. Pusher notifies the CLDR TC that people can begin merging changes again.
 5. Pusher updates known issues on the Info Hub so the vetters understand what has changed.
    - Record new important Known Issues (with date changed)
    - Move any fixed Known issues to Resolved (with date changed)
+      - Use [Comparing changes][] to compare the previous push to production against the latest for the list of changes.
    - Add News item at top, summarizing changes. (Drop lines more than 2 weeks old.)
 6. CLDR TC sends an announcement to the vetter if there are any changes that the vetters need to be aware of more quickly.
 
@@ -91,3 +100,5 @@ The Survey Tool has just been updated:
 Resolved Issues: Survey Tool's info panel loads faster; auto-import of votes improved
 Known Issues: Some old votes (notably for North Macedonia) were not imported correctly.
 For more details, see http://cldr.unicode.org/translation.
+
+[Comparing changes]: https://github.com/unicode-org/cldr/compare/

@@ -142,7 +142,7 @@ public class ExampleCache {
      */
     void update(String xpath) {
         if (AVOID_CLEARING_CACHE) {
-            String starredA = pathStarrer.set(xpath);
+            String starredA = PathStarrer.computeIfAbsent(xpath);
             for (String starredB : ExampleDependencies.dependencies.get(starredA)) {
                 cache.remove(starredB, xpath, null);
             }

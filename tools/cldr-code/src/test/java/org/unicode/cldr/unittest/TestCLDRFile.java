@@ -330,7 +330,6 @@ public class TestCLDRFile extends TestFmwk {
                             || path.contains("[@alt=\"variant\"]")
                             || path.contains("[@alt=\"formal\"]")
                             || path.contains("[@type=\"pressure-gasoline-energy-density\"]")
-                            || path.contains("[@type=\"Pacific/Honolulu\"")
                             || (path.contains("dayPeriod[@type=")
                                     && (path.endsWith("1\"]")
                                             || path.endsWith("\"am\"]")

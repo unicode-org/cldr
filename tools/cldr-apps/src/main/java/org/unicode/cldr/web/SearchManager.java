@@ -217,6 +217,7 @@ public class SearchManager implements Closeable {
                     if (x.contains("[@cp=\"" + cp + "\"]") && x.contains("[@type=\"tts\"]")) {
                         response.addResult(new SearchResult(x, "tts: " + cp, locale));
                     }
+                    continue; // Do not try to match otherwise code for annotation
                 }
 
                 final PathHeader ph = phf.fromPath(x);

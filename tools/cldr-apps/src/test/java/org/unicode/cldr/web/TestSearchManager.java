@@ -18,6 +18,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CodePointEscaper;
 import org.unicode.cldr.util.Emoji;
 import org.unicode.cldr.web.SearchManager.SearchRequest;
 import org.unicode.cldr.web.SearchManager.SearchResponse;
@@ -133,8 +134,19 @@ public class TestSearchManager {
     @Test
     void TestEmoji() throws InterruptedException {
         final String CP = Character.toString(0x1F557);
+        final String CP2 =
+                Character.toString(0x2764)
+                        + Character.toString(0xFE0F)
+                        + Character.toString(0x200D)
+                        + Character.toString(0x1F525); // "❤️‍🔥"
+        final String CP2_NOVS =
+                Character.toString(0x2764)
+                        + Character.toString(0x200D)
+                        + Character.toString(0x1F525); // "❤️‍🔥"
         System.out.println(CP);
         final String XPATH = "//ldml/annotations/annotation[@cp=\"" + CP + "\"][@type=\"tts\"]";
+        final String XPATH2 =
+                "//ldml/annotations/annotation[@cp=\"" + CP2_NOVS + "\"][@type=\"tts\"]";
         final String searchText = CP;
         final String locale = "ja";
         assertAll(
@@ -153,7 +165,9 @@ public class TestSearchManager {
                                 locale,
                                 locale,
                                 "tts: " + searchText) // should match in the locale
-                );
+                ,
+                () -> testOneSearchResult(XPATH2, CP2, locale, locale, "tts: " + CP2_NOVS),
+                () -> testOneSearchResult(XPATH2, CP2_NOVS, locale, locale, "tts: " + CP2_NOVS));
     }
 
     private void testOneSearchResult(
@@ -239,6 +253,9 @@ public class TestSearchManager {
                                             + result
                                             + " looking for "
                                             + searchContext
+                                            + " ("
+                                            + CodePointEscaper.toEscaped(searchText)
+                                            + ")"
                                             + " - matches= "
                                             + results);
                 }

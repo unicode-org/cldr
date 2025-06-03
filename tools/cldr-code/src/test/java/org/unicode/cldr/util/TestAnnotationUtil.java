@@ -49,4 +49,20 @@ public class TestAnnotationUtil {
             }
         }
     }
+
+    @Test
+    public void testRemoveVS() {
+        final String CP = Character.toString(0x1F557);
+        final String CP2 =
+                Character.toString(0x2764)
+                        + Character.toString(0xFE0F)
+                        + Character.toString(0x200D)
+                        + Character.toString(0x1F525); // "❤️‍🔥"
+        final String CP2_NOVS =
+                Character.toString(0x2764)
+                        + Character.toString(0x200D)
+                        + Character.toString(0x1F525); // "❤️‍🔥"
+        assertEquals(CP, AnnotationUtil.removeEmojiVariationSelector(CP + Emoji.EMOJI_VARIANT));
+        assertEquals(CP2_NOVS, AnnotationUtil.removeEmojiVariationSelector(CP2));
+    }
 }

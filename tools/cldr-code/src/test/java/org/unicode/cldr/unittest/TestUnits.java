@@ -4798,7 +4798,7 @@ public class TestUnits extends TestFmwkPlus {
     public void testSkippedUnitsForGrammer() {
 
         // Note: the list for 'never' also includes the enOrJaOnly units (see above in this file).
-        
+
         final Multimap<GrammarStatus, String> statusToLongUnit =
                 ImmutableMultimap.<GrammarStatus, String>builder()
                         .putAll(

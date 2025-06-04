@@ -4797,28 +4797,12 @@ public class TestUnits extends TestFmwkPlus {
 
     public void testSkippedUnitsForGrammer() {
 
+        // Note: the list for 'never' also includes the enOrJaOnly units (see above in this file).
+        
         final Multimap<GrammarStatus, String> statusToLongUnit =
                 ImmutableMultimap.<GrammarStatus, String>builder()
                         .putAll(
                                 GrammarStatus.never,
-                                //                        "angle-steradian",
-                                //                        "concentr-katal",
-                                //                        "concentr-ofglucose",
-                                //                        "concentr-part",
-                                //                        "electric-coulomb",
-                                //                        "electric-farad",
-                                //                        "electric-henry",
-                                //                        "electric-siemens",
-                                //                        "energy-becquerel",
-                                //                        "energy-calorie-it",
-                                //                        "energy-gray",
-                                //                        "energy-sievert",
-                                //                        "force-kilogram-force",
-                                //                        "magnetic-tesla",
-                                //                        "magnetic-weber",
-                                //                        "pressure-ofhg",
-                                //                        "speed-light-speed",
-                                //                        "volume-fluid-ounce-metric",
                                 "angle-steradian",
                                 "area-bu-jp",
                                 "area-cho",

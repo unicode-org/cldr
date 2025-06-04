@@ -7,6 +7,8 @@ title: Information Hub for Linguists
 The following list summarizes the recent changes, with more details in a section further down the page.
 A sequence like 🆕 2025-05-09 marks items that have been recently added.
 In your browser you can copy this sequence, then use ⌘-F (Mac) or Ctrl-F (Windows) to find all the places it occurs.
+- **🆕 2025-06-04**
+  - [CLDR-18712][] - Inflections are showing up for new units unexpectedly where grammar was not added. We are currently working on removing the unnecessary items.
 - **🆕 2025-06-03**
   - Emoji search keywords are separated by a `|` character (U+007C `|` VERTICAL LINE). Some users had used the wrong character (such as U+FF5C	`｜` FULLWIDTH VERTICAL LINE). Those have been corrected, and will now be automatically converted whenever people enter the wrong character.
   - A reminder: whenever people enter keywords, they are ordered automatically (with a language-independent ordering). With some languages (eg, Icelandic) the _blue star_ items were in the wrong order, leading votes to appear in a different order. This also causes the wrong character for `|` items to be reordered.
@@ -418,16 +420,18 @@ To see how to [**input** these from the keyboard], and for a key to **all** the 
 
 ## Known Issues
 
-Last updated: 2025-06-03
+Last updated: 2025-06-04
 
 This list will be updated as fixes are made available in Survey Tool Production. If you find a problem, please [file a ticket](requesting_changes), but please review this list first to avoid creating duplicate tickets.
 
-1. [[CLDR-18577][] - If your language does not have a variant value, you can vote for inheritance from the standard version.
-2. [CLDR-17829][] - some links in the Info panel not displaying properly
-3. [CLDR-13477][] - Images for the plain symbols. Non-emoji such as [€](https://st.unicode.org/cldr-apps/v#/fr/OtherSymbols/47925556fd2904b5), √, », ¹, §, ... do not have images in the Info Panel.  **Workaround**: Look at the Code column; unlike the new emoji, your browser should display them there.
-4. [CLDR-17683][] - Some items are not able to be flagged for TC review. This is being investigated. Meanwhile, Please enter forum posts meanwhile with any comments.
-5. [CLDR-18607][] - Unable to download current votes in CSV
-6. [CLDR-18615][] - Unclear error message if a link sends you to a page that no longer exists in the Survey Tool
+1. 🆕 2025-06-04 [CLDR-18712][] - Inflections are showing up for new units unexpectedly where grammar was not added
+2. 🆕 2025-06-04 [CLDR-18689][] - Languages are sorted by full English name instead of core element, and may appear on different pages in Locale Display Names
+3. [[CLDR-18577][] - If your language does not have a variant value, you can vote for inheritance from the standard version.
+4. [CLDR-17829][] - some links in the Info panel not displaying properly
+5. [CLDR-13477][] - Images for the plain symbols. Non-emoji such as [€](https://st.unicode.org/cldr-apps/v#/fr/OtherSymbols/47925556fd2904b5), √, », ¹, §, ... do not have images in the Info Panel.  **Workaround**: Look at the Code column; unlike the new emoji, your browser should display them there.
+6. [CLDR-17683][] - Some items are not able to be flagged for TC review. This is being investigated. Meanwhile, Please enter forum posts meanwhile with any comments.
+7. [CLDR-18607][] - Unable to download current votes in CSV
+8. [CLDR-18615][] - Unclear error message if a link sends you to a page that no longer exists in the Survey Tool
 
 ## Resolved Issues
 
@@ -515,8 +519,10 @@ entry you're editing/vetting. Use it if in doubt.*
 [CLDR-18637]: https://unicode-org.atlassian.net/browse/CLDR-18637
 [CLDR-18649]: https://unicode-org.atlassian.net/browse/CLDR-18649
 [CLDR-18687]: https://unicode-org.atlassian.net/browse/CLDR-18687
+[CLDR-18689]: https://unicode-org.atlassian.net/browse/CLDR-18689
 [CLDR-18691]: https://unicode-org.atlassian.net/browse/CLDR-18691
 [CLDR-18692]: https://unicode-org.atlassian.net/browse/CLDR-18692
+[CLDR-18712]: https://unicode-org.atlassian.net/browse/CLDR-18712
 [stand-alone vs. formatting]: /translation/date-time/date-time-patterns#when-to-use-standalone-vs-formatting
 [Year First Calendar]: /translation/date-time/date-time-patterns#year-first-calendar
 [Example Hidden]: https://st.unicode.org/cldr-apps/v#/USER/Number_Formatting_Patterns/67afe297d3a17a3

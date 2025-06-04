@@ -1,8 +1,15 @@
 package org.unicode.cldr.unittest;
 
 import com.google.common.base.Joiner;
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableMultimap;
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
+import com.ibm.icu.util.Output;
+import com.ibm.icu.util.OutputInt;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -13,18 +20,23 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdData.Attribute;
+import org.unicode.cldr.util.DtdData.AttributeStatus;
 import org.unicode.cldr.util.DtdData.Element;
 import org.unicode.cldr.util.DtdData.Element.ValueConstraint;
 import org.unicode.cldr.util.DtdData.ElementType;
 import org.unicode.cldr.util.DtdType;
+import org.unicode.cldr.util.Joiners;
 import org.unicode.cldr.util.MatchValue;
 import org.unicode.cldr.util.MatchValue.EnumParser;
 import org.unicode.cldr.util.Pair;
@@ -929,5 +941,322 @@ public class TestDtdData extends TestFmwk {
             ValueConstraint check = DtdData.Element.ValueConstraint.nonempty;
             assertEquals(path, expected, actual);
         }
+    }
+
+    // In each .putAll, the first item is an element that has multiple parents.
+    // Ideally this should just be forbidden, but if it always has the same semantics for all
+    // parents, it is ok.
+    // Bad cases are like  .putAll("script", "identity", "scripts")
+    //    The element contents in the .../identity/script is a script CODE,
+    //       (and should have been /identity/scriptId or something like it)
+    //    While in …/scripts/script it is a script NAME!
+
+    static final ImmutableMap<String, Multimap<String, String>> MULTIPLE_PARENT_EXCEPTIONS =
+            ImmutableMap.of(
+                    "supplementalData",
+                            ImmutableMultimap.<String, String>builder()
+                                    .putAll("metazoneInfo", "supplementalData", "metaZones")
+                                    .putAll("mapTimezones", "windowsZones", "metaZones")
+                                    .build(),
+                    "ldml",
+                            ImmutableMultimap.<String, String>builder()
+                                    // datetime variant
+                                    .putAll(
+                                            "datetimeSkeleton",
+                                            "dateFormat",
+                                            "timeFormat")
+                                    // zone or metazone name
+                                    .putAll("long", "metazone", "zone")
+                                    .putAll("short", "metazone", "zone")
+                                    // era names
+                                    .putAll("era", "eraNames", "eraAbbr", "eraNarrow")
+                                    // zone or metazone name
+                                    .putAll("generic", "long", "short")
+                                    .putAll("standard", "long", "short")
+                                    .putAll("daylight", "long", "short")
+                                    // currency duplicates
+                                    .putAll("decimal", "currency", "symbols")
+                                    .putAll("group", "currency", "symbols")
+                                    // before/after variants
+                                    .putAll("currencyMatch", "beforeCurrency", "afterCurrency")
+                                    .putAll(
+                                            "surroundingMatch",
+                                            "beforeCurrency",
+                                            "afterCurrency")
+                                    .putAll(
+                                            "insertBetween",
+                                            "beforeCurrency",
+                                            "afterCurrency")
+                                    // name
+                                    .putAll(
+                                            "displayName",
+                                            "dateFormat",
+                                            "currency",
+                                            "coordinateUnit",
+                                            "field",
+                                            "unit",
+                                            "dateTimeFormat",
+                                            "timeFormat")
+                                    // //ldml/units/unit/unitPattern needs to be deprecated
+                                    .putAll("unitPattern", "currencyFormats", "unit")
+                                    // suboptimal (very different patterns)
+                                    .putAll(
+                                            "pattern",
+                                            "dateFormat",
+                                            "scientificFormat",
+                                            "percentFormat",
+                                            "currency",
+                                            "decimalFormat",
+                                            "currencyFormat",
+                                            "dateTimeFormat",
+                                            "miscPatterns",
+                                            "timeFormat")
+                                    .putAll("fields", "calendar", "dates")
+
+                                    // bad cases
+                                    .putAll("language", "languages", "identity")
+                                    .putAll("script", "identity", "scripts")
+                                    .putAll("territory", "territories", "identity")
+                                    .putAll("variant", "variants", "identity")
+                                    .putAll("unit", "unitLength", "units")
+                                    .build(),
+                    "keyboard3",
+                            ImmutableMultimap.<String, String>builder()
+                                    .putAll(
+                                            "import",
+                                            "keys",
+                                            "transformGroup",
+                                            "transforms",
+                                            "displays",
+                                            "layers",
+                                            "variables",
+                                            "keyboard3",
+                                            "flicks",
+                                            "forms")
+                                    .build());
+
+    // to rebuild, set to true.
+    private static final boolean BUILD_EXCEPTIONS = true;
+
+    static Set<String> exceptions = Set.of("alias", "special");
+
+    // An EPath is a List<Elements> corresponding to a possible path
+    
+    public void testRegularStructure() {
+        Set<String> childrenPlusAttributes = new LinkedHashSet<>();
+        Set<String> multipleParents = new LinkedHashSet<>();
+        ArrayList<String> allowedExceptions = new ArrayList<>();
+        Map<DtdType, CLDRFile> filesForSample =
+                ImmutableMap.of(DtdType.ldml, testInfo.getEnglish());
+        boolean firstException = true;
+        for (DtdType dtdType : DtdType.STANDARD_SET) {
+            CLDRFile cldrFileForSample = testInfo.getEnglish();
+
+            DtdData dtdData = DtdData.getInstance(dtdType);
+            Output<Multimap<Element,List<Element>>> elementToEPathsOut = new Output<>(LinkedHashMultimap.create());
+            Set<List<Element>> allEPaths = getAllPaths(dtdData.ROOT, elementToEPathsOut);
+            Multimap<Element, List<Element>> elementToEPaths = elementToEPathsOut.value;
+            allEPaths.stream()
+                    .forEach(
+                            x -> {
+                                String sample = getSample(cldrFileForSample, x);
+                                System.out.println(sample + "\t" + Joiners.TAB.join(x));
+                            });
+            // Multimap<Element, Element> childToParents = LinkedHashMultimap.create();
+            for (Element element : dtdData.getElements()) {
+                if (element.isDeprecated() || exceptions.contains(element.name)) {
+                    continue;
+                }
+                Set<Element> children = element.getChildren().keySet();
+                if (children.isEmpty()) {
+                    continue;
+                }
+//                for (Element child : children) {
+//                    if (child.isDeprecated() || exceptions.contains(child.name)) {
+//                        continue;
+//                    }
+//                    childToParents.put(child, element);
+//                }
+                Set<Attribute> attributes = element.getAttributes().keySet();
+
+                // elements with children should never have value attributes
+
+                Set<String> valueAttributes =
+                        attributes.stream()
+                                .filter(
+                                        x ->
+                                                !x.isDeprecated()
+                                                        && x.attributeStatus
+                                                                == AttributeStatus.value)
+                                .map(x -> x.getName())
+                                .collect(Collectors.toSet());
+                if (!valueAttributes.isEmpty()) {
+                    childrenPlusAttributes.add(
+                            Joiners.TAB.join(
+                                    dtdType,
+                                    "Elements with children and value attributes:",
+                                    "element:",
+                                    element,
+                                    "attributes:",
+                                    valueAttributes,
+                                    "children:",
+                                    children));
+                }
+            }
+            // No child should have more than 1 parent
+            if (BUILD_EXCEPTIONS) {
+                if (firstException) {
+                    firstException = false;
+                    allowedExceptions.add(
+                            "static final ImmutableMap<String, Multimap<String, String>> MULTIPLE_PARENT_EXCEPTIONS =ImmutableMap.of(");
+                } else {
+                    allowedExceptions.add(",");
+                }
+                allowedExceptions.add(
+                        "\"" + dtdType + "\", ImmutableMultimap.<String, String>builder()");
+            }
+            for (Entry<Element, Collection<List<Element>>> entry : elementToEPaths.asMap().entrySet()) {
+                if (entry.getValue().size() <= 1) {
+                    continue;
+                }
+                Set<String> paths = entry.getValue().stream().map(x -> ePathToString(x)).collect(Collectors.toCollection(TreeSet::new));
+                if (BUILD_EXCEPTIONS) {
+                    allowedExceptions.add(
+                            ".putAll(\""
+                                    + entry.getKey()
+                                    + "\", \""
+                                    + Joiner.on("\", \"").join(paths)
+                                    + "\")");
+                }
+                OutputInt i = new OutputInt();
+                for (List<Element> elementPath : entry.getValue()) {
+                    //List<Element> elementPath = findParentChild(allEPaths, parent, entry.getKey());
+                    String path = ePathToString(elementPath);
+                    multipleParents.add(
+                            Joiners.TAB.join(
+                                    dtdType,
+                                    "Child has multiple parents",
+                                    "element=",
+                                    entry.getKey(),
+                                    "parent=",
+                                    ++i.value,
+                                    path,
+                                    getSample(cldrFileForSample, elementPath)));
+                }
+            }
+            if (BUILD_EXCEPTIONS) {
+                allowedExceptions.add(".build()");
+            }
+        }
+        if (!childrenPlusAttributes.isEmpty()) {
+            errln(
+                    "Both children and attributes:\t"
+                            + childrenPlusAttributes.size()
+                            + "\n"
+                            + Joiners.N.join(childrenPlusAttributes));
+        }
+        if (!multipleParents.isEmpty()) {
+            errln(
+                    "Multiple parents:\t"
+                            + multipleParents.size()
+                            + "\n"
+                            + Joiners.N.join(multipleParents));
+        }
+        if (BUILD_EXCEPTIONS) {
+            allowedExceptions.stream().forEach(System.out::println);
+            System.out.println(");");
+        }
+    }
+
+    private String ePathToString(List<Element> elementPath) {
+        return "//" + Joiner.on('/').join(elementPath);
+    }
+
+    private String getSample(CLDRFile fileForSample, List<Element> elementPath) {
+        if (fileForSample == null) {
+            return "NO_FILE";
+        }
+        Element last = elementPath.get(elementPath.size() - 1);
+        if (last.getType() == ElementType.EMPTY) {
+            return "EMPTY";
+        }
+        List<String> partElements =
+                elementPath.stream().map(x -> x.name).collect(Collectors.toList());
+        for (String path : testInfo.getEnglish()) {
+            XPathParts parts = XPathParts.getFrozenInstance(path);
+            if (parts.containsElement("unit") || parts.containsElement("gender")) {
+                int debug = 0;
+            }
+            if (!matches(partElements, parts)) {
+                continue;
+            }
+            String sample = fileForSample.getStringValue(path);
+            if (sample != null) {
+                return sample;
+            }
+        }
+        return "???";
+    }
+
+    private boolean matches(List<String> partElements, XPathParts parts) {
+        if (partElements.size() != parts.size()) {
+            return false;
+        }
+        for (int i = 0; i < partElements.size(); ++i) {
+            if (!partElements.get(i).equals(parts.getElement(i))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    // find a path that has (...)? parent child (...)?
+    // depends on not having the same element repeated in paths.
+    private List<Element> findParentChild(Set<List<Element>> paths, Element parent, Element child) {
+        for (List<Element> path : paths) {
+            int eIndex = path.indexOf(child);
+            if (eIndex < 1) {
+                continue;
+            }
+            int pIndex = path.indexOf(parent);
+            if (pIndex == eIndex - 1) {
+                return path;
+            }
+        }
+        return null;
+    }
+
+    private Set<List<Element>> getAllPaths(Element root, Output<Multimap<Element, List<Element>>> elementToEPathsOut) {
+        Set<List<Element>> workingSet = Set.of(List.of(root));
+        Set<List<Element>> results = new LinkedHashSet<>();
+
+        // we lengthen each element of the working set if we can.
+        // any one that can't be lengthen we move to the results
+        while (!workingSet.isEmpty()) {
+            Set<List<Element>> newWorkingSet = new LinkedHashSet<>();
+
+            for (List<Element> workingItem : workingSet) {
+                Element last = workingItem.get(workingItem.size() - 1);
+                Set<Element> children = last.getChildren().keySet();
+                if (children.isEmpty()) {
+                    results.add(workingItem);
+                    for (int i = 0; i < workingItem.size(); ++i) {
+                        Element e = workingItem.get(i);
+                        elementToEPathsOut.value.put(e, workingItem.subList(0, i+1));
+                    }
+                    continue;
+                }
+                for (Element child : children) {
+                    if (child.isDeprecated() || exceptions.contains(child.name)) {
+                        continue;
+                    }
+                    List<Element> newList =
+                            ImmutableList.<Element>builder().addAll(workingItem).add(child).build();
+                    newWorkingSet.add(newList);
+                }
+            }
+            workingSet = newWorkingSet;
+        }
+        return ImmutableSet.copyOf(results);
     }
 }

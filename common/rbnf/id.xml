@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
-Copyright © 1991-2024 Unicode, Inc.
+Copyright © 1991-2025 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -12,6 +12,47 @@ For terms of use, see http://www.unicode.org/copyright.html
     </identity>
     <rbnf>
         <rulesetGrouping type="SpelloutRules">
+            <rbnfRules><![CDATA[
+%spellout-numbering-year:
+x.x: =0.0=;
+0: =%spellout-numbering=;
+%spellout-numbering:
+0: =%spellout-cardinal=;
+%spellout-cardinal:
+-x: negatif >>;
+x.x: << titik >>;
+x,x: << koma >>;
+0: nol;
+1: satu;
+2: dua;
+3: tiga;
+4: empat;
+5: lima;
+6: enam;
+7: tujuh;
+8: delapan;
+9: sembilan;
+10: sepuluh;
+11: sebelas;
+12: >> belas;
+20: << puluh[ >>];
+100: seratus[ >>];
+200: << ratus[ >>];
+1000: seribu[ >>];
+2000: << ribu[ >>];
+1000000: << juta[ >>];
+1000000000: << miliar[ >>];
+1000000000000: << triliun[ >>];
+1000000000000000: << kuadriliun[ >>];
+1000000000000000000: =#,##0.#=;
+%spellout-ordinal:
+-x: negatif >>;
+x.x: =#,##0.#=;
+0: ke=%spellout-cardinal=;
+1: pertama;
+2: ke=%spellout-cardinal=;
+]]></rbnfRules>
+            <!-- The following redundant ruleset elements have been deprecated and will be removed in the next release. Please use the rbnfRules contents instead. -->
             <ruleset type="spellout-numbering-year">
                 <rbnfrule value="x.x">=0.0=;</rbnfrule>
                 <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
@@ -56,6 +97,12 @@ For terms of use, see http://www.unicode.org/copyright.html
             </ruleset>
         </rulesetGrouping>
         <rulesetGrouping type="OrdinalRules">
+            <rbnfRules><![CDATA[
+%digits-ordinal:
+-x: −ke->#,##0>;
+0: ke-=#,##0=;
+]]></rbnfRules>
+            <!-- The following redundant ruleset elements have been deprecated and will be removed in the next release. Please use the rbnfRules contents instead. -->
             <ruleset type="digits-ordinal">
                 <rbnfrule value="-x">−ke-→#,##0→;</rbnfrule>
                 <rbnfrule value="0">ke-=#,##0=;</rbnfrule>

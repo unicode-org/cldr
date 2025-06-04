@@ -8,7 +8,7 @@ The following list summarizes the recent changes, with more details in a section
 A sequence like 🆕 2025-05-09 marks items that have been recently added.
 In your browser you can copy this sequence, then use ⌘-F (Mac) or Ctrl-F (Windows) to find all the places it occurs.
 - **🆕 2025-06-03**
-  - Emoji search keywords are separated by a | character (U+007C “|” VERTICAL LINE). Some users had used the wrong character (such as U+FF5C	“｜” FULLWIDTH VERTICAL LINE). Those have been corrected, and will now be automatically converted whenever people enter the wrong character.
+  - Emoji search keywords are separated by a “|” character (U+007C “|” VERTICAL LINE). Some users had used the wrong character (such as U+FF5C	“｜” FULLWIDTH VERTICAL LINE). Those have been corrected, and will now be automatically converted whenever people enter the wrong character.
   - A reminder: whenever people enter keywords, they are ordered automatically (with a language-independent ordering). With some languages (eg, Icelandic) the _blue star_ items were in the wrong order, leading votes to appear in a different order. This also causes the wrong character for “|” items to be reordered.
   - The [ZWG currency code](https://en.wikipedia.org/wiki/Zimbabwean_ZiG), [XCG currency code](https://en.wikipedia.org/wiki/Caribbean_guilder)  and [Min Nan language code](https://en.wikipedia.org/wiki/Southern_Min) were not shown for translation in some locales. That has been corrected. Note that Min Nan will only show up with Coverage=Comprehensive.
   - You can now search for emoji characters, such as the 💔. Use the 🔍 control at the top right.
@@ -418,7 +418,7 @@ To see how to [**input** these from the keyboard], and for a key to **all** the 
 
 ## Known Issues
 
-Last updated: 2025-05-17
+Last updated: 2025-06-03
 
 This list will be updated as fixes are made available in Survey Tool Production. If you find a problem, please [file a ticket](requesting_changes), but please review this list first to avoid creating duplicate tickets.
 
@@ -426,20 +426,24 @@ This list will be updated as fixes are made available in Survey Tool Production.
 2. [CLDR-17829][] - some links in the Info panel not displaying properly
 3. [CLDR-13477][] - Images for the plain symbols. Non-emoji such as [€](https://st.unicode.org/cldr-apps/v#/fr/OtherSymbols/47925556fd2904b5), √, », ¹, §, ... do not have images in the Info Panel.  **Workaround**: Look at the Code column; unlike the new emoji, your browser should display them there.
 4. [CLDR-17683][] - Some items are not able to be flagged for TC review. This is being investigated. Meanwhile, Please enter forum posts meanwhile with any comments.
-5. [CLDR-18637][] - Some example pop-ups are showing 'undefined' instead of the expected example
-6. [CLDR-18607][] - Unable to download current votes in CSV
-7. [CLDR-18615][] - Unclear error message if a link sends you to a page that no longer exists in the Survey Tool
-8. [CLDR-18627][] - Some locale display names at comprehensive are not available in all locales
+5. [CLDR-18607][] - Unable to download current votes in CSV
+6. [CLDR-18615][] - Unclear error message if a link sends you to a page that no longer exists in the Survey Tool
 
 ## Resolved Issues
 
-Last updated: 2025-05-17
+Last updated: 2025-06-03
 
-1. 🆕 2025-05-18 — [CLDR-18605][] - Fix issue blocking import of winning votes from the previous cycle
-2. 🆕 2025-05-18 — [CLDR-18649][] - Same as root is now a warning if English is the same as root as well
-3. [CLDR-18513][] - Redirect from read-only locale to the default content locale does not work
-4. [CLDR-17694](https://unicode-org.atlassian.net/browse/CLDR-17694) - Back button in browser fails in forum under certain conditions
-5. [CLDR-17658](https://unicode-org.atlassian.net/browse/CLDR-17658) - Dashboard slowness
+1. 🆕 2025-06-03 - [CLDR-18687][] - Fix ordering of keycaps keywords in emoji annotations
+2. 🆕 2025-06-03 - [CLDR-18692][] - Automatically fix delimiters in emoji annotation keywords with DAIP
+3. 🆕 2025-06-03 - [CLDR-18588][] - Fix XCG and ZWG which were not showing up properly in the Survey Tool
+4. 🆕 2025-06-03 - [CLDR-18691][] - Emojis are now searchable in Survey Tool search
+5. 🆕 2025-06-03 - [CLDR-18637][] - Don't show example pop-ups if no example is available
+6. 🆕 2025-06-03 - [CLDR-18627][] - Allow nan to show up in comprehensive for all locales
+7. 🆕 2025-05-18 — [CLDR-18605][] - Fix issue blocking import of winning votes from the previous cycle
+8. 🆕 2025-05-18 — [CLDR-18649][] - Same as root is now a warning if English is the same as root as well
+9. [CLDR-18513][] - Redirect from read-only locale to the default content locale does not work
+10. [CLDR-17694](https://unicode-org.atlassian.net/browse/CLDR-17694) - Back button in browser fails in forum under certain conditions
+11. [CLDR-17658](https://unicode-org.atlassian.net/browse/CLDR-17658) - Dashboard slowness
 
 ## Recent Changes
 
@@ -503,12 +507,16 @@ entry you're editing/vetting. Use it if in doubt.*
 [CLDR-18423]: https://unicode-org.atlassian.net/browse/CLDR-18423
 [CLDR-18513]: https://unicode-org.atlassian.net/browse/CLDR-18513
 [CLDR-18577]: https://unicode-org.atlassian.net/browse/CLDR-18577
+[CLDR-18588]: https://unicode-org.atlassian.net/browse/CLDR-18588
 [CLDR-18605]: https://unicode-org.atlassian.net/browse/CLDR-18605
 [CLDR-18607]: https://unicode-org.atlassian.net/browse/CLDR-18607
 [CLDR-18615]: https://unicode-org.atlassian.net/browse/CLDR-18615
 [CLDR-18627]: https://unicode-org.atlassian.net/browse/CLDR-18627
 [CLDR-18637]: https://unicode-org.atlassian.net/browse/CLDR-18637
 [CLDR-18649]: https://unicode-org.atlassian.net/browse/CLDR-18649
+[CLDR-18687]: https://unicode-org.atlassian.net/browse/CLDR-18687
+[CLDR-18691]: https://unicode-org.atlassian.net/browse/CLDR-18691
+[CLDR-18692]: https://unicode-org.atlassian.net/browse/CLDR-18692
 [stand-alone vs. formatting]: /translation/date-time/date-time-patterns#when-to-use-standalone-vs-formatting
 [Year First Calendar]: /translation/date-time/date-time-patterns#year-first-calendar
 [Example Hidden]: https://st.unicode.org/cldr-apps/v#/USER/Number_Formatting_Patterns/67afe297d3a17a3

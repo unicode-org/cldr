@@ -6,7 +6,14 @@ title: Information Hub for Linguists
 
 The following list summarizes the recent changes, with more details in a section further down the page.
 A sequence like 🆕 2025-05-09 marks items that have been recently added.
-In your browser you can copy this sequence, then use ⌘-F (Mac) or Ctrl-F (Windows) to find all the places it occurs. 
+In your browser you can copy this sequence, then use ⌘-F (Mac) or Ctrl-F (Windows) to find all the places it occurs.
+- **🆕 2025-06-03**
+  - Emoji search keywords are separated by a | character (U+007C “|” VERTICAL LINE). Some users had used the wrong character (such as U+FF5C	“｜” FULLWIDTH VERTICAL LINE). Those have been corrected, and will now be automatically converted whenever people enter the wrong character.
+  - A reminder: whenever people enter keywords, they are ordered automatically (with a language-independent ordering). With some languages (eg, Icelandic) the _blue star_ items were in the wrong order, leading votes to appear in a different order. This also causes the wrong character for “|” items to be reordered.
+  - The [ZWG currency code](https://en.wikipedia.org/wiki/Zimbabwean_ZiG), [XCG currency code](https://en.wikipedia.org/wiki/Caribbean_guilder)  and [Min Nan language code](https://en.wikipedia.org/wiki/Southern_Min) were not shown for translation in some locales. That has been corrected. Note that Min Nan will only show up with Coverage=Comprehensive.
+  - You can now search for emoji characters, such as the 💔. Use the 🔍 control at the top right.
+  - Plural rules were added for Konkani (kok), so the "one" category will show up.
+  - Various infrastructure improvements were made. For example, some examples were not updating correctly when they used data from other fields.
 - **🆕 2025-05-28**
   - Many people are not voting correctly for **Characters in Use**: [punctuation-person](https://st.unicode.org/cldr-apps/v#/USER/Alphabetic_Information/3be8e5f5960f3603)
 - **🆕 2025-05-26**

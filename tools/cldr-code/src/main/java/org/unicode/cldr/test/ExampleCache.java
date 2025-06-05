@@ -144,7 +144,7 @@ public class ExampleCache {
         if (AVOID_CLEARING_CACHE) {
             String starredA = PathStarrer.computeIfAbsent(xpath);
             for (String starredB : ExampleDependencies.dependencies.get(starredA)) {
-                cache.remove(starredB, xpath, null);
+                cache.remove(starredB, null, null);
             }
             // TODO clean up the synchronization
             synchronized (registeredCache) {

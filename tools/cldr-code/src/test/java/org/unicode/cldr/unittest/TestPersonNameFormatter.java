@@ -51,6 +51,7 @@ import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleNames;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.Pair;
+import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.personname.PersonNameFormatter;
@@ -555,10 +556,7 @@ public class TestPersonNameFormatter extends TestFmwk {
                 name.getBestValue(ModifiedField.from("surname"), new HashSet<>()));
     }
 
-    // TODO: re-enable TestExampleDependencies
-    // Reference: https://unicode-org.atlassian.net/browse/CLDR-18683
-    /*
-        public void TestExampleDependencies() {
+    public void TestExampleDependencies() {
         Factory cldrFactory = CONFIG.getCldrFactory();
         CLDRFile root = cldrFactory.make("root", false);
         CLDRFile en = cldrFactory.make("en", false);
@@ -612,7 +610,6 @@ public class TestPersonNameFormatter extends TestFmwk {
                 "〖<i>🟨 Native name and script:</i>〗〖❬Zendaya❭〗〖❬IRENE2❭ ❬Adler❭〗〖❬Mary Sue❭ ❬Hamish❭ ❬Watson❭〗〖❬Mr.❭ ❬Bertram Wilberforce❭ ❬Henry Robert❭ ❬Wooster❭ ❬Jr❭, ❬MP❭〗〖<i>🟧 Foreign name and native script:</i>〗〖❬Sinbad❭〗〖❬Käthe❭ ❬Müller❭〗〖❬Zäzilia❭ ❬Hamish❭ ❬Stöber❭〗〖❬Prof. Dr.❭ ❬Ada Cornelia❭ ❬César Martín❭ ❬von Brühl❭ ❬Jr❭, ❬MD DDS❭〗〖<i>🟥 Foreign name and script:</i>〗〖❬Єва❭ ❬Марія❭ ❬Шевченко❭〗〖❬太郎トーマス山田❭〗";
         checkExampleGenerator(exampleGenerator, path, value, expectedIRENE);
     }
-     */
 
     private String checkPath(String path) {
         assertEquals(

@@ -4836,6 +4836,7 @@ public class TestUnits extends TestFmwkPlus {
                                 "mass-fun",
                                 "mass-slug",
                                 "pressure-ofhg",
+                                "speed-beaufort",
                                 "speed-light-speed",
                                 "temperature-rankine",
                                 "volume-cup-imperial",

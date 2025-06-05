@@ -761,6 +761,7 @@ public class GrammarInfo implements Freezable<GrammarInfo> {
                     "electronvolt", // specialized
 
                     // specialized
+                    "beaufort",
                     "g-force",
                     "steradian",
                     "katal",

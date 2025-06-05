@@ -18,6 +18,7 @@ TODO: List all major types of tasks with their definitions and link to pages wit
 
 - [@New, by date](https://unicode-org.atlassian.net/issues/?filter=10033) - All untriaged issues sorted by date created.
 - [@New, by fix version](https://unicode-org.atlassian.net/issues/?filter=10801) - All untriaged issues sorted by fix version when available.
+- [Fix in Survey Tool](https://unicode-org.atlassian.net/issues/?filter=10999) - Open tickets that can be fixed by vetters in Survey Tool during submission.
 - [@New + Agenda, by date](https://unicode-org.atlassian.net/issues/?filter=10802)
 - [@Agenda](https://unicode-org.atlassian.net/issues/?filter=10158) - All issues tagged for TC discussion.
 - [CLDR + ICU helpwanted](https://unicode-org.atlassian.net/issues/?filter=10202) - Tickets tagged as 'Help Wanted' by the CLDR or ICU Technical Committees.

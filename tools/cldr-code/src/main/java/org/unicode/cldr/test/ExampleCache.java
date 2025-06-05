@@ -121,10 +121,10 @@ public class ExampleCache {
             String xpath,
             String value,
             ThreadSafeMapOfMapOfMap.TriFunction<String, String, String, String> f) {
-        if (!cachingIsEnabled) {
-            return null;
-        }
         String starredPath = PathStarrer.computeIfAbsent(xpath);
+        if (!cachingIsEnabled) {
+            return f.apply(starredPath, xpath, value);
+        }
         return cache.computeIfAbsent(starredPath, xpath, value, f);
     }
 

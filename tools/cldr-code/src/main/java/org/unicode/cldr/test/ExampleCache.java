@@ -121,10 +121,10 @@ public class ExampleCache {
             String xpath,
             String value,
             ThreadSafeMapOfMapOfMap.TriFunction<String, String, String, String> f) {
-        if (!cachingIsEnabled) {
-            return null;
-        }
         String starredPath = PathStarrer.computeIfAbsent(xpath);
+        if (!cachingIsEnabled) {
+            return f.apply(starredPath, xpath, value);
+        }
         return cache.computeIfAbsent(starredPath, xpath, value, f);
     }
 
@@ -144,7 +144,7 @@ public class ExampleCache {
         if (AVOID_CLEARING_CACHE) {
             String starredA = PathStarrer.computeIfAbsent(xpath);
             for (String starredB : ExampleDependencies.dependencies.get(starredA)) {
-                cache.remove(starredB, xpath, null);
+                cache.remove(starredB, null, null);
             }
             // TODO clean up the synchronization
             synchronized (registeredCache) {

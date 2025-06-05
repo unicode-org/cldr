@@ -13,7 +13,9 @@ import java.util.HashSet;
  * were accessed to generate the example.
  */
 public class RecordingCLDRFile extends CLDRFile {
-    private HashSet<String> recordedPaths = new HashSet<>();
+    private final HashSet<String> recordedPaths = new HashSet<>();
+
+    private boolean recordingIsEnabled = false;
 
     public RecordingCLDRFile(XMLSource dataSource) {
         super(dataSource);
@@ -21,6 +23,14 @@ public class RecordingCLDRFile extends CLDRFile {
 
     public RecordingCLDRFile(XMLSource dataSource, XMLSource... resolvingParents) {
         super(dataSource, resolvingParents);
+    }
+
+    public void enableRecording() {
+        recordingIsEnabled = true;
+    }
+
+    public void disableRecording() {
+        recordingIsEnabled = false;
     }
 
     public void clearRecordedPaths() {
@@ -50,6 +60,8 @@ public class RecordingCLDRFile extends CLDRFile {
     }
 
     private void recordPath(String xpath) {
-        recordedPaths.add(xpath);
+        if (recordingIsEnabled) {
+            recordedPaths.add(xpath);
+        }
     }
 }

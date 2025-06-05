@@ -51,13 +51,18 @@ public class ThreadSafeMapOfMapOfMap<K1, K2, K3, V> {
      * removed even if it becomes empty.
      *
      * @param key1 The first-level key.
-     * @param key2 The second-level key.
-     * @param key3 The third-level key, or null.
-     * @return The value that was removed, or null if the key path did not exist.
+     * @param key2 The second-level key, or null to remove the first-level key.
+     * @param key3 The third-level key, or null to clear the third-level map for key1 and key2.
+     * @return The value that was removed, or null if the key path did not exist or key2 or key3 is
+     *     null.
      */
     public V remove(K1 key1, K2 key2, K3 key3) {
         ConcurrentMap<K2, ConcurrentMap<K3, V>> map2 = map1.get(key1);
         if (map2 == null) {
+            return null;
+        }
+        if (key2 == null) {
+            map1.remove(key1);
             return null;
         }
         ConcurrentMap<K3, V> map3 = map2.get(key2);

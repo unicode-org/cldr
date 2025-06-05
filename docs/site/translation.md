@@ -427,29 +427,29 @@ Last updated: 2025-06-05
 This list will be updated as fixes are made available in Survey Tool Production. If you find a problem, please [file a ticket](requesting_changes), but please review this list first to avoid creating duplicate tickets.
 
 1. 🆕 2025-06-04 [CLDR-18689][] - Languages are sorted by full English name instead of core element, and may appear on different pages in Locale Display Names
-3. [[CLDR-18577][] - If your language does not have a variant value, you can vote for inheritance from the standard version.
-4. [CLDR-17829][] - some links in the Info panel not displaying properly
-5. [CLDR-13477][] - Images for the plain symbols. Non-emoji such as [€](https://st.unicode.org/cldr-apps/v#/fr/OtherSymbols/47925556fd2904b5), √, », ¹, §, ... do not have images in the Info Panel.  **Workaround**: Look at the Code column; unlike the new emoji, your browser should display them there.
-6. [CLDR-17683][] - Some items are not able to be flagged for TC review. This is being investigated. Meanwhile, Please enter forum posts meanwhile with any comments.
-7. [CLDR-18607][] - Unable to download current votes in CSV
-8. [CLDR-18615][] - Unclear error message if a link sends you to a page that no longer exists in the Survey Tool
+1. [[CLDR-18577][] - If your language does not have a variant value, you can vote for inheritance from the standard version.
+1. [CLDR-17829][] - some links in the Info panel not displaying properly
+1. [CLDR-13477][] - Images for the plain symbols. Non-emoji such as [€](https://st.unicode.org/cldr-apps/v#/fr/OtherSymbols/47925556fd2904b5), √, », ¹, §, ... do not have images in the Info Panel.  **Workaround**: Look at the Code column; unlike the new emoji, your browser should display them there.
+1. [CLDR-17683][] - Some items are not able to be flagged for TC review. This is being investigated. Meanwhile, Please enter forum posts meanwhile with any comments.
+1. [CLDR-18607][] - Unable to download current votes in CSV
+1. [CLDR-18615][] - Unclear error message if a link sends you to a page that no longer exists in the Survey Tool
 
 ## Resolved Issues
 
 Last updated: 2025-06-05
 
 1. 🆕 2025-06-05 [CLDR-18712][] - Inflections are showing up for new units unexpectedly where grammar was not added
-2. 🆕 2025-06-03 - [CLDR-18687][] - Fix ordering of keycaps keywords in emoji annotations
-3. 🆕 2025-06-03 - [CLDR-18692][] - Automatically fix delimiters in emoji annotation keywords with DAIP
-4. 🆕 2025-06-03 - [CLDR-18588][] - Fix XCG and ZWG which were not showing up properly in the Survey Tool
-5. 🆕 2025-06-03 - [CLDR-18691][] - Emojis are now searchable in Survey Tool search
-6. 🆕 2025-06-03 - [CLDR-18637][] - Don't show example pop-ups if no example is available
-7. 🆕 2025-06-03 - [CLDR-18627][] - Allow nan to show up in comprehensive for all locales
-8. 🆕 2025-05-18 — [CLDR-18605][] - Fix issue blocking import of winning votes from the previous cycle
-9. 🆕 2025-05-18 — [CLDR-18649][] - Same as root is now a warning if English is the same as root as well
-10. [CLDR-18513][] - Redirect from read-only locale to the default content locale does not work
-11. [CLDR-17694](https://unicode-org.atlassian.net/browse/CLDR-17694) - Back button in browser fails in forum under certain conditions
-12. [CLDR-17658](https://unicode-org.atlassian.net/browse/CLDR-17658) - Dashboard slowness
+1. 🆕 2025-06-03 - [CLDR-18687][] - Fix ordering of keycaps keywords in emoji annotations
+1. 🆕 2025-06-03 - [CLDR-18692][] - Automatically fix delimiters in emoji annotation keywords with DAIP
+1. 🆕 2025-06-03 - [CLDR-18588][] - Fix XCG and ZWG which were not showing up properly in the Survey Tool
+1. 🆕 2025-06-03 - [CLDR-18691][] - Emojis are now searchable in Survey Tool search
+1. 🆕 2025-06-03 - [CLDR-18637][] - Don't show example pop-ups if no example is available
+1. 🆕 2025-06-03 - [CLDR-18627][] - Allow nan to show up in comprehensive for all locales
+1. 🆕 2025-05-18 — [CLDR-18605][] - Fix issue blocking import of winning votes from the previous cycle
+1. 🆕 2025-05-18 — [CLDR-18649][] - Same as root is now a warning if English is the same as root as well
+1. [CLDR-18513][] - Redirect from read-only locale to the default content locale does not work
+1. [CLDR-17694](https://unicode-org.atlassian.net/browse/CLDR-17694) - Back button in browser fails in forum under certain conditions
+1. [CLDR-17658](https://unicode-org.atlassian.net/browse/CLDR-17658) - Dashboard slowness
 
 ## Recent Changes
 

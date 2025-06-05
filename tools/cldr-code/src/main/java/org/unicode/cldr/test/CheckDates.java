@@ -58,6 +58,7 @@ import org.unicode.cldr.util.XPathParts;
 
 public class CheckDates extends FactoryCheckCLDR {
     private static final boolean DEBUG = false;
+    private static final boolean DISABLE_DATE_ORDER = false;
 
     static boolean GREGORIAN_ONLY = CldrUtility.getProperty("GREGORIAN", false);
     private static final Set<String> CALENDARS_FOR_CORES = Set.of("gregorian", "iso8601");
@@ -205,16 +206,18 @@ public class CheckDates extends FactoryCheckCLDR {
          */
         flexInfo.getRedundants(redundants);
 
-        pathsWithConflictingOrder2sample =
-                DateOrder.getOrderingInfo(cldrFileToCheck, resolved, flexInfo.fp);
-        if (pathsWithConflictingOrder2sample == null) {
-            CheckStatus item =
-                    new CheckStatus()
-                            .setCause(this)
-                            .setMainType(CheckStatus.errorType)
-                            .setSubtype(Subtype.internalError)
-                            .setMessage("DateOrder.getOrderingInfo fails");
-            possibleErrors.add(item);
+        if (!DISABLE_DATE_ORDER) {
+            pathsWithConflictingOrder2sample =
+                    DateOrder.getOrderingInfo(cldrFileToCheck, resolved, flexInfo.fp);
+            if (pathsWithConflictingOrder2sample == null) {
+                CheckStatus item =
+                        new CheckStatus()
+                                .setCause(this)
+                                .setMainType(CheckStatus.errorType)
+                                .setSubtype(Subtype.internalError)
+                                .setMessage("DateOrder.getOrderingInfo fails");
+                possibleErrors.add(item);
+            }
         }
 
         dateFormatInfoFormat = sdi.getDayPeriods(Type.format, cldrFileToCheck.getLocaleID());

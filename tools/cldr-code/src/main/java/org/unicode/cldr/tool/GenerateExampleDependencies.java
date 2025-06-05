@@ -34,7 +34,6 @@ public class GenerateExampleDependencies {
     private final Factory factory;
     private final Set<String> locales;
     private final String outputDir;
-    private final PathStarrer pathStarrer;
 
     public static void main(String[] args) throws IOException {
         new GenerateExampleDependencies().run();
@@ -52,7 +51,6 @@ public class GenerateExampleDependencies {
         factory = info.getCldrFactory();
         locales = factory.getAvailable();
         outputDir = CLDRPaths.GEN_DIRECTORY + "test" + File.separator;
-        pathStarrer = new PathStarrer().setSubstitutionPattern("*");
     }
 
     public void run() throws IOException {
@@ -99,15 +97,18 @@ public class GenerateExampleDependencies {
             if (valueB == null) {
                 continue;
             }
-            String starredB = pathStarrer.set(pathB);
-            cldrFile.clearRecordedPaths();
+
+            String starredB = PathStarrer.computeIfAbsent(pathB);
+            cldrFile.enableRecording();
             egTest.getExampleHtml(pathB, valueB);
             HashSet<String> pathsA = cldrFile.getRecordedPaths();
+            cldrFile.clearRecordedPaths();
+            cldrFile.disableRecording();
             for (String pathA : pathsA) {
                 if (pathA.equals(pathB) || skipPathForDependencies(pathA)) {
                     continue;
                 }
-                String starredA = pathStarrer.set(pathA);
+                String starredA = PathStarrer.computeIfAbsent(pathA);
                 dependencies.put(starredA, starredB);
             }
         }

@@ -9,6 +9,7 @@
     "test": "npm run nonbrowser-test && npm run browser-test",
     "nonbrowser-test": "mocha --reporter spec test/nonbrowser/test-*.mjs",
     "browser-test": "npm run build-test && mocha-headless-chrome -f test/Test.html",
+    "client-test": "mocha --reporter spec test/client/test-*.mjs",
     "lint": "exit 0",
     "build": "webpack --mode=production",
     "build-dev": "webpack --mode=development",

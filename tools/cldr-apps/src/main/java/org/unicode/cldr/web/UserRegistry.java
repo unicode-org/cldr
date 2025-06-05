@@ -67,7 +67,7 @@ public class UserRegistry {
             loc = "fr"; // fallback
             CookieSession.checkForExpiredSessions();
             CookieSession mySession = CookieSession.retrieve(sess);
-            if (mySession.user != null) {
+            if (mySession != null && mySession.user != null) {
                 CLDRLocale exLoc = mySession.user.exampleLocale();
                 if (exLoc != null) {
                     loc = exLoc.getBaseName();
@@ -612,6 +612,8 @@ public class UserRegistry {
                 return new ClaSignature("DO_NOT_REQURE_CLA");
             } else if (ClaSignature.CLA_ORGS.contains(getOrganization())) {
                 return new ClaSignature(getOrganization());
+            } else if (UserRegistry.userIsExactlyAnonymous(this)) {
+                return new ClaSignature("Anonymous User");
             }
             try {
                 return settings().getJson(ClaSignature.CLA_KEY, ClaSignature.class);
@@ -2203,6 +2205,7 @@ public class UserRegistry {
                     }
                     u.intlocs = rs.getString(7);
                     u.last_connect = rs.getTimestamp(8);
+                    u.claSigned = true;
                     set.add(u);
                 }
             }
@@ -2301,7 +2304,7 @@ public class UserRegistry {
         proto.setPassword(UserRegistry.makePassword());
         proto.userlevel = level.getSTLevel();
         proto.locales = normLocales;
-
+        proto.claSigned = true;
         return newUser(null, proto);
     }
 

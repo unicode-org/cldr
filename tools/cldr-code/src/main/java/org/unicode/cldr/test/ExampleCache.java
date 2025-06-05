@@ -2,9 +2,8 @@ package org.unicode.cldr.test;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 import org.unicode.cldr.util.PathStarrer;
+import org.unicode.cldr.util.ThreadSafeMapOfMapOfMap;
 
 /**
  * Cache example html strings for ExampleGenerator.
@@ -31,78 +30,7 @@ import org.unicode.cldr.util.PathStarrer;
  * <p>Unlike TestCache.exampleGeneratorCache, this cache doesn't get cleared to conserve memory,
  * only to adapt to changed winning values.
  */
-class ExampleCache {
-    /**
-     * An ExampleCacheItem is a temporary container for the info needed to get and/or put one item
-     * in the cache.
-     */
-    class ExampleCacheItem {
-        private String xpath;
-        private String value;
-
-        /**
-         * starredPath, the "starred" version of xpath, is the key for the highest level of the
-         * cache, which is nested.
-         *
-         * <p>Compare starred "//ldml/localeDisplayNames/languages/language[@type=\"*\"]" with
-         * starless "//ldml/localeDisplayNames/languages/language[@type=\"aa\"]". There are fewer
-         * starred paths than starless paths. ExampleDependencies.dependencies has starred paths for
-         * that reason.
-         */
-        private String starredPath = null;
-
-        /**
-         * The cache maps each starredPath to a pathMap, which in turn maps each starless path to a
-         * valueMap.
-         */
-        private Map<String, Map<String, String>> pathMap = null;
-
-        /** Finally the valueMap maps the value to the example html. */
-        private Map<String, String> valueMap = null;
-
-        ExampleCacheItem(String xpath, String value) {
-            this.xpath = xpath;
-            this.value = value;
-        }
-
-        /**
-         * Get the cached example html for this item, based on its xpath and value
-         *
-         * <p>The HTML string shows example(s) using that value for that path, for the locale of the
-         * ExampleGenerator we're connected to.
-         *
-         * @return the example html or null
-         */
-        String getExample() {
-            if (!cachingIsEnabled) {
-                return null;
-            }
-            String result = null;
-            starredPath = pathStarrer.set(xpath);
-            pathMap = cache.get(starredPath);
-            if (pathMap != null) {
-                valueMap = pathMap.get(xpath);
-                if (valueMap != null) {
-                    result = valueMap.get(value);
-                }
-            }
-            return NONE.equals(result) ? null : result;
-        }
-
-        void putExample(String result) {
-            if (cachingIsEnabled) {
-                if (pathMap == null) {
-                    pathMap = new ConcurrentHashMap<>();
-                    cache.put(starredPath, pathMap);
-                }
-                if (valueMap == null) {
-                    valueMap = new ConcurrentHashMap<>();
-                    pathMap.put(xpath, valueMap);
-                }
-                valueMap.put(value, (result == null) ? NONE : result);
-            }
-        }
-    }
+public class ExampleCache {
 
     /**
      * AVOID_CLEARING_CACHE: a performance optimization. Should be true except for testing. Only
@@ -125,13 +53,14 @@ class ExampleCache {
     private static final String NONE = "\uFFFF";
 
     /** The nested cache mapping is: starredPath → (starlessPath → (value → html)). */
-    private final Map<String, Map<String, Map<String, String>>> cache = new ConcurrentHashMap<>();
+    private final ThreadSafeMapOfMapOfMap<String, String, String, String> cache =
+            new ThreadSafeMapOfMapOfMap<>();
 
     /**
      * A clearable cache is any object that supports being cleared when a path changes. An example
      * is the cache of person name samples.
      */
-    static interface ClearableCache {
+    interface ClearableCache {
         void clear();
     }
 
@@ -144,7 +73,7 @@ class ExampleCache {
     /**
      * Register other caches. This isn't done often, so synchronized should be ok.
      *
-     * @return
+     * @return the clearableCache
      */
     <T extends ClearableCache> T registerCache(T clearableCache, String... starredPaths) {
         synchronized (registeredCache) {
@@ -158,6 +87,12 @@ class ExampleCache {
     /**
      * The PathStarrer is for getting starredPath from an ordinary (starless) path. Inclusion of
      * starred paths enables performance improvement with AVOID_CLEARING_CACHE.
+     *
+     * <p>starredPath is the key for the highest level of the nested cache.
+     *
+     * <p>Compare starred "//ldml/localeDisplayNames/languages/language[@type=\"*\"]" with starless
+     * "//ldml/localeDisplayNames/languages/language[@type=\"aa\"]". There are fewer starred paths
+     * than starless paths. ExampleDependencies.dependencies has starred paths for that reason.
      */
     private final PathStarrer pathStarrer = new PathStarrer().setSubstitutionPattern("*");
 
@@ -166,8 +101,31 @@ class ExampleCache {
      */
     private boolean cachingIsEnabled = true;
 
-    void setCachingEnabled(boolean enabled) {
+    public void setCachingEnabled(boolean enabled) {
         cachingIsEnabled = enabled;
+    }
+
+    /**
+     * Get the cached example html for this item, based on its xpath and value. If it is absent from
+     * the cache, use the provided function to compute the example html and add it to the cache.
+     *
+     * <p>The HTML string shows example(s) using that value for that path, for the locale of the
+     * ExampleGenerator we're connected to.
+     *
+     * @param xpath the path
+     * @param value the value
+     * @param f the function to compute the example if it is absent
+     * @return the example html or null
+     */
+    public String computeIfAbsent(
+            String xpath,
+            String value,
+            ThreadSafeMapOfMapOfMap.TriFunction<String, String, String, String> f) {
+        if (!cachingIsEnabled) {
+            return null;
+        }
+        String starredPath = PathStarrer.computeIfAbsent(xpath);
+        return cache.computeIfAbsent(starredPath, xpath, value, f);
     }
 
     /**
@@ -184,9 +142,9 @@ class ExampleCache {
      */
     void update(String xpath) {
         if (AVOID_CLEARING_CACHE) {
-            String starredA = pathStarrer.set(xpath);
+            String starredA = PathStarrer.computeIfAbsent(xpath);
             for (String starredB : ExampleDependencies.dependencies.get(starredA)) {
-                cache.remove(starredB);
+                cache.remove(starredB, xpath, null);
             }
             // TODO clean up the synchronization
             synchronized (registeredCache) {

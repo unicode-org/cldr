@@ -3,6 +3,8 @@ import * as cldrTest from "./TestCldrTest.mjs";
 import * as cldrAccount from "../src/esm/cldrAccount.mjs";
 import * as cldrOrganizations from "../src/esm/cldrOrganizations.mjs";
 
+import * as chai from "chai";
+
 export const TestCldrAccount = "ok";
 
 const assert = chai.assert;

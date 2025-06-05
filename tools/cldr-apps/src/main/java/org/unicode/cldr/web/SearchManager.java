@@ -17,6 +17,7 @@ import java.util.concurrent.TimeoutException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
+import org.unicode.cldr.util.AnnotationUtil;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.Factory;
@@ -211,6 +212,14 @@ public class SearchManager implements Closeable {
             logger.finest(() -> "AddCodes made resolved " + locale);
 
             for (final String x : resolvedFile.fullIterable()) {
+                if (x.startsWith("//ldml/annotations/annotation")) {
+                    final String cp = AnnotationUtil.removeEmojiVariationSelector(request.value);
+                    if (x.contains("[@cp=\"" + cp + "\"]") && x.contains("[@type=\"tts\"]")) {
+                        response.addResult(new SearchResult(x, "tts: " + cp, locale));
+                    }
+                    continue; // Do not try to match otherwise code for annotation
+                }
+
                 final PathHeader ph = phf.fromPath(x);
                 if (!ph.getSurveyToolStatus().visible()) continue; // skip invisible paths
 
@@ -256,7 +265,10 @@ public class SearchManager implements Closeable {
 
                 // Add incrementally. A user may get a partial result if they request before we are
                 // done.
-                response.addResult(new SearchResult(xpath, request.value, locale));
+                final String v = file.getStringValue(xpath);
+                if (!v.equals(request.value)) continue; // TODO: CLDR-18700
+
+                response.addResult(new SearchResult(xpath, v, locale));
             }
             return file;
         }

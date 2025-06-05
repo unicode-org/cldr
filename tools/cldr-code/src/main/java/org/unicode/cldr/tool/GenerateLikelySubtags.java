@@ -449,8 +449,10 @@ public class GenerateLikelySubtags {
 
                                 {"ku_Yezi", "ku_Yezi_GE"},
                                 {"hnj", "hnj_Hmnp_US"}, // preferred lang/script in CLDR
+                                {"mww", "mww_Hmnp_US"},
                                 {"hnj_Hmnp", "hnj_Hmnp_US"},
-                                {"und_Hmnp", "hnj_Hmnp_US"},
+                                {"mww_Hmnp", "mww_Hmnp_US"},
+                                {"und_Hmnp", "mww_Hmnp_US"},
                                 {"rhg", "rhg_Rohg_MM"}, // preferred lang/script in CLDR
                                 {"rhg_Arab", "rhg_Arab_MM"},
                                 {"und_Arab_MM", "rhg_Arab_MM"},

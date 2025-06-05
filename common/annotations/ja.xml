@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1697,7 +1697,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑‍🧒‍🧒" type="tts">家族: 大人一人と子供二人</annotation>
 		<annotation cp="👣" draft="contributed">裸足 | 足 | 足あと</annotation>
 		<annotation cp="👣" type="tts">足あと</annotation>
-		<annotation cp="🫆">指紋｜鑑識｜生体認証｜セキュリティ</annotation>
+		<annotation cp="🫆">セキュリティ | 指紋 | 生体認証 | 鑑識</annotation>
 		<annotation cp="🫆" type="tts">指紋</annotation>
 		<annotation cp="🦰">赤毛 | 赤毛の人 | 赤茶</annotation>
 		<annotation cp="🦰" type="tts">赤毛</annotation>
@@ -2023,7 +2023,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪺" type="tts">鳥の卵と巣</annotation>
 		<annotation cp="🍄">きのこ | キノコ | マッシュルーム | 毒 | 菌類 | 野菜</annotation>
 		<annotation cp="🍄" type="tts">キノコ</annotation>
-		<annotation cp="🪾">不毛｜干ばつ｜葉のない木｜冬</annotation>
+		<annotation cp="🪾">不毛 | 冬 | 干ばつ | 葉のない木</annotation>
 		<annotation cp="🪾" type="tts">枯れ木</annotation>
 		<annotation cp="🍇">グレープ | ぶどう | ブドウ | 果物</annotation>
 		<annotation cp="🍇" type="tts">ぶどう</annotation>
@@ -2101,7 +2101,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫛" type="tts">エンドウ豆</annotation>
 		<annotation cp="🍄‍🟫">きのこ | キノコ | しいたけ | トリュフ | ブラウンマッシュルーム | ポートベロー | マッシュルーム | 椎茸 | 茸 | 菌類</annotation>
 		<annotation cp="🍄‍🟫" type="tts">きのこ</annotation>
-		<annotation cp="🫜">ビーツ｜庭｜根｜カブ｜野菜</annotation>
+		<annotation cp="🫜">カブ | ビーツ | 庭 | 根 | 野菜</annotation>
 		<annotation cp="🫜" type="tts">根菜</annotation>
 		<annotation cp="🍞">パン | ベーカリー | 小麦 | 食パン</annotation>
 		<annotation cp="🍞" type="tts">食パン</annotation>
@@ -3697,7 +3697,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="®" type="tts">登録商標マーク</annotation>
 		<annotation cp="™">TMマーク | トレードマーク | 商標 | 商標マーク | 記号</annotation>
 		<annotation cp="™" type="tts">商標マーク</annotation>
-		<annotation cp="🫟">しぶき｜ペンキ｜飛沫｜飛び散り｜スプラッシュ</annotation>
+		<annotation cp="🫟">しぶき | スプラッシュ | ペンキ | 飛び散り | 飛沫</annotation>
 		<annotation cp="🫟" type="tts">飛び散ったペンキ</annotation>
 		<annotation cp="🔠">ABCD | アルファベット | ローマ字 | 入力 | 大文字 | 英大文字の入力 | 英字</annotation>
 		<annotation cp="🔠" type="tts">英大文字の入力</annotation>
@@ -3897,6 +3897,26 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="₽" type="tts">ルーブル</annotation>
 		<annotation cp="₿">BTC | ビットコイン | 仮想通貨 | 通貨</annotation>
 		<annotation cp="₿" type="tts">ビットコイン</annotation>
+		<annotation cp="0⃣">0 | 囲み数字</annotation>
+		<annotation cp="0⃣" type="tts">囲み数字: 0</annotation>
+		<annotation cp="1⃣">1 | 一 | 囲み数字</annotation>
+		<annotation cp="1⃣" type="tts">囲み数字: 1</annotation>
+		<annotation cp="2⃣">2 | 二 | 囲み数字</annotation>
+		<annotation cp="2⃣" type="tts">囲み数字: 2</annotation>
+		<annotation cp="3⃣">3 | 三 | 囲み数字</annotation>
+		<annotation cp="3⃣" type="tts">囲み数字: 3</annotation>
+		<annotation cp="4⃣">4 | 四 | 囲み数字</annotation>
+		<annotation cp="4⃣" type="tts">囲み数字: 4</annotation>
+		<annotation cp="5⃣">5 | 五 | 囲み数字</annotation>
+		<annotation cp="5⃣" type="tts">囲み数字: 5</annotation>
+		<annotation cp="6⃣">6 | 六 | 囲み数字</annotation>
+		<annotation cp="6⃣" type="tts">囲み数字: 6</annotation>
+		<annotation cp="7⃣">7 | 七 | 囲み数字</annotation>
+		<annotation cp="7⃣" type="tts">囲み数字: 7</annotation>
+		<annotation cp="8⃣">8 | 八 | 囲み数字</annotation>
+		<annotation cp="8⃣" type="tts">囲み数字: 8</annotation>
+		<annotation cp="9⃣">9 | 九 | 囲み数字</annotation>
+		<annotation cp="9⃣" type="tts">囲み数字: 9</annotation>
 		<annotation cp="¹">1 | 上付き1 | 添え字</annotation>
 		<annotation cp="¹" type="tts">上付き1</annotation>
 		<annotation cp="²">2 | 2乗 | 上付き2 | 添え字</annotation>

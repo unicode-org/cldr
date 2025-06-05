@@ -1,5 +1,7 @@
 import * as cldrListUsers from "../src/esm/cldrListUsers.mjs";
 
+import * as chai from "chai";
+
 export const TestCldrListUsers = "ok";
 
 const assert = chai.assert;

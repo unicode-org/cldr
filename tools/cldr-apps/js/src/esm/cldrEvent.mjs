@@ -75,7 +75,7 @@ function startup() {
       const example = $(this)
         .closest(".d-disp,.d-item,.d-item-err,.d-item-warn")
         .find(".d-example");
-      if (example) {
+      if (example?.length) {
         const lang = example.attr("lang");
         const dir = example.attr("dir");
         $(this)

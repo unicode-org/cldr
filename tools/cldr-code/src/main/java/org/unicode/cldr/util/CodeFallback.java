@@ -27,6 +27,7 @@ public class CodeFallback {
         {"cakm", "numbers"},
         {"cham", "numbers"},
         {"chinese", "calendar"},
+        {"chis", "numbers"},
         {"compat", "collation"},
         {"coptic", "calendar"},
         {"cyrl", "numbers"},
@@ -140,6 +141,7 @@ public class CodeFallback {
         {"thai", "numbers"},
         {"tibt", "numbers"},
         {"tirh", "numbers"},
+        {"tols", "numbers"},
         {"traditional", "collation"},
         {"unihan", "collation"},
         {"uksystem", "ms"},
@@ -252,5 +254,10 @@ public class CodeFallback {
                             .toString();
         }
         constructedItems.putValueAtPath(fullpath, value);
+        if (fullpath.startsWith("//ldml/numbers/currencies/currency")
+                && fullpath.endsWith("/displayName")) {
+            String otherPath = fullpath + "[@count=\"other\"]";
+            constructedItems.putValueAtPath(otherPath, value);
+        }
     }
 }

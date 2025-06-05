@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
 name: CLDR Site
 
 permissions:
@@ -18,7 +19,7 @@ on:
         paths:
         #  - "tools/scripts/tr-archive/**"
          - "docs/site/**"
-         - '.github/workflows/site.yml'    
+         - '.github/workflows/site.yml'
 jobs:
   cloudflare:
     if: github.event_name == 'push' || github.event_name == 'pull_request'
@@ -28,6 +29,7 @@ jobs:
     - uses: actions/checkout@v4
       with:
         lfs: false
+        fetch-depth: 2
     - uses: ruby/setup-ruby@v1
       with:
         ruby-version: 3.2
@@ -41,7 +43,6 @@ jobs:
     - name: Pre-install Wrangler
       if: (github.event_name == 'push') || (github.event.pull_request.head.repo.full_name == 'unicode-org/cldr')
       run: npm i -g wrangler@3.x
-      # see https://github.com/cloudflare/wrangler-action/issues/286
     - name: Deploy cldr.pages.dev
       if: (github.event_name == 'push') || (github.event.pull_request.head.repo.full_name == 'unicode-org/cldr')
       id: deploy
@@ -49,7 +50,13 @@ jobs:
       with:
         apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-        command: pages deploy ./_site --project-name=cldr
+        # use '--branch pr####' (pr###.cldr.pages.dev) for PRs, otherwise goes to cldr.unicode.org (production)
+        command: pages deploy ./_site --project-name=cldr ${{ github.event_name == 'pull_request' && format('--branch pr{0}', github.event.pull_request.number) || '' }}
+    - name: Calculate changed site files
+      id: prdiff
+      if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == 'unicode-org/cldr'
+      run: |
+        (echo -n 'prdiff=' ; git diff --name-status HEAD^ HEAD | cut -d/ -f2- | grep '^site/.*\.md$'  | sed -e 's%^site/\(.*\)\.md%\\n- [\1.md](${{ steps.deploy.outputs.pages-deployment-alias-url }}/\1)%' | tr -d '\012' ) | tee -a $GITHUB_OUTPUT
     - name: Add deploy comment to PR
       uses: actions/github-script@v7
       if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == 'unicode-org/cldr'
@@ -59,7 +66,7 @@ jobs:
             issue_number: context.issue.number,
             owner: context.repo.owner,
             repo: context.repo.repo,
-            body: '✨ deployed to <${{ steps.deploy.outputs.deployment-url }}>'
+            body: '✨ This commit deployed to <${{ steps.deploy.outputs.deployment-url }}> \n✨ This PR deployed to <${{ steps.deploy.outputs.pages-deployment-alias-url }}>\n\n**Changed Pages in the last commit:**\n\n${{ steps.prdiff.outputs.prdiff }}'
             })
           github.rest.issues.addLabels({
             issue_number: context.issue.number,

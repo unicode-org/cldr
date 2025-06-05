@@ -11,7 +11,7 @@ const staticInfo = {
 /** updates content and recompiles regex */
 export function updateInfo(escapedCharInfo) {
   const updatedRegex = escapedCharInfo.forceEscapeRegex;
-  const forceEscape = new RegExp(updatedRegex, "u");
+  const forceEscape = new RegExp(updatedRegex, "gu");
   data = { escapedCharInfo, forceEscape };
 }
 
@@ -20,7 +20,7 @@ updateInfo(staticInfo);
 
 export function needsEscaping(str) {
   if (!str) return false;
-  return data?.forceEscape?.test(str);
+  return !!str.match(data.forceEscape);
 }
 
 /**
@@ -38,18 +38,21 @@ export function getEscapedHtml(str) {
 
 /** get information for one char, or null */
 export function getCharInfo(str) {
-  return data?.escapedCharInfo?.names[str];
+  return data.escapedCharInfo?.names[str];
 }
+
+const PREFIX = "❰";
+const SUFFIX = "❱";
 
 /** Unconditionally escape (without testing) */
 function escapeHtml(str) {
-  return str.replace(data?.forceEscape, (o) => {
+  return str.replaceAll(data.forceEscape, (o) => {
     const hexName = `U+${Number(o.codePointAt(0)).toString(16).toUpperCase()}`;
     let e = getCharInfo(o) || {};
     const name = e.name || e.shortName;
     const body = name || hexName;
     const description = e.description;
     const title = `${e.shortName || ""} ${hexName}\n${description || ""}`;
-    return `<span class="visible-mark" title="${title}">${body}</span>`;
+    return `<span class="visible-mark" title="${title}">${PREFIX}${body}${SUFFIX}</span>`;
   });
 }

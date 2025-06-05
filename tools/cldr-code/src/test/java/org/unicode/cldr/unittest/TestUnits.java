@@ -4758,4 +4758,114 @@ public class TestUnits extends TestFmwkPlus {
         }
         return result;
     }
+
+    // for ALL units, should have paths for each unit X
+    // ldml/units/unitLength[@type="long"]/unit[@type="X"]/gender
+    // ldml/units/unitLength[@type="long"]/unit[@type="X"]/displayName
+    // ldml/units/unitLength[@type="short"]/unit[@type="X"]/displayName
+    // ldml/units/unitLength[@type="narrow"]/unit[@type="X"]/displayName
+    // ldml/units/unitLength[@type="long"]/unit[@type="X"]/unitPattern[@count="other"]
+
+    // will also have prefix units (long, narrow, short) (all prefixes)
+    // ldml/units/unitLength[@type="long"]/compoundUnit[@type="10p-1"]/unitPrefixPattern
+
+    // will also have per & times units (long, narrow, short)
+    // ldml/units/unitLength[@type="long"]/compoundUnit[@type="per"]/compoundUnitPattern
+    // ldml/units/unitLength[@type="long"]/compoundUnit[@type="times"]/compoundUnitPattern
+
+    // will also have long power2/power3 in all available plurals/case
+    // ldml/units/unitLength[@type="long"]/compoundUnit[@type="power2"]/compoundUnitPattern1[@count="one"][@gender="feminine"]
+    // ldml/units/unitLength[@type="long"]/compoundUnit[@type="power3"]/compoundUnitPattern1[@count="one"][@gender="feminine"]
+
+    // and short/narrow power2/3, but only for plurals, no case
+    // ldml/units/unitLength[@type="short"]/compoundUnit[@type="power2"]/compoundUnitPattern1[@count="one"]
+    // ldml/units/unitLength[@type="narrow"]/compoundUnit[@type="power2"]/compoundUnitPattern1[@count="one"]
+
+    // For ALL units, if there are plurals for the locale, will have other counts
+    // ldml/units/unitLength[@type="long"]/unit[@type="X"]/unitPattern[@count="Y"]
+
+    // For CORE units, if there is grammar for the locale, will have other cases, eg
+    // ldml/units/unitLength[@type="long"]/unit[@type="volume-cubic-meter"]/unitPattern[@count="one"][@case="dative"]
+
+    // For non-CORE units, if even if there is grammar for the locale, we won't have paths
+    // ldml/units/unitLength[@type="long"]/unit[@type="volume-fluid-ounce-metric"]/unitPattern[@count="one"][@case="dative"]
+
+    private static enum GrammarStatus {
+        always,
+        never
+    }
+
+    public void testSkippedUnitsForGrammer() {
+
+        // Note: the list for 'never' also includes the enOrJaOnly units (see above in this file).
+
+        final Multimap<GrammarStatus, String> statusToLongUnit =
+                ImmutableMultimap.<GrammarStatus, String>builder()
+                        .putAll(
+                                GrammarStatus.never,
+                                "angle-steradian",
+                                "area-bu-jp",
+                                "area-cho",
+                                "area-se-jp",
+                                "concentr-katal",
+                                "concentr-ofglucose",
+                                "concentr-part",
+                                "concentr-portion",
+                                "duration-fortnight",
+                                "electric-coulomb",
+                                "electric-farad",
+                                "electric-henry",
+                                "electric-siemens",
+                                "energy-becquerel",
+                                "energy-british-thermal-unit-it",
+                                "energy-calorie-it",
+                                "energy-gray",
+                                "energy-sievert",
+                                "force-kilogram-force",
+                                "length-chain",
+                                "length-jo-jp",
+                                "length-ken",
+                                "length-ri-jp",
+                                "length-rin",
+                                "length-rod",
+                                "length-shaku-cloth",
+                                "length-shaku-length",
+                                "length-sun",
+                                "magnetic-tesla",
+                                "magnetic-weber",
+                                "mass-fun",
+                                "mass-slug",
+                                "pressure-ofhg",
+                                "speed-beaufort",
+                                "speed-light-speed",
+                                "temperature-rankine",
+                                "volume-cup-imperial",
+                                "volume-cup-jp",
+                                "volume-fluid-ounce-metric",
+                                "volume-koku",
+                                "volume-kosaji",
+                                "volume-osaji",
+                                "volume-pint-imperial",
+                                "volume-sai",
+                                "volume-shaku",
+                                "volume-to-jp")
+                        .putAll(GrammarStatus.always, "meter")
+                        .build();
+
+        Set<String> unitsToAdd = GrammarInfo.getUnitsToAddGrammar();
+
+        assertEquals(
+                "Should be missing",
+                Set.of(),
+                Sets.intersection(
+                        new TreeSet<String>(statusToLongUnit.get(GrammarStatus.never)),
+                        unitsToAdd));
+
+        assertEquals(
+                "Should be present always",
+                Set.of(),
+                Sets.intersection(
+                        new TreeSet<String>(statusToLongUnit.get(GrammarStatus.always)),
+                        unitsToAdd));
+    }
 }

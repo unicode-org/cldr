@@ -1,5 +1,7 @@
 import * as cldrDashData from "../src/esm/cldrDashData.mjs";
 
+import * as chai from "chai";
+
 export const TestCldrDashData = "ok";
 
 const assert = chai.assert;

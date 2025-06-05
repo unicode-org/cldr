@@ -1,0 +1,54 @@
+services:
+  cldr-apps:
+    build: .
+    ports:
+      - 9080 # web
+    volumes:
+      - ../..:/srv/st/src/cldr:ro
+    depends_on:
+      - db
+    links:
+      - db
+  db:
+    image: mysql
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: yes
+      MYSQL_USER: surveytool
+      MYSQL_PASSWORD: surveytoolpw
+      MYSQL_DATABASE: cldrdb
+  webdriver:
+    build: ../cldr-apps-webdriver
+    depends_on:
+      - cldr-apps
+      - selenium
+    links:
+      - cldr-apps
+      - selenium
+    volumes:
+      # cache these two
+      - mavencache:/root/.m2
+      - webdrivertarget:/workarea/target
+  selenium:
+    image: selenium/standalone-chrome:latest
+    shm_size: 2gb
+    ports:
+      - 5900 # vnc
+      - 7900 # novnc
+    depends_on:
+      - cldr-apps
+    links:
+      - cldr-apps
+  client-test:
+    image: node
+    user: "node"
+    working_dir: /home/node/app
+    command:
+      "node_modules/.bin/mocha --reporter spec test/client/test-*.mjs"
+    volumes:
+      - ./js/:/home/node/app:ro
+    environment:
+      CLDR_VAP: admin_vap
+      SURVEYTOOL_URL: http://cldr-apps:9080
+volumes:
+  mavencache:
+  webdrivertarget:

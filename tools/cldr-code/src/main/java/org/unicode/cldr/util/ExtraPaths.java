@@ -123,7 +123,18 @@ public class ExtraPaths {
                             "//ldml/localeDisplayNames/types/type[@key=\"ms\"][@type=\"uksystem\"][@scope=\"core\"]",
                             "//ldml/localeDisplayNames/types/type[@key=\"ms\"][@type=\"ussystem\"][@scope=\"core\"]",
                             "//ldml/localeDisplayNames/types/type[@key=\"ss\"][@type=\"none\"][@scope=\"core\"]",
-                            "//ldml/localeDisplayNames/types/type[@key=\"ss\"][@type=\"standard\"][@scope=\"core\"]"));
+                            "//ldml/localeDisplayNames/types/type[@key=\"ss\"][@type=\"standard\"][@scope=\"core\"]",
+                            "//ldml/localeDisplayNames/keys/key[@type=\"calendar\"]",
+                            "//ldml/localeDisplayNames/keys/key[@type=\"cf\"]",
+                            "//ldml/localeDisplayNames/keys/key[@type=\"collation\"]",
+                            "//ldml/localeDisplayNames/keys/key[@type=\"currency\"]",
+                            "//ldml/localeDisplayNames/keys/key[@type=\"numbers\"]",
+                            "//ldml/localeDisplayNames/keys/key[@type=\"em\"]",
+                            "//ldml/localeDisplayNames/keys/key[@type=\"hc\"]",
+                            "//ldml/localeDisplayNames/keys/key[@type=\"lb\"]",
+                            "//ldml/localeDisplayNames/keys/key[@type=\"lw\"]",
+                            "//ldml/localeDisplayNames/keys/key[@type=\"ms\"]",
+                            "//ldml/localeDisplayNames/keys/key[@type=\"ss\"]"));
 
     public static void addConstant(Collection<String> toAddTo) {
         toAddTo.addAll(SingletonHelper.INSTANCE.paths);
@@ -261,17 +272,20 @@ public class ExtraPaths {
                             + " in "
                             + supplementalData.getDirectory().getAbsolutePath());
         }
-        Set<SupplementalDataInfo.PluralInfo.Count> pluralCounts = Collections.emptySet();
-        addUnitPlurals(toAddTo, file, plurals);
+        Set<SupplementalDataInfo.PluralInfo.Count> pluralCounts =
+                (plurals != null) ? plurals.getAdjustedCounts() : Collections.emptySet();
+        addUnitPlurals(toAddTo, file, plurals, pluralCounts);
         addDayPlurals(toAddTo, localeID);
         addCurrencies(toAddTo, pluralCounts);
         addGrammar(toAddTo, pluralCounts, localeID);
     }
 
     private static void addUnitPlurals(
-            Set<String> toAddTo, Iterable<String> file, SupplementalDataInfo.PluralInfo plurals) {
+            Set<String> toAddTo,
+            Iterable<String> file,
+            SupplementalDataInfo.PluralInfo plurals,
+            Set<SupplementalDataInfo.PluralInfo.Count> pluralCounts) {
         if (plurals != null) {
-            Set<SupplementalDataInfo.PluralInfo.Count> pluralCounts = plurals.getAdjustedCounts();
             Set<SupplementalDataInfo.PluralInfo.Count> pluralCountsRaw = plurals.getCounts();
             if (pluralCountsRaw.size() != 1) {
                 // we get all the root paths with count

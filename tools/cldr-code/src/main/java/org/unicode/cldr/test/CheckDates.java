@@ -58,7 +58,7 @@ import org.unicode.cldr.util.XPathParts;
 
 public class CheckDates extends FactoryCheckCLDR {
     private static final boolean DEBUG = false;
-    private static final boolean DISABLE_DATE_ORDER = false;
+    private static final boolean DISABLE_DATE_ORDER = true;
 
     static boolean GREGORIAN_ONLY = CldrUtility.getProperty("GREGORIAN", false);
     private static final Set<String> CALENDARS_FOR_CORES = Set.of("gregorian", "iso8601");

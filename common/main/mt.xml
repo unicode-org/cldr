@@ -2157,7 +2157,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<timeZoneNames>
 			<hourFormat>↑↑↑</hourFormat>
 			<gmtFormat>↑↑↑</gmtFormat>
-			<gmtZeroFormat>↑↑↑</gmtZeroFormat>
 			<regionFormat>Ħin ta’ {0}</regionFormat>
 			<regionFormat type="daylight">↑↑↑</regionFormat>
 			<regionFormat type="standard">{0} Ħin Standard</regionFormat>
@@ -3332,9 +3331,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<long>
 					<standard>Greenwich Mean Time</standard>
 				</long>
-				<short>
-					<standard>GMT</standard>
-				</short>
 			</metazone>
 		</timeZoneNames>
 	</dates>

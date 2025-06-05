@@ -17,11 +17,11 @@ title: Localized GMT Format
 
 ### Current Implementation
 
-In CLDR 22, elements used for localized GMT format are below:
+In CLDR 48, elements used for localized GMT format are below:
 
 - \<hourFormat> Format patterns used for representing UTC offset. This item is a single string containing two patterns, one for positive offset and another for negative offset, separated by semicolon (;). For example, "+HH:mm;-HH:mm". Each pattern must contain "H" (0-based 24 hours field) and "m" (minutes field).
 - \<gmtFormat> Message format pattern such as "GMT{0}" used for localized GMT format. The variable part is replaced with UTC offset representation created by \<hourFormat> above.
-- \<gmtZeroFormat> The string used for UTC (GMT) itself, such as "GMT". The string is used only when UTC offset is 0.
+- \<gmtUnknownFormat> The string used for unknown offsets, such as "GMT+?".
 
 ### Proposed Changes
 

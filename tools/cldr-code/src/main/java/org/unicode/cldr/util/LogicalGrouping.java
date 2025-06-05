@@ -106,6 +106,7 @@ public class LogicalGrouping {
                     "Samoa",
                     "Taipei",
                     "Tonga",
+                    "Turkey",
                     "Turkmenistan",
                     "Uruguay",
                     "Uzbekistan",

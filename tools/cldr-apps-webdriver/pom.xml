@@ -16,6 +16,7 @@
     <maven.compiler.target>11</maven.compiler.target>
     <spotless.version>2.35.0</spotless.version>
     <google-java-style.version>1.15.0</google-java-style.version>
+    <mainClass>org.unicode.cldr.surveydriver.SurveyDriver</mainClass>
   </properties>
   <dependencies>
     <dependency>
@@ -89,11 +90,15 @@
             <archive>
               <manifest>
                 <addClasspath>true</addClasspath>
-                <mainClass>org.unicode.cldr.surveydriver.SurveyDriver</mainClass>
+                <mainClass>${mainClass}</mainClass>
               </manifest>
             </archive>
           </configuration>
         </plugin>
+      <!--  <plugin>
+          <artifactId>exec-maven-plugin</artifactId>
+          <version>3.5.1</version>
+        </plugin> -->
         <plugin>
           <artifactId>maven-install-plugin</artifactId>
           <version>2.5.2</version>
@@ -119,5 +124,22 @@
         </plugin>
       </plugins>
     </pluginManagement>
+    <plugins>
+	  <!--
+      <plugin>
+        <artifactId>exec-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>java</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <mainClass>${mainClass}</mainClass>
+        </configuration>
+		</plugin>
+		-->
+    </plugins>
   </build>
 </project>

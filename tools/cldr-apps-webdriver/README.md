@@ -4,6 +4,11 @@
 
 https://www.w3.org/TR/webdriver/ “WebDriver is a remote control interface that enables introspection and control of user agents”
 
+to run the webdriver, execute:
+
+	mvn --file=tools/pom.xml -pl cldr-apps-webdriver exec:java -Dexec.mainClass=org.unicode.cldr.surveydriver.SurveyDriver
+
+
 ### Copyright & Licenses
 
 Copyright © 2018-2024 Unicode, Inc. Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the United States and other countries.

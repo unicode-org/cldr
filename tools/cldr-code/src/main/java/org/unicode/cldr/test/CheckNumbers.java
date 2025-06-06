@@ -255,6 +255,9 @@ public class CheckNumbers extends FactoryCheckCLDR {
         }
         XPathParts parts = XPathParts.getFrozenInstance(path);
 
+        // TODO: re-enable this commented-out check
+        // Reference: https://unicode-org.atlassian.net/browse/CLDR-18722
+        /*
         // Check that number formats are for an explicit number system.
         String numberSystem = parts.getAttributeValue(2, "numberSystem");
         if (numberSystem == null) {
@@ -266,6 +269,7 @@ public class CheckNumbers extends FactoryCheckCLDR {
                             .setMessage(
                                     "Number formats must have an explicit numberSystem attribute."));
         }
+         */
 
         boolean isPositive = true;
         for (String patternPart : SEMI_SPLITTER.split(value)) {

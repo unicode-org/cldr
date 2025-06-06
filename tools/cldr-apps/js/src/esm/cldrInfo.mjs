@@ -19,6 +19,8 @@ import InfoPanel from "../views/InfoPanel.vue";
 import InfoSelectedItem from "../views/InfoSelectedItem.vue";
 import InfoRegionalVariants from "../views/InfoRegionalVariants.vue";
 
+const DISABLE_SIDEWAYS_MENU = true;
+
 let containerId = null;
 let neighborId = null;
 let buttonClass = null;
@@ -80,11 +82,13 @@ function insertWidget() {
     insertLegacyElement(containerEl);
     const selectedItemEl = document.getElementById(SELECTED_ITEM_ID);
     selectedItemWrapper = cldrVue.mount(InfoSelectedItem, selectedItemEl);
-    const regionalVariantsEl = document.getElementById(INFO_REGIONAL_ID);
-    regionalVariantsWrapper = cldrVue.mount(
-      InfoRegionalVariants,
-      regionalVariantsEl
-    );
+    if (!DISABLE_SIDEWAYS_MENU) {
+      const regionalVariantsEl = document.getElementById(INFO_REGIONAL_ID);
+      regionalVariantsWrapper = cldrVue.mount(
+        InfoRegionalVariants,
+        regionalVariantsEl
+      );
+    }
   } catch (e) {
     console.error("Error loading InfoPanel vue " + e.message + " / " + e.name);
     cldrNotify.exception(e, "while loading InfoPanel");
@@ -246,7 +250,9 @@ function show(str, tr, hideIfLast, fn) {
   addInfoMessage(str);
   addVoteDivAndTicketLink(tr, fn);
   addSelectedItem(tr?.theRow); // after addVoteDivAndTicketLink calls fn to set theRow.selectedItem
-  addRegionalSidewaysMenu(tr);
+  if (!DISABLE_SIDEWAYS_MENU) {
+    addRegionalSidewaysMenu(tr);
+  }
   addForumPanel(tr);
   addXpath(tr);
   addBottom();
@@ -936,7 +942,9 @@ function getItemDescription(itemClass, theRow) {
 
 function clearCachesAndReload() {
   cldrForumPanel.clearCache();
-  cldrSideways.clearCache();
+  if (!DISABLE_SIDEWAYS_MENU) {
+    cldrSideways.clearCache();
+  }
   cldrLoad.reloadV();
 }
 

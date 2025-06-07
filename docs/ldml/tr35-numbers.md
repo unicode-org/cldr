@@ -1624,6 +1624,8 @@ is not allowed in rule set names or in rule text, and the colon is not allowed i
 names. The characters beginning a substitution token are always treated as the beginning
 of a substitution token.
 
+### <a name="RBNF_Remove_Ruleset_Rule" href="#RBNF_Remove_Ruleset_Rule">Planned removal of ruleset and rule tags</a>
+
 The following `<ruleset>` and `<rule>` tags will be removed in the next release. They contain redundant information contained in `<rbnfRules>` to provide time to transition to `<rbnfRules>`. 
 
 ```xml

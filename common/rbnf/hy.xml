@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
-Copyright © 1991-2013 Unicode, Inc.
+Copyright © 1991-2025 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -12,6 +12,43 @@ For terms of use, see http://www.unicode.org/copyright.html
     </identity>
     <rbnf>
         <rulesetGrouping type="SpelloutRules">
+            <rbnfRules><![CDATA[
+%spellout-numbering-year:
+x.x: =0.0=;
+0: =%spellout-numbering=;
+%spellout-numbering:
+0: =%spellout-cardinal=;
+%spellout-cardinal:
+-x: հանած >>;
+x.x: << ստորակել >>;
+0: զրո;
+1: մեկ;
+2: երկու;
+3: երեք;
+4: չորս;
+5: հինգ;
+6: վեց;
+7: յոթ;
+8: ութ;
+9: ինը;
+10: տասն[­>>];
+20: քսան[­>>];
+30: երեսուն[­>>];
+40: քառասուն[­>>];
+50: հիսուն[­>>];
+60: վաթսուն[­>>];
+70: յոթանասուն[­>>];
+80: ութսուն[­>>];
+90: իննասուն[­>>];
+100: <<­հարյուր[ >>];
+1000: << հազար[ >>];
+1000000: << միլիօն[ >>];
+1000000000: << միլիար[ >>];
+1000000000000: << բիլիօն[ >>];
+1000000000000000: << բիլիար[ >>];
+1000000000000000000: =#,##0=;
+]]></rbnfRules>
+            <!-- The following redundant ruleset elements have been deprecated and will be removed in the next release. Please use the rbnfRules contents instead. -->
             <ruleset type="spellout-numbering-year">
                 <rbnfrule value="x.x">=0.0=;</rbnfrule>
                 <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>

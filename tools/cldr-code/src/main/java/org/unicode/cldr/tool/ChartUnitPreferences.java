@@ -49,13 +49,20 @@ public class ChartUnitPreferences extends Chart {
                 + "<li>The ‘If ≥’ column shows the thresholds: the first line for a given region where the input amount is greater or equal applies. "
                 + "For example, for 0.5km as input for [area, default, 001] would result in <i>hectare</i>.</li>"
                 + "<li>"
-                + ChartUnitConversions.RATIONAL_MSG
+                + "Each numeric value is an exact rational. (Radians are an exception since the value of π is irrational; a rational approximation is used.)"
+                + "The format is a terminating decimal where possible; "
+                + "otherwise a repeating decimal if possible (where ˙ marks the start of the <a href='https://en.wikipedia.org/wiki/Repeating_decimal' target='wiki'>reptend</a>); "
+                + "otherwise a <a href='https://en.wikipedia.org/wiki/Rational_number' target='wiki'>rational number</a> (of the form <i>numerator/denominator</i>)."
+                + ""
                 + "</li>\n"
                 + "<li>"
-                + ChartUnitConversions.QUANTITY_MSG
+                + "The units are grouped and ordered by Quantity (which are based on the NIST quantities, see "
+                + "<a href='https://www.nist.gov/pml/special-publication-811' target='nist811'>NIST 811</a>). Note that the quantities are informative."
                 + "</li>"
                 + "<li>"
-                + ChartUnitConversions.SPEC_GENERAL_MSG
+                + "The "
+                + Chart.ldmlSpecLink("/tr35-general.html#Contents")
+                + " should be consulted for more details, such as how to handle complex units (such as foot-per-minute) by converting the elements"
                 + ", and how to fall back if a given usage or region is not found.</li>\n"
                 + "</ul>"
                 + dataScrapeMessage(

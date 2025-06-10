@@ -16,14 +16,9 @@
     <maven.compiler.target>11</maven.compiler.target>
     <spotless.version>2.35.0</spotless.version>
     <google-java-style.version>1.15.0</google-java-style.version>
+    <mainClass>org.unicode.cldr.surveydriver.SurveyDriver</mainClass>
   </properties>
   <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.13.2</version>
-      <scope>test</scope>
-    </dependency>
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>selenium-java</artifactId>
@@ -92,18 +87,18 @@
           <artifactId>maven-jar-plugin</artifactId>
           <version>3.3.0</version>
           <configuration>
-            <!-- skipIfEmpty prevents warning "JAR will be empty..." -->
-            <skipIfEmpty>true</skipIfEmpty>
+            <archive>
+              <manifest>
+                <addClasspath>true</addClasspath>
+                <mainClass>${mainClass}</mainClass>
+              </manifest>
+            </archive>
           </configuration>
-          <executions>
-            <execution>
-              <goals>
-                <!-- test-jar goal prevents error "The packaging for this project did not assign a file to the build artifact" -->
-                <goal>test-jar</goal>
-              </goals>
-            </execution>
-          </executions>
         </plugin>
+      <!--  <plugin>
+          <artifactId>exec-maven-plugin</artifactId>
+          <version>3.5.1</version>
+        </plugin> -->
         <plugin>
           <artifactId>maven-install-plugin</artifactId>
           <version>2.5.2</version>
@@ -129,5 +124,22 @@
         </plugin>
       </plugins>
     </pluginManagement>
+    <plugins>
+	  <!--
+      <plugin>
+        <artifactId>exec-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>java</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <mainClass>${mainClass}</mainClass>
+        </configuration>
+		</plugin>
+		-->
+    </plugins>
   </build>
 </project>

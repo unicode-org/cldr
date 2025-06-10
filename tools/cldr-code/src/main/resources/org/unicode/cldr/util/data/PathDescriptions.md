@@ -220,19 +220,19 @@ The name of the language variant with code {0}. For more information, please see
 
 - `^//ldml/characters/exemplarCharacters$`
 
-Defines the set of characters used in your language. _You may not edit or vote on this item at this time._ Before filing any tickets to request changes, be sure to read [Exemplar Characters].
+Defines the set of characters used in your language. _To change this item, you have to flag it for review\!_ See [Changing Protected Items](https://cldr.unicode.org/translation/getting-started/guide#change-protected-items). Before filing any tickets to request changes, be sure to also read [Exemplar Characters].
 
 ###
 
 - `^//ldml/characters/exemplarCharacters\[@type="([^"]*)"]`
 
-Defines the set of characters used in your language for the “{1}” category. You may not edit or vote on this item at this time. Before filing any tickets to request changes, be sure to read [Exemplar Characters].
+Defines the set of characters used in your language for the “{1}” category. _To change this item, you have to flag it for review\!_ See [Changing Protected Items](https://cldr.unicode.org/translation/getting-started/guide#change-protected-items). Before filing any tickets to request changes, be sure to also read [Exemplar Characters].
 
 ###
 
 - `^//ldml/characters/parseLenients`
 
-Defines sets of characters that are treated as equivalent in parsing. You may not edit or vote on this item at this time. Before filing any tickets to request changes, be sure to read [Parse Lenient].
+Defines sets of characters that are treated as equivalent in parsing. _To change this item, you have to flag it for review\!_ See [Changing Protected Items](https://cldr.unicode.org/translation/getting-started/guide#change-protected-items). Before filing any tickets to request changes, be sure to also read [Exemplar Characters].
 
 ###
 

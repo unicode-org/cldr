@@ -717,12 +717,11 @@ function updateRowVoteInfo(tr, theRow) {
       )
     );
   } else if (vr.requiredVotes) {
-    var msg = cldrText.sub("explainRequiredVotes", {
-      requiredVotes: vr.requiredVotes,
-    });
-    tr.voteDiv.appendChild(
-      cldrDom.createChunk(msg, "p", "alert alert-warning fix-popover-help")
-    );
+    // Note: formerly, the numeric value of vr.requiredVotes (50) was included in the message
+    const note = document.createElement("p");
+    note.className = "alert alert-warning fix-popover-help";
+    note.innerHTML = cldrText.get("explainFlagForReview");
+    tr.voteDiv.appendChild(note);
   }
 }
 

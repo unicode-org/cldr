@@ -188,6 +188,8 @@ const strings = {
   flag_desc:
     "This item has been flagged for review by the CLDR Technical Committee.",
   explainRequiredVotes: "Changes to this item require ${requiredVotes} votes.",
+  explainFlagForReview:
+    "To change this item, you have to flag it for review! See <a target='_blank' href='https://cldr.unicode.org/translation/getting-started/guide#changing-protected-items'>Changing Protected Items</a> for more information.",
   valueIsLocked:
     "This item has been locked by the CLDR Technical Committee. See the forum entry.",
   xpath_desc:

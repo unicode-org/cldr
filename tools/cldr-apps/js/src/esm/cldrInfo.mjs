@@ -716,12 +716,19 @@ function updateRowVoteInfo(tr, theRow) {
         "alert alert-warning fix-popover-help"
       )
     );
-  } else if (vr.requiredVotes) {
-    // Note: formerly, the numeric value of vr.requiredVotes (50) was included in the message
+  } else if (vr.requiredVotes >= 50) {
+    // Note: in this case, the numeric value of vr.requiredVotes (50+) is not included in the message
     const note = document.createElement("p");
     note.className = "alert alert-warning fix-popover-help";
     note.innerHTML = cldrText.get("explainFlagForReview");
     tr.voteDiv.appendChild(note);
+  } else if (vr.requiredVotes) {
+    const msg = cldrText.sub("explainRequiredVotes", {
+      requiredVotes: vr.requiredVotes,
+    });
+    tr.voteDiv.appendChild(
+      cldrDom.createChunk(msg, "p", "alert alert-warning fix-popover-help")
+    );
   }
 }
 

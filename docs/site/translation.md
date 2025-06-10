@@ -8,6 +8,8 @@ The following list summarizes the recent changes, with more details in a section
 A sequence like 🆕 2025-05-09 marks items that have been recently added.
 In your browser you can copy this sequence, then use ⌘-F (Mac) or Ctrl-F (Windows) to find all the places it occurs.
 - **🆕 2025-06-04**
+  - Some people have thought they couldn't vote on change-protected items, like the new [Characters in Use: punctuation-person](https://st.unicode.org/cldr-apps/v#/de/Alphabetic_Information/44e72c2489fcec13) (because the Survey Tool messaging was misleading!). Please read [Change Protected Items].
+- **🆕 2025-06-04**
   -[CLDR-18712][] - Unit inflections issue is now fixed.
 - **🆕 2025-06-04**
   - [CLDR-18712][] - Inflections are showing up for new units unexpectedly where grammar was not added. We are currently working on removing the unnecessary items.
@@ -530,3 +532,4 @@ entry you're editing/vetting. Use it if in doubt.*
 [Example Hidden]: https://st.unicode.org/cldr-apps/v#/USER/Number_Formatting_Patterns/67afe297d3a17a3
 [Key for Show Hidden]: https://cldr.unicode.org/translation/core-data/exemplars#key-to-escapes
 [**input** these from the keyboard]: /translation/core-data/exemplars#input
+[Change Protected Items]: https://cldr.unicode.org/translation/getting-started/guide#changing-protected-items

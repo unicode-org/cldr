@@ -76,6 +76,10 @@ public enum Organization {
     sunuwar_ws("Sunuwar Sewa Samaj", "Sunuwar Welfare Society"),
     surveytool("Survey Tool"),
     unaffiliated("Unaffiliated", "Guest"),
+    unibz(
+            "Free University of Bozen-Bolzano",
+            "Libera Università di Bolzano",
+            "Freie Universität Bozen"),
     venetian("VeC - Lengua Veneta"),
     welsh_lc("Welsh LC"),
     wikimedia("Wikimedia Foundation"),

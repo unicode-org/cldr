@@ -54,7 +54,6 @@ public class ShowInconsistentAvailable {
     static FormatParser fp = new DateTimePatternGenerator.FormatParser();
     static Factory f = CONFIG.getCldrFactory();
     static PathHeader.Factory phf = PathHeader.getFactory();
-    static PathStarrer ps = new PathStarrer();
     static int counter = 0;
     static Set<String> nullErrors = new LinkedHashSet<>();
 
@@ -286,7 +285,7 @@ public class ShowInconsistentAvailable {
                 continue;
             }
             if (SHOW_PROGRESS_RAW) {
-                ps.set(path);
+                PathStarrer.computeIfAbsent(path);
                 String value = cldrFile.getStringValue(path);
                 String skeleton = parts.getAttributeValue(-1, "id");
                 String alt = parts.getAttributeValue(-1, "alt");

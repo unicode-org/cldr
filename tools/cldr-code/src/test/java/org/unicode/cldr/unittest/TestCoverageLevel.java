@@ -219,7 +219,6 @@ public class TestCoverageLevel extends TestFmwkPlus {
 
     public void oldTestInvariantPaths() {
         org.unicode.cldr.util.Factory factory = testInfo.getCldrFactory();
-        PathStarrer pathStarrer = new PathStarrer().setSubstitutionPattern("*");
         SupplementalDataInfo sdi =
                 SupplementalDataInfo.getInstance(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
 
@@ -236,7 +235,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
             CLDRFile cldrFileToCheck = factory.make(locale, true);
             for (String path : cldrFileToCheck.fullIterable()) {
                 allPaths.add(path);
-                String starred = pathStarrer.set(path);
+                String starred = PathStarrer.computeIfAbsent(path);
                 Level level = sdi.getCoverageLevel(path, locale);
                 starredToLocalesToLevels.put(starred, locale, level, true);
             }

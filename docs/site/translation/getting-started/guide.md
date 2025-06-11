@@ -283,26 +283,28 @@ The reason that Brazil is grayed out is that it is the default content locale fo
 ![alt-text](../../images/gettingStartedGuideGeneralInfo.png)
 
 <a id='20-vote-items-may-not-be-modified'>
+<a id='change-protected-items'>
 ### Changing Protected Items
 
 Some items have change-protection in place that will stop the item value from changing without the CLDR Technical Commmittee's approval, but you can still advocate a change.
 This is indicated by the message shown in the screenshot below.
 This indicates that the item is particularly sensitive to data instability and has a broad impact.
 Changes to these items require CLDR Technical Committee review. 
-To suggest a change, you have to "flag" the value.
 
 <!--![alt-text](../../images/gettingStartedGuideCharsInUse.jpeg) -->
+
 ![Request for Review](https://github.com/user-attachments/assets/10d3dcb3-cf58-4673-bd3a-2493f21adf21)
 
-After hitting that **Request** button, you'll see
+After hitting that **Request** button, you'll see the following.
 
 ![Request Justification](https://github.com/user-attachments/assets/08d6a668-c76c-441b-8ef4-d6d3ce315c2d)
 
 Here is the process:
 
-1. Click on the “**Flag for Review button**”.
-2. On the new page, you'll see a message box.
-3. Enter the change that you want to make, and add a justification for changing it.
+1. Vote on or Add the item you want.
+2. Click on the “**Flag for Review button**”.
+3. On the new page, you'll see a message box.
+4. Enter the change that you want to make, and add a justification for changing it.
     - Make sure that the justification is clear to people who don't speak your language.
     - Cite sources (web pages) where possible.
 5. Then click **“Post**”.
@@ -314,7 +316,7 @@ Here is the process:
 
 Notes:
 * The **Flag for Review** button will be available only when the item is under change-protection *and* there is a vote for an alternative in the **Others** column.
-* If you change your vote, it removes the flag — so if you want for it still to be flagged, you have to redo the above.
+* If you change your vote, it removes the flag — so if you want for it still to be flagged, you have to redo the process above.
 
 ## Forum
 

@@ -30,6 +30,7 @@ public enum Organization {
             "Chuvash SIH",
             "Chuvash State Institute of Humanities",
             "Чăваш патшалăх гуманитарии ăслăлăхсен институчĕ"),
+    cihan_uni("Cihan University-Erbil"),
     cldr("Cldr"),
     gaeilge("Foras na Gaeilge"),
     georgia_isi("Georgia ISI"),

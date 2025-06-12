@@ -36,7 +36,6 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathHeader;
-import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XPathParts;
@@ -285,7 +284,6 @@ public class ShowInconsistentAvailable {
                 continue;
             }
             if (SHOW_PROGRESS_RAW) {
-                PathStarrer.computeIfAbsent(path);
                 String value = cldrFile.getStringValue(path);
                 String skeleton = parts.getAttributeValue(-1, "id");
                 String alt = parts.getAttributeValue(-1, "alt");

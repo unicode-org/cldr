@@ -2866,18 +2866,17 @@ public class ExampleGenerator {
         }
 
         String numberSystem = parts.getAttributeValue(2, "numberSystem"); // null if not present
-
         DecimalFormat df =
                 icuServiceBuilder.getCurrencyFormat(currency, currencySymbol, numberSystem);
-        df.applyPattern(value);
 
-        // getCurrencyFormat sets digits, but applyPattern seems to overwrite it, so fix it again
-        // here
-        SupplementalDataInfo supplementalData = CONFIG.getSupplementalDataInfo();
-        CurrencyNumberInfo info = supplementalData.getCurrencyNumberInfo(currency);
-        int digits = info.getDigits();
-        df.setMinimumFractionDigits(digits);
-        df.setMaximumFractionDigits(digits);
+        String typeValue = parts.getAttributeValue(-1, "type");
+        boolean noCompact =
+                typeValue != null && value.equals("0"); // A "0" value means that we don't compact
+        int minIntegerDigits = typeValue.length();
+
+        fixDecimalFormatForCompact(df, noCompact, value, currency, minIntegerDigits);
+
+        // this is used for compact integers, to get the samples for that match the size and count
 
         String countValue = parts.getAttributeValue(-1, "count");
         if (countValue != null) {
@@ -2907,6 +2906,29 @@ public class ExampleGenerator {
         }
 
         examples.add(example);
+    }
+
+    private void fixDecimalFormatForCompact(
+            DecimalFormat df,
+            boolean noCompact,
+            String value,
+            String currency,
+            int minIntegerDigits) {
+        if (noCompact) {
+            df.setMinimumIntegerDigits(minIntegerDigits);
+        } else { // we do have a regular compact form
+            df.applyPattern(value);
+
+            // getCurrencyFormat sets digits, but applyPattern seems to overwrite it,
+            // so fix it again here if there is a currency
+            if (currency != null) {
+                SupplementalDataInfo supplementalData = CONFIG.getSupplementalDataInfo();
+                CurrencyNumberInfo info = supplementalData.getCurrencyNumberInfo(currency);
+                int digits = info.getDigits();
+                df.setMinimumFractionDigits(digits);
+                df.setMaximumFractionDigits(digits);
+            }
+        }
     }
 
     private String getDefaultTerritory() {
@@ -2944,8 +2966,22 @@ public class ExampleGenerator {
         String example =
                 showContexts ? exampleStartHeaderSymbol + contextheader + exampleEndSymbol : "";
         String numberSystem = parts.getAttributeValue(2, "numberSystem"); // null if not present
-        DecimalFormat numberFormat = icuServiceBuilder.getNumberFormat(value, numberSystem);
         String countValue = parts.getAttributeValue(-1, "count");
+
+        String typeValue = parts.getAttributeValue(-1, "type");
+        boolean noCompact =
+                typeValue != null && value.equals("0"); // A "0" value means that we don't compact
+        int minIntegerDigits = typeValue.length();
+
+        DecimalFormat numberFormat =
+                noCompact
+                        ? icuServiceBuilder.getNumberFormat(ICUServiceBuilder.integer, numberSystem)
+                        : icuServiceBuilder.getNumberFormat(value, numberSystem);
+
+        fixDecimalFormatForCompact(numberFormat, noCompact, value, null, minIntegerDigits);
+
+        // this is used for compact integers, to get the samples for that size
+
         if (countValue != null) {
             examples.add(formatCountDecimal(numberFormat, countValue));
             return;
@@ -3072,6 +3108,13 @@ public class ExampleGenerator {
         }
     }
 
+    /**
+     * The number of digits is based on the minimum integer digits in the format
+     *
+     * @param numberFormat
+     * @param countValue
+     * @return
+     */
     private String formatCountDecimal(DecimalFormat numberFormat, String countValue) {
         Count count;
         try {
@@ -3083,13 +3126,14 @@ public class ExampleGenerator {
                     pluralInfo.getCount(
                             DecimalQuantity_DualStorageBCD.fromExponentString(countValue));
         }
+        // The number of digits is based on the minimum integer digits
         Double numberSample = getExampleForPattern(numberFormat, count);
         if (numberSample == null) {
             // Ideally, we would suppress the value in the survey tool.
             // However, until we switch over to the ICU samples, we are not guaranteed
             // that "no samples" means "can't occur". So we manufacture something.
-            int digits = numberFormat.getMinimumIntegerDigits();
-            numberSample = (double) Math.round(1.2345678901234 * Math.pow(10, digits - 1));
+            // int digits = numberFormat.getMinimumIntegerDigits();
+            numberSample = 0d;
         }
         String temp = String.valueOf(numberSample);
         int fractionLength = temp.endsWith(".0") ? 0 : temp.length() - temp.indexOf('.') - 1;
@@ -3108,7 +3152,8 @@ public class ExampleGenerator {
 
     /**
      * Calculates a numerical example to use for the specified pattern using brute force (there
-     * should be a more elegant way to do this).
+     * should be a more elegant way to do this). The number of digits is
+     * format.getMinimumIntegerDigits()
      *
      * @param format
      * @param count

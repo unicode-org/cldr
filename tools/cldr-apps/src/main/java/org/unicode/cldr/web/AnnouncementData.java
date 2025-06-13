@@ -299,7 +299,7 @@ public class AnnouncementData {
 
     private static boolean addCheckRow(int announcementId, int userId) {
         String table = DBUtils.Table.ANNOUNCE_READ.toString();
-        String sql = "INSERT INTO " + table + " VALUES (?,?)";
+        String sql = "INSERT IGNORE INTO " + table + " VALUES (?,?)";
 
         Connection conn = null;
         PreparedStatement ps = null;

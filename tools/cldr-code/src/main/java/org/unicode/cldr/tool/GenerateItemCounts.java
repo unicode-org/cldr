@@ -37,7 +37,6 @@ import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdData.Attribute;
 import org.unicode.cldr.util.DtdData.Element;
 import org.unicode.cldr.util.DtdType;
-import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.RegexUtilities;
@@ -361,8 +360,6 @@ public class GenerateItemCounts {
     static class AttributeTypes {
         Relation<String, String> elementPathToAttributes =
                 Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
-        final PathStarrer PATH_STARRER = new PathStarrer().setSubstitutionPattern("*");
-        final Set<String> STARRED_PATHS = new TreeSet<>();
         StringBuilder elementPath = new StringBuilder();
 
         public void add(String path) {

@@ -560,6 +560,12 @@ public class ICUServiceBuilder {
         "integer", "decimal", "percent", "scientific"
     }; // // "standard", , "INR",
 
+    // add symbols for clarity.
+    public static int integer = 0, decimal = 2, percent = 3, scientific = 4;
+
+    // ICUServiceBuilder needs a much more substantial overhaul, so adding an enum would be wasted
+    // effort
+
     private static class MyCurrency extends Currency {
         String symbol;
         String displayName;

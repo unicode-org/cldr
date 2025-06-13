@@ -66,6 +66,7 @@ public class VoteAPIHelper {
         String localeId;
         String sessionId;
         String page = null;
+        String autoPage = null;
         public String xpstrid = null;
         Boolean getDashboard = false;
 
@@ -104,7 +105,7 @@ public class VoteAPIHelper {
 
             // add all non-path status
             for (final String x : cldrFile) {
-                List<CheckStatus> result = new ArrayList<CheckStatus>();
+                List<CheckStatus> result = new ArrayList<>();
                 test.check(x, result, cldrFile.getStringValue(x));
                 for (final CheckStatus s : result) {
                     if (s.getEntireLocale()) resp.add(s);
@@ -124,11 +125,13 @@ public class VoteAPIHelper {
 
     static Response handleGetOnePage(String loc, String session, String page, String xpstrid) {
         ArgsForGet args = new ArgsForGet(loc, session);
-        if ("auto".equals(page) && xpstrid != null && !xpstrid.isEmpty()) {
-            args.page = getPageFromXpathStringId(xpstrid);
-        } else {
-            args.page = page;
+        if (xpstrid != null && !xpstrid.isEmpty()) {
+            // Note: autoPage may be used if page is "auto" or if page is unrecognized.
+            // Sometimes a row is bookmarked and the page name changes, but xpstrid is still valid,
+            // and the bookmark can still be used.
+            args.autoPage = getPageFromXpathStringId(xpstrid);
         }
+        args.page = "auto".equals(page) ? args.autoPage : page;
         return handleGetRows(args);
     }
 
@@ -155,7 +158,7 @@ public class VoteAPIHelper {
             return Auth.noSessionResponse();
         }
         try {
-            /** if true, hide emails. TODO: CLDR-16829 remove this parameter */
+            /* if true, hide emails. TODO: CLDR-16829 remove this parameter */
             final boolean redacted =
                     ((mySession.user == null) || (!mySession.user.getLevel().isGuestOrStronger()));
             final RowResponse r = getRowsResponse(args, sm, locale, mySession, redacted);
@@ -184,8 +187,11 @@ public class VoteAPIHelper {
         PageId pageId = null;
         String xp = null;
 
-        if (args.xpstrid == null && args.page != null) {
-            pageId = PageId.forString(args.page);
+        if (args.page != null || args.autoPage != null) {
+            pageId = PageId.fromString(args.page);
+            if (pageId == null && args.autoPage != null) {
+                pageId = PageId.fromString(args.autoPage);
+            }
             if (pageId == null) {
                 throw new SurveyException(ErrorCode.E_BAD_SECTION);
             }
@@ -195,7 +201,7 @@ public class VoteAPIHelper {
                         "Items not visible - page " + pageId + " section " + pageId.getSectionId());
             }
             r.pageId = pageId.name();
-        } else if (args.xpstrid != null && args.page == null) {
+        } else if (args.xpstrid != null) {
             xp = sm.xpt.getByStringID(args.xpstrid);
             if (xp == null) {
                 throw new SurveyException(ErrorCode.E_BAD_XPATH);
@@ -205,7 +211,7 @@ public class VoteAPIHelper {
             // Should not get here. but could be a 'not acceptable'
             throw new SurveyException(
                     ErrorCode.E_INTERNAL, // or E_BAD_XPATH?
-                    "handleGetRows: need xpstrid or page, but not both");
+                    "handleGetRows: need xpstrid or page");
         }
         final DataPage pageData = DataPage.make(pageId, mySession, locale, xp, matcher, null);
         pageData.setUserForVotelist(mySession.user);
@@ -318,7 +324,7 @@ public class VoteAPIHelper {
     public static <T> RowResponse.Row.VotingResults<T> getVotingResults(VoteResolver<T> resolver) {
         final RowResponse.Row.VotingResults<T> results = new RowResponse.Row.VotingResults<>();
         final EnumSet<Organization> conflictedOrgs = resolver.getConflictedOrganizations();
-        /** array of Key, Value, Key, Value… */
+        /* array of Key, Value, Key, Value… */
         final List<Object> valueToVoteA = new ArrayList<>();
         final Map<T, Long> valueToVote = resolver.getResolvedVoteCountsIncludingIntraOrgDisputes();
         for (Map.Entry<T, Long> e : valueToVote.entrySet()) {

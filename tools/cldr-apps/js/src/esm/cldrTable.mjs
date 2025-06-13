@@ -399,10 +399,16 @@ function getSingleRowUrl(theRow) {
 
 function getPageUrl(curLocale, curPage, curId) {
   let p = null;
-  if (curId && !curPage) {
+  if (curId) {
+    if (!curPage) {
+      curPage = "auto";
+    }
+    // xpstrid is normally only used on the server if page is "auto". However, sometimes a row is bookmarked
+    // and the page name changes, but xpstrid is still valid, and the bookmark can still be used. In that
+    // case the server will treat the obsolete page name the same as "auto", and use xpstrid to determine
+    // the correct current page name.
     p = new URLSearchParams();
     p.append("xpstrid", curId);
-    curPage = "auto";
   }
   const api = "voting/" + curLocale + "/page/" + curPage;
   return cldrAjax.makeApiUrl(api, p);

@@ -125,7 +125,7 @@ public class VoteAPI {
                     @PathParam("page")
                     String page,
             @QueryParam("xpstrid")
-                    @Schema(description = "Xpath string ID if page is auto")
+                    @Schema(description = "Xpath string ID if page is auto or invalid")
                     @DefaultValue("")
                     String xpstrid,
             @HeaderParam(Auth.SESSION_HEADER) String session) {
@@ -137,6 +137,9 @@ public class VoteAPI {
          *    https://cldr-smoke.unicode.org/cldr-apps/v#/zh_Hant//2703e9d07ab2ef3a
          * can be used instead of
          *    https://cldr-smoke.unicode.org/cldr-apps/v#/zh_Hant/Alphabetic_Information/2703e9d07ab2ef3a
+         *
+         * It also enables determining the correct page name if the given page name is invalid or
+         * obsolete but xpstrid is still valid, as sometimes happens with an old bookmarked URL.
          */
         return VoteAPIHelper.handleGetOnePage(loc, session, page, xpstrid);
     }
@@ -162,7 +165,7 @@ public class VoteAPI {
         public List<CheckStatusSummary> tests = new ArrayList<>();
 
         // we only want to store one example for each subtype.
-        private Set<CheckStatus.Subtype> allSubtypes = new HashSet<>();
+        private final Set<CheckStatus.Subtype> allSubtypes = new HashSet<>();
 
         boolean isEmpty() {
             return tests.isEmpty();

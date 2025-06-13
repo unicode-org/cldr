@@ -354,8 +354,23 @@ public class PathHeader implements Comparable<PathHeader> {
         /**
          * Construct a pageId given a string
          *
-         * @param name
-         * @return
+         * @param name the name of a page, such as "Alphabetic Information"
+         * @return the PageId, or null
+         */
+        public static PageId fromString(String name) {
+            try {
+                return PageIdNames.forString(name);
+            } catch (Exception e) {
+                return null;
+            }
+        }
+
+        /**
+         * Construct a pageId given a string
+         *
+         * @param name the name of a page, such as "Alphabetic Information"
+         * @return the PageId
+         * @throws ICUException if the name is not recognized
          */
         public static PageId forString(String name) {
             try {

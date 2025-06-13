@@ -240,6 +240,8 @@ public class TestAnnotations extends TestFmwkPlus {
             String emoji = s.getKey();
             Annotations annotations = s.getValue();
             final String rawCategory = Emoji.getMajorCategory(emoji);
+            // Note: this call to PageId.forString possibly assumes it throws an exception if
+            // rawCategory isn't recognized as a page ID.
             PageId majorCategory = PageId.forString(rawCategory);
             if (majorCategory == PageId.Symbols) {
                 majorCategory = PageId.EmojiSymbols;

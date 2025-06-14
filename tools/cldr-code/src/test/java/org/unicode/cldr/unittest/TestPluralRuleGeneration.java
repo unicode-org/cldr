@@ -3,6 +3,7 @@ package org.unicode.cldr.unittest;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
+import com.google.common.collect.Ordering;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.impl.number.DecimalQuantity_DualStorageBCD;
 import com.ibm.icu.math.BigDecimal;
@@ -34,11 +35,14 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.unicode.cldr.icu.text.FixedDecimal;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.DtdData;
+import org.unicode.cldr.util.Joiners;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 
 public class TestPluralRuleGeneration extends TestFmwkPlus {
+    boolean SHOW = System.getProperty("TestPluralRuleGeneration:show") != null;
+
     public static void main(String[] args) {
         new TestPluralRuleGeneration().run(args);
     }
@@ -54,7 +58,9 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
         PluralRules rules = PluralRules.createRules("one:i = 0 or n = 1");
         boolean i = rules.computeLimited("one", SampleType.INTEGER);
         boolean d = rules.computeLimited("one", SampleType.DECIMAL);
-        System.out.println(i + ", " + d);
+        if (SHOW) {
+            System.out.println(i + ", " + d);
+        }
     }
 
     public void TestFilipino() {
@@ -114,8 +120,10 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
                 }
             }
         }
-        for (String item : limitedSet) {
-            System.out.println(item);
+        if (SHOW) {
+            for (String item : limitedSet) {
+                System.out.println(item);
+            }
         }
     }
 
@@ -286,21 +294,30 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
         for (Operand op : orderedOperands) {
             ops += "\t" + op.toString();
         }
-        System.out.println("locale\tsource" + ops + "\tpluralCat");
+        if (SHOW) {
+
+            System.out.println("locale\tsource" + ops + "\tpluralCat");
+        }
+
         SupplementalDataInfo sdi = CLDRConfig.getInstance().getSupplementalDataInfo();
         for (ULocale locale : locales) {
             PluralRules pr = sdi.getPluralRules(locale, PluralRules.PluralType.CARDINAL);
 
             for (String test : tests) {
                 final FixedDecimal source = new FixedDecimal(test);
-                System.out.println(
-                        locale
-                                + "\t"
-                                + FixedDecimal.toSampleString(source)
-                                + "\t"
-                                + pluralInfo(pr, source));
+                if (SHOW) {
+
+                    System.out.println(
+                            locale
+                                    + "\t"
+                                    + FixedDecimal.toSampleString(source)
+                                    + "\t"
+                                    + pluralInfo(pr, source));
+                }
             }
-            System.out.println();
+            if (SHOW) {
+                System.out.println();
+            }
         }
     }
 
@@ -580,6 +597,45 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
             String tempCat = fd == null ? pRule.select(i) : pRule.select(fd);
             if (tempCat.charAt(0) == 'm') {
                 triggers.add(entry.getKey());
+            }
+        }
+    }
+
+    public void testRuleComponents() {
+        CLDRConfig testInfo = CLDRConfig.getInstance();
+        SupplementalDataInfo supp = testInfo.getSupplementalDataInfo();
+        ConcurrentHashMap<Map<String, String>, Boolean> seenLocale = new ConcurrentHashMap();
+        final Multimap<String, String> components =
+                TreeMultimap.create(PluralUtilities.PLURAL_RELATION, Ordering.natural());
+        PluralUtilities.representativeForLocales.keySet().stream()
+                .forEach(
+                        locale -> {
+                            PluralInfo pluralInfo = supp.getPlurals(locale);
+                            PluralRules rules = pluralInfo.getPluralRules();
+                            Set<String> categories = rules.getKeywords();
+                            for (String category : categories) {
+                                String rule = rules.getRules(category);
+                                PluralUtilities.and_or.splitToList(rule).stream()
+                                        .forEach(x -> components.put(x, locale));
+                            }
+                        });
+        if (SHOW) {
+            System.out.println();
+            components.asMap().entrySet().stream()
+                    .forEach(
+                            x ->
+                                    System.out.println(
+                                            x.getKey() + "\t" + Joiners.SP.join(x.getValue())));
+            System.out.println();
+            for (Entry<String, String> entry :
+                    PluralUtilities.categorySetToRepresentativeLocales.entries()) {
+                System.out.println(
+                        Joiners.TAB.join(
+                                entry.getKey(),
+                                entry.getValue(),
+                                Joiners.SP.join(
+                                        PluralUtilities.representativeForLocales.get(
+                                                entry.getValue()))));
             }
         }
     }

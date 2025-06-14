@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
-Copyright © 1991-2019 Unicode, Inc.
+Copyright © 1991-2025 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -12,6 +12,77 @@ For terms of use, see http://www.unicode.org/copyright.html
     </identity>
     <rbnf>
         <rulesetGrouping type="SpelloutRules">
+            <rbnfRules><![CDATA[
+%spellout-numbering-year-latn:
+x.x: =0.0=;
+0: =0=;
+1: 元;
+2: =0=;
+%spellout-numbering-year:
+x.x: =0.0=;
+0: =%spellout-numbering=;
+1: 元;
+2: =%spellout-numbering=;
+1000: =%%spellout-numbering-year-digits=;
+10000: =%spellout-numbering=;
+%%spellout-numbering-year-digits:
+0: =%spellout-numbering=;
+10: <<>>>;
+100: <<>>>;
+1000: <<>>>;
+%spellout-numbering:
+0: =%spellout-cardinal=;
+%spellout-cardinal-financial:
+-x: マイナス>>;
+x.x: <<点>>>;
+0: 零;
+1: 壱;
+2: 弐;
+3: 参;
+4: 四;
+5: 伍;
+6: 六;
+7: 七;
+8: 八;
+9: 九;
+10: 拾[>>];
+20: <<拾[>>];
+100: <<百[>>];
+1000: <<千[>>];
+10000: <<萬[>>];
+100000000: <<億[>>];
+1000000000000: <<兆[>>];
+10000000000000000: <<京[>>];
+1000000000000000000: =#,##0=;
+%spellout-cardinal:
+-x: マイナス>>;
+x.x: <<・>>>;
+0: 〇;
+1: 一;
+2: 二;
+3: 三;
+4: 四;
+5: 五;
+6: 六;
+7: 七;
+8: 八;
+9: 九;
+10: 十[>>];
+20: <<十[>>];
+100: 百[>>];
+200: <<百[>>];
+1000: 千[>>];
+2000: <<千[>>];
+10000: <<万[>>];
+100000000: <<億[>>];
+1000000000000: <<兆[>>];
+10000000000000000: <<京[>>];
+1000000000000000000: =#,##0=;
+%spellout-ordinal:
+x.x: =#,##0.#=;
+0: 第=%spellout-numbering=;
+]]></rbnfRules>
+            <!-- The following redundant ruleset elements have been deprecated and will be removed in the next release. Please use the rbnfRules contents instead. -->
             <ruleset type="spellout-numbering-year-latn">
                 <rbnfrule value="x.x">=0.0=;</rbnfrule>
                 <rbnfrule value="0">=0=;</rbnfrule>
@@ -89,6 +160,12 @@ For terms of use, see http://www.unicode.org/copyright.html
             </ruleset>
         </rulesetGrouping>
         <rulesetGrouping type="OrdinalRules">
+            <rbnfRules><![CDATA[
+%digits-ordinal:
+-x: 第−>#,##0>;
+0: 第=#,##0=;
+]]></rbnfRules>
+            <!-- The following redundant ruleset elements have been deprecated and will be removed in the next release. Please use the rbnfRules contents instead. -->
             <ruleset type="digits-ordinal">
                 <rbnfrule value="-x">第−→#,##0→;</rbnfrule>
                 <rbnfrule value="0">第=#,##0=;</rbnfrule>

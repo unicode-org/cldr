@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
-Copyright © 1991-2024 Unicode, Inc.
+Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -13,6 +13,286 @@ CLDR data files are interpreted according to the LDML specification (http://unic
     </identity>
     <rbnf>
         <rulesetGrouping type="SpelloutRules">
+            <rbnfRules><![CDATA[
+%spellout-numbering-year:
+x.x: =0.0=;
+0: =%spellout-numbering=;
+%spellout-numbering:
+-x: menys >>;
+x.x: << coma >>;
+0: zero;
+1: u;
+2: =%spellout-cardinal-masculine=;
+20: vint[-i->>];
+30: trenta[->>];
+40: quaranta[->>];
+50: cinquanta[->>];
+60: seixanta[->>];
+70: setanta[->>];
+80: vuitanta[->>];
+90: noranta[->>];
+100: cent[ >>];
+200: <%spellout-cardinal-masculine<-cents[ >>];
+1000: mil[ >>];
+2000: <%spellout-cardinal-masculine< mil[ >>];
+1000000: un milió[ >>];
+2000000: <%spellout-cardinal-masculine< milions[ >>];
+1000000000000: un bilió[ >>];
+2000000000000: <%spellout-cardinal-masculine< bilions[ >>];
+1000000000000000000: =#,##0=;
+%spellout-cardinal-masculine:
+-x: menys >>;
+x.x: << coma >>;
+0: zero;
+1: un;
+2: dos;
+3: tres;
+4: quatre;
+5: cinc;
+6: sis;
+7: set;
+8: vuit;
+9: nou;
+10: deu;
+11: onze;
+12: dotze;
+13: tretze;
+14: catorze;
+15: quinze;
+16: setze;
+17: disset;
+18: divuit;
+19: dinou;
+20: vint[-i->>];
+30: trenta[->>];
+40: quaranta[->>];
+50: cinquanta[->>];
+60: seixanta[->>];
+70: setanta[->>];
+80: vuitanta[->>];
+90: noranta[->>];
+100: cent[ >>];
+200: <%spellout-cardinal-masculine<-cents[ >>];
+1000: mil[ >>];
+2000: << mil[ >>];
+1000000: un milió[ >>];
+2000000: << milions[ >>];
+1000000000000: un bilió[ >>];
+2000000000000: << bilions[ >>];
+1000000000000000000: =#,##0=;
+%spellout-cardinal-feminine:
+-x: menys >>;
+x.x: << coma >>;
+0: zero;
+1: una;
+2: dues;
+3: =%spellout-cardinal-masculine=;
+20: vint[-i->>];
+30: trenta[->>];
+40: quaranta[->>];
+50: cinquanta[->>];
+60: seixanta[->>];
+70: setanta[->>];
+80: vuitanta[->>];
+90: noranta[->>];
+100: cent[ >>];
+200: <<-centes[ >>];
+1000: mil[ >>];
+2000: << mil[ >>];
+1000000: un milió[ >>];
+2000000: <%spellout-cardinal-masculine< milions[ >>];
+1000000000000: un bilió[ >>];
+2000000000000: <%spellout-cardinal-masculine< bilions[ >>];
+1000000000000000000: =#,##0=;
+%%spellout-ordinal-masculine-large:
+0: ;
+1: unè;
+2: dosè;
+3: tresè;
+4: quatrè;
+5: =%spellout-ordinal-masculine=;
+%%spellout-ordinal-masculine-cont:
+0: è;
+1: ' =%%spellout-ordinal-masculine-large=;
+%%spellout-ordinal-masculine-conts:
+0: è;
+1: s =%%spellout-ordinal-masculine-large=;
+%spellout-ordinal-masculine:
+-x: menys >>;
+x.x: =#,##0.#=;
+0: zeroè;
+1: primer;
+2: segon;
+3: tercer;
+4: quart;
+5: cinquè;
+6: sisè;
+7: setè;
+8: vuitè;
+9: novè;
+10: desè;
+11: onzè;
+12: dotzè;
+13: tretzè;
+14: catorzè;
+15: quinzè;
+16: setzè;
+17: dissetè;
+18: divuitè;
+19: dinovè;
+20: vintè;
+21: vint-i->>;
+30: trentè;
+31: trenta->>;
+40: quarantè;
+41: quaranta->>;
+50: cinquantè;
+51: cinquanta->>;
+60: seixantè;
+61: seixanta->>;
+70: setantè;
+71: setanta->>;
+80: vuitantè;
+81: vuitanta->>;
+90: norantè;
+91: noranta->>;
+100: cent>%%spellout-ordinal-masculine-cont>;
+200: <%spellout-cardinal-masculine<-cent>%%spellout-ordinal-masculine-conts>;
+1000: mil>%%spellout-ordinal-masculine-cont>;
+2000: <%spellout-cardinal-masculine< mil>%%spellout-ordinal-masculine-cont>;
+1000000: un milion>%%spellout-ordinal-masculine-cont>;
+2000000: <%spellout-cardinal-masculine< milion>%%spellout-ordinal-masculine-conts>;
+1000000000000: un bilion>%%spellout-ordinal-masculine-cont>;
+2000000000000: <%spellout-cardinal-masculine< bilion>%%spellout-ordinal-masculine-conts>;
+1000000000000000000: =#,##0=è;
+%%spellout-ordinal-feminine-large:
+0: ;
+1: unena;
+2: dosena;
+3: tresena;
+4: quatrena;
+5: =%spellout-ordinal-feminine=;
+%%spellout-ordinal-feminine-cont:
+0: ena;
+1: ' =%%spellout-ordinal-feminine-large=;
+%%spellout-ordinal-feminine-conts:
+0: ena;
+1: s =%%spellout-ordinal-feminine-large=;
+%spellout-ordinal-feminine:
+-x: menys >>;
+x.x: =#,##0.#=;
+0: zerona;
+1: primera;
+2: segona;
+3: tercera;
+4: quarta;
+5: cinquena;
+6: sisena;
+7: setena;
+8: vuitena;
+9: novena;
+10: desena;
+11: onzena;
+12: dotzena;
+13: tretzena;
+14: catorzena;
+15: quinzena;
+16: setzena;
+17: dissetena;
+18: divuitena;
+19: dinovena;
+20: vintena;
+21: vint-i->>;
+30: trentena;
+31: trenta->>;
+40: quarantena;
+41: quaranta->>;
+50: cinquantena;
+51: cinquanta->>;
+60: seixantena;
+61: seixanta->>;
+70: setantena;
+71: setanta->>;
+80: vuitantena;
+81: vuitanta->>;
+90: norantena;
+91: noranta->>;
+100: cent>%%spellout-ordinal-feminine-cont>;
+200: <%spellout-cardinal-masculine<-cent>%%spellout-ordinal-feminine-conts>;
+1000: mil>%%spellout-ordinal-feminine-cont>;
+2000: <%spellout-cardinal-masculine< mil>%%spellout-ordinal-feminine-conts>;
+1000000: un milion>%%spellout-ordinal-feminine-cont>;
+2000000: <%spellout-cardinal-masculine< milion>%%spellout-ordinal-feminine-conts>;
+1000000000000: un bilion>%%spellout-ordinal-feminine-cont>;
+2000000000000: <%spellout-cardinal-masculine< bilion>%%spellout-ordinal-feminine-conts>;
+1000000000000000000: =#,##0=a;
+%spellout-ordinal-masculine-plural:
+0: =%spellout-ordinal-masculine=s;
+%%spellout-ordinal-feminine-large-plural:
+0: ;
+1: unenes;
+2: dosenes;
+3: tresenes;
+4: quatrenes;
+5: =%spellout-ordinal-feminine-plural=;
+%%spellout-ordinal-feminine-cont-plural:
+0: enes;
+1: ' =%%spellout-ordinal-feminine-large-plural=;
+%%spellout-ordinal-feminine-conts-plural:
+0: enes;
+1: s =%%spellout-ordinal-feminine-large-plural=;
+%spellout-ordinal-feminine-plural:
+-x: menys >>;
+x.x: =#,##0.#=;
+0: zeroenes;
+1: primeres;
+2: segones;
+3: terceres;
+4: quartes;
+5: cinquenes;
+6: sisenes;
+7: setenes;
+8: vuitenes;
+9: novenes;
+10: desenes;
+11: onzenes;
+12: dotzenes;
+13: tretzenes;
+14: catorzenes;
+15: quinzenes;
+16: setzenes;
+17: dissetenes;
+18: divuitenes;
+19: dinovenes;
+20: vintenes;
+21: vint-i->%%spellout-ordinal-feminine-large-plural>;
+30: trentenes;
+31: trenta->%%spellout-ordinal-feminine-large-plural>;
+40: quarantenes;
+41: quaranta->%%spellout-ordinal-feminine-large-plural>;
+50: cinquantenes;
+51: cinquanta->%%spellout-ordinal-feminine-large-plural>;
+60: seixantenes;
+61: seixanta->%%spellout-ordinal-feminine-large-plural>;
+70: setantenes;
+71: setanta->%%spellout-ordinal-feminine-large-plural>;
+80: vuitantenes;
+81: vuitanta->%%spellout-ordinal-feminine-large-plural>;
+90: norantenes;
+91: noranta->%%spellout-ordinal-feminine-large-plural>;
+100: cent>%%spellout-ordinal-feminine-cont-plural>;
+200: <%spellout-cardinal-masculine<-cent>%%spellout-ordinal-feminine-conts-plural>;
+1000: mil>%%spellout-ordinal-feminine-cont-plural>;
+2000: <%spellout-cardinal-masculine< mil>%%spellout-ordinal-feminine-cont-plural>;
+1000000: milionenes;
+1000001: un milió>%%spellout-ordinal-feminine-cont-plural>;
+2000000: <%spellout-cardinal-masculine< milion>%%spellout-ordinal-feminine-conts-plural>;
+1000000000000: bilionenes;
+1000000000001: un bilió>%%spellout-ordinal-feminine-cont-plural>;
+2000000000000: <%spellout-cardinal-masculine< bilion>%%spellout-ordinal-feminine-conts-plural>;
+1000000000000000000: =#,##0=es;
+]]></rbnfRules>
+            <!-- The following redundant ruleset elements have been deprecated and will be removed in the next release. Please use the rbnfRules contents instead. -->
             <ruleset type="spellout-numbering-year">
                 <rbnfrule value="x.x">=0.0=;</rbnfrule>
                 <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
@@ -309,6 +589,23 @@ CLDR data files are interpreted according to the LDML specification (http://unic
             </ruleset>
         </rulesetGrouping>
         <rulesetGrouping type="OrdinalRules">
+            <rbnfRules><![CDATA[
+%digits-ordinal:
+0: =%digits-ordinal-masculine=;
+%digits-ordinal-masculine:
+-x: −>>;
+0: =#,##0=$(ordinal,one{r}two{n}few{t}other{è})$;
+%digits-ordinal-masculine-plural:
+-x: −>>;
+0: =#,##0=$(ordinal,one{rs}few{ts}other{ns})$;
+%digits-ordinal-feminine:
+-x: −>>;
+0: =#,##0=a;
+%digits-ordinal-feminine-plural:
+-x: −>>;
+0: =#,##0=es;
+]]></rbnfRules>
+            <!-- The following redundant ruleset elements have been deprecated and will be removed in the next release. Please use the rbnfRules contents instead. -->
             <ruleset type="digits-ordinal">
                 <rbnfrule value="0">=%digits-ordinal-masculine=;</rbnfrule>
             </ruleset>

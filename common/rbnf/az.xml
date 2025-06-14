@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
-Copyright © 1991-2013 Unicode, Inc.
+Copyright © 1991-2025 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -12,6 +12,87 @@ For terms of use, see http://www.unicode.org/copyright.html
     </identity>
     <rbnf>
         <rulesetGrouping type="SpelloutRules">
+            <rbnfRules><![CDATA[
+%spellout-numbering-year:
+x.x: =0.0=;
+0: =%spellout-numbering=;
+%spellout-numbering:
+0: =%spellout-cardinal=;
+%spellout-cardinal:
+-x: əksi >>;
+x.x: << tam >>;
+0: sıfır;
+1: bir;
+2: iki;
+3: üç;
+4: dörd;
+5: beş;
+6: altı;
+7: yeddi;
+8: səkkiz;
+9: doqquz;
+10: on[ >>];
+20: iyirmi[ >>];
+30: otuz[ >>];
+40: qırx[ >>];
+50: əlli[ >>];
+60: atmış[ >>];
+70: yetmiş[ >>];
+80: səqsən[ >>];
+90: doxsan[ >>];
+100: << yüz[ >>];
+1000: << min[ >>];
+1000000: << milyon[ >>];
+1000000000: << milyard[ >>];
+1000000000000: << trilyon[ >>];
+1000000000000000: << katrilyon[ >>];
+1000000000000000000: =#,##0=;
+%%inci:
+0: inci;
+1: ' =%spellout-ordinal=;
+%%nci:
+0: nci;
+1: ' =%spellout-ordinal=;
+%%inci2:
+0: ıncı;
+1: ' =%spellout-ordinal=;
+%%uncu2:
+0: üncü;
+1: ' =%spellout-ordinal=;
+%%uncu:
+0: uncu;
+1: ' =%spellout-ordinal=;
+%spellout-ordinal:
+-x: əksi >>;
+x.x: =#,##0.#=;
+0: sıfırıncı;
+1: birinci;
+2: ikinci;
+3: üçüncü;
+4: dördüncü;
+5: beşinci;
+6: altıncı;
+7: yeddinci;
+8: səkkizinci;
+9: doqquzuncu;
+10: on>%%uncu>;
+20: iyirmi>%%nci>;
+30: otuz>%%uncu>;
+40: qırx>%%inci2>;
+50: əlli>%%nci>;
+60: altmış>%%inci2>;
+70: yetmiş>%%inci2>;
+80: səqsən>%%inci2>;
+90: doxsan>%%inci2>;
+100: <%spellout-numbering< yüz>%%uncu2>;
+1000: <%spellout-numbering< bin>%%inci>;
+1000000: <%spellout-numbering< milyon>%%uncu>;
+1000000000: <%spellout-numbering< milyar>%%inci2>;
+1000000000000: <%spellout-numbering< trilyon>%%uncu>;
+1000000000000000: <%spellout-numbering< katrilyon>%%uncu>;
+1000000000000000000: =#,##0='inci;
+]]></rbnfRules>
+            <!-- The following redundant ruleset elements have been deprecated and will be removed in the next release. Please use the rbnfRules contents instead. -->
             <ruleset type="spellout-numbering-year">
                 <rbnfrule value="x.x">=0.0=;</rbnfrule>
                 <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
@@ -101,6 +182,14 @@ For terms of use, see http://www.unicode.org/copyright.html
             </ruleset>
         </rulesetGrouping>
         <rulesetGrouping type="OrdinalRules">
+            <rbnfRules><![CDATA[
+%%digits-ordinal-indicator:
+0: ''inci;
+%digits-ordinal:
+-x: −>>;
+0: =#,##0==%%digits-ordinal-indicator=;
+]]></rbnfRules>
+            <!-- The following redundant ruleset elements have been deprecated and will be removed in the next release. Please use the rbnfRules contents instead. -->
             <ruleset type="digits-ordinal-indicator" access="private">
                 <rbnfrule value="0">''inci;</rbnfrule>
             </ruleset>

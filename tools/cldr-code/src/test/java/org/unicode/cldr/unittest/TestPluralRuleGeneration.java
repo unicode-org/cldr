@@ -2,6 +2,8 @@ package org.unicode.cldr.unittest;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.impl.number.DecimalQuantity_DualStorageBCD;
 import com.ibm.icu.math.BigDecimal;
 import com.ibm.icu.number.Notation;
@@ -19,13 +21,19 @@ import com.ibm.icu.util.MeasureUnit;
 import com.ibm.icu.util.ULocale;
 import java.text.ParseException;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.concurrent.ConcurrentHashMap;
 import org.unicode.cldr.icu.text.FixedDecimal;
 import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
@@ -422,5 +430,157 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
         }
         buffer.append(pr.select(formatted));
         return buffer;
+    }
+
+    public void testLatvian() {
+        /*
+         * <pluralRules locales="am bn fa gu hi kn mr zu"> <pluralRule
+         * count="one">i = 0 or n = 1 @integer 0, 1 @decimal 0.0~1.0,
+         * 0.00~0.04</pluralRule> <pluralRule count="other"> @integer 2~17, 100,
+         * 1000, 10000, 100000, 1000000, … @decimal 1.1~2.6, 10.0, 100.0,
+         * 1000.0, 10000.0, 100000.0, 1000000.0, …</pluralRule> </pluralRules>
+         */
+
+        for (String ruleString :
+                List.of(
+                        "i % 10 = 0",
+                        "n % 10 = 0",
+                        "i % 100 = 11..19",
+                        "n % 100 = 11..19",
+                        "v = 2 and f % 100 = 11..19")) {
+            PluralRules rules = PluralRules.createRules("many:" + ruleString);
+
+            Multimap<String, FixedDecimal> data = TreeMultimap.create();
+            for (double number :
+                    List.of(
+                            0d, 0.1d, 1.1d, 1.11d, 2.2d, 10d, 10.1d, 10.11d, 11d, 11.1d, 311d,
+                            311.1d, 311.11d)) {
+
+                FixedDecimal plain = new FixedDecimal(number);
+                data.put(rules.select(plain), plain);
+                long integerPart = (long) number;
+                if (integerPart != number) {
+                    FixedDecimal plainInt = new FixedDecimal(integerPart);
+                    data.put(rules.select(plainInt), plainInt);
+                }
+                FixedDecimal x11 = new FixedDecimal(number, 2);
+                data.put(rules.select(x11), x11);
+
+                FixedDecimal x3 = new FixedDecimal(number, 3);
+                data.put(rules.select(x3), x3);
+            }
+            logln(ruleString);
+            System.out.println();
+            data.entries().stream()
+                    .filter(x -> x.getKey().equals("many"))
+                    .forEach(x -> logln("match   " + "\t" + x.getValue()));
+            // data.entries().stream().filter(x -> x.getKey().equals("other")).forEach(x ->
+            // System.out.println("no-match " + "\t" + x.getValue()));
+        }
+    }
+
+    public void testRuleOverlap() {
+        // make sure the test does find overlaps
+        Map<Set<String>, Double> shouldFail =
+                checkRules(
+                        new ConcurrentHashMap(),
+                        "xxx",
+                        PluralRules.createRules("one: n = 1..2; two: n=2..3"));
+        assertNotEquals("Check that overlapping rules are detected", "{}", shouldFail.toString());
+
+        CLDRConfig testInfo = CLDRConfig.getInstance();
+        SupplementalDataInfo supp = testInfo.getSupplementalDataInfo();
+        ConcurrentHashMap<Map<String, String>, Boolean> seenLocale = new ConcurrentHashMap();
+        supp.getPluralLocales().parallelStream()
+                .forEach(
+                        locale -> {
+                            PluralInfo pluralInfo = supp.getPlurals(locale);
+                            PluralRules rules = pluralInfo.getPluralRules();
+                            Map<Set<String>, Double> shouldSucceed =
+                                    checkRules(seenLocale, locale, rules);
+                            assertEquals(
+                                    locale + "\tCLDR plural rules overlap",
+                                    "{}",
+                                    shouldSucceed.toString());
+                        });
+        if (isVerbose()) {
+            seenLocale.entrySet().stream().forEach(x -> logln(x.getKey().keySet().toString()));
+        }
+    }
+
+    static List<Integer> fractionDigitsToCheck = List.of(1, 2, 3);
+    static List<List<Integer>> integerRangesToCheck =
+            List.of(List.of(0, 10000), List.of(100000), List.of(1000000));
+
+    private Map<Set<String>, Double> checkRules(
+            ConcurrentHashMap<Map<String, String>, Boolean> seenLocale,
+            String locale,
+            PluralRules rules) {
+        Set<String> categories = rules.getKeywords();
+        Map<String, String> categoryToRule = new TreeMap<>();
+        for (String category : categories) {
+            if (category.equals("other")) {
+                continue;
+            }
+            String rule = rules.getRules(category);
+            categoryToRule.put(category, rule);
+        }
+        boolean unseen = seenLocale.computeIfAbsent(categoryToRule, x -> true);
+        if (!unseen) {
+            return Map.of();
+        }
+
+        // check overlap
+
+        if (categoryToRule.keySet().size() < 2) { // not needed for single rule (plus other)
+            return Map.of();
+        }
+
+        Map<String, PluralRules> categoryToPRule = new TreeMap<>();
+
+        for (Entry<String, String> entry : categoryToRule.entrySet()) {
+            PluralRules pRule = PluralRules.createRules("many: " + entry.getValue());
+            categoryToPRule.put(entry.getKey(), pRule);
+        }
+
+        Map<Set<String>, Double> overlapSamples = new HashMap<>();
+        for (List<Integer> range : integerRangesToCheck) {
+            int start = range.get(0);
+            int last = range.size() < 2 ? start : range.get(1);
+            for (int i = start; i <= last; ++i) {
+                Set<String> triggers = new TreeSet<>(DtdData.countValueOrder);
+                checkRules2(categoryToPRule, i, null, triggers);
+
+                for (int fractionDigits : fractionDigitsToCheck) { // up to 3 fractional digits
+                    // Iterate first from X.0 .. X.9, then X.00 .. X.99, then X.000 .. X.999
+                    // That's because trailing zeros make a difference
+                    double limit = Math.pow(10, fractionDigits);
+                    for (int fraction = 0; fraction < limit; ++fraction) {
+                        FixedDecimal fd = new FixedDecimal(i + fraction / limit, fractionDigits);
+                        checkRules2(categoryToPRule, i, fd, triggers);
+                    }
+                }
+                if (triggers.size() > 1) {
+                    if (!overlapSamples.containsKey(triggers)) {
+                        overlapSamples.put(triggers, (double) i);
+                    }
+                }
+            }
+        }
+        return overlapSamples;
+    }
+
+    private void checkRules2(
+            Map<String, PluralRules> categoryToPRule,
+            int i,
+            FixedDecimal fd,
+            Set<String> triggers) {
+        for (Entry<String, PluralRules> entry : categoryToPRule.entrySet()) {
+            PluralRules pRule = entry.getValue();
+            String tempCat = fd == null ? pRule.select(i) : pRule.select(fd);
+            if (tempCat.charAt(0) == 'm') {
+                triggers.add(entry.getKey());
+            }
+        }
     }
 }

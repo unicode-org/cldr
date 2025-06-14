@@ -30,6 +30,7 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
+import javax.annotation.Nullable;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
@@ -43,6 +44,7 @@ import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.SimpleFactory.NoSourceDirectoryException;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.TempPrintWriter;
+import com.google.auto.value.AutoValue;
 
 public class GenerateDateTimeTestData {
 
@@ -822,20 +824,54 @@ public class GenerateDateTimeTestData {
      * combinations / variations of values for the date time fields that exercise a fairly thorough
      * coverage of functionality & corner cases for date time formatting.
      */
-    static class TestCaseInput {
-        FieldStyleCombo fieldStyleCombo;
-        LocalDateTime dateTime;
-        TimeZone timeZone;
-        ULocale locale;
-        Calendar calendar;
+    @AutoValue
+    abstract static class TestCaseInput {
+        abstract FieldStyleCombo fieldStyleCombo();
+        abstract LocalDateTime dateTime();
+        abstract TimeZone timeZone();
+        abstract ULocale locale();
+        abstract Calendar calendar();
+
+        static Builder builder() {
+            return new AutoValue_GenerateDateTimeTestData_TestCaseInput.Builder();
+        }
+
+        abstract Builder toBuilder();
+
+        @AutoValue.Builder
+        abstract static class Builder {
+            abstract Builder setFieldStyleCombo(FieldStyleCombo fieldStyleCombo);
+            abstract Builder setDateTime(LocalDateTime dateTime);
+            abstract Builder setTimeZone(TimeZone timeZone);
+            abstract Builder setLocale(ULocale locale);
+            abstract Builder setCalendar(Calendar calendar);
+            abstract TestCaseInput build();
+        }
     }
 
-    static class TestCase {
-        TestCaseInput testCaseInput;
-        String classicalSkeleton; // Should only be non-null when semantic skeleton non-null.
+    @AutoValue
+    abstract static class TestCase {
+        abstract TestCaseInput testCaseInput();
+        @Nullable abstract String classicalSkeleton(); // Should only be non-null when semantic skeleton non-null.
         // This exists to allow existing ICU & other i18n impls to format
         // until they add support for formatting using semantic skeletons.
-        String expected;
+        abstract String expected();
+
+        static Builder builder() {
+            return new AutoValue_GenerateDateTimeTestData_TestCase.Builder()
+                .setClassicalSkeleton(null);
+        }
+
+        abstract Builder toBuilder();
+
+        @AutoValue.Builder
+        abstract static class Builder {
+            abstract Builder setTestCaseInput(TestCaseInput testCaseInput);
+            abstract Builder setClassicalSkeleton(@Nullable String classicalSkeleton);
+            abstract Builder setExpected(String expected);
+            abstract TestCase build();
+        }
+
     }
 
     private static final Pattern SKELETON_YEAR_FIELD_PATTERN = Pattern.compile("y+");
@@ -1053,23 +1089,23 @@ public class GenerateDateTimeTestData {
             ICUServiceBuilder icuServiceBuilder,
             CLDRFile localeCldrFile,
             TestCaseInput testCaseInput) {
-        String calendarStr = testCaseInput.calendar.getType();
+        String calendarStr = testCaseInput.calendar().getType();
         String dateLength =
-                testCaseInput.fieldStyleCombo.dateStyle == null
+                testCaseInput.fieldStyleCombo().dateStyle == null
                         ? null
-                        : testCaseInput.fieldStyleCombo.dateStyle.getLabel();
+                        : testCaseInput.fieldStyleCombo().dateStyle.getLabel();
         String timeLength =
-                testCaseInput.fieldStyleCombo.timeStyle == null
+                testCaseInput.fieldStyleCombo().timeStyle == null
                         ? null
-                        : testCaseInput.fieldStyleCombo.timeStyle.getLabel();
-        LocalDateTime localDt = testCaseInput.dateTime;
-        TimeZone icuTimeZone = testCaseInput.timeZone;
+                        : testCaseInput.fieldStyleCombo().timeStyle.getLabel();
+        LocalDateTime localDt = testCaseInput.dateTime();
+        TimeZone icuTimeZone = testCaseInput.timeZone();
         ZoneId zoneId = ZoneId.of(icuTimeZone.getID());
         ZonedDateTime zdt = ZonedDateTime.of(localDt, zoneId);
         String dateTimeGluePatternFormatType =
-                testCaseInput.fieldStyleCombo.dateTimeFormatType == null
+                testCaseInput.fieldStyleCombo().dateTimeFormatType == null
                         ? null
-                        : testCaseInput.fieldStyleCombo.dateTimeFormatType.getLabel();
+                        : testCaseInput.fieldStyleCombo().dateTimeFormatType.getLabel();
 
         String expected =
                 getExpectedStringForTestCase(
@@ -1082,9 +1118,10 @@ public class GenerateDateTimeTestData {
                         dateLength,
                         dateTimeGluePatternFormatType);
 
-        TestCase result = new TestCase();
-        result.testCaseInput = testCaseInput;
-        result.expected = expected;
+        TestCase result = TestCase.builder()
+            .setTestCaseInput(testCaseInput)
+            .setExpected(expected)
+            .build();
 
         return result;
     }
@@ -1102,32 +1139,33 @@ public class GenerateDateTimeTestData {
             CLDRFile localeCldrFile,
             TestCaseInput testCaseInput) {
 
-        if (testCaseInput.fieldStyleCombo.semanticSkeleton == null) {
+        if (testCaseInput.fieldStyleCombo().semanticSkeleton == null) {
             return convertTestCaseInputToTestCaseForNonSemanticSkeleton(icuServiceBuilder, localeCldrFile, testCaseInput);
         } else {
-            String calendarStr = testCaseInput.calendar.getType();
+            String calendarStr = testCaseInput.calendar().getType();
             String skeleton =
                     computeSkeletonFromSemanticSkeleton(
                             icuServiceBuilder,
                             localeCldrFile,
-                            testCaseInput.fieldStyleCombo,
+                            testCaseInput.fieldStyleCombo(),
                             calendarStr);
             // compute the expected
             // TODO: fix CLDR DateTimeFormats constructor to use CLDRFile to get the dateTimeFormat
             //   glue pattern rather than use ICU to get it
             DateTimeFormats formats = new DateTimeFormats().set(localeCldrFile, calendarStr);
             SimpleDateFormat formatterForSkeleton = formats.getDateFormatFromSkeleton(skeleton);
-            formatterForSkeleton.setCalendar(testCaseInput.calendar);
-            formatterForSkeleton.setTimeZone(testCaseInput.timeZone);
-            String timeZoneIdStr = testCaseInput.timeZone.getID();
+            formatterForSkeleton.setCalendar(testCaseInput.calendar());
+            formatterForSkeleton.setTimeZone(testCaseInput.timeZone());
+            String timeZoneIdStr = testCaseInput.timeZone().getID();
             ZoneId timeZoneId = ZoneId.of(timeZoneIdStr);
-            ZonedDateTime zdt = ZonedDateTime.of(testCaseInput.dateTime, timeZoneId);
+            ZonedDateTime zdt = ZonedDateTime.of(testCaseInput.dateTime(), timeZoneId);
             String formattedDateTime = formatterForSkeleton.format(zdt);
 
-            TestCase result = new TestCase();
-            result.testCaseInput = testCaseInput;
-            result.classicalSkeleton = skeleton;
-            result.expected = formattedDateTime;
+            TestCase result = TestCase.builder()
+                .setTestCaseInput(testCaseInput)
+                .setClassicalSkeleton(skeleton)
+                .setExpected(formattedDateTime)
+                .build();
 
             return result;
         }
@@ -1209,12 +1247,13 @@ public class GenerateDateTimeTestData {
 
                 for (LocalDateTime localDateTime : dateTimeIterationColl) {
                     for (TimeZone timeZone : timeZoneIterationColl) {
-                        TestCaseInput testCaseInput = new TestCaseInput();
-                        testCaseInput.fieldStyleCombo = fieldStyleCombo;
-                        testCaseInput.dateTime = localDateTime;
-                        testCaseInput.timeZone = timeZone;
-                        testCaseInput.locale = locale;
-                        testCaseInput.calendar = calendar;
+                        TestCaseInput testCaseInput = TestCaseInput.builder()
+                            .setFieldStyleCombo(fieldStyleCombo)
+                            .setDateTime(localDateTime)
+                            .setTimeZone(timeZone)
+                            .setLocale(locale)
+                            .setCalendar(calendar)
+                            .build();
 
                         TestCase testCase =
                                 computeTestCase(icuServiceBuilder, localeCldrFile, testCaseInput);
@@ -1265,18 +1304,14 @@ public class GenerateDateTimeTestData {
                 icuServiceBuilder.clearCache();
                 icuServiceBuilder.setCldrFile(cldrFile);
                 kernelSet.stream()
-                    .map(testCase -> testCase.testCaseInput)
+                    .map(testCase -> testCase.testCaseInput())
                     .map(testCaseInput -> {
                         // manually create a "deep copy" object to avoid unwanted mutation
-                        TestCaseInput newInput = new TestCaseInput();
-                        // override locale
-                        testCaseInput.locale = locale;
-                        // copy over all other fields
-                        newInput.timeZone = testCaseInput.timeZone;
-                        newInput.fieldStyleCombo = testCaseInput.fieldStyleCombo;
-                        newInput.dateTime = testCaseInput.dateTime;
-                        newInput.calendar = testCaseInput.calendar;
-                        return newInput;
+
+                        return testCaseInput.toBuilder()
+                            // override locale, keep all other fields
+                            .setLocale(locale)
+                            .build();
                     })
                     .map(testCaseInput -> computeTestCase(icuServiceBuilder, cldrFile, testCaseInput))
                     .forEach(newCasesBuilder::add);
@@ -1310,48 +1345,48 @@ public class GenerateDateTimeTestData {
         TestCaseSerde result = new TestCaseSerde();
 
         result.dateLength =
-                Optional.ofNullable(testCase.testCaseInput.fieldStyleCombo.dateStyle)
+                Optional.ofNullable(testCase.testCaseInput().fieldStyleCombo().dateStyle)
                         .map(DateStyle::getLabel)
                         .orElse(null);
         result.timeLength =
-                Optional.ofNullable(testCase.testCaseInput.fieldStyleCombo.timeStyle)
+                Optional.ofNullable(testCase.testCaseInput().fieldStyleCombo().timeStyle)
                         .map(TimeStyle::getLabel)
                         .orElse(null);
         result.semanticSkeleton =
-                Optional.ofNullable(testCase.testCaseInput.fieldStyleCombo.semanticSkeleton)
+                Optional.ofNullable(testCase.testCaseInput().fieldStyleCombo().semanticSkeleton)
                         .map(SemanticSkeleton::getLabel)
                         .orElse(null);
         result.semanticSkeletonLength =
-                Optional.ofNullable(testCase.testCaseInput.fieldStyleCombo.semanticSkeletonLength)
+                Optional.ofNullable(testCase.testCaseInput().fieldStyleCombo().semanticSkeletonLength)
                         .map(SemanticSkeletonLength::getLabel)
                         .orElse(null);
-        result.classicalSkeleton = testCase.classicalSkeleton;
+        result.classicalSkeleton = testCase.classicalSkeleton();
         result.dateTimeFormatType =
-                Optional.ofNullable(testCase.testCaseInput.fieldStyleCombo.dateTimeFormatType)
+                Optional.ofNullable(testCase.testCaseInput().fieldStyleCombo().dateTimeFormatType)
                         .map(DateTimeFormatType::getLabel)
                         .orElse(null);
         result.hourCycle =
-                Optional.ofNullable(testCase.testCaseInput.fieldStyleCombo.hourCycle)
+                Optional.ofNullable(testCase.testCaseInput().fieldStyleCombo().hourCycle)
                         .map(HourCycle::getLabel)
                         .orElse(null);
         result.zoneStyle =
-                Optional.ofNullable(testCase.testCaseInput.fieldStyleCombo.zoneStyle)
+                Optional.ofNullable(testCase.testCaseInput().fieldStyleCombo().zoneStyle)
                         .map(ZoneStyle::getLabel)
                         .orElse(null);
         result.yearStyle =
-                Optional.ofNullable(testCase.testCaseInput.fieldStyleCombo.yearStyle)
+                Optional.ofNullable(testCase.testCaseInput().fieldStyleCombo().yearStyle)
                         .map(YearStyle::getLabel)
                         .orElse(null);
-        result.calendar = testCase.testCaseInput.calendar.getType();
-        result.locale = testCase.testCaseInput.locale.toLanguageTag();
+        result.calendar = testCase.testCaseInput().calendar().getType();
+        result.locale = testCase.testCaseInput().locale().toLanguageTag();
 
-        LocalDateTime localDt = testCase.testCaseInput.dateTime;
-        TimeZone icuTimeZone = testCase.testCaseInput.timeZone;
+        LocalDateTime localDt = testCase.testCaseInput().dateTime();
+        TimeZone icuTimeZone = testCase.testCaseInput().timeZone();
         ZoneId zoneId = ZoneId.of(icuTimeZone.getID());
         ZonedDateTime zdt = ZonedDateTime.of(localDt, zoneId);
         result.input = zdt.toString();
 
-        result.expected = testCase.expected;
+        result.expected = testCase.expected();
 
         return result;
     }

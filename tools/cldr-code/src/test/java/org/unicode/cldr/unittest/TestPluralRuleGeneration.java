@@ -36,6 +36,7 @@ import org.unicode.cldr.icu.text.FixedDecimal;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.Joiners;
+import org.unicode.cldr.util.PluralUtilities;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
@@ -607,7 +608,7 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
         ConcurrentHashMap<Map<String, String>, Boolean> seenLocale = new ConcurrentHashMap();
         final Multimap<String, String> components =
                 TreeMultimap.create(PluralUtilities.PLURAL_RELATION, Ordering.natural());
-        PluralUtilities.representativeForLocales.keySet().stream()
+        PluralUtilities.getRepresentativeToLocales().keySet().stream()
                 .forEach(
                         locale -> {
                             PluralInfo pluralInfo = supp.getPlurals(locale);
@@ -615,7 +616,7 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
                             Set<String> categories = rules.getKeywords();
                             for (String category : categories) {
                                 String rule = rules.getRules(category);
-                                PluralUtilities.and_or.splitToList(rule).stream()
+                                PluralUtilities.AND_OR.splitToList(rule).stream()
                                         .forEach(x -> components.put(x, locale));
                             }
                         });
@@ -628,14 +629,14 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
                                             x.getKey() + "\t" + Joiners.SP.join(x.getValue())));
             System.out.println();
             for (Entry<String, String> entry :
-                    PluralUtilities.categorySetToRepresentativeLocales.entries()) {
+                    PluralUtilities.getCategorySetToRepresentativeLocales().entries()) {
                 System.out.println(
                         Joiners.TAB.join(
                                 entry.getKey(),
                                 entry.getValue(),
                                 Joiners.SP.join(
-                                        PluralUtilities.representativeForLocales.get(
-                                                entry.getValue()))));
+                                        PluralUtilities.getRepresentativeToLocales()
+                                                .get(entry.getValue()))));
             }
         }
     }

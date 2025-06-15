@@ -36,7 +36,7 @@ public class PluralSamples {
         if (favorPositive) {
             ++start;
         }
-        for (int item = start; item < end; ++item) {
+        for (int item = start; item <= end; ++item) {
             double dItem = item;
             Count count = pluralInfo.getCount(dItem);
             Double old = set.get(count);
@@ -82,12 +82,7 @@ public class PluralSamples {
      * @return
      */
     public static PluralSamples getInstance(String locale) {
-        PluralSamples result = cache.get(locale);
-        if (result == null) {
-            result = new PluralSamples(locale);
-            cache.put(locale, result); // don't care if done twice
-        }
-        return result;
+        return cache.computeIfAbsent(locale, x -> new PluralSamples(locale));
     }
 
     /**

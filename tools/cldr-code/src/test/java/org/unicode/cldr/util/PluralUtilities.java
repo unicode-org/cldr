@@ -1,4 +1,4 @@
-package org.unicode.cldr.unittest;
+package org.unicode.cldr.util;
 
 import static java.util.Comparator.comparing;
 
@@ -15,10 +15,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.regex.Pattern;
-import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.Joiners;
-import org.unicode.cldr.util.MapComparator;
-import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 
 public class PluralUtilities {
@@ -37,22 +33,27 @@ public class PluralUtilities {
                     .thenComparing(foo -> foo.contains("!="))
                     .thenComparing(foo -> foo);
 
-    // Utility method and backing data
-
-    static final Splitter and_or =
+    public static final Splitter AND_OR =
             Splitter.on(Pattern.compile("\\b(or|and)\\b")).trimResults().omitEmptyStrings();
-    private static final Map<String, String> localeToRepresentative;
-    static final Multimap<String, String> representativeForLocales;
 
-    public static Multimap<String, String> getRepresentativeforlocales() {
+    // Utility methods and backing data
+
+    public static Multimap<String, String> getRepresentativeToLocales() {
         return representativeForLocales;
     }
 
-    public static Multimap<String, String> getCategorysettorepresentativelocales() {
+    public static Multimap<String, String> getCategorySetToRepresentativeLocales() {
         return categorySetToRepresentativeLocales;
     }
 
-    static final Multimap<String, String> categorySetToRepresentativeLocales;
+    public String getRepresentativeLocaleForPluralRules(String sourceLocale) {
+        String result = localeToRepresentative.get(sourceLocale);
+        return result == null ? "und" : result;
+    }
+
+    private static final Map<String, String> localeToRepresentative;
+    private static final Multimap<String, String> representativeForLocales;
+    private static final Multimap<String, String> categorySetToRepresentativeLocales;
 
     static {
         Map<String, String> _localeToRepresentative = new TreeMap<>();
@@ -90,10 +91,5 @@ public class PluralUtilities {
         localeToRepresentative = ImmutableMap.copyOf(_localeToRepresentative);
         representativeForLocales = ImmutableMultimap.copyOf(_representativeForLocales);
         categorySetToRepresentativeLocales = ImmutableMultimap.copyOf(_categorySetToLocales);
-    }
-
-    String getRepresentativeLocaleForPluralRules(String sourceLocale) {
-        String result = localeToRepresentative.get(sourceLocale);
-        return result == null ? "und" : result;
     }
 }

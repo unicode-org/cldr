@@ -42,7 +42,7 @@ If necessary, in order to make the required tests pass when adding a locale, you
 	- **common/main/xx.xml** \- The main locale file containing the core data. This will include:
 		- layout information (which can be omitted if the character order is left-to-right and line order is top-to-bottom)
 		- exemplar sets for main, auxiliary, numbers, punctuation
-			- Check to see that data is properly "escaped". (See UnicodeSet for a list of characters that need to be escaped.) Some commonly used characters are: \- \: \[ \] \{ \} &quot; \&amp; Less commonly used characters include: \\ \^ plus &lt; and &gt; for < and >.
+			- Check to see that data is properly "escaped". (See UnicodeSet for a list of characters that need to be escaped.) Some commonly used characters are: `\- \: \[ \] \{ \} &quot; \&amp;` Less commonly used characters include: `\\ \^` plus `&lt;` and `&gt;`.
 			- For testing exemplar sets, https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp may be useful.
 
 	- **common/main/xx\_YY.xml** \- An empty country locale containing the identification of xx\_YY as a valid locale. 
@@ -51,8 +51,8 @@ If necessary, in order to make the required tests pass when adding a locale, you
 
 #### Supply metadata
 - In **common/supplemental/attributeValueValidity.xml**, add the language subtag to
-	-\<variable id\="$language" type\="choice"\> for TC locales, or
-	-\<variable id\="$languageNonTcLtBasic" type\="choice"\> for non-TC locales
+	- \<variable id\="$language" type\="choice"\> for TC locales, or
+	- \<variable id\="$languageNonTcLtBasic" type\="choice"\> for non-TC locales
 - In **common/supplemental/supplementalMetadata.xml**, add the appropriate default content locale to \<defaultContent locales\="..."\>
 	- The default content locale will include language and region (and possibly script, for multi-script languages).
 - Consider whether the locale needs parent locale information (which it probably won't)

@@ -16,7 +16,7 @@ import java.util.function.Supplier;
 import org.unicode.cldr.util.Joiners;
 
 public class InvestigateCollation {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         boolean bounded = false;
         boolean showProgress = false;
 
@@ -51,6 +51,7 @@ public class InvestigateCollation {
                                 + Long.toHexString(codePoint)
                                 + "\t"
                                 + Character.toString(codePoint));
+                continue;
             }
 
             if (showProgress && codePoint >= next) {
@@ -70,7 +71,27 @@ public class InvestigateCollation {
                 top = ce.primary;
             }
         }
-        System.out.println("\tShowing primaries with more than one character");
+
+        UnicodeSet contractions = new UnicodeSet();
+        UnicodeSet expansions = new UnicodeSet();
+
+        root.getContractionsAndExpansions(contractions, expansions, true);
+        contractions.freeze();
+        expansions.freeze();
+
+        System.out.println(
+                "\nContractions:\t" + contractions.size() + "\t" + contractions.toPattern(false));
+
+        System.out.println(
+                "\nExpansions:\t" + expansions.size() + "\t" + expansions.toPattern(false));
+
+        //        UnicodeSet contractAndExpansions = new UnicodeSet().addAll(expansions.strings());
+        //        expansions = new UnicodeSet(expansions).removeAll(expansions.strings());
+        //
+        //        System.out.println("\nExpansions & Contractions:\t"  +
+        // contractAndExpansions.size() + "\t" +  contractAndExpansions.toPattern(false));
+
+        System.out.println("\nShowing primaries with more than one character");
 
         final long bottom2 = bottom;
         final long top2 = top;

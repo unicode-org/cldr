@@ -42,7 +42,9 @@ If necessary, in order to make the required tests pass when adding a locale, you
 	- **common/main/xx.xml** \- The main locale file containing the core data. This will include:
 		- layout information (which can be omitted if the character order is left-to-right and line order is top-to-bottom)
 		- exemplar sets for main, auxiliary, numbers, punctuation
-			- Check to see that data is properly "escaped". (See UnicodeSet for a list of characters that need to be escaped.) Some commonly used characters are: `\- \: \[ \] \{ \} &quot; \&amp;` Less commonly used characters include: `\\ \^` plus `&lt;` and `&gt;`.
+			- Check to see that data is properly "escaped". (See [UnicodeSet](https://www.unicode.org/reports/tr35/tr35.html#unicode-sets) for a list of characters that need to be escaped.)
+				- Some commonly used characters are: `\- \: \[ \] \{ \} &quot; \&amp`
+				- Less commonly used characters include: `\\ \^ &lt; &gt;`
 			- For testing exemplar sets, https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp may be useful.
 
 	- **common/main/xx\_YY.xml** \- An empty country locale containing the identification of xx\_YY as a valid locale. 

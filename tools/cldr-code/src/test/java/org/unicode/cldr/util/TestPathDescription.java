@@ -1,8 +1,6 @@
 package org.unicode.cldr.util;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.Map;
 import java.util.TreeMap;
@@ -83,5 +81,50 @@ public class TestPathDescription {
                                                             + e.getValue();
                                                 })
                                         .collect(Collectors.joining("\n")));
+    }
+
+    @Test
+    void testHints() {
+        CLDRConfig config = CLDRConfig.getInstance();
+        CLDRFile eng = config.getEnglish();
+        PathDescription pathDescriptionFactory =
+                new PathDescription(
+                        config.getSupplementalDataInfo(),
+                        eng,
+                        null,
+                        null,
+                        PathDescription.ErrorHandling.CONTINUE);
+
+        Map<String, String> xpathToHint = TranslationHints.getMap();
+        xpathToHint.forEach((path, hint) -> confirmInPD(pathDescriptionFactory, path, hint));
+        for (String path : eng) {
+            String description = pathDescriptionFactory.getHintRawDescription(path, null);
+            String hint = TranslationHints.get(path);
+            if (hint != null || description != null) {
+                assertEquals(
+                        hint,
+                        description,
+                        "Cycling through English paths, description should match hint for path "
+                                + path
+                                + "; description "
+                                + description
+                                + "; hint "
+                                + hint);
+            }
+        }
+    }
+
+    private void confirmInPD(PathDescription pathDescriptionFactory, String path, String hint) {
+        final String description = pathDescriptionFactory.getHintRawDescription(path, null);
+        assertNotNull(description, "Null description for path " + path + "; expected: " + hint);
+        assertEquals(
+                hint,
+                description,
+                "Cycling through TranslationHints, description should match hint for path "
+                        + path
+                        + "; description "
+                        + description
+                        + "; hint "
+                        + hint);
     }
 }

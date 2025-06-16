@@ -35,4 +35,11 @@ public class TranslationHints {
             }
         }
     }
+
+    public static Map<String, String> getMap() {
+        if (xpathToHint == null) {
+            initXpathToHint();
+        }
+        return xpathToHint;
+    }
 }

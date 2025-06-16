@@ -23,6 +23,11 @@ public class PathDescription {
                     .lines()
                     .collect(Collectors.joining("\n"));
 
+    private static final String pathDescriptionHintsString =
+            CldrUtility.getUTF8Data("PathDescriptionHints.md")
+                    .lines()
+                    .collect(Collectors.joining("\n"));
+
     private static final Logger logger = Logger.getLogger(PathDescription.class.getName());
 
     public enum ErrorHandling {
@@ -47,19 +52,24 @@ public class PathDescription {
     /** <Description, Markdown> */
     private static final PathDescriptionParser parser = new PathDescriptionParser();
 
+    private static final PathDescriptionParser hintsParser = new PathDescriptionParser();
+
     private static final RegexLookup<Pair<String, String>> pathHandling =
             parser.parse(pathDescriptionString);
+
+    private static final RegexLookup<Pair<String, String>> pathHintsHandling =
+            hintsParser.parse(pathDescriptionHintsString);
 
     /** markdown to append */
     private static final String references = parser.getReferences();
 
     /** for tests, returns the big string */
-    static final String getPathDescriptionString() {
+    static String getPathDescriptionString() {
         return pathDescriptionString;
     }
 
     /** for tests */
-    static final RegexLookup<Pair<String, String>> getPathHandling() {
+    static RegexLookup<Pair<String, String>> getPathHandling() {
         return pathHandling;
     }
 
@@ -107,6 +117,15 @@ public class PathDescription {
     public String getRawDescription(String path, Object context) {
         status.clear();
         final Pair<String, String> entry = pathHandling.get(path, context, pathArguments);
+        if (entry == null) {
+            return null;
+        }
+        return entry.getSecond();
+    }
+
+    public String getHintRawDescription(String path, Object context) {
+        status.clear();
+        final Pair<String, String> entry = pathHintsHandling.get(path, context, pathArguments);
         if (entry == null) {
             return null;
         }

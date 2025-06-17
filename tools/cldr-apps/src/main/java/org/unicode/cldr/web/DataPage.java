@@ -63,6 +63,16 @@ public class DataPage {
     /** The DisplayAndInputProcessor for this DataPage */
     private DisplayAndInputProcessor processor = null;
 
+    private static final CLDRConfig config = CLDRConfig.getInstance();
+
+    private static final PathDescription pathHintFactory =
+            new PathDescription(
+                    config.getSupplementalDataInfo(),
+                    config.getEnglish(),
+                    null,
+                    null,
+                    PathDescription.ErrorHandling.CONTINUE);
+
     public enum CandidateStatus {
         ALIAS,
         FALLBACK,
@@ -1094,7 +1104,7 @@ public class DataPage {
         }
 
         public String getTranslationHint() {
-            return TranslationHints.get(xpath);
+            return pathHintFactory.getHintRawDescription(xpath, null);
         }
 
         public boolean fixedCandidates() {

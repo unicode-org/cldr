@@ -962,12 +962,10 @@ function addVitem(td, tr, theRow, item, newButton) {
   if (
     newButton &&
     theRow.voteVhash == item.valueHash &&
-    theRow.items[theRow.voteVhash].votes &&
-    theRow.items[theRow.voteVhash].votes[surveyUser.id] &&
-    theRow.items[theRow.voteVhash].votes[surveyUser.id].overridedVotes
+    theRow.items[theRow.voteVhash]?.votes[surveyUser.id]?.voteDetails?.override
   ) {
     const overrideTag = cldrDom.createChunk(
-      theRow.items[theRow.voteVhash].votes[surveyUser.id].overridedVotes,
+      theRow.items[theRow.voteVhash].votes[surveyUser.id].voteDetails.override,
       "span",
       "i-override"
     );

@@ -1,6 +1,13 @@
 package org.unicode.cldr.web.api;
 
 import java.io.PrintWriter;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
+import java.time.temporal.ChronoField;
+import java.time.temporal.ChronoUnit;
 import java.util.*;
 import java.util.logging.Logger;
 import javax.json.bind.spi.JsonbProvider;
@@ -34,7 +41,7 @@ public class VoteAPIHelper {
     private static final boolean DEBUG_SERIALIZATION = false;
 
     public static final class VoteEntry {
-        public final Integer overridedVotes;
+        public final VoteDetails voteDetails;
         public final String userid;
         public final int votes;
 
@@ -44,10 +51,10 @@ public class VoteAPIHelper {
         public final String name;
         public final String org;
 
-        public VoteEntry(User u, Integer override, boolean redacted) {
+        public VoteEntry(User u, VoteDetails voteDetails, boolean redacted) {
             this.level = u.getLevel();
             this.org = u.getOrganization().toString();
-            this.overridedVotes = override;
+            this.voteDetails = voteDetails;
             this.userid = Integer.toString(u.id);
             this.votes = u.getVoteCount();
             if (!redacted) {
@@ -57,6 +64,46 @@ public class VoteAPIHelper {
                 this.email = "(hidden)";
                 this.name = "User#" + userid;
             }
+        }
+    }
+
+    /**
+     * Details about a single voting event, for use on the front end
+     *
+     * <p>This is a subset of the data included in STFactory.PerLocaleData.PerXPathData.PerUserData.
+     *
+     * <p>The date when the vote occurred could easily be added (from PerUserData.when), but is not
+     * currently used on the front end.
+     */
+    public static final class VoteDetails {
+
+        /** This user's override strength for this vote */
+        public Integer override;
+
+        /** The type of vote */
+        public VoteType voteType;
+
+        /** How many days ago the vote occurred */
+        public final long daysAgo;
+
+        public VoteDetails(Integer override, VoteType voteType, Date date) {
+            this.override = override;
+            this.voteType = voteType;
+            this.daysAgo = daysSinceDate(date);
+        }
+
+        private long daysSinceDate(Date date) {
+            ZoneId zone = ZoneId.of("UTC+0");
+            DateTimeFormatter epochSecondFormatter =
+                    new DateTimeFormatterBuilder()
+                            .appendValue(ChronoField.INSTANT_SECONDS)
+                            .toFormatter();
+            String epoch = String.valueOf(date.getTime() / 1000);
+            Instant then = epochSecondFormatter.parse(epoch, Instant::from);
+            LocalDate thatDay = then.atZone(zone).toLocalDate();
+            LocalDate today = LocalDate.now(zone);
+            long diff = Math.abs(ChronoUnit.DAYS.between(thatDay, today));
+            return (diff < 1) ? 1 : diff;
         }
     }
 
@@ -369,7 +416,7 @@ public class VoteAPIHelper {
         c.tests = getConvertedTests(i.getTests());
         c.value = i.getProcessedValue();
         c.valueHash = i.getValueHash();
-        c.votes = calculateVotes(i.getVotes(), i.getOverrides(), redacted);
+        c.votes = calculateVotes(i.getVotes(), i.getVoteDetails(), redacted);
         return c;
     }
 
@@ -384,7 +431,7 @@ public class VoteAPIHelper {
     }
 
     private static Map<String, VoteEntry> calculateVotes(
-            Set<User> users, Map<User, Integer> overrides, boolean redacted) {
+            Set<User> users, Map<User, VoteDetails> voteDetailMap, boolean redacted) {
         if (users == null) {
             return null;
         }
@@ -393,11 +440,8 @@ public class VoteAPIHelper {
             if (UserRegistry.userIsLocked(u)) {
                 continue;
             }
-            Integer override = null;
-            if (overrides != null) {
-                override = overrides.get(u);
-            }
-            VoteEntry voteEntry = new VoteEntry(u, override, redacted);
+            VoteDetails voteDetails = (voteDetailMap == null) ? null : voteDetailMap.get(u);
+            VoteEntry voteEntry = new VoteEntry(u, voteDetails, redacted);
             votes.put(voteEntry.userid, voteEntry);
         }
         return votes;

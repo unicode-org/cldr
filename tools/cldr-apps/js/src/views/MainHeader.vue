@@ -6,7 +6,6 @@
         {{ stVersion }}
         <a
           href="https://cldr.unicode.org/translation/getting-started/survey-tool-phases"
-          :title="explainPhase"
           _target="CLDR_ST_DOCS"
         >
           {{ stPhase }}

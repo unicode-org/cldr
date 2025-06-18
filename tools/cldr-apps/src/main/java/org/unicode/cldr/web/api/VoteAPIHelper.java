@@ -71,9 +71,6 @@ public class VoteAPIHelper {
      * Details about a single voting event, for use on the front end
      *
      * <p>This is a subset of the data included in STFactory.PerLocaleData.PerXPathData.PerUserData.
-     *
-     * <p>The date when the vote occurred could easily be added (from PerUserData.when), but is not
-     * currently used on the front end.
      */
     public static final class VoteDetails {
 

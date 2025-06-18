@@ -21,7 +21,9 @@ import com.ibm.icu.util.ICUException;
 import com.ibm.icu.util.MeasureUnit;
 import com.ibm.icu.util.ULocale;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -32,17 +34,23 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.stream.Collectors;
 import org.unicode.cldr.icu.text.FixedDecimal;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.Joiners;
+import org.unicode.cldr.util.PluralSamples.Visitor;
 import org.unicode.cldr.util.PluralUtilities;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 
 public class TestPluralRuleGeneration extends TestFmwkPlus {
     boolean SHOW = System.getProperty("TestPluralRuleGeneration:show") != null;
+
+    CLDRConfig testInfo = CLDRConfig.getInstance();
+    SupplementalDataInfo supp = testInfo.getSupplementalDataInfo();
 
     public static void main(String[] args) {
         new TestPluralRuleGeneration().run(args);
@@ -638,6 +646,79 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
                                         PluralUtilities.getRepresentativeToLocales()
                                                 .get(entry.getValue()))));
             }
+        }
+    }
+
+    static final boolean debugSample = false;
+
+    public void checkSampleSpeed() {
+
+        for (Entry<String, Set<Count>> entry :
+                PluralUtilities.getRepresentativeToCountSet().entrySet()) {
+            String representative = entry.getKey();
+            if (debugSample && !representative.equals("en")) continue;
+            Collection<String> representedLocales =
+                    PluralUtilities.getRepresentativeToLocales().get(representative);
+            PluralRules rules =
+                    PluralUtilities.getRepresentativeToPluralRules().get(representative);
+            Set<Count> countSets = entry.getValue();
+
+            Map<PluralInfo.Count, Multimap<Integer, FixedDecimal>> data = new TreeMap<>();
+            TreeMultimap.create();
+            Visitor visitor =
+                    Visitor.create(
+                            rules,
+                            (FixedDecimal x, String y) -> {
+                                Count count = PluralInfo.Count.valueOf(y);
+                                Multimap<Integer, FixedDecimal> data2 = data.get(count);
+                                if (data2 == null) {
+                                    data.put(count, data2 = TreeMultimap.create());
+                                }
+                                long intValue = x.getIntegerValue();
+                                int ddc = x.getVisibleDecimalDigitCount();
+                                int key = ((int) Math.log10(intValue)) * 100 + ddc;
+                                data2.put(key, x);
+                                return Visitor.Action.proceed;
+                            },
+                            !debugSample
+                                    ? null
+                                    : (FixedDecimal x) ->
+                                            x.getVisibleDecimalDigitCount() == 2
+                                                    && x.getIntegerValue() == 1);
+
+            for (List<Integer> range : integerRangesToCheck) {
+                int start = range.get(0);
+                int last = range.size() < 2 ? start : range.get(1);
+                visitor.handle(start, last, 4);
+            }
+
+            System.out.println();
+            System.out.println(Joiners.TAB.join(countSets, representative, representedLocales));
+            data.entrySet().stream()
+                    .forEach(
+                            x -> { // Multimap<Integer, FixedDecimal>
+                                List<List<FixedDecimal>> firstNElements = new ArrayList<>();
+                                x.getValue().asMap().entrySet().stream()
+                                        .forEach(
+                                                y -> {
+                                                    Integer digitCount = y.getKey();
+                                                    Collection<FixedDecimal> set = y.getValue();
+                                                    List<FixedDecimal> chunk =
+                                                            set.stream()
+                                                                    .limit(3)
+                                                                    .collect(Collectors.toList());
+                                                    firstNElements.add(chunk);
+                                                    System.out.println(
+                                                            Joiners.TAB.join(
+                                                                    x.getKey(),
+                                                                    y.getKey(),
+                                                                    y.getValue().size(),
+                                                                    chunk));
+                                                });
+                                System.out.println(
+                                        Joiners.TAB.join(
+                                                x.getKey(), x.getValue().size(), firstNElements));
+                            });
         }
     }
 }

@@ -27,6 +27,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutionException;
@@ -55,6 +56,7 @@ import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
 import org.unicode.cldr.web.SurveyException.ErrorCode;
 import org.unicode.cldr.web.UserRegistry.ModifyDenial;
 import org.unicode.cldr.web.UserRegistry.User;
+import org.unicode.cldr.web.api.VoteAPIHelper;
 
 /**
  * @author srl
@@ -125,12 +127,13 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
         /** Per-xpath data. There's one of these per xpath- voting data, etc. */
         final class PerXPathData {
+
             /**
              * Per (voting) user data. For each xpath, there's one of these per user that is voting.
              *
              * @author srl
              */
-            private final class PerUserData {
+            final class PerUserData {
                 /** What is this user voting for? */
                 String vote;
 
@@ -146,12 +149,12 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                     this.vote = value;
                     this.override = voteOverride;
                     this.when = when;
-                    this.voteType = voteType;
                     if (voteType == null || voteType == VoteType.NONE) {
                         logger.warning(
                                 "PerUserData got vote type " + voteType + "; changed to UNKNOWN");
                         voteType = VoteType.UNKNOWN;
                     }
+                    this.voteType = voteType;
                     if (lastModDate == null || lastModDate.before(when)) {
                         lastModDate = when;
                     }
@@ -277,6 +280,20 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 }
             }
 
+            public Map<User, VoteAPIHelper.VoteDetails> getVoteDetails() {
+                if (isEmpty()) {
+                    return null;
+                }
+                Map<User, VoteAPIHelper.VoteDetails> map = new TreeMap<>();
+                userToData.forEach(
+                        (user, data) ->
+                                map.put(
+                                        user,
+                                        new VoteAPIHelper.VoteDetails(
+                                                data.override, data.voteType, data.when)));
+                return map;
+            }
+
             /**
              * Set this user's vote.
              *
@@ -313,17 +330,6 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                     return VoteType.NONE;
                 }
                 return pud.getVoteType();
-            }
-
-            public Map<User, Integer> getOverridesPerUser() {
-                if (isEmpty()) return null;
-                Map<User, Integer> rv = new HashMap<>(userToData.size());
-                for (Entry<User, PerUserData> e : userToData.entrySet()) {
-                    if (e.getValue().getOverride() != null) {
-                        rv.put(e.getKey(), e.getValue().getOverride());
-                    }
-                }
-                return rv;
             }
 
             public Date getLastModDate() {
@@ -1156,13 +1162,9 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         }
 
         @Override
-        public Map<User, Integer> getOverridesPerUser(String xpath) {
+        public Map<User, VoteAPIHelper.VoteDetails> getVoteDetailsPerUser(String xpath) {
             PerXPathData xpd = peekXpathData(xpath);
-            if (xpd == null) {
-                return null;
-            } else {
-                return xpd.getOverridesPerUser();
-            }
+            return (xpd == null) ? null : xpd.getVoteDetails();
         }
 
         @Override

@@ -536,22 +536,17 @@ function updateRowVoteInfo(tr, theRow) {
     console.error("theRow is null or undefined in updateRowVoteInfo");
     return;
   }
-  const vr = theRow.votingResults;
   tr.voteDiv = document.createElement("div");
   tr.voteDiv.className = "voteDiv";
   const surveyUser = cldrStatus.getSurveyUser();
-  if (theRow.voteVhash && theRow.voteVhash !== "" && surveyUser) {
+  if (theRow.voteVhash && surveyUser) {
     const voteForItem = theRow.items[theRow.voteVhash];
-    if (
-      voteForItem &&
-      voteForItem.votes &&
-      voteForItem.votes[surveyUser.id] &&
-      voteForItem.votes[surveyUser.id].overridedVotes
-    ) {
+    if (voteForItem?.votes[surveyUser.id]?.voteDetails?.override) {
       tr.voteDiv.appendChild(
         cldrDom.createChunk(
           cldrText.sub("override_explain_msg", {
-            overrideVotes: voteForItem.votes[surveyUser.id].overridedVotes,
+            overrideVotes:
+              voteForItem.votes[surveyUser.id].voteDetails.override,
             votes: surveyUser.votecount,
           }),
           "p",
@@ -571,6 +566,7 @@ function updateRowVoteInfo(tr, theRow) {
    * The value_vote array has an even number of elements,
    * like [value0, vote0, value1, vote1, value2, vote2, ...].
    */
+  const vr = theRow.votingResults;
   let n = 0;
   while (n < vr.value_vote.length) {
     const value = vr.value_vote[n++];
@@ -617,7 +613,8 @@ function updateRowVoteInfo(tr, theRow) {
       "td",
       "voteInfo_valueTitle voteInfo_td"
     );
-    var vbadge = cldrDom.createChunk(vote, "span", "badge");
+    const vbadge = cldrDom.createChunk(vote, "span", "badge");
+    vbadge.title = "Total votes for this value";
 
     /*
      * Note: we can't just check for item.pClass === "winner" here, since, for example, the winning value may
@@ -702,7 +699,7 @@ function updateRowVoteInfo(tr, theRow) {
       );
       vdiv.appendChild(vrow);
     } else {
-      updateRowVoteInfoForAllOrgs(theRow, vr, value, item, vdiv);
+      updateRowVoteInfoForAllOrgs(vr, value, item, vdiv);
     }
     tr.voteDiv.appendChild(valdiv);
     tr.voteDiv.appendChild(vdiv);
@@ -773,32 +770,29 @@ function makeVoteExplainerDiv(voteTranscript) {
  * Update the vote info for one candidate item in this row, looping through all the orgs.
  * Information will be displayed in the Information Panel (right edge of window).
  *
- * @param theRow the row
- * @param vr the vote resolver
- * @param value the value of the candidate item
- * @param item the candidate item
- * @param vdiv a table created by the caller as vdiv = cldrDom.createChunk(null, "table", "voteInfo_perValue table table-vote")
+ * @param {Object} vr the vote resolver
+ * @param {String} value the value of the candidate item
+ * @param {Object} item the candidate item
+ * @param {Element} vdiv a table created by the caller as vdiv = cldrDom.createChunk(null, "table", "voteInfo_perValue table table-vote")
  */
-function updateRowVoteInfoForAllOrgs(theRow, vr, value, item, vdiv) {
+function updateRowVoteInfoForAllOrgs(vr, value, item, vdiv) {
   for (let org in vr.orgs) {
-    var theOrg = vr.orgs[org];
-    var orgVoteValue = theOrg.votes[value];
-    /*
-     * We should display something under "Org." and "User" even when orgVoteValue is zero (not undefined),
-     * for "anonymous" imported losing votes. Therefore do not require orgVoteValue > 0 here.
-     * There does not appear to be any circumstance where we need to hide a zero vote count (on the client).
-     * If we do discover such a circumstance, we could display 0 vote only if voter is "anonymous";
-     * currently such voters have org = "cldr"; but if we don't need such a dependency here, don't add it.
-     * Reference: https://unicode.org/cldr/trac/ticket/11517
-     */
-    if (orgVoteValue !== undefined) {
-      // someone in the org actually voted for it
-      var topVoter = null; // top voter for this item
-      var orgsVote = theOrg.orgVote == value; // boolean
-      var topVoterTime = 0; // Calculating the latest time for a user from same org
-      if (orgsVote) {
+    // org is a string like "microsoft"
+    const theOrg = vr.orgs[org]; // theOrg is an object
+    const orgVoteValue = theOrg.votes[value]; // orgVoteValue is a number
+
+    // This function is not called with "anonymous" imported losing votes (orgVoteValue === 0)
+    // so we don't need to handle them here or distinguish 0/null/undefined for orgVoteValue.
+    if (orgVoteValue) {
+      // Someone in the org actually voted for it
+      let topVoter = null; // top voter for this item
+      let topVoterTime = 0; // Calculating the latest time for a user from same org
+      const thisOrgVotedThisValue = Boolean(theOrg.orgVote == value); // did this org vote for this value?
+      // Note: thisOrgVotedThisValue appears always to be true here, given truthy orgVoteValue,
+      // in which case there is some dead code that could be removed in future refactoring.
+      if (thisOrgVotedThisValue) {
         // find a top-ranking voter to use for the top line
-        for (var voter in item.votes) {
+        for (let voter in item.votes) {
           if (
             item.votes[voter].org == org &&
             item.votes[voter].votes == theOrg.votes[value]
@@ -817,8 +811,8 @@ function updateRowVoteInfoForAllOrgs(theRow, vr, value, item, vdiv) {
         }
       }
       if (!topVoter) {
-        // just find someone in the right org..
-        for (var voter in item.votes) {
+        // just find someone in the right org
+        for (let voter in item.votes) {
           if (item.votes[voter].org == org) {
             topVoter = voter;
             break;
@@ -828,41 +822,38 @@ function updateRowVoteInfoForAllOrgs(theRow, vr, value, item, vdiv) {
       // ORG SUBHEADING row
 
       /*
-       * This only affects cells ("td" elements) with style "voteInfo_voteCount", which appear in the info panel,
-       * and which have contents like '<span class="badge">12</span>'. If the "fallback" style is added, then
-       * these circled numbers are surrounded (outside the circle) by a colored background.
-       *
-       * TODO: see whether the colored background is actually wanted in this context, around the numbers.
-       * For now, display it, and use item.pClass rather than literal "fallback" so the color matches when
-       * item.pClass is "alias", "fallback_root", etc.
+       * baileyClass only affects cells ("td" elements) with style "voteInfo_voteCount", which appear in the Info Panel,
+       * and which have contents like '<span class="badge">12</span>'. If the item.pClass style is added ("alias", "fallback",
+       * "fallback_root", etc.), then these circled numbers are surrounded (outside the circle) by a colored background.
        */
-      var baileyClass =
+      const baileyClass =
         item.rawValue === cldrSurvey.INHERITANCE_MARKER
           ? " " + item.pClass
           : "";
-      var vrow = cldrDom.createChunk(
+      const topVoterRow = cldrDom.createChunk(
         null,
         "tr",
         "voteInfo_tr voteInfo_orgHeading"
       );
-      vrow.appendChild(
+      topVoterRow.appendChild(
         cldrDom.createChunk(org, "td", "voteInfo_orgColumn voteInfo_td")
       );
       if (item.votes[topVoter]) {
-        vrow.appendChild(createVoter(item.votes[topVoter])); // voteInfo_td
+        topVoterRow.appendChild(createVoter(item.votes[topVoter])); // voteInfo_td
       } else {
-        vrow.appendChild(createVoter(null));
+        topVoterRow.appendChild(createVoter(null));
       }
-      if (orgsVote) {
-        var cell = cldrDom.createChunk(
+      if (thisOrgVotedThisValue) {
+        const cell = cldrDom.createChunk(
           null,
           "td",
           "voteInfo_orgsVote voteInfo_voteCount voteInfo_td" + baileyClass
         );
-        cell.appendChild(cldrDom.createChunk(orgVoteValue, "span", "badge"));
-        vrow.appendChild(cell);
+        cell.appendChild(voteCountTypeCell(item.votes[topVoter], "top"));
+        topVoterRow.appendChild(cell);
       } else {
-        vrow.appendChild(
+        // this is dead code if thisOrgVotedThisValue is always true
+        topVoterRow.appendChild(
           cldrDom.createChunk(
             orgVoteValue,
             "td",
@@ -870,9 +861,9 @@ function updateRowVoteInfoForAllOrgs(theRow, vr, value, item, vdiv) {
           )
         );
       }
-      vdiv.appendChild(vrow);
+      vdiv.appendChild(topVoterRow);
       // now, other rows:
-      for (var voter in item.votes) {
+      for (let voter in item.votes) {
         if (
           item.votes[voter].org != org || // wrong org or
           voter == topVoter
@@ -880,23 +871,34 @@ function updateRowVoteInfoForAllOrgs(theRow, vr, value, item, vdiv) {
           // already done
           continue; // skip
         }
-        // OTHER VOTER row
-        var vrow = cldrDom.createChunk(null, "tr", "voteInfo_tr");
-        vrow.appendChild(
+        const otherVoterRow = cldrDom.createChunk(null, "tr", "voteInfo_tr");
+        otherVoterRow.appendChild(
           cldrDom.createChunk("", "td", "voteInfo_orgColumn voteInfo_td")
         ); // spacer
-        vrow.appendChild(createVoter(item.votes[voter])); // voteInfo_td
-        vrow.appendChild(
-          cldrDom.createChunk(
-            item.votes[voter].votes,
-            "td",
-            "voteInfo_orgsNonVote voteInfo_voteCount voteInfo_td" + baileyClass
-          )
+        otherVoterRow.appendChild(createVoter(item.votes[voter])); // voteInfo_td
+        const cell = cldrDom.createChunk(
+          item.votes[voter].votes,
+          "td",
+          "voteInfo_orgsNonVote voteInfo_voteCount voteInfo_td" + baileyClass
         );
-        vdiv.appendChild(vrow);
+        cell.appendChild(voteCountTypeCell(item.votes[voter], "other"));
+        otherVoterRow.appendChild(cell);
+        vdiv.appendChild(otherVoterRow);
       }
     }
   }
+}
+
+function voteCountTypeCell(voteInfo, topOrOther) {
+  const span = document.createElement("span");
+  span.appendChild(document.createTextNode(voteInfo.votes));
+  if (topOrOther === "top") {
+    span.className = "badge";
+  }
+  const voteType = voteInfo.voteDetails?.voteType.replace("_", " ") || "?";
+  const daysAgo = voteInfo.voteDetails?.daysAgo || "?";
+  span.title = "Vote type: " + voteType + "\n" + daysAgo + " day(s) ago";
+  return span;
 }
 
 /**

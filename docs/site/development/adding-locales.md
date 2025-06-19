@@ -19,12 +19,13 @@ Otherwise:
 Before adding a new locale, you must have the minimal core data that cannot be added through the Survey Tool.
 See [Core Data for New Locales](/index/cldr-spec/core-data-for-new-locales) for the process.
 This will include:
-	- language code
-	- exemplar sets (main, auxiliary, numbers, punctuation)
-	- country / population data
-	- time cycle (12-hour vs 24-hour, 0-based vs 1-based)
-	- orientation of characters on a line and lines on a page
-	- English name for this language
+
+ - language code
+ - exemplar sets (main, auxiliary, numbers, punctuation)
+ - country / population data
+ - time cycle (12-hour vs 24-hour, 0-based vs 1-based)
+ - orientation of characters on a line and lines on a page
+ - English name for this language
 
 The English name won't be used until the language reaches Basic level, but needs to be documented in the CLDR ticket which adds the locale.
 
@@ -73,8 +74,8 @@ If such a file is found, remove it (after checking whether any information in th
 
 #### Supply metadata
 - In **common/supplemental/attributeValueValidity.xml**, add the language subtag to
-	- \<variable id\="$language" type\="choice"\> for TC locales, or
-	- \<variable id\="$languageNonTcLtBasic" type\="choice"\> for non-TC locales
+	- `<variable id\="$language" type\="choice">` for TC locales, or
+	- `<variable id\="$languageNonTcLtBasic" type\="choice">` for non-TC locales
 - In **common/supplemental/supplementalMetadata.xml**, add the appropriate default content locale to \<defaultContent locales\="..."\>
 	- The default content locale will include language and region (and possibly script, for multi-script languages).
 - Consider whether the locale needs parent locale information (which it probably won't)
@@ -86,16 +87,16 @@ for example, zh_Hant and sr_Latn need to fall back to root (not to zh and sr whi
 	- Make the appropriate entry to a parentLocale element in **common/supplemental/supplementalData.xml**
 - Verify or add time cycle information in **common/supplemental/supplementalData.xml**
 	- In the majority of cases no changes will be needed.
-	- In general terms, check that, under the \<timeData\> element,
-the \<hours\> element that has an attribute "regions" that contains the region for this locale,
-also has a "preferred" attribute that corresponds to the time cycle selected for the locale.
-	- NB: Even though the attribute is "regions", it can contain a region or a locale.
-Consider the example of "fr_CA" in the "regions" attribute of an "hours" element where the "preferred" attribute is "H",
-in contrast to "CA" which is in the "regions" attribute of an "hours" element where "preferred" attribute is "h".
+	- In general terms, check that, under the `<timeData>` element,
+the `<hours>` element that has an attribute `"regions"` that contains the region for this locale,
+also has a `"preferred"` attribute that corresponds to the time cycle selected for the locale.
+	- NB: Even though the attribute is `"regions"`, it can contain a region or a locale.
+Consider the example of `"fr_CA"` in the `"regions"` attribute of an `"hours"` element where the `"preferred"` attribute is `"H"`,
+in contrast to `"CA"` which is in the `"regions"` attribute of an `"hours"` element where `"preferred"` attribute is `"h"`.
 This corresponds to Canadian French (fr_CA) using 24-hour time even though 12-hour time is preferred for Canada (region CA).
-	- For the locale submission for "pap" (ticket [CLDR-14872](https://unicode-org.atlassian.net/browse/CLDR-14872)
+	- For the locale submission for `"pap"` (ticket [CLDR-14872](https://unicode-org.atlassian.net/browse/CLDR-14872)
 and pull request [PR#2542](https://github.com/unicode-org/cldr/pull/2542)),
-the region "CW" did not appear in the "timeData" information and needed to be added to the appropriate location.
+the region `"CW"` did not appear in the `"timeData"` information and needed to be added to the appropriate location.
 
 #### Optional additions
 - Plural rules are not needed until the locale needs to move beyond Basic level,

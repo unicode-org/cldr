@@ -69,7 +69,7 @@ If necessary, in order to make the required tests pass when adding a locale, you
 	- For the locale submission for "pap" (ticket [CLDR-14872](https://unicode-org.atlassian.net/browse/CLDR-14872) and pull request [PR#2542](https://github.com/unicode-org/cldr/pull/2542)), the region "CW" did not appear in the "timeData" information and needed to be added to the appropriate location.
 
 #### Optional additions
-- Plural rules are not needed until the locale needs to move beyond Basic level. If plural rule information is available, it could be added at the same time the locale is established. Add them to **common/supplemental/plurals.xml** and **common/supplemental/ordinals.xml**.
+- Plural rules are not needed until the locale needs to move beyond Basic level, but it is strongly recommended that plural rule information be collected as early as possible. If plural rule information is available, it can be added at the same time the locale is established. Add the rules to **common/supplemental/plurals.xml** and **common/supplemental/ordinals.xml**.
 - Similarly day period rules can be added to **common/supplemental/dayPeriods.xml**.
 
 ## Submit the pull request

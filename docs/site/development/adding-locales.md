@@ -6,9 +6,9 @@ title: Adding a new locale to CLDR
 
 NOTE: this is an internal page for TC developers. Others should see [Core Data for New Locales](/index/cldr-spec/core-data-for-new-locales).
 
-## Country locales
+## Regional locales
 
-If you are just adding a new country locale (that is, CLDR already has a locale for the language), you just need to add the new empty locale file, and Update Survey Tool. 
+If you are just adding a new region locale (that is, CLDR already has a locale for the language), you just need to add the new empty locale file, and Update Survey Tool. 
 [This example](https://github.com/unicode-org/cldr/pull/4335/files) adds Kurdish in Syria ("ku-SY"). 
 
 Otherwise:

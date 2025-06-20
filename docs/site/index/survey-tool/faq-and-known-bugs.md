@@ -34,6 +34,16 @@ Data in a sublocale may be *spuriously different*; that is, the parent's data ma
 
 A. If there is no other translation available, what you will see is a "neutral" code, typically an ISO code. In cases where there is no such code available, such as for labels like "Month", then you may see English \-\- which needs to be translated.
 
+***_Q. I can't find an item in the Survey Tool that I am trying to fix?***
+
+A. First check your coverage level to make sure you are at the right coverage level.
+
+[![coverage level selector image](/images/gettingStartedGuideCoverage.png)
+
+You can also try searching for the item with the [search functionality in the Survey Tool](translation/getting-started/guide#searching-for-items).
+
+If you are unable to find the item by either method follow the [Reporting Survey Tool issues guide](/translation/getting-started/guide#reporting-survey-tool-issues)
+
 ***Q. How do I delete an item?***
 
 A. You can only delete an item if you yourself have entered it, and there are no other votes. Click on the button in the "Abstain" column for that row to reset your vote for that item.

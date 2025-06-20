@@ -44,7 +44,7 @@ Searching emoji:
 
 Searching by localized value:
 
-![Search by emoji image](/translation/SearchByLocalizedValue.png)
+![Search by localized value image](/images/translation/SearchByLocalizedValue.png)
 
 ## Getting Started
 

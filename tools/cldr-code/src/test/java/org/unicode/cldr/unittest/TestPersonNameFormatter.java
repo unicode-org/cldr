@@ -572,10 +572,9 @@ public class TestPersonNameFormatter extends TestFmwk {
 
         // List all the paths that have dependencies, so we can verify they are ok
 
-        PathStarrer ps = new PathStarrer().setSubstitutionPattern("*");
         for (String path : resolved) {
             if (path.startsWith("//ldml/personNames") && !path.endsWith("/alias")) {
-                logln(ps.set(path));
+                logln(PathStarrer.computeIfAbsent(path));
             }
         }
 

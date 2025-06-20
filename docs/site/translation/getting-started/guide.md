@@ -26,6 +26,26 @@ If you run into a problem with the Survey Tool functionalities, please see [Know
 
 If not, or if you have suggestions for improvements, please reach out to the manager for your organization if you are contributing data as part of an organization or [file a ticket](/requesting_changes#how-to-file-a-ticket) if you are contributing as an unaffiliated contributer.
 
+## Searching for items in the Survey Tool {searching-for-items}
+
+You can search for items in the Survey Tool by either the code, English or the current value in the language. You do not need to log in to search. You will need to select a language before searching otherwise the Survey Tool will load the English values.
+
+Searching by code:
+
+![Search by code image](/images/translation/SearchingByCode.png)
+
+Searching by English:
+
+![Search by English image](/images/translation/SearchingByEnglish.png)
+
+Searching emoji:
+
+![Search by emoji image](/images/translation/SearchingByEmoji.png)
+
+Searching by localized value:
+
+![Search by emoji image](/translation/SearchByLocalizedValue.png)
+
 ## Getting Started
 
 ### Login and Import of old votes

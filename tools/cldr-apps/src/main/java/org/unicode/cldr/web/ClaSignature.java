@@ -56,6 +56,7 @@ public final class ClaSignature {
                         Organization.ibm,
                         Organization.meta,
                         Organization.microsoft,
+                        Organization.motorola,
                         Organization.mozilla,
                         Organization.netflix,
                         Organization.sil,

@@ -57,6 +57,7 @@ public enum Organization {
     meta("Meta", "Facebook"),
     microsoft("Microsoft"),
     mikmaw_kinamatnewey("Mi'kmaw Kina'matnewey"),
+    motorola("Motorola"),
     mozilla("Mozilla"),
     netflix("Netflix"),
     nyiakeng_puachue_hmong("Nyiakeng Puachue Hmong"),

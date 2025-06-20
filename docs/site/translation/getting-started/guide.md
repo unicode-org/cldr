@@ -20,7 +20,15 @@ Your experience may differ from the screenshots as the tool is enhanced over tim
 - **Browser support** for Survey Tool includes the latest versions of Edge, Safari, Chrome, and Firefox.
 - Use [Reports](#reports) at the beginning to review the data in your language in a holistic manner for Date & time, Zones, and Numbers.
 
-## Login and Import of old votes
+## Reporting Survey Tool issues
+
+If you run into a problem with the Survey Tool functionalities, please see [Known Issues](/translation#known-issues) and [Survey Tool FAQ](/index/survey-tool/faq-and-known-bugs) to see whether it has already been reported.
+
+If not, or if you have suggestions for improvements, please reach out to the manager for your organization if you are contributing data as part of an organization or [file a ticket](/requesting_changes#how-to-file-a-ticket) if you are contributing as an unaffiliated contributer.
+
+## Getting Started
+
+### Login and Import of old votes
 
 1. Go to https://st.unicode.org/cldr-apps/survey/ and log in.
 ![Log in button image](../../images/gettingStartedGuideNotOpenYet.jpeg)
@@ -30,9 +38,11 @@ Your experience may differ from the screenshots as the tool is enhanced over tim
 
 1. **Import old votes manually**. You can still import your old voted data that **DO NOT match** the last released data.
     - Go to the **☰ Menu**, look under **My Votes**, and choose **Import Old Votes**.
+
     ![Import Old Votes button image](../../images/GettingStartedGuideImportOldVotes.png)
 
     - Losing votes will import as anonymous votes.
+
     ![anonymous vote example image](/images/index/AnonymousVoteExample.png)
 
 ![Imported Selected Items button image](../../images/gettingStartedGuideImportSelectedItems.jpeg)
@@ -55,6 +65,8 @@ Your experience may differ from the screenshots as the tool is enhanced over tim
 1.  Only those of you working on a specific variant language (or "sub-locale") will pick a non-default region. If you work on Mexican Spanish, pick **Mexico**. (This should already be pre-selected for you.)
 
 _If the [Info Panel](#info-panel) was turned off, click on the **Open Info Panel** button near the top right of the window._
+
+## Adding data items and voting
 
 ### Voting view
 
@@ -179,6 +191,7 @@ _**Note:**_ _The total progress widget is currently only visible when the dashbo
 
 ### _Page progress_
 _Progress bar shows progress of items on page for your coverage level._
+
 ![alt-text](../../images/gettingStartedGuidePageProgress.png)
 
 ### _Overall progress_
@@ -454,12 +467,6 @@ The goal is to bring it to the attention to all linguists contributing in a part
 2. For each ticket assigned to them, the TC member will post a forum topic in each language mentioned in the ticket, asking for vetters to look at the issue and either make the requested change, or explain in a forum post why changes should not be made.
 3. A reason for not changing could be for example that it is a reasonable change, but doesn't exceed the 'stability' bar in the translation guidelines.
 4. TC members will monitor the forum discussion/change during the Submission phase, and will close the JIRA ticket after the forum discussion is concluded.
-
-## Reporting Survey Tool issues
-
-If you run into a problem with the Survey Tool functionalities, please see [Known Issues](/translation#known-issues) and [Survey Tool FAQ](/index/survey-tool/faq-and-known-bugs) to see whether it has already been reported.
-
-If not, or if you have suggestions for improvements, please reach out to the manager for your organization if you are contributing data as part of an organization or [file a ticket](/requesting_changes#how-to-file-a-ticket) if you are contributing as an unaffiliated contributer.
 
 ## Advanced Features
 

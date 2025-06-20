@@ -52,15 +52,15 @@ A. You should click on the items you have questions about, and read the informat
 
 *In many cases, even seemingly straightforward translations like the language, script, and territory names have issues.*
 
-You can also go directly to the [Translation Guidelines](/translation).
+You can also go directly to the [Information Hub for Linguists](/translation).
 
 If you have further questions, or problems with the Survey Tool, send a message to [cldr\-users@unicode.org](mailto:cldr-users@unicode.org).
 
 ## Known Bugs, Issues, Restrictions
 
-The following are general known bugs and issues. For known issues in the current release, see [Translation Guidelines: Known Issues](/translation#known-issues).
+The following are general known bugs and issues. For known issues in the current release, see [Information Hub for Linguists: Known Issues](/translation#known-issues).
 
-1. The description of bulk uploading (http://cldr.unicode.org/index/survey-tool/upload) has not yet been updated for the new UI.
+- The description of bulk uploading (http://cldr.unicode.org/index/survey-tool/upload) has not yet been updated for the new UI.
 
 If you find additional problems, please see [Survey Tool Guide: Reporting Survey Tool issues](/translation/getting-started/guide#reporting-survey-tool-issues)
 

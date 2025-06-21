@@ -54,6 +54,7 @@ public final class ClaSignature {
                         Organization.cherokee,
                         Organization.google,
                         Organization.ibm,
+                        Organization.mayan_lpp,
                         Organization.meta,
                         Organization.microsoft,
                         Organization.motorola,

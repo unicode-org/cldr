@@ -22,9 +22,7 @@ import com.ibm.icu.util.ICUException;
 import com.ibm.icu.util.MeasureUnit;
 import com.ibm.icu.util.ULocale;
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -39,8 +37,8 @@ import org.unicode.cldr.icu.text.FixedDecimal;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.Joiners;
-import org.unicode.cldr.util.PluralSamples.Visitor;
 import org.unicode.cldr.util.PluralUtilities;
+import org.unicode.cldr.util.PluralUtilities.KeySampleRanges;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
@@ -636,8 +634,8 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
                                     System.out.println(
                                             x.getKey() + "\t" + Joiners.SP.join(x.getValue())));
             System.out.println();
-            for (Entry<String, String> entry :
-                    PluralUtilities.getCategorySetToRepresentativeLocales().entries()) {
+            for (Entry<Set<Count>, String> entry :
+                    PluralUtilities.getCountSetToRepresentative().entries()) {
                 System.out.println(
                         Joiners.TAB.join(
                                 entry.getKey(),
@@ -651,297 +649,58 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
 
     static final boolean debugSample = false;
 
-    /**
-     * A value representing a limited range of decimal numbers, targeted at use with plurals. These
-     * are similar to FixedDecimals, but have additional capabilities, useful for CLDR. The number
-     * of digits is limited to 19, whereby some of those can be fractional digits (including
-     * trailing zeros). So 1.0 ≠ 1
-     */
-    static class VisibleDecimal implements Comparable<VisibleDecimal> {
-        public long getDigits() {
-            return digits;
-        }
-
-        public int getFractionCount() {
-            return visibleDecimalCount;
-        }
-
-        public VisibleDecimal(long digits, int fractionCount) {
-            this.digits = digits;
-            this.factor = pow10(fractionCount);
-            this.visibleDecimalCount = fractionCount;
-        }
-
-        public VisibleDecimal(FixedDecimal fixedDecimal) {
-            visibleDecimalCount = fixedDecimal.getVisibleDecimalDigitCount();
-            factor = pow10(visibleDecimalCount);
-            digits = fixedDecimal.getIntegerValue() * factor + fixedDecimal.getDecimalDigits();
-        }
-
-        public FixedDecimal toFixedDecimal() {
-            return new FixedDecimal(digits, visibleDecimalCount);
-        }
-
-        private final long digits;
-        private final int factor;
-        private final int visibleDecimalCount;
-
-        @Override
-        public boolean equals(Object obj) {
-            VisibleDecimal that = (VisibleDecimal) obj;
-            return digits == that.digits && visibleDecimalCount == that.visibleDecimalCount;
-        }
-
-        @Override
-        public int hashCode() {
-            return (int) ((digits << 16) ^ visibleDecimalCount);
-        }
-
-        @Override
-        public int compareTo(VisibleDecimal o) {
-            // TODO Auto-generated method stub
-            return 0;
-        }
-
-        @Override
-        public String toString() {
-            return format(digits, visibleDecimalCount);
-        }
-    }
-
-    /** A range of VisibleDecimals that have the same factionDigitCount */
-    static class MagnitudeRange {
-        VisibleDecimal first;
-        long last = 0;
-
-        enum Status {
-            added,
-            makeNewRange
-        }
-
-        /**
-         * Add an item. If the visible decimal count is different than the others, fail.
-         *
-         * @param additional
-         * @return
-         */
-        Status add(FixedDecimal additional) {
-            if (first == null) {
-                first = new VisibleDecimal(additional);
-                last = first.digits;
-                return Status.added;
-            } else {
-                if (additional.getVisibleDecimalDigitCount() != first.visibleDecimalCount) {
-                    return Status.makeNewRange;
-                }
-
-                // if it is right after last, then add it
-
-                long current =
-                        additional.getIntegerValue() * first.factor + additional.getDecimalDigits();
-                if (current == last + 1) {
-                    last = current;
-                    return Status.added;
-                }
-
-                // otherwise signal that we need a new range
-
-                return Status.makeNewRange;
-            }
-        }
-
-        Status addRange(FixedDecimal first_, FixedDecimal last_) {
-            if (first == null) {
-                if (first_.getVisibleDecimalDigitCount() != last_.getVisibleDecimalDigitCount()) {
-                    return Status.makeNewRange;
-                }
-                first = new VisibleDecimal(first_);
-            } else { // first != null
-                if (first_.getVisibleDecimalDigitCount() != first.visibleDecimalCount
-                        || first_.getVisibleDecimalDigitCount() != first.visibleDecimalCount) {
-                    return Status.makeNewRange;
-                }
-                add(first_);
-            }
-            this.last = last_.getIntegerValue() * first.factor + last_.getDecimalDigits();
-            return Status.added;
-        }
-
-        @Override
-        public String toString() {
-            if (first.digits == last) {
-                return first.toString();
-            } else {
-                return first.toString() + "~" + format(last, first.visibleDecimalCount);
-            }
-        }
-    }
-
-    /**
-     * Formats a long scaled by visibleDigits. Doesn't use standard double etc formatting it is
-     * easier to control the formatting this way.
-     *
-     * @param value
-     * @return
-     */
-    public static String format(long value, int visibleDigits) {
-        String result = String.valueOf(value);
-        if (visibleDigits == 0) {
-            return result;
-        } else if (visibleDigits < result.length()) {
-            return result.substring(0, result.length() - visibleDigits)
-                    + "."
-                    + result.substring(result.length() - visibleDigits);
-        } else {
-            return "0." + "0".repeat(visibleDigits - result.length()) + result;
-        }
-    }
-
-    static class Ranges {
-        private List<MagnitudeRange> ranges = new ArrayList<>();
-        private MagnitudeRange inProcess = null;
-
-        void add(FixedDecimal additional) {
-            if (inProcess == null) {
-                inProcess = new MagnitudeRange();
-            }
-            switch (inProcess.add(additional)) {
-                case makeNewRange:
-                    {
-                        ranges.add(inProcess);
-                        inProcess = new MagnitudeRange();
-                        inProcess.add(additional);
-                        break;
-                    }
-            }
-        }
-
-        private void finish() {
-            if (inProcess != null) {
-                ranges.add(inProcess);
-                inProcess = null;
-            }
-        }
-
-        public int size() {
-            return ranges.size();
-        }
-
-        @Override
-        public String toString() {
-            finish();
-            return Joiners.SP.join(ranges);
-        }
-    }
-
-    static int pow10(int exponent) {
-        switch (exponent) {
-            case 0:
-                return 1;
-            case 1:
-                return 10;
-            case 2:
-                return 100;
-            case 3:
-                return 1000;
-            case 4:
-                return 10000;
-            default:
-                return (int) Math.pow(10, exponent);
-        }
-    }
-
     String showKey(int combined) {
         int pow = combined / 100;
         int frac = combined % 100;
         return Joiner.on("")
                 .join(
-                        new FixedDecimal(pow == 0 ? 0 : pow10(pow), frac),
+                        new FixedDecimal(pow == 0 ? 0 : PluralUtilities.pow10(pow), frac),
                         "-",
-                        new FixedDecimal(pow10(1 + pow) - 1, frac));
+                        new FixedDecimal(PluralUtilities.pow10(1 + pow) - 1, frac));
     }
+
+    //    public void testRanges() {
+    //        PluralUtilities.Ranges ranges = new PluralUtilities.Ranges();
+    //        for (int f : List.of(0, 1, 2, 4, 5, 7, 100, 101, 102)) {
+    //            ranges.add(new FixedDecimal(f));
+    //        }
+    //        for (int f : List.of(0, 1, 2, 4, 5, 7)) {
+    //            ranges.add(new FixedDecimal(3 + f / 10.0, 1));
+    //        }
+    //        assertEquals("ranges", ranges.toString(), "0~2 4~5 7 100~102 3.0~3.2 3.4~3.5 3.7");
+    //
+    //        List<VisibleDecimal> testOrder = List.of(new PluralUtilities.VisibleDecimal(11, 0),
+    // new PluralUtilities.VisibleDecimal(12, 0), new PluralUtilities.VisibleDecimal(111, 1));
+    //        VisibleDecimal lastItem = null;
+    //        for (VisibleDecimal item : testOrder) {
+    //            if (lastItem != null) {
+    //                assertEquals("", 1, item.compareTo(lastItem));
+    //            }
+    //            lastItem = item;
+    //        }
+    //    }
 
     public void checkSampleSpeed() {
 
-        //        Ranges ranges = new Ranges();
-        //        for (int f : List.of(0,1,2,4,5,7, 100, 101, 102)) {
-        //            ranges.add(new FixedDecimal(f));
-        //        }
-        //        for (int f : List.of(0,1,2,4,5,7)) {
-        //            ranges.add(new FixedDecimal(3+f/10.0,1));
-        //        }
-        //        System.out.println("\n" + ranges);
-        //        if (true) return;
+        for (Entry<Set<Count>, String> entry :
+                PluralUtilities.getCountSetToRepresentative().entries()) {
+            String locale = entry.getValue();
 
-        for (Entry<String, Set<Count>> entry :
-                PluralUtilities.getRepresentativeToCountSet().entrySet()) {
-            String representative = entry.getKey();
-            if (debugSample && !representative.equals("en")) continue;
-            Collection<String> representedLocales =
-                    PluralUtilities.getRepresentativeToLocales().get(representative);
-            PluralRules rules =
-                    PluralUtilities.getRepresentativeToPluralRules().get(representative);
-            Set<Count> countSets = entry.getValue();
-
-            Map<PluralInfo.Count, Multimap<Integer, FixedDecimal>> data = new TreeMap<>();
-            TreeMultimap.create();
-            Visitor visitor =
-                    Visitor.create(
-                            rules,
-                            (FixedDecimal x, String y) -> {
-                                Count count = PluralInfo.Count.valueOf(y);
-                                Multimap<Integer, FixedDecimal> data2 = data.get(count);
-                                if (data2 == null) {
-                                    data.put(count, data2 = TreeMultimap.create());
-                                }
-                                long intValue = x.getIntegerValue();
-                                int ddc = x.getVisibleDecimalDigitCount();
-                                int key = ((int) Math.log10(intValue)) * 100 + ddc;
-                                data2.put(key, x);
-                                return Visitor.Action.proceed;
-                            },
-                            !debugSample
-                                    ? null
-                                    : (FixedDecimal x) ->
-                                            x.getVisibleDecimalDigitCount() == 2
-                                                    && x.getIntegerValue() == 1);
-
-            for (List<Integer> range : integerRangesToCheck) {
-                int start = range.get(0);
-                int last = range.size() < 2 ? start : range.get(1);
-                visitor.handle(start, last, 3);
-            }
-
+            PluralRules pluralRules = PluralUtilities.getRepresentativeToPluralRules().get(locale);
             System.out.println();
-            System.out.println(Joiners.TAB.join(countSets, representative, representedLocales));
-            data.entrySet().stream()
-                    .forEach(
-                            x -> { // Multimap<Integer, FixedDecimal>
-                                List<Ranges> firstNElements = new ArrayList<>();
-                                x.getValue().asMap().entrySet().stream()
-                                        .forEach(
-                                                y -> {
-                                                    Integer digitCount = y.getKey();
-                                                    Collection<FixedDecimal> set = y.getValue();
-                                                    Ranges ranges = new Ranges();
-                                                    for (FixedDecimal fd : set) {
-                                                        ranges.add(fd);
-                                                        if (ranges.size() > 5) {
-                                                            break;
-                                                        }
-                                                    }
-                                                    firstNElements.add(ranges);
-
-                                                    System.out.println(
-                                                            Joiners.TAB.join(
-                                                                    x.getKey(),
-                                                                    showKey(y.getKey()),
-                                                                    ranges));
-                                                });
-                                System.out.println(
-                                        Joiners.TAB.join(
-                                                x.getKey(), x.getValue().size(), firstNElements));
-                            });
+            System.out.println(
+                    locale + "\t" + PluralUtilities.getRepresentativeToLocales().get(locale));
+            Set<Count> counts = PluralUtilities.getRepresentativeToCountSet().get(locale);
+            for (Count count : counts) {
+                if (count == Count.other) {
+                    continue;
+                }
+                System.out.println(count + ":\t" + pluralRules.getRules(count.toString()));
+            }
+            Map<Count, KeySampleRanges> values = PluralUtilities.getSamples(pluralRules);
+            for (Entry<Count, KeySampleRanges> entry2 : values.entrySet()) {
+                System.out.println(entry2.getKey() + ":\t" + entry2.getValue());
+            }
         }
     }
 }

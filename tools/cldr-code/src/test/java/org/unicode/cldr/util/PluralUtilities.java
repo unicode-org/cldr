@@ -12,14 +12,20 @@ import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.text.PluralRules;
+import java.util.Collection;
 import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
+import org.unicode.cldr.icu.text.FixedDecimal;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
@@ -74,6 +80,18 @@ public class PluralUtilities {
     }
 
     /**
+     * Return a map from a set of Counts (plural categories) to the representatives with plural
+     * rules with those counts. If two locales have the same plural rules, they have the same
+     * representative.
+     *
+     * @param sourceLocale
+     * @return
+     */
+    public static ImmutableMultimap<Set<Count>, String> getCountSetToRepresentative() {
+        return countSetToRepresentative;
+    }
+
+    /**
      * The inverse of getRepresentativeLocaleForPluralRules; returns a mapping of representitive
      * locales.
      */
@@ -88,15 +106,6 @@ public class PluralUtilities {
      */
     public static ImmutableMap<String, PluralRules> getRepresentativeToPluralRules() {
         return representativeToPluralRules;
-    }
-
-    /**
-     * TTturns a mapping of category sets (eg {one, many}) to representative locales
-     *
-     * @return
-     */
-    public static Multimap<String, String> getCategorySetToRepresentativeLocales() {
-        return categorySetToRepresentativeLocales;
     }
 
     public static Comparator<String> ORDER_LOCALES_BY_POP =
@@ -124,7 +133,7 @@ public class PluralUtilities {
     }
 
     private static final ImmutableMap<String, String> localeToRepresentative;
-    private static final ImmutableMultimap<String, String> categorySetToRepresentativeLocales;
+    private static final ImmutableMultimap<Set<Count>, String> countSetToRepresentative;
 
     private static final ImmutableMap<String, PluralRules> representativeToPluralRules;
     private static final ImmutableMultimap<String, String> representativeToLocales;
@@ -132,15 +141,18 @@ public class PluralUtilities {
 
     static {
         Map<String, String> _localeToRepresentative = new TreeMap<>();
-        Map<String, PluralRules> _representativeToPluralRules = new TreeMap<>();
-        Multimap<String, String> _representativeToLocales = TreeMultimap.create();
-        Multimap<String, String> _categorySetToLocales = TreeMultimap.create();
+        Map<String, PluralRules> _representativeToPluralRules = new TreeMap<>(ORDER_LOCALES_BY_POP);
+        Multimap<String, String> _representativeToLocales =
+                TreeMultimap.create(ORDER_LOCALES_BY_POP, ORDER_LOCALES_BY_POP);
+        Comparator<Iterable<Count>> reversedCountSetComparator =
+                Comparators.lexicographical(Comparator.<Count>naturalOrder().reversed());
         Multimap<Set<Count>, String> _countSetToRepresentative =
                 TreeMultimap.create(
-                        iterableComparator(),
+                        reversedCountSetComparator,
                         ORDER_LOCALES_BY_POP); // sort by count set, then locale population
 
         Multimap<PluralRules, String> rulesToLocales = LinkedHashMultimap.create();
+
         supp.getPluralLocales().stream()
                 .forEach(
                         locale -> {
@@ -172,7 +184,6 @@ public class PluralUtilities {
                                             rules.getKeywords().stream()
                                                     .map(y -> Count.valueOf(y))
                                                     .collect(Collectors.toList()));
-                            _categorySetToLocales.put(Joiners.SP.join(categories), representative);
                             _representativeToPluralRules.put(representative, rules);
                             _countSetToRepresentative.put(categories, representative);
                         });
@@ -189,6 +200,394 @@ public class PluralUtilities {
         representativeToCountSet = ImmutableMap.copyOf(temp);
         representativeToPluralRules = ImmutableMap.copyOf(_representativeToPluralRules);
         representativeToLocales = ImmutableMultimap.copyOf(_representativeToLocales);
-        categorySetToRepresentativeLocales = ImmutableMultimap.copyOf(_categorySetToLocales);
+        countSetToRepresentative = ImmutableMultimap.copyOf(_countSetToRepresentative);
+    }
+
+    /**
+     * An immutable value used for decimal numbers, targeted at use with plurals. These are similar
+     * to FixedDecimals, but have additional capabilities, useful for CLDR. The number of digits is
+     * limited to 19, whereby some of those can be fractional digits (including trailing zeros). Eg,
+     * 1.0 ≠ 1
+     */
+    public static class PluralSample implements Comparable<PluralSample> {
+        private final long digits;
+        private final int visibleDecimalCount;
+        private final int factor;
+
+        public long getDigits() {
+            return digits;
+        }
+
+        public int getIntegerDigitCount() {
+            return digitCount(digits / factor);
+        }
+
+        public int getVisibleDecimalCount() {
+            return visibleDecimalCount;
+        }
+
+        public PluralSample(long digits, int fractionCount) {
+            this.digits = digits;
+            this.factor = pow10(fractionCount);
+            this.visibleDecimalCount = fractionCount;
+        }
+
+        public PluralSample(FixedDecimal fixedDecimal) {
+            visibleDecimalCount = fixedDecimal.getVisibleDecimalDigitCount();
+            factor = pow10(visibleDecimalCount);
+            digits = fixedDecimal.getIntegerValue() * factor + fixedDecimal.getDecimalDigits();
+        }
+
+        public FixedDecimal toFixedDecimal() {
+            return new FixedDecimal(digits, visibleDecimalCount);
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            PluralSample that = (PluralSample) obj;
+            return digits == that.digits && visibleDecimalCount == that.visibleDecimalCount;
+        }
+
+        @Override
+        public int hashCode() {
+            return (int) ((digits << 16) ^ visibleDecimalCount);
+        }
+
+        @Override
+        public int compareTo(PluralSample other) {
+            return Comparator.comparingInt(PluralSample::getVisibleDecimalCount)
+                    .thenComparing(PluralSample::getDigits)
+                    .compare(this, other);
+        }
+
+        public int compareTo(long digits, int fractionCount) {
+            return Comparator.comparingInt(PluralSample::getVisibleDecimalCount)
+                    .thenComparing(PluralSample::getDigits)
+                    .compare(this, new PluralSample(digits, fractionCount));
+        }
+
+        /**
+         * Get the value immediately after `this`, according to the visible decimal count: vdc=0 =>
+         * 1, vdc=1 => 0.1, ...
+         */
+        public PluralSample next() {
+            return new PluralSample(digits + 1, visibleDecimalCount);
+        }
+
+        /**
+         * Return a key composed of the integer digit count and visible decimal count. Used for
+         * buckets with compact decimals
+         */
+        public int compactKey() {
+            return 100 * getIntegerDigitCount() + visibleDecimalCount;
+        }
+
+        @Override
+        public String toString() {
+            return format(digits, visibleDecimalCount);
+        }
+
+        public Integer getKey() {
+            return compactKey();
+        }
+
+        public Count getPluralCategory(PluralRules pluralRules) {
+            FixedDecimal fd0 = new FixedDecimal(digits / factor, visibleDecimalCount);
+            String keyword = pluralRules.select(fd0);
+            return Count.valueOf(keyword);
+        }
+    }
+
+    public static int pow10(int exponent) {
+        switch (exponent) {
+            case 0:
+                return 1;
+            case 1:
+                return 10;
+            case 2:
+                return 100;
+            case 3:
+                return 1000;
+            case 4:
+                return 10000;
+            default:
+                return (int) Math.pow(10, exponent);
+        }
+    }
+
+    public static int digitCount(long number) {
+        return number > 0
+                ? (int) (Math.log10(number) + 1)
+                : number == 0 ? 1 : (int) (Math.log10(-number) + 1);
+    }
+
+    /** A range of VisibleDecimals that have the same factionDigitCount */
+    public static class SampleRange implements Comparable<SampleRange>, Iterable<PluralSample> {
+        private final PluralSample first;
+        private final PluralSample last;
+
+        public static class Builder {
+            PluralSample first;
+            PluralSample last;
+
+            /**
+             * Add an item. If the visible decimal count is different than the others, fail.
+             *
+             * @param additional
+             * @return
+             */
+            Status add(PluralSample additional) {
+                if (first == null) {
+                    first = additional;
+                    last = additional;
+                    return Status.added;
+                } else {
+                    if (additional.visibleDecimalCount != first.visibleDecimalCount) {
+                        return Status.makeNewRange;
+                    }
+
+                    long current = additional.digits;
+
+                    if (current == last.digits + 1) {
+                        last = additional;
+                        return Status.added;
+                    }
+
+                    // otherwise signal that we need a new range
+
+                    return Status.makeNewRange;
+                }
+            }
+
+            /** the builder is cleared and can be reused after building */
+            SampleRange build() {
+                SampleRange result = SampleRange.from(first, last);
+                first = null;
+                last = null;
+                return result;
+            }
+
+            public boolean isEmpty() {
+                return first == null;
+            }
+        }
+
+        public enum Status {
+            added,
+            makeNewRange
+        }
+
+        public SampleRange(PluralSample first_, PluralSample last_) {
+            if (first_.visibleDecimalCount != last_.visibleDecimalCount) {
+                throw new IllegalArgumentException(
+                        "Incompatible digits in " + first_ + ".." + last_);
+            }
+            first = first_;
+            last = last_;
+        }
+
+        public static SampleRange from(PluralSample first_, PluralSample last_) {
+            return new SampleRange(first_, last_);
+        }
+
+        @Override
+        public String toString() {
+            if (first.equals(last)) {
+                return first.toString();
+            } else {
+                return first.toString() + "~" + last.toString();
+            }
+        }
+
+        @Override
+        public int compareTo(SampleRange o) {
+            return Comparator.comparing(SampleRange::getFirst)
+                    .thenComparing(SampleRange::getLast)
+                    .compare(this, o);
+        }
+
+        public PluralSample getFirst() {
+            return first;
+        }
+
+        public PluralSample getLast() {
+            return last;
+        }
+
+        public static Builder builder() {
+            return new Builder();
+        }
+
+        public Integer getKey() {
+            return first.getKey();
+        }
+
+        class PluralIterator implements Iterator<PluralSample> {
+            private PluralSample current = first;
+
+            @Override
+            public boolean hasNext() {
+                return current.compareTo(last) <= 0;
+            }
+
+            @Override
+            public PluralSample next() {
+                PluralSample result = current;
+                current = result.next();
+                return result;
+            }
+        }
+
+        @Override
+        public Iterator<PluralSample> iterator() {
+            return new PluralIterator();
+        }
+    }
+
+    /**
+     * Formats a long scaled by visibleDigits. Doesn't use standard double etc formatting, because
+     * it is easier to control the formatting this way.
+     *
+     * @param value
+     * @return
+     */
+    public static String format(long value, int visibleDigits) {
+        String result = String.valueOf(value);
+        if (visibleDigits == 0) {
+            return result;
+        } else if (visibleDigits < result.length()) {
+            return result.substring(0, result.length() - visibleDigits)
+                    + "."
+                    + result.substring(result.length() - visibleDigits);
+        } else {
+            return "0." + "0".repeat(visibleDigits - result.length()) + result;
+        }
+    }
+
+    public static class KeySampleRanges
+            implements Iterable<Entry<Integer, Collection<SampleRange>>> {
+        private final Multimap<Integer, SampleRange> ranges;
+
+        public static class Builder {
+            private final Multimap<Integer, SampleRange> ranges = TreeMultimap.create();
+            private final SampleRange.Builder inProcess = SampleRange.builder();
+
+            public Builder add(PluralSample additional) {
+                if (inProcess.add(additional) == SampleRange.Status.makeNewRange) {
+                    SampleRange range = inProcess.build();
+                    ranges.put(range.getKey(), range);
+                    inProcess.add(additional);
+                }
+                return this;
+            }
+
+            public Builder addRange(PluralSample first_, PluralSample last_) {
+                SampleRange mr = SampleRange.from(first_, last_);
+                ranges.put(mr.getKey(), mr);
+                return this;
+            }
+
+            public Builder addRange(int firstDigits, int secondDigts, int visible) {
+                return addRange(
+                        new PluralSample(firstDigits, visible),
+                        new PluralSample(secondDigts, visible));
+            }
+
+            private KeySampleRanges build() {
+                if (!inProcess.isEmpty()) {
+                    SampleRange range = inProcess.build();
+                    ranges.put(range.getKey(), range);
+                }
+                return new KeySampleRanges(ranges);
+            }
+        }
+
+        public KeySampleRanges(Multimap<Integer, SampleRange> ranges) {
+            this.ranges = ranges;
+        }
+
+        public int size() {
+            return ranges.size();
+        }
+
+        @Override
+        public String toString() {
+            return ranges.asMap().entrySet().stream()
+                    .map(x -> "\n\t" + showKey(x.getKey()) + " ↠ " + x.getValue())
+                    .collect(Collectors.joining(" "));
+        }
+
+        //        public KeySampleRanges first(int max) {
+        //            KeySampleRanges result = new KeySampleRanges();
+        //            ranges.stream().limit(max).forEach(x -> result.ranges.add(x));
+        //            return result;
+        //        }
+
+        public Iterator<Entry<Integer, Collection<SampleRange>>> iterator() {
+            return ranges.asMap().entrySet().iterator();
+        }
+
+        public static Builder builder() {
+            return new Builder();
+        }
+    }
+
+    private static Map<PluralRules, Map<Count, KeySampleRanges>> RANGE_CACHE =
+            new ConcurrentHashMap<>();
+
+    private static final KeySampleRanges SAMPLE_RANGES =
+            KeySampleRanges.builder() // these use raw values!
+                    .addRange(0, 9, 0)
+                    .addRange(0, 90, 1)
+                    .addRange(0, 900, 2)
+                    .addRange(10, 99, 0)
+                    .addRange(100, 990, 1)
+                    .addRange(100, 999, 0)
+                    .addRange(1000, 2099, 0)
+                    .addRange(10000, 10099, 0)
+                    .addRange(100000, 100099, 0)
+                    .addRange(1000000, 1000099, 0)
+                    .addRange(10000000, 10000099, 0)
+                    .build();
+
+    public static String showKey(Integer key) {
+        int intDigitCount = key / 100;
+        int visibleDecimalCount = key % 100;
+        return "x".repeat(intDigitCount)
+                + (visibleDecimalCount == 0 ? "" : "." + "x".repeat(visibleDecimalCount));
+    }
+
+    static {
+        for (Entry<Integer, Collection<SampleRange>> entry : SAMPLE_RANGES) {
+            System.out.println(showKey(entry.getKey()) + "\t" + entry.getValue());
+        }
+    }
+
+    public static Map<Count, KeySampleRanges> getSamples(PluralRules pluralRules) {
+        return RANGE_CACHE.computeIfAbsent(
+                pluralRules,
+                x -> {
+                    Map<Count, KeySampleRanges.Builder> countToBuilder = new HashMap<>();
+
+                    for (Entry<Integer, Collection<SampleRange>> keySamples : SAMPLE_RANGES) {
+                        Integer key = keySamples.getKey();
+                        Collection<SampleRange> ranges = keySamples.getValue();
+                        for (SampleRange range : ranges) {
+                            for (PluralSample sample : range) {
+                                Count count = sample.getPluralCategory(pluralRules);
+                                KeySampleRanges.Builder builder = countToBuilder.get(count);
+                                if (builder == null) {
+                                    countToBuilder.put(count, builder = KeySampleRanges.builder());
+                                }
+                                builder.add(sample);
+                            }
+                        }
+                    }
+                    Map<Count, KeySampleRanges> result = new TreeMap<>();
+                    countToBuilder.entrySet().stream()
+                            .forEach(y -> result.put(y.getKey(), y.getValue().build()));
+
+                    return CldrUtility.protectCollection(result);
+                });
     }
 }

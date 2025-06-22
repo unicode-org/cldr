@@ -6,10 +6,7 @@ import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.function.BiFunction;
-import java.util.function.Function;
 import java.util.stream.Collectors;
-import org.unicode.cldr.icu.text.FixedDecimal;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 
@@ -109,80 +106,5 @@ public class PluralSamples {
             return samples[digits - 1];
         }
         return null;
-    }
-
-    public static class Visitor {
-        public enum Action {
-            stop,
-            nextInt,
-            nextFraction,
-            proceed
-        }
-
-        private final PluralRules pluralRules;
-
-        @SuppressWarnings("deprecation")
-        private final BiFunction<FixedDecimal, String, Action> handle;
-
-        private final Function<FixedDecimal, Boolean> debug;
-
-        public static Visitor create(
-                PluralRules pluralRules, BiFunction<FixedDecimal, String, Action> handle) {
-            return new Visitor(pluralRules, handle, null);
-        }
-
-        public static Visitor create(
-                PluralRules pluralRules,
-                BiFunction<FixedDecimal, String, Action> handle,
-                Function<FixedDecimal, Boolean> debug) {
-            return new Visitor(pluralRules, handle, debug);
-        }
-
-        private Visitor(
-                PluralRules pluralRules,
-                BiFunction<FixedDecimal, String, Action> handle,
-                Function<FixedDecimal, Boolean> debug) {
-            this.pluralRules = pluralRules;
-            this.handle = handle;
-            this.debug = debug;
-        }
-
-        @SuppressWarnings("deprecation")
-        public void handle(int start, int last, int fractionDigitsToCheck) {
-            main:
-            for (int i = start; i <= last; ++i) {
-                FixedDecimal fd0 = new FixedDecimal(i, 0);
-                String keyword = pluralRules.select(fd0); // no fraction digits
-                switch (handle.apply(fd0, keyword)) {
-                    case stop:
-                        return;
-                    case nextInt:
-                        continue main;
-                }
-
-                for (int fractionDigits = 1;
-                        fractionDigits < fractionDigitsToCheck;
-                        ++fractionDigits) { // up to 3 fractional digits
-                    // Iterate first from X.0 .. X.9, then X.00 .. X.99, then X.000 .. X.999
-                    // That's because trailing zeros make a difference
-                    double limit = Math.pow(10, fractionDigits);
-                    for (int fraction = 0; fraction < limit; ++fraction) {
-                        fd0 = new FixedDecimal(i + fraction / limit, fractionDigits);
-                        if (debug != null && debug.apply(fd0)) {
-                            int j = 0; // for debugging
-                        }
-                        keyword = pluralRules.select(fd0); // fraction digits
-                        switch (handle.apply(fd0, keyword)) {
-                            case stop:
-                                return;
-                            case nextInt:
-                                continue main;
-                            case nextFraction:
-                                continue;
-                        }
-                    }
-                }
-            }
-        }
     }
 }

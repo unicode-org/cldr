@@ -19,18 +19,22 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.BiFunction;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import org.unicode.cldr.icu.text.FixedDecimal;
+import org.unicode.cldr.util.PluralUtilities.KeySampleRanges;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 
 public class PluralUtilities {
+    private static final boolean DEBUG = System.getProperty("PluralUtilities") != null;
 
     private static CLDRConfig testInfo = CLDRConfig.getInstance();
     private static SupplementalDataInfo supp = testInfo.getSupplementalDataInfo();
@@ -63,7 +67,7 @@ public class PluralUtilities {
      * @param sourceLocale
      * @return
      */
-    public String getRepresentativeLocaleForPluralRules(String sourceLocale) {
+    public static String getRepresentativeLocaleForPluralRules(String sourceLocale) {
         String result = localeToRepresentative.get(sourceLocale);
         return result == null ? "und" : result;
     }
@@ -442,6 +446,17 @@ public class PluralUtilities {
         public Iterator<PluralSample> iterator() {
             return new PluralIterator();
         }
+
+        @Override
+        public boolean equals(Object obj) {
+            SampleRange that = (SampleRange) obj;
+            return first.equals(that.first) && last.equals(that.last);
+        }
+
+        @Override
+        public int hashCode() {
+            return first.hashCode() * 37 + last.hashCode();
+        }
     }
 
     /**
@@ -464,8 +479,11 @@ public class PluralUtilities {
         }
     }
 
-    public static class KeySampleRanges
-            implements Iterable<Entry<Integer, Collection<SampleRange>>> {
+    /**
+     * Immutable class mapping keys to sample ranges. A key contains the number of integer digits
+     * and the number of decimal digits.
+     */
+    public static class KeySampleRanges implements Iterable<Entry<Integer, SampleRange>> {
         private final Multimap<Integer, SampleRange> ranges;
 
         public static class Builder {
@@ -481,25 +499,42 @@ public class PluralUtilities {
                 return this;
             }
 
+            /** Only use if there can't be any overlap with other ranges */
             public Builder addRange(PluralSample first_, PluralSample last_) {
                 SampleRange mr = SampleRange.from(first_, last_);
                 ranges.put(mr.getKey(), mr);
                 return this;
             }
 
+            /** Only use if there can't be any overlap with other ranges */
             public Builder addRange(int firstDigits, int secondDigts, int visible) {
                 return addRange(
                         new PluralSample(firstDigits, visible),
                         new PluralSample(secondDigts, visible));
             }
 
-            private KeySampleRanges build() {
+            /** Only use if there can't be any overlap with other ranges */
+            public Builder addRange(SampleRange sampleRange) {
+                return addRange(sampleRange.getFirst(), sampleRange.getLast());
+            }
+
+            public KeySampleRanges build() {
                 if (!inProcess.isEmpty()) {
                     SampleRange range = inProcess.build();
                     ranges.put(range.getKey(), range);
                 }
                 return new KeySampleRanges(ranges);
             }
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            return ranges.equals(((KeySampleRanges) obj).ranges);
+        }
+
+        @Override
+        public int hashCode() {
+            return ranges.hashCode();
         }
 
         public KeySampleRanges(Multimap<Integer, SampleRange> ranges) {
@@ -523,19 +558,35 @@ public class PluralUtilities {
         //            return result;
         //        }
 
-        public Iterator<Entry<Integer, Collection<SampleRange>>> iterator() {
-            return ranges.asMap().entrySet().iterator();
+        @Override
+        public Iterator<Entry<Integer, SampleRange>> iterator() {
+            return ranges.entries().iterator();
+        }
+
+        public Iterable<Entry<Integer, Collection<SampleRange>>> setIterable() {
+            return getIterableFromIterator(ranges.asMap().entrySet().iterator());
         }
 
         public static Builder builder() {
             return new Builder();
         }
+
+        KeySampleRanges filter(BiFunction<Integer, SampleRange, Boolean> func) {
+            Builder builder = builder();
+            for (Entry<Integer, SampleRange> entry : ranges.entries()) {
+                if (func.apply(entry.getKey(), entry.getValue())) {
+                    builder.addRange(entry.getValue());
+                }
+            }
+            return builder.build();
+        }
     }
 
-    private static Map<PluralRules, Map<Count, KeySampleRanges>> RANGE_CACHE =
-            new ConcurrentHashMap<>();
+    public static <T> Iterable<T> getIterableFromIterator(Iterator<T> iterator) {
+        return () -> iterator;
+    }
 
-    private static final KeySampleRanges SAMPLE_RANGES =
+    public static final KeySampleRanges SAMPLE_RANGES =
             KeySampleRanges.builder() // these use raw values!
                     .addRange(0, 9, 0)
                     .addRange(0, 90, 1)
@@ -558,18 +609,24 @@ public class PluralUtilities {
     }
 
     static {
-        for (Entry<Integer, Collection<SampleRange>> entry : SAMPLE_RANGES) {
-            System.out.println(showKey(entry.getKey()) + "\t" + entry.getValue());
+        if (DEBUG) {
+            for (Entry<Integer, Collection<SampleRange>> entry : SAMPLE_RANGES.setIterable()) {
+                System.out.println(showKey(entry.getKey()) + "\t" + entry.getValue());
+            }
         }
     }
 
-    public static Map<Count, KeySampleRanges> getSamples(PluralRules pluralRules) {
+    private static Map<PluralRules, Map<Count, KeySampleRanges>> RANGE_CACHE =
+            new ConcurrentHashMap<>();
+
+    public static Map<Count, KeySampleRanges> getSamplesFromPluralRules(PluralRules pluralRules) {
         return RANGE_CACHE.computeIfAbsent(
                 pluralRules,
                 x -> {
                     Map<Count, KeySampleRanges.Builder> countToBuilder = new HashMap<>();
 
-                    for (Entry<Integer, Collection<SampleRange>> keySamples : SAMPLE_RANGES) {
+                    for (Entry<Integer, Collection<SampleRange>> keySamples :
+                            SAMPLE_RANGES.setIterable()) {
                         Integer key = keySamples.getKey();
                         Collection<SampleRange> ranges = keySamples.getValue();
                         for (SampleRange range : ranges) {
@@ -589,5 +646,54 @@ public class PluralUtilities {
 
                     return CldrUtility.protectCollection(result);
                 });
+    }
+
+    public static Map<Count, KeySampleRanges> getSamplesForLocale(String locale) {
+        String rep = getRepresentativeLocaleForPluralRules(locale);
+        PluralRules pluralRules1 = PluralUtilities.getRepresentativeToPluralRules().get(rep);
+        Map<Count, KeySampleRanges> pluralSamples1 =
+                PluralUtilities.getSamplesFromPluralRules(pluralRules1);
+        return pluralSamples1;
+    }
+
+    public static String format(Map<Count, KeySampleRanges> countAndSamples) {
+        return Joiners.N.join(PluralUtilities.getSamplesForLocale("en").entrySet());
+    }
+
+    public static String format(PluralRules rules) {
+        return rules.getKeywords().stream()
+                .filter(x -> !x.equals("other"))
+                .map(x -> x + "\t" + rules.getRules(x))
+                .collect(Collectors.joining("\n"));
+    }
+
+    public static Pair<String, String> findDifference(String repLocale1, String repLocale2) {
+        Map<Count, KeySampleRanges> pluralSamples1 = getSamplesForLocale(repLocale1);
+        Map<Count, KeySampleRanges> pluralSamples2 = getSamplesForLocale(repLocale2);
+        if (!pluralSamples1.keySet().equals(pluralSamples2.keySet())) {
+            return Pair.of(pluralSamples1.keySet().toString(), pluralSamples2.keySet().toString());
+        }
+        for (Count count : pluralSamples1.keySet()) {
+            KeySampleRanges keySampleRanges1 = pluralSamples1.get(count);
+            KeySampleRanges keySampleRanges2 = pluralSamples2.get(count);
+            if (!keySampleRanges1.equals(keySampleRanges2)) {
+                // find first difference
+                Iterator<Entry<Integer, SampleRange>> it1 = keySampleRanges1.iterator();
+                Iterator<Entry<Integer, SampleRange>> it2 = keySampleRanges2.iterator();
+                SampleRange range1 = null;
+                SampleRange range2 = null;
+                // since we know there is a difference, we don't have to check as much
+                while (true) {
+                    range1 = it1.hasNext() ? it1.next().getValue() : null;
+                    range2 = it2.hasNext() ? it2.next().getValue() : null;
+                    if (!Objects.equals(range1, range2)) {
+                        return Pair.of(
+                                range1 == null ? "missing" : count + " " + range1,
+                                range2 == null ? "missing" : count + " " + range2);
+                    }
+                }
+            }
+        }
+        return null;
     }
 }

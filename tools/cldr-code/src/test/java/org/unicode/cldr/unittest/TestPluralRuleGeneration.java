@@ -1,6 +1,7 @@
 package org.unicode.cldr.unittest;
 
 import com.google.common.base.Joiner;
+import com.google.common.collect.HashMultimap;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
@@ -22,7 +23,9 @@ import com.ibm.icu.util.ICUException;
 import com.ibm.icu.util.MeasureUnit;
 import com.ibm.icu.util.ULocale;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -37,8 +40,10 @@ import org.unicode.cldr.icu.text.FixedDecimal;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.Joiners;
+import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PluralUtilities;
 import org.unicode.cldr.util.PluralUtilities.KeySampleRanges;
+import org.unicode.cldr.util.PluralUtilities.SampleRange;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
@@ -697,9 +702,95 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
                 }
                 System.out.println(count + ":\t" + pluralRules.getRules(count.toString()));
             }
-            Map<Count, KeySampleRanges> values = PluralUtilities.getSamples(pluralRules);
+            Map<Count, KeySampleRanges> values =
+                    PluralUtilities.getSamplesFromPluralRules(pluralRules);
             for (Entry<Count, KeySampleRanges> entry2 : values.entrySet()) {
                 System.out.println(entry2.getKey() + ":\t" + entry2.getValue());
+            }
+        }
+    }
+
+    /** See if any rules for representatives give identical results: */
+    public void testIdenticalResults() {
+        // make a reverse mapping
+        Multimap<Map<Count, KeySampleRanges>, String> reverse = HashMultimap.create();
+        for (Entry<String, PluralRules> entry :
+                PluralUtilities.getRepresentativeToPluralRules().entrySet()) {
+            Map<Count, KeySampleRanges> pluralSamples =
+                    PluralUtilities.getSamplesFromPluralRules(entry.getValue());
+            reverse.put(pluralSamples, entry.getKey());
+        }
+        for (Entry<Map<Count, KeySampleRanges>, Collection<String>> entry :
+                reverse.asMap().entrySet()) {
+            if (!assertEquals(entry.getValue().toString(), 1, entry.getValue().size())) {
+                warnln(
+                        "\nCould be that the samples in PluralRule utilities needs extending, "
+                                + "or that there are gratuitious differences between rule formulations (like the order of AND or OR clauses.");
+                boolean isFirst = true;
+                for (String locale : entry.getValue()) {
+                    if (isFirst) {
+                        System.out.println(
+                                PluralUtilities.format(
+                                        PluralUtilities.getSamplesForLocale(locale)));
+                        isFirst = false;
+                    }
+                    System.out.println(locale);
+                    System.out.println(
+                            PluralUtilities.format(
+                                    PluralUtilities.getRepresentativeToPluralRules().get(locale)));
+                }
+            }
+        }
+    }
+
+    public void testSingles() {
+        System.out.println("\n" + PluralUtilities.findDifference("en", "da"));
+        System.out.println(PluralUtilities.format(PluralUtilities.getSamplesForLocale("en")));
+        System.out.println(PluralUtilities.format(PluralUtilities.getSamplesForLocale("fr")));
+
+        Multimap<String, String> visibleSamplesMultimap = TreeMultimap.create();
+        for (Entry<Set<Count>, String> entry :
+                PluralUtilities.getCountSetToRepresentative().entries()) {
+            Set<Count> countSet = entry.getKey();
+            String representativeLocale = entry.getValue();
+            System.out.println("\n" + countSet + " " + representativeLocale);
+            Map<Count, KeySampleRanges> pluralSamples =
+                    PluralUtilities.getSamplesForLocale(representativeLocale);
+            List<String> samplesPerCount = new ArrayList<>();
+            for (Entry<Count, KeySampleRanges> entry2 : pluralSamples.entrySet()) {
+                Count count = entry2.getKey();
+
+                List<String> samplesPerKey = new ArrayList<>();
+                int keyLimit = 99;
+                for (Entry<Integer, Collection<SampleRange>> pair :
+                        entry2.getValue().setIterable()) {
+                    if (--keyLimit < 0) break;
+                    // int key = pair.getKey(); // unneeded
+
+                    int rangePerKeyLimit = 99;
+                    for (SampleRange sr : pair.getValue()) {
+                        if (--rangePerKeyLimit < 0) break;
+                        samplesPerKey.add(sr.toString());
+                    }
+                }
+                samplesPerCount.add(count + "\t" + Joiners.SP.join(samplesPerKey));
+            }
+            String joinedSamples = Joiners.N.join(samplesPerCount);
+            System.out.println(joinedSamples);
+            visibleSamplesMultimap.put(joinedSamples, representativeLocale);
+        }
+        System.out.println("\nDuplicates\n");
+        for (Entry<String, Collection<String>> entry : visibleSamplesMultimap.asMap().entrySet()) {
+            if (entry.getValue().size() > 1) {
+                System.out.println(entry.getValue() + "\n" + entry.getKey());
+                List<String> list = List.copyOf(entry.getValue());
+                Pair<String, String> problem =
+                        PluralUtilities.findDifference(list.get(0), list.get(1));
+                System.out.println(problem);
+                System.out.println(PluralUtilities.getSamplesForLocale(list.get(0)));
+                System.out.println(PluralUtilities.getSamplesForLocale(list.get(1)));
+
+                System.out.println();
             }
         }
     }

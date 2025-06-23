@@ -59,7 +59,8 @@ public class GenerateDateTimeTestData {
 
     /**
      * The known set of values used to indicate the type of "glue pattern" aka the dateTimeFormat
-     * type.
+     * type. The default value should be assumed to be AT_TIME if a variable of type
+     * DateTimeFormatType is not set.
      *
      * <p>atTime = the word "at" is inserted between the date and time when formatting both date &
      * time together, at least for long and full dates.
@@ -353,7 +354,11 @@ public class GenerateDateTimeTestData {
         } else if (timeLength == null) {
             formattedDateTime = dateFormatter.format(zdt);
         } else {
-            assert (dateTimeGluePatternFormatType != null);
+            // The default value for DateTimeFormatType is AT_TIME
+            if (dateTimeGluePatternFormatType == null) {
+                dateTimeGluePatternFormatType = DateTimeFormatType.AT_TIME.getLabel();
+            }
+
             String formattedDate = dateFormatter.format(zdt);
             String formattedTime = timeFormatter.format(zdt);
 
@@ -591,7 +596,6 @@ public class GenerateDateTimeTestData {
         elem.fieldStyleCombo = new FieldStyleCombo();
         elem.fieldStyleCombo.dateStyle = DateStyle.FULL;
         elem.fieldStyleCombo.timeStyle = TimeStyle.SHORT;
-        elem.fieldStyleCombo.dateTimeFormatType = DateTimeFormatType.AT_TIME;
         elem.shouldMultiplyByDateTime = true;
         builder.add(elem);
 
@@ -609,7 +613,6 @@ public class GenerateDateTimeTestData {
         elem.fieldStyleCombo = new FieldStyleCombo();
         elem.fieldStyleCombo.dateStyle = DateStyle.SHORT;
         elem.fieldStyleCombo.timeStyle = TimeStyle.FULL;
-        elem.fieldStyleCombo.dateTimeFormatType = DateTimeFormatType.AT_TIME;
         elem.shouldMultiplyByTimeZone = true;
         elem.shouldMultiplyByDateTime = true;
         builder.add(elem);
@@ -697,6 +700,7 @@ public class GenerateDateTimeTestData {
         elem.fieldStyleCombo.semanticSkeleton = SemanticSkeleton.MDTZ;
         elem.fieldStyleCombo.zoneStyle = ZoneStyle.SPECIFIC;
         elem.fieldStyleCombo.semanticSkeletonLength = SemanticSkeletonLength.SHORT;
+        elem.fieldStyleCombo.dateTimeFormatType = DateTimeFormatType.STANDARD;
         elem.shouldMultiplyByTimeZone = true;
         builder.add(elem);
 
@@ -705,6 +709,7 @@ public class GenerateDateTimeTestData {
         elem.fieldStyleCombo.semanticSkeleton = SemanticSkeleton.MDTZ;
         elem.fieldStyleCombo.zoneStyle = ZoneStyle.SPECIFIC;
         elem.fieldStyleCombo.semanticSkeletonLength = SemanticSkeletonLength.LONG;
+        elem.fieldStyleCombo.dateTimeFormatType = DateTimeFormatType.STANDARD;
         elem.shouldMultiplyByTimeZone = true;
         builder.add(elem);
 
@@ -713,6 +718,7 @@ public class GenerateDateTimeTestData {
         elem.fieldStyleCombo.semanticSkeleton = SemanticSkeleton.MDTZ;
         elem.fieldStyleCombo.zoneStyle = ZoneStyle.LOCATION;
         elem.fieldStyleCombo.semanticSkeletonLength = SemanticSkeletonLength.SHORT;
+        elem.fieldStyleCombo.dateTimeFormatType = DateTimeFormatType.STANDARD;
         elem.shouldMultiplyByTimeZone = true;
         builder.add(elem);
 
@@ -721,6 +727,7 @@ public class GenerateDateTimeTestData {
         elem.fieldStyleCombo.semanticSkeleton = SemanticSkeleton.MDTZ;
         elem.fieldStyleCombo.zoneStyle = ZoneStyle.LOCATION;
         elem.fieldStyleCombo.semanticSkeletonLength = SemanticSkeletonLength.LONG;
+        elem.fieldStyleCombo.dateTimeFormatType = DateTimeFormatType.STANDARD;
         elem.shouldMultiplyByTimeZone = true;
         builder.add(elem);
 
@@ -729,6 +736,7 @@ public class GenerateDateTimeTestData {
         elem.fieldStyleCombo.semanticSkeleton = SemanticSkeleton.MDTZ;
         elem.fieldStyleCombo.zoneStyle = ZoneStyle.GENERIC;
         elem.fieldStyleCombo.semanticSkeletonLength = SemanticSkeletonLength.SHORT;
+        elem.fieldStyleCombo.dateTimeFormatType = DateTimeFormatType.STANDARD;
         elem.shouldMultiplyByTimeZone = true;
         builder.add(elem);
 
@@ -738,6 +746,7 @@ public class GenerateDateTimeTestData {
         elem.fieldStyleCombo.semanticSkeleton = SemanticSkeleton.MDTZ;
         elem.fieldStyleCombo.zoneStyle = ZoneStyle.GENERIC;
         elem.fieldStyleCombo.semanticSkeletonLength = SemanticSkeletonLength.LONG;
+        elem.fieldStyleCombo.dateTimeFormatType = DateTimeFormatType.STANDARD;
         elem.shouldMultiplyByTimeZone = true;
         builder.add(elem);
 
@@ -746,6 +755,7 @@ public class GenerateDateTimeTestData {
         elem.fieldStyleCombo.semanticSkeleton = SemanticSkeleton.MDTZ;
         elem.fieldStyleCombo.zoneStyle = ZoneStyle.OFFSET;
         elem.fieldStyleCombo.semanticSkeletonLength = SemanticSkeletonLength.SHORT;
+        elem.fieldStyleCombo.dateTimeFormatType = DateTimeFormatType.STANDARD;
         elem.shouldMultiplyByTimeZone = true;
         builder.add(elem);
 
@@ -754,6 +764,7 @@ public class GenerateDateTimeTestData {
         elem.fieldStyleCombo.semanticSkeleton = SemanticSkeleton.MDTZ;
         elem.fieldStyleCombo.zoneStyle = ZoneStyle.OFFSET;
         elem.fieldStyleCombo.semanticSkeletonLength = SemanticSkeletonLength.LONG;
+        elem.fieldStyleCombo.dateTimeFormatType = DateTimeFormatType.STANDARD;
         elem.shouldMultiplyByTimeZone = true;
         builder.add(elem);
 

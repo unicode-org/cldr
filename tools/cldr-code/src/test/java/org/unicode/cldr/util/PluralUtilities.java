@@ -34,6 +34,14 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 
 public class PluralUtilities {
+    public static final Pattern OBSOLETE_SYNTAX = Pattern.compile("(mod|in|is|within)");
+    public static final Pattern RELATION = Pattern.compile("(!=|=|%)");
+
+    private static final Splitter AND_SPLITTER =
+            Splitter.on(Pattern.compile("\\band\\b")).trimResults();
+    private static final Splitter OR_SPLITTER =
+            Splitter.on(Pattern.compile("\\bor\\b")).trimResults();
+
     private static final boolean DEBUG = System.getProperty("PluralUtilities") != null;
 
     private static CLDRConfig testInfo = CLDRConfig.getInstance();
@@ -155,19 +163,19 @@ public class PluralUtilities {
                         reversedCountSetComparator,
                         ORDER_LOCALES_BY_POP); // sort by count set, then locale population
 
-        Multimap<PluralRules, String> rulesToLocales = LinkedHashMultimap.create();
+        Multimap<String, String> formattedRulesToLocales = LinkedHashMultimap.create();
 
         supp.getPluralLocales().stream()
                 .forEach(
                         locale -> {
                             PluralInfo pluralInfo = supp.getPlurals(locale);
                             PluralRules rules = pluralInfo.getPluralRules();
-                            rulesToLocales.put(rules, locale);
+                            formattedRulesToLocales.put(format(rules), locale);
                         });
 
         // now that we have the rules mapping to the same set of locales, make the other data
 
-        rulesToLocales.asMap().entrySet().stream()
+        formattedRulesToLocales.asMap().entrySet().stream()
                 .forEach(
                         x -> {
                             // sort the set to get the first
@@ -296,7 +304,8 @@ public class PluralUtilities {
         }
 
         public Count getPluralCategory(PluralRules pluralRules) {
-            FixedDecimal fd0 = new FixedDecimal(digits / factor, visibleDecimalCount);
+            // TODO, implement IFixedDecimal to make this conversion unnecessary
+            FixedDecimal fd0 = new FixedDecimal(digits / (double) factor, visibleDecimalCount);
             String keyword = pluralRules.select(fd0);
             return Count.valueOf(keyword);
         }
@@ -594,7 +603,7 @@ public class PluralUtilities {
                     .addRange(10, 99, 0)
                     .addRange(100, 990, 1)
                     .addRange(100, 999, 0)
-                    .addRange(1000, 2099, 0)
+                    .addRange(1000, 9999, 0)
                     .addRange(10000, 10099, 0)
                     .addRange(100000, 100099, 0)
                     .addRange(1000000, 1000099, 0)
@@ -663,8 +672,37 @@ public class PluralUtilities {
     public static String format(PluralRules rules) {
         return rules.getKeywords().stream()
                 .filter(x -> !x.equals("other"))
-                .map(x -> x + "\t" + rules.getRules(x))
+                .map(x -> x + "\t" + normalizeRule(rules.getRules(x)))
                 .collect(Collectors.joining("\n"));
+    }
+
+    /**
+     * Make sure spacing, etc is clean for a rule like e = 0 and i != 0 and i % 1000000 = 0 and v =
+     * 0 or e != 0..5. Currently, don't normalize other features
+     */
+    public static String normalizeRule(String rule) {
+        if (OBSOLETE_SYNTAX.matcher(rule).find()) {
+            throw new IllegalArgumentException("Deprecated format: (mod|in|is|within) in " + rule);
+        }
+        StringBuilder result = new StringBuilder();
+        boolean firstAnd = true;
+        for (String andClause : AND_SPLITTER.split(rule)) {
+            if (firstAnd) {
+                firstAnd = false;
+            } else {
+                result.append(" and ");
+            }
+            boolean firstOr = true;
+            for (String orClause : OR_SPLITTER.splitToList(andClause)) {
+                if (firstOr) {
+                    firstOr = false;
+                } else {
+                    result.append(" or ");
+                }
+                result.append(RELATION.matcher(orClause.replace(" ", "")).replaceAll(" $1 "));
+            }
+        }
+        return result.toString();
     }
 
     public static Pair<String, String> findDifference(String repLocale1, String repLocale2) {

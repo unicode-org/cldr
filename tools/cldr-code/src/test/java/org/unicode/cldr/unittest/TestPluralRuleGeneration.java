@@ -744,16 +744,26 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
     }
 
     public void testSingles() {
-        System.out.println("\n" + PluralUtilities.findDifference("en", "da"));
-        System.out.println(PluralUtilities.format(PluralUtilities.getSamplesForLocale("en")));
-        System.out.println(PluralUtilities.format(PluralUtilities.getSamplesForLocale("fr")));
-
+        System.out.println(PluralUtilities.getSamplesForLocale("zh"));
         Multimap<String, String> visibleSamplesMultimap = TreeMultimap.create();
         for (Entry<Set<Count>, String> entry :
                 PluralUtilities.getCountSetToRepresentative().entries()) {
             Set<Count> countSet = entry.getKey();
             String representativeLocale = entry.getValue();
-            System.out.println("\n" + countSet + " " + representativeLocale);
+            System.out.println("\n" + countSet);
+            System.out.println("LOCALES:");
+            System.out.println(
+                    "["
+                            + Joiners.SP.join(
+                                    PluralUtilities.getRepresentativeToLocales()
+                                            .get(representativeLocale))
+                            + "]");
+            System.out.println("RULES:");
+            System.out.println(
+                    PluralUtilities.format(
+                            PluralUtilities.getRepresentativeToPluralRules()
+                                    .get(representativeLocale)));
+            System.out.println("SAMPLES:");
             Map<Count, KeySampleRanges> pluralSamples =
                     PluralUtilities.getSamplesForLocale(representativeLocale);
             List<String> samplesPerCount = new ArrayList<>();
@@ -764,14 +774,23 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
                 int keyLimit = 99;
                 for (Entry<Integer, Collection<SampleRange>> pair :
                         entry2.getValue().setIterable()) {
-                    if (--keyLimit < 0) break;
+                    if (--keyLimit < 0) {
+                        if ("…".equals(samplesPerKey.get(samplesPerKey.size() - 1))) {
+                            samplesPerKey.add("…");
+                        }
+                        break;
+                    }
                     // int key = pair.getKey(); // unneeded
 
-                    int rangePerKeyLimit = 99;
+                    int rangePerKeyLimit = 3;
                     for (SampleRange sr : pair.getValue()) {
-                        if (--rangePerKeyLimit < 0) break;
+                        if (--rangePerKeyLimit < 0) {
+                            samplesPerKey.add("…");
+                            break;
+                        }
                         samplesPerKey.add(sr.toString());
                     }
+                    samplesPerKey.add(";");
                 }
                 samplesPerCount.add(count + "\t" + Joiners.SP.join(samplesPerKey));
             }
@@ -781,17 +800,20 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
         }
         System.out.println("\nDuplicates\n");
         for (Entry<String, Collection<String>> entry : visibleSamplesMultimap.asMap().entrySet()) {
-            if (entry.getValue().size() > 1) {
-                System.out.println(entry.getValue() + "\n" + entry.getKey());
-                List<String> list = List.copyOf(entry.getValue());
-                Pair<String, String> problem =
-                        PluralUtilities.findDifference(list.get(0), list.get(1));
-                System.out.println(problem);
-                System.out.println(PluralUtilities.getSamplesForLocale(list.get(0)));
-                System.out.println(PluralUtilities.getSamplesForLocale(list.get(1)));
-
-                System.out.println();
+            if (entry.getValue().size() <= 1) {
+                continue;
             }
+            errln(
+                    "Duplicate rules for representatives: "
+                            + entry.getValue()
+                            + "\n"
+                            + entry.getKey());
+            List<String> list = List.copyOf(entry.getValue());
+            Pair<String, String> problem = PluralUtilities.findDifference(list.get(0), list.get(1));
+            System.out.println("Problem: " + problem);
+            System.out.println(PluralUtilities.getSamplesForLocale(list.get(0)));
+            System.out.println(PluralUtilities.getSamplesForLocale(list.get(1)));
+            System.out.println();
         }
     }
 }

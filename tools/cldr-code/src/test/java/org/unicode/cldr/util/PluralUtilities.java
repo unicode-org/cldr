@@ -31,6 +31,7 @@ import org.unicode.cldr.icu.text.FixedDecimal;
 import org.unicode.cldr.util.PluralUtilities.KeySampleRanges;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 
 public class PluralUtilities {
@@ -67,57 +68,50 @@ public class PluralUtilities {
 
     // Utility methods and backing data
 
-    /**
-     * Return a representative locale that has the same rules as the sourceLocale. If two locales
-     * have the same plural rules, they have the same representative. All locales without plural
-     * rules OR that inherit, return "und"
-     *
-     * @param sourceLocale
-     * @return
-     */
-    public static String getRepresentativeLocaleForPluralRules(String sourceLocale) {
-        String result = localeToRepresentative.get(sourceLocale);
+    /** Return mapping from representative locale to plural rules */
+    public static String getRepresentativeLocaleForPluralRules(
+            PluralType pluralType, String sourceLocale) {
+        String result = pluralTypeToData.get(pluralType).localeToRepresentative.get(sourceLocale);
         return result == null ? "und" : result;
     }
 
     /**
      * Return a map from representative locale to those with the same rules as the sourceLocale. If
      * two locales have the same plural rules, they have the same representative.
-     *
-     * @param sourceLocale
-     * @return
      */
-    public static ImmutableMap<String, String> getLocaleToRepresentative() {
-        return localeToRepresentative;
+    public static ImmutableMap<String, String> getLocaleToRepresentative(PluralType pluralType) {
+        return pluralTypeToData.get(pluralType).localeToRepresentative;
     }
 
     /**
      * Return a map from a set of Counts (plural categories) to the representatives with plural
      * rules with those counts. If two locales have the same plural rules, they have the same
      * representative.
-     *
-     * @param sourceLocale
-     * @return
      */
-    public static ImmutableMultimap<Set<Count>, String> getCountSetToRepresentative() {
-        return countSetToRepresentative;
+    public static ImmutableMultimap<Set<Count>, String> getCountSetToRepresentative(
+            PluralType pluralType) {
+        return pluralTypeToData.get(pluralType).countSetToRepresentative;
     }
 
     /**
      * The inverse of getRepresentativeLocaleForPluralRules; returns a mapping of representitive
      * locales.
      */
-    public static ImmutableMultimap<String, String> getRepresentativeToLocales() {
-        return representativeToLocales;
+    public static ImmutableMultimap<String, String> getRepresentativeToLocales(
+            PluralType pluralType) {
+        return pluralTypeToData.get(pluralType).representativeToLocales;
     }
 
-    /**
-     * Get map from representative To
-     *
-     * @return
-     */
-    public static ImmutableMap<String, PluralRules> getRepresentativeToPluralRules() {
-        return representativeToPluralRules;
+    /** Get map from representative To plural rules */
+    public static ImmutableMap<String, PluralRules> getRepresentativeToPluralRules(
+            PluralType pluralType) {
+        return pluralTypeToData.get(pluralType).representativeToPluralRules;
+    }
+
+    /** Get map from representative To count set (aka keyword set, category set) */
+    public static ImmutableMap<String, Set<Count>> getRepresentativeToCountSet(
+            PluralType pluralType) {
+        return pluralTypeToData.get(pluralType).representativeToCountSet;
     }
 
     public static Comparator<String> ORDER_LOCALES_BY_POP =
@@ -136,83 +130,109 @@ public class PluralUtilities {
                 }
             };
 
-    public static ImmutableMap<String, Set<Count>> getRepresentativeToCountSet() {
-        return representativeToCountSet;
-    }
-
     public static <T, S extends Comparable<T>> Comparator<Iterable<S>> iterableComparator() {
         return Comparators.lexicographical(Comparator.<Comparable>naturalOrder().reversed());
     }
 
-    private static final ImmutableMap<String, String> localeToRepresentative;
-    private static final ImmutableMultimap<Set<Count>, String> countSetToRepresentative;
+    static final Map<PluralType, PluralTypeData> pluralTypeToData;
 
-    private static final ImmutableMap<String, PluralRules> representativeToPluralRules;
-    private static final ImmutableMultimap<String, String> representativeToLocales;
-    private static final ImmutableMap<String, Set<Count>> representativeToCountSet;
+    static class PluralTypeData {
+        private final ImmutableMap<String, String> localeToRepresentative;
+        private final ImmutableMultimap<Set<Count>, String> countSetToRepresentative;
+
+        private final ImmutableMultimap<String, String> representativeToLocales;
+        private final ImmutableMap<String, Set<Count>> representativeToCountSet;
+        private final ImmutableMap<String, PluralRules> representativeToPluralRules;
+
+        private PluralTypeData(
+                Map<String, String> _localeToRepresentative,
+                Multimap<Set<Count>, String> _countSetToRepresentative,
+                Multimap<String, String> _representativeToLocales,
+                Map<String, Set<Count>> _representativeToCountSet,
+                Map<String, PluralRules> _representativeToPluralRules) {
+
+            localeToRepresentative = ImmutableMap.copyOf(_localeToRepresentative);
+            countSetToRepresentative = ImmutableMultimap.copyOf(_countSetToRepresentative);
+
+            representativeToLocales = ImmutableMultimap.copyOf(_representativeToLocales);
+            representativeToPluralRules = ImmutableMap.copyOf(_representativeToPluralRules);
+            representativeToCountSet = ImmutableMap.copyOf(_representativeToCountSet);
+        }
+    }
 
     static {
-        Map<String, String> _localeToRepresentative = new TreeMap<>();
-        Map<String, PluralRules> _representativeToPluralRules = new TreeMap<>(ORDER_LOCALES_BY_POP);
-        Multimap<String, String> _representativeToLocales =
-                TreeMultimap.create(ORDER_LOCALES_BY_POP, ORDER_LOCALES_BY_POP);
-        Comparator<Iterable<Count>> reversedCountSetComparator =
-                Comparators.lexicographical(Comparator.<Count>naturalOrder().reversed());
-        Multimap<Set<Count>, String> _countSetToRepresentative =
-                TreeMultimap.create(
-                        reversedCountSetComparator,
-                        ORDER_LOCALES_BY_POP); // sort by count set, then locale population
+        Map<PluralType, PluralTypeData> _data = new TreeMap<>();
+        for (PluralType pluralType : PluralType.values()) {
 
-        Multimap<String, String> formattedRulesToLocales = LinkedHashMultimap.create();
+            Map<String, String> _localeToRepresentative = new TreeMap<>();
+            Map<String, PluralRules> _representativeToPluralRules =
+                    new TreeMap<>(ORDER_LOCALES_BY_POP);
+            Multimap<String, String> _representativeToLocales =
+                    TreeMultimap.create(ORDER_LOCALES_BY_POP, ORDER_LOCALES_BY_POP);
+            Comparator<Set<Count>> reversedCountSetComparator =
+                    new CldrUtility.CollectionComparator();
+            Multimap<Set<Count>, String> _countSetToRepresentative =
+                    TreeMultimap.create(
+                            reversedCountSetComparator,
+                            ORDER_LOCALES_BY_POP); // sort by count set, then locale population
 
-        supp.getPluralLocales().stream()
-                .forEach(
-                        locale -> {
-                            PluralInfo pluralInfo = supp.getPlurals(locale);
-                            PluralRules rules = pluralInfo.getPluralRules();
-                            formattedRulesToLocales.put(format(rules), locale);
-                        });
+            Multimap<String, String> formattedRulesToLocales = LinkedHashMultimap.create();
 
-        // now that we have the rules mapping to the same set of locales, make the other data
+            supp.getPluralLocales(pluralType).stream()
+                    .forEach(
+                            locale -> {
+                                PluralInfo pluralInfo = supp.getPlurals(pluralType, locale);
+                                PluralRules rules = pluralInfo.getPluralRules();
+                                formattedRulesToLocales.put(format(rules), locale);
+                            });
 
-        formattedRulesToLocales.asMap().entrySet().stream()
-                .forEach(
-                        x -> {
-                            // sort the set to get the first
-                            ImmutableSortedSet<String> set =
-                                    ImmutableSortedSet.copyOf(x.getValue());
-                            TreeSet<String> sortedByPop = new TreeSet<>(ORDER_LOCALES_BY_POP);
-                            sortedByPop.addAll(x.getValue());
-                            String representative =
-                                    sortedByPop.iterator().next(); // pick first in population
+            // now that we have the rules mapping to the same set of locales, make the other data
 
-                            set.stream()
-                                    .forEach(y -> _localeToRepresentative.put(y, representative));
-                            _representativeToLocales.putAll(representative, set);
-                            PluralInfo pluralInfo = supp.getPlurals(representative);
-                            PluralRules rules = pluralInfo.getPluralRules();
-                            Set<Count> categories =
-                                    ImmutableSet.copyOf(
-                                            rules.getKeywords().stream()
-                                                    .map(y -> Count.valueOf(y))
-                                                    .collect(Collectors.toList()));
-                            _representativeToPluralRules.put(representative, rules);
-                            _countSetToRepresentative.put(categories, representative);
-                        });
+            formattedRulesToLocales.asMap().entrySet().stream()
+                    .forEach(
+                            x -> {
+                                // sort the set to get the first
+                                ImmutableSortedSet<String> set =
+                                        ImmutableSortedSet.copyOf(x.getValue());
+                                TreeSet<String> sortedByPop = new TreeSet<>(ORDER_LOCALES_BY_POP);
+                                sortedByPop.addAll(x.getValue());
+                                String representative =
+                                        sortedByPop.iterator().next(); // pick first in population
 
-        Map<String, Set<Count>> temp = new LinkedHashMap<>();
-        for (Map.Entry<? extends Set<Count>, ? extends String> entry :
-                _countSetToRepresentative.entries()) {
-            if (temp.put(entry.getValue(), entry.getKey()) != null) {
-                throw new IllegalArgumentException("Should never happen!");
+                                set.stream()
+                                        .forEach(
+                                                y ->
+                                                        _localeToRepresentative.put(
+                                                                y, representative));
+                                _representativeToLocales.putAll(representative, set);
+                                PluralInfo pluralInfo = supp.getPlurals(pluralType, representative);
+                                PluralRules rules = pluralInfo.getPluralRules();
+                                Set<Count> categories =
+                                        ImmutableSet.copyOf(
+                                                rules.getKeywords().stream()
+                                                        .map(y -> Count.valueOf(y))
+                                                        .collect(Collectors.toList()));
+                                _representativeToPluralRules.put(representative, rules);
+                                _countSetToRepresentative.put(categories, representative);
+                            });
+
+            Map<String, Set<Count>> __representativeToCountSet = new LinkedHashMap<>();
+            for (Map.Entry<? extends Set<Count>, ? extends String> entry :
+                    _countSetToRepresentative.entries()) {
+                if (__representativeToCountSet.put(entry.getValue(), entry.getKey()) != null) {
+                    throw new IllegalArgumentException("Should never happen!");
+                }
             }
+            PluralTypeData pluralTypeData =
+                    new PluralTypeData(
+                            _localeToRepresentative,
+                            _countSetToRepresentative,
+                            _representativeToLocales,
+                            __representativeToCountSet,
+                            _representativeToPluralRules);
+            _data.put(pluralType, pluralTypeData);
         }
-
-        localeToRepresentative = ImmutableMap.copyOf(_localeToRepresentative);
-        representativeToCountSet = ImmutableMap.copyOf(temp);
-        representativeToPluralRules = ImmutableMap.copyOf(_representativeToPluralRules);
-        representativeToLocales = ImmutableMultimap.copyOf(_representativeToLocales);
-        countSetToRepresentative = ImmutableMultimap.copyOf(_countSetToRepresentative);
+        pluralTypeToData = ImmutableMap.copyOf(_data);
     }
 
     /**
@@ -595,7 +615,7 @@ public class PluralUtilities {
         return () -> iterator;
     }
 
-    public static final KeySampleRanges SAMPLE_RANGES =
+    public static final KeySampleRanges SAMPLE_RANGES_CARDINAL =
             KeySampleRanges.builder() // these use raw values!
                     .addRange(0, 9, 0)
                     .addRange(0, 90, 1)
@@ -610,6 +630,13 @@ public class PluralUtilities {
                     .addRange(10000000, 10000099, 0)
                     .build();
 
+    public static final KeySampleRanges SAMPLE_RANGES_ORDINAL =
+            KeySampleRanges.builder() // these use raw values!
+                    .addRange(0, 9, 0)
+                    .addRange(10, 99, 0)
+                    .addRange(100, 999, 0)
+                    .build();
+
     public static String showKey(Integer key) {
         int intDigitCount = key / 100;
         int visibleDecimalCount = key % 100;
@@ -619,24 +646,36 @@ public class PluralUtilities {
 
     static {
         if (DEBUG) {
-            for (Entry<Integer, Collection<SampleRange>> entry : SAMPLE_RANGES.setIterable()) {
+            for (Entry<Integer, Collection<SampleRange>> entry :
+                    SAMPLE_RANGES_CARDINAL.setIterable()) {
                 System.out.println(showKey(entry.getKey()) + "\t" + entry.getValue());
             }
         }
     }
 
-    private static Map<PluralRules, Map<Count, KeySampleRanges>> RANGE_CACHE =
+    // TODO convert to nested maps
+
+    private static Map<PluralRules, Map<Count, KeySampleRanges>> RANGE_CACHE_CARDINAL =
             new ConcurrentHashMap<>();
 
-    public static Map<Count, KeySampleRanges> getSamplesFromPluralRules(PluralRules pluralRules) {
-        return RANGE_CACHE.computeIfAbsent(
+    private static Map<PluralRules, Map<Count, KeySampleRanges>> RANGE_CACHE_ORDINAL =
+            new ConcurrentHashMap<>();
+
+    public static Map<Count, KeySampleRanges> getSamplesFromPluralRules(
+            PluralType pluralType, PluralRules pluralRules) {
+        Map<PluralRules, Map<Count, KeySampleRanges>> cache =
+                pluralType == PluralType.cardinal ? RANGE_CACHE_CARDINAL : RANGE_CACHE_ORDINAL;
+        KeySampleRanges sampleRanges0 =
+                pluralType == PluralType.cardinal ? SAMPLE_RANGES_CARDINAL : SAMPLE_RANGES_ORDINAL;
+
+        return cache.computeIfAbsent(
                 pluralRules,
                 x -> {
                     Map<Count, KeySampleRanges.Builder> countToBuilder = new HashMap<>();
 
                     for (Entry<Integer, Collection<SampleRange>> keySamples :
-                            SAMPLE_RANGES.setIterable()) {
-                        Integer key = keySamples.getKey();
+                            sampleRanges0.setIterable()) {
+                        // Integer key = keySamples.getKey();
                         Collection<SampleRange> ranges = keySamples.getValue();
                         for (SampleRange range : ranges) {
                             for (PluralSample sample : range) {
@@ -657,16 +696,18 @@ public class PluralUtilities {
                 });
     }
 
-    public static Map<Count, KeySampleRanges> getSamplesForLocale(String locale) {
-        String rep = getRepresentativeLocaleForPluralRules(locale);
-        PluralRules pluralRules1 = PluralUtilities.getRepresentativeToPluralRules().get(rep);
+    public static Map<Count, KeySampleRanges> getSamplesForLocale(
+            PluralType pluralType, String locale) {
+        String rep = getRepresentativeLocaleForPluralRules(pluralType, locale);
+        PluralRules pluralRules1 = getRepresentativeToPluralRules(pluralType).get(rep);
         Map<Count, KeySampleRanges> pluralSamples1 =
-                PluralUtilities.getSamplesFromPluralRules(pluralRules1);
+                getSamplesFromPluralRules(pluralType, pluralRules1);
         return pluralSamples1;
     }
 
-    public static String format(Map<Count, KeySampleRanges> countAndSamples) {
-        return Joiners.N.join(PluralUtilities.getSamplesForLocale("en").entrySet());
+    public static String format(
+            PluralType pluralType, Map<Count, KeySampleRanges> countAndSamples) {
+        return Joiners.N.join(PluralUtilities.getSamplesForLocale(pluralType, "en").entrySet());
     }
 
     public static String format(PluralRules rules) {
@@ -705,9 +746,10 @@ public class PluralUtilities {
         return result.toString();
     }
 
-    public static Pair<String, String> findDifference(String repLocale1, String repLocale2) {
-        Map<Count, KeySampleRanges> pluralSamples1 = getSamplesForLocale(repLocale1);
-        Map<Count, KeySampleRanges> pluralSamples2 = getSamplesForLocale(repLocale2);
+    public static Pair<String, String> findDifference(
+            PluralType pluralType, String repLocale1, String repLocale2) {
+        Map<Count, KeySampleRanges> pluralSamples1 = getSamplesForLocale(pluralType, repLocale1);
+        Map<Count, KeySampleRanges> pluralSamples2 = getSamplesForLocale(pluralType, repLocale2);
         if (!pluralSamples1.keySet().equals(pluralSamples2.keySet())) {
             return Pair.of(pluralSamples1.keySet().toString(), pluralSamples2.keySet().toString());
         }

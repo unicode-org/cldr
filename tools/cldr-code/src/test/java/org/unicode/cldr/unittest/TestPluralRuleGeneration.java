@@ -1,6 +1,5 @@
 package org.unicode.cldr.unittest;
 
-import com.google.common.base.Joiner;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
@@ -50,7 +49,10 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 
 public class TestPluralRuleGeneration extends TestFmwkPlus {
-    boolean SHOW = System.getProperty("TestPluralRuleGeneration:show") != null;
+
+    static final boolean debugSample =
+            System.getProperty("TestPluralRuleGeneration:debugSample") != null;
+    static final boolean SHOW = System.getProperty("TestPluralRuleGeneration:show") != null;
 
     CLDRConfig testInfo = CLDRConfig.getInstance();
     SupplementalDataInfo supp = testInfo.getSupplementalDataInfo();
@@ -71,7 +73,7 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
         boolean i = rules.computeLimited("one", SampleType.INTEGER);
         boolean d = rules.computeLimited("one", SampleType.DECIMAL);
         if (SHOW) {
-            System.out.println(i + ", " + d);
+            show(i + ", " + d);
         }
     }
 
@@ -134,7 +136,7 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
         }
         if (SHOW) {
             for (String item : limitedSet) {
-                System.out.println(item);
+                show(item);
             }
         }
     }
@@ -301,14 +303,14 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
             assertEquals("check toString", test, source.toString());
         }
 
-        System.out.println();
+        show();
         String ops = "";
         for (Operand op : orderedOperands) {
             ops += "\t" + op.toString();
         }
         if (SHOW) {
 
-            System.out.println("locale\tsource" + ops + "\tpluralCat");
+            show("locale\tsource" + ops + "\tpluralCat");
         }
 
         SupplementalDataInfo sdi = CLDRConfig.getInstance().getSupplementalDataInfo();
@@ -319,7 +321,7 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
                 final FixedDecimal source = new FixedDecimal(test);
                 if (SHOW) {
 
-                    System.out.println(
+                    show(
                             locale
                                     + "\t"
                                     + FixedDecimal.toSampleString(source)
@@ -328,7 +330,7 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
                 }
             }
             if (SHOW) {
-                System.out.println();
+                show();
             }
         }
     }
@@ -499,12 +501,12 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
                 data.put(rules.select(x3), x3);
             }
             logln(ruleString);
-            System.out.println();
+            show();
             data.entries().stream()
                     .filter(x -> x.getKey().equals("many"))
                     .forEach(x -> logln("match   " + "\t" + x.getValue()));
             // data.entries().stream().filter(x -> x.getKey().equals("other")).forEach(x ->
-            // System.out.println("no-match " + "\t" + x.getValue()));
+            // show("no-match " + "\t" + x.getValue()));
         }
     }
 
@@ -519,21 +521,27 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
 
         CLDRConfig testInfo = CLDRConfig.getInstance();
         SupplementalDataInfo supp = testInfo.getSupplementalDataInfo();
-        ConcurrentHashMap<Map<String, String>, Boolean> seenLocale = new ConcurrentHashMap();
-        supp.getPluralLocales().parallelStream()
-                .forEach(
-                        locale -> {
-                            PluralInfo pluralInfo = supp.getPlurals(locale);
-                            PluralRules rules = pluralInfo.getPluralRules();
-                            Map<Set<String>, Double> shouldSucceed =
-                                    checkRules(seenLocale, locale, rules);
-                            assertEquals(
-                                    locale + "\tCLDR plural rules overlap",
-                                    "{}",
-                                    shouldSucceed.toString());
-                        });
-        if (isVerbose()) {
-            seenLocale.entrySet().stream().forEach(x -> logln(x.getKey().keySet().toString()));
+
+        for (final PluralType pluralType : PluralType.values()) {
+
+            ConcurrentHashMap<Map<String, String>, Boolean> seenLocale = new ConcurrentHashMap();
+
+            supp.getPluralLocales().parallelStream()
+                    .forEach(
+                            locale -> {
+                                PluralInfo pluralInfo = supp.getPlurals(pluralType, locale);
+                                PluralRules rules = pluralInfo.getPluralRules();
+                                Map<Set<String>, Double> shouldSucceed =
+                                        checkRules(seenLocale, locale, rules);
+                                String message = locale + "\tCLDR " + pluralType + " rules overlap";
+                                String actual = shouldSucceed.toString();
+                                if (!"{}".equals(actual)) {
+                                    warnln(message + ": " + actual);
+                                }
+                            });
+            if (isVerbose()) {
+                seenLocale.entrySet().stream().forEach(x -> logln(x.getKey().keySet().toString()));
+            }
         }
     }
 
@@ -619,49 +627,37 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
         ConcurrentHashMap<Map<String, String>, Boolean> seenLocale = new ConcurrentHashMap();
         final Multimap<String, String> components =
                 TreeMultimap.create(PluralUtilities.PLURAL_RELATION, Ordering.natural());
-        PluralUtilities.getRepresentativeToLocales().keySet().stream()
-                .forEach(
-                        locale -> {
-                            PluralInfo pluralInfo = supp.getPlurals(locale);
-                            PluralRules rules = pluralInfo.getPluralRules();
-                            Set<String> categories = rules.getKeywords();
-                            for (String category : categories) {
-                                String rule = rules.getRules(category);
-                                PluralUtilities.AND_OR.splitToList(rule).stream()
-                                        .forEach(x -> components.put(x, locale));
-                            }
-                        });
-        if (SHOW) {
-            System.out.println();
-            components.asMap().entrySet().stream()
+        for (PluralType pluralType : PluralType.values()) {
+            show("\nPLURAL TYPE: " + pluralType);
+            PluralUtilities.getRepresentativeToLocales(pluralType).keySet().stream()
                     .forEach(
-                            x ->
-                                    System.out.println(
-                                            x.getKey() + "\t" + Joiners.SP.join(x.getValue())));
-            System.out.println();
-            for (Entry<Set<Count>, String> entry :
-                    PluralUtilities.getCountSetToRepresentative().entries()) {
-                System.out.println(
-                        Joiners.TAB.join(
-                                entry.getKey(),
-                                entry.getValue(),
-                                Joiners.SP.join(
-                                        PluralUtilities.getRepresentativeToLocales()
-                                                .get(entry.getValue()))));
+                            locale -> {
+                                PluralInfo pluralInfo = supp.getPlurals(locale);
+                                PluralRules rules = pluralInfo.getPluralRules();
+                                Set<String> categories = rules.getKeywords();
+                                for (String category : categories) {
+                                    String rule = rules.getRules(category);
+                                    PluralUtilities.AND_OR.splitToList(rule).stream()
+                                            .forEach(x -> components.put(x, locale));
+                                }
+                            });
+            if (SHOW) {
+                show();
+                components.asMap().entrySet().stream()
+                        .forEach(x -> show(x.getKey() + "\t" + Joiners.SP.join(x.getValue())));
+                show();
+                for (Entry<Set<Count>, String> entry :
+                        PluralUtilities.getCountSetToRepresentative(pluralType).entries()) {
+                    show(
+                            Joiners.TAB.join(
+                                    entry.getKey(),
+                                    entry.getValue(),
+                                    Joiners.SP.join(
+                                            PluralUtilities.getRepresentativeToLocales(pluralType)
+                                                    .get(entry.getValue()))));
+                }
             }
         }
-    }
-
-    static final boolean debugSample = false;
-
-    String showKey(int combined) {
-        int pow = combined / 100;
-        int frac = combined % 100;
-        return Joiner.on("")
-                .join(
-                        new FixedDecimal(pow == 0 ? 0 : PluralUtilities.pow10(pow), frac),
-                        "-",
-                        new FixedDecimal(PluralUtilities.pow10(1 + pow) - 1, frac));
     }
 
     //    public void testRanges() {
@@ -686,134 +682,154 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
     //    }
 
     public void checkSampleSpeed() {
+        for (PluralType pluralType : PluralType.values()) {
+            show("\nPLURAL TYPE: " + pluralType);
+            for (Entry<Set<Count>, String> entry :
+                    PluralUtilities.getCountSetToRepresentative(pluralType).entries()) {
+                String locale = entry.getValue();
 
-        for (Entry<Set<Count>, String> entry :
-                PluralUtilities.getCountSetToRepresentative().entries()) {
-            String locale = entry.getValue();
-
-            PluralRules pluralRules = PluralUtilities.getRepresentativeToPluralRules().get(locale);
-            System.out.println();
-            System.out.println(
-                    locale + "\t" + PluralUtilities.getRepresentativeToLocales().get(locale));
-            Set<Count> counts = PluralUtilities.getRepresentativeToCountSet().get(locale);
-            for (Count count : counts) {
-                if (count == Count.other) {
-                    continue;
+                PluralRules pluralRules =
+                        PluralUtilities.getRepresentativeToPluralRules(pluralType).get(locale);
+                show();
+                show(
+                        locale
+                                + "\t"
+                                + PluralUtilities.getRepresentativeToLocales(pluralType)
+                                        .get(locale));
+                Set<Count> counts =
+                        PluralUtilities.getRepresentativeToCountSet(pluralType).get(locale);
+                for (Count count : counts) {
+                    if (count == Count.other) {
+                        continue;
+                    }
+                    show(count + ":\t" + pluralRules.getRules(count.toString()));
                 }
-                System.out.println(count + ":\t" + pluralRules.getRules(count.toString()));
-            }
-            Map<Count, KeySampleRanges> values =
-                    PluralUtilities.getSamplesFromPluralRules(pluralRules);
-            for (Entry<Count, KeySampleRanges> entry2 : values.entrySet()) {
-                System.out.println(entry2.getKey() + ":\t" + entry2.getValue());
+                Map<Count, KeySampleRanges> values =
+                        PluralUtilities.getSamplesFromPluralRules(pluralType, pluralRules);
+                for (Entry<Count, KeySampleRanges> entry2 : values.entrySet()) {
+                    show(entry2.getKey() + ":\t" + entry2.getValue());
+                }
             }
         }
     }
 
     /** See if any rules for representatives give identical results: */
     public void testIdenticalResults() {
-        // make a reverse mapping
-        Multimap<Map<Count, KeySampleRanges>, String> reverse = HashMultimap.create();
-        for (Entry<String, PluralRules> entry :
-                PluralUtilities.getRepresentativeToPluralRules().entrySet()) {
-            Map<Count, KeySampleRanges> pluralSamples =
-                    PluralUtilities.getSamplesFromPluralRules(entry.getValue());
-            reverse.put(pluralSamples, entry.getKey());
-        }
-        for (Entry<Map<Count, KeySampleRanges>, Collection<String>> entry :
-                reverse.asMap().entrySet()) {
-            if (!assertEquals(entry.getValue().toString(), 1, entry.getValue().size())) {
-                warnln(
-                        "\nCould be that the samples in PluralRule utilities needs extending, "
-                                + "or that there are gratuitious differences between rule formulations (like the order of AND or OR clauses.");
-                boolean isFirst = true;
-                for (String locale : entry.getValue()) {
-                    if (isFirst) {
-                        System.out.println(
+        for (PluralType pluralType : PluralType.values()) {
+            show("\nPLURAL TYPE: " + pluralType);
+            // make a reverse mapping
+            Multimap<Map<Count, KeySampleRanges>, String> reverse = HashMultimap.create();
+            for (Entry<String, PluralRules> entry :
+                    PluralUtilities.getRepresentativeToPluralRules(pluralType).entrySet()) {
+                Map<Count, KeySampleRanges> pluralSamples =
+                        PluralUtilities.getSamplesFromPluralRules(pluralType, entry.getValue());
+                reverse.put(pluralSamples, entry.getKey());
+            }
+            for (Entry<Map<Count, KeySampleRanges>, Collection<String>> entry :
+                    reverse.asMap().entrySet()) {
+                if (!assertEquals(entry.getValue().toString(), 1, entry.getValue().size())) {
+                    warnln(
+                            "\nCould be that the samples in PluralRule utilities needs extending, "
+                                    + "or that there are gratuitious differences between rule formulations (like the order of AND or OR clauses.");
+                    boolean isFirst = true;
+                    for (String locale : entry.getValue()) {
+                        if (isFirst) {
+                            show(
+                                    PluralUtilities.format(
+                                            pluralType,
+                                            PluralUtilities.getSamplesForLocale(
+                                                    pluralType, locale)));
+                            isFirst = false;
+                        }
+                        show(locale);
+                        show(
                                 PluralUtilities.format(
-                                        PluralUtilities.getSamplesForLocale(locale)));
-                        isFirst = false;
+                                        PluralUtilities.getRepresentativeToPluralRules(pluralType)
+                                                .get(locale)));
                     }
-                    System.out.println(locale);
-                    System.out.println(
-                            PluralUtilities.format(
-                                    PluralUtilities.getRepresentativeToPluralRules().get(locale)));
                 }
             }
         }
     }
 
+    void show(Object... x) {
+        if (SHOW) show(Joiners.SP.join(x));
+    }
+
     public void testSingles() {
-        System.out.println(PluralUtilities.getSamplesForLocale("zh"));
-        Multimap<String, String> visibleSamplesMultimap = TreeMultimap.create();
-        for (Entry<Set<Count>, String> entry :
-                PluralUtilities.getCountSetToRepresentative().entries()) {
-            Set<Count> countSet = entry.getKey();
-            String representativeLocale = entry.getValue();
-            System.out.println("\n" + countSet);
-            System.out.println("LOCALES:");
-            System.out.println(
-                    "["
-                            + Joiners.SP.join(
-                                    PluralUtilities.getRepresentativeToLocales()
-                                            .get(representativeLocale))
-                            + "]");
-            System.out.println("RULES:");
-            System.out.println(
-                    PluralUtilities.format(
-                            PluralUtilities.getRepresentativeToPluralRules()
-                                    .get(representativeLocale)));
-            System.out.println("SAMPLES:");
-            Map<Count, KeySampleRanges> pluralSamples =
-                    PluralUtilities.getSamplesForLocale(representativeLocale);
-            List<String> samplesPerCount = new ArrayList<>();
-            for (Entry<Count, KeySampleRanges> entry2 : pluralSamples.entrySet()) {
-                Count count = entry2.getKey();
+        for (final PluralType pluralType : PluralType.values()) {
+            // show(PluralUtilities.getSamplesForLocale(pluralType, "zh"));
+            Multimap<String, String> visibleSamplesMultimap = TreeMultimap.create();
+            for (Entry<Set<Count>, String> entry :
+                    PluralUtilities.getCountSetToRepresentative(pluralType).entries()) {
+                Set<Count> countSet = entry.getKey();
+                String representativeLocale = entry.getValue();
+                show("\n" + pluralType + "\t" + countSet);
+                show(
+                        "LOCALES:\t["
+                                + Joiners.SP.join(
+                                        PluralUtilities.getRepresentativeToLocales(pluralType)
+                                                .get(representativeLocale))
+                                + "]");
+                String formattedRules =
+                        PluralUtilities.format(
+                                PluralUtilities.getRepresentativeToPluralRules(pluralType)
+                                        .get(representativeLocale));
+                show(formattedRules.isBlank() ? "RULES:\tnone" : "RULES:\n" + formattedRules);
+                show("SAMPLES:");
+                Map<Count, KeySampleRanges> pluralSamples =
+                        PluralUtilities.getSamplesForLocale(pluralType, representativeLocale);
+                List<String> samplesPerCount = new ArrayList<>();
+                for (Entry<Count, KeySampleRanges> entry2 : pluralSamples.entrySet()) {
+                    Count count = entry2.getKey();
 
-                List<String> samplesPerKey = new ArrayList<>();
-                int keyLimit = 99;
-                for (Entry<Integer, Collection<SampleRange>> pair :
-                        entry2.getValue().setIterable()) {
-                    if (--keyLimit < 0) {
-                        if ("…".equals(samplesPerKey.get(samplesPerKey.size() - 1))) {
-                            samplesPerKey.add("…");
-                        }
-                        break;
-                    }
-                    // int key = pair.getKey(); // unneeded
-
-                    int rangePerKeyLimit = 3;
-                    for (SampleRange sr : pair.getValue()) {
-                        if (--rangePerKeyLimit < 0) {
-                            samplesPerKey.add("…");
+                    List<String> samplesPerKey = new ArrayList<>();
+                    int keyLimit = 99;
+                    for (Entry<Integer, Collection<SampleRange>> pair :
+                            entry2.getValue().setIterable()) {
+                        if (--keyLimit < 0) {
+                            if ("…".equals(samplesPerKey.get(samplesPerKey.size() - 1))) {
+                                samplesPerKey.add("…");
+                            }
                             break;
                         }
-                        samplesPerKey.add(sr.toString());
+                        // int key = pair.getKey(); // unneeded
+
+                        int rangePerKeyLimit = 3;
+                        for (SampleRange sr : pair.getValue()) {
+                            if (--rangePerKeyLimit < 0) {
+                                samplesPerKey.add("…");
+                                break;
+                            }
+                            samplesPerKey.add(sr.toString());
+                        }
+                        samplesPerKey.add(";");
                     }
-                    samplesPerKey.add(";");
+                    samplesPerCount.add(count + "\t" + Joiners.SP.join(samplesPerKey));
                 }
-                samplesPerCount.add(count + "\t" + Joiners.SP.join(samplesPerKey));
+                String joinedSamples = Joiners.N.join(samplesPerCount);
+                show(joinedSamples);
+                visibleSamplesMultimap.put(joinedSamples, representativeLocale);
             }
-            String joinedSamples = Joiners.N.join(samplesPerCount);
-            System.out.println(joinedSamples);
-            visibleSamplesMultimap.put(joinedSamples, representativeLocale);
-        }
-        System.out.println("\nDuplicates\n");
-        for (Entry<String, Collection<String>> entry : visibleSamplesMultimap.asMap().entrySet()) {
-            if (entry.getValue().size() <= 1) {
-                continue;
+            show("\nDuplicates\n");
+            for (Entry<String, Collection<String>> entry :
+                    visibleSamplesMultimap.asMap().entrySet()) {
+                if (entry.getValue().size() <= 1) {
+                    continue;
+                }
+                errln(
+                        "Duplicate rules for representatives: "
+                                + entry.getValue()
+                                + "\n"
+                                + entry.getKey());
+                List<String> list = List.copyOf(entry.getValue());
+                Pair<String, String> problem =
+                        PluralUtilities.findDifference(pluralType, list.get(0), list.get(1));
+                show("Problem: " + problem);
+                show(PluralUtilities.getSamplesForLocale(pluralType, list.get(0)));
+                show(PluralUtilities.getSamplesForLocale(pluralType, list.get(1)));
+                show();
             }
-            errln(
-                    "Duplicate rules for representatives: "
-                            + entry.getValue()
-                            + "\n"
-                            + entry.getKey());
-            List<String> list = List.copyOf(entry.getValue());
-            Pair<String, String> problem = PluralUtilities.findDifference(list.get(0), list.get(1));
-            System.out.println("Problem: " + problem);
-            System.out.println(PluralUtilities.getSamplesForLocale(list.get(0)));
-            System.out.println(PluralUtilities.getSamplesForLocale(list.get(1)));
-            System.out.println();
         }
     }
 }

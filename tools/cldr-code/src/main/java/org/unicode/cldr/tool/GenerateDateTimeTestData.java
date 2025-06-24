@@ -602,6 +602,7 @@ public class GenerateDateTimeTestData {
         elem.fieldStyleCombo = new FieldStyleCombo();
         elem.fieldStyleCombo.dateStyle = DateStyle.FULL;
         elem.fieldStyleCombo.timeStyle = TimeStyle.SHORT;
+        elem.fieldStyleCombo.dateTimeFormatType = DateTimeFormatType.AT_TIME;
         elem.shouldMultiplyByDateTime = true;
         builder.add(elem);
 
@@ -610,6 +611,7 @@ public class GenerateDateTimeTestData {
         elem.fieldStyleCombo = new FieldStyleCombo();
         elem.fieldStyleCombo.dateStyle = DateStyle.FULL;
         elem.fieldStyleCombo.timeStyle = TimeStyle.SHORT;
+        elem.fieldStyleCombo.dateTimeFormatType = DateTimeFormatType.STANDARD;
         elem.shouldMultiplyByDateTime = true;
         builder.add(elem);
 
@@ -618,6 +620,7 @@ public class GenerateDateTimeTestData {
         elem.fieldStyleCombo = new FieldStyleCombo();
         elem.fieldStyleCombo.dateStyle = DateStyle.SHORT;
         elem.fieldStyleCombo.timeStyle = TimeStyle.FULL;
+        elem.fieldStyleCombo.dateTimeFormatType = DateTimeFormatType.AT_TIME;
         elem.shouldMultiplyByTimeZone = true;
         elem.shouldMultiplyByDateTime = true;
         builder.add(elem);

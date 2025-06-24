@@ -354,13 +354,10 @@ public class GenerateDateTimeTestData {
         } else if (timeLength == null) {
             formattedDateTime = dateFormatter.format(zdt);
         } else {
-            // The default value for DateTimeFormatType is AT_TIME
-            if (dateTimeGluePatternFormatType == null) {
-                dateTimeGluePatternFormatType = DateTimeFormatType.AT_TIME.getLabel();
-            }
-
             String formattedDate = dateFormatter.format(zdt);
             String formattedTime = timeFormatter.format(zdt);
+
+            assert dateTimeGluePatternFormatType != null;
 
             formattedDateTime =
                     localeCldrFile.glueDateTimeFormat(
@@ -1260,8 +1257,10 @@ public class GenerateDateTimeTestData {
         result.classicalSkeleton = testCase.classicalSkeleton;
         result.dateTimeFormatType =
                 Optional.ofNullable(testCase.testCaseInput.fieldStyleCombo.dateTimeFormatType)
-                        .map(DateTimeFormatType::getLabel)
-                        .orElse(null);
+                    // because AT_TIME is the default, we do not serialize it to the output
+                    .filter(dtft -> dtft != DateTimeFormatType.AT_TIME)
+                    .map(DateTimeFormatType::getLabel)
+                    .orElse(null);
         result.hourCycle =
                 Optional.ofNullable(testCase.testCaseInput.fieldStyleCombo.hourCycle)
                         .map(HourCycle::getLabel)

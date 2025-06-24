@@ -44,6 +44,7 @@
   {
     "dateLength": "full",
     "timeLength": "short",
+    "dateTimeFormatType": "atTime",
     "calendar": "gregorian",
     "locale": "en",
     "input": "2000-01-01T00:00Z[Etc/GMT]",
@@ -52,6 +53,7 @@
   {
     "dateLength": "full",
     "timeLength": "short",
+    "dateTimeFormatType": "atTime",
     "calendar": "gregorian",
     "locale": "en",
     "input": "2024-07-01T08:50:07Z[Etc/GMT]",
@@ -60,6 +62,7 @@
   {
     "dateLength": "full",
     "timeLength": "short",
+    "dateTimeFormatType": "atTime",
     "calendar": "gregorian",
     "locale": "en",
     "input": "2014-07-15T12:00Z[Etc/GMT]",
@@ -68,30 +71,34 @@
   {
     "dateLength": "full",
     "timeLength": "short",
+    "dateTimeFormatType": "standard",
     "calendar": "gregorian",
     "locale": "en",
     "input": "2000-01-01T00:00Z[Etc/GMT]",
-    "expected": "Saturday, January 1, 2000 at 12:00 AM"
+    "expected": "Saturday, January 1, 2000, 12:00 AM"
   },
   {
     "dateLength": "full",
     "timeLength": "short",
+    "dateTimeFormatType": "standard",
     "calendar": "gregorian",
     "locale": "en",
     "input": "2024-07-01T08:50:07Z[Etc/GMT]",
-    "expected": "Monday, July 1, 2024 at 8:50 AM"
+    "expected": "Monday, July 1, 2024, 8:50 AM"
   },
   {
     "dateLength": "full",
     "timeLength": "short",
+    "dateTimeFormatType": "standard",
     "calendar": "gregorian",
     "locale": "en",
     "input": "2014-07-15T12:00Z[Etc/GMT]",
-    "expected": "Tuesday, July 15, 2014 at 12:00 PM"
+    "expected": "Tuesday, July 15, 2014, 12:00 PM"
   },
   {
     "dateLength": "short",
     "timeLength": "full",
+    "dateTimeFormatType": "atTime",
     "calendar": "gregorian",
     "locale": "en",
     "input": "2000-01-01T00:00Z[Etc/GMT]",
@@ -100,6 +107,7 @@
   {
     "dateLength": "short",
     "timeLength": "full",
+    "dateTimeFormatType": "atTime",
     "calendar": "gregorian",
     "locale": "en",
     "input": "2000-01-01T00:00+10:30[Australia/Adelaide]",
@@ -108,6 +116,7 @@
   {
     "dateLength": "short",
     "timeLength": "full",
+    "dateTimeFormatType": "atTime",
     "calendar": "gregorian",
     "locale": "en",
     "input": "2024-07-01T08:50:07Z[Etc/GMT]",
@@ -116,6 +125,7 @@
   {
     "dateLength": "short",
     "timeLength": "full",
+    "dateTimeFormatType": "atTime",
     "calendar": "gregorian",
     "locale": "en",
     "input": "2024-07-01T08:50:07+09:30[Australia/Adelaide]",
@@ -124,6 +134,7 @@
   {
     "dateLength": "short",
     "timeLength": "full",
+    "dateTimeFormatType": "atTime",
     "calendar": "gregorian",
     "locale": "en",
     "input": "2014-07-15T12:00Z[Etc/GMT]",
@@ -132,6 +143,7 @@
   {
     "dateLength": "short",
     "timeLength": "full",
+    "dateTimeFormatType": "atTime",
     "calendar": "gregorian",
     "locale": "en",
     "input": "2014-07-15T12:00+09:30[Australia/Adelaide]",
@@ -763,6 +775,7 @@
   {
     "dateLength": "full",
     "timeLength": "short",
+    "dateTimeFormatType": "atTime",
     "calendar": "islamic-civil",
     "locale": "ar-SA",
     "input": "2000-01-01T00:00Z[Etc/GMT]",
@@ -771,6 +784,7 @@
   {
     "dateLength": "full",
     "timeLength": "short",
+    "dateTimeFormatType": "atTime",
     "calendar": "islamic-civil",
     "locale": "ar-SA",
     "input": "2024-07-01T08:50:07Z[Etc/GMT]",
@@ -779,6 +793,7 @@
   {
     "dateLength": "full",
     "timeLength": "short",
+    "dateTimeFormatType": "atTime",
     "calendar": "islamic-civil",
     "locale": "ar-SA",
     "input": "2014-07-15T12:00Z[Etc/GMT]",
@@ -787,30 +802,34 @@
   {
     "dateLength": "full",
     "timeLength": "short",
+    "dateTimeFormatType": "standard",
     "calendar": "islamic-civil",
     "locale": "ar-SA",
     "input": "2000-01-01T00:00Z[Etc/GMT]",
-    "expected": "السبت، ٢٤ رمضان ١٤٢٠ هـ في ١٢:٠٠ ص"
+    "expected": "السبت، ٢٤ رمضان ١٤٢٠ هـ، ١٢:٠٠ ص"
   },
   {
     "dateLength": "full",
     "timeLength": "short",
+    "dateTimeFormatType": "standard",
     "calendar": "islamic-civil",
     "locale": "ar-SA",
     "input": "2024-07-01T08:50:07Z[Etc/GMT]",
-    "expected": "الاثنين، ٢٤ ذو الحجة ١٤٤٥ هـ في ٨:٥٠ ص"
+    "expected": "الاثنين، ٢٤ ذو الحجة ١٤٤٥ هـ، ٨:٥٠ ص"
   },
   {
     "dateLength": "full",
     "timeLength": "short",
+    "dateTimeFormatType": "standard",
     "calendar": "islamic-civil",
     "locale": "ar-SA",
     "input": "2014-07-15T12:00Z[Etc/GMT]",
-    "expected": "الثلاثاء، ١٧ رمضان ١٤٣٥ هـ في ١٢:٠٠ م"
+    "expected": "الثلاثاء، ١٧ رمضان ١٤٣٥ هـ، ١٢:٠٠ م"
   },
   {
     "dateLength": "short",
     "timeLength": "full",
+    "dateTimeFormatType": "atTime",
     "calendar": "islamic-civil",
     "locale": "ar-SA",
     "input": "2000-01-01T00:00Z[Etc/GMT]",
@@ -819,6 +838,7 @@
   {
     "dateLength": "short",
     "timeLength": "full",
+    "dateTimeFormatType": "atTime",
     "calendar": "islamic-civil",
     "locale": "ar-SA",
     "input": "2000-01-01T00:00+10:30[Australia/Adelaide]",
@@ -827,6 +847,7 @@
   {
     "dateLength": "short",
     "timeLength": "full",
+    "dateTimeFormatType": "atTime",
     "calendar": "islamic-civil",
     "locale": "ar-SA",
     "input": "2024-07-01T08:50:07Z[Etc/GMT]",
@@ -835,6 +856,7 @@
   {
     "dateLength": "short",
     "timeLength": "full",
+    "dateTimeFormatType": "atTime",
     "calendar": "islamic-civil",
     "locale": "ar-SA",
     "input": "2024-07-01T08:50:07+09:30[Australia/Adelaide]",
@@ -843,6 +865,7 @@
   {
     "dateLength": "short",
     "timeLength": "full",
+    "dateTimeFormatType": "atTime",
     "calendar": "islamic-civil",
     "locale": "ar-SA",
     "input": "2014-07-15T12:00Z[Etc/GMT]",
@@ -851,6 +874,7 @@
   {
     "dateLength": "short",
     "timeLength": "full",
+    "dateTimeFormatType": "atTime",
     "calendar": "islamic-civil",
     "locale": "ar-SA",
     "input": "2014-07-15T12:00+09:30[Australia/Adelaide]",
@@ -1482,6 +1506,7 @@
   {
     "dateLength": "full",
     "timeLength": "short",
+    "dateTimeFormatType": "atTime",
     "calendar": "buddhist",
     "locale": "th-TH",
     "input": "2000-01-01T00:00Z[Etc/GMT]",
@@ -1490,6 +1515,7 @@
   {
     "dateLength": "full",
     "timeLength": "short",
+    "dateTimeFormatType": "atTime",
     "calendar": "buddhist",
     "locale": "th-TH",
     "input": "2024-07-01T08:50:07Z[Etc/GMT]",
@@ -1498,6 +1524,7 @@
   {
     "dateLength": "full",
     "timeLength": "short",
+    "dateTimeFormatType": "atTime",
     "calendar": "buddhist",
     "locale": "th-TH",
     "input": "2014-07-15T12:00Z[Etc/GMT]",
@@ -1506,30 +1533,34 @@
   {
     "dateLength": "full",
     "timeLength": "short",
+    "dateTimeFormatType": "standard",
     "calendar": "buddhist",
     "locale": "th-TH",
     "input": "2000-01-01T00:00Z[Etc/GMT]",
-    "expected": "วันเสาร์ที่ 1 มกราคม พ.ศ. 2543 เวลา 00:00"
+    "expected": "วันเสาร์ที่ 1 มกราคม พ.ศ. 2543 00:00"
   },
   {
     "dateLength": "full",
     "timeLength": "short",
+    "dateTimeFormatType": "standard",
     "calendar": "buddhist",
     "locale": "th-TH",
     "input": "2024-07-01T08:50:07Z[Etc/GMT]",
-    "expected": "วันจันทร์ที่ 1 กรกฎาคม พ.ศ. 2567 เวลา 08:50"
+    "expected": "วันจันทร์ที่ 1 กรกฎาคม พ.ศ. 2567 08:50"
   },
   {
     "dateLength": "full",
     "timeLength": "short",
+    "dateTimeFormatType": "standard",
     "calendar": "buddhist",
     "locale": "th-TH",
     "input": "2014-07-15T12:00Z[Etc/GMT]",
-    "expected": "วันอังคารที่ 15 กรกฎาคม พ.ศ. 2557 เวลา 12:00"
+    "expected": "วันอังคารที่ 15 กรกฎาคม พ.ศ. 2557 12:00"
   },
   {
     "dateLength": "short",
     "timeLength": "full",
+    "dateTimeFormatType": "atTime",
     "calendar": "buddhist",
     "locale": "th-TH",
     "input": "2000-01-01T00:00Z[Etc/GMT]",
@@ -1538,6 +1569,7 @@
   {
     "dateLength": "short",
     "timeLength": "full",
+    "dateTimeFormatType": "atTime",
     "calendar": "buddhist",
     "locale": "th-TH",
     "input": "2000-01-01T00:00+10:30[Australia/Adelaide]",
@@ -1546,6 +1578,7 @@
   {
     "dateLength": "short",
     "timeLength": "full",
+    "dateTimeFormatType": "atTime",
     "calendar": "buddhist",
     "locale": "th-TH",
     "input": "2024-07-01T08:50:07Z[Etc/GMT]",
@@ -1554,6 +1587,7 @@
   {
     "dateLength": "short",
     "timeLength": "full",
+    "dateTimeFormatType": "atTime",
     "calendar": "buddhist",
     "locale": "th-TH",
     "input": "2024-07-01T08:50:07+09:30[Australia/Adelaide]",
@@ -1562,6 +1596,7 @@
   {
     "dateLength": "short",
     "timeLength": "full",
+    "dateTimeFormatType": "atTime",
     "calendar": "buddhist",
     "locale": "th-TH",
     "input": "2014-07-15T12:00Z[Etc/GMT]",
@@ -1570,6 +1605,7 @@
   {
     "dateLength": "short",
     "timeLength": "full",
+    "dateTimeFormatType": "atTime",
     "calendar": "buddhist",
     "locale": "th-TH",
     "input": "2014-07-15T12:00+09:30[Australia/Adelaide]",
@@ -2201,6 +2237,7 @@
   {
     "dateLength": "full",
     "timeLength": "short",
+    "dateTimeFormatType": "atTime",
     "calendar": "japanese",
     "locale": "ja-JP",
     "input": "2000-01-01T00:00Z[Etc/GMT]",
@@ -2209,6 +2246,7 @@
   {
     "dateLength": "full",
     "timeLength": "short",
+    "dateTimeFormatType": "atTime",
     "calendar": "japanese",
     "locale": "ja-JP",
     "input": "2024-07-01T08:50:07Z[Etc/GMT]",
@@ -2217,6 +2255,7 @@
   {
     "dateLength": "full",
     "timeLength": "short",
+    "dateTimeFormatType": "atTime",
     "calendar": "japanese",
     "locale": "ja-JP",
     "input": "2014-07-15T12:00Z[Etc/GMT]",
@@ -2225,6 +2264,7 @@
   {
     "dateLength": "full",
     "timeLength": "short",
+    "dateTimeFormatType": "standard",
     "calendar": "japanese",
     "locale": "ja-JP",
     "input": "2000-01-01T00:00Z[Etc/GMT]",
@@ -2233,6 +2273,7 @@
   {
     "dateLength": "full",
     "timeLength": "short",
+    "dateTimeFormatType": "standard",
     "calendar": "japanese",
     "locale": "ja-JP",
     "input": "2024-07-01T08:50:07Z[Etc/GMT]",
@@ -2241,6 +2282,7 @@
   {
     "dateLength": "full",
     "timeLength": "short",
+    "dateTimeFormatType": "standard",
     "calendar": "japanese",
     "locale": "ja-JP",
     "input": "2014-07-15T12:00Z[Etc/GMT]",
@@ -2249,6 +2291,7 @@
   {
     "dateLength": "short",
     "timeLength": "full",
+    "dateTimeFormatType": "atTime",
     "calendar": "japanese",
     "locale": "ja-JP",
     "input": "2000-01-01T00:00Z[Etc/GMT]",
@@ -2257,6 +2300,7 @@
   {
     "dateLength": "short",
     "timeLength": "full",
+    "dateTimeFormatType": "atTime",
     "calendar": "japanese",
     "locale": "ja-JP",
     "input": "2000-01-01T00:00+10:30[Australia/Adelaide]",
@@ -2265,6 +2309,7 @@
   {
     "dateLength": "short",
     "timeLength": "full",
+    "dateTimeFormatType": "atTime",
     "calendar": "japanese",
     "locale": "ja-JP",
     "input": "2024-07-01T08:50:07Z[Etc/GMT]",
@@ -2273,6 +2318,7 @@
   {
     "dateLength": "short",
     "timeLength": "full",
+    "dateTimeFormatType": "atTime",
     "calendar": "japanese",
     "locale": "ja-JP",
     "input": "2024-07-01T08:50:07+09:30[Australia/Adelaide]",
@@ -2281,6 +2327,7 @@
   {
     "dateLength": "short",
     "timeLength": "full",
+    "dateTimeFormatType": "atTime",
     "calendar": "japanese",
     "locale": "ja-JP",
     "input": "2014-07-15T12:00Z[Etc/GMT]",
@@ -2289,6 +2336,7 @@
   {
     "dateLength": "short",
     "timeLength": "full",
+    "dateTimeFormatType": "atTime",
     "calendar": "japanese",
     "locale": "ja-JP",
     "input": "2014-07-15T12:00+09:30[Australia/Adelaide]",

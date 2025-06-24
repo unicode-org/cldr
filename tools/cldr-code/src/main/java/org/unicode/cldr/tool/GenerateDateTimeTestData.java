@@ -604,10 +604,7 @@ public class GenerateDateTimeTestData {
         elem.fieldStyleCombo = new FieldStyleCombo();
         elem.fieldStyleCombo.dateStyle = DateStyle.FULL;
         elem.fieldStyleCombo.timeStyle = TimeStyle.SHORT;
-        // TODO: uncomment once CLDR DateTimeFormats constructor to use CLDRFile to get the dateTimeFormat glue pattern,
-        //     since we are currently using ICU to get the dateTimeFormat pattern, which defaults to the behavior
-        //     of DateTimeFormatType.AT_TIME
-        // elem.fieldStyleCombo.dateTimeFormatType = DateTimeFormatType.STANDARD;
+        elem.fieldStyleCombo.dateTimeFormatType = DateTimeFormatType.STANDARD;
         elem.shouldMultiplyByDateTime = true;
         builder.add(elem);
 
@@ -703,10 +700,7 @@ public class GenerateDateTimeTestData {
         elem.fieldStyleCombo.semanticSkeleton = SemanticSkeleton.MDTZ;
         elem.fieldStyleCombo.zoneStyle = ZoneStyle.SPECIFIC;
         elem.fieldStyleCombo.semanticSkeletonLength = SemanticSkeletonLength.SHORT;
-        // TODO: uncomment once CLDR DateTimeFormats constructor to use CLDRFile to get the dateTimeFormat glue pattern,
-        //     since we are currently using ICU to get the dateTimeFormat pattern, which defaults to the behavior
-        //     of DateTimeFormatType.AT_TIME
-        // elem.fieldStyleCombo.dateTimeFormatType = DateTimeFormatType.STANDARD;
+        elem.fieldStyleCombo.dateTimeFormatType = DateTimeFormatType.STANDARD;
         elem.shouldMultiplyByTimeZone = true;
         builder.add(elem);
 
@@ -715,10 +709,7 @@ public class GenerateDateTimeTestData {
         elem.fieldStyleCombo.semanticSkeleton = SemanticSkeleton.MDTZ;
         elem.fieldStyleCombo.zoneStyle = ZoneStyle.SPECIFIC;
         elem.fieldStyleCombo.semanticSkeletonLength = SemanticSkeletonLength.LONG;
-        // TODO: uncomment once CLDR DateTimeFormats constructor to use CLDRFile to get the dateTimeFormat glue pattern,
-        //     since we are currently using ICU to get the dateTimeFormat pattern, which defaults to the behavior
-        //     of DateTimeFormatType.AT_TIME
-        // elem.fieldStyleCombo.dateTimeFormatType = DateTimeFormatType.STANDARD;
+        elem.fieldStyleCombo.dateTimeFormatType = DateTimeFormatType.STANDARD;
         elem.shouldMultiplyByTimeZone = true;
         builder.add(elem);
 
@@ -727,10 +718,7 @@ public class GenerateDateTimeTestData {
         elem.fieldStyleCombo.semanticSkeleton = SemanticSkeleton.MDTZ;
         elem.fieldStyleCombo.zoneStyle = ZoneStyle.LOCATION;
         elem.fieldStyleCombo.semanticSkeletonLength = SemanticSkeletonLength.SHORT;
-        // TODO: uncomment once CLDR DateTimeFormats constructor to use CLDRFile to get the dateTimeFormat glue pattern,
-        //     since we are currently using ICU to get the dateTimeFormat pattern, which defaults to the behavior
-        //     of DateTimeFormatType.AT_TIME
-        // elem.fieldStyleCombo.dateTimeFormatType = DateTimeFormatType.STANDARD;
+        elem.fieldStyleCombo.dateTimeFormatType = DateTimeFormatType.STANDARD;
         elem.shouldMultiplyByTimeZone = true;
         builder.add(elem);
 
@@ -739,10 +727,7 @@ public class GenerateDateTimeTestData {
         elem.fieldStyleCombo.semanticSkeleton = SemanticSkeleton.MDTZ;
         elem.fieldStyleCombo.zoneStyle = ZoneStyle.LOCATION;
         elem.fieldStyleCombo.semanticSkeletonLength = SemanticSkeletonLength.LONG;
-        // TODO: uncomment once CLDR DateTimeFormats constructor to use CLDRFile to get the dateTimeFormat glue pattern,
-        //     since we are currently using ICU to get the dateTimeFormat pattern, which defaults to the behavior
-        //     of DateTimeFormatType.AT_TIME
-        // elem.fieldStyleCombo.dateTimeFormatType = DateTimeFormatType.STANDARD;
+        elem.fieldStyleCombo.dateTimeFormatType = DateTimeFormatType.STANDARD;
         elem.shouldMultiplyByTimeZone = true;
         builder.add(elem);
 
@@ -751,10 +736,7 @@ public class GenerateDateTimeTestData {
         elem.fieldStyleCombo.semanticSkeleton = SemanticSkeleton.MDTZ;
         elem.fieldStyleCombo.zoneStyle = ZoneStyle.GENERIC;
         elem.fieldStyleCombo.semanticSkeletonLength = SemanticSkeletonLength.SHORT;
-        // TODO: uncomment once CLDR DateTimeFormats constructor to use CLDRFile to get the dateTimeFormat glue pattern,
-        //     since we are currently using ICU to get the dateTimeFormat pattern, which defaults to the behavior
-        //     of DateTimeFormatType.AT_TIME
-        // elem.fieldStyleCombo.dateTimeFormatType = DateTimeFormatType.STANDARD;
+        elem.fieldStyleCombo.dateTimeFormatType = DateTimeFormatType.STANDARD;
         elem.shouldMultiplyByTimeZone = true;
         builder.add(elem);
 
@@ -764,10 +746,7 @@ public class GenerateDateTimeTestData {
         elem.fieldStyleCombo.semanticSkeleton = SemanticSkeleton.MDTZ;
         elem.fieldStyleCombo.zoneStyle = ZoneStyle.GENERIC;
         elem.fieldStyleCombo.semanticSkeletonLength = SemanticSkeletonLength.LONG;
-        // TODO: uncomment once CLDR DateTimeFormats constructor to use CLDRFile to get the dateTimeFormat glue pattern,
-        //     since we are currently using ICU to get the dateTimeFormat pattern, which defaults to the behavior
-        //     of DateTimeFormatType.AT_TIME
-        // elem.fieldStyleCombo.dateTimeFormatType = DateTimeFormatType.STANDARD;
+        elem.fieldStyleCombo.dateTimeFormatType = DateTimeFormatType.STANDARD;
         elem.shouldMultiplyByTimeZone = true;
         builder.add(elem);
 
@@ -776,10 +755,7 @@ public class GenerateDateTimeTestData {
         elem.fieldStyleCombo.semanticSkeleton = SemanticSkeleton.MDTZ;
         elem.fieldStyleCombo.zoneStyle = ZoneStyle.OFFSET;
         elem.fieldStyleCombo.semanticSkeletonLength = SemanticSkeletonLength.SHORT;
-        // TODO: uncomment once CLDR DateTimeFormats constructor to use CLDRFile to get the dateTimeFormat glue pattern,
-        //     since we are currently using ICU to get the dateTimeFormat pattern, which defaults to the behavior
-        //     of DateTimeFormatType.AT_TIME
-        // elem.fieldStyleCombo.dateTimeFormatType = DateTimeFormatType.STANDARD;
+        elem.fieldStyleCombo.dateTimeFormatType = DateTimeFormatType.STANDARD;
         elem.shouldMultiplyByTimeZone = true;
         builder.add(elem);
 
@@ -788,10 +764,7 @@ public class GenerateDateTimeTestData {
         elem.fieldStyleCombo.semanticSkeleton = SemanticSkeleton.MDTZ;
         elem.fieldStyleCombo.zoneStyle = ZoneStyle.OFFSET;
         elem.fieldStyleCombo.semanticSkeletonLength = SemanticSkeletonLength.LONG;
-        // TODO: uncomment once CLDR DateTimeFormats constructor to use CLDRFile to get the dateTimeFormat glue pattern,
-        //     since we are currently using ICU to get the dateTimeFormat pattern, which defaults to the behavior
-        //     of DateTimeFormatType.AT_TIME
-        // elem.fieldStyleCombo.dateTimeFormatType = DateTimeFormatType.STANDARD;
+        elem.fieldStyleCombo.dateTimeFormatType = DateTimeFormatType.STANDARD;
         elem.shouldMultiplyByTimeZone = true;
         builder.add(elem);
 

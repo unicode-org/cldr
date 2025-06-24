@@ -155,7 +155,7 @@ public class TestDayPeriods extends TestFmwkPlus {
         for (DayPeriodInfo dpi : dayPeriodFormatToLocales.keySet()) {
             Set<String[]> localesSet = dayPeriodFormatToLocales.get(dpi);
             if (localesSet.size() > 1) {
-                warnln(
+                errln(
                         "Same dayPeriod format rules used for multiple locale groups:"
                                 + GetLocalesSetString(localesSet));
             }
@@ -163,7 +163,7 @@ public class TestDayPeriods extends TestFmwkPlus {
         for (DayPeriodInfo dpi : dayPeriodSelectionToLocales.keySet()) {
             Set<String[]> localesSet = dayPeriodSelectionToLocales.get(dpi);
             if (localesSet.size() > 1) {
-                warnln(
+                errln(
                         "Same dayPeriod selection rules used for multiple locale groups:"
                                 + GetLocalesSetString(localesSet));
             }

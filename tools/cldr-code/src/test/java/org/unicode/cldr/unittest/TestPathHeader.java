@@ -770,32 +770,23 @@ public class TestPathHeader extends TestFmwkPlus {
                 PatternCache.get("https://cldr.unicode.org/translation/[-a-zA-Z0-9_]").matcher("");
         // https://cldr.unicode.org/translation/plurals#TOC-Minimal-Pairs
         Set<String> alreadySeen = new HashSet<>();
-        PathStarrer starrer = new PathStarrer();
 
         checkPathDescriptionCompleteness(
-                pathDescription,
-                normal,
-                "//ldml/numbers/defaultNumberingSystem",
-                alreadySeen,
-                starrer);
+                pathDescription, normal, "//ldml/numbers/defaultNumberingSystem", alreadySeen);
         for (PathHeader pathHeader : getPathHeaders(english)) {
             if (pathHeader.shouldHide()) {
                 continue;
             }
             String path = pathHeader.getOriginalPath();
-            checkPathDescriptionCompleteness(pathDescription, normal, path, alreadySeen, starrer);
+            checkPathDescriptionCompleteness(pathDescription, normal, path, alreadySeen);
         }
     }
 
     public void checkPathDescriptionCompleteness(
-            PathDescription pathDescription,
-            Matcher normal,
-            String path,
-            Set<String> alreadySeen,
-            PathStarrer starrer) {
+            PathDescription pathDescription, Matcher normal, String path, Set<String> alreadySeen) {
         String value = english.getStringValue(path);
         String description = pathDescription.getDescription(path, value, null);
-        String starred = starrer.set(path);
+        String starred = PathStarrer.computeIfAbsent(path);
         if (alreadySeen.contains(starred)) {
             return;
         }
@@ -1010,8 +1001,7 @@ public class TestPathHeader extends TestFmwkPlus {
     }
 
     public void TestZ() {
-        PathStarrer pathStarrer = new PathStarrer();
-        pathStarrer.setSubstitutionPattern("%A");
+        PathStarrer pathStarrer = new PathStarrer().setSubstitutionPattern("%A");
 
         Set<PathHeader> sorted = new TreeSet<>();
         Map<String, String> missing = new TreeMap<>();

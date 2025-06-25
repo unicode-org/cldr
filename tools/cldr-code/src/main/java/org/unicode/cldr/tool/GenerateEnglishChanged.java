@@ -55,9 +55,8 @@ public class GenerateEnglishChanged {
         Set<String> paths = new TreeSet<>();
         With.in(englishTrunk).toCollection(paths);
         With.in(englishLastRelease).toCollection(paths);
-        PathStarrer starrer = new PathStarrer();
         final String placeholder = "×";
-        starrer.setSubstitutionPattern(placeholder);
+        PathStarrer starrer = new PathStarrer().setSubstitutionPattern(placeholder);
 
         Set<String> abbreviatedPaths = new LinkedHashSet<>();
         Multimap<String, List<String>> pathsDiffer = LinkedHashMultimap.create();

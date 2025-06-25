@@ -58,7 +58,9 @@ public class TestAlt extends TestFmwk {
                     if (altValue != null) {
                         altPaths.put(xpath, locale);
                         logln(locale + "\t" + xpath);
-                        String starredPath = pathStarrer.set(parts.cloneAsThawed(), SINGLETON_ALT);
+                        String starredPath =
+                                pathStarrer.setSkippingAttributes(
+                                        parts.cloneAsThawed(), SINGLETON_ALT);
                         String attrs = pathStarrer.getAttributesString("|");
                         final XPathParts noAlt = parts.cloneAsThawed().removeAttribute(i, "alt");
                         String plainPath = noAlt.toString();

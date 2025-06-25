@@ -20,20 +20,6 @@ import org.unicode.cldr.util.UnitConverter.UnitSystem;
 public class ChartUnitConversions extends Chart {
     private static final boolean DUMP_UNIT_TABLE_TO_STDOUT = false;
 
-    public static final String QUANTITY_MSG =
-            "The units are grouped and ordered by Quantity (which are based on the NIST quantities, see "
-                    + "<a href='https://www.nist.gov/pml/special-publication-811' target='nist811'>NIST 811</a>). Note that the quantities are informative.";
-    public static final String RATIONAL_MSG =
-            "Each numeric value is an exact rational. (Radians are an exception since the value of π is irrational; a rational approximation is used.)"
-                    + "The format is a terminating decimal where possible; "
-                    + "otherwise a repeating decimal if possible (where ˙ marks the start of the <a href='https://en.wikipedia.org/wiki/Repeating_decimal' target='wiki'>reptend</a>); "
-                    + "otherwise a <a href='https://en.wikipedia.org/wiki/Rational_number' target='wiki'>rational number</a> (of the form <i>numerator/denominator</i>)."
-                    + "";
-    public static final String SPEC_GENERAL_MSG =
-            "The "
-                    + ldmlSpecLink("/tr35-general.html#Contents")
-                    + " should be consulted for more details, such as how to handle complex units (such as foot-per-minute) by converting the elements";
-
     public static void main(String[] args) {
         new ChartUnitConversions().writeChart(null);
     }
@@ -53,21 +39,49 @@ public class ChartUnitConversions extends Chart {
         return "<p>Unit Conversions provide conversions for units, such as meter ⟹ foot, "
                 + "so that a source units can be converted into what is needed for localized "
                 + "<a href='unit_preferences.html' target='unit_preferences'>Unit Preferences</a>. "
-                + "There are many possible units, and additional units and conversions will be added in future releases.</p>"
-                + "<ul>"
-                + "<li>Each Source Unit is converted to the Target Unit by multiplying it by the Factor and adding the Offset (if any).</li>"
-                + "<li>The unit identifiers are internal, and are to be localized for display to users. See <a href='https://www.unicode.org/cldr/charts/latest/by_type/units.area.html#hectare' target='units.area.hectare'>Hectare</a>, for example. "
-                + "<li>"
-                + RATIONAL_MSG
+                + "There are many possible units, and additional units and conversions will be added in future releases. "
+                + "The unit identifiers are internal, and are to be localized for display to users. "
+                + "See <a href='https://www.unicode.org/cldr/charts/latest/by_type/units.area.html#hectare' target='units.area.hectare'>Hectare</a>, for example. "
+                + "</p>"
+                + "<details><summary><b>Column Key</b></summary><ul>"
+                + "<li><b>Quantity.</b> "
+                + "The units are grouped and ordered by Quantity (which are based on SI quantities according to "
+                + "<a href='https://www.nist.gov/pml/special-publication-811' target='nist811'>NIST 811</a>). "
+                + "There are some additions, such as year-duration."
                 + "</li>"
-                + "<li>The Systems column indicates which systems the units are used in. For now, they just show the two ‘inch-pound’ systems.</li>"
                 + "<li>"
-                + QUANTITY_MSG
+                + "<b>Base Unit.</b> The Base Unit is based on an SI base unit or derived unit (with some additions). "
+                + "</li>"
+                + "<li><b>Systems.</b> These indicate which systems the units are used in. </li>"
+                + "<li><b>Source Unit.</b> "
+                + "Each Source Unit is converted to the Base Unit by multiplying it by the Factor and adding the Offset (if any). "
+                + "The inverse conversion is done by subtracting the Offset, and dividing by the Factor. "
+                + "Conversion between units is done by converting the first unit to the Base Units, then using the inverse conversion to get the second unit. "
+                + "</li>"
+                + "<li><b>Approx. Factor.</b> "
+                + "This is an approximation to the exact factor, limited to <a href='https://en.wikipedia.org/wiki/Double-precision_floating-point_format'>double precision</a>,"
+                + "which has at most 17 decimal digits of accuracy. "
+                + "Some values are given as simple rational numbers. "
+                + "Some units (such as beaufort) require more complex conversions than factor & offset. "
+                + "The values that are not equivalent to the Exact Factor are marked with ~, such as ~9.4607×10ˆ15. "
                 + "</li>"
                 + "<li>"
-                + SPEC_GENERAL_MSG
-                + ".</li>"
+                + "<b>Exact* Factor.</b> Each numeric value is an exact rational, "
+                + "with a few exceptions, such as radians because the value of π is irrational — a rational approximation is used.) "
+                + "The format is a terminating decimal where possible; "
+                + "otherwise a repeating decimal if possible (where ˙ marks the start of the <a href='https://en.wikipedia.org/wiki/Repeating_decimal' target='wiki'>reptend</a>); "
+                + "otherwise a <a href='https://en.wikipedia.org/wiki/Rational_number' target='wiki'>rational number</a> of the form <i>numerator/denominator</i>. "
+                + "The numerator may be a precise decimal (24.01/1331 rather than 2401/133100, and the denominator is skipped if 1."
+                + ""
+                + "</li>"
+                + "<li><b>Offset.</b> This is rarely needed. The format is the same as Exact* Factor. </li>"
                 + "</ul>"
+                + "<p>"
+                + "The "
+                + ldmlSpecLink("/tr35-general.html#Contents")
+                + " should be consulted for more details, such as how to handle complex units (such as foot-per-minute) by converting the elements, or what the Systems mean. "
+                + "</p>"
+                + "</details>"
                 + dataScrapeMessage(
                         "/tr35-general.html#Contents",
                         "common/testData/units/unitsTest.txt",
@@ -94,7 +108,7 @@ public class ChartUnitConversions extends Chart {
                                 true)
                         .setRepeatHeader(true)
                         .setBreakSpans(true)
-                        .addColumn("Target", "class='source'", null, "class='source'", true)
+                        .addColumn("Base Unit", "class='source'", null, "class='source'", true)
                         .addColumn("Systems", "class='source'", null, "class='source'", true)
                         .addColumn(
                                 "Source Unit",
@@ -104,7 +118,7 @@ public class ChartUnitConversions extends Chart {
                                 true)
                         .addColumn("Approx. Factor", "class='target'", null, "class='target'", true)
                         .setCellAttributes("class='target' style='text-align:right'")
-                        .addColumn("Exact* Factor", "class='target'", null, "class='target'", true)
+                        .addColumn("Exact Factor", "class='target'", null, "class='target'", true)
                         .setCellAttributes("class='target' style='text-align:right'")
                         .addColumn("Offset", "class='target'", null, "class='target'", true)
                         .setCellAttributes("class='target' style='text-align:right'");

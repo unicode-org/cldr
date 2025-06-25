@@ -45,44 +45,47 @@ DIV.1st {
 			</tr>
 			<tr>
 				<td>territory_language_information</td>
-				<td>The main goal for CLDR language data is to provide
-					approximate figures for the literate, functional population for
-					each language in each territory: that is, the population that is
-					able to read and write each language, and is comfortable enough to
-					use it with computers.
-					<p>The GDP and Literacy figures are taken from the World Bank
-						where available, otherwise supplemented by FactBook data and other
-						sources. The GDP figures are "PPP (constant 2000 international
-						$)". Much of the per-language data is taken from the Ethnologue,
-						but is supplemented and processed using many other sources,
-						including per-country census data. (The focus of the Ethnologue is
-						native speakers, which includes people who are not literate, and
-						excludes people who are functional second-langauge users.)</p>
-					<p>
-						The literacy rate may be discounted to reflect the actual usage of
-						the written form in normal daily life. Thus languages that are
-						typically not written, such as Swiss German, will be given a low
-						literacy rate, even though the whole population <i>could</i> write
-						in Swiss German.
+				<td><p>A main goal for CLDR language data is to provide
+						approximate figures for the population of
+						each language in each territory (country), 
+						plus the <i>writing population</i>: 
+						that is, the population that is
+					    reading and writing the language on a daily basis — 
+					    and is comfortable with using it with computers.
+					    The GDP and Literacy figures are taken from the World Bank
+						where available, supplemented by other data sources.
+						The GDP figures are "PPP (constant 2000 international$)". 
+						The per-language data is processed using many sources,
+						including per-country census data. 
+						These are referenced where possible, in the XML Source.</p>
+					<p>The literacy rate is used as a proxy for computing the writing population.
+					    It may be discounted to reflect the actual usage of
+						the written form in normal daily life.
+						Thus languages that are typically not written, such as Swiss German, 
+						will be given a low writing population, 
+						even though all Swiss German speakers <i>could</i> read and write in Swiss German.
 					</p>
 					<p>The percentages may add up to more than 100% due to
 						multilingual populations, or may be less than 100% due to
 						illiteracy or because the data has not yet been gathered or
-						processed. Languages with a small population may be omitted.</p>
-					<p>Official status is supplied where available, formatted as
-						{O}. Hovering with the mouse shows a short description.</p>
+						processed. Languages with a small population in a territory may be omitted.</p>
+					<p>Official status is supplied where available, formatted as an abbreviation such as {O}. 
+						Hovering with the mouse shows a short description.</p>
 					<ul>
 						<li><b>Likely languages and scripts:</b>To see (and verify)
-							the likely languages and scripts for this subtag, click on the
-							country code.</li>
+							the likely languages, scripts, and regions, see <a  target='likely_subtags' 
+							href='https://www.unicode.org/cldr/charts/48/supplemental/likely_subtags.html'>Likely Subtags</a>.</li>
 						<li><b>Reporting Defects:</b> If you find errors or omissions
 							in this data, please report the information with the <i>bug</i>
 							or <i>add new</i> links, below.</li>
-						<li><b>XML Source:</b> <a
-							href="https://github.com/unicode-org/cldr/tree/main/common/supplemental/supplementalData.xml">
-								supplementalData.xml</a> (see the &lt;territoryInfo&gt;,
-							&lt;calendarData&gt;, &lt;weekData&gt;, and
-							&lt;measurementData&gt; elements)</li>
+						<li><b>XML Source:</b> <a target='territoryInfo'
+							href="https://github.com/unicode-org/cldr/tree/main/common/supplemental/supplementalData.xml#:~:text=%3CterritoryInfo%3E">
+								supplementalData.xml</a>, with the element <code>&lt;territoryInfo&gt;</code>.
+								References, such as "R1055", can be found by searching in the document.</li>
+						<li><b>TSV format:</b> A Tab-Separated Values version of the dat is available at 
+							<a href='https://github.com/unicode-org/cldr-staging/blob/main/docs/charts/48/tsv/territory_language_information.tsv' 
+							target='territory_language_information'>territory_language_information.tsv</a>.
+						</li>
 					</ul>
 				</td>
 			</tr>

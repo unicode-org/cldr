@@ -22,6 +22,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.regex.Pattern;
+import org.unicode.cldr.tool.TablePrinter;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.With;
@@ -615,5 +617,13 @@ public final class FileUtilities {
 
     public static Iterable<String> in(File file) {
         return With.in(new FileLines(openFile(file, StandardCharsets.UTF_8)));
+    }
+
+    public static void makeTsv(String title, TablePrinter tablePrinter) throws IOException {
+        String fileName = anchorize(title);
+        final File tsvFile = new File(CLDRPaths.CHART_DIRECTORY + "tsv/", fileName + ".tsv");
+        try (final PrintWriter newLsraw = FileUtilities.openUTF8Writer(tsvFile); ) {
+            tablePrinter.toTsv(newLsraw);
+        }
     }
 }

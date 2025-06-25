@@ -1103,9 +1103,13 @@ public class ChartDelta extends Chart {
                     continue;
                 }
                 File dirOld = new File(PREV_CHART_VERSION_DIRECTORY + "common/" + dir);
-                System.out.println("\tLast dir: " + dirOld);
+                System.out.println("\tLast dir:\t" + dirOld);
                 File dir2 = new File(CHART_VERSION_DIRECTORY + "common/" + dir);
-                System.out.println("\tCurr dir: " + dir2);
+                boolean isDirectory = dir2.isDirectory();
+                System.out.println("\tCurr dir:\t" + dir2 + (isDirectory ? "" : "\tNOT DIRECTORY"));
+                if (!isDirectory) {
+                    continue;
+                }
 
                 for (String file : dir2.list()) {
                     if (!file.endsWith(".xml")) {

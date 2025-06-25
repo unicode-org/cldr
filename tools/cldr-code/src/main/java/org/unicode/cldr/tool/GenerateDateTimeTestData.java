@@ -577,8 +577,8 @@ public class GenerateDateTimeTestData {
 
         // TODO: For semantic skeleton test cases,
         //     add DateTimeFormatType=STANDARD to test cases
-        //     once CLDR DateTimeFormats constructor can use CLDRFile to get the dateTimeFormat glue pattern,
-        //     since we are currently using ICU to get the dateTimeFormat pattern,
+        //     once CLDR DateTimeFormats constructor can use CLDRFile to get the dateTimeFormat glue
+        //     pattern, since we are currently using ICU to get the dateTimeFormat pattern,
         //     which defaults to the behavior of DateTimeFormatType.AT_TIME
 
         // 1 (Row 2)
@@ -1257,10 +1257,10 @@ public class GenerateDateTimeTestData {
         result.classicalSkeleton = testCase.classicalSkeleton;
         result.dateTimeFormatType =
                 Optional.ofNullable(testCase.testCaseInput.fieldStyleCombo.dateTimeFormatType)
-                    // because AT_TIME is the default, we do not serialize it to the output
-                    .filter(dtft -> dtft != DateTimeFormatType.AT_TIME)
-                    .map(DateTimeFormatType::getLabel)
-                    .orElse(null);
+                        // because AT_TIME is the default, we do not serialize it to the output
+                        .filter(dtft -> dtft != DateTimeFormatType.AT_TIME)
+                        .map(DateTimeFormatType::getLabel)
+                        .orElse(null);
         result.hourCycle =
                 Optional.ofNullable(testCase.testCaseInput.fieldStyleCombo.hourCycle)
                         .map(HourCycle::getLabel)

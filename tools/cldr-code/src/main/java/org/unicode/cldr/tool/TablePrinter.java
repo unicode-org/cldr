@@ -412,31 +412,31 @@ public class TablePrinter {
 
         // Create table body
         strBuilder.append("\t<tbody>" + LS);
-        for (int i = 0; i < sortedFlat.length; ++i) {
-            System.arraycopy(sortedFlat[i], 0, patternArgs, 1, sortedFlat[i].length);
+        for (int iRow = 0; iRow < sortedFlat.length; ++iRow) {
+            System.arraycopy(sortedFlat[iRow], 0, patternArgs, 1, sortedFlat[iRow].length);
             strBuilder.append("\t\t<tr>" + LS);
-            for (int j = 0; j < sortedFlat[i].length; ++j) {
-                int identical = findIdentical(sortedFlat, i, j);
+            for (int iCol = 0; iCol < sortedFlat[iRow].length; ++iCol) {
+                int identical = findIdentical(sortedFlat, iRow, iCol);
                 if (identical == 0) continue;
-                if (columnsFlat[j].hidden) {
+                if (columnsFlat[iCol].hidden) {
                     continue;
                 }
-                patternArgs[0] = sortedFlat[i][j];
-                strBuilder.append("\t\t\t").append(columnsFlat[j].isHeader ? "<th" : "<td");
-                if (columnsFlat[j].cellAttributes != null) {
+                patternArgs[0] = sortedFlat[iRow][iCol];
+                strBuilder.append("\t\t\t").append(columnsFlat[iCol].isHeader ? "<th" : "<td");
+                if (columnsFlat[iCol].cellAttributes != null) {
                     try {
                         strBuilder
                                 .append(' ')
-                                .append(columnsFlat[j].cellAttributes.format(patternArgs));
+                                .append(columnsFlat[iCol].cellAttributes.format(patternArgs));
                     } catch (RuntimeException e) {
                         throw (RuntimeException)
                                 new IllegalArgumentException(
                                                 "cellAttributes<"
-                                                        + i
+                                                        + iRow
                                                         + ", "
-                                                        + j
+                                                        + iCol
                                                         + "> = "
-                                                        + sortedFlat[i][j])
+                                                        + sortedFlat[iRow][iCol])
                                         .initCause(e);
                     }
                 }
@@ -445,26 +445,28 @@ public class TablePrinter {
                 }
                 strBuilder.append('>');
 
-                if (columnsFlat[j].cellPattern != null) {
+                if (columnsFlat[iCol].cellPattern != null) {
                     try {
-                        patternArgs[0] = sortedFlat[i][j];
-                        System.arraycopy(sortedFlat[i], 0, patternArgs, 1, sortedFlat[i].length);
-                        strBuilder.append(format(columnsFlat[j].cellPattern.format(patternArgs)));
+                        patternArgs[0] = sortedFlat[iRow][iCol];
+                        System.arraycopy(
+                                sortedFlat[iRow], 0, patternArgs, 1, sortedFlat[iRow].length);
+                        strBuilder.append(
+                                format(columnsFlat[iCol].cellPattern.format(patternArgs)));
                     } catch (RuntimeException e) {
                         throw (RuntimeException)
                                 new IllegalArgumentException(
                                                 "cellPattern<"
-                                                        + i
+                                                        + iRow
                                                         + ", "
-                                                        + j
+                                                        + iCol
                                                         + "> = "
-                                                        + sortedFlat[i][j])
+                                                        + sortedFlat[iRow][iCol])
                                         .initCause(e);
                     }
                 } else {
-                    strBuilder.append(format(sortedFlat[i][j]));
+                    strBuilder.append(format(sortedFlat[iRow][iCol]));
                 }
-                strBuilder.append((columnsFlat[j].isHeader ? "</th>" : "</td>") + LS);
+                strBuilder.append((columnsFlat[iCol].isHeader ? "</th>" : "</td>") + LS);
             }
             strBuilder.append("\t\t</tr>" + LS);
         }

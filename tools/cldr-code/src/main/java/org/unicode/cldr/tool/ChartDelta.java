@@ -1098,14 +1098,17 @@ public class ChartDelta extends Chart {
                         || dir.equals(".DS_Store")
                         || dir.equals("dtd") // TODO as flat files
                         || dir.equals("properties") // TODO as flat files
-                        || dir.equals("uca") // TODO as flat files
-                ) {
+                        || dir.equals("uca")
+                        || dir.equals("README.md")) {
                     continue;
                 }
                 File dirOld = new File(PREV_CHART_VERSION_DIRECTORY + "common/" + dir);
                 System.out.println("\tLast dir: " + dirOld);
                 File dir2 = new File(CHART_VERSION_DIRECTORY + "common/" + dir);
                 System.out.println("\tCurr dir: " + dir2);
+                if (dir2 == null || dir2.list() == null) {
+                    int debug = 0;
+                }
 
                 for (String file : dir2.list()) {
                     if (!file.endsWith(".xml")) {

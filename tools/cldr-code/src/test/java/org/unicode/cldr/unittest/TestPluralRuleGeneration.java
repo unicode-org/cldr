@@ -6,8 +6,8 @@ import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Ordering;
 import com.google.common.collect.TreeMultimap;
+import com.ibm.icu.impl.number.DecimalQuantity;
 import com.ibm.icu.impl.number.DecimalQuantity_DualStorageBCD;
-import com.ibm.icu.math.BigDecimal;
 import com.ibm.icu.number.Notation;
 import com.ibm.icu.number.NumberFormatter;
 import com.ibm.icu.number.NumberFormatter.UnitWidth;
@@ -37,6 +37,7 @@ import java.util.TreeSet;
 import java.util.concurrent.ConcurrentHashMap;
 import org.unicode.cldr.icu.text.FixedDecimal;
 import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.Joiners;
 import org.unicode.cldr.util.Pair;
@@ -73,7 +74,7 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
         boolean i = rules.computeLimited("one", SampleType.INTEGER);
         boolean d = rules.computeLimited("one", SampleType.DECIMAL);
         if (SHOW) {
-            show(i + ", " + d);
+            CldrUtility.showIf(SHOW, i, ", ", d);
         }
     }
 
@@ -136,7 +137,7 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
         }
         if (SHOW) {
             for (String item : limitedSet) {
-                show(item);
+                CldrUtility.showIf(SHOW, item);
             }
         }
     }
@@ -303,14 +304,14 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
             assertEquals("check toString", test, source.toString());
         }
 
-        show();
+        CldrUtility.showIf(SHOW);
         String ops = "";
         for (Operand op : orderedOperands) {
             ops += "\t" + op.toString();
         }
         if (SHOW) {
 
-            show("locale\tsource" + ops + "\tpluralCat");
+            CldrUtility.showIf(SHOW, "locale\tsource", ops, "\tpluralCat");
         }
 
         SupplementalDataInfo sdi = CLDRConfig.getInstance().getSupplementalDataInfo();
@@ -321,7 +322,8 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
                 final FixedDecimal source = new FixedDecimal(test);
                 if (SHOW) {
 
-                    show(
+                    CldrUtility.showIf(
+                            SHOW,
                             locale
                                     + "\t"
                                     + FixedDecimal.toSampleString(source)
@@ -330,7 +332,7 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
                 }
             }
             if (SHOW) {
-                show();
+                CldrUtility.showIf(SHOW);
             }
         }
     }
@@ -371,8 +373,8 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
         for (int i = 0; i < 3; ++i) {
             for (String test : tests) {
                 IFixedDecimal sourceFixedDecimal = new FixedDecimal(test);
-                DecimalQuantity_DualStorageBCD sourceDecimalQuantity =
-                        quantityFromSampleString(test);
+                DecimalQuantity sourceDecimalQuantity =
+                        DecimalQuantity_DualStorageBCD.fromExponentString(test);
                 switch (i) {
                     case 0:
                         ok =
@@ -392,7 +394,9 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
                                         test,
                                         FixedDecimal.toSampleString(sourceDecimalQuantity));
                         if (!ok) {
-                            sourceFixedDecimal = quantityFromSampleString(test); // for debugging
+                            sourceFixedDecimal =
+                                    DecimalQuantity_DualStorageBCD.fromExponentString(
+                                            test); // for debugging
                         }
                         break;
                     case 2:
@@ -411,10 +415,14 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
         }
     }
 
-    public static String showOperandDifferences(
+    private String showOperandDifferences(
             String myTitle, IFixedDecimal me, String otherTitle, IFixedDecimal other) {
         StringBuilder result = new StringBuilder();
         for (Operand op : Operand.values()) {
+            if (op == op.c) {
+                logKnownIssue("23146", "FixedDecimal doesn't implement the 'c' operand");
+                continue;
+            }
             if (me.getPluralOperand(op) != other.getPluralOperand(op)) {
                 if (result.length() != 0) {
                     result.append("; ");
@@ -427,28 +435,6 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
             }
         }
         return result.toString();
-    }
-
-    public static DecimalQuantity_DualStorageBCD quantityFromSampleString(String num) {
-        final DecimalQuantity_DualStorageBCD sourceQuantity;
-        int exponent = 0;
-        int ePos = num.indexOf('e');
-        if (ePos >= 0) {
-            String exponentStr = num.substring(ePos + 1);
-            exponent = Integer.parseInt(exponentStr);
-            num = num.substring(0, ePos);
-        }
-
-        int v = FixedDecimal.getVisibleFractionCount(num) + exponent;
-
-        BigDecimal altBD = new BigDecimal(num);
-        altBD = altBD.movePointRight(exponent);
-        sourceQuantity = new DecimalQuantity_DualStorageBCD(altBD);
-        sourceQuantity.setMinFraction(v - exponent); // "1.20050e3" v should be 2, is 4
-        sourceQuantity.adjustMagnitude(-exponent);
-        sourceQuantity.adjustExponent(exponent);
-
-        return sourceQuantity;
     }
 
     static final DecimalFormat nf = new DecimalFormat("0.#####");
@@ -501,12 +487,12 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
                 data.put(rules.select(x3), x3);
             }
             logln(ruleString);
-            show();
+            CldrUtility.showIf(SHOW);
             data.entries().stream()
                     .filter(x -> x.getKey().equals("many"))
                     .forEach(x -> logln("match   " + "\t" + x.getValue()));
             // data.entries().stream().filter(x -> x.getKey().equals("other")).forEach(x ->
-            // show("no-match " + "\t" + x.getValue()));
+            // CldrUtility.show("no-match " + "\t" + x.getValue()));
         }
     }
 
@@ -628,7 +614,7 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
         final Multimap<String, String> components =
                 TreeMultimap.create(PluralUtilities.PLURAL_RELATION, Ordering.natural());
         for (PluralType pluralType : PluralType.values()) {
-            show("\nPLURAL TYPE: " + pluralType);
+            CldrUtility.showIf(SHOW, "\nPLURAL TYPE: ", pluralType);
             PluralUtilities.getRepresentativeToLocales(pluralType).keySet().stream()
                     .forEach(
                             locale -> {
@@ -642,13 +628,20 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
                                 }
                             });
             if (SHOW) {
-                show();
+                CldrUtility.showIf(SHOW);
                 components.asMap().entrySet().stream()
-                        .forEach(x -> show(x.getKey() + "\t" + Joiners.SP.join(x.getValue())));
-                show();
+                        .forEach(
+                                x ->
+                                        CldrUtility.showIf(
+                                                SHOW,
+                                                x.getKey(),
+                                                "\t",
+                                                Joiners.SP.join(x.getValue())));
+                CldrUtility.showIf(SHOW);
                 for (Entry<Set<Count>, String> entry :
                         PluralUtilities.getCountSetToRepresentative(pluralType).entries()) {
-                    show(
+                    CldrUtility.showIf(
+                            SHOW,
                             Joiners.TAB.join(
                                     entry.getKey(),
                                     entry.getValue(),
@@ -683,15 +676,16 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
 
     public void checkSampleSpeed() {
         for (PluralType pluralType : PluralType.values()) {
-            show("\nPLURAL TYPE: " + pluralType);
+            CldrUtility.showIf(SHOW, "\nPLURAL TYPE: ", pluralType);
             for (Entry<Set<Count>, String> entry :
                     PluralUtilities.getCountSetToRepresentative(pluralType).entries()) {
                 String locale = entry.getValue();
 
                 PluralRules pluralRules =
                         PluralUtilities.getRepresentativeToPluralRules(pluralType).get(locale);
-                show();
-                show(
+                CldrUtility.showIf(SHOW);
+                CldrUtility.showIf(
+                        SHOW,
                         locale
                                 + "\t"
                                 + PluralUtilities.getRepresentativeToLocales(pluralType)
@@ -702,12 +696,12 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
                     if (count == Count.other) {
                         continue;
                     }
-                    show(count + ":\t" + pluralRules.getRules(count.toString()));
+                    CldrUtility.showIf(SHOW, count, ":\t", pluralRules.getRules(count.toString()));
                 }
                 Map<Count, KeySampleRanges> values =
                         PluralUtilities.getSamplesFromPluralRules(pluralType, pluralRules);
                 for (Entry<Count, KeySampleRanges> entry2 : values.entrySet()) {
-                    show(entry2.getKey() + ":\t" + entry2.getValue());
+                    CldrUtility.showIf(SHOW, entry2.getKey(), ":\t", entry2.getValue());
                 }
             }
         }
@@ -716,7 +710,7 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
     /** See if any rules for representatives give identical results: */
     public void testIdenticalResults() {
         for (PluralType pluralType : PluralType.values()) {
-            show("\nPLURAL TYPE: " + pluralType);
+            CldrUtility.showIf(SHOW, "\nPLURAL TYPE: ", pluralType);
             // make a reverse mapping
             Multimap<Map<Count, KeySampleRanges>, String> reverse = HashMultimap.create();
             for (Entry<String, PluralRules> entry :
@@ -734,15 +728,17 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
                     boolean isFirst = true;
                     for (String locale : entry.getValue()) {
                         if (isFirst) {
-                            show(
+                            CldrUtility.showIf(
+                                    SHOW,
                                     PluralUtilities.format(
                                             pluralType,
                                             PluralUtilities.getSamplesForLocale(
                                                     pluralType, locale)));
                             isFirst = false;
                         }
-                        show(locale);
-                        show(
+                        CldrUtility.showIf(SHOW, locale);
+                        CldrUtility.showIf(
+                                SHOW,
                                 PluralUtilities.format(
                                         PluralUtilities.getRepresentativeToPluralRules(pluralType)
                                                 .get(locale)));
@@ -752,20 +748,17 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
         }
     }
 
-    void show(Object... x) {
-        if (SHOW) show(Joiners.SP.join(x));
-    }
-
     public void testSingles() {
         for (final PluralType pluralType : PluralType.values()) {
-            // show(PluralUtilities.getSamplesForLocale(pluralType, "zh"));
+            // CldrUtility.show(PluralUtilities.getSamplesForLocale(pluralType, "zh"));
             Multimap<String, String> visibleSamplesMultimap = TreeMultimap.create();
             for (Entry<Set<Count>, String> entry :
                     PluralUtilities.getCountSetToRepresentative(pluralType).entries()) {
                 Set<Count> countSet = entry.getKey();
                 String representativeLocale = entry.getValue();
-                show("\n" + pluralType + "\t" + countSet);
-                show(
+                CldrUtility.showIf(SHOW, "\n", pluralType, "\t", countSet);
+                CldrUtility.showIf(
+                        SHOW,
                         "LOCALES:\t["
                                 + Joiners.SP.join(
                                         PluralUtilities.getRepresentativeToLocales(pluralType)
@@ -775,8 +768,10 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
                         PluralUtilities.format(
                                 PluralUtilities.getRepresentativeToPluralRules(pluralType)
                                         .get(representativeLocale));
-                show(formattedRules.isBlank() ? "RULES:\tnone" : "RULES:\n" + formattedRules);
-                show("SAMPLES:");
+                CldrUtility.showIf(
+                        SHOW,
+                        formattedRules.isBlank() ? "RULES:\tnone" : "RULES:\n" + formattedRules);
+                CldrUtility.showIf(SHOW, "SAMPLES:");
                 Map<Count, KeySampleRanges> pluralSamples =
                         PluralUtilities.getSamplesForLocale(pluralType, representativeLocale);
                 List<String> samplesPerCount = new ArrayList<>();
@@ -808,10 +803,10 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
                     samplesPerCount.add(count + "\t" + Joiners.SP.join(samplesPerKey));
                 }
                 String joinedSamples = Joiners.N.join(samplesPerCount);
-                show(joinedSamples);
+                CldrUtility.showIf(SHOW, joinedSamples);
                 visibleSamplesMultimap.put(joinedSamples, representativeLocale);
             }
-            show("\nDuplicates\n");
+            CldrUtility.showIf(SHOW, "\nDuplicates\n");
             for (Entry<String, Collection<String>> entry :
                     visibleSamplesMultimap.asMap().entrySet()) {
                 if (entry.getValue().size() <= 1) {
@@ -825,10 +820,12 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
                 List<String> list = List.copyOf(entry.getValue());
                 Pair<String, String> problem =
                         PluralUtilities.findDifference(pluralType, list.get(0), list.get(1));
-                show("Problem: " + problem);
-                show(PluralUtilities.getSamplesForLocale(pluralType, list.get(0)));
-                show(PluralUtilities.getSamplesForLocale(pluralType, list.get(1)));
-                show();
+                CldrUtility.showIf(SHOW, "Problem: ", problem);
+                CldrUtility.showIf(
+                        SHOW, PluralUtilities.getSamplesForLocale(pluralType, list.get(0)));
+                CldrUtility.showIf(
+                        SHOW, PluralUtilities.getSamplesForLocale(pluralType, list.get(1)));
+                CldrUtility.showIf(SHOW);
             }
         }
     }

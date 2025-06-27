@@ -3,7 +3,6 @@ package org.unicode.cldr.util;
 import static java.util.Comparator.comparing;
 
 import com.google.common.base.Splitter;
-import com.google.common.collect.Comparators;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableSet;
@@ -29,6 +28,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import org.unicode.cldr.icu.text.FixedDecimal;
 import org.unicode.cldr.util.PluralUtilities.KeySampleRanges;
+import org.unicode.cldr.util.PluralUtilities.SampleRange.SameIntegerCount;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
@@ -129,10 +129,6 @@ public class PluralUtilities {
                             .compare(o1, o2);
                 }
             };
-
-    public static <T, S extends Comparable<T>> Comparator<Iterable<S>> iterableComparator() {
-        return Comparators.lexicographical(Comparator.<Comparable>naturalOrder().reversed());
-    }
 
     static final Map<PluralType, PluralTypeData> pluralTypeToData;
 
@@ -359,6 +355,11 @@ public class PluralUtilities {
         private final PluralSample first;
         private final PluralSample last;
 
+        public enum SameIntegerCount {
+            yes,
+            no
+        }
+
         public static class Builder {
             PluralSample first;
             PluralSample last;
@@ -367,15 +368,19 @@ public class PluralUtilities {
              * Add an item. If the visible decimal count is different than the others, fail.
              *
              * @param additional
+             * @param sameIntegerCount TODO
              * @return
              */
-            Status add(PluralSample additional) {
+            Status add(PluralSample additional, SameIntegerCount sameIntegerCount) {
                 if (first == null) {
                     first = additional;
                     last = additional;
                     return Status.added;
                 } else {
-                    if (additional.visibleDecimalCount != first.visibleDecimalCount) {
+                    if (additional.visibleDecimalCount != first.visibleDecimalCount
+                            || sameIntegerCount == sameIntegerCount.yes
+                                    && additional.getIntegerDigitCount()
+                                            != first.getIntegerDigitCount()) {
                         return Status.makeNewRange;
                     }
 
@@ -519,11 +524,12 @@ public class PluralUtilities {
             private final Multimap<Integer, SampleRange> ranges = TreeMultimap.create();
             private final SampleRange.Builder inProcess = SampleRange.builder();
 
-            public Builder add(PluralSample additional) {
-                if (inProcess.add(additional) == SampleRange.Status.makeNewRange) {
+            public Builder add(PluralSample additional, SameIntegerCount sameIntegerCount) {
+                if (inProcess.add(additional, sameIntegerCount)
+                        == SampleRange.Status.makeNewRange) {
                     SampleRange range = inProcess.build();
                     ranges.put(range.getKey(), range);
-                    inProcess.add(additional);
+                    inProcess.add(additional, sameIntegerCount);
                 }
                 return this;
             }
@@ -593,7 +599,7 @@ public class PluralUtilities {
         }
 
         public Iterable<Entry<Integer, Collection<SampleRange>>> setIterable() {
-            return getIterableFromIterator(ranges.asMap().entrySet().iterator());
+            return CldrUtility.getIterableFromIterator(ranges.asMap().entrySet().iterator());
         }
 
         public static Builder builder() {
@@ -609,10 +615,6 @@ public class PluralUtilities {
             }
             return builder.build();
         }
-    }
-
-    public static <T> Iterable<T> getIterableFromIterator(Iterator<T> iterator) {
-        return () -> iterator;
     }
 
     public static final KeySampleRanges SAMPLE_RANGES_CARDINAL =
@@ -684,7 +686,7 @@ public class PluralUtilities {
                                 if (builder == null) {
                                     countToBuilder.put(count, builder = KeySampleRanges.builder());
                                 }
-                                builder.add(sample);
+                                builder.add(sample, SameIntegerCount.yes);
                             }
                         }
                     }

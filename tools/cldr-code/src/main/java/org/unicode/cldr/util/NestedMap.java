@@ -1,6 +1,8 @@
 package org.unicode.cldr.util;
 
 import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.MapDifference;
+import com.google.common.collect.Maps;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
@@ -22,7 +24,7 @@ import java.util.stream.StreamSupport;
  * ENGINE CLASS A generic, nested map structure that can handle a variable number of levels. This
  * class provides the core logic and is wrapped by the type-safe shims.
  *
- * <p>Various nested Multimaps can be created by using an extra layer with Boolean. Multimap2<K1,
+ * <p>Various nested Multisets can be created by using an extra layer with Boolean. Multimap2<K1,
  * K2, V> == NestedMap3<K1, K2, V, Boolean>
  */
 public class NestedMap {
@@ -95,6 +97,20 @@ public class NestedMap {
     @Override
     public String toString() {
         return root.toString();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return root.equals(((NestedMap) obj).root);
+    }
+
+    @Override
+    public int hashCode() {
+        return root.hashCode();
+    }
+
+    public MapDifference<Object, Object> difference(NestedMap other) {
+        return Maps.difference(root, other.root);
     }
 
     // --- IMMUTABILITY ---
@@ -198,6 +214,7 @@ public class NestedMap {
         }
     }
 
+    @SuppressWarnings("unchecked")
     public static class NestedMap2<K1, K2, V> {
         private final NestedMap engine;
 
@@ -205,29 +222,35 @@ public class NestedMap {
             this.engine = engine;
         }
 
-        public static <K1 extends Comparable<K1>, K2 extends Comparable<K2>, V>
-                NestedMap2<K1, K2, V> createWithTreeMaps() {
-            return new NestedMap2<>(new NestedMap(TreeMap::new));
+        /** Takes Treemap::new, HashMap::new, ConcurrentHashMap::new, and other suppliers */
+        public static <K1, K2, V> NestedMap2<K1, K2, V> create(
+                Supplier<Map<Object, Object>> supplier) {
+            return new NestedMap2<>(new NestedMap(supplier));
         }
 
-        public static <K1, K2, V> NestedMap2<K1, K2, V> createWithHashMaps() {
-            return new NestedMap2<>(new NestedMap(HashMap::new));
+        @Override
+        public String toString() {
+            return engine.toString();
         }
 
-        public static <K1, K2, V> NestedMap2<K1, K2, V> createWithConcurrentHashMaps() {
-            return new NestedMap2<>(new NestedMap(ConcurrentHashMap::new));
+        @Override
+        public boolean equals(Object obj) {
+            return engine.equals(((NestedMap2) obj).engine);
+        }
+
+        @Override
+        public int hashCode() {
+            return engine.hashCode();
         }
 
         public void put(K1 key1, K2 key2, V value) {
             engine.put(key1, key2, value);
         }
 
-        @SuppressWarnings("unchecked")
         public V get(K1 key1, K2 key2) {
             return (V) engine.get(key1, key2);
         }
 
-        @SuppressWarnings("unchecked")
         public V remove(K1 key1, K2 key2) {
             return (V) engine.remove(key1, key2);
         }
@@ -264,11 +287,6 @@ public class NestedMap {
         public ImmutableNestedMap2<K1, K2, V> createImmutable() {
             return new ImmutableNestedMap2<K1, K2, V>(engine);
         }
-
-        @Override
-        public String toString() {
-            return engine.toString();
-        }
     }
 
     public static class ImmutableNestedMap2<K1, K2, V> extends NestedMap2<K1, K2, V> {
@@ -291,22 +309,9 @@ public class NestedMap {
             this.engine = engine;
         }
 
-        /**
-         * Takes Treemap::new, HashMap::new, ConcurrentHashMap::new
-         *
-         * @param <K1>
-         * @param <K2>
-         * @param <K3>
-         * @param <V>
-         * @param supplier
-         * @return
-         */
-        public static <
-                        K1 extends Comparable<K1>,
-                        K2 extends Comparable<K2>,
-                        K3 extends Comparable<K3>,
-                        V>
-                NestedMap3<K1, K2, K3, V> create(Supplier<Map<Object, Object>> supplier) {
+        /** Takes Treemap::new, HashMap::new, ConcurrentHashMap::new, and other suppliers */
+        public static <K1, K2, K3, V> NestedMap3<K1, K2, K3, V> create(
+                Supplier<Map<Object, Object>> supplier) {
             return new NestedMap3<>(new NestedMap(supplier));
         }
 
@@ -325,6 +330,16 @@ public class NestedMap {
         @Override
         public String toString() {
             return engine.toString();
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            return engine.equals(((NestedMap3) obj).engine);
+        }
+
+        @Override
+        public int hashCode() {
+            return engine.hashCode();
         }
 
         public static class Entry<K1, K2, K3, V> { // With Java17 we could use records
@@ -384,13 +399,7 @@ public class NestedMap {
             this.engine = engine;
         }
 
-        public static <
-                        K1 extends Comparable<K1>,
-                        K2 extends Comparable<K2>,
-                        K3 extends Comparable<K3>,
-                        K4 extends Comparable<K4>,
-                        V>
-                NestedMap4<K1, K2, K3, K4, V> createWithTreeMaps() {
+        public static <K1, K2, K3, K4, V> NestedMap4<K1, K2, K3, K4, V> createWithTreeMaps() {
             return new NestedMap4<>(new NestedMap(TreeMap::new));
         }
 
@@ -421,6 +430,9 @@ public class NestedMap {
         public String toString() {
             return engine.toString();
         }
+        
+        // TODO finish up along the lines of NestedMap2
+
     }
 
     // --- SHIM FOR 5-LEVEL MAP ---
@@ -470,6 +482,8 @@ public class NestedMap {
         public String toString() {
             return engine.toString();
         }
+
+        // TODO finish up along the lines of NestedMap2
     }
 
     // --- SHIM FOR 6-LEVEL MAP ---
@@ -480,14 +494,7 @@ public class NestedMap {
             this.engine = engine;
         }
 
-        public static <
-                        K1 extends Comparable<K1>,
-                        K2 extends Comparable<K2>,
-                        K3 extends Comparable<K3>,
-                        K4 extends Comparable<K4>,
-                        K5 extends Comparable<K5>,
-                        K6 extends Comparable<K6>,
-                        V>
+        public static <K1, K2, K3, K4, K5, K6, V>
                 NestedMap6<K1, K2, K3, K4, K5, K6, V> createWithTreeMaps() {
             return new NestedMap6<>(new NestedMap(TreeMap::new));
         }
@@ -520,5 +527,8 @@ public class NestedMap {
         public String toString() {
             return engine.toString();
         }
+
+        // TODO finish up along the lines of NestedMap2
+
     }
 }

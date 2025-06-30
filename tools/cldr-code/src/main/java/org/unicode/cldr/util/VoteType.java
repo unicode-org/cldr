@@ -21,7 +21,10 @@ public enum VoteType {
     MANUAL_IMPORT(3),
 
     /** The user submitted their vote using the bulk xml upload method */
-    BULK_UPLOAD(4);
+    BULK_UPLOAD(4),
+
+    /** special TC vote for 'missing' */
+    VOTE_FOR_MISSING(1000);
 
     private final int integerId;
 

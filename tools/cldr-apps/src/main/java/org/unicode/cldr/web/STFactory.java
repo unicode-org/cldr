@@ -243,7 +243,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
             private void setVoteForValue(
                     User user, String value, Integer voteOverride, Date when, VoteType voteType) {
-                if (value != null) {
+                if (value != null || VoteType == VoteType.VOTE_FOR_MISSING) {
                     setPerUserData(user, new PerUserData(value, voteOverride, when, voteType));
                 } else {
                     removePerUserData(user);
@@ -641,11 +641,15 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 for (Entry<User, PerLocaleData.PerXPathData.PerUserData> e :
                         perXPathData.getVotes()) {
                     PerLocaleData.PerXPathData.PerUserData v = e.getValue();
-                    r.add(
-                            v.getValue(), // user's vote
-                            e.getKey().id,
-                            v.getOverride(),
-                            v.getWhen()); // user's id
+                    if (v.getVoteType() == VoteType.VOTE_FOR_MISSING) {
+                        r.addVoteForMissing(e.getKey().id, v.getOverride(), v.getWhen());
+                    } else {
+                        r.add(
+                                v.getValue(), // user's vote
+                                e.getKey().id,
+                                v.getOverride(),
+                                v.getWhen()); // user's id
+                    }
                 }
             }
             return r;

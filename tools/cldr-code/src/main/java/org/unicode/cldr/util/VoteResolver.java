@@ -101,6 +101,9 @@ public class VoteResolver<T> {
      */
     private static final String NO_WINNING_VALUE = "no-winning-value";
 
+    /** A placeholder for vote-for-missing. Not allowed as a normal value. */
+    private static final String VOTE_FOR_MISSING = "  \u0000@@@MISSING@@@  ";
+
     /**
      * The status levels according to the committee, in ascending order
      *
@@ -266,6 +269,13 @@ public class VoteResolver<T> {
             if (!canManageSomeUsers()) return false;
             // Cannot elevate privilege
             return !otherLevel.morePowerfulThan(this);
+        }
+
+        /**
+         * @return true if can vote for missing
+         */
+        public boolean canVoteForMissing() {
+            return atLeastAsPowerfulAs(Level.tc);
         }
 
         /**
@@ -629,6 +639,22 @@ public class VoteResolver<T> {
             return nameTime;
         }
 
+        /** vote for 'missing' */
+        public void addVoteForMissing(int voter, Integer withVotes, Date date) {
+            final VoterInfo info = voterInfoList.get(voter);
+            if (info == null) {
+                throw new UnknownVoterException(voter);
+            }
+            Level level = info.getLevel();
+            if (withVotes == null || !level.canVoteWithCount(info.organization, withVotes)) {
+                withVotes = level.getVotes(info.organization);
+            }
+            if (!level.canVoteForMissing()) {
+                throw new IllegalArgumentException("Voter " + info + " cannot vote for missing.");
+            }
+            addInternal((T) VOTE_FOR_MISSING, info, withVotes, date); // do the add
+        }
+
         /**
          * Call this to add votes
          *
@@ -639,6 +665,8 @@ public class VoteResolver<T> {
          * @param date
          */
         public void add(T value, int voter, Integer withVotes, Date date) {
+            if (VOTE_FOR_MISSING.equals(value))
+                throw new IllegalArgumentException("VOTE_FOR_MISSING may not be used with add()");
             final VoterInfo info = voterInfoList.get(voter);
             if (info == null) {
                 throw new UnknownVoterException(voter);
@@ -1081,6 +1109,16 @@ public class VoteResolver<T> {
         values.add(value);
     }
 
+    public void addVoteForMissing(int voter, Integer withVotes) {
+        if (resolved) {
+            throw new IllegalArgumentException(
+                    "Must be called after clear, and before any getters.");
+        }
+        Date date = new Date();
+        organizationToValueAndVote.addVoteForMissing(voter, withVotes, date);
+        // values.add(value); // not one of the values
+    }
+
     private <T> T changeBaileyToInheritance(T value) {
         if (value != null && value.equals(getBaileyValue())) {
             return (T) CldrUtility.INHERITANCE_MARKER;
@@ -1295,6 +1333,11 @@ public class VoteResolver<T> {
             winningStatus = baselineStatus;
             valuesWithSameVotes.clear();
             valuesWithSameVotes.add(winningValue);
+        } else if (winningValue != null && VOTE_FOR_MISSING.equals(winningValue)) {
+            winningValue = null;
+            winningStatus = Status.missing; // override - for vote for missing
+            annotateTranscript(
+                    "The winning value is '%s' with status '%s'.", winningValue, winningStatus);
         } else {
             // Declare the final winner
             annotateTranscript(

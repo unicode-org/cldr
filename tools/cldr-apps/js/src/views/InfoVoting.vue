@@ -58,7 +58,7 @@ function describeVoteType(row) {
 
 function shortName(name) {
   // Very long names (which sometimes are email addresses) tend to
-  // make the table too wide, causing vertical scrollbars or otherwise
+  // make the table too wide, causing horizontal scrollbars or otherwise
   // making the table hard to read. The threshold length is roughly
   // based on observation with current data/fonts/layout.
   return name.length < 21 ? name : name.substring(0, 18) + "...";

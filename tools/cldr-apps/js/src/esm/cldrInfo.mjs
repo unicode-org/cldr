@@ -13,6 +13,7 @@ import * as cldrTable from "./cldrTable.mjs";
 import * as cldrText from "./cldrText.mjs";
 import * as cldrUserLevels from "./cldrUserLevels.mjs";
 import * as cldrVote from "./cldrVote.mjs";
+import * as cldrVoteTable from "./cldrVoteTable.mjs";
 import * as cldrVue from "./cldrVue.mjs";
 
 import InfoPanel from "../views/InfoPanel.vue";
@@ -256,7 +257,6 @@ function show(str, tr, hideIfLast, fn) {
   addForumPanel(tr);
   addXpath(tr);
   addBottom();
-  addVoterInfoHover();
 }
 
 function addDeferredHelp(theRow) {
@@ -424,8 +424,9 @@ function addVoteDivAndTicketLink(tr, fn) {
   if (fn) {
     unShow = fn(fragment);
   }
-  if (tr?.voteDiv) {
-    fragment.appendChild(tr.voteDiv.cloneNode(true));
+  if (tr) {
+    updateRowVoteInfo(tr, tr.theRow);
+    fragment.appendChild(tr.voteDiv);
   }
   if (tr?.ticketLink) {
     fragment.appendChild(tr.ticketLink.cloneNode(true));
@@ -493,32 +494,6 @@ function addXpath(tr) {
   }
 }
 
-function addVoterInfoHover() {
-  $(".voteInfo_voterInfo").hover(
-    function () {
-      const email = $(this).data("email").replace(" (at) ", "@");
-      if (email) {
-        $(this).html(
-          '<a href="mailto:' +
-            email +
-            '" title="' +
-            email +
-            '" style="color:black"><span class="glyphicon glyphicon-envelope"></span></a>'
-        );
-        $(this).closest("td").css("text-align", "center");
-        $(this).children("a").tooltip().tooltip("show");
-      } else {
-        $(this).html($(this).data("name"));
-        $(this).closest("td").css("text-align", "left");
-      }
-    },
-    function () {
-      $(this).html($(this).data("name"));
-      $(this).closest("td").css("text-align", "left");
-    }
-  );
-}
-
 /**
  * Update the vote info for this row.
  *
@@ -538,6 +513,7 @@ function updateRowVoteInfo(tr, theRow) {
   }
   tr.voteDiv = document.createElement("div");
   tr.voteDiv.className = "voteDiv";
+
   const surveyUser = cldrStatus.getSurveyUser();
   if (theRow.voteVhash && surveyUser) {
     const voteForItem = theRow.items[theRow.voteVhash];
@@ -578,43 +554,13 @@ function updateRowVoteInfo(tr, theRow) {
     if (item == null) {
       continue;
     }
-    var vdiv = cldrDom.createChunk(
-      null,
-      "table",
-      "voteInfo_perValue table table-vote"
-    );
     var valdiv = cldrDom.createChunk(
       null,
       "div",
       n > 2 ? "value-div" : "value-div first"
     );
-    // heading row
-    var vrow = cldrDom.createChunk(
-      null,
-      "tr",
-      "voteInfo_tr voteInfo_tr_heading"
-    );
-    if (
-      item.rawValue === cldrSurvey.INHERITANCE_MARKER ||
-      (item.votes && Object.keys(item.votes).length > 0)
-    ) {
-      vrow.appendChild(
-        cldrDom.createChunk(
-          cldrText.get("voteInfo_orgColumn"),
-          "td",
-          "voteInfo_orgColumn voteInfo_td"
-        )
-      );
-    }
     var isection = cldrDom.createChunk(null, "div", "voteInfo_iconBar");
     var isectionIsUsed = false;
-    var vvalue = cldrDom.createChunk(
-      "User",
-      "td",
-      "voteInfo_valueTitle voteInfo_td"
-    );
-    const vbadge = cldrDom.createChunk(vote, "span", "badge");
-    vbadge.title = "Total votes for this value";
 
     /*
      * Note: we can't just check for item.pClass === "winner" here, since, for example, the winning value may
@@ -664,45 +610,8 @@ function updateRowVoteInfo(tr, theRow) {
     if (isectionIsUsed) {
       valdiv.appendChild(isection);
     }
-    vrow.appendChild(vvalue);
-    var cell = cldrDom.createChunk(
-      null,
-      "td",
-      "voteInfo_voteTitle voteInfo_voteCount voteInfo_td" + ""
-    );
-    cell.appendChild(vbadge);
-    vrow.appendChild(cell);
-    vdiv.appendChild(vrow);
-    const itemVotesLength = item.votes ? Object.keys(item.votes).length : 0;
-    const anon =
-      itemVotesLength == 1 &&
-      cldrUserLevels.match(
-        item.votes[Object.keys(item.votes)[0]].level,
-        cldrUserLevels.ANONYMOUS
-      );
-    if (itemVotesLength == 0 || anon) {
-      var vrow = cldrDom.createChunk(
-        null,
-        "tr",
-        "voteInfo_tr voteInfo_orgHeading"
-      );
-      vrow.appendChild(
-        cldrDom.createChunk(
-          cldrText.get("voteInfo_noVotes"),
-          "td",
-          "voteInfo_noVotes voteInfo_td"
-        )
-      );
-      const anonVoter = anon ? cldrText.get("voteInfo_anon") : null;
-      vrow.appendChild(
-        cldrDom.createChunk(anonVoter, "td", "voteInfo_noVotes voteInfo_td")
-      );
-      vdiv.appendChild(vrow);
-    } else {
-      updateRowVoteInfoForAllOrgs(vr, value, item, vdiv);
-    }
     tr.voteDiv.appendChild(valdiv);
-    tr.voteDiv.appendChild(vdiv);
+    cldrVoteTable.add(tr.voteDiv, theRow.votingResults, item, value, vote);
   }
   tr.voteDiv.appendChild(makeVoteExplainerDiv(theRow.voteTranscript));
   if (vr.valueIsLocked) {
@@ -766,161 +675,6 @@ function makeVoteExplainerDiv(voteTranscript) {
   return voteExplainerDiv;
 }
 
-/**
- * Update the vote info for one candidate item in this row, looping through all the orgs.
- * Information will be displayed in the Information Panel (right edge of window).
- *
- * @param {Object} vr the vote resolver
- * @param {String} value the value of the candidate item
- * @param {Object} item the candidate item
- * @param {Element} vdiv a table created by the caller as vdiv = cldrDom.createChunk(null, "table", "voteInfo_perValue table table-vote")
- */
-function updateRowVoteInfoForAllOrgs(vr, value, item, vdiv) {
-  for (let org in vr.orgs) {
-    // org is a string like "microsoft"
-    const theOrg = vr.orgs[org]; // theOrg is an object
-    const orgVoteValue = theOrg.votes[value]; // orgVoteValue is a number
-
-    // This function is not called with "anonymous" imported losing votes (orgVoteValue === 0)
-    // so we don't need to handle them here or distinguish 0/null/undefined for orgVoteValue.
-    if (orgVoteValue) {
-      // Someone in the org actually voted for it
-      let topVoter = null; // top voter for this item
-      let topVoterTime = 0; // Calculating the latest time for a user from same org
-      const thisOrgVotedThisValue = Boolean(theOrg.orgVote == value); // did this org vote for this value?
-      // Note: thisOrgVotedThisValue appears always to be true here, given truthy orgVoteValue,
-      // in which case there is some dead code that could be removed in future refactoring.
-      if (thisOrgVotedThisValue) {
-        // find a top-ranking voter to use for the top line
-        for (let voter in item.votes) {
-          if (
-            item.votes[voter].org == org &&
-            item.votes[voter].votes == theOrg.votes[value]
-          ) {
-            if (topVoterTime != 0) {
-              // Get the latest time vote only
-              if (vr.nameTime[`#${topVoter}`] < vr.nameTime[`#${voter}`]) {
-                topVoter = voter;
-                topVoterTime = vr.nameTime[`#${topVoter}`];
-              }
-            } else {
-              topVoter = voter;
-              topVoterTime = vr.nameTime[`#${topVoter}`];
-            }
-          }
-        }
-      }
-      if (!topVoter) {
-        // just find someone in the right org
-        for (let voter in item.votes) {
-          if (item.votes[voter].org == org) {
-            topVoter = voter;
-            break;
-          }
-        }
-      }
-      // ORG SUBHEADING row
-
-      /*
-       * baileyClass only affects cells ("td" elements) with style "voteInfo_voteCount", which appear in the Info Panel,
-       * and which have contents like '<span class="badge">12</span>'. If the item.pClass style is added ("alias", "fallback",
-       * "fallback_root", etc.), then these circled numbers are surrounded (outside the circle) by a colored background.
-       */
-      const baileyClass =
-        item.rawValue === cldrSurvey.INHERITANCE_MARKER
-          ? " " + item.pClass
-          : "";
-      const topVoterRow = cldrDom.createChunk(
-        null,
-        "tr",
-        "voteInfo_tr voteInfo_orgHeading"
-      );
-      topVoterRow.appendChild(
-        cldrDom.createChunk(org, "td", "voteInfo_orgColumn voteInfo_td")
-      );
-      if (item.votes[topVoter]) {
-        topVoterRow.appendChild(createVoter(item.votes[topVoter])); // voteInfo_td
-      } else {
-        topVoterRow.appendChild(createVoter(null));
-      }
-      if (thisOrgVotedThisValue) {
-        const cell = cldrDom.createChunk(
-          null,
-          "td",
-          "voteInfo_orgsVote voteInfo_voteCount voteInfo_td" + baileyClass
-        );
-        cell.appendChild(voteCountTypeCell(item.votes[topVoter], "top"));
-        topVoterRow.appendChild(cell);
-      } else {
-        // this is dead code if thisOrgVotedThisValue is always true
-        topVoterRow.appendChild(
-          cldrDom.createChunk(
-            orgVoteValue,
-            "td",
-            "voteInfo_orgsNonVote voteInfo_voteCount voteInfo_td" + baileyClass
-          )
-        );
-      }
-      vdiv.appendChild(topVoterRow);
-      // now, other rows:
-      for (let voter in item.votes) {
-        if (
-          item.votes[voter].org != org || // wrong org or
-          voter == topVoter
-        ) {
-          // already done
-          continue; // skip
-        }
-        const otherVoterRow = cldrDom.createChunk(null, "tr", "voteInfo_tr");
-        otherVoterRow.appendChild(
-          cldrDom.createChunk("", "td", "voteInfo_orgColumn voteInfo_td")
-        ); // spacer
-        otherVoterRow.appendChild(createVoter(item.votes[voter])); // voteInfo_td
-        const cell = cldrDom.createChunk(
-          item.votes[voter].votes,
-          "td",
-          "voteInfo_orgsNonVote voteInfo_voteCount voteInfo_td" + baileyClass
-        );
-        cell.appendChild(voteCountTypeCell(item.votes[voter], "other"));
-        otherVoterRow.appendChild(cell);
-        vdiv.appendChild(otherVoterRow);
-      }
-    }
-  }
-}
-
-function voteCountTypeCell(voteInfo, topOrOther) {
-  const span = document.createElement("span");
-  span.appendChild(document.createTextNode(voteInfo.votes));
-  if (topOrOther === "top") {
-    span.className = "badge";
-  }
-  const voteType = voteInfo.voteDetails?.voteType.replace("_", " ") || "?";
-  const daysAgo = voteInfo.voteDetails?.daysAgo || "?";
-  span.title = "Vote type: " + voteType + "\n" + daysAgo + " day(s) ago";
-  return span;
-}
-
-/**
- * Create an element representing a voter, including a link to the voter's email
- *
- * @param v the voter
- * @return the element
- */
-function createVoter(v) {
-  if (v == null) {
-    return cldrDom.createChunk("(missing information)!", "i", "stopText");
-  }
-  var div = cldrDom.createChunk(
-    v.name || cldrText.get("emailHidden"),
-    "td",
-    "voteInfo_voterInfo voteInfo_td"
-  );
-  div.setAttribute("data-name", v.name || cldrText.get("emailHidden"));
-  div.setAttribute("data-email", v.email || "");
-  return div;
-}
-
 function getItemDescription(itemClass, theRow) {
   /*
    * itemClass may be "winner, "alias", "fallback", "fallback_code", "fallback_root", or "loser".
@@ -964,5 +718,4 @@ export {
   show,
   showMessage,
   showRowObjFunc,
-  updateRowVoteInfo,
 };

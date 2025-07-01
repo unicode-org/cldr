@@ -2792,8 +2792,7 @@ public class SurveyAjax extends HttpServlet {
                             }
                         }
                         CheckCLDR.StatusAction status =
-                                cPhase.getAcceptNewItemAction(
-                                        ci, pvi, CheckCLDR.InputMethod.BULK, ph, cs.user);
+                                cPhase.getAcceptNewItemAction(ci, pvi, ph, cs.user);
 
                         if (status != CheckCLDR.StatusAction.ALLOW) {
                             result = "Item will be skipped. (" + status + ")";

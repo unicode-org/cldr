@@ -81,7 +81,7 @@ If such a file is found, remove it (after checking whether any information in th
 - Consider whether the locale needs parent locale information (which it probably won't)
 	- If parent inheritance can be determined by truncating subtags (and then falling back to root), no parent locale information is needed.
 In the majority of cases this will be true.
-	- If the locale is written in the non-preferred script for the language, it needs to have the parent specified as root,
+	- If the locale is written in the non-default script for the language, it needs to have the parent specified as root,
 for example, zh_Hant and sr_Latn need to fall back to root (not to zh and sr which are in different scripts).
 	- Similarly, en_GB inherits from en_001 not from en, and nb inherits from no, not root.
 	- Make the appropriate entry to a parentLocale element in **common/supplemental/supplementalData.xml**

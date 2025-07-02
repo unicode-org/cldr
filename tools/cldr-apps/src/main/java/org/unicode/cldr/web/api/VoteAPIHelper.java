@@ -9,7 +9,9 @@ import java.time.format.DateTimeFormatterBuilder;
 import java.time.temporal.ChronoField;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
+import java.util.Map.Entry;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 import javax.json.bind.spi.JsonbProvider;
 import javax.ws.rs.core.Response;
 import org.unicode.cldr.test.CheckCLDR;
@@ -378,6 +380,16 @@ public class VoteAPIHelper {
         results.nameTime = resolver.getNameTime();
         results.requiredVotes = resolver.getRequiredVotes();
         results.value_vote = valueToVoteA.toArray(new Object[0]);
+        final Set<Entry<Integer, Integer>> votesForMissing = resolver.getVotesForMissing();
+        if (!votesForMissing.isEmpty()) {
+            results.votesForMissing =
+                    votesForMissing.stream()
+                            .map(e -> e.getKey())
+                            .collect(Collectors.toList())
+                            .toArray(new Integer[0]);
+        } else {
+            results.votesForMissing = null;
+        }
         results.valueIsLocked = resolver.isValueLocked();
         results.orgs = new HashMap<>();
         for (Organization o : Organization.values()) {

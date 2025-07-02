@@ -205,6 +205,9 @@ public class VoteAPI {
                 @Schema(description = "1-dimensional array of value, vote, value, vote…")
                 public Object[] value_vote;
 
+                @Schema(description = "list of user ids who voted for missing")
+                public Integer[] votesForMissing;
+
                 public boolean valueIsLocked;
             }
 

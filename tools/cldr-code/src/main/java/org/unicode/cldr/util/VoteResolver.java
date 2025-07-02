@@ -102,7 +102,7 @@ public class VoteResolver<T> {
     private static final String NO_WINNING_VALUE = "no-winning-value";
 
     /** A placeholder for vote-for-missing. Not allowed as a normal value. */
-    private static final String VOTE_FOR_MISSING = "  \u0000@@@MISSING@@@  ";
+    public static final String VOTE_FOR_MISSING = "🚫🚫🚫"; // U+1F6AB x 3
 
     /**
      * The status levels according to the committee, in ascending order
@@ -950,6 +950,9 @@ public class VoteResolver<T> {
     private CLDRLocale locale;
     private PathHeader pathHeader;
 
+    /** map from voter to votes */
+    private final Map<Integer, Integer> votesForMissing = new LinkedHashMap<>();
+
     private static final Collator englishCollator = CollatorHelper.ROOT_COLLATOR;
 
     /** Used for comparing objects of type T */
@@ -1020,6 +1023,7 @@ public class VoteResolver<T> {
         organizationToValueAndVote.clear();
         resolved = valueIsLocked = false;
         values.clear();
+        votesForMissing.clear();
 
         // TODO: clear these out between reuse
         // Are there other values that should be cleared?
@@ -1115,7 +1119,13 @@ public class VoteResolver<T> {
                     "Must be called after clear, and before any getters.");
         }
         organizationToValueAndVote.addVoteForMissing(voter, withVotes, date);
-        // values.add(value); // not one of the values
+        votesForMissing.put(voter, withVotes);
+    }
+
+    public Set<Map.Entry<Integer, Integer>> getVotesForMissing() {
+        // high runner case
+        if (votesForMissing.isEmpty()) return Collections.emptySet();
+        return Collections.unmodifiableSet(votesForMissing.entrySet());
     }
 
     public void addVoteForMissing(int voter, Integer withVotes) {

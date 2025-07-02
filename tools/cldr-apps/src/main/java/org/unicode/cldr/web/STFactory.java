@@ -218,10 +218,8 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 }
                 TreeSet<User> ts = new TreeSet<>();
                 for (Entry<User, PerUserData> e : userToData.entrySet()) {
-                    if (e.getValue().getVoteType() == VoteType.VOTE_FOR_MISSING) {
-                        continue;
-                    }
-                    if (e.getValue().getValue().equals(value)) {
+                    if (e.getValue().getVoteType() != VoteType.VOTE_FOR_MISSING
+                            && e.getValue().getValue().equals(value)) {
                         ts.add(e.getKey());
                     }
                 }
@@ -705,7 +703,9 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 // add the actual votes
                 if (!xpd.isEmpty()) {
                     for (Entry<User, PerXPathData.PerUserData> ud : xpd.getVotes()) {
-                        if (ud.getValue().voteType != VoteType.VOTE_FOR_MISSING) {
+                        if (ud.getValue().voteType == VoteType.VOTE_FOR_MISSING) {
+                            ts.add(VoteResolver.VOTE_FOR_MISSING);
+                        } else {
                             ts.add(ud.getValue().getValue());
                         }
                     }

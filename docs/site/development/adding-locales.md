@@ -105,6 +105,7 @@ but it is **strongly recommended** that plural rule information be collected as 
 will cause the coverage percentage to drop significantly until the data for plurals can be provided.
 The addition of new plural forms can also be disruptive for any localized applications which are relying on CLDR plural data.
    - If plural rule information is available, it can be added at the same time the locale is established.
+   - The simplest case is when the rules are identical to another locale's: it then just needs to be added to the list of locales with those rules.
 Add the rules to **common/supplemental/plurals.xml** and **common/supplemental/ordinals.xml**.
 - Similarly day period rules can be added to **common/supplemental/dayPeriods.xml**.
 

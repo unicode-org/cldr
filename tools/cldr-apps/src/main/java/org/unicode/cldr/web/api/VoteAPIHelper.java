@@ -489,6 +489,23 @@ public class VoteAPIHelper {
         }
     }
 
+    public static Response handleVoteForMissing(
+            String loc,
+            String xp,
+            Integer voteLevelChanged,
+            final CookieSession mySession,
+            boolean forbiddenIsOk) {
+        // translate this call into jax-rs Response
+        try {
+            final VoteResponse r =
+                    getHandleVoteForMissingResponse(
+                            loc, xp, voteLevelChanged, mySession, forbiddenIsOk);
+            return Response.status(204).build();
+        } catch (Throwable se) {
+            return new STError(se).build();
+        }
+    }
+
     /**
      * this function is the implementation of handleVote() but does not use any jax-rs, for unit
      * tests
@@ -562,6 +579,73 @@ public class VoteAPIHelper {
                                 throw (e);
                             }
                         }
+                    }
+                }
+            } catch (Throwable t) {
+                SurveyLog.logException(logger, t, "Processing submission " + locale + ":" + xp);
+                throw new SurveyException(
+                        ErrorCode.E_INTERNAL, "Processing submission " + locale + ":" + xp);
+            }
+        }
+        if (!forbiddenIsOk && r.statusAction.isForbidden()) {
+            throw new SurveyException(
+                    ErrorCode.E_VOTE_NOT_ACCEPTED, "Status action is forbidden: " + r.statusAction);
+        }
+        return r;
+    }
+
+    public static VoteResponse getHandleVoteForMissingResponse(
+            String loc,
+            String xp,
+            Integer voteLevelChanged,
+            final CookieSession mySession,
+            boolean forbiddenIsOk)
+            throws SurveyException {
+        VoteResponse r = new VoteResponse();
+        mySession.userDidAction();
+        CLDRLocale locale = CLDRLocale.getInstance(loc);
+        if (!UserRegistry.userCanModifyLocale(mySession.user, locale)
+                || !mySession.user.getLevel().canVoteForMissing()) {
+            throw new SurveyException(ErrorCode.E_NO_PERMISSION, "Not allowed to modify " + locale);
+        }
+        loc = locale.getBaseName(); // sanitized
+        final SurveyMain sm = CookieSession.sm;
+        CheckCLDR.Options options = DataPage.getSimpleOptions(locale);
+        final STFactory stf = sm.getSTFactory();
+        synchronized (mySession) {
+            try {
+                final CLDRFile cldrFile = stf.make(loc, true, true);
+                // don't need to check value.
+                // Create a DataPage for this single XPath.
+                DataPage page = DataPage.make(null, mySession, locale, xp, null, null);
+                page.setUserForVotelist(mySession.user);
+                DataRow dataRow = page.getDataRow(xp);
+
+                if (r.statusAction == null) {
+                    r.statusAction = calculateShowRowAction(cldrFile, xp, null, dataRow);
+                }
+
+                if (!r.statusAction.isForbidden()) {
+
+                    CandidateInfo ci =
+                            calculateCandidateItem(Collections.emptyList(), null, dataRow);
+                    // Now, recalculate the statusAction for accepting the new item
+                    r.statusAction =
+                            SurveyMain.checkCLDRPhase(locale)
+                                    .getAcceptNewItemAction(
+                                            ci,
+                                            dataRow,
+                                            CheckCLDR.InputMethod.DIRECT,
+                                            stf.getPathHeader(xp),
+                                            mySession.user);
+                    if (!r.statusAction.isForbidden()) {
+                        final BallotBox<UserRegistry.User> ballotBox =
+                                stf.ballotBoxForLocale(locale);
+                        Integer withVote = voteLevelChanged;
+                        // Hey, VOTE_FOR_MISSING is the point of this function..
+                        ballotBox.voteForValueWithType(
+                                mySession.user, xp, null, withVote, VoteType.VOTE_FOR_MISSING);
+                        r.didVote = true;
                     }
                 }
             } catch (Throwable t) {

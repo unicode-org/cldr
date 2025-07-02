@@ -1109,14 +1109,18 @@ public class VoteResolver<T> {
         values.add(value);
     }
 
-    public void addVoteForMissing(int voter, Integer withVotes) {
+    public void addVoteForMissing(int voter, Integer withVotes, Date date) {
         if (resolved) {
             throw new IllegalArgumentException(
                     "Must be called after clear, and before any getters.");
         }
-        Date date = new Date();
         organizationToValueAndVote.addVoteForMissing(voter, withVotes, date);
         // values.add(value); // not one of the values
+    }
+
+    public void addVoteForMissing(int voter, Integer withVotes) {
+        Date date = new Date();
+        addVoteForMissing(voter, withVotes, date);
     }
 
     private <T> T changeBaileyToInheritance(T value) {

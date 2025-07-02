@@ -1,5 +1,9 @@
 package org.unicode.cldr.util;
 
+/**
+ * Enum for types of votes Note: This is used within SurveyTool, so the integer values need to fit
+ * in a TINYINT
+ */
 public enum VoteType {
     /** The user did not vote */
     NONE(-1),
@@ -24,7 +28,7 @@ public enum VoteType {
     BULK_UPLOAD(4),
 
     /** special TC vote for 'missing' */
-    VOTE_FOR_MISSING(1000);
+    VOTE_FOR_MISSING(100);
 
     private final int integerId;
 

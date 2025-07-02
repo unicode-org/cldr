@@ -112,7 +112,7 @@ Add the rules to **common/supplemental/plurals.xml** and **common/supplemental/o
 ## Submit the pull request
 
 - If requested, add to vendor targets in **tools/cldr-code/src/main/resources/org/unicode/cldr/util/data/Locales.txt**,
-and to Cldr where resources are committed.
+and to CLDR where resources are committed.
 - Commit your work to a branch and create a Pull Request.
 - Check the results from the tests (which are automatically run when a PR is created or updated) and make corrections as necessary.
 - The new locale will be included in Smoketest when the PR is approved and merged,

@@ -640,11 +640,7 @@ public class VoteAPIHelper {
                     r.statusAction =
                             SurveyMain.checkCLDRPhase(locale)
                                     .getAcceptNewItemAction(
-                                            ci,
-                                            dataRow,
-                                            CheckCLDR.InputMethod.DIRECT,
-                                            stf.getPathHeader(xp),
-                                            mySession.user);
+                                            ci, dataRow, stf.getPathHeader(xp), mySession.user);
                     if (!r.statusAction.isForbidden()) {
                         final BallotBox<UserRegistry.User> ballotBox =
                                 stf.ballotBoxForLocale(locale);

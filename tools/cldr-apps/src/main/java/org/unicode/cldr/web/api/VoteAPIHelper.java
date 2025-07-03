@@ -101,8 +101,7 @@ public class VoteAPIHelper {
             Instant then = epochSecondFormatter.parse(epoch, Instant::from);
             LocalDate thatDay = then.atZone(zone).toLocalDate();
             LocalDate today = LocalDate.now(zone);
-            long diff = Math.abs(ChronoUnit.DAYS.between(thatDay, today));
-            return (diff < 1) ? 1 : diff;
+            return Math.abs(ChronoUnit.DAYS.between(thatDay, today));
         }
     }
 
@@ -570,11 +569,7 @@ public class VoteAPIHelper {
                     r.statusAction =
                             SurveyMain.checkCLDRPhase(locale)
                                     .getAcceptNewItemAction(
-                                            ci,
-                                            dataRow,
-                                            CheckCLDR.InputMethod.DIRECT,
-                                            stf.getPathHeader(xp),
-                                            mySession.user);
+                                            ci, dataRow, stf.getPathHeader(xp), mySession.user);
                     if (!r.statusAction.isForbidden()) {
                         try {
                             final BallotBox<UserRegistry.User> ballotBox =

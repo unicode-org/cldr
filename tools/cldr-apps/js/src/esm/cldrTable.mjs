@@ -470,16 +470,6 @@ function reallyUpdateRow(tr, theRow) {
       tr.rawValueToItem[item.rawValue] = item; // back link by value
     }
   }
-
-  /*
-   * Update the vote info.
-   */
-  if (theRow.votingResults) {
-    cldrInfo.updateRowVoteInfo(tr, theRow);
-  } else {
-    tr.voteDiv = null;
-  }
-
   tr.statusAction = cldrSurvey.parseStatusAction(theRow.statusAction);
   tr.canModify = tr.theTable.json.canModify && tr.statusAction.vote;
   tr.ticketOnly = tr.theTable.json.canModify && tr.statusAction.ticket;
@@ -1157,6 +1147,8 @@ function updateRowNoAbstainCell(tr, theRow, noCell, proposedCell, protoButton) {
     surlink.className = "alert alert-info fix-popover-help";
     const link = cldrDom.createChunk(cldrText.get("file_a_ticket"), "a");
     const curLocale = cldrStatus.getCurrentLocale();
+    // The "trac" link is antiquated, but (as of 2025-06) still works to some extent, redirecting to
+    // https://cldr.unicode.org/requesting_changes#TOC-Filing-a-Ticket
     const newUrl =
       "http://unicode.org/cldr/trac" +
       "/newticket?component=data&summary=" +

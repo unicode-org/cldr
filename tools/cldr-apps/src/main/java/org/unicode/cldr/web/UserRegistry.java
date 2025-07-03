@@ -527,6 +527,7 @@ public class UserRegistry {
                     .put("userCanUseVettingParticipation", userCanUseVettingParticipation(this))
                     .put("userIsAdmin", userIsAdmin(this))
                     .put("userIsManager", getLevel().canManageSomeUsers())
+                    .put("userCanVoteForMissing", getLevel().canVoteForMissing())
                     .put("userIsTC", userIsTCOrStronger(this))
                     // Caution: userIsVetter really means user is Vetter or Manager, but not TC or
                     // Admin. It should be renamed to avoid confusion.

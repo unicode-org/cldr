@@ -11,6 +11,7 @@
 import * as cldrAddAlt from "./cldrAddAlt.mjs";
 import * as cldrAddValue from "./cldrAddValue.mjs";
 import * as cldrAjax from "./cldrAjax.mjs";
+import { VOTE_FOR_MISSING } from "./cldrConstants.mjs";
 import * as cldrCoverage from "./cldrCoverage.mjs";
 import * as cldrDashContext from "./cldrDashContext.mjs";
 import * as cldrDom from "./cldrDom.mjs";
@@ -612,7 +613,10 @@ function checkRowConsistency(theRow) {
     console.error("For " + theRow.xpstrid + " - there is no winningVhash");
   } else if (!theRow.items) {
     console.error("For " + theRow.xpstrid + " - there are no items");
-  } else if (!theRow.items[theRow.winningVhash]) {
+  } else if (
+    !theRow.items[theRow.winningVhash] &&
+    !theRow.confirmStatus == "missing"
+  ) {
     console.error(
       "For " + theRow.xpstrid + " - there is winningVhash but no item for it"
     );
@@ -827,6 +831,15 @@ function updateRowProposedWinningCell(tr, theRow, cell, protoButton) {
   } else {
     cell.showFn = function () {}; // nothing else to show
   }
+
+  if (theRow.votingResults.votesForMissing) {
+    if (theRow.confirmStatus == "missing") {
+      cell.appendChild(
+        document.createTextNode(VOTE_FOR_MISSING + " (vote for missing)")
+      );
+    }
+  }
+
   listen(null, tr, cell, cell.showFn);
 }
 
@@ -849,7 +862,10 @@ function updateRowOthersCell(tr, theRow, cell, protoButton) {
    * Add the other vote info -- that is, vote info for the "Others" column.
    */
   for (let k in theRow.items) {
-    if (k === theRow.winningVhash) {
+    if (
+      k === theRow.winningVhash ||
+      theRow.items[k].rawValue == NO_WINNING_VALUE
+    ) {
       // skip vote for winner
       continue;
     }
@@ -862,6 +878,16 @@ function updateRowOthersCell(tr, theRow, cell, protoButton) {
       cldrSurvey.cloneAnon(protoButton)
     );
     cell.appendChild(document.createElement("hr"));
+  }
+
+  if (theRow.votingResults.votesForMissing) {
+    if (theRow.confirmStatus != "missing") {
+      cell.appendChild(
+        document.createTextNode(
+          VOTE_FOR_MISSING + "(a losing vote for missing)"
+        )
+      );
+    }
   }
 
   if (!hadOtherItems /*!onIE*/) {
@@ -973,6 +999,7 @@ function addVitem(td, tr, theRow, item, newButton) {
   if (item.example && item.value != item.examples) {
     appendExample(div, item.example);
   }
+  return div;
 }
 
 function setDivClassSelected(div, testKind) {

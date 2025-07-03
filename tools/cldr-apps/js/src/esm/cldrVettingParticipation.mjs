@@ -419,13 +419,14 @@ async function saveAsSheet() {
 
   const workbook = XLSX.utils.book_new();
 
-  const worksheetName = (vpData.org || "ALL").substring(0, 31);
+  const worksheetName =
+    vpData.org && vpData.org !== "*" ? vpData.org.substring(0, 31) : "ALL";
 
   XLSX.utils.book_append_sheet(workbook, worksheet, worksheetName);
 
   await appendOrgSheet(workbook);
 
-  XLSX.writeFile(workbook, `survey_participation.${vpData.org || "ALL"}.xlsx`, {
+  XLSX.writeFile(workbook, `survey_participation.${worksheetName}.xlsx`, {
     cellStyles: true,
   });
 }

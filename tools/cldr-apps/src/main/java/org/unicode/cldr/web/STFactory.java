@@ -218,7 +218,8 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 }
                 TreeSet<User> ts = new TreeSet<>();
                 for (Entry<User, PerUserData> e : userToData.entrySet()) {
-                    if (e.getValue().getValue().equals(value)) {
+                    if (e.getValue().getVoteType() != VoteType.VOTE_FOR_MISSING
+                            && e.getValue().getValue().equals(value)) {
                         ts.add(e.getKey());
                     }
                 }
@@ -243,7 +244,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
             private void setVoteForValue(
                     User user, String value, Integer voteOverride, Date when, VoteType voteType) {
-                if (value != null) {
+                if (value != null || voteType == VoteType.VOTE_FOR_MISSING) {
                     setPerUserData(user, new PerUserData(value, voteOverride, when, voteType));
                 } else {
                     removePerUserData(user);
@@ -640,12 +641,13 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             if (perXPathData != null && !perXPathData.isEmpty()) {
                 for (Entry<User, PerLocaleData.PerXPathData.PerUserData> e :
                         perXPathData.getVotes()) {
-                    PerLocaleData.PerXPathData.PerUserData v = e.getValue();
-                    r.add(
-                            v.getValue(), // user's vote
-                            e.getKey().id,
-                            v.getOverride(),
-                            v.getWhen()); // user's id
+                    final int userId = e.getKey().id;
+                    final PerLocaleData.PerXPathData.PerUserData v = e.getValue();
+                    if (v.getVoteType() == VoteType.VOTE_FOR_MISSING) {
+                        r.addVoteForMissing(userId, v.getOverride(), v.getWhen());
+                    } else {
+                        r.add(v.getValue(), userId, v.getOverride(), v.getWhen());
+                    }
                 }
             }
             return r;
@@ -701,7 +703,11 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 // add the actual votes
                 if (!xpd.isEmpty()) {
                     for (Entry<User, PerXPathData.PerUserData> ud : xpd.getVotes()) {
-                        ts.add(ud.getValue().getValue());
+                        if (ud.getValue().voteType == VoteType.VOTE_FOR_MISSING) {
+                            ts.add(VoteResolver.VOTE_FOR_MISSING);
+                        } else {
+                            ts.add(ud.getValue().getValue());
+                        }
                     }
                 }
             }

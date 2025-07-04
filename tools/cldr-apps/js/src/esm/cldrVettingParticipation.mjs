@@ -14,7 +14,7 @@ const VP_DEBUG = false;
 
 class Status {
   static INIT = "INIT"; // before making a request
-  static WAITING = "WAITING"; // waiting on other users/tasks
+  static WAITING = "WAITING"; // waiting for response to first request
   static PROCESSING = "PROCESSING"; // in progress
   static SUCCEEDED = "SUCCEEDED"; // finished successfully
   static STOPPED = "STOPPED"; // stopped due to error or cancellation
@@ -45,7 +45,7 @@ const COLUMN_TITLE_USER_EMAIL = "Email";
 const COLUMN_TITLE_USER_NAME = "Name";
 // TODO: change LastSeen to be the number of days since the user voted
 // Reference: https://unicode-org.atlassian.net/browse/CLDR-18610
-const COLUMN_TITLE_LAST_SEEN = "LastSeen";
+const COLUMN_TITLE_LAST_MOD = "Days ago";
 
 const COLUMNS = [
   { title: COLUMN_TITLE_ORG, comment: "User organization", default: null },
@@ -91,8 +91,8 @@ const COLUMNS = [
   { title: COLUMN_TITLE_USER_EMAIL, comment: "User's email", default: null },
   { title: COLUMN_TITLE_USER_NAME, comment: "User's name", default: null },
   {
-    title: COLUMN_TITLE_LAST_SEEN,
-    comment: "When the user last logged in",
+    title: COLUMN_TITLE_LAST_MOD,
+    comment: "Days since the user last voted",
     default: null,
   },
 ];
@@ -136,7 +136,11 @@ function start() {
   if (VP_DEBUG) {
     console.log("cldrVettingParticipation.start");
   }
-  const viewData = { message: "Starting", percent: 0, status: Status.WAITING };
+  const viewData = {
+    message: "Waiting for initial data...",
+    percent: 0,
+    status: Status.WAITING,
+  };
   callbackToSetData(viewData);
   makeRequest(RequestType.START);
 }
@@ -236,56 +240,24 @@ function fetchStatus() {
 }
 
 function storeInitialResponseData(json) {
-  vpData.missingLocalesForOrg = json.missingLocalesForOrg;
-  vpData.languagesNotInCLDR = json.languagesNotInCLDR;
-  vpData.hasAllLocales = json.hasAllLocales;
-
-  const { localeToData, totalCount, uidToUser } = calculateData(json);
-  vpData.localeToData = localeToData;
-  vpData.totalCount = totalCount;
-  vpData.uidToUser = uidToUser;
-}
-
-/**
- * Calculate the top level data,
- * returning localeToData, totalCount, uidToUser
- */
-function calculateData(json) {
-  // collect coverage
-  const { participation, users, languagesMissing } = json;
-  const localeToData = {};
   const uidToUser = {};
-  // collect users w/ coverage
-  users.forEach((u) => {
-    const { locales, id } = u;
-    uidToUser[id] = u;
-    (locales || []).forEach((loc) =>
-      getLocale(localeToData, loc).vetters.push(id)
-    );
+  json.users.forEach((u) => {
+    // u is an object with information about a user
+    uidToUser[u.id] = u;
   });
-  // collect missing
-  (languagesMissing || []).forEach(
-    (loc) => (getLocale(localeToData, loc).missing = true)
-  );
 
-  let totalCount = 0;
-  participation.forEach(({ count, locale, user, cldr_count, org_count }) => {
-    const e = getLocale(localeToData, locale);
-    e.count += count;
-    totalCount += count;
-    e.participation[user] = count;
-    e.org_count = org_count;
-    e.cldr_count = cldr_count;
+  const localeToData = {};
+  json.participation.forEach(({ locale, user, daysAgo }) => {
+    // "user" here is an integer = user ID
+    // daysAgo = how many days ago was the most recent vote by this user in this locale
+    if (!localeToData[locale]) {
+      localeToData[locale] = { daysAgo: {} };
+    }
+    localeToData[locale].daysAgo[user] = daysAgo;
   });
-  return { localeToData, totalCount, uidToUser };
-}
-
-function getLocale(localeToData, loc) {
-  return (localeToData[loc] = localeToData[loc] || {
-    vetters: [],
-    count: 0,
-    participation: {},
-  });
+  vpData.org = json.org;
+  vpData.localeToData = localeToData;
+  vpData.uidToUser = uidToUser;
 }
 
 async function fetchMoreData() {
@@ -308,6 +280,7 @@ function preloadVotingResults() {
     if (wasCancelled()) {
       return;
     }
+    // "user" here is an object; id = user.id
     if (!isRegularVetter(user)) {
       continue;
     }
@@ -325,7 +298,8 @@ function preloadVotingResults() {
         return;
       }
       // Specifying "org" for the coverage level means that the server will determine
-      // the coverage level based on the user's organization and the locale.
+      // the coverage level based on the vetter's organization and the locale (where the
+      // vetter is the user whose id is specified here, not the user requesting the data)
       user.data[locale] = cldrAjax.doFetch(
         `./api/summary/participation/for/${id}/${locale}/org`
       );
@@ -391,15 +365,18 @@ async function createTable() {
         votedPathCount,
         votablePathCount
       );
-      if (perCent < 0 || perCent > 100) {
-        console.error("Dubious perCent, out of range! " + perCent);
-      }
       row[columnIndex[COLUMN_TITLE_PROGRESS_PERCENT]] = perCent + "%";
       row[columnIndex[COLUMN_TITLE_COVERAGE_LEVEL]] = (
         coverageLevel || ""
       ).toLowerCase();
       row[columnIndex[COLUMN_TITLE_ABSTAIN_COUNT]] =
         votablePathCount - votedPathCount;
+      let daysAgo = vpData.localeToData[locale]?.daysAgo[id];
+      if (daysAgo === undefined) {
+        // distinguish "0" from undefined
+        daysAgo = "♾️";
+      }
+      row[columnIndex[COLUMN_TITLE_LAST_MOD]] = daysAgo;
       const sortKey = localeName + " " + user.org + " " + id;
       rowMap[sortKey] = [...row]; // clone the array since worksheetData will retain a reference
     }
@@ -442,19 +419,16 @@ async function saveAsSheet() {
 
   const workbook = XLSX.utils.book_new();
 
-  const worksheetName = (vpData.missingLocalesForOrg || "ALL").substring(0, 31);
+  const worksheetName =
+    vpData.org && vpData.org !== "*" ? vpData.org.substring(0, 31) : "ALL";
 
   XLSX.utils.book_append_sheet(workbook, worksheet, worksheetName);
 
   await appendOrgSheet(workbook);
 
-  XLSX.writeFile(
-    workbook,
-    `survey_participation.${vpData.missingLocalesForOrg || "ALL"}.xlsx`,
-    {
-      cellStyles: true,
-    }
-  );
+  XLSX.writeFile(workbook, `survey_participation.${worksheetName}.xlsx`, {
+    cellStyles: true,
+  });
 }
 
 /** append a sheet with Organization metadata (Locales.txt) */
@@ -548,7 +522,6 @@ function getDefaultRow(id, user, columnIndex) {
   row[columnIndex[COLUMN_TITLE_USER_ID]] = id;
   row[columnIndex[COLUMN_TITLE_USER_EMAIL]] = user.email;
   row[columnIndex[COLUMN_TITLE_USER_NAME]] = user.name;
-  row[columnIndex[COLUMN_TITLE_LAST_SEEN]] = user.time;
   return row;
 }
 

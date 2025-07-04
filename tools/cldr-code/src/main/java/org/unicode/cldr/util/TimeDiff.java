@@ -6,6 +6,14 @@ import com.ibm.icu.text.RelativeDateTimeFormatter;
 import com.ibm.icu.util.Measure;
 import com.ibm.icu.util.MeasureUnit;
 import com.ibm.icu.util.ULocale;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
+import java.time.temporal.ChronoField;
+import java.time.temporal.ChronoUnit;
+import java.util.Date;
 import java.util.Locale;
 
 public class TimeDiff {
@@ -71,5 +79,18 @@ public class TimeDiff {
             return MeasureFormat.getInstance(ULocale.ENGLISH, FormatWidth.NARROW)
                     .format(new Measure(del, MeasureUnit.MILLISECOND));
         }
+    }
+
+    public static long daysSinceDate(Date date) {
+        ZoneId zone = ZoneId.of("UTC+0");
+        DateTimeFormatter epochSecondFormatter =
+                new DateTimeFormatterBuilder()
+                        .appendValue(ChronoField.INSTANT_SECONDS)
+                        .toFormatter();
+        String epoch = String.valueOf(date.getTime() / 1000);
+        Instant then = epochSecondFormatter.parse(epoch, Instant::from);
+        LocalDate thatDay = then.atZone(zone).toLocalDate();
+        LocalDate today = LocalDate.now(zone);
+        return Math.abs(ChronoUnit.DAYS.between(thatDay, today));
     }
 }

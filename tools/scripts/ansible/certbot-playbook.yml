@@ -12,7 +12,7 @@
       command: >
         sudo certbot --nginx --agree-tos -m {{ surveytooldeploy.certbot_admin_email }}
         -d {{ inventory_hostname }} --non-interactive
-        --keep --redirect --uir --hsts --staple-ocsp --must-staple
+        --keep --redirect --uir --hsts
       args:
         creates: /etc/letsencrypt/renewal/{{ inventory_hostname }}.conf
     - name: Speedup http2
@@ -20,3 +20,14 @@
         path: /etc/nginx/sites-enabled/default
         regexp: '^(\s*)listen 443 ssl;(.*)$'
         replace: '\1listen 443 ssl http2;\2'
+    - name: Remove OCSP Stapling
+      replace:
+        path: /etc/letsencrypt/renewal/{{ inventory_hostname }}.conf
+        regexp: 'must_staple = True'
+        replace: 'must_staple = False'
+      notify: 'Restart certbot'
+  handlers:
+    - name: Restart certbot
+      service:
+        name: certbot
+        state: restarted

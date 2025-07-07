@@ -1217,18 +1217,7 @@ public class ShowLanguages {
                     new FormattedFileWriter(
                             null,
                             "Language-Territory Information",
-                            null
-                            // "<div  style='margin:1em'><p>The language data is provided for
-                            // localization testing, and is under development for CLDR 1.5. "
-                            // +
-                            // "To add a new territory for a language, see the <i>add new</i> links
-                            // below. " +
-                            // "For more information, see <a
-                            // href=\"territory_language_information.html\">Territory-Language
-                            // Information.</a>"
-                            // +
-                            // "<p></div>"
-                            ,
+                            null,
                             SUPPLEMENTAL_INDEX_ANCHORS);
             PrintWriter pw21 = new PrintWriter(ffw);
             PrintWriter pw2 = pw21;
@@ -1251,8 +1240,6 @@ public class ShowLanguages {
                                     CldrUtility.getDoubleLinkMsg(),
                                     "class='source'",
                                     true)
-                            // .addColumn("Report Bug", "class='target'", null, "class='target'",
-                            // false)
                             .addColumn("Territory", "class='target'", null, "class='target'", true)
                             .addColumn(
                                     "Code",
@@ -1261,11 +1248,17 @@ public class ShowLanguages {
                                     "class='target'",
                                     true)
                             .addColumn(
+                                    "Official Status",
+                                    "class='target'",
+                                    null,
+                                    "class='target'",
+                                    false)
+                            .addColumn(
                                     "Language Population",
                                     "class='target'",
                                     "{0,number,#,#@@}",
                                     "class='targetRight'",
-                                    true)
+                                    false)
                             .setSortPriority(1)
                             .setSortAscending(false)
                     // .addColumn("Territory Population", "class='target'", "{0,number,#,##0}",
@@ -1278,10 +1271,9 @@ public class ShowLanguages {
                     // "class='targetRight'", true)
                     ;
             TreeSet<String> languages = new TreeSet<>();
-            Collection<Comparable[]> data = new ArrayList<>();
-            String msg = "<br><i>Please click on each country code</i>";
+            Collection<Comparable<?>[]> data = new ArrayList<>(); // For HTML
 
-            Collection<Comparable[]> plainData = new ArrayList<>();
+            Collection<Comparable<?>[]> plainData = new ArrayList<>(); // For TSV
 
             for (String territoryCode : supplementalDataInfo.getTerritoriesWithPopulationData()) {
                 // PopulationData territoryData =
@@ -1296,87 +1288,45 @@ public class ShowLanguages {
                             supplementalDataInfo.getLanguageAndTerritoryPopulationData(
                                     languageCode, territoryCode);
                     languages.add(languageCode);
-                    Comparable[] items =
-                            new Comparable[] {
+                    Comparable<?>[] items =
+                            new Comparable<?>[] {
                                 getFirstPrimaryWeight(getLanguageName(languageCode)),
-                                getLanguageName(languageCode), // + getLanguagePluralMessage(msg,
-                                // languageCode),
-                                languageCode,
-                                // bug,
-                                territoryName + getOfficialStatus(territoryCode, languageCode),
-                                territoryCode,
-                                languageData.getPopulation(),
-                                // population,
-                                // languageliteracy,
-                                // territoryLiteracy,
-                                // gdp
-                            };
-                    Comparable[] plainItems =
-                            new Comparable[] {
-                                getLanguageName(languageCode), // + getLanguagePluralMessage(msg,
-                                // languageCode),
+                                getLanguageName(languageCode),
                                 languageCode,
                                 territoryName,
                                 territoryCode,
-                                getRawOfficialStatus(territoryCode, languageCode),
+                                getOfficialStatus(territoryCode, languageCode).replace('_', ' '),
                                 languageData.getPopulation(),
-                                languageData.getLiteratePopulation()
+                                // territory population,
+                                // language literacy,
+                                // territory literacy,
+                                // territory gdp
+                            };
+                    Comparable<?>[] plainItems =
+                            new Comparable<?>[] {
+                                getLanguageName(languageCode),
+                                languageCode,
+                                territoryName,
+                                territoryCode,
+                                getOfficialStatus(territoryCode, languageCode),
+                                Math.round(languageData.getPopulation()),
+                                Math.round(languageData.getLiteratePopulation()),
                             };
 
                     data.add(items);
                     plainData.add(plainItems);
                 }
             }
-            for (String languageCode : languages) {
-                Comparable[] items =
-                        new Comparable[] {
-                            getFirstPrimaryWeight(getLanguageName(languageCode)),
-                            getLanguageName(
-                                    languageCode), // + getLanguagePluralMessage(msg, languageCode),
-                            languageCode,
-                            // bug,
-                            addBug(
-                                    1217,
-                                    "<i>add new</i>",
-                                    "<email>",
-                                    "Add territory to "
-                                            + getLanguageName(languageCode)
-                                            + " ("
-                                            + languageCode
-                                            + ")",
-                                    "<territory, speaker population in territory, and references>"),
-                            "",
-                            0.0d,
-                            // 0.0d,
-                            // 0.0d,
-                            // 0.0d,
-                            // gdp
-                        };
-                data.add(items);
-            }
-            Comparable[][] flattened = data.toArray(new Comparable[data.size()][]);
+            Comparable<?>[][] flattened = data.toArray(new Comparable[data.size()][]);
             String value = tablePrinter.addRows(flattened).toTable();
             pw2.println(value);
             pw2.close();
             try (PrintWriter pw21plain =
                     FileUtilities.openUTF8Writer(ffw.getDir(), ffw.getBaseFileName() + ".txt")) {
-                for (Comparable[] row : plainData) {
+                for (Comparable<?>[] row : plainData) {
                     pw21plain.println(Joiner.on("\t").join(row));
                 }
             }
-        }
-
-        private String getLanguagePluralMessage(String msg, String languageCode) {
-            String mainLanguageCode = new LanguageTagParser().set(languageCode).getLanguage();
-            String messageWithPlurals =
-                    msg
-                            + ", on <a href='language_plural_rules.html#"
-                            + mainLanguageCode
-                            + "'>plurals</a>"
-                            + ", and on <a href='likely_subtags.html#"
-                            + mainLanguageCode
-                            + "'>likely-subtags</a>";
-            return messageWithPlurals;
         }
 
         private String getLanguageName(String languageCode) {
@@ -1679,24 +1629,24 @@ public class ShowLanguages {
                             "<a href=\"language_territory_information.html#{0}\">{0}</a>",
                             "class='target'",
                             false)
+                    .addColumn("Official Status", "class='target'", null, "class='target'", false)
                     .addColumn(
                             "Lang. Pop.",
                             "class='target'",
                             "{0,number,#,#@@}",
                             "class='targetRight'",
-                            true)
+                            false)
                     .addColumn(
                             "Pop.%",
-                            "class='target'", "{0,number,@@}%", "class='targetRight'", true)
+                            "class='target'", "{0,number,@@}%", "class='targetRight'", false)
                     .setSortAscending(false)
                     .setSortPriority(1)
                     .addColumn(
                             "Literacy%",
-                            "class='target'", "{0,number,@@}%", "class='targetRight'", true)
+                            "class='target'", "{0,number,#0.0}%", "class='targetRight'", true)
                     .addColumn(
                             "Written%",
-                            "class='target'", "{0,number,@@}%", "class='targetRight'", true)
-                    .addColumn("Report Bug", "class='target'", null, "class='target'", false);
+                            "class='target'", "{0,number,#0.0}%", "class='targetRight'", true);
 
             for (String territoryCode : supplementalDataInfo.getTerritoriesWithPopulationData()) {
                 String territoryName =
@@ -1713,9 +1663,11 @@ public class ShowLanguages {
                             supplementalDataInfo.getLanguageAndTerritoryPopulationData(
                                     languageCode, territoryCode);
                     double languagePopulationPercent =
-                            100 * languageData.getPopulation() / territoryData2.getPopulation();
-                    double languageliteracy = languageData.getLiteratePopulationPercent();
-                    double writingFrequency = languageData.getWritingPercent();
+                            100.0 * languageData.getPopulation() / territoryData2.getPopulation();
+                    double languageliteracy =
+                            Math.round(10.0 * languageData.getLiteratePopulationPercent()) / 10.0;
+                    double writingFrequency =
+                            Math.round(10.0 * languageData.getWritingPercent()) / 10.0;
 
                     tablePrinter
                             .addRow()
@@ -1723,57 +1675,15 @@ public class ShowLanguages {
                             .addCell(territoryName)
                             .addCell(territoryCode)
                             .addCell(territoryLiteracy)
-                            .addCell(
-                                    getLanguageName(languageCode)
-                                            + getOfficialStatus(territoryCode, languageCode))
+                            .addCell(getLanguageName(languageCode))
                             .addCell(languageCode)
+                            .addCell(getOfficialStatus(territoryCode, languageCode))
                             .addCell(languageData.getPopulation())
                             .addCell(languagePopulationPercent)
                             .addCell(languageliteracy)
                             .addCell(writingFrequency)
-                            .addCell(
-                                    addBug(
-                                            1217,
-                                            "<i>bug</i>",
-                                            "<email>",
-                                            "Fix info for "
-                                                    + getLanguageName(languageCode)
-                                                    + " ("
-                                                    + languageCode
-                                                    + ")"
-                                                    + " in "
-                                                    + territoryName
-                                                    + " ("
-                                                    + territoryCode
-                                                    + ")",
-                                            "<fixed data for territory, plus references>"))
                             .finishRow();
                 }
-
-                tablePrinter
-                        .addRow()
-                        .addCell(getFirstPrimaryWeight(territoryName))
-                        .addCell(territoryName)
-                        .addCell(territoryCode)
-                        .addCell(territoryLiteracy)
-                        .addCell(
-                                addBug(
-                                        1217,
-                                        "<i>add new</i>",
-                                        "<email>",
-                                        "Add language to "
-                                                + territoryName
-                                                + "("
-                                                + territoryCode
-                                                + ")",
-                                        "<language, speaker pop. and literacy in territory, plus references>"))
-                        .addCell("")
-                        .addCell(0.0d)
-                        .addCell(0.0d)
-                        .addCell(0.0d)
-                        .addCell(0.0d)
-                        .addCell("")
-                        .finishRow();
             }
             String value = tablePrinter.toTable();
             pw2.println(value);
@@ -1905,18 +1815,7 @@ public class ShowLanguages {
                     supplementalDataInfo.getLanguageAndTerritoryPopulationData(
                             languageCode, territoryCode);
             if (x == null || x.getOfficialStatus() == OfficialStatus.unknown) return "";
-            return " <span title='"
-                    + x.getOfficialStatus().toString().replace('_', ' ')
-                    + "'>{"
-                    + x.getOfficialStatus().toShortString()
-                    + "}</span>";
-        }
-
-        private String getRawOfficialStatus(String territoryCode, String languageCode) {
-            PopulationData x =
-                    supplementalDataInfo.getLanguageAndTerritoryPopulationData(
-                            languageCode, territoryCode);
-            if (x == null || x.getOfficialStatus() == OfficialStatus.unknown) return "";
+            // Change enum to string, replacing _ with space and converting to titlecase
             return x.getOfficialStatus().toString();
         }
 

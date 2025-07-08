@@ -1639,7 +1639,6 @@ public class PathHeader implements Comparable<PathHeader> {
                                                     "Region Format - Daylight")
                                             .put("gmtFormat", "GMT Format")
                                             .put("hourFormat", "GMT Hours/Minutes Format")
-                                            .put("gmtZeroFormat", "GMT Zero Format")
                                             .put("gmtUnknownFormat", "GMT Unknown Format")
                                             .put("fallbackFormat", "Location Fallback Format")
                                             .freeze();
@@ -1650,7 +1649,6 @@ public class PathHeader implements Comparable<PathHeader> {
                                             "regionFormat-daylight",
                                             "gmtFormat",
                                             "hourFormat",
-                                            "gmtZeroFormat",
                                             "gmtUnknownFormat",
                                             "fallbackFormat");
 

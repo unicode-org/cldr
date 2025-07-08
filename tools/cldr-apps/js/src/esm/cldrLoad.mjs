@@ -1009,6 +1009,7 @@ function myLoad(url, message, handler, postData, headers) {
 }
 
 function appendLocaleLink(subLocDiv, subLoc, subInfo, fullTitle) {
+  // Note: subLoc, etc., do not necessarily refer to sub-locales; they may also refer to top-level locales.
   let name = locmap.getRegionAndOrVariantName(subLoc);
   if (fullTitle) {
     name = locmap.getLocaleName(subLoc);
@@ -1018,7 +1019,7 @@ function appendLocaleLink(subLocDiv, subLoc, subInfo, fullTitle) {
     name = `${cldrText.get("scratch_locale")}: ${name}`;
   }
   const clickyLink = cldrDom.createChunk(name, "a", "locName");
-  clickyLink.href = linkToLocale(subLoc);
+  clickyLink.href = linkToLocaleOnly(subLoc);
   subLocDiv.appendChild(clickyLink);
   if (subInfo == null) {
     console.log("* internal: subInfo is null for " + name + " / " + subLoc);
@@ -1178,10 +1179,34 @@ function setLoading(loading) {
   isLoading = loading;
 }
 
-function linkToLocale(subLoc) {
+/**
+ * Return a hash for a link to the given locale, not including any page or row identifier
+ *
+ * @param {String} loc the locale ID
+ * @returns the URL hash
+ */
+function linkToLocaleOnly(loc) {
+  return "#/" + loc + "//";
+}
+
+/**
+ * Return a hash for a link to the given locale, possibly including page and/or row identifiers
+ * for the current page and/or row
+ *
+ * Caution: this function does not distinguish between different kinds of page or ID.
+ * For example, if the current ID is a user ID, a bogus URL may be generated in which
+ * a user ID appears where a row ID should be, resulting in an error message like
+ * "There was a problem loading data to display for aa//2785". There are at least
+ * three different kinds of ID: row, user, and forum post, which are insufficiently
+ * differentiated by functions like getCurrentId.
+ *
+ * @param {String} loc the locale ID
+ * @returns the URL hash
+ */
+function linkToLocale(loc) {
   return (
     "#/" +
-    subLoc +
+    loc +
     "/" +
     cldrStatus.getCurrentPage() +
     "/" +

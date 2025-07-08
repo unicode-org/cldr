@@ -17,12 +17,10 @@ import java.util.regex.Pattern;
 public class PathStarrer {
     public static final String STAR_PATTERN = "([^\"]*+)";
 
-    private String starredPathString;
     private final List<String> attributes = new ArrayList<>();
     private String substitutionPattern = STAR_PATTERN;
 
     private static final Pattern ATTRIBUTE_PATTERN_OLD = PatternCache.get("=\"([^\"]*)\"");
-    private final StringBuilder starredPathOld = new StringBuilder();
 
     private static final ConcurrentHashMap<String, String> STAR_CACHE = new ConcurrentHashMap<>();
 
@@ -50,8 +48,7 @@ public class PathStarrer {
                 parts.setAttribute(i, key, substitutionPattern);
             }
         }
-        starredPathString = parts.toString();
-        return starredPathString;
+        return parts.toString();
     }
 
     /**
@@ -70,13 +67,12 @@ public class PathStarrer {
                 }
             }
         }
-        starredPathString = parts.toString();
-        return starredPathString;
+        return parts.toString();
     }
 
     public String setOld(String path) {
         Matcher starAttributeMatcher = ATTRIBUTE_PATTERN_OLD.matcher(path);
-        starredPathOld.setLength(0);
+        StringBuilder starredPathOld = new StringBuilder();
         attributes.clear();
         int lastEnd = 0;
         while (starAttributeMatcher.find()) {
@@ -89,8 +85,7 @@ public class PathStarrer {
             lastEnd = end;
         }
         starredPathOld.append(path.substring(lastEnd));
-        starredPathString = starredPathOld.toString();
-        return starredPathString;
+        return starredPathOld.toString();
     }
 
     public String getAttributesString(String separator) {

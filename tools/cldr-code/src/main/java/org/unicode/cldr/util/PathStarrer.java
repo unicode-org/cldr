@@ -2,7 +2,6 @@ package org.unicode.cldr.util;
 
 import com.google.common.base.Joiner;
 import com.ibm.icu.impl.Utility;
-import com.ibm.icu.text.Transform;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -16,7 +15,7 @@ import java.util.regex.Pattern;
  *
  * @author markdavis
  */
-public class PathStarrer implements Transform<String, String> {
+public class PathStarrer {
     public static final String STAR_PATTERN = "([^\"]*+)";
 
     private String starredPathString;
@@ -46,7 +45,15 @@ public class PathStarrer implements Transform<String, String> {
 
     public String set(String path) {
         XPathParts parts = XPathParts.getFrozenInstance(path).cloneAsThawed();
-        return set(parts, Collections.emptySet());
+        attributes.clear();
+        for (int i = 0; i < parts.size(); ++i) {
+            for (String key : parts.getAttributeKeys(i)) {
+                attributes.add(parts.getAttributeValue(i, key));
+                parts.setAttribute(i, key, substitutionPattern);
+            }
+        }
+        starredPathString = parts.toString();
+        return starredPathString;
     }
 
     /**
@@ -55,7 +62,7 @@ public class PathStarrer implements Transform<String, String> {
      * @param parts
      * @return
      */
-    public String set(XPathParts parts, Set<String> skipAttributes) {
+    public String setSkippingAttributes(XPathParts parts, Set<String> skipAttributes) {
         attributes.clear();
         for (int i = 0; i < parts.size(); ++i) {
             for (String key : parts.getAttributeKeys(i)) {
@@ -100,18 +107,9 @@ public class PathStarrer implements Transform<String, String> {
         return starredPathString;
     }
 
-    public String getSubstitutionPattern() {
-        return substitutionPattern;
-    }
-
     public PathStarrer setSubstitutionPattern(String substitutionPattern) {
         this.substitutionPattern = substitutionPattern;
         return this;
-    }
-
-    @Override
-    public String transform(String source) {
-        return set(source);
     }
 
     // Used for coverage lookups - strips off the leading ^ and trailing $ from regexp pattern.

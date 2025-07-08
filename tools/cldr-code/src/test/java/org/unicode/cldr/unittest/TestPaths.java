@@ -450,7 +450,6 @@ public class TestPaths extends TestFmwkPlus {
     public void TestNonLdml() {
         int maxPerDirectory = getInclusion() <= 5 ? 20 : Integer.MAX_VALUE;
         CheckDeprecated checkDeprecated = new CheckDeprecated(this);
-        PathStarrer starrer = new PathStarrer();
         StringBuilder removed = new StringBuilder();
         Set<String> nonFinalValues = new LinkedHashSet<>();
         Set<String> skipLast = new HashSet(Arrays.asList("version", "generation"));
@@ -574,14 +573,14 @@ public class TestPaths extends TestFmwkPlus {
                         } else {
                             seen.add(pair);
                             if (!nonFinalValues.isEmpty()) {
-                                String starredPath = starrer.set(path);
+                                String starredPath = PathStarrer.computeIfAbsent(path);
                                 if (!seenStarred.contains(starredPath)) {
                                     seenStarred.add(starredPath);
                                     logln("Non-node values: " + nonFinalValues + "\t" + path);
                                 }
                             }
                             if (isVerbose()) {
-                                String starredPath = starrer.set(path);
+                                String starredPath = PathStarrer.computeIfAbsent(path);
                                 if (!seenStarred.contains(starredPath)) {
                                     seenStarred.add(starredPath);
                                     logln("@" + "\t" + cleaned + "\t" + removed);

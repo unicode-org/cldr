@@ -1033,8 +1033,27 @@ public class TestExampleGenerator extends TestFmwk {
                     String simplified = ExampleGenerator.simplify(text, false);
                     // redo for debugging
                     text = exampleGenerator.getExampleHtml(xpath, value);
+                    XPathParts parts = XPathParts.getFrozenInstance(xpath);
+                    // expecting something like:
+                    // ldml/numbers/currencyFormats[@numberSystem="latn"]/currencyFormatLength[@type="short"]/currencyFormat[@type="standard"]/pattern[@type="1000"][@count="one"]
                     skipLog =
-                            !assertEquals("Example text for «" + value + "»", expected, simplified);
+                            // match the order and operands in checkCompact to make
+                            // debugging easier.
+                            // ("de", CChoice.decimal, Count.other, "short", "1000", "〖❬2❭ Mio.〗");
+                            !assertEquals(
+                                    "Example text for "
+                                            + Joiners.COMMA_SP.join(
+                                                    parts.getElement(4), // decimal vs currency
+                                                    parts.getAttributeValue(
+                                                            -1, "count"), // plural form
+                                                    parts.getAttributeValue(
+                                                            3, "type"), // short vs long
+                                                    parts.getAttributeValue(
+                                                            -1,
+                                                            "type"), // 1000..00 compact category
+                                                    "«" + value + "»"),
+                                    expected,
+                                    simplified);
                 }
                 if (!skipLog) {
                     logln("getExampleHtml\t" + text + "\t" + xpath);
@@ -1062,23 +1081,71 @@ public class TestExampleGenerator extends TestFmwk {
         }
     }
 
-    public void TestCompactPlurals() {
-        checkCompactExampleFor("de", Count.one, "〖❬1❭ Mio. €〗", "short", "currency", "000000");
-        checkCompactExampleFor("de", Count.other, "〖❬2❭ Mio. €〗", "short", "currency", "000000");
-        checkCompactExampleFor("de", Count.one, "〖❬12❭ Mio. €〗", "short", "currency", "0000000");
-        checkCompactExampleFor("de", Count.other, "〖❬10❭ Mio. €〗", "short", "currency", "0000000");
-
-        checkCompactExampleFor("cs", Count.many, "〖❬1,1❭ milionu〗", "long", "decimal", "000000");
-        checkCompactExampleFor("pl", Count.other, "〖❬1,1❭ miliona〗", "long", "decimal", "000000");
+    enum CChoice {
+        decimal,
+        currency
     }
 
-    private void checkCompactExampleFor(
+    public void TestCompactPlurals() {
+
+        // German is an example of a language that doesn't translate short values below a million
+
+        // Currency (has no long form)
+        // For German there is no number that has plural category 'one' until we hit a million. But
+        // from 10-99 million, also none
+        checkCompact("de", CChoice.currency, Count.one, "short", "1000", "〖❬0.000❭ €〗");
+        checkCompact("de", CChoice.currency, Count.one, "short", "10000", "〖❬00.000❭ €〗");
+        checkCompact("de", CChoice.currency, Count.one, "short", "100000", "〖❬000.000❭ €〗");
+        checkCompact("de", CChoice.currency, Count.one, "short", "1000000", "〖❬1❭ Mio. €〗");
+        checkCompact("de", CChoice.currency, Count.one, "short", "10000000", "〖❬00❭ Mio. €〗");
+
+        checkCompact("de", CChoice.currency, Count.other, "short", "1000", "〖❬1.000❭ €〗");
+        checkCompact("de", CChoice.currency, Count.other, "short", "10000", "〖❬10.000❭ €〗");
+        checkCompact("de", CChoice.currency, Count.other, "short", "100000", "〖❬100.000❭ €〗");
+        checkCompact("de", CChoice.currency, Count.other, "short", "1000000", "〖❬2❭ Mio. €〗");
+        checkCompact("de", CChoice.currency, Count.other, "short", "10000000", "〖❬10❭ Mio. €〗");
+
+        // Decimal short
+        checkCompact("de", CChoice.decimal, Count.one, "short", "1000", "〖❬0.000❭〗");
+        checkCompact("de", CChoice.decimal, Count.one, "short", "10000", "〖❬00.000❭〗");
+        checkCompact("de", CChoice.decimal, Count.one, "short", "100000", "〖❬000.000❭〗");
+        checkCompact("de", CChoice.decimal, Count.one, "short", "1000000", "〖❬1❭ Mio.〗");
+        checkCompact("de", CChoice.decimal, Count.one, "short", "10000000", "〖❬00❭ Mio.〗");
+
+        checkCompact("de", CChoice.decimal, Count.other, "short", "1000", "〖❬1.000❭〗");
+        checkCompact("de", CChoice.decimal, Count.other, "short", "10000", "〖❬10.000❭〗");
+        checkCompact("de", CChoice.decimal, Count.other, "short", "100000", "〖❬100.000❭〗");
+        checkCompact("de", CChoice.decimal, Count.other, "short", "1000000", "〖❬2❭ Mio.〗");
+        checkCompact("de", CChoice.decimal, Count.other, "short", "10000000", "〖❬10❭ Mio.〗");
+
+        // Decimal long
+        // But the long forms can have plural category one
+
+        checkCompact("de", CChoice.decimal, Count.one, "short", "1000", "〖❬0.000❭〗");
+        checkCompact("de", CChoice.decimal, Count.one, "short", "10000", "〖❬00.000❭〗");
+        checkCompact("de", CChoice.decimal, Count.one, "short", "100000", "〖❬000.000❭〗");
+        checkCompact("de", CChoice.decimal, Count.one, "short", "1000000", "〖❬1❭ Mio.〗");
+        checkCompact("de", CChoice.decimal, Count.one, "short", "10000000", "〖❬00❭ Mio.〗");
+
+        checkCompact("de", CChoice.decimal, Count.other, "short", "1000", "〖❬1.000❭〗");
+        checkCompact("de", CChoice.decimal, Count.other, "short", "10000", "〖❬10.000❭〗");
+        checkCompact("de", CChoice.decimal, Count.other, "short", "100000", "〖❬100.000❭〗");
+        checkCompact("de", CChoice.decimal, Count.other, "short", "1000000", "〖❬2❭ Mio.〗");
+        checkCompact("de", CChoice.decimal, Count.other, "short", "10000000", "〖❬10❭ Mio.〗");
+
+        // Also check some languages with more complicated plurals
+
+        checkCompact("cs", CChoice.decimal, Count.many, "long", "1000000", "〖❬1,1❭ milionu〗");
+        checkCompact("pl", CChoice.decimal, Count.other, "long", "1000000", "〖❬1,1❭ miliona〗");
+    }
+
+    private void checkCompact(
             String localeID,
+            CChoice decimalVsCurrency,
             Count many,
-            String expected,
             String longVsShort,
-            String decimalVsCurrency,
-            String zeros) {
+            String zeros,
+            String expected) {
         CLDRFile cldrFile = info.getCLDRFile(localeID, true);
         ExampleGenerator exampleGenerator = new ExampleGenerator(cldrFile, info.getEnglish());
         String path =
@@ -1093,7 +1160,7 @@ public class TestExampleGenerator extends TestFmwk {
                         + "/"
                         + decimalVsCurrency
                         + "Format[@type=\"standard\"]"
-                        + "/pattern[@type=\"1"
+                        + "/pattern[@type=\""
                         + zeros
                         + "\"][@count=\""
                         + many

@@ -1560,11 +1560,7 @@ public class WebContext implements Cloneable, Appendable {
 
     public static PageId getPageId(String pageField) {
         if (pageField != null && !pageField.isEmpty()) {
-            try {
-                return PathHeader.PageId.forString(pageField);
-            } catch (Exception e) {
-                // ignore.
-            }
+            return PathHeader.PageId.fromString(pageField);
         }
         return null;
     }

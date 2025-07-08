@@ -84,10 +84,7 @@ function makeSafe(s) {
 
 async function getInitialMenusEtc() {
   const theLocale = cldrStatus.getCurrentLocale() || "root";
-  const xurl = getMenusAjaxUrl(
-    theLocale,
-    false /* do not fetch locale map here */
-  );
+  const xurl = getMenusAjaxUrl(theLocale, true /* fetch canmodify here */);
   await fetch(xurl)
     .then(cldrAjax.handleFetchErrors)
     .then((r) => r.json())
@@ -349,7 +346,7 @@ function getMenusFromServer() {
   if (!curLocale) {
     return;
   }
-  const url = getMenusAjaxUrl(curLocale, false /* do not get locmap */);
+  const url = getMenusAjaxUrl(curLocale, false /* do not get canmodify */);
   cldrLoad.myLoad(url, "menus", function (json) {
     if (!cldrLoad.verifyJson(json, "menus")) {
       console.log("JSON verification failed for menus in cldrLoad");
@@ -506,9 +503,11 @@ function updateTitleAndSection(menuMap) {
 }
 
 /**
- * TODO: document and encapsulate "canmodify"
+ * Store the locales that the current user has permission to modify.
+ * This affects whether they are treated as "read-only" in the left-sidebar
+ * locale selection menu.
  */
-let canmodify = {};
+const canmodify = {};
 
 function setupCanModify(json) {
   if (json.canmodify) {
@@ -530,11 +529,11 @@ function getCoverageMenu() {
   return coverageMenu;
 }
 
-function getMenusAjaxUrl(locale, getLocmap) {
+function getMenusAjaxUrl(locale, getCanModify) {
   const p = new URLSearchParams();
   p.append("what", "menus"); // cf. WHAT_GET_MENUS in SurveyAjax.java
   p.append("_", locale);
-  p.append("locmap", !!getLocmap);
+  p.append("canmodify", !!getCanModify);
   p.append("s", cldrStatus.getSessionId());
   p.append("cacheKill", cldrSurvey.cacheBuster());
   return cldrAjax.makeUrl(p);

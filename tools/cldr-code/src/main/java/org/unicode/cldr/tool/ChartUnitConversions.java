@@ -92,7 +92,6 @@ public class ChartUnitConversions extends Chart {
                                 CldrUtility.getDoubleLinkMsg(),
                                 "class='source'",
                                 true)
-                        .setRepeatHeader(true)
                         .setBreakSpans(true)
                         .addColumn("Target", "class='source'", null, "class='source'", true)
                         .addColumn("Systems", "class='source'", null, "class='source'", true)

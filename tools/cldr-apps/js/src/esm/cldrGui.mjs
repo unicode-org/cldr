@@ -72,6 +72,7 @@ async function initialSetup() {
     cldrLocales.fetchMap(),
     cldrEscaperLoader.updateEscaperFromServer(),
   ]);
+  await cldrSurvey.fetchInitialStatus();
   // This needs to be done before initial menus.
   cldrLoad.parseHashAndUpdate(cldrLoad.getHash());
   await cldrMenu.getInitialMenusEtc(); // Note: also kicks off auto import

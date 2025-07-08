@@ -117,6 +117,7 @@ public class SurveyAjax extends HttpServlet {
     public static final String WHAT_ADMIN_PANEL = "admin_panel"; // cldrAdmin.js
     public static final String WHAT_RECENT_ACTIVITY = "recent_activity"; // cldrRecentActivity.js
     public static final String WHAT_ERROR_SUBTYPES = "error_subtypes"; // cldrErrorSubtyes.js
+    private static final String WHAT_LOCALE_MAP = "locmap";
 
     public static final int oldestVersionForImportingVotes =
             25; // Oldest table is cldr_vote_value_25, as of 2018-05-23.
@@ -515,18 +516,9 @@ public class SurveyAjax extends HttpServlet {
                             new SurveyBulkClosePosts(sm, execute).getJson(r);
                         }
                         send(r, out);
-                    } else if (what.equals(WHAT_FORUM_COUNT)) {
-                        mySession.userDidAction();
-                        SurveyJSONWrapper r = newJSONStatus(request, sm);
-                        r.put("what", what);
-                        CLDRLocale locale = CLDRLocale.getInstance(loc);
-                        int id = Integer.parseInt(xpath);
-                        r.put(what, sm.fora.postCountFor(locale, id));
-                        send(r, out);
-                    } else if (what.equals(WHAT_FORUM_FETCH)) {
+                    } else if (what.equals(WHAT_FORUM_COUNT) || what.equals(WHAT_FORUM_FETCH)) {
                         SurveyJSONWrapper r = newJSONStatus(request, sm);
                         CLDRLocale locale = CLDRLocale.getInstance(loc);
-                        int id = Integer.parseInt(xpath);
                         if (mySession.user == null) {
                             r.put("err", "Not logged in.");
                             r.put("err_code", ErrorCode.E_NOT_LOGGED_IN.name());
@@ -536,9 +528,14 @@ public class SurveyAjax extends HttpServlet {
                         } else {
                             mySession.userDidAction();
                             r.put("what", what);
-                            r.put("loc", loc);
-                            r.put("xpath", xpath);
-                            r.put("ret", sm.fora.toJSON(mySession, locale, id, 0));
+                            int id = Integer.parseInt(xpath);
+                            if (what.equals(WHAT_FORUM_COUNT)) {
+                                r.put(what, sm.fora.postCountFor(locale, id));
+                            } else { // WHAT_FORUM_FETCH
+                                r.put("loc", loc);
+                                r.put("xpath", xpath);
+                                r.put("ret", sm.fora.toJSON(mySession, locale, id, 0));
+                            }
                         }
                         send(r, out);
                     } else if (what.equals(WHAT_FORUM_POST)) {
@@ -604,20 +601,18 @@ public class SurveyAjax extends HttpServlet {
                             r.put("reports", reports);
                         }
 
-                        if ("true".equals(request.getParameter("locmap"))) {
-                            r.put("locmap", getJSONLocMap(sm));
-
-                            // list of modifyable locales
-                            JSONArray modifyableLocs = new JSONArray();
+                        if ("true".equals(request.getParameter("canmodify"))) {
+                            // list of modifiable locales
+                            JSONArray modifiableLocs = new JSONArray();
                             Set<CLDRLocale> rolocs = SurveyMain.getReadOnlyLocales();
                             for (CLDRLocale al : SurveyMain.getLocales()) {
                                 if (rolocs.contains(al)) continue;
                                 if (UserRegistry.userCanModifyLocale(mySession.user, al)) {
-                                    modifyableLocs.put(al.getBaseName());
+                                    modifiableLocs.put(al.getBaseName());
                                 }
                             }
-                            if (modifyableLocs.length() > 0) {
-                                r.put("canmodify", modifyableLocs);
+                            if (modifiableLocs.length() > 0) {
+                                r.put("canmodify", modifiableLocs);
                             }
                             /*
                              * If this user's old winning votes can be imported, and haven't already been imported,
@@ -771,7 +766,7 @@ public class SurveyAjax extends HttpServlet {
                                 ErrorCode.E_INTERNAL);
                     }
                 }
-            } else if (what.equals("locmap")) {
+            } else if (what.equals(WHAT_LOCALE_MAP)) {
                 final SurveyJSONWrapper r = newJSONStatusQuick();
                 r.put("locmap", getJSONLocMap(sm));
                 send(r, out);
@@ -2793,8 +2788,7 @@ public class SurveyAjax extends HttpServlet {
                             }
                         }
                         CheckCLDR.StatusAction status =
-                                cPhase.getAcceptNewItemAction(
-                                        ci, pvi, CheckCLDR.InputMethod.BULK, ph, cs.user);
+                                cPhase.getAcceptNewItemAction(ci, pvi, ph, cs.user);
 
                         if (status != CheckCLDR.StatusAction.ALLOW) {
                             result = "Item will be skipped. (" + status + ")";

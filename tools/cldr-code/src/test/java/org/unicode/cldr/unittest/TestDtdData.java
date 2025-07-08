@@ -509,6 +509,7 @@ public class TestDtdData extends TestFmwk {
                                     "variable",
 
                                     // <rulesetGrouping> children
+                                    "rbnfRules",
                                     "ruleset",
 
                                     // <ruleset> children

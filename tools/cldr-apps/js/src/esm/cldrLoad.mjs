@@ -668,7 +668,22 @@ function unspecialLoad(itemLoadInfo, theDiv) {
         if (CLDR_LOAD_DEBUG) {
           console.log("cldrLoad.unspecialLoad: running loadAllRows");
         }
-        loadAllRows(itemLoadInfo, theDiv);
+        loadAllRows(itemLoadInfo, theDiv).catch((err) => {
+          isLoading = false;
+          cldrNotify.openWithHtml(
+            "Error loading rows",
+            `While trying to load ${curLocale || ""}/${curPage || ""}/${
+              curId || ""
+            }<br>
+            <br>
+            ${err.message || ""}
+            <br>
+            ${cldrText.get("E_SESSION_DISCONNECTED")}
+            <br>
+            <button onclick='window.location.reload()'>Reload</button>`,
+            err
+          );
+        });
       } else if (CLDR_LOAD_DEBUG) {
         console.log(
           "cldrLoad.unspecialLoad: skipping loadAllRows because input is busy"
@@ -763,7 +778,6 @@ function getSpecial(str) {
     oldvotes: cldrOldVotes,
     recent_activity: cldrRecentActivity,
     retry: cldrRetry,
-    vetting_participation: cldrVettingParticipation,
   };
   if (str in specials) {
     return specials[str];
@@ -799,7 +813,7 @@ function loadExclamationPoint() {
   isLoading = false;
 }
 
-function loadAllRows(itemLoadInfo, theDiv) {
+async function loadAllRows(itemLoadInfo, theDiv) {
   const curId = cldrStatus.getCurrentId();
   const curPage = cldrStatus.getCurrentPage();
   const curLocale = cldrStatus.getCurrentLocale();
@@ -814,15 +828,12 @@ function loadAllRows(itemLoadInfo, theDiv) {
   if (CLDR_LOAD_DEBUG) {
     console.log("cldrLoad.loadAllRows sending request");
   }
-  cldrAjax
-    .doFetch(url)
-    .then((response) => response.json())
-    .then((json) => loadAllRowsFromJson(json, theDiv))
-    .catch((err) => {
-      console.error(err);
-      isLoading = false;
-      cldrNotify.exception(err, "loading rows");
-    });
+  const response = await cldrAjax.doFetch(url);
+  if (!response.ok) {
+    throw Error(`HTTP Status: ${response.status} ${response.statusText}`);
+  }
+  const json = await response.json();
+  loadAllRowsFromJson(json, theDiv);
 }
 
 function loadAllRowsFromJson(json, theDiv) {

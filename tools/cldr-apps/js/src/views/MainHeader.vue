@@ -3,14 +3,20 @@
     <a-spin v-if="!loaded" :delay="250" />
     <ul>
       <li>
-        {{ stVersion }} {{ stPhase }}
-        <span
+        {{ stVersion }}
+        <a
+          href="https://cldr.unicode.org/translation/getting-started/survey-tool-phases"
+          _target="CLDR_ST_DOCS"
+        >
+          {{ stPhase }}
+        </a>
+        <!-- <span
           class="extendedException"
           v-if="extendedException"
           title="Note: This phase has been extended for this locale."
         >
           (extended)
-        </span>
+        </span> -->
       </li>
       <li>
         <a href="#menu///"><span class="main-menu-icon">☰</span></a>
@@ -189,9 +195,22 @@ export default {
       this.specialHeader = cldrStatus.getSpecialHeader();
       this.stVersion = "Survey Tool " + cldrStatus.getNewVersion();
       this.extendedException = cldrLoad.getLocaleInfo(loc)?.extended;
-      if (!loc || !this.extendedException) {
+      if (!loc) {
+        if (
+          cldrStatus.getExtendedPhase() &&
+          cldrStatus.getExtendedPhase() != cldrStatus.getPhase()
+        ) {
+          // VETTING/SUBMIT etc.
+          this.stPhase = `${cldrStatus.getPhase()}/${cldrStatus.getExtendedPhase()}`;
+        } else {
+          // single phase
+          this.stPhase = cldrStatus.getPhase();
+        }
+      } else if (!this.extendedException) {
+        // no exception, just one phase
         this.stPhase = cldrStatus.getPhase();
       } else if (this.extendedException) {
+        // we've got an exception
         this.stPhase = cldrStatus.getExtendedPhase();
       }
       cldrAnnounce.getUnreadCount(this.setUnreadCount);

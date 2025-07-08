@@ -2,6 +2,7 @@
  * cldrVote: encapsulate Survey Tool voting interface
  */
 import * as cldrAjax from "./cldrAjax.mjs";
+import * as cldrConstants from "./cldrConstants.mjs";
 import * as cldrDom from "./cldrDom.mjs";
 import * as cldrEvent from "./cldrEvent.mjs";
 import * as cldrInfo from "./cldrInfo.mjs";
@@ -132,18 +133,30 @@ async function handleWiredClick(tr, theRow, vHash, newValue, button) {
   tr.className = "tr_checking1";
   oneMorePendingVote();
   try {
-    const response = await cldrAjax.doFetch(ourUrl, init);
-    /*
-     * Restore tr.className, so it stops being 'tr_checking1' immediately on receiving
-     * any response. It may change again below to 'tr_err' or 'tr_checking2'.
-     */
-    tr.className = originalTrClassName;
-    if (response.ok) {
-      const json = await response.json();
-      handleVoteOk(json, tr, theRow, button, valToShow);
+    if (newValue == cldrConstants.VOTE_FOR_MISSING) {
+      const response = await cldrAjax.doFetch(ourUrl, {
+        method: "DELETE",
+      });
+      if (response.ok && response.status === 204) {
+        handleVoteOk({ didVote: true }, tr, theRow, button, "");
+      } else {
+        const message = "Server response: " + response.statusText;
+        handleVoteErr(tr, message, button);
+      }
     } else {
-      const message = "Server response: " + response.statusText;
-      handleVoteErr(tr, message, button);
+      const response = await cldrAjax.doFetch(ourUrl, init);
+      /*
+       * Restore tr.className, so it stops being 'tr_checking1' immediately on receiving
+       * any response. It may change again below to 'tr_err' or 'tr_checking2'.
+       */
+      tr.className = originalTrClassName;
+      if (response.ok) {
+        const json = await response.json();
+        handleVoteOk(json, tr, theRow, button, valToShow);
+      } else {
+        const message = "Server response: " + response.statusText;
+        handleVoteErr(tr, message, button);
+      }
     }
   } catch (e) {
     const message = e.name + " - " + e.message;

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
-Copyright © 1991-2013 Unicode, Inc.
+Copyright © 1991-2025 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -12,6 +12,96 @@ For terms of use, see http://www.unicode.org/copyright.html
     </identity>
     <rbnf>
         <rulesetGrouping type="SpelloutRules">
+            <rbnfRules><![CDATA[
+%spellout-numbering-year:
+x.x: =0.0=;
+0: =%spellout-numbering=;
+%spellout-numbering:
+0: =%spellout-cardinal-masculine=;
+%spellout-cardinal-masculine:
+-x: минус >>;
+x.x: << кома >>;
+0: нула;
+1: еден;
+2: два;
+3: три;
+4: четири;
+5: пет;
+6: шест;
+7: седум;
+8: осум;
+9: девет;
+10: десет;
+11: единаесет;
+12: дванаесет;
+13: тринаесет;
+14: четиринаесет;
+15: петнаесет;
+16: шеснаесет;
+17: седумнаесет;
+18: осумнаесет;
+19: деветнаесет;
+20: дваесет[ и >>];
+30: триесет[ и >>];
+40: четириесет[ и >>];
+50: педесет[ и >>];
+60: шеесет[ и >>];
+70: седумдесет[ и >>];
+80: осумдесет[ и >>];
+90: деведесет[ и >>];
+100: <%spellout-cardinal-feminine<сто[ >>];
+1000: <%spellout-cardinal-feminine< илјада[ >>];
+1000000: <%spellout-cardinal-masculine< милион[ >>];
+1000000000: <%spellout-cardinal-masculine< милијарда[ >>];
+1000000000000: <%spellout-cardinal-masculine< билион[ >>];
+1000000000000000: <%spellout-cardinal-masculine< билијарда[ >>];
+1000000000000000000: =#,##0=;
+%spellout-cardinal-neuter:
+-x: минус >>;
+x.x: << кома >>;
+0: нула;
+1: едно;
+2: два;
+3: =%spellout-cardinal-masculine=;
+20: дваесет[ и >>];
+30: триесет[ и >>];
+40: четириесет[ и >>];
+50: педесет[ и >>];
+60: шеесет[ и >>];
+70: седумдесет[ и >>];
+80: осумдесет[ и >>];
+90: деведесет[ и >>];
+100: <%spellout-cardinal-feminine<сто[ >>];
+1000: <%spellout-cardinal-feminine< илјада[ >>];
+1000000: <%spellout-cardinal-masculine< милион[ >>];
+1000000000: <%spellout-cardinal-masculine< милијарда[ >>];
+1000000000000: <%spellout-cardinal-masculine< билион[ >>];
+1000000000000000: <%spellout-cardinal-masculine< билијарда[ >>];
+1000000000000000000: =#,##0=;
+%spellout-cardinal-feminine:
+-x: минус >>;
+x.x: << кома >>;
+0: нула;
+1: една;
+2: две;
+3: =%spellout-cardinal-masculine=;
+20: дваесет[ и >>];
+30: триесет[ и >>];
+40: четириесет[ и >>];
+50: педесет[ и >>];
+60: шеесет[ и >>];
+70: седумдесет[ и >>];
+80: осумдесет[ и >>];
+90: деведесет[ и >>];
+100: <%spellout-cardinal-feminine<сто[ >>];
+1000: <%spellout-cardinal-feminine< илјада[ >>];
+1000000: <%spellout-cardinal-masculine< милион[ >>];
+1000000000: <%spellout-cardinal-masculine< милијарда[ >>];
+1000000000000: <%spellout-cardinal-masculine< билион[ >>];
+1000000000000000: <%spellout-cardinal-masculine< билијарда[ >>];
+1000000000000000000: =#,##0=;
+]]></rbnfRules>
+            <!-- The following redundant ruleset elements have been deprecated and will be removed in the next release. Please use the rbnfRules contents instead. -->
             <ruleset type="spellout-numbering-year">
                 <rbnfrule value="x.x">=0.0=;</rbnfrule>
                 <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>

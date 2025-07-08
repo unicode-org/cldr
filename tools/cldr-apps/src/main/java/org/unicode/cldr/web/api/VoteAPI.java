@@ -125,7 +125,7 @@ public class VoteAPI {
                     @PathParam("page")
                     String page,
             @QueryParam("xpstrid")
-                    @Schema(description = "Xpath string ID if page is auto")
+                    @Schema(description = "Xpath string ID if page is auto or invalid")
                     @DefaultValue("")
                     String xpstrid,
             @HeaderParam(Auth.SESSION_HEADER) String session) {
@@ -137,6 +137,9 @@ public class VoteAPI {
          *    https://cldr-smoke.unicode.org/cldr-apps/v#/zh_Hant//2703e9d07ab2ef3a
          * can be used instead of
          *    https://cldr-smoke.unicode.org/cldr-apps/v#/zh_Hant/Alphabetic_Information/2703e9d07ab2ef3a
+         *
+         * It also enables determining the correct page name if the given page name is invalid or
+         * obsolete but xpstrid is still valid, as sometimes happens with an old bookmarked URL.
          */
         return VoteAPIHelper.handleGetOnePage(loc, session, page, xpstrid);
     }
@@ -162,7 +165,7 @@ public class VoteAPI {
         public List<CheckStatusSummary> tests = new ArrayList<>();
 
         // we only want to store one example for each subtype.
-        private Set<CheckStatus.Subtype> allSubtypes = new HashSet<>();
+        private final Set<CheckStatus.Subtype> allSubtypes = new HashSet<>();
 
         boolean isEmpty() {
             return tests.isEmpty();
@@ -201,6 +204,9 @@ public class VoteAPI {
 
                 @Schema(description = "1-dimensional array of value, vote, value, vote…")
                 public Object[] value_vote;
+
+                @Schema(description = "list of user ids who voted for missing")
+                public Integer[] votesForMissing;
 
                 public boolean valueIsLocked;
             }
@@ -285,6 +291,61 @@ public class VoteAPI {
         public void setOneRowPath(String xpstrid) {
             this.xpstrid = xpstrid;
         }
+    }
+
+    @DELETE
+    @Path("/{locale}/row/{xpstrid}")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Operation(summary = "Vote for missing (remove path)", description = "Vote for a missing path")
+    @APIResponses(
+            value = {
+                @APIResponse(responseCode = "204", description = "voted for missing"),
+                @APIResponse(
+                        responseCode = "401",
+                        description = "Authorization required, send a valid session id"),
+                @APIResponse(
+                        responseCode = "403",
+                        description =
+                                "Forbidden, no access to make this vote (also used when CLA not signed)"),
+                @APIResponse(
+                        responseCode = "500",
+                        description = "Internal Server Error",
+                        content =
+                                @Content(
+                                        mediaType = "application/json",
+                                        schema = @Schema(implementation = STError.class))),
+            })
+    public Response voteForMissing(
+            @Parameter(required = true, example = "br", schema = @Schema(type = SchemaType.STRING))
+                    @PathParam("locale")
+                    String loc,
+            @Parameter(
+                            required = true,
+                            example = "132345490064d839",
+                            schema = @Schema(type = SchemaType.STRING))
+                    @PathParam("xpstrid")
+                    String xpstrid,
+            @HeaderParam(Auth.SESSION_HEADER) String session) {
+        // Verify session
+        final CookieSession mySession = Auth.getSession(session);
+        if (mySession == null) {
+            return Auth.noSessionResponse();
+        }
+        final String xp = CookieSession.sm.xpt.getByStringID(xpstrid);
+        if (xp == null) {
+            return Response.status(Response.Status.NOT_FOUND).build(); // no XPath found
+        }
+        if (!mySession.user.claSigned) {
+            return Response.status(
+                            Response.Status.FORBIDDEN.getStatusCode(),
+                            ModifyDenial.DENY_CLA_NOT_SIGNED.getReason())
+                    .build();
+        }
+        if (!mySession.user.getLevel().canVoteForMissing()) {
+            return Response.status(403).build();
+        }
+        return VoteAPIHelper.handleVoteForMissing( // todo
+                loc, xp, null, mySession, true /* forbiddenIsOk */);
     }
 
     @POST

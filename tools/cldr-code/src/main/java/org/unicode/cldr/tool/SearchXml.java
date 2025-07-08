@@ -67,7 +67,6 @@ public class SearchXml {
     private static Counter<String> kountRegexMatches;
     private static Counter<String> starCounter;
     private static final Set<String> ERRORS = new LinkedHashSet<>();
-    private static final PathStarrer pathStarrer = new PathStarrer();
     private static PathHeader.Factory PATH_HEADER_FACTORY = null;
 
     static final Options myOptions =
@@ -468,7 +467,7 @@ public class SearchXml {
                     }
 
                     if (starCounter != null) {
-                        starCounter.add(pathStarrer.set(path), 1);
+                        starCounter.add(PathStarrer.computeIfAbsent(path), 1);
                     }
                     ++total;
 

@@ -52,7 +52,18 @@ public class ExampleCache {
      */
     private static final String NONE = "\uFFFF";
 
-    /** The nested cache mapping is: starredPath → (starlessPath → (value → html)). */
+    /**
+     * The nested cache mapping is: starredPath → (starlessPath → (value → html)).
+     *
+     * <p>PathStarrer is used for getting starredPath from an ordinary (starless) path. Inclusion of
+     * starred paths enables performance improvement with AVOID_CLEARING_CACHE.
+     *
+     * <p>starredPath is the key for the highest level of the nested cache.
+     *
+     * <p>Compare starred "//ldml/localeDisplayNames/languages/language[@type=\"*\"]" with starless
+     * "//ldml/localeDisplayNames/languages/language[@type=\"aa\"]". There are fewer starred paths
+     * than starless paths. ExampleDependencies.dependencies has starred paths for that reason.
+     */
     private final ThreadSafeMapOfMapOfMap<String, String, String, String> cache =
             new ThreadSafeMapOfMapOfMap<>();
 
@@ -83,18 +94,6 @@ public class ExampleCache {
             return clearableCache;
         }
     }
-
-    /**
-     * The PathStarrer is for getting starredPath from an ordinary (starless) path. Inclusion of
-     * starred paths enables performance improvement with AVOID_CLEARING_CACHE.
-     *
-     * <p>starredPath is the key for the highest level of the nested cache.
-     *
-     * <p>Compare starred "//ldml/localeDisplayNames/languages/language[@type=\"*\"]" with starless
-     * "//ldml/localeDisplayNames/languages/language[@type=\"aa\"]". There are fewer starred paths
-     * than starless paths. ExampleDependencies.dependencies has starred paths for that reason.
-     */
-    private final PathStarrer pathStarrer = new PathStarrer().setSubstitutionPattern("*");
 
     /**
      * For testing, caching can be disabled for some ExampleCaches while still enabled for others.

@@ -678,7 +678,6 @@ public class TestPathHeader extends TestFmwkPlus {
 
     public void TestStatus() {
         CLDRFile nativeFile = info.getEnglish();
-        PathStarrer starrer = new PathStarrer();
         EnumMap<SurveyToolStatus, Relation<String, String>> info2 =
                 new EnumMap<>(SurveyToolStatus.class);
         Set<String> nuked = new HashSet<>();
@@ -694,8 +693,8 @@ public class TestPathHeader extends TestFmwkPlus {
                 errln("SurveyToolStatus should not be " + surveyToolStatus + ": " + p);
             }
 
-            String starred = starrer.set(path);
-            List<String> attr = starrer.getAttributes();
+            String starred = PathStarrer.computeIfAbsent(path);
+
             if (surveyToolStatus != SurveyToolStatus.READ_WRITE) {
                 nuked.add(starred);
             }
@@ -721,6 +720,7 @@ public class TestPathHeader extends TestFmwkPlus {
                         surveyToolStatus,
                         data = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class));
             }
+            List<String> attr = XPathParts.getPathAttributes(path);
             data.put(starred, Joiner.on("|").join(attr));
         }
         for (Entry<SurveyToolStatus, Relation<String, String>> entry : info2.entrySet()) {

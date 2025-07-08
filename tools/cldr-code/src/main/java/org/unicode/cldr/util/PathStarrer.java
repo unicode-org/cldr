@@ -3,7 +3,6 @@ package org.unicode.cldr.util;
 import com.google.common.base.Joiner;
 import com.ibm.icu.impl.Utility;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
@@ -20,7 +19,6 @@ public class PathStarrer {
 
     private String starredPathString;
     private final List<String> attributes = new ArrayList<>();
-    private final List<String> protectedAttributes = Collections.unmodifiableList(attributes);
     private String substitutionPattern = STAR_PATTERN;
 
     private static final Pattern ATTRIBUTE_PATTERN_OLD = PatternCache.get("=\"([^\"]*)\"");
@@ -84,7 +82,7 @@ public class PathStarrer {
         while (starAttributeMatcher.find()) {
             int start = starAttributeMatcher.start(1);
             int end = starAttributeMatcher.end(1);
-            starredPathOld.append(path.substring(lastEnd, start));
+            starredPathOld.append(path, lastEnd, start);
             starredPathOld.append(substitutionPattern);
 
             attributes.add(path.substring(start, end));
@@ -95,16 +93,8 @@ public class PathStarrer {
         return starredPathString;
     }
 
-    public List<String> getAttributes() {
-        return protectedAttributes;
-    }
-
     public String getAttributesString(String separator) {
         return Joiner.on(separator).join(attributes);
-    }
-
-    public String getResult() {
-        return starredPathString;
     }
 
     public PathStarrer setSubstitutionPattern(String substitutionPattern) {
@@ -118,10 +108,6 @@ public class PathStarrer {
         if (result.startsWith("^") && result.endsWith("$")) {
             result = result.substring(1, result.length() - 1);
         }
-        // System.out.println("Path in  => "+source);
-        // System.out.println("Path out => "+result);
-        // System.out.println("-----------");
-
         return result;
     }
 }

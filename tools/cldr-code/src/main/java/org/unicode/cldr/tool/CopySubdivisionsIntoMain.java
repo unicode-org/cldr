@@ -15,9 +15,9 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
-import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.SimpleXMLSource;
+import org.unicode.cldr.util.XPathParts;
 
 public class CopySubdivisionsIntoMain {
 
@@ -91,8 +91,6 @@ public class CopySubdivisionsIntoMain {
                     "Should probably discontinue this, leaving translated subdivisions in main");
         }
 
-        PathStarrer pathStarrer = new PathStarrer();
-
         for (String localeId : mainFactory.getAvailable()) {
 
             boolean isRoot = "root".equals(localeId);
@@ -132,8 +130,8 @@ public class CopySubdivisionsIntoMain {
 
                 String oldValue = subdivisionFile.getStringValue(path);
                 if (!Objects.equal(oldValue, value)) {
-                    pathStarrer.set(path);
-                    String firstAttributeValue = pathStarrer.getAttributes().iterator().next();
+                    String firstAttributeValue =
+                            XPathParts.getPathAttributes(path).iterator().next();
                     if (Objects.equal(firstAttributeValue, value)) {
                         System.out.println(
                                 localeId

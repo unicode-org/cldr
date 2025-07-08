@@ -86,7 +86,6 @@ public class ShowStarredCoverage {
         }
     }
 
-    static final PathStarrer pathStarrer = new PathStarrer().setSubstitutionPattern("*");
     static final Factory phf = PathHeader.getFactory(config.getEnglish());
     static final SupplementalDataInfo sdi = config.getSupplementalDataInfo();
     static final CLDRFile ENGLISH =
@@ -167,8 +166,7 @@ public class ShowStarredCoverage {
             EnumSet.of(PageId.Fields, PageId.Gregorian, PageId.Generic);
 
     private static String condense(PathHeader ph) {
-        // TODO Auto-generated method stub
-        String starredPath = pathStarrer.set(ph.getOriginalPath()).toString();
+        String starredPath = PathStarrer.computeIfAbsent(ph.getOriginalPath());
         starredPath = starredPath.replace("[@alt=\"*\"]", ""); // collapse alts
         SectionId sectionId = ph.getSectionId();
         PageId pageId = ph.getPageId();
@@ -415,8 +413,8 @@ public class ShowStarredCoverage {
             levelToPathHeaders.put(level, ph, true);
             pathHeaders.add(ph);
             SurveyToolStatus stStatus = ph.getSurveyToolStatus();
-            String starred = pathStarrer.set(path);
-            String attributes = Joiner.on("|").join(pathStarrer.getAttributes());
+            String starred = PathStarrer.computeIfAbsent(path);
+            String attributes = XPathParts.getPathAttributesJoined(path, "|");
             levelToData.put(
                     level,
                     starred + "|" + stStatus + "|" + requiredVotes,

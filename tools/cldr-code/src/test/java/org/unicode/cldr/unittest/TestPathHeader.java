@@ -1,6 +1,5 @@
 package org.unicode.cldr.unittest;
 
-import com.google.common.base.Joiner;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.LinkedListMultimap;
@@ -720,8 +719,7 @@ public class TestPathHeader extends TestFmwkPlus {
                         surveyToolStatus,
                         data = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class));
             }
-            List<String> attr = XPathParts.getPathAttributes(path);
-            data.put(starred, Joiner.on("|").join(attr));
+            data.put(starred, XPathParts.getPathAttributesJoined(path, "|"));
         }
         for (Entry<SurveyToolStatus, Relation<String, String>> entry : info2.entrySet()) {
             final SurveyToolStatus status = entry.getKey();

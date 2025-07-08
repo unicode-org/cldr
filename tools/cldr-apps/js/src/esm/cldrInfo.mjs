@@ -20,7 +20,7 @@ import InfoPanel from "../views/InfoPanel.vue";
 import InfoSelectedItem from "../views/InfoSelectedItem.vue";
 import InfoRegionalVariants from "../views/InfoRegionalVariants.vue";
 
-const DISABLE_SIDEWAYS_MENU = true;
+const DISABLE_SIDEWAYS_MENU = false;
 
 let containerId = null;
 let neighborId = null;

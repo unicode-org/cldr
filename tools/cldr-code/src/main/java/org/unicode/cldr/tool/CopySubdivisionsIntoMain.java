@@ -66,6 +66,10 @@ public class CopySubdivisionsIntoMain {
     static final Factory subdivisionFactory = CLDRConfig.getInstance().getSubdivisionFactory();
     static boolean verbose;
 
+    // This can be run as follows (all on one line):
+    // mvn -DCLDR_DIR=$(pwd) --file=tools/pom.xml -pl cldr-code compile -DskipTests=true exec:java
+    // -Dexec.args="-beforeSubmission=true"
+    // -Dexec.mainClass=org.unicode.cldr.tool.CopySubdivisionsIntoMain
     public static void main(String[] args) {
         MyOptions.parse(args, true);
         verbose = MyOptions.verbose.option.doesOccur();

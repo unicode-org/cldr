@@ -166,8 +166,11 @@ public class ShowStarredCoverage {
             EnumSet.of(PageId.Fields, PageId.Gregorian, PageId.Generic);
 
     private static String condense(PathHeader ph) {
-        String starredPath = PathStarrer.computeIfAbsent(ph.getOriginalPath());
-        starredPath = starredPath.replace("[@alt=\"*\"]", ""); // collapse alts
+        final String starPatternPath = PathStarrer.computeIfAbsent(ph.getOriginalPath());
+        // Replace PathStarrer.STAR_PATTERN with simple "*" for compatibility with other
+        // code used by ShowStarredCoverage. Also, collapse alts.
+        final String starredPath =
+                starPatternPath.replace(PathStarrer.STAR_PATTERN, "*").replace("[@alt=\"*\"]", "");
         SectionId sectionId = ph.getSectionId();
         PageId pageId = ph.getPageId();
         String category = sectionId + "|" + pageId;

@@ -6,14 +6,6 @@
   roles:
     - { role: geerlingguy.nginx }
   tasks:
-    - name: Setup stapler.conf
-      copy:
-        src: templates/nginx-stapler.conf
-        dest: /etc/nginx/conf.d/stapler.conf
-        owner: root
-        group: root
-        mode: '0644'
-      notify: 'Restart Nginx'
     - name: Setup gzip.conf
       copy:
         dest: /etc/nginx/conf.d/gzip.conf
@@ -61,6 +53,17 @@
         owner: root
         group: root
         mode: '0644'
+    - name: Remove stapler.conf
+      ansible.builtin.file:
+        state: absent
+        path: /etc/nginx/conf.d/stapler.conf
+      notify: 'Restart Nginx'
+    - name: Remove OCSP Stapling
+      replace:
+        path: /etc/nginx/sites-enabled/default
+        regexp: '^(\s*)ssl_stapling(.*)$'
+        replace: '\1##ssl_stapling\2'
+      notify: 'Restart Nginx'
   handlers:
     - name: Restart Nginx
       service:

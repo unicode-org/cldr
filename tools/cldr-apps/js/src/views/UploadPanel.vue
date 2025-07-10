@@ -26,7 +26,7 @@
           >
           <a-timeline-item
             >Edit the spreadsheet to fill in the 'New Value'. Save the
-            spreadsheet off as .xlsx or .csv or .tsv.
+            spreadsheet off as .xlsx (other formats are not supported.)
           </a-timeline-item>
           <a-timeline-item>Come back to this page</a-timeline-item>
           <a-timeline-item
@@ -50,14 +50,13 @@
               name="xlsFile"
               :action="xlsUpload"
               :multiple="false"
+              accept=".xls,.xlsx"
             >
               <p class="ant-upload-drag-icon">
                 <inbox-outlined></inbox-outlined>
               </p>
               <p class="ant-upload-text">Click or drag a spreadsheet here</p>
-              <p class="ant-upload-hint">
-                Supports one file, of type .xlsx, .csv, or .tsv
-              </p>
+              <p class="ant-upload-hint">Supports one file, of type .xlsx</p>
             </a-upload-dragger>
           </a-timeline-item>
           <a-timeline-item v-if="xlsErr" color="red"

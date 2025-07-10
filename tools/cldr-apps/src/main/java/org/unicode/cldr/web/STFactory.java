@@ -889,7 +889,10 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
             String newVal = dataBackedSource.getValueAtDPath(distinguishingXpath);
             String newFullPath = dataBackedSource.getFullPathAtDPath(distinguishingXpath);
-            if (newVal != null && (!newVal.equals(oldVal) || !oldFullPath.equals(newFullPath))) {
+            if ((newVal == null && oldVal != null)
+                    || (oldVal == null && newVal != null)
+                    || (newVal != null
+                            && (!newVal.equals(oldVal) || !oldFullPath.equals(newFullPath)))) {
                 dataBackedSource.notifyListeners(distinguishingXpath);
             }
         }

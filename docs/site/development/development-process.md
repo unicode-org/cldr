@@ -58,11 +58,16 @@ When a ticket is in design, the owner is responsible for bringing back to the co
 
 |   |   |
 |---|---|
-| dsub | The ticket should be completed before submission starts. |
-| dvet | The ticket should be completed before vetting starts |
-| rc  | The ticket must be completed before **Alpha — Final Data candidate** . No change to data affecting ICU thereafter. Other dtd, data, spec, docs, tool changes allowed. |
-| spec-beta | The ticket must be completed before  **Beta — Final Candidate** . No dtd or data changes allowed thereafter. Docs, charts, spec changes allowed (= ICU release candidate) |
-| final | The ticket must be completed before  **Release**  ( = ICU Release) |
+| pre-sub | The ticket should be completed before submission starts. |
+| pre-sub2 | The ticket should be completed within the first 2 weeks of the submission phase. |
+| pre-vet | The ticket should be completed before vetting starts. |
+| pre-xml | The ticket should be completed before data is moved to XML. |
+| pre-res | The ticket should be completed before resolution starts. |
+| pre-slush | The ticket should be completed before slush. |
+| pre-icu | The ticket should be completed before data and structure used by ICU is frozen. |
+| pre-data-beta  | The ticket must be completed before **Alpha — Final Data candidate** . No change to data affecting ICU thereafter. Other dtd, data, spec, docs, tool changes allowed. |
+| pre-spec-beta | The ticket must be completed before  **Beta — Final Candidate** . No dtd or data changes allowed thereafter. Docs, charts, spec changes allowed (= ICU release candidate) |
+| pre-release | The ticket must be completed before  **Release**  ( = ICU Release) |
 
 ### Assignees
 

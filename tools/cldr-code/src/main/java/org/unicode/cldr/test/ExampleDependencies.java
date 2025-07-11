@@ -428,10 +428,6 @@ public class ExampleDependencies {
                             "//ldml/dates/timeZoneNames/gmtUnknownFormat",
                             "//ldml/personNames/personName[@order=\"([^\"]*+)\"][@length=\"([^\"]*+)\"][@usage=\"([^\"]*+)\"][@formality=\"([^\"]*+)\"]/namePattern")
                     .putAll(
-                            "//ldml/dates/timeZoneNames/gmtZeroFormat",
-                            "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/dateTimeFormats/appendItems/appendItem[@request=\"([^\"]*+)\"]",
-                            "//ldml/personNames/personName[@order=\"([^\"]*+)\"][@length=\"([^\"]*+)\"][@usage=\"([^\"]*+)\"][@formality=\"([^\"]*+)\"]/namePattern")
-                    .putAll(
                             "//ldml/dates/timeZoneNames/hourFormat",
                             "//ldml/dates/timeZoneNames/gmtFormat",
                             "//ldml/localeDisplayNames/localeDisplayPattern/localeKeyTypePattern",

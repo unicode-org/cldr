@@ -1759,7 +1759,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
     <!--@METADATA-->
 
 <!ELEMENT gmtZeroFormat ( #PCDATA ) >
+    <!--@METADATA-->
+    <!--@DEPRECATED-->
 <!ATTLIST gmtZeroFormat alt NMTOKENS #IMPLIED >
+    <!--@METADATA-->
+    <!--@DEPRECATED-->
     <!--@MATCH:literal/variant-->
 <!ATTLIST gmtZeroFormat draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->

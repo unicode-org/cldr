@@ -1,0 +1,67 @@
+name: Daily CLDR Regeneration
+
+on:
+  schedule:
+    - cron: '0 6 * * *'  # Runs daily at 6:00 UTC
+  workflow_dispatch:     # Allow manual trigger
+
+jobs:
+  regenerate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Build project with Maven
+        run: mvn package -DskipTests=true
+
+      - name: Run CLDR tools
+        run: |
+          java -jar tools/cldr-code/target/cldr-code.jar ConvertLanguageData
+          java -jar tools/cldr-code/target/cldr-code.jar GenerateLikelySubtags
+          java -jar tools/cldr-code/target/cldr-code.jar GenerateTestData
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Commit changes
+        id: commit
+        run: |
+          git checkout -b regen/cldr-daily-update || git checkout regen/cldr-daily-update
+          git add .
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            echo "commit_made=false" >> $GITHUB_OUTPUT
+          else
+            git commit -m "Daily regeneration of CLDR derived data"
+            echo "commit_made=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Push changes
+        if: steps.commit.outputs.commit_made == 'true'
+        run: git push origin regen/cldr-daily-update --force
+
+      - name: Create pull request
+        if: steps.commit.outputs.commit_made == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: regen/cldr-daily-update
+          title: "Daily CLDR Regeneration"
+          body: "This PR contains regenerated files from the daily automation."
+          commit-message: "Daily regeneration of CLDR derived data"
+          base: main

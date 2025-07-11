@@ -2128,9 +2128,9 @@ public class SupplementalDataInfo {
          * <supplementalData>
          * <metaZones>
          * <metazoneInfo>
-         * <timezone type="Asia/Yerevan">
-         * <usesMetazone to="1991-09-22 20:00" mzone="Yerevan"/>
-         * <usesMetazone from="1991-09-22 20:00" mzone="Armenia"/>
+         * <timezone type="America/Kentucky/Monticello">
+         * <usesMetazone to="2000-10-29 07:00" mzone="America_Central"/>
+         * <usesMetazone from="2000-10-29 07:00" mzone="America_Eastern"/>
          */
 
         private boolean handleMetazoneInfo(String level3, XPathValue parts) {

@@ -11,7 +11,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<transform source="el" target="Upper" direction="forward" alias="el-t-d0-upper">
 			<tRule>
 # Copyright (C) 2011-2013, Apple Inc. and others. All Rights Reserved.
-# Remove \0301 following Greek, with possible intervening 0308 marks.
+# Remove \u0301 following Greek, with possible intervening 0308 marks.
 ::NFD();
 # For uppercasing (not titlecasing!) remove all greek accents from greek letters.
 # This is done in two groups, to account for canonical ordering.

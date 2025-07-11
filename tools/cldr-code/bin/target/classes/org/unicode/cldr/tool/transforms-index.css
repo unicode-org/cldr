@@ -1,0 +1,37 @@
+th {
+	background-color: yellow
+}
+
+td {
+	text-align: Center;
+	background-color: white
+}
+
+tt {
+	font-size: 50%
+}
+
+td.miss {
+	background-color: #CCCCFF
+}
+
+td.none {
+	background-color: #FFCCCC
+}
+
+td.main {
+	align: center;
+	vertical-align: top;
+	background-color: #DDDDDD
+}
+
+.version {
+    content: "β";
+    color: black;
+    font-weight: bold;
+}
+.version::after {
+    content: "β";
+    color: red;
+    font-weight: bold;
+}

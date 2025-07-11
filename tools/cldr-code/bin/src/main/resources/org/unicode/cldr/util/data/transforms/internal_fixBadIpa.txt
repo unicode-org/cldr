@@ -1,0 +1,154 @@
+$stress = [ ˈ ˌ ] ;
+$vowel = [aeiouɑæɛɪʊɔə] ;
+$nvowel = [^$vowel] ;
+$consonant = [bdfghjklmnpqrstvwz ʤ ð ʒ ʃ ŋ ʧ θ] ;
+$consonant_minus_rl = [$consonant - [rl]] ;
+
+# FIX BOGUS LETTERS
+
+ọ > oɪ ;# bogus ipa
+ạ > ɑɪ ;# bogus ipa
+ǎ > ɑʊ ;# bogus ipa
+W > w ; # bogus ipa
+ü > ʊ ; # bogus ipa
+
+[:whitespace:] > ; # remove whitespace
+
+[ˈˌ] > ; # remove stress, since we can't predict.
+
+:: null; # make second pass
+
+ɔ } r > o ;
+
+# oi
+
+ɔˌ } [ɪi] > ˌ o ;
+ɔˈ } [ɪi] > ˈ o ;
+
+ɔ } [ɪi] > o ;
+
+oˌ } [ɪi] > ˌ o ;
+oˈ } [ɪi] > ˈ o ;
+
+o { i > ɪ ;
+
+oj } $nvowel > oɪ ;
+
+# Byte
+
+ɑˌ } [ɪi] > ˌ ɑ ;
+ɑˈ } [ɪi] > ˈ ɑ ;
+
+aˌ } [ɪi] > ˌ ɑ ;
+aˈ } [ɪi] > ˈ ɑ ;
+a } [ɪi] > ɑ ;
+
+ɑ { i > ɪ ;
+ɑj } $nvowel > ɑɪ ;
+aj } $nvowel > ɑɪ ;
+æj } $nvowel > ɑɪ ;
+
+# Out
+
+aˌ } [ʊuw] > ˌ ɑ ;
+aˈ } [ʊuw] > ˈ ɑ ;
+a } [ʊuw] > ɑ ;
+
+ɑˌ } [ʊuw] > ˌ ɑ ;
+ɑˈ } [ʊuw] > ˈ ɑ ;
+# ɑ } [ʊuw] > ɑ ;
+
+æˌ } [ʊuw] > ˌ ɑ ;
+æˈ } [ʊuw] > ˈ ɑ ;
+æ } [ʊuw] > ɑ ;
+
+ɑ { u > ʊ ;
+
+[ɑa] { w } $nvowel > ʊ ;
+
+ # delete extra semivowels after certain cases
+
+$vowel ɪ { j >  ;
+$vowel ʊ { w >  ;
+
+# delete j after dnts unless preceded by short stressed vowel
+
+$stress $vowel [dnts] { j } $stress? [uʊ] > j ; 
+[dnts] { j } $stress? [uʊ] >  ; 
+
+# ənjˈu
+
+# delete extra schwas after short vowels
+
+[ɪʊ] { ə } [rl] > ;
+
+uwəl > ul ;
+
+ɔ } [^ɪi] > ɑ ; 
+
+
+# probably bad 
+
+oŋ > ɑ | ŋ ;
+c > | k ;
+
+# remove hw
+
+hw > | w ;
+
+# consonant + n,m,l,r + eow => insert 'uh'
+
+# uniform letters
+
+e[ɪi] > e ;
+[oɔ]ʊ > o ;
+ɔ > ɑ ;
+ʌ > ə ;
+ɚ > ə | r ;
+ɝ > ə | r ;
+ɹ  > | r ;
+a > | æ ;
+
+$consonant {} [lr] $stress? [:^letter:] > ə ;
+$consonant_minus_rl {} [nm] $stress? [:^letter:] > ə ;
+
+# fix consonants
+
+ʤ > | d ʒ ;
+ʧ  >| t ʃ;
+
+:: null ; # Do second pass!
+
+æ } r $nvowel > ɛ ;
+e } r $nvowel > ɛ ;
+i } r $nvowel > ɪ ;
+u } r $nvowel > ʊ ;
+
+
+# delete if after same 
+
+ɑ { ɑ >  ;
+b { b >  ;
+d { d >  ;
+f { f >  ;
+g { g >  ;
+h { h > ;
+j { j > ;
+k { k > ;
+l { l > ;
+m { m > ;
+n { n > ;
+p { p > ;
+r { r > ;
+s { s > ;
+t { t >  ;
+v { v > ;
+w { w > ;
+z { z > ;
+d ʒ { d ʒ > ;
+ð { ð >  ;
+ʒ { ʒ > ;
+ʃ { ʃ > ;
+ŋ { ŋ > ;
+ t ʃ  { t ʃ>  ;
+θ { θ > ;

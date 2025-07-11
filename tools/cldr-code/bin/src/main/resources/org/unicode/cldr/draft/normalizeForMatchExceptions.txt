@@ -1,0 +1,216 @@
+# This file contains an ordred list of rules used to create a mapping from code points to strings.
+# Each rule adds mappings, possibly overriding those added by earlier rules.
+# The rules have the format below:
+#
+# <source> ; <target> ; <targetFilter> # comment
+#
+# Code points matching the source are mapped to the target IF the target matches the targetFilter.
+#
+# source
+#  The source can be based on properties (UnicodeSet) or explicit code points:
+#   UnicodeSet (like [:Lm:]),
+#   a single code point (like 0130), or
+#   a code point range (like 2170-217F)
+#
+# target
+#  The target can be one or more hex codes, or special instructions:
+#   XXXX        a specific code point (like 0130)
+#   exclude     the code point maps to itself
+#   caseonly    no normalization is done, but case folding is (plus NFC)
+#   delete      the code point maps to the empty string (is removed)
+#   nfc         do nfc only
+#   bracket     use basic mapping, but add space before and after
+#   ok          it is ok to use the basic mapping (NFKC+caseFolding)
+#   <missing>   = delete
+#
+# targetFilter
+#  The targetFilter is optional.
+#   UnicodeSet  adds restriction on all code points of target
+#   <missing>   = no restriction
+#
+# Commands (determine the characters listed)
+#
+# @LIST=ALL                - (default) list all characters
+# @LIST=SHOW_AGE           - list all characters, show age of new characters
+# @LIST=ONLY_OLD           - only list Unicode 5.0 characters
+#
+# Running GenerateNormalizeForMatch produces a log file, with the following format:
+#  - Each line is repeated, with the line number
+#  - Any rule is followed by example characters where it makes a difference.
+#  - The ↛ shows the old mapping, before the rule was added
+#  - The → shows the new mapping, after the rule was added
+# Example
+# 59: [:decomposition_type=circle:] ; caseonly ;
+#    24B6 «Ⓐ» CIRCLED LATIN CAPITAL LETTER A    ;   caseonly    ; # «Ⓐ» ↛   «Ⓐ» →   «ⓐ»
+#
+# If the log file name contains .htm, then an HTML file is generated.
+# ====================================
+
+# Fix the case (and NFC) of all characters
+# We do this first, just to show progressive steps
+
+[:assigned:] ; caseonly ; [:^whitespace:]
+
+[:decomposition_type=wide:] ; ok ; 
+[:decomposition_type=narrow:] ; ok ;
+[:whitespace:] ; ok
+
+# Change almost characters and whitespace (by default) using NFKC+case
+
+[:assigned:] ; ok ; [:^whitespace:]
+
+# We adjust certain special cases, bracketing or excluding
+
+[:decomposition_type=circle:] ; bracket_circle ; 
+[:decomposition_type=fraction:] ; bracket
+
+[:decomposition_type=super:] ; caseonly
+[:decomposition_type=sub:] ; caseonly
+
+# Remove all default ignorables
+
+[:default_ignorable_code_point:] ; delete ;
+
+# Fix all decimal numbers
+
+[[:numeric_value=0:]&[:Nd:]] ; 0030
+[[:numeric_value=1:]&[:Nd:]] ; 0031
+[[:numeric_value=2:]&[:Nd:]] ; 0032
+[[:numeric_value=3:]&[:Nd:]] ; 0033
+[[:numeric_value=4:]&[:Nd:]] ; 0034
+[[:numeric_value=5:]&[:Nd:]] ; 0035
+[[:numeric_value=6:]&[:Nd:]] ; 0036
+[[:numeric_value=7:]&[:Nd:]] ; 0037
+[[:numeric_value=8:]&[:Nd:]] ; 0038
+[[:numeric_value=9:]&[:Nd:]] ; 0039
+
+# Detailed changes
+# Many of these originally come from the UCA file.
+
+# Special handling of special slashes, ZWSP, full-width macron, and dotted I.
+
+2044 ; 002F
+∕ ; 002F
+200B ; 0020
+FFE3 ; 00AF ; # FULLWIDTH MACRON => MACRON
+0130 ; 0069 ; # LATIN CAPITAL LETTER I WITH DOT ABOVE => LATIN SMALL LETTER I 
+
+# Sharp S
+
+00DF ; exclude ; # LATIN SMALL LETTER SHARP S => LATIN SMALL LETTER S + LATIN SMALL LETTER S
+1E9E ; 00DF ; # LATIN CAPITAL LETTER SHARP S => LATIN SMALL LETTER SHARP S
+
+05F0 ; 05D5 05D5 ; # HEBREW LIGATURE YIDDISH DOUBLE VAV => HEBREW LETTER VAV + HEBREW LETTER VAV
+05F1 ; 05D5 05D9 ; # HEBREW LIGATURE YIDDISH VAV YOD => HEBREW LETTER VAV + HEBREW LETTER YOD
+05F2 ; 05D9 05D9 ; # HEBREW LIGATURE YIDDISH DOUBLE YOD => HEBREW LETTER YOD + HEBREW LETTER YOD
+FB1F ; 05D9 05D9 05B7 ; # HEBREW LIGATURE YIDDISH YOD YOD PATAH => HEBREW LETTER YOD + HEBREW LETTER YOD + HEBREW POINT PATAH
+
+0E33 ; exclude ; # THAI CHARACTER SARA AM => THAI CHARACTER NIKHAHIT + THAI CHARACTER SARA AA
+
+# Fix isolated forms, tatweel
+
+0640 ; delete ; # ARABIC TATWEEL => 
+FE73 ; delete ; # ARABIC TAIL FRAGMENT => 
+
+FC5E ; 064C 0651 ; # ARABIC LIGATURE SHADDA WITH DAMMATAN ISOLATED FORM => ARABIC DAMMATAN + ARABIC SHADDA
+FC5F ; 064D 0651 ; # ARABIC LIGATURE SHADDA WITH KASRATAN ISOLATED FORM => ARABIC KASRATAN + ARABIC SHADDA
+FC60 ; 064E 0651 ; # ARABIC LIGATURE SHADDA WITH FATHA ISOLATED FORM => ARABIC FATHA + ARABIC SHADDA
+FC61 ; 064F 0651 ; # ARABIC LIGATURE SHADDA WITH DAMMA ISOLATED FORM => ARABIC DAMMA + ARABIC SHADDA
+FC62 ; 0650 0651 ; # ARABIC LIGATURE SHADDA WITH KASRA ISOLATED FORM => ARABIC KASRA + ARABIC SHADDA
+FC63 ; 0651 0670 ; # ARABIC LIGATURE SHADDA WITH SUPERSCRIPT ALEF ISOLATED FORM => ARABIC SHADDA + ARABIC LETTER SUPERSCRIPT ALEF
+FCF2 ; 064E 0651 ; # ARABIC LIGATURE SHADDA WITH FATHA MEDIAL FORM => ARABIC FATHA + ARABIC SHADDA
+FCF3 ; 064F 0651 ; # ARABIC LIGATURE SHADDA WITH DAMMA MEDIAL FORM => ARABIC DAMMA + ARABIC SHADDA
+FCF4 ; 0650 0651 ; # ARABIC LIGATURE SHADDA WITH KASRA MEDIAL FORM => ARABIC KASRA + ARABIC SHADDA
+
+FE70 ; 064B ; # ARABIC FATHATAN ISOLATED FORM => ARABIC FATHATAN
+FE71 ; 064B ; # ARABIC TATWEEL WITH FATHATAN ABOVE => ARABIC FATHATAN
+FE72 ; 064C ; # ARABIC DAMMATAN ISOLATED FORM => ARABIC DAMMATAN
+FE74 ; 064D ; # ARABIC KASRATAN ISOLATED FORM => ARABIC KASRATAN
+FE76 ; 064E ; # ARABIC FATHA ISOLATED FORM => ARABIC FATHA
+FE77 ; 064E ; # ARABIC FATHA MEDIAL FORM => ARABIC FATHA
+FE78 ; 064F ; # ARABIC DAMMA ISOLATED FORM => ARABIC DAMMA
+FE79 ; 064F ; # ARABIC DAMMA MEDIAL FORM => ARABIC DAMMA
+FE7A ; 0650 ; # ARABIC KASRA ISOLATED FORM => ARABIC KASRA
+FE7B ; 0650 ; # ARABIC KASRA MEDIAL FORM => ARABIC KASRA
+FE7C ; 0651 ; # ARABIC SHADDA ISOLATED FORM => ARABIC SHADDA
+FE7D ; 0651 ; # ARABIC SHADDA MEDIAL FORM => ARABIC SHADDA
+FE7E ; 0652 ; # ARABIC SUKUN ISOLATED FORM => ARABIC SUKUN
+FE7F ; 0652 ; # ARABIC SUKUN MEDIAL FORM => ARABIC SUKUN
+
+#Fix Hangul
+
+[:block=Hangul_Compatibility_Jamo:]; exclude ; # a thorough job would require context dependence
+
+#  point to isolated characters, not combining jamo
+FFA0 ; 3164 ; # HALFWIDTH HANGUL FILLER => HANGUL FILLER
+FFA1 ; 3131 ; # HALFWIDTH HANGUL LETTER KIYEOK => HANGUL LETTER KIYEOK
+FFA2 ; 3132 ; # HALFWIDTH HANGUL LETTER SSANGKIYEOK => HANGUL LETTER SSANGKIYEOK
+FFA3 ; 3133 ; # HALFWIDTH HANGUL LETTER KIYEOK-SIOS => HANGUL LETTER KIYEOK-SIOS
+FFA4 ; 3134 ; # HALFWIDTH HANGUL LETTER NIEUN => HANGUL LETTER NIEUN
+FFA5 ; 3135 ; # HALFWIDTH HANGUL LETTER NIEUN-CIEUC => HANGUL LETTER NIEUN-CIEUC
+FFA6 ; 3136 ; # HALFWIDTH HANGUL LETTER NIEUN-HIEUH => HANGUL LETTER NIEUN-HIEUH
+FFA7 ; 3137 ; # HALFWIDTH HANGUL LETTER TIKEUT => HANGUL LETTER TIKEUT
+FFA8 ; 3138 ; # HALFWIDTH HANGUL LETTER SSANGTIKEUT => HANGUL LETTER SSANGTIKEUT
+FFA9 ; 3139 ; # HALFWIDTH HANGUL LETTER RIEUL => HANGUL LETTER RIEUL
+FFAA ; 313A ; # HALFWIDTH HANGUL LETTER RIEUL-KIYEOK => HANGUL LETTER RIEUL-KIYEOK
+FFAB ; 313B ; # HALFWIDTH HANGUL LETTER RIEUL-MIEUM => HANGUL LETTER RIEUL-MIEUM
+FFAC ; 313C ; # HALFWIDTH HANGUL LETTER RIEUL-PIEUP => HANGUL LETTER RIEUL-PIEUP
+FFAD ; 313D ; # HALFWIDTH HANGUL LETTER RIEUL-SIOS => HANGUL LETTER RIEUL-SIOS
+FFAE ; 313E ; # HALFWIDTH HANGUL LETTER RIEUL-THIEUTH => HANGUL LETTER RIEUL-THIEUTH
+FFAF ; 313F ; # HALFWIDTH HANGUL LETTER RIEUL-PHIEUPH => HANGUL LETTER RIEUL-PHIEUPH
+FFB0 ; 3140 ; # HALFWIDTH HANGUL LETTER RIEUL-HIEUH => HANGUL LETTER RIEUL-HIEUH
+FFB1 ; 3141 ; # HALFWIDTH HANGUL LETTER MIEUM => HANGUL LETTER MIEUM
+FFB2 ; 3142 ; # HALFWIDTH HANGUL LETTER PIEUP => HANGUL LETTER PIEUP
+FFB3 ; 3143 ; # HALFWIDTH HANGUL LETTER SSANGPIEUP => HANGUL LETTER SSANGPIEUP
+FFB4 ; 3144 ; # HALFWIDTH HANGUL LETTER PIEUP-SIOS => HANGUL LETTER PIEUP-SIOS
+FFB5 ; 3145 ; # HALFWIDTH HANGUL LETTER SIOS => HANGUL LETTER SIOS
+FFB6 ; 3146 ; # HALFWIDTH HANGUL LETTER SSANGSIOS => HANGUL LETTER SSANGSIOS
+FFB7 ; 3147 ; # HALFWIDTH HANGUL LETTER IEUNG => HANGUL LETTER IEUNG
+FFB8 ; 3148 ; # HALFWIDTH HANGUL LETTER CIEUC => HANGUL LETTER CIEUC
+FFB9 ; 3149 ; # HALFWIDTH HANGUL LETTER SSANGCIEUC => HANGUL LETTER SSANGCIEUC
+FFBA ; 314A ; # HALFWIDTH HANGUL LETTER CHIEUCH => HANGUL LETTER CHIEUCH
+FFBB ; 314B ; # HALFWIDTH HANGUL LETTER KHIEUKH => HANGUL LETTER KHIEUKH
+FFBC ; 314C ; # HALFWIDTH HANGUL LETTER THIEUTH => HANGUL LETTER THIEUTH
+FFBD ; 314D ; # HALFWIDTH HANGUL LETTER PHIEUPH => HANGUL LETTER PHIEUPH
+FFBE ; 314E ; # HALFWIDTH HANGUL LETTER HIEUH => HANGUL LETTER HIEUH
+FFC2 ; 314F ; # HALFWIDTH HANGUL LETTER A => HANGUL LETTER A
+FFC3 ; 3150 ; # HALFWIDTH HANGUL LETTER AE => HANGUL LETTER AE
+FFC4 ; 3151 ; # HALFWIDTH HANGUL LETTER YA => HANGUL LETTER YA
+FFC5 ; 3152 ; # HALFWIDTH HANGUL LETTER YAE => HANGUL LETTER YAE
+FFC6 ; 3153 ; # HALFWIDTH HANGUL LETTER EO => HANGUL LETTER EO
+FFC7 ; 3154 ; # HALFWIDTH HANGUL LETTER E => HANGUL LETTER E
+FFCA ; 3155 ; # HALFWIDTH HANGUL LETTER YEO => HANGUL LETTER YEO
+FFCB ; 3156 ; # HALFWIDTH HANGUL LETTER YE => HANGUL LETTER YE
+FFCC ; 3157 ; # HALFWIDTH HANGUL LETTER O => HANGUL LETTER O
+FFCD ; 3158 ; # HALFWIDTH HANGUL LETTER WA => HANGUL LETTER WA
+FFCE ; 3159 ; # HALFWIDTH HANGUL LETTER WAE => HANGUL LETTER WAE
+FFCF ; 315A ; # HALFWIDTH HANGUL LETTER OE => HANGUL LETTER OE
+FFD2 ; 315B ; # HALFWIDTH HANGUL LETTER YO => HANGUL LETTER YO
+FFD3 ; 315C ; # HALFWIDTH HANGUL LETTER U => HANGUL LETTER U
+FFD4 ; 315D ; # HALFWIDTH HANGUL LETTER WEO => HANGUL LETTER WEO
+FFD5 ; 315E ; # HALFWIDTH HANGUL LETTER WE => HANGUL LETTER WE
+FFD6 ; 315F ; # HALFWIDTH HANGUL LETTER WI => HANGUL LETTER WI
+FFD7 ; 3160 ; # HALFWIDTH HANGUL LETTER YU => HANGUL LETTER YU
+FFDA ; 3161 ; # HALFWIDTH HANGUL LETTER EU => HANGUL LETTER EU
+FFDB ; 3162 ; # HALFWIDTH HANGUL LETTER YI => HANGUL LETTER YI
+FFDC ; 3163 ; # HALFWIDTH HANGUL LETTER I => HANGUL LETTER I
+
+# Fix sound marks, since they normally occur when the combining forms are really meant
+
+309B ; 3099
+309C ; 309A
+
+# Fix squared/cubed units
+
+㎡ ; m²
+㎢ ; km²
+㎠ ; cm²
+㎟ ; mm²
+㎨ ; m∕s²
+㎯ ; rad∕s²
+㍸ ; dm²
+㎥ ; m³
+㎤ ; cm³
+㎦ ; km³
+㎣ ; mm³
+㍹ ; dm³

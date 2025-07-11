@@ -13,11 +13,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	<layout>
 		<orientation>
 			<characterOrder>left-to-right</characterOrder>
-			<lineOrder>top-to-bottom</lineOrder>
 		</orientation>
 	</layout>
 	<characters>
-		<exemplarCharacters draft="unconfirmed">[aáàâǎā b ɓ c d eé{é̱}è{è̱}ê{ê̱}ě{ě̱}ē{ē̱}{e̱} f g h iíìîǐī ɨ{ɨ́}{ɨ̀}{ɨ̂}{ɨ̌}{ɨ̄} j k {kp} {kyw} ƙ l m n {ng} {ny} oóòôǒō p q r s t uúùûǔū v w y {ywh} z {zh}]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary" draft="unconfirmed">[x]</exemplarCharacters>
+		<exemplarCharacters draft="provisional">[a {á} {ā} {à} {â} {ǎ} b ɓ c d e {é} {ē} {è} {ê} {ě} {e̱} {é̱} {ē̱} {è̱} {ê̱} {ě̱} f g h i {í} {ī} {ì} {î} {ǐ} {ɨ} {ɨ́} {ɨ̄} {ɨ̀} {ɨ̂} {ɨ̌} j k ƙ {kp} {kyw} l m n {ng} {ny} o {ó} {ō} {ò} {ô} {ǒ} p q r s t u {ú} {ū} {ù} {û} {ǔ} v w y {ywh} z {zh}]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary" draft="provisional">[x]</exemplarCharacters>
+		<exemplarCharacters type="index" draft="provisional">[A B C D E F G H I Ɨ J K L M N O P R S T U V W Y Z]</exemplarCharacters>
+		<exemplarCharacters type="punctuation" draft="provisional">[! ( ) , \- . \: ; ? \[ \] ‘ ’ “ ”]</exemplarCharacters>
 	</characters>
 </ldml>

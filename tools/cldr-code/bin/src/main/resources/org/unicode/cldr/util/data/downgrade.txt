@@ -1,0 +1,187 @@
+# Format is 
+#    locale-regex ; path-regex ; value-regex
+# Where a field is missing, it matches all values
+# The match uses 'looking at', equivalent to starting with ^ — so don't start with that
+# If you need to match to the end, follow with $
+# For the path, [@ is automatically escaped
+
+# Require review of a few units with aliases in root
+# The following will match anything starting with graphics-dot, thus include graphics-dot-per-centimeter, etc.
+ ; //ldml/units/unitLength[@type="[^"]*"]/unit[@type="graphics-dot
+ ; //ldml/units/unitLength[@type="[^"]*"]/unit[@type="energy-foodcalorie
+
+# The rest of the paths from https://unicode-org.atlassian.net/browse/CLDR-16503 need to be included
+
+# CLDR-16146 Downgrade main path for BIOT
+
+	;	 //ldml/localeDisplayNames/territories/territory[@type="IO"]
+ 
+# CLDR-16534 Downgrade paths for renaming Islamic Calendar to Hijri Calendar
+
+	;	 //ldml/localeDisplayNames/types/type[@key="calendar"][@type="islamic
+
+# CLDR-16228 Add the paths where spaces changed in cjk+ person names
+# CLDR-16568 Require checking of questionable PNF data
+
+am 	;	 //ldml/personNames/personName
+am 	;	 //ldml/personNames/sampleName[@item="native
+
+bg 	;	 //ldml/personNames/personName
+
+bn 	;	 //ldml/personNames/personName
+bn 	;	 //ldml/personNames/sampleName[@item="native
+
+bs 	;	 //ldml/personNames/sampleName[@item="foreign
+
+cs 	;	 //ldml/personNames/sampleName[@item="foreign
+
+en_IN 	;	 //ldml/personNames/sampleName[@item="native
+
+et 	;	 //ldml/personNames/sampleName[@item="native
+
+fa 	;	 //ldml/personNames/personName[@order="givenFirst"][@length="long"][@usage="monogram"]
+fa 	;	 //ldml/personNames/personName[@order="givenFirst"][@length="medium"][@usage="monogram"]
+fa 	;	 //ldml/personNames/personName[@order="givenFirst"][@length="short"][@usage="monogram"]
+fa 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="long"][@usage="monogram"]
+fa 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="medium"][@usage="monogram"]
+fa 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="short"][@usage="monogram"]
+
+fil 	;	 //ldml/personNames/sampleName[@item="native
+
+fr 	;	 //ldml/personNames/sampleName[@item="foreign
+
+gu 	;	 //ldml/personNames/personName[@order="sorting"]
+
+he 	;	 //ldml/personNames/sampleName[@item="foreign
+
+hu 	;	 //ldml/personNames/sampleName[@item="native
+
+is 	;	 //ldml/personNames/sampleName[@item="foreign
+
+ja 	;	 //ldml/personNames/personName[@order="givenFirst"][@length="short"][@usage="addressing"][@formality="informal"]/namePattern 
+ja 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="long"][@usage="referring"][@formality="formal"]/namePattern 
+ja 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="long"][@usage="referring"][@formality="informal"]/namePattern 
+ja 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="long"][@usage="addressing"][@formality="formal"]/namePattern 
+ja 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="long"][@usage="addressing"][@formality="informal"]/namePattern 
+ja 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="medium"][@usage="referring"][@formality="formal"]/namePattern 
+ja 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="medium"][@usage="referring"][@formality="informal"]/namePattern 
+ja 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="medium"][@usage="addressing"][@formality="formal"]/namePattern 
+ja 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="medium"][@usage="addressing"][@formality="informal"]/namePattern 
+ja 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="short"][@usage="referring"][@formality="formal"]/namePattern 
+ja 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="short"][@usage="referring"][@formality="informal"]/namePattern 
+ja 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="short"][@usage="addressing"][@formality="formal"]/namePattern 
+ja 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="short"][@usage="addressing"][@formality="informal"]/namePattern 
+
+jv 	;	 //ldml/personNames/sampleName[@item="native
+
+ka 	;	 //ldml/personNames/personName
+
+kk 	;	 //ldml/personNames/personName[@order="sorting"]
+kk 	;	 //ldml/personNames/sampleName[@item="native
+
+kn 	;	 //ldml/personNames/sampleName[@item="native
+
+ko 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="long"][@usage="referring"][@formality="formal"]/namePattern 
+ko 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="long"][@usage="referring"][@formality="informal"]/namePattern 
+ko 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="medium"][@usage="referring"][@formality="formal"]/namePattern 
+ko 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="medium"][@usage="referring"][@formality="informal"]/namePattern 
+ko 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="short"][@usage="referring"][@formality="formal"]/namePattern 
+ko 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="short"][@usage="referring"][@formality="informal"]/namePattern 
+ko 	;	 //ldml/personNames/personName[@order="sorting"][@length="long"][@usage="referring"][@formality="formal"]/namePattern 
+ko 	;	 //ldml/personNames/personName[@order="sorting"][@length="long"][@usage="referring"][@formality="informal"]/namePattern 
+ko 	;	 //ldml/personNames/personName[@order="sorting"][@length="medium"][@usage="referring"][@formality="formal"]/namePattern 
+ko 	;	 //ldml/personNames/personName[@order="sorting"][@length="medium"][@usage="referring"][@formality="informal"]/namePattern 
+ko 	;	 //ldml/personNames/personName[@order="sorting"][@length="short"][@usage="referring"][@formality="formal"]/namePattern 
+ko 	;	 //ldml/personNames/personName[@order="sorting"][@length="short"][@usage="referring"][@formality="informal"]/namePattern 
+
+kok 	;	 //ldml/personNames/sampleName[@item="foreign
+
+lo 	;	 //ldml/personNames/sampleName[@item="native
+
+ml 	;	 //ldml/personNames/sampleName[@item="native
+
+mn 	;	 //ldml/personNames/sampleName[@item="native
+
+ms 	;	 //ldml/personNames/personName[@order="givenFirst"]
+
+my 	;	 //ldml/personNames/personName
+my 	;	 //ldml/personNames/sampleName[@item="native
+
+ne 	;	 //ldml/personNames/sampleName[@item="native
+
+nl 	;	 //ldml/personNames/personName
+
+nn 	;	 //ldml/personNames/sampleName[@item="foreign
+
+or 	;	 //ldml/personNames/sampleName[@item="native
+
+pa 	;	 //ldml/personNames/sampleName[@item="native
+
+ps 	;	 //ldml/personNames/personName
+ps 	;	 //ldml/personNames/sampleName[@item="native
+
+qu 	;	 //ldml/personNames/sampleName[@item="foreign
+
+ro 	;	 //ldml/personNames/sampleName[@item="foreign
+
+sd 	;	 //ldml/personNames/personName
+sd 	;	 //ldml/personNames/sampleName[@item="native
+
+si 	;	 //ldml/personNames/sampleName[@item="native
+
+so 	;	 //ldml/personNames/sampleName[@item="foreign
+
+sq 	;	 //ldml/personNames/sampleName
+
+sw 	;	 //ldml/personNames/sampleName[@item="foreign
+
+te 	;	 //ldml/personNames/sampleName[@item="foreign
+
+to 	;	 //ldml/personNames/sampleName[@item="foreign
+
+ur 	;	 //ldml/personNames/sampleName[@item="foreign
+
+uz 	;	 //ldml/personNames/sampleName[@item="native
+
+yue 	;	 //ldml/personNames/personName[@order="givenFirst"][@length="long"][@usage="addressing"][@formality="formal"]/namePattern 
+yue 	;	 //ldml/personNames/personName[@order="givenFirst"][@length="medium"][@usage="addressing"][@formality="formal"]/namePattern 
+yue 	;	 //ldml/personNames/personName[@order="givenFirst"][@length="short"][@usage="addressing"][@formality="formal"]/namePattern 
+yue 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="long"][@usage="addressing"][@formality="formal"]/namePattern 
+yue 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="medium"][@usage="addressing"][@formality="formal"]/namePattern 
+yue 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="short"][@usage="addressing"][@formality="formal"]/namePattern 
+
+yue_Hans 	;	 //ldml/personNames/personName
+yue_Hans 	;	 //ldml/personNames/sampleName[@item="foreign
+
+zh 	;	 //ldml/personNames/personName[@order="givenFirst"][@length="long"][@usage="referring"][@formality="formal"]/namePattern 
+zh 	;	 //ldml/personNames/personName[@order="givenFirst"][@length="long"][@usage="addressing"][@formality="formal"]/namePattern 
+zh 	;	 //ldml/personNames/personName[@order="givenFirst"][@length="medium"][@usage="referring"][@formality="formal"]/namePattern 
+zh 	;	 //ldml/personNames/personName[@order="givenFirst"][@length="medium"][@usage="addressing"][@formality="formal"]/namePattern 
+zh 	;	 //ldml/personNames/personName[@order="givenFirst"][@length="short"][@usage="addressing"][@formality="formal"]/namePattern 
+zh 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="long"][@usage="referring"][@formality="formal"]/namePattern 
+zh 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="long"][@usage="addressing"][@formality="formal"]/namePattern 
+zh 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="medium"][@usage="referring"][@formality="formal"]/namePattern 
+zh 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="medium"][@usage="addressing"][@formality="formal"]/namePattern 
+zh 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="short"][@usage="addressing"][@formality="formal"]/namePattern 
+
+zh_Hant 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="long"][@usage="referring"][@formality="formal"]/namePattern 
+zh_Hant 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="long"][@usage="referring"][@formality="informal"]/namePattern 
+zh_Hant 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="long"][@usage="addressing"][@formality="formal"]/namePattern 
+zh_Hant 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="medium"][@usage="referring"][@formality="formal"]/namePattern 
+zh_Hant 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="medium"][@usage="referring"][@formality="informal"]/namePattern 
+zh_Hant 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="medium"][@usage="addressing"][@formality="formal"]/namePattern 
+zh_Hant 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="short"][@usage="referring"][@formality="formal"]/namePattern 
+zh_Hant 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="short"][@usage="referring"][@formality="informal"]/namePattern 
+zh_Hant 	;	 //ldml/personNames/personName[@order="surnameFirst"][@length="short"][@usage="addressing"][@formality="formal"]/namePattern 
+zh_Hant 	;	 //ldml/personNames/personName[@order="sorting"][@length="long"][@usage="referring"][@formality="formal"]/namePattern 
+zh_Hant 	;	 //ldml/personNames/personName[@order="sorting"][@length="long"][@usage="referring"][@formality="informal"]/namePattern 
+zh_Hant 	;	 //ldml/personNames/personName[@order="sorting"][@length="medium"][@usage="referring"][@formality="formal"]/namePattern 
+zh_Hant 	;	 //ldml/personNames/personName[@order="sorting"][@length="medium"][@usage="referring"][@formality="informal"]/namePattern 
+zh_Hant 	;	 //ldml/personNames/personName[@order="sorting"][@length="short"][@usage="referring"][@formality="formal"]/namePattern 
+zh_Hant 	;	 //ldml/personNames/personName[@order="sorting"][@length="short"][@usage="referring"][@formality="informal"]/namePattern 
+
+zh_Hant_HK 	;	 //ldml/personNames/sampleName
+
+zu 	;	 //ldml/personNames/personName
+zu 	;	 //ldml/personNames/sampleName[@item="native
+

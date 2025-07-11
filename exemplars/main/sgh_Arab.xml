@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2025 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+SPDX-License-Identifier: Unicode-3.0
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="sgh"/>
+		<script type="Arab"/>
+	</identity>
+	<layout>
+		<orientation>
+			<characterOrder>right-to-left</characterOrder>
+		</orientation>
+	</layout>
+	<characters>
+		<exemplarCharacters draft="provisional">[\u064b \u064e \u064f \u0650 \u0651 \u0652 \u0653 آ ا ټ ب پ ت ث ج چ ح خ څ ځ د ذ ڎ ر ز ژ ږ س ش ښ ص ض ط ظ ع غ ف ڤ ق ک گ ل م ن و ه ي ئ ی ې]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary" draft="provisional">[\u06be]</exemplarCharacters>
+		<exemplarCharacters type="index" draft="provisional">[آ ا ب پ ت ث ج چ ح خ ځ څ د ذ ڎ ر ز ږ ژ س ش ښ ص ض ط ظ ع غ ف ڤ ق ک گ ل م ن ه و ی ې]</exemplarCharacters>
+		<exemplarCharacters type="punctuation" draft="provisional">[؟ ، ! . « » ( ) ؛]</exemplarCharacters>
+	</characters>
+</ldml>

@@ -1,0 +1,674 @@
+﻿# Short IDs for zone names: country code + last part of TZID
+# First are items that would be masked, and are moved forwards and sorted in reverse order
+
+# ZZ	Unknown or Invalid Region
+	'Etc/GMT+12'	>	'ZZ/GMT+12';
+	'Etc/GMT+11'	>	'ZZ/GMT+11';
+	'Etc/GMT+10'	>	'ZZ/GMT+10';
+	'Etc/GMT+9'	>	'ZZ/GMT+9';
+	'Etc/GMT+8'	>	'ZZ/GMT+8';
+	'Etc/GMT+7'	>	'ZZ/GMT+7';
+	'Etc/GMT+6'	>	'ZZ/GMT+6';
+	'Etc/GMT+5'	>	'ZZ/GMT+5';
+	'Etc/GMT+4'	>	'ZZ/GMT+4';
+	'Etc/GMT+3'	>	'ZZ/GMT+3';
+	'Etc/GMT+2'	>	'ZZ/GMT+2';
+	'Etc/GMT+1'	>	'ZZ/GMT+1';
+	'Etc/GMT-14'	>	'ZZ/GMT-14';
+	'Etc/GMT-13'	>	'ZZ/GMT-13';
+	'Etc/GMT-12'	>	'ZZ/GMT-12';
+	'Etc/GMT-11'	>	'ZZ/GMT-11';
+	'Etc/GMT-10'	>	'ZZ/GMT-10';
+	'Etc/GMT-9'	>	'ZZ/GMT-9';
+	'Etc/GMT-8'	>	'ZZ/GMT-8';
+	'Etc/GMT-7'	>	'ZZ/GMT-7';
+	'Etc/GMT-6'	>	'ZZ/GMT-6';
+	'Etc/GMT-5'	>	'ZZ/GMT-5';
+	'Etc/GMT-4'	>	'ZZ/GMT-4';
+	'Etc/GMT-3'	>	'ZZ/GMT-3';
+	'Etc/GMT-2'	>	'ZZ/GMT-2';
+	'Etc/GMT-1'	>	'ZZ/GMT-1';
+# CA	Canada
+	'America/Dawson_Creek'	>	'CA/Dawson_Creek';
+
+# Normal items, sorted by country code
+
+# AD	Andorra
+	'Europe/Andorra'	>	'AD/Andorra';
+# AE	United Arab Emirates
+	'Asia/Dubai'	>	'AE/Dubai';
+# AF	Afghanistan
+	'Asia/Kabul'	>	'AF/Kabul';
+# AG	Antigua and Barbuda
+	'America/Antigua'	>	'AG/Antigua';
+# AI	Anguilla
+	'America/Anguilla'	>	'AI/Anguilla';
+# AL	Albania
+	'Europe/Tirane'	>	'AL/Tirane';
+# AM	Armenia
+	'Asia/Yerevan'	>	'AM/Yerevan';
+# AN	Netherlands Antilles
+	'America/Curacao'	>	'AN/Curacao';
+# AO	Angola
+	'Africa/Luanda'	>	'AO/Luanda';
+# AQ	Antarctica
+	'Antarctica/Casey'	>	'AQ/Casey';
+	'Antarctica/Davis'	>	'AQ/Davis';
+	'Antarctica/DumontDUrville'	>	'AQ/DumontDUrville';
+	'Antarctica/Mawson'	>	'AQ/Mawson';
+	'Antarctica/McMurdo'	>	'AQ/McMurdo';
+	'Antarctica/Palmer'	>	'AQ/Palmer';
+	'Antarctica/Rothera'	>	'AQ/Rothera';
+	'Antarctica/Syowa'	>	'AQ/Syowa';
+	'Antarctica/Vostok'	>	'AQ/Vostok';
+# AR	Argentina
+	'America/Argentina/Ushuaia'	>	'AR/Argentina';
+	'America/Buenos_Aires'	>	'AR/Buenos_Aires';
+	'America/Catamarca'	>	'AR/Catamarca';
+	'America/Cordoba'	>	'AR/Cordoba';
+	'America/Jujuy'	>	'AR/Jujuy';
+	'America/Mendoza'	>	'AR/Mendoza';
+# AS	American Samoa
+	'Pacific/Pago_Pago'	>	'AS/Pago_Pago';
+# AT	Austria
+	'Europe/Vienna'	>	'AT/Vienna';
+# AU	Australia
+	'Australia/Adelaide'	>	'AU/Adelaide';
+	'Australia/Brisbane'	>	'AU/Brisbane';
+	'Australia/Broken_Hill'	>	'AU/Broken_Hill';
+	'Australia/Currie'	>	'AU/Currie';
+	'Australia/Darwin'	>	'AU/Darwin';
+	'Australia/Eucla'	>	'AU/Eucla';
+	'Australia/Hobart'	>	'AU/Hobart';
+	'Australia/Lindeman'	>	'AU/Lindeman';
+	'Australia/Lord_Howe'	>	'AU/Lord_Howe';
+	'Australia/Melbourne'	>	'AU/Melbourne';
+	'Australia/Perth'	>	'AU/Perth';
+	'Australia/Sydney'	>	'AU/Sydney';
+# AW	Aruba
+	'America/Aruba'	>	'AW/Aruba';
+# AX	Aland Islands
+	'Europe/Mariehamn'	>	'AX/Mariehamn';
+# AZ	Azerbaijan
+	'Asia/Baku'	>	'AZ/Baku';
+# BA	Bosnia and Herzegovina
+	'Europe/Sarajevo'	>	'BA/Sarajevo';
+# BB	Barbados
+	'America/Barbados'	>	'BB/Barbados';
+# BD	Bangladesh
+	'Asia/Dhaka'	>	'BD/Dhaka';
+# BE	Belgium
+	'Europe/Brussels'	>	'BE/Brussels';
+# BF	Burkina Faso
+	'Africa/Ouagadougou'	>	'BF/Ouagadougou';
+# BG	Bulgaria
+	'Europe/Sofia'	>	'BG/Sofia';
+# BH	Bahrain
+	'Asia/Bahrain'	>	'BH/Bahrain';
+# BI	Burundi
+	'Africa/Bujumbura'	>	'BI/Bujumbura';
+# BJ	Benin
+	'Africa/Porto-Novo'	>	'BJ/Porto-Novo';
+# BL	Saint Barthélemy
+	'America/St_Barthelemy'	>	'BL/St_Barthelemy';
+# BM	Bermuda
+	'Atlantic/Bermuda'	>	'BM/Bermuda';
+# BN	Brunei
+	'Asia/Brunei'	>	'BN/Brunei';
+# BO	Bolivia
+	'America/La_Paz'	>	'BO/La_Paz';
+# BR	Brazil
+	'America/Araguaina'	>	'BR/Araguaina';
+	'America/Bahia'	>	'BR/Bahia';
+	'America/Belem'	>	'BR/Belem';
+	'America/Boa_Vista'	>	'BR/Boa_Vista';
+	'America/Campo_Grande'	>	'BR/Campo_Grande';
+	'America/Cuiaba'	>	'BR/Cuiaba';
+	'America/Eirunepe'	>	'BR/Eirunepe';
+	'America/Fortaleza'	>	'BR/Fortaleza';
+	'America/Maceio'	>	'BR/Maceio';
+	'America/Manaus'	>	'BR/Manaus';
+	'America/Noronha'	>	'BR/Noronha';
+	'America/Porto_Velho'	>	'BR/Porto_Velho';
+	'America/Recife'	>	'BR/Recife';
+	'America/Rio_Branco'	>	'BR/Rio_Branco';
+	'America/Santarem'	>	'BR/Santarem';
+	'America/Sao_Paulo'	>	'BR/Sao_Paulo';
+# BS	Bahamas
+	'America/Nassau'	>	'BS/Nassau';
+# BT	Bhutan
+	'Asia/Thimphu'	>	'BT/Thimphu';
+# BW	Botswana
+	'Africa/Gaborone'	>	'BW/Gaborone';
+# BY	Belarus
+	'Europe/Minsk'	>	'BY/Minsk';
+# BZ	Belize
+	'America/Belize'	>	'BZ/Belize';
+# CA	Canada
+	'America/Blanc-Sablon'	>	'CA/Blanc-Sablon';
+	'America/Cambridge_Bay'	>	'CA/Cambridge_Bay';
+	'America/Coral_Harbour'	>	'CA/Coral_Harbour';
+	'America/Dawson'	>	'CA/Dawson';
+	'America/Edmonton'	>	'CA/Edmonton';
+	'America/Glace_Bay'	>	'CA/Glace_Bay';
+	'America/Goose_Bay'	>	'CA/Goose_Bay';
+	'America/Halifax'	>	'CA/Halifax';
+	'America/Inuvik'	>	'CA/Inuvik';
+	'America/Iqaluit'	>	'CA/Iqaluit';
+	'America/Moncton'	>	'CA/Moncton';
+	'America/Nipigon'	>	'CA/Nipigon';
+	'America/Pangnirtung'	>	'CA/Pangnirtung';
+	'America/Rainy_River'	>	'CA/Rainy_River';
+	'America/Rankin_Inlet'	>	'CA/Rankin_Inlet';
+	'America/Regina'	>	'CA/Regina';
+	'America/Resolute'	>	'CA/Resolute';
+	'America/St_Johns'	>	'CA/St_Johns';
+	'America/Swift_Current'	>	'CA/Swift_Current';
+	'America/Thunder_Bay'	>	'CA/Thunder_Bay';
+	'America/Toronto'	>	'CA/Toronto';
+	'America/Vancouver'	>	'CA/Vancouver';
+	'America/Whitehorse'	>	'CA/Whitehorse';
+	'America/Winnipeg'	>	'CA/Winnipeg';
+	'America/Yellowknife'	>	'CA/Yellowknife';
+# CC	Cocos Islands
+	'Indian/Cocos'	>	'CC/Cocos';
+# CD	Congo - Kinshasa
+	'Africa/Kinshasa'	>	'CD/Kinshasa';
+	'Africa/Lubumbashi'	>	'CD/Lubumbashi';
+# CF	Central African Republic
+	'Africa/Bangui'	>	'CF/Bangui';
+# CG	Congo - Brazzaville
+	'Africa/Brazzaville'	>	'CG/Brazzaville';
+# CH	Switzerland
+	'Europe/Zurich'	>	'CH/Zurich';
+# CI	Ivory Coast
+	'Africa/Abidjan'	>	'CI/Abidjan';
+# CK	Cook Islands
+	'Pacific/Rarotonga'	>	'CK/Rarotonga';
+# CL	Chile
+	'Pacific/Easter'	>	'CL/Easter';
+	'America/Santiago'	>	'CL/Santiago';
+# CM	Cameroon
+	'Africa/Douala'	>	'CM/Douala';
+# CN	China
+	'Asia/Chongqing'	>	'CN/Chongqing';
+	'Asia/Harbin'	>	'CN/Harbin';
+	'Asia/Kashgar'	>	'CN/Kashgar';
+	'Asia/Shanghai'	>	'CN/Shanghai';
+	'Asia/Urumqi'	>	'CN/Urumqi';
+# CO	Colombia
+	'America/Bogota'	>	'CO/Bogota';
+# CR	Costa Rica
+	'America/Costa_Rica'	>	'CR/Costa_Rica';
+# CU	Cuba
+	'America/Havana'	>	'CU/Havana';
+# CV	Cape Verde
+	'Atlantic/Cape_Verde'	>	'CV/Cape_Verde';
+# CX	Christmas Island
+	'Indian/Christmas'	>	'CX/Christmas';
+# CY	Cyprus
+	'Asia/Nicosia'	>	'CY/Nicosia';
+# CZ	Czech Republic
+	'Europe/Prague'	>	'CZ/Prague';
+# DE	Germany
+	'Europe/Berlin'	>	'DE/Berlin';
+# DJ	Djibouti
+	'Africa/Djibouti'	>	'DJ/Djibouti';
+# DK	Denmark
+	'Europe/Copenhagen'	>	'DK/Copenhagen';
+# DM	Dominica
+	'America/Dominica'	>	'DM/Dominica';
+# DO	Dominican Republic
+	'America/Santo_Domingo'	>	'DO/Santo_Domingo';
+# DZ	Algeria
+	'Africa/Algiers'	>	'DZ/Algiers';
+# EC	Ecuador
+	'Pacific/Galapagos'	>	'EC/Galapagos';
+	'America/Guayaquil'	>	'EC/Guayaquil';
+# EE	Estonia
+	'Europe/Tallinn'	>	'EE/Tallinn';
+# EG	Egypt
+	'Africa/Cairo'	>	'EG/Cairo';
+# EH	Western Sahara
+	'Africa/El_Aaiun'	>	'EH/El_Aaiun';
+# ER	Eritrea
+	'Africa/Asmera'	>	'ER/Asmera';
+# ES	Spain
+	'Atlantic/Canary'	>	'ES/Canary';
+	'Africa/Ceuta'	>	'ES/Ceuta';
+	'Europe/Madrid'	>	'ES/Madrid';
+# ET	Ethiopia
+	'Africa/Addis_Ababa'	>	'ET/Addis_Ababa';
+# FI	Finland
+	'Europe/Helsinki'	>	'FI/Helsinki';
+# FJ	Fiji
+	'Pacific/Fiji'	>	'FJ/Fiji';
+# FK	Falkland Islands
+	'Atlantic/Stanley'	>	'FK/Stanley';
+# FM	Micronesia
+	'Pacific/Kosrae'	>	'FM/Kosrae';
+	'Pacific/Ponape'	>	'FM/Ponape';
+	'Pacific/Truk'	>	'FM/Truk';
+# FO	Faroe Islands
+	'Atlantic/Faeroe'	>	'FO/Faeroe';
+# FR	France
+	'Europe/Paris'	>	'FR/Paris';
+# GA	Gabon
+	'Africa/Libreville'	>	'GA/Libreville';
+# GB	United Kingdom
+	'Europe/London'	>	'GB/London';
+# GD	Grenada
+	'America/Grenada'	>	'GD/Grenada';
+# GE	Georgia
+	'Asia/Tbilisi'	>	'GE/Tbilisi';
+# GF	French Guiana
+	'America/Cayenne'	>	'GF/Cayenne';
+# GG	Guernsey
+	'Europe/Guernsey'	>	'GG/Guernsey';
+# GH	Ghana
+	'Africa/Accra'	>	'GH/Accra';
+# GI	Gibraltar
+	'Europe/Gibraltar'	>	'GI/Gibraltar';
+# GL	Greenland
+	'America/Danmarkshavn'	>	'GL/Danmarkshavn';
+	'America/Godthab'	>	'GL/Godthab';
+	'America/Scoresbysund'	>	'GL/Scoresbysund';
+	'America/Thule'	>	'GL/Thule';
+# GM	Gambia
+	'Africa/Banjul'	>	'GM/Banjul';
+# GN	Guinea
+	'Africa/Conakry'	>	'GN/Conakry';
+# GP	Guadeloupe
+	'America/Guadeloupe'	>	'GP/Guadeloupe';
+# GQ	Equatorial Guinea
+	'Africa/Malabo'	>	'GQ/Malabo';
+# GR	Greece
+	'Europe/Athens'	>	'GR/Athens';
+# GS	South Georgia and the South Sandwich Islands
+	'Atlantic/South_Georgia'	>	'GS/South_Georgia';
+# GT	Guatemala
+	'America/Guatemala'	>	'GT/Guatemala';
+# GU	Guam
+	'Pacific/Guam'	>	'GU/Guam';
+# GW	Guinea-Bissau
+	'Africa/Bissau'	>	'GW/Bissau';
+# GY	Guyana
+	'America/Guyana'	>	'GY/Guyana';
+# HK	Hong Kong SAR China
+	'Asia/Hong_Kong'	>	'HK/Hong_Kong';
+# HN	Honduras
+	'America/Tegucigalpa'	>	'HN/Tegucigalpa';
+# HR	Croatia
+	'Europe/Zagreb'	>	'HR/Zagreb';
+# HT	Haiti
+	'America/Port-au-Prince'	>	'HT/Port-au-Prince';
+# HU	Hungary
+	'Europe/Budapest'	>	'HU/Budapest';
+# ID	Indonesia
+	'Asia/Jakarta'	>	'ID/Jakarta';
+	'Asia/Jayapura'	>	'ID/Jayapura';
+	'Asia/Makassar'	>	'ID/Makassar';
+	'Asia/Pontianak'	>	'ID/Pontianak';
+# IE	Ireland
+	'Europe/Dublin'	>	'IE/Dublin';
+# IL	Israel
+	'Asia/Jerusalem'	>	'IL/Jerusalem';
+# IM	Isle of Man
+	'Europe/Isle_of_Man'	>	'IM/Isle_of_Man';
+# IN	India
+	'Asia/Calcutta'	>	'IN/Calcutta';
+# IO	British Indian Ocean Territory
+	'Indian/Chagos'	>	'IO/Chagos';
+# IQ	Iraq
+	'Asia/Baghdad'	>	'IQ/Baghdad';
+# IR	Iran
+	'Asia/Tehran'	>	'IR/Tehran';
+# IS	Iceland
+	'Atlantic/Reykjavik'	>	'IS/Reykjavik';
+# IT	Italy
+	'Europe/Rome'	>	'IT/Rome';
+# JE	Jersey
+	'Europe/Jersey'	>	'JE/Jersey';
+# JM	Jamaica
+	'America/Jamaica'	>	'JM/Jamaica';
+# JO	Jordan
+	'Asia/Amman'	>	'JO/Amman';
+# JP	Japan
+	'Asia/Tokyo'	>	'JP/Tokyo';
+# KE	Kenya
+	'Africa/Nairobi'	>	'KE/Nairobi';
+# KG	Kyrgyzstan
+	'Asia/Bishkek'	>	'KG/Bishkek';
+# KH	Cambodia
+	'Asia/Phnom_Penh'	>	'KH/Phnom_Penh';
+# KI	Kiribati
+	'Pacific/Enderbury'	>	'KI/Enderbury';
+	'Pacific/Kiritimati'	>	'KI/Kiritimati';
+	'Pacific/Tarawa'	>	'KI/Tarawa';
+# KM	Comoros
+	'Indian/Comoro'	>	'KM/Comoro';
+# KN	Saint Kitts and Nevis
+	'America/St_Kitts'	>	'KN/St_Kitts';
+# KP	North Korea
+	'Asia/Pyongyang'	>	'KP/Pyongyang';
+# KR	South Korea
+	'Asia/Seoul'	>	'KR/Seoul';
+# KW	Kuwait
+	'Asia/Kuwait'	>	'KW/Kuwait';
+# KY	Cayman Islands
+	'America/Cayman'	>	'KY/Cayman';
+# KZ	Kazakhstan
+	'Asia/Almaty'	>	'KZ/Almaty';
+	'Asia/Aqtau'	>	'KZ/Aqtau';
+	'Asia/Aqtobe'	>	'KZ/Aqtobe';
+	'Asia/Oral'	>	'KZ/Oral';
+	'Asia/Qostanay'	>	'KZ/Qostanay';
+	'Asia/Qyzylorda'	>	'KZ/Qyzylorda';
+# LA	Laos
+	'Asia/Vientiane'	>	'LA/Vientiane';
+# LB	Lebanon
+	'Asia/Beirut'	>	'LB/Beirut';
+# LC	Saint Lucia
+	'America/St_Lucia'	>	'LC/St_Lucia';
+# LI	Liechtenstein
+	'Europe/Vaduz'	>	'LI/Vaduz';
+# LK	Sri Lanka
+	'Asia/Colombo'	>	'LK/Colombo';
+# LR	Liberia
+	'Africa/Monrovia'	>	'LR/Monrovia';
+# LS	Lesotho
+	'Africa/Maseru'	>	'LS/Maseru';
+# LT	Lithuania
+	'Europe/Vilnius'	>	'LT/Vilnius';
+# LU	Luxembourg
+	'Europe/Luxembourg'	>	'LU/Luxembourg';
+# LV	Latvia
+	'Europe/Riga'	>	'LV/Riga';
+# LY	Libya
+	'Africa/Tripoli'	>	'LY/Tripoli';
+# MA	Morocco
+	'Africa/Casablanca'	>	'MA/Casablanca';
+# MC	Monaco
+	'Europe/Monaco'	>	'MC/Monaco';
+# MD	Moldova
+	'Europe/Chisinau'	>	'MD/Chisinau';
+# ME	Montenegro
+	'Europe/Podgorica'	>	'ME/Podgorica';
+# MF	Saint Martin
+	'America/Marigot'	>	'MF/Marigot';
+# MG	Madagascar
+	'Indian/Antananarivo'	>	'MG/Antananarivo';
+# MH	Marshall Islands
+	'Pacific/Kwajalein'	>	'MH/Kwajalein';
+	'Pacific/Majuro'	>	'MH/Majuro';
+# MK	Macedonia
+	'Europe/Skopje'	>	'MK/Skopje';
+# ML	Mali
+	'Africa/Bamako'	>	'ML/Bamako';
+# MM	Myanmar
+	'Asia/Rangoon'	>	'MM/Rangoon';
+# MN	Mongolia
+	'Asia/Choibalsan'	>	'MN/Choibalsan';
+	'Asia/Hovd'	>	'MN/Hovd';
+	'Asia/Ulaanbaatar'	>	'MN/Ulaanbaatar';
+# MO	Macau SAR China
+	'Asia/Macau'	>	'MO/Macau';
+# MP	Northern Mariana Islands
+	'Pacific/Saipan'	>	'MP/Saipan';
+# MQ	Martinique
+	'America/Martinique'	>	'MQ/Martinique';
+# MR	Mauritania
+	'Africa/Nouakchott'	>	'MR/Nouakchott';
+# MS	Montserrat
+	'America/Montserrat'	>	'MS/Montserrat';
+# MT	Malta
+	'Europe/Malta'	>	'MT/Malta';
+# MU	Mauritius
+	'Indian/Mauritius'	>	'MU/Mauritius';
+# MV	Maldives
+	'Indian/Maldives'	>	'MV/Maldives';
+# MW	Malawi
+	'Africa/Blantyre'	>	'MW/Blantyre';
+# MX	Mexico
+	'America/Cancun'	>	'MX/Cancun';
+	'America/Chihuahua'	>	'MX/Chihuahua';
+	'America/Hermosillo'	>	'MX/Hermosillo';
+	'America/Mazatlan'	>	'MX/Mazatlan';
+	'America/Merida'	>	'MX/Merida';
+	'America/Mexico_City'	>	'MX/Mexico_City';
+	'America/Monterrey'	>	'MX/Monterrey';
+	'America/Tijuana'	>	'MX/Tijuana';
+# MY	Malaysia
+	'Asia/Kuala_Lumpur'	>	'MY/Kuala_Lumpur';
+	'Asia/Kuching'	>	'MY/Kuching';
+# MZ	Mozambique
+	'Africa/Maputo'	>	'MZ/Maputo';
+# NA	Namibia
+	'Africa/Windhoek'	>	'NA/Windhoek';
+# NC	New Caledonia
+	'Pacific/Noumea'	>	'NC/Noumea';
+# NE	Niger
+	'Africa/Niamey'	>	'NE/Niamey';
+# NF	Norfolk Island
+	'Pacific/Norfolk'	>	'NF/Norfolk';
+# NG	Nigeria
+	'Africa/Lagos'	>	'NG/Lagos';
+# NI	Nicaragua
+	'America/Managua'	>	'NI/Managua';
+# NL	Netherlands
+	'Europe/Amsterdam'	>	'NL/Amsterdam';
+# NO	Norway
+	'Europe/Oslo'	>	'NO/Oslo';
+# NP	Nepal
+	'Asia/Katmandu'	>	'NP/Katmandu';
+# NR	Nauru
+	'Pacific/Nauru'	>	'NR/Nauru';
+# NU	Niue
+	'Pacific/Niue'	>	'NU/Niue';
+# NZ	New Zealand
+	'Pacific/Auckland'	>	'NZ/Auckland';
+	'Pacific/Chatham'	>	'NZ/Chatham';
+# OM	Oman
+	'Asia/Muscat'	>	'OM/Muscat';
+# PA	Panama
+	'America/Panama'	>	'PA/Panama';
+# PE	Peru
+	'America/Lima'	>	'PE/Lima';
+# PF	French Polynesia
+	'Pacific/Gambier'	>	'PF/Gambier';
+	'Pacific/Marquesas'	>	'PF/Marquesas';
+	'Pacific/Tahiti'	>	'PF/Tahiti';
+# PG	Papua New Guinea
+	'Pacific/Port_Moresby'	>	'PG/Port_Moresby';
+# PH	Philippines
+	'Asia/Manila'	>	'PH/Manila';
+# PK	Pakistan
+	'Asia/Karachi'	>	'PK/Karachi';
+# PL	Poland
+	'Europe/Warsaw'	>	'PL/Warsaw';
+# PM	Saint Pierre and Miquelon
+	'America/Miquelon'	>	'PM/Miquelon';
+# PN	Pitcairn
+	'Pacific/Pitcairn'	>	'PN/Pitcairn';
+# PR	Puerto Rico
+	'America/Puerto_Rico'	>	'PR/Puerto_Rico';
+# PS	Palestinian Territory
+	'Asia/Gaza'	>	'PS/Gaza';
+# PT	Portugal
+	'Atlantic/Azores'	>	'PT/Azores';
+	'Europe/Lisbon'	>	'PT/Lisbon';
+	'Atlantic/Madeira'	>	'PT/Madeira';
+# PW	Palau
+	'Pacific/Palau'	>	'PW/Palau';
+# PY	Paraguay
+	'America/Asuncion'	>	'PY/Asuncion';
+# QA	Qatar
+	'Asia/Qatar'	>	'QA/Qatar';
+# RE	Reunion
+	'Indian/Reunion'	>	'RE/Reunion';
+# RO	Romania
+	'Europe/Bucharest'	>	'RO/Bucharest';
+# RS	Serbia
+	'Europe/Belgrade'	>	'RS/Belgrade';
+# RU	Russia
+	'Asia/Anadyr'	>	'RU/Anadyr';
+	'Asia/Irkutsk'	>	'RU/Irkutsk';
+	'Europe/Kaliningrad'	>	'RU/Kaliningrad';
+	'Asia/Kamchatka'	>	'RU/Kamchatka';
+	'Asia/Krasnoyarsk'	>	'RU/Krasnoyarsk';
+	'Asia/Magadan'	>	'RU/Magadan';
+	'Europe/Moscow'	>	'RU/Moscow';
+	'Asia/Novosibirsk'	>	'RU/Novosibirsk';
+	'Asia/Omsk'	>	'RU/Omsk';
+	'Asia/Sakhalin'	>	'RU/Sakhalin';
+	'Europe/Samara'	>	'RU/Samara';
+	'Asia/Vladivostok'	>	'RU/Vladivostok';
+	'Europe/Volgograd'	>	'RU/Volgograd';
+	'Asia/Yakutsk'	>	'RU/Yakutsk';
+	'Asia/Yekaterinburg'	>	'RU/Yekaterinburg';
+# RW	Rwanda
+	'Africa/Kigali'	>	'RW/Kigali';
+# SA	Saudi Arabia
+	'Asia/Riyadh'	>	'SA/Riyadh';
+# SB	Solomon Islands
+	'Pacific/Guadalcanal'	>	'SB/Guadalcanal';
+# SC	Seychelles
+	'Indian/Mahe'	>	'SC/Mahe';
+# SD	Sudan
+	'Africa/Khartoum'	>	'SD/Khartoum';
+# SE	Sweden
+	'Europe/Stockholm'	>	'SE/Stockholm';
+# SG	Singapore
+	'Asia/Singapore'	>	'SG/Singapore';
+# SH	Saint Helena
+	'Atlantic/St_Helena'	>	'SH/St_Helena';
+# SI	Slovenia
+	'Europe/Ljubljana'	>	'SI/Ljubljana';
+# SJ	Svalbard and Jan Mayen
+	'Arctic/Longyearbyen'	>	'SJ/Longyearbyen';
+# SK	Slovakia
+	'Europe/Bratislava'	>	'SK/Bratislava';
+# SL	Sierra Leone
+	'Africa/Freetown'	>	'SL/Freetown';
+# SM	San Marino
+	'Europe/San_Marino'	>	'SM/San_Marino';
+# SN	Senegal
+	'Africa/Dakar'	>	'SN/Dakar';
+# SO	Somalia
+	'Africa/Mogadishu'	>	'SO/Mogadishu';
+# SR	Suriname
+	'America/Paramaribo'	>	'SR/Paramaribo';
+# ST	São Tomé and Príncipe
+	'Africa/Sao_Tome'	>	'ST/Sao_Tome';
+# SV	El Salvador
+	'America/El_Salvador'	>	'SV/El_Salvador';
+# SY	Syria
+	'Asia/Damascus'	>	'SY/Damascus';
+# SZ	Swaziland
+	'Africa/Mbabane'	>	'SZ/Mbabane';
+# TC	Turks and Caicos Islands
+	'America/Grand_Turk'	>	'TC/Grand_Turk';
+# TD	Chad
+	'Africa/Ndjamena'	>	'TD/Ndjamena';
+# TF	French Southern Territories
+	'Indian/Kerguelen'	>	'TF/Kerguelen';
+# TG	Togo
+	'Africa/Lome'	>	'TG/Lome';
+# TH	Thailand
+	'Asia/Bangkok'	>	'TH/Bangkok';
+# TJ	Tajikistan
+	'Asia/Dushanbe'	>	'TJ/Dushanbe';
+# TK	Tokelau
+	'Pacific/Fakaofo'	>	'TK/Fakaofo';
+# TL	East Timor
+	'Asia/Dili'	>	'TL/Dili';
+# TM	Turkmenistan
+	'Asia/Ashgabat'	>	'TM/Ashgabat';
+# TN	Tunisia
+	'Africa/Tunis'	>	'TN/Tunis';
+# TO	Tonga
+	'Pacific/Tongatapu'	>	'TO/Tongatapu';
+# TR	Turkey
+	'Europe/Istanbul'	>	'TR/Istanbul';
+# TT	Trinidad and Tobago
+	'America/Port_of_Spain'	>	'TT/Port_of_Spain';
+# TV	Tuvalu
+	'Pacific/Funafuti'	>	'TV/Funafuti';
+# TW	Taiwan
+	'Asia/Taipei'	>	'TW/Taipei';
+# TZ	Tanzania
+	'Africa/Dar_es_Salaam'	>	'TZ/Dar_es_Salaam';
+# UA	Ukraine
+	'Europe/Kiev'	>	'UA/Kiev';
+	'Europe/Simferopol'	>	'UA/Simferopol';
+	'Europe/Uzhgorod'	>	'UA/Uzhgorod';
+	'Europe/Zaporozhye'	>	'UA/Zaporozhye';
+# UG	Uganda
+	'Africa/Kampala'	>	'UG/Kampala';
+# UM	United States Minor Outlying Islands
+	'Pacific/Johnston'	>	'UM/Johnston';
+	'Pacific/Midway'	>	'UM/Midway';
+	'Pacific/Wake'	>	'UM/Wake';
+# US	United States
+	'America/Adak'	>	'US/Adak';
+	'America/Anchorage'	>	'US/Anchorage';
+	'America/Boise'	>	'US/Boise';
+	'America/Chicago'	>	'US/Chicago';
+	'America/Denver'	>	'US/Denver';
+	'America/Detroit'	>	'US/Detroit';
+	'Pacific/Honolulu'	>	'US/Honolulu';
+	'America/Indiana/Knox'	>	'US/Indiana/Knox';
+	'America/Indiana/Marengo'	>	'US/Indiana/Marengo';
+	'America/Indiana/Petersburg'	>	'US/Indiana/Petersburg';
+	'America/Indiana/Tell_City'	>	'US/Indiana/Tell_City';
+	'America/Indiana/Vevay'	>	'US/Indiana/Vevay';
+	'America/Indiana/Vincennes'	>	'US/Indiana/Vincennes';
+	'America/Indiana/Winamac'	>	'US/Indiana/Winamac';
+	'America/Indianapolis'	>	'US/Indianapolis';
+	'America/Juneau'	>	'US/Juneau';
+	'America/Kentucky/Monticello'	>	'US/Kentucky/Monticello';
+	'America/Los_Angeles'	>	'US/Los_Angeles';
+	'America/Louisville'	>	'US/Louisville';
+	'America/Menominee'	>	'US/Menominee';
+	'America/New_York'	>	'US/New_York';
+	'America/Nome'	>	'US/Nome';
+	'America/North_Dakota/Center'	>	'US/North_Dakota/Center';
+	'America/North_Dakota/New_Salem'	>	'US/North_Dakota/New_Salem';
+	'America/Phoenix'	>	'US/Phoenix';
+	'America/Yakutat'	>	'US/Yakutat';
+# UY	Uruguay
+	'America/Montevideo'	>	'UY/Montevideo';
+# UZ	Uzbekistan
+	'Asia/Samarkand'	>	'UZ/Samarkand';
+	'Asia/Tashkent'	>	'UZ/Tashkent';
+# VA	Vatican
+	'Europe/Vatican'	>	'VA/Vatican';
+# VC	Saint Vincent and the Grenadines
+	'America/St_Vincent'	>	'VC/St_Vincent';
+# VE	Venezuela
+	'America/Caracas'	>	'VE/Caracas';
+# VG	British Virgin Islands
+	'America/Tortola'	>	'VG/Tortola';
+# VI	U.S. Virgin Islands
+	'America/St_Thomas'	>	'VI/St_Thomas';
+# VN	Vietnam
+	'Asia/Saigon'	>	'VN/Saigon';
+# VU	Vanuatu
+	'Pacific/Efate'	>	'VU/Efate';
+# WF	Wallis and Futuna
+	'Pacific/Wallis'	>	'WF/Wallis';
+# WS	Samoa
+	'Pacific/Apia'	>	'WS/Apia';
+# YE	Yemen
+	'Asia/Aden'	>	'YE/Aden';
+# YT	Mayotte
+	'Indian/Mayotte'	>	'YT/Mayotte';
+# ZA	South Africa
+	'Africa/Johannesburg'	>	'ZA/Johannesburg';
+# ZM	Zambia
+	'Africa/Lusaka'	>	'ZM/Lusaka';
+# ZW	Zimbabwe
+	'Africa/Harare'	>	'ZW/Harare';
+# ZZ	Unknown or Invalid Region
+	'Etc/GMT'	>	'ZZ/GMT';
+	'Etc/Unknown'	>	'ZZ/Unknown';

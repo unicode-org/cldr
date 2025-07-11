@@ -1,0 +1,27 @@
+table {
+	border-spacing: 0;
+	border-collapse: collapse;
+	border-style: solid;
+	border-color: white;
+	border-width: 0px;
+	width: 100%;
+}
+
+th, td {
+	vertical-align: top;
+}
+
+th {
+	background-color: #DDDDDD;
+}
+
+.version {
+    content: "β";
+    color: black;
+    font-weight: bold;
+}
+.version::after {
+    content: "β";
+    color: red;
+    font-weight: bold;
+}

@@ -10,16 +10,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<version number="$Revision$"/>
 		<language type="tvu"/>
 	</identity>
-	<layout>
-		<orientation>
-			<characterOrder>left-to-right</characterOrder>
-			<lineOrder>top-to-bottom</lineOrder>
-		</orientation>
-	</layout>
 	<characters>
-		<exemplarCharacters draft="unconfirmed">[aá b c eé ɛ{ɛ́} f h ií k l m {mb} n {nd} {ng} {nj} {ny} ŋ oó ɔ{ɔ́} s t uú w y]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary" draft="unconfirmed">[d g j p q r v x z]</exemplarCharacters>
-		<exemplarCharacters type="index" draft="unconfirmed">[A B C D E Ɛ F H I K L M {Mb} N {Nd} {Ng} {Nj} {Ny} Ŋ O Ɔ S T U W Y]</exemplarCharacters>
-		<exemplarCharacters type="punctuation" draft="unconfirmed">[, ; ! ? . ' &quot;]</exemplarCharacters>
+		<exemplarCharacters draft="provisional">[a á b c e é ɛ {ɛ́} f h i í k l m {mb} n {nd} {ng} {nj} {ny} ŋ o ó ɔ {ɔ́} s t u ú w y]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary" draft="provisional">[d g j p q r v x z]</exemplarCharacters>
+		<exemplarCharacters type="index" draft="provisional">[A B C D E Ɛ F H I K L M {Mb} N {Nd} {Ng} {Nj} {Ny} Ŋ O Ɔ S T U W Y]</exemplarCharacters>
+		<exemplarCharacters type="punctuation" draft="provisional">[, . ; ' " ! ?]</exemplarCharacters>
 	</characters>
 </ldml>

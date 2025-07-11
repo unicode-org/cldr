@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="org.unicode.cldr.util.TestLevel" time="0.093" tests="165" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="22"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\Users\emily_roth\Documents\GitHub\cldr\tools\cldr-code\target\test-classes;C:\Users\emily_roth\Documents\GitHub\cldr\tools\cldr-code\target\classes;C:\Users\emily_roth\.m2\repository\com\ibm\icu\icu4j\75.1-SNAPSHOT\icu4j-75.1-SNAPSHOT.jar;C:\Users\emily_roth\.m2\repository\com\ibm\icu\utilities-for-cldr\75.1-SNAPSHOT\utilities-for-cldr-75.1-SNAPSHOT.jar;C:\Users\emily_roth\.m2\repository\org\junit\jupiter\junit-jupiter\5.8.2\junit-jupiter-5.8.2.jar;C:\Users\emily_roth\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.8.2\junit-jupiter-api-5.8.2.jar;C:\Users\emily_roth\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\emily_roth\.m2\repository\org\junit\platform\junit-platform-commons\1.8.2\junit-platform-commons-1.8.2.jar;C:\Users\emily_roth\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\emily_roth\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.8.2\junit-jupiter-params-5.8.2.jar;C:\Users\emily_roth\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.8.2\junit-jupiter-engine-5.8.2.jar;C:\Users\emily_roth\.m2\repository\org\junit\platform\junit-platform-engine\1.8.2\junit-platform-engine-1.8.2.jar;C:\Users\emily_roth\.m2\repository\com\google\code\gson\gson\2.10.1\gson-2.10.1.jar;C:\Users\emily_roth\.m2\repository\com\google\guava\guava\32.1.1-jre\guava-32.1.1-jre.jar;C:\Users\emily_roth\.m2\repository\com\google\guava\failureaccess\1.0.1\failureaccess-1.0.1.jar;C:\Users\emily_roth\.m2\repository\com\google\guava\listenablefuture\9999.0-empty-to-avoid-conflict-with-guava\listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar;C:\Users\emily_roth\.m2\repository\com\google\code\findbugs\jsr305\3.0.2\jsr305-3.0.2.jar;C:\Users\emily_roth\.m2\repository\org\checkerframework\checker-qual\3.33.0\checker-qual-3.33.0.jar;C:\Users\emily_roth\.m2\repository\com\google\errorprone\error_prone_annotations\2.18.0\error_prone_annotations-2.18.0.jar;C:\Users\emily_roth\.m2\repository\com\google\j2objc\j2objc-annotations\2.8\j2objc-annotations-2.8.jar;C:\Users\emily_roth\.m2\repository\com\google\myanmartools\myanmar-tools\1.1.1\myanmar-tools-1.1.1.jar;C:\Users\emily_roth\.m2\repository\org\relaxng\trang\20220510\trang-20220510.jar;C:\Users\emily_roth\.m2\repository\com\vdurmont\semver4j\3.1.0\semver4j-3.1.0.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="user.timezone" value="America/New_York"/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="java.vm.specification.version" value="22"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-22\bin"/>
+    <property name="sun.java.command" value="C:\Users\emily_roth\AppData\Local\Temp\surefire955635801638903902\surefirebooter-20240430110347694_3.jar C:\Users\emily_roth\AppData\Local\Temp\surefire955635801638903902 2024-04-30T11-03-47_424-jvmRun1 surefire-20240430110347694_1tmp surefire_0-20240430110347694_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="C:\Users\emily_roth\Documents\GitHub\cldr\tools\cldr-code\target\test-classes;C:\Users\emily_roth\Documents\GitHub\cldr\tools\cldr-code\target\classes;C:\Users\emily_roth\.m2\repository\com\ibm\icu\icu4j\75.1-SNAPSHOT\icu4j-75.1-SNAPSHOT.jar;C:\Users\emily_roth\.m2\repository\com\ibm\icu\utilities-for-cldr\75.1-SNAPSHOT\utilities-for-cldr-75.1-SNAPSHOT.jar;C:\Users\emily_roth\.m2\repository\org\junit\jupiter\junit-jupiter\5.8.2\junit-jupiter-5.8.2.jar;C:\Users\emily_roth\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.8.2\junit-jupiter-api-5.8.2.jar;C:\Users\emily_roth\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\emily_roth\.m2\repository\org\junit\platform\junit-platform-commons\1.8.2\junit-platform-commons-1.8.2.jar;C:\Users\emily_roth\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\emily_roth\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.8.2\junit-jupiter-params-5.8.2.jar;C:\Users\emily_roth\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.8.2\junit-jupiter-engine-5.8.2.jar;C:\Users\emily_roth\.m2\repository\org\junit\platform\junit-platform-engine\1.8.2\junit-platform-engine-1.8.2.jar;C:\Users\emily_roth\.m2\repository\com\google\code\gson\gson\2.10.1\gson-2.10.1.jar;C:\Users\emily_roth\.m2\repository\com\google\guava\guava\32.1.1-jre\guava-32.1.1-jre.jar;C:\Users\emily_roth\.m2\repository\com\google\guava\failureaccess\1.0.1\failureaccess-1.0.1.jar;C:\Users\emily_roth\.m2\repository\com\google\guava\listenablefuture\9999.0-empty-to-avoid-conflict-with-guava\listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar;C:\Users\emily_roth\.m2\repository\com\google\code\findbugs\jsr305\3.0.2\jsr305-3.0.2.jar;C:\Users\emily_roth\.m2\repository\org\checkerframework\checker-qual\3.33.0\checker-qual-3.33.0.jar;C:\Users\emily_roth\.m2\repository\com\google\errorprone\error_prone_annotations\2.18.0\error_prone_annotations-2.18.0.jar;C:\Users\emily_roth\.m2\repository\com\google\j2objc\j2objc-annotations\2.8\j2objc-annotations-2.8.jar;C:\Users\emily_roth\.m2\repository\com\google\myanmartools\myanmar-tools\1.1.1\myanmar-tools-1.1.1.jar;C:\Users\emily_roth\.m2\repository\org\relaxng\trang\20220510\trang-20220510.jar;C:\Users\emily_roth\.m2\repository\com\vdurmont\semver4j\3.1.0\semver4j-3.1.0.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\emily_roth"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2024-04-16"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk-22"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Users\emily_roth\Documents\GitHub\cldr\tools\cldr-code"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="CLDR_ENVIRONMENT" value="UNITTEST"/>
+    <property name="java.awt.headless" value="true"/>
+    <property name="surefire.real.class.path" value="C:\Users\emily_roth\AppData\Local\Temp\surefire955635801638903902\surefirebooter-20240430110347694_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="22.0.1+8-16"/>
+    <property name="user.name" value="emily_roth"/>
+    <property name="stdout.encoding" value="Cp1252"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="localRepository" value="C:\Users\emily_roth\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\EMILY_~1\AppData\Local\Temp\"/>
+    <property name="CLDR_DIR" value="C:\Users\emily_roth\Documents\GitHub\cldr\tools\cldr-code/../../"/>
+    <property name="java.version" value="22.0.1"/>
+    <property name="user.dir" value="C:\Users\emily_roth\Documents\GitHub\cldr\tools\cldr-code"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-22\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Meld\;C:\Program Files (x86)\Common Files\Acronis\SnapAPI\;C:\Program Files (x86)\Common Files\Acronis\VirtualFile\;C:\Program Files (x86)\Common Files\Acronis\VirtualFile64\;C:\Program Files\Git\cmd;C:\Program Files (x86)\Keyman\Keyman Developer\;C:\Program Files (x86)\Common Files\Acronis\FileProtector\;C:\Program Files (x86)\Common Files\Acronis\FileProtector64\;C:\Users\emily_roth\.cargo\bin;C:\Users\emily_roth\AppData\Local\Programs\Python\Python311\Scripts;C:\Users\emily_roth\AppData\Local\Programs\Python\Python311\;C:\Users\emily_roth\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\Java\jdk-22\bin;C:\Program Files\apache-maven-3.9.6\bin;C:\Users\emily_roth\AppData\Local\GitHubDesktop\bin;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="Cp1252"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="22.0.1+8-16"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="66.0"/>
+  </properties>
+  <testcase name="testMax(String, String, String) 1: max UNDETERMINED,UNDETERMINED" classname="org.unicode.cldr.util.TestLevel" time="0.001"/>
+  <testcase name="testMax(String, String, String) 2: max BASIC,MODERN" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testMax(String, String, String) 3: max BASIC,COMPREHENSIVE" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testMax(String, String, String) 4: max MODERN,MODERN" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testMax(String, String, String) 5: max MODERN,COMPREHENSIVE" classname="org.unicode.cldr.util.TestLevel" time="0.001"/>
+  <testcase name="testMax(String, String, String) 6: max COMPREHENSIVE,MODERN" classname="org.unicode.cldr.util.TestLevel" time="0.001"/>
+  <testcase name="testMin(String, String, String) 1: min UNDETERMINED,UNDETERMINED" classname="org.unicode.cldr.util.TestLevel" time="0.003"/>
+  <testcase name="testMin(String, String, String) 2: min BASIC,MODERN" classname="org.unicode.cldr.util.TestLevel" time="0.001"/>
+  <testcase name="testMin(String, String, String) 3: min BASIC,COMPREHENSIVE" classname="org.unicode.cldr.util.TestLevel" time="0.001"/>
+  <testcase name="testMin(String, String, String) 4: min MODERN,MODERN" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testMin(String, String, String) 5: min MODERN,COMPREHENSIVE" classname="org.unicode.cldr.util.TestLevel" time="0.001"/>
+  <testcase name="testMin(String, String, String) 6: min COMPREHENSIVE,MODERN" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[1] AED" classname="org.unicode.cldr.util.TestLevel" time="0.001"/>
+  <testcase name="testModernCurrencies(String)[2] AFN" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[3] ALL" classname="org.unicode.cldr.util.TestLevel" time="0.001"/>
+  <testcase name="testModernCurrencies(String)[4] AMD" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[5] ANG" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[6] AOA" classname="org.unicode.cldr.util.TestLevel" time="0.001"/>
+  <testcase name="testModernCurrencies(String)[7] ARS" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[8] AUD" classname="org.unicode.cldr.util.TestLevel" time="0.001"/>
+  <testcase name="testModernCurrencies(String)[9] AWG" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[10] AZN" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[11] BAM" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[12] BBD" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[13] BDT" classname="org.unicode.cldr.util.TestLevel" time="0.001"/>
+  <testcase name="testModernCurrencies(String)[14] BGN" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[15] BHD" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[16] BIF" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[17] BMD" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[18] BND" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[19] BOB" classname="org.unicode.cldr.util.TestLevel" time="0.001"/>
+  <testcase name="testModernCurrencies(String)[20] BRL" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[21] BSD" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[22] BTN" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[23] BWP" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[24] BYN" classname="org.unicode.cldr.util.TestLevel" time="0.001"/>
+  <testcase name="testModernCurrencies(String)[25] BZD" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[26] CAD" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[27] CDF" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[28] CHF" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[29] CLP" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[30] CNY" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[31] COP" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[32] CRC" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[33] CUP" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[34] CVE" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[35] CZK" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[36] DJF" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[37] DKK" classname="org.unicode.cldr.util.TestLevel" time="0.001"/>
+  <testcase name="testModernCurrencies(String)[38] DOP" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[39] DZD" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[40] EGP" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[41] ERN" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[42] ETB" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[43] EUR" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[44] FJD" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[45] FKP" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[46] GBP" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[47] GEL" classname="org.unicode.cldr.util.TestLevel" time="0.001"/>
+  <testcase name="testModernCurrencies(String)[48] GHS" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[49] GIP" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[50] GMD" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[51] GNF" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[52] GTQ" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[53] GYD" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[54] HKD" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[55] HNL" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[56] HTG" classname="org.unicode.cldr.util.TestLevel" time="0.001"/>
+  <testcase name="testModernCurrencies(String)[57] HUF" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[58] IDR" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[59] ILS" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[60] INR" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[61] IQD" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[62] IRR" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[63] ISK" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[64] JMD" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[65] JOD" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[66] JPY" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[67] KES" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[68] KGS" classname="org.unicode.cldr.util.TestLevel" time="0.001"/>
+  <testcase name="testModernCurrencies(String)[69] KHR" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[70] KMF" classname="org.unicode.cldr.util.TestLevel" time="0.001"/>
+  <testcase name="testModernCurrencies(String)[71] KPW" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[72] KRW" classname="org.unicode.cldr.util.TestLevel" time="0.001"/>
+  <testcase name="testModernCurrencies(String)[73] KWD" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[74] KYD" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[75] KZT" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[76] LAK" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[77] LBP" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[78] LKR" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[79] LRD" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[80] LSL" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[81] LYD" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[82] MAD" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[83] MDL" classname="org.unicode.cldr.util.TestLevel" time="0.001"/>
+  <testcase name="testModernCurrencies(String)[84] MGA" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[85] MKD" classname="org.unicode.cldr.util.TestLevel" time="0.001"/>
+  <testcase name="testModernCurrencies(String)[86] MMK" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[87] MNT" classname="org.unicode.cldr.util.TestLevel" time="0.001"/>
+  <testcase name="testModernCurrencies(String)[88] MOP" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[89] MRU" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[90] MUR" classname="org.unicode.cldr.util.TestLevel" time="0.001"/>
+  <testcase name="testModernCurrencies(String)[91] MVR" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[92] MWK" classname="org.unicode.cldr.util.TestLevel" time="0.001"/>
+  <testcase name="testModernCurrencies(String)[93] MXN" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[94] MYR" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[95] MZN" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[96] NAD" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[97] NGN" classname="org.unicode.cldr.util.TestLevel" time="0.001"/>
+  <testcase name="testModernCurrencies(String)[98] NIO" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[99] NOK" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[100] NPR" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[101] NZD" classname="org.unicode.cldr.util.TestLevel" time="0.001"/>
+  <testcase name="testModernCurrencies(String)[102] OMR" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[103] PAB" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[104] PEN" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[105] PGK" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[106] PHP" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[107] PKR" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[108] PLN" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[109] PYG" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[110] QAR" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[111] RON" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[112] RSD" classname="org.unicode.cldr.util.TestLevel" time="0.001"/>
+  <testcase name="testModernCurrencies(String)[113] RUB" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[114] RWF" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[115] SAR" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[116] SBD" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[117] SCR" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[118] SDG" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[119] SEK" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[120] SGD" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[121] SHP" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[122] SLE" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[123] SOS" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[124] SRD" classname="org.unicode.cldr.util.TestLevel" time="0.001"/>
+  <testcase name="testModernCurrencies(String)[125] SSP" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[126] STN" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[127] SYP" classname="org.unicode.cldr.util.TestLevel" time="0.001"/>
+  <testcase name="testModernCurrencies(String)[128] SZL" classname="org.unicode.cldr.util.TestLevel" time="0.001"/>
+  <testcase name="testModernCurrencies(String)[129] THB" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[130] TJS" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[131] TMT" classname="org.unicode.cldr.util.TestLevel" time="0.001"/>
+  <testcase name="testModernCurrencies(String)[132] TND" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[133] TOP" classname="org.unicode.cldr.util.TestLevel" time="0.001"/>
+  <testcase name="testModernCurrencies(String)[134] TRY" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[135] TTD" classname="org.unicode.cldr.util.TestLevel" time="0.001"/>
+  <testcase name="testModernCurrencies(String)[136] TWD" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[137] TZS" classname="org.unicode.cldr.util.TestLevel" time="0.001"/>
+  <testcase name="testModernCurrencies(String)[138] UAH" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[139] UGX" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[140] USD" classname="org.unicode.cldr.util.TestLevel" time="0.001"/>
+  <testcase name="testModernCurrencies(String)[141] UYU" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[142] UZS" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[143] VES" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[144] VND" classname="org.unicode.cldr.util.TestLevel" time="0.001"/>
+  <testcase name="testModernCurrencies(String)[145] VUV" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[146] WST" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[147] XAF" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[148] XCD" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[149] XOF" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[150] XPF" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[151] YER" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[152] ZAR" classname="org.unicode.cldr.util.TestLevel" time="0"/>
+  <testcase name="testModernCurrencies(String)[153] ZMW" classname="org.unicode.cldr.util.TestLevel" time="0.001"/>
+</testsuite>

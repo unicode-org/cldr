@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="org.unicode.cldr.unittest.TestShim" time="36.462" tests="2" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="22"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\Users\emily_roth\Documents\GitHub\cldr\tools\cldr-code\target\test-classes;C:\Users\emily_roth\Documents\GitHub\cldr\tools\cldr-code\target\classes;C:\Users\emily_roth\.m2\repository\com\ibm\icu\icu4j\75.1-SNAPSHOT\icu4j-75.1-SNAPSHOT.jar;C:\Users\emily_roth\.m2\repository\com\ibm\icu\utilities-for-cldr\75.1-SNAPSHOT\utilities-for-cldr-75.1-SNAPSHOT.jar;C:\Users\emily_roth\.m2\repository\org\junit\jupiter\junit-jupiter\5.8.2\junit-jupiter-5.8.2.jar;C:\Users\emily_roth\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.8.2\junit-jupiter-api-5.8.2.jar;C:\Users\emily_roth\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\emily_roth\.m2\repository\org\junit\platform\junit-platform-commons\1.8.2\junit-platform-commons-1.8.2.jar;C:\Users\emily_roth\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\emily_roth\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.8.2\junit-jupiter-params-5.8.2.jar;C:\Users\emily_roth\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.8.2\junit-jupiter-engine-5.8.2.jar;C:\Users\emily_roth\.m2\repository\org\junit\platform\junit-platform-engine\1.8.2\junit-platform-engine-1.8.2.jar;C:\Users\emily_roth\.m2\repository\com\google\code\gson\gson\2.10.1\gson-2.10.1.jar;C:\Users\emily_roth\.m2\repository\com\google\guava\guava\32.1.1-jre\guava-32.1.1-jre.jar;C:\Users\emily_roth\.m2\repository\com\google\guava\failureaccess\1.0.1\failureaccess-1.0.1.jar;C:\Users\emily_roth\.m2\repository\com\google\guava\listenablefuture\9999.0-empty-to-avoid-conflict-with-guava\listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar;C:\Users\emily_roth\.m2\repository\com\google\code\findbugs\jsr305\3.0.2\jsr305-3.0.2.jar;C:\Users\emily_roth\.m2\repository\org\checkerframework\checker-qual\3.33.0\checker-qual-3.33.0.jar;C:\Users\emily_roth\.m2\repository\com\google\errorprone\error_prone_annotations\2.18.0\error_prone_annotations-2.18.0.jar;C:\Users\emily_roth\.m2\repository\com\google\j2objc\j2objc-annotations\2.8\j2objc-annotations-2.8.jar;C:\Users\emily_roth\.m2\repository\com\google\myanmartools\myanmar-tools\1.1.1\myanmar-tools-1.1.1.jar;C:\Users\emily_roth\.m2\repository\org\relaxng\trang\20220510\trang-20220510.jar;C:\Users\emily_roth\.m2\repository\com\vdurmont\semver4j\3.1.0\semver4j-3.1.0.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="user.timezone" value="America/New_York"/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="java.vm.specification.version" value="22"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-22\bin"/>
+    <property name="sun.java.command" value="C:\Users\emily_roth\AppData\Local\Temp\surefire9485595017309689001\surefirebooter-20240430114601079_3.jar C:\Users\emily_roth\AppData\Local\Temp\surefire9485595017309689001 2024-04-30T11-46-00_867-jvmRun1 surefire-20240430114601079_1tmp surefire_0-20240430114601079_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="test" value="org.unicode.cldr.unittest.TestShim"/>
+    <property name="surefire.test.class.path" value="C:\Users\emily_roth\Documents\GitHub\cldr\tools\cldr-code\target\test-classes;C:\Users\emily_roth\Documents\GitHub\cldr\tools\cldr-code\target\classes;C:\Users\emily_roth\.m2\repository\com\ibm\icu\icu4j\75.1-SNAPSHOT\icu4j-75.1-SNAPSHOT.jar;C:\Users\emily_roth\.m2\repository\com\ibm\icu\utilities-for-cldr\75.1-SNAPSHOT\utilities-for-cldr-75.1-SNAPSHOT.jar;C:\Users\emily_roth\.m2\repository\org\junit\jupiter\junit-jupiter\5.8.2\junit-jupiter-5.8.2.jar;C:\Users\emily_roth\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.8.2\junit-jupiter-api-5.8.2.jar;C:\Users\emily_roth\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\emily_roth\.m2\repository\org\junit\platform\junit-platform-commons\1.8.2\junit-platform-commons-1.8.2.jar;C:\Users\emily_roth\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\emily_roth\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.8.2\junit-jupiter-params-5.8.2.jar;C:\Users\emily_roth\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.8.2\junit-jupiter-engine-5.8.2.jar;C:\Users\emily_roth\.m2\repository\org\junit\platform\junit-platform-engine\1.8.2\junit-platform-engine-1.8.2.jar;C:\Users\emily_roth\.m2\repository\com\google\code\gson\gson\2.10.1\gson-2.10.1.jar;C:\Users\emily_roth\.m2\repository\com\google\guava\guava\32.1.1-jre\guava-32.1.1-jre.jar;C:\Users\emily_roth\.m2\repository\com\google\guava\failureaccess\1.0.1\failureaccess-1.0.1.jar;C:\Users\emily_roth\.m2\repository\com\google\guava\listenablefuture\9999.0-empty-to-avoid-conflict-with-guava\listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar;C:\Users\emily_roth\.m2\repository\com\google\code\findbugs\jsr305\3.0.2\jsr305-3.0.2.jar;C:\Users\emily_roth\.m2\repository\org\checkerframework\checker-qual\3.33.0\checker-qual-3.33.0.jar;C:\Users\emily_roth\.m2\repository\com\google\errorprone\error_prone_annotations\2.18.0\error_prone_annotations-2.18.0.jar;C:\Users\emily_roth\.m2\repository\com\google\j2objc\j2objc-annotations\2.8\j2objc-annotations-2.8.jar;C:\Users\emily_roth\.m2\repository\com\google\myanmartools\myanmar-tools\1.1.1\myanmar-tools-1.1.1.jar;C:\Users\emily_roth\.m2\repository\org\relaxng\trang\20220510\trang-20220510.jar;C:\Users\emily_roth\.m2\repository\com\vdurmont\semver4j\3.1.0\semver4j-3.1.0.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\emily_roth"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2024-04-16"/>
+    <property name="SHOW_EXEMPLARS" value="true"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk-22"/>
+    <property name="org.unicode.cldr.unittest.testArgs" value="-n -q -filter:LikelySubtagsTest"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Users\emily_roth\Documents\GitHub\cldr\tools\cldr-code"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="CLDR_ENVIRONMENT" value="UNITTEST"/>
+    <property name="java.awt.headless" value="true"/>
+    <property name="surefire.real.class.path" value="C:\Users\emily_roth\AppData\Local\Temp\surefire9485595017309689001\surefirebooter-20240430114601079_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="22.0.1+8-16"/>
+    <property name="user.name" value="emily_roth"/>
+    <property name="stdout.encoding" value="Cp1252"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="localRepository" value="C:\Users\emily_roth\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\EMILY_~1\AppData\Local\Temp\"/>
+    <property name="CLDR_DIR" value="C:\Users\emily_roth\Documents\GitHub\cldr\tools\cldr-code/../../"/>
+    <property name="java.version" value="22.0.1"/>
+    <property name="user.dir" value="C:\Users\emily_roth\Documents\GitHub\cldr\tools\cldr-code"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-22\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Meld\;C:\Program Files (x86)\Common Files\Acronis\SnapAPI\;C:\Program Files (x86)\Common Files\Acronis\VirtualFile\;C:\Program Files (x86)\Common Files\Acronis\VirtualFile64\;C:\Program Files\Git\cmd;C:\Program Files (x86)\Keyman\Keyman Developer\;C:\Program Files (x86)\Common Files\Acronis\FileProtector\;C:\Program Files (x86)\Common Files\Acronis\FileProtector64\;C:\Users\emily_roth\.cargo\bin;C:\Users\emily_roth\AppData\Local\Programs\Python\Python311\Scripts;C:\Users\emily_roth\AppData\Local\Programs\Python\Python311\;C:\Users\emily_roth\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\Java\jdk-22\bin;C:\Program Files\apache-maven-3.9.6\bin;C:\Users\emily_roth\AppData\Local\GitHubDesktop\bin;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="Cp1252"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="22.0.1+8-16"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="66.0"/>
+  </properties>
+  <testcase name="TestAll" classname="org.unicode.cldr.unittest.TestShim" time="36.396">
+    <system-out><![CDATA[CLDR {
+  LikelySubtagsTest {
+    TestCompleteness (1.582s) Passed
+    TestForMissingScriptMetadata (0.057s) ALERT (1 warning(s))
+    TestMissingInfoForLanguage (0.154s) Passed
+    TestMissingInfoForRegion (0.071s) Passed
+    TestMissingInfoForScript (0.012s) ALERT (7 warning(s))
+    TestStability (0.074s) Passed
+    testGetResolvedScriptVsExemplars (28.666s) ALERT (63 warning(s))
+    testSuperfluous (0.360s) Passed
+    testToAttributeValidityStatus (0.118s) ALERT (1 warning(s))
+    testUndAllScriptsAndRegions		
+ (0.008s) Passed
+  } (31.116s) ALERT (72 warning(s))
+} (36.032s) ALERT (76 warning(s), 488 test(s) skipped)
+
+Test cases taking excessive time (>10s):
+CLDR/LikelySubtagsTest/testGetResolvedScriptVsExemplars (28.664s)
+
+
+ 2 Known Issues:
+CLDR-15663 <https://unicode-org.atlassian.net/browse/CLDR-15663>
+  - CLDR/LikelySubtagsTest/TestMissingInfoForLanguage (English translation should not be required for sub-basic language name)
+CLDR-17084 <https://unicode-org.atlassian.net/browse/CLDR-17084>
+  - CLDR/LikelySubtagsTest/testSuperfluous (Remove superfluous lines in likelySubtags.txt)
+
+<< ALL TESTS PASSED >>
+Tests took 36 seconds 243 milliseconds
+]]></system-out>
+    <system-err><![CDATA[org.unicode.cldr.unittest.testArgs=-n -q -filter:LikelySubtagsTest
+]]></system-err>
+  </testcase>
+  <testcase name="TestTestShimUtilTest" classname="org.unicode.cldr.unittest.TestShim" time="0.009">
+    <system-err><![CDATA[java.lang.testArgs=-a -b -c
+]]></system-err>
+  </testcase>
+</testsuite>

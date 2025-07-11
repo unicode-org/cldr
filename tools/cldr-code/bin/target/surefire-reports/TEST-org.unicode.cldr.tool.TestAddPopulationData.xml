@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="org.unicode.cldr.tool.TestAddPopulationData" time="0.579" tests="1" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="22"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\Users\emily_roth\Documents\GitHub\cldr\tools\cldr-code\target\test-classes;C:\Users\emily_roth\Documents\GitHub\cldr\tools\cldr-code\target\classes;C:\Users\emily_roth\.m2\repository\com\ibm\icu\icu4j\75.1-SNAPSHOT\icu4j-75.1-SNAPSHOT.jar;C:\Users\emily_roth\.m2\repository\com\ibm\icu\utilities-for-cldr\75.1-SNAPSHOT\utilities-for-cldr-75.1-SNAPSHOT.jar;C:\Users\emily_roth\.m2\repository\org\junit\jupiter\junit-jupiter\5.8.2\junit-jupiter-5.8.2.jar;C:\Users\emily_roth\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.8.2\junit-jupiter-api-5.8.2.jar;C:\Users\emily_roth\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\emily_roth\.m2\repository\org\junit\platform\junit-platform-commons\1.8.2\junit-platform-commons-1.8.2.jar;C:\Users\emily_roth\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\emily_roth\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.8.2\junit-jupiter-params-5.8.2.jar;C:\Users\emily_roth\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.8.2\junit-jupiter-engine-5.8.2.jar;C:\Users\emily_roth\.m2\repository\org\junit\platform\junit-platform-engine\1.8.2\junit-platform-engine-1.8.2.jar;C:\Users\emily_roth\.m2\repository\com\google\code\gson\gson\2.10.1\gson-2.10.1.jar;C:\Users\emily_roth\.m2\repository\com\google\guava\guava\32.1.1-jre\guava-32.1.1-jre.jar;C:\Users\emily_roth\.m2\repository\com\google\guava\failureaccess\1.0.1\failureaccess-1.0.1.jar;C:\Users\emily_roth\.m2\repository\com\google\guava\listenablefuture\9999.0-empty-to-avoid-conflict-with-guava\listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar;C:\Users\emily_roth\.m2\repository\com\google\code\findbugs\jsr305\3.0.2\jsr305-3.0.2.jar;C:\Users\emily_roth\.m2\repository\org\checkerframework\checker-qual\3.33.0\checker-qual-3.33.0.jar;C:\Users\emily_roth\.m2\repository\com\google\errorprone\error_prone_annotations\2.18.0\error_prone_annotations-2.18.0.jar;C:\Users\emily_roth\.m2\repository\com\google\j2objc\j2objc-annotations\2.8\j2objc-annotations-2.8.jar;C:\Users\emily_roth\.m2\repository\com\google\myanmartools\myanmar-tools\1.1.1\myanmar-tools-1.1.1.jar;C:\Users\emily_roth\.m2\repository\org\relaxng\trang\20220510\trang-20220510.jar;C:\Users\emily_roth\.m2\repository\com\vdurmont\semver4j\3.1.0\semver4j-3.1.0.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="user.timezone" value="America/New_York"/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="java.vm.specification.version" value="22"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-22\bin"/>
+    <property name="sun.java.command" value="C:\Users\emily_roth\AppData\Local\Temp\surefire955635801638903902\surefirebooter-20240430110347694_3.jar C:\Users\emily_roth\AppData\Local\Temp\surefire955635801638903902 2024-04-30T11-03-47_424-jvmRun1 surefire-20240430110347694_1tmp surefire_0-20240430110347694_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="C:\Users\emily_roth\Documents\GitHub\cldr\tools\cldr-code\target\test-classes;C:\Users\emily_roth\Documents\GitHub\cldr\tools\cldr-code\target\classes;C:\Users\emily_roth\.m2\repository\com\ibm\icu\icu4j\75.1-SNAPSHOT\icu4j-75.1-SNAPSHOT.jar;C:\Users\emily_roth\.m2\repository\com\ibm\icu\utilities-for-cldr\75.1-SNAPSHOT\utilities-for-cldr-75.1-SNAPSHOT.jar;C:\Users\emily_roth\.m2\repository\org\junit\jupiter\junit-jupiter\5.8.2\junit-jupiter-5.8.2.jar;C:\Users\emily_roth\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.8.2\junit-jupiter-api-5.8.2.jar;C:\Users\emily_roth\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\emily_roth\.m2\repository\org\junit\platform\junit-platform-commons\1.8.2\junit-platform-commons-1.8.2.jar;C:\Users\emily_roth\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\emily_roth\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.8.2\junit-jupiter-params-5.8.2.jar;C:\Users\emily_roth\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.8.2\junit-jupiter-engine-5.8.2.jar;C:\Users\emily_roth\.m2\repository\org\junit\platform\junit-platform-engine\1.8.2\junit-platform-engine-1.8.2.jar;C:\Users\emily_roth\.m2\repository\com\google\code\gson\gson\2.10.1\gson-2.10.1.jar;C:\Users\emily_roth\.m2\repository\com\google\guava\guava\32.1.1-jre\guava-32.1.1-jre.jar;C:\Users\emily_roth\.m2\repository\com\google\guava\failureaccess\1.0.1\failureaccess-1.0.1.jar;C:\Users\emily_roth\.m2\repository\com\google\guava\listenablefuture\9999.0-empty-to-avoid-conflict-with-guava\listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar;C:\Users\emily_roth\.m2\repository\com\google\code\findbugs\jsr305\3.0.2\jsr305-3.0.2.jar;C:\Users\emily_roth\.m2\repository\org\checkerframework\checker-qual\3.33.0\checker-qual-3.33.0.jar;C:\Users\emily_roth\.m2\repository\com\google\errorprone\error_prone_annotations\2.18.0\error_prone_annotations-2.18.0.jar;C:\Users\emily_roth\.m2\repository\com\google\j2objc\j2objc-annotations\2.8\j2objc-annotations-2.8.jar;C:\Users\emily_roth\.m2\repository\com\google\myanmartools\myanmar-tools\1.1.1\myanmar-tools-1.1.1.jar;C:\Users\emily_roth\.m2\repository\org\relaxng\trang\20220510\trang-20220510.jar;C:\Users\emily_roth\.m2\repository\com\vdurmont\semver4j\3.1.0\semver4j-3.1.0.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\emily_roth"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2024-04-16"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk-22"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Users\emily_roth\Documents\GitHub\cldr\tools\cldr-code"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="CLDR_ENVIRONMENT" value="UNITTEST"/>
+    <property name="java.awt.headless" value="true"/>
+    <property name="surefire.real.class.path" value="C:\Users\emily_roth\AppData\Local\Temp\surefire955635801638903902\surefirebooter-20240430110347694_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="22.0.1+8-16"/>
+    <property name="user.name" value="emily_roth"/>
+    <property name="stdout.encoding" value="Cp1252"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="localRepository" value="C:\Users\emily_roth\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\EMILY_~1\AppData\Local\Temp\"/>
+    <property name="CLDR_DIR" value="C:\Users\emily_roth\Documents\GitHub\cldr\tools\cldr-code/../../"/>
+    <property name="java.version" value="22.0.1"/>
+    <property name="user.dir" value="C:\Users\emily_roth\Documents\GitHub\cldr\tools\cldr-code"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-22\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Meld\;C:\Program Files (x86)\Common Files\Acronis\SnapAPI\;C:\Program Files (x86)\Common Files\Acronis\VirtualFile\;C:\Program Files (x86)\Common Files\Acronis\VirtualFile64\;C:\Program Files\Git\cmd;C:\Program Files (x86)\Keyman\Keyman Developer\;C:\Program Files (x86)\Common Files\Acronis\FileProtector\;C:\Program Files (x86)\Common Files\Acronis\FileProtector64\;C:\Users\emily_roth\.cargo\bin;C:\Users\emily_roth\AppData\Local\Programs\Python\Python311\Scripts;C:\Users\emily_roth\AppData\Local\Programs\Python\Python311\;C:\Users\emily_roth\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\Java\jdk-22\bin;C:\Program Files\apache-maven-3.9.6\bin;C:\Users\emily_roth\AppData\Local\GitHubDesktop\bin;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="Cp1252"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="22.0.1+8-16"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="66.0"/>
+  </properties>
+  <testcase name="TestParseUnStats" classname="org.unicode.cldr.tool.TestAddPopulationData" time="0.578">
+    <system-out><![CDATA[* Reading external/un_literacy.xml
+* Read 12,177 record(s) with 130 region(s) from external/un_literacy.xml
+* Reading external/un_literacy.xml
+* Read 12,177 record(s) with 130 region(s) from external/un_literacy.xml
+]]></system-out>
+    <system-err><![CDATA[Duplicate record Suriname 2004 10 - 14
+Duplicate record Suriname 2004 10 - 14
+Duplicate record Suriname 2004 10 - 14
+Duplicate record Suriname 2004 10 - 14
+Duplicate record Suriname 2004 10 +
+Duplicate record Suriname 2004 10 +
+Duplicate record Suriname 2004 10 +
+Duplicate record Suriname 2004 10 +
+Duplicate record Suriname 2004 15 - 19
+Duplicate record Suriname 2004 15 - 19
+Duplicate record Suriname 2004 15 - 19
+Duplicate record Suriname 2004 15 - 19
+Duplicate record Suriname 2004 20 - 24
+Duplicate record Suriname 2004 20 - 24
+Duplicate record Suriname 2004 20 - 24
+Duplicate record Suriname 2004 20 - 24
+Duplicate record Suriname 2004 25 - 29
+Duplicate record Suriname 2004 25 - 29
+Duplicate record Suriname 2004 25 - 29
+Duplicate record Suriname 2004 25 - 29
+Duplicate record Suriname 2004 30 - 34
+Duplicate record Suriname 2004 30 - 34
+Duplicate record Suriname 2004 30 - 34
+Duplicate record Suriname 2004 30 - 34
+Duplicate record Suriname 2004 35 - 39
+Duplicate record Suriname 2004 35 - 39
+Duplicate record Suriname 2004 35 - 39
+Duplicate record Suriname 2004 35 - 39
+Duplicate record Suriname 2004 40 - 44
+Duplicate record Suriname 2004 40 - 44
+Duplicate record Suriname 2004 40 - 44
+Duplicate record Suriname 2004 40 - 44
+Duplicate record Suriname 2004 45 - 49
+Duplicate record Suriname 2004 45 - 49
+Duplicate record Suriname 2004 45 - 49
+Duplicate record Suriname 2004 45 - 49
+Duplicate record Suriname 2004 50 - 54
+Duplicate record Suriname 2004 50 - 54
+Duplicate record Suriname 2004 50 - 54
+Duplicate record Suriname 2004 50 - 54
+Duplicate record Suriname 2004 55 - 59
+Duplicate record Suriname 2004 55 - 59
+Duplicate record Suriname 2004 55 - 59
+Duplicate record Suriname 2004 55 - 59
+Duplicate record Suriname 2004 60 - 64
+Duplicate record Suriname 2004 60 - 64
+Duplicate record Suriname 2004 60 - 64
+Duplicate record Suriname 2004 60 - 64
+Duplicate record Suriname 2004 65 - 69
+Duplicate record Suriname 2004 65 - 69
+Duplicate record Suriname 2004 65 - 69
+Duplicate record Suriname 2004 65 - 69
+Duplicate record Suriname 2004 70 - 74
+Duplicate record Suriname 2004 70 - 74
+Duplicate record Suriname 2004 70 - 74
+Duplicate record Suriname 2004 70 - 74
+Duplicate record Suriname 2004 75 - 79
+Duplicate record Suriname 2004 75 - 79
+Duplicate record Suriname 2004 75 - 79
+Duplicate record Suriname 2004 75 - 79
+Duplicate record Suriname 2004 80 - 84
+Duplicate record Suriname 2004 80 - 84
+Duplicate record Suriname 2004 80 - 84
+Duplicate record Suriname 2004 80 - 84
+Duplicate record Suriname 2004 85 +
+Duplicate record Suriname 2004 85 +
+Duplicate record Suriname 2004 85 +
+Duplicate record Suriname 2004 85 +
+Duplicate record Suriname 2004 Unknown
+Duplicate record Suriname 2004 Unknown
+Duplicate record Suriname 2004 Unknown
+Duplicate record Suriname 2004 Unknown
+ERROR: CountryCodeConverter missing code for Africa Eastern and Southern.
+To fix: add to external/alternate_country_names.txt a line such as:
+	<code>;	<name>;	Africa Eastern and Southern
+ERROR: CountryCodeConverter missing code for Africa Eastern and Southern.
+To fix: add to external/alternate_country_names.txt a line such as:
+	<code>;	<name>;	Africa Eastern and Southern
+ERROR: CountryCodeConverter missing code for Africa Western and Central.
+To fix: add to external/alternate_country_names.txt a line such as:
+	<code>;	<name>;	Africa Western and Central
+ERROR: CountryCodeConverter missing code for Africa Western and Central.
+To fix: add to external/alternate_country_names.txt a line such as:
+	<code>;	<name>;	Africa Western and Central
+ERROR: CountryCodeConverter missing code for Central Europe and the Baltics.
+To fix: add to external/alternate_country_names.txt a line such as:
+	<code>;	<name>;	Central Europe and the Baltics
+ERROR: CountryCodeConverter missing code for Central Europe and the Baltics.
+To fix: add to external/alternate_country_names.txt a line such as:
+	<code>;	<name>;	Central Europe and the Baltics
+ERROR: CountryCodeConverter missing code for Early-demographic dividend.
+To fix: add to external/alternate_country_names.txt a line such as:
+	<code>;	<name>;	Early-demographic dividend
+ERROR: CountryCodeConverter missing code for Early-demographic dividend.
+To fix: add to external/alternate_country_names.txt a line such as:
+	<code>;	<name>;	Early-demographic dividend
+ERROR: CountryCodeConverter missing code for East Asia & Pacific.
+To fix: add to external/alternate_country_names.txt a line such as:
+	<code>;	<name>;	East Asia & Pacific
+ERROR: CountryCodeConverter missing code for East Asia & Pacific.
+To fix: add to external/alternate_country_names.txt a line such as:
+	<code>;	<name>;	East Asia & Pacific
+ERROR: CountryCodeConverter missing code for East Asia & Pacific (excluding high income).
+To fix: add to external/alternate_country_names.txt a line such as:
+	<code>;	<name>;	East Asia & Pacific (excluding high income)
+ERROR: CountryCodeConverter missing code for East Asia & Pacific (excluding high income).
+To fix: add to external/alternate_country_names.txt a line such as:
+	<code>;	<name>;	East Asia & Pacific (excluding high income)
+ERROR: CountryCodeConverter missing code for East Asia & Pacific (IDA & IBRD countries).
+To fix: add to external/alternate_country_names.txt a line such as:
+	<code>;	<name>;	East Asia & Pacific (IDA & IBRD countries)
+ERROR: CountryCodeConverter missing code for East Asia & Pacific (IDA & IBRD countries).
+To fix: add to external/alternate_country_names.txt a line such as:
+	<code>;	<name>;	East Asia & Pacific (IDA & IBRD countries)
+ERROR: CountryCodeConverter missing code for Europe & Central Asia.
+To fix: add to external/alternate_country_names.txt a line such as:
+	<code>;	<name>;	Europe & Central Asia
+ERROR: CountryCodeConverter missing code for Europe & Central Asia.
+To fix: add to external/alternate_country_names.txt a line such as:
+	<code>;	<name>;	Europe & Central Asia
+ERROR: CountryCodeConverter missing code for Europe & Central Asia (excluding high income).
+To fix: add to external/alternate_country_names.txt a line such as:
+	<code>;	<name>;	Europe & Central Asia (excluding high income)
+ERROR: CountryCodeConverter missing code for Europe & Central Asia (excluding high income).
+To fix: add to external/alternate_country_names.txt a line such as:
+	<code>;	<name>;	Europe & Central Asia (excluding high income)
+ERROR: CountryCodeConverter missing code for Europe & Central Asia (IDA & IBRD countries).
+To fix: add to external/alternate_country_names.txt a line such as:
+	<code>;	<name>;	Europe & Central Asia (IDA & IBRD countries)
+ERROR: CountryCodeConverter missing code for Europe & Central Asia (IDA & IBRD countries).
+To fix: add to external/alternate_country_names.txt a line such as:
+	<code>;	<name>;	Europe & Central Asia (IDA & IBRD countries)
+ERROR: CountryCodeConverter missing code for Fragile and conflict affected situations.
+To fix: add to external/alternate_country_names.txt a line such as:
+	<code>;	<name>;	Fragile and conflict affected situations
+ERROR: CountryCodeConverter missing code for Fragile and conflict affected situations.
+To fix: add to external/alternate_country_names.txt a line such as:
+	<code>;	<name>;	Fragile and conflict affected situations
+ERROR: CountryCodeConverter missing code for IBRD only.
+To fix: add to external/alternate_country_names.txt a line such as:
+	<code>;	<name>;	IBRD only
+ERROR: CountryCodeConverter missing code for IBRD only.
+To fix: add to external/alternate_country_names.txt a line such as:
+	<code>;	<name>;	IBRD only
+ERROR: CountryCodeConverter missing code for IDA & IBRD total.
+To fix: add to external/alternate_country_names.txt a line such as:
+	<code>;	<name>;	IDA & IBRD total
+ERROR: CountryCodeConverter missing code for IDA & IBRD total.
+To fix: add to external/alternate_country_names.txt a line such as:
+	<code>;	<name>;	IDA & IBRD total
+ERROR: CountryCodeConverter missing code for IDA blend.
+To fix: add to external/alternate_country_names.txt a line such as:
+	<code>;	<name>;	IDA blend
+ERROR: CountryCodeConverter missing code for IDA blend.
+To fix: add to external/alternate_country_names.txt a line such as:
+	<code>;	<name>;	IDA blend
+ERROR: CountryCodeConverter missing code for IDA only.
+To fix: add to external/alternate_country_names.txt a line such as:
+	<code>;	<name>;	IDA only
+ERROR: CountryCodeConverter missing code for IDA only.
+To fix: add to external/alternate_country_names.txt a line such as:
+	<code>;	<name>;	IDA only
+ERROR: CountryCodeConverter missing code for IDA total.
+To fix: add to external/alternate_country_names.txt a line such as:
+	<code>;	<name>;	IDA total
+ERROR: CountryCodeConverter missing code for IDA total.
+To fix: add to external/alternate_country_names.txt a line such as:
+	<code>;	<name>;	IDA total
+ERROR: CountryCodeConverter missing code for Late-demographic dividend.
+To fix: add to external/alternate_country_names.txt a line such as:
+	<code>;	<name>;	Late-demographic dividend
+ERROR: CountryCodeConverter missing code for Late-demographic dividend.
+To fix: add to external/alternate_country_names.txt a line such as:
+	<code>;	<name>;	Late-demographic dividend
+ERROR: CountryCodeConverter missing code for Latin America & Caribbean.
+To fix: add to external/alternate_country_names.txt a line such as:
+	<code>;	<name>;	Latin America & Caribbean
+ERROR: CountryCodeConverter missing code for Latin America & Caribbean.
+To fix: add to external/alternate_country_names.txt a line such as:
+	<code>;	<name>;	Latin America & Caribbean
+ERROR: CountryCodeConverter missing code for Latin America & Caribbean (excluding high income).
+To fix: add to external/alternate_country_names.txt a line such as:
+	<code>;	<name>;	Latin America & Caribbean (excluding high income)
+ERROR: CountryCodeConverter missing code for Latin America & Caribbean (excluding high income).
+To fix: add to external/alternate_country_names.txt a line such as:
+	<code>;	<name>;	Latin America & Caribbean (excluding high income)
+ERROR: CountryCodeConverter missing code for Latin America & the Caribbean (IDA & IBRD countries).
+To fix: add to external/alternate_country_names.txt a line such as:
+	<code>;	<name>;	Latin America & the Caribbean (IDA & IBRD countries)
+ERROR: CountryCodeConverter missing code for Latin America & the Caribbean (IDA & IBRD countries).
+To fix: add to external/alternate_country_names.txt a line such as:
+	<code>;	<name>;	Latin America & the Caribbean (IDA & IBRD countries)
+ERROR: CountryCodeConverter missing code for Middle East & North Africa.
+To fix: add to external/alternate_country_names.txt a line such as:
+	<code>;	<name>;	Middle East & North Africa
+ERROR: CountryCodeConverter missing code for Middle East & North Africa.
+To fix: add to external/alternate_country_names.txt a line such as:
+	<code>;	<name>;	Middle East & North Africa
+ERROR: CountryCodeConverter missing code for Middle East & North Africa (excluding high income).
+To fix: add to external/alternate_country_names.txt a line such as:
+	<code>;	<name>;	Middle East & North Africa (excluding high income)
+ERROR: CountryCodeConverter missing code for Middle East & North Africa (excluding high income).
+To fix: add to external/alternate_country_names.txt a line such as:
+	<code>;	<name>;	Middle East & North Africa (excluding high income)
+ERROR: CountryCodeConverter missing code for Middle East & North Africa (IDA & IBRD countries).
+To fix: add to external/alternate_country_names.txt a line such as:
+	<code>;	<name>;	Middle East & North Africa (IDA & IBRD countries)
+ERROR: CountryCodeConverter missing code for Middle East & North Africa (IDA & IBRD countries).
+To fix: add to external/alternate_country_names.txt a line such as:
+	<code>;	<name>;	Middle East & North Africa (IDA & IBRD countries)
+ERROR: CountryCodeConverter missing code for Post-demographic dividend.
+To fix: add to external/alternate_country_names.txt a line such as:
+	<code>;	<name>;	Post-demographic dividend
+ERROR: CountryCodeConverter missing code for Post-demographic dividend.
+To fix: add to external/alternate_country_names.txt a line such as:
+	<code>;	<name>;	Post-demographic dividend
+ERROR: CountryCodeConverter missing code for Pre-demographic dividend.
+To fix: add to external/alternate_country_names.txt a line such as:
+	<code>;	<name>;	Pre-demographic dividend
+ERROR: CountryCodeConverter missing code for Pre-demographic dividend.
+To fix: add to external/alternate_country_names.txt a line such as:
+	<code>;	<name>;	Pre-demographic dividend
+ERROR: CountryCodeConverter missing code for South Asia (IDA & IBRD).
+To fix: add to external/alternate_country_names.txt a line such as:
+	<code>;	<name>;	South Asia (IDA & IBRD)
+ERROR: CountryCodeConverter missing code for South Asia (IDA & IBRD).
+To fix: add to external/alternate_country_names.txt a line such as:
+	<code>;	<name>;	South Asia (IDA & IBRD)
+ERROR: CountryCodeConverter missing code for Sub-Saharan Africa (excluding high income).
+To fix: add to external/alternate_country_names.txt a line such as:
+	<code>;	<name>;	Sub-Saharan Africa (excluding high income)
+ERROR: CountryCodeConverter missing code for Sub-Saharan Africa (excluding high income).
+To fix: add to external/alternate_country_names.txt a line such as:
+	<code>;	<name>;	Sub-Saharan Africa (excluding high income)
+ERROR: CountryCodeConverter missing code for Sub-Saharan Africa (IDA & IBRD countries).
+To fix: add to external/alternate_country_names.txt a line such as:
+	<code>;	<name>;	Sub-Saharan Africa (IDA & IBRD countries)
+ERROR: CountryCodeConverter missing code for Sub-Saharan Africa (IDA & IBRD countries).
+To fix: add to external/alternate_country_names.txt a line such as:
+	<code>;	<name>;	Sub-Saharan Africa (IDA & IBRD countries)
+Duplicate record Suriname 2004 10 - 14
+Duplicate record Suriname 2004 10 - 14
+Duplicate record Suriname 2004 10 - 14
+Duplicate record Suriname 2004 10 - 14
+Duplicate record Suriname 2004 10 +
+Duplicate record Suriname 2004 10 +
+Duplicate record Suriname 2004 10 +
+Duplicate record Suriname 2004 10 +
+Duplicate record Suriname 2004 15 - 19
+Duplicate record Suriname 2004 15 - 19
+Duplicate record Suriname 2004 15 - 19
+Duplicate record Suriname 2004 15 - 19
+Duplicate record Suriname 2004 20 - 24
+Duplicate record Suriname 2004 20 - 24
+Duplicate record Suriname 2004 20 - 24
+Duplicate record Suriname 2004 20 - 24
+Duplicate record Suriname 2004 25 - 29
+Duplicate record Suriname 2004 25 - 29
+Duplicate record Suriname 2004 25 - 29
+Duplicate record Suriname 2004 25 - 29
+Duplicate record Suriname 2004 30 - 34
+Duplicate record Suriname 2004 30 - 34
+Duplicate record Suriname 2004 30 - 34
+Duplicate record Suriname 2004 30 - 34
+Duplicate record Suriname 2004 35 - 39
+Duplicate record Suriname 2004 35 - 39
+Duplicate record Suriname 2004 35 - 39
+Duplicate record Suriname 2004 35 - 39
+Duplicate record Suriname 2004 40 - 44
+Duplicate record Suriname 2004 40 - 44
+Duplicate record Suriname 2004 40 - 44
+Duplicate record Suriname 2004 40 - 44
+Duplicate record Suriname 2004 45 - 49
+Duplicate record Suriname 2004 45 - 49
+Duplicate record Suriname 2004 45 - 49
+Duplicate record Suriname 2004 45 - 49
+Duplicate record Suriname 2004 50 - 54
+Duplicate record Suriname 2004 50 - 54
+Duplicate record Suriname 2004 50 - 54
+Duplicate record Suriname 2004 50 - 54
+Duplicate record Suriname 2004 55 - 59
+Duplicate record Suriname 2004 55 - 59
+Duplicate record Suriname 2004 55 - 59
+Duplicate record Suriname 2004 55 - 59
+Duplicate record Suriname 2004 60 - 64
+Duplicate record Suriname 2004 60 - 64
+Duplicate record Suriname 2004 60 - 64
+Duplicate record Suriname 2004 60 - 64
+Duplicate record Suriname 2004 65 - 69
+Duplicate record Suriname 2004 65 - 69
+Duplicate record Suriname 2004 65 - 69
+Duplicate record Suriname 2004 65 - 69
+Duplicate record Suriname 2004 70 - 74
+Duplicate record Suriname 2004 70 - 74
+Duplicate record Suriname 2004 70 - 74
+Duplicate record Suriname 2004 70 - 74
+Duplicate record Suriname 2004 75 - 79
+Duplicate record Suriname 2004 75 - 79
+Duplicate record Suriname 2004 75 - 79
+Duplicate record Suriname 2004 75 - 79
+Duplicate record Suriname 2004 80 - 84
+Duplicate record Suriname 2004 80 - 84
+Duplicate record Suriname 2004 80 - 84
+Duplicate record Suriname 2004 80 - 84
+Duplicate record Suriname 2004 85 +
+Duplicate record Suriname 2004 85 +
+Duplicate record Suriname 2004 85 +
+Duplicate record Suriname 2004 85 +
+Duplicate record Suriname 2004 Unknown
+Duplicate record Suriname 2004 Unknown
+Duplicate record Suriname 2004 Unknown
+Duplicate record Suriname 2004 Unknown
+]]></system-err>
+  </testcase>
+</testsuite>

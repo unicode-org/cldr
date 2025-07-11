@@ -1,0 +1,190 @@
+table {
+	border-collapse: collapse
+}
+
+caption {
+	font-size: 150%;
+	margin-top: 2em
+}
+
+td, th {
+	vertical-align: top;
+	text-align: left
+}
+
+td.source, th.source, span.source {
+	border: 1px solid #666666;
+	background-color: #F0F0F0;
+}
+
+td.target, th.target, span.target, td.targetRight, td.target2, td.target3,
+	td.target4 {
+	border: 1px solid #666666;
+	background-color: #F0FFF0
+}
+
+th.source {
+	background-color: #DDDDDD
+}
+
+th.target {
+	background-color: #ddFFdd
+}
+
+td.target2 {
+	color: blue
+}
+
+td.target3 {
+	background-color: #FFFFF0
+}
+
+td.target4 {
+	background-color: #F0FFFF
+}
+
+td.targetRight {
+	text-align: right
+}
+
+td.z0 {
+	border: 1px solid #666666;
+	background-color: #F0BBF0
+}
+
+td.z1 {
+	border: 1px solid #666666;
+	background-color: #F0CCF0
+}
+
+td.z2 {
+	border: 1px solid #666666;
+	background-color: #F0DDF0;
+	vertical-align: middle
+}
+
+td.z3 {
+	border: 1px solid #666666;
+	background-color: #F0EEF0;
+	vertical-align: middle
+}
+
+td.z4 {
+	border: 1px solid #666666;
+	background-color: #F0FFF0;
+	vertical-align: middle
+}
+
+h2, h3, h4 {
+	text-align: left
+}
+
+td.l, td.z, td.o, td.t, td.f, td.m, td.x, th.h, table.pluralComp {
+	border: 1px solid #666;
+	font-size: 8pt
+}
+
+table.pluralComp {
+	border-collapse: collapse
+}
+
+th.h {
+	background-color: #EEE;
+	border-top: 2px solid #000;
+	border-bottom: 2px solid #000;
+	text-align: center;
+	font-size: 6pt
+}
+
+td.l {
+	background-color: #EFE;
+	border-top: 2px solid #000
+}
+
+td.z {
+	background-color: #F00
+}
+
+td.o {
+	background-color: #DD0
+}
+
+td.t {
+	background-color: #0F0
+}
+
+td.f {
+	background-color: #0DD
+}
+
+td.m {
+	background-color: #99F
+}
+
+td.x {
+	background-color: #CCC
+}
+
+td.c01 {
+	text-decoration: underline
+}
+
+.g {
+	background-color: #EFE;
+	white-space: nowrap
+}
+
+.a {
+	background-color: #F00
+}
+
+.h {
+	background-color: #0DD
+}
+
+.n {
+	background-color: #CCC
+}
+
+.v {
+	background-color: #EFF
+}
+
+.rightLink {
+	/*
+	display:inline;
+	float:right;
+	*/
+	text-decoration: none;
+	color: blue;
+}
+
+.info {
+	border-style: none;
+	width: 1em;
+}
+
+.version {
+    content: "β";
+    color: black;
+    font-weight: bold;
+}
+.version::after {
+    content: "β";
+    color: red;
+    font-weight: bold;
+}
+
+.versionDate {
+	display: inline;
+	border-width:0;
+	padding:0;
+	margin:0;
+	width:100%;
+	height:36px;
+	overflow:hidden;
+}
+.upLink {
+	font-weight: bold;
+	font-size: 120%;
+}

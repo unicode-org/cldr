@@ -1,0 +1,19 @@
+# Regex file for performing data modifications in FilterFactory.
+## Variables go here ##
+
+## XPath replacements ##
+# xpath ; {old_xpath} ; {new_xpath} ; {options}
+# XPaths can be either regexes or literal XPaths, but using literal XPaths will
+# speed up the filtering process.
+# Possible options:
+#   locale={locale_pattern}
+xpath ; //ldml/localeDisplayNames/territories/territory[@type="HK"][@alt="short"] ; //ldml/localeDisplayNames/territories/territory[@type="HK"]
+xpath ; //ldml/localeDisplayNames/territories/territory[@type="MO"][@alt="short"] ; //ldml/localeDisplayNames/territories/territory[@type="MO"]
+
+## Value substitutions ##
+# value ; {old_value} ; {new_value} ; {options}
+# Possible options:
+#   locale={locale_pattern}
+#   xpath={xpath}
+# example:
+#   value ; ₹ ; Rs. ; xpath=//ldml/numbers/currencies/currency[@type="INR"]/symbol

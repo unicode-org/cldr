@@ -1,0 +1,118 @@
+table {
+	border-collapse: collapse
+}
+
+.cell {
+	border: 1px solid blue;
+	vertical-align: top
+}
+
+.s {
+	background-color: #DDD;
+	border: 1px solid blue;
+	vertical-align: top
+}
+
+.ch {
+	text-align: center;
+	font-size: 150%;
+	border: 1px solid blue;
+	vertical-align: top
+}
+
+.c {
+	text-align: center;
+	font-family: monospace;
+	border: 1px solid blue;
+	vertical-align: top
+}
+
+.n {
+	font-size: 75%;
+	border: 1px solid blue;
+	vertical-align: top
+}
+
+.k {
+	width: 30%;
+	font-size: 75%;
+	border: 1px solid blue;
+	vertical-align: top
+}
+
+.x {
+	text-align: center;
+	background-color: #CCC;
+	width: 1em;
+	border: 1px solid blue;
+	vertical-align: top
+}
+
+.m {
+	text-align: center;
+	background-color: #EDE;
+	width: 1em;
+	border: 1px solid blue;
+	vertical-align: top
+}
+
+.h {
+	text-align: center;
+	background-color: #EFE;
+	width: 1em;
+	border: 1px solid blue;
+	vertical-align: top
+}
+
+.ybg {
+	background-color: green
+}
+
+.keyboards {
+	
+}
+
+.keyboardTD {
+	text-align: center;
+	border-style: none
+}
+
+.keyboard {
+	margin: 0.5em
+}
+
+.modifiers {
+	font-size: 75%
+}
+
+.cc {
+	font-size: 50%;
+	font-weight: bold;
+	color: red
+}
+
+.version {
+    content: "β";
+    color: black;
+    font-weight: bold;
+}
+.version::after {
+    content: "β";
+    color: red;
+    font-weight: bold;
+}
+
+.versionDate {
+	display: inline;
+	border-width:0;
+	padding:0;
+	margin:0;
+	width:100%;
+	height:36px;
+	overflow:hidden;
+}
+.upLink {
+	font-weight: bold;
+	font-size: 120%;
+}
+

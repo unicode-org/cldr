@@ -1,0 +1,23 @@
+allowed,locale,error,missing,xpath
+#,#,#,#,#
+#,#,#,#,See TestSubmissionLocales.java
+#,#,#,#,#
+allowed,fr,-,-,//ldml/personNames/nameOrderLocales[@order="givenFirst"]
+allowed,fr,-,-,//ldml/personNames/nameOrderLocales[@order="surnameFirst"]
+-,mt,-,-,//ldml/localeDisplayNames/territories/territory[@type="TR"]
+-,mt,-,-,//ldml/localeDisplayNames/territories/territory[@type="TR"][@alt="variant"]
+allowed,fr,-,-,//ldml/localeDisplayNames/territories/territory[@type="TR"]
+allowed,fr,-,-,//ldml/localeDisplayNames/territories/territory[@type="TR"][@alt="variant"]
+-,fr,-,-,//ldml/units/unitLength[@type="long"]
+allowed,fr,error,-,//ldml/units/unitLength[@type="long"]
+allowed,fr,-,missing,//ldml/units/unitLength[@type="long"]
+allowed,fr,error,missing,//ldml/units/unitLength[@type="long"]
+-,xx,-,-,//ldml/localeDisplayNames/territories/territory[@type="SY"]
+-,xx,-,-,//ldml/personNames/nameOrderLocales[@order="givenFirst"]
+-,xx,-,-,//ldml/personNames/nameOrderLocales[@order="surnameFirst"]
+-,xx,-,-,//ldml/localeDisplayNames/territories/territory[@type="TR"]
+-,xx,-,-,//ldml/localeDisplayNames/territories/territory[@type="TR"][@alt="variant"]
+-,xx,-,-,//ldml/localeDisplayNames/territories/territory[@type="TR"]
+-,xx,-,-,//ldml/localeDisplayNames/territories/territory[@type="TR"][@alt="variant"]
+allowed,fr,-,-,//ldml/personNames/sampleName[@item="nativeFull"]/nameField[@type="credentials"]
+allowed,zh,-,-,//ldml/personNames/sampleName[@item="nativeFull"]/nameField[@type="credentials"]

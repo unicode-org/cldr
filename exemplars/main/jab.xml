@@ -10,14 +10,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<version number="$Revision$"/>
 		<language type="jab"/>
 	</identity>
-	<layout>
-		<orientation>
-			<characterOrder>left-to-right</characterOrder>
-			<lineOrder>top-to-bottom</lineOrder>
-		</orientation>
-	</layout>
 	<characters>
-		<exemplarCharacters draft="unconfirmed">[aá{á̱}à{à̱}â{â̱}ǎ{ǎ̱}{a̱} b c d {dz} eé{é̱}è{è̱}ê{ê̱}ě{ě̱}{e̱} f g {gb} h ií{í̱}ì{ì̱}î{î̱}ǐ{ǐ̱}ī{i̱} j k {kh} {kp} l m n {ng} {ny} oóòôǒō p r s {sh} t {th} {thn} {ts} uúùûǔ v w y {yw} z {zh}]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary" draft="unconfirmed">[q x]</exemplarCharacters>
+		<exemplarCharacters draft="provisional">[a ā ǎ {a̱} b c d e ē {e̱} f g h i ǐ {i̱} j k l m n o ō ǒ p r s t u ū v w y z]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary" draft="provisional">[q x]</exemplarCharacters>
+		<exemplarCharacters type="index" draft="provisional">[A Ā Ǎ {A̱} B C D E Ē {E̱} F G H I Ǐ {I̱} J K L M N O Ō Ǒ P R S T U Ū V W Y Z]</exemplarCharacters>
+		<exemplarCharacters type="punctuation" draft="provisional">[! ( ) , \- . / \: ; ? \[ \] ‘ ’ “ ”]</exemplarCharacters>
 	</characters>
 </ldml>

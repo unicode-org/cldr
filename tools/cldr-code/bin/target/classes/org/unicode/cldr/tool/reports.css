@@ -1,0 +1,236 @@
+/*
+ * This file is shared between Charts and SurveyTool
+ */
+
+.ReportChart table {
+	border-collapse: collapse
+}
+
+.ReportChart caption {
+	font-size: 150%;
+	margin-top: 2em
+}
+
+.ReportChart td, .ReportChart  th {
+	vertical-align: top;
+	text-align: left;
+	padding: 0.25em
+}
+
+.ReportChart td.source, .ReportChart  th.source, .ReportChart  span.source {
+	border: 1px solid #666666;
+	background-color: #FCFCFC;
+}
+
+.ReportChart  td.source-image {
+	border: 1px solid #666666;
+	background-color: #FCFCFC;
+	text-align: center;
+	font-size: 200%;
+}
+
+.ReportChart td.target, .ReportChart  th.target, .ReportChart  span.target, .ReportChart  td.targetRight, .ReportChart  td.target2, .ReportChart  td.target3,
+.ReportChart  td.target4, .ReportChart  td.target_nofont {
+	border: 1px solid #666666;
+	background-color: #FCFFFC
+}
+
+.ReportChart td.target_nofont {
+	/* font-family: sans-serif; */
+	line-height: 150%;
+}
+
+.ReportChart th.source {
+	background-color: #DDDDDD
+}
+
+.ReportChart th.target {
+	background-color: #ddFFdd
+}
+
+.ReportChart td.target2 {
+	color: blue
+}
+
+.ReportChart td.target3 {
+	background-color: #FFFFF8
+}
+
+.ReportChart td.target4 {
+	background-color: #F8FFFF
+}
+
+.ReportChart td.targetRight {
+	text-align: right
+}
+
+.ReportChart td.z0 {
+	border: 1px solid #666666;
+	background-color: #FCBBFC
+}
+
+.ReportChart td.z1 {
+	border: 1px solid #666666;
+	background-color: #FCCCFC
+}
+
+.ReportChart td.z2 {
+	border: 1px solid #666666;
+	background-color: #FCDDFC;
+	vertical-align: middle
+}
+
+.ReportChart td.z3 {
+	border: 1px solid #666666;
+	background-color: #FCEEFC;
+	vertical-align: middle
+}
+
+.ReportChart td.z4 {
+	border: 1px solid #666666;
+	background-color: #FCFFFC;
+	vertical-align: middle
+}
+
+.ReportChart h2, .ReportChart h3, .ReportChart h4 {
+	text-align: left
+}
+
+.ReportChart td.l, .ReportChart td.z, .ReportChart td.o, .ReportChart td.t, .ReportChart td.f, .ReportChart td.m,.ReportChart  td.x, .ReportChart th.h, .ReportChart table.pluralComp {
+	border: 1px solid #666;
+	font-size: 8pt
+}
+
+.ReportChart table.pluralComp {
+	border-collapse: collapse
+}
+
+.ReportChart th.h {
+	background-color: #EEE;
+	border-top: 2px solid #000;
+	border-bottom: 2px solid #000;
+	text-align: center;
+	font-size: 6pt
+}
+
+.ReportChart td.l {
+	background-color: #EFE;
+	border-top: 2px solid #000
+}
+
+.ReportChart td.z {
+	background-color: #F00
+}
+
+.ReportChart td.o {
+	background-color: #DD0
+}
+
+.ReportChart td.t {
+	background-color: #0F0
+}
+
+.ReportChart td.f {
+	background-color: #0DD
+}
+
+.ReportChart td.m {
+	background-color: #99F
+}
+
+.ReportChart td.x {
+	background-color: #CCC
+}
+
+.ReportChart td.c01 {
+	text-decoration: underline
+}
+
+.ReportChart td.sample {
+	font-size: 200%;
+	text-align: center
+}
+
+.ReportChart .nowrap {
+	white-space: nowrap
+}
+
+.ReportChart .notTailored {
+	color: #888888;
+}
+
+.ReportChart .notExemplars {
+	color: #c0ffee;
+}
+
+.ReportChart table.center {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.ReportChart td.plain {
+	padding-top: 0.3em;
+	padding-right: 1em;
+}
+
+.ReportChart #chits {
+	display: flex;
+	flex-flow: row wrap;
+}
+
+.ReportChart .chit {
+	border-collapse: separate;
+	color: black;
+	background-color: white;
+	display: inline-block;
+	margin: 1px;
+	padding: 1px;
+	width: 200px;
+	height: 40px;
+	border-radius: 5px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	vertical-align: middle;
+	display: flex;
+	align-items: center;
+	border: 2px solid #ccc;
+}
+
+.ReportChart .version {
+    content: "β";
+    color: black;
+    font-weight: bold;
+}
+.ReportChart .version::after {
+    content: "β";
+    color: red;
+    font-weight: bold;
+}
+
+
+.ReportChart .versionDate {
+	display: inline;
+	border-width:0;
+	padding:0;
+	margin:0;
+	width:100%;
+	height:36px;
+	overflow:hidden;
+}
+.ReportChart .upLink {
+	font-weight: bold;
+	font-size: 120%;
+}
+
+/* formatting for date time review */
+.dtf-table, .dtf-int {margin-left:auto; margin-right:auto; border-collapse:collapse;}
+.dtf-table, .dtf-s, .dtf-nopad, .dtf-fix, .dtf-th, .dtf-h, .dtf-sep, .dtf-left, .dtf-int {border:1px solid gray;}
+.dtf-th {background-color:#EEE; padding:4px}
+.dtf-s, .dtf-nopad, .dtf-fix {padding:3px; text-align:center}
+.dtf-sep {background-color:#EEF; text-align:center}
+.dtf-s {text-align:center;}
+.dtf-int {width:100%; height:100%}
+.dtf-fix {width:1px}
+.dtf-left {text-align:left;}
+.dtf-nopad {padding:0px; vertical-align:top;}
+.dtf-gray {background-color:#EEF}

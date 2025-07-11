@@ -13,12 +13,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	<layout>
 		<orientation>
 			<characterOrder>left-to-right</characterOrder>
+			<lineOrder>top-to-bottom</lineOrder>
 		</orientation>
 	</layout>
 	<characters>
-		<exemplarCharacters draft="provisional">[a {ã} b d e {ẽ} f g i {ĩ} k l m n o {õ} r s t u {ũ} w y]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary" draft="provisional">[c h j p q v x z]</exemplarCharacters>
-		<exemplarCharacters type="index" draft="provisional">[A Ã B D E Ẽ F G H I Ĩ J K L M N O Õ P R S T U Ũ V W Y]</exemplarCharacters>
-		<exemplarCharacters type="punctuation" draft="provisional">[! ( ) , \- . \: ; ? \[ \] – ‘ ’ “ ” …]</exemplarCharacters>
+		<exemplarCharacters draft="unconfirmed">[aã b d eẽ f g iĩ k l m n oõ r s t uũ w y]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary" draft="unconfirmed">[c h j p q v x z]</exemplarCharacters>
 	</characters>
 </ldml>

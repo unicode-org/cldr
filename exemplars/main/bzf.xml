@@ -10,8 +10,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<version number="$Revision$"/>
 		<language type="bzf"/>
 	</identity>
+	<layout>
+		<orientation>
+			<characterOrder>left-to-right</characterOrder>
+			<lineOrder>top-to-bottom</lineOrder>
+		</orientation>
+	</layout>
 	<characters>
-		<exemplarCharacters draft="provisional">[a {á} e {ei} f g h i ɨ j k l {ll} m n o {ó} p r s t u w y]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary" draft="provisional">[b c d q v x z]</exemplarCharacters>
+		<exemplarCharacters draft="unconfirmed">[aá e {ei} f g h i ɨ j k l {ll} m n oó p r s t u w y]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary" draft="unconfirmed">[b c d q v x z]</exemplarCharacters>
 	</characters>
 </ldml>

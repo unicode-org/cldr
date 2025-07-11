@@ -11,14 +11,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="tmh"/>
 		<script type="Tfng"/>
 	</identity>
-	<layout>
-		<orientation>
-			<characterOrder>left-to-right</characterOrder>
-		</orientation>
-	</layout>
 	<characters>
-		<exemplarCharacters draft="provisional">[\u2d7f ⴰ ⴶ ⴹ ⴼ ⴾ ⵀ ⵂ ⵆ ⵈ ⵌ ⵍ ⵎ ⵏ ⵑ ⵓ ⵔ ⵗ ⵙ ⵛ ⵜ ⵢ ⵤ]</exemplarCharacters>
-		<exemplarCharacters type="index" draft="provisional">[ⴰ ⴶ ⴹ ⴼ ⴾ ⵀ ⵂ ⵆ ⵈ ⵌ ⵍ ⵎ ⵏ ⵑ ⵓ ⵔ ⵗ ⵙ ⵛ ⵜ ⵢ ⵤ]</exemplarCharacters>
-		<exemplarCharacters type="punctuation" draft="provisional">[' " « » ⵰]</exemplarCharacters>
+		<exemplarCharacters draft="unconfirmed">[ⴰ ⴶ ⴹ ⴼ ⴾ ⵀ ⵂ ⵆ ⵈ ⵉ ⵌ ⵍ ⵎ ⵏ ⵑ ⵓ ⵔ ⵗ ⵙ ⵛ ⵜ ⵢ ⵤ]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary" draft="unconfirmed">[ⵣ]</exemplarCharacters>
 	</characters>
 </ldml>

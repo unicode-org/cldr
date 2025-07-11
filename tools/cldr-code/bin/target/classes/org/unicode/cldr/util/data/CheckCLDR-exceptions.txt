@@ -1,9 +1,0 @@
-# List of errors and warnings to be excluded from the output of
-# CheckCLDR.check() even if they occur.
-# File format:
-# <error_type> ; <locale_regex> ; <matching_xpath_regex>
-
-%A=[^"]++
-
-displayCollision ; (fil|sr(_Latn)?) ; //ldml/dates/fields/field[@type="week(-(short|narrow))?"]/relative[@type="(-)?1"]
-displayCollision ; (fil|sr(_Latn)?) ; //ldml/dates/fields/field[@type="sun"]/relative[@type="(-)?1"]

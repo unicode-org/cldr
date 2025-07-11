@@ -66,6 +66,7 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.TempPrintWriter;
 import org.unicode.cldr.util.VettingViewer;
 import org.unicode.cldr.util.VettingViewer.MissingStatus;
+import org.unicode.cldr.util.XPathParts;
 
 /**
  * This produces the cldr-staging file charts/47/supplemental/locale_coverage.html eg.
@@ -193,14 +194,13 @@ public class ShowLocaleCoverage {
 
     public static class StatusCounter {
         private static final Set<String> ATTRS_TO_REMOVE = Set.of("standard");
-        PathStarrer pathStarrer = new PathStarrer().setSubstitutionPattern("*");
         Map<String, StatusData> starredPathToData = new TreeMap<>();
         int missingTotal;
         int provisionalTotal;
         int unconfirmedTotal;
 
         public void gatherStarred(String path, DraftStatus draftStatus) {
-            String starredPath = pathStarrer.set(path);
+            String starredPath = PathStarrer.computeIfAbsent(path);
             StatusData statusData = starredPathToData.get(starredPath);
             if (statusData == null) {
                 starredPathToData.put(starredPath, statusData = new StatusData());
@@ -224,7 +224,7 @@ public class ShowLocaleCoverage {
             }
             final List<String> attributes =
                     CldrUtility.removeAll(
-                            new ArrayList<>(pathStarrer.getAttributes()), ATTRS_TO_REMOVE);
+                            new ArrayList<>(XPathParts.getPathAttributes(path)), ATTRS_TO_REMOVE);
             if (!attributes.isEmpty()) {
                 statusData.values.add(attributes);
             }

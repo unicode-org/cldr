@@ -29,6 +29,8 @@ public class TestPathStarrer extends TestFmwk {
     }
 
     // TODO: enable testParallel. Currently it fails since PathStarrer is not thread-safe.
+    // Alternatively, remove the method PathStarrer.set, and use PathStarrer.computeIfAbsent
+    // instead.
     // Reference: https://unicode-org.atlassian.net/browse/CLDR-18697
 
     /*

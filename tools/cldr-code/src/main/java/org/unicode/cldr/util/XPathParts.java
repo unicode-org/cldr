@@ -6,6 +6,7 @@
  */
 package org.unicode.cldr.util;
 
+import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
@@ -1272,5 +1273,20 @@ public final class XPathParts extends XPathParser
             putAttributeValue(i, attribute, null);
         }
         return this;
+    }
+
+    public static String getPathAttributesJoined(String path, String separator) {
+        return Joiner.on(separator).join(getPathAttributes(path));
+    }
+
+    public static List<String> getPathAttributes(String path) {
+        List<String> attributes = new ArrayList<>();
+        XPathParts parts = getFrozenInstance(path);
+        for (int i = 0; i < parts.size(); ++i) {
+            for (String key : parts.getAttributeKeys(i)) {
+                attributes.add(parts.getAttributeValue(i, key));
+            }
+        }
+        return attributes;
     }
 }

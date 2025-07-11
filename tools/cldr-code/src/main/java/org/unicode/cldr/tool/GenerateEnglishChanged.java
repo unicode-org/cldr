@@ -22,6 +22,7 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.With;
+import org.unicode.cldr.util.XPathParts;
 
 public class GenerateEnglishChanged {
     private static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
@@ -76,7 +77,8 @@ public class GenerateEnglishChanged {
                 }
                 abbreviatedPaths.add(abbrPath);
                 String starred = starrer.set(abbrPath);
-                pathsDiffer.put(starred, ImmutableList.copyOf(starrer.getAttributes()));
+                pathsDiffer.put(
+                        starred, ImmutableList.copyOf(XPathParts.getPathAttributes(abbrPath)));
                 // System.out.println(path + " => " + abbrPath);
             }
         }

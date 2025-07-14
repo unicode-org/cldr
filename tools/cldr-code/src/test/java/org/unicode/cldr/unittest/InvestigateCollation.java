@@ -1,6 +1,9 @@
 package org.unicode.cldr.unittest;
 
-import com.google.common.collect.ComparisonChain;
+import com.google.common.collect.Comparators;
+import com.google.common.collect.Multimap;
+import com.ibm.icu.impl.UnicodeMap;
+import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UCharacterCategory;
 import com.ibm.icu.text.CollationElementIterator;
@@ -8,190 +11,213 @@ import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.function.Supplier;
+import java.util.stream.Collectors;
+import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.Joiners;
 
 public class InvestigateCollation {
-    public static void main(String[] args) throws Exception {
-        boolean bounded = false;
-        boolean showProgress = false;
+    static boolean showProgress = false;
 
-        RuleBasedCollator root = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
+    static RuleBasedCollator root = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
+    static UnicodeMultimap<Primaries> primaryToCps = new UnicodeMultimap<>(TreeMap::new);
+    static UnicodeMap<Primaries> cpsToPrimary = new UnicodeMap<>();
 
-        // Map based on collation elements, and based on their primaries
-
-        UnicodeMultimap<CE> ceMap = new UnicodeMultimap<>(TreeMap::new);
-        UnicodeMultimap<Long> pMap = new UnicodeMultimap<>(TreeMap::new);
-
-        // just for tracking
-
-        int next = 0x1000;
-        long bottom = 0;
-        long top = Long.MIN_VALUE; // largest unsigned
-
-        for (int codePoint = 'a'; codePoint < 0x110000; ++codePoint) {
+    static {
+        root.setStrength(Collator.PRIMARY);
+        int next = -1;
+        for (int codePoint = 0; codePoint < 0x110000; ++codePoint) {
             int type = UCharacter.getType(codePoint);
             if (type == UCharacterCategory.UNASSIGNED
                     || type == UCharacterCategory.PRIVATE_USE
                     || type == UCharacterCategory.SURROGATE) {
                 continue;
             }
-            CE ce = CE.from(root, codePoint);
-            if (ce.bogus) {
-                // This is just an artifact of the current implementation; just uses longs for the
-                // fields
-                System.out.println(
-                        "Too many collation elements: "
-                                + ce
-                                + "\t"
-                                + Long.toHexString(codePoint)
-                                + "\t"
-                                + Character.toString(codePoint));
-                continue;
-            }
-
+            Primaries p = new Primaries(Character.toString(codePoint), 0);
             if (showProgress && codePoint >= next) {
                 System.out.println(
                         Joiners.TAB.join(
                                 "Processing:",
                                 Integer.toHexString(codePoint),
                                 Character.toString(codePoint),
-                                ce));
+                                p));
                 next += 0x1000;
             }
-            ceMap.put(ce, codePoint);
-            pMap.put(ce.primary, codePoint);
-            if (codePoint == 'a') {
-                bottom = ce.primary;
-            } else if (codePoint == 'Ω') {
-                top = ce.primary;
-            }
+            primaryToCps.put(p, codePoint);
+            cpsToPrimary.put(codePoint, p);
         }
-
-        UnicodeSet contractions = new UnicodeSet();
+        /*
+         *
+         *
+         UnicodeSet contractions = new UnicodeSet();
         UnicodeSet expansions = new UnicodeSet();
 
         root.getContractionsAndExpansions(contractions, expansions, true);
         contractions.freeze();
         expansions.freeze();
 
-        System.out.println(
-                "\nContractions:\t" + contractions.size() + "\t" + contractions.toPattern(false));
+         */
 
-        System.out.println(
-                "\nExpansions:\t" + expansions.size() + "\t" + expansions.toPattern(false));
+    }
 
-        //        UnicodeSet contractAndExpansions = new UnicodeSet().addAll(expansions.strings());
-        //        expansions = new UnicodeSet(expansions).removeAll(expansions.strings());
+    public static void main(String[] args) {
+        //        Primaries empty = new Primaries("\u0000", 0);
         //
-        //        System.out.println("\nExpansions & Contractions:\t"  +
-        // contractAndExpansions.size() + "\t" +  contractAndExpansions.toPattern(false));
-
-        System.out.println("\nShowing primaries with more than one character");
-
-        final long bottom2 = bottom;
-        final long top2 = top;
-        System.out.println("bottom: " + Long.toHexString(bottom2));
-        System.out.println("top: " + Long.toHexString(top2));
-
-        pMap.entrySet().stream()
-                .filter(
-                        x ->
-                                !bounded
-                                        || (0 <= Long.compareUnsigned(bottom2, x.getKey())
-                                                && 0 <= Long.compareUnsigned(x.getKey(), top2)))
-                .filter(x -> x.getValue().size() > 1)
+        //        System.out.println("Primaries for null: " + empty);
+        //        UnicodeSet setForEmpty = primaryToCps.get(empty);
+        //        System.out.println(
+        //                "Codepoints with empty primaries " + setForEmpty.size() + " " +
+        // setForEmpty);
+        Counter<Integer> counter = new Counter<>();
+        Map<Integer, Primaries> samples = new TreeMap<>();
+        Map<Integer, String> sampleString = new TreeMap<>();
+        for (Entry<String, Primaries> keys : cpsToPrimary.entrySet()) {
+            String sample = keys.getKey();
+            Primaries primary = keys.getValue();
+            int size = primary.primaries.size();
+            counter.add(size, 1);
+            if (!samples.containsKey(size)) {
+                samples.put(size, primary);
+                sampleString.put(size, sample);
+            }
+        }
+        System.out.println("Size\tCount\tSample\tHex\tPrimaries");
+        samples.entrySet().stream()
                 .forEach(
                         x ->
                                 System.out.println(
-                                        Long.toHexString(x.getKey())
-                                                + "\t"
-                                                + x.getValue().size()
-                                                + "\t"
-                                                + x.getValue().toPattern(false)));
+                                        Joiners.TAB.join(
+                                                x.getKey(),
+                                                counter.get(x.getKey()),
+                                                sampleString.get(x.getKey()),
+                                                Utility.hex(sampleString.get(x.getKey())),
+                                                x.getValue())));
+
+        StringRange rawQuery = new StringRange("a", "c");
+        Query query = new Query(rawQuery);
+
+        System.out.println("\nQuery\tLB\tUB\t#1stChars\t1stChars");
+        System.out.println(rawQuery + "\t" + query);
+        System.out.println();
+
+        List<StringRange> tests =
+                List.of(new StringRange("d", "f"), new StringRange("c"), new StringRange("𝕮"));
+        for (StringRange cluster : tests) {
+            boolean couldMatch = query.couldMatch(cluster);
+            System.out.println(
+                    "cluster " + cluster + " could match query " + rawQuery + ": " + couldMatch);
+        }
     }
 
-    // Puts together a compound CE. Currently uses longs, so 20-30 characters aren't handled
+    static class Primaries implements Comparable<Primaries> {
+        final List<Integer> primaries;
 
-    static class CE implements Comparable<CE> {
-        static final long OVERFLOW16 = 0xFFFF000000000000l;
-        static final long OVERFLOW8 = 0xFF00000000000000l;
-
-        long primary;
-        long secondary;
-        long tertiary;
-        boolean bogus;
-
-        // later, fix to make final fields
-
-        public static CE from(RuleBasedCollator root, int codePoint) {
-            CE ce = new CE();
-            CollationElementIterator cei =
-                    root.getCollationElementIterator(Character.toString(codePoint));
+        public Primaries(String cps, int increment) {
+            CollationElementIterator cei = root.getCollationElementIterator(cps);
+            List<Integer> result =
+                    new ArrayList<>(); // should be unsigned short, but simpler in prototype with
+            // int
             while (true) {
                 int collationElement = cei.next();
                 if (collationElement == CollationElementIterator.NULLORDER) {
                     break;
                 }
-                ce.add(collationElement);
+                int p = CollationElementIterator.primaryOrder(collationElement);
+                if (p != 0) {
+                    result.add(p);
+                }
             }
-            return ce;
+            primaries = List.copyOf(result);
         }
 
-        void add(int collationElement) {
-            int p = CollationElementIterator.primaryOrder(collationElement);
-            int s = CollationElementIterator.secondaryOrder(collationElement);
-            int t = CollationElementIterator.tertiaryOrder(collationElement);
-
-            if (p != 0) {
-                if ((primary & OVERFLOW16) != 0) {
-                    bogus = true;
-                }
-                primary = (primary << 16) | p;
-            }
-            if (s != 0) {
-                if ((secondary & OVERFLOW8) != 0) {
-                    bogus = true;
-                }
-                secondary = (secondary << 8) | s;
-            }
-            if (t != 0) {
-                if ((tertiary & OVERFLOW8) != 0) {
-                    bogus = true;
-                }
-                tertiary = (tertiary << 8) | t;
-            }
-        }
-
-        @Override
-        public int compareTo(CE o) {
-            return ComparisonChain.start()
-                    .compare(primary, o.primary)
-                    .compare(secondary, o.secondary)
-                    .compare(tertiary, o.tertiary)
-                    .result();
+        public Primaries(int singlePrimary) {
+            primaries = List.of(singlePrimary);
         }
 
         @Override
         public boolean equals(Object obj) {
-            return compareTo((CE) obj) == 0;
+            if (obj == this) {
+                return true;
+            } else if (!(obj instanceof Primaries)) {
+                return false;
+            }
+            return primaries.equals(((Primaries) obj).primaries);
+        }
+
+        @Override
+        public int compareTo(Primaries other) {
+            return iterableComparator.compare(primaries, other.primaries);
         }
 
         @Override
         public int hashCode() {
-            return (int) (primary ^ secondary ^ tertiary);
+            return primaries.hashCode();
         }
 
         @Override
         public String toString() {
-            return Joiners.SP.join(
-                    Long.toHexString(primary),
-                    Long.toHexString(secondary),
-                    Long.toHexString(tertiary));
+            return "["
+                    + primaries.stream()
+                            .map(x -> Utility.hex(x, 1))
+                            .collect(Collectors.joining(","))
+                    + "]";
+        }
+
+        static final Comparator<Iterable<Integer>> iterableComparator =
+                Comparators.lexicographical(Comparator.<Integer>naturalOrder());
+    }
+
+    static class Query {
+        final Primaries lowerBound;
+        final Primaries upperBound;
+        final UnicodeSet firstChars = new UnicodeSet();
+
+        public Query(StringRange rawQuery) {
+            lowerBound = new Primaries(rawQuery.lowerBound, 0);
+            upperBound = new Primaries(rawQuery.upperBound, 1);
+            for (int cp = lowerBound.primaries.get(0); cp <= upperBound.primaries.get(0); ++cp) {
+                UnicodeSet uset = primaryToCps.get(new Primaries(cp));
+                if (uset != null) {
+                    firstChars.addAll(uset);
+                }
+            }
+        }
+
+        boolean couldMatch(StringRange stringRange) {
+            return firstChars.containsSome(
+                    stringRange.lowerBound.codePointAt(0), stringRange.upperBound.codePointAt(0));
+        }
+
+        @Override
+        public String toString() {
+            return Joiners.COMMA_SP.join(
+                    lowerBound, upperBound, firstChars.size(), firstChars.toPattern(false));
+        }
+    }
+
+    static class StringRange {
+        public StringRange(String lowerBound, String upperBound) {
+            this.lowerBound = lowerBound;
+            this.upperBound = upperBound;
+        }
+
+        public StringRange(String string) {
+            this(string, string);
+        }
+
+        final String lowerBound;
+        final String upperBound;
+
+        @Override
+        public String toString() {
+            return "«" + lowerBound + "," + upperBound + "»";
         }
     }
 
@@ -223,6 +249,16 @@ public class InvestigateCollation {
             }
             uset.add(codePoint);
             return this;
+        }
+
+        public Multimap<Long, T> invertCodePointsInto(Multimap<Long, T> target) {
+            data.entrySet().stream()
+                    .forEach(
+                            x ->
+                                    x.getValue()
+                                            .codePointStream()
+                                            .forEach(y -> target.put((long) y, x.getKey())));
+            return target;
         }
     }
 }

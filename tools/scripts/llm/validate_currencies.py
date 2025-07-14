@@ -30,17 +30,22 @@ def fetch_currencies(locale: str) -> dict:
     return resp.json()
 
 def flatten(cdata: dict, locale: str) -> list[str]:
-    """Turn the nested currencies object into lines of text."""
+    """Turn the nested currencies object into lines of text, collecting ALL count forms."""
     cur = cdata["main"][locale]["numbers"]["currencies"]
     out = []
     for code, info in cur.items():
-        one    = info.get("displayName-count-one", "")
-        other  = info.get("displayName-count-other", "")
+        # collect every displayName-count-* field
+        counts = [
+            f"{k.split('displayName-count-')[-1]}='{v}'"
+            for k, v in info.items()
+            if k.startswith("displayName-count-")
+        ]
+        # join into a single “counts=” piece
+        counts_str = ", ".join(counts) if counts else ""
         sym    = info.get("symbol", "")
         narrow = info.get("symbol-alt-narrow", "")
         out.append(
-            f"{code}: one='{one}', other='{other}', "
-            f"symbol='{sym}', alt_narrow='{narrow}'"
+            f"{code}: counts=[{counts_str}], symbol='{sym}', alt_narrow='{narrow}'"
         )
     return out
 

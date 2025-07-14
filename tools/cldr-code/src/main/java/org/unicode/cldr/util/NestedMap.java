@@ -6,15 +6,12 @@ import com.google.common.collect.Maps;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Spliterator;
 import java.util.Spliterators;
-import java.util.TreeMap;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
@@ -215,17 +212,98 @@ public class NestedMap {
     }
 
     @SuppressWarnings("unchecked")
-    public static class NestedMap2<K1, K2, V> {
+    public static class Entry3<K1, K2, V> { // With Java17 we could use records
+        private List<Object> list;
+
+        public Entry3(List<Object> list) {
+            if (list == null || list.size() != 3) {
+                throw new IllegalArgumentException();
+            }
+            this.list = list;
+        }
+
+        public K1 getKey1() {
+            return (K1) list.get(0);
+        }
+
+        public K2 getKey2() {
+            return (K2) list.get(1);
+        }
+
+        public V getValue() {
+            return (V) list.get(3);
+        }
+
+        @Override
+        public String toString() {
+            return list.toString();
+        }
+
+        public boolean equals(Object obj) {
+            return this == obj || obj instanceof Entry3 && this.list == ((Entry3) obj).list;
+        }
+
+        @Override
+        public int hashCode() {
+            return list.hashCode();
+        }
+    }
+
+    @SuppressWarnings("unchecked")
+    public static class Entry4<K1, K2, K3, V> { // With Java17 we could use records
+        private List<Object> list;
+
+        public Entry4(List<Object> list) {
+            if (list == null || list.size() != 4) {
+                throw new IllegalArgumentException();
+            }
+            this.list = list;
+        }
+
+        public K1 getKey1() {
+            return (K1) list.get(0);
+        }
+
+        public K2 getKey2() {
+            return (K2) list.get(1);
+        }
+
+        public K3 getKey3() {
+            return (K3) list.get(2);
+        }
+
+        public V getValue() {
+            return (V) list.get(3);
+        }
+
+        @Override
+        public String toString() {
+            return list.toString();
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            return this == obj || obj instanceof Entry4 && this.list == ((Entry4) obj).list;
+        }
+
+        @Override
+        public int hashCode() {
+            return list.hashCode();
+        }
+    }
+
+    @SuppressWarnings("unchecked")
+    public static class Map2<K1, K2, V> {
         private final NestedMap engine;
 
-        private NestedMap2(NestedMap engine) {
+        private Map2(NestedMap engine) {
+
             this.engine = engine;
         }
 
         /** Takes Treemap::new, HashMap::new, ConcurrentHashMap::new, and other suppliers */
-        public static <K1, K2, V> NestedMap2<K1, K2, V> create(
-                Supplier<Map<Object, Object>> supplier) {
-            return new NestedMap2<>(new NestedMap(supplier));
+        public static <K1, K2, V> Map2<K1, K2, V> create(Supplier<Map<Object, Object>> supplier) {
+            return new Map2<>(new NestedMap(supplier));
         }
 
         @Override
@@ -235,7 +313,7 @@ public class NestedMap {
 
         @Override
         public boolean equals(Object obj) {
-            return engine.equals(((NestedMap2) obj).engine);
+            return engine.equals(((Map2) obj).engine);
         }
 
         @Override
@@ -255,43 +333,19 @@ public class NestedMap {
             return (V) engine.remove(key1, key2);
         }
 
-        public static class Entry<K1, K2, V> { // With Java17 we could use records
-            List<Object> list;
-
-            public Entry(List<Object> list) {
-                this.list = list;
-            }
-
-            public K1 getKey1() {
-                return (K1) list.get(0);
-            }
-
-            public K2 getKey2() {
-                return (K2) list.get(1);
-            }
-
-            public V getValue() {
-                return (V) list.get(3);
-            }
-
-            @Override
-            public String toString() {
-                return list.toString();
-            }
+        public Stream<Entry3<K1, K2, V>> stream() {
+            return engine.stream().map(list -> new Entry3<K1, K2, V>(list));
         }
 
-        public Stream<Entry<K1, K2, V>> stream() {
-            return engine.stream().map(list -> new NestedMap2.Entry<K1, K2, V>(list));
-        }
-
-        public ImmutableNestedMap2<K1, K2, V> createImmutable() {
-            return new ImmutableNestedMap2<K1, K2, V>(engine);
+        public ImmutableMap2<K1, K2, V> createImmutable() {
+            return new ImmutableMap2<K1, K2, V>(engine);
         }
     }
 
-    public static class ImmutableNestedMap2<K1, K2, V> extends NestedMap2<K1, K2, V> {
+    public static class ImmutableMap2<K1, K2, V> extends Map2<K1, K2, V> {
 
-        private ImmutableNestedMap2(NestedMap engine) {
+        private ImmutableMap2(NestedMap engine) {
+
             super(engine.toImmutable());
         }
 
@@ -300,19 +354,19 @@ public class NestedMap {
         }
     }
 
-    // --- SHIM FOR 3-LEVEL MAP ---
     @SuppressWarnings("unchecked")
-    public static class NestedMap3<K1, K2, K3, V> {
+    public static class Map3<K1, K2, K3, V> {
         private final NestedMap engine;
 
-        private NestedMap3(NestedMap engine) {
+        private Map3(NestedMap engine) {
+
             this.engine = engine;
         }
 
         /** Takes Treemap::new, HashMap::new, ConcurrentHashMap::new, and other suppliers */
-        public static <K1, K2, K3, V> NestedMap3<K1, K2, K3, V> create(
+        public static <K1, K2, K3, V> Map3<K1, K2, K3, V> create(
                 Supplier<Map<Object, Object>> supplier) {
-            return new NestedMap3<>(new NestedMap(supplier));
+            return new Map3<>(new NestedMap(supplier));
         }
 
         public void put(K1 key1, K2 key2, K3 key3, V value) {
@@ -334,7 +388,7 @@ public class NestedMap {
 
         @Override
         public boolean equals(Object obj) {
-            return engine.equals(((NestedMap3) obj).engine);
+            return this == obj || engine.equals(((Map3) obj).engine);
         }
 
         @Override
@@ -342,47 +396,19 @@ public class NestedMap {
             return engine.hashCode();
         }
 
-        public static class Entry<K1, K2, K3, V> { // With Java17 we could use records
-            List<Object> list;
-
-            public Entry(List<Object> list) {
-                this.list = list;
-            }
-
-            public K1 getKey1() {
-                return (K1) list.get(0);
-            }
-
-            public K2 getKey2() {
-                return (K2) list.get(1);
-            }
-
-            public K3 getKey3() {
-                return (K3) list.get(2);
-            }
-
-            public V getValue() {
-                return (V) list.get(3);
-            }
-
-            @Override
-            public String toString() {
-                return list.toString();
-            }
+        public Stream<Entry4<K1, K2, K3, V>> stream() {
+            return engine.stream().map(list -> new Entry4<K1, K2, K3, V>(list));
         }
 
-        public Stream<Entry<K1, K2, K3, V>> stream() {
-            return engine.stream().map(list -> new NestedMap3.Entry<K1, K2, K3, V>(list));
-        }
-
-        public ImmutableNestedMap3<K1, K2, K3, V> createImmutable() {
-            return new ImmutableNestedMap3<K1, K2, K3, V>(engine);
+        public ImmutableMap3<K1, K2, K3, V> createImmutable() {
+            return new ImmutableMap3<K1, K2, K3, V>(engine);
         }
     }
 
-    public static class ImmutableNestedMap3<K1, K2, K3, V> extends NestedMap3<K1, K2, K3, V> {
+    public static class ImmutableMap3<K1, K2, K3, V> extends Map3<K1, K2, K3, V> {
 
-        private ImmutableNestedMap3(NestedMap engine) {
+        private ImmutableMap3(NestedMap engine) {
+
             super(engine.toImmutable());
         }
 
@@ -391,91 +417,29 @@ public class NestedMap {
         }
     }
 
-    // --- SHIM FOR 4-LEVEL MAP ---
-    public static class NestedMap4<K1, K2, K3, K4, V> {
+    public static class Multimap2<K1, K2, K3> {
         private final NestedMap engine;
 
-        private NestedMap4(NestedMap engine) {
+        private Multimap2(NestedMap engine) {
             this.engine = engine;
         }
 
-        public static <K1, K2, K3, K4, V> NestedMap4<K1, K2, K3, K4, V> createWithTreeMaps() {
-            return new NestedMap4<>(new NestedMap(TreeMap::new));
+        /** Takes Treemap::new, HashMap::new, ConcurrentHashMap::new, and other suppliers */
+        public static <K1, K2, K3> Multimap2<K1, K2, K3> create(
+                Supplier<Map<Object, Object>> supplier) {
+            return new Multimap2<>(new NestedMap(supplier));
         }
 
-        public static <K1, K2, K3, K4, V> NestedMap4<K1, K2, K3, K4, V> createWithHashMaps() {
-            return new NestedMap4<>(new NestedMap(HashMap::new));
+        public void put(K1 key1, K2 key2, K3 key3) {
+            engine.put(key1, key2, key3, true);
         }
 
-        public static <K1, K2, K3, K4, V>
-                NestedMap4<K1, K2, K3, K4, V> createWithConcurrentHashMaps() {
-            return new NestedMap4<>(new NestedMap(ConcurrentHashMap::new));
+        public boolean contains(K1 key1, K2 key2, K3 key3) {
+            return engine.get(key1, key2, key3) != null;
         }
 
-        public void put(K1 key1, K2 key2, K3 key3, K4 key4, V value) {
-            engine.put(key1, key2, key3, key4, value);
-        }
-
-        @SuppressWarnings("unchecked")
-        public V get(K1 key1, K2 key2, K3 key3, K4 key4) {
-            return (V) engine.get(key1, key2, key3, key4);
-        }
-
-        @SuppressWarnings("unchecked")
-        public V remove(K1 key1, K2 key2, K3 key3, K4 key4) {
-            return (V) engine.remove(key1, key2, key3, key4);
-        }
-
-        @Override
-        public String toString() {
-            return engine.toString();
-        }
-        
-        // TODO finish up along the lines of NestedMap2
-
-    }
-
-    // --- SHIM FOR 5-LEVEL MAP ---
-    public static class NestedMap5<K1, K2, K3, K4, K5, V> {
-        private final NestedMap engine;
-
-        private NestedMap5(NestedMap engine) {
-            this.engine = engine;
-        }
-
-        public static <
-                        K1 extends Comparable<K1>,
-                        K2 extends Comparable<K2>,
-                        K3 extends Comparable<K3>,
-                        K4 extends Comparable<K4>,
-                        K5 extends Comparable<K5>,
-                        V>
-                NestedMap5<K1, K2, K3, K4, K5, V> createWithTreeMaps() {
-            return new NestedMap5<>(new NestedMap(TreeMap::new));
-        }
-
-        public static <K1, K2, K3, K4, K5, V>
-                NestedMap5<K1, K2, K3, K4, K5, V> createWithHashMaps() {
-            return new NestedMap5<>(new NestedMap(HashMap::new));
-        }
-
-        public static <K1, K2, K3, K4, K5, V>
-                NestedMap5<K1, K2, K3, K4, K5, V> createWithConcurrentHashMaps() {
-            return new NestedMap5<>(new NestedMap(ConcurrentHashMap::new));
-        }
-
-        public void put(K1 key1, K2 key2, K3 key3, K4 key4, K5 key5, V value) {
-            engine.put(key1, key2, key3, key4, key5, value);
-        }
-
-        @SuppressWarnings("unchecked")
-        public V get(K1 key1, K2 key2, K3 key3, K4 key4, K5 key5) {
-            return (V) engine.get(key1, key2, key3, key4, key5);
-        }
-
-        @SuppressWarnings("unchecked")
-        public V remove(K1 key1, K2 key2, K3 key3, K4 key4, K5 key5) {
-            return (V) engine.remove(key1, key2, key3, key4, key5);
+        public boolean remove(K1 key1, K2 key2, K3 key3) {
+            return engine.remove(key1, key2, key3) != null;
         }
 
         @Override
@@ -483,52 +447,195 @@ public class NestedMap {
             return engine.toString();
         }
 
-        // TODO finish up along the lines of NestedMap2
-    }
-
-    // --- SHIM FOR 6-LEVEL MAP ---
-    public static class NestedMap6<K1, K2, K3, K4, K5, K6, V> {
-        private final NestedMap engine;
-
-        private NestedMap6(NestedMap engine) {
-            this.engine = engine;
-        }
-
-        public static <K1, K2, K3, K4, K5, K6, V>
-                NestedMap6<K1, K2, K3, K4, K5, K6, V> createWithTreeMaps() {
-            return new NestedMap6<>(new NestedMap(TreeMap::new));
-        }
-
-        public static <K1, K2, K3, K4, K5, K6, V>
-                NestedMap6<K1, K2, K3, K4, K5, K6, V> createWithHashMaps() {
-            return new NestedMap6<>(new NestedMap(HashMap::new));
-        }
-
-        public static <K1, K2, K3, K4, K5, K6, V>
-                NestedMap6<K1, K2, K3, K4, K5, K6, V> createWithConcurrentHashMaps() {
-            return new NestedMap6<>(new NestedMap(ConcurrentHashMap::new));
-        }
-
-        public void put(K1 key1, K2 key2, K3 key3, K4 key4, K5 key5, K6 key6, V value) {
-            engine.put(key1, key2, key3, key4, key5, key6, value);
-        }
-
-        @SuppressWarnings("unchecked")
-        public V get(K1 key1, K2 key2, K3 key3, K4 key4, K5 key5, K6 key6) {
-            return (V) engine.get(key1, key2, key3, key4, key5, key6);
-        }
-
-        @SuppressWarnings("unchecked")
-        public V remove(K1 key1, K2 key2, K3 key3, K4 key4, K5 key5, K6 key6) {
-            return (V) engine.remove(key1, key2, key3, key4, key5, key6);
+        @Override
+        public boolean equals(Object obj) {
+            return this == obj || engine.equals(((Multimap2) obj).engine);
         }
 
         @Override
-        public String toString() {
-            return engine.toString();
+        public int hashCode() {
+            return engine.hashCode();
         }
 
-        // TODO finish up along the lines of NestedMap2
+        public Stream<Entry3<K1, K2, K3>> stream() {
+            return engine.stream().map(list -> new Entry3<K1, K2, K3>(list));
+        }
 
+        public ImmutableMultimap2<K1, K2, K3> createImmutable() {
+            return new ImmutableMultimap2<K1, K2, K3>(engine);
+        }
     }
+
+    public static class ImmutableMultimap2<K1, K2, K3> extends Multimap2<K1, K2, K3> {
+
+        private ImmutableMultimap2(NestedMap engine) {
+            super(engine.toImmutable());
+        }
+
+        public void add(K1 key1, K2 key2, K3 key3) {
+            throw new UnsupportedOperationException();
+        }
+    }
+
+    /*
+        // --- TBD: flesh out similar to the above ---
+
+        public static class NestedMap4<K1, K2, K3, K4, V> {
+            private final NestedMap engine;
+
+            private NestedMap4(NestedMap engine) {
+                this.engine = engine;
+            }
+
+            public static <K1, K2, K3, K4, V> NestedMap4<K1, K2, K3, K4, V> createWithTreeMaps() {
+                return new NestedMap4<>(new NestedMap(TreeMap::new));
+            }
+
+            public static <K1, K2, K3, K4, V> NestedMap4<K1, K2, K3, K4, V> createWithHashMaps() {
+                return new NestedMap4<>(new NestedMap(HashMap::new));
+            }
+
+            public static <K1, K2, K3, K4, V>
+                    NestedMap4<K1, K2, K3, K4, V> createWithConcurrentHashMaps() {
+                return new NestedMap4<>(new NestedMap(ConcurrentHashMap::new));
+            }
+
+            public void put(K1 key1, K2 key2, K3 key3, K4 key4, V value) {
+                engine.put(key1, key2, key3, key4, value);
+            }
+
+            @SuppressWarnings("unchecked")
+            public V get(K1 key1, K2 key2, K3 key3, K4 key4) {
+                return (V) engine.get(key1, key2, key3, key4);
+            }
+
+            @SuppressWarnings("unchecked")
+            public V remove(K1 key1, K2 key2, K3 key3, K4 key4) {
+                return (V) engine.remove(key1, key2, key3, key4);
+            }
+
+            @Override
+            public String toString() {
+                return engine.toString();
+            }
+    <<<<<<< Updated upstream
+
+    =======
+
+
+            // TODO finish up along the lines of NestedMap2
+
+        }
+
+    <<<<<<< Updated upstream
+        // --- SHIM FOR 5-LEVEL MAP ---
+    =======
+        // --- TBD: flesh out similar to the above ---
+
+        public static class NestedMap5<K1, K2, K3, K4, K5, V> {
+            private final NestedMap engine;
+
+            private NestedMap5(NestedMap engine) {
+                this.engine = engine;
+            }
+
+            public static <
+                            K1 extends Comparable<K1>,
+                            K2 extends Comparable<K2>,
+                            K3 extends Comparable<K3>,
+                            K4 extends Comparable<K4>,
+                            K5 extends Comparable<K5>,
+                            V>
+                    NestedMap5<K1, K2, K3, K4, K5, V> createWithTreeMaps() {
+                return new NestedMap5<>(new NestedMap(TreeMap::new));
+            }
+
+            public static <K1, K2, K3, K4, K5, V>
+                    NestedMap5<K1, K2, K3, K4, K5, V> createWithHashMaps() {
+                return new NestedMap5<>(new NestedMap(HashMap::new));
+            }
+
+            public static <K1, K2, K3, K4, K5, V>
+                    NestedMap5<K1, K2, K3, K4, K5, V> createWithConcurrentHashMaps() {
+                return new NestedMap5<>(new NestedMap(ConcurrentHashMap::new));
+            }
+
+            public void put(K1 key1, K2 key2, K3 key3, K4 key4, K5 key5, V value) {
+                engine.put(key1, key2, key3, key4, key5, value);
+            }
+
+            @SuppressWarnings("unchecked")
+            public V get(K1 key1, K2 key2, K3 key3, K4 key4, K5 key5) {
+                return (V) engine.get(key1, key2, key3, key4, key5);
+            }
+
+            @SuppressWarnings("unchecked")
+            public V remove(K1 key1, K2 key2, K3 key3, K4 key4, K5 key5) {
+                return (V) engine.remove(key1, key2, key3, key4, key5);
+            }
+
+            @Override
+            public String toString() {
+                return engine.toString();
+            }
+    <<<<<<< Updated upstream
+
+            // TODO finish up along the lines of NestedMap2
+        }
+
+        // --- SHIM FOR 6-LEVEL MAP ---
+    =======
+        }
+
+        // --- TBD: flesh out similar to the above ---
+
+        public static class NestedMap6<K1, K2, K3, K4, K5, K6, V> {
+            private final NestedMap engine;
+
+            private NestedMap6(NestedMap engine) {
+                this.engine = engine;
+            }
+
+            public static <K1, K2, K3, K4, K5, K6, V>
+                    NestedMap6<K1, K2, K3, K4, K5, K6, V> createWithTreeMaps() {
+                return new NestedMap6<>(new NestedMap(TreeMap::new));
+            }
+
+            public static <K1, K2, K3, K4, K5, K6, V>
+                    NestedMap6<K1, K2, K3, K4, K5, K6, V> createWithHashMaps() {
+                return new NestedMap6<>(new NestedMap(HashMap::new));
+            }
+
+            public static <K1, K2, K3, K4, K5, K6, V>
+                    NestedMap6<K1, K2, K3, K4, K5, K6, V> createWithConcurrentHashMaps() {
+                return new NestedMap6<>(new NestedMap(ConcurrentHashMap::new));
+            }
+
+            public void put(K1 key1, K2 key2, K3 key3, K4 key4, K5 key5, K6 key6, V value) {
+                engine.put(key1, key2, key3, key4, key5, key6, value);
+            }
+
+            @SuppressWarnings("unchecked")
+            public V get(K1 key1, K2 key2, K3 key3, K4 key4, K5 key5, K6 key6) {
+                return (V) engine.get(key1, key2, key3, key4, key5, key6);
+            }
+
+            @SuppressWarnings("unchecked")
+            public V remove(K1 key1, K2 key2, K3 key3, K4 key4, K5 key5, K6 key6) {
+                return (V) engine.remove(key1, key2, key3, key4, key5, key6);
+            }
+
+            @Override
+            public String toString() {
+                return engine.toString();
+            }
+
+    <<<<<<< Updated upstream
+            // TODO finish up along the lines of NestedMap2
+
+        }
+    =======
+            // --- TBD: flesh out similar to the above ---
+        }
+        */
 }

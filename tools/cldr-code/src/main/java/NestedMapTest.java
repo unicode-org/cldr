@@ -9,8 +9,8 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import org.unicode.cldr.icu.dev.test.TestFmwk;
-import org.unicode.cldr.util.NestedMap.ImmutableNestedMap3;
-import org.unicode.cldr.util.NestedMap.NestedMap3;
+import org.unicode.cldr.util.NestedMap.ImmutableMap3;
+import org.unicode.cldr.util.NestedMap.Map3;
 
 public class NestedMapTest extends TestFmwk {
 
@@ -49,7 +49,7 @@ public class NestedMapTest extends TestFmwk {
         // Level 3: Integer (Year)
         // Value: Double (Sales Amount)
         for (MapType tt : MapType.values()) {
-            NestedMap3<String, String, Integer, Double> salesData = NestedMap3.create(tt.supplier);
+            Map3<String, String, Integer, Double> salesData = Map3.create(tt.supplier);
 
             // --- Type-Safe PUT operations ---
             salesData.put("South America", "Widget", 2024, 150000.75);
@@ -62,7 +62,7 @@ public class NestedMapTest extends TestFmwk {
             String streamTest = tryOperations(tt, Mutability.mutable, salesData, null);
 
             // Immutable
-            ImmutableNestedMap3<String, String, Integer, Double> salesDataIM =
+            ImmutableMap3<String, String, Integer, Double> salesDataIM =
                     salesData.createImmutable();
             tryOperations(tt, Mutability.immutable, salesDataIM, streamTest);
         }
@@ -71,7 +71,7 @@ public class NestedMapTest extends TestFmwk {
     private String tryOperations(
             MapType tt,
             Mutability mutability,
-            NestedMap3<String, String, Integer, Double> salesData,
+            Map3<String, String, Integer, Double> salesData,
             String streamTest) {
 
         logln(tt + ", " + mutability);

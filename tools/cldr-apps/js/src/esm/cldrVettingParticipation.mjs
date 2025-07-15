@@ -32,19 +32,15 @@ const NORMAL_RETRY = 1 * SECONDS_IN_MS;
 const COLUMN_TITLE_ORG = "Org";
 const COLUMN_TITLE_LOCALE_NAME = "Locale";
 const COLUMN_TITLE_LOCALE_ID = "Code";
-const COLUMN_TITLE_COVERAGE_LEVEL = "Targ. Cover.";
+const COLUMN_TITLE_COVERAGE_LEVEL = "Coverage";
 const COLUMN_TITLE_LEVEL = "Level";
 const COLUMN_TITLE_PROGRESS_PERCENT = "Done";
 const COLUMN_TITLE_ABSTAIN_COUNT = "Abst.";
-// TODO: EMP, MP, maybe using data from api/completion/locale/${locale}
-// Reference: https://unicode-org.atlassian.net/browse/CLDR-18610
-// const COLUMN_TITLE_EMP = "EMP";
-// const COLUMN_TITLE_MP = "MP";
-const COLUMN_TITLE_USER_ID = "Vetter#";
+const COLUMN_TITLE_EMP = "EMP";
+const COLUMN_TITLE_MP = "MP";
+const COLUMN_TITLE_USER_ID = "User#";
 const COLUMN_TITLE_USER_EMAIL = "Email";
 const COLUMN_TITLE_USER_NAME = "Name";
-// TODO: change LastSeen to be the number of days since the user voted
-// Reference: https://unicode-org.atlassian.net/browse/CLDR-18610
 const COLUMN_TITLE_LAST_MOD = "Days ago";
 
 const COLUMNS = [
@@ -69,9 +65,6 @@ const COLUMNS = [
       "Number of abstains (= # of paths at the coverage level for the locale - # of paths the vetter has voted on)",
     default: 0,
   },
-  // TODO: EMP, MP, data from api/completion/locale/${locale}
-  // Reference: https://unicode-org.atlassian.net/browse/CLDR-18610
-  /*
   {
     title: COLUMN_TITLE_EMP,
     comment: "Sum of errors + missing + provisional (for locale)",
@@ -82,7 +75,6 @@ const COLUMNS = [
     comment: "Sum of missing + provisional (for locale)",
     default: 0,
   },
-  */
   {
     title: COLUMN_TITLE_USER_ID,
     comment: "User's account number",
@@ -113,11 +105,7 @@ let latestReq = null;
  */
 let vpData = {};
 
-/**
- * Worksheet data, used for both the html table in the Vue component and
- * the XLSX spreadsheet download
- */
-let worksheetData = null;
+let tableBody = null;
 
 /** @function */
 let callbackToSetData = null;
@@ -360,7 +348,8 @@ async function createTable() {
       const data = await user.data[locale];
       const json = await data.json();
       const { votablePathCount, votedPathCount } = json.voterProgress;
-      const { coverageLevel } = json;
+      const { coverageLevel, errorCount, missingCount, provisionalCount } =
+        json;
       const perCent = cldrProgress.friendlyPercent(
         votedPathCount,
         votablePathCount
@@ -377,16 +366,18 @@ async function createTable() {
         daysAgo = "♾️";
       }
       row[columnIndex[COLUMN_TITLE_LAST_MOD]] = daysAgo;
+      row[columnIndex[COLUMN_TITLE_EMP]] =
+        errorCount + missingCount + provisionalCount;
+      row[columnIndex[COLUMN_TITLE_MP]] = missingCount + provisionalCount;
       const sortKey = localeName + " " + user.org + " " + id;
-      rowMap[sortKey] = [...row]; // clone the array since worksheetData will retain a reference
+      rowMap[sortKey] = [...row]; // clone the array since table will retain a reference
     }
   }
-  worksheetData = [];
-  worksheetData.push(getHeaderRow());
+  tableBody = [];
   Object.entries(rowMap)
     .sort((a, b) => a[0].localeCompare(b[0]))
     .forEach(([sortKey, row]) => {
-      worksheetData.push(row);
+      tableBody.push(row);
     });
   showResults();
 }
@@ -399,7 +390,9 @@ function showResults() {
     message: "Done",
     percent: 100,
     status: Status.SUCCEEDED,
-    table: worksheetData,
+    tableHeader: getHeaderRow(),
+    tableComments: getHeaderComments(),
+    tableBody: tableBody,
   };
   callbackToSetData(viewData);
 }
@@ -412,7 +405,9 @@ async function saveAsSheet() {
   if (VP_DEBUG) {
     console.log("cldrVettingParticipation.saveAsSheet");
   }
-
+  const tableHeader = [];
+  tableHeader.push(getHeaderRow());
+  const worksheetData = tableHeader.concat(tableBody);
   const worksheet = XLSX.utils.aoa_to_sheet(worksheetData);
 
   addColumnComments(worksheet);
@@ -499,6 +494,14 @@ function getHeaderRow() {
   const row = [];
   for (let col of COLUMNS) {
     row.push(col.title);
+  }
+  return row;
+}
+
+function getHeaderComments() {
+  const row = [];
+  for (let col of COLUMNS) {
+    row.push(col.comment);
   }
   return row;
 }

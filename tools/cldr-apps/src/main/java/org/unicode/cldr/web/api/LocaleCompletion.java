@@ -28,9 +28,9 @@ import org.unicode.cldr.web.SurveyMain;
 
 /**
  * "A locale has complete coverage when there are no Missing values, no Provisional values, and no
- * Errors (aka no MEPs). The Missing / Provisional values are determined at the Locale.txt coverage
- * levels, while Errors need to be counted at the comprehensive level (because we have to resolve
- * all of them in resolution).
+ * Errors (aka no MEPs). The Missing / Provisional values are determined at the target coverage
+ * levels (not specific to any organization), while Errors need to be counted at the comprehensive
+ * level (because we have to resolve all of them in resolution).
  *
  * <p>"In order to show progress towards completion of the locale, we compare the current status to
  * that of the corresponding baseline (blue star) values. Those baseline values can be computed and
@@ -55,7 +55,7 @@ public class LocaleCompletion {
                 @APIResponse(
                         responseCode = "200",
                         description =
-                                "Voting completion statistics for the requesting user and the given locale and coverage level",
+                                "Voting completion statistics for the given locale at the target coverage level (not specific to any organization)",
                         content =
                                 @Content(
                                         mediaType = "application/json",

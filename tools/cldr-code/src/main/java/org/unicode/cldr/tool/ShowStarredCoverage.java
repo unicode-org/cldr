@@ -418,7 +418,7 @@ public class ShowStarredCoverage {
             SurveyToolStatus stStatus = ph.getSurveyToolStatus();
             String starred = PathStarrer.get(path);
             String attributes =
-                    Joiner.on("|").join(XPathParts.getFrozenInstance(path).getPathAttributes());
+                    Joiner.on("|").join(XPathParts.getFrozenInstance(path).getAttributeValues());
             levelToData.put(
                     level,
                     starred + "|" + stStatus + "|" + requiredVotes,

@@ -224,7 +224,8 @@ public class ShowLocaleCoverage {
             }
             final List<String> attributes =
                     CldrUtility.removeAll(
-                            new ArrayList<>(XPathParts.getFrozenInstance(path).getPathAttributes()),
+                            new ArrayList<>(
+                                    XPathParts.getFrozenInstance(path).getAttributeValues()),
                             ATTRS_TO_REMOVE);
             if (!attributes.isEmpty()) {
                 statusData.values.add(attributes);

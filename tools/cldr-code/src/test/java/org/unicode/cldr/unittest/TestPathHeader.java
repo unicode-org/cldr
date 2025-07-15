@@ -722,7 +722,7 @@ public class TestPathHeader extends TestFmwkPlus {
             }
             data.put(
                     starred,
-                    Joiner.on("|").join(XPathParts.getFrozenInstance(path).getPathAttributes()));
+                    Joiner.on("|").join(XPathParts.getFrozenInstance(path).getAttributeValues()));
         }
         for (Entry<SurveyToolStatus, Relation<String, String>> entry : info2.entrySet()) {
             final SurveyToolStatus status = entry.getKey();

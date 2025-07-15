@@ -187,7 +187,7 @@ public class ListCoverageLevels {
                 continue;
             }
             String starred = PathStarrer.get(path);
-            List<String> plainAttrs = XPathParts.getFrozenInstance(path).getPathAttributes();
+            List<String> plainAttrs = XPathParts.getFrozenInstance(path).getAttributeValues();
             for (String locale : toTest) {
                 CLDRLocale cLoc = CLDRLocale.getInstance(locale);
                 CoverageLevel2 coverageLeveler = CoverageLevel2.getInstance(locale);

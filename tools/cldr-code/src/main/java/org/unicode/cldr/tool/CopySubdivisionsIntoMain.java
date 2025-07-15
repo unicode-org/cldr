@@ -136,7 +136,7 @@ public class CopySubdivisionsIntoMain {
                 if (!Objects.equal(oldValue, value)) {
                     String firstAttributeValue =
                             XPathParts.getFrozenInstance(path)
-                                    .getPathAttributes()
+                                    .getAttributeValues()
                                     .iterator()
                                     .next();
                     if (Objects.equal(firstAttributeValue, value)) {

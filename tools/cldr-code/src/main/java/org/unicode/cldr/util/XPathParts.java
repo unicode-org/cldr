@@ -1263,12 +1263,10 @@ public final class XPathParts extends XPathParser
         return this;
     }
 
-    public List<String> getPathAttributes() {
+    public List<String> getAttributeValues() {
         List<String> attributes = new ArrayList<>();
         for (int i = 0; i < size(); ++i) {
-            for (String key : getAttributeKeys(i)) {
-                attributes.add(getAttributeValue(i, key));
-            }
+            attributes.addAll(getAttributes(i).values());
         }
         return attributes;
     }

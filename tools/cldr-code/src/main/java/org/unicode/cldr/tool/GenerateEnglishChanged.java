@@ -80,7 +80,7 @@ public class GenerateEnglishChanged {
                 pathsDiffer.put(
                         starred,
                         ImmutableList.copyOf(
-                                XPathParts.getFrozenInstance(abbrPath).getPathAttributes()));
+                                XPathParts.getFrozenInstance(abbrPath).getAttributeValues()));
                 // System.out.println(path + " => " + abbrPath);
             }
         }

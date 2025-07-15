@@ -131,7 +131,7 @@ public final class XPathParts extends XPathParser
         pw.print(Utility.repeat("\t", (size() - 1)));
         Element e = elements.get(size() - 1);
         String eValue = v;
-        if (eValue.length() == 0) {
+        if (eValue.isEmpty()) {
             pw.print(e.toString(XML_NO_VALUE));
         } else {
             pw.print(e.toString(XML_OPEN));
@@ -181,12 +181,12 @@ public final class XPathParts extends XPathParser
             POSTBLOCK
         }
 
-        private EnumMap<CommentType, Map<String, String>> comments =
+        private final EnumMap<CommentType, Map<String, String>> comments =
                 new EnumMap<>(CommentType.class);
 
         public Comments() {
             for (CommentType c : CommentType.values()) {
-                comments.put(c, new HashMap<String, String>());
+                comments.put(c, new HashMap<>());
             }
         }
 
@@ -329,7 +329,7 @@ public final class XPathParts extends XPathParser
     }
 
     /**
-     * Checks if the new xpath given is like the this one. The only diffrence may be extra alt and
+     * Checks if the new xpath given is like this one. The only difference may be extra alt and
      * draft attributes but the value of type attribute is the same
      *
      * @param last
@@ -364,8 +364,7 @@ public final class XPathParts extends XPathParser
     /** Does this xpath contain the attribute at all? */
     @Override
     public boolean containsAttribute(String attribute) {
-        for (int i = 0; i < elements.size(); ++i) {
-            Element element = elements.get(i);
+        for (Element element : elements) {
             if (element.getAttributeValue(attribute) != null) {
                 return true;
             }
@@ -375,8 +374,8 @@ public final class XPathParts extends XPathParser
 
     /** Does it contain the attribute/value pair? */
     public boolean containsAttributeValue(String attribute, String value) {
-        for (int i = 0; i < elements.size(); ++i) {
-            String otherValue = elements.get(i).getAttributeValue(attribute);
+        for (Element element : elements) {
+            String otherValue = element.getAttributeValue(attribute);
             if (otherValue != null && value.equals(otherValue)) return true;
         }
         return false;
@@ -486,7 +485,7 @@ public final class XPathParts extends XPathParser
      * @return this XPathParts
      */
     public XPathParts addElement(String element) {
-        if (elements.size() == 0) {
+        if (elements.isEmpty()) {
             try {
                 /*
                  * The first element should match one of the DtdType enum values.
@@ -662,8 +661,8 @@ public final class XPathParts extends XPathParser
     @Override
     public int hashCode() {
         int result = elements.size();
-        for (int i = 0; i < elements.size(); ++i) {
-            result = result * 37 + elements.get(i).hashCode();
+        for (Element element : elements) {
+            result = result * 37 + element.hashCode();
         }
         return result;
     }
@@ -707,7 +706,7 @@ public final class XPathParts extends XPathParser
             if (value == null) {
                 if (attributes != null) {
                     attributes.remove(attribute);
-                    if (attributes.size() == 0) {
+                    if (attributes.isEmpty()) {
                         attributes = null;
                     }
                 }
@@ -731,7 +730,7 @@ public final class XPathParts extends XPathParser
             for (String attribute : attributeNames) {
                 attributes.remove(attribute);
             }
-            if (attributes.size() == 0) {
+            if (attributes.isEmpty()) {
                 attributes = null;
             }
         }
@@ -772,13 +771,6 @@ public final class XPathParts extends XPathParser
             return result.toString();
         }
 
-        /**
-         * @param element TODO
-         * @param prefix TODO
-         * @param postfix TODO
-         * @param removeLDMLExtras TODO
-         * @param result
-         */
         private Element writeAttributes(
                 String prefix, String postfix, boolean removeLDMLExtras, StringBuilder result) {
             if (getAttributeCount() == 0) {
@@ -1029,7 +1021,7 @@ public final class XPathParts extends XPathParser
      */
     static void writeComment(PrintWriter pw, int indent, String comment, boolean blockComment) {
         // now write the comment
-        if (comment.length() == 0) return;
+        if (comment.isEmpty()) return;
         if (blockComment) {
             pw.print(Utility.repeat("\t", indent));
         } else {
@@ -1040,11 +1032,8 @@ public final class XPathParts extends XPathParser
             boolean first = true;
             int countEmptyLines = 0;
             // trim the line iff the indent != 0.
-            for (Iterator<String> it =
-                            CldrUtility.splitList(comment, NEWLINE, indent != 0, null).iterator();
-                    it.hasNext(); ) {
-                String line = it.next();
-                if (line.length() == 0) {
+            for (String line : CldrUtility.splitList(comment, NEWLINE, indent != 0, null)) {
+                if (line.isEmpty()) {
                     ++countEmptyLines;
                     continue;
                 }
@@ -1227,8 +1216,8 @@ public final class XPathParts extends XPathParser
 
     public Set<String> getElements() {
         Builder<String> builder = ImmutableSet.builder();
-        for (int i = 0; i < elements.size(); ++i) {
-            builder.add(elements.get(i).getElement());
+        for (Element element : elements) {
+            builder.add(element.getElement());
         }
         return builder.build();
     }
@@ -1272,5 +1261,13 @@ public final class XPathParts extends XPathParser
             putAttributeValue(i, attribute, null);
         }
         return this;
+    }
+
+    public List<String> getAttributeValues() {
+        List<String> attributes = new ArrayList<>();
+        for (int i = 0; i < size(); ++i) {
+            attributes.addAll(getAttributes(i).values());
+        }
+        return attributes;
     }
 }

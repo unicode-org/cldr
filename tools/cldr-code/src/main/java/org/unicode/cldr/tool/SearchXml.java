@@ -467,7 +467,7 @@ public class SearchXml {
                     }
 
                     if (starCounter != null) {
-                        starCounter.add(PathStarrer.computeIfAbsent(path), 1);
+                        starCounter.add(PathStarrer.get(path), 1);
                     }
                     ++total;
 

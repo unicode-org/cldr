@@ -299,13 +299,12 @@ public class TestExampleGenerator extends TestFmwk {
 
     public void TestAllPaths() {
         ExampleGenerator exampleGenerator = getExampleGenerator("en");
-        PathStarrer ps = new PathStarrer();
         Set<String> seen = new HashSet<>();
         CLDRFile cldrFile = exampleGenerator.getCldrFile();
         TreeSet<String> target = new TreeSet<>(cldrFile.getComparator());
         cldrFile.fullIterable().forEach(target::add);
         for (String path : target) {
-            String plainStarred = ps.set(path);
+            String plainStarred = PathStarrer.get(path);
             String value = cldrFile.getStringValue(path);
             if (value == null
                     || path.endsWith("/alias")

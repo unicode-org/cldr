@@ -235,7 +235,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
             CLDRFile cldrFileToCheck = factory.make(locale, true);
             for (String path : cldrFileToCheck.fullIterable()) {
                 allPaths.add(path);
-                String starred = PathStarrer.computeIfAbsent(path);
+                String starred = PathStarrer.get(path);
                 Level level = sdi.getCoverageLevel(path, locale);
                 starredToLocalesToLevels.put(starred, locale, level, true);
             }

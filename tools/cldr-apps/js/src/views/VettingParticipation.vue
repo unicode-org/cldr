@@ -9,7 +9,9 @@ let hasPermission = ref(false);
 let message = ref("");
 let percent = ref(0);
 let status = ref(STATUS.INIT);
-let table = null;
+let tableBody = null;
+let tableHeader = null;
+let tableComments = null;
 
 function mounted() {
   cldrVettingParticipation.viewMounted(setData);
@@ -32,7 +34,7 @@ function cancel() {
   message.value = "";
   percent.value = 0;
   status.value = STATUS.STOPPED;
-  table = null;
+  tableBody = tableHeader = tableComments = null;
 }
 
 function canCancel() {
@@ -45,8 +47,14 @@ function setData(data) {
   if (data.status) {
     status.value = data.status;
   }
-  if (data.table) {
-    table = reactive(data.table);
+  if (data.tableHeader) {
+    tableHeader = reactive(data.tableHeader);
+  }
+  if (data.tableBody) {
+    tableBody = reactive(data.tableBody);
+  }
+  if (data.tableComments) {
+    tableComments = reactive(data.tableComments);
   }
 }
 
@@ -87,27 +95,29 @@ defineExpose({
     </p>
     <p v-if="message">{{ message }}</p>
     <hr />
-    <p class="buttons">
-      <button v-if="table" @click="saveAsSheet">
-        Save as Spreadsheet .xlsx
-      </button>
-    </p>
-    <table v-if="table">
-      <thead>
-        <tr>
-          <th v-for="cell of table[0]" :key="cell">
-            {{ cell }}
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="(row, index) of table" :key="row">
-          <td v-if="index > 0" v-for="cell of row" :key="cell">
-            {{ cell }}
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <div v-if="tableHeader && tableComments && tableBody">
+      <p class="buttons">
+        <button @click="saveAsSheet">Save as Spreadsheet .xlsx</button>
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th v-for="(cell, index) of tableHeader" :key="cell">
+              <a-tooltip :title="tableComments[index]">
+                {{ cell }}
+              </a-tooltip>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="row of tableBody" :key="row">
+            <td v-for="cell of row" :key="cell">
+              {{ cell }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </template>
 
@@ -128,5 +138,7 @@ td {
 
 th {
   background-color: lightgray;
+  position: sticky;
+  top: 0;
 }
 </style>

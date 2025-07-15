@@ -78,7 +78,9 @@ public class GenerateEnglishChanged {
                 abbreviatedPaths.add(abbrPath);
                 String starred = starrer.set(abbrPath);
                 pathsDiffer.put(
-                        starred, ImmutableList.copyOf(XPathParts.getPathAttributes(abbrPath)));
+                        starred,
+                        ImmutableList.copyOf(
+                                XPathParts.getFrozenInstance(abbrPath).getPathAttributes()));
                 // System.out.println(path + " => " + abbrPath);
             }
         }

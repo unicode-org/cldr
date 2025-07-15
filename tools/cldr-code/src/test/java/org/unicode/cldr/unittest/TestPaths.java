@@ -573,14 +573,14 @@ public class TestPaths extends TestFmwkPlus {
                         } else {
                             seen.add(pair);
                             if (!nonFinalValues.isEmpty()) {
-                                String starredPath = PathStarrer.computeIfAbsent(path);
+                                String starredPath = PathStarrer.get(path);
                                 if (!seenStarred.contains(starredPath)) {
                                     seenStarred.add(starredPath);
                                     logln("Non-node values: " + nonFinalValues + "\t" + path);
                                 }
                             }
                             if (isVerbose()) {
-                                String starredPath = PathStarrer.computeIfAbsent(path);
+                                String starredPath = PathStarrer.get(path);
                                 if (!seenStarred.contains(starredPath)) {
                                     seenStarred.add(starredPath);
                                     logln("@" + "\t" + cleaned + "\t" + removed);

@@ -200,7 +200,7 @@ public class ShowLocaleCoverage {
         int unconfirmedTotal;
 
         public void gatherStarred(String path, DraftStatus draftStatus) {
-            String starredPath = PathStarrer.computeIfAbsent(path);
+            String starredPath = PathStarrer.get(path);
             StatusData statusData = starredPathToData.get(starredPath);
             if (statusData == null) {
                 starredPathToData.put(starredPath, statusData = new StatusData());
@@ -224,7 +224,8 @@ public class ShowLocaleCoverage {
             }
             final List<String> attributes =
                     CldrUtility.removeAll(
-                            new ArrayList<>(XPathParts.getPathAttributes(path)), ATTRS_TO_REMOVE);
+                            new ArrayList<>(XPathParts.getFrozenInstance(path).getPathAttributes()),
+                            ATTRS_TO_REMOVE);
             if (!attributes.isEmpty()) {
                 statusData.values.add(attributes);
             }

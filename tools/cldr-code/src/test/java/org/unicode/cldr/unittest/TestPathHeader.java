@@ -1,5 +1,6 @@
 package org.unicode.cldr.unittest;
 
+import com.google.common.base.Joiner;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.LinkedListMultimap;
@@ -692,7 +693,7 @@ public class TestPathHeader extends TestFmwkPlus {
                 errln("SurveyToolStatus should not be " + surveyToolStatus + ": " + p);
             }
 
-            String starred = PathStarrer.computeIfAbsent(path);
+            String starred = PathStarrer.get(path);
 
             if (surveyToolStatus != SurveyToolStatus.READ_WRITE) {
                 nuked.add(starred);
@@ -719,7 +720,9 @@ public class TestPathHeader extends TestFmwkPlus {
                         surveyToolStatus,
                         data = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class));
             }
-            data.put(starred, XPathParts.getPathAttributesJoined(path, "|"));
+            data.put(
+                    starred,
+                    Joiner.on("|").join(XPathParts.getFrozenInstance(path).getPathAttributes()));
         }
         for (Entry<SurveyToolStatus, Relation<String, String>> entry : info2.entrySet()) {
             final SurveyToolStatus status = entry.getKey();
@@ -784,7 +787,7 @@ public class TestPathHeader extends TestFmwkPlus {
             PathDescription pathDescription, Matcher normal, String path, Set<String> alreadySeen) {
         String value = english.getStringValue(path);
         String description = pathDescription.getDescription(path, value, null);
-        String starred = PathStarrer.computeIfAbsent(path);
+        String starred = PathStarrer.get(path);
         if (alreadySeen.contains(starred)) {
             return;
         }

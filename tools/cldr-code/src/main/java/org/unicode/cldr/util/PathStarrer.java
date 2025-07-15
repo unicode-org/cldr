@@ -25,7 +25,7 @@ public class PathStarrer {
     private static final ConcurrentHashMap<String, String> STAR_CACHE = new ConcurrentHashMap<>();
 
     /** Thread-safe version, only STAR_PATTERN */
-    public static String computeIfAbsent(String path) {
+    public static String get(String path) {
         return STAR_CACHE.computeIfAbsent(
                 path,
                 x -> {

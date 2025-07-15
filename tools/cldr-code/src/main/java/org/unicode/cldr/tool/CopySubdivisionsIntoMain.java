@@ -135,7 +135,10 @@ public class CopySubdivisionsIntoMain {
                 String oldValue = subdivisionFile.getStringValue(path);
                 if (!Objects.equal(oldValue, value)) {
                     String firstAttributeValue =
-                            XPathParts.getPathAttributes(path).iterator().next();
+                            XPathParts.getFrozenInstance(path)
+                                    .getPathAttributes()
+                                    .iterator()
+                                    .next();
                     if (Objects.equal(firstAttributeValue, value)) {
                         System.out.println(
                                 localeId

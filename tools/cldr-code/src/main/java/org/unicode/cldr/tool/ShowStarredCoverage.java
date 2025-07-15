@@ -166,7 +166,7 @@ public class ShowStarredCoverage {
             EnumSet.of(PageId.Fields, PageId.Gregorian, PageId.Generic);
 
     private static String condense(PathHeader ph) {
-        final String starPatternPath = PathStarrer.computeIfAbsent(ph.getOriginalPath());
+        final String starPatternPath = PathStarrer.get(ph.getOriginalPath());
         // Replace PathStarrer.STAR_PATTERN with simple "*" for compatibility with other
         // code used by ShowStarredCoverage. Also, collapse alts.
         final String starredPath =
@@ -416,8 +416,9 @@ public class ShowStarredCoverage {
             levelToPathHeaders.put(level, ph, true);
             pathHeaders.add(ph);
             SurveyToolStatus stStatus = ph.getSurveyToolStatus();
-            String starred = PathStarrer.computeIfAbsent(path);
-            String attributes = XPathParts.getPathAttributesJoined(path, "|");
+            String starred = PathStarrer.get(path);
+            String attributes =
+                    Joiner.on("|").join(XPathParts.getFrozenInstance(path).getPathAttributes());
             levelToData.put(
                     level,
                     starred + "|" + stStatus + "|" + requiredVotes,

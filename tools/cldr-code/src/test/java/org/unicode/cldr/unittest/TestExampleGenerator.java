@@ -304,7 +304,7 @@ public class TestExampleGenerator extends TestFmwk {
         TreeSet<String> target = new TreeSet<>(cldrFile.getComparator());
         cldrFile.fullIterable().forEach(target::add);
         for (String path : target) {
-            String plainStarred = PathStarrer.computeIfAbsent(path);
+            String plainStarred = PathStarrer.get(path);
             String value = cldrFile.getStringValue(path);
             if (value == null
                     || path.endsWith("/alias")

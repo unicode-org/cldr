@@ -112,7 +112,7 @@ public class ListCoverageLevels {
                         coverageLeveler == null
                                 ? Level.COMPREHENSIVE
                                 : coverageLeveler.getLevel(path);
-                String skeleton = PathStarrer.computeIfAbsent(path);
+                String skeleton = PathStarrer.get(path);
                 levelToCounter.get(level).add(skeleton);
                 if (path.startsWith("//ldml/units/unitLength")
                         && !path.contains("coordinateUnit")
@@ -186,8 +186,8 @@ public class ListCoverageLevels {
             if (path.endsWith("/alias")) {
                 continue;
             }
-            String starred = PathStarrer.computeIfAbsent(path);
-            List<String> plainAttrs = XPathParts.getPathAttributes(path);
+            String starred = PathStarrer.get(path);
+            List<String> plainAttrs = XPathParts.getFrozenInstance(path).getPathAttributes();
             for (String locale : toTest) {
                 CLDRLocale cLoc = CLDRLocale.getInstance(locale);
                 CoverageLevel2 coverageLeveler = CoverageLevel2.getInstance(locale);

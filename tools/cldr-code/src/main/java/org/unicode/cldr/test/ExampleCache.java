@@ -120,7 +120,7 @@ public class ExampleCache {
             String xpath,
             String value,
             ThreadSafeMapOfMapOfMap.TriFunction<String, String, String, String> f) {
-        String starredPath = PathStarrer.computeIfAbsent(xpath);
+        String starredPath = PathStarrer.get(xpath);
         if (!cachingIsEnabled) {
             return f.apply(starredPath, xpath, value);
         }
@@ -141,7 +141,7 @@ public class ExampleCache {
      */
     void update(String xpath) {
         if (AVOID_CLEARING_CACHE) {
-            String starredA = PathStarrer.computeIfAbsent(xpath);
+            String starredA = PathStarrer.get(xpath);
             for (String starredB : ExampleDependencies.dependencies.get(starredA)) {
                 cache.remove(starredB, null, null);
             }

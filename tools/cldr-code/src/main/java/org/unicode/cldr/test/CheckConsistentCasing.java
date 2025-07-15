@@ -322,7 +322,7 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
                 CasingType ft = CasingType.from(value);
                 counters.get(category).add(ft, 1);
             } else if (DEBUG) {
-                String starred = PathStarrer.computeIfAbsent(path);
+                String starred = PathStarrer.get(path);
                 missing.add(starred);
             }
         }

@@ -574,7 +574,7 @@ public class TestPersonNameFormatter extends TestFmwk {
 
         for (String path : resolved) {
             if (path.startsWith("//ldml/personNames") && !path.endsWith("/alias")) {
-                logln(PathStarrer.computeIfAbsent(path));
+                logln(PathStarrer.get(path));
             }
         }
 

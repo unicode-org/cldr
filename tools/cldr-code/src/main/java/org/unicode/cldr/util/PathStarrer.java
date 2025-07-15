@@ -3,7 +3,6 @@ package org.unicode.cldr.util;
 import com.google.common.base.Joiner;
 import com.ibm.icu.impl.Utility;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
@@ -18,18 +17,15 @@ import java.util.regex.Pattern;
 public class PathStarrer {
     public static final String STAR_PATTERN = "([^\"]*+)";
 
-    private String starredPathString;
     private final List<String> attributes = new ArrayList<>();
-    private final List<String> protectedAttributes = Collections.unmodifiableList(attributes);
     private String substitutionPattern = STAR_PATTERN;
 
     private static final Pattern ATTRIBUTE_PATTERN_OLD = PatternCache.get("=\"([^\"]*)\"");
-    private final StringBuilder starredPathOld = new StringBuilder();
 
     private static final ConcurrentHashMap<String, String> STAR_CACHE = new ConcurrentHashMap<>();
 
     /** Thread-safe version, only STAR_PATTERN */
-    public static String computeIfAbsent(String path) {
+    public static String get(String path) {
         return STAR_CACHE.computeIfAbsent(
                 path,
                 x -> {
@@ -52,8 +48,7 @@ public class PathStarrer {
                 parts.setAttribute(i, key, substitutionPattern);
             }
         }
-        starredPathString = parts.toString();
-        return starredPathString;
+        return parts.toString();
     }
 
     /**
@@ -72,39 +67,29 @@ public class PathStarrer {
                 }
             }
         }
-        starredPathString = parts.toString();
-        return starredPathString;
+        return parts.toString();
     }
 
     public String setOld(String path) {
         Matcher starAttributeMatcher = ATTRIBUTE_PATTERN_OLD.matcher(path);
-        starredPathOld.setLength(0);
+        StringBuilder starredPathOld = new StringBuilder();
         attributes.clear();
         int lastEnd = 0;
         while (starAttributeMatcher.find()) {
             int start = starAttributeMatcher.start(1);
             int end = starAttributeMatcher.end(1);
-            starredPathOld.append(path.substring(lastEnd, start));
+            starredPathOld.append(path, lastEnd, start);
             starredPathOld.append(substitutionPattern);
 
             attributes.add(path.substring(start, end));
             lastEnd = end;
         }
         starredPathOld.append(path.substring(lastEnd));
-        starredPathString = starredPathOld.toString();
-        return starredPathString;
-    }
-
-    public List<String> getAttributes() {
-        return protectedAttributes;
+        return starredPathOld.toString();
     }
 
     public String getAttributesString(String separator) {
         return Joiner.on(separator).join(attributes);
-    }
-
-    public String getResult() {
-        return starredPathString;
     }
 
     public PathStarrer setSubstitutionPattern(String substitutionPattern) {
@@ -118,10 +103,6 @@ public class PathStarrer {
         if (result.startsWith("^") && result.endsWith("$")) {
             result = result.substring(1, result.length() - 1);
         }
-        // System.out.println("Path in  => "+source);
-        // System.out.println("Path out => "+result);
-        // System.out.println("-----------");
-
         return result;
     }
 }

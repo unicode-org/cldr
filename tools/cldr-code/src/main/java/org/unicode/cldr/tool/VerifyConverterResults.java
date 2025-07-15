@@ -212,7 +212,7 @@ public class VerifyConverterResults {
                 return;
             }
             filedata.put(dir + "\t" + name + "\t" + path, value);
-            starredData.put(dir + "\t" + name + "\t" + PathStarrer.computeIfAbsent(path), value);
+            starredData.put(dir + "\t" + name + "\t" + PathStarrer.get(path), value);
         }
 
         void print(boolean isVerbose) {

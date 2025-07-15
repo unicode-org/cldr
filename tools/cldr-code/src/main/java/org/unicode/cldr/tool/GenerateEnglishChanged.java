@@ -33,7 +33,6 @@ public class GenerateEnglishChanged {
                     CLDRPaths.ARCHIVE_DIRECTORY
                             + "cldr-"
                             + ToolConstants.LAST_RELEASE_VERSION
-                            + ".0"
                             + "/");
     private static final boolean TRIAL = false;
 

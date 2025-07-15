@@ -165,16 +165,9 @@ public class VotingParticipation {
     private void appendInterestLocales(
             UserRegistry reg, final Set<String> localesWithVetters, int theirId) {
         final UserRegistry.User theUser = reg.getInfo(theirId);
-        if ((theUser.userlevel > UserRegistry.GUEST)
-                || UserRegistry.userIsLocked(theUser) // skip these
-        ) {
-            return;
+        if (UserRegistry.userIsLocked(theUser)) {
+            return; // skip locked users
         }
-        appendInterestLocales(localesWithVetters, theUser);
-    }
-
-    private void appendInterestLocales(
-            final Set<String> localesWithVetters, final UserRegistry.User theUser) {
         LocaleSet interestLocales = theUser.getInterestLocales();
         if (!interestLocales.isAllLocales()) {
             final Set<CLDRLocale> intSet = interestLocales.getSet();

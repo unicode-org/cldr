@@ -1710,23 +1710,19 @@ Note: A generic location format is constructed by a part of time zone ID represe
 
 **Specific location format:** This format does not have a symbol, but is used in the fallback chain for the _specific non-location format_. Like the _generic location format_ it uses time zone locations, but formats these in a zone-variant aware way, e.g. "France Summer Time".
 
-**Localized GMT format:** A constant, specific offset from GMT (or UTC), which may be in a translated form. There are three styles for this: 
+**Localized GMT format:** A constant, specific offset from GMT (or UTC), which may be in a translated form. There are two styles for this: 
 
-The first is used when there is an explicit non-zero offset from GMT; this style is specified by the `<gmtFormat>` element and `<hourFormat>` element. The long format always uses 2-digit hours field and minutes field, with optional 2-digit seconds field. The short format is intended for the shortest representation and uses hour fields without leading zero, with optional 2-digit minutes and seconds fields. The digits used for hours, minutes and seconds fields in this format are the locale's default decimal digits:
+The first is used when there is an explicit offset from GMT; this style is specified by the `<gmtFormat>` element and `<hourFormat>` element. The long format always uses 2-digit hours field and minutes field, with optional 2-digit seconds field. The short format is intended for the shortest representation and uses hour fields without leading zero, with optional 2-digit minutes and seconds fields. The digits used for hours, minutes and seconds fields in this format are the locale's default decimal digits:
 
 * "GMT+03:30" (long)
 * "GMT+3:30" (short)
 * "UTC-03.00" (long)
 * "UTC-3" (short)
 * "Гринуич+03:30" (long)
+* "GMT+00:00" (long)
+* "UTC+0" (short)
 
-The second is used when there is an explicit zero offset from GMT. It is specified by the `<gmtZeroFormat>` element:
-
-* "GMT"
-* "UTC"
-* "Гринуич"
-
-The third is used when the offset from GMT is unknown. It is specified by the `<gmtUnknownFormat>` element:
+The second is used when the offset from GMT is unknown. It is specified by the `<gmtUnknownFormat>` element:
 
 * "GMT+?"
 * "UTC+?"

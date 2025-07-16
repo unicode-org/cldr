@@ -403,6 +403,7 @@ function getUserTableRow(u, json) {
     // 5th column: "Locales"
     "<td>" +
     getUserLocales(u) +
+    getBadLocales(u) +
     "</td>" +
     // 6th column: "Seen"
     "<td>" +
@@ -631,6 +632,20 @@ function getUserLocales(u) {
   } else {
     return prettyLocaleList(u.data.locales);
   }
+}
+
+function getBadLocales(u) {
+  if (!u.data.badLocales) return "";
+  return (
+    "<div class='d-item-err'>ERRORS: " +
+    u.data.badLocales
+      .map(
+        (s) =>
+          `<tt class='codebox' title='Locale is invalid or not present in Survey Tool'>${s}</tt>`
+      )
+      .join(" ") +
+    "</div>\n"
+  );
 }
 
 function getInterestLocalesHtml(json) {

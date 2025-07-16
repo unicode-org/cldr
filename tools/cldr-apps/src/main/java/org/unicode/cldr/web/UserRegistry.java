@@ -206,6 +206,9 @@ public class UserRegistry {
         @Schema(hidden = true)
         public String locales;
 
+        @Schema(name = "badLocales", description = "set of incorrectly specified locales")
+        public String[] badLocales = null;
+
         @Schema(hidden = true)
         public String intlocs = null;
 
@@ -494,6 +497,7 @@ public class UserRegistry {
                     .put("orgName", vrOrg().getDisplayName())
                     .put("id", id)
                     .put("claSigned", claSigned)
+                    .put("badLocales", badLocales)
                     .toJSONString();
         }
 
@@ -621,6 +625,49 @@ public class UserRegistry {
             } catch (JsonSyntaxException jsx) {
                 logger.log(java.util.logging.Level.SEVERE, "Could not deserialize CLA", jsx);
                 return null;
+            }
+        }
+
+        public void setLocales(String list) {
+            setLocales(list, null);
+        }
+
+        public void setLocales(String list, String rawList) {
+            if (LocaleNormalizer.isAllLocales(list)) {
+                locales = LocaleNormalizer.ALL_LOCALES;
+            } else {
+                locales = list;
+            }
+            Set<String> localeSet = new HashSet<String>();
+            for (final String s : LocaleNormalizer.splitToArray(list)) {
+                if (!LocaleNormalizer.isAllLocales(s)) {
+                    localeSet.add(s);
+                }
+            }
+            Set<String> rawSet = new HashSet<String>();
+            for (final String s : LocaleNormalizer.splitToArray(rawList)) {
+                if (!LocaleNormalizer.isAllLocales(s)) {
+                    rawSet.add(s);
+                }
+            }
+            // take out the rawSet as un-normalized
+            rawSet.removeAll(localeSet);
+            Set<String> badSet = new TreeSet<String>();
+            badSet.addAll(
+                    rawSet); // anything still in the rawSet is bad somehow, it's un-normalized.
+            // anything in the localeSet that's not an extant locale
+            // goes into the badSet
+            final Set<CLDRLocale> stLocaleSet = SurveyMain.getLocalesSet();
+            for (final String s : localeSet) {
+                final CLDRLocale l = CLDRLocale.getInstance(s);
+                if (!stLocaleSet.contains(l)) {
+                    badSet.add(s);
+                }
+            }
+            if (badSet.isEmpty()) {
+                badLocales = null;
+            } else {
+                badLocales = badSet.toArray(new String[0]);
             }
         }
     }
@@ -892,7 +939,8 @@ public class UserRegistry {
                     u.email = rs.getString(3);
                     u.userlevel = rs.getInt(4);
                     u.intlocs = rs.getString(5);
-                    u.locales = LocaleNormalizer.normalizeQuietly(rs.getString(6));
+                    final String locales = rs.getString(6);
+                    u.setLocales(LocaleNormalizer.normalizeQuietly(locales), locales);
                     u.last_connect = rs.getTimestamp(7);
                     u.password = rs.getString(8);
                     ret = u; // let it finish..
@@ -1022,7 +1070,7 @@ public class UserRegistry {
             u.name = DBUtils.getStringUTF8(rs, 2); // rs.getString(2);
             u.userlevel = rs.getInt(3);
             u.org = rs.getString(4);
-            u.locales = rs.getString(5);
+            u.setLocales(rs.getString(5));
             u.intlocs = rs.getString(6);
             u.last_connect = rs.getTimestamp(7);
             u.claSigned = (u.getCla() != null);
@@ -1088,7 +1136,7 @@ public class UserRegistry {
         u.email = "UN@KNOWN.example.com";
         u.org = "NONE";
         u.password = null;
-        u.locales = "";
+        u.setLocales("");
         return u;
     }
 
@@ -1724,8 +1772,8 @@ public class UserRegistry {
         u.email = u.email.replace('\'', '_').toLowerCase();
         u.org = u.org.replace('\'', '_');
         u.name = u.name.replace('\'', '_');
-        u.locales = (u.locales == null) ? "" : u.locales.replace('\'', '_');
-        u.locales = LocaleNormalizer.normalizeQuietly(u.locales);
+        final String locales = (u.locales == null) ? "" : u.locales.replace('\'', '_');
+        u.setLocales(LocaleNormalizer.normalizeQuietly(locales), locales);
 
         Connection conn = null;
         PreparedStatement insertStmt = null;
@@ -2080,10 +2128,7 @@ public class UserRegistry {
                     u.name = DBUtils.getStringUTF8(rs, 3);
                     u.email = rs.getString(4);
                     u.org = rs.getString(5);
-                    u.locales = rs.getString(6);
-                    if (LocaleNormalizer.isAllLocales(u.locales)) {
-                        u.locales = LocaleNormalizer.ALL_LOCALES;
-                    }
+                    u.setLocales(rs.getString(6));
                     u.intlocs = rs.getString(7);
                     u.last_connect = rs.getTimestamp(8);
 
@@ -2200,10 +2245,7 @@ public class UserRegistry {
                     u.name = DBUtils.getStringUTF8(rs, 3);
                     u.email = rs.getString(4);
                     u.org = rs.getString(5);
-                    u.locales = rs.getString(6);
-                    if (LocaleNormalizer.isAllLocales(u.locales)) {
-                        u.locales = LocaleNormalizer.ALL_LOCALES;
-                    }
+                    u.setLocales(rs.getString(6));
                     u.intlocs = rs.getString(7);
                     u.last_connect = rs.getTimestamp(8);
                     u.claSigned = true;

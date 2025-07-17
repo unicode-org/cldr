@@ -8,8 +8,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
-		<language type="tda"/>
-		<script type="Tfng"/>
+		<language type="yal"/>
 	</identity>
 	<layout>
 		<orientation>
@@ -17,8 +16,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</orientation>
 	</layout>
 	<characters>
-		<exemplarCharacters draft="unconfirmed">[ⴰ ⴶ ⴹ ⴼ ⴾ ⵀ ⵂ ⵆ ⵈ ⵌ ⵍ ⵎ ⵏ ⵓ ⵔ ⵗ ⵙ ⵛ ⵜ ⵢ ⵣ ⵤ]</exemplarCharacters>
-		<exemplarCharacters type="numbers" draft="unconfirmed">[  \- ‑ , % ‰ + 0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
-		<exemplarCharacters type="punctuation" draft="unconfirmed">[. , \: ; ? ! ( ) « » „ ” …]</exemplarCharacters>
+		<exemplarCharacters draft="unconfirmed">[a b d e ɛ f g h i k l m n ɲ o ɔ p r s t u w x y]</exemplarCharacters>
+		<exemplarCharacters type="index" draft="unconfirmed">[A B D E Ɛ F G H I K L M N Ɲ O Ɔ P R S T U W X Y]</exemplarCharacters>
+		<exemplarCharacters type="punctuation" draft="unconfirmed">[! ( ) , \- . \: ; ? ‘ ’ “ ”]</exemplarCharacters>
 	</characters>
 </ldml>

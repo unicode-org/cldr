@@ -4793,7 +4793,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<timeZoneNames>
 			<hourFormat>↑↑↑</hourFormat>
 			<gmtFormat>↑↑↑</gmtFormat>
-			<gmtZeroFormat>↑↑↑</gmtZeroFormat>
 			<regionFormat>Hora de {0}</regionFormat>
 			<regionFormat type="daylight">Hora braniega de {0}</regionFormat>
 			<regionFormat type="standard">Hora estándar de {0}</regionFormat>
@@ -6484,9 +6483,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<long>
 					<standard>Hora media de Greenwich</standard>
 				</long>
-				<short>
-					<standard draft="contributed">GMT</standard>
-				</short>
 			</metazone>
 			<metazone type="Greenland_Eastern">
 				<long>

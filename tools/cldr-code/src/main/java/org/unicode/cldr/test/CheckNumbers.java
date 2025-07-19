@@ -19,7 +19,6 @@ import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.test.DisplayAndInputProcessor.NumericType;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.ICUServiceBuilder;
@@ -308,34 +307,36 @@ public class CheckNumbers extends FactoryCheckCLDR {
                                 parts.cloneAsThawed().removeAttribute(-1, "alt").toString();
                         // Check to make sure at least one of the paths has a "real" value.
                         // That avoids errors in inherited number patterns (eg in Adlam digits)
-                        if (getResolvedCldrFileToCheck().isHere(plainPath) || getResolvedCldrFileToCheck().isHere(path)) {
-                            String plainValue = getResolvedCldrFileToCheck().getStringValue(plainPath);
+                        if (getResolvedCldrFileToCheck().isHere(plainPath)
+                                || getResolvedCldrFileToCheck().isHere(path)) {
+                            String plainValue =
+                                    getResolvedCldrFileToCheck().getStringValue(plainPath);
 
-                        // remove \u00a4 and spaces around it
-                        String noCurrency = removeCurrencyPlaceholderAndWhitespace(plainValue);
-                        String normalizedNoCurrency = normalizeNumberPattern(noCurrency);
-                        if (!normalizedNoCurrency.equals(value) && !noCurrency.equals(value)) {
-                            PathHeader ph = PathHeader.getFactory().fromPath(plainPath);
-                            String link =
-                                    CLDRConfig.getInstance()
-                                            .urls()
-                                            .forXpath(getLocaleID(), plainPath);
-                            String linked =
-                                    link == null
-                                            ? ph.getCode()
-                                            : "<a href='" + link + "'>" + ph.getCode() + "</a>";
-                            result.add(
-                                    new CheckStatus()
-                                            .setCause(this)
-                                            .setMainType(CheckStatus.errorType)
-                                            .setSubtype(Subtype.inconsistentCurrencyPattern)
-                                            .setMessage(
-                                                    "This OR {0} (value={2}) needs fixing. Consistent with {1} would be ({3})",
-                                                    linked,
-                                                    ph.getCode(),
-                                                    plainValue,
-                                                    normalizedNoCurrency));
-                        }
+                            // remove \u00a4 and spaces around it
+                            String noCurrency = removeCurrencyPlaceholderAndWhitespace(plainValue);
+                            String normalizedNoCurrency = normalizeNumberPattern(noCurrency);
+                            if (!normalizedNoCurrency.equals(value) && !noCurrency.equals(value)) {
+                                PathHeader ph = PathHeader.getFactory().fromPath(plainPath);
+                                String link =
+                                        CLDRConfig.getInstance()
+                                                .urls()
+                                                .forXpath(getLocaleID(), plainPath);
+                                String linked =
+                                        link == null
+                                                ? ph.getCode()
+                                                : "<a href='" + link + "'>" + ph.getCode() + "</a>";
+                                result.add(
+                                        new CheckStatus()
+                                                .setCause(this)
+                                                .setMainType(CheckStatus.errorType)
+                                                .setSubtype(Subtype.inconsistentCurrencyPattern)
+                                                .setMessage(
+                                                        "This OR {0} (value={2}) needs fixing. Consistent with {1} would be ({3})",
+                                                        linked,
+                                                        ph.getCode(),
+                                                        plainValue,
+                                                        normalizedNoCurrency));
+                            }
                         }
                     }
                 } else if (patternPart.indexOf("\u00a4") < 0) {

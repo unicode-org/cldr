@@ -19,6 +19,7 @@ import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.test.DisplayAndInputProcessor.NumericType;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.ICUServiceBuilder;
@@ -305,19 +306,20 @@ public class CheckNumbers extends FactoryCheckCLDR {
                     } else { // check consistency with plain
                         String plainPath =
                                 parts.cloneAsThawed().removeAttribute(-1, "alt").toString();
-                        String plainValue = getResolvedCldrFileToCheck().getStringValue(plainPath);
+                        // Check to make sure at least one of the paths has a "real" value.
+                        // That avoids errors in inherited number patterns (eg in Adlam digits)
+                        if (getResolvedCldrFileToCheck().isHere(plainPath) || getResolvedCldrFileToCheck().isHere(path)) {
+                            String plainValue = getResolvedCldrFileToCheck().getStringValue(plainPath);
+
                         // remove \u00a4 and spaces around it
-                        String expectedValue =
-                                normalizeNumberPattern(
-                                        removeCurrencyPlaceholderAndWhitespace(plainValue));
-                        if (!expectedValue.equals(value)) {
+                        String noCurrency = removeCurrencyPlaceholderAndWhitespace(plainValue);
+                        String normalizedNoCurrency = normalizeNumberPattern(noCurrency);
+                        if (!normalizedNoCurrency.equals(value) && !noCurrency.equals(value)) {
                             PathHeader ph = PathHeader.getFactory().fromPath(plainPath);
                             String link =
                                     CLDRConfig.getInstance()
                                             .urls()
-                                            .forXpath(
-                                                    getResolvedCldrFileToCheck().getLocaleID(),
-                                                    path);
+                                            .forXpath(getLocaleID(), plainPath);
                             String linked =
                                     link == null
                                             ? ph.getCode()
@@ -332,7 +334,8 @@ public class CheckNumbers extends FactoryCheckCLDR {
                                                     linked,
                                                     ph.getCode(),
                                                     plainValue,
-                                                    expectedValue));
+                                                    normalizedNoCurrency));
+                        }
                         }
                     }
                 } else if (patternPart.indexOf("\u00a4") < 0) {

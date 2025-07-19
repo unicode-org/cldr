@@ -26,6 +26,7 @@ import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.PluralRulesUtil;
+import org.unicode.cldr.util.Splitters;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
@@ -300,6 +301,32 @@ public class CheckNumbers extends FactoryCheckCLDR {
                                         .setSubtype(Subtype.currencyPatternUnexpectedCurrencySymbol)
                                         .setMessage(
                                                 "noCurrency formatting pattern must not contain a currency symbol."));
+                    } else { // check consistency with plain
+                        String plainPath = parts.cloneAsThawed().removeAttribute(-1, "alt").toString();
+                        String plainValue = getResolvedCldrFileToCheck().getStringValue(plainPath);
+                        // remove \u00a4 and spaces around it
+                        String whitespaceRegex = new UnicodeSet("\\p{whitespace}").complement().complement().toString();
+                        Pattern currencySymbolAndSpaces = Pattern.compile("[" + whitespaceRegex + "*\u00a4"
+                            + whitespaceRegex +"*]");
+                        String expectedValue = currencySymbolAndSpaces.matcher(plainValue).replaceAll("");
+                        if (expectedValue.contains(";")) {
+                            List<String> forms = Splitters.SEMI.splitToList(expectedValue);
+                            String positive = forms.get(0);
+                            String negative = forms.get(1);
+                            if (negative.equals("-" + positive)) {
+                                expectedValue = positive;
+                            }
+                        }
+                        if (!expectedValue.equals(value)) {
+                            result.add(
+                                new CheckStatus()
+                                        .setCause(this)
+                                        .setMainType(CheckStatus.errorType)
+                                        .setSubtype(Subtype.inconsistentCurrencyPattern)
+                                        .setMessage(
+                                                "Must be consistent with the plain pattern: {0}", plainValue));
+
+                        }
                     }
                 } else if (patternPart.indexOf("\u00a4") < 0) {
                     // check for compact format

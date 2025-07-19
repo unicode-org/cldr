@@ -908,17 +908,17 @@ public class ConsoleCheckCLDR {
                     }
 
                     if (skipComments) {
-                    showSummary(
-                            localeID,
-                            level,
-                            "Items:\t"
-                                    + pathCount
-                                    + "\tRaw Missing:\t"
-                                    + rawMissingCount
-                                    + "\tRaw Provisional:\t"
-                                    + rawProvisionalCount);
+                        showSummary(
+                                localeID,
+                                level,
+                                "Items:\t"
+                                        + pathCount
+                                        + "\tRaw Missing:\t"
+                                        + rawMissingCount
+                                        + "\tRaw Provisional:\t"
+                                        + rawProvisionalCount);
                     }
-                    
+
                     if (missingExemplars.size() != 0) {
                         missingExemplars.removeAll(
                                 new UnicodeSet("[[:Uppercase:]-[İ]]")); // remove uppercase #4670
@@ -1748,7 +1748,8 @@ public class ConsoleCheckCLDR {
 
     private static ExampleGenerator englishExampleGenerator;
 
-    private static final Pattern coveragePattern = PatternCache.get("meet ([a-z]*) coverage"); // HACK TODO fix
+    private static final Pattern coveragePattern =
+            PatternCache.get("meet ([a-z]*) coverage"); // HACK TODO fix
 
     private static void showHeaderLine() {
         if (SHOW_LOCALE) {

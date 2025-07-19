@@ -302,13 +302,20 @@ public class CheckNumbers extends FactoryCheckCLDR {
                                         .setMessage(
                                                 "noCurrency formatting pattern must not contain a currency symbol."));
                     } else { // check consistency with plain
-                        String plainPath = parts.cloneAsThawed().removeAttribute(-1, "alt").toString();
+                        String plainPath =
+                                parts.cloneAsThawed().removeAttribute(-1, "alt").toString();
                         String plainValue = getResolvedCldrFileToCheck().getStringValue(plainPath);
                         // remove \u00a4 and spaces around it
-                        String whitespaceRegex = new UnicodeSet("\\p{whitespace}").complement().complement().toString();
-                        Pattern currencySymbolAndSpaces = Pattern.compile("[" + whitespaceRegex + "*\u00a4"
-                            + whitespaceRegex +"*]");
-                        String expectedValue = currencySymbolAndSpaces.matcher(plainValue).replaceAll("");
+                        String whitespaceRegex =
+                                new UnicodeSet("\\p{whitespace}")
+                                        .complement()
+                                        .complement()
+                                        .toString();
+                        Pattern currencySymbolAndSpaces =
+                                Pattern.compile(
+                                        "[" + whitespaceRegex + "*\u00a4" + whitespaceRegex + "*]");
+                        String expectedValue =
+                                currencySymbolAndSpaces.matcher(plainValue).replaceAll("");
                         if (expectedValue.contains(";")) {
                             List<String> forms = Splitters.SEMI.splitToList(expectedValue);
                             String positive = forms.get(0);
@@ -319,13 +326,13 @@ public class CheckNumbers extends FactoryCheckCLDR {
                         }
                         if (!expectedValue.equals(value)) {
                             result.add(
-                                new CheckStatus()
-                                        .setCause(this)
-                                        .setMainType(CheckStatus.errorType)
-                                        .setSubtype(Subtype.inconsistentCurrencyPattern)
-                                        .setMessage(
-                                                "Must be consistent with the plain pattern: {0}", plainValue));
-
+                                    new CheckStatus()
+                                            .setCause(this)
+                                            .setMainType(CheckStatus.errorType)
+                                            .setSubtype(Subtype.inconsistentCurrencyPattern)
+                                            .setMessage(
+                                                    "Must be consistent with the plain pattern: {0}",
+                                                    plainValue));
                         }
                     }
                 } else if (patternPart.indexOf("\u00a4") < 0) {

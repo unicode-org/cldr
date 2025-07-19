@@ -17,6 +17,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.test.DisplayAndInputProcessor.NumericType;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
@@ -300,39 +301,38 @@ public class CheckNumbers extends FactoryCheckCLDR {
                                         .setMainType(CheckStatus.errorType)
                                         .setSubtype(Subtype.currencyPatternUnexpectedCurrencySymbol)
                                         .setMessage(
-                                                "noCurrency formatting pattern must not contain a currency symbol."));
+                                                "noCurrency formatting pattern must not contain the currency placeholder (\u00a4)."));
                     } else { // check consistency with plain
                         String plainPath =
                                 parts.cloneAsThawed().removeAttribute(-1, "alt").toString();
                         String plainValue = getResolvedCldrFileToCheck().getStringValue(plainPath);
                         // remove \u00a4 and spaces around it
-                        String whitespaceRegex =
-                                new UnicodeSet("\\p{whitespace}")
-                                        .complement()
-                                        .complement()
-                                        .toString();
-                        Pattern currencySymbolAndSpaces =
-                                Pattern.compile(
-                                        "[" + whitespaceRegex + "*\u00a4" + whitespaceRegex + "*]");
                         String expectedValue =
-                                currencySymbolAndSpaces.matcher(plainValue).replaceAll("");
-                        if (expectedValue.contains(";")) {
-                            List<String> forms = Splitters.SEMI.splitToList(expectedValue);
-                            String positive = forms.get(0);
-                            String negative = forms.get(1);
-                            if (negative.equals("-" + positive)) {
-                                expectedValue = positive;
-                            }
-                        }
+                                normalizeNumberPattern(
+                                        removeCurrencyPlaceholderAndWhitespace(plainValue));
                         if (!expectedValue.equals(value)) {
+                            PathHeader ph = PathHeader.getFactory().fromPath(plainPath);
+                            String link =
+                                    CLDRConfig.getInstance()
+                                            .urls()
+                                            .forXpath(
+                                                    getResolvedCldrFileToCheck().getLocaleID(),
+                                                    path);
+                            String linked =
+                                    link == null
+                                            ? ph.getCode()
+                                            : "<a href='" + link + "'>" + ph.getCode() + "</a>";
                             result.add(
                                     new CheckStatus()
                                             .setCause(this)
                                             .setMainType(CheckStatus.errorType)
                                             .setSubtype(Subtype.inconsistentCurrencyPattern)
                                             .setMessage(
-                                                    "Must be consistent with the plain pattern: {0}",
-                                                    plainValue));
+                                                    "This OR {0} (value={2}) needs fixing. Consistent with {1} would be ({3})",
+                                                    linked,
+                                                    ph.getCode(),
+                                                    plainValue,
+                                                    expectedValue));
                         }
                     }
                 } else if (patternPart.indexOf("\u00a4") < 0) {
@@ -455,6 +455,30 @@ public class CheckNumbers extends FactoryCheckCLDR {
                             .setMessage(e.getMessage() == null ? e.toString() : e.getMessage()));
         }
         return this;
+    }
+
+    private String normalizeNumberPattern(String expectedValue) {
+        if (expectedValue.contains(";")) {
+            List<String> forms = Splitters.SEMI.splitToList(expectedValue);
+            String positive = forms.get(0);
+            String negative = forms.get(1);
+            if (negative.equals("-" + positive)) {
+                expectedValue = positive;
+            }
+        }
+        return expectedValue;
+    }
+
+    public static final String CURRENCY_PLACEHOLDER = "\u00a4";
+    public static final Pattern WHITESPACE =
+            Pattern.compile(new UnicodeSet("\\p{whitespace}").complement().complement().toString());
+    public static final Pattern CURRENCY_PLACEHOLDER_AND_POSSIBLE_WS =
+            Pattern.compile("[" + WHITESPACE + "*" + CURRENCY_PLACEHOLDER + WHITESPACE + "*]");
+
+    public String removeCurrencyPlaceholderAndWhitespace(String plainValue) {
+        String expectedValue =
+                CURRENCY_PLACEHOLDER_AND_POSSIBLE_WS.matcher(plainValue).replaceAll("");
+        return expectedValue;
     }
 
     /**

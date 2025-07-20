@@ -931,7 +931,9 @@ public abstract class CheckCLDR implements CheckAccessor {
             missingNumberingSystem,
             forbiddenValue,
             inconsistentCoreDatePattern,
-            inconsistentCurrencyPattern;
+            inconsistentCurrencyPattern,
+            inconsistentCompactPattern,
+            inconsistentPositiveAndNegativePatterns;
 
             @Override
             public String toString() {

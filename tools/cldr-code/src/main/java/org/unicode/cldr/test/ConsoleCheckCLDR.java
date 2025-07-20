@@ -1790,6 +1790,8 @@ public class ConsoleCheckCLDR {
             String statusString,
             Subtype subtype) {
         ErrorType shortStatus = ErrorType.fromStatusString(statusString);
+        // for the console, hide the HTML
+        statusString = Pattern.compile("<[^>]*>").matcher(statusString).replaceAll("🔗");
         subtotalCount.add(shortStatus, 1);
         totalCount.add(shortStatus, 1);
         if (subtype == null) {

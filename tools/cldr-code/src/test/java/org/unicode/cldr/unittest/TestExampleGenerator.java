@@ -227,6 +227,8 @@ public class TestExampleGenerator extends TestFmwk {
                     "//ldml/dates/timeZoneNames/zone[@type=\"([^\"]*+)\"]/long/standard", // Error:
                     // (TestExampleGenerator.java:245) No background:   <Coordinated Universal Time>
                     //    〖Coordinated Universal Time〗
+                    "//ldml/dates/timeZoneNames/zone[@type=\"([^\"]*+)\"]/long/generic", // Error:
+                    // (TestExampleGenerator.java:371) No background:	<Hawaii Time>	〖Hawaii Time〗
                     "//ldml/personNames/nameOrderLocales[@order=\"([^\"]*+)\"]", // TODO CLDR-15384
                     "//ldml/personNames/foreignSpaceReplacement[@xml:space=\"([^\"]*+)\"][@alt=\"([^\"]*+)\"]", // TODO CLDR-15384
                     "//ldml/personNames/foreignSpaceReplacement[@xml:space=\"([^\"]*+)\"]", // TODO

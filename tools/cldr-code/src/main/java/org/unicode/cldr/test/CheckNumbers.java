@@ -15,6 +15,7 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
+import org.unicode.cldr.test.CheckCLDR.CheckStatus.Type;
 import org.unicode.cldr.test.DisplayAndInputProcessor.NumericType;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -371,7 +372,7 @@ public class CheckNumbers extends FactoryCheckCLDR {
                                 result.add(
                                         new CheckStatus()
                                                 .setCause(this)
-                                                .setMainType(CheckStatus.errorType)
+                                                .setMainType(CheckStatus.warningType)
                                                 .setSubtype(Subtype.inconsistentCurrencyPattern)
                                                 .setMessage(
                                                         "«{3}» instead would be consistent with {0} «{2}». Fix one or the other.",
@@ -399,7 +400,7 @@ public class CheckNumbers extends FactoryCheckCLDR {
                                     result.add(
                                             new CheckStatus()
                                                     .setCause(this)
-                                                    .setMainType(CheckStatus.errorType)
+                                                    .setMainType(CheckStatus.warningType)
                                                     .setSubtype(Subtype.inconsistentCurrencyPattern)
                                                     .setMessage(
                                                             "This has the currency on the wrong side, compared to {0} «{1}».",
@@ -409,7 +410,9 @@ public class CheckNumbers extends FactoryCheckCLDR {
                                     result.add(
                                             new CheckStatus()
                                                     .setCause(this)
-                                                    .setMainType(CheckStatus.errorType)
+                                                    .setMainType(
+                                                            CheckStatus
+                                                                    .warningType) // errorButWarningIfJustWhitespace(value, plainValue)
                                                     .setSubtype(Subtype.inconsistentCurrencyPattern)
                                                     .setMessage(
                                                             "This should only add spacing to {0} «{1}» or be identical.",
@@ -422,17 +425,63 @@ public class CheckNumbers extends FactoryCheckCLDR {
             }
         }
 
+        if (type == NumericType.CURRENCY_ABBREVIATED) {
+            // take
+            // ldml/numbers/currencyFormats[@numberSystem="latn"]/currencyFormatLength[@type="short"]/currencyFormat[@type="standard"]/pattern[@type="1000"][@count="one"]
+            // and compare to:
+            // ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="1000"][@count="one"]
+
+            // ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="1000"][@count="one"]
+
+            String plainPath =
+                    parts.cloneAsThawed()
+                            .setElement(2, "decimalFormats")
+                            .setElement(3, "decimalFormatLength")
+                            .setElement(4, "decimalFormat")
+                            .toString();
+            // Check to make sure at least one of the paths has a "real" value.
+            // That avoids errors in inherited number patterns (eg in Adlam digits)
+            if (getResolvedCldrFileToCheck().isHere(plainPath)
+                    || getResolvedCldrFileToCheck().isHere(path)) {
+                String plainValue = getResolvedCldrFileToCheck().getStringValue(plainPath);
+                // remove \u00a4 and spaces around it
+                String noCurrency = removeCurrencyPlaceholderAndWhitespace(value);
+                String normalizedNoCurrency = normalizeNumberPattern(noCurrency);
+                if (!normalizedNoCurrency.equals(plainValue) && !noCurrency.equals(plainValue)) {
+                    PathHeader ph = getPathHeaderFactory().fromPath(plainPath);
+                    String linked = getLinkedCode(ph);
+                    result.add(
+                            new CheckStatus()
+                                    .setCause(this)
+                                    .setMainType(CheckStatus.warningType)
+                                    .setSubtype(Subtype.inconsistentCurrencyPattern)
+                                    .setMessage(
+                                            "«{3}» instead would be consistent with {0} «{2}». Fix one or the other.",
+                                            linked,
+                                            ph.getCode(),
+                                            plainValue,
+                                            normalizedNoCurrency));
+                }
+            }
+        }
+
         // Check that formats are consistent within the same groupings, eg 0T 00T 000T
         // The groupings are different according to the type of language: #,##0 (eg en), #,##,##0
         // (eg hi), and #,###0 (eg ja)
         if ((type == NumericType.CURRENCY_ABBREVIATED || type == NumericType.DECIMAL_ABBREVIATED)
                 && !value.equals("0")) {
+            String pluralCategory = parts.getAttributeValue(-1, "count");
+            String length = parts.getAttributeValue(3, "type");
+            boolean isLong = "long".equals(length);
+
             // we look at the value, and if there is more than one 0, we compare to the value for
             // the path with one fewer count.
             // example:
-            // //ldml/numbers/currencyFormats[@numberSystem="latn"]/currencyFormatLength[@type="short"]/currencyFormat[@type="standard"]/pattern[@type="10000000"][@count="other"]
+            // ldml/numbers/currencyFormats[@numberSystem="latn"]/currencyFormatLength[@type="short"]/currencyFormat[@type="standard"]/pattern[@type="10000000"][@count="other"]
+            // ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="1000"][@count="one"]
+            // ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="1000"][@count="one"]
             // value: ¤0000万
-            // we look at the path with one few count (1000000), but same count
+
             Matcher matcher = Patterns.PATTERN_ZEROS.matcher(value);
             String group;
             if (matcher.find() // only if found, and
@@ -444,26 +493,49 @@ public class CheckNumbers extends FactoryCheckCLDR {
                 String lowerPath = lowerParts.toString();
                 String lowerValue = getResolvedCldrFileToCheck().getStringValue(lowerPath);
                 String lowerGroup = group.substring(0, group.length() - 1);
-                String expectedLowerValue = matcher.replaceFirst(lowerGroup);
+                String expectedLowerValue = matcher.replaceAll(lowerGroup);
                 if (!lowerValue.equals(expectedLowerValue)) {
                     String expectedValue =
-                            Patterns.PATTERN_ZEROS
-                                    .matcher(lowerValue)
-                                    .replaceFirst(lowerGroup + "0");
+                            Patterns.PATTERN_ZEROS.matcher(lowerValue).replaceAll(lowerGroup + "0");
                     PathHeader ph = getPathHeaderFactory().fromPath(lowerPath);
                     String linkedLowerCode = getLinkedCode(ph);
+                    // for now, long ones just get warnings
+                    Type mainType =
+                            isLong
+                                    ? Type.Warning
+                                    : errorButWarningIfJustWhitespace(value, expectedLowerValue);
                     result.add(
                             new CheckStatus()
                                     .setCause(this)
-                                    .setMainType(CheckStatus.errorType)
+                                    .setMainType(mainType)
                                     .setSubtype(Subtype.inconsistentCompactPattern)
                                     .setMessage(
-                                            "«{0}» would be consistent with {1} «{2}». Fix this OR fix {3} to be «{4}».",
+                                            "«{0}» instead would be consistent with {1} «{2}». Fix this OR fix {3} to be «{4}».",
                                             expectedValue,
                                             linkedLowerCode,
                                             lowerValue,
                                             ph.getCode(),
                                             expectedLowerValue));
+                }
+            }
+
+            // now compare the count values
+            if (!isLong && !"other".equals(pluralCategory)) {
+                XPathParts otherParts = parts.cloneAsThawed();
+                otherParts.putAttributeValue(-1, "count", "other");
+                String otherPath = otherParts.toString();
+                String otherValue = getResolvedCldrFileToCheck().getStringValue(otherPath);
+                if (!value.equals(otherValue)) {
+                    PathHeader ph = getPathHeaderFactory().fromPath(otherPath);
+                    String otherCode = getLinkedCode(ph);
+                    result.add(
+                            new CheckStatus()
+                                    .setCause(this)
+                                    .setMainType(errorButWarningIfJustWhitespace(value, otherValue))
+                                    .setSubtype(Subtype.inconsistentCompactPattern)
+                                    .setMessage(
+                                            "«{0}» isn’t the same as «{2}» for {1}.",
+                                            value, otherCode, otherValue));
                 }
             }
         }
@@ -562,6 +634,16 @@ public class CheckNumbers extends FactoryCheckCLDR {
                             .setMessage(e.getMessage() == null ? e.toString() : e.getMessage()));
         }
         return this;
+    }
+
+    private Type errorButWarningIfJustWhitespace(String value, String otherValue) {
+        return equalsExceptWhitespace(value, otherValue)
+                ? CheckStatus.warningType
+                : CheckStatus.errorType;
+    }
+
+    private boolean equalsExceptWhitespace(String value, String otherValue) {
+        return removeWhitespace(value).equals(removeWhitespace(otherValue));
     }
 
     private String getLinkedCode(PathHeader ph) {

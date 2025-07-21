@@ -2072,7 +2072,9 @@ public class ExampleGenerator {
 
         SimpleDateFormat sdf =
                 icuServiceBuilder.getDateFormat(calendar, 0, DateFormat.MEDIUM, null);
-        String zone = cldrFile.getStringValue("//ldml/dates/timeZoneNames/gmtZeroFormat");
+        String zone =
+                cldrFile.getStringValue(
+                        "//ldml/dates/timeZoneNames/metazone[@type=\"GMT\"]/short/standard");
         examples.add(format(value, setBackground(sdf.format(DATE_SAMPLE)), setBackground(zone)));
     }
 

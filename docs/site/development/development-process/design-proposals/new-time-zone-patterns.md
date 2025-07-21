@@ -103,7 +103,7 @@ Pattern "ZZZZ" is currently used for localized GMT format. This format is constr
 
 \<gmtFormat>GMT{0}\</gmtFormat>
 
-\<gmtZeroFormat>GMT\</gmtZeroFormat>
+\<gmtUnknownFormat>GMT+?\</gmtUnknownFormat>
 
 For example, UTC offset is -3:00, the output is "GMT-03:00" with above data. Unlike non-localized local time offset format, this format uses local decimal digits for hours/minutes field.
 

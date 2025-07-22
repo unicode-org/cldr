@@ -37,6 +37,9 @@ public enum Organization {
     gnome("Gnome Foundation"),
     google("Google"),
     ibm("IBM"),
+    ihll_ufrc(
+            "IHLL UFRC",
+            "Institute of History, Language and Literature at Ufa Federal Research Center"),
     india("India MIT"),
     iran_hci("Iran HCI"),
     kazakh_tbi(

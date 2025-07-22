@@ -8,7 +8,9 @@ import * as cldrLoad from "./cldrLoad.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";
 import * as cldrSurvey from "./cldrSurvey.mjs";
 
-const SIDEWAYS_DEBUG = false;
+const SIDEWAYS_DEBUG = true;
+/** If true only load when clicked */
+const LOAD_ON_DEMAND = true;
 
 const NON_BREAKING_SPACES = "\u00A0\u00A0\u00A0"; // non-breaking spaces
 const UNEQUALS_SIGN = "\u2260\u00A0"; // U+2260 = "≠"
@@ -70,7 +72,17 @@ function loadMenu(regionalVariantsWrapper, xpstrid) {
   }
 }
 
-function fetchAndLoadMenu(regionalVariantsWrapper, xpstrid, cacheKey) {
+function reallyFetch(regionalVariantsWrapper, xpstrid, cacheKey) {
+  cldrLoad.myLoad(
+    getSidewaysUrl(curLocale, xpstrid),
+    "sidewaysView",
+    function (json) {
+      setMenuFromData(regionalVariantsWrapper, json, cacheKey);
+    }
+  );
+}
+
+function fetchAfterDelay(regionalVariantsWrapper, xpstrid, cacheKey) {
   clearMyTimeout();
   regionalVariantsWrapper.setLoading();
   sidewaysShowTimeoutId = window.setTimeout(function () {
@@ -86,15 +98,20 @@ function fetchAndLoadMenu(regionalVariantsWrapper, xpstrid, cacheKey) {
       }
       return;
     }
-    cldrLoad.myLoad(
-      getSidewaysUrl(curLocale, xpstrid),
-      "sidewaysView",
-      function (json) {
-        setMenuFromData(regionalVariantsWrapper, json, cacheKey);
-      }
-    );
+    reallyFetch(regionalVariantsWrapper, xpstrid, cacheKey);
   }, fetchDelayMilliseconds);
   fetchDelayMilliseconds = USUAL_DELAY_MILLISECONDS;
+}
+
+function fetchAndLoadMenu(regionalVariantsWrapper, xpstrid, cacheKey) {
+  if (!LOAD_ON_DEMAND) {
+    fetchAfterDelay(regionalVariantsWrapper, xpstrid, cacheKey);
+  } else {
+    regionalVariantsWrapper.setClickToLoad(() => {
+      regionalVariantsWrapper.setLoading();
+      reallyFetch(regionalVariantsWrapper, xpstrid, cacheKey);
+    });
+  }
 }
 
 function clearMyTimeout() {

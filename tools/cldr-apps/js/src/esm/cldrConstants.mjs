@@ -8,3 +8,5 @@ const THIS_YEAR = new Date().getFullYear();
 export const COPYRIGHT = `© 2004-${THIS_YEAR} Unicode, Inc. Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.`;
 /** "See …." */
 export const TERMS_OF_USE_URL = `https://www.unicode.org/copyright.html`;
+
+export const VOTE_FOR_MISSING = `🚫🚫🚫`; // see VoteResolver.VOTE_FOR_MISSING

@@ -34,7 +34,6 @@ import org.unicode.cldr.util.ChainedMap.M3;
 import org.unicode.cldr.util.ChainedMap.M4;
 import org.unicode.cldr.util.ChainedMap.M5;
 import org.unicode.cldr.util.Factory;
-import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.PathStarrer;
@@ -63,9 +62,6 @@ public class ListCoverageLevels {
         CLDRConfig config = CLDRConfig.getInstance();
         StandardCodes sc = StandardCodes.make();
         SupplementalDataInfo sdi = config.getSupplementalDataInfo();
-        LanguageTagParser ltp = new LanguageTagParser();
-        Set<String> defaultContents = sdi.getDefaultContentLocales();
-        PathStarrer starrer = new PathStarrer().setSubstitutionPattern("*");
         Factory mainAndAnnotationsFactory = config.getMainAndAnnotationsFactory();
 
         Locales localesToTest = Locales.specific;
@@ -116,7 +112,7 @@ public class ListCoverageLevels {
                         coverageLeveler == null
                                 ? Level.COMPREHENSIVE
                                 : coverageLeveler.getLevel(path);
-                String skeleton = starrer.set(path);
+                String skeleton = PathStarrer.get(path);
                 levelToCounter.get(level).add(skeleton);
                 if (path.startsWith("//ldml/units/unitLength")
                         && !path.contains("coordinateUnit")
@@ -190,8 +186,8 @@ public class ListCoverageLevels {
             if (path.endsWith("/alias")) {
                 continue;
             }
-            String starred = starrer.set(path);
-            List<String> plainAttrs = starrer.getAttributes();
+            String starred = PathStarrer.get(path);
+            List<String> plainAttrs = XPathParts.getFrozenInstance(path).getAttributeValues();
             for (String locale : toTest) {
                 CLDRLocale cLoc = CLDRLocale.getInstance(locale);
                 CoverageLevel2 coverageLeveler = CoverageLevel2.getInstance(locale);
@@ -201,27 +197,6 @@ public class ListCoverageLevels {
                 starredToLevels.put(starred, level, cLoc, plainAttrs, Boolean.TRUE);
             }
         }
-
-        //        for (String locale : toTest) {
-        //            if (!ltp.set(locale).getRegion().isEmpty()
-        //                //  || locale.equals("root")
-        //                || locale.equals("ceb")
-        //                || defaultContents.contains(locale)) {
-        //                continue;
-        //            }
-        //            CLDRLocale cLoc = CLDRLocale.getInstance(locale);
-        //            ALL.add(cLoc);
-        //            CoverageLevel2 coverageLeveler = CoverageLevel2.getInstance(locale);
-        //            //Level desiredLevel = sc.getLocaleCoverageLevel(Organization.cldr, locale);
-        //            CLDRFile testFile = mainAndAnnotationsFactory.make(locale, false);
-        //            for (String path : testFile.fullIterable()) {
-        //                Level level = coverageLeveler.getLevel(path);
-        //                String starred = starrer.set(path);
-        //                Attributes attributes = new Attributes(cLoc, starrer.getAttributes());
-        //                data.put(level, starred, attributes, Boolean.TRUE);
-        //                starredToLevels.put(starred, level, cLoc, Boolean.TRUE);
-        //            }
-        //        }
 
         System.out.println("ALL=" + getLocaleName(null, ALL));
 

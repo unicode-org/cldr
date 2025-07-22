@@ -615,7 +615,9 @@ public class Summary {
 
             ParticipationResults participationResults =
                     new ParticipationResults(
-                            reviewOutput.voterProgress, reviewOutput.coverageLevel);
+                            reviewOutput.voterProgress,
+                            reviewOutput.coverageLevel,
+                            reviewOutput.localeCompletionData);
             return Response.ok().entity(participationResults).build();
         } finally {
             if (didAcquire) {
@@ -630,10 +632,17 @@ public class Summary {
     public class ParticipationResults {
         public VoterProgress voterProgress;
         public String coverageLevel;
+        public int errorCount, missingCount, provisionalCount;
 
-        public ParticipationResults(VoterProgress voterProgress, String coverageLevel) {
+        public ParticipationResults(
+                VoterProgress voterProgress,
+                String coverageLevel,
+                LocaleCompletionData localeCompletionData) {
             this.voterProgress = voterProgress;
             this.coverageLevel = coverageLevel;
+            this.errorCount = localeCompletionData.errorCount();
+            this.missingCount = localeCompletionData.missingCount();
+            this.provisionalCount = localeCompletionData.provisionalCount();
         }
     }
 

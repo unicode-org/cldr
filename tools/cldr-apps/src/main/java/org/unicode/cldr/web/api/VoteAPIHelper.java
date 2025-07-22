@@ -1,15 +1,10 @@
 package org.unicode.cldr.web.api;
 
 import java.io.PrintWriter;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeFormatterBuilder;
-import java.time.temporal.ChronoField;
-import java.time.temporal.ChronoUnit;
 import java.util.*;
+import java.util.Map.Entry;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 import javax.json.bind.spi.JsonbProvider;
 import javax.ws.rs.core.Response;
 import org.unicode.cldr.test.CheckCLDR;
@@ -86,21 +81,7 @@ public class VoteAPIHelper {
         public VoteDetails(Integer override, VoteType voteType, Date date) {
             this.override = override;
             this.voteType = voteType;
-            this.daysAgo = daysSinceDate(date);
-        }
-
-        private long daysSinceDate(Date date) {
-            ZoneId zone = ZoneId.of("UTC+0");
-            DateTimeFormatter epochSecondFormatter =
-                    new DateTimeFormatterBuilder()
-                            .appendValue(ChronoField.INSTANT_SECONDS)
-                            .toFormatter();
-            String epoch = String.valueOf(date.getTime() / 1000);
-            Instant then = epochSecondFormatter.parse(epoch, Instant::from);
-            LocalDate thatDay = then.atZone(zone).toLocalDate();
-            LocalDate today = LocalDate.now(zone);
-            long diff = Math.abs(ChronoUnit.DAYS.between(thatDay, today));
-            return (diff < 1) ? 1 : diff;
+            this.daysAgo = TimeDiff.daysSinceDate(date);
         }
     }
 
@@ -378,6 +359,16 @@ public class VoteAPIHelper {
         results.nameTime = resolver.getNameTime();
         results.requiredVotes = resolver.getRequiredVotes();
         results.value_vote = valueToVoteA.toArray(new Object[0]);
+        final Set<Entry<Integer, Integer>> votesForMissing = resolver.getVotesForMissing();
+        if (!votesForMissing.isEmpty()) {
+            results.votesForMissing =
+                    votesForMissing.stream()
+                            .map(e -> e.getKey())
+                            .collect(Collectors.toList())
+                            .toArray(new Integer[0]);
+        } else {
+            results.votesForMissing = null;
+        }
         results.valueIsLocked = resolver.isValueLocked();
         results.orgs = new HashMap<>();
         for (Organization o : Organization.values()) {
@@ -489,6 +480,23 @@ public class VoteAPIHelper {
         }
     }
 
+    public static Response handleVoteForMissing(
+            String loc,
+            String xp,
+            Integer voteLevelChanged,
+            final CookieSession mySession,
+            boolean forbiddenIsOk) {
+        // translate this call into jax-rs Response
+        try {
+            final VoteResponse r =
+                    getHandleVoteForMissingResponse(
+                            loc, xp, voteLevelChanged, mySession, forbiddenIsOk);
+            return Response.status(204).build();
+        } catch (Throwable se) {
+            return new STError(se).build();
+        }
+    }
+
     /**
      * this function is the implementation of handleVote() but does not use any jax-rs, for unit
      * tests
@@ -541,11 +549,7 @@ public class VoteAPIHelper {
                     r.statusAction =
                             SurveyMain.checkCLDRPhase(locale)
                                     .getAcceptNewItemAction(
-                                            ci,
-                                            dataRow,
-                                            CheckCLDR.InputMethod.DIRECT,
-                                            stf.getPathHeader(xp),
-                                            mySession.user);
+                                            ci, dataRow, stf.getPathHeader(xp), mySession.user);
                     if (!r.statusAction.isForbidden()) {
                         try {
                             final BallotBox<UserRegistry.User> ballotBox =
@@ -562,6 +566,69 @@ public class VoteAPIHelper {
                                 throw (e);
                             }
                         }
+                    }
+                }
+            } catch (Throwable t) {
+                SurveyLog.logException(logger, t, "Processing submission " + locale + ":" + xp);
+                throw new SurveyException(
+                        ErrorCode.E_INTERNAL, "Processing submission " + locale + ":" + xp);
+            }
+        }
+        if (!forbiddenIsOk && r.statusAction.isForbidden()) {
+            throw new SurveyException(
+                    ErrorCode.E_VOTE_NOT_ACCEPTED, "Status action is forbidden: " + r.statusAction);
+        }
+        return r;
+    }
+
+    public static VoteResponse getHandleVoteForMissingResponse(
+            String loc,
+            String xp,
+            Integer voteLevelChanged,
+            final CookieSession mySession,
+            boolean forbiddenIsOk)
+            throws SurveyException {
+        VoteResponse r = new VoteResponse();
+        mySession.userDidAction();
+        CLDRLocale locale = CLDRLocale.getInstance(loc);
+        if (!UserRegistry.userCanModifyLocale(mySession.user, locale)
+                || !mySession.user.getLevel().canVoteForMissing()) {
+            throw new SurveyException(ErrorCode.E_NO_PERMISSION, "Not allowed to modify " + locale);
+        }
+        loc = locale.getBaseName(); // sanitized
+        final SurveyMain sm = CookieSession.sm;
+        CheckCLDR.Options options = DataPage.getSimpleOptions(locale);
+        final STFactory stf = sm.getSTFactory();
+        synchronized (mySession) {
+            try {
+                final CLDRFile cldrFile = stf.make(loc, true, true);
+                // don't need to check value.
+                // Create a DataPage for this single XPath.
+                DataPage page = DataPage.make(null, mySession, locale, xp, null, null);
+                page.setUserForVotelist(mySession.user);
+                DataRow dataRow = page.getDataRow(xp);
+
+                if (r.statusAction == null) {
+                    r.statusAction = calculateShowRowAction(cldrFile, xp, null, dataRow);
+                }
+
+                if (!r.statusAction.isForbidden()) {
+
+                    CandidateInfo ci =
+                            calculateCandidateItem(Collections.emptyList(), null, dataRow);
+                    // Now, recalculate the statusAction for accepting the new item
+                    r.statusAction =
+                            SurveyMain.checkCLDRPhase(locale)
+                                    .getAcceptNewItemAction(
+                                            ci, dataRow, stf.getPathHeader(xp), mySession.user);
+                    if (!r.statusAction.isForbidden()) {
+                        final BallotBox<UserRegistry.User> ballotBox =
+                                stf.ballotBoxForLocale(locale);
+                        Integer withVote = voteLevelChanged;
+                        // Hey, VOTE_FOR_MISSING is the point of this function..
+                        ballotBox.voteForValueWithType(
+                                mySession.user, xp, null, withVote, VoteType.VOTE_FOR_MISSING);
+                        r.didVote = true;
                     }
                 }
             } catch (Throwable t) {

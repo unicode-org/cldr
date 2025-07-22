@@ -511,16 +511,8 @@ public class LDML2ICUBinaryWriter {
                             String hexString = data.substring(currentIndex + 1, currentIndex + 5);
                             int codeNum = Integer.parseInt(hexString, 16);
                             String temp = UTF16.valueOf(codeNum);
-                            char tempChar;
+                            char tempChar = temp.charAt(0);
 
-                            tempChar = temp.charAt(0);
-
-                            // if its 0xFFFFFFFF
-                            if (tempChar == 0xFFFFFFFF) {
-                                System.err.println(
-                                        "Invalid character found while processing file.");
-                                System.exit(-1);
-                            }
                             // if NOT whitespace(isUWhiteSpace) && NOT a control character? && not
                             // punctuation
                             if (!isUWhiteSpace(tempChar)

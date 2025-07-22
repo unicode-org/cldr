@@ -2,6 +2,7 @@ package org.unicode.cldr.util;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.ibm.icu.util.Output;
@@ -198,5 +199,25 @@ public class TestVoteResolver {
                 anyOtherValue,
                 value3,
                 "any other value should remain unchanged when paths are different");
+    }
+
+    @Test
+    public void testVoteForMissing() {
+        final VoteResolver<String> vr = getStringResolver();
+
+        vr.setLocale(
+                CLDRLocale.getInstance("fr"), null); // NB: pathHeader is needed for annotations
+        vr.setBaseline("bafut", Status.unconfirmed);
+        vr.setBaileyValue("bfd");
+        vr.add("bambara", TestHelper.TestUser.appleV.voterId);
+        vr.add("bafia", TestHelper.TestUser.googleV.voterId);
+        vr.add("bassa", TestHelper.TestUser.googleV2.voterId);
+        vr.add("bafut", TestHelper.TestUser.unaffiliatedS.voterId);
+
+        vr.addVoteForMissing(TestHelper.TestUser.ibmT.voterId, null);
+        assertAll(
+                "Verify the outcome",
+                () -> assertNull(vr.getWinningValue(), "winning value is not null"),
+                () -> assertEquals(Status.missing, vr.getWinningStatus(), "winning status"));
     }
 }

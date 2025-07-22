@@ -45,63 +45,88 @@ DIV.1st {
 			</tr>
 			<tr>
 				<td>territory_language_information</td>
-				<td>The main goal for CLDR language data is to provide
+				<td>
+					The main goal for CLDR language data is to provide
 					approximate figures for the literate, functional population for
 					each language in each territory: that is, the population that is
 					able to read and write each language, and is comfortable enough to
 					use it with computers.
-					<p>The GDP and Literacy figures are taken from the World Bank
-						where available, otherwise supplemented by FactBook data and other
-						sources. The GDP figures are "PPP (constant 2000 international
-						$)". Much of the per-language data is taken from the Ethnologue,
-						but is supplemented and processed using many other sources,
-						including per-country census data. (The focus of the Ethnologue is
-						native speakers, which includes people who are not literate, and
-						excludes people who are functional second-langauge users.)</p>
 					<p>
+						Language population estimates come from various sources.
+						In general, they are meant to represent the number of people that speak the language in they given country.
+						When possible, the numbers include usage as both people's first language (L1) or a later language (L2, L3...) they could use in conversation or technology.
+						Not all numbers may be up-to-date or completely comparable, as the data is collected from various sources. 
+						Much of the data is sourced by per-country census data or Ethnologue.
+					</p>
+					<p>
+						Literacy figures are taken from <a href="https://www.cia.gov/the-world-factbook/field/literacy/">The World Factbook</a>
+						data and the <a href="https://data.un.org/Data.aspx?d=POP&f=tableCode%3a31">United Nations Statistics Division</a>.
 						The literacy rate may be discounted to reflect the actual usage of
 						the written form in normal daily life. Thus languages that are
 						typically not written, such as Swiss German, will be given a low
 						literacy rate, even though the whole population <i>could</i> write
 						in Swiss German.
 					</p>
-					<p>The percentages may add up to more than 100% due to
+					<p>
+						Official status may have a few different values. "Official" means its the 
+						language of national government transactions and is recognized as that
+						in the law -- whereas "de facto official" means it is used in practice
+						but not written in the national law. "Official regional" is official in
+						a subdivision of the territory. "Recognized" means that while its not
+						the primary language, it is recognized by the government in law -- there
+						may be missing values for recognized languages in this table.
+					</p>
+					<p>
+						The percentages may add up to more than 100% due to
 						multilingual populations, or may be less than 100% due to
 						illiteracy or because the data has not yet been gathered or
-						processed. Languages with a small population may be omitted.</p>
-					<p>Official status is supplied where available, formatted as
-						{O}. Hovering with the mouse shows a short description.</p>
+						processed. Languages with a small population may be omitted.
+					</p>
 					<ul>
-						<li><b>Likely languages and scripts:</b>To see (and verify)
-							the likely languages and scripts for this subtag, click on the
-							country code.</li>
-						<li><b>Reporting Defects:</b> If you find errors or omissions
-							in this data, please report the information with the <i>bug</i>
-							or <i>add new</i> links, below.</li>
-						<li><b>XML Source:</b> <a
-							href="https://github.com/unicode-org/cldr/tree/main/common/supplemental/supplementalData.xml">
-								supplementalData.xml</a> (see the &lt;territoryInfo&gt;,
-							&lt;calendarData&gt;, &lt;weekData&gt;, and
-							&lt;measurementData&gt; elements)</li>
+						<li>
+							<b>Reporting Defects:</b>
+							If you find errors or omissions in this data, please
+							<a href="https://cldr.unicode.org/requesting_changes#TOC-Filing-a-Ticket">file a JIRA ticket</a>
+							to amend the data.
+						</li>
+						<li>
+							<b>XML Source:</b>
+							<a href="https://github.com/unicode-org/cldr/tree/main/common/supplemental/supplementalData.xml">
+								supplementalData.xml</a> (see the &lt;territoryInfo&gt; element)
+						</li>
+						<li>
+							<b>TSV version:</b>
+							<a href="../tsv/territory_language_information.tsv">territory_language_information.tsv</a>
+							for this table in a table-separated values format.
+						</li>
 					</ul>
 				</td>
 			</tr>
 			<tr>
 				<td>language_territory_information</td>
 				<td>
-					<p align="left">
+					<p>
 						For information on the meaning of
-						the different values, see <a
-							href="territory_language_information.html">Territory-Language
-							Information</a>.
+						the different values, see
+						<a href="territory_language_information.html">Territory-Language Information</a>.
 					</p>
 					<ul>
-						<li><b>Reporting Defects:</b> If you find errors or omissions
-							in this data, or add a new territory for a language, see the <i>add
-								new</i> links below.</li>
-						<li><b>XML Source:</b> <a
-							href="https://github.com/unicode-org/cldr/tree/main/common/supplemental/supplementalData.xml">
-								supplementalData.xml</a> (see the &lt;territoryInfo&gt; element)</li>
+						<li>
+							<b>Reporting Defects:</b>
+							If you find errors or omissions in this data, please
+							<a href="https://cldr.unicode.org/requesting_changes#TOC-Filing-a-Ticket">file a JIRA ticket</a>
+							to amend the data.
+						</li>
+						<li>
+							<b>XML Source:</b>
+							<a href="https://github.com/unicode-org/cldr/tree/main/common/supplemental/supplementalData.xml">
+								supplementalData.xml</a> (see the &lt;territoryInfo&gt; element)
+						</li>
+						<li>
+							<b>TSV version:</b>
+							<a href="language_territory_information.txt">territory_language_information.txt</a>
+							for this table in a table-separated values format.
+						</li>
 					</ul>
 				</td>
 			</tr>

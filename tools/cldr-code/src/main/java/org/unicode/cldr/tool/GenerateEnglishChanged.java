@@ -22,6 +22,7 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.With;
+import org.unicode.cldr.util.XPathParts;
 
 public class GenerateEnglishChanged {
     private static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
@@ -32,7 +33,6 @@ public class GenerateEnglishChanged {
                     CLDRPaths.ARCHIVE_DIRECTORY
                             + "cldr-"
                             + ToolConstants.LAST_RELEASE_VERSION
-                            + ".0"
                             + "/");
     private static final boolean TRIAL = false;
 
@@ -55,9 +55,8 @@ public class GenerateEnglishChanged {
         Set<String> paths = new TreeSet<>();
         With.in(englishTrunk).toCollection(paths);
         With.in(englishLastRelease).toCollection(paths);
-        PathStarrer starrer = new PathStarrer();
         final String placeholder = "×";
-        starrer.setSubstitutionPattern(placeholder);
+        PathStarrer starrer = new PathStarrer().setSubstitutionPattern(placeholder);
 
         Set<String> abbreviatedPaths = new LinkedHashSet<>();
         Multimap<String, List<String>> pathsDiffer = LinkedHashMultimap.create();
@@ -77,7 +76,10 @@ public class GenerateEnglishChanged {
                 }
                 abbreviatedPaths.add(abbrPath);
                 String starred = starrer.set(abbrPath);
-                pathsDiffer.put(starred, ImmutableList.copyOf(starrer.getAttributes()));
+                pathsDiffer.put(
+                        starred,
+                        ImmutableList.copyOf(
+                                XPathParts.getFrozenInstance(abbrPath).getAttributeValues()));
                 // System.out.println(path + " => " + abbrPath);
             }
         }

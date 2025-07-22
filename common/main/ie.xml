@@ -1407,7 +1407,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">E d MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
-						<dateFormatItem id="MMMMW" count="other">W-'im' 'semane' 'de' MMMM</dateFormatItem>
 						<dateFormatItem id="ms" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="y">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yM">M.y</dateFormatItem>
@@ -1419,7 +1418,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yMMMM">LLLL y</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
-						<dateFormatItem id="yw" count="other">w-'im' 'semane' 'de' Y</dateFormatItem>
 					</availableFormats>
 					<appendItems>
 						<appendItem request="Timezone">↑↑↑</appendItem>
@@ -1579,8 +1577,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="Ed">d., E</dateFormatItem>
-						<dateFormatItem id="MMMMW" count="other">MMMM, 'semane' W</dateFormatItem>
-						<dateFormatItem id="yw" count="other">Y, 'semane' w</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -1601,10 +1597,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">ho-annu</relative>
 				<relative type="1">sequent annu</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">pos {0} annus</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">ante {0} annus</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="year-short">
@@ -1613,10 +1607,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0" draft="unconfirmed">↑↑↑</relative>
 				<relative type="1" draft="unconfirmed">seq. annu</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="year-narrow">
@@ -1625,10 +1617,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0" draft="unconfirmed">ho-a.</relative>
 				<relative type="1" draft="unconfirmed">seq. a.</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">pos {0} a</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">ante {0} a</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="quarter">
@@ -1637,28 +1627,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0" draft="unconfirmed">ho-trimestre</relative>
 				<relative type="1" draft="unconfirmed">sequent trimestre</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">pos {0} trimestres</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">ante {0} trimestres</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="quarter-short">
 				<displayName draft="unconfirmed">trim.</displayName>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">pos {0} tr</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">ante {0} tr</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="quarter-narrow">
 				<displayName>tr</displayName>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="month">
@@ -1667,10 +1651,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">ho-mensu</relative>
 				<relative type="1">sequent mensu</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">pos {0} mensus</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">ante {0} mensus</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="month-short">
@@ -1679,10 +1661,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0" draft="unconfirmed">↑↑↑</relative>
 				<relative type="1" draft="unconfirmed">seq. mensu</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="month-narrow">
@@ -1691,10 +1671,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0" draft="unconfirmed">ho-mn.</relative>
 				<relative type="1" draft="unconfirmed">seq. mn.</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">pos {0} mn</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">ante {0} mn</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="week">
@@ -1703,10 +1681,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0" draft="unconfirmed">ho-semane</relative>
 				<relative type="1" draft="unconfirmed">sequent semane</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">pos {0} semanes</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">ante {0} semanes</relativeTimePattern>
 				</relativeTime>
 				<relativePeriod draft="unconfirmed">li semane de {0}</relativePeriod>
 			</field>
@@ -1716,10 +1692,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0" draft="unconfirmed">↑↑↑</relative>
 				<relative type="1" draft="unconfirmed">seq. semane</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativePeriod draft="unconfirmed">↑↑↑</relativePeriod>
 			</field>
@@ -1729,10 +1703,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0" draft="unconfirmed">ho sem.</relative>
 				<relative type="1" draft="unconfirmed">seq. sem.</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">pos {0} sem.</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">ante {0} sem.</relativeTimePattern>
 				</relativeTime>
 				<relativePeriod draft="unconfirmed">sem. de {0}</relativePeriod>
 			</field>
@@ -1753,10 +1725,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="1">deman</relative>
 				<relative type="2">posdeman</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other">pos {0} dies</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other">ante {0} dies</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="day-short">
@@ -1767,10 +1737,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="1" draft="unconfirmed">↑↑↑</relative>
 				<relative type="2" draft="unconfirmed">↑↑↑</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="day-narrow">
@@ -1781,10 +1749,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="1">↑↑↑</relative>
 				<relative type="2" draft="unconfirmed">↑↑↑</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">pos {0} d</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">ante {0} d</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="dayOfYear">
@@ -1819,10 +1785,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0" draft="unconfirmed">ho-soledí</relative>
 				<relative type="1" draft="unconfirmed">sequent soledí</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">pos {0} soledís</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">ante {0} soledís</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="sun-short">
@@ -1830,10 +1794,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0" draft="unconfirmed">ho-sol.</relative>
 				<relative type="1" draft="unconfirmed">seq. sol.</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">pos {0} sol.</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">ante {0} sol.</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="sun-narrow">
@@ -1841,10 +1803,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0" draft="unconfirmed">↑↑↑</relative>
 				<relative type="1" draft="unconfirmed">↑↑↑</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">p. {0} so.</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">a. {0} so.</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="mon">
@@ -1852,10 +1812,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0" draft="unconfirmed">ho-lunedí</relative>
 				<relative type="1" draft="unconfirmed">sequent lunedí</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">pos {0} lunedís</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">ante {0} lunedís</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="mon-short">
@@ -1863,10 +1821,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0" draft="unconfirmed">ho-lun.</relative>
 				<relative type="1" draft="unconfirmed">seq. lun.</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">pos {0} lun.</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">ante {0} lun.</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="mon-narrow">
@@ -1874,10 +1830,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0" draft="unconfirmed">↑↑↑</relative>
 				<relative type="1" draft="unconfirmed">↑↑↑</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">p. {0} lu.</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">a. {0} lu.</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="tue">
@@ -1885,10 +1839,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0" draft="unconfirmed">ho-mardí</relative>
 				<relative type="1" draft="unconfirmed">sequent mardí</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">pos {0} mardís</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">ante {0} mardís</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="tue-short">
@@ -1896,10 +1848,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0" draft="unconfirmed">ho-mar.</relative>
 				<relative type="1" draft="unconfirmed">seq. mar.</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">pos {0} mar.</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">ante {0} mar.</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="tue-narrow">
@@ -1907,10 +1857,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0" draft="unconfirmed">↑↑↑</relative>
 				<relative type="1" draft="unconfirmed">↑↑↑</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">p. {0} ma.</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">a. {0} ma.</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="wed">
@@ -1918,10 +1866,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0" draft="unconfirmed">ho-mercurdí</relative>
 				<relative type="1" draft="unconfirmed">sequent mercurdí</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">pos {0} mercurdís</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">ante {0} mercurdís</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="wed-short">
@@ -1929,10 +1875,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0" draft="unconfirmed">ho-mer.</relative>
 				<relative type="1" draft="unconfirmed">seq. mer.</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">pos {0} mer.</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">ante {0} mer.</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="wed-narrow">
@@ -1940,10 +1884,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0" draft="unconfirmed">↑↑↑</relative>
 				<relative type="1" draft="unconfirmed">↑↑↑</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">p. {0} me.</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">a. {0} me.</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="thu">
@@ -1951,10 +1893,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0" draft="unconfirmed">ho-jovedí</relative>
 				<relative type="1" draft="unconfirmed">sequent jovedí</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">pos {0} jovedís</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">ante {0} jovedís</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="thu-short">
@@ -1962,10 +1902,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0" draft="unconfirmed">ho-jov.</relative>
 				<relative type="1" draft="unconfirmed">seq. jov.</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">pos {0} jov.</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">ante {0} jov.</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="thu-narrow">
@@ -1973,10 +1911,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0" draft="unconfirmed">↑↑↑</relative>
 				<relative type="1" draft="unconfirmed">↑↑↑</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">p. {0} jo.</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">a. {0} jo.</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="fri">
@@ -1984,10 +1920,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0" draft="unconfirmed">ho-venerdí</relative>
 				<relative type="1" draft="unconfirmed">sequent venerdí</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">pos {0} venerdís</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">ante {0} venerdís</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="fri-short">
@@ -1995,10 +1929,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0" draft="unconfirmed">ho-ven.</relative>
 				<relative type="1" draft="unconfirmed">seq. ven.</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">pos {0} ven.</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">ante {0} ven.</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="fri-narrow">
@@ -2006,10 +1938,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0" draft="unconfirmed">↑↑↑</relative>
 				<relative type="1" draft="unconfirmed">↑↑↑</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">p. {0} ve.</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">a. {0} ve.</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="sat">
@@ -2017,10 +1947,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0" draft="unconfirmed">ho-saturdí</relative>
 				<relative type="1" draft="unconfirmed">sequent saturdí</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">pos {0} saturdís</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">ante {0} saturdís</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="sat-short">
@@ -2028,10 +1956,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0" draft="unconfirmed">ho-sat.</relative>
 				<relative type="1" draft="unconfirmed">seq. sat.</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">pos {0} sat.</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">ante {0} sat.</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="sat-narrow">
@@ -2039,10 +1965,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0" draft="unconfirmed">↑↑↑</relative>
 				<relative type="1" draft="unconfirmed">↑↑↑</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">p. {0} sa.</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">a. {0} sa.</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="dayperiod-short">
@@ -2058,88 +1982,70 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>hor</displayName>
 				<relative type="0" draft="unconfirmed">ti hor</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">pos {0} hores</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">ante {0} hores</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="hour-short">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
 				<relative type="0" draft="unconfirmed">↑↑↑</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="hour-narrow">
 				<displayName>h</displayName>
 				<relative type="0" draft="unconfirmed">↑↑↑</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">pos {0} h</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">ante {0} h</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="minute">
 				<displayName>minute</displayName>
 				<relative type="0" draft="unconfirmed">ti minute</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">pos {0} minutes</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">ante {0} minutes</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="minute-short">
 				<displayName>min</displayName>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">pos {0} min</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">ante {0} min</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="minute-narrow">
 				<displayName>m</displayName>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">pos {0} m</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">ante {0} m</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="second">
 				<displayName>seconde</displayName>
 				<relative type="0" draft="unconfirmed">nu</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">pos {0} secondes</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">ante {0} secondes</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="second-short">
 				<displayName>sec</displayName>
 				<relative type="0" draft="unconfirmed">↑↑↑</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">pos {0} sec</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">ante {0} sec</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="second-narrow">
 				<displayName>s</displayName>
 				<relative type="0" draft="unconfirmed">↑↑↑</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">pos {0} s</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">ante {0} s</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="zone">
@@ -3620,46 +3526,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</decimalFormatLength>
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="one">0 mill</pattern>
-					<pattern type="1000" count="other">0 milles</pattern>
-					<pattern type="10000" count="one">00 mill</pattern>
-					<pattern type="10000" count="other">00 milles</pattern>
-					<pattern type="100000" count="one">000 mill</pattern>
-					<pattern type="100000" count="other">000 milles</pattern>
-					<pattern type="1000000" count="one">0 million</pattern>
-					<pattern type="1000000" count="other">0 milliones</pattern>
-					<pattern type="10000000" count="one">00 million</pattern>
-					<pattern type="10000000" count="other">00 milliones</pattern>
-					<pattern type="100000000" count="one">000 million</pattern>
-					<pattern type="100000000" count="other">000 milliones</pattern>
-					<pattern type="1000000000" count="one">0 milliard</pattern>
-					<pattern type="1000000000" count="other">0 milliardes</pattern>
-					<pattern type="10000000000" count="one">00 milliard</pattern>
-					<pattern type="10000000000" count="other">00 milliardes</pattern>
-					<pattern type="100000000000" count="one">000 milliard</pattern>
-					<pattern type="100000000000" count="other">000 milliardes</pattern>
-					<pattern type="1000000000000" count="one">0 billion</pattern>
-					<pattern type="1000000000000" count="other">0 billiones</pattern>
-					<pattern type="10000000000000" count="one">00 billion</pattern>
-					<pattern type="10000000000000" count="other">00 billiones</pattern>
-					<pattern type="100000000000000" count="one">000 billion</pattern>
-					<pattern type="100000000000000" count="other">000 billiones</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="other" draft="unconfirmed">0</pattern>
-					<pattern type="10000" count="other" draft="unconfirmed">0</pattern>
-					<pattern type="100000" count="other" draft="unconfirmed">0</pattern>
-					<pattern type="1000000" count="other" draft="unconfirmed">0</pattern>
-					<pattern type="10000000" count="other" draft="unconfirmed">0</pattern>
-					<pattern type="100000000" count="other" draft="unconfirmed">0</pattern>
-					<pattern type="1000000000" count="other" draft="unconfirmed">0</pattern>
-					<pattern type="10000000000" count="other" draft="unconfirmed">0</pattern>
-					<pattern type="100000000000" count="other" draft="unconfirmed">0</pattern>
-					<pattern type="1000000000000" count="other" draft="unconfirmed">0</pattern>
-					<pattern type="10000000000000" count="other" draft="unconfirmed">0</pattern>
-					<pattern type="100000000000000" count="other" draft="unconfirmed">0</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
@@ -3689,881 +3559,715 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currencyFormatLength>
 			<currencyFormatLength type="short">
 				<currencyFormat type="standard">
-					<pattern type="1000" count="other" draft="unconfirmed">0</pattern>
-					<pattern type="10000" count="other" draft="unconfirmed">0</pattern>
-					<pattern type="100000" count="other" draft="unconfirmed">0</pattern>
-					<pattern type="1000000" count="other" draft="unconfirmed">0</pattern>
-					<pattern type="10000000" count="other" draft="unconfirmed">0</pattern>
-					<pattern type="100000000" count="other" draft="unconfirmed">0</pattern>
-					<pattern type="1000000000" count="other" draft="unconfirmed">0</pattern>
-					<pattern type="10000000000" count="other" draft="unconfirmed">0</pattern>
-					<pattern type="100000000000" count="other" draft="unconfirmed">0</pattern>
-					<pattern type="1000000000000" count="other" draft="unconfirmed">0</pattern>
-					<pattern type="10000000000000" count="other" draft="unconfirmed">0</pattern>
-					<pattern type="100000000000000" count="other" draft="unconfirmed">0</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="other" draft="unconfirmed">{0} {1}</unitPattern>
 		</currencyFormats>
 		<currencies>
 			<currency type="AED">
 				<displayName draft="unconfirmed">UAE dirham</displayName>
-				<displayName count="other" draft="unconfirmed">UAE dirhams</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="AFN">
 				<displayName draft="unconfirmed">afghan afghani</displayName>
-				<displayName count="other" draft="unconfirmed">afghan afghanis</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="ALL">
 				<displayName draft="unconfirmed">albanian lek</displayName>
-				<displayName count="other" draft="unconfirmed">albanian leks</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="AMD">
 				<displayName draft="unconfirmed">armenian dram</displayName>
-				<displayName count="other" draft="unconfirmed">armenian drams</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="ANG">
 				<displayName draft="unconfirmed">guilder del Nederlandesi Antilles</displayName>
-				<displayName count="other" draft="unconfirmed">guilderes del Nederlandesi Antilles</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="AOA">
 				<displayName draft="unconfirmed">angolan kwanza</displayName>
-				<displayName count="other" draft="unconfirmed">angolan kwanzas</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="ARS">
 				<displayName draft="unconfirmed">argentinian peso</displayName>
-				<displayName count="other" draft="unconfirmed">argentinian pesos</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="AUD">
 				<displayName draft="unconfirmed">australian dollar</displayName>
-				<displayName count="other" draft="unconfirmed">australian dollares</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="AWG">
 				<displayName draft="unconfirmed">aruban florin</displayName>
-				<displayName count="other" draft="unconfirmed">aruban florines</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="AZN">
 				<displayName draft="unconfirmed">azerbaidjanesi manat</displayName>
-				<displayName count="other" draft="unconfirmed">azerbaidjanesi manates</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="BAM">
 				<displayName draft="unconfirmed">convertibil mark de Bosnia-Herzogovina</displayName>
-				<displayName count="other" draft="unconfirmed">convertibil marks de Bosnia-Herzogovina</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="BBD">
 				<displayName draft="unconfirmed">barbadan dollar</displayName>
-				<displayName count="other" draft="unconfirmed">barbadan dollares</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="BDT">
 				<displayName draft="unconfirmed">bangladeshan taka</displayName>
-				<displayName count="other" draft="unconfirmed">bangladeshan takas</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="BGN">
 				<displayName draft="unconfirmed">bulgarian lev</displayName>
-				<displayName count="other" draft="unconfirmed">bulgarian leves</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="BHD">
 				<displayName draft="unconfirmed">bahrainesi dinar</displayName>
-				<displayName count="other" draft="unconfirmed">bahrainesi dinares</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="BIF">
 				<displayName draft="unconfirmed">burundian franc</displayName>
-				<displayName count="other" draft="unconfirmed">burundian francs</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="BMD">
 				<displayName draft="unconfirmed">bermudan dollar</displayName>
-				<displayName count="other" draft="unconfirmed">bermudan dollares</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="BND">
 				<displayName draft="unconfirmed">brunesi dollar</displayName>
-				<displayName count="other" draft="unconfirmed">brunesi dollares</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="BOB">
 				<displayName draft="unconfirmed">bolivian boliviano</displayName>
-				<displayName count="other" draft="unconfirmed">bolivian bolivianos</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="BRL">
 				<displayName draft="unconfirmed">brasilian real</displayName>
-				<displayName count="other" draft="unconfirmed">brasilian reales</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="BSD">
 				<displayName draft="unconfirmed">bahaman dollar</displayName>
-				<displayName count="other" draft="unconfirmed">bahaman dollares</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="BTN">
 				<displayName draft="unconfirmed">bhutanesi ngultrum</displayName>
-				<displayName count="other" draft="unconfirmed">bhutanesi ngultrums</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="BWP">
 				<displayName draft="unconfirmed">botswanan pula</displayName>
-				<displayName count="other" draft="unconfirmed">botswanan pulas</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="BYN">
 				<displayName draft="unconfirmed">bieloruss ruble</displayName>
-				<displayName count="other" draft="unconfirmed">bieloruss rubles</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="BZD">
 				<displayName draft="unconfirmed">belizan dollar</displayName>
-				<displayName count="other" draft="unconfirmed">belizan dollares</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="CAD">
 				<displayName draft="unconfirmed">canadan dollar</displayName>
-				<displayName count="other" draft="unconfirmed">canadan dollares</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="CDF">
 				<displayName draft="unconfirmed">congolesi franc</displayName>
-				<displayName count="other" draft="unconfirmed">congolesi francs</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="CHF">
 				<displayName draft="unconfirmed">sviss franc</displayName>
-				<displayName count="other" draft="unconfirmed">sviss francs</displayName>
 				<symbol draft="unconfirmed">F.Sv.</symbol>
 			</currency>
 			<currency type="CLP">
 				<displayName draft="unconfirmed">chilan peso</displayName>
-				<displayName count="other" draft="unconfirmed">chilan pesos</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="CNH">
 				<displayName draft="unconfirmed">chinesi yuan (extraterritorial)</displayName>
-				<displayName count="other" draft="unconfirmed">chinesi yuanes (extraterritorial)</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="CNY">
 				<displayName draft="unconfirmed">chinesi yuan</displayName>
-				<displayName count="other" draft="unconfirmed">chinesi yuanes</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="COP">
 				<displayName draft="unconfirmed">columbian peso</displayName>
-				<displayName count="other" draft="unconfirmed">columbian pesos</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="CRC">
 				<displayName draft="unconfirmed">costa-rican colon</displayName>
-				<displayName count="other" draft="unconfirmed">costa-rican colones</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="CUC">
 				<displayName draft="unconfirmed">cuban convertibil peso</displayName>
-				<displayName count="other" draft="unconfirmed">cuban convertibil pesos</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="CUP">
 				<displayName draft="unconfirmed">cuban peso</displayName>
-				<displayName count="other" draft="unconfirmed">cuban pesos</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="CVE">
 				<displayName draft="unconfirmed">cap-verdesi escudo</displayName>
-				<displayName count="other" draft="unconfirmed">cap-verdesi escudos</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="CZK">
 				<displayName draft="unconfirmed">tchec koruna</displayName>
-				<displayName count="other" draft="unconfirmed">tchec korunas</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="DJF">
 				<displayName draft="unconfirmed">djibutian franc</displayName>
-				<displayName count="other" draft="unconfirmed">djibutian francs</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="DKK">
 				<displayName draft="unconfirmed">danesi krone</displayName>
-				<displayName count="other" draft="unconfirmed">danesi krones</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="DOP">
 				<displayName draft="unconfirmed">dominican peso</displayName>
-				<displayName count="other" draft="unconfirmed">dominican pesos</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="DZD">
 				<displayName draft="unconfirmed">algerian dinar</displayName>
-				<displayName count="other" draft="unconfirmed">algerian dinares</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="EGP">
 				<displayName draft="unconfirmed">egiptian pund</displayName>
-				<displayName count="other" draft="unconfirmed">egiptian pundes</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="ERN">
 				<displayName draft="unconfirmed">eritrean nakfa</displayName>
-				<displayName count="other" draft="unconfirmed">eritrean nakfas</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="ETB">
 				<displayName draft="unconfirmed">etiopian birr</displayName>
-				<displayName count="other" draft="unconfirmed">etiopian birres</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName draft="unconfirmed">euro</displayName>
-				<displayName count="other" draft="unconfirmed">euros</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="FJD">
 				<displayName draft="unconfirmed">fidjian dollar</displayName>
-				<displayName count="other" draft="unconfirmed">fidjian dollares</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="FKP">
 				<displayName draft="unconfirmed">pund de Falkland</displayName>
-				<displayName count="other" draft="unconfirmed">pundes de Falkland</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="GBP">
 				<displayName draft="unconfirmed">pund sterling</displayName>
-				<displayName count="other" draft="unconfirmed">pundes sterling</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="GEL">
 				<displayName draft="unconfirmed">georgian lari</displayName>
-				<displayName count="other" draft="unconfirmed">georgian laris</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="GHS">
 				<displayName draft="unconfirmed">ghanan cedi</displayName>
-				<displayName count="other" draft="unconfirmed">ghanan cedis</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="GIP">
 				<displayName draft="unconfirmed">pund de Gibraltar</displayName>
-				<displayName count="other" draft="unconfirmed">pundes de Gibraltar</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="GMD">
 				<displayName draft="unconfirmed">gambian dalasi</displayName>
-				<displayName count="other" draft="unconfirmed">gambian dalasis</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="GNF">
 				<displayName draft="unconfirmed">guinean franc</displayName>
-				<displayName count="other" draft="unconfirmed">guinean francs</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="GTQ">
 				<displayName draft="unconfirmed">guatemalan quetzal</displayName>
-				<displayName count="other" draft="unconfirmed">guatemalan quetzales</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="GYD">
 				<displayName draft="unconfirmed">guyanesi dollar</displayName>
-				<displayName count="other" draft="unconfirmed">guyanesi dollares</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="HKD">
 				<displayName draft="unconfirmed">dollar de Hong-Kong</displayName>
-				<displayName count="other" draft="unconfirmed">dollares de Hong-Kong</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="HNL">
 				<displayName draft="unconfirmed">honduresi lempira</displayName>
-				<displayName count="other" draft="unconfirmed">honduresi lempiras</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="HRK">
 				<displayName draft="unconfirmed">croatian kuna</displayName>
-				<displayName count="other" draft="unconfirmed">croatian kunas</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="HTG">
 				<displayName draft="unconfirmed">haitian gourde</displayName>
-				<displayName count="other" draft="unconfirmed">haitian gourdes</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="HUF">
 				<displayName draft="unconfirmed">hungarian forint</displayName>
-				<displayName count="other" draft="unconfirmed">hungarian forintes</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="IDR">
 				<displayName draft="unconfirmed">indonesian rupia</displayName>
-				<displayName count="other" draft="unconfirmed">indonesian rupias</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="ILS">
 				<displayName draft="unconfirmed">israelesi nov shekel</displayName>
-				<displayName count="other" draft="unconfirmed">israelesi nov shekeles</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="INR">
 				<displayName draft="unconfirmed">indian rupia</displayName>
-				<displayName count="other" draft="unconfirmed">indian rupias</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="IQD">
 				<displayName draft="unconfirmed">irakesi dinar</displayName>
-				<displayName count="other" draft="unconfirmed">irakesi dinares</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="IRR">
 				<displayName draft="unconfirmed">iranesi real</displayName>
-				<displayName count="other" draft="unconfirmed">iranesi reales</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="ISK">
 				<displayName draft="unconfirmed">islandesi krona</displayName>
-				<displayName count="other" draft="unconfirmed">islandesi kronas</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="JMD">
 				<displayName draft="unconfirmed">jamaican dollar</displayName>
-				<displayName count="other" draft="unconfirmed">jamaican dollares</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="JOD">
 				<displayName draft="unconfirmed">jordanian dinar</displayName>
-				<displayName count="other" draft="unconfirmed">jordanian dinares</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="JPY">
 				<displayName draft="unconfirmed">japanesi yen</displayName>
-				<displayName count="other" draft="unconfirmed">japanesi yenes</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="KES">
 				<displayName draft="unconfirmed">kenian shilling</displayName>
-				<displayName count="other" draft="unconfirmed">kenian shillings</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="KGS">
 				<displayName draft="unconfirmed">kirgistanesi som</displayName>
-				<displayName count="other" draft="unconfirmed">kirgistanesi somes</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="KHR">
 				<displayName draft="unconfirmed">cambodjan riel</displayName>
-				<displayName count="other" draft="unconfirmed">cambodjan rieles</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="KMF">
 				<displayName draft="unconfirmed">comoran franc</displayName>
-				<displayName count="other" draft="unconfirmed">comoran francs</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="KPW">
 				<displayName draft="unconfirmed">nord-korean won</displayName>
-				<displayName count="other" draft="unconfirmed">nord-korean wones</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="KRW">
 				<displayName draft="unconfirmed">sud-korean won</displayName>
-				<displayName count="other" draft="unconfirmed">sud-korean wones</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="KWD">
 				<displayName draft="unconfirmed">kuwaitesi dinar</displayName>
-				<displayName count="other" draft="unconfirmed">kuwaitesi dinares</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="KYD">
 				<displayName draft="unconfirmed">caymanesi dollar</displayName>
-				<displayName count="other" draft="unconfirmed">caymanesi dollares</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="KZT">
 				<displayName draft="unconfirmed">kazakhstanesi tenge</displayName>
-				<displayName count="other" draft="unconfirmed">kazakhstanesi tenges</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="LAK">
 				<displayName draft="unconfirmed">laotic kip</displayName>
-				<displayName count="other" draft="unconfirmed">laotic kipes</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="LBP">
 				<displayName draft="unconfirmed">libanesi pund</displayName>
-				<displayName count="other" draft="unconfirmed">libanesi pundes</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="LKR">
 				<displayName draft="unconfirmed">sri-lankan rupia</displayName>
-				<displayName count="other" draft="unconfirmed">sri-lankan rupias</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="LRD">
 				<displayName draft="unconfirmed">liberian dollar</displayName>
-				<displayName count="other" draft="unconfirmed">liberian dollares</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="LSL">
 				<displayName draft="unconfirmed">lesothan loti</displayName>
-				<displayName count="other" draft="unconfirmed">lesothan lotis</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="LYD">
 				<displayName draft="unconfirmed">libian dinar</displayName>
-				<displayName count="other" draft="unconfirmed">libian dinares</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="MAD">
 				<displayName draft="unconfirmed">maroccan dirham</displayName>
-				<displayName count="other" draft="unconfirmed">maroccan dirhams</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="MDL">
 				<displayName draft="unconfirmed">moldovan lei</displayName>
-				<displayName count="other" draft="unconfirmed">↑↑↑</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="MGA">
 				<displayName draft="unconfirmed">malgachic ariary</displayName>
-				<displayName count="other" draft="unconfirmed">malgachic ariarys</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="MKD">
 				<displayName draft="unconfirmed">macedonian denar</displayName>
-				<displayName count="other" draft="unconfirmed">macedonian denares</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="MMK">
 				<displayName draft="unconfirmed">myanmaran kyat</displayName>
-				<displayName count="other" draft="unconfirmed">myanmaran kyates</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="MNT">
 				<displayName draft="unconfirmed">mongolian tugric</displayName>
-				<displayName count="other" draft="unconfirmed">mongolian tugrics</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="MOP">
 				<displayName draft="unconfirmed">macan pataca</displayName>
-				<displayName count="other" draft="unconfirmed">macan patacas</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="MRU">
 				<displayName draft="unconfirmed">mauritanian uguiya</displayName>
-				<displayName count="other" draft="unconfirmed">mauritanian uguiyas</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="MUR">
 				<displayName draft="unconfirmed">maurician rupia</displayName>
-				<displayName count="other" draft="unconfirmed">maurician rupias</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="MVR">
 				<displayName draft="unconfirmed">maldivan rufia</displayName>
-				<displayName count="other" draft="unconfirmed">maldivan rufias</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="MWK">
 				<displayName draft="unconfirmed">malawian kwacha</displayName>
-				<displayName count="other" draft="unconfirmed">malawian kwachas</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="MXN">
 				<displayName draft="unconfirmed">mexican peso</displayName>
-				<displayName count="other" draft="unconfirmed">mexican pesos</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="MYR">
 				<displayName draft="unconfirmed">malaysian ringgit</displayName>
-				<displayName count="other" draft="unconfirmed">malaysian ringgites</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="MZN">
 				<displayName draft="unconfirmed">mozambican metical</displayName>
-				<displayName count="other" draft="unconfirmed">mozambican meticales</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="NAD">
 				<displayName draft="unconfirmed">namibian dollar</displayName>
-				<displayName count="other" draft="unconfirmed">namibian dollares</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="NGN">
 				<displayName draft="unconfirmed">nigerian naira</displayName>
-				<displayName count="other" draft="unconfirmed">nigerian nairas</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="NIO">
 				<displayName draft="unconfirmed">nicaraguan cordoba</displayName>
-				<displayName count="other" draft="unconfirmed">nicaraguan cordobas</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="NOK">
 				<displayName draft="unconfirmed">norvegian krone</displayName>
-				<displayName count="other" draft="unconfirmed">norvegian krones</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="NPR">
 				<displayName draft="unconfirmed">nepalesi rupia</displayName>
-				<displayName count="other" draft="unconfirmed">nepalesi rupias</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="NZD">
 				<displayName draft="unconfirmed">nov-zelandesi dollar</displayName>
-				<displayName count="other" draft="unconfirmed">nov-zelandesi dollares</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="OMR">
 				<displayName draft="unconfirmed">omanesi rial</displayName>
-				<displayName count="other" draft="unconfirmed">omanesi riales</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="PAB">
 				<displayName draft="unconfirmed">panamesi balboa</displayName>
-				<displayName count="other" draft="unconfirmed">panamesi balboas</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="PEN">
 				<displayName draft="unconfirmed">peruan sol</displayName>
-				<displayName count="other" draft="unconfirmed">peruan soles</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="PGK">
 				<displayName draft="unconfirmed">kina de Papua Nov-Guinea</displayName>
-				<displayName count="other" draft="unconfirmed">kinas de Papua Nov-Guinea</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="PHP">
 				<displayName draft="unconfirmed">filipinesi peso</displayName>
-				<displayName count="other" draft="unconfirmed">filipinesi pesos</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="PKR">
 				<displayName draft="unconfirmed">pakistani rupia</displayName>
-				<displayName count="other" draft="unconfirmed">pakistani rupias</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="PLN">
 				<displayName draft="unconfirmed">polonesi zloty</displayName>
-				<displayName count="other" draft="unconfirmed">polonesi zlotys</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="PYG">
 				<displayName draft="unconfirmed">paraguayan guarani</displayName>
-				<displayName count="other" draft="unconfirmed">paraguayan guaranis</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="QAR">
 				<displayName draft="unconfirmed">qataresi riyal</displayName>
-				<displayName count="other" draft="unconfirmed">qataresi riyales</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="RON">
 				<displayName draft="unconfirmed">rumanian lei</displayName>
-				<displayName count="other" draft="unconfirmed">↑↑↑</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="RSD">
 				<displayName draft="unconfirmed">serbian dinar</displayName>
-				<displayName count="other" draft="unconfirmed">serbian dinares</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="RUB">
 				<displayName draft="unconfirmed">russian ruble</displayName>
-				<displayName count="other" draft="unconfirmed">russian rubles</displayName>
 				<symbol draft="unconfirmed">Rub.</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="RWF">
 				<displayName draft="unconfirmed">rwandan franc</displayName>
-				<displayName count="other" draft="unconfirmed">rwandan francs</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="SAR">
 				<displayName draft="unconfirmed">sauditic riyal</displayName>
-				<displayName count="other" draft="unconfirmed">sauditic riyales</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="SBD">
 				<displayName draft="unconfirmed">dollar del Insules Solomon</displayName>
-				<displayName count="other" draft="unconfirmed">dollares del Insules Solomon</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="SCR">
 				<displayName draft="unconfirmed">seychellan rupia</displayName>
-				<displayName count="other" draft="unconfirmed">seychellan rupias</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="SDG">
 				<displayName draft="unconfirmed">sudanesi pund</displayName>
-				<displayName count="other" draft="unconfirmed">sudanesi pundes</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="SEK">
 				<displayName draft="unconfirmed">sved krona</displayName>
-				<displayName count="other" draft="unconfirmed">sved kronas</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="SGD">
 				<displayName draft="unconfirmed">singapuran dollar</displayName>
-				<displayName count="other" draft="unconfirmed">singapuran dollares</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="SHP">
 				<displayName draft="unconfirmed">pund de Sant-Helena</displayName>
-				<displayName count="other" draft="unconfirmed">pundes de Sant-Helena</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="SLE">
 				<displayName draft="unconfirmed">leone de Sierra-Leone</displayName>
-				<displayName count="other" draft="unconfirmed">leones de Sierra-Leone</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="SLL">
 				<displayName draft="unconfirmed">leone de Sierra-Leone (1964..2022)</displayName>
-				<displayName count="other" draft="unconfirmed">leones de Sierra-Leone (1964..2022)</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="SOS">
 				<displayName draft="unconfirmed">somalian shilling</displayName>
-				<displayName count="other" draft="unconfirmed">somalian shillings</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="SRD">
 				<displayName draft="unconfirmed">surinamesi dollar</displayName>
-				<displayName count="other" draft="unconfirmed">surinamesi dollares</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="SSP">
 				<displayName draft="unconfirmed">sud-sudanesi pund</displayName>
-				<displayName count="other" draft="unconfirmed">sud-sudanesi pundes</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="STN">
 				<displayName draft="unconfirmed">dobra de São Tomé e Príncipe</displayName>
-				<displayName count="other" draft="unconfirmed">dobras de São Tomé e Príncipe</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="SYP">
 				<displayName draft="unconfirmed">sirian pund</displayName>
-				<displayName count="other" draft="unconfirmed">sirian pundes</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="SZL">
 				<displayName draft="unconfirmed">swazian lilangeni</displayName>
-				<displayName count="other" draft="unconfirmed">swazian lilangenis</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="THB">
 				<displayName draft="unconfirmed">thai baht</displayName>
-				<displayName count="other" draft="unconfirmed">thai bahtes</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="TJS">
 				<displayName draft="unconfirmed">tadjikistanesi somoni</displayName>
-				<displayName count="other" draft="unconfirmed">tadjikistanesi somonis</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="TMT">
 				<displayName draft="unconfirmed">turcmen manat</displayName>
-				<displayName count="other" draft="unconfirmed">turcmen manates</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="TND">
 				<displayName draft="unconfirmed">tunisian dinar</displayName>
-				<displayName count="other" draft="unconfirmed">tunisian dinares</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="TOP">
 				<displayName draft="unconfirmed">tongan pa’anga</displayName>
-				<displayName count="other" draft="unconfirmed">tongan pa’angas</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="TRY">
 				<displayName draft="unconfirmed">turc lira</displayName>
-				<displayName count="other" draft="unconfirmed">turc liras</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="variant" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="TTD">
 				<displayName draft="unconfirmed">dollar de Trinidad e Tobago</displayName>
-				<displayName count="other" draft="unconfirmed">dollares de Trinidad e Tobago</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="TWD">
 				<displayName draft="unconfirmed">nov taiwanesi dollar</displayName>
-				<displayName count="other" draft="unconfirmed">nov taiwanesi dollares</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="TZS">
 				<displayName draft="unconfirmed">tanzanian shilling</displayName>
-				<displayName count="other" draft="unconfirmed">tanzanian shillings</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="UAH">
 				<displayName draft="unconfirmed">ukrainan hrivnia</displayName>
-				<displayName count="other" draft="unconfirmed">ukrainan hrivnias</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="UGX">
 				<displayName draft="unconfirmed">ugandesi shilling</displayName>
-				<displayName count="other" draft="unconfirmed">ugandesi shillings</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="USD">
 				<displayName draft="unconfirmed">american dollar</displayName>
-				<displayName count="other" draft="unconfirmed">american dollares</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="UYU">
 				<displayName draft="unconfirmed">uruguayan peso</displayName>
-				<displayName count="other" draft="unconfirmed">uruguayan pesos</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="UZS">
 				<displayName draft="unconfirmed">uzbec som</displayName>
-				<displayName count="other" draft="unconfirmed">uzbec somes</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="VES">
 				<displayName draft="unconfirmed">venezuelan bolivar</displayName>
-				<displayName count="other" draft="unconfirmed">venezuelan bolivares</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName draft="unconfirmed">vietnamesi dong</displayName>
-				<displayName count="other" draft="unconfirmed">vietnamesi dongs</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="VUV">
 				<displayName draft="unconfirmed">vanuatuan vatu</displayName>
-				<displayName count="other" draft="unconfirmed">vanuatuan vatus</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="WST">
 				<displayName draft="unconfirmed">samoan tala</displayName>
-				<displayName count="other" draft="unconfirmed">samoan talas</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="XAF">
 				<displayName draft="unconfirmed">CFA franc</displayName>
-				<displayName count="other" draft="unconfirmed">CFA francs</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="XAG">
 				<displayName draft="unconfirmed">argent</displayName>
-				<displayName count="other" draft="unconfirmed">troy-uncies de argent</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="XAU">
 				<displayName draft="unconfirmed">aur</displayName>
-				<displayName count="other" draft="unconfirmed">troy-uncies de aur</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="XBA">
@@ -4580,7 +4284,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="XCD">
 				<displayName draft="unconfirmed">ost-caribean dollar</displayName>
-				<displayName count="other" draft="unconfirmed">ost-caribean dollares</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
@@ -4592,43 +4295,35 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="XOF">
 				<displayName draft="unconfirmed">west-african CFA franc</displayName>
-				<displayName count="other" draft="unconfirmed">west-african CFA francs</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="XPD">
 				<displayName draft="unconfirmed">palladium</displayName>
-				<displayName count="other" draft="unconfirmed">troy-uncies de palladium</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="XPF">
 				<displayName draft="unconfirmed">CFP franc</displayName>
-				<displayName count="other" draft="unconfirmed">CFP francs</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="XPT">
 				<displayName draft="unconfirmed">platine</displayName>
-				<displayName count="other" draft="unconfirmed">troy-uncies de platine</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="XXX">
 				<displayName draft="unconfirmed">ínconosset valuta</displayName>
-				<displayName count="other" draft="unconfirmed">de ínconosset valuta</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="YER">
 				<displayName draft="unconfirmed">yemenesi real</displayName>
-				<displayName count="other" draft="unconfirmed">yemenesi reales</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="ZAR">
 				<displayName draft="unconfirmed">sud-african rand</displayName>
-				<displayName count="other" draft="unconfirmed">sud-african randes</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="ZMW">
 				<displayName draft="unconfirmed">zambian kwacha</displayName>
-				<displayName count="other" draft="unconfirmed">zambian kwachas</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
@@ -4640,8 +4335,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="range" draft="unconfirmed">{0}..{1}</pattern>
 		</miscPatterns>
 		<minimalPairs>
-			<pluralMinimalPairs count="one">{0} die</pluralMinimalPairs>
-			<pluralMinimalPairs count="other" draft="contributed">{0} dies</pluralMinimalPairs>
 			<ordinalMinimalPairs ordinal="other">Li {0}-im edition</ordinalMinimalPairs>
 		</minimalPairs>
 	</numbers>
@@ -4711,93 +4404,71 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<compoundUnitPattern draft="unconfirmed">↑↑↑</compoundUnitPattern>
 			</compoundUnit>
 			<compoundUnit type="power2">
-				<compoundUnitPattern1 count="other" draft="unconfirmed">{0} quadrat</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="power3">
-				<compoundUnitPattern1 count="other" draft="unconfirmed">{0} cubic</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="times">
 				<compoundUnitPattern draft="unconfirmed">{0}-{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-meter-per-square-second">
 				<displayName draft="unconfirmed">metres per seconde quadrat</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} metres per seconde quadrat</unitPattern>
 			</unit>
 			<unit type="angle-revolution">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-radian">
 				<displayName>radianes</displayName>
-				<unitPattern count="other">{0} radianes</unitPattern>
 			</unit>
 			<unit type="angle-degree">
 				<displayName>gradus</displayName>
-				<unitPattern count="other">{0} gradus</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
 				<displayName draft="unconfirmed">arc-minutes</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} arc-minutes</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
 				<displayName draft="unconfirmed">arc-secondes</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} arc-secondes</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
 				<displayName draft="unconfirmed">kilometres quadrat</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} kilometres quadrat</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName draft="unconfirmed">hectares</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} hectares</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
 				<displayName draft="unconfirmed">metre quadrat</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} metres quadrat</unitPattern>
 			</unit>
 			<unit type="area-square-centimeter">
 				<displayName draft="unconfirmed">centimetre quadrat</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} centimetres quadrat</unitPattern>
 			</unit>
 			<unit type="area-square-mile">
 				<displayName draft="unconfirmed">milies quadrat</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} milies quadrat</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} acres</unitPattern>
 			</unit>
 			<unit type="area-square-yard">
 				<displayName draft="unconfirmed">yardes quadrat</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} yardes quadrat</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
 				<displayName draft="unconfirmed">pedes quadrat</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} pedes quadrat</unitPattern>
 			</unit>
 			<unit type="area-square-inch">
 				<displayName draft="unconfirmed">inches quadrat</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} inches quadrat</unitPattern>
 			</unit>
 			<unit type="concentr-karat">
 				<displayName draft="unconfirmed">carates</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} carates</unitPattern>
 			</unit>
 			<unit type="concentr-percent">
 				<displayName draft="unconfirmed">percent</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} percent</unitPattern>
 			</unit>
 			<unit type="concentr-permille">
 				<displayName draft="unconfirmed">permille</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} permille</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName draft="unconfirmed">litres per kilometre</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} litres per kilometre</unitPattern>
 			</unit>
 			<unit type="digital-petabyte">
 				<displayName draft="unconfirmed">petaoctetes</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} petaoctetes</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName draft="unconfirmed">teraoctetes</displayName>
@@ -4825,425 +4496,324 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="digital-byte">
 				<displayName draft="unconfirmed">octetes</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} octetes</unitPattern>
 			</unit>
 			<unit type="digital-bit">
 				<displayName draft="unconfirmed">bits</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} bits</unitPattern>
 			</unit>
 			<unit type="duration-century">
 				<displayName draft="unconfirmed">secules</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} secules</unitPattern>
 			</unit>
 			<unit type="duration-decade">
 				<displayName draft="unconfirmed">decennies</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} decennies</unitPattern>
 			</unit>
 			<unit type="duration-year">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} annus</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} per annu</perUnitPattern>
 			</unit>
 			<unit type="duration-quarter">
 				<displayName draft="unconfirmed">trimestres</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} trimestres</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} per trimestre</perUnitPattern>
 			</unit>
 			<unit type="duration-month">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} mensus</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} per mensu</perUnitPattern>
 			</unit>
 			<unit type="duration-week">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} semanes</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} per semane</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} dies</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} per die</perUnitPattern>
 			</unit>
 			<unit type="duration-hour">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} hores</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} per hor</perUnitPattern>
 			</unit>
 			<unit type="duration-minute">
 				<displayName draft="unconfirmed">minutes</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} minutes</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} per minute</perUnitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName draft="unconfirmed">secondes</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} secondes</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} per seconde</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<displayName draft="unconfirmed">millisecondes</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} millisecondes</unitPattern>
 			</unit>
 			<unit type="duration-microsecond">
 				<displayName draft="unconfirmed">microsecondes</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} microsecondes</unitPattern>
 			</unit>
 			<unit type="duration-nanosecond">
 				<displayName draft="unconfirmed">nanosecondes</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} nanosecondes</unitPattern>
 			</unit>
 			<unit type="electric-ampere">
 				<displayName draft="unconfirmed">amperes</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} amperes</unitPattern>
 			</unit>
 			<unit type="electric-milliampere">
 				<displayName draft="unconfirmed">milliamperes</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} milliamperes</unitPattern>
 			</unit>
 			<unit type="electric-ohm">
 				<displayName draft="unconfirmed">ohms</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} ohms</unitPattern>
 			</unit>
 			<unit type="electric-volt">
 				<displayName draft="unconfirmed">voltes</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} voltes</unitPattern>
 			</unit>
 			<unit type="energy-kilocalorie">
 				<displayName draft="unconfirmed">kilocalories</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} kilocalories</unitPattern>
 			</unit>
 			<unit type="energy-calorie">
 				<displayName draft="unconfirmed">calories</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} calories</unitPattern>
 			</unit>
 			<unit type="energy-kilojoule">
 				<displayName draft="unconfirmed">kilojoules</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} kilojoules</unitPattern>
 			</unit>
 			<unit type="energy-joule">
 				<displayName draft="unconfirmed">joules</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} joules</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
 				<displayName draft="unconfirmed">kilowatt-hores</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} kilowatt-hores</unitPattern>
 			</unit>
 			<unit type="energy-electronvolt">
 				<displayName draft="unconfirmed">electron-voltes</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} electron-voltes</unitPattern>
 			</unit>
 			<unit type="energy-british-thermal-unit">
 				<displayName draft="unconfirmed">britanic termal unités</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} britanic termal unités</unitPattern>
 			</unit>
 			<unit type="force-newton">
 				<displayName draft="unconfirmed">newtones</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} newtones</unitPattern>
 			</unit>
 			<unit type="frequency-gigahertz">
 				<displayName draft="unconfirmed">gigahertz</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} gigahertz</unitPattern>
 			</unit>
 			<unit type="frequency-megahertz">
 				<displayName draft="unconfirmed">megahertz</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} megahertz</unitPattern>
 			</unit>
 			<unit type="frequency-kilohertz">
 				<displayName draft="unconfirmed">kilohertz</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} kilohertz</unitPattern>
 			</unit>
 			<unit type="frequency-hertz">
 				<displayName draft="unconfirmed">hertz</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} hertz</unitPattern>
 			</unit>
 			<unit type="graphics-pixel">
 				<displayName draft="unconfirmed">pixels</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} pixels</unitPattern>
 			</unit>
 			<unit type="graphics-megapixel">
 				<displayName draft="unconfirmed">megapixels</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} megapixels</unitPattern>
 			</unit>
 			<unit type="graphics-pixel-per-centimeter">
 				<displayName draft="unconfirmed">pixels per centimetre</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} pixels per centimetre</unitPattern>
 			</unit>
 			<unit type="graphics-pixel-per-inch">
 				<displayName draft="unconfirmed">pixels per inch</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} pixels per inch</unitPattern>
 			</unit>
 			<unit type="length-earth-radius">
 				<displayName draft="unconfirmed">radiuses del terra</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} radiuses del terra</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName draft="unconfirmed">kilometres</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} kilometres</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} per kilometre</perUnitPattern>
 			</unit>
 			<unit type="length-meter">
 				<displayName draft="unconfirmed">metres</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} metres</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} per metre</perUnitPattern>
 			</unit>
 			<unit type="length-decimeter">
 				<displayName draft="unconfirmed">decimetres</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} decimetres</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<displayName draft="unconfirmed">centimetres</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} centimetres</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} per centimetre</perUnitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName draft="unconfirmed">millimetres</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} millimetres</unitPattern>
 			</unit>
 			<unit type="length-micrometer">
 				<displayName draft="unconfirmed">micrometres</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} micrometres</unitPattern>
 			</unit>
 			<unit type="length-nanometer">
 				<displayName draft="unconfirmed">nanometres</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} nanometres</unitPattern>
 			</unit>
 			<unit type="length-picometer">
 				<displayName draft="unconfirmed">picometres</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} picometres</unitPattern>
 			</unit>
 			<unit type="length-mile">
 				<displayName draft="unconfirmed">milies</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} milies</unitPattern>
 			</unit>
 			<unit type="length-yard">
 				<displayName draft="unconfirmed">yards</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} yardes</unitPattern>
 			</unit>
 			<unit type="length-foot">
 				<displayName draft="unconfirmed">pedes</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} pedes</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} per pede</perUnitPattern>
 			</unit>
 			<unit type="length-inch">
 				<displayName draft="unconfirmed">inches</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} inches</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} per inch</perUnitPattern>
 			</unit>
 			<unit type="length-parsec">
 				<displayName draft="unconfirmed">parsecs</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} parsecs</unitPattern>
 			</unit>
 			<unit type="length-light-year">
 				<displayName draft="unconfirmed">luce-annus</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} luce-annus</unitPattern>
 			</unit>
 			<unit type="length-astronomical-unit">
 				<displayName draft="unconfirmed">unité astronomic</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} unités astronomic</unitPattern>
 			</unit>
 			<unit type="length-nautical-mile">
 				<displayName draft="unconfirmed">marin milies</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} marin milies</unitPattern>
 			</unit>
 			<unit type="length-point">
 				<displayName draft="unconfirmed">punctus</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} punctus</unitPattern>
 			</unit>
 			<unit type="length-solar-radius">
 				<displayName draft="unconfirmed">radiuses del sol</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} radiuses del sol</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName draft="unconfirmed">lux</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} lux</unitPattern>
 			</unit>
 			<unit type="light-candela">
 				<displayName draft="unconfirmed">candelas</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} candelas</unitPattern>
 			</unit>
 			<unit type="light-lumen">
 				<displayName draft="unconfirmed">lumenes</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} lumenes</unitPattern>
 			</unit>
 			<unit type="light-solar-luminosity">
 				<displayName draft="unconfirmed">luminositás solari</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} luminositás solari</unitPattern>
 			</unit>
 			<unit type="mass-tonne">
 				<displayName draft="unconfirmed">tonnes</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} tonnes</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName draft="unconfirmed">kilogrammes</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} kilogrammes</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} per kilogramm</perUnitPattern>
 			</unit>
 			<unit type="mass-gram">
 				<displayName draft="unconfirmed">grammes</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} grammes</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} per gramm</perUnitPattern>
 			</unit>
 			<unit type="mass-milligram">
 				<displayName draft="unconfirmed">milligrammes</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} milligrammes</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
 				<displayName draft="unconfirmed">microgrammes</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} microgrammes</unitPattern>
 			</unit>
 			<unit type="mass-ton">
 				<displayName draft="unconfirmed">american tonnes</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} american tonnes</unitPattern>
 			</unit>
 			<unit type="mass-stone">
 				<displayName draft="unconfirmed">stones</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} stones</unitPattern>
 			</unit>
 			<unit type="mass-pound">
 				<displayName draft="unconfirmed">pundes</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} pundes</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
 				<displayName draft="unconfirmed">uncies</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} uncies</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName draft="unconfirmed">gigawattes</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} gigawattes</unitPattern>
 			</unit>
 			<unit type="power-megawatt">
 				<displayName draft="unconfirmed">megawattes</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} megawattes</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<displayName draft="unconfirmed">kilowattes</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} kilowattes</unitPattern>
 			</unit>
 			<unit type="power-watt">
 				<displayName draft="unconfirmed">wattes</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} wattes</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
 				<displayName draft="unconfirmed">milliwattes</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} milliwattes</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
 				<displayName draft="unconfirmed">cavall-forties</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} cavall-forties</unitPattern>
 			</unit>
 			<unit type="pressure-bar">
 				<displayName draft="unconfirmed">bares</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} bares</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
 				<displayName draft="unconfirmed">millibares</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} millibares</unitPattern>
 			</unit>
 			<unit type="pressure-atmosphere">
 				<displayName draft="unconfirmed">atmosferes</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} atmosferes</unitPattern>
 			</unit>
 			<unit type="pressure-pascal">
 				<displayName draft="unconfirmed">pascales</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} pascales</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName draft="unconfirmed">hectopascales</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} hectopascales</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName draft="unconfirmed">kilopascales</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} kilopascales</unitPattern>
 			</unit>
 			<unit type="pressure-megapascal">
 				<displayName draft="unconfirmed">megapascales</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} megapascales</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName draft="unconfirmed">kilometres per hor</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} kilometres per hor</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
 				<displayName draft="unconfirmed">metres per seconde</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} metres per seconde</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
 				<displayName draft="unconfirmed">milies per hor</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} milies per hor</unitPattern>
 			</unit>
 			<unit type="speed-knot">
 				<displayName draft="unconfirmed">nodes</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} nodes</unitPattern>
 			</unit>
 			<unit type="temperature-generic">
 				<displayName draft="unconfirmed">gradus de temperatura</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} gradus de temperatura</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
 				<displayName draft="unconfirmed">gradus Celsius</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} gradus Celsius</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
 				<displayName draft="unconfirmed">gradus Fahrenheit</displayName>
 			</unit>
 			<unit type="temperature-kelvin">
 				<displayName draft="unconfirmed">kelvines</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} kelvines</unitPattern>
 			</unit>
 			<unit type="torque-newton-meter">
 				<displayName draft="unconfirmed">newton-metres</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} newton-metres</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<displayName draft="unconfirmed">kilometres cubic</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} kilometres cubic</unitPattern>
 			</unit>
 			<unit type="volume-cubic-meter">
 				<displayName draft="unconfirmed">metres cubic</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} metres cubic</unitPattern>
 			</unit>
 			<unit type="volume-cubic-centimeter">
 				<displayName draft="unconfirmed">centimetres cubic</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} centimetres cubic</unitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
 				<displayName draft="unconfirmed">milies cubic</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} milies cubic</unitPattern>
 			</unit>
 			<unit type="volume-cubic-yard">
 				<displayName draft="unconfirmed">yardes cubic</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} yardes cubic</unitPattern>
 			</unit>
 			<unit type="volume-cubic-foot">
 				<displayName draft="unconfirmed">pedes cubic</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} pedes cubic</unitPattern>
 			</unit>
 			<unit type="volume-cubic-inch">
 				<displayName draft="unconfirmed">inches cubic</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} inches cubic</unitPattern>
 			</unit>
 			<unit type="volume-megaliter">
 				<displayName draft="unconfirmed">megalitres</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} megalitres</unitPattern>
 			</unit>
 			<unit type="volume-liter">
 				<displayName draft="unconfirmed">litres</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} litres</unitPattern>
 			</unit>
 			<unit type="volume-deciliter">
 				<displayName draft="unconfirmed">decilitres</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} decilitres</unitPattern>
 			</unit>
 			<unit type="volume-centiliter">
 				<displayName draft="unconfirmed">centilitres</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} centilitres</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
 				<displayName draft="unconfirmed">millilitres</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} millilitres</unitPattern>
 			</unit>
 			<unit type="volume-bushel">
 				<displayName draft="unconfirmed">busheles</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} busheles</unitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName draft="unconfirmed">direction cardinal</displayName>
@@ -5342,523 +4912,401 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<compoundUnitPattern draft="unconfirmed">↑↑↑</compoundUnitPattern>
 			</compoundUnit>
 			<compoundUnit type="power2">
-				<compoundUnitPattern1 count="other" draft="unconfirmed">↑↑↑</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="power3">
-				<compoundUnitPattern1 count="other" draft="unconfirmed">↑↑↑</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="times">
 				<compoundUnitPattern draft="unconfirmed">{0}{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-meter-per-square-second">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-revolution">
 				<displayName>↑↑↑</displayName>
 			</unit>
 			<unit type="angle-radian">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-degree">
 				<displayName>°</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="area-square-centimeter">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="area-square-mile">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<displayName draft="unconfirmed">acres</displayName>
 			</unit>
 			<unit type="area-square-yard">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="area-square-inch">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="concentr-milligram-ofglucose-per-deciliter">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-percent">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-permille">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-petabyte">
 				<displayName draft="unconfirmed">Po</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} Po</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName draft="unconfirmed">To</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} To</unitPattern>
 			</unit>
 			<unit type="digital-terabit">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-gigabyte">
 				<displayName draft="unconfirmed">Go</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} Go</unitPattern>
 			</unit>
 			<unit type="digital-gigabit">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-megabyte">
 				<displayName draft="unconfirmed">Mo</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} Mo</unitPattern>
 			</unit>
 			<unit type="digital-megabit">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-kilobyte">
 				<displayName draft="unconfirmed">ko</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} ko</unitPattern>
 			</unit>
 			<unit type="digital-kilobit">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-byte">
 				<displayName draft="unconfirmed">oct</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} oct</unitPattern>
 			</unit>
 			<unit type="digital-bit">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-century">
 				<displayName draft="unconfirmed">scl</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} scl</unitPattern>
 			</unit>
 			<unit type="duration-decade">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-year">
 				<displayName draft="unconfirmed">annus</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} a</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0}/a</perUnitPattern>
 			</unit>
 			<unit type="duration-quarter">
 				<displayName draft="unconfirmed">tr</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} tr</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0}/tr</perUnitPattern>
 			</unit>
 			<unit type="duration-month">
 				<displayName draft="unconfirmed">mensus</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} mn</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0}/mn</perUnitPattern>
 			</unit>
 			<unit type="duration-week">
 				<displayName draft="unconfirmed">semanes</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} sem</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0}/sem</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName draft="unconfirmed">dies</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="duration-hour">
 				<displayName draft="unconfirmed">hores</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="duration-minute">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-microsecond">
 				<displayName draft="unconfirmed">mcs</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} mcs</unitPattern>
 			</unit>
 			<unit type="duration-nanosecond">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="electric-ampere">
 				<displayName draft="unconfirmed">A</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="electric-milliampere">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="electric-ohm">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="electric-volt">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-kilocalorie">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-calorie">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-kilojoule">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-joule">
 				<displayName draft="unconfirmed">J</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-electronvolt">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-british-thermal-unit">
 				<displayName draft="unconfirmed">btu</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} btu</unitPattern>
 			</unit>
 			<unit type="force-newton">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="frequency-gigahertz">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="frequency-megahertz">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="frequency-kilohertz">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="frequency-hertz">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-pixel">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-megapixel">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-pixel-per-centimeter">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-pixel-per-inch">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-earth-radius">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="length-meter">
 				<displayName draft="unconfirmed">m</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="length-decimeter">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-micrometer">
 				<displayName draft="unconfirmed">mcm</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} mcm</unitPattern>
 			</unit>
 			<unit type="length-nanometer">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-picometer">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-mile">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-yard">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-foot">
 				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="length-inch">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="length-parsec">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-light-year">
 				<displayName draft="unconfirmed">la</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} la</unitPattern>
 			</unit>
 			<unit type="length-astronomical-unit">
 				<displayName draft="unconfirmed">ua</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} ua</unitPattern>
 			</unit>
 			<unit type="length-point">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-solar-radius">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-candela">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-lumen">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-solar-luminosity">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-tonne">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="mass-gram">
 				<displayName draft="unconfirmed">gramm</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="mass-milligram">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
 				<displayName draft="unconfirmed">mcg</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} mcg</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-megawatt">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-watt">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-ofhg">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-bar">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-atmosphere">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-pascal">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-megapascal">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
 				<displayName draft="unconfirmed">milies/hor</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="temperature-generic">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="temperature-kelvin">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="torque-newton-meter">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cubic-meter">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-centimeter">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cubic-yard">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cubic-inch">
 				<displayName draft="unconfirmed">inches³</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-megaliter">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-liter">
 				<displayName draft="unconfirmed">l</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} L</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0}/L</perUnitPattern>
 			</unit>
 			<unit type="volume-deciliter">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-centiliter">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-bushel">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName draft="unconfirmed">↑↑↑</displayName>
@@ -5957,519 +5405,398 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<compoundUnitPattern draft="unconfirmed">↑↑↑</compoundUnitPattern>
 			</compoundUnit>
 			<compoundUnit type="power2">
-				<compoundUnitPattern1 count="other" draft="unconfirmed">↑↑↑</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="power3">
-				<compoundUnitPattern1 count="other" draft="unconfirmed">↑↑↑</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="times">
 				<compoundUnitPattern draft="unconfirmed">{0}⋅{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-meter-per-square-second">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-revolution">
 				<displayName>↑↑↑</displayName>
 			</unit>
 			<unit type="angle-radian">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-degree">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="area-square-centimeter">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="area-square-mile">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<displayName draft="unconfirmed">acre</displayName>
 			</unit>
 			<unit type="area-square-yard">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="area-square-inch">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="concentr-milligram-ofglucose-per-deciliter">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-percent">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-permille">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-petabyte">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-terabit">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-gigabyte">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-gigabit">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-megabyte">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-megabit">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-kilobyte">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
 			</unit>
 			<unit type="digital-kilobit">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-byte">
 				<displayName draft="unconfirmed">o</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} o</unitPattern>
 			</unit>
 			<unit type="digital-bit">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-century">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-decade">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-year">
 				<displayName draft="unconfirmed">a</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="duration-quarter">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="duration-month">
 				<displayName draft="unconfirmed">mn</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="duration-week">
 				<displayName draft="unconfirmed">sem</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName draft="unconfirmed">d</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="duration-hour">
 				<displayName draft="unconfirmed">h</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="duration-minute">
 				<displayName draft="unconfirmed">m</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} m</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0}/m</perUnitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName draft="unconfirmed">s</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-microsecond">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-nanosecond">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="electric-ampere">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="electric-milliampere">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="electric-ohm">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="electric-volt">
 				<displayName draft="unconfirmed">V</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-kilocalorie">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-calorie">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-kilojoule">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-joule">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-electronvolt">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-british-thermal-unit">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="force-newton">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="frequency-gigahertz">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="frequency-megahertz">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="frequency-kilohertz">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="frequency-hertz">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-pixel">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-megapixel">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-pixel-per-centimeter">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-pixel-per-inch">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-earth-radius">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="length-meter">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="length-decimeter">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-micrometer">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-nanometer">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-picometer">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-mile">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-yard">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-inch">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="length-parsec">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-light-year">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-astronomical-unit">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-point">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-solar-radius">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-candela">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-lumen">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-solar-luminosity">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-tonne">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="mass-gram">
 				<displayName draft="unconfirmed">g</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="mass-milligram">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-megawatt">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-watt">
 				<displayName draft="unconfirmed">W</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-ofhg">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-bar">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-atmosphere">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-pascal">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-megapascal">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
 				<displayName draft="unconfirmed">mi/h</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="temperature-generic">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="temperature-kelvin">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="torque-newton-meter">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cubic-meter">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-centimeter">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cubic-yard">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cubic-inch">
 				<displayName draft="unconfirmed">in³</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-megaliter">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-liter">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="volume-deciliter">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-centiliter">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-bushel">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName draft="unconfirmed">dir.</displayName>
@@ -6563,7 +5890,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabelPattern type="miscellaneous" draft="unconfirmed">{0} — varie</characterLabelPattern>
 		<characterLabelPattern type="other" draft="unconfirmed">{0} — altri</characterLabelPattern>
 		<characterLabelPattern type="scripts" draft="unconfirmed">scrituras — {0}</characterLabelPattern>
-		<characterLabelPattern type="strokes" count="other" draft="unconfirmed">{0}-strec</characterLabelPattern>
 		<characterLabelPattern type="subscript" draft="unconfirmed">subscrit {0}</characterLabelPattern>
 		<characterLabelPattern type="superscript" draft="unconfirmed">surscrit {0}</characterLabelPattern>
 		<characterLabel type="activities" draft="unconfirmed">activité</characterLabel>

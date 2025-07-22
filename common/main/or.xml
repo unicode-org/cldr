@@ -287,6 +287,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="ksf">ବାଫଲା</language>
 			<language type="ksh">କୋଲୋବନିୟ</language>
 			<language type="ku">କୁର୍ଦ୍ଦିଶ୍</language>
+			<language type="ku" menu="core">କୁର୍ଦ୍ଦିଶ୍‌</language>
+			<language type="ku" menu="extension">କୁର୍‌ମାଞ୍ଜି</language>
 			<language type="kum">କୁମୀକ୍</language>
 			<language type="kut">କୁତେନାଉ</language>
 			<language type="kv">କୋମି</language>
@@ -810,6 +812,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="CN">ଚୀନ୍‌</territory>
 			<territory type="CO">କଲମ୍ବିଆ</territory>
 			<territory type="CP">କ୍ଲିପରଟନ୍‌ ଦ୍ୱୀପ</territory>
+			<territory type="CQ">ସର୍କ୍‌</territory>
 			<territory type="CR">କୋଷ୍ଟା ରିକା</territory>
 			<territory type="CU">କ‍୍ୟୁବା</territory>
 			<territory type="CV">କେପ୍ ଭର୍ଦେ</territory>
@@ -876,7 +879,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="IM">ଆଇଲ୍‌ ଅଫ୍‌ ମ୍ୟାନ୍‌</territory>
 			<territory type="IN">ଭାରତ</territory>
 			<territory type="IO">ବ୍ରିଟିଶ୍‌ ଭାରତୀୟ ମହାସାଗର କ୍ଷେତ୍ର</territory>
-			<territory type="IO" alt="biot">ବ୍ରିଟିଶ୍‌ ଭାରତୀୟ ମହାସାଗର କ୍ଷେତ୍ର</territory>
+			<territory type="IO" alt="biot">↑↑↑</territory>
 			<territory type="IO" alt="chagos">ଚାଗୋସ୍ ଆର୍କିପେଲାଗୋ</territory>
 			<territory type="IQ">ଇରାକ୍</territory>
 			<territory type="IR">ଇରାନ</territory>
@@ -1056,43 +1059,83 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<key type="cf">ମୁଦ୍ରା ଫର୍ମାଟ୍‌</key>
 			<key type="collation">ସର୍ଟ୍‌ କ୍ରମ</key>
 			<key type="currency">ମୁଦ୍ରା</key>
+			<key type="em">ଦର୍ଶାଯାଇଥିବା ଇମୋଜି</key>
 			<key type="hc">ଘଣ୍ଟା ଚକ୍ର (12 ବନାମ 24)</key>
 			<key type="lb">ଲାଇନ୍‌ ବ୍ରେକ୍‌ ଷ୍ଟାଇଲ୍‌</key>
+			<key type="lw">ଶବ୍ଦଗୁଡ଼ିକ ଥିବା ଲାଇନ ବ୍ରେକ</key>
 			<key type="ms">ମାପ ପଦ୍ଧତି</key>
 			<key type="numbers">ସଂଖ୍ୟା</key>
+			<key type="ss">Abbr ପରେ ଥିବା ବାକ୍ୟ</key>
 		</keys>
 		<types>
 			<type key="calendar" type="buddhist">ବୌଦ୍ଧ କ୍ୟାଲେଣ୍ଡର୍‌</type>
+			<type key="calendar" type="buddhist" scope="core">ବୌଦ୍ଧ</type>
 			<type key="calendar" type="chinese">ଚାଇନିଜ୍‌ କ୍ୟାଲେଣ୍ଡର୍‌</type>
+			<type key="calendar" type="chinese" scope="core">ଚାଇନିଜ୍‌</type>
 			<type key="calendar" type="coptic">କପ୍ଟିକ୍ କ୍ୟାଲେଣ୍ଡର୍‌</type>
+			<type key="calendar" type="coptic" scope="core">କପ୍ଟିକ୍‌</type>
 			<type key="calendar" type="dangi">ଦାଙ୍ଗି କ୍ୟାଲେଣ୍ଡର୍‌</type>
+			<type key="calendar" type="dangi" scope="core">ଦାଙ୍ଗି</type>
 			<type key="calendar" type="ethiopic">ଇଥିଓପିକ୍‌ କ୍ୟାଲେଣ୍ଡର୍‌</type>
+			<type key="calendar" type="ethiopic" scope="core">ଇଥିଓପିକ୍‌</type>
 			<type key="calendar" type="ethiopic-amete-alem">ଏଥିଓପିକ୍-ଆମେଟ୍-ଆଲେମ୍</type>
+			<type key="calendar" type="ethiopic-amete-alem" scope="core">ଇଥିଓପିକ୍ ଆମେଟେ ଆଲେମ୍</type>
 			<type key="calendar" type="gregorian">ଗ୍ରେଗୋରିୟ କ୍ୟାଲେଣ୍ଡର୍</type>
+			<type key="calendar" type="gregorian" scope="core">ଗ୍ରେଗୋରିଆନ୍‌</type>
 			<type key="calendar" type="hebrew">ହିବୃ କ୍ୟାଲେଣ୍ଡର୍‌</type>
+			<type key="calendar" type="hebrew" scope="core">ହିବୃ</type>
 			<type key="calendar" type="indian">ଭାରତୀୟ ରାଷ୍ଟ୍ରୀୟ କ୍ୟାଲେଣ୍ଡର୍‌</type>
+			<type key="calendar" type="indian" scope="core">ଭାରତୀୟ ଜାତୀୟ</type>
 			<type key="calendar" type="islamic">ହିଜ୍ରି କ୍ୟାଲେଣ୍ଡର</type>
+			<type key="calendar" type="islamic" scope="core">ହିଜ୍ରି</type>
 			<type key="calendar" type="islamic-civil">ହିଜ୍ରି କ୍ୟାଲେଣ୍ଡର (ଟାବୁଲାର୍, ନାଗରିକ ଯୁଗ)</type>
+			<type key="calendar" type="islamic-civil" scope="core">ହିଜ୍ରି (ଟାବୁଲାର୍, ସିଭିଲ୍‌ ଆରମ୍ଭ କାଳ)</type>
 			<type key="calendar" type="islamic-umalqura">ହିଜ୍ରି କ୍ୟାଲେଣ୍ଡର (ଉମ୍ ଅଲ୍-କୁରା)</type>
+			<type key="calendar" type="islamic-umalqura" scope="core">ହିଜ୍ରି (ଉମ୍ ଅଲ୍-କୁରା)</type>
 			<type key="calendar" type="iso8601">ISO-8601 କ୍ୟାଲେଣ୍ଡର୍‌</type>
 			<type key="calendar" type="japanese">ଜାପାନିଜ୍‌ କ୍ୟାଲେଣ୍ଡର୍‌</type>
+			<type key="calendar" type="japanese" scope="core">ଜାପାନିଜ୍‌</type>
 			<type key="calendar" type="persian">ପର୍ସିଆନ୍‌ କ୍ୟାଲେଣ୍ଡର୍‌</type>
+			<type key="calendar" type="persian" scope="core">ପର୍ସିଆନ୍‌</type>
 			<type key="calendar" type="roc">ମିଙ୍ଗୋଓ କ୍ୟାଲେଣ୍ଡର୍‌</type>
-			<type key="cf" type="account">ଏକାଉଣ୍ଟିଂ ମୁଦ୍ରା ଫର୍ମାଟ୍‌</type>
-			<type key="cf" type="standard">ମାନାଙ୍କ ମୁଦ୍ରା ଫର୍ମାଟ୍‌</type>
+			<type key="calendar" type="roc" scope="core">ମିଙ୍ଗ୍‌ୱୋ</type>
+			<type key="cf" type="account">ଆକାଉଣ୍ଟିଂ ମୁଦ୍ରା ଫର୍ମାଟ୍‌</type>
+			<type key="cf" type="account" scope="core">ଆକାଉଣ୍ଟିଂ</type>
+			<type key="cf" type="standard">ମାନକ ମୁଦ୍ରା ଫର୍ମାଟ୍‌</type>
+			<type key="cf" type="standard" scope="core">ମାନକ</type>
 			<type key="collation" type="ducet">ଡିଫଲ୍ଟ ୟୁନିକୋଡ୍‌ ସର୍ଟ୍‌ କ୍ରମ</type>
+			<type key="collation" type="ducet" scope="core">ଡିଫଲ୍ଟ୍‌ ୟୁନିକୋଡ୍‌</type>
 			<type key="collation" type="search">ସାଧାରଣ ଉଦ୍ଦେଶ୍ୟ-ବିଶିଷ୍ଟ ସନ୍ଧାନ</type>
+			<type key="collation" type="search" scope="core">ସର୍ଚ୍ଚ୍‌</type>
 			<type key="collation" type="standard">ଷ୍ଟାଣ୍ଡାର୍ଡ୍‌ ସର୍ଟ୍‌ କ୍ରମ</type>
+			<type key="collation" type="standard" scope="core">ଷ୍ଟାଣ୍ଡାର୍ଡ୍‌</type>
+			<type key="em" type="default" scope="core">ଡିଫଲ୍ଟ୍‌</type>
+			<type key="em" type="emoji" scope="core">ଇମୋଜି</type>
+			<type key="em" type="text" scope="core">ଟେକ୍ସ୍‌ଟ୍‌</type>
 			<type key="hc" type="h11">12 ଘଣ୍ଟିଆ ପଦ୍ଧତି (0–11)</type>
+			<type key="hc" type="h11" scope="core">12 (0–11)</type>
 			<type key="hc" type="h12">12 ଘଣ୍ଟିଆ ପଦ୍ଧତି (1–12)</type>
+			<type key="hc" type="h12" scope="core">12 (1–12)</type>
 			<type key="hc" type="h23">24 ଘଣ୍ଟିଆ ପଦ୍ଧତି (0–23)</type>
+			<type key="hc" type="h23" scope="core">24 (0–23)</type>
 			<type key="hc" type="h24">24 ଘଣ୍ଟିଆ ପଦ୍ଧତି (1–24)</type>
+			<type key="hc" type="h24" scope="core">24 (1–24)</type>
 			<type key="lb" type="loose">କୋହଳ ଲାଇନ୍‌ ବ୍ରେକ୍‌ ଷ୍ଟାଇଲ୍‌</type>
+			<type key="lb" type="loose" scope="core">କୋହଳ</type>
 			<type key="lb" type="normal">ସାଧାରଣ ଲାଇନ୍‌ ବ୍ରେକ୍‌ ଷ୍ଟାଇଲ୍‌</type>
+			<type key="lb" type="normal" scope="core">ସାଧାରଣ</type>
 			<type key="lb" type="strict">କଠୋର ଧାଡ଼ି ବିରତି ଶୈଳୀ</type>
+			<type key="lb" type="strict" scope="core">କଠୋର</type>
+			<type key="lw" type="breakall" scope="core">ସବୁ ବ୍ରେକ୍ କରନ୍ତୁ</type>
+			<type key="lw" type="keepall" scope="core">ସବୁ ରଖନ୍ତୁ</type>
+			<type key="lw" type="normal" scope="core">ସାଧାରଣ</type>
+			<type key="lw" type="phrase" scope="core">ବାକ‍୍ୟାଂଶରେ ରଖନ୍ତୁ</type>
 			<type key="ms" type="metric">ମେଟ୍ରିକ୍‌ ପଦ୍ଧତି</type>
+			<type key="ms" type="metric" scope="core">ମେଟ୍ରିକ୍‌</type>
 			<type key="ms" type="uksystem">ଇମ୍ପେରିଆଲ୍‌ ମାପ ପଦ୍ଧତି</type>
+			<type key="ms" type="uksystem" scope="core">UK</type>
 			<type key="ms" type="ussystem">ୟୁଏସ୍‌ ମାପ ପଦ୍ଧତି</type>
+			<type key="ms" type="ussystem" scope="core">US</type>
 			<type key="numbers" type="arab">ଆରବିକ୍‌-ଇଣ୍ଡିକ୍‌ ଅଙ୍କଗୁଡ଼ିକ</type>
 			<type key="numbers" type="arabext">ପରିବର୍ଦ୍ଧିତ ଆରବିକ୍‌-ଇଣ୍ଡିକ୍‌ ଅଙ୍କଗୁଡ଼ିକ</type>
 			<type key="numbers" type="armn">ଆର୍ମେନିୟ ସଂଖ୍ୟାଗୁଡ଼ିକ</type>
@@ -1134,6 +1177,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="numbers" type="thai">ଥାଇ ଅଙ୍କଗୁଡ଼ିକ</type>
 			<type key="numbers" type="tibt">ତିବତୀ ଅଙ୍କଗୁଡ଼ିକ</type>
 			<type key="numbers" type="vaii">ଭାଇ ଅଙ୍କଗୁଡ଼ିକ</type>
+			<type key="ss" type="none" scope="core">ଅଫ୍‌</type>
+			<type key="ss" type="standard" scope="core">ଅନ୍‌</type>
 		</types>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">ମେଟ୍ରିକ୍‌</measurementSystemName>
@@ -1149,9 +1194,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 	<characters>
 		<exemplarCharacters>[଼ ଅ ଆ ଇ ଈ ଉ ଊ ଋ ଏ ଐ ଓ ଔ ଁ ଂ ଃ କ ଖ ଗ ଘ ଙ ଚ ଛ ଜ ଝ ଞ ଟ ଠ ଡ{ଡ଼} ଢ{ଢ଼} ଣ ତ ଥ ଦ ଧ ନ ପ ଫ ବ ଭ ମ ଯୟ ର ଲ ଳ ଵ ୱ ଶ ଷ ସ ହ {କ୍ଷ} ା ି ୀ ୁ ୂ ୃ େ ୈ ୋ ୌ ୍]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[\u200C\u200D]</exemplarCharacters>
-		<exemplarCharacters type="index">[ଅ ଆ ଇ ଈ ଉ ଊ ଋ ଏ ଐ ଓ ଔ କ ଖ ଗ ଘ ଙ ଚ ଛ ଜ ଝ ଞ ଟ ଠ ଡ ଢ ଣ ତ ଥ ଦ ଧ ନ ପ ଫ ବ ଭ ମ ଯ ର ଲ ଳ ଶ ଷ ସ ହ {କ୍ଷ}]</exemplarCharacters>
+		<exemplarCharacters type="index">[ଅ ଆ ଇ ଈ ଉ ଊ ଋ ଏ ଐ ଓ ଔ କ ଖ ଗ ଘ ଙ ଚ ଛ ଜ ଝ ଞ ଟ ଠ ଡ ଢ ଣ ତ ଥ ଦ ଧ ନ ପ ଫ ବ ଭ ମ ଯୟ ର ଲ ଳ ୱ ଶ ଷ ସ ହ {କ୍ଷ}]</exemplarCharacters>
 		<exemplarCharacters type="numbers">[\- ‑ , . % ‰ + 0୦ 1୧ 2୨ 3୩ 4୪ 5୫ 6୬ 7୭ 8୮ 9୯]</exemplarCharacters>
-		<exemplarCharacters type="punctuation">[\- ‐‑ – — , ; \: ! ? . … '‘’ &quot;“” ( ) \[ \] § @ * / \&amp; # † ‡ ′ ″]</exemplarCharacters>
+		<exemplarCharacters type="numbers-auxiliary">[୦ ୧ ୨ ୩ ୪ ୫ ୬ ୭ ୮ ୯]</exemplarCharacters>
+		<exemplarCharacters type="punctuation">[\- ‐‑ – — , ; \: ! ? . … । '‘’ &quot;“” ( ) \[ \] § @ * / \&amp; # † ‡ ′ ″]</exemplarCharacters>
+		<exemplarCharacters type="punctuation-auxiliary">[॥]</exemplarCharacters>
+		<exemplarCharacters type="punctuation-person">↑↑↑</exemplarCharacters>
 		<ellipsis type="final">↑↑↑</ellipsis>
 		<ellipsis type="initial">↑↑↑</ellipsis>
 		<ellipsis type="medial">↑↑↑</ellipsis>
@@ -1169,7 +1217,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<parseLenient sample="%">↑↑↑</parseLenient>
 			<parseLenient sample="‰">↑↑↑</parseLenient>
 			<parseLenient sample="$">↑↑↑</parseLenient>
-			<parseLenient sample="£">[£￡ ₤]</parseLenient>
+			<parseLenient sample="£">↑↑↑</parseLenient>
 			<parseLenient sample="¥">↑↑↑</parseLenient>
 			<parseLenient sample="₩">↑↑↑</parseLenient>
 			<parseLenient sample="₹">[₹ {ଟ.} {ଟଙ୍କା} {Rp} {Rs}₨]</parseLenient>
@@ -1228,7 +1276,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern>{1} ରେ {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="relative">
-							<pattern draft="contributed">↑↑↑</pattern>
+							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
@@ -1239,7 +1287,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern>{1} ରେ {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="relative">
-							<pattern draft="contributed">↑↑↑</pattern>
+							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="medium">
@@ -1250,7 +1298,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="relative">
-							<pattern draft="contributed">↑↑↑</pattern>
+							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
@@ -1261,7 +1309,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="relative">
-							<pattern draft="contributed">↑↑↑</pattern>
+							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
@@ -1270,15 +1318,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Bhms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="d">↑↑↑</dateFormatItem>
 						<dateFormatItem id="E">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EBh">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EBhm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EBhms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ed">d E</dateFormatItem>
+						<dateFormatItem id="Eh">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EH">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ehm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EHm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ehms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EHms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
+						<dateFormatItem id="GyM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMEd">G dd-MM-y, E</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">MMM d, y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E, MMM d, y G</dateFormatItem>
@@ -1288,6 +1341,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Hm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Hms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hv">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Hv">↑↑↑</dateFormatItem>
 						<dateFormatItem id="M">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Md">M/d</dateFormatItem>
 						<dateFormatItem id="MEd">E, M/d</dateFormatItem>
@@ -1598,8 +1653,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<quarterWidth type="abbreviated">
 							<quarter type="1">Q1</quarter>
 							<quarter type="2">Q2</quarter>
-							<quarter type="3">↑↑↑</quarter>
-							<quarter type="4">↑↑↑</quarter>
+							<quarter type="3">Q3</quarter>
+							<quarter type="4">Q4</quarter>
 						</quarterWidth>
 						<quarterWidth type="narrow">
 							<quarter type="1">↑↑↑</quarter>
@@ -1616,8 +1671,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</quarterContext>
 					<quarterContext type="stand-alone">
 						<quarterWidth type="abbreviated">
-							<quarter type="1">Q1</quarter>
-							<quarter type="2">Q2</quarter>
+							<quarter type="1">↑↑↑</quarter>
+							<quarter type="2">↑↑↑</quarter>
 							<quarter type="3">Q3</quarter>
 							<quarter type="4">Q4</quarter>
 						</quarterWidth>
@@ -1642,8 +1697,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<dayPeriod type="pm">↑↑↑</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am">ପୂ</dayPeriod>
-							<dayPeriod type="pm">ଅ</dayPeriod>
+							<dayPeriod type="am">↑↑↑</dayPeriod>
+							<dayPeriod type="pm">↑↑↑</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am">↑↑↑</dayPeriod>
@@ -1652,16 +1707,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
 						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am">ପୂର୍ବାହ୍ନ</dayPeriod>
-							<dayPeriod type="pm">ଅପରାହ୍ନ</dayPeriod>
+							<dayPeriod type="am">↑↑↑</dayPeriod>
+							<dayPeriod type="pm">↑↑↑</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="am">AM</dayPeriod>
 							<dayPeriod type="pm">PM</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">↑↑↑</dayPeriod>
-							<dayPeriod type="pm">↑↑↑</dayPeriod>
+							<dayPeriod type="am">AM</dayPeriod>
+							<dayPeriod type="pm">PM</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
@@ -1740,7 +1795,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern>{0} ଠାରେ {1}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="relative">
-							<pattern draft="contributed">↑↑↑</pattern>
+							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
@@ -1751,7 +1806,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern>{0} ଠାରେ {1}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="relative">
-							<pattern draft="contributed">↑↑↑</pattern>
+							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="medium">
@@ -1762,7 +1817,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="relative">
-							<pattern draft="contributed">↑↑↑</pattern>
+							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
@@ -1773,7 +1828,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="relative">
-							<pattern draft="contributed">↑↑↑</pattern>
+							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
@@ -1782,15 +1837,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Bhms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="d">↑↑↑</dateFormatItem>
 						<dateFormatItem id="E">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EBh">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EBhm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EBhms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ed">d E</dateFormatItem>
+						<dateFormatItem id="Eh">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EH">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ehm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EHm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ehms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EHms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
+						<dateFormatItem id="GyM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMd">M/d/y G</dateFormatItem>
+						<dateFormatItem id="GyMEd">G dd-MM-y, E</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">MMM d, y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E, MMM d, y G</dateFormatItem>
@@ -1804,6 +1864,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Hmsv">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hmv">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Hmv">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hv">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Hv">↑↑↑</dateFormatItem>
 						<dateFormatItem id="M">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Md">M/d</dateFormatItem>
 						<dateFormatItem id="MEd">E, M/d</dateFormatItem>
@@ -1982,13 +2044,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<monthWidth type="abbreviated">
 							<month type="1">↑↑↑</month>
 							<month type="2">↑↑↑</month>
-							<month type="3">ଜ୍ୟେଷ୍ଠ</month>
+							<month type="3">↑↑↑</month>
 							<month type="4">↑↑↑</month>
 							<month type="5">↑↑↑</month>
 							<month type="6">↑↑↑</month>
 							<month type="7">↑↑↑</month>
 							<month type="8">↑↑↑</month>
-							<month type="9">ମାର୍ଗଶିର</month>
+							<month type="9">↑↑↑</month>
 							<month type="10">↑↑↑</month>
 							<month type="11">↑↑↑</month>
 							<month type="12">↑↑↑</month>
@@ -2026,13 +2088,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<monthWidth type="abbreviated">
 							<month type="1">↑↑↑</month>
 							<month type="2">↑↑↑</month>
-							<month type="3">ଜ୍ୟେଷ୍ଠ</month>
+							<month type="3">↑↑↑</month>
 							<month type="4">↑↑↑</month>
 							<month type="5">↑↑↑</month>
 							<month type="6">↑↑↑</month>
 							<month type="7">↑↑↑</month>
 							<month type="8">↑↑↑</month>
-							<month type="9">ମାର୍ଗଶିର</month>
+							<month type="9">↑↑↑</month>
 							<month type="10">↑↑↑</month>
 							<month type="11">↑↑↑</month>
 							<month type="12">↑↑↑</month>
@@ -2054,13 +2116,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<monthWidth type="wide">
 							<month type="1">↑↑↑</month>
 							<month type="2">↑↑↑</month>
-							<month type="3">ଜ୍ୟେଷ୍ଠ</month>
+							<month type="3">↑↑↑</month>
 							<month type="4">↑↑↑</month>
 							<month type="5">↑↑↑</month>
 							<month type="6">↑↑↑</month>
 							<month type="7">↑↑↑</month>
 							<month type="8">↑↑↑</month>
-							<month type="9">ମାର୍ଗଶିର</month>
+							<month type="9">↑↑↑</month>
 							<month type="10">↑↑↑</month>
 							<month type="11">↑↑↑</month>
 							<month type="12">↑↑↑</month>
@@ -2072,6 +2134,270 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<era type="0">ସାକା</era>
 					</eraAbbr>
 				</eras>
+			</calendar>
+			<calendar type="iso8601">
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>↑↑↑</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>↑↑↑</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>↑↑↑</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>↑↑↑</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<timeFormats>
+					<timeFormatLength type="full">
+						<timeFormat>
+							<pattern draft="contributed">↑↑↑</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="long">
+						<timeFormat>
+							<pattern draft="contributed">↑↑↑</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="medium">
+						<timeFormat>
+							<pattern draft="contributed">↑↑↑</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="short">
+						<timeFormat>
+							<pattern draft="contributed">↑↑↑</pattern>
+						</timeFormat>
+					</timeFormatLength>
+				</timeFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength type="full">
+						<dateTimeFormat>
+							<pattern draft="contributed">↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="atTime">
+							<pattern draft="contributed">↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern draft="contributed">↑↑↑</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="long">
+						<dateTimeFormat>
+							<pattern draft="contributed">↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="atTime">
+							<pattern draft="contributed">↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern draft="contributed">↑↑↑</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="medium">
+						<dateTimeFormat>
+							<pattern draft="contributed">↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="atTime">
+							<pattern draft="contributed">↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern draft="contributed">↑↑↑</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="short">
+						<dateTimeFormat>
+							<pattern draft="contributed">↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="atTime">
+							<pattern draft="contributed">↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern draft="contributed">↑↑↑</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<availableFormats>
+						<dateFormatItem id="Ed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Gy">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyM">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMMM">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Md">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="one">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="other">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yM">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMMM">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMMMEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMMMM">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yQQQ">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yQQQQ">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yw" count="one">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yw" count="other">↑↑↑</dateFormatItem>
+					</availableFormats>
+					<appendItems>
+						<appendItem request="Timezone" draft="contributed">↑↑↑</appendItem>
+					</appendItems>
+					<intervalFormats>
+						<intervalFormatItem id="Bh">
+							<greatestDifference id="B" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="h" draft="contributed">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Bhm">
+							<greatestDifference id="B" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="h" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="m" draft="contributed">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="d">
+							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Gy">
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyM">
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMEd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMM">
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMEd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="h">
+							<greatestDifference id="a" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="h" draft="contributed">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="H">
+							<greatestDifference id="H" draft="contributed">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hm">
+							<greatestDifference id="a" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="h" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="m" draft="contributed">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hm">
+							<greatestDifference id="H" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="m" draft="contributed">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hmv">
+							<greatestDifference id="a" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="h" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="m" draft="contributed">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hmv">
+							<greatestDifference id="H" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="m" draft="contributed">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hv">
+							<greatestDifference id="a" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="h" draft="contributed">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hv">
+							<greatestDifference id="H" draft="contributed">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="M">
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Md">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MEd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMM">
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMEd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="y">
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yM">
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMEd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMM">
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMEd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMM">
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
+				</dateTimeFormats>
 			</calendar>
 		</calendars>
 		<fields>
@@ -2143,7 +2469,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<field type="quarter-short">
 				<displayName>ତ୍ରୟ.</displayName>
 				<relative type="-1">ଗତ ତିନିମାସ</relative>
-				<relative type="0">ଏହି ତ୍ରୟମାସ</relative>
+				<relative type="0">↑↑↑</relative>
 				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} ତ୍ରୟ. ରେ</relativeTimePattern>
@@ -2331,7 +2657,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ମାସର ସାପ୍ତାହିକ ଦି.</displayName>
 			</field>
 			<field type="weekdayOfMonth-narrow">
-				<displayName>ମାସର ସାପ୍ତାହିକ ଦି.</displayName>
+				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="sun">
 				<relative type="-1">ଗତ ରବିବାର</relative>
@@ -2607,13 +2933,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</relativeTime>
 			</field>
 			<field type="dayperiod-short">
-				<displayName>AM/PM</displayName>
+				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="dayperiod">
 				<displayName>AM/PM</displayName>
 			</field>
 			<field type="dayperiod-narrow">
-				<displayName>AM/PM</displayName>
+				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="hour">
 				<displayName>ଘଣ୍ଟା</displayName>
@@ -2731,6 +3057,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<hourFormat>↑↑↑</hourFormat>
 			<gmtFormat>↑↑↑</gmtFormat>
 			<gmtZeroFormat>↑↑↑</gmtZeroFormat>
+			<gmtUnknownFormat>↑↑↑</gmtUnknownFormat>
 			<regionFormat>{0} ସମୟ</regionFormat>
 			<regionFormat type="daylight">{0} ଦିବାଲୋକ ସମୟ</regionFormat>
 			<regionFormat type="standard">{0} ମାନାଙ୍କ ସମୟ</regionFormat>
@@ -3087,6 +3414,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Pacific/Easter">
 				<exemplarCity>ଇଷ୍ଟର୍‌</exemplarCity>
+			</zone>
+			<zone type="America/Coyhaique">
+				<exemplarCity>କୋୟାଇକେ</exemplarCity>
 			</zone>
 			<zone type="America/Punta_Arenas">
 				<exemplarCity>ପୁଣ୍ଟା ଏରିନାସ୍‌</exemplarCity>
@@ -5055,6 +5385,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
+		<rationalFormats numberSystem="latn">
+			<rationalPattern>↑↑↑</rationalPattern>
+			<integerAndRationalPattern>↑↑↑</integerAndRationalPattern>
+			<integerAndRationalPattern alt="superSub">↑↑↑</integerAndRationalPattern>
+			<rationalUsage>↑↑↑</rationalUsage>
+		</rationalFormats>
+		<rationalFormats numberSystem="orya">
+			<rationalPattern>↑↑↑</rationalPattern>
+			<integerAndRationalPattern>↑↑↑</integerAndRationalPattern>
+			<integerAndRationalPattern alt="superSub">↑↑↑</integerAndRationalPattern>
+			<rationalUsage>↑↑↑</rationalUsage>
+		</rationalFormats>
 		<scientificFormats numberSystem="latn">
 			<scientificFormatLength>
 				<scientificFormat>
@@ -5087,8 +5429,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>¤#,##0.00</pattern>
-					<pattern alt="alphaNextToNumber" draft="provisional">¤ #,##0.00</pattern>
-					<pattern alt="noCurrency" draft="provisional">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>¤#,##0.00;(¤#,##0.00)</pattern>
@@ -6190,6 +6532,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol>↑↑↑</symbol>
 				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
+			<currency type="XCG">
+				<displayName>କ‍୍ୟାରବିଅନ୍‌ ଗିଲ୍ଡର୍‌</displayName>
+				<displayName count="one">କ‍୍ୟାରବିଅନ୍‌ ଗିଲ୍ଡର୍‌</displayName>
+				<displayName count="other">କ‍୍ୟାରବିଅନ୍‌ ଗିଲ୍ଡର୍‌</displayName>
+				<symbol>↑↑↑</symbol>
+			</currency>
 			<currency type="XOF">
 				<displayName>ପଶ୍ଚିମ ଆଫ୍ରିକିୟ CFA ଫ୍ରାଙ୍କ୍</displayName>
 				<displayName count="one">ପଶ୍ଚିମ ଆଫ୍ରିକୀୟ CFA ଫ୍ରାଙ୍କ୍</displayName>
@@ -6226,6 +6574,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="other">↑↑↑</displayName>
 				<symbol>↑↑↑</symbol>
 				<symbol alt="narrow">↑↑↑</symbol>
+			</currency>
+			<currency type="ZWG">
+				<displayName>ଜିମ୍ବାୱିଅନ୍‌ ଗୋଲ୍ଡ୍‌</displayName>
+				<displayName count="one">ଜିମ୍ବାୱିଅନ୍‌ ଗୋଲ୍ଡ୍‌</displayName>
+				<displayName count="other">ଜିମ୍ବାୱିଅନ୍‌ ଗୋଲ୍ଡ୍‌</displayName>
+				<symbol>↑↑↑</symbol>
 			</currency>
 		</currencies>
 		<miscPatterns numberSystem="latn">
@@ -6464,6 +6818,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ଆଇଟମ୍‌ଗୁଡିକ</unitPattern>
 			</unit>
+			<unit type="concentr-part">
+				<displayName>ଅଂଶ</displayName>
+				<unitPattern count="one">{0} ଅଂଶ</unitPattern>
+				<unitPattern count="other">{0} ଅଂଶ</unitPattern>
+			</unit>
 			<unit type="concentr-part-per-1e6">
 				<displayName>ଅଂଶ ପ୍ରତି ନିୟୁତ</displayName>
 				<unitPattern count="one">{0} ଅଂଶ ପ୍ରତି ନିୟୁତ</unitPattern>
@@ -6488,6 +6847,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ମୋଲସ</displayName>
 				<unitPattern count="one">{0} ମୋଲ</unitPattern>
 				<unitPattern count="other">{0} ମୋଲସ</unitPattern>
+			</unit>
+			<unit type="concentr-ofglucose">
+				<displayName>ଗ୍ଲୁକୋଜ୍‌</displayName>
+				<unitPattern count="one">{0} ଗ୍ଲୁକୋଜ୍‌</unitPattern>
+				<unitPattern count="other">{0} ଗ୍ଲୁକୋଜ୍‌</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>ଲିଟର୍ ପ୍ରତି କିଲୋମିଟର୍</displayName>
@@ -6572,7 +6936,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="duration-decade">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">{0} ଦଶନ୍ଧି</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-year">
 				<displayName>↑↑↑</displayName>
@@ -6888,7 +7252,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ପଏଣ୍ଟ୍</unitPattern>
 			</unit>
 			<unit type="length-solar-radius">
-				<displayName>ସୋଲାର ବ୍ୟାସାର୍ଦ୍ଧ</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">{0} ସୋଲାର ବ୍ୟାସାର୍ଦ୍ଧ</unitPattern>
 				<unitPattern count="other">{0} ସୋଲାର ବ୍ୟାସାର୍ଦ୍ଧ</unitPattern>
 			</unit>
@@ -7025,6 +7389,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ପାରାର ମିଲିମିଟର୍</displayName>
 				<unitPattern count="one">ପାରାର {0} ମିଲିମିଟର୍</unitPattern>
 				<unitPattern count="other">ପାରାର {0} ମିଲିମିଟର୍</unitPattern>
+			</unit>
+			<unit type="pressure-ofhg">
+				<displayName>ପାରଦ</displayName>
+				<unitPattern count="one">{0} ପାରଦ</unitPattern>
+				<unitPattern count="other">{0} ପାରଦ</unitPattern>
 			</unit>
 			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>ପାଉଣ୍ଡ୍ ପ୍ରତି ବର୍ଗ ଇଞ୍ଚ</displayName>
@@ -7204,6 +7573,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} ମେଟ୍ରିକ୍ କପ୍</unitPattern>
 				<unitPattern count="other">{0} ମେଟ୍ରିକ୍ କପ୍</unitPattern>
 			</unit>
+			<unit type="volume-fluid-ounce-metric">
+				<displayName>ମେଟ୍ରିକ୍‌ ଫ୍ଲୁଇଡ୍‌ ଆଉନ୍ସ୍‌</displayName>
+				<unitPattern count="one">{0} ମେଟ୍ରିକ୍‌ ଫ୍ଲୁଇଡ୍‌ ଆଉନ୍ସ୍‌</unitPattern>
+				<unitPattern count="other">{0} ମେଟ୍ରିକ୍‌ ଫ୍ଲୁଇଡ୍‌ ଆଉନ୍ସ୍‌</unitPattern>
+			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>ଏକର-ଫିଟ୍</displayName>
 				<unitPattern count="one">{0} ଏକର-ଫୁଟ</unitPattern>
@@ -7301,10 +7675,75 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="angle-steradian">
+				<displayName>ଷ୍ଟେରାଡିଆନ୍</displayName>
+				<unitPattern count="one">{0} ଷ୍ଟେରାଡିଆନ୍‌</unitPattern>
+				<unitPattern count="other">{0} ଷ୍ଟେରାଡିଆନ୍‌</unitPattern>
+			</unit>
+			<unit type="concentr-katal">
+				<displayName>କେଟଲ୍‌</displayName>
+				<unitPattern count="one">{0} କେଟଲ୍‌</unitPattern>
+				<unitPattern count="other">{0} କେଟଲ୍‌</unitPattern>
+			</unit>
+			<unit type="electric-coulomb">
+				<displayName>କୂଲମ୍‌</displayName>
+				<unitPattern count="one">{0} କୂଲମ୍‌</unitPattern>
+				<unitPattern count="other">{0} କୂଲମ୍‌</unitPattern>
+			</unit>
+			<unit type="electric-farad">
+				<displayName>ଫାରାଡ୍‌</displayName>
+				<unitPattern count="one">{0} ଫାରାଡ୍‌</unitPattern>
+				<unitPattern count="other">{0} ଫାରାଡ୍‌</unitPattern>
+			</unit>
+			<unit type="electric-henry">
+				<displayName>ହେନେରି</displayName>
+				<unitPattern count="one">{0} ହେନେରି</unitPattern>
+				<unitPattern count="other">{0} ହେନେରି</unitPattern>
+			</unit>
+			<unit type="electric-siemens">
+				<displayName>ସିମେନ୍ସ୍‌</displayName>
+				<unitPattern count="one">{0} ସିମେନ୍ସ୍‌</unitPattern>
+				<unitPattern count="other">{0} ସିମେନ୍ସ୍‌</unitPattern>
+			</unit>
+			<unit type="energy-calorie-it">
+				<displayName>କ‍୍ୟାଲୋରି [IT]</displayName>
+				<unitPattern count="one">{0} କ‍୍ୟାଲୋରି [IT]</unitPattern>
+				<unitPattern count="other">{0} କ‍୍ୟାଲୋରି [IT]</unitPattern>
+			</unit>
+			<unit type="energy-becquerel">
+				<displayName>ବେକରେଲ୍‌</displayName>
+				<unitPattern count="one">{0} ବେକରେଲ୍‌</unitPattern>
+				<unitPattern count="other">{0} ବେକରେଲ୍‌</unitPattern>
+			</unit>
+			<unit type="energy-sievert">
+				<displayName>ସିଭର୍ଟ୍‌</displayName>
+				<unitPattern count="one">{0} ସିଭର୍ଟ୍‌</unitPattern>
+				<unitPattern count="other">{0} ସିଭର୍ଟ୍‌</unitPattern>
+			</unit>
+			<unit type="energy-gray">
+				<displayName>ଗ୍ରେ</displayName>
+				<unitPattern count="one">{0} ଗ୍ରେ</unitPattern>
+				<unitPattern count="other">{0} ଗ୍ରେ</unitPattern>
+			</unit>
+			<unit type="force-kilogram-force">
+				<displayName>କିଲୋଗ୍ରାମ୍‌-ବଳ</displayName>
+				<unitPattern count="one">{0} କିଲୋଗ୍ରାମ୍‌-ବଳ</unitPattern>
+				<unitPattern count="other">{0} କିଲୋଗ୍ରାମ୍‌-ବଳ</unitPattern>
+			</unit>
+			<unit type="magnetic-tesla">
+				<displayName>ଟେସ୍‌ଲା</displayName>
+				<unitPattern count="one">{0} ଟେସ୍‌ଲା</unitPattern>
+				<unitPattern count="other">{0} ଟେସ୍‌ଲା</unitPattern>
+			</unit>
+			<unit type="magnetic-weber">
+				<displayName>ୱେବର୍‌</displayName>
+				<unitPattern count="one">{0} ୱେବର୍‌</unitPattern>
+				<unitPattern count="other">{0} ୱେବର୍‌</unitPattern>
+			</unit>
 			<unit type="speed-light-speed">
-				<displayName>ଆଲୋକ</displayName>
-				<unitPattern count="one">{0} ଆଲୋକ</unitPattern>
-				<unitPattern count="other">{0} ଆଲୋକ</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-part-per-1e9">
 				<displayName>ବିଲିୟନ ପ୍ରତି ଅଂଶଗୁଡିକ</displayName>
@@ -7312,9 +7751,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ପାର୍ଟ୍ସ ପ୍ରତି ବିଲିୟନ୍</unitPattern>
 			</unit>
 			<unit type="duration-night">
-				<displayName>ରାତି</displayName>
-				<unitPattern count="one">{0} ରାତି</unitPattern>
-				<unitPattern count="other">{0} ରାତି</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 				<perUnitPattern>{0} ପ୍ରତି ରାତି</perUnitPattern>
 			</unit>
 			<coordinateUnit>
@@ -7548,6 +7987,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ଆଇଟମ୍</unitPattern>
 			</unit>
+			<unit type="concentr-part">
+				<displayName>ଅଂଶ</displayName>
+				<unitPattern count="one">{0} ଅଂଶ</unitPattern>
+				<unitPattern count="other">{0} ଅଂଶ</unitPattern>
+			</unit>
 			<unit type="concentr-part-per-1e6">
 				<displayName>ଅଂଶ/ନିୟୁତ</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -7572,6 +8016,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ମୋଲ</displayName>
 				<unitPattern count="one">ମୋଲ</unitPattern>
 				<unitPattern count="other">{0} ମୋଲ</unitPattern>
+			</unit>
+			<unit type="concentr-ofglucose">
+				<displayName>Glc</displayName>
+				<unitPattern count="one">{0} Glc</unitPattern>
+				<unitPattern count="other">{0} Glc</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>ଲିଟର୍/କିମି</displayName>
@@ -7655,7 +8104,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="duration-decade">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} ଦଶନ୍ଧି</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ଦଶନ୍ଧି</unitPattern>
 			</unit>
 			<unit type="duration-year">
@@ -7943,7 +8392,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="length-astronomical-unit">
 				<displayName>ଆୟୁ</displayName>
-				<unitPattern count="one">{0} au</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-furlong">
@@ -7958,7 +8407,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="length-nautical-mile">
 				<displayName>ନୌମି</displayName>
-				<unitPattern count="one">{0} nmi</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-mile-scandinavian">
@@ -8110,6 +8559,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} mmHg</unitPattern>
 			</unit>
+			<unit type="pressure-ofhg">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -8234,7 +8688,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-cubic-yard">
 				<displayName>ୟାର୍ଡ୍³</displayName>
-				<unitPattern count="one">{0} yd³</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cubic-foot">
@@ -8280,13 +8734,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-pint-metric">
 				<displayName>ମେପା</displayName>
-				<unitPattern count="one">{0} mpt</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cup-metric">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ମେକ</unitPattern>
+			</unit>
+			<unit type="volume-fluid-ounce-metric">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>ଏକର ଫିଟ୍</displayName>
@@ -8342,7 +8801,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-teaspoon">
 				<displayName>ଛୋଟ ଚାମଚ</displayName>
-				<unitPattern count="one">{0} tsp</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-barrel">
@@ -8357,7 +8816,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-dessert-spoon-imperial">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} dsp-Imp.</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} dsp-Imp.</unitPattern>
 			</unit>
 			<unit type="volume-drop">
@@ -8385,9 +8844,74 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="angle-steradian">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0} sr</unitPattern>
+				<unitPattern count="other">{0} sr</unitPattern>
+			</unit>
+			<unit type="concentr-katal">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0} kat</unitPattern>
+				<unitPattern count="other">{0} kat</unitPattern>
+			</unit>
+			<unit type="electric-coulomb">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-farad">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-henry">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-siemens">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-calorie-it">
+				<displayName>cal-IT</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-becquerel">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-sievert">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-gray">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="force-kilogram-force">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0} kgf</unitPattern>
+				<unitPattern count="other">{0} kgf</unitPattern>
+			</unit>
+			<unit type="magnetic-tesla">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0} T</unitPattern>
+				<unitPattern count="other">{0} T</unitPattern>
+			</unit>
+			<unit type="magnetic-weber">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0} Wb</unitPattern>
+				<unitPattern count="other">{0} Wb</unitPattern>
+			</unit>
 			<unit type="speed-light-speed">
 				<displayName>ଆଲୋକ</displayName>
-				<unitPattern count="one">{0} ଆଲୋକ</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ଆଲୋକ</unitPattern>
 			</unit>
 			<unit type="concentr-part-per-1e9">
@@ -8397,7 +8921,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="duration-night">
 				<displayName>ରାତି</displayName>
-				<unitPattern count="one">{0} ରାତି</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ରାତି</unitPattern>
 				<perUnitPattern>{0}/ରାତି</perUnitPattern>
 			</unit>
@@ -8632,6 +9156,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0}ଆଇଟମ୍</unitPattern>
 				<unitPattern count="other">{0}ଆଇଟମ୍</unitPattern>
 			</unit>
+			<unit type="concentr-part">
+				<displayName>ଅଂଶ</displayName>
+				<unitPattern count="one">{0} ଅଂଶ</unitPattern>
+				<unitPattern count="other">{0} ଅଂଶ</unitPattern>
+			</unit>
 			<unit type="concentr-part-per-1e6">
 				<displayName>ପିପିଏମ୍</displayName>
 				<unitPattern count="one">{0}ପିପିଏମ୍</unitPattern>
@@ -8656,6 +9185,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">{0}ମୋଲ</unitPattern>
 				<unitPattern count="other">{0}ମୋଲ</unitPattern>
+			</unit>
+			<unit type="concentr-ofglucose">
+				<displayName>Glc</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>↑↑↑</displayName>
@@ -8740,7 +9274,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="duration-decade">
 				<displayName>ଦଶନ୍ଧି</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">{0} ଦଶନ୍ଧି</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-year">
 				<displayName>yr</displayName>
@@ -9194,6 +9728,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="pressure-ofhg">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -9368,9 +9907,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}mpt</unitPattern>
 			</unit>
 			<unit type="volume-cup-metric">
-				<displayName>mcup</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">{0}mc</unitPattern>
 				<unitPattern count="other">{0}mc</unitPattern>
+			</unit>
+			<unit type="volume-fluid-ounce-metric">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>ଏକରଫୁଟ</displayName>
@@ -9469,10 +10013,75 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="angle-steradian">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} sr</unitPattern>
+			</unit>
+			<unit type="concentr-katal">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0} kat</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-coulomb">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-farad">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-henry">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-siemens">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-calorie-it">
+				<displayName>cal-IT</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-becquerel">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-sievert">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-gray">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="force-kilogram-force">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="magnetic-tesla">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="magnetic-weber">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="speed-light-speed">
-				<displayName>ଆଲୋକ</displayName>
-				<unitPattern count="one">{0} ଆଲୋକ</unitPattern>
-				<unitPattern count="other">{0} ଆଲୋକ</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-part-per-1e9">
 				<displayName>↑↑↑</displayName>
@@ -9480,10 +10089,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}ppb</unitPattern>
 			</unit>
 			<unit type="duration-night">
-				<displayName>ରାତି</displayName>
-				<unitPattern count="one">{0} ରାତି</unitPattern>
-				<unitPattern count="other">{0} ରାତି</unitPattern>
-				<perUnitPattern>{0}/ରାତି</perUnitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>↑↑↑</displayName>

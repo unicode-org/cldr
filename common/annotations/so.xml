@@ -991,9 +991,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="❣" type="tts">claamad ujeedka wadnaha</annotation>
 		<annotation cp="💔">jabay | jabis | wadno jaban</annotation>
 		<annotation cp="💔" type="tts">wadno jaban</annotation>
-		<annotation cp="❤‍🔥">gubasho | jacayl | lahasho | wadne | wadne ololaya | wadne xurmaysan</annotation>
+		<annotation cp="❤‍🔥">dab | damac | gubasho | jaceyl | wadne | xurmaysan</annotation>
 		<annotation cp="❤‍🔥" type="tts">wadne ololaya</annotation>
-		<annotation cp="❤‍🩹">caafimad qaba | fiican | karan | soo boqsanaya | soo kabanaya | wadne dhaawacan</annotation>
+		<annotation cp="❤‍🩹">ka caafimadsan | soo bogsanaya | soo hagaagsamaya | soo kabanaya | soo wanaagsanaanaya | wacan | wadne</annotation>
 		<annotation cp="❤‍🩹" type="tts">wadne dhaawacan</annotation>
 		<annotation cp="❤">wadno | wadno cas</annotation>
 		<annotation cp="❤" type="tts">wadno cas</annotation>
@@ -1046,7 +1046,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💭">baalluunta fakarka | baaxumbo | fakarka | lbaaluun | majaajileeye</annotation>
 		<annotation cp="💭" type="tts">baalluunta fakarka</annotation>
 		<annotation cp="💤">hurdo | majaajileeye | zzz calaamadda hurdada | zzz- calaamadda hurdada</annotation>
-		<annotation cp="💤" type="tts">zzz calaamadda hurdada</annotation>
+		<annotation cp="💤" type="tts">ZZZ</annotation>
 		<annotation cp="👋">gacan | gacan haadin | haadi | haadinayaa</annotation>
 		<annotation cp="👋" type="tts">gacan haadin</annotation>
 		<annotation cp="🤚">gacanta gadaal | kor u qaaday gacanta gadaal | kor u qaadid</annotation>
@@ -1181,6 +1181,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑" type="tts">qof</annotation>
 		<annotation cp="👱">qof timo cad leh | qof: timo cad | timo | timo cad</annotation>
 		<annotation cp="👱" type="tts">qof: timo cad</annotation>
+		<annotation cp="🧑‍🩰">qoob ka ciyaare | qoob ka ciyaareedka faneed</annotation>
+		<annotation cp="🧑‍🩰" type="tts">qoob ka ciyaare faneed</annotation>
 		<annotation cp="👨">nin | ninka | qof weyn</annotation>
 		<annotation cp="👨" type="tts">ninka</annotation>
 		<annotation cp="🧔">gar | nin | nin: gar | qof</annotation>
@@ -3895,15 +3897,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="₽" type="tts">cutub lacageedka raashiya</annotation>
 		<annotation cp="₿">bitkoyn | BTC</annotation>
 		<annotation cp="₿" type="tts">bitkoyn</annotation>
+		<annotation cp="0⃣">0 | daboolka furaha | ebar</annotation>
 		<annotation cp="0⃣" type="tts">daboolka furaha: 0</annotation>
+		<annotation cp="1⃣">1 | daboolka furaha | hal</annotation>
 		<annotation cp="1⃣" type="tts">daboolka furaha: 1</annotation>
+		<annotation cp="2⃣">2 | daboolka furaha | labo</annotation>
 		<annotation cp="2⃣" type="tts">daboolka furaha: 2</annotation>
+		<annotation cp="3⃣">3 | daboolka furaha | saddex</annotation>
 		<annotation cp="3⃣" type="tts">daboolka furaha: 3</annotation>
+		<annotation cp="4⃣">4 | afar | daboolka furaha</annotation>
 		<annotation cp="4⃣" type="tts">daboolka furaha: 4</annotation>
+		<annotation cp="5⃣">5 | daboolka furaha | shan</annotation>
 		<annotation cp="5⃣" type="tts">daboolka furaha: 5</annotation>
+		<annotation cp="6⃣">6 | daboolka furaha | lix</annotation>
 		<annotation cp="6⃣" type="tts">daboolka furaha: 6</annotation>
+		<annotation cp="7⃣">7 | daboolka furaha | toddobo</annotation>
 		<annotation cp="7⃣" type="tts">daboolka furaha: 7</annotation>
+		<annotation cp="8⃣">8 | daboolka furaha | sideed</annotation>
 		<annotation cp="8⃣" type="tts">daboolka furaha: 8</annotation>
+		<annotation cp="9⃣">9 | daboolka furaha | sagaal</annotation>
 		<annotation cp="9⃣" type="tts">daboolka furaha: 9</annotation>
 		<annotation cp="¹">calaamada koobaad | mid | qoraalka sare</annotation>
 		<annotation cp="¹" type="tts">calaamada koobaad</annotation>
@@ -3917,5 +3929,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="µ" type="tts">astaanta micro</annotation>
 		<annotation cp="﷼">lacag | rial</annotation>
 		<annotation cp="﷼" type="tts">rial</annotation>
+		<annotation cp="🛘">baraf kasoo daadashada buuraha | buur | dhagaxyo | dhoobo go’id | dhul gariir | khatar | musiibo</annotation>
+		<annotation cp="🛘" type="tts">dhul go’id</annotation>
+		<annotation cp="🪊">jaas | murugo | muusig | naxaas | qalab | slaydh</annotation>
+		<annotation cp="🪊" type="tts">turumbo</annotation>
+		<annotation cp="🪎">abaal-marin | dahab | dhac | hanti | jawharado | lacag | macdan | qalin | waxyaabo qiimo leh</annotation>
+		<annotation cp="🪎" type="tts">sanduuqa keyd maaliyadeedka</annotation>
+		<annotation cp="🫈">cag-weynaha | cag-weyne | cryptid-ka | duurka | noole weyn | woodwose-ka | xaadoole | yeti</annotation>
+		<annotation cp="🫈" type="tts">makhluuqa xaadoolaha</annotation>
+		<annotation cp="🫍">bad-weynta | badeedka | nibiri</annotation>
+		<annotation cp="🫍" type="tts">nibiriga orkaha</annotation>
+		<annotation cp="🫝">cunto | la cunay | qashin | qudhmay</annotation>
+		<annotation cp="🫝" type="tts">dhexda tufaaxa</annotation>
+		<annotation cp="🫪">argagax | bararsan | naxay | nugul | walbhaar | yaabay</annotation>
+		<annotation cp="🫪" type="tts">weji la qaloociyay</annotation>
+		<annotation cp="🫯">dagaal | dood | doodid | gacan ka hadal | khilaad | legdin | qas</annotation>
+		<annotation cp="🫯" type="tts">daruur dagaalameyso</annotation>
 	</annotations>
 </ldml>

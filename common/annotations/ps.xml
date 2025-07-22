@@ -89,9 +89,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="«" type="tts">کيڼ وینالېږد نښه</annotation>
 		<annotation cp="»">اخيستنښه | زاویه | ښی | ښی وینالېږد نښه | قوسونه | کیڼحولی | هشتکونه</annotation>
 		<annotation cp="»" type="tts">ښی وینالېږد نښه</annotation>
-		<annotation cp=")">پارنز | پیرن | غونډ بند | قوس | قوسونه | نږدى ځاځي</annotation>
-		<annotation cp=")" type="tts">نږدى ځاځي</annotation>
-		<annotation cp="[">بریکٹ | کروک | مربع قوس | مربع قوس خلاص</annotation>
+		<annotation cp=")">تړل | قوس | قوسونه | ګرد</annotation>
+		<annotation cp=")" type="tts">نږدې قوسونه</annotation>
+		<annotation cp="[">خلاص | قوس | کروټچټ | مربع</annotation>
 		<annotation cp="[" type="tts">مربع قوس خلاص</annotation>
 		<annotation cp="]">کروک | لیندۍ | مربع قوس | مربع قوس بند</annotation>
 		<annotation cp="]" type="tts">مربع قوس بند</annotation>
@@ -139,13 +139,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="\" type="tts">شالید</annotation>
 		<annotation cp="&amp;">امپرسند | امپرسنده | او | نور</annotation>
 		<annotation cp="&amp;" type="tts">امپرسنده</annotation>
-		<annotation cp="#">lb | پونډ | شمیره | هشتګ | هوس | هوسۍنښه</annotation>
+		<annotation cp="#">پونډ | شمېره | نښه | هېش | هېش ټګ</annotation>
 		<annotation cp="#" type="tts">هوسۍنښه</annotation>
 		<annotation cp="%">سلنه</annotation>
 		<annotation cp="%" type="tts">سلنه</annotation>
 		<annotation cp="‰">پر میل | پرامیل | پرمیل</annotation>
 		<annotation cp="‰" type="tts">پرامیل</annotation>
-		<annotation cp="†">خنجر | د خنجر نښه | ویش نښه</annotation>
+		<annotation cp="†">اوبلیسک | اوبلیوس | خنجر | نښه</annotation>
 		<annotation cp="†" type="tts">د خنجر نښه</annotation>
 		<annotation cp="‡">دوګني ویش نښه | ډیګر | ویش نښه</annotation>
 		<annotation cp="‡" type="tts">دوګني ویش نښه</annotation>
@@ -387,7 +387,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="≯" type="tts">نه لوی</annotation>
 		<annotation cp="¬">نفي | نه</annotation>
 		<annotation cp="¬" type="tts">نفي</annotation>
-		<annotation cp="|">vbar | بار | پايپ | پایک | چپک | د شفر ټکان | عمودي پټه | عمودي ليکه | کرښه | وهل</annotation>
+		<annotation cp="|">بار | پایپ | پایک | سټروک | شیفر | عمودی | کرښه | لرګی | وی بار</annotation>
 		<annotation cp="|" type="tts">عمودي ليکه</annotation>
 		<annotation cp="~">ټیلډ</annotation>
 		<annotation cp="~" type="tts">ټیلډ</annotation>
@@ -633,7 +633,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="◌" type="tts">نقطه شوي دایره</annotation>
 		<annotation cp="◍">د عمودی ډک سره دایره</annotation>
 		<annotation cp="◍" type="tts">د عمودی ډک سره دایره</annotation>
-		<annotation cp="◎">دوه ګونی دایره | متمرکزې دایره | متمرکزې دایري | هدف</annotation>
+		<annotation cp="◎">حلقه | حلقې | دوه ګونی | متمرکز | هدف</annotation>
 		<annotation cp="◎" type="tts">متمرکزې دایره</annotation>
 		<annotation cp="●">دایره | ډک شوی دایره</annotation>
 		<annotation cp="●" type="tts">ډک شوی دایره</annotation>
@@ -655,7 +655,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="◗" type="tts">ښي نیمه ډکه دایره</annotation>
 		<annotation cp="◘">معکوس ګولۍ</annotation>
 		<annotation cp="◘" type="tts">معکوس ګولۍ</annotation>
-		<annotation cp="◙">ډک شوی مربع چې خالي دایره لري | ډک شوی مربع چې خالی دایره لري | معکوس خالی دایره</annotation>
+		<annotation cp="◙">تش | دایره | ډک | لري | مربع | معکوس</annotation>
 		<annotation cp="◙" type="tts">ډک شوی مربع چې خالي دایره لري</annotation>
 		<annotation cp="◜">پورتنی چپ محیط څلورمه برخې ګردي قوس</annotation>
 		<annotation cp="◜" type="tts">پورتنی چپ محیط څلورمه برخې ګردي قوس</annotation>
@@ -1181,6 +1181,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑" type="tts">شخص</annotation>
 		<annotation cp="👱">د زيړ ويښتانو | د زيړ ويښتانو شخص | شخص: د سرو ويښتانو | وېښتان</annotation>
 		<annotation cp="👱" type="tts">شخص: د سرو ويښتانو</annotation>
+		<annotation cp="🧑‍🩰">بالی | نڅاګر</annotation>
+		<annotation cp="🧑‍🩰" type="tts">د بالې نڅاګر</annotation>
 		<annotation cp="👨">سړی</annotation>
 		<annotation cp="👨" type="tts">سړی</annotation>
 		<annotation cp="🧔">ږيره | سړی | سړی: ږيره | شخص</annotation>
@@ -1777,7 +1779,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐽" type="tts">سور پوزه</annotation>
 		<annotation cp="🐏">پسه | پسه، نر، ورې، ګډه، مرغومی</annotation>
 		<annotation cp="🐏" type="tts">پسه</annotation>
-		<annotation cp="🐑">ميږه، ښځينه۔ ګډه | مېږه</annotation>
+		<annotation cp="🐑">با | پسه | څاروی | ښځه | فارم | مېږه | نرمه | وړۍ</annotation>
 		<annotation cp="🐑" type="tts">مېږه</annotation>
 		<annotation cp="🐐">غرڅه، وزه، مرغومی | وزه</annotation>
 		<annotation cp="🐐" type="tts">وزه</annotation>
@@ -3313,7 +3315,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⛓‍💥" type="tts">مات شوی زنځیر</annotation>
 		<annotation cp="⛓">زنځير | زنځيرونه</annotation>
 		<annotation cp="⛓" type="tts">زنځيرونه</annotation>
-		<annotation cp="🪝">تاؤ | د خرڅلاو ځای | رانيول | کږه | کنډه | نيول</annotation>
+		<annotation cp="🪝">پلورل | غلا | منحنی | نښه | نیول | هک</annotation>
 		<annotation cp="🪝" type="tts">کنډه</annotation>
 		<annotation cp="🧰">اله | بوکسه | د اوزارو بوکسه | ميخانيک</annotation>
 		<annotation cp="🧰" type="tts">د اوزارو بوکسه</annotation>
@@ -3357,7 +3359,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛗" type="tts">لوړګر</annotation>
 		<annotation cp="🪞">انعکاس | سپکولم | عکاس | عکس | میک اپ</annotation>
 		<annotation cp="🪞" type="tts">هنداره</annotation>
-		<annotation cp="🪟">برسيره کول | تازه هوا | چوکاټ | شفاف | کړکۍ | نظاره</annotation>
+		<annotation cp="🪟">پرانیستل | تازه | چوکاټ | شفاف | کړکۍ | لید | هوا</annotation>
 		<annotation cp="🪟" type="tts">کړکۍ</annotation>
 		<annotation cp="🛏">بستره | هوتل | ويده کېدل</annotation>
 		<annotation cp="🛏" type="tts">بستره</annotation>
@@ -3611,7 +3613,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔆" type="tts">روښانه بټن</annotation>
 		<annotation cp="📶">اينټينا | اينټينا بارونه | اینټینا بارونه | بار | سل | فون | موبايل</annotation>
 		<annotation cp="📶" type="tts">اینټینا بارونه</annotation>
-		<annotation cp="🛜">hotspot | wlan | ارتباط | انټرنیټ | براډ بانډ | بې سیم | روټر | سمارټ فون | شبکه | کمپیوټر | وای فای</annotation>
+		<annotation cp="🛜">اتصال | انټرنیټ | براډبنډ | بې سیم | روټر | سمارټ فون | شبکه | کمپیوټر | هټ سپټ | وای فای</annotation>
 		<annotation cp="🛜" type="tts">بې سیم</annotation>
 		<annotation cp="📳">تليفون | خوځښت | فون | موبايل | موډ</annotation>
 		<annotation cp="📳" type="tts">خوځښت موډ</annotation>
@@ -3621,9 +3623,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="♀" type="tts">ښځینه نښه</annotation>
 		<annotation cp="♂">نارينه | نارينه نښه</annotation>
 		<annotation cp="♂" type="tts">نارينه نښه</annotation>
-		<annotation cp="⚧">جنس بدلوونکی | د جنس بدلوونکي سمبول</annotation>
+		<annotation cp="⚧">د جنس بدلوونکي | سمبول</annotation>
 		<annotation cp="⚧" type="tts">د جنس بدلوونکي سمبول</annotation>
-		<annotation cp="✖">× | x | د ضرب نښه | ضرب | ضرب کول | فسخ کول | لوی د ضرب x | نښه</annotation>
+		<annotation cp="✖">× | x | ضرب | لغوه کول | نښه</annotation>
 		<annotation cp="✖" type="tts">د ضرب نښه</annotation>
 		<annotation cp="➕">+ | جمع | د جمع نښه | رياضي | نښه</annotation>
 		<annotation cp="➕" type="tts">د جمع نښه</annotation>
@@ -3741,39 +3743,39 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🆙" type="tts">پورته! بټن</annotation>
 		<annotation cp="🆚">اي ايس | پرتله | وي ايس بټن</annotation>
 		<annotation cp="🆚" type="tts">وي ايس بټن</annotation>
-		<annotation cp="🈁">&quot;دلته&quot; | جاپاني | جاپاني &quot;دلته&quot; بټن | کټاکنا | ココ</annotation>
+		<annotation cp="🈁">تڼۍ | جاپاني | دلته | کاتاکانا</annotation>
 		<annotation cp="🈁" type="tts">جاپاني &quot;دلته&quot; بټن</annotation>
-		<annotation cp="🈂">&quot;خدمت بټن&quot; | جاپاني | د جاپاني &quot;خدمت چارج&quot;بټن | کټاکنا | サ</annotation>
+		<annotation cp="🈂">تڼۍ | جاپاني | چارج | خدمت | کاتاکانا</annotation>
 		<annotation cp="🈂" type="tts">د جاپاني &quot;خدمت چارج&quot;بټن</annotation>
-		<annotation cp="🈷">&quot;مياشتنۍ پيسې&quot; | آيډوګراپ | جاپاني | د جاپان د &quot;میاشتنی پيسې&quot; بټن | 月</annotation>
+		<annotation cp="🈷">اندازه | ایډیوګراف | تڼۍ | جاپاني | میاشتنی</annotation>
 		<annotation cp="🈷" type="tts">د جاپان د &quot;میاشتنی پيسې&quot; بټن</annotation>
-		<annotation cp="🈶">&quot;وړيا نه&quot; | آيډوګراف | جاپاني | جاپاني &quot;وړیا نه&quot; بټن | 有</annotation>
+		<annotation cp="🈶">ایډیوګراف | تڼۍ | جاپاني | چارج | نه | وړیا</annotation>
 		<annotation cp="🈶" type="tts">جاپاني &quot;وړیا نه&quot; بټن</annotation>
-		<annotation cp="🈯">&quot;اضافي&quot; | آيډوګراف | جاپاني | جاپاني &quot;د اضافي&quot; بټن | 指</annotation>
+		<annotation cp="🈯">ایډیوګراف | تڼۍ | جاپاني | خوندي شوی</annotation>
 		<annotation cp="🈯" type="tts">جاپاني &quot;د اضافي&quot; بټن</annotation>
-		<annotation cp="🉐">&quot;جوړجاړ&quot; | آيډوګراف | جاپاني | جاپاني &quot;جوړ جاړ&quot; بټن | 得</annotation>
+		<annotation cp="🉐">ایډیوګراف | تڼۍ | جاپاني | سودا</annotation>
 		<annotation cp="🉐" type="tts">جاپاني &quot;جوړ جاړ&quot; بټن</annotation>
-		<annotation cp="🈹">&quot;رعايت&quot; | آيډوګراف | جاپاني | د جاپاني د &quot;رعایت&quot; بټن | 割</annotation>
+		<annotation cp="🈹">ایډیوګراف | تخفیف | تڼۍ | جاپاني</annotation>
 		<annotation cp="🈹" type="tts">د جاپاني د &quot;رعایت&quot; بټن</annotation>
-		<annotation cp="🈚">&quot;وړیا&quot; | Jجاپاني &quot;وړیا&quot;بټن | آيډوګراف | جاپاني | جاپاني &quot;وړیا&quot;بټن | 無</annotation>
+		<annotation cp="🈚">ایډیوګراف | تڼۍ | جاپاني | چارج | وړیا</annotation>
 		<annotation cp="🈚" type="tts">جاپاني &quot;وړیا&quot;بټن</annotation>
-		<annotation cp="🈲">&quot;منع شوي&quot; | آيډوګراف | جاپاني | جاپاني &quot;منع شوي&quot; بټن | 禁</annotation>
+		<annotation cp="🈲">ایډیوګراف | تڼۍ | جاپاني | منع شوی</annotation>
 		<annotation cp="🈲" type="tts">جاپاني &quot;منع شوي&quot; بټن</annotation>
-		<annotation cp="🉑">&quot;منلو وړ&quot; | آيډوګراف | جاپاني | جاپاني &quot;منلو وړ&quot;بټن | 可</annotation>
+		<annotation cp="🉑">ایډیوګراف | تڼۍ | جاپاني | د منلو وړ</annotation>
 		<annotation cp="🉑" type="tts">جاپاني &quot;منلو وړ&quot;بټن</annotation>
-		<annotation cp="🈸">&quot;غوښتنليک&quot; | آيډوګراف | جاپاني | د جاپاني &quot;غوښتنليک&quot; بټن | 申</annotation>
+		<annotation cp="🈸">اپلیکیشن | ایډیوګراف | تڼۍ | جاپاني</annotation>
 		<annotation cp="🈸" type="tts">د جاپاني &quot;غوښتنليک&quot; بټن</annotation>
-		<annotation cp="🈴">&quot;تیریدو درجه&quot; | آيډوګراف | جاپاني | د جاپاني &quot;تیریدو درجه&quot; بټن | 合</annotation>
+		<annotation cp="🈴">ایډیوګراف | پاس کول | تڼۍ | جاپاني | درجه</annotation>
 		<annotation cp="🈴" type="tts">د جاپاني &quot;تیریدو درجه&quot; بټن</annotation>
-		<annotation cp="🈳">&quot;د خالي ځايونو&quot; | آيډيوګراف | جاپاني | د جاپان د &quot;د خالي ځايونو&quot; بټن | 空</annotation>
+		<annotation cp="🈳">ایډیوګراف | تڼۍ | جاپاني | خالي ځای</annotation>
 		<annotation cp="🈳" type="tts">د جاپان د &quot;د خالي ځايونو&quot; بټن</annotation>
-		<annotation cp="㊗">&quot;مبارکۍ&quot; | آيډيوګراف | جاپاني | د جاپان د &quot;مبارکۍ&quot; بټن | 祝</annotation>
+		<annotation cp="㊗">ایډیوګراف | تڼۍ | جاپاني | مبارکۍ</annotation>
 		<annotation cp="㊗" type="tts">د جاپان د &quot;مبارکۍ&quot; بټن</annotation>
-		<annotation cp="㊙">&quot;پټ&quot; | آيډيوګراف | جاپاني | د جاپان د &quot;پټ&quot; بتن | د جاپان د &quot;پټ&quot; بټن | 秘</annotation>
+		<annotation cp="㊙">ایډیوګراف | تڼۍ | جاپاني | راز</annotation>
 		<annotation cp="㊙" type="tts">د جاپان د &quot;پټ&quot; بتن</annotation>
-		<annotation cp="🈺">&quot;د سوداګرۍ لپاره پرانستې&quot; | آيډيوګراف | جاپاني | جاپاني &quot;د سوداګرۍ لپاره پرانستې&quot; بټن | 営</annotation>
+		<annotation cp="🈺">ایډیوګراف | پرانیستی | تڼۍ | جاپاني | سوداګري</annotation>
 		<annotation cp="🈺" type="tts">جاپاني &quot;د سوداګرۍ لپاره پرانستې&quot; بټن</annotation>
-		<annotation cp="🈵">&quot;خالي ځايونه نشته&quot; | آيډيوګراف | جاپاني | د جاپان د &quot;خالي ځايونه نشته&quot; بټن | 満</annotation>
+		<annotation cp="🈵">ایډیوګراف | تڼۍ | جاپاني | خالي ځای | نه</annotation>
 		<annotation cp="🈵" type="tts">د جاپان د &quot;خالي ځايونه نشته&quot; بټن</annotation>
 		<annotation cp="🔴">جيوميتريکي | دايره | سره</annotation>
 		<annotation cp="🔴" type="tts">سره دايره</annotation>
@@ -3867,7 +3869,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="£" type="tts">پونډ</annotation>
 		<annotation cp="¥">اسعار | جاپاني ین | چینايی ین | چینایي ین | ین</annotation>
 		<annotation cp="¥" type="tts">ین</annotation>
-		<annotation cp="₢">اسعار | بی آر بی | کرزیرو | کروزیو</annotation>
+		<annotation cp="₢">اسعار | بي آر بي | کروز</annotation>
 		<annotation cp="₢" type="tts">کرزیرو</annotation>
 		<annotation cp="₣">اسعار | فرانسوي فرانک | فرانک</annotation>
 		<annotation cp="₣" type="tts">فرانسوي فرانک</annotation>
@@ -3895,15 +3897,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="₽" type="tts">روبل</annotation>
 		<annotation cp="₿">BTC | بټ سکه</annotation>
 		<annotation cp="₿" type="tts">بټ سکه</annotation>
+		<annotation cp="0⃣">0 | صفر | کیکیپ</annotation>
 		<annotation cp="0⃣" type="tts">کیکیپ: 0</annotation>
+		<annotation cp="1⃣">1 | کیکیپ | یو</annotation>
 		<annotation cp="1⃣" type="tts">کیکیپ: 1</annotation>
+		<annotation cp="2⃣">2 | دوه | کیکیپ</annotation>
 		<annotation cp="2⃣" type="tts">کیکیپ: 2</annotation>
+		<annotation cp="3⃣">3 | درې | کیکیپ</annotation>
 		<annotation cp="3⃣" type="tts">کیکیپ: 3</annotation>
+		<annotation cp="4⃣">4 | څلور | کیکیپ</annotation>
 		<annotation cp="4⃣" type="tts">کیکیپ: 4</annotation>
+		<annotation cp="5⃣">5 | پنځه | کیکیپ</annotation>
 		<annotation cp="5⃣" type="tts">کیکیپ: 5</annotation>
+		<annotation cp="6⃣">6 | شپږ | کیکیپ</annotation>
 		<annotation cp="6⃣" type="tts">کیکیپ: 6</annotation>
+		<annotation cp="7⃣">7 | اووه | کیکیپ</annotation>
 		<annotation cp="7⃣" type="tts">کیکیپ: 7</annotation>
+		<annotation cp="8⃣">8 | اته | کیکیپ</annotation>
 		<annotation cp="8⃣" type="tts">کیکیپ: 8</annotation>
+		<annotation cp="9⃣">9 | کیکیپ | نهه</annotation>
 		<annotation cp="9⃣" type="tts">کیکیپ: 9</annotation>
 		<annotation cp="¹">بالانوشت | یو</annotation>
 		<annotation cp="¹" type="tts">یو بالانوشت</annotation>
@@ -3917,5 +3929,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="µ" type="tts">مائیکرو نښه</annotation>
 		<annotation cp="﷼">اسعار | ریال</annotation>
 		<annotation cp="﷼" type="tts">ریال</annotation>
+		<annotation cp="🛘">خطر | د خټو ښوېدنه | د واورې ښوېدنه | ډبرې | زلزله | غر | ناورین</annotation>
+		<annotation cp="🛘" type="tts">د ځمکې ښویدنه</annotation>
+		<annotation cp="🪊">پیتل | جاز | ساز | سلایډ | غمجن | موسیقي</annotation>
+		<annotation cp="🪊" type="tts">ټرومبون</annotation>
+		<annotation cp="🪎">پیسې | جایزه | جواهر | جواهرات | سپین زر | سره زر | شتمني | قیمتي شیان | لوټ</annotation>
+		<annotation cp="🪎" type="tts">د خزانې صندوق</annotation>
+		<annotation cp="🫈">ځنګل | ساسکوچ | کریپټیډ | لوی | لوی پښه | ووډ ووز | ویښتان | یتي</annotation>
+		<annotation cp="🫈" type="tts">ویښتان لرونکی مخلوق</annotation>
+		<annotation cp="🫍">سمندر | نهنګ</annotation>
+		<annotation cp="🫍" type="tts">اورکا</annotation>
+		<annotation cp="🫝">خراب شوی | خواړه | خوړل شوی | کثافات | کمپوسټ</annotation>
+		<annotation cp="🫝" type="tts">د مڼې هسته</annotation>
+		<annotation cp="🫪">اضطراب | پړسېدلی | حیران | زیان منونکی | وېره</annotation>
+		<annotation cp="🫪" type="tts">مسخ شوی مخ</annotation>
+		<annotation cp="🫯">اختلاف | بحث | جګړه | د خبرو شخړه | شخړه | شورماشور | غېږ نیونه</annotation>
+		<annotation cp="🫯" type="tts">د جګړې ورېځ</annotation>
 	</annotations>
 </ldml>

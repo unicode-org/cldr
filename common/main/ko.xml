@@ -310,6 +310,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="ksf">바피아어</language>
 			<language type="ksh">콜로그니안어</language>
 			<language type="ku">쿠르드어</language>
+			<language type="ku" menu="core">쿠르드어</language>
+			<language type="ku" menu="extension" draft="contributed">쿠르만지</language>
 			<language type="kum">쿠믹어</language>
 			<language type="kut">쿠테네어</language>
 			<language type="kv">코미어</language>
@@ -433,7 +435,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="os">오세트어</language>
 			<language type="osa">오세이지어</language>
 			<language type="ota">오스만 터키어</language>
-			<language type="pa">펀잡어</language>
+			<language type="pa">펀자브어</language>
 			<language type="pag">판가시난어</language>
 			<language type="pal">팔레비어</language>
 			<language type="pam">팜팡가어</language>
@@ -883,6 +885,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="CN">중국</territory>
 			<territory type="CO">콜롬비아</territory>
 			<territory type="CP">클리퍼턴섬</territory>
+			<territory type="CQ" draft="contributed">사크</territory>
 			<territory type="CR">코스타리카</territory>
 			<territory type="CU">쿠바</territory>
 			<territory type="CV">카보베르데</territory>
@@ -1182,33 +1185,52 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<key type="colNumeric">숫자 정렬</key>
 			<key type="colStrength">정렬 강도</key>
 			<key type="currency">통화</key>
+			<key type="em" draft="contributed">이모티콘 표시</key>
 			<key type="hc">시간표시법(12시, 24시)</key>
 			<key type="lb">줄바꿈 스타일</key>
+			<key type="lw" draft="contributed">단어의 줄바꿈</key>
 			<key type="ms">계량법</key>
 			<key type="numbers">숫자</key>
+			<key type="ss" draft="contributed">약어 뒤 문장 구분</key>
 			<key type="timezone">시간대</key>
 			<key type="va">방언</key>
 			<key type="x">공개 여부</key>
 		</keys>
 		<types>
 			<type key="calendar" type="buddhist">불교력</type>
+			<type key="calendar" type="buddhist" scope="core" draft="contributed">불교</type>
 			<type key="calendar" type="chinese">음력</type>
+			<type key="calendar" type="chinese" scope="core" draft="contributed">음</type>
 			<type key="calendar" type="coptic">콥트력</type>
+			<type key="calendar" type="coptic" scope="core" draft="contributed">콥트</type>
 			<type key="calendar" type="dangi">단기력</type>
+			<type key="calendar" type="dangi" scope="core" draft="contributed">단기</type>
 			<type key="calendar" type="ethiopic">에티오피아력</type>
+			<type key="calendar" type="ethiopic" scope="core" draft="contributed">에티오피아</type>
 			<type key="calendar" type="ethiopic-amete-alem">에티오피아 아메테 알렘력</type>
+			<type key="calendar" type="ethiopic-amete-alem" scope="core" draft="contributed">에티오피아 아메테 알렘</type>
 			<type key="calendar" type="gregorian">양력</type>
+			<type key="calendar" type="gregorian" scope="core" draft="contributed">양</type>
 			<type key="calendar" type="hebrew">히브리력</type>
+			<type key="calendar" type="hebrew" scope="core" draft="contributed">히브리</type>
 			<type key="calendar" type="indian">인도력</type>
 			<type key="calendar" type="islamic">히즈라력</type>
+			<type key="calendar" type="islamic" scope="core" draft="contributed">히즈라</type>
 			<type key="calendar" type="islamic-civil">히즈라 상용력</type>
+			<type key="calendar" type="islamic-civil" scope="core" draft="contributed">히즈라 상용</type>
 			<type key="calendar" type="islamic-umalqura">히즈라력(움 알 쿠라)</type>
+			<type key="calendar" type="islamic-umalqura" scope="core" draft="contributed">히즈라(움 알 쿠라)</type>
 			<type key="calendar" type="iso8601">ISO-8601 달력</type>
 			<type key="calendar" type="japanese">일본력</type>
+			<type key="calendar" type="japanese" scope="core" draft="contributed">일본</type>
 			<type key="calendar" type="persian">페르시안력</type>
+			<type key="calendar" type="persian" scope="core" draft="contributed">페르시안</type>
 			<type key="calendar" type="roc">대만력</type>
+			<type key="calendar" type="roc" scope="core" draft="contributed">대만</type>
 			<type key="cf" type="account">회계 통화 형식</type>
+			<type key="cf" type="account" scope="core" draft="contributed">회계</type>
 			<type key="cf" type="standard">표준 통화 형식</type>
+			<type key="cf" type="standard" scope="core" draft="contributed">표준</type>
 			<type key="colAlternate" type="non-ignorable" draft="contributed">기호 정렬</type>
 			<type key="colAlternate" type="shifted" draft="contributed">기호 무시 정렬</type>
 			<type key="colBackwards" type="no" draft="contributed">악센트 일반 정렬</type>
@@ -1219,19 +1241,31 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="colCaseLevel" type="no" draft="contributed">대/소문자 무시 정렬</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">대/소문자 구분 정렬</type>
 			<type key="collation" type="compat">호환성을 위해 이전 정렬 순서</type>
+			<type key="collation" type="compat" scope="core" draft="contributed">호환성</type>
 			<type key="collation" type="dictionary">사전 정렬순</type>
+			<type key="collation" type="dictionary" scope="core" draft="contributed">사전</type>
 			<type key="collation" type="ducet">기본 유니코드 정렬 순서</type>
+			<type key="collation" type="ducet" scope="core" draft="contributed">기본 유니코드</type>
 			<type key="collation" type="eor" draft="contributed">유럽 정렬 규칙</type>
 			<type key="collation" type="phonebook">전화번호부순</type>
+			<type key="collation" type="phonebook" scope="core" draft="contributed">전화번호부</type>
 			<type key="collation" type="phonetic">소리나는 대로 정렬 순서</type>
+			<type key="collation" type="phonetic" scope="core" draft="contributed">소리나는 대로</type>
 			<type key="collation" type="pinyin">병음순</type>
+			<type key="collation" type="pinyin" scope="core" draft="contributed">병음</type>
 			<type key="collation" type="search">범용 검색</type>
+			<type key="collation" type="search" scope="core" draft="contributed">검색</type>
 			<type key="collation" type="searchjl" draft="contributed">한글 자음으로 검색</type>
 			<type key="collation" type="standard">표준 정렬 순서</type>
+			<type key="collation" type="standard" scope="core" draft="contributed">표준</type>
 			<type key="collation" type="stroke">자획순</type>
+			<type key="collation" type="stroke" scope="core" draft="contributed">자획</type>
 			<type key="collation" type="traditional">전통 역법</type>
+			<type key="collation" type="traditional" scope="core" draft="contributed">전통</type>
 			<type key="collation" type="unihan">부수순</type>
+			<type key="collation" type="unihan" scope="core" draft="contributed">부수</type>
 			<type key="collation" type="zhuyin">주음순</type>
+			<type key="collation" type="zhuyin" scope="core" draft="contributed">주음</type>
 			<type key="colNormalization" type="no" draft="contributed">표준화 없이 정렬</type>
 			<type key="colNormalization" type="yes" draft="contributed">유니코드 표준화 정렬</type>
 			<type key="colNumeric" type="no" draft="contributed">숫자별 정렬</type>
@@ -1244,18 +1278,35 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="d0" type="fwidth">전각</type>
 			<type key="d0" type="hwidth">반각</type>
 			<type key="d0" type="npinyin" draft="contributed">숫자</type>
+			<type key="em" type="default" scope="core" draft="contributed">기본</type>
+			<type key="em" type="emoji" scope="core" draft="contributed">이모티콘</type>
+			<type key="em" type="text" scope="core" draft="contributed">텍스트</type>
 			<type key="hc" type="h11">12시간제(0–11)</type>
+			<type key="hc" type="h11" scope="core" draft="contributed">12(0–11)</type>
 			<type key="hc" type="h12">12시간제(1–12)</type>
+			<type key="hc" type="h12" scope="core" draft="contributed">12(1–12)</type>
 			<type key="hc" type="h23">24시간제(0–23)</type>
+			<type key="hc" type="h23" scope="core" draft="contributed">24(0–23)</type>
 			<type key="hc" type="h24">24시간제(1–24)</type>
+			<type key="hc" type="h24" scope="core" draft="contributed">24(1–24)</type>
 			<type key="lb" type="loose">줄바꿈 - 넓게</type>
+			<type key="lb" type="loose" scope="core" draft="contributed">넓게</type>
 			<type key="lb" type="normal">줄바꿈 - 보통</type>
+			<type key="lb" type="normal" scope="core" draft="contributed">보통</type>
 			<type key="lb" type="strict">줄바꿈 - 좁게</type>
+			<type key="lb" type="strict" scope="core" draft="contributed">좁게</type>
+			<type key="lw" type="breakall" scope="core" draft="contributed">모두 분리</type>
+			<type key="lw" type="keepall" scope="core" draft="contributed">모두 유지</type>
+			<type key="lw" type="normal" scope="core" draft="contributed">일반</type>
+			<type key="lw" type="phrase" scope="core" draft="contributed">구 단위 유지</type>
 			<type key="m0" type="bgn">미국 지명위원회(BGN)</type>
 			<type key="m0" type="ungegn">유엔 지명전문가 그룹(UNGEGN)</type>
 			<type key="ms" type="metric">미터법</type>
+			<type key="ms" type="metric" scope="core" draft="contributed">미터법</type>
 			<type key="ms" type="uksystem">야드파운드법</type>
+			<type key="ms" type="uksystem" scope="core" draft="contributed">영국식</type>
 			<type key="ms" type="ussystem">미국 계량법</type>
+			<type key="ms" type="ussystem" scope="core" draft="contributed">미국식</type>
 			<type key="numbers" type="arab">아라비아-인도식 숫자</type>
 			<type key="numbers" type="arabext">확장형 아라비아-인도식 숫자</type>
 			<type key="numbers" type="armn">아르메니아 숫자</type>
@@ -1313,6 +1364,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="numbers" type="tibt">티벳 숫자</type>
 			<type key="numbers" type="traditional" draft="contributed">전통적인 숫자</type>
 			<type key="numbers" type="vaii">바이 숫자</type>
+			<type key="ss" type="none" scope="core" draft="contributed">끔</type>
+			<type key="ss" type="standard" scope="core" draft="contributed">켬</type>
 		</types>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">미터법</measurementSystemName>
@@ -1330,7 +1383,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<exemplarCharacters type="auxiliary">[ᄀ ᄁ ᄂ ᄃ ᄄ ᄅ ᄆ ᄇ ᄈ ᄉ ᄊ ᄋ ᄌ ᄍ ᄎ ᄏ ᄐ ᄑ ᄒ ᅡ ᅢ ᅣ ᅤ ᅥ ᅦ ᅧ ᅨ ᅩ ᅪ ᅫ ᅬ ᅭ ᅮ ᅯ ᅰ ᅱ ᅲ ᅳ ᅴ ᅵ ᆨ ᆩ ᆪ ᆫ ᆬ ᆭ ᆮ ᆯ ᆰ ᆱ ᆲ ᆳ ᆴ ᆵ ᆶ ᆷ ᆸ ᆹ ᆺ ᆻ ᆼ ᆽ ᆾ ᆿ ᇀ ᇁ ᇂ 丘 串 乃 久 乖 九 乞 乫 乾 亂 亘 交 京 仇 今 介 件 价 企 伋 伎 伽佳 佶 侃 來 侊 供 係 俓 俱 個 倞 倦 倨 假 偈 健 傀 傑 傾 僅 僑 價 儆 儉 儺 光 克 兢 內 公共 其 具 兼 冀 冠 凱 刊 刮 券 刻 剋 剛 劇 劍劒 功 加 劤 劫 勁勍 勘 勤 勸 勻 勾 匡 匣 區 南 卦 却 卵 卷 卿 厥 去 及 口句 叩 叫 可 各 吉 君 告呱 呵 咎 咬 哥 哭 啓 喀 喇 喝 喫 喬 嗜 嘉 嘔 器 囊 困 固 圈 國 圭 圻 均 坎 坑 坤 坰 坵垢 基埼 堀 堅 堈 堪 堺 塊 塏 境 墾 壙 壞 夔奇 奈 奎 契 奸 妓 妗 姑 姜 姦 娘 娜 嫁 嬌 孔 季 孤 宏 官 客 宮 家 寄 寇 寡 寬 尻 局 居 屆 屈 岐 岡 岬 崎 崑 崗 嵌 嵐 嶇 嶠 工 巧 巨 己 巾 干幹 幾 庚 庫 康 廊 廐 廓 廣 建 弓 强彊 徑 忌 急 怪 怯 恐 恝 恪 恭 悸 愆 感 愧 愷愾 慊 慣 慤 慨 慶 慷 憩 憬 憾 懃 懇 懦 懶 懼 戈 戒 戟 戡 扱 技 抉 拉 拏 拐 拒 拘 括 拮 拱 拳 拷 拿 捏 据 捲 捺 掘 掛 控 揀 揆 揭 擊 擎 擒 據擧 攪 攷 改 攻 故 敎 救 敢 敬 敲 斛 斤 旗旣 昆 昑 景 晷 暇 暖 暠 暻 曠 曲 更 曷 朗 朞期 机 杆 杞 杰 枏 果 枯 架 枸 柑 柩 柬 柯 校 根 格 桀 桂 桔 桿 梏 梗 械 梱 棄棋 棍 棘 棨 棺 楗 楠 極 槁 構 槐 槨 槪 槻 槿 樂 橄 橋 橘 機 檄 檎 檢 櫃 欄 權 欺 款 歌 歐 歸 殼 毆毬 氣 求 江 汨 汲 決 汽沂 沽 洛 洸 浪 涇 淃 淇 減 渠 渴 湳 溝 溪 滑 滾 漑 潔 潰 澗 激 濫 灌 灸 炅 炚 炬 烙 烱 煖 爛 牽犬 狂 狗 狡 狼 獗 玖 玘 珂 珏 珖 珙 珞 珪 球 琦 琨 琪 琯 琴 瑾 璂 璟 璣 璥瓊 瓘 瓜 甄 甘 甲 男 畇 界 畸 畺 畿 疆 疥 疳 痂 痙 痼 癎 癩 癸 皆 皎 皐 盖 監 看 眷 睾 瞰 瞼 瞿 矜 矩 矯 硅 硬 碁 碣 磎 磬 磯 磵 祁祇祈 祛 祺 禁禽 科 稈 稼 稽 稿 穀 究 穹 空 窘 窟 窮 窺竅 竟 竭 競 竿 筋 筐 筠 箇 箕 箝 管 簡 粳 糠 系 糾 紀 納 紘 級 紺 絅 結 絞 給 絳 絹 絿 經 綱 綺 緊 繫 繭 繼 缺 罐 罫 羅 羈 羌 羔 群 羹 翹 考 耆 耉 耕 耭 耿 肌 肝 股 肩 肯 肱 胛 胱 脚 脛 腔 腱 膈 膏 膠 臘 臼舅舊 舡 艮艱 芎 芥 芩 芹 苛 苟 苦苽 茄 莖 菅 菊 菌 菓 菫 菰 落 葛 葵 蓋 蕎 蕨 薑 藁 藍 藿 蘭 蘿 虔 蚣 蛟 蝎 螺 蠟 蠱 街 衢 衲 衾衿 袈 袞 袴 裙 裸 褐 襁 襟 襤 見 規 覡 覲 覺 觀 角 計 記 訣 訶 詭 誇 誡 誥 課 諫 諾 謙 講 謳 謹 譏 警 譴 谷 谿 豈 貢 貫 貴 賈 購 赳 起 跏 距 跨 踞 蹇 蹶 躬 軀 車 軌 軍 軻 較 輕 轎 轟 辜 近 迦 迲 适 逑 逕 逵 過 遣 遽 邏 那 邯 邱 郊 郎 郡 郭 酪 醵 金 鈐 鈞 鉀 鉅 鉗 鉤銶 鋸 鋼 錡錤 錦 錮 鍋 鍵 鎌 鎧 鏡 鑑鑒 鑛 開 間 閘 閣 閨 闕 關 降 階 隔 隙 雇 難 鞏 鞠 鞨 鞫 頃頸 顆 顧 飢 餃 館 饉 饋 饑 駒 駕 駱 騎騏 騫 驅 驕 驚 驥 骨 高 鬼 魁 鮫 鯤 鯨 鱇 鳩 鵑 鵠 鷄 鷗 鸞 麒 麴 黔 鼓 龕 龜]</exemplarCharacters>
 		<exemplarCharacters type="index">[ㄱ ㄴ ㄷ ㄹ ㅁ ㅂ ㅅ ㅇ ㅈ ㅊ ㅋ ㅌ ㅍ ㅎ]</exemplarCharacters>
 		<exemplarCharacters type="numbers">↑↑↑</exemplarCharacters>
+		<exemplarCharacters type="numbers-auxiliary">↑↑↑</exemplarCharacters>
 		<exemplarCharacters type="punctuation">[‾ _＿ \-－ ‐‑ — ― 〜 ・ ,， 、 ;； \:： !！ ¡ ?？ ¿ .． ‥ … 。 · ＇‘’ &quot;＂“” (（ )） \[［ \]］ \{｛ \}｝ 〈 〉 《 》 「 」 『 』 【 】 〔 〕 § ¶ @＠ *＊ /／ \\＼ \&amp;＆ #＃ %％ ‰ † ‡ ′ ″ 〃 ※]</exemplarCharacters>
+		<exemplarCharacters type="punctuation-auxiliary">↑↑↑</exemplarCharacters>
+		<exemplarCharacters type="punctuation-person">↑↑↑</exemplarCharacters>
 		<ellipsis type="final">↑↑↑</ellipsis>
 		<ellipsis type="initial">↑↑↑</ellipsis>
 		<ellipsis type="medial">↑↑↑</ellipsis>
@@ -1348,7 +1404,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<parseLenient sample="%">↑↑↑</parseLenient>
 			<parseLenient sample="‰">↑↑↑</parseLenient>
 			<parseLenient sample="$">↑↑↑</parseLenient>
-			<parseLenient sample="£">[£￡ ₤]</parseLenient>
+			<parseLenient sample="£">↑↑↑</parseLenient>
 			<parseLenient sample="¥">↑↑↑</parseLenient>
 			<parseLenient sample="₩">↑↑↑</parseLenient>
 			<parseLenient sample="₹">↑↑↑</parseLenient>
@@ -1891,6 +1947,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Bhms">B h:mm:ss</dateFormatItem>
 						<dateFormatItem id="d">d일</dateFormatItem>
 						<dateFormatItem id="E">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EBh" draft="contributed">E B h시</dateFormatItem>
 						<dateFormatItem id="EBhm">E B h:mm</dateFormatItem>
 						<dateFormatItem id="EBhms">E B h:mm:ss</dateFormatItem>
 						<dateFormatItem id="Ed">d일 (E)</dateFormatItem>
@@ -1909,6 +1966,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Hm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hms">a h:mm:ss</dateFormatItem>
 						<dateFormatItem id="Hms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hv" draft="contributed">a h시 v</dateFormatItem>
+						<dateFormatItem id="Hv" draft="contributed">H시 v</dateFormatItem>
 						<dateFormatItem id="M">MMM</dateFormatItem>
 						<dateFormatItem id="Md">M. d.</dateFormatItem>
 						<dateFormatItem id="MEd">M. d. (E)</dateFormatItem>
@@ -2410,6 +2469,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateTimeFormat type="atTime">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern draft="contributed">↑↑↑</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
 						<dateTimeFormat>
@@ -2417,6 +2479,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
 							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern draft="contributed">↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="medium">
@@ -2426,6 +2491,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateTimeFormat type="atTime">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern draft="contributed">↑↑↑</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
 						<dateTimeFormat>
@@ -2434,6 +2502,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateTimeFormat type="atTime">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern draft="contributed">↑↑↑</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="Bh">B h시</dateFormatItem>
@@ -2441,16 +2512,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Bhms">B h:mm:ss</dateFormatItem>
 						<dateFormatItem id="d">d일</dateFormatItem>
 						<dateFormatItem id="E">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EBh" draft="contributed">E B h시</dateFormatItem>
 						<dateFormatItem id="EBhm">E B h:mm</dateFormatItem>
 						<dateFormatItem id="EBhms">E B h:mm:ss</dateFormatItem>
 						<dateFormatItem id="Ed">d일 (E)</dateFormatItem>
 						<dateFormatItem id="EEEEd">d일 EEEE</dateFormatItem>
+						<dateFormatItem id="Eh" draft="contributed">E a h시</dateFormatItem>
+						<dateFormatItem id="EH" draft="contributed">E H시</dateFormatItem>
 						<dateFormatItem id="Ehm">E a h:mm</dateFormatItem>
 						<dateFormatItem id="EHm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ehms">E a h:mm:ss</dateFormatItem>
 						<dateFormatItem id="EHms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Gy">G y년</dateFormatItem>
+						<dateFormatItem id="GyM" draft="contributed">G y/M</dateFormatItem>
 						<dateFormatItem id="GyMd">GGGGG y/M/d</dateFormatItem>
+						<dateFormatItem id="GyMEd" draft="contributed">G y/M/d (E)</dateFormatItem>
 						<dateFormatItem id="GyMMM">G y년 M월</dateFormatItem>
 						<dateFormatItem id="GyMMMd">G y년 M월 d일</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">G y년 M월 d일 (E)</dateFormatItem>
@@ -2462,6 +2538,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Hm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hms">a h:mm:ss</dateFormatItem>
 						<dateFormatItem id="Hms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hv" draft="contributed">a h시 v</dateFormatItem>
+						<dateFormatItem id="Hv" draft="contributed">H시 v</dateFormatItem>
 						<dateFormatItem id="M">M월</dateFormatItem>
 						<dateFormatItem id="Md">M. d.</dateFormatItem>
 						<dateFormatItem id="MEd">M. d. (E)</dateFormatItem>
@@ -2871,7 +2949,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<dayPeriod type="am">↑↑↑</dayPeriod>
 							<dayPeriod type="noon">↑↑↑</dayPeriod>
 							<dayPeriod type="pm">↑↑↑</dayPeriod>
-							<dayPeriod type="morning1">아침</dayPeriod>
+							<dayPeriod type="morning1">↑↑↑</dayPeriod>
 							<dayPeriod type="morning2">↑↑↑</dayPeriod>
 							<dayPeriod type="afternoon1">↑↑↑</dayPeriod>
 							<dayPeriod type="evening1">↑↑↑</dayPeriod>
@@ -2882,7 +2960,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<dayPeriod type="am">오전</dayPeriod>
 							<dayPeriod type="noon">↑↑↑</dayPeriod>
 							<dayPeriod type="pm">오후</dayPeriod>
-							<dayPeriod type="morning1">아침</dayPeriod>
+							<dayPeriod type="morning1">↑↑↑</dayPeriod>
 							<dayPeriod type="morning2">↑↑↑</dayPeriod>
 							<dayPeriod type="afternoon1">↑↑↑</dayPeriod>
 							<dayPeriod type="evening1">↑↑↑</dayPeriod>
@@ -2895,7 +2973,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<dayPeriod type="am">↑↑↑</dayPeriod>
 							<dayPeriod type="noon">↑↑↑</dayPeriod>
 							<dayPeriod type="pm">↑↑↑</dayPeriod>
-							<dayPeriod type="morning1">아침</dayPeriod>
+							<dayPeriod type="morning1">↑↑↑</dayPeriod>
 							<dayPeriod type="morning2">↑↑↑</dayPeriod>
 							<dayPeriod type="afternoon1">↑↑↑</dayPeriod>
 							<dayPeriod type="evening1">↑↑↑</dayPeriod>
@@ -2906,7 +2984,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<dayPeriod type="am">↑↑↑</dayPeriod>
 							<dayPeriod type="noon">↑↑↑</dayPeriod>
 							<dayPeriod type="pm">↑↑↑</dayPeriod>
-							<dayPeriod type="morning1">아침</dayPeriod>
+							<dayPeriod type="morning1">↑↑↑</dayPeriod>
 							<dayPeriod type="morning2">↑↑↑</dayPeriod>
 							<dayPeriod type="afternoon1">↑↑↑</dayPeriod>
 							<dayPeriod type="evening1">↑↑↑</dayPeriod>
@@ -2917,7 +2995,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<dayPeriod type="am">오전</dayPeriod>
 							<dayPeriod type="noon">↑↑↑</dayPeriod>
 							<dayPeriod type="pm">오후</dayPeriod>
-							<dayPeriod type="morning1">아침</dayPeriod>
+							<dayPeriod type="morning1">↑↑↑</dayPeriod>
 							<dayPeriod type="morning2">↑↑↑</dayPeriod>
 							<dayPeriod type="afternoon1">↑↑↑</dayPeriod>
 							<dayPeriod type="evening1">↑↑↑</dayPeriod>
@@ -2999,6 +3077,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateTimeFormat type="atTime">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern draft="contributed">↑↑↑</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
 						<dateTimeFormat>
@@ -3006,6 +3087,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
 							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern draft="contributed">↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="medium">
@@ -3015,6 +3099,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateTimeFormat type="atTime">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern draft="contributed">↑↑↑</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
 						<dateTimeFormat>
@@ -3023,6 +3110,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateTimeFormat type="atTime">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern draft="contributed">↑↑↑</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="Bh">B h시</dateFormatItem>
@@ -3030,16 +3120,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Bhms">B h:mm:ss</dateFormatItem>
 						<dateFormatItem id="d">d일</dateFormatItem>
 						<dateFormatItem id="E">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EBh">(E) B h시</dateFormatItem>
 						<dateFormatItem id="EBhm">(E) B h:mm</dateFormatItem>
 						<dateFormatItem id="EBhms">(E) B h:mm:ss</dateFormatItem>
 						<dateFormatItem id="Ed">d일 (E)</dateFormatItem>
 						<dateFormatItem id="EEEEd">d일 EEEE</dateFormatItem>
+						<dateFormatItem id="Eh" draft="contributed">(E) a h</dateFormatItem>
+						<dateFormatItem id="EH" draft="contributed">(E) H시</dateFormatItem>
 						<dateFormatItem id="Ehm">(E) a h:mm</dateFormatItem>
 						<dateFormatItem id="EHm">(E) HH:mm</dateFormatItem>
 						<dateFormatItem id="Ehms">(E) a h:mm:ss</dateFormatItem>
 						<dateFormatItem id="EHms">(E) HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">G y년</dateFormatItem>
+						<dateFormatItem id="GyM">G y/M</dateFormatItem>
 						<dateFormatItem id="GyMd">GGGGG y/M/d</dateFormatItem>
+						<dateFormatItem id="GyMEd">G y/M/d (E)</dateFormatItem>
 						<dateFormatItem id="GyMMM">G y년 MMM</dateFormatItem>
 						<dateFormatItem id="GyMMMd">G y년 MMM d일</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">G y년 MMM d일 (E)</dateFormatItem>
@@ -3055,6 +3150,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Hmsv">H시 m분 s초 v</dateFormatItem>
 						<dateFormatItem id="hmv">a h:mm v</dateFormatItem>
 						<dateFormatItem id="Hmv">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hv" draft="contributed">a h시 v</dateFormatItem>
+						<dateFormatItem id="Hv" draft="contributed">H시 v</dateFormatItem>
 						<dateFormatItem id="M">M월</dateFormatItem>
 						<dateFormatItem id="Md">M. d.</dateFormatItem>
 						<dateFormatItem id="MEd">M. d. (E)</dateFormatItem>
@@ -3185,11 +3282,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMd">
 							<greatestDifference id="d">MMM d일~d일</greatestDifference>
-							<greatestDifference id="M">M월 d일 ~ M월 d일</greatestDifference>
+							<greatestDifference id="M">MMM d일~MMM d일</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMEd">
-							<greatestDifference id="d">M월 d일 (E) ~ d일 (E)</greatestDifference>
-							<greatestDifference id="M">M월 d일 (E) ~ M월 d일 (E)</greatestDifference>
+							<greatestDifference id="d">MMM d일 (E)~d일 (E)</greatestDifference>
+							<greatestDifference id="M">MMM d일 (E)~MMM d일 (E)</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMM">
 							<greatestDifference id="M">LLLL–LLLL</greatestDifference>
@@ -3213,17 +3310,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
 							<greatestDifference id="M">y년 M월~M월</greatestDifference>
-							<greatestDifference id="y">y년 M월 ~ y년 M월</greatestDifference>
+							<greatestDifference id="y">y년 MMM~y년 MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
 							<greatestDifference id="d">y년 M월 d일~d일</greatestDifference>
-							<greatestDifference id="M">y년 M월 d일 ~ M월 d일</greatestDifference>
-							<greatestDifference id="y">y년 M월 d일 ~ y년 M월 d일</greatestDifference>
+							<greatestDifference id="M">y년 MMM d일~MMM d일</greatestDifference>
+							<greatestDifference id="y">y년 MMM d일~y년 MMM d일</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="d">y년 M월 d일 (E) ~ d일 (E)</greatestDifference>
-							<greatestDifference id="M">y년 M월 d일 (E) ~ M월 d일 (E)</greatestDifference>
-							<greatestDifference id="y">y년 M월 d일 (E) ~ y년 M월 d일 (E)</greatestDifference>
+							<greatestDifference id="d">y년 MMM d일 (E)~d일 (E)</greatestDifference>
+							<greatestDifference id="M">y년 MMM d일 (E)~MMM d일 (E)</greatestDifference>
+							<greatestDifference id="y">y년 MMM d일 (E)~y년 MMM d일 (E)</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMEEEEd">
 							<greatestDifference id="d">y년 M월 d일 EEEE ~ d일 EEEE</greatestDifference>
@@ -3231,8 +3328,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<greatestDifference id="y">y년 M월 d일 EEEE ~ y년 M월 d일 EEEE</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMM">
-							<greatestDifference id="M">y년 MMMM ~ MMMM</greatestDifference>
-							<greatestDifference id="y">y년 MMMM ~ y년 MMMM</greatestDifference>
+							<greatestDifference id="M">y년 MMMM~MMMM</greatestDifference>
+							<greatestDifference id="y">y년 MMMM~y년 MMMM</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
@@ -3371,6 +3468,149 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="MMMMd" draft="contributed">MMMM d일</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM" draft="contributed">G y년 MMMM</dateFormatItem>
 					</availableFormats>
+				</dateTimeFormats>
+			</calendar>
+			<calendar type="iso8601">
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern draft="contributed">y년 MMMM d일 EEEE</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern draft="contributed">y년 MMMM d일</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern draft="contributed">y년 MMM d일</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern draft="contributed">y. MM. dd.</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="Ed" draft="contributed">d일 (E)</dateFormatItem>
+						<dateFormatItem id="Gy" draft="contributed">G y년</dateFormatItem>
+						<dateFormatItem id="GyM">G y/MM</dateFormatItem>
+						<dateFormatItem id="GyMd">G y/MM/dd</dateFormatItem>
+						<dateFormatItem id="GyMEd">G y/MM/dd (E)</dateFormatItem>
+						<dateFormatItem id="GyMMM" draft="contributed">G y년 MMM</dateFormatItem>
+						<dateFormatItem id="GyMMMd" draft="contributed">G y년 MMM d일</dateFormatItem>
+						<dateFormatItem id="GyMMMEd" draft="contributed">G y년 MMM d일 (E)</dateFormatItem>
+						<dateFormatItem id="Md" draft="contributed">MM. dd.</dateFormatItem>
+						<dateFormatItem id="MEd" draft="contributed">MM. dd. (E)</dateFormatItem>
+						<dateFormatItem id="MMMd" draft="contributed">MMM d일</dateFormatItem>
+						<dateFormatItem id="MMMEd" draft="contributed">MMM d일 (E)</dateFormatItem>
+						<dateFormatItem id="MMMMd" draft="contributed">MMMM d일</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="other" draft="contributed">MMMM W번째 주</dateFormatItem>
+						<dateFormatItem id="yM" draft="contributed">y. MM.</dateFormatItem>
+						<dateFormatItem id="yMd" draft="contributed">y. MM. dd.</dateFormatItem>
+						<dateFormatItem id="yMEd" draft="contributed">y. MM. dd. (E)</dateFormatItem>
+						<dateFormatItem id="yMMM" draft="contributed">y년 MMM</dateFormatItem>
+						<dateFormatItem id="yMMMd" draft="contributed">y년 MMM d일</dateFormatItem>
+						<dateFormatItem id="yMMMEd" draft="contributed">y년 MMM d일 (E)</dateFormatItem>
+						<dateFormatItem id="yMMMM" draft="contributed">y년 MMMM</dateFormatItem>
+						<dateFormatItem id="yQQQ" draft="contributed">y년 QQQ</dateFormatItem>
+						<dateFormatItem id="yQQQQ" draft="contributed">y년 QQQQ</dateFormatItem>
+						<dateFormatItem id="yw" count="other" draft="contributed">Y년 w번째 주</dateFormatItem>
+					</availableFormats>
+					<intervalFormats>
+						<intervalFormatItem id="Gy">
+							<greatestDifference id="G" draft="contributed">G y년 ~ G y년</greatestDifference>
+							<greatestDifference id="y" draft="contributed">y년 ~ y년</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyM">
+							<greatestDifference id="G" draft="contributed">G y년 MM월 ~ G y년 MM월</greatestDifference>
+							<greatestDifference id="M" draft="contributed">G y년 MM월 ~ y년 MM월</greatestDifference>
+							<greatestDifference id="y" draft="contributed">G y년 MM월 ~ y년 MM월</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMd">
+							<greatestDifference id="d" draft="contributed">G y년 MM월 dd일 ~ y년 MM월 dd일</greatestDifference>
+							<greatestDifference id="G" draft="contributed">G y년 MM월 dd일 ~ G y년 MM월 dd일</greatestDifference>
+							<greatestDifference id="M" draft="contributed">G y년 MM월 dd일 ~ y년 MM월 dd일</greatestDifference>
+							<greatestDifference id="y" draft="contributed">G y년 MM월 dd일 ~ y년 MM월 dd일</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMEd">
+							<greatestDifference id="d" draft="contributed">G y년 MM월 dd일 E요일 ~ y년 MM월 dd일 E요일</greatestDifference>
+							<greatestDifference id="G" draft="contributed">G y년 MM월 dd일 E요일 ~ G y년 MM월 dd일 E요일</greatestDifference>
+							<greatestDifference id="M" draft="contributed">G y년 MM월 dd일 E요일 ~ y년 MM월 dd일 E요일</greatestDifference>
+							<greatestDifference id="y" draft="contributed">G y년 MM월 dd일 E요일 ~ y년 MM월 dd일 E요일</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMM">
+							<greatestDifference id="G" draft="contributed">G y년 MMM ~ G y년 MMM</greatestDifference>
+							<greatestDifference id="M" draft="contributed">G y년 MMM ~ MMM</greatestDifference>
+							<greatestDifference id="y" draft="contributed">G y년 MMM ~ y년 MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMd">
+							<greatestDifference id="d" draft="contributed">G y년 MMM d일 ~ d일</greatestDifference>
+							<greatestDifference id="G" draft="contributed">G y년 MMM d일 ~ G y년 MMM d일</greatestDifference>
+							<greatestDifference id="M" draft="contributed">G y년 MMM d일 ~ MMM d일</greatestDifference>
+							<greatestDifference id="y" draft="contributed">G y년 MMM d일 ~ y년 MMM d일</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMEd">
+							<greatestDifference id="d" draft="contributed">G y년 MMM d일 E요일 ~ MMM d일 E요일</greatestDifference>
+							<greatestDifference id="G" draft="contributed">G y년 MMM d일 E요일 ~ G y년 MMM d일 E요일</greatestDifference>
+							<greatestDifference id="M" draft="contributed">G y년 MMM d일 E요일 ~ MMM d일 E요일</greatestDifference>
+							<greatestDifference id="y" draft="contributed">G y년 MMM d일 E요일 ~ y년 MMM d일 E요일</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="H">
+							<greatestDifference id="H" draft="contributed">HH~HH</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Md">
+							<greatestDifference id="d" draft="contributed">MM/dd ~ MM/dd</greatestDifference>
+							<greatestDifference id="M" draft="contributed">MM/dd ~ MM/dd</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MEd">
+							<greatestDifference id="d" draft="contributed">MM. dd (E) ~ MM. dd (E)</greatestDifference>
+							<greatestDifference id="M" draft="contributed">MM. dd (E) ~ MM. dd (E)</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMd">
+							<greatestDifference id="d" draft="contributed">MMM d일 ~ d일</greatestDifference>
+							<greatestDifference id="M" draft="contributed">MMM d일 ~ MMM d일</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMEd">
+							<greatestDifference id="d" draft="contributed">MMM d일 (E) ~ MMM d일 (E)</greatestDifference>
+							<greatestDifference id="M" draft="contributed">MMM d일 (E) ~ MMM d일 (E)</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yM">
+							<greatestDifference id="M" draft="contributed">y. MM ~ y. MM</greatestDifference>
+							<greatestDifference id="y" draft="contributed">y. MM ~ y. MM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMd">
+							<greatestDifference id="d" draft="contributed">y. MM. dd. ~ y. MM. dd.</greatestDifference>
+							<greatestDifference id="M" draft="contributed">y. MM. dd. ~ y. MM. dd.</greatestDifference>
+							<greatestDifference id="y" draft="contributed">y. MM. dd. ~ y. MM. dd.</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMEd">
+							<greatestDifference id="d" draft="contributed">y. MM. dd. (E) ~ y. MM. dd. (E)</greatestDifference>
+							<greatestDifference id="M" draft="contributed">y. MM. dd. (E) ~ y. MM. dd. (E)</greatestDifference>
+							<greatestDifference id="y" draft="contributed">y. MM. dd. (E) ~ y. MM. dd. (E)</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMM">
+							<greatestDifference id="M" draft="contributed">y년 MMM ~ MMM</greatestDifference>
+							<greatestDifference id="y" draft="contributed">y년 MMM ~ y년 MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMd">
+							<greatestDifference id="d" draft="contributed">y년 MMM d일 ~ d일</greatestDifference>
+							<greatestDifference id="M" draft="contributed">y년 MMM d일 ~ MMM d일</greatestDifference>
+							<greatestDifference id="y" draft="contributed">y년 MMM d일 ~ y년 MMM d일</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMEd">
+							<greatestDifference id="d" draft="contributed">y년 MMM d일 (E) ~ MMM d일 (E)</greatestDifference>
+							<greatestDifference id="M" draft="contributed">y년 MMM d일 (E) ~ MMM d일 (E)</greatestDifference>
+							<greatestDifference id="y" draft="contributed">y년 MMM d일 (E) ~ y년 MMM d일 (E)</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMM">
+							<greatestDifference id="M" draft="contributed">y년 MMMM ~ MMMM</greatestDifference>
+							<greatestDifference id="y" draft="contributed">y년 MMMM ~ y년 MMMM</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="japanese">
@@ -4312,6 +4552,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<hourFormat>↑↑↑</hourFormat>
 			<gmtFormat>↑↑↑</gmtFormat>
 			<gmtZeroFormat>↑↑↑</gmtZeroFormat>
+			<gmtUnknownFormat draft="contributed">↑↑↑</gmtUnknownFormat>
 			<regionFormat>{0} 시간</regionFormat>
 			<regionFormat type="daylight">{0} 하계 표준시</regionFormat>
 			<regionFormat type="standard">{0} 표준시</regionFormat>
@@ -4668,6 +4909,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Pacific/Easter">
 				<exemplarCity>이스터 섬</exemplarCity>
+			</zone>
+			<zone type="America/Coyhaique">
+				<exemplarCity draft="contributed">코이아이케</exemplarCity>
 			</zone>
 			<zone type="America/Punta_Arenas">
 				<exemplarCity>푼타아레나스</exemplarCity>
@@ -6609,6 +6853,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
+		<rationalFormats numberSystem="latn">
+			<rationalPattern draft="contributed">↑↑↑</rationalPattern>
+			<integerAndRationalPattern draft="contributed">↑↑↑</integerAndRationalPattern>
+			<integerAndRationalPattern alt="superSub" draft="contributed">↑↑↑</integerAndRationalPattern>
+			<rationalUsage>↑↑↑</rationalUsage>
+		</rationalFormats>
 		<scientificFormats numberSystem="latn">
 			<scientificFormatLength>
 				<scientificFormat>
@@ -6627,8 +6877,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>¤#,##0.00</pattern>
-					<pattern alt="alphaNextToNumber" draft="provisional">¤ #,##0.00</pattern>
-					<pattern alt="noCurrency" draft="provisional">#,##0.00</pattern>
+					<pattern alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>¤#,##0.00;(¤#,##0.00)</pattern>
@@ -7041,7 +7291,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="ERN">
-				<displayName>에리트리아 나크파</displayName>
+				<displayName>에리트레아 낙파</displayName>
 				<displayName count="other">↑↑↑</displayName>
 				<symbol>↑↑↑</symbol>
 			</currency>
@@ -7758,7 +8008,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 			<currency type="TRY">
 				<displayName>튀르키예 리라</displayName>
-				<displayName count="other">튀르키예 리라</displayName>
+				<displayName count="other">↑↑↑</displayName>
 				<symbol>↑↑↑</symbol>
 				<symbol alt="narrow">↑↑↑</symbol>
 				<symbol alt="variant">↑↑↑</symbol>
@@ -7888,6 +8138,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol>↑↑↑</symbol>
 				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
+			<currency type="XCG">
+				<displayName draft="contributed">카리브 길더</displayName>
+				<displayName count="other">카리브 길더</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
 			<currency type="XDR">
 				<displayName>특별인출권</displayName>
 			</currency>
@@ -7969,6 +8224,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 			<currency type="ZWD">
 				<displayName>짐바브웨 달러</displayName>
+			</currency>
+			<currency type="ZWG">
+				<displayName draft="contributed">짐바브웨 골드</displayName>
+				<displayName count="other">짐바브웨 골드</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="ZWL">
 				<displayName draft="contributed">짐바브웨 달러 (2009)</displayName>
@@ -8189,6 +8449,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="concentr-part">
+				<displayName draft="contributed">분율</displayName>
+				<unitPattern count="other" draft="contributed">{0}분율</unitPattern>
+			</unit>
 			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -8208,6 +8472,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="concentr-mole">
 				<displayName>몰</displayName>
 				<unitPattern count="other">{0}몰</unitPattern>
+			</unit>
+			<unit type="concentr-ofglucose">
+				<displayName draft="contributed">포도당</displayName>
+				<unitPattern count="other" draft="contributed">{0}포도당</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>킬로미터당 리터</displayName>
@@ -8642,6 +8910,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>수은주밀리미터</displayName>
 				<unitPattern count="other">{0}수은주밀리미터</unitPattern>
 			</unit>
+			<unit type="pressure-ofhg">
+				<displayName draft="contributed">수은주</displayName>
+				<unitPattern count="other" draft="contributed">{0}수은주</unitPattern>
+			</unit>
 			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>제곱인치당 파운드</displayName>
 				<unitPattern count="other">{0}제곱인치당 파운드</unitPattern>
@@ -8785,6 +9057,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>미터식 컵</displayName>
 				<unitPattern count="other">{0}미터식 컵</unitPattern>
 			</unit>
+			<unit type="volume-fluid-ounce-metric">
+				<displayName draft="contributed">미터식 액량 온스</displayName>
+				<unitPattern count="other" draft="contributed">{0}미터식 액량 온스</unitPattern>
+			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>에이커 피트</displayName>
 				<unitPattern count="other">{0}에이커 피트</unitPattern>
@@ -8863,13 +9139,69 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>영국 쿼트</displayName>
 				<unitPattern count="other">{0}영국 쿼트</unitPattern>
 			</unit>
+			<unit type="angle-steradian">
+				<displayName draft="contributed">스테라디안</displayName>
+				<unitPattern count="other" draft="contributed">{0}스테라디안</unitPattern>
+			</unit>
+			<unit type="concentr-katal">
+				<displayName draft="contributed">캐탈</displayName>
+				<unitPattern count="other" draft="contributed">{0}캐탈</unitPattern>
+			</unit>
+			<unit type="electric-coulomb">
+				<displayName draft="contributed">쿨롬</displayName>
+				<unitPattern count="other" draft="contributed">{0}쿨롬</unitPattern>
+			</unit>
+			<unit type="electric-farad">
+				<displayName draft="contributed">패럿</displayName>
+				<unitPattern count="other" draft="contributed">{0}패럿</unitPattern>
+			</unit>
+			<unit type="electric-henry">
+				<displayName draft="contributed">헨리</displayName>
+				<unitPattern count="other" draft="contributed">{0}헨리</unitPattern>
+			</unit>
+			<unit type="electric-siemens">
+				<displayName draft="contributed">지멘스</displayName>
+				<unitPattern count="other" draft="contributed">{0}지멘스</unitPattern>
+			</unit>
+			<unit type="energy-calorie-it">
+				<displayName draft="contributed">칼로리[IT]</displayName>
+				<unitPattern count="other" draft="contributed">{0}칼로리[IT]</unitPattern>
+			</unit>
+			<unit type="energy-becquerel">
+				<displayName draft="contributed">베크렐</displayName>
+				<unitPattern count="other" draft="contributed">{0}베크렐</unitPattern>
+			</unit>
+			<unit type="energy-sievert">
+				<displayName draft="contributed">시버트</displayName>
+				<unitPattern count="other" draft="contributed">{0}시버트</unitPattern>
+			</unit>
+			<unit type="energy-gray">
+				<displayName draft="contributed">그레이</displayName>
+				<unitPattern count="other" draft="contributed">{0}그레이</unitPattern>
+			</unit>
+			<unit type="force-kilogram-force">
+				<displayName draft="contributed">킬로그램힘</displayName>
+				<unitPattern count="other" draft="contributed">{0}킬로그램힘</unitPattern>
+			</unit>
+			<unit type="magnetic-tesla">
+				<displayName draft="contributed">테슬라</displayName>
+				<unitPattern count="other" draft="contributed">{0}테슬라</unitPattern>
+			</unit>
+			<unit type="magnetic-weber">
+				<displayName draft="contributed">웨버</displayName>
+				<unitPattern count="other" draft="contributed">{0}웨버</unitPattern>
+			</unit>
+			<unit type="speed-light-speed">
+				<displayName draft="contributed">광속</displayName>
+				<unitPattern count="other" draft="contributed">{0}광속</unitPattern>
+			</unit>
 			<unit type="concentr-part-per-1e9">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">{0}ppb</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-night">
-				<displayName>박</displayName>
-				<unitPattern count="other">{0}박</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 				<perUnitPattern>1박당 {0}</perUnitPattern>
 			</unit>
 			<coordinateUnit>
@@ -9080,6 +9412,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>항목</displayName>
 				<unitPattern count="other">{0}개 항목</unitPattern>
 			</unit>
+			<unit type="concentr-part">
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">{0}part</unitPattern>
+			</unit>
 			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0}ppm</unitPattern>
@@ -9099,6 +9435,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="concentr-mole">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0}mol</unitPattern>
+			</unit>
+			<unit type="concentr-ofglucose">
+				<displayName draft="contributed">Glc</displayName>
+				<unitPattern count="other" draft="contributed">{0}Glc</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>↑↑↑</displayName>
@@ -9533,6 +9873,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>mmHg</displayName>
 				<unitPattern count="other">{0}mmHg</unitPattern>
 			</unit>
+			<unit type="pressure-ofhg">
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">{0}Hg</unitPattern>
+			</unit>
 			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0}psi</unitPattern>
@@ -9676,6 +10020,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0}mc</unitPattern>
 			</unit>
+			<unit type="volume-fluid-ounce-metric">
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">{0}fl oz m.</unitPattern>
+			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0}ac ft</unitPattern>
@@ -9753,6 +10101,62 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="volume-quart-imperial">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0}qt Imp.</unitPattern>
+			</unit>
+			<unit type="angle-steradian">
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">{0}sr</unitPattern>
+			</unit>
+			<unit type="concentr-katal">
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">{0}kat</unitPattern>
+			</unit>
+			<unit type="electric-coulomb">
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">{0}C</unitPattern>
+			</unit>
+			<unit type="electric-farad">
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">{0}F</unitPattern>
+			</unit>
+			<unit type="electric-henry">
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">{0}H</unitPattern>
+			</unit>
+			<unit type="electric-siemens">
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">{0}S</unitPattern>
+			</unit>
+			<unit type="energy-calorie-it">
+				<displayName draft="contributed">cal-IT</displayName>
+				<unitPattern count="other" draft="contributed">{0}cal-IT</unitPattern>
+			</unit>
+			<unit type="energy-becquerel">
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">{0}Bq</unitPattern>
+			</unit>
+			<unit type="energy-sievert">
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">{0}Sv</unitPattern>
+			</unit>
+			<unit type="energy-gray">
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">{0}Gy</unitPattern>
+			</unit>
+			<unit type="force-kilogram-force">
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">{0}kgf</unitPattern>
+			</unit>
+			<unit type="magnetic-tesla">
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">{0}T</unitPattern>
+			</unit>
+			<unit type="magnetic-weber">
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">{0}Wb</unitPattern>
+			</unit>
+			<unit type="speed-light-speed">
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">{0}light</unitPattern>
 			</unit>
 			<unit type="concentr-part-per-1e9">
 				<displayName>↑↑↑</displayName>
@@ -9971,6 +10375,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="concentr-part">
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">{0}part</unitPattern>
+			</unit>
 			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -9990,6 +10398,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="concentr-mole">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-ofglucose">
+				<displayName draft="contributed">Glc</displayName>
+				<unitPattern count="other" draft="contributed">{0}Glc</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>↑↑↑</displayName>
@@ -10424,6 +10836,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="pressure-ofhg">
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">{0}Hg</unitPattern>
+			</unit>
 			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -10567,6 +10983,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="volume-fluid-ounce-metric">
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">{0}fl oz m.</unitPattern>
+			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -10645,14 +11065,70 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="angle-steradian">
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">{0}sr</unitPattern>
+			</unit>
+			<unit type="concentr-katal">
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">{0}kat</unitPattern>
+			</unit>
+			<unit type="electric-coulomb">
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">{0}C</unitPattern>
+			</unit>
+			<unit type="electric-farad">
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">{0}F</unitPattern>
+			</unit>
+			<unit type="electric-henry">
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">{0}H</unitPattern>
+			</unit>
+			<unit type="electric-siemens">
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">{0}S</unitPattern>
+			</unit>
+			<unit type="energy-calorie-it">
+				<displayName draft="contributed">cal-IT</displayName>
+				<unitPattern count="other" draft="contributed">{0}cal-IT</unitPattern>
+			</unit>
+			<unit type="energy-becquerel">
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">{0}Bq</unitPattern>
+			</unit>
+			<unit type="energy-sievert">
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">{0}Sv</unitPattern>
+			</unit>
+			<unit type="energy-gray">
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">{0}Gy</unitPattern>
+			</unit>
+			<unit type="force-kilogram-force">
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">{0}kgf</unitPattern>
+			</unit>
+			<unit type="magnetic-tesla">
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">{0}T</unitPattern>
+			</unit>
+			<unit type="magnetic-weber">
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">{0}Wb</unitPattern>
+			</unit>
+			<unit type="speed-light-speed">
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="other" draft="contributed">{0}light</unitPattern>
+			</unit>
 			<unit type="concentr-part-per-1e9">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">{0}ppb</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-night">
-				<displayName>박</displayName>
-				<unitPattern count="other">{0}박</unitPattern>
-				<perUnitPattern>{0}/박</perUnitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>↑↑↑</displayName>

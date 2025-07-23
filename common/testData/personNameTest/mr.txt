@@ -221,11 +221,14 @@ parameters; givenFirst; long; referring; formal
 parameters; givenFirst; long; referring; informal
 parameters; givenFirst; long; addressing; formal
 parameters; givenFirst; long; addressing; informal
-parameters; givenFirst; medium; referring; formal
 
 expectedResult; फडके, रिधान स.
 
 parameters; sorting; medium; referring; formal
+
+expectedResult; रिधान स. फडके
+
+parameters; givenFirst; medium; referring; formal
 
 expectedResult; फडके, रि. स.
 
@@ -320,21 +323,24 @@ name ; generation; क.
 name ; credentials; एम. पी.
 name ; locale; mr_AQ
 
+expectedResult; देशपांडे श्री. धिरज देशपांडे विजय देशपांडे क., एम. पी.
+
+parameters; surnameFirst; long; referring; formal
+parameters; surnameFirst; medium; referring; formal
+
+expectedResult; श्री. धिरज देशपांडे विजय देशपांडे देशपांडे क., एम. पी.
+
+parameters; givenFirst; long; referring; formal
+
 expectedResult; श्री. धिरज देशपांडे विजय देशपांडे देशपांडे, एम. पी.
 
 parameters; givenFirst; long; referring; informal
 parameters; givenFirst; long; addressing; formal
 parameters; givenFirst; long; addressing; informal
+
+expectedResult; धिरज देशपांडे वि. दे. देशपांडे क., एम. पी.
+
 parameters; givenFirst; medium; referring; formal
-
-expectedResult; श्री. धिरज देशपांडे विजय देशपांडे देशपांडे एम. पी.
-
-parameters; givenFirst; long; referring; formal
-
-expectedResult; देशपांडे धिरज देशपांडे विजय देशपांडे एम. पी.
-
-parameters; surnameFirst; long; referring; formal
-parameters; surnameFirst; medium; referring; formal
 
 expectedResult; देशपांडे, धिरज देशपांडे विजय देशपांडे
 
@@ -429,7 +435,7 @@ endName
 
 # foreignG
 name ; given; सिंदबाद
-name ; locale; ko_AQ
+name ; locale; ja_AQ
 
 expectedResult; सिंदबाद
 
@@ -484,7 +490,7 @@ endName
 # foreignGS
 name ; given; काठे
 name ; surname; मुलर
-name ; locale; ko_AQ
+name ; locale; ja_AQ
 
 expectedResult; मुलर, काठे
 
@@ -570,68 +576,71 @@ parameters; surnameFirst; short; monogram; formal
 endName
 
 # foreignGGS
-name ; given; झाझिलिया
+name ; given; आलिया
 name ; given2; हमीश
-name ; surname; स्टॉबर
-name ; locale; ko_AQ
+name ; surname; हेमंत
+name ; locale; ja_AQ
 
-expectedResult; स्टॉबर, झाझिलिया हमीश
+expectedResult; हेमंत, आलिया हमीश
 
 parameters; sorting; long; referring; formal
 
-expectedResult; झाझिलिया हमीश स्टॉबर
+expectedResult; आलिया हमीश हेमंत
 
 parameters; givenFirst; long; referring; formal
 parameters; givenFirst; long; referring; informal
 parameters; givenFirst; long; addressing; formal
 parameters; givenFirst; long; addressing; informal
-parameters; givenFirst; medium; referring; formal
 
-expectedResult; स्टॉबर झाझिलिया हमीश
+expectedResult; हेमंत आलिया हमीश
 
 parameters; surnameFirst; long; referring; formal
 parameters; surnameFirst; medium; referring; formal
 
-expectedResult; स्टॉबर, झाझिलिया ह.
+expectedResult; हेमंत, आलिया ह.
 
 parameters; sorting; medium; referring; formal
 
-expectedResult; स्टॉबर, झाझिलिया
+expectedResult; आलिया ह. हेमंत
+
+parameters; givenFirst; medium; referring; formal
+
+expectedResult; हेमंत, आ. ह.
+
+parameters; sorting; short; referring; formal
+
+expectedResult; हेमंत, आलिया
 
 parameters; sorting; long; referring; informal
 parameters; sorting; medium; referring; informal
 parameters; sorting; short; referring; informal
 
-expectedResult; झाझिलिया स्टॉबर
+expectedResult; आ. ह. हेमंत
+
+parameters; givenFirst; short; referring; formal
+
+expectedResult; आलिया हेमंत
 
 parameters; givenFirst; medium; referring; informal
 
-expectedResult; स्टॉबर झाझिलिया
+expectedResult; हेमंत आ. ह.
+
+parameters; surnameFirst; short; referring; formal
+
+expectedResult; हेमंत आलिया
 
 parameters; surnameFirst; long; referring; informal
 parameters; surnameFirst; medium; referring; informal
 
-expectedResult; झाझिलिया स्टॉ.
+expectedResult; आलिया हे.
 
 parameters; givenFirst; short; referring; informal
 
-expectedResult; स्टॉबर, झा. ह.
-
-parameters; sorting; short; referring; formal
-
-expectedResult; झा. ह. स्टॉबर
-
-parameters; givenFirst; short; referring; formal
-
-expectedResult; स्टॉबर झा. ह.
-
-parameters; surnameFirst; short; referring; formal
-
-expectedResult; स्टॉबर झा.
+expectedResult; हेमंत आ.
 
 parameters; surnameFirst; short; referring; informal
 
-expectedResult; झाझिलिया
+expectedResult; आलिया
 
 parameters; givenFirst; medium; addressing; informal
 parameters; givenFirst; short; addressing; informal
@@ -639,23 +648,7 @@ parameters; surnameFirst; long; addressing; informal
 parameters; surnameFirst; medium; addressing; informal
 parameters; surnameFirst; short; addressing; informal
 
-expectedResult; झाहस्टॉ
-
-parameters; givenFirst; long; monogram; formal
-
-expectedResult; स्टॉझाह
-
-parameters; surnameFirst; long; monogram; formal
-
-expectedResult; झास्टॉ
-
-parameters; givenFirst; long; monogram; informal
-
-expectedResult; स्टॉझा
-
-parameters; surnameFirst; long; monogram; informal
-
-expectedResult; स्टॉबर
+expectedResult; हेमंत
 
 parameters; givenFirst; medium; addressing; formal
 parameters; givenFirst; short; addressing; formal
@@ -663,14 +656,30 @@ parameters; surnameFirst; long; addressing; formal
 parameters; surnameFirst; medium; addressing; formal
 parameters; surnameFirst; short; addressing; formal
 
-expectedResult; स्टॉ
+expectedResult; आहहे
+
+parameters; givenFirst; long; monogram; formal
+
+expectedResult; हेआह
+
+parameters; surnameFirst; long; monogram; formal
+
+expectedResult; आहे
+
+parameters; givenFirst; long; monogram; informal
+
+expectedResult; हेआ
+
+parameters; surnameFirst; long; monogram; informal
+
+expectedResult; हे
 
 parameters; givenFirst; medium; monogram; formal
 parameters; givenFirst; short; monogram; formal
 parameters; surnameFirst; medium; monogram; formal
 parameters; surnameFirst; short; monogram; formal
 
-expectedResult; झा
+expectedResult; आ
 
 parameters; givenFirst; medium; monogram; informal
 parameters; givenFirst; short; monogram; informal
@@ -681,49 +690,52 @@ endName
 
 # foreignFull
 name ; title; प्रोफे.डॉ.
-name ; given; एडा कॉर्नेलिया
-name ; given-informal; निले
+name ; given; अदा शर्मा
+name ; given-informal; नील
 name ; given2; सीझर मार्टिन
 name ; surname-prefix; व्हॉन
 name ; surname-core; ब्र्यूल
 name ; surname2; गोन्झालेझ डोमिंगो
-name ; generation; क.
-name ; credentials; एम.डी.पीएच.डी
-name ; locale; ko_AQ
+name ; generation; ज्यु.
+name ; credentials; एम. डी. डी. डी. एस.
+name ; locale; ja_AQ
 
-expectedResult; प्रोफे.डॉ. एडा कॉर्नेलिया सीझर मार्टिन व्हॉन ब्र्यूल गोन्झालेझ डोमिंगो एम.डी.पीएच.डी
+expectedResult; प्रोफे.डॉ. अदा शर्मा सीझर मार्टिन व्हॉन ब्र्यूल ज्यु., एम. डी. डी. डी. एस.
 
 parameters; givenFirst; long; referring; formal
 
-expectedResult; प्रोफे.डॉ. एडा कॉर्नेलिया सीझर मार्टिन व्हॉन ब्र्यूल, एम.डी.पीएच.डी
-
-parameters; givenFirst; long; referring; informal
-parameters; givenFirst; long; addressing; formal
-parameters; givenFirst; long; addressing; informal
-parameters; givenFirst; medium; referring; formal
-
-expectedResult; व्हॉन ब्र्यूल एडा कॉर्नेलिया सीझर मार्टिन एम.डी.पीएच.डी
+expectedResult; व्हॉन ब्र्यूल प्रोफे.डॉ. अदा शर्मा सीझर मार्टिन ज्यु., एम. डी. डी. डी. एस.
 
 parameters; surnameFirst; long; referring; formal
 parameters; surnameFirst; medium; referring; formal
 
-expectedResult; ब्र्यूल, एडा कॉर्नेलिया सीझर मार्टिन व्हॉन
+expectedResult; प्रोफे.डॉ. अदा शर्मा सीझर मार्टिन व्हॉन ब्र्यूल, एम. डी. डी. डी. एस.
+
+parameters; givenFirst; long; referring; informal
+parameters; givenFirst; long; addressing; formal
+parameters; givenFirst; long; addressing; informal
+
+expectedResult; अदा शर्मा सी. मा. व्हॉन ब्र्यूल ज्यु., एम. डी. डी. डी. एस.
+
+parameters; givenFirst; medium; referring; formal
+
+expectedResult; ब्र्यूल, अदा शर्मा सीझर मार्टिन व्हॉन
 
 parameters; sorting; long; referring; formal
 
-expectedResult; ब्र्यूल, एडा कॉर्नेलिया सी. मा. व्हॉन
+expectedResult; ब्र्यूल, अदा शर्मा सी. मा. व्हॉन
 
 parameters; sorting; medium; referring; formal
 
-expectedResult; ब्र्यूल, ए. कॉ. सी. मा. व्हॉन
+expectedResult; ब्र्यूल, अ. श. सी. मा. व्हॉन
 
 parameters; sorting; short; referring; formal
 
-expectedResult; ए. कॉ. सी. मा. व्हॉन ब्र्यूल
+expectedResult; अ. श. सी. मा. व्हॉन ब्र्यूल
 
 parameters; givenFirst; short; referring; formal
 
-expectedResult; व्हॉन ब्र्यूल ए. कॉ. सी. मा.
+expectedResult; व्हॉन ब्र्यूल अ. श. सी. मा.
 
 parameters; surnameFirst; short; referring; formal
 
@@ -735,52 +747,44 @@ parameters; surnameFirst; long; addressing; formal
 parameters; surnameFirst; medium; addressing; formal
 parameters; surnameFirst; short; addressing; formal
 
-expectedResult; व्हॉन ब्र्यूल ए. कॉ.
+expectedResult; व्हॉन ब्र्यूल अ. श.
 
 parameters; surnameFirst; short; referring; informal
 
-expectedResult; व्हॉन ब्र्यूल, निले
+expectedResult; व्हॉन ब्र्यूल, नील
 
 parameters; sorting; long; referring; informal
 parameters; sorting; medium; referring; informal
 parameters; sorting; short; referring; informal
 
-expectedResult; निले व्हॉ. ब्र्यू.
+expectedResult; नील व्हॉ. ब्र्यू.
 
 parameters; givenFirst; short; referring; informal
 
-expectedResult; निले व्हॉन ब्र्यूल
+expectedResult; नील व्हॉन ब्र्यूल
 
 parameters; givenFirst; medium; referring; informal
 
-expectedResult; व्हॉन ब्र्यूल निले
+expectedResult; व्हॉन ब्र्यूल नील
 
 parameters; surnameFirst; long; referring; informal
 parameters; surnameFirst; medium; referring; informal
 
-expectedResult; एसीव्हॉ
+expectedResult; असीव्हॉ
 
 parameters; givenFirst; long; monogram; formal
 
-expectedResult; व्हॉएसी
+expectedResult; व्हॉअसी
 
 parameters; surnameFirst; long; monogram; formal
 
-expectedResult; निव्हॉ
+expectedResult; नीव्हॉ
 
 parameters; givenFirst; long; monogram; informal
 
-expectedResult; व्हॉनि
+expectedResult; व्हॉनी
 
 parameters; surnameFirst; long; monogram; informal
-
-expectedResult; निले
-
-parameters; givenFirst; medium; addressing; informal
-parameters; givenFirst; short; addressing; informal
-parameters; surnameFirst; long; addressing; informal
-parameters; surnameFirst; medium; addressing; informal
-parameters; surnameFirst; short; addressing; informal
 
 expectedResult; व्हॉ
 
@@ -789,7 +793,15 @@ parameters; givenFirst; short; monogram; formal
 parameters; surnameFirst; medium; monogram; formal
 parameters; surnameFirst; short; monogram; formal
 
-expectedResult; नि
+expectedResult; नील
+
+parameters; givenFirst; medium; addressing; informal
+parameters; givenFirst; short; addressing; informal
+parameters; surnameFirst; long; addressing; informal
+parameters; surnameFirst; medium; addressing; informal
+parameters; surnameFirst; short; addressing; informal
+
+expectedResult; नी
 
 parameters; givenFirst; medium; monogram; informal
 parameters; givenFirst; short; monogram; informal

@@ -823,6 +823,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤤" type="tts">llawsasuru uyu</annotation>
 		<annotation cp="😴">puñusqa uya | puñuy | uya | zzz</annotation>
 		<annotation cp="😴" type="tts">puñusqa uya</annotation>
+		<annotation cp="🫩">aburrido | bolsas | ñawikuna | puñuyniyuq | sayk’usqa | saykʼusqa | tarde | uya</annotation>
+		<annotation cp="🫩" type="tts">ñawi urapi bolsayuq uya</annotation>
 		<annotation cp="😷">barbijo | chiri | hampiq | unqusqa | uya | uya barbijiwan | uya barbijowan</annotation>
 		<annotation cp="😷" type="tts">uya barbijowan</annotation>
 		<annotation cp="🤒">termometro | termometrowan uya | unqusqa | unquy | uya</annotation>
@@ -1179,6 +1181,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑" type="tts">runa</annotation>
 		<annotation cp="👱">chukcha | qillu | qillu chukcha runa | runa: qillu chukcha</annotation>
 		<annotation cp="👱" type="tts">runa: qillu chukcha</annotation>
+		<annotation cp="🧑‍🩰">ballet | tusuq</annotation>
+		<annotation cp="🧑‍🩰" type="tts">ballet tusuq</annotation>
 		<annotation cp="👨">puriq runa | qari</annotation>
 		<annotation cp="👨" type="tts">qari</annotation>
 		<annotation cp="🧔">kʼaki | runa | runa: kʼaki</annotation>
@@ -1693,6 +1697,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑‍🧒‍🧒" type="tts">ayllu: runa, warma, warma</annotation>
 		<annotation cp="👣">p’acha | yupi | yupinay</annotation>
 		<annotation cp="👣" type="tts">yupinay</annotation>
+		<annotation cp="🫆">dedo huella | detective | forenses nisqamanta | hucha ruway | identidad | imprimir | misterio | pista | seguridad | yupi</annotation>
+		<annotation cp="🫆" type="tts">dedopa marcan</annotation>
 		<annotation cp="🦰">puka chukcha | pukachukcha | qillu niqcha</annotation>
 		<annotation cp="🦰" type="tts">puka chukcha</annotation>
 		<annotation cp="🦱">afro | qaspa | qaspa chukcha | qiwicha</annotation>
@@ -2541,8 +2547,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛬" type="tts">lata pʼisqu chayana</annotation>
 		<annotation cp="🪂">paracaídas | pawaypaq</annotation>
 		<annotation cp="🪂" type="tts">paracaídas</annotation>
-		<annotation cp="💺">silla | tiyana</annotation>
-		<annotation cp="💺" type="tts">tiyana</annotation>
 		<annotation cp="🚁">carru | helicoptero</annotation>
 		<annotation cp="🚁" type="tts">helicoptero</annotation>
 		<annotation cp="🚟">ferrocarril | warkhusqa</annotation>
@@ -3039,6 +3043,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪇" type="tts">maracas</annotation>
 		<annotation cp="🪈">flauta | graway | kullu | pipa | takiy</annotation>
 		<annotation cp="🪈" type="tts">flauta</annotation>
+		<annotation cp="🪉">arpa | cupido | instrumento | munakuy | musiku | orquesta nisqa</annotation>
+		<annotation cp="🪉" type="tts">arpa</annotation>
 		<annotation cp="📱">apaykachana | celular | telefono</annotation>
 		<annotation cp="📱" type="tts">apaykachana telefono</annotation>
 		<annotation cp="📲">apaykachana telefono wachiwan | apaykachana telefono wachʼiwan | celular | chaskiy | telefono | wachi</annotation>
@@ -3175,11 +3181,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="📩" type="tts">carta wachiwan</annotation>
 		<annotation cp="📤">apachisqa | carta | chaski | kuchu | lluqsina | wandiha</annotation>
 		<annotation cp="📤" type="tts">lluqsina wandiha</annotation>
+		<annotation cp="📥">bandeja | caja | carta | chaskiy | chusaq | correo | correo electrónico | inbox</annotation>
+		<annotation cp="📥" type="tts">bandeja de entrada</annotation>
+		<annotation cp="📫">bandera | caja de correo | correo | correo caja | wichasqa | willanakuy | wisqʼasqa</annotation>
+		<annotation cp="📫" type="tts">wisq’asqa correo caja hoqarisqa banderayuq</annotation>
+		<annotation cp="📪">bandera | caja de correo | correo | correo caja | uraykachisqa | wisqʼasqa</annotation>
+		<annotation cp="📪" type="tts">wisq’asqa correo caja uraykachisqa banderayuq</annotation>
+		<annotation cp="📬">bandera | caja de correo | correo | correo caja | kichasqa | wichasqa</annotation>
+		<annotation cp="📬" type="tts">open mailbox with raised flag</annotation>
+		<annotation cp="📭">bandera | caja de correo | correo | correo caja | kichasqa | uraykachisqa</annotation>
+		<annotation cp="📭" type="tts">uraykachisqa banderayuq correo cajata kichay</annotation>
 		<annotation cp="📮">chaski churana</annotation>
 		<annotation cp="📮" type="tts">chaski churana</annotation>
+		<annotation cp="🗳">papel de voto | tawa kuchu</annotation>
+		<annotation cp="🗳" type="tts">urna caja de voto nisqawan</annotation>
 		<annotation cp="✏">qillqana</annotation>
 		<annotation cp="✏" type="tts">qillqana</annotation>
 		<annotation cp="✒">pumilla | qillqana | yana pumilla</annotation>
+		<annotation cp="✒" type="tts">yana lapisiru</annotation>
 		<annotation cp="🖋">fuente | qillqana</annotation>
 		<annotation cp="🖋" type="tts">fuente qillqana</annotation>
 		<annotation cp="🖊">tintawan qillqana</annotation>
@@ -3190,22 +3209,102 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🖍" type="tts">crayon</annotation>
 		<annotation cp="📝">qillqa | qillqana</annotation>
 		<annotation cp="📝" type="tts">qillqa</annotation>
+		<annotation cp="💼">maletín | oficina</annotation>
+		<annotation cp="💼" type="tts">maletín</annotation>
+		<annotation cp="📁">archivo | carpeta nisqapi</annotation>
+		<annotation cp="📁" type="tts">willañiqi qillqana maytʼu</annotation>
+		<annotation cp="📂">archivo | carpeta | kichasqa</annotation>
+		<annotation cp="📂" type="tts">willañiqi qillqana maytʼuta kichay</annotation>
+		<annotation cp="🗂">indis nisqa | rakiqkuna | tarjeta</annotation>
+		<annotation cp="🗂" type="tts">tarjeta indis rakiqkuna</annotation>
+		<annotation cp="📅">calendario nisqa | imay pacha</annotation>
+		<annotation cp="📅" type="tts">calendario nisqa</annotation>
+		<annotation cp="📆">calendario nisqa | llikisqa</annotation>
+		<annotation cp="📆" type="tts">llikisqa calendario nisqa</annotation>
+		<annotation cp="🗒">bloc de notas | espiral nisqa | nota | pad</annotation>
+		<annotation cp="🗒" type="tts">bloc de notas espiral nisqa</annotation>
+		<annotation cp="🗓">calendario nisqa | espiral nisqa | pad</annotation>
+		<annotation cp="🗓" type="tts">calendario espiral nisqa</annotation>
+		<annotation cp="📇">indis | mawkʼa | rolodex nisqa | tarjeta | yachay wasi</annotation>
+		<annotation cp="📇" type="tts">tarjetapa indisnin</annotation>
+		<annotation cp="📈">chʼiku | datos | derecho | grafico | tendencia | wichayman | wiñaynin | yapakuq</annotation>
+		<annotation cp="📈" type="tts">tabla yapakuq</annotation>
+		<annotation cp="📉">chʼiku | datos | grafico | negativo | pisiyachiq | tendencia | urayman</annotation>
+		<annotation cp="📉" type="tts">tabla pisiyachiq</annotation>
+		<annotation cp="📊">barra | chʼiku | datos | grafico nisqa</annotation>
+		<annotation cp="📊" type="tts">tabla de barras nisqa</annotation>
+		<annotation cp="📋">lista | notakuna | portapapeles | ruway</annotation>
+		<annotation cp="📋" type="tts">portapapeles nisqa</annotation>
+		<annotation cp="📌">collage | pin | pushpin</annotation>
+		<annotation cp="📌" type="tts">t’ikakuna</annotation>
+		<annotation cp="📍">mapa | maypi kasqan | muyu | pin | pushpin</annotation>
+		<annotation cp="📍" type="tts">round pushpin</annotation>
 		<annotation cp="📎">clip rapipaq</annotation>
 		<annotation cp="📎" type="tts">clip rapipaq</annotation>
 		<annotation cp="🖇">tinkisqa clipkuna rapipaq</annotation>
 		<annotation cp="🖇" type="tts">tinkisqa clipkuna rapipaq</annotation>
+		<annotation cp="📏">chiqan | chiqanchay | kamachiq | kantu | kʼuchu | matemáticas</annotation>
+		<annotation cp="📏" type="tts">chiqan kamachiq</annotation>
+		<annotation cp="📐">churay | diapositiva | kamachiq | kamachiy | kimsa kuchu | kimsa kuchuyuq | kʼuchu | matemáticas</annotation>
+		<annotation cp="📐" type="tts">kimsa kuchuyuq kamachiq</annotation>
+		<annotation cp="✂">kuchusqa | kuchuy | llamkana | papel | tijeras</annotation>
+		<annotation cp="✂" type="tts">kuchuna</annotation>
+		<annotation cp="🗃">caja | kipu | tarjeta</annotation>
+		<annotation cp="🗃" type="tts">tarjeta archivo caja</annotation>
+		<annotation cp="🗄">cabinet | file | filing | paper</annotation>
+		<annotation cp="🗄" type="tts">file cabinet</annotation>
+		<annotation cp="🗑">basura | puede | usuchiy</annotation>
+		<annotation cp="🗑" type="tts">basura</annotation>
 		<annotation cp="🔒">harkana | harkasqa | wichqasqa</annotation>
 		<annotation cp="🔒" type="tts">harkana</annotation>
+		<annotation cp="🔓">bloqueo | desbloquear | kichasqa | mana wichqasqa | raqrasqa</annotation>
+		<annotation cp="🔓" type="tts">mana wichqasqa</annotation>
+		<annotation cp="🔏">bloqueo | nib | pluma | sapanchasqa | tinta | wichqʼasqa</annotation>
+		<annotation cp="🔏" type="tts">plumawan wichqasqa</annotation>
+		<annotation cp="🔐">bicicleta | bloqueo | harkasqa | llave | wichqʼasqa | wisqʼasqa</annotation>
+		<annotation cp="🔐" type="tts">llavewan wichqasqa</annotation>
 		<annotation cp="🔑">kichana</annotation>
 		<annotation cp="🔑" type="tts">kichana</annotation>
 		<annotation cp="🗝">ñawpa kichana</annotation>
 		<annotation cp="🗝" type="tts">ñawpa kichana</annotation>
+		<annotation cp="🔨">allichaykunata | allinchay | llamkana | martillo | wasi</annotation>
+		<annotation cp="🔨" type="tts">martillo</annotation>
 		<annotation cp="🪓">↑↑↑</annotation>
 		<annotation cp="🪓" type="tts">↑↑↑</annotation>
+		<annotation cp="⛏">llamkana | martillo | minería | pick</annotation>
+		<annotation cp="⛏" type="tts">akllay</annotation>
+		<annotation cp="⚒">llamkana | martillo | pick</annotation>
+		<annotation cp="⚒" type="tts">martillowan pilluy</annotation>
+		<annotation cp="🛠">herramienta | llave | martillo</annotation>
+		<annotation cp="🛠" type="tts">martillowan llavewan</annotation>
+		<annotation cp="🗡">arma | cuchillo | puñal</annotation>
+		<annotation cp="🗡" type="tts">puñal</annotation>
+		<annotation cp="⚔">arma | chimpasqa | espadakuna</annotation>
+		<annotation cp="⚔" type="tts">chakasqa espadakuna</annotation>
 		<annotation cp="💣">bomba | comic</annotation>
 		<annotation cp="💣" type="tts">bomba</annotation>
-		<annotation cp="🦯">↑↑↑</annotation>
-		<annotation cp="🦯" type="tts">↑↑↑</annotation>
+		<annotation cp="🪃">arma | boomerang | rebote | repercusión nisqamanta</annotation>
+		<annotation cp="🪃" type="tts">boomerang nisqa</annotation>
+		<annotation cp="🏹">arco | arma | arquero | flecha | flechachay | herramienta | Sagitario | zodiaco nisqa</annotation>
+		<annotation cp="🏹" type="tts">bow and arrow</annotation>
+		<annotation cp="🛡">arma | escudo</annotation>
+		<annotation cp="🛡" type="tts">harkay</annotation>
+		<annotation cp="🪚">carpintería | carpintero | herramienta | kuchupay | kuchusqa | madera | rikurqan</annotation>
+		<annotation cp="🪚" type="tts">carpintería saw</annotation>
+		<annotation cp="🔧">allinchay | herramienta | llave | wasi</annotation>
+		<annotation cp="🔧" type="tts">llave</annotation>
+		<annotation cp="🪛">flathead | handy | screw | screwdriver | tool</annotation>
+		<annotation cp="🪛" type="tts">screwdriver</annotation>
+		<annotation cp="🔩">allinchay | llamkana | perno | tuqu | wasi</annotation>
+		<annotation cp="🔩" type="tts">tuerca y perno</annotation>
+		<annotation cp="⚙">diente | diente rueda | engranaje | llamkana</annotation>
+		<annotation cp="⚙" type="tts">engranaje</annotation>
+		<annotation cp="🗜">abrazadera | herramienta | ñitʼiy | vice</annotation>
+		<annotation cp="🗜" type="tts">abrazadera</annotation>
+		<annotation cp="⚖">balanza | balanzas | escala | herramienta | justicia | Libra | llasaynin | zodiaco nisqa</annotation>
+		<annotation cp="⚖" type="tts">balanza nisqa escala</annotation>
+		<annotation cp="🦯">caña | haykuy atiy | ñawsa | sonday | yuraq</annotation>
+		<annotation cp="🦯" type="tts">yuraq kaspi</annotation>
 		<annotation cp="🔗">tinkina | tinkiy</annotation>
 		<annotation cp="🔗" type="tts">tinkina</annotation>
 		<annotation cp="⛓‍💥">cadena | pakisqa | pakiy | puños</annotation>
@@ -3220,26 +3319,86 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧲" type="tts">magnetu</annotation>
 		<annotation cp="🪜">escalera | escalera nisqa | lluqay | yupi</annotation>
 		<annotation cp="🪜" type="tts">escalera nisqa</annotation>
+		<annotation cp="🪏">allay | cuchara | huertapi | pala | pampay | ritʼi | uchku | yura</annotation>
+		<annotation cp="🪏" type="tts">pala</annotation>
+		<annotation cp="⚗">alembico | llamkana | química nisqamanta</annotation>
+		<annotation cp="⚗" type="tts">hinallataq</annotation>
+		<annotation cp="🧪">ciencia | experimento | laboratorio | prueba | química nisqamanta | químico | tubo</annotation>
+		<annotation cp="🧪" type="tts">tubo de prueba nisqa</annotation>
+		<annotation cp="🧫">bacterias | biología | biólogo | cultura | laboratorio | petri | plato</annotation>
+		<annotation cp="🧫" type="tts">petri plato</annotation>
+		<annotation cp="🧬">biólogo | dna | evolución nisqamanta | gen | genética nisqamanta | kawsay</annotation>
+		<annotation cp="🧬" type="tts">dna</annotation>
 		<annotation cp="🔬">microscopio</annotation>
 		<annotation cp="🔬" type="tts">microscopio</annotation>
 		<annotation cp="🔭">telescopio</annotation>
 		<annotation cp="🔭" type="tts">telescopio</annotation>
-		<annotation cp="🩸">↑↑↑</annotation>
-		<annotation cp="🩸" type="tts">↑↑↑</annotation>
-		<annotation cp="🩹">↑↑↑</annotation>
-		<annotation cp="🩹" type="tts">↑↑↑</annotation>
-		<annotation cp="🩺">↑↑↑</annotation>
-		<annotation cp="🩺" type="tts">↑↑↑</annotation>
+		<annotation cp="📡">antena | ciencia | extraterrestres | plato | rimanakuy | satélite nisqamanta</annotation>
+		<annotation cp="📡" type="tts">satélite nisqamanta antena nisqa</annotation>
+		<annotation cp="💉">aguja | disparo | gripe | hampi | hampiq | herramienta | jeringa | unquq | vacunacion</annotation>
+		<annotation cp="💉" type="tts">jeringa nisqa</annotation>
+		<annotation cp="🩸">donación | gota | hampi | kʼirisqa | menstruación nisqa | yawar</annotation>
+		<annotation cp="🩸" type="tts">yawar gota</annotation>
+		<annotation cp="💊">hampi | hampikuna | hampiq | hampiyuq | pastilla | pastillakuna | unquq | vitamina nisqa</annotation>
+		<annotation cp="💊" type="tts">pastilla</annotation>
+		<annotation cp="🩹">adhesivo | vendaje</annotation>
+		<annotation cp="🩹" type="tts">vendaje adhesivo nisqa</annotation>
+		<annotation cp="🩼">caña | discapacidad | kaspi | kʼirisqa | movilidad | muleta | yanapay</annotation>
+		<annotation cp="🩼" type="tts">crutch</annotation>
+		<annotation cp="🩺">estetoscopio nisqawan | hampi | hampiq | sunqu</annotation>
+		<annotation cp="🩺" type="tts">estetoscopio nisqawan</annotation>
+		<annotation cp="🩻">esqueleto | hampi | hampiq | rayos x | rayos x nisqawan ruwasqa | tullukuna | uma tullu</annotation>
+		<annotation cp="🩻" type="tts">x-ray</annotation>
 		<annotation cp="🚪">punku</annotation>
 		<annotation cp="🚪" type="tts">punku</annotation>
 		<annotation cp="🛗">elevador | siqay | yaykuna</annotation>
 		<annotation cp="🛗" type="tts">elevador</annotation>
 		<annotation cp="🪞">espejo</annotation>
 		<annotation cp="🪞" type="tts">espejo</annotation>
+		<annotation cp="🪟">kichariy | marco | musuq | qhaway | transparente | wasi tuqu | wayra</annotation>
+		<annotation cp="🪟" type="tts">wasi tuqu</annotation>
+		<annotation cp="🛏">hotel | puñuna | puñuy</annotation>
+		<annotation cp="🛏" type="tts">puñuna</annotation>
+		<annotation cp="🛋">hotel | kanchina | sofá</annotation>
+		<annotation cp="🛋" type="tts">sofá y lampa</annotation>
 		<annotation cp="🪑">↑↑↑</annotation>
-		<annotation cp="🪑" type="tts">↑↑↑</annotation>
-		<annotation cp="🪒">↑↑↑</annotation>
-		<annotation cp="🪒" type="tts">↑↑↑</annotation>
+		<annotation cp="🪑" type="tts">tiyana</annotation>
+		<annotation cp="🚽">baño | mayllakuna</annotation>
+		<annotation cp="🚽" type="tts">mayllakuna</annotation>
+		<annotation cp="🪠">caca | chupa | émbolo | kallpa | mayllakuna | plomero | vaso</annotation>
+		<annotation cp="🪠" type="tts">émbolo</annotation>
+		<annotation cp="🚿">ducha | yaku</annotation>
+		<annotation cp="🚿" type="tts">ducha</annotation>
+		<annotation cp="🛁">bañera | baño</annotation>
+		<annotation cp="🛁" type="tts">bañera</annotation>
+		<annotation cp="🪤">cebo | mouse | queso | raton trampa | señuelo | trampa | tuqlla</annotation>
+		<annotation cp="🪤" type="tts">siwi trampa</annotation>
+		<annotation cp="🪒">filoyuq | navajas | rutuy</annotation>
+		<annotation cp="🪒" type="tts">navajas</annotation>
+		<annotation cp="🧴">botella | champú | hidratador | intimanta hark’akuq | loción</annotation>
+		<annotation cp="🧴" type="tts">loción botella</annotation>
+		<annotation cp="🧷">harkasqa | pañal | pin | punki | qaqa</annotation>
+		<annotation cp="🧷" type="tts">seguridad pin</annotation>
+		<annotation cp="🧹">barrer | escoba | layqa | pichay</annotation>
+		<annotation cp="🧹" type="tts">pichana</annotation>
+		<annotation cp="🧺">canasta | chakra llamkʼay | lavandería | picnic nisqa</annotation>
+		<annotation cp="🧺" type="tts">canasta</annotation>
+		<annotation cp="🧻">aseo | papel | rollo | toallas</annotation>
+		<annotation cp="🧻" type="tts">rollo de papel</annotation>
+		<annotation cp="🪣">barril | cubo | pail | vat</annotation>
+		<annotation cp="🪣" type="tts">cubo</annotation>
+		<annotation cp="🧼">bañakuy | barra | chuya | espuma | jabon | jabon plato | pichay</annotation>
+		<annotation cp="🧼" type="tts">jabon</annotation>
+		<annotation cp="🫧">bubble | bubbles | burp | clean | floating | pearl | soap | underwater</annotation>
+		<annotation cp="🫧" type="tts">bubbles</annotation>
+		<annotation cp="🪥">bathroom | brush | clean | dental | hygiene | teeth | toiletry | toothbrush</annotation>
+		<annotation cp="🪥" type="tts">toothbrush</annotation>
+		<annotation cp="🧽">absorbing | cleaning | porous | soak | sponge</annotation>
+		<annotation cp="🧽" type="tts">sponge</annotation>
+		<annotation cp="🧯">extinguish | extinguisher | fire | quench</annotation>
+		<annotation cp="🧯" type="tts">fire extinguisher</annotation>
+		<annotation cp="🛒">carrito | rantikuy</annotation>
+		<annotation cp="🛒" type="tts">shopping cart</annotation>
 		<annotation cp="🚬">cigarru | fumay</annotation>
 		<annotation cp="🚬" type="tts">cigarru</annotation>
 		<annotation cp="⚰">tawakuchu wañuypaq | wañuy</annotation>
@@ -3534,6 +3693,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="®" type="tts">yaykusqa</annotation>
 		<annotation cp="™">chimpu | tm | waqaychasqa chinpu | waqaychasqa chinpuy</annotation>
 		<annotation cp="™" type="tts">waqaychasqa chinpuy</annotation>
+		<annotation cp="🫟">chaqwa | derrame | goteo | holi | liquido | pintura | salpicay | tinta | tullpuy</annotation>
+		<annotation cp="🫟" type="tts">salpicay</annotation>
 		<annotation cp="🔠">ABCD | hatun sananpakuna | latina | latina hatun sananpakuna yaykuy | sananpakuna | yaykuy</annotation>
 		<annotation cp="🔠" type="tts">latina hatun sananpakuna yaykuy</annotation>
 		<annotation cp="🔡">abcd | latina | latina uchuy sananpakuna yaykuy | sananpakuna | uchuy sananpakuna | yaykkuna</annotation>
@@ -3733,15 +3894,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="₿">bitcoin qullqi | BTC</annotation>
 		<annotation cp="₿" type="tts">bitcoin qullqi</annotation>
 		<annotation cp="0⃣">0 | chusaq | keycap</annotation>
+		<annotation cp="0⃣" type="tts">llavepa: 0</annotation>
 		<annotation cp="1⃣">1 | huk | keycap</annotation>
+		<annotation cp="1⃣" type="tts">llavekuna: 1</annotation>
 		<annotation cp="2⃣">2 | iskay | keycap</annotation>
+		<annotation cp="2⃣" type="tts">llavekuna: 2</annotation>
 		<annotation cp="3⃣">3 | keycap | kinsa</annotation>
+		<annotation cp="3⃣" type="tts">llavekuna: 3</annotation>
 		<annotation cp="4⃣">4 | keycap | tawa</annotation>
+		<annotation cp="4⃣" type="tts">llavekuna: 4</annotation>
 		<annotation cp="5⃣">5 | keycap | phisqa</annotation>
+		<annotation cp="5⃣" type="tts">llavekuna: 5</annotation>
 		<annotation cp="6⃣">6 | keycap | suqta</annotation>
+		<annotation cp="6⃣" type="tts">llavekuna: 6</annotation>
 		<annotation cp="7⃣">7 | keycap | qanchis</annotation>
+		<annotation cp="7⃣" type="tts">llavekuna: 7</annotation>
 		<annotation cp="8⃣">8 | keycap | pusaq</annotation>
+		<annotation cp="8⃣" type="tts">llavekuna: 8</annotation>
 		<annotation cp="9⃣">9 | isqun | keycap</annotation>
+		<annotation cp="9⃣" type="tts">llavekuna: 9</annotation>
 		<annotation cp="¹">hatun qillqa | hatun qillqa huk | huk</annotation>
 		<annotation cp="¹" type="tts">hatun qillqa huk</annotation>
 		<annotation cp="²">hatun qillqa | hatun qillqa iskay | iskay | tawakuchusqa</annotation>
@@ -3754,5 +3925,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="µ" type="tts">micro unancha</annotation>
 		<annotation cp="﷼">qullqi | rial</annotation>
 		<annotation cp="﷼" type="tts">rial qullqi</annotation>
+		<annotation cp="🛘">avalancha | desastre | pacha kuyuy | peligro | qaqakuna | tʼuru tʼuru | urqu</annotation>
+		<annotation cp="🛘" type="tts">allpa kuyuriy</annotation>
+		<annotation cp="🪊">diapositiva | instrumento | jazz | latón | llakisqa | musiku</annotation>
+		<annotation cp="🪊" type="tts">trombón nisqa</annotation>
+		<annotation cp="🪎">chanin | gema | joyas | qullqi | qullqiwan | quri</annotation>
+		<annotation cp="🪎" type="tts">qulliwan kufri</annotation>
+		<annotation cp="🫈">chukchasapa | cryptid | gigante | hatun chaki | sasquatch | woodwose | yeti | yunka</annotation>
+		<annotation cp="🫈" type="tts">chukchasapa kawsaq</annotation>
+		<annotation cp="🫍">ballena | mama qucha | marina</annotation>
+		<annotation cp="🫍" type="tts">orca</annotation>
+		<annotation cp="🫝">basura | compost | ismusqa | mikhusqa | mikhuy</annotation>
+		<annotation cp="🫝" type="tts">manzana núcleo</annotation>
+		<annotation cp="🫪">chʼaqwasqa | hinchado | llakikuy | mancharikuy | musphasqa | unpu</annotation>
+		<annotation cp="🫪" type="tts">distorsionado uya</annotation>
+		<annotation cp="🫯">argumento | chʼaqway | debate | mana acuerdopi kay | maqanakuy | ruckus</annotation>
+		<annotation cp="🫯" type="tts">maqanakuy phuyu</annotation>
 	</annotations>
 </ldml>

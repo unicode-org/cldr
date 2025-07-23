@@ -887,7 +887,7 @@
     "calendar": "islamic-civil",
     "locale": "ar-SA",
     "input": "2000-01-01T00:00Z[Etc/GMT]",
-    "expected": "هـ ١٤٢٠-٠٩-٢٤, السبت"
+    "expected": "السبت، ١٤٢٠/٩/٢٤ هـ"
   },
   {
     "semanticSkeleton": "YMDE",
@@ -896,7 +896,7 @@
     "calendar": "islamic-civil",
     "locale": "ar-SA",
     "input": "2024-07-01T08:50:07Z[Etc/GMT]",
-    "expected": "هـ ١٤٤٥-١٢-٢٤, الاثنين"
+    "expected": "الاثنين، ١٤٤٥/١٢/٢٤ هـ"
   },
   {
     "semanticSkeleton": "YMDE",
@@ -905,7 +905,7 @@
     "calendar": "islamic-civil",
     "locale": "ar-SA",
     "input": "2014-07-15T12:00Z[Etc/GMT]",
-    "expected": "هـ ١٤٣٥-٠٩-١٧, الثلاثاء"
+    "expected": "الثلاثاء، ١٤٣٥/٩/١٧ هـ"
   },
   {
     "semanticSkeleton": "YMDE",
@@ -969,7 +969,7 @@
     "calendar": "islamic-civil",
     "locale": "ar-SA",
     "input": "2000-01-01T00:00Z[Etc/GMT]",
-    "expected": "هـ ١٤٢٠-٠٩-٢٤, السبت"
+    "expected": "السبت، ١٤٢٠/٩/٢٤ هـ"
   },
   {
     "semanticSkeleton": "YMDE",
@@ -979,7 +979,7 @@
     "calendar": "islamic-civil",
     "locale": "ar-SA",
     "input": "2024-07-01T08:50:07Z[Etc/GMT]",
-    "expected": "هـ ١٤٤٥-١٢-٢٤, الاثنين"
+    "expected": "الاثنين، ١٤٤٥/١٢/٢٤ هـ"
   },
   {
     "semanticSkeleton": "YMDE",
@@ -989,7 +989,7 @@
     "calendar": "islamic-civil",
     "locale": "ar-SA",
     "input": "2014-07-15T12:00Z[Etc/GMT]",
-    "expected": "هـ ١٤٣٥-٠٩-١٧, الثلاثاء"
+    "expected": "الثلاثاء، ١٤٣٥/٩/١٧ هـ"
   },
   {
     "semanticSkeleton": "YMDE",
@@ -1700,7 +1700,7 @@
     "calendar": "buddhist",
     "locale": "th-TH",
     "input": "2000-01-01T00:00Z[Etc/GMT]",
-    "expected": "พ.ศ. 2543-01-01, ส."
+    "expected": "ส. ที่ 1/1/พ.ศ. 2543"
   },
   {
     "semanticSkeleton": "YMDE",
@@ -1710,7 +1710,7 @@
     "calendar": "buddhist",
     "locale": "th-TH",
     "input": "2024-07-01T08:50:07Z[Etc/GMT]",
-    "expected": "พ.ศ. 2567-07-01, จ."
+    "expected": "จ. ที่ 1/7/พ.ศ. 2567"
   },
   {
     "semanticSkeleton": "YMDE",
@@ -1720,7 +1720,7 @@
     "calendar": "buddhist",
     "locale": "th-TH",
     "input": "2014-07-15T12:00Z[Etc/GMT]",
-    "expected": "พ.ศ. 2557-07-15, อ."
+    "expected": "อ. ที่ 15/7/พ.ศ. 2557"
   },
   {
     "semanticSkeleton": "YMDE",
@@ -2349,7 +2349,7 @@
     "calendar": "japanese",
     "locale": "ja-JP",
     "input": "2000-01-01T00:00Z[Etc/GMT]",
-    "expected": "H 12-01-01, 土"
+    "expected": "H12/1/1(土)"
   },
   {
     "semanticSkeleton": "YMDE",
@@ -2358,7 +2358,7 @@
     "calendar": "japanese",
     "locale": "ja-JP",
     "input": "2024-07-01T08:50:07Z[Etc/GMT]",
-    "expected": "R 6-07-01, 月"
+    "expected": "R6/7/1(月)"
   },
   {
     "semanticSkeleton": "YMDE",
@@ -2367,7 +2367,7 @@
     "calendar": "japanese",
     "locale": "ja-JP",
     "input": "2014-07-15T12:00Z[Etc/GMT]",
-    "expected": "H 26-07-15, 火"
+    "expected": "H26/7/15(火)"
   },
   {
     "semanticSkeleton": "YMDE",
@@ -2431,7 +2431,7 @@
     "calendar": "japanese",
     "locale": "ja-JP",
     "input": "2000-01-01T00:00Z[Etc/GMT]",
-    "expected": "H 12-01-01, 土"
+    "expected": "H12/1/1(土)"
   },
   {
     "semanticSkeleton": "YMDE",
@@ -2441,7 +2441,7 @@
     "calendar": "japanese",
     "locale": "ja-JP",
     "input": "2024-07-01T08:50:07Z[Etc/GMT]",
-    "expected": "R 6-07-01, 月"
+    "expected": "R6/7/1(月)"
   },
   {
     "semanticSkeleton": "YMDE",
@@ -2451,7 +2451,7 @@
     "calendar": "japanese",
     "locale": "ja-JP",
     "input": "2014-07-15T12:00Z[Etc/GMT]",
-    "expected": "H 26-07-15, 火"
+    "expected": "H26/7/15(火)"
   },
   {
     "semanticSkeleton": "YMDE",

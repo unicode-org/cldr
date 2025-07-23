@@ -40,6 +40,19 @@ public class TestStandardCodes {
         SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
         Set<String> timezones = sdi.getCLDRTimezoneCodes();
         assertTrue(timezones.contains("Europe/Andorra"));
+
         assertFalse(timezones.contains("America/Nipigon"));
+        assertFalse(timezones.contains("America/Pangnirtung"));
+        assertFalse(timezones.contains("America/Rainy_River"));
+        assertFalse(timezones.contains("America/Santa_Isabel"));
+        assertFalse(timezones.contains("America/Thunder_Bay"));
+        assertFalse(timezones.contains("America/Yellowknife"));
+        assertFalse(timezones.contains("Australia/Currie"));
+        assertFalse(timezones.contains("Europe/Uzhgorod"));
+        assertFalse(timezones.contains("Europe/Zaporozhye"));
+        assertFalse(timezones.contains("Pacific/Johnston"));
+
+        assertTrue(timezones.contains("Europe/Kiev"));
+        assertFalse(timezones.contains("Europe/Kyiv"));
     }
 }

@@ -2138,7 +2138,7 @@ public class TestExampleGenerator extends TestFmwk {
             },
             {
                 "am",
-                "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"speed-light-speed\"]/unitPattern[@count=\"other\"][@case=\"accusative\"]",
+                "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"speed-light-speed\"]/unitPattern[@count=\"other\"]",
                 "{0} ብርሃን",
                 "〖Used as a fallback in the following:〗〖❬2.6❭ ብርሃን⋅ሰከንዶች〗〖❬2.6❭ ብርሃን⋅ደቂቃዎች〗〖❬2.6❭ ብርሃን⋅ሰዓቶች〗〖❬2.6❭ ብርሃን⋅ቀናት〗〖❬2.6❭ ብርሃን⋅ሳምንታት〗〖❬2.6❭ ብርሃን⋅ወራት〗〖Compare with:〗〖❬2.6❭ የብርሃን ዓመት〗"
             },

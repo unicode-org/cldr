@@ -1354,8 +1354,13 @@ public class TestPersonNameFormatter extends TestFmwk {
             boolean isLatin = script.equals("Latn");
 
             // TODO use CLDR always (getTestingLatinScriptTransform doesn't)
-            Transliterator translit =
-                    isLatin ? null : CLDRTransforms.getTestingLatinScriptTransform(script);
+            Transliterator translit;
+            try {
+                translit = isLatin ? null : CLDRTransforms.getTestingLatinScriptTransform(script);
+            } catch (Exception e) {
+                warnln("Warning: no translaterator available for " + script);
+                continue;
+            }
 
             if (translit == null && !isLatin) {
                 missing.add(script);

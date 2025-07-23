@@ -973,6 +973,10 @@ public class TestTransforms extends TestFmwkPlus {
                                 .filter(p -> p.getSecond().equals((script)))
                                 .map(p -> p.getFirst())
                                 .collect(Collectors.joining(","));
+                if (missingFoScript.equals(UnicodeSet.from("[\u0AF0]"))
+                        && logKnownIssue("CLDR-18852", "U+0AF0 missing in Gujr translit")) {
+                    continue;
+                }
                 errln(
                         "Transliterator for\t"
                                 + script

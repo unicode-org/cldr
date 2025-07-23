@@ -492,10 +492,10 @@ endName
 
 # foreignGS
 name ; given; ಕ್ಯಾಥಿ
-name ; surname; ಮಲ್ಲರ್
+name ; surname; ಮುಲ್ಲರ್
 name ; locale; ja_AQ
 
-expectedResult; ಮಲ್ಲರ್, ಕ್ಯಾಥಿ
+expectedResult; ಮುಲ್ಲರ್, ಕ್ಯಾಥಿ
 
 parameters; sorting; long; referring; formal
 parameters; sorting; long; referring; informal
@@ -503,36 +503,45 @@ parameters; sorting; medium; referring; formal
 parameters; sorting; medium; referring; informal
 parameters; sorting; short; referring; informal
 
-expectedResult; ಕ್ಯಾಥಿ ಮಲ್ಲರ್
+expectedResult; ಕ್ಯಾಥಿ ಮುಲ್ಲರ್
 
 parameters; givenFirst; long; referring; formal
 parameters; givenFirst; long; referring; informal
 parameters; givenFirst; medium; referring; formal
 parameters; givenFirst; medium; referring; informal
 
-expectedResult; ಮಲ್ಲರ್ ಕ್ಯಾಥಿ
+expectedResult; ಮುಲ್ಲರ್ ಕ್ಯಾಥಿ
 
 parameters; surnameFirst; long; referring; formal
 parameters; surnameFirst; long; referring; informal
 parameters; surnameFirst; medium; referring; formal
 parameters; surnameFirst; medium; referring; informal
 
-expectedResult; ಮಲ್ಲರ್, ಕ್.
+expectedResult; ಮುಲ್ಲರ್, ಕ್.
 
 parameters; sorting; short; referring; formal
 
-expectedResult; ಕ್. ಮಲ್ಲರ್
+expectedResult; ಕ್. ಮುಲ್ಲರ್
 
 parameters; givenFirst; short; referring; formal
 
-expectedResult; ಮಲ್ಲರ್ ಕ್.
+expectedResult; ಮುಲ್ಲರ್ ಕ್.
 
 parameters; surnameFirst; short; referring; formal
 parameters; surnameFirst; short; referring; informal
 
-expectedResult; ಕ್ಯಾಥಿ ಮ.
+expectedResult; ಕ್ಯಾಥಿ ಮು.
 
 parameters; givenFirst; short; referring; informal
+
+expectedResult; ಮುಲ್ಲರ್
+
+parameters; givenFirst; long; addressing; formal
+parameters; givenFirst; medium; addressing; formal
+parameters; givenFirst; short; addressing; formal
+parameters; surnameFirst; long; addressing; formal
+parameters; surnameFirst; medium; addressing; formal
+parameters; surnameFirst; short; addressing; formal
 
 expectedResult; ಕ್ಯಾಥಿ
 
@@ -543,21 +552,12 @@ parameters; surnameFirst; long; addressing; informal
 parameters; surnameFirst; medium; addressing; informal
 parameters; surnameFirst; short; addressing; informal
 
-expectedResult; ಮಲ್ಲರ್
-
-parameters; givenFirst; long; addressing; formal
-parameters; givenFirst; medium; addressing; formal
-parameters; givenFirst; short; addressing; formal
-parameters; surnameFirst; long; addressing; formal
-parameters; surnameFirst; medium; addressing; formal
-parameters; surnameFirst; short; addressing; formal
-
-expectedResult; ಕ್ಮ
+expectedResult; ಕ್ಮು
 
 parameters; givenFirst; long; monogram; formal
 parameters; givenFirst; long; monogram; informal
 
-expectedResult; ಮಕ್
+expectedResult; ಮುಕ್
 
 parameters; surnameFirst; long; monogram; formal
 parameters; surnameFirst; long; monogram; informal
@@ -569,7 +569,7 @@ parameters; givenFirst; short; monogram; informal
 parameters; surnameFirst; medium; monogram; informal
 parameters; surnameFirst; short; monogram; informal
 
-expectedResult; ಮ
+expectedResult; ಮು
 
 parameters; givenFirst; medium; monogram; formal
 parameters; givenFirst; short; monogram; formal

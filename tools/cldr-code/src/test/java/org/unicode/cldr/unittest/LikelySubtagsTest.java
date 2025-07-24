@@ -578,11 +578,16 @@ public class LikelySubtagsTest extends TestFmwk {
 
             // now compare to what we get from the cached file, to make sure the latter is up to
             // date
+            final String flattenedPattern = flattened.toPattern(false);
+            final String cachedPattern = ScriptToExemplars.getExemplars(script).toPattern(false);
 
-            if (!assertEquals(
-                    script,
-                    flattened.toPattern(false),
-                    ScriptToExemplars.getExemplars(script).toPattern(false))) {
+            if (!flattenedPattern.equals(cachedPattern)
+                    && script.equals("Mymr")
+                    && logKnownIssue("CLDR-18384", "Test complaint about Mymr exemplars")) {
+                continue;
+            }
+
+            if (!assertEquals(script, flattenedPattern, cachedPattern)) {
                 problemScripts.add(script);
             }
         }

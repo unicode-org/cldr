@@ -930,7 +930,10 @@ public abstract class CheckCLDR implements CheckAccessor {
             illegalCharacter,
             missingNumberingSystem,
             forbiddenValue,
-            inconsistentCoreDatePattern;
+            inconsistentCoreDatePattern,
+            inconsistentCurrencyPattern,
+            inconsistentCompactPattern,
+            inconsistentPositiveAndNegativePatterns;
 
             @Override
             public String toString() {

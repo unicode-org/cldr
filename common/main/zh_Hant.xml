@@ -6167,28 +6167,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="iso8601">
-				<dateFormats>
-					<dateFormatLength type="full">
-						<dateFormat>
-							<pattern>y年MMMMd日 EEEE</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="long">
-						<dateFormat>
-							<pattern>y年MMMMd日</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="medium">
-						<dateFormat>
-							<pattern>y年MMMd日</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="short">
-						<dateFormat>
-							<pattern>↑↑↑</pattern>
-						</dateFormat>
-					</dateFormatLength>
-				</dateFormats>
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
@@ -6256,128 +6234,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern draft="contributed">{1}{0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
-					<availableFormats>
-						<dateFormatItem id="Ed">d日（E）</dateFormatItem>
-						<dateFormatItem id="Gy">Gy年</dateFormatItem>
-						<dateFormatItem id="GyM">Gy-MM</dateFormatItem>
-						<dateFormatItem id="GyMd">Gy-MM-dd</dateFormatItem>
-						<dateFormatItem id="GyMEd">Gy-MM-ddE</dateFormatItem>
-						<dateFormatItem id="GyMMM">Gy年MMM</dateFormatItem>
-						<dateFormatItem id="GyMMMd">Gy年MMMd日</dateFormatItem>
-						<dateFormatItem id="GyMMMEd">Gy年MMMd日 E</dateFormatItem>
-						<dateFormatItem id="Md">↑↑↑</dateFormatItem>
-						<dateFormatItem id="MEd">MM-dd E</dateFormatItem>
-						<dateFormatItem id="MMMd">MMMd日</dateFormatItem>
-						<dateFormatItem id="MMMEd">MMMd日 E</dateFormatItem>
-						<dateFormatItem id="MMMMd">MMMMd日</dateFormatItem>
-						<dateFormatItem id="MMMMW" count="other">M月第W週</dateFormatItem>
-						<dateFormatItem id="yM">↑↑↑</dateFormatItem>
-						<dateFormatItem id="yMd">↑↑↑</dateFormatItem>
-						<dateFormatItem id="yMEd">y-MM-dd E</dateFormatItem>
-						<dateFormatItem id="yMMM">y年MMM</dateFormatItem>
-						<dateFormatItem id="yMMMd">y年MMMd日</dateFormatItem>
-						<dateFormatItem id="yMMMEd">y年MMMd日 E</dateFormatItem>
-						<dateFormatItem id="yMMMM">y年MMMM</dateFormatItem>
-						<dateFormatItem id="yQQQ">y年QQQ</dateFormatItem>
-						<dateFormatItem id="yQQQQ">y年QQQQ</dateFormatItem>
-						<dateFormatItem id="yw" count="other">Y年第w週</dateFormatItem>
-					</availableFormats>
-					<appendItems>
-						<appendItem request="Timezone">{1}{0}</appendItem>
-					</appendItems>
 					<intervalFormats>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d" draft="contributed">d 日至 d 日</greatestDifference>
 						</intervalFormatItem>
-						<intervalFormatItem id="Gy">
-							<greatestDifference id="G">Gy – Gy</greatestDifference>
-							<greatestDifference id="y">↑↑↑</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="GyM">
-							<greatestDifference id="G">Gy-MM – Gy-MM</greatestDifference>
-							<greatestDifference id="M">Gy-MM – y-MM</greatestDifference>
-							<greatestDifference id="y">Gy-MM – y-MM</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="GyMd">
-							<greatestDifference id="d">Gy-MM-dd – y-MM-dd</greatestDifference>
-							<greatestDifference id="G">Gy-MM-dd – Gy-MM-dd</greatestDifference>
-							<greatestDifference id="M">Gy-MM-dd – y-MM-dd</greatestDifference>
-							<greatestDifference id="y">Gy-MM-dd – y-MM-dd</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="GyMEd">
-							<greatestDifference id="d">Gy-MM-dd E – y-MM-dd E</greatestDifference>
-							<greatestDifference id="G">Gy-MM-dd, E –Gy-MM-dd E</greatestDifference>
-							<greatestDifference id="M">Gy-MM-dd E – y-MM-dd E</greatestDifference>
-							<greatestDifference id="y">Gy-MM-dd E – y-MM-dd E</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="GyMMM">
-							<greatestDifference id="G">Gy年MMM – Gy年MMM</greatestDifference>
-							<greatestDifference id="M">Gy年MMM–MMM</greatestDifference>
-							<greatestDifference id="y">Gy年MMM – y年MMM</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="GyMMMd">
-							<greatestDifference id="d">Gy年MMMd日–d日</greatestDifference>
-							<greatestDifference id="G">Gy年MMMd日 – Gy年MMMd日</greatestDifference>
-							<greatestDifference id="M">Gy年MMMd日 – MMMd日</greatestDifference>
-							<greatestDifference id="y">Gy年MMMd日 – y年MMMd日</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="GyMMMEd">
-							<greatestDifference id="d">Gy年MMMd日 E – MMMd日 E</greatestDifference>
-							<greatestDifference id="G">Gy年MMMd日 E – Gy年MMMd日 E</greatestDifference>
-							<greatestDifference id="M">Gy年MMMd日 E – MMMd日 E</greatestDifference>
-							<greatestDifference id="y">Gy年MMMd日 E – y年MMMd日 E</greatestDifference>
-						</intervalFormatItem>
 						<intervalFormatItem id="h">
-							<greatestDifference id="a">h (a) – h (a)</greatestDifference>
 							<greatestDifference id="h" draft="provisional">↑↑↑</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Md">
-							<greatestDifference id="d">↑↑↑</greatestDifference>
-							<greatestDifference id="M">↑↑↑</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="MEd">
-							<greatestDifference id="d">MM-dd E – MM-dd E</greatestDifference>
-							<greatestDifference id="M">MM-dd E – MM-dd E</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="MMMd">
-							<greatestDifference id="d">MMM d–d日</greatestDifference>
-							<greatestDifference id="M">MMMd日 – MMMd日</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="MMMEd">
-							<greatestDifference id="d">MMMd日 E – MMMd日 E</greatestDifference>
-							<greatestDifference id="M">MMMd日 E – MMMd日 E</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yM">
-							<greatestDifference id="M">↑↑↑</greatestDifference>
-							<greatestDifference id="y">↑↑↑</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMd">
-							<greatestDifference id="d">↑↑↑</greatestDifference>
-							<greatestDifference id="M">↑↑↑</greatestDifference>
-							<greatestDifference id="y">↑↑↑</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMEd">
-							<greatestDifference id="d">y-MM-dd E – y-MM-dd E</greatestDifference>
-							<greatestDifference id="M">y-MM-dd E – y-MM-dd E</greatestDifference>
-							<greatestDifference id="y">y-MM-dd E – y-MM-dd E</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMMM">
-							<greatestDifference id="M">y年MMM–MMM</greatestDifference>
-							<greatestDifference id="y">y年MMM – y年MMM</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMMMd">
-							<greatestDifference id="d">y年MMMd–d日</greatestDifference>
-							<greatestDifference id="M">y年MMMd日 – MMMd日</greatestDifference>
-							<greatestDifference id="y">y年MMMd日 – y年MMMd日</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="d">y年MMMd日 E – MMMd日 E</greatestDifference>
-							<greatestDifference id="M">y年MMMd日 E – MMMd日 E</greatestDifference>
-							<greatestDifference id="y">y年MMMd日 E – y年MMMd日 E</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMMMM">
-							<greatestDifference id="M">y年MMMM–MMMM</greatestDifference>
-							<greatestDifference id="y">y年MMMM –y年MMMM</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>

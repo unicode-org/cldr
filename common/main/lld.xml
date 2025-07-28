@@ -1393,28 +1393,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="iso8601">
-				<dateFormats>
-					<dateFormatLength type="full">
-						<dateFormat>
-							<pattern>y, LLLL d, EEEE</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="long">
-						<dateFormat>
-							<pattern>y, LLLL d</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="medium">
-						<dateFormat>
-							<pattern>Y, LLL d</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="short">
-						<dateFormat>
-							<pattern>y.MM.dd</pattern>
-						</dateFormat>
-					</dateFormatLength>
-				</dateFormats>
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
@@ -1438,126 +1416,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="Ed">↑↑↑</dateFormatItem>
-						<dateFormatItem id="Gy">↑↑↑</dateFormatItem>
-						<dateFormatItem id="GyM">G y.MM</dateFormatItem>
-						<dateFormatItem id="GyMd">G y.MM.dd</dateFormatItem>
-						<dateFormatItem id="GyMEd">G y.MM.dd, E</dateFormatItem>
-						<dateFormatItem id="GyMMM">G y, LLL</dateFormatItem>
-						<dateFormatItem id="GyMMMd">G y, LLL d</dateFormatItem>
-						<dateFormatItem id="GyMMMEd">G Y, LLL d, E</dateFormatItem>
-						<dateFormatItem id="Md">MM.dd</dateFormatItem>
-						<dateFormatItem id="MEd">MM.dd, E</dateFormatItem>
-						<dateFormatItem id="MMMd">LLL d</dateFormatItem>
-						<dateFormatItem id="MMMEd">LLL d, E</dateFormatItem>
-						<dateFormatItem id="MMMMd">LLLL, 'ai' d</dateFormatItem>
-						<dateFormatItem id="MMMMW" count="one">LLLL, 'edema' W</dateFormatItem>
-						<dateFormatItem id="MMMMW" count="other">LLLL, 'edema' W</dateFormatItem>
-						<dateFormatItem id="yM">y.MM</dateFormatItem>
-						<dateFormatItem id="yMd">y.MM.dd</dateFormatItem>
-						<dateFormatItem id="yMEd">y.MM.dd, E</dateFormatItem>
-						<dateFormatItem id="yMMM">y, LLL</dateFormatItem>
-						<dateFormatItem id="yMMMd">y, LLL 'ai' d</dateFormatItem>
-						<dateFormatItem id="yMMMEd">y, LLL 'ai' d, E</dateFormatItem>
-						<dateFormatItem id="yMMMM">y, LLLL</dateFormatItem>
-						<dateFormatItem id="yQQQ">↑↑↑</dateFormatItem>
-						<dateFormatItem id="yQQQQ">y, QQQQ</dateFormatItem>
-						<dateFormatItem id="yw" count="one">Y, 'edema' w</dateFormatItem>
-						<dateFormatItem id="yw" count="other">Y, 'edema' w</dateFormatItem>
-					</availableFormats>
 					<appendItems>
 						<appendItem request="Timezone" draft="unconfirmed">↑↑↑</appendItem>
 					</appendItems>
 					<intervalFormats>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d" draft="unconfirmed">↑↑↑</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Gy">
-							<greatestDifference id="G">↑↑↑</greatestDifference>
-							<greatestDifference id="y">↑↑↑</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="GyM">
-							<greatestDifference id="G">G y.MM – G y.MM</greatestDifference>
-							<greatestDifference id="M">G y.MM – y.MM</greatestDifference>
-							<greatestDifference id="y">G y.MM – y.MM</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="GyMd">
-							<greatestDifference id="d">G y.MM.dd – y.MM.dd</greatestDifference>
-							<greatestDifference id="G">G y.MM.dd – G y.MM.dd</greatestDifference>
-							<greatestDifference id="M">G y.MM.dd – y.MM.dd</greatestDifference>
-							<greatestDifference id="y">G y.MM.dd – y.MM.dd</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="GyMEd">
-							<greatestDifference id="d">G y.MM.dd, E – y.MM.dd, E</greatestDifference>
-							<greatestDifference id="G">G y.MM.dd, E – G y.MM.dd, E</greatestDifference>
-							<greatestDifference id="M">G y.MM.dd, E – y.MM.dd, E</greatestDifference>
-							<greatestDifference id="y">G y.MM.dd, E – y.MM.dd, E</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="GyMMM">
-							<greatestDifference id="G">G y, LLL – G y, LLL</greatestDifference>
-							<greatestDifference id="M">G y, LLL – LLL</greatestDifference>
-							<greatestDifference id="y">G y, LLL – y, LLL</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="GyMMMd">
-							<greatestDifference id="d">G y, LLL d–d</greatestDifference>
-							<greatestDifference id="G">G y, LLL d – G y, LLL d</greatestDifference>
-							<greatestDifference id="M">G y, LLL d – LLL d</greatestDifference>
-							<greatestDifference id="y">G y, LLL d – y, LLL d</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="GyMMMEd">
-							<greatestDifference id="d">G y, LLL d, E – LLL d, E</greatestDifference>
-							<greatestDifference id="G">G y, LLL d, E – G y, LLL d, E</greatestDifference>
-							<greatestDifference id="M">G y, LLL d, E – LLL d, E</greatestDifference>
-							<greatestDifference id="y">G y, LLL d, E – y, LLL d, E</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Md">
-							<greatestDifference id="d">MM.dd – MM.dd</greatestDifference>
-							<greatestDifference id="M">MM.dd – MM.dd</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="MEd">
-							<greatestDifference id="d">MM.dd, E – MM.dd, E</greatestDifference>
-							<greatestDifference id="M">MM.dd, E – MM.dd, E</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="MMMd">
-							<greatestDifference id="d">LLL d–d</greatestDifference>
-							<greatestDifference id="M">LLL d – LLL d</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="MMMEd">
-							<greatestDifference id="d">LLL d, E – LLL d, E</greatestDifference>
-							<greatestDifference id="M">LLL d, E – LLL d, E</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yM">
-							<greatestDifference id="M">y.MM – y.MM</greatestDifference>
-							<greatestDifference id="y">y.MM – y.MM</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMd">
-							<greatestDifference id="d">y.MM.dd – y.MM.dd</greatestDifference>
-							<greatestDifference id="M">y.MM.dd – y.MM.dd</greatestDifference>
-							<greatestDifference id="y">y.MM.dd – y.MM.dd</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMEd">
-							<greatestDifference id="d">y.MM.dd, E – y.MM.dd, E</greatestDifference>
-							<greatestDifference id="M">y.MM.dd, E – y.MM.dd, E</greatestDifference>
-							<greatestDifference id="y">y.MM.dd, E – y.MM.dd, E</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMMM">
-							<greatestDifference id="M">y, LLL – LLL</greatestDifference>
-							<greatestDifference id="y">y, LLL – y, LLL</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMMMd">
-							<greatestDifference id="d">y, LLL d–d</greatestDifference>
-							<greatestDifference id="M">y, LLL d – LLL d</greatestDifference>
-							<greatestDifference id="y">Y, LLL d – y, LLL d</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="d">y, LLL d, E – LLL d, E</greatestDifference>
-							<greatestDifference id="M">y, LLL d, E – LLL d, E</greatestDifference>
-							<greatestDifference id="y">Y, LLL d, E – y, LLL d, E</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMMMM">
-							<greatestDifference id="M">y, LLLL – LLLL</greatestDifference>
-							<greatestDifference id="y">y, LLLL – Y, LLLL</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>

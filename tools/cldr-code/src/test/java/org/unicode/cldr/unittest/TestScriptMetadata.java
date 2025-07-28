@@ -111,24 +111,27 @@ public class TestScriptMetadata extends TestFmwkPlus {
         Relation<IdUsage, String> map =
                 Relation.of(new EnumMap<IdUsage, Set<String>>(IdUsage.class), LinkedHashSet.class);
         for (int i = UScript.COMMON; i < UScript.CODE_LIMIT; ++i) {
+            String longName = UScript.getName(i);
+            String shortName = UScript.getShortName(i);
             Info info = ScriptMetadata.getInfo(i);
             if (info != null) {
-                map.put(
-                        info.idUsage,
-                        UScript.getName(i) + "\t(" + UScript.getShortName(i) + ")\t" + info);
+                map.put(info.idUsage, longName + "\t(" + shortName + ")\t" + info);
+            } else if (shortName.equals("Chis")) {
+                // pass:
+                // UTC #184 moved Chisoi from Unicode 17 to Unicode 18
+                // but as of 20250728 CLDR still depends on a version of ICU that
+                // includes UScript.CHISOI.
+                // Its numeric value will be reused for a different script.
+                // TODO: Remove this hack after CLDR has been updated to ICU 78 final.
             } else {
                 // There are many script codes that are not "real"; there are no
                 // Unicode characters for them.
                 // separate those out.
                 temp.applyIntPropertyValue(UProperty.SCRIPT, i);
                 if (temp.size() != 0) { // is real
-                    errln(
-                            "Missing script metadata for "
-                                    + UScript.getName(i)
-                                    + "\t("
-                                    + UScript.getShortName(i));
+                    errln("Missing script metadata for " + longName + "\t(" + shortName);
                 } else { // is not real
-                    missingScripts.add(UScript.getShortName(i));
+                    missingScripts.add(shortName);
                 }
             }
         }
@@ -169,6 +172,15 @@ public class TestScriptMetadata extends TestFmwkPlus {
         Set<String> bads = new TreeSet<>();
         UnicodeSet temp = new UnicodeSet();
         for (String s : getScriptsToShow(sc, english)) {
+            if (s.equals("Chis")) {
+                // pass:
+                // UTC #184 moved Chisoi from Unicode 17 to Unicode 18
+                // but as of 20250728 CLDR still depends on a version of ICU that
+                // includes UScript.CHISOI.
+                // Its numeric value will be reused for a different script.
+                // TODO: Remove this hack after CLDR has been updated to ICU 78 final.
+                continue;
+            }
             if (ScriptMetadata.getInfo(s) == null) {
                 // There are many script codes that are not "real"; there are no
                 // Unicode characters for them.

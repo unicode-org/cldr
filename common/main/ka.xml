@@ -276,6 +276,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="ksf">ბაფია</language>
 			<language type="ksh">კიოლში</language>
 			<language type="ku">ქურთული</language>
+			<language type="ku" menu="core">ქურთული</language>
+			<language type="ku" menu="extension">კურმანჯი</language>
 			<language type="kum">ყუმუხური</language>
 			<language type="kut">კუტენაი</language>
 			<language type="kv">კომი</language>
@@ -813,6 +815,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="CN">ჩინეთი</territory>
 			<territory type="CO">კოლუმბია</territory>
 			<territory type="CP">კლიპერტონის კუნძული</territory>
+			<territory type="CQ">სარკი</territory>
 			<territory type="CR">კოსტა-რიკა</territory>
 			<territory type="CU">კუბა</territory>
 			<territory type="CV">კაბო-ვერდე</territory>
@@ -1113,52 +1116,91 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<key type="cf">ვალუტის ფორმატი</key>
 			<key type="collation">დახარისხების თანმიმდევრობა</key>
 			<key type="currency">ვალუტა</key>
+			<key type="em">სიცილაკების პრეზენტაცია</key>
 			<key type="hc">დროის სისტემა (12 ან 24)</key>
 			<key type="lb">სტრიქონის წყვეტის სტილი</key>
+			<key type="lw">სტრიქონზე გადასვლა სიტყვებს შორის</key>
 			<key type="ms">საზომი სისტემა</key>
 			<key type="numbers">რიცხვები</key>
+			<key type="ss">წინადადების წყვეტა შემოკლ. შემდეგ</key>
 		</keys>
 		<types>
 			<type key="calendar" type="buddhist">ბუდისტური კალენდარი</type>
+			<type key="calendar" type="buddhist" scope="core">ბუდისტური</type>
 			<type key="calendar" type="chinese">ჩინური კალენდარი</type>
+			<type key="calendar" type="chinese" scope="core">ჩინური</type>
 			<type key="calendar" type="coptic">კოპტური კალენდარი</type>
+			<type key="calendar" type="coptic" scope="core">კოპტური</type>
 			<type key="calendar" type="dangi">კალენდარი დანგი</type>
+			<type key="calendar" type="dangi" scope="core">დანგი</type>
 			<type key="calendar" type="ethiopic">ეთიოპიური კალენდარი</type>
+			<type key="calendar" type="ethiopic" scope="core">ეთიოპიური</type>
 			<type key="calendar" type="ethiopic-amete-alem">ეთიოპიური ამეთე ალემი კალენდარი</type>
+			<type key="calendar" type="ethiopic-amete-alem" scope="core">ეთიოპიური ამეთე ალემი</type>
 			<type key="calendar" type="gregorian">გრიგორიანული კალენდარი</type>
+			<type key="calendar" type="gregorian" scope="core">გრიგორიანული</type>
 			<type key="calendar" type="hebrew">ებრაული კალენდარი</type>
+			<type key="calendar" type="hebrew" scope="core">ებრაული</type>
 			<type key="calendar" type="indian">ინდოეთის ეროვნული კალენდარი</type>
 			<type key="calendar" type="islamic">ჰიჯრის კალენდარი</type>
+			<type key="calendar" type="islamic" scope="core">ჰიჯრი</type>
 			<type key="calendar" type="islamic-civil">ჰიჯრის სამოქალაქო კალენდარი (ტაბულარული)</type>
+			<type key="calendar" type="islamic-civil" scope="core">ჰიჯრი (ტაბულარული, სამოქალაქო)</type>
 			<type key="calendar" type="islamic-umalqura">ჰიჯრის კალენდარი (უმ-ალ-ქურა)</type>
+			<type key="calendar" type="islamic-umalqura" scope="core">ჰიჯრი (უმ-ალ-ქურა)</type>
 			<type key="calendar" type="iso8601">ISO-8601 კალენდარი</type>
 			<type key="calendar" type="japanese">იაპონური კალენდარი</type>
+			<type key="calendar" type="japanese" scope="core">იაპონური</type>
 			<type key="calendar" type="persian">სპარსული კალენდარი</type>
+			<type key="calendar" type="persian" scope="core">სპარსული</type>
 			<type key="calendar" type="roc">ჩინეთის რესპუბლიკის კალენდარი</type>
-			<type key="cf" type="account">ვალუტის ბუღალტრული ფორმატი</type>
+			<type key="calendar" type="roc" scope="core">მინგუო</type>
+			<type key="cf" type="account">ვალუტის საბუღალტრო ფორმატი</type>
+			<type key="cf" type="account" scope="core">საბუღალტრო</type>
 			<type key="cf" type="standard">ვალუტის სტანდარტული ფორმატი</type>
+			<type key="cf" type="standard" scope="core">სტანდარტული</type>
 			<type key="collation" type="dictionary" draft="unconfirmed">ლექსიკონით</type>
 			<type key="collation" type="ducet">უნიკოდის ნაგულისხმევი დახარისხების თანმიმდევრობა</type>
+			<type key="collation" type="ducet" scope="core">უნიკოდის ნაგულისხმევი</type>
 			<type key="collation" type="phonebook" draft="unconfirmed">ტელეფონის წიგნით</type>
 			<type key="collation" type="pinyin" draft="unconfirmed">პინ-ინი</type>
 			<type key="collation" type="reformed" draft="unconfirmed">რეფორმირებული</type>
 			<type key="collation" type="search">ზოგადი დანიშნულების ძიება</type>
+			<type key="collation" type="search" scope="core">ძიება</type>
 			<type key="collation" type="searchjl" draft="unconfirmed">ჰანგულის პირველი თანხმოვნით</type>
 			<type key="collation" type="standard">სტანდარტული დახარისხების თანმიმდევრობა</type>
+			<type key="collation" type="standard" scope="core">სტანდარტული</type>
 			<type key="collation" type="stroke" draft="unconfirmed">შტრიხით</type>
 			<type key="collation" type="traditional">ტრადიციული</type>
 			<type key="collation" type="unihan" draft="unconfirmed">ძირითადი შტრიხით</type>
 			<type key="collation" type="zhuyin" draft="unconfirmed">ჟუინი</type>
+			<type key="em" type="default" scope="core">ნაგულისხმევი</type>
+			<type key="em" type="emoji" scope="core">სიცილაკი</type>
+			<type key="em" type="text" scope="core">ტექსტი</type>
 			<type key="hc" type="h11">12-საათიანი სისტემა (0-11)</type>
+			<type key="hc" type="h11" scope="core">12 (0–11)</type>
 			<type key="hc" type="h12">12-საათიანი სისტემა (1-12)</type>
+			<type key="hc" type="h12" scope="core">12 (0–11)</type>
 			<type key="hc" type="h23">24-საათიანი სისტემა (0-23)</type>
+			<type key="hc" type="h23" scope="core">12 (0–23)</type>
 			<type key="hc" type="h24">24-საათიანი სისტემა (1-24)</type>
+			<type key="hc" type="h24" scope="core">12 (0–23)</type>
 			<type key="lb" type="loose">სტრიქონის რბილი წყვეტის სტილი</type>
+			<type key="lb" type="loose" scope="core">თავისუფალი</type>
 			<type key="lb" type="normal">სტრიქონის ჩვეულებრივი წყვეტის სტილი</type>
+			<type key="lb" type="normal" scope="core">ნორმალური</type>
 			<type key="lb" type="strict">სტრიქონის ზედმიწევნითი წყვეტის სტილი</type>
+			<type key="lb" type="strict" scope="core">მკაცრი</type>
+			<type key="lw" type="breakall" scope="core">ყველგან გაყოფა</type>
+			<type key="lw" type="keepall" scope="core">ყველგან შენარჩუნება</type>
+			<type key="lw" type="normal" scope="core">ნორმალური</type>
+			<type key="lw" type="phrase" scope="core">ფრაზებში შენარჩუნება</type>
 			<type key="ms" type="metric">მეტრული სისტემა</type>
+			<type key="ms" type="metric" scope="core">მეტრული</type>
 			<type key="ms" type="uksystem">ბრიტანული საზომი სისტემა</type>
+			<type key="ms" type="uksystem" scope="core">ბრიტანული</type>
 			<type key="ms" type="ussystem">ამერიკული საზომი სისტემა</type>
+			<type key="ms" type="ussystem" scope="core">ამერიკული</type>
 			<type key="numbers" type="arab">არაბულ-ინდური ციფრები</type>
 			<type key="numbers" type="arabext">გაფართოებული არაბულ-ინდური ციფრები</type>
 			<type key="numbers" type="armn">სომხური რიცხვები</type>
@@ -1212,6 +1254,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="numbers" type="thai">ტაილანდური ციფრები</type>
 			<type key="numbers" type="tibt">ტიბეტური ციფრები</type>
 			<type key="numbers" type="vaii">ვაიური ციფრები</type>
+			<type key="ss" type="none" scope="core">გამორთული</type>
+			<type key="ss" type="standard" scope="core">ჩართული</type>
 		</types>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">მეტრული</measurementSystemName>
@@ -1229,7 +1273,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<exemplarCharacters type="auxiliary">[ⴀ ⴁ ⴂ ⴃ ⴄ ⴅ ⴆ ჱ ⴡ ⴇ ⴈ ⴉ ⴊ ⴋ ⴌ ჲ ⴢ ⴍ ⴎ ⴏ ⴐ ⴑ ⴒ ჳ ⴣ ⴓ ⴔ ⴕ ⴖ ⴗ ⴘ ⴙ ⴚ ⴛ ⴜ ⴝ ⴞ ჴ ⴤ ⴟ ⴠ ჵ ⴥ ჶ ჷ ჸ ჹ ჺ]</exemplarCharacters>
 		<exemplarCharacters type="index">[ა ბ გ დ ე ვ ზ თ ი კ ლ მ ნ ო პ ჟ რ ს ტ უ ფ ქ ღ ყ შ ჩ ც ძ წ ჭ ხ ჯ ჰ]</exemplarCharacters>
 		<exemplarCharacters type="numbers">[  \- ‑ , % ‰ + 0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
+		<exemplarCharacters type="numbers-auxiliary">↑↑↑</exemplarCharacters>
 		<exemplarCharacters type="punctuation">[\- ‐‑ – — , ; \: ! ? . … ჻ '‘‚ “„ « » ( ) \[ \] \{ \} § @ * / \&amp; # † ‡ ′ ″ №]</exemplarCharacters>
+		<exemplarCharacters type="punctuation-auxiliary" draft="contributed">↑↑↑</exemplarCharacters>
+		<exemplarCharacters type="punctuation-person" draft="contributed">↑↑↑</exemplarCharacters>
 		<ellipsis type="final">↑↑↑</ellipsis>
 		<ellipsis type="initial">↑↑↑</ellipsis>
 		<ellipsis type="medial">↑↑↑</ellipsis>
@@ -1305,12 +1352,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateTimeFormat type="atTime">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
 						<dateTimeFormat>
 							<pattern>{1}, {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
@@ -1321,12 +1374,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateTimeFormat type="atTime">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
 						<dateTimeFormat>
 							<pattern>{1}, {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
@@ -1336,15 +1395,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Bhms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="d">↑↑↑</dateFormatItem>
 						<dateFormatItem id="E">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EBh">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EBhm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EBhms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ed">d E</dateFormatItem>
+						<dateFormatItem id="Eh">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EH">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ehm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EHm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ehms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EHms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
+						<dateFormatItem id="GyM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMd">d.M.y GGGGG</dateFormatItem>
+						<dateFormatItem id="GyMEd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM, y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d MMM, y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E, d MMM, y G</dateFormatItem>
@@ -1354,6 +1418,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Hm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Hms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hv">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Hv">↑↑↑</dateFormatItem>
 						<dateFormatItem id="M">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Md">d.M</dateFormatItem>
 						<dateFormatItem id="MEd">E, d.M</dateFormatItem>
@@ -1869,12 +1935,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateTimeFormat type="atTime">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
 						<dateTimeFormat>
 							<pattern>{1}, {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
@@ -1885,12 +1957,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateTimeFormat type="atTime">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
 						<dateTimeFormat>
 							<pattern>{1}, {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
@@ -1900,15 +1978,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Bhms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="d">↑↑↑</dateFormatItem>
 						<dateFormatItem id="E">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EBh">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EBhm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EBhms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ed">d E</dateFormatItem>
+						<dateFormatItem id="Eh">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EH">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ehm">E, h:mm a</dateFormatItem>
 						<dateFormatItem id="EHm">E, HH:mm</dateFormatItem>
 						<dateFormatItem id="Ehms">E, h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="EHms">E, HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
+						<dateFormatItem id="GyM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMd">d.M.y GGGGG</dateFormatItem>
+						<dateFormatItem id="GyMEd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM. y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d MMM. y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E, d MMM. y G</dateFormatItem>
@@ -1922,6 +2005,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Hmsv">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hmv">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Hmv">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hv">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Hv">↑↑↑</dateFormatItem>
 						<dateFormatItem id="M">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Md">d.M</dateFormatItem>
 						<dateFormatItem id="MEd">E, d.M</dateFormatItem>
@@ -2265,6 +2350,148 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<era type="0" draft="unconfirmed">↑↑↑</era>
 					</eraAbbr>
 				</eras>
+			</calendar>
+			<calendar type="iso8601">
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>↑↑↑</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>↑↑↑</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>↑↑↑</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>↑↑↑</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="Ed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Gy">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyM">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMMM">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Md">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="one">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="other">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yM">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMMM">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMMMEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMMMM">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yQQQ">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yQQQQ">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yw" count="one">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yw" count="other">↑↑↑</dateFormatItem>
+					</availableFormats>
+					<intervalFormats>
+						<intervalFormatItem id="Gy">
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyM">
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMEd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMM">
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMEd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Md">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MEd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMEd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yM">
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMEd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMM">
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMEd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMM">
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
+				</dateTimeFormats>
 			</calendar>
 			<calendar type="persian">
 				<months>
@@ -3027,6 +3254,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<hourFormat>↑↑↑</hourFormat>
 			<gmtFormat>↑↑↑</gmtFormat>
 			<gmtZeroFormat>↑↑↑</gmtZeroFormat>
+			<gmtUnknownFormat>↑↑↑</gmtUnknownFormat>
 			<regionFormat>დრო: {0}</regionFormat>
 			<regionFormat type="daylight">{0} ზაფხულის დრო</regionFormat>
 			<regionFormat type="standard">{0} სტანდარტული დრო</regionFormat>
@@ -3383,6 +3611,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Pacific/Easter">
 				<exemplarCity>ისთერი</exemplarCity>
+			</zone>
+			<zone type="America/Coyhaique">
+				<exemplarCity>კოიჰაიკე</exemplarCity>
 			</zone>
 			<zone type="America/Punta_Arenas">
 				<exemplarCity>პუნტა-არენასი</exemplarCity>
@@ -4903,9 +5134,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Norfolk">
 				<long>
-					<generic draft="contributed">ნორფოლკის კუნძულის დრო</generic>
-					<standard draft="contributed">ნორფოლკის კუნძულის სტანდარტული დრო</standard>
-					<daylight draft="contributed">ნორფოლკის კუნძულის ზაფხულის დრო</daylight>
+					<generic>ნორფოლკის კუნძულის დრო</generic>
+					<standard>ნორფოლკის კუნძულის სტანდარტული დრო</standard>
+					<daylight>ნორფოლკის კუნძულის ზაფხულის დრო</daylight>
 				</long>
 			</metazone>
 			<metazone type="Noronha">
@@ -5255,6 +5486,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
+		<rationalFormats numberSystem="latn">
+			<rationalPattern>↑↑↑</rationalPattern>
+			<integerAndRationalPattern>↑↑↑</integerAndRationalPattern>
+			<integerAndRationalPattern alt="superSub">↑↑↑</integerAndRationalPattern>
+			<rationalUsage>↑↑↑</rationalUsage>
+		</rationalFormats>
 		<scientificFormats numberSystem="latn">
 			<scientificFormatLength>
 				<scientificFormat>
@@ -5273,10 +5510,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>#,##0.00 ¤</pattern>
-					<pattern alt="noCurrency" draft="provisional">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">↑↑↑</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -5330,7 +5569,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
 				<symbol>↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="ALL">
 				<displayName>ალბანური ლეკი</displayName>
@@ -5343,7 +5582,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
 				<symbol>↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="ANG">
 				<displayName>ნიდერლანდების ანტილების გულდენი</displayName>
@@ -5404,7 +5643,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
 				<symbol>↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="BAD">
 				<displayName draft="contributed">ბოსნია-ჰერცოგოვინას დინარი</displayName>
@@ -5744,7 +5983,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
 				<symbol>↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="GIP">
 				<displayName>გიბრალტარული ფუნტი</displayName>
@@ -5900,6 +6139,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
 				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="KHR">
 				<displayName>კამბოჯური რიელი</displayName>
@@ -5981,7 +6221,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ლესოთოს ლოტი</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="LTL">
 				<displayName>ლიტვური ლიტა</displayName>
@@ -6582,6 +6822,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol>↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
+			<currency type="XCG">
+				<displayName>კარიბის გულდენი</displayName>
+				<displayName count="one">კარიბის გულდენი</displayName>
+				<displayName count="other">კარიბის გულდენი</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
 			<currency type="XEU">
 				<displayName draft="contributed">ევროპული სავალუტო ერთეული</displayName>
 			</currency>
@@ -6651,6 +6897,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 			<currency type="ZWD">
 				<displayName draft="contributed">ზიმბაბვეს დოლარი</displayName>
+			</currency>
+			<currency type="ZWG">
+				<displayName>ზიმბაბვეს გოლდი</displayName>
+				<displayName count="one">ზიმბაბვეს გოლდი</displayName>
+				<displayName count="other">ზიმბაბვეს გოლდი</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 		</currencies>
 		<miscPatterns numberSystem="latn">
@@ -6891,6 +7143,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} ერთეული</unitPattern>
 				<unitPattern count="other">{0} ერთეული</unitPattern>
 			</unit>
+			<unit type="concentr-part">
+				<displayName>წილი</displayName>
+				<unitPattern count="one">{0} წილი</unitPattern>
+				<unitPattern count="other">{0} წილი</unitPattern>
+			</unit>
 			<unit type="concentr-part-per-1e6">
 				<displayName>ნაწილი მილიონზე</displayName>
 				<unitPattern count="one">{0} ნაწილი მილიონზე</unitPattern>
@@ -6912,9 +7169,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-mole">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>მოლი</displayName>
+				<unitPattern count="one">{0} მოლი</unitPattern>
+				<unitPattern count="other">{0} მოლი</unitPattern>
+			</unit>
+			<unit type="concentr-ofglucose">
+				<displayName>გლუკოზის</displayName>
+				<unitPattern count="one">გლუკოზის {0}</unitPattern>
+				<unitPattern count="other">გლუკოზის {0}</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>ლიტრი კილომეტრზე</displayName>
@@ -7135,9 +7397,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="force-newton">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>ნიუტონი</displayName>
+				<unitPattern count="one">{0} ნიუტონი</unitPattern>
+				<unitPattern count="other">{0} ნიუტონი</unitPattern>
 			</unit>
 			<unit type="force-kilowatt-hour-per-100-kilometer">
 				<displayName>↑↑↑</displayName>
@@ -7367,9 +7629,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} მიკროგრამი</unitPattern>
 			</unit>
 			<unit type="mass-ton">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} ტონა</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>აშშ მოკლე ტონა</displayName>
+				<unitPattern count="one">{0} აშშ მოკლე ტონა</unitPattern>
+				<unitPattern count="other">{0} აშშ მოკლე ტონა</unitPattern>
 			</unit>
 			<unit type="mass-stone">
 				<displayName>↑↑↑</displayName>
@@ -7449,9 +7711,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ცხენის ძალა</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-ofhg">
-				<displayName>მილიმეტრი ვერცხლისწყლის სვეტისა</displayName>
-				<unitPattern count="one">{0} მილიმეტრი ვერცხლისწყლის სვეტისა</unitPattern>
-				<unitPattern count="other">{0} მილიმეტრი ვერცხლისწყლის სვეტისა</unitPattern>
+				<displayName>მილიმეტრი ვერცხლისწყლის სვეტი</displayName>
+				<unitPattern count="one">{0} მილიმეტრი ვერცხლისწყლის სვეტი</unitPattern>
+				<unitPattern count="other">{0} მილიმეტრი ვერცხლისწყლის სვეტი</unitPattern>
+			</unit>
+			<unit type="pressure-ofhg">
+				<displayName>ვერცხლისწყალი</displayName>
+				<unitPattern count="one">{0} ვერცხლისწყალი</unitPattern>
+				<unitPattern count="other">{0} ვერცხლისწყალი</unitPattern>
 			</unit>
 			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>ფუნტი კვადრატულ დუიმზე</displayName>
@@ -7459,9 +7726,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ფუნტი კვადრატულ დუიმზე</unitPattern>
 			</unit>
 			<unit type="pressure-inch-ofhg">
-				<displayName>ვერცხლისწყლის დუიმი</displayName>
-				<unitPattern count="one">{0} ვერცხლისწყლის დუიმი</unitPattern>
-				<unitPattern count="other">{0} ვერცხლისწყლის დუიმი</unitPattern>
+				<displayName>დუიმი ვერცხლისწყალი</displayName>
+				<unitPattern count="one">{0} დუიმი ვერცხლისწყალი</unitPattern>
+				<unitPattern count="other">{0} დუიმი ვერცხლისწყალი</unitPattern>
 			</unit>
 			<unit type="pressure-bar">
 				<displayName>↑↑↑</displayName>
@@ -7631,6 +7898,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} მეტრული ჭიქა</unitPattern>
 				<unitPattern count="other">{0} მეტრული ჭიქა</unitPattern>
 			</unit>
+			<unit type="volume-fluid-ounce-metric">
+				<displayName>მეტრული თხევადი უნცია</displayName>
+				<unitPattern count="one">{0} მეტრული თხევადი უნცია</unitPattern>
+				<unitPattern count="other">{0} მეტრული თხევადი უნცია</unitPattern>
+			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>აკრი-ფუტი</displayName>
 				<unitPattern count="one">{0} აკრი-ფუტი</unitPattern>
@@ -7728,16 +8000,86 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} ბრიტანული კვარტი</unitPattern>
 				<unitPattern count="other">{0} ბრიტანული კვარტი</unitPattern>
 			</unit>
+			<unit type="angle-steradian">
+				<displayName>სტერადიანი</displayName>
+				<unitPattern count="one">{0} სტერადიანი</unitPattern>
+				<unitPattern count="other">{0} სტერადიანი</unitPattern>
+			</unit>
+			<unit type="concentr-katal">
+				<displayName>კატალი</displayName>
+				<unitPattern count="one">{0} კატალი</unitPattern>
+				<unitPattern count="other">{0} კატალი</unitPattern>
+			</unit>
+			<unit type="electric-coulomb">
+				<displayName>კულონი</displayName>
+				<unitPattern count="one">{0} კულონი</unitPattern>
+				<unitPattern count="other">{0} კულონი</unitPattern>
+			</unit>
+			<unit type="electric-farad">
+				<displayName>ფარადა</displayName>
+				<unitPattern count="one">{0} ფარადა</unitPattern>
+				<unitPattern count="other">{0} ფარადა</unitPattern>
+			</unit>
+			<unit type="electric-henry">
+				<displayName>ჰენრი</displayName>
+				<unitPattern count="one">{0} ჰენრი</unitPattern>
+				<unitPattern count="other">{0} ჰენრი</unitPattern>
+			</unit>
+			<unit type="electric-siemens">
+				<displayName>სიმენსი</displayName>
+				<unitPattern count="one">{0} სიმენსი</unitPattern>
+				<unitPattern count="other">{0} სიმენსი</unitPattern>
+			</unit>
+			<unit type="energy-calorie-it">
+				<displayName>კალორია [IT]</displayName>
+				<unitPattern count="one">{0} კალორია [IT]</unitPattern>
+				<unitPattern count="other">{0} კალორია [IT]</unitPattern>
+			</unit>
+			<unit type="energy-becquerel">
+				<displayName>ბეკერელი</displayName>
+				<unitPattern count="one">{0} ბეკერელი</unitPattern>
+				<unitPattern count="other">{0} ბეკერელი</unitPattern>
+			</unit>
+			<unit type="energy-sievert">
+				<displayName>ზივერტი</displayName>
+				<unitPattern count="one">{0} ზივერტი</unitPattern>
+				<unitPattern count="other">{0} ზივერტი</unitPattern>
+			</unit>
+			<unit type="energy-gray">
+				<displayName>გრეი</displayName>
+				<unitPattern count="one">{0} გრეი</unitPattern>
+				<unitPattern count="other">{0} გრეი</unitPattern>
+			</unit>
+			<unit type="force-kilogram-force">
+				<displayName>კილოგრამძალა</displayName>
+				<unitPattern count="one">{0} კილოგრამძალა</unitPattern>
+				<unitPattern count="other">{0} კილოგრამძალა</unitPattern>
+			</unit>
+			<unit type="magnetic-tesla">
+				<displayName>ტესლა</displayName>
+				<unitPattern count="one">{0} ტესლა</unitPattern>
+				<unitPattern count="other">{0} ტესლა</unitPattern>
+			</unit>
+			<unit type="magnetic-weber">
+				<displayName>ვებერი</displayName>
+				<unitPattern count="one">{0} ვებერი</unitPattern>
+				<unitPattern count="other">{0} ვებერი</unitPattern>
+			</unit>
+			<unit type="speed-light-speed">
+				<displayName>სინათლის სიჩქარე</displayName>
+				<unitPattern count="one">{0} სინათლის სიჩქარე</unitPattern>
+				<unitPattern count="other">{0}-მაგი სინათლის სიჩქარე</unitPattern>
+			</unit>
 			<unit type="concentr-part-per-1e9">
 				<displayName>ნაწილი მილიარდზე</displayName>
 				<unitPattern count="one">{0} ნაწილი მილიარდზე</unitPattern>
 				<unitPattern count="other">{0} ნაწილი მილიარდზე</unitPattern>
 			</unit>
 			<unit type="duration-night">
-				<displayName>ღამე</displayName>
-				<unitPattern count="one">{0} ღამე</unitPattern>
-				<unitPattern count="other">{0} ღამე</unitPattern>
-				<perUnitPattern>{0}/ღამე</perUnitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>კარდინალური მიმართულება</displayName>
@@ -7970,6 +8312,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ერთე.</unitPattern>
 			</unit>
+			<unit type="concentr-part">
+				<displayName>წ.</displayName>
+				<unitPattern count="one">{0} წ.</unitPattern>
+				<unitPattern count="other">{0} წ.</unitPattern>
+			</unit>
 			<unit type="concentr-part-per-1e6">
 				<displayName>ნაწილი/მილიონზე</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -7991,9 +8338,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-mole">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>მოლ</displayName>
+				<unitPattern count="one">{0} მოლ</unitPattern>
+				<unitPattern count="other">{0} მოლ</unitPattern>
+			</unit>
+			<unit type="concentr-ofglucose">
+				<displayName>Glc</displayName>
+				<unitPattern count="one">{0} Glc</unitPattern>
+				<unitPattern count="other">{0} Glc</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>ლიტრი/კმ</displayName>
@@ -8031,9 +8383,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ტბიტი</unitPattern>
 			</unit>
 			<unit type="digital-gigabyte">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>გიგაბაიტი</displayName>
+				<unitPattern count="one">{0} გიგაბაიტი</unitPattern>
+				<unitPattern count="other">{0} გიგაბაიტი</unitPattern>
 			</unit>
 			<unit type="digital-gigabit">
 				<displayName>გბიტი</displayName>
@@ -8041,9 +8393,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} გბიტი</unitPattern>
 			</unit>
 			<unit type="digital-megabyte">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>მეგაბაიტი</displayName>
+				<unitPattern count="one">{0} მეგაბაიტი</unitPattern>
+				<unitPattern count="other">{0} მეგაბაიტი</unitPattern>
 			</unit>
 			<unit type="digital-megabit">
 				<displayName>მბიტი</displayName>
@@ -8214,9 +8566,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="force-newton">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>ნ</displayName>
+				<unitPattern count="one">{0} ნ</unitPattern>
+				<unitPattern count="other">{0} ნ</unitPattern>
 			</unit>
 			<unit type="force-kilowatt-hour-per-100-kilometer">
 				<displayName>კვტსთ/100კმ</displayName>
@@ -8419,9 +8771,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ☉ სხივიერობა</unitPattern>
 			</unit>
 			<unit type="mass-tonne">
-				<displayName>მტ</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">{0} მტ</unitPattern>
+				<displayName>ტ</displayName>
+				<unitPattern count="one">{0} ტონა</unitPattern>
+				<unitPattern count="other">{0} ტონა</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>კილოგრამი</displayName>
@@ -8446,9 +8798,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} მკგ</unitPattern>
 			</unit>
 			<unit type="mass-ton">
-				<displayName>ტონა</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">{0} ტ</unitPattern>
+				<displayName>მოკ. ტონა</displayName>
+				<unitPattern count="one">{0} მოკ. ტონა</unitPattern>
+				<unitPattern count="other">{0} მოკ. ტონა</unitPattern>
 			</unit>
 			<unit type="mass-stone">
 				<displayName>სტოუნი</displayName>
@@ -8528,9 +8880,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ცხ. ძ.</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-ofhg">
-				<displayName>მმ ვწყ. სვ.</displayName>
+				<displayName>მმ.ვწყ. სვ.</displayName>
+				<unitPattern count="one">{0} მმ.ვწყ. სვ.</unitPattern>
+				<unitPattern count="other">{0} მმ.ვწყ. სვ.</unitPattern>
+			</unit>
+			<unit type="pressure-ofhg">
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">{0} მმ ვწყ. სვ.</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>ფნტ. კვ. დმ.</displayName>
@@ -8538,9 +8895,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ფნტ. კვ. დმ.</unitPattern>
 			</unit>
 			<unit type="pressure-inch-ofhg">
-				<displayName>ვრც. დმ.</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">{0} ვრც. დმ.</unitPattern>
+				<displayName>დუიმი ვერცხლისწყალი</displayName>
+				<unitPattern count="one">{0} დუიმი ვერცხლისწყალი</unitPattern>
+				<unitPattern count="other">{0} დუიმი ვერცხლისწყალი</unitPattern>
 			</unit>
 			<unit type="pressure-bar">
 				<displayName>ბარი</displayName>
@@ -8598,7 +8955,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} კვძ.</unitPattern>
 			</unit>
 			<unit type="speed-beaufort">
-				<displayName>↑↑↑</displayName>
+				<displayName>ბოფორტი</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -8710,6 +9067,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} მეტრ. ჭიქა</unitPattern>
 			</unit>
+			<unit type="volume-fluid-ounce-metric">
+				<displayName>მეტრული თხევადი უნცია</displayName>
+				<unitPattern count="one">{0} მეტრული თხევადი უნცია</unitPattern>
+				<unitPattern count="other">{0} მეტრული თხევადი უნცია</unitPattern>
+			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>აკრ.ფტ.</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -8807,6 +9169,76 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ბრიტ. კვარტი</unitPattern>
 			</unit>
+			<unit type="angle-steradian">
+				<displayName>სრ</displayName>
+				<unitPattern count="one">{0} სრ</unitPattern>
+				<unitPattern count="other">{0} სრ</unitPattern>
+			</unit>
+			<unit type="concentr-katal">
+				<displayName>კატ</displayName>
+				<unitPattern count="one">{0} კატ</unitPattern>
+				<unitPattern count="other">{0} კატ</unitPattern>
+			</unit>
+			<unit type="electric-coulomb">
+				<displayName>კულ</displayName>
+				<unitPattern count="one">{0} კულ</unitPattern>
+				<unitPattern count="other">{0} კულ</unitPattern>
+			</unit>
+			<unit type="electric-farad">
+				<displayName>ფ</displayName>
+				<unitPattern count="one">{0} ფ</unitPattern>
+				<unitPattern count="other">{0} ფ</unitPattern>
+			</unit>
+			<unit type="electric-henry">
+				<displayName>ჰ</displayName>
+				<unitPattern count="one">{0} ჰ</unitPattern>
+				<unitPattern count="other">{0} ჰ</unitPattern>
+			</unit>
+			<unit type="electric-siemens">
+				<displayName>სიმ</displayName>
+				<unitPattern count="one">{0} სიმ</unitPattern>
+				<unitPattern count="other">{0} სიმ</unitPattern>
+			</unit>
+			<unit type="energy-calorie-it">
+				<displayName>კალ-IT</displayName>
+				<unitPattern count="one">{0} კალ-IT</unitPattern>
+				<unitPattern count="other">{0} კალ-IT</unitPattern>
+			</unit>
+			<unit type="energy-becquerel">
+				<displayName>ბკ</displayName>
+				<unitPattern count="one">{0} ბკ</unitPattern>
+				<unitPattern count="other">{0} ბკ</unitPattern>
+			</unit>
+			<unit type="energy-sievert">
+				<displayName>ზვ</displayName>
+				<unitPattern count="one">{0} ზვ</unitPattern>
+				<unitPattern count="other">{0} ზვ</unitPattern>
+			</unit>
+			<unit type="energy-gray">
+				<displayName>გრ</displayName>
+				<unitPattern count="one">{0} გრ</unitPattern>
+				<unitPattern count="other">{0} გრ</unitPattern>
+			</unit>
+			<unit type="force-kilogram-force">
+				<displayName>კგძ</displayName>
+				<unitPattern count="one">{0} კგძ</unitPattern>
+				<unitPattern count="other">{0} კგძ</unitPattern>
+			</unit>
+			<unit type="magnetic-tesla">
+				<displayName>ტლ</displayName>
+				<unitPattern count="one">{0} ტლ</unitPattern>
+				<unitPattern count="other">{0} ტლ</unitPattern>
+			</unit>
+			<unit type="magnetic-weber">
+				<displayName>ვბ</displayName>
+				<unitPattern count="one">{0} ვბ</unitPattern>
+				<unitPattern count="other">{0} ვბ</unitPattern>
+			</unit>
+			<unit type="speed-light-speed">
+				<displayName>სინათლის სიჩქ.</displayName>
+				<unitPattern count="one">{0} სინათლის სიჩქ.</unitPattern>
+				<unitPattern count="other">{0}-მაგი სინათლის სიჩქ.</unitPattern>
+			</unit>
 			<unit type="concentr-part-per-1e9">
 				<displayName>ნაწილი/მილიარდზე</displayName>
 				<unitPattern count="one">{0} ნ/მ</unitPattern>
@@ -8814,7 +9246,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="duration-night">
 				<displayName>ღამე</displayName>
-				<unitPattern count="one">{0} ღამე</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ღამე</unitPattern>
 				<perUnitPattern>{0}/ღამე</perUnitPattern>
 			</unit>
@@ -8940,7 +9372,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
-				<displayName>↑↑↑</displayName>
+				<displayName>ინერციის ძალა</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -8948,6 +9380,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="angle-revolution">
+				<displayName>↑↑↑</displayName>
 			</unit>
 			<unit type="angle-degree">
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -8962,26 +9397,57 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} წმ</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="area-hectare">
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="area-square-centimeter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="area-square-mile">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="area-acre">
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="area-acre">
+			<unit type="area-square-yard">
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="area-square-inch">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="area-dunam">
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -8990,15 +9456,85 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="concentr-part">
+				<displayName>წ.</displayName>
+				<unitPattern count="one">{0} წ.</unitPattern>
+				<unitPattern count="other">{0} წ.</unitPattern>
+			</unit>
 			<unit type="concentr-percent">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="concentr-mole">
+				<displayName>მოლ</displayName>
+				<unitPattern count="one">{0} მოლ</unitPattern>
+				<unitPattern count="other">{0} მოლ</unitPattern>
+			</unit>
+			<unit type="concentr-ofglucose">
+				<displayName>Glc</displayName>
+				<unitPattern count="one">{0} Glc</unitPattern>
+				<unitPattern count="other">{0} Glc</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-100-kilometer">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">{0}ლ/100კმ</unitPattern>
 				<unitPattern count="other">{0}ლ/100კმ</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="digital-terabyte">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="digital-terabit">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="digital-gigabyte">
+				<displayName>გბაიტი</displayName>
+				<unitPattern count="one">{0} გბაიტი</unitPattern>
+				<unitPattern count="other">{0} გბაიტი</unitPattern>
+			</unit>
+			<unit type="digital-gigabit">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="digital-megabyte">
+				<displayName>მეგაბაიტი</displayName>
+				<unitPattern count="one">{0} მეგაბაიტი</unitPattern>
+				<unitPattern count="other">{0} მეგაბაიტი</unitPattern>
+			</unit>
+			<unit type="digital-megabit">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="digital-kilobyte">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="digital-kilobit">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="digital-byte">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="digital-bit">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-century">
 				<displayName>↑↑↑</displayName>
@@ -9073,6 +9609,36 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="electric-ampere">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-milliampere">
+				<displayName>მილიამპერი</displayName>
+				<unitPattern count="one">{0} მილიამპერი</unitPattern>
+				<unitPattern count="other">{0} მილიამპერი</unitPattern>
+			</unit>
+			<unit type="electric-ohm">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0} ომი</unitPattern>
+				<unitPattern count="other">{0} ომი</unitPattern>
+			</unit>
+			<unit type="electric-volt">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-kilocalorie">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-calorie">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="energy-foodcalorie">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -9083,7 +9649,52 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="energy-joule">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-kilowatt-hour">
+				<displayName>კვტ.სთ</displayName>
+				<unitPattern count="one">{0} კვტ.სთ</unitPattern>
+				<unitPattern count="other">{0} კვტ.სთ</unitPattern>
+			</unit>
+			<unit type="energy-electronvolt">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-therm-us">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="force-newton">
+				<displayName>ნ</displayName>
+				<unitPattern count="one">{0} ნ</unitPattern>
+				<unitPattern count="other">{0} ნ</unitPattern>
+			</unit>
 			<unit type="force-kilowatt-hour-per-100-kilometer">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="frequency-gigahertz">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="frequency-megahertz">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="frequency-kilohertz">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="frequency-hertz">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -9110,6 +9721,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="graphics-pixel-per-inch">
 				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0} პიქს/დუიმი</unitPattern>
+				<unitPattern count="other">{0} პიქს/დუიმი</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-centimeter">
 				<displayName>↑↑↑</displayName>
@@ -9126,20 +9739,33 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="length-earth-radius">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="length-kilometer">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="length-meter">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">{0}მ</unitPattern>
 				<unitPattern count="other">{0}მ</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="length-decimeter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName>↑↑↑</displayName>
@@ -9147,6 +9773,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-micrometer">
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -9161,22 +9788,43 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-mile">
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-yard">
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-foot">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="length-inch">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0} დმ</unitPattern>
+				<unitPattern count="other">{0} დმ</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="length-parsec">
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="length-inch">
-				<unitPattern count="one">{0} დმ</unitPattern>
-				<unitPattern count="other">{0} დმ</unitPattern>
-			</unit>
 			<unit type="length-light-year">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-astronomical-unit">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-nautical-mile">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -9191,22 +9839,42 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="length-solar-radius">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="light-lux">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="light-candela">
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="light-lumen">
+				<displayName>↑↑↑</displayName>
+			</unit>
+			<unit type="mass-tonne">
+				<displayName>ტ</displayName>
+				<unitPattern count="one">{0} ტ</unitPattern>
+				<unitPattern count="other">{0} ტ</unitPattern>
+			</unit>
 			<unit type="mass-kilogram">
 				<displayName>კგ</displayName>
 				<unitPattern count="one">{0}კგ</unitPattern>
 				<unitPattern count="other">{0}კგ</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="mass-gram">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">{0}გ</unitPattern>
 				<unitPattern count="other">{0}გ</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="mass-milligram">
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">{0}მგ</unitPattern>
 				<unitPattern count="other">{0}მგ</unitPattern>
 			</unit>
@@ -9216,12 +9884,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}მკგ</unitPattern>
 			</unit>
 			<unit type="mass-ton">
-				<unitPattern count="one">{0}ტ</unitPattern>
-				<unitPattern count="other">{0}ტ</unitPattern>
+				<displayName>მ.ტონა</displayName>
+				<unitPattern count="one">{0}მ.ტონა</unitPattern>
+				<unitPattern count="other">{0}მ.ტონა</unitPattern>
 			</unit>
 			<unit type="mass-pound">
+				<displayName>ფნტ</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce">
 				<displayName>↑↑↑</displayName>
@@ -9230,34 +9901,117 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce-troy">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="mass-carat">
+				<displayName>კარ</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="mass-dalton">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="mass-earth-mass">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="mass-solar-mass">
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-grain">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="power-gigawatt">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="power-megawatt">
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-watt">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="power-milliwatt">
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">{0}ცხ.ძ.</unitPattern>
 				<unitPattern count="other">{0}ცხ.ძ.</unitPattern>
 			</unit>
+			<unit type="pressure-millimeter-ofhg">
+				<displayName>მმ.ვწყ. სვ.</displayName>
+				<unitPattern count="one">{0} მმ.ვწყ. სვ.</unitPattern>
+				<unitPattern count="other">{0} მმ.ვწყ. სვ.</unitPattern>
+			</unit>
+			<unit type="pressure-ofhg">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="pressure-pound-force-per-square-inch">
+				<displayName>ფუნტი კვადრატულ დუიმზე</displayName>
+				<unitPattern count="one">{0} ფუნტი კვადრატულ დუიმზე</unitPattern>
+				<unitPattern count="other">{0} ფუნტი კვადრატულ დუიმზე</unitPattern>
+			</unit>
 			<unit type="pressure-inch-ofhg">
+				<displayName>დუიმი ვერცხლისწყალი</displayName>
+				<unitPattern count="one">{0} დუიმი ვერცხლისწყალი</unitPattern>
+				<unitPattern count="other">{0} დუიმი ვერცხლისწყალი</unitPattern>
+			</unit>
+			<unit type="pressure-bar">
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">{0} მბრ</unitPattern>
 				<unitPattern count="other">{0} მბრ</unitPattern>
 			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="pressure-pascal">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="pressure-hectopascal">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="pressure-kilopascal">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="pressure-megapascal">
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -9282,6 +10036,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="speed-beaufort">
+				<displayName>ბოფორტი</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="temperature-generic">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -9292,14 +10051,59 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="temperature-kelvin">
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="volume-cubic-meter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="volume-cubic-centimeter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
 			<unit type="volume-cubic-mile">
+				<displayName>მილი³</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-cubic-yard">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-cubic-foot">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-cubic-inch">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-megaliter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-hectoliter">
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -9307,15 +10111,208 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">{0}ლ</unitPattern>
 				<unitPattern count="other">{0}ლ</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="volume-deciliter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-centiliter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-milliliter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-pint-metric">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-cup-metric">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-fluid-ounce-metric">
+				<displayName>მეტრული თხევადი უნცია</displayName>
+				<unitPattern count="one">{0} მეტრული თხევადი უნცია</unitPattern>
+				<unitPattern count="other">{0} მეტრული თხევადი უნცია</unitPattern>
+			</unit>
+			<unit type="volume-acre-foot">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-gallon">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="volume-gallon-imperial">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="volume-quart">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-pint">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-cup">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-fluid-ounce">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-fluid-ounce-imperial">
+				<displayName>ბრიტანული თხევადი უნცია</displayName>
+				<unitPattern count="one">{0} ბრიტანული თხევადი უნცია</unitPattern>
+				<unitPattern count="other">{0} ბრიტანული თხევადი უნცია</unitPattern>
+			</unit>
+			<unit type="volume-tablespoon">
+				<displayName>ს.კ.</displayName>
+				<unitPattern count="one">{0} ს.კ.</unitPattern>
+				<unitPattern count="other">{0} ს.კ.</unitPattern>
+			</unit>
+			<unit type="volume-teaspoon">
+				<displayName>ჩ.კ.</displayName>
+				<unitPattern count="one">{0} ჩ.კ.</unitPattern>
+				<unitPattern count="other">{0} ჩ.კ.</unitPattern>
+			</unit>
+			<unit type="volume-barrel">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0} ბარელი</unitPattern>
+				<unitPattern count="other">{0} ბარელი</unitPattern>
+			</unit>
+			<unit type="volume-dessert-spoon">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-dessert-spoon-imperial">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-drop">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-dram">
+				<displayName>ბრიტანული თხევადი დრაქმა</displayName>
+				<unitPattern count="one">{0} ბრიტანული თხევადი დრაქმა</unitPattern>
+				<unitPattern count="other">{0} ბრიტანული თხევადი დრაქმა</unitPattern>
+			</unit>
+			<unit type="volume-jigger">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-pinch">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-quart-imperial">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="angle-steradian">
+				<displayName>სრ</displayName>
+				<unitPattern count="one">{0} სრ</unitPattern>
+				<unitPattern count="other">{0} სრ</unitPattern>
+			</unit>
+			<unit type="concentr-katal">
+				<displayName>კატ</displayName>
+				<unitPattern count="one">{0} კატ</unitPattern>
+				<unitPattern count="other">{0} კატ</unitPattern>
+			</unit>
+			<unit type="electric-coulomb">
+				<displayName>კულ</displayName>
+				<unitPattern count="one">{0} კულ</unitPattern>
+				<unitPattern count="other">{0} კულ</unitPattern>
+			</unit>
+			<unit type="electric-farad">
+				<displayName>ფ</displayName>
+				<unitPattern count="one">{0} ფ</unitPattern>
+				<unitPattern count="other">{0} ფ</unitPattern>
+			</unit>
+			<unit type="electric-henry">
+				<displayName>ჰ</displayName>
+				<unitPattern count="one">{0} ჰ</unitPattern>
+				<unitPattern count="other">{0} ჰ</unitPattern>
+			</unit>
+			<unit type="electric-siemens">
+				<displayName>სიმ</displayName>
+				<unitPattern count="one">{0} სიმ</unitPattern>
+				<unitPattern count="other">{0} სიმ</unitPattern>
+			</unit>
+			<unit type="energy-calorie-it">
+				<displayName>კალ-IT</displayName>
+				<unitPattern count="one">{0} კალ-IT</unitPattern>
+				<unitPattern count="other">{0} კალ-IT</unitPattern>
+			</unit>
+			<unit type="energy-becquerel">
+				<displayName>ბკ</displayName>
+				<unitPattern count="one">{0} ბკ</unitPattern>
+				<unitPattern count="other">{0} ბკ</unitPattern>
+			</unit>
+			<unit type="energy-sievert">
+				<displayName>ზვ</displayName>
+				<unitPattern count="one">{0} ზვ</unitPattern>
+				<unitPattern count="other">{0} ზვ</unitPattern>
+			</unit>
+			<unit type="energy-gray">
+				<displayName>გრ</displayName>
+				<unitPattern count="one">{0} გრ</unitPattern>
+				<unitPattern count="other">{0} გრ</unitPattern>
+			</unit>
+			<unit type="force-kilogram-force">
+				<displayName>კგძ</displayName>
+				<unitPattern count="one">{0} კგძ</unitPattern>
+				<unitPattern count="other">{0} კგძ</unitPattern>
+			</unit>
+			<unit type="magnetic-tesla">
+				<displayName>ტლ</displayName>
+				<unitPattern count="one">{0} ტლ</unitPattern>
+				<unitPattern count="other">{0} ტლ</unitPattern>
+			</unit>
+			<unit type="magnetic-weber">
+				<displayName>ვბ</displayName>
+				<unitPattern count="one">{0} ვბ</unitPattern>
+				<unitPattern count="other">{0} ვბ</unitPattern>
+			</unit>
+			<unit type="speed-light-speed">
+				<displayName>c</displayName>
+				<unitPattern count="one">{0} სინათლის სიჩქ.</unitPattern>
+				<unitPattern count="other">{0}-მაგი სინათლის სიჩქ.</unitPattern>
 			</unit>
 			<unit type="concentr-part-per-1e9">
 				<displayName>ნ/მ</displayName>
 			</unit>
 			<unit type="duration-night">
-				<displayName>ღამე</displayName>
-				<unitPattern count="one">{0} ღამე</unitPattern>
-				<unitPattern count="other">{0} ღამე</unitPattern>
-				<perUnitPattern>{0}/ღამე</perUnitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>↑↑↑</displayName>

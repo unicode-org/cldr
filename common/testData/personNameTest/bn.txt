@@ -113,25 +113,11 @@ parameters; surnameFirst; short; monogram; informal
 endName
 
 # nativeGS
-name ; given; আইরিন
+name ; given; শ্রেয়া
 name ; surname; চৌধুরী
 name ; locale; bn_AQ
 
-expectedResult; আইরিন চৌধুরী
-
-parameters; givenFirst; long; referring; formal
-parameters; givenFirst; long; referring; informal
-parameters; givenFirst; long; addressing; informal
-parameters; givenFirst; medium; referring; formal
-parameters; givenFirst; medium; referring; informal
-parameters; givenFirst; medium; addressing; formal
-parameters; givenFirst; medium; addressing; informal
-parameters; givenFirst; short; referring; formal
-parameters; givenFirst; short; referring; informal
-parameters; givenFirst; short; addressing; formal
-parameters; givenFirst; short; addressing; informal
-
-expectedResult; চৌধুরী আইরিন
+expectedResult; চৌধুরী শ্রেয়া
 
 parameters; surnameFirst; long; referring; formal
 parameters; surnameFirst; long; referring; informal
@@ -152,20 +138,25 @@ parameters; sorting; medium; referring; informal
 parameters; sorting; short; referring; formal
 parameters; sorting; short; referring; informal
 
+expectedResult; শ্রেয়া চৌধুরী
+
+parameters; givenFirst; long; referring; formal
+parameters; givenFirst; long; referring; informal
+parameters; givenFirst; long; addressing; informal
+parameters; givenFirst; medium; referring; formal
+parameters; givenFirst; medium; referring; informal
+parameters; givenFirst; medium; addressing; formal
+parameters; givenFirst; medium; addressing; informal
+parameters; givenFirst; short; referring; formal
+parameters; givenFirst; short; referring; informal
+parameters; givenFirst; short; addressing; formal
+parameters; givenFirst; short; addressing; informal
+
 expectedResult; চৌধুরী
 
 parameters; givenFirst; long; addressing; formal
 
-expectedResult; আচৌ
-
-parameters; givenFirst; long; monogram; formal
-parameters; givenFirst; long; monogram; informal
-parameters; givenFirst; medium; monogram; formal
-parameters; givenFirst; medium; monogram; informal
-parameters; givenFirst; short; monogram; formal
-parameters; givenFirst; short; monogram; informal
-
-expectedResult; চৌআ
+expectedResult; চৌশ্রে
 
 parameters; surnameFirst; long; monogram; formal
 parameters; surnameFirst; long; monogram; informal
@@ -173,6 +164,15 @@ parameters; surnameFirst; medium; monogram; formal
 parameters; surnameFirst; medium; monogram; informal
 parameters; surnameFirst; short; monogram; formal
 parameters; surnameFirst; short; monogram; informal
+
+expectedResult; শ্রেচৌ
+
+parameters; givenFirst; long; monogram; formal
+parameters; givenFirst; long; monogram; informal
+parameters; givenFirst; medium; monogram; formal
+parameters; givenFirst; medium; monogram; informal
+parameters; givenFirst; short; monogram; formal
+parameters; givenFirst; short; monogram; informal
 
 endName
 

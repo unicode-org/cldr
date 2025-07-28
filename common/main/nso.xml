@@ -44,10 +44,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<exemplarCharacters type="punctuation" draft="contributed">↑↑↑</exemplarCharacters>
 	</characters>
 	<delimiters>
-		<quotationStart>‘</quotationStart>
-		<quotationEnd>’</quotationEnd>
-		<alternateQuotationStart>“</alternateQuotationStart>
-		<alternateQuotationEnd>”</alternateQuotationEnd>
+		<quotationStart>↑↑↑</quotationStart>
+		<quotationEnd>↑↑↑</quotationEnd>
+		<alternateQuotationStart>↑↑↑</alternateQuotationStart>
+		<alternateQuotationEnd>↑↑↑</alternateQuotationEnd>
 	</delimiters>
 	<dates>
 		<calendars>
@@ -55,18 +55,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<month type="1">Phere</month>
-							<month type="2">Dibo</month>
-							<month type="3">Hlak</month>
-							<month type="4">Mora</month>
-							<month type="5">Mei</month>
-							<month type="6">↑↑↑</month>
-							<month type="7">Mose</month>
-							<month type="8">↑↑↑</month>
-							<month type="9">Lewe</month>
-							<month type="10">Dipha</month>
-							<month type="11">Diba</month>
-							<month type="12">Manth</month>
+							<month type="1">Jan</month>
+							<month type="2">Feb</month>
+							<month type="3">Mat</month>
+							<month type="4">Apo</month>
+							<month type="5">↑↑↑</month>
+							<month type="6">Jun</month>
+							<month type="7">Jul</month>
+							<month type="8">Ago</month>
+							<month type="9">Sep</month>
+							<month type="10">Okt</month>
+							<month type="11">Nof</month>
+							<month type="12">Dis</month>
 						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">↑↑↑</month>
@@ -223,10 +223,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<quarters>
 					<quarterContext type="format">
 						<quarterWidth type="abbreviated">
-							<quarter type="1">↑↑↑</quarter>
-							<quarter type="2">↑↑↑</quarter>
-							<quarter type="3">↑↑↑</quarter>
-							<quarter type="4">↑↑↑</quarter>
+							<quarter type="1">Kotara 1</quarter>
+							<quarter type="2">Kotara 2</quarter>
+							<quarter type="3">Kotara 3</quarter>
+							<quarter type="4">Kotara 4</quarter>
 						</quarterWidth>
 						<quarterWidth type="narrow">
 							<quarter type="1">↑↑↑</quarter>
@@ -407,10 +407,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="ms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="y">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yM">↑↑↑</dateFormatItem>
-						<dateFormatItem id="yMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMd">dd-MM-y</dateFormatItem>
 						<dateFormatItem id="yMEd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yMMM">↑↑↑</dateFormatItem>
-						<dateFormatItem id="yMMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMMMd">d MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMEd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yMMMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yQQQ">↑↑↑</dateFormatItem>
@@ -519,6 +519,33 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="year">
+				<relative type="-1">ngwaga wa go feta</relative>
+				<relative type="0">ngwaga wo</relative>
+				<relative type="1">ngwaga wo o tlago</relative>
+			</field>
+			<field type="month">
+				<relative type="-1">kgwedi ye e fetilego</relative>
+				<relative type="0">kgwedi ye</relative>
+				<relative type="1">kgwedi ye e tlago</relative>
+			</field>
+			<field type="week">
+				<relative type="-1">beke ye e fetilego</relative>
+				<relative type="0">beke ye</relative>
+				<relative type="1">beke ye e tlago</relative>
+			</field>
+			<field type="day">
+				<relative type="-1">maabane</relative>
+				<relative type="0">lehono</relative>
+				<relative type="1">gosasa</relative>
+			</field>
+			<field type="sun">
+				<relative type="-1">LaMorena le fetilego</relative>
+				<relative type="0">LaMorena le</relative>
+				<relative type="1">LaMorena le latelago</relative>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>↑↑↑</hourFormat>
 			<gmtFormat>↑↑↑</gmtFormat>
@@ -542,7 +569,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<minimumGroupingDigits draft="contributed">↑↑↑</minimumGroupingDigits>
 		<symbols numberSystem="latn">
 			<decimal>↑↑↑</decimal>
-			<group> </group>
+			<group>↑↑↑</group>
 			<percentSign>↑↑↑</percentSign>
 			<plusSign>↑↑↑</plusSign>
 			<minusSign>↑↑↑</minusSign>

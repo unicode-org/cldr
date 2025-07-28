@@ -2439,7 +2439,7 @@ public class CLDRModify {
                         myReader.process(CLDRModify.class, configFileName);
                     }
 
-                    static final String DEBUG_PATH =
+                    static final String DEBUG_PATH = 
                             "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"long\"][@usage=\"referring\"][@formality=\"formal\"]/namePattern";
 
                     @Override

@@ -2790,39 +2790,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</eraNarrow>
 				</eras>
 			</calendar>
-			<calendar type="iso8601">
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern draft="contributed">↑↑↑</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
-				<dateTimeFormats>
-					<appendItems>
-						<appendItem request="Timezone" draft="contributed">↑↑↑</appendItem>
-					</appendItems>
-					<intervalFormats>
-						<intervalFormatItem id="h">
-							<greatestDifference id="a" draft="contributed">↑↑↑</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="H">
-							<greatestDifference id="H" draft="contributed">↑↑↑</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Hm">
-							<greatestDifference id="H" draft="contributed">↑↑↑</greatestDifference>
-							<greatestDifference id="m" draft="contributed">↑↑↑</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Hmv">
-							<greatestDifference id="H" draft="contributed">↑↑↑</greatestDifference>
-							<greatestDifference id="m" draft="contributed">↑↑↑</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Hv">
-							<greatestDifference id="H" draft="contributed">↑↑↑</greatestDifference>
-						</intervalFormatItem>
-					</intervalFormats>
-				</dateTimeFormats>
-			</calendar>
 			<calendar type="japanese">
 				<eras>
 					<eraAbbr>

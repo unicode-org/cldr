@@ -406,7 +406,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Cari">кари ҫырулӑхӗ</script>
 			<script type="Cham">чам ҫырулӑхӗ</script>
 			<script type="Cher">чероки ҫырулӑхӗ</script>
-			<script type="Chis">чисой ҫырулӑхаӗ</script>
 			<script type="Chrs">хорезм ҫырулӑхӗ</script>
 			<script type="Copt">копт ҫырулӑхӗ</script>
 			<script type="Cpmn">кипр-миной ҫырулӑхӗ</script>
@@ -1136,7 +1135,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="brah">брахма хисеп паллисем</type>
 			<type key="numbers" type="cakm">чакма хисеп паллисем</type>
 			<type key="numbers" type="cham">чам хисеп паллисем</type>
-			<type key="numbers" type="chis">чисои хисеп паллисем</type>
 			<type key="numbers" type="cyrl">кирилл хисеп паллисем</type>
 			<type key="numbers" type="deva">деванагари хисеп паллисем</type>
 			<type key="numbers" type="diak">дивехи-акуру хисеп паллисем</type>
@@ -11943,21 +11941,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<nan>хисеп мар</nan>
 			<timeSeparator draft="contributed">↑↑↑</timeSeparator>
 		</symbols>
-		<symbols numberSystem="chis">
-			<decimal>↑↑↑</decimal>
-			<group>↑↑↑</group>
-			<list>↑↑↑</list>
-			<percentSign>↑↑↑</percentSign>
-			<plusSign>↑↑↑</plusSign>
-			<minusSign>↑↑↑</minusSign>
-			<approximatelySign>↑↑↑</approximatelySign>
-			<exponential>↑↑↑</exponential>
-			<superscriptingExponent>↑↑↑</superscriptingExponent>
-			<perMille>↑↑↑</perMille>
-			<infinity>↑↑↑</infinity>
-			<nan>хисеп мар</nan>
-			<timeSeparator draft="contributed">↑↑↑</timeSeparator>
-		</symbols>
 		<symbols numberSystem="deva">
 			<decimal>↑↑↑</decimal>
 			<group>↑↑↑</group>
@@ -13042,13 +13025,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</decimalFormatLength>
 		</decimalFormats>
 		<decimalFormats numberSystem="cham">
-			<decimalFormatLength>
-				<decimalFormat>
-					<pattern>↑↑↑</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
-		</decimalFormats>
-		<decimalFormats numberSystem="chis">
 			<decimalFormatLength>
 				<decimalFormat>
 					<pattern>↑↑↑</pattern>
@@ -14143,13 +14119,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</scientificFormat>
 			</scientificFormatLength>
 		</scientificFormats>
-		<scientificFormats numberSystem="chis">
-			<scientificFormatLength>
-				<scientificFormat>
-					<pattern>↑↑↑</pattern>
-				</scientificFormat>
-			</scientificFormatLength>
-		</scientificFormats>
 		<scientificFormats numberSystem="deva">
 			<scientificFormatLength>
 				<scientificFormat>
@@ -14690,13 +14659,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</percentFormatLength>
 		</percentFormats>
 		<percentFormats numberSystem="cham">
-			<percentFormatLength>
-				<percentFormat>
-					<pattern>↑↑↑</pattern>
-				</percentFormat>
-			</percentFormatLength>
-		</percentFormats>
-		<percentFormats numberSystem="chis">
 			<percentFormatLength>
 				<percentFormat>
 					<pattern>↑↑↑</pattern>
@@ -15656,64 +15618,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="cham">
-			<currencyFormatLength>
-				<currencyFormat type="standard">
-					<pattern>↑↑↑</pattern>
-					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
-					<pattern alt="noCurrency">↑↑↑</pattern>
-				</currencyFormat>
-				<currencyFormat type="accounting">
-					<pattern>#,##0.00 ¤;(#,##0.00 ¤)</pattern>
-					<pattern alt="alphaNextToNumber">#,##0.00 ¤;(#,##0.00 ¤)</pattern>
-					<pattern alt="noCurrency">#,##0.00;(#,##0.00)</pattern>
-				</currencyFormat>
-			</currencyFormatLength>
-			<currencyFormatLength type="short">
-				<currencyFormat type="standard">
-					<pattern type="1000" count="zero">↑↑↑</pattern>
-					<pattern type="1000" count="one">↑↑↑</pattern>
-					<pattern type="1000" count="other">↑↑↑</pattern>
-					<pattern type="10000" count="zero">↑↑↑</pattern>
-					<pattern type="10000" count="one">↑↑↑</pattern>
-					<pattern type="10000" count="other">↑↑↑</pattern>
-					<pattern type="100000" count="zero">↑↑↑</pattern>
-					<pattern type="100000" count="one">↑↑↑</pattern>
-					<pattern type="100000" count="other">↑↑↑</pattern>
-					<pattern type="1000000" count="zero">↑↑↑</pattern>
-					<pattern type="1000000" count="one">↑↑↑</pattern>
-					<pattern type="1000000" count="other">↑↑↑</pattern>
-					<pattern type="10000000" count="zero">↑↑↑</pattern>
-					<pattern type="10000000" count="one">↑↑↑</pattern>
-					<pattern type="10000000" count="other">↑↑↑</pattern>
-					<pattern type="100000000" count="zero">↑↑↑</pattern>
-					<pattern type="100000000" count="one">↑↑↑</pattern>
-					<pattern type="100000000" count="other">↑↑↑</pattern>
-					<pattern type="1000000000" count="zero">↑↑↑</pattern>
-					<pattern type="1000000000" count="one">↑↑↑</pattern>
-					<pattern type="1000000000" count="other">↑↑↑</pattern>
-					<pattern type="10000000000" count="zero">↑↑↑</pattern>
-					<pattern type="10000000000" count="one">↑↑↑</pattern>
-					<pattern type="10000000000" count="other">↑↑↑</pattern>
-					<pattern type="100000000000" count="zero">↑↑↑</pattern>
-					<pattern type="100000000000" count="one">↑↑↑</pattern>
-					<pattern type="100000000000" count="other">↑↑↑</pattern>
-					<pattern type="1000000000000" count="zero">↑↑↑</pattern>
-					<pattern type="1000000000000" count="one">↑↑↑</pattern>
-					<pattern type="1000000000000" count="other">↑↑↑</pattern>
-					<pattern type="10000000000000" count="zero">↑↑↑</pattern>
-					<pattern type="10000000000000" count="one">↑↑↑</pattern>
-					<pattern type="10000000000000" count="other">↑↑↑</pattern>
-					<pattern type="100000000000000" count="zero">↑↑↑</pattern>
-					<pattern type="100000000000000" count="one">↑↑↑</pattern>
-					<pattern type="100000000000000" count="other">↑↑↑</pattern>
-				</currencyFormat>
-			</currencyFormatLength>
-			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="zero">↑↑↑</unitPattern>
-			<unitPattern count="one">↑↑↑</unitPattern>
-			<unitPattern count="other">↑↑↑</unitPattern>
-		</currencyFormats>
-		<currencyFormats numberSystem="chis">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
@@ -22023,12 +21927,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="range">↑↑↑</pattern>
 		</miscPatterns>
 		<miscPatterns numberSystem="cham">
-			<pattern type="approximately">↑↑↑</pattern>
-			<pattern type="atLeast">↑↑↑</pattern>
-			<pattern type="atMost">↑↑↑</pattern>
-			<pattern type="range">↑↑↑</pattern>
-		</miscPatterns>
-		<miscPatterns numberSystem="chis">
 			<pattern type="approximately">↑↑↑</pattern>
 			<pattern type="atLeast">↑↑↑</pattern>
 			<pattern type="atMost">↑↑↑</pattern>

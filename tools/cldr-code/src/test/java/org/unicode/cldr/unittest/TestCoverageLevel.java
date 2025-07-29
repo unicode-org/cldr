@@ -1268,6 +1268,9 @@ public class TestCoverageLevel extends TestFmwkPlus {
         Output<String> localeWhereFound = new Output<>();
         Set<Row.R5<String, String, Boolean, Boolean, Level>> inherited = new TreeSet<>();
         for (String path : ENGLISH) {
+            if (path.contains("iso8601")) {
+                continue; // these won't be overridden in children
+            }
             String value = ENGLISH.getStringValueWithBailey(path, pathWhereFound, localeWhereFound);
             final boolean samePath = path.equals(pathWhereFound.value);
             final boolean sameLocale = "en".equals(localeWhereFound.value);

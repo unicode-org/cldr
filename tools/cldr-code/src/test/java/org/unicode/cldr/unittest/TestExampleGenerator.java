@@ -1935,8 +1935,6 @@ public class TestExampleGenerator extends TestFmwk {
                 new HashSet<>(); // assume whether there is an example is independent of locale, to
         // speed up the test.
         final String separator = "•";
-        PathStarrer ps = new PathStarrer();
-        ps.setSubstitutionPattern("*");
 
         // Setup for calling phase.getShowRowAction
         DummyPathValueInfo dummyPathValueInfo = null;
@@ -2007,9 +2005,10 @@ public class TestExampleGenerator extends TestFmwk {
                 if (level.isAtLeast(Level.COMPREHENSIVE)) {
                     continue;
                 }
-                String starred = ps.set(xpath);
-                String attrs = ps.getAttributesString(separator);
-
+                String starred = PathStarrer.getWithPattern(xpath, PathStarrer.SIMPLE_STAR_PATTERN);
+                String attrs =
+                        Joiner.on(separator)
+                                .join(XPathParts.getFrozenInstance(xpath).getAttributeValues());
                 PathHeader ph = phf.fromPath(xpath);
                 if (CHECK_ROW_ACTION) {
                     dummyPathValueInfo.setXpath(xpath);
@@ -2036,12 +2035,12 @@ public class TestExampleGenerator extends TestFmwk {
                         continue;
                     }
 
-                    samplesForWithout.put(key, sampleAttrAndValue(ps, separator, value));
+                    samplesForWithout.put(key, sampleAttrAndValue(attrs, value));
                     sampleUrlForWithout.put(key, ph.getUrl(BaseUrl.PRODUCTION, localeId));
                     countWithoutExamples.add(key, 1);
                 } else {
                     if (!samplesForWith.containsKey(key)) {
-                        samplesForWith.put(key, sampleAttrAndValue(ps, separator, value));
+                        samplesForWith.put(key, sampleAttrAndValue(attrs, value));
                     }
                     countWithExamples.add(key, 1);
                 }
@@ -2352,8 +2351,8 @@ public class TestExampleGenerator extends TestFmwk {
         return result;
     }
 
-    public String sampleAttrAndValue(PathStarrer ps, final String separator, String value) {
-        return ps.getAttributesString(separator) + "➔«" + value + "»";
+    private String sampleAttrAndValue(String attrs, String value) {
+        return attrs + "➔«" + value + "»";
     }
 
     public void testRationals() {

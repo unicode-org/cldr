@@ -1002,8 +1002,6 @@ public class TestPathHeader extends TestFmwkPlus {
     }
 
     public void TestZ() {
-        PathStarrer pathStarrer = new PathStarrer().setSubstitutionPattern("%A");
-
         Set<PathHeader> sorted = new TreeSet<>();
         Map<String, String> missing = new TreeMap<>();
         Map<String, String> skipped = new TreeMap<>();
@@ -1014,12 +1012,14 @@ public class TestPathHeader extends TestFmwkPlus {
             PathHeader pathHeader = pathHeaderFactory.fromPath(path);
             String value = english.getStringValue(path);
             if (pathHeader == null) {
-                final String starred = pathStarrer.set(path);
+                final String starred =
+                        PathStarrer.getWithPattern(path, PathStarrer.PERCENT_A_PATTERN);
                 missing.put(starred, value + "\t" + path);
                 continue;
             }
             if (pathHeader.getSection().equalsIgnoreCase("skip")) {
-                final String starred = pathStarrer.set(path);
+                final String starred =
+                        PathStarrer.getWithPattern(path, PathStarrer.PERCENT_A_PATTERN);
                 skipped.put(starred, value + "\t" + path);
                 continue;
             }
@@ -1330,7 +1330,6 @@ public class TestPathHeader extends TestFmwkPlus {
 
     private class PathChecker {
         PathHeader.Factory phf = pathHeaderFactory;
-        PathStarrer starrer = new PathStarrer().setSubstitutionPattern("%A");
 
         Set<String> badHeaders = new TreeSet<>();
         Map<PathHeader, PathHeader> goodHeaders = new HashMap<>();
@@ -1397,7 +1396,7 @@ public class TestPathHeader extends TestFmwkPlus {
             } catch (Exception e) {
                 message = ": Exception in path header: " + e.getMessage();
             }
-            String star = starrer.set(path);
+            String star = PathStarrer.getWithPattern(path, PathStarrer.PERCENT_A_PATTERN);
             if (badHeaders.add(star)) {
                 errln(star + message + ", " + ph);
                 System.out.println(

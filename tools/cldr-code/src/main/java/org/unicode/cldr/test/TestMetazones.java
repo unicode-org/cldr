@@ -144,9 +144,9 @@ public class TestMetazones {
         for (String path : file) {
             if (path.contains("/usesMetazone")) {
                 /*
-                 * Sample: <zone type="Asia/Yerevan"> <usesMetazone to="1991-09-23"
-                 * mzone="Yerevan"/> <usesMetazone from="1991-09-23" mzone="Armenia"/>
-                 * </zone>
+                 * Sample: <timezone type="America/Kentucky/Monticello"> <usesMetazone to="2000-10-29 07:00"
+                 * mzone="America_Central"/> <usesMetazone from="2000-10-29 07:00" mzone="America_Eastern"/>
+                 * </timezone>
                  */
                 XPathParts parts = XPathParts.getFrozenInstance(path);
                 String from = parts.getAttributeValue(-1, "from");

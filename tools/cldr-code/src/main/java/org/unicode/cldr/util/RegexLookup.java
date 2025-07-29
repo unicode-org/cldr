@@ -641,14 +641,12 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
         @Override
         public void put(Finder pattern, T value) {
             // System.out.println("pattern.toString() is => "+pattern.toString());
-            List<String> attributes = new ArrayList<>();
             String starPattern =
                     starPatternTransform(
                             pattern.toString()
                                     .replaceAll(
                                             "\\(\\[\\^\"\\]\\*\\)",
-                                            PathStarrer.SIMPLE_STAR_PATTERN),
-                            attributes);
+                                            PathStarrer.SIMPLE_STAR_PATTERN));
             // System.out.println("Putting => "+starPattern);
             List<SPNode> candidates = _spmap.get(starPattern);
             if (candidates == null) {
@@ -662,8 +660,7 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
 
         @Override
         public T get(Finder finder) {
-            List<String> attributes = new ArrayList<>();
-            String starPattern = starPatternTransform(finder.toString(), attributes);
+            String starPattern = starPatternTransform(finder.toString());
             List<SPNode> candidates = _spmap.get(starPattern);
             if (candidates == null) {
                 return null;
@@ -685,8 +682,7 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
             List<SPNode> list = new ArrayList<>();
             List<T> retList = new ArrayList<>();
 
-            List<String> attributes = new ArrayList<>();
-            String starPattern = starPatternTransform(pattern, attributes);
+            String starPattern = starPatternTransform(pattern);
             List<SPNode> candidates = _spmap.get(starPattern);
             if (candidates == null) {
                 return retList;
@@ -772,18 +768,16 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
         }
 
         // Used for coverage lookups - strips off the leading ^ and trailing $ from regexp pattern.
-        private String starPatternTransform(String path, List<String> attributes) {
+        private String starPatternTransform(String path) {
             final Pattern ATTRIBUTE_PATTERN_OLD = PatternCache.get("=\"([^\"]*)\"");
             Matcher starAttributeMatcher = ATTRIBUTE_PATTERN_OLD.matcher(path);
             StringBuilder starredPathOld = new StringBuilder();
-            attributes.clear();
             int lastEnd = 0;
             while (starAttributeMatcher.find()) {
                 int start = starAttributeMatcher.start(1);
                 int end = starAttributeMatcher.end(1);
                 starredPathOld.append(path, lastEnd, start);
                 starredPathOld.append(PathStarrer.SIMPLE_STAR_PATTERN);
-                attributes.add(path.substring(start, end));
                 lastEnd = end;
             }
             starredPathOld.append(path.substring(lastEnd));

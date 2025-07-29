@@ -15,6 +15,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.ExemplarType;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
@@ -114,7 +115,9 @@ public class DeriveScripts {
                                 + ")",
                         nsde);
             }
-            UnicodeSet exemplars = cldrFile.getExemplarSet("", WinningChoice.WINNING);
+            UnicodeSet exemplars =
+                    cldrFile.getExemplarSet(
+                            ExemplarType.main, WinningChoice.WINNING, UnicodeSet.CASE_INSENSITIVE);
             for (String s : exemplars) {
                 int scriptNum = UScript.getScript(s.codePointAt(0));
                 if (scriptNum != UScript.COMMON

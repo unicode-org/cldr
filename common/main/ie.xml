@@ -1566,20 +1566,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
-			<calendar type="iso8601">
-				<dateFormats>
-					<dateFormatLength type="short">
-						<dateFormat>
-							<pattern>↑↑↑</pattern>
-						</dateFormat>
-					</dateFormatLength>
-				</dateFormats>
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="Ed">d., E</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
-			</calendar>
 		</calendars>
 		<fields>
 			<field type="era">
@@ -1596,94 +1582,74 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="-1">ultim annu</relative>
 				<relative type="0">ho-annu</relative>
 				<relative type="1">sequent annu</relative>
-				<relativeTime type="future">
-				</relativeTime>
-				<relativeTime type="past">
-				</relativeTime>
+				<relativeTime type="future"/>
+				<relativeTime type="past"/>
 			</field>
 			<field type="year-short">
 				<displayName>↑↑↑</displayName>
 				<relative type="-1" draft="unconfirmed">↑↑↑</relative>
 				<relative type="0" draft="unconfirmed">↑↑↑</relative>
 				<relative type="1" draft="unconfirmed">seq. annu</relative>
-				<relativeTime type="future">
-				</relativeTime>
-				<relativeTime type="past">
-				</relativeTime>
+				<relativeTime type="future"/>
+				<relativeTime type="past"/>
 			</field>
 			<field type="year-narrow">
 				<displayName>a</displayName>
 				<relative type="-1" draft="unconfirmed">ult. a.</relative>
 				<relative type="0" draft="unconfirmed">ho-a.</relative>
 				<relative type="1" draft="unconfirmed">seq. a.</relative>
-				<relativeTime type="future">
-				</relativeTime>
-				<relativeTime type="past">
-				</relativeTime>
+				<relativeTime type="future"/>
+				<relativeTime type="past"/>
 			</field>
 			<field type="quarter">
 				<displayName>trimestre</displayName>
 				<relative type="-1" draft="unconfirmed">ultim trimestre</relative>
 				<relative type="0" draft="unconfirmed">ho-trimestre</relative>
 				<relative type="1" draft="unconfirmed">sequent trimestre</relative>
-				<relativeTime type="future">
-				</relativeTime>
-				<relativeTime type="past">
-				</relativeTime>
+				<relativeTime type="future"/>
+				<relativeTime type="past"/>
 			</field>
 			<field type="quarter-short">
 				<displayName draft="unconfirmed">trim.</displayName>
-				<relativeTime type="future">
-				</relativeTime>
-				<relativeTime type="past">
-				</relativeTime>
+				<relativeTime type="future"/>
+				<relativeTime type="past"/>
 			</field>
 			<field type="quarter-narrow">
 				<displayName>tr</displayName>
-				<relativeTime type="future">
-				</relativeTime>
-				<relativeTime type="past">
-				</relativeTime>
+				<relativeTime type="future"/>
+				<relativeTime type="past"/>
 			</field>
 			<field type="month">
 				<displayName>mensu</displayName>
 				<relative type="-1">ultim mensu</relative>
 				<relative type="0">ho-mensu</relative>
 				<relative type="1">sequent mensu</relative>
-				<relativeTime type="future">
-				</relativeTime>
-				<relativeTime type="past">
-				</relativeTime>
+				<relativeTime type="future"/>
+				<relativeTime type="past"/>
 			</field>
 			<field type="month-short">
 				<displayName>mn.</displayName>
 				<relative type="-1" draft="unconfirmed">↑↑↑</relative>
 				<relative type="0" draft="unconfirmed">↑↑↑</relative>
 				<relative type="1" draft="unconfirmed">seq. mensu</relative>
-				<relativeTime type="future">
-				</relativeTime>
-				<relativeTime type="past">
-				</relativeTime>
+				<relativeTime type="future"/>
+				<relativeTime type="past"/>
 			</field>
 			<field type="month-narrow">
 				<displayName>mn</displayName>
 				<relative type="-1" draft="unconfirmed">ult. mn.</relative>
 				<relative type="0" draft="unconfirmed">ho-mn.</relative>
 				<relative type="1" draft="unconfirmed">seq. mn.</relative>
-				<relativeTime type="future">
-				</relativeTime>
-				<relativeTime type="past">
-				</relativeTime>
+				<relativeTime type="future"/>
+				<relativeTime type="past"/>
 			</field>
 			<field type="week">
 				<displayName>semane</displayName>
 				<relative type="-1" draft="unconfirmed">ultim semane</relative>
 				<relative type="0" draft="unconfirmed">ho-semane</relative>
 				<relative type="1" draft="unconfirmed">sequent semane</relative>
-				<relativeTime type="future">
-				</relativeTime>
-				<relativeTime type="past">
-				</relativeTime>
+				<relativeTime type="future"/>
+				<relativeTime type="past"/>
 				<relativePeriod draft="unconfirmed">li semane de {0}</relativePeriod>
 			</field>
 			<field type="week-short">
@@ -1691,10 +1657,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="-1" draft="unconfirmed">↑↑↑</relative>
 				<relative type="0" draft="unconfirmed">↑↑↑</relative>
 				<relative type="1" draft="unconfirmed">seq. semane</relative>
-				<relativeTime type="future">
-				</relativeTime>
-				<relativeTime type="past">
-				</relativeTime>
+				<relativeTime type="future"/>
+				<relativeTime type="past"/>
 				<relativePeriod draft="unconfirmed">↑↑↑</relativePeriod>
 			</field>
 			<field type="week-narrow">
@@ -1702,10 +1666,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="-1" draft="unconfirmed">ult. sem.</relative>
 				<relative type="0" draft="unconfirmed">ho sem.</relative>
 				<relative type="1" draft="unconfirmed">seq. sem.</relative>
-				<relativeTime type="future">
-				</relativeTime>
-				<relativeTime type="past">
-				</relativeTime>
+				<relativeTime type="future"/>
+				<relativeTime type="past"/>
 				<relativePeriod draft="unconfirmed">sem. de {0}</relativePeriod>
 			</field>
 			<field type="weekOfMonth">
@@ -1724,10 +1686,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">hodie</relative>
 				<relative type="1">deman</relative>
 				<relative type="2">posdeman</relative>
-				<relativeTime type="future">
-				</relativeTime>
-				<relativeTime type="past">
-				</relativeTime>
+				<relativeTime type="future"/>
+				<relativeTime type="past"/>
 			</field>
 			<field type="day-short">
 				<displayName>↑↑↑</displayName>
@@ -1736,10 +1696,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0" draft="unconfirmed">↑↑↑</relative>
 				<relative type="1" draft="unconfirmed">↑↑↑</relative>
 				<relative type="2" draft="unconfirmed">↑↑↑</relative>
-				<relativeTime type="future">
-				</relativeTime>
-				<relativeTime type="past">
-				</relativeTime>
+				<relativeTime type="future"/>
+				<relativeTime type="past"/>
 			</field>
 			<field type="day-narrow">
 				<displayName>d</displayName>
@@ -1748,10 +1706,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">↑↑↑</relative>
 				<relative type="1">↑↑↑</relative>
 				<relative type="2" draft="unconfirmed">↑↑↑</relative>
-				<relativeTime type="future">
-				</relativeTime>
-				<relativeTime type="past">
-				</relativeTime>
+				<relativeTime type="future"/>
+				<relativeTime type="past"/>
 			</field>
 			<field type="dayOfYear">
 				<displayName draft="unconfirmed">die del annu</displayName>
@@ -1784,190 +1740,148 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="-1" draft="unconfirmed">ultim soledí</relative>
 				<relative type="0" draft="unconfirmed">ho-soledí</relative>
 				<relative type="1" draft="unconfirmed">sequent soledí</relative>
-				<relativeTime type="future">
-				</relativeTime>
-				<relativeTime type="past">
-				</relativeTime>
+				<relativeTime type="future"/>
+				<relativeTime type="past"/>
 			</field>
 			<field type="sun-short">
 				<relative type="-1" draft="unconfirmed">ult. sol.</relative>
 				<relative type="0" draft="unconfirmed">ho-sol.</relative>
 				<relative type="1" draft="unconfirmed">seq. sol.</relative>
-				<relativeTime type="future">
-				</relativeTime>
-				<relativeTime type="past">
-				</relativeTime>
+				<relativeTime type="future"/>
+				<relativeTime type="past"/>
 			</field>
 			<field type="sun-narrow">
 				<relative type="-1" draft="unconfirmed">↑↑↑</relative>
 				<relative type="0" draft="unconfirmed">↑↑↑</relative>
 				<relative type="1" draft="unconfirmed">↑↑↑</relative>
-				<relativeTime type="future">
-				</relativeTime>
-				<relativeTime type="past">
-				</relativeTime>
+				<relativeTime type="future"/>
+				<relativeTime type="past"/>
 			</field>
 			<field type="mon">
 				<relative type="-1" draft="unconfirmed">ultim lunedí</relative>
 				<relative type="0" draft="unconfirmed">ho-lunedí</relative>
 				<relative type="1" draft="unconfirmed">sequent lunedí</relative>
-				<relativeTime type="future">
-				</relativeTime>
-				<relativeTime type="past">
-				</relativeTime>
+				<relativeTime type="future"/>
+				<relativeTime type="past"/>
 			</field>
 			<field type="mon-short">
 				<relative type="-1" draft="unconfirmed">ult. lun.</relative>
 				<relative type="0" draft="unconfirmed">ho-lun.</relative>
 				<relative type="1" draft="unconfirmed">seq. lun.</relative>
-				<relativeTime type="future">
-				</relativeTime>
-				<relativeTime type="past">
-				</relativeTime>
+				<relativeTime type="future"/>
+				<relativeTime type="past"/>
 			</field>
 			<field type="mon-narrow">
 				<relative type="-1" draft="unconfirmed">↑↑↑</relative>
 				<relative type="0" draft="unconfirmed">↑↑↑</relative>
 				<relative type="1" draft="unconfirmed">↑↑↑</relative>
-				<relativeTime type="future">
-				</relativeTime>
-				<relativeTime type="past">
-				</relativeTime>
+				<relativeTime type="future"/>
+				<relativeTime type="past"/>
 			</field>
 			<field type="tue">
 				<relative type="-1" draft="unconfirmed">ultim mardí</relative>
 				<relative type="0" draft="unconfirmed">ho-mardí</relative>
 				<relative type="1" draft="unconfirmed">sequent mardí</relative>
-				<relativeTime type="future">
-				</relativeTime>
-				<relativeTime type="past">
-				</relativeTime>
+				<relativeTime type="future"/>
+				<relativeTime type="past"/>
 			</field>
 			<field type="tue-short">
 				<relative type="-1" draft="unconfirmed">ult. mar.</relative>
 				<relative type="0" draft="unconfirmed">ho-mar.</relative>
 				<relative type="1" draft="unconfirmed">seq. mar.</relative>
-				<relativeTime type="future">
-				</relativeTime>
-				<relativeTime type="past">
-				</relativeTime>
+				<relativeTime type="future"/>
+				<relativeTime type="past"/>
 			</field>
 			<field type="tue-narrow">
 				<relative type="-1" draft="unconfirmed">↑↑↑</relative>
 				<relative type="0" draft="unconfirmed">↑↑↑</relative>
 				<relative type="1" draft="unconfirmed">↑↑↑</relative>
-				<relativeTime type="future">
-				</relativeTime>
-				<relativeTime type="past">
-				</relativeTime>
+				<relativeTime type="future"/>
+				<relativeTime type="past"/>
 			</field>
 			<field type="wed">
 				<relative type="-1" draft="unconfirmed">ultim mercurdí</relative>
 				<relative type="0" draft="unconfirmed">ho-mercurdí</relative>
 				<relative type="1" draft="unconfirmed">sequent mercurdí</relative>
-				<relativeTime type="future">
-				</relativeTime>
-				<relativeTime type="past">
-				</relativeTime>
+				<relativeTime type="future"/>
+				<relativeTime type="past"/>
 			</field>
 			<field type="wed-short">
 				<relative type="-1" draft="unconfirmed">ult. mer.</relative>
 				<relative type="0" draft="unconfirmed">ho-mer.</relative>
 				<relative type="1" draft="unconfirmed">seq. mer.</relative>
-				<relativeTime type="future">
-				</relativeTime>
-				<relativeTime type="past">
-				</relativeTime>
+				<relativeTime type="future"/>
+				<relativeTime type="past"/>
 			</field>
 			<field type="wed-narrow">
 				<relative type="-1" draft="unconfirmed">↑↑↑</relative>
 				<relative type="0" draft="unconfirmed">↑↑↑</relative>
 				<relative type="1" draft="unconfirmed">↑↑↑</relative>
-				<relativeTime type="future">
-				</relativeTime>
-				<relativeTime type="past">
-				</relativeTime>
+				<relativeTime type="future"/>
+				<relativeTime type="past"/>
 			</field>
 			<field type="thu">
 				<relative type="-1" draft="unconfirmed">ultim jovedí</relative>
 				<relative type="0" draft="unconfirmed">ho-jovedí</relative>
 				<relative type="1" draft="unconfirmed">sequent jovedí</relative>
-				<relativeTime type="future">
-				</relativeTime>
-				<relativeTime type="past">
-				</relativeTime>
+				<relativeTime type="future"/>
+				<relativeTime type="past"/>
 			</field>
 			<field type="thu-short">
 				<relative type="-1" draft="unconfirmed">ult. jov.</relative>
 				<relative type="0" draft="unconfirmed">ho-jov.</relative>
 				<relative type="1" draft="unconfirmed">seq. jov.</relative>
-				<relativeTime type="future">
-				</relativeTime>
-				<relativeTime type="past">
-				</relativeTime>
+				<relativeTime type="future"/>
+				<relativeTime type="past"/>
 			</field>
 			<field type="thu-narrow">
 				<relative type="-1" draft="unconfirmed">↑↑↑</relative>
 				<relative type="0" draft="unconfirmed">↑↑↑</relative>
 				<relative type="1" draft="unconfirmed">↑↑↑</relative>
-				<relativeTime type="future">
-				</relativeTime>
-				<relativeTime type="past">
-				</relativeTime>
+				<relativeTime type="future"/>
+				<relativeTime type="past"/>
 			</field>
 			<field type="fri">
 				<relative type="-1" draft="unconfirmed">ultim venerdí</relative>
 				<relative type="0" draft="unconfirmed">ho-venerdí</relative>
 				<relative type="1" draft="unconfirmed">sequent venerdí</relative>
-				<relativeTime type="future">
-				</relativeTime>
-				<relativeTime type="past">
-				</relativeTime>
+				<relativeTime type="future"/>
+				<relativeTime type="past"/>
 			</field>
 			<field type="fri-short">
 				<relative type="-1" draft="unconfirmed">ult. ven.</relative>
 				<relative type="0" draft="unconfirmed">ho-ven.</relative>
 				<relative type="1" draft="unconfirmed">seq. ven.</relative>
-				<relativeTime type="future">
-				</relativeTime>
-				<relativeTime type="past">
-				</relativeTime>
+				<relativeTime type="future"/>
+				<relativeTime type="past"/>
 			</field>
 			<field type="fri-narrow">
 				<relative type="-1" draft="unconfirmed">↑↑↑</relative>
 				<relative type="0" draft="unconfirmed">↑↑↑</relative>
 				<relative type="1" draft="unconfirmed">↑↑↑</relative>
-				<relativeTime type="future">
-				</relativeTime>
-				<relativeTime type="past">
-				</relativeTime>
+				<relativeTime type="future"/>
+				<relativeTime type="past"/>
 			</field>
 			<field type="sat">
 				<relative type="-1" draft="unconfirmed">ultim saturdí</relative>
 				<relative type="0" draft="unconfirmed">ho-saturdí</relative>
 				<relative type="1" draft="unconfirmed">sequent saturdí</relative>
-				<relativeTime type="future">
-				</relativeTime>
-				<relativeTime type="past">
-				</relativeTime>
+				<relativeTime type="future"/>
+				<relativeTime type="past"/>
 			</field>
 			<field type="sat-short">
 				<relative type="-1" draft="unconfirmed">ult. sat.</relative>
 				<relative type="0" draft="unconfirmed">ho-sat.</relative>
 				<relative type="1" draft="unconfirmed">seq. sat.</relative>
-				<relativeTime type="future">
-				</relativeTime>
-				<relativeTime type="past">
-				</relativeTime>
+				<relativeTime type="future"/>
+				<relativeTime type="past"/>
 			</field>
 			<field type="sat-narrow">
 				<relative type="-1" draft="unconfirmed">↑↑↑</relative>
 				<relative type="0" draft="unconfirmed">↑↑↑</relative>
 				<relative type="1" draft="unconfirmed">↑↑↑</relative>
-				<relativeTime type="future">
-				</relativeTime>
-				<relativeTime type="past">
-				</relativeTime>
+				<relativeTime type="future"/>
+				<relativeTime type="past"/>
 			</field>
 			<field type="dayperiod-short">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
@@ -1981,72 +1895,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<field type="hour">
 				<displayName>hor</displayName>
 				<relative type="0" draft="unconfirmed">ti hor</relative>
-				<relativeTime type="future">
-				</relativeTime>
-				<relativeTime type="past">
-				</relativeTime>
+				<relativeTime type="future"/>
+				<relativeTime type="past"/>
 			</field>
 			<field type="hour-short">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
 				<relative type="0" draft="unconfirmed">↑↑↑</relative>
-				<relativeTime type="future">
-				</relativeTime>
-				<relativeTime type="past">
-				</relativeTime>
+				<relativeTime type="future"/>
+				<relativeTime type="past"/>
 			</field>
 			<field type="hour-narrow">
 				<displayName>h</displayName>
 				<relative type="0" draft="unconfirmed">↑↑↑</relative>
-				<relativeTime type="future">
-				</relativeTime>
-				<relativeTime type="past">
-				</relativeTime>
+				<relativeTime type="future"/>
+				<relativeTime type="past"/>
 			</field>
 			<field type="minute">
 				<displayName>minute</displayName>
 				<relative type="0" draft="unconfirmed">ti minute</relative>
-				<relativeTime type="future">
-				</relativeTime>
-				<relativeTime type="past">
-				</relativeTime>
+				<relativeTime type="future"/>
+				<relativeTime type="past"/>
 			</field>
 			<field type="minute-short">
 				<displayName>min</displayName>
-				<relativeTime type="future">
-				</relativeTime>
-				<relativeTime type="past">
-				</relativeTime>
+				<relativeTime type="future"/>
+				<relativeTime type="past"/>
 			</field>
 			<field type="minute-narrow">
 				<displayName>m</displayName>
-				<relativeTime type="future">
-				</relativeTime>
-				<relativeTime type="past">
-				</relativeTime>
+				<relativeTime type="future"/>
+				<relativeTime type="past"/>
 			</field>
 			<field type="second">
 				<displayName>seconde</displayName>
 				<relative type="0" draft="unconfirmed">nu</relative>
-				<relativeTime type="future">
-				</relativeTime>
-				<relativeTime type="past">
-				</relativeTime>
+				<relativeTime type="future"/>
+				<relativeTime type="past"/>
 			</field>
 			<field type="second-short">
 				<displayName>sec</displayName>
 				<relative type="0" draft="unconfirmed">↑↑↑</relative>
-				<relativeTime type="future">
-				</relativeTime>
-				<relativeTime type="past">
-				</relativeTime>
+				<relativeTime type="future"/>
+				<relativeTime type="past"/>
 			</field>
 			<field type="second-narrow">
 				<displayName>s</displayName>
 				<relative type="0" draft="unconfirmed">↑↑↑</relative>
-				<relativeTime type="future">
-				</relativeTime>
-				<relativeTime type="past">
-				</relativeTime>
+				<relativeTime type="future"/>
+				<relativeTime type="past"/>
 			</field>
 			<field type="zone">
 				<displayName>zone horari</displayName>
@@ -3525,12 +3421,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</decimalFormat>
 			</decimalFormatLength>
 			<decimalFormatLength type="long">
-				<decimalFormat>
-				</decimalFormat>
+				<decimalFormat/>
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
-				<decimalFormat>
-				</decimalFormat>
+				<decimalFormat/>
 			</decimalFormatLength>
 		</decimalFormats>
 		<scientificFormats numberSystem="latn">
@@ -3558,8 +3452,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyFormatLength type="short">
-				<currencyFormat type="standard">
-				</currencyFormat>
+				<currencyFormat type="standard"/>
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencies>
@@ -4403,10 +4296,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<compoundUnit type="per">
 				<compoundUnitPattern draft="unconfirmed">↑↑↑</compoundUnitPattern>
 			</compoundUnit>
-			<compoundUnit type="power2">
-			</compoundUnit>
-			<compoundUnit type="power3">
-			</compoundUnit>
+			<compoundUnit type="power2"/>
+			<compoundUnit type="power3"/>
 			<compoundUnit type="times">
 				<compoundUnitPattern draft="unconfirmed">{0}-{1}</compoundUnitPattern>
 			</compoundUnit>
@@ -4911,10 +4802,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<compoundUnit type="per">
 				<compoundUnitPattern draft="unconfirmed">↑↑↑</compoundUnitPattern>
 			</compoundUnit>
-			<compoundUnit type="power2">
-			</compoundUnit>
-			<compoundUnit type="power3">
-			</compoundUnit>
+			<compoundUnit type="power2"/>
+			<compoundUnit type="power3"/>
 			<compoundUnit type="times">
 				<compoundUnitPattern draft="unconfirmed">{0}{1}</compoundUnitPattern>
 			</compoundUnit>
@@ -5404,10 +5293,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<compoundUnit type="per">
 				<compoundUnitPattern draft="unconfirmed">↑↑↑</compoundUnitPattern>
 			</compoundUnit>
-			<compoundUnit type="power2">
-			</compoundUnit>
-			<compoundUnit type="power3">
-			</compoundUnit>
+			<compoundUnit type="power2"/>
+			<compoundUnit type="power3"/>
 			<compoundUnit type="times">
 				<compoundUnitPattern draft="unconfirmed">{0}⋅{1}</compoundUnitPattern>
 			</compoundUnit>

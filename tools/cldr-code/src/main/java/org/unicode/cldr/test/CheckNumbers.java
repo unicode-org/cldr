@@ -670,7 +670,7 @@ public class CheckNumbers extends FactoryCheckCLDR {
     }
 
     public static String removeWhitespace(String plainValue) {
-        return Patterns.WHITESPACE.matcher(plainValue).replaceAll("");
+        return Patterns.WS.matcher(plainValue).replaceAll("");
     }
 
     public static String removeWhitespaceAroundCurrencyPlaceholder(String plainValue) {

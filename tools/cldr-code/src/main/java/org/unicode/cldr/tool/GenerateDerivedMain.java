@@ -2,6 +2,7 @@ package org.unicode.cldr.tool;
 
 import com.google.common.base.Objects;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -9,11 +10,13 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Joiners;
 import org.unicode.cldr.util.PathHeader;
+import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.Patterns;
 import org.unicode.cldr.util.RegexUtilities;
 import org.unicode.cldr.util.Splitters;
@@ -21,33 +24,92 @@ import org.unicode.cldr.util.XPathParts;
 
 public class GenerateDerivedMain {
     private static final boolean DEBUG = false;
+    static Factory cldrFactory = CLDRConfig.getInstance().getCldrFactory();
+    static PathHeader.Factory phf = PathHeader.getFactory();
 
     public static void main(String[] args) {
         // later move to test
-        Factory cldrFactory = CLDRConfig.getInstance().getCldrFactory();
-        System.out.println(Joiners.TAB.join("locale", "section", "page", "header", "code", "oldValue","newValue","equal?"));
-        PathHeader.Factory phf = PathHeader.getFactory();
+        System.out.println(
+                Joiners.TAB.join(
+                        "locale",
+                        "section",
+                        "page",
+                        "header",
+                        "code",
+                        "oldValue",
+                        "newValue",
+                        "status"));
 
         for (String locale : List.of("af", "fr", "de_CH", "fy", "ar")) {
             if (DEBUG) System.out.println("\nLocale " + locale);
             Set<XPathParts> basis = new TreeSet<>();
             CLDRFile cldrFile = cldrFactory.make(locale, false);
             CLDRFile resolvedCldrFile = cldrFactory.make(locale, true);
-            Map<String, String> results =
-                    getPathValuesToAdd(
-                            cldrFile, basis);
-            if (DEBUG)  System.out.println("Results");
-            Set<String> paths = new TreeSet<>();
-            basis.stream().forEach(x -> paths.add(x.toString()));
-            paths.addAll(
-            results.keySet());
-            paths.stream().forEach(path -> {
-                String oldValue = resolvedCldrFile.getStringValue(path);
-                String newValue = results.get(path);
-                System.out.println(Joiners.TAB.join(locale, phf.fromPath(path), oldValue, newValue, Objects.equal(oldValue, newValue)));
-            });
+            Map<String, String> results = getPathValuesToAdd(cldrFile, basis);
+            if (DEBUG) System.out.println("Results");
+            Set<PathHeader> paths = new TreeSet<>(FIXED_PH);
+            basis.stream().forEach(x -> paths.add(phf.fromPath(x.toString())));
+            results.keySet().stream().forEach(x -> paths.add(phf.fromPath(x)));
+
+            paths.stream()
+                    .forEach(
+                            ph -> {
+                                String path = ph.getOriginalPath();
+                                String oldValue = resolvedCldrFile.getStringValue(path);
+                                String newValue = results.get(path);
+                                boolean newIsNull = newValue == null;
+                                if (newIsNull) {
+                                    newValue = oldValue;
+                                }
+                                System.out.println(
+                                        Joiners.TAB.join(
+                                                locale,
+                                                phf.fromPath(path),
+                                                oldValue,
+                                                newValue,
+                                                getStatus(oldValue, newValue, newIsNull)));
+                            });
         }
     }
+
+    private static @Nullable Object getStatus(String oldValue, String newValue, boolean newIsNull) {
+        return newIsNull
+                ? "NC"
+                : Objects.equal(oldValue, newValue)
+                        ? ""
+                        : Objects.equal(
+                                        Patterns.WS.matcher(oldValue).replaceAll(" "),
+                                        Patterns.WS.matcher(newValue).replaceAll(" "))
+                                ? "≠WS"
+                                : Objects.equal(
+                                                Patterns.WSC.matcher(oldValue).replaceAll(""),
+                                                Patterns.WSC.matcher(newValue).replaceAll(""))
+                                        ? "≠WSC"
+                                        : "≠";
+    }
+
+    static Comparator<PathHeader> FIXED_PH =
+            new Comparator<>() {
+                @Override
+                public int compare(PathHeader o1, PathHeader o2) {
+                    o1.getPageId();
+                    if (o1.getPageId() == PageId.Compact_Decimal_Formatting
+                            && o1.getPageId() == o2.getPageId()) {
+                        // .... pattern[@type="1000"][@count="one"]
+                        String type1 =
+                                XPathParts.getFrozenInstance(o1.getOriginalPath())
+                                        .getAttributeValue(-1, "type");
+                        String type2 =
+                                XPathParts.getFrozenInstance(o2.getOriginalPath())
+                                        .getAttributeValue(-1, "type");
+                        int diff = Integer.compare(type1.length(), type2.length());
+                        if (diff != 0) {
+                            return diff;
+                        }
+                    }
+                    return o1.compareTo(o2);
+                }
+            };
 
     static final Map<String, String> getPathValuesToAdd(CLDRFile cldrFile, Set<XPathParts> basis) {
         if (cldrFile.isResolved()) {
@@ -65,7 +127,6 @@ public class GenerateDerivedMain {
         // to
         // ldml/numbers/currencyFormats[@numberSystem="latn"]/currencyFormatLength/currencyFormat[@type="accounting"]/pattern[@type="standard"][@alt="alphaNextToNumber"]
         // ldml/numbers/currencyFormats[@numberSystem="latn"]/currencyFormatLength/currencyFormat[@type="accounting"]/pattern[@type="standard"][@alt="alphaNextToNumber"]
-
 
         Map<String, CurrencyData> numberSystemToCurrencyData = new TreeMap<>();
 
@@ -114,8 +175,8 @@ public class GenerateDerivedMain {
         if (numberSystemToCurrencyData.isEmpty()) {
             return Map.of();
         }
-        
-        if(DEBUG) {
+
+        if (DEBUG) {
             numberSystemToCurrencyData.entrySet().stream().forEach(System.out::println);
         }
 
@@ -146,39 +207,48 @@ public class GenerateDerivedMain {
                 }
                 addPathValue(result, accountingPath, accountingValue, null);
             }
-            
+
             for (XPathParts shortCompactPath : currencyData.compactPaths) {
                 basis.add(shortCompactPath);
-                    final String shortCompactValue = cldrFile.getStringValue(shortCompactPath.toString());
-                    if (DEBUG) {
-                        System.out.println("shortCompactPath " + shortCompactPath);
-                    }
-                    XPathParts modPath = shortCompactPath.cloneAsThawed()
-                        .setAttribute(-1, "alt", "noCurrency");
-                    // ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="1000"][@count="one"]
-                    // to
-                    // ldml/numbers/currencyFormats[@numberSystem="latn"]/currencyFormatLength[@type="short"]/currencyFormat[@type="standard"]/pattern[@type="1000"][@count="one"]
-                    // ldml/numbers/currencyFormats[@numberSystem="latn"]/currencyFormatLength[@type="short"]/currencyFormat[@type="standard"]/pattern[@type="1000"][@count="one"][@alt="alphaNextToNumber"]
+                final String shortCompactValue =
+                        cldrFile.getStringValue(shortCompactPath.toString());
+                if (DEBUG) {
+                    System.out.println("shortCompactPath " + shortCompactPath);
+                }
+                XPathParts modPath = shortCompactPath.cloneAsThawed();
+                // ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="1000"][@count="one"]
+                // to
+                // ldml/numbers/currencyFormats[@numberSystem="latn"]/currencyFormatLength[@type="short"]/currencyFormat[@type="standard"]/pattern[@type="1000"][@count="one"]
+                // ldml/numbers/currencyFormats[@numberSystem="latn"]/currencyFormatLength[@type="short"]/currencyFormat[@type="standard"]/pattern[@type="1000"][@count="one"][@alt="alphaNextToNumber"]
 
-                    modPath = modPath
-                        .setElement(2, "currencyFormats")
-                        .setElement(3, "currencyFormatLength")
-                        .setElement(4, "currencyFormat")
-                        ;
-                    result.put(modPath.toString(), partsForCompact.currencyPattern.replace("{0}", shortCompactValue));
-                    modPath.setAttribute(-1, "alt", "alphaNextToNumber");
-                    result.put(modPath.toString(), partsForCompact.currencyAlphaPattern.replace("{0}", shortCompactValue));
+                modPath =
+                        modPath.setElement(2, "currencyFormats")
+                                .setElement(3, "currencyFormatLength")
+                                .setElement(4, "currencyFormat");
+                result.put(
+                        modPath.toString(),
+                        partsForCompact.currencyPattern.replace("{0}", shortCompactValue));
+
+                modPath.setAttribute(-1, "alt", "alphaNextToNumber");
+                result.put(
+                        modPath.toString(),
+                        partsForCompact.currencyAlphaPattern.replace("{0}", shortCompactValue));
             }
         }
         return result;
     }
-    
+
     private static class PartsForCompact {
         String currencyPattern;
         String currencyAlphaPattern;
+
         @Override
         public String toString() {
-            return Joiners.COMMA_SP.join("currencyPattern", currencyPattern, "currencyAlphaPattern", currencyAlphaPattern);
+            return Joiners.COMMA_SP.join(
+                    "currencyPattern",
+                    currencyPattern,
+                    "currencyAlphaPattern",
+                    currencyAlphaPattern);
         }
     }
 
@@ -186,17 +256,19 @@ public class GenerateDerivedMain {
             Map<String, String> result,
             final XPathParts standardOrAccountingPath,
             final String value,
-            PartsForCompact partsForCompact
-            ) {
+            PartsForCompact partsForCompact) {
         Matcher matcher = Patterns.CURRENCY_PLACEHOLDER_AND_POSSIBLE_WS.matcher(value);
         String noCurrencyPattern = matcher.replaceAll("");
-        XPathParts modPath = standardOrAccountingPath.cloneAsThawed().setAttribute(-1, "alt", "noCurrency");
+        XPathParts modPath =
+                standardOrAccountingPath.cloneAsThawed().setAttribute(-1, "alt", "noCurrency");
         result.put(modPath.toString(), noCurrencyPattern);
 
         List<String> valuePieces = Splitters.SEMI.splitToList(value);
         List<String> alphaPieces = new ArrayList<>();
 
+        int patternNumber = -1;
         for (String valueN : valuePieces) {
+            patternNumber++;
             boolean fixed = false;
             matcher = Patterns.NUMBER_PATTERN.matcher(valueN);
             if (!matcher.matches()) {
@@ -218,23 +290,25 @@ public class GenerateDerivedMain {
             if (hasCur2 == hasCur6) { // failure, must have exactly 1
                 throw new IllegalArgumentException();
             }
-            if (partsForCompact != null) {
-                partsForCompact.currencyPattern = Joiners.ES_BLANK_NULLS.join(f1, cur2, f3, "{0}", f5, cur6, f7);
+            if (partsForCompact != null && patternNumber == 0) {
+                partsForCompact.currencyPattern =
+                        Joiners.ES_BLANK_NULLS.join(f1, cur2, f3, "{0}", f5, cur6, f7);
             }
             // see if we need to add a space to the currency pattern
             if (hasCur2) {
                 if (f3.isEmpty()) {
-                    f3 = " ";
+                    f3 = " ";
                     fixed = true;
                 }
             } else { // cur6, so
                 if (f5.isEmpty()) {
-                    f5 = " ";
+                    f5 = " ";
                     fixed = true;
                 }
             }
-            if (partsForCompact != null) {
-                partsForCompact.currencyAlphaPattern = Joiners.ES_BLANK_NULLS.join(f1, cur2, f3, "{0}", f5, cur6, f7);
+            if (partsForCompact != null && patternNumber == 0) {
+                partsForCompact.currencyAlphaPattern =
+                        Joiners.ES_BLANK_NULLS.join(f1, cur2, f3, "{0}", f5, cur6, f7);
             }
 
             if (fixed) {
@@ -242,7 +316,10 @@ public class GenerateDerivedMain {
             }
             alphaPieces.add(valueN);
         }
-        String alpha = Joiners.SEMI.join(alphaPieces);
+        String alpha =
+                alphaPieces.size() == 1 || alphaPieces.get(1).equals("-" + alphaPieces.get(0))
+                        ? alphaPieces.get(0)
+                        : alphaPieces.get(0) + ";" + alphaPieces.get(1);
         modPath = modPath.setAttribute(-1, "alt", "alphaNextToNumber");
         result.put(modPath.toString(), alpha);
     }

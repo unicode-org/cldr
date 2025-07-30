@@ -10,9 +10,15 @@ public class Patterns {
     public static final UnicodeSet UWS =
             new UnicodeSet("\\p{whitespace}").complement().complement().freeze();
 
+    public static final UnicodeSet UWSC =
+            new UnicodeSet("[\\p{whitespace}\\p{Cf}&[\\u0000-\\uFFFF]]")
+                    .complement()
+                    .complement()
+                    .freeze();
+
     public static final Pattern WS = Pattern.compile(UWS.toString());
 
-    public static final Pattern WHITESPACE = WS; // TBD refactor away
+    public static final Pattern WSC = Pattern.compile(UWSC.toString());
 
     public static final Pattern CURRENCY_PLACEHOLDER_AND_POSSIBLE_WS =
             Pattern.compile(WS + "*" + CURRENCY_PLACEHOLDER + WS + "*");

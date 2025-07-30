@@ -6,7 +6,9 @@ title: Number Symbols
 
 The following symbols are used to format numbers. The Approved symbols for the locale will be substituted for the placeholders described in [Number Patterns](/translation/number-currency-formats/number-and-currency-patterns). 
 
-For English regional locales (e.g. en\_DE) where English is not the primary language of the country/region (e.g. en\_DE; English as used in Germany), the number formats and date formats should follow the **English formatting usage** in that country/region. Often, the formatting usage in English tend to follow the British or American formatting rather than the formatting of the primary language. Consult with the English versions of prominent magazines or newspapers for guidance on date and number format usage.
+For regional locales (e.g. en\_DE) where the language is not the primary language of the country/region (e.g. en\_DE; English as used in Germany), the number formats and date formats should follow the **formatting usage** as commonly used by the people who live in that country/region. This can often be difficult to determine with languages such as English that are operating as a lingua franca. In these situations, much of the available content is written for an international audience and the majority of the readers using the language are from other countries/regions.
+
+Developers can choose a specific language variant such as en\_GB or en\_US with a specific region's formatting by using [the Region Override U extension](https://www.unicode.org/reports/tr35/#RegionOverride) if they prefer British or American English in a region/country with different number or date formatting.
 
 | Name | English Example |  | Meaning |
 |---|---|---|---|

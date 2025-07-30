@@ -1,8 +1,10 @@
 package org.unicode.cldr.tool;
 
 import com.google.common.base.Objects;
+import com.ibm.icu.util.Output;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -15,16 +17,20 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Joiners;
+import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.Patterns;
 import org.unicode.cldr.util.RegexUtilities;
 import org.unicode.cldr.util.Splitters;
+import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.XPathParts;
 
 public class GenerateDerivedMain {
+    private static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
     private static final boolean DEBUG = false;
-    static Factory cldrFactory = CLDRConfig.getInstance().getCldrFactory();
+    static Factory cldrFactory = CLDR_CONFIG.getCldrFactory();
     static PathHeader.Factory phf = PathHeader.getFactory();
 
     public static void main(String[] args) {
@@ -40,17 +46,21 @@ public class GenerateDerivedMain {
                         "newValue",
                         "status"));
 
-        for (String locale : List.of("af", "fr", "de_CH", "fy", "ar")) {
+        Map<String, Level> items = StandardCodes.make().getLocalesToLevelsFor(Organization.cldr);
+        Set<String> noDifference = new LinkedHashSet<>();
+        for (Entry<String, Level> item : items.entrySet()) {
+            String locale = item.getKey();
             if (DEBUG) System.out.println("\nLocale " + locale);
             Set<XPathParts> basis = new TreeSet<>();
-            CLDRFile cldrFile = cldrFactory.make(locale, false);
             CLDRFile resolvedCldrFile = cldrFactory.make(locale, true);
-            Map<String, String> results = getPathValuesToAdd(cldrFile, basis);
+            Map<String, String> results = getPathValuesToAdd(resolvedCldrFile, basis);
             if (DEBUG) System.out.println("Results");
             Set<PathHeader> paths = new TreeSet<>(FIXED_PH);
             basis.stream().forEach(x -> paths.add(phf.fromPath(x.toString())));
             results.keySet().stream().forEach(x -> paths.add(phf.fromPath(x)));
 
+            Set<String> toPrint = new LinkedHashSet<>();
+            Output<Boolean> foundDifference = new Output<>(Boolean.FALSE);
             paths.stream()
                     .forEach(
                             ph -> {
@@ -61,20 +71,28 @@ public class GenerateDerivedMain {
                                 if (newIsNull) {
                                     newValue = oldValue;
                                 }
-                                System.out.println(
+                                String status = getStatus(oldValue, newValue, newIsNull);
+                                if (!newIsNull && !status.isEmpty()) {
+                                    foundDifference.value = Boolean.TRUE;
+                                }
+                                toPrint.add(
                                         Joiners.TAB.join(
                                                 locale,
                                                 phf.fromPath(path),
                                                 oldValue,
                                                 newValue,
-                                                getStatus(oldValue, newValue, newIsNull)));
+                                                status));
                             });
+            if (foundDifference.value) {
+                toPrint.stream().forEach(System.out::println);
+            }
         }
+        System.out.println("NoDiff:\t" + noDifference);
     }
 
-    private static @Nullable Object getStatus(String oldValue, String newValue, boolean newIsNull) {
+    private static @Nullable String getStatus(String oldValue, String newValue, boolean newIsNull) {
         return newIsNull
-                ? "NC"
+                ? "NG"
                 : Objects.equal(oldValue, newValue)
                         ? ""
                         : Objects.equal(
@@ -111,10 +129,11 @@ public class GenerateDerivedMain {
                 }
             };
 
-    static final Map<String, String> getPathValuesToAdd(CLDRFile cldrFile, Set<XPathParts> basis) {
-        if (cldrFile.isResolved()) {
+    static final Map<String, String> getPathValuesToAdd(CLDRFile resolvedCldrFile, Set<XPathParts> basis) {
+        if (!resolvedCldrFile.isResolved()) {
             throw new IllegalArgumentException();
         }
+        CLDRFile unresolvedCldrFile = resolvedCldrFile.getUnresolved();
 
         // first gather the data to use
 
@@ -130,7 +149,9 @@ public class GenerateDerivedMain {
 
         Map<String, CurrencyData> numberSystemToCurrencyData = new TreeMap<>();
 
-        for (String path : cldrFile.iterableWithoutExtras()) {
+        // we get the unresolved paths, so we don't get all the aliased number systems, etc.
+        
+        for (String path : unresolvedCldrFile.iterableWithoutExtras()) {
             XPathParts parts = XPathParts.getFrozenInstance(path);
             if (parts.size() < 6
                     || !parts.getElement(-1).equals("pattern")
@@ -142,12 +163,6 @@ public class GenerateDerivedMain {
             String formatType = parts.getAttributeValue(-2, "type");
             String length = parts.getAttributeValue(3, "type");
             String format = parts.getElement(4);
-            String value = cldrFile.getStringValue(path);
-            if (value == null
-                    || "↑↑↑".equals(value)) { // skip cases where we don't have a real value
-                // TBD: delete the generated forms also!
-                continue;
-            }
 
             if (length == null) { // main stuff
                 String alt = parts.getAttributeValue(-1, "alt");
@@ -182,7 +197,7 @@ public class GenerateDerivedMain {
 
         Map<String, String> result = new TreeMap<>();
 
-        // process
+        // process; using the resolved values
 
         for (Entry<String, CurrencyData> entry : numberSystemToCurrencyData.entrySet()) {
             CurrencyData currencyData = entry.getValue();
@@ -191,7 +206,7 @@ public class GenerateDerivedMain {
             PartsForCompact partsForCompact = new PartsForCompact();
             if (standardPath != null) {
                 basis.add(standardPath);
-                final String standardValue = cldrFile.getStringValue(standardPath.toString());
+                final String standardValue = resolvedCldrFile.getStringValue(standardPath.toString());
                 if (DEBUG) {
                     System.out.println("standardValue " + standardValue);
                 }
@@ -201,7 +216,7 @@ public class GenerateDerivedMain {
             final XPathParts accountingPath = currencyData.getAccountingPath();
             if (accountingPath != null) {
                 basis.add(accountingPath);
-                final String accountingValue = cldrFile.getStringValue(accountingPath.toString());
+                final String accountingValue = resolvedCldrFile.getStringValue(accountingPath.toString());
                 if (DEBUG) {
                     System.out.println("accountingValue " + accountingValue);
                 }
@@ -211,7 +226,7 @@ public class GenerateDerivedMain {
             for (XPathParts shortCompactPath : currencyData.compactPaths) {
                 basis.add(shortCompactPath);
                 final String shortCompactValue =
-                        cldrFile.getStringValue(shortCompactPath.toString());
+                        resolvedCldrFile.getStringValue(shortCompactPath.toString());
                 if (DEBUG) {
                     System.out.println("shortCompactPath " + shortCompactPath);
                 }

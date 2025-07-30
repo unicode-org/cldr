@@ -1,6 +1,7 @@
 package org.unicode.cldr.tool;
 
 import com.google.common.base.Objects;
+import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Output;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -12,9 +13,9 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
-import org.checkerframework.checker.nullness.qual.Nullable;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CodePointEscaper;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Joiners;
 import org.unicode.cldr.util.Level;
@@ -38,16 +39,16 @@ public class GenerateDerivedMain {
         System.out.println(
                 Joiners.TAB.join(
                         "locale",
-                        "section",
-                        "page",
-                        "header",
                         "code",
+                        "status",
                         "oldValue",
                         "newValue",
-                        "status"));
+                        "es.oldValue",
+                        "es.newValue"));
 
         Map<String, Level> items = StandardCodes.make().getLocalesToLevelsFor(Organization.cldr);
         Set<String> noDifference = new LinkedHashSet<>();
+        Set<String> wsDifference = new LinkedHashSet<>();
         for (Entry<String, Level> item : items.entrySet()) {
             String locale = item.getKey();
             if (DEBUG) System.out.println("\nLocale " + locale);
@@ -60,7 +61,7 @@ public class GenerateDerivedMain {
             results.keySet().stream().forEach(x -> paths.add(phf.fromPath(x)));
 
             Set<String> toPrint = new LinkedHashSet<>();
-            Output<Boolean> foundDifference = new Output<>(Boolean.FALSE);
+            Output<Status> maxDifference = new Output<>(Status.notGenerated);
             paths.stream()
                     .forEach(
                             ph -> {
@@ -69,41 +70,79 @@ public class GenerateDerivedMain {
                                 String newValue = results.get(path);
                                 boolean newIsNull = newValue == null;
                                 if (newIsNull) {
-                                    newValue = oldValue;
+                                    newValue = "";
                                 }
-                                String status = getStatus(oldValue, newValue, newIsNull);
-                                if (!newIsNull && !status.isEmpty()) {
-                                    foundDifference.value = Boolean.TRUE;
+                                String eOldValue = escape(oldValue);
+                                String eNewValue = escape(newValue);
+
+                                Status status = getStatus(oldValue, newValue, newIsNull);
+                                if (status.compareTo(maxDifference.value) > 0) {
+                                    maxDifference.value = status;
                                 }
+                                PathHeader ph2 = phf.fromPath(path);
+                                boolean isNoCurrencyCompact = ph2.getHeader().equals("Short Formats ");
+                                String modCode = isNoCurrencyCompact ? ph2.getCode() + " (noCurrency)" : ph2.getCode();
                                 toPrint.add(
                                         Joiners.TAB.join(
                                                 locale,
-                                                phf.fromPath(path),
+                                                modCode,
+                                                status.symbol,
                                                 oldValue,
-                                                newValue,
-                                                status));
+                                                showEquals(oldValue, newValue),
+                                                eOldValue,
+                                                eNewValue));
                             });
-            if (foundDifference.value) {
+            switch(maxDifference.value) {
+            case differentOther: 
                 toPrint.stream().forEach(System.out::println);
+                break;
+            case differentOnlyWhitespace: 
+                wsDifference.add(locale);
+                break;
+            case same: 
+                noDifference.add(locale);
+                break;
             }
         }
         System.out.println("NoDiff:\t" + noDifference);
+        System.out.println("WSODiff:\t" + wsDifference);
     }
 
-    private static @Nullable String getStatus(String oldValue, String newValue, boolean newIsNull) {
+    static final UnicodeSet EXCLUDE_NBSP =
+            new UnicodeSet(CodePointEscaper.FORCE_ESCAPE)
+                    .remove(CodePointEscaper.NBSP.getCodePoint())
+                    .freeze();
+
+    private static String escape(String oldValue) {
+        String result = CodePointEscaper.toEscaped(oldValue, EXCLUDE_NBSP);
+        return showEquals(oldValue, result);
+    }
+
+    private static String showEquals(String a, String b) {
+        return b.equals(a) ? "🟰" : b;
+    }
+
+    enum Status {
+        notGenerated("NG"),
+        same(""),
+        differentOnlyWhitespace("␣"),
+        differentOther("≠");
+        final String symbol;
+        private Status(String symbol) {
+            this.symbol = symbol;
+        }
+    }
+    
+    private static Status getStatus(String oldValue, String newValue, boolean newIsNull) {
         return newIsNull
-                ? "NG"
+                ? Status.notGenerated
                 : Objects.equal(oldValue, newValue)
-                        ? ""
+                        ? Status.same
                         : Objects.equal(
-                                        Patterns.WS.matcher(oldValue).replaceAll(" "),
-                                        Patterns.WS.matcher(newValue).replaceAll(" "))
-                                ? "≠WS"
-                                : Objects.equal(
-                                                Patterns.WSC.matcher(oldValue).replaceAll(""),
-                                                Patterns.WSC.matcher(newValue).replaceAll(""))
-                                        ? "≠WSC"
-                                        : "≠";
+                                        Patterns.WSC.matcher(oldValue).replaceAll(""),
+                                        Patterns.WSC.matcher(newValue).replaceAll(""))
+                                ? Status.differentOnlyWhitespace
+                                : Status.differentOther;
     }
 
     static Comparator<PathHeader> FIXED_PH =
@@ -129,7 +168,8 @@ public class GenerateDerivedMain {
                 }
             };
 
-    static final Map<String, String> getPathValuesToAdd(CLDRFile resolvedCldrFile, Set<XPathParts> basis) {
+    static final Map<String, String> getPathValuesToAdd(
+            CLDRFile resolvedCldrFile, Set<XPathParts> basis) {
         if (!resolvedCldrFile.isResolved()) {
             throw new IllegalArgumentException();
         }
@@ -150,7 +190,7 @@ public class GenerateDerivedMain {
         Map<String, CurrencyData> numberSystemToCurrencyData = new TreeMap<>();
 
         // we get the unresolved paths, so we don't get all the aliased number systems, etc.
-        
+
         for (String path : unresolvedCldrFile.iterableWithoutExtras()) {
             XPathParts parts = XPathParts.getFrozenInstance(path);
             if (parts.size() < 6
@@ -206,7 +246,8 @@ public class GenerateDerivedMain {
             PartsForCompact partsForCompact = new PartsForCompact();
             if (standardPath != null) {
                 basis.add(standardPath);
-                final String standardValue = resolvedCldrFile.getStringValue(standardPath.toString());
+                final String standardValue =
+                        resolvedCldrFile.getStringValue(standardPath.toString());
                 if (DEBUG) {
                     System.out.println("standardValue " + standardValue);
                 }
@@ -216,7 +257,8 @@ public class GenerateDerivedMain {
             final XPathParts accountingPath = currencyData.getAccountingPath();
             if (accountingPath != null) {
                 basis.add(accountingPath);
-                final String accountingValue = resolvedCldrFile.getStringValue(accountingPath.toString());
+                final String accountingValue =
+                        resolvedCldrFile.getStringValue(accountingPath.toString());
                 if (DEBUG) {
                     System.out.println("accountingValue " + accountingValue);
                 }
@@ -242,12 +284,12 @@ public class GenerateDerivedMain {
                                 .setElement(4, "currencyFormat");
                 result.put(
                         modPath.toString(),
-                        partsForCompact.currencyPattern.replace("{0}", shortCompactValue));
+                        shortCompactValue.equals("0") ? "0" : partsForCompact.currencyPattern.replace("{0}", shortCompactValue));
 
                 modPath.setAttribute(-1, "alt", "alphaNextToNumber");
                 result.put(
                         modPath.toString(),
-                        partsForCompact.currencyAlphaPattern.replace("{0}", shortCompactValue));
+                        shortCompactValue.equals("0") ? "0" : partsForCompact.currencyAlphaPattern.replace("{0}", shortCompactValue));
             }
         }
         return result;

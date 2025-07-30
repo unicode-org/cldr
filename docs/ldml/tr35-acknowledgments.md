@@ -1,6 +1,6 @@
 ## Unicode Technical Standard #35
 
-# Unicode Locale Data Markup Language (LDML)<br/>Appendix A: Modifications
+# Unicode Locale Data Markup Language (LDML)<br/>Appendix B: Acknowledgments
 
 |Version|48 (draft)|
 |-------|----------|
@@ -10,7 +10,7 @@ For the full header, summary, and status, see [Part 1: Core](tr35.md).
 
 ### _Summary_
 
-This is a partial document, describing only the changes to the LDML since the previous release. For the other parts of the LDML see the [main LDML document](tr35.md) and the links above.
+This is a partial document, describing only the acknowledgments of contributors to LDML. For the other parts of the LDML see the [main LDML document](tr35.md) and the links above.
 
 ### _Status_
 
@@ -45,28 +45,39 @@ The LDML specification is divided into the following parts:
 *   Appendix A: [Modifications](tr35-modifications.md#modifications)
 *   Appendix B: [Acknowledgments](tr35-acknowledgments.md#acknowledgments)
 
-## <a name="Contents" href="#Contents">Contents of Appendix A, Modifications</a>
+## <a name="Contents" href="#Contents">Contents of Appendix B, Acknowledgments</a>
 
-* [Modifications](#modifications)
-  * [DateTime formats](#datetime-formats)
-  * [Modifications section](#modifications-section)
+* [Acknowledgments](#acknowledgments)
 
-## Modifications
+## Acknowledgments
 
-**Changes in LDML Version 48 (Differences from Version 47)**
+Special thanks to the following people for their continuing overall contributions to the CLDR project, and for their specific contributions in the following areas. These descriptions only touch on the many contributions that they have made.
 
-### DateTime formats
-
-* In [Element dateTimeFormat](tr35-dates.md#dateTimeFormat), added a new type `relative` and updated the
-guidelines on how to use the different `dateTimeFormat` types.
-
-Note that small changes such as typos and link fixes are not listed above.
-Modifications in previous versions are listed in those respective versions.
-Click on **Previous Version** in the header until you get to the desired version.
-
-### Modifications section
-
-* This Modifications section was split out to its own part, [Appendix A, Modifications](tr35-modifications.md)
+* Mark Davis for creating the initial version of LDML, and adding to and maintaining this specification, and for his work on the LDML code and tests, much of the supplemental data and overall structure, and transforms and keyboards.
+* John Emmons for the POSIX conversion tool and metazones.
+* Deborah Goldsmith for her contributions to LDML architecture and this specification.
+* Chris Hansten for coordinating and managing data submissions and vetting.
+* Erkki Kolehmainen and his team for their work on Finnish.
+* Steven R. Loomis for development of the survey tool and database management.
+* Peter Nugent for his contributions to the POSIX tool and from Open Office, and for coordinating and managing data submissions and vetting.
+* George Rhoten for his work on currencies.
+* Roozbeh Pournader (روزبه پورنادر) for his work on South Asian countries.
+* Ram Viswanadha (రఘురామ్ విశ్వనాధ) for all of his work on LDML code and data integration, and for coordinating and managing data submissions and vetting.
+* Vladimir Weinstein (Владимир Вајнштајн) for his work on collation.
+* Yoshito Umaoka (馬岡 由人) for his work on the timezone architecture.
+* Rick McGowan for his work gathering language, script and region data.
+* Xiaomei Ji (吉晓梅) for her work on time intervals and plural formatting.
+* David Bertoni for his contributions to the conversion tools.
+* Mike Tardif for reviewing this specification and for coordinating and vetting data submissions.
+* Peter Edberg for work on this specification, monthPatterns, cyclicNameSets, contextTransforms and other items.
+* Raymond Wainman and Cibu Johny for their work on keyboards.
+* Jennifer Chye for her contributions to the conversion tools.
+* Markus Scherer for a major rewrite of Part 5, Collation.
+* [Shane Carr](https://www.sffc.xyz/) for his work on numbers and measurement units.
+* Robin Leroy for his work on compact plurals: Part 3, [Language Plural Rules](tr35-numbers.md#Language_Plural_Rules)
+* Rich Gillam for work on Person Names.
+* Alex Kolisnychenko for work on Person Names.
+* Mike McKenna for work on Person Names.
 
 * * *
 

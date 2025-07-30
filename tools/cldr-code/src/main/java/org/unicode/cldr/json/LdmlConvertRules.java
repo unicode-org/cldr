@@ -27,6 +27,7 @@ class LdmlConvertRules {
     // common/main
     static final ImmutableSet<String> NAME_PART_DISTINGUISHING_ATTR_SET =
             ImmutableSet.of(
+                    "languages:language:type",
                     "monthWidth:month:yeartype",
                     "characters:parseLenients:scope",
                     "dateFormat:pattern:numbers",

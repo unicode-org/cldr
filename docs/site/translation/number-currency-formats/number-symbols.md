@@ -6,9 +6,9 @@ title: Number Symbols
 
 The following symbols are used to format numbers. The Approved symbols for the locale will be substituted for the placeholders described in [Number Patterns](/translation/number-currency-formats/number-and-currency-patterns). 
 
-For regional locales (e.g. en\_DE) where the language is not the primary language of the country/region (e.g. en\_DE; English as used in Germany), the number formats and date formats should follow the **formatting usage** as commonly used by the people who live in that country/region. This can often be difficult to determine with languages such as English that are operating as a lingua franca. In these situations, much of the available content is written for an international audience and the majority of the readers using the language are from other countries/regions.
+For regional locales where the language is not the primary language of the country/region (e.g. en\_DE, English as used in Germany; or es_SE, Spanish as used in Sweden), the number formats and date formats should follow the formatting usage **of that language** as commonly used by the people who live in that country/region. This can be difficult to determine with languages that are operating as a lingua franca by people not using it as their first language. In these situations, much of the available content is written for an international audience and most of the readers are from other countries/regions.
 
-Developers can choose a specific language variant such as en\_GB or en\_US with a specific region's formatting by using [the Region Override U extension](https://www.unicode.org/reports/tr35/#RegionOverride) if they prefer British or American English in a region/country with different number or date formatting.
+Developers can choose a specific language variant, such as en\_GB, with a specific region's formatting by using [the Region Override U extension](https://www.unicode.org/reports/tr35/#RegionOverride) if they, for example, prefer British English formatting in a region/country with different number or date formatting.
 
 | Name | English Example |  | Meaning |
 |---|---|---|---|

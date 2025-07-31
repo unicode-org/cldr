@@ -23,6 +23,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Stream;
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.icu.dev.util.ElapsedTimer;
@@ -282,6 +283,7 @@ public class ConsoleCheckCLDR {
                 }
             };
     private static final boolean PATH_IN_COUNT = false;
+    private static final boolean skipComments = false;
 
     static Counter<ErrorType> subtotalCount = new Counter<>(true); // new ErrorCount();
     static Counter<ErrorType> totalCount = new Counter<>(true);
@@ -309,9 +311,9 @@ public class ConsoleCheckCLDR {
         return subtypeFilter;
     }
 
-    static Matcher calculatePathFilter(final String pathFilterString) {
+    static Pattern calculatePathPattern(final String pathFilterString) {
         if (!pathFilterString.equals(".*")) {
-            return PatternCache.get(pathFilterString).matcher("");
+            return PatternCache.get(pathFilterString);
         } else {
             return null;
         }
@@ -362,7 +364,7 @@ public class ConsoleCheckCLDR {
         boolean showAll = options[SHOWALL].doesOccur;
         boolean checkFlexibleDates = options[DATE_FORMATS].doesOccur;
         final String pathFilterString = options[PATH_FILTER].value;
-        final Matcher pathFilter = calculatePathFilter(pathFilterString);
+        final Pattern pathPattern = calculatePathPattern(pathFilterString);
         boolean checkOnSubmit = options[CHECK_ON_SUBMIT].doesOccur;
         boolean noaliases = options[NO_ALIASES].doesOccur;
 
@@ -554,14 +556,18 @@ public class ConsoleCheckCLDR {
 
                     if (CLDRFile.isSupplementalName(localeID)) return;
                     if (supplementalDataInfo.getDefaultContentLocales().contains(localeID)) {
-                        System.out.println("# Skipping default content locale: " + localeID);
+                        if (skipComments) {
+                            System.out.println("# Skipping default content locale: " + localeID);
+                        }
                         return;
                     }
 
                     // We don't really need to check the POSIX locale, as it is a special purpose
                     // locale
                     if (specialPurposeLocales.contains(localeID)) {
-                        System.out.println("# Skipping special purpose locale: " + localeID);
+                        if (skipComments) {
+                            System.out.println("# Skipping special purpose locale: " + localeID);
+                        }
                         return;
                     }
                     final boolean isLanguageLocale = locale.isLanguageLocale();
@@ -657,7 +663,7 @@ public class ConsoleCheckCLDR {
 
                     CoverageInfo covInfo = cldrConf.getCoverageInfo();
                     for (String path : file.fullIterable()) {
-                        if (pathFilter != null && !pathFilter.reset(path).find()) {
+                        if (pathPattern != null && !pathPattern.matcher(path).find()) {
                             continue;
                         }
                         if (level != null) {
@@ -901,15 +907,17 @@ public class ConsoleCheckCLDR {
                         LocaleVotingData.resolveErrors(localeID);
                     }
 
-                    showSummary(
-                            localeID,
-                            level,
-                            "Items:\t"
-                                    + pathCount
-                                    + "\tRaw Missing:\t"
-                                    + rawMissingCount
-                                    + "\tRaw Provisional:\t"
-                                    + rawProvisionalCount);
+                    if (skipComments) {
+                        showSummary(
+                                localeID,
+                                level,
+                                "Items:\t"
+                                        + pathCount
+                                        + "\tRaw Missing:\t"
+                                        + rawMissingCount
+                                        + "\tRaw Provisional:\t"
+                                        + rawProvisionalCount);
+                    }
 
                     if (missingExemplars.size() != 0) {
                         missingExemplars.removeAll(
@@ -954,7 +962,7 @@ public class ConsoleCheckCLDR {
                             PathHeader pathHeader = pathHeaderFactory.fromPath(path);
                             String prettyPath =
                                     pathHeader.toString().replace('\t', '|').replace(' ', '_');
-                            if (pathFilter != null && !pathFilter.reset(path).matches()) {
+                            if (pathPattern != null && !pathPattern.matcher(path).find()) {
                                 continue;
                             }
                             String fullPath = file.getStringValue(path);
@@ -972,7 +980,9 @@ public class ConsoleCheckCLDR {
                             showExamples(file, prettyPath, localeID, path, null, fullPath, example);
                         }
                     }
-                    System.out.println("# " + localeID + " Elapsed time: " + timer);
+                    if (skipComments) {
+                        System.out.println("# " + localeID + " Elapsed time: " + timer);
+                    }
                     System.out.flush();
                 });
 
@@ -1166,9 +1176,6 @@ public class ConsoleCheckCLDR {
         return String.valueOf(item);
     }
 
-    static Matcher draftStatusMatcher =
-            PatternCache.get("\\[@draft=\"(provisional|unconfirmed)\"]").matcher("");
-
     enum ErrorType {
         ok,
         error,
@@ -1218,8 +1225,9 @@ public class ConsoleCheckCLDR {
             if (shortStatus == ErrorType.unknown) {
                 throw new IllegalArgumentException("Unknown error type: " + statusString);
             } else if (shortStatus == ErrorType.warning) {
-                if (coverageMatcher.reset(statusString).find()) {
-                    shortStatus = ErrorType.valueOf(coverageMatcher.group(1));
+                Matcher tempMatcher = coveragePattern.matcher(statusString);
+                if (tempMatcher.find()) {
+                    shortStatus = ErrorType.valueOf(tempMatcher.group(1));
                 }
             }
             return shortStatus;
@@ -1740,8 +1748,8 @@ public class ConsoleCheckCLDR {
 
     private static ExampleGenerator englishExampleGenerator;
 
-    static Matcher coverageMatcher =
-            PatternCache.get("meet ([a-z]*) coverage").matcher(""); // HACK TODO fix
+    private static final Pattern coveragePattern =
+            PatternCache.get("meet ([a-z]*) coverage"); // HACK TODO fix
 
     private static void showHeaderLine() {
         if (SHOW_LOCALE) {
@@ -1782,6 +1790,8 @@ public class ConsoleCheckCLDR {
             String statusString,
             Subtype subtype) {
         ErrorType shortStatus = ErrorType.fromStatusString(statusString);
+        // for the console, hide the HTML
+        statusString = Pattern.compile("<[^>]*>").matcher(statusString).replaceAll("🔗");
         subtotalCount.add(shortStatus, 1);
         totalCount.add(shortStatus, 1);
         if (subtype == null) {

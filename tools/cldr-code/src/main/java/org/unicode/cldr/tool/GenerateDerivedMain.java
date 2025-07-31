@@ -80,8 +80,12 @@ public class GenerateDerivedMain {
                                     maxDifference.value = status;
                                 }
                                 PathHeader ph2 = phf.fromPath(path);
-                                boolean isNoCurrencyCompact = ph2.getHeader().equals("Short Formats ");
-                                String modCode = isNoCurrencyCompact ? ph2.getCode() + " (noCurrency)" : ph2.getCode();
+                                boolean isNoCurrencyCompact =
+                                        ph2.getHeader().equals("Short Formats ");
+                                String modCode =
+                                        isNoCurrencyCompact
+                                                ? ph2.getCode() + " (noCurrency)"
+                                                : ph2.getCode();
                                 toPrint.add(
                                         Joiners.TAB.join(
                                                 locale,
@@ -92,16 +96,16 @@ public class GenerateDerivedMain {
                                                 eOldValue,
                                                 eNewValue));
                             });
-            switch(maxDifference.value) {
-            case differentOther: 
-                toPrint.stream().forEach(System.out::println);
-                break;
-            case differentOnlyWhitespace: 
-                wsDifference.add(locale);
-                break;
-            case same: 
-                noDifference.add(locale);
-                break;
+            switch (maxDifference.value) {
+                case differentOther:
+                    toPrint.stream().forEach(System.out::println);
+                    break;
+                case differentOnlyWhitespace:
+                    wsDifference.add(locale);
+                    break;
+                case same:
+                    noDifference.add(locale);
+                    break;
             }
         }
         System.out.println("NoDiff:\t" + noDifference);
@@ -128,11 +132,12 @@ public class GenerateDerivedMain {
         differentOnlyWhitespace("␣"),
         differentOther("≠");
         final String symbol;
+
         private Status(String symbol) {
             this.symbol = symbol;
         }
     }
-    
+
     private static Status getStatus(String oldValue, String newValue, boolean newIsNull) {
         return newIsNull
                 ? Status.notGenerated
@@ -284,12 +289,18 @@ public class GenerateDerivedMain {
                                 .setElement(4, "currencyFormat");
                 result.put(
                         modPath.toString(),
-                        shortCompactValue.equals("0") ? "0" : partsForCompact.currencyPattern.replace("{0}", shortCompactValue));
+                        shortCompactValue.equals("0")
+                                ? "0"
+                                : partsForCompact.currencyPattern.replace(
+                                        "{0}", shortCompactValue));
 
                 modPath.setAttribute(-1, "alt", "alphaNextToNumber");
                 result.put(
                         modPath.toString(),
-                        shortCompactValue.equals("0") ? "0" : partsForCompact.currencyAlphaPattern.replace("{0}", shortCompactValue));
+                        shortCompactValue.equals("0")
+                                ? "0"
+                                : partsForCompact.currencyAlphaPattern.replace(
+                                        "{0}", shortCompactValue));
             }
         }
         return result;

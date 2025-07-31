@@ -40,6 +40,9 @@ public class CheckNumbers extends FactoryCheckCLDR {
 
     private static final UnicodeSet FORBIDDEN_NUMERIC_PATTERN_CHARS = new UnicodeSet("[[:n:]-[0]]");
 
+    private static final boolean EXTENDED_CURRENCY_CHECKS =
+            System.getProperty("EXTENDED_CURRENCY_CHECKS") != null;
+
     /**
      * If you are going to use ICU services, then ICUServiceBuilder will allow you to create them
      * entirely from CLDR data, without using the ICU data.
@@ -331,307 +334,321 @@ public class CheckNumbers extends FactoryCheckCLDR {
         }
 
         // check for compatible patterns
+        if (EXTENDED_CURRENCY_CHECKS) {
 
-        if (splitValue.size() > 1
-                && (type == NumericType.CURRENCY_ABBREVIATED
-                        || type == NumericType.DECIMAL_ABBREVIATED)) {
-            Matcher matcher1 = Patterns.PATTERN_ZEROS.matcher(splitValue.get(0));
-            Matcher matcher2 = Patterns.PATTERN_ZEROS.matcher(splitValue.get(1));
-            String zeros1 = matcher1.find() ? matcher1.group() : "";
-            String zeros2 = matcher2.find() ? matcher2.group() : "";
-            if (!zeros1.equals(zeros2)) {
-                result.add(
-                        new CheckStatus()
-                                .setCause(this)
-                                .setMainType(CheckStatus.errorType)
-                                .setSubtype(Subtype.inconsistentPositiveAndNegativePatterns)
-                                .setMessage(
-                                        "The positive pattern has {0} while the negative has {1}",
-                                        zeros1, zeros2));
+            if (splitValue.size() > 1
+                    && (type == NumericType.CURRENCY_ABBREVIATED
+                            || type == NumericType.DECIMAL_ABBREVIATED)) {
+                Matcher matcher1 = Patterns.PATTERN_ZEROS.matcher(splitValue.get(0));
+                Matcher matcher2 = Patterns.PATTERN_ZEROS.matcher(splitValue.get(1));
+                String zeros1 = matcher1.find() ? matcher1.group() : "";
+                String zeros2 = matcher2.find() ? matcher2.group() : "";
+                if (!zeros1.equals(zeros2)) {
+                    result.add(
+                            new CheckStatus()
+                                    .setCause(this)
+                                    .setMainType(CheckStatus.errorType)
+                                    .setSubtype(Subtype.inconsistentPositiveAndNegativePatterns)
+                                    .setMessage(
+                                            "The positive pattern has {0} while the negative has {1}",
+                                            zeros1, zeros2));
+                }
             }
-        }
 
-        if (type == NumericType.CURRENCY
-                || type == NumericType.CURRENCY_ABBREVIATED && !value.equals("0")) {
-            String altValue = parts.getAttributeValue(-1, "alt");
-            if (altValue != null) {
-                String plainPath = parts.cloneAsThawed().removeAttribute(-1, "alt").toString();
-                // Check to make sure at least one of the paths has a "real" value.
-                // That avoids errors in inherited number patterns (eg in Adlam digits)
-                if (getResolvedCldrFileToCheck().isHere(plainPath)
-                        || getResolvedCldrFileToCheck().isHere(path)) {
-                    String plainValue = getResolvedCldrFileToCheck().getStringValue(plainPath);
-                    switch (altValue) {
-                        case "noCurrency":
-                            // remove \u00a4 and spaces around it
-                            String noCurrency = removeCurrencyPlaceholderAndWhitespace(plainValue);
-                            String normalizedNoCurrency = normalizeNumberPattern(noCurrency);
-                            if (!normalizedNoCurrency.equals(value) && !noCurrency.equals(value)) {
-                                PathHeader ph = getPathHeaderFactory().fromPath(plainPath);
-                                String linked = getLinkedCode(ph);
-                                result.add(
-                                        new CheckStatus()
-                                                .setCause(this)
-                                                .setMainType(CheckStatus.warningType)
-                                                .setSubtype(Subtype.inconsistentCurrencyPattern)
-                                                .setMessage(
-                                                        "«{3}» instead would be consistent with {0} «{2}». Fix one or the other.",
-                                                        linked,
-                                                        ph.getCode(),
-                                                        plainValue,
-                                                        normalizedNoCurrency));
-                            }
-                            break;
-                        case "alphaNextToNumber":
-                            // It should only add spaces to the plain value
-                            if (!value.equals(plainValue)
-                                    && !removeWhitespaceAroundCurrencyPlaceholder(value)
-                                            .equals(plainValue)) {
-                                PathHeader ph = PathHeader.getFactory().fromPath(plainPath);
-                                String linked = getLinkedCode(ph);
-
-                                // a common case is currency placeholder on the wrong side
-                                int valueCurrencyPosition =
-                                        value.indexOf(Patterns.CURRENCY_PLACEHOLDER);
-                                int plainValueCurrencyPosition =
-                                        plainValue.indexOf(Patterns.CURRENCY_PLACEHOLDER);
-                                if ((valueCurrencyPosition == 0)
-                                        != (plainValueCurrencyPosition == 0)) {
+            if (type == NumericType.CURRENCY
+                    || type == NumericType.CURRENCY_ABBREVIATED && !value.equals("0")) {
+                String altValue = parts.getAttributeValue(-1, "alt");
+                if (altValue != null) {
+                    String plainPath = parts.cloneAsThawed().removeAttribute(-1, "alt").toString();
+                    // Check to make sure at least one of the paths has a "real" value.
+                    // That avoids errors in inherited number patterns (eg in Adlam digits)
+                    if (getResolvedCldrFileToCheck().isHere(plainPath)
+                            || getResolvedCldrFileToCheck().isHere(path)) {
+                        String plainValue = getResolvedCldrFileToCheck().getStringValue(plainPath);
+                        switch (altValue) {
+                            case "noCurrency":
+                                // remove \u00a4 and spaces around it
+                                String noCurrency =
+                                        removeCurrencyPlaceholderAndWhitespace(plainValue);
+                                String normalizedNoCurrency = normalizeNumberPattern(noCurrency);
+                                if (!normalizedNoCurrency.equals(value)
+                                        && !noCurrency.equals(value)) {
+                                    PathHeader ph = getPathHeaderFactory().fromPath(plainPath);
+                                    String linked = getLinkedCode(ph);
                                     result.add(
                                             new CheckStatus()
                                                     .setCause(this)
                                                     .setMainType(CheckStatus.warningType)
                                                     .setSubtype(Subtype.inconsistentCurrencyPattern)
                                                     .setMessage(
-                                                            "This has the currency on the wrong side, compared to {0} «{1}».",
-                                                            linked, plainValue));
-
-                                } else {
-                                    result.add(
-                                            new CheckStatus()
-                                                    .setCause(this)
-                                                    .setMainType(
-                                                            CheckStatus
-                                                                    .warningType) // errorButWarningIfJustWhitespace(value, plainValue)
-                                                    .setSubtype(Subtype.inconsistentCurrencyPattern)
-                                                    .setMessage(
-                                                            "This should only add spacing to {0} «{1}» or be identical.",
-                                                            linked, plainValue));
+                                                            "«{3}» instead would be consistent with {0} «{2}». Fix one or the other.",
+                                                            linked,
+                                                            ph.getCode(),
+                                                            plainValue,
+                                                            normalizedNoCurrency));
                                 }
-                            }
-                            break;
+                                break;
+                            case "alphaNextToNumber":
+                                // It should only add spaces to the plain value
+                                if (!value.equals(plainValue)
+                                        && !removeWhitespaceAroundCurrencyPlaceholder(value)
+                                                .equals(plainValue)) {
+                                    PathHeader ph = PathHeader.getFactory().fromPath(plainPath);
+                                    String linked = getLinkedCode(ph);
+
+                                    // a common case is currency placeholder on the wrong side
+                                    int valueCurrencyPosition =
+                                            value.indexOf(Patterns.CURRENCY_PLACEHOLDER);
+                                    int plainValueCurrencyPosition =
+                                            plainValue.indexOf(Patterns.CURRENCY_PLACEHOLDER);
+                                    if ((valueCurrencyPosition == 0)
+                                            != (plainValueCurrencyPosition == 0)) {
+                                        result.add(
+                                                new CheckStatus()
+                                                        .setCause(this)
+                                                        .setMainType(CheckStatus.warningType)
+                                                        .setSubtype(
+                                                                Subtype.inconsistentCurrencyPattern)
+                                                        .setMessage(
+                                                                "This has the currency on the wrong side, compared to {0} «{1}».",
+                                                                linked, plainValue));
+
+                                    } else {
+                                        result.add(
+                                                new CheckStatus()
+                                                        .setCause(this)
+                                                        .setMainType(
+                                                                CheckStatus
+                                                                        .warningType) // errorButWarningIfJustWhitespace(value, plainValue)
+                                                        .setSubtype(
+                                                                Subtype.inconsistentCurrencyPattern)
+                                                        .setMessage(
+                                                                "This should only add spacing to {0} «{1}» or be identical.",
+                                                                linked, plainValue));
+                                    }
+                                }
+                                break;
+                        }
                     }
                 }
             }
-        }
 
-        if (type == NumericType.CURRENCY_ABBREVIATED) {
-            // take
-            // ldml/numbers/currencyFormats[@numberSystem="latn"]/currencyFormatLength[@type="short"]/currencyFormat[@type="standard"]/pattern[@type="1000"][@count="one"]
-            // and compare to:
-            // ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="1000"][@count="one"]
+            if (type == NumericType.CURRENCY_ABBREVIATED) {
+                // take
+                // ldml/numbers/currencyFormats[@numberSystem="latn"]/currencyFormatLength[@type="short"]/currencyFormat[@type="standard"]/pattern[@type="1000"][@count="one"]
+                // and compare to:
+                // ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="1000"][@count="one"]
 
-            // ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="1000"][@count="one"]
+                // ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="1000"][@count="one"]
 
-            String plainPath =
-                    parts.cloneAsThawed()
-                            .setElement(2, "decimalFormats")
-                            .setElement(3, "decimalFormatLength")
-                            .setElement(4, "decimalFormat")
-                            .toString();
-            // Check to make sure at least one of the paths has a "real" value.
-            // That avoids errors in inherited number patterns (eg in Adlam digits)
-            if (getResolvedCldrFileToCheck().isHere(plainPath)
-                    || getResolvedCldrFileToCheck().isHere(path)) {
-                String plainValue = getResolvedCldrFileToCheck().getStringValue(plainPath);
-                // remove \u00a4 and spaces around it
-                String noCurrency = removeCurrencyPlaceholderAndWhitespace(value);
-                String normalizedNoCurrency = normalizeNumberPattern(noCurrency);
-                if (!normalizedNoCurrency.equals(plainValue) && !noCurrency.equals(plainValue)) {
-                    PathHeader ph = getPathHeaderFactory().fromPath(plainPath);
-                    String linked = getLinkedCode(ph);
-                    result.add(
-                            new CheckStatus()
-                                    .setCause(this)
-                                    .setMainType(CheckStatus.warningType)
-                                    .setSubtype(Subtype.inconsistentCurrencyPattern)
-                                    .setMessage(
-                                            "«{3}» instead would be consistent with {0} «{2}». Fix one or the other.",
-                                            linked,
-                                            ph.getCode(),
-                                            plainValue,
-                                            normalizedNoCurrency));
-                }
-            }
-        }
-
-        // Check that formats are consistent within the same groupings, eg 0T 00T 000T
-        // The groupings are different according to the type of language: #,##0 (eg en), #,##,##0
-        // (eg hi), and #,###0 (eg ja)
-        if ((type == NumericType.CURRENCY_ABBREVIATED || type == NumericType.DECIMAL_ABBREVIATED)
-                && !value.equals("0")) {
-            String pluralCategory = parts.getAttributeValue(-1, "count");
-            String length = parts.getAttributeValue(3, "type");
-            boolean isLong = "long".equals(length);
-
-            // we look at the value, and if there is more than one 0, we compare to the value for
-            // the path with one fewer count.
-            // example:
-            // ldml/numbers/currencyFormats[@numberSystem="latn"]/currencyFormatLength[@type="short"]/currencyFormat[@type="standard"]/pattern[@type="10000000"][@count="other"]
-            // ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="1000"][@count="one"]
-            // ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="1000"][@count="one"]
-            // value: ¤0000万
-
-            Matcher matcher = Patterns.PATTERN_ZEROS.matcher(value);
-            String group;
-            if (matcher.find() // only if found, and
-                    && (group = matcher.group()).length() > 1) {
-                String count = parts.getAttributeValue(-1, "type");
-                String lower = count.substring(0, count.length() - 1);
-                XPathParts lowerParts = parts.cloneAsThawed();
-                lowerParts.putAttributeValue(-1, "type", lower);
-                String lowerPath = lowerParts.toString();
-                String lowerValue = getResolvedCldrFileToCheck().getStringValue(lowerPath);
-                String lowerGroup = group.substring(0, group.length() - 1);
-                String expectedLowerValue = matcher.replaceAll(lowerGroup);
-                if (!lowerValue.equals(expectedLowerValue)) {
-                    String expectedValue =
-                            Patterns.PATTERN_ZEROS.matcher(lowerValue).replaceAll(lowerGroup + "0");
-                    PathHeader ph = getPathHeaderFactory().fromPath(lowerPath);
-                    String linkedLowerCode = getLinkedCode(ph);
-                    // for now, long ones just get warnings
-                    Type mainType =
-                            isLong
-                                    ? Type.Warning
-                                    : errorButWarningIfJustWhitespace(value, expectedLowerValue);
-                    result.add(
-                            new CheckStatus()
-                                    .setCause(this)
-                                    .setMainType(mainType)
-                                    .setSubtype(Subtype.inconsistentCompactPattern)
-                                    .setMessage(
-                                            "«{0}» instead would be consistent with {1} «{2}». Fix this OR fix {3} to be «{4}».",
-                                            expectedValue,
-                                            linkedLowerCode,
-                                            lowerValue,
-                                            ph.getCode(),
-                                            expectedLowerValue));
+                String plainPath =
+                        parts.cloneAsThawed()
+                                .setElement(2, "decimalFormats")
+                                .setElement(3, "decimalFormatLength")
+                                .setElement(4, "decimalFormat")
+                                .toString();
+                // Check to make sure at least one of the paths has a "real" value.
+                // That avoids errors in inherited number patterns (eg in Adlam digits)
+                if (getResolvedCldrFileToCheck().isHere(plainPath)
+                        || getResolvedCldrFileToCheck().isHere(path)) {
+                    String plainValue = getResolvedCldrFileToCheck().getStringValue(plainPath);
+                    // remove \u00a4 and spaces around it
+                    String noCurrency = removeCurrencyPlaceholderAndWhitespace(value);
+                    String normalizedNoCurrency = normalizeNumberPattern(noCurrency);
+                    if (!normalizedNoCurrency.equals(plainValue)
+                            && !noCurrency.equals(plainValue)) {
+                        PathHeader ph = getPathHeaderFactory().fromPath(plainPath);
+                        String linked = getLinkedCode(ph);
+                        result.add(
+                                new CheckStatus()
+                                        .setCause(this)
+                                        .setMainType(CheckStatus.warningType)
+                                        .setSubtype(Subtype.inconsistentCurrencyPattern)
+                                        .setMessage(
+                                                "«{3}» instead would be consistent with {0} «{2}». Fix one or the other.",
+                                                linked,
+                                                ph.getCode(),
+                                                plainValue,
+                                                normalizedNoCurrency));
+                    }
                 }
             }
 
-            // now compare the count values
-            if (!isLong && !"other".equals(pluralCategory)) {
-                XPathParts otherParts = parts.cloneAsThawed();
-                otherParts.putAttributeValue(-1, "count", "other");
-                String otherPath = otherParts.toString();
-                String otherValue = getResolvedCldrFileToCheck().getStringValue(otherPath);
-                if (!value.equals(otherValue)) {
-                    PathHeader ph = getPathHeaderFactory().fromPath(otherPath);
-                    String otherCode = getLinkedCode(ph);
-                    result.add(
-                            new CheckStatus()
-                                    .setCause(this)
-                                    .setMainType(errorButWarningIfJustWhitespace(value, otherValue))
-                                    .setSubtype(Subtype.inconsistentCompactPattern)
-                                    .setMessage(
-                                            "«{0}» isn’t the same as «{2}» for {1}.",
-                                            value, otherCode, otherValue));
+            // Check that formats are consistent within the same groupings, eg 0T 00T 000T
+            // The groupings are different according to the type of language: #,##0 (eg en),
+            // #,##,##0
+            // (eg hi), and #,###0 (eg ja)
+            if (type == NumericType.CURRENCY_ABBREVIATED
+                    || type == NumericType.DECIMAL_ABBREVIATED && !value.equals("0")) {
+                String pluralCategory = parts.getAttributeValue(-1, "count");
+                String length = parts.getAttributeValue(3, "type");
+                boolean isLong = "long".equals(length);
+
+                // we look at the value, and if there is more than one 0, we compare to the value
+                // for
+                // the path with one fewer count.
+                // example:
+                // ldml/numbers/currencyFormats[@numberSystem="latn"]/currencyFormatLength[@type="short"]/currencyFormat[@type="standard"]/pattern[@type="10000000"][@count="other"]
+                // ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="1000"][@count="one"]
+                // ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="1000"][@count="one"]
+                // value: ¤0000万
+
+                Matcher matcher = Patterns.PATTERN_ZEROS.matcher(value);
+                String group;
+                if (matcher.find() // only if found, and
+                        && (group = matcher.group()).length() > 1) {
+                    String count = parts.getAttributeValue(-1, "type");
+                    String lower = count.substring(0, count.length() - 1);
+                    XPathParts lowerParts = parts.cloneAsThawed();
+                    lowerParts.putAttributeValue(-1, "type", lower);
+                    String lowerPath = lowerParts.toString();
+                    String lowerValue = getResolvedCldrFileToCheck().getStringValue(lowerPath);
+                    String lowerGroup = group.substring(0, group.length() - 1);
+                    String expectedLowerValue = matcher.replaceAll(lowerGroup);
+                    if (!lowerValue.equals(expectedLowerValue)) {
+                        String expectedValue =
+                                Patterns.PATTERN_ZEROS
+                                        .matcher(lowerValue)
+                                        .replaceAll(lowerGroup + "0");
+                        PathHeader ph = getPathHeaderFactory().fromPath(lowerPath);
+                        String linkedLowerCode = getLinkedCode(ph);
+                        // for now, long ones just get warnings
+                        Type mainType =
+                                isLong
+                                        ? Type.Warning
+                                        : errorButWarningIfJustWhitespace(
+                                                value, expectedLowerValue);
+                        result.add(
+                                new CheckStatus()
+                                        .setCause(this)
+                                        .setMainType(mainType)
+                                        .setSubtype(Subtype.inconsistentCompactPattern)
+                                        .setMessage(
+                                                "«{0}» instead would be consistent with {1} «{2}». Fix this OR fix {3} to be «{4}».",
+                                                expectedValue,
+                                                linkedLowerCode,
+                                                lowerValue,
+                                                ph.getCode(),
+                                                expectedLowerValue));
+                    }
+                }
+
+                // now compare the count values
+                if (!isLong && !"other".equals(pluralCategory)) {
+                    XPathParts otherParts = parts.cloneAsThawed();
+                    otherParts.putAttributeValue(-1, "count", "other");
+                    String otherPath = otherParts.toString();
+                    String otherValue = getResolvedCldrFileToCheck().getStringValue(otherPath);
+                    if (!value.equals(otherValue)) {
+                        PathHeader ph = getPathHeaderFactory().fromPath(otherPath);
+                        String otherCode = getLinkedCode(ph);
+                        result.add(
+                                new CheckStatus()
+                                        .setCause(this)
+                                        .setMainType(
+                                                errorButWarningIfJustWhitespace(value, otherValue))
+                                        .setSubtype(Subtype.inconsistentCompactPattern)
+                                        .setMessage(
+                                                "«{0}» isn’t the same as «{2}» for {1}.",
+                                                value, otherCode, otherValue));
+                    }
                 }
             }
-        }
 
-        // check all
-        if (FORBIDDEN_NUMERIC_PATTERN_CHARS.containsSome(value)) {
-            UnicodeSet chars = new UnicodeSet().addAll(value);
-            chars.retainAll(FORBIDDEN_NUMERIC_PATTERN_CHARS);
-            result.add(
-                    new CheckStatus()
-                            .setCause(this)
-                            .setMainType(CheckStatus.errorType)
-                            .setSubtype(Subtype.illegalCharactersInNumberPattern)
-                            .setMessage(
-                                    "Pattern contains forbidden characters: \u200E{0}\u200E",
-                                    new Object[] {chars.toPattern(false)}));
-        }
-
-        // get the final type
-        String lastType = parts.getAttributeValue(-1, "type");
-        int zeroCount = 0;
-        // it can only be null or an integer of the form 10+
-        if (lastType != null && !lastType.equals("standard")) {
-            Matcher matcher = ALLOWED_INTEGER.matcher(lastType);
-            if (matcher.matches()) {
-                zeroCount = matcher.end(1) - matcher.start(1); // number of ascii zeros
-            } else {
+            // check all
+            if (FORBIDDEN_NUMERIC_PATTERN_CHARS.containsSome(value)) {
+                UnicodeSet chars = new UnicodeSet().addAll(value);
+                chars.retainAll(FORBIDDEN_NUMERIC_PATTERN_CHARS);
                 result.add(
                         new CheckStatus()
                                 .setCause(this)
                                 .setMainType(CheckStatus.errorType)
-                                .setSubtype(Subtype.badNumericType)
+                                .setSubtype(Subtype.illegalCharactersInNumberPattern)
                                 .setMessage(
-                                        "The type of a numeric pattern must be missing or of the form 10...."));
-            }
-        }
-
-        // Check the validity of the pattern. If this check fails, all other checks
-        // after it will fail, so exit early.
-        UnicodeSet illegalChars = findUnquotedChars(type, value);
-        if (illegalChars != null) {
-            result.add(
-                    new CheckStatus()
-                            .setCause(this)
-                            .setMainType(CheckStatus.errorType)
-                            .setSubtype(Subtype.illegalCharactersInNumberPattern)
-                            .setMessage(
-                                    "Pattern contains characters that must be escaped or removed: {0}",
-                                    new Object[] {illegalChars}));
-            return this;
-        }
-
-        // Tests that assume that the value is a valid number pattern.
-        // Notice that we pick up any exceptions, so that we can
-        // give a reasonable error message.
-        parts = parts.cloneAsThawed();
-        try {
-            if (type == NumericType.DECIMAL_ABBREVIATED
-                    || type == NumericType.CURRENCY_ABBREVIATED) {
-                // Check for consistency in short/long decimal formats.
-                checkDecimalFormatConsistency(parts, path, value, result, type);
-            } else {
-                checkPattern(path, fullPath, value, result, false);
+                                        "Pattern contains forbidden characters: \u200E{0}\u200E",
+                                        new Object[] {chars.toPattern(false)}));
             }
 
-            // Check for sane usage of grouping separators.
-            if (COMMA_ABUSE.matcher(value).find()) {
-                result.add(
-                        new CheckStatus()
-                                .setCause(this)
-                                .setMainType(CheckStatus.errorType)
-                                .setSubtype(Subtype.tooManyGroupingSeparators)
-                                .setMessage(
-                                        "Grouping separator (,) should not be used to group tens. Check if a decimal symbol (.) should have been used instead."));
-            } else {
-                // check that we have a canonical pattern
-                String pattern = getCanonicalPattern(value, type, zeroCount, isPOSIX);
-                if (!pattern.equals(value)) {
+            // get the final type
+            String lastType = parts.getAttributeValue(-1, "type");
+            int zeroCount = 0;
+            // it can only be null or an integer of the form 10+
+            if (lastType != null && !lastType.equals("standard")) {
+                Matcher matcher = ALLOWED_INTEGER.matcher(lastType);
+                if (matcher.matches()) {
+                    zeroCount = matcher.end(1) - matcher.start(1); // number of ascii zeros
+                } else {
                     result.add(
                             new CheckStatus()
                                     .setCause(this)
                                     .setMainType(CheckStatus.errorType)
-                                    .setSubtype(Subtype.numberPatternNotCanonical)
+                                    .setSubtype(Subtype.badNumericType)
                                     .setMessage(
-                                            "Value should be \u200E{0}\u200E",
-                                            new Object[] {pattern}));
+                                            "The type of a numeric pattern must be missing or of the form 10...."));
                 }
             }
 
-        } catch (Exception e) {
-            result.add(
-                    new CheckStatus()
-                            .setCause(this)
-                            .setMainType(CheckStatus.errorType)
-                            .setSubtype(Subtype.illegalNumberFormat)
-                            .setMessage(e.getMessage() == null ? e.toString() : e.getMessage()));
+            // Check the validity of the pattern. If this check fails, all other checks
+            // after it will fail, so exit early.
+            UnicodeSet illegalChars = findUnquotedChars(type, value);
+            if (illegalChars != null) {
+                result.add(
+                        new CheckStatus()
+                                .setCause(this)
+                                .setMainType(CheckStatus.errorType)
+                                .setSubtype(Subtype.illegalCharactersInNumberPattern)
+                                .setMessage(
+                                        "Pattern contains characters that must be escaped or removed: {0}",
+                                        new Object[] {illegalChars}));
+                return this;
+            }
+
+            // Tests that assume that the value is a valid number pattern.
+            // Notice that we pick up any exceptions, so that we can
+            // give a reasonable error message.
+            parts = parts.cloneAsThawed();
+            try {
+                if (type == NumericType.DECIMAL_ABBREVIATED
+                        || type == NumericType.CURRENCY_ABBREVIATED) {
+                    // Check for consistency in short/long decimal formats.
+                    checkDecimalFormatConsistency(parts, path, value, result, type);
+                } else {
+                    checkPattern(path, fullPath, value, result, false);
+                }
+
+                // Check for sane usage of grouping separators.
+                if (COMMA_ABUSE.matcher(value).find()) {
+                    result.add(
+                            new CheckStatus()
+                                    .setCause(this)
+                                    .setMainType(CheckStatus.errorType)
+                                    .setSubtype(Subtype.tooManyGroupingSeparators)
+                                    .setMessage(
+                                            "Grouping separator (,) should not be used to group tens. Check if a decimal symbol (.) should have been used instead."));
+                } else {
+                    // check that we have a canonical pattern
+                    String pattern = getCanonicalPattern(value, type, zeroCount, isPOSIX);
+                    if (!pattern.equals(value)) {
+                        result.add(
+                                new CheckStatus()
+                                        .setCause(this)
+                                        .setMainType(CheckStatus.errorType)
+                                        .setSubtype(Subtype.numberPatternNotCanonical)
+                                        .setMessage(
+                                                "Value should be \u200E{0}\u200E",
+                                                new Object[] {pattern}));
+                    }
+                }
+
+            } catch (Exception e) {
+                result.add(
+                        new CheckStatus()
+                                .setCause(this)
+                                .setMainType(CheckStatus.errorType)
+                                .setSubtype(Subtype.illegalNumberFormat)
+                                .setMessage(
+                                        e.getMessage() == null ? e.toString() : e.getMessage()));
+            }
         }
         return this;
     }

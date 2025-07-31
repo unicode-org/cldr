@@ -10,13 +10,11 @@ For regional locales where the language is not the primary language of the count
 As with other CLDR data, the most customary form of _that_ language as used in _that_ country should be followed.
 This is generally one of two options (or something in between):
 
-1. The conventions of one of the main regional variants (eg, en\_US or en\_GB), such as 1,234.5 or 21-02-2025 or February 21 2025
-2. The conventions of one of the main languages used in the country, such as 1’234,5 or 2025-21-01 or 21 February 2025
+1. The conventions of one of the main regional variants (e.g. en\_GB), such as 1,234.5 or 21/02/2025 or 21 February 2025
+2. The conventions of one of the main languages used in the country, such as 1’234,5 or 2025-21-01 or 21. February 2025
 
 The choice of which option is most customary can be difficult to determine with languages that are operating as a lingua franca for people who don't have it as their first language.
 In these situations, much of the available content is written for an international audience and most of the readers are from other countries/regions.
-
-Note that developers can choose a specific language variant, such as en\_GB, with a specific region's formatting by using [the Region Override U extension](https://www.unicode.org/reports/tr35/#RegionOverride) if they, for example, prefer British English formatting in a region/country with different number or date formatting.
 
 Developers can choose a specific language variant, such as en\_GB, with a specific region's formatting by using [the Region Override U extension](https://www.unicode.org/reports/tr35/#RegionOverride) if they, for example, prefer British English formatting in a region/country with different number or date formatting.
 

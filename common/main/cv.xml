@@ -8603,13 +8603,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<regionFormat type="daylight">{0} ҫуллахи вӑхӑчӗ</regionFormat>
 			<regionFormat type="standard">{0} стандартлӑ вӑхӑчӗ</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
-			<zone type="Pacific/Honolulu">
-				<short>
-					<generic>Гавайи вӑхӑчӗ</generic>
-					<standard>Гавайи стандартлӑ вӑхӑчӗ</standard>
-					<daylight>Гавайи ҫуллахи вӑхӑчӗ</daylight>
-				</short>
-			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>Пӗтӗм тӗнчери килӗштернӗ вӑхӑт</standard>
@@ -10600,6 +10593,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic draft="contributed">HST</generic>
 					<standard draft="contributed">HST</standard>
 					<daylight draft="contributed">HDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>Гавайи-Алеут стандартлӑ вӑхӑчӗ</standard>
+				</long>
+				<short>
+					<standard draft="contributed">HST</standard>
 				</short>
 			</metazone>
 			<metazone type="Hong_Kong">

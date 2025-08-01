@@ -8647,13 +8647,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<regionFormat type="daylight">Ora legale: {0}</regionFormat>
 			<regionFormat type="standard">Ora istandard: {0}</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
-			<zone type="Pacific/Honolulu">
-				<short>
-					<generic>OIH</generic>
-					<standard>OIH</standard>
-					<daylight>OLH</daylight>
-				</short>
-			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>Tempus coordinadu universale</standard>
@@ -10389,6 +10382,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>Ora de sas ìsulas Hawaii-Aleutinas</generic>
 					<standard>Ora istandard de sas ìsulas Hawaii-Aleutinas</standard>
 					<daylight>Ora legale de sas ìsulas Hawaii-Aleutinas</daylight>
+				</long>
+			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>Ora istandard de sas ìsulas Hawaii-Aleutinas</standard>
 				</long>
 			</metazone>
 			<metazone type="Hong_Kong">

@@ -8608,11 +8608,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<regionFormat type="standard">{0} aldeko ordu estandarra</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
 			<zone type="Pacific/Honolulu">
-				<short>
-					<generic>HST</generic>
-					<standard>HST</standard>
-					<daylight>HDT</daylight>
-				</short>
 				<exemplarCity>Honolulu</exemplarCity>
 			</zone>
 			<zone type="Etc/UTC">
@@ -10355,6 +10350,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic draft="contributed">HAT</generic>
 					<standard draft="contributed">HAST</standard>
 					<daylight draft="contributed">HADT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>Hawaii-Aleutiar uharteetako ordu estandarra</standard>
+				</long>
+				<short>
+					<standard draft="contributed">HAST</standard>
 				</short>
 			</metazone>
 			<metazone type="Hong_Kong">

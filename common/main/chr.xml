@@ -2508,11 +2508,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<regionFormat type="standard">{0} ᎠᏟᎶᏍᏗ ᎠᏟᎢᎵᏒ</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
 			<zone type="Pacific/Honolulu">
-				<short>
-					<generic>HST</generic>
-					<standard>HST</standard>
-					<daylight>HDT</daylight>
-				</short>
 				<exemplarCity>ᎭᏃᎷᎷ</exemplarCity>
 			</zone>
 			<zone type="Etc/UTC">
@@ -4192,6 +4187,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>HAT</generic>
 					<standard>HAST</standard>
 					<daylight>HADT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>ᎭᏩᏱ-ᎠᎵᏳᏏᎠᏂ ᎠᏟᎶᏍᏗ ᎠᏟᎢᎵᏒ</standard>
+				</long>
+				<short>
+					<standard>HAST</standard>
 				</short>
 			</metazone>
 			<metazone type="Hong_Kong">

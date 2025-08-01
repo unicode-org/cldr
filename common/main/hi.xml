@@ -3575,11 +3575,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<regionFormat type="standard">{0} मानक समय</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
 			<zone type="Pacific/Honolulu">
-				<short>
-					<generic>एचएसटी</generic>
-					<standard>एचएसटी</standard>
-					<daylight draft="contributed">HST</daylight>
-				</short>
 				<exemplarCity>होनोलुलु</exemplarCity>
 			</zone>
 			<zone type="Etc/UTC">
@@ -5234,6 +5229,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>हवाई–आल्यूशन समय</generic>
 					<standard>हवाई–आल्यूशन मानक समय</standard>
 					<daylight>हवाई–आल्यूशन डेलाइट समय</daylight>
+				</long>
+			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>हवाई–आल्यूशन मानक समय</standard>
 				</long>
 			</metazone>
 			<metazone type="Hong_Kong">

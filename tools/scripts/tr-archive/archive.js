@@ -273,7 +273,7 @@ async function renderit(infile) {
         if (!dom.window.document.getElementById(n)
           && !(dom.window.document.getElementsByName(n)?.length)) {
 
-          console.log({ txt, gfm_id, n });
+          //console.log({ txt, gfm_id, n });
           const origAnchor = document.createElement("a");
           origAnchor.setAttribute("name", n);
           origAnchor.setAttribute("x-orig-casing", "true");

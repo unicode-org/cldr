@@ -5560,11 +5560,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<regionFormat type="standard">{0} (heure standard)</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
 			<zone type="Pacific/Honolulu">
-				<short>
-					<generic draft="unconfirmed">HT</generic>
-					<standard draft="unconfirmed">HST</standard>
-					<daylight draft="unconfirmed">HDT</daylight>
-				</short>
 				<exemplarCity>Honolulu</exemplarCity>
 			</zone>
 			<zone type="Etc/UTC">
@@ -7320,6 +7315,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic draft="unconfirmed">HHA</generic>
 					<standard draft="unconfirmed">HNHA</standard>
 					<daylight draft="unconfirmed">HEHA</daylight>
+				</short>
+			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>heure normale d’Hawaï - Aléoutiennes</standard>
+				</long>
+				<short>
+					<standard draft="unconfirmed">HNHA</standard>
 				</short>
 			</metazone>
 			<metazone type="Hong_Kong">

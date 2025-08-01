@@ -6814,13 +6814,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<regionFormat type="daylight">ၶၢဝ်းယၢမ်း ၵၢင်ဝၼ်း {0}</regionFormat>
 			<regionFormat type="standard">လၵ်းၸဵင် ၶၢဝ်းယၢမ်း {0}</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
-			<zone type="Pacific/Honolulu">
-				<short>
-					<generic>HST</generic>
-					<standard>HST</standard>
-					<daylight>HDT</daylight>
-				</short>
-			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>ၶၢဝ်းယၢမ်းလုမ်ႈၾႃႉ</standard>
@@ -8798,6 +8791,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic draft="contributed">HAT</generic>
 					<standard draft="contributed">HAST</standard>
 					<daylight draft="contributed">HADT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>လၵ်းၸဵင် ၶၢဝ်းယၢမ်း ႁႃႇဝၢႆးဢီး-ဢလူးသျၼ်ႇ</standard>
+				</long>
+				<short>
+					<standard draft="contributed">HAST</standard>
 				</short>
 			</metazone>
 			<metazone type="Hong_Kong">

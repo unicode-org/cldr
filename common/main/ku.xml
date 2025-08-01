@@ -6305,13 +6305,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<regionFormat type="daylight">Saeta Havînê ya {0}(y)ê</regionFormat>
 			<regionFormat type="standard">Saeta {0}(y)ê ya Standard</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
-			<zone type="Pacific/Honolulu">
-				<short>
-					<generic>HST</generic>
-					<standard>HST</standard>
-					<daylight>HDT</daylight>
-				</short>
-			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>Saeta Gerdûnî ya Hevdemî</standard>
@@ -8059,6 +8052,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic draft="contributed">SHAL</generic>
 					<standard draft="contributed">SSHA</standard>
 					<daylight draft="contributed">SHHA</daylight>
+				</short>
+			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>Saeta Standard a Hawaii-Aleutianê</standard>
+				</long>
+				<short>
+					<standard draft="contributed">SSHA</standard>
 				</short>
 			</metazone>
 			<metazone type="Hong_Kong">

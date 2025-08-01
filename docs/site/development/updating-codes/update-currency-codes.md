@@ -10,8 +10,8 @@ title: Update Currency Codes
 - **Use git diff to sanity check the two XML files against the old, and check them in.**
   - **"git diff \-w" is helpful to ignore whitespace. If there are only whitespace changes, there's no need to check them in.**
 - **Check the** [ISO amendments] **to get changes that will happen during the current cycle.**
-- Example: <https://www.six-group.com/dam/download/financial-information/data-center/iso-currrency/amendments/dl-currency-iso-amendment-176.pdf>
-- It appears right now like there is no good way to collect all the amendments that are applicable, except to change "176" in the above link by incrementing until error \#404 results. So:
+- Example: <https://www.six-group.com/dam/download/financial-information/data-center/iso-currrency/amendments/dl-currency-iso-amendment-179.pdf>
+- It appears right now like there is no good way to collect all the amendments that are applicable, except to change "179" in the above link by incrementing until error \#404 results. So:
 - *Review all amendments that are dated after the previous update , and patch the XML files and the* ```supplementalData.xml``` *as below.*
 - *Record the last number viewed in the URL above.*
 - *(There is a "download all amendments" link now that has a spreadsheet summary.)*

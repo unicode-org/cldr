@@ -1462,8 +1462,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<usesMetazone from="2000-12-22 14:00" mzone="Chamorro"/>
 			</timezone>
 			<timezone type="Pacific/Honolulu">
-				<usesMetazone to="1983-10-30 11:00" mzone="Alaska_Hawaii"/>
-				<usesMetazone from="1983-10-30 11:00" mzone="Hawaii_Aleutian"/>
+				<usesMetazone mzone="Hawaii"/>
 			</timezone>
 			<timezone type="Pacific/Kiritimati">
 				<usesMetazone mzone="Line_Islands"/>
@@ -1751,7 +1750,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="Gulf" territory="001" type="Asia/Dubai"/>
 			<mapZone other="Gulf" territory="OM" type="Asia/Muscat"/>
 			<mapZone other="Guyana" territory="001" type="America/Guyana"/>
-			<mapZone other="Hawaii_Aleutian" territory="001" type="Pacific/Honolulu"/>
+			<mapZone other="Hawaii_Aleutian" territory="001" type="America/Adak"/>
+			<mapZone other="Hawaii" territory="001" type="Pacific/Honolulu"/>
 			<mapZone other="Hong_Kong" territory="001" type="Asia/Hong_Kong"/>
 			<mapZone other="Hovd" territory="001" type="Asia/Hovd"/>
 			<mapZone other="India" territory="001" type="Asia/Calcutta"/>
@@ -1934,6 +1934,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazoneId shortId="gulf" longId="Gulf" />
 			<metazoneId shortId="guya" longId="Guyana" />
 			<metazoneId shortId="haal" longId="Hawaii_Aleutian" />
+			<metazoneId shortId="hwai" longId="Hawaii" />
 			<metazoneId shortId="hoko" longId="Hong_Kong" />
 			<metazoneId shortId="hovd" longId="Hovd" />
 			<metazoneId shortId="indi" longId="India" />

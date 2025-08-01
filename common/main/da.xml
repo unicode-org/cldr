@@ -4535,9 +4535,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Africa_Western">
 				<long>
-					<generic>Vestafrikansk tid</generic>
-					<standard>Vestafrikansk normaltid</standard>
-					<daylight>Vestafrikansk sommertid</daylight>
+					<standard>Vestafrikansk tid</standard>
 				</long>
 			</metazone>
 			<metazone type="Alaska">
@@ -4940,6 +4938,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Hawaii-Aleutian-tid</generic>
 					<standard>Hawaii-Aleutian-normaltid</standard>
 					<daylight>Hawaii-Aleutian-sommertid</daylight>
+				</long>
+			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>Hawaii-Aleutian-normaltid</standard>
 				</long>
 			</metazone>
 			<metazone type="Hong_Kong">

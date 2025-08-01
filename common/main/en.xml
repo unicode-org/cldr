@@ -4663,13 +4663,6 @@ annotations.
 			<regionFormat type="daylight">{0} Daylight Time</regionFormat>
 			<regionFormat type="standard">{0} Standard Time</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
-			<zone type="Pacific/Honolulu">
-				<short>
-					<generic>HST</generic>
-					<standard>HST</standard>
-					<daylight>HDT</daylight>
-				</short>
-			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>Coordinated Universal Time</standard>
@@ -4816,9 +4809,7 @@ annotations.
 			</metazone>
 			<metazone type="Africa_Western">
 				<long>
-					<generic>West Africa Time</generic>
-					<standard>West Africa Standard Time</standard>
-					<daylight>West Africa Summer Time</daylight>
+					<standard>West Africa Time</standard>
 				</long>
 			</metazone>
 			<metazone type="Alaska">
@@ -5256,6 +5247,14 @@ annotations.
 					<generic>HAT</generic>
 					<standard>HAST</standard>
 					<daylight>HADT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>Hawaii-Aleutian Standard Time</standard>
+				</long>
+				<short>
+					<standard>HST</standard>
 				</short>
 			</metazone>
 			<metazone type="Hong_Kong">

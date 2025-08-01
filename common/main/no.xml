@@ -7705,11 +7705,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<regionFormat type="standard">normaltid – {0}</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
 			<zone type="Pacific/Honolulu">
-				<short>
-					<generic draft="contributed">HST</generic>
-					<standard draft="contributed">HST</standard>
-					<daylight draft="contributed">HDT</daylight>
-				</short>
 				<exemplarCity>Honolulu</exemplarCity>
 			</zone>
 			<zone type="Etc/UTC">
@@ -9009,9 +9004,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Africa_Western">
 				<long>
-					<generic>vestafrikansk tid</generic>
-					<standard>vestafrikansk normaltid</standard>
-					<daylight>vestafrikansk sommertid</daylight>
+					<standard>vestafrikansk tid</standard>
 				</long>
 			</metazone>
 			<metazone type="Alaska">
@@ -9457,6 +9450,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic draft="contributed">HAT</generic>
 					<standard draft="contributed">HAST</standard>
 					<daylight draft="contributed">HADT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>normaltid for Hawaii og Aleutene</standard>
+				</long>
+				<short>
+					<standard draft="contributed">HAST</standard>
 				</short>
 			</metazone>
 			<metazone type="Hong_Kong">

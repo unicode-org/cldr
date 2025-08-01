@@ -7721,11 +7721,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<regionFormat type="standard">↑↑↑</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
 			<zone type="Pacific/Honolulu">
-				<short>
-					<generic draft="contributed">HST</generic>
-					<standard draft="contributed">HST</standard>
-					<daylight draft="contributed">HDT</daylight>
-				</short>
 				<exemplarCity>Honolulu</exemplarCity>
 			</zone>
 			<zone type="Etc/UTC">
@@ -9025,9 +9020,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Africa_Western">
 				<long>
-					<generic>západoafrický čas</generic>
-					<standard>západoafrický standardní čas</standard>
-					<daylight>západoafrický letní čas</daylight>
+					<standard>západoafrický čas</standard>
 				</long>
 			</metazone>
 			<metazone type="Alaska">
@@ -9455,6 +9448,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>havajsko-aleutský čas</generic>
 					<standard>havajsko-aleutský standardní čas</standard>
 					<daylight>havajsko-aleutský letní čas</daylight>
+				</long>
+			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>havajsko-aleutský standardní čas</standard>
 				</long>
 			</metazone>
 			<metazone type="Hong_Kong">

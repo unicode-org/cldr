@@ -28,7 +28,6 @@ public class LogicalGrouping {
     public static final ImmutableSet<String> metazonesDSTSet =
             ImmutableSet.of(
                     "Acre",
-                    "Africa_Western",
                     "Alaska",
                     "Almaty",
                     "Amazon",

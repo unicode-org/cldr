@@ -37,6 +37,7 @@
 		<jjwt.version>0.11.5</jjwt.version>
         <spotless.version>2.43.0</spotless.version>
 		<google-java-style.version>1.22.0</google-java-style.version>
+		<auto-value.version>1.11.0</auto-value.version>
 		<!-- Note: java-release (applied in the compiler plugin) replaces maven.compiler.source and maven.compiler.target -->
 		<java-release>11</java-release>
 	</properties>
@@ -93,6 +94,18 @@
 				<artifactId>myanmar-tools</artifactId>
 				<version>1.1.1</version>
 			</dependency>
+
+			<!-- Add AutoValue to autogenerate classes that make our user code smaller
+				and easier to reason about. Note: Part of what makes Autovalue easy to
+				use is its annotation-based syntax. For that to work, we have to configure
+				the annotation processor in Maven, which means updating the Maven compiler
+				plugin's config to include Autovalue's annotation processor -->
+			<dependency>
+				<groupId>com.google.auto.value</groupId>
+				<artifactId>auto-value-annotations</artifactId>
+				<version>${auto-value.version}</version>
+			</dependency>
+
 			<!-- codec/util -->
 			<dependency>
 				<groupId>commons-codec</groupId>

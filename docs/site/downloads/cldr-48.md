@@ -148,7 +148,7 @@ The following changes are planned for CLDR 48. Please plan accordingly to avoid 
 
 ### V49 advance warnings
 
-- TBD
+- Pre-Meiji Japanese eras have been found to be incorrect and will be removed in a future release. Please file a ticket if you use this data. [CLDR-11400]
 
 ## Known Issues
 
@@ -178,3 +178,4 @@ For web pages with different views of CLDR data, see [http://cldr.unicode.org/in
 [CLDR-18219]: https://unicode-org.atlassian.net/browse/CLDR-18219
 [CLDR-18275]: https://unicode-org.atlassian.net/browse/CLDR-18275
 [CLDR-18311]: https://unicode-org.atlassian.net/browse/CLDR-18311
+[CLDR-11400]: https://unicode-org.atlassian.net/browse/CLDR-11400

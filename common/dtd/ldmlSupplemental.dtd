@@ -275,7 +275,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
     <!--@MATCH:time/yyyy-MM-dd-->
     <!--@VALUE-->
 <!ATTLIST era code NMTOKEN #IMPLIED >
-    <!--@MATCH:regex/[a-z0-9]{3,8}(\-[a-z0-9]{3,8})*-->
+    <!--@MATCH:regex/[a-z0-9]{2,8}(\-[a-z0-9]{3,8})*-->
     <!--@VALUE-->
 <!ATTLIST era aliases NMTOKENS #IMPLIED >
     <!--@MATCH:set/regex/[a-z0-9]{2,8}(\-[a-z0-9]{3,8})*-->

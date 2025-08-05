@@ -4,7 +4,7 @@
 
 |Version|48 (draft)|
 |-------|----------|
-|Editors|Shane F. Carr (<a href="mailto:shane@unicode.org">shane@unicode.org</a>) and <a href="tr35.md#Acknowledgments">other CLDR committee members|
+|Editors|Shane F. Carr (<a href="mailto:shane@unicode.org">shane@unicode.org</a>) and <a href="tr35-acknowledgments.md#acknowledgments">other CLDR committee members|
 
 For the full header, summary, and status, see [Part 1: Core](tr35.md).
 
@@ -31,7 +31,7 @@ For the latest version of the Unicode Standard see [[Unicode](https://www.unicod
 For more information see [About Unicode Technical Reports](https://www.unicode.org/reports/about-reports.html) and the [Specifications FAQ](https://www.unicode.org/faq/specifications.html).
 Unicode Technical Reports are governed by the Unicode [Terms of Use](https://www.unicode.org/copyright.html)._
 
-## <a name="Parts" href="#Parts">Parts</a>
+## Parts
 
 The LDML specification is divided into the following parts:
 
@@ -44,6 +44,8 @@ The LDML specification is divided into the following parts:
 *   Part 7: [Keyboards](tr35-keyboards.md#Contents) (keyboard mappings)
 *   Part 8: [Person Names](tr35-personNames.md#Contents) (person names)
 *   Part 9: [MessageFormat](tr35-messageFormat.md#Contents) (message format)
+*   Appendix A: [Modifications](tr35-modifications.md#modifications)
+*   Appendix B: [Acknowledgments](tr35-acknowledgments.md#acknowledgments)
 
 ## <a name="Contents" href="#Contents">Contents of Part 3, Numbers</a>
 
@@ -87,6 +89,18 @@ The LDML specification is divided into the following parts:
     * [Using Cardinals](#Using_cardinals)
   * [Plural Ranges](#Plural_Ranges)
 * [Rule-Based Number Formatting](#Rule-Based_Number_Formatting)
+  * [Rule-Based Number Formatting Scope](#Rule-Based_Number_Formatting_Scope)
+    * [SpelloutRules](#SpelloutRules)
+      * [numbering](#numbering)
+      * [numbering-year](#numbering-year)
+      * [cardinal](#cardinal)
+      * [ordinal](#ordinal)
+    * [NumberingSystemRules](#NumberingSystemRules)
+    * [OrdinalRules](#OrdinalRules)
+  * [Limitations](#RBNF_Limitations)
+  * [Syntax of `rbnfRules`](#RBNF_Syntax)
+  * [Rule Sets](#RBNF_Syntax_Rule_Set)
+  * [Planned removal of ruleset and rule tags](#RBNF_Remove_Ruleset_Rule)
 * [Parsing Numbers](#Parsing_Numbers)
 * [Number Range Formatting](#Number_Range_Formatting)
   * [Approximate Number Formatting](#Approximate_Number_Formatting)
@@ -954,9 +968,9 @@ Each `currencyData` element contains one `fractions` element followed by one or 
 The `fractions` element contains any number of `info` elements, with the following attributes:
 
 * **iso4217:** the ISO 4217 code for the currency in question. If a particular currency does not occur in the fractions list, then it is given the defaults listed for the next two attributes.
-* **digits:** the minimum and maximum number of decimal digits normally formatted. 
-The default is 2. 
-For example, in the en_US locale with the default value of 2 digits, the value 1 USD would format as "$1.00", and the value 1.123 USD would format as → "$1.12". 
+* **digits:** the minimum and maximum number of decimal digits normally formatted.
+The default is 2.
+For example, in the en_US locale with the default value of 2 digits, the value 1 USD would format as "$1.00", and the value 1.123 USD would format as → "$1.12".
 This value of this field is based on the "minor unit" value from ISO 4217, but may deviate from ISO 4217 where there is compelling evidence for different customary practice.
 * **rounding:** the rounding increment, in units of 10<sup>-digits</sup>. The default is 0, which means no rounding is to be done. Therefore, rounding=0 and rounding=1 have identical behavior. Thus with fraction digits of 2 and rounding increment of 5, numeric values are rounded to the nearest 0.05 units in formatting. With fraction digits of 0 and rounding increment of 50, numeric values are rounded to the nearest 50.
 * **cashDigits:** the number of decimal digits to be used when formatting quantities used in cash transactions (as opposed to a quantity that would appear in a more formal setting, such as on a bank statement). If absent, the value of "digits" should be used as a default.
@@ -1004,7 +1018,7 @@ That is, each `currency` element will list an interval in which it was valid. Th
 <currency iso4217="YUN" from="1994-01-01" to="1994-07-22"/>
 ```
 
-All `currency` elements with `tender="false"` should be at the end of the list for a given `region`. 
+All `currency` elements with `tender="false"` should be at the end of the list for a given `region`.
 
 The `from` element is limited by the fact that ISO 4217 does not go very far back in time, so there may be no ISO code for the previous currency.
 
@@ -1353,7 +1367,7 @@ Used to group rules into functional sets. There are 3 known rule types. They are
 
 The `SpelloutRules` type is used for representing a numerical datatype with words that are typically found in speech. There are 4 common rule categories for spellout rules. A language with complete coverage will cover all of these categories. Some languages may provide more than these 4 types depending on what is relevant for a given language:
 
-##### numbering 
+##### numbering
 This is the default used when there is no context for the number. Usually this is used for counting without reference to a noun. For many languages, this may also be used for enumeration of objects, like used when pronouncing "table number one" and "table number two". It can also be used for pronouncing a math equation, like "2 - 3 = -1".
 ##### numbering-year
 This is used for cases where years are pronounced or written a certain way. An example in English is the year 1999, which comes out as "nineteen ninety-nine" instead of the numbering value "one thousand nine hundred ninety-nine". The rules for this type have undefined behavior for non-integer numbers, and values less than 1.
@@ -1364,7 +1378,7 @@ This is used when providing the order of the number of objects. For many languag
 
 #### <a name="NumberingSystemRules" href="#NumberingSystemRules">NumberingSystemRules</a>
 
-The `NumberingSystemRules` type is used for numbering systems. Even though they may be derived from a specific culture, they are typically not translated and the rules are in **root**. An example of these rules are the Roman numerals where the value 8 comes out as VIII. These are typically supported in scenarios where the numbering system does not use decimal digits, but symbols are used to represent a number. 
+The `NumberingSystemRules` type is used for numbering systems. Even though they may be derived from a specific culture, they are typically not translated and the rules are in **root**. An example of these rules are the Roman numerals where the value 8 comes out as VIII. These are typically supported in scenarios where the numbering system does not use decimal digits, but symbols are used to represent a number.
 
 #### <a name="OrdinalRules" href="#OrdinalRules">OrdinalRules</a>
 
@@ -1626,7 +1640,7 @@ of a substitution token.
 
 ### <a name="RBNF_Remove_Ruleset_Rule" href="#RBNF_Remove_Ruleset_Rule">Planned removal of ruleset and rule tags</a>
 
-The following `<ruleset>` and `<rule>` tags will be removed in the next release. They contain redundant information contained in `<rbnfRules>` to provide time to transition to `<rbnfRules>`. 
+The following `<ruleset>` and `<rule>` tags will be removed in the next release. They contain redundant information contained in `<rbnfRules>` to provide time to transition to `<rbnfRules>`.
 
 ```xml
 <ruleset>

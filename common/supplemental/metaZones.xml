@@ -646,7 +646,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<usesMetazone to="2016-12-03 23:00" mzone="Chile"/>
 			</timezone>
 			<timezone type="America/Coyhaique">
-				<usesMetazone to="2025-03-19 21:00" mzone="Chile"/>
+				<usesMetazone to="2025-03-20 03:00" mzone="Chile"/>
 			</timezone>
 			<timezone type="America/Rankin_Inlet">
 				<usesMetazone to="2000-10-29 07:00" mzone="America_Central"/>
@@ -812,8 +812,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</timezone>
 			<timezone type="Asia/Anadyr">
 				<usesMetazone to="2010-03-27 14:00" mzone="Anadyr"/>
-				<usesMetazone from="2010-03-27 14:00" to="2011-03-26 14:00" mzone="Magadan"/>
-				<usesMetazone from="2011-03-26 14:00" mzone="Kamchatka" />
+				<usesMetazone from="2010-03-27 14:00" to="2011-03-26 15:00" mzone="Magadan"/>
+				<usesMetazone from="2011-03-26 15:00" mzone="Kamchatka" />
 			</timezone>
 			<timezone type="Asia/Aqtau">
 				<usesMetazone to="1991-12-15 19:00" mzone="Shevchenko"/>
@@ -850,7 +850,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<usesMetazone mzone="Indochina"/>
 			</timezone>
 			<timezone type="Asia/Barnaul">
-				<usesMetazone from="2016-03-26 19:00" mzone="Krasnoyarsk"/>
+				<usesMetazone from="2016-03-26 20:00" mzone="Krasnoyarsk"/>
 			</timezone>
 			<timezone type="Asia/Beirut">
 				<usesMetazone mzone="Europe_Eastern"/>
@@ -943,7 +943,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<usesMetazone from="2011-09-12 13:00" mzone="Yakutsk"/>
 			</timezone>
 			<timezone type="Europe/Kirov">
-				<usesMetazone from="2014-10-25 23:00" mzone="Moscow" />
+				<usesMetazone from="2014-10-25 22:00" mzone="Moscow" />
 			</timezone>
 			<timezone type="Asia/Krasnoyarsk">
 				<usesMetazone mzone="Krasnoyarsk"/>
@@ -984,8 +984,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<usesMetazone from="2014-10-25 19:00" mzone="Krasnoyarsk"/>
 			</timezone>
 			<timezone type="Asia/Novosibirsk">
-				<usesMetazone to="2016-07-23 19:00" mzone="Novosibirsk"/>
-				<usesMetazone from="2016-07-23 19:00" mzone="Krasnoyarsk"/>
+				<usesMetazone to="2016-07-23 20:00" mzone="Novosibirsk"/>
+				<usesMetazone from="2016-07-23 20:00" mzone="Krasnoyarsk"/>
 			</timezone>
 			<timezone type="Asia/Omsk">
 				<usesMetazone mzone="Omsk"/>
@@ -1033,8 +1033,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<usesMetazone from="1975-06-12 16:00" mzone="Indochina"/>
 			</timezone>
 			<timezone type="Asia/Sakhalin">
-				<usesMetazone to="2014-10-25 16:00" mzone="Sakhalin"/>
-				<usesMetazone from="2014-10-25 16:00" mzone="Magadan"/>
+				<usesMetazone to="2014-10-25 15:00" mzone="Sakhalin"/>
+				<usesMetazone from="2014-10-25 15:00" to="2016-03-26 16:00" mzone="Magadan"/>
+				<usesMetazone from="2016-04-26 16:00" mzone="Magadan"/>
 			</timezone>
 			<timezone type="Asia/Samarkand">
 				<usesMetazone to="1981-09-30 18:00" mzone="Samarkand"/>
@@ -1053,7 +1054,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</timezone>
 			<timezone type="Asia/Srednekolymsk">
 				<usesMetazone to="2014-10-25 14:00" mzone="Magadan"/>
-				<usesMetazone from="2016-04-23 15:00" mzone="Magadan" />
+				<usesMetazone from="2016-04-23 16:00" mzone="Magadan" />
 			</timezone>
 			<timezone type="Asia/Taipei">
 				<usesMetazone mzone="Taipei"/>
@@ -1077,7 +1078,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<usesMetazone mzone="Japan"/>
 			</timezone>
 			<timezone type="Asia/Tomsk">
-				<usesMetazone from="2016-05-28 19:00" mzone="Krasnoyarsk"/>
+				<usesMetazone from="2016-05-28 20:00" mzone="Krasnoyarsk"/>
 			</timezone>
 			<timezone type="Asia/Ulaanbaatar">
 				<usesMetazone mzone="Mongolia"/>
@@ -1372,8 +1373,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<usesMetazone from="1999-10-31 01:00" mzone="Europe_Eastern"/>
 			</timezone>
 			<timezone type="Europe/Volgograd">
-				<usesMetazone to="2020-12-26 23:00" mzone="Volgograd"/>
-				<usesMetazone from="2020-12-26 23:00" mzone="Moscow" />
+				<usesMetazone to="2020-12-26 22:00" mzone="Volgograd"/>
+				<usesMetazone from="2020-12-26 22:00" mzone="Moscow" />
 			</timezone>
 			<timezone type="Europe/Warsaw">
 				<usesMetazone mzone="Europe_Central"/>

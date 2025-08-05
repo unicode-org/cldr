@@ -678,9 +678,8 @@ public class GeneratedPluralSamples {
         for (PluralType type : PluralType.values()) {
             final String filename = type == PluralType.cardinal ? "plurals.xml" : "ordinals.xml";
             try (TempPrintWriter out =
-                    TempPrintWriter.openUTF8Writer(
-                            MyOptions.output.option.getValue(),
-                            filename).skipCopyright(true)) {
+                    TempPrintWriter.openUTF8Writer(MyOptions.output.option.getValue(), filename)
+                            .skipCopyright(true)) {
                 out.print(WritePluralRules.formatPluralHeader(type, "GeneratedPluralSamples"));
                 System.out.println("\n");
                 Set<String> locales = testInfo.getSupplementalDataInfo().getPluralLocales(type);

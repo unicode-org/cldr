@@ -4,7 +4,7 @@
 
 |Version|48 (draft)           |
 |-------|---------------------|
-|Editors|Yoshito Umaoka (<a href="mailto:yoshito_umaoka@us.ibm.com">yoshito_umaoka@us.ibm.com</a>) and <a href="tr35.md#Acknowledgments">other CLDR committee members|
+|Editors|Yoshito Umaoka (<a href="mailto:yoshito_umaoka@us.ibm.com">yoshito_umaoka@us.ibm.com</a>) and <a href="tr35-acknowledgments.md#acknowledgments">other CLDR committee members|
 
 For the full header, summary, and status, see [Part 1: Core](tr35.md).
 
@@ -31,7 +31,7 @@ For the latest version of the Unicode Standard see [[Unicode](https://www.unicod
 For more information see [About Unicode Technical Reports](https://www.unicode.org/reports/about-reports.html) and the [Specifications FAQ](https://www.unicode.org/faq/specifications.html).
 Unicode Technical Reports are governed by the Unicode [Terms of Use](https://www.unicode.org/copyright.html)._
 
-## <a name="Parts" href="#Parts">Parts</a>
+## Parts
 
 The LDML specification is divided into the following parts:
 
@@ -44,6 +44,8 @@ The LDML specification is divided into the following parts:
 *   Part 7: [Keyboards](tr35-keyboards.md#Contents) (keyboard mappings)
 *   Part 8: [Person Names](tr35-personNames.md#Contents) (person names)
 *   Part 9: [MessageFormat](tr35-messageFormat.md#Contents) (message format)
+*   Appendix A: [Modifications](tr35-modifications.md#modifications)
+*   Appendix B: [Acknowledgments](tr35-acknowledgments.md#acknowledgments)
 
 ## <a name="Contents" href="#Contents">Contents of Part 2, General</a>
 
@@ -906,16 +908,16 @@ As with other identifiers in CLDR, the American English spelling is used for uni
 #### Unit Syntax
 
 The formal [EBNF](tr35.md#ebnf) syntax for identifiers is provided below.
-Some of the constraints reference data from various elements in the unit conversion data [units.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/units.xml). 
-These may be either element values or element attribute values. 
+Some of the constraints reference data from various elements in the unit conversion data [units.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/units.xml).
+These may be either element values or element attribute values.
 See [Unit_Conversion](tr35-info.md#Unit_Conversion).
 
-<a name='unit_identifier' href='#unit_identifier'>unit_identifier</a> 
+<a name='unit_identifier' href='#unit_identifier'>unit_identifier</a>
 <br/>:= core_unit_identifier
 <br/>   | mixed_unit_identifier
 <br/>   | long_unit_identifier
 
-<a name='core_unit_identifier' href='#core_unit_identifier'>core_unit_identifier</a> 
+<a name='core_unit_identifier' href='#core_unit_identifier'>core_unit_identifier</a>
 <br/>:= product_unit ("-" per "-" product_unit)\*
 <br/>   | per "-" product_unit\*
 <br/>   | per "-" product_unit ("-" per "-" product_unit)\*   // unnormalized
@@ -936,35 +938,35 @@ See [Unit_Conversion](tr35-info.md#Unit_Conversion).
        * at most one `per`
        * at most one unit_constant; and that only immediately after a `per`
 
-per 
+per
 <br/>:= "per"
 * [ wfc: The token 'per' is the single value in \<unitIdComponent type="per"\> ]
 
-<a name='product_unit' href='#product_unit'>product_unit</a> 
+<a name='product_unit' href='#product_unit'>product_unit</a>
 <br/>:= single_unit ("-" single_unit)* ("-" pu_single_unit)*
 <br/>   | pu_single_unit ("-" pu_single_unit)*
 * [ wfc:  No pu\_single\_unit may precede a single unit ]
 * *Examples:*
     * foot-pound-force
 
-<a name='single_unit' href='#single_unit'>single_unit</a> 
-<br/>:= dimensionality_prefix? simple_unit 
+<a name='single_unit' href='#single_unit'>single_unit</a>
+<br/>:= dimensionality_prefix? simple_unit
 <br/>   | unit_constant
 * *Examples:*
     * square-kilometer
     * 100
 
-<a name='pu_single_unit' href='#pu_single_unit'>pu_single_unit</a> 
+<a name='pu_single_unit' href='#pu_single_unit'>pu_single_unit</a>
 <br/>:= := ("xxx-" | "x-") [a-z0-9]{3,8}
 * *Examples:*
-    * square-xxx-knuts (a Harry Potter unit)  
+    * square-xxx-knuts (a Harry Potter unit)
 * *Notes:*
     * "x-" is only for backwards compatibility; it is deprecated and should not be generated
     * See [Private-Use Units](https://github.com/unicode-org/cldr/edit/main/docs/ldml/tr35-general.md#Private_Use_Units)
 
-<a name='unit_constant' href='#unit_constant'>unit_constant</a> 
+<a name='unit_constant' href='#unit_constant'>unit_constant</a>
 <br/>:= [1-9][0-9]* ("e" [1-9][0-9]*)?
-* *Examples:*  
+* *Examples:*
   * kilowatt-hour-per-100-kilometer
   * gallon-per-100-mile
   * per-200-pound
@@ -980,17 +982,17 @@ per
          * per-1e2 ⇒ per-100
          * per-1000 ⇒ per-1e3
          * per-10000 ⇒ per-10e3
-  
-<a name='dimensionality_prefix' href='#dimensionality_prefix'>dimensionality_prefix</a> 
-<br/>:= "square-" 
-<br/>   | "cubic-" 
+
+<a name='dimensionality_prefix' href='#dimensionality_prefix'>dimensionality_prefix</a>
+<br/>:= "square-"
+<br/>   | "cubic-"
 <br/>   | "pow" ([2-9]|1[0-5]) "-"
-* [ wfc:  Must be value in: \<unitIdComponent type="power"\>. ] 
+* [ wfc:  Must be value in: \<unitIdComponent type="power"\>. ]
 * *Notes:*
-    * "pow2-" and "pow3-" canonicalize to "square-" and "cubic-" 
-  
-<a name='simple_unit' href='#simple_unit'>simple_unit</a> 
-<br/>:= (prefix_component "-")* (prefixed_unit 
+    * "pow2-" and "pow3-" canonicalize to "square-" and "cubic-"
+
+<a name='simple_unit' href='#simple_unit'>simple_unit</a>
+<br/>:= (prefix_component "-")* (prefixed_unit
 <br/>   | base_component) ("-" suffix_component)*
 <br/>   | currency_unit
 <br/>   | ("em" | "g" | "us" | "hg" | "of")
@@ -1003,37 +1005,37 @@ per
     * em
 * *Notes:*
     * Five simple units are currently allowed as legacy usage, for tokens that wouldn’t otherwise be a base\_component due to length (eg, "g-force").Those are likely to be deprecated in teh future, with conformant aliases added: the "hg" and "of" are already only in deprecated simple\_units.
-  
+
 <a name='prefixed_unit' href='#prefixed_unit'>prefixed_unit</a>
     prefix base_component
 * *Examples:*
     *  kilometer
 
-<a name='prefix' href='#prefix'>prefix</a> 
-<br/>:= si_prefix 
+<a name='prefix' href='#prefix'>prefix</a>
+<br/>:= si_prefix
 <br/>   | binary_prefix
 
-<a name='si_prefix' href='#si_prefix'>si_prefix</a> 
-<br/>:= "deka" 
-<br/>   | "hecto" 
+<a name='si_prefix' href='#si_prefix'>si_prefix</a>
+<br/>:= "deka"
+<br/>   | "hecto"
 <br/>   | "kilo", …
 * [ wfc:  Must be an attribute value of the `type` in: \<unitPrefix type='…' … power10='…'\> ]
 * *Notes:*
-    * See also [NIST special publication 811](https://www.nist.gov/pml/special-publication-811) 
+    * See also [NIST special publication 811](https://www.nist.gov/pml/special-publication-811)
 
-<a name='binary_prefix' href='#binary_prefix'>binary_prefix</a> 
+<a name='binary_prefix' href='#binary_prefix'>binary_prefix</a>
 <br/>:= "kibi", "mebi", …
 * [ wfc:  Must be an attribute value of the `type` in: \<unitPrefix type='…' … power2='…'\>. ]
 * *Notes:*
     * See also [Prefixes for binary multiples](https://physics.nist.gov/cuu/Units/binary.html)
 
-<a name='prefix_component' href='#prefix_component'>prefix_component</a> 
+<a name='prefix_component' href='#prefix_component'>prefix_component</a>
 <br/>:= [a-z]{3,}
 * [ vc:  must be value in: \<unitIdComponent type="prefix"\>. ]
 * *Notes:*
     * The set of prefix components often expands in new releases, so the requirement to be one of these attribute values is a validity constraint, not a well-formedness constraint. *
 
-<a name='base_component' href='#base_component'>base_component</a> 
+<a name='base_component' href='#base_component'>base_component</a>
 <br/>:= [a-z]{3,}
 * [ wfc:  must not have a prefix as an initial segment. ]
 * [ wfc:  must not be a value in \<unitIdComponent type="X"\> for X in \{prefix, suffix, power, and, per} ]
@@ -1043,28 +1045,28 @@ per
     * The base-components in unitAlias `type` are deprecated, should be converted to their replacement values.
     * No two different base\_components will share the first 8 letters; see [Unit Identifier Uniqueness](https://github.com/unicode-org/cldr/edit/main/docs/ldml/tr35-general.md#Unit_Identifier_Uniqueness).) ]
 
-<a name='suffix_component' href='#suffix_component'>suffix_component</a> 
+<a name='suffix_component' href='#suffix_component'>suffix_component</a>
 <br/>:= [a-z]{3,}
 * [ vc:  must be value in: \<unitIdComponent type="suffix"\> ]
 * *Notes:*
     * The set of suffix components often expands in new releases, so the requirement to be one of these attribute values is a validity constraint, not a well-formedness constraint.
 
-<a name='mixed_unit_identifier' href='#mixed_unit_identifier'>mixed_unit_identifier</a> 
+<a name='mixed_unit_identifier' href='#mixed_unit_identifier'>mixed_unit_identifier</a>
 <br/>:= (single_unit | pu_single_unit) ("-" and "-" (single_unit | pu_single_unit ))*
 * *Examples:*
     * foot-and-inch
 
-and 
+and
 <br/>:= "and"
 * [ wfc:  The token 'and' is the single value in \<unitIdComponent type="and"\> ]
 
-<a name='long_unit_identifier' href='#long_unit_identifier'>long_unit_identifier</a> 
+<a name='long_unit_identifier' href='#long_unit_identifier'>long_unit_identifier</a>
 <br/>:= grouping "-" core_unit_identifier
 
-grouping 
+grouping
 <br/>:= [a-z]{3,}
 
-<a name='currency_unit' href='#currency_unit'>currency_unit</a> 
+<a name='currency_unit' href='#currency_unit'>currency_unit</a>
 <br/>:= "curr-" [a-z]{3}
 * [ wfc:  The first part of the currency\_unit is a standard prefix; the second part of the currency unit must be a valid [Unicode currency identifier](https://github.com/unicode-org/cldr/blob/main/docs/ldml/tr35.md#UnicodeCurrencyIdentifier). ]
 * *Examples:*
@@ -2660,12 +2662,12 @@ For more information, see version 5.0 or [UTR #51, Unicode Emoji](https://www.un
 
 There are two kinds of annotations: **short names**, and **search keywords**.
 
-With an attribute `type="tts"`, the value is a **short name**, such as one that can be used for text-to-speech. 
+With an attribute `type="tts"`, the value is a **short name**, such as one that can be used for text-to-speech.
 It should be treated as one of the element values for other purposes.
 
-When there is no `type` attribute, the value is a set of **keywords**, delimited by |. 
-Spaces around each element are to be trimmed. 
-The **keywords** are words associated with the character(s) that might be used in searching for the character, 
+When there is no `type` attribute, the value is a set of **keywords**, delimited by |.
+Spaces around each element are to be trimmed.
+The **keywords** are words associated with the character(s) that might be used in searching for the character,
 or in predictive typing on keyboards. The short name itself can be used as a keyword.
 
 Here is an example from German:
@@ -2681,10 +2683,10 @@ These are intended as search keywords, and not for "triggering" (aka suggesting)
   displayed adjacent to the virtual keyboard. Selecting the emoji adds it to the message.
   For example, you mention your birthday while writing, and an emoji cake pops up.
   That is typically done with an LLM or similar advanced technology.
-- For searching, the user is looking for an emoji in a search box, 
+- For searching, the user is looking for an emoji in a search box,
   and typing in in words that narrow down a displayed set of emoji.
   For example, you type 'heart', but that has too many hits, so you add 'blue' and get the set of blue hearts.
-  
+
 ### Usage Model
 
 The usage model for the search keywords is:
@@ -2702,23 +2704,23 @@ The usage model for the search keywords is:
     - celebrate → 🥳 🥂 🎈 🎉 🎊 🪅
 - The order of words doesn’t matter.
 
-Multiword search keywords are typically broken up into separate parts, 
+Multiword search keywords are typically broken up into separate parts,
 because that works better with the usage model. So [hand | mouth | omg | open | over] covers the phrase "hand over mouth".
 
 ### cp attribute
 
-The `cp` attribute value has two formats: either a single string, or if contained within \[…\] a UnicodeSet. 
+The `cp` attribute value has two formats: either a single string, or if contained within \[…\] a UnicodeSet.
 The latter format can contain multiple code points or strings. A code point pr string can occur in multiple annotation element **cp** values, such as the following, which also contains the "thumbs down" character.
 
 ```xml
 <annotation cp='[☝✊-✍👆-👐👫-👭💁🖐🖕🖖🙅🙆🙋🙌🙏🤘]'>hand</annotation>
 ```
 
-Both for short names and keywords, values do not have to match between different languages. 
-They should be the most common values that people using _that_ language would associate with those characters. 
+Both for short names and keywords, values do not have to match between different languages.
+They should be the most common values that people using _that_ language would associate with those characters.
 For example, a "black heart" might have the association of "wicked" in English, but not in some other languages.
 
-The cp value may contain sequences, but does not contain any Emoji or Text Variant (VS15 & VS16) characters. 
+The cp value may contain sequences, but does not contain any Emoji or Text Variant (VS15 & VS16) characters.
 All such characters should be removed before looking up any short names and keywords.
 
 ### <a name="SynthesizingNames" href="#SynthesizingNames">Synthesizing Sequence Names</a>

@@ -77,6 +77,7 @@ For terms of use, see https://www.unicode.org/copyright.html
             <info iso4217="VEF" digits="2" rounding="0" cashDigits="0" cashRounding="0"/>
             <info iso4217="VND" digits="0" rounding="0"/>
             <info iso4217="VUV" digits="0" rounding="0"/>
+			<info iso4217="XAD" digits="2" rounding="0"/>
             <info iso4217="XAF" digits="0" rounding="0"/>
 			<info iso4217="XAU" digits="2" rounding="0"/>
             <info iso4217="XOF" digits="0" rounding="0"/>
@@ -1189,7 +1190,7 @@ The printed version of ISO-4217:2001
             <currency iso4217="RHD" from="1970-02-17" to="1980-04-18"/>
         </region>
         <region iso3166="ZZ">
-            <currency iso4217="XAD" tender="false"/>
+            <currency iso4217="XAD" from="2025-05-12" tender="false"/>
             <currency iso4217="XAG" tender="false"/>
             <currency iso4217="XAU" tender="false"/>
             <currency iso4217="XBA" tender="false"/>

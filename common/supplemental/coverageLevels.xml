@@ -76,8 +76,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageVariable key="%dateFormatItems" value="((E|d|Ed|EEEEd)|((Gy|y|yyyy|U)?(M|Md|MEd|MEEEEd|MMM|MMMd|MMMEd|MMMEEEEd|MMMM|MMMMd|MMMMEd|MMMMEEEEd))|((Gy|y|yyyy)(QQQ|QQQQ)?))"/>
 		<coverageVariable key="%dateFormatItemsAll" value="(G{0,5}(y|U){0,4}Q{0,4}(M|L){0,5}(E|c){0,5}d{0,2}(H|h){0,2}m{0,2}s{0,2}(v|z|Z){0,4})"/>
 		<coverageVariable key="%dateTimeFormatLengths" value="(full|long|medium|short)"/>
-		<coverageVariable key="%iso8601IDs" value='([^\x{22}]*(Gy|y[MQw]|M[EdW]|Ed)[^\x{22}]*)'/> <!-- two different date characters. Because they are ordered we can test pairs -->
-
 		<coverageVariable key="%emTypes" value="(default|emoji|text)"/>
 		<coverageVariable key="%fullMedium" value="(full|medium)"/>
 		<coverageVariable key="%fullShort" value="(full|short)"/>
@@ -398,8 +396,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 
 		<coverageLevel	value="moderate"	 	match="dates/calendars/calendar[@type='gregorian']/dateFormats/dateFormatLength[@type='%fullMedium']/dateFormat%stdPattern"/>
 		<coverageLevel	value="moderate"		match="dates/calendars/calendar[@type='gregorian']/dateFormats/dateFormatLength[@type='%shortLong']/dateFormat%stdPattern"/>
-		<!-- <coverageLevel	value="moderate"	 	match="dates/calendars/calendar[@type='(gregorian|iso8601)']/dateFormats/dateFormatLength[@type='%fullMedium']/dateFormat%stdPattern"/> -->
-		<!-- <coverageLevel	value="moderate"		match="dates/calendars/calendar[@type='(gregorian|iso8601)']/dateFormats/dateFormatLength[@type='%shortLong']/dateFormat%stdPattern"/> -->
 		<coverageLevel	value="moderate"		match="dates/calendars/calendar[@type='generic']/dateFormats/dateFormatLength[@type='%shortLong']/dateFormat%stdPattern"/>
 		<coverageLevel	value="moderate"	 	match="dates/calendars/calendar[@type='generic']/dateFormats/dateFormatLength[@type='%fullMedium']/dateFormat%stdPattern"/>
 		<coverageLevel	value="moderate"	inTerritory="%chineseCalendarTerritories"	match="dates/calendars/calendar[@type='chinese']/dateFormats/dateFormatLength[@type='%dateTimeFormatLengths']/dateFormat%stdPattern"/>
@@ -419,11 +415,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 
 		<coverageLevel	value="basic"	 	match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/intervalFormats/intervalFormatFallback"/>
 		<coverageLevel	value="moderate"	 	match="dates/calendars/calendar[@type='generic']/dateTimeFormats/intervalFormats/intervalFormatFallback"/>
-		<!-- <coverageLevel	value="comprehensive"	 	match="dates/calendars/calendar[@type='iso8601']/dateTimeFormats/intervalFormats/intervalFormatFallback"/> -->
 
 		<coverageLevel	value="basic"	 	    match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/availableFormats/dateFormatItem[@id='%basicDateSkeletons']"/>
 		<coverageLevel	value="moderate"	 	match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/availableFormats/dateFormatItem[@id='%anyAttribute']"/>
-		<!-- <coverageLevel	value="moderate"	 	match="dates/calendars/calendar[@type='iso8601']/dateTimeFormats/availableFormats/dateFormatItem[@id='%iso8601IDs']"/> -->
 
 		<coverageLevel	value="moderate"	 	match="dates/calendars/calendar[@type='gregorian']/eras/eraAbbr/era[@type='(0|1)']"/>
 		<coverageLevel	value="moderate"	 	match="dates/calendars/calendar[@type='gregorian']/eras/eraAbbr/era[@type='(0|1)'][@alt='variant']"/>
@@ -755,9 +749,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="moderate" match="localeDisplayNames/scripts/script[@type='%script60']"/>
 		<coverageLevel value="moderate" match="localeDisplayNames/territories/territory[@type='%territory60']"/>
 		<coverageLevel inTerritory="EU" value="moderate" match="localeDisplayNames/territories/territory[@type='%territory60_EU']"/>
-		<!-- <coverageLevel value="moderate" match="localeDisplayNames/types/type[@key='calendar'][@type='iso8601'][@scope='%A']"/> -->
-		<!-- <coverageLevel value="moderate" match="localeDisplayNames/types/type[@key='calendar'][@type='iso8601']"/> -->
-		<!-- <coverageLevel value="moderate" match="localeDisplayNames/types/type[@key='calendar'][@type='iso8601'][@alt='variant']"/> -->
+		<coverageLevel value="moderate" match="localeDisplayNames/types/type[@key='calendar'][@type='iso8601'][@scope='%A']"/>
+		<coverageLevel value="moderate" match="localeDisplayNames/types/type[@key='calendar'][@type='iso8601']"/>
+		<coverageLevel value="moderate" match="localeDisplayNames/types/type[@key='calendar'][@type='iso8601'][@alt='variant']"/>
 		<coverageLevel value="moderate" match="numbers/currencies/currency[@type='%currency60']/symbol"/>
 		<coverageLevel value="moderate" match="numbers/currencies/currency[@type='%currency60']/symbol[@alt='(narrow|variant)']"/>
 		<coverageLevel value="moderate" match="numbers/currencies/currency[@type='%currency60']/displayName"/>
@@ -1016,7 +1010,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 		
 		<coverageLevel value="moderate" match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/intervalFormats/intervalFormatItem[@id='%intervalFormatDateItems']/greatestDifference[@id='%intervalFormatGDiff']"/>
 		<coverageLevel value="moderate" match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/intervalFormats/intervalFormatItem[@id='%intervalFormatTimeItems']/greatestDifference[@id='%intervalFormatGDiff']"/>
-		<!-- <coverageLevel value="moderate" match="dates/calendars/calendar[@type='iso8601']/dateTimeFormats/intervalFormats/intervalFormatItem[@id='%iso8601IDs']/greatestDifference[@id='%intervalFormatGDiff']"/> -->
 		<coverageLevel value="moderate" match="dates/calendars/calendar[@type='generic']/dateTimeFormats/intervalFormats/intervalFormatItem[@id='%intervalFormatDateItems']/greatestDifference[@id='%intervalFormatGDiff']"/>
 		<coverageLevel inLanguage="(hi|zh)" value="moderate" match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/intervalFormats/intervalFormatItem[@id='%intervalFormatTimeItemsDayPer']/greatestDifference[@id='%intervalFormatGDiff']"/>
 		<coverageLevel inLanguage="(hi|zh)" value="moderate" match="dates/calendars/calendar[@type='generic']/dateTimeFormats/intervalFormats/intervalFormatItem[@id='%intervalFormatTimeItemsDayPer']/greatestDifference[@id='%intervalFormatGDiff']"/>
@@ -1038,8 +1031,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="moderate" match="characters/parseLenients[@scope='%anyAttribute'][@level='%anyAttribute']/parseLenient[@sample='%anyAttribute']"/>
 		
 		<coverageLevel value="moderate" match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/availableFormats/dateFormatItem[@id='%anyAttribute'][@count='%anyAttribute']"/>
-		<!-- <coverageLevel value="moderate" match="dates/calendars/calendar[@type='iso8601']/dateTimeFormats/availableFormats/dateFormatItem[@id='%iso8601IDs'][@count='%anyAttribute']"/> -->
-		
 		<coverageLevel value="moderate" match="dates/calendars/calendar[@type='gregorian']/days/dayContext[@type='%contextTypes']/dayWidth[@type='short']/day[@type='%dayTypes']"/>
 		<coverageLevel value="moderate" match="dates/calendars/calendar[@type='gregorian']/dayPeriods/dayPeriodContext[@type='%anyAlphaNum']/dayPeriodWidth[@type='%allWidths']/dayPeriod[@type='%anyAlphaNum']"/>
 		<coverageLevel value="moderate" match="dates/calendars/calendar[@type='gregorian']/eras/eraNames/era[@type='(0|1)']"/>
@@ -1114,7 +1105,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="modern" match="localeDisplayNames/types/type[@key='kr'][@type='(currency|digit|punct|space|symbol)'][@scope='%A']"/>
 		<coverageLevel value="modern" match="localeDisplayNames/types/type[@key='kr'][@type='(currency|digit|punct|space|symbol)']"/>
 		<coverageLevel value="modern" match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/intervalFormats/intervalFormatItem[@id='%intervalFormatTimeItemsDayPer']/greatestDifference[@id='%intervalFormatGDiff']"/>
-		<!-- <coverageLevel value="modern" match="dates/calendars/calendar[@type='iso8601']/dateTimeFormats/intervalFormats/intervalFormatItem[@id='%iso8601IDs']/greatestDifference[@id='%intervalFormatGDiff']"/> -->
 		<coverageLevel value="modern" match="dates/calendars/calendar[@type='generic']/dateTimeFormats/intervalFormats/intervalFormatItem[@id='%intervalFormatTimeItemsDayPer']/greatestDifference[@id='%intervalFormatGDiff']"/>
 		<coverageLevel value="modern" match="dates/calendars/calendar[@type='generic']/dateTimeFormats/availableFormats/dateFormatItem[@id='%timeFormatItemsDayPer']"/>
 		<coverageLevel inLanguage="(ja|ko|vi|zh)" value="modern" match="dates/calendars/calendar[@type='chinese']/dateTimeFormats/availableFormats/dateFormatItem[@id='%dateFormatItemsAll']"/>
@@ -1139,7 +1129,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="modern" match="dates/fields/field[@type='minute']/relative[@type='0']"/>
 		<coverageLevel value="modern" match="dates/fields/field[@type='second']/relative[@type='0']"/>
 		<coverageLevel value="modern" match="dates/fields/field[@type='quarter']/relative[@type='(-1|0|1)']"/>
-		
+
 		<coverageLevel	value="modern"		match="numbers/rationalFormats[@numberSystem='latn']/rationalPattern"/>
 		<coverageLevel	value="modern"		match="numbers/rationalFormats[@numberSystem='latn']/rationalUsage"/>
 		<coverageLevel	value="modern"		match="numbers/rationalFormats[@numberSystem='latn']/integerAndRationalPattern"/>

@@ -2053,16 +2053,24 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         }
     }
 
+    /**
+     * @param causeError type of issue - warn/err/log
+     * @param message message text
+     * @param logTicket if non-null, attempt log known issue
+     * @param logComment optional comment with log known issue
+     * @see {@link UnicodeKnownIssues}
+     */
     public void errOrLog(
             CoverageIssue causeError, String message, String logTicket, String logComment) {
         switch (causeError) {
             case error:
-                if (logTicket == null) {
-                    errln(message);
+                if (logTicket != null && logKnownIssue(logTicket, logComment)) {
+                    warnln(message);
                     break;
+                } else {
+                    errln(message);
                 }
-                logKnownIssue(logTicket, logComment);
-                // fall through
+                break;
             case warn:
                 warnln(message);
                 break;

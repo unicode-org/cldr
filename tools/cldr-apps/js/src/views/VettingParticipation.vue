@@ -12,6 +12,7 @@ let status = ref(STATUS.INIT);
 let tableBody = null;
 let tableHeader = null;
 let tableComments = null;
+let accountColumnIndex = ref(-1);
 
 function mounted() {
   cldrVettingParticipation.viewMounted(setData);
@@ -47,14 +48,11 @@ function setData(data) {
   if (data.status) {
     status.value = data.status;
   }
-  if (data.tableHeader) {
+  if (data.tableHeader && data.tableBody && data.tableComments) {
     tableHeader = reactive(data.tableHeader);
-  }
-  if (data.tableBody) {
     tableBody = reactive(data.tableBody);
-  }
-  if (data.tableComments) {
     tableComments = reactive(data.tableComments);
+    accountColumnIndex.value = data.accountColumnIndex;
   }
 }
 
@@ -69,6 +67,10 @@ function progressBarStatus() {
   } else {
     return "normal";
   }
+}
+
+function accountRecentActivityLink(cell) {
+  return "#recent_activity///" + cell;
 }
 
 function saveAsSheet() {
@@ -111,8 +113,15 @@ defineExpose({
         </thead>
         <tbody>
           <tr v-for="row of tableBody" :key="row">
-            <td v-for="cell of row" :key="cell">
-              {{ cell }}
+            <td v-for="(cell, index) of row" :key="cell">
+              <div v-if="accountColumnIndex == index">
+                <a-tooltip title="Show recent activity ↗">
+                  <a :href="accountRecentActivityLink(cell)" target="_blank">{{ cell }}</a>
+                </a-tooltip>
+              </div>
+              <div v-else>
+                {{ cell }}
+              </div>
             </td>
           </tr>
         </tbody>

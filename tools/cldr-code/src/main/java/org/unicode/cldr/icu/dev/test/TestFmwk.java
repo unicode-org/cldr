@@ -847,10 +847,15 @@ public class TestFmwk extends AbstractTestLog {
      * Log the known issue. This method returns true unless -prop:logKnownIssue=no is specified in
      * the argument list.
      *
+     * <p>Note, the caller must check the return value from logKnownIssue(). If the return value is
+     * true, the test may be skipped (or print a warning.). If the return value is false, the test
+     * ought to run and should fail if there is an error.
+     *
      * @param ticket A ticket number string. For an ICU ticket, use "ICU-10245". For a CLDR ticket,
      *     use "CLDR-12345". For compatibility, "1234" -> ICU-1234 and "cldrbug:456" -> CLDR-456
      * @param comment Additional comment, or null
-     * @return true unless -prop:logKnownIssue=no is specified in the test command line argument.
+     * @return true (meaning to skip) unless -prop:logKnownIssue=no is specified in the test command
+     *     line argument. If false is returned. the test ought to fail.
      */
     public boolean logKnownIssue(String ticket, String comment) {
         if (params.hasLogKnownIssue()) {

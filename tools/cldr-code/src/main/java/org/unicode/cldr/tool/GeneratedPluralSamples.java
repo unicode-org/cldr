@@ -676,10 +676,11 @@ public class GeneratedPluralSamples {
         System.out.println("Check: " + checkForDuplicates(pluralRules2, new FixedDecimal("8e1")));
 
         for (PluralType type : PluralType.values()) {
+            final String filename = type == PluralType.cardinal ? "plurals.xml" : "ordinals.xml";
             try (TempPrintWriter out =
                     TempPrintWriter.openUTF8Writer(
                             MyOptions.output.option.getValue(),
-                            type == PluralType.cardinal ? "plurals.xml" : "ordinals.xml")) {
+                            filename).skipCopyright(true)) {
                 out.print(WritePluralRules.formatPluralHeader(type, "GeneratedPluralSamples"));
                 System.out.println("\n");
                 Set<String> locales = testInfo.getSupplementalDataInfo().getPluralLocales(type);
@@ -820,6 +821,7 @@ public class GeneratedPluralSamples {
                     }
                 }
                 System.out.println("\n");
+                System.out.println("Wrote (or no change): " + filename);
             }
         }
         if (failureCount > 0) {

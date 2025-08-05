@@ -322,7 +322,8 @@ public class TestDtdData extends TestFmwk {
                 if (!valueAttributes.isEmpty()) {
                     switch (element.getName()) {
                         case "ruleset":
-                            logKnownIssue("cldrbug:8909", "waiting for RBNF to use data");
+                            logKnownIssue(
+                                    "CLDR-18865", "Need exception for DTD test for migration");
                             break;
                         case "key":
                         case "territory":

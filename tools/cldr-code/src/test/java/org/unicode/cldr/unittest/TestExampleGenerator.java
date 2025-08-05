@@ -2080,17 +2080,19 @@ public class TestExampleGenerator extends TestFmwk {
             // show all the skipped items, and logKnownIssue items
 
             for (Entry<String, Collection<String>> entry : skipped.asMap().entrySet()) {
-                final String ticketComment = entry.getKey();
+                final String entryComment = entry.getKey();
                 final String paths = CR_TAB2_JOINER.join(entry.getValue());
-                if (ticketComment.equals(SKIP)) {
-                    logln(ticketComment + ";\n\t\t" + paths);
+                if (entryComment.equals(SKIP)) {
+                    logln(entryComment + ";\n\t\t" + paths);
                 } else {
-                    int spacePos = ticketComment.indexOf(' ');
-                    logKnownIssue(
-                            ticketComment.substring(0, spacePos),
-                            ticketComment.substring(spacePos + 1)
-                                    + ")\n\t\t(For the following paths:\n\t\t"
-                                    + paths);
+                    int spacePos = entryComment.indexOf(' ');
+                    String ticketId = entryComment.substring(0, spacePos);
+                    String ticketMessage = entryComment.substring(spacePos + 1);
+                    String message =
+                            ticketMessage + ")\n\t\t(For the following paths:\n\t\t" + paths;
+                    if (!logKnownIssue(ticketId, message)) {
+                        errln(message + " (known issue " + ticketId + ")");
+                    }
                 }
             }
 

@@ -321,9 +321,6 @@ public class TestDtdData extends TestFmwk {
                 }
                 if (!valueAttributes.isEmpty()) {
                     switch (element.getName()) {
-                        case "ruleset":
-                            logKnownIssue("cldrbug:8909", "waiting for RBNF to use data");
-                            break;
                         case "key":
                         case "territory":
                         case "transform":

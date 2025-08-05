@@ -356,6 +356,10 @@ public class VoteResolver<T> {
             return stlevel <= manager.stlevel;
         }
 
+        public boolean isExactlyVetter() {
+            return stlevel == vetter.stlevel;
+        }
+
         public boolean isVetterOrStronger() {
             return stlevel <= vetter.stlevel;
         }

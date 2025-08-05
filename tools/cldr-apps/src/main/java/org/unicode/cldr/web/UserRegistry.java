@@ -1834,6 +1834,10 @@ public class UserRegistry {
         return (u != null) && u.getLevel().isManagerOrStronger();
     }
 
+    public static boolean userIsExactlyVetter(User u) {
+        return (u != null) && u.getLevel().isExactlyVetter();
+    }
+
     public static boolean userIsVetterOrStronger(User u) {
         return (u != null) && u.getLevel().isVetterOrStronger();
     }

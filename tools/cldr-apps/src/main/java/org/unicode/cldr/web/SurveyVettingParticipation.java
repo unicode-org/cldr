@@ -71,27 +71,22 @@ public class SurveyVettingParticipation {
             while (rsu.next()) {
                 int theirId = rsu.getInt("id");
                 final User theUser = sm.reg.getInfo(theirId);
-
-                if (UserRegistry.userIsLocked(theUser)
-                        || UserRegistry.userIsManagerOrStronger(theUser)
-                        || !UserRegistry.userIsGuestOrStronger(theUser)) {
-                    continue; // skip these
+                if (!UserRegistry.userIsExactlyVetter(theUser)) {
+                    continue;
+                }
+                LocaleSet localeSet = getVettingParticipationLocales(theUser);
+                if (localeSet == null || localeSet.isEmpty()) {
+                    continue;
                 }
                 // Note: this json includes some data not currently (2025-07) used by the
                 // client for vetting participation, such as user.emailHash and user.time.
                 final JSONObject json = SurveyJSONWrapper.wrap(theUser);
                 userObj.put(json);
-
-                final LocaleSet intSet = theUser.getInterestLocales();
-                if (intSet == null || intSet.isEmpty() || intSet.isAllLocales()) {
-                    json.put("allLocales", true);
-                } else {
-                    JSONArray intArr = new JSONArray();
-                    for (final CLDRLocale l : intSet.getSet()) {
-                        intArr.put(l.getBaseName());
-                    }
-                    json.put("locales", intArr);
+                JSONArray intArr = new JSONArray();
+                for (final CLDRLocale l : localeSet.getSet()) {
+                    intArr.put(l.getBaseName());
                 }
+                json.put("locales", intArr);
             }
 
             rs = psParticipation.executeQuery();
@@ -117,5 +112,24 @@ public class SurveyVettingParticipation {
         }
         r.put("users", userObj);
         r.put("participation", participationObj);
+    }
+
+    /**
+     * Basically, get the authorized locale set for the given user; however, if that set is "all
+     * locales", return null unless the user's org has just one language, in which case get that
+     * language
+     *
+     * @param theUser the user in question
+     * @return the set of locales, or null, but not "all locales"
+     */
+    private LocaleSet getVettingParticipationLocales(User theUser) {
+        LocaleSet set = theUser.getAuthorizedLocaleSet();
+        if (set != null && set.isAllLocales()) {
+            set = theUser.getOrganization().getCoveredLocales();
+            if (set.isAllLocales() || set.getSet().size() != 1) {
+                return null;
+            }
+        }
+        return set;
     }
 }

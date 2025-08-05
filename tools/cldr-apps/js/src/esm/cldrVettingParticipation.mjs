@@ -36,8 +36,9 @@ const COLUMN_TITLE_COVERAGE_LEVEL = "Coverage";
 const COLUMN_TITLE_LEVEL = "Level";
 const COLUMN_TITLE_PROGRESS_PERCENT = "Done";
 const COLUMN_TITLE_ABSTAIN_COUNT = "Abst.";
-const COLUMN_TITLE_EMP = "EMP";
-const COLUMN_TITLE_MP = "MP";
+const COLUMN_TITLE_ERROR_COUNT = "Err.";
+const COLUMN_TITLE_MISSING_COUNT = "Miss.";
+const COLUMN_TITLE_PROVISIONAL_COUNT = "Prov.";
 const COLUMN_TITLE_USER_ID = "User#";
 const COLUMN_TITLE_USER_EMAIL = "Email";
 const COLUMN_TITLE_USER_NAME = "Name";
@@ -66,13 +67,18 @@ const COLUMNS = [
     default: 0,
   },
   {
-    title: COLUMN_TITLE_EMP,
-    comment: "Sum of errors + missing + provisional (for locale)",
+    title: COLUMN_TITLE_ERROR_COUNT,
+    comment: "Number of errors (for locale)",
     default: 0,
   },
   {
-    title: COLUMN_TITLE_MP,
-    comment: "Sum of missing + provisional (for locale)",
+    title: COLUMN_TITLE_MISSING_COUNT,
+    comment: "Number of missing paths (for locale)",
+    default: 0,
+  },
+  {
+    title: COLUMN_TITLE_PROVISIONAL_COUNT,
+    comment: "Number of provisional paths (for locale)",
     default: 0,
   },
   {
@@ -161,6 +167,7 @@ function makeRequest(req) {
         "cldrVettingParticipation.makeRequest, fetching initial data"
       );
     }
+    vpData.startTime = Date.now();
     const p = new URLSearchParams();
     p.append("what", "vetting_participation");
     p.append("s", cldrStatus.getSessionId());
@@ -187,6 +194,8 @@ function loadHandler(json) {
     console.dir({ json });
     cldrNotify.error("Error loading vetting participation", json.err);
   } else if (callbackToSetData) {
+    vpData.firstResponseTime = Date.now();
+
     // This json is the response to the initial request to what=vetting_participation
     storeInitialResponseData(json);
 
@@ -268,10 +277,13 @@ function preloadVotingResults() {
     if (wasCancelled()) {
       return;
     }
-    // "user" here is an object; id = user.id
-    if (!isRegularVetter(user)) {
+    if (!user.locales || !user.locales.length) {
+      if (VP_DEBUG) {
+        console.log("user.locales is missing or empty for user id " + id);
+      }
       continue;
     }
+    // "user" here is an object; id = user.id
     user.data = {};
     for (const locale of user.locales.sort()) {
       if (VP_DEBUG) {
@@ -322,6 +334,7 @@ function preloadVotingResults() {
 
 async function createTable() {
   const columnIndex = getIndexOfColumnsByTitle();
+  vpData.accountColumnIndex = columnIndex[COLUMN_TITLE_USER_ID];
   const rowMap = {};
   for (const [id, user] of Object.entries(vpData.uidToUser)) {
     if (VP_DEBUG) {
@@ -366,9 +379,9 @@ async function createTable() {
         daysAgo = "♾️";
       }
       row[columnIndex[COLUMN_TITLE_LAST_MOD]] = daysAgo;
-      row[columnIndex[COLUMN_TITLE_EMP]] =
-        errorCount + missingCount + provisionalCount;
-      row[columnIndex[COLUMN_TITLE_MP]] = missingCount + provisionalCount;
+      row[columnIndex[COLUMN_TITLE_ERROR_COUNT]] = errorCount;
+      row[columnIndex[COLUMN_TITLE_MISSING_COUNT]] = missingCount;
+      row[columnIndex[COLUMN_TITLE_PROVISIONAL_COUNT]] = provisionalCount;
       const sortKey = localeName + " " + user.org + " " + id;
       rowMap[sortKey] = [...row]; // clone the array since table will retain a reference
     }
@@ -387,7 +400,8 @@ function showResults() {
     console.log("showResults, done, 100%");
   }
   const viewData = {
-    message: "Done",
+    accountColumnIndex: vpData.accountColumnIndex,
+    message: getDoneMessage(),
     percent: 100,
     status: Status.SUCCEEDED,
     tableHeader: getHeaderRow(),
@@ -395,6 +409,27 @@ function showResults() {
     tableBody: tableBody,
   };
   callbackToSetData(viewData);
+}
+
+// Tell the time (in minutes) it took to wait, and the time it took to finish (after the wait ended)
+function getDoneMessage() {
+  const finishTime = Date.now();
+  const minutesWaiting = Math.floor(
+    (vpData.firstResponseTime - vpData.startTime) / 1000
+  );
+  const minutesFurther = Math.floor(
+    (finishTime - vpData.firstResponseTime) / 1000
+  );
+  const minutesTotal = minutesWaiting + minutesFurther;
+  return (
+    "Done. Time elapsed = " +
+    minutesTotal +
+    " minutes (" +
+    minutesWaiting +
+    " waiting for first response + " +
+    minutesFurther +
+    " additional)"
+  );
 }
 
 function wasCancelled() {
@@ -536,14 +571,6 @@ function addColumnComments(worksheet) {
     cldrXlsx.pushComment(worksheet, cell, col.title + ": " + col.comment);
     ++columnNumber;
   }
-}
-
-/** are we tracking this user? */
-function isRegularVetter(user) {
-  if (user.allLocales || !user.locales) {
-    return false;
-  }
-  return user.userlevelName === "vetter" || user.userlevelName === "guest";
 }
 
 export { Status, cancel, hasPermission, saveAsSheet, start, viewMounted };

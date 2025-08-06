@@ -113,16 +113,13 @@ public class TestScriptMetadata extends TestFmwkPlus {
         for (int i = UScript.COMMON; i < UScript.CODE_LIMIT; ++i) {
             String longName = UScript.getName(i);
             String shortName = UScript.getShortName(i);
+            if (shortName.equals("Chis")) {
+                logKnownIssue("ICU-23038", "ICU4J UScript still supports CHISOI");
+                continue;
+            }
             Info info = ScriptMetadata.getInfo(i);
             if (info != null) {
                 map.put(info.idUsage, longName + "\t(" + shortName + ")\t" + info);
-            } else if (shortName.equals("Chis")) {
-                // pass:
-                // UTC #184 moved Chisoi from Unicode 17 to Unicode 18
-                // but as of 20250728 CLDR still depends on a version of ICU that
-                // includes UScript.CHISOI.
-                // Its numeric value will be reused for a different script.
-                // TODO: Remove this hack after CLDR has been updated to ICU 78 final.
             } else {
                 // There are many script codes that are not "real"; there are no
                 // Unicode characters for them.
@@ -172,15 +169,6 @@ public class TestScriptMetadata extends TestFmwkPlus {
         Set<String> bads = new TreeSet<>();
         UnicodeSet temp = new UnicodeSet();
         for (String s : getScriptsToShow(sc, english)) {
-            if (s.equals("Chis")) {
-                // pass:
-                // UTC #184 moved Chisoi from Unicode 17 to Unicode 18
-                // but as of 20250728 CLDR still depends on a version of ICU that
-                // includes UScript.CHISOI.
-                // Its numeric value will be reused for a different script.
-                // TODO: Remove this hack after CLDR has been updated to ICU 78 final.
-                continue;
-            }
             if (ScriptMetadata.getInfo(s) == null) {
                 // There are many script codes that are not "real"; there are no
                 // Unicode characters for them.

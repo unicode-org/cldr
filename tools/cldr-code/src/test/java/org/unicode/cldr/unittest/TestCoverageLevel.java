@@ -4,7 +4,6 @@ import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableListMultimap;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.ImmutableSortedSet;
 import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
@@ -47,7 +46,6 @@ import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdData.Element;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.GrammarInfo;
-import org.unicode.cldr.util.Joiners;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleNames;
@@ -58,12 +56,10 @@ import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.Factory;
-import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.RegexLookup;
 import org.unicode.cldr.util.RegexLookup.Finder;
-import org.unicode.cldr.util.Splitters;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.CoverageVariableInfo;
@@ -1412,7 +1408,8 @@ public class TestCoverageLevel extends TestFmwkPlus {
     //     // drop IDs unless they have y+M or M+d
     //     List<String> raw =
     //             Splitters.VBAR.splitToList(
-    //                     "MMMMd|MMMMW|MMMMW|yw|yw|yQQQ|yQQQQ|Gy|Gy|GyM|GyM|GyM|GyMd|GyMd|GyMd|GyMd|GyMEd|GyMEd|GyMEd|GyMEd|GyMMM|GyMMM|GyMMM|GyMMMd|GyMMMd|GyMMMd|GyMMMd|GyMMMEd|GyMMMEd|GyMMMEd|GyMMMEd|Md|Md|MEd|MEd|MMMd|MMMd|MMMEd|MMMEd|Ed|yM|yM|yMd|yMd|yMd|yMEd|yMEd|yMEd|yMMM|yMMM|yMMMd|yMMMd|yMMMd|yMMMEd|yMMMEd|yMMMEd|yMMMM|yMMMM");
+    //
+    // "MMMMd|MMMMW|MMMMW|yw|yw|yQQQ|yQQQQ|Gy|Gy|GyM|GyM|GyM|GyMd|GyMd|GyMd|GyMd|GyMEd|GyMEd|GyMEd|GyMEd|GyMMM|GyMMM|GyMMM|GyMMMd|GyMMMd|GyMMMd|GyMMMd|GyMMMEd|GyMMMEd|GyMMMEd|GyMMMEd|Md|Md|MEd|MEd|MMMd|MMMd|MMMEd|MMMEd|Ed|yM|yM|yMd|yMd|yMd|yMEd|yMEd|yMEd|yMMM|yMMM|yMMMd|yMMMd|yMMMd|yMMMEd|yMMMEd|yMMMEd|yMMMM|yMMMM");
     //     Set<String> keepIds = ImmutableSortedSet.copyOf(raw);
 
     //     Pattern okIdPattern =

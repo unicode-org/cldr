@@ -1097,6 +1097,7 @@ public class ChartDelta extends Chart {
                         || dir.equals("dtd") // TODO as flat files
                         || dir.equals("properties") // TODO as flat files
                         || dir.equals("uca") // TODO as flat files
+                        || dir.endsWith(".md") // // Ignore markdown files
                 ) {
                     continue;
                 }

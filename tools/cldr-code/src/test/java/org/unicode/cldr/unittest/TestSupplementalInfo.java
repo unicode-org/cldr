@@ -54,6 +54,7 @@ import org.unicode.cldr.tool.PluralRulesFactory;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.ExemplarType;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
@@ -898,7 +899,11 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                     continue;
                 }
                 CLDRFile cldrFile = testInfo.getCLDRFile(locale, false);
-                UnicodeSet set = cldrFile.getExemplarSet("", WinningChoice.NORMAL);
+                UnicodeSet set =
+                        cldrFile.getExemplarSet(
+                                ExemplarType.main,
+                                WinningChoice.NORMAL,
+                                UnicodeSet.CASE_INSENSITIVE);
                 for (String s : set) {
                     int script = UScript.getScript(s.codePointAt(0));
                     if (script != UScript.UNKNOWN
@@ -1216,7 +1221,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         // downwards from 001.
 
         Map<String, Integer> from001 =
-                getRecursiveContainment("001", map, new LinkedHashMap<String, Integer>(), 1);
+                getRecursiveContainment("001", map, new LinkedHashMap<>(), 1);
         from001.put("001", 0);
         Set<String> keySet = from001.keySet();
         for (String region : keySet) {
@@ -1770,7 +1775,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
     }
 
     private List<Row.R3<String, CurrencyDateInfo, String>> currencyDataRegionEntries =
-            new ArrayList<Row.R3<String, CurrencyDateInfo, String>>();
+            new ArrayList<>();
 
     public void TestCurrencyDataOrder() {
         // We need to check the order of currencyData/region entries in the xml file, so use

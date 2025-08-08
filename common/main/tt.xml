@@ -3802,16 +3802,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>Гайана вакыты</standard>
 				</long>
 			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>Гавай-Алеут стандарт вакыты</standard>
+				</long>
+			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
 					<generic>Гавай-Алеут вакыты</generic>
 					<standard>Гавай-Алеут стандарт вакыты</standard>
 					<daylight>Гавай-Алеут җәйге вакыты</daylight>
-				</long>
-			</metazone>
-			<metazone type="Hawaii">
-				<long>
-					<standard>Гавай-Алеут стандарт вакыты</standard>
 				</long>
 			</metazone>
 			<metazone type="Hong_Kong">
@@ -4403,29 +4403,41 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>#,##0.00 ¤</pattern>
-					<pattern alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyFormatLength type="short">
 				<currencyFormat type="standard">
-					<pattern type="1000" count="other">¤0 мең</pattern>
-					<pattern type="10000" count="other">¤00 мең</pattern>
-					<pattern type="100000" count="other">¤000 мең</pattern>
-					<pattern type="1000000" count="other">¤0 млн</pattern>
-					<pattern type="10000000" count="other">¤00 млн</pattern>
-					<pattern type="100000000" count="other">¤000 млн</pattern>
-					<pattern type="1000000000" count="other">¤0 млрд</pattern>
-					<pattern type="10000000000" count="other">¤00 млрд</pattern>
-					<pattern type="100000000000" count="other">¤000 млрд</pattern>
-					<pattern type="1000000000000" count="other">¤0 трлн</pattern>
-					<pattern type="10000000000000" count="other">¤00 трлн</pattern>
-					<pattern type="100000000000000" count="other">¤000 трлн</pattern>
+					<pattern type="1000" count="other">0 мең ¤</pattern>
+					<pattern type="1000" count="other" alt="alphaNextToNumber">0 мең ¤</pattern>
+					<pattern type="10000" count="other">00 мең ¤</pattern>
+					<pattern type="10000" count="other" alt="alphaNextToNumber">00 мең ¤</pattern>
+					<pattern type="100000" count="other">000 мең ¤</pattern>
+					<pattern type="100000" count="other" alt="alphaNextToNumber">000 мең ¤</pattern>
+					<pattern type="1000000" count="other">0 млн ¤</pattern>
+					<pattern type="1000000" count="other" alt="alphaNextToNumber">0 млн ¤</pattern>
+					<pattern type="10000000" count="other">00 млн ¤</pattern>
+					<pattern type="10000000" count="other" alt="alphaNextToNumber">00 млн ¤</pattern>
+					<pattern type="100000000" count="other">000 млн ¤</pattern>
+					<pattern type="100000000" count="other" alt="alphaNextToNumber">000 млн ¤</pattern>
+					<pattern type="1000000000" count="other">0 млрд ¤</pattern>
+					<pattern type="1000000000" count="other" alt="alphaNextToNumber">0 млрд ¤</pattern>
+					<pattern type="10000000000" count="other">00 млрд ¤</pattern>
+					<pattern type="10000000000" count="other" alt="alphaNextToNumber">00 млрд ¤</pattern>
+					<pattern type="100000000000" count="other">000млрд ¤</pattern>
+					<pattern type="100000000000" count="other" alt="alphaNextToNumber">000млрд ¤</pattern>
+					<pattern type="1000000000000" count="other">0 трлн ¤</pattern>
+					<pattern type="1000000000000" count="other" alt="alphaNextToNumber">0 трлн ¤</pattern>
+					<pattern type="10000000000000" count="other">00 трлн ¤</pattern>
+					<pattern type="10000000000000" count="other" alt="alphaNextToNumber">00 трлн ¤</pattern>
+					<pattern type="100000000000000" count="other">000 трлн ¤</pattern>
+					<pattern type="100000000000000" count="other" alt="alphaNextToNumber">000 трлн ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO draft="unconfirmed">↑↑↑</currencyPatternAppendISO>

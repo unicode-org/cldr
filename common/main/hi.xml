@@ -5224,16 +5224,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>गुयाना समय</standard>
 				</long>
 			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>हवाई–आल्यूशन मानक समय</standard>
+				</long>
+			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
 					<generic>हवाई–आल्यूशन समय</generic>
 					<standard>हवाई–आल्यूशन मानक समय</standard>
 					<daylight>हवाई–आल्यूशन डेलाइट समय</daylight>
-				</long>
-			</metazone>
-			<metazone type="Hawaii">
-				<long>
-					<standard>हवाई–आल्यूशन मानक समय</standard>
 				</long>
 			</metazone>
 			<metazone type="Hong_Kong">
@@ -6608,7 +6608,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern type="1000000" count="other">¤00 लाख</pattern>
 					<pattern type="1000000" count="other" alt="alphaNextToNumber">¤ 00 लाख</pattern>
 					<pattern type="10000000" count="one">↑↑↑</pattern>
-					<pattern type="10000000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern type="10000000" count="one" alt="alphaNextToNumber">¤ 0 क॰</pattern>
 					<pattern type="10000000" count="other">¤0 क॰</pattern>
 					<pattern type="10000000" count="other" alt="alphaNextToNumber">¤ 0 क॰</pattern>
 					<pattern type="100000000" count="one">↑↑↑</pattern>

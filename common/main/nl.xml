@@ -10596,6 +10596,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>Guyaanse tijd</standard>
 				</long>
 			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>Hawaii-Aleoetische standaardtijd</standard>
+				</long>
+				<short>
+					<standard>HAST</standard>
+				</short>
+			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
 					<generic>Hawaii-Aleoetische tijd</generic>
@@ -10606,14 +10614,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>HAT</generic>
 					<standard>HAST</standard>
 					<daylight>HADT</daylight>
-				</short>
-			</metazone>
-			<metazone type="Hawaii">
-				<long>
-					<standard>Hawaii-Aleoetische standaardtijd</standard>
-				</long>
-				<short>
-					<standard>HAST</standard>
 				</short>
 			</metazone>
 			<metazone type="Hong_Kong">
@@ -12897,10 +12897,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">↑↑↑</pattern>
-					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00;-#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
 					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -12924,10 +12926,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">↑↑↑</pattern>
-					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00;-#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
 					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -12939,10 +12943,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">↑↑↑</pattern>
-					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00;-#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
 					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -12954,10 +12960,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">↑↑↑</pattern>
-					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00;-#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
 					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -12969,10 +12977,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">↑↑↑</pattern>
-					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00;-#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
 					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -12984,10 +12994,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">↑↑↑</pattern>
-					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00;-#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
 					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -12999,10 +13011,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">↑↑↑</pattern>
-					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00;-#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
 					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -13014,10 +13028,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">↑↑↑</pattern>
-					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00;-#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
 					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -13029,10 +13045,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">↑↑↑</pattern>
-					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00;-#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
 					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -13044,10 +13062,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">↑↑↑</pattern>
-					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00;-#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
 					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -13059,10 +13079,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">↑↑↑</pattern>
-					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00;-#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
 					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -13074,10 +13096,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">↑↑↑</pattern>
-					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00;-#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
 					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -13089,10 +13113,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">↑↑↑</pattern>
-					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00;-#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
 					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -13104,10 +13130,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">↑↑↑</pattern>
-					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00;-#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
 					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -13119,10 +13147,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">↑↑↑</pattern>
-					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00;-#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
 					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -13134,10 +13164,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">↑↑↑</pattern>
-					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00;-#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
 					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -13149,10 +13181,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">↑↑↑</pattern>
-					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00;-#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
 					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -13164,10 +13198,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">↑↑↑</pattern>
-					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00;-#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
 					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -13179,10 +13215,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">↑↑↑</pattern>
-					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00;-#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
 					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -13194,10 +13232,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">↑↑↑</pattern>
-					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00;-#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
 					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -13209,10 +13249,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">↑↑↑</pattern>
-					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00;-#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
 					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -13224,12 +13266,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>¤ #,##0.00;¤ -#,##0.00</pattern>
-					<pattern alt="alphaNextToNumber" draft="contributed">↑↑↑</pattern>
-					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00;-#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>¤ #,##0.00;(¤ #,##0.00)</pattern>
-					<pattern alt="alphaNextToNumber" draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
 					<pattern alt="noCurrency">#,##0.00;(#,##0.00)</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -13293,10 +13335,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">↑↑↑</pattern>
-					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00;-#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
 					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -13308,10 +13352,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">↑↑↑</pattern>
-					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00;-#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
 					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -13323,10 +13369,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">↑↑↑</pattern>
-					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00;-#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
 					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -13338,10 +13386,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">↑↑↑</pattern>
-					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00;-#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
 					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -13353,10 +13403,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">↑↑↑</pattern>
-					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00;-#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
 					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -13368,10 +13420,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">↑↑↑</pattern>
-					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00;-#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
 					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -13383,10 +13437,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">↑↑↑</pattern>
-					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00;-#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
 					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -13398,10 +13454,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">↑↑↑</pattern>
-					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00;-#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
 					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -13413,10 +13471,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">↑↑↑</pattern>
-					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00;-#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
 					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -13428,10 +13488,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">↑↑↑</pattern>
-					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00;-#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
 					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -13443,10 +13505,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">↑↑↑</pattern>
-					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00;-#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
 					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -13458,10 +13522,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">↑↑↑</pattern>
-					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00;-#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
 					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -13473,10 +13539,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">↑↑↑</pattern>
-					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00;-#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
 					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -13488,10 +13556,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">↑↑↑</pattern>
-					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00;-#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
 					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -13503,10 +13573,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">↑↑↑</pattern>
-					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00;-#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
 					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -13518,10 +13590,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">↑↑↑</pattern>
-					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00;-#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
 					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -13533,10 +13607,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">↑↑↑</pattern>
-					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00;-#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
 					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -13548,10 +13624,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">↑↑↑</pattern>
-					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00;-#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
 					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -13563,10 +13641,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">↑↑↑</pattern>
-					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00;-#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
 					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -13578,10 +13658,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">↑↑↑</pattern>
-					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00;-#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
 					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -13593,10 +13675,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">↑↑↑</pattern>
-					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00;-#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
 					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -13608,10 +13692,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">↑↑↑</pattern>
-					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00;-#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
 					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -13623,10 +13709,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">↑↑↑</pattern>
-					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00;-#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
 					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>

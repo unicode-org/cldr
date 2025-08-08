@@ -4200,16 +4200,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>𑄉𑄪𑄠𑄚 𑄃𑄧𑄇𑄴𑄖𑄧</standard>
 				</long>
 			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>𑄦𑄧𑄃𑄮𑄠𑄭-𑄃𑄣𑄬𑄃𑄪𑄖𑄴 𑄟𑄚𑄧𑄇𑄴 𑄃𑄧𑄇𑄴𑄖𑄧</standard>
+				</long>
+			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
 					<generic>𑄦𑄃𑄮𑄠𑄭 𑄃𑄳𑄠𑄣𑄨𑄃𑄪𑄑𑄨𑄠𑄚𑄴 𑄃𑄧𑄇𑄴𑄖𑄧</generic>
 					<standard>𑄦𑄧𑄃𑄮𑄠𑄭-𑄃𑄣𑄬𑄃𑄪𑄖𑄴 𑄟𑄚𑄧𑄇𑄴 𑄃𑄧𑄇𑄴𑄖𑄧</standard>
 					<daylight>𑄦𑄧𑄃𑄮𑄠𑄭-𑄃𑄣𑄬𑄃𑄪𑄖𑄴 𑄘𑄨𑄚𑄮𑄃𑄣𑄮𑄢𑄴 𑄃𑄧𑄇𑄴𑄖𑄧</daylight>
-				</long>
-			</metazone>
-			<metazone type="Hawaii">
-				<long>
-					<standard>𑄦𑄧𑄃𑄮𑄠𑄭-𑄃𑄣𑄬𑄃𑄪𑄖𑄴 𑄟𑄚𑄧𑄇𑄴 𑄃𑄧𑄇𑄴𑄖𑄧</standard>
 				</long>
 			</metazone>
 			<metazone type="Hong_Kong">
@@ -4830,6 +4830,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<pattern>#,##,##0.00¤;(#,##,##0.00¤)</pattern>
 					<pattern alt="alphaNextToNumber" draft="provisional">#,##,##0.00 ¤;(#,##,##0.00 ¤)</pattern>
 					<pattern alt="noCurrency" draft="provisional">#,##,##0.00;(#,##,##0.00)</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+			<currencyFormatLength type="short">
+				<currencyFormat type="standard">
+					<pattern type="1000000000" count="other">0G¤</pattern>
+					<pattern type="1000000000" count="other" alt="alphaNextToNumber">0G ¤</pattern>
+					<pattern type="10000000000" count="other">00G¤</pattern>
+					<pattern type="10000000000" count="other" alt="alphaNextToNumber">00G ¤</pattern>
+					<pattern type="100000000000" count="other">000G¤</pattern>
+					<pattern type="100000000000" count="other" alt="alphaNextToNumber">000G ¤</pattern>
+					<pattern type="1000000000000" count="other">0T¤</pattern>
+					<pattern type="1000000000000" count="other" alt="alphaNextToNumber">0T ¤</pattern>
+					<pattern type="10000000000000" count="other">00T¤</pattern>
+					<pattern type="10000000000000" count="other" alt="alphaNextToNumber">00T ¤</pattern>
+					<pattern type="100000000000000" count="other">000T¤</pattern>
+					<pattern type="100000000000000" count="other" alt="alphaNextToNumber">000T ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<unitPattern count="one">{0} {1}</unitPattern>

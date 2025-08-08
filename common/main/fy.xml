@@ -5365,16 +5365,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard draft="contributed">Guyaanske tiid</standard>
 				</long>
 			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard draft="contributed">Hawaii-Aleoetyske standerttiid</standard>
+				</long>
+			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
 					<generic draft="contributed">Hawaii-Aleoetyske tiid</generic>
 					<standard draft="contributed">Hawaii-Aleoetyske standerttiid</standard>
 					<daylight draft="contributed">Hawaii-Aleoetyske simmertiid</daylight>
-				</long>
-			</metazone>
-			<metazone type="Hawaii">
-				<long>
-					<standard draft="contributed">Hawaii-Aleoetyske standerttiid</standard>
 				</long>
 			</metazone>
 			<metazone type="Hong_Kong">
@@ -6010,9 +6010,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>¤ #,##0.00;¤ #,##0.00-</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤ #,##0.00-</pattern>
+					<pattern alt="noCurrency">#,##0.00;#,##0.00-</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>¤ #,##0.00;(¤ #,##0.00)</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
 					<pattern alt="noCurrency" draft="unconfirmed">#,##0.00;(#,##0.00)</pattern>
 				</currencyFormat>
 			</currencyFormatLength>

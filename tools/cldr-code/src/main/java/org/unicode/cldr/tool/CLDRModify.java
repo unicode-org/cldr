@@ -317,7 +317,7 @@ public class CLDRModify {
     static final String HELP_TEXT2 =
             "Note: A set of bat files are also generated in <dest_dir>/diff. They will invoke a comparison program on the results."
                     + XPathParts.NEWLINE;
-    private static final boolean SHOW_DETAILS = false;
+    private static final boolean SHOW_DETAILS = System.getProperty("SHOW_DETAILS") != null;
     private static boolean SHOW_PROCESSING = false;
 
     static String sourceInput;
@@ -651,7 +651,8 @@ public class CLDRModify {
                             + "Use -? for help.");
         }
         if (i == FIX && givenOptions.value != null) {
-            final UnicodeSet allowedFilters = new UnicodeSet().add('P').add('k').add('E').add('m');
+            final UnicodeSet allowedFilters =
+                    new UnicodeSet().add('P').add('k').add('E').add('m').add('C');
             for (char c : givenOptions.value.toCharArray()) {
                 if (!allowedFilters.contains(c)) {
                     throw new IllegalArgumentException(
@@ -1420,6 +1421,45 @@ public class CLDRModify {
                         parts.addAttribute("alt", "proposed-u" + userID + "-implicit1.8");
                         String newPath = parts.toString();
                         replace(fullpath, newPath, value);
+                    }
+                });
+
+        fixList.add(
+                'C',
+                "Derive currency values",
+                new CLDRFilter() {
+                    @Override
+                    public void handleStart() {
+                        // We do all the work in handleStart
+                        super.handleStart();
+                        Set<XPathParts> basis = new TreeSet<>();
+                        Map<String, String> results =
+                                GenerateDerivedMain.getPathValuesToAdd(getResolved(), basis);
+                        results.entrySet().stream()
+                                .forEach(
+                                        x -> {
+                                            String oldValue =
+                                                    getResolved().getStringValue(x.getKey());
+                                            if (!x.getValue().equals(oldValue)) {
+                                                add(
+                                                        x.getKey(),
+                                                        x.getValue(),
+                                                        "Derive currency pattern, was «"
+                                                                + oldValue
+                                                                + "»");
+                                            } else if (SHOW_DETAILS) {
+                                                System.out.println(
+                                                        "Skipping: "
+                                                                + x.getKey()
+                                                                + "\t"
+                                                                + x.getValue());
+                                            }
+                                        });
+                    }
+
+                    @Override
+                    public void handlePath(String xpath) {
+                        // all the work is done in handleStart
                     }
                 });
 

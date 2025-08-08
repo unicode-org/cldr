@@ -588,9 +588,9 @@ public class Summary {
             if (!cs.user.getOrganization().isTCOrg() && !cs.user.getLevel().isAdmin()) {
                 SurveyLog.warnOnce(
                         logger,
-                        "CLDR-18721 denying Vetting Particip for "
+                        "CLDR-18868 denying Vetting Particip for "
                                 + cs.user.getOrganization().toString());
-                return Response.status(403, "Forbidden Temporarily").build(); // TODO CLDR-18721
+                return Response.status(403, "Forbidden Temporarily").build(); // TODO CLDR-18868
             }
             cs.userDidAction();
 

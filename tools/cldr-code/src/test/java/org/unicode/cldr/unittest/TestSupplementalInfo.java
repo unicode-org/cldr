@@ -2118,6 +2118,10 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         List<Integer> unicodeDigits = new ArrayList<>();
         for (int cp = UCharacter.MIN_CODE_POINT; cp <= UCharacter.MAX_CODE_POINT; cp++) {
             if (UCharacter.getType(cp) == UCharacterEnums.ECharacterCategory.DECIMAL_DIGIT_NUMBER) {
+                if (UScript.getShortName(UScript.getScript(cp)).equals("Chis")) {
+                    logKnownIssue("ICU-23038", "ICU4J UCharacter still supports CHISOI");
+                    continue;
+                }
                 unicodeDigits.add(cp);
             }
         }

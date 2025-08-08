@@ -159,6 +159,10 @@ public class LanguageTest extends TestFmwk {
         Set<String> needTransfer = new LinkedHashSet<>();
         Set<String> unicodeScripts = getUnicodeScripts();
         for (String script : unicodeScripts) {
+            if (script.equals("Chis")) {
+                logKnownIssue("ICU-23038", "ICU4J UScript still supports CHISOI");
+                continue;
+            }
             String likely = likelyMap.get("und_" + script);
             if (likely == null) {
                 final String data = script2likely.get(script);

@@ -310,13 +310,17 @@ public class LikelySubtagsTest extends TestFmwk {
             int ch = current.charAt(0);
             int script = UScript.getScript(ch);
             String shortName = UScript.getShortName(script);
-            Info i = ScriptMetadata.getInfo(shortName);
-            if (i == null) {
-                errln("Script Metadata is missing: " + shortName);
-                continue;
-            }
-            if (i.likelyLanguage.equals("und") && !exceptions.contains(shortName)) {
-                errln("Script has no likely language: " + shortName);
+            if (shortName.equals("Chis")) {
+                logKnownIssue("ICU-23038", "ICU4J UScript still supports CHISOI");
+            } else {
+                Info i = ScriptMetadata.getInfo(shortName);
+                if (i == null) {
+                    errln("Script Metadata is missing: " + shortName);
+                    continue;
+                }
+                if (i.likelyLanguage.equals("und") && !exceptions.contains(shortName)) {
+                    errln("Script has no likely language: " + shortName);
+                }
             }
             toRemove.applyIntPropertyValue(UProperty.SCRIPT, script);
             current.removeAll(toRemove);

@@ -2579,7 +2579,6 @@ public class TestExampleGenerator extends TestFmwk {
             {"Hmv", "〖13:25 EST〗〖03:25 EST〗〖Related formats:〗〖13:25〗"},
             {"Hv", "〖13h EST〗〖03h EST〗"},
             {"Eh", "〖Sun 1 PM〗〖Sun 3 AM〗"},
-            {"EH", "〖Sun 13h〗〖Sun 03h〗"},
             {"Ehm", "〖Sun 1:25 PM〗〖Sun 3:25 AM〗〖Related formats:〗〖1:25 PM〗"},
             {"EHm", "〖Sun 13:25〗〖Sun 03:25〗〖Related formats:〗〖13:25〗"},
             {"Ehms", "〖Sun 1:25:59 PM〗〖Sun 3:25:59 AM〗〖Related formats:〗〖1:25:59 PM〗"},

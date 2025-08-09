@@ -4630,16 +4630,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>Час Гаяны</standard>
 				</long>
 			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>Гавайска-Алеуцкі стандартны час</standard>
+				</long>
+			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
 					<generic>Гавайска-Алеуцкі час</generic>
 					<standard>Гавайска-Алеуцкі стандартны час</standard>
 					<daylight>Гавайска-Алеуцкі летні час</daylight>
-				</long>
-			</metazone>
-			<metazone type="Hawaii">
-				<long>
-					<standard>Гавайска-Алеуцкі стандартны час</standard>
 				</long>
 			</metazone>
 			<metazone type="Hong_Kong">
@@ -5290,12 +5290,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>#,##0.00 ¤</pattern>
-					<pattern alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>

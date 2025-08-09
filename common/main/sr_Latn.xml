@@ -5115,16 +5115,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>Gvajana vreme</standard>
 				</long>
 			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>Havajsko-aleutsko standardno vreme</standard>
+				</long>
+			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
 					<generic>Havajsko-aleutsko vreme</generic>
 					<standard>Havajsko-aleutsko standardno vreme</standard>
 					<daylight>Havajsko-aleutsko letnje vreme</daylight>
-				</long>
-			</metazone>
-			<metazone type="Hawaii">
-				<long>
-					<standard>Havajsko-aleutsko standardno vreme</standard>
 				</long>
 			</metazone>
 			<metazone type="Hong_Kong">
@@ -5791,10 +5791,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>#,##0.00 ¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
 					<pattern alt="noCurrency" draft="provisional">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>#,##0.00 ¤;(#,##0.00 ¤)</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤;(#,##0.00 ¤)</pattern>
 					<pattern alt="noCurrency">#,##0.00;(#,##0.00)</pattern>
 				</currencyFormat>
 			</currencyFormatLength>

@@ -5666,16 +5666,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>وقت گویان</standard>
 				</long>
 			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>وقت عادی هاوایی‐الوشن</standard>
+				</long>
+			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
 					<generic>وقت هاوایی‐الوشن</generic>
 					<standard>وقت عادی هاوایی‐الوشن</standard>
 					<daylight>وقت تابستانی هاوایی‐الوشن</daylight>
-				</long>
-			</metazone>
-			<metazone type="Hawaii">
-				<long>
-					<standard>وقت عادی هاوایی‐الوشن</standard>
 				</long>
 			</metazone>
 			<metazone type="Hong_Kong">
@@ -6410,8 +6410,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>‎¤#,##0.00</pattern>
-					<pattern alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">‎¤ #,##0.00</pattern>
 					<pattern alt="noCurrency" draft="provisional">‎#,##0.00</pattern>
+				</currencyFormat>
+				<currencyFormat type="accounting">
+					<pattern alt="alphaNextToNumber">‎¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
@@ -6419,8 +6422,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>‎¤#,##0.00</pattern>
-					<pattern alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">‎¤ #,##0.00</pattern>
 					<pattern alt="noCurrency" draft="provisional">‎#,##0.00</pattern>
+				</currencyFormat>
+				<currencyFormat type="accounting">
+					<pattern alt="alphaNextToNumber">‎¤ #,##0.00;‎(¤ #,##0.00)</pattern>
+					<pattern alt="noCurrency">‎#,##0.00;‎(#,##0.00)</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
@@ -6428,65 +6435,65 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>‎¤ #,##0.00</pattern>
-					<pattern alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">‎¤ #,##0.00</pattern>
 					<pattern alt="noCurrency">‎#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>‎¤ #,##0.00;‎(¤ #,##0.00)</pattern>
-					<pattern alt="alphaNextToNumber">↑↑↑</pattern>
-					<pattern alt="noCurrency">#,##0.00;(#,##0.00)</pattern>
+					<pattern alt="alphaNextToNumber">‎¤ #,##0.00;‎(¤ #,##0.00)</pattern>
+					<pattern alt="noCurrency">‎#,##0.00;‎(#,##0.00)</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyFormatLength type="short">
 				<currencyFormat type="standard">
-					<pattern type="1000" count="one">↑↑↑</pattern>
-					<pattern type="1000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
-					<pattern type="1000" count="other">0 هزار ¤</pattern>
-					<pattern type="1000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
-					<pattern type="10000" count="one">↑↑↑</pattern>
-					<pattern type="10000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
-					<pattern type="10000" count="other">00 هزار ¤</pattern>
-					<pattern type="10000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
-					<pattern type="100000" count="one">↑↑↑</pattern>
-					<pattern type="100000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
-					<pattern type="100000" count="other">000 هزار ¤</pattern>
-					<pattern type="100000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
-					<pattern type="1000000" count="one">↑↑↑</pattern>
-					<pattern type="1000000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
-					<pattern type="1000000" count="other">0 میلیون ¤</pattern>
-					<pattern type="1000000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
-					<pattern type="10000000" count="one">↑↑↑</pattern>
-					<pattern type="10000000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
-					<pattern type="10000000" count="other">00 میلیون ¤</pattern>
-					<pattern type="10000000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
-					<pattern type="100000000" count="one">↑↑↑</pattern>
-					<pattern type="100000000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
-					<pattern type="100000000" count="other">000 میلیون ¤</pattern>
-					<pattern type="100000000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
-					<pattern type="1000000000" count="one">↑↑↑</pattern>
-					<pattern type="1000000000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
-					<pattern type="1000000000" count="other">0 میلیارد ¤</pattern>
-					<pattern type="1000000000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
-					<pattern type="10000000000" count="one">↑↑↑</pattern>
-					<pattern type="10000000000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
-					<pattern type="10000000000" count="other">00 میلیارد ¤</pattern>
-					<pattern type="10000000000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
-					<pattern type="100000000000" count="one">↑↑↑</pattern>
-					<pattern type="100000000000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
-					<pattern type="100000000000" count="other">000 میلیارد ¤</pattern>
-					<pattern type="100000000000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
-					<pattern type="1000000000000" count="one">↑↑↑</pattern>
-					<pattern type="1000000000000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
-					<pattern type="1000000000000" count="other">0 هزارمیلیارد ¤</pattern>
-					<pattern type="1000000000000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
-					<pattern type="10000000000000" count="one">↑↑↑</pattern>
-					<pattern type="10000000000000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
-					<pattern type="10000000000000" count="other">00 هزارمیلیارد ¤</pattern>
-					<pattern type="10000000000000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
-					<pattern type="100000000000000" count="one">↑↑↑</pattern>
-					<pattern type="100000000000000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
-					<pattern type="100000000000000" count="other">000 هزارمیلیارد ¤</pattern>
-					<pattern type="100000000000000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern type="1000" count="one">‎¤ 0 هزار</pattern>
+					<pattern type="1000" count="one" alt="alphaNextToNumber">‎¤ 0 هزار</pattern>
+					<pattern type="1000" count="other">‎¤ 0 هزار</pattern>
+					<pattern type="1000" count="other" alt="alphaNextToNumber">‎¤ 0 هزار</pattern>
+					<pattern type="10000" count="one">‎¤ 00 هزار</pattern>
+					<pattern type="10000" count="one" alt="alphaNextToNumber">‎¤ 00 هزار</pattern>
+					<pattern type="10000" count="other">‎¤ 00 هزار</pattern>
+					<pattern type="10000" count="other" alt="alphaNextToNumber">‎¤ 00 هزار</pattern>
+					<pattern type="100000" count="one">‎¤ 000 هزار</pattern>
+					<pattern type="100000" count="one" alt="alphaNextToNumber">‎¤ 000 هزار</pattern>
+					<pattern type="100000" count="other">‎¤ 000 هزار</pattern>
+					<pattern type="100000" count="other" alt="alphaNextToNumber">‎¤ 000 هزار</pattern>
+					<pattern type="1000000" count="one">‎¤ 0 میلیون</pattern>
+					<pattern type="1000000" count="one" alt="alphaNextToNumber">‎¤ 0 میلیون</pattern>
+					<pattern type="1000000" count="other">‎¤ 0 میلیون</pattern>
+					<pattern type="1000000" count="other" alt="alphaNextToNumber">‎¤ 0 میلیون</pattern>
+					<pattern type="10000000" count="one">‎¤ 00 میلیون</pattern>
+					<pattern type="10000000" count="one" alt="alphaNextToNumber">‎¤ 00 میلیون</pattern>
+					<pattern type="10000000" count="other">‎¤ 00 میلیون</pattern>
+					<pattern type="10000000" count="other" alt="alphaNextToNumber">‎¤ 00 میلیون</pattern>
+					<pattern type="100000000" count="one">‎¤ 000 میلیون</pattern>
+					<pattern type="100000000" count="one" alt="alphaNextToNumber">‎¤ 000 میلیون</pattern>
+					<pattern type="100000000" count="other">‎¤ 000 میلیون</pattern>
+					<pattern type="100000000" count="other" alt="alphaNextToNumber">‎¤ 000 میلیون</pattern>
+					<pattern type="1000000000" count="one">‎¤ 0 میلیارد</pattern>
+					<pattern type="1000000000" count="one" alt="alphaNextToNumber">‎¤ 0 میلیارد</pattern>
+					<pattern type="1000000000" count="other">‎¤ 0 میلیارد</pattern>
+					<pattern type="1000000000" count="other" alt="alphaNextToNumber">‎¤ 0 میلیارد</pattern>
+					<pattern type="10000000000" count="one">‎¤ 00 میلیارد</pattern>
+					<pattern type="10000000000" count="one" alt="alphaNextToNumber">‎¤ 00 میلیارد</pattern>
+					<pattern type="10000000000" count="other">‎¤ 00 میلیارد</pattern>
+					<pattern type="10000000000" count="other" alt="alphaNextToNumber">‎¤ 00 میلیارد</pattern>
+					<pattern type="100000000000" count="one">‎¤ 000 میلیارد</pattern>
+					<pattern type="100000000000" count="one" alt="alphaNextToNumber">‎¤ 000 میلیارد</pattern>
+					<pattern type="100000000000" count="other">‎¤ 000 میلیارد</pattern>
+					<pattern type="100000000000" count="other" alt="alphaNextToNumber">‎¤ 000 میلیارد</pattern>
+					<pattern type="1000000000000" count="one">‎¤ 0 تریلیون</pattern>
+					<pattern type="1000000000000" count="one" alt="alphaNextToNumber">‎¤ 0 تریلیون</pattern>
+					<pattern type="1000000000000" count="other">‎¤ 0 تریلیون</pattern>
+					<pattern type="1000000000000" count="other" alt="alphaNextToNumber">‎¤ 0 تریلیون</pattern>
+					<pattern type="10000000000000" count="one">‎¤ 00 تریلیون</pattern>
+					<pattern type="10000000000000" count="one" alt="alphaNextToNumber">‎¤ 00 تریلیون</pattern>
+					<pattern type="10000000000000" count="other">‎¤ 00 تریلیون</pattern>
+					<pattern type="10000000000000" count="other" alt="alphaNextToNumber">‎¤ 00 تریلیون</pattern>
+					<pattern type="100000000000000" count="one">‎¤ 000 تریلیون</pattern>
+					<pattern type="100000000000000" count="one" alt="alphaNextToNumber">‎¤ 000 تریلیون</pattern>
+					<pattern type="100000000000000" count="other">‎¤ 000 تریلیون</pattern>
+					<pattern type="100000000000000" count="other" alt="alphaNextToNumber">‎¤ 000 تریلیون</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>

@@ -4160,16 +4160,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>gujana tempo</standard>
 				</long>
 			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>Havajo-Aleutoj (norma tempo)</standard>
+				</long>
+			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
 					<generic>tempo: Havajo-Aleutoj</generic>
 					<standard>Havajo-Aleutoj (norma tempo)</standard>
 					<daylight>Havajo-Aleutoj (somera tempo)</daylight>
-				</long>
-			</metazone>
-			<metazone type="Hawaii">
-				<long>
-					<standard>Havajo-Aleutoj (norma tempo)</standard>
 				</long>
 			</metazone>
 			<metazone type="Hong_Kong">
@@ -4782,30 +4782,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currencyFormatLength>
 			<currencyFormatLength type="short">
 				<currencyFormat type="standard">
-					<pattern type="1000" count="one">0 k¤</pattern>
-					<pattern type="1000" count="other">0 k¤</pattern>
-					<pattern type="10000" count="one">00 k¤</pattern>
-					<pattern type="10000" count="other">00 k¤</pattern>
-					<pattern type="100000" count="one">000 k¤</pattern>
-					<pattern type="100000" count="other">000 k¤</pattern>
-					<pattern type="1000000" count="one">0 M¤</pattern>
-					<pattern type="1000000" count="other">0 M¤</pattern>
-					<pattern type="10000000" count="one">00 M¤</pattern>
-					<pattern type="10000000" count="other">00 M¤</pattern>
-					<pattern type="100000000" count="one">000 M¤</pattern>
-					<pattern type="100000000" count="other">000 M¤</pattern>
-					<pattern type="1000000000" count="one">0 G¤</pattern>
-					<pattern type="1000000000" count="other">0 G¤</pattern>
-					<pattern type="10000000000" count="one">00 G¤</pattern>
-					<pattern type="10000000000" count="other">00 G¤</pattern>
-					<pattern type="100000000000" count="one">000 G¤</pattern>
-					<pattern type="100000000000" count="other">000 G¤</pattern>
-					<pattern type="1000000000000" count="one">0 T¤</pattern>
-					<pattern type="1000000000000" count="other">0 T¤</pattern>
-					<pattern type="10000000000000" count="one">00 T¤</pattern>
-					<pattern type="10000000000000" count="other">00 T¤</pattern>
-					<pattern type="100000000000000" count="one">000 T¤</pattern>
-					<pattern type="100000000000000" count="other">000 T¤</pattern>
+					<pattern type="1000" count="one">0k ¤</pattern>
+					<pattern type="1000" count="one" alt="alphaNextToNumber">0k ¤</pattern>
+					<pattern type="1000" count="other">0k ¤</pattern>
+					<pattern type="1000" count="other" alt="alphaNextToNumber">0k ¤</pattern>
+					<pattern type="10000" count="one">00k ¤</pattern>
+					<pattern type="10000" count="one" alt="alphaNextToNumber">00k ¤</pattern>
+					<pattern type="10000" count="other">00k ¤</pattern>
+					<pattern type="10000" count="other" alt="alphaNextToNumber">00k ¤</pattern>
+					<pattern type="100000" count="one">000k ¤</pattern>
+					<pattern type="100000" count="one" alt="alphaNextToNumber">000k ¤</pattern>
+					<pattern type="100000" count="other">000k ¤</pattern>
+					<pattern type="100000" count="other" alt="alphaNextToNumber">000k ¤</pattern>
+					<pattern type="1000000" count="one">0M ¤</pattern>
+					<pattern type="1000000" count="one" alt="alphaNextToNumber">0M ¤</pattern>
+					<pattern type="1000000" count="other">0M ¤</pattern>
+					<pattern type="1000000" count="other" alt="alphaNextToNumber">0M ¤</pattern>
+					<pattern type="10000000" count="one">00M ¤</pattern>
+					<pattern type="10000000" count="one" alt="alphaNextToNumber">00M ¤</pattern>
+					<pattern type="10000000" count="other">00M ¤</pattern>
+					<pattern type="10000000" count="other" alt="alphaNextToNumber">00M ¤</pattern>
+					<pattern type="100000000" count="one">000M ¤</pattern>
+					<pattern type="100000000" count="one" alt="alphaNextToNumber">000M ¤</pattern>
+					<pattern type="100000000" count="other">000M ¤</pattern>
+					<pattern type="100000000" count="other" alt="alphaNextToNumber">000M ¤</pattern>
+					<pattern type="1000000000" count="one">0G ¤</pattern>
+					<pattern type="1000000000" count="one" alt="alphaNextToNumber">0G ¤</pattern>
+					<pattern type="1000000000" count="other">0G ¤</pattern>
+					<pattern type="1000000000" count="other" alt="alphaNextToNumber">0G ¤</pattern>
+					<pattern type="10000000000" count="one">00G ¤</pattern>
+					<pattern type="10000000000" count="one" alt="alphaNextToNumber">00G ¤</pattern>
+					<pattern type="10000000000" count="other">00G ¤</pattern>
+					<pattern type="10000000000" count="other" alt="alphaNextToNumber">00G ¤</pattern>
+					<pattern type="100000000000" count="one">000G ¤</pattern>
+					<pattern type="100000000000" count="one" alt="alphaNextToNumber">000G ¤</pattern>
+					<pattern type="100000000000" count="other">000G ¤</pattern>
+					<pattern type="100000000000" count="other" alt="alphaNextToNumber">000G ¤</pattern>
+					<pattern type="1000000000000" count="one">0T ¤</pattern>
+					<pattern type="1000000000000" count="one" alt="alphaNextToNumber">0T ¤</pattern>
+					<pattern type="1000000000000" count="other">0T ¤</pattern>
+					<pattern type="1000000000000" count="other" alt="alphaNextToNumber">0T ¤</pattern>
+					<pattern type="10000000000000" count="one">00T ¤</pattern>
+					<pattern type="10000000000000" count="one" alt="alphaNextToNumber">00T ¤</pattern>
+					<pattern type="10000000000000" count="other">00T ¤</pattern>
+					<pattern type="10000000000000" count="other" alt="alphaNextToNumber">00T ¤</pattern>
+					<pattern type="100000000000000" count="one">000T ¤</pattern>
+					<pattern type="100000000000000" count="one" alt="alphaNextToNumber">000T ¤</pattern>
+					<pattern type="100000000000000" count="other">000T ¤</pattern>
+					<pattern type="100000000000000" count="other" alt="alphaNextToNumber">000T ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>{0} ¤¤</currencyPatternAppendISO>

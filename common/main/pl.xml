@@ -5403,16 +5403,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>czas Gujana</standard>
 				</long>
 			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>Hawaje-Aleuty (czas standardowy)</standard>
+				</long>
+			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
 					<generic>czas Hawaje-Aleuty</generic>
 					<standard>Hawaje-Aleuty (czas standardowy)</standard>
 					<daylight>Hawaje-Aleuty (czas letni)</daylight>
-				</long>
-			</metazone>
-			<metazone type="Hawaii">
-				<long>
-					<standard>Hawaje-Aleuty (czas standardowy)</standard>
 				</long>
 			</metazone>
 			<metazone type="Hong_Kong">
@@ -6090,7 +6090,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>#,##0.00 ¤;(#,##0.00 ¤)</pattern>
-					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤;(#,##0.00 ¤)</pattern>
 					<pattern alt="noCurrency">#,##0.00;(#,##0.00)</pattern>
 				</currencyFormat>
 			</currencyFormatLength>

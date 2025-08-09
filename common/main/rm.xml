@@ -4416,16 +4416,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>temp da la Guyana</standard>
 				</long>
 			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>temp normal dal Hawai e las Aleutinas</standard>
+				</long>
+			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
 					<generic>temp dal Hawai e las Aleutinas</generic>
 					<standard>temp normal dal Hawai e las Aleutinas</standard>
 					<daylight>temp da stad dal Hawai e da las Aleutinas</daylight>
-				</long>
-			</metazone>
-			<metazone type="Hawaii">
-				<long>
-					<standard>temp normal dal Hawai e las Aleutinas</standard>
 				</long>
 			</metazone>
 			<metazone type="Hong_Kong">
@@ -5047,23 +5047,41 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<pattern type="100000" count="one">0</pattern>
 					<pattern type="100000" count="other">0</pattern>
 					<pattern type="1000000" count="one">¤0 miu'.'</pattern>
+					<pattern type="1000000" count="one" alt="alphaNextToNumber">¤ 0 miu'.'</pattern>
 					<pattern type="1000000" count="other">¤0 miu'.'</pattern>
+					<pattern type="1000000" count="other" alt="alphaNextToNumber">¤ 0 miu'.'</pattern>
 					<pattern type="10000000" count="one">¤00 miu'.'</pattern>
+					<pattern type="10000000" count="one" alt="alphaNextToNumber">¤ 00 miu'.'</pattern>
 					<pattern type="10000000" count="other">¤00 miu'.'</pattern>
+					<pattern type="10000000" count="other" alt="alphaNextToNumber">¤ 00 miu'.'</pattern>
 					<pattern type="100000000" count="one">¤000 miu'.'</pattern>
+					<pattern type="100000000" count="one" alt="alphaNextToNumber">¤ 000 miu'.'</pattern>
 					<pattern type="100000000" count="other">¤000 miu'.'</pattern>
+					<pattern type="100000000" count="other" alt="alphaNextToNumber">¤ 000 miu'.'</pattern>
 					<pattern type="1000000000" count="one">¤0 mia'.'</pattern>
+					<pattern type="1000000000" count="one" alt="alphaNextToNumber">¤ 0 mia'.'</pattern>
 					<pattern type="1000000000" count="other">¤0 mia'.'</pattern>
+					<pattern type="1000000000" count="other" alt="alphaNextToNumber">¤ 0 mia'.'</pattern>
 					<pattern type="10000000000" count="one">¤00 mia'.'</pattern>
+					<pattern type="10000000000" count="one" alt="alphaNextToNumber">¤ 00 mia'.'</pattern>
 					<pattern type="10000000000" count="other">¤00 mia'.'</pattern>
+					<pattern type="10000000000" count="other" alt="alphaNextToNumber">¤ 00 mia'.'</pattern>
 					<pattern type="100000000000" count="one">¤000 mia'.'</pattern>
+					<pattern type="100000000000" count="one" alt="alphaNextToNumber">¤ 000 mia'.'</pattern>
 					<pattern type="100000000000" count="other">¤000 mia'.'</pattern>
+					<pattern type="100000000000" count="other" alt="alphaNextToNumber">¤ 000 mia'.'</pattern>
 					<pattern type="1000000000000" count="one">¤0 biu'.'</pattern>
+					<pattern type="1000000000000" count="one" alt="alphaNextToNumber">¤ 0 biu'.'</pattern>
 					<pattern type="1000000000000" count="other">¤0 biu'.'</pattern>
+					<pattern type="1000000000000" count="other" alt="alphaNextToNumber">¤ 0 biu'.'</pattern>
 					<pattern type="10000000000000" count="one">¤00 biu'.'</pattern>
+					<pattern type="10000000000000" count="one" alt="alphaNextToNumber">¤ 00 biu'.'</pattern>
 					<pattern type="10000000000000" count="other">¤00 biu'.'</pattern>
-					<pattern type="100000000000000" count="one">¤000 biu'.'</pattern>
+					<pattern type="10000000000000" count="other" alt="alphaNextToNumber">¤ 00 biu'.'</pattern>
+					<pattern type="100000000000000" count="one">¤000T biu'.'</pattern>
+					<pattern type="100000000000000" count="one" alt="alphaNextToNumber">¤ 000T biu'.'</pattern>
 					<pattern type="100000000000000" count="other">¤000 biu'.'</pattern>
+					<pattern type="100000000000000" count="other" alt="alphaNextToNumber">¤ 000 biu'.'</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>

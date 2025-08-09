@@ -3384,16 +3384,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard draft="unconfirmed">Гаиана</standard>
 				</long>
 			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard draft="unconfirmed">Ҳаваи-алеуттәи астандартә аамҭа</standard>
+				</long>
+			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
 					<generic draft="unconfirmed">Ҳаваи-алеуттәи аамҭа</generic>
 					<standard draft="unconfirmed">Ҳаваи-алеуттәи астандартә аамҭа</standard>
 					<daylight draft="unconfirmed">Ҳаваи-алеуттәи аԥхынтәи аамҭа</daylight>
-				</long>
-			</metazone>
-			<metazone type="Hawaii">
-				<long>
-					<standard draft="unconfirmed">Ҳаваи-алеуттәи астандартә аамҭа</standard>
 				</long>
 			</metazone>
 			<metazone type="Hong_Kong">
@@ -3965,9 +3965,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="unconfirmed">#,##0.00 ¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="unconfirmed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
 					<pattern alt="noCurrency" draft="unconfirmed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>

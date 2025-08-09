@@ -5613,16 +5613,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>গুয়ানা সময়</standard>
 				</long>
 			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>হাওয়াই-আলেউত মানক সময়</standard>
+				</long>
+			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
 					<generic>হাওয়াই-আলেউত সময়</generic>
 					<standard>হাওয়াই-আলেউত মানক সময়</standard>
 					<daylight>হাওয়াই-আলেউত দিবালোক সময়</daylight>
-				</long>
-			</metazone>
-			<metazone type="Hawaii">
-				<long>
-					<standard>হাওয়াই-আলেউত মানক সময়</standard>
 				</long>
 			</metazone>
 			<metazone type="Hong_Kong">
@@ -6363,14 +6363,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern type="1000000000" count="one" alt="alphaNextToNumber">000 কো ¤</pattern>
 					<pattern type="1000000000" count="other">000 কো¤</pattern>
 					<pattern type="1000000000" count="other" alt="alphaNextToNumber">000 কো ¤</pattern>
-					<pattern type="10000000000" count="one">↑↑↑</pattern>
-					<pattern type="10000000000" count="one" alt="alphaNextToNumber">0000 কো ¤</pattern>
-					<pattern type="10000000000" count="other">0000 কো¤</pattern>
-					<pattern type="10000000000" count="other" alt="alphaNextToNumber">0000 কো ¤</pattern>
-					<pattern type="100000000000" count="one">↑↑↑</pattern>
-					<pattern type="100000000000" count="one" alt="alphaNextToNumber">00000 কো ¤</pattern>
-					<pattern type="100000000000" count="other">00000 কো¤</pattern>
-					<pattern type="100000000000" count="other" alt="alphaNextToNumber">00000 কো ¤</pattern>
+					<pattern type="10000000000" count="one">0 শত কো¤</pattern>
+					<pattern type="10000000000" count="one" alt="alphaNextToNumber">0 শত কো ¤</pattern>
+					<pattern type="10000000000" count="other">0শত কো¤</pattern>
+					<pattern type="10000000000" count="other" alt="alphaNextToNumber">0শত কো ¤</pattern>
+					<pattern type="100000000000" count="one">0কো¤</pattern>
+					<pattern type="100000000000" count="one" alt="alphaNextToNumber">0কো ¤</pattern>
+					<pattern type="100000000000" count="other">0কো¤</pattern>
+					<pattern type="100000000000" count="other" alt="alphaNextToNumber">0কো ¤</pattern>
 					<pattern type="1000000000000" count="one">↑↑↑</pattern>
 					<pattern type="1000000000000" count="one" alt="alphaNextToNumber">0 লা'.'কো'.' ¤</pattern>
 					<pattern type="1000000000000" count="other">0 লা'.'কো'.'¤</pattern>

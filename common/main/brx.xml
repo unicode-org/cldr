@@ -4337,16 +4337,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>गुयाना सम</standard>
 				</long>
 			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>हावाई-एल्युतियान थाखोआरि सम</standard>
+				</long>
+			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
 					<generic>हावाई-एल्युतियान सम</generic>
 					<standard>हावाई-एल्युतियान थाखोआरि सम</standard>
 					<daylight>हावाई-एल्युतियान सानारि सम</daylight>
-				</long>
-			</metazone>
-			<metazone type="Hawaii">
-				<long>
-					<standard>हावाई-एल्युतियान थाखोआरि सम</standard>
 				</long>
 			</metazone>
 			<metazone type="Hong_Kong">
@@ -5014,6 +5014,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##,##0.00</pattern>
+				</currencyFormat>
+				<currencyFormat type="accounting">
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
@@ -5021,39 +5025,65 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>¤ #,##,##0.00</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##,##0.00</pattern>
 					<pattern alt="noCurrency" draft="provisional">#,##,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>¤#,##0.00;(¤#,##0.00)</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
 					<pattern alt="noCurrency">#,##0.00;(#,##0.00)</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyFormatLength type="short">
 				<currencyFormat type="standard">
-					<pattern type="1000" count="one">¤0K</pattern>
-					<pattern type="1000" count="other">¤0K</pattern>
-					<pattern type="10000" count="one">¤00K</pattern>
-					<pattern type="10000" count="other">¤00K</pattern>
-					<pattern type="100000" count="one">↑↑↑</pattern>
-					<pattern type="100000" count="other">¤000K</pattern>
-					<pattern type="1000000" count="one">↑↑↑</pattern>
-					<pattern type="1000000" count="other">¤0M</pattern>
-					<pattern type="10000000" count="one">↑↑↑</pattern>
-					<pattern type="10000000" count="other">¤00M</pattern>
-					<pattern type="100000000" count="one">↑↑↑</pattern>
-					<pattern type="100000000" count="other">¤000M</pattern>
-					<pattern type="1000000000" count="one">↑↑↑</pattern>
-					<pattern type="1000000000" count="other">¤0B</pattern>
-					<pattern type="10000000000" count="one">↑↑↑</pattern>
-					<pattern type="10000000000" count="other">¤00B</pattern>
-					<pattern type="100000000000" count="one">↑↑↑</pattern>
-					<pattern type="100000000000" count="other">¤000B</pattern>
-					<pattern type="1000000000000" count="one">↑↑↑</pattern>
-					<pattern type="1000000000000" count="other">¤0T</pattern>
-					<pattern type="10000000000000" count="one">↑↑↑</pattern>
-					<pattern type="10000000000000" count="other">¤00T</pattern>
-					<pattern type="100000000000000" count="one">↑↑↑</pattern>
-					<pattern type="100000000000000" count="other">¤000T</pattern>
+					<pattern type="1000" count="one">¤ 0के</pattern>
+					<pattern type="1000" count="one" alt="alphaNextToNumber">¤ 0के</pattern>
+					<pattern type="1000" count="other">¤ 0के</pattern>
+					<pattern type="1000" count="other" alt="alphaNextToNumber">¤ 0के</pattern>
+					<pattern type="10000" count="one">¤ 00के</pattern>
+					<pattern type="10000" count="one" alt="alphaNextToNumber">¤ 00के</pattern>
+					<pattern type="10000" count="other">¤ 00के</pattern>
+					<pattern type="10000" count="other" alt="alphaNextToNumber">¤ 00के</pattern>
+					<pattern type="100000" count="one">¤ 000के</pattern>
+					<pattern type="100000" count="one" alt="alphaNextToNumber">¤ 000के</pattern>
+					<pattern type="100000" count="other">¤ 000के</pattern>
+					<pattern type="100000" count="other" alt="alphaNextToNumber">¤ 000के</pattern>
+					<pattern type="1000000" count="one">¤ 0एम</pattern>
+					<pattern type="1000000" count="one" alt="alphaNextToNumber">¤ 0एम</pattern>
+					<pattern type="1000000" count="other">¤ 0एम</pattern>
+					<pattern type="1000000" count="other" alt="alphaNextToNumber">¤ 0एम</pattern>
+					<pattern type="10000000" count="one">¤ 00एम</pattern>
+					<pattern type="10000000" count="one" alt="alphaNextToNumber">¤ 00एम</pattern>
+					<pattern type="10000000" count="other">¤ 00एम</pattern>
+					<pattern type="10000000" count="other" alt="alphaNextToNumber">¤ 00एम</pattern>
+					<pattern type="100000000" count="one">¤ 000एम</pattern>
+					<pattern type="100000000" count="one" alt="alphaNextToNumber">¤ 000एम</pattern>
+					<pattern type="100000000" count="other">¤ 000एम</pattern>
+					<pattern type="100000000" count="other" alt="alphaNextToNumber">¤ 000एम</pattern>
+					<pattern type="1000000000" count="one">¤ 0बि</pattern>
+					<pattern type="1000000000" count="one" alt="alphaNextToNumber">¤ 0बि</pattern>
+					<pattern type="1000000000" count="other">¤ 0बि</pattern>
+					<pattern type="1000000000" count="other" alt="alphaNextToNumber">¤ 0बि</pattern>
+					<pattern type="10000000000" count="one">¤ 00बि</pattern>
+					<pattern type="10000000000" count="one" alt="alphaNextToNumber">¤ 00बि</pattern>
+					<pattern type="10000000000" count="other">¤ 00बि</pattern>
+					<pattern type="10000000000" count="other" alt="alphaNextToNumber">¤ 00बि</pattern>
+					<pattern type="100000000000" count="one">¤ 000बि</pattern>
+					<pattern type="100000000000" count="one" alt="alphaNextToNumber">¤ 000बि</pattern>
+					<pattern type="100000000000" count="other">¤ 000बि</pattern>
+					<pattern type="100000000000" count="other" alt="alphaNextToNumber">¤ 000बि</pattern>
+					<pattern type="1000000000000" count="one">¤ 0ति</pattern>
+					<pattern type="1000000000000" count="one" alt="alphaNextToNumber">¤ 0ति</pattern>
+					<pattern type="1000000000000" count="other">¤ 0ति</pattern>
+					<pattern type="1000000000000" count="other" alt="alphaNextToNumber">¤ 0ति</pattern>
+					<pattern type="10000000000000" count="one">¤ 00ति</pattern>
+					<pattern type="10000000000000" count="one" alt="alphaNextToNumber">¤ 00ति</pattern>
+					<pattern type="10000000000000" count="other">¤ 00ति</pattern>
+					<pattern type="10000000000000" count="other" alt="alphaNextToNumber">¤ 00ति</pattern>
+					<pattern type="100000000000000" count="one">¤ 000ति</pattern>
+					<pattern type="100000000000000" count="one" alt="alphaNextToNumber">¤ 000ति</pattern>
+					<pattern type="100000000000000" count="other">¤ 000ति</pattern>
+					<pattern type="100000000000000" count="other" alt="alphaNextToNumber">¤ 000ति</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>{0} ¤¤</currencyPatternAppendISO>

@@ -6510,6 +6510,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>Hora de La Guyana</standard>
 				</long>
 			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>Hora estándar de Hawaii-Aleutianes</standard>
+				</long>
+			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
 					<generic>Hora de Hawaii-Aleutianes</generic>
@@ -6521,11 +6526,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard draft="contributed">HAST</standard>
 					<daylight draft="contributed">HADT</daylight>
 				</short>
-			</metazone>
-			<metazone type="Hawaii">
-				<long>
-					<standard>Hora estándar de Hawaii-Aleutianes</standard>
-				</long>
 			</metazone>
 			<metazone type="Hong_Kong">
 				<long>
@@ -7191,10 +7191,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>#,##0.00 ¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
 					<pattern alt="noCurrency" draft="provisional">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
 					<pattern alt="noCurrency" draft="provisional">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>

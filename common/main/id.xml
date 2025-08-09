@@ -6594,6 +6594,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>Waktu Guyana</standard>
 				</long>
 			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>Waktu Standar Hawaii-Aleutian</standard>
+				</long>
+				<short>
+					<standard draft="contributed">HAST</standard>
+				</short>
+			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
 					<generic>Waktu Hawaii-Aleutian</generic>
@@ -6604,14 +6612,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic draft="contributed">HAT</generic>
 					<standard draft="contributed">HAST</standard>
 					<daylight draft="contributed">HADT</daylight>
-				</short>
-			</metazone>
-			<metazone type="Hawaii">
-				<long>
-					<standard>Waktu Standar Hawaii-Aleutian</standard>
-				</long>
-				<short>
-					<standard draft="contributed">HAST</standard>
 				</short>
 			</metazone>
 			<metazone type="Hong_Kong">
@@ -7267,29 +7267,29 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength type="short">
 				<currencyFormat type="standard">
 					<pattern type="1000" count="other">¤0 rb</pattern>
-					<pattern type="1000" count="other" alt="alphaNextToNumber">0 rb ¤</pattern>
+					<pattern type="1000" count="other" alt="alphaNextToNumber">¤ 0 rb</pattern>
 					<pattern type="10000" count="other">¤00 rb</pattern>
-					<pattern type="10000" count="other" alt="alphaNextToNumber">00 rb ¤</pattern>
+					<pattern type="10000" count="other" alt="alphaNextToNumber">¤ 00 rb</pattern>
 					<pattern type="100000" count="other">¤000 rb</pattern>
-					<pattern type="100000" count="other" alt="alphaNextToNumber">000 rb ¤</pattern>
+					<pattern type="100000" count="other" alt="alphaNextToNumber">¤ 000 rb</pattern>
 					<pattern type="1000000" count="other">¤0 jt</pattern>
-					<pattern type="1000000" count="other" alt="alphaNextToNumber">0 jt ¤</pattern>
+					<pattern type="1000000" count="other" alt="alphaNextToNumber">¤ 0 jt</pattern>
 					<pattern type="10000000" count="other">¤00 jt</pattern>
-					<pattern type="10000000" count="other" alt="alphaNextToNumber">00 jt ¤</pattern>
+					<pattern type="10000000" count="other" alt="alphaNextToNumber">¤ 00 jt</pattern>
 					<pattern type="100000000" count="other">¤000 jt</pattern>
-					<pattern type="100000000" count="other" alt="alphaNextToNumber">000 jt ¤</pattern>
+					<pattern type="100000000" count="other" alt="alphaNextToNumber">¤ 000 jt</pattern>
 					<pattern type="1000000000" count="other">¤0 M</pattern>
-					<pattern type="1000000000" count="other" alt="alphaNextToNumber">0 M ¤</pattern>
+					<pattern type="1000000000" count="other" alt="alphaNextToNumber">¤ 0 M</pattern>
 					<pattern type="10000000000" count="other">¤00 M</pattern>
-					<pattern type="10000000000" count="other" alt="alphaNextToNumber">00 M ¤</pattern>
+					<pattern type="10000000000" count="other" alt="alphaNextToNumber">¤ 00 M</pattern>
 					<pattern type="100000000000" count="other">¤000 M</pattern>
-					<pattern type="100000000000" count="other" alt="alphaNextToNumber">000 M ¤</pattern>
+					<pattern type="100000000000" count="other" alt="alphaNextToNumber">¤ 000 M</pattern>
 					<pattern type="1000000000000" count="other">¤0 T</pattern>
-					<pattern type="1000000000000" count="other" alt="alphaNextToNumber">0 T ¤</pattern>
+					<pattern type="1000000000000" count="other" alt="alphaNextToNumber">¤ 0 T</pattern>
 					<pattern type="10000000000000" count="other">¤00 T</pattern>
-					<pattern type="10000000000000" count="other" alt="alphaNextToNumber">00 T ¤</pattern>
+					<pattern type="10000000000000" count="other" alt="alphaNextToNumber">¤ 00 T</pattern>
 					<pattern type="100000000000000" count="other">¤000 T</pattern>
-					<pattern type="100000000000000" count="other" alt="alphaNextToNumber">000 T ¤</pattern>
+					<pattern type="100000000000000" count="other" alt="alphaNextToNumber">¤ 000 T</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>

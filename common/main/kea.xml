@@ -2496,16 +2496,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>Ora di Veron di Gronelándia Osidental</daylight>
 				</long>
 			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>Ora Padron di Avaí i Aleutas</standard>
+				</long>
+			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
 					<generic>Ora di Avaí i Aleutas</generic>
 					<standard>Ora Padron di Avaí i Aleutas</standard>
 					<daylight>Ora di Veron di Avaí i Aleutas</daylight>
-				</long>
-			</metazone>
-			<metazone type="Hawaii">
-				<long>
-					<standard>Ora Padron di Avaí i Aleutas</standard>
 				</long>
 			</metazone>
 			<metazone type="Mexico_Pacific">
@@ -2614,10 +2614,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>#,##0.00 ¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
 					<pattern alt="noCurrency" draft="provisional">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>#,##0.00 ¤;(#,##0.00 ¤)</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤;(#,##0.00 ¤)</pattern>
 					<pattern alt="noCurrency" draft="provisional">#,##0.00;(#,##0.00)</pattern>
 				</currencyFormat>
 			</currencyFormatLength>

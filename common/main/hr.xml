@@ -5522,16 +5522,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>gvajansko vrijeme</standard>
 				</long>
 			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>havajsko-aleutsko standardno vrijeme</standard>
+				</long>
+			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
 					<generic>havajsko-aleutsko vrijeme</generic>
 					<standard>havajsko-aleutsko standardno vrijeme</standard>
 					<daylight>havajsko-aleutsko ljetno vrijeme</daylight>
-				</long>
-			</metazone>
-			<metazone type="Hawaii">
-				<long>
-					<standard>havajsko-aleutsko standardno vrijeme</standard>
 				</long>
 			</metazone>
 			<metazone type="Hong_Kong">
@@ -6204,12 +6204,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>#,##0.00 ¤</pattern>
-					<pattern alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>

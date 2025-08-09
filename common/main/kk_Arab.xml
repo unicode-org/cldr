@@ -4795,16 +4795,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>گايانا ۋاقىتى</standard>
 				</long>
 			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>گاۆاي جانە الەۋت ارالدارى ستاندارتتى ۋاقىتى</standard>
+				</long>
+			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
 					<generic>گاۆاي جانە الەۋت ارالدارى ۋاقىتى</generic>
 					<standard>گاۆاي جانە الەۋت ارالدارى ستاندارتتى ۋاقىتى</standard>
 					<daylight>گاۆاي جانە الەۋت ارالدارى جازعى ۋاقىتى</daylight>
-				</long>
-			</metazone>
-			<metazone type="Hawaii">
-				<long>
-					<standard>گاۆاي جانە الەۋت ارالدارى ستاندارتتى ۋاقىتى</standard>
 				</long>
 			</metazone>
 			<metazone type="Hong_Kong">
@@ -5760,30 +5760,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currencyFormatLength>
 			<currencyFormatLength type="short">
 				<currencyFormat type="standard">
-					<pattern type="1000" count="one">↑↑↑</pattern>
-					<pattern type="1000" count="other">0 مىڭ ¤</pattern>
-					<pattern type="10000" count="one">↑↑↑</pattern>
-					<pattern type="10000" count="other">00 مىڭ ¤</pattern>
-					<pattern type="100000" count="one">↑↑↑</pattern>
-					<pattern type="100000" count="other">000 مىڭ ¤</pattern>
-					<pattern type="1000000" count="one">↑↑↑</pattern>
-					<pattern type="1000000" count="other">0 ميلليون ¤</pattern>
-					<pattern type="10000000" count="one">↑↑↑</pattern>
-					<pattern type="10000000" count="other">00 ميلليون ¤</pattern>
-					<pattern type="100000000" count="one">↑↑↑</pattern>
-					<pattern type="100000000" count="other">000 ميلليون ¤</pattern>
-					<pattern type="1000000000" count="one">↑↑↑</pattern>
-					<pattern type="1000000000" count="other">0 ميلليارد ¤</pattern>
-					<pattern type="10000000000" count="one">↑↑↑</pattern>
-					<pattern type="10000000000" count="other">00 ميلليارد ¤</pattern>
-					<pattern type="100000000000" count="one">↑↑↑</pattern>
-					<pattern type="100000000000" count="other">000 ميلليارد ¤</pattern>
-					<pattern type="1000000000000" count="one">↑↑↑</pattern>
-					<pattern type="1000000000000" count="other">0 تريلليون ¤</pattern>
-					<pattern type="10000000000000" count="one">↑↑↑</pattern>
-					<pattern type="10000000000000" count="other">00 تريلليون ¤</pattern>
-					<pattern type="100000000000000" count="one">↑↑↑</pattern>
-					<pattern type="100000000000000" count="other">000 تريلليون ¤</pattern>
+					<pattern type="1000" count="one">¤ 0 مىڭ</pattern>
+					<pattern type="1000" count="one" alt="alphaNextToNumber">¤ 0 مىڭ</pattern>
+					<pattern type="1000" count="other">¤ 0 مىڭ</pattern>
+					<pattern type="1000" count="other" alt="alphaNextToNumber">¤ 0 مىڭ</pattern>
+					<pattern type="10000" count="one">¤ 00 مىڭ</pattern>
+					<pattern type="10000" count="one" alt="alphaNextToNumber">¤ 00 مىڭ</pattern>
+					<pattern type="10000" count="other">¤ 00 مىڭ</pattern>
+					<pattern type="10000" count="other" alt="alphaNextToNumber">¤ 00 مىڭ</pattern>
+					<pattern type="100000" count="one">¤ 000 مىڭ</pattern>
+					<pattern type="100000" count="one" alt="alphaNextToNumber">¤ 000 مىڭ</pattern>
+					<pattern type="100000" count="other">¤ 000 مىڭ</pattern>
+					<pattern type="100000" count="other" alt="alphaNextToNumber">¤ 000 مىڭ</pattern>
+					<pattern type="1000000" count="one">¤ 0 ميلليون</pattern>
+					<pattern type="1000000" count="one" alt="alphaNextToNumber">¤ 0 ميلليون</pattern>
+					<pattern type="1000000" count="other">¤ 0 ميلليون</pattern>
+					<pattern type="1000000" count="other" alt="alphaNextToNumber">¤ 0 ميلليون</pattern>
+					<pattern type="10000000" count="one">¤ 00 ميلليون</pattern>
+					<pattern type="10000000" count="one" alt="alphaNextToNumber">¤ 00 ميلليون</pattern>
+					<pattern type="10000000" count="other">¤ 00 ميلليون</pattern>
+					<pattern type="10000000" count="other" alt="alphaNextToNumber">¤ 00 ميلليون</pattern>
+					<pattern type="100000000" count="one">¤ 000 ملن</pattern>
+					<pattern type="100000000" count="one" alt="alphaNextToNumber">¤ 000 ملن</pattern>
+					<pattern type="100000000" count="other">¤ 000 ملن</pattern>
+					<pattern type="100000000" count="other" alt="alphaNextToNumber">¤ 000 ملن</pattern>
+					<pattern type="1000000000" count="one">¤ 0 ميلليارد</pattern>
+					<pattern type="1000000000" count="one" alt="alphaNextToNumber">¤ 0 ميلليارد</pattern>
+					<pattern type="1000000000" count="other">¤ 0 ميلليارد</pattern>
+					<pattern type="1000000000" count="other" alt="alphaNextToNumber">¤ 0 ميلليارد</pattern>
+					<pattern type="10000000000" count="one">¤ 00 ملرد</pattern>
+					<pattern type="10000000000" count="one" alt="alphaNextToNumber">¤ 00 ملرد</pattern>
+					<pattern type="10000000000" count="other">¤ 00 ملرد</pattern>
+					<pattern type="10000000000" count="other" alt="alphaNextToNumber">¤ 00 ملرد</pattern>
+					<pattern type="100000000000" count="one">¤ 000 ملرد</pattern>
+					<pattern type="100000000000" count="one" alt="alphaNextToNumber">¤ 000 ملرد</pattern>
+					<pattern type="100000000000" count="other">¤ 000 ملرد</pattern>
+					<pattern type="100000000000" count="other" alt="alphaNextToNumber">¤ 000 ملرد</pattern>
+					<pattern type="1000000000000" count="one">¤ 0 تريلليون</pattern>
+					<pattern type="1000000000000" count="one" alt="alphaNextToNumber">¤ 0 تريلليون</pattern>
+					<pattern type="1000000000000" count="other">¤ 0 تريلليون</pattern>
+					<pattern type="1000000000000" count="other" alt="alphaNextToNumber">¤ 0 تريلليون</pattern>
+					<pattern type="10000000000000" count="one">¤ 00 ترلن</pattern>
+					<pattern type="10000000000000" count="one" alt="alphaNextToNumber">¤ 00 ترلن</pattern>
+					<pattern type="10000000000000" count="other">¤ 00 ترلن</pattern>
+					<pattern type="10000000000000" count="other" alt="alphaNextToNumber">¤ 00 ترلن</pattern>
+					<pattern type="100000000000000" count="one">¤ 000 ترلن</pattern>
+					<pattern type="100000000000000" count="one" alt="alphaNextToNumber">¤ 000 ترلن</pattern>
+					<pattern type="100000000000000" count="other">¤ 000 ترلن</pattern>
+					<pattern type="100000000000000" count="other" alt="alphaNextToNumber">¤ 000 ترلن</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>

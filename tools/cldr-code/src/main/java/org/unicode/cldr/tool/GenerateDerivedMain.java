@@ -55,7 +55,7 @@ public class GenerateDerivedMain {
 
         Map<String, Level> cldrLocaleLevels =
                 StandardCodes.make().getLocalesToLevelsFor(Organization.cldr);
-        Set<String> locales = Set.of("af"); // cldrFactory.getAvailable();
+        Set<String> locales = DEBUG ? Set.of("sw") : cldrFactory.getAvailable();
         Set<String> noDifference = new LinkedHashSet<>();
         Set<String> wsDifference = new LinkedHashSet<>();
         for (String locale : locales) {

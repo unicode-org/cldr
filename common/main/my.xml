@@ -4168,16 +4168,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>ဂိုင်ယာနာ အချိန်</standard>
 				</long>
 			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>ဟာဝိုင်ယီ အယ်လူးရှန်း စံတော်ချိန်</standard>
+				</long>
+			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
 					<generic>ဟာဝိုင်ယီ အယ်လူးရှန်း အချိန်</generic>
 					<standard>ဟာဝိုင်ယီ အယ်လူးရှန်း စံတော်ချိန်</standard>
 					<daylight>ဟာဝိုင်ယီ အယ်လူးရှန်း နွေရာသီ စံတော်ချိန်</daylight>
-				</long>
-			</metazone>
-			<metazone type="Hawaii">
-				<long>
-					<standard>ဟာဝိုင်ယီ အယ်လူးရှန်း စံတော်ချိန်</standard>
 				</long>
 			</metazone>
 			<metazone type="Hong_Kong">
@@ -4817,29 +4817,41 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>#,##0.00 ¤</pattern>
-					<pattern alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>¤ #,##0.00</pattern>
-					<pattern alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyFormatLength type="short">
 				<currencyFormat type="standard">
-					<pattern type="1000" count="other">¤ 0 ထောင်</pattern>
-					<pattern type="10000" count="other">¤ 0 သောင်း</pattern>
-					<pattern type="100000" count="other">¤ 0 သိန်း</pattern>
-					<pattern type="1000000" count="other">¤ 0 သန်း</pattern>
-					<pattern type="10000000" count="other">¤ 0 ကုဋေ</pattern>
-					<pattern type="100000000" count="other">¤ 00 ကုဋေ</pattern>
-					<pattern type="1000000000" count="other">¤ 000 ကုဋေ</pattern>
-					<pattern type="10000000000" count="other">¤ 0000 ကုဋေ</pattern>
-					<pattern type="100000000000" count="other">¤ ကုဋေ 0 သောင်း</pattern>
-					<pattern type="1000000000000" count="other">¤ ကုဋေ 0 သိန်း</pattern>
-					<pattern type="10000000000000" count="other">¤ ကုဋေ 0 သန်း</pattern>
-					<pattern type="100000000000000" count="other">¤ 0 ကောဋိ</pattern>
+					<pattern type="1000" count="other">0 ထောင် ¤</pattern>
+					<pattern type="1000" count="other" alt="alphaNextToNumber">0 ထောင် ¤</pattern>
+					<pattern type="10000" count="other">0 သောင်း ¤</pattern>
+					<pattern type="10000" count="other" alt="alphaNextToNumber">0 သောင်း ¤</pattern>
+					<pattern type="100000" count="other">0 သိန်း ¤</pattern>
+					<pattern type="100000" count="other" alt="alphaNextToNumber">0 သိန်း ¤</pattern>
+					<pattern type="1000000" count="other">0 သန်း ¤</pattern>
+					<pattern type="1000000" count="other" alt="alphaNextToNumber">0 သန်း ¤</pattern>
+					<pattern type="10000000" count="other">0 ကုဋေ ¤</pattern>
+					<pattern type="10000000" count="other" alt="alphaNextToNumber">0 ကုဋေ ¤</pattern>
+					<pattern type="100000000" count="other">00 ကုဋေ ¤</pattern>
+					<pattern type="100000000" count="other" alt="alphaNextToNumber">00 ကုဋေ ¤</pattern>
+					<pattern type="1000000000" count="other">000 ဋေ ¤</pattern>
+					<pattern type="1000000000" count="other" alt="alphaNextToNumber">000 ဋေ ¤</pattern>
+					<pattern type="10000000000" count="other">ဋေ 0 ထ ¤</pattern>
+					<pattern type="10000000000" count="other" alt="alphaNextToNumber">ဋေ 0 ထ ¤</pattern>
+					<pattern type="100000000000" count="other">ဋေ 0 သ ¤</pattern>
+					<pattern type="100000000000" count="other" alt="alphaNextToNumber">ဋေ 0 သ ¤</pattern>
+					<pattern type="1000000000000" count="other">ဋေ 0 သိန်း ¤</pattern>
+					<pattern type="1000000000000" count="other" alt="alphaNextToNumber">ဋေ 0 သိန်း ¤</pattern>
+					<pattern type="10000000000000" count="other">ဋေ 0 သန်း ¤</pattern>
+					<pattern type="10000000000000" count="other" alt="alphaNextToNumber">ဋေ 0 သန်း ¤</pattern>
+					<pattern type="100000000000000" count="other">0 ကောဋိ ¤</pattern>
+					<pattern type="100000000000000" count="other" alt="alphaNextToNumber">0 ကောဋိ ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
@@ -4849,7 +4861,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
+				</currencyFormat>
+				<currencyFormat type="accounting">
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>

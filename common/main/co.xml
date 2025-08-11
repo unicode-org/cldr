@@ -1381,10 +1381,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="unconfirmed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
 					<pattern alt="noCurrency" draft="unconfirmed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="unconfirmed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤;(#,##0.00) ¤</pattern>
 					<pattern alt="noCurrency" draft="unconfirmed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -1393,10 +1395,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="unconfirmed">#,##0.00 ¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
 					<pattern alt="noCurrency" draft="unconfirmed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="unconfirmed">#,##0.00 ¤;(#,##0.00) ¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤;(#,##0.00) ¤</pattern>
 					<pattern alt="noCurrency" draft="unconfirmed">#,##0.00;(#,##0.00)</pattern>
 				</currencyFormat>
 			</currencyFormatLength>

@@ -1,6 +1,7 @@
 package org.unicode.cldr.tool;
 
 import com.google.common.base.Objects;
+import com.ibm.icu.text.SimpleFormatter;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Output;
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
+import java.util.stream.Collectors;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CodePointEscaper;
@@ -29,8 +31,12 @@ import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.XPathParts;
 
 public class GenerateDerivedMain {
+    private static final boolean DEBUG = System.getProperty("GenerateDerivedMain:DEBUG") != null;
+    ;
+    private static final SimpleFormatter CURRENCY_FORMAT =
+            SimpleFormatter.compile(
+                    "//ldml/numbers/currencyFormats[@numberSystem=\"{0}\"]/currencyFormatLength/currencyFormat[@type=\"{1}\"]/pattern[@type=\"standard\"]");
     private static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
-    private static final boolean DEBUG = false;
     static Factory cldrFactory = CLDR_CONFIG.getCldrFactory();
     static PathHeader.Factory phf = PathHeader.getFactory();
 
@@ -39,6 +45,7 @@ public class GenerateDerivedMain {
         System.out.println(
                 Joiners.TAB.join(
                         "locale",
+                        "numberSystem",
                         "code",
                         "status",
                         "oldValue",
@@ -46,11 +53,13 @@ public class GenerateDerivedMain {
                         "es.oldValue",
                         "es.newValue"));
 
-        Map<String, Level> items = StandardCodes.make().getLocalesToLevelsFor(Organization.cldr);
+        Map<String, Level> cldrLocaleLevels =
+                StandardCodes.make().getLocalesToLevelsFor(Organization.cldr);
+        Set<String> locales = DEBUG ? Set.of("sw") : cldrFactory.getAvailable();
         Set<String> noDifference = new LinkedHashSet<>();
         Set<String> wsDifference = new LinkedHashSet<>();
-        for (Entry<String, Level> item : items.entrySet()) {
-            String locale = item.getKey();
+        for (String locale : locales) {
+            Level level = cldrLocaleLevels.getOrDefault(locale, Level.BASIC);
             if (DEBUG) System.out.println("\nLocale " + locale);
             Set<XPathParts> basis = new TreeSet<>();
             CLDRFile resolvedCldrFile = cldrFactory.make(locale, true);
@@ -66,6 +75,7 @@ public class GenerateDerivedMain {
                     .forEach(
                             ph -> {
                                 String path = ph.getOriginalPath();
+                                XPathParts parts = XPathParts.getFrozenInstance(path);
                                 String oldValue = resolvedCldrFile.getStringValue(path);
                                 String newValue = results.get(path);
                                 boolean newIsNull = newValue == null;
@@ -74,6 +84,8 @@ public class GenerateDerivedMain {
                                 }
                                 String eOldValue = escape(oldValue);
                                 String eNewValue = escape(newValue);
+
+                                String numberSystem = parts.getAttributeValue(2, "numberSystem");
 
                                 Status status = getStatus(oldValue, newValue, newIsNull);
                                 if (status.compareTo(maxDifference.value) > 0) {
@@ -89,6 +101,7 @@ public class GenerateDerivedMain {
                                 toPrint.add(
                                         Joiners.TAB.join(
                                                 locale,
+                                                numberSystem,
                                                 modCode,
                                                 status.symbol,
                                                 oldValue,
@@ -194,7 +207,7 @@ public class GenerateDerivedMain {
 
         Map<String, CurrencyData> numberSystemToCurrencyData = new TreeMap<>();
 
-        // we get the unresolved paths, so we don't get all the aliased number systems, etc.
+        // we only get the unresolved paths, so we don't get all the aliased number systems, etc.
 
         for (String path : unresolvedCldrFile.iterableWithoutExtras()) {
             XPathParts parts = XPathParts.getFrozenInstance(path);
@@ -237,7 +250,9 @@ public class GenerateDerivedMain {
         }
 
         if (DEBUG) {
-            numberSystemToCurrencyData.entrySet().stream().forEach(System.out::println);
+            System.out.println("Unresolved file paths");
+            numberSystemToCurrencyData.entrySet().stream()
+                    .forEach(x -> System.out.println(valuesFor(x, unresolvedCldrFile)));
         }
 
         Map<String, String> result = new TreeMap<>();
@@ -245,7 +260,16 @@ public class GenerateDerivedMain {
         // process; using the resolved values
 
         for (Entry<String, CurrencyData> entry : numberSystemToCurrencyData.entrySet()) {
+            String numberSystem = entry.getKey();
             CurrencyData currencyData = entry.getValue();
+
+            // Handle strange case, where one of the patterns in currencyData is fleshed out, and
+            // the other isn't.
+            if (currencyData.standardPath == null) {
+                currencyData.setStandardPath(numberSystem);
+            } else if (currencyData.accountingPath == null) {
+                currencyData.setAccountingPath(numberSystem);
+            }
 
             final XPathParts standardPath = currencyData.getStandardPath();
             PartsForCompact partsForCompact = new PartsForCompact();
@@ -258,7 +282,14 @@ public class GenerateDerivedMain {
                 }
                 addPathValue(result, standardPath, standardValue, partsForCompact);
             }
-
+            if (partsForCompact.currencyPattern == null) {
+                throw new IllegalArgumentException(
+                        Joiners.TAB.join(
+                                "Failed to find currency pattern: ",
+                                resolvedCldrFile.getLocaleID(),
+                                entry.getKey(),
+                                entry.getValue()));
+            }
             final XPathParts accountingPath = currencyData.getAccountingPath();
             if (accountingPath != null) {
                 basis.add(accountingPath);
@@ -304,6 +335,10 @@ public class GenerateDerivedMain {
             }
         }
         return result;
+    }
+
+    private static String valuesFor(Entry<String, CurrencyData> x, CLDRFile unresolvedCldrFile) {
+        return Joiners.N.join(x.getKey(), x.getValue().toStringWithValue(unresolvedCldrFile));
     }
 
     private static class PartsForCompact {
@@ -393,8 +428,25 @@ public class GenerateDerivedMain {
     }
 
     static final class CurrencyData {
+        enum Type {
+            standard,
+            accounting
+        }
+
         public XPathParts getStandardPath() {
             return standardPath;
+        }
+
+        public void setStandardPath(String numberSystem) {
+            setStandardPath(
+                    XPathParts.getFrozenInstance(
+                            CURRENCY_FORMAT.format(numberSystem, Type.standard.toString())));
+        }
+
+        public void setAccountingPath(String numberSystem) {
+            setAccountingPath(
+                    XPathParts.getFrozenInstance(
+                            CURRENCY_FORMAT.format(numberSystem, Type.accounting.toString())));
         }
 
         public void setStandardPath(XPathParts standardPath) {
@@ -437,6 +489,22 @@ public class GenerateDerivedMain {
                     "compactPaths",
                     compactPaths.size(),
                     Joiners.N.join(compactPaths));
+        }
+
+        public String toStringWithValue(CLDRFile cldrFile) {
+            return Joiners.N.join(
+                    Joiners.TAB.join(
+                            "standardPath",
+                            standardPath,
+                            cldrFile.getStringValue(standardPath.toString())),
+                    Joiners.TAB.join(
+                            "accountingPath",
+                            accountingPath,
+                            cldrFile.getStringValue(accountingPath.toString())),
+                    Joiners.TAB.join("compactPaths", compactPaths.size()),
+                    compactPaths.stream()
+                            .map(x -> Joiners.TAB.join(x, cldrFile.getStringValue(x.toString())))
+                            .collect(Collectors.joining("\n")));
         }
 
         private static CurrencyData get(

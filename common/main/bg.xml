@@ -4618,16 +4618,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>Гаяна</standard>
 				</long>
 			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>Хавайско-алеутско стандартно време</standard>
+				</long>
+			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
 					<generic>Хавайско-алеутско време</generic>
 					<standard>Хавайско-алеутско стандартно време</standard>
 					<daylight>Хавайско-алеутско лятно часово време</daylight>
-				</long>
-			</metazone>
-			<metazone type="Hawaii">
-				<long>
-					<standard>Хавайско-алеутско стандартно време</standard>
 				</long>
 			</metazone>
 			<metazone type="Hong_Kong">
@@ -5245,12 +5245,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>#,##0.00 ¤</pattern>
-					<pattern alt="alphaNextToNumber" draft="contributed">↑↑↑</pattern>
-					<pattern alt="noCurrency">0.00</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>#,##0.00 ¤;(#,##0.00 ¤)</pattern>
-					<pattern alt="alphaNextToNumber" draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤;(#,##0.00 ¤)</pattern>
 					<pattern alt="noCurrency">#,##0.00;(#,##0.00)</pattern>
 				</currencyFormat>
 			</currencyFormatLength>

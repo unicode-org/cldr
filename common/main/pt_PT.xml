@@ -4768,16 +4768,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>Hora da Guiana</standard>
 				</long>
 			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>Hora padrão do Havai e Aleutas</standard>
+				</long>
+			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
 					<generic>Hora do Havai e Aleutas</generic>
 					<standard>Hora padrão do Havai e Aleutas</standard>
 					<daylight>Hora de verão do Havai e Aleutas</daylight>
-				</long>
-			</metazone>
-			<metazone type="Hawaii">
-				<long>
-					<standard>Hora padrão do Havai e Aleutas</standard>
 				</long>
 			</metazone>
 			<metazone type="Hong_Kong">
@@ -5599,18 +5599,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern type="100000000000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
 					<pattern type="100000000000" count="other">000 mM ¤</pattern>
 					<pattern type="100000000000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
-					<pattern type="1000000000000" count="one">↑↑↑</pattern>
-					<pattern type="1000000000000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
-					<pattern type="1000000000000" count="other">0 B ¤</pattern>
-					<pattern type="1000000000000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
-					<pattern type="10000000000000" count="one">↑↑↑</pattern>
-					<pattern type="10000000000000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
-					<pattern type="10000000000000" count="other">00 B ¤</pattern>
-					<pattern type="10000000000000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
-					<pattern type="100000000000000" count="one">↑↑↑</pattern>
-					<pattern type="100000000000000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
-					<pattern type="100000000000000" count="other">000 B ¤</pattern>
-					<pattern type="100000000000000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern type="1000000000000" count="one">0 Bi ¤</pattern>
+					<pattern type="1000000000000" count="one" alt="alphaNextToNumber">0 Bi ¤</pattern>
+					<pattern type="1000000000000" count="other">0 Bi ¤</pattern>
+					<pattern type="1000000000000" count="other" alt="alphaNextToNumber">0 Bi ¤</pattern>
+					<pattern type="10000000000000" count="one">00 Bi ¤</pattern>
+					<pattern type="10000000000000" count="one" alt="alphaNextToNumber">00 Bi ¤</pattern>
+					<pattern type="10000000000000" count="other">00 Bi ¤</pattern>
+					<pattern type="10000000000000" count="other" alt="alphaNextToNumber">00 Bi ¤</pattern>
+					<pattern type="100000000000000" count="one">000 Bi ¤</pattern>
+					<pattern type="100000000000000" count="one" alt="alphaNextToNumber">000 Bi ¤</pattern>
+					<pattern type="100000000000000" count="other">000 Bi ¤</pattern>
+					<pattern type="100000000000000" count="other" alt="alphaNextToNumber">000 Bi ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>

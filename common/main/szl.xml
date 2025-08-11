@@ -3772,16 +3772,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard draft="unconfirmed">Gujana</standard>
 				</long>
 			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard draft="unconfirmed">Hawaje-Aleuty (sztandardowy czas)</standard>
+				</long>
+			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
 					<generic draft="unconfirmed">Hawaje-Aleuty</generic>
 					<standard draft="unconfirmed">Hawaje-Aleuty (sztandardowy czas)</standard>
 					<daylight draft="unconfirmed">Hawaje-Aleuty (latowy czas)</daylight>
-				</long>
-			</metazone>
-			<metazone type="Hawaii">
-				<long>
-					<standard draft="unconfirmed">Hawaje-Aleuty (sztandardowy czas)</standard>
 				</long>
 			</metazone>
 			<metazone type="Hong_Kong">
@@ -4204,9 +4204,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">#,##0.00 ¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="unconfirmed">¤ #,##0.00</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
 					<pattern alt="noCurrency" draft="unconfirmed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>

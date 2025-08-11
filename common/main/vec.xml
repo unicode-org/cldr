@@ -1777,8 +1777,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="Hmsv">HH:mm:ss (v)</dateFormatItem>
 						<dateFormatItem id="hmv">h:mm a (v)</dateFormatItem>
 						<dateFormatItem id="Hmv">HH:mm (v)</dateFormatItem>
-						<dateFormatItem id="Hv">'h'HH v</dateFormatItem>
 						<dateFormatItem id="hv">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Hv">'h'HH v</dateFormatItem>
 						<dateFormatItem id="M">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Md">dd/MM</dateFormatItem>
 						<dateFormatItem id="MEd">E dd/MM</dateFormatItem>
@@ -4252,16 +4252,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>Ora de la Guyana</standard>
 				</long>
 			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>Ora normale de Hawai e Aleutine</standard>
+				</long>
+			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
 					<generic>Ora de Hawai e Aleutine</generic>
 					<standard>Ora normale de Hawai e Aleutine</standard>
 					<daylight>Ora d’istà de Hawai e Aleutine</daylight>
-				</long>
-			</metazone>
-			<metazone type="Hawaii">
-				<long>
-					<standard>Ora normale de Hawai e Aleutine</standard>
 				</long>
 			</metazone>
 			<metazone type="Hong_Kong">
@@ -4857,41 +4857,64 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>#,##0.00 ¤</pattern>
-					<pattern alt="alphaNextToNumber" draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
 					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="alphaNextToNumber" draft="contributed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyFormatLength type="short">
 				<currencyFormat type="standard">
 					<pattern type="1000" count="one">0</pattern>
-					<pattern type="1000" count="other">0</pattern>
-					<pattern type="10000" count="one">0</pattern>
-					<pattern type="10000" count="other">0</pattern>
-					<pattern type="100000" count="one">0</pattern>
-					<pattern type="100000" count="other">0</pattern>
-					<pattern type="1000000" count="one">0 mln ¤</pattern>
-					<pattern type="1000000" count="other">0 mln ¤</pattern>
-					<pattern type="10000000" count="one">00 mln ¤</pattern>
-					<pattern type="10000000" count="other">00 mln ¤</pattern>
-					<pattern type="100000000" count="one">000 mln ¤</pattern>
-					<pattern type="100000000" count="other">000 mln ¤</pattern>
-					<pattern type="1000000000" count="one">0 mld ¤</pattern>
-					<pattern type="1000000000" count="other">0 mld ¤</pattern>
-					<pattern type="10000000000" count="one">00 mld ¤</pattern>
-					<pattern type="10000000000" count="other">00 mld ¤</pattern>
-					<pattern type="100000000000" count="one">000 mld ¤</pattern>
-					<pattern type="100000000000" count="other">000 mld ¤</pattern>
-					<pattern type="1000000000000" count="one">0 bln ¤</pattern>
-					<pattern type="1000000000000" count="other">0 bln ¤</pattern>
-					<pattern type="10000000000000" count="one">00 bln ¤</pattern>
-					<pattern type="10000000000000" count="other">00 bln ¤</pattern>
-					<pattern type="100000000000000" count="one">000 bln ¤</pattern>
-					<pattern type="100000000000000" count="other">000 bln ¤</pattern>
+					<pattern type="1000" count="other">0 mila ¤</pattern>
+					<pattern type="1000" count="other" alt="alphaNextToNumber">0 mila ¤</pattern>
+					<pattern type="10000" count="one">00 mila ¤</pattern>
+					<pattern type="10000" count="one" alt="alphaNextToNumber">00 mila ¤</pattern>
+					<pattern type="10000" count="other">00 mila ¤</pattern>
+					<pattern type="10000" count="other" alt="alphaNextToNumber">00 mila ¤</pattern>
+					<pattern type="100000" count="one">000 mila ¤</pattern>
+					<pattern type="100000" count="one" alt="alphaNextToNumber">000 mila ¤</pattern>
+					<pattern type="100000" count="other">000 mila ¤</pattern>
+					<pattern type="100000" count="other" alt="alphaNextToNumber">000 mila ¤</pattern>
+					<pattern type="1000000" count="one">0 mln ¤</pattern>
+					<pattern type="1000000" count="one" alt="alphaNextToNumber">0 mln ¤</pattern>
+					<pattern type="1000000" count="other">0 mln ¤</pattern>
+					<pattern type="1000000" count="other" alt="alphaNextToNumber">0 mln ¤</pattern>
+					<pattern type="10000000" count="one">00 mln ¤</pattern>
+					<pattern type="10000000" count="one" alt="alphaNextToNumber">00 mln ¤</pattern>
+					<pattern type="10000000" count="other">00 mln ¤</pattern>
+					<pattern type="10000000" count="other" alt="alphaNextToNumber">00 mln ¤</pattern>
+					<pattern type="100000000" count="one">000 mln ¤</pattern>
+					<pattern type="100000000" count="one" alt="alphaNextToNumber">000 mln ¤</pattern>
+					<pattern type="100000000" count="other">000 mln ¤</pattern>
+					<pattern type="100000000" count="other" alt="alphaNextToNumber">000 mln ¤</pattern>
+					<pattern type="1000000000" count="one">0 mld ¤</pattern>
+					<pattern type="1000000000" count="one" alt="alphaNextToNumber">0 mld ¤</pattern>
+					<pattern type="1000000000" count="other">0 mld ¤</pattern>
+					<pattern type="1000000000" count="other" alt="alphaNextToNumber">0 mld ¤</pattern>
+					<pattern type="10000000000" count="one">00 mld ¤</pattern>
+					<pattern type="10000000000" count="one" alt="alphaNextToNumber">00 mld ¤</pattern>
+					<pattern type="10000000000" count="other">00 mld ¤</pattern>
+					<pattern type="10000000000" count="other" alt="alphaNextToNumber">00 mld ¤</pattern>
+					<pattern type="100000000000" count="one">000 mld ¤</pattern>
+					<pattern type="100000000000" count="one" alt="alphaNextToNumber">000 mld ¤</pattern>
+					<pattern type="100000000000" count="other">000 mld ¤</pattern>
+					<pattern type="100000000000" count="other" alt="alphaNextToNumber">000 mld ¤</pattern>
+					<pattern type="1000000000000" count="one">0 bln ¤</pattern>
+					<pattern type="1000000000000" count="one" alt="alphaNextToNumber">0 bln ¤</pattern>
+					<pattern type="1000000000000" count="other">0 bln ¤</pattern>
+					<pattern type="1000000000000" count="other" alt="alphaNextToNumber">0 bln ¤</pattern>
+					<pattern type="10000000000000" count="one">00 bln ¤</pattern>
+					<pattern type="10000000000000" count="one" alt="alphaNextToNumber">00 bln ¤</pattern>
+					<pattern type="10000000000000" count="other">00 bln ¤</pattern>
+					<pattern type="10000000000000" count="other" alt="alphaNextToNumber">00 bln ¤</pattern>
+					<pattern type="100000000000000" count="one">000 bln ¤</pattern>
+					<pattern type="100000000000000" count="one" alt="alphaNextToNumber">000 bln ¤</pattern>
+					<pattern type="100000000000000" count="other">000 bln ¤</pattern>
+					<pattern type="100000000000000" count="other" alt="alphaNextToNumber">000 bln ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>{0} ¤¤</currencyPatternAppendISO>

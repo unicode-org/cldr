@@ -4051,16 +4051,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard draft="unconfirmed">Guyaana Tidj</standard>
 				</long>
 			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard draft="unconfirmed">Hawaii-Aleuten Standard Tidj</standard>
+				</long>
+			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
 					<generic draft="unconfirmed">Hawaii-Aleuten Tidj</generic>
 					<standard draft="unconfirmed">Hawaii-Aleuten Standard Tidj</standard>
 					<daylight draft="unconfirmed">Hawaii-Aleuten Somertidj</daylight>
-				</long>
-			</metazone>
-			<metazone type="Hawaii">
-				<long>
-					<standard draft="unconfirmed">Hawaii-Aleuten Standard Tidj</standard>
 				</long>
 			</metazone>
 			<metazone type="Hong_Kong">
@@ -4650,11 +4650,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currencyFormatLength type="short">
 				<currencyFormat type="standard">
 					<pattern type="1000" count="other" draft="unconfirmed">↑↑↑</pattern>
-					<pattern type="10000" count="other" draft="unconfirmed">¤00K</pattern>
-					<pattern type="100000" count="other" draft="unconfirmed">¤000K</pattern>
-					<pattern type="1000000" count="other" draft="unconfirmed">¤0M</pattern>
-					<pattern type="10000000" count="other" draft="unconfirmed">¤00M</pattern>
-					<pattern type="100000000" count="other" draft="unconfirmed">¤000M</pattern>
+					<pattern type="10000" count="other">¤ 00K</pattern>
+					<pattern type="10000" count="other" alt="alphaNextToNumber">¤ 00K</pattern>
+					<pattern type="100000" count="other">¤ 000K</pattern>
+					<pattern type="100000" count="other" alt="alphaNextToNumber">¤ 000K</pattern>
+					<pattern type="1000000" count="other">¤ 0M</pattern>
+					<pattern type="1000000" count="other" alt="alphaNextToNumber">¤ 0M</pattern>
+					<pattern type="10000000" count="other">¤ 00M</pattern>
+					<pattern type="10000000" count="other" alt="alphaNextToNumber">¤ 00M</pattern>
+					<pattern type="100000000" count="other">¤ 000M</pattern>
+					<pattern type="100000000" count="other" alt="alphaNextToNumber">¤ 000M</pattern>
 					<pattern type="1000000000" count="other" draft="unconfirmed">↑↑↑</pattern>
 					<pattern type="10000000000" count="other" draft="unconfirmed">↑↑↑</pattern>
 					<pattern type="100000000000" count="other" draft="unconfirmed">↑↑↑</pattern>

@@ -4326,16 +4326,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>guyanski čas</standard>
 				</long>
 			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>hawaiisko-aleutski standardny čas</standard>
+				</long>
+			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
 					<generic>hawaiisko-aleutski čas</generic>
 					<standard>hawaiisko-aleutski standardny čas</standard>
 					<daylight>hawaiisko-aleutski lětni čas</daylight>
-				</long>
-			</metazone>
-			<metazone type="Hawaii">
-				<long>
-					<standard>hawaiisko-aleutski standardny čas</standard>
 				</long>
 			</metazone>
 			<metazone type="Hong_Kong">
@@ -4986,12 +4986,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>#,##0.00 ¤</pattern>
-					<pattern alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>

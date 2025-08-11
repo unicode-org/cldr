@@ -3323,16 +3323,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight draft="unconfirmed">témpor estival del occidental Greenland</daylight>
 				</long>
 			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard draft="unconfirmed">témpor standard de Hawai e Aleutes</standard>
+				</long>
+			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
 					<generic draft="unconfirmed">témpor de Hawai e Aleutes</generic>
 					<standard draft="unconfirmed">témpor standard de Hawai e Aleutes</standard>
 					<daylight draft="unconfirmed">témpor estival de Hawai e Aleutes</daylight>
-				</long>
-			</metazone>
-			<metazone type="Hawaii">
-				<long>
-					<standard draft="unconfirmed">témpor standard de Hawai e Aleutes</standard>
 				</long>
 			</metazone>
 			<metazone type="Line_Islands">
@@ -3450,10 +3450,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00;-#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="unconfirmed">↑↑↑</pattern>
-					<pattern alt="noCurrency" draft="unconfirmed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00;-#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyFormatLength type="short">

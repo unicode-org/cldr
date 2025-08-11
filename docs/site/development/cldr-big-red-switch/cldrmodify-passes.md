@@ -23,7 +23,7 @@ For the purpose of this document, we'll assume you are generating into {cldrdata
 ### Passes
 
   * Each pass will go from a sourceDir (default=CLDRPaths.***MAIN\_DIRECTORY)*** to a targetDir (default \= CLDRPaths.***GEN\_DIRECTORY*** \+ "cldrModify/")  
-  * Empty the contents of targetDir before running.  (If you forget, just remember after building to delete the old files.)
+  * Empty the contents of targetDir before running. (If you forget, just remember after building to delete the old files.)
   * Each time you will run CLDRModify with the standard options, plus one of the listed [Options](#options) bulleted below.
   * The console will list changes made, such as:  
      * Creating File: {cldrdata}/dropbox\\gen\\main\\zh\_Hant.xml  

@@ -67,7 +67,7 @@ There are a number of "one time fixes" that are in the CLDRModify code. The typi
 #### Inactive options
 The following are some of the **inactive** options. The code remains in case we want to adapt for future cases, but don't use them unless you fix the code to do what you want, and carefully diff the results. You will have to enable them in checkSuboptions(): limits the ones that are active to prevent mistakes.
 
-1. \-fc: Transition from an old currency to a new currency.  This fix is quite useful when a country introduces a new currency code ( usually due to a devaluation ), but the name remains the same.  In order to use this fix, modify the following values in the CLDRModify code under "**fixList.add('c', "Fix transiton from an old currency code to a new one**"
+1. \-fc: Transition from an old currency to a new currency. This fix is quite useful when a country introduces a new currency code (usually due to a devaluation), but the name remains the same. In order to use this fix, modify the following values in the CLDRModify code under "**fixList.add('c', "Fix transiton from an old currency code to a new one**"
     1. Change the String oldCurrencyCode and newCurrencyCode to reflect the currency codes you are transitioning.  
     2. Change the int fromDate and toDate to reflect the dates that the old currency was in circulation.
 These will be used to create the date range in the old currency string.  

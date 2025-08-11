@@ -2196,6 +2196,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##,##0.00</pattern>
+					<pattern alt="noCurrency">#,##,##0.00</pattern>
+				</currencyFormat>
+				<currencyFormat type="accounting">
+					<pattern alt="alphaNextToNumber">¤ #,##,##0.00</pattern>
+					<pattern alt="noCurrency">#,##,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
@@ -2203,22 +2209,40 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>¤#,##,##0.00</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##,##0.00</pattern>
+					<pattern alt="noCurrency">#,##,##0.00</pattern>
+				</currencyFormat>
+				<currencyFormat type="accounting">
+					<pattern alt="alphaNextToNumber">¤ #,##,##0.00</pattern>
+					<pattern alt="noCurrency">#,##,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyFormatLength type="short">
 				<currencyFormat type="standard">
 					<pattern type="1000" count="other">¤0hoz</pattern>
+					<pattern type="1000" count="other" alt="alphaNextToNumber">¤ 0hoz</pattern>
 					<pattern type="10000" count="other">¤00hoz</pattern>
+					<pattern type="10000" count="other" alt="alphaNextToNumber">¤ 00hoz</pattern>
 					<pattern type="100000" count="other">¤0lak</pattern>
+					<pattern type="100000" count="other" alt="alphaNextToNumber">¤ 0lak</pattern>
 					<pattern type="1000000" count="other">¤00lak</pattern>
+					<pattern type="1000000" count="other" alt="alphaNextToNumber">¤ 00lak</pattern>
 					<pattern type="10000000" count="other">¤0ko</pattern>
+					<pattern type="10000000" count="other" alt="alphaNextToNumber">¤ 0ko</pattern>
 					<pattern type="100000000" count="other">¤00ko</pattern>
+					<pattern type="100000000" count="other" alt="alphaNextToNumber">¤ 00ko</pattern>
 					<pattern type="1000000000" count="other">¤0obz</pattern>
+					<pattern type="1000000000" count="other" alt="alphaNextToNumber">¤ 0obz</pattern>
 					<pattern type="10000000000" count="other">¤00obz</pattern>
+					<pattern type="10000000000" count="other" alt="alphaNextToNumber">¤ 00obz</pattern>
 					<pattern type="100000000000" count="other">¤0nikh</pattern>
+					<pattern type="100000000000" count="other" alt="alphaNextToNumber">¤ 0nikh</pattern>
 					<pattern type="1000000000000" count="other">¤00nikh</pattern>
+					<pattern type="1000000000000" count="other" alt="alphaNextToNumber">¤ 00nikh</pattern>
 					<pattern type="10000000000000" count="other">¤000nikh</pattern>
+					<pattern type="10000000000000" count="other" alt="alphaNextToNumber">¤ 000nikh</pattern>
 					<pattern type="100000000000000" count="other">¤0hoz'.'nikh'.'</pattern>
+					<pattern type="100000000000000" count="other" alt="alphaNextToNumber">¤ 0hoz'.'nikh'.'</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>

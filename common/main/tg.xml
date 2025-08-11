@@ -3956,16 +3956,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>Вақти Гайана</standard>
 				</long>
 			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>Вақти стандартии Ҳавайӣ-Алеутӣ</standard>
+				</long>
+			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
 					<generic>Вақти Ҳавайӣ-Алеутӣ</generic>
 					<standard>Вақти стандартии Ҳавайӣ-Алеутӣ</standard>
 					<daylight>Вақти рӯзонаи Ҳавайӣ-Алеутӣ</daylight>
-				</long>
-			</metazone>
-			<metazone type="Hawaii">
-				<long>
-					<standard>Вақти стандартии Ҳавайӣ-Алеутӣ</standard>
 				</long>
 			</metazone>
 			<metazone type="Hong_Kong">
@@ -4601,7 +4601,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
+				</currencyFormat>
+				<currencyFormat type="accounting">
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
@@ -4609,23 +4614,29 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>#,##0.00 ¤</pattern>
-					<pattern alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
-					<pattern alt="noCurrency">#,##0.00;(#,##0.00)</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyFormatLength type="short">
 				<currencyFormat type="standard">
-					<pattern type="1000" count="other">¤0 ҳазор</pattern>
-					<pattern type="10000" count="other">¤00 ҳазор</pattern>
-					<pattern type="100000" count="other">¤000 ҳазор</pattern>
-					<pattern type="1000000" count="other">¤0 млн</pattern>
-					<pattern type="10000000" count="other">¤00 млн</pattern>
-					<pattern type="100000000" count="other">¤000 млн</pattern>
+					<pattern type="1000" count="other">0 ҳзр'.' ¤</pattern>
+					<pattern type="1000" count="other" alt="alphaNextToNumber">0 ҳзр'.' ¤</pattern>
+					<pattern type="10000" count="other">00 ҳзр'.' ¤</pattern>
+					<pattern type="10000" count="other" alt="alphaNextToNumber">00 ҳзр'.' ¤</pattern>
+					<pattern type="100000" count="other">000 ҳзр'.' ¤</pattern>
+					<pattern type="100000" count="other" alt="alphaNextToNumber">000 ҳзр'.' ¤</pattern>
+					<pattern type="1000000" count="other">0 млн'.' ¤</pattern>
+					<pattern type="1000000" count="other" alt="alphaNextToNumber">0 млн'.' ¤</pattern>
+					<pattern type="10000000" count="other">00 млн'.' ¤</pattern>
+					<pattern type="10000000" count="other" alt="alphaNextToNumber">00 млн'.' ¤</pattern>
+					<pattern type="100000000" count="other">000 млн'.' ¤</pattern>
+					<pattern type="100000000" count="other" alt="alphaNextToNumber">000 млн'.' ¤</pattern>
 					<pattern type="1000000000" count="other">0 млрд'.' ¤</pattern>
 					<pattern type="10000000000" count="other">00 млрд'.' ¤</pattern>
 					<pattern type="100000000000" count="other">000 млрд'.' ¤</pattern>

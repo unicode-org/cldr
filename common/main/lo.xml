@@ -5558,16 +5558,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>ເວລາກາຍອານາ</standard>
 				</long>
 			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>ເວລາມາດຕະຖານຮາວາຍ-ເອລູທຽນ</standard>
+				</long>
+			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
 					<generic>ເວລາຮາວາຍ-ເອລູທຽນ</generic>
 					<standard>ເວລາມາດຕະຖານຮາວາຍ-ເອລູທຽນ</standard>
 					<daylight>ເວລາຕອນທ່ຽງຮາວາຍ-ເອລູທຽນ</daylight>
-				</long>
-			</metazone>
-			<metazone type="Hawaii">
-				<long>
-					<standard>ເວລາມາດຕະຖານຮາວາຍ-ເອລູທຽນ</standard>
 				</long>
 			</metazone>
 			<metazone type="Hong_Kong">
@@ -6252,8 +6252,40 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="alphaNextToNumber">↑↑↑</pattern>
-					<pattern alt="noCurrency">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤-#,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00;-#,##0.00</pattern>
+				</currencyFormat>
+				<currencyFormat type="accounting">
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤-#,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00;-#,##0.00</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+			<currencyFormatLength type="short">
+				<currencyFormat type="standard">
+					<pattern type="1000" count="other">¤0ພັນ</pattern>
+					<pattern type="1000" count="other" alt="alphaNextToNumber">¤ 0ພັນ</pattern>
+					<pattern type="10000" count="other">¤00ພັນ</pattern>
+					<pattern type="10000" count="other" alt="alphaNextToNumber">¤ 00ພັນ</pattern>
+					<pattern type="100000" count="other">¤000ພັນ</pattern>
+					<pattern type="100000" count="other" alt="alphaNextToNumber">¤ 000ພັນ</pattern>
+					<pattern type="1000000" count="other">¤0ລ້ານ</pattern>
+					<pattern type="1000000" count="other" alt="alphaNextToNumber">¤ 0ລ້ານ</pattern>
+					<pattern type="10000000" count="other">¤00ລ້ານ</pattern>
+					<pattern type="10000000" count="other" alt="alphaNextToNumber">¤ 00ລ້ານ</pattern>
+					<pattern type="100000000" count="other">¤000ລ້ານ</pattern>
+					<pattern type="100000000" count="other" alt="alphaNextToNumber">¤ 000ລ້ານ</pattern>
+					<pattern type="1000000000" count="other">¤0ຕື້</pattern>
+					<pattern type="1000000000" count="other" alt="alphaNextToNumber">¤ 0ຕື້</pattern>
+					<pattern type="10000000000" count="other">¤00ຕື້</pattern>
+					<pattern type="10000000000" count="other" alt="alphaNextToNumber">¤ 00ຕື້</pattern>
+					<pattern type="100000000000" count="other">¤000ຕື້</pattern>
+					<pattern type="100000000000" count="other" alt="alphaNextToNumber">¤ 000ຕື້</pattern>
+					<pattern type="1000000000000" count="other">¤0000ຕື້</pattern>
+					<pattern type="1000000000000" count="other" alt="alphaNextToNumber">¤ 0000ຕື້</pattern>
+					<pattern type="10000000000000" count="other">¤00ພັນຕື້</pattern>
+					<pattern type="10000000000000" count="other" alt="alphaNextToNumber">¤ 00ພັນຕື້</pattern>
+					<pattern type="100000000000000" count="other">¤000ພັນຕື້</pattern>
+					<pattern type="100000000000000" count="other" alt="alphaNextToNumber">¤ 000ພັນຕື້</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
@@ -6261,13 +6293,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>¤#,##0.00;¤-#,##0.00</pattern>
-					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤ -#,##0.00</pattern>
-					<pattern alt="noCurrency">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤-#,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00;-#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="alphaNextToNumber">↑↑↑</pattern>
-					<pattern alt="noCurrency">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤-#,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00;-#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyFormatLength type="short">
@@ -6292,10 +6324,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern type="100000000000" count="other" alt="alphaNextToNumber">¤ 000 ຕື້</pattern>
 					<pattern type="1000000000000" count="other">¤0 ລ້ານລ້ານ</pattern>
 					<pattern type="1000000000000" count="other" alt="alphaNextToNumber">¤ 0 ລ້ານລ້ານ</pattern>
-					<pattern type="10000000000000" count="other">¤00 ລ້ານລ້ານ</pattern>
-					<pattern type="10000000000000" count="other" alt="alphaNextToNumber">¤ 00 ລ້ານລ້ານ</pattern>
-					<pattern type="100000000000000" count="other">¤000 ລ້ານລ້ານ</pattern>
-					<pattern type="100000000000000" count="other" alt="alphaNextToNumber">¤ 000 ລ້ານລ້ານ</pattern>
+					<pattern type="10000000000000" count="other">¤00ລລ</pattern>
+					<pattern type="10000000000000" count="other" alt="alphaNextToNumber">¤ 00ລລ</pattern>
+					<pattern type="100000000000000" count="other">¤000ລລ</pattern>
+					<pattern type="100000000000000" count="other" alt="alphaNextToNumber">¤ 000ລລ</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>

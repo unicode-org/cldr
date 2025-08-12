@@ -27,18 +27,18 @@ While you may think that you are done, you have to verify that the three\-letter
 3. Verify that is indeed the language:
 	1. Look at the information on the Ethnologue page
 	2. Check Glottolog, Wikipedia and other web sources
-4. ***AND IMPORTANTLY: Review [Caution](#Caution) below***
+4. ***AND IMPORTANTLY: Review [Caution](/index/cldr-spec/picking-the-right-language-code#Caution) below***
 
 Once you have the right three\-letter code, you are still not done. Unicode and BCP 47 use the two\-letter ISO code if it exists. Unicode also uses the "macro language" where suitable. *So*
 
 1. Use the two\-letter code if there is one. In the example above, use the highlighted "lg" from the first table.
-2. Verify that the code is in http://www.iana.org/assignments/language-subtag-registry
-3. If the code occurs in http://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalMetadata.xml in the type attribute of a languageAlias element, then use the replacement instead.
+2. Verify that the code is in the [IANA subtag registry](http://www.iana.org/assignments/language-subtag-registry)
+3. If the code occurs in the [supplementalMetadata.xml](http://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalMetadata.xml) file in the type attribute of a languageAlias element, then use the replacement instead.
 	- For example, because "swh" occurs in \<languageAlias type\="swh" replacement\="sw"/\>, "sw" must be used instead of "swh".
 
 ## Choosing Script/Territory Subtags
 
-If you need a particular variant of a language, then you'll add additional subtags, typically script or territory. Consult [Sample Subtags](http://unicode.org/cldr/utility/sample_subtags.html) for the most common choices. ***Again, review*** [***Caution***](#Caution) ***below.***
+If you need a particular variant of a language, then you'll add additional subtags, typically script or territory. Consult [Sample Subtags](http://unicode.org/cldr/utility/sample_subtags.html) for the most common choices. ***Again, review*** [***Caution***](/index/cldr-spec/picking-the-right-language-code#Caution) ***below.***
 
 ## Verifying Your Choice
 
@@ -87,3 +87,4 @@ The Ethnologue is a great source of information, but it must be approached with 
 ### Wikipedia
 
 Wikipedia is also a great source of information, but it must be approached with a certain degree of caution as well. Be sure to follow up on references, not just look at articles.
+

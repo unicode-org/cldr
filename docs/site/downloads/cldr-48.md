@@ -81,6 +81,17 @@ For a full listing, see [Delta DTDs](https://unicode.org/cldr/charts/dev/supplem
   - Northern Kurdish `ku` now matched to Cyrillic writing in the CIS countries. ([CLDR-18114][])
   - Hassiniyya `mey` updated to default to `mey_Arab_DZ` instead of `mey_Latn_SN` ([CLDR-18114][])
   - See other likely subtags updated in [the Supplemental Data Delta page](https://www.unicode.org/cldr/charts/48/delta/supplemental-data.html#Likely)
+- Eras and era codes added and deleted to align with ECMA-402
+  - New era: Before Hijri, code `bh`, in all Islamic calendars
+  - New era codes and replacements:
+    - `am` (Coptic)
+    - `aa` (Ethiopian, replaces `mundi`)
+    - `am` (Ethiopian, replaces `incar`)
+    - `shaka` (Indian, replaces `saka`)
+    - `broc` (ROC, replaces `before-roc`)
+  - All codes that include the calendar name were removed, except for `roc`
+  - Additional aliases removed for ECMA-402 alignment:
+    - `minguo` (ROC)
 
 
 For a full listing, see [¤¤BCP47 Delta](https://unicode.org/cldr/charts/dev/delta/bcp47.html) and [¤¤Supplemental Delta](https://unicode.org/cldr/charts/dev/delta/supplemental-data.html)

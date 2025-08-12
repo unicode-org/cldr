@@ -404,6 +404,7 @@ public class TestTransforms extends TestFmwkPlus {
                     "Ethiopic-Musnad");
 
     public void TestTransformIDs() {
+        register();
         Map<String, File> transforms = getTransformIDs(CLDRPaths.TRANSFORMS_DIRECTORY);
         for (Map.Entry<String, File> entry : transforms.entrySet()) {
             checkTransformID(entry.getKey(), entry.getValue());
@@ -836,6 +837,7 @@ public class TestTransforms extends TestFmwkPlus {
     }
 
     public void TestZawgyiToUnicode10899() {
+        register();
         // Some tests for the transformation of Zawgyi font encoding to Unicode Burmese.
         Transliterator z2u = getTransliterator("my-t-my-s0-zawgyi");
 
@@ -859,6 +861,7 @@ public class TestTransforms extends TestFmwkPlus {
     }
 
     public void TestUnicodeToZawgyi111107() {
+        register();
         // Some tests for the transformation from Unicode to Zawgyi font encoding
         Transliterator u2z = getTransliterator("my-t-my-d0-zawgyi");
 
@@ -882,6 +885,7 @@ public class TestTransforms extends TestFmwkPlus {
     }
 
     public void TestLocales() {
+        register();
         Set<String> modernCldr =
                 StandardCodes.make()
                         .getLocaleCoverageLocales(Organization.cldr, ImmutableSet.of(Level.MODERN));

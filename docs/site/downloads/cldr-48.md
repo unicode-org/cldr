@@ -148,7 +148,10 @@ The following changes are planned for CLDR 48. Please plan accordingly to avoid 
 
 ### V49 advance warnings
 
-- TBD
+- There is too much uncertainty in the exact values for pre-Meiji Japanese eras,
+and there is feedback that the general practice for exact dates is to use Gregorian for pre-Meiji dates.
+These are slated for removal in a future release.
+Please add a comment to [CLDR-11400] if you use this data and explain your use case if possible.
 
 ## Known Issues
 
@@ -178,3 +181,4 @@ For web pages with different views of CLDR data, see [http://cldr.unicode.org/in
 [CLDR-18219]: https://unicode-org.atlassian.net/browse/CLDR-18219
 [CLDR-18275]: https://unicode-org.atlassian.net/browse/CLDR-18275
 [CLDR-18311]: https://unicode-org.atlassian.net/browse/CLDR-18311
+[CLDR-11400]: https://unicode-org.atlassian.net/browse/CLDR-11400

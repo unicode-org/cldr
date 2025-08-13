@@ -27,7 +27,6 @@ public class CodeFallback {
         {"cakm", "numbers"},
         {"cham", "numbers"},
         {"chinese", "calendar"},
-        {"chis", "numbers"},
         {"compat", "collation"},
         {"coptic", "calendar"},
         {"cyrl", "numbers"},

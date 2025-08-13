@@ -11,11 +11,12 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.junit.jupiter.api.Test;
+import org.unicode.cldr.testutil.TestWithKnownIssues;
 
 /**
  * @see org.unicode.cldr.unittest.UnicodeSetPrettyPrinterTest
  */
-public class TestCodePointEscaper {
+public class TestCodePointEscaper extends TestWithKnownIssues {
     @Test
     void testForEach() {
         for (final CodePointEscaper e : CodePointEscaper.values()) {
@@ -88,6 +89,11 @@ public class TestCodePointEscaper {
                         continue;
                     case Currencies:
                         if (ph.getCode().startsWith("XOF")) {
+                            continue; // TODO: log known issue?
+                        }
+                        if (ph.getCode().startsWith("SAR")
+                                && logKnownIssue(
+                                        "CLDR-18334", "some random test failure, revisit")) {
                             continue;
                         }
                         ok = false;

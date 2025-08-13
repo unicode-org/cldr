@@ -3620,9 +3620,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Africa_Western">
 				<long>
-					<generic>Àkókò Ìwɔ̀-Oòrùn Afírikà</generic>
-					<standard>Àkókò Ìwɔ̀-Oòrùn Àfɛnukò Afírikà</standard>
-					<daylight>Àkókò Ìwɔ̀-Oòrùn Ooru Afírikà</daylight>
+					<standard>Àkókò Ìwɔ̀-Oòrùn Afírikà</standard>
 				</long>
 			</metazone>
 			<metazone type="Alaska">
@@ -3970,6 +3968,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<metazone type="Guyana">
 				<long>
 					<standard>Àkókò Gúyànà</standard>
+				</long>
+			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>Àkókò Àfɛnukò Hawaii-Aleutian</standard>
 				</long>
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
@@ -4571,12 +4574,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<pattern type="10000000" count="other" alt="alphaNextToNumber">¤ 00M</pattern>
 					<pattern type="100000000" count="other">¤000M</pattern>
 					<pattern type="100000000" count="other" alt="alphaNextToNumber">¤ 000M</pattern>
-					<pattern type="1000000000" count="other">¤0B</pattern>
-					<pattern type="1000000000" count="other" alt="alphaNextToNumber">¤ 0B</pattern>
-					<pattern type="10000000000" count="other">¤00B</pattern>
-					<pattern type="10000000000" count="other" alt="alphaNextToNumber">¤ 00B</pattern>
-					<pattern type="100000000000" count="other">¤000B</pattern>
-					<pattern type="100000000000" count="other" alt="alphaNextToNumber">¤ 000B</pattern>
+					<pattern type="1000000000" count="other">¤0G</pattern>
+					<pattern type="1000000000" count="other" alt="alphaNextToNumber">¤ 0G</pattern>
+					<pattern type="10000000000" count="other">¤00G</pattern>
+					<pattern type="10000000000" count="other" alt="alphaNextToNumber">¤ 00G</pattern>
+					<pattern type="100000000000" count="other">¤000G</pattern>
+					<pattern type="100000000000" count="other" alt="alphaNextToNumber">¤ 000G</pattern>
 					<pattern type="1000000000000" count="other">¤0T</pattern>
 					<pattern type="1000000000000" count="other" alt="alphaNextToNumber">¤ 0T</pattern>
 					<pattern type="10000000000000" count="other">¤00T</pattern>

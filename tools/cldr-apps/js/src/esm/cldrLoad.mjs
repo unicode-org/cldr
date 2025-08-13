@@ -668,7 +668,22 @@ function unspecialLoad(itemLoadInfo, theDiv) {
         if (CLDR_LOAD_DEBUG) {
           console.log("cldrLoad.unspecialLoad: running loadAllRows");
         }
-        loadAllRows(itemLoadInfo, theDiv);
+        loadAllRows(itemLoadInfo, theDiv).catch((err) => {
+          isLoading = false;
+          cldrNotify.openWithHtml(
+            "Error loading rows",
+            `While trying to load ${curLocale || ""}/${curPage || ""}/${
+              curId || ""
+            }<br>
+            <br>
+            ${err.message || ""}
+            <br>
+            ${cldrText.get("E_SESSION_DISCONNECTED")}
+            <br>
+            <button onclick='window.location.reload()'>Reload</button>`,
+            err
+          );
+        });
       } else if (CLDR_LOAD_DEBUG) {
         console.log(
           "cldrLoad.unspecialLoad: skipping loadAllRows because input is busy"
@@ -763,7 +778,6 @@ function getSpecial(str) {
     oldvotes: cldrOldVotes,
     recent_activity: cldrRecentActivity,
     retry: cldrRetry,
-    vetting_participation: cldrVettingParticipation,
   };
   if (str in specials) {
     return specials[str];
@@ -799,7 +813,7 @@ function loadExclamationPoint() {
   isLoading = false;
 }
 
-function loadAllRows(itemLoadInfo, theDiv) {
+async function loadAllRows(itemLoadInfo, theDiv) {
   const curId = cldrStatus.getCurrentId();
   const curPage = cldrStatus.getCurrentPage();
   const curLocale = cldrStatus.getCurrentLocale();
@@ -814,15 +828,12 @@ function loadAllRows(itemLoadInfo, theDiv) {
   if (CLDR_LOAD_DEBUG) {
     console.log("cldrLoad.loadAllRows sending request");
   }
-  cldrAjax
-    .doFetch(url)
-    .then((response) => response.json())
-    .then((json) => loadAllRowsFromJson(json, theDiv))
-    .catch((err) => {
-      console.error(err);
-      isLoading = false;
-      cldrNotify.exception(err, "loading rows");
-    });
+  const response = await cldrAjax.doFetch(url);
+  if (!response.ok) {
+    throw Error(`HTTP Status: ${response.status} ${response.statusText}`);
+  }
+  const json = await response.json();
+  loadAllRowsFromJson(json, theDiv);
 }
 
 function loadAllRowsFromJson(json, theDiv) {
@@ -998,6 +1009,7 @@ function myLoad(url, message, handler, postData, headers) {
 }
 
 function appendLocaleLink(subLocDiv, subLoc, subInfo, fullTitle) {
+  // Note: subLoc, etc., do not necessarily refer to sub-locales; they may also refer to top-level locales.
   let name = locmap.getRegionAndOrVariantName(subLoc);
   if (fullTitle) {
     name = locmap.getLocaleName(subLoc);
@@ -1007,7 +1019,7 @@ function appendLocaleLink(subLocDiv, subLoc, subInfo, fullTitle) {
     name = `${cldrText.get("scratch_locale")}: ${name}`;
   }
   const clickyLink = cldrDom.createChunk(name, "a", "locName");
-  clickyLink.href = linkToLocale(subLoc);
+  clickyLink.href = linkToLocaleOnly(subLoc);
   subLocDiv.appendChild(clickyLink);
   if (subInfo == null) {
     console.log("* internal: subInfo is null for " + name + " / " + subLoc);
@@ -1167,10 +1179,34 @@ function setLoading(loading) {
   isLoading = loading;
 }
 
-function linkToLocale(subLoc) {
+/**
+ * Return a hash for a link to the given locale, not including any page or row identifier
+ *
+ * @param {String} loc the locale ID
+ * @returns the URL hash
+ */
+function linkToLocaleOnly(loc) {
+  return "#/" + loc + "//";
+}
+
+/**
+ * Return a hash for a link to the given locale, possibly including page and/or row identifiers
+ * for the current page and/or row
+ *
+ * Caution: this function does not distinguish between different kinds of page or ID.
+ * For example, if the current ID is a user ID, a bogus URL may be generated in which
+ * a user ID appears where a row ID should be, resulting in an error message like
+ * "There was a problem loading data to display for aa//2785". There are at least
+ * three different kinds of ID: row, user, and forum post, which are insufficiently
+ * differentiated by functions like getCurrentId.
+ *
+ * @param {String} loc the locale ID
+ * @returns the URL hash
+ */
+function linkToLocale(loc) {
   return (
     "#/" +
-    subLoc +
+    loc +
     "/" +
     cldrStatus.getCurrentPage() +
     "/" +

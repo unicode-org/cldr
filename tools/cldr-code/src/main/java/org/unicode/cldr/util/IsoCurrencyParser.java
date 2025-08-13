@@ -94,6 +94,7 @@ public class IsoCurrencyParser {
                     .put("MEMBER COUNTRIES OF THE AFRICAN DEVELOPMENT BANK GROUP", "ZZ")
                     .put("SISTEMA UNITARIO DE COMPENSACION REGIONAL DE PAGOS \"SUCRE\"", "ZZ")
                     .put("EUROPEAN MONETARY CO-OPERATION FUND (EMCF)", "ZZ")
+                    .put("ARAB MONETARY FUND", "ZZ")
                     .put("TÜRKİYE", "TR")
                     .put("TURKEY", "TR")
                     .put("BURMA", "MY")

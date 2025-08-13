@@ -320,27 +320,32 @@ public class TestDtdData extends TestFmwk {
                     break;
                 }
                 if (!valueAttributes.isEmpty()) {
+                    boolean skip = false;
                     switch (element.getName()) {
                         case "ruleset":
-                            logKnownIssue("cldrbug:8909", "waiting for RBNF to use data");
+                            skip =
+                                    logKnownIssue(
+                                            "CLDR-18865",
+                                            "Need exception for DTD test for migration");
                             break;
                         case "key":
                         case "territory":
                         case "transform":
-                            logKnownIssue("cldrbug:9982", "Lower priority fixes to bad xml");
+                            skip = logKnownIssue("cldrbug:9982", "Lower priority fixes to bad xml");
                             break;
                         default:
-                            m.put(
-                                    "error",
-                                    "\t||"
-                                            + showPath(parents)
-                                            + "||DTD has both children AND value attributes: tr35.md#XML_Format"
-                                            + "||"
-                                            + valueAttributes
-                                            + "||"
-                                            + children
-                                            + "||");
-                            break;
+                    }
+                    if (!skip) {
+                        m.put(
+                                "error",
+                                "\t||"
+                                        + showPath(parents)
+                                        + "||DTD has both children AND value attributes: tr35.md#XML_Format"
+                                        + "||"
+                                        + valueAttributes
+                                        + "||"
+                                        + children
+                                        + "||");
                     }
                 }
                 for (Element child : children) {
@@ -509,6 +514,7 @@ public class TestDtdData extends TestFmwk {
                                     "variable",
 
                                     // <rulesetGrouping> children
+                                    "rbnfRules",
                                     "ruleset",
 
                                     // <ruleset> children

@@ -12,36 +12,490 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<territory type="FI"/>
 	</identity>
 	<localeDisplayNames>
+		<localeDisplayPattern>
+			<localePattern>↑↑↑</localePattern>
+			<localeSeparator>↑↑↑</localeSeparator>
+			<localeKeyTypePattern>↑↑↑</localeKeyTypePattern>
+		</localeDisplayPattern>
 		<languages>
+			<language type="ar">↑↑↑</language>
+			<language type="ar_001">↑↑↑</language>
+			<language type="bn">↑↑↑</language>
+			<language type="cs">↑↑↑</language>
+			<language type="da">↑↑↑</language>
+			<language type="de">↑↑↑</language>
+			<language type="de_AT">↑↑↑</language>
+			<language type="de_CH">↑↑↑</language>
+			<language type="el">↑↑↑</language>
+			<language type="en">↑↑↑</language>
+			<language type="en_AU">↑↑↑</language>
+			<language type="en_CA">↑↑↑</language>
+			<language type="en_GB">↑↑↑</language>
+			<language type="en_GB" alt="short">↑↑↑</language>
+			<language type="en_US">↑↑↑</language>
+			<language type="en_US" alt="short">↑↑↑</language>
+			<language type="es">↑↑↑</language>
+			<language type="es_419">↑↑↑</language>
+			<language type="es_ES">↑↑↑</language>
+			<language type="es_MX">↑↑↑</language>
+			<language type="et">↑↑↑</language>
+			<language type="fi">↑↑↑</language>
+			<language type="fr">↑↑↑</language>
+			<language type="fr_CA">↑↑↑</language>
+			<language type="fr_CH">↑↑↑</language>
+			<language type="hi_Latn">↑↑↑</language>
+			<language type="hi_Latn" alt="variant">↑↑↑</language>
+			<language type="hu">↑↑↑</language>
+			<language type="id">↑↑↑</language>
+			<language type="it">↑↑↑</language>
+			<language type="ja">↑↑↑</language>
+			<language type="ko">↑↑↑</language>
 			<language type="ky">↑↑↑</language>
+			<language type="lv">↑↑↑</language>
+			<language type="mt">↑↑↑</language>
+			<language type="nl">↑↑↑</language>
+			<language type="nl_BE">↑↑↑</language>
+			<language type="pl">↑↑↑</language>
+			<language type="pt">↑↑↑</language>
+			<language type="pt_BR">↑↑↑</language>
+			<language type="pt_PT">↑↑↑</language>
+			<language type="ru">↑↑↑</language>
+			<language type="sk">↑↑↑</language>
+			<language type="sl">↑↑↑</language>
+			<language type="sv">↑↑↑</language>
+			<language type="th">↑↑↑</language>
+			<language type="tr">↑↑↑</language>
+			<language type="und">↑↑↑</language>
+			<language type="zh">↑↑↑</language>
+			<language type="zh" alt="menu">↑↑↑</language>
+			<language type="zh_Hans">↑↑↑</language>
+			<language type="zh_Hans" alt="long">↑↑↑</language>
+			<language type="zh_Hant">↑↑↑</language>
+			<language type="zh_Hant" alt="long">↑↑↑</language>
 		</languages>
 		<scripts>
-			<script type="Arab" alt="variant" draft="contributed">persisk-arabiska</script>
+			<script type="Arab">↑↑↑</script>
+			<script type="Arab" alt="variant">persisk-arabiska</script>
+			<script type="Cyrl">↑↑↑</script>
+			<script type="Hans">↑↑↑</script>
+			<script type="Hans" alt="stand-alone">↑↑↑</script>
+			<script type="Hant">↑↑↑</script>
+			<script type="Hant" alt="stand-alone">↑↑↑</script>
+			<script type="Jpan">↑↑↑</script>
+			<script type="Kore">↑↑↑</script>
+			<script type="Latn">↑↑↑</script>
+			<script type="Zxxx">↑↑↑</script>
+			<script type="Zzzz">↑↑↑</script>
 		</scripts>
+		<territories>
+			<territory type="001">↑↑↑</territory>
+			<territory type="002">↑↑↑</territory>
+			<territory type="003">↑↑↑</territory>
+			<territory type="005">↑↑↑</territory>
+			<territory type="009">↑↑↑</territory>
+			<territory type="011">↑↑↑</territory>
+			<territory type="013">↑↑↑</territory>
+			<territory type="014">↑↑↑</territory>
+			<territory type="015">↑↑↑</territory>
+			<territory type="017">↑↑↑</territory>
+			<territory type="018">↑↑↑</territory>
+			<territory type="019">↑↑↑</territory>
+			<territory type="021">↑↑↑</territory>
+			<territory type="029">↑↑↑</territory>
+			<territory type="030">↑↑↑</territory>
+			<territory type="034">↑↑↑</territory>
+			<territory type="035">↑↑↑</territory>
+			<territory type="039">↑↑↑</territory>
+			<territory type="053">↑↑↑</territory>
+			<territory type="054">↑↑↑</territory>
+			<territory type="057">↑↑↑</territory>
+			<territory type="061">↑↑↑</territory>
+			<territory type="142">↑↑↑</territory>
+			<territory type="143">↑↑↑</territory>
+			<territory type="145">↑↑↑</territory>
+			<territory type="150">↑↑↑</territory>
+			<territory type="151">↑↑↑</territory>
+			<territory type="154">↑↑↑</territory>
+			<territory type="155">↑↑↑</territory>
+			<territory type="202">↑↑↑</territory>
+			<territory type="419">↑↑↑</territory>
+			<territory type="AC">↑↑↑</territory>
+			<territory type="AD">↑↑↑</territory>
+			<territory type="AE">↑↑↑</territory>
+			<territory type="AF">↑↑↑</territory>
+			<territory type="AG">↑↑↑</territory>
+			<territory type="AI">↑↑↑</territory>
+			<territory type="AL">↑↑↑</territory>
+			<territory type="AM">↑↑↑</territory>
+			<territory type="AO">↑↑↑</territory>
+			<territory type="AQ">↑↑↑</territory>
+			<territory type="AR">↑↑↑</territory>
+			<territory type="AS">↑↑↑</territory>
+			<territory type="AT">↑↑↑</territory>
+			<territory type="AU">↑↑↑</territory>
+			<territory type="AW">↑↑↑</territory>
+			<territory type="AX">↑↑↑</territory>
+			<territory type="AZ">↑↑↑</territory>
+			<territory type="BA">↑↑↑</territory>
+			<territory type="BB">↑↑↑</territory>
+			<territory type="BD">↑↑↑</territory>
+			<territory type="BE">↑↑↑</territory>
+			<territory type="BF">↑↑↑</territory>
+			<territory type="BG">↑↑↑</territory>
+			<territory type="BH">↑↑↑</territory>
+			<territory type="BI">↑↑↑</territory>
+			<territory type="BJ">↑↑↑</territory>
+			<territory type="BM">↑↑↑</territory>
+			<territory type="BN">↑↑↑</territory>
+			<territory type="BO">↑↑↑</territory>
+			<territory type="BQ">↑↑↑</territory>
+			<territory type="BR">↑↑↑</territory>
+			<territory type="BS">↑↑↑</territory>
+			<territory type="BT">↑↑↑</territory>
+			<territory type="BV">↑↑↑</territory>
+			<territory type="BW">↑↑↑</territory>
+			<territory type="BY">↑↑↑</territory>
+			<territory type="BZ">↑↑↑</territory>
+			<territory type="CA">↑↑↑</territory>
+			<territory type="CC">↑↑↑</territory>
+			<territory type="CD">↑↑↑</territory>
+			<territory type="CD" alt="variant">↑↑↑</territory>
+			<territory type="CF">↑↑↑</territory>
+			<territory type="CG">↑↑↑</territory>
+			<territory type="CG" alt="variant">↑↑↑</territory>
+			<territory type="CH">↑↑↑</territory>
+			<territory type="CI">↑↑↑</territory>
+			<territory type="CI" alt="variant">↑↑↑</territory>
+			<territory type="CK">↑↑↑</territory>
+			<territory type="CL">↑↑↑</territory>
+			<territory type="CM">↑↑↑</territory>
+			<territory type="CN">↑↑↑</territory>
+			<territory type="CO">↑↑↑</territory>
+			<territory type="CP">↑↑↑</territory>
+			<territory type="CQ">↑↑↑</territory>
+			<territory type="CR">↑↑↑</territory>
+			<territory type="CU">↑↑↑</territory>
+			<territory type="CV">↑↑↑</territory>
+			<territory type="CW">↑↑↑</territory>
+			<territory type="CX">↑↑↑</territory>
+			<territory type="CY">↑↑↑</territory>
+			<territory type="CZ">↑↑↑</territory>
+			<territory type="CZ" alt="variant">↑↑↑</territory>
+			<territory type="DE">↑↑↑</territory>
+			<territory type="DG">↑↑↑</territory>
+			<territory type="DJ">↑↑↑</territory>
+			<territory type="DK">↑↑↑</territory>
+			<territory type="DM">↑↑↑</territory>
+			<territory type="DO">↑↑↑</territory>
+			<territory type="DZ">↑↑↑</territory>
+			<territory type="EA">↑↑↑</territory>
+			<territory type="EC">↑↑↑</territory>
+			<territory type="EE">↑↑↑</territory>
+			<territory type="EG">↑↑↑</territory>
+			<territory type="EH">↑↑↑</territory>
+			<territory type="ER">↑↑↑</territory>
+			<territory type="ES">↑↑↑</territory>
+			<territory type="ET">↑↑↑</territory>
+			<territory type="EU">↑↑↑</territory>
+			<territory type="EZ">↑↑↑</territory>
+			<territory type="FI">↑↑↑</territory>
+			<territory type="FJ">↑↑↑</territory>
+			<territory type="FK">↑↑↑</territory>
+			<territory type="FK" alt="variant">↑↑↑</territory>
+			<territory type="FM">↑↑↑</territory>
+			<territory type="FO">↑↑↑</territory>
+			<territory type="FR">↑↑↑</territory>
+			<territory type="GA">↑↑↑</territory>
+			<territory type="GB">↑↑↑</territory>
+			<territory type="GB" alt="short">↑↑↑</territory>
+			<territory type="GD">↑↑↑</territory>
+			<territory type="GE">↑↑↑</territory>
+			<territory type="GF">↑↑↑</territory>
+			<territory type="GG">↑↑↑</territory>
+			<territory type="GH">↑↑↑</territory>
+			<territory type="GI">↑↑↑</territory>
+			<territory type="GL">↑↑↑</territory>
+			<territory type="GM">↑↑↑</territory>
+			<territory type="GN">↑↑↑</territory>
+			<territory type="GP">↑↑↑</territory>
+			<territory type="GQ">↑↑↑</territory>
+			<territory type="GR">↑↑↑</territory>
+			<territory type="GS">↑↑↑</territory>
+			<territory type="GT">↑↑↑</territory>
+			<territory type="GU">↑↑↑</territory>
+			<territory type="GW">↑↑↑</territory>
+			<territory type="GY">↑↑↑</territory>
+			<territory type="HK">↑↑↑</territory>
+			<territory type="HK" alt="short">↑↑↑</territory>
+			<territory type="HM">↑↑↑</territory>
+			<territory type="HN">↑↑↑</territory>
+			<territory type="HR">↑↑↑</territory>
+			<territory type="HT">↑↑↑</territory>
+			<territory type="HU">↑↑↑</territory>
+			<territory type="IC">↑↑↑</territory>
+			<territory type="ID">↑↑↑</territory>
+			<territory type="IE">↑↑↑</territory>
+			<territory type="IL">↑↑↑</territory>
+			<territory type="IM">↑↑↑</territory>
+			<territory type="IN">↑↑↑</territory>
+			<territory type="IO">↑↑↑</territory>
+			<territory type="IO" alt="biot">↑↑↑</territory>
+			<territory type="IO" alt="chagos">↑↑↑</territory>
+			<territory type="IQ">↑↑↑</territory>
+			<territory type="IR">↑↑↑</territory>
+			<territory type="IS">↑↑↑</territory>
+			<territory type="IT">↑↑↑</territory>
+			<territory type="JE">↑↑↑</territory>
+			<territory type="JM">↑↑↑</territory>
+			<territory type="JO">↑↑↑</territory>
+			<territory type="JP">↑↑↑</territory>
+			<territory type="KE">↑↑↑</territory>
+			<territory type="KG">↑↑↑</territory>
+			<territory type="KH">↑↑↑</territory>
+			<territory type="KI">↑↑↑</territory>
+			<territory type="KM">↑↑↑</territory>
+			<territory type="KP">↑↑↑</territory>
+			<territory type="KR">↑↑↑</territory>
+			<territory type="KW">↑↑↑</territory>
+			<territory type="KY">↑↑↑</territory>
+			<territory type="KZ">↑↑↑</territory>
+			<territory type="LA">↑↑↑</territory>
+			<territory type="LB">↑↑↑</territory>
+			<territory type="LI">↑↑↑</territory>
+			<territory type="LK">↑↑↑</territory>
+			<territory type="LR">↑↑↑</territory>
+			<territory type="LS">↑↑↑</territory>
+			<territory type="LT">↑↑↑</territory>
+			<territory type="LU">↑↑↑</territory>
+			<territory type="LV">↑↑↑</territory>
+			<territory type="LY">↑↑↑</territory>
+			<territory type="MA">↑↑↑</territory>
+			<territory type="MC">↑↑↑</territory>
+			<territory type="MD">↑↑↑</territory>
+			<territory type="ME">↑↑↑</territory>
+			<territory type="MF">↑↑↑</territory>
+			<territory type="MG">↑↑↑</territory>
+			<territory type="MH">↑↑↑</territory>
+			<territory type="MK">↑↑↑</territory>
+			<territory type="ML">↑↑↑</territory>
+			<territory type="MM">↑↑↑</territory>
+			<territory type="MN">↑↑↑</territory>
+			<territory type="MO">↑↑↑</territory>
+			<territory type="MO" alt="short">↑↑↑</territory>
+			<territory type="MP">↑↑↑</territory>
+			<territory type="MQ">↑↑↑</territory>
+			<territory type="MR">↑↑↑</territory>
+			<territory type="MS">↑↑↑</territory>
+			<territory type="MT">↑↑↑</territory>
+			<territory type="MU">↑↑↑</territory>
+			<territory type="MV">↑↑↑</territory>
+			<territory type="MW">↑↑↑</territory>
+			<territory type="MX">↑↑↑</territory>
+			<territory type="MY">↑↑↑</territory>
+			<territory type="MZ">↑↑↑</territory>
+			<territory type="NA">↑↑↑</territory>
+			<territory type="NC">↑↑↑</territory>
+			<territory type="NE">↑↑↑</territory>
+			<territory type="NF">↑↑↑</territory>
+			<territory type="NG">↑↑↑</territory>
+			<territory type="NI">↑↑↑</territory>
+			<territory type="NL">↑↑↑</territory>
+			<territory type="NO">↑↑↑</territory>
+			<territory type="NP">↑↑↑</territory>
+			<territory type="NR">↑↑↑</territory>
+			<territory type="NU">↑↑↑</territory>
+			<territory type="NZ">↑↑↑</territory>
+			<territory type="NZ" alt="variant">↑↑↑</territory>
+			<territory type="OM">↑↑↑</territory>
+			<territory type="PA">↑↑↑</territory>
+			<territory type="PE">↑↑↑</territory>
+			<territory type="PF">↑↑↑</territory>
+			<territory type="PG">↑↑↑</territory>
+			<territory type="PH">↑↑↑</territory>
+			<territory type="PK">↑↑↑</territory>
+			<territory type="PL">↑↑↑</territory>
+			<territory type="PN">↑↑↑</territory>
+			<territory type="PR">↑↑↑</territory>
+			<territory type="PS">↑↑↑</territory>
+			<territory type="PS" alt="short">↑↑↑</territory>
+			<territory type="PT">↑↑↑</territory>
+			<territory type="PW">↑↑↑</territory>
+			<territory type="PY">↑↑↑</territory>
+			<territory type="QA">↑↑↑</territory>
+			<territory type="QO">↑↑↑</territory>
+			<territory type="RE">↑↑↑</territory>
+			<territory type="RO">↑↑↑</territory>
+			<territory type="RS">↑↑↑</territory>
+			<territory type="RU">↑↑↑</territory>
+			<territory type="RW">↑↑↑</territory>
+			<territory type="SA">↑↑↑</territory>
+			<territory type="SB">↑↑↑</territory>
+			<territory type="SC">↑↑↑</territory>
+			<territory type="SD">↑↑↑</territory>
+			<territory type="SE">↑↑↑</territory>
+			<territory type="SG">↑↑↑</territory>
+			<territory type="SI">↑↑↑</territory>
+			<territory type="SJ">↑↑↑</territory>
+			<territory type="SK">↑↑↑</territory>
+			<territory type="SL">↑↑↑</territory>
+			<territory type="SM">↑↑↑</territory>
+			<territory type="SN">↑↑↑</territory>
+			<territory type="SO">↑↑↑</territory>
+			<territory type="SR">↑↑↑</territory>
+			<territory type="SS">↑↑↑</territory>
+			<territory type="ST">↑↑↑</territory>
+			<territory type="SV">↑↑↑</territory>
+			<territory type="SX">↑↑↑</territory>
+			<territory type="SY">↑↑↑</territory>
+			<territory type="SZ">↑↑↑</territory>
+			<territory type="SZ" alt="variant">↑↑↑</territory>
+			<territory type="TA">↑↑↑</territory>
+			<territory type="TC">↑↑↑</territory>
+			<territory type="TD">↑↑↑</territory>
+			<territory type="TF">↑↑↑</territory>
+			<territory type="TG">↑↑↑</territory>
+			<territory type="TH">↑↑↑</territory>
+			<territory type="TJ">↑↑↑</territory>
+			<territory type="TK">↑↑↑</territory>
+			<territory type="TL">↑↑↑</territory>
+			<territory type="TL" alt="variant">↑↑↑</territory>
+			<territory type="TM">↑↑↑</territory>
+			<territory type="TN">↑↑↑</territory>
+			<territory type="TO">↑↑↑</territory>
+			<territory type="TR">↑↑↑</territory>
+			<territory type="TR" alt="variant">↑↑↑</territory>
+			<territory type="TT">↑↑↑</territory>
+			<territory type="TV">↑↑↑</territory>
+			<territory type="TW">↑↑↑</territory>
+			<territory type="TZ">↑↑↑</territory>
+			<territory type="UA">↑↑↑</territory>
+			<territory type="UG">↑↑↑</territory>
+			<territory type="UM">↑↑↑</territory>
+			<territory type="UN">↑↑↑</territory>
+			<territory type="UN" alt="short">↑↑↑</territory>
+			<territory type="US">↑↑↑</territory>
+			<territory type="US" alt="short">↑↑↑</territory>
+			<territory type="UY">↑↑↑</territory>
+			<territory type="UZ">↑↑↑</territory>
+			<territory type="VA">↑↑↑</territory>
+			<territory type="VE">↑↑↑</territory>
+			<territory type="VG">↑↑↑</territory>
+			<territory type="VI">↑↑↑</territory>
+			<territory type="VN">↑↑↑</territory>
+			<territory type="VU">↑↑↑</territory>
+			<territory type="WF">↑↑↑</territory>
+			<territory type="WS">↑↑↑</territory>
+			<territory type="XA">↑↑↑</territory>
+			<territory type="XB">↑↑↑</territory>
+			<territory type="XK">↑↑↑</territory>
+			<territory type="YE">↑↑↑</territory>
+			<territory type="YT">↑↑↑</territory>
+			<territory type="ZA">↑↑↑</territory>
+			<territory type="ZM">↑↑↑</territory>
+			<territory type="ZW">↑↑↑</territory>
+			<territory type="ZZ">↑↑↑</territory>
+		</territories>
 		<keys>
 			<key type="timezone" draft="contributed">tidszon</key>
 		</keys>
 		<types>
+			<type key="calendar" type="gregorian">↑↑↑</type>
+			<type key="calendar" type="gregorian" scope="core">↑↑↑</type>
+			<type key="calendar" type="iso8601">↑↑↑</type>
 			<type key="collation" type="pinyin" draft="unconfirmed">kinesiska i pinyin-sorteringsordning</type>
+			<type key="collation" type="standard">↑↑↑</type>
+			<type key="collation" type="standard" scope="core">↑↑↑</type>
 			<type key="collation" type="stroke" draft="unconfirmed">kinesiska i strecksorteringsordning</type>
+			<type key="numbers" type="latn">↑↑↑</type>
 		</types>
+		<measurementSystemNames>
+			<measurementSystemName type="metric">↑↑↑</measurementSystemName>
+			<measurementSystemName type="UK">↑↑↑</measurementSystemName>
+			<measurementSystemName type="US">↑↑↑</measurementSystemName>
+		</measurementSystemNames>
+		<codePatterns>
+			<codePattern type="language">↑↑↑</codePattern>
+			<codePattern type="script">↑↑↑</codePattern>
+			<codePattern type="territory">↑↑↑</codePattern>
+		</codePatterns>
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters draft="contributed">↑↑↑</exemplarCharacters>
+		<exemplarCharacters type="auxiliary" draft="contributed">↑↑↑</exemplarCharacters>
+		<exemplarCharacters type="index" draft="contributed">↑↑↑</exemplarCharacters>
+		<exemplarCharacters type="numbers" draft="contributed">↑↑↑</exemplarCharacters>
+		<exemplarCharacters type="punctuation" draft="contributed">↑↑↑</exemplarCharacters>
+		<exemplarCharacters type="punctuation-person" draft="contributed">↑↑↑</exemplarCharacters>
+		<ellipsis type="final">↑↑↑</ellipsis>
+		<ellipsis type="initial">↑↑↑</ellipsis>
+		<ellipsis type="medial">↑↑↑</ellipsis>
+		<ellipsis type="word-final">{0}…</ellipsis>
+		<ellipsis type="word-initial">…{0}</ellipsis>
+		<ellipsis type="word-medial">{0}…{1}</ellipsis>
+		<moreInformation>↑↑↑</moreInformation>
+		<parseLenients scope="date" level="lenient">
+			<parseLenient sample="-" draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample=":" draft="contributed">↑↑↑</parseLenient>
+		</parseLenients>
+		<parseLenients scope="general" level="lenient">
+			<parseLenient sample="." draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample="’" draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample="%" draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample="‰" draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample="$" draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample="£" draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample="¥" draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample="₩" draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample="₹" draft="contributed">↑↑↑</parseLenient>
+		</parseLenients>
+		<parseLenients scope="number" level="lenient">
+			<parseLenient sample="-" draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample="," draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample="+" draft="contributed">↑↑↑</parseLenient>
+		</parseLenients>
+		<parseLenients scope="number" level="stricter">
+			<parseLenient sample="," draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample="." draft="contributed">↑↑↑</parseLenient>
+		</parseLenients>
 	</characters>
+	<delimiters>
+		<quotationStart>↑↑↑</quotationStart>
+		<quotationEnd>↑↑↑</quotationEnd>
+		<alternateQuotationStart>↑↑↑</alternateQuotationStart>
+		<alternateQuotationEnd>↑↑↑</alternateQuotationEnd>
+	</delimiters>
 	<dates>
 		<calendars>
 			<calendar type="generic">
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>↑↑↑</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>↑↑↑</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
 				<dateTimeFormats>
+					<dateTimeFormatLength type="short">
+						<dateTimeFormat type="relative">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="Bhm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Bhms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="d">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EBhm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EBhms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ehm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EHm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ehms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EHms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Gy">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Hm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hms">↑↑↑</dateFormatItem>
@@ -55,17 +509,173 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">↑↑↑</month>
+							<month type="2">↑↑↑</month>
+							<month type="3">↑↑↑</month>
+							<month type="4">↑↑↑</month>
+							<month type="5">↑↑↑</month>
+							<month type="6">↑↑↑</month>
+							<month type="7">↑↑↑</month>
+							<month type="8">↑↑↑</month>
+							<month type="9">↑↑↑</month>
+							<month type="10">↑↑↑</month>
+							<month type="11">↑↑↑</month>
+							<month type="12">↑↑↑</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1">↑↑↑</month>
+							<month type="2">↑↑↑</month>
+							<month type="3">↑↑↑</month>
+							<month type="4">↑↑↑</month>
+							<month type="5">↑↑↑</month>
+							<month type="6">↑↑↑</month>
+							<month type="7">↑↑↑</month>
+							<month type="8">↑↑↑</month>
+							<month type="9">↑↑↑</month>
+							<month type="10">↑↑↑</month>
+							<month type="11">↑↑↑</month>
+							<month type="12">↑↑↑</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">↑↑↑</month>
+							<month type="2">↑↑↑</month>
+							<month type="3">↑↑↑</month>
+							<month type="4">↑↑↑</month>
+							<month type="5">↑↑↑</month>
+							<month type="6">↑↑↑</month>
+							<month type="7">↑↑↑</month>
+							<month type="8">↑↑↑</month>
+							<month type="9">↑↑↑</month>
+							<month type="10">↑↑↑</month>
+							<month type="11">↑↑↑</month>
+							<month type="12">↑↑↑</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1">↑↑↑</month>
+							<month type="2">↑↑↑</month>
+							<month type="3">↑↑↑</month>
+							<month type="4">↑↑↑</month>
+							<month type="5">↑↑↑</month>
+							<month type="6">↑↑↑</month>
+							<month type="7">↑↑↑</month>
+							<month type="8">↑↑↑</month>
+							<month type="9">↑↑↑</month>
+							<month type="10">↑↑↑</month>
+							<month type="11">↑↑↑</month>
+							<month type="12">↑↑↑</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1">↑↑↑</month>
+							<month type="2">↑↑↑</month>
+							<month type="3">↑↑↑</month>
+							<month type="4">↑↑↑</month>
+							<month type="5">↑↑↑</month>
+							<month type="6">↑↑↑</month>
+							<month type="7">↑↑↑</month>
+							<month type="8">↑↑↑</month>
+							<month type="9">↑↑↑</month>
+							<month type="10">↑↑↑</month>
+							<month type="11">↑↑↑</month>
+							<month type="12">↑↑↑</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">↑↑↑</month>
+							<month type="2">↑↑↑</month>
+							<month type="3">↑↑↑</month>
+							<month type="4">↑↑↑</month>
+							<month type="5">↑↑↑</month>
+							<month type="6">↑↑↑</month>
+							<month type="7">↑↑↑</month>
+							<month type="8">↑↑↑</month>
+							<month type="9">↑↑↑</month>
+							<month type="10">↑↑↑</month>
+							<month type="11">↑↑↑</month>
+							<month type="12">↑↑↑</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="narrow">
+							<day type="sun">↑↑↑</day>
+							<day type="mon">↑↑↑</day>
+							<day type="tue">↑↑↑</day>
+							<day type="wed">↑↑↑</day>
+							<day type="thu">↑↑↑</day>
+							<day type="fri">↑↑↑</day>
+							<day type="sat">↑↑↑</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">↑↑↑</day>
+							<day type="mon">↑↑↑</day>
+							<day type="tue">↑↑↑</day>
+							<day type="wed">↑↑↑</day>
+							<day type="thu">↑↑↑</day>
+							<day type="fri">↑↑↑</day>
+							<day type="sat">↑↑↑</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="narrow">
+							<day type="sun">↑↑↑</day>
+							<day type="mon">↑↑↑</day>
+							<day type="tue">↑↑↑</day>
+							<day type="wed">↑↑↑</day>
+							<day type="thu">↑↑↑</day>
+							<day type="fri">↑↑↑</day>
+							<day type="sat">↑↑↑</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">↑↑↑</day>
+							<day type="mon">↑↑↑</day>
+							<day type="tue">↑↑↑</day>
+							<day type="wed">↑↑↑</day>
+							<day type="thu">↑↑↑</day>
+							<day type="fri">↑↑↑</day>
+							<day type="sat">↑↑↑</day>
+						</dayWidth>
+					</dayContext>
+				</days>
 				<quarters>
 					<quarterContext type="format">
 						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="contributed">Q1</quarter>
-							<quarter type="2" draft="contributed">Q2</quarter>
-							<quarter type="3" draft="contributed">Q3</quarter>
-							<quarter type="4" draft="contributed">Q4</quarter>
+							<quarter type="1">↑↑↑</quarter>
+							<quarter type="2">↑↑↑</quarter>
+							<quarter type="3">↑↑↑</quarter>
+							<quarter type="4">↑↑↑</quarter>
+						</quarterWidth>
+						<quarterWidth type="narrow">
+							<quarter type="1">↑↑↑</quarter>
+							<quarter type="2">↑↑↑</quarter>
+							<quarter type="3">↑↑↑</quarter>
+							<quarter type="4">↑↑↑</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1">↑↑↑</quarter>
+							<quarter type="2">↑↑↑</quarter>
+							<quarter type="3">↑↑↑</quarter>
+							<quarter type="4">↑↑↑</quarter>
 						</quarterWidth>
 					</quarterContext>
 					<quarterContext type="stand-alone">
 						<quarterWidth type="abbreviated">
+							<quarter type="1">K1</quarter>
+							<quarter type="2">K2</quarter>
+							<quarter type="3">K3</quarter>
+							<quarter type="4">K4</quarter>
+						</quarterWidth>
+						<quarterWidth type="narrow">
+							<quarter type="1">↑↑↑</quarter>
+							<quarter type="2">↑↑↑</quarter>
+							<quarter type="3">↑↑↑</quarter>
+							<quarter type="4">↑↑↑</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
 							<quarter type="1">↑↑↑</quarter>
 							<quarter type="2">↑↑↑</quarter>
 							<quarter type="3">↑↑↑</quarter>
@@ -73,24 +683,186 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="midnight">↑↑↑</dayPeriod>
+							<dayPeriod type="morning1">↑↑↑</dayPeriod>
+							<dayPeriod type="morning2">↑↑↑</dayPeriod>
+							<dayPeriod type="afternoon1">↑↑↑</dayPeriod>
+							<dayPeriod type="evening1">↑↑↑</dayPeriod>
+							<dayPeriod type="night1">↑↑↑</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="midnight">↑↑↑</dayPeriod>
+							<dayPeriod type="morning1">↑↑↑</dayPeriod>
+							<dayPeriod type="morning2">↑↑↑</dayPeriod>
+							<dayPeriod type="afternoon1">↑↑↑</dayPeriod>
+							<dayPeriod type="evening1">↑↑↑</dayPeriod>
+							<dayPeriod type="night1">↑↑↑</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="midnight">↑↑↑</dayPeriod>
+							<dayPeriod type="morning1">↑↑↑</dayPeriod>
+							<dayPeriod type="morning2">↑↑↑</dayPeriod>
+							<dayPeriod type="afternoon1">↑↑↑</dayPeriod>
+							<dayPeriod type="evening1">↑↑↑</dayPeriod>
+							<dayPeriod type="night1">↑↑↑</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+					<dayPeriodContext type="stand-alone">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="midnight">↑↑↑</dayPeriod>
+							<dayPeriod type="morning1">↑↑↑</dayPeriod>
+							<dayPeriod type="morning2">↑↑↑</dayPeriod>
+							<dayPeriod type="afternoon1">↑↑↑</dayPeriod>
+							<dayPeriod type="evening1">↑↑↑</dayPeriod>
+							<dayPeriod type="night1">↑↑↑</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="midnight">↑↑↑</dayPeriod>
+							<dayPeriod type="morning1">↑↑↑</dayPeriod>
+							<dayPeriod type="morning2">↑↑↑</dayPeriod>
+							<dayPeriod type="afternoon1">↑↑↑</dayPeriod>
+							<dayPeriod type="evening1">↑↑↑</dayPeriod>
+							<dayPeriod type="night1">↑↑↑</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="midnight">↑↑↑</dayPeriod>
+							<dayPeriod type="morning1">↑↑↑</dayPeriod>
+							<dayPeriod type="morning2">↑↑↑</dayPeriod>
+							<dayPeriod type="afternoon1">↑↑↑</dayPeriod>
+							<dayPeriod type="evening1">↑↑↑</dayPeriod>
+							<dayPeriod type="night1">↑↑↑</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
+				<eras>
+					<eraNames>
+						<era type="0">↑↑↑</era>
+						<era type="1">↑↑↑</era>
+					</eraNames>
+					<eraAbbr>
+						<era type="0">↑↑↑</era>
+						<era type="1">↑↑↑</era>
+					</eraAbbr>
+					<eraNarrow>
+						<era type="0">↑↑↑</era>
+						<era type="1">↑↑↑</era>
+					</eraNarrow>
+				</eras>
 				<dateFormats>
-					<dateFormatLength type="short">
+					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>↑↑↑</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>↑↑↑</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>↑↑↑</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>d.M.y</pattern>
 							<datetimeSkeleton draft="contributed">↑↑↑</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
+				<timeFormats>
+					<timeFormatLength type="full">
+						<timeFormat>
+							<pattern>HH.mm.ss zzzz</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="long">
+						<timeFormat>
+							<pattern>H.mm.ss z</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="medium">
+						<timeFormat>
+							<pattern>H.mm.ss</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="short">
+						<timeFormat>
+							<pattern>H.mm</pattern>
+						</timeFormat>
+					</timeFormatLength>
+				</timeFormats>
 				<dateTimeFormats>
+					<dateTimeFormatLength type="full">
+						<dateTimeFormat>
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="atTime">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="long">
+						<dateTimeFormat>
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="atTime">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="medium">
+						<dateTimeFormat>
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="atTime">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="short">
+						<dateTimeFormat>
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="atTime">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
 					<availableFormats>
+						<dateFormatItem id="Bh">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Bhm">h.mm B</dateFormatItem>
 						<dateFormatItem id="Bhms">h.mm.ss B</dateFormatItem>
+						<dateFormatItem id="d">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EBh">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EBhm">E h.mm B</dateFormatItem>
 						<dateFormatItem id="EBhms">E h.mm.ss B</dateFormatItem>
+						<dateFormatItem id="Eh">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ehm">E h.mm a</dateFormatItem>
 						<dateFormatItem id="EHm">E HH.mm</dateFormatItem>
 						<dateFormatItem id="Ehms">E h.mm.ss a</dateFormatItem>
 						<dateFormatItem id="EHms">E HH.mm.ss</dateFormatItem>
+						<dateFormatItem id="Gy">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyM">M.y G</dateFormatItem>
+						<dateFormatItem id="GyMd">d.M.y G</dateFormatItem>
+						<dateFormatItem id="GyMEd">E d.M.y G</dateFormatItem>
+						<dateFormatItem id="GyMMM">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="h">↑↑↑</dateFormatItem>
+						<dateFormatItem id="H">H</dateFormatItem>
 						<dateFormatItem id="hm">h.mm a</dateFormatItem>
 						<dateFormatItem id="Hm">HH.mm</dateFormatItem>
 						<dateFormatItem id="hms">h.mm.ss a</dateFormatItem>
@@ -99,18 +871,1941 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="Hmsv">HH.mm.ss v</dateFormatItem>
 						<dateFormatItem id="hmv">h.mm a v</dateFormatItem>
 						<dateFormatItem id="Hmv">HH.mm v</dateFormatItem>
+						<dateFormatItem id="hv">↑↑↑</dateFormatItem>
+						<dateFormatItem id="M">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Md">d.M</dateFormatItem>
 						<dateFormatItem id="MEd">E d.M</dateFormatItem>
 						<dateFormatItem id="MMd">d.M</dateFormatItem>
 						<dateFormatItem id="MMdd">dd.MM</dateFormatItem>
+						<dateFormatItem id="MMM">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMMEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="one">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="other">↑↑↑</dateFormatItem>
 						<dateFormatItem id="ms">mm.ss</dateFormatItem>
+						<dateFormatItem id="y">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yM">L.y</dateFormatItem>
+						<dateFormatItem id="yMd">d.M.y</dateFormatItem>
+						<dateFormatItem id="yMEd">E d.M.y</dateFormatItem>
+						<dateFormatItem id="yMM">M.y</dateFormatItem>
+						<dateFormatItem id="yMMM">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMMMEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMMMM">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yQQQ">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yQQQQ">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yw" count="one">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yw" count="other">↑↑↑</dateFormatItem>
 					</availableFormats>
+					<appendItems>
+						<appendItem request="Timezone">↑↑↑</appendItem>
+					</appendItems>
+					<intervalFormats>
+						<intervalFormatFallback>↑↑↑</intervalFormatFallback>
+						<intervalFormatItem id="Bh">
+							<greatestDifference id="B">↑↑↑</greatestDifference>
+							<greatestDifference id="h">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Bhm">
+							<greatestDifference id="B">h.mm B–h.mm B</greatestDifference>
+							<greatestDifference id="h">h.mm–h.mm B</greatestDifference>
+							<greatestDifference id="m">h.mm–h.mm B</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="d">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Gy">
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyM">
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMd">
+							<greatestDifference id="d">d.M.y–d.M.y GGGGG</greatestDifference>
+							<greatestDifference id="G">d.M.y GGGGG–d.M.y GGGGG</greatestDifference>
+							<greatestDifference id="M">d.M.y–d.M.y GGGGG</greatestDifference>
+							<greatestDifference id="y">d.M.y–d.M.y GGGGG</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMEd">
+							<greatestDifference id="d">E d.M.y–E d.M.y GGGGG</greatestDifference>
+							<greatestDifference id="G">E d.M.y GGGGG–E d.M.y GGGGG</greatestDifference>
+							<greatestDifference id="M">E d.M.y–E d.M.y GGGGG</greatestDifference>
+							<greatestDifference id="y">E d.M.y–E d.M.y GGGGG</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMM">
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMEd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="h">
+							<greatestDifference id="a">↑↑↑</greatestDifference>
+							<greatestDifference id="h">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="H">
+							<greatestDifference id="H">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hm">
+							<greatestDifference id="a">h.mm a–h.mm a</greatestDifference>
+							<greatestDifference id="h">h.mm–h.mm a</greatestDifference>
+							<greatestDifference id="m">h.mm–h.mm a</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hm">
+							<greatestDifference id="H">H.mm–H.mm</greatestDifference>
+							<greatestDifference id="m">HH.mm–HH.mm</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hmv">
+							<greatestDifference id="a">h.mm a–h.mm a v</greatestDifference>
+							<greatestDifference id="h">h.mm–h.mm a v</greatestDifference>
+							<greatestDifference id="m">h.mm–h.mm a v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hmv">
+							<greatestDifference id="H">HH.mm–HH.mm v</greatestDifference>
+							<greatestDifference id="m">HH.mm–HH.mm v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hv">
+							<greatestDifference id="a">↑↑↑</greatestDifference>
+							<greatestDifference id="h">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hv">
+							<greatestDifference id="H">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="M">
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Md">
+							<greatestDifference id="d">d–d.M</greatestDifference>
+							<greatestDifference id="M">d.M–d.M</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MEd">
+							<greatestDifference id="d">E d.M–E d.M</greatestDifference>
+							<greatestDifference id="M">E d.M–E d.M</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMM">
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMEd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="y">
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yM">
+							<greatestDifference id="M">MMM–MMM y</greatestDifference>
+							<greatestDifference id="y">MMMM y–MMMM y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMd">
+							<greatestDifference id="d">d–d.M.y</greatestDifference>
+							<greatestDifference id="M">d.M–d.M.y</greatestDifference>
+							<greatestDifference id="y">d.M.y–d.M.y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMEd">
+							<greatestDifference id="d">E d.M.y–E d.M.y</greatestDifference>
+							<greatestDifference id="M">E d.M.y–E d.M.y</greatestDifference>
+							<greatestDifference id="y">E d.M.y–E d.M.y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMM">
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMEd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMM">
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>↑↑↑</displayName>
+			</field>
+			<field type="era-short">
+				<displayName>↑↑↑</displayName>
+			</field>
+			<field type="era-narrow">
+				<displayName>↑↑↑</displayName>
+			</field>
+			<field type="year">
+				<displayName>↑↑↑</displayName>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
+			</field>
+			<field type="year-short">
+				<displayName>↑↑↑</displayName>
+				<relative type="-1">förra året</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
+			</field>
+			<field type="year-narrow">
+				<displayName>↑↑↑</displayName>
+				<relative type="-1">förra året</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
+			</field>
+			<field type="quarter">
+				<displayName>↑↑↑</displayName>
+			</field>
+			<field type="quarter-short">
+				<displayName>↑↑↑</displayName>
+			</field>
+			<field type="quarter-narrow">
+				<displayName>↑↑↑</displayName>
+			</field>
+			<field type="month">
+				<displayName>↑↑↑</displayName>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
+			</field>
+			<field type="month-short">
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
+			</field>
+			<field type="month-narrow">
+				<displayName>↑↑↑</displayName>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
+			</field>
+			<field type="week">
+				<displayName>↑↑↑</displayName>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
+				<relativePeriod>↑↑↑</relativePeriod>
+			</field>
+			<field type="week-short">
+				<displayName>↑↑↑</displayName>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
+				<relativePeriod>↑↑↑</relativePeriod>
+			</field>
+			<field type="week-narrow">
+				<displayName>↑↑↑</displayName>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
+				<relativePeriod>↑↑↑</relativePeriod>
+			</field>
+			<field type="weekOfMonth">
+				<displayName>↑↑↑</displayName>
+			</field>
+			<field type="weekOfMonth-short">
+				<displayName>↑↑↑</displayName>
+			</field>
+			<field type="weekOfMonth-narrow">
+				<displayName>↑↑↑</displayName>
+			</field>
+			<field type="day">
+				<displayName>↑↑↑</displayName>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
+			</field>
+			<field type="day-short">
+				<displayName>↑↑↑</displayName>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
+			</field>
+			<field type="day-narrow">
+				<displayName>↑↑↑</displayName>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
+			</field>
+			<field type="dayOfYear">
+				<displayName>↑↑↑</displayName>
+			</field>
+			<field type="dayOfYear-short">
+				<displayName>↑↑↑</displayName>
+			</field>
+			<field type="dayOfYear-narrow">
+				<displayName>↑↑↑</displayName>
+			</field>
+			<field type="weekday">
+				<displayName>↑↑↑</displayName>
+			</field>
+			<field type="weekday-short">
+				<displayName>↑↑↑</displayName>
+			</field>
+			<field type="weekday-narrow">
+				<displayName>↑↑↑</displayName>
+			</field>
+			<field type="weekdayOfMonth">
+				<displayName>↑↑↑</displayName>
+			</field>
+			<field type="weekdayOfMonth-short">
+				<displayName>↑↑↑</displayName>
+			</field>
+			<field type="weekdayOfMonth-narrow">
+				<displayName>↑↑↑</displayName>
+			</field>
+			<field type="hour">
+				<displayName>↑↑↑</displayName>
+			</field>
+			<field type="hour-narrow">
+				<displayName>↑↑↑</displayName>
+			</field>
+			<field type="minute">
+				<displayName>↑↑↑</displayName>
+			</field>
+			<field type="minute-narrow">
+				<displayName>↑↑↑</displayName>
+			</field>
+			<field type="second">
+				<displayName>↑↑↑</displayName>
+			</field>
+			<field type="second-narrow">
+				<displayName>↑↑↑</displayName>
+			</field>
+			<field type="zone">
+				<displayName>↑↑↑</displayName>
+			</field>
+			<field type="zone-short">
+				<displayName>↑↑↑</displayName>
+			</field>
+			<field type="zone-narrow">
+				<displayName>↑↑↑</displayName>
+			</field>
+		</fields>
+		<timeZoneNames>
+			<gmtUnknownFormat>↑↑↑</gmtUnknownFormat>
+			<regionFormat>↑↑↑</regionFormat>
+			<regionFormat type="daylight">↑↑↑</regionFormat>
+			<regionFormat type="standard">↑↑↑</regionFormat>
+			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Etc/UTC">
+				<long>
+					<standard>↑↑↑</standard>
+				</long>
+			</zone>
+			<zone type="Etc/Unknown">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Andorra">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Dubai">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Kabul">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Antigua">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Anguilla">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Tirane">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Yerevan">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Luanda">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/Rio_Gallegos">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Mendoza">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/San_Juan">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/Ushuaia">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/La_Rioja">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/San_Luis">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Catamarca">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/Salta">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Jujuy">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/Tucuman">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Cordoba">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Buenos_Aires">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Vienna">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Aruba">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Mariehamn">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Baku">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Sarajevo">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Barbados">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Dhaka">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Brussels">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Ouagadougou">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Sofia">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Bahrain">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Bujumbura">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Porto-Novo">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Bermuda">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/La_Paz">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Kralendijk">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Eirunepe">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Rio_Branco">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Porto_Velho">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Boa_Vista">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Manaus">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Cuiaba">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Santarem">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Campo_Grande">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Belem">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Araguaina">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Sao_Paulo">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Bahia">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Fortaleza">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Maceio">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Recife">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Noronha">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Nassau">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Thimphu">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Gaborone">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Minsk">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Belize">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Dawson">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Whitehorse">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Inuvik">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Vancouver">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Fort_Nelson">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Dawson_Creek">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Creston">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Edmonton">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Swift_Current">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Cambridge_Bay">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Regina">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Winnipeg">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Resolute">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Rankin_Inlet">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Coral_Harbour">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Toronto">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Iqaluit">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Moncton">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Halifax">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Goose_Bay">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Glace_Bay">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Blanc-Sablon">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Kinshasa">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Lubumbashi">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Bangui">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Brazzaville">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Zurich">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Abidjan">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Pacific/Easter">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Coyhaique">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Punta_Arenas">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Douala">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Urumqi">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Shanghai">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Bogota">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Costa_Rica">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Havana">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Cape_Verde">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Curacao">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Nicosia">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Famagusta">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Prague">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Busingen">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Berlin">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Djibouti">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Copenhagen">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Dominica">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Santo_Domingo">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Algiers">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Pacific/Galapagos">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Guayaquil">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Tallinn">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Cairo">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/El_Aaiun">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Asmera">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Canary">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Ceuta">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Madrid">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Addis_Ababa">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Helsinki">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Stanley">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Paris">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Libreville">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/London">
+				<long>
+					<daylight>↑↑↑</daylight>
+				</long>
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Grenada">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Tbilisi">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Cayenne">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Guernsey">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Accra">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Gibraltar">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Thule">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Godthab">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Scoresbysund">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Danmarkshavn">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Banjul">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Conakry">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Guadeloupe">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Malabo">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Athens">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Atlantic/South_Georgia">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Guatemala">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Bissau">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Guyana">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Hong_Kong">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Tegucigalpa">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Zagreb">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Port-au-Prince">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Budapest">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Dublin">
+				<long>
+					<daylight>↑↑↑</daylight>
+				</long>
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Jerusalem">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Isle_of_Man">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Calcutta">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Indian/Chagos">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Baghdad">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Tehran">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Reykjavik">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Rome">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Jersey">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Jamaica">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Amman">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Tokyo">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Nairobi">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Bishkek">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Indian/Comoro">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Pyongyang">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Seoul">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Kuwait">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Cayman">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Atyrau">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Almaty">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Beirut">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Vaduz">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Colombo">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Monrovia">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Maseru">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Vilnius">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Luxembourg">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Riga">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Tripoli">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Casablanca">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Monaco">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Chisinau">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Podgorica">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Marigot">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Indian/Antananarivo">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Skopje">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Bamako">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Hovd">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Ulaanbaatar">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Macau">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Martinique">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Nouakchott">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Montserrat">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Malta">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Indian/Mauritius">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Indian/Maldives">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Blantyre">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Tijuana">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Hermosillo">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Ciudad_Juarez">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Mazatlan">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Chihuahua">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Bahia_Banderas">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Ojinaga">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Monterrey">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Mexico_City">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Matamoros">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Merida">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Cancun">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Maputo">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Windhoek">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Niamey">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Lagos">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Managua">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Amsterdam">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Oslo">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Katmandu">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Muscat">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Panama">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Lima">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Karachi">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Warsaw">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Miquelon">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Puerto_Rico">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Gaza">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Hebron">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Azores">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Madeira">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Lisbon">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Asuncion">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Qatar">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Indian/Reunion">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Bucharest">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Belgrade">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Kaliningrad">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Moscow">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Volgograd">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Saratov">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Ulyanovsk">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Kirov">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Samara">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Yekaterinburg">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Omsk">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Novosibirsk">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Barnaul">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Tomsk">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Novokuznetsk">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Krasnoyarsk">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Irkutsk">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Chita">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Yakutsk">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Vladivostok">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Khandyga">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Sakhalin">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Ust-Nera">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Magadan">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Srednekolymsk">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Kamchatka">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Anadyr">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Kigali">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Riyadh">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Indian/Mahe">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Khartoum">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Stockholm">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Atlantic/St_Helena">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Ljubljana">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Arctic/Longyearbyen">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Bratislava">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Freetown">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/San_Marino">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Dakar">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Mogadishu">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Paramaribo">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Juba">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Sao_Tome">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/El_Salvador">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Lower_Princes">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Damascus">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Mbabane">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Grand_Turk">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Ndjamena">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Indian/Kerguelen">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Lome">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Dushanbe">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Ashgabat">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Tunis">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Istanbul">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Port_of_Spain">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Taipei">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Dar_es_Salaam">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Kiev">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Simferopol">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Kampala">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Adak">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Nome">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Anchorage">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Yakutat">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Sitka">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Juneau">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Metlakatla">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Los_Angeles">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Boise">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Phoenix">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Denver">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/North_Dakota/Beulah">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/North_Dakota/New_Salem">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/North_Dakota/Center">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Chicago">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Menominee">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Vincennes">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Petersburg">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Tell_City">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Knox">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Winamac">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Marengo">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Indianapolis">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Louisville">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Vevay">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Kentucky/Monticello">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Detroit">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/New_York">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Montevideo">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Samarkand">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Tashkent">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Vatican">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Caracas">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Tortola">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Aden">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Indian/Mayotte">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Johannesburg">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Lusaka">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Africa/Harare">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<metazone type="Afghanistan">
+				<long>
+					<standard>↑↑↑</standard>
+				</long>
+			</metazone>
+			<metazone type="Africa_Central">
+				<long>
+					<standard>↑↑↑</standard>
+				</long>
+			</metazone>
+			<metazone type="Africa_Eastern">
+				<long>
+					<standard>↑↑↑</standard>
+				</long>
+			</metazone>
+			<metazone type="Africa_Southern">
+				<long>
+					<standard>↑↑↑</standard>
+				</long>
+			</metazone>
+			<metazone type="Africa_Western">
+				<long>
+					<standard>↑↑↑</standard>
+				</long>
+			</metazone>
+			<metazone type="Alaska">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="Amazon">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="America_Central">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="America_Eastern">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="America_Mountain">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="America_Pacific">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="Arabian">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="Argentina">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="Argentina_Western">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="Armenia">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="Atlantic">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="Azerbaijan">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="Azores">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="Bangladesh">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="Bhutan">
+				<long>
+					<standard>↑↑↑</standard>
+				</long>
+			</metazone>
+			<metazone type="Bolivia">
+				<long>
+					<standard>↑↑↑</standard>
+				</long>
+			</metazone>
+			<metazone type="Brasilia">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="Cape_Verde">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="Chile">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="China">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="Colombia">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="Cuba">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="Easter">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="Ecuador">
+				<long>
+					<standard>↑↑↑</standard>
+				</long>
+			</metazone>
+			<metazone type="Europe_Central">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="Europe_Eastern">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="Europe_Further_Eastern">
+				<long>
+					<standard>↑↑↑</standard>
+				</long>
+			</metazone>
+			<metazone type="Europe_Western">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="Falkland">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="French_Guiana">
+				<long>
+					<standard>↑↑↑</standard>
+				</long>
+			</metazone>
+			<metazone type="French_Southern">
+				<long>
+					<standard>↑↑↑</standard>
+				</long>
+			</metazone>
+			<metazone type="Galapagos">
+				<long>
+					<standard>↑↑↑</standard>
+				</long>
+			</metazone>
+			<metazone type="Georgia">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="GMT">
+				<long>
+					<standard>↑↑↑</standard>
+				</long>
+			</metazone>
+			<metazone type="Greenland_Eastern">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="Greenland_Western">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="Guyana">
+				<long>
+					<standard>↑↑↑</standard>
+				</long>
+			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>↑↑↑</standard>
+				</long>
+			</metazone>
+			<metazone type="Hawaii_Aleutian">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="Hong_Kong">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="Hovd">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="India">
+				<long>
+					<standard>↑↑↑</standard>
+				</long>
+			</metazone>
+			<metazone type="Indian_Ocean">
+				<long>
+					<standard>↑↑↑</standard>
+				</long>
+			</metazone>
+			<metazone type="Iran">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irkutsk">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="Israel">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="Japan">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="Kazakhstan">
+				<long>
+					<standard>↑↑↑</standard>
+				</long>
+			</metazone>
+			<metazone type="Kazakhstan_Eastern">
+				<long>
+					<standard>↑↑↑</standard>
+				</long>
+			</metazone>
+			<metazone type="Kazakhstan_Western">
+				<long>
+					<standard>↑↑↑</standard>
+				</long>
+			</metazone>
+			<metazone type="Korea">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="Krasnoyarsk">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="Kyrgystan">
+				<long>
+					<standard>↑↑↑</standard>
+				</long>
+			</metazone>
+			<metazone type="Magadan">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="Maldives">
+				<long>
+					<standard>↑↑↑</standard>
+				</long>
+			</metazone>
+			<metazone type="Mauritius">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="Mexico_Pacific">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="Mongolia">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="Moscow">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="Nepal">
+				<long>
+					<standard>↑↑↑</standard>
+				</long>
+			</metazone>
+			<metazone type="Newfoundland">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="Noronha">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="Novosibirsk">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="Omsk">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="Pakistan">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="Paraguay">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="Peru">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="Pierre_Miquelon">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="Pyongyang">
+				<long>
+					<standard>↑↑↑</standard>
+				</long>
+			</metazone>
+			<metazone type="Reunion">
+				<long>
+					<standard>↑↑↑</standard>
+				</long>
+			</metazone>
+			<metazone type="Sakhalin">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="Seychelles">
+				<long>
+					<standard>↑↑↑</standard>
+				</long>
+			</metazone>
+			<metazone type="South_Georgia">
+				<long>
+					<standard>↑↑↑</standard>
+				</long>
+			</metazone>
+			<metazone type="Suriname">
+				<long>
+					<standard>↑↑↑</standard>
+				</long>
+			</metazone>
+			<metazone type="Taipei">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="Tajikistan">
+				<long>
+					<standard>↑↑↑</standard>
+				</long>
+			</metazone>
+			<metazone type="Turkmenistan">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="Uruguay">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="Uzbekistan">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="Venezuela">
+				<long>
+					<standard>↑↑↑</standard>
+				</long>
+			</metazone>
+			<metazone type="Vladivostok">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="Volgograd">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="Yakutsk">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="Yekaterinburg">
+				<long>
+					<generic>↑↑↑</generic>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="Yukon">
+				<long>
+					<standard>↑↑↑</standard>
+				</long>
+			</metazone>
+		</timeZoneNames>
 	</dates>
 	<numbers>
+		<defaultNumberingSystem draft="contributed">↑↑↑</defaultNumberingSystem>
+		<otherNumberingSystems>
+			<native draft="contributed">↑↑↑</native>
+		</otherNumberingSystems>
+		<minimumGroupingDigits draft="contributed">↑↑↑</minimumGroupingDigits>
+		<symbols numberSystem="adlm">
+			<timeSeparator draft="contributed">↑↑↑</timeSeparator>
+		</symbols>
 		<symbols numberSystem="latn">
+			<decimal>↑↑↑</decimal>
+			<group>↑↑↑</group>
+			<list>↑↑↑</list>
+			<percentSign>↑↑↑</percentSign>
+			<plusSign>↑↑↑</plusSign>
+			<minusSign>↑↑↑</minusSign>
+			<approximatelySign>↑↑↑</approximatelySign>
+			<exponential>↑↑↑</exponential>
+			<superscriptingExponent>↑↑↑</superscriptingExponent>
+			<perMille>↑↑↑</perMille>
+			<infinity>↑↑↑</infinity>
+			<nan>↑↑↑</nan>
 			<timeSeparator draft="contributed">.</timeSeparator>
 			<timeSeparator alt="variant">:</timeSeparator>
 		</symbols>
@@ -118,6 +2813,146 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<timeSeparator>↑↑↑</timeSeparator>
 			<timeSeparator alt="variant">↑↑↑</timeSeparator>
 		</symbols>
+		<decimalFormats numberSystem="latn">
+			<decimalFormatLength>
+				<decimalFormat>
+					<pattern>↑↑↑</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+			<decimalFormatLength type="long">
+				<decimalFormat>
+					<pattern type="1000" count="one">↑↑↑</pattern>
+					<pattern type="1000" count="other">↑↑↑</pattern>
+					<pattern type="10000" count="one">↑↑↑</pattern>
+					<pattern type="10000" count="other">↑↑↑</pattern>
+					<pattern type="100000" count="one">↑↑↑</pattern>
+					<pattern type="100000" count="other">↑↑↑</pattern>
+					<pattern type="1000000" count="one">↑↑↑</pattern>
+					<pattern type="1000000" count="other">↑↑↑</pattern>
+					<pattern type="10000000" count="one">↑↑↑</pattern>
+					<pattern type="10000000" count="other">↑↑↑</pattern>
+					<pattern type="100000000" count="one">↑↑↑</pattern>
+					<pattern type="100000000" count="other">↑↑↑</pattern>
+					<pattern type="1000000000" count="one">↑↑↑</pattern>
+					<pattern type="1000000000" count="other">↑↑↑</pattern>
+					<pattern type="10000000000" count="one">↑↑↑</pattern>
+					<pattern type="10000000000" count="other">↑↑↑</pattern>
+					<pattern type="100000000000" count="one">↑↑↑</pattern>
+					<pattern type="100000000000" count="other">↑↑↑</pattern>
+					<pattern type="1000000000000" count="one">↑↑↑</pattern>
+					<pattern type="1000000000000" count="other">↑↑↑</pattern>
+					<pattern type="10000000000000" count="one">↑↑↑</pattern>
+					<pattern type="10000000000000" count="other">↑↑↑</pattern>
+					<pattern type="100000000000000" count="one">↑↑↑</pattern>
+					<pattern type="100000000000000" count="other">↑↑↑</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000000" count="one">↑↑↑</pattern>
+					<pattern type="1000000" count="other">↑↑↑</pattern>
+					<pattern type="10000000" count="one">↑↑↑</pattern>
+					<pattern type="10000000" count="other">↑↑↑</pattern>
+					<pattern type="100000000" count="one">↑↑↑</pattern>
+					<pattern type="100000000" count="other">↑↑↑</pattern>
+					<pattern type="1000000000" count="one">↑↑↑</pattern>
+					<pattern type="1000000000" count="other">↑↑↑</pattern>
+					<pattern type="10000000000" count="one">↑↑↑</pattern>
+					<pattern type="10000000000" count="other">↑↑↑</pattern>
+					<pattern type="100000000000" count="one">↑↑↑</pattern>
+					<pattern type="100000000000" count="other">↑↑↑</pattern>
+					<pattern type="1000000000000" count="one">↑↑↑</pattern>
+					<pattern type="1000000000000" count="other">↑↑↑</pattern>
+					<pattern type="10000000000000" count="one">↑↑↑</pattern>
+					<pattern type="10000000000000" count="other">↑↑↑</pattern>
+					<pattern type="100000000000000" count="one">↑↑↑</pattern>
+					<pattern type="100000000000000" count="other">↑↑↑</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<rationalFormats numberSystem="latn">
+			<rationalPattern>↑↑↑</rationalPattern>
+			<integerAndRationalPattern>↑↑↑</integerAndRationalPattern>
+			<integerAndRationalPattern alt="superSub">↑↑↑</integerAndRationalPattern>
+			<rationalUsage>↑↑↑</rationalUsage>
+		</rationalFormats>
+		<scientificFormats numberSystem="latn">
+			<scientificFormatLength>
+				<scientificFormat>
+					<pattern>↑↑↑</pattern>
+				</scientificFormat>
+			</scientificFormatLength>
+		</scientificFormats>
+		<percentFormats numberSystem="latn">
+			<percentFormatLength>
+				<percentFormat>
+					<pattern>↑↑↑</pattern>
+				</percentFormat>
+			</percentFormatLength>
+		</percentFormats>
+		<currencyFormats numberSystem="latn">
+			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency">↑↑↑</pattern>
+				</currencyFormat>
+				<currencyFormat type="accounting">
+					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency">↑↑↑</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+			<currencyFormatLength type="short">
+				<currencyFormat type="standard">
+					<pattern type="1000000" count="one">↑↑↑</pattern>
+					<pattern type="1000000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern type="1000000" count="other">↑↑↑</pattern>
+					<pattern type="1000000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern type="10000000" count="one">↑↑↑</pattern>
+					<pattern type="10000000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern type="10000000" count="other">↑↑↑</pattern>
+					<pattern type="10000000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern type="100000000" count="one">↑↑↑</pattern>
+					<pattern type="100000000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern type="100000000" count="other">↑↑↑</pattern>
+					<pattern type="100000000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern type="1000000000" count="one">↑↑↑</pattern>
+					<pattern type="1000000000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern type="1000000000" count="other">↑↑↑</pattern>
+					<pattern type="1000000000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern type="10000000000" count="one">↑↑↑</pattern>
+					<pattern type="10000000000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern type="10000000000" count="other">↑↑↑</pattern>
+					<pattern type="10000000000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern type="100000000000" count="one">↑↑↑</pattern>
+					<pattern type="100000000000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern type="100000000000" count="other">↑↑↑</pattern>
+					<pattern type="100000000000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern type="1000000000000" count="one">↑↑↑</pattern>
+					<pattern type="1000000000000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern type="1000000000000" count="other">↑↑↑</pattern>
+					<pattern type="1000000000000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern type="10000000000000" count="one">↑↑↑</pattern>
+					<pattern type="10000000000000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern type="10000000000000" count="other">↑↑↑</pattern>
+					<pattern type="10000000000000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern type="100000000000000" count="one">↑↑↑</pattern>
+					<pattern type="100000000000000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern type="100000000000000" count="other">↑↑↑</pattern>
+					<pattern type="100000000000000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
+		</currencyFormats>
+		<miscPatterns numberSystem="latn">
+			<pattern type="approximately">↑↑↑</pattern>
+			<pattern type="atLeast">↑↑↑</pattern>
+			<pattern type="atMost">↑↑↑</pattern>
+			<pattern type="range">↑↑↑</pattern>
+		</miscPatterns>
 	</numbers>
 	<units>
 		<unitLength type="short">
@@ -133,4 +2968,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 		</unitLength>
 	</units>
+	<posix>
+		<messages>
+			<yesstr>↑↑↑</yesstr>
+			<nostr>↑↑↑</nostr>
+		</messages>
+	</posix>
+	<personNames>
+		<nameOrderLocales order="givenFirst">↑↑↑</nameOrderLocales>
+	</personNames>
 </ldml>

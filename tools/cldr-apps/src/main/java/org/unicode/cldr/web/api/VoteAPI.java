@@ -205,6 +205,9 @@ public class VoteAPI {
                 @Schema(description = "1-dimensional array of value, vote, value, vote…")
                 public Object[] value_vote;
 
+                @Schema(description = "list of user ids who voted for missing")
+                public Integer[] votesForMissing;
+
                 public boolean valueIsLocked;
             }
 
@@ -288,6 +291,61 @@ public class VoteAPI {
         public void setOneRowPath(String xpstrid) {
             this.xpstrid = xpstrid;
         }
+    }
+
+    @DELETE
+    @Path("/{locale}/row/{xpstrid}")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Operation(summary = "Vote for missing (remove path)", description = "Vote for a missing path")
+    @APIResponses(
+            value = {
+                @APIResponse(responseCode = "204", description = "voted for missing"),
+                @APIResponse(
+                        responseCode = "401",
+                        description = "Authorization required, send a valid session id"),
+                @APIResponse(
+                        responseCode = "403",
+                        description =
+                                "Forbidden, no access to make this vote (also used when CLA not signed)"),
+                @APIResponse(
+                        responseCode = "500",
+                        description = "Internal Server Error",
+                        content =
+                                @Content(
+                                        mediaType = "application/json",
+                                        schema = @Schema(implementation = STError.class))),
+            })
+    public Response voteForMissing(
+            @Parameter(required = true, example = "br", schema = @Schema(type = SchemaType.STRING))
+                    @PathParam("locale")
+                    String loc,
+            @Parameter(
+                            required = true,
+                            example = "132345490064d839",
+                            schema = @Schema(type = SchemaType.STRING))
+                    @PathParam("xpstrid")
+                    String xpstrid,
+            @HeaderParam(Auth.SESSION_HEADER) String session) {
+        // Verify session
+        final CookieSession mySession = Auth.getSession(session);
+        if (mySession == null) {
+            return Auth.noSessionResponse();
+        }
+        final String xp = CookieSession.sm.xpt.getByStringID(xpstrid);
+        if (xp == null) {
+            return Response.status(Response.Status.NOT_FOUND).build(); // no XPath found
+        }
+        if (!mySession.user.claSigned) {
+            return Response.status(
+                            Response.Status.FORBIDDEN.getStatusCode(),
+                            ModifyDenial.DENY_CLA_NOT_SIGNED.getReason())
+                    .build();
+        }
+        if (!mySession.user.getLevel().canVoteForMissing()) {
+            return Response.status(403).build();
+        }
+        return VoteAPIHelper.handleVoteForMissing( // todo
+                loc, xp, null, mySession, true /* forbiddenIsOk */);
     }
 
     @POST

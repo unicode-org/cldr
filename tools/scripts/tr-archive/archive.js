@@ -259,11 +259,25 @@ async function renderit(infile) {
       const gfm_id = gfmurlify(txt);
       if (anchor_id !== gfm_id) {
         // emit fixups
-        console.log({ txt, gfm_id, anchor_id });
+        // console.log({ txt, gfm_id, anchor_id });
         if (dom.window.document.getElementById(gfm_id)) {
           console.error(`${basename}: duplicate id ${gfm_id}`);
         } else {
           e.setAttribute("id", gfm_id);
+        }
+      }
+      // add the 'original' casing as an anchor, i.e. "Some Thing" -> "#Some_Thing" vs "some-thing" if it doesn't already exist
+      if (txt !== gfm_id
+        && /^[a-zA-Z -]+$/.test(txt)) {
+        const n = txt.replace(/ /g, '_');
+        if (!dom.window.document.getElementById(n)
+          && !(dom.window.document.getElementsByName(n)?.length)) {
+
+          //console.log({ txt, gfm_id, n });
+          const origAnchor = document.createElement("a");
+          origAnchor.setAttribute("name", n);
+          origAnchor.setAttribute("x-orig-casing", "true");
+          e.prepend(origAnchor);
         }
       }
     }

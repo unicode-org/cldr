@@ -338,6 +338,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="ksf">↑↑↑</language>
 			<language type="ksh">↑↑↑</language>
 			<language type="ku">↑↑↑</language>
+			<language type="ku" menu="core">↑↑↑</language>
+			<language type="ku" menu="extension">↑↑↑</language>
 			<language type="kum">↑↑↑</language>
 			<language type="kut">↑↑↑</language>
 			<language type="kv">↑↑↑</language>
@@ -833,6 +835,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="BZ">↑↑↑</territory>
 			<territory type="CA">↑↑↑</territory>
 			<territory type="CC">↑↑↑</territory>
+			<territory type="CC" alt="short">↑↑↑</territory>
 			<territory type="CD">↑↑↑</territory>
 			<territory type="CD" alt="variant">↑↑↑</territory>
 			<territory type="CF">↑↑↑</territory>
@@ -995,6 +998,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="PL">↑↑↑</territory>
 			<territory type="PM">Saint-Pierre-et-Miquelon</territory>
 			<territory type="PN">↑↑↑</territory>
+			<territory type="PN" alt="short">↑↑↑</territory>
 			<territory type="PR">↑↑↑</territory>
 			<territory type="PS">Palestinian territories</territory>
 			<territory type="PS" alt="short">↑↑↑</territory>
@@ -1123,36 +1127,68 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</keys>
 		<types>
 			<type key="calendar" type="buddhist">Buddhist calendar</type>
+			<type key="calendar" type="buddhist" scope="core">↑↑↑</type>
 			<type key="calendar" type="chinese">Chinese calendar</type>
+			<type key="calendar" type="chinese" scope="core">↑↑↑</type>
 			<type key="calendar" type="coptic">Coptic calendar</type>
+			<type key="calendar" type="coptic" scope="core">↑↑↑</type>
 			<type key="calendar" type="dangi">Dangi calendar</type>
+			<type key="calendar" type="dangi" scope="core">↑↑↑</type>
 			<type key="calendar" type="ethiopic">Ethiopic calendar</type>
+			<type key="calendar" type="ethiopic" scope="core">↑↑↑</type>
 			<type key="calendar" type="ethiopic-amete-alem">Ethiopic Amete Alem calendar</type>
+			<type key="calendar" type="ethiopic-amete-alem" scope="core">↑↑↑</type>
 			<type key="calendar" type="gregorian">Gregorian calendar</type>
+			<type key="calendar" type="gregorian" scope="core">↑↑↑</type>
 			<type key="calendar" type="hebrew">Hebrew calendar</type>
+			<type key="calendar" type="hebrew" scope="core">↑↑↑</type>
 			<type key="calendar" type="indian">Indian national calendar</type>
+			<type key="calendar" type="indian" scope="core">↑↑↑</type>
 			<type key="calendar" type="islamic">Hijri calendar</type>
+			<type key="calendar" type="islamic" scope="core">↑↑↑</type>
 			<type key="calendar" type="islamic-civil">Hijri calendar (tabular, civil epoch)</type>
+			<type key="calendar" type="islamic-civil" scope="core">↑↑↑</type>
 			<type key="calendar" type="islamic-tbla">Hijri calendar (tabular, astronomical epoch)</type>
+			<type key="calendar" type="islamic-tbla" scope="core">↑↑↑</type>
 			<type key="calendar" type="islamic-umalqura">Hijri calendar (Umm al-Qura)</type>
+			<type key="calendar" type="islamic-umalqura" scope="core">↑↑↑</type>
 			<type key="calendar" type="iso8601">ISO-8601 calendar</type>
+			<type key="calendar" type="iso8601" alt="variant">↑↑↑</type>
+			<type key="calendar" type="iso8601" scope="core">↑↑↑</type>
 			<type key="calendar" type="japanese">Japanese calendar</type>
+			<type key="calendar" type="japanese" scope="core">↑↑↑</type>
 			<type key="calendar" type="persian">Persian calendar</type>
+			<type key="calendar" type="persian" scope="core">↑↑↑</type>
 			<type key="calendar" type="roc">Minguo calendar</type>
+			<type key="calendar" type="roc" scope="core">↑↑↑</type>
 			<type key="cf" type="account">↑↑↑</type>
+			<type key="cf" type="account" scope="core">↑↑↑</type>
 			<type key="cf" type="standard">↑↑↑</type>
+			<type key="cf" type="standard" scope="core">↑↑↑</type>
 			<type key="collation" type="compat">↑↑↑</type>
+			<type key="collation" type="compat" scope="core">↑↑↑</type>
 			<type key="collation" type="dictionary">↑↑↑</type>
+			<type key="collation" type="dictionary" scope="core">↑↑↑</type>
 			<type key="collation" type="ducet">↑↑↑</type>
+			<type key="collation" type="ducet" scope="core">↑↑↑</type>
 			<type key="collation" type="phonebook">↑↑↑</type>
+			<type key="collation" type="phonebook" scope="core">↑↑↑</type>
 			<type key="collation" type="phonetic">↑↑↑</type>
+			<type key="collation" type="phonetic" scope="core">↑↑↑</type>
 			<type key="collation" type="pinyin">↑↑↑</type>
+			<type key="collation" type="pinyin" scope="core">↑↑↑</type>
 			<type key="collation" type="search">↑↑↑</type>
+			<type key="collation" type="search" scope="core">↑↑↑</type>
 			<type key="collation" type="standard">↑↑↑</type>
+			<type key="collation" type="standard" scope="core">↑↑↑</type>
 			<type key="collation" type="stroke">↑↑↑</type>
+			<type key="collation" type="stroke" scope="core">↑↑↑</type>
 			<type key="collation" type="traditional">↑↑↑</type>
+			<type key="collation" type="traditional" scope="core">↑↑↑</type>
 			<type key="collation" type="unihan">↑↑↑</type>
+			<type key="collation" type="unihan" scope="core">↑↑↑</type>
 			<type key="collation" type="zhuyin">↑↑↑</type>
+			<type key="collation" type="zhuyin" scope="core">↑↑↑</type>
 			<type key="colNormalization" type="no">Sort Without Normalisation</type>
 			<type key="colNormalization" type="yes">Sort Unicode Normalised</type>
 			<type key="d0" type="ascii">to ASCII</type>
@@ -1162,8 +1198,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="d0" type="title">to title case</type>
 			<type key="d0" type="upper">to uppercase</type>
 			<type key="em" type="default">↑↑↑</type>
+			<type key="em" type="default" scope="core">↑↑↑</type>
 			<type key="em" type="emoji">↑↑↑</type>
+			<type key="em" type="emoji" scope="core">↑↑↑</type>
 			<type key="em" type="text">↑↑↑</type>
+			<type key="em" type="text" scope="core">↑↑↑</type>
 			<type key="fw" type="fri">First day of week is Friday</type>
 			<type key="fw" type="mon">First day of week is Monday</type>
 			<type key="fw" type="sat">First day of week is Saturday</type>
@@ -1172,46 +1211,68 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="fw" type="tue">First day of week is Tuesday</type>
 			<type key="fw" type="wed">First day of week is Wednesday</type>
 			<type key="hc" type="h11">12-hour system (0–11)</type>
+			<type key="hc" type="h11" scope="core">↑↑↑</type>
 			<type key="hc" type="h12">12-hour system (1–12)</type>
+			<type key="hc" type="h12" scope="core">↑↑↑</type>
 			<type key="hc" type="h23">24-hour system (0–23)</type>
+			<type key="hc" type="h23" scope="core">↑↑↑</type>
 			<type key="hc" type="h24">24-hour system (1–24)</type>
+			<type key="hc" type="h24" scope="core">↑↑↑</type>
 			<type key="lb" type="loose">↑↑↑</type>
+			<type key="lb" type="loose" scope="core">↑↑↑</type>
 			<type key="lb" type="normal">↑↑↑</type>
+			<type key="lb" type="normal" scope="core">↑↑↑</type>
 			<type key="lb" type="strict">↑↑↑</type>
+			<type key="lb" type="strict" scope="core">↑↑↑</type>
 			<type key="lw" type="breakall">↑↑↑</type>
+			<type key="lw" type="breakall" scope="core">↑↑↑</type>
 			<type key="lw" type="keepall">↑↑↑</type>
+			<type key="lw" type="keepall" scope="core">↑↑↑</type>
 			<type key="lw" type="normal">↑↑↑</type>
+			<type key="lw" type="normal" scope="core">↑↑↑</type>
 			<type key="lw" type="phrase">↑↑↑</type>
+			<type key="lw" type="phrase" scope="core">↑↑↑</type>
 			<type key="m0" type="bgn">US BGN transliteration</type>
 			<type key="m0" type="prprname">↑↑↑</type>
 			<type key="m0" type="ungegn">UN GEGN transliteration</type>
 			<type key="ms" type="metric">↑↑↑</type>
+			<type key="ms" type="metric" scope="core">↑↑↑</type>
 			<type key="ms" type="uksystem">↑↑↑</type>
+			<type key="ms" type="uksystem" scope="core">↑↑↑</type>
 			<type key="ms" type="ussystem">US measurement system</type>
+			<type key="ms" type="ussystem" scope="core">↑↑↑</type>
 			<type key="numbers" type="adlm">Adlam digits</type>
 			<type key="numbers" type="arab">Arabic-Indic digits</type>
 			<type key="numbers" type="arabext">↑↑↑</type>
+			<type key="numbers" type="arabext" scope="core">↑↑↑</type>
 			<type key="numbers" type="armn">Armenian numerals</type>
 			<type key="numbers" type="armnlow">Armenian lowercase numerals</type>
+			<type key="numbers" type="armnlow" scope="core">↑↑↑</type>
 			<type key="numbers" type="beng">Bangla digits</type>
 			<type key="numbers" type="cakm">Chakma digits</type>
 			<type key="numbers" type="deva">Devanagari digits</type>
 			<type key="numbers" type="ethi">Ethiopic numerals</type>
 			<type key="numbers" type="fullwide">↑↑↑</type>
+			<type key="numbers" type="fullwide" scope="core">↑↑↑</type>
 			<type key="numbers" type="geor">Georgian numerals</type>
 			<type key="numbers" type="grek">Greek numerals</type>
 			<type key="numbers" type="greklow">Greek lowercase numerals</type>
+			<type key="numbers" type="greklow" scope="core">↑↑↑</type>
 			<type key="numbers" type="gujr">Gujarati digits</type>
 			<type key="numbers" type="guru">Gurmukhi digits</type>
 			<type key="numbers" type="hanidec">Chinese decimal numerals</type>
+			<type key="numbers" type="hanidec" scope="core">↑↑↑</type>
 			<type key="numbers" type="hans">↑↑↑</type>
 			<type key="numbers" type="hansfin">↑↑↑</type>
+			<type key="numbers" type="hansfin" scope="core">↑↑↑</type>
 			<type key="numbers" type="hant">↑↑↑</type>
 			<type key="numbers" type="hantfin">↑↑↑</type>
+			<type key="numbers" type="hantfin" scope="core">↑↑↑</type>
 			<type key="numbers" type="hebr">Hebrew numerals</type>
 			<type key="numbers" type="java">Javanese digits</type>
 			<type key="numbers" type="jpan">Japanese numerals</type>
 			<type key="numbers" type="jpanfin">Japanese financial numerals</type>
+			<type key="numbers" type="jpanfin" scope="core">↑↑↑</type>
 			<type key="numbers" type="khmr">Khmer digits</type>
 			<type key="numbers" type="knda">Kannada digits</type>
 			<type key="numbers" type="laoo">Lao digits</type>
@@ -1220,18 +1281,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="mtei">Meetei Mayek digits</type>
 			<type key="numbers" type="mymr">Myanmar digits</type>
 			<type key="numbers" type="native">Native digits</type>
+			<type key="numbers" type="native" scope="core">↑↑↑</type>
 			<type key="numbers" type="olck">Ol Chiki digits</type>
 			<type key="numbers" type="orya">Odia digits</type>
 			<type key="numbers" type="roman">Roman numerals</type>
+			<type key="numbers" type="roman" scope="core">↑↑↑</type>
 			<type key="numbers" type="romanlow">Roman lowercase numerals</type>
+			<type key="numbers" type="romanlow" scope="core">↑↑↑</type>
 			<type key="numbers" type="taml">↑↑↑</type>
 			<type key="numbers" type="tamldec">Tamil digits</type>
+			<type key="numbers" type="tamldec" scope="core">↑↑↑</type>
 			<type key="numbers" type="telu">Telugu digits</type>
 			<type key="numbers" type="thai">Thai digits</type>
 			<type key="numbers" type="tibt">Tibetan digits</type>
 			<type key="numbers" type="vaii">Vai digits</type>
 			<type key="ss" type="none">↑↑↑</type>
+			<type key="ss" type="none" scope="core">↑↑↑</type>
 			<type key="ss" type="standard">↑↑↑</type>
+			<type key="ss" type="standard" scope="core">↑↑↑</type>
 			<type key="t0" type="und">↑↑↑</type>
 		</types>
 		<measurementSystemNames>
@@ -1251,6 +1318,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<exemplarCharacters type="index">↑↑↑</exemplarCharacters>
 		<exemplarCharacters type="numbers">↑↑↑</exemplarCharacters>
 		<exemplarCharacters type="punctuation">↑↑↑</exemplarCharacters>
+		<exemplarCharacters type="punctuation-person" draft="contributed">↑↑↑</exemplarCharacters>
 		<ellipsis type="final">↑↑↑</ellipsis>
 		<ellipsis type="initial">↑↑↑</ellipsis>
 		<ellipsis type="medial">↑↑↑</ellipsis>
@@ -1494,12 +1562,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateTimeFormat type="atTime">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
 						<dateTimeFormat>
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
@@ -1510,12 +1584,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateTimeFormat type="atTime">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
 						<dateTimeFormat>
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
@@ -1525,15 +1605,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="Bhms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="d">↑↑↑</dateFormatItem>
 						<dateFormatItem id="E">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EBh">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EBhm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EBhms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ed">E d</dateFormatItem>
+						<dateFormatItem id="Eh">↑↑↑</dateFormatItem>
+
 						<dateFormatItem id="Ehm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EHm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ehms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EHms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Gy">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMEd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMMd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">↑↑↑</dateFormatItem>
@@ -1543,6 +1628,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="Hm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Hms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hv">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Hv">↑↑↑</dateFormatItem>
 						<dateFormatItem id="M">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Md">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Md" alt="variant">d/M</dateFormatItem>
@@ -2033,12 +2120,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateTimeFormat type="atTime">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
 						<dateTimeFormat>
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
@@ -2049,12 +2142,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateTimeFormat type="atTime">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
 						<dateTimeFormat>
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
@@ -2064,15 +2163,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="Bhms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="d">↑↑↑</dateFormatItem>
 						<dateFormatItem id="E">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EBh">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EBhm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EBhms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ed">E d</dateFormatItem>
+						<dateFormatItem id="Eh">↑↑↑</dateFormatItem>
+
 						<dateFormatItem id="Ehm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EHm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ehms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EHms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Gy">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMEd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMMd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">↑↑↑</dateFormatItem>
@@ -2086,6 +2190,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="Hmsv">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hmv">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Hmv">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hv">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Hv">↑↑↑</dateFormatItem>
 						<dateFormatItem id="M">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Md">MM-dd</dateFormatItem>
 						<dateFormatItem id="Md" alt="variant">d/M</dateFormatItem>
@@ -2592,7 +2698,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="E">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ed">E d</dateFormatItem>
 						<dateFormatItem id="Gy">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMEd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMMd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">↑↑↑</dateFormatItem>
@@ -2611,6 +2719,592 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yyyyMMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yyyyQQQ">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yyyyQQQQ">↑↑↑</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
+			</calendar>
+			<calendar type="japanese">
+				<eras>
+					<eraAbbr>
+						<era type="0">↑↑↑</era>
+						<era type="1">↑↑↑</era>
+						<era type="2">↑↑↑</era>
+						<era type="3">↑↑↑</era>
+						<era type="4">↑↑↑</era>
+						<era type="5">↑↑↑</era>
+						<era type="6">↑↑↑</era>
+						<era type="7">↑↑↑</era>
+						<era type="8">↑↑↑</era>
+						<era type="9">↑↑↑</era>
+						<era type="10">↑↑↑</era>
+						<era type="11">↑↑↑</era>
+						<era type="12">↑↑↑</era>
+						<era type="13">↑↑↑</era>
+						<era type="14">↑↑↑</era>
+						<era type="15">↑↑↑</era>
+						<era type="16">↑↑↑</era>
+						<era type="17">↑↑↑</era>
+						<era type="18">↑↑↑</era>
+						<era type="19">↑↑↑</era>
+						<era type="20">↑↑↑</era>
+						<era type="21">↑↑↑</era>
+						<era type="22">↑↑↑</era>
+						<era type="23">↑↑↑</era>
+						<era type="24">↑↑↑</era>
+						<era type="25">↑↑↑</era>
+						<era type="26">↑↑↑</era>
+						<era type="27">↑↑↑</era>
+						<era type="28">↑↑↑</era>
+						<era type="29">↑↑↑</era>
+						<era type="30">↑↑↑</era>
+						<era type="31">↑↑↑</era>
+						<era type="32">↑↑↑</era>
+						<era type="33">↑↑↑</era>
+						<era type="34">↑↑↑</era>
+						<era type="35">↑↑↑</era>
+						<era type="36">↑↑↑</era>
+						<era type="37">↑↑↑</era>
+						<era type="38">↑↑↑</era>
+						<era type="39">↑↑↑</era>
+						<era type="40">↑↑↑</era>
+						<era type="41">↑↑↑</era>
+						<era type="42">↑↑↑</era>
+						<era type="43">↑↑↑</era>
+						<era type="44">↑↑↑</era>
+						<era type="45">↑↑↑</era>
+						<era type="46">↑↑↑</era>
+						<era type="47">↑↑↑</era>
+						<era type="48">↑↑↑</era>
+						<era type="49">↑↑↑</era>
+						<era type="50">↑↑↑</era>
+						<era type="51">↑↑↑</era>
+						<era type="52">↑↑↑</era>
+						<era type="53">↑↑↑</era>
+						<era type="54">↑↑↑</era>
+						<era type="55">↑↑↑</era>
+						<era type="56">↑↑↑</era>
+						<era type="57">↑↑↑</era>
+						<era type="58">↑↑↑</era>
+						<era type="59">↑↑↑</era>
+						<era type="60">↑↑↑</era>
+						<era type="61">↑↑↑</era>
+						<era type="62">↑↑↑</era>
+						<era type="63">↑↑↑</era>
+						<era type="64">↑↑↑</era>
+						<era type="65">↑↑↑</era>
+						<era type="66">↑↑↑</era>
+						<era type="67">↑↑↑</era>
+						<era type="68">↑↑↑</era>
+						<era type="69">↑↑↑</era>
+						<era type="70">↑↑↑</era>
+						<era type="71">↑↑↑</era>
+						<era type="72">↑↑↑</era>
+						<era type="73">↑↑↑</era>
+						<era type="74">↑↑↑</era>
+						<era type="75">↑↑↑</era>
+						<era type="76">↑↑↑</era>
+						<era type="77">↑↑↑</era>
+						<era type="78">↑↑↑</era>
+						<era type="79">↑↑↑</era>
+						<era type="80">↑↑↑</era>
+						<era type="81">↑↑↑</era>
+						<era type="82">↑↑↑</era>
+						<era type="83">↑↑↑</era>
+						<era type="84">↑↑↑</era>
+						<era type="85">↑↑↑</era>
+						<era type="86">↑↑↑</era>
+						<era type="87">↑↑↑</era>
+						<era type="88">↑↑↑</era>
+						<era type="89">↑↑↑</era>
+						<era type="90">↑↑↑</era>
+						<era type="91">↑↑↑</era>
+						<era type="92">↑↑↑</era>
+						<era type="93">↑↑↑</era>
+						<era type="94">↑↑↑</era>
+						<era type="95">↑↑↑</era>
+						<era type="96">↑↑↑</era>
+						<era type="97">↑↑↑</era>
+						<era type="98">↑↑↑</era>
+						<era type="99">↑↑↑</era>
+						<era type="100">↑↑↑</era>
+						<era type="101">↑↑↑</era>
+						<era type="102">↑↑↑</era>
+						<era type="103">↑↑↑</era>
+						<era type="104">↑↑↑</era>
+						<era type="105">↑↑↑</era>
+						<era type="106">↑↑↑</era>
+						<era type="107">↑↑↑</era>
+						<era type="108">↑↑↑</era>
+						<era type="109">↑↑↑</era>
+						<era type="110">↑↑↑</era>
+						<era type="111">↑↑↑</era>
+						<era type="112">↑↑↑</era>
+						<era type="113">↑↑↑</era>
+						<era type="114">↑↑↑</era>
+						<era type="115">↑↑↑</era>
+						<era type="116">↑↑↑</era>
+						<era type="117">↑↑↑</era>
+						<era type="118">↑↑↑</era>
+						<era type="119">↑↑↑</era>
+						<era type="120">↑↑↑</era>
+						<era type="121">↑↑↑</era>
+						<era type="122">↑↑↑</era>
+						<era type="123">↑↑↑</era>
+						<era type="124">↑↑↑</era>
+						<era type="125">↑↑↑</era>
+						<era type="126">↑↑↑</era>
+						<era type="127">↑↑↑</era>
+						<era type="128">↑↑↑</era>
+						<era type="129">↑↑↑</era>
+						<era type="130">↑↑↑</era>
+						<era type="131">↑↑↑</era>
+						<era type="132">↑↑↑</era>
+						<era type="133">↑↑↑</era>
+						<era type="134">↑↑↑</era>
+						<era type="135">↑↑↑</era>
+						<era type="136">↑↑↑</era>
+						<era type="137">↑↑↑</era>
+						<era type="138">↑↑↑</era>
+						<era type="139">↑↑↑</era>
+						<era type="140">↑↑↑</era>
+						<era type="141">↑↑↑</era>
+						<era type="142">↑↑↑</era>
+						<era type="143">↑↑↑</era>
+						<era type="144">↑↑↑</era>
+						<era type="145">↑↑↑</era>
+						<era type="146">↑↑↑</era>
+						<era type="147">↑↑↑</era>
+						<era type="148">↑↑↑</era>
+						<era type="149">↑↑↑</era>
+						<era type="150">↑↑↑</era>
+						<era type="151">↑↑↑</era>
+						<era type="152">↑↑↑</era>
+						<era type="153">↑↑↑</era>
+						<era type="154">↑↑↑</era>
+						<era type="155">↑↑↑</era>
+						<era type="156">↑↑↑</era>
+						<era type="157">↑↑↑</era>
+						<era type="158">↑↑↑</era>
+						<era type="159">↑↑↑</era>
+						<era type="160">↑↑↑</era>
+						<era type="161">↑↑↑</era>
+						<era type="162">↑↑↑</era>
+						<era type="163">↑↑↑</era>
+						<era type="164">↑↑↑</era>
+						<era type="165">↑↑↑</era>
+						<era type="166">↑↑↑</era>
+						<era type="167">↑↑↑</era>
+						<era type="168">↑↑↑</era>
+						<era type="169">↑↑↑</era>
+						<era type="170">↑↑↑</era>
+						<era type="171">↑↑↑</era>
+						<era type="172">↑↑↑</era>
+						<era type="173">↑↑↑</era>
+						<era type="174">↑↑↑</era>
+						<era type="175">↑↑↑</era>
+						<era type="176">↑↑↑</era>
+						<era type="177">↑↑↑</era>
+						<era type="178">↑↑↑</era>
+						<era type="179">↑↑↑</era>
+						<era type="180">↑↑↑</era>
+						<era type="181">↑↑↑</era>
+						<era type="182">↑↑↑</era>
+						<era type="183">↑↑↑</era>
+						<era type="184">↑↑↑</era>
+						<era type="185">↑↑↑</era>
+						<era type="186">↑↑↑</era>
+						<era type="187">↑↑↑</era>
+						<era type="188">↑↑↑</era>
+						<era type="189">↑↑↑</era>
+						<era type="190">↑↑↑</era>
+						<era type="191">↑↑↑</era>
+						<era type="192">↑↑↑</era>
+						<era type="193">↑↑↑</era>
+						<era type="194">↑↑↑</era>
+						<era type="195">↑↑↑</era>
+						<era type="196">↑↑↑</era>
+						<era type="197">↑↑↑</era>
+						<era type="198">↑↑↑</era>
+						<era type="199">↑↑↑</era>
+						<era type="200">↑↑↑</era>
+						<era type="201">↑↑↑</era>
+						<era type="202">↑↑↑</era>
+						<era type="203">↑↑↑</era>
+						<era type="204">↑↑↑</era>
+						<era type="205">↑↑↑</era>
+						<era type="206">↑↑↑</era>
+						<era type="207">↑↑↑</era>
+						<era type="208">↑↑↑</era>
+						<era type="209">↑↑↑</era>
+						<era type="210">↑↑↑</era>
+						<era type="211">↑↑↑</era>
+						<era type="212">↑↑↑</era>
+						<era type="213">↑↑↑</era>
+						<era type="214">↑↑↑</era>
+						<era type="215">↑↑↑</era>
+						<era type="216">↑↑↑</era>
+						<era type="217">↑↑↑</era>
+						<era type="218">↑↑↑</era>
+						<era type="219">↑↑↑</era>
+						<era type="220">↑↑↑</era>
+						<era type="221">↑↑↑</era>
+						<era type="222">↑↑↑</era>
+						<era type="223">↑↑↑</era>
+						<era type="224">↑↑↑</era>
+						<era type="225">↑↑↑</era>
+						<era type="226">↑↑↑</era>
+						<era type="227">↑↑↑</era>
+						<era type="228">↑↑↑</era>
+						<era type="229">↑↑↑</era>
+						<era type="230">↑↑↑</era>
+						<era type="231">↑↑↑</era>
+						<era type="232">↑↑↑</era>
+						<era type="233">↑↑↑</era>
+						<era type="234">↑↑↑</era>
+						<era type="235">↑↑↑</era>
+						<era type="236">↑↑↑</era>
+					</eraAbbr>
+					<eraNarrow>
+						<era type="0">↑↑↑</era>
+						<era type="1">↑↑↑</era>
+						<era type="2">↑↑↑</era>
+						<era type="3">↑↑↑</era>
+						<era type="4">↑↑↑</era>
+						<era type="5">↑↑↑</era>
+						<era type="6">↑↑↑</era>
+						<era type="7">↑↑↑</era>
+						<era type="8">↑↑↑</era>
+						<era type="9">↑↑↑</era>
+						<era type="10">↑↑↑</era>
+						<era type="11">↑↑↑</era>
+						<era type="12">↑↑↑</era>
+						<era type="13">↑↑↑</era>
+						<era type="14">↑↑↑</era>
+						<era type="15">↑↑↑</era>
+						<era type="16">↑↑↑</era>
+						<era type="17">↑↑↑</era>
+						<era type="18">↑↑↑</era>
+						<era type="19">↑↑↑</era>
+						<era type="20">↑↑↑</era>
+						<era type="21">↑↑↑</era>
+						<era type="22">↑↑↑</era>
+						<era type="23">↑↑↑</era>
+						<era type="24">↑↑↑</era>
+						<era type="25">↑↑↑</era>
+						<era type="26">↑↑↑</era>
+						<era type="27">↑↑↑</era>
+						<era type="28">↑↑↑</era>
+						<era type="29">↑↑↑</era>
+						<era type="30">↑↑↑</era>
+						<era type="31">↑↑↑</era>
+						<era type="32">↑↑↑</era>
+						<era type="33">↑↑↑</era>
+						<era type="34">↑↑↑</era>
+						<era type="35">↑↑↑</era>
+						<era type="36">↑↑↑</era>
+						<era type="37">↑↑↑</era>
+						<era type="38">↑↑↑</era>
+						<era type="39">↑↑↑</era>
+						<era type="40">↑↑↑</era>
+						<era type="41">↑↑↑</era>
+						<era type="42">↑↑↑</era>
+						<era type="43">↑↑↑</era>
+						<era type="44">↑↑↑</era>
+						<era type="45">↑↑↑</era>
+						<era type="46">↑↑↑</era>
+						<era type="47">↑↑↑</era>
+						<era type="48">↑↑↑</era>
+						<era type="49">↑↑↑</era>
+						<era type="50">↑↑↑</era>
+						<era type="51">↑↑↑</era>
+						<era type="52">↑↑↑</era>
+						<era type="53">↑↑↑</era>
+						<era type="54">↑↑↑</era>
+						<era type="55">↑↑↑</era>
+						<era type="56">↑↑↑</era>
+						<era type="57">↑↑↑</era>
+						<era type="58">↑↑↑</era>
+						<era type="59">↑↑↑</era>
+						<era type="60">↑↑↑</era>
+						<era type="61">↑↑↑</era>
+						<era type="62">↑↑↑</era>
+						<era type="63">↑↑↑</era>
+						<era type="64">↑↑↑</era>
+						<era type="65">↑↑↑</era>
+						<era type="66">↑↑↑</era>
+						<era type="67">↑↑↑</era>
+						<era type="68">↑↑↑</era>
+						<era type="69">↑↑↑</era>
+						<era type="70">↑↑↑</era>
+						<era type="71">↑↑↑</era>
+						<era type="72">↑↑↑</era>
+						<era type="73">↑↑↑</era>
+						<era type="74">↑↑↑</era>
+						<era type="75">↑↑↑</era>
+						<era type="76">↑↑↑</era>
+						<era type="77">↑↑↑</era>
+						<era type="78">↑↑↑</era>
+						<era type="79">↑↑↑</era>
+						<era type="80">↑↑↑</era>
+						<era type="81">↑↑↑</era>
+						<era type="82">↑↑↑</era>
+						<era type="83">↑↑↑</era>
+						<era type="84">↑↑↑</era>
+						<era type="85">↑↑↑</era>
+						<era type="86">↑↑↑</era>
+						<era type="87">↑↑↑</era>
+						<era type="88">↑↑↑</era>
+						<era type="89">↑↑↑</era>
+						<era type="90">↑↑↑</era>
+						<era type="91">↑↑↑</era>
+						<era type="92">↑↑↑</era>
+						<era type="93">↑↑↑</era>
+						<era type="94">↑↑↑</era>
+						<era type="95">↑↑↑</era>
+						<era type="96">↑↑↑</era>
+						<era type="97">↑↑↑</era>
+						<era type="98">↑↑↑</era>
+						<era type="99">↑↑↑</era>
+						<era type="100">↑↑↑</era>
+						<era type="101">↑↑↑</era>
+						<era type="102">↑↑↑</era>
+						<era type="103">↑↑↑</era>
+						<era type="104">↑↑↑</era>
+						<era type="105">↑↑↑</era>
+						<era type="106">↑↑↑</era>
+						<era type="107">↑↑↑</era>
+						<era type="108">↑↑↑</era>
+						<era type="109">↑↑↑</era>
+						<era type="110">↑↑↑</era>
+						<era type="111">↑↑↑</era>
+						<era type="112">↑↑↑</era>
+						<era type="113">↑↑↑</era>
+						<era type="114">↑↑↑</era>
+						<era type="115">↑↑↑</era>
+						<era type="116">↑↑↑</era>
+						<era type="117">↑↑↑</era>
+						<era type="118">↑↑↑</era>
+						<era type="119">↑↑↑</era>
+						<era type="120">↑↑↑</era>
+						<era type="121">↑↑↑</era>
+						<era type="122">↑↑↑</era>
+						<era type="123">↑↑↑</era>
+						<era type="124">↑↑↑</era>
+						<era type="125">↑↑↑</era>
+						<era type="126">↑↑↑</era>
+						<era type="127">↑↑↑</era>
+						<era type="128">↑↑↑</era>
+						<era type="129">↑↑↑</era>
+						<era type="130">↑↑↑</era>
+						<era type="131">↑↑↑</era>
+						<era type="132">↑↑↑</era>
+						<era type="133">↑↑↑</era>
+						<era type="134">↑↑↑</era>
+						<era type="135">↑↑↑</era>
+						<era type="136">↑↑↑</era>
+						<era type="137">↑↑↑</era>
+						<era type="138">↑↑↑</era>
+						<era type="139">↑↑↑</era>
+						<era type="140">↑↑↑</era>
+						<era type="141">↑↑↑</era>
+						<era type="142">↑↑↑</era>
+						<era type="143">↑↑↑</era>
+						<era type="144">↑↑↑</era>
+						<era type="145">↑↑↑</era>
+						<era type="146">↑↑↑</era>
+						<era type="147">↑↑↑</era>
+						<era type="148">↑↑↑</era>
+						<era type="149">↑↑↑</era>
+						<era type="150">↑↑↑</era>
+						<era type="151">↑↑↑</era>
+						<era type="152">↑↑↑</era>
+						<era type="153">↑↑↑</era>
+						<era type="154">↑↑↑</era>
+						<era type="155">↑↑↑</era>
+						<era type="156">↑↑↑</era>
+						<era type="157">↑↑↑</era>
+						<era type="158">↑↑↑</era>
+						<era type="159">↑↑↑</era>
+						<era type="160">↑↑↑</era>
+						<era type="161">↑↑↑</era>
+						<era type="162">↑↑↑</era>
+						<era type="163">↑↑↑</era>
+						<era type="164">↑↑↑</era>
+						<era type="165">↑↑↑</era>
+						<era type="166">↑↑↑</era>
+						<era type="167">↑↑↑</era>
+						<era type="168">↑↑↑</era>
+						<era type="169">↑↑↑</era>
+						<era type="170">↑↑↑</era>
+						<era type="171">↑↑↑</era>
+						<era type="172">↑↑↑</era>
+						<era type="173">↑↑↑</era>
+						<era type="174">↑↑↑</era>
+						<era type="175">↑↑↑</era>
+						<era type="176">↑↑↑</era>
+						<era type="177">↑↑↑</era>
+						<era type="178">↑↑↑</era>
+						<era type="179">↑↑↑</era>
+						<era type="180">↑↑↑</era>
+						<era type="181">↑↑↑</era>
+						<era type="182">↑↑↑</era>
+						<era type="183">↑↑↑</era>
+						<era type="184">↑↑↑</era>
+						<era type="185">↑↑↑</era>
+						<era type="186">↑↑↑</era>
+						<era type="187">↑↑↑</era>
+						<era type="188">↑↑↑</era>
+						<era type="189">↑↑↑</era>
+						<era type="190">↑↑↑</era>
+						<era type="191">↑↑↑</era>
+						<era type="192">↑↑↑</era>
+						<era type="193">↑↑↑</era>
+						<era type="194">↑↑↑</era>
+						<era type="195">↑↑↑</era>
+						<era type="196">↑↑↑</era>
+						<era type="197">↑↑↑</era>
+						<era type="198">↑↑↑</era>
+						<era type="199">↑↑↑</era>
+						<era type="200">↑↑↑</era>
+						<era type="201">↑↑↑</era>
+						<era type="202">↑↑↑</era>
+						<era type="203">↑↑↑</era>
+						<era type="204">↑↑↑</era>
+						<era type="205">↑↑↑</era>
+						<era type="206">↑↑↑</era>
+						<era type="207">↑↑↑</era>
+						<era type="208">↑↑↑</era>
+						<era type="209">↑↑↑</era>
+						<era type="210">↑↑↑</era>
+						<era type="211">↑↑↑</era>
+						<era type="212">↑↑↑</era>
+						<era type="213">↑↑↑</era>
+						<era type="214">↑↑↑</era>
+						<era type="215">↑↑↑</era>
+						<era type="216">↑↑↑</era>
+						<era type="217">↑↑↑</era>
+						<era type="218">↑↑↑</era>
+						<era type="219">↑↑↑</era>
+						<era type="220">↑↑↑</era>
+						<era type="221">↑↑↑</era>
+						<era type="222">↑↑↑</era>
+						<era type="223">↑↑↑</era>
+						<era type="224">↑↑↑</era>
+						<era type="225">↑↑↑</era>
+						<era type="226">↑↑↑</era>
+						<era type="227">↑↑↑</era>
+						<era type="228">↑↑↑</era>
+						<era type="229">↑↑↑</era>
+						<era type="230">↑↑↑</era>
+						<era type="231">↑↑↑</era>
+						<era type="232">↑↑↑</era>
+						<era type="233">↑↑↑</era>
+						<era type="234">↑↑↑</era>
+						<era type="235">↑↑↑</era>
+						<era type="236">↑↑↑</era>
+					</eraNarrow>
+				</eras>
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>↑↑↑</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>↑↑↑</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>↑↑↑</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>↑↑↑</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength type="full">
+						<dateTimeFormat>
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="atTime">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="long">
+						<dateTimeFormat>
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="atTime">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="medium">
+						<dateTimeFormat>
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="atTime">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="short">
+						<dateTimeFormat>
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="atTime">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<availableFormats>
+						<dateFormatItem id="d">↑↑↑</dateFormatItem>
+						<dateFormatItem id="E">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Ed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EEEEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Gy">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyM">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMMM">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMMMEEEEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="M">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Md">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MEEEEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMM">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMEEEEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="y">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yyyy">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yyyyM">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yyyyMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yyyyMEEEEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yyyyMMM">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEEEEd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyQQQ">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyQQQQ">↑↑↑</dateFormatItem>
@@ -3269,8 +3963,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<hourFormat>↑↑↑</hourFormat>
 			<gmtFormat>↑↑↑</gmtFormat>
 			<gmtZeroFormat>↑↑↑</gmtZeroFormat>
+			<gmtUnknownFormat>↑↑↑</gmtUnknownFormat>
 			<regionFormat>↑↑↑</regionFormat>
-			<regionFormat type="daylight">{0} Daylight Saving Time</regionFormat>
+			<regionFormat type="daylight">↑↑↑</regionFormat>
 			<regionFormat type="standard">↑↑↑</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
 			<zone type="Etc/UTC">
@@ -3621,6 +4316,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Easter">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Coyhaique">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Punta_Arenas">
@@ -3999,7 +4697,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Rangoon">
-				<exemplarCity>Rangoon</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Hovd">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -4539,9 +5237,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<long>
 					<standard>↑↑↑</standard>
 				</long>
-				<short>
-					<standard>AFT</standard>
-				</short>
 			</metazone>
 			<metazone type="Africa_Central">
 				<long>
@@ -4560,16 +5255,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Africa_Western">
 				<long>
-					<generic>↑↑↑</generic>
 					<standard>↑↑↑</standard>
-					<daylight>↑↑↑</daylight>
 				</long>
 			</metazone>
 			<metazone type="Alaska">
 				<long>
 					<generic>↑↑↑</generic>
 					<standard>↑↑↑</standard>
-					<daylight>Alaska Daylight Saving Time</daylight>
+					<daylight>↑↑↑</daylight>
 				</long>
 			</metazone>
 			<metazone type="Amazon">
@@ -4583,14 +5276,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<long>
 					<generic>↑↑↑</generic>
 					<standard>↑↑↑</standard>
-					<daylight>Central Daylight Saving Time</daylight>
+					<daylight>↑↑↑</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Eastern">
 				<long>
 					<generic>↑↑↑</generic>
 					<standard>↑↑↑</standard>
-					<daylight>Eastern Daylight Saving Time</daylight>
+					<daylight>↑↑↑</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Mountain">
@@ -4627,9 +5320,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>↑↑↑</standard>
 					<daylight>↑↑↑</daylight>
 				</long>
-				<short>
-					<generic>ART</generic>
-				</short>
 			</metazone>
 			<metazone type="Argentina_Western">
 				<long>
@@ -4665,11 +5355,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>↑↑↑</standard>
 					<daylight>↑↑↑</daylight>
 				</long>
-				<short>
-					<generic>ACWT</generic>
-					<standard>ACWST</standard>
-					<daylight>ACWDT</daylight>
-				</short>
 			</metazone>
 			<metazone type="Australia_Eastern">
 				<long>
@@ -4677,11 +5362,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>↑↑↑</standard>
 					<daylight>↑↑↑</daylight>
 				</long>
-				<short>
-					<generic>AET</generic>
-					<standard>AEST</standard>
-					<daylight>AEDT</daylight>
-				</short>
 			</metazone>
 			<metazone type="Australia_Western">
 				<long>
@@ -4689,10 +5369,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>↑↑↑</standard>
 					<daylight>↑↑↑</daylight>
 				</long>
-				<short>
-					<standard>AWST</standard>
-					<daylight>AWDT</daylight>
-				</short>
 			</metazone>
 			<metazone type="Azerbaijan">
 				<long>
@@ -4714,17 +5390,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>↑↑↑</standard>
 					<daylight>↑↑↑</daylight>
 				</long>
-				<short>
-					<standard>BST</standard>
-				</short>
 			</metazone>
 			<metazone type="Bhutan">
 				<long>
 					<standard>↑↑↑</standard>
 				</long>
-				<short>
-					<standard>BTT</standard>
-				</short>
 			</metazone>
 			<metazone type="Bolivia">
 				<long>
@@ -4737,18 +5407,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>↑↑↑</standard>
 					<daylight>↑↑↑</daylight>
 				</long>
-				<short>
-					<generic>BRT</generic>
-					<daylight>BRST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>↑↑↑</standard>
 				</long>
-				<short>
-					<standard>BNT</standard>
-				</short>
 			</metazone>
 			<metazone type="Cape_Verde">
 				<long>
@@ -4768,10 +5431,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>↑↑↑</standard>
 					<daylight>↑↑↑</daylight>
 				</long>
-				<short>
-					<standard>CHAST</standard>
-					<daylight>CHADT</daylight>
-				</short>
 			</metazone>
 			<metazone type="Chile">
 				<long>
@@ -4791,17 +5450,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<long>
 					<standard>↑↑↑</standard>
 				</long>
-				<short>
-					<standard>CXT</standard>
-				</short>
 			</metazone>
 			<metazone type="Cocos">
 				<long>
 					<standard>↑↑↑</standard>
 				</long>
-				<short>
-					<standard>CCT</standard>
-				</short>
 			</metazone>
 			<metazone type="Colombia">
 				<long>
@@ -4809,9 +5462,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>↑↑↑</standard>
 					<daylight>↑↑↑</daylight>
 				</long>
-				<short>
-					<daylight>COST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Cook">
 				<long>
@@ -4841,9 +5491,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<long>
 					<standard>↑↑↑</standard>
 				</long>
-				<short>
-					<standard>TLT</standard>
-				</short>
 			</metazone>
 			<metazone type="Easter">
 				<long>
@@ -4851,18 +5498,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>↑↑↑</standard>
 					<daylight>↑↑↑</daylight>
 				</long>
-				<short>
-					<standard>EAST</standard>
-					<daylight>EASST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Ecuador">
 				<long>
 					<standard>↑↑↑</standard>
 				</long>
-				<short>
-					<standard>ECT</standard>
-				</short>
 			</metazone>
 			<metazone type="Europe_Central">
 				<long>
@@ -4896,10 +5536,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>↑↑↑</standard>
 					<daylight>↑↑↑</daylight>
 				</long>
-				<short>
-					<generic>FKT</generic>
-					<daylight>FKST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Fiji">
 				<long>
@@ -4922,9 +5558,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<long>
 					<standard>↑↑↑</standard>
 				</long>
-				<short>
-					<standard>GALT</standard>
-				</short>
 			</metazone>
 			<metazone type="Gambier">
 				<long>
@@ -4954,9 +5587,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>↑↑↑</standard>
 					<daylight>↑↑↑</daylight>
 				</long>
-				<short>
-					<generic>EGT</generic>
-				</short>
 			</metazone>
 			<metazone type="Greenland_Western">
 				<long>
@@ -4969,17 +5599,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<long>
 					<standard>↑↑↑</standard>
 				</long>
-				<short>
-					<standard>Gulf Time</standard>
-				</short>
 			</metazone>
 			<metazone type="Guyana">
 				<long>
 					<standard>↑↑↑</standard>
 				</long>
-				<short>
-					<standard>GYT</standard>
-				</short>
+			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>↑↑↑</standard>
+				</long>
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
@@ -5006,9 +5635,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<long>
 					<standard>↑↑↑</standard>
 				</long>
-				<short>
-					<standard>IST</standard>
-				</short>
 			</metazone>
 			<metazone type="Indian_Ocean">
 				<long>
@@ -5019,44 +5645,28 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<long>
 					<standard>↑↑↑</standard>
 				</long>
-				<short>
-					<standard>ICT</standard>
-				</short>
 			</metazone>
 			<metazone type="Indonesia_Central">
 				<long>
 					<standard>↑↑↑</standard>
 				</long>
-				<short>
-					<standard>WITA</standard>
-				</short>
 			</metazone>
 			<metazone type="Indonesia_Eastern">
 				<long>
 					<standard>↑↑↑</standard>
 				</long>
-				<short>
-					<standard>WIT</standard>
-				</short>
 			</metazone>
 			<metazone type="Indonesia_Western">
 				<long>
 					<standard>↑↑↑</standard>
 				</long>
-				<short>
-					<standard>WIB</standard>
-				</short>
 			</metazone>
 			<metazone type="Iran">
 				<long>
 					<generic>↑↑↑</generic>
 					<standard>↑↑↑</standard>
-					<daylight>Iran Daylight Saving Time</daylight>
+					<daylight>↑↑↑</daylight>
 				</long>
-				<short>
-					<standard>IRST</standard>
-					<daylight>IRDT</daylight>
-				</short>
 			</metazone>
 			<metazone type="Irkutsk">
 				<long>
@@ -5146,17 +5756,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<long>
 					<standard>↑↑↑</standard>
 				</long>
-				<short>
-					<standard>MYT</standard>
-				</short>
 			</metazone>
 			<metazone type="Maldives">
 				<long>
 					<standard>↑↑↑</standard>
 				</long>
-				<short>
-					<standard>MVT</standard>
-				</short>
 			</metazone>
 			<metazone type="Marquesas">
 				<long>
@@ -5215,9 +5819,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<long>
 					<standard>↑↑↑</standard>
 				</long>
-				<short>
-					<standard>NPT</standard>
-				</short>
 			</metazone>
 			<metazone type="New_Caledonia">
 				<long>
@@ -5263,9 +5864,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>↑↑↑</standard>
 					<daylight>↑↑↑</daylight>
 				</long>
-				<short>
-					<generic>FNT</generic>
-				</short>
 			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
@@ -5287,9 +5885,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>↑↑↑</standard>
 					<daylight>↑↑↑</daylight>
 				</long>
-				<short>
-					<standard>PKT</standard>
-				</short>
 			</metazone>
 			<metazone type="Palau">
 				<long>
@@ -5307,10 +5902,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>↑↑↑</standard>
 					<daylight>↑↑↑</daylight>
 				</long>
-				<short>
-					<generic>PYT</generic>
-					<daylight>PYST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Peru">
 				<long>
@@ -5318,9 +5909,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>↑↑↑</standard>
 					<daylight>↑↑↑</daylight>
 				</long>
-				<short>
-					<generic>PET</generic>
-				</short>
 			</metazone>
 			<metazone type="Philippines">
 				<long>
@@ -5338,7 +5926,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<long>
 					<generic>Saint-Pierre-et-Miquelon Time</generic>
 					<standard>Saint-Pierre-et-Miquelon Standard Time</standard>
-					<daylight>Saint-Pierre-et-Miquelon Daylight Saving Time</daylight>
+					<daylight>Saint-Pierre-et-Miquelon Daylight Time</daylight>
 				</long>
 				<short>
 					<generic>PMT</generic>
@@ -5382,7 +5970,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<long>
 					<generic>↑↑↑</generic>
 					<standard>↑↑↑</standard>
-					<daylight>Samoan Time</daylight>
+					<daylight>↑↑↑</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">
@@ -5467,10 +6055,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>↑↑↑</standard>
 					<daylight>↑↑↑</daylight>
 				</long>
-				<short>
-					<standard>UYT</standard>
-					<daylight>UYST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Uzbekistan">
 				<long>
@@ -5490,9 +6074,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<long>
 					<standard>↑↑↑</standard>
 				</long>
-				<short>
-					<standard>VET</standard>
-				</short>
 			</metazone>
 			<metazone type="Vladivostok">
 				<long>
@@ -5627,6 +6208,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
+		<rationalFormats numberSystem="latn">
+			<rationalPattern>↑↑↑</rationalPattern>
+			<integerAndRationalPattern>↑↑↑</integerAndRationalPattern>
+			<integerAndRationalPattern alt="superSub">↑↑↑</integerAndRationalPattern>
+			<rationalUsage>↑↑↑</rationalUsage>
+		</rationalFormats>
 		<scientificFormats numberSystem="latn">
 			<scientificFormatLength>
 				<scientificFormat>
@@ -5645,6 +6232,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
@@ -6742,6 +7331,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
+			<currency type="XCG">
+				<displayName>↑↑↑</displayName>
+				<displayName count="one">↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">Cg</symbol>
+			</currency>
 			<currency type="XOF">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
@@ -6778,6 +7373,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="other">↑↑↑</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="ZWG">
+				<displayName>↑↑↑</displayName>
+				<displayName count="one">↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 		</currencies>
 		<miscPatterns numberSystem="latn">
@@ -7017,6 +7618,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="concentr-part">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -7038,6 +7644,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} per myriad</unitPattern>
 			</unit>
 			<unit type="concentr-mole">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-ofglucose">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -7579,6 +8190,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} millimetre of mercury</unitPattern>
 				<unitPattern count="other">{0} millimetres of mercury</unitPattern>
 			</unit>
+			<unit type="pressure-ofhg">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -7757,6 +8373,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="volume-fluid-ounce-metric">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -7789,7 +8410,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="volume-pint-imperial">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="volume-cup">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-cup-imperial">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -7854,12 +8485,197 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} quart</unitPattern>
 				<unitPattern count="other">{0} quarts</unitPattern>
 			</unit>
+			<unit type="angle-steradian">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-katal">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-coulomb">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-farad">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-henry">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-siemens">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-calorie-it">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-british-thermal-unit-it">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-becquerel">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-sievert">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-gray">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="force-kilogram-force">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-rod">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-chain">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="magnetic-tesla">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="magnetic-weber">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="temperature-rankine">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="duration-fortnight">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="mass-slug">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="pressure-gasoline-energy-density">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="length-rin">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-sun">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-shaku-length">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-shaku-cloth">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-ken">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-jo-jp">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-ri-jp">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="area-bu-jp">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="area-se-jp">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="area-cho">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-kosaji">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-osaji">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-cup-jp">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-shaku">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-sai">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-to-jp">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-koku">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="speed-light-speed">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="mass-fun">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -8104,6 +8920,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="concentr-part">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -8126,6 +8947,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="concentr-mole">
 				<displayName>moles</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-ofglucose">
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -8666,6 +9492,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} mm Hg</unitPattern>
 				<unitPattern count="other">{0} mm Hg</unitPattern>
 			</unit>
+			<unit type="pressure-ofhg">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -8844,6 +9675,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="volume-fluid-ounce-metric">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -8876,7 +9712,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="volume-pint-imperial">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="volume-cup">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-cup-imperial">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -8941,12 +9787,197 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} qt</unitPattern>
 				<unitPattern count="other">{0} qt</unitPattern>
 			</unit>
+			<unit type="angle-steradian">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-katal">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-coulomb">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-farad">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-henry">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-siemens">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-calorie-it">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-british-thermal-unit-it">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-becquerel">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-sievert">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-gray">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="force-kilogram-force">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-rod">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-chain">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="magnetic-tesla">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="magnetic-weber">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="temperature-rankine">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="duration-fortnight">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="mass-slug">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="pressure-gasoline-energy-density">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="length-rin">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-sun">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-shaku-length">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-shaku-cloth">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-ken">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-jo-jp">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-ri-jp">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="area-bu-jp">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="area-se-jp">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="area-cho">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-kosaji">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-osaji">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-cup-jp">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-shaku">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-sai">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-to-jp">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-koku">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="speed-light-speed">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="mass-fun">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -9191,6 +10222,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="concentr-part">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -9212,6 +10248,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-mole">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-ofglucose">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -9753,6 +10794,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="pressure-ofhg">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -9931,6 +10977,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="volume-fluid-ounce-metric">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -9963,8 +11014,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="volume-pint-imperial">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="volume-cup">
 				<displayName>cups</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-cup-imperial">
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -10028,12 +11089,197 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0}qt</unitPattern>
 				<unitPattern count="other">{0}qt</unitPattern>
 			</unit>
+			<unit type="angle-steradian">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-katal">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-coulomb">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-farad">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-henry">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-siemens">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-calorie-it">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-british-thermal-unit-it">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-becquerel">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-sievert">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-gray">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="force-kilogram-force">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-rod">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-chain">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="magnetic-tesla">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="magnetic-weber">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="temperature-rankine">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="duration-fortnight">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="mass-slug">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="pressure-gasoline-energy-density">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="length-rin">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-sun">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-shaku-length">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-shaku-cloth">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-ken">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-jo-jp">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-ri-jp">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="area-bu-jp">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="area-se-jp">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="area-cho">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-kosaji">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-osaji">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-cup-jp">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-shaku">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-sai">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-to-jp">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-koku">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="speed-light-speed">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="mass-fun">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>

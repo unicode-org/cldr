@@ -591,19 +591,17 @@ public class ChartDelta extends Chart {
         return old.getSourceLocaleID(oldStylePath, oldStatus);
     }
 
-    PathStarrer starrer = new PathStarrer().setSubstitutionPattern("%A");
-
     private PathHeader getPathHeader(String path) {
         try {
             PathHeader ph = phf.fromPath(path);
             if (ph.getPageId() == PageId.Unknown) {
-                String star = starrer.set(path);
+                String star = PathStarrer.getWithPattern(path, PathStarrer.PERCENT_A_PATTERN);
                 badHeaders.add(star);
                 return null;
             }
             return ph;
         } catch (Exception e) {
-            String star = starrer.set(path);
+            String star = PathStarrer.getWithPattern(path, PathStarrer.PERCENT_A_PATTERN);
             badHeaders.add(star);
             // System.err.println("Skipping path with bad PathHeader: " + path);
             return null;
@@ -1099,6 +1097,7 @@ public class ChartDelta extends Chart {
                         || dir.equals("dtd") // TODO as flat files
                         || dir.equals("properties") // TODO as flat files
                         || dir.equals("uca") // TODO as flat files
+                        || dir.endsWith(".md") // // Ignore markdown files
                 ) {
                     continue;
                 }

@@ -25,6 +25,9 @@
         </option>
       </select>
     </div>
+    <div v-else-if="clickToLoad">
+      <button @click="clickClickToLoad">Check Regional Variants…</button>
+    </div>
   </div>
 </template>
 
@@ -41,19 +44,27 @@ export default {
       label: null,
       loading: false,
       loadingMessage: null,
+      clickToLoad: null,
     };
   },
 
   methods: {
+    clear() {
+      this.label = this.items = this.chosenLocale = this.curLocale = null;
+      this.loading = false;
+    },
+
     setLoading() {
+      this.clear();
+      this.clickToLoad = null;
       if (!this.loadingMessage) {
         this.loadingMessage = cldrText.get("sideways_loading1");
       }
       this.loading = true;
-      this.label = this.items = this.chosenLocale = this.curLocale = null;
     },
 
     setData(localeId, d) {
+      this.clickToLoad = null;
       this.chosenLocale = this.curLocale = localeId;
       this.label = d?.label || null;
       this.items = d?.items || null;
@@ -61,8 +72,20 @@ export default {
     },
 
     goToLocale() {
+      this.clickToLoad = null;
       if (this.chosenLocale !== this.curLocale) {
         cldrSideways.goToLocale(this.chosenLocale);
+      }
+    },
+
+    setClickToLoad(fn) {
+      this.clear();
+      this.clickToLoad = fn;
+    },
+
+    clickClickToLoad() {
+      if (this.clickToLoad) {
+        this.clickToLoad();
       }
     },
   },

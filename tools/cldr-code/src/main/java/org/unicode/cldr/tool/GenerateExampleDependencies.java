@@ -98,7 +98,7 @@ public class GenerateExampleDependencies {
                 continue;
             }
 
-            String starredB = PathStarrer.computeIfAbsent(pathB);
+            String starredB = PathStarrer.get(pathB);
             cldrFile.enableRecording();
             egTest.getExampleHtml(pathB, valueB);
             HashSet<String> pathsA = cldrFile.getRecordedPaths();
@@ -108,7 +108,7 @@ public class GenerateExampleDependencies {
                 if (pathA.equals(pathB) || skipPathForDependencies(pathA)) {
                     continue;
                 }
-                String starredA = PathStarrer.computeIfAbsent(pathA);
+                String starredA = PathStarrer.get(pathA);
                 dependencies.put(starredA, starredB);
             }
         }

@@ -637,6 +637,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             {"ga", "many", "0,00"}, // n in 7..10
             {"ar", "zero", "0"}, // n is 0
             {"blo", "zero", "0"}, // n = 0
+            {"cv", "zero", "0"}, // n = 0
             {"cy", "zero", "0"}, // n is 0
             {"ksh", "zero", "0"}, // n is 0
             {"lag", "zero", "0"}, // n is 0
@@ -2052,16 +2053,24 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         }
     }
 
+    /**
+     * @param causeError type of issue - warn/err/log
+     * @param message message text
+     * @param logTicket if non-null, attempt log known issue
+     * @param logComment optional comment with log known issue
+     * @see {@link UnicodeKnownIssues}
+     */
     public void errOrLog(
             CoverageIssue causeError, String message, String logTicket, String logComment) {
         switch (causeError) {
             case error:
-                if (logTicket == null) {
-                    errln(message);
+                if (logTicket != null && logKnownIssue(logTicket, logComment)) {
+                    warnln(message);
                     break;
+                } else {
+                    errln(message);
                 }
-                logKnownIssue(logTicket, logComment);
-                // fall through
+                break;
             case warn:
                 warnln(message);
                 break;
@@ -2109,6 +2118,10 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         List<Integer> unicodeDigits = new ArrayList<>();
         for (int cp = UCharacter.MIN_CODE_POINT; cp <= UCharacter.MAX_CODE_POINT; cp++) {
             if (UCharacter.getType(cp) == UCharacterEnums.ECharacterCategory.DECIMAL_DIGIT_NUMBER) {
+                if (UScript.getShortName(UScript.getScript(cp)).equals("Chis")) {
+                    logKnownIssue("ICU-23038", "ICU4J UCharacter still supports CHISOI");
+                    continue;
+                }
                 unicodeDigits.add(cp);
             }
         }

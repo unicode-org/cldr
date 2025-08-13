@@ -4,7 +4,7 @@
 
 |Version|48 (draft)   |
 |-------|-------------|
-|Editors|Steven Loomis (<a href="mailto:srloomis@unicode.org">srloomis@unicode.org</a>) and <a href="tr35.md#Acknowledgments">other CLDR committee members</a>|
+|Editors|Steven Loomis (<a href="mailto:srloomis@unicode.org">srloomis@unicode.org</a>) and <a href="tr35-acknowledgments.md#acknowledgments">other CLDR committee members</a>|
 
 For the full header, summary, and status, see [Part 1: Core](tr35.md).
 
@@ -33,7 +33,7 @@ Unicode Technical Reports are governed by the Unicode [Terms of Use](https://www
 
 See also [Compatibility Notice](#compatibility-notice).
 
-## <a name="Parts" href="#Parts">Parts</a>
+## Parts
 
 The LDML specification is divided into the following parts:
 
@@ -46,6 +46,8 @@ The LDML specification is divided into the following parts:
 *   Part 7: [Keyboards](tr35-keyboards.md#Contents) (keyboard mappings)
 *   Part 8: [Person Names](tr35-personNames.md#Contents) (person names)
 *   Part 9: [MessageFormat](tr35-messageFormat.md#Contents) (message format)
+*   Appendix A: [Modifications](tr35-modifications.md#modifications)
+*   Appendix B: [Acknowledgments](tr35-acknowledgments.md#acknowledgments)
 
 ## <a name="Contents" href="#Contents">Contents of Part 7, Keyboards</a>
 
@@ -2255,7 +2257,7 @@ _Attribute:_ `from` (required)
 
     `x` and `y` are required single digits (`0` to `9`) representing the minimum and maximum number of occurrences.
 
-    `x` must be ≥ 0, `y` must be ≥ x and ≥ 1. 
+    `x` must be ≥ 0, `y` must be ≥ x and ≥ 1.
 
     Unbounded quantifiers such as `{3,}` are not allowed.
 

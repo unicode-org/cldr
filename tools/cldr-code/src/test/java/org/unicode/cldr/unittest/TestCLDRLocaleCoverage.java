@@ -129,11 +129,11 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
         // Follow the instructions below.
 
         // Set the version number to the current release number
-        final int exceptionMajorVersion = 46;
+        final int exceptionMajorVersion = 48;
 
         // Include all and only the locales that newly reached Basic coverage.
         Set<String> exceptionsForCurrentVersion =
-                ImmutableSet.of("ak", "ee", "gaa", "ii", "nso", "om", "rw", "st", "tn");
+                ImmutableSet.of("ba", "bua", "pms", "scn", "shn", "tyv");
 
         showRegex |=
                 !assertContains(

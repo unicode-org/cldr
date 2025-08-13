@@ -3338,4 +3338,36 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         }
         return value;
     }
+
+    // The following deprecated constants and methods are implemented only for backward
+    // compatibility with https://github.com/unicode-org/unicodetools
+
+    @Deprecated public static final int LANGUAGE_NAME = 0, SCRIPT_NAME = 1, TERRITORY_NAME = 2;
+
+    @Deprecated
+    public String getName(int type, String code) {
+        switch (type) {
+            case LANGUAGE_NAME:
+                return nameGetter.getNameFromTypeEnumCode(NameType.LANGUAGE, code);
+            case SCRIPT_NAME:
+                return nameGetter.getNameFromTypeEnumCode(NameType.SCRIPT, code);
+            case TERRITORY_NAME:
+                return nameGetter.getNameFromTypeEnumCode(NameType.TERRITORY, code);
+            default:
+                throw new IllegalArgumentException("Unrecognized type");
+        }
+    }
+
+    @Deprecated
+    public String getName(String code) {
+        return nameGetter.getNameFromIdentifier(code);
+    }
+
+    @Deprecated
+    public String getName(String type, String code) {
+        if (!type.equals("territory")) {
+            throw new IllegalArgumentException("First argument should be territory");
+        }
+        return nameGetter.getNameFromTypeEnumCode(NameType.TERRITORY, code);
+    }
 }

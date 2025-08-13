@@ -59,7 +59,8 @@ public class GenerateDateTimeTestData {
 
     /**
      * The known set of values used to indicate the type of "glue pattern" aka the dateTimeFormat
-     * type.
+     * type. The default value should be assumed to be AT_TIME if a variable of type
+     * DateTimeFormatType is not set.
      *
      * <p>atTime = the word "at" is inserted between the date and time when formatting both date &
      * time together, at least for long and full dates.
@@ -353,9 +354,10 @@ public class GenerateDateTimeTestData {
         } else if (timeLength == null) {
             formattedDateTime = dateFormatter.format(zdt);
         } else {
-            assert (dateTimeGluePatternFormatType != null);
             String formattedDate = dateFormatter.format(zdt);
             String formattedTime = timeFormatter.format(zdt);
+
+            assert dateTimeGluePatternFormatType != null;
 
             formattedDateTime =
                     localeCldrFile.glueDateTimeFormat(
@@ -572,6 +574,12 @@ public class GenerateDateTimeTestData {
         //  - fractional second digits
         //  - column alignment
         //  - time precision
+
+        // TODO: For semantic skeleton test cases,
+        //     add DateTimeFormatType=STANDARD to test cases
+        //     once CLDR DateTimeFormats constructor can use CLDRFile to get the dateTimeFormat glue
+        //     pattern, since we are currently using ICU to get the dateTimeFormat pattern,
+        //     which defaults to the behavior of DateTimeFormatType.AT_TIME
 
         // 1 (Row 2)
         elem = new FieldStyleComboInput();
@@ -1249,6 +1257,8 @@ public class GenerateDateTimeTestData {
         result.classicalSkeleton = testCase.classicalSkeleton;
         result.dateTimeFormatType =
                 Optional.ofNullable(testCase.testCaseInput.fieldStyleCombo.dateTimeFormatType)
+                        // because AT_TIME is the default, we do not serialize it to the output
+                        .filter(dtft -> dtft != DateTimeFormatType.AT_TIME)
                         .map(DateTimeFormatType::getLabel)
                         .orElse(null);
         result.hourCycle =

@@ -2289,13 +2289,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
     <!--@MATCH:literal/variant-->
 <!ATTLIST rationalPattern draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
-    
+
 <!ELEMENT integerAndRationalPattern ( #PCDATA ) >
 <!ATTLIST integerAndRationalPattern alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/superSub-->
 <!ATTLIST integerAndRationalPattern draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
-    
+
 <!ELEMENT rationalUsage ( #PCDATA ) >
 <!ATTLIST rationalUsage alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/variant-->
@@ -3143,6 +3143,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
     <!--@METADATA-->
 
 <!ELEMENT rbnfRules ( #PCDATA )>
+    <!--@CDATA-->
 
 <!ATTLIST rbnfRules alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/variant-->

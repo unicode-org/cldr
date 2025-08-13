@@ -268,7 +268,10 @@ public class CLDRFileTransformer {
                         continue;
                     }
                 }
-                value = daip.processInput(xpath, value, null);
+                // skip items that should not have DAIP
+                if(!xpath.contains("rbnfRules")) {
+                    value = daip.processInput(xpath, value, null);
+                }
                 outputSource.putValueAtPath(fullPath, value);
             }
         }
@@ -297,9 +300,6 @@ public class CLDRFileTransformer {
         switch (localeTransform.policy) {
             case RETAIN:
             case MINIMIZE:
-                if (oldValue != null) {
-                    return oldValue;
-                }
                 break;
             default:
         }
@@ -319,7 +319,7 @@ public class CLDRFileTransformer {
                 transliterated = value;
             }
         } else {
-            transliterated = transliterator.transliterate(value);
+            transliterated = transliterateByLines(transliterator, value);
             transliterated = Normalizer.compose(transliterated, false);
         }
         if (localeTransform.policy == PolicyIfExisting.MINIMIZE) {
@@ -332,6 +332,17 @@ public class CLDRFileTransformer {
             unconverted.addAll(new UnicodeSet().addAll(chars).retainAll(transliterated));
         }
         return transliterated;
+    }
+
+    private String transliterateByLines(Transliterator transliterator, String value) {
+        StringBuilder transliterated = new StringBuilder();
+        for(final String valueLine : value.split("[\r\n]")) {
+            if (transliterated.length() > 0) {
+                transliterated.append("\n");
+            }
+            transliterated.append(transliterator.transliterate(valueLine));
+        }
+        return transliterated.toString();
     }
 
     public static void main(String[] args) throws Exception {

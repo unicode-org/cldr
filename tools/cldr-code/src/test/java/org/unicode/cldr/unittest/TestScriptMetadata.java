@@ -111,24 +111,24 @@ public class TestScriptMetadata extends TestFmwkPlus {
         Relation<IdUsage, String> map =
                 Relation.of(new EnumMap<IdUsage, Set<String>>(IdUsage.class), LinkedHashSet.class);
         for (int i = UScript.COMMON; i < UScript.CODE_LIMIT; ++i) {
+            String longName = UScript.getName(i);
+            String shortName = UScript.getShortName(i);
+            if (shortName.equals("Chis")) {
+                logKnownIssue("ICU-23038", "ICU4J UScript still supports CHISOI");
+                continue;
+            }
             Info info = ScriptMetadata.getInfo(i);
             if (info != null) {
-                map.put(
-                        info.idUsage,
-                        UScript.getName(i) + "\t(" + UScript.getShortName(i) + ")\t" + info);
+                map.put(info.idUsage, longName + "\t(" + shortName + ")\t" + info);
             } else {
                 // There are many script codes that are not "real"; there are no
                 // Unicode characters for them.
                 // separate those out.
                 temp.applyIntPropertyValue(UProperty.SCRIPT, i);
                 if (temp.size() != 0) { // is real
-                    errln(
-                            "Missing script metadata for "
-                                    + UScript.getName(i)
-                                    + "\t("
-                                    + UScript.getShortName(i));
+                    errln("Missing script metadata for " + longName + "\t(" + shortName);
                 } else { // is not real
-                    missingScripts.add(UScript.getShortName(i));
+                    missingScripts.add(shortName);
                 }
             }
         }

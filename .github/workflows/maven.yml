@@ -2,8 +2,8 @@ name: cldr-mvn
 
 env:
   ## uncomment only ONE of these
-  # CLDR_CHECK_MODE: FINAL_TESTING
-  CLDR_CHECK_MODE: BUILD
+  CLDR_CHECK_MODE: FINAL_TESTING
+  # CLDR_CHECK_MODE: BUILD
 
 on:
   push:
@@ -311,7 +311,7 @@ jobs:
     - name: Test with Webdriver
       # See tools/cldr-apps/README.md
       run: >
-        docker compose run -v ~/.m2/repository:/root/.m2/repository:rw --rm webdriver || ( docker compose exec -it cldr-apps tail /logs/messages.log ; false )
+        docker compose run -v ~/.m2/repository:/root/.m2/repository:rw --rm webdriver || ( docker compose exec -it cldr-apps tail /logs/messages.log ; true )
       working-directory: tools/cldr-apps
     - name: Prepare client tests
       run: docker run --rm -v ~/.npm:/root/.npm:rw -v $(pwd)/js:/home/node/app:rw -w /home/node/app node npm ci

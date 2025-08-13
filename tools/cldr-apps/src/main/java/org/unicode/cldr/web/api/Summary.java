@@ -588,9 +588,9 @@ public class Summary {
             if (!cs.user.getOrganization().isTCOrg() && !cs.user.getLevel().isAdmin()) {
                 SurveyLog.warnOnce(
                         logger,
-                        "CLDR-18721 denying Vetting Particip for "
+                        "CLDR-18868 denying Vetting Particip for "
                                 + cs.user.getOrganization().toString());
-                return Response.status(403, "Forbidden Temporarily").build(); // TODO CLDR-18721
+                return Response.status(403, "Forbidden Temporarily").build(); // TODO CLDR-18868
             }
             cs.userDidAction();
 
@@ -615,7 +615,9 @@ public class Summary {
 
             ParticipationResults participationResults =
                     new ParticipationResults(
-                            reviewOutput.voterProgress, reviewOutput.coverageLevel);
+                            reviewOutput.voterProgress,
+                            reviewOutput.coverageLevel,
+                            reviewOutput.localeCompletionData);
             return Response.ok().entity(participationResults).build();
         } finally {
             if (didAcquire) {
@@ -630,10 +632,17 @@ public class Summary {
     public class ParticipationResults {
         public VoterProgress voterProgress;
         public String coverageLevel;
+        public int errorCount, missingCount, provisionalCount;
 
-        public ParticipationResults(VoterProgress voterProgress, String coverageLevel) {
+        public ParticipationResults(
+                VoterProgress voterProgress,
+                String coverageLevel,
+                LocaleCompletionData localeCompletionData) {
             this.voterProgress = voterProgress;
             this.coverageLevel = coverageLevel;
+            this.errorCount = localeCompletionData.errorCount();
+            this.missingCount = localeCompletionData.missingCount();
+            this.provisionalCount = localeCompletionData.provisionalCount();
         }
     }
 

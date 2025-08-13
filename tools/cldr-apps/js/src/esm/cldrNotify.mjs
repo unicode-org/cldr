@@ -128,10 +128,12 @@ function exception(e, context) {
  *
  * @param {String} message the title, displayed at the top (plain text)
  * @param {String} description a description of the problem, possibly HTML
+ * @param {Error} err an optional exception
  */
-function openWithHtml(message, description) {
+function openWithHtml(message, description, err) {
+  if (err) console.error(err);
   if (hasDataDog) {
-    datadogLogs.logger.error(message, { description });
+    datadogLogs.logger.error(message, { description }, err);
   }
   try {
     const NotificationPopupWrapper = cldrVue.mount(

@@ -37,7 +37,6 @@ import org.unicode.cldr.util.XPathParts;
 public class VerifyConverterResults {
     public static final CLDRConfig CONFIG = CLDRConfig.getInstance();
     public static final SupplementalDataInfo SDI = CONFIG.getSupplementalDataInfo();
-    public static final PathStarrer PATH_STARRER = new PathStarrer().setSubstitutionPattern("*");
 
     enum SourceType {
         text,
@@ -213,7 +212,7 @@ public class VerifyConverterResults {
                 return;
             }
             filedata.put(dir + "\t" + name + "\t" + path, value);
-            starredData.put(dir + "\t" + name + "\t" + PATH_STARRER.set(path), value);
+            starredData.put(dir + "\t" + name + "\t" + PathStarrer.get(path), value);
         }
 
         void print(boolean isVerbose) {

@@ -299,13 +299,12 @@ public class TestExampleGenerator extends TestFmwk {
 
     public void TestAllPaths() {
         ExampleGenerator exampleGenerator = getExampleGenerator("en");
-        PathStarrer ps = new PathStarrer();
         Set<String> seen = new HashSet<>();
         CLDRFile cldrFile = exampleGenerator.getCldrFile();
         TreeSet<String> target = new TreeSet<>(cldrFile.getComparator());
         cldrFile.fullIterable().forEach(target::add);
         for (String path : target) {
-            String plainStarred = ps.set(path);
+            String plainStarred = PathStarrer.get(path);
             String value = cldrFile.getStringValue(path);
             if (value == null
                     || path.endsWith("/alias")
@@ -1936,8 +1935,6 @@ public class TestExampleGenerator extends TestFmwk {
                 new HashSet<>(); // assume whether there is an example is independent of locale, to
         // speed up the test.
         final String separator = "•";
-        PathStarrer ps = new PathStarrer();
-        ps.setSubstitutionPattern("*");
 
         // Setup for calling phase.getShowRowAction
         DummyPathValueInfo dummyPathValueInfo = null;
@@ -2008,9 +2005,10 @@ public class TestExampleGenerator extends TestFmwk {
                 if (level.isAtLeast(Level.COMPREHENSIVE)) {
                     continue;
                 }
-                String starred = ps.set(xpath);
-                String attrs = ps.getAttributesString(separator);
-
+                String starred = PathStarrer.getWithPattern(xpath, PathStarrer.SIMPLE_STAR_PATTERN);
+                String attrs =
+                        Joiner.on(separator)
+                                .join(XPathParts.getFrozenInstance(xpath).getAttributeValues());
                 PathHeader ph = phf.fromPath(xpath);
                 if (CHECK_ROW_ACTION) {
                     dummyPathValueInfo.setXpath(xpath);
@@ -2037,12 +2035,12 @@ public class TestExampleGenerator extends TestFmwk {
                         continue;
                     }
 
-                    samplesForWithout.put(key, sampleAttrAndValue(ps, separator, value));
+                    samplesForWithout.put(key, sampleAttrAndValue(attrs, value));
                     sampleUrlForWithout.put(key, ph.getUrl(BaseUrl.PRODUCTION, localeId));
                     countWithoutExamples.add(key, 1);
                 } else {
                     if (!samplesForWith.containsKey(key)) {
-                        samplesForWith.put(key, sampleAttrAndValue(ps, separator, value));
+                        samplesForWith.put(key, sampleAttrAndValue(attrs, value));
                     }
                     countWithExamples.add(key, 1);
                 }
@@ -2082,17 +2080,19 @@ public class TestExampleGenerator extends TestFmwk {
             // show all the skipped items, and logKnownIssue items
 
             for (Entry<String, Collection<String>> entry : skipped.asMap().entrySet()) {
-                final String ticketComment = entry.getKey();
+                final String entryComment = entry.getKey();
                 final String paths = CR_TAB2_JOINER.join(entry.getValue());
-                if (ticketComment.equals(SKIP)) {
-                    logln(ticketComment + ";\n\t\t" + paths);
+                if (entryComment.equals(SKIP)) {
+                    logln(entryComment + ";\n\t\t" + paths);
                 } else {
-                    int spacePos = ticketComment.indexOf(' ');
-                    logKnownIssue(
-                            ticketComment.substring(0, spacePos),
-                            ticketComment.substring(spacePos + 1)
-                                    + ")\n\t\t(For the following paths:\n\t\t"
-                                    + paths);
+                    int spacePos = entryComment.indexOf(' ');
+                    String ticketId = entryComment.substring(0, spacePos);
+                    String ticketMessage = entryComment.substring(spacePos + 1);
+                    String message =
+                            ticketMessage + ")\n\t\t(For the following paths:\n\t\t" + paths;
+                    if (!logKnownIssue(ticketId, message)) {
+                        errln(message + " (known issue " + ticketId + ")");
+                    }
                 }
             }
 
@@ -2139,7 +2139,7 @@ public class TestExampleGenerator extends TestFmwk {
             },
             {
                 "am",
-                "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"speed-light-speed\"]/unitPattern[@count=\"other\"][@case=\"accusative\"]",
+                "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"speed-light-speed\"]/unitPattern[@count=\"other\"]",
                 "{0} ብርሃን",
                 "〖Used as a fallback in the following:〗〖❬2.6❭ ብርሃን⋅ሰከንዶች〗〖❬2.6❭ ብርሃን⋅ደቂቃዎች〗〖❬2.6❭ ብርሃን⋅ሰዓቶች〗〖❬2.6❭ ብርሃን⋅ቀናት〗〖❬2.6❭ ብርሃን⋅ሳምንታት〗〖❬2.6❭ ብርሃን⋅ወራት〗〖Compare with:〗〖❬2.6❭ የብርሃን ዓመት〗"
             },
@@ -2353,8 +2353,8 @@ public class TestExampleGenerator extends TestFmwk {
         return result;
     }
 
-    public String sampleAttrAndValue(PathStarrer ps, final String separator, String value) {
-        return ps.getAttributesString(separator) + "➔«" + value + "»";
+    private String sampleAttrAndValue(String attrs, String value) {
+        return attrs + "➔«" + value + "»";
     }
 
     public void testRationals() {
@@ -2579,7 +2579,6 @@ public class TestExampleGenerator extends TestFmwk {
             {"Hmv", "〖13:25 EST〗〖03:25 EST〗〖Related formats:〗〖13:25〗"},
             {"Hv", "〖13h EST〗〖03h EST〗"},
             {"Eh", "〖Sun 1 PM〗〖Sun 3 AM〗"},
-            {"EH", "〖Sun 13h〗〖Sun 03h〗"},
             {"Ehm", "〖Sun 1:25 PM〗〖Sun 3:25 AM〗〖Related formats:〗〖1:25 PM〗"},
             {"EHm", "〖Sun 13:25〗〖Sun 03:25〗〖Related formats:〗〖13:25〗"},
             {"Ehms", "〖Sun 1:25:59 PM〗〖Sun 3:25:59 AM〗〖Related formats:〗〖1:25:59 PM〗"},

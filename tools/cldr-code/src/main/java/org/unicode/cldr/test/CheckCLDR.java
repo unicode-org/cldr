@@ -159,18 +159,10 @@ public abstract class CheckCLDR implements CheckAccessor {
             return isForbidden;
         }
 
-        public boolean canShow() {
-            return !isForbidden;
-        }
-
         public boolean canVote() {
             // the one non-voting case
             if (this == ALLOW_TICKET_ONLY) return false;
             return !isForbidden();
-        }
-
-        public boolean canSubmit() {
-            return (this == ALLOW);
         }
     }
 
@@ -301,15 +293,12 @@ public abstract class CheckCLDR implements CheckAccessor {
          * @param enteredValue If null, means an abstention. If voting for an existing value,
          *     pathValueInfo.getValues().contains(enteredValue) MUST be true
          * @param pathValueInfo
-         * @param inputMethod
-         * @param status
          * @param userInfo
          * @return
          */
         public StatusAction getAcceptNewItemAction(
                 CandidateInfo enteredValue,
                 PathValueInfo pathValueInfo,
-                InputMethod inputMethod,
                 PathHeader ph,
                 UserInfo userInfo // can get voterInfo from this.
                 ) {
@@ -941,7 +930,10 @@ public abstract class CheckCLDR implements CheckAccessor {
             illegalCharacter,
             missingNumberingSystem,
             forbiddenValue,
-            inconsistentCoreDatePattern;
+            inconsistentCoreDatePattern,
+            inconsistentCurrencyPattern,
+            inconsistentCompactPattern,
+            inconsistentPositiveAndNegativePatterns;
 
             @Override
             public String toString() {

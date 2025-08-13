@@ -17,7 +17,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</orientation>
 	</layout>
 	<characters>
-		<exemplarCharacters draft="unconfirmed">[aă bḅ dḍ e ə f g hḥ i j k lḷ m n ŋ o q r ɾ sšṣ tṭ u w x y zžẓ ʕ]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary" draft="unconfirmed">[c p v]</exemplarCharacters>
+		<exemplarCharacters draft="unconfirmed">[a ă b d ḍ e f g h i j k l ḷ m n o q r s š ṣ t ṭ u w x y z ž ẓ ǝ ɣ ŋ ʼ]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary" draft="unconfirmed">[c ə p v]</exemplarCharacters>
+		<exemplarCharacters type="index" draft="unconfirmed">[A Ă B C D Ḍ E Ǝ F G H I J K L Ḷ M N Ŋ O Q R S Š Ṣ Ɣ T Ṭ U W X Y Z Ž Ẓ ʼ]</exemplarCharacters>
+		<exemplarCharacters type="punctuation" draft="unconfirmed">[\- , ; \: ! ? . ‹ › « » ( ) \[ \]]</exemplarCharacters>
 	</characters>
 </ldml>

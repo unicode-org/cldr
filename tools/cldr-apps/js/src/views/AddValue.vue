@@ -2,6 +2,8 @@
 import { nextTick, ref } from "vue";
 
 import * as cldrAddValue from "../esm/cldrAddValue.mjs";
+import * as cldrConstants from "../esm/cldrConstants.mjs";
+import * as cldrStatus from "../esm/cldrStatus.mjs";
 
 const xpstrid = ref(""); // xpath string id
 const newValue = ref("");
@@ -9,6 +11,9 @@ const formLeft = ref(0);
 const formTop = ref(0);
 const formIsVisible = ref(false);
 const inputToFocus = ref(null);
+const showVoteForMissing = ref(
+  cldrStatus.getPermissions()?.userCanVoteForMissing
+);
 
 const { dir } = defineProps(["dir"]);
 
@@ -53,6 +58,10 @@ function onSubmit() {
   }
 }
 
+function voteForMissing() {
+  newValue.value = cldrConstants.VOTE_FOR_MISSING;
+}
+
 defineExpose({
   setXpathStringId,
 });
@@ -86,6 +95,14 @@ defineExpose({
     <div class="button-container">
       <a-button @click="onEnglish">→English</a-button>
       <a-button @click="onWinning">→Winning</a-button>
+      <button
+        class="plus"
+        type="button"
+        @click="voteForMissing"
+        v-if="showVoteForMissing"
+      >
+        {{ cldrConstants.VOTE_FOR_MISSING }} - vote for missing
+      </button>
       <a-button type="cancel" @click="onCancel">Cancel</a-button>
       <a-button type="primary" @click="onSubmit">Submit</a-button>
     </div>

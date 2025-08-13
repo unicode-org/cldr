@@ -471,6 +471,32 @@ function standOutMessage(txt) {
 }
 
 /**
+ * This is called once on start-up to fetch initial ST status.
+ *
+ * It is similar to updateStatus but differs in being async and
+ * omitting some complications.
+ *
+ * A status response with status.user is required before many
+ * ST features can perform correctly depending on the user's
+ * permissions, etc.
+ */
+async function fetchInitialStatus() {
+  const url = makeUpdateStatusUrl();
+  return await cldrAjax
+    .doFetch(url)
+    .then(cldrAjax.handleFetchErrors)
+    .then((r) => r.json())
+    .then(updateStatusBox)
+    .catch(initialStatusFailure);
+}
+
+function initialStatusFailure() {
+  throw new Error(
+    "SurveyTool failed getting the initial status. Try back later."
+  );
+}
+
+/**
  * This is called periodically to fetch latest ST status
  */
 function updateStatus() {
@@ -973,6 +999,7 @@ export {
   cloneLocalizeAnon,
   createGravatar,
   expediteStatusUpdate,
+  fetchInitialStatus,
   findItemByValue,
   getDidUnbust,
   getTagChildren,

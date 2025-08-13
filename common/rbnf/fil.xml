@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
-Copyright © 1991-2013 Unicode, Inc.
+Copyright © 1991-2025 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -12,6 +12,55 @@ For terms of use, see http://www.unicode.org/copyright.html
     </identity>
     <rbnf>
         <rulesetGrouping type="SpelloutRules">
+            <rbnfRules><![CDATA[
+%spellout-numbering-year:
+x.x: =0.0=;
+0: =%spellout-numbering=;
+%spellout-numbering:
+0: =%spellout-cardinal=;
+%%number-times:
+1: isáng;
+2: dalawáng;
+3: tatlóng;
+4: ápat na;
+5: limáng;
+6: anim na;
+7: pitóng;
+8: walóng;
+9: siyám na;
+10: sampûng;
+11: labíng->>;
+20: <%%number-times< pû[’t >>];
+100: <%%number-times< daán[ at >>];
+1000: <%%number-times< libó[’t >>];
+%spellout-cardinal:
+-x: minus >>;
+x.x: << tuldok >>;
+0: walâ;
+1: isá;
+2: dalawá;
+3: tatló;
+4: ápat;
+5: limá;
+6: anim;
+7: pitó;
+8: waló;
+9: siyám;
+10: sampû;
+11: labíng->>;
+20: <%%number-times< pû[’t >>];
+100: <%%number-times< daán[ at >>];
+1000: <%%number-times< libó[’t >>];
+1000000: <%%number-times< milyón[ at >>];
+1000000000: <%%number-times< bilyón[ at >>];
+1000000000000: <%%number-times< trilyón[ at >>];
+1000000000000000: <%%number-times< katrilyón[ at >>];
+1000000000000000000: =#,##0=;
+%spellout-ordinal:
+x.x: =#,##0.#=;
+0: ika =%spellout-cardinal=;
+]]></rbnfRules>
+            <!-- The following redundant ruleset elements have been deprecated and will be removed in the next release. Please use the rbnfRules contents instead. -->
             <ruleset type="spellout-numbering-year">
                 <rbnfrule value="x.x">=0.0=;</rbnfrule>
                 <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
@@ -65,6 +114,12 @@ For terms of use, see http://www.unicode.org/copyright.html
             </ruleset>
         </rulesetGrouping>
         <rulesetGrouping type="OrdinalRules">
+            <rbnfRules><![CDATA[
+%digits-ordinal:
+-x: −>>;
+0: ika=#,##0=;
+]]></rbnfRules>
+            <!-- The following redundant ruleset elements have been deprecated and will be removed in the next release. Please use the rbnfRules contents instead. -->
             <ruleset type="digits-ordinal">
                 <rbnfrule value="-x">−→→;</rbnfrule>
                 <rbnfrule value="0">ika=#,##0=;</rbnfrule>

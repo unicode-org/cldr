@@ -11,6 +11,7 @@
 import * as cldrAddAlt from "./cldrAddAlt.mjs";
 import * as cldrAddValue from "./cldrAddValue.mjs";
 import * as cldrAjax from "./cldrAjax.mjs";
+import { VOTE_FOR_MISSING } from "./cldrConstants.mjs";
 import * as cldrCoverage from "./cldrCoverage.mjs";
 import * as cldrDashContext from "./cldrDashContext.mjs";
 import * as cldrDom from "./cldrDom.mjs";
@@ -469,16 +470,6 @@ function reallyUpdateRow(tr, theRow) {
       tr.rawValueToItem[item.rawValue] = item; // back link by value
     }
   }
-
-  /*
-   * Update the vote info.
-   */
-  if (theRow.votingResults) {
-    cldrInfo.updateRowVoteInfo(tr, theRow);
-  } else {
-    tr.voteDiv = null;
-  }
-
   tr.statusAction = cldrSurvey.parseStatusAction(theRow.statusAction);
   tr.canModify = tr.theTable.json.canModify && tr.statusAction.vote;
   tr.ticketOnly = tr.theTable.json.canModify && tr.statusAction.ticket;
@@ -622,7 +613,10 @@ function checkRowConsistency(theRow) {
     console.error("For " + theRow.xpstrid + " - there is no winningVhash");
   } else if (!theRow.items) {
     console.error("For " + theRow.xpstrid + " - there are no items");
-  } else if (!theRow.items[theRow.winningVhash]) {
+  } else if (
+    !theRow.items[theRow.winningVhash] &&
+    !theRow.confirmStatus == "missing"
+  ) {
     console.error(
       "For " + theRow.xpstrid + " - there is winningVhash but no item for it"
     );
@@ -837,6 +831,15 @@ function updateRowProposedWinningCell(tr, theRow, cell, protoButton) {
   } else {
     cell.showFn = function () {}; // nothing else to show
   }
+
+  if (theRow.votingResults.votesForMissing) {
+    if (theRow.confirmStatus == "missing") {
+      cell.appendChild(
+        document.createTextNode(VOTE_FOR_MISSING + " (vote for missing)")
+      );
+    }
+  }
+
   listen(null, tr, cell, cell.showFn);
 }
 
@@ -859,7 +862,10 @@ function updateRowOthersCell(tr, theRow, cell, protoButton) {
    * Add the other vote info -- that is, vote info for the "Others" column.
    */
   for (let k in theRow.items) {
-    if (k === theRow.winningVhash) {
+    if (
+      k === theRow.winningVhash ||
+      theRow.items[k].rawValue == NO_WINNING_VALUE
+    ) {
       // skip vote for winner
       continue;
     }
@@ -872,6 +878,16 @@ function updateRowOthersCell(tr, theRow, cell, protoButton) {
       cldrSurvey.cloneAnon(protoButton)
     );
     cell.appendChild(document.createElement("hr"));
+  }
+
+  if (theRow.votingResults.votesForMissing) {
+    if (theRow.confirmStatus != "missing") {
+      cell.appendChild(
+        document.createTextNode(
+          VOTE_FOR_MISSING + "(a losing vote for missing)"
+        )
+      );
+    }
   }
 
   if (!hadOtherItems /*!onIE*/) {
@@ -962,12 +978,10 @@ function addVitem(td, tr, theRow, item, newButton) {
   if (
     newButton &&
     theRow.voteVhash == item.valueHash &&
-    theRow.items[theRow.voteVhash].votes &&
-    theRow.items[theRow.voteVhash].votes[surveyUser.id] &&
-    theRow.items[theRow.voteVhash].votes[surveyUser.id].overridedVotes
+    theRow.items[theRow.voteVhash]?.votes[surveyUser.id]?.voteDetails?.override
   ) {
     const overrideTag = cldrDom.createChunk(
-      theRow.items[theRow.voteVhash].votes[surveyUser.id].overridedVotes,
+      theRow.items[theRow.voteVhash].votes[surveyUser.id].voteDetails.override,
       "span",
       "i-override"
     );
@@ -985,6 +999,7 @@ function addVitem(td, tr, theRow, item, newButton) {
   if (item.example && item.value != item.examples) {
     appendExample(div, item.example);
   }
+  return div;
 }
 
 function setDivClassSelected(div, testKind) {
@@ -1132,6 +1147,8 @@ function updateRowNoAbstainCell(tr, theRow, noCell, proposedCell, protoButton) {
     surlink.className = "alert alert-info fix-popover-help";
     const link = cldrDom.createChunk(cldrText.get("file_a_ticket"), "a");
     const curLocale = cldrStatus.getCurrentLocale();
+    // The "trac" link is antiquated, but (as of 2025-06) still works to some extent, redirecting to
+    // https://cldr.unicode.org/requesting_changes#TOC-Filing-a-Ticket
     const newUrl =
       "http://unicode.org/cldr/trac" +
       "/newticket?component=data&summary=" +

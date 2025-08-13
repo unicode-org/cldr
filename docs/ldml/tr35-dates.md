@@ -4,7 +4,7 @@
 
 |Version|48 (draft)        |
 |-------|------------------|
-|Editors|Peter Edberg and <a href="tr35.md#Acknowledgments">other CLDR committee members</a>|
+|Editors|Peter Edberg and <a href="tr35-acknowledgments.md#acknowledgments">other CLDR committee members</a>|
 
 For the full header, summary, and status, see [Part 1: Core](tr35.md).
 
@@ -31,7 +31,7 @@ For the latest version of the Unicode Standard see [[Unicode](https://www.unicod
 For more information see [About Unicode Technical Reports](https://www.unicode.org/reports/about-reports.html) and the [Specifications FAQ](https://www.unicode.org/faq/specifications.html).
 Unicode Technical Reports are governed by the Unicode [Terms of Use](https://www.unicode.org/copyright.html)._
 
-## <a name="Parts" href="#Parts">Parts</a>
+## Parts
 
 The LDML specification is divided into the following parts:
 
@@ -44,6 +44,8 @@ The LDML specification is divided into the following parts:
 *   Part 7: [Keyboards](tr35-keyboards.md#Contents) (keyboard mappings)
 *   Part 8: [Person Names](tr35-personNames.md#Contents) (person names)
 *   Part 9: [MessageFormat](tr35-messageFormat.md#Contents) (message format)
+*   Appendix A: [Modifications](tr35-modifications.md#modifications)
+*   Appendix B: [Acknowledgments](tr35-acknowledgments.md#acknowledgments)
 
 ## <a name="Contents" href="#Contents">Contents of Part 4, Dates</a>
 
@@ -1708,25 +1710,19 @@ Note: A generic location format is constructed by a part of time zone ID represe
 * "Pacific Daylight Time" (long)
 * "PDT" (short)
 
-**Specific location format:** This format does not have a symbol, but is used in the fallback chain for the _specific non-location format_. Like the _generic location format_ it uses time zone locations, but formats these in a zone-variant aware way, e.g. "France Summer Time".
+**Localized GMT format:** A constant, specific offset from GMT (or UTC), which may be in a translated form. There are two styles for this:
 
-**Localized GMT format:** A constant, specific offset from GMT (or UTC), which may be in a translated form. There are three styles for this: 
-
-The first is used when there is an explicit non-zero offset from GMT; this style is specified by the `<gmtFormat>` element and `<hourFormat>` element. The long format always uses 2-digit hours field and minutes field, with optional 2-digit seconds field. The short format is intended for the shortest representation and uses hour fields without leading zero, with optional 2-digit minutes and seconds fields. The digits used for hours, minutes and seconds fields in this format are the locale's default decimal digits:
+The first is used when there is an explicit offset from GMT; this style is specified by the `<gmtFormat>` element and `<hourFormat>` element. The long format always uses 2-digit hours field and minutes field, with optional 2-digit seconds field. The short format is intended for the shortest representation and uses hour fields without leading zero, with optional 2-digit minutes and seconds fields. The digits used for hours, minutes and seconds fields in this format are the locale's default decimal digits:
 
 * "GMT+03:30" (long)
 * "GMT+3:30" (short)
 * "UTC-03.00" (long)
 * "UTC-3" (short)
 * "Гринуич+03:30" (long)
+* "GMT+00:00" (long)
+* "UTC+0" (short)
 
-The second is used when there is an explicit zero offset from GMT. It is specified by the `<gmtZeroFormat>` element:
-
-* "GMT"
-* "UTC"
-* "Гринуич"
-
-The third is used when the offset from GMT is unknown. It is specified by the `<gmtUnknownFormat>` element:
+The second is used when the offset from GMT is unknown. It is specified by the `<gmtUnknownFormat>` element:
 
 * "GMT+?"
 * "UTC+?"
@@ -1905,7 +1901,7 @@ Some of the examples are drawn from real data, while others are for illustration
            * "Pacific Time (Whitehorse)"
 5. For the location formats (generic or specific):
    1. Get the _regionFormat_ format according to type (generic, standard, or daylight).
-   2. Determine whether there is only one timezone in the region associated with the timezone (see [Time Zone Identifiers](tr35.md#Time_Zone_Identifiers)). 
+   2. Determine whether there is only one timezone in the region associated with the timezone (see [Time Zone Identifiers](tr35.md#Time_Zone_Identifiers)).
       1. If there is only one timezone or if the zone id is in the `<primaryZones>` list, continue with short country name, if it exists, otherwise the country name.
       2. Otherwise, continue with the localized name of the exemplar city for the zone.
    3. Format the region format obtained in step 1 with the location obtained in step 2.
@@ -2293,7 +2289,7 @@ Notes for the table below:
         <td colspan="2">The <i>short specific non-location format</i>. Where that is unavailable, falls back to the <i>short localized GMT format</i> ("O").</td></tr>
     <tr><td>zzzz</td><td>Pacific Daylight Time</td>
         <td colspan="2">The <i>long specific non-location format</i>.
-                        Where that is unavailable, falls back to the <i>specific location format</i>, then the <i>short localized GMT format</i> as the final fallback.</td></tr>
+                        Where that is unavailable, falls back to the <i>short localized GMT format</i>.</td></tr>
     <!--  Z  -->
     <tr><td rowspan="3">Z</td><td>Z..ZZZ</td><td>-0800</td>
         <td colspan="2">The <i>ISO8601 basic format</i> with hours, minutes and optional seconds fields.

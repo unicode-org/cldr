@@ -451,6 +451,7 @@ public class UserList {
         boolean havePermToChange = me.isAdminFor(user);
         boolean userCanDeleteUser = UserRegistry.userCanDeleteUser(me, user.id, user.userlevel);
         VoteResolver.Level level = VoteResolver.Level.fromSTLevel(user.userlevel);
+        // TODO: why doesn't this use u.toJSONObject()?
         shownUsers.put(
                 new JSONObject()
                         .put("actions", u.ua)
@@ -462,6 +463,7 @@ public class UserList {
                         .put("intlocs", user.intlocs)
                         .put("lastlogin", user.last_connect)
                         .put("locales", normalizeLocales(user.locales))
+                        .put("badLocales", user.badLocales)
                         .put("name", user.name)
                         .put("org", user.org)
                         .put("seen", seen)

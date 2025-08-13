@@ -19,11 +19,14 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<!-- Note: see https://github.com/unicode-org/icu/packages/1954682/versions
-			for the icu4j.version tag to use. In general we should just use the latest
-			SNAPSHOT for the ICU version that we want, so this should only need updating
-			when the ICU version changes e.g. from 74.0.1, to 74.1, to 75.0.1, then to 75.1.
-			You can use github actions in icu to manually push the latest SNAPSHOT version. -->
-		<icu4j.version>78.0.1-SNAPSHOT</icu4j.version>
+			for the icu4j.version tag to use. While latest ICU4J has a published version
+			like nn.0.1-SNAPSHOT (i.e. before release candidate), we should use a specific
+			dated asset as found by clicking the version at the link above. When ICU4J reaches
+			release candidate and changes to a version like nn.1-SNAPSHOT, we should just use
+			that so we are always getting the latest version pushed (and should not have CLDR
+			compatibility issues at that point). -->
+		<icu4j.version>78.0.1-20250805.181531-5</icu4j.version> <!-- before ICU rc, specific dated version -->
+		<!--<icu4j.version>78.1-SNAPSHOT</icu4j.version>--> <!-- after ICU rc, latest published version -->
 		<junit.jupiter.version>5.8.2</junit.jupiter.version>
 		<maven-surefire-plugin-version>3.3.1</maven-surefire-plugin-version>
 		<assertj-version>3.26.3</assertj-version>

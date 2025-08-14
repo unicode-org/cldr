@@ -76,7 +76,7 @@ Note that the CLDR likely subtag data is used to minimize scripts and regions, *
 
 In some cases, systems (or companies) may have different conventions than the Preferred\-Values in BCP 47 \-\- such as those in the Replacement column in the the [online language identifier](http://unicode.org/cldr/utility/languageid.jsp) demo. For example, for backwards compatibility, 'iw' is used with Java instead of 'he' (Hebrew). Be aware of these compatibility issues when picking the subtags. *If a target system uses a different canonical form for locale IDs than CLDR, the CLDR data needs to be processed by remapping its IDs to those of the target system.*
 
-For compatibility, it is strongly recommended that all implementations accept both the preferred values and their alternates: for example, both 'iw' and 'he'. Although BCP 47 itself only allows "\-" as a separator; for compatibility, Unicode language identifiers allows both "\-" and "\_" for compatibility reasons. Implementations should also accept both.
+For compatibility, it is strongly recommended that all implementations accept both the preferred values and their alternates: for example, both 'iw' and 'he'. Although BCP 47 itself only allows "\-" as a separator, Unicode language identifiers allows both "\-" and "\_" for compatibility reasons. Implementations should also accept both.
 
 ### Macrolanguages
 
@@ -92,6 +92,7 @@ The Ethnologue is a great source of information, but it must be approached with 
 ### Wikipedia
 
 Wikipedia is also a great source of information, but it must be approached with a certain degree of caution as well. Be sure to follow up on the linked references, not just look at articles.
+
 
 
 

@@ -29,12 +29,14 @@ While you may think that you are done, you have to verify that the three\-letter
 	2. Check Glottolog, Wikipedia and other web sources
 4. ***AND IMPORTANTLY: Review "[Caution](/index/cldr-spec/picking-the-right-language-code#caution)" section below***
 
-Once you have the right three\-letter code, you are still not done. Unicode and BCP 47 use the two\-letter ISO code if it exists. Unicode also uses the "macro language" where suitable. *So*
+Once you have the right three\-letter code, you are still not done. Unicode and BCP 47 use the two\-letter ISO code if it exists. Unicode also uses the "macro language" where suitable. *So:*
+
 
 1. Use the two\-letter code if there is one. In the example above, use the highlighted "lg" from the first table.
 2. Verify that the code is in the [IANA subtag registry](http://www.iana.org/assignments/language-subtag-registry)
 3. If the code occurs in the [supplementalMetadata.xml](http://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalMetadata.xml) file in the type attribute of a languageAlias element, then use the replacement instead.
-	- For example, because "swh" occurs in \<languageAlias type\="swh" replacement\="sw"/\>, "sw" must be used instead of "swh".
+	- For example, because "swh" occurs in `<languageAlias type="swh" replacement="sw"/>`, "sw" must be used instead of "swh".
+
 
 ## Choosing Script/Territory Subtags
 
@@ -50,7 +52,8 @@ If you need a particular variant of a language, then you'll add additional subta
 
 ## Documenting Your Choice
 
-If you are requesting a new locale / language in CLDR, please include the links to the particular pages above so that we can process your request more quickly, as we have to double check before any addition. The links will be of the form:
+If you are requesting a new locale / language in CLDR, please include the links to the particular pages above so that we can process your request more quickly, as we have to double-check the information before making the addition. The links will be of the form:
+
 
 - https://iso639-3.sil.org/code/xxx
 - https://www.ethnologue.com/language/xxx
@@ -82,11 +85,13 @@ Unicode language identifiers do not allow the "extlang" form defined in BCP 47\.
 
 ### Ethnologue
 
-The Ethnologue is a great source of information, but it must be approached with a certain degree of caution. Many of the population figures are far out of date, or not well substantiated. The Ethnologue also focus on native, spoken languages, whereas CLDR and many other systems are focused on written language, for computer UI and document translation, and on fluent speakers (not necessarily native speakers). So, for example, it would be a mistake to look at the [Ethnologue entry for Egypt](https://www.ethnologue.com/country/EG/) and conclude that the right language subtag for the Arabic used in Egypt was "arz", which has the largest population. Instead, the right code is "ar", Standard Arabic, which would be the one used for document and UI translation.
+The Ethnologue is a great source of information, but it must be approached with a certain degree of caution. Many of the population figures are out of date or not well substantiated. The Ethnologue also focus on native, spoken languages, whereas CLDR and many other systems are focused on written language, for computer UI and document translation, and on fluent speakers (not necessarily native speakers). So, for example, it would be a mistake to look at the [Ethnologue entry for Egypt](https://www.ethnologue.com/country/EG/) and conclude that the right language subtag for the Arabic used in Egypt is "arz", which has the largest population. Instead, the right code is "ar", Standard Arabic, which would be the one used for document and UI translation.
+
 
 ### Wikipedia
 
-Wikipedia is also a great source of information, but it must be approached with a certain degree of caution as well. Be sure to follow up on references, not just look at articles.
+Wikipedia is also a great source of information, but it must be approached with a certain degree of caution as well. Be sure to follow up on the linked references, not just look at articles.
+
 
 
 

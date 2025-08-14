@@ -95,18 +95,14 @@ The LDML specification is divided into the following parts:
       * [Variable Resolution](#variable-resolution)
       * [Function Resolution](#function-resolution)
         * [Function Handler](#function-handler)
-        * [Option Resolution](#option-resolution)
     * [Markup Resolution](#markup-resolution)
+    * [Option Resolution](#option-resolution)
     * [Fallback Resolution](#fallback-resolution)
   * [Pattern Selection](#pattern-selection)
     * [Resolve Selectors](#resolve-selectors)
     * [Resolve Preferences](#resolve-preferences)
     * [Filter Variants](#filter-variants)
     * [Sort Variants](#sort-variants)
-    * [Pattern Selection Examples](#pattern-selection-examples)
-      * [Selection Example 1](#selection-example-1)
-      * [Selection Example 2](#selection-example-2)
-      * [Selection Example 3](#selection-example-3)
   * [Formatting of the Selected Pattern](#formatting-of-the-selected-pattern)
     * [Formatting Examples](#formatting-examples)
     * [Formatting Fallback Values](#formatting-fallback-values)
@@ -133,37 +129,37 @@ The LDML specification is divided into the following parts:
 * [Default Functions](#default-functions)
   * [String Value Selection and Formatting](#string-value-selection-and-formatting)
     * [The `:string` function](#the-string-function)
-      * [Operands](#operands)
-      * [Options](#options)
-      * [Resolved Value](#resolved-value)
-      * [Selection](#selection)
-      * [Formatting](#formatting)
+      * [`:string` Operands](#string-operands)
+      * [`:string` Options](#string-options)
+      * [`:string` Resolved Value](#string-resolved-value)
+      * [Selection with `:string`](#selection-with-string)
+      * [`:string` Formatting](#string-formatting)
   * [Numeric Value Selection and Formatting](#numeric-value-selection-and-formatting)
     * [The `:number` function](#the-number-function)
-      * [Operands](#operands)
-      * [Options](#options)
-      * [Resolved Value](#resolved-value)
-      * [Selection](#selection)
+      * [`:number` Operands](#number-operands)
+      * [`:number` Options](#number-options)
+      * [`:number` Resolved Value](#number-resolved-value)
+      * [Selection with `:number`](#selection-with-number)
     * [The `:integer` function](#the-integer-function)
-      * [Operands](#operands)
-      * [Options](#options)
-      * [Resolved Value](#resolved-value)
-      * [Selection](#selection)
+      * [`:integer` Operands](#integer-operands)
+      * [`:integer` Options](#integer-options)
+      * [`:integer` Resolved Value](#integer-resolved-value)
+      * [Selection with `:integer`](#selection-with-integer)
     * [The `:math` function](#the-math-function)
       * [Operands](#operands)
       * [Options](#options)
       * [Resolved Value](#resolved-value)
       * [Selection](#selection)
     * [The `:currency` function](#the-currency-function)
-      * [Operands](#operands)
-      * [Options](#options)
-      * [Resolved Value](#resolved-value)
+      * [`:currency` Operands](#currency-operands)
+      * [`:currency` Options](#currency-options)
+      * [`:currency` Resolved Value](#currency-resolved-value)
     * [The `:unit` function](#the-unit-function)
-      * [Operands](#operands)
-      * [Options](#options)
-      * [Resolved Value](#resolved-value)
+      * [`:unit` Operands](#unit-operands)
+      * [`:unit` Options](#unit-options)
+      * [`:unit` Resolved Value](#unit-resolved-value)
       * [Unit Conversion](#unit-conversion)
-    * [Number Operands](#number-operands)
+    * [Numeric Operands](#numeric-operands)
     * [Digit Size Options](#digit-size-options)
     * [Number Selection](#number-selection)
       * [Default Value of `select` Option](#default-value-of-select-option)
@@ -171,19 +167,19 @@ The LDML specification is divided into the following parts:
       * [Exact Literal Match Serialization](#exact-literal-match-serialization)
   * [Date and Time Value Formatting](#date-and-time-value-formatting)
     * [The `:datetime` function](#the-datetime-function)
-      * [Operands](#operands)
-      * [Options](#options)
+      * [`:datetime` Operands](#datetime-operands)
+      * [`:datetime` Options](#datetime-options)
         * [Style Options](#style-options)
         * [Field Options](#field-options)
-      * [Resolved Value](#resolved-value)
+      * [`:datetime` Resolved Value](#datetime-resolved-value)
     * [The `:date` function](#the-date-function)
-      * [Operands](#operands)
-      * [Options](#options)
-      * [Resolved Value](#resolved-value)
+      * [`:date` Operands](#date-operands)
+      * [`:date` Options](#date-options)
+      * [`:date` Resolved Value](#date-resolved-value)
     * [The `:time` function](#the-time-function)
-      * [Operands](#operands)
-      * [Options](#options)
-      * [Resolved Value](#resolved-value)
+      * [`:time` Operands](#time-operands)
+      * [`:time` Options](#time-options)
+      * [`:time` Resolved Value](#time-resolved-value)
     * [Date and Time Operands](#date-and-time-operands)
     * [Date and Time Override Options](#date-and-time-override-options)
 * [Unicode Namespace](#unicode-namespace)
@@ -201,6 +197,11 @@ The LDML specification is divided into the following parts:
   * [`message.json`](#messagejson)
 * [Appendices](#appendices)
   * [Security Considerations](#security-considerations)
+  * [Non-normative Examples](#non-normative-examples)
+    * [Pattern Selection Examples](#pattern-selection-examples)
+      * [Selection Example 1](#selection-example-1)
+      * [Selection Example 2](#selection-example-2)
+      * [Selection Example 3](#selection-example-3)
   * [Acknowledgments](#acknowledgments)
 
 ## Introduction
@@ -1359,7 +1360,6 @@ It is a profile of R3a-1 in that specification because:
    and `U+2069 POP DIRECTIONAL ISOLATE`.
    (The character `U+061C` is an addition according to R3a.)
 
-
 > [!NOTE]
 > The character U+3000 IDEOGRAPHIC SPACE is included in whitespace for
 > compatibility with certain East Asian keyboards and input methods,
@@ -1902,43 +1902,6 @@ and execution time SHOULD be limited.
 
 Implementation-defined _functions_ SHOULD use an implementation-defined _namespace_.
 
-###### Option Resolution
-
-**_<dfn>Option resolution</dfn>_** is the process of computing the _options_
-for a given _expression_.
-_Option resolution_ results in a mapping of string _identifiers_ to _resolved values_.
-The order of _options_ MUST NOT be significant.
-
-> For example, the following _message_ treats both both placeholders identically:
-> ```
-> {$x :ns:func option1=foo option2=bar} {$x :ns:func option2=bar option1=foo}
-> ```
-
-For each _option_:
-
-1. Let `res` be a new empty mapping.
-1. For each _option_:
-   1. Let `id` be the string value of the _identifier_ of the _option_.
-   1. Let `rv` be the _resolved value_ of the _option value_.
-   1. If `rv` is a _fallback value_:
-      1. If supported, emit a _Bad Option_ error.
-   1. Else:
-      1. If the _option value_ consists of a _literal_:
-         1. Mark `rv` as a _literal_ _option value_.
-      1. Set `res[id]` to be `rv`.
-1. Return `res`.
-
-The result of _option resolution_ MUST be a (possibly empty) mapping
-of string identifiers to values;
-that is, errors MAY be emitted, but such errors MUST NOT be fatal.
-This mapping can be empty.
-
-> [!NOTE]
-> The _resolved value_ of a _function_ _operand_
-> can also include resolved option values.
-> These are not included in the _option resolution_ result,
-> and need to be processed separately by a _function handler_.
-
 #### Markup Resolution
 
 **_<dfn>Markup resolution</dfn>_** determines the value of _markup_.
@@ -1955,6 +1918,47 @@ supported by the implementation, process them as specified.
 Such `u:` options MAY be removed from the resolved mapping of _options_.
 
 The resolution of _markup_ MUST always succeed.
+
+#### Option Resolution
+
+**_<dfn>Option resolution</dfn>_** is the process of computing the _options_
+for a given _expression_ or _markup_.
+_Option resolution_ results in a mapping of string _identifiers_ to _resolved values_.
+The order of _options_ MUST NOT be significant.
+
+> For example, the following _message_ treats both both placeholders identically:
+> ```
+> {$x :ns:func option1=foo option2=bar} {$x :ns:func option2=bar option1=foo}
+> ```
+
+For each _option_:
+
+1. Let `res` be a new empty mapping.
+1. For each _option_:
+   1. Let `id` be the string value of the _identifier_ of the _option_.
+   1. Let `rv` be the _resolved value_ of the _option value_.
+   1. If `rv` is a _fallback value_:
+      1. Emit a _Bad Option_ error, if supported.
+   1. Else:
+      1. If the _option value_ consists of a _literal_:
+         1. Mark `rv` as a _literal_ _option value_.
+      1. Set `res[id]` to be `rv`.
+1. Return `res`.
+
+> [!NOTE]
+> If the _resolved value_ of an _option value_ is a _fallback value_,
+> the _option_ is intentionally omitted from the mapping of resolved options.
+
+The result of _option resolution_ MUST be a (possibly empty) mapping
+of string identifiers to values;
+that is, errors MAY be emitted, but such errors MUST NOT be fatal.
+This mapping can be empty.
+
+> [!NOTE]
+> The _resolved value_ of a _function_ _operand_
+> can also include resolved option values.
+> These are not included in the _option resolution_ result,
+> and need to be processed separately by a _function handler_.
 
 #### Fallback Resolution
 
@@ -2220,129 +2224,7 @@ as long as it satisfies the following requirements:
 1. The sort is stable (pairs of tuples from `sortable` that are equal
    in their first element have the same relative order in `sorted`).
 
-#### Pattern Selection Examples
-
-_This section is non-normative._
-
-##### Selection Example 1
-
-Presuming a minimal implementation which only supports `:string` _function_
-which matches keys by using string comparison,
-and a formatting context in which
-the variable reference `$foo` resolves to the string `'foo'` and
-the variable reference `$bar` resolves to the string `'bar'`,
-pattern selection proceeds as follows for this message:
-
-```
-.input {$foo :string}
-.input {$bar :string}
-.match $foo $bar
-bar bar {{All bar}}
-foo foo {{All foo}}
-* * {{Otherwise}}
-```
-
-1. For the first selector:<br>
-   The value of the selector is resolved to be `'foo'`.<br>
-   The available keys « `'bar'`, `'foo'` » are compared to `'foo'`,<br>
-   resulting in a list « `'foo'` » of matching keys.
-
-2. For the second selector:<br>
-   The value of the selector is resolved to be `'bar'`.<br>
-   The available keys « `'bar'`, `'foo'` » are compared to `'bar'`,<br>
-   resulting in a list « `'bar'` » of matching keys.
-
-3. Creating the list `vars` of variants matching all keys:<br>
-   The first variant `bar bar` is discarded as its first key does not match the first selector.<br>
-   The second variant `foo foo` is discarded as its second key does not match the second selector.<br>
-   The catch-all keys of the third variant `* *` always match, and this is added to `vars`,<br>
-   resulting in a list « `* *` » of variants.
-
-4. As the list `vars` only has one entry, it does not need to be sorted.<br>
-   The pattern `Otherwise` of the third variant is selected.
-
-##### Selection Example 2
-
-Alternatively, with the same implementation and formatting context as in Example 1,
-pattern selection would proceed as follows for this message:
-
-```
-.input {$foo :string}
-.input {$bar :string}
-.match $foo $bar
-* bar {{Any and bar}}
-foo * {{Foo and any}}
-foo bar {{Foo and bar}}
-* * {{Otherwise}}
-```
-
-1. For the first selector:<br>
-   The value of the selector is resolved to be `'foo'`.<br>
-   The available keys « `'foo'` » are compared to `'foo'`,<br>
-   resulting in a list « `'foo'` » of matching keys.
-
-2. For the second selector:<br>
-   The value of the selector is resolved to be `'bar'`.<br>
-   The available keys « `'bar'` » are compared to `'bar'`,<br>
-   resulting in a list « `'bar'` » of matching keys.
-
-3. Creating the list `vars` of variants matching all keys:<br>
-   The keys of all variants either match each selector exactly, or via the catch-all key,<br>
-   resulting in a list « `* bar`, `foo *`, `foo bar`, `* *` » of variants.
-
-4. Sorting the variants:<br>
-   The list `sortable` is first set with the variants in their source order
-   and scores determined by the second selector:<br>
-   « ( 0, `* bar` ), ( 1, `foo *` ), ( 0, `foo bar` ), ( 1, `* *` ) »<br>
-   This is then sorted as:<br>
-   « ( 0, `* bar` ), ( 0, `foo bar` ), ( 1, `foo *` ), ( 1, `* *` ) ».<br>
-   To sort according to the first selector, the scores are updated to:<br>
-   « ( 1, `* bar` ), ( 0, `foo bar` ), ( 0, `foo *` ), ( 1, `* *` ) ».<br>
-   This is then sorted as:<br>
-   « ( 0, `foo bar` ), ( 0, `foo *` ), ( 1, `* bar` ), ( 1, `* *` ) ».<br>
-
-5. The pattern `Foo and bar` of the most preferred `foo bar` variant is selected.
-
-##### Selection Example 3
-
-A more-complex example is the matching found in selection APIs
-such as ICU's `PluralFormat`.
-Suppose that this API is represented here by the function `:number`.
-This `:number` function can match a given numeric value to a specific number _literal_
-and **_also_** to a plural category (`zero`, `one`, `two`, `few`, `many`, `other`)
-according to locale rules defined in CLDR.
-
-Given a variable reference `$count` whose value resolves to the number `1`
-and an `en` (English) locale,
-the pattern selection proceeds as follows for this message:
-
-```
-.input {$count :number}
-.match $count
-one {{Category match for {$count}}}
-1   {{Exact match for {$count}}}
-*   {{Other match for {$count}}}
-```
-
-1. For the selector:<br>
-   The value of the selector is resolved to an implementation-defined value
-   that is capable of performing English plural category selection on the value `1`.<br>
-   The available keys « `'one'`, `'1'` » are passed to
-   the implementation's MatchSelectorKeys method,<br>
-   resulting in a list « `'1'`, `'one'` » of matching keys.
-
-2. Creating the list `vars` of variants matching all keys:<br>
-   The keys of all variants are included in the list of matching keys, or use the catch-all key,<br>
-   resulting in a list « `one`, `1`, `*` » of variants.
-
-3. Sorting the variants:<br>
-   The list `sortable` is first set with the variants in their source order
-   and scores determined by the selector key order:<br>
-   « ( 1, `one` ), ( 0, `1` ), ( 2, `*` ) »<br>
-   This is then sorted as:<br>
-   « ( 0, `1` ), ( 1, `one` ), ( 2, `*` ) »<br>
-
-4. The pattern `Exact match for {$count}` of the most preferred `1` variant is selected.
+For examples of how the algorithms work, see [the appendix](#non-normative-examples).
 
 ### Formatting of the Selected Pattern
 
@@ -2446,7 +2328,7 @@ isolating such parts to ensure that the formatted value displays correctly in a 
 > An example of this is formatting the value `-1234.56` as the currency `AED`
 > in the `ar-AE` locale. The formatted value appears like this:
 > ```
-> ‎-1,234.56 د.إ.‏
+> ‎-1,234.56 د.إ.‏
 > ```
 > The code point sequence for this string, as produced by the ICU4J `NumberFormat` function,
 > includes **U+200F U+200E** at the start and **U+200F** at the end of the string.
@@ -2989,7 +2871,7 @@ Therefore, using _options_ not explicitly defined here is NOT RECOMMENDED.
 
 The function `:string` provides string selection and formatting.
 
-##### Operands
+##### `:string` Operands
 
 The _operand_ of `:string` is either any implementation-defined type
 that is a string or for which conversion to a string is supported,
@@ -3007,7 +2889,7 @@ All other values produce a _Bad Operand_ error.
 > classes according to their local needs, including, where appropriate,
 > coercion to string.
 
-##### Options
+##### `:string` Options
 
 The function `:string` has no _options_.
 
@@ -3020,14 +2902,14 @@ The function `:string` has no _options_.
 > {$s :string u:dir=ltr u:locale=fr-CA}
 > ```
 
-##### Resolved Value
+##### `:string` Resolved Value
 
 The _resolved value_ of an _expression_ with a `:string` _function_
 contains the string value of the _operand_ of the annotated _expression_,
 together with its resolved locale and directionality.
 None of the _options_ set on the _expression_ are part of the _resolved value_.
 
-##### Selection
+##### Selection with `:string`
 
 When implementing [`MatchSelectorKeys(resolvedSelector, keys)`](#resolve-preferences)
 where `resolvedSelector` is the _resolved value_ of a _selector_
@@ -3057,7 +2939,7 @@ the `:string` selector function performs as described below.
 > *             {{Matches the string "space key"}}
 > ```
 
-##### Formatting
+##### `:string` Formatting
 
 The `:string` function returns the string value of the _resolved value_ of the _operand_.
 
@@ -3072,11 +2954,11 @@ The `:string` function returns the string value of the _resolved value_ of the _
 
 The function `:number` is a selector and formatter for numeric values.
 
-##### Operands
+##### `:number` Operands
 
-The function `:number` requires a [Number Operand](#number-operands) as its _operand_.
+The function `:number` requires a _numeric operand_ as its _operand_.
 
-##### Options
+##### `:number` Options
 
 Some options do not have default values defined in this specification.
 The defaults for these options are implementation-dependent.
@@ -3151,14 +3033,14 @@ with _options_ on the _expression_ taking priority over any options of the _oper
 > would be formatted with the resolved options
 > `{ minimumFractionDigits: '1', signDisplay: 'always' }`.
 
-##### Resolved Value
+##### `:number` Resolved Value
 
 The _resolved value_ of an _expression_ with a `:number` _function_
 contains an implementation-defined numerical value
 of the _operand_ of the annotated _expression_,
 together with the resolved options' values.
 
-##### Selection
+##### Selection with `:number`
 
 The _function_ `:number` performs selection as described in [Number Selection](#number-selection) below.
 
@@ -3167,11 +3049,11 @@ The _function_ `:number` performs selection as described in [Number Selection](#
 The function `:integer` is a selector and formatter for matching or formatting numeric
 values as integers.
 
-##### Operands
+##### `:integer` Operands
 
-The function `:integer` requires a [Number Operand](#number-operands) as its _operand_.
+The function `:integer` requires a _numeric operand_ as its _operand_.
 
-##### Options
+##### `:integer` Options
 
 Some options do not have default values defined in this specification.
 The defaults for these options are implementation-dependent.
@@ -3216,14 +3098,14 @@ Options with the following names are however discarded if included in the _opera
 - `maximumFractionDigits`
 - `minimumSignificantDigits`
 
-##### Resolved Value
+##### `:integer` Resolved Value
 
 The _resolved value_ of an _expression_ with an `:integer` _function_
 contains the implementation-defined integer value
 of the _operand_ of the annotated _expression_,
 together with the resolved options' values.
 
-##### Selection
+##### Selection with `:integer`
 
 The _function_ `:integer` performs selection as described in [Number Selection](#number-selection) below.
 
@@ -3238,7 +3120,7 @@ numeric values to which a mathematical operation has been applied.
 
 > This function is useful for selection and formatting of values that
 > differ from the input value by a specified amount.
-> For example, it can be used in a message such as this:
+> For example, it can be used in a _message_ such as this:
 >
 > ```
 > .input {$like_count :integer}
@@ -3312,12 +3194,12 @@ The _function_ `:math` performs selection as described in [Number Selection](#nu
 The _function_ `:currency` is a _formatter_ for currency values,
 which are a specialized form of numeric formatting.
 
-##### Operands
+##### `:currency` Operands
 
 The _operand_ of the `:currency` function can be one of any number of
 implementation-defined types,
 each of which contains a numerical `value` and a `currency`;
-or it can be a [Number Operand](#number-operands), as long as the _option_
+or it can be a _numeric operand_, as long as the _option_
 `currency` is provided.
 The _option_ `currency` MUST NOT be used to override the currency of an implementation-defined type.
 Using this _option_ in such a case results in a _Bad Option_ error.
@@ -3333,7 +3215,7 @@ A well-formed Unicode Currency Identifier matches the production `currency_code`
 currency_code = 3ALPHA
 ```
 
-A [Number Operand](#number-operands) without a `currency` _option_ results in a _Bad Operand_ error.
+A _numeric operand_ without a `currency` _option_ results in a _Bad Operand_ error.
 
 > [!NOTE]
 > For example, in ICU4J, the type `com.ibm.icu.util.CurrencyAmount` can be used
@@ -3362,7 +3244,7 @@ A [Number Operand](#number-operands) without a `currency` _option_ results in a 
 > }
 > ```
 
-##### Options
+##### `:currency` Options
 
 Some options do not have default values defined in this specification.
 The defaults for these options are implementation-dependent.
@@ -3491,19 +3373,19 @@ The _function_ `:unit` is proposed to be a RECOMMENDED formatter for unitized va
 that is, for numeric values associated with a unit of measurement.
 This is a specialized form of numeric formatting.
 
-##### Operands
+##### `:unit` Operands
 
 The _operand_ of the `:unit` function can be one of any number of
 implementation-defined types,
 each of which contains a numerical `value` plus a `unit`
-or it can be a [Number Operand](#number-operands), as long as the _option_
+or it can be a _numeric operand_, as long as the _option_
 `unit` is provided.
 
 The value of the _operand_'s `unit` SHOULD be either a string containing a
 valid [Unit Identifier](tr35-general.md#unit-identifiers)
 or an implementation-defined unit type.
 
-A [Number Operand](#number-operands) without a `unit` _option_ results in a _Bad Operand_ error.
+A _numeric operand_ without a `unit` _option_ results in a _Bad Operand_ error.
 
 > [!NOTE]
 > For example, in ICU4J, the type `com.ibm.icu.util.Measure` might be used
@@ -3525,7 +3407,7 @@ A [Number Operand](#number-operands) without a `unit` _option_ results in a _Bad
 > }
 > ```
 
-##### Options
+##### `:unit` Options
 
 Some _options_ do not have default values defined in this specification.
 The defaults for these _options_ are implementation-dependent.
@@ -3600,7 +3482,7 @@ with _options_ on the _expression_ taking priority over any options of the _oper
 > would have the resolved options:
 > `{ unit: 'furlong', minimumFractionDigits: '2', minimumIntegerDigits: '1' }`.
 
-##### Resolved Value
+##### `:unit` Resolved Value
 
 The _resolved value_ of an _expression_ with a `:unit` _function_
 consist of an implementation-defined unit value
@@ -3638,9 +3520,9 @@ Implementations MUST NOT substitute the unit without performing the associated c
 >
 > This can produce "You have 405 feet to go."
 
-#### Number Operands
+#### Numeric Operands
 
-The _operand_ of a number function is either an implementation-defined type or
+A **_<dfn>numeric operand<dfn>_** is either an implementation-defined type or
 a _literal_ whose contents match the following `number-literal` production.
 All other values produce a _Bad Operand_ error.
 
@@ -3880,14 +3762,14 @@ If no options are specified, this function defaults to the following:
 > in JavaScript and with `{d,date}` in ICU MessageFormat 1.0.
 > This is because, unlike those implementations, `:datetime` is distinct from `:date` and `:time`.
 
-##### Operands
+##### `:datetime` Operands
 
 The _operand_ of the `:datetime` function is either
 an implementation-defined date/time type
 or a _date/time literal value_, as defined in [Date and Time Operand](#date-and-time-operands).
 All other _operand_ values produce a _Bad Operand_ error.
 
-##### Options
+##### `:datetime` Options
 
 The `:datetime` function can use either the appropriate _style options_
 or can use a collection of _field options_ (but not both) to control the formatted
@@ -3977,7 +3859,7 @@ The following _field options_ are REQUIRED to be available on the function `:dat
   - `shortGeneric`
   - `longGeneric`
 
-##### Resolved Value
+##### `:datetime` Resolved Value
 
 The _resolved value_ of an _expression_ with a `:datetime` _function_
 contains an implementation-defined date/time value
@@ -3992,14 +3874,14 @@ If no options are specified, this function defaults to the following:
 
 - `{$d :date}` is the same as `{$d :date style=medium}`
 
-##### Operands
+##### `:date` Operands
 
 The _operand_ of the `:date` function is either
 an implementation-defined date/time type
 or a _date/time literal value_, as defined in [Date and Time Operand](#date-and-time-operands).
 All other _operand_ values produce a _Bad Operand_ error.
 
-##### Options
+##### `:date` Options
 
 The function `:date` has these _options_:
 
@@ -4015,7 +3897,7 @@ it can include other option values.
 Any _operand_ options matching the `:datetime` _style options_ or _field options_ are ignored,
 as is any `style` option.
 
-##### Resolved Value
+##### `:date` Resolved Value
 
 The _resolved value_ of an _expression_ with a `:date` _function_
 is implementation-defined.
@@ -4032,14 +3914,14 @@ If no options are specified, this function defaults to the following:
 
 - `{$t :time}` is the same as `{$t :time style=short}`
 
-##### Operands
+##### `:time` Operands
 
 The _operand_ of the `:time` function is either
 an implementation-defined date/time type
 or a _date/time literal value_, as defined in [Date and Time Operand](#date-and-time-operands).
 All other _operand_ values produce a _Bad Operand_ error.
 
-##### Options
+##### `:time` Options
 
 The function `:time` has these _options_:
 
@@ -4055,7 +3937,7 @@ it can include other option values.
 Any _operand_ options matching the `:datetime` _style options_ or _field options_ are ignored,
 as is any `style` option.
 
-##### Resolved Value
+##### `:time` Resolved Value
 
 The _resolved value_ of an _expression_ with a `:time` _function_
 is implementation-defined.
@@ -4735,6 +4617,202 @@ fingerprinting, and other types of bad behavior.
 Any installed code needs to be appropriately sandboxed.
 In addition, end-users need to be aware of the risks involved.
 
+### Non-normative Examples
+
+#### Pattern Selection Examples
+
+##### Selection Example 1
+
+Presuming a minimal implementation which only supports `:string` _function_
+which matches keys by using string comparison,
+and a formatting context in which
+the variable reference `$foo` resolves to the string `'foo'` and
+the variable reference `$bar` resolves to the string `'bar'`,
+pattern selection proceeds as follows for this message:
+
+```
+.input {$foo :string}
+.input {$bar :string}
+.match $foo $bar
+bar bar {{All bar}}
+foo foo {{All foo}}
+* * {{Otherwise}}
+```
+
+1. Each selector is resolved, yielding the list `res` = `{foo, bar}`.
+2. `bestVariant` is set to `UNSET`.
+3. `keys` is set to `{bar, bar}`.
+4. `match` is set to SelectorsMatch(`{foo, bar}`, `{bar, bar}`).
+   The result of SelectorsMatch(`{foo, bar}`, `{bar, bar}`) is
+   determined as follows:
+   1. `result` is set to true.
+   1. `i` is set to 0.
+   1. `k` is set to the string `bar`.
+   1. `sel` is set to a resolved value corresponding to the string `foo`.
+   1. Match(`sel`, `'bar'`) is false.
+   1. The result of SelectorsMatch(`{foo, bar}`, `{bar, bar}`) is false.
+   Thus, `match` is set to false.
+5. `keys` is set to `{foo, foo}`.
+6. `match` is set to SelectorsMatch(`{foo, bar}`, `{foo, foo}`).
+   The result of SelectorsMatch(`{foo, bar}`, `{foo, foo}`) is
+   determined as follows:
+   1. `result` is set to true.
+   1. `i` is set to 0.
+   1. `k` is set to the string `foo`.
+   1. `sel` is set to a resolved value corresponding to the string `foo`.
+   1. Match(`sel`, `'foo'`) is true.
+   1. `i` is set to 1.
+   1. `k` is set to the string `foo`.
+   1. `sel` is set to a resolved value corresponding to the string `bar`.
+   1. Match(`sel`, `'bar'`) is false.
+   1. The result of SelectorsMatch(`{foo, bar}`, `{foo, foo}`) is false.
+7. `keys` is set to `* *`.
+8. The result of SelectorsMatch(`{foo, bar}`, `{*, *}`) is
+   determined as follows:
+   1. `result` is set to true.
+   1. `i` is set to 0.
+   1. `i` is set to 1.
+   1. `i` is set to 2.
+   1. The result of SelectorsMatch(`{foo, bar}`, `{*, *}`) is true.
+9. `bestVariant` is set to the variant `* * {{Otherwise}}`
+10. The pattern `Otherwise` is selected.
+
+##### Selection Example 2
+
+Alternatively, with the same implementation and formatting context as in Example 1,
+pattern selection would proceed as follows for this message:
+
+```
+.input {$foo :string}
+.input {$bar :string}
+.match $foo $bar
+* bar {{Any and bar}}
+foo * {{Foo and any}}
+foo bar {{Foo and bar}}
+* * {{Otherwise}}
+```
+
+1. Each selector is resolved, yielding the list `res` = `{foo, bar}`.
+2. `bestVariant` is set to `UNSET`.
+3. `keys` is set to `{*, bar}`.
+4. `match` is set to SelectorsMatch(`{foo, bar}`, `{*, bar}`)
+   The result of SelectorsMatch(`{foo, bar}`, `{*, bar}`) is
+   determined as follows:
+   1. `result` is set to true.
+   2. `i` is set to 0.
+   3. `i` is set to 1.
+   4. `k` is set to the string `bar`.
+   5. `sel` is set to a resolved value corresponding to the string `bar`.
+   6. Match(`sel`, `'bar'`) is true.
+   7. `i` is set to 2.
+   1. The result of SelectorsMatch(`{foo, bar}`, `{*, bar}`) is true.
+5. `bestVariant` is set to the variant `* bar {{Any and bar}}`.
+6. `keys` is set to `{foo, *}`.
+7. `match` is set to SelectorsMatch(`{foo, bar}`, `{foo, *}`).
+   The result of SelectorsMatch(`{foo, bar}`, `{foo, *}`) is
+   determined as follows:
+   1. `result` is set to true.
+   2. `i` is set to 0.
+   3. `k` is set to the string `foo`.
+   4. `sel` is set to a resolved value corresponding to the string `foo`.
+   5. Match(`sel`, `'foo'`) is true.
+   6. `i` is set to 1.
+   7. `i` is set to 2.
+   8. The result of SelectorsMatch(`{foo, bar}`, `{foo, *}`) is true.
+8. `bestVariantKeys` is set to `{*, bar}`.
+9. SelectorsCompare(`{foo, bar}`, `{foo, *}`, `{*, bar}`) is
+   determined as follows:
+   1. `result` is set to false.
+   1. `i` is set to 0.
+   1. `key1` is set to `foo`.
+   1. `key2` is set to `'*'`
+   1. The result of SelectorsCompare(`{foo, bar}`, `{foo, *}`, `{*, bar}`) is true.
+10. `bestVariant` is set to `foo * {{Foo and any}}`.
+11. `keys` is set to `{foo, bar}`.
+12. `match` is set to SelectorsMatch(`{foo, bar}`, `{foo, bar}`).
+    1. `match` is true (details elided)
+13. `bestVariantKeys` is set to `{foo, *}`.
+14. SelectorsCompare(`{foo, bar}`, `{foo, bar}`, `{foo, *}`) is
+    determined as follows:
+    1. `result` is set to false.
+    1. `i` is set to 0.
+    1. `key1` is set to `foo`.
+    1. `key2` is set to `foo`.
+    1. `k1` is set to `foo`.
+    1. `k2` is set to `foo`.
+    1. `sel` is set to a resolved value corresponding to `foo`.
+    1. `i` is set to 1.
+    1. `key1` is set to `bar`.
+    1. `key2` is set to `*`.
+    1. The result of SelectorsCompare(`{foo, bar}`, `{foo, bar}`, `{foo, *}`)
+       is true.
+15. `bestVariant` is set to `foo bar {{Foo and bar}}`.
+16. `keys` is set to `* *`.
+17. `match` is set to true (details elided).
+18. `bestVariantKeys` is set to `foo bar`.
+19. SelectorsCompare(`{foo, bar}`, `{*, *}`, `{foo, bar}`} is false
+    (details elided).
+
+The pattern `{{Foo and bar}}` is selected.
+
+##### Selection Example 3
+
+A more-complex example is the matching found in selection APIs
+such as ICU's `PluralFormat`.
+Suppose that this API is represented here by the function `:number`.
+This `:number` function can match a given numeric value to a specific number _literal_
+and **_also_** to a plural category (`zero`, `one`, `two`, `few`, `many`, `other`)
+according to locale rules defined in CLDR.
+
+Given a variable reference `$count` whose value resolves to the number `1`
+and an `en` (English) locale,
+the pattern selection proceeds as follows for this message:
+
+```
+.input {$count :number}
+.match $count
+one {{Category match for {$count}}}
+1   {{Exact match for {$count}}}
+*   {{Other match for {$count}}}
+```
+
+1. Each selector is resolved, yielding the list `{1}`.
+1. `bestVariant` is set to `UNSET`.
+1. `keys` is set to `{one}`.
+1. `match` is set to SelectorsMatch(`{1}`, `{one}`).
+   The result of SelectorsMatch(`{1}`, `{one}`) is
+   determined as follows:
+   1. `result` is set to true.
+   1. `i` is set to 0.
+   1. `k` is set to `one`.
+   1. `sel` is set to `1`.
+   1. Match(`sel`, `one`) is true.
+   1. `i` is set to 1.
+   1. The result of SelectorsMatch(`{1}`, `{one}`) is true.
+1. `bestVariant` is set to `one {{Category match for {$count}}}`.
+1. `keys` is set to `1`.
+1. `match` is set to SelectorsMatch(`{1}`, `{one}`).
+   1. The details are the same as the previous case,
+      as Match(`sel`, `1`) is also true.
+1. `bestVariantKeys` is set to `{one}`.
+1. SelectorsCompare(`{1}`, `{1}`, `{one}`) is determined as follows:
+   1. `result` is set to false.
+   1. `i` is set to 0.
+   1. `key1` is set to `1`.
+   1. `key2` is set to `one`.
+   1. `k1` is set to `1`.
+   1. `k2` is set to `one`.
+   1. `sel` is set to `1`.
+   1. `result` is set to BetterThan(`sel`, `1`, `one`), which is true.
+      1. NOTE: The specification of the `:number` selector function
+         states that the exact match `1` is a better match than
+         the category match `one`.
+   1. `bestVariant` is set to `1 {{Exact match for {$count}}}`.
+1. `keys` is set to `*`
+   1. Details elided; since `*` is the catch-all key,
+      BetterThan(`{1}`, `{1}`, `{*}`) is false.
+1. The pattern `{{Exact match for {$count}}}` is selected.
+
 ### Acknowledgments
 
 Special thanks to the following people for their contributions to making MessageFormat 2.0.
@@ -4795,4 +4873,3 @@ but make no express or implied representation or warranty of any kind and assume
 This publication is provided “AS-IS” without charge as a convenience to users.
 
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the United States and other countries.
-

@@ -71,7 +71,8 @@ Unicode language and locale IDs are based on BCP 47, but differ in a few ways. T
 3. Minimizing according to the likely subtag data ('ru\-Cyrl' → 'ru', 'en\-US' → 'en').
 4. BCP 47 also provides for "variant subtags", such as '[zh\-Latn\-pinyin](http://unicode.org/cldr/utility/languageid.jsp?a=zh-Latn-pinyin)'. When there are multiple variant subtags, the canonical format for Unicode language identifiers puts them in alphabetical order.
 
-Note that the CLDR likely subtag data is used to minimize scripts and regions, *not* the IANA Suppress\-Script. The latter had a much more constrained design goal, and is more limited.
+Note that the CLDR likely subtag data is used to minimize scripts and regions, *not* the IANA Suppress\-Script. The latter had a much more constrained design goal and is more limited.
+
 
 In some cases, systems (or companies) may have different conventions than the Preferred\-Values in BCP 47 \-\- such as those in the Replacement column in the the [online language identifier](http://unicode.org/cldr/utility/languageid.jsp) demo. For example, for backwards compatibility, 'iw' is used with Java instead of 'he' (Hebrew). When picking the right subtags, be aware of these compatibility issues. *If a target system uses a different canonical form for locale IDs than CLDR, the CLDR data needs to be processed by remapping its IDs to the target system's.*
 

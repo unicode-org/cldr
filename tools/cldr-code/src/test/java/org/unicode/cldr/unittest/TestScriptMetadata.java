@@ -113,10 +113,6 @@ public class TestScriptMetadata extends TestFmwkPlus {
         for (int i = UScript.COMMON; i < UScript.CODE_LIMIT; ++i) {
             String longName = UScript.getName(i);
             String shortName = UScript.getShortName(i);
-            if (shortName.equals("Chis")) {
-                logKnownIssue("ICU-23038", "ICU4J UScript still supports CHISOI");
-                continue;
-            }
             Info info = ScriptMetadata.getInfo(i);
             if (info != null) {
                 map.put(info.idUsage, longName + "\t(" + shortName + ")\t" + info);

@@ -76,7 +76,7 @@ For compatibility, it is strongly recommended that all implementations accept bo
 
 ### Macrolanguages
 
-ISO (and hence BCP 47\) has the notion of an individual language (like en \= English) versus a Collection or Macrolanguage. For compatibility, Unicode language and locale identifiers always use the Macrolanguage to identify the predominant form. Thus the Macrolanguage subtag "zh" (Chinese) is used instead of "cmn" (Mandarin). Similarly, suppose that you are looking for Kurdish written in Latin letters, as in Turkey. It is a mistake to think that because that is in the north, that you should use the subtag 'kmr' for Northern Kurdish. You should instead use [ku\-Latn\-TR](http://ku-latn/). See also: [ISO 636 Deprecation Requests](/development/development-process/design-proposals/iso-636-deprecation-requests-draft).
+ISO (and hence BCP 47\) has the notion of an individual language (like en \= English) versus a Collection or Macrolanguage. For compatibility, Unicode language and locale identifiers always use the Macrolanguage to identify the predominant form. Thus the Macrolanguage subtag "zh" (Chinese) is used instead of "cmn" (Mandarin). Similarly, suppose that you are looking for Kurdish written in Latin letters, as in Turkey. It is a mistake to think that because that is in the north, that you should use the subtag 'kmr' for Northern Kurdish. You should instead use [ku\-Latn\-TR](http://ku-latn/). See also: [ISO 639 Deprecation Requests](/development/development-process/design-proposals/iso-639-deprecation-requests-draft).
 
 Unicode language identifiers do not allow the "extlang" form defined in BCP 47\. For example, use "yue" instead of "zh\-yue" for Cantonese.
 

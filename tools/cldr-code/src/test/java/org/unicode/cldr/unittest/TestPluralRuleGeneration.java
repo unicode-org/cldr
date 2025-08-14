@@ -29,6 +29,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -764,10 +765,10 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
                                         PluralUtilities.getRepresentativeToLocales(pluralType)
                                                 .get(representativeLocale))
                                 + "]");
-                String formattedRules =
-                        PluralUtilities.format(
-                                PluralUtilities.getRepresentativeToPluralRules(pluralType)
-                                        .get(representativeLocale));
+                PluralRules rules =
+                        PluralUtilities.getRepresentativeToPluralRules(pluralType)
+                                .get(representativeLocale);
+                String formattedRules = PluralUtilities.format(rules);
                 CldrUtility.showIf(
                         SHOW,
                         formattedRules.isBlank() ? "RULES:\tnone" : "RULES:\n" + formattedRules);
@@ -778,29 +779,45 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
                 for (Entry<Count, KeySampleRanges> entry2 : pluralSamples.entrySet()) {
                     Count count = entry2.getKey();
 
-                    List<String> samplesPerKey = new ArrayList<>();
-                    int keyLimit = 99;
-                    for (Entry<Integer, Collection<SampleRange>> pair :
-                            entry2.getValue().setIterable()) {
-                        if (--keyLimit < 0) {
-                            if ("…".equals(samplesPerKey.get(samplesPerKey.size() - 1))) {
-                                samplesPerKey.add("…");
+                    for (SampleType sampleType : SampleType.values()) {
+                        List<String> samplesPerKey = new ArrayList<>();
+                        int keyLimit = 99;
+                        for (Entry<Integer, Collection<SampleRange>> pair :
+                                entry2.getValue().setIterable()) {
+                            int key = pair.getKey();
+                            if (!PluralUtilities.keyIsSampleType(key, sampleType)) {
+                                continue;
                             }
-                            break;
-                        }
-                        // int key = pair.getKey(); // unneeded
-
-                        int rangePerKeyLimit = 3;
-                        for (SampleRange sr : pair.getValue()) {
-                            if (--rangePerKeyLimit < 0) {
-                                samplesPerKey.add("…");
+                            if (--keyLimit < 0) {
+                                if ("…".equals(samplesPerKey.get(samplesPerKey.size() - 1))) {
+                                    samplesPerKey.add("…");
+                                }
                                 break;
                             }
-                            samplesPerKey.add(sr.toString());
+
+                            int rangePerKeyLimit = 3;
+                            for (SampleRange sr : pair.getValue()) {
+                                if (--rangePerKeyLimit < 0) {
+                                    samplesPerKey.add("…");
+                                    break;
+                                }
+                                samplesPerKey.add(sr.toString());
+                            }
+                            samplesPerKey.add(";");
                         }
-                        samplesPerKey.add(";");
+                        String old =
+                                PluralUtilities.getOldSamples(count.toString(), rules, sampleType);
+                        if (samplesPerKey.size() > 0 || !old.isEmpty()) {
+                            samplesPerCount.add(
+                                    count
+                                            + "\t@"
+                                            + sampleType.toString().toLowerCase(Locale.ROOT)
+                                            + " \t"
+                                            + Joiners.SP.join(samplesPerKey)
+                                            + "\t"
+                                            + old);
+                        }
                     }
-                    samplesPerCount.add(count + "\t" + Joiners.SP.join(samplesPerKey));
                 }
                 String joinedSamples = Joiners.N.join(samplesPerCount);
                 CldrUtility.showIf(SHOW, joinedSamples);

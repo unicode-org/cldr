@@ -2,6 +2,7 @@ package org.unicode.cldr.util;
 
 import static java.util.Comparator.comparing;
 
+import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableMultimap;
@@ -11,6 +12,8 @@ import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.text.PluralRules;
+import com.ibm.icu.text.PluralRules.DecimalQuantitySamples;
+import com.ibm.icu.text.PluralRules.SampleType;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -327,7 +330,9 @@ public class PluralUtilities {
         }
     }
 
+    /** Utility for getting 10^exponent, with focus on small powers */
     public static int pow10(int exponent) {
+        // TODO see if the switch is necessary
         switch (exponent) {
             case 0:
                 return 1;
@@ -344,6 +349,7 @@ public class PluralUtilities {
         }
     }
 
+    /** Get the number of digits in a number: 999 => 3, 1000 => 4, etc. */
     public static int digitCount(long number) {
         return number > 0
                 ? (int) (Math.log10(number) + 1)
@@ -515,7 +521,8 @@ public class PluralUtilities {
 
     /**
      * Immutable class mapping keys to sample ranges. A key contains the number of integer digits
-     * and the number of decimal digits.
+     * (all but the last 2 digits) and the number of visible decimal digits (in the bottom two
+     * digits).
      */
     public static class KeySampleRanges implements Iterable<Entry<Integer, SampleRange>> {
         private final Multimap<Integer, SampleRange> ranges;
@@ -606,7 +613,7 @@ public class PluralUtilities {
             return new Builder();
         }
 
-        KeySampleRanges filter(BiFunction<Integer, SampleRange, Boolean> func) {
+        public KeySampleRanges filter(BiFunction<Integer, SampleRange, Boolean> func) {
             Builder builder = builder();
             for (Entry<Integer, SampleRange> entry : ranges.entries()) {
                 if (func.apply(entry.getKey(), entry.getValue())) {
@@ -615,6 +622,10 @@ public class PluralUtilities {
             }
             return builder.build();
         }
+    }
+
+    public static boolean keyIsSampleType(int key, SampleType sampleType) {
+        return ((key % 100) == 0) == (sampleType == SampleType.INTEGER);
     }
 
     public static final KeySampleRanges SAMPLE_RANGES_CARDINAL =
@@ -639,6 +650,7 @@ public class PluralUtilities {
                     .addRange(100, 999, 0)
                     .build();
 
+    /** A visible format of the key for sorting samples. */
     public static String showKey(Integer key) {
         int intDigitCount = key / 100;
         int visibleDecimalCount = key % 100;
@@ -663,6 +675,7 @@ public class PluralUtilities {
     private static Map<PluralRules, Map<Count, KeySampleRanges>> RANGE_CACHE_ORDINAL =
             new ConcurrentHashMap<>();
 
+    /** Return samples from a plural type and plural rules */
     public static Map<Count, KeySampleRanges> getSamplesFromPluralRules(
             PluralType pluralType, PluralRules pluralRules) {
         Map<PluralRules, Map<Count, KeySampleRanges>> cache =
@@ -698,6 +711,7 @@ public class PluralUtilities {
                 });
     }
 
+    /** Given a locale, eturn a map from count to samples */
     public static Map<Count, KeySampleRanges> getSamplesForLocale(
             PluralType pluralType, String locale) {
         String rep = getRepresentativeLocaleForPluralRules(pluralType, locale);
@@ -707,11 +721,13 @@ public class PluralUtilities {
         return pluralSamples1;
     }
 
+    /** Test utility */
     public static String format(
             PluralType pluralType, Map<Count, KeySampleRanges> countAndSamples) {
         return Joiners.N.join(PluralUtilities.getSamplesForLocale(pluralType, "en").entrySet());
     }
 
+    /** Produce a normalized format of plural rules */
     public static String format(PluralRules rules) {
         return rules.getKeywords().stream()
                 .filter(x -> !x.equals("other"))
@@ -748,6 +764,7 @@ public class PluralUtilities {
         return result.toString();
     }
 
+    /** Test utility */
     public static Pair<String, String> findDifference(
             PluralType pluralType, String repLocale1, String repLocale2) {
         Map<Count, KeySampleRanges> pluralSamples1 = getSamplesForLocale(pluralType, repLocale1);
@@ -777,5 +794,18 @@ public class PluralUtilities {
             }
         }
         return null;
+    }
+
+    /** Get old samples */
+    public static String getOldSamples(
+            String keyword, PluralRules pluralRules, SampleType sampleType) {
+        DecimalQuantitySamples exampleList =
+                pluralRules.getDecimalSamples(
+                        keyword, sampleType); // plurals.getSamples9999(count);
+        return exampleList == null ? "" : getOldExamples(exampleList);
+    }
+
+    private static String getOldExamples(DecimalQuantitySamples exampleList) {
+        return Joiner.on(", ").join(exampleList.getSamples()) + (exampleList.bounded ? "" : ", …");
     }
 }

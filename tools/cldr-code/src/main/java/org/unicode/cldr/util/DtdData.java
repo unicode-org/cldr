@@ -694,7 +694,9 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             return valueConstraint;
         }
 
-        /** @return true if this is an element whose value should be wrapped in a cdata */
+        /**
+         * @return true if this is an element whose value should be wrapped in a cdata
+         */
         public boolean isCdataElement() {
             return isCdataElement;
         }

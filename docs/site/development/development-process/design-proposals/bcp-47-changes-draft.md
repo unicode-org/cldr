@@ -70,8 +70,8 @@ Macrolanguage Table
 | Norwegian ' no ' | Norwegian Bokmal ' nob ' = nb | To regularize, we may want to switch in CLDR from nb as the 'norm' to no. |
 | Serbo-croatian ' sh ' |  | *This is a complex situation, and we'll probably leave as is.* |
 | Kurdish 'ku' | Northern Kurdish 'kmr'? | We probably want to change the default content locale to ku-Latn |
-| Akan ' ak ' | Twi ' tw ' and Fanti ' fat' | This appears to be a mistake in ISO 639. See: ISO 636 Deprecation Requests . |
-| Persian  fas (fa) | Western Farsi pes and prs Dari | This appears to be a mistake in ISO 639. See: ISO 636 Deprecation Requests . |
+| Akan ' ak ' | Twi ' tw ' and Fanti ' fat' | This appears to be a mistake in ISO 639. See: ISO 639 Deprecation Requests . |
+| Persian  fas (fa) | Western Farsi pes and prs Dari | This appears to be a mistake in ISO 639. See: ISO 639 Deprecation Requests . |
 
 These would also go into the \<alias> element of the supplemental metadata. We may add more such aliases over time, as we find new predominant forms. Note that we still need to offer both aliases for translation in many cases. For example, we want to show both 'no' and 'nb'.
 

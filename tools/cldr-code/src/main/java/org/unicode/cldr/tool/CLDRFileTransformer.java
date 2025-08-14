@@ -269,7 +269,7 @@ public class CLDRFileTransformer {
                     }
                 }
                 // skip items that should not have DAIP
-                if(!xpath.contains("rbnfRules")) {
+                if (!xpath.contains("rbnfRules")) {
                     value = daip.processInput(xpath, value, null);
                 }
                 outputSource.putValueAtPath(fullPath, value);
@@ -336,7 +336,7 @@ public class CLDRFileTransformer {
 
     private String transliterateByLines(Transliterator transliterator, String value) {
         StringBuilder transliterated = new StringBuilder();
-        for(final String valueLine : value.split("[\r\n]")) {
+        for (final String valueLine : value.split("[\r\n]")) {
             if (transliterated.length() > 0) {
                 transliterated.append("\n");
             }

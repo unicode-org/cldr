@@ -50,7 +50,7 @@ public class GenerateSubdivisions {
 
         static final Relation<String, String> formerRegionToSubdivisions =
                 Relation.of(
-                        new HashMap<String, Set<String>>(),
+                        new HashMap<>(),
                         TreeSet.class,
                         CLDRConfig.getInstance().getComparatorRoot());
 
@@ -84,6 +84,7 @@ public class GenerateSubdivisions {
 
     public static void main(String[] args) throws IOException {
         CLDRConfig.getInstance().getSupplementalDataInfo();
+        String outputDirectoryName = CLDRPaths.GEN_DIRECTORY + "subdivision";
         // TODO Restructure so that this call is done first to process the iso data
         // then the extraction uses that data.
         // also restructure the SubdivisionInfo to not be static
@@ -110,9 +111,10 @@ public class GenerateSubdivisions {
                                 CLDRPaths.CLDR_PRIVATE_DIRECTORY
                                         + source
                                         + "/iso_country_codes.xml");
+                String outputFileName = source + ".txt";
+                System.out.println("Writing " + outputDirectoryName + "/" + outputFileName);
                 try (PrintWriter pw =
-                        FileUtilities.openUTF8Writer(
-                                CLDRPaths.GEN_DIRECTORY, "subdivision/" + source + ".txt")) {
+                        FileUtilities.openUTF8Writer(outputDirectoryName, outputFileName)) {
                     sdset1.print(pw);
                 }
             }
@@ -126,37 +128,39 @@ public class GenerateSubdivisions {
                         SubdivisionInfo.VALIDITY_FORMER,
                         SubdivisionInfo.SUBDIVISION_ALIASES_FORMER,
                         SubdivisionInfo.formerRegionToSubdivisions);
-
-        try (PrintWriter pw =
-                FileUtilities.openUTF8Writer(
-                        CLDRPaths.GEN_DIRECTORY, "subdivision/subdivisions.xml")) {
+        String outputFileName = "subdivisions.xml";
+        System.out.println("Writing " + outputDirectoryName + "/" + outputFileName);
+        try (PrintWriter pw = FileUtilities.openUTF8Writer(outputDirectoryName, outputFileName)) {
             sdset.printXml(pw);
         }
-        try (PrintWriter pw =
-                FileUtilities.openUTF8Writer(
-                        CLDRPaths.GEN_DIRECTORY, "subdivision/subdivisionAliases.txt")) {
+        outputFileName = "subdivisionAliases.txt";
+        System.out.println("Writing " + outputDirectoryName + "/" + outputFileName);
+        try (PrintWriter pw = FileUtilities.openUTF8Writer(outputDirectoryName, outputFileName)) {
             sdset.printAliases(pw);
         }
-        try (PrintWriter pw =
-                FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "subdivision/en.xml")) {
+        outputFileName = "en.xml";
+        System.out.println("Writing " + outputDirectoryName + "/" + outputFileName);
+        try (PrintWriter pw = FileUtilities.openUTF8Writer(outputDirectoryName, outputFileName)) {
             sdset.printEnglish(pw);
         }
-        try (PrintWriter pw =
-                FileUtilities.openUTF8Writer(
-                        CLDRPaths.GEN_DIRECTORY, "subdivision/categories.txt")) {
+        outputFileName = "categories.txt";
+        System.out.println("Writing " + outputDirectoryName + "/" + outputFileName);
+        try (PrintWriter pw = FileUtilities.openUTF8Writer(outputDirectoryName, outputFileName)) {
             sdset.printSamples(pw);
         }
-        try (PrintWriter pw =
-                FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "subdivision/en.txt")) {
+        outputFileName = "en.txt";
+        System.out.println("Writing " + outputDirectoryName + "/" + outputFileName);
+        try (PrintWriter pw = FileUtilities.openUTF8Writer(outputDirectoryName, outputFileName)) {
             sdset.printEnglishComp(pw);
         }
-        try (PrintWriter pw =
-                FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "subdivision/en-full.txt")) {
+        outputFileName = "en-full.txt";
+        System.out.println("Writing " + outputDirectoryName + "/" + outputFileName);
+        try (PrintWriter pw = FileUtilities.openUTF8Writer(outputDirectoryName, outputFileName)) {
             sdset.printEnglishCompFull(pw);
         }
-        try (PrintWriter pw =
-                FileUtilities.openUTF8Writer(
-                        CLDRPaths.GEN_DIRECTORY, "subdivision/missing-mid.txt")) {
+        outputFileName = "missing-mid.txt";
+        System.out.println("Writing " + outputDirectoryName + "/" + outputFileName);
+        try (PrintWriter pw = FileUtilities.openUTF8Writer(outputDirectoryName, outputFileName)) {
             sdset.printMissingMIDs(pw);
         }
     }

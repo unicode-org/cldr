@@ -27,12 +27,6 @@ The [UTS #35: Locale Data Markup Language (LDML)](https://www.unicode.org/report
 - There is a standing policy for structural changes that require non-trivial code for proper implementation, such as time zone fallback or alias mechanisms. These require design discussions in the [CLDR Design Working Group](https://cldr.unicode.org/cldr-tc/design-wg) and approval by the [CLDR Technical Committee](https://cldr.unicode.org/cldr-tc). Complex changes may require prototypes that demonstrate correct function according to the proposed specification.
 - New sections may be added to the specification with the status of _Technical Preview_ or _Final Candidate_. That depends on how comprehensive the new section is, what type of feedback the Technical Committee requires, and whether the feedback period needs to extend across one or more releases. These terms mean:
 
-| **Status** | **Description** |
-|---|:---|
-| *Technical Preview* | - The specification section is fairly complete but not stable, included in the release to gather feedback. <br>- Features may be modified or removed based upon feedback. <br>A section in Technical Preview may remain in Technical Preview in the following release if more feedback is needed, or could advance to Final Candidate or to stable.<br>- It is similar to elements marked with [@TECHPREVIEW in the DTD as described in the LDML](https://www.unicode.org/reports/tr35/#dtd-annotations). | 
-| *Final Candidate* | - The specification section is complete and considered ready for release, and is expected to become stable in the next release. An optional Final Candidate stage follows a period of feedback in Technical Preview where final feedback is desired. Changes will only be made if serious issues are discovered during this feedback period. |
-| *Stable* | - The specification section has been approved as stable by the Technical Committee, any changes must be backward compatible. Deprecated elements will remain, although their usage is strongly discouraged. | 
-
 - When a spec change or clarification affects existing ICU APIs, CLDR will discuss the change with ICU and an ICU member be a required reviewer on the pull request.
 
 - ​New spec features will be ​marked as Tech Preview​ ​i​f the following conditions are true:
@@ -42,6 +36,12 @@ The [UTS #35: Locale Data Markup Language (LDML)](https://www.unicode.org/report
     - They make compliant pre-existing ICU APIs​ be non-compliant
 
     - ​They won’t be implemented by ICU (in at least draft status) in the synchronized releases
+ 
+| **Status** | **Description** |
+|---|:---|
+| *Technical Preview* | - The specification section is fairly complete but not stable, included in the release to gather feedback. <br>- Features may be modified or removed based upon feedback. <br>A section in Technical Preview may remain in Technical Preview in the following release if more feedback is needed, or could advance to Final Candidate or to stable.<br>- It is similar to elements marked with [@TECHPREVIEW in the DTD as described in the LDML](https://www.unicode.org/reports/tr35/#dtd-annotations). | 
+| *Final Candidate* | - The specification section is complete and considered ready for release, and is expected to become stable in the next release. An optional Final Candidate stage follows a period of feedback in Technical Preview where final feedback is desired. Changes will only be made if serious issues are discovered during this feedback period. |
+| *Stable* | - The specification section has been approved as stable by the Technical Committee, any changes must be backward compatible. Deprecated elements will remain, although their usage is strongly discouraged. | 
 
 ## Data- Submission and Vetting
 

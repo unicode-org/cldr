@@ -36,6 +36,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.stream.Collectors;
 import org.unicode.cldr.icu.text.FixedDecimal;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CldrUtility;
@@ -44,6 +45,7 @@ import org.unicode.cldr.util.Joiners;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PluralUtilities;
 import org.unicode.cldr.util.PluralUtilities.KeySampleRanges;
+import org.unicode.cldr.util.PluralUtilities.LocalesAndSamples;
 import org.unicode.cldr.util.PluralUtilities.SampleRange;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
@@ -749,6 +751,52 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
         }
     }
 
+    /** Check the individual rules for duplicates */
+    public void testDuplicateRules() {
+        Set<String> relations = new TreeSet<>();
+        for (PluralType type : PluralType.values()) {
+
+            Map<String, LocalesAndSamples> rulesToLocalesAndSamples =
+                    PluralUtilities.getSingleRuleToLocalesAndSamples(type);
+            Multimap<KeySampleRanges, String> samplesToRules = HashMultimap.create();
+            rulesToLocalesAndSamples.entrySet().stream()
+                    .forEach(
+                            x -> samplesToRules.put(x.getValue().getKeySampleRanges(), x.getKey()));
+            // for debugging: ruleToLocales.asMap().entrySet().stream().forEach(x ->
+            // System.out.println(type + "\t" + x.getKey() + "\t" + x.getValue()));
+            samplesToRules.asMap().entrySet().stream()
+                    .filter(x -> x.getValue().size() > 1)
+                    .forEach(
+                            x -> {
+                                String localesAndRules =
+                                        x.getValue().stream()
+                                                .map(
+                                                        y ->
+                                                                Joiners.ES.join(
+                                                                        y,
+                                                                        "\t\t",
+                                                                        rulesToLocalesAndSamples
+                                                                                .get(y)
+                                                                                .getLocales()))
+                                                .collect(Collectors.joining("\n"));
+                                errln(
+                                        type
+                                                + " Rules not unique: "
+                                                + x.getValue().size()
+                                                + "\n\n"
+                                                + localesAndRules
+                                                + "\nSamples:"
+                                                + x.getKey());
+                            });
+        }
+        System.out.println("Expressions");
+        relations.stream()
+                .forEach(
+                        x ->
+                                System.out.println(
+                                        x + "\t=> " + PluralUtilities.englishVersion(x, false)));
+    }
+
     public void testSingles() {
         for (final PluralType pluralType : PluralType.values()) {
             // CldrUtility.show(PluralUtilities.getSamplesForLocale(pluralType, "zh"));
@@ -782,6 +830,7 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
                     for (SampleType sampleType : SampleType.values()) {
                         List<String> samplesPerKey = new ArrayList<>();
                         int keyLimit = 99;
+                        int keysWithSamples = 0;
                         for (Entry<Integer, Collection<SampleRange>> pair :
                                 entry2.getValue().setIterable()) {
                             int key = pair.getKey();
@@ -795,13 +844,19 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
                                 break;
                             }
 
-                            int rangePerKeyLimit = 3;
+                            int rangePerKeyLimit =
+                                    keysWithSamples > 3
+                                            ? 1 //
+                                            : keysWithSamples > 2
+                                                    ? 2 //
+                                                    : 3;
                             for (SampleRange sr : pair.getValue()) {
                                 if (--rangePerKeyLimit < 0) {
                                     samplesPerKey.add("…");
                                     break;
                                 }
                                 samplesPerKey.add(sr.toString());
+                                keysWithSamples++;
                             }
                             samplesPerKey.add(";");
                         }
@@ -843,6 +898,23 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
                 CldrUtility.showIf(
                         SHOW, PluralUtilities.getSamplesForLocale(pluralType, list.get(1)));
                 CldrUtility.showIf(SHOW);
+            }
+        }
+    }
+
+    public void testEnglish() {
+        for (PluralType type : PluralType.values()) {
+            Map<String, LocalesAndSamples> rulesToLocalesAndSamples =
+                    PluralUtilities.getSingleRuleToLocalesAndSamples(type);
+
+            for (Entry<String, LocalesAndSamples> rulesNLocalesAndSamples :
+                    rulesToLocalesAndSamples.entrySet()) {
+                String rule = rulesNLocalesAndSamples.getKey();
+                Set<String> locales = rulesNLocalesAndSamples.getValue().getLocales();
+
+                System.out.println("\nLocales:\t" + locales);
+                System.out.println("Rule:\t" + rule);
+                System.out.println("Verbose:" + PluralUtilities.englishVersion(rule, false));
             }
         }
     }

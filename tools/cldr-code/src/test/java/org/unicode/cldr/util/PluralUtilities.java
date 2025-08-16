@@ -19,6 +19,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Objects;
@@ -27,6 +28,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.BiFunction;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import org.unicode.cldr.icu.text.FixedDecimal;
@@ -40,6 +42,15 @@ import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 public class PluralUtilities {
     public static final Pattern OBSOLETE_SYNTAX = Pattern.compile("(mod|in|is|within)");
     public static final Pattern RELATION = Pattern.compile("(!=|=|%)");
+    public static final Pattern RELATION_PARTS =
+            Pattern.compile(
+                    "([a-z])"
+                            + "\\s*"
+                            + "(?:%\\s*(1[0]+))?"
+                            + "\\s*"
+                            + "(!=|=)"
+                            + "\\s*"
+                            + "([0-9.,]+)");
 
     private static final Splitter AND_SPLITTER =
             Splitter.on(Pattern.compile("\\band\\b")).trimResults();
@@ -680,35 +691,43 @@ public class PluralUtilities {
             PluralType pluralType, PluralRules pluralRules) {
         Map<PluralRules, Map<Count, KeySampleRanges>> cache =
                 pluralType == PluralType.cardinal ? RANGE_CACHE_CARDINAL : RANGE_CACHE_ORDINAL;
-        KeySampleRanges sampleRanges0 =
-                pluralType == PluralType.cardinal ? SAMPLE_RANGES_CARDINAL : SAMPLE_RANGES_ORDINAL;
+        KeySampleRanges sampleRanges0 = getSampleRanges(pluralType);
 
         return cache.computeIfAbsent(
                 pluralRules,
                 x -> {
-                    Map<Count, KeySampleRanges.Builder> countToBuilder = new HashMap<>();
-
-                    for (Entry<Integer, Collection<SampleRange>> keySamples :
-                            sampleRanges0.setIterable()) {
-                        // Integer key = keySamples.getKey();
-                        Collection<SampleRange> ranges = keySamples.getValue();
-                        for (SampleRange range : ranges) {
-                            for (PluralSample sample : range) {
-                                Count count = sample.getPluralCategory(pluralRules);
-                                KeySampleRanges.Builder builder = countToBuilder.get(count);
-                                if (builder == null) {
-                                    countToBuilder.put(count, builder = KeySampleRanges.builder());
-                                }
-                                builder.add(sample, SameIntegerCount.yes);
-                            }
-                        }
-                    }
-                    Map<Count, KeySampleRanges> result = new TreeMap<>();
-                    countToBuilder.entrySet().stream()
-                            .forEach(y -> result.put(y.getKey(), y.getValue().build()));
-
-                    return CldrUtility.protectCollection(result);
+                    return getInternalSamples(pluralRules, sampleRanges0);
                 });
+    }
+
+    public static KeySampleRanges getSampleRanges(PluralType pluralType) {
+        return pluralType == PluralType.cardinal ? SAMPLE_RANGES_CARDINAL : SAMPLE_RANGES_ORDINAL;
+    }
+
+    /** Only for tests */
+    public static Map<Count, KeySampleRanges> getInternalSamples(
+            PluralRules pluralRules, KeySampleRanges sampleRanges0) {
+        Map<Count, KeySampleRanges.Builder> countToBuilder = new HashMap<>();
+
+        for (Entry<Integer, Collection<SampleRange>> keySamples : sampleRanges0.setIterable()) {
+            // Integer key = keySamples.getKey();
+            Collection<SampleRange> ranges = keySamples.getValue();
+            for (SampleRange range : ranges) {
+                for (PluralSample sample : range) {
+                    Count count = sample.getPluralCategory(pluralRules);
+                    KeySampleRanges.Builder builder = countToBuilder.get(count);
+                    if (builder == null) {
+                        countToBuilder.put(count, builder = KeySampleRanges.builder());
+                    }
+                    builder.add(sample, SameIntegerCount.yes);
+                }
+            }
+        }
+        Map<Count, KeySampleRanges> result = new TreeMap<>();
+        countToBuilder.entrySet().stream()
+                .forEach(y -> result.put(y.getKey(), y.getValue().build()));
+
+        return CldrUtility.protectCollection(result);
     }
 
     /** Given a locale, eturn a map from count to samples */
@@ -764,6 +783,106 @@ public class PluralUtilities {
         return result.toString();
     }
 
+    public static Set<String> getRelations(String rule) {
+        Set<String> result = new LinkedHashSet<>();
+        for (String andClause : AND_SPLITTER.split(rule)) {
+            for (String orClause : OR_SPLITTER.splitToList(andClause)) {
+                result.add(orClause);
+            }
+        }
+        return result;
+    }
+
+    static Map<String, String> OP_NAME =
+            ImmutableMap.of(
+                    "n",
+                    "N",
+                    "i",
+                    "integer(N)",
+                    "v",
+                    "fraction digit count(N)",
+                    "w",
+                    "fraction digit count(N) [skipping trailing zeros]",
+                    "f",
+                    "fraction(N)",
+                    "t",
+                    "fraction(N) [skipping trailing zeros]",
+                    "c",
+                    "compact exponent(N)",
+                    "e",
+                    "compact exponent(N)");
+
+    public static String englishVersion(String rule, boolean singleLine) {
+        if (OBSOLETE_SYNTAX.matcher(rule).find()) {
+            throw new IllegalArgumentException("Deprecated format: (mod|in|is|within) in " + rule);
+        }
+        StringBuilder result = new StringBuilder();
+        boolean firstOr = true;
+        for (String orClause : OR_SPLITTER.splitToList(rule)) {
+            if (firstOr) {
+                firstOr = false;
+            } else if (singleLine) {
+                result.append(" OR");
+            } else {
+                result.append("\n\tOR\n");
+            }
+            boolean firstAnd = true;
+            for (String andClause : AND_SPLITTER.split(orClause)) {
+                if (firstAnd) {
+                    firstAnd = false;
+                } else if (singleLine) {
+                    result.append(" and");
+                } else {
+                    result.append(" and\n");
+                }
+                Matcher relationParts = RELATION_PARTS.matcher(andClause);
+                if (!relationParts.matches()) {
+                    return ("«"
+                            + rule
+                            + "» doesn't match "
+                            + RELATION_PARTS
+                            + " \t"
+                            + RegexUtilities.showMismatch(relationParts, andClause));
+                }
+                if (singleLine) {
+                    result.append(" ");
+                } else {
+                    result.append("\t");
+                }
+                String operand = relationParts.group(1);
+                String modulus = relationParts.group(2);
+                String relation = relationParts.group(3);
+                String leftSide = relationParts.group(4);
+                String operandName = OP_NAME.get(operand);
+                boolean isEqual = relation.equals("=");
+                String relName =
+                        leftSide.contains(".") || leftSide.contains(",")
+                                ? isEqual ? "∈" : "∉"
+                                : isEqual ? "=" : "≠";
+                if (modulus != null) {
+                    int count = modulus.length() - 1;
+                    if (count == 1) {
+                        result.append(
+                                Joiners.SP.join(
+                                        "the last digit of", operandName, relName, leftSide));
+                    } else {
+                        result.append(
+                                Joiners.SP.join(
+                                        "the last",
+                                        count,
+                                        "digits of",
+                                        operandName,
+                                        relName,
+                                        leftSide));
+                    }
+                } else {
+                    result.append(Joiners.SP.join(operandName, relName, leftSide));
+                }
+            }
+        }
+        return result.toString();
+    }
+
     /** Test utility */
     public static Pair<String, String> findDifference(
             PluralType pluralType, String repLocale1, String repLocale2) {
@@ -794,6 +913,69 @@ public class PluralUtilities {
             }
         }
         return null;
+    }
+
+    /** Immutable data for single rules */
+    public static class LocalesAndSamples {
+        public KeySampleRanges getKeySampleRanges() {
+            return keySampleRanges;
+        }
+
+        public Set<String> getLocales() {
+            return locales;
+        }
+
+        private LocalesAndSamples(KeySampleRanges value, Collection<String> collection) {
+            keySampleRanges = value;
+            locales = ImmutableSet.copyOf(collection);
+        }
+
+        final KeySampleRanges keySampleRanges;
+        final Set<String> locales;
+    }
+
+    public static Map<String, LocalesAndSamples> getSingleRuleToLocalesAndSamples(PluralType type) {
+        return ruleDataCache.computeIfAbsent(
+                type, x -> getSingleRuleToLocalesAndSamplesInternal(type));
+    }
+
+    private static Map<PluralType, Map<String, LocalesAndSamples>> ruleDataCache =
+            new ConcurrentHashMap<>();
+
+    private static Map<String, LocalesAndSamples> getSingleRuleToLocalesAndSamplesInternal(
+            PluralType type) {
+        Map<String, KeySampleRanges> ruleToKeySampleRanges = new TreeMap<>();
+        Multimap<String, String> ruleToLocales = TreeMultimap.create();
+
+        for (String representative :
+                PluralUtilities.getRepresentativeToPluralRules(type).keySet()) {
+            PluralRules pluralRules =
+                    PluralUtilities.getRepresentativeToPluralRules(type).get(representative);
+            for (String keyword : pluralRules.getKeywords()) {
+                if (keyword.equals("other")) {
+                    continue;
+                }
+                String rule = pluralRules.getRules(keyword);
+                boolean haveSamples = ruleToLocales.containsKey(rule);
+                ruleToLocales.put(rule, representative);
+                if (haveSamples) {
+                    continue;
+                }
+                PluralRules singleton = PluralRules.createRules("many: " + rule);
+                Map<Count, KeySampleRanges> samples =
+                        PluralUtilities.getInternalSamples(
+                                singleton, PluralUtilities.getSampleRanges(type));
+                KeySampleRanges manySamples = samples.get(Count.many);
+                ruleToKeySampleRanges.put(rule, manySamples);
+            }
+        }
+        Map<String, LocalesAndSamples> singleRuleToLocalesAndSamples = new TreeMap();
+        for (Entry<String, KeySampleRanges> entry : ruleToKeySampleRanges.entrySet()) {
+            singleRuleToLocalesAndSamples.put(
+                    entry.getKey(),
+                    new LocalesAndSamples(entry.getValue(), ruleToLocales.get(entry.getKey())));
+        }
+        return ImmutableMap.copyOf(singleRuleToLocalesAndSamples);
     }
 
     /** Get old samples */

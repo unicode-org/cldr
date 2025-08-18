@@ -6095,13 +6095,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="ITL">
-				<pattern>¤ #,##0.00</pattern>
+				<pattern numberSystem="latn">¤ #,##0.00</pattern>
 				<displayName>lira italiana</displayName>
 				<displayName count="one" draft="contributed">↑↑↑</displayName>
 				<displayName count="other" draft="contributed">lire italiane</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
-				<decimal>,</decimal>
-				<group>.</group>
+				<decimal numberSystem="latn">,</decimal>
+				<group numberSystem="latn">.</group>
 			</currency>
 			<currency type="JMD">
 				<displayName>dollaro giamaicano</displayName>

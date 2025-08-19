@@ -311,6 +311,8 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         return result;
     }
 
+    static final UnicodeSet ESCAPE = new UnicodeSet("[❰❱]").freeze();
+
     @Override
     public CheckCLDR handleCheck(
             String path, String fullPath, String value, Options options, List<CheckStatus> result) {
@@ -609,6 +611,13 @@ public class CheckForExemplars extends FactoryCheckCLDR {
                             .setSubtype(Subtype.illegalCharacter)
                             .setMessage(
                                     "Bidi markup can only include LRM RLM ALM, not paired characters such as FSI PDI"));
+        } else if (ESCAPE.containsSome(value)) {
+            result.add(
+                    new CheckStatus()
+                            .setCause(this)
+                            .setMainType(CheckStatus.errorType)
+                            .setSubtype(Subtype.illegalCharacter)
+                            .setMessage("The characters {0} are illegal", ESCAPE.toPattern(false)));
         }
     }
 

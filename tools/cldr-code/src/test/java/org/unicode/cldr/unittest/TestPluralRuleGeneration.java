@@ -15,6 +15,7 @@ import com.ibm.icu.number.Precision;
 import com.ibm.icu.number.UnlocalizedNumberFormatter;
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.PluralRules;
+import com.ibm.icu.text.PluralRules.FixedDecimal;
 import com.ibm.icu.text.PluralRules.IFixedDecimal;
 import com.ibm.icu.text.PluralRules.Operand;
 import com.ibm.icu.text.PluralRules.SampleType;
@@ -37,7 +38,6 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
-import org.unicode.cldr.icu.text.FixedDecimal;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.DtdData;
@@ -46,7 +46,9 @@ import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PluralUtilities;
 import org.unicode.cldr.util.PluralUtilities.KeySampleRanges;
 import org.unicode.cldr.util.PluralUtilities.LocalesAndSamples;
+import org.unicode.cldr.util.PluralUtilities.PluralSample;
 import org.unicode.cldr.util.PluralUtilities.SampleRange;
+import org.unicode.cldr.util.Splitters;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
@@ -196,7 +198,7 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
 
             // basics
 
-            FixedDecimal fromString = new FixedDecimal(source);
+            FixedDecimal fromString = PluralUtilities.parseToFixedDecimal(source);
 
             final String fromToString = fromString.toString();
             if (checkString
@@ -303,7 +305,7 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
                         "1.20050e3");
 
         for (String test : tests) {
-            final FixedDecimal source = new FixedDecimal(test);
+            final FixedDecimal source = PluralUtilities.parseToFixedDecimal(test);
             assertEquals("check toString", test, source.toString());
         }
 
@@ -322,14 +324,14 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
             PluralRules pr = sdi.getPluralRules(locale, PluralRules.PluralType.CARDINAL);
 
             for (String test : tests) {
-                final FixedDecimal source = new FixedDecimal(test);
+                final FixedDecimal source = PluralUtilities.parseToFixedDecimal(test);
                 if (SHOW) {
 
                     CldrUtility.showIf(
                             SHOW,
                             locale
                                     + "\t"
-                                    + FixedDecimal.toSampleString(source)
+                                    + PluralUtilities.toSampleString(source)
                                     + "\t"
                                     + pluralInfo(pr, source));
                 }
@@ -375,7 +377,7 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
         boolean ok;
         for (int i = 0; i < 3; ++i) {
             for (String test : tests) {
-                IFixedDecimal sourceFixedDecimal = new FixedDecimal(test);
+                IFixedDecimal sourceFixedDecimal = PluralUtilities.parseToFixedDecimal(test);
                 DecimalQuantity sourceDecimalQuantity =
                         DecimalQuantity_DualStorageBCD.fromExponentString(test);
                 switch (i) {
@@ -386,7 +388,8 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
                                         test,
                                         sourceFixedDecimal.toString());
                         if (!ok) {
-                            sourceFixedDecimal = new FixedDecimal(test); // for debugging
+                            sourceFixedDecimal =
+                                    PluralUtilities.parseToFixedDecimal(test); // for debugging
                             sourceFixedDecimal.toString();
                         }
                         break;
@@ -395,7 +398,7 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
                                 assertEquals(
                                         test + " — check quantity toScientificString",
                                         test,
-                                        FixedDecimal.toSampleString(sourceDecimalQuantity));
+                                        PluralUtilities.toSampleString(sourceDecimalQuantity));
                         if (!ok) {
                             sourceFixedDecimal =
                                     DecimalQuantity_DualStorageBCD.fromExponentString(
@@ -777,7 +780,10 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
                                                                         "\t\t",
                                                                         rulesToLocalesAndSamples
                                                                                 .get(y)
-                                                                                .getLocales()))
+                                                                                .getLocales(),
+                                                                        PluralUtilities
+                                                                                .englishVersion(
+                                                                                        y, true)))
                                                 .collect(Collectors.joining("\n"));
                                 errln(
                                         type
@@ -918,4 +924,97 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
             }
         }
     }
+
+    public void testFixedDecimalConversion() {
+        FixedDecimal x = new FixedDecimal(76.54, 3, 540, 1);
+        System.out.println("\n" + x);
+        showValues(x);
+
+        FixedDecimal w = PluralUtilities.parseToFixedDecimal("76.540");
+        System.out.println("\n" + w);
+        showValues(w);
+
+        PluralSample y = new PluralUtilities.PluralSample(x);
+        assertEquals("formats ", x.toString(), y.toString());
+        FixedDecimal z = y.toFixedDecimal();
+        System.out.println("\n" + z);
+        showValues(z);
+        assertEquals("getSource", x.getSource(), z.getSource());
+        assertEquals(
+                "getVisibleDecimalDigitCount",
+                x.getVisibleDecimalDigitCount(),
+                z.getVisibleDecimalDigitCount());
+        assertEquals("getDecimalDigits", x.getDecimalDigits(), z.getDecimalDigits());
+        assertEquals("internals ", x, z);
+    }
+
+    private void showValues(FixedDecimal x) {
+        for (Operand operand : PluralRules.Operand.values()) {
+            if (operand == operand.c || operand == operand.j) {
+                continue;
+            }
+            System.out.println(operand + "\t" + x.getPluralOperand(operand));
+        }
+    }
+
+    public void testIndividualRules() {
+        Object[][] ruleSampleResults = {{"f % 100 = 1", 3.21, true}};
+        for (Object[] ruleSampleResult : ruleSampleResults) {
+            String rule = (String) ruleSampleResult[0];
+            double sample = (double) ruleSampleResult[1];
+            boolean expected = (boolean) ruleSampleResult[2];
+            PluralRules pluralRules = PluralRules.createRules("many: " + rule);
+            boolean actual = "many".equals(pluralRules.select(new FixedDecimal(sample)));
+        }
+    }
+    
+    /** https://unicode.org/reports/tr35/tr35-numbers.html#table-plural-operand-examples */
+    public void testOperandsAgainstSpec() {
+        String[] testLines = {
+            //source        n       i          v       w       f       t       e
+            "1              1       1          0       0       0       0       0",
+            "1.0            1       1          1       0       0       0       0",
+            "1.00           1       1          2       0       0       0       0",
+            "1.3          1.3       1          1       1       3       3       0",
+            "1.30         1.3       1          2       1       30      3       0",
+            "1.03        1.03       1          2       2       3       3       0",
+            "1.230       1.23       1          3       2       230    23       0",
+            "1200000  1200000       1200000    0       0       0       0       0",
+            "1.2c6    1200000       1200000    0       0       0       0       6",
+            "123c6  123000000       123000000  0       0       0       0       6",
+            "123c5   12300000       12300000   0       0       0       0       5",
+            "1200.50   1200.5       1200       2       1       50      5       0",
+            "1.20050c3 1200.5       1200       2       1       50      5       3"};
+        final List<Operand> operands = List.of(Operand.n, Operand.i, Operand.v, Operand.w, Operand.f, Operand.t, Operand.c);
+        int line = 0;
+        FixedDecimal source2 = PluralUtilities.parseToFixedDecimal("1.20050c3");
+        for (String testLine : testLines) {
+            ++line;
+            int i = -1;
+            String sourceString = null;
+            FixedDecimal source = null;
+            DecimalQuantity DQ = null;
+            for (String s : Splitters.SP_OMIT.split(testLine)) {
+                if (i < 0) {
+                    sourceString = s;
+                    source = PluralUtilities.parseToFixedDecimal(s);
+                    DQ = DecimalQuantity_DualStorageBCD.fromExponentString(s);
+                } else {
+                    double expected = Double.parseDouble(s);
+                    Operand operand = operands.get(i);
+                    
+                    // FD
+                    double actualFD = source.getPluralOperand(operand);
+                    assertEquals("FD line " + line + ", " + sourceString + ", "+ operand, expected, actualFD);
+                    
+                    double actualDQ = DQ.getPluralOperand(operand);
+                    assertEquals("DQ line " + line + ", " + sourceString + ", "+ operand, expected, actualDQ);
+
+                }
+                ++i;
+            }
+            
+        }
+    }
+    
 }

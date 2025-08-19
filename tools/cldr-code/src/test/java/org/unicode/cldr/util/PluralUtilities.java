@@ -13,6 +13,9 @@ import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.PluralRules.DecimalQuantitySamples;
+import com.ibm.icu.text.PluralRules.FixedDecimal;
+import com.ibm.icu.text.PluralRules.IFixedDecimal;
+import com.ibm.icu.text.PluralRules.Operand;
 import com.ibm.icu.text.PluralRules.SampleType;
 import java.util.Collection;
 import java.util.Comparator;
@@ -20,6 +23,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Objects;
@@ -31,7 +35,6 @@ import java.util.function.BiFunction;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
-import org.unicode.cldr.icu.text.FixedDecimal;
 import org.unicode.cldr.util.PluralUtilities.KeySampleRanges;
 import org.unicode.cldr.util.PluralUtilities.SampleRange.SameIntegerCount;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
@@ -249,63 +252,78 @@ public class PluralUtilities {
      * An immutable value used for decimal numbers, targeted at use with plurals. These are similar
      * to FixedDecimals, but have additional capabilities, useful for CLDR. The number of digits is
      * limited to 19, whereby some of those can be fractional digits (including trailing zeros). Eg,
-     * 1.0 ≠ 1
+     * 1.0 ≠ 1 TODO make this a subclass of FixedDecimal?
      */
     public static class PluralSample implements Comparable<PluralSample> {
         private final long digits;
         private final int visibleDecimalCount;
-        private final int factor;
+        private final int exponent;
+        
+        private final int factor; // computed at construction
+        private final int integerDigitCount; // computed at construction
+
+        public int getExponent() {
+            return exponent;
+        }
 
         public long getDigits() {
             return digits;
         }
 
         public int getIntegerDigitCount() {
-            return digitCount(digits / factor);
+            return integerDigitCount;
         }
 
         public int getVisibleDecimalCount() {
             return visibleDecimalCount;
         }
 
-        public PluralSample(long digits, int fractionCount) {
+        public PluralSample(long digits, int fractionCount, int exponent) {
             this.digits = digits;
-            this.factor = pow10(fractionCount);
             this.visibleDecimalCount = fractionCount;
+            this.exponent = exponent;
+            factor = pow10(fractionCount);
+            integerDigitCount = digitCount(digits / factor);
         }
 
         public PluralSample(FixedDecimal fixedDecimal) {
             visibleDecimalCount = fixedDecimal.getVisibleDecimalDigitCount();
             factor = pow10(visibleDecimalCount);
-            digits = fixedDecimal.getIntegerValue() * factor + fixedDecimal.getDecimalDigits();
+            digits = (long)(fixedDecimal.getSource() * factor);
+            exponent = (int) fixedDecimal.getPluralOperand(Operand.e);
+            integerDigitCount = digitCount(digits / factor);
         }
 
         public FixedDecimal toFixedDecimal() {
-            return new FixedDecimal(digits, visibleDecimalCount);
+            return FixedDecimal.createWithExponent(digits / (double) factor, visibleDecimalCount, exponent);
         }
-
+        
         @Override
         public boolean equals(Object obj) {
             PluralSample that = (PluralSample) obj;
-            return digits == that.digits && visibleDecimalCount == that.visibleDecimalCount;
+            return digits == that.digits
+                    && visibleDecimalCount == that.visibleDecimalCount
+                    && exponent == that.exponent;
         }
 
         @Override
         public int hashCode() {
-            return (int) ((digits << 16) ^ visibleDecimalCount);
+            return (int) digits ^ (visibleDecimalCount << 16 + factor << 8 + exponent);
         }
 
         @Override
         public int compareTo(PluralSample other) {
             return Comparator.comparingInt(PluralSample::getVisibleDecimalCount)
                     .thenComparing(PluralSample::getDigits)
+                    .thenComparing(PluralSample::getExponent)
                     .compare(this, other);
         }
 
         public int compareTo(long digits, int fractionCount) {
             return Comparator.comparingInt(PluralSample::getVisibleDecimalCount)
                     .thenComparing(PluralSample::getDigits)
-                    .compare(this, new PluralSample(digits, fractionCount));
+                    .thenComparing(PluralSample::getExponent)
+                    .compare(this, new PluralSample(digits, fractionCount, 0));
         }
 
         /**
@@ -313,32 +331,79 @@ public class PluralUtilities {
          * 1, vdc=1 => 0.1, ...
          */
         public PluralSample next() {
-            return new PluralSample(digits + 1, visibleDecimalCount);
+            return new PluralSample(digits + 1, visibleDecimalCount, exponent);
         }
 
         /**
-         * Return a key composed of the integer digit count and visible decimal count. Used for
-         * buckets with compact decimals
+         * Return a key composed of the integer digit count, visible decimal count, and exponent.
+         * Used for buckets with compact decimals
          */
-        public int compactKey() {
-            return 100 * getIntegerDigitCount() + visibleDecimalCount;
-        }
-
-        @Override
-        public String toString() {
-            return format(digits, visibleDecimalCount);
-        }
-
         public Integer getKey() {
-            return compactKey();
+            return 10000 * integerDigitCount + 100 * visibleDecimalCount + exponent;
         }
 
         public Count getPluralCategory(PluralRules pluralRules) {
-            // TODO, implement IFixedDecimal to make this conversion unnecessary
-            FixedDecimal fd0 = new FixedDecimal(digits / (double) factor, visibleDecimalCount);
+            FixedDecimal fd0 =
+                    new FixedDecimal(digits / (double) factor, visibleDecimalCount, exponent);
             String keyword = pluralRules.select(fd0);
             return Count.valueOf(keyword);
         }
+
+        @Override
+        /**
+         * Formats a long scaled by visibleDigits. Doesn't use standard double etc formatting,
+         * because it is easier to control the formatting this way.
+         *
+         * @param value
+         * @return
+         */
+        public String toString() {
+            String result = String.valueOf(digits);
+            if (visibleDecimalCount == 0) {
+                //
+            } else if (visibleDecimalCount < result.length()) {
+                result =
+                        result.substring(0, result.length() - visibleDecimalCount)
+                                + "."
+                                + result.substring(result.length() - visibleDecimalCount);
+            } else {
+                result = "0." + "0".repeat(visibleDecimalCount - result.length()) + result;
+            }
+            return result + (exponent == 0 ? "" : "e" + exponent);
+        }
+    }
+
+    /**
+     * Formats a long scaled by visibleDigits. Doesn't use standard double etc formatting, because
+     * it is easier to control the formatting this way.
+     *
+     * @param value
+     * @return
+     */
+    //    public static String format(long value, int visibleDigits, int exponent) {
+    //        String result = String.valueOf(value);
+    //        if (visibleDigits == 0) {
+    //            //
+    //        } else if (visibleDigits < result.length()) {
+    //            result =
+    //                    result.substring(0, result.length() - visibleDigits)
+    //                            + "."
+    //                            + result.substring(result.length() - visibleDigits);
+    //        } else {
+    //            result = "0." + "0".repeat(visibleDigits - result.length()) + result;
+    //        }
+    //        return result + (exponent == 0 ? "" : "e" + exponent);
+    //    }
+
+    /** A visible format of the key for sorting samples. */
+    public static String showKey(Integer key) {
+        int intDigitCount = key / 10000;
+        int rem = key % 10000;
+        int visibleDecimalCount = rem / 100;
+        int exponent = rem % 100;
+        return "x".repeat(intDigitCount)
+                + (visibleDecimalCount == 0 ? "" : "." + "x".repeat(visibleDecimalCount))
+                + (exponent == 0 ? "" : "e" + exponent);
     }
 
     /** Utility for getting 10^exponent, with focus on small powers */
@@ -511,29 +576,8 @@ public class PluralUtilities {
     }
 
     /**
-     * Formats a long scaled by visibleDigits. Doesn't use standard double etc formatting, because
-     * it is easier to control the formatting this way.
-     *
-     * @param value
-     * @return
-     */
-    public static String format(long value, int visibleDigits) {
-        String result = String.valueOf(value);
-        if (visibleDigits == 0) {
-            return result;
-        } else if (visibleDigits < result.length()) {
-            return result.substring(0, result.length() - visibleDigits)
-                    + "."
-                    + result.substring(result.length() - visibleDigits);
-        } else {
-            return "0." + "0".repeat(visibleDigits - result.length()) + result;
-        }
-    }
-
-    /**
-     * Immutable class mapping keys to sample ranges. A key contains the number of integer digits
-     * (all but the last 2 digits) and the number of visible decimal digits (in the bottom two
-     * digits).
+     * Immutable class mapping keys to sample ranges. For the structure of a key, see
+     * PluralSample::getKey().
      */
     public static class KeySampleRanges implements Iterable<Entry<Integer, SampleRange>> {
         private final Multimap<Integer, SampleRange> ranges;
@@ -559,11 +603,15 @@ public class PluralUtilities {
                 return this;
             }
 
-            /** Only use if there can't be any overlap with other ranges */
-            public Builder addRange(int firstDigits, int secondDigts, int visible) {
+            /**
+             * Only use if there can't be any overlap with other ranges
+             *
+             * @param exponent TODO
+             */
+            public Builder addRange(int firstDigits, int secondDigts, int visible, int exponent) {
                 return addRange(
-                        new PluralSample(firstDigits, visible),
-                        new PluralSample(secondDigts, visible));
+                        new PluralSample(firstDigits, visible, exponent),
+                        new PluralSample(secondDigts, visible, exponent));
             }
 
             /** Only use if there can't be any overlap with other ranges */
@@ -641,33 +689,25 @@ public class PluralUtilities {
 
     public static final KeySampleRanges SAMPLE_RANGES_CARDINAL =
             KeySampleRanges.builder() // these use raw values!
-                    .addRange(0, 9, 0)
-                    .addRange(0, 90, 1)
-                    .addRange(0, 900, 2)
-                    .addRange(10, 99, 0)
-                    .addRange(100, 990, 1)
-                    .addRange(100, 999, 0)
-                    .addRange(1000, 9999, 0)
-                    .addRange(10000, 10099, 0)
-                    .addRange(100000, 100099, 0)
-                    .addRange(1000000, 1000099, 0)
-                    .addRange(10000000, 10000099, 0)
+                    .addRange(0, 9, 0, 0)
+                    .addRange(0, 90, 1, 0)
+                    .addRange(0, 900, 2, 0)
+                    .addRange(10, 99, 0, 0)
+                    .addRange(100, 990, 1, 0)
+                    .addRange(100, 999, 0, 0)
+                    .addRange(1000, 9999, 0, 0)
+                    .addRange(10000, 10099, 0, 0)
+                    .addRange(100000, 100099, 0, 0)
+                    .addRange(1000000, 1000099, 0, 0)
+                    .addRange(10000000, 10000099, 0, 0)
                     .build();
 
     public static final KeySampleRanges SAMPLE_RANGES_ORDINAL =
             KeySampleRanges.builder() // these use raw values!
-                    .addRange(0, 9, 0)
-                    .addRange(10, 99, 0)
-                    .addRange(100, 999, 0)
+                    .addRange(0, 9, 0, 0)
+                    .addRange(10, 99, 0, 0)
+                    .addRange(100, 999, 0, 0)
                     .build();
-
-    /** A visible format of the key for sorting samples. */
-    public static String showKey(Integer key) {
-        int intDigitCount = key / 100;
-        int visibleDecimalCount = key % 100;
-        return "x".repeat(intDigitCount)
-                + (visibleDecimalCount == 0 ? "" : "." + "x".repeat(visibleDecimalCount));
-    }
 
     static {
         if (DEBUG) {
@@ -989,5 +1029,107 @@ public class PluralUtilities {
 
     private static String getOldExamples(DecimalQuantitySamples exampleList) {
         return Joiner.on(", ").join(exampleList.getSamples()) + (exampleList.bounded ? "" : ", …");
+    }
+    
+    static final Pattern FIXED_DECIMAL_STRING = Pattern.compile("([0-9]+(?:\\.([0-9]+))?)(?:[eEcC]([0-9]+))?");
+    
+    public static FixedDecimal parseToFixedDecimal(String num) {
+        Matcher matcher = FIXED_DECIMAL_STRING.matcher(num);
+        if (!matcher.matches()) {
+            throw new IllegalArgumentException("Bad format: " + RegexUtilities.showMismatch(matcher, num));
+        }
+            String doubleStr = matcher.group(1);
+            String fractionDigitStr = matcher.group(2);
+            String exponentStr0 = matcher.group(3);
+
+            double n = Double.parseDouble(doubleStr);
+            int exponent = exponentStr0 == null ? 0 : Integer.parseInt(exponentStr0);
+            int v = fractionDigitStr == null ? 0 : fractionDigitStr.length() ;
+            long f = fractionDigitStr == null ? 0L : Long.parseLong(fractionDigitStr);
+            if (exponent == 0) {
+            } else  {
+//                Error: (TestPluralRuleGeneration.java:1008) : FD line 13, 1.20050c3, i: expected java.lang.Double<1200.0>, got java.lang.Double<1000.0>
+//                Error: (TestPluralRuleGeneration.java:1008) : FD line 13, 1.20050c3, v: expected java.lang.Double<2.0>, got java.lang.Double<5.0>
+//                Error: (TestPluralRuleGeneration.java:1008) : FD line 13, 1.20050c3, w: expected java.lang.Double<1.0>, got java.lang.Double<4.0>
+//                Error: (TestPluralRuleGeneration.java:1008) : FD line 13, 1.20050c3, f: expected java.lang.Double<50.0>, got java.lang.Double<20050.0>
+//                Error: (TestPluralRuleGeneration.java:1008) : FD line 13, 1.20050c3, t: expected java.lang.Double<5.0>, got java.lang.Double<2005.0>
+                int power = pow10(exponent);
+                n *= power;
+                f %= power;
+                v -= exponent;
+                if (v < 0) {
+                    v = 0;
+                }
+            } 
+            return new FixedDecimal(n, v, f, exponent);
+        }
+
+    private static String padEnd(String string, int minLength, char c) {
+        StringBuilder sb = new StringBuilder(minLength);
+        sb.append(string);
+        for (int i = string.length(); i < minLength; i++) {
+            sb.append(c);
+        }
+        return sb.toString();
+    }
+
+//    public static int getVisibleFractionCount(String value) {
+//        value = value.trim();
+//        int decimalPos = value.indexOf('.') + 1;
+//        if (decimalPos == 0) {
+//            return 0;
+//        } else {
+//            return value.length() - decimalPos;
+//        }
+//    }
+
+    /** 
+     * This is a copy of FixedDecimal.getFractionDigits, because the original is not public.
+     */
+    public static int getFractionalDigits(double n, int v) {
+        if (v == 0) {
+            return 0;
+        } else {
+            if (n < 0) {
+                n = -n;
+            }
+            int baseFactor = (int) Math.pow(10, v);
+            long scaled = Math.round(n * baseFactor);
+            return (int) (scaled % baseFactor);
+        }
+    }
+    
+    public static String toSampleString(IFixedDecimal source) {
+        final double n = source.getPluralOperand(Operand.n);
+        final int exponent = (int) source.getPluralOperand(Operand.e);
+        final int visibleDecimalDigitCount = (int) source.getPluralOperand(Operand.v);
+        if (exponent == 0) {
+            return String.format(Locale.ROOT, "%." + visibleDecimalDigitCount + "f", n);
+        } else {
+            // we need to slide the exponent back
+
+            int fixedV = visibleDecimalDigitCount + exponent;
+            String baseString =
+                    String.format(Locale.ROOT, "%." + fixedV + "f", n / Math.pow(10, exponent));
+
+            // HACK
+            // However, we don't have enough information to round-trip if v == 0
+            // So in that case we choose the shortest form,
+            // so we have to have a hack to strip trailing fraction spaces.
+            if (visibleDecimalDigitCount == 0) {
+                for (int i = visibleDecimalDigitCount; i < fixedV; ++i) {
+                    // TODO this code could and should be optimized, but for now...
+                    if (baseString.endsWith("0")) {
+                        baseString = baseString.substring(0, baseString.length() - 1);
+                        continue;
+                    }
+                    break;
+                }
+                if (baseString.endsWith(".")) {
+                    baseString = baseString.substring(0, baseString.length() - 1);
+                }
+            }
+            return baseString + "e" + exponent;
+        }
     }
 }

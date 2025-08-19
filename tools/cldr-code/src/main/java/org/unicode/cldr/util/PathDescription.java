@@ -79,10 +79,6 @@ public class PathDescription {
         }
     }
 
-    static String getPathDescriptionHintsString() {
-        return pathDescriptionHintsString;
-    }
-
     /** for tests */
     static RegexLookup<Pair<String, String>> getPathHandling() {
         return pathHandling;

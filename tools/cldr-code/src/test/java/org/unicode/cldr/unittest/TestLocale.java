@@ -605,7 +605,13 @@ public class TestLocale extends TestFmwkPlus {
 
                 canonicalizer.transform(ltp);
                 String name = cldrFile.nameGetter().getNameFromParserOpt(ltp, nameOpt);
-                if (assertEquals(cldrFile.getLocaleID() + "; " + localeId, expected, name)) {
+                if (assertEquals(
+                        cldrFile.getLocaleID()
+                                + "; "
+                                + localeId
+                                + " - run GenerateLocaleIDTestData",
+                        expected,
+                        name)) {
                     formattedExamplesForSpec
                             .append("<tr><td>")
                             .append(TransliteratorUtilities.toHTML.transform(localeId))

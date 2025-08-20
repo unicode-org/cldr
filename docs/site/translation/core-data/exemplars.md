@@ -75,7 +75,7 @@ The very last line shows an internal UnicodeSet format. You can normally ignore 
 
 The exemplar character sets contain the commonly used letters for a given modern form of a language. These are used for testing and for determining the appropriate repertoire of letters for various tasks, like choosing charset converters that can handle a given language. The term “letter” is interpreted broadly, and includes characters used to form words, such as 是 or 가. It should not include presentation forms, like [U+FE90](https://util.unicode.org/UnicodeJsps/character.jsp?a=FE90) ( ‎ﺐ‎ ) ARABIC LETTER BEH FINAL FORM, or isolated Jamo characters (for Hangul).
 
-- For charts of the standard (non-CJK) exemplar characters, see a chart of the [standard exemplar characters](https://www.unicode.org/cldr/charts/45/by_type/core_data.alphabetic_information.main.html).
+- For charts of the standard (non-CJK) exemplar characters, see a chart of the [standard exemplar characters](https://www.unicode.org/cldr/charts/latest/by_type/core_data.alphabetic_information.main.html).
 - For more information, please see [Section 5.6 Character Elements](http://unicode.org/reports/tr35/tr35-6.html#Character_Elements) in UTS#35: Locale Data Markup Language (LDML).
 
 There are different categories:

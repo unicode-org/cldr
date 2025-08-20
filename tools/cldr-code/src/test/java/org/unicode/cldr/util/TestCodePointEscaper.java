@@ -93,7 +93,8 @@ public class TestCodePointEscaper extends TestWithKnownIssues {
                         }
                         if (ph.getCode().startsWith("SAR")
                                 && logKnownIssue(
-                                        "CLDR-18334", "some random test failure, revisit")) {
+                                        "CLDR-18887",
+                                        "revisit unclear test message when currency changes")) {
                             continue;
                         }
                         ok = false;

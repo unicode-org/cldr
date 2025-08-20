@@ -294,6 +294,7 @@ warning, see info panel on right
 
 <!--
 This section is appended to every markdown fragment.
-All links should be https://cldr.unicode.org/translation/
-Currently, for hints, there are no reference links.
+All links should be cldr.unicode.org/translation/
+Currently, for hints, there are no actual reference links yet, but a "Placeholder" reference link is included for testing. 
 -->
+[Placeholder]: https://cldr.unicode.org/translation/units

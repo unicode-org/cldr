@@ -220,19 +220,19 @@ The name of the language variant with code {0}. For more information, please see
 
 - `^//ldml/characters/exemplarCharacters$`
 
-Defines the set of characters used in your language. _To change this item, you have to flag it for review\!_ See [Changing Protected Items](https://cldr.unicode.org/translation/getting-started/guide#change-protected-items). Before filing any tickets to request changes, be sure to also read [Exemplar Characters].
+Defines the set of characters used in your language. _To change this item, you have to flag it for review\!_ See [Changing Protected Items]. Before filing any tickets to request changes, be sure to also read [Exemplar Characters].
 
 ###
 
 - `^//ldml/characters/exemplarCharacters\[@type="([^"]*)"]`
 
-Defines the set of characters used in your language for the “{1}” category. _To change this item, you have to flag it for review\!_ See [Changing Protected Items](https://cldr.unicode.org/translation/getting-started/guide#change-protected-items). Before filing any tickets to request changes, be sure to also read [Exemplar Characters].
+Defines the set of characters used in your language for the “{1}” category. _To change this item, you have to flag it for review\!_ See [Changing Protected Items]. Before filing any tickets to request changes, be sure to also read [Exemplar Characters].
 
 ###
 
 - `^//ldml/characters/parseLenients`
 
-Defines sets of characters that are treated as equivalent in parsing. _To change this item, you have to flag it for review\!_ See [Changing Protected Items](https://cldr.unicode.org/translation/getting-started/guide#change-protected-items). Before filing any tickets to request changes, be sure to also read [Exemplar Characters].
+Defines sets of characters that are treated as equivalent in parsing. _To change this item, you have to flag it for review\!_ See [Changing Protected Items]. Before filing any tickets to request changes, be sure to also read [Exemplar Characters].
 
 ###
 
@@ -1087,9 +1087,10 @@ A set of keywords for a character or sequence. For more information, see [Short 
 
 <!--
 This section is appended to every markdown fragment.
-All links should be https://cldr.unicode.org/translation/
+All links should be cldr.unicode.org/translation/
 -->
 
+[Changing Protected Items]: https://cldr.unicode.org/translation/getting-started/guide#change-protected-items
 [Characters]: https://cldr.unicode.org/translation/characters
 [Character Labels]: https://cldr.unicode.org/translation/characters/character-labels
 [Compound Units]: https://cldr.unicode.org/translation/units/unit-names-and-patterns#compound-units

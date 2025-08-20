@@ -12,20 +12,42 @@ import org.junit.jupiter.params.provider.ValueSource;
 public class TestPathDescription {
     @Test
     public void testParseGiantString() {
+        parseOneString(PathDescription.pathDescriptionFileName);
+        parseOneString(PathDescription.pathDescriptionHintsFileName);
+    }
+
+    private void parseOneString(String fileName) {
+        final String bigString = PathDescription.getBigString(fileName);
         final PathDescriptionParser parser = new PathDescriptionParser();
-        RegexLookup<Pair<String, String>> lookup =
-                parser.parse(PathDescription.getPathDescriptionString());
+        final RegexLookup<Pair<String, String>> lookup = parser.parse(bigString);
+
         assertNotNull(lookup);
-        assertFalse(lookup.size() == 0, "lookup is empty");
+        assertNotEquals(0, lookup.size(), "lookup is empty");
+
         String references = parser.getReferences();
         assertNotNull(references);
-        assertFalse(parser.getReferences().trim().isEmpty());
-
+        assertFalse(references.trim().isEmpty());
         // To print out the regex tree:
         // System.out.println(lookup.toString());
         assertFalse(
-                parser.getReferences().contains("#h."),
-                "PathDescriptions.md refers to broken anchor #h.… (old Google Sites)");
+                references.contains("#h."),
+                fileName + " refers to broken anchor #h.… (old Google Sites)");
+
+        String badLine = containsHttpWithoutLeftBracket(bigString);
+        assertNull(
+                badLine,
+                fileName
+                        + " contains http in line that does not start with left bracket: "
+                        + badLine);
+    }
+
+    private String containsHttpWithoutLeftBracket(String s) {
+        for (String line : s.split("\\R")) {
+            if (!line.isBlank() && line.charAt(0) != '[' && line.contains("http")) {
+                return line;
+            }
+        }
+        return null;
     }
 
     @ParameterizedTest
@@ -36,7 +58,7 @@ public class TestPathDescription {
                 "//ldml/dates/timeZoneNames/zone[@type=\"Asia/Kuching\"]/exemplarCity"
             })
     public void testPresent(final String xpath) {
-        assertNotNull(PathDescription.getPathHandling().get(xpath), () -> xpath);
+        assertNotNull(PathDescription.getPathHandling().get(xpath), xpath);
     }
 
     @Test
@@ -73,13 +95,12 @@ public class TestPathDescription {
                         "Remaining placeholders (sampling of xpaths) from PathDescriptions.md:\n"
                                 + xpathsWithPlaceholders.entrySet().stream()
                                         .map(
-                                                e -> {
-                                                    return urls.forXpath(locale, e.getValue())
-                                                            + " "
-                                                            + e.getKey()
-                                                            + " "
-                                                            + e.getValue();
-                                                })
+                                                e ->
+                                                        urls.forXpath(locale, e.getValue())
+                                                                + " "
+                                                                + e.getKey()
+                                                                + " "
+                                                                + e.getValue())
                                         .collect(Collectors.joining("\n")));
     }
 }

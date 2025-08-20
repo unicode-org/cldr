@@ -18,13 +18,17 @@ import org.unicode.cldr.util.RegexLookup.Finder;
 
 public class PathDescription {
     /** Remember to quote any [ character! */
+    public static final String pathDescriptionFileName = "PathDescriptions.md";
+
+    public static final String pathDescriptionHintsFileName = "PathDescriptionHints.md";
+
     private static final String pathDescriptionString =
-            CldrUtility.getUTF8Data("PathDescriptions.md")
+            CldrUtility.getUTF8Data(pathDescriptionFileName)
                     .lines()
                     .collect(Collectors.joining("\n"));
 
     private static final String pathDescriptionHintsString =
-            CldrUtility.getUTF8Data("PathDescriptionHints.md")
+            CldrUtility.getUTF8Data(pathDescriptionHintsFileName)
                     .lines()
                     .collect(Collectors.joining("\n"));
 
@@ -64,8 +68,15 @@ public class PathDescription {
     private static final String references = parser.getReferences();
 
     /** for tests, returns the big string */
-    static String getPathDescriptionString() {
-        return pathDescriptionString;
+    static String getBigString(String fileName) {
+        switch (fileName) {
+            case pathDescriptionFileName:
+                return pathDescriptionString;
+            case pathDescriptionHintsFileName:
+                return pathDescriptionHintsString;
+            default:
+                throw new IllegalArgumentException();
+        }
     }
 
     /** for tests */

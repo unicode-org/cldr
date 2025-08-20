@@ -115,7 +115,6 @@ public class TestTransforms extends TestFmwkPlus {
 
     public void TestCyrillicLatin() {
         // this method only works for 'leaf' rule-based translators
-        register();
         Transliterator cyrillic_latin = Transliterator.getInstance("Cyrillic-Latin");
         Transliterator latin_cyrillic = cyrillic_latin.getInverse();
         checkSimpleRoundTrip(cyrillic_latin, latin_cyrillic, new UnicodeSet("[ӧӦ ӱӰӯӮ\\p{M}]"));
@@ -150,7 +149,6 @@ public class TestTransforms extends TestFmwkPlus {
     }
 
     public void TestUzbek() {
-        register();
         Transliterator cyrillicToLatin = Transliterator.getInstance("uz_Cyrl-uz_Latn");
         Transliterator latinToCyrillic = cyrillicToLatin.getInverse();
         // for (Transliterator t2 : t.getElements()) {
@@ -255,7 +253,6 @@ public class TestTransforms extends TestFmwkPlus {
     }
 
     public void TestBackslashHalfwidth() throws Exception {
-        register();
         // CLDRTransforms.registerCldrTransforms(null,
         // "(?i)(Fullwidth-Halfwidth|Halfwidth-Fullwidth)", isVerbose() ?
         // getLogPrintWriter() : null);
@@ -280,7 +277,7 @@ public class TestTransforms extends TestFmwkPlus {
 
     boolean registered = false;
 
-    void register() {
+    protected void init() throws Exception {
         if (!registered) {
             CLDRTransforms.registerCldrTransforms(
                     null, null, isVerbose() ? getLogPrintWriter() : null, true);
@@ -434,7 +431,6 @@ public class TestTransforms extends TestFmwkPlus {
     }
 
     public void Test1461() {
-        register();
 
         String[][] tests = {
             {"transliterator=", "Katakana-Latin"},
@@ -476,7 +472,6 @@ public class TestTransforms extends TestFmwkPlus {
     }
 
     public void Test8921() {
-        register();
         Transliterator trans = Transliterator.getInstance("Latin-ASCII");
         assertEquals("Test8921", "Kornil'ev Kirill", trans.transliterate("Kornilʹev Kirill"));
     }
@@ -536,7 +531,6 @@ public class TestTransforms extends TestFmwkPlus {
     }
 
     public void TestData() {
-        register();
         try {
             // get the folder name
             String name = TestTransforms.class.getResource(".").toString();
@@ -656,7 +650,6 @@ public class TestTransforms extends TestFmwkPlus {
     }
 
     public void TestCasing() {
-        register();
         String greekSource = "ΟΔΌΣ Οδός Σο ΣΟ oΣ ΟΣ σ ἕξ";
         // Transliterator.DEBUG = true;
         Transliterator elTitle =
@@ -792,19 +785,16 @@ public class TestTransforms extends TestFmwkPlus {
     }
 
     public void Test9925() {
-        register();
         Transliterator pinyin = getTransliterator("und-Latn-t-und-hani");
         assertEquals("賈 bug", "jiǎ", pinyin.transform("賈"));
     }
 
     public void TestHiraKata() { // for CLDR-13127 and ...
-        register();
         Transliterator hiraKata = getTransliterator("Hiragana-Katakana");
         assertEquals("Hira-Kata", hiraKata.transform("゛゜ わ゙ ゟ"), "゛゜ ヷ ヨリ");
     }
 
     public void TestHani() {
-        register();
         Transliterator haniLatn = getTransliterator("und-Latn-t-und-hani");
         Transliterator hansLatn1 = getTransliterator("und-Latn-t-und-hans");
         Transliterator hansLatn2 = getTransliterator("Hans-Latn");

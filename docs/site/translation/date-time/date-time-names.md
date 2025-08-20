@@ -126,8 +126,8 @@ The time span associated with each code is different for different languages!
 ![image](../../images/date-time/Screen-Shot-2015-06-22-at-12.14.47.png)  
 
 - It shows the time span (with a 24 hour clock) for the code, and then an example (for the format codes).
-	- You can also go to the web page [Day Periods](https://www.unicode.org/cldr/charts/45/supplemental/day_periods.html), and look for your language.
-	- For example, for Malayalam, you would go to ...[day\_periods.html#ml](https://www.unicode.org/cldr/charts/45/supplemental/day_periods.html#ml) , and see that **morning2** is the period that extends from **06:00** to **12:00**.
+	- You can also go to the web page [Day Periods](https://www.unicode.org/cldr/charts/latest/supplemental/day_periods.html), and look for your language.
+	- For example, for Malayalam, you would go to ...[day\_periods.html#ml](https://www.unicode.org/cldr/charts/latest/supplemental/day_periods.html#ml) , and see that **morning2** is the period that extends from **06:00** to **12:00**.
 
 |   | Code | English | German | Russian |
 |---|---|---|---|---|
@@ -169,7 +169,7 @@ In formatting, where your language has a term for midnight, it is used instead o
 
 These mark approximate periods in the day, _and those periods differ between languages_. The codes are arbitrary, and don't have to match the English meaning for your language: the important feature is the time span. The spans are approximate; in reality they may vary with the time of year (they might be dependent on sunrise), or context (someone might say they went to bed at 2 at night, and later one say that they woke up at 2 in the morning). 
 
-**For a list of the day period IDs defined in CLDR for your language, see [Day Periods](https://www.unicode.org/cldr/charts/45/supplemental/day_periods.html)**. If you think the rules are wrong (or missing) for your language, please [file a ticket](/requesting_changes#how-to-file-a-ticket) and supply the missing information. Here are examples for English and Chinese.
+**For a list of the day period IDs defined in CLDR for your language, see [Day Periods](https://www.unicode.org/cldr/charts/latest/supplemental/day_periods.html)**. If you think the rules are wrong (or missing) for your language, please [file a ticket](/requesting_changes#how-to-file-a-ticket) and supply the missing information. Here are examples for English and Chinese.
 
 | Code | English | Span | Chinese | Span |
 |---|---|---|---|---|

@@ -270,7 +270,7 @@ These new patterns are available in Gregorian and Generic calendars, In these ne
 	3. If the position needs to be different depending on the width of B, please file a ticket.
 2. For more information on the day periods used in your language:
 	1. First see [Day Periods (AM, PM, etc.)](/translation/date-time/date-time-names) for a general discussion of how day periods work.
-	2. See the [Day Periods](https://www.unicode.org/cldr/charts/45/supplemental/day_periods.html) chart for your language.
+	2. See the [Day Periods](https://www.unicode.org/cldr/charts/latest/supplemental/day_periods.html) chart for your language.
 
 ![image](../../images/date-time/ST-flexibledayperiod.JPG)
 

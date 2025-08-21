@@ -9,7 +9,7 @@ public class TestEn001Time {
 
     // TODO: for short timezone names, check that en_001 has “∅∅∅” iff en has a value, and
     // that en_001 otherwise has no short timezone names (except through inheritance).
-    // Reference: https://unicode-org.atlassian.net/browse/CLDR-14996
+    // Reference: https://unicode-org.atlassian.net/browse/CLDR-18909
     static final boolean CHECK_SHORT_TIMEZONE_NAMES = false;
     static final String TIME_FORMAT_PREFIX =
             "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/timeFormats/timeFormatLength";

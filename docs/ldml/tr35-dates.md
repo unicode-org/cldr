@@ -1511,6 +1511,15 @@ A metazone's display fields become a secondary fallback if an appropriate data f
 
 Note that the dates and times are specified in UTC, not local time.
 
+_usesMetazone_ can also optionally specify which offset is considered standard time, and which offset is considered daylight time. This is required for some zone such as `Europe/Dublin` where TZDB returns inconsistent results depending on platform/build mode etc.:
+
+```xml
+<timezone type="Europe/Dublin">
+    <usesMetazone mzone="Irish" to="1971-10-31 02:00" stdOffset="+00" dstOffset="+01"/>
+    <usesMetazone mzone="GMT" from="1971-10-31 02:00" stdOffset="+00" dstOffset="+01"/>
+</timezone>
+```
+
 The metazones can then have translations in different locale files, such as the following.
 
 ```xml
@@ -1580,6 +1589,8 @@ The `commonlyUsed` element is now deprecated. The CLDR committee has found it ne
 <!ATTLIST usesMetazone mzone NMTOKEN #REQUIRED >
 <!ATTLIST usesMetazone from CDATA #IMPLIED >
 <!ATTLIST usesMetazone to CDATA #IMPLIED >
+<!ATTLIST usesMetazone stdOffset CDATA #IMPLIED >
+<!ATTLIST usesMetazone dstOffset CDATA #IMPLIED >
 
 <!ELEMENT mapTimezones ( mapZone* ) >
 <!ATTLIST mapTimezones type NMTOKEN #IMPLIED >

@@ -479,6 +479,16 @@
 //supplementalData/metaZones/metazoneInfo/timezone[@type="%A"]/usesMetazone[@to="%A"]/_mzone			; Supplemental ; Metazone ; $1 ; -∞..$2 ; HIDE
 //supplementalData/metaZones/metazoneInfo/timezone[@type="%A"]/usesMetazone/_mzone			; Supplemental ; Metazone ; $1 ; -∞..∞ ; HIDE
 
+//supplementalData/metaZones/metazoneInfo/timezone[@type="%A"]/usesMetazone[@from="%A"][@to="%A"]/_stdOffset			; Supplemental ; Metazone ; $1-std-offset ; $2-$3 ; HIDE
+//supplementalData/metaZones/metazoneInfo/timezone[@type="%A"]/usesMetazone[@from="%A"]/_stdOffset			; Supplemental ; Metazone ; $1-std-offset ; $2..∞ ; HIDE
+//supplementalData/metaZones/metazoneInfo/timezone[@type="%A"]/usesMetazone[@to="%A"]/_stdOffset			; Supplemental ; Metazone ; $1-std-offset ; -∞..$2 ; HIDE
+//supplementalData/metaZones/metazoneInfo/timezone[@type="%A"]/usesMetazone/_stdOffset			; Supplemental ; Metazone ; $1-std-offset ; -∞..∞ ; HIDE
+
+//supplementalData/metaZones/metazoneInfo/timezone[@type="%A"]/usesMetazone[@from="%A"][@to="%A"]/_dstOffset			; Supplemental ; Metazone ; $1-dst-offset ; $2-$3 ; HIDE
+//supplementalData/metaZones/metazoneInfo/timezone[@type="%A"]/usesMetazone[@from="%A"]/_dstOffset			; Supplemental ; Metazone ; $1-dst-offset ; $2..∞ ; HIDE
+//supplementalData/metaZones/metazoneInfo/timezone[@type="%A"]/usesMetazone[@to="%A"]/_dstOffset			; Supplemental ; Metazone ; $1-dst-offset ; -∞..$2 ; HIDE
+//supplementalData/metaZones/metazoneInfo/timezone[@type="%A"]/usesMetazone/_dstOffset			; Supplemental ; Metazone ; $1-dst-offset ; -∞..∞ ; HIDE
+
 //supplementalData/metaZones/mapTimezones[@type="%A"]/mapZone[@other="%A"][@territory="%A"]/_type			; Supplemental ; Metazone ; $1 ; $2-$3 ; HIDE
 //supplementalData/metaZones/metazoneIds/metazoneId[@shortId="%A"]/_%E ; Supplemental ; Metazone ; $1 ; $2 ; HIDE
 //supplementalData/primaryZones/primaryZone[@iso3166="%A"]			; Supplemental ; Metazone ; Primary ; $1 ; HIDE

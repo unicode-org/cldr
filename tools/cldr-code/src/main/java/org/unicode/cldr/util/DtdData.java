@@ -1234,6 +1234,9 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         if (isTechPreview(current.name)) {
             b.append(COMMENT_PREFIX + "<!--@TECHPREVIEW-->");
         }
+        if (isCdataElement(current.name)) {
+            b.append(COMMENT_PREFIX + "<!--@CDATA-->");
+        }
         if (current.getElementStatus() != ElementStatus.regular) {
             b.append(
                     COMMENT_PREFIX

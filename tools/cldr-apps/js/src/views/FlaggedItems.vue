@@ -1,9 +1,10 @@
 <script setup>
-import { onMounted, ref, reactive } from "vue";
+import { onMounted, ref } from "vue";
 
-import * as cldrVettingParticipation from "../esm/cldrVettingParticipation.mjs";
+import * as cldrFlagged from "../esm/cldrFlagged.mjs";
+import * as cldrText from "../esm/cldrText.mjs";
 
-const STATUS = cldrVettingParticipation.Status;
+const STATUS = cldrFlagged.Status;
 
 let hasPermission = ref(false);
 let message = ref("");
@@ -12,11 +13,18 @@ let status = ref(STATUS.INIT);
 let tableBody = null;
 let tableHeader = null;
 let tableComments = null;
-let accountColumnIndex = ref(-1);
+let localeIdColumnIndex = ref(-1);
+let pathColumnIndex = ref(-1);
+let guidance = cldrText.get("flaggedGuidance");
+let totalCountText = cldrText.get("flaggedTotalCount");
+let gotTable = ref(false);
 
 function mounted() {
-  cldrVettingParticipation.viewMounted(setData);
-  hasPermission.value = Boolean(cldrVettingParticipation.hasPermission());
+  cldrFlagged.viewMounted(setData);
+  hasPermission.value = Boolean(cldrFlagged.hasPermission());
+  if (cldrFlagged.FLAGGED_RESPONSE_IS_FAST) {
+    start();
+  }
 }
 
 onMounted(mounted);
@@ -26,12 +34,12 @@ function start() {
     message.value = "";
     percent.value = 0;
     status.value = STATUS.WAITING;
-    cldrVettingParticipation.start();
+    cldrFlagged.start();
   }
 }
 
 function cancel() {
-  cldrVettingParticipation.cancel();
+  cldrFlagged.cancel();
   message.value = "";
   percent.value = 0;
   status.value = STATUS.STOPPED;
@@ -49,10 +57,14 @@ function setData(data) {
     status.value = data.status;
   }
   if (data.tableHeader && data.tableBody && data.tableComments) {
-    tableHeader = reactive(data.tableHeader);
-    tableBody = reactive(data.tableBody);
-    tableComments = reactive(data.tableComments);
-    accountColumnIndex.value = data.accountColumnIndex;
+    tableHeader = ref(data.tableHeader);
+    tableBody = ref(data.tableBody);
+    tableComments = ref(data.tableComments);
+    localeIdColumnIndex.value = data.localeIdColumnIndex;
+    pathColumnIndex.value = data.pathColumnIndex;
+    gotTable.value = true;
+  } else {
+    gotTable.value = false;
   }
 }
 
@@ -69,12 +81,17 @@ function progressBarStatus() {
   }
 }
 
-function accountRecentActivityLink(cell) {
-  return "#recent_activity///" + cell;
+function localeLink(localeId) {
+  return "#/" + localeId;
+}
+
+function pathLink(row, pathHeader) {
+  const localeId = row[localeIdColumnIndex.value];
+  return cldrFlagged.xpathLinkFromLocaleAndHeader(localeId, pathHeader);
 }
 
 function saveAsSheet() {
-  return cldrVettingParticipation.saveAsSheet();
+  return cldrFlagged.saveAsSheet();
 }
 
 defineExpose({
@@ -87,17 +104,23 @@ defineExpose({
     Please log in as a user with sufficient permissions.
   </div>
   <div v-else>
-    <p v-if="status != STATUS.INIT">Generation Status: {{ status }}</p>
-    <p class="buttons">
-      <button v-if="canCancel()" @click="cancel()">Cancel</button>
-      <button v-else @click="start()">Generate Table Now</button>
+    <p>
+      <i>{{ guidance }}</i>
     </p>
-    <p class="progressBar">
-      <a-progress :percent="percent" :status="progressBarStatus()" />
-    </p>
-    <p v-if="message">{{ message }}</p>
-    <hr />
-    <div v-if="tableHeader && tableComments && tableBody">
+    <div v-if="!cldrFlagged.FLAGGED_RESPONSE_IS_FAST">
+      <p v-if="status != STATUS.INIT">Generation Status: {{ status }}</p>
+      <p class="buttons">
+        <button v-if="canCancel()" @click="cancel()">Cancel</button>
+        <button v-else @click="start()">Generate Table Now</button>
+      </p>
+      <p class="progressBar">
+        <a-progress :percent="percent" :status="progressBarStatus()" />
+      </p>
+      <p v-if="message">{{ message }}</p>
+      <hr />
+    </div>
+    <div class="special_flagged" v-if="gotTable">
+      <h3>{{ totalCountText + tableBody.length }}</h3>
       <p class="buttons">
         <button @click="saveAsSheet">Save as Spreadsheet .xlsx</button>
       </p>
@@ -114,11 +137,14 @@ defineExpose({
         <tbody>
           <tr v-for="row of tableBody" :key="row">
             <td v-for="(cell, index) of row" :key="cell">
-              <div v-if="accountColumnIndex == index">
-                <a-tooltip title="Show recent activity ↗">
-                  <a :href="accountRecentActivityLink(cell)" target="_blank">{{
-                    cell
-                  }}</a>
+              <div v-if="localeIdColumnIndex == index">
+                <a-tooltip title="Show locale ↗">
+                  <a :href="localeLink(cell)" target="_blank">{{ cell }}</a>
+                </a-tooltip>
+              </div>
+              <div v-else-if="pathColumnIndex == index">
+                <a-tooltip title="Show path ↗">
+                  <a :href="pathLink(row, cell)" target="_blank">{{ cell }}</a>
                 </a-tooltip>
               </div>
               <div v-else>

@@ -142,7 +142,7 @@ public class CLDRPaths {
             CldrUtility.getPath(
                     CldrUtility.getProperty(
                             "CLDR_PRIVATE_DATA",
-                            CldrUtility.getPath(LOCAL_DIRECTORY, "../cldr-private/")));
+                            CldrUtility.getPath(LOCAL_DIRECTORY, "cldr-private/")));
     public static final String TMP_DIRECTORY =
             CldrUtility.getPath(
                     CldrUtility.getProperty(

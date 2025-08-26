@@ -3,6 +3,7 @@ name: cldr-mvn-deploy
 on:
   release:
     types: [created]
+  workflow_dispatch:
 jobs:
   mvn-deploy:
     runs-on: ubuntu-latest

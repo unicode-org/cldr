@@ -16,7 +16,7 @@ class DashData {
    *
    * @returns the new DashData object
    */
-  constructor() {
+  constructor(locale, coverageLevel) {
     this.entries = []; // array of DashEntry objects
     this.cats = new Set(); // set of category names, such as "Error"
     this.catSize = {}; // number of entries in each category
@@ -24,6 +24,8 @@ class DashData {
     // An object whose keys are xpstrid (xpath hex IDs like "db7b4f2df0427e4"), and whose values are DashEntry objects
     this.pathIndex = {};
     this.hiddenObject = null;
+    this.locale = locale;
+    this.coverageLevel = coverageLevel;
   }
 
   addEntriesFromJson(notifications) {
@@ -265,7 +267,7 @@ function doFetch(callback, opts) {
     .doFetch(url)
     .then(cldrAjax.handleFetchErrors)
     .then((data) => data.json())
-    .then(setData)
+    .then((json) => setData(json, locale))
     .catch((err) => {
       const msg = "Error loading Dashboard data: " + err;
       console.error(msg);
@@ -307,17 +309,17 @@ function getFetchError() {
  *
  * @return the modified/reorganized data as a DashData object
  */
-function setData(json) {
+function setData(json, locale) {
   cldrProgress.updateVoterCompletion(json);
-  const newData = convertData(json);
+  const newData = convertData(json, locale);
   if (viewSetDataCallback) {
     viewSetDataCallback(newData);
   }
   return newData;
 }
 
-function convertData(json) {
-  const newData = new DashData();
+function convertData(json, locale) {
+  const newData = new DashData(locale, json.coverageLevel);
   newData.setHidden(json.hidden);
   newData.addEntriesFromJson(json.notifications);
   return newData;
@@ -448,7 +450,7 @@ async function downloadXlsx(data, locale, cb) {
       }
     }
     const xpath = await getXpath();
-    const url = `https://st.unicode.org/cldr-apps/v#/${e.locale}/${e.page}/${e.xpstrid}`;
+    const url = `https://st.unicode.org/cldr-apps/v#/${locale}/${e.page}/${e.xpstrid}`;
     const cats = Array.from(e.cats).join(", ");
     ws_data.push([
       cats,

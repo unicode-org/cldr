@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -213,7 +213,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="↥" type="tts">חץ למעלה מהפס</annotation>
 		<annotation cp="↦">חץ ימינה מהפס</annotation>
 		<annotation cp="↦" type="tts">חץ ימינה מהפס</annotation>
-		<annotation cp="↧" draft="contributed">חץ למטה מהפס</annotation>
+		<annotation cp="↧">חץ למטה מהפס</annotation>
 		<annotation cp="↧" type="tts">חץ למטה מהפס</annotation>
 		<annotation cp="↨">בסיס | חץ | למעלה ולמטה</annotation>
 		<annotation cp="↨" type="tts">חץ למעלה למטה עם בסיס</annotation>
@@ -1079,7 +1079,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤏" type="tts">יד צובטת</annotation>
 		<annotation cp="✌">אצבעות | אצבעות מסמנות ניצחון | וי | יד | ניצחון | פיס</annotation>
 		<annotation cp="✌" type="tts">אצבעות מסמנות ניצחון</annotation>
-		<annotation cp="🤞" draft="contributed">אצבעות | בהצלחה | יד מחזיקה אצבעות | מחזיק</annotation>
+		<annotation cp="🤞">אצבעות | בהצלחה | יד מחזיקה אצבעות | מחזיק</annotation>
 		<annotation cp="🤞" type="tts">יד מחזיקה אצבעות</annotation>
 		<annotation cp="🫰">אהבה | אצבעות | יאללה | יקר | כסף | לצרוד | קליק באצבעות</annotation>
 		<annotation cp="🫰" type="tts">קליק באצבעות</annotation>
@@ -1183,6 +1183,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">אדם</annotation>
 		<annotation cp="👱">אדם | איש | בלונד | בלונדיני | בלורית | גבר | פנים</annotation>
 		<annotation cp="👱" type="tts">אדם עם שיער בלונדיני</annotation>
+		<annotation cp="🧑‍🩰">בלט | מחול | ריקוד | רקדנית</annotation>
+		<annotation cp="🧑‍🩰" type="tts">רקדן בלט</annotation>
 		<annotation cp="👨">איש | בחור | בן אדם | גבר | חבר | נער</annotation>
 		<annotation cp="👨" type="tts">איש</annotation>
 		<annotation cp="🧔">אדם | גבר | היפסטר | זקן | מזוקן</annotation>
@@ -2421,9 +2423,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎪" type="tts">אוהל קרקס</annotation>
 		<annotation cp="🚂">מנוע | קטר | קיטור | רכבת | תחבורה</annotation>
 		<annotation cp="🚂" type="tts">קטר</annotation>
-		<annotation cp="🚃">חשמלית | קרון | רכבת | תחבורה</annotation>
+		<annotation cp="🚃">חשמלית | טרוליבוס | מכונית | נסיעה | רכבת</annotation>
 		<annotation cp="🚃" type="tts">קרון רכבת</annotation>
-		<annotation cp="🚄">מהירה | מהירות | רכבת | תחבורה</annotation>
+		<annotation cp="🚄">מהירות גבוהה | רכבת | רכבת מהירה | שינקנסן</annotation>
 		<annotation cp="🚄" type="tts">רכבת מהירה</annotation>
 		<annotation cp="🚅">מהירה | מהירות | רכבת | רכבת מהירה עם חרטום בצורת קליע | תחבורה</annotation>
 		<annotation cp="🚅" type="tts">רכבת מהירה עם חרטום בצורת קליע</annotation>
@@ -3897,6 +3899,26 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="₽" type="tts">רובל</annotation>
 		<annotation cp="₿">BTC | ביטקוין</annotation>
 		<annotation cp="₿" type="tts">ביטקוין</annotation>
+		<annotation cp="0⃣">0 | אפס | מקש</annotation>
+		<annotation cp="0⃣" type="tts">מקש: 0</annotation>
+		<annotation cp="1⃣">1 | אחת | מקש</annotation>
+		<annotation cp="1⃣" type="tts">מקש: 1</annotation>
+		<annotation cp="2⃣">2 | מקש | שתיים</annotation>
+		<annotation cp="2⃣" type="tts">מקש: 2</annotation>
+		<annotation cp="3⃣">3 | מקש | שלוש</annotation>
+		<annotation cp="3⃣" type="tts">מקש: 3</annotation>
+		<annotation cp="4⃣">4 | ארבע | מקש</annotation>
+		<annotation cp="4⃣" type="tts">מקש: 4</annotation>
+		<annotation cp="5⃣">5 | חמש | מקש</annotation>
+		<annotation cp="5⃣" type="tts">מקש: 5</annotation>
+		<annotation cp="6⃣">6 | מקש | שש</annotation>
+		<annotation cp="6⃣" type="tts">מקש: 6</annotation>
+		<annotation cp="7⃣">7 | מקש | שבע</annotation>
+		<annotation cp="7⃣" type="tts">מקש: 7</annotation>
+		<annotation cp="8⃣">8 | מקש | שמונה</annotation>
+		<annotation cp="8⃣" type="tts">מקש: 8</annotation>
+		<annotation cp="9⃣">9 | מקש | תשע</annotation>
+		<annotation cp="9⃣" type="tts">מקש: 9</annotation>
 		<annotation cp="¹">אחת | הספרה אחת בכתב עילי | הערה | כתב עילי | מוקטן</annotation>
 		<annotation cp="¹" type="tts">הספרה אחת בכתב עילי</annotation>
 		<annotation cp="²">בריבוע | הספרה שתיים בכתב עילי | הערה | כתב עילי | מוקטן | שתיים</annotation>
@@ -3909,5 +3931,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="µ" type="tts">סמל מיקרו</annotation>
 		<annotation cp="﷼">מטבע | ריאל</annotation>
 		<annotation cp="﷼" type="tts">ריאל</annotation>
+		<annotation cp="🛘">אסון | הר | מפולת בוץ | מפולת שלגים | סכנה | סלעים | רעידת אדמה</annotation>
+		<annotation cp="🛘" type="tts">מפולת</annotation>
+		<annotation cp="🪊">ג׳אז | כלי נגינה | כלי נשיפה ממתכת | מוזיקה | סלייד | עצוב</annotation>
+		<annotation cp="🪊" type="tts">טרומבון</annotation>
+		<annotation cp="🪎">אבן חן | זהב | חפצי ערך | כסף | עושר | פרס | שלל | תכשיטים</annotation>
+		<annotation cp="🪎" type="tts">תיבת אוצר</annotation>
+		<annotation cp="🫈">ביגפוט | יטי | ענק | שיער | שעיר</annotation>
+		<annotation cp="🫈" type="tts">יצור שעיר</annotation>
+		<annotation cp="🫍">אוקיינוס ​​ | ימי | לוויתן</annotation>
+		<annotation cp="🫍" type="tts">אורקה</annotation>
+		<annotation cp="🫪">המום | חרדה | מופתע | נפוח | פאניקה | פגיע</annotation>
+		<annotation cp="🫪" type="tts">פרצוף מעוות</annotation>
+		<annotation cp="🫯">דיון | היאבקות | ויכוח | חילוקי דעות | מהומה | קטטה | קרב</annotation>
+		<annotation cp="🫯" type="tts">ענן קרב</annotation>
 	</annotations>
 </ldml>

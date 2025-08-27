@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
-Copyright © 1991-2017 Unicode, Inc.
+Copyright © 1991-2025 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -12,6 +12,61 @@ For terms of use, see http://www.unicode.org/copyright.html
     </identity>
     <rbnf>
         <rulesetGrouping type="SpelloutRules">
+            <rbnfRules><![CDATA[
+%spellout-numbering-year:
+-x: kaw >>;
+x.x: =0.0=;
+0: =%spellout-numbering=;
+10: << >>>;
+100: << >>>;
+1000: << >>>;
+10000: =%spellout-numbering=;
+%spellout-numbering:
+0: =%spellout-cardinal=;
+%spellout-cardinal:
+-x: kaw >>;
+x.x: << pɔw >>;
+0: hwee;
+1: koro;
+2: abien;
+3: abiasa;
+4: anan;
+5: anum;
+6: asia;
+7: asuon;
+8: awɔtwe;
+9: akron;
+10: du[->%%spellout-cardinal-tens>];
+20: aduonu[->%%spellout-cardinal-tens>];
+30: aduasa[->%%spellout-cardinal-tens>];
+40: adu<<[->%%spellout-cardinal-tens>];
+100: ­ɔha[-na-­>>];
+200: aha-<<[-na->>];
+1000: apem[-na->>];
+2000: mpem-<<[-na->>];
+100000: mpem-ɔha[-na->>];
+200000: mpem-aha-<<[-na->>];
+1000000: ɔpepepem-<<[-na->>];
+2000000: mpepepem-<<[-na->>];
+1000000000: ɔpepepepem-<<[-na->>];
+2000000000: mpepepepem-<<[-na->>];
+1000000000000: ɔpepepepepem-<<[-na->>];
+2000000000000: mpepepepepem-<<[-na->>];
+1000000000000000: ɔpepepepepepem-<<[-na->>];
+2000000000000000: mpepepepepepem-<<[-na->>];
+1000000000000000000: =#,##0=;
+%%spellout-cardinal-tens:
+0: ;
+1: biako;
+2: =%spellout-cardinal=;
+%spellout-ordinal:
+-x: kaw >>;
+x.x: =0.0=;
+0: a-ɛ-tɔ-so-hwee;
+1: a-ɛ-di-kane;
+2: a-ɛ-tɔ-so-=%spellout-cardinal=;
+]]></rbnfRules>
+            <!-- The following redundant ruleset elements have been deprecated and will be removed in the next release. Please use the rbnfRules contents instead. -->
             <ruleset type="spellout-numbering-year">
                 <rbnfrule value="-x">kaw →→;</rbnfrule>
                 <rbnfrule value="x.x">=0.0=;</rbnfrule>

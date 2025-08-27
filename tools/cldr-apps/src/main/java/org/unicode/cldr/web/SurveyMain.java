@@ -424,6 +424,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
     /** Ensure that CLDR Tools is functioning */
     private void ensureCldrToolsIsFunctioning() {
+        // Note: this method assumes that PathHeader.PageId.forString throws an exception if the
+        // name isn't recognized
         PathHeader.PageId.forString(PathHeader.PageId.Africa.name());
     }
 
@@ -1727,9 +1729,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         ctx.println("<a href='" + ctx.url() + "'>Locales</a><hr>");
         printRecentLocales(ctx);
         ctx.addQuery(QUERY_DO, "options");
-        ctx.println("<h2>Manage</h2>");
 
-        ctx.includeFragment("manage.jsp");
         printFooter(ctx);
     }
 

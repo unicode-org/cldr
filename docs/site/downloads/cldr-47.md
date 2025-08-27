@@ -255,6 +255,7 @@ The following changes are planned for CLDR 48. Please plan accordingly to avoid 
   - Non-subdivisions such as `AW`:  Use the region code `AW` instead for translation.
   - Overlong subdivisions such as `fi01`: Use the region code `AX` instead for translation.
 - [CLDR-18407][] Unexpected time formatting patterns in Assamese, reverted in [CLDR-18415][] and will be fixed once day period data is validated.
+- [CLDR-18367][] The wide formatted value for Sunday was reverted in Finnish. More investigation will need to be done on the datetime report in [CLDR-18441][]
 
 ## Acknowledgments
 
@@ -303,9 +304,11 @@ For web pages with different views of CLDR data, see [charts](/index/charts).
 [CLDR-18318]: https://unicode-org.atlassian.net/browse/CLDR-18318
 [CLDR-18319]: https://unicode-org.atlassian.net/browse/CLDR-18319
 [CLDR-18324]: https://unicode-org.atlassian.net/browse/CLDR-18324
+[CLDR-18367]: https://unicode-org.atlassian.net/browse/CLDR-18367
 [CLDR-18377]: https://unicode-org.atlassian.net/browse/CLDR-18377
 [CLDR-18407]: https://unicode-org.atlassian.net/browse/CLDR-18407
 [CLDR-18415]: https://unicode-org.atlassian.net/browse/CLDR-18415
+[CLDR-18441]: https://unicode-org.atlassian.net/browse/CLDR-18441
 
 <!-- CLDR 47 - 2025-03-13 - Release links-->
 [CLDR47]: https://unicode.org/Public/cldr/47/

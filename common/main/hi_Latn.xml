@@ -296,6 +296,8 @@ annotations.
 			<language type="ksf">↑↑↑</language>
 			<language type="ksh">↑↑↑</language>
 			<language type="ku">↑↑↑</language>
+			<language type="ku" menu="core">↑↑↑</language>
+			<language type="ku" menu="extension">↑↑↑</language>
 			<language type="kum">↑↑↑</language>
 			<language type="kut">↑↑↑</language>
 			<language type="kv">↑↑↑</language>
@@ -823,6 +825,7 @@ annotations.
 			<territory type="BZ">↑↑↑</territory>
 			<territory type="CA">↑↑↑</territory>
 			<territory type="CC">↑↑↑</territory>
+			<territory type="CC" alt="short">↑↑↑</territory>
 			<territory type="CD">↑↑↑</territory>
 			<territory type="CD" alt="variant">↑↑↑</territory>
 			<territory type="CF">↑↑↑</territory>
@@ -837,6 +840,7 @@ annotations.
 			<territory type="CN">↑↑↑</territory>
 			<territory type="CO">↑↑↑</territory>
 			<territory type="CP">↑↑↑</territory>
+			<territory type="CQ">↑↑↑</territory>
 			<territory type="CR">↑↑↑</territory>
 			<territory type="CU">↑↑↑</territory>
 			<territory type="CV">↑↑↑</territory>
@@ -984,6 +988,7 @@ annotations.
 			<territory type="PL">↑↑↑</territory>
 			<territory type="PM">St. Pierre &amp; Miquelon</territory>
 			<territory type="PN">↑↑↑</territory>
+			<territory type="PN" alt="short">↑↑↑</territory>
 			<territory type="PR">↑↑↑</territory>
 			<territory type="PS">↑↑↑</territory>
 			<territory type="PS" alt="short">↑↑↑</territory>
@@ -1112,23 +1117,42 @@ annotations.
 		</keys>
 		<types>
 			<type key="calendar" type="buddhist">↑↑↑</type>
+			<type key="calendar" type="buddhist" scope="core">↑↑↑</type>
 			<type key="calendar" type="chinese">↑↑↑</type>
+			<type key="calendar" type="chinese" scope="core">↑↑↑</type>
 			<type key="calendar" type="coptic">↑↑↑</type>
+			<type key="calendar" type="coptic" scope="core">↑↑↑</type>
 			<type key="calendar" type="dangi">↑↑↑</type>
+			<type key="calendar" type="dangi" scope="core">↑↑↑</type>
 			<type key="calendar" type="ethiopic">↑↑↑</type>
+			<type key="calendar" type="ethiopic" scope="core">↑↑↑</type>
 			<type key="calendar" type="ethiopic-amete-alem">↑↑↑</type>
+			<type key="calendar" type="ethiopic-amete-alem" scope="core">↑↑↑</type>
 			<type key="calendar" type="gregorian">↑↑↑</type>
+			<type key="calendar" type="gregorian" scope="core">↑↑↑</type>
 			<type key="calendar" type="hebrew">↑↑↑</type>
+			<type key="calendar" type="hebrew" scope="core">↑↑↑</type>
 			<type key="calendar" type="indian">↑↑↑</type>
+			<type key="calendar" type="indian" scope="core">↑↑↑</type>
 			<type key="calendar" type="islamic">↑↑↑</type>
+			<type key="calendar" type="islamic" scope="core">↑↑↑</type>
 			<type key="calendar" type="islamic-civil">↑↑↑</type>
+			<type key="calendar" type="islamic-civil" scope="core">↑↑↑</type>
 			<type key="calendar" type="islamic-umalqura">↑↑↑</type>
+			<type key="calendar" type="islamic-umalqura" scope="core">↑↑↑</type>
 			<type key="calendar" type="iso8601">↑↑↑</type>
+			<type key="calendar" type="iso8601" alt="variant">↑↑↑</type>
+			<type key="calendar" type="iso8601" scope="core">↑↑↑</type>
 			<type key="calendar" type="japanese">↑↑↑</type>
+			<type key="calendar" type="japanese" scope="core">↑↑↑</type>
 			<type key="calendar" type="persian">↑↑↑</type>
+			<type key="calendar" type="persian" scope="core">↑↑↑</type>
 			<type key="calendar" type="roc">↑↑↑</type>
+			<type key="calendar" type="roc" scope="core">↑↑↑</type>
 			<type key="cf" type="account">↑↑↑</type>
+			<type key="cf" type="account" scope="core">↑↑↑</type>
 			<type key="cf" type="standard">↑↑↑</type>
+			<type key="cf" type="standard" scope="core">↑↑↑</type>
 			<type key="colAlternate" type="non-ignorable">Symbols ko sort karein</type>
 			<type key="colAlternate" type="shifted">Symbols ko ignore karte hue sort karein</type>
 			<type key="colBackwards" type="no">Accents ko normally sort karein</type>
@@ -1139,19 +1163,31 @@ annotations.
 			<type key="colCaseLevel" type="no">Case insensitive sorting karein</type>
 			<type key="colCaseLevel" type="yes">Case sensitive sorting karein</type>
 			<type key="collation" type="compat">Compatibility ke liye, picchla sort order</type>
+			<type key="collation" type="compat" scope="core">↑↑↑</type>
 			<type key="collation" type="dictionary">Dictionary kaa sort order</type>
+			<type key="collation" type="dictionary" scope="core">↑↑↑</type>
 			<type key="collation" type="ducet">↑↑↑</type>
+			<type key="collation" type="ducet" scope="core">↑↑↑</type>
 			<type key="collation" type="eor">↑↑↑</type>
 			<type key="collation" type="phonebook">↑↑↑</type>
+			<type key="collation" type="phonebook" scope="core">↑↑↑</type>
 			<type key="collation" type="phonetic">↑↑↑</type>
+			<type key="collation" type="phonetic" scope="core">↑↑↑</type>
 			<type key="collation" type="pinyin">↑↑↑</type>
+			<type key="collation" type="pinyin" scope="core">↑↑↑</type>
 			<type key="collation" type="search">↑↑↑</type>
+			<type key="collation" type="search" scope="core">↑↑↑</type>
 			<type key="collation" type="searchjl">Hangul initial consonant se search karein</type>
 			<type key="collation" type="standard">↑↑↑</type>
+			<type key="collation" type="standard" scope="core">↑↑↑</type>
 			<type key="collation" type="stroke">↑↑↑</type>
+			<type key="collation" type="stroke" scope="core">↑↑↑</type>
 			<type key="collation" type="traditional">↑↑↑</type>
+			<type key="collation" type="traditional" scope="core">↑↑↑</type>
 			<type key="collation" type="unihan">↑↑↑</type>
+			<type key="collation" type="unihan" scope="core">↑↑↑</type>
 			<type key="collation" type="zhuyin">↑↑↑</type>
+			<type key="collation" type="zhuyin" scope="core">↑↑↑</type>
 			<type key="colNormalization" type="no">Bina normalization ke sort karein</type>
 			<type key="colNormalization" type="yes">Sort Unicode Normalized</type>
 			<type key="colNumeric" type="no">Digits ko alag-alag sort karein</type>
@@ -1169,8 +1205,11 @@ annotations.
 			<type key="d0" type="title">Titlecase</type>
 			<type key="d0" type="upper">Uppercase</type>
 			<type key="em" type="default">Emoji Characters ke liye Default Presentation use karein</type>
+			<type key="em" type="default" scope="core">↑↑↑</type>
 			<type key="em" type="emoji">Emoji Characters ke liye Emoji Presentation prefer karein</type>
+			<type key="em" type="emoji" scope="core">↑↑↑</type>
 			<type key="em" type="text">Emoji Characters ke liye Text Presentation prefer karein</type>
+			<type key="em" type="text" scope="core">↑↑↑</type>
 			<type key="fw" type="fri">Week kaa pahla din Friday</type>
 			<type key="fw" type="mon">Week kaa pahla din Monday</type>
 			<type key="fw" type="sat">Week kaa pahla din Saturday</type>
@@ -1179,47 +1218,69 @@ annotations.
 			<type key="fw" type="tue">Week kaa pahla din Tuesday</type>
 			<type key="fw" type="wed">Week kaa pahla din Wednesday</type>
 			<type key="hc" type="h11">12 Hour System (0–11)</type>
+			<type key="hc" type="h11" scope="core">↑↑↑</type>
 			<type key="hc" type="h12">12 Hour System (1–12)</type>
+			<type key="hc" type="h12" scope="core">↑↑↑</type>
 			<type key="hc" type="h23">24 Hour System (0–23)</type>
+			<type key="hc" type="h23" scope="core">↑↑↑</type>
 			<type key="hc" type="h24">24 Hour System (1–24)</type>
+			<type key="hc" type="h24" scope="core">↑↑↑</type>
 			<type key="lb" type="loose">↑↑↑</type>
+			<type key="lb" type="loose" scope="core">↑↑↑</type>
 			<type key="lb" type="normal">↑↑↑</type>
+			<type key="lb" type="normal" scope="core">↑↑↑</type>
 			<type key="lb" type="strict">↑↑↑</type>
+			<type key="lb" type="strict" scope="core">↑↑↑</type>
 			<type key="lw" type="breakall">Sabhi Words mein Line Breaks allow karein</type>
+			<type key="lw" type="breakall" scope="core">↑↑↑</type>
 			<type key="lw" type="keepall">Sabhi Words mein Line Breaks se bachein</type>
+			<type key="lw" type="keepall" scope="core">Sabhi rakhein</type>
 			<type key="lw" type="normal">Words ke liye normal Line Breaks</type>
+			<type key="lw" type="normal" scope="core">↑↑↑</type>
 			<type key="lw" type="phrase">Phrases mein Line Breaks se bachein</type>
+			<type key="lw" type="phrase" scope="core">Phrases mein rakhein</type>
 			<type key="m0" type="bgn">↑↑↑</type>
 			<type key="m0" type="prprname">↑↑↑</type>
 			<type key="m0" type="ungegn">↑↑↑</type>
 			<type key="ms" type="metric">↑↑↑</type>
+			<type key="ms" type="metric" scope="core">↑↑↑</type>
 			<type key="ms" type="uksystem">↑↑↑</type>
+			<type key="ms" type="uksystem" scope="core">↑↑↑</type>
 			<type key="ms" type="ussystem">↑↑↑</type>
+			<type key="ms" type="ussystem" scope="core">↑↑↑</type>
 			<type key="numbers" type="adlm">↑↑↑</type>
 			<type key="numbers" type="arab">↑↑↑</type>
 			<type key="numbers" type="arabext">↑↑↑</type>
+			<type key="numbers" type="arabext" scope="core">↑↑↑</type>
 			<type key="numbers" type="armn">↑↑↑</type>
 			<type key="numbers" type="armnlow">↑↑↑</type>
+			<type key="numbers" type="armnlow" scope="core">↑↑↑</type>
 			<type key="numbers" type="beng">Bangla Digits</type>
 			<type key="numbers" type="cakm">↑↑↑</type>
 			<type key="numbers" type="deva">↑↑↑</type>
 			<type key="numbers" type="ethi">↑↑↑</type>
 			<type key="numbers" type="finance">↑↑↑</type>
 			<type key="numbers" type="fullwide">↑↑↑</type>
+			<type key="numbers" type="fullwide" scope="core">↑↑↑</type>
 			<type key="numbers" type="geor">↑↑↑</type>
 			<type key="numbers" type="grek">↑↑↑</type>
 			<type key="numbers" type="greklow">↑↑↑</type>
+			<type key="numbers" type="greklow" scope="core">↑↑↑</type>
 			<type key="numbers" type="gujr">↑↑↑</type>
 			<type key="numbers" type="guru">↑↑↑</type>
 			<type key="numbers" type="hanidec">Chinese Decimal Numbers</type>
+			<type key="numbers" type="hanidec" scope="core">Positional decimal system ke liye digits ke taur par Chinese number ideographs kaa use</type>
 			<type key="numbers" type="hans">Simplified Chinese Numbers</type>
 			<type key="numbers" type="hansfin">Simplified Chinese Financial Numbers</type>
+			<type key="numbers" type="hansfin" scope="core">↑↑↑</type>
 			<type key="numbers" type="hant">Traditional Chinese Numbers</type>
 			<type key="numbers" type="hantfin">Traditional Chinese Financial Numbers</type>
+			<type key="numbers" type="hantfin" scope="core">↑↑↑</type>
 			<type key="numbers" type="hebr">Hebrew Numbers</type>
 			<type key="numbers" type="java">↑↑↑</type>
 			<type key="numbers" type="jpan">Japanese Numbers</type>
 			<type key="numbers" type="jpanfin">Japanese Financial Numbers</type>
+			<type key="numbers" type="jpanfin" scope="core">↑↑↑</type>
 			<type key="numbers" type="khmr">↑↑↑</type>
 			<type key="numbers" type="knda">↑↑↑</type>
 			<type key="numbers" type="laoo">↑↑↑</type>
@@ -1229,19 +1290,25 @@ annotations.
 			<type key="numbers" type="mtei">↑↑↑</type>
 			<type key="numbers" type="mymr">↑↑↑</type>
 			<type key="numbers" type="native">↑↑↑</type>
+			<type key="numbers" type="native" scope="core">↑↑↑</type>
 			<type key="numbers" type="olck">↑↑↑</type>
 			<type key="numbers" type="orya">Odia Digits</type>
 			<type key="numbers" type="roman">Roman Numbers</type>
+			<type key="numbers" type="roman" scope="core">↑↑↑</type>
 			<type key="numbers" type="romanlow">Roman Lowercase Numbers</type>
+			<type key="numbers" type="romanlow" scope="core">↑↑↑</type>
 			<type key="numbers" type="taml">Traditional Tamil Numbers</type>
 			<type key="numbers" type="tamldec">↑↑↑</type>
+			<type key="numbers" type="tamldec" scope="core">↑↑↑</type>
 			<type key="numbers" type="telu">↑↑↑</type>
 			<type key="numbers" type="thai">↑↑↑</type>
 			<type key="numbers" type="tibt">↑↑↑</type>
 			<type key="numbers" type="traditional">↑↑↑</type>
 			<type key="numbers" type="vaii">↑↑↑</type>
 			<type key="ss" type="none">↑↑↑</type>
+			<type key="ss" type="none" scope="core">↑↑↑</type>
 			<type key="ss" type="standard">↑↑↑</type>
+			<type key="ss" type="standard" scope="core">↑↑↑</type>
 			<type key="t0" type="und">↑↑↑</type>
 		</types>
 		<measurementSystemNames>
@@ -1260,7 +1327,10 @@ annotations.
 		<exemplarCharacters type="auxiliary" draft="contributed">[ā ḍ ĕē ḥ ī ḷ{l̥} ṁ{m̐} ñṅṇ ŏō ṛ{r̥}{r̥̄} śṣ ṭ ū]</exemplarCharacters>
 		<exemplarCharacters type="index">↑↑↑</exemplarCharacters>
 		<exemplarCharacters type="numbers">↑↑↑</exemplarCharacters>
+		<exemplarCharacters type="numbers-auxiliary" draft="contributed">↑↑↑</exemplarCharacters>
 		<exemplarCharacters type="punctuation">↑↑↑</exemplarCharacters>
+		<exemplarCharacters type="punctuation-auxiliary" draft="contributed">↑↑↑</exemplarCharacters>
+		<exemplarCharacters type="punctuation-person" draft="contributed">↑↑↑</exemplarCharacters>
 		<ellipsis type="final">↑↑↑</ellipsis>
 		<ellipsis type="initial">↑↑↑</ellipsis>
 		<ellipsis type="medial">↑↑↑</ellipsis>
@@ -1525,6 +1595,9 @@ annotations.
 						<dateTimeFormat type="atTime">
 							<pattern>{1}, {0} 'par'</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>{1} {0} 'par'</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
 						<dateTimeFormat>
@@ -1533,12 +1606,18 @@ annotations.
 						<dateTimeFormat type="atTime">
 							<pattern>{1}, {0} 'par'</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>{1} {0} 'par'</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="medium">
 						<dateTimeFormat>
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
@@ -1549,6 +1628,9 @@ annotations.
 						<dateTimeFormat type="atTime">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="Bh">↑↑↑</dateFormatItem>
@@ -1556,15 +1638,20 @@ annotations.
 						<dateFormatItem id="Bhms">h:mm.ss B</dateFormatItem>
 						<dateFormatItem id="d">↑↑↑</dateFormatItem>
 						<dateFormatItem id="E">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EBh">E, B h</dateFormatItem>
 						<dateFormatItem id="EBhm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EBhms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Eh">E, h a</dateFormatItem>
+
 						<dateFormatItem id="Ehm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EHm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ehms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EHms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Gy">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMEd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMMd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">↑↑↑</dateFormatItem>
@@ -1575,6 +1662,8 @@ annotations.
 						<dateFormatItem id="Hm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Hms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hv">h a, v</dateFormatItem>
+						<dateFormatItem id="Hv">HH'h', v</dateFormatItem>
 						<dateFormatItem id="M">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Md">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MEd">↑↑↑</dateFormatItem>
@@ -2096,7 +2185,10 @@ annotations.
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern>{1}, {0} 'baje'</pattern>
+							<pattern>{1}, {0} 'par'</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>{1}, {0} 'par'</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
@@ -2104,7 +2196,10 @@ annotations.
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern>{1}, {0} 'baje'</pattern>
+							<pattern>{1}, {0} 'par'</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>{1}, {0} 'par'</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="medium">
@@ -2112,6 +2207,9 @@ annotations.
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
@@ -2122,6 +2220,9 @@ annotations.
 						<dateTimeFormat type="atTime">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="Bh">↑↑↑</dateFormatItem>
@@ -2129,19 +2230,24 @@ annotations.
 						<dateFormatItem id="Bhms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="d">↑↑↑</dateFormatItem>
 						<dateFormatItem id="E">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EBh">E, B h</dateFormatItem>
 						<dateFormatItem id="EBhm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EBhms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Eh">E, h a</dateFormatItem>
+
 						<dateFormatItem id="Ehm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EHm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ehms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EHms">↑↑↑</dateFormatItem>
-						<dateFormatItem id="Gy">G y</dateFormatItem>
+						<dateFormatItem id="Gy">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMd">↑↑↑</dateFormatItem>
-						<dateFormatItem id="GyMMM">G y MMM</dateFormatItem>
-						<dateFormatItem id="GyMMMd">G y, d MMM</dateFormatItem>
-						<dateFormatItem id="GyMMMEd">G y, dd MMM, E</dateFormatItem>
-						<dateFormatItem id="GyMMMEEEEd">G y, dd MMMM, E</dateFormatItem>
+						<dateFormatItem id="GyMEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMMM">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMMMEEEEd">EEEE, d MMM, y G</dateFormatItem>
 						<dateFormatItem id="h">↑↑↑</dateFormatItem>
 						<dateFormatItem id="H">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hm">↑↑↑</dateFormatItem>
@@ -2152,6 +2258,8 @@ annotations.
 						<dateFormatItem id="Hmsv">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hmv">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Hmv">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hv">h a, v</dateFormatItem>
+						<dateFormatItem id="Hv">↑↑↑</dateFormatItem>
 						<dateFormatItem id="M">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Md">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MEd">↑↑↑</dateFormatItem>
@@ -3129,16 +3237,12 @@ annotations.
 			<hourFormat>↑↑↑</hourFormat>
 			<gmtFormat>↑↑↑</gmtFormat>
 			<gmtZeroFormat>↑↑↑</gmtZeroFormat>
+			<gmtUnknownFormat>↑↑↑</gmtUnknownFormat>
 			<regionFormat>↑↑↑</regionFormat>
 			<regionFormat type="daylight">↑↑↑</regionFormat>
 			<regionFormat type="standard">↑↑↑</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
 			<zone type="Pacific/Honolulu">
-				<short>
-					<generic>HST</generic>
-					<standard>↑↑↑</standard>
-					<daylight draft="contributed">↑↑↑</daylight>
-				</short>
 				<exemplarCity>Honolulu</exemplarCity>
 			</zone>
 			<zone type="Etc/UTC">
@@ -3492,6 +3596,9 @@ annotations.
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Easter">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Coyhaique">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Punta_Arenas">
@@ -4428,9 +4535,7 @@ annotations.
 			</metazone>
 			<metazone type="Africa_Western">
 				<long>
-					<generic>↑↑↑</generic>
 					<standard>↑↑↑</standard>
-					<daylight>↑↑↑</daylight>
 				</long>
 			</metazone>
 			<metazone type="Alaska">
@@ -4783,6 +4888,11 @@ annotations.
 				</long>
 			</metazone>
 			<metazone type="Guyana">
+				<long>
+					<standard>↑↑↑</standard>
+				</long>
+			</metazone>
+			<metazone type="Hawaii">
 				<long>
 					<standard>↑↑↑</standard>
 				</long>
@@ -5407,6 +5517,18 @@ annotations.
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
+		<rationalFormats numberSystem="deva">
+			<rationalPattern>↑↑↑</rationalPattern>
+			<integerAndRationalPattern>↑↑↑</integerAndRationalPattern>
+			<integerAndRationalPattern alt="superSub">↑↑↑</integerAndRationalPattern>
+			<rationalUsage>↑↑↑</rationalUsage>
+		</rationalFormats>
+		<rationalFormats numberSystem="latn">
+			<rationalPattern>↑↑↑</rationalPattern>
+			<integerAndRationalPattern>↑↑↑</integerAndRationalPattern>
+			<integerAndRationalPattern alt="superSub">↑↑↑</integerAndRationalPattern>
+			<rationalUsage>↑↑↑</rationalUsage>
+		</rationalFormats>
 		<scientificFormats numberSystem="deva">
 			<scientificFormatLength>
 				<scientificFormat>
@@ -5439,8 +5561,8 @@ annotations.
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="alphaNextToNumber">↑↑↑</pattern>
-					<pattern alt="noCurrency">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##,##0.00</pattern>
+					<pattern alt="noCurrency">#,##,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
@@ -5448,8 +5570,8 @@ annotations.
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
-					<pattern alt="noCurrency" draft="provisional">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##,##0.00</pattern>
+					<pattern alt="noCurrency">#,##,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>¤#,##,##0.00</pattern>
@@ -6523,6 +6645,12 @@ annotations.
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
+			<currency type="XCG">
+				<displayName>↑↑↑</displayName>
+				<displayName count="one">↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
 			<currency type="XOF">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
@@ -6559,6 +6687,12 @@ annotations.
 				<displayName count="other">↑↑↑</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="ZWG">
+				<displayName>↑↑↑</displayName>
+				<displayName count="one">↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 		</currencies>
 		<miscPatterns numberSystem="latn">
@@ -6798,6 +6932,11 @@ annotations.
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="concentr-part">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -6822,6 +6961,11 @@ annotations.
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-ofglucose">
+				<displayName>glucose level</displayName>
+				<unitPattern count="one">{0} kaa glucose level</unitPattern>
+				<unitPattern count="other">{0} kaa glucose level</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>↑↑↑</displayName>
@@ -7145,7 +7289,7 @@ annotations.
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-micrometer">
-				<displayName>micrometres</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -7360,6 +7504,11 @@ annotations.
 				<unitPattern count="one">{0} millimetre mercury</unitPattern>
 				<unitPattern count="other">{0} millimetres mercury</unitPattern>
 			</unit>
+			<unit type="pressure-ofhg">
+				<displayName>mercury level</displayName>
+				<unitPattern count="one">{0} kaa mercury level</unitPattern>
+				<unitPattern count="other">{0} kaa mercury level</unitPattern>
+			</unit>
 			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -7538,6 +7687,11 @@ annotations.
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="volume-fluid-ounce-metric">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -7634,6 +7788,71 @@ annotations.
 				<displayName>Imp. quarts</displayName>
 				<unitPattern count="one">{0} Imp. quart</unitPattern>
 				<unitPattern count="other">{0} Imp. quarts</unitPattern>
+			</unit>
+			<unit type="angle-steradian">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-katal">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-coulomb">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-farad">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-henry">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-siemens">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-calorie-it">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-becquerel">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-sievert">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-gray">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="force-kilogram-force">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="magnetic-tesla">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="magnetic-weber">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-gasoline-energy-density">
 				<displayName>gasoline equivalent</displayName>
@@ -7885,6 +8104,11 @@ annotations.
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="concentr-part">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -7906,6 +8130,11 @@ annotations.
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-mole">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-ofglucose">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -8447,6 +8676,11 @@ annotations.
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="pressure-ofhg">
+				<displayName>Hg level</displayName>
+				<unitPattern count="one">{0} kaa Hg level</unitPattern>
+				<unitPattern count="other">{0} kaa Hg level</unitPattern>
+			</unit>
 			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -8625,6 +8859,11 @@ annotations.
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="volume-fluid-ounce-metric">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -8699,7 +8938,7 @@ annotations.
 			</unit>
 			<unit type="volume-drop">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} drop</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} drop</unitPattern>
 			</unit>
 			<unit type="volume-dram">
@@ -8714,13 +8953,78 @@ annotations.
 			</unit>
 			<unit type="volume-pinch">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} pinch</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} pinch</unitPattern>
 			</unit>
 			<unit type="volume-quart-imperial">
 				<displayName>Imp. qt</displayName>
 				<unitPattern count="one">{0} Imp. qt</unitPattern>
 				<unitPattern count="other">{0} Imp. qt</unitPattern>
+			</unit>
+			<unit type="angle-steradian">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-katal">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-coulomb">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-farad">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-henry">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-siemens">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-calorie-it">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-becquerel">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-sievert">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-gray">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="force-kilogram-force">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="magnetic-tesla">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="magnetic-weber">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-gasoline-energy-density">
 				<displayName>↑↑↑</displayName>
@@ -8762,7 +9066,7 @@ annotations.
 				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p-6">
-				<unitPrefixPattern>μ {0}</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p-9">
 				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
@@ -8972,6 +9276,11 @@ annotations.
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="concentr-part">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -8993,6 +9302,11 @@ annotations.
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-mole">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-ofglucose">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -9534,6 +9848,11 @@ annotations.
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="pressure-ofhg">
+				<displayName>Hg level</displayName>
+				<unitPattern count="one">{0} kaa Hg level</unitPattern>
+				<unitPattern count="other">{0} kaa Hg level</unitPattern>
+			</unit>
 			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -9712,6 +10031,11 @@ annotations.
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="volume-fluid-ounce-metric">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -9808,6 +10132,71 @@ annotations.
 				<displayName>Imp qt</displayName>
 				<unitPattern count="one">{0}qt-Imp.</unitPattern>
 				<unitPattern count="other">{0}qt-Imp.</unitPattern>
+			</unit>
+			<unit type="angle-steradian">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-katal">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-coulomb">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-farad">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-henry">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-siemens">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-calorie-it">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-becquerel">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-sievert">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-gray">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="force-kilogram-force">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="magnetic-tesla">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="magnetic-weber">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-gasoline-energy-density">
 				<displayName>↑↑↑</displayName>

@@ -11,8 +11,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="blt"/>
 		<script type="Latn"/>
 	</identity>
+	<layout>
+		<orientation>
+			<characterOrder>left-to-right</characterOrder>
+		</orientation>
+	</layout>
 	<characters>
-		<exemplarCharacters>[aáăắẳảạặ b c dđ eéêếểẻẹệ g h iíỉị k l m n oóôốổỏơớởợọộ p q s t uúủưứửựụ v y ꞌ]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary">[àằẵâấầẫẩãậ èềễẽ f ìĩ j òồỗõờỡ r ùũừữ w x ýỳỹỷỵ z]</exemplarCharacters>
+		<exemplarCharacters draft="unconfirmed">[a ă b c {ch} d đ e ê g h i k {kh} l m n {ng} {ngh} {nh} o ô ơ p {ph} q s t {th} u ư v y \u0301 \u0309 \u0323 ꞌ]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary" draft="unconfirmed">[\u0300 \u0303 à ã ằ ẵ â ầ ẩ ẫ ấ ậ è ẽ ề ễ f ì ĩ j ò õ ṍ ồ ỗ ờ ỡ r ù ũ ừ ữ w x z]</exemplarCharacters>
+		<exemplarCharacters type="index" draft="unconfirmed">[A B C {CH} D Đ E G H I K {KH} L M N {NG} {NGH} {NH} O P {PH} Q S T {TH} U V]</exemplarCharacters>
+		<exemplarCharacters type="punctuation" draft="unconfirmed">[‑ , \: ! ? . ‘ ’ “ ” ( ) \[ \] #]</exemplarCharacters>
 	</characters>
 </ldml>

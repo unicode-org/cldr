@@ -439,6 +439,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Bhms">h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="E">ccc</dateFormatItem>
+						<dateFormatItem id="EBh">E h B</dateFormatItem>
 						<dateFormatItem id="EBhm">E h:mm B</dateFormatItem>
 						<dateFormatItem id="EBhms">E h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="Ed">d, E</dateFormatItem>
@@ -455,6 +456,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
 						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="hv">h a v</dateFormatItem>
+						<dateFormatItem id="Hv">HH'h' v</dateFormatItem>
 						<dateFormatItem id="M">L</dateFormatItem>
 						<dateFormatItem id="Md">MM-dd</dateFormatItem>
 						<dateFormatItem id="MEd">MM-dd, E</dateFormatItem>
@@ -911,7 +914,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern>GGGGG y-MM-dd</pattern>
+							<pattern>G y-MM-dd</pattern>
 							<datetimeSkeleton>GGGGGyMMdd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
@@ -970,15 +973,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Bhms">h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="E">ccc</dateFormatItem>
+						<dateFormatItem id="EBh">E h B</dateFormatItem>
 						<dateFormatItem id="EBhm">E h:mm B</dateFormatItem>
 						<dateFormatItem id="EBhms">E h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="Ed">d, E</dateFormatItem>
+						<dateFormatItem id="Eh">E h a</dateFormatItem>
+
 						<dateFormatItem id="Ehm">E h:mm a</dateFormatItem>
 						<dateFormatItem id="EHm">E HH:mm</dateFormatItem>
 						<dateFormatItem id="Ehms">E h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="EHms">E HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">G y</dateFormatItem>
-						<dateFormatItem id="GyMd">GGGGG y-MM-dd</dateFormatItem>
+						<dateFormatItem id="GyM">G y-MM</dateFormatItem>
+						<dateFormatItem id="GyMd">G y-MM-dd</dateFormatItem>
+						<dateFormatItem id="GyMEd">G y-MM-dd, E</dateFormatItem>
 						<dateFormatItem id="GyMMM">G y MMM</dateFormatItem>
 						<dateFormatItem id="GyMMMd">G y MMM d</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">G y MMM d, E</dateFormatItem>
@@ -988,6 +996,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
 						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="hv">h a v</dateFormatItem>
+						<dateFormatItem id="Hv">HH'h' v</dateFormatItem>
 						<dateFormatItem id="M">L</dateFormatItem>
 						<dateFormatItem id="Md">MM-dd</dateFormatItem>
 						<dateFormatItem id="MEd">MM-dd, E</dateFormatItem>
@@ -998,9 +1008,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">G y</dateFormatItem>
 						<dateFormatItem id="yyyy">G y</dateFormatItem>
-						<dateFormatItem id="yyyyM">GGGGG y-MM</dateFormatItem>
-						<dateFormatItem id="yyyyMd">GGGGG y-MM-dd</dateFormatItem>
-						<dateFormatItem id="yyyyMEd">GGGGG y-MM-dd, E</dateFormatItem>
+						<dateFormatItem id="yyyyM">G y-MM</dateFormatItem>
+						<dateFormatItem id="yyyyMd">G y-MM-dd</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">G y-MM-dd, E</dateFormatItem>
 						<dateFormatItem id="yyyyMMM">G y MMM</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd">G y MMM d</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">G y MMM d, E</dateFormatItem>
@@ -1040,21 +1050,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<greatestDifference id="y">G y–y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyM">
-							<greatestDifference id="G">GGGGG y-MM – GGGGG y-MM</greatestDifference>
-							<greatestDifference id="M">GGGGG y-MM – y-MM</greatestDifference>
-							<greatestDifference id="y">GGGGG y-MM – y-MM</greatestDifference>
+							<greatestDifference id="G">G y-MM – G y-MM</greatestDifference>
+							<greatestDifference id="M">G y-MM – y-MM</greatestDifference>
+							<greatestDifference id="y">G y-MM – y-MM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMd">
-							<greatestDifference id="d">GGGGG y-MM-dd – y-MM-dd</greatestDifference>
-							<greatestDifference id="G">GGGGG y-MM-dd – GGGGG y-MM-dd</greatestDifference>
-							<greatestDifference id="M">GGGGG y-MM-dd – y-MM-dd</greatestDifference>
-							<greatestDifference id="y">GGGGG y-MM-dd – y-MM-dd</greatestDifference>
+							<greatestDifference id="d">G y-MM-dd – y-MM-dd</greatestDifference>
+							<greatestDifference id="G">G y-MM-dd – G y-MM-dd</greatestDifference>
+							<greatestDifference id="M">G y-MM-dd – y-MM-dd</greatestDifference>
+							<greatestDifference id="y">G y-MM-dd – y-MM-dd</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMEd">
-							<greatestDifference id="d">GGGGG y-MM-dd, E – y-MM-dd, E</greatestDifference>
-							<greatestDifference id="G">GGGGG y-MM-dd, E – GGGGG y-MM-dd, E</greatestDifference>
-							<greatestDifference id="M">GGGGG y-MM-dd, E – y-MM-dd, E</greatestDifference>
-							<greatestDifference id="y">GGGGG y-MM-dd, E – y-MM-dd, E</greatestDifference>
+							<greatestDifference id="d">G y-MM-dd, E – y-MM-dd, E</greatestDifference>
+							<greatestDifference id="G">G y-MM-dd, E – G y-MM-dd, E</greatestDifference>
+							<greatestDifference id="M">G y-MM-dd, E – y-MM-dd, E</greatestDifference>
+							<greatestDifference id="y">G y-MM-dd, E – y-MM-dd, E</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMM">
 							<greatestDifference id="G">G y MMM – G y MMM</greatestDifference>
@@ -1131,18 +1141,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<greatestDifference id="y">G y–y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
-							<greatestDifference id="M">GGGGG y-MM – y-MM</greatestDifference>
-							<greatestDifference id="y">GGGGG y-MM – y-MM</greatestDifference>
+							<greatestDifference id="M">G y-MM – y-MM</greatestDifference>
+							<greatestDifference id="y">G y-MM – y-MM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
-							<greatestDifference id="d">GGGGG y-MM-dd – y-MM-dd</greatestDifference>
-							<greatestDifference id="M">GGGGG y-MM-dd – y-MM-dd</greatestDifference>
-							<greatestDifference id="y">GGGGG y-MM-dd – y-MM-dd</greatestDifference>
+							<greatestDifference id="d">G y-MM-dd – y-MM-dd</greatestDifference>
+							<greatestDifference id="M">G y-MM-dd – y-MM-dd</greatestDifference>
+							<greatestDifference id="y">G y-MM-dd – y-MM-dd</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMEd">
-							<greatestDifference id="d">GGGGG y-MM-dd, E – y-MM-dd, E</greatestDifference>
-							<greatestDifference id="M">GGGGG y-MM-dd, E – y-MM-dd, E</greatestDifference>
-							<greatestDifference id="y">GGGGG y-MM-dd, E – y-MM-dd, E</greatestDifference>
+							<greatestDifference id="d">G y-MM-dd, E – y-MM-dd, E</greatestDifference>
+							<greatestDifference id="M">G y-MM-dd, E – y-MM-dd, E</greatestDifference>
+							<greatestDifference id="y">G y-MM-dd, E – y-MM-dd, E</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
 							<greatestDifference id="M">G y MMM–MMM</greatestDifference>
@@ -1424,15 +1434,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Bhms">h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="E">ccc</dateFormatItem>
+						<dateFormatItem id="EBh">E h B</dateFormatItem>
 						<dateFormatItem id="EBhm">E h:mm B</dateFormatItem>
 						<dateFormatItem id="EBhms">E h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="Ed">d, E</dateFormatItem>
+						<dateFormatItem id="Eh">E h a</dateFormatItem>
+
 						<dateFormatItem id="Ehm">E h:mm a</dateFormatItem>
 						<dateFormatItem id="EHm">E HH:mm</dateFormatItem>
 						<dateFormatItem id="Ehms">E h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="EHms">E HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">G y</dateFormatItem>
-						<dateFormatItem id="GyMd">GGGGG y-MM-dd</dateFormatItem>
+						<dateFormatItem id="GyM">G y-MM</dateFormatItem>
+						<dateFormatItem id="GyMd">G y-MM-dd</dateFormatItem>
+						<dateFormatItem id="GyMEd">G y-MM-dd, E</dateFormatItem>
 						<dateFormatItem id="GyMMM">G y MMM</dateFormatItem>
 						<dateFormatItem id="GyMMMd">G y MMM d</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">G y MMM d, E</dateFormatItem>
@@ -1446,6 +1461,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Hmsv">HH:mm:ss v</dateFormatItem>
 						<dateFormatItem id="hmv">h:mm a v</dateFormatItem>
 						<dateFormatItem id="Hmv">HH:mm v</dateFormatItem>
+						<dateFormatItem id="hv">h a v</dateFormatItem>
+						<dateFormatItem id="Hv">HH'h' v</dateFormatItem>
 						<dateFormatItem id="M">L</dateFormatItem>
 						<dateFormatItem id="Md">MM-dd</dateFormatItem>
 						<dateFormatItem id="MEd">MM-dd, E</dateFormatItem>
@@ -1499,21 +1516,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<greatestDifference id="y">G y–y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyM">
-							<greatestDifference id="G">GGGGG y-MM – GGGGG y-MM</greatestDifference>
-							<greatestDifference id="M">GGGGG y-MM – y-MM</greatestDifference>
-							<greatestDifference id="y">GGGGG y-MM – y-MM</greatestDifference>
+							<greatestDifference id="G">G y-MM – G y-MM</greatestDifference>
+							<greatestDifference id="M">G y-MM – y-MM</greatestDifference>
+							<greatestDifference id="y">G y-MM – y-MM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMd">
-							<greatestDifference id="d">GGGGG y-MM-dd – y-MM-dd</greatestDifference>
-							<greatestDifference id="G">GGGGG y-MM-dd – GGGGG y-MM-dd</greatestDifference>
-							<greatestDifference id="M">GGGGG y-MM-dd – y-MM-dd</greatestDifference>
-							<greatestDifference id="y">GGGGG y-MM-dd – y-MM-dd</greatestDifference>
+							<greatestDifference id="d">G y-MM-dd – y-MM-dd</greatestDifference>
+							<greatestDifference id="G">G y-MM-dd – G y-MM-dd</greatestDifference>
+							<greatestDifference id="M">G y-MM-dd – y-MM-dd</greatestDifference>
+							<greatestDifference id="y">G y-MM-dd – y-MM-dd</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMEd">
-							<greatestDifference id="d">GGGGG y-MM-dd, E – y-MM-dd, E</greatestDifference>
-							<greatestDifference id="G">GGGGG y-MM-dd, E – GGGGG y-MM-dd, E</greatestDifference>
-							<greatestDifference id="M">GGGGG y-MM-dd, E – y-MM-dd, E</greatestDifference>
-							<greatestDifference id="y">GGGGG y-MM-dd, E – y-MM-dd, E</greatestDifference>
+							<greatestDifference id="d">G y-MM-dd, E – y-MM-dd, E</greatestDifference>
+							<greatestDifference id="G">G y-MM-dd, E – G y-MM-dd, E</greatestDifference>
+							<greatestDifference id="M">G y-MM-dd, E – y-MM-dd, E</greatestDifference>
+							<greatestDifference id="y">G y-MM-dd, E – y-MM-dd, E</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMM">
 							<greatestDifference id="G">G y MMM – G y MMM</greatestDifference>
@@ -1855,6 +1872,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</eraNames>
 					<eraAbbr>
 						<era type="0">AH</era>
+						<era type="1">BH</era>
 					</eraAbbr>
 					<eraNarrow>
 						<alias source="locale" path="../eraAbbr"/>
@@ -2050,18 +2068,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateTimeFormat type="atTime">
 							<alias source="locale" path="../dateTimeFormat[@type='standard']"/>
 						</dateTimeFormat>
-						<dateTimeFormat type="relative">
-							<alias source="locale" path="../dateTimeFormat[@type='standard']"/>
-						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
 						<dateTimeFormat>
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<alias source="locale" path="../dateTimeFormat[@type='standard']"/>
-						</dateTimeFormat>
-						<dateTimeFormat type="relative">
 							<alias source="locale" path="../dateTimeFormat[@type='standard']"/>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
@@ -2072,18 +2084,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateTimeFormat type="atTime">
 							<alias source="locale" path="../dateTimeFormat[@type='standard']"/>
 						</dateTimeFormat>
-						<dateTimeFormat type="relative">
-							<alias source="locale" path="../dateTimeFormat[@type='standard']"/>
-						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
 						<dateTimeFormat>
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<alias source="locale" path="../dateTimeFormat[@type='standard']"/>
-						</dateTimeFormat>
-						<dateTimeFormat type="relative">
 							<alias source="locale" path="../dateTimeFormat[@type='standard']"/>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
@@ -2139,7 +2145,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<appendItems>
 						<appendItem request="Day">{0} ({2}: {1})</appendItem>
 						<appendItem request="Day-Of-Week">{0} {1}</appendItem>
-						<appendItem request="Era">{0} {1}</appendItem>
+						<appendItem request="Era">{1} {0}</appendItem>
 						<appendItem request="Hour">{0} ({2}: {1})</appendItem>
 						<appendItem request="Minute">{0} ({2}: {1})</appendItem>
 						<appendItem request="Month">{0} ({2}: {1})</appendItem>
@@ -2147,7 +2153,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<appendItem request="Second">{0} ({2}: {1})</appendItem>
 						<appendItem request="Timezone">{0} {1}</appendItem>
 						<appendItem request="Week">{0} ({2}: {1})</appendItem>
-						<appendItem request="Year">{0} {1}</appendItem>
+						<appendItem request="Year">{1} {0}</appendItem>
 					</appendItems>
 					<intervalFormats>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
@@ -3731,6 +3737,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<symbols numberSystem="tnsa">
 			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
 		</symbols>
+		<symbols numberSystem="tols">
+			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
+		</symbols>
 		<symbols numberSystem="vaii">
 			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
 		</symbols>
@@ -3983,6 +3992,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
 		</decimalFormats>
 		<decimalFormats numberSystem="tnsa">
+			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
+		</decimalFormats>
+		<decimalFormats numberSystem="tols">
 			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
 		</decimalFormats>
 		<decimalFormats numberSystem="vaii">
@@ -4454,6 +4466,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<scientificFormats numberSystem="tnsa">
 			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
 		</scientificFormats>
+		<scientificFormats numberSystem="tols">
+			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
+		</scientificFormats>
 		<scientificFormats numberSystem="vaii">
 			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
 		</scientificFormats>
@@ -4691,6 +4706,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
 		</percentFormats>
 		<percentFormats numberSystem="tnsa">
+			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
+		</percentFormats>
+		<percentFormats numberSystem="tols">
 			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
 		</percentFormats>
 		<percentFormats numberSystem="vaii">
@@ -4974,6 +4992,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<currencyFormats numberSystem="tnsa">
 			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
 		</currencyFormats>
+		<currencyFormats numberSystem="tols">
+			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
+		</currencyFormats>
 		<currencyFormats numberSystem="vaii">
 			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
 		</currencyFormats>
@@ -5237,6 +5258,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 			<currency type="RWF">
 				<symbol alt="narrow">RF</symbol>
+			</currency>
+			<currency type="SAR" alt="variant">
+    			<symbol alt="variant">&#x20C1;</symbol>
 			</currency>
 			<currency type="SBD">
 				<symbol alt="narrow">$</symbol>
@@ -5545,6 +5569,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
 		</miscPatterns>
 		<miscPatterns numberSystem="tnsa">
+			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
+		</miscPatterns>
+		<miscPatterns numberSystem="tols">
 			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
 		</miscPatterns>
 		<miscPatterns numberSystem="vaii">

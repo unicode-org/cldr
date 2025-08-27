@@ -30,6 +30,7 @@ on:
       - '.github/workflows/gh-pages.yml'
 jobs:
   build:
+    name: "Build Github Pages"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -113,6 +114,7 @@ jobs:
           echo "::endgroup::"
           echo "Now go to https://cldr-smoke.unicode.org/spec/"$(basename ${GITHUB_REF_NAME})
   deploy:
+    name: "Deploy to GitHub Pages"
     # only deploy from main branch of main repo
     if: github.repository == 'unicode-org/cldr' && github.event_name == 'push' && github.ref == 'refs/heads/main'
     environment:

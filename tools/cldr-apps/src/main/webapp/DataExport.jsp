@@ -17,7 +17,7 @@
         response.sendRedirect(request.getContextPath());
         return;
     }
-    if (action.equals("list") && UserRegistry.userIsVetter(sess.user)) {
+    if (action.equals("list") && UserRegistry.userIsVetterOrStronger(sess.user)) {
         if ("ALL".equals(org)) {
             org = null;
         }

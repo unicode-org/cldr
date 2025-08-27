@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -201,7 +201,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="↠" type="tts">pil høgre med to mothakar</annotation>
 		<annotation cp="↡">mothakar | ned | pil | to</annotation>
 		<annotation cp="↡" type="tts">pil ned med to mothakar</annotation>
-		<annotation cp="↢">pil | styrefjær | venstre</annotation>
+		<annotation cp="↢">↑↑↑</annotation>
 		<annotation cp="↢" type="tts">↑↑↑</annotation>
 		<annotation cp="↣">høgre | pil | styrefjær</annotation>
 		<annotation cp="↣" type="tts">pil høgre med styrefjær</annotation>
@@ -213,27 +213,27 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="↦" type="tts">pil høgre frå loddrett strek</annotation>
 		<annotation cp="↧">frå | ned | pil | strek | vassrett</annotation>
 		<annotation cp="↧" type="tts">pil ned frå vassrett strek</annotation>
-		<annotation cp="↨">base | med | ned | opp | pil | underlag</annotation>
+		<annotation cp="↨">↑↑↑</annotation>
 		<annotation cp="↨" type="tts">↑↑↑</annotation>
-		<annotation cp="↫">løkke | pil | venstre</annotation>
+		<annotation cp="↫">↑↑↑</annotation>
 		<annotation cp="↫" type="tts">↑↑↑</annotation>
 		<annotation cp="↬">høgre | løkke | pil</annotation>
 		<annotation cp="↬" type="tts">pil høgre med løkke</annotation>
 		<annotation cp="↭">bølge | bølgje | bylgje | høgre | pil | toveis | venstre</annotation>
 		<annotation cp="↭" type="tts">bølgepil mot høgre og venstre</annotation>
-		<annotation cp="↯">ned | pil | sikksakk</annotation>
+		<annotation cp="↯">↑↑↑</annotation>
 		<annotation cp="↯" type="tts">↑↑↑</annotation>
-		<annotation cp="↰">opp | pil | spiss | venstre | vinkel</annotation>
+		<annotation cp="↰">↑↑↑</annotation>
 		<annotation cp="↰" type="tts">↑↑↑</annotation>
 		<annotation cp="↱">høgre | opp | pil | spiss | vinkel</annotation>
 		<annotation cp="↱" type="tts">pil opp med spiss mot høgre</annotation>
-		<annotation cp="↲">ned | pil | spiss | venstre | vinkel</annotation>
+		<annotation cp="↲">↑↑↑</annotation>
 		<annotation cp="↲" type="tts">↑↑↑</annotation>
 		<annotation cp="↳">høgre | ned | pil | spiss | vinkel</annotation>
 		<annotation cp="↳" type="tts">pil ned med spiss mot høgre</annotation>
 		<annotation cp="↴">hjørne | høgre | ned | pil | snur</annotation>
 		<annotation cp="↴" type="tts">pil høgre som snur ned</annotation>
-		<annotation cp="↵">hjørne | ned | pil | snur | venstre</annotation>
+		<annotation cp="↵">↑↑↑</annotation>
 		<annotation cp="↵" type="tts">↑↑↑</annotation>
 		<annotation cp="↶">halvsirkelpil mot klokka</annotation>
 		<annotation cp="↶" type="tts">halvsirkelpil mot klokka</annotation>
@@ -429,7 +429,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="∪" type="tts">↑↑↑</annotation>
 		<annotation cp="∫">integralteikn</annotation>
 		<annotation cp="∫" type="tts">integralteikn</annotation>
-		<annotation cp="∬">dobbelt integral | dobbeltintegraltegn | dobbeltintegralteikn | kalkulus | matematisk analyse</annotation>
+		<annotation cp="∬">dobbelt integral | dobbeltintegralteikn | kalkulus | matematisk analyse</annotation>
 		<annotation cp="∬" type="tts">dobbeltintegralteikn</annotation>
 		<annotation cp="∮">↑↑↑</annotation>
 		<annotation cp="∮" type="tts">↑↑↑</annotation>
@@ -1181,6 +1181,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑" type="tts">vaksen</annotation>
 		<annotation cp="👱">↑↑↑</annotation>
 		<annotation cp="👱" type="tts">↑↑↑</annotation>
+		<annotation cp="🧑‍🩰">ballett | dansar</annotation>
+		<annotation cp="🧑‍🩰" type="tts">ballettdansar</annotation>
 		<annotation cp="👨">mann | menneske | vaksen</annotation>
 		<annotation cp="👨" type="tts">↑↑↑</annotation>
 		<annotation cp="🧔">↑↑↑</annotation>
@@ -3895,6 +3897,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="₽" type="tts">rublar</annotation>
 		<annotation cp="₿">↑↑↑</annotation>
 		<annotation cp="₿" type="tts">↑↑↑</annotation>
+		<annotation cp="0⃣">0 | null | tastar</annotation>
+		<annotation cp="0⃣" type="tts">tastar: 0</annotation>
+		<annotation cp="1⃣">1 | éin | tastar</annotation>
+		<annotation cp="1⃣" type="tts">tastar: 1</annotation>
+		<annotation cp="2⃣">2 | tastar | to</annotation>
+		<annotation cp="2⃣" type="tts">tastar: 2</annotation>
+		<annotation cp="3⃣">3 | tastar | tre</annotation>
+		<annotation cp="3⃣" type="tts">tastar: 3</annotation>
+		<annotation cp="4⃣">4 | fire | tastar</annotation>
+		<annotation cp="4⃣" type="tts">tastar: 4</annotation>
+		<annotation cp="5⃣">5 | fem | tastar</annotation>
+		<annotation cp="5⃣" type="tts">tastar: 5</annotation>
+		<annotation cp="6⃣">6 | seks | tastar</annotation>
+		<annotation cp="6⃣" type="tts">tastar: 6</annotation>
+		<annotation cp="7⃣">7 | sju | tastar</annotation>
+		<annotation cp="7⃣" type="tts">tastar: 7</annotation>
+		<annotation cp="8⃣">8 | åtte | tastar</annotation>
+		<annotation cp="8⃣" type="tts">tastar: 8</annotation>
+		<annotation cp="9⃣">9 | ni | tastar</annotation>
+		<annotation cp="9⃣" type="tts">tastar: 9</annotation>
 		<annotation cp="¹">ein | første | heva | heva eittal | i første | opphøgd</annotation>
 		<annotation cp="¹" type="tts">heva eittal</annotation>
 		<annotation cp="²">andre | heva | heva total | kvadrat | opphøgd | to</annotation>
@@ -3907,5 +3929,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="µ" type="tts">mikroteikn</annotation>
 		<annotation cp="﷼">↑↑↑</annotation>
 		<annotation cp="﷼" type="tts">↑↑↑</annotation>
+		<annotation cp="🛘">fare | fjell | jordskjelv | katastrofe | lavine | skred | steinar</annotation>
+		<annotation cp="🛘" type="tts">↑↑↑</annotation>
+		<annotation cp="🪊">↑↑↑</annotation>
+		<annotation cp="🪊" type="tts">↑↑↑</annotation>
+		<annotation cp="🪎">edelsteinar | gull | juvelar | pengar | premie | rikdom | skatt | skattkiste | sølv | velstand | verdisaker</annotation>
+		<annotation cp="🪎" type="tts" draft="provisional">↑↑↑</annotation>
+		<annotation cp="🫈">↑↑↑</annotation>
+		<annotation cp="🫈" type="tts">↑↑↑</annotation>
+		<annotation cp="🫍">hav | kval | sjø</annotation>
+		<annotation cp="🫍" type="tts">spekkhoggar</annotation>
+		<annotation cp="🫪">angst | oppblåst | overraska | panikk | sårbar | sjokkert</annotation>
+		<annotation cp="🫪" type="tts">fordreidd fjes</annotation>
+		<annotation cp="🫯">bråk | bryting | diskusjon | krangel | slagsmål | slåssing | slåsskamp | usemje</annotation>
+		<annotation cp="🫯" type="tts">↑↑↑</annotation>
 	</annotations>
 </ldml>

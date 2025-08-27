@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1183,6 +1183,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">том хүн</annotation>
 		<annotation cp="👱">үс | хүн | шаргал | шаргал үстэй хүн</annotation>
 		<annotation cp="👱" type="tts">шаргал үстэй хүн</annotation>
+		<annotation cp="🧑‍🩰">баллет | бүжигчин</annotation>
+		<annotation cp="🧑‍🩰" type="tts">баллетчин</annotation>
 		<annotation cp="👨">хүн | эрэгтэй</annotation>
 		<annotation cp="👨" type="tts">эрэгтэй хүн</annotation>
 		<annotation cp="🧔">сахал | сахалтай хүн</annotation>
@@ -3897,6 +3899,26 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="₽" type="tts">рубль</annotation>
 		<annotation cp="₿">BTC | биткойн</annotation>
 		<annotation cp="₿" type="tts">биткойн</annotation>
+		<annotation cp="0⃣">0 | түлхүүрийн гэр | тэг</annotation>
+		<annotation cp="0⃣" type="tts">түлхүүрийн гэр: 0</annotation>
+		<annotation cp="1⃣">1 | нэг | түлхүүрийн гэр</annotation>
+		<annotation cp="1⃣" type="tts">түлхүүрийн гэр: 1</annotation>
+		<annotation cp="2⃣">2 | түлхүүрийн гэр | хоёр</annotation>
+		<annotation cp="2⃣" type="tts">түлхүүрийн гэр: 2</annotation>
+		<annotation cp="3⃣">3 | гурав | түлхүүрийн гэр</annotation>
+		<annotation cp="3⃣" type="tts">түлхүүрийн гэр: 3</annotation>
+		<annotation cp="4⃣">4 | дөрөв | түлхүүрийн гэр</annotation>
+		<annotation cp="4⃣" type="tts">түлхүүрийн гэр: 4</annotation>
+		<annotation cp="5⃣">5 | тав | түлхүүрийн гэр</annotation>
+		<annotation cp="5⃣" type="tts">түлхүүрийн гэр: 5</annotation>
+		<annotation cp="6⃣">6 | зургаа | түлхүүрийн гэр</annotation>
+		<annotation cp="6⃣" type="tts">түлхүүрийн гэр: 6</annotation>
+		<annotation cp="7⃣">7 | долоо | түлхүүрийн гэр</annotation>
+		<annotation cp="7⃣" type="tts">түлхүүрийн гэр: 7</annotation>
+		<annotation cp="8⃣">8 | найм | түлхүүрийн гэр</annotation>
+		<annotation cp="8⃣" type="tts">түлхүүрийн гэр: 8</annotation>
+		<annotation cp="9⃣">9 | ес | түлхүүрийн гэр</annotation>
+		<annotation cp="9⃣" type="tts">түлхүүрийн гэр: 9</annotation>
 		<annotation cp="¹">зэрэг | нэг | нэгийн зэрэг</annotation>
 		<annotation cp="¹" type="tts">нэгийн зэрэг</annotation>
 		<annotation cp="²">квадрат | хоёрын зэрэг</annotation>
@@ -3909,5 +3931,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="µ" type="tts">бичил тэмдэг</annotation>
 		<annotation cp="﷼">мөнгөн тэмдэгт | риал</annotation>
 		<annotation cp="﷼" type="tts">риал</annotation>
+		<annotation cp="🛘">аюул | газар хөдлөлт | гамшиг | нуранги | уул | хад чулуу | шаврын гулсалт</annotation>
+		<annotation cp="🛘" type="tts">нуранги</annotation>
+		<annotation cp="🪊">гулсах | гунигтай | гуулин үлээвэр хөгжим | жааз | хөгжим | хөгжмийн зэмсэг</annotation>
+		<annotation cp="🪊" type="tts">тромбон</annotation>
+		<annotation cp="🪎">алт | мөнгө | мөнгөн | олз | үнэт эдлэл | хөрөнгө | шагнал | эрдэнийн чулуу</annotation>
+		<annotation cp="🪎" type="tts">эрдэнэсийн авдар</annotation>
+		<annotation cp="🫈">домгийн амьтан | ой мод | саскуач | том хөлт | үлэмж биетэн | үсэрхэг | цасан хүн</annotation>
+		<annotation cp="🫈" type="tts">үсэрхэг амьтан</annotation>
+		<annotation cp="🫍">далай | тэнгис | халим</annotation>
+		<annotation cp="🫍" type="tts">хар далайн гахай</annotation>
+		<annotation cp="🫪">гайхсан | сандрал | түгшүүр | хөөсөн | цочирдсон | эмзэг, өртөмтгий</annotation>
+		<annotation cp="🫪" type="tts">гайхсан царай</annotation>
+		<annotation cp="🫯">зодоон | маргаан | мэтгэлцээн | ноцолдох | санал зөрөлдөх | үймээн | шуугиан</annotation>
+		<annotation cp="🫯" type="tts">бөөгнөрсөн зодолдоон</annotation>
 	</annotations>
 </ldml>

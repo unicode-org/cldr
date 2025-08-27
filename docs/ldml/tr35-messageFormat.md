@@ -7,7 +7,7 @@ linkify: true
 
 |Version|48 (draft)              |
 |-------|------------------------|
-|Editors|Addison Phillips and [other CLDR committee members](tr35.md#Acknowledgments)|
+|Editors|Addison Phillips and [other CLDR committee members](tr35-acknowledgments.md#acknowledgments)|
 
 For the full header, summary, and status, see [Part 1: Core](tr35.md).
 
@@ -46,7 +46,9 @@ The LDML specification is divided into the following parts:
 *   Part 6: [Supplemental](tr35-info.md#Contents) (supplemental data)
 *   Part 7: [Keyboards](tr35-keyboards.md#Contents) (keyboard mappings)
 *   Part 8: [Person Names](tr35-personNames.md#Contents) (person names)
-*   Part 9: [MessageFormat](tr35-messageFormat.md#Contents) (messageformat)
+*   Part 9: [MessageFormat](tr35-messageFormat.md#Contents) (message format)
+*   Appendix A: [Modifications](tr35-modifications.md#modifications)
+*   Appendix B: [Acknowledgments](tr35-acknowledgments.md#acknowledgments)
 
 ## <a name="Contents">Contents of Part 9, MessageFormat</a>
 
@@ -199,7 +201,7 @@ The LDML specification is divided into the following parts:
   * [`message.json`](#messagejson)
 * [Appendices](#appendices)
   * [Security Considerations](#security-considerations)
-  * [Acknowledgements](#acknowledgements)
+  * [Acknowledgments](#acknowledgments)
 
 ## Introduction
 
@@ -419,7 +421,7 @@ A **_<dfn>message</dfn>_** is the complete template for a specific message forma
 
 A **_<dfn>variable</dfn>_** is a _name_ associated to a _resolved value_.
 
-An **_<dfn>external variable</dfn>_** is a _variable_ 
+An **_<dfn>external variable</dfn>_** is a _variable_
 whose _name_ and initial value are supplied by the caller
 to MessageFormat or available in the _formatting context_.
 Only an _external variable_ can appear as an _operand_ in an _input declaration_.
@@ -436,13 +438,13 @@ A **_<dfn>local variable</dfn>_** is a _variable_ created as the result of a _lo
 > [!NOTE]
 > _Text_ and _quoted literals_ allow unpaired surrogate code points
 > (`U+D800` to `U+DFFF`).
-> This is for compatibility with formats or data structures 
-> that use the UTF-16 encoding 
+> This is for compatibility with formats or data structures
+> that use the UTF-16 encoding
 > and do not check for unpaired surrogates.
 > (Strings in Java or JavaScript are examples of this.)
 > Unpaired surrogate code points are likely an indication of mistakes
 > or errors in the creation, serialization, or processing of the _message_.
-> Many processes will convert them to 
+> Many processes will convert them to
 > &#xfffd; U+FFFD REPLACEMENT CHARACTER
 > during processing or display.
 > Implementations not based on UTF-16 might not be able to represent
@@ -535,8 +537,8 @@ input-declaration = input o variable-expression
 local-declaration = local s variable o "=" o expression
 ```
 
-_Variables_, once declared, MUST NOT be redeclared. 
-A _message_ that does any of the following is not _valid_ and will produce a 
+_Variables_, once declared, MUST NOT be redeclared.
+A _message_ that does any of the following is not _valid_ and will produce a
 _Duplicate Declaration_ error during processing:
 - A _declaration_ MUST NOT bind a _variable_
   that appears as a _variable_ anywhere within a previous _declaration_.
@@ -586,9 +588,9 @@ during the formatting process.
 
 #### Quoted Pattern
 
-A **_<dfn>quoted pattern</dfn>_** is a _pattern_ that is "quoted" to prevent 
-interference with other parts of the _message_. 
-A _quoted pattern_ starts with a sequence of two U+007B LEFT CURLY BRACKET `{{` 
+A **_<dfn>quoted pattern</dfn>_** is a _pattern_ that is "quoted" to prevent
+interference with other parts of the _message_.
+A _quoted pattern_ starts with a sequence of two U+007B LEFT CURLY BRACKET `{{`
 and ends with a sequence of two U+007D RIGHT CURLY BRACKET `}}`.
 
 ```abnf
@@ -656,7 +658,7 @@ Otherwise, care must be taken to ensure that pattern-significant whitespace is p
 >
 > ```properties
 > hello = {{   Hello   }}
-> hello2=\   Hello  \ 
+> hello2=\   Hello  \
 > ```
 
 #### Placeholder
@@ -963,7 +965,7 @@ markup = "{" o "#" identifier *(s option) *(s attribute) o ["/"] "}"  ; open and
 > {#button}Submit{/button} or {#img alt=|Cancel| /}.
 > ```
 
-> A _message_ containing _markup_ that uses _options_ to pair 
+> A _message_ containing _markup_ that uses _options_ to pair
 > two closing markup _placeholders_ to the one open markup _placeholder_:
 >
 > ```
@@ -1081,15 +1083,15 @@ literal          = quoted-literal / unquoted-literal
 quoted-literal   = "|" *(quoted-char / escaped-char) "|"
 unquoted-literal = 1*name-char
 ```
-The **_<dfn>string value</dfn>_** of a _literal_ 
+The **_<dfn>string value</dfn>_** of a _literal_
 for _unquoted literals_ is the text content of that _literal_;
-or for _quoted literals_, the text content of that _literal_ 
+or for _quoted literals_, the text content of that _literal_
 after removing the enclosing `|` characters
 then unescaping any escaped characters.
 
 #### Names and Identifiers
 
-A **_<dfn>name</dfn>_** is a character sequence used in an _identifier_ 
+A **_<dfn>name</dfn>_** is a character sequence used in an _identifier_
 or as the name for a _variable_
 or the value of an _unquoted literal_.
 
@@ -1124,7 +1126,7 @@ The _names_ are [immutable identifiers](https://www.unicode.org/reports/tr31/#Im
 An **_<dfn>identifier</dfn>_** is a character sequence that
 identifies a _function_, _markup_, or _option_.
 Each _identifier_ consists of a _name_ optionally preceeded by
-a **_<dfn>namespace</dfn>_**. 
+a **_<dfn>namespace</dfn>_**.
 When present, the _namespace_ is separated from the _name_ by a
 U+003A COLON `:`.
 Built-in _functions_ and their _options_ do not have a _namespace_ identifier.
@@ -1264,17 +1266,17 @@ backslash    = %x5C ; U+005C REVERSE SOLIDUS "\"
 
 When writing or generating a _message_, escape sequences SHOULD NOT be used
 unless required by the syntax.
-That is, inside _literals_ only escape `|` 
+That is, inside _literals_ only escape `|`
 and inside _patterns_ only escape `{` and `}`.
 
 #### Whitespace
 
 Outside of the _text_ parts of _patterns_ and outside of _quoted literals_
 the syntax limits whitespace characters to the following:
-`U+0009 CHARACTER TABULATION` (tab), 
+`U+0009 CHARACTER TABULATION` (tab),
 `U+000A LINE FEED` (new line),
-`U+000D CARRIAGE RETURN`, 
-`U+3000 IDEOGRAPHIC SPACE`, 
+`U+000D CARRIAGE RETURN`,
+`U+3000 IDEOGRAPHIC SPACE`,
 or `U+0020 SPACE`.
 
 In the _text_ parts of _patterns_ and in _quoted literals_,
@@ -1282,7 +1284,7 @@ whitespace is part of the content and is recorded and stored verbatim.
 Whitespace is not significant outside translatable text, except where required by the syntax.
 
 There are two whitespace productions in the syntax.
-**_<dfn>Optional whitespace</dfn>_** is whitespace that is not required by the syntax, 
+**_<dfn>Optional whitespace</dfn>_** is whitespace that is not required by the syntax,
 but which users might want to include to increase the readability of a _message_.
 **_<dfn>Required whitespace</dfn>_** is whitespace that is required by the syntax.
 
@@ -1292,13 +1294,13 @@ These can assist users in presenting _messages_ that contain right-to-left
 text, _literals_, or _names_ (including those for _functions_, _options_,
 _option values_, and _keys_)
 
-_Messages_ that contain right-to-left (aka RTL) characters SHOULD use one of the 
+_Messages_ that contain right-to-left (aka RTL) characters SHOULD use one of the
 following mechanisms to make messages display intelligibly in plain-text editors:
 
 1. Use paired isolating bidi controls `U+2066 LEFT-TO-RIGHT ISOLATE` ("LRI")
    and `U+2069 POP DIRECTIONAL ISOLATE` ("PDI") as permitted by the ABNF around
    parts of any _message_ containing RTL characters:
-   - _inside_ of _placeholder_ markers `{` and `}` 
+   - _inside_ of _placeholder_ markers `{` and `}`
    - _outside_ _quoted-pattern_ markers `{{` and `}}`
    - _outside_ of _variable_, _function_, _markup_, or _attribute_,
      including the identifying sigil (e.g. `<LRI>$var</PDI>` or `<LRI>:ns:name</PDI>`)
@@ -1319,7 +1321,7 @@ following mechanisms to make messages display intelligibly in plain-text editors
 >   (instead put them outside of quoted _patterns_, such as `<LRI>{{...}}<PDI>`)
 > - do not put them outside _placeholders_,
 >   (instead put them inside the _placeholder_, such as `{<LRI>$foo :number<PDI>}`)
->   
+>
 > Controls placed inside _literal_ quotes or quoted _patterns_ are part of the _literal_
 > or _pattern_.
 > Controls in a _pattern_ will appear in the output of the message.
@@ -1339,14 +1341,14 @@ These definitions of _whitespace_ implement
 [UAX#31 Requirement R3a-2](https://www.unicode.org/reports/tr31/#R3a-2).
 It is a profile of R3a-1 in that specification because:
 - The following pattern whitespace characters are not allowed:
-  `U+000B FORM FEED`, 
-  `U+000C VERTICAL TABULATION`, 
-  `U+0085 NEXT LINE`, 
-  `U+2028 LINE SEPARATOR` and 
+  `U+000B FORM FEED`,
+  `U+000C VERTICAL TABULATION`,
+  `U+0085 NEXT LINE`,
+  `U+2028 LINE SEPARATOR` and
   `U+2029 PARAGRAPH SEPARATOR`.
 - The character `U+3000 IDEOGRAPHIC SPACE`
   _is_ interpreted as whitespace.
- - The following directional marks and isolates 
+ - The following directional marks and isolates
    are treated as ignorable format controls:
    `U+061C ARABIC LETTER MARK`,
    `U+200E LEFT-TO-RIGHT MARK`,
@@ -1356,7 +1358,7 @@ It is a profile of R3a-1 in that specification because:
    `U+2068 FIRST STRONG ISOLATE`,
    and `U+2069 POP DIRECTIONAL ISOLATE`.
    (The character `U+061C` is an addition according to R3a.)
-   
+
 
 > [!NOTE]
 > The character U+3000 IDEOGRAPHIC SPACE is included in whitespace for
@@ -1386,7 +1388,7 @@ including the modifications found in [RFC 7405](https://www.rfc-editor.org/rfc/r
 
 RFC7405 defines a variation of ABNF that is case-sensitive.
 Some ABNF tools are only compatible with the specification found in
-[RFC 5234](https://www.rfc-editor.org/rfc/rfc5234). 
+[RFC 5234](https://www.rfc-editor.org/rfc/rfc5234).
 To make `message.abnf` compatible with that version of ABNF, replace
 the rules of the same name with this block:
 
@@ -1666,7 +1668,7 @@ was directly set with a _literal_, as opposed to being resolved from a _variable
 This is to allow _functions handlers_ to require specific _options_ to be set using _literals_.
 
 > For example, the _default functions_ `:number` and `:integer` require that the _option_
-> `select` be set with a _literal_ _option value_ (`plural`, `ordinal`, or `exact`). 
+> `select` be set with a _literal_ _option value_ (`plural`, `ordinal`, or `exact`).
 
 The form that _resolved values_ take is implementation-dependent,
 and different implementations MAY choose to perform different levels of resolution.
@@ -1865,7 +1867,7 @@ the following steps are taken:
    Specifically, if the cause of the failure was that the datatype, value, or format of the
    _operand_ did not match that expected by the _function_,
    the _function_ SHOULD cause a _Bad Operand_ error to be emitted.
-  
+
    In all failure cases, return a _fallback value_ as the _resolved value_ of the _expression_.
 
 ###### Function Handler
@@ -1903,7 +1905,7 @@ Implementation-defined _functions_ SHOULD use an implementation-defined _namespa
 ###### Option Resolution
 
 **_<dfn>Option resolution</dfn>_** is the process of computing the _options_
-for a given _expression_. 
+for a given _expression_.
 _Option resolution_ results in a mapping of string _identifiers_ to _resolved values_.
 The order of _options_ MUST NOT be significant.
 
@@ -2401,7 +2403,7 @@ and a U+007D RIGHT CURLY BRACKET `}`.
 
 #### Handling Bidirectional Text
 
-_Messages_ contain text. Any text can be 
+_Messages_ contain text. Any text can be
 [bidirectional text](https://www.w3.org/TR/i18n-glossary/#dfn-bidirectional-text).
 That is, the text can can consist of a mixture of left-to-right and right-to-left spans of text.
 The display of bidirectional text is defined by the
@@ -2420,9 +2422,9 @@ The directionality of the formatted _message_ as a whole is provided by the _for
 
 When a _message_ is formatted, _placeholders_ are replaced
 with their formatted representation.
-Applying the Unicode Bidirectional Algorithm to the text of a formatted _message_ 
+Applying the Unicode Bidirectional Algorithm to the text of a formatted _message_
 (including its formatted parts)
-can result in unexpected or undesirable 
+can result in unexpected or undesirable
 [spillover effects](https://www.w3.org/TR/i18n-glossary/#dfn-spillover-effects).
 Applying [bidi isolation](https://www.w3.org/TR/i18n-glossary/#dfn-bidi-isolation)
 to each affected formatted value helps avoid this spillover in a formatted _message_.
@@ -2439,7 +2441,7 @@ isolating such parts to ensure that the formatted value displays correctly in a 
 
 > For example, an implementation could provide a `:currency` formatting function
 > which inserts strongly directional characters, such as U+200F RIGHT-TO-LEFT MARK (RLM),
-> U+200E LEFT-TO-RIGHT MARK (LRM), or U+061C ARABIC LETTER MARKER (ALM), 
+> U+200E LEFT-TO-RIGHT MARK (LRM), or U+061C ARABIC LETTER MARKER (ALM),
 > to coerce proper display of the sign and currency symbol next to a formatted number.
 > An example of this is formatting the value `-1234.56` as the currency `AED`
 > in the `ar-AE` locale. The formatted value appears like this:
@@ -2449,7 +2451,7 @@ isolating such parts to ensure that the formatted value displays correctly in a 
 > The code point sequence for this string, as produced by the ICU4J `NumberFormat` function,
 > includes **U+200F U+200E** at the start and **U+200F** at the end of the string.
 > If it did not do this, the same string would appear like this instead:
-> 
+>
 > ![image](https://github.com/unicode-org/message-format-wg/assets/69082/6cc7f16f-8d9b-400b-a333-ae2ddb316edb)
 
 A **_<dfn>bidirectional isolation strategy<dfn>_** is functionality in the formatter's
@@ -2459,7 +2461,7 @@ The **_<dfn>Default Bidi Strategy<dfn>_** is a _bidirectional isolation strategy
 isolating Unicode control characters around _placeholder_'s formatted values.
 It is primarily intended for use in plain-text strings, where markup or other mechanisms
 are not available.
-Implementations MUST provide the _Default Bidi Strategy_ as one of the 
+Implementations MUST provide the _Default Bidi Strategy_ as one of the
 _bidirectional isolation strategies_.
 
 Implementations MAY provide other _bidirectional isolation strategies_.
@@ -2526,7 +2528,7 @@ The _Default Bidi Strategy_ is defined as follows:
 ## Errors
 
 Errors can occur during the processing of a _message_.
-Some errors can be detected statically, 
+Some errors can be detected statically,
 such as those due to problems with _message_ syntax,
 violations of requirements in the data model,
 or requirements defined by a _function_.
@@ -2551,15 +2553,15 @@ or _declarations_ that are never referenced during _formatting_.
 
 When formatting a _message_ with one or more errors,
 an implementation MUST provide a mechanism to discover and identify
-at least one of the errors. 
+at least one of the errors.
 The exact form of error signaling is implementation defined.
 Some examples include throwing an exception,
-returning an error code, 
+returning an error code,
 or providing a function or method for enumerating any errors.
 
 For all _valid_ _messages_,
 an implementation MUST enable a user to get a formatted result.
-The formatted result might include _fallback values_ 
+The formatted result might include _fallback values_
 such as when a _placeholder_'s _expression_ produced an error
 during formatting.
 
@@ -2811,7 +2813,7 @@ A **_<dfn>Message Function Error</dfn>_** is any error that occurs
 when calling a _function handler_
 or which depends on validation associated with a specific function.
 
-Implementations SHOULD provide a way for _function handlers_ to emit 
+Implementations SHOULD provide a way for _function handlers_ to emit
 (or cause to be emitted) any of the types of error defined in this section.
 Implementations MAY also provide implementation-defined _Message Function Error_ types.
 
@@ -2932,7 +2934,7 @@ Accepting a _function_ or its _options_ does not mean that a particular output i
 Implementations MAY emit an _Unsupported Operation_ error for _options_
 or _option values_ that they cannot support.
 
-_Functions_ can define _options_. 
+_Functions_ can define _options_.
 An _option_ can be REQUIRED or RECOMMENDED.
 
 Implementations MUST _accept_ each REQUIRED _default function_ and
@@ -2947,7 +2949,7 @@ Implementations SHOULD _accept_ _options_ that are marked as RECOMMENDED.
 Implementations MAY _accept_ _functions_ not defined in this specification.
 In addition, implementations SHOULD provide mechanisms for users to
 register and use user-defined _functions_ and their associated _function handlers_.
-Functions not defined by any version of this specification SHOULD use 
+Functions not defined by any version of this specification SHOULD use
 an implementation-defined or user-defined _namespace_.
 
 Implementations MAY implement additional _options_ not defined
@@ -3229,7 +3231,7 @@ The _function_ `:integer` performs selection as described in [Number Selection](
 
 > [!IMPORTANT]
 > The _function_ `:math` has a status of **Draft**.
-> It is proposed for inclusion in a future release of this specification and is not Stable. 
+> It is proposed for inclusion in a future release of this specification and is not Stable.
 
 The _function_ `:math` is proposed as a _selector_ and _formatter_ for matching or formatting
 numeric values to which a mathematical operation has been applied.
@@ -3680,7 +3682,7 @@ Some _options_ of number _functions_ are defined to take a _digit size option_.
 The _function handlers_ for number _functions_ use these _options_ to control aspects of numeric display
 such as the number of fraction, integer, or significant digits.
 
-A **_<dfn>digit size option</dfn>_** is an _option_ 
+A **_<dfn>digit size option</dfn>_** is an _option_
 whose _option value_ is interpreted by the _function_
 as a small integer greater than or equal to zero.
 Implementations MAY define an upper limit on the _resolved value_
@@ -4273,11 +4275,11 @@ Implementations are not required to use this data model for their internal repre
 Neither are they required to provide an interface that accepts or produces
 representations of this data model.
 
-The major reason this specification provides a data model is to allow interchange of 
+The major reason this specification provides a data model is to allow interchange of
 the logical representation of a _message_ between different implementations.
 This includes mapping legacy formatting syntaxes (such as MessageFormat 1)
 to a MessageFormat 2 implementation.
-Another use would be in converting to or from translation formats without 
+Another use would be in converting to or from translation formats without
 the need to continually parse and serialize all or part of a message.
 
 Implementations that expose APIs supporting the production, consumption, or transformation of a
@@ -4392,7 +4394,7 @@ including escape sequence processing.
 `Expression` wraps each of the potential _expression_ shapes.
 `Markup` wraps each of the potential _markup_ shapes.
 
-Implementations MUST NOT rely on the set of `Expression` and 
+Implementations MUST NOT rely on the set of `Expression` and
 `Markup` interfaces defined in this document being exhaustive.
 Future versions of this specification might define additional
 expressions or markup.
@@ -4471,7 +4473,7 @@ type Options = Map<string, Literal | VariableRef>;
 
 A `Markup` object has a `kind` of either `"open"`, `"standalone"`, or `"close"`,
 each corresponding to _open_, _standalone_, and _close_ _markup_.
-The `name` in these does not include the starting sigils `#` and `/` 
+The `name` in these does not include the starting sigils `#` and `/`
 or the ending sigil `/`.
 The `options` for markup use the same key-value mapping as `FunctionRef`.
 
@@ -4699,7 +4701,7 @@ to appear in a valid string.
 In many cases, certain types of characters, such as invisible control characters,
 require escaping by these host formats.
 In other cases, strings are not permitted to contain certain characters at all.
-Since _messages_ are subject to the restrictions and limitations of their 
+Since _messages_ are subject to the restrictions and limitations of their
 host environments, their serializations and resource formats,
 that might be sufficient to prevent most problems.
 However, MessageFormat itself does not supply such a restriction.
@@ -4713,16 +4715,16 @@ that abnormally affect the display of the _message_
 when viewed as source code, or in resource formats or translation tools,
 but do not generate errors from MessageFormat parsers or processing APIs.
 
-Bidirectional text containing right-to-left characters (such as used for Arabic or Hebrew) 
-also poses a potential source of confusion for users. 
-Since MessageFormat's syntax makes use of 
-keywords and symbols that are left-to-right or consist of neutral characters 
-(including characters subject to mirroring under the Unicode Bidirectional Algorithm), 
+Bidirectional text containing right-to-left characters (such as used for Arabic or Hebrew)
+also poses a potential source of confusion for users.
+Since MessageFormat's syntax makes use of
+keywords and symbols that are left-to-right or consist of neutral characters
+(including characters subject to mirroring under the Unicode Bidirectional Algorithm),
 it is possible to create messages that,
-when displayed in source code, or in resource formats or translation tools, 
+when displayed in source code, or in resource formats or translation tools,
 have a misleading appearance or are difficult to parse visually.
 
-For more information, see \[[UTS#55](https://unicode.org/reports/tr55/)\] 
+For more information, see \[[UTS#55](https://unicode.org/reports/tr55/)\]
 <cite>Unicode Source Code Handling</cite>.
 
 MessageFormat implementations might allow end-users to install
@@ -4733,34 +4735,34 @@ fingerprinting, and other types of bad behavior.
 Any installed code needs to be appropriately sandboxed.
 In addition, end-users need to be aware of the risks involved.
 
-### Acknowledgements
+### Acknowledgments
 
 Special thanks to the following people for their contributions to making MessageFormat 2.0.
 The following people contributed to our github repo and are listed in order by contribution size:
 
-Addison Phillips, 
-Eemeli Aro, 
-Romulo Cintra, 
-Stanisław Małolepszy, 
-Tim Chevalier, 
-Elango Cheran, 
-Richard Gibson, 
-Mihai Niță, 
-Mark Davis, 
-Steven R. Loomis, 
-Shane F. Carr, 
-Matt Radbourne, 
-Caleb Maclennan, 
-David Filip, 
-Daniel Minor, 
+Addison Phillips,
+Eemeli Aro,
+Romulo Cintra,
+Stanisław Małolepszy,
+Tim Chevalier,
+Elango Cheran,
+Richard Gibson,
+Mihai Niță,
+Mark Davis,
+Steven R. Loomis,
+Shane F. Carr,
+Matt Radbourne,
+Caleb Maclennan,
+David Filip,
+Daniel Minor,
 Christopher Dieringer,
 Bruno Haible,
 Danny Gleckler,
-George Rhoten, 
-Ujjwal Sharma, 
-Daniel Ehrenberg, 
-Markus Scherer, 
-Zibi Braniecki, 
+George Rhoten,
+Ujjwal Sharma,
+Daniel Ehrenberg,
+Markus Scherer,
+Zibi Braniecki,
 Lionel Rowe,
 Luca Casonato,
 and Rafael Xavier de Souza.

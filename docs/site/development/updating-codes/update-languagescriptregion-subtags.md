@@ -32,7 +32,10 @@ title: Update Language/Script/Region Subtags
     - Click **Full List of Country Codes**
     - Run the tool **CompareIso3166\_1Status**
     - Click on the "Officially Assigned" code type and also the "Other Codes" code type
-    - Compare total counts with tool output:  example "*formerly\_used \|\|  22*"  coinciding with 22 Formerly Used codes
+    - Compare total counts with tool output:  example "*officially_assigned \|\|  249*"  coinciding with 249 Officially Assigned codes
+        - Note 1: the counts are split, so you may need to add up all of the exceptionally_reserved codes etc
+        - Note 2: Some formerly used codes are used again, For example `BY` is both formerly used AND officially_assigned (reused).
+        - [CLDR-18912] was filed to cover the above two notes.
     - If something is wrong, you'll have to scroll through the code list and/or dig around for the updates
 - Check if ISO has done something destabilizing with codes: you need to handle it specially.
 - **Record the version: See [Updating External Metadata](/development/updating-codes/external-version-metadata)**
@@ -79,4 +82,4 @@ title: Update Language/Script/Region Subtags
     - You may also have to fix the coverageLevels.txt file for an error like:
     - Error: (TestCoverageLevel.java:604\) Comprehensive \& no exception for path \=\> //ldml/localeDisplayNames/territories/territory\[@type\="202"]
 
-
+- [CLDR-18912]: https://unicode-org.atlassian.net/browse/CLDR-18912

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1190,6 +1190,8 @@ annotations.
 		<annotation cp="🧑" type="tts">person</annotation>
 		<annotation cp="👱">blond | blond-haired | human | person</annotation>
 		<annotation cp="👱" type="tts">person: blond hair</annotation>
+		<annotation cp="🧑‍🩰">ballet | dancer</annotation> <!-- 1F9D1 200D 1FA70 -->
+		<annotation cp="🧑‍🩰" type="tts">ballet dancer</annotation>
 		<annotation cp="👨">adult | bro | man</annotation>
 		<annotation cp="👨" type="tts">man</annotation>
 		<annotation cp="🧔">beard | bearded | person | whiskers</annotation>
@@ -3904,6 +3906,26 @@ annotations.
 		<annotation cp="₽" type="tts">ruble</annotation>
 		<annotation cp="₿">bitcoin | BTC</annotation>
 		<annotation cp="₿" type="tts">bitcoin</annotation>
+		<annotation cp="0⃣">0 | keycap | zero</annotation>
+		<annotation cp="0⃣" type="tts">keycap: 0</annotation>
+		<annotation cp="1⃣">1 | keycap | one</annotation>
+		<annotation cp="1⃣" type="tts">keycap: 1</annotation>
+		<annotation cp="2⃣">2 | keycap | two</annotation>
+		<annotation cp="2⃣" type="tts">keycap: 2</annotation>
+		<annotation cp="3⃣">3 | keycap | three</annotation>
+		<annotation cp="3⃣" type="tts">keycap: 3</annotation>
+		<annotation cp="4⃣">4 | four | keycap</annotation>
+		<annotation cp="4⃣" type="tts">keycap: 4</annotation>
+		<annotation cp="5⃣">5 | five | keycap</annotation>
+		<annotation cp="5⃣" type="tts">keycap: 5</annotation>
+		<annotation cp="6⃣">6 | keycap | six</annotation>
+		<annotation cp="6⃣" type="tts">keycap: 6</annotation>
+		<annotation cp="7⃣">7 | keycap | seven</annotation>
+		<annotation cp="7⃣" type="tts">keycap: 7</annotation>
+		<annotation cp="8⃣">8 | eight | keycap</annotation>
+		<annotation cp="8⃣" type="tts">keycap: 8</annotation>
+		<annotation cp="9⃣">9 | keycap | nine</annotation>
+		<annotation cp="9⃣" type="tts">keycap: 9</annotation>
 		<annotation cp="¹">one | superscript</annotation>
 		<annotation cp="¹" type="tts">superscript one</annotation>
 		<annotation cp="²">squared | superscript | two</annotation>
@@ -3916,5 +3938,20 @@ annotations.
 		<annotation cp="µ" type="tts">micro sign</annotation>
 		<annotation cp="﷼">currency | rial</annotation>
 		<annotation cp="﷼" type="tts">rial</annotation>
+		<annotation cp="🛘">avalanche | danger | disaster | earthquake | mountain | mudslide | rocks</annotation> <!-- 1F6D8 -->
+		<annotation cp="🛘" type="tts">landslide</annotation>
+		<annotation cp="🪊">brass | instrument | jazz | music | sad | slide</annotation> <!-- 1FA8A -->
+		<annotation cp="🪊" type="tts">trombone</annotation>
+		<annotation cp="🪎">gem | gold | jewels | loot | money | prize | silver | valuables | wealth</annotation> <!-- 1FA8E -->
+		<annotation cp="🪎" type="tts">treasure chest</annotation>
+		<annotation cp="🫈">bigfoot | cryptid | forest | giant | hairy | sasquatch | woodwose | yeti</annotation> <!-- 1FAC8 -->
+		<annotation cp="🫈" type="tts">hairy creature</annotation>
+		<annotation cp="🫍">marine | ocean | whale</annotation> <!-- 1FACD -->
+		<annotation cp="🫍" type="tts">orca</annotation>
+		<!-- Generated lines from Emoji Data v17, using GenerateCldrData.java -->
+		<annotation cp="🫪">anxiety | bloated | panic | shocked | surprised | vulnerable</annotation> <!-- 1FAEA -->
+		<annotation cp="🫪" type="tts">distorted face</annotation>
+		<annotation cp="🫯">argument | brawl | debate | disagreement | fight | ruckus | wrestle</annotation> <!-- 1FAEF -->
+		<annotation cp="🫯" type="tts">fight cloud</annotation>
 	</annotations>
 </ldml>

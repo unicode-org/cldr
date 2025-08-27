@@ -13,6 +13,7 @@ import TestPanel from "../views/TestPanel.vue";
 import TransferVotes from "../views/TransferVotes.vue";
 import UnknownPanel from "../views/UnknownPanel.vue";
 import UploadPanel from "../views/UploadPanel.vue";
+import VettingParticipation from "../views/VettingParticipation.vue";
 import VettingParticipation2 from "../views/VettingParticipation2.vue";
 import VettingSummary from "../views/VettingSummary.vue";
 import WaitingPanel from "../views/WaitingPanel.vue";
@@ -25,6 +26,7 @@ const specialToComponentMap = {
   announcements: AnnouncePanel,
   add_user: AddUser,
   auto_import: AutoImport,
+  cla: SignCla,
   downgraded: DowngradedVotes,
   general: GeneralInfo, // see cldrLoad.GENERAL_SPECIAL
   generate_vxml: GenerateVxml,
@@ -36,9 +38,9 @@ const specialToComponentMap = {
   test_panel: TestPanel, // for testing
   transfervotes: TransferVotes,
   upload: UploadPanel,
+  vetting_participation: VettingParticipation,
   vetting_participation2: VettingParticipation2,
   vsummary: VettingSummary,
-  cla: SignCla,
   // If no match, end up here
   default: UnknownPanel,
 };

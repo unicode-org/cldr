@@ -187,7 +187,7 @@ public class LocaleNormalizer {
         if (localeList == null || (localeList = localeList.trim()).length() == 0) {
             return newSet;
         }
-        final String[] array = localeList.split("[, \t\u00a0\\s]+"); // whitespace
+        final String[] array = splitToArray(localeList);
         for (String s : array) {
             CLDRLocale locale = CLDRLocale.getInstance(s);
             if (knownLocales == null || knownLocales.contains(locale)) {
@@ -201,6 +201,14 @@ public class LocaleNormalizer {
             }
         }
         return newSet;
+    }
+
+    public static String[] splitToArray(String localeList) {
+        if (localeList == null || localeList.isEmpty()) {
+            return new String[0];
+        }
+        final String[] array = localeList.trim().split("[, \t\u00a0\\s]+"); // whitespace
+        return array;
     }
 
     private static LocaleSet intersectKnownWithOrgLocales(LocaleSet orgLocaleSet) {

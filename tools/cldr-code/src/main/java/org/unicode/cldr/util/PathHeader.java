@@ -92,7 +92,14 @@ public class PathHeader implements Comparable<PathHeader> {
          * Changes are allowed as READ_WRITE, but field is always displayed as LTR, even in RTL
          * locales (used for patterns).
          */
-        LTR_ALWAYS
+        LTR_ALWAYS;
+
+        /**
+         * @returns true if visible in surveytool
+         */
+        public final boolean visible() {
+            return (this != DEPRECATED && this != HIDE);
+        }
     }
 
     private static final EnumNames<SectionId> SectionIdNames = new EnumNames<>();
@@ -189,7 +196,7 @@ public class PathHeader implements Comparable<PathHeader> {
         Fields(SectionId.DateTime),
         Relative(SectionId.DateTime),
         Gregorian(SectionId.DateTime),
-        ISO8601(SectionId.DateTime, "ISO 8601"),
+        Gregorian_YMD(SectionId.DateTime, "Gregorian YMD"),
         Generic(SectionId.DateTime),
         Buddhist(SectionId.DateTime),
         Chinese(SectionId.DateTime),
@@ -347,8 +354,23 @@ public class PathHeader implements Comparable<PathHeader> {
         /**
          * Construct a pageId given a string
          *
-         * @param name
-         * @return
+         * @param name the name of a page, such as "Alphabetic Information"
+         * @return the PageId, or null
+         */
+        public static PageId fromString(String name) {
+            try {
+                return PageIdNames.forString(name);
+            } catch (Exception e) {
+                return null;
+            }
+        }
+
+        /**
+         * Construct a pageId given a string
+         *
+         * @param name the name of a page, such as "Alphabetic Information"
+         * @return the PageId
+         * @throws ICUException if the name is not recognized
          */
         public static PageId forString(String name) {
             try {
@@ -1238,7 +1260,7 @@ public class PathHeader implements Comparable<PathHeader> {
                                         .put("roc", "Minguo")
                                         .put("Ethioaa", "Ethiopic Amete Alem")
                                         .put("Gregory", "Gregorian")
-                                        .put("iso8601", "ISO 8601")
+                                        .put("iso8601", "Gregorian YMD")
                                         .freeze();
 
                         @Override
@@ -1531,6 +1553,10 @@ public class PathHeader implements Comparable<PathHeader> {
                                     || "ZZ".equals(theTerritory)) {
                                 if ("Etc/Unknown".equals(source0)) {
                                     theTerritory = "ZZ";
+                                    // TODO (ICU-23096): remove else-if branch below once ICU's
+                                    // snapshot version is uploaded.
+                                } else if ("America/Coyhaique".equals(source0)) {
+                                    theTerritory = "CL";
                                 } else {
                                     throw new IllegalArgumentException(
                                             "ICU needs zone update? Source: "

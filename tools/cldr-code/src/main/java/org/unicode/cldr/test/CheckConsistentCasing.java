@@ -301,7 +301,6 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
         for (Category category : Category.values()) {
             counters.put(category, new Counter<CasingType>());
         }
-        PathStarrer starrer = new PathStarrer();
         boolean isRoot = "root".equals(resolved.getLocaleID());
         Set<String> missing = !DEBUG ? null : new TreeSet<>();
 
@@ -323,7 +322,7 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
                 CasingType ft = CasingType.from(value);
                 counters.get(category).add(ft, 1);
             } else if (DEBUG) {
-                String starred = starrer.set(path);
+                String starred = PathStarrer.get(path);
                 missing.add(starred);
             }
         }

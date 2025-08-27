@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1011,7 +1011,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💙" type="tts">mėlyna širdelė</annotation>
 		<annotation cp="🩵">aš tave myliu | emocija | meilė | miela | patinka | širdis | šviesiai mėlyna | šviesiai mėlyna širdelė | žalsvai mėlyna | žydra</annotation>
 		<annotation cp="🩵" type="tts">šviesiai mėlyna širdelė</annotation>
-		<annotation cp="💜">purpurinė | širdelė</annotation>
+		<annotation cp="💜">aš tave myliu | emocija | meilė | širdelė | violetinė</annotation>
 		<annotation cp="💜" type="tts">purpurinė širdelė</annotation>
 		<annotation cp="🤎">ruda | širdelė</annotation>
 		<annotation cp="🤎" type="tts">ruda širdelė</annotation>
@@ -1183,6 +1183,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">suaugusysis</annotation>
 		<annotation cp="👱">asmuo | šviesiaplaukis | veidas | žmogus</annotation>
 		<annotation cp="👱" type="tts">šviesiaplaukis žmogus</annotation>
+		<annotation cp="🧑‍🩰">baletas | šokėjas</annotation>
+		<annotation cp="🧑‍🩰" type="tts">baleto šokėjas</annotation>
 		<annotation cp="👨">berniukas | draugas | vaikinas | vyras</annotation>
 		<annotation cp="👨" type="tts">vyras</annotation>
 		<annotation cp="🧔">barzda | barzdotas žmogus | žmogus</annotation>
@@ -1639,9 +1641,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤼‍♀" type="tts">moterų imtynės</annotation>
 		<annotation cp="🤽">Marco | plaukimas | vandens sportas | vandensvydis | vandensvydžio žaidėjas | vanduo | žmogus</annotation>
 		<annotation cp="🤽" type="tts">vandensvydis</annotation>
-		<annotation cp="🤽‍♂">Marco | plaukimas | vandens sportas | vandensvydis | vandensvydžio žaidėjas | vyras</annotation>
+		<annotation cp="🤽‍♂">plaukimas | vandens sportas | vandensvydis | vandensvydžio žaidėjas | vyras</annotation>
 		<annotation cp="🤽‍♂" type="tts">vandensvydžio žaidėjas</annotation>
-		<annotation cp="🤽‍♀">Marco | moteris | plaukimas | vandens sportas | vandensvydis | vandensvydžio žaidėja</annotation>
+		<annotation cp="🤽‍♀">moteris | plaukimas | vandens sportas | vandensvydis | vandensvydžio žaidėja | žaidimas</annotation>
 		<annotation cp="🤽‍♀" type="tts">vandensvydžio žaidėja</annotation>
 		<annotation cp="🤾">atletas | gaudyti | kamuolys | mesti | rankininkas | rankinis | sportas | sviesti | žmogus</annotation>
 		<annotation cp="🤾" type="tts">rankinis</annotation>
@@ -3897,6 +3899,26 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="₽" type="tts">rublis</annotation>
 		<annotation cp="₿">bitkoino ženklas | BTC</annotation>
 		<annotation cp="₿" type="tts">bitkoino ženklas</annotation>
+		<annotation cp="0⃣">0 | mygtukas | nulis</annotation>
+		<annotation cp="0⃣" type="tts">mygtukas: 0</annotation>
+		<annotation cp="1⃣">1 | mygtukas | vienas</annotation>
+		<annotation cp="1⃣" type="tts">mygtukas: 1</annotation>
+		<annotation cp="2⃣">2 | du | mygtukas</annotation>
+		<annotation cp="2⃣" type="tts">mygtukas: 2</annotation>
+		<annotation cp="3⃣">3 | mygtukas | trys</annotation>
+		<annotation cp="3⃣" type="tts">mygtukas: 3</annotation>
+		<annotation cp="4⃣">4 | keturi | mygtukas</annotation>
+		<annotation cp="4⃣" type="tts">mygtukas: 4</annotation>
+		<annotation cp="5⃣">5 | mygtukas | penki</annotation>
+		<annotation cp="5⃣" type="tts">mygtukas: 5</annotation>
+		<annotation cp="6⃣">6 | mygtukas | šeši</annotation>
+		<annotation cp="6⃣" type="tts">mygtukas: 6</annotation>
+		<annotation cp="7⃣">7 | mygtukas | septyni</annotation>
+		<annotation cp="7⃣" type="tts">mygtukas: 7</annotation>
+		<annotation cp="8⃣">8 | aštuoni | mygtukas</annotation>
+		<annotation cp="8⃣" type="tts">mygtukas: 8</annotation>
+		<annotation cp="9⃣">9 | devyni | mygtukas</annotation>
+		<annotation cp="9⃣" type="tts">mygtukas: 9</annotation>
 		<annotation cp="¹">vienetas | vienetas viršutiniame indekse | viršutinis indeksas</annotation>
 		<annotation cp="¹" type="tts">vienetas viršutiniame indekse</annotation>
 		<annotation cp="²">du | dvejetas | dvejetas viršutiniame indekse | kvadratu | viršutinis indeksas</annotation>
@@ -3909,5 +3931,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="µ" type="tts">„mikro-“ simbolis</annotation>
 		<annotation cp="﷼">rialas</annotation>
 		<annotation cp="﷼" type="tts">rialas</annotation>
+		<annotation cp="🛘">kalnas | lavina | nelaimė | pavojus | purvo nuošliauža | uolos | žemės drebėjimas</annotation>
+		<annotation cp="🛘" type="tts">nuošliauža</annotation>
+		<annotation cp="🪊">džiazas | instrumentas | liūdnas | muzika | pučiamieji</annotation>
+		<annotation cp="🪊" type="tts">trombonas</annotation>
+		<annotation cp="🪎">auksas | brangakmeniai | brangakmenis | grobis | pinigai | prizas | sidabras | turtas | vertingi daiktai</annotation>
+		<annotation cp="🪎" type="tts">lobių skrynia</annotation>
+		<annotation cp="🫈">didžiapėdis | jetis | kriptidas | medinis | milžinas | miškas | plaukuotas</annotation>
+		<annotation cp="🫈" type="tts">plaukuotas padaras</annotation>
+		<annotation cp="🫍">banginis | jūrinis | vandenynas</annotation>
+		<annotation cp="🫍" type="tts">orka</annotation>
+		<annotation cp="🫪">išsipūtęs | nerimas | nustebęs | panika | pažeidžiamas | šokiruotas</annotation>
+		<annotation cp="🫪" type="tts">ištįsęs veidas</annotation>
+		<annotation cp="🫯">diskusijos | ginčas | grumtynės | kova | muštynės | nesutarimas | triukšmas</annotation>
+		<annotation cp="🫯" type="tts">kovos debesis</annotation>
 	</annotations>
 </ldml>

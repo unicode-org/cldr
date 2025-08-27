@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1183,6 +1183,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">böyük</annotation>
 		<annotation cp="👱">adam | sarı saçlı adam | sarısaçlı şəxs | sarışın | sarışın kişi | üz</annotation>
 		<annotation cp="👱" type="tts">sarı saçlı adam</annotation>
+		<annotation cp="🧑‍🩰">balet | rəqqas</annotation>
+		<annotation cp="🧑‍🩰" type="tts">balet rəqqası</annotation>
 		<annotation cp="👨">dost | kişi | oğlan</annotation>
 		<annotation cp="👨" type="tts">kişi</annotation>
 		<annotation cp="🧔">saqqal | saqqallı şəxs</annotation>
@@ -2898,15 +2900,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🕶">eynək | göz | gün eynəyi | tünd</annotation>
 		<annotation cp="🕶" type="tts">gün eynəyi</annotation>
 		<annotation cp="🥽">göz müdafiyəsi | qaynaq | qaynaq eynəyi | su eynəyi | üzgüçülük eynəyi | üzmək</annotation>
-		<annotation cp="🥽" type="tts">su eynəyi</annotation>
-		<annotation cp="🥼">ağ xalat | alim | həkim | laboratoriya geyimi | qaynaq | təcrübə</annotation>
+		<annotation cp="🥽" type="tts">qoruyucu eynək</annotation>
+		<annotation cp="🥼">alim | həkim | laboratoriya geyimi | təcrübə</annotation>
 		<annotation cp="🥼" type="tts">laboratoriya geyimi</annotation>
 		<annotation cp="🦺">fövqəladə hal | güvənlik | güvənlik jaketi | jaket | təcililik | təhlükəsizlik jileti</annotation>
 		<annotation cp="🦺" type="tts">güvənlik jaketi</annotation>
 		<annotation cp="👔">geyim | köynək | qalstuk | rəsmi geyim</annotation>
 		<annotation cp="👔" type="tts">qalstuk</annotation>
 		<annotation cp="👕">futbolka | geyim | köynək</annotation>
-		<annotation cp="👕" type="tts">köynək</annotation>
+		<annotation cp="👕" type="tts">qısaqol köynək</annotation>
 		<annotation cp="👖">cins | geyim | şalvar</annotation>
 		<annotation cp="👖" type="tts">cins</annotation>
 		<annotation cp="🧣">boyun | şərf | soyuq</annotation>
@@ -2915,7 +2917,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧤" type="tts">əlcəklər</annotation>
 		<annotation cp="🧥">palto | pencək</annotation>
 		<annotation cp="🧥" type="tts">palto</annotation>
-		<annotation cp="🧦">corablar | stoker</annotation>
+		<annotation cp="🧦">corablar | uzunboğaz corab</annotation>
 		<annotation cp="🧦" type="tts">corablar</annotation>
 		<annotation cp="👗">alış-veriş | don | geyim | paltar</annotation>
 		<annotation cp="👗" type="tts">don</annotation>
@@ -3897,6 +3899,26 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="₽" type="tts">rubl</annotation>
 		<annotation cp="₿">bitkoin | BTC</annotation>
 		<annotation cp="₿" type="tts">bitkoin</annotation>
+		<annotation cp="0⃣">0 | klaviatura qapağı | sıfır</annotation>
+		<annotation cp="0⃣" type="tts">klaviatura qapağı: 0</annotation>
+		<annotation cp="1⃣">1 | bir | klaviatura qapağı</annotation>
+		<annotation cp="1⃣" type="tts">klaviatura qapağı: 1</annotation>
+		<annotation cp="2⃣">2 | iki | klaviatura qapağı</annotation>
+		<annotation cp="2⃣" type="tts">klaviatura qapağı: 2</annotation>
+		<annotation cp="3⃣">3 | klaviatura qapağı | üç</annotation>
+		<annotation cp="3⃣" type="tts">klaviatura qapağı: 3</annotation>
+		<annotation cp="4⃣">4 | dörd | klaviatura qapağı</annotation>
+		<annotation cp="4⃣" type="tts">klaviatura qapağı: 4</annotation>
+		<annotation cp="5⃣">5 | beş | klaviatura qapağı</annotation>
+		<annotation cp="5⃣" type="tts">klaviatura qapağı: 5</annotation>
+		<annotation cp="6⃣">6 | altı | klaviatura qapağı</annotation>
+		<annotation cp="6⃣" type="tts">klaviatura qapağı: 6</annotation>
+		<annotation cp="7⃣">7 | klaviatura qapağı | yeddi</annotation>
+		<annotation cp="7⃣" type="tts">klaviatura qapağı: 7</annotation>
+		<annotation cp="8⃣">8 | klaviatura qapağı | səkkiz</annotation>
+		<annotation cp="8⃣" type="tts">klaviatura qapağı: 8</annotation>
+		<annotation cp="9⃣">9 | doqquz | klaviatura qapağı</annotation>
+		<annotation cp="9⃣" type="tts">klaviatura qapağı: 9</annotation>
 		<annotation cp="¹">bir | üstdə bir | üstdə yazılan</annotation>
 		<annotation cp="¹" type="tts">üstdə bir</annotation>
 		<annotation cp="²">iki | kvadrata yüksəlmiş | üstdə iki | üstdə yazılan</annotation>
@@ -3909,5 +3931,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="µ" type="tts">mikro işarəsi</annotation>
 		<annotation cp="﷼">rial | valyuta</annotation>
 		<annotation cp="﷼" type="tts">rial</annotation>
+		<annotation cp="🛘">dağ | fəlakət | qayalar | sel | təhlükə | uçqun | zəlzələ</annotation>
+		<annotation cp="🛘" type="tts">torpaq sürüşməsi</annotation>
+		<annotation cp="🪊">alət | caz | kədərli | latun | musiqi | slayd</annotation>
+		<annotation cp="🪊" type="tts">trombon</annotation>
+		<annotation cp="🪎">gümüş | mükafat | pul | qiymətli daş | qiymətli əşyalar | qızıl | sərvət | talan | zinət əşyaları</annotation>
+		<annotation cp="🪎" type="tts">xəzinə sandığı</annotation>
+		<annotation cp="🫈">böyükayaq | meşə | nəhəng | oduncaq | sasquatch | sirli | tüklü | yeti</annotation>
+		<annotation cp="🫈" type="tts">tüklü məxluq</annotation>
+		<annotation cp="🫍">balina | dəniz | okean</annotation>
+		<annotation cp="🫍" type="tts">orka</annotation>
+		<annotation cp="🫪">həssas | narahatlıq | panik | şişkin | şok | təəccüb</annotation>
+		<annotation cp="🫪" type="tts">əyilmiş üz</annotation>
+		<annotation cp="🫯">arqument | dava | debat | döyüş | fikir ayrılığı | güləş | təlaş</annotation>
+		<annotation cp="🫯" type="tts">savaş buludu</annotation>
 	</annotations>
 </ldml>

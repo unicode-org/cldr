@@ -500,7 +500,6 @@ public class ChartGrammaticalForms extends Chart {
                                     CldrUtility.getDoubleLinkMsg(),
                                     "class='source'",
                                     true)
-                            .setRepeatHeader(true)
                             .addColumn(
                                     "Size",
                                     "class='source' width='1%'",
@@ -560,7 +559,6 @@ public class ChartGrammaticalForms extends Chart {
                                     "class='source'",
                                     true)
                             .setSortPriority(0)
-                            .setRepeatHeader(true)
                             .addColumn(
                                     "Size",
                                     "class='source' width='1%'",
@@ -763,7 +761,6 @@ public class ChartGrammaticalForms extends Chart {
                                     "class='source'",
                                     true)
                             .setSortPriority(2)
-                            .setRepeatHeader(true)
                             .addColumn(
                                     "Case",
                                     "class='source' width='1%'",

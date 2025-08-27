@@ -68,6 +68,7 @@ import org.unicode.cldr.util.Iso3166Data;
 import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.Iso639Data.Scope;
 import org.unicode.cldr.util.IsoCurrencyParser;
+import org.unicode.cldr.util.IsoCurrencyParser.Data;
 import org.unicode.cldr.util.LanguageTagCanonicalizer;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
@@ -636,6 +637,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             {"ga", "many", "0,00"}, // n in 7..10
             {"ar", "zero", "0"}, // n is 0
             {"blo", "zero", "0"}, // n = 0
+            {"cv", "zero", "0"}, // n = 0
             {"cy", "zero", "0"}, // n is 0
             {"ksh", "zero", "0"}, // n is 0
             {"lag", "zero", "0"}, // n is 0
@@ -686,6 +688,9 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             {"it", "many", ""}, // e = 0 and i != 0 and i % 1000000 = 0 and v = 0 or e != 0..5
             {"pt", "many", ""}, // e = 0 and i != 0 and i % 1000000 = 0 and v = 0 or e != 0..5
             {"pt_PT", "many", ""}, // e = 0 and i != 0 and i % 1000000 = 0 and v = 0 or e != 0..5
+            {"sgs", "one", "0,00,000,0000"}, // n mod 10 is 1 and n mod 100
+            // not in 11..19
+            {"sgs", "two", "0"}, // n is 2
         };
         // parse out the exceptions
         Map<PluralInfo, Relation<Count, Integer>> exceptions = new HashMap<>();
@@ -1300,7 +1305,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             }
             Scope languageScope = getScope(language, lstregLanguageInfo);
             if (languageScope == Scope.Macrolanguage) {
-                if (Iso639Data.getHeirarchy(language) != null) {
+                if (Iso639Data.getHierarchy(language) != null) {
                     continue main; // is real family
                 }
                 Set<String> replacements = replacementToReplaced.getAll(language);
@@ -1585,30 +1590,39 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             if (isoCountries == null) {
                 isoCountries = new TreeSet<>();
             }
+            // look for any historical currency
+            Relation<String, Data> historicCodeList = isoCodes.getHistoricCodeList();
+            if (historicCodeList.containsKey(currency)) {
+                for (final Data d : historicCodeList.getAll(currency)) {
+                    final Date withdrawal = d.getWithdrawalDate();
+                    if (withdrawal.compareTo(DateConstants.RECENT_HISTORY) >= 0) {
+                        warnln(
+                                String.format(
+                                        "Including recent historical ISO currency "
+                                                + currency
+                                                + " = "
+                                                + d));
+                        if (!isoCountries.add(d.getCountryCode())) {
+                            errln("Historical and non-historical duplication for " + d);
+                        }
+                    }
+                }
+            }
 
             TreeSet<String> cldrCountries = new TreeSet<>();
             for (Pair<String, CurrencyDateInfo> x : data) {
                 cldrCountries.add(x.getFirst());
             }
             if (!isoCountries.equals(cldrCountries)) {
-                // TODO 17397: remove isKnownIssue and the if around errln when the logknown issue
-                // goes away.
-                final boolean skipKnownIssue =
-                        currency.equals("XCG")
-                                && isoCountries.isEmpty()
-                                && cldrCountries.equals(Set.of("CW", "SX"))
-                                && logKnownIssue("CLDR-17397", "Mismatched codes " + cldrCountries);
-                if (!skipKnownIssue) {
-                    errln(
-                            "Mismatch between ISO and Cldr modern currencies for "
-                                    + currency
-                                    + "\tISO:"
-                                    + isoCountries
-                                    + "\tCLDR:"
-                                    + cldrCountries);
-                    showCountries("iso-cldr", isoCountries, cldrCountries, missing);
-                    showCountries("cldr-iso", cldrCountries, isoCountries, missing);
-                }
+                errln(
+                        "Mismatch between ISO and Cldr modern currencies for "
+                                + currency
+                                + "\tISO:"
+                                + isoCountries
+                                + "\tCLDR:"
+                                + cldrCountries);
+                showCountries("iso-cldr", isoCountries, cldrCountries, missing);
+                showCountries("cldr-iso", cldrCountries, isoCountries, missing);
             }
 
             if (oldMatcher.reset(name).find()) {
@@ -2039,16 +2053,24 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         }
     }
 
+    /**
+     * @param causeError type of issue - warn/err/log
+     * @param message message text
+     * @param logTicket if non-null, attempt log known issue
+     * @param logComment optional comment with log known issue
+     * @see {@link UnicodeKnownIssues}
+     */
     public void errOrLog(
             CoverageIssue causeError, String message, String logTicket, String logComment) {
         switch (causeError) {
             case error:
-                if (logTicket == null) {
-                    errln(message);
+                if (logTicket != null && logKnownIssue(logTicket, logComment)) {
+                    warnln(message);
                     break;
+                } else {
+                    errln(message);
                 }
-                logKnownIssue(logTicket, logComment);
-                // fall through
+                break;
             case warn:
                 warnln(message);
                 break;

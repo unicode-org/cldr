@@ -23,6 +23,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -125,9 +126,11 @@ public class CountItems {
         try {
             String methodName = System.getProperty("method");
             if (methodName != null) {
+                System.err.println("Calling -Dmethod=" + methodName);
                 CldrUtility.callMethod(methodName, CountItems.class);
             } else {
-                ShowZoneEquivalences.getZoneEquivalences();
+                throw new IllegalArgumentException(
+                        "Error. This tool, unusually, requires the -Dmethod= property to be set.  Use -Dmethod=getZoneEquivalences to get the old default behavior.");
             }
         } finally {
             deltaTime = System.currentTimeMillis() - deltaTime;
@@ -1181,5 +1184,9 @@ public class CountItems {
         System.out.println("Unique Values\t" + decimal.format(values.size()));
         System.out.println("Unique Full Paths\t" + decimal.format(fullpaths.size()));
         return count;
+    }
+
+    public static void getZoneEquivalences() throws IOException, ParseException {
+        ShowZoneEquivalences.getZoneEquivalences();
     }
 }

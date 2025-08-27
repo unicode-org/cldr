@@ -560,6 +560,12 @@ public class ICUServiceBuilder {
         "integer", "decimal", "percent", "scientific"
     }; // // "standard", , "INR",
 
+    // add symbols for clarity.
+    public static int integer = 0, decimal = 2, percent = 3, scientific = 4;
+
+    // ICUServiceBuilder needs a much more substantial overhaul, so adding an enum would be wasted
+    // effort
+
     private static class MyCurrency extends Currency {
         String symbol;
         String displayName;
@@ -939,8 +945,8 @@ public class ICUServiceBuilder {
             value =
                     cldrFile.getWinningValueWithBailey(
                             "//ldml/numbers/symbols[@numberSystem=\"" + numsys + "\"]/" + key);
-            if (value == null || value.length() < 1) {
-                throw new RuntimeException();
+            if (value == null || value.isEmpty()) {
+                throw new IllegalArgumentException("No value for path");
             }
             return value;
         } catch (RuntimeException e) {
@@ -951,7 +957,8 @@ public class ICUServiceBuilder {
                             + "//ldml/numbers/symbols[@numberSystem='"
                             + numsys
                             + "']/"
-                            + key);
+                            + key,
+                    e);
         }
     }
 

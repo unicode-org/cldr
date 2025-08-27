@@ -34,6 +34,7 @@ import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
 import org.unicode.cldr.util.VoteResolver.Status;
 import org.unicode.cldr.web.DataPage.DataRow.CandidateItem;
 import org.unicode.cldr.web.UserRegistry.User;
+import org.unicode.cldr.web.api.VoteAPIHelper;
 
 /**
  * A DataPage represents a group of related data that will be displayed to users in a list such as,
@@ -62,6 +63,16 @@ public class DataPage {
 
     /** The DisplayAndInputProcessor for this DataPage */
     private DisplayAndInputProcessor processor = null;
+
+    private static final CLDRConfig config = CLDRConfig.getInstance();
+
+    private static final PathDescription pathHintFactory =
+            new PathDescription(
+                    config.getSupplementalDataInfo(),
+                    config.getEnglish(),
+                    null,
+                    null,
+                    PathDescription.ErrorHandling.CONTINUE);
 
     public enum CandidateStatus {
         ALIAS,
@@ -250,7 +261,7 @@ public class DataPage {
                             // simple case - not triple up arrow just pass this through
                             this.votes = rawVotes;
                         } else {
-                            // we need to collect triple up arrow AND hard vots
+                            // we need to collect triple up arrow AND hard votes
                             Set<User> allVotes = new TreeSet<User>();
                             if (rawVotes != null) {
                                 allVotes.addAll(rawVotes);
@@ -329,8 +340,8 @@ public class DataPage {
                 return weHaveTests;
             }
 
-            public Map<User, Integer> getOverrides() {
-                return ballotBox.getOverridesPerUser(xpath);
+            public Map<User, VoteAPIHelper.VoteDetails> getVoteDetails() {
+                return ballotBox.getVoteDetailsPerUser(xpath);
             }
 
             /**
@@ -354,7 +365,6 @@ public class DataPage {
              * Get the example for this CandidateItem
              *
              * @return the example HTML, as a string
-             *     <p>Called only by DataPage.DataRow.CandidateItem.toJSONString()
              */
             public String getExample() {
                 return nativeExampleGenerator.getExampleHtml(xpath, rawValue);
@@ -887,6 +897,9 @@ public class DataPage {
         }
 
         public String getWinningVHash() {
+            if (confirmStatus == Status.missing) {
+                return DataPage.getValueHash(VoteResolver.VOTE_FOR_MISSING);
+            }
             return DataPage.getValueHash(winningValue);
         }
 
@@ -905,7 +918,12 @@ public class DataPage {
                         }
                     }
                     if (voteItem != null) {
-                        voteVhash = voteItem.getValueHash();
+                        if (ballotBox.getUserVoteType(userForVotelist, xpath)
+                                == VoteType.VOTE_FOR_MISSING) {
+                            voteVhash = DataPage.getValueHash(VoteResolver.VOTE_FOR_MISSING);
+                        } else {
+                            voteVhash = voteItem.getValueHash();
+                        }
                     } else {
                         logger.severe(
                                 "Found ourVote = "
@@ -973,7 +991,6 @@ public class DataPage {
          * Get the map of non-distinguishing attributes for this DataRow
          *
          * @return the map
-         *     <p>Called only by DataRow.toJSONString
          */
         public Map<String, String> getNonDistinguishingAttributes() {
             if (!checkedNDA) {
@@ -1094,7 +1111,7 @@ public class DataPage {
         }
 
         public String getTranslationHint() {
-            return TranslationHints.get(xpath);
+            return pathHintFactory.getHintRawDescription(xpath, null);
         }
 
         public boolean fixedCandidates() {

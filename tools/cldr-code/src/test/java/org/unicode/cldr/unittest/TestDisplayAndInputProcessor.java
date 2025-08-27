@@ -2,6 +2,7 @@ package org.unicode.cldr.unittest;
 
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.CharSequences;
+import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
 import java.util.Arrays;
@@ -761,6 +762,12 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
         assertEquals("U+0964 DEVANAGARI DANDA without spaces becomes pipe", normVal, val);
         val = daip.processInput(xpath, "a  ।  b", null);
         assertEquals("U+0964 DEVANAGARI DANDA with spaces becomes pipe", normVal, val);
+        for (String s : new UnicodeSet("[︳︱।|｜⎸⎹⏐￨❘]")) {
+            val = daip.processInput(xpath, "a" + s + "b", null);
+            assertEquals(Utility.hex(s) + UCharacter.getName(s, ","), normVal, val);
+        }
+        val = daip.processInput(xpath, "a  ┃  b", null);
+        assertEquals("Other vertical bar doesn't change", "a ┃ b", val);
     }
 
     public void TestFSR() {
@@ -785,7 +792,7 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
             {
                 "//ldml/characters/exemplarCharacters",
                 "[a-c {def} å \\u200B \\- . ๎ ็a-pr-vzáéíóöúüőű{ccs}{cs}{ddz}{ddzs}{dz}{dzs}{ggy}{gy}{lly}{ly}{nny}{ny}{ssz}{sz}{tty}{ty}{zs}{zzs}]",
-                "❰WNJ❱ ๎ ็ - . a á b c ccs cs d ddz ddzs def dz dzs e é f g ggy gy h i í j k l lly ly m n nny ny o ó p r s ssz sz t tty ty u ú v ü ű z zs zzs ö ő å",
+                "❰ALB❱ ๎ ็ - . a á b c ccs cs d ddz ddzs def dz dzs e é f g ggy gy h i í j k l lly ly m n nny ny o ó p r s ssz sz t tty ty u ú v ü ű z zs zzs ö ő å",
                 "[\\u200B ๎ ็ aá b c {ccs} {cs} d {ddz} {ddzs} {def} {dz} {dzs} eé f g {ggy} {gy} h ií j k l {lly} {ly} m n {nny} {ny} oó p r s {ssz} {sz} t {tty} {ty} uú v üű z {zs} {zzs} öő å]",
                 // note: DAIP also adds break/nobreak alternates for
                 // hyphen, and removes some characters if exemplars
@@ -793,7 +800,7 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
             {
                 "//ldml/characters/parseLenients[@scope=\"date\"][@level=\"lenient\"]/parseLenient[@sample=\"-\"]",
                 "[a-c {def} å \\u200B \\- . ๎ ็]",
-                "❰WNJ❱ ๎ ็ - . a b c def å",
+                "❰ALB❱ ๎ ็ - . a b c def å",
                 "[\\u200B ๎ ็ \\- ‑ . a b c {def} å]",
                 // note: DAIP also adds break/nobreak alternates
                 // for hyphen, etc.

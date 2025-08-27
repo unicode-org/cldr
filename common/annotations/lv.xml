@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1183,6 +1183,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">pieaugušais</annotation>
 		<annotation cp="👱">blonds | cilvēks | seja</annotation>
 		<annotation cp="👱" type="tts">blonds cilvēks</annotation>
+		<annotation cp="🧑‍🩰">baleta | dejotājs</annotation>
+		<annotation cp="🧑‍🩰" type="tts">baletdejotājs</annotation>
 		<annotation cp="👨">cilvēks | draugs | kungs | seja | vīrietis | vīrs</annotation>
 		<annotation cp="👨" type="tts">vīrietis</annotation>
 		<annotation cp="🧔">bārda | bārdaina persona | bārdains vīrietis | persona | vīrietis</annotation>
@@ -3897,6 +3899,26 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="₽" type="tts">rublis</annotation>
 		<annotation cp="₿">bitmonēta | BTC</annotation>
 		<annotation cp="₿" type="tts">bitmonēta</annotation>
+		<annotation cp="0⃣">0 | nulle | taustiņš</annotation>
+		<annotation cp="0⃣" type="tts">taustiņš: 0</annotation>
+		<annotation cp="1⃣">1 | taustiņš | viens</annotation>
+		<annotation cp="1⃣" type="tts">taustiņš: 1</annotation>
+		<annotation cp="2⃣">2 | divi | taustiņš</annotation>
+		<annotation cp="2⃣" type="tts">taustiņš: 2</annotation>
+		<annotation cp="3⃣">3 | taustiņš | trīs</annotation>
+		<annotation cp="3⃣" type="tts">taustiņš: 3</annotation>
+		<annotation cp="4⃣">4 | četri | taustiņš</annotation>
+		<annotation cp="4⃣" type="tts">taustiņš: 4</annotation>
+		<annotation cp="5⃣">5 | pieci | taustiņš</annotation>
+		<annotation cp="5⃣" type="tts">taustiņš: 5</annotation>
+		<annotation cp="6⃣">6 | seši | taustiņš</annotation>
+		<annotation cp="6⃣" type="tts">taustiņš: 6</annotation>
+		<annotation cp="7⃣">7 | septiņi | taustiņš</annotation>
+		<annotation cp="7⃣" type="tts">taustiņš: 7</annotation>
+		<annotation cp="8⃣">8 | astoņi | taustiņš</annotation>
+		<annotation cp="8⃣" type="tts">taustiņš: 8</annotation>
+		<annotation cp="9⃣">9 | deviņi | taustiņš</annotation>
+		<annotation cp="9⃣" type="tts">taustiņš: 9</annotation>
 		<annotation cp="¹">augšraksts | viens | viens augšrakstā</annotation>
 		<annotation cp="¹" type="tts">viens augšrakstā</annotation>
 		<annotation cp="²">augšraksts | divi | divi augšrakstā | kvadrātā</annotation>
@@ -3909,5 +3931,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="µ" type="tts">mikrozīme</annotation>
 		<annotation cp="﷼">riāls | valūta</annotation>
 		<annotation cp="﷼" type="tts">riāls</annotation>
+		<annotation cp="🛘">bīstamība | briesmas | dubļu nogruvums | kalns | klintis | lavīna | zemestrīce</annotation>
+		<annotation cp="🛘" type="tts">nogruvums</annotation>
+		<annotation cp="🪊">džezs | instruments | mūzika | pāreja | pūšamais instruments | skumjas</annotation>
+		<annotation cp="🪊" type="tts">trombons</annotation>
+		<annotation cp="🪎">bagātība | balva | dārgakmens | laupījums | nauda | rotaslietas | sudrabs | vērtslietas | zelts</annotation>
+		<annotation cp="🪎" type="tts">dārgumu lāde</annotation>
+		<annotation cp="🫈">jetijs | kriptīds | matiem noaudzis | meža briesmonis | mežonis | mežs | milzis | sniega cilvēks</annotation>
+		<annotation cp="🫈" type="tts">matiem noaudzis radījums</annotation>
+		<annotation cp="🫍">jūra | okeāns | valis</annotation>
+		<annotation cp="🫍" type="tts">zobenvalis</annotation>
+		<annotation cp="🫪">ievainojams | izbrīnīts | lielīgs | panika | šokēts | trauksme</annotation>
+		<annotation cp="🫪" type="tts">sašķobīta seja</annotation>
+		<annotation cp="🫯">cīkstēšanās | cīņa | debates | domstarpības | ķīviņš | strīds | tracis</annotation>
+		<annotation cp="🫯" type="tts">juceklis</annotation>
 	</annotations>
 </ldml>

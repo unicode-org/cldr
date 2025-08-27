@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1183,6 +1183,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">প্ৰাপ্তবয়স্ক</annotation>
 		<annotation cp="👱">চুলি | ব্যক্তি: সোণালী চুলি | সোণালী চুলিৰ ব্যক্তি | স্বৰ্ণকেশী</annotation>
 		<annotation cp="👱" type="tts">ব্যক্তি: সোণালী চুলি</annotation>
+		<annotation cp="🧑‍🩰">নৃত্যশিল্পী | বেলে</annotation>
+		<annotation cp="🧑‍🩰" type="tts">বেলে নৃত্যশিল্পী</annotation>
 		<annotation cp="👨">পুৰুষ | মুনিহ</annotation>
 		<annotation cp="👨" type="tts">মুনিহ</annotation>
 		<annotation cp="🧔">দাঢ়ি | পুৰুষ | পুৰুষ: দাঢ়ি | ব্যক্তি</annotation>
@@ -3897,6 +3899,26 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="₽" type="tts">ৰুবল</annotation>
 		<annotation cp="₿">BTC | বিটকইন</annotation>
 		<annotation cp="₿" type="tts">বিটকইন</annotation>
+		<annotation cp="0⃣">০ | কীকেপ | শূন্য</annotation>
+		<annotation cp="0⃣" type="tts">কীকেপ: 0</annotation>
+		<annotation cp="1⃣">১ | এক | কীকেপ</annotation>
+		<annotation cp="1⃣" type="tts">কীকেপ: 1</annotation>
+		<annotation cp="2⃣">২ | কীকেপ | দুই</annotation>
+		<annotation cp="2⃣" type="tts">কীকেপ: 2</annotation>
+		<annotation cp="3⃣">৩ | কীকেপ | তিনি</annotation>
+		<annotation cp="3⃣" type="tts">কীকেপ: 3</annotation>
+		<annotation cp="4⃣">৪ | কীকেপ | চাৰি</annotation>
+		<annotation cp="4⃣" type="tts">কীকেপ: 4</annotation>
+		<annotation cp="5⃣">৫ | কীকেপ | পাঁচ</annotation>
+		<annotation cp="5⃣" type="tts">কীকেপ: 5</annotation>
+		<annotation cp="6⃣">৬ | কীকেপ | ছয়</annotation>
+		<annotation cp="6⃣" type="tts">কীকেপ: 6</annotation>
+		<annotation cp="7⃣">৭ | কীকেপ | সাত</annotation>
+		<annotation cp="7⃣" type="tts">কীকেপ: 7</annotation>
+		<annotation cp="8⃣">৮ | আঠ | কীকেপ</annotation>
+		<annotation cp="8⃣" type="tts">কীকেপ: 8</annotation>
+		<annotation cp="9⃣">৯ | কীকেপ | ন</annotation>
+		<annotation cp="9⃣" type="tts">কীকেপ: 9</annotation>
 		<annotation cp="¹">এক | ছুপাৰস্ক্ৰিপ্ট</annotation>
 		<annotation cp="¹" type="tts">ছুপাৰস্ক্ৰিপ্ট এক</annotation>
 		<annotation cp="²">ছুপাৰস্ক্ৰিপ্ট | দুই | বৰ্গক্ষেত্ৰ</annotation>
@@ -3909,5 +3931,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="µ" type="tts">মাইক্ৰ’ চিহ্ন</annotation>
 		<annotation cp="﷼">মুদ্ৰা | ৰিয়াল</annotation>
 		<annotation cp="﷼" type="tts">ৰিয়াল</annotation>
+		<annotation cp="🛘">দুৰ্যোগ | পৰ্বত | বিপদ | বোকাপানী | ভূমিকম্প | শিল | হিমস্খলন</annotation>
+		<annotation cp="🛘" type="tts">ভূমিস্খলন</annotation>
+		<annotation cp="🪊">জেজ | দুখী | বাদ্যযন্ত্ৰ | ব্ৰাছ | শ্লাইড | সংগীত</annotation>
+		<annotation cp="🪊" type="tts">ট্ৰমব’ন</annotation>
+		<annotation cp="🪎">টকা | পুৰস্কাৰ | মূল্যৱান সামগ্ৰী | ৰত্ন | ৰূপালী | লুট | সম্পত্তি | সোণ</annotation>
+		<annotation cp="🪎" type="tts">গুপ্তধনৰ বাকচ</annotation>
+		<annotation cp="🫈">অৰণ্য | উডৱ’জ | ক্ৰিপ্টিড | ছেছকোৱাচ্চ | দৈত্যকায় | নোমাল | বিগফুট | য়েতি</annotation>
+		<annotation cp="🫈" type="tts">নোমাল জীৱ</annotation>
+		<annotation cp="🫍">তিমি মাছ | মহাসাগৰ | সামুদ্ৰিক</annotation>
+		<annotation cp="🫍" type="tts">অৰ্কা</annotation>
+		<annotation cp="🫯">কুস্তী | বিতৰ্ক | মতানৈক্য | মল্লযুঁজ | যুক্তি | যুঁজ | হুলস্থুল</annotation>
+		<annotation cp="🫯" type="tts">কাজিয়াৰ ডাৱৰ</annotation>
 	</annotations>
 </ldml>

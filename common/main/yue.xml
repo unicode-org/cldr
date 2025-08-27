@@ -335,7 +335,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="ksb">尚巴拉文</language>
 			<language type="ksf">巴菲亞文</language>
 			<language type="ksh">科隆文</language>
-			<language type="ku">庫爾德文</language>
+			<language type="ku">庫德文</language>
+			<language type="ku" menu="core">庫德文</language>
+			<language type="ku" menu="extension">北庫德文</language>
 			<language type="kum">庫密克文</language>
 			<language type="kut">庫特奈文</language>
 			<language type="kv">科米文</language>
@@ -940,6 +942,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="CN">中國</territory>
 			<territory type="CO">哥倫比亞</territory>
 			<territory type="CP">克里派頓島</territory>
+			<territory type="CQ">薩克</territory>
 			<territory type="CR">哥斯大黎加</territory>
 			<territory type="CU">古巴</territory>
 			<territory type="CV">維德角</territory>
@@ -1242,35 +1245,54 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="colNumeric">數字排序</key>
 			<key type="colStrength">排序強度</key>
 			<key type="currency">貨幣</key>
+			<key type="em">Emoji 顯示方式</key>
 			<key type="hc">時間週期（12 小時制與 24 小時制）</key>
 			<key type="lb">換行樣式</key>
+			<key type="lw">單字強制換行</key>
 			<key type="ms">度量單位系統</key>
 			<key type="numbers">數字</key>
+			<key type="ss">縮寫後斷句</key>
 			<key type="timezone">時區</key>
 			<key type="va">區域變異</key>
 			<key type="x">專用區</key>
 		</keys>
 		<types>
 			<type key="calendar" type="buddhist">佛曆</type>
+			<type key="calendar" type="buddhist" scope="core">佛曆</type>
 			<type key="calendar" type="chinese">農曆</type>
+			<type key="calendar" type="chinese" scope="core">農曆</type>
 			<type key="calendar" type="coptic">科普特曆</type>
+			<type key="calendar" type="coptic" scope="core">科普特曆</type>
 			<type key="calendar" type="dangi">檀紀曆</type>
-			<type key="calendar" type="ethiopic">衣索比亞曆</type>
-			<type key="calendar" type="ethiopic-amete-alem">衣索比亞曆 (Amete Alem)</type>
+			<type key="calendar" type="dangi" scope="core">檀紀曆</type>
+			<type key="calendar" type="ethiopic">埃塞俄比亞曆</type>
+			<type key="calendar" type="ethiopic" scope="core">埃塞俄比亞曆</type>
+			<type key="calendar" type="ethiopic-amete-alem">埃塞俄比亞阿美德阿萊姆曆</type>
+			<type key="calendar" type="ethiopic-amete-alem" scope="core">埃塞俄比亞阿美德阿萊姆</type>
 			<type key="calendar" type="gregorian">公曆</type>
+			<type key="calendar" type="gregorian" scope="core">公曆</type>
 			<type key="calendar" type="hebrew">希伯來曆</type>
+			<type key="calendar" type="hebrew" scope="core">希伯來曆</type>
 			<type key="calendar" type="indian">印度國曆</type>
 			<type key="calendar" type="islamic">伊斯蘭曆</type>
-			<type key="calendar" type="islamic-civil">伊斯蘭民用曆</type>
+			<type key="calendar" type="islamic" scope="core">伊斯蘭曆</type>
+			<type key="calendar" type="islamic-civil">伊斯蘭民用曆 (表格式)</type>
+			<type key="calendar" type="islamic-civil" scope="core">伊斯蘭民用曆 (表格式)</type>
 			<type key="calendar" type="islamic-rgsa" draft="provisional">伊斯蘭新月曆</type>
 			<type key="calendar" type="islamic-tbla" draft="provisional">伊斯蘭天文曆</type>
 			<type key="calendar" type="islamic-umalqura">伊斯蘭曆 (烏姆庫拉)</type>
-			<type key="calendar" type="iso8601">國際標準 ISO 8601</type>
+			<type key="calendar" type="islamic-umalqura" scope="core">伊斯蘭曆 (烏姆庫拉)</type>
+			<type key="calendar" type="iso8601">公曆 (元年)</type>
 			<type key="calendar" type="japanese">日本曆</type>
+			<type key="calendar" type="japanese" scope="core">日本曆</type>
 			<type key="calendar" type="persian">波斯曆</type>
+			<type key="calendar" type="persian" scope="core">波斯曆</type>
 			<type key="calendar" type="roc">民國曆</type>
+			<type key="calendar" type="roc" scope="core">民國曆</type>
 			<type key="cf" type="account">會計貨幣格式</type>
+			<type key="cf" type="account" scope="core">會計</type>
 			<type key="cf" type="standard">標準貨幣格式</type>
+			<type key="cf" type="standard" scope="core">標準</type>
 			<type key="colAlternate" type="non-ignorable" draft="contributed">排序符號</type>
 			<type key="colAlternate" type="shifted" draft="contributed">略過符號排序</type>
 			<type key="colBackwards" type="no" draft="contributed">正常排序重音</type>
@@ -1282,13 +1304,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="colCaseLevel" type="yes" draft="contributed">依大小寫排序</type>
 			<type key="collation" type="dictionary">字典排序</type>
 			<type key="collation" type="ducet">預設 Unicode 排序</type>
+			<type key="collation" type="ducet" scope="core">預設 Unicode</type>
 			<type key="collation" type="eor" draft="contributed">歐洲排序規則</type>
 			<type key="collation" type="phonebook">電話簿排序</type>
 			<type key="collation" type="phonetic">發音排序</type>
 			<type key="collation" type="pinyin">拼音排序</type>
 			<type key="collation" type="search">一般用途搜尋</type>
+			<type key="collation" type="search" scope="core">搜尋</type>
 			<type key="collation" type="searchjl" draft="contributed">韓文子音排序</type>
 			<type key="collation" type="standard">標準排序</type>
+			<type key="collation" type="standard" scope="core">標準</type>
 			<type key="collation" type="stroke">筆畫排序</type>
 			<type key="collation" type="traditional">傳統排序</type>
 			<type key="collation" type="unihan">部首筆畫排序</type>
@@ -1305,18 +1330,35 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="d0" type="fwidth">全形</type>
 			<type key="d0" type="hwidth">半形</type>
 			<type key="d0" type="npinyin" draft="contributed">數值</type>
+			<type key="em" type="default" scope="core">預設</type>
+			<type key="em" type="emoji" scope="core">Emoji</type>
+			<type key="em" type="text" scope="core">文字</type>
 			<type key="hc" type="h11">12 小時制 (0–11)</type>
+			<type key="hc" type="h11" scope="core">12 (0–11)</type>
 			<type key="hc" type="h12">12 小時制 (1–12)</type>
+			<type key="hc" type="h12" scope="core">12 (1–12)</type>
 			<type key="hc" type="h23">24 小時制 (0–23)</type>
+			<type key="hc" type="h23" scope="core">24 (0–23)</type>
 			<type key="hc" type="h24">24 小時制 (1–24)</type>
+			<type key="hc" type="h24" scope="core">24 (1–24)</type>
 			<type key="lb" type="loose">寬鬆換行樣式</type>
+			<type key="lb" type="loose" scope="core">寬鬆</type>
 			<type key="lb" type="normal">一般換行樣式</type>
+			<type key="lb" type="normal" scope="core">一般</type>
 			<type key="lb" type="strict">強制換行樣式</type>
+			<type key="lb" type="strict" scope="core">強制</type>
+			<type key="lw" type="breakall" scope="core">任意換行</type>
+			<type key="lw" type="keepall" scope="core">全部保留</type>
+			<type key="lw" type="normal" scope="core">一般</type>
+			<type key="lw" type="phrase" scope="core">唔拆開詞組</type>
 			<type key="m0" type="bgn">美國地名委員會</type>
 			<type key="m0" type="ungegn">聯合國地名專家組</type>
 			<type key="ms" type="metric">公制</type>
+			<type key="ms" type="metric" scope="core">公制</type>
 			<type key="ms" type="uksystem">英制度量單位系統</type>
+			<type key="ms" type="uksystem" scope="core">英制</type>
 			<type key="ms" type="ussystem">美制度量單位系統</type>
+			<type key="ms" type="ussystem" scope="core">美制</type>
 			<type key="numbers" type="arab">阿拉伯-印度數字</type>
 			<type key="numbers" type="arabext">阿拉伯-印度擴充數字</type>
 			<type key="numbers" type="armn">亞美尼亞數字</type>
@@ -1378,6 +1420,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="tibt">西藏數字</type>
 			<type key="numbers" type="traditional" draft="contributed">傳統數字</type>
 			<type key="numbers" type="vaii">瓦伊文數字</type>
+			<type key="ss" type="none" scope="core">閂</type>
+			<type key="ss" type="standard" scope="core">開</type>
 		</types>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">公制</measurementSystemName>
@@ -1395,7 +1439,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<exemplarCharacters type="auxiliary">[乍 仂 伏 佐 侶 僳 兆 兌 兹 凸 别 券 勳 卑 卞 占 叶 嘅 堤 墎 壤 奥 孜 峇 嶼 巽 栗 楔 涅 渾 澎 灘 燦 狄 琳 瑚 甫 碑 礁 纜 艇 芒 苗 茨 蓬 蚩 蜀 裘 謬 酋 隴 雀 髪]</exemplarCharacters>
 		<exemplarCharacters type="index">[一 丁 丈 不 且 丞 並 串 乘 乾 亂 亭 傀 僎 僵 儐 償 儳 儷 儻 叢 嚴 囌 囑 廳]</exemplarCharacters>
 		<exemplarCharacters type="numbers">[\- ‑ , . % ‰ + 0 1 2 3 4 5 6 7 8 9 〇 一 七 三 九 二 五 八 六 四]</exemplarCharacters>
+		<exemplarCharacters type="numbers-auxiliary" draft="contributed">↑↑↑</exemplarCharacters>
 		<exemplarCharacters type="punctuation">[‾﹉﹊﹋﹌ _＿﹍﹎﹏︳︴ \-－﹣ ‐‑ –︲ —﹘︱ ,，﹐ 、﹑ ;；﹔ \:：﹕ !！﹗ ?？﹖ .．﹒ ‥︰ … 。 · ＇‘’ &quot;＂“”〝〞 (（﹙︵ )）﹚︶ \[［ \]］ \{｛﹛︷ \}｝﹜︸ 〈︿ 〉﹀ 《︽ 》︾ 「﹁ 」﹂ 『﹃ 』﹄ 【︻ 】︼ 〔﹝︹ 〕﹞︺ § @＠﹫ *＊﹡ /／ \\＼﹨ \&amp;＆﹠ #＃﹟ %％﹪ ‰ † ‡ ‧ ′ ″ ‵ 〃 ※]</exemplarCharacters>
+		<exemplarCharacters type="punctuation-auxiliary" draft="contributed">↑↑↑</exemplarCharacters>
+		<exemplarCharacters type="punctuation-person" draft="contributed">↑↑↑</exemplarCharacters>
 		<ellipsis type="final">↑↑↑</ellipsis>
 		<ellipsis type="initial">↑↑↑</ellipsis>
 		<ellipsis type="medial">↑↑↑</ellipsis>
@@ -2342,12 +2389,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateTimeFormat type="atTime">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
 						<dateTimeFormat>
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
+							<pattern>{1}{0}</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
 							<pattern>{1}{0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
@@ -2358,6 +2411,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateTimeFormat type="atTime">
 							<pattern>{1}{0}</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>{1}{0}</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
 						<dateTimeFormat>
@@ -2366,6 +2422,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateTimeFormat type="atTime">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>{1}{0}</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="Bh">Bh時</dateFormatItem>
@@ -2373,24 +2432,31 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="Bhms">Bh:mm:ss</dateFormatItem>
 						<dateFormatItem id="d">d日</dateFormatItem>
 						<dateFormatItem id="E">↑↑↑</dateFormatItem>
-						<dateFormatItem id="EBhm">↑↑↑</dateFormatItem>
-						<dateFormatItem id="EBhms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EBh">EBh點</dateFormatItem>
+						<dateFormatItem id="EBhm">EBh:mm</dateFormatItem>
+						<dateFormatItem id="EBhms">EBh:mm:ss</dateFormatItem>
 						<dateFormatItem id="Ed">d E</dateFormatItem>
-						<dateFormatItem id="Ehm">ah:mmE</dateFormatItem>
-						<dateFormatItem id="EHm">↑↑↑</dateFormatItem>
-						<dateFormatItem id="Ehms">ah:mm:ssE</dateFormatItem>
-						<dateFormatItem id="EHms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Eh">Eah點</dateFormatItem>
+
+						<dateFormatItem id="Ehm">Eah:mm</dateFormatItem>
+						<dateFormatItem id="EHm">EHH:mm</dateFormatItem>
+						<dateFormatItem id="Ehms">Eah:mm:ss</dateFormatItem>
+						<dateFormatItem id="EHms">EHH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">G y年</dateFormatItem>
-						<dateFormatItem id="GyMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyM">G M/y</dateFormatItem>
+						<dateFormatItem id="GyMd">G d/M/y</dateFormatItem>
+						<dateFormatItem id="GyMEd">G d/M/y (E)</dateFormatItem>
 						<dateFormatItem id="GyMMM">G y年M月</dateFormatItem>
 						<dateFormatItem id="GyMMMd">G y年M月d日</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">G y年M月d日 E</dateFormatItem>
-						<dateFormatItem id="h">ah時</dateFormatItem>
-						<dateFormatItem id="H">H時</dateFormatItem>
+						<dateFormatItem id="h">ah點</dateFormatItem>
+						<dateFormatItem id="H">H點</dateFormatItem>
 						<dateFormatItem id="hm">ah:mm</dateFormatItem>
 						<dateFormatItem id="Hm">H:mm</dateFormatItem>
 						<dateFormatItem id="hms">ah:mm:ss</dateFormatItem>
 						<dateFormatItem id="Hms">H:mm:ss</dateFormatItem>
+						<dateFormatItem id="hv">ah 點 (v)</dateFormatItem>
+						<dateFormatItem id="Hv">HH點 (v)</dateFormatItem>
 						<dateFormatItem id="M">M月</dateFormatItem>
 						<dateFormatItem id="Md">M/d</dateFormatItem>
 						<dateFormatItem id="MEd">M/d（E）</dateFormatItem>
@@ -2773,8 +2839,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="abbreviated">
 							<dayPeriod type="midnight">午夜</dayPeriod>
-							<dayPeriod type="am">上午</dayPeriod>
-							<dayPeriod type="pm">下午</dayPeriod>
+							<dayPeriod type="am">上晝</dayPeriod>
+							<dayPeriod type="pm">下晝</dayPeriod>
 							<dayPeriod type="morning1">清晨</dayPeriod>
 							<dayPeriod type="morning2">朝早</dayPeriod>
 							<dayPeriod type="afternoon1">中午</dayPeriod>
@@ -2784,8 +2850,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="midnight">↑↑↑</dayPeriod>
-							<dayPeriod type="am">↑↑↑</dayPeriod>
-							<dayPeriod type="pm">↑↑↑</dayPeriod>
+							<dayPeriod type="am">上晝</dayPeriod>
+							<dayPeriod type="pm">下晝</dayPeriod>
 							<dayPeriod type="morning1">↑↑↑</dayPeriod>
 							<dayPeriod type="morning2">↑↑↑</dayPeriod>
 							<dayPeriod type="afternoon1">↑↑↑</dayPeriod>
@@ -2795,8 +2861,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="midnight">↑↑↑</dayPeriod>
-							<dayPeriod type="am">↑↑↑</dayPeriod>
-							<dayPeriod type="pm">↑↑↑</dayPeriod>
+							<dayPeriod type="am">上晝</dayPeriod>
+							<dayPeriod type="pm">下晝</dayPeriod>
 							<dayPeriod type="morning1">↑↑↑</dayPeriod>
 							<dayPeriod type="morning2">↑↑↑</dayPeriod>
 							<dayPeriod type="afternoon1">↑↑↑</dayPeriod>
@@ -2808,8 +2874,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<dayPeriodContext type="stand-alone">
 						<dayPeriodWidth type="abbreviated">
 							<dayPeriod type="midnight">↑↑↑</dayPeriod>
-							<dayPeriod type="am">↑↑↑</dayPeriod>
-							<dayPeriod type="pm">↑↑↑</dayPeriod>
+							<dayPeriod type="am">上晝</dayPeriod>
+							<dayPeriod type="pm">下晝</dayPeriod>
 							<dayPeriod type="morning1">↑↑↑</dayPeriod>
 							<dayPeriod type="morning2">↑↑↑</dayPeriod>
 							<dayPeriod type="afternoon1">↑↑↑</dayPeriod>
@@ -2819,8 +2885,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="midnight">↑↑↑</dayPeriod>
-							<dayPeriod type="am">↑↑↑</dayPeriod>
-							<dayPeriod type="pm">↑↑↑</dayPeriod>
+							<dayPeriod type="am">上晝</dayPeriod>
+							<dayPeriod type="pm">下晝</dayPeriod>
 							<dayPeriod type="morning1">↑↑↑</dayPeriod>
 							<dayPeriod type="morning2">↑↑↑</dayPeriod>
 							<dayPeriod type="afternoon1">↑↑↑</dayPeriod>
@@ -2921,12 +2987,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateTimeFormat type="atTime">
 							<pattern>{1}{0}</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>{1}{0}</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
 						<dateTimeFormat>
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
+							<pattern>{1}{0}</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
 							<pattern>{1}{0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
@@ -2937,6 +3009,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateTimeFormat type="atTime">
 							<pattern>{1}{0}</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>{1}{0}</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
 						<dateTimeFormat>
@@ -2945,27 +3020,35 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateTimeFormat type="atTime">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>{1}{0}</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
-						<dateFormatItem id="Bh">Bh時</dateFormatItem>
+						<dateFormatItem id="Bh">Bh點</dateFormatItem>
 						<dateFormatItem id="Bhm">Bh:mm</dateFormatItem>
 						<dateFormatItem id="Bhms">Bh:mm:ss</dateFormatItem>
 						<dateFormatItem id="d">d日</dateFormatItem>
 						<dateFormatItem id="E">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EBh">EBh點</dateFormatItem>
 						<dateFormatItem id="EBhm">E Bh:mm</dateFormatItem>
 						<dateFormatItem id="EBhms">E Bh:mm:ss</dateFormatItem>
 						<dateFormatItem id="Ed">d E</dateFormatItem>
+						<dateFormatItem id="Eh">Eah 點</dateFormatItem>
+
 						<dateFormatItem id="Ehm">E ah:mm</dateFormatItem>
 						<dateFormatItem id="EHm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ehms">E ah:mm:ss</dateFormatItem>
 						<dateFormatItem id="EHms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Gy">Gy年</dateFormatItem>
-						<dateFormatItem id="GyMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyM">GM/y</dateFormatItem>
+						<dateFormatItem id="GyMd">Gd/M/y</dateFormatItem>
+						<dateFormatItem id="GyMEd">Gd/M/y (E)</dateFormatItem>
 						<dateFormatItem id="GyMMM">Gy年M月</dateFormatItem>
 						<dateFormatItem id="GyMMMd">Gy年M月d日</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">Gy年M月d日 E</dateFormatItem>
 						<dateFormatItem id="h">ah時</dateFormatItem>
-						<dateFormatItem id="H">H時</dateFormatItem>
+						<dateFormatItem id="H">H點</dateFormatItem>
 						<dateFormatItem id="hm">ah:mm</dateFormatItem>
 						<dateFormatItem id="Hm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hms">ah:mm:ss</dateFormatItem>
@@ -2974,6 +3057,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="Hmsv">HH:mm:ss [v]</dateFormatItem>
 						<dateFormatItem id="hmv">ah:mm [v]</dateFormatItem>
 						<dateFormatItem id="Hmv">HH:mm [v]</dateFormatItem>
+						<dateFormatItem id="hv">ah點 (v)</dateFormatItem>
+						<dateFormatItem id="Hv">HH點 (v)</dateFormatItem>
 						<dateFormatItem id="M">M月</dateFormatItem>
 						<dateFormatItem id="Md">M/d</dateFormatItem>
 						<dateFormatItem id="MEd">M/d（E）</dateFormatItem>
@@ -4587,6 +4672,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<hourFormat>↑↑↑</hourFormat>
 			<gmtFormat>↑↑↑</gmtFormat>
 			<gmtZeroFormat>↑↑↑</gmtZeroFormat>
+			<gmtUnknownFormat>↑↑↑</gmtUnknownFormat>
 			<regionFormat>{0}時間</regionFormat>
 			<regionFormat type="daylight">{0}夏令時間</regionFormat>
 			<regionFormat type="standard">{0}標準時間</regionFormat>
@@ -4943,6 +5029,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Pacific/Easter">
 				<exemplarCity>復活島</exemplarCity>
+			</zone>
+			<zone type="America/Coyhaique">
+				<exemplarCity>科伊艾克</exemplarCity>
 			</zone>
 			<zone type="America/Punta_Arenas">
 				<exemplarCity>蓬塔阿雷納斯</exemplarCity>
@@ -5885,9 +5974,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Africa_Western">
 				<long>
-					<generic>西非時間</generic>
-					<standard>西非標準時間</standard>
-					<daylight>西非夏令時間</daylight>
+					<standard>西非時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Alaska">
@@ -6273,6 +6360,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<metazone type="Guyana">
 				<long>
 					<standard>蓋亞那時間</standard>
+				</long>
+			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>夏威夷-阿留申標準時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
@@ -6895,6 +6987,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
+		<rationalFormats numberSystem="hanidec">
+			<rationalPattern>↑↑↑</rationalPattern>
+			<integerAndRationalPattern>↑↑↑</integerAndRationalPattern>
+			<integerAndRationalPattern alt="superSub">↑↑↑</integerAndRationalPattern>
+			<rationalUsage>↑↑↑</rationalUsage>
+		</rationalFormats>
+		<rationalFormats numberSystem="latn">
+			<rationalPattern>↑↑↑</rationalPattern>
+			<integerAndRationalPattern>↑↑↑</integerAndRationalPattern>
+			<integerAndRationalPattern alt="superSub">↑↑↑</integerAndRationalPattern>
+			<rationalUsage>↑↑↑</rationalUsage>
+		</rationalFormats>
 		<scientificFormats numberSystem="hanidec">
 			<scientificFormatLength>
 				<scientificFormat>
@@ -6936,8 +7040,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>¤#,##0.00</pattern>
-					<pattern alt="alphaNextToNumber" draft="provisional">¤ #,##0.00</pattern>
-					<pattern alt="noCurrency" draft="provisional">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>¤#,##0.00;(¤#,##0.00)</pattern>
@@ -6948,17 +7052,29 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currencyFormatLength type="short">
 				<currencyFormat type="standard">
 					<pattern type="1000" count="other">¤0千</pattern>
+					<pattern type="1000" count="other" alt="alphaNextToNumber">¤ 0千</pattern>
 					<pattern type="10000" count="other">¤0萬</pattern>
+					<pattern type="10000" count="other" alt="alphaNextToNumber">¤ 0萬</pattern>
 					<pattern type="100000" count="other">¤00萬</pattern>
+					<pattern type="100000" count="other" alt="alphaNextToNumber">¤ 00萬</pattern>
 					<pattern type="1000000" count="other">¤000萬</pattern>
+					<pattern type="1000000" count="other" alt="alphaNextToNumber">¤ 000萬</pattern>
 					<pattern type="10000000" count="other">¤0000萬</pattern>
+					<pattern type="10000000" count="other" alt="alphaNextToNumber">¤ 0000萬</pattern>
 					<pattern type="100000000" count="other">¤0億</pattern>
+					<pattern type="100000000" count="other" alt="alphaNextToNumber">¤ 0億</pattern>
 					<pattern type="1000000000" count="other">¤00億</pattern>
+					<pattern type="1000000000" count="other" alt="alphaNextToNumber">¤ 00億</pattern>
 					<pattern type="10000000000" count="other">¤000億</pattern>
+					<pattern type="10000000000" count="other" alt="alphaNextToNumber">¤ 000億</pattern>
 					<pattern type="100000000000" count="other">¤0000億</pattern>
+					<pattern type="100000000000" count="other" alt="alphaNextToNumber">¤ 0000億</pattern>
 					<pattern type="1000000000000" count="other">¤0兆</pattern>
+					<pattern type="1000000000000" count="other" alt="alphaNextToNumber">¤ 0兆</pattern>
 					<pattern type="10000000000000" count="other">¤00兆</pattern>
+					<pattern type="10000000000000" count="other" alt="alphaNextToNumber">¤ 00兆</pattern>
 					<pattern type="100000000000000" count="other">¤000兆</pattern>
+					<pattern type="100000000000000" count="other" alt="alphaNextToNumber">¤ 000兆</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
@@ -8437,6 +8553,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
+			<currency type="XCG">
+				<displayName>加勒比盾</displayName>
+				<displayName count="other">加勒比盾</displayName>
+			</currency>
 			<currency type="XDR">
 				<displayName>特殊提款權</displayName>
 				<displayName count="other">↑↑↑</displayName>
@@ -8568,6 +8688,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>辛巴威元 (1980–2008)</displayName>
 				<displayName count="other">↑↑↑</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="ZWG">
+				<displayName>辛巴威金</displayName>
+				<displayName count="other">辛巴威金</displayName>
 			</currency>
 			<currency type="ZWL">
 				<displayName>辛巴威元 (2009)</displayName>
@@ -8792,6 +8916,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="concentr-part">
+				<displayName>等份</displayName>
+				<unitPattern count="other">{0} 等份</unitPattern>
+			</unit>
 			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -8811,6 +8939,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="concentr-mole">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-ofglucose">
+				<displayName>葡萄糖</displayName>
+				<unitPattern count="other">{0} 葡萄糖</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>↑↑↑</displayName>
@@ -9245,6 +9377,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="pressure-ofhg">
+				<displayName>水銀柱</displayName>
+				<unitPattern count="other">{0} 水銀柱</unitPattern>
+			</unit>
 			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">每平方吋 {0} 磅</unitPattern>
@@ -9388,6 +9524,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="volume-fluid-ounce-metric">
+				<displayName>公制液量安士</displayName>
+				<unitPattern count="other">{0} 公制液量安士</unitPattern>
+			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -9466,18 +9606,70 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="angle-steradian">
+				<displayName>球面度</displayName>
+				<unitPattern count="other">{0} 球面度</unitPattern>
+			</unit>
+			<unit type="concentr-katal">
+				<displayName>開特</displayName>
+				<unitPattern count="other">{0} 開特</unitPattern>
+			</unit>
+			<unit type="electric-coulomb">
+				<displayName>庫侖</displayName>
+				<unitPattern count="other">{0} 庫侖</unitPattern>
+			</unit>
+			<unit type="electric-farad">
+				<displayName>法拉</displayName>
+				<unitPattern count="other">{0} 法拉</unitPattern>
+			</unit>
+			<unit type="electric-henry">
+				<displayName>亨利</displayName>
+				<unitPattern count="other">{0} 亨利</unitPattern>
+			</unit>
+			<unit type="electric-siemens">
+				<displayName>西門子</displayName>
+				<unitPattern count="other">{0} 西門子</unitPattern>
+			</unit>
+			<unit type="energy-calorie-it">
+				<displayName>國際蒸汽表卡路里</displayName>
+				<unitPattern count="other">{0} 國際蒸汽表卡路里</unitPattern>
+			</unit>
+			<unit type="energy-becquerel">
+				<displayName>貝克勒爾</displayName>
+				<unitPattern count="other">{0} 貝克勒爾</unitPattern>
+			</unit>
+			<unit type="energy-sievert">
+				<displayName>希沃特</displayName>
+				<unitPattern count="other">{0} 希沃特</unitPattern>
+			</unit>
+			<unit type="energy-gray">
+				<displayName>戈瑞</displayName>
+				<unitPattern count="other">{0} 戈瑞</unitPattern>
+			</unit>
+			<unit type="force-kilogram-force">
+				<displayName>公斤力</displayName>
+				<unitPattern count="other">{0} 公斤力</unitPattern>
+			</unit>
+			<unit type="magnetic-tesla">
+				<displayName>特斯拉</displayName>
+				<unitPattern count="other">{0} 特斯拉</unitPattern>
+			</unit>
+			<unit type="magnetic-weber">
+				<displayName>韋伯</displayName>
+				<unitPattern count="other">{0} 韋伯</unitPattern>
+			</unit>
 			<unit type="speed-light-speed">
-				<displayName>光速</displayName>
-				<unitPattern count="other">{0} 光速</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-part-per-1e9">
 				<displayName>十億分點濃度</displayName>
 				<unitPattern count="other">{0} 十億分點濃度</unitPattern>
 			</unit>
 			<unit type="duration-night">
-				<displayName>晚</displayName>
-				<unitPattern count="other">{0} 晚</unitPattern>
-				<perUnitPattern>{0}/晚</perUnitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>↑↑↑</displayName>
@@ -9687,6 +9879,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>項</displayName>
 				<unitPattern count="other">{0} 項</unitPattern>
 			</unit>
+			<unit type="concentr-part">
+				<displayName>等份</displayName>
+				<unitPattern count="other">{0} 等份</unitPattern>
+			</unit>
 			<unit type="concentr-part-per-1e6">
 				<displayName>百萬分率</displayName>
 				<unitPattern count="other">{0} 百萬分率</unitPattern>
@@ -9706,6 +9902,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="concentr-mole">
 				<displayName>摩爾</displayName>
 				<unitPattern count="other">{0} 摩爾</unitPattern>
+			</unit>
+			<unit type="concentr-ofglucose">
+				<displayName>葡萄糖</displayName>
+				<unitPattern count="other">{0} 葡萄糖</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>公升/公里</displayName>
@@ -10140,6 +10340,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>毫米汞柱</displayName>
 				<unitPattern count="other">{0} 毫米汞柱</unitPattern>
 			</unit>
+			<unit type="pressure-ofhg">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">{0} Hg</unitPattern>
+			</unit>
 			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>磅力/平方英吋</displayName>
 				<unitPattern count="other">每平方吋{0}磅</unitPattern>
@@ -10283,6 +10487,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>公制量杯</displayName>
 				<unitPattern count="other">{0} 公制杯</unitPattern>
 			</unit>
+			<unit type="volume-fluid-ounce-metric">
+				<displayName>公制液量安士</displayName>
+				<unitPattern count="other">{0} 公制液量安士</unitPattern>
+			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>英畝英呎</displayName>
 				<unitPattern count="other">{0} 英畝英呎</unitPattern>
@@ -10360,6 +10568,58 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="volume-quart-imperial">
 				<displayName>英制夸脫</displayName>
 				<unitPattern count="other">{0} 英制夸脫</unitPattern>
+			</unit>
+			<unit type="angle-steradian">
+				<displayName>球面度</displayName>
+				<unitPattern count="other">{0} 球面度</unitPattern>
+			</unit>
+			<unit type="concentr-katal">
+				<displayName>開特</displayName>
+				<unitPattern count="other">{0} 開特</unitPattern>
+			</unit>
+			<unit type="electric-coulomb">
+				<displayName>庫</displayName>
+				<unitPattern count="other">{0} 庫</unitPattern>
+			</unit>
+			<unit type="electric-farad">
+				<displayName>法</displayName>
+				<unitPattern count="other">{0} 法</unitPattern>
+			</unit>
+			<unit type="electric-henry">
+				<displayName>亨</displayName>
+				<unitPattern count="other">{0} 亨</unitPattern>
+			</unit>
+			<unit type="electric-siemens">
+				<displayName>西</displayName>
+				<unitPattern count="other">{0} 西</unitPattern>
+			</unit>
+			<unit type="energy-calorie-it">
+				<displayName>國際蒸汽表卡</displayName>
+				<unitPattern count="other">{0} 國際蒸汽表卡</unitPattern>
+			</unit>
+			<unit type="energy-becquerel">
+				<displayName>貝克</displayName>
+				<unitPattern count="other">{0} 貝克</unitPattern>
+			</unit>
+			<unit type="energy-sievert">
+				<displayName>希</displayName>
+				<unitPattern count="other">{0} 希</unitPattern>
+			</unit>
+			<unit type="energy-gray">
+				<displayName>戈</displayName>
+				<unitPattern count="other">{0} 戈</unitPattern>
+			</unit>
+			<unit type="force-kilogram-force">
+				<displayName>公斤力</displayName>
+				<unitPattern count="other">{0} 公斤力</unitPattern>
+			</unit>
+			<unit type="magnetic-tesla">
+				<displayName>特</displayName>
+				<unitPattern count="other">{0} 特</unitPattern>
+			</unit>
+			<unit type="magnetic-weber">
+				<displayName>韋</displayName>
+				<unitPattern count="other">{0} 韋</unitPattern>
 			</unit>
 			<unit type="speed-light-speed">
 				<displayName>光速</displayName>
@@ -10582,6 +10842,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="concentr-part">
+				<displayName>等份</displayName>
+				<unitPattern count="other">{0} 等份</unitPattern>
+			</unit>
 			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -10601,6 +10865,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="concentr-mole">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-ofglucose">
+				<displayName>葡萄糖</displayName>
+				<unitPattern count="other">{0} 葡萄糖</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>↑↑↑</displayName>
@@ -11035,6 +11303,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="pressure-ofhg">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">{0} Hg</unitPattern>
+			</unit>
 			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">每平方吋 {0} 磅</unitPattern>
@@ -11178,6 +11450,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="volume-fluid-ounce-metric">
+				<displayName>公制液量安士</displayName>
+				<unitPattern count="other">{0} 公制液量安士</unitPattern>
+			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -11256,8 +11532,60 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="angle-steradian">
+				<displayName>球面度</displayName>
+				<unitPattern count="other">{0} 球面度</unitPattern>
+			</unit>
+			<unit type="concentr-katal">
+				<displayName>開特</displayName>
+				<unitPattern count="other">{0} 開特</unitPattern>
+			</unit>
+			<unit type="electric-coulomb">
+				<displayName>庫</displayName>
+				<unitPattern count="other">{0} 庫</unitPattern>
+			</unit>
+			<unit type="electric-farad">
+				<displayName>法</displayName>
+				<unitPattern count="other">{0} 法</unitPattern>
+			</unit>
+			<unit type="electric-henry">
+				<displayName>亨</displayName>
+				<unitPattern count="other">{0} 亨</unitPattern>
+			</unit>
+			<unit type="electric-siemens">
+				<displayName>西</displayName>
+				<unitPattern count="other">{0} 西</unitPattern>
+			</unit>
+			<unit type="energy-calorie-it">
+				<displayName>卡路里-IT</displayName>
+				<unitPattern count="other">{0} 卡路里-IT</unitPattern>
+			</unit>
+			<unit type="energy-becquerel">
+				<displayName>貝克</displayName>
+				<unitPattern count="other">{0} 貝克</unitPattern>
+			</unit>
+			<unit type="energy-sievert">
+				<displayName>希</displayName>
+				<unitPattern count="other">{0} 希</unitPattern>
+			</unit>
+			<unit type="energy-gray">
+				<displayName>戈</displayName>
+				<unitPattern count="other">{0} 戈</unitPattern>
+			</unit>
+			<unit type="force-kilogram-force">
+				<displayName>公斤力</displayName>
+				<unitPattern count="other">{0} 公斤力</unitPattern>
+			</unit>
+			<unit type="magnetic-tesla">
+				<displayName>特</displayName>
+				<unitPattern count="other">{0} 特</unitPattern>
+			</unit>
+			<unit type="magnetic-weber">
+				<displayName>韋</displayName>
+				<unitPattern count="other">{0} 韋</unitPattern>
+			</unit>
 			<unit type="speed-light-speed">
-				<displayName>光速</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0}光速</unitPattern>
 			</unit>
 			<unit type="concentr-part-per-1e9">
@@ -11265,9 +11593,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0}ppb</unitPattern>
 			</unit>
 			<unit type="duration-night">
-				<displayName>晚</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0}晚</unitPattern>
-				<perUnitPattern>{0}/晚</perUnitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>↑↑↑</displayName>

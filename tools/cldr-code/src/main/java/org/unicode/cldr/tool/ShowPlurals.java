@@ -126,7 +126,6 @@ public class ShowPlurals {
                         .setHeaderAttributes("class='dtf-th'")
                         .setCellAttributes("class='dtf-s'")
                         .setBreakSpans(true)
-                        .setRepeatHeader(true)
                         .addColumn(
                                 "Code",
                                 "class='source'",

@@ -39,7 +39,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="es_ES" draft="unconfirmed">espanhòu d’Espanha</language>
 			<language type="es_MX" draft="unconfirmed">espanhòu de Mexic</language>
 			<language type="et" draft="unconfirmed">↑↑↑</language>
-			<language type="fi" draft="unconfirmed">finés</language>
+			<language type="fi" draft="unconfirmed">↑↑↑</language>
 			<language type="fr" draft="unconfirmed">↑↑↑</language>
 			<language type="fr_CA" draft="unconfirmed">francés canadienc</language>
 			<language type="fr_CH" draft="unconfirmed">francés suís</language>
@@ -69,7 +69,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="und" draft="unconfirmed">lengua desconeishuda</language>
 			<language type="zh" draft="unconfirmed">↑↑↑</language>
 			<language type="zh" alt="menu" draft="unconfirmed">chinés mandarin</language>
-			<language type="zh_Hans" draft="unconfirmed">shinés simplificat</language>
+			<language type="zh_Hans" draft="unconfirmed">↑↑↑</language>
 			<language type="zh_Hans" alt="long" draft="unconfirmed">↑↑↑</language>
 			<language type="zh_Hant" draft="unconfirmed">chinés tradicionau</language>
 			<language type="zh_Hant" alt="long" draft="unconfirmed">chinés mandarin tradicionau</language>
@@ -83,7 +83,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Hant" alt="stand-alone" draft="unconfirmed">han tradicionau</script>
 			<script type="Jpan" draft="unconfirmed">↑↑↑</script>
 			<script type="Kore" draft="unconfirmed">↑↑↑</script>
-			<script type="Latn" draft="unconfirmed">latino</script>
+			<script type="Latn" draft="unconfirmed">↑↑↑</script>
 			<script type="Zxxx" draft="unconfirmed">no escrit</script>
 			<script type="Zzzz" draft="unconfirmed">alfabet desconeishut</script>
 		</scripts>
@@ -104,7 +104,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="029" draft="unconfirmed">↑↑↑</territory>
 			<territory type="030" draft="unconfirmed">Asia orientau</territory>
 			<territory type="034" draft="unconfirmed">Asia meridionau</territory>
-			<territory type="035" draft="unconfirmed">Sudèst aisatic</territory>
+			<territory type="035" draft="unconfirmed">Sudèst asiatic</territory>
 			<territory type="039" draft="unconfirmed">Euròpa meridionau</territory>
 			<territory type="053" draft="unconfirmed">Australasia</territory>
 			<territory type="054" draft="unconfirmed">↑↑↑</territory>
@@ -239,6 +239,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="IM" draft="unconfirmed">Isla de Man</territory>
 			<territory type="IN" draft="unconfirmed">↑↑↑</territory>
 			<territory type="IO" draft="unconfirmed">Territòri Britanic der Ocean Índic</territory>
+			<territory type="IO" alt="biot" draft="unconfirmed">↑↑↑</territory>
+			<territory type="IO" alt="chagos" draft="unconfirmed">↑↑↑</territory>
 			<territory type="IQ" draft="unconfirmed">↑↑↑</territory>
 			<territory type="IR" draft="unconfirmed">↑↑↑</territory>
 			<territory type="IS" draft="unconfirmed">↑↑↑</territory>
@@ -419,7 +421,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<exemplarCharacters type="auxiliary">↑↑↑</exemplarCharacters>
 		<exemplarCharacters type="index" draft="unconfirmed">[A B CÇ D E F G H I J K L M N O P Q R S T U V W X Y Z]</exemplarCharacters>
 		<exemplarCharacters type="numbers">↑↑↑</exemplarCharacters>
+		<exemplarCharacters type="numbers-auxiliary" draft="unconfirmed">↑↑↑</exemplarCharacters>
 		<exemplarCharacters type="punctuation">[\- ‐‑ – — , ; \: ! ? . … '‘’ &quot;“” « » ( ) \[ \] § @ * / \&amp; # † ‡ ⋅]</exemplarCharacters>
+		<exemplarCharacters type="punctuation-auxiliary" draft="unconfirmed">↑↑↑</exemplarCharacters>
+		<exemplarCharacters type="punctuation-person" draft="unconfirmed">↑↑↑</exemplarCharacters>
 		<ellipsis type="final" draft="unconfirmed">↑↑↑</ellipsis>
 		<ellipsis type="initial" draft="unconfirmed">… {0}</ellipsis>
 		<ellipsis type="medial" draft="unconfirmed">{0}… {1}</ellipsis>
@@ -437,7 +442,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<parseLenient sample="%" draft="unconfirmed">↑↑↑</parseLenient>
 			<parseLenient sample="‰" draft="unconfirmed">↑↑↑</parseLenient>
 			<parseLenient sample="$" draft="unconfirmed">↑↑↑</parseLenient>
-			<parseLenient sample="£" draft="unconfirmed">[£￡ ₤]</parseLenient>
+			<parseLenient sample="£" draft="unconfirmed">↑↑↑</parseLenient>
 			<parseLenient sample="¥" draft="unconfirmed">↑↑↑</parseLenient>
 			<parseLenient sample="₩" draft="unconfirmed">↑↑↑</parseLenient>
 			<parseLenient sample="₹" draft="unconfirmed">↑↑↑</parseLenient>
@@ -491,12 +496,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateTimeFormat type="atTime">
 							<pattern draft="unconfirmed">↑↑↑</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern draft="unconfirmed">↑↑↑</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
 						<dateTimeFormat>
 							<pattern draft="unconfirmed">{1}, {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
+							<pattern draft="unconfirmed">↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
 							<pattern draft="unconfirmed">↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
@@ -507,6 +518,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateTimeFormat type="atTime">
 							<pattern draft="unconfirmed">↑↑↑</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern draft="unconfirmed">↑↑↑</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
 						<dateTimeFormat>
@@ -515,17 +529,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateTimeFormat type="atTime">
 							<pattern draft="unconfirmed">↑↑↑</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern draft="unconfirmed">↑↑↑</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="d" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="E" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ed" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Eh" draft="unconfirmed">↑↑↑</dateFormatItem>
+
 						<dateFormatItem id="Ehm" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EHm" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ehms" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EHms" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Gy" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyM" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMd" draft="unconfirmed">d/M/y GGGGG</dateFormatItem>
+						<dateFormatItem id="GyMEd" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMM" draft="unconfirmed">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd" draft="unconfirmed">d MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd" draft="unconfirmed">E, d MMM y G</dateFormatItem>
@@ -538,6 +559,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="Hm" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hms" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Hms" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hv" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Hv" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="M" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Md" draft="unconfirmed">d/M</dateFormatItem>
 						<dateFormatItem id="MEd" draft="unconfirmed">E, d/M</dateFormatItem>
@@ -727,7 +750,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1" draft="unconfirmed">↑↑↑</month>
-							<month type="2" draft="unconfirmed">↑↑↑</month>
+							<month type="2" draft="unconfirmed">H</month>
 							<month type="3" draft="unconfirmed">↑↑↑</month>
 							<month type="4" draft="unconfirmed">↑↑↑</month>
 							<month type="5" draft="unconfirmed">↑↑↑</month>
@@ -977,12 +1000,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateTimeFormat type="atTime">
 							<pattern draft="unconfirmed">↑↑↑</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern draft="unconfirmed">↑↑↑</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
 						<dateTimeFormat>
 							<pattern draft="unconfirmed">{1}, {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
+							<pattern draft="unconfirmed">↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
 							<pattern draft="unconfirmed">↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
@@ -993,6 +1022,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateTimeFormat type="atTime">
 							<pattern draft="unconfirmed">↑↑↑</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern draft="unconfirmed">↑↑↑</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
 						<dateTimeFormat>
@@ -1001,22 +1033,30 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateTimeFormat type="atTime">
 							<pattern draft="unconfirmed">↑↑↑</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern draft="unconfirmed">↑↑↑</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="Bh" draft="unconfirmed">h B</dateFormatItem>
 						<dateFormatItem id="Bhm" draft="unconfirmed">h:mm B</dateFormatItem>
-						<dateFormatItem id="Bhms" draft="unconfirmed">h:mm:ss B</dateFormatItem>
+						<dateFormatItem id="Bhms" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="d" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="E" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EBh" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EBhm" draft="unconfirmed">E h:mm B</dateFormatItem>
-						<dateFormatItem id="EBhms" draft="unconfirmed">E h:mm:ss B</dateFormatItem>
+						<dateFormatItem id="EBhms" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ed" draft="unconfirmed">E d</dateFormatItem>
+						<dateFormatItem id="Eh" draft="unconfirmed">↑↑↑</dateFormatItem>
+
 						<dateFormatItem id="Ehm" draft="unconfirmed">E h:mm a</dateFormatItem>
 						<dateFormatItem id="EHm" draft="unconfirmed">E, H:mm</dateFormatItem>
 						<dateFormatItem id="Ehms" draft="unconfirmed">E h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="EHms" draft="unconfirmed">E, H:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyM" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMd" draft="unconfirmed">d/M/y G</dateFormatItem>
+						<dateFormatItem id="GyMEd" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMM" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMMd" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMMEd" draft="unconfirmed">E, d MMM y G</dateFormatItem>
@@ -1033,6 +1073,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="Hmsv" draft="unconfirmed">H:mm:ss v</dateFormatItem>
 						<dateFormatItem id="hmv" draft="unconfirmed">h:mm a v</dateFormatItem>
 						<dateFormatItem id="Hmv" draft="unconfirmed">H:mm v</dateFormatItem>
+						<dateFormatItem id="hv" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Hv" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="M" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Md" draft="unconfirmed">d/M</dateFormatItem>
 						<dateFormatItem id="MEd" draft="unconfirmed">E, d/M</dateFormatItem>
@@ -1355,6 +1397,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<hourFormat draft="unconfirmed">↑↑↑</hourFormat>
 			<gmtFormat draft="unconfirmed">↑↑↑</gmtFormat>
 			<gmtZeroFormat draft="unconfirmed">↑↑↑</gmtZeroFormat>
+			<gmtUnknownFormat draft="unconfirmed">↑↑↑</gmtUnknownFormat>
 			<regionFormat draft="unconfirmed">↑↑↑</regionFormat>
 			<regionFormat type="daylight" draft="unconfirmed">orari d’estiu de {0}</regionFormat>
 			<regionFormat type="standard" draft="unconfirmed">orari estandard de {0}</regionFormat>
@@ -1383,7 +1426,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/Tirane">
-				<exemplarCity draft="unconfirmed">Tirana</exemplarCity>
+				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Yerevan">
 				<exemplarCity draft="unconfirmed">Ereván</exemplarCity>
@@ -1719,7 +1762,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Urumqi">
-				<exemplarCity draft="unconfirmed">Ürümqi</exemplarCity>
+				<exemplarCity draft="unconfirmed">Urumqui</exemplarCity>
 			</zone>
 			<zone type="Asia/Shanghai">
 				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
@@ -1737,7 +1780,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity draft="unconfirmed">Cabo Verde</exemplarCity>
 			</zone>
 			<zone type="America/Curacao">
-				<exemplarCity draft="unconfirmed">Curaçao</exemplarCity>
+				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Indian/Christmas">
 				<exemplarCity draft="unconfirmed">Nadau</exemplarCity>
@@ -1983,7 +2026,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Indian/Comoro">
-				<exemplarCity draft="unconfirmed">Comores</exemplarCity>
+				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/St_Kitts">
 				<exemplarCity draft="unconfirmed">Sant Cristòbal</exemplarCity>
@@ -2022,7 +2065,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Vientiane">
-				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
+				<exemplarCity draft="unconfirmed">Vientian</exemplarCity>
 			</zone>
 			<zone type="Asia/Beirut">
 				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
@@ -2061,7 +2104,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/Chisinau">
-				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
+				<exemplarCity draft="unconfirmed">Chisinau</exemplarCity>
 			</zone>
 			<zone type="Europe/Podgorica">
 				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
@@ -2124,6 +2167,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Hermosillo">
+				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
+			</zone>
+			<zone type="America/Ciudad_Juarez">
 				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Mazatlan">
@@ -2268,7 +2314,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity draft="unconfirmed">Catar</exemplarCity>
 			</zone>
 			<zone type="Indian/Reunion">
-				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
+				<exemplarCity draft="unconfirmed">Reunion</exemplarCity>
 			</zone>
 			<zone type="Europe/Bucharest">
 				<exemplarCity draft="unconfirmed">Bucarest</exemplarCity>
@@ -2364,7 +2410,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Indian/Mahe">
-				<exemplarCity draft="unconfirmed">Mahé</exemplarCity>
+				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Africa/Khartoum">
 				<exemplarCity draft="unconfirmed">Jartum</exemplarCity>
@@ -2430,7 +2476,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Africa/Lome">
-				<exemplarCity draft="unconfirmed">Lomé</exemplarCity>
+				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Bangkok">
 				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
@@ -2481,7 +2527,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Wake">
-				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
+				<exemplarCity draft="unconfirmed">Isla Wake</exemplarCity>
 			</zone>
 			<zone type="America/Adak">
 				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
@@ -2598,7 +2644,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Wallis">
-				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
+				<exemplarCity draft="unconfirmed">Wallis e Furtuna</exemplarCity>
 			</zone>
 			<zone type="Pacific/Apia">
 				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
@@ -2640,9 +2686,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Africa_Western">
 				<long>
-					<generic draft="unconfirmed">ora d’Africa occidentau</generic>
-					<standard draft="unconfirmed">ora esdandard d’Africa occidentau</standard>
-					<daylight draft="unconfirmed">ora d’estiu d’Africa occidentau</daylight>
+					<standard draft="unconfirmed">ora d’Africa occidentau</standard>
 				</long>
 			</metazone>
 			<metazone type="Alaska">
@@ -2992,6 +3036,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard draft="unconfirmed">ora de Guyana</standard>
 				</long>
 			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard draft="unconfirmed">ora estandard de Hawai-Aleutianes</standard>
+				</long>
+			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
 					<generic draft="unconfirmed">↑↑↑</generic>
@@ -3069,6 +3118,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic draft="unconfirmed">↑↑↑</generic>
 					<standard draft="unconfirmed">ora estandard de Japon</standard>
 					<daylight draft="unconfirmed">↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="Kazakhstan">
+				<long>
+					<standard draft="unconfirmed">ora de Kazajistan</standard>
 				</long>
 			</metazone>
 			<metazone type="Kazakhstan_Eastern">
@@ -3750,148 +3804,253 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</percentFormats>
 		<currencyFormats numberSystem="adlm">
 			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>#,##0.00¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencyFormats numberSystem="arabext">
 			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>#,##0.00¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencyFormats numberSystem="bali">
 			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>#,##0.00¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencyFormats numberSystem="beng">
 			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>#,##0.00¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencyFormats numberSystem="brah">
 			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>#,##0.00¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencyFormats numberSystem="cakm">
 			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>#,##0.00¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencyFormats numberSystem="cham">
 			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>#,##0.00¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencyFormats numberSystem="deva">
 			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>#,##0.00¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencyFormats numberSystem="fullwide">
 			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>#,##0.00¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencyFormats numberSystem="gong">
 			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>#,##0.00¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencyFormats numberSystem="gonm">
 			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>#,##0.00¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencyFormats numberSystem="gujr">
 			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>#,##0.00¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencyFormats numberSystem="guru">
 			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>#,##0.00¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencyFormats numberSystem="hanidec">
 			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>#,##0.00¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencyFormats numberSystem="java">
 			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>#,##0.00¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencyFormats numberSystem="kali">
 			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>#,##0.00¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencyFormats numberSystem="khmr">
 			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>#,##0.00¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencyFormats numberSystem="knda">
 			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>#,##0.00¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencyFormats numberSystem="lana">
 			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>#,##0.00¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencyFormats numberSystem="lanatham">
 			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>#,##0.00¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencyFormats numberSystem="laoo">
 			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>#,##0.00¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
@@ -3899,172 +4058,289 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="unconfirmed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="unconfirmed">#,##0.00¤</pattern>
-					<pattern alt="noCurrency" draft="unconfirmed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="lepc">
 			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>#,##0.00¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencyFormats numberSystem="limb">
 			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>#,##0.00¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencyFormats numberSystem="mlym">
 			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>#,##0.00¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencyFormats numberSystem="mong">
 			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>#,##0.00¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencyFormats numberSystem="mtei">
 			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>#,##0.00¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencyFormats numberSystem="mymr">
 			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>#,##0.00¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencyFormats numberSystem="mymrshan">
 			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>#,##0.00¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencyFormats numberSystem="nkoo">
 			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>#,##0.00¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencyFormats numberSystem="olck">
 			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>#,##0.00¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencyFormats numberSystem="orya">
 			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>#,##0.00¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencyFormats numberSystem="osma">
 			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>#,##0.00¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencyFormats numberSystem="rohg">
 			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>#,##0.00¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencyFormats numberSystem="saur">
 			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>#,##0.00¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencyFormats numberSystem="shrd">
 			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>#,##0.00¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencyFormats numberSystem="sora">
 			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>#,##0.00¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencyFormats numberSystem="sund">
 			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>#,##0.00¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencyFormats numberSystem="takr">
 			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>#,##0.00¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencyFormats numberSystem="talu">
 			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>#,##0.00¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencyFormats numberSystem="tamldec">
 			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>#,##0.00¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencyFormats numberSystem="telu">
 			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>#,##0.00¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencyFormats numberSystem="thai">
 			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>#,##0.00¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencyFormats numberSystem="tibt">
 			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>#,##0.00¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencyFormats numberSystem="vaii">
 			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>#,##0.00¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>

@@ -62,13 +62,15 @@
 ### Locale Display Names
 //ldml/localeDisplayNames/localeDisplayPattern/%E              ; Locale Display Names ; Locale Name Patterns ; Locale Formatting ; &localePattern($1)
 //ldml/localeDisplayNames/codePatterns/codePattern[@type="%A"] ; Locale Display Names ; Locale Name Patterns ; Locale Field Fallbacks ; $1
-//ldml/localeDisplayNames/languages/language[@type="%A"]       ; Locale Display Names ; &languageSection($1) ; &firstLetter($1) ; &languageSort($1)
+//ldml/localeDisplayNames/languages/language[@type="%A"][@menu="%A"]      ; Locale Display Names ; &languageSection($1) ; &firstLetter($1) ; &languageSort($1)-$2
+//ldml/localeDisplayNames/languages/language[@type="%A"]       ; Locale Display Names ; &languageSection($1) ; &firstLetter($1) ; *&languageSort($1)
 //ldml/localeDisplayNames/scripts/script[@type="%A"]           ; Locale Display Names ; Scripts ; &categoryFromScript($1) ; $1
 //ldml/localeDisplayNames/territories/territory[@type="%A"]    ; Locale Display Names ; &territorySection($1) ; &categoryFromTerritory($1) ; $1
 //ldml/localeDisplayNames/subdivisions/subdivision[@type="%A"]    ; Locale Display Names ; &territorySection($1) ; &categoryFromTerritory($1)-Subdivisions ; $1
 //ldml/localeDisplayNames/variants/variant[@type="%A"]         ; Locale Display Names ; Locale Variants ; null ; $1
 //ldml/localeDisplayNames/keys/key[@type="%A"]                 ; Locale Display Names ; Keys ; &categoryFromKey($1) ; $1
-//ldml/localeDisplayNames/types/type[@key="%A"][@type="%A"]    ; Locale Display Names ; Keys ; *&categoryFromKey($1) ; $1-$2
+//ldml/localeDisplayNames/types/type[@key="%A"][@type="%A"][@scope="%A"]    ; Locale Display Names ; Keys ; *&categoryFromKey($1) ; $1-$2-$3
+//ldml/localeDisplayNames/types/type[@key="%A"][@type="%A"]    ; Locale Display Names ; Keys ; *&categoryFromKey($1) ; *$1-$2
 
 ### Date & Time Formatting
 //ldml/dates/fields/field[@type="%A"]/displayName                           ; DateTime ; Fields ; Date Fields ; &datefield($1)
@@ -476,6 +478,16 @@
 //supplementalData/metaZones/metazoneInfo/timezone[@type="%A"]/usesMetazone[@from="%A"]/_mzone			; Supplemental ; Metazone ; $1 ; $2..∞ ; HIDE
 //supplementalData/metaZones/metazoneInfo/timezone[@type="%A"]/usesMetazone[@to="%A"]/_mzone			; Supplemental ; Metazone ; $1 ; -∞..$2 ; HIDE
 //supplementalData/metaZones/metazoneInfo/timezone[@type="%A"]/usesMetazone/_mzone			; Supplemental ; Metazone ; $1 ; -∞..∞ ; HIDE
+
+//supplementalData/metaZones/metazoneInfo/timezone[@type="%A"]/usesMetazone[@from="%A"][@to="%A"]/_stdOffset			; Supplemental ; Metazone ; $1-std-offset ; $2-$3 ; HIDE
+//supplementalData/metaZones/metazoneInfo/timezone[@type="%A"]/usesMetazone[@from="%A"]/_stdOffset			; Supplemental ; Metazone ; $1-std-offset ; $2..∞ ; HIDE
+//supplementalData/metaZones/metazoneInfo/timezone[@type="%A"]/usesMetazone[@to="%A"]/_stdOffset			; Supplemental ; Metazone ; $1-std-offset ; -∞..$2 ; HIDE
+//supplementalData/metaZones/metazoneInfo/timezone[@type="%A"]/usesMetazone/_stdOffset			; Supplemental ; Metazone ; $1-std-offset ; -∞..∞ ; HIDE
+
+//supplementalData/metaZones/metazoneInfo/timezone[@type="%A"]/usesMetazone[@from="%A"][@to="%A"]/_dstOffset			; Supplemental ; Metazone ; $1-dst-offset ; $2-$3 ; HIDE
+//supplementalData/metaZones/metazoneInfo/timezone[@type="%A"]/usesMetazone[@from="%A"]/_dstOffset			; Supplemental ; Metazone ; $1-dst-offset ; $2..∞ ; HIDE
+//supplementalData/metaZones/metazoneInfo/timezone[@type="%A"]/usesMetazone[@to="%A"]/_dstOffset			; Supplemental ; Metazone ; $1-dst-offset ; -∞..$2 ; HIDE
+//supplementalData/metaZones/metazoneInfo/timezone[@type="%A"]/usesMetazone/_dstOffset			; Supplemental ; Metazone ; $1-dst-offset ; -∞..∞ ; HIDE
 
 //supplementalData/metaZones/mapTimezones[@type="%A"]/mapZone[@other="%A"][@territory="%A"]/_type			; Supplemental ; Metazone ; $1 ; $2-$3 ; HIDE
 //supplementalData/metaZones/metazoneIds/metazoneId[@shortId="%A"]/_%E ; Supplemental ; Metazone ; $1 ; $2 ; HIDE

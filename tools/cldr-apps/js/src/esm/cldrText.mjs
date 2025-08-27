@@ -188,6 +188,8 @@ const strings = {
   flag_desc:
     "This item has been flagged for review by the CLDR Technical Committee.",
   explainRequiredVotes: "Changes to this item require ${requiredVotes} votes.",
+  explainFlagForReview:
+    "To change this item, you have to flag it for review! See <a target='_blank' href='https://cldr.unicode.org/translation/getting-started/guide#changing-protected-items'>Changing Protected Items</a> for more information.",
   valueIsLocked:
     "This item has been locked by the CLDR Technical Committee. See the forum entry.",
   xpath_desc:
@@ -588,6 +590,14 @@ const strings = {
     "To see the summary, you must be logged in as a manager, TC, or admin.",
   summary_snapshot_hover:
     "Show the Priority Items Summary snapshot with id “${0}” [${1}]",
+
+  locale_id_unusable: "Cannot set locale",
+  locale_id_list_unavailable: "The list of locales is unavailable.",
+  locale_id_not_string_primitive:
+    "The specified locale ID is not a string primitive.",
+  locale_id_unrecognized: "The locale ID is unrecognized: “${0}”.",
+  locale_id_disallowed:
+    "The locale ID contains disallowed characters. Only ASCII letters, digits, and underscore (_) are allowed.",
 
   // LocaleNormalizer.LocaleRejection
   locale_rejection_unknown: "Unknown or not in CLDR",

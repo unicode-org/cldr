@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1183,6 +1183,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">வயது வந்தவர்</annotation>
 		<annotation cp="👱" draft="contributed">நபர் | பிளான்ட் | பொன் நிறத்தில் முடி கொண்டவர் | பொன் நிறம் | மக்கள் | மஞ்சள் நிறம் | முகம் | முடி</annotation>
 		<annotation cp="👱" type="tts">பொன் நிறத்தில் முடி கொண்டவர்</annotation>
+		<annotation cp="🧑‍🩰" draft="contributed">டான்சர் | டான்ஸர் | நடனக் கலைஞர் | பாலட்</annotation>
+		<annotation cp="🧑‍🩰" type="tts" draft="contributed">பாலட் நடனக் கலைஞர்</annotation>
 		<annotation cp="👨" draft="contributed">ஆண் | ஆண்மகன் | சகா | சகோ | நண்பன் | நபர் | பையன் | மக்கள்</annotation>
 		<annotation cp="👨" type="tts">ஆண்</annotation>
 		<annotation cp="🧔" draft="contributed">ஆண் | தாடி | தாடி மனிதர் | தாடி மீசை | தாடி வைத்தவர் | தாடிக்காரர் | நபர்</annotation>
@@ -3897,6 +3899,26 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="₽" type="tts">ரூபிள்</annotation>
 		<annotation cp="₿">பி.டி.சி | பிட்காயின்</annotation>
 		<annotation cp="₿" type="tts">பிட்காயின்</annotation>
+		<annotation cp="0⃣">0 | பூஜ்யம் | விசை</annotation>
+		<annotation cp="0⃣" type="tts">விசை: 0</annotation>
+		<annotation cp="1⃣">1 | ஒன்று | விசை</annotation>
+		<annotation cp="1⃣" type="tts">விசை: 1</annotation>
+		<annotation cp="2⃣">2 | இரண்டு | விசை</annotation>
+		<annotation cp="2⃣" type="tts">விசை: 2</annotation>
+		<annotation cp="3⃣">3 | மூன்று | விசை</annotation>
+		<annotation cp="3⃣" type="tts">விசை: 3</annotation>
+		<annotation cp="4⃣">4 | நான்கு | விசை</annotation>
+		<annotation cp="4⃣" type="tts">விசை: 4</annotation>
+		<annotation cp="5⃣">5 | ஐந்து | விசை</annotation>
+		<annotation cp="5⃣" type="tts">விசை: 5</annotation>
+		<annotation cp="6⃣">6 | ஆறு | விசை</annotation>
+		<annotation cp="6⃣" type="tts">விசை: 6</annotation>
+		<annotation cp="7⃣">7 | ஏழு | விசை</annotation>
+		<annotation cp="7⃣" type="tts">விசை: 7</annotation>
+		<annotation cp="8⃣">8 | எட்டு | விசை</annotation>
+		<annotation cp="8⃣" type="tts">விசை: 8</annotation>
+		<annotation cp="9⃣">9 | ஒன்பது | விசை</annotation>
+		<annotation cp="9⃣" type="tts">விசை: 9</annotation>
 		<annotation cp="¹">ஒன்று | மேல் ஒட்டு | மேல் ஒட்டு எண் ஒன்று</annotation>
 		<annotation cp="¹" type="tts">மேல் ஒட்டு எண் ஒன்று</annotation>
 		<annotation cp="²">இரண்டு | மேல் ஒட்டு | மேல் ஒட்டு எண் இரண்டு | வர்க்கம்</annotation>
@@ -3909,5 +3931,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="µ" type="tts">மைக்ரோ குறி</annotation>
 		<annotation cp="﷼">நாணயம் | ரியல்</annotation>
 		<annotation cp="﷼" type="tts">ரியல்</annotation>
+		<annotation cp="🛘" draft="contributed">ஆபத்து | நிலநடுக்கம் | பனிப்பாறைச் சரிவு | பாறைகள் | பேரிடர் | மண் சரிவு | மலை | மலைச் சரிவு</annotation>
+		<annotation cp="🛘" type="tts" draft="contributed">நிலச்சரிவு</annotation>
+		<annotation cp="🪊" draft="contributed">இசை | இசைக்கருவி | தாமிரம் | ஜாஸ்</annotation>
+		<annotation cp="🪊" type="tts" draft="contributed">டிராம்போன்</annotation>
+		<annotation cp="🪎" draft="contributed">கொள்ளை | செல்வம் | தங்கம் | நகைகள் | பணம் | பரிசு | மதிப்புமிக்கவை | ரத்தினம் | வெள்ளி</annotation>
+		<annotation cp="🪎" type="tts" draft="contributed">புதையல் பெட்டி</annotation>
+		<annotation cp="🫈">அரக்கன் | உரோமம் நிறைந்த | காட்டான் | காட்டு உயிரினம் | பெரிய கால்</annotation>
+		<annotation cp="🫈" type="tts">உரோமம் நிறைந்த உயிரினம்</annotation>
+		<annotation cp="🫍" draft="contributed">கடல் உயிரினம் | கடல்வாழ் உயிரினம் | திமிங்கலம் | பெருங்கடல்</annotation>
+		<annotation cp="🫍" type="tts" draft="contributed">ஓர்க்கா</annotation>
+		<annotation cp="🫪">அச்சம் | அதிர்ச்சி | அவதி | ஆச்சரியம் | பதட்டம்</annotation>
+		<annotation cp="🫪" type="tts" draft="contributed">உருமாறிய முகம்</annotation>
+		<annotation cp="🫯" draft="contributed">அடிதடி | கருத்துவேற்றுமை | சச்சரவு | சண்டை | பூசல் | வாதம் | விவாதம்</annotation>
+		<annotation cp="🫯" type="tts" draft="contributed">புகைச்சல்</annotation>
 	</annotations>
 </ldml>

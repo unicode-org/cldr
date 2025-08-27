@@ -6,6 +6,7 @@
 import * as cldrAjax from "./cldrAjax.mjs";
 import * as cldrCoverage from "./cldrCoverage.mjs";
 import * as cldrDashContext from "./cldrDashContext.mjs";
+import * as cldrLocales from "./cldrLocales.mjs";
 import * as cldrNotify from "./cldrNotify.mjs";
 import * as cldrSchedule from "./cldrSchedule.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";
@@ -364,7 +365,7 @@ function fetchLocaleData(unlessLoaded) {
     return;
   }
   const locale = cldrStatus.getCurrentLocale();
-  if (!locale || locale === "USER") {
+  if (!locale || locale === cldrLocales.USER_LOCALE_ID) {
     return; // no locale
   }
   if (unlessLoaded && localeProgressStats?.locale === locale) {

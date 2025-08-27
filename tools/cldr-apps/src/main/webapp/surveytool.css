@@ -1968,6 +1968,11 @@ div.d-example {
     margin-top:7px;
 }
 
+/* bootstrap popover likes to force the alignment left, but we want it to follow the language */
+.popover .d-example-popover {
+	text-align: initial !important;
+}
+
 #stchanged_loc {
 	font-weight: bold;
 }

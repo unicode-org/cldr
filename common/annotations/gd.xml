@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1181,6 +1181,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑" type="tts">inbheach</annotation>
 		<annotation cp="👱">bàn | falt | neach le falt bàn</annotation>
 		<annotation cp="👱" type="tts">neach le falt bàn</annotation>
+		<annotation cp="🧑‍🩰">baileat | ballet | dannsadair | dannsair</annotation>
+		<annotation cp="🧑‍🩰" type="tts">dannsair baileit</annotation>
 		<annotation cp="👨">duine | fear | fireannach</annotation>
 		<annotation cp="👨" type="tts">duine</annotation>
 		<annotation cp="🧔">duine le feusag | feusag</annotation>
@@ -3895,6 +3897,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="₽" type="tts">rùbal</annotation>
 		<annotation cp="₿">bitcoin | BTC</annotation>
 		<annotation cp="₿" type="tts">bitcoin</annotation>
+		<annotation cp="0⃣">0 | còmhdachadh iuchrach | neoini</annotation>
+		<annotation cp="0⃣" type="tts">còmhdachadh iuchrach: 0</annotation>
+		<annotation cp="1⃣">1 | a h-aon | aon | còmhdachadh iuchrach</annotation>
+		<annotation cp="1⃣" type="tts">còmhdachadh iuchrach: 1</annotation>
+		<annotation cp="2⃣">2 | a dhà | còmhdachadh iuchrach | dà</annotation>
+		<annotation cp="2⃣" type="tts">còmhdachadh iuchrach: 2</annotation>
+		<annotation cp="3⃣">3 | a trì | còmhdachadh iuchrach | trì</annotation>
+		<annotation cp="3⃣" type="tts">còmhdachadh iuchrach: 3</annotation>
+		<annotation cp="4⃣">4 | a ceithir | ceithir | còmhdachadh iuchrach</annotation>
+		<annotation cp="4⃣" type="tts">còmhdachadh iuchrach: 4</annotation>
+		<annotation cp="5⃣">5 | a còig | còig | còmhdachadh iuchrach</annotation>
+		<annotation cp="5⃣" type="tts">còmhdachadh iuchrach: 5</annotation>
+		<annotation cp="6⃣">6 | a sia | còmhdachadh iuchrach | sia</annotation>
+		<annotation cp="6⃣" type="tts">còmhdachadh iuchrach: 6</annotation>
+		<annotation cp="7⃣">7 | a seachd | còmhdachadh iuchrach | seachd</annotation>
+		<annotation cp="7⃣" type="tts">còmhdachadh iuchrach: 7</annotation>
+		<annotation cp="8⃣">8 | a h-ochd | còmhdachadh iuchrach | ochd</annotation>
+		<annotation cp="8⃣" type="tts">còmhdachadh iuchrach: 8</annotation>
+		<annotation cp="9⃣">9 | a naoi | còmhdachadh iuchrach | naoi</annotation>
+		<annotation cp="9⃣" type="tts">còmhdachadh iuchrach: 9</annotation>
 		<annotation cp="¹">a h-aon os-sgrìobhte | aon | os-sgrìobhte</annotation>
 		<annotation cp="¹" type="tts">a h-aon os-sgrìobhte</annotation>
 		<annotation cp="²">a dhà os-sgrìobhte | ceàrnagach | ceàrnagaichte | dà | os-sgrìobhte</annotation>
@@ -3907,5 +3929,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="µ" type="tts">samhla micreo</annotation>
 		<annotation cp="﷼">airgeadra | rial</annotation>
 		<annotation cp="﷼" type="tts">rial</annotation>
+		<annotation cp="🛘">beinn | creagan | crith-talmhainn | cunnart | dosgainn | dunach | dunaidh | maoim-puill | maoim-slèibhe | maoim-sneachda | maoim-talmhainn | monadh</annotation>
+		<annotation cp="🛘" type="tts">maoim-talmhainn</annotation>
+		<annotation cp="🪊">brònach | ceòl | inneal-ciùil | ionnsramaid | jazz | pràis | slaighd</annotation>
+		<annotation cp="🪊" type="tts">trompan</annotation>
+		<annotation cp="🪎">airgead | creach | maoin | òr | prìs | saidhbhreas | seud | seudag | stòras</annotation>
+		<annotation cp="🪎" type="tts">ciste-ulaidh</annotation>
+		<annotation cp="🫈">bigfoot | coille | cryptid | fionnach | fuamhair | gaosaideach | molach | ròmach | sasquatch | woodwose | yeti</annotation>
+		<annotation cp="🫈" type="tts">creutair molach</annotation>
+		<annotation cp="🫪">buaireas | cugallach | giorag | glutach | iomagain | maoim | so-leònta</annotation>
+		<annotation cp="🫪" type="tts">aodann mì-dhealbhaichte</annotation>
+		<annotation cp="🫯">argamaid | connspaid | deasbad | easaonta | sabaid | spàirn | tuasaid</annotation>
+		<annotation cp="🫯" type="tts">neul sabaide</annotation>
 	</annotations>
 </ldml>

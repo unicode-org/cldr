@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
-Copyright © 2018 Unicode, Inc.
+Copyright © 2018-2025 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -12,6 +12,55 @@ For terms of use, see http://www.unicode.org/copyright.html
     </identity>
     <rbnf>
         <rulesetGrouping type="SpelloutRules">
+            <rbnfRules><![CDATA[
+%spellout-numbering-year:
+0: =%spellout-numbering=;
+%spellout-numbering:
+0: =%spellout-cardinal=;
+%spellout-cardinal:
+-x: 𑄜𑄢𑄧𑄇𑄴 >>;
+x.x: << 𑄜𑄪𑄘𑄮 >>;
+Inf: 𑄃𑄧𑄜𑄪𑄢𑄧𑄚𑄴𑄘𑄨;
+NaN: 𑄚𑄘 𑄚𑄧𑄠𑄴;
+0: 𑄥𑄪𑄚𑄳𑄠𑄴𑄧;
+1: 𑄆𑄇𑄴;
+2: 𑄘𑄨;
+3: 𑄖𑄨𑄚𑄴;
+4: 𑄌𑄳𑄆𑄬𑄢𑄴;
+5: 𑄛𑄌𑄴;
+6: 𑄍𑄧;
+7: 𑄥𑄖𑄴;
+8: 𑄃𑄖𑄳𑄠𑄴𑄧;
+9: 𑄚𑄧;
+10: 𑄘𑄧𑄌𑄴;
+11: 𑄆𑄉𑄢𑄧;
+12: 𑄝𑄢𑄳𑄦𑄧;
+13: 𑄖𑄬𑄢𑄳𑄦𑄧;
+14: 𑄌𑄮𑄖𑄴𑄙𑄮;
+15: 𑄛𑄧𑄚𑄴𑄘𑄳𑄢𑄧;
+16: 𑄥𑄪𑄣𑄮;
+17: 𑄥𑄧𑄖𑄴𑄧𑄢𑄧;
+18: 𑄃𑄘𑄧𑄢𑄳𑄦𑄧;
+19: 𑄃𑄪𑄚𑄴𑄮𑄌𑄴;
+20: 𑄇𑄪𑄢𑄨[ >>];
+30: 𑄖𑄳𑄢𑄨𑄌𑄴[ >>];
+40: 𑄌𑄣𑄨𑄨𑄌𑄴[ >>];
+50: 𑄛𑄧𑄚𑄴𑄎𑄌𑄴[ >>];
+60: 𑄦𑄬𑄖𑄴[ >>];
+70: 𑄦𑄮𑄖𑄴𑄪𑄢𑄴[ >>];
+80: 𑄃𑄎𑄨[ >>];
+90: 𑄚𑄧𑄛𑄴𑄝𑄰[ >>];
+100: <<𑄥𑄧[ >>];
+1000: << 𑄦𑄎𑄢𑄴[ >>];
+100000: << 𑄣𑄇𑄴[ >>];
+10000000: << 𑄇𑄪𑄖𑄨[ >>];
+100000000000000000: =#,##,##0=;
+%spellout-ordinal:
+-x: 𑄜𑄢𑄧𑄇𑄴 >>;
+x.x: =#,##,##0.0=;
+0: =%spellout-numbering= 𑄛𑄳𑄆𑄘𑄳𑄠𑄬;
+]]></rbnfRules>
+            <!-- The following redundant ruleset elements have been deprecated and will be removed in the next release. Please use the rbnfRules contents instead. -->
             <ruleset type="spellout-numbering-year">
                 <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
             </ruleset>

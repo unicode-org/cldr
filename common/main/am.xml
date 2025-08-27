@@ -218,7 +218,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="hax">ደቡባዊ ሃይዳ</language>
 			<language type="he">ዕብራይስጥ</language>
 			<language type="hi">ሕንድኛ</language>
-			<language type="hi_Latn">ሕንድኛ (ላቲን)</language>
+			<language type="hi_Latn">↑↑↑</language>
 			<language type="hi_Latn" alt="variant">↑↑↑</language>
 			<language type="hil">ሂሊጋይኖን</language>
 			<language type="hmn">ህሞንግ</language>
@@ -287,6 +287,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="ksf">ባፊያ</language>
 			<language type="ksh">ኮሎኝኛ</language>
 			<language type="ku">ኩርድሽ</language>
+			<language type="ku" menu="core">ኩርድሽ</language>
+			<language type="ku" menu="extension">ኩርድሽ</language>
 			<language type="kum">ኩማይክ</language>
 			<language type="kv">ኮሚ</language>
 			<language type="kw">ኮርኒሽ</language>
@@ -716,6 +718,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="CN">ቻይና</territory>
 			<territory type="CO">ኮሎምቢያ</territory>
 			<territory type="CP">ክሊፐርቶን ደሴት</territory>
+			<territory type="CQ">ሳርክ</territory>
 			<territory type="CR">ኮስታሪካ</territory>
 			<territory type="CU">ኩባ</territory>
 			<territory type="CV">ኬፕቨርዴ</territory>
@@ -960,33 +963,52 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<key type="colNumeric">የቁጥር ድርደራ</key>
 			<key type="colStrength">የድርደራ አቅም</key>
 			<key type="currency">ምንዛሪ</key>
+			<key type="em">ስሜት ገላጭ ምስል አቀራረብ</key>
 			<key type="hc">የሰዓት ዑደት (12 ወይም 24)</key>
 			<key type="lb">መስመር መስበሪያ ቅጥ</key>
+			<key type="lw">የመስመር መሰባበር በቃላት ውስጥ</key>
 			<key type="ms">የመለኪያ ስርዓት</key>
 			<key type="numbers">ቁጥሮች</key>
+			<key type="ss">ከአህጽሮተ ቃል በኋላ የዐረፍተ ነገር መቋረጥ</key>
 			<key type="timezone">የሰዓት ሰቅ</key>
 			<key type="va">የአካባቢ አይነት</key>
 			<key type="x">ለግል ጥቅም</key>
 		</keys>
 		<types>
 			<type key="calendar" type="buddhist">የቡዲስት ቀን አቆጣጠር</type>
+			<type key="calendar" type="buddhist" scope="core">ቡዲስት</type>
 			<type key="calendar" type="chinese">የቻይና የቀን አቆጣጠር</type>
+			<type key="calendar" type="chinese" scope="core">ቻይንኛ</type>
 			<type key="calendar" type="coptic">የኮፕቲክ የቀን አቆጣጠር</type>
+			<type key="calendar" type="coptic" scope="core">ኮፕቲክ</type>
 			<type key="calendar" type="dangi">የዳንጊ የቀን አቆጣጠር</type>
+			<type key="calendar" type="dangi" scope="core">ዳንጊ</type>
 			<type key="calendar" type="ethiopic">የኢትዮጵያ የቀን አቆጣጠር</type>
+			<type key="calendar" type="ethiopic" scope="core">ኢትዮፒክ</type>
 			<type key="calendar" type="ethiopic-amete-alem">የኢትዮፒክ አመተ አለም የቀን አቆጣጠር</type>
+			<type key="calendar" type="ethiopic-amete-alem" scope="core">ኢትዮፒክ ዓመተ ዓለም</type>
 			<type key="calendar" type="gregorian">የግሪጎሪያን የቀን አቆጣጠር</type>
+			<type key="calendar" type="gregorian" scope="core">ግሪጎሪያን</type>
 			<type key="calendar" type="hebrew">የእብራዊያን የቀን አቆጣጠር</type>
+			<type key="calendar" type="hebrew" scope="core">ሂብሩ</type>
 			<type key="calendar" type="indian">የህንድ ብሔራዊ የቀን አቆጣጠር</type>
 			<type key="calendar" type="islamic">የሂጅራ የቀን አቆጣጠር</type>
+			<type key="calendar" type="islamic" scope="core">ሂጅራ</type>
 			<type key="calendar" type="islamic-civil">የሂጅራ የቀን አቆጣጠር (ታቡላር፣ ሲቪል አፖች)</type>
+			<type key="calendar" type="islamic-civil" scope="core">ሂጅራ (ታቡላር፣ የሲቪል ዘመን)</type>
 			<type key="calendar" type="islamic-umalqura">የሂጅራ የቀን አቆጣጠር (ኡም አል-ቁራ)</type>
+			<type key="calendar" type="islamic-umalqura" scope="core">ሂጅራ (ኡሙ አል-ቁራ)</type>
 			<type key="calendar" type="iso8601">ISO-8601 የቀን አቆጣጠር</type>
 			<type key="calendar" type="japanese">የጃፓን የቀን አቆጣጠር</type>
+			<type key="calendar" type="japanese" scope="core">ጃፓንኛ</type>
 			<type key="calendar" type="persian">የፐርሽያ የቀን አቆጣጠር</type>
+			<type key="calendar" type="persian" scope="core">ፐርሽያን</type>
 			<type key="calendar" type="roc">የሚንጉ የቀን አቆጣጠር</type>
+			<type key="calendar" type="roc" scope="core">ሚንጉ</type>
 			<type key="cf" type="account">የሂሳብ ምንዛሪ ቅርጸት</type>
+			<type key="cf" type="account" scope="core">የሂሳብ አያያዝ</type>
 			<type key="cf" type="standard">መደበኛ የምንዛሪ ቅርጸት</type>
+			<type key="cf" type="standard" scope="core">መደበኛ</type>
 			<type key="colAlternate" type="non-ignorable">ምልክቶችን ደርድር</type>
 			<type key="colAlternate" type="shifted">ችላ ባይ ምልክቶችን ደርድር</type>
 			<type key="colBackwards" type="no">የፊደል ጭረቶችን እንደመደበኛ ደርድር</type>
@@ -998,12 +1020,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="colCaseLevel" type="yes">በመልከፊደል ትብ ደርድር</type>
 			<type key="collation" type="dictionary">የመዝገበ ቃላት የድርድር ቅደም ተከተል</type>
 			<type key="collation" type="ducet">የነባሪ ዩኒኮድ የድርድር ቅደም ተከተል</type>
+			<type key="collation" type="ducet" scope="core">ነባሪ ዩኒኮድ</type>
 			<type key="collation" type="phonebook">የስልክ ደብተር ድርድር ቅደም ተከተል</type>
 			<type key="collation" type="phonetic">የፎነቲክ ድርደራ ቅደም ተከተል</type>
 			<type key="collation" type="pinyin">ፒንይን የድርድር ቅደም ተከተል</type>
 			<type key="collation" type="search">ለጠቅላላ ጉዳይ ፍለጋ</type>
+			<type key="collation" type="search" scope="core">ፍለጋ</type>
 			<type key="collation" type="searchjl">በሃንጉል የመጀመሪያ ተነባቢ ፈልግ</type>
 			<type key="collation" type="standard">መደበኛ የድርድር ቅደም ተከተል</type>
+			<type key="collation" type="standard" scope="core">መደበኛ</type>
 			<type key="collation" type="stroke">የበትር ድርድር ቅደም ተከተል</type>
 			<type key="collation" type="traditional">ባህላዊ የድርድር ቅደም ተከተል</type>
 			<type key="collation" type="unihan">የመሰረታዊ በትር ድርድር ቅደም ተከተል</type>
@@ -1019,18 +1044,35 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="d0" type="fwidth">ሙሉ ወርድ</type>
 			<type key="d0" type="hwidth">ግማሽ ወርድ</type>
 			<type key="d0" type="npinyin">አሃዛዊ</type>
+			<type key="em" type="default" scope="core">ነባሪ</type>
+			<type key="em" type="emoji" scope="core">ስሜት ገላጭ ምስል</type>
+			<type key="em" type="text" scope="core">ጽሑፍ</type>
 			<type key="hc" type="h11">የ12 ሰዓት ስርዓት (0–11)</type>
+			<type key="hc" type="h11" scope="core">12 (0–11)</type>
 			<type key="hc" type="h12">የ12 ሰዓት ስርዓት (1–12)</type>
+			<type key="hc" type="h12" scope="core">12 (1–12)</type>
 			<type key="hc" type="h23">የ24 ሰዓት ስርዓት (0–23)</type>
+			<type key="hc" type="h23" scope="core">24 (0–23)</type>
 			<type key="hc" type="h24">የ24 ሰዓት ስርዓት (1–24)</type>
+			<type key="hc" type="h24" scope="core">24 (1–24)</type>
 			<type key="lb" type="loose">ላላ ያለ መስመር መስበሪያ ቅጥ</type>
+			<type key="lb" type="loose" scope="core">ልቅ</type>
 			<type key="lb" type="normal">መደበኛ መስመር መስበሪያ ቅጥ</type>
+			<type key="lb" type="normal" scope="core">መደበኛ</type>
 			<type key="lb" type="strict">ጠበቅ ያለ መስመር መስበሪያ ቅጥ</type>
+			<type key="lb" type="strict" scope="core">ጥብቅ</type>
+			<type key="lw" type="breakall" scope="core">ሁሉንም ሰብረው</type>
+			<type key="lw" type="keepall" scope="core">ሁሉንም አቆይ</type>
+			<type key="lw" type="normal" scope="core">መደበኛ</type>
+			<type key="lw" type="phrase" scope="core">በዓረፍተ ነገሮች ውስጥ ያስቀምጡ</type>
 			<type key="m0" type="bgn">ዩኤስ ቢጂኤን ትራንስሊትሬሽን</type>
 			<type key="m0" type="ungegn">ዩኤን ጂኢጂኤን ትራንስሊትሬሽን</type>
 			<type key="ms" type="metric">ሜትሪክ ስርዓት</type>
+			<type key="ms" type="metric" scope="core">መለኪያ</type>
 			<type key="ms" type="uksystem">ኢምፔሪያል የመለኪያ ስርዓት</type>
+			<type key="ms" type="uksystem" scope="core">ዩኬ</type>
 			<type key="ms" type="ussystem">የአሜሪካ መለኪያ ስርዓት</type>
+			<type key="ms" type="ussystem" scope="core">ዩኤስ</type>
 			<type key="numbers" type="arab">የአረቢክ-ኢንዲክ አሃዞች</type>
 			<type key="numbers" type="arabext">የተራዘሙ የአረቢክ-ኢንዲክ አሃዞች</type>
 			<type key="numbers" type="armn">የአርመንኛ ቁጥሮች</type>
@@ -1075,6 +1117,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="numbers" type="tibt">የቲቤት አሃዞች</type>
 			<type key="numbers" type="traditional">ተለምዷዊ ቁጥሮች</type>
 			<type key="numbers" type="vaii">የቫይ አሃዞች</type>
+			<type key="ss" type="none" scope="core">ጠፍቷል</type>
+			<type key="ss" type="standard" scope="core">በርቷል</type>
 		</types>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">ሜትሪክ</measurementSystemName>
@@ -1092,7 +1136,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<exemplarCharacters type="auxiliary">↑↑↑</exemplarCharacters>
 		<exemplarCharacters type="index">[ሀ ለ ሐ መ ሠ ረ ሰ ሸ ቀ ቈ በ ቨ ተ ቸ ኀ ኈ ነ ኘ አ ከ ኰ ኸ ወ ዐ ዘ ዠ የ ደ ጀ ገ ጐ ጠ ጨ ጰ ጸ ፀ ፈ ፐ]</exemplarCharacters>
 		<exemplarCharacters type="numbers">↑↑↑</exemplarCharacters>
+		<exemplarCharacters type="numbers-auxiliary">↑↑↑</exemplarCharacters>
 		<exemplarCharacters type="punctuation">[‐ – , ፡ ፣ ፤ ፥ ፦ ! ? . ። ‹ › « » ( ) \[ \]]</exemplarCharacters>
+		<exemplarCharacters type="punctuation-auxiliary">↑↑↑</exemplarCharacters>
+		<exemplarCharacters type="punctuation-person">↑↑↑</exemplarCharacters>
 		<ellipsis type="final">↑↑↑</ellipsis>
 		<ellipsis type="initial">↑↑↑</ellipsis>
 		<ellipsis type="medial">↑↑↑</ellipsis>
@@ -1219,9 +1266,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="yQQQ">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yQQQQ">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyy">↑↑↑</dateFormatItem>
-						<dateFormatItem id="yyyyM">↑↑↑</dateFormatItem>
-						<dateFormatItem id="yyyyMd">↑↑↑</dateFormatItem>
-						<dateFormatItem id="yyyyMEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yyyyM">GGGGG y-MM</dateFormatItem>
+						<dateFormatItem id="yyyyMd">GGGGG y-MM-dd</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">GGGGG y-MM-dd, E</dateFormatItem>
 						<dateFormatItem id="yyyyMMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">↑↑↑</dateFormatItem>
@@ -1238,7 +1285,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<greatestDifference id="h">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="H">
-							<greatestDifference id="H">↑↑↑</greatestDifference>
+							<greatestDifference id="H">HH–HH</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hm">
 							<greatestDifference id="a">↑↑↑</greatestDifference>
@@ -1263,7 +1310,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<greatestDifference id="h">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hv">
-							<greatestDifference id="H">↑↑↑</greatestDifference>
+							<greatestDifference id="H">HH–HH v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="M">
 							<greatestDifference id="M">↑↑↑</greatestDifference>
@@ -1599,9 +1646,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="yQQQ">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yQQQQ">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyy">↑↑↑</dateFormatItem>
-						<dateFormatItem id="yyyyM">↑↑↑</dateFormatItem>
-						<dateFormatItem id="yyyyMd">↑↑↑</dateFormatItem>
-						<dateFormatItem id="yyyyMEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yyyyM">GGGGG y-MM</dateFormatItem>
+						<dateFormatItem id="yyyyMd">GGGGG y-MM-dd</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">GGGGG y-MM-dd, E</dateFormatItem>
 						<dateFormatItem id="yyyyMMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">↑↑↑</dateFormatItem>
@@ -1618,7 +1665,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<greatestDifference id="h">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="H">
-							<greatestDifference id="H">↑↑↑</greatestDifference>
+							<greatestDifference id="H">HH–HH</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hm">
 							<greatestDifference id="a">↑↑↑</greatestDifference>
@@ -1643,7 +1690,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<greatestDifference id="h">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hv">
-							<greatestDifference id="H">↑↑↑</greatestDifference>
+							<greatestDifference id="H">HH–HH v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="M">
 							<greatestDifference id="M">↑↑↑</greatestDifference>
@@ -1753,6 +1800,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateTimeFormat type="atTime">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>{1} በ {0}</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
 						<dateTimeFormat>
@@ -1760,6 +1810,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
 							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>{1} በ {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="medium">
@@ -1769,6 +1822,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateTimeFormat type="atTime">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>{1} በ {0}</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
 						<dateTimeFormat>
@@ -1777,6 +1833,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateTimeFormat type="atTime">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>{1} በ {0}</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="Bh">↑↑↑</dateFormatItem>
@@ -1784,15 +1843,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Bhms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="d">↑↑↑</dateFormatItem>
 						<dateFormatItem id="E">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EBh">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EBhm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EBhms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ed">E d</dateFormatItem>
+						<dateFormatItem id="Eh">↑↑↑</dateFormatItem>
+
 						<dateFormatItem id="Ehm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EHm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ehms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EHms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
+						<dateFormatItem id="GyM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMd">M/d/y GGGGG</dateFormatItem>
+						<dateFormatItem id="GyMEd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMMd">MMM d፣ y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E MMM d፣ y G</dateFormatItem>
@@ -1802,6 +1866,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Hm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Hms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hv">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Hv">↑↑↑</dateFormatItem>
 						<dateFormatItem id="M">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Md">M/d</dateFormatItem>
 						<dateFormatItem id="MEd">E፣ M/d</dateFormatItem>
@@ -2238,7 +2304,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<dayPeriod type="pm">ከ</dayPeriod>
 							<dayPeriod type="morning1">↑↑↑</dayPeriod>
 							<dayPeriod type="afternoon1">↑↑↑</dayPeriod>
-							<dayPeriod type="evening1">ማታ</dayPeriod>
+							<dayPeriod type="evening1">↑↑↑</dayPeriod>
 							<dayPeriod type="night1">↑↑↑</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
@@ -2258,7 +2324,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<era type="0">ዓመተ ዓለም</era>
 						<era type="0" alt="variant">↑↑↑</era>
 						<era type="1">ዓመተ ምሕረት</era>
-						<era type="1" alt="variant">ዓ/ም</era>
+						<era type="1" alt="variant">↑↑↑</era>
 					</eraNames>
 					<eraAbbr>
 						<era type="0">ዓ/ዓ</era>
@@ -2333,12 +2399,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateTimeFormat type="atTime">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
 						<dateTimeFormat>
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
@@ -2349,12 +2421,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateTimeFormat type="atTime">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
 						<dateTimeFormat>
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
@@ -2364,15 +2442,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Bhms">B h:mm:ss</dateFormatItem>
 						<dateFormatItem id="d">↑↑↑</dateFormatItem>
 						<dateFormatItem id="E">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EBh">E B h</dateFormatItem>
 						<dateFormatItem id="EBhm">E B h:mm</dateFormatItem>
 						<dateFormatItem id="EBhms">E B h:mm:ss</dateFormatItem>
 						<dateFormatItem id="Ed">E d</dateFormatItem>
+						<dateFormatItem id="Eh">E a h</dateFormatItem>
+
 						<dateFormatItem id="Ehm">E a h:mm</dateFormatItem>
 						<dateFormatItem id="EHm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ehms">E a h:mm:ss</dateFormatItem>
 						<dateFormatItem id="EHms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
+						<dateFormatItem id="GyM">M/y G</dateFormatItem>
 						<dateFormatItem id="GyMd">d/M/y GGGGG</dateFormatItem>
+						<dateFormatItem id="GyMEd">E d/M/y G</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">MMM d y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E MMM d y G</dateFormatItem>
@@ -2386,6 +2469,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Hmsv">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hmv">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Hmv">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hv">a h v</dateFormatItem>
+						<dateFormatItem id="Hv">↑↑↑</dateFormatItem>
 						<dateFormatItem id="M">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Md">d/M</dateFormatItem>
 						<dateFormatItem id="MEd">E፣ d/M</dateFormatItem>
@@ -2394,7 +2479,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="MMMEd">E፣ MMM d</dateFormatItem>
 						<dateFormatItem id="MMMMd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMMEd">E፣ MMMM d</dateFormatItem>
-						<dateFormatItem id="MMMMW" count="one">የMMMM Wኛ ሳምንት</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="one">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMMW" count="other">የMMMM Wኛ ሳምንት</dateFormatItem>
 						<dateFormatItem id="ms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="y">↑↑↑</dateFormatItem>
@@ -2407,7 +2492,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
 						<dateFormatItem id="yQQQ">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yQQQQ">↑↑↑</dateFormatItem>
-						<dateFormatItem id="yw" count="one">የY wኛ ሳምንት</dateFormatItem>
+						<dateFormatItem id="yw" count="one">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yw" count="other">የY wኛ ሳምንት</dateFormatItem>
 					</availableFormats>
 					<appendItems>
@@ -2416,7 +2501,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<intervalFormats>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
-							<greatestDifference id="B">↑↑↑</greatestDifference>
+							<greatestDifference id="B">B h – B h</greatestDifference>
 							<greatestDifference id="h">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Bhm">
@@ -2961,8 +3046,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<relative type="0">ይህ ሩብ</relative>
 				<relative type="1">የሚቀጥለው ሩብ</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="other">+{0} ሩብ</relativeTimePattern>
+					<relativeTimePattern count="one">በ{0} ሩብ</relativeTimePattern>
+					<relativeTimePattern count="other">በ{0} ሩብ</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
@@ -2975,8 +3060,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<relative type="0">↑↑↑</relative>
 				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="one">በ{0} ሩብ</relativeTimePattern>
+					<relativeTimePattern count="other">በ{0} ሩብ</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
@@ -2989,8 +3074,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<relative type="0">↑↑↑</relative>
 				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="one">በ{0} ሩብ</relativeTimePattern>
+					<relativeTimePattern count="other">በ{0} ሩብ</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
@@ -3572,6 +3657,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<hourFormat>+HHmm;-HHmm</hourFormat>
 			<gmtFormat>ጂ ኤም ቲ{0}</gmtFormat>
 			<gmtZeroFormat>ጂ ኤም ቲ</gmtZeroFormat>
+			<gmtUnknownFormat>ጂ ኤም ቲ+</gmtUnknownFormat>
 			<regionFormat>{0} ሰዓት</regionFormat>
 			<regionFormat type="daylight">{0} የቀን ብርሃን ሰዓት</regionFormat>
 			<regionFormat type="standard">{0} መደበኛ ሰዓት</regionFormat>
@@ -3928,6 +4014,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Pacific/Easter">
 				<exemplarCity>ፋሲካ</exemplarCity>
+			</zone>
+			<zone type="America/Coyhaique">
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Punta_Arenas">
 				<exemplarCity>ፑንታ አሬናስ</exemplarCity>
@@ -4863,9 +4952,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Africa_Western">
 				<long>
-					<generic>የምዕራብ አፍሪካ ሰዓት</generic>
-					<standard>የምዕራብ አፍሪካ መደበኛ ሰዓት</standard>
-					<daylight>የምዕራብ አፍሪካ ክረምት ሰዓት</daylight>
+					<standard>የምዕራብ አፍሪካ ሰዓት</standard>
 				</long>
 			</metazone>
 			<metazone type="Alaska">
@@ -5220,6 +5307,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<metazone type="Guyana">
 				<long>
 					<standard>የጉያና ሰዓት</standard>
+				</long>
+			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>የሃዋይ አሌኡት መደበኛ ሰዓት አቆጣጠር</standard>
 				</long>
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
@@ -5860,6 +5952,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
+		<rationalFormats numberSystem="latn">
+			<rationalPattern>↑↑↑</rationalPattern>
+			<integerAndRationalPattern>↑↑↑</integerAndRationalPattern>
+			<integerAndRationalPattern alt="superSub">↑↑↑</integerAndRationalPattern>
+			<rationalUsage>↑↑↑</rationalUsage>
+		</rationalFormats>
 		<scientificFormats numberSystem="latn">
 			<scientificFormatLength>
 				<scientificFormat>
@@ -5878,8 +5976,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>¤#,##0.00</pattern>
-					<pattern alt="alphaNextToNumber" draft="provisional">¤ #,##0.00</pattern>
-					<pattern alt="noCurrency" draft="provisional">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>¤#,##0.00;(¤#,##0.00)</pattern>
@@ -6998,6 +7096,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol>↑↑↑</symbol>
 				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
+			<currency type="XCG">
+				<displayName>የካሪቢያን ጊልደር</displayName>
+				<displayName count="one">የካሪቢያን ጊልደር</displayName>
+				<displayName count="other">የካሪቢያን ጊልደር</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
 			<currency type="XOF">
 				<displayName>የምዕራብ አፍሪካ ሴፋ ፍራንክ</displayName>
 				<displayName count="one">↑↑↑</displayName>
@@ -7044,6 +7148,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="ZWD">
 				<displayName>የዚምቧቡዌ ዶላር</displayName>
 			</currency>
+			<currency type="ZWG">
+				<displayName>የዚምባብዌ ወርቅ</displayName>
+				<displayName count="one">የዚምባብዌ ወርቅ</displayName>
+				<displayName count="other">የዚምባብዌ ወርቅ</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
 		</currencies>
 		<miscPatterns numberSystem="latn">
 			<pattern type="approximately">↑↑↑</pattern>
@@ -7071,7 +7181,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPrefixPattern>ሚሊ{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p-6">
-				<unitPrefixPattern>ማይክሮ{0}</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p-9">
 				<unitPrefixPattern>ናኖ{0}</unitPrefixPattern>
@@ -7122,13 +7232,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPrefixPattern>ኤክሳ {0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p21">
-				<unitPrefixPattern>ዜታ {0}</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p24">
-				<unitPrefixPattern>ዮታ {0}</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p27">
-				<unitPrefixPattern>ሮና {0}</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p30">
 				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
@@ -7155,7 +7265,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="1024p8">
-				<unitPrefixPattern>ዮቢ {0}</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="per">
 				<compoundUnitPattern>{0} በ{1}</compoundUnitPattern>
@@ -7186,17 +7296,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-revolution">
-				<displayName>ኡደት</displayName>
-				<unitPattern count="one">{0} ኡደት</unitPattern>
-				<unitPattern count="one" case="accusative">{0} ኡደት</unitPattern>
-				<unitPattern count="other">{0} ኡደት</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 				<unitPattern count="other" case="accusative">{0} ኡደቶች</unitPattern>
 			</unit>
 			<unit type="angle-radian">
-				<displayName>ራዲ</displayName>
-				<unitPattern count="one">{0} ራዲ</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="accusative">{0} ራዲያን</unitPattern>
-				<unitPattern count="other">{0} ራዲ</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 				<unitPattern count="other" case="accusative">{0} ራዲያኖች</unitPattern>
 			</unit>
 			<unit type="angle-degree">
@@ -7263,9 +7373,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="area-square-yard">
-				<displayName>ስኴር ያርድ</displayName>
-				<unitPattern count="one">{0} ስኴር ያርድ</unitPattern>
-				<unitPattern count="other">{0} ስኴር ያርድ</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
 				<displayName>↑↑↑</displayName>
@@ -7311,6 +7421,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ንጥሎች</unitPattern>
 				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
 			</unit>
+			<unit type="concentr-part">
+				<displayName>ክፍል</displayName>
+				<unitPattern count="one">{0} ክፍል</unitPattern>
+				<unitPattern count="other">{0} ክፍል</unitPattern>
+			</unit>
 			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -7345,6 +7460,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one" case="accusative">{0} mole</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 				<unitPattern count="other" case="accusative">{0} moles</unitPattern>
+			</unit>
+			<unit type="concentr-ofglucose">
+				<displayName>ግሉኮስ</displayName>
+				<unitPattern count="one">{0} ግሉኮስ</unitPattern>
+				<unitPattern count="other">{0} ግሉኮስ</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>↑↑↑</displayName>
@@ -7553,10 +7673,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="electric-ampere">
-				<displayName>አምፒር</displayName>
-				<unitPattern count="one">{0} አምፒር</unitPattern>
-				<unitPattern count="one" case="accusative">{0} አምፒር</unitPattern>
-				<unitPattern count="other">{0} አምፒር</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 				<unitPattern count="other" case="accusative">{0} አምፒሮች</unitPattern>
 			</unit>
 			<unit type="electric-milliampere">
@@ -7574,18 +7694,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="accusative">{0} ohms</unitPattern>
 			</unit>
 			<unit type="electric-volt">
-				<displayName>ቮልት</displayName>
-				<unitPattern count="one">{0} ቮልት</unitPattern>
-				<unitPattern count="one" case="accusative">{0} ቮልት</unitPattern>
-				<unitPattern count="other">{0} ቮልት</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 				<unitPattern count="other" case="accusative">{0} ቮልቶች</unitPattern>
 			</unit>
 			<unit type="energy-kilocalorie">
-				<displayName>ኪሎ ካሎሪ</displayName>
-				<unitPattern count="one">{0} ኪሎ ካሎሪ</unitPattern>
-				<unitPattern count="one" case="accusative">{0} ኪሎ ካሎሪ</unitPattern>
-				<unitPattern count="other">{0} ኪሎ ካሎሪ</unitPattern>
-				<unitPattern count="other" case="accusative">{0} ኪሎ ካሎሪ</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-calorie">
 				<displayName>↑↑↑</displayName>
@@ -7600,18 +7720,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-kilojoule">
-				<displayName>ኪጁ</displayName>
-				<unitPattern count="one">{0} ኪጁ</unitPattern>
-				<unitPattern count="one" case="accusative">{0} ኪጁ</unitPattern>
-				<unitPattern count="other">{0} ኪጁ</unitPattern>
-				<unitPattern count="other" case="accusative">{0} ኪጁ</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-joule">
-				<displayName>ጁልስ</displayName>
-				<unitPattern count="one">{0} ጁልስ</unitPattern>
-				<unitPattern count="one" case="accusative">{0} ጁልስ</unitPattern>
-				<unitPattern count="other">{0} ጁልስ</unitPattern>
-				<unitPattern count="other" case="accusative">{0} ጁልስ</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
 				<displayName>↑↑↑</displayName>
@@ -7655,32 +7775,32 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="frequency-gigahertz">
-				<displayName>ጊጋኸርዝ</displayName>
-				<unitPattern count="one">{0} ጊጋኸርዝ</unitPattern>
-				<unitPattern count="one" case="accusative">{0} ጊጋኸርዝ</unitPattern>
-				<unitPattern count="other">{0} ጊጋኸርዝ</unitPattern>
-				<unitPattern count="other" case="accusative">{0} ጊጋኸርዝ</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="frequency-megahertz">
-				<displayName>ሜጋኸርዝ</displayName>
-				<unitPattern count="one">{0} ሜጋኸርዝ</unitPattern>
-				<unitPattern count="one" case="accusative">{0} ሜጋኸርዝ</unitPattern>
-				<unitPattern count="other">{0} ሜጋኸርዝ</unitPattern>
-				<unitPattern count="other" case="accusative">{0} ሜጋኸርዝ</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="frequency-kilohertz">
-				<displayName>ኪሎኸርዝ</displayName>
-				<unitPattern count="one">{0} ኪሎኸርዝ</unitPattern>
-				<unitPattern count="one" case="accusative">{0} ኪሎኸርዝ</unitPattern>
-				<unitPattern count="other">{0} ኪሎኸርዝ</unitPattern>
-				<unitPattern count="other" case="accusative">{0} ኪሎኸርዝ</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="frequency-hertz">
-				<displayName>ኸርዝ</displayName>
-				<unitPattern count="one">{0} ኸርዝ</unitPattern>
-				<unitPattern count="one" case="accusative">{0} ኸርዝ</unitPattern>
-				<unitPattern count="other">{0} ኸርዝ</unitPattern>
-				<unitPattern count="other" case="accusative">{0} ኸርዝ</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-em">
 				<displayName>ታይፖግራፊክ em</displayName>
@@ -7915,17 +8035,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="mass-milligram">
-				<displayName>ሚግ</displayName>
-				<unitPattern count="one">{0} ሚግ</unitPattern>
-				<unitPattern count="one" case="accusative">{0} ሚግ</unitPattern>
-				<unitPattern count="other">{0} ሚግ</unitPattern>
-				<unitPattern count="other" case="accusative">{0} ሚግ</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
-				<displayName>ማግ</displayName>
-				<unitPattern count="one">{0} ማግ</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="accusative">{0} ማይክሮ ግራም</unitPattern>
-				<unitPattern count="other">{0} ማግ</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 				<unitPattern count="other" case="accusative">{0} ማይክሮ ግራም</unitPattern>
 			</unit>
 			<unit type="mass-ton">
@@ -7963,9 +8083,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="accusative">{0} ካራቶች</unitPattern>
 			</unit>
 			<unit type="mass-dalton">
-				<displayName>ዳልተንስ</displayName>
-				<unitPattern count="one">{0} ዳልተንስ</unitPattern>
-				<unitPattern count="other">{0} ዳልተንስ</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-earth-mass">
 				<displayName>↑↑↑</displayName>
@@ -7983,18 +8103,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
-				<displayName>ጊጋ ዋት</displayName>
-				<unitPattern count="one">{0} ጊዋ</unitPattern>
-				<unitPattern count="one" case="accusative">{0} ጊዋ</unitPattern>
-				<unitPattern count="other">{0} ጊዋ</unitPattern>
-				<unitPattern count="other" case="accusative">{0} ጊዋ</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-megawatt">
 				<displayName>ሜጋ ዋት</displayName>
-				<unitPattern count="one">{0} ሜዋ</unitPattern>
-				<unitPattern count="one" case="accusative">{0} ሜዋ</unitPattern>
-				<unitPattern count="other">{0} ሜዋ</unitPattern>
-				<unitPattern count="other" case="accusative">{0} ሜዋ</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<displayName>↑↑↑</displayName>
@@ -8012,10 +8132,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="power-milliwatt">
 				<displayName>ሚሊ ዋት</displayName>
-				<unitPattern count="one">{0} ሚዋ</unitPattern>
-				<unitPattern count="one" case="accusative">{0} ሚዋ</unitPattern>
-				<unitPattern count="other">{0} ሚዋ</unitPattern>
-				<unitPattern count="other" case="accusative">{0} ሚዋ</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
 				<displayName>↑↑↑</displayName>
@@ -8028,6 +8148,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+			</unit>
+			<unit type="pressure-ofhg">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>↑↑↑</displayName>
@@ -8137,10 +8262,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ዲግሪ ፋራንሃይት</unitPattern>
 			</unit>
 			<unit type="temperature-kelvin">
-				<displayName>ኬ</displayName>
-				<unitPattern count="one">{0} ኬ</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="accusative">{0} ኬልቪን</unitPattern>
-				<unitPattern count="other">{0} ኬ</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 				<unitPattern count="other" case="accusative">{0} ኬልቪኖች</unitPattern>
 			</unit>
 			<unit type="torque-pound-force-foot">
@@ -8184,9 +8309,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ኩቢክ ማይል</unitPattern>
 			</unit>
 			<unit type="volume-cubic-yard">
-				<displayName>ኪዩቢክ ያርድ</displayName>
-				<unitPattern count="one">{0} ኪዩቢክ ያርድ</unitPattern>
-				<unitPattern count="other">{0} ኪዩቢክ ያርድ</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cubic-foot">
 				<displayName>↑↑↑</displayName>
@@ -8199,18 +8324,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-megaliter">
-				<displayName>ሜጋሊትር</displayName>
-				<unitPattern count="one">{0} ሜሊ</unitPattern>
-				<unitPattern count="one" case="accusative">{0} ሜሊ</unitPattern>
-				<unitPattern count="other">{0} ሜሊ</unitPattern>
-				<unitPattern count="other" case="accusative">{0} ሜሊ</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
 				<displayName>ሄክቶሊትር</displayName>
-				<unitPattern count="one">{0} ሄሊ</unitPattern>
-				<unitPattern count="one" case="accusative">{0} ሄሊ</unitPattern>
-				<unitPattern count="other">{0} ሄሊ</unitPattern>
-				<unitPattern count="other" case="accusative">{0} ሄሊ</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-liter">
 				<displayName>↑↑↑</displayName>
@@ -8255,6 +8380,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
 			</unit>
+			<unit type="volume-fluid-ounce-metric">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -8266,10 +8396,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-gallon">
-				<displayName>ጋሎን</displayName>
-				<unitPattern count="one">{0}/ጋሎን</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0}/ጋሎን</unitPattern>
-				<perUnitPattern>{0}/ጋሎን</perUnitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="volume-gallon-imperial">
 				<displayName>↑↑↑</displayName>
@@ -8278,9 +8408,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="volume-quart">
-				<displayName>ኳርትስ</displayName>
-				<unitPattern count="one">{0} ኳርትስ</unitPattern>
-				<unitPattern count="other">{0} ኳርትስ</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-pint">
 				<displayName>↑↑↑</displayName>
@@ -8288,9 +8418,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cup">
-				<displayName>ኩባያ</displayName>
-				<unitPattern count="one">{0} ኩባያ</unitPattern>
-				<unitPattern count="other">{0} ኩባያ</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-fluid-ounce">
 				<displayName>↑↑↑</displayName>
@@ -8303,14 +8433,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} Imp. fluid ኦንስስ</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
-				<displayName>የሻይ ማንኪያ</displayName>
-				<unitPattern count="one">{0} የሻይ ማንኪያ</unitPattern>
-				<unitPattern count="other">{0} የሻይ ማንኪያ</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-teaspoon">
-				<displayName>የሻይ ማንኪያዎች</displayName>
-				<unitPattern count="one">{0} የሻይ ማንኪያዎች</unitPattern>
-				<unitPattern count="other">{0} የሻይ ማንኪያዎች</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-barrel">
 				<displayName>↑↑↑</displayName>
@@ -8352,12 +8482,77 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="angle-steradian">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-katal">
+				<displayName>ካታልስ</displayName>
+				<unitPattern count="one">{0} ካት</unitPattern>
+				<unitPattern count="other">{0} ካት</unitPattern>
+			</unit>
+			<unit type="electric-coulomb">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-farad">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-henry">
+				<displayName>ሄነሪስ</displayName>
+				<unitPattern count="one">{0} ሄ</unitPattern>
+				<unitPattern count="other">{0} ሄ</unitPattern>
+			</unit>
+			<unit type="electric-siemens">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-calorie-it">
+				<displayName>ካሎሪ [IT]</displayName>
+				<unitPattern count="one">{0} ካሎሪ [IT]</unitPattern>
+				<unitPattern count="other">{0} ካሎሪ [IT]</unitPattern>
+			</unit>
+			<unit type="energy-becquerel">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-sievert">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-gray">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="force-kilogram-force">
+				<displayName>ኪሎግራም - ኃይል</displayName>
+				<unitPattern count="one">{0} ኪግ-ኃይል</unitPattern>
+				<unitPattern count="other">{0} ኪግ-ኃይል</unitPattern>
+			</unit>
+			<unit type="magnetic-tesla">
+				<displayName>ቴስላስ</displayName>
+				<unitPattern count="one">{0} ቴ</unitPattern>
+				<unitPattern count="other">{0} ቴ</unitPattern>
+			</unit>
+			<unit type="magnetic-weber">
+				<displayName>ዌበርስ</displayName>
+				<unitPattern count="one">{0} ዌበ</unitPattern>
+				<unitPattern count="other">{0} ዌበ</unitPattern>
+			</unit>
 			<unit type="speed-light-speed">
-				<displayName>ብርሃን</displayName>
-				<unitPattern count="one">{0} ብርሃን</unitPattern>
-				<unitPattern count="one" case="accusative">{0} ብርሃን</unitPattern>
-				<unitPattern count="other">{0} ብርሃን</unitPattern>
-				<unitPattern count="other" case="accusative">{0} ብርሃን</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-part-per-1e9">
 				<displayName>↑↑↑</displayName>
@@ -8369,10 +8564,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="duration-night">
 				<displayName>ለሊት</displayName>
 				<unitPattern count="one">{0}/ለሊት</unitPattern>
-				<unitPattern count="one" case="accusative">{0}/ለሊት</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0}/ለሊት</unitPattern>
-				<unitPattern count="other" case="accusative">{0}/ለሊት</unitPattern>
-				<perUnitPattern>{0}/ለሊት</perUnitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>ዓቢይ አቅጣጫ</displayName>
@@ -8507,12 +8702,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="angle-revolution">
 				<displayName>ኡደት</displayName>
-				<unitPattern count="one">{0} ኡደት</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ኡደት</unitPattern>
 			</unit>
 			<unit type="angle-radian">
 				<displayName>ራዲ</displayName>
-				<unitPattern count="one">{0} ራዲ</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ራዲ</unitPattern>
 			</unit>
 			<unit type="angle-degree">
@@ -8566,7 +8761,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="area-square-yard">
 				<displayName>ስኴር ያርድ</displayName>
-				<unitPattern count="one">{0} ስኴር ያርድ</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ስኴር ያርድ</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
@@ -8605,6 +8800,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ንጥል</unitPattern>
 			</unit>
+			<unit type="concentr-part">
+				<displayName>ክፍል</displayName>
+				<unitPattern count="one">{0} ክፍል</unitPattern>
+				<unitPattern count="other">{0} ክፍል</unitPattern>
+			</unit>
 			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -8629,6 +8829,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-ofglucose">
+				<displayName>ግሉኮስ</displayName>
+				<unitPattern count="one">{0} ግሉኮስ</unitPattern>
+				<unitPattern count="other">{0} ግሉኮስ</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>ሊ/ኪሜ</displayName>
@@ -8780,7 +8985,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="electric-ampere">
 				<displayName>አምፒር</displayName>
-				<unitPattern count="one">{0} አምፒር</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} አምፒር</unitPattern>
 			</unit>
 			<unit type="electric-milliampere">
@@ -8795,12 +9000,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="electric-volt">
 				<displayName>ቮልት</displayName>
-				<unitPattern count="one">{0} ቮልት</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ቮልት</unitPattern>
 			</unit>
 			<unit type="energy-kilocalorie">
 				<displayName>ኪሎ ካሎሪ</displayName>
-				<unitPattern count="one">{0} ኪሎ ካሎሪ</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ኪሎ ካሎሪ</unitPattern>
 			</unit>
 			<unit type="energy-calorie">
@@ -8815,12 +9020,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>ኪጁ</displayName>
-				<unitPattern count="one">{0} ኪጁ</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ኪጁ</unitPattern>
 			</unit>
 			<unit type="energy-joule">
 				<displayName>ጁልስ</displayName>
-				<unitPattern count="one">{0} ጁልስ</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ጁልስ</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
@@ -8860,22 +9065,22 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="frequency-gigahertz">
 				<displayName>ጊጋኸርዝ</displayName>
-				<unitPattern count="one">{0} ጊጋኸርዝ</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ጊጋኸርዝ</unitPattern>
 			</unit>
 			<unit type="frequency-megahertz">
 				<displayName>ሜጋኸርዝ</displayName>
-				<unitPattern count="one">{0} ሜጋኸርዝ</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ሜጋኸርዝ</unitPattern>
 			</unit>
 			<unit type="frequency-kilohertz">
 				<displayName>ኪሎኸርዝ</displayName>
-				<unitPattern count="one">{0} ኪሎኸርዝ</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ኪሎኸርዝ</unitPattern>
 			</unit>
 			<unit type="frequency-hertz">
 				<displayName>ኸርዝ</displayName>
-				<unitPattern count="one">{0} ኸርዝ</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ኸርዝ</unitPattern>
 			</unit>
 			<unit type="graphics-em">
@@ -9072,12 +9277,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="mass-milligram">
 				<displayName>ሚግ</displayName>
-				<unitPattern count="one">{0} ሚግ</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ሚግ</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
 				<displayName>ማግ</displayName>
-				<unitPattern count="one">{0} ማግ</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ማግ</unitPattern>
 			</unit>
 			<unit type="mass-ton">
@@ -9114,7 +9319,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="mass-dalton">
 				<displayName>ዳልተንስ</displayName>
-				<unitPattern count="one">{0} ዳልተንስ</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ዳልተንስ</unitPattern>
 			</unit>
 			<unit type="mass-earth-mass">
@@ -9134,12 +9339,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>ጊጋ ዋት</displayName>
-				<unitPattern count="one">{0} ጊዋ</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ጊዋ</unitPattern>
 			</unit>
 			<unit type="power-megawatt">
 				<displayName>ሜዋ</displayName>
-				<unitPattern count="one">{0} ሜዋ</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ሜዋ</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
@@ -9154,7 +9359,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="power-milliwatt">
 				<displayName>ሚዋ</displayName>
-				<unitPattern count="one">{0} ሚዋ</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ሚዋ</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
@@ -9163,6 +9368,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} የፈጉ</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-ofhg">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="pressure-ofhg">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -9254,7 +9464,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="temperature-kelvin">
 				<displayName>ኬ</displayName>
-				<unitPattern count="one">{0} ኬ</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ኬ</unitPattern>
 			</unit>
 			<unit type="torque-pound-force-foot">
@@ -9291,7 +9501,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-cubic-yard">
 				<displayName>ኪዩቢክ ያርድ</displayName>
-				<unitPattern count="one">{0} ኪዩቢክ ያርድ</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ኪዩቢክ ያርድ</unitPattern>
 			</unit>
 			<unit type="volume-cubic-foot">
@@ -9306,12 +9516,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-megaliter">
 				<displayName>ሜጋሊትር</displayName>
-				<unitPattern count="one">{0} ሜሊ</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ሜሊ</unitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
 				<displayName>ሄሊ</displayName>
-				<unitPattern count="one">{0} ሄሊ</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ሄሊ</unitPattern>
 			</unit>
 			<unit type="volume-liter">
@@ -9345,6 +9555,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="volume-fluid-ounce-metric">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>ኤከር ጫማ</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -9369,7 +9584,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-quart">
 				<displayName>ኳርትስ</displayName>
-				<unitPattern count="one">{0} ኳርትስ</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ኳርትስ</unitPattern>
 			</unit>
 			<unit type="volume-pint">
@@ -9379,7 +9594,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-cup">
 				<displayName>ኩባያ</displayName>
-				<unitPattern count="one">{0} ኩባያ</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ኩባያ</unitPattern>
 			</unit>
 			<unit type="volume-fluid-ounce">
@@ -9394,12 +9609,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-tablespoon">
 				<displayName>የሻይ ማንኪያ</displayName>
-				<unitPattern count="one">{0} የሻይ ማንኪያ</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} የሻይ ማንኪያ</unitPattern>
 			</unit>
 			<unit type="volume-teaspoon">
 				<displayName>የሻይ ማንኪያዎች</displayName>
-				<unitPattern count="one">{0} የሻይ ማንኪያዎች</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} የሻይ ማንኪያዎች</unitPattern>
 			</unit>
 			<unit type="volume-barrel">
@@ -9442,6 +9657,71 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} የፈሳሽ መለኪያ</unitPattern>
 			</unit>
+			<unit type="angle-steradian">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-katal">
+				<displayName>ካት</displayName>
+				<unitPattern count="one">{0} ካት</unitPattern>
+				<unitPattern count="other">{0} ካት</unitPattern>
+			</unit>
+			<unit type="electric-coulomb">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-farad">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-henry">
+				<displayName>ሄ</displayName>
+				<unitPattern count="one">{0} ሄ</unitPattern>
+				<unitPattern count="other">{0} ሄ</unitPattern>
+			</unit>
+			<unit type="electric-siemens">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-calorie-it">
+				<displayName>ካሎሪ-IT</displayName>
+				<unitPattern count="one">{0} ካሎሪ-IT</unitPattern>
+				<unitPattern count="other">{0} ካሎሪ-IT</unitPattern>
+			</unit>
+			<unit type="energy-becquerel">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-sievert">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-gray">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="force-kilogram-force">
+				<displayName>ኪግ-ኃይል</displayName>
+				<unitPattern count="one">{0} ኪግ-ኃይል</unitPattern>
+				<unitPattern count="other">{0} ኪግ-ኃይል</unitPattern>
+			</unit>
+			<unit type="magnetic-tesla">
+				<displayName>ቴ</displayName>
+				<unitPattern count="one">{0} ቴ</unitPattern>
+				<unitPattern count="other">{0} ቴ</unitPattern>
+			</unit>
+			<unit type="magnetic-weber">
+				<displayName>ዌበ</displayName>
+				<unitPattern count="one">{0} ዌበ</unitPattern>
+				<unitPattern count="other">{0} ዌበ</unitPattern>
+			</unit>
 			<unit type="speed-light-speed">
 				<displayName>ብርሃን</displayName>
 				<unitPattern count="one">{0} ብርሃን</unitPattern>
@@ -9454,7 +9734,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="duration-night">
 				<displayName>ለሊቶች</displayName>
-				<unitPattern count="one">{0} ለሊት</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ለሊት</unitPattern>
 				<perUnitPattern>{0}/ለሊት</perUnitPattern>
 			</unit>
@@ -9477,7 +9757,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p-6">
-				<unitPrefixPattern>ማይክሮ{0}</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p-9">
 				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
@@ -9528,13 +9808,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p21">
-				<unitPrefixPattern>ዜታ {0}</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p24">
-				<unitPrefixPattern>ዮታ {0}</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p27">
-				<unitPrefixPattern>ሮና {0}</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p30">
 				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
@@ -9561,7 +9841,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="1024p8">
-				<unitPrefixPattern>ዮቢ {0}</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="per">
 				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
@@ -9595,7 +9875,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}ኡደ</unitPattern>
 			</unit>
 			<unit type="angle-radian">
-				<displayName>ራዲ</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">{0}ራዲ</unitPattern>
 				<unitPattern count="other">{0}ራዲ</unitPattern>
 			</unit>
@@ -9650,8 +9930,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="area-square-yard">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} ስኴር ያርድ</unitPattern>
-				<unitPattern count="other">{0} ስኴር ያርድ</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
 				<displayName>↑↑↑</displayName>
@@ -9689,6 +9969,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="concentr-part">
+				<displayName>ክፍል</displayName>
+				<unitPattern count="one">{0} ክፍል</unitPattern>
+				<unitPattern count="other">{0} ክፍል</unitPattern>
+			</unit>
 			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -9713,6 +9998,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-ofglucose">
+				<displayName>ግሉኮስ</displayName>
+				<unitPattern count="one">{0} ግሉኮስ</unitPattern>
+				<unitPattern count="other">{0} ግሉኮስ</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>↑↑↑</displayName>
@@ -9863,9 +10153,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="electric-ampere">
-				<displayName>አምፒር</displayName>
-				<unitPattern count="one">{0} አምፒር</unitPattern>
-				<unitPattern count="other">{0} አምፒር</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="electric-milliampere">
 				<displayName>↑↑↑</displayName>
@@ -9878,14 +10168,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="electric-volt">
-				<displayName>ቮልት</displayName>
-				<unitPattern count="one">{0} ቮልት</unitPattern>
-				<unitPattern count="other">{0} ቮልት</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-kilocalorie">
-				<displayName>ኪሎ ካሎሪ</displayName>
-				<unitPattern count="one">{0} ኪሎ ካሎሪ</unitPattern>
-				<unitPattern count="other">{0} ኪሎ ካሎሪ</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-calorie">
 				<displayName>↑↑↑</displayName>
@@ -9898,14 +10188,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-kilojoule">
-				<displayName>ኪጁ</displayName>
-				<unitPattern count="one">{0} ኪጁ</unitPattern>
-				<unitPattern count="other">{0} ኪጁ</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-joule">
-				<displayName>ጁልስ</displayName>
-				<unitPattern count="one">{0} ጁልስ</unitPattern>
-				<unitPattern count="other">{0} ጁልስ</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
 				<displayName>↑↑↑</displayName>
@@ -9943,24 +10233,24 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="frequency-gigahertz">
-				<displayName>ጊጋኸርዝ</displayName>
-				<unitPattern count="one">{0} ጊጋኸርዝ</unitPattern>
-				<unitPattern count="other">{0} ጊጋኸርዝ</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="frequency-megahertz">
-				<displayName>ሜጋኸርዝ</displayName>
-				<unitPattern count="one">{0} ሜጋኸርዝ</unitPattern>
-				<unitPattern count="other">{0} ሜጋኸርዝ</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="frequency-kilohertz">
-				<displayName>ኪሎኸርዝ</displayName>
-				<unitPattern count="one">{0} ኪሎኸርዝ</unitPattern>
-				<unitPattern count="other">{0} ኪሎኸርዝ</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="frequency-hertz">
-				<displayName>ኸርዝ</displayName>
-				<unitPattern count="one">{0} ኸርዝ</unitPattern>
-				<unitPattern count="other">{0} ኸርዝ</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-em">
 				<displayName>↑↑↑</displayName>
@@ -10160,9 +10450,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ሚሊግራም</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
-				<displayName>ማግ</displayName>
-				<unitPattern count="one">{0} ማግ</unitPattern>
-				<unitPattern count="other">{0} ማግ</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-ton">
 				<displayName>↑↑↑</displayName>
@@ -10197,9 +10487,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-dalton">
-				<displayName>ዳልተንስ</displayName>
-				<unitPattern count="one">{0} ዳልተንስ</unitPattern>
-				<unitPattern count="other">{0} ዳልተንስ</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-earth-mass">
 				<displayName>↑↑↑</displayName>
@@ -10218,13 +10508,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>ጊዋ</displayName>
-				<unitPattern count="one">{0} ጊዋ</unitPattern>
-				<unitPattern count="other">{0} ጊዋ</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-megawatt">
-				<displayName>ሜዋ</displayName>
-				<unitPattern count="one">{0} ሜዋ</unitPattern>
-				<unitPattern count="other">{0} ሜዋ</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
 				<displayName>↑↑↑</displayName>
@@ -10237,9 +10527,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
-				<displayName>ሚዋ</displayName>
-				<unitPattern count="one">{0} ሚዋ</unitPattern>
-				<unitPattern count="other">{0} ሚዋ</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
 				<displayName>↑↑↑</displayName>
@@ -10247,6 +10537,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} የፈረስ ኃይል</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-ofhg">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="pressure-ofhg">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -10337,9 +10632,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="temperature-kelvin">
-				<displayName>ኬ</displayName>
-				<unitPattern count="one">{0} ኬ</unitPattern>
-				<unitPattern count="other">{0} ኬ</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="torque-pound-force-foot">
 				<displayName>↑↑↑</displayName>
@@ -10374,9 +10669,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cubic-yard">
-				<displayName>ኪዩቢክ ያርድ</displayName>
-				<unitPattern count="one">{0} ኪዩቢክ ያርድ</unitPattern>
-				<unitPattern count="other">{0} ኪዩቢክ ያርድ</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cubic-foot">
 				<displayName>↑↑↑</displayName>
@@ -10389,14 +10684,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-megaliter">
-				<displayName>ሜጋሊትር</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">{0} ሜጋሊትር</unitPattern>
 				<unitPattern count="other">{0} ሜጋሊትር</unitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
-				<displayName>ሄሊ</displayName>
-				<unitPattern count="one">{0} ሄሊ</unitPattern>
-				<unitPattern count="other">{0} ሄሊ</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-liter">
 				<displayName>↑↑↑</displayName>
@@ -10429,6 +10724,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="volume-fluid-ounce-metric">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">{0} ኤጫ</unitPattern>
@@ -10440,10 +10740,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-gallon">
-				<displayName>ጋሎን</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">{0} ጋሎን</unitPattern>
-				<unitPattern count="other">{0} ጋሎን</unitPattern>
-				<perUnitPattern>{0}/ጋሎን</perUnitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="volume-gallon-imperial">
 				<displayName>↑↑↑</displayName>
@@ -10452,9 +10752,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="volume-quart">
-				<displayName>ኳርትስ</displayName>
-				<unitPattern count="one">{0} ኳርትስ</unitPattern>
-				<unitPattern count="other">{0} ኳርትስ</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-pint">
 				<displayName>↑↑↑</displayName>
@@ -10462,9 +10762,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cup">
-				<displayName>ኩባያ</displayName>
-				<unitPattern count="one">{0} ኩባያ</unitPattern>
-				<unitPattern count="other">{0} ኩባያ</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-fluid-ounce">
 				<displayName>↑↑↑</displayName>
@@ -10477,14 +10777,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
-				<displayName>የሻይ ማንኪያ</displayName>
-				<unitPattern count="one">{0} የሻይ ማንኪያ</unitPattern>
-				<unitPattern count="other">{0} የሻይ ማንኪያ</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-teaspoon">
-				<displayName>የሻይ ማንኪያዎች</displayName>
-				<unitPattern count="one">{0} የሻይ ማንኪያዎች</unitPattern>
-				<unitPattern count="other">{0} የሻይ ማንኪያዎች</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-barrel">
 				<displayName>↑↑↑</displayName>
@@ -10526,10 +10826,75 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} ፈመ</unitPattern>
 				<unitPattern count="other">{0} ፈመ</unitPattern>
 			</unit>
+			<unit type="angle-steradian">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-katal">
+				<displayName>ካት</displayName>
+				<unitPattern count="one">{0} ካት</unitPattern>
+				<unitPattern count="other">{0} ካት</unitPattern>
+			</unit>
+			<unit type="electric-coulomb">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-farad">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-henry">
+				<displayName>ሄ</displayName>
+				<unitPattern count="one">{0} ሄ</unitPattern>
+				<unitPattern count="other">{0} ሄ</unitPattern>
+			</unit>
+			<unit type="electric-siemens">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-calorie-it">
+				<displayName>ካሎሪ-IT</displayName>
+				<unitPattern count="one">{0} ካሎሪ-IT</unitPattern>
+				<unitPattern count="other">{0} ካሎሪ-IT</unitPattern>
+			</unit>
+			<unit type="energy-becquerel">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-sievert">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-gray">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="force-kilogram-force">
+				<displayName>ኪግ-ኃይል</displayName>
+				<unitPattern count="one">{0} ኪግ-ኃይል</unitPattern>
+				<unitPattern count="other">{0} ኪግ-ኃይል</unitPattern>
+			</unit>
+			<unit type="magnetic-tesla">
+				<displayName>ቴ</displayName>
+				<unitPattern count="one">{0} ቴ</unitPattern>
+				<unitPattern count="other">{0} ቴ</unitPattern>
+			</unit>
+			<unit type="magnetic-weber">
+				<displayName>ዌበ</displayName>
+				<unitPattern count="one">{0} ዌበ</unitPattern>
+				<unitPattern count="other">{0} ዌበ</unitPattern>
+			</unit>
 			<unit type="speed-light-speed">
-				<displayName>ብርሃን</displayName>
-				<unitPattern count="one">{0} ብርሃን</unitPattern>
-				<unitPattern count="other">{0} ብርሃን</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-part-per-1e9">
 				<displayName>↑↑↑</displayName>
@@ -10537,10 +10902,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-night">
-				<displayName>ለሊቶች</displayName>
-				<unitPattern count="one">{0} ለሊት</unitPattern>
-				<unitPattern count="other">{0} ለሊት</unitPattern>
-				<perUnitPattern>{0}/ለሊት</perUnitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>↑↑↑</displayName>
@@ -10576,13 +10941,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<listPattern type="or-narrow">
 			<listPatternPart type="start">↑↑↑</listPatternPart>
 			<listPatternPart type="middle">↑↑↑</listPatternPart>
-			<listPatternPart type="end">{0} ወይም {1}</listPatternPart>
+			<listPatternPart type="end">↑↑↑</listPatternPart>
 			<listPatternPart type="2">↑↑↑</listPatternPart>
 		</listPattern>
 		<listPattern type="or-short">
 			<listPatternPart type="start">↑↑↑</listPatternPart>
 			<listPatternPart type="middle">↑↑↑</listPatternPart>
-			<listPatternPart type="end">{0} ወይም {1}</listPatternPart>
+			<listPatternPart type="end">↑↑↑</listPatternPart>
 			<listPatternPart type="2">↑↑↑</listPatternPart>
 		</listPattern>
 		<listPattern type="standard-narrow">
@@ -10594,20 +10959,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<listPattern type="standard-short">
 			<listPatternPart type="start">↑↑↑</listPatternPart>
 			<listPatternPart type="middle">↑↑↑</listPatternPart>
-			<listPatternPart type="end">{0} እና {1}</listPatternPart>
+			<listPatternPart type="end">↑↑↑</listPatternPart>
 			<listPatternPart type="2">↑↑↑</listPatternPart>
 		</listPattern>
 		<listPattern type="unit">
 			<listPatternPart type="start">↑↑↑</listPatternPart>
 			<listPatternPart type="middle">↑↑↑</listPatternPart>
-			<listPatternPart type="end">{0} እና {1}</listPatternPart>
+			<listPatternPart type="end">↑↑↑</listPatternPart>
 			<listPatternPart type="2">↑↑↑</listPatternPart>
 		</listPattern>
 		<listPattern type="unit-narrow">
 			<listPatternPart type="start">↑↑↑</listPatternPart>
 			<listPatternPart type="middle">↑↑↑</listPatternPart>
-			<listPatternPart type="end">{0} እና {1}</listPatternPart>
-			<listPatternPart type="2">{0} እና {1}</listPatternPart>
+			<listPatternPart type="end">↑↑↑</listPatternPart>
+			<listPatternPart type="2">↑↑↑</listPatternPart>
 		</listPattern>
 		<listPattern type="unit-short">
 			<listPatternPart type="start">↑↑↑</listPatternPart>

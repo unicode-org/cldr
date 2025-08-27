@@ -31,9 +31,12 @@ function setFormIsVisible(visible, xpstrid) {
   }
 }
 
-function addButton(containerEl, xpstrid) {
+function addValueButton(containerEl, xpstrid, overrideDir) {
   try {
-    const AddValueWrapper = cldrVue.mount(AddValue, containerEl);
+    const dir = overrideDir || cldrSurvey.locInfo()?.dir;
+    const AddValueWrapper = cldrVue.mount(AddValue, containerEl, {
+      dir,
+    });
     AddValueWrapper.setXpathStringId(xpstrid);
   } catch (e) {
     console.error(
@@ -87,7 +90,7 @@ function getTrFromXpathStringId(xpstrid) {
 }
 
 export {
-  addButton,
+  addValueButton,
   getEnglish,
   getWinning,
   isFormVisible,

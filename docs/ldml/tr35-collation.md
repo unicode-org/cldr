@@ -4,7 +4,7 @@
 
 |Version|48 (draft)      |
 |-------|----------------|
-|Editors|Markus Scherer (<a href="mailto:markus.icu@gmail.com">markus.icu@gmail.com</a>) and <a href="tr35.md#Acknowledgments">other CLDR committee members</a>|
+|Editors|Markus Scherer (<a href="mailto:markus.icu@gmail.com">markus.icu@gmail.com</a>) and <a href="tr35-acknowledgments.md#acknowledgments">other CLDR committee members</a>|
 
 For the full header, summary, and status, see [Part 1: Core](tr35.md).
 
@@ -31,7 +31,7 @@ For the latest version of the Unicode Standard see [[Unicode](https://www.unicod
 For more information see [About Unicode Technical Reports](https://www.unicode.org/reports/about-reports.html) and the [Specifications FAQ](https://www.unicode.org/faq/specifications.html).
 Unicode Technical Reports are governed by the Unicode [Terms of Use](https://www.unicode.org/copyright.html)._
 
-## <a name="Parts" href="#Parts">Parts</a>
+## Parts
 
 The LDML specification is divided into the following parts:
 
@@ -44,6 +44,8 @@ The LDML specification is divided into the following parts:
 *   Part 7: [Keyboards](tr35-keyboards.md#Contents) (keyboard mappings)
 *   Part 8: [Person Names](tr35-personNames.md#Contents) (person names)
 *   Part 9: [MessageFormat](tr35-messageFormat.md#Contents) (message format)
+*   Appendix A: [Modifications](tr35-modifications.md#modifications)
+*   Appendix B: [Acknowledgments](tr35-acknowledgments.md#acknowledgments)
 
 ## <a name="Contents" href="#Contents">Contents of Part 5, Collation</a>
 
@@ -506,6 +508,8 @@ This table is informational, providing the top bytes, scripts, and primaries ass
 The final table gives certain hard-coded byte values. The "trail" area is provided for implementation of the "trailing weights" as described in the UCA.
 
 > 👉 **Note**: The particular primary lead bytes for Hani vs. IMPLICIT vs. TRAILING are only an example. An implementation is free to move them if it also moves the explicit TRAILING weights. This affects only a small number of explicit mappings in FractionalUCA.txt, such as for U+FFFD, U+FFFF, and the “unassigned first primary”. It is possible to use no SPECIAL bytes at all, and to use only the one primary lead byte FF for TRAILING weights.
+
+Starting with CLDR 48/Unicode 17, the root collation data files include `FractionalUCA_blanked.txt` which has the same contents as `FractionalUCA.txt` but with “blanked weights” for most non-zero collation weights. It is not useful as a _data_ file, but it is valuable for simple diffing between versions of the data, showing changes in the sort order and in the number of bytes in fractional weights.
 
 #### <a name="File_Format_UCA_Rules_txt" href="#File_Format_UCA_Rules_txt">UCA_Rules.txt</a>
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1183,6 +1183,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">persona adulta</annotation>
 		<annotation cp="👱">persona adulta rubia | rubia | rubias | rubio | rubios</annotation>
 		<annotation cp="👱" type="tts">persona adulta rubia</annotation>
+		<annotation cp="🧑‍🩰">bailarín | bailarina | ballet</annotation>
+		<annotation cp="🧑‍🩰" type="tts">bailarina de ballet</annotation>
 		<annotation cp="👨">adulto | hombre</annotation>
 		<annotation cp="👨" type="tts">hombre</annotation>
 		<annotation cp="🧔">barbas | barbudo | persona | persona con barba</annotation>
@@ -3897,6 +3899,26 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="₽" type="tts">rublo</annotation>
 		<annotation cp="₿">bitcoin | bitcóin | BTC</annotation>
 		<annotation cp="₿" type="tts">bitcóin</annotation>
+		<annotation cp="0⃣">0 | cero | tecla</annotation>
+		<annotation cp="0⃣" type="tts">tecla: 0</annotation>
+		<annotation cp="1⃣">1 | tecla | uno</annotation>
+		<annotation cp="1⃣" type="tts">tecla: 1</annotation>
+		<annotation cp="2⃣">2 | dos | tecla</annotation>
+		<annotation cp="2⃣" type="tts">tecla: 2</annotation>
+		<annotation cp="3⃣">3 | tecla | tres</annotation>
+		<annotation cp="3⃣" type="tts">tecla: 3</annotation>
+		<annotation cp="4⃣">4 | cuatro | tecla</annotation>
+		<annotation cp="4⃣" type="tts">tecla: 4</annotation>
+		<annotation cp="5⃣">5 | cinco | tecla</annotation>
+		<annotation cp="5⃣" type="tts">tecla: 5</annotation>
+		<annotation cp="6⃣">6 | seis | tecla</annotation>
+		<annotation cp="6⃣" type="tts">tecla: 6</annotation>
+		<annotation cp="7⃣">7 | siete | tecla</annotation>
+		<annotation cp="7⃣" type="tts">tecla: 7</annotation>
+		<annotation cp="8⃣">8 | ocho | tecla</annotation>
+		<annotation cp="8⃣" type="tts">tecla: 8</annotation>
+		<annotation cp="9⃣">9 | nueve | tecla</annotation>
+		<annotation cp="9⃣" type="tts">tecla: 9</annotation>
 		<annotation cp="¹">superíndice | uno</annotation>
 		<annotation cp="¹" type="tts">uno en superíndice</annotation>
 		<annotation cp="²">al cuadrado | dos | superíndice</annotation>
@@ -3909,5 +3931,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="µ" type="tts">símbolo de micro</annotation>
 		<annotation cp="﷼">moneda | rial</annotation>
 		<annotation cp="﷼" type="tts">rial</annotation>
+		<annotation cp="🛘">alud | avalancha | desastre | montaña | peligro | rocas | terremoto</annotation>
+		<annotation cp="🛘" type="tts">desprendimiento</annotation>
+		<annotation cp="🪊">instrumento | jazz | metal | música | triste | viento</annotation>
+		<annotation cp="🪊" type="tts">trombón</annotation>
+		<annotation cp="🪎">botín | dinero | joyas | objetos de valor | oro | piedras preciosas | plata | premio | riqueza</annotation>
+		<annotation cp="🪎" type="tts">cofre de tesoro</annotation>
+		<annotation cp="🫈">bigfoot | bosque | críptido | gigante | monstruo | peludo | sasquatch | yeti</annotation>
+		<annotation cp="🫈" type="tts">criatura peluda</annotation>
+		<annotation cp="🫍">ballena | mar | marino | océano</annotation>
+		<annotation cp="🫍" type="tts">orca</annotation>
+		<annotation cp="🫪">ansiedad | conmocionado | hinchado | pánico | sorprendido | vulnerable</annotation>
+		<annotation cp="🫪" type="tts">cara deformada</annotation>
+		<annotation cp="🫯">alboroto | altercado | bronca | desacuerdo | discusión | lucha | pelea</annotation>
+		<annotation cp="🫯" type="tts">nube de pelea</annotation>
 	</annotations>
 </ldml>

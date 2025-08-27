@@ -130,6 +130,8 @@ public final class SubmissionLocales {
                             + "|localeDisplayNames/territories/territory\\[@type=\"TR\"\\].*"
                             // v43: Exemplar city for America/Ciudad_Juarez
                             + "|dates/timeZoneNames/zone[@type=\"America/Ciudad_Juarez\"]/exemplarCity"
+                            // v48: Exemplar city for America/Coyhaique
+                            + "|dates/timeZoneNames/zone\\[@type=\"America/Coyhaique\"]/exemplarCity"
                             + ")");
 
     // Pattern.compile("//ldml/units/unitLength\\[@type=\"long\"]");

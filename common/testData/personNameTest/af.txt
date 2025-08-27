@@ -579,32 +579,32 @@ parameters; surnameFirst; short; monogram; formal
 endName
 
 # foreignGGS
-name ; given; Zalta
+name ; given; Zelda
 name ; given2; Herman
 name ; surname; Stander
 name ; locale; ja_AQ
 
-expectedResult; Stander, Zalta Herman
+expectedResult; Stander, Zelda Herman
 
 parameters; sorting; long; referring; formal
 
-expectedResult; Stander Zalta Herman
+expectedResult; Stander Zelda Herman
 
 parameters; surnameFirst; long; referring; formal
 
-expectedResult; Zalta Herman Stander
+expectedResult; Zelda Herman Stander
 
 parameters; givenFirst; long; referring; formal
 
-expectedResult; Stander, Zalta H.
+expectedResult; Stander, Zelda H.
 
 parameters; sorting; medium; referring; formal
 
-expectedResult; Stander Zalta H.
+expectedResult; Stander Zelda H.
 
 parameters; surnameFirst; medium; referring; formal
 
-expectedResult; Zalta H. Stander
+expectedResult; Zelda H. Stander
 
 parameters; givenFirst; medium; referring; formal
 parameters; givenFirst; medium; referring; informal
@@ -613,7 +613,7 @@ expectedResult; Stander, Z. H.
 
 parameters; sorting; short; referring; formal
 
-expectedResult; Stander, Zalta
+expectedResult; Stander, Zelda
 
 parameters; sorting; long; referring; informal
 parameters; sorting; medium; referring; informal
@@ -623,7 +623,7 @@ expectedResult; Stander Z. H.
 
 parameters; surnameFirst; short; referring; formal
 
-expectedResult; Stander Zalta
+expectedResult; Stander Zelda
 
 parameters; surnameFirst; long; referring; informal
 parameters; surnameFirst; medium; referring; informal
@@ -632,7 +632,7 @@ expectedResult; Z. H. Stander
 
 parameters; givenFirst; short; referring; formal
 
-expectedResult; Zalta Stander
+expectedResult; Zelda Stander
 
 parameters; givenFirst; long; referring; informal
 
@@ -640,7 +640,7 @@ expectedResult; Stander Z.
 
 parameters; surnameFirst; short; referring; informal
 
-expectedResult; Zalta S.
+expectedResult; Zelda S.
 
 parameters; givenFirst; short; referring; informal
 
@@ -653,7 +653,7 @@ parameters; surnameFirst; long; addressing; formal
 parameters; surnameFirst; medium; addressing; formal
 parameters; surnameFirst; short; addressing; formal
 
-expectedResult; Zalta
+expectedResult; Zelda
 
 parameters; givenFirst; long; addressing; informal
 parameters; givenFirst; medium; addressing; informal

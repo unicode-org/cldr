@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1183,6 +1183,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">ጎልማሳ</annotation>
 		<annotation cp="👱">ሉጫ | ሉጫ ጸጉር ያለው ሰው | ወርቃማ ፀጉር | ወርቃማ ፀጉር ያለው ሰው | የሰው ዘር | ጎልማሳ/ሉጫ ጸጉር ያለው | ጸጉር | ፊት</annotation>
 		<annotation cp="👱" type="tts">ጎልማሳ/ሉጫ ጸጉር ያለው</annotation>
+		<annotation cp="🧑‍🩰">ባሌት | ዳንሰኛ</annotation>
+		<annotation cp="🧑‍🩰" type="tts">የባሌት ዳንሰኛ</annotation>
 		<annotation cp="👨">ሰው | ወንድ</annotation>
 		<annotation cp="👨" type="tts">ሰው</annotation>
 		<annotation cp="🧔">የፊት ላይ ጸጉር | ጺማም | ጺማም ሰው | ጺም</annotation>
@@ -3897,6 +3899,26 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="₽" type="tts">ሩብል</annotation>
 		<annotation cp="₿">BTC | ቢትኮን</annotation>
 		<annotation cp="₿" type="tts">ቢትኮን</annotation>
+		<annotation cp="0⃣">0 | ባዶ | የአብይ ሆሄ ቁልፍ ማብሪያ</annotation>
+		<annotation cp="0⃣" type="tts">የአብይ ሆሄ ቁልፍ ማብሪያ: 0</annotation>
+		<annotation cp="1⃣">1 | አንድ | የአብይ ሆሄ ቁልፍ ማብሪያ</annotation>
+		<annotation cp="1⃣" type="tts">የአብይ ሆሄ ቁልፍ ማብሪያ: 1</annotation>
+		<annotation cp="2⃣">2 | ሁለት | የአብይ ሆሄ ቁልፍ ማብሪያ</annotation>
+		<annotation cp="2⃣" type="tts">የአብይ ሆሄ ቁልፍ ማብሪያ: 2</annotation>
+		<annotation cp="3⃣">3 | ሦስት | የአብይ ሆሄ ቁልፍ ማብሪያ</annotation>
+		<annotation cp="3⃣" type="tts">የአብይ ሆሄ ቁልፍ ማብሪያ: 3</annotation>
+		<annotation cp="4⃣">4 | አራት | የአብይ ሆሄ ቁልፍ ማብሪያ</annotation>
+		<annotation cp="4⃣" type="tts">የአብይ ሆሄ ቁልፍ ማብሪያ: 4</annotation>
+		<annotation cp="5⃣">5 | አምስት | የአብይ ሆሄ ቁልፍ ማብሪያ</annotation>
+		<annotation cp="5⃣" type="tts">የአብይ ሆሄ ቁልፍ ማብሪያ: 5</annotation>
+		<annotation cp="6⃣">6 | ስድስት | የአብይ ሆሄ ቁልፍ ማብሪያ</annotation>
+		<annotation cp="6⃣" type="tts">የአብይ ሆሄ ቁልፍ ማብሪያ: 6</annotation>
+		<annotation cp="7⃣">7 | ሰባት | የአብይ ሆሄ ቁልፍ ማብሪያ</annotation>
+		<annotation cp="7⃣" type="tts">የአብይ ሆሄ ቁልፍ ማብሪያ: 7</annotation>
+		<annotation cp="8⃣">8 | ስምንት | የአብይ ሆሄ ቁልፍ ማብሪያ</annotation>
+		<annotation cp="8⃣" type="tts">የአብይ ሆሄ ቁልፍ ማብሪያ: 8</annotation>
+		<annotation cp="9⃣">9 | ዘጠኝ | የአብይ ሆሄ ቁልፍ ማብሪያ</annotation>
+		<annotation cp="9⃣" type="tts">የአብይ ሆሄ ቁልፍ ማብሪያ: 9</annotation>
 		<annotation cp="¹">ራስጌ ምልክት | ራስጌ ምልክት አንድ | አንድ</annotation>
 		<annotation cp="¹" type="tts">ራስጌ ምልክት አንድ</annotation>
 		<annotation cp="²">ሁለት | ራስጌ ምልክት | ራስጌ ምልክት ሁለት | ስኴርድ</annotation>
@@ -3909,5 +3931,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="µ" type="tts">የማይክሮ ምልክት</annotation>
 		<annotation cp="﷼">ሪያል</annotation>
 		<annotation cp="﷼" type="tts">ሪያል</annotation>
+		<annotation cp="🛘">ተራራ | አለቶች | አቫላንቸ | አደጋ | የመሬት መንቀጥቀጥ | ጭቃ መንሸራተት</annotation>
+		<annotation cp="🛘" type="tts">የመሬት መንሸራተት</annotation>
+		<annotation cp="🪊">መሳሪያ | ሙዚቃ | ስላይድ | ናስ | አሳዛኝ | ጃዝ</annotation>
+		<annotation cp="🪊" type="tts">ትሮምቦን</annotation>
+		<annotation cp="🪎">ሀብት | ሽልማት | ብር | ወርቅ | ውድ ዕቃዎች | ዕንቁ | ዘረፋ | ገንዘብ | ጌጣጌጦች</annotation>
+		<annotation cp="🪎" type="tts">ግምጃ ቤት</annotation>
+		<annotation cp="🫈">ትልቅ እግር | ትልቅ የፀጉር ፍጡር | አረመኔ | ክሪፕትድ | ግዙፍ | ጫካ | ጸጉራም</annotation>
+		<annotation cp="🫈" type="tts">ፀጉራማ ፍጥረት</annotation>
+		<annotation cp="🫍">ባህር | ውቅያኖስ | ዓሣ ነባሪ</annotation>
+		<annotation cp="🫍" type="tts">ኦርካ</annotation>
+		<annotation cp="🫪">ተገረመ | ተጋላጭ | ያበጠ | ደነገጥኩ | ድንጋጤ | ጭንቀት</annotation>
+		<annotation cp="🫪" type="tts">የተዛባ ፊት</annotation>
+		<annotation cp="🫯">መታገል | ትግል | አለመግባባት | ክርክር | ፍጥጫ</annotation>
+		<annotation cp="🫯" type="tts">ደመናን መዋጋት</annotation>
 	</annotations>
 </ldml>

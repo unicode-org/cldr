@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
-Copyright © 1991-2024 Unicode, Inc.
+Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -13,6 +13,451 @@ CLDR data files are interpreted according to the LDML specification (http://unic
     </identity>
     <rbnf>
         <rulesetGrouping type="SpelloutRules">
+            <rbnfRules><![CDATA[
+%spellout-numbering-year:
+x.x: =0.0=;
+0: =%spellout-ordinal-masculine-plural-genitive=;
+%spellout-numbering:
+0: =%spellout-cardinal-masculine=;
+%%spellout-cardinal-stem-few:
+0: 0;
+1: 1;
+2: 2;
+3: 3;
+4: ketur;
+5: penk;
+6: šeš;
+7: septyn;
+8: aštuon;
+9: devyn;
+10: 10;
+11: vienuolik;
+12: dvylik;
+13: trylik;
+14: keturiolik;
+15: penkiolik;
+16: šešiolik;
+17: septyniolik;
+18: aštuoniolik;
+19: devyniolik;
+20: =%spellout-cardinal-masculine=;
+%spellout-cardinal-masculine:
+-x: mīnus >>;
+x.x: [<< ir ]>%%fractions-feminine>;
+0: nulis;
+1: vienas;
+2: du;
+3: trys;
+4: =%%spellout-cardinal-stem-few=i;
+10: dešimt;
+11: =%%spellout-cardinal-stem-few=a;
+20: <%spellout-cardinal-feminine-accusative<dešimt[ >>];
+100: šimtas[ >>];
+200: <%spellout-cardinal-masculine< šimtai[ >>];
+1000: tūkstantis[ >>];
+2000: <%spellout-cardinal-masculine< $(cardinal,one{tūkstantis}few{tūkstančiai}other{tūkstančių})$[ >>];
+1000000: <%spellout-cardinal-masculine< $(cardinal,one{milijonas}few{milijonai}other{milijonų})$[ >>];
+1000000000: <%spellout-cardinal-masculine< $(cardinal,one{milijardas}few{milijardai}other{milijardų})$[ >>];
+1000000000000: <%spellout-cardinal-masculine< $(cardinal,one{trilijonas}few{trilijonai}other{trilijonų})$[ >>];
+1000000000000000: <%spellout-cardinal-masculine< $(cardinal,one{kvadrilijonas}few{kvadrilijonai}other{kvadrilijonų})$[ >>];
+1000000000000000000: =#,##0=;
+%spellout-cardinal-feminine:
+-x: mīnus >>;
+x.x: [<< ir ]>%%fractions-feminine>;
+0: nulis;
+1: viena;
+2: dvi;
+3: trys;
+4: =%%spellout-cardinal-stem-few=ios;
+10: dešimt;
+11: =%%spellout-cardinal-stem-few=a;
+20: <%spellout-cardinal-feminine-accusative<dešimt[ >>];
+100: šimtas[ >>];
+200: <%spellout-cardinal-masculine< šimtai[ >>];
+1000: tūkstantis[ >>];
+2000: <%spellout-cardinal-masculine< $(cardinal,one{tūkstantis}few{tūkstančiai}other{tūkstančių})$[ >>];
+1000000: <%spellout-cardinal-masculine< $(cardinal,one{milijonas}few{milijonai}other{milijonų})$[ >>];
+1000000000: <%spellout-cardinal-masculine< $(cardinal,one{milijardas}few{milijardai}other{milijardų})$[ >>];
+1000000000000: <%spellout-cardinal-masculine< $(cardinal,one{trilijonas}few{trilijonai}other{trilijonų})$[ >>];
+1000000000000000: <%spellout-cardinal-masculine< $(cardinal,one{kvadrilijonas}few{kvadrilijonai}other{kvadrilijonų})$[ >>];
+1000000000000000000: =#,##0=;
+%%fractions-feminine:
+10: <%spellout-cardinal-feminine< $(cardinal,one{dešimtosio}other{dešimtosios})$;
+100: <%spellout-cardinal-feminine< $(cardinal,one{šimtosio}other{šimtosios})$;
+1000: <%spellout-cardinal-feminine< $(cardinal,one{tūkstantosio}other{tūkstantosios})$;
+10000: <%spellout-cardinal-feminine< $(cardinal,one{dešimttūkstantosio}other{dešimttūkstantosios})$;
+100000: <%spellout-cardinal-feminine< $(cardinal,one{šimtatūkstantosio}other{šimtatūkstantosios})$;
+1000000: <%spellout-cardinal-feminine< $(cardinal,one{milijonosio}other{milijonosios})$;
+10000000: <%spellout-cardinal-feminine< $(cardinal,one{dešimtmilijonosio}other{dešimtmilijonosios})$;
+100000000: <%spellout-cardinal-feminine< $(cardinal,one{šimtamilijonosio}other{šimtamilijonosios})$;
+1000000000: <0<;
+%spellout-cardinal-masculine-genitive:
+-x: mīnus >>;
+x.x: [<< ir ]>%%fractions-feminine-genitive>;
+0: nulis;
+1: vieno;
+2: dviejų;
+3: trijų;
+4: =%%spellout-cardinal-stem-few=ių;
+10: dešimt;
+11: =%%spellout-cardinal-stem-few=os;
+20: <%spellout-cardinal-feminine-accusative<dešimt[ >>];
+100: šimtas[ >>];
+200: <%spellout-cardinal-masculine< šimtai[ >>];
+1000: tūkstantis[ >>];
+2000: <%spellout-cardinal-masculine< $(cardinal,one{tūkstantis}few{tūkstančiai}other{tūkstančių})$[ >>];
+1000000: <%spellout-cardinal-masculine< $(cardinal,one{milijonas}few{milijonai}other{milijonų})$[ >>];
+1000000000: <%spellout-cardinal-masculine< $(cardinal,one{milijardas}few{milijardai}other{milijardų})$[ >>];
+1000000000000: <%spellout-cardinal-masculine< $(cardinal,one{trilijonas}few{trilijonai}other{trilijonų})$[ >>];
+1000000000000000: <%spellout-cardinal-masculine< $(cardinal,one{kvadrilijonas}few{kvadrilijonai}other{kvadrilijonų})$[ >>];
+1000000000000000000: =#,##0=;
+%spellout-cardinal-feminine-genitive:
+-x: mīnus >>;
+x.x: [<< ir ]>%%fractions-feminine-genitive>;
+0: nulis;
+1: vienos;
+2: dviejų;
+3: trijų;
+4: =%%spellout-cardinal-stem-few=ių;
+10: dešimt;
+11: =%%spellout-cardinal-stem-few=os;
+20: <%spellout-cardinal-feminine-accusative<dešimt[ >>];
+100: šimtas[ >>];
+200: <%spellout-cardinal-masculine< šimtai[ >>];
+1000: tūkstantis[ >>];
+2000: <%spellout-cardinal-masculine< $(cardinal,one{tūkstantis}few{tūkstančiai}other{tūkstančių})$[ >>];
+1000000: <%spellout-cardinal-masculine< $(cardinal,one{milijonas}few{milijonai}other{milijonų})$[ >>];
+1000000000: <%spellout-cardinal-masculine< $(cardinal,one{milijardas}few{milijardai}other{milijardų})$[ >>];
+1000000000000: <%spellout-cardinal-masculine< $(cardinal,one{trilijonas}few{trilijonai}other{trilijonų})$[ >>];
+1000000000000000: <%spellout-cardinal-masculine< $(cardinal,one{kvadrilijonas}few{kvadrilijonai}other{kvadrilijonų})$[ >>];
+1000000000000000000: =#,##0=;
+%%fractions-feminine-genitive:
+10: <%spellout-cardinal-feminine-genitive< $(cardinal,one{dešimtųjų}other{dešimtųjų})$;
+100: <%spellout-cardinal-feminine-genitive< $(cardinal,one{šimtųjų}other{šimtųjų})$;
+1000: <%spellout-cardinal-feminine-genitive< $(cardinal,one{tūkstantųjų}other{tūkstantųjų})$;
+10000: <%spellout-cardinal-feminine-genitive< $(cardinal,one{dešimttūkstantųjų}other{dešimttūkstantųjų})$;
+100000: <%spellout-cardinal-feminine-genitive< $(cardinal,one{šimtatūkstantųjų}other{šimtatūkstantųjų})$;
+1000000: <%spellout-cardinal-feminine-genitive< $(cardinal,one{milijonųjų}other{milijonųjų})$;
+10000000: <%spellout-cardinal-feminine-genitive< $(cardinal,one{dešimtmilijonųjų}other{dešimtmilijonųjų})$;
+100000000: <%spellout-cardinal-feminine-genitive< $(cardinal,one{šimtamilijonųjų}other{šimtamilijonųjų})$;
+1000000000: <0<;
+%spellout-cardinal-masculine-dative:
+-x: mīnus >>;
+x.x: [<< ir ]>%%fractions-feminine-dative>;
+0: nulis;
+1: vienam;
+2: dviem;
+3: trims;
+4: =%%spellout-cardinal-stem-few=iems;
+10: dešimt;
+11: =%%spellout-cardinal-stem-few=ai;
+20: <%spellout-cardinal-feminine-accusative<dešimt[ >>];
+100: šimtas[ >>];
+200: <%spellout-cardinal-masculine< šimtai[ >>];
+1000: tūkstantis[ >>];
+2000: <%spellout-cardinal-masculine< $(cardinal,one{tūkstantis}few{tūkstančiai}other{tūkstančių})$[ >>];
+1000000: <%spellout-cardinal-masculine< $(cardinal,one{milijonas}few{milijonai}other{milijonų})$[ >>];
+1000000000: <%spellout-cardinal-masculine< $(cardinal,one{milijardas}few{milijardai}other{milijardų})$[ >>];
+1000000000000: <%spellout-cardinal-masculine< $(cardinal,one{trilijonas}few{trilijonai}other{trilijonų})$[ >>];
+1000000000000000: <%spellout-cardinal-masculine< $(cardinal,one{kvadrilijonas}few{kvadrilijonai}other{kvadrilijonų})$[ >>];
+1000000000000000000: =#,##0=;
+%spellout-cardinal-feminine-dative:
+-x: mīnus >>;
+x.x: [<< ir ]>%%fractions-feminine-dative>;
+0: nulis;
+1: vienai;
+2: dviem;
+3: trims;
+4: =%%spellout-cardinal-stem-few=ioms;
+10: dešimt;
+11: =%%spellout-cardinal-stem-few=ai;
+20: <%spellout-cardinal-feminine-accusative<dešimt[ >>];
+100: šimtas[ >>];
+200: <%spellout-cardinal-masculine< šimtai[ >>];
+1000: tūkstantis[ >>];
+2000: <%spellout-cardinal-masculine< $(cardinal,one{tūkstantis}few{tūkstančiai}other{tūkstančių})$[ >>];
+1000000: <%spellout-cardinal-masculine< $(cardinal,one{milijonas}few{milijonai}other{milijonų})$[ >>];
+1000000000: <%spellout-cardinal-masculine< $(cardinal,one{milijardas}few{milijardai}other{milijardų})$[ >>];
+1000000000000: <%spellout-cardinal-masculine< $(cardinal,one{trilijonas}few{trilijonai}other{trilijonų})$[ >>];
+1000000000000000: <%spellout-cardinal-masculine< $(cardinal,one{kvadrilijonas}few{kvadrilijonai}other{kvadrilijonų})$[ >>];
+1000000000000000000: =#,##0=;
+%%fractions-feminine-dative:
+10: <%spellout-cardinal-feminine-dative< $(cardinal,one{dešimtosioms}other{dešimtosioms})$;
+100: <%spellout-cardinal-feminine-dative< $(cardinal,one{šimtosioms}other{šimtosioms})$;
+1000: <%spellout-cardinal-feminine-dative< $(cardinal,one{tūkstantosioms}other{tūkstantosioms})$;
+10000: <%spellout-cardinal-feminine-dative< $(cardinal,one{dešimttūkstantosioms}other{dešimttūkstantosioms})$;
+100000: <%spellout-cardinal-feminine-dative< $(cardinal,one{šimtatūkstantosioms}other{šimtatūkstantosioms})$;
+1000000: <%spellout-cardinal-feminine-dative< $(cardinal,one{milijonosioms}other{milijonosioms})$;
+10000000: <%spellout-cardinal-feminine-dative< $(cardinal,one{dešimtmilijonosioms}other{dešimtmilijonosioms})$;
+100000000: <%spellout-cardinal-feminine-dative< $(cardinal,one{šimtamilijonosioms}other{šimtamilijonosioms})$;
+1000000000: <0<;
+%spellout-cardinal-masculine-accusative:
+-x: mīnus >>;
+x.x: [<< ir ]>%%fractions-feminine-accusative>;
+0: nulis;
+1: vieną;
+2: du;
+3: tris;
+4: =%%spellout-cardinal-stem-few=is;
+10: dešimt;
+11: =%%spellout-cardinal-stem-few=ą;
+20: <%spellout-cardinal-feminine-accusative<dešimt[ >>];
+100: šimtas[ >>];
+200: <%spellout-cardinal-masculine< šimtai[ >>];
+1000: tūkstantis[ >>];
+2000: <%spellout-cardinal-masculine< $(cardinal,one{tūkstantis}few{tūkstančiai}other{tūkstančių})$[ >>];
+1000000: <%spellout-cardinal-masculine< $(cardinal,one{milijonas}few{milijonai}other{milijonų})$[ >>];
+1000000000: <%spellout-cardinal-masculine< $(cardinal,one{milijardas}few{milijardai}other{milijardų})$[ >>];
+1000000000000: <%spellout-cardinal-masculine< $(cardinal,one{trilijonas}few{trilijonai}other{trilijonų})$[ >>];
+1000000000000000: <%spellout-cardinal-masculine< $(cardinal,one{kvadrilijonas}few{kvadrilijonai}other{kvadrilijonų})$[ >>];
+1000000000000000000: =#,##0=;
+%spellout-cardinal-feminine-accusative:
+-x: mīnus >>;
+x.x: [<< ir ]>%%fractions-feminine-accusative>;
+0: nulis;
+1: vieną;
+2: dvi;
+3: tris;
+4: =%%spellout-cardinal-stem-few=ias;
+10: dešimt;
+11: =%%spellout-cardinal-stem-few=ą;
+20: <%spellout-cardinal-feminine-accusative<dešimt[ >>];
+100: šimtas[ >>];
+200: <%spellout-cardinal-masculine< šimtai[ >>];
+1000: tūkstantis[ >>];
+2000: <%spellout-cardinal-masculine< $(cardinal,one{tūkstantis}few{tūkstančiai}other{tūkstančių})$[ >>];
+1000000: <%spellout-cardinal-masculine< $(cardinal,one{milijonas}few{milijonai}other{milijonų})$[ >>];
+1000000000: <%spellout-cardinal-masculine< $(cardinal,one{milijardas}few{milijardai}other{milijardų})$[ >>];
+1000000000000: <%spellout-cardinal-masculine< $(cardinal,one{trilijonas}few{trilijonai}other{trilijonų})$[ >>];
+1000000000000000: <%spellout-cardinal-masculine< $(cardinal,one{kvadrilijonas}few{kvadrilijonai}other{kvadrilijonų})$[ >>];
+1000000000000000000: =#,##0=;
+%%fractions-feminine-accusative:
+10: <%spellout-cardinal-feminine-accusative< $(cardinal,one{dešimtąsias}other{dešimtąsias})$;
+100: <%spellout-cardinal-feminine-accusative< $(cardinal,one{šimtąsias}other{šimtąsias})$;
+1000: <%spellout-cardinal-feminine-accusative< $(cardinal,one{tūkstantąsias}other{tūkstantąsias})$;
+10000: <%spellout-cardinal-feminine-accusative< $(cardinal,one{dešimttūkstantąsias}other{dešimttūkstantąsias})$;
+100000: <%spellout-cardinal-feminine-accusative< $(cardinal,one{šimtatūkstantąsias}other{šimtatūkstantąsias})$;
+1000000: <%spellout-cardinal-feminine-accusative< $(cardinal,one{milijonąsias}other{milijonąsias})$;
+10000000: <%spellout-cardinal-feminine-accusative< $(cardinal,one{dešimtmilijonąsias}other{dešimtmilijonąsias})$;
+100000000: <%spellout-cardinal-feminine-accusative< $(cardinal,one{šimtamilijonąsias}other{šimtamilijonąsias})$;
+1000000000: <0<;
+%spellout-cardinal-masculine-instrumental:
+-x: mīnus >>;
+x.x: [<< ir ]>%%fractions-feminine-instrumental>;
+0: nulis;
+1: vienu;
+2: dviem;
+3: trimis;
+4: =%%spellout-cardinal-stem-few=iais;
+10: dešimt;
+11: =%%spellout-cardinal-stem-few=a;
+20: <%spellout-cardinal-feminine-accusative<dešimt[ >>];
+100: šimtas[ >>];
+200: <%spellout-cardinal-masculine< šimtai[ >>];
+1000: tūkstantis[ >>];
+2000: <%spellout-cardinal-masculine< $(cardinal,one{tūkstantis}few{tūkstančiai}other{tūkstančių})$[ >>];
+1000000: <%spellout-cardinal-masculine< $(cardinal,one{milijonas}few{milijonai}other{milijonų})$[ >>];
+1000000000: <%spellout-cardinal-masculine< $(cardinal,one{milijardas}few{milijardai}other{milijardų})$[ >>];
+1000000000000: <%spellout-cardinal-masculine< $(cardinal,one{trilijonas}few{trilijonai}other{trilijonų})$[ >>];
+1000000000000000: <%spellout-cardinal-masculine< $(cardinal,one{kvadrilijonas}few{kvadrilijonai}other{kvadrilijonų})$[ >>];
+1000000000000000000: =#,##0=;
+%spellout-cardinal-feminine-instrumental:
+-x: mīnus >>;
+x.x: [<< ir ]>%%fractions-feminine-instrumental>;
+0: nulis;
+1: viena;
+2: dviem;
+3: trimis;
+4: =%%spellout-cardinal-stem-few=iomis;
+10: dešimt;
+11: =%%spellout-cardinal-stem-few=a;
+20: <%spellout-cardinal-feminine-accusative<dešimt[ >>];
+100: šimtas[ >>];
+200: <%spellout-cardinal-masculine< šimtai[ >>];
+1000: tūkstantis[ >>];
+2000: <%spellout-cardinal-masculine< $(cardinal,one{tūkstantis}few{tūkstančiai}other{tūkstančių})$[ >>];
+1000000: <%spellout-cardinal-masculine< $(cardinal,one{milijonas}few{milijonai}other{milijonų})$[ >>];
+1000000000: <%spellout-cardinal-masculine< $(cardinal,one{milijardas}few{milijardai}other{milijardų})$[ >>];
+1000000000000: <%spellout-cardinal-masculine< $(cardinal,one{trilijonas}few{trilijonai}other{trilijonų})$[ >>];
+1000000000000000: <%spellout-cardinal-masculine< $(cardinal,one{kvadrilijonas}few{kvadrilijonai}other{kvadrilijonų})$[ >>];
+1000000000000000000: =#,##0=;
+%%fractions-feminine-instrumental:
+10: <%spellout-cardinal-feminine-instrumental< $(cardinal,one{dešimtosiomis}other{dešimtosiomis})$;
+100: <%spellout-cardinal-feminine-instrumental< $(cardinal,one{šimtosiomis}other{šimtosiomis})$;
+1000: <%spellout-cardinal-feminine-instrumental< $(cardinal,one{tūkstantosiomis}other{tūkstantosiomis})$;
+10000: <%spellout-cardinal-feminine-instrumental< $(cardinal,one{dešimttūkstantosiomis}other{dešimttūkstantosiomis})$;
+100000: <%spellout-cardinal-feminine-instrumental< $(cardinal,one{šimtatūkstantosiomis}other{šimtatūkstantosiomis})$;
+1000000: <%spellout-cardinal-feminine-instrumental< $(cardinal,one{milijonosiomis}other{milijonosiomis})$;
+10000000: <%spellout-cardinal-feminine-instrumental< $(cardinal,one{dešimtmilijonosiomis}other{dešimtmilijonosiomis})$;
+100000000: <%spellout-cardinal-feminine-instrumental< $(cardinal,one{šimtamilijonosiomis}other{šimtamilijonosiomis})$;
+1000000000: <0<;
+%spellout-cardinal-masculine-locative:
+-x: mīnus >>;
+x.x: [<< ir ]>%%fractions-feminine-locative>;
+0: nulis;
+1: viename;
+2: dviejuose;
+3: trijuose;
+4: =%%spellout-cardinal-stem-few=iuose;
+10: dešimt;
+11: =%%spellout-cardinal-stem-few=oje;
+20: <%spellout-cardinal-feminine-accusative<dešimt[ >>];
+100: šimtas[ >>];
+200: <%spellout-cardinal-masculine< šimtai[ >>];
+1000: tūkstantis[ >>];
+2000: <%spellout-cardinal-masculine< $(cardinal,one{tūkstantis}few{tūkstančiai}other{tūkstančių})$[ >>];
+1000000: <%spellout-cardinal-masculine< $(cardinal,one{milijonas}few{milijonai}other{milijonų})$[ >>];
+1000000000: <%spellout-cardinal-masculine< $(cardinal,one{milijardas}few{milijardai}other{milijardų})$[ >>];
+1000000000000: <%spellout-cardinal-masculine< $(cardinal,one{trilijonas}few{trilijonai}other{trilijonų})$[ >>];
+1000000000000000: <%spellout-cardinal-masculine< $(cardinal,one{kvadrilijonas}few{kvadrilijonai}other{kvadrilijonų})$[ >>];
+1000000000000000000: =#,##0=;
+%spellout-cardinal-feminine-locative:
+-x: mīnus >>;
+x.x: [<< ir ]>%%fractions-feminine-locative>;
+0: nulis;
+1: vienoje;
+2: dviejose;
+3: trijose;
+4: =%%spellout-cardinal-stem-few=iose;
+10: dešimt;
+11: =%%spellout-cardinal-stem-few=oje;
+20: <%spellout-cardinal-feminine-accusative<dešimt[ >>];
+100: šimtas[ >>];
+200: <%spellout-cardinal-masculine< šimtai[ >>];
+1000: tūkstantis[ >>];
+2000: <%spellout-cardinal-masculine< $(cardinal,one{tūkstantis}few{tūkstančiai}other{tūkstančių})$[ >>];
+1000000: <%spellout-cardinal-masculine< $(cardinal,one{milijonas}few{milijonai}other{milijonų})$[ >>];
+1000000000: <%spellout-cardinal-masculine< $(cardinal,one{milijardas}few{milijardai}other{milijardų})$[ >>];
+1000000000000: <%spellout-cardinal-masculine< $(cardinal,one{trilijonas}few{trilijonai}other{trilijonų})$[ >>];
+1000000000000000: <%spellout-cardinal-masculine< $(cardinal,one{kvadrilijonas}few{kvadrilijonai}other{kvadrilijonų})$[ >>];
+1000000000000000000: =#,##0=;
+%%fractions-feminine-locative:
+10: <%spellout-cardinal-feminine-locative< $(cardinal,one{dešimtosiose}other{dešimtosiose})$;
+100: <%spellout-cardinal-feminine-locative< $(cardinal,one{šimtosiose}other{šimtosiose})$;
+1000: <%spellout-cardinal-feminine-locative< $(cardinal,one{tūkstantosiose}other{tūkstantosiose})$;
+10000: <%spellout-cardinal-feminine-locative< $(cardinal,one{dešimttūkstantosiose}other{dešimttūkstantosiose})$;
+100000: <%spellout-cardinal-feminine-locative< $(cardinal,one{šimtatūkstantosiose}other{šimtatūkstantosiose})$;
+1000000: <%spellout-cardinal-feminine-locative< $(cardinal,one{milijonosiose}other{milijonosiose})$;
+10000000: <%spellout-cardinal-feminine-locative< $(cardinal,one{dešimtmilijonosiose}other{dešimtmilijonosiose})$;
+100000000: <%spellout-cardinal-feminine-locative< $(cardinal,one{šimtamilijonosiose}other{šimtamilijonosiose})$;
+1000000000: <0<;
+%%spellout-ordinal-base:
+-x: mīnus >>;
+x.x: =#,##0.#=;
+0: nulinis;
+1: pirm;
+2: antr;
+3: treči;
+4: ketvirt;
+5: penkt;
+6: šešt;
+7: septint;
+8: aštunt;
+9: devint;
+10: dešimt;
+11: vienuolikt;
+12: dvylikt;
+13: trylikt;
+14: keturiolikt;
+15: penkiolikt;
+16: šešiolikt;
+17: septyniolikt;
+18: aštuoniolikt;
+19: devyniolikt;
+20: <%spellout-cardinal-feminine-accusative<dešimt[ >>];
+100: šimt[as >>];
+200: <%spellout-cardinal-masculine< šimt[ai >>];
+1000: tūkstant[is >>];
+2000: <%spellout-cardinal-masculine< tūkstant[ai >>];
+%%spellout-ordinal-base-i:
+-x: mīnus >>;
+x.x: =#,##0.#=;
+0: nulinis;
+1: pirm;
+2: antr;
+3: tret;
+4: =%%spellout-ordinal-base=;
+20: <%spellout-cardinal-feminine-accusative<dešimt[ >>];
+100: šimt[as >>];
+200: <%spellout-cardinal-masculine< šimt[ai >>];
+1000: tūkstant[is >>];
+2000: <%spellout-cardinal-masculine< tūkstant[ai >>];
+%spellout-ordinal-masculine:
+0: =%%spellout-ordinal-base=as;
+100: šimt[as >>];
+200: <%spellout-cardinal-masculine< šimt[ai >>];
+1000: tūkstant[is >>];
+2000: <%spellout-cardinal-masculine< tūkstant[ai >>];
+10000: =#,##0=;
+%spellout-ordinal-feminine:
+0: =%%spellout-ordinal-base=a;
+10000: =#,##0=;
+%spellout-ordinal-neuter:
+0: =%spellout-ordinal-feminine=;
+%spellout-ordinal-masculine-plural:
+0: =%%spellout-ordinal-base-i=i;
+10000: =#,##0=;
+%spellout-ordinal-feminine-plural:
+0: =%%spellout-ordinal-base=os;
+10000: =#,##0=;
+%spellout-ordinal-masculine-genitive:
+0: =%%spellout-ordinal-base=o;
+10000: =#,##0=;
+%spellout-ordinal-feminine-genitive:
+0: =%%spellout-ordinal-base=os;
+10000: =#,##0=;
+%spellout-ordinal-masculine-plural-genitive:
+0: =%%spellout-ordinal-base=ų;
+10000: =#,##0=;
+%spellout-ordinal-feminine-plural-genitive:
+0: =%spellout-ordinal-masculine-plural-genitive=;
+%spellout-ordinal-masculine-dative:
+0: =%%spellout-ordinal-base=am;
+10000: =#,##0=;
+%spellout-ordinal-feminine-dative:
+0: =%%spellout-ordinal-base=ai;
+10000: =#,##0=;
+%spellout-ordinal-masculine-plural-dative:
+0: =%%spellout-ordinal-base-i=iems;
+10000: =#,##0=;
+%spellout-ordinal-feminine-plural-dative:
+0: =%%spellout-ordinal-base=oms;
+10000: =#,##0=;
+%spellout-ordinal-masculine-accusative:
+0: =%%spellout-ordinal-base=ą;
+10000: =#,##0=;
+%spellout-ordinal-feminine-accusative:
+0: =%spellout-ordinal-masculine-accusative=;
+%spellout-ordinal-masculine-plural-accusative:
+0: =%%spellout-ordinal-base=us;
+10000: =#,##0=;
+%spellout-ordinal-feminine-plural-accusative:
+0: =%spellout-ordinal-masculine=;
+%spellout-ordinal-masculine-instrumental:
+0: =%%spellout-ordinal-base=u;
+10000: =#,##0=;
+%spellout-ordinal-feminine-instrumental:
+0: =%spellout-ordinal-feminine=;
+%spellout-ordinal-masculine-plural-instrumental:
+0: =%%spellout-ordinal-base=ais;
+10000: =#,##0=;
+%spellout-ordinal-feminine-plural-instrumental:
+0: =%%spellout-ordinal-base=omis;
+10000: =#,##0=;
+%spellout-ordinal-masculine-locative:
+0: =%%spellout-ordinal-base=ame;
+10000: =#,##0=;
+%spellout-ordinal-feminine-locative:
+0: =%%spellout-ordinal-base=oje;
+10000: =#,##0=;
+%spellout-ordinal-masculine-plural-locative:
+0: =%%spellout-ordinal-base=uose;
+10000: =#,##0=;
+%spellout-ordinal-feminine-plural-locative:
+0: =%%spellout-ordinal-base=ose;
+10000: =#,##0=;
+]]></rbnfRules>
+            <!-- The following redundant ruleset elements have been deprecated and will be removed in the next release. Please use the rbnfRules contents instead. -->
             <ruleset type="spellout-numbering-year">
                 <rbnfrule value="x.x">=0.0=;</rbnfrule>
                 <rbnfrule value="0">=%spellout-ordinal-masculine-plural-genitive=;</rbnfrule>

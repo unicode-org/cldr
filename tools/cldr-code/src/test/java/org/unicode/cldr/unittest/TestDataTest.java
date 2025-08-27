@@ -96,6 +96,12 @@ public class TestDataTest extends TestFmwkPlus {
             return;
         }
         String localeId = name.substring(0, name.length() - 4);
+        if (localeId.equals("km")) {
+            logKnownIssue(
+                    "CLDR-18870",
+                    "With ICU4J 2025-08-05, testData/personNameTest/km.txt needs updating");
+            return;
+        }
         final PersonNameData pnd = new PersonNameData();
         pnd.pnf = new PersonNameFormatter(FACTORY.make(localeId, true));
         pnd.localeId = localeId;

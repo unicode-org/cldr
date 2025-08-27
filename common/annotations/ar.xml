@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1183,6 +1183,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">بالغ</annotation>
 		<annotation cp="👱">أشخاص | أشقر | إنسان | رجل | شخص أشقر | شعر أشقر | قصة شعر | وجه</annotation>
 		<annotation cp="👱" type="tts">شخص أشقر</annotation>
+		<annotation cp="🧑‍🩰">الباليه | راقصة</annotation>
+		<annotation cp="🧑‍🩰" type="tts">راقصة باليه</annotation>
 		<annotation cp="👨">أخ | اشقر | بالغ | خي | رجال | رجل | شب | شخص | صاحب | صبي | صديق | كبير</annotation>
 		<annotation cp="👨" type="tts">رجل</annotation>
 		<annotation cp="🧔">دقن | شخص | شخص بلحية | شخص مع لحية | لحية | ملتحي</annotation>
@@ -3367,7 +3369,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛋" type="tts">كنبة ومصباح</annotation>
 		<annotation cp="🪑" draft="contributed">أثاث | جلس | جلوس | خشب | قعد | قعود | كرسي | مقعد | يقعد</annotation>
 		<annotation cp="🪑" type="tts">كرسي</annotation>
-		<annotation cp="🚽" draft="contributed">تواليت | حمام | مرحاض</annotation>
+		<annotation cp="🚽">تواليت | حمام | مرحاض</annotation>
 		<annotation cp="🚽" type="tts">مرحاض</annotation>
 		<annotation cp="🪠" draft="contributed">أدوات | أشياء | امتصاص | حمام | سباك | سباكة | شفط | ضغط | مرحاض | مكبس غطاس</annotation>
 		<annotation cp="🪠" type="tts">مكبس غطاس</annotation>
@@ -3897,6 +3899,26 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="₽" type="tts">روبل</annotation>
 		<annotation cp="₿">BTC | بيتكوين</annotation>
 		<annotation cp="₿" type="tts">بيتكوين</annotation>
+		<annotation cp="0⃣">0 | صفر | مفتاح</annotation>
+		<annotation cp="0⃣" type="tts">مفتاح: 0</annotation>
+		<annotation cp="1⃣">1 | مفتاح | واحد</annotation>
+		<annotation cp="1⃣" type="tts">مفتاح: 1</annotation>
+		<annotation cp="2⃣">2 | إثنان | مفتاح</annotation>
+		<annotation cp="2⃣" type="tts">مفتاح: 2</annotation>
+		<annotation cp="3⃣">3 | ثلاثة | مفتاح</annotation>
+		<annotation cp="3⃣" type="tts">مفتاح: 3</annotation>
+		<annotation cp="4⃣">4 | أربعة | مفتاح</annotation>
+		<annotation cp="4⃣" type="tts">مفتاح: 4</annotation>
+		<annotation cp="5⃣">5 | خمسة | مفتاح</annotation>
+		<annotation cp="5⃣" type="tts">مفتاح: 5</annotation>
+		<annotation cp="6⃣">6 | ستة | مفتاح</annotation>
+		<annotation cp="6⃣" type="tts">مفتاح: 6</annotation>
+		<annotation cp="7⃣">7 | سبعة | مفتاح</annotation>
+		<annotation cp="7⃣" type="tts">مفتاح: 7</annotation>
+		<annotation cp="8⃣">8 | ثمانية | مفتاح</annotation>
+		<annotation cp="8⃣" type="tts">مفتاح: 8</annotation>
+		<annotation cp="9⃣">9 | تسعة | مفتاح</annotation>
+		<annotation cp="9⃣" type="tts">مفتاح: 9</annotation>
 		<annotation cp="¹">رقم واحد علوي | علوي | واحد</annotation>
 		<annotation cp="¹" type="tts">رقم واحد علوي</annotation>
 		<annotation cp="²">اثنان | رقم اثنين علوي | علوي | مربع</annotation>
@@ -3909,5 +3931,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="µ" type="tts">رمز وحدة الميكرو</annotation>
 		<annotation cp="﷼">الريال | ريال | عملة</annotation>
 		<annotation cp="﷼" type="tts">ريال</annotation>
+		<annotation cp="🛘">انهيار | انهيار طيني | جبل | خطر | صخور | كارثة | هزة أرضية</annotation>
+		<annotation cp="🛘" type="tts">انزلاق أرضي</annotation>
+		<annotation cp="🪊">آلات النفخ | أداة | جاز | حزين | موسيقى | نحاس</annotation>
+		<annotation cp="🪊" type="tts">ترومبون</annotation>
+		<annotation cp="🪎">أشياء ثمينة | أموال | ثروة | جائزة | جواهر | جوهرة | ذهب | غنيمة | فضة</annotation>
+		<annotation cp="🪎" type="tts">صندوق كنز</annotation>
+		<annotation cp="🫈">إنسان بربري | بيغ فوت | ساسكواتش | عملاق | غول | مخلوق ضخم</annotation>
+		<annotation cp="🫈" type="tts">كائن مشعر</annotation>
+		<annotation cp="🫍">المحيط | بحري | حوت | حوت الأوركا</annotation>
+		<annotation cp="🫍" type="tts">الحوت القاتل</annotation>
+		<annotation cp="🫪">توتر | ذعر | مأخوذ | مذهول | منتفخ | مندهش | واهن</annotation>
+		<annotation cp="🫪" type="tts">وجه بأعين زائعة</annotation>
+		<annotation cp="🫯">اقتتال | جدال | جلبة | خلاف | شجار | مشاجرة | مصارعة | نزاع | نقاش</annotation>
+		<annotation cp="🫯" type="tts">سحابة اقتتال</annotation>
 	</annotations>
 </ldml>

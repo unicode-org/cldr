@@ -37,9 +37,9 @@ function showPanel(type, el, opts) {
  * @param {Element} el the element below which to mount it
  * @returns the application instance
  */
-function mount(component, el) {
+function mount(component, el, extraProps) {
   const fragment = document.createDocumentFragment();
-  const app = create(component).mount(fragment);
+  const app = create(component, null, extraProps).mount(fragment);
   const childEl = document.createElement("div");
   el.appendChild(childEl);
   childEl.replaceWith(fragment);

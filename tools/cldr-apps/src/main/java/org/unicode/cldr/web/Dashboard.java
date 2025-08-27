@@ -75,6 +75,8 @@ public class Dashboard {
 
         public VoterProgress voterProgress = null;
 
+        public LocaleCompletionData localeCompletionData = null;
+
         @Schema(description = "Coverage level for this dashboard")
         public String coverageLevel = null;
 
@@ -276,6 +278,7 @@ public class Dashboard {
             reviewOutput.hidden = new ReviewHide(args.getUserId(), localeId).get();
             reviewOutput.voterProgress = dd.voterProgress;
             reviewOutput.addReports(args.getUserId(), localeId);
+            reviewOutput.localeCompletionData = dd.localeCompletionData;
         }
         return reviewOutput;
     }

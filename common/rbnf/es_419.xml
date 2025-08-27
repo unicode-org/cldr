@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
-Copyright © 1991-2014 Unicode, Inc.
+Copyright © 1991-2025 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -13,6 +13,34 @@ For terms of use, see http://www.unicode.org/copyright.html
     </identity>
     <rbnf>
         <rulesetGrouping type="OrdinalRules">
+            <rbnfRules><![CDATA[
+%%dord-mascabbrev:
+0: º;
+1: ᵉʳ;
+2: º;
+3: ᵉʳ;
+4: º;
+20: >>;
+100: >>;
+%digits-ordinal-masculine-adjective:
+-x: −>>;
+0: =#,##0==%%dord-mascabbrev=.;
+%digits-ordinal-masculine:
+-x: −>>;
+0: =#,##0=º.;
+%digits-ordinal-feminine:
+-x: −>>;
+0: =#,##0=ª.;
+%digits-ordinal-masculine-plural:
+-x: −>>;
+0: =#,##0=ᵒˢ.;
+%digits-ordinal-feminine-plural:
+-x: −>>;
+0: =#,##0=ᵃˢ.;
+%digits-ordinal:
+0: =%digits-ordinal-masculine=;
+]]></rbnfRules>
+            <!-- The following redundant ruleset elements have been deprecated and will be removed in the next release. Please use the rbnfRules contents instead. -->
             <ruleset type="dord-mascabbrev" access="private">
                 <rbnfrule value="0">º;</rbnfrule>
                 <rbnfrule value="1">ᵉʳ;</rbnfrule>

@@ -1,5 +1,7 @@
 import * as cldrProgress from "../src/esm/cldrProgress.mjs";
 
+import * as chai from "chai";
+
 const assert = chai.assert;
 
 export const TestCldrProgress = "ok";

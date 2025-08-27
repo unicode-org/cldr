@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -13,6 +13,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	<annotations>
 		<annotation cp="{">breese | bue | gɔɔlontaban | kɛɛli | nkatomdeɛ</annotation>
 		<annotation cp="{" type="tts">mmueɛ kɛɛli nkatomdeɛ</annotation>
+		<annotation cp="🏻">1–2 | ani | da so | korᴐ | wedeε</annotation>
+		<annotation cp="🏻" type="tts">wedeε ani a εda so</annotation>
+		<annotation cp="🏼">3 | ani | kakra | korᴐ | wedeε</annotation>
+		<annotation cp="🏼" type="tts">wedeε ani a εda so kakra</annotation>
+		<annotation cp="🏽">4 | ani | kakra | korᴐ | wedeε</annotation>
+		<annotation cp="🏽" type="tts">wedeε ani a εda hᴐ kakra</annotation>
+		<annotation cp="🏾">5 | ani | kakra | tuntum kakra | wedeε</annotation>
+		<annotation cp="🏾" type="tts">wedeε ani tuntum kakra</annotation>
+		<annotation cp="🏿">6 | ani | korᴐ | tuntum | wedeε</annotation>
+		<annotation cp="🏿" type="tts">wedeε ani tuntum</annotation>
 		<annotation cp="‾">ɛsontwamu | ɛsosensaneɛ | vinkulum</annotation>
 		<annotation cp="‾" type="tts">ɛsosensaneɛ</annotation>
 		<annotation cp="_">aseɛdaahye | aseɛsensaneɛ | daahye | fam | sensaneɛ</annotation>
@@ -169,8 +179,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="℗" type="tts">nnwom kyere hokwan</annotation>
 		<annotation cp="←">akyerɛkyerɛkwan | benkum | benkumhwɛ</annotation>
 		<annotation cp="←" type="tts">benkumhwɛ akyerɛkyerɛkwan</annotation>
+		<annotation cp="↚">aro | benkum so | nsaneeε</annotation>
+		<annotation cp="↚" type="tts">aro a εhwε benkum</annotation>
 		<annotation cp="→">akyerɛkyerɛkwan | nifa | nifa so | tɛlefon</annotation>
 		<annotation cp="→" type="tts">nifa-so akyerԑkyerԑkwan</annotation>
+		<annotation cp="↛">aro | nifa so | nsaneeε</annotation>
+		<annotation cp="↛" type="tts">nifa so aro nsaneeε</annotation>
 		<annotation cp="↑">akyerɛkyerɛkwan | soro | sorohwɛ</annotation>
 		<annotation cp="↑" type="tts">akyerɛkyerɛkwan a ɛhwɛ fam</annotation>
 		<annotation cp="↓">akyerɛkyerɛkwan | fam | famhwɛ</annotation>
@@ -183,14 +197,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="↞" type="tts">benkumhwɛ aaro ti mmienu</annotation>
 		<annotation cp="↟">aaro | mmienu | sorohwɛ | ti</annotation>
 		<annotation cp="↟" type="tts">sorohwɛ aaro ti mmienu</annotation>
+		<annotation cp="↠">aro | mmienu | nifa so | ti</annotation>
+		<annotation cp="↠" type="tts">nifa so aro a ne ti mmienu</annotation>
 		<annotation cp="↡">aaro | famhwɛ | mmienu | ti</annotation>
 		<annotation cp="↡" type="tts">famhwɛ aaro ti mmienu</annotation>
 		<annotation cp="↢">aaro | benkumhwɛ | dua</annotation>
 		<annotation cp="↢" type="tts">benkumhwɛ aaro dua</annotation>
+		<annotation cp="↣">aro | nifa so | to</annotation>
+		<annotation cp="↣" type="tts">nifa so aro to</annotation>
 		<annotation cp="↤">aaro | abaa | benkumhwɛ | firi</annotation>
 		<annotation cp="↤" type="tts">benkumhwɛ aaro firi abaa</annotation>
 		<annotation cp="↥">aaro | abaa | firi | sorohwɛ</annotation>
 		<annotation cp="↥" type="tts">sorohwɛ aaro firi abaa</annotation>
+		<annotation cp="↦">aro | firi | nifa so | poma</annotation>
+		<annotation cp="↦" type="tts">nifa so aro a εfiri poma no so</annotation>
 		<annotation cp="↧">aaro | abaa | famhwɛ | firi</annotation>
 		<annotation cp="↧" type="tts">famhwɛ aaro firi abaa</annotation>
 		<annotation cp="↨">aaro | aseɛ | fam | ne | soro</annotation>
@@ -267,8 +287,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⇍" type="tts">benkumhwɛ aaro mmienu strɔko</annotation>
 		<annotation cp="⇑">aaro | mmienu | sorohwɛ</annotation>
 		<annotation cp="⇑" type="tts">sorohwɛ aaro mmienu</annotation>
+		<annotation cp="⇒">aro | mmienu | nifa so</annotation>
+		<annotation cp="⇒" type="tts">nifa so aro mmᴐho</annotation>
+		<annotation cp="⇏">aro | mmienu | nifa so | nsaneeε</annotation>
+		<annotation cp="⇏" type="tts">nifa so aro mmienu nsaneeε</annotation>
 		<annotation cp="⇓">aaro | famhwɛ | mmienu</annotation>
 		<annotation cp="⇓" type="tts">famhwɛ aaro mmienu</annotation>
+		<annotation cp="⇔">abᴐnta | aro | benkum | nifa</annotation>
+		<annotation cp="⇔" type="tts">benkum nifa aro abᴐnta</annotation>
+		<annotation cp="⇎">abᴐnta | aro | benkum | nifa | nsaneeε</annotation>
+		<annotation cp="⇎" type="tts">benkum nifa aro nsaneeε abᴐnta</annotation>
 		<annotation cp="⇖">aaro | atifi | atɔeɛ | mmienu</annotation>
 		<annotation cp="⇖" type="tts">atifi atɔeɛ aaro mmienu</annotation>
 		<annotation cp="⇗">aaro | apueeɛ | atifi | mmienu</annotation>
@@ -311,14 +339,220 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⇩" type="tts">famhwɛ tokuro aaro</annotation>
 		<annotation cp="⇪">aaro | abaa | firi | sorohwɛ | tokuro</annotation>
 		<annotation cp="⇪" type="tts">sorohwɛ tokuro aaro firi abaa</annotation>
+		<annotation cp="⇵">aro | benkum so | famkᴐ | sorokᴐ</annotation>
+		<annotation cp="⇵" type="tts">aro a εhwε fam benkum so aro a εhwε soro</annotation>
+		<annotation cp="∀">ama | amansan | ebiara | ma | nyinaa</annotation>
+		<annotation cp="∀" type="tts">obiara deε</annotation>
+		<annotation cp="∂">fa-ne-fa | nsonsonoeε</annotation>
+		<annotation cp="∂" type="tts">nsonsonoeε fa-ne-fa</annotation>
+		<annotation cp="∃">hᴐ | εwᴐ</annotation>
+		<annotation cp="∃" type="tts">εwᴐ hᴐ</annotation>
+		<annotation cp="∅">ekuo | nkontaa | ohunu | ᴐhwεfoᴐ</annotation>
+		<annotation cp="∅" type="tts">ekuo a biribiara nnim</annotation>
+		<annotation cp="∆">Ahiniasa | ntomu</annotation>
+		<annotation cp="∆" type="tts">ntomu</annotation>
+		<annotation cp="∇">ahiniasa | nabla</annotation>
+		<annotation cp="∇" type="tts">nabla</annotation>
+		<annotation cp="∈">adeε | kuo | kuobayε | wᴐ</annotation>
+		<annotation cp="∈" type="tts">mu adeε</annotation>
+		<annotation cp="∉">adeε | bi | n</annotation>
+		<annotation cp="∉" type="tts">εnka ho</annotation>
+		<annotation cp="∋">adeε | kuo ba | sε | wᴐ</annotation>
+		<annotation cp="∋" type="tts">wᴐ sε ekuo ba</annotation>
+		<annotation cp="∎">awieeε | halmos | nnasoboᴐ | nnyinasoᴐ | q.e.d. | qed</annotation>
+		<annotation cp="∎" type="tts">ma nnyiasoᴐ nkᴐ awieeε</annotation>
+		<annotation cp="∏">adwadeε | n-ary | nteaseε</annotation>
+		<annotation cp="∏" type="tts">n-ary adwadeε</annotation>
+		<annotation cp="∑">n-ary | nkabom | nkonta</annotation>
+		<annotation cp="∑" type="tts">n-ary nkabom</annotation>
+		<annotation cp="+">ka bom | nkabom | nsεnkyerεnne</annotation>
+		<annotation cp="+" type="tts">ka bom nsεnkyerεnne</annotation>
+		<annotation cp="±">nkabom-ntefirimu</annotation>
+		<annotation cp="±" type="tts">nkabom-tefirimu</annotation>
 		<annotation cp="÷">ahyɛsodeɛ | kyɛ mu | nkyɛmu | obelɔso</annotation>
 		<annotation cp="÷" type="tts">nkyԑmu nsɛnkyerɛnne</annotation>
 		<annotation cp="×">bͻ ho | mmͻho | mpɛn | nsɛnkyerɛnne</annotation>
 		<annotation cp="×" type="tts">mmͻho akyerɛkyerɛkwan</annotation>
+		<annotation cp="&lt;">ahyεnso | bue | sene | sua</annotation>
+		<annotation cp="&lt;" type="tts">sua sene</annotation>
+		<annotation cp="≮">n | nkontaa | εnnuru</annotation>
+		<annotation cp="≮" type="tts">εnsua nsene</annotation>
+		<annotation cp="=">yε</annotation>
+		<annotation cp="=" type="tts">yε</annotation>
+		<annotation cp="≠">deε εnnuru | n | yε | εnnuru</annotation>
+		<annotation cp="≠" type="tts">εnnuru</annotation>
+		<annotation cp="&gt;">ahyεnso | bεn | sene | so</annotation>
+		<annotation cp="&gt;" type="tts">so sene</annotation>
+		<annotation cp="≯">n | nkontabuo | so sene | εnnuru</annotation>
+		<annotation cp="≯" type="tts">εnso nsene</annotation>
+		<annotation cp="¬">n | ntefirimu</annotation>
+		<annotation cp="¬" type="tts">ntefirimu</annotation>
+		<annotation cp="|">abaa | dorobεn | hyεfa | kumdua | nsaneeε | nsensaneeε | nsensaneeε a εkᴐ soro | poma | vbar</annotation>
+		<annotation cp="|" type="tts">nsensaneeε a εkᴐε soro</annotation>
+		<annotation cp="~">tilde</annotation>
+		<annotation cp="~" type="tts">tilde</annotation>
+		<annotation cp="−">nsεnkyerεnne | ntefirimu | te firi mu</annotation>
+		<annotation cp="−" type="tts">ntefirimu nsεnkyerεnne</annotation>
+		<annotation cp="⁻">minᴐso | supaskrit</annotation>
+		<annotation cp="⁻" type="tts">supaskrit minᴐso</annotation>
+		<annotation cp="∓">nkabom-ntefirimu | ntefirimu-anaa-nkabom</annotation>
+		<annotation cp="∓" type="tts">nkabom-anaa- ntefirimu</annotation>
+		<annotation cp="∕">nsaneeε | ᴐfa | twam</annotation>
+		<annotation cp="∕" type="tts">nnkyekyεm fa</annotation>
+		<annotation cp="⁄">nsaneeε | ntwamu | ᴐfa | twam</annotation>
+		<annotation cp="⁄" type="tts">ᴐfa ntwamu</annotation>
+		<annotation cp="∗">asteastεreke | nsoroma | ᴐyεfoᴐ</annotation>
+		<annotation cp="∗" type="tts">astεreke yεfoᴐ</annotation>
+		<annotation cp="∘">deε εwᴐ mu | kawa | ᴐyεfoᴐ</annotation>
+		<annotation cp="∘" type="tts">kawa yεfoᴐ</annotation>
+		<annotation cp="∙">aboba | wura</annotation>
+		<annotation cp="∙" type="tts">aboba wura</annotation>
 		<annotation cp="√">radikaa | radise | ruuto | sɛɛde | sokwɛɛ</annotation>
 		<annotation cp="√" type="tts">sokwɛɛ ruuto</annotation>
+		<annotation cp="∝">mfataeε | εfata</annotation>
+		<annotation cp="∝" type="tts">εfata</annotation>
 		<annotation cp="∞">ahyɛnsodeɛ | ɛnni awieeɛ</annotation>
 		<annotation cp="∞" type="tts">ɛnni awieeɛ ahyɛnsodeɛ</annotation>
+		<annotation cp="∟">angle | nifa | nkontabuo</annotation>
+		<annotation cp="∟" type="tts">nifa angle</annotation>
+		<annotation cp="∠">angle | feaa</annotation>
+		<annotation cp="∠" type="tts">angle</annotation>
+		<annotation cp="∣">kyε mu | kyεmufoᴐ</annotation>
+		<annotation cp="∣" type="tts">kyε mu</annotation>
+		<annotation cp="∥">kᴐammᴐm</annotation>
+		<annotation cp="∥" type="tts">kᴐammᴐm</annotation>
+		<annotation cp="∧">ac | akuma | atque | ne | nteaseε</annotation>
+		<annotation cp="∧" type="tts">nteaseε wᴐm na</annotation>
+		<annotation cp="∩">kuo | nkwanta</annotation>
+		<annotation cp="∩" type="tts">nkwanta</annotation>
+		<annotation cp="∪">anoboa | kuo</annotation>
+		<annotation cp="∪" type="tts">kuo</annotation>
+		<annotation cp="∫">kaakulᴐso | tintimman</annotation>
+		<annotation cp="∫" type="tts">tintimman</annotation>
+		<annotation cp="∬">kaakulᴐso | mprenu | tintimman</annotation>
+		<annotation cp="∬" type="tts">tintimman mprenu</annotation>
+		<annotation cp="∮">kᴐntᴐ | tintimman</annotation>
+		<annotation cp="∮" type="tts">kᴐntᴐ tintimman</annotation>
+		<annotation cp="∴">enti | nteaseε</annotation>
+		<annotation cp="∴" type="tts">enti</annotation>
+		<annotation cp="∵">nteaseε | εfiri sε</annotation>
+		<annotation cp="∵" type="tts">εfiri sε</annotation>
+		<annotation cp="∶">rahyio</annotation>
+		<annotation cp="∶" type="tts">rahyio</annotation>
+		<annotation cp="∷">mfata | mfataeε</annotation>
+		<annotation cp="∷" type="tts">mfataeε</annotation>
+		<annotation cp="∼">ᴐyεfoᴐ | tilde</annotation>
+		<annotation cp="∼" type="tts">tilde ᴐyεfoᴐ</annotation>
+		<annotation cp="∽">akyikᴐ | tilde</annotation>
+		<annotation cp="∽" type="tts">akyikᴐ tilde</annotation>
+		<annotation cp="∾">akwadworᴐ | tiasesie</annotation>
+		<annotation cp="∾" type="tts">tiasesie akwadworᴐ</annotation>
+		<annotation cp="≃">asimtote | asimtotikaa | nkontabuo | yε</annotation>
+		<annotation cp="≃" type="tts">yε pε wᴐ mpopoeε mu</annotation>
+		<annotation cp="≅">ayisomᴐfisim | bεyε sε | kongruwεnse | nkotabuo | pεpεεpεyᴐ | yε</annotation>
+		<annotation cp="≅" type="tts">bεyε sε</annotation>
+		<annotation cp="≈">aduru saa awie | bεyε | rema no ayε | yε</annotation>
+		<annotation cp="≈" type="tts">aduru ara ne sa</annotation>
+		<annotation cp="≌">nkontabuo | nyinaa | pεpεεpεyᴐ | yε</annotation>
+		<annotation cp="≌" type="tts">nyinaa yε</annotation>
+		<annotation cp="≒">bεyε sε | mfoni | no | yε</annotation>
+		<annotation cp="≒" type="tts">bεyε sε mfoni no</annotation>
+		<annotation cp="≖">kawa | mu | nkontabuo | pεpεεpεyᴐ | yε</annotation>
+		<annotation cp="≖" type="tts">kawa wᴐ pε mu</annotation>
+		<annotation cp="≡">baasa | ma | pεpεεpε | εsε</annotation>
+		<annotation cp="≡" type="tts">εsε</annotation>
+		<annotation cp="≣">ferenkyemm | nkontabuo | pεpεεpεyᴐ | sεso</annotation>
+		<annotation cp="≣" type="tts">sεso ferenkyemm</annotation>
+		<annotation cp="≤">anaa | sua sene | yε | εnnuru</annotation>
+		<annotation cp="≤" type="tts">sua sene anaa yε</annotation>
+		<annotation cp="≥">anaa | so sene | yε | εnnuru</annotation>
+		<annotation cp="≥" type="tts">so sene anaa yε</annotation>
+		<annotation cp="≦">boro | nkontabuo | pεpεεpεyᴐ | sua sene | yε</annotation>
+		<annotation cp="≦" type="tts">sua sene boro pε so</annotation>
+		<annotation cp="≧">anyε-pε | boro | nkontabuo | so sene | yε</annotation>
+		<annotation cp="≧" type="tts">so sene boro pε so</annotation>
+		<annotation cp="≪">anyε-pε | koraa | nkontabuo | sua sene</annotation>
+		<annotation cp="≪" type="tts">sua sene koraa</annotation>
+		<annotation cp="≫">anyε-pε | koraa | nkontabuo | so sene</annotation>
+		<annotation cp="≫" type="tts">so sene koraa</annotation>
+		<annotation cp="≬">ntam</annotation>
+		<annotation cp="≬" type="tts">ntam</annotation>
+		<annotation cp="≳">anyε-pε | nkontabuo | so sene | sεso</annotation>
+		<annotation cp="≳" type="tts">so sene sεso</annotation>
+		<annotation cp="≺">di akyi | kuo | nkontabuo | ᴐyεfoᴐ</annotation>
+		<annotation cp="≺" type="tts">di akyi</annotation>
+		<annotation cp="≻">di nim | kuo | nkontabuo | ᴐyεfoᴐ</annotation>
+		<annotation cp="≻" type="tts">di nim</annotation>
+		<annotation cp="⊁">di nim | kuo | n | nkontabuo | ᴐyεfoᴐ | yε</annotation>
+		<annotation cp="⊁" type="tts">nni nim</annotation>
+		<annotation cp="⊂">kuo | kuoba | wᴐ</annotation>
+		<annotation cp="⊂" type="tts">kuba ma</annotation>
+		<annotation cp="⊃">kuo | kuo kεseε | nkontabuo | ᴐyεfoᴐ</annotation>
+		<annotation cp="⊃" type="tts">kuo kεseε</annotation>
+		<annotation cp="⊆">kuo ketewa | yε</annotation>
+		<annotation cp="⊆" type="tts">kuo ketewa yε</annotation>
+		<annotation cp="⊇">kuo kεseε | nkontabuo | pεpεεpεyᴐ | yε</annotation>
+		<annotation cp="⊇" type="tts">kuo kεseε yε</annotation>
+		<annotation cp="⊕">kanko | nkabom</annotation>
+		<annotation cp="⊕" type="tts">kanko nkabom</annotation>
+		<annotation cp="⊖">kanko | nsonsonoeε | ntefirimu | nweweε | semεtreke</annotation>
+		<annotation cp="⊖" type="tts">kanko ntefirimu</annotation>
+		<annotation cp="⊗">adwadeε | kanko | mpεn | tεnsa</annotation>
+		<annotation cp="⊗" type="tts">kanko mpεn</annotation>
+		<annotation cp="⊘">kanko | nkontabuo | ᴐfa | ᴐfa sεso | twam</annotation>
+		<annotation cp="⊘" type="tts">kanko fa twam</annotation>
+		<annotation cp="⊙">dᴐᴐto | kanko | ᴐyεfoᴐ | XNOR</annotation>
+		<annotation cp="⊙" type="tts">kanko dᴐᴐto yεfoᴐ</annotation>
+		<annotation cp="⊚">kanko | kawa | ᴐyεfoᴐ</annotation>
+		<annotation cp="⊚" type="tts">kanko kawa yεfoᴐ</annotation>
+		<annotation cp="⊛">astεreke | kanko | ᴐyεfoᴐ</annotation>
+		<annotation cp="⊛" type="tts">kanko astεreke yεfoᴐ</annotation>
+		<annotation cp="⊞">nkabomu | nkontabuo | te sε nkabomu | yεayε no sokwεε</annotation>
+		<annotation cp="⊞" type="tts">nkabomu a yεayε no sokwεε</annotation>
+		<annotation cp="⊟">nkontabuo | ntefirimu | te sε ntefirimu | yεayε no sokwεε</annotation>
+		<annotation cp="⊟" type="tts">ntefirimu a yεayε no sokwεε</annotation>
+		<annotation cp="⊥">eet | fᴐᴐsᴐm | ka hyε | soro</annotation>
+		<annotation cp="⊥" type="tts">ka hyε soro</annotation>
+		<annotation cp="⊮">hyε | n | yε</annotation>
+		<annotation cp="⊮" type="tts">εnhyε</annotation>
+		<annotation cp="⊰">aseε | di anim | kuo | nkontabuo | ᴐyεfoᴐ | twaka</annotation>
+		<annotation cp="⊰" type="tts">di twaka akyi</annotation>
+		<annotation cp="⊱">aseε | di nim | kuo | nkontabuo | ᴐyεfoᴐ | twaka</annotation>
+		<annotation cp="⊱" type="tts">di nim wᴐ twaka ase</annotation>
+		<annotation cp="⋭">daa | ekuo | kuo ketewa | n | nkontabuo | sε | tiᴐri | wᴐ | yε</annotation>
+		<annotation cp="⋭" type="tts">εnnim sε daa kuo ketewa yε</annotation>
+		<annotation cp="⊶">ankasa</annotation>
+		<annotation cp="⊶" type="tts">ankasa</annotation>
+		<annotation cp="⊹">ara abom | fᴐre ho | hεmihyia | matrese | nkontabuo | sokwεε</annotation>
+		<annotation cp="⊹" type="tts">hεmihyia mfᴐreho matrese</annotation>
+		<annotation cp="⊿">ahiniasa | nifa | nifa-angle | nkontabuo</annotation>
+		<annotation cp="⊿" type="tts">nifa ahiniasa</annotation>
+		<annotation cp="⋁">afiri ho | anaa | n-ary | nteaseε | nteaseε wom</annotation>
+		<annotation cp="⋁" type="tts">n-ary nteaseε anaa</annotation>
+		<annotation cp="⋂">ekuo | n-ary | nkontabuo | nkwanta | ᴐyεfoᴐ</annotation>
+		<annotation cp="⋂" type="tts">n-ary nkwanta</annotation>
+		<annotation cp="⋃">ekuo | kuo | n-ary | nkontabuo | ᴐyεfoᴐ</annotation>
+		<annotation cp="⋃" type="tts">n-ary ekuo</annotation>
+		<annotation cp="⋅">dᴐᴐto | ᴐyεfoᴐ</annotation>
+		<annotation cp="⋅" type="tts">dᴐᴐto ᴐyεfoᴐ</annotation>
+		<annotation cp="⋆">nsoroma | ᴐyεfoᴐ</annotation>
+		<annotation cp="⋆" type="tts">nsoroma yεfoᴐ</annotation>
+		<annotation cp="⋈">abᴐeεm | baanu | bom | bowtie | ᴐyεfoᴐ</annotation>
+		<annotation cp="⋈" type="tts">n’ankasa abom</annotation>
+		<annotation cp="⋒">kuo | mprenu | nkontabuo | nkwanta | ᴐyεfoᴐ</annotation>
+		<annotation cp="⋒" type="tts">nkwanta mprenu</annotation>
+		<annotation cp="⋘">anyε-pε | koraa | nkontabuo | pa ara | sua sene</annotation>
+		<annotation cp="⋘" type="tts">sua sene pa ara</annotation>
+		<annotation cp="⋙">anyε-pε | koraa | nkontabuo | pa ara | so sene</annotation>
+		<annotation cp="⋙" type="tts">so sene pa ara</annotation>
+		<annotation cp="⋮">mfirimu | nkontabuo | soro ba fam</annotation>
+		<annotation cp="⋮" type="tts">mfirimu a εfiri soro ba fam</annotation>
+		<annotation cp="⋯">benkum kᴐ nifa | mfimfini nsensaneeε | mfirimu</annotation>
+		<annotation cp="⋯" type="tts">mfimfini nsensaneeε a εfiri benkum kᴐ nifa mfirimu</annotation>
+		<annotation cp="⋰">mfirimu | mmeamu | nifa | nkontabuo | soro</annotation>
+		<annotation cp="⋰" type="tts">soro nifa mmeamu mfirimu</annotation>
+		<annotation cp="⋱">fam | mfirimu | mmeamu | nifa | nkontabuo</annotation>
+		<annotation cp="⋱" type="tts">fam nifa mmeamu mfirimu</annotation>
 		<annotation cp="■">ayɛ ma | sokwɛɛ</annotation>
 		<annotation cp="■" type="tts">sokwɛɛ a ayɛ ma</annotation>
 		<annotation cp="□">sokwɛɛ | tokuro</annotation>
@@ -355,6 +589,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="▴" type="tts">soro-hwɛ traeangeele ketewa a ayɛ ma</annotation>
 		<annotation cp="▵">ketewa | soro-hwɛ | tokuro | traeangeele</annotation>
 		<annotation cp="▵" type="tts">soro-hwɛ traeangeele ketewa a tokuro da mu</annotation>
+		<annotation cp="▷">ahiniasa | hwε-nifa | mu-hon</annotation>
+		<annotation cp="▷" type="tts">ahiniasa a emu-hon na εhwε-benkum so</annotation>
 		<annotation cp="▸">ayɛ ma | ketewa | nifa-hwɛ | traeangeele</annotation>
 		<annotation cp="▸" type="tts">nifa-hwɛ traeangeele ketewa a ayɛ ma</annotation>
 		<annotation cp="▹">ketewa | nifa-hwɛ | tokuro | traeangeele</annotation>
@@ -371,6 +607,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="▾" type="tts">fam-hwɛ traeangeele ketewa a ayɛ ma</annotation>
 		<annotation cp="▿">fam-hwɛ | ketewa | tokuro | traeangeele</annotation>
 		<annotation cp="▿" type="tts">fam-hwɛ traeangeele ketewa a tokuro da mu</annotation>
+		<annotation cp="◁">ahiniasa | hwε-benkum | mu-hon</annotation>
+		<annotation cp="◁" type="tts">mu-hon hwε-benkum ahiniasa</annotation>
 		<annotation cp="◂">ayɛ ma | benkum-hwɛ | ketewa | traeangeele</annotation>
 		<annotation cp="◂" type="tts">benkum-hwɛ traeangeele ketewa a ayɛ ma</annotation>
 		<annotation cp="◃">benkum-hwɛ | ketewa | tokuro | traeangeele</annotation>
@@ -447,10 +685,30 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="◳" type="tts">sokwɛɛ soro nifa kwadrante a tokuro wɔ mu</annotation>
 		<annotation cp="◷">kanko | kwadrante | ne | nifa | soro | tokuro</annotation>
 		<annotation cp="◷" type="tts">tokuro kanko ne soro nifa kwadrante</annotation>
+		<annotation cp="◿">ahiniasa | fam | nifa</annotation>
+		<annotation cp="◿" type="tts">fam nifa ahiniasa</annotation>
 		<annotation cp="♪">deɛ ɛtɔ so nwɔtwe | nnwom | nooto</annotation>
 		<annotation cp="♪" type="tts">nooto a ɛtɔ so nwɔtwe</annotation>
+		<annotation cp="⨧">atwerε kumaa | mmienu | nkabom</annotation>
+		<annotation cp="⨧" type="tts">nkabom atwerε kumaa mmienu</annotation>
+		<annotation cp="⨯">adwadeε | asennua | vεkta</annotation>
+		<annotation cp="⨯" type="tts">vεkta asennua adwadeε</annotation>
+		<annotation cp="⨼">adwadeε | dan mu</annotation>
+		<annotation cp="⨼" type="tts">dan mu adwadeε</annotation>
+		<annotation cp="⩣">anaa | mprenu | nteaseε wom | poma ase</annotation>
+		<annotation cp="⩣" type="tts">nteaseε wom anaa poma ase mprenu</annotation>
+		<annotation cp="⩽">akyea | sua sene | yε</annotation>
+		<annotation cp="⩽" type="tts">sua sene akyea yε</annotation>
+		<annotation cp="⪍">boro | sua sene | te sε | yε</annotation>
+		<annotation cp="⪍" type="tts">sua sene boro te sε yε</annotation>
+		<annotation cp="⪚">anyε-pε | nkontabuo | nsensaneeε-mprenu | so sene | yε</annotation>
+		<annotation cp="⪚" type="tts">nsensaneeε-mprenu yε so sene</annotation>
+		<annotation cp="⪺">boro | bεyε | di nkunim | n | yε</annotation>
+		<annotation cp="⪺" type="tts">di nim soro mmεn pεyε ho</annotation>
 		<annotation cp="♭">bemole | nnwom | nooto | tratra</annotation>
 		<annotation cp="♭" type="tts">tratra</annotation>
+		<annotation cp="♯">dièse | diesis | nam | nnwom | nnwom ano</annotation>
+		<annotation cp="♯" type="tts">nam</annotation>
 		<annotation cp="😀">anigyeɛ | anim | ɛse | kama | nwenwe | sere | serewee</annotation>
 		<annotation cp="😀" type="tts">anim a ԑresere</annotation>
 		<annotation cp="😃">ani | anigyeɛ | anim | ano | bue | ɛse | kama | kɛseɛ | nwene | seresere | serewee | yay</annotation>
@@ -770,7 +1028,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💥">boom | bɔmbo | ɛsplode kɔɔlihyen | kɔlide | kɔmeke</annotation>
 		<annotation cp="💥" type="tts">kɔɔlihyen</annotation>
 		<annotation cp="💫">diisi | kɔmeke | nsoromma | rehyerɛn | retoto</annotation>
-		<annotation cp="💫" type="tts">diisi</annotation>
+		<annotation cp="💫" type="tts">anisobirie</annotation>
 		<annotation cp="💦">adwuma | adwumaden | afɔ | koko | kɔmeke | mfifire | nsuo | piti | sosɔ</annotation>
 		<annotation cp="💦" type="tts">mfifire</annotation>
 		<annotation cp="💨">awee | daahye | daahyen | ɛta | gotta | kɔ | kɔeɛ | kɔmeke | mmunukum | ntɛm | retu mmirika | wusie</annotation>
@@ -923,6 +1181,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑" type="tts">onipa</annotation>
 		<annotation cp="👱">kɔkɔɔ | nwii kɔkɔɔ | onipa</annotation>
 		<annotation cp="👱" type="tts">onipa: nwii kɔkɔɔ</annotation>
+		<annotation cp="🧑‍🩰">balee | safoᴐ</annotation>
+		<annotation cp="🧑‍🩰" type="tts">balee safoᴐ</annotation>
 		<annotation cp="👨">bro | ɔbarima | panin</annotation>
 		<annotation cp="👨" type="tts">ɔbarima</annotation>
 		<annotation cp="🧔">abodwesɛ | deɛ wɔ abodwesɛ | mfemfem | onipa</annotation>
@@ -1230,7 +1490,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧟‍♀">Apokalipise | halowene | hɔrɔ | huuhu | nanteɛ | ɔbaa | saman | sɔmbi | wawu</annotation>
 		<annotation cp="🧟‍♀" type="tts">Ɔbaa simbi</annotation>
 		<annotation cp="🧌">fantasi | Fɛɛre | sasabonsam | teele | trɔɔlo | trɔɔloni</annotation>
-		<annotation cp="🧌" type="tts">Trɔɔlo</annotation>
+		<annotation cp="🧌" type="tts">Trol</annotation>
 		<annotation cp="💆">ahomegye | amiamia | Anim | ayaresa | home | onipa | renya | salɔn | spa | suutu | tɛnhyen | tɛrapi | tipaeɛ</annotation>
 		<annotation cp="💆" type="tts">Onipa renya amiamia</annotation>
 		<annotation cp="💆‍♂">ahomegye | amiamia | Anim | ayaresa | barima | home | onipa | renya | salɔn | spa | suutu | tɛnhyen | tɛrapi | tipaeɛ</annotation>
@@ -1324,7 +1584,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏌‍♀">ahabanmono | bɛɛdi | bɔɔlo | gɔɔfine | gɔɔfo | kadi | onipa | ɔbaa | pga | putt | retwi | rɛɛnge | tee</annotation>
 		<annotation cp="🏌‍♀" type="tts">Ɔbaa regɔɔfo</annotation>
 		<annotation cp="🏄">ahuhuru | asorɔkye | Mpoano | ohyen | onipa | sopɔɔso | sɔɔfa | sɔɔfine | sɔɔfo</annotation>
-		<annotation cp="🏄" type="tts">Obi resɔɔfo</annotation>
+		<annotation cp="🏄" type="tts">obi resεεfe</annotation>
 		<annotation cp="🏄‍♂">ahuhuru | asorɔkye | barima | Mpoano | ohyen | onipa | sopɔɔso | sɔɔfa | sɔɔfine | sɔɔfo</annotation>
 		<annotation cp="🏄‍♂" type="tts">Barima resɔɔfo</annotation>
 		<annotation cp="🏄‍♀">ahuhuru | asorɔkye | Mpoano | ohyen | onipa | ɔbaa | sopɔɔso | sɔɔfa | sɔɔfine | sɔɔfo</annotation>
@@ -1439,9 +1699,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👣" type="tts">Ananmɔn</annotation>
 		<annotation cp="🫆">aedɛntiti | ahobammɔ | anwanwasɛm | detɛketifo | Fingaperente | fɔrensike | kuluu | nsɛmmɔne | perente | treese</annotation>
 		<annotation cp="🫆" type="tts">Fingaperente</annotation>
+		<annotation cp="🦰">kakaduro | kᴐkᴐᴐ | nwi | tikᴐkᴐᴐ</annotation>
 		<annotation cp="🦰" type="tts">nwi kͻkͻͻ</annotation>
+		<annotation cp="🦱">afro | enwi | kawawa | kyinkyim</annotation>
+		<annotation cp="🦱" type="tts">enwi a akyinkyim</annotation>
 		<annotation cp="🦳">dada | fitaa | nso | nwi</annotation>
 		<annotation cp="🦳" type="tts">nwi fitaa</annotation>
+		<annotation cp="🦲">ayi | daabi | enwi | kimotεrapi | nni nwi | tipa</annotation>
 		<annotation cp="🦲" type="tts">tipa</annotation>
 		<annotation cp="🐵">aboa | adoe | anim | kwadu</annotation>
 		<annotation cp="🐵" type="tts">adoe anim</annotation>
@@ -1646,7 +1910,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦭">Aboa | ɛpo | gyata | ohyen | siili</annotation>
 		<annotation cp="🦭" type="tts">Siili</annotation>
 		<annotation cp="🐟">Aboa | anwummereduane | apataa | mpataa | mpataayie | Paesese | zodiake</annotation>
-		<annotation cp="🐟" type="tts">Apataa</annotation>
+		<annotation cp="🐟" type="tts">nsunam</annotation>
 		<annotation cp="🐠">Aboa | apataa | mpataa | trɔpikaa</annotation>
 		<annotation cp="🐠" type="tts">Trɔpikaa apataa</annotation>
 		<annotation cp="🐡">Aboa | apataa | bolooapataa</annotation>
@@ -1680,7 +1944,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐜">Aboa | atuboa | kakapɛ | turo</annotation>
 		<annotation cp="🐜" type="tts">kakapɛ</annotation>
 		<annotation cp="🐝">aboa | ahuhuro | atuboa | bɔmboobee | ɛwoɔ | hɔnibii | neekya | wowa</annotation>
-		<annotation cp="🐝" type="tts">Hɔnibii</annotation>
+		<annotation cp="🐝" type="tts">nwowa</annotation>
 		<annotation cp="🪲">aboa | atuboa | biitil</annotation>
 		<annotation cp="🪲" type="tts">biitil</annotation>
 		<annotation cp="🐞">aboa | atuboa | beetel | ledi | ledibɛɛde | ledibɔgo | neekya | turo</annotation>
@@ -1788,7 +2052,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍑">Aduaba | piikye</annotation>
 		<annotation cp="🍑" type="tts">Piikye</annotation>
 		<annotation cp="🍒">aduaba | Bɛɛrii | hyɛrii | kɔkɔɔ</annotation>
-		<annotation cp="🍒" type="tts">Hyɛrii</annotation>
+		<annotation cp="🍒" type="tts">kyεrisi</annotation>
 		<annotation cp="🍓">aduaba | Bɛɛrii | setrɔbɛɛrii</annotation>
 		<annotation cp="🍓" type="tts">Setrɔbɛɛrii</annotation>
 		<annotation cp="🫐">aduaba | aduane | bɛɛrii | Bɛɛrii | bilbɛɛrii | bruu | bruubɛɛrii</annotation>
@@ -1826,7 +2090,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧅">ahwahwamdeɛ | gyeene</annotation>
 		<annotation cp="🧅" type="tts">gyeene</annotation>
 		<annotation cp="🥜">Aduane | atosodeɛ | nkateɛ | nɔt</annotation>
-		<annotation cp="🥜" type="tts">nkatea</annotation>
+		<annotation cp="🥜" type="tts">nkateε</annotation>
 		<annotation cp="🫘">adua | aduane | ketewa | kidni | lɛgume</annotation>
 		<annotation cp="🫘" type="tts">adua</annotation>
 		<annotation cp="🌰">aborɔfo nkateɛ | dua | kyɛstenɔt</annotation>
@@ -1962,7 +2226,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍫">baa | dɛɛdɛ | disɛɛte | ɛse | haloween | kandi | kyokolɛɛte</annotation>
 		<annotation cp="🍫" type="tts">kyokolɛɛte baa</annotation>
 		<annotation cp="🍬">adidibea | dɛɛdɛ | disɛɛtɛ | ɛse | haloweene | kandi | kavitise | nkekyereho</annotation>
-		<annotation cp="🍬" type="tts">kandy</annotation>
+		<annotation cp="🍬" type="tts">kandi</annotation>
 		<annotation cp="🍭">adidibea | aduane | dɛɛdɛ | disɛɛte | kandi | lɔlipɔɔpo</annotation>
 		<annotation cp="🍭" type="tts">lɔlipɔɔpo</annotation>
 		<annotation cp="🍮">dɛɛdɛ | disɛɛte | kastaade | pudine</annotation>
@@ -2570,7 +2834,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🎯">agodie | anigyedeԑ | buusei | bͻ | daate | deԑ ani si so | nantwi barima | tee</annotation>
 		<annotation cp="🎯" type="tts">buusei</annotation>
 		<annotation cp="🪀">kͻ-soro-bra-fam</annotation>
-		<annotation cp="🪀" type="tts">↑↑↑</annotation>
+		<annotation cp="🪀" type="tts">yo-yo</annotation>
 		<annotation cp="🪁">kaete | kͻ soro | tu</annotation>
 		<annotation cp="🪁" type="tts">kaete</annotation>
 		<annotation cp="🔫">akadeԑ | akodeԑ | etu | nsatuo | nsuo | pistere | revolva</annotation>
@@ -3229,6 +3493,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="↕" type="tts">soro-fam akyerɛkyerɛkwan</annotation>
 		<annotation cp="↔">akyerԑkyerԑkwan | benkum-nifa</annotation>
 		<annotation cp="↔" type="tts">benkum-nifa akyerԑkyerԑkwan</annotation>
+		<annotation cp="↮">aro | benkum | nifa | nsaneeε</annotation>
+		<annotation cp="↮" type="tts">benkum nifa aro nsaneeε</annotation>
 		<annotation cp="↩">akoa | akyerԑkyerԑkwan | benkum | nifa</annotation>
 		<annotation cp="↩" type="tts">nifa akyerԑkyerԑkwan akoa hwɛ benkum</annotation>
 		<annotation cp="↪">akoa | akyerԑkyerԑkwan | benkum | nifa</annotation>
@@ -3579,11 +3845,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔳" type="tts">fitaa sokwɛɛ bͻtom</annotation>
 		<annotation cp="🔲">bͻtom | geomɛtreke | sokwɛɛ | tuntum</annotation>
 		<annotation cp="🔲" type="tts">tuntum sokwɛɛ bͻtom</annotation>
+		<annotation cp="🏁">agodie | agokansie | damedame | frankaa | frankaa ahodoᴐ | mmirikatuo | nkunimdie | retu mmirika | wie</annotation>
+		<annotation cp="🏁" type="tts">damedame frankaa</annotation>
+		<annotation cp="🚩">adansie | ahiniasa | frankaa | golf | poosu</annotation>
+		<annotation cp="🚩" type="tts">ahiniasa frankaa</annotation>
+		<annotation cp="🎌">anigyeε | asensan mu | frankaa | Japanese | sensan mu</annotation>
+		<annotation cp="🎌" type="tts">frankaa a yεasensan mu</annotation>
 		<annotation cp="🏴">frankaa | him | tuntum</annotation>
 		<annotation cp="🏴" type="tts">frankaa tuntum</annotation>
 		<annotation cp="🏳">fitaa | frankaa | him</annotation>
 		<annotation cp="🏳" type="tts">frankaa fitaa</annotation>
+		<annotation cp="🏳‍🌈">ahotuo | baa-di-baa | di-ha-ne-ha | frankaa | gay | genderqueer | glbt | glbtq | lgbt | lgbtq | lgbtqia | nyankontᴐn | queer | trans | transgender</annotation>
 		<annotation cp="🏳‍🌈" type="tts">nyankontͻn frankaa</annotation>
+		<annotation cp="🏳‍⚧">bluu | fitaa | frankaa | kanea | pink | transgender</annotation>
+		<annotation cp="🏳‍⚧" type="tts">transgender frankaa</annotation>
 		<annotation cp="🏴‍☠">ahodeɛ | anigyeɛ | ɛpo so korͻmfoͻ | frankaa | nnyetom | wia</annotation>
 		<annotation cp="🏴‍☠" type="tts">ɛpo so korͻmfoͻ frankaa</annotation>
 		<annotation cp="¢">cent</annotation>
@@ -3622,6 +3897,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="₽" type="tts">rubuu</annotation>
 		<annotation cp="₿">bitkͻin | BTC</annotation>
 		<annotation cp="₿" type="tts">bitkͻin</annotation>
+		<annotation cp="0⃣">0 | hwee | kiikape</annotation>
+		<annotation cp="0⃣" type="tts">kiikape: 0</annotation>
+		<annotation cp="1⃣">1 | kiikape | koro</annotation>
+		<annotation cp="1⃣" type="tts">kiikape: 1</annotation>
+		<annotation cp="2⃣">2 | abien | kiikape</annotation>
+		<annotation cp="2⃣" type="tts">kiikape: 2</annotation>
+		<annotation cp="3⃣">3 | abiasa | kiikape</annotation>
+		<annotation cp="3⃣" type="tts">kiikape: 3</annotation>
+		<annotation cp="4⃣">4 | anan | kiikape</annotation>
+		<annotation cp="4⃣" type="tts">kiikape: 4</annotation>
+		<annotation cp="5⃣">5 | anum | kiikape</annotation>
+		<annotation cp="5⃣" type="tts">kiikape: 5</annotation>
+		<annotation cp="6⃣">6 | asia | kiikape</annotation>
+		<annotation cp="6⃣" type="tts">kiikape: 6</annotation>
+		<annotation cp="7⃣">7 | asuon | kiikape</annotation>
+		<annotation cp="7⃣" type="tts">kiikape: 7</annotation>
+		<annotation cp="8⃣">8 | awɔtwe | kiikape</annotation>
+		<annotation cp="8⃣" type="tts">kiikape: 8</annotation>
+		<annotation cp="9⃣">9 | akron | kiikape</annotation>
+		<annotation cp="9⃣" type="tts">kiikape: 9</annotation>
 		<annotation cp="¹">baako | supasikripite</annotation>
 		<annotation cp="¹" type="tts">supasikripite baako</annotation>
 		<annotation cp="²">mmienu | sokwɛɛde | supasikripite</annotation>
@@ -3634,5 +3929,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="µ" type="tts">mikro ahyɛnsodeɛ</annotation>
 		<annotation cp="﷼">kɛrɛnsi | rial</annotation>
 		<annotation cp="﷼" type="tts">rial</annotation>
+		<annotation cp="🛘">abotan | asasewosoᴐ | atoyerεnkyεm | avalanche | bepᴐ | dᴐtehwie | ehudeε</annotation>
+		<annotation cp="🛘" type="tts">asasehwie</annotation>
+		<annotation cp="🪊">afidie | awerεhoᴐ | brass | jazz | nnwom | pa so</annotation>
+		<annotation cp="🪊" type="tts">trombone</annotation>
+		<annotation cp="🪎">abasobᴐdeε | aboᴐdenneε | afomdeε | agudiε ahodeε | ahodeε | gyεm | sereba | sika | sika kᴐkᴐᴐ</annotation>
+		<annotation cp="🪎" type="tts">agudiε adaka</annotation>
+		<annotation cp="🫈">abobnnuaᴐ | brane | kriptid | kwaeε | nan tabono kεseε | nwinwi | sasekwakye | yeti</annotation>
+		<annotation cp="🫈" type="tts">abᴐdeε a enwi wᴐ ne ho</annotation>
+		<annotation cp="🫍">nsuom | obonto | εpo bunu</annotation>
+		<annotation cp="🫍" type="tts">bonsu kεse</annotation>
+		<annotation cp="🫪">adwennwene | ahodwirie | ahuhuru | ehu | mmrɛyɛ | nwanwayɛ</annotation>
+		<annotation cp="🫪" type="tts">anim a asɛe</annotation>
+		<annotation cp="🫯">Abobaabaeε | anikadeε | bom mpunempu | bum | pae</annotation>
+		<annotation cp="🫯" type="tts">ᴐko klawdo</annotation>
 	</annotations>
 </ldml>

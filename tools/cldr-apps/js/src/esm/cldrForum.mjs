@@ -186,8 +186,7 @@ function loadBad(ourDiv, json) {
 function loadOk(ourDiv, json, userId, forumMessage) {
   /*
    * The server has already confirmed that the user is logged in and has permission to view the forum.
-   * Note: the criteria (here) for posting in the main forum window are less strict than in the info
-   * panel; see the other call to setUserCanPost. Here, we have no "json.canModify" set by the server.
+   * It is assumed here that permission to view equals permission to post.
    */
   setUserCanPost(true);
 

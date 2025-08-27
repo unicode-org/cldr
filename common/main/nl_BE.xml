@@ -112,7 +112,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
 					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤ -#,##0.00</pattern>
-					<pattern alt="noCurrency">#,##0.00;-#,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>

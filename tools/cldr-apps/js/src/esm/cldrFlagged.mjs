@@ -202,7 +202,7 @@ function storeBasic(rowMap, flagged, columnIndex) {
     row[columnIndex[COLUMN_TITLE_LOCALE_ID]] = localeId;
     row[columnIndex[COLUMN_TITLE_POSTED]] = daysAgo(lastMod);
     row[columnIndex[COLUMN_TITLE_PATH]] = xpathCode;
-    const sortKey = localeName; //  + " " + user.org + " " + id;
+    const sortKey = localeName + " " + when;
     rowMap[sortKey] = [...row]; // clone the array since table will retain a reference
   }
 }

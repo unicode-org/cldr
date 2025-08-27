@@ -601,23 +601,23 @@ expectedResult; ហ្សាហ្សីលៀ ហេមីស ស្តូប�
 
 parameters; givenFirst; long; referring; formal
 
-expectedResult; ស្តូបើ, ហ្. ហេ. មី.
+expectedResult; ស្តូបើ, ហ្សា. ហេ. មី.
 
 parameters; sorting; short; referring; formal
 
-expectedResult; ស្តូបើ ហ្. ហេ. មី.
+expectedResult; ស្តូបើ ហ្សា. ហេ. មី.
 
 parameters; surnameFirst; short; referring; formal
+
+expectedResult; ហ្សា. ហេ. មី. ស្តូបើ
+
+parameters; givenFirst; short; referring; formal
 
 expectedResult; ស្តូបើ, ហ្សាហ្សីលៀ
 
 parameters; sorting; long; referring; informal
 parameters; sorting; medium; referring; informal
 parameters; sorting; short; referring; informal
-
-expectedResult; ហ្. ហេ. មី. ស្តូបើ
-
-parameters; givenFirst; short; referring; formal
 
 expectedResult; ស្តូបើ ហ្សាហ្សីលៀ
 
@@ -629,13 +629,21 @@ expectedResult; ហ្សាហ្សីលៀ ស្តូបើ
 parameters; givenFirst; long; referring; informal
 parameters; givenFirst; medium; referring; informal
 
-expectedResult; ហ្សាហ្សីលៀ ស្.
+expectedResult; ហ្សាហ្សីលៀ ស្តូ.
 
 parameters; givenFirst; short; referring; informal
 
-expectedResult; ស្តូបើ ហ្.
+expectedResult; ស្តូបើ ហ្សា.
 
 parameters; surnameFirst; short; referring; informal
+
+expectedResult; ស្តូហ្សាហេ
+
+parameters; surnameFirst; long; monogram; formal
+
+expectedResult; ហ្សាហេស្តូ
+
+parameters; givenFirst; long; monogram; formal
 
 expectedResult; ហ្សាហ្សីលៀ
 
@@ -646,6 +654,14 @@ parameters; surnameFirst; long; addressing; informal
 parameters; surnameFirst; medium; addressing; informal
 parameters; surnameFirst; short; addressing; informal
 
+expectedResult; ស្តូហ្សា
+
+parameters; surnameFirst; long; monogram; informal
+
+expectedResult; ហ្សាស្តូ
+
+parameters; givenFirst; long; monogram; informal
+
 expectedResult; ស្តូបើ
 
 parameters; givenFirst; long; addressing; formal
@@ -655,30 +671,14 @@ parameters; surnameFirst; long; addressing; formal
 parameters; surnameFirst; medium; addressing; formal
 parameters; surnameFirst; short; addressing; formal
 
-expectedResult; ស្ហ្ហេ
-
-parameters; surnameFirst; long; monogram; formal
-
-expectedResult; ហ្ហេស្
-
-parameters; givenFirst; long; monogram; formal
-
-expectedResult; ស្ហ្
-
-parameters; surnameFirst; long; monogram; informal
-
-expectedResult; ហ្ស្
-
-parameters; givenFirst; long; monogram; informal
-
-expectedResult; ស្
+expectedResult; ស្តូ
 
 parameters; givenFirst; medium; monogram; formal
 parameters; givenFirst; short; monogram; formal
 parameters; surnameFirst; medium; monogram; formal
 parameters; surnameFirst; short; monogram; formal
 
-expectedResult; ហ្
+expectedResult; ហ្សា
 
 parameters; givenFirst; medium; monogram; informal
 parameters; givenFirst; short; monogram; informal
@@ -764,15 +764,15 @@ expectedResult; វន់ ប្រ៊ូល នីឡេ
 parameters; surnameFirst; long; referring; informal
 parameters; surnameFirst; medium; referring; informal
 
-expectedResult; នីឡេ វ. ប្.
+expectedResult; នីឡេ វ. ប្រ៊ូ.
 
 parameters; givenFirst; short; referring; informal
 
-expectedResult; ប្អាឆេ
+expectedResult; ប្រ៊ូអាឆេ
 
 parameters; surnameFirst; long; monogram; formal
 
-expectedResult; អាឆេប្
+expectedResult; អាឆេប្រ៊ូ
 
 parameters; givenFirst; long; monogram; formal
 

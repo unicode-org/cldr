@@ -13,7 +13,6 @@ import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.PluralRules.DecimalQuantitySamples;
-import com.ibm.icu.text.PluralRules.FixedDecimal;
 import com.ibm.icu.text.PluralRules.IFixedDecimal;
 import com.ibm.icu.text.PluralRules.Operand;
 import com.ibm.icu.text.PluralRules.SampleType;
@@ -249,131 +248,6 @@ public class PluralUtilities {
     }
 
     /**
-     * An immutable value used for decimal numbers, targeted at use with plurals. These are similar
-     * to FixedDecimals, but have additional capabilities, useful for CLDR. The number of digits is
-     * limited to 19, whereby some of those can be fractional digits (including trailing zeros). Eg,
-     * 1.0 ≠ 1 TODO make this a subclass of FixedDecimal?
-     */
-    public static class PluralSample implements Comparable<PluralSample> {
-        private final long digits;
-        private final int visibleDecimalCount;
-        private final int exponent;
-        
-        private final int factor; // computed at construction
-        private final int integerDigitCount; // computed at construction
-
-        public int getExponent() {
-            return exponent;
-        }
-
-        public long getDigits() {
-            return digits;
-        }
-
-        public int getIntegerDigitCount() {
-            return integerDigitCount;
-        }
-
-        public int getVisibleDecimalCount() {
-            return visibleDecimalCount;
-        }
-
-        public PluralSample(long digits, int fractionCount, int exponent) {
-            this.digits = digits;
-            this.visibleDecimalCount = fractionCount;
-            this.exponent = exponent;
-            factor = pow10(fractionCount);
-            integerDigitCount = digitCount(digits / factor);
-        }
-
-        public PluralSample(FixedDecimal fixedDecimal) {
-            visibleDecimalCount = fixedDecimal.getVisibleDecimalDigitCount();
-            factor = pow10(visibleDecimalCount);
-            digits = (long)(fixedDecimal.getSource() * factor);
-            exponent = (int) fixedDecimal.getPluralOperand(Operand.e);
-            integerDigitCount = digitCount(digits / factor);
-        }
-
-        public FixedDecimal toFixedDecimal() {
-            return FixedDecimal.createWithExponent(digits / (double) factor, visibleDecimalCount, exponent);
-        }
-        
-        @Override
-        public boolean equals(Object obj) {
-            PluralSample that = (PluralSample) obj;
-            return digits == that.digits
-                    && visibleDecimalCount == that.visibleDecimalCount
-                    && exponent == that.exponent;
-        }
-
-        @Override
-        public int hashCode() {
-            return (int) digits ^ (visibleDecimalCount << 16 + factor << 8 + exponent);
-        }
-
-        @Override
-        public int compareTo(PluralSample other) {
-            return Comparator.comparingInt(PluralSample::getVisibleDecimalCount)
-                    .thenComparing(PluralSample::getDigits)
-                    .thenComparing(PluralSample::getExponent)
-                    .compare(this, other);
-        }
-
-        public int compareTo(long digits, int fractionCount) {
-            return Comparator.comparingInt(PluralSample::getVisibleDecimalCount)
-                    .thenComparing(PluralSample::getDigits)
-                    .thenComparing(PluralSample::getExponent)
-                    .compare(this, new PluralSample(digits, fractionCount, 0));
-        }
-
-        /**
-         * Get the value immediately after `this`, according to the visible decimal count: vdc=0 =>
-         * 1, vdc=1 => 0.1, ...
-         */
-        public PluralSample next() {
-            return new PluralSample(digits + 1, visibleDecimalCount, exponent);
-        }
-
-        /**
-         * Return a key composed of the integer digit count, visible decimal count, and exponent.
-         * Used for buckets with compact decimals
-         */
-        public Integer getKey() {
-            return 10000 * integerDigitCount + 100 * visibleDecimalCount + exponent;
-        }
-
-        public Count getPluralCategory(PluralRules pluralRules) {
-            FixedDecimal fd0 =
-                    new FixedDecimal(digits / (double) factor, visibleDecimalCount, exponent);
-            String keyword = pluralRules.select(fd0);
-            return Count.valueOf(keyword);
-        }
-
-        @Override
-        /**
-         * Formats a long scaled by visibleDigits. Doesn't use standard double etc formatting,
-         * because it is easier to control the formatting this way.
-         *
-         * @param value
-         * @return
-         */
-        public String toString() {
-            String result = String.valueOf(digits);
-            if (visibleDecimalCount == 0) {
-                //
-            } else if (visibleDecimalCount < result.length()) {
-                result =
-                        result.substring(0, result.length() - visibleDecimalCount)
-                                + "."
-                                + result.substring(result.length() - visibleDecimalCount);
-            } else {
-                result = "0." + "0".repeat(visibleDecimalCount - result.length()) + result;
-            }
-            return result + (exponent == 0 ? "" : "e" + exponent);
-        }
-    }
-
-    /**
      * Formats a long scaled by visibleDigits. Doesn't use standard double etc formatting, because
      * it is easier to control the formatting this way.
      *
@@ -433,9 +307,9 @@ public class PluralUtilities {
     }
 
     /** A range of VisibleDecimals that have the same factionDigitCount */
-    public static class SampleRange implements Comparable<SampleRange>, Iterable<PluralSample> {
-        private final PluralSample first;
-        private final PluralSample last;
+    public static class SampleRange implements Comparable<SampleRange>, Iterable<CFixedDecimal> {
+        private final CFixedDecimal first;
+        private final CFixedDecimal last;
 
         public enum SameIntegerCount {
             yes,
@@ -443,8 +317,8 @@ public class PluralUtilities {
         }
 
         public static class Builder {
-            PluralSample first;
-            PluralSample last;
+            CFixedDecimal first;
+            CFixedDecimal last;
 
             /**
              * Add an item. If the visible decimal count is different than the others, fail.
@@ -453,22 +327,22 @@ public class PluralUtilities {
              * @param sameIntegerCount TODO
              * @return
              */
-            Status add(PluralSample additional, SameIntegerCount sameIntegerCount) {
+            Status add(CFixedDecimal additional, SameIntegerCount sameIntegerCount) {
                 if (first == null) {
                     first = additional;
                     last = additional;
                     return Status.added;
                 } else {
-                    if (additional.visibleDecimalCount != first.visibleDecimalCount
+                    if (additional.getVisibleDecimalCount() != first.getVisibleDecimalCount()
                             || sameIntegerCount == sameIntegerCount.yes
                                     && additional.getIntegerDigitCount()
                                             != first.getIntegerDigitCount()) {
                         return Status.makeNewRange;
                     }
 
-                    long current = additional.digits;
+                    long current = additional.getDigits();
 
-                    if (current == last.digits + 1) {
+                    if (current == last.getDigits() + 1) {
                         last = additional;
                         return Status.added;
                     }
@@ -497,8 +371,8 @@ public class PluralUtilities {
             makeNewRange
         }
 
-        public SampleRange(PluralSample first_, PluralSample last_) {
-            if (first_.visibleDecimalCount != last_.visibleDecimalCount) {
+        public SampleRange(CFixedDecimal first_, CFixedDecimal last_) {
+            if (first_.getVisibleDecimalCount() != last_.getVisibleDecimalCount()) {
                 throw new IllegalArgumentException(
                         "Incompatible digits in " + first_ + ".." + last_);
             }
@@ -506,7 +380,7 @@ public class PluralUtilities {
             last = last_;
         }
 
-        public static SampleRange from(PluralSample first_, PluralSample last_) {
+        public static SampleRange from(CFixedDecimal first_, CFixedDecimal last_) {
             return new SampleRange(first_, last_);
         }
 
@@ -526,11 +400,11 @@ public class PluralUtilities {
                     .compare(this, o);
         }
 
-        public PluralSample getFirst() {
+        public CFixedDecimal getFirst() {
             return first;
         }
 
-        public PluralSample getLast() {
+        public CFixedDecimal getLast() {
             return last;
         }
 
@@ -542,8 +416,8 @@ public class PluralUtilities {
             return first.getKey();
         }
 
-        class PluralIterator implements Iterator<PluralSample> {
-            private PluralSample current = first;
+        class PluralIterator implements Iterator<CFixedDecimal> {
+            private CFixedDecimal current = first;
 
             @Override
             public boolean hasNext() {
@@ -551,15 +425,15 @@ public class PluralUtilities {
             }
 
             @Override
-            public PluralSample next() {
-                PluralSample result = current;
+            public CFixedDecimal next() {
+                CFixedDecimal result = current;
                 current = result.next();
                 return result;
             }
         }
 
         @Override
-        public Iterator<PluralSample> iterator() {
+        public Iterator<CFixedDecimal> iterator() {
             return new PluralIterator();
         }
 
@@ -586,7 +460,7 @@ public class PluralUtilities {
             private final Multimap<Integer, SampleRange> ranges = TreeMultimap.create();
             private final SampleRange.Builder inProcess = SampleRange.builder();
 
-            public Builder add(PluralSample additional, SameIntegerCount sameIntegerCount) {
+            public Builder add(CFixedDecimal additional, SameIntegerCount sameIntegerCount) {
                 if (inProcess.add(additional, sameIntegerCount)
                         == SampleRange.Status.makeNewRange) {
                     SampleRange range = inProcess.build();
@@ -597,7 +471,7 @@ public class PluralUtilities {
             }
 
             /** Only use if there can't be any overlap with other ranges */
-            public Builder addRange(PluralSample first_, PluralSample last_) {
+            public Builder addRange(CFixedDecimal first_, CFixedDecimal last_) {
                 SampleRange mr = SampleRange.from(first_, last_);
                 ranges.put(mr.getKey(), mr);
                 return this;
@@ -610,8 +484,8 @@ public class PluralUtilities {
              */
             public Builder addRange(int firstDigits, int secondDigts, int visible, int exponent) {
                 return addRange(
-                        new PluralSample(firstDigits, visible, exponent),
-                        new PluralSample(secondDigts, visible, exponent));
+                        new CFixedDecimal(firstDigits, visible, exponent),
+                        new CFixedDecimal(secondDigts, visible, exponent));
             }
 
             /** Only use if there can't be any overlap with other ranges */
@@ -699,7 +573,10 @@ public class PluralUtilities {
                     .addRange(10000, 10099, 0, 0)
                     .addRange(100000, 100099, 0, 0)
                     .addRange(1000000, 1000099, 0, 0)
+                    .addRange(1000000, 1000000, 0, 6)
+                    .addRange(1100000, 1100000, 0, 6)
                     .addRange(10000000, 10000099, 0, 0)
+                    .addRange(11000000, 11000000, 0, 6)
                     .build();
 
     public static final KeySampleRanges SAMPLE_RANGES_ORDINAL =
@@ -753,7 +630,7 @@ public class PluralUtilities {
             // Integer key = keySamples.getKey();
             Collection<SampleRange> ranges = keySamples.getValue();
             for (SampleRange range : ranges) {
-                for (PluralSample sample : range) {
+                for (CFixedDecimal sample : range) {
                     Count count = sample.getPluralCategory(pluralRules);
                     KeySampleRanges.Builder builder = countToBuilder.get(count);
                     if (builder == null) {
@@ -1030,39 +907,35 @@ public class PluralUtilities {
     private static String getOldExamples(DecimalQuantitySamples exampleList) {
         return Joiner.on(", ").join(exampleList.getSamples()) + (exampleList.bounded ? "" : ", …");
     }
-    
-    static final Pattern FIXED_DECIMAL_STRING = Pattern.compile("([0-9]+(?:\\.([0-9]+))?)(?:[eEcC]([0-9]+))?");
-    
-    public static FixedDecimal parseToFixedDecimal(String num) {
-        Matcher matcher = FIXED_DECIMAL_STRING.matcher(num);
-        if (!matcher.matches()) {
-            throw new IllegalArgumentException("Bad format: " + RegexUtilities.showMismatch(matcher, num));
-        }
-            String doubleStr = matcher.group(1);
-            String fractionDigitStr = matcher.group(2);
-            String exponentStr0 = matcher.group(3);
 
-            double n = Double.parseDouble(doubleStr);
-            int exponent = exponentStr0 == null ? 0 : Integer.parseInt(exponentStr0);
-            int v = fractionDigitStr == null ? 0 : fractionDigitStr.length() ;
-            long f = fractionDigitStr == null ? 0L : Long.parseLong(fractionDigitStr);
-            if (exponent == 0) {
-            } else  {
-//                Error: (TestPluralRuleGeneration.java:1008) : FD line 13, 1.20050c3, i: expected java.lang.Double<1200.0>, got java.lang.Double<1000.0>
-//                Error: (TestPluralRuleGeneration.java:1008) : FD line 13, 1.20050c3, v: expected java.lang.Double<2.0>, got java.lang.Double<5.0>
-//                Error: (TestPluralRuleGeneration.java:1008) : FD line 13, 1.20050c3, w: expected java.lang.Double<1.0>, got java.lang.Double<4.0>
-//                Error: (TestPluralRuleGeneration.java:1008) : FD line 13, 1.20050c3, f: expected java.lang.Double<50.0>, got java.lang.Double<20050.0>
-//                Error: (TestPluralRuleGeneration.java:1008) : FD line 13, 1.20050c3, t: expected java.lang.Double<5.0>, got java.lang.Double<2005.0>
-                int power = pow10(exponent);
-                n *= power;
-                f %= power;
-                v -= exponent;
-                if (v < 0) {
-                    v = 0;
-                }
-            } 
-            return new FixedDecimal(n, v, f, exponent);
-        }
+    static final Pattern FIXED_DECIMAL_STRING =
+            Pattern.compile(
+                    "([0-9]+)" // integer part
+                            + "(?:\\.([0-9]+))?" // fractional part
+                            + "(?:[eEcC]([0-9]+))?"); // exponent part
+
+    //    public static FixedDecimal parseToFixedDecimal(String num) {
+    //        Matcher matcher = FIXED_DECIMAL_STRING.matcher(num);
+    //        if (!matcher.matches()) {
+    //            throw new IllegalArgumentException(
+    //                    "Bad format: " + RegexUtilities.showMismatch(matcher, num));
+    //        }
+    //        String doubleStr = matcher.group(1);
+    //        String fractionDigitStr = matcher.group(2);
+    //        String exponentStr0 = matcher.group(3);
+    //
+    //        double n = Double.parseDouble(doubleStr);
+    //        int exponent = exponentStr0 == null ? 0 : Integer.parseInt(exponentStr0);
+    //        int v = fractionDigitStr == null ? 0 : fractionDigitStr.length();
+    //        long f = fractionDigitStr == null ? 0L : Long.parseLong(fractionDigitStr);
+    //        if (exponent != 0) {
+    //            int pow10e = pow10(exponent);
+    //            n *= pow10e;
+    //            f /= pow10e;
+    //            v = v > exponent ? v - exponent : 0;
+    //        }
+    //        return new FixedDecimal(n, v, f, exponent);
+    //    }
 
     private static String padEnd(String string, int minLength, char c) {
         StringBuilder sb = new StringBuilder(minLength);
@@ -1073,19 +946,17 @@ public class PluralUtilities {
         return sb.toString();
     }
 
-//    public static int getVisibleFractionCount(String value) {
-//        value = value.trim();
-//        int decimalPos = value.indexOf('.') + 1;
-//        if (decimalPos == 0) {
-//            return 0;
-//        } else {
-//            return value.length() - decimalPos;
-//        }
-//    }
+    //    public static int getVisibleFractionCount(String value) {
+    //        value = value.trim();
+    //        int decimalPos = value.indexOf('.') + 1;
+    //        if (decimalPos == 0) {
+    //            return 0;
+    //        } else {
+    //            return value.length() - decimalPos;
+    //        }
+    //    }
 
-    /** 
-     * This is a copy of FixedDecimal.getFractionDigits, because the original is not public.
-     */
+    /** This is a copy of FixedDecimal.getFractionDigits, because the original is not public. */
     public static int getFractionalDigits(double n, int v) {
         if (v == 0) {
             return 0;
@@ -1098,7 +969,7 @@ public class PluralUtilities {
             return (int) (scaled % baseFactor);
         }
     }
-    
+
     public static String toSampleString(IFixedDecimal source) {
         final double n = source.getPluralOperand(Operand.n);
         final int exponent = (int) source.getPluralOperand(Operand.e);
@@ -1129,7 +1000,7 @@ public class PluralUtilities {
                     baseString = baseString.substring(0, baseString.length() - 1);
                 }
             }
-            return baseString + "e" + exponent;
+            return baseString + "c" + exponent;
         }
     }
 }

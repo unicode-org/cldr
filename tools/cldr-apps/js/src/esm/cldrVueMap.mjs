@@ -3,6 +3,7 @@ import AnnouncePanel from "../views/AnnouncePanel.vue";
 import AddUser from "../views/AddUser.vue";
 import AutoImport from "../views/AutoImport.vue";
 import DowngradedVotes from "../views/DowngradedVotes.vue";
+import FlaggedItems from "../views/FlaggedItems.vue";
 import GeneralInfo from "../views/GeneralInfo.vue";
 import GenerateVxml from "../views/GenerateVxml.vue";
 import LockAccount from "../views/LockAccount.vue";
@@ -28,6 +29,7 @@ const specialToComponentMap = {
   auto_import: AutoImport,
   cla: SignCla,
   downgraded: DowngradedVotes,
+  flagged: FlaggedItems,
   general: GeneralInfo, // see cldrLoad.GENERAL_SPECIAL
   generate_vxml: GenerateVxml,
   lock_account: LockAccount,

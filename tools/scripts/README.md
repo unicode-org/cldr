@@ -13,12 +13,12 @@ The `scripts` folder contains accessory scripts of various kinds, used for CLDR 
 - interimVettingTool.sh: possibly obsolete, a shell script; purpose unknown
 - jira-updater: a folder containing JavaScript and json code, still in use as of 2025
 - keyboard-abnf-tests: a folder containing JavaScript code, still in use as of 2025
-- llm: a folder containing an AI-powered classifier that flags entries deviating from expected patterns, updated in 2023
+- llm: a folder containing an AI-powered classifier that flags entries deviating from expected patterns, still in use as of 2025
 - platformDiffTool.sh: possibly obsolete, a shell script to create an InterimVettingChart
 - sidewaysCharts.sh: a shell script to run GenerateSidewaysView (a Java class)
-- tr-archive: a folder containing JavaScript for a Unicode TR35 archiver
+- tr-archive: a folder containing JavaScript for a Unicode TR35 archiver; this is the critical production path for producing TR35
 - uca: a folder containing a shell script blankweights.sed to blank out non-zero weights
 - updateHash.sh: a shell script to calculate shasum of CLDR jar/zip files
-- web: a folder containing a variety of shell scripts, Python scripts, and Docker files, related to Survey Tool
+- web: a folder containing a variety of shell scripts, Python scripts, and Docker files, related to the site cldr.unicode.org
 
 For copyright, terms of use, and further details, see the top [README](../../README.md).

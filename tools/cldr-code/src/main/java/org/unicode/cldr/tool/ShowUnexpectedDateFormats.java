@@ -1,6 +1,7 @@
 package org.unicode.cldr.tool;
 
 import com.google.common.base.Joiner;
+import com.ibm.icu.impl.CalType;
 import java.io.IOException;
 import java.util.Map;
 import java.util.Set;
@@ -24,30 +25,27 @@ public class ShowUnexpectedDateFormats {
         "GyMMMEEEEd/y"
     };
 
-    private static final String CALENDAR_TYPE = "gregorian";
-
     public static void main(String[] args) throws IOException {
         Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
         Set<String> locales = new TreeSet<>(cldrFactory.getAvailable());
-        System.out.println(
-                locales.size()
-                        + " locales available to be checked: "
-                        + Joiner.on(" ").join(locales));
+        System.out.println("Checking " + locales.size() + " locales");
         Map<String, Integer> count = new TreeMap<>();
         Set<String> localesWithUnexpectedPaths = new TreeSet<>();
         for (String loc : locales) {
             CLDRFile cldrFile = cldrFactory.make(loc, false);
             for (String format : formats) {
-                String path = makePathFromFormat(format);
-                String value = cldrFile.getStringValue(path);
-                if (value != null) {
-                    System.out.println(loc + "\t" + path + "\t" + value);
-                    localesWithUnexpectedPaths.add(loc);
-                    Integer c = count.get(format);
-                    if (c == null) {
-                        c = 0;
+                for (CalType calType : CalType.values()) {
+                    String path = makePathFromFormat(calType, format);
+                    String value = cldrFile.getStringValue(path);
+                    if (value != null) {
+                        System.out.println(loc + "\t" + path + "\t" + value);
+                        localesWithUnexpectedPaths.add(loc);
+                        Integer c = count.get(format);
+                        if (c == null) {
+                            c = 0;
+                        }
+                        count.put(format, c + 1);
                     }
-                    count.put(format, c + 1);
                 }
             }
         }
@@ -64,7 +62,7 @@ public class ShowUnexpectedDateFormats {
                         + Joiner.on(" ").join(localesWithUnexpectedPaths));
     }
 
-    private static String makePathFromFormat(String format) {
+    private static String makePathFromFormat(CalType calType, String format) {
         if (format.contains("/")) {
             String format1 = format.substring(0, format.length() - 2);
             String format2 = format.substring(format.length() - 1);
@@ -72,7 +70,7 @@ public class ShowUnexpectedDateFormats {
             // "greatestDifference", but also in having "intervalFormats/intervalFormatItem" instead
             // of "availableFormats/dateFormatItem"
             return "//ldml/dates/calendars/calendar[@type=\""
-                    + CALENDAR_TYPE
+                    + calType.getId()
                     + "\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\""
                     + format1
                     + "\"]/greatestDifference[@id=\""
@@ -80,7 +78,7 @@ public class ShowUnexpectedDateFormats {
                     + "\"]";
         } else {
             return "//ldml/dates/calendars/calendar[@type=\""
-                    + CALENDAR_TYPE
+                    + calType.getId()
                     + "\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\""
                     + format
                     + "\"]";

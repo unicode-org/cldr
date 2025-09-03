@@ -3,8 +3,8 @@
 - **GSoC Contributor:** [Preet Sojitra](https://github.com/preetsojitra2712)
 - **Mentors:** [Younies](https://github.com/younies), [Annemarie](https://github.com/aeapple)
 - **Tech Lead:** [Mark Davis](https://github.com/macchiati)
-- **Doc Status:** *Draft*
-- **Last Update:** June 11, 2023
+- **Doc Status:** _Draft_
+- **Last Update:** 2025-08-24
 - **Project Information:** [Leveraging LLMs to validate locale data](https://summerofcode.withgoogle.com/programs/2023/projects/lE93K0ho)
 
 ## Introduction

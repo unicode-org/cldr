@@ -1,6 +1,6 @@
 # CLDR Keyboards
 
-For general information, see the main [README.md](../../README.md).
+For general information, see the main [README.md](../README.md).
 
 The `keyboards` folder contains data for CLDR Keyboards. References:
 

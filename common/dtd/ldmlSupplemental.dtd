@@ -994,14 +994,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
     <!--@MATCH:time/yyyy-MM-dd HH:mm-->
 <!ATTLIST usesMetazone to CDATA #IMPLIED >
     <!--@MATCH:time/yyyy-MM-dd HH:mm-->
+<!ATTLIST usesMetazone mzone NMTOKEN #REQUIRED >
+    <!--@MATCH:metazone-->
+    <!--@VALUE-->
 <!ATTLIST usesMetazone stdOffset CDATA #IMPLIED >
     <!--@MATCH:regex/[+-][0-9]{2}(:[0-9]{2})?-->
     <!--@VALUE-->
 <!ATTLIST usesMetazone dstOffset CDATA #IMPLIED >
     <!--@MATCH:regex/[+-][0-9]{2}(:[0-9]{2})?-->
-    <!--@VALUE-->
-<!ATTLIST usesMetazone mzone NMTOKEN #REQUIRED >
-    <!--@MATCH:metazone-->
     <!--@VALUE-->
 
 <!ELEMENT plurals ( pluralRules*, pluralRanges* ) >

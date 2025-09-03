@@ -99,9 +99,10 @@ public class DtdData extends XMLFileReader.SimpleHandler {
 
     public enum Mode {
         REQUIRED("#REQUIRED"),
-        OPTIONAL("#IMPLIED"),
         FIXED("#FIXED"),
-        NULL("null");
+        NULL("null"), // there is a default value
+        OPTIONAL("#IMPLIED") // ordered after the others (normally)
+    ;
 
         public final String source;
 
@@ -116,7 +117,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                 }
             }
             if (mode == null) {
-                return NULL;
+                return Mode.NULL;
             }
             throw new IllegalArgumentException(mode);
         }

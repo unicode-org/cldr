@@ -82,6 +82,7 @@ public class EmojiConstants {
                     .add(EmojiConstants.HANDSHAKE)
                     .add(MALE_SIGN)
                     .add(FEMALE_SIGN)
+                    .add("🤼")
                     .freeze();
 
     public static String getTagSpec(String code) {

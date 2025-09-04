@@ -694,31 +694,14 @@ public class TestAnnotations extends TestFmwkPlus {
      */
     public void testCompleteness() {
         UnicodeSet allRgiNoEs = Emoji.getAllRgiNoES();
-        UnicodeSet namesFound = new UnicodeSet();
-        UnicodeSet searchKeywordsFound = new UnicodeSet();
 
         // get both regular and derived emoji
         for (String file : List.of("en.xml", "de.xml", "fr.xml")) {
-            List<Pair<String, String>> listXmlEmoji = new ArrayList<>();
-            XMLFileReader.loadPathValues(
-                    CLDRPaths.ANNOTATIONS_DERIVED_DIRECTORY + file, listXmlEmoji, false);
-            XMLFileReader.loadPathValues(
-                    CLDRPaths.ANNOTATIONS_DIRECTORY + file, listXmlEmoji, false);
+            UnicodeSet namesFound = new UnicodeSet();
+            UnicodeSet searchKeywordsFound = new UnicodeSet();
+            fillNamesAndSearchKeywords(
+                    file, namesFound, searchKeywordsFound); // freezes the results
 
-            // pull out the ones that are handled by English
-
-            for (Pair<String, String> pathAndValue : listXmlEmoji) {
-                XPathParts parts = XPathParts.getFrozenInstance(pathAndValue.getFirst());
-                if (!"annotation".equals(parts.getElement(-1))) {
-                    continue;
-                }
-                String cp = parts.getAttributeValue(-1, "cp");
-                boolean isTts = parts.getAttributeValue(-1, "type") != null;
-                UnicodeSet set = isTts ? namesFound : searchKeywordsFound;
-                set.add(cp);
-            }
-            namesFound.freeze();
-            searchKeywordsFound.freeze();
             warnln(
                     Joiner.on('\t')
                             .join(
@@ -734,31 +717,79 @@ public class TestAnnotations extends TestFmwkPlus {
             UnicodeSet missingKeywords =
                     new UnicodeSet(allRgiNoEs).removeAll(searchKeywordsFound).freeze();
 
-            assertEquals(
+            // If one of the following fails, it is likely due to code needed in DerivedAnnotations
+            // to handle special sequences.
+            // See instructions below.
+
+            if (!assertEquals(
                     file + " RGI - en.xml name annotations",
                     "[]",
                     new UnicodeSet(missingNames)
                             .removeAll(TEMPORARY_SKIP_COMPOUNDS)
-                            .toPattern(false));
-            assertEquals(
+                            .toPattern(false))) {
+                break;
+            }
+            if (!assertEquals(
                     file + " RGI - en.xml search key annotations",
                     "[]",
                     new UnicodeSet(missingKeywords)
                             .removeAll(TEMPORARY_SKIP_COMPOUNDS)
-                            .toPattern(false));
+                            .toPattern(false))) {
+                break;
+            }
             UnicodeSet onlyAllowedBecauseOfTEMPORARY_SKIP_COMPOUNDS =
                     new UnicodeSet(missingNames)
                             .addAll(missingKeywords)
                             .retainAll(TEMPORARY_SKIP_COMPOUNDS)
                             .freeze();
             if (!onlyAllowedBecauseOfTEMPORARY_SKIP_COMPOUNDS.isEmpty()) {
-                logKnownIssue(
-                        "CLDR-18462",
-                        file
-                                + " Update Annotations.java for new compounds: "
-                                + onlyAllowedBecauseOfTEMPORARY_SKIP_COMPOUNDS.toPattern(false));
+                // Normally the following exception is used.
+                throw new IllegalArgumentException(
+                        "This is probably due to new emoji being added. See instructions for fixing.");
+                // When there are new emoji that cause a failure in the derived annotations, do the
+                // following:
+                //
+                // file a ticket,
+                // comment out the above exception
+                // uncomment the logKnownIssue below
+                // replace the ticket number by the new ticket number
+                // and populate the TEMPORARY_SKIP_COMPOUNDS.
+
+                // The extra code to handled the special derived forms must be added well before
+                // Alpha (ideally before submission).
+                // that code will go into
+
+                //      public Annotations synthesize(String code, Transform<String, String>
+                // otherSource) {
+
+                //  logKnownIssue("CLDR-18462", file
+                //   + " Update Annotations.java for new compounds: "
+                //   +  onlyAllowedBecauseOfTEMPORARY_SKIP_COMPOUNDS.toPattern(false));
             }
         }
+    }
+
+    private void fillNamesAndSearchKeywords(
+            String file, UnicodeSet namesFound, UnicodeSet searchKeywordsFound) {
+        List<Pair<String, String>> listXmlEmoji = new ArrayList<>();
+        XMLFileReader.loadPathValues(
+                CLDRPaths.ANNOTATIONS_DERIVED_DIRECTORY + file, listXmlEmoji, false);
+        XMLFileReader.loadPathValues(CLDRPaths.ANNOTATIONS_DIRECTORY + file, listXmlEmoji, false);
+
+        // pull out the ones that are handled by English
+
+        for (Pair<String, String> pathAndValue : listXmlEmoji) {
+            XPathParts parts = XPathParts.getFrozenInstance(pathAndValue.getFirst());
+            if (!"annotation".equals(parts.getElement(-1))) {
+                continue;
+            }
+            String cp = parts.getAttributeValue(-1, "cp");
+            boolean isTts = parts.getAttributeValue(-1, "type") != null;
+            UnicodeSet set = isTts ? namesFound : searchKeywordsFound;
+            set.add(cp);
+        }
+        namesFound.freeze();
+        searchKeywordsFound.freeze();
     }
 
     public void testRightFacing() {

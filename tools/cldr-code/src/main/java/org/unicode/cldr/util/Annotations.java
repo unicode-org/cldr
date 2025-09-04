@@ -405,7 +405,9 @@ public class Annotations {
             return baseData.keySet();
         }
 
-        /** Public only for testing */
+        /** Public only for testing. 
+         * This code needed to be modified when the Emoji subcommittee adds new compound emoji. 
+         * See also TestAnnotations.testCompleteness */
         public Annotations synthesize(String code, Transform<String, String> otherSource) {
             if (code.equals("👱🏻‍♂")) {
                 int debug = 0;
@@ -476,6 +478,9 @@ public class Annotations {
                     code = uss.deleteFrom(code, SpanCondition.CONTAINED);
                 }
             }
+            
+            // This is typically the place to add new compound emoji
+            
             if (code.contains(EmojiConstants.JOINER_STRING)) {
                 if (code.contains(JOINER_RIGHTWARDS)) {
                     code = code.replace(JOINER_RIGHTWARDS, "");

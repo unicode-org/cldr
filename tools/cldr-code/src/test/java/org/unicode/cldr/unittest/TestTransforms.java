@@ -900,12 +900,10 @@ public class TestTransforms extends TestFmwkPlus {
             if (!ltp.set(locale).getRegion().isEmpty()) {
                 continue;
             }
-            String max = ls.maximize(locale);
-            final String script = ltp.set(max).getScript();
+            final String script = ExemplarUtilities.getLikelyScript(locale);
             if (script.equals("Latn")) {
                 continue;
             }
-
             Transliterator t;
             try {
                 t = CLDRTransforms.getTestingLatinScriptTransform(script);
@@ -928,7 +926,7 @@ public class TestTransforms extends TestFmwkPlus {
                         locale
                                 + " "
                                 + script
-                                + " transform doesn't handle "
+                                + "-Latin transform doesn't handle "
                                 + badPlusSample.size()
                                 + " code points:\n"
                                 + badPlusSample);
@@ -964,11 +962,6 @@ public class TestTransforms extends TestFmwkPlus {
             for (String s : suppressHack) {
                 allMissing.scriptMissing.remove(s);
             }
-            if (allMissing.scriptMissing.containsKey("\u0AF0")
-                    && logKnownIssue("CLDR-18852", "U+0AF0 missing in Gujr translit")) {
-                allMissing.scriptMissing.remove("\u0AF0");
-            }
-
             for (String script : allMissing.scriptMissing.values()) {
                 UnicodeSet missingFoScript = allMissing.scriptMissing.getKeys(script);
                 String localeForScript =
@@ -1012,7 +1005,11 @@ public class TestTransforms extends TestFmwkPlus {
             public String toString() {
                 return String.format(
                         "%s;\t%s;\t%s;\t%s;\t%s",
-                        locale, ExemplarUtilities.getScript(locale), path, value, transformed);
+                        locale,
+                        ExemplarUtilities.getLikelyScript(locale),
+                        path,
+                        value,
+                        transformed);
             }
         }
 

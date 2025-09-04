@@ -957,7 +957,7 @@ public class CLDRTransforms {
 
     /**
      * Gets a transform from a script to Latin. for testing For a locale, use
-     * ExemplarUtilities.getScript(locale) to get the script
+     * ExemplarUtilities.getLikelyScript(locale) to get the script
      */
     public static Transliterator getTestingLatinScriptTransform(final String script) {
         String id;

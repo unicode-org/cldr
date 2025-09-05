@@ -10,7 +10,8 @@ const SECONDS_IN_MS = 1000;
 
 const REQUEST_TIMER = 5 * SECONDS_IN_MS; // Fetch status this often
 
-const VXML_URL = "api/vxml";
+const VXML_URL = "vxml";
+const VXML_DOWNLOAD_URL = "vxml/download";
 
 // These must match the back end; used in requests
 class RequestType {
@@ -62,15 +63,37 @@ function cancel() {
 
 function requestVxml(requestType) {
   const args = { requestType: requestType };
+  const url = cldrAjax.makeApiUrl(VXML_URL, null);
   const init = cldrAjax.makePostData(args);
   cldrAjax
-    .doFetch(VXML_URL, init)
+    .doFetch(url, init)
     .then(cldrAjax.handleFetchErrors)
     .then((r) => r.json())
     .then(setVxmlData)
     .catch((e) => {
       cldrNotify.exception(e, "generating VXML");
     });
+}
+
+async function download(directory) {
+  const p = new URLSearchParams();
+  p.append("directory", directory);
+  const url = cldrAjax.makeApiUrl(VXML_DOWNLOAD_URL, p);
+  try {
+    const response = await cldrAjax.doFetch(url);
+    if (!response.ok) {
+      throw new Error(response.statusText);
+    }
+    const bytes = await response.bytes();
+    const a = document.createElement("a");
+    a.href = window.URL.createObjectURL(
+      new Blob([bytes], { type: "application/octet-stream" })
+    );
+    a.download = directory.split("/").pop() + ".zip";
+    a.click();
+  } catch (e) {
+    cldrNotify.exception(e, "Downloading VXML");
+  }
 }
 
 function setVxmlData(data) {
@@ -88,4 +111,4 @@ function setVxmlData(data) {
   }
 }
 
-export { Status, cancel, canGenerateVxml, start, viewMounted };
+export { Status, cancel, canGenerateVxml, download, start, viewMounted };

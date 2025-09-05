@@ -44,6 +44,10 @@ function cancel() {
   status.value = STATUS.STOPPED;
 }
 
+function download() {
+  cldrGenerateVxml.download(directory.value);
+}
+
 function canCancel() {
   return status.value === STATUS.WAITING || status.value === STATUS.PROCESSING;
 }
@@ -100,6 +104,15 @@ defineExpose({
       <span>Directory created: {{ directory }}</span>
       &nbsp;
       <button @click="copyDirectory()">Copy</button>
+      &nbsp;
+      <!-- Allow downloading even if STATUS.STOPPED. If generation or verification failed,
+        downloading may still help with diagnosing partial/problematic output. -->
+      <button
+        v-if="status == STATUS.SUCCEEDED || status == STATUS.STOPPED"
+        @click="download()"
+      >
+        Download
+      </button>
     </p>
     <p v-if="message">{{ message }}</p>
     <p v-if="localeId">

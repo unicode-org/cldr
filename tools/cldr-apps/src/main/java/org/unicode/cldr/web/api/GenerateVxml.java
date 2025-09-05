@@ -1,5 +1,6 @@
 package org.unicode.cldr.web.api;
 
+import java.io.File;
 import java.io.IOException;
 import javax.enterprise.context.ApplicationScoped;
 import javax.ws.rs.*;
@@ -12,6 +13,7 @@ import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.Zipper;
 import org.unicode.cldr.web.*;
 
 @ApplicationScoped
@@ -133,5 +135,60 @@ public class GenerateVxml {
 
         @Schema(description = "Verification warning messages")
         public String[] verificationWarnings;
+    }
+
+    @GET
+    @Path("/download")
+    @Produces(MediaType.APPLICATION_OCTET_STREAM)
+    @Operation(summary = "Download VXML", description = "Download VXML as zip file")
+    @APIResponses(
+            value = {
+                @APIResponse(
+                        responseCode = "200",
+                        description = "Download VXML",
+                        content =
+                                @Content(
+                                        mediaType = "application/zip",
+                                        schema = @Schema(implementation = Response.class))),
+                @APIResponse(responseCode = "403", description = "Forbidden"),
+                @APIResponse(responseCode = "404", description = "Not Found"),
+                @APIResponse(
+                        responseCode = "500",
+                        description = "Internal Server Error",
+                        content =
+                                @Content(
+                                        mediaType = "application/json",
+                                        schema = @Schema(implementation = STError.class))),
+            })
+    public Response downloadVxml(
+            @QueryParam("directory") @Schema(description = "The directory containing VXML")
+                    String directory,
+            @HeaderParam(Auth.SESSION_HEADER) String sessionString) {
+        try {
+            CookieSession cs = Auth.getSession(sessionString);
+            if (cs == null) {
+                return Auth.noSessionResponse();
+            }
+            if (!UserRegistry.userIsTCOrStronger(cs.user)) {
+                return Response.status(Response.Status.FORBIDDEN).build();
+            }
+            if (SurveyMain.isBusted()
+                    || !SurveyMain.wasInitCalled()
+                    || !SurveyMain.triedToStartUp()) {
+                return STError.surveyNotQuiteReady();
+            }
+            cs.userDidAction();
+            File dir = new File(directory);
+            File parent = CookieSession.sm.getVetdir();
+            if (!directory.startsWith(parent.toString())
+                    || !dir.isDirectory()
+                    || !dir.getCanonicalFile().toString().equals(directory)) {
+                return Response.status(Response.Status.NOT_FOUND).build();
+            }
+            File zipFile = Zipper.zipDirectory(dir);
+            return Response.ok(zipFile).header("Content-Type", "application/zip").build();
+        } catch (Exception e) {
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(e).build();
+        }
     }
 }

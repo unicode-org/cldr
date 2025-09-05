@@ -4,6 +4,7 @@ import com.ibm.icu.text.Transform;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Output;
 import java.util.List;
+import org.unicode.cldr.util.CLDRFile.ExemplarType;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
@@ -20,12 +21,14 @@ public class ValuePathStatus {
     public static final UnicodeSet LATIN = new UnicodeSet("[:sc=Latn:]").freeze();
 
     public static boolean isLatinScriptLocale(CLDRFile sourceFile) {
-        UnicodeSet main = sourceFile.getExemplarSet("", WinningChoice.WINNING);
+        UnicodeSet main =
+                sourceFile.getExemplarSet(
+                        ExemplarType.main, WinningChoice.WINNING, UnicodeSet.CASE_INSENSITIVE);
         return LATIN.containsSome(main);
     }
 
     public static Transform<String, ValuePathStatus.MissingOK> MISSING_STATUS_TRANSFORM =
-            new Transform<String, ValuePathStatus.MissingOK>() {
+            new Transform<>() {
                 @Override
                 public ValuePathStatus.MissingOK transform(String source) {
                     return ValuePathStatus.MissingOK.valueOf(source);

@@ -373,10 +373,6 @@ public class DisplayAndInputProcessor {
                 }
             }
         }
-        // Fix up any apostrophes in number symbols
-        if (NUMBER_SEPARATOR_PATTERN.matcher(path).matches()) {
-            value = value.replace('\'', '\u2019');
-        }
         // Fix up any apostrophes as appropriate (Don't do so for things like date patterns...
         if (!APOSTROPHE_SKIP_PATHS.matcher(path).matches()) {
             value = normalizeApostrophes(value);
@@ -566,10 +562,6 @@ public class DisplayAndInputProcessor {
         // Fix up any apostrophes as appropriate (Don't do so for things like date patterns...
         if (!APOSTROPHE_SKIP_PATHS.matcher(path).matches()) {
             value = normalizeApostrophes(value);
-        }
-        // Fix up any apostrophes in number symbols
-        if (NUMBER_SEPARATOR_PATTERN.matcher(path).matches()) {
-            value = value.replace('\'', '\u2019');
         }
         // Fix up hyphens, replacing with N-dash as appropriate
         if (INTERVAL_FORMAT_PATHS.matcher(path).matches()) {

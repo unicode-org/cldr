@@ -405,7 +405,10 @@ public class Annotations {
             return baseData.keySet();
         }
 
-        /** Public only for testing */
+        /**
+         * Public only for testing. This code needed to be modified when the Emoji subcommittee adds
+         * new compound emoji. See also TestAnnotations.testCompleteness
+         */
         public Annotations synthesize(String code, Transform<String, String> otherSource) {
             if (code.equals("👱🏻‍♂")) {
                 int debug = 0;
@@ -476,6 +479,9 @@ public class Annotations {
                     code = uss.deleteFrom(code, SpanCondition.CONTAINED);
                 }
             }
+
+            // This is typically the place to add new compound emoji
+
             if (code.contains(EmojiConstants.JOINER_STRING)) {
                 if (code.contains(JOINER_RIGHTWARDS)) {
                     code = code.replace(JOINER_RIGHTWARDS, "");
@@ -494,14 +500,35 @@ public class Annotations {
                 } else if (code.equals(EmojiConstants.COMPOSED_HANDSHAKE)) {
                     code = EmojiConstants.HANDSHAKE;
                 } else if (code.contains(EmojiConstants.HANDSHAKE)) {
-                    code =
-                            code.startsWith(EmojiConstants.MAN)
-                                    ? "👬"
-                                    : code.endsWith(EmojiConstants.MAN)
-                                            ? "👫"
-                                            : code.startsWith(EmojiConstants.WOMAN)
-                                                    ? "👭"
-                                                    : NEUTRAL_HOLDING;
+                    code = pickGender(code, "👬", "👫", "👭", NEUTRAL_HOLDING);
+                    skipSet = EmojiConstants.REM_GROUP_SKIP_SET;
+                } else if (code.contains("🐰")) {
+                    // derived patterns are of the following form:
+                    // 👯🏻‍♂️ E17.0 men with bunny ears: light skin tone
+                    // 🧑🏻‍🐰‍🧑🏼 E17.0 people with bunny ears: light skin tone, medium-light skin tone
+                    // 👨🏻‍🐰‍👨🏼 E17.0 men with bunny ears: light skin tone, medium-light skin tone
+                    // Base is:
+                    // 👯 E0.6 people with bunny ears
+                    // 👯🏻 E17.0 people with bunny ears: light skin tone
+                    code = pickGender(code, "👬", "👫", "👭", NEUTRAL_HOLDING);
+                    code = "🤼";
+                    skipSet = EmojiConstants.REM_GROUP_SKIP_SET;
+                } else if (code.startsWith("🤼")) { // wrestlers
+                    // Base is like the following
+                    // # 🤼 E3.0 people wrestling
+                    // # 🤼‍♂️ E4.0 men wrestling
+                    // We have to fix the gender, because it is separated from the skintone
+                    // # 🤼🏻‍♂️ E17.0 men wrestling: light skin tone
+                    rem = code;
+                    code = "🤼";
+                    skipSet = EmojiConstants.REM_GROUP_SKIP_SET;
+                } else if (code.contains("🫯")) { // fight-cloud
+                    // Base is like the following
+                    // # 🤼 E3.0 people wrestling
+                    // # 🤼‍♂️ E4.0 men wrestling
+                    // We have to map the substitute sequence
+                    //  # 🧑🏻‍🫯‍🧑🏼 E17.0 people wrestling: light skin tone, medium-light skin tone
+
                     skipSet = EmojiConstants.REM_GROUP_SKIP_SET;
                 } else if (EmojiConstants.FAMILY_MARKERS.containsAll(code)) {
                     rem = code + rem;
@@ -512,7 +539,21 @@ public class Annotations {
                 }
                 // left over is "👨🏿‍⚖","judge: man, dark skin tone"
             }
+            // This composes a name from a base (code)
+            // plus rem (the remaining items: skin modifiers and/or gender modifiers)
+            // The skipSet are items to ignore in the rem.
+            // The startPattern is constant (for the locale)
+            // The otherSource is used by the unicodetools, and shouldn't be changed.
             return getBasePlusRemainder(cldrFile, code, rem, skipSet, startPattern, otherSource);
+        }
+
+        private String pickGender(
+                String code, String manStart, String manEnd, String womanStart, String neutral) {
+            return code.startsWith(EmojiConstants.MAN)
+                    ? manStart
+                    : code.endsWith(EmojiConstants.MAN)
+                            ? manEnd
+                            : code.startsWith(EmojiConstants.WOMAN) ? womanStart : neutral;
         }
 
         private boolean matchesInitialPattern(String code) {

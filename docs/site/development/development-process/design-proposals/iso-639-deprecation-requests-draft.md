@@ -1,8 +1,8 @@
 ---
-title: ISO 636 Deprecation Requests - DRAFT
+title: ISO 639 Deprecation Requests - DRAFT
 ---
 
-# ISO 636 Deprecation Requests - DRAFT
+# ISO 639 Deprecation Requests - DRAFT
 
 We have become aware over time of cases where ISO 639 inaccurately assigns different language codes to the same language. Its goal is to distinguish all and only those languages that are are not mutually comprehensible. Making too many distinctions can be as harmful as making too few, since it artificially separates two dialects, and disrupts the ability of software to identify them as variants. The remedy used in the past has been to deprecate codes: for example, [mol (mo)](http://www.sil.org/iso639-3/documentation.asp?id=mol) has been merged with [rol (ro)](http://www.sil.org/iso639-3/documentation.asp?id=rol). See also [Picking the Right Language Code](/index/cldr-spec/picking-the-right-language-code) and [Language Distance Data](/development/development-process/design-proposals/language-distance-data).
 

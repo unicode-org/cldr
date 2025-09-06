@@ -50,7 +50,7 @@ In each proposal, please add a header and a TOC if it is longer than a page. You
 
 [Islamic Calendar Types](/development/development-process/design-proposals/islamic-calendar-types)
 
-[ISO 636 Deprecation Requests - DRAFT](/development/development-process/design-proposals/iso-636-deprecation-requests-draft)
+[ISO 639 Deprecation Requests - DRAFT](/development/development-process/design-proposals/iso-639-deprecation-requests-draft)
 
 [JSON Packaging (Approved by the CLDR TC on 2015-03-25)](/development/development-process/design-proposals/json-packaging-approved-by-the-cldr-tc-on-2015-03-25)
 

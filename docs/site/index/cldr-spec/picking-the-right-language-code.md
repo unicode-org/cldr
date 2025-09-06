@@ -76,11 +76,11 @@ Note that the CLDR likely subtag data is used to minimize scripts and regions, *
 
 In some cases, systems (or companies) may have different conventions than the Preferred\-Values in BCP 47 \-\- such as those in the Replacement column in the the [online language identifier](http://unicode.org/cldr/utility/languageid.jsp) demo. For example, for backwards compatibility, 'iw' is used with Java instead of 'he' (Hebrew). Be aware of these compatibility issues when picking the subtags. *If a target system uses a different canonical form for locale IDs than CLDR, the CLDR data needs to be processed by remapping its IDs to those of the target system.*
 
-For compatibility, it is strongly recommended that all implementations accept both the preferred values and their alternates: for example, both 'iw' and 'he'. Although BCP 47 itself only allows "\-" as a separator, Unicode language identifiers allows both "\-" and "\_" for compatibility reasons. Implementations should also accept both.
+For compatibility, it is strongly recommended that all implementations accept both the preferred values and their alternates: for example, both 'iw' and 'he'. Although BCP 47 itself only allows "\-" as a separator, Unicode language identifiers allow both "\-" and "\_" for compatibility reasons. Implementations should also accept both.
 
 ### Macrolanguages
 
-ISO (and hence BCP 47\) has the notion of an individual language (like 'en' \= English) versus a Collection or Macrolanguage. For compatibility, Unicode language and locale identifiers always use the Macrolanguage to identify the predominant form. Thus the Macrolanguage subtag 'zh' (Chinese) is used instead of 'cmn' (Mandarin). Similarly, suppose that you are looking for Kurdish written in Latin letters, as in Turkey. It is a mistake to think that because that is in the north, that you should use the subtag 'kmr' for Northern Kurdish. You should instead use 'ku\-Latn\-TR'. See also: [ISO 636 Deprecation Requests](/development/development-process/design-proposals/iso-636-deprecation-requests-draft).
+ISO (and hence BCP 47\) has the notion of an individual language (like 'en' \= English) versus a Collection or Macrolanguage. For compatibility, Unicode language and locale identifiers always use the Macrolanguage to identify the predominant form. Thus the Macrolanguage subtag 'zh' (Chinese) is used instead of 'cmn' (Mandarin). Similarly, suppose that you are looking for Kurdish written in Latin letters, as in Turkey. It is a mistake to think that because that is in the north, that you should use the subtag 'kmr' for Northern Kurdish. You should instead use 'ku\-Latn\-TR'. See also: [ISO 639 Deprecation Requests](/development/development-process/design-proposals/iso-639-deprecation-requests-draft).
 
 Unicode language identifiers do not allow the "extlang" form defined in BCP 47\. For example, use 'yue' instead of 'zh\-yue' for Cantonese.
 
@@ -92,6 +92,7 @@ The Ethnologue is a great source of information, but it must be approached with 
 ### Wikipedia
 
 Wikipedia is also a great source of information, but it must be approached with a certain degree of caution as well. Be sure to follow up on the linked references, not just look at articles.
+
 
 
 

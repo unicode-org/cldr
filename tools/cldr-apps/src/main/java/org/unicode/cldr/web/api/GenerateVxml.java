@@ -161,8 +161,11 @@ public class GenerateVxml {
                                         schema = @Schema(implementation = STError.class))),
             })
     public Response downloadVxml(
-            @QueryParam("directory") @Schema(description = "The directory containing VXML")
-                    String directory,
+            @QueryParam("dirName")
+                    @Schema(
+                            description =
+                                    "The name (not full path) of the directory containing VXML")
+                    String dirName,
             @HeaderParam(Auth.SESSION_HEADER) String sessionString) {
         try {
             CookieSession cs = Auth.getSession(sessionString);
@@ -178,11 +181,8 @@ public class GenerateVxml {
                 return STError.surveyNotQuiteReady();
             }
             cs.userDidAction();
-            File dir = new File(directory);
-            File parent = CookieSession.sm.getVetdir();
-            if (!directory.startsWith(parent.toString())
-                    || !dir.isDirectory()
-                    || !dir.getCanonicalFile().toString().equals(directory)) {
+            File dir = getDirectory(dirName);
+            if (dir == null) {
                 return Response.status(Response.Status.NOT_FOUND).build();
             }
             File zipFile = Zipper.zipDirectory(dir);
@@ -190,5 +190,36 @@ public class GenerateVxml {
         } catch (Exception e) {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(e).build();
         }
+    }
+
+    /**
+     * Sanitize the "user-provided" dirName, normally actually provided by the
+     * back end, but possibly concocted by evildoers. It should contain no slashes
+     * or periods, and should match one of the "vetdata-..." siblings of the
+     * automatic vetdata dir CookieSession.sm.getVetdir(). Some of this sanitizing
+     * is redundant and is really intended to satisfy automatic checkers and prevent
+     * failures like "Uncontrolled data used in path expression".
+     *
+     * @param dirName the directory name (not full path)
+     * @return the directory (sibling of the automatic vetdata directory)
+     */
+    private File getDirectory(String dirName) {
+         if (dirName.contains("/") || dirName.contains(".")) {
+            return null;
+        }
+        File autoVetDir = CookieSession.sm.getVetdir();
+        if (!dirName.startsWith(autoVetDir.getName())) {
+            return null;
+        }
+        File parent = autoVetDir.getParentFile();
+        File[] children = parent.listFiles();
+        if (children != null) {
+            for (File child : children) {
+                if (dirName.equals(child.getName())) {
+                    return child;
+                }
+            }
+        }
+        return null;
     }
 }

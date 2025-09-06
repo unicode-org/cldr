@@ -76,8 +76,9 @@ function requestVxml(requestType) {
 }
 
 async function download(directory) {
+  const dirName = directory.split("/").pop(); // only the part after slash
   const p = new URLSearchParams();
-  p.append("directory", directory);
+  p.append("dirName", dirName);
   const url = cldrAjax.makeApiUrl(VXML_DOWNLOAD_URL, p);
   try {
     const response = await cldrAjax.doFetch(url);
@@ -89,7 +90,7 @@ async function download(directory) {
     a.href = window.URL.createObjectURL(
       new Blob([bytes], { type: "application/octet-stream" })
     );
-    a.download = directory.split("/").pop() + ".zip";
+    a.download = dirName + ".zip";
     a.click();
   } catch (e) {
     cldrNotify.exception(e, "Downloading VXML");

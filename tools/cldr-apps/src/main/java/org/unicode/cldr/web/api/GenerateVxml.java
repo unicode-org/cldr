@@ -193,18 +193,17 @@ public class GenerateVxml {
     }
 
     /**
-     * Sanitize the "user-provided" dirName, normally actually provided by the
-     * back end, but possibly concocted by evildoers. It should contain no slashes
-     * or periods, and should match one of the "vetdata-..." siblings of the
-     * automatic vetdata dir CookieSession.sm.getVetdir(). Some of this sanitizing
-     * is redundant and is really intended to satisfy automatic checkers and prevent
-     * failures like "Uncontrolled data used in path expression".
+     * Sanitize the "user-provided" dirName, normally actually provided by the back end, but
+     * possibly concocted by evildoers. It should contain no slashes or periods, and should match
+     * one of the "vetdata-..." siblings of the automatic vetdata dir CookieSession.sm.getVetdir().
+     * Some of this sanitizing is redundant and is really intended to satisfy automatic checkers and
+     * prevent failures like "Uncontrolled data used in path expression".
      *
      * @param dirName the directory name (not full path)
      * @return the directory (sibling of the automatic vetdata directory)
      */
     private File getDirectory(String dirName) {
-         if (dirName.contains("/") || dirName.contains(".")) {
+        if (dirName.contains("/") || dirName.contains(".")) {
             return null;
         }
         File autoVetDir = CookieSession.sm.getVetdir();

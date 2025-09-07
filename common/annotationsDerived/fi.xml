@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-
-Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
 -->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -603,6 +602,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾" type="tts">vaaleatukkainen henkilö: keskitumma iho</annotation>
 		<annotation cp="👱🏿">blondi | hiukset | tumma iho | vaalea | vaaleahiuksinen henkilö | vaaleatukkainen henkilö</annotation>
 		<annotation cp="👱🏿" type="tts">vaaleatukkainen henkilö: tumma iho</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏼">ihmiset | kaksintaistelu | kamppailu | kehässä | keskivaalea iho | liikunta | paini | painia | painija | painijat | painiturnaus | urheilu | vaalea iho</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏼" type="tts">painijat: vaalea iho, keskivaalea iho</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏽">ihmiset | kaksintaistelu | kamppailu | kehässä | liikunta | paini | painia | painija | painijat | painiturnaus | tummanvaalea iho | urheilu | vaalea iho</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏽" type="tts">painijat: vaalea iho, tummanvaalea iho</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏾">ihmiset | kaksintaistelu | kamppailu | kehässä | keskitumma iho | liikunta | paini | painia | painija | painijat | painiturnaus | urheilu | vaalea iho</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏾" type="tts">painijat: vaalea iho, keskitumma iho</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏿">ihmiset | kaksintaistelu | kamppailu | kehässä | liikunta | paini | painia | painija | painijat | painiturnaus | tumma iho | urheilu | vaalea iho</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏿" type="tts">painijat: vaalea iho, tumma iho</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏻">ihmiset | kaksintaistelu | kamppailu | kehässä | keskivaalea iho | liikunta | paini | painia | painija | painijat | painiturnaus | urheilu | vaalea iho</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏻" type="tts">painijat: keskivaalea iho, vaalea iho</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏽">ihmiset | kaksintaistelu | kamppailu | kehässä | keskivaalea iho | liikunta | paini | painia | painija | painijat | painiturnaus | tummanvaalea iho | urheilu</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏽" type="tts">painijat: keskivaalea iho, tummanvaalea iho</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏾">ihmiset | kaksintaistelu | kamppailu | kehässä | keskitumma iho | keskivaalea iho | liikunta | paini | painia | painija | painijat | painiturnaus | urheilu</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏾" type="tts">painijat: keskivaalea iho, keskitumma iho</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏿">ihmiset | kaksintaistelu | kamppailu | kehässä | keskivaalea iho | liikunta | paini | painia | painija | painijat | painiturnaus | tumma iho | urheilu</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏿" type="tts">painijat: keskivaalea iho, tumma iho</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏻">ihmiset | kaksintaistelu | kamppailu | kehässä | liikunta | paini | painia | painija | painijat | painiturnaus | tummanvaalea iho | urheilu | vaalea iho</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏻" type="tts">painijat: tummanvaalea iho, vaalea iho</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏼">ihmiset | kaksintaistelu | kamppailu | kehässä | keskivaalea iho | liikunta | paini | painia | painija | painijat | painiturnaus | tummanvaalea iho | urheilu</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏼" type="tts">painijat: tummanvaalea iho, keskivaalea iho</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏾">ihmiset | kaksintaistelu | kamppailu | kehässä | keskitumma iho | liikunta | paini | painia | painija | painijat | painiturnaus | tummanvaalea iho | urheilu</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏾" type="tts">painijat: tummanvaalea iho, keskitumma iho</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏿">ihmiset | kaksintaistelu | kamppailu | kehässä | liikunta | paini | painia | painija | painijat | painiturnaus | tumma iho | tummanvaalea iho | urheilu</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏿" type="tts">painijat: tummanvaalea iho, tumma iho</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏻">ihmiset | kaksintaistelu | kamppailu | kehässä | keskitumma iho | liikunta | paini | painia | painija | painijat | painiturnaus | urheilu | vaalea iho</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏻" type="tts">painijat: keskitumma iho, vaalea iho</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏼">ihmiset | kaksintaistelu | kamppailu | kehässä | keskitumma iho | keskivaalea iho | liikunta | paini | painia | painija | painijat | painiturnaus | urheilu</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏼" type="tts">painijat: keskitumma iho, keskivaalea iho</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏽">ihmiset | kaksintaistelu | kamppailu | kehässä | keskitumma iho | liikunta | paini | painia | painija | painijat | painiturnaus | tummanvaalea iho | urheilu</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏽" type="tts">painijat: keskitumma iho, tummanvaalea iho</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏿">ihmiset | kaksintaistelu | kamppailu | kehässä | keskitumma iho | liikunta | paini | painia | painija | painijat | painiturnaus | tumma iho | urheilu</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏿" type="tts">painijat: keskitumma iho, tumma iho</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏻">ihmiset | kaksintaistelu | kamppailu | kehässä | liikunta | paini | painia | painija | painijat | painiturnaus | tumma iho | urheilu | vaalea iho</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏻" type="tts">painijat: tumma iho, vaalea iho</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏼">ihmiset | kaksintaistelu | kamppailu | kehässä | keskivaalea iho | liikunta | paini | painia | painija | painijat | painiturnaus | tumma iho | urheilu</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏼" type="tts">painijat: tumma iho, keskivaalea iho</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏽">ihmiset | kaksintaistelu | kamppailu | kehässä | liikunta | paini | painia | painija | painijat | painiturnaus | tumma iho | tummanvaalea iho | urheilu</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏽" type="tts">painijat: tumma iho, tummanvaalea iho</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏾">ihmiset | kaksintaistelu | kamppailu | kehässä | keskitumma iho | liikunta | paini | painia | painija | painijat | painiturnaus | tumma iho | urheilu</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏾" type="tts">painijat: tumma iho, keskitumma iho</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏼">aikuinen | keskivaalea iho | pariskunta | pusu | romantiikka | vaalea iho</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏼" type="tts">pusu: aikuinen, aikuinen, vaalea iho, keskivaalea iho</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏽">aikuinen | pariskunta | pusu | romantiikka | tummanvaalea iho | vaalea iho</annotation>
@@ -731,6 +770,56 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧑🏾‍🦲" type="tts">aikuinen: keskitumma iho, kalju</annotation>
 		<annotation cp="🧑🏿‍🦲">aikaihminen | aikuinen | aikuisuus | kalju | keski-ikäinen | sukupuolineutraali | täysikasvuinen | tumma iho</annotation>
 		<annotation cp="🧑🏿‍🦲" type="tts">aikuinen: tumma iho, kalju</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏼">keskivaalea iho | korva | nainen | pupu | puputytöt | tanssija | tyttö | vaalea iho</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏼" type="tts">puputytöt: vaalea iho, keskivaalea iho</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏽">korva | nainen | pupu | puputytöt | tanssija | tummanvaalea iho | tyttö | vaalea iho</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏽" type="tts">puputytöt: vaalea iho, tummanvaalea iho</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏾">keskitumma iho | korva | nainen | pupu | puputytöt | tanssija | tyttö | vaalea iho</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏾" type="tts">puputytöt: vaalea iho, keskitumma iho</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏿">korva | nainen | pupu | puputytöt | tanssija | tumma iho | tyttö | vaalea iho</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏿" type="tts">puputytöt: vaalea iho, tumma iho</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏻">keskivaalea iho | korva | nainen | pupu | puputytöt | tanssija | tyttö | vaalea iho</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏻" type="tts">puputytöt: keskivaalea iho, vaalea iho</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏽">keskivaalea iho | korva | nainen | pupu | puputytöt | tanssija | tummanvaalea iho | tyttö</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏽" type="tts">puputytöt: keskivaalea iho, tummanvaalea iho</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏾">keskitumma iho | keskivaalea iho | korva | nainen | pupu | puputytöt | tanssija | tyttö</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏾" type="tts">puputytöt: keskivaalea iho, keskitumma iho</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏿">keskivaalea iho | korva | nainen | pupu | puputytöt | tanssija | tumma iho | tyttö</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏿" type="tts">puputytöt: keskivaalea iho, tumma iho</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏻">korva | nainen | pupu | puputytöt | tanssija | tummanvaalea iho | tyttö | vaalea iho</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏻" type="tts">puputytöt: tummanvaalea iho, vaalea iho</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏼">keskivaalea iho | korva | nainen | pupu | puputytöt | tanssija | tummanvaalea iho | tyttö</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏼" type="tts">puputytöt: tummanvaalea iho, keskivaalea iho</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏾">keskitumma iho | korva | nainen | pupu | puputytöt | tanssija | tummanvaalea iho | tyttö</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏾" type="tts">puputytöt: tummanvaalea iho, keskitumma iho</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏿">korva | nainen | pupu | puputytöt | tanssija | tumma iho | tummanvaalea iho | tyttö</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏿" type="tts">puputytöt: tummanvaalea iho, tumma iho</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏻">keskitumma iho | korva | nainen | pupu | puputytöt | tanssija | tyttö | vaalea iho</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏻" type="tts">puputytöt: keskitumma iho, vaalea iho</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏼">keskitumma iho | keskivaalea iho | korva | nainen | pupu | puputytöt | tanssija | tyttö</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏼" type="tts">puputytöt: keskitumma iho, keskivaalea iho</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏽">keskitumma iho | korva | nainen | pupu | puputytöt | tanssija | tummanvaalea iho | tyttö</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏽" type="tts">puputytöt: keskitumma iho, tummanvaalea iho</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏿">keskitumma iho | korva | nainen | pupu | puputytöt | tanssija | tumma iho | tyttö</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏿" type="tts">puputytöt: keskitumma iho, tumma iho</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏻">korva | nainen | pupu | puputytöt | tanssija | tumma iho | tyttö | vaalea iho</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏻" type="tts">puputytöt: tumma iho, vaalea iho</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏼">keskivaalea iho | korva | nainen | pupu | puputytöt | tanssija | tumma iho | tyttö</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏼" type="tts">puputytöt: tumma iho, keskivaalea iho</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏽">korva | nainen | pupu | puputytöt | tanssija | tumma iho | tummanvaalea iho | tyttö</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏽" type="tts">puputytöt: tumma iho, tummanvaalea iho</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏾">keskitumma iho | korva | nainen | pupu | puputytöt | tanssija | tumma iho | tyttö</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏾" type="tts">puputytöt: tumma iho, keskitumma iho</annotation>
+		<annotation cp="🧑🏻‍🩰">baletti | tanssija | vaalea iho</annotation>
+		<annotation cp="🧑🏻‍🩰" type="tts">balettitanssija: vaalea iho</annotation>
+		<annotation cp="🧑🏼‍🩰">baletti | keskivaalea iho | tanssija</annotation>
+		<annotation cp="🧑🏼‍🩰" type="tts">balettitanssija: keskivaalea iho</annotation>
+		<annotation cp="🧑🏽‍🩰">baletti | tanssija | tummanvaalea iho</annotation>
+		<annotation cp="🧑🏽‍🩰" type="tts">balettitanssija: tummanvaalea iho</annotation>
+		<annotation cp="🧑🏾‍🩰">baletti | keskitumma iho | tanssija</annotation>
+		<annotation cp="🧑🏾‍🩰" type="tts">balettitanssija: keskitumma iho</annotation>
+		<annotation cp="🧑🏿‍🩰">baletti | tanssija | tumma iho</annotation>
+		<annotation cp="🧑🏿‍🩰" type="tts">balettitanssija: tumma iho</annotation>
 		<annotation cp="👨🏻">mies | miespuolinen | vaalea iho</annotation>
 		<annotation cp="👨🏻" type="tts">mies: vaalea iho</annotation>
 		<annotation cp="👨🏼">keskivaalea iho | mies | miespuolinen</annotation>
@@ -771,6 +860,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾‍♂" type="tts">vaaleatukkainen mies: keskitumma iho</annotation>
 		<annotation cp="👱🏿‍♂">blondi | hiukset | mies | tumma iho | vaalea | vaaleahiuksinen mies | vaaleatukkainen mies</annotation>
 		<annotation cp="👱🏿‍♂" type="tts">vaaleatukkainen mies: tumma iho</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏼">judo | kamppailu | keskivaalea iho | miehet | painivat miehet | vaalea iho</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏼" type="tts">painivat miehet: vaalea iho, keskivaalea iho</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏽">judo | kamppailu | miehet | painivat miehet | tummanvaalea iho | vaalea iho</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏽" type="tts">painivat miehet: vaalea iho, tummanvaalea iho</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏾">judo | kamppailu | keskitumma iho | miehet | painivat miehet | vaalea iho</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏾" type="tts">painivat miehet: vaalea iho, keskitumma iho</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏿">judo | kamppailu | miehet | painivat miehet | tumma iho | vaalea iho</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏿" type="tts">painivat miehet: vaalea iho, tumma iho</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏻">judo | kamppailu | keskivaalea iho | miehet | painivat miehet | vaalea iho</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏻" type="tts">painivat miehet: keskivaalea iho, vaalea iho</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏽">judo | kamppailu | keskivaalea iho | miehet | painivat miehet | tummanvaalea iho</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏽" type="tts">painivat miehet: keskivaalea iho, tummanvaalea iho</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏾">judo | kamppailu | keskitumma iho | keskivaalea iho | miehet | painivat miehet</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏾" type="tts">painivat miehet: keskivaalea iho, keskitumma iho</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏿">judo | kamppailu | keskivaalea iho | miehet | painivat miehet | tumma iho</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏿" type="tts">painivat miehet: keskivaalea iho, tumma iho</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏻">judo | kamppailu | miehet | painivat miehet | tummanvaalea iho | vaalea iho</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏻" type="tts">painivat miehet: tummanvaalea iho, vaalea iho</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏼">judo | kamppailu | keskivaalea iho | miehet | painivat miehet | tummanvaalea iho</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏼" type="tts">painivat miehet: tummanvaalea iho, keskivaalea iho</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏾">judo | kamppailu | keskitumma iho | miehet | painivat miehet | tummanvaalea iho</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏾" type="tts">painivat miehet: tummanvaalea iho, keskitumma iho</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏿">judo | kamppailu | miehet | painivat miehet | tumma iho | tummanvaalea iho</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏿" type="tts">painivat miehet: tummanvaalea iho, tumma iho</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏻">judo | kamppailu | keskitumma iho | miehet | painivat miehet | vaalea iho</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏻" type="tts">painivat miehet: keskitumma iho, vaalea iho</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏼">judo | kamppailu | keskitumma iho | keskivaalea iho | miehet | painivat miehet</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏼" type="tts">painivat miehet: keskitumma iho, keskivaalea iho</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏽">judo | kamppailu | keskitumma iho | miehet | painivat miehet | tummanvaalea iho</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏽" type="tts">painivat miehet: keskitumma iho, tummanvaalea iho</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏿">judo | kamppailu | keskitumma iho | miehet | painivat miehet | tumma iho</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏿" type="tts">painivat miehet: keskitumma iho, tumma iho</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏻">judo | kamppailu | miehet | painivat miehet | tumma iho | vaalea iho</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏻" type="tts">painivat miehet: tumma iho, vaalea iho</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏼">judo | kamppailu | keskivaalea iho | miehet | painivat miehet | tumma iho</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏼" type="tts">painivat miehet: tumma iho, keskivaalea iho</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏽">judo | kamppailu | miehet | painivat miehet | tumma iho | tummanvaalea iho</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏽" type="tts">painivat miehet: tumma iho, tummanvaalea iho</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏾">judo | kamppailu | keskitumma iho | miehet | painivat miehet | tumma iho</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏾" type="tts">painivat miehet: tumma iho, keskitumma iho</annotation>
 		<annotation cp="👨🏻‍❤‍💋‍👨🏻">mies | pariskunta | pusu | romantiikka | vaalea iho</annotation>
 		<annotation cp="👨🏻‍❤‍💋‍👨🏻" type="tts">pusu: mies, mies, vaalea iho</annotation>
 		<annotation cp="👨🏻‍❤‍💋‍👨🏼">keskivaalea iho | mies | pariskunta | pusu | romantiikka | vaalea iho</annotation>
@@ -919,6 +1048,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾‍🦲" type="tts">mies: keskitumma iho, kalju</annotation>
 		<annotation cp="👨🏿‍🦲">kalju | mies | miespuolinen | tumma iho</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">mies: tumma iho, kalju</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏼">bff | juhla | juhlat | keskivaalea iho | nainen | pupu | tanssi | tanssija | vaalea iho</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏼" type="tts">tanssivat pupupojat: vaalea iho, keskivaalea iho</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏽">bff | juhla | juhlat | nainen | pupu | tanssi | tanssija | tummanvaalea iho | vaalea iho</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏽" type="tts">tanssivat pupupojat: vaalea iho, tummanvaalea iho</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏾">bff | juhla | juhlat | keskitumma iho | nainen | pupu | tanssi | tanssija | vaalea iho</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏾" type="tts">tanssivat pupupojat: vaalea iho, keskitumma iho</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏿">bff | juhla | juhlat | nainen | pupu | tanssi | tanssija | tumma iho | vaalea iho</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏿" type="tts">tanssivat pupupojat: vaalea iho, tumma iho</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏻">bff | juhla | juhlat | keskivaalea iho | nainen | pupu | tanssi | tanssija | vaalea iho</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏻" type="tts">tanssivat pupupojat: keskivaalea iho, vaalea iho</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏽">bff | juhla | juhlat | keskivaalea iho | nainen | pupu | tanssi | tanssija | tummanvaalea iho</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏽" type="tts">tanssivat pupupojat: keskivaalea iho, tummanvaalea iho</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏾">bff | juhla | juhlat | keskitumma iho | keskivaalea iho | nainen | pupu | tanssi | tanssija</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏾" type="tts">tanssivat pupupojat: keskivaalea iho, keskitumma iho</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏿">bff | juhla | juhlat | keskivaalea iho | nainen | pupu | tanssi | tanssija | tumma iho</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏿" type="tts">tanssivat pupupojat: keskivaalea iho, tumma iho</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏻">bff | juhla | juhlat | nainen | pupu | tanssi | tanssija | tummanvaalea iho | vaalea iho</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏻" type="tts">tanssivat pupupojat: tummanvaalea iho, vaalea iho</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏼">bff | juhla | juhlat | keskivaalea iho | nainen | pupu | tanssi | tanssija | tummanvaalea iho</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏼" type="tts">tanssivat pupupojat: tummanvaalea iho, keskivaalea iho</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏾">bff | juhla | juhlat | keskitumma iho | nainen | pupu | tanssi | tanssija | tummanvaalea iho</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏾" type="tts">tanssivat pupupojat: tummanvaalea iho, keskitumma iho</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏿">bff | juhla | juhlat | nainen | pupu | tanssi | tanssija | tumma iho | tummanvaalea iho</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏿" type="tts">tanssivat pupupojat: tummanvaalea iho, tumma iho</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏻">bff | juhla | juhlat | keskitumma iho | nainen | pupu | tanssi | tanssija | vaalea iho</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏻" type="tts">tanssivat pupupojat: keskitumma iho, vaalea iho</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏼">bff | juhla | juhlat | keskitumma iho | keskivaalea iho | nainen | pupu | tanssi | tanssija</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏼" type="tts">tanssivat pupupojat: keskitumma iho, keskivaalea iho</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏽">bff | juhla | juhlat | keskitumma iho | nainen | pupu | tanssi | tanssija | tummanvaalea iho</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏽" type="tts">tanssivat pupupojat: keskitumma iho, tummanvaalea iho</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏿">bff | juhla | juhlat | keskitumma iho | nainen | pupu | tanssi | tanssija | tumma iho</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏿" type="tts">tanssivat pupupojat: keskitumma iho, tumma iho</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏻">bff | juhla | juhlat | nainen | pupu | tanssi | tanssija | tumma iho | vaalea iho</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏻" type="tts">tanssivat pupupojat: tumma iho, vaalea iho</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏼">bff | juhla | juhlat | keskivaalea iho | nainen | pupu | tanssi | tanssija | tumma iho</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏼" type="tts">tanssivat pupupojat: tumma iho, keskivaalea iho</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏽">bff | juhla | juhlat | nainen | pupu | tanssi | tanssija | tumma iho | tummanvaalea iho</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏽" type="tts">tanssivat pupupojat: tumma iho, tummanvaalea iho</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏾">bff | juhla | juhlat | keskitumma iho | nainen | pupu | tanssi | tanssija | tumma iho</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏾" type="tts">tanssivat pupupojat: tumma iho, keskitumma iho</annotation>
 		<annotation cp="👩🏻">aikuinen | nainen | naispuolinen | vaalea iho</annotation>
 		<annotation cp="👩🏻" type="tts">nainen: vaalea iho</annotation>
 		<annotation cp="👩🏼">aikuinen | keskivaalea iho | nainen | naispuolinen</annotation>
@@ -949,6 +1118,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾‍♀" type="tts">vaaleatukkainen nainen: keskitumma iho</annotation>
 		<annotation cp="👱🏿‍♀">blondi | hiukset | nainen | tumma iho | vaalea | vaaleahiuksinen nainen | vaaleatukkainen nainen</annotation>
 		<annotation cp="👱🏿‍♀" type="tts">vaaleatukkainen nainen: tumma iho</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏼">judo | kamppailu | keskivaalea iho | naiset | painivat naiset | vaalea iho</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏼" type="tts">painivat naiset: vaalea iho, keskivaalea iho</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏽">judo | kamppailu | naiset | painivat naiset | tummanvaalea iho | vaalea iho</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏽" type="tts">painivat naiset: vaalea iho, tummanvaalea iho</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏾">judo | kamppailu | keskitumma iho | naiset | painivat naiset | vaalea iho</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏾" type="tts">painivat naiset: vaalea iho, keskitumma iho</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏿">judo | kamppailu | naiset | painivat naiset | tumma iho | vaalea iho</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏿" type="tts">painivat naiset: vaalea iho, tumma iho</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏻">judo | kamppailu | keskivaalea iho | naiset | painivat naiset | vaalea iho</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏻" type="tts">painivat naiset: keskivaalea iho, vaalea iho</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏽">judo | kamppailu | keskivaalea iho | naiset | painivat naiset | tummanvaalea iho</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏽" type="tts">painivat naiset: keskivaalea iho, tummanvaalea iho</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏾">judo | kamppailu | keskitumma iho | keskivaalea iho | naiset | painivat naiset</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏾" type="tts">painivat naiset: keskivaalea iho, keskitumma iho</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏿">judo | kamppailu | keskivaalea iho | naiset | painivat naiset | tumma iho</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏿" type="tts">painivat naiset: keskivaalea iho, tumma iho</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏻">judo | kamppailu | naiset | painivat naiset | tummanvaalea iho | vaalea iho</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏻" type="tts">painivat naiset: tummanvaalea iho, vaalea iho</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏼">judo | kamppailu | keskivaalea iho | naiset | painivat naiset | tummanvaalea iho</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏼" type="tts">painivat naiset: tummanvaalea iho, keskivaalea iho</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏾">judo | kamppailu | keskitumma iho | naiset | painivat naiset | tummanvaalea iho</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏾" type="tts">painivat naiset: tummanvaalea iho, keskitumma iho</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏿">judo | kamppailu | naiset | painivat naiset | tumma iho | tummanvaalea iho</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏿" type="tts">painivat naiset: tummanvaalea iho, tumma iho</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏻">judo | kamppailu | keskitumma iho | naiset | painivat naiset | vaalea iho</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏻" type="tts">painivat naiset: keskitumma iho, vaalea iho</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏼">judo | kamppailu | keskitumma iho | keskivaalea iho | naiset | painivat naiset</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏼" type="tts">painivat naiset: keskitumma iho, keskivaalea iho</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏽">judo | kamppailu | keskitumma iho | naiset | painivat naiset | tummanvaalea iho</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏽" type="tts">painivat naiset: keskitumma iho, tummanvaalea iho</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏿">judo | kamppailu | keskitumma iho | naiset | painivat naiset | tumma iho</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏿" type="tts">painivat naiset: keskitumma iho, tumma iho</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏻">judo | kamppailu | naiset | painivat naiset | tumma iho | vaalea iho</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏻" type="tts">painivat naiset: tumma iho, vaalea iho</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏼">judo | kamppailu | keskivaalea iho | naiset | painivat naiset | tumma iho</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏼" type="tts">painivat naiset: tumma iho, keskivaalea iho</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏽">judo | kamppailu | naiset | painivat naiset | tumma iho | tummanvaalea iho</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏽" type="tts">painivat naiset: tumma iho, tummanvaalea iho</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏾">judo | kamppailu | keskitumma iho | naiset | painivat naiset | tumma iho</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏾" type="tts">painivat naiset: tumma iho, keskitumma iho</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👨🏻">mies | nainen | pariskunta | pusu | romantiikka | vaalea iho</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👨🏻" type="tts">pusu: nainen, mies, vaalea iho</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👨🏼">keskivaalea iho | mies | nainen | pariskunta | pusu | romantiikka | vaalea iho</annotation>
@@ -1197,6 +1406,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🦲" type="tts">nainen: keskitumma iho, kalju</annotation>
 		<annotation cp="👩🏿‍🦲">aikuinen | kalju | nainen | naispuolinen | tumma iho</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">nainen: tumma iho, kalju</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏼">juhlat | keskivaalea iho | mies | pupu | tanssija | tanssivat puputytöt | vaalea iho</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏼" type="tts">tanssivat puputytöt: vaalea iho, keskivaalea iho</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏽">juhlat | mies | pupu | tanssija | tanssivat puputytöt | tummanvaalea iho | vaalea iho</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏽" type="tts">tanssivat puputytöt: vaalea iho, tummanvaalea iho</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏾">juhlat | keskitumma iho | mies | pupu | tanssija | tanssivat puputytöt | vaalea iho</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏾" type="tts">tanssivat puputytöt: vaalea iho, keskitumma iho</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏿">juhlat | mies | pupu | tanssija | tanssivat puputytöt | tumma iho | vaalea iho</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏿" type="tts">tanssivat puputytöt: vaalea iho, tumma iho</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏻">juhlat | keskivaalea iho | mies | pupu | tanssija | tanssivat puputytöt | vaalea iho</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏻" type="tts">tanssivat puputytöt: keskivaalea iho, vaalea iho</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏽">juhlat | keskivaalea iho | mies | pupu | tanssija | tanssivat puputytöt | tummanvaalea iho</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏽" type="tts">tanssivat puputytöt: keskivaalea iho, tummanvaalea iho</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏾">juhlat | keskitumma iho | keskivaalea iho | mies | pupu | tanssija | tanssivat puputytöt</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏾" type="tts">tanssivat puputytöt: keskivaalea iho, keskitumma iho</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏿">juhlat | keskivaalea iho | mies | pupu | tanssija | tanssivat puputytöt | tumma iho</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏿" type="tts">tanssivat puputytöt: keskivaalea iho, tumma iho</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏻">juhlat | mies | pupu | tanssija | tanssivat puputytöt | tummanvaalea iho | vaalea iho</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏻" type="tts">tanssivat puputytöt: tummanvaalea iho, vaalea iho</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏼">juhlat | keskivaalea iho | mies | pupu | tanssija | tanssivat puputytöt | tummanvaalea iho</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏼" type="tts">tanssivat puputytöt: tummanvaalea iho, keskivaalea iho</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏾">juhlat | keskitumma iho | mies | pupu | tanssija | tanssivat puputytöt | tummanvaalea iho</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏾" type="tts">tanssivat puputytöt: tummanvaalea iho, keskitumma iho</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏿">juhlat | mies | pupu | tanssija | tanssivat puputytöt | tumma iho | tummanvaalea iho</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏿" type="tts">tanssivat puputytöt: tummanvaalea iho, tumma iho</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏻">juhlat | keskitumma iho | mies | pupu | tanssija | tanssivat puputytöt | vaalea iho</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏻" type="tts">tanssivat puputytöt: keskitumma iho, vaalea iho</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏼">juhlat | keskitumma iho | keskivaalea iho | mies | pupu | tanssija | tanssivat puputytöt</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏼" type="tts">tanssivat puputytöt: keskitumma iho, keskivaalea iho</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏽">juhlat | keskitumma iho | mies | pupu | tanssija | tanssivat puputytöt | tummanvaalea iho</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏽" type="tts">tanssivat puputytöt: keskitumma iho, tummanvaalea iho</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏿">juhlat | keskitumma iho | mies | pupu | tanssija | tanssivat puputytöt | tumma iho</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏿" type="tts">tanssivat puputytöt: keskitumma iho, tumma iho</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏻">juhlat | mies | pupu | tanssija | tanssivat puputytöt | tumma iho | vaalea iho</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏻" type="tts">tanssivat puputytöt: tumma iho, vaalea iho</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏼">juhlat | keskivaalea iho | mies | pupu | tanssija | tanssivat puputytöt | tumma iho</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏼" type="tts">tanssivat puputytöt: tumma iho, keskivaalea iho</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏽">juhlat | mies | pupu | tanssija | tanssivat puputytöt | tumma iho | tummanvaalea iho</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏽" type="tts">tanssivat puputytöt: tumma iho, tummanvaalea iho</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏾">juhlat | keskitumma iho | mies | pupu | tanssija | tanssivat puputytöt | tumma iho</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏾" type="tts">tanssivat puputytöt: tumma iho, keskitumma iho</annotation>
 		<annotation cp="🧓🏻">ikäihminen | seniori | sukupuolineutraali | vaalea iho | vanha | vanhus</annotation>
 		<annotation cp="🧓🏻" type="tts">vanhus: vaalea iho</annotation>
 		<annotation cp="🧓🏼">ikäihminen | keskivaalea iho | seniori | sukupuolineutraali | vanha | vanhus</annotation>
@@ -3113,6 +3362,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🕴🏾" type="tts">levitoiva mies puvussa: keskitumma iho</annotation>
 		<annotation cp="🕴🏿">bisnes | levitoiva mies puvussa | mies | puku | tumma iho</annotation>
 		<annotation cp="🕴🏿" type="tts">levitoiva mies puvussa: tumma iho</annotation>
+		<annotation cp="👯🏻">korva | nainen | pupu | puputytöt | tanssija | tyttö | vaalea iho</annotation>
+		<annotation cp="👯🏻" type="tts">puputytöt: vaalea iho</annotation>
+		<annotation cp="👯🏼">keskivaalea iho | korva | nainen | pupu | puputytöt | tanssija | tyttö</annotation>
+		<annotation cp="👯🏼" type="tts">puputytöt: keskivaalea iho</annotation>
+		<annotation cp="👯🏽">korva | nainen | pupu | puputytöt | tanssija | tummanvaalea iho | tyttö</annotation>
+		<annotation cp="👯🏽" type="tts">puputytöt: tummanvaalea iho</annotation>
+		<annotation cp="👯🏾">keskitumma iho | korva | nainen | pupu | puputytöt | tanssija | tyttö</annotation>
+		<annotation cp="👯🏾" type="tts">puputytöt: keskitumma iho</annotation>
+		<annotation cp="👯🏿">korva | nainen | pupu | puputytöt | tanssija | tumma iho | tyttö</annotation>
+		<annotation cp="👯🏿" type="tts">puputytöt: tumma iho</annotation>
+		<annotation cp="👯🏻‍♀">juhlat | mies | pupu | tanssija | tanssivat puputytöt | vaalea iho</annotation>
+		<annotation cp="👯🏻‍♀" type="tts">tanssivat puputytöt: vaalea iho</annotation>
+		<annotation cp="👯🏼‍♀">juhlat | keskivaalea iho | mies | pupu | tanssija | tanssivat puputytöt</annotation>
+		<annotation cp="👯🏼‍♀" type="tts">tanssivat puputytöt: keskivaalea iho</annotation>
+		<annotation cp="👯🏽‍♀">juhlat | mies | pupu | tanssija | tanssivat puputytöt | tummanvaalea iho</annotation>
+		<annotation cp="👯🏽‍♀" type="tts">tanssivat puputytöt: tummanvaalea iho</annotation>
+		<annotation cp="👯🏾‍♀">juhlat | keskitumma iho | mies | pupu | tanssija | tanssivat puputytöt</annotation>
+		<annotation cp="👯🏾‍♀" type="tts">tanssivat puputytöt: keskitumma iho</annotation>
+		<annotation cp="👯🏿‍♀">juhlat | mies | pupu | tanssija | tanssivat puputytöt | tumma iho</annotation>
+		<annotation cp="👯🏿‍♀" type="tts">tanssivat puputytöt: tumma iho</annotation>
+		<annotation cp="👯🏻‍♂">bff | juhla | juhlat | nainen | pupu | tanssi | tanssija | vaalea iho</annotation>
+		<annotation cp="👯🏻‍♂" type="tts">tanssivat pupupojat: vaalea iho</annotation>
+		<annotation cp="👯🏼‍♂">bff | juhla | juhlat | keskivaalea iho | nainen | pupu | tanssi | tanssija</annotation>
+		<annotation cp="👯🏼‍♂" type="tts">tanssivat pupupojat: keskivaalea iho</annotation>
+		<annotation cp="👯🏽‍♂">bff | juhla | juhlat | nainen | pupu | tanssi | tanssija | tummanvaalea iho</annotation>
+		<annotation cp="👯🏽‍♂" type="tts">tanssivat pupupojat: tummanvaalea iho</annotation>
+		<annotation cp="👯🏾‍♂">bff | juhla | juhlat | keskitumma iho | nainen | pupu | tanssi | tanssija</annotation>
+		<annotation cp="👯🏾‍♂" type="tts">tanssivat pupupojat: keskitumma iho</annotation>
+		<annotation cp="👯🏿‍♂">bff | juhla | juhlat | nainen | pupu | tanssi | tanssija | tumma iho</annotation>
+		<annotation cp="👯🏿‍♂" type="tts">tanssivat pupupojat: tumma iho</annotation>
 		<annotation cp="🧖🏻">hemmotella | höyry | kiuas | kylpylä | löyly | löylyhuone | nautinto | rentoutua | sauna | spa | vaalea iho</annotation>
 		<annotation cp="🧖🏻" type="tts">henkilö saunassa: vaalea iho</annotation>
 		<annotation cp="🧖🏼">hemmotella | höyry | keskivaalea iho | kiuas | kylpylä | löyly | löylyhuone | nautinto | rentoutua | sauna | spa</annotation>
@@ -3463,6 +3742,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤸🏾‍♀" type="tts">kärrynpyörää tekevä nainen: keskitumma iho</annotation>
 		<annotation cp="🤸🏿‍♀">kärrynpyörä | nainen | tumma iho | urheilu</annotation>
 		<annotation cp="🤸🏿‍♀" type="tts">kärrynpyörää tekevä nainen: tumma iho</annotation>
+		<annotation cp="🤼🏻">ihmiset | kaksintaistelu | kamppailu | kehässä | liikunta | paini | painia | painija | painijat | painiturnaus | urheilu | vaalea iho</annotation>
+		<annotation cp="🤼🏻" type="tts">painijat: vaalea iho</annotation>
+		<annotation cp="🤼🏼">ihmiset | kaksintaistelu | kamppailu | kehässä | keskivaalea iho | liikunta | paini | painia | painija | painijat | painiturnaus | urheilu</annotation>
+		<annotation cp="🤼🏼" type="tts">painijat: keskivaalea iho</annotation>
+		<annotation cp="🤼🏽">ihmiset | kaksintaistelu | kamppailu | kehässä | liikunta | paini | painia | painija | painijat | painiturnaus | tummanvaalea iho | urheilu</annotation>
+		<annotation cp="🤼🏽" type="tts">painijat: tummanvaalea iho</annotation>
+		<annotation cp="🤼🏾">ihmiset | kaksintaistelu | kamppailu | kehässä | keskitumma iho | liikunta | paini | painia | painija | painijat | painiturnaus | urheilu</annotation>
+		<annotation cp="🤼🏾" type="tts">painijat: keskitumma iho</annotation>
+		<annotation cp="🤼🏿">ihmiset | kaksintaistelu | kamppailu | kehässä | liikunta | paini | painia | painija | painijat | painiturnaus | tumma iho | urheilu</annotation>
+		<annotation cp="🤼🏿" type="tts">painijat: tumma iho</annotation>
+		<annotation cp="🤼🏻‍♀">judo | kamppailu | naiset | painivat naiset | vaalea iho</annotation>
+		<annotation cp="🤼🏻‍♀" type="tts">painivat naiset: vaalea iho</annotation>
+		<annotation cp="🤼🏼‍♀">judo | kamppailu | keskivaalea iho | naiset | painivat naiset</annotation>
+		<annotation cp="🤼🏼‍♀" type="tts">painivat naiset: keskivaalea iho</annotation>
+		<annotation cp="🤼🏽‍♀">judo | kamppailu | naiset | painivat naiset | tummanvaalea iho</annotation>
+		<annotation cp="🤼🏽‍♀" type="tts">painivat naiset: tummanvaalea iho</annotation>
+		<annotation cp="🤼🏾‍♀">judo | kamppailu | keskitumma iho | naiset | painivat naiset</annotation>
+		<annotation cp="🤼🏾‍♀" type="tts">painivat naiset: keskitumma iho</annotation>
+		<annotation cp="🤼🏿‍♀">judo | kamppailu | naiset | painivat naiset | tumma iho</annotation>
+		<annotation cp="🤼🏿‍♀" type="tts">painivat naiset: tumma iho</annotation>
+		<annotation cp="🤼🏻‍♂">judo | kamppailu | miehet | painivat miehet | vaalea iho</annotation>
+		<annotation cp="🤼🏻‍♂" type="tts">painivat miehet: vaalea iho</annotation>
+		<annotation cp="🤼🏼‍♂">judo | kamppailu | keskivaalea iho | miehet | painivat miehet</annotation>
+		<annotation cp="🤼🏼‍♂" type="tts">painivat miehet: keskivaalea iho</annotation>
+		<annotation cp="🤼🏽‍♂">judo | kamppailu | miehet | painivat miehet | tummanvaalea iho</annotation>
+		<annotation cp="🤼🏽‍♂" type="tts">painivat miehet: tummanvaalea iho</annotation>
+		<annotation cp="🤼🏾‍♂">judo | kamppailu | keskitumma iho | miehet | painivat miehet</annotation>
+		<annotation cp="🤼🏾‍♂" type="tts">painivat miehet: keskitumma iho</annotation>
+		<annotation cp="🤼🏿‍♂">judo | kamppailu | miehet | painivat miehet | tumma iho</annotation>
+		<annotation cp="🤼🏿‍♂" type="tts">painivat miehet: tumma iho</annotation>
 		<annotation cp="🤽🏻">ihminen | liikunta | pallo | uinti | urheilu | vaalea iho | vesi | vesipallo | vesiurheilu</annotation>
 		<annotation cp="🤽🏻" type="tts">vesipalloilija: vaalea iho</annotation>
 		<annotation cp="🤽🏼">ihminen | keskivaalea iho | liikunta | pallo | uinti | urheilu | vesi | vesipallo | vesiurheilu</annotation>
@@ -4434,26 +4743,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="₺" type="tts">Turkin liira</annotation>
 		<annotation cp="₼" type="tts">Azerbaidžanin manat</annotation>
 		<annotation cp="₾" type="tts">Georgian lari</annotation>
-		<annotation cp="0⃣">näppäin</annotation>
-		<annotation cp="0⃣" type="tts">näppäin: 0</annotation>
-		<annotation cp="1⃣">näppäin</annotation>
-		<annotation cp="1⃣" type="tts">näppäin: 1</annotation>
-		<annotation cp="2⃣">näppäin</annotation>
-		<annotation cp="2⃣" type="tts">näppäin: 2</annotation>
-		<annotation cp="3⃣">näppäin</annotation>
-		<annotation cp="3⃣" type="tts">näppäin: 3</annotation>
-		<annotation cp="4⃣">näppäin</annotation>
-		<annotation cp="4⃣" type="tts">näppäin: 4</annotation>
-		<annotation cp="5⃣">näppäin</annotation>
-		<annotation cp="5⃣" type="tts">näppäin: 5</annotation>
-		<annotation cp="6⃣">näppäin</annotation>
-		<annotation cp="6⃣" type="tts">näppäin: 6</annotation>
-		<annotation cp="7⃣">näppäin</annotation>
-		<annotation cp="7⃣" type="tts">näppäin: 7</annotation>
-		<annotation cp="8⃣">näppäin</annotation>
-		<annotation cp="8⃣" type="tts">näppäin: 8</annotation>
-		<annotation cp="9⃣">näppäin</annotation>
-		<annotation cp="9⃣" type="tts">näppäin: 9</annotation>
 		<annotation cp="₧" type="tts">Espanjan peseta</annotation>
 	</annotations>
 </ldml>

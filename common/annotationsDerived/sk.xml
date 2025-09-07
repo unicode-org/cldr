@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-
-Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
 -->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -603,6 +602,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾" type="tts">svetlovlasý človek: stredne tmavý tón pleti</annotation>
 		<annotation cp="👱🏿">blond | blonďák | človek | muž | osoba | osoba s blond vlasmi | osoba so svetlými vlasmi | svetlovlasý človek | tmavý tón pleti | tvár</annotation>
 		<annotation cp="👱🏿" type="tts">svetlovlasý človek: tmavý tón pleti</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏼">duel | ľudia | šport | stredne svetlý tón pleti | svetlý tón pleti | v ringu | wrestling | zápas | zápasiaci ľudia</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏼" type="tts">zápasiaci ľudia: svetlý tón pleti, stredne svetlý tón pleti</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏽">duel | ľudia | šport | stredný tón pleti | svetlý tón pleti | v ringu | wrestling | zápas | zápasiaci ľudia</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏽" type="tts">zápasiaci ľudia: svetlý tón pleti, stredný tón pleti</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏾">duel | ľudia | šport | stredne tmavý tón pleti | svetlý tón pleti | v ringu | wrestling | zápas | zápasiaci ľudia</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏾" type="tts">zápasiaci ľudia: svetlý tón pleti, stredne tmavý tón pleti</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏿">duel | ľudia | šport | svetlý tón pleti | tmavý tón pleti | v ringu | wrestling | zápas | zápasiaci ľudia</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏿" type="tts">zápasiaci ľudia: svetlý tón pleti, tmavý tón pleti</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏻">duel | ľudia | šport | stredne svetlý tón pleti | svetlý tón pleti | v ringu | wrestling | zápas | zápasiaci ľudia</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏻" type="tts">zápasiaci ľudia: stredne svetlý tón pleti, svetlý tón pleti</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏽">duel | ľudia | šport | stredne svetlý tón pleti | stredný tón pleti | v ringu | wrestling | zápas | zápasiaci ľudia</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏽" type="tts">zápasiaci ľudia: stredne svetlý tón pleti, stredný tón pleti</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏾">duel | ľudia | šport | stredne svetlý tón pleti | stredne tmavý tón pleti | v ringu | wrestling | zápas | zápasiaci ľudia</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏾" type="tts">zápasiaci ľudia: stredne svetlý tón pleti, stredne tmavý tón pleti</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏿">duel | ľudia | šport | stredne svetlý tón pleti | tmavý tón pleti | v ringu | wrestling | zápas | zápasiaci ľudia</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏿" type="tts">zápasiaci ľudia: stredne svetlý tón pleti, tmavý tón pleti</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏻">duel | ľudia | šport | stredný tón pleti | svetlý tón pleti | v ringu | wrestling | zápas | zápasiaci ľudia</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏻" type="tts">zápasiaci ľudia: stredný tón pleti, svetlý tón pleti</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏼">duel | ľudia | šport | stredne svetlý tón pleti | stredný tón pleti | v ringu | wrestling | zápas | zápasiaci ľudia</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏼" type="tts">zápasiaci ľudia: stredný tón pleti, stredne svetlý tón pleti</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏾">duel | ľudia | šport | stredne tmavý tón pleti | stredný tón pleti | v ringu | wrestling | zápas | zápasiaci ľudia</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏾" type="tts">zápasiaci ľudia: stredný tón pleti, stredne tmavý tón pleti</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏿">duel | ľudia | šport | stredný tón pleti | tmavý tón pleti | v ringu | wrestling | zápas | zápasiaci ľudia</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏿" type="tts">zápasiaci ľudia: stredný tón pleti, tmavý tón pleti</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏻">duel | ľudia | šport | stredne tmavý tón pleti | svetlý tón pleti | v ringu | wrestling | zápas | zápasiaci ľudia</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏻" type="tts">zápasiaci ľudia: stredne tmavý tón pleti, svetlý tón pleti</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏼">duel | ľudia | šport | stredne svetlý tón pleti | stredne tmavý tón pleti | v ringu | wrestling | zápas | zápasiaci ľudia</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏼" type="tts">zápasiaci ľudia: stredne tmavý tón pleti, stredne svetlý tón pleti</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏽">duel | ľudia | šport | stredne tmavý tón pleti | stredný tón pleti | v ringu | wrestling | zápas | zápasiaci ľudia</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏽" type="tts">zápasiaci ľudia: stredne tmavý tón pleti, stredný tón pleti</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏿">duel | ľudia | šport | stredne tmavý tón pleti | tmavý tón pleti | v ringu | wrestling | zápas | zápasiaci ľudia</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏿" type="tts">zápasiaci ľudia: stredne tmavý tón pleti, tmavý tón pleti</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏻">duel | ľudia | šport | svetlý tón pleti | tmavý tón pleti | v ringu | wrestling | zápas | zápasiaci ľudia</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏻" type="tts">zápasiaci ľudia: tmavý tón pleti, svetlý tón pleti</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏼">duel | ľudia | šport | stredne svetlý tón pleti | tmavý tón pleti | v ringu | wrestling | zápas | zápasiaci ľudia</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏼" type="tts">zápasiaci ľudia: tmavý tón pleti, stredne svetlý tón pleti</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏽">duel | ľudia | šport | stredný tón pleti | tmavý tón pleti | v ringu | wrestling | zápas | zápasiaci ľudia</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏽" type="tts">zápasiaci ľudia: tmavý tón pleti, stredný tón pleti</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏾">duel | ľudia | šport | stredne tmavý tón pleti | tmavý tón pleti | v ringu | wrestling | zápas | zápasiaci ľudia</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏾" type="tts">zápasiaci ľudia: tmavý tón pleti, stredne tmavý tón pleti</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏼">bozk | dospelý | láska | pár | pusa | rande | romanca | romantika | srdce | stredne svetlý tón pleti | svetlý tón pleti | výročie</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏼" type="tts">bozk: dospelý, dospelý, svetlý tón pleti, stredne svetlý tón pleti</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏽">bozk | dospelý | láska | pár | pusa | rande | romanca | romantika | srdce | stredný tón pleti | svetlý tón pleti | výročie</annotation>
@@ -731,6 +770,56 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧑🏾‍🦲" type="tts">dospelý: stredne tmavý tón pleti, holá hlava</annotation>
 		<annotation cp="🧑🏿‍🦲">človek | dospelá | dospelý | holá hlava | osoba | tmavý tón pleti</annotation>
 		<annotation cp="🧑🏿‍🦲" type="tts">dospelý: tmavý tón pleti, holá hlava</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏼">dvojča | identické | ľudia so zajačími ušami | osoba | pár | party | spriaznená duša | stredne svetlý tón pleti | svetlý tón pleti | tancujúce dievčatá | tanec | uši | zábava | zajačik | žena</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏼" type="tts">ľudia so zajačími ušami: svetlý tón pleti, stredne svetlý tón pleti</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏽">dvojča | identické | ľudia so zajačími ušami | osoba | pár | party | spriaznená duša | stredný tón pleti | svetlý tón pleti | tancujúce dievčatá | tanec | uši | zábava | zajačik | žena</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏽" type="tts">ľudia so zajačími ušami: svetlý tón pleti, stredný tón pleti</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏾">dvojča | identické | ľudia so zajačími ušami | osoba | pár | party | spriaznená duša | stredne tmavý tón pleti | svetlý tón pleti | tancujúce dievčatá | tanec | uši | zábava | zajačik | žena</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏾" type="tts">ľudia so zajačími ušami: svetlý tón pleti, stredne tmavý tón pleti</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏿">dvojča | identické | ľudia so zajačími ušami | osoba | pár | party | spriaznená duša | svetlý tón pleti | tancujúce dievčatá | tanec | tmavý tón pleti | uši | zábava | zajačik | žena</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏿" type="tts">ľudia so zajačími ušami: svetlý tón pleti, tmavý tón pleti</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏻">dvojča | identické | ľudia so zajačími ušami | osoba | pár | party | spriaznená duša | stredne svetlý tón pleti | svetlý tón pleti | tancujúce dievčatá | tanec | uši | zábava | zajačik | žena</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏻" type="tts">ľudia so zajačími ušami: stredne svetlý tón pleti, svetlý tón pleti</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏽">dvojča | identické | ľudia so zajačími ušami | osoba | pár | party | spriaznená duša | stredne svetlý tón pleti | stredný tón pleti | tancujúce dievčatá | tanec | uši | zábava | zajačik | žena</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏽" type="tts">ľudia so zajačími ušami: stredne svetlý tón pleti, stredný tón pleti</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏾">dvojča | identické | ľudia so zajačími ušami | osoba | pár | party | spriaznená duša | stredne svetlý tón pleti | stredne tmavý tón pleti | tancujúce dievčatá | tanec | uši | zábava | zajačik | žena</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏾" type="tts">ľudia so zajačími ušami: stredne svetlý tón pleti, stredne tmavý tón pleti</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏿">dvojča | identické | ľudia so zajačími ušami | osoba | pár | party | spriaznená duša | stredne svetlý tón pleti | tancujúce dievčatá | tanec | tmavý tón pleti | uši | zábava | zajačik | žena</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏿" type="tts">ľudia so zajačími ušami: stredne svetlý tón pleti, tmavý tón pleti</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏻">dvojča | identické | ľudia so zajačími ušami | osoba | pár | party | spriaznená duša | stredný tón pleti | svetlý tón pleti | tancujúce dievčatá | tanec | uši | zábava | zajačik | žena</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏻" type="tts">ľudia so zajačími ušami: stredný tón pleti, svetlý tón pleti</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏼">dvojča | identické | ľudia so zajačími ušami | osoba | pár | party | spriaznená duša | stredne svetlý tón pleti | stredný tón pleti | tancujúce dievčatá | tanec | uši | zábava | zajačik | žena</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏼" type="tts">ľudia so zajačími ušami: stredný tón pleti, stredne svetlý tón pleti</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏾">dvojča | identické | ľudia so zajačími ušami | osoba | pár | party | spriaznená duša | stredne tmavý tón pleti | stredný tón pleti | tancujúce dievčatá | tanec | uši | zábava | zajačik | žena</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏾" type="tts">ľudia so zajačími ušami: stredný tón pleti, stredne tmavý tón pleti</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏿">dvojča | identické | ľudia so zajačími ušami | osoba | pár | party | spriaznená duša | stredný tón pleti | tancujúce dievčatá | tanec | tmavý tón pleti | uši | zábava | zajačik | žena</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏿" type="tts">ľudia so zajačími ušami: stredný tón pleti, tmavý tón pleti</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏻">dvojča | identické | ľudia so zajačími ušami | osoba | pár | party | spriaznená duša | stredne tmavý tón pleti | svetlý tón pleti | tancujúce dievčatá | tanec | uši | zábava | zajačik | žena</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏻" type="tts">ľudia so zajačími ušami: stredne tmavý tón pleti, svetlý tón pleti</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏼">dvojča | identické | ľudia so zajačími ušami | osoba | pár | party | spriaznená duša | stredne svetlý tón pleti | stredne tmavý tón pleti | tancujúce dievčatá | tanec | uši | zábava | zajačik | žena</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏼" type="tts">ľudia so zajačími ušami: stredne tmavý tón pleti, stredne svetlý tón pleti</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏽">dvojča | identické | ľudia so zajačími ušami | osoba | pár | party | spriaznená duša | stredne tmavý tón pleti | stredný tón pleti | tancujúce dievčatá | tanec | uši | zábava | zajačik | žena</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏽" type="tts">ľudia so zajačími ušami: stredne tmavý tón pleti, stredný tón pleti</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏿">dvojča | identické | ľudia so zajačími ušami | osoba | pár | party | spriaznená duša | stredne tmavý tón pleti | tancujúce dievčatá | tanec | tmavý tón pleti | uši | zábava | zajačik | žena</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏿" type="tts">ľudia so zajačími ušami: stredne tmavý tón pleti, tmavý tón pleti</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏻">dvojča | identické | ľudia so zajačími ušami | osoba | pár | party | spriaznená duša | svetlý tón pleti | tancujúce dievčatá | tanec | tmavý tón pleti | uši | zábava | zajačik | žena</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏻" type="tts">ľudia so zajačími ušami: tmavý tón pleti, svetlý tón pleti</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏼">dvojča | identické | ľudia so zajačími ušami | osoba | pár | party | spriaznená duša | stredne svetlý tón pleti | tancujúce dievčatá | tanec | tmavý tón pleti | uši | zábava | zajačik | žena</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏼" type="tts">ľudia so zajačími ušami: tmavý tón pleti, stredne svetlý tón pleti</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏽">dvojča | identické | ľudia so zajačími ušami | osoba | pár | party | spriaznená duša | stredný tón pleti | tancujúce dievčatá | tanec | tmavý tón pleti | uši | zábava | zajačik | žena</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏽" type="tts">ľudia so zajačími ušami: tmavý tón pleti, stredný tón pleti</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏾">dvojča | identické | ľudia so zajačími ušami | osoba | pár | party | spriaznená duša | stredne tmavý tón pleti | tancujúce dievčatá | tanec | tmavý tón pleti | uši | zábava | zajačik | žena</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏾" type="tts">ľudia so zajačími ušami: tmavý tón pleti, stredne tmavý tón pleti</annotation>
+		<annotation cp="🧑🏻‍🩰">balet | svetlý tón pleti | tanečnica | tanečníčka</annotation>
+		<annotation cp="🧑🏻‍🩰" type="tts">baletka: svetlý tón pleti</annotation>
+		<annotation cp="🧑🏼‍🩰">balet | stredne svetlý tón pleti | tanečnica | tanečníčka</annotation>
+		<annotation cp="🧑🏼‍🩰" type="tts">baletka: stredne svetlý tón pleti</annotation>
+		<annotation cp="🧑🏽‍🩰">balet | stredný tón pleti | tanečnica | tanečníčka</annotation>
+		<annotation cp="🧑🏽‍🩰" type="tts">baletka: stredný tón pleti</annotation>
+		<annotation cp="🧑🏾‍🩰">balet | stredne tmavý tón pleti | tanečnica | tanečníčka</annotation>
+		<annotation cp="🧑🏾‍🩰" type="tts">baletka: stredne tmavý tón pleti</annotation>
+		<annotation cp="🧑🏿‍🩰">balet | tanečnica | tanečníčka | tmavý tón pleti</annotation>
+		<annotation cp="🧑🏿‍🩰" type="tts">baletka: tmavý tón pleti</annotation>
 		<annotation cp="👨🏻">brat | chlap | dospelý | kamarát | muž | osoba | priateľ | svetlý tón pleti</annotation>
 		<annotation cp="👨🏻" type="tts">muž: svetlý tón pleti</annotation>
 		<annotation cp="👨🏼">brat | chlap | dospelý | kamarát | muž | osoba | priateľ | stredne svetlý tón pleti</annotation>
@@ -771,6 +860,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾‍♂" type="tts">blondín: stredne tmavý tón pleti</annotation>
 		<annotation cp="👱🏿‍♂">blond | blondín | muž | svetlovlasý | tmavý tón pleti</annotation>
 		<annotation cp="👱🏿‍♂" type="tts">blondín: tmavý tón pleti</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏼">chlapi | muž | muži | osoba | šport | stredne svetlý tón pleti | súboj | svetlý tón pleti | v ringu | wrestling | zápas | zápasiť | zápasníci | zápasník</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏼" type="tts">zápasníci: svetlý tón pleti, stredne svetlý tón pleti</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏽">chlapi | muž | muži | osoba | šport | stredný tón pleti | súboj | svetlý tón pleti | v ringu | wrestling | zápas | zápasiť | zápasníci | zápasník</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏽" type="tts">zápasníci: svetlý tón pleti, stredný tón pleti</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏾">chlapi | muž | muži | osoba | šport | stredne tmavý tón pleti | súboj | svetlý tón pleti | v ringu | wrestling | zápas | zápasiť | zápasníci | zápasník</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏾" type="tts">zápasníci: svetlý tón pleti, stredne tmavý tón pleti</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏿">chlapi | muž | muži | osoba | šport | súboj | svetlý tón pleti | tmavý tón pleti | v ringu | wrestling | zápas | zápasiť | zápasníci | zápasník</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏿" type="tts">zápasníci: svetlý tón pleti, tmavý tón pleti</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏻">chlapi | muž | muži | osoba | šport | stredne svetlý tón pleti | súboj | svetlý tón pleti | v ringu | wrestling | zápas | zápasiť | zápasníci | zápasník</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏻" type="tts">zápasníci: stredne svetlý tón pleti, svetlý tón pleti</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏽">chlapi | muž | muži | osoba | šport | stredne svetlý tón pleti | stredný tón pleti | súboj | v ringu | wrestling | zápas | zápasiť | zápasníci | zápasník</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏽" type="tts">zápasníci: stredne svetlý tón pleti, stredný tón pleti</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏾">chlapi | muž | muži | osoba | šport | stredne svetlý tón pleti | stredne tmavý tón pleti | súboj | v ringu | wrestling | zápas | zápasiť | zápasníci | zápasník</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏾" type="tts">zápasníci: stredne svetlý tón pleti, stredne tmavý tón pleti</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏿">chlapi | muž | muži | osoba | šport | stredne svetlý tón pleti | súboj | tmavý tón pleti | v ringu | wrestling | zápas | zápasiť | zápasníci | zápasník</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏿" type="tts">zápasníci: stredne svetlý tón pleti, tmavý tón pleti</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏻">chlapi | muž | muži | osoba | šport | stredný tón pleti | súboj | svetlý tón pleti | v ringu | wrestling | zápas | zápasiť | zápasníci | zápasník</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏻" type="tts">zápasníci: stredný tón pleti, svetlý tón pleti</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏼">chlapi | muž | muži | osoba | šport | stredne svetlý tón pleti | stredný tón pleti | súboj | v ringu | wrestling | zápas | zápasiť | zápasníci | zápasník</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏼" type="tts">zápasníci: stredný tón pleti, stredne svetlý tón pleti</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏾">chlapi | muž | muži | osoba | šport | stredne tmavý tón pleti | stredný tón pleti | súboj | v ringu | wrestling | zápas | zápasiť | zápasníci | zápasník</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏾" type="tts">zápasníci: stredný tón pleti, stredne tmavý tón pleti</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏿">chlapi | muž | muži | osoba | šport | stredný tón pleti | súboj | tmavý tón pleti | v ringu | wrestling | zápas | zápasiť | zápasníci | zápasník</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏿" type="tts">zápasníci: stredný tón pleti, tmavý tón pleti</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏻">chlapi | muž | muži | osoba | šport | stredne tmavý tón pleti | súboj | svetlý tón pleti | v ringu | wrestling | zápas | zápasiť | zápasníci | zápasník</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏻" type="tts">zápasníci: stredne tmavý tón pleti, svetlý tón pleti</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏼">chlapi | muž | muži | osoba | šport | stredne svetlý tón pleti | stredne tmavý tón pleti | súboj | v ringu | wrestling | zápas | zápasiť | zápasníci | zápasník</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏼" type="tts">zápasníci: stredne tmavý tón pleti, stredne svetlý tón pleti</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏽">chlapi | muž | muži | osoba | šport | stredne tmavý tón pleti | stredný tón pleti | súboj | v ringu | wrestling | zápas | zápasiť | zápasníci | zápasník</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏽" type="tts">zápasníci: stredne tmavý tón pleti, stredný tón pleti</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏿">chlapi | muž | muži | osoba | šport | stredne tmavý tón pleti | súboj | tmavý tón pleti | v ringu | wrestling | zápas | zápasiť | zápasníci | zápasník</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏿" type="tts">zápasníci: stredne tmavý tón pleti, tmavý tón pleti</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏻">chlapi | muž | muži | osoba | šport | súboj | svetlý tón pleti | tmavý tón pleti | v ringu | wrestling | zápas | zápasiť | zápasníci | zápasník</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏻" type="tts">zápasníci: tmavý tón pleti, svetlý tón pleti</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏼">chlapi | muž | muži | osoba | šport | stredne svetlý tón pleti | súboj | tmavý tón pleti | v ringu | wrestling | zápas | zápasiť | zápasníci | zápasník</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏼" type="tts">zápasníci: tmavý tón pleti, stredne svetlý tón pleti</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏽">chlapi | muž | muži | osoba | šport | stredný tón pleti | súboj | tmavý tón pleti | v ringu | wrestling | zápas | zápasiť | zápasníci | zápasník</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏽" type="tts">zápasníci: tmavý tón pleti, stredný tón pleti</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏾">chlapi | muž | muži | osoba | šport | stredne tmavý tón pleti | súboj | tmavý tón pleti | v ringu | wrestling | zápas | zápasiť | zápasníci | zápasník</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏾" type="tts">zápasníci: tmavý tón pleti, stredne tmavý tón pleti</annotation>
 		<annotation cp="👨🏻‍❤‍💋‍👨🏻">bozk | láska | muž | pár | pusa | rande | romanca | romantika | srdce | svetlý tón pleti | výročie</annotation>
 		<annotation cp="👨🏻‍❤‍💋‍👨🏻" type="tts">bozk: muž, muž, svetlý tón pleti</annotation>
 		<annotation cp="👨🏻‍❤‍💋‍👨🏼">bozk | láska | muž | pár | pusa | rande | romanca | romantika | srdce | stredne svetlý tón pleti | svetlý tón pleti | výročie</annotation>
@@ -919,6 +1048,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾‍🦲" type="tts">muž: stredne tmavý tón pleti, holá hlava</annotation>
 		<annotation cp="👨🏿‍🦲">brat | chlap | dospelý | holá hlava | kamarát | muž | osoba | priateľ | tmavý tón pleti</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">muž: tmavý tón pleti, holá hlava</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏼">dvojičky | muž | muži na párty | muži so zajačími ušami | párty | stredne svetlý tón pleti | svetlý tón pleti | tanec | uši | zábava | zajačik</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏼" type="tts">muži so zajačími ušami: svetlý tón pleti, stredne svetlý tón pleti</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏽">dvojičky | muž | muži na párty | muži so zajačími ušami | párty | stredný tón pleti | svetlý tón pleti | tanec | uši | zábava | zajačik</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏽" type="tts">muži so zajačími ušami: svetlý tón pleti, stredný tón pleti</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏾">dvojičky | muž | muži na párty | muži so zajačími ušami | párty | stredne tmavý tón pleti | svetlý tón pleti | tanec | uši | zábava | zajačik</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏾" type="tts">muži so zajačími ušami: svetlý tón pleti, stredne tmavý tón pleti</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏿">dvojičky | muž | muži na párty | muži so zajačími ušami | párty | svetlý tón pleti | tanec | tmavý tón pleti | uši | zábava | zajačik</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏿" type="tts">muži so zajačími ušami: svetlý tón pleti, tmavý tón pleti</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏻">dvojičky | muž | muži na párty | muži so zajačími ušami | párty | stredne svetlý tón pleti | svetlý tón pleti | tanec | uši | zábava | zajačik</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏻" type="tts">muži so zajačími ušami: stredne svetlý tón pleti, svetlý tón pleti</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏽">dvojičky | muž | muži na párty | muži so zajačími ušami | párty | stredne svetlý tón pleti | stredný tón pleti | tanec | uši | zábava | zajačik</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏽" type="tts">muži so zajačími ušami: stredne svetlý tón pleti, stredný tón pleti</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏾">dvojičky | muž | muži na párty | muži so zajačími ušami | párty | stredne svetlý tón pleti | stredne tmavý tón pleti | tanec | uši | zábava | zajačik</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏾" type="tts">muži so zajačími ušami: stredne svetlý tón pleti, stredne tmavý tón pleti</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏿">dvojičky | muž | muži na párty | muži so zajačími ušami | párty | stredne svetlý tón pleti | tanec | tmavý tón pleti | uši | zábava | zajačik</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏿" type="tts">muži so zajačími ušami: stredne svetlý tón pleti, tmavý tón pleti</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏻">dvojičky | muž | muži na párty | muži so zajačími ušami | párty | stredný tón pleti | svetlý tón pleti | tanec | uši | zábava | zajačik</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏻" type="tts">muži so zajačími ušami: stredný tón pleti, svetlý tón pleti</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏼">dvojičky | muž | muži na párty | muži so zajačími ušami | párty | stredne svetlý tón pleti | stredný tón pleti | tanec | uši | zábava | zajačik</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏼" type="tts">muži so zajačími ušami: stredný tón pleti, stredne svetlý tón pleti</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏾">dvojičky | muž | muži na párty | muži so zajačími ušami | párty | stredne tmavý tón pleti | stredný tón pleti | tanec | uši | zábava | zajačik</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏾" type="tts">muži so zajačími ušami: stredný tón pleti, stredne tmavý tón pleti</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏿">dvojičky | muž | muži na párty | muži so zajačími ušami | párty | stredný tón pleti | tanec | tmavý tón pleti | uši | zábava | zajačik</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏿" type="tts">muži so zajačími ušami: stredný tón pleti, tmavý tón pleti</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏻">dvojičky | muž | muži na párty | muži so zajačími ušami | párty | stredne tmavý tón pleti | svetlý tón pleti | tanec | uši | zábava | zajačik</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏻" type="tts">muži so zajačími ušami: stredne tmavý tón pleti, svetlý tón pleti</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏼">dvojičky | muž | muži na párty | muži so zajačími ušami | párty | stredne svetlý tón pleti | stredne tmavý tón pleti | tanec | uši | zábava | zajačik</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏼" type="tts">muži so zajačími ušami: stredne tmavý tón pleti, stredne svetlý tón pleti</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏽">dvojičky | muž | muži na párty | muži so zajačími ušami | párty | stredne tmavý tón pleti | stredný tón pleti | tanec | uši | zábava | zajačik</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏽" type="tts">muži so zajačími ušami: stredne tmavý tón pleti, stredný tón pleti</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏿">dvojičky | muž | muži na párty | muži so zajačími ušami | párty | stredne tmavý tón pleti | tanec | tmavý tón pleti | uši | zábava | zajačik</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏿" type="tts">muži so zajačími ušami: stredne tmavý tón pleti, tmavý tón pleti</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏻">dvojičky | muž | muži na párty | muži so zajačími ušami | párty | svetlý tón pleti | tanec | tmavý tón pleti | uši | zábava | zajačik</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏻" type="tts">muži so zajačími ušami: tmavý tón pleti, svetlý tón pleti</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏼">dvojičky | muž | muži na párty | muži so zajačími ušami | párty | stredne svetlý tón pleti | tanec | tmavý tón pleti | uši | zábava | zajačik</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏼" type="tts">muži so zajačími ušami: tmavý tón pleti, stredne svetlý tón pleti</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏽">dvojičky | muž | muži na párty | muži so zajačími ušami | párty | stredný tón pleti | tanec | tmavý tón pleti | uši | zábava | zajačik</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏽" type="tts">muži so zajačími ušami: tmavý tón pleti, stredný tón pleti</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏾">dvojičky | muž | muži na párty | muži so zajačími ušami | párty | stredne tmavý tón pleti | tanec | tmavý tón pleti | uši | zábava | zajačik</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏾" type="tts">muži so zajačími ušami: tmavý tón pleti, stredne tmavý tón pleti</annotation>
 		<annotation cp="👩🏻">dospelá | osoba | svetlý tón pleti | účes | vlasy | žena</annotation>
 		<annotation cp="👩🏻" type="tts">žena: svetlý tón pleti</annotation>
 		<annotation cp="👩🏼">dospelá | osoba | stredne svetlý tón pleti | účes | vlasy | žena</annotation>
@@ -949,6 +1118,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾‍♀" type="tts">blondína: stredne tmavý tón pleti</annotation>
 		<annotation cp="👱🏿‍♀">blond | blondína | blondínka | drdol | osoba | svetlovlasá | tmavý tón pleti | žena</annotation>
 		<annotation cp="👱🏿‍♀" type="tts">blondína: tmavý tón pleti</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏼">osoba | šport | stredne svetlý tón pleti | súboj | svetlý tón pleti | v ringu | wrestling | zápas | zápasiť | zápasníčka | zápasníčky | žena | ženy</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏼" type="tts">zápasníčky: svetlý tón pleti, stredne svetlý tón pleti</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏽">osoba | šport | stredný tón pleti | súboj | svetlý tón pleti | v ringu | wrestling | zápas | zápasiť | zápasníčka | zápasníčky | žena | ženy</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏽" type="tts">zápasníčky: svetlý tón pleti, stredný tón pleti</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏾">osoba | šport | stredne tmavý tón pleti | súboj | svetlý tón pleti | v ringu | wrestling | zápas | zápasiť | zápasníčka | zápasníčky | žena | ženy</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏾" type="tts">zápasníčky: svetlý tón pleti, stredne tmavý tón pleti</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏿">osoba | šport | súboj | svetlý tón pleti | tmavý tón pleti | v ringu | wrestling | zápas | zápasiť | zápasníčka | zápasníčky | žena | ženy</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏿" type="tts">zápasníčky: svetlý tón pleti, tmavý tón pleti</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏻">osoba | šport | stredne svetlý tón pleti | súboj | svetlý tón pleti | v ringu | wrestling | zápas | zápasiť | zápasníčka | zápasníčky | žena | ženy</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏻" type="tts">zápasníčky: stredne svetlý tón pleti, svetlý tón pleti</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏽">osoba | šport | stredne svetlý tón pleti | stredný tón pleti | súboj | v ringu | wrestling | zápas | zápasiť | zápasníčka | zápasníčky | žena | ženy</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏽" type="tts">zápasníčky: stredne svetlý tón pleti, stredný tón pleti</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏾">osoba | šport | stredne svetlý tón pleti | stredne tmavý tón pleti | súboj | v ringu | wrestling | zápas | zápasiť | zápasníčka | zápasníčky | žena | ženy</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏾" type="tts">zápasníčky: stredne svetlý tón pleti, stredne tmavý tón pleti</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏿">osoba | šport | stredne svetlý tón pleti | súboj | tmavý tón pleti | v ringu | wrestling | zápas | zápasiť | zápasníčka | zápasníčky | žena | ženy</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏿" type="tts">zápasníčky: stredne svetlý tón pleti, tmavý tón pleti</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏻">osoba | šport | stredný tón pleti | súboj | svetlý tón pleti | v ringu | wrestling | zápas | zápasiť | zápasníčka | zápasníčky | žena | ženy</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏻" type="tts">zápasníčky: stredný tón pleti, svetlý tón pleti</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏼">osoba | šport | stredne svetlý tón pleti | stredný tón pleti | súboj | v ringu | wrestling | zápas | zápasiť | zápasníčka | zápasníčky | žena | ženy</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏼" type="tts">zápasníčky: stredný tón pleti, stredne svetlý tón pleti</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏾">osoba | šport | stredne tmavý tón pleti | stredný tón pleti | súboj | v ringu | wrestling | zápas | zápasiť | zápasníčka | zápasníčky | žena | ženy</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏾" type="tts">zápasníčky: stredný tón pleti, stredne tmavý tón pleti</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏿">osoba | šport | stredný tón pleti | súboj | tmavý tón pleti | v ringu | wrestling | zápas | zápasiť | zápasníčka | zápasníčky | žena | ženy</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏿" type="tts">zápasníčky: stredný tón pleti, tmavý tón pleti</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏻">osoba | šport | stredne tmavý tón pleti | súboj | svetlý tón pleti | v ringu | wrestling | zápas | zápasiť | zápasníčka | zápasníčky | žena | ženy</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏻" type="tts">zápasníčky: stredne tmavý tón pleti, svetlý tón pleti</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏼">osoba | šport | stredne svetlý tón pleti | stredne tmavý tón pleti | súboj | v ringu | wrestling | zápas | zápasiť | zápasníčka | zápasníčky | žena | ženy</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏼" type="tts">zápasníčky: stredne tmavý tón pleti, stredne svetlý tón pleti</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏽">osoba | šport | stredne tmavý tón pleti | stredný tón pleti | súboj | v ringu | wrestling | zápas | zápasiť | zápasníčka | zápasníčky | žena | ženy</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏽" type="tts">zápasníčky: stredne tmavý tón pleti, stredný tón pleti</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏿">osoba | šport | stredne tmavý tón pleti | súboj | tmavý tón pleti | v ringu | wrestling | zápas | zápasiť | zápasníčka | zápasníčky | žena | ženy</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏿" type="tts">zápasníčky: stredne tmavý tón pleti, tmavý tón pleti</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏻">osoba | šport | súboj | svetlý tón pleti | tmavý tón pleti | v ringu | wrestling | zápas | zápasiť | zápasníčka | zápasníčky | žena | ženy</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏻" type="tts">zápasníčky: tmavý tón pleti, svetlý tón pleti</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏼">osoba | šport | stredne svetlý tón pleti | súboj | tmavý tón pleti | v ringu | wrestling | zápas | zápasiť | zápasníčka | zápasníčky | žena | ženy</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏼" type="tts">zápasníčky: tmavý tón pleti, stredne svetlý tón pleti</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏽">osoba | šport | stredný tón pleti | súboj | tmavý tón pleti | v ringu | wrestling | zápas | zápasiť | zápasníčka | zápasníčky | žena | ženy</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏽" type="tts">zápasníčky: tmavý tón pleti, stredný tón pleti</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏾">osoba | šport | stredne tmavý tón pleti | súboj | tmavý tón pleti | v ringu | wrestling | zápas | zápasiť | zápasníčka | zápasníčky | žena | ženy</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏾" type="tts">zápasníčky: tmavý tón pleti, stredne tmavý tón pleti</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👨🏻">bozk | láska | muž | pár | pusa | rande | romanca | romantika | srdce | svetlý tón pleti | výročie | žena</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👨🏻" type="tts">bozk: žena, muž, svetlý tón pleti</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👨🏼">bozk | láska | muž | pár | pusa | rande | romanca | romantika | srdce | stredne svetlý tón pleti | svetlý tón pleti | výročie | žena</annotation>
@@ -1197,6 +1406,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🦲" type="tts">žena: stredne tmavý tón pleti, holá hlava</annotation>
 		<annotation cp="👩🏿‍🦲">dospelá | holá hlava | osoba | tmavý tón pleti | účes | vlasy | žena</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">žena: tmavý tón pleti, holá hlava</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏼">stredne svetlý tón pleti | svetlý tón pleti | tanec | uši | zábava | zajačik | ženy so zajačími ušami</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏼" type="tts">ženy so zajačími ušami: svetlý tón pleti, stredne svetlý tón pleti</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏽">stredný tón pleti | svetlý tón pleti | tanec | uši | zábava | zajačik | ženy so zajačími ušami</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏽" type="tts">ženy so zajačími ušami: svetlý tón pleti, stredný tón pleti</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏾">stredne tmavý tón pleti | svetlý tón pleti | tanec | uši | zábava | zajačik | ženy so zajačími ušami</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏾" type="tts">ženy so zajačími ušami: svetlý tón pleti, stredne tmavý tón pleti</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏿">svetlý tón pleti | tanec | tmavý tón pleti | uši | zábava | zajačik | ženy so zajačími ušami</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏿" type="tts">ženy so zajačími ušami: svetlý tón pleti, tmavý tón pleti</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏻">stredne svetlý tón pleti | svetlý tón pleti | tanec | uši | zábava | zajačik | ženy so zajačími ušami</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏻" type="tts">ženy so zajačími ušami: stredne svetlý tón pleti, svetlý tón pleti</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏽">stredne svetlý tón pleti | stredný tón pleti | tanec | uši | zábava | zajačik | ženy so zajačími ušami</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏽" type="tts">ženy so zajačími ušami: stredne svetlý tón pleti, stredný tón pleti</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏾">stredne svetlý tón pleti | stredne tmavý tón pleti | tanec | uši | zábava | zajačik | ženy so zajačími ušami</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏾" type="tts">ženy so zajačími ušami: stredne svetlý tón pleti, stredne tmavý tón pleti</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏿">stredne svetlý tón pleti | tanec | tmavý tón pleti | uši | zábava | zajačik | ženy so zajačími ušami</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏿" type="tts">ženy so zajačími ušami: stredne svetlý tón pleti, tmavý tón pleti</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏻">stredný tón pleti | svetlý tón pleti | tanec | uši | zábava | zajačik | ženy so zajačími ušami</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏻" type="tts">ženy so zajačími ušami: stredný tón pleti, svetlý tón pleti</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏼">stredne svetlý tón pleti | stredný tón pleti | tanec | uši | zábava | zajačik | ženy so zajačími ušami</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏼" type="tts">ženy so zajačími ušami: stredný tón pleti, stredne svetlý tón pleti</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏾">stredne tmavý tón pleti | stredný tón pleti | tanec | uši | zábava | zajačik | ženy so zajačími ušami</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏾" type="tts">ženy so zajačími ušami: stredný tón pleti, stredne tmavý tón pleti</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏿">stredný tón pleti | tanec | tmavý tón pleti | uši | zábava | zajačik | ženy so zajačími ušami</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏿" type="tts">ženy so zajačími ušami: stredný tón pleti, tmavý tón pleti</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏻">stredne tmavý tón pleti | svetlý tón pleti | tanec | uši | zábava | zajačik | ženy so zajačími ušami</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏻" type="tts">ženy so zajačími ušami: stredne tmavý tón pleti, svetlý tón pleti</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏼">stredne svetlý tón pleti | stredne tmavý tón pleti | tanec | uši | zábava | zajačik | ženy so zajačími ušami</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏼" type="tts">ženy so zajačími ušami: stredne tmavý tón pleti, stredne svetlý tón pleti</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏽">stredne tmavý tón pleti | stredný tón pleti | tanec | uši | zábava | zajačik | ženy so zajačími ušami</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏽" type="tts">ženy so zajačími ušami: stredne tmavý tón pleti, stredný tón pleti</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏿">stredne tmavý tón pleti | tanec | tmavý tón pleti | uši | zábava | zajačik | ženy so zajačími ušami</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏿" type="tts">ženy so zajačími ušami: stredne tmavý tón pleti, tmavý tón pleti</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏻">svetlý tón pleti | tanec | tmavý tón pleti | uši | zábava | zajačik | ženy so zajačími ušami</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏻" type="tts">ženy so zajačími ušami: tmavý tón pleti, svetlý tón pleti</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏼">stredne svetlý tón pleti | tanec | tmavý tón pleti | uši | zábava | zajačik | ženy so zajačími ušami</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏼" type="tts">ženy so zajačími ušami: tmavý tón pleti, stredne svetlý tón pleti</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏽">stredný tón pleti | tanec | tmavý tón pleti | uši | zábava | zajačik | ženy so zajačími ušami</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏽" type="tts">ženy so zajačími ušami: tmavý tón pleti, stredný tón pleti</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏾">stredne tmavý tón pleti | tanec | tmavý tón pleti | uši | zábava | zajačik | ženy so zajačími ušami</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏾" type="tts">ženy so zajačími ušami: tmavý tón pleti, stredne tmavý tón pleti</annotation>
 		<annotation cp="🧓🏻">človek | dôchodca | osoba | šedivý | starší človek | staršia osoba | starý | svetlý tón pleti</annotation>
 		<annotation cp="🧓🏻" type="tts">starší človek: svetlý tón pleti</annotation>
 		<annotation cp="🧓🏼">človek | dôchodca | osoba | šedivý | starší človek | staršia osoba | starý | stredne svetlý tón pleti</annotation>
@@ -3113,6 +3362,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🕴🏾" type="tts">levitujúci muž v saku: stredne tmavý tón pleti</annotation>
 		<annotation cp="🕴🏿">biznis | levitujúci muž v saku | manažér | muž | oblek | podnikanie | povolanie | práca | tmavý tón pleti | vznášajúci sa muž v saku | zamestnanie</annotation>
 		<annotation cp="🕴🏿" type="tts">levitujúci muž v saku: tmavý tón pleti</annotation>
+		<annotation cp="👯🏻">dvojča | identické | ľudia so zajačími ušami | osoba | pár | party | spriaznená duša | svetlý tón pleti | tancujúce dievčatá | tanec | uši | zábava | zajačik | žena</annotation>
+		<annotation cp="👯🏻" type="tts">ľudia so zajačími ušami: svetlý tón pleti</annotation>
+		<annotation cp="👯🏼">dvojča | identické | ľudia so zajačími ušami | osoba | pár | party | spriaznená duša | stredne svetlý tón pleti | tancujúce dievčatá | tanec | uši | zábava | zajačik | žena</annotation>
+		<annotation cp="👯🏼" type="tts">ľudia so zajačími ušami: stredne svetlý tón pleti</annotation>
+		<annotation cp="👯🏽">dvojča | identické | ľudia so zajačími ušami | osoba | pár | party | spriaznená duša | stredný tón pleti | tancujúce dievčatá | tanec | uši | zábava | zajačik | žena</annotation>
+		<annotation cp="👯🏽" type="tts">ľudia so zajačími ušami: stredný tón pleti</annotation>
+		<annotation cp="👯🏾">dvojča | identické | ľudia so zajačími ušami | osoba | pár | party | spriaznená duša | stredne tmavý tón pleti | tancujúce dievčatá | tanec | uši | zábava | zajačik | žena</annotation>
+		<annotation cp="👯🏾" type="tts">ľudia so zajačími ušami: stredne tmavý tón pleti</annotation>
+		<annotation cp="👯🏿">dvojča | identické | ľudia so zajačími ušami | osoba | pár | party | spriaznená duša | tancujúce dievčatá | tanec | tmavý tón pleti | uši | zábava | zajačik | žena</annotation>
+		<annotation cp="👯🏿" type="tts">ľudia so zajačími ušami: tmavý tón pleti</annotation>
+		<annotation cp="👯🏻‍♀">svetlý tón pleti | tanec | uši | zábava | zajačik | ženy so zajačími ušami</annotation>
+		<annotation cp="👯🏻‍♀" type="tts">ženy so zajačími ušami: svetlý tón pleti</annotation>
+		<annotation cp="👯🏼‍♀">stredne svetlý tón pleti | tanec | uši | zábava | zajačik | ženy so zajačími ušami</annotation>
+		<annotation cp="👯🏼‍♀" type="tts">ženy so zajačími ušami: stredne svetlý tón pleti</annotation>
+		<annotation cp="👯🏽‍♀">stredný tón pleti | tanec | uši | zábava | zajačik | ženy so zajačími ušami</annotation>
+		<annotation cp="👯🏽‍♀" type="tts">ženy so zajačími ušami: stredný tón pleti</annotation>
+		<annotation cp="👯🏾‍♀">stredne tmavý tón pleti | tanec | uši | zábava | zajačik | ženy so zajačími ušami</annotation>
+		<annotation cp="👯🏾‍♀" type="tts">ženy so zajačími ušami: stredne tmavý tón pleti</annotation>
+		<annotation cp="👯🏿‍♀">tanec | tmavý tón pleti | uši | zábava | zajačik | ženy so zajačími ušami</annotation>
+		<annotation cp="👯🏿‍♀" type="tts">ženy so zajačími ušami: tmavý tón pleti</annotation>
+		<annotation cp="👯🏻‍♂">dvojičky | muž | muži na párty | muži so zajačími ušami | párty | svetlý tón pleti | tanec | uši | zábava | zajačik</annotation>
+		<annotation cp="👯🏻‍♂" type="tts">muži so zajačími ušami: svetlý tón pleti</annotation>
+		<annotation cp="👯🏼‍♂">dvojičky | muž | muži na párty | muži so zajačími ušami | párty | stredne svetlý tón pleti | tanec | uši | zábava | zajačik</annotation>
+		<annotation cp="👯🏼‍♂" type="tts">muži so zajačími ušami: stredne svetlý tón pleti</annotation>
+		<annotation cp="👯🏽‍♂">dvojičky | muž | muži na párty | muži so zajačími ušami | párty | stredný tón pleti | tanec | uši | zábava | zajačik</annotation>
+		<annotation cp="👯🏽‍♂" type="tts">muži so zajačími ušami: stredný tón pleti</annotation>
+		<annotation cp="👯🏾‍♂">dvojičky | muž | muži na párty | muži so zajačími ušami | párty | stredne tmavý tón pleti | tanec | uši | zábava | zajačik</annotation>
+		<annotation cp="👯🏾‍♂" type="tts">muži so zajačími ušami: stredne tmavý tón pleti</annotation>
+		<annotation cp="👯🏿‍♂">dvojičky | muž | muži na párty | muži so zajačími ušami | párty | tanec | tmavý tón pleti | uši | zábava | zajačik</annotation>
+		<annotation cp="👯🏿‍♂" type="tts">muži so zajačími ušami: tmavý tón pleti</annotation>
 		<annotation cp="🧖🏻">človek v pare | kúpeľ | luxus | oddych | osoba v parnej miestnosti | para | parná sauna | parný kúpeľ | relax | sauna | svetlý tón pleti | uvoľnenie | žena v saune</annotation>
 		<annotation cp="🧖🏻" type="tts">človek v pare: svetlý tón pleti</annotation>
 		<annotation cp="🧖🏼">človek v pare | kúpeľ | luxus | oddych | osoba v parnej miestnosti | para | parná sauna | parný kúpeľ | relax | sauna | stredne svetlý tón pleti | uvoľnenie | žena v saune</annotation>
@@ -3463,6 +3742,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤸🏾‍♀" type="tts">žena robí hviezdu: stredne tmavý tón pleti</annotation>
 		<annotation cp="🤸🏿‍♀">aktívna | gymnastika | hviezda | mlynské kolo | nadšená | osoba | premet | premet bokom | šport | šťastná | tmavý tón pleti | žena | žena robí hviezdu</annotation>
 		<annotation cp="🤸🏿‍♀" type="tts">žena robí hviezdu: tmavý tón pleti</annotation>
+		<annotation cp="🤼🏻">duel | ľudia | šport | svetlý tón pleti | v ringu | wrestling | zápas | zápasiaci ľudia</annotation>
+		<annotation cp="🤼🏻" type="tts">zápasiaci ľudia: svetlý tón pleti</annotation>
+		<annotation cp="🤼🏼">duel | ľudia | šport | stredne svetlý tón pleti | v ringu | wrestling | zápas | zápasiaci ľudia</annotation>
+		<annotation cp="🤼🏼" type="tts">zápasiaci ľudia: stredne svetlý tón pleti</annotation>
+		<annotation cp="🤼🏽">duel | ľudia | šport | stredný tón pleti | v ringu | wrestling | zápas | zápasiaci ľudia</annotation>
+		<annotation cp="🤼🏽" type="tts">zápasiaci ľudia: stredný tón pleti</annotation>
+		<annotation cp="🤼🏾">duel | ľudia | šport | stredne tmavý tón pleti | v ringu | wrestling | zápas | zápasiaci ľudia</annotation>
+		<annotation cp="🤼🏾" type="tts">zápasiaci ľudia: stredne tmavý tón pleti</annotation>
+		<annotation cp="🤼🏿">duel | ľudia | šport | tmavý tón pleti | v ringu | wrestling | zápas | zápasiaci ľudia</annotation>
+		<annotation cp="🤼🏿" type="tts">zápasiaci ľudia: tmavý tón pleti</annotation>
+		<annotation cp="🤼🏻‍♀">osoba | šport | súboj | svetlý tón pleti | v ringu | wrestling | zápas | zápasiť | zápasníčka | zápasníčky | žena | ženy</annotation>
+		<annotation cp="🤼🏻‍♀" type="tts">zápasníčky: svetlý tón pleti</annotation>
+		<annotation cp="🤼🏼‍♀">osoba | šport | stredne svetlý tón pleti | súboj | v ringu | wrestling | zápas | zápasiť | zápasníčka | zápasníčky | žena | ženy</annotation>
+		<annotation cp="🤼🏼‍♀" type="tts">zápasníčky: stredne svetlý tón pleti</annotation>
+		<annotation cp="🤼🏽‍♀">osoba | šport | stredný tón pleti | súboj | v ringu | wrestling | zápas | zápasiť | zápasníčka | zápasníčky | žena | ženy</annotation>
+		<annotation cp="🤼🏽‍♀" type="tts">zápasníčky: stredný tón pleti</annotation>
+		<annotation cp="🤼🏾‍♀">osoba | šport | stredne tmavý tón pleti | súboj | v ringu | wrestling | zápas | zápasiť | zápasníčka | zápasníčky | žena | ženy</annotation>
+		<annotation cp="🤼🏾‍♀" type="tts">zápasníčky: stredne tmavý tón pleti</annotation>
+		<annotation cp="🤼🏿‍♀">osoba | šport | súboj | tmavý tón pleti | v ringu | wrestling | zápas | zápasiť | zápasníčka | zápasníčky | žena | ženy</annotation>
+		<annotation cp="🤼🏿‍♀" type="tts">zápasníčky: tmavý tón pleti</annotation>
+		<annotation cp="🤼🏻‍♂">chlapi | muž | muži | osoba | šport | súboj | svetlý tón pleti | v ringu | wrestling | zápas | zápasiť | zápasníci | zápasník</annotation>
+		<annotation cp="🤼🏻‍♂" type="tts">zápasníci: svetlý tón pleti</annotation>
+		<annotation cp="🤼🏼‍♂">chlapi | muž | muži | osoba | šport | stredne svetlý tón pleti | súboj | v ringu | wrestling | zápas | zápasiť | zápasníci | zápasník</annotation>
+		<annotation cp="🤼🏼‍♂" type="tts">zápasníci: stredne svetlý tón pleti</annotation>
+		<annotation cp="🤼🏽‍♂">chlapi | muž | muži | osoba | šport | stredný tón pleti | súboj | v ringu | wrestling | zápas | zápasiť | zápasníci | zápasník</annotation>
+		<annotation cp="🤼🏽‍♂" type="tts">zápasníci: stredný tón pleti</annotation>
+		<annotation cp="🤼🏾‍♂">chlapi | muž | muži | osoba | šport | stredne tmavý tón pleti | súboj | v ringu | wrestling | zápas | zápasiť | zápasníci | zápasník</annotation>
+		<annotation cp="🤼🏾‍♂" type="tts">zápasníci: stredne tmavý tón pleti</annotation>
+		<annotation cp="🤼🏿‍♂">chlapi | muž | muži | osoba | šport | súboj | tmavý tón pleti | v ringu | wrestling | zápas | zápasiť | zápasníci | zápasník</annotation>
+		<annotation cp="🤼🏿‍♂" type="tts">zápasníci: tmavý tón pleti</annotation>
 		<annotation cp="🤽🏻">osoba | plávanie | pólo | svetlý tón pleti | voda | vodné pólo | vodný šport</annotation>
 		<annotation cp="🤽🏻" type="tts">vodné pólo: svetlý tón pleti</annotation>
 		<annotation cp="🤽🏼">osoba | plávanie | pólo | stredne svetlý tón pleti | voda | vodné pólo | vodný šport</annotation>
@@ -3993,6 +4302,8 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇨🇴" type="tts">zástava: Kolumbia</annotation>
 		<annotation cp="🇨🇵">zástava</annotation>
 		<annotation cp="🇨🇵" type="tts">zástava: Clipperton</annotation>
+		<annotation cp="🇨🇶">zástava</annotation>
+		<annotation cp="🇨🇶" type="tts">zástava: Sark</annotation>
 		<annotation cp="🇨🇷">zástava</annotation>
 		<annotation cp="🇨🇷" type="tts">zástava: Kostarika</annotation>
 		<annotation cp="🇨🇺">zástava</annotation>
@@ -4432,26 +4743,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="₺" type="tts">turecká líra</annotation>
 		<annotation cp="₼" type="tts">azerbajdžanský manat</annotation>
 		<annotation cp="₾" type="tts">gruzínske lari</annotation>
-		<annotation cp="0⃣">kláves</annotation>
-		<annotation cp="0⃣" type="tts">kláves: 0</annotation>
-		<annotation cp="1⃣">kláves</annotation>
-		<annotation cp="1⃣" type="tts">kláves: 1</annotation>
-		<annotation cp="2⃣">kláves</annotation>
-		<annotation cp="2⃣" type="tts">kláves: 2</annotation>
-		<annotation cp="3⃣">kláves</annotation>
-		<annotation cp="3⃣" type="tts">kláves: 3</annotation>
-		<annotation cp="4⃣">kláves</annotation>
-		<annotation cp="4⃣" type="tts">kláves: 4</annotation>
-		<annotation cp="5⃣">kláves</annotation>
-		<annotation cp="5⃣" type="tts">kláves: 5</annotation>
-		<annotation cp="6⃣">kláves</annotation>
-		<annotation cp="6⃣" type="tts">kláves: 6</annotation>
-		<annotation cp="7⃣">kláves</annotation>
-		<annotation cp="7⃣" type="tts">kláves: 7</annotation>
-		<annotation cp="8⃣">kláves</annotation>
-		<annotation cp="8⃣" type="tts">kláves: 8</annotation>
-		<annotation cp="9⃣">kláves</annotation>
-		<annotation cp="9⃣" type="tts">kláves: 9</annotation>
 		<annotation cp="₧" type="tts">španielska peseta</annotation>
 	</annotations>
 </ldml>

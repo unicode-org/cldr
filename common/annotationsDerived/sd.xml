@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-
-Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
 -->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -603,6 +602,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾" type="tts">شخش: وچولو ڪارو رنگ، سنهڙا وار</annotation>
 		<annotation cp="👱🏿">سنهڙا وار | شخش: سنهڙا وار | شخص: سنهڙا وار | ڪارو رنگ | ننڍڙا وار | ننڍڙي وارن وارو شخص | وار</annotation>
 		<annotation cp="👱🏿" type="tts">شخش: ڪارو رنگ، سنهڙا وار</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏼">پهلوان | ڪشتي | گوري رنگت | ماڻهو ڪشتي وڙهندي | وچولي گوري رنگت</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏼" type="tts">ماڻهو ڪشتي وڙهندي: گوري رنگت، وچولي گوري رنگت</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏽">پڪو رنگ | پهلوان | ڪشتي | گوري رنگت | ماڻهو ڪشتي وڙهندي</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏽" type="tts">ماڻهو ڪشتي وڙهندي: گوري رنگت، پڪو رنگ</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏾">پهلوان | ڪشتي | گوري رنگت | ماڻهو ڪشتي وڙهندي | وچولو ڪارو رنگ</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏾" type="tts">ماڻهو ڪشتي وڙهندي: گوري رنگت، وچولو ڪارو رنگ</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏿">پهلوان | ڪارو رنگ | ڪشتي | گوري رنگت | ماڻهو ڪشتي وڙهندي</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏿" type="tts">ماڻهو ڪشتي وڙهندي: گوري رنگت، ڪارو رنگ</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏻">پهلوان | ڪشتي | گوري رنگت | ماڻهو ڪشتي وڙهندي | وچولي گوري رنگت</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏻" type="tts">ماڻهو ڪشتي وڙهندي: وچولي گوري رنگت، گوري رنگت</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏽">پڪو رنگ | پهلوان | ڪشتي | ماڻهو ڪشتي وڙهندي | وچولي گوري رنگت</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏽" type="tts">ماڻهو ڪشتي وڙهندي: وچولي گوري رنگت، پڪو رنگ</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏾">پهلوان | ڪشتي | ماڻهو ڪشتي وڙهندي | وچولو ڪارو رنگ | وچولي گوري رنگت</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏾" type="tts">ماڻهو ڪشتي وڙهندي: وچولي گوري رنگت، وچولو ڪارو رنگ</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏿">پهلوان | ڪارو رنگ | ڪشتي | ماڻهو ڪشتي وڙهندي | وچولي گوري رنگت</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏿" type="tts">ماڻهو ڪشتي وڙهندي: وچولي گوري رنگت، ڪارو رنگ</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏻">پڪو رنگ | پهلوان | ڪشتي | گوري رنگت | ماڻهو ڪشتي وڙهندي</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏻" type="tts">ماڻهو ڪشتي وڙهندي: پڪو رنگ، گوري رنگت</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏼">پڪو رنگ | پهلوان | ڪشتي | ماڻهو ڪشتي وڙهندي | وچولي گوري رنگت</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏼" type="tts">ماڻهو ڪشتي وڙهندي: پڪو رنگ، وچولي گوري رنگت</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏾">پڪو رنگ | پهلوان | ڪشتي | ماڻهو ڪشتي وڙهندي | وچولو ڪارو رنگ</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏾" type="tts">ماڻهو ڪشتي وڙهندي: پڪو رنگ، وچولو ڪارو رنگ</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏿">پڪو رنگ | پهلوان | ڪارو رنگ | ڪشتي | ماڻهو ڪشتي وڙهندي</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏿" type="tts">ماڻهو ڪشتي وڙهندي: پڪو رنگ، ڪارو رنگ</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏻">پهلوان | ڪشتي | گوري رنگت | ماڻهو ڪشتي وڙهندي | وچولو ڪارو رنگ</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏻" type="tts">ماڻهو ڪشتي وڙهندي: وچولو ڪارو رنگ، گوري رنگت</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏼">پهلوان | ڪشتي | ماڻهو ڪشتي وڙهندي | وچولو ڪارو رنگ | وچولي گوري رنگت</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏼" type="tts">ماڻهو ڪشتي وڙهندي: وچولو ڪارو رنگ، وچولي گوري رنگت</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏽">پڪو رنگ | پهلوان | ڪشتي | ماڻهو ڪشتي وڙهندي | وچولو ڪارو رنگ</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏽" type="tts">ماڻهو ڪشتي وڙهندي: وچولو ڪارو رنگ، پڪو رنگ</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏿">پهلوان | ڪارو رنگ | ڪشتي | ماڻهو ڪشتي وڙهندي | وچولو ڪارو رنگ</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏿" type="tts">ماڻهو ڪشتي وڙهندي: وچولو ڪارو رنگ، ڪارو رنگ</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏻">پهلوان | ڪارو رنگ | ڪشتي | گوري رنگت | ماڻهو ڪشتي وڙهندي</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏻" type="tts">ماڻهو ڪشتي وڙهندي: ڪارو رنگ، گوري رنگت</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏼">پهلوان | ڪارو رنگ | ڪشتي | ماڻهو ڪشتي وڙهندي | وچولي گوري رنگت</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏼" type="tts">ماڻهو ڪشتي وڙهندي: ڪارو رنگ، وچولي گوري رنگت</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏽">پڪو رنگ | پهلوان | ڪارو رنگ | ڪشتي | ماڻهو ڪشتي وڙهندي</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏽" type="tts">ماڻهو ڪشتي وڙهندي: ڪارو رنگ، پڪو رنگ</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏾">پهلوان | ڪارو رنگ | ڪشتي | ماڻهو ڪشتي وڙهندي | وچولو ڪارو رنگ</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏾" type="tts">ماڻهو ڪشتي وڙهندي: ڪارو رنگ، وچولو ڪارو رنگ</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏼">بالغ | جوڙو | چمي | گوري رنگت | وچولي گوري رنگت</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏼" type="tts">چمي: بالغ، بالغ، گوري رنگت, وچولي گوري رنگت</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏽">بالغ | پڪو رنگ | جوڙو | چمي | گوري رنگت</annotation>
@@ -731,6 +770,56 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧑🏾‍🦲" type="tts">بالغ: وچولو ڪارو رنگ، گنجو</annotation>
 		<annotation cp="🧑🏿‍🦲">بالغ | غيرجانبدار | ڪارو رنگ | گنجو</annotation>
 		<annotation cp="🧑🏿‍🦲" type="tts">بالغ: ڪارو رنگ، گنجو</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏼">پارٽي ڪندي | خرگوش جا ڪن | خرگوش جي ڪنن وارو ماڻهو | گوري رنگت | ناچو | وچولي گوري رنگت</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏼" type="tts">خرگوش جي ڪنن وارو ماڻهو: گوري رنگت، وچولي گوري رنگت</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏽">پارٽي ڪندي | پڪو رنگ | خرگوش جا ڪن | خرگوش جي ڪنن وارو ماڻهو | گوري رنگت | ناچو</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏽" type="tts">خرگوش جي ڪنن وارو ماڻهو: گوري رنگت، پڪو رنگ</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏾">پارٽي ڪندي | خرگوش جا ڪن | خرگوش جي ڪنن وارو ماڻهو | گوري رنگت | ناچو | وچولو ڪارو رنگ</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏾" type="tts">خرگوش جي ڪنن وارو ماڻهو: گوري رنگت، وچولو ڪارو رنگ</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏿">پارٽي ڪندي | خرگوش جا ڪن | خرگوش جي ڪنن وارو ماڻهو | ڪارو رنگ | گوري رنگت | ناچو</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏿" type="tts">خرگوش جي ڪنن وارو ماڻهو: گوري رنگت، ڪارو رنگ</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏻">پارٽي ڪندي | خرگوش جا ڪن | خرگوش جي ڪنن وارو ماڻهو | گوري رنگت | ناچو | وچولي گوري رنگت</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏻" type="tts">خرگوش جي ڪنن وارو ماڻهو: وچولي گوري رنگت، گوري رنگت</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏽">پارٽي ڪندي | پڪو رنگ | خرگوش جا ڪن | خرگوش جي ڪنن وارو ماڻهو | ناچو | وچولي گوري رنگت</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏽" type="tts">خرگوش جي ڪنن وارو ماڻهو: وچولي گوري رنگت، پڪو رنگ</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏾">پارٽي ڪندي | خرگوش جا ڪن | خرگوش جي ڪنن وارو ماڻهو | ناچو | وچولو ڪارو رنگ | وچولي گوري رنگت</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏾" type="tts">خرگوش جي ڪنن وارو ماڻهو: وچولي گوري رنگت، وچولو ڪارو رنگ</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏿">پارٽي ڪندي | خرگوش جا ڪن | خرگوش جي ڪنن وارو ماڻهو | ڪارو رنگ | ناچو | وچولي گوري رنگت</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏿" type="tts">خرگوش جي ڪنن وارو ماڻهو: وچولي گوري رنگت، ڪارو رنگ</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏻">پارٽي ڪندي | پڪو رنگ | خرگوش جا ڪن | خرگوش جي ڪنن وارو ماڻهو | گوري رنگت | ناچو</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏻" type="tts">خرگوش جي ڪنن وارو ماڻهو: پڪو رنگ، گوري رنگت</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏼">پارٽي ڪندي | پڪو رنگ | خرگوش جا ڪن | خرگوش جي ڪنن وارو ماڻهو | ناچو | وچولي گوري رنگت</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏼" type="tts">خرگوش جي ڪنن وارو ماڻهو: پڪو رنگ، وچولي گوري رنگت</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏾">پارٽي ڪندي | پڪو رنگ | خرگوش جا ڪن | خرگوش جي ڪنن وارو ماڻهو | ناچو | وچولو ڪارو رنگ</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏾" type="tts">خرگوش جي ڪنن وارو ماڻهو: پڪو رنگ، وچولو ڪارو رنگ</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏿">پارٽي ڪندي | پڪو رنگ | خرگوش جا ڪن | خرگوش جي ڪنن وارو ماڻهو | ڪارو رنگ | ناچو</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏿" type="tts">خرگوش جي ڪنن وارو ماڻهو: پڪو رنگ، ڪارو رنگ</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏻">پارٽي ڪندي | خرگوش جا ڪن | خرگوش جي ڪنن وارو ماڻهو | گوري رنگت | ناچو | وچولو ڪارو رنگ</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏻" type="tts">خرگوش جي ڪنن وارو ماڻهو: وچولو ڪارو رنگ، گوري رنگت</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏼">پارٽي ڪندي | خرگوش جا ڪن | خرگوش جي ڪنن وارو ماڻهو | ناچو | وچولو ڪارو رنگ | وچولي گوري رنگت</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏼" type="tts">خرگوش جي ڪنن وارو ماڻهو: وچولو ڪارو رنگ، وچولي گوري رنگت</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏽">پارٽي ڪندي | پڪو رنگ | خرگوش جا ڪن | خرگوش جي ڪنن وارو ماڻهو | ناچو | وچولو ڪارو رنگ</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏽" type="tts">خرگوش جي ڪنن وارو ماڻهو: وچولو ڪارو رنگ، پڪو رنگ</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏿">پارٽي ڪندي | خرگوش جا ڪن | خرگوش جي ڪنن وارو ماڻهو | ڪارو رنگ | ناچو | وچولو ڪارو رنگ</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏿" type="tts">خرگوش جي ڪنن وارو ماڻهو: وچولو ڪارو رنگ، ڪارو رنگ</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏻">پارٽي ڪندي | خرگوش جا ڪن | خرگوش جي ڪنن وارو ماڻهو | ڪارو رنگ | گوري رنگت | ناچو</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏻" type="tts">خرگوش جي ڪنن وارو ماڻهو: ڪارو رنگ، گوري رنگت</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏼">پارٽي ڪندي | خرگوش جا ڪن | خرگوش جي ڪنن وارو ماڻهو | ڪارو رنگ | ناچو | وچولي گوري رنگت</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏼" type="tts">خرگوش جي ڪنن وارو ماڻهو: ڪارو رنگ، وچولي گوري رنگت</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏽">پارٽي ڪندي | پڪو رنگ | خرگوش جا ڪن | خرگوش جي ڪنن وارو ماڻهو | ڪارو رنگ | ناچو</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏽" type="tts">خرگوش جي ڪنن وارو ماڻهو: ڪارو رنگ، پڪو رنگ</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏾">پارٽي ڪندي | خرگوش جا ڪن | خرگوش جي ڪنن وارو ماڻهو | ڪارو رنگ | ناچو | وچولو ڪارو رنگ</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏾" type="tts">خرگوش جي ڪنن وارو ماڻهو: ڪارو رنگ، وچولو ڪارو رنگ</annotation>
+		<annotation cp="🧑🏻‍🩰">بيلي | گوري رنگت | ناچڻي</annotation>
+		<annotation cp="🧑🏻‍🩰" type="tts">بيلي ناچڻي: گوري رنگت</annotation>
+		<annotation cp="🧑🏼‍🩰">بيلي | ناچڻي | وچولي گوري رنگت</annotation>
+		<annotation cp="🧑🏼‍🩰" type="tts">بيلي ناچڻي: وچولي گوري رنگت</annotation>
+		<annotation cp="🧑🏽‍🩰">بيلي | پڪو رنگ | ناچڻي</annotation>
+		<annotation cp="🧑🏽‍🩰" type="tts">بيلي ناچڻي: پڪو رنگ</annotation>
+		<annotation cp="🧑🏾‍🩰">بيلي | ناچڻي | وچولو ڪارو رنگ</annotation>
+		<annotation cp="🧑🏾‍🩰" type="tts">بيلي ناچڻي: وچولو ڪارو رنگ</annotation>
+		<annotation cp="🧑🏿‍🩰">بيلي | ڪارو رنگ | ناچڻي</annotation>
+		<annotation cp="🧑🏿‍🩰" type="tts">بيلي ناچڻي: ڪارو رنگ</annotation>
 		<annotation cp="👨🏻">گوري رنگت | ماڻهو</annotation>
 		<annotation cp="👨🏻" type="tts">ماڻهو: گوري رنگت</annotation>
 		<annotation cp="👨🏼">ماڻهو | وچولي گوري رنگت</annotation>
@@ -771,6 +860,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾‍♂" type="tts">ماڻهو: وچولو ڪارو رنگ، ڀورا وار</annotation>
 		<annotation cp="👱🏿‍♂">ڀورا وار | ڀورن وارن وارو ماڻهو | ڪارو رنگ | ماڻهو | ماڻهو: ڀورا وار | وار</annotation>
 		<annotation cp="👱🏿‍♂" type="tts">ماڻهو: ڪارو رنگ، ڀورا وار</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏼">ڪشتي | گوري رنگت | مرد | مرد ڪشتي وڙهندي | وچولي گوري رنگت</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏼" type="tts">مرد ڪشتي وڙهندي: گوري رنگت، وچولي گوري رنگت</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏽">پڪو رنگ | ڪشتي | گوري رنگت | مرد | مرد ڪشتي وڙهندي</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏽" type="tts">مرد ڪشتي وڙهندي: گوري رنگت، پڪو رنگ</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏾">ڪشتي | گوري رنگت | مرد | مرد ڪشتي وڙهندي | وچولو ڪارو رنگ</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏾" type="tts">مرد ڪشتي وڙهندي: گوري رنگت، وچولو ڪارو رنگ</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏿">ڪارو رنگ | ڪشتي | گوري رنگت | مرد | مرد ڪشتي وڙهندي</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏿" type="tts">مرد ڪشتي وڙهندي: گوري رنگت، ڪارو رنگ</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏻">ڪشتي | گوري رنگت | مرد | مرد ڪشتي وڙهندي | وچولي گوري رنگت</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏻" type="tts">مرد ڪشتي وڙهندي: وچولي گوري رنگت، گوري رنگت</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏽">پڪو رنگ | ڪشتي | مرد | مرد ڪشتي وڙهندي | وچولي گوري رنگت</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏽" type="tts">مرد ڪشتي وڙهندي: وچولي گوري رنگت، پڪو رنگ</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏾">ڪشتي | مرد | مرد ڪشتي وڙهندي | وچولو ڪارو رنگ | وچولي گوري رنگت</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏾" type="tts">مرد ڪشتي وڙهندي: وچولي گوري رنگت، وچولو ڪارو رنگ</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏿">ڪارو رنگ | ڪشتي | مرد | مرد ڪشتي وڙهندي | وچولي گوري رنگت</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏿" type="tts">مرد ڪشتي وڙهندي: وچولي گوري رنگت، ڪارو رنگ</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏻">پڪو رنگ | ڪشتي | گوري رنگت | مرد | مرد ڪشتي وڙهندي</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏻" type="tts">مرد ڪشتي وڙهندي: پڪو رنگ، گوري رنگت</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏼">پڪو رنگ | ڪشتي | مرد | مرد ڪشتي وڙهندي | وچولي گوري رنگت</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏼" type="tts">مرد ڪشتي وڙهندي: پڪو رنگ، وچولي گوري رنگت</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏾">پڪو رنگ | ڪشتي | مرد | مرد ڪشتي وڙهندي | وچولو ڪارو رنگ</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏾" type="tts">مرد ڪشتي وڙهندي: پڪو رنگ، وچولو ڪارو رنگ</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏿">پڪو رنگ | ڪارو رنگ | ڪشتي | مرد | مرد ڪشتي وڙهندي</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏿" type="tts">مرد ڪشتي وڙهندي: پڪو رنگ، ڪارو رنگ</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏻">ڪشتي | گوري رنگت | مرد | مرد ڪشتي وڙهندي | وچولو ڪارو رنگ</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏻" type="tts">مرد ڪشتي وڙهندي: وچولو ڪارو رنگ، گوري رنگت</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏼">ڪشتي | مرد | مرد ڪشتي وڙهندي | وچولو ڪارو رنگ | وچولي گوري رنگت</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏼" type="tts">مرد ڪشتي وڙهندي: وچولو ڪارو رنگ، وچولي گوري رنگت</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏽">پڪو رنگ | ڪشتي | مرد | مرد ڪشتي وڙهندي | وچولو ڪارو رنگ</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏽" type="tts">مرد ڪشتي وڙهندي: وچولو ڪارو رنگ، پڪو رنگ</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏿">ڪارو رنگ | ڪشتي | مرد | مرد ڪشتي وڙهندي | وچولو ڪارو رنگ</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏿" type="tts">مرد ڪشتي وڙهندي: وچولو ڪارو رنگ، ڪارو رنگ</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏻">ڪارو رنگ | ڪشتي | گوري رنگت | مرد | مرد ڪشتي وڙهندي</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏻" type="tts">مرد ڪشتي وڙهندي: ڪارو رنگ، گوري رنگت</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏼">ڪارو رنگ | ڪشتي | مرد | مرد ڪشتي وڙهندي | وچولي گوري رنگت</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏼" type="tts">مرد ڪشتي وڙهندي: ڪارو رنگ، وچولي گوري رنگت</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏽">پڪو رنگ | ڪارو رنگ | ڪشتي | مرد | مرد ڪشتي وڙهندي</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏽" type="tts">مرد ڪشتي وڙهندي: ڪارو رنگ، پڪو رنگ</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏾">ڪارو رنگ | ڪشتي | مرد | مرد ڪشتي وڙهندي | وچولو ڪارو رنگ</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏾" type="tts">مرد ڪشتي وڙهندي: ڪارو رنگ، وچولو ڪارو رنگ</annotation>
 		<annotation cp="👨🏻‍❤‍💋‍👨🏻">جوڙو | چمي | گوري رنگت | ماڻهو</annotation>
 		<annotation cp="👨🏻‍❤‍💋‍👨🏻" type="tts">چمي: ماڻهو، ماڻهو, گوري رنگت</annotation>
 		<annotation cp="👨🏻‍❤‍💋‍👨🏼">جوڙو | چمي | گوري رنگت | ماڻهو | وچولي گوري رنگت</annotation>
@@ -919,6 +1048,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾‍🦲" type="tts">ماڻهو: وچولو ڪارو رنگ، گنجو</annotation>
 		<annotation cp="👨🏿‍🦲">ڪارو رنگ | گنجو | ماڻهو</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">ماڻهو: ڪارو رنگ، گنجو</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏼">پارٽي ڪندي | خرگوش جا ڪن | خرگوش جي ڪنن وارو مرد | گوري رنگت | مردَ | ناچو | وچولي گوري رنگت</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏼" type="tts">خرگوش جي ڪنن وارو مرد: گوري رنگت، وچولي گوري رنگت</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏽">پارٽي ڪندي | پڪو رنگ | خرگوش جا ڪن | خرگوش جي ڪنن وارو مرد | گوري رنگت | مردَ | ناچو</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏽" type="tts">خرگوش جي ڪنن وارو مرد: گوري رنگت، پڪو رنگ</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏾">پارٽي ڪندي | خرگوش جا ڪن | خرگوش جي ڪنن وارو مرد | گوري رنگت | مردَ | ناچو | وچولو ڪارو رنگ</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏾" type="tts">خرگوش جي ڪنن وارو مرد: گوري رنگت، وچولو ڪارو رنگ</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏿">پارٽي ڪندي | خرگوش جا ڪن | خرگوش جي ڪنن وارو مرد | ڪارو رنگ | گوري رنگت | مردَ | ناچو</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏿" type="tts">خرگوش جي ڪنن وارو مرد: گوري رنگت، ڪارو رنگ</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏻">پارٽي ڪندي | خرگوش جا ڪن | خرگوش جي ڪنن وارو مرد | گوري رنگت | مردَ | ناچو | وچولي گوري رنگت</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏻" type="tts">خرگوش جي ڪنن وارو مرد: وچولي گوري رنگت، گوري رنگت</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏽">پارٽي ڪندي | پڪو رنگ | خرگوش جا ڪن | خرگوش جي ڪنن وارو مرد | مردَ | ناچو | وچولي گوري رنگت</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏽" type="tts">خرگوش جي ڪنن وارو مرد: وچولي گوري رنگت، پڪو رنگ</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏾">پارٽي ڪندي | خرگوش جا ڪن | خرگوش جي ڪنن وارو مرد | مردَ | ناچو | وچولو ڪارو رنگ | وچولي گوري رنگت</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏾" type="tts">خرگوش جي ڪنن وارو مرد: وچولي گوري رنگت، وچولو ڪارو رنگ</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏿">پارٽي ڪندي | خرگوش جا ڪن | خرگوش جي ڪنن وارو مرد | ڪارو رنگ | مردَ | ناچو | وچولي گوري رنگت</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏿" type="tts">خرگوش جي ڪنن وارو مرد: وچولي گوري رنگت، ڪارو رنگ</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏻">پارٽي ڪندي | پڪو رنگ | خرگوش جا ڪن | خرگوش جي ڪنن وارو مرد | گوري رنگت | مردَ | ناچو</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏻" type="tts">خرگوش جي ڪنن وارو مرد: پڪو رنگ، گوري رنگت</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏼">پارٽي ڪندي | پڪو رنگ | خرگوش جا ڪن | خرگوش جي ڪنن وارو مرد | مردَ | ناچو | وچولي گوري رنگت</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏼" type="tts">خرگوش جي ڪنن وارو مرد: پڪو رنگ، وچولي گوري رنگت</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏾">پارٽي ڪندي | پڪو رنگ | خرگوش جا ڪن | خرگوش جي ڪنن وارو مرد | مردَ | ناچو | وچولو ڪارو رنگ</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏾" type="tts">خرگوش جي ڪنن وارو مرد: پڪو رنگ، وچولو ڪارو رنگ</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏿">پارٽي ڪندي | پڪو رنگ | خرگوش جا ڪن | خرگوش جي ڪنن وارو مرد | ڪارو رنگ | مردَ | ناچو</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏿" type="tts">خرگوش جي ڪنن وارو مرد: پڪو رنگ، ڪارو رنگ</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏻">پارٽي ڪندي | خرگوش جا ڪن | خرگوش جي ڪنن وارو مرد | گوري رنگت | مردَ | ناچو | وچولو ڪارو رنگ</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏻" type="tts">خرگوش جي ڪنن وارو مرد: وچولو ڪارو رنگ، گوري رنگت</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏼">پارٽي ڪندي | خرگوش جا ڪن | خرگوش جي ڪنن وارو مرد | مردَ | ناچو | وچولو ڪارو رنگ | وچولي گوري رنگت</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏼" type="tts">خرگوش جي ڪنن وارو مرد: وچولو ڪارو رنگ، وچولي گوري رنگت</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏽">پارٽي ڪندي | پڪو رنگ | خرگوش جا ڪن | خرگوش جي ڪنن وارو مرد | مردَ | ناچو | وچولو ڪارو رنگ</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏽" type="tts">خرگوش جي ڪنن وارو مرد: وچولو ڪارو رنگ، پڪو رنگ</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏿">پارٽي ڪندي | خرگوش جا ڪن | خرگوش جي ڪنن وارو مرد | ڪارو رنگ | مردَ | ناچو | وچولو ڪارو رنگ</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏿" type="tts">خرگوش جي ڪنن وارو مرد: وچولو ڪارو رنگ، ڪارو رنگ</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏻">پارٽي ڪندي | خرگوش جا ڪن | خرگوش جي ڪنن وارو مرد | ڪارو رنگ | گوري رنگت | مردَ | ناچو</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏻" type="tts">خرگوش جي ڪنن وارو مرد: ڪارو رنگ، گوري رنگت</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏼">پارٽي ڪندي | خرگوش جا ڪن | خرگوش جي ڪنن وارو مرد | ڪارو رنگ | مردَ | ناچو | وچولي گوري رنگت</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏼" type="tts">خرگوش جي ڪنن وارو مرد: ڪارو رنگ، وچولي گوري رنگت</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏽">پارٽي ڪندي | پڪو رنگ | خرگوش جا ڪن | خرگوش جي ڪنن وارو مرد | ڪارو رنگ | مردَ | ناچو</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏽" type="tts">خرگوش جي ڪنن وارو مرد: ڪارو رنگ، پڪو رنگ</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏾">پارٽي ڪندي | خرگوش جا ڪن | خرگوش جي ڪنن وارو مرد | ڪارو رنگ | مردَ | ناچو | وچولو ڪارو رنگ</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏾" type="tts">خرگوش جي ڪنن وارو مرد: ڪارو رنگ، وچولو ڪارو رنگ</annotation>
 		<annotation cp="👩🏻">عورت | گوري رنگت</annotation>
 		<annotation cp="👩🏻" type="tts">عورت: گوري رنگت</annotation>
 		<annotation cp="👩🏼">عورت | وچولي گوري رنگت</annotation>
@@ -949,6 +1118,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾‍♀" type="tts">عورت: وچولو ڪارو رنگ، ڀورا وار</annotation>
 		<annotation cp="👱🏿‍♀">ڀورا وار | ڀورن وارن واري عورت | عورت | عورت: ڀورا وار | ڪارو رنگ</annotation>
 		<annotation cp="👱🏿‍♀" type="tts">عورت: ڪارو رنگ، ڀورا وار</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏼">عورت | عورتون ڪشتي وڙهندي | ڪشتي | گوري رنگت | وچولي گوري رنگت</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏼" type="tts">عورتون ڪشتي وڙهندي: گوري رنگت، وچولي گوري رنگت</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏽">پڪو رنگ | عورت | عورتون ڪشتي وڙهندي | ڪشتي | گوري رنگت</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏽" type="tts">عورتون ڪشتي وڙهندي: گوري رنگت، پڪو رنگ</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏾">عورت | عورتون ڪشتي وڙهندي | ڪشتي | گوري رنگت | وچولو ڪارو رنگ</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏾" type="tts">عورتون ڪشتي وڙهندي: گوري رنگت، وچولو ڪارو رنگ</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏿">عورت | عورتون ڪشتي وڙهندي | ڪارو رنگ | ڪشتي | گوري رنگت</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏿" type="tts">عورتون ڪشتي وڙهندي: گوري رنگت، ڪارو رنگ</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏻">عورت | عورتون ڪشتي وڙهندي | ڪشتي | گوري رنگت | وچولي گوري رنگت</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏻" type="tts">عورتون ڪشتي وڙهندي: وچولي گوري رنگت، گوري رنگت</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏽">پڪو رنگ | عورت | عورتون ڪشتي وڙهندي | ڪشتي | وچولي گوري رنگت</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏽" type="tts">عورتون ڪشتي وڙهندي: وچولي گوري رنگت، پڪو رنگ</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏾">عورت | عورتون ڪشتي وڙهندي | ڪشتي | وچولو ڪارو رنگ | وچولي گوري رنگت</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏾" type="tts">عورتون ڪشتي وڙهندي: وچولي گوري رنگت، وچولو ڪارو رنگ</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏿">عورت | عورتون ڪشتي وڙهندي | ڪارو رنگ | ڪشتي | وچولي گوري رنگت</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏿" type="tts">عورتون ڪشتي وڙهندي: وچولي گوري رنگت، ڪارو رنگ</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏻">پڪو رنگ | عورت | عورتون ڪشتي وڙهندي | ڪشتي | گوري رنگت</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏻" type="tts">عورتون ڪشتي وڙهندي: پڪو رنگ، گوري رنگت</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏼">پڪو رنگ | عورت | عورتون ڪشتي وڙهندي | ڪشتي | وچولي گوري رنگت</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏼" type="tts">عورتون ڪشتي وڙهندي: پڪو رنگ، وچولي گوري رنگت</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏾">پڪو رنگ | عورت | عورتون ڪشتي وڙهندي | ڪشتي | وچولو ڪارو رنگ</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏾" type="tts">عورتون ڪشتي وڙهندي: پڪو رنگ، وچولو ڪارو رنگ</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏿">پڪو رنگ | عورت | عورتون ڪشتي وڙهندي | ڪارو رنگ | ڪشتي</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏿" type="tts">عورتون ڪشتي وڙهندي: پڪو رنگ، ڪارو رنگ</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏻">عورت | عورتون ڪشتي وڙهندي | ڪشتي | گوري رنگت | وچولو ڪارو رنگ</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏻" type="tts">عورتون ڪشتي وڙهندي: وچولو ڪارو رنگ، گوري رنگت</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏼">عورت | عورتون ڪشتي وڙهندي | ڪشتي | وچولو ڪارو رنگ | وچولي گوري رنگت</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏼" type="tts">عورتون ڪشتي وڙهندي: وچولو ڪارو رنگ، وچولي گوري رنگت</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏽">پڪو رنگ | عورت | عورتون ڪشتي وڙهندي | ڪشتي | وچولو ڪارو رنگ</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏽" type="tts">عورتون ڪشتي وڙهندي: وچولو ڪارو رنگ، پڪو رنگ</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏿">عورت | عورتون ڪشتي وڙهندي | ڪارو رنگ | ڪشتي | وچولو ڪارو رنگ</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏿" type="tts">عورتون ڪشتي وڙهندي: وچولو ڪارو رنگ، ڪارو رنگ</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏻">عورت | عورتون ڪشتي وڙهندي | ڪارو رنگ | ڪشتي | گوري رنگت</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏻" type="tts">عورتون ڪشتي وڙهندي: ڪارو رنگ، گوري رنگت</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏼">عورت | عورتون ڪشتي وڙهندي | ڪارو رنگ | ڪشتي | وچولي گوري رنگت</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏼" type="tts">عورتون ڪشتي وڙهندي: ڪارو رنگ، وچولي گوري رنگت</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏽">پڪو رنگ | عورت | عورتون ڪشتي وڙهندي | ڪارو رنگ | ڪشتي</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏽" type="tts">عورتون ڪشتي وڙهندي: ڪارو رنگ، پڪو رنگ</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏾">عورت | عورتون ڪشتي وڙهندي | ڪارو رنگ | ڪشتي | وچولو ڪارو رنگ</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏾" type="tts">عورتون ڪشتي وڙهندي: ڪارو رنگ، وچولو ڪارو رنگ</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👨🏻">جوڙو | چمي | عورت | گوري رنگت | ماڻهو</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👨🏻" type="tts">چمي: عورت، ماڻهو, گوري رنگت</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👨🏼">جوڙو | چمي | عورت | گوري رنگت | ماڻهو | وچولي گوري رنگت</annotation>
@@ -1197,6 +1406,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🦲" type="tts">عورت: وچولو ڪارو رنگ، گنجو</annotation>
 		<annotation cp="👩🏿‍🦲">عورت | ڪارو رنگ | گنجو</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">عورت: ڪارو رنگ، گنجو</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏼">پارٽي ڪندي | خرگوش جا ڪن | خرگوش جي ڪنن وري عورت | عورت | گوري رنگت | ناچو | وچولي گوري رنگت</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏼" type="tts">خرگوش جي ڪنن وري عورت: گوري رنگت، وچولي گوري رنگت</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏽">پارٽي ڪندي | پڪو رنگ | خرگوش جا ڪن | خرگوش جي ڪنن وري عورت | عورت | گوري رنگت | ناچو</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏽" type="tts">خرگوش جي ڪنن وري عورت: گوري رنگت، پڪو رنگ</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏾">پارٽي ڪندي | خرگوش جا ڪن | خرگوش جي ڪنن وري عورت | عورت | گوري رنگت | ناچو | وچولو ڪارو رنگ</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏾" type="tts">خرگوش جي ڪنن وري عورت: گوري رنگت، وچولو ڪارو رنگ</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏿">پارٽي ڪندي | خرگوش جا ڪن | خرگوش جي ڪنن وري عورت | عورت | ڪارو رنگ | گوري رنگت | ناچو</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏿" type="tts">خرگوش جي ڪنن وري عورت: گوري رنگت، ڪارو رنگ</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏻">پارٽي ڪندي | خرگوش جا ڪن | خرگوش جي ڪنن وري عورت | عورت | گوري رنگت | ناچو | وچولي گوري رنگت</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏻" type="tts">خرگوش جي ڪنن وري عورت: وچولي گوري رنگت، گوري رنگت</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏽">پارٽي ڪندي | پڪو رنگ | خرگوش جا ڪن | خرگوش جي ڪنن وري عورت | عورت | ناچو | وچولي گوري رنگت</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏽" type="tts">خرگوش جي ڪنن وري عورت: وچولي گوري رنگت، پڪو رنگ</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏾">پارٽي ڪندي | خرگوش جا ڪن | خرگوش جي ڪنن وري عورت | عورت | ناچو | وچولو ڪارو رنگ | وچولي گوري رنگت</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏾" type="tts">خرگوش جي ڪنن وري عورت: وچولي گوري رنگت، وچولو ڪارو رنگ</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏿">پارٽي ڪندي | خرگوش جا ڪن | خرگوش جي ڪنن وري عورت | عورت | ڪارو رنگ | ناچو | وچولي گوري رنگت</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏿" type="tts">خرگوش جي ڪنن وري عورت: وچولي گوري رنگت، ڪارو رنگ</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏻">پارٽي ڪندي | پڪو رنگ | خرگوش جا ڪن | خرگوش جي ڪنن وري عورت | عورت | گوري رنگت | ناچو</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏻" type="tts">خرگوش جي ڪنن وري عورت: پڪو رنگ، گوري رنگت</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏼">پارٽي ڪندي | پڪو رنگ | خرگوش جا ڪن | خرگوش جي ڪنن وري عورت | عورت | ناچو | وچولي گوري رنگت</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏼" type="tts">خرگوش جي ڪنن وري عورت: پڪو رنگ، وچولي گوري رنگت</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏾">پارٽي ڪندي | پڪو رنگ | خرگوش جا ڪن | خرگوش جي ڪنن وري عورت | عورت | ناچو | وچولو ڪارو رنگ</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏾" type="tts">خرگوش جي ڪنن وري عورت: پڪو رنگ، وچولو ڪارو رنگ</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏿">پارٽي ڪندي | پڪو رنگ | خرگوش جا ڪن | خرگوش جي ڪنن وري عورت | عورت | ڪارو رنگ | ناچو</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏿" type="tts">خرگوش جي ڪنن وري عورت: پڪو رنگ، ڪارو رنگ</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏻">پارٽي ڪندي | خرگوش جا ڪن | خرگوش جي ڪنن وري عورت | عورت | گوري رنگت | ناچو | وچولو ڪارو رنگ</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏻" type="tts">خرگوش جي ڪنن وري عورت: وچولو ڪارو رنگ، گوري رنگت</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏼">پارٽي ڪندي | خرگوش جا ڪن | خرگوش جي ڪنن وري عورت | عورت | ناچو | وچولو ڪارو رنگ | وچولي گوري رنگت</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏼" type="tts">خرگوش جي ڪنن وري عورت: وچولو ڪارو رنگ، وچولي گوري رنگت</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏽">پارٽي ڪندي | پڪو رنگ | خرگوش جا ڪن | خرگوش جي ڪنن وري عورت | عورت | ناچو | وچولو ڪارو رنگ</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏽" type="tts">خرگوش جي ڪنن وري عورت: وچولو ڪارو رنگ، پڪو رنگ</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏿">پارٽي ڪندي | خرگوش جا ڪن | خرگوش جي ڪنن وري عورت | عورت | ڪارو رنگ | ناچو | وچولو ڪارو رنگ</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏿" type="tts">خرگوش جي ڪنن وري عورت: وچولو ڪارو رنگ، ڪارو رنگ</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏻">پارٽي ڪندي | خرگوش جا ڪن | خرگوش جي ڪنن وري عورت | عورت | ڪارو رنگ | گوري رنگت | ناچو</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏻" type="tts">خرگوش جي ڪنن وري عورت: ڪارو رنگ، گوري رنگت</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏼">پارٽي ڪندي | خرگوش جا ڪن | خرگوش جي ڪنن وري عورت | عورت | ڪارو رنگ | ناچو | وچولي گوري رنگت</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏼" type="tts">خرگوش جي ڪنن وري عورت: ڪارو رنگ، وچولي گوري رنگت</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏽">پارٽي ڪندي | پڪو رنگ | خرگوش جا ڪن | خرگوش جي ڪنن وري عورت | عورت | ڪارو رنگ | ناچو</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏽" type="tts">خرگوش جي ڪنن وري عورت: ڪارو رنگ، پڪو رنگ</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏾">پارٽي ڪندي | خرگوش جا ڪن | خرگوش جي ڪنن وري عورت | عورت | ڪارو رنگ | ناچو | وچولو ڪارو رنگ</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏾" type="tts">خرگوش جي ڪنن وري عورت: ڪارو رنگ، وچولو ڪارو رنگ</annotation>
 		<annotation cp="🧓🏻">غيرجانبدرا، وڏو | گوري رنگت | وڏي عمر جو بالغ</annotation>
 		<annotation cp="🧓🏻" type="tts">وڏي عمر جو بالغ: گوري رنگت</annotation>
 		<annotation cp="🧓🏼">غيرجانبدرا، وڏو | وچولي گوري رنگت | وڏي عمر جو بالغ</annotation>
@@ -2907,71 +3156,71 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧑🏾‍🦼‍➡" type="tts">موٽر واري وهيل چيئر تي شخص: وچولو ڪارو رنگ، ساڄي طرف منهن</annotation>
 		<annotation cp="🧑🏿‍🦼‍➡">رسائي | ساڄي | طرف | ڪارو رنگ | منهن | موٽر واري وهيل چيئر تي شخص | موٽر واري وهيل چيئر تي ماڻھو | وهيل چيئر</annotation>
 		<annotation cp="🧑🏿‍🦼‍➡" type="tts">موٽر واري وهيل چيئر تي شخص: ڪارو رنگ، ساڄي طرف منهن</annotation>
-		<annotation cp="👨🏻‍🦼">گوري رنگت | موٽر واري وهيل چيئر ۾ ماڻهو</annotation>
+		<annotation cp="👨🏻‍🦼">رسائي پذيري | گوري رنگت | مرد | موٽر واري | ويل چيئر</annotation>
 		<annotation cp="👨🏻‍🦼" type="tts">موٽر واري وهيل چيئر ۾ ماڻهو: گوري رنگت</annotation>
-		<annotation cp="👨🏼‍🦼">موٽر واري وهيل چيئر ۾ ماڻهو | وچولي گوري رنگت</annotation>
+		<annotation cp="👨🏼‍🦼">رسائي پذيري | مرد | موٽر واري | وچولي گوري رنگت | ويل چيئر</annotation>
 		<annotation cp="👨🏼‍🦼" type="tts">موٽر واري وهيل چيئر ۾ ماڻهو: وچولي گوري رنگت</annotation>
-		<annotation cp="👨🏽‍🦼">پڪو رنگ | موٽر واري وهيل چيئر ۾ ماڻهو</annotation>
+		<annotation cp="👨🏽‍🦼">پڪو رنگ | رسائي پذيري | مرد | موٽر واري | ويل چيئر</annotation>
 		<annotation cp="👨🏽‍🦼" type="tts">موٽر واري وهيل چيئر ۾ ماڻهو: پڪو رنگ</annotation>
-		<annotation cp="👨🏾‍🦼">موٽر واري وهيل چيئر ۾ ماڻهو | وچولو ڪارو رنگ</annotation>
+		<annotation cp="👨🏾‍🦼">رسائي پذيري | مرد | موٽر واري | وچولو ڪارو رنگ | ويل چيئر</annotation>
 		<annotation cp="👨🏾‍🦼" type="tts">موٽر واري وهيل چيئر ۾ ماڻهو: وچولو ڪارو رنگ</annotation>
-		<annotation cp="👨🏿‍🦼">ڪارو رنگ | موٽر واري وهيل چيئر ۾ ماڻهو</annotation>
+		<annotation cp="👨🏿‍🦼">رسائي پذيري | ڪارو رنگ | مرد | موٽر واري | ويل چيئر</annotation>
 		<annotation cp="👨🏿‍🦼" type="tts">موٽر واري وهيل چيئر ۾ ماڻهو: ڪارو رنگ</annotation>
-		<annotation cp="👨‍🦼‍➡">ساڄي | طرف | منهن | موٽر واري وهيل چيئر ۾ ماڻهو</annotation>
+		<annotation cp="👨‍🦼‍➡">رسائي پذيري | ساڄي | طرف | مرد | منهن | موٽر واري | ويل چيئر</annotation>
 		<annotation cp="👨‍🦼‍➡" type="tts">موٽر واري وهيل چيئر ۾ ماڻهو: ساڄي طرف منهن</annotation>
-		<annotation cp="👨🏻‍🦼‍➡">ساڄي | طرف | گوري رنگت | منهن | موٽر واري وهيل چيئر ۾ ماڻهو</annotation>
+		<annotation cp="👨🏻‍🦼‍➡">رسائي پذيري | ساڄي | طرف | گوري رنگت | مرد | منهن | موٽر واري | ويل چيئر</annotation>
 		<annotation cp="👨🏻‍🦼‍➡" type="tts">موٽر واري وهيل چيئر ۾ ماڻهو: گوري رنگت، ساڄي طرف منهن</annotation>
-		<annotation cp="👨🏼‍🦼‍➡">ساڄي | طرف | منهن | موٽر واري وهيل چيئر ۾ ماڻهو | وچولي گوري رنگت</annotation>
+		<annotation cp="👨🏼‍🦼‍➡">رسائي پذيري | ساڄي | طرف | مرد | منهن | موٽر واري | وچولي گوري رنگت | ويل چيئر</annotation>
 		<annotation cp="👨🏼‍🦼‍➡" type="tts">موٽر واري وهيل چيئر ۾ ماڻهو: وچولي گوري رنگت، ساڄي طرف منهن</annotation>
-		<annotation cp="👨🏽‍🦼‍➡">پڪو رنگ | ساڄي | طرف | منهن | موٽر واري وهيل چيئر ۾ ماڻهو</annotation>
+		<annotation cp="👨🏽‍🦼‍➡">پڪو رنگ | رسائي پذيري | ساڄي | طرف | مرد | منهن | موٽر واري | ويل چيئر</annotation>
 		<annotation cp="👨🏽‍🦼‍➡" type="tts">موٽر واري وهيل چيئر ۾ ماڻهو: پڪو رنگ، ساڄي طرف منهن</annotation>
-		<annotation cp="👨🏾‍🦼‍➡">ساڄي | طرف | منهن | موٽر واري وهيل چيئر ۾ ماڻهو | وچولو ڪارو رنگ</annotation>
+		<annotation cp="👨🏾‍🦼‍➡">رسائي پذيري | ساڄي | طرف | مرد | منهن | موٽر واري | وچولو ڪارو رنگ | ويل چيئر</annotation>
 		<annotation cp="👨🏾‍🦼‍➡" type="tts">موٽر واري وهيل چيئر ۾ ماڻهو: وچولو ڪارو رنگ، ساڄي طرف منهن</annotation>
-		<annotation cp="👨🏿‍🦼‍➡">ساڄي | طرف | ڪارو رنگ | منهن | موٽر واري وهيل چيئر ۾ ماڻهو</annotation>
+		<annotation cp="👨🏿‍🦼‍➡">رسائي پذيري | ساڄي | طرف | ڪارو رنگ | مرد | منهن | موٽر واري | ويل چيئر</annotation>
 		<annotation cp="👨🏿‍🦼‍➡" type="tts">موٽر واري وهيل چيئر ۾ ماڻهو: ڪارو رنگ، ساڄي طرف منهن</annotation>
-		<annotation cp="👩🏻‍🦼">رسائي پذيري | عورت | ڦيٿائين ڪرسي | گوري رنگت | موٽر واري ڦيٿائين ڪرسي تي عورت</annotation>
+		<annotation cp="👩🏻‍🦼">رسائي پذيري | عورت | گوري رنگت | موٽر واري | ويل چيئر</annotation>
 		<annotation cp="👩🏻‍🦼" type="tts">موٽر واري ڦيٿائين ڪرسي تي عورت: گوري رنگت</annotation>
-		<annotation cp="👩🏼‍🦼">رسائي پذيري | عورت | ڦيٿائين ڪرسي | موٽر واري ڦيٿائين ڪرسي تي عورت | وچولي گوري رنگت</annotation>
+		<annotation cp="👩🏼‍🦼">رسائي پذيري | عورت | موٽر واري | وچولي گوري رنگت | ويل چيئر</annotation>
 		<annotation cp="👩🏼‍🦼" type="tts">موٽر واري ڦيٿائين ڪرسي تي عورت: وچولي گوري رنگت</annotation>
-		<annotation cp="👩🏽‍🦼">پڪو رنگ | رسائي پذيري | عورت | ڦيٿائين ڪرسي | موٽر واري ڦيٿائين ڪرسي تي عورت</annotation>
+		<annotation cp="👩🏽‍🦼">پڪو رنگ | رسائي پذيري | عورت | موٽر واري | ويل چيئر</annotation>
 		<annotation cp="👩🏽‍🦼" type="tts">موٽر واري ڦيٿائين ڪرسي تي عورت: پڪو رنگ</annotation>
-		<annotation cp="👩🏾‍🦼">رسائي پذيري | عورت | ڦيٿائين ڪرسي | موٽر واري ڦيٿائين ڪرسي تي عورت | وچولو ڪارو رنگ</annotation>
+		<annotation cp="👩🏾‍🦼">رسائي پذيري | عورت | موٽر واري | وچولو ڪارو رنگ | ويل چيئر</annotation>
 		<annotation cp="👩🏾‍🦼" type="tts">موٽر واري ڦيٿائين ڪرسي تي عورت: وچولو ڪارو رنگ</annotation>
-		<annotation cp="👩🏿‍🦼">رسائي پذيري | عورت | ڦيٿائين ڪرسي | ڪارو رنگ | موٽر واري ڦيٿائين ڪرسي تي عورت</annotation>
+		<annotation cp="👩🏿‍🦼">رسائي پذيري | عورت | ڪارو رنگ | موٽر واري | ويل چيئر</annotation>
 		<annotation cp="👩🏿‍🦼" type="tts">موٽر واري ڦيٿائين ڪرسي تي عورت: ڪارو رنگ</annotation>
-		<annotation cp="👩‍🦼‍➡">رسائي پذيري | ساڄي | طرف | عورت | ڦيٿائين ڪرسي | منهن | موٽر واري ڦيٿائين ڪرسي تي عورت</annotation>
+		<annotation cp="👩‍🦼‍➡">رسائي پذيري | ساڄي | طرف | عورت | منهن | موٽر واري | ويل چيئر</annotation>
 		<annotation cp="👩‍🦼‍➡" type="tts">موٽر واري ڦيٿائين ڪرسي تي عورت: ساڄي طرف منهن</annotation>
-		<annotation cp="👩🏻‍🦼‍➡">رسائي پذيري | ساڄي | طرف | عورت | ڦيٿائين ڪرسي | گوري رنگت | منهن | موٽر واري ڦيٿائين ڪرسي تي عورت</annotation>
+		<annotation cp="👩🏻‍🦼‍➡">رسائي پذيري | ساڄي | طرف | عورت | گوري رنگت | منهن | موٽر واري | ويل چيئر</annotation>
 		<annotation cp="👩🏻‍🦼‍➡" type="tts">موٽر واري ڦيٿائين ڪرسي تي عورت: گوري رنگت، ساڄي طرف منهن</annotation>
-		<annotation cp="👩🏼‍🦼‍➡">رسائي پذيري | ساڄي | طرف | عورت | ڦيٿائين ڪرسي | منهن | موٽر واري ڦيٿائين ڪرسي تي عورت | وچولي گوري رنگت</annotation>
+		<annotation cp="👩🏼‍🦼‍➡">رسائي پذيري | ساڄي | طرف | عورت | منهن | موٽر واري | وچولي گوري رنگت | ويل چيئر</annotation>
 		<annotation cp="👩🏼‍🦼‍➡" type="tts">موٽر واري ڦيٿائين ڪرسي تي عورت: وچولي گوري رنگت، ساڄي طرف منهن</annotation>
-		<annotation cp="👩🏽‍🦼‍➡">پڪو رنگ | رسائي پذيري | ساڄي | طرف | عورت | ڦيٿائين ڪرسي | منهن | موٽر واري ڦيٿائين ڪرسي تي عورت</annotation>
+		<annotation cp="👩🏽‍🦼‍➡">پڪو رنگ | رسائي پذيري | ساڄي | طرف | عورت | منهن | موٽر واري | ويل چيئر</annotation>
 		<annotation cp="👩🏽‍🦼‍➡" type="tts">موٽر واري ڦيٿائين ڪرسي تي عورت: پڪو رنگ، ساڄي طرف منهن</annotation>
-		<annotation cp="👩🏾‍🦼‍➡">رسائي پذيري | ساڄي | طرف | عورت | ڦيٿائين ڪرسي | منهن | موٽر واري ڦيٿائين ڪرسي تي عورت | وچولو ڪارو رنگ</annotation>
+		<annotation cp="👩🏾‍🦼‍➡">رسائي پذيري | ساڄي | طرف | عورت | منهن | موٽر واري | وچولو ڪارو رنگ | ويل چيئر</annotation>
 		<annotation cp="👩🏾‍🦼‍➡" type="tts">موٽر واري ڦيٿائين ڪرسي تي عورت: وچولو ڪارو رنگ، ساڄي طرف منهن</annotation>
-		<annotation cp="👩🏿‍🦼‍➡">رسائي پذيري | ساڄي | طرف | عورت | ڦيٿائين ڪرسي | ڪارو رنگ | منهن | موٽر واري ڦيٿائين ڪرسي تي عورت</annotation>
+		<annotation cp="👩🏿‍🦼‍➡">رسائي پذيري | ساڄي | طرف | عورت | ڪارو رنگ | منهن | موٽر واري | ويل چيئر</annotation>
 		<annotation cp="👩🏿‍🦼‍➡" type="tts">موٽر واري ڦيٿائين ڪرسي تي عورت: ڪارو رنگ، ساڄي طرف منهن</annotation>
-		<annotation cp="🧑🏻‍🦽">دستي وهيل چيئر ۾ شخص | رسائي | گوري رنگت | ماڻھو دستي ويل چيئر تي | وهيل چيئر</annotation>
+		<annotation cp="🧑🏻‍🦽">دستي | رسائي پذيري | شخص | گوري رنگت | ويل چيئر</annotation>
 		<annotation cp="🧑🏻‍🦽" type="tts">ماڻھو دستي ويل چيئر تي: گوري رنگت</annotation>
-		<annotation cp="🧑🏼‍🦽">دستي وهيل چيئر ۾ شخص | رسائي | ماڻھو دستي ويل چيئر تي | وچولي گوري رنگت | وهيل چيئر</annotation>
+		<annotation cp="🧑🏼‍🦽">دستي | رسائي پذيري | شخص | وچولي گوري رنگت | ويل چيئر</annotation>
 		<annotation cp="🧑🏼‍🦽" type="tts">ماڻھو دستي ويل چيئر تي: وچولي گوري رنگت</annotation>
-		<annotation cp="🧑🏽‍🦽">پڪو رنگ | دستي وهيل چيئر ۾ شخص | رسائي | ماڻھو دستي ويل چيئر تي | وهيل چيئر</annotation>
+		<annotation cp="🧑🏽‍🦽">پڪو رنگ | دستي | رسائي پذيري | شخص | ويل چيئر</annotation>
 		<annotation cp="🧑🏽‍🦽" type="tts">ماڻھو دستي ويل چيئر تي: پڪو رنگ</annotation>
-		<annotation cp="🧑🏾‍🦽">دستي وهيل چيئر ۾ شخص | رسائي | ماڻھو دستي ويل چيئر تي | وچولو ڪارو رنگ | وهيل چيئر</annotation>
+		<annotation cp="🧑🏾‍🦽">دستي | رسائي پذيري | شخص | وچولو ڪارو رنگ | ويل چيئر</annotation>
 		<annotation cp="🧑🏾‍🦽" type="tts">ماڻھو دستي ويل چيئر تي: وچولو ڪارو رنگ</annotation>
-		<annotation cp="🧑🏿‍🦽">دستي وهيل چيئر ۾ شخص | رسائي | ڪارو رنگ | ماڻھو دستي ويل چيئر تي | وهيل چيئر</annotation>
+		<annotation cp="🧑🏿‍🦽">دستي | رسائي پذيري | شخص | ڪارو رنگ | ويل چيئر</annotation>
 		<annotation cp="🧑🏿‍🦽" type="tts">ماڻھو دستي ويل چيئر تي: ڪارو رنگ</annotation>
-		<annotation cp="🧑‍🦽‍➡">دستي وهيل چيئر ۾ شخص | رسائي | ساڄي | طرف | ماڻھو دستي ويل چيئر تي | منهن | وهيل چيئر</annotation>
+		<annotation cp="🧑‍🦽‍➡">دستي | رسائي پذيري | ساڄي | شخص | طرف | منهن | ويل چيئر</annotation>
 		<annotation cp="🧑‍🦽‍➡" type="tts">ماڻھو دستي ويل چيئر تي: ساڄي طرف منهن</annotation>
-		<annotation cp="🧑🏻‍🦽‍➡">دستي وهيل چيئر ۾ شخص | رسائي | ساڄي | طرف | گوري رنگت | ماڻھو دستي ويل چيئر تي | منهن | وهيل چيئر</annotation>
+		<annotation cp="🧑🏻‍🦽‍➡">دستي | رسائي پذيري | ساڄي | شخص | طرف | گوري رنگت | منهن | ويل چيئر</annotation>
 		<annotation cp="🧑🏻‍🦽‍➡" type="tts">ماڻھو دستي ويل چيئر تي: گوري رنگت، ساڄي طرف منهن</annotation>
-		<annotation cp="🧑🏼‍🦽‍➡">دستي وهيل چيئر ۾ شخص | رسائي | ساڄي | طرف | ماڻھو دستي ويل چيئر تي | منهن | وچولي گوري رنگت | وهيل چيئر</annotation>
+		<annotation cp="🧑🏼‍🦽‍➡">دستي | رسائي پذيري | ساڄي | شخص | طرف | منهن | وچولي گوري رنگت | ويل چيئر</annotation>
 		<annotation cp="🧑🏼‍🦽‍➡" type="tts">ماڻھو دستي ويل چيئر تي: وچولي گوري رنگت، ساڄي طرف منهن</annotation>
-		<annotation cp="🧑🏽‍🦽‍➡">پڪو رنگ | دستي وهيل چيئر ۾ شخص | رسائي | ساڄي | طرف | ماڻھو دستي ويل چيئر تي | منهن | وهيل چيئر</annotation>
+		<annotation cp="🧑🏽‍🦽‍➡">پڪو رنگ | دستي | رسائي پذيري | ساڄي | شخص | طرف | منهن | ويل چيئر</annotation>
 		<annotation cp="🧑🏽‍🦽‍➡" type="tts">ماڻھو دستي ويل چيئر تي: پڪو رنگ، ساڄي طرف منهن</annotation>
-		<annotation cp="🧑🏾‍🦽‍➡">دستي وهيل چيئر ۾ شخص | رسائي | ساڄي | طرف | ماڻھو دستي ويل چيئر تي | منهن | وچولو ڪارو رنگ | وهيل چيئر</annotation>
+		<annotation cp="🧑🏾‍🦽‍➡">دستي | رسائي پذيري | ساڄي | شخص | طرف | منهن | وچولو ڪارو رنگ | ويل چيئر</annotation>
 		<annotation cp="🧑🏾‍🦽‍➡" type="tts">ماڻھو دستي ويل چيئر تي: وچولو ڪارو رنگ، ساڄي طرف منهن</annotation>
-		<annotation cp="🧑🏿‍🦽‍➡">دستي وهيل چيئر ۾ شخص | رسائي | ساڄي | طرف | ڪارو رنگ | ماڻھو دستي ويل چيئر تي | منهن | وهيل چيئر</annotation>
+		<annotation cp="🧑🏿‍🦽‍➡">دستي | رسائي پذيري | ساڄي | شخص | طرف | ڪارو رنگ | منهن | ويل چيئر</annotation>
 		<annotation cp="🧑🏿‍🦽‍➡" type="tts">ماڻھو دستي ويل چيئر تي: ڪارو رنگ، ساڄي طرف منهن</annotation>
 		<annotation cp="👨🏻‍🦽">دستي وهيل چيئر ۾ ماڻهو | رسائي | گوري رنگت | ماڻهو | وهيل چيئر</annotation>
 		<annotation cp="👨🏻‍🦽" type="tts">دستي وهيل چيئر ۾ ماڻهو: گوري رنگت</annotation>
@@ -3113,6 +3362,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🕴🏾" type="tts">مرد سوٽ ۾: وچولو ڪارو رنگ</annotation>
 		<annotation cp="🕴🏿">ڪارو رنگ | ڪاروبار، مرد، سوٽ | مرد سوٽ ۾</annotation>
 		<annotation cp="🕴🏿" type="tts">مرد سوٽ ۾: ڪارو رنگ</annotation>
+		<annotation cp="👯🏻">پارٽي ڪندي | خرگوش جا ڪن | خرگوش جي ڪنن وارو ماڻهو | گوري رنگت | ناچو</annotation>
+		<annotation cp="👯🏻" type="tts">خرگوش جي ڪنن وارو ماڻهو: گوري رنگت</annotation>
+		<annotation cp="👯🏼">پارٽي ڪندي | خرگوش جا ڪن | خرگوش جي ڪنن وارو ماڻهو | ناچو | وچولي گوري رنگت</annotation>
+		<annotation cp="👯🏼" type="tts">خرگوش جي ڪنن وارو ماڻهو: وچولي گوري رنگت</annotation>
+		<annotation cp="👯🏽">پارٽي ڪندي | پڪو رنگ | خرگوش جا ڪن | خرگوش جي ڪنن وارو ماڻهو | ناچو</annotation>
+		<annotation cp="👯🏽" type="tts">خرگوش جي ڪنن وارو ماڻهو: پڪو رنگ</annotation>
+		<annotation cp="👯🏾">پارٽي ڪندي | خرگوش جا ڪن | خرگوش جي ڪنن وارو ماڻهو | ناچو | وچولو ڪارو رنگ</annotation>
+		<annotation cp="👯🏾" type="tts">خرگوش جي ڪنن وارو ماڻهو: وچولو ڪارو رنگ</annotation>
+		<annotation cp="👯🏿">پارٽي ڪندي | خرگوش جا ڪن | خرگوش جي ڪنن وارو ماڻهو | ڪارو رنگ | ناچو</annotation>
+		<annotation cp="👯🏿" type="tts">خرگوش جي ڪنن وارو ماڻهو: ڪارو رنگ</annotation>
+		<annotation cp="👯🏻‍♀">پارٽي ڪندي | خرگوش جا ڪن | خرگوش جي ڪنن وري عورت | عورت | گوري رنگت | ناچو</annotation>
+		<annotation cp="👯🏻‍♀" type="tts">خرگوش جي ڪنن وري عورت: گوري رنگت</annotation>
+		<annotation cp="👯🏼‍♀">پارٽي ڪندي | خرگوش جا ڪن | خرگوش جي ڪنن وري عورت | عورت | ناچو | وچولي گوري رنگت</annotation>
+		<annotation cp="👯🏼‍♀" type="tts">خرگوش جي ڪنن وري عورت: وچولي گوري رنگت</annotation>
+		<annotation cp="👯🏽‍♀">پارٽي ڪندي | پڪو رنگ | خرگوش جا ڪن | خرگوش جي ڪنن وري عورت | عورت | ناچو</annotation>
+		<annotation cp="👯🏽‍♀" type="tts">خرگوش جي ڪنن وري عورت: پڪو رنگ</annotation>
+		<annotation cp="👯🏾‍♀">پارٽي ڪندي | خرگوش جا ڪن | خرگوش جي ڪنن وري عورت | عورت | ناچو | وچولو ڪارو رنگ</annotation>
+		<annotation cp="👯🏾‍♀" type="tts">خرگوش جي ڪنن وري عورت: وچولو ڪارو رنگ</annotation>
+		<annotation cp="👯🏿‍♀">پارٽي ڪندي | خرگوش جا ڪن | خرگوش جي ڪنن وري عورت | عورت | ڪارو رنگ | ناچو</annotation>
+		<annotation cp="👯🏿‍♀" type="tts">خرگوش جي ڪنن وري عورت: ڪارو رنگ</annotation>
+		<annotation cp="👯🏻‍♂">پارٽي ڪندي | خرگوش جا ڪن | خرگوش جي ڪنن وارو مرد | گوري رنگت | مردَ | ناچو</annotation>
+		<annotation cp="👯🏻‍♂" type="tts">خرگوش جي ڪنن وارو مرد: گوري رنگت</annotation>
+		<annotation cp="👯🏼‍♂">پارٽي ڪندي | خرگوش جا ڪن | خرگوش جي ڪنن وارو مرد | مردَ | ناچو | وچولي گوري رنگت</annotation>
+		<annotation cp="👯🏼‍♂" type="tts">خرگوش جي ڪنن وارو مرد: وچولي گوري رنگت</annotation>
+		<annotation cp="👯🏽‍♂">پارٽي ڪندي | پڪو رنگ | خرگوش جا ڪن | خرگوش جي ڪنن وارو مرد | مردَ | ناچو</annotation>
+		<annotation cp="👯🏽‍♂" type="tts">خرگوش جي ڪنن وارو مرد: پڪو رنگ</annotation>
+		<annotation cp="👯🏾‍♂">پارٽي ڪندي | خرگوش جا ڪن | خرگوش جي ڪنن وارو مرد | مردَ | ناچو | وچولو ڪارو رنگ</annotation>
+		<annotation cp="👯🏾‍♂" type="tts">خرگوش جي ڪنن وارو مرد: وچولو ڪارو رنگ</annotation>
+		<annotation cp="👯🏿‍♂">پارٽي ڪندي | خرگوش جا ڪن | خرگوش جي ڪنن وارو مرد | ڪارو رنگ | مردَ | ناچو</annotation>
+		<annotation cp="👯🏿‍♂" type="tts">خرگوش جي ڪنن وارو مرد: ڪارو رنگ</annotation>
 		<annotation cp="🧖🏻">ٻاڦ جو ڪمرو | سئانا | شخص ٻاڦ واري ڪمري ۾ | گوري رنگت</annotation>
 		<annotation cp="🧖🏻" type="tts">شخص ٻاڦ واري ڪمري ۾: گوري رنگت</annotation>
 		<annotation cp="🧖🏼">ٻاڦ جو ڪمرو | سئانا | شخص ٻاڦ واري ڪمري ۾ | وچولي گوري رنگت</annotation>
@@ -3463,6 +3742,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤸🏾‍♀" type="tts">عورت ڪارٽ وهيلنگ ڪندي: وچولو ڪارو رنگ</annotation>
 		<annotation cp="🤸🏿‍♀">جمناسٽڪ، عورت | عورت ڪارٽ وهيلنگ ڪندي | ڪارٽ وهيلنگ | ڪارو رنگ</annotation>
 		<annotation cp="🤸🏿‍♀" type="tts">عورت ڪارٽ وهيلنگ ڪندي: ڪارو رنگ</annotation>
+		<annotation cp="🤼🏻">پهلوان | ڪشتي | گوري رنگت | ماڻهو ڪشتي وڙهندي</annotation>
+		<annotation cp="🤼🏻" type="tts">ماڻهو ڪشتي وڙهندي: گوري رنگت</annotation>
+		<annotation cp="🤼🏼">پهلوان | ڪشتي | ماڻهو ڪشتي وڙهندي | وچولي گوري رنگت</annotation>
+		<annotation cp="🤼🏼" type="tts">ماڻهو ڪشتي وڙهندي: وچولي گوري رنگت</annotation>
+		<annotation cp="🤼🏽">پڪو رنگ | پهلوان | ڪشتي | ماڻهو ڪشتي وڙهندي</annotation>
+		<annotation cp="🤼🏽" type="tts">ماڻهو ڪشتي وڙهندي: پڪو رنگ</annotation>
+		<annotation cp="🤼🏾">پهلوان | ڪشتي | ماڻهو ڪشتي وڙهندي | وچولو ڪارو رنگ</annotation>
+		<annotation cp="🤼🏾" type="tts">ماڻهو ڪشتي وڙهندي: وچولو ڪارو رنگ</annotation>
+		<annotation cp="🤼🏿">پهلوان | ڪارو رنگ | ڪشتي | ماڻهو ڪشتي وڙهندي</annotation>
+		<annotation cp="🤼🏿" type="tts">ماڻهو ڪشتي وڙهندي: ڪارو رنگ</annotation>
+		<annotation cp="🤼🏻‍♀">عورت | عورتون ڪشتي وڙهندي | ڪشتي | گوري رنگت</annotation>
+		<annotation cp="🤼🏻‍♀" type="tts">عورتون ڪشتي وڙهندي: گوري رنگت</annotation>
+		<annotation cp="🤼🏼‍♀">عورت | عورتون ڪشتي وڙهندي | ڪشتي | وچولي گوري رنگت</annotation>
+		<annotation cp="🤼🏼‍♀" type="tts">عورتون ڪشتي وڙهندي: وچولي گوري رنگت</annotation>
+		<annotation cp="🤼🏽‍♀">پڪو رنگ | عورت | عورتون ڪشتي وڙهندي | ڪشتي</annotation>
+		<annotation cp="🤼🏽‍♀" type="tts">عورتون ڪشتي وڙهندي: پڪو رنگ</annotation>
+		<annotation cp="🤼🏾‍♀">عورت | عورتون ڪشتي وڙهندي | ڪشتي | وچولو ڪارو رنگ</annotation>
+		<annotation cp="🤼🏾‍♀" type="tts">عورتون ڪشتي وڙهندي: وچولو ڪارو رنگ</annotation>
+		<annotation cp="🤼🏿‍♀">عورت | عورتون ڪشتي وڙهندي | ڪارو رنگ | ڪشتي</annotation>
+		<annotation cp="🤼🏿‍♀" type="tts">عورتون ڪشتي وڙهندي: ڪارو رنگ</annotation>
+		<annotation cp="🤼🏻‍♂">ڪشتي | گوري رنگت | مرد | مرد ڪشتي وڙهندي</annotation>
+		<annotation cp="🤼🏻‍♂" type="tts">مرد ڪشتي وڙهندي: گوري رنگت</annotation>
+		<annotation cp="🤼🏼‍♂">ڪشتي | مرد | مرد ڪشتي وڙهندي | وچولي گوري رنگت</annotation>
+		<annotation cp="🤼🏼‍♂" type="tts">مرد ڪشتي وڙهندي: وچولي گوري رنگت</annotation>
+		<annotation cp="🤼🏽‍♂">پڪو رنگ | ڪشتي | مرد | مرد ڪشتي وڙهندي</annotation>
+		<annotation cp="🤼🏽‍♂" type="tts">مرد ڪشتي وڙهندي: پڪو رنگ</annotation>
+		<annotation cp="🤼🏾‍♂">ڪشتي | مرد | مرد ڪشتي وڙهندي | وچولو ڪارو رنگ</annotation>
+		<annotation cp="🤼🏾‍♂" type="tts">مرد ڪشتي وڙهندي: وچولو ڪارو رنگ</annotation>
+		<annotation cp="🤼🏿‍♂">ڪارو رنگ | ڪشتي | مرد | مرد ڪشتي وڙهندي</annotation>
+		<annotation cp="🤼🏿‍♂" type="tts">مرد ڪشتي وڙهندي: ڪارو رنگ</annotation>
 		<annotation cp="🤽🏻">پاڻي | پولو | گوري رنگت | ماڻهو پاڻي وارو پولو کيڏيندي</annotation>
 		<annotation cp="🤽🏻" type="tts">ماڻهو پاڻي وارو پولو کيڏيندي: گوري رنگت</annotation>
 		<annotation cp="🤽🏼">پاڻي | پولو | ماڻهو پاڻي وارو پولو کيڏيندي | وچولي گوري رنگت</annotation>
@@ -3900,13 +4209,13 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇦🇫">جهنڊو</annotation>
 		<annotation cp="🇦🇫" type="tts">جهنڊو: افغانستان</annotation>
 		<annotation cp="🇦🇬">جهنڊو</annotation>
-		<annotation cp="🇦🇬" type="tts">جهنڊو: انٽيگا ۽ باربد</annotation>
+		<annotation cp="🇦🇬" type="tts">جهنڊو: اينٽيگا ۽ باربوڊا</annotation>
 		<annotation cp="🇦🇮">جهنڊو</annotation>
 		<annotation cp="🇦🇮" type="tts">جهنڊو: انگويلا</annotation>
 		<annotation cp="🇦🇱">جهنڊو</annotation>
 		<annotation cp="🇦🇱" type="tts">جهنڊو: البانيا</annotation>
 		<annotation cp="🇦🇲">جهنڊو</annotation>
-		<annotation cp="🇦🇲" type="tts">جهنڊو: ارمینیا</annotation>
+		<annotation cp="🇦🇲" type="tts">جهنڊو: آرمينيا</annotation>
 		<annotation cp="🇦🇴">جهنڊو</annotation>
 		<annotation cp="🇦🇴" type="tts">جهنڊو: انگولا</annotation>
 		<annotation cp="🇦🇶">جهنڊو</annotation>
@@ -3926,7 +4235,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇦🇿">جهنڊو</annotation>
 		<annotation cp="🇦🇿" type="tts">جهنڊو: آذربائيجان</annotation>
 		<annotation cp="🇧🇦">جهنڊو</annotation>
-		<annotation cp="🇧🇦" type="tts">جهنڊو: بوسنيا ۽ هرزوگووينا</annotation>
+		<annotation cp="🇧🇦" type="tts">جهنڊو: بوسنيا ۽ هرزيگووينا</annotation>
 		<annotation cp="🇧🇧">جهنڊو</annotation>
 		<annotation cp="🇧🇧" type="tts">جهنڊو: باربڊوس</annotation>
 		<annotation cp="🇧🇩">جهنڊو</annotation>
@@ -3964,7 +4273,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇧🇼">جهنڊو</annotation>
 		<annotation cp="🇧🇼" type="tts">جهنڊو: بوٽسوانا</annotation>
 		<annotation cp="🇧🇾">جهنڊو</annotation>
-		<annotation cp="🇧🇾" type="tts">جهنڊو: بیلارس</annotation>
+		<annotation cp="🇧🇾" type="tts">جهنڊو: بيلاروس</annotation>
 		<annotation cp="🇧🇿">جهنڊو</annotation>
 		<annotation cp="🇧🇿" type="tts">جهنڊو: بيليز</annotation>
 		<annotation cp="🇨🇦">جهنڊو</annotation>
@@ -3993,6 +4302,8 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇨🇴" type="tts">جهنڊو: ڪولمبيا</annotation>
 		<annotation cp="🇨🇵">جهنڊو</annotation>
 		<annotation cp="🇨🇵" type="tts">جهنڊو: ڪلپرٽن ٻيٽ</annotation>
+		<annotation cp="🇨🇶">جهنڊو</annotation>
+		<annotation cp="🇨🇶" type="tts">جهنڊو: سارڪ</annotation>
 		<annotation cp="🇨🇷">جهنڊو</annotation>
 		<annotation cp="🇨🇷" type="tts">جهنڊو: ڪوسٽا ريڪا</annotation>
 		<annotation cp="🇨🇺">جهنڊو</annotation>
@@ -4090,7 +4401,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇬🇾">جهنڊو</annotation>
 		<annotation cp="🇬🇾" type="tts">جهنڊو: گيانا</annotation>
 		<annotation cp="🇭🇰">جهنڊو</annotation>
-		<annotation cp="🇭🇰" type="tts">جهنڊو: هانگ ڪانگ SAR</annotation>
+		<annotation cp="🇭🇰" type="tts">جهنڊو: هانگ ڪانگ SAR چين</annotation>
 		<annotation cp="🇭🇲">جهنڊو</annotation>
 		<annotation cp="🇭🇲" type="tts">جهنڊو: هرڊ ۽ مڪڊونلڊ ٻيٽ</annotation>
 		<annotation cp="🇭🇳">جهنڊو</annotation>
@@ -4262,7 +4573,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇵🇱">جهنڊو</annotation>
 		<annotation cp="🇵🇱" type="tts">جهنڊو: پولينڊ</annotation>
 		<annotation cp="🇵🇲">جهنڊو</annotation>
-		<annotation cp="🇵🇲" type="tts">جهنڊو: سینٽ پیئر و میڪوئیلون</annotation>
+		<annotation cp="🇵🇲" type="tts">جهنڊو: سينٽ پيئر ۽ ميڪيلون</annotation>
 		<annotation cp="🇵🇳">جهنڊو</annotation>
 		<annotation cp="🇵🇳" type="tts">جهنڊو: پٽڪئرن ٻيٽ</annotation>
 		<annotation cp="🇵🇷">جهنڊو</annotation>
@@ -4304,13 +4615,13 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇸🇮">جهنڊو</annotation>
 		<annotation cp="🇸🇮" type="tts">جهنڊو: سلوینیا</annotation>
 		<annotation cp="🇸🇯">جهنڊو</annotation>
-		<annotation cp="🇸🇯" type="tts">جهنڊو: سوالبارڊ ۽ جان ماین</annotation>
+		<annotation cp="🇸🇯" type="tts">جهنڊو: سوالبارڊ ۽ يان ماین</annotation>
 		<annotation cp="🇸🇰">جهنڊو</annotation>
 		<annotation cp="🇸🇰" type="tts">جهنڊو: سلوواڪيا</annotation>
 		<annotation cp="🇸🇱">جهنڊو</annotation>
 		<annotation cp="🇸🇱" type="tts">جهنڊو: سيرا ليون</annotation>
 		<annotation cp="🇸🇲">جهنڊو</annotation>
-		<annotation cp="🇸🇲" type="tts">جهنڊو: سین مرینو</annotation>
+		<annotation cp="🇸🇲" type="tts">جهنڊو: سان مرینو</annotation>
 		<annotation cp="🇸🇳">جهنڊو</annotation>
 		<annotation cp="🇸🇳" type="tts">جهنڊو: سينيگال</annotation>
 		<annotation cp="🇸🇴">جهنڊو</annotation>
@@ -4320,7 +4631,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇸🇸">جهنڊو</annotation>
 		<annotation cp="🇸🇸" type="tts">جهنڊو: ڏکڻ سوڊان</annotation>
 		<annotation cp="🇸🇹">جهنڊو</annotation>
-		<annotation cp="🇸🇹" type="tts">جهنڊو: سائو ٽوم ۽ پرنسپیي</annotation>
+		<annotation cp="🇸🇹" type="tts">جهنڊو: سائو ٽومي ۽ پرنسپیي</annotation>
 		<annotation cp="🇸🇻">جهنڊو</annotation>
 		<annotation cp="🇸🇻" type="tts">جهنڊو: ال سلواڊور</annotation>
 		<annotation cp="🇸🇽">جهنڊو</annotation>
@@ -4356,7 +4667,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇹🇷">جهنڊو</annotation>
 		<annotation cp="🇹🇷" type="tts">جهنڊو: ترڪييي</annotation>
 		<annotation cp="🇹🇹">جهنڊو</annotation>
-		<annotation cp="🇹🇹" type="tts">جهنڊو: ٽريني ڊيڊ ۽ ٽوباگو ٻيٽ</annotation>
+		<annotation cp="🇹🇹" type="tts">جهنڊو: ٽرينيڊاڊ ۽ ٽوباگو</annotation>
 		<annotation cp="🇹🇻">جهنڊو</annotation>
 		<annotation cp="🇹🇻" type="tts">جهنڊو: توالو</annotation>
 		<annotation cp="🇹🇼">جهنڊو</annotation>
@@ -4432,25 +4743,5 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="₺" type="tts">ترڪي لرا</annotation>
 		<annotation cp="₼" type="tts">آذربائيجاني منت</annotation>
 		<annotation cp="₾" type="tts">جارجيائي لاري</annotation>
-		<annotation cp="0⃣">ڪي ڪيپ</annotation>
-		<annotation cp="0⃣" type="tts">ڪي ڪيپ: 0</annotation>
-		<annotation cp="1⃣">ڪي ڪيپ</annotation>
-		<annotation cp="1⃣" type="tts">ڪي ڪيپ: 1</annotation>
-		<annotation cp="2⃣">ڪي ڪيپ</annotation>
-		<annotation cp="2⃣" type="tts">ڪي ڪيپ: 2</annotation>
-		<annotation cp="3⃣">ڪي ڪيپ</annotation>
-		<annotation cp="3⃣" type="tts">ڪي ڪيپ: 3</annotation>
-		<annotation cp="4⃣">ڪي ڪيپ</annotation>
-		<annotation cp="4⃣" type="tts">ڪي ڪيپ: 4</annotation>
-		<annotation cp="5⃣">ڪي ڪيپ</annotation>
-		<annotation cp="5⃣" type="tts">ڪي ڪيپ: 5</annotation>
-		<annotation cp="6⃣">ڪي ڪيپ</annotation>
-		<annotation cp="6⃣" type="tts">ڪي ڪيپ: 6</annotation>
-		<annotation cp="7⃣">ڪي ڪيپ</annotation>
-		<annotation cp="7⃣" type="tts">ڪي ڪيپ: 7</annotation>
-		<annotation cp="8⃣">ڪي ڪيپ</annotation>
-		<annotation cp="8⃣" type="tts">ڪي ڪيپ: 8</annotation>
-		<annotation cp="9⃣">ڪي ڪيپ</annotation>
-		<annotation cp="9⃣" type="tts">ڪي ڪيپ: 9</annotation>
 	</annotations>
 </ldml>

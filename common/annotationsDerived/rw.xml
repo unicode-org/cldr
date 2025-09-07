@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-
-Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
 -->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -463,6 +462,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾" type="tts">umuntu ufite imisatsi y’umweru: ibara ry’uruhu rw’inzobe yirabura</annotation>
 		<annotation cp="👱🏿">ibara ry’uruhu rwirabura | inzobe | umuntu ufite imisatsi y’umweru</annotation>
 		<annotation cp="👱🏿" type="tts">umuntu ufite imisatsi y’umweru: ibara ry’uruhu rwirabura</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏼">ibara ry’uruhu rwera | ibara ry’uruhu rwera gahoro | kurushanwa | umuntu uri gukirana | urushanwa</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏼" type="tts">umuntu uri gukirana: ibara ry’uruhu rwera, ibara ry’uruhu rwera gahoro</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏽">ibara ry’uruhu rw’inzobe | ibara ry’uruhu rwera | kurushanwa | umuntu uri gukirana | urushanwa</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏽" type="tts">umuntu uri gukirana: ibara ry’uruhu rwera, ibara ry’uruhu rw’inzobe</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏾">ibara ry’uruhu rw’inzobe yirabura | ibara ry’uruhu rwera | kurushanwa | umuntu uri gukirana | urushanwa</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏾" type="tts">umuntu uri gukirana: ibara ry’uruhu rwera, ibara ry’uruhu rw’inzobe yirabura</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏿">ibara ry’uruhu rwera | ibara ry’uruhu rwirabura | kurushanwa | umuntu uri gukirana | urushanwa</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏿" type="tts">umuntu uri gukirana: ibara ry’uruhu rwera, ibara ry’uruhu rwirabura</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏻">ibara ry’uruhu rwera | ibara ry’uruhu rwera gahoro | kurushanwa | umuntu uri gukirana | urushanwa</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏻" type="tts">umuntu uri gukirana: ibara ry’uruhu rwera gahoro, ibara ry’uruhu rwera</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏽">ibara ry’uruhu rw’inzobe | ibara ry’uruhu rwera gahoro | kurushanwa | umuntu uri gukirana | urushanwa</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏽" type="tts">umuntu uri gukirana: ibara ry’uruhu rwera gahoro, ibara ry’uruhu rw’inzobe</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏾">ibara ry’uruhu rw’inzobe yirabura | ibara ry’uruhu rwera gahoro | kurushanwa | umuntu uri gukirana | urushanwa</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏾" type="tts">umuntu uri gukirana: ibara ry’uruhu rwera gahoro, ibara ry’uruhu rw’inzobe yirabura</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏿">ibara ry’uruhu rwera gahoro | ibara ry’uruhu rwirabura | kurushanwa | umuntu uri gukirana | urushanwa</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏿" type="tts">umuntu uri gukirana: ibara ry’uruhu rwera gahoro, ibara ry’uruhu rwirabura</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏻">ibara ry’uruhu rw’inzobe | ibara ry’uruhu rwera | kurushanwa | umuntu uri gukirana | urushanwa</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏻" type="tts">umuntu uri gukirana: ibara ry’uruhu rw’inzobe, ibara ry’uruhu rwera</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏼">ibara ry’uruhu rw’inzobe | ibara ry’uruhu rwera gahoro | kurushanwa | umuntu uri gukirana | urushanwa</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏼" type="tts">umuntu uri gukirana: ibara ry’uruhu rw’inzobe, ibara ry’uruhu rwera gahoro</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏾">ibara ry’uruhu rw’inzobe | ibara ry’uruhu rw’inzobe yirabura | kurushanwa | umuntu uri gukirana | urushanwa</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏾" type="tts">umuntu uri gukirana: ibara ry’uruhu rw’inzobe, ibara ry’uruhu rw’inzobe yirabura</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏿">ibara ry’uruhu rw’inzobe | ibara ry’uruhu rwirabura | kurushanwa | umuntu uri gukirana | urushanwa</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏿" type="tts">umuntu uri gukirana: ibara ry’uruhu rw’inzobe, ibara ry’uruhu rwirabura</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏻">ibara ry’uruhu rw’inzobe yirabura | ibara ry’uruhu rwera | kurushanwa | umuntu uri gukirana | urushanwa</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏻" type="tts">umuntu uri gukirana: ibara ry’uruhu rw’inzobe yirabura, ibara ry’uruhu rwera</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏼">ibara ry’uruhu rw’inzobe yirabura | ibara ry’uruhu rwera gahoro | kurushanwa | umuntu uri gukirana | urushanwa</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏼" type="tts">umuntu uri gukirana: ibara ry’uruhu rw’inzobe yirabura, ibara ry’uruhu rwera gahoro</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏽">ibara ry’uruhu rw’inzobe | ibara ry’uruhu rw’inzobe yirabura | kurushanwa | umuntu uri gukirana | urushanwa</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏽" type="tts">umuntu uri gukirana: ibara ry’uruhu rw’inzobe yirabura, ibara ry’uruhu rw’inzobe</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏿">ibara ry’uruhu rw’inzobe yirabura | ibara ry’uruhu rwirabura | kurushanwa | umuntu uri gukirana | urushanwa</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏿" type="tts">umuntu uri gukirana: ibara ry’uruhu rw’inzobe yirabura, ibara ry’uruhu rwirabura</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏻">ibara ry’uruhu rwera | ibara ry’uruhu rwirabura | kurushanwa | umuntu uri gukirana | urushanwa</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏻" type="tts">umuntu uri gukirana: ibara ry’uruhu rwirabura, ibara ry’uruhu rwera</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏼">ibara ry’uruhu rwera gahoro | ibara ry’uruhu rwirabura | kurushanwa | umuntu uri gukirana | urushanwa</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏼" type="tts">umuntu uri gukirana: ibara ry’uruhu rwirabura, ibara ry’uruhu rwera gahoro</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏽">ibara ry’uruhu rw’inzobe | ibara ry’uruhu rwirabura | kurushanwa | umuntu uri gukirana | urushanwa</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏽" type="tts">umuntu uri gukirana: ibara ry’uruhu rwirabura, ibara ry’uruhu rw’inzobe</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏾">ibara ry’uruhu rw’inzobe yirabura | ibara ry’uruhu rwirabura | kurushanwa | umuntu uri gukirana | urushanwa</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏾" type="tts">umuntu uri gukirana: ibara ry’uruhu rwirabura, ibara ry’uruhu rw’inzobe yirabura</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏼">abakundana | gusomana | ibara ry’uruhu rwera | ibara ry’uruhu rwera gahoro | umuntu mukuru</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏼" type="tts">gusomana: umuntu mukuru, umuntu mukuru, ibara ry’uruhu rwera, ibara ry’uruhu rwera gahoro</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏽">abakundana | gusomana | ibara ry’uruhu rw’inzobe | ibara ry’uruhu rwera | umuntu mukuru</annotation>
@@ -543,6 +582,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧑🏿‍❤‍🧑🏽" type="tts">ikupule n’umutima: umuntu mukuru, umuntu mukuru, ibara ry’uruhu rwirabura, ibara ry’uruhu rw’inzobe</annotation>
 		<annotation cp="🧑🏿‍❤‍🧑🏾">abakundana | ibara ry’uruhu rw’inzobe yirabura | ibara ry’uruhu rwirabura | ikupule n’umutima | umuntu mukuru | urukundo</annotation>
 		<annotation cp="🧑🏿‍❤‍🧑🏾" type="tts">ikupule n’umutima: umuntu mukuru, umuntu mukuru, ibara ry’uruhu rwirabura, ibara ry’uruhu rw’inzobe yirabura</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏼">abantu bambaye amatwi y’urukwavu bari mu birori | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rwera | ibara ry’uruhu rwera gahoro | umubyinnyi</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏼" type="tts">abantu bambaye amatwi y’urukwavu bari mu birori: ibara ry’uruhu rwera, ibara ry’uruhu rwera gahoro</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏽">abantu bambaye amatwi y’urukwavu bari mu birori | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rw’inzobe | ibara ry’uruhu rwera | umubyinnyi</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏽" type="tts">abantu bambaye amatwi y’urukwavu bari mu birori: ibara ry’uruhu rwera, ibara ry’uruhu rw’inzobe</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏾">abantu bambaye amatwi y’urukwavu bari mu birori | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rw’inzobe yirabura | ibara ry’uruhu rwera | umubyinnyi</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏾" type="tts">abantu bambaye amatwi y’urukwavu bari mu birori: ibara ry’uruhu rwera, ibara ry’uruhu rw’inzobe yirabura</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏿">abantu bambaye amatwi y’urukwavu bari mu birori | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rwera | ibara ry’uruhu rwirabura | umubyinnyi</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏿" type="tts">abantu bambaye amatwi y’urukwavu bari mu birori: ibara ry’uruhu rwera, ibara ry’uruhu rwirabura</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏻">abantu bambaye amatwi y’urukwavu bari mu birori | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rwera | ibara ry’uruhu rwera gahoro | umubyinnyi</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏻" type="tts">abantu bambaye amatwi y’urukwavu bari mu birori: ibara ry’uruhu rwera gahoro, ibara ry’uruhu rwera</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏽">abantu bambaye amatwi y’urukwavu bari mu birori | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rw’inzobe | ibara ry’uruhu rwera gahoro | umubyinnyi</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏽" type="tts">abantu bambaye amatwi y’urukwavu bari mu birori: ibara ry’uruhu rwera gahoro, ibara ry’uruhu rw’inzobe</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏾">abantu bambaye amatwi y’urukwavu bari mu birori | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rw’inzobe yirabura | ibara ry’uruhu rwera gahoro | umubyinnyi</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏾" type="tts">abantu bambaye amatwi y’urukwavu bari mu birori: ibara ry’uruhu rwera gahoro, ibara ry’uruhu rw’inzobe yirabura</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏿">abantu bambaye amatwi y’urukwavu bari mu birori | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rwera gahoro | ibara ry’uruhu rwirabura | umubyinnyi</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏿" type="tts">abantu bambaye amatwi y’urukwavu bari mu birori: ibara ry’uruhu rwera gahoro, ibara ry’uruhu rwirabura</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏻">abantu bambaye amatwi y’urukwavu bari mu birori | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rw’inzobe | ibara ry’uruhu rwera | umubyinnyi</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏻" type="tts">abantu bambaye amatwi y’urukwavu bari mu birori: ibara ry’uruhu rw’inzobe, ibara ry’uruhu rwera</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏼">abantu bambaye amatwi y’urukwavu bari mu birori | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rw’inzobe | ibara ry’uruhu rwera gahoro | umubyinnyi</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏼" type="tts">abantu bambaye amatwi y’urukwavu bari mu birori: ibara ry’uruhu rw’inzobe, ibara ry’uruhu rwera gahoro</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏾">abantu bambaye amatwi y’urukwavu bari mu birori | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rw’inzobe | ibara ry’uruhu rw’inzobe yirabura | umubyinnyi</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏾" type="tts">abantu bambaye amatwi y’urukwavu bari mu birori: ibara ry’uruhu rw’inzobe, ibara ry’uruhu rw’inzobe yirabura</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏿">abantu bambaye amatwi y’urukwavu bari mu birori | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rw’inzobe | ibara ry’uruhu rwirabura | umubyinnyi</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏿" type="tts">abantu bambaye amatwi y’urukwavu bari mu birori: ibara ry’uruhu rw’inzobe, ibara ry’uruhu rwirabura</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏻">abantu bambaye amatwi y’urukwavu bari mu birori | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rw’inzobe yirabura | ibara ry’uruhu rwera | umubyinnyi</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏻" type="tts">abantu bambaye amatwi y’urukwavu bari mu birori: ibara ry’uruhu rw’inzobe yirabura, ibara ry’uruhu rwera</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏼">abantu bambaye amatwi y’urukwavu bari mu birori | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rw’inzobe yirabura | ibara ry’uruhu rwera gahoro | umubyinnyi</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏼" type="tts">abantu bambaye amatwi y’urukwavu bari mu birori: ibara ry’uruhu rw’inzobe yirabura, ibara ry’uruhu rwera gahoro</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏽">abantu bambaye amatwi y’urukwavu bari mu birori | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rw’inzobe | ibara ry’uruhu rw’inzobe yirabura | umubyinnyi</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏽" type="tts">abantu bambaye amatwi y’urukwavu bari mu birori: ibara ry’uruhu rw’inzobe yirabura, ibara ry’uruhu rw’inzobe</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏿">abantu bambaye amatwi y’urukwavu bari mu birori | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rw’inzobe yirabura | ibara ry’uruhu rwirabura | umubyinnyi</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏿" type="tts">abantu bambaye amatwi y’urukwavu bari mu birori: ibara ry’uruhu rw’inzobe yirabura, ibara ry’uruhu rwirabura</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏻">abantu bambaye amatwi y’urukwavu bari mu birori | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rwera | ibara ry’uruhu rwirabura | umubyinnyi</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏻" type="tts">abantu bambaye amatwi y’urukwavu bari mu birori: ibara ry’uruhu rwirabura, ibara ry’uruhu rwera</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏼">abantu bambaye amatwi y’urukwavu bari mu birori | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rwera gahoro | ibara ry’uruhu rwirabura | umubyinnyi</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏼" type="tts">abantu bambaye amatwi y’urukwavu bari mu birori: ibara ry’uruhu rwirabura, ibara ry’uruhu rwera gahoro</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏽">abantu bambaye amatwi y’urukwavu bari mu birori | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rw’inzobe | ibara ry’uruhu rwirabura | umubyinnyi</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏽" type="tts">abantu bambaye amatwi y’urukwavu bari mu birori: ibara ry’uruhu rwirabura, ibara ry’uruhu rw’inzobe</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏾">abantu bambaye amatwi y’urukwavu bari mu birori | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rw’inzobe yirabura | ibara ry’uruhu rwirabura | umubyinnyi</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏾" type="tts">abantu bambaye amatwi y’urukwavu bari mu birori: ibara ry’uruhu rwirabura, ibara ry’uruhu rw’inzobe yirabura</annotation>
 		<annotation cp="👨🏻">ibara ry’uruhu rwera | umugabo</annotation>
 		<annotation cp="👨🏻" type="tts">umugabo: ibara ry’uruhu rwera</annotation>
 		<annotation cp="👨🏼">ibara ry’uruhu rwera gahoro | umugabo</annotation>
@@ -573,6 +652,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾‍♂" type="tts">umugabo ufite imisatsi yera: ibara ry’uruhu rw’inzobe yirabura</annotation>
 		<annotation cp="👱🏿‍♂">ibara ry’uruhu rwirabura | inzobe | umugabo | umugabo ufite imisatsi yera</annotation>
 		<annotation cp="👱🏿‍♂" type="tts">umugabo ufite imisatsi yera: ibara ry’uruhu rwirabura</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏼">abagabo | abagabo barushanwa | ibara ry’uruhu rwera | ibara ry’uruhu rwera gahoro | kurushanwa</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏼" type="tts">abagabo barushanwa: ibara ry’uruhu rwera, ibara ry’uruhu rwera gahoro</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏽">abagabo | abagabo barushanwa | ibara ry’uruhu rw’inzobe | ibara ry’uruhu rwera | kurushanwa</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏽" type="tts">abagabo barushanwa: ibara ry’uruhu rwera, ibara ry’uruhu rw’inzobe</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏾">abagabo | abagabo barushanwa | ibara ry’uruhu rw’inzobe yirabura | ibara ry’uruhu rwera | kurushanwa</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏾" type="tts">abagabo barushanwa: ibara ry’uruhu rwera, ibara ry’uruhu rw’inzobe yirabura</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏿">abagabo | abagabo barushanwa | ibara ry’uruhu rwera | ibara ry’uruhu rwirabura | kurushanwa</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏿" type="tts">abagabo barushanwa: ibara ry’uruhu rwera, ibara ry’uruhu rwirabura</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏻">abagabo | abagabo barushanwa | ibara ry’uruhu rwera | ibara ry’uruhu rwera gahoro | kurushanwa</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏻" type="tts">abagabo barushanwa: ibara ry’uruhu rwera gahoro, ibara ry’uruhu rwera</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏽">abagabo | abagabo barushanwa | ibara ry’uruhu rw’inzobe | ibara ry’uruhu rwera gahoro | kurushanwa</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏽" type="tts">abagabo barushanwa: ibara ry’uruhu rwera gahoro, ibara ry’uruhu rw’inzobe</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏾">abagabo | abagabo barushanwa | ibara ry’uruhu rw’inzobe yirabura | ibara ry’uruhu rwera gahoro | kurushanwa</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏾" type="tts">abagabo barushanwa: ibara ry’uruhu rwera gahoro, ibara ry’uruhu rw’inzobe yirabura</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏿">abagabo | abagabo barushanwa | ibara ry’uruhu rwera gahoro | ibara ry’uruhu rwirabura | kurushanwa</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏿" type="tts">abagabo barushanwa: ibara ry’uruhu rwera gahoro, ibara ry’uruhu rwirabura</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏻">abagabo | abagabo barushanwa | ibara ry’uruhu rw’inzobe | ibara ry’uruhu rwera | kurushanwa</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏻" type="tts">abagabo barushanwa: ibara ry’uruhu rw’inzobe, ibara ry’uruhu rwera</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏼">abagabo | abagabo barushanwa | ibara ry’uruhu rw’inzobe | ibara ry’uruhu rwera gahoro | kurushanwa</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏼" type="tts">abagabo barushanwa: ibara ry’uruhu rw’inzobe, ibara ry’uruhu rwera gahoro</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏾">abagabo | abagabo barushanwa | ibara ry’uruhu rw’inzobe | ibara ry’uruhu rw’inzobe yirabura | kurushanwa</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏾" type="tts">abagabo barushanwa: ibara ry’uruhu rw’inzobe, ibara ry’uruhu rw’inzobe yirabura</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏿">abagabo | abagabo barushanwa | ibara ry’uruhu rw’inzobe | ibara ry’uruhu rwirabura | kurushanwa</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏿" type="tts">abagabo barushanwa: ibara ry’uruhu rw’inzobe, ibara ry’uruhu rwirabura</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏻">abagabo | abagabo barushanwa | ibara ry’uruhu rw’inzobe yirabura | ibara ry’uruhu rwera | kurushanwa</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏻" type="tts">abagabo barushanwa: ibara ry’uruhu rw’inzobe yirabura, ibara ry’uruhu rwera</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏼">abagabo | abagabo barushanwa | ibara ry’uruhu rw’inzobe yirabura | ibara ry’uruhu rwera gahoro | kurushanwa</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏼" type="tts">abagabo barushanwa: ibara ry’uruhu rw’inzobe yirabura, ibara ry’uruhu rwera gahoro</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏽">abagabo | abagabo barushanwa | ibara ry’uruhu rw’inzobe | ibara ry’uruhu rw’inzobe yirabura | kurushanwa</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏽" type="tts">abagabo barushanwa: ibara ry’uruhu rw’inzobe yirabura, ibara ry’uruhu rw’inzobe</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏿">abagabo | abagabo barushanwa | ibara ry’uruhu rw’inzobe yirabura | ibara ry’uruhu rwirabura | kurushanwa</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏿" type="tts">abagabo barushanwa: ibara ry’uruhu rw’inzobe yirabura, ibara ry’uruhu rwirabura</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏻">abagabo | abagabo barushanwa | ibara ry’uruhu rwera | ibara ry’uruhu rwirabura | kurushanwa</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏻" type="tts">abagabo barushanwa: ibara ry’uruhu rwirabura, ibara ry’uruhu rwera</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏼">abagabo | abagabo barushanwa | ibara ry’uruhu rwera gahoro | ibara ry’uruhu rwirabura | kurushanwa</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏼" type="tts">abagabo barushanwa: ibara ry’uruhu rwirabura, ibara ry’uruhu rwera gahoro</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏽">abagabo | abagabo barushanwa | ibara ry’uruhu rw’inzobe | ibara ry’uruhu rwirabura | kurushanwa</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏽" type="tts">abagabo barushanwa: ibara ry’uruhu rwirabura, ibara ry’uruhu rw’inzobe</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏾">abagabo | abagabo barushanwa | ibara ry’uruhu rw’inzobe yirabura | ibara ry’uruhu rwirabura | kurushanwa</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏾" type="tts">abagabo barushanwa: ibara ry’uruhu rwirabura, ibara ry’uruhu rw’inzobe yirabura</annotation>
 		<annotation cp="👨🏻‍❤‍💋‍👨🏻">abakundana | gusomana | ibara ry’uruhu rwera | umugabo</annotation>
 		<annotation cp="👨🏻‍❤‍💋‍👨🏻" type="tts">gusomana: umugabo, umugabo, ibara ry’uruhu rwera</annotation>
 		<annotation cp="👨🏻‍❤‍💋‍👨🏼">abakundana | gusomana | ibara ry’uruhu rwera | ibara ry’uruhu rwera gahoro | umugabo</annotation>
@@ -673,6 +792,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏿‍❤‍👨🏾" type="tts">ikupule n’umutima: umugabo, umugabo, ibara ry’uruhu rwirabura, ibara ry’uruhu rw’inzobe yirabura</annotation>
 		<annotation cp="👨🏿‍❤‍👨🏿">abakundana | ibara ry’uruhu rwirabura | ikupule n’umutima | umugabo | urukundo</annotation>
 		<annotation cp="👨🏿‍❤‍👨🏿" type="tts">ikupule n’umutima: umugabo, umugabo, ibara ry’uruhu rwirabura</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏼">abagabo | abagabo bambaye amatwi y’urukwavu bakora umunsi mukuru | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rwera | ibara ry’uruhu rwera gahoro | umubyinnyi</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏼" type="tts">abagabo bambaye amatwi y’urukwavu bakora umunsi mukuru: ibara ry’uruhu rwera, ibara ry’uruhu rwera gahoro</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏽">abagabo | abagabo bambaye amatwi y’urukwavu bakora umunsi mukuru | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rw’inzobe | ibara ry’uruhu rwera | umubyinnyi</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏽" type="tts">abagabo bambaye amatwi y’urukwavu bakora umunsi mukuru: ibara ry’uruhu rwera, ibara ry’uruhu rw’inzobe</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏾">abagabo | abagabo bambaye amatwi y’urukwavu bakora umunsi mukuru | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rw’inzobe yirabura | ibara ry’uruhu rwera | umubyinnyi</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏾" type="tts">abagabo bambaye amatwi y’urukwavu bakora umunsi mukuru: ibara ry’uruhu rwera, ibara ry’uruhu rw’inzobe yirabura</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏿">abagabo | abagabo bambaye amatwi y’urukwavu bakora umunsi mukuru | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rwera | ibara ry’uruhu rwirabura | umubyinnyi</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏿" type="tts">abagabo bambaye amatwi y’urukwavu bakora umunsi mukuru: ibara ry’uruhu rwera, ibara ry’uruhu rwirabura</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏻">abagabo | abagabo bambaye amatwi y’urukwavu bakora umunsi mukuru | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rwera | ibara ry’uruhu rwera gahoro | umubyinnyi</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏻" type="tts">abagabo bambaye amatwi y’urukwavu bakora umunsi mukuru: ibara ry’uruhu rwera gahoro, ibara ry’uruhu rwera</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏽">abagabo | abagabo bambaye amatwi y’urukwavu bakora umunsi mukuru | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rw’inzobe | ibara ry’uruhu rwera gahoro | umubyinnyi</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏽" type="tts">abagabo bambaye amatwi y’urukwavu bakora umunsi mukuru: ibara ry’uruhu rwera gahoro, ibara ry’uruhu rw’inzobe</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏾">abagabo | abagabo bambaye amatwi y’urukwavu bakora umunsi mukuru | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rw’inzobe yirabura | ibara ry’uruhu rwera gahoro | umubyinnyi</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏾" type="tts">abagabo bambaye amatwi y’urukwavu bakora umunsi mukuru: ibara ry’uruhu rwera gahoro, ibara ry’uruhu rw’inzobe yirabura</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏿">abagabo | abagabo bambaye amatwi y’urukwavu bakora umunsi mukuru | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rwera gahoro | ibara ry’uruhu rwirabura | umubyinnyi</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏿" type="tts">abagabo bambaye amatwi y’urukwavu bakora umunsi mukuru: ibara ry’uruhu rwera gahoro, ibara ry’uruhu rwirabura</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏻">abagabo | abagabo bambaye amatwi y’urukwavu bakora umunsi mukuru | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rw’inzobe | ibara ry’uruhu rwera | umubyinnyi</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏻" type="tts">abagabo bambaye amatwi y’urukwavu bakora umunsi mukuru: ibara ry’uruhu rw’inzobe, ibara ry’uruhu rwera</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏼">abagabo | abagabo bambaye amatwi y’urukwavu bakora umunsi mukuru | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rw’inzobe | ibara ry’uruhu rwera gahoro | umubyinnyi</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏼" type="tts">abagabo bambaye amatwi y’urukwavu bakora umunsi mukuru: ibara ry’uruhu rw’inzobe, ibara ry’uruhu rwera gahoro</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏾">abagabo | abagabo bambaye amatwi y’urukwavu bakora umunsi mukuru | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rw’inzobe | ibara ry’uruhu rw’inzobe yirabura | umubyinnyi</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏾" type="tts">abagabo bambaye amatwi y’urukwavu bakora umunsi mukuru: ibara ry’uruhu rw’inzobe, ibara ry’uruhu rw’inzobe yirabura</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏿">abagabo | abagabo bambaye amatwi y’urukwavu bakora umunsi mukuru | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rw’inzobe | ibara ry’uruhu rwirabura | umubyinnyi</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏿" type="tts">abagabo bambaye amatwi y’urukwavu bakora umunsi mukuru: ibara ry’uruhu rw’inzobe, ibara ry’uruhu rwirabura</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏻">abagabo | abagabo bambaye amatwi y’urukwavu bakora umunsi mukuru | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rw’inzobe yirabura | ibara ry’uruhu rwera | umubyinnyi</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏻" type="tts">abagabo bambaye amatwi y’urukwavu bakora umunsi mukuru: ibara ry’uruhu rw’inzobe yirabura, ibara ry’uruhu rwera</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏼">abagabo | abagabo bambaye amatwi y’urukwavu bakora umunsi mukuru | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rw’inzobe yirabura | ibara ry’uruhu rwera gahoro | umubyinnyi</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏼" type="tts">abagabo bambaye amatwi y’urukwavu bakora umunsi mukuru: ibara ry’uruhu rw’inzobe yirabura, ibara ry’uruhu rwera gahoro</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏽">abagabo | abagabo bambaye amatwi y’urukwavu bakora umunsi mukuru | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rw’inzobe | ibara ry’uruhu rw’inzobe yirabura | umubyinnyi</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏽" type="tts">abagabo bambaye amatwi y’urukwavu bakora umunsi mukuru: ibara ry’uruhu rw’inzobe yirabura, ibara ry’uruhu rw’inzobe</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏿">abagabo | abagabo bambaye amatwi y’urukwavu bakora umunsi mukuru | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rw’inzobe yirabura | ibara ry’uruhu rwirabura | umubyinnyi</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏿" type="tts">abagabo bambaye amatwi y’urukwavu bakora umunsi mukuru: ibara ry’uruhu rw’inzobe yirabura, ibara ry’uruhu rwirabura</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏻">abagabo | abagabo bambaye amatwi y’urukwavu bakora umunsi mukuru | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rwera | ibara ry’uruhu rwirabura | umubyinnyi</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏻" type="tts">abagabo bambaye amatwi y’urukwavu bakora umunsi mukuru: ibara ry’uruhu rwirabura, ibara ry’uruhu rwera</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏼">abagabo | abagabo bambaye amatwi y’urukwavu bakora umunsi mukuru | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rwera gahoro | ibara ry’uruhu rwirabura | umubyinnyi</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏼" type="tts">abagabo bambaye amatwi y’urukwavu bakora umunsi mukuru: ibara ry’uruhu rwirabura, ibara ry’uruhu rwera gahoro</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏽">abagabo | abagabo bambaye amatwi y’urukwavu bakora umunsi mukuru | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rw’inzobe | ibara ry’uruhu rwirabura | umubyinnyi</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏽" type="tts">abagabo bambaye amatwi y’urukwavu bakora umunsi mukuru: ibara ry’uruhu rwirabura, ibara ry’uruhu rw’inzobe</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏾">abagabo | abagabo bambaye amatwi y’urukwavu bakora umunsi mukuru | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rw’inzobe yirabura | ibara ry’uruhu rwirabura | umubyinnyi</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏾" type="tts">abagabo bambaye amatwi y’urukwavu bakora umunsi mukuru: ibara ry’uruhu rwirabura, ibara ry’uruhu rw’inzobe yirabura</annotation>
 		<annotation cp="👩🏻">ibara ry’uruhu rwera | umugore</annotation>
 		<annotation cp="👩🏻" type="tts">umugore: ibara ry’uruhu rwera</annotation>
 		<annotation cp="👩🏼">ibara ry’uruhu rwera gahoro | umugore</annotation>
@@ -693,6 +852,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾‍♀" type="tts">umugore ufite imisatsi yera: ibara ry’uruhu rw’inzobe yirabura</annotation>
 		<annotation cp="👱🏿‍♀">ibara ry’uruhu rwirabura | inzobe | umugore | umugore ufite imisatsi yera</annotation>
 		<annotation cp="👱🏿‍♀" type="tts">umugore ufite imisatsi yera: ibara ry’uruhu rwirabura</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏼">abagore | abagore barushanwa | ibara ry’uruhu rwera | ibara ry’uruhu rwera gahoro | kurushanwa</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏼" type="tts">abagore barushanwa: ibara ry’uruhu rwera, ibara ry’uruhu rwera gahoro</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏽">abagore | abagore barushanwa | ibara ry’uruhu rw’inzobe | ibara ry’uruhu rwera | kurushanwa</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏽" type="tts">abagore barushanwa: ibara ry’uruhu rwera, ibara ry’uruhu rw’inzobe</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏾">abagore | abagore barushanwa | ibara ry’uruhu rw’inzobe yirabura | ibara ry’uruhu rwera | kurushanwa</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏾" type="tts">abagore barushanwa: ibara ry’uruhu rwera, ibara ry’uruhu rw’inzobe yirabura</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏿">abagore | abagore barushanwa | ibara ry’uruhu rwera | ibara ry’uruhu rwirabura | kurushanwa</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏿" type="tts">abagore barushanwa: ibara ry’uruhu rwera, ibara ry’uruhu rwirabura</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏻">abagore | abagore barushanwa | ibara ry’uruhu rwera | ibara ry’uruhu rwera gahoro | kurushanwa</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏻" type="tts">abagore barushanwa: ibara ry’uruhu rwera gahoro, ibara ry’uruhu rwera</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏽">abagore | abagore barushanwa | ibara ry’uruhu rw’inzobe | ibara ry’uruhu rwera gahoro | kurushanwa</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏽" type="tts">abagore barushanwa: ibara ry’uruhu rwera gahoro, ibara ry’uruhu rw’inzobe</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏾">abagore | abagore barushanwa | ibara ry’uruhu rw’inzobe yirabura | ibara ry’uruhu rwera gahoro | kurushanwa</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏾" type="tts">abagore barushanwa: ibara ry’uruhu rwera gahoro, ibara ry’uruhu rw’inzobe yirabura</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏿">abagore | abagore barushanwa | ibara ry’uruhu rwera gahoro | ibara ry’uruhu rwirabura | kurushanwa</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏿" type="tts">abagore barushanwa: ibara ry’uruhu rwera gahoro, ibara ry’uruhu rwirabura</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏻">abagore | abagore barushanwa | ibara ry’uruhu rw’inzobe | ibara ry’uruhu rwera | kurushanwa</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏻" type="tts">abagore barushanwa: ibara ry’uruhu rw’inzobe, ibara ry’uruhu rwera</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏼">abagore | abagore barushanwa | ibara ry’uruhu rw’inzobe | ibara ry’uruhu rwera gahoro | kurushanwa</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏼" type="tts">abagore barushanwa: ibara ry’uruhu rw’inzobe, ibara ry’uruhu rwera gahoro</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏾">abagore | abagore barushanwa | ibara ry’uruhu rw’inzobe | ibara ry’uruhu rw’inzobe yirabura | kurushanwa</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏾" type="tts">abagore barushanwa: ibara ry’uruhu rw’inzobe, ibara ry’uruhu rw’inzobe yirabura</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏿">abagore | abagore barushanwa | ibara ry’uruhu rw’inzobe | ibara ry’uruhu rwirabura | kurushanwa</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏿" type="tts">abagore barushanwa: ibara ry’uruhu rw’inzobe, ibara ry’uruhu rwirabura</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏻">abagore | abagore barushanwa | ibara ry’uruhu rw’inzobe yirabura | ibara ry’uruhu rwera | kurushanwa</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏻" type="tts">abagore barushanwa: ibara ry’uruhu rw’inzobe yirabura, ibara ry’uruhu rwera</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏼">abagore | abagore barushanwa | ibara ry’uruhu rw’inzobe yirabura | ibara ry’uruhu rwera gahoro | kurushanwa</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏼" type="tts">abagore barushanwa: ibara ry’uruhu rw’inzobe yirabura, ibara ry’uruhu rwera gahoro</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏽">abagore | abagore barushanwa | ibara ry’uruhu rw’inzobe | ibara ry’uruhu rw’inzobe yirabura | kurushanwa</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏽" type="tts">abagore barushanwa: ibara ry’uruhu rw’inzobe yirabura, ibara ry’uruhu rw’inzobe</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏿">abagore | abagore barushanwa | ibara ry’uruhu rw’inzobe yirabura | ibara ry’uruhu rwirabura | kurushanwa</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏿" type="tts">abagore barushanwa: ibara ry’uruhu rw’inzobe yirabura, ibara ry’uruhu rwirabura</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏻">abagore | abagore barushanwa | ibara ry’uruhu rwera | ibara ry’uruhu rwirabura | kurushanwa</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏻" type="tts">abagore barushanwa: ibara ry’uruhu rwirabura, ibara ry’uruhu rwera</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏼">abagore | abagore barushanwa | ibara ry’uruhu rwera gahoro | ibara ry’uruhu rwirabura | kurushanwa</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏼" type="tts">abagore barushanwa: ibara ry’uruhu rwirabura, ibara ry’uruhu rwera gahoro</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏽">abagore | abagore barushanwa | ibara ry’uruhu rw’inzobe | ibara ry’uruhu rwirabura | kurushanwa</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏽" type="tts">abagore barushanwa: ibara ry’uruhu rwirabura, ibara ry’uruhu rw’inzobe</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏾">abagore | abagore barushanwa | ibara ry’uruhu rw’inzobe yirabura | ibara ry’uruhu rwirabura | kurushanwa</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏾" type="tts">abagore barushanwa: ibara ry’uruhu rwirabura, ibara ry’uruhu rw’inzobe yirabura</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👨🏻">abakundana | gusomana | ibara ry’uruhu rwera | umugabo | umugore</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👨🏻" type="tts">gusomana: umugore, umugabo, ibara ry’uruhu rwera</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👨🏼">abakundana | gusomana | ibara ry’uruhu rwera | ibara ry’uruhu rwera gahoro | umugabo | umugore</annotation>
@@ -893,6 +1092,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏿‍❤‍👩🏾" type="tts">ikupule n’umutima: umugore, umugore, ibara ry’uruhu rwirabura, ibara ry’uruhu rw’inzobe yirabura</annotation>
 		<annotation cp="👩🏿‍❤‍👩🏿">abakundana | ibara ry’uruhu rwirabura | ikupule n’umutima | umugore | urukundo</annotation>
 		<annotation cp="👩🏿‍❤‍👩🏿" type="tts">ikupule n’umutima: umugore, umugore, ibara ry’uruhu rwirabura</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏼">abagore | abagore bambaye amatwi y’urukwavu bakora umunsi mukuru | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rwera | ibara ry’uruhu rwera gahoro | umubyinnyi</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏼" type="tts">abagore bambaye amatwi y’urukwavu bakora umunsi mukuru: ibara ry’uruhu rwera, ibara ry’uruhu rwera gahoro</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏽">abagore | abagore bambaye amatwi y’urukwavu bakora umunsi mukuru | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rw’inzobe | ibara ry’uruhu rwera | umubyinnyi</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏽" type="tts">abagore bambaye amatwi y’urukwavu bakora umunsi mukuru: ibara ry’uruhu rwera, ibara ry’uruhu rw’inzobe</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏾">abagore | abagore bambaye amatwi y’urukwavu bakora umunsi mukuru | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rw’inzobe yirabura | ibara ry’uruhu rwera | umubyinnyi</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏾" type="tts">abagore bambaye amatwi y’urukwavu bakora umunsi mukuru: ibara ry’uruhu rwera, ibara ry’uruhu rw’inzobe yirabura</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏿">abagore | abagore bambaye amatwi y’urukwavu bakora umunsi mukuru | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rwera | ibara ry’uruhu rwirabura | umubyinnyi</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏿" type="tts">abagore bambaye amatwi y’urukwavu bakora umunsi mukuru: ibara ry’uruhu rwera, ibara ry’uruhu rwirabura</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏻">abagore | abagore bambaye amatwi y’urukwavu bakora umunsi mukuru | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rwera | ibara ry’uruhu rwera gahoro | umubyinnyi</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏻" type="tts">abagore bambaye amatwi y’urukwavu bakora umunsi mukuru: ibara ry’uruhu rwera gahoro, ibara ry’uruhu rwera</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏽">abagore | abagore bambaye amatwi y’urukwavu bakora umunsi mukuru | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rw’inzobe | ibara ry’uruhu rwera gahoro | umubyinnyi</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏽" type="tts">abagore bambaye amatwi y’urukwavu bakora umunsi mukuru: ibara ry’uruhu rwera gahoro, ibara ry’uruhu rw’inzobe</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏾">abagore | abagore bambaye amatwi y’urukwavu bakora umunsi mukuru | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rw’inzobe yirabura | ibara ry’uruhu rwera gahoro | umubyinnyi</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏾" type="tts">abagore bambaye amatwi y’urukwavu bakora umunsi mukuru: ibara ry’uruhu rwera gahoro, ibara ry’uruhu rw’inzobe yirabura</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏿">abagore | abagore bambaye amatwi y’urukwavu bakora umunsi mukuru | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rwera gahoro | ibara ry’uruhu rwirabura | umubyinnyi</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏿" type="tts">abagore bambaye amatwi y’urukwavu bakora umunsi mukuru: ibara ry’uruhu rwera gahoro, ibara ry’uruhu rwirabura</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏻">abagore | abagore bambaye amatwi y’urukwavu bakora umunsi mukuru | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rw’inzobe | ibara ry’uruhu rwera | umubyinnyi</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏻" type="tts">abagore bambaye amatwi y’urukwavu bakora umunsi mukuru: ibara ry’uruhu rw’inzobe, ibara ry’uruhu rwera</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏼">abagore | abagore bambaye amatwi y’urukwavu bakora umunsi mukuru | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rw’inzobe | ibara ry’uruhu rwera gahoro | umubyinnyi</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏼" type="tts">abagore bambaye amatwi y’urukwavu bakora umunsi mukuru: ibara ry’uruhu rw’inzobe, ibara ry’uruhu rwera gahoro</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏾">abagore | abagore bambaye amatwi y’urukwavu bakora umunsi mukuru | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rw’inzobe | ibara ry’uruhu rw’inzobe yirabura | umubyinnyi</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏾" type="tts">abagore bambaye amatwi y’urukwavu bakora umunsi mukuru: ibara ry’uruhu rw’inzobe, ibara ry’uruhu rw’inzobe yirabura</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏿">abagore | abagore bambaye amatwi y’urukwavu bakora umunsi mukuru | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rw’inzobe | ibara ry’uruhu rwirabura | umubyinnyi</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏿" type="tts">abagore bambaye amatwi y’urukwavu bakora umunsi mukuru: ibara ry’uruhu rw’inzobe, ibara ry’uruhu rwirabura</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏻">abagore | abagore bambaye amatwi y’urukwavu bakora umunsi mukuru | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rw’inzobe yirabura | ibara ry’uruhu rwera | umubyinnyi</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏻" type="tts">abagore bambaye amatwi y’urukwavu bakora umunsi mukuru: ibara ry’uruhu rw’inzobe yirabura, ibara ry’uruhu rwera</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏼">abagore | abagore bambaye amatwi y’urukwavu bakora umunsi mukuru | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rw’inzobe yirabura | ibara ry’uruhu rwera gahoro | umubyinnyi</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏼" type="tts">abagore bambaye amatwi y’urukwavu bakora umunsi mukuru: ibara ry’uruhu rw’inzobe yirabura, ibara ry’uruhu rwera gahoro</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏽">abagore | abagore bambaye amatwi y’urukwavu bakora umunsi mukuru | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rw’inzobe | ibara ry’uruhu rw’inzobe yirabura | umubyinnyi</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏽" type="tts">abagore bambaye amatwi y’urukwavu bakora umunsi mukuru: ibara ry’uruhu rw’inzobe yirabura, ibara ry’uruhu rw’inzobe</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏿">abagore | abagore bambaye amatwi y’urukwavu bakora umunsi mukuru | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rw’inzobe yirabura | ibara ry’uruhu rwirabura | umubyinnyi</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏿" type="tts">abagore bambaye amatwi y’urukwavu bakora umunsi mukuru: ibara ry’uruhu rw’inzobe yirabura, ibara ry’uruhu rwirabura</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏻">abagore | abagore bambaye amatwi y’urukwavu bakora umunsi mukuru | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rwera | ibara ry’uruhu rwirabura | umubyinnyi</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏻" type="tts">abagore bambaye amatwi y’urukwavu bakora umunsi mukuru: ibara ry’uruhu rwirabura, ibara ry’uruhu rwera</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏼">abagore | abagore bambaye amatwi y’urukwavu bakora umunsi mukuru | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rwera gahoro | ibara ry’uruhu rwirabura | umubyinnyi</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏼" type="tts">abagore bambaye amatwi y’urukwavu bakora umunsi mukuru: ibara ry’uruhu rwirabura, ibara ry’uruhu rwera gahoro</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏽">abagore | abagore bambaye amatwi y’urukwavu bakora umunsi mukuru | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rw’inzobe | ibara ry’uruhu rwirabura | umubyinnyi</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏽" type="tts">abagore bambaye amatwi y’urukwavu bakora umunsi mukuru: ibara ry’uruhu rwirabura, ibara ry’uruhu rw’inzobe</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏾">abagore | abagore bambaye amatwi y’urukwavu bakora umunsi mukuru | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rw’inzobe yirabura | ibara ry’uruhu rwirabura | umubyinnyi</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏾" type="tts">abagore bambaye amatwi y’urukwavu bakora umunsi mukuru: ibara ry’uruhu rwirabura, ibara ry’uruhu rw’inzobe yirabura</annotation>
 		<annotation cp="🧓🏻">ibara ry’uruhu rwera | umuntu mukuru ushaje | ushaje | utagaragaza igitsina</annotation>
 		<annotation cp="🧓🏻" type="tts">umuntu mukuru ushaje: ibara ry’uruhu rwera</annotation>
 		<annotation cp="🧓🏼">ibara ry’uruhu rwera gahoro | umuntu mukuru ushaje | ushaje | utagaragaza igitsina</annotation>
@@ -2073,6 +2312,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🕴🏾" type="tts">umuntu wambaye ikositimu uzamuye: ibara ry’uruhu rw’inzobe yirabura</annotation>
 		<annotation cp="🕴🏿">ibara ry’uruhu rwirabura | ikositimu | ubucuruzi | umugabo | umuntu wambaye ikositimu uzamuye</annotation>
 		<annotation cp="🕴🏿" type="tts">umuntu wambaye ikositimu uzamuye: ibara ry’uruhu rwirabura</annotation>
+		<annotation cp="👯🏻">abantu bambaye amatwi y’urukwavu bari mu birori | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rwera | umubyinnyi</annotation>
+		<annotation cp="👯🏻" type="tts">abantu bambaye amatwi y’urukwavu bari mu birori: ibara ry’uruhu rwera</annotation>
+		<annotation cp="👯🏼">abantu bambaye amatwi y’urukwavu bari mu birori | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rwera gahoro | umubyinnyi</annotation>
+		<annotation cp="👯🏼" type="tts">abantu bambaye amatwi y’urukwavu bari mu birori: ibara ry’uruhu rwera gahoro</annotation>
+		<annotation cp="👯🏽">abantu bambaye amatwi y’urukwavu bari mu birori | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rw’inzobe | umubyinnyi</annotation>
+		<annotation cp="👯🏽" type="tts">abantu bambaye amatwi y’urukwavu bari mu birori: ibara ry’uruhu rw’inzobe</annotation>
+		<annotation cp="👯🏾">abantu bambaye amatwi y’urukwavu bari mu birori | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rw’inzobe yirabura | umubyinnyi</annotation>
+		<annotation cp="👯🏾" type="tts">abantu bambaye amatwi y’urukwavu bari mu birori: ibara ry’uruhu rw’inzobe yirabura</annotation>
+		<annotation cp="👯🏿">abantu bambaye amatwi y’urukwavu bari mu birori | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rwirabura | umubyinnyi</annotation>
+		<annotation cp="👯🏿" type="tts">abantu bambaye amatwi y’urukwavu bari mu birori: ibara ry’uruhu rwirabura</annotation>
+		<annotation cp="👯🏻‍♀">abagore | abagore bambaye amatwi y’urukwavu bakora umunsi mukuru | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rwera | umubyinnyi</annotation>
+		<annotation cp="👯🏻‍♀" type="tts">abagore bambaye amatwi y’urukwavu bakora umunsi mukuru: ibara ry’uruhu rwera</annotation>
+		<annotation cp="👯🏼‍♀">abagore | abagore bambaye amatwi y’urukwavu bakora umunsi mukuru | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rwera gahoro | umubyinnyi</annotation>
+		<annotation cp="👯🏼‍♀" type="tts">abagore bambaye amatwi y’urukwavu bakora umunsi mukuru: ibara ry’uruhu rwera gahoro</annotation>
+		<annotation cp="👯🏽‍♀">abagore | abagore bambaye amatwi y’urukwavu bakora umunsi mukuru | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rw’inzobe | umubyinnyi</annotation>
+		<annotation cp="👯🏽‍♀" type="tts">abagore bambaye amatwi y’urukwavu bakora umunsi mukuru: ibara ry’uruhu rw’inzobe</annotation>
+		<annotation cp="👯🏾‍♀">abagore | abagore bambaye amatwi y’urukwavu bakora umunsi mukuru | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rw’inzobe yirabura | umubyinnyi</annotation>
+		<annotation cp="👯🏾‍♀" type="tts">abagore bambaye amatwi y’urukwavu bakora umunsi mukuru: ibara ry’uruhu rw’inzobe yirabura</annotation>
+		<annotation cp="👯🏿‍♀">abagore | abagore bambaye amatwi y’urukwavu bakora umunsi mukuru | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rwirabura | umubyinnyi</annotation>
+		<annotation cp="👯🏿‍♀" type="tts">abagore bambaye amatwi y’urukwavu bakora umunsi mukuru: ibara ry’uruhu rwirabura</annotation>
+		<annotation cp="👯🏻‍♂">abagabo | abagabo bambaye amatwi y’urukwavu bakora umunsi mukuru | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rwera | umubyinnyi</annotation>
+		<annotation cp="👯🏻‍♂" type="tts">abagabo bambaye amatwi y’urukwavu bakora umunsi mukuru: ibara ry’uruhu rwera</annotation>
+		<annotation cp="👯🏼‍♂">abagabo | abagabo bambaye amatwi y’urukwavu bakora umunsi mukuru | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rwera gahoro | umubyinnyi</annotation>
+		<annotation cp="👯🏼‍♂" type="tts">abagabo bambaye amatwi y’urukwavu bakora umunsi mukuru: ibara ry’uruhu rwera gahoro</annotation>
+		<annotation cp="👯🏽‍♂">abagabo | abagabo bambaye amatwi y’urukwavu bakora umunsi mukuru | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rw’inzobe | umubyinnyi</annotation>
+		<annotation cp="👯🏽‍♂" type="tts">abagabo bambaye amatwi y’urukwavu bakora umunsi mukuru: ibara ry’uruhu rw’inzobe</annotation>
+		<annotation cp="👯🏾‍♂">abagabo | abagabo bambaye amatwi y’urukwavu bakora umunsi mukuru | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rw’inzobe yirabura | umubyinnyi</annotation>
+		<annotation cp="👯🏾‍♂" type="tts">abagabo bambaye amatwi y’urukwavu bakora umunsi mukuru: ibara ry’uruhu rw’inzobe yirabura</annotation>
+		<annotation cp="👯🏿‍♂">abagabo | abagabo bambaye amatwi y’urukwavu bakora umunsi mukuru | amatwi y’urukwavu | gukora umunsi mukuru | ibara ry’uruhu rwirabura | umubyinnyi</annotation>
+		<annotation cp="👯🏿‍♂" type="tts">abagabo bambaye amatwi y’urukwavu bakora umunsi mukuru: ibara ry’uruhu rwirabura</annotation>
 		<annotation cp="🧖🏻">ahakorerwa sawuna | ibara ry’uruhu rwera | sawuna | umuntu uri muri sawuna</annotation>
 		<annotation cp="🧖🏻" type="tts">umuntu uri muri sawuna: ibara ry’uruhu rwera</annotation>
 		<annotation cp="🧖🏼">ahakorerwa sawuna | ibara ry’uruhu rwera gahoro | sawuna | umuntu uri muri sawuna</annotation>
@@ -2423,6 +2692,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤸🏾‍♀" type="tts">umugore umangamanga: ibara ry’uruhu rw’inzobe yirabura</annotation>
 		<annotation cp="🤸🏿‍♀">ibara ry’uruhu rwirabura | kumangamanga | ubugororangingo | umugore | umugore umangamanga</annotation>
 		<annotation cp="🤸🏿‍♀" type="tts">umugore umangamanga: ibara ry’uruhu rwirabura</annotation>
+		<annotation cp="🤼🏻">ibara ry’uruhu rwera | kurushanwa | umuntu uri gukirana | urushanwa</annotation>
+		<annotation cp="🤼🏻" type="tts">umuntu uri gukirana: ibara ry’uruhu rwera</annotation>
+		<annotation cp="🤼🏼">ibara ry’uruhu rwera gahoro | kurushanwa | umuntu uri gukirana | urushanwa</annotation>
+		<annotation cp="🤼🏼" type="tts">umuntu uri gukirana: ibara ry’uruhu rwera gahoro</annotation>
+		<annotation cp="🤼🏽">ibara ry’uruhu rw’inzobe | kurushanwa | umuntu uri gukirana | urushanwa</annotation>
+		<annotation cp="🤼🏽" type="tts">umuntu uri gukirana: ibara ry’uruhu rw’inzobe</annotation>
+		<annotation cp="🤼🏾">ibara ry’uruhu rw’inzobe yirabura | kurushanwa | umuntu uri gukirana | urushanwa</annotation>
+		<annotation cp="🤼🏾" type="tts">umuntu uri gukirana: ibara ry’uruhu rw’inzobe yirabura</annotation>
+		<annotation cp="🤼🏿">ibara ry’uruhu rwirabura | kurushanwa | umuntu uri gukirana | urushanwa</annotation>
+		<annotation cp="🤼🏿" type="tts">umuntu uri gukirana: ibara ry’uruhu rwirabura</annotation>
+		<annotation cp="🤼🏻‍♀">abagore | abagore barushanwa | ibara ry’uruhu rwera | kurushanwa</annotation>
+		<annotation cp="🤼🏻‍♀" type="tts">abagore barushanwa: ibara ry’uruhu rwera</annotation>
+		<annotation cp="🤼🏼‍♀">abagore | abagore barushanwa | ibara ry’uruhu rwera gahoro | kurushanwa</annotation>
+		<annotation cp="🤼🏼‍♀" type="tts">abagore barushanwa: ibara ry’uruhu rwera gahoro</annotation>
+		<annotation cp="🤼🏽‍♀">abagore | abagore barushanwa | ibara ry’uruhu rw’inzobe | kurushanwa</annotation>
+		<annotation cp="🤼🏽‍♀" type="tts">abagore barushanwa: ibara ry’uruhu rw’inzobe</annotation>
+		<annotation cp="🤼🏾‍♀">abagore | abagore barushanwa | ibara ry’uruhu rw’inzobe yirabura | kurushanwa</annotation>
+		<annotation cp="🤼🏾‍♀" type="tts">abagore barushanwa: ibara ry’uruhu rw’inzobe yirabura</annotation>
+		<annotation cp="🤼🏿‍♀">abagore | abagore barushanwa | ibara ry’uruhu rwirabura | kurushanwa</annotation>
+		<annotation cp="🤼🏿‍♀" type="tts">abagore barushanwa: ibara ry’uruhu rwirabura</annotation>
+		<annotation cp="🤼🏻‍♂">abagabo | abagabo barushanwa | ibara ry’uruhu rwera | kurushanwa</annotation>
+		<annotation cp="🤼🏻‍♂" type="tts">abagabo barushanwa: ibara ry’uruhu rwera</annotation>
+		<annotation cp="🤼🏼‍♂">abagabo | abagabo barushanwa | ibara ry’uruhu rwera gahoro | kurushanwa</annotation>
+		<annotation cp="🤼🏼‍♂" type="tts">abagabo barushanwa: ibara ry’uruhu rwera gahoro</annotation>
+		<annotation cp="🤼🏽‍♂">abagabo | abagabo barushanwa | ibara ry’uruhu rw’inzobe | kurushanwa</annotation>
+		<annotation cp="🤼🏽‍♂" type="tts">abagabo barushanwa: ibara ry’uruhu rw’inzobe</annotation>
+		<annotation cp="🤼🏾‍♂">abagabo | abagabo barushanwa | ibara ry’uruhu rw’inzobe yirabura | kurushanwa</annotation>
+		<annotation cp="🤼🏾‍♂" type="tts">abagabo barushanwa: ibara ry’uruhu rw’inzobe yirabura</annotation>
+		<annotation cp="🤼🏿‍♂">abagabo | abagabo barushanwa | ibara ry’uruhu rwirabura | kurushanwa</annotation>
+		<annotation cp="🤼🏿‍♂" type="tts">abagabo barushanwa: ibara ry’uruhu rwirabura</annotation>
 		<annotation cp="🤽🏻">amazi | ibara ry’uruhu rwera | umukino wa polo | umuntu uri gukina umukino wa water polo</annotation>
 		<annotation cp="🤽🏻" type="tts">umuntu uri gukina umukino wa water polo: ibara ry’uruhu rwera</annotation>
 		<annotation cp="🤽🏼">amazi | ibara ry’uruhu rwera gahoro | umukino wa polo | umuntu uri gukina umukino wa water polo</annotation>

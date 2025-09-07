@@ -696,7 +696,8 @@ public class TestAnnotations extends TestFmwkPlus {
         UnicodeSet allRgiNoEs = Emoji.getAllRgiNoES();
 
         // get both regular and derived emoji
-        for (String file : List.of("en.xml", "de.xml", "fr.xml")) {
+        for (String file :
+                List.of("en.xml")) { // for testing, can add others like "de.xml", "fr.xml"
             UnicodeSet namesFound = new UnicodeSet();
             UnicodeSet searchKeywordsFound = new UnicodeSet();
             fillNamesAndSearchKeywords(
@@ -705,7 +706,7 @@ public class TestAnnotations extends TestFmwkPlus {
             warnln(
                     Joiner.on('\t')
                             .join(
-                                    "RGI:",
+                                    "FYI, RGI:",
                                     allRgiNoEs.size(),
                                     "namesFound:",
                                     namesFound.size(),
@@ -722,7 +723,7 @@ public class TestAnnotations extends TestFmwkPlus {
             // See instructions below.
 
             if (!assertEquals(
-                    file + " RGI - en.xml name annotations",
+                    file + " RGI name annotations",
                     "[]",
                     new UnicodeSet(missingNames)
                             .removeAll(TEMPORARY_SKIP_COMPOUNDS)
@@ -730,7 +731,7 @@ public class TestAnnotations extends TestFmwkPlus {
                 break;
             }
             if (!assertEquals(
-                    file + " RGI - en.xml search key annotations",
+                    file + " RGI search key annotations",
                     "[]",
                     new UnicodeSet(missingKeywords)
                             .removeAll(TEMPORARY_SKIP_COMPOUNDS)

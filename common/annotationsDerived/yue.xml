@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-
-Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
 -->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -603,6 +602,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾" type="tts">金色頭髮嘅人: 中深膚色</annotation>
 		<annotation cp="👱🏿">深膚色 | 金色頭髮 | 金色頭髮嘅人</annotation>
 		<annotation cp="👱🏿" type="tts">金色頭髮嘅人: 深膚色</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏼">中淺膚色 | 摔跤 | 摔跤嘅人 | 摔跤手 | 淺膚色</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏼" type="tts">摔跤嘅人: 淺膚色 中淺膚色</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏽">中膚色 | 摔跤 | 摔跤嘅人 | 摔跤手 | 淺膚色</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏽" type="tts">摔跤嘅人: 淺膚色 中膚色</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏾">中深膚色 | 摔跤 | 摔跤嘅人 | 摔跤手 | 淺膚色</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏾" type="tts">摔跤嘅人: 淺膚色 中深膚色</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏿">摔跤 | 摔跤嘅人 | 摔跤手 | 深膚色 | 淺膚色</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏿" type="tts">摔跤嘅人: 淺膚色 深膚色</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏻">中淺膚色 | 摔跤 | 摔跤嘅人 | 摔跤手 | 淺膚色</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏻" type="tts">摔跤嘅人: 中淺膚色 淺膚色</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏽">中淺膚色 | 中膚色 | 摔跤 | 摔跤嘅人 | 摔跤手</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏽" type="tts">摔跤嘅人: 中淺膚色 中膚色</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏾">中深膚色 | 中淺膚色 | 摔跤 | 摔跤嘅人 | 摔跤手</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏾" type="tts">摔跤嘅人: 中淺膚色 中深膚色</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏿">中淺膚色 | 摔跤 | 摔跤嘅人 | 摔跤手 | 深膚色</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏿" type="tts">摔跤嘅人: 中淺膚色 深膚色</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏻">中膚色 | 摔跤 | 摔跤嘅人 | 摔跤手 | 淺膚色</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏻" type="tts">摔跤嘅人: 中膚色 淺膚色</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏼">中淺膚色 | 中膚色 | 摔跤 | 摔跤嘅人 | 摔跤手</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏼" type="tts">摔跤嘅人: 中膚色 中淺膚色</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏾">中深膚色 | 中膚色 | 摔跤 | 摔跤嘅人 | 摔跤手</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏾" type="tts">摔跤嘅人: 中膚色 中深膚色</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏿">中膚色 | 摔跤 | 摔跤嘅人 | 摔跤手 | 深膚色</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏿" type="tts">摔跤嘅人: 中膚色 深膚色</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏻">中深膚色 | 摔跤 | 摔跤嘅人 | 摔跤手 | 淺膚色</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏻" type="tts">摔跤嘅人: 中深膚色 淺膚色</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏼">中深膚色 | 中淺膚色 | 摔跤 | 摔跤嘅人 | 摔跤手</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏼" type="tts">摔跤嘅人: 中深膚色 中淺膚色</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏽">中深膚色 | 中膚色 | 摔跤 | 摔跤嘅人 | 摔跤手</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏽" type="tts">摔跤嘅人: 中深膚色 中膚色</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏿">中深膚色 | 摔跤 | 摔跤嘅人 | 摔跤手 | 深膚色</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏿" type="tts">摔跤嘅人: 中深膚色 深膚色</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏻">摔跤 | 摔跤嘅人 | 摔跤手 | 深膚色 | 淺膚色</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏻" type="tts">摔跤嘅人: 深膚色 淺膚色</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏼">中淺膚色 | 摔跤 | 摔跤嘅人 | 摔跤手 | 深膚色</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏼" type="tts">摔跤嘅人: 深膚色 中淺膚色</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏽">中膚色 | 摔跤 | 摔跤嘅人 | 摔跤手 | 深膚色</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏽" type="tts">摔跤嘅人: 深膚色 中膚色</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏾">中深膚色 | 摔跤 | 摔跤嘅人 | 摔跤手 | 深膚色</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏾" type="tts">摔跤嘅人: 深膚色 中深膚色</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏼">中淺膚色 | 吻 | 夫婦 | 成人 | 淺膚色</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏼" type="tts">吻: 成人 成人 淺膚色 中淺膚色</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏽">中膚色 | 吻 | 夫婦 | 成人 | 淺膚色</annotation>
@@ -643,45 +682,45 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧑🏿‍❤‍💋‍🧑🏽" type="tts">吻: 成人 成人 深膚色 中膚色</annotation>
 		<annotation cp="🧑🏿‍❤‍💋‍🧑🏾">中深膚色 | 吻 | 夫婦 | 成人 | 深膚色</annotation>
 		<annotation cp="🧑🏿‍❤‍💋‍🧑🏾" type="tts">吻: 成人 成人 深膚色 中深膚色</annotation>
-		<annotation cp="🧑🏻‍❤‍🧑🏼">中淺膚色 | 夫婦｜愛 | 夫婦同心 | 成人 | 淺膚色</annotation>
+		<annotation cp="🧑🏻‍❤‍🧑🏼">中淺膚色 | 夫婦 | 夫婦同心 | 愛 | 成人 | 淺膚色</annotation>
 		<annotation cp="🧑🏻‍❤‍🧑🏼" type="tts">夫婦同心: 成人 成人 淺膚色 中淺膚色</annotation>
-		<annotation cp="🧑🏻‍❤‍🧑🏽">中膚色 | 夫婦｜愛 | 夫婦同心 | 成人 | 淺膚色</annotation>
+		<annotation cp="🧑🏻‍❤‍🧑🏽">中膚色 | 夫婦 | 夫婦同心 | 愛 | 成人 | 淺膚色</annotation>
 		<annotation cp="🧑🏻‍❤‍🧑🏽" type="tts">夫婦同心: 成人 成人 淺膚色 中膚色</annotation>
-		<annotation cp="🧑🏻‍❤‍🧑🏾">中深膚色 | 夫婦｜愛 | 夫婦同心 | 成人 | 淺膚色</annotation>
+		<annotation cp="🧑🏻‍❤‍🧑🏾">中深膚色 | 夫婦 | 夫婦同心 | 愛 | 成人 | 淺膚色</annotation>
 		<annotation cp="🧑🏻‍❤‍🧑🏾" type="tts">夫婦同心: 成人 成人 淺膚色 中深膚色</annotation>
-		<annotation cp="🧑🏻‍❤‍🧑🏿">夫婦｜愛 | 夫婦同心 | 成人 | 深膚色 | 淺膚色</annotation>
+		<annotation cp="🧑🏻‍❤‍🧑🏿">夫婦 | 夫婦同心 | 愛 | 成人 | 深膚色 | 淺膚色</annotation>
 		<annotation cp="🧑🏻‍❤‍🧑🏿" type="tts">夫婦同心: 成人 成人 淺膚色 深膚色</annotation>
-		<annotation cp="🧑🏼‍❤‍🧑🏻">中淺膚色 | 夫婦｜愛 | 夫婦同心 | 成人 | 淺膚色</annotation>
+		<annotation cp="🧑🏼‍❤‍🧑🏻">中淺膚色 | 夫婦 | 夫婦同心 | 愛 | 成人 | 淺膚色</annotation>
 		<annotation cp="🧑🏼‍❤‍🧑🏻" type="tts">夫婦同心: 成人 成人 中淺膚色 淺膚色</annotation>
-		<annotation cp="🧑🏼‍❤‍🧑🏽">中淺膚色 | 中膚色 | 夫婦｜愛 | 夫婦同心 | 成人</annotation>
+		<annotation cp="🧑🏼‍❤‍🧑🏽">中淺膚色 | 中膚色 | 夫婦 | 夫婦同心 | 愛 | 成人</annotation>
 		<annotation cp="🧑🏼‍❤‍🧑🏽" type="tts">夫婦同心: 成人 成人 中淺膚色 中膚色</annotation>
-		<annotation cp="🧑🏼‍❤‍🧑🏾">中深膚色 | 中淺膚色 | 夫婦｜愛 | 夫婦同心 | 成人</annotation>
+		<annotation cp="🧑🏼‍❤‍🧑🏾">中深膚色 | 中淺膚色 | 夫婦 | 夫婦同心 | 愛 | 成人</annotation>
 		<annotation cp="🧑🏼‍❤‍🧑🏾" type="tts">夫婦同心: 成人 成人 中淺膚色 中深膚色</annotation>
-		<annotation cp="🧑🏼‍❤‍🧑🏿">中淺膚色 | 夫婦｜愛 | 夫婦同心 | 成人 | 深膚色</annotation>
+		<annotation cp="🧑🏼‍❤‍🧑🏿">中淺膚色 | 夫婦 | 夫婦同心 | 愛 | 成人 | 深膚色</annotation>
 		<annotation cp="🧑🏼‍❤‍🧑🏿" type="tts">夫婦同心: 成人 成人 中淺膚色 深膚色</annotation>
-		<annotation cp="🧑🏽‍❤‍🧑🏻">中膚色 | 夫婦｜愛 | 夫婦同心 | 成人 | 淺膚色</annotation>
+		<annotation cp="🧑🏽‍❤‍🧑🏻">中膚色 | 夫婦 | 夫婦同心 | 愛 | 成人 | 淺膚色</annotation>
 		<annotation cp="🧑🏽‍❤‍🧑🏻" type="tts">夫婦同心: 成人 成人 中膚色 淺膚色</annotation>
-		<annotation cp="🧑🏽‍❤‍🧑🏼">中淺膚色 | 中膚色 | 夫婦｜愛 | 夫婦同心 | 成人</annotation>
+		<annotation cp="🧑🏽‍❤‍🧑🏼">中淺膚色 | 中膚色 | 夫婦 | 夫婦同心 | 愛 | 成人</annotation>
 		<annotation cp="🧑🏽‍❤‍🧑🏼" type="tts">夫婦同心: 成人 成人 中膚色 中淺膚色</annotation>
-		<annotation cp="🧑🏽‍❤‍🧑🏾">中深膚色 | 中膚色 | 夫婦｜愛 | 夫婦同心 | 成人</annotation>
+		<annotation cp="🧑🏽‍❤‍🧑🏾">中深膚色 | 中膚色 | 夫婦 | 夫婦同心 | 愛 | 成人</annotation>
 		<annotation cp="🧑🏽‍❤‍🧑🏾" type="tts">夫婦同心: 成人 成人 中膚色 中深膚色</annotation>
-		<annotation cp="🧑🏽‍❤‍🧑🏿">中膚色 | 夫婦｜愛 | 夫婦同心 | 成人 | 深膚色</annotation>
+		<annotation cp="🧑🏽‍❤‍🧑🏿">中膚色 | 夫婦 | 夫婦同心 | 愛 | 成人 | 深膚色</annotation>
 		<annotation cp="🧑🏽‍❤‍🧑🏿" type="tts">夫婦同心: 成人 成人 中膚色 深膚色</annotation>
-		<annotation cp="🧑🏾‍❤‍🧑🏻">中深膚色 | 夫婦｜愛 | 夫婦同心 | 成人 | 淺膚色</annotation>
+		<annotation cp="🧑🏾‍❤‍🧑🏻">中深膚色 | 夫婦 | 夫婦同心 | 愛 | 成人 | 淺膚色</annotation>
 		<annotation cp="🧑🏾‍❤‍🧑🏻" type="tts">夫婦同心: 成人 成人 中深膚色 淺膚色</annotation>
-		<annotation cp="🧑🏾‍❤‍🧑🏼">中深膚色 | 中淺膚色 | 夫婦｜愛 | 夫婦同心 | 成人</annotation>
+		<annotation cp="🧑🏾‍❤‍🧑🏼">中深膚色 | 中淺膚色 | 夫婦 | 夫婦同心 | 愛 | 成人</annotation>
 		<annotation cp="🧑🏾‍❤‍🧑🏼" type="tts">夫婦同心: 成人 成人 中深膚色 中淺膚色</annotation>
-		<annotation cp="🧑🏾‍❤‍🧑🏽">中深膚色 | 中膚色 | 夫婦｜愛 | 夫婦同心 | 成人</annotation>
+		<annotation cp="🧑🏾‍❤‍🧑🏽">中深膚色 | 中膚色 | 夫婦 | 夫婦同心 | 愛 | 成人</annotation>
 		<annotation cp="🧑🏾‍❤‍🧑🏽" type="tts">夫婦同心: 成人 成人 中深膚色 中膚色</annotation>
-		<annotation cp="🧑🏾‍❤‍🧑🏿">中深膚色 | 夫婦｜愛 | 夫婦同心 | 成人 | 深膚色</annotation>
+		<annotation cp="🧑🏾‍❤‍🧑🏿">中深膚色 | 夫婦 | 夫婦同心 | 愛 | 成人 | 深膚色</annotation>
 		<annotation cp="🧑🏾‍❤‍🧑🏿" type="tts">夫婦同心: 成人 成人 中深膚色 深膚色</annotation>
-		<annotation cp="🧑🏿‍❤‍🧑🏻">夫婦｜愛 | 夫婦同心 | 成人 | 深膚色 | 淺膚色</annotation>
+		<annotation cp="🧑🏿‍❤‍🧑🏻">夫婦 | 夫婦同心 | 愛 | 成人 | 深膚色 | 淺膚色</annotation>
 		<annotation cp="🧑🏿‍❤‍🧑🏻" type="tts">夫婦同心: 成人 成人 深膚色 淺膚色</annotation>
-		<annotation cp="🧑🏿‍❤‍🧑🏼">中淺膚色 | 夫婦｜愛 | 夫婦同心 | 成人 | 深膚色</annotation>
+		<annotation cp="🧑🏿‍❤‍🧑🏼">中淺膚色 | 夫婦 | 夫婦同心 | 愛 | 成人 | 深膚色</annotation>
 		<annotation cp="🧑🏿‍❤‍🧑🏼" type="tts">夫婦同心: 成人 成人 深膚色 中淺膚色</annotation>
-		<annotation cp="🧑🏿‍❤‍🧑🏽">中膚色 | 夫婦｜愛 | 夫婦同心 | 成人 | 深膚色</annotation>
+		<annotation cp="🧑🏿‍❤‍🧑🏽">中膚色 | 夫婦 | 夫婦同心 | 愛 | 成人 | 深膚色</annotation>
 		<annotation cp="🧑🏿‍❤‍🧑🏽" type="tts">夫婦同心: 成人 成人 深膚色 中膚色</annotation>
-		<annotation cp="🧑🏿‍❤‍🧑🏾">中深膚色 | 夫婦｜愛 | 夫婦同心 | 成人 | 深膚色</annotation>
+		<annotation cp="🧑🏿‍❤‍🧑🏾">中深膚色 | 夫婦 | 夫婦同心 | 愛 | 成人 | 深膚色</annotation>
 		<annotation cp="🧑🏿‍❤‍🧑🏾" type="tts">夫婦同心: 成人 成人 深膚色 中深膚色</annotation>
 		<annotation cp="🧑‍🦰">中性 | 成人 | 紅色頭髮</annotation>
 		<annotation cp="🧑‍🦰" type="tts">成人: 紅色頭髮</annotation>
@@ -731,6 +770,56 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧑🏾‍🦲" type="tts">成人: 中深膚色 光頭</annotation>
 		<annotation cp="🧑🏿‍🦲">中性 | 光頭 | 成人 | 深膚色</annotation>
 		<annotation cp="🧑🏿‍🦲" type="tts">成人: 深膚色 光頭</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏼">中淺膚色 | 兔耳 | 戴兔仔耳嘅人 | 派對 | 淺膚色 | 舞蹈員</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏼" type="tts">戴兔仔耳嘅人: 淺膚色 中淺膚色</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏽">中膚色 | 兔耳 | 戴兔仔耳嘅人 | 派對 | 淺膚色 | 舞蹈員</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏽" type="tts">戴兔仔耳嘅人: 淺膚色 中膚色</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏾">中深膚色 | 兔耳 | 戴兔仔耳嘅人 | 派對 | 淺膚色 | 舞蹈員</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏾" type="tts">戴兔仔耳嘅人: 淺膚色 中深膚色</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏿">兔耳 | 戴兔仔耳嘅人 | 派對 | 深膚色 | 淺膚色 | 舞蹈員</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏿" type="tts">戴兔仔耳嘅人: 淺膚色 深膚色</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏻">中淺膚色 | 兔耳 | 戴兔仔耳嘅人 | 派對 | 淺膚色 | 舞蹈員</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏻" type="tts">戴兔仔耳嘅人: 中淺膚色 淺膚色</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏽">中淺膚色 | 中膚色 | 兔耳 | 戴兔仔耳嘅人 | 派對 | 舞蹈員</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏽" type="tts">戴兔仔耳嘅人: 中淺膚色 中膚色</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏾">中深膚色 | 中淺膚色 | 兔耳 | 戴兔仔耳嘅人 | 派對 | 舞蹈員</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏾" type="tts">戴兔仔耳嘅人: 中淺膚色 中深膚色</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏿">中淺膚色 | 兔耳 | 戴兔仔耳嘅人 | 派對 | 深膚色 | 舞蹈員</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏿" type="tts">戴兔仔耳嘅人: 中淺膚色 深膚色</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏻">中膚色 | 兔耳 | 戴兔仔耳嘅人 | 派對 | 淺膚色 | 舞蹈員</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏻" type="tts">戴兔仔耳嘅人: 中膚色 淺膚色</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏼">中淺膚色 | 中膚色 | 兔耳 | 戴兔仔耳嘅人 | 派對 | 舞蹈員</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏼" type="tts">戴兔仔耳嘅人: 中膚色 中淺膚色</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏾">中深膚色 | 中膚色 | 兔耳 | 戴兔仔耳嘅人 | 派對 | 舞蹈員</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏾" type="tts">戴兔仔耳嘅人: 中膚色 中深膚色</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏿">中膚色 | 兔耳 | 戴兔仔耳嘅人 | 派對 | 深膚色 | 舞蹈員</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏿" type="tts">戴兔仔耳嘅人: 中膚色 深膚色</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏻">中深膚色 | 兔耳 | 戴兔仔耳嘅人 | 派對 | 淺膚色 | 舞蹈員</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏻" type="tts">戴兔仔耳嘅人: 中深膚色 淺膚色</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏼">中深膚色 | 中淺膚色 | 兔耳 | 戴兔仔耳嘅人 | 派對 | 舞蹈員</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏼" type="tts">戴兔仔耳嘅人: 中深膚色 中淺膚色</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏽">中深膚色 | 中膚色 | 兔耳 | 戴兔仔耳嘅人 | 派對 | 舞蹈員</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏽" type="tts">戴兔仔耳嘅人: 中深膚色 中膚色</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏿">中深膚色 | 兔耳 | 戴兔仔耳嘅人 | 派對 | 深膚色 | 舞蹈員</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏿" type="tts">戴兔仔耳嘅人: 中深膚色 深膚色</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏻">兔耳 | 戴兔仔耳嘅人 | 派對 | 深膚色 | 淺膚色 | 舞蹈員</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏻" type="tts">戴兔仔耳嘅人: 深膚色 淺膚色</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏼">中淺膚色 | 兔耳 | 戴兔仔耳嘅人 | 派對 | 深膚色 | 舞蹈員</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏼" type="tts">戴兔仔耳嘅人: 深膚色 中淺膚色</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏽">中膚色 | 兔耳 | 戴兔仔耳嘅人 | 派對 | 深膚色 | 舞蹈員</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏽" type="tts">戴兔仔耳嘅人: 深膚色 中膚色</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏾">中深膚色 | 兔耳 | 戴兔仔耳嘅人 | 派對 | 深膚色 | 舞蹈員</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏾" type="tts">戴兔仔耳嘅人: 深膚色 中深膚色</annotation>
+		<annotation cp="🧑🏻‍🩰">淺膚色 | 舞蹈員 | 芭蕾舞</annotation>
+		<annotation cp="🧑🏻‍🩰" type="tts">芭蕾舞蹈員: 淺膚色</annotation>
+		<annotation cp="🧑🏼‍🩰">中淺膚色 | 舞蹈員 | 芭蕾舞</annotation>
+		<annotation cp="🧑🏼‍🩰" type="tts">芭蕾舞蹈員: 中淺膚色</annotation>
+		<annotation cp="🧑🏽‍🩰">中膚色 | 舞蹈員 | 芭蕾舞</annotation>
+		<annotation cp="🧑🏽‍🩰" type="tts">芭蕾舞蹈員: 中膚色</annotation>
+		<annotation cp="🧑🏾‍🩰">中深膚色 | 舞蹈員 | 芭蕾舞</annotation>
+		<annotation cp="🧑🏾‍🩰" type="tts">芭蕾舞蹈員: 中深膚色</annotation>
+		<annotation cp="🧑🏿‍🩰">深膚色 | 舞蹈員 | 芭蕾舞</annotation>
+		<annotation cp="🧑🏿‍🩰" type="tts">芭蕾舞蹈員: 深膚色</annotation>
 		<annotation cp="👨🏻">淺膚色 | 男人</annotation>
 		<annotation cp="👨🏻" type="tts">男人: 淺膚色</annotation>
 		<annotation cp="👨🏼">中淺膚色 | 男人</annotation>
@@ -771,6 +860,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾‍♂" type="tts">金色頭髮嘅男人: 中深膚色</annotation>
 		<annotation cp="👱🏿‍♂">深膚色 | 男 | 金色頭髮 | 金色頭髮嘅男人</annotation>
 		<annotation cp="👱🏿‍♂" type="tts">金色頭髮嘅男人: 深膚色</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏼">中淺膚色 | 摔跤 | 摔跤嘅男人 | 淺膚色 | 男</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏼" type="tts">摔跤嘅男人: 淺膚色 中淺膚色</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏽">中膚色 | 摔跤 | 摔跤嘅男人 | 淺膚色 | 男</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏽" type="tts">摔跤嘅男人: 淺膚色 中膚色</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏾">中深膚色 | 摔跤 | 摔跤嘅男人 | 淺膚色 | 男</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏾" type="tts">摔跤嘅男人: 淺膚色 中深膚色</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏿">摔跤 | 摔跤嘅男人 | 深膚色 | 淺膚色 | 男</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏿" type="tts">摔跤嘅男人: 淺膚色 深膚色</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏻">中淺膚色 | 摔跤 | 摔跤嘅男人 | 淺膚色 | 男</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏻" type="tts">摔跤嘅男人: 中淺膚色 淺膚色</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏽">中淺膚色 | 中膚色 | 摔跤 | 摔跤嘅男人 | 男</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏽" type="tts">摔跤嘅男人: 中淺膚色 中膚色</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏾">中深膚色 | 中淺膚色 | 摔跤 | 摔跤嘅男人 | 男</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏾" type="tts">摔跤嘅男人: 中淺膚色 中深膚色</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏿">中淺膚色 | 摔跤 | 摔跤嘅男人 | 深膚色 | 男</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏿" type="tts">摔跤嘅男人: 中淺膚色 深膚色</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏻">中膚色 | 摔跤 | 摔跤嘅男人 | 淺膚色 | 男</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏻" type="tts">摔跤嘅男人: 中膚色 淺膚色</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏼">中淺膚色 | 中膚色 | 摔跤 | 摔跤嘅男人 | 男</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏼" type="tts">摔跤嘅男人: 中膚色 中淺膚色</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏾">中深膚色 | 中膚色 | 摔跤 | 摔跤嘅男人 | 男</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏾" type="tts">摔跤嘅男人: 中膚色 中深膚色</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏿">中膚色 | 摔跤 | 摔跤嘅男人 | 深膚色 | 男</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏿" type="tts">摔跤嘅男人: 中膚色 深膚色</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏻">中深膚色 | 摔跤 | 摔跤嘅男人 | 淺膚色 | 男</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏻" type="tts">摔跤嘅男人: 中深膚色 淺膚色</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏼">中深膚色 | 中淺膚色 | 摔跤 | 摔跤嘅男人 | 男</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏼" type="tts">摔跤嘅男人: 中深膚色 中淺膚色</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏽">中深膚色 | 中膚色 | 摔跤 | 摔跤嘅男人 | 男</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏽" type="tts">摔跤嘅男人: 中深膚色 中膚色</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏿">中深膚色 | 摔跤 | 摔跤嘅男人 | 深膚色 | 男</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏿" type="tts">摔跤嘅男人: 中深膚色 深膚色</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏻">摔跤 | 摔跤嘅男人 | 深膚色 | 淺膚色 | 男</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏻" type="tts">摔跤嘅男人: 深膚色 淺膚色</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏼">中淺膚色 | 摔跤 | 摔跤嘅男人 | 深膚色 | 男</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏼" type="tts">摔跤嘅男人: 深膚色 中淺膚色</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏽">中膚色 | 摔跤 | 摔跤嘅男人 | 深膚色 | 男</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏽" type="tts">摔跤嘅男人: 深膚色 中膚色</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏾">中深膚色 | 摔跤 | 摔跤嘅男人 | 深膚色 | 男</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏾" type="tts">摔跤嘅男人: 深膚色 中深膚色</annotation>
 		<annotation cp="👨🏻‍❤‍💋‍👨🏻">吻 | 夫婦 | 淺膚色 | 男人</annotation>
 		<annotation cp="👨🏻‍❤‍💋‍👨🏻" type="tts">吻: 男人 男人 淺膚色</annotation>
 		<annotation cp="👨🏻‍❤‍💋‍👨🏼">中淺膚色 | 吻 | 夫婦 | 淺膚色 | 男人</annotation>
@@ -821,55 +950,55 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏿‍❤‍💋‍👨🏾" type="tts">吻: 男人 男人 深膚色 中深膚色</annotation>
 		<annotation cp="👨🏿‍❤‍💋‍👨🏿">吻 | 夫婦 | 深膚色 | 男人</annotation>
 		<annotation cp="👨🏿‍❤‍💋‍👨🏿" type="tts">吻: 男人 男人 深膚色</annotation>
-		<annotation cp="👨🏻‍❤‍👨🏻">夫婦｜愛 | 夫婦同心 | 淺膚色 | 男人</annotation>
+		<annotation cp="👨🏻‍❤‍👨🏻">夫婦 | 夫婦同心 | 愛 | 淺膚色 | 男人</annotation>
 		<annotation cp="👨🏻‍❤‍👨🏻" type="tts">夫婦同心: 男人 男人 淺膚色</annotation>
-		<annotation cp="👨🏻‍❤‍👨🏼">中淺膚色 | 夫婦｜愛 | 夫婦同心 | 淺膚色 | 男人</annotation>
+		<annotation cp="👨🏻‍❤‍👨🏼">中淺膚色 | 夫婦 | 夫婦同心 | 愛 | 淺膚色 | 男人</annotation>
 		<annotation cp="👨🏻‍❤‍👨🏼" type="tts">夫婦同心: 男人 男人 淺膚色 中淺膚色</annotation>
-		<annotation cp="👨🏻‍❤‍👨🏽">中膚色 | 夫婦｜愛 | 夫婦同心 | 淺膚色 | 男人</annotation>
+		<annotation cp="👨🏻‍❤‍👨🏽">中膚色 | 夫婦 | 夫婦同心 | 愛 | 淺膚色 | 男人</annotation>
 		<annotation cp="👨🏻‍❤‍👨🏽" type="tts">夫婦同心: 男人 男人 淺膚色 中膚色</annotation>
-		<annotation cp="👨🏻‍❤‍👨🏾">中深膚色 | 夫婦｜愛 | 夫婦同心 | 淺膚色 | 男人</annotation>
+		<annotation cp="👨🏻‍❤‍👨🏾">中深膚色 | 夫婦 | 夫婦同心 | 愛 | 淺膚色 | 男人</annotation>
 		<annotation cp="👨🏻‍❤‍👨🏾" type="tts">夫婦同心: 男人 男人 淺膚色 中深膚色</annotation>
-		<annotation cp="👨🏻‍❤‍👨🏿">夫婦｜愛 | 夫婦同心 | 深膚色 | 淺膚色 | 男人</annotation>
+		<annotation cp="👨🏻‍❤‍👨🏿">夫婦 | 夫婦同心 | 愛 | 深膚色 | 淺膚色 | 男人</annotation>
 		<annotation cp="👨🏻‍❤‍👨🏿" type="tts">夫婦同心: 男人 男人 淺膚色 深膚色</annotation>
-		<annotation cp="👨🏼‍❤‍👨🏻">中淺膚色 | 夫婦｜愛 | 夫婦同心 | 淺膚色 | 男人</annotation>
+		<annotation cp="👨🏼‍❤‍👨🏻">中淺膚色 | 夫婦 | 夫婦同心 | 愛 | 淺膚色 | 男人</annotation>
 		<annotation cp="👨🏼‍❤‍👨🏻" type="tts">夫婦同心: 男人 男人 中淺膚色 淺膚色</annotation>
-		<annotation cp="👨🏼‍❤‍👨🏼">中淺膚色 | 夫婦｜愛 | 夫婦同心 | 男人</annotation>
+		<annotation cp="👨🏼‍❤‍👨🏼">中淺膚色 | 夫婦 | 夫婦同心 | 愛 | 男人</annotation>
 		<annotation cp="👨🏼‍❤‍👨🏼" type="tts">夫婦同心: 男人 男人 中淺膚色</annotation>
-		<annotation cp="👨🏼‍❤‍👨🏽">中淺膚色 | 中膚色 | 夫婦｜愛 | 夫婦同心 | 男人</annotation>
+		<annotation cp="👨🏼‍❤‍👨🏽">中淺膚色 | 中膚色 | 夫婦 | 夫婦同心 | 愛 | 男人</annotation>
 		<annotation cp="👨🏼‍❤‍👨🏽" type="tts">夫婦同心: 男人 男人 中淺膚色 中膚色</annotation>
-		<annotation cp="👨🏼‍❤‍👨🏾">中深膚色 | 中淺膚色 | 夫婦｜愛 | 夫婦同心 | 男人</annotation>
+		<annotation cp="👨🏼‍❤‍👨🏾">中深膚色 | 中淺膚色 | 夫婦 | 夫婦同心 | 愛 | 男人</annotation>
 		<annotation cp="👨🏼‍❤‍👨🏾" type="tts">夫婦同心: 男人 男人 中淺膚色 中深膚色</annotation>
-		<annotation cp="👨🏼‍❤‍👨🏿">中淺膚色 | 夫婦｜愛 | 夫婦同心 | 深膚色 | 男人</annotation>
+		<annotation cp="👨🏼‍❤‍👨🏿">中淺膚色 | 夫婦 | 夫婦同心 | 愛 | 深膚色 | 男人</annotation>
 		<annotation cp="👨🏼‍❤‍👨🏿" type="tts">夫婦同心: 男人 男人 中淺膚色 深膚色</annotation>
-		<annotation cp="👨🏽‍❤‍👨🏻">中膚色 | 夫婦｜愛 | 夫婦同心 | 淺膚色 | 男人</annotation>
+		<annotation cp="👨🏽‍❤‍👨🏻">中膚色 | 夫婦 | 夫婦同心 | 愛 | 淺膚色 | 男人</annotation>
 		<annotation cp="👨🏽‍❤‍👨🏻" type="tts">夫婦同心: 男人 男人 中膚色 淺膚色</annotation>
-		<annotation cp="👨🏽‍❤‍👨🏼">中淺膚色 | 中膚色 | 夫婦｜愛 | 夫婦同心 | 男人</annotation>
+		<annotation cp="👨🏽‍❤‍👨🏼">中淺膚色 | 中膚色 | 夫婦 | 夫婦同心 | 愛 | 男人</annotation>
 		<annotation cp="👨🏽‍❤‍👨🏼" type="tts">夫婦同心: 男人 男人 中膚色 中淺膚色</annotation>
-		<annotation cp="👨🏽‍❤‍👨🏽">中膚色 | 夫婦｜愛 | 夫婦同心 | 男人</annotation>
+		<annotation cp="👨🏽‍❤‍👨🏽">中膚色 | 夫婦 | 夫婦同心 | 愛 | 男人</annotation>
 		<annotation cp="👨🏽‍❤‍👨🏽" type="tts">夫婦同心: 男人 男人 中膚色</annotation>
-		<annotation cp="👨🏽‍❤‍👨🏾">中深膚色 | 中膚色 | 夫婦｜愛 | 夫婦同心 | 男人</annotation>
+		<annotation cp="👨🏽‍❤‍👨🏾">中深膚色 | 中膚色 | 夫婦 | 夫婦同心 | 愛 | 男人</annotation>
 		<annotation cp="👨🏽‍❤‍👨🏾" type="tts">夫婦同心: 男人 男人 中膚色 中深膚色</annotation>
-		<annotation cp="👨🏽‍❤‍👨🏿">中膚色 | 夫婦｜愛 | 夫婦同心 | 深膚色 | 男人</annotation>
+		<annotation cp="👨🏽‍❤‍👨🏿">中膚色 | 夫婦 | 夫婦同心 | 愛 | 深膚色 | 男人</annotation>
 		<annotation cp="👨🏽‍❤‍👨🏿" type="tts">夫婦同心: 男人 男人 中膚色 深膚色</annotation>
-		<annotation cp="👨🏾‍❤‍👨🏻">中深膚色 | 夫婦｜愛 | 夫婦同心 | 淺膚色 | 男人</annotation>
+		<annotation cp="👨🏾‍❤‍👨🏻">中深膚色 | 夫婦 | 夫婦同心 | 愛 | 淺膚色 | 男人</annotation>
 		<annotation cp="👨🏾‍❤‍👨🏻" type="tts">夫婦同心: 男人 男人 中深膚色 淺膚色</annotation>
-		<annotation cp="👨🏾‍❤‍👨🏼">中深膚色 | 中淺膚色 | 夫婦｜愛 | 夫婦同心 | 男人</annotation>
+		<annotation cp="👨🏾‍❤‍👨🏼">中深膚色 | 中淺膚色 | 夫婦 | 夫婦同心 | 愛 | 男人</annotation>
 		<annotation cp="👨🏾‍❤‍👨🏼" type="tts">夫婦同心: 男人 男人 中深膚色 中淺膚色</annotation>
-		<annotation cp="👨🏾‍❤‍👨🏽">中深膚色 | 中膚色 | 夫婦｜愛 | 夫婦同心 | 男人</annotation>
+		<annotation cp="👨🏾‍❤‍👨🏽">中深膚色 | 中膚色 | 夫婦 | 夫婦同心 | 愛 | 男人</annotation>
 		<annotation cp="👨🏾‍❤‍👨🏽" type="tts">夫婦同心: 男人 男人 中深膚色 中膚色</annotation>
-		<annotation cp="👨🏾‍❤‍👨🏾">中深膚色 | 夫婦｜愛 | 夫婦同心 | 男人</annotation>
+		<annotation cp="👨🏾‍❤‍👨🏾">中深膚色 | 夫婦 | 夫婦同心 | 愛 | 男人</annotation>
 		<annotation cp="👨🏾‍❤‍👨🏾" type="tts">夫婦同心: 男人 男人 中深膚色</annotation>
-		<annotation cp="👨🏾‍❤‍👨🏿">中深膚色 | 夫婦｜愛 | 夫婦同心 | 深膚色 | 男人</annotation>
+		<annotation cp="👨🏾‍❤‍👨🏿">中深膚色 | 夫婦 | 夫婦同心 | 愛 | 深膚色 | 男人</annotation>
 		<annotation cp="👨🏾‍❤‍👨🏿" type="tts">夫婦同心: 男人 男人 中深膚色 深膚色</annotation>
-		<annotation cp="👨🏿‍❤‍👨🏻">夫婦｜愛 | 夫婦同心 | 深膚色 | 淺膚色 | 男人</annotation>
+		<annotation cp="👨🏿‍❤‍👨🏻">夫婦 | 夫婦同心 | 愛 | 深膚色 | 淺膚色 | 男人</annotation>
 		<annotation cp="👨🏿‍❤‍👨🏻" type="tts">夫婦同心: 男人 男人 深膚色 淺膚色</annotation>
-		<annotation cp="👨🏿‍❤‍👨🏼">中淺膚色 | 夫婦｜愛 | 夫婦同心 | 深膚色 | 男人</annotation>
+		<annotation cp="👨🏿‍❤‍👨🏼">中淺膚色 | 夫婦 | 夫婦同心 | 愛 | 深膚色 | 男人</annotation>
 		<annotation cp="👨🏿‍❤‍👨🏼" type="tts">夫婦同心: 男人 男人 深膚色 中淺膚色</annotation>
-		<annotation cp="👨🏿‍❤‍👨🏽">中膚色 | 夫婦｜愛 | 夫婦同心 | 深膚色 | 男人</annotation>
+		<annotation cp="👨🏿‍❤‍👨🏽">中膚色 | 夫婦 | 夫婦同心 | 愛 | 深膚色 | 男人</annotation>
 		<annotation cp="👨🏿‍❤‍👨🏽" type="tts">夫婦同心: 男人 男人 深膚色 中膚色</annotation>
-		<annotation cp="👨🏿‍❤‍👨🏾">中深膚色 | 夫婦｜愛 | 夫婦同心 | 深膚色 | 男人</annotation>
+		<annotation cp="👨🏿‍❤‍👨🏾">中深膚色 | 夫婦 | 夫婦同心 | 愛 | 深膚色 | 男人</annotation>
 		<annotation cp="👨🏿‍❤‍👨🏾" type="tts">夫婦同心: 男人 男人 深膚色 中深膚色</annotation>
-		<annotation cp="👨🏿‍❤‍👨🏿">夫婦｜愛 | 夫婦同心 | 深膚色 | 男人</annotation>
+		<annotation cp="👨🏿‍❤‍👨🏿">夫婦 | 夫婦同心 | 愛 | 深膚色 | 男人</annotation>
 		<annotation cp="👨🏿‍❤‍👨🏿" type="tts">夫婦同心: 男人 男人 深膚色</annotation>
 		<annotation cp="👨‍🦰">男人 | 紅色頭髮</annotation>
 		<annotation cp="👨‍🦰" type="tts">男人: 紅色頭髮</annotation>
@@ -919,6 +1048,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾‍🦲" type="tts">男人: 中深膚色 光頭</annotation>
 		<annotation cp="👨🏿‍🦲">光頭 | 深膚色 | 男人</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">男人: 深膚色 光頭</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏼">中淺膚色 | 兔耳 | 戴兔仔耳嘅男人 | 派對 | 淺膚色 | 男 | 舞蹈員</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏼" type="tts">戴兔仔耳嘅男人: 淺膚色 中淺膚色</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏽">中膚色 | 兔耳 | 戴兔仔耳嘅男人 | 派對 | 淺膚色 | 男 | 舞蹈員</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏽" type="tts">戴兔仔耳嘅男人: 淺膚色 中膚色</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏾">中深膚色 | 兔耳 | 戴兔仔耳嘅男人 | 派對 | 淺膚色 | 男 | 舞蹈員</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏾" type="tts">戴兔仔耳嘅男人: 淺膚色 中深膚色</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏿">兔耳 | 戴兔仔耳嘅男人 | 派對 | 深膚色 | 淺膚色 | 男 | 舞蹈員</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏿" type="tts">戴兔仔耳嘅男人: 淺膚色 深膚色</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏻">中淺膚色 | 兔耳 | 戴兔仔耳嘅男人 | 派對 | 淺膚色 | 男 | 舞蹈員</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏻" type="tts">戴兔仔耳嘅男人: 中淺膚色 淺膚色</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏽">中淺膚色 | 中膚色 | 兔耳 | 戴兔仔耳嘅男人 | 派對 | 男 | 舞蹈員</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏽" type="tts">戴兔仔耳嘅男人: 中淺膚色 中膚色</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏾">中深膚色 | 中淺膚色 | 兔耳 | 戴兔仔耳嘅男人 | 派對 | 男 | 舞蹈員</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏾" type="tts">戴兔仔耳嘅男人: 中淺膚色 中深膚色</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏿">中淺膚色 | 兔耳 | 戴兔仔耳嘅男人 | 派對 | 深膚色 | 男 | 舞蹈員</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏿" type="tts">戴兔仔耳嘅男人: 中淺膚色 深膚色</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏻">中膚色 | 兔耳 | 戴兔仔耳嘅男人 | 派對 | 淺膚色 | 男 | 舞蹈員</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏻" type="tts">戴兔仔耳嘅男人: 中膚色 淺膚色</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏼">中淺膚色 | 中膚色 | 兔耳 | 戴兔仔耳嘅男人 | 派對 | 男 | 舞蹈員</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏼" type="tts">戴兔仔耳嘅男人: 中膚色 中淺膚色</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏾">中深膚色 | 中膚色 | 兔耳 | 戴兔仔耳嘅男人 | 派對 | 男 | 舞蹈員</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏾" type="tts">戴兔仔耳嘅男人: 中膚色 中深膚色</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏿">中膚色 | 兔耳 | 戴兔仔耳嘅男人 | 派對 | 深膚色 | 男 | 舞蹈員</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏿" type="tts">戴兔仔耳嘅男人: 中膚色 深膚色</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏻">中深膚色 | 兔耳 | 戴兔仔耳嘅男人 | 派對 | 淺膚色 | 男 | 舞蹈員</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏻" type="tts">戴兔仔耳嘅男人: 中深膚色 淺膚色</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏼">中深膚色 | 中淺膚色 | 兔耳 | 戴兔仔耳嘅男人 | 派對 | 男 | 舞蹈員</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏼" type="tts">戴兔仔耳嘅男人: 中深膚色 中淺膚色</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏽">中深膚色 | 中膚色 | 兔耳 | 戴兔仔耳嘅男人 | 派對 | 男 | 舞蹈員</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏽" type="tts">戴兔仔耳嘅男人: 中深膚色 中膚色</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏿">中深膚色 | 兔耳 | 戴兔仔耳嘅男人 | 派對 | 深膚色 | 男 | 舞蹈員</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏿" type="tts">戴兔仔耳嘅男人: 中深膚色 深膚色</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏻">兔耳 | 戴兔仔耳嘅男人 | 派對 | 深膚色 | 淺膚色 | 男 | 舞蹈員</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏻" type="tts">戴兔仔耳嘅男人: 深膚色 淺膚色</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏼">中淺膚色 | 兔耳 | 戴兔仔耳嘅男人 | 派對 | 深膚色 | 男 | 舞蹈員</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏼" type="tts">戴兔仔耳嘅男人: 深膚色 中淺膚色</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏽">中膚色 | 兔耳 | 戴兔仔耳嘅男人 | 派對 | 深膚色 | 男 | 舞蹈員</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏽" type="tts">戴兔仔耳嘅男人: 深膚色 中膚色</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏾">中深膚色 | 兔耳 | 戴兔仔耳嘅男人 | 派對 | 深膚色 | 男 | 舞蹈員</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏾" type="tts">戴兔仔耳嘅男人: 深膚色 中深膚色</annotation>
 		<annotation cp="👩🏻">女人 | 淺膚色</annotation>
 		<annotation cp="👩🏻" type="tts">女人: 淺膚色</annotation>
 		<annotation cp="👩🏼">中淺膚色 | 女人</annotation>
@@ -949,6 +1118,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾‍♀" type="tts">金色頭髮嘅女人: 中深膚色</annotation>
 		<annotation cp="👱🏿‍♀">女 | 深膚色 | 金色頭髮 | 金色頭髮嘅女人</annotation>
 		<annotation cp="👱🏿‍♀" type="tts">金色頭髮嘅女人: 深膚色</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏼">中淺膚色 | 女 | 摔跤 | 摔跤嘅女人 | 淺膚色</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏼" type="tts">摔跤嘅女人: 淺膚色 中淺膚色</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏽">中膚色 | 女 | 摔跤 | 摔跤嘅女人 | 淺膚色</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏽" type="tts">摔跤嘅女人: 淺膚色 中膚色</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏾">中深膚色 | 女 | 摔跤 | 摔跤嘅女人 | 淺膚色</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏾" type="tts">摔跤嘅女人: 淺膚色 中深膚色</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏿">女 | 摔跤 | 摔跤嘅女人 | 深膚色 | 淺膚色</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏿" type="tts">摔跤嘅女人: 淺膚色 深膚色</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏻">中淺膚色 | 女 | 摔跤 | 摔跤嘅女人 | 淺膚色</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏻" type="tts">摔跤嘅女人: 中淺膚色 淺膚色</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏽">中淺膚色 | 中膚色 | 女 | 摔跤 | 摔跤嘅女人</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏽" type="tts">摔跤嘅女人: 中淺膚色 中膚色</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏾">中深膚色 | 中淺膚色 | 女 | 摔跤 | 摔跤嘅女人</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏾" type="tts">摔跤嘅女人: 中淺膚色 中深膚色</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏿">中淺膚色 | 女 | 摔跤 | 摔跤嘅女人 | 深膚色</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏿" type="tts">摔跤嘅女人: 中淺膚色 深膚色</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏻">中膚色 | 女 | 摔跤 | 摔跤嘅女人 | 淺膚色</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏻" type="tts">摔跤嘅女人: 中膚色 淺膚色</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏼">中淺膚色 | 中膚色 | 女 | 摔跤 | 摔跤嘅女人</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏼" type="tts">摔跤嘅女人: 中膚色 中淺膚色</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏾">中深膚色 | 中膚色 | 女 | 摔跤 | 摔跤嘅女人</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏾" type="tts">摔跤嘅女人: 中膚色 中深膚色</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏿">中膚色 | 女 | 摔跤 | 摔跤嘅女人 | 深膚色</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏿" type="tts">摔跤嘅女人: 中膚色 深膚色</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏻">中深膚色 | 女 | 摔跤 | 摔跤嘅女人 | 淺膚色</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏻" type="tts">摔跤嘅女人: 中深膚色 淺膚色</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏼">中深膚色 | 中淺膚色 | 女 | 摔跤 | 摔跤嘅女人</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏼" type="tts">摔跤嘅女人: 中深膚色 中淺膚色</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏽">中深膚色 | 中膚色 | 女 | 摔跤 | 摔跤嘅女人</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏽" type="tts">摔跤嘅女人: 中深膚色 中膚色</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏿">中深膚色 | 女 | 摔跤 | 摔跤嘅女人 | 深膚色</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏿" type="tts">摔跤嘅女人: 中深膚色 深膚色</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏻">女 | 摔跤 | 摔跤嘅女人 | 深膚色 | 淺膚色</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏻" type="tts">摔跤嘅女人: 深膚色 淺膚色</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏼">中淺膚色 | 女 | 摔跤 | 摔跤嘅女人 | 深膚色</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏼" type="tts">摔跤嘅女人: 深膚色 中淺膚色</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏽">中膚色 | 女 | 摔跤 | 摔跤嘅女人 | 深膚色</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏽" type="tts">摔跤嘅女人: 深膚色 中膚色</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏾">中深膚色 | 女 | 摔跤 | 摔跤嘅女人 | 深膚色</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏾" type="tts">摔跤嘅女人: 深膚色 中深膚色</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👨🏻">吻 | 夫婦 | 女人 | 淺膚色 | 男人</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👨🏻" type="tts">吻: 女人 男人 淺膚色</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👨🏼">中淺膚色 | 吻 | 夫婦 | 女人 | 淺膚色 | 男人</annotation>
@@ -1049,105 +1258,105 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏿‍❤‍💋‍👩🏾" type="tts">吻: 女人 女人 深膚色 中深膚色</annotation>
 		<annotation cp="👩🏿‍❤‍💋‍👩🏿">吻 | 夫婦 | 女人 | 深膚色</annotation>
 		<annotation cp="👩🏿‍❤‍💋‍👩🏿" type="tts">吻: 女人 女人 深膚色</annotation>
-		<annotation cp="👩🏻‍❤‍👨🏻">夫婦｜愛 | 夫婦同心 | 女人 | 淺膚色 | 男人</annotation>
+		<annotation cp="👩🏻‍❤‍👨🏻">夫婦 | 夫婦同心 | 女人 | 愛 | 淺膚色 | 男人</annotation>
 		<annotation cp="👩🏻‍❤‍👨🏻" type="tts">夫婦同心: 女人 男人 淺膚色</annotation>
-		<annotation cp="👩🏻‍❤‍👨🏼">中淺膚色 | 夫婦｜愛 | 夫婦同心 | 女人 | 淺膚色 | 男人</annotation>
+		<annotation cp="👩🏻‍❤‍👨🏼">中淺膚色 | 夫婦 | 夫婦同心 | 女人 | 愛 | 淺膚色 | 男人</annotation>
 		<annotation cp="👩🏻‍❤‍👨🏼" type="tts">夫婦同心: 女人 男人 淺膚色 中淺膚色</annotation>
-		<annotation cp="👩🏻‍❤‍👨🏽">中膚色 | 夫婦｜愛 | 夫婦同心 | 女人 | 淺膚色 | 男人</annotation>
+		<annotation cp="👩🏻‍❤‍👨🏽">中膚色 | 夫婦 | 夫婦同心 | 女人 | 愛 | 淺膚色 | 男人</annotation>
 		<annotation cp="👩🏻‍❤‍👨🏽" type="tts">夫婦同心: 女人 男人 淺膚色 中膚色</annotation>
-		<annotation cp="👩🏻‍❤‍👨🏾">中深膚色 | 夫婦｜愛 | 夫婦同心 | 女人 | 淺膚色 | 男人</annotation>
+		<annotation cp="👩🏻‍❤‍👨🏾">中深膚色 | 夫婦 | 夫婦同心 | 女人 | 愛 | 淺膚色 | 男人</annotation>
 		<annotation cp="👩🏻‍❤‍👨🏾" type="tts">夫婦同心: 女人 男人 淺膚色 中深膚色</annotation>
-		<annotation cp="👩🏻‍❤‍👨🏿">夫婦｜愛 | 夫婦同心 | 女人 | 深膚色 | 淺膚色 | 男人</annotation>
+		<annotation cp="👩🏻‍❤‍👨🏿">夫婦 | 夫婦同心 | 女人 | 愛 | 深膚色 | 淺膚色 | 男人</annotation>
 		<annotation cp="👩🏻‍❤‍👨🏿" type="tts">夫婦同心: 女人 男人 淺膚色 深膚色</annotation>
-		<annotation cp="👩🏼‍❤‍👨🏻">中淺膚色 | 夫婦｜愛 | 夫婦同心 | 女人 | 淺膚色 | 男人</annotation>
+		<annotation cp="👩🏼‍❤‍👨🏻">中淺膚色 | 夫婦 | 夫婦同心 | 女人 | 愛 | 淺膚色 | 男人</annotation>
 		<annotation cp="👩🏼‍❤‍👨🏻" type="tts">夫婦同心: 女人 男人 中淺膚色 淺膚色</annotation>
-		<annotation cp="👩🏼‍❤‍👨🏼">中淺膚色 | 夫婦｜愛 | 夫婦同心 | 女人 | 男人</annotation>
+		<annotation cp="👩🏼‍❤‍👨🏼">中淺膚色 | 夫婦 | 夫婦同心 | 女人 | 愛 | 男人</annotation>
 		<annotation cp="👩🏼‍❤‍👨🏼" type="tts">夫婦同心: 女人 男人 中淺膚色</annotation>
-		<annotation cp="👩🏼‍❤‍👨🏽">中淺膚色 | 中膚色 | 夫婦｜愛 | 夫婦同心 | 女人 | 男人</annotation>
+		<annotation cp="👩🏼‍❤‍👨🏽">中淺膚色 | 中膚色 | 夫婦 | 夫婦同心 | 女人 | 愛 | 男人</annotation>
 		<annotation cp="👩🏼‍❤‍👨🏽" type="tts">夫婦同心: 女人 男人 中淺膚色 中膚色</annotation>
-		<annotation cp="👩🏼‍❤‍👨🏾">中深膚色 | 中淺膚色 | 夫婦｜愛 | 夫婦同心 | 女人 | 男人</annotation>
+		<annotation cp="👩🏼‍❤‍👨🏾">中深膚色 | 中淺膚色 | 夫婦 | 夫婦同心 | 女人 | 愛 | 男人</annotation>
 		<annotation cp="👩🏼‍❤‍👨🏾" type="tts">夫婦同心: 女人 男人 中淺膚色 中深膚色</annotation>
-		<annotation cp="👩🏼‍❤‍👨🏿">中淺膚色 | 夫婦｜愛 | 夫婦同心 | 女人 | 深膚色 | 男人</annotation>
+		<annotation cp="👩🏼‍❤‍👨🏿">中淺膚色 | 夫婦 | 夫婦同心 | 女人 | 愛 | 深膚色 | 男人</annotation>
 		<annotation cp="👩🏼‍❤‍👨🏿" type="tts">夫婦同心: 女人 男人 中淺膚色 深膚色</annotation>
-		<annotation cp="👩🏽‍❤‍👨🏻">中膚色 | 夫婦｜愛 | 夫婦同心 | 女人 | 淺膚色 | 男人</annotation>
+		<annotation cp="👩🏽‍❤‍👨🏻">中膚色 | 夫婦 | 夫婦同心 | 女人 | 愛 | 淺膚色 | 男人</annotation>
 		<annotation cp="👩🏽‍❤‍👨🏻" type="tts">夫婦同心: 女人 男人 中膚色 淺膚色</annotation>
-		<annotation cp="👩🏽‍❤‍👨🏼">中淺膚色 | 中膚色 | 夫婦｜愛 | 夫婦同心 | 女人 | 男人</annotation>
+		<annotation cp="👩🏽‍❤‍👨🏼">中淺膚色 | 中膚色 | 夫婦 | 夫婦同心 | 女人 | 愛 | 男人</annotation>
 		<annotation cp="👩🏽‍❤‍👨🏼" type="tts">夫婦同心: 女人 男人 中膚色 中淺膚色</annotation>
-		<annotation cp="👩🏽‍❤‍👨🏽">中膚色 | 夫婦｜愛 | 夫婦同心 | 女人 | 男人</annotation>
+		<annotation cp="👩🏽‍❤‍👨🏽">中膚色 | 夫婦 | 夫婦同心 | 女人 | 愛 | 男人</annotation>
 		<annotation cp="👩🏽‍❤‍👨🏽" type="tts">夫婦同心: 女人 男人 中膚色</annotation>
-		<annotation cp="👩🏽‍❤‍👨🏾">中深膚色 | 中膚色 | 夫婦｜愛 | 夫婦同心 | 女人 | 男人</annotation>
+		<annotation cp="👩🏽‍❤‍👨🏾">中深膚色 | 中膚色 | 夫婦 | 夫婦同心 | 女人 | 愛 | 男人</annotation>
 		<annotation cp="👩🏽‍❤‍👨🏾" type="tts">夫婦同心: 女人 男人 中膚色 中深膚色</annotation>
-		<annotation cp="👩🏽‍❤‍👨🏿">中膚色 | 夫婦｜愛 | 夫婦同心 | 女人 | 深膚色 | 男人</annotation>
+		<annotation cp="👩🏽‍❤‍👨🏿">中膚色 | 夫婦 | 夫婦同心 | 女人 | 愛 | 深膚色 | 男人</annotation>
 		<annotation cp="👩🏽‍❤‍👨🏿" type="tts">夫婦同心: 女人 男人 中膚色 深膚色</annotation>
-		<annotation cp="👩🏾‍❤‍👨🏻">中深膚色 | 夫婦｜愛 | 夫婦同心 | 女人 | 淺膚色 | 男人</annotation>
+		<annotation cp="👩🏾‍❤‍👨🏻">中深膚色 | 夫婦 | 夫婦同心 | 女人 | 愛 | 淺膚色 | 男人</annotation>
 		<annotation cp="👩🏾‍❤‍👨🏻" type="tts">夫婦同心: 女人 男人 中深膚色 淺膚色</annotation>
-		<annotation cp="👩🏾‍❤‍👨🏼">中深膚色 | 中淺膚色 | 夫婦｜愛 | 夫婦同心 | 女人 | 男人</annotation>
+		<annotation cp="👩🏾‍❤‍👨🏼">中深膚色 | 中淺膚色 | 夫婦 | 夫婦同心 | 女人 | 愛 | 男人</annotation>
 		<annotation cp="👩🏾‍❤‍👨🏼" type="tts">夫婦同心: 女人 男人 中深膚色 中淺膚色</annotation>
-		<annotation cp="👩🏾‍❤‍👨🏽">中深膚色 | 中膚色 | 夫婦｜愛 | 夫婦同心 | 女人 | 男人</annotation>
+		<annotation cp="👩🏾‍❤‍👨🏽">中深膚色 | 中膚色 | 夫婦 | 夫婦同心 | 女人 | 愛 | 男人</annotation>
 		<annotation cp="👩🏾‍❤‍👨🏽" type="tts">夫婦同心: 女人 男人 中深膚色 中膚色</annotation>
-		<annotation cp="👩🏾‍❤‍👨🏾">中深膚色 | 夫婦｜愛 | 夫婦同心 | 女人 | 男人</annotation>
+		<annotation cp="👩🏾‍❤‍👨🏾">中深膚色 | 夫婦 | 夫婦同心 | 女人 | 愛 | 男人</annotation>
 		<annotation cp="👩🏾‍❤‍👨🏾" type="tts">夫婦同心: 女人 男人 中深膚色</annotation>
-		<annotation cp="👩🏾‍❤‍👨🏿">中深膚色 | 夫婦｜愛 | 夫婦同心 | 女人 | 深膚色 | 男人</annotation>
+		<annotation cp="👩🏾‍❤‍👨🏿">中深膚色 | 夫婦 | 夫婦同心 | 女人 | 愛 | 深膚色 | 男人</annotation>
 		<annotation cp="👩🏾‍❤‍👨🏿" type="tts">夫婦同心: 女人 男人 中深膚色 深膚色</annotation>
-		<annotation cp="👩🏿‍❤‍👨🏻">夫婦｜愛 | 夫婦同心 | 女人 | 深膚色 | 淺膚色 | 男人</annotation>
+		<annotation cp="👩🏿‍❤‍👨🏻">夫婦 | 夫婦同心 | 女人 | 愛 | 深膚色 | 淺膚色 | 男人</annotation>
 		<annotation cp="👩🏿‍❤‍👨🏻" type="tts">夫婦同心: 女人 男人 深膚色 淺膚色</annotation>
-		<annotation cp="👩🏿‍❤‍👨🏼">中淺膚色 | 夫婦｜愛 | 夫婦同心 | 女人 | 深膚色 | 男人</annotation>
+		<annotation cp="👩🏿‍❤‍👨🏼">中淺膚色 | 夫婦 | 夫婦同心 | 女人 | 愛 | 深膚色 | 男人</annotation>
 		<annotation cp="👩🏿‍❤‍👨🏼" type="tts">夫婦同心: 女人 男人 深膚色 中淺膚色</annotation>
-		<annotation cp="👩🏿‍❤‍👨🏽">中膚色 | 夫婦｜愛 | 夫婦同心 | 女人 | 深膚色 | 男人</annotation>
+		<annotation cp="👩🏿‍❤‍👨🏽">中膚色 | 夫婦 | 夫婦同心 | 女人 | 愛 | 深膚色 | 男人</annotation>
 		<annotation cp="👩🏿‍❤‍👨🏽" type="tts">夫婦同心: 女人 男人 深膚色 中膚色</annotation>
-		<annotation cp="👩🏿‍❤‍👨🏾">中深膚色 | 夫婦｜愛 | 夫婦同心 | 女人 | 深膚色 | 男人</annotation>
+		<annotation cp="👩🏿‍❤‍👨🏾">中深膚色 | 夫婦 | 夫婦同心 | 女人 | 愛 | 深膚色 | 男人</annotation>
 		<annotation cp="👩🏿‍❤‍👨🏾" type="tts">夫婦同心: 女人 男人 深膚色 中深膚色</annotation>
-		<annotation cp="👩🏿‍❤‍👨🏿">夫婦｜愛 | 夫婦同心 | 女人 | 深膚色 | 男人</annotation>
+		<annotation cp="👩🏿‍❤‍👨🏿">夫婦 | 夫婦同心 | 女人 | 愛 | 深膚色 | 男人</annotation>
 		<annotation cp="👩🏿‍❤‍👨🏿" type="tts">夫婦同心: 女人 男人 深膚色</annotation>
-		<annotation cp="👩🏻‍❤‍👩🏻">夫婦｜愛 | 夫婦同心 | 女人 | 淺膚色</annotation>
+		<annotation cp="👩🏻‍❤‍👩🏻">夫婦 | 夫婦同心 | 女人 | 愛 | 淺膚色</annotation>
 		<annotation cp="👩🏻‍❤‍👩🏻" type="tts">夫婦同心: 女人 女人 淺膚色</annotation>
-		<annotation cp="👩🏻‍❤‍👩🏼">中淺膚色 | 夫婦｜愛 | 夫婦同心 | 女人 | 淺膚色</annotation>
+		<annotation cp="👩🏻‍❤‍👩🏼">中淺膚色 | 夫婦 | 夫婦同心 | 女人 | 愛 | 淺膚色</annotation>
 		<annotation cp="👩🏻‍❤‍👩🏼" type="tts">夫婦同心: 女人 女人 淺膚色 中淺膚色</annotation>
-		<annotation cp="👩🏻‍❤‍👩🏽">中膚色 | 夫婦｜愛 | 夫婦同心 | 女人 | 淺膚色</annotation>
+		<annotation cp="👩🏻‍❤‍👩🏽">中膚色 | 夫婦 | 夫婦同心 | 女人 | 愛 | 淺膚色</annotation>
 		<annotation cp="👩🏻‍❤‍👩🏽" type="tts">夫婦同心: 女人 女人 淺膚色 中膚色</annotation>
-		<annotation cp="👩🏻‍❤‍👩🏾">中深膚色 | 夫婦｜愛 | 夫婦同心 | 女人 | 淺膚色</annotation>
+		<annotation cp="👩🏻‍❤‍👩🏾">中深膚色 | 夫婦 | 夫婦同心 | 女人 | 愛 | 淺膚色</annotation>
 		<annotation cp="👩🏻‍❤‍👩🏾" type="tts">夫婦同心: 女人 女人 淺膚色 中深膚色</annotation>
-		<annotation cp="👩🏻‍❤‍👩🏿">夫婦｜愛 | 夫婦同心 | 女人 | 深膚色 | 淺膚色</annotation>
+		<annotation cp="👩🏻‍❤‍👩🏿">夫婦 | 夫婦同心 | 女人 | 愛 | 深膚色 | 淺膚色</annotation>
 		<annotation cp="👩🏻‍❤‍👩🏿" type="tts">夫婦同心: 女人 女人 淺膚色 深膚色</annotation>
-		<annotation cp="👩🏼‍❤‍👩🏻">中淺膚色 | 夫婦｜愛 | 夫婦同心 | 女人 | 淺膚色</annotation>
+		<annotation cp="👩🏼‍❤‍👩🏻">中淺膚色 | 夫婦 | 夫婦同心 | 女人 | 愛 | 淺膚色</annotation>
 		<annotation cp="👩🏼‍❤‍👩🏻" type="tts">夫婦同心: 女人 女人 中淺膚色 淺膚色</annotation>
-		<annotation cp="👩🏼‍❤‍👩🏼">中淺膚色 | 夫婦｜愛 | 夫婦同心 | 女人</annotation>
+		<annotation cp="👩🏼‍❤‍👩🏼">中淺膚色 | 夫婦 | 夫婦同心 | 女人 | 愛</annotation>
 		<annotation cp="👩🏼‍❤‍👩🏼" type="tts">夫婦同心: 女人 女人 中淺膚色</annotation>
-		<annotation cp="👩🏼‍❤‍👩🏽">中淺膚色 | 中膚色 | 夫婦｜愛 | 夫婦同心 | 女人</annotation>
+		<annotation cp="👩🏼‍❤‍👩🏽">中淺膚色 | 中膚色 | 夫婦 | 夫婦同心 | 女人 | 愛</annotation>
 		<annotation cp="👩🏼‍❤‍👩🏽" type="tts">夫婦同心: 女人 女人 中淺膚色 中膚色</annotation>
-		<annotation cp="👩🏼‍❤‍👩🏾">中深膚色 | 中淺膚色 | 夫婦｜愛 | 夫婦同心 | 女人</annotation>
+		<annotation cp="👩🏼‍❤‍👩🏾">中深膚色 | 中淺膚色 | 夫婦 | 夫婦同心 | 女人 | 愛</annotation>
 		<annotation cp="👩🏼‍❤‍👩🏾" type="tts">夫婦同心: 女人 女人 中淺膚色 中深膚色</annotation>
-		<annotation cp="👩🏼‍❤‍👩🏿">中淺膚色 | 夫婦｜愛 | 夫婦同心 | 女人 | 深膚色</annotation>
+		<annotation cp="👩🏼‍❤‍👩🏿">中淺膚色 | 夫婦 | 夫婦同心 | 女人 | 愛 | 深膚色</annotation>
 		<annotation cp="👩🏼‍❤‍👩🏿" type="tts">夫婦同心: 女人 女人 中淺膚色 深膚色</annotation>
-		<annotation cp="👩🏽‍❤‍👩🏻">中膚色 | 夫婦｜愛 | 夫婦同心 | 女人 | 淺膚色</annotation>
+		<annotation cp="👩🏽‍❤‍👩🏻">中膚色 | 夫婦 | 夫婦同心 | 女人 | 愛 | 淺膚色</annotation>
 		<annotation cp="👩🏽‍❤‍👩🏻" type="tts">夫婦同心: 女人 女人 中膚色 淺膚色</annotation>
-		<annotation cp="👩🏽‍❤‍👩🏼">中淺膚色 | 中膚色 | 夫婦｜愛 | 夫婦同心 | 女人</annotation>
+		<annotation cp="👩🏽‍❤‍👩🏼">中淺膚色 | 中膚色 | 夫婦 | 夫婦同心 | 女人 | 愛</annotation>
 		<annotation cp="👩🏽‍❤‍👩🏼" type="tts">夫婦同心: 女人 女人 中膚色 中淺膚色</annotation>
-		<annotation cp="👩🏽‍❤‍👩🏽">中膚色 | 夫婦｜愛 | 夫婦同心 | 女人</annotation>
+		<annotation cp="👩🏽‍❤‍👩🏽">中膚色 | 夫婦 | 夫婦同心 | 女人 | 愛</annotation>
 		<annotation cp="👩🏽‍❤‍👩🏽" type="tts">夫婦同心: 女人 女人 中膚色</annotation>
-		<annotation cp="👩🏽‍❤‍👩🏾">中深膚色 | 中膚色 | 夫婦｜愛 | 夫婦同心 | 女人</annotation>
+		<annotation cp="👩🏽‍❤‍👩🏾">中深膚色 | 中膚色 | 夫婦 | 夫婦同心 | 女人 | 愛</annotation>
 		<annotation cp="👩🏽‍❤‍👩🏾" type="tts">夫婦同心: 女人 女人 中膚色 中深膚色</annotation>
-		<annotation cp="👩🏽‍❤‍👩🏿">中膚色 | 夫婦｜愛 | 夫婦同心 | 女人 | 深膚色</annotation>
+		<annotation cp="👩🏽‍❤‍👩🏿">中膚色 | 夫婦 | 夫婦同心 | 女人 | 愛 | 深膚色</annotation>
 		<annotation cp="👩🏽‍❤‍👩🏿" type="tts">夫婦同心: 女人 女人 中膚色 深膚色</annotation>
-		<annotation cp="👩🏾‍❤‍👩🏻">中深膚色 | 夫婦｜愛 | 夫婦同心 | 女人 | 淺膚色</annotation>
+		<annotation cp="👩🏾‍❤‍👩🏻">中深膚色 | 夫婦 | 夫婦同心 | 女人 | 愛 | 淺膚色</annotation>
 		<annotation cp="👩🏾‍❤‍👩🏻" type="tts">夫婦同心: 女人 女人 中深膚色 淺膚色</annotation>
-		<annotation cp="👩🏾‍❤‍👩🏼">中深膚色 | 中淺膚色 | 夫婦｜愛 | 夫婦同心 | 女人</annotation>
+		<annotation cp="👩🏾‍❤‍👩🏼">中深膚色 | 中淺膚色 | 夫婦 | 夫婦同心 | 女人 | 愛</annotation>
 		<annotation cp="👩🏾‍❤‍👩🏼" type="tts">夫婦同心: 女人 女人 中深膚色 中淺膚色</annotation>
-		<annotation cp="👩🏾‍❤‍👩🏽">中深膚色 | 中膚色 | 夫婦｜愛 | 夫婦同心 | 女人</annotation>
+		<annotation cp="👩🏾‍❤‍👩🏽">中深膚色 | 中膚色 | 夫婦 | 夫婦同心 | 女人 | 愛</annotation>
 		<annotation cp="👩🏾‍❤‍👩🏽" type="tts">夫婦同心: 女人 女人 中深膚色 中膚色</annotation>
-		<annotation cp="👩🏾‍❤‍👩🏾">中深膚色 | 夫婦｜愛 | 夫婦同心 | 女人</annotation>
+		<annotation cp="👩🏾‍❤‍👩🏾">中深膚色 | 夫婦 | 夫婦同心 | 女人 | 愛</annotation>
 		<annotation cp="👩🏾‍❤‍👩🏾" type="tts">夫婦同心: 女人 女人 中深膚色</annotation>
-		<annotation cp="👩🏾‍❤‍👩🏿">中深膚色 | 夫婦｜愛 | 夫婦同心 | 女人 | 深膚色</annotation>
+		<annotation cp="👩🏾‍❤‍👩🏿">中深膚色 | 夫婦 | 夫婦同心 | 女人 | 愛 | 深膚色</annotation>
 		<annotation cp="👩🏾‍❤‍👩🏿" type="tts">夫婦同心: 女人 女人 中深膚色 深膚色</annotation>
-		<annotation cp="👩🏿‍❤‍👩🏻">夫婦｜愛 | 夫婦同心 | 女人 | 深膚色 | 淺膚色</annotation>
+		<annotation cp="👩🏿‍❤‍👩🏻">夫婦 | 夫婦同心 | 女人 | 愛 | 深膚色 | 淺膚色</annotation>
 		<annotation cp="👩🏿‍❤‍👩🏻" type="tts">夫婦同心: 女人 女人 深膚色 淺膚色</annotation>
-		<annotation cp="👩🏿‍❤‍👩🏼">中淺膚色 | 夫婦｜愛 | 夫婦同心 | 女人 | 深膚色</annotation>
+		<annotation cp="👩🏿‍❤‍👩🏼">中淺膚色 | 夫婦 | 夫婦同心 | 女人 | 愛 | 深膚色</annotation>
 		<annotation cp="👩🏿‍❤‍👩🏼" type="tts">夫婦同心: 女人 女人 深膚色 中淺膚色</annotation>
-		<annotation cp="👩🏿‍❤‍👩🏽">中膚色 | 夫婦｜愛 | 夫婦同心 | 女人 | 深膚色</annotation>
+		<annotation cp="👩🏿‍❤‍👩🏽">中膚色 | 夫婦 | 夫婦同心 | 女人 | 愛 | 深膚色</annotation>
 		<annotation cp="👩🏿‍❤‍👩🏽" type="tts">夫婦同心: 女人 女人 深膚色 中膚色</annotation>
-		<annotation cp="👩🏿‍❤‍👩🏾">中深膚色 | 夫婦｜愛 | 夫婦同心 | 女人 | 深膚色</annotation>
+		<annotation cp="👩🏿‍❤‍👩🏾">中深膚色 | 夫婦 | 夫婦同心 | 女人 | 愛 | 深膚色</annotation>
 		<annotation cp="👩🏿‍❤‍👩🏾" type="tts">夫婦同心: 女人 女人 深膚色 中深膚色</annotation>
-		<annotation cp="👩🏿‍❤‍👩🏿">夫婦｜愛 | 夫婦同心 | 女人 | 深膚色</annotation>
+		<annotation cp="👩🏿‍❤‍👩🏿">夫婦 | 夫婦同心 | 女人 | 愛 | 深膚色</annotation>
 		<annotation cp="👩🏿‍❤‍👩🏿" type="tts">夫婦同心: 女人 女人 深膚色</annotation>
 		<annotation cp="👩‍🦰">女人 | 紅色頭髮</annotation>
 		<annotation cp="👩‍🦰" type="tts">女人: 紅色頭髮</annotation>
@@ -1197,6 +1406,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🦲" type="tts">女人: 中深膚色 光頭</annotation>
 		<annotation cp="👩🏿‍🦲">光頭 | 女人 | 深膚色</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">女人: 深膚色 光頭</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏼">中淺膚色 | 兔耳 | 女 | 戴兔仔耳嘅女人 | 派對 | 淺膚色 | 舞蹈員</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏼" type="tts">戴兔仔耳嘅女人: 淺膚色 中淺膚色</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏽">中膚色 | 兔耳 | 女 | 戴兔仔耳嘅女人 | 派對 | 淺膚色 | 舞蹈員</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏽" type="tts">戴兔仔耳嘅女人: 淺膚色 中膚色</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏾">中深膚色 | 兔耳 | 女 | 戴兔仔耳嘅女人 | 派對 | 淺膚色 | 舞蹈員</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏾" type="tts">戴兔仔耳嘅女人: 淺膚色 中深膚色</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏿">兔耳 | 女 | 戴兔仔耳嘅女人 | 派對 | 深膚色 | 淺膚色 | 舞蹈員</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏿" type="tts">戴兔仔耳嘅女人: 淺膚色 深膚色</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏻">中淺膚色 | 兔耳 | 女 | 戴兔仔耳嘅女人 | 派對 | 淺膚色 | 舞蹈員</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏻" type="tts">戴兔仔耳嘅女人: 中淺膚色 淺膚色</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏽">中淺膚色 | 中膚色 | 兔耳 | 女 | 戴兔仔耳嘅女人 | 派對 | 舞蹈員</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏽" type="tts">戴兔仔耳嘅女人: 中淺膚色 中膚色</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏾">中深膚色 | 中淺膚色 | 兔耳 | 女 | 戴兔仔耳嘅女人 | 派對 | 舞蹈員</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏾" type="tts">戴兔仔耳嘅女人: 中淺膚色 中深膚色</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏿">中淺膚色 | 兔耳 | 女 | 戴兔仔耳嘅女人 | 派對 | 深膚色 | 舞蹈員</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏿" type="tts">戴兔仔耳嘅女人: 中淺膚色 深膚色</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏻">中膚色 | 兔耳 | 女 | 戴兔仔耳嘅女人 | 派對 | 淺膚色 | 舞蹈員</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏻" type="tts">戴兔仔耳嘅女人: 中膚色 淺膚色</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏼">中淺膚色 | 中膚色 | 兔耳 | 女 | 戴兔仔耳嘅女人 | 派對 | 舞蹈員</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏼" type="tts">戴兔仔耳嘅女人: 中膚色 中淺膚色</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏾">中深膚色 | 中膚色 | 兔耳 | 女 | 戴兔仔耳嘅女人 | 派對 | 舞蹈員</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏾" type="tts">戴兔仔耳嘅女人: 中膚色 中深膚色</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏿">中膚色 | 兔耳 | 女 | 戴兔仔耳嘅女人 | 派對 | 深膚色 | 舞蹈員</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏿" type="tts">戴兔仔耳嘅女人: 中膚色 深膚色</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏻">中深膚色 | 兔耳 | 女 | 戴兔仔耳嘅女人 | 派對 | 淺膚色 | 舞蹈員</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏻" type="tts">戴兔仔耳嘅女人: 中深膚色 淺膚色</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏼">中深膚色 | 中淺膚色 | 兔耳 | 女 | 戴兔仔耳嘅女人 | 派對 | 舞蹈員</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏼" type="tts">戴兔仔耳嘅女人: 中深膚色 中淺膚色</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏽">中深膚色 | 中膚色 | 兔耳 | 女 | 戴兔仔耳嘅女人 | 派對 | 舞蹈員</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏽" type="tts">戴兔仔耳嘅女人: 中深膚色 中膚色</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏿">中深膚色 | 兔耳 | 女 | 戴兔仔耳嘅女人 | 派對 | 深膚色 | 舞蹈員</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏿" type="tts">戴兔仔耳嘅女人: 中深膚色 深膚色</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏻">兔耳 | 女 | 戴兔仔耳嘅女人 | 派對 | 深膚色 | 淺膚色 | 舞蹈員</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏻" type="tts">戴兔仔耳嘅女人: 深膚色 淺膚色</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏼">中淺膚色 | 兔耳 | 女 | 戴兔仔耳嘅女人 | 派對 | 深膚色 | 舞蹈員</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏼" type="tts">戴兔仔耳嘅女人: 深膚色 中淺膚色</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏽">中膚色 | 兔耳 | 女 | 戴兔仔耳嘅女人 | 派對 | 深膚色 | 舞蹈員</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏽" type="tts">戴兔仔耳嘅女人: 深膚色 中膚色</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏾">中深膚色 | 兔耳 | 女 | 戴兔仔耳嘅女人 | 派對 | 深膚色 | 舞蹈員</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏾" type="tts">戴兔仔耳嘅女人: 深膚色 中深膚色</annotation>
 		<annotation cp="🧓🏻">中性 | 淺膚色 | 老人 | 老年</annotation>
 		<annotation cp="🧓🏻" type="tts">老人: 淺膚色</annotation>
 		<annotation cp="🧓🏼">中性 | 中淺膚色 | 老人 | 老年</annotation>
@@ -2427,25 +2676,25 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🦹🏾" type="tts">超級壞人: 中深膚色</annotation>
 		<annotation cp="🦹🏿">壞人 | 深膚色 | 犯罪 | 超人 | 超級壞人 | 邪惡</annotation>
 		<annotation cp="🦹🏿" type="tts">超級壞人: 深膚色</annotation>
-		<annotation cp="🦹🏻‍♂">壞人 | 淺膚色 | 犯罪 | 超人 | 超級男壞人 | 邪惡｜男</annotation>
+		<annotation cp="🦹🏻‍♂">壞人 | 淺膚色 | 犯罪 | 男 | 超人 | 超級男壞人 | 邪惡</annotation>
 		<annotation cp="🦹🏻‍♂" type="tts">超級男壞人: 淺膚色</annotation>
-		<annotation cp="🦹🏼‍♂">中淺膚色 | 壞人 | 犯罪 | 超人 | 超級男壞人 | 邪惡｜男</annotation>
+		<annotation cp="🦹🏼‍♂">中淺膚色 | 壞人 | 犯罪 | 男 | 超人 | 超級男壞人 | 邪惡</annotation>
 		<annotation cp="🦹🏼‍♂" type="tts">超級男壞人: 中淺膚色</annotation>
-		<annotation cp="🦹🏽‍♂">中膚色 | 壞人 | 犯罪 | 超人 | 超級男壞人 | 邪惡｜男</annotation>
+		<annotation cp="🦹🏽‍♂">中膚色 | 壞人 | 犯罪 | 男 | 超人 | 超級男壞人 | 邪惡</annotation>
 		<annotation cp="🦹🏽‍♂" type="tts">超級男壞人: 中膚色</annotation>
-		<annotation cp="🦹🏾‍♂">中深膚色 | 壞人 | 犯罪 | 超人 | 超級男壞人 | 邪惡｜男</annotation>
+		<annotation cp="🦹🏾‍♂">中深膚色 | 壞人 | 犯罪 | 男 | 超人 | 超級男壞人 | 邪惡</annotation>
 		<annotation cp="🦹🏾‍♂" type="tts">超級男壞人: 中深膚色</annotation>
-		<annotation cp="🦹🏿‍♂">壞人 | 深膚色 | 犯罪 | 超人 | 超級男壞人 | 邪惡｜男</annotation>
+		<annotation cp="🦹🏿‍♂">壞人 | 深膚色 | 犯罪 | 男 | 超人 | 超級男壞人 | 邪惡</annotation>
 		<annotation cp="🦹🏿‍♂" type="tts">超級男壞人: 深膚色</annotation>
-		<annotation cp="🦹🏻‍♀">壞人 | 淺膚色 | 犯罪 | 超人 | 超級女壞人 | 邪惡｜女</annotation>
+		<annotation cp="🦹🏻‍♀">壞人 | 女 | 淺膚色 | 犯罪 | 超人 | 超級女壞人 | 邪惡</annotation>
 		<annotation cp="🦹🏻‍♀" type="tts">超級女壞人: 淺膚色</annotation>
-		<annotation cp="🦹🏼‍♀">中淺膚色 | 壞人 | 犯罪 | 超人 | 超級女壞人 | 邪惡｜女</annotation>
+		<annotation cp="🦹🏼‍♀">中淺膚色 | 壞人 | 女 | 犯罪 | 超人 | 超級女壞人 | 邪惡</annotation>
 		<annotation cp="🦹🏼‍♀" type="tts">超級女壞人: 中淺膚色</annotation>
-		<annotation cp="🦹🏽‍♀">中膚色 | 壞人 | 犯罪 | 超人 | 超級女壞人 | 邪惡｜女</annotation>
+		<annotation cp="🦹🏽‍♀">中膚色 | 壞人 | 女 | 犯罪 | 超人 | 超級女壞人 | 邪惡</annotation>
 		<annotation cp="🦹🏽‍♀" type="tts">超級女壞人: 中膚色</annotation>
-		<annotation cp="🦹🏾‍♀">中深膚色 | 壞人 | 犯罪 | 超人 | 超級女壞人 | 邪惡｜女</annotation>
+		<annotation cp="🦹🏾‍♀">中深膚色 | 壞人 | 女 | 犯罪 | 超人 | 超級女壞人 | 邪惡</annotation>
 		<annotation cp="🦹🏾‍♀" type="tts">超級女壞人: 中深膚色</annotation>
-		<annotation cp="🦹🏿‍♀">壞人 | 深膚色 | 犯罪 | 超人 | 超級女壞人 | 邪惡｜女</annotation>
+		<annotation cp="🦹🏿‍♀">壞人 | 女 | 深膚色 | 犯罪 | 超人 | 超級女壞人 | 邪惡</annotation>
 		<annotation cp="🦹🏿‍♀" type="tts">超級女壞人: 深膚色</annotation>
 		<annotation cp="🧙🏻">女巫 | 巫婆 | 巫師 | 淺膚色 | 男巫</annotation>
 		<annotation cp="🧙🏻" type="tts">巫師: 淺膚色</annotation>
@@ -3113,6 +3362,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🕴🏾" type="tts">著西裝嘅男人: 中深膚色</annotation>
 		<annotation cp="🕴🏿">商業 | 深膚色 | 男 | 著西裝嘅男人 | 西裝</annotation>
 		<annotation cp="🕴🏿" type="tts">著西裝嘅男人: 深膚色</annotation>
+		<annotation cp="👯🏻">兔耳 | 戴兔仔耳嘅人 | 派對 | 淺膚色 | 舞蹈員</annotation>
+		<annotation cp="👯🏻" type="tts">戴兔仔耳嘅人: 淺膚色</annotation>
+		<annotation cp="👯🏼">中淺膚色 | 兔耳 | 戴兔仔耳嘅人 | 派對 | 舞蹈員</annotation>
+		<annotation cp="👯🏼" type="tts">戴兔仔耳嘅人: 中淺膚色</annotation>
+		<annotation cp="👯🏽">中膚色 | 兔耳 | 戴兔仔耳嘅人 | 派對 | 舞蹈員</annotation>
+		<annotation cp="👯🏽" type="tts">戴兔仔耳嘅人: 中膚色</annotation>
+		<annotation cp="👯🏾">中深膚色 | 兔耳 | 戴兔仔耳嘅人 | 派對 | 舞蹈員</annotation>
+		<annotation cp="👯🏾" type="tts">戴兔仔耳嘅人: 中深膚色</annotation>
+		<annotation cp="👯🏿">兔耳 | 戴兔仔耳嘅人 | 派對 | 深膚色 | 舞蹈員</annotation>
+		<annotation cp="👯🏿" type="tts">戴兔仔耳嘅人: 深膚色</annotation>
+		<annotation cp="👯🏻‍♀">兔耳 | 女 | 戴兔仔耳嘅女人 | 派對 | 淺膚色 | 舞蹈員</annotation>
+		<annotation cp="👯🏻‍♀" type="tts">戴兔仔耳嘅女人: 淺膚色</annotation>
+		<annotation cp="👯🏼‍♀">中淺膚色 | 兔耳 | 女 | 戴兔仔耳嘅女人 | 派對 | 舞蹈員</annotation>
+		<annotation cp="👯🏼‍♀" type="tts">戴兔仔耳嘅女人: 中淺膚色</annotation>
+		<annotation cp="👯🏽‍♀">中膚色 | 兔耳 | 女 | 戴兔仔耳嘅女人 | 派對 | 舞蹈員</annotation>
+		<annotation cp="👯🏽‍♀" type="tts">戴兔仔耳嘅女人: 中膚色</annotation>
+		<annotation cp="👯🏾‍♀">中深膚色 | 兔耳 | 女 | 戴兔仔耳嘅女人 | 派對 | 舞蹈員</annotation>
+		<annotation cp="👯🏾‍♀" type="tts">戴兔仔耳嘅女人: 中深膚色</annotation>
+		<annotation cp="👯🏿‍♀">兔耳 | 女 | 戴兔仔耳嘅女人 | 派對 | 深膚色 | 舞蹈員</annotation>
+		<annotation cp="👯🏿‍♀" type="tts">戴兔仔耳嘅女人: 深膚色</annotation>
+		<annotation cp="👯🏻‍♂">兔耳 | 戴兔仔耳嘅男人 | 派對 | 淺膚色 | 男 | 舞蹈員</annotation>
+		<annotation cp="👯🏻‍♂" type="tts">戴兔仔耳嘅男人: 淺膚色</annotation>
+		<annotation cp="👯🏼‍♂">中淺膚色 | 兔耳 | 戴兔仔耳嘅男人 | 派對 | 男 | 舞蹈員</annotation>
+		<annotation cp="👯🏼‍♂" type="tts">戴兔仔耳嘅男人: 中淺膚色</annotation>
+		<annotation cp="👯🏽‍♂">中膚色 | 兔耳 | 戴兔仔耳嘅男人 | 派對 | 男 | 舞蹈員</annotation>
+		<annotation cp="👯🏽‍♂" type="tts">戴兔仔耳嘅男人: 中膚色</annotation>
+		<annotation cp="👯🏾‍♂">中深膚色 | 兔耳 | 戴兔仔耳嘅男人 | 派對 | 男 | 舞蹈員</annotation>
+		<annotation cp="👯🏾‍♂" type="tts">戴兔仔耳嘅男人: 中深膚色</annotation>
+		<annotation cp="👯🏿‍♂">兔耳 | 戴兔仔耳嘅男人 | 派對 | 深膚色 | 男 | 舞蹈員</annotation>
+		<annotation cp="👯🏿‍♂" type="tts">戴兔仔耳嘅男人: 深膚色</annotation>
 		<annotation cp="🧖🏻">喺蒸氣房嘅人 | 桑拿 | 淺膚色 | 蒸氣房</annotation>
 		<annotation cp="🧖🏻" type="tts">喺蒸氣房嘅人: 淺膚色</annotation>
 		<annotation cp="🧖🏼">中淺膚色 | 喺蒸氣房嘅人 | 桑拿 | 蒸氣房</annotation>
@@ -3463,6 +3742,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤸🏾‍♀" type="tts">側手翻嘅女人: 中深膚色</annotation>
 		<annotation cp="🤸🏿‍♀">側手翻 | 側手翻嘅女人 | 女 | 深膚色 | 體操</annotation>
 		<annotation cp="🤸🏿‍♀" type="tts">側手翻嘅女人: 深膚色</annotation>
+		<annotation cp="🤼🏻">摔跤 | 摔跤嘅人 | 摔跤手 | 淺膚色</annotation>
+		<annotation cp="🤼🏻" type="tts">摔跤嘅人: 淺膚色</annotation>
+		<annotation cp="🤼🏼">中淺膚色 | 摔跤 | 摔跤嘅人 | 摔跤手</annotation>
+		<annotation cp="🤼🏼" type="tts">摔跤嘅人: 中淺膚色</annotation>
+		<annotation cp="🤼🏽">中膚色 | 摔跤 | 摔跤嘅人 | 摔跤手</annotation>
+		<annotation cp="🤼🏽" type="tts">摔跤嘅人: 中膚色</annotation>
+		<annotation cp="🤼🏾">中深膚色 | 摔跤 | 摔跤嘅人 | 摔跤手</annotation>
+		<annotation cp="🤼🏾" type="tts">摔跤嘅人: 中深膚色</annotation>
+		<annotation cp="🤼🏿">摔跤 | 摔跤嘅人 | 摔跤手 | 深膚色</annotation>
+		<annotation cp="🤼🏿" type="tts">摔跤嘅人: 深膚色</annotation>
+		<annotation cp="🤼🏻‍♀">女 | 摔跤 | 摔跤嘅女人 | 淺膚色</annotation>
+		<annotation cp="🤼🏻‍♀" type="tts">摔跤嘅女人: 淺膚色</annotation>
+		<annotation cp="🤼🏼‍♀">中淺膚色 | 女 | 摔跤 | 摔跤嘅女人</annotation>
+		<annotation cp="🤼🏼‍♀" type="tts">摔跤嘅女人: 中淺膚色</annotation>
+		<annotation cp="🤼🏽‍♀">中膚色 | 女 | 摔跤 | 摔跤嘅女人</annotation>
+		<annotation cp="🤼🏽‍♀" type="tts">摔跤嘅女人: 中膚色</annotation>
+		<annotation cp="🤼🏾‍♀">中深膚色 | 女 | 摔跤 | 摔跤嘅女人</annotation>
+		<annotation cp="🤼🏾‍♀" type="tts">摔跤嘅女人: 中深膚色</annotation>
+		<annotation cp="🤼🏿‍♀">女 | 摔跤 | 摔跤嘅女人 | 深膚色</annotation>
+		<annotation cp="🤼🏿‍♀" type="tts">摔跤嘅女人: 深膚色</annotation>
+		<annotation cp="🤼🏻‍♂">摔跤 | 摔跤嘅男人 | 淺膚色 | 男</annotation>
+		<annotation cp="🤼🏻‍♂" type="tts">摔跤嘅男人: 淺膚色</annotation>
+		<annotation cp="🤼🏼‍♂">中淺膚色 | 摔跤 | 摔跤嘅男人 | 男</annotation>
+		<annotation cp="🤼🏼‍♂" type="tts">摔跤嘅男人: 中淺膚色</annotation>
+		<annotation cp="🤼🏽‍♂">中膚色 | 摔跤 | 摔跤嘅男人 | 男</annotation>
+		<annotation cp="🤼🏽‍♂" type="tts">摔跤嘅男人: 中膚色</annotation>
+		<annotation cp="🤼🏾‍♂">中深膚色 | 摔跤 | 摔跤嘅男人 | 男</annotation>
+		<annotation cp="🤼🏾‍♂" type="tts">摔跤嘅男人: 中深膚色</annotation>
+		<annotation cp="🤼🏿‍♂">摔跤 | 摔跤嘅男人 | 深膚色 | 男</annotation>
+		<annotation cp="🤼🏿‍♂" type="tts">摔跤嘅男人: 深膚色</annotation>
 		<annotation cp="🤽🏻">水 | 水球 | 淺膚色 | 玩水球嘅人</annotation>
 		<annotation cp="🤽🏻" type="tts">玩水球嘅人: 淺膚色</annotation>
 		<annotation cp="🤽🏼">中淺膚色 | 水 | 水球 | 玩水球嘅人</annotation>
@@ -3819,21 +4128,21 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨‍❤‍💋‍👨" type="tts">吻: 男人 男人</annotation>
 		<annotation cp="👩‍❤‍💋‍👩">吻 | 夫婦 | 女人</annotation>
 		<annotation cp="👩‍❤‍💋‍👩" type="tts">吻: 女人 女人</annotation>
-		<annotation cp="💑🏻">夫婦｜愛 | 夫婦同心 | 淺膚色</annotation>
+		<annotation cp="💑🏻">夫婦 | 夫婦同心 | 愛 | 淺膚色</annotation>
 		<annotation cp="💑🏻" type="tts">夫婦同心: 淺膚色</annotation>
-		<annotation cp="💑🏼">中淺膚色 | 夫婦｜愛 | 夫婦同心</annotation>
+		<annotation cp="💑🏼">中淺膚色 | 夫婦 | 夫婦同心 | 愛</annotation>
 		<annotation cp="💑🏼" type="tts">夫婦同心: 中淺膚色</annotation>
-		<annotation cp="💑🏽">中膚色 | 夫婦｜愛 | 夫婦同心</annotation>
+		<annotation cp="💑🏽">中膚色 | 夫婦 | 夫婦同心 | 愛</annotation>
 		<annotation cp="💑🏽" type="tts">夫婦同心: 中膚色</annotation>
-		<annotation cp="💑🏾">中深膚色 | 夫婦｜愛 | 夫婦同心</annotation>
+		<annotation cp="💑🏾">中深膚色 | 夫婦 | 夫婦同心 | 愛</annotation>
 		<annotation cp="💑🏾" type="tts">夫婦同心: 中深膚色</annotation>
-		<annotation cp="💑🏿">夫婦｜愛 | 夫婦同心 | 深膚色</annotation>
+		<annotation cp="💑🏿">夫婦 | 夫婦同心 | 愛 | 深膚色</annotation>
 		<annotation cp="💑🏿" type="tts">夫婦同心: 深膚色</annotation>
-		<annotation cp="👩‍❤‍👨">夫婦｜愛 | 夫婦同心 | 女人 | 男人</annotation>
+		<annotation cp="👩‍❤‍👨">夫婦 | 夫婦同心 | 女人 | 愛 | 男人</annotation>
 		<annotation cp="👩‍❤‍👨" type="tts">夫婦同心: 女人 男人</annotation>
-		<annotation cp="👨‍❤‍👨">夫婦｜愛 | 夫婦同心 | 男人</annotation>
+		<annotation cp="👨‍❤‍👨">夫婦 | 夫婦同心 | 愛 | 男人</annotation>
 		<annotation cp="👨‍❤‍👨" type="tts">夫婦同心: 男人 男人</annotation>
-		<annotation cp="👩‍❤‍👩">夫婦｜愛 | 夫婦同心 | 女人</annotation>
+		<annotation cp="👩‍❤‍👩">夫婦 | 夫婦同心 | 女人 | 愛</annotation>
 		<annotation cp="👩‍❤‍👩" type="tts">夫婦同心: 女人 女人</annotation>
 		<annotation cp="👨‍👩‍👦">女人 | 家庭 | 男人 | 男仔</annotation>
 		<annotation cp="👨‍👩‍👦" type="tts">家庭: 男人 女人 男仔</annotation>
@@ -3993,6 +4302,8 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇨🇴" type="tts">旗: 哥倫比亞</annotation>
 		<annotation cp="🇨🇵">旗</annotation>
 		<annotation cp="🇨🇵" type="tts">旗: 克里派頓島</annotation>
+		<annotation cp="🇨🇶">旗</annotation>
+		<annotation cp="🇨🇶" type="tts">旗: 薩克</annotation>
 		<annotation cp="🇨🇷">旗</annotation>
 		<annotation cp="🇨🇷" type="tts">旗: 哥斯大黎加</annotation>
 		<annotation cp="🇨🇺">旗</annotation>
@@ -4432,26 +4743,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="₺" type="tts">新土耳其里拉</annotation>
 		<annotation cp="₼" type="tts">亞塞拜然馬納特</annotation>
 		<annotation cp="₾" type="tts">喬治亞拉里</annotation>
-		<annotation cp="0⃣">鍵帽</annotation>
-		<annotation cp="0⃣" type="tts">鍵帽: 0</annotation>
-		<annotation cp="1⃣">鍵帽</annotation>
-		<annotation cp="1⃣" type="tts">鍵帽: 1</annotation>
-		<annotation cp="2⃣">鍵帽</annotation>
-		<annotation cp="2⃣" type="tts">鍵帽: 2</annotation>
-		<annotation cp="3⃣">鍵帽</annotation>
-		<annotation cp="3⃣" type="tts">鍵帽: 3</annotation>
-		<annotation cp="4⃣">鍵帽</annotation>
-		<annotation cp="4⃣" type="tts">鍵帽: 4</annotation>
-		<annotation cp="5⃣">鍵帽</annotation>
-		<annotation cp="5⃣" type="tts">鍵帽: 5</annotation>
-		<annotation cp="6⃣">鍵帽</annotation>
-		<annotation cp="6⃣" type="tts">鍵帽: 6</annotation>
-		<annotation cp="7⃣">鍵帽</annotation>
-		<annotation cp="7⃣" type="tts">鍵帽: 7</annotation>
-		<annotation cp="8⃣">鍵帽</annotation>
-		<annotation cp="8⃣" type="tts">鍵帽: 8</annotation>
-		<annotation cp="9⃣">鍵帽</annotation>
-		<annotation cp="9⃣" type="tts">鍵帽: 9</annotation>
 		<annotation cp="₧" type="tts">西班牙陪士特</annotation>
 	</annotations>
 </ldml>

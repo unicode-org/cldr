@@ -1,27 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-
-Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
 -->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
 		<language type="no"/>
 	</identity>
 	<annotations>
-		<annotation cp="👋🏻">er du der? | ha det | hallo | hånd | hei | hilse | hudtype 1–2 | sees | ses | vi sees | vi ses | vinke | vinkende hånd | vinking</annotation>
+		<annotation cp="👋🏻">farvel | hallo | hand | hånd | hei | hilse | hudtype 1–2 | sees | senere | ses | vinke</annotation>
 		<annotation cp="👋🏻" type="tts">vinkende hånd: hudtype 1–2</annotation>
-		<annotation cp="👋🏼">er du der? | ha det | hallo | hånd | hei | hilse | hudtype 3 | sees | ses | vi sees | vi ses | vinke | vinkende hånd | vinking</annotation>
+		<annotation cp="👋🏼">farvel | hallo | hand | hånd | hei | hilse | hudtype 3 | sees | senere | ses | vinke</annotation>
 		<annotation cp="👋🏼" type="tts">vinkende hånd: hudtype 3</annotation>
-		<annotation cp="👋🏽">er du der? | ha det | hallo | hånd | hei | hilse | hudtype 4 | sees | ses | vi sees | vi ses | vinke | vinkende hånd | vinking</annotation>
+		<annotation cp="👋🏽">farvel | hallo | hand | hånd | hei | hilse | hudtype 4 | sees | senere | ses | vinke</annotation>
 		<annotation cp="👋🏽" type="tts">vinkende hånd: hudtype 4</annotation>
-		<annotation cp="👋🏾">er du der? | ha det | hallo | hånd | hei | hilse | hudtype 5 | sees | ses | vi sees | vi ses | vinke | vinkende hånd | vinking</annotation>
+		<annotation cp="👋🏾">farvel | hallo | hand | hånd | hei | hilse | hudtype 5 | sees | senere | ses | vinke</annotation>
 		<annotation cp="👋🏾" type="tts">vinkende hånd: hudtype 5</annotation>
-		<annotation cp="👋🏿">er du der? | ha det | hallo | hånd | hei | hilse | hudtype 6 | sees | ses | vi sees | vi ses | vinke | vinkende hånd | vinking</annotation>
+		<annotation cp="👋🏿">farvel | hallo | hand | hånd | hei | hilse | hudtype 6 | sees | senere | ses | vinke</annotation>
 		<annotation cp="👋🏿" type="tts">vinkende hånd: hudtype 6</annotation>
 		<annotation cp="🤚🏻">hånd | håndbak | hudtype 1–2 | løftet</annotation>
 		<annotation cp="🤚🏻" type="tts">løftet håndbak: hudtype 1–2</annotation>
@@ -133,15 +132,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🫳🏾" type="tts">håndflaten ned: hudtype 5</annotation>
 		<annotation cp="🫳🏿">avfeie | hand | hånd | hudtype 6 | husj | ned | opp | plukke | slapp | slippe</annotation>
 		<annotation cp="🫳🏿" type="tts">håndflaten ned: hudtype 6</annotation>
-		<annotation cp="🫴🏻">fortell meg | gripe | hånd | håndflaten opp | holde | hudtype 1–2 | invitere | kalle på | kom | løfte | lokke | tilbud | tilby | vet ikke</annotation>
+		<annotation cp="🫴🏻">fortell | hånd | håndflate | holde | hudtype 1–2 | invitere | kalle | kom | løfte | på | tilbud | tilby | vinke</annotation>
 		<annotation cp="🫴🏻" type="tts">håndflaten opp: hudtype 1–2</annotation>
-		<annotation cp="🫴🏼">fortell meg | gripe | hånd | håndflaten opp | holde | hudtype 3 | invitere | kalle på | kom | løfte | lokke | tilbud | tilby | vet ikke</annotation>
+		<annotation cp="🫴🏼">fortell | hånd | håndflate | holde | hudtype 3 | invitere | kalle | kom | løfte | på | tilbud | tilby | vinke</annotation>
 		<annotation cp="🫴🏼" type="tts">håndflaten opp: hudtype 3</annotation>
-		<annotation cp="🫴🏽">fortell meg | gripe | hånd | håndflaten opp | holde | hudtype 4 | invitere | kalle på | kom | løfte | lokke | tilbud | tilby | vet ikke</annotation>
+		<annotation cp="🫴🏽">fortell | hånd | håndflate | holde | hudtype 4 | invitere | kalle | kom | løfte | på | tilbud | tilby | vinke</annotation>
 		<annotation cp="🫴🏽" type="tts">håndflaten opp: hudtype 4</annotation>
-		<annotation cp="🫴🏾">fortell meg | gripe | hånd | håndflaten opp | holde | hudtype 5 | invitere | kalle på | kom | løfte | lokke | tilbud | tilby | vet ikke</annotation>
+		<annotation cp="🫴🏾">fortell | hånd | håndflate | holde | hudtype 5 | invitere | kalle | kom | løfte | på | tilbud | tilby | vinke</annotation>
 		<annotation cp="🫴🏾" type="tts">håndflaten opp: hudtype 5</annotation>
-		<annotation cp="🫴🏿">fortell meg | gripe | hånd | håndflaten opp | holde | hudtype 6 | invitere | kalle på | kom | løfte | lokke | tilbud | tilby | vet ikke</annotation>
+		<annotation cp="🫴🏿">fortell | hånd | håndflate | holde | hudtype 6 | invitere | kalle | kom | løfte | på | tilbud | tilby | vinke</annotation>
 		<annotation cp="🫴🏿" type="tts">håndflaten opp: hudtype 6</annotation>
 		<annotation cp="🫷🏻">hånd | håndflate hevet mot venstre | high five | high-five | holdt | hudtype 1–2 | mot venstre | nekte | skyv | stopp | venstre | vent</annotation>
 		<annotation cp="🫷🏻" type="tts">håndflate hevet mot venstre: hudtype 1–2</annotation>
@@ -603,6 +602,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾" type="tts">Person: hudtype 5, blond</annotation>
 		<annotation cp="👱🏿">ansikt | blond | fjes | hår | hudtype 6 | lyshåret | menneske | person</annotation>
 		<annotation cp="👱🏿" type="tts">Person: hudtype 6, blond</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏼">bryter | bryting | duell | hudtype 1–2 | hudtype 3 | personer | ring | sport | turnering | wrestling</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏼" type="tts">brytere: hudtype 1–2, hudtype 3</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏽">bryter | bryting | duell | hudtype 1–2 | hudtype 4 | personer | ring | sport | turnering | wrestling</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏽" type="tts">brytere: hudtype 1–2, hudtype 4</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏾">bryter | bryting | duell | hudtype 1–2 | hudtype 5 | personer | ring | sport | turnering | wrestling</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏾" type="tts">brytere: hudtype 1–2, hudtype 5</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏿">bryter | bryting | duell | hudtype 1–2 | hudtype 6 | personer | ring | sport | turnering | wrestling</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏿" type="tts">brytere: hudtype 1–2, hudtype 6</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏻">bryter | bryting | duell | hudtype 1–2 | hudtype 3 | personer | ring | sport | turnering | wrestling</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏻" type="tts">brytere: hudtype 3, hudtype 1–2</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏽">bryter | bryting | duell | hudtype 3 | hudtype 4 | personer | ring | sport | turnering | wrestling</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏽" type="tts">brytere: hudtype 3, hudtype 4</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏾">bryter | bryting | duell | hudtype 3 | hudtype 5 | personer | ring | sport | turnering | wrestling</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏾" type="tts">brytere: hudtype 3, hudtype 5</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏿">bryter | bryting | duell | hudtype 3 | hudtype 6 | personer | ring | sport | turnering | wrestling</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏿" type="tts">brytere: hudtype 3, hudtype 6</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏻">bryter | bryting | duell | hudtype 1–2 | hudtype 4 | personer | ring | sport | turnering | wrestling</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏻" type="tts">brytere: hudtype 4, hudtype 1–2</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏼">bryter | bryting | duell | hudtype 3 | hudtype 4 | personer | ring | sport | turnering | wrestling</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏼" type="tts">brytere: hudtype 4, hudtype 3</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏾">bryter | bryting | duell | hudtype 4 | hudtype 5 | personer | ring | sport | turnering | wrestling</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏾" type="tts">brytere: hudtype 4, hudtype 5</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏿">bryter | bryting | duell | hudtype 4 | hudtype 6 | personer | ring | sport | turnering | wrestling</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏿" type="tts">brytere: hudtype 4, hudtype 6</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏻">bryter | bryting | duell | hudtype 1–2 | hudtype 5 | personer | ring | sport | turnering | wrestling</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏻" type="tts">brytere: hudtype 5, hudtype 1–2</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏼">bryter | bryting | duell | hudtype 3 | hudtype 5 | personer | ring | sport | turnering | wrestling</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏼" type="tts">brytere: hudtype 5, hudtype 3</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏽">bryter | bryting | duell | hudtype 4 | hudtype 5 | personer | ring | sport | turnering | wrestling</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏽" type="tts">brytere: hudtype 5, hudtype 4</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏿">bryter | bryting | duell | hudtype 5 | hudtype 6 | personer | ring | sport | turnering | wrestling</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏿" type="tts">brytere: hudtype 5, hudtype 6</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏻">bryter | bryting | duell | hudtype 1–2 | hudtype 6 | personer | ring | sport | turnering | wrestling</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏻" type="tts">brytere: hudtype 6, hudtype 1–2</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏼">bryter | bryting | duell | hudtype 3 | hudtype 6 | personer | ring | sport | turnering | wrestling</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏼" type="tts">brytere: hudtype 6, hudtype 3</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏽">bryter | bryting | duell | hudtype 4 | hudtype 6 | personer | ring | sport | turnering | wrestling</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏽" type="tts">brytere: hudtype 6, hudtype 4</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏾">bryter | bryting | duell | hudtype 5 | hudtype 6 | personer | ring | sport | turnering | wrestling</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏾" type="tts">brytere: hudtype 6, hudtype 5</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏼">hudtype 1–2 | hudtype 3 | kyss | kyssing | mennesker | romantikk | voksen</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏼" type="tts">kyss: voksen, voksen, hudtype 1–2, hudtype 3</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏽">hudtype 1–2 | hudtype 4 | kyss | kyssing | mennesker | romantikk | voksen</annotation>
@@ -731,6 +770,56 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧑🏾‍🦲" type="tts">voksen: hudtype 5, skallet</annotation>
 		<annotation cp="🧑🏿‍🦲">hudtype 6 | kjønnsnøytral | menneske | person | skallet | voksen</annotation>
 		<annotation cp="🧑🏿‍🦲" type="tts">voksen: hudtype 6, skallet</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏼">bestevenner | danser | fest | hareører | hudtype 1–2 | hudtype 3 | identiske personer | kaninører | menneske | par | sjelevenner | tvillinger</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏼" type="tts">personer med kaninører: hudtype 1–2, hudtype 3</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏽">bestevenner | danser | fest | hareører | hudtype 1–2 | hudtype 4 | identiske personer | kaninører | menneske | par | sjelevenner | tvillinger</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏽" type="tts">personer med kaninører: hudtype 1–2, hudtype 4</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏾">bestevenner | danser | fest | hareører | hudtype 1–2 | hudtype 5 | identiske personer | kaninører | menneske | par | sjelevenner | tvillinger</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏾" type="tts">personer med kaninører: hudtype 1–2, hudtype 5</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏿">bestevenner | danser | fest | hareører | hudtype 1–2 | hudtype 6 | identiske personer | kaninører | menneske | par | sjelevenner | tvillinger</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏿" type="tts">personer med kaninører: hudtype 1–2, hudtype 6</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏻">bestevenner | danser | fest | hareører | hudtype 1–2 | hudtype 3 | identiske personer | kaninører | menneske | par | sjelevenner | tvillinger</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏻" type="tts">personer med kaninører: hudtype 3, hudtype 1–2</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏽">bestevenner | danser | fest | hareører | hudtype 3 | hudtype 4 | identiske personer | kaninører | menneske | par | sjelevenner | tvillinger</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏽" type="tts">personer med kaninører: hudtype 3, hudtype 4</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏾">bestevenner | danser | fest | hareører | hudtype 3 | hudtype 5 | identiske personer | kaninører | menneske | par | sjelevenner | tvillinger</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏾" type="tts">personer med kaninører: hudtype 3, hudtype 5</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏿">bestevenner | danser | fest | hareører | hudtype 3 | hudtype 6 | identiske personer | kaninører | menneske | par | sjelevenner | tvillinger</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏿" type="tts">personer med kaninører: hudtype 3, hudtype 6</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏻">bestevenner | danser | fest | hareører | hudtype 1–2 | hudtype 4 | identiske personer | kaninører | menneske | par | sjelevenner | tvillinger</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏻" type="tts">personer med kaninører: hudtype 4, hudtype 1–2</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏼">bestevenner | danser | fest | hareører | hudtype 3 | hudtype 4 | identiske personer | kaninører | menneske | par | sjelevenner | tvillinger</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏼" type="tts">personer med kaninører: hudtype 4, hudtype 3</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏾">bestevenner | danser | fest | hareører | hudtype 4 | hudtype 5 | identiske personer | kaninører | menneske | par | sjelevenner | tvillinger</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏾" type="tts">personer med kaninører: hudtype 4, hudtype 5</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏿">bestevenner | danser | fest | hareører | hudtype 4 | hudtype 6 | identiske personer | kaninører | menneske | par | sjelevenner | tvillinger</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏿" type="tts">personer med kaninører: hudtype 4, hudtype 6</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏻">bestevenner | danser | fest | hareører | hudtype 1–2 | hudtype 5 | identiske personer | kaninører | menneske | par | sjelevenner | tvillinger</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏻" type="tts">personer med kaninører: hudtype 5, hudtype 1–2</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏼">bestevenner | danser | fest | hareører | hudtype 3 | hudtype 5 | identiske personer | kaninører | menneske | par | sjelevenner | tvillinger</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏼" type="tts">personer med kaninører: hudtype 5, hudtype 3</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏽">bestevenner | danser | fest | hareører | hudtype 4 | hudtype 5 | identiske personer | kaninører | menneske | par | sjelevenner | tvillinger</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏽" type="tts">personer med kaninører: hudtype 5, hudtype 4</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏿">bestevenner | danser | fest | hareører | hudtype 5 | hudtype 6 | identiske personer | kaninører | menneske | par | sjelevenner | tvillinger</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏿" type="tts">personer med kaninører: hudtype 5, hudtype 6</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏻">bestevenner | danser | fest | hareører | hudtype 1–2 | hudtype 6 | identiske personer | kaninører | menneske | par | sjelevenner | tvillinger</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏻" type="tts">personer med kaninører: hudtype 6, hudtype 1–2</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏼">bestevenner | danser | fest | hareører | hudtype 3 | hudtype 6 | identiske personer | kaninører | menneske | par | sjelevenner | tvillinger</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏼" type="tts">personer med kaninører: hudtype 6, hudtype 3</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏽">bestevenner | danser | fest | hareører | hudtype 4 | hudtype 6 | identiske personer | kaninører | menneske | par | sjelevenner | tvillinger</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏽" type="tts">personer med kaninører: hudtype 6, hudtype 4</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏾">bestevenner | danser | fest | hareører | hudtype 5 | hudtype 6 | identiske personer | kaninører | menneske | par | sjelevenner | tvillinger</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏾" type="tts">personer med kaninører: hudtype 6, hudtype 5</annotation>
+		<annotation cp="🧑🏻‍🩰">ballett | danser | hudtype 1–2</annotation>
+		<annotation cp="🧑🏻‍🩰" type="tts">ballettdanser: hudtype 1–2</annotation>
+		<annotation cp="🧑🏼‍🩰">ballett | danser | hudtype 3</annotation>
+		<annotation cp="🧑🏼‍🩰" type="tts">ballettdanser: hudtype 3</annotation>
+		<annotation cp="🧑🏽‍🩰">ballett | danser | hudtype 4</annotation>
+		<annotation cp="🧑🏽‍🩰" type="tts">ballettdanser: hudtype 4</annotation>
+		<annotation cp="🧑🏾‍🩰">ballett | danser | hudtype 5</annotation>
+		<annotation cp="🧑🏾‍🩰" type="tts">ballettdanser: hudtype 5</annotation>
+		<annotation cp="🧑🏿‍🩰">ballett | danser | hudtype 6</annotation>
+		<annotation cp="🧑🏿‍🩰" type="tts">ballettdanser: hudtype 6</annotation>
 		<annotation cp="👨🏻">hudtype 1–2 | mann | menneske | voksen</annotation>
 		<annotation cp="👨🏻" type="tts">mann: hudtype 1–2</annotation>
 		<annotation cp="👨🏼">hudtype 3 | mann | menneske | voksen</annotation>
@@ -771,6 +860,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾‍♂" type="tts">mann: hudtype 5, blond</annotation>
 		<annotation cp="👱🏿‍♂">blond | hår | hudtype 6 | lyshåret | mann</annotation>
 		<annotation cp="👱🏿‍♂" type="tts">mann: hudtype 6, blond</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏼">bryter | bryting | duell | hudtype 1–2 | hudtype 3 | menn | ring | sport | turnering | wrestling</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏼" type="tts">mannlige brytere: hudtype 1–2, hudtype 3</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏽">bryter | bryting | duell | hudtype 1–2 | hudtype 4 | menn | ring | sport | turnering | wrestling</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏽" type="tts">mannlige brytere: hudtype 1–2, hudtype 4</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏾">bryter | bryting | duell | hudtype 1–2 | hudtype 5 | menn | ring | sport | turnering | wrestling</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏾" type="tts">mannlige brytere: hudtype 1–2, hudtype 5</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏿">bryter | bryting | duell | hudtype 1–2 | hudtype 6 | menn | ring | sport | turnering | wrestling</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏿" type="tts">mannlige brytere: hudtype 1–2, hudtype 6</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏻">bryter | bryting | duell | hudtype 1–2 | hudtype 3 | menn | ring | sport | turnering | wrestling</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏻" type="tts">mannlige brytere: hudtype 3, hudtype 1–2</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏽">bryter | bryting | duell | hudtype 3 | hudtype 4 | menn | ring | sport | turnering | wrestling</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏽" type="tts">mannlige brytere: hudtype 3, hudtype 4</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏾">bryter | bryting | duell | hudtype 3 | hudtype 5 | menn | ring | sport | turnering | wrestling</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏾" type="tts">mannlige brytere: hudtype 3, hudtype 5</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏿">bryter | bryting | duell | hudtype 3 | hudtype 6 | menn | ring | sport | turnering | wrestling</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏿" type="tts">mannlige brytere: hudtype 3, hudtype 6</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏻">bryter | bryting | duell | hudtype 1–2 | hudtype 4 | menn | ring | sport | turnering | wrestling</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏻" type="tts">mannlige brytere: hudtype 4, hudtype 1–2</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏼">bryter | bryting | duell | hudtype 3 | hudtype 4 | menn | ring | sport | turnering | wrestling</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏼" type="tts">mannlige brytere: hudtype 4, hudtype 3</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏾">bryter | bryting | duell | hudtype 4 | hudtype 5 | menn | ring | sport | turnering | wrestling</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏾" type="tts">mannlige brytere: hudtype 4, hudtype 5</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏿">bryter | bryting | duell | hudtype 4 | hudtype 6 | menn | ring | sport | turnering | wrestling</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏿" type="tts">mannlige brytere: hudtype 4, hudtype 6</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏻">bryter | bryting | duell | hudtype 1–2 | hudtype 5 | menn | ring | sport | turnering | wrestling</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏻" type="tts">mannlige brytere: hudtype 5, hudtype 1–2</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏼">bryter | bryting | duell | hudtype 3 | hudtype 5 | menn | ring | sport | turnering | wrestling</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏼" type="tts">mannlige brytere: hudtype 5, hudtype 3</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏽">bryter | bryting | duell | hudtype 4 | hudtype 5 | menn | ring | sport | turnering | wrestling</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏽" type="tts">mannlige brytere: hudtype 5, hudtype 4</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏿">bryter | bryting | duell | hudtype 5 | hudtype 6 | menn | ring | sport | turnering | wrestling</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏿" type="tts">mannlige brytere: hudtype 5, hudtype 6</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏻">bryter | bryting | duell | hudtype 1–2 | hudtype 6 | menn | ring | sport | turnering | wrestling</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏻" type="tts">mannlige brytere: hudtype 6, hudtype 1–2</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏼">bryter | bryting | duell | hudtype 3 | hudtype 6 | menn | ring | sport | turnering | wrestling</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏼" type="tts">mannlige brytere: hudtype 6, hudtype 3</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏽">bryter | bryting | duell | hudtype 4 | hudtype 6 | menn | ring | sport | turnering | wrestling</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏽" type="tts">mannlige brytere: hudtype 6, hudtype 4</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏾">bryter | bryting | duell | hudtype 5 | hudtype 6 | menn | ring | sport | turnering | wrestling</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏾" type="tts">mannlige brytere: hudtype 6, hudtype 5</annotation>
 		<annotation cp="👨🏻‍❤‍💋‍👨🏻">hudtype 1–2 | kyss | kyssing | mann | mennesker | romantikk</annotation>
 		<annotation cp="👨🏻‍❤‍💋‍👨🏻" type="tts">kyss: mann, mann, hudtype 1–2</annotation>
 		<annotation cp="👨🏻‍❤‍💋‍👨🏼">hudtype 1–2 | hudtype 3 | kyss | kyssing | mann | mennesker | romantikk</annotation>
@@ -919,6 +1048,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾‍🦲" type="tts">mann: hudtype 5, skallet</annotation>
 		<annotation cp="👨🏿‍🦲">hudtype 6 | mann | menneske | skallet | voksen</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">mann: hudtype 6, skallet</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏼">danser | hareører | hudtype 1–2 | hudtype 3 | mann | menn | menn med kaninører</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏼" type="tts">menn med kaninører: hudtype 1–2, hudtype 3</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏽">danser | hareører | hudtype 1–2 | hudtype 4 | mann | menn | menn med kaninører</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏽" type="tts">menn med kaninører: hudtype 1–2, hudtype 4</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏾">danser | hareører | hudtype 1–2 | hudtype 5 | mann | menn | menn med kaninører</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏾" type="tts">menn med kaninører: hudtype 1–2, hudtype 5</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏿">danser | hareører | hudtype 1–2 | hudtype 6 | mann | menn | menn med kaninører</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏿" type="tts">menn med kaninører: hudtype 1–2, hudtype 6</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏻">danser | hareører | hudtype 1–2 | hudtype 3 | mann | menn | menn med kaninører</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏻" type="tts">menn med kaninører: hudtype 3, hudtype 1–2</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏽">danser | hareører | hudtype 3 | hudtype 4 | mann | menn | menn med kaninører</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏽" type="tts">menn med kaninører: hudtype 3, hudtype 4</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏾">danser | hareører | hudtype 3 | hudtype 5 | mann | menn | menn med kaninører</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏾" type="tts">menn med kaninører: hudtype 3, hudtype 5</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏿">danser | hareører | hudtype 3 | hudtype 6 | mann | menn | menn med kaninører</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏿" type="tts">menn med kaninører: hudtype 3, hudtype 6</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏻">danser | hareører | hudtype 1–2 | hudtype 4 | mann | menn | menn med kaninører</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏻" type="tts">menn med kaninører: hudtype 4, hudtype 1–2</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏼">danser | hareører | hudtype 3 | hudtype 4 | mann | menn | menn med kaninører</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏼" type="tts">menn med kaninører: hudtype 4, hudtype 3</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏾">danser | hareører | hudtype 4 | hudtype 5 | mann | menn | menn med kaninører</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏾" type="tts">menn med kaninører: hudtype 4, hudtype 5</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏿">danser | hareører | hudtype 4 | hudtype 6 | mann | menn | menn med kaninører</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏿" type="tts">menn med kaninører: hudtype 4, hudtype 6</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏻">danser | hareører | hudtype 1–2 | hudtype 5 | mann | menn | menn med kaninører</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏻" type="tts">menn med kaninører: hudtype 5, hudtype 1–2</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏼">danser | hareører | hudtype 3 | hudtype 5 | mann | menn | menn med kaninører</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏼" type="tts">menn med kaninører: hudtype 5, hudtype 3</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏽">danser | hareører | hudtype 4 | hudtype 5 | mann | menn | menn med kaninører</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏽" type="tts">menn med kaninører: hudtype 5, hudtype 4</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏿">danser | hareører | hudtype 5 | hudtype 6 | mann | menn | menn med kaninører</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏿" type="tts">menn med kaninører: hudtype 5, hudtype 6</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏻">danser | hareører | hudtype 1–2 | hudtype 6 | mann | menn | menn med kaninører</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏻" type="tts">menn med kaninører: hudtype 6, hudtype 1–2</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏼">danser | hareører | hudtype 3 | hudtype 6 | mann | menn | menn med kaninører</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏼" type="tts">menn med kaninører: hudtype 6, hudtype 3</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏽">danser | hareører | hudtype 4 | hudtype 6 | mann | menn | menn med kaninører</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏽" type="tts">menn med kaninører: hudtype 6, hudtype 4</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏾">danser | hareører | hudtype 5 | hudtype 6 | mann | menn | menn med kaninører</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏾" type="tts">menn med kaninører: hudtype 6, hudtype 5</annotation>
 		<annotation cp="👩🏻">hudtype 1–2 | kvinne | menneske | voksen</annotation>
 		<annotation cp="👩🏻" type="tts">kvinne: hudtype 1–2</annotation>
 		<annotation cp="👩🏼">hudtype 3 | kvinne | menneske | voksen</annotation>
@@ -949,6 +1118,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾‍♀" type="tts">kvinne: hudtype 5, blond</annotation>
 		<annotation cp="👱🏿‍♀">blond | blondine | hår | hudtype 6 | kvinne | lyshåret</annotation>
 		<annotation cp="👱🏿‍♀" type="tts">kvinne: hudtype 6, blond</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏼">bryter | bryting | duell | hudtype 1–2 | hudtype 3 | kvinne | personer | sport | turnering | wrestling</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏼" type="tts">kvinnelige brytere: hudtype 1–2, hudtype 3</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏽">bryter | bryting | duell | hudtype 1–2 | hudtype 4 | kvinne | personer | sport | turnering | wrestling</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏽" type="tts">kvinnelige brytere: hudtype 1–2, hudtype 4</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏾">bryter | bryting | duell | hudtype 1–2 | hudtype 5 | kvinne | personer | sport | turnering | wrestling</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏾" type="tts">kvinnelige brytere: hudtype 1–2, hudtype 5</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏿">bryter | bryting | duell | hudtype 1–2 | hudtype 6 | kvinne | personer | sport | turnering | wrestling</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏿" type="tts">kvinnelige brytere: hudtype 1–2, hudtype 6</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏻">bryter | bryting | duell | hudtype 1–2 | hudtype 3 | kvinne | personer | sport | turnering | wrestling</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏻" type="tts">kvinnelige brytere: hudtype 3, hudtype 1–2</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏽">bryter | bryting | duell | hudtype 3 | hudtype 4 | kvinne | personer | sport | turnering | wrestling</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏽" type="tts">kvinnelige brytere: hudtype 3, hudtype 4</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏾">bryter | bryting | duell | hudtype 3 | hudtype 5 | kvinne | personer | sport | turnering | wrestling</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏾" type="tts">kvinnelige brytere: hudtype 3, hudtype 5</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏿">bryter | bryting | duell | hudtype 3 | hudtype 6 | kvinne | personer | sport | turnering | wrestling</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏿" type="tts">kvinnelige brytere: hudtype 3, hudtype 6</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏻">bryter | bryting | duell | hudtype 1–2 | hudtype 4 | kvinne | personer | sport | turnering | wrestling</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏻" type="tts">kvinnelige brytere: hudtype 4, hudtype 1–2</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏼">bryter | bryting | duell | hudtype 3 | hudtype 4 | kvinne | personer | sport | turnering | wrestling</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏼" type="tts">kvinnelige brytere: hudtype 4, hudtype 3</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏾">bryter | bryting | duell | hudtype 4 | hudtype 5 | kvinne | personer | sport | turnering | wrestling</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏾" type="tts">kvinnelige brytere: hudtype 4, hudtype 5</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏿">bryter | bryting | duell | hudtype 4 | hudtype 6 | kvinne | personer | sport | turnering | wrestling</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏿" type="tts">kvinnelige brytere: hudtype 4, hudtype 6</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏻">bryter | bryting | duell | hudtype 1–2 | hudtype 5 | kvinne | personer | sport | turnering | wrestling</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏻" type="tts">kvinnelige brytere: hudtype 5, hudtype 1–2</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏼">bryter | bryting | duell | hudtype 3 | hudtype 5 | kvinne | personer | sport | turnering | wrestling</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏼" type="tts">kvinnelige brytere: hudtype 5, hudtype 3</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏽">bryter | bryting | duell | hudtype 4 | hudtype 5 | kvinne | personer | sport | turnering | wrestling</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏽" type="tts">kvinnelige brytere: hudtype 5, hudtype 4</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏿">bryter | bryting | duell | hudtype 5 | hudtype 6 | kvinne | personer | sport | turnering | wrestling</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏿" type="tts">kvinnelige brytere: hudtype 5, hudtype 6</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏻">bryter | bryting | duell | hudtype 1–2 | hudtype 6 | kvinne | personer | sport | turnering | wrestling</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏻" type="tts">kvinnelige brytere: hudtype 6, hudtype 1–2</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏼">bryter | bryting | duell | hudtype 3 | hudtype 6 | kvinne | personer | sport | turnering | wrestling</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏼" type="tts">kvinnelige brytere: hudtype 6, hudtype 3</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏽">bryter | bryting | duell | hudtype 4 | hudtype 6 | kvinne | personer | sport | turnering | wrestling</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏽" type="tts">kvinnelige brytere: hudtype 6, hudtype 4</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏾">bryter | bryting | duell | hudtype 5 | hudtype 6 | kvinne | personer | sport | turnering | wrestling</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏾" type="tts">kvinnelige brytere: hudtype 6, hudtype 5</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👨🏻">hudtype 1–2 | kvinne | kyss | kyssing | mann | mennesker | romantikk</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👨🏻" type="tts">kyss: kvinne, mann, hudtype 1–2</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👨🏼">hudtype 1–2 | hudtype 3 | kvinne | kyss | kyssing | mann | mennesker | romantikk</annotation>
@@ -1197,6 +1406,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🦲" type="tts">kvinne: hudtype 5, skallet</annotation>
 		<annotation cp="👩🏿‍🦲">hudtype 6 | kvinne | menneske | skallet | voksen</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">kvinne: hudtype 6, skallet</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏼">danser | hareører | hudtype 1–2 | hudtype 3 | kvinne | kvinner | kvinner med kaninører</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏼" type="tts">kvinner med kaninører: hudtype 1–2, hudtype 3</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏽">danser | hareører | hudtype 1–2 | hudtype 4 | kvinne | kvinner | kvinner med kaninører</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏽" type="tts">kvinner med kaninører: hudtype 1–2, hudtype 4</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏾">danser | hareører | hudtype 1–2 | hudtype 5 | kvinne | kvinner | kvinner med kaninører</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏾" type="tts">kvinner med kaninører: hudtype 1–2, hudtype 5</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏿">danser | hareører | hudtype 1–2 | hudtype 6 | kvinne | kvinner | kvinner med kaninører</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏿" type="tts">kvinner med kaninører: hudtype 1–2, hudtype 6</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏻">danser | hareører | hudtype 1–2 | hudtype 3 | kvinne | kvinner | kvinner med kaninører</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏻" type="tts">kvinner med kaninører: hudtype 3, hudtype 1–2</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏽">danser | hareører | hudtype 3 | hudtype 4 | kvinne | kvinner | kvinner med kaninører</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏽" type="tts">kvinner med kaninører: hudtype 3, hudtype 4</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏾">danser | hareører | hudtype 3 | hudtype 5 | kvinne | kvinner | kvinner med kaninører</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏾" type="tts">kvinner med kaninører: hudtype 3, hudtype 5</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏿">danser | hareører | hudtype 3 | hudtype 6 | kvinne | kvinner | kvinner med kaninører</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏿" type="tts">kvinner med kaninører: hudtype 3, hudtype 6</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏻">danser | hareører | hudtype 1–2 | hudtype 4 | kvinne | kvinner | kvinner med kaninører</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏻" type="tts">kvinner med kaninører: hudtype 4, hudtype 1–2</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏼">danser | hareører | hudtype 3 | hudtype 4 | kvinne | kvinner | kvinner med kaninører</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏼" type="tts">kvinner med kaninører: hudtype 4, hudtype 3</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏾">danser | hareører | hudtype 4 | hudtype 5 | kvinne | kvinner | kvinner med kaninører</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏾" type="tts">kvinner med kaninører: hudtype 4, hudtype 5</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏿">danser | hareører | hudtype 4 | hudtype 6 | kvinne | kvinner | kvinner med kaninører</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏿" type="tts">kvinner med kaninører: hudtype 4, hudtype 6</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏻">danser | hareører | hudtype 1–2 | hudtype 5 | kvinne | kvinner | kvinner med kaninører</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏻" type="tts">kvinner med kaninører: hudtype 5, hudtype 1–2</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏼">danser | hareører | hudtype 3 | hudtype 5 | kvinne | kvinner | kvinner med kaninører</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏼" type="tts">kvinner med kaninører: hudtype 5, hudtype 3</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏽">danser | hareører | hudtype 4 | hudtype 5 | kvinne | kvinner | kvinner med kaninører</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏽" type="tts">kvinner med kaninører: hudtype 5, hudtype 4</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏿">danser | hareører | hudtype 5 | hudtype 6 | kvinne | kvinner | kvinner med kaninører</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏿" type="tts">kvinner med kaninører: hudtype 5, hudtype 6</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏻">danser | hareører | hudtype 1–2 | hudtype 6 | kvinne | kvinner | kvinner med kaninører</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏻" type="tts">kvinner med kaninører: hudtype 6, hudtype 1–2</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏼">danser | hareører | hudtype 3 | hudtype 6 | kvinne | kvinner | kvinner med kaninører</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏼" type="tts">kvinner med kaninører: hudtype 6, hudtype 3</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏽">danser | hareører | hudtype 4 | hudtype 6 | kvinne | kvinner | kvinner med kaninører</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏽" type="tts">kvinner med kaninører: hudtype 6, hudtype 4</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏾">danser | hareører | hudtype 5 | hudtype 6 | kvinne | kvinner | kvinner med kaninører</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏾" type="tts">kvinner med kaninører: hudtype 6, hudtype 5</annotation>
 		<annotation cp="🧓🏻">eldre | gammel | hudtype 1–2 | menneske | senior | voksen</annotation>
 		<annotation cp="🧓🏻" type="tts">eldre voksen: hudtype 1–2</annotation>
 		<annotation cp="🧓🏼">eldre | gammel | hudtype 3 | menneske | senior | voksen</annotation>
@@ -2107,35 +2356,35 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🥷🏾" type="tts">ninja: hudtype 5</annotation>
 		<annotation cp="🥷🏿">hemmelig | hudtype 6 | kampkunst | kampsport | kriger | ninja | skjult | slåss | snikende</annotation>
 		<annotation cp="🥷🏿" type="tts">ninja: hudtype 6</annotation>
-		<annotation cp="👷🏻">anlegg | anleggsarbeider | arbeider | hjelm | hudtype 1–2 | ingeniør | menneske | person | refleksvest | vernehjelm</annotation>
+		<annotation cp="👷🏻">anlegg | anleggsarbeider | arbeider | bygg | hjelm | hudtype 1–2 | ingeniør | menneske | person | refleksvest | vernehjelm</annotation>
 		<annotation cp="👷🏻" type="tts">anleggsarbeider: hudtype 1–2</annotation>
-		<annotation cp="👷🏼">anlegg | anleggsarbeider | arbeider | hjelm | hudtype 3 | ingeniør | menneske | person | refleksvest | vernehjelm</annotation>
+		<annotation cp="👷🏼">anlegg | anleggsarbeider | arbeider | bygg | hjelm | hudtype 3 | ingeniør | menneske | person | refleksvest | vernehjelm</annotation>
 		<annotation cp="👷🏼" type="tts">anleggsarbeider: hudtype 3</annotation>
-		<annotation cp="👷🏽">anlegg | anleggsarbeider | arbeider | hjelm | hudtype 4 | ingeniør | menneske | person | refleksvest | vernehjelm</annotation>
+		<annotation cp="👷🏽">anlegg | anleggsarbeider | arbeider | bygg | hjelm | hudtype 4 | ingeniør | menneske | person | refleksvest | vernehjelm</annotation>
 		<annotation cp="👷🏽" type="tts">anleggsarbeider: hudtype 4</annotation>
-		<annotation cp="👷🏾">anlegg | anleggsarbeider | arbeider | hjelm | hudtype 5 | ingeniør | menneske | person | refleksvest | vernehjelm</annotation>
+		<annotation cp="👷🏾">anlegg | anleggsarbeider | arbeider | bygg | hjelm | hudtype 5 | ingeniør | menneske | person | refleksvest | vernehjelm</annotation>
 		<annotation cp="👷🏾" type="tts">anleggsarbeider: hudtype 5</annotation>
-		<annotation cp="👷🏿">anlegg | anleggsarbeider | arbeider | hjelm | hudtype 6 | ingeniør | menneske | person | refleksvest | vernehjelm</annotation>
+		<annotation cp="👷🏿">anlegg | anleggsarbeider | arbeider | bygg | hjelm | hudtype 6 | ingeniør | menneske | person | refleksvest | vernehjelm</annotation>
 		<annotation cp="👷🏿" type="tts">anleggsarbeider: hudtype 6</annotation>
-		<annotation cp="👷🏻‍♂">anlegg | arbeider | bygg | hjelm | hudtype 1–2 | ingeniør | mann | mannlig anleggsarbeider</annotation>
+		<annotation cp="👷🏻‍♂">anlegg | arbeider | bygg | hjelm | hudtype 1–2 | ingeniør | mann | mannlig anleggsarbeider | refleksvest</annotation>
 		<annotation cp="👷🏻‍♂" type="tts">mannlig anleggsarbeider: hudtype 1–2</annotation>
-		<annotation cp="👷🏼‍♂">anlegg | arbeider | bygg | hjelm | hudtype 3 | ingeniør | mann | mannlig anleggsarbeider</annotation>
+		<annotation cp="👷🏼‍♂">anlegg | arbeider | bygg | hjelm | hudtype 3 | ingeniør | mann | mannlig anleggsarbeider | refleksvest</annotation>
 		<annotation cp="👷🏼‍♂" type="tts">mannlig anleggsarbeider: hudtype 3</annotation>
-		<annotation cp="👷🏽‍♂">anlegg | arbeider | bygg | hjelm | hudtype 4 | ingeniør | mann | mannlig anleggsarbeider</annotation>
+		<annotation cp="👷🏽‍♂">anlegg | arbeider | bygg | hjelm | hudtype 4 | ingeniør | mann | mannlig anleggsarbeider | refleksvest</annotation>
 		<annotation cp="👷🏽‍♂" type="tts">mannlig anleggsarbeider: hudtype 4</annotation>
-		<annotation cp="👷🏾‍♂">anlegg | arbeider | bygg | hjelm | hudtype 5 | ingeniør | mann | mannlig anleggsarbeider</annotation>
+		<annotation cp="👷🏾‍♂">anlegg | arbeider | bygg | hjelm | hudtype 5 | ingeniør | mann | mannlig anleggsarbeider | refleksvest</annotation>
 		<annotation cp="👷🏾‍♂" type="tts">mannlig anleggsarbeider: hudtype 5</annotation>
-		<annotation cp="👷🏿‍♂">anlegg | arbeider | bygg | hjelm | hudtype 6 | ingeniør | mann | mannlig anleggsarbeider</annotation>
+		<annotation cp="👷🏿‍♂">anlegg | arbeider | bygg | hjelm | hudtype 6 | ingeniør | mann | mannlig anleggsarbeider | refleksvest</annotation>
 		<annotation cp="👷🏿‍♂" type="tts">mannlig anleggsarbeider: hudtype 6</annotation>
-		<annotation cp="👷🏻‍♀">anlegg | arbeider | bygg | hjelm | hudtype 1–2 | ingeniør | kvinne | kvinnelig anleggsarbeider</annotation>
+		<annotation cp="👷🏻‍♀">anlegg | arbeider | bygg | hjelm | hudtype 1–2 | ingeniør | kvinne | kvinnelig anleggsarbeider | refleksvest</annotation>
 		<annotation cp="👷🏻‍♀" type="tts">kvinnelig anleggsarbeider: hudtype 1–2</annotation>
-		<annotation cp="👷🏼‍♀">anlegg | arbeider | bygg | hjelm | hudtype 3 | ingeniør | kvinne | kvinnelig anleggsarbeider</annotation>
+		<annotation cp="👷🏼‍♀">anlegg | arbeider | bygg | hjelm | hudtype 3 | ingeniør | kvinne | kvinnelig anleggsarbeider | refleksvest</annotation>
 		<annotation cp="👷🏼‍♀" type="tts">kvinnelig anleggsarbeider: hudtype 3</annotation>
-		<annotation cp="👷🏽‍♀">anlegg | arbeider | bygg | hjelm | hudtype 4 | ingeniør | kvinne | kvinnelig anleggsarbeider</annotation>
+		<annotation cp="👷🏽‍♀">anlegg | arbeider | bygg | hjelm | hudtype 4 | ingeniør | kvinne | kvinnelig anleggsarbeider | refleksvest</annotation>
 		<annotation cp="👷🏽‍♀" type="tts">kvinnelig anleggsarbeider: hudtype 4</annotation>
-		<annotation cp="👷🏾‍♀">anlegg | arbeider | bygg | hjelm | hudtype 5 | ingeniør | kvinne | kvinnelig anleggsarbeider</annotation>
+		<annotation cp="👷🏾‍♀">anlegg | arbeider | bygg | hjelm | hudtype 5 | ingeniør | kvinne | kvinnelig anleggsarbeider | refleksvest</annotation>
 		<annotation cp="👷🏾‍♀" type="tts">kvinnelig anleggsarbeider: hudtype 5</annotation>
-		<annotation cp="👷🏿‍♀">anlegg | arbeider | bygg | hjelm | hudtype 6 | ingeniør | kvinne | kvinnelig anleggsarbeider</annotation>
+		<annotation cp="👷🏿‍♀">anlegg | arbeider | bygg | hjelm | hudtype 6 | ingeniør | kvinne | kvinnelig anleggsarbeider | refleksvest</annotation>
 		<annotation cp="👷🏿‍♀" type="tts">kvinnelig anleggsarbeider: hudtype 6</annotation>
 		<annotation cp="🫅🏻">adelig | høyhet | hudtype 1–2 | kongelig | krone | majestetisk | monark | person | royal</annotation>
 		<annotation cp="🫅🏻" type="tts">person med krone: hudtype 1–2</annotation>
@@ -3113,6 +3362,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🕴🏾" type="tts">svevende mann i dress: hudtype 5</annotation>
 		<annotation cp="🕴🏿">business | dress | forretningsmann | hudtype 6 | mann | svevende mann i dress</annotation>
 		<annotation cp="🕴🏿" type="tts">svevende mann i dress: hudtype 6</annotation>
+		<annotation cp="👯🏻">bestevenner | danser | fest | hareører | hudtype 1–2 | identiske personer | kaninører | menneske | par | sjelevenner | tvillinger</annotation>
+		<annotation cp="👯🏻" type="tts">personer med kaninører: hudtype 1–2</annotation>
+		<annotation cp="👯🏼">bestevenner | danser | fest | hareører | hudtype 3 | identiske personer | kaninører | menneske | par | sjelevenner | tvillinger</annotation>
+		<annotation cp="👯🏼" type="tts">personer med kaninører: hudtype 3</annotation>
+		<annotation cp="👯🏽">bestevenner | danser | fest | hareører | hudtype 4 | identiske personer | kaninører | menneske | par | sjelevenner | tvillinger</annotation>
+		<annotation cp="👯🏽" type="tts">personer med kaninører: hudtype 4</annotation>
+		<annotation cp="👯🏾">bestevenner | danser | fest | hareører | hudtype 5 | identiske personer | kaninører | menneske | par | sjelevenner | tvillinger</annotation>
+		<annotation cp="👯🏾" type="tts">personer med kaninører: hudtype 5</annotation>
+		<annotation cp="👯🏿">bestevenner | danser | fest | hareører | hudtype 6 | identiske personer | kaninører | menneske | par | sjelevenner | tvillinger</annotation>
+		<annotation cp="👯🏿" type="tts">personer med kaninører: hudtype 6</annotation>
+		<annotation cp="👯🏻‍♀">danser | hareører | hudtype 1–2 | kvinne | kvinner | kvinner med kaninører</annotation>
+		<annotation cp="👯🏻‍♀" type="tts">kvinner med kaninører: hudtype 1–2</annotation>
+		<annotation cp="👯🏼‍♀">danser | hareører | hudtype 3 | kvinne | kvinner | kvinner med kaninører</annotation>
+		<annotation cp="👯🏼‍♀" type="tts">kvinner med kaninører: hudtype 3</annotation>
+		<annotation cp="👯🏽‍♀">danser | hareører | hudtype 4 | kvinne | kvinner | kvinner med kaninører</annotation>
+		<annotation cp="👯🏽‍♀" type="tts">kvinner med kaninører: hudtype 4</annotation>
+		<annotation cp="👯🏾‍♀">danser | hareører | hudtype 5 | kvinne | kvinner | kvinner med kaninører</annotation>
+		<annotation cp="👯🏾‍♀" type="tts">kvinner med kaninører: hudtype 5</annotation>
+		<annotation cp="👯🏿‍♀">danser | hareører | hudtype 6 | kvinne | kvinner | kvinner med kaninører</annotation>
+		<annotation cp="👯🏿‍♀" type="tts">kvinner med kaninører: hudtype 6</annotation>
+		<annotation cp="👯🏻‍♂">danser | hareører | hudtype 1–2 | mann | menn | menn med kaninører</annotation>
+		<annotation cp="👯🏻‍♂" type="tts">menn med kaninører: hudtype 1–2</annotation>
+		<annotation cp="👯🏼‍♂">danser | hareører | hudtype 3 | mann | menn | menn med kaninører</annotation>
+		<annotation cp="👯🏼‍♂" type="tts">menn med kaninører: hudtype 3</annotation>
+		<annotation cp="👯🏽‍♂">danser | hareører | hudtype 4 | mann | menn | menn med kaninører</annotation>
+		<annotation cp="👯🏽‍♂" type="tts">menn med kaninører: hudtype 4</annotation>
+		<annotation cp="👯🏾‍♂">danser | hareører | hudtype 5 | mann | menn | menn med kaninører</annotation>
+		<annotation cp="👯🏾‍♂" type="tts">menn med kaninører: hudtype 5</annotation>
+		<annotation cp="👯🏿‍♂">danser | hareører | hudtype 6 | mann | menn | menn med kaninører</annotation>
+		<annotation cp="👯🏿‍♂" type="tts">menn med kaninører: hudtype 6</annotation>
 		<annotation cp="🧖🏻">avslapping | badstue | dampbad | hudtype 1–2 | luksus | person | sauna | spa</annotation>
 		<annotation cp="🧖🏻" type="tts">person i badstu: hudtype 1–2</annotation>
 		<annotation cp="🧖🏼">avslapping | badstue | dampbad | hudtype 3 | luksus | person | sauna | spa</annotation>
@@ -3193,15 +3472,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🏂🏾" type="tts">snowboarder: hudtype 5</annotation>
 		<annotation cp="🏂🏿">hudtype 6 | snøbrett | snøbrettkjøring | snowboard | snowboarder | snowboarding | vintersport</annotation>
 		<annotation cp="🏂🏿" type="tts">snowboarder: hudtype 6</annotation>
-		<annotation cp="🏌🏻">ball | caddie | caddy | drive | driving range | golf | golfball | golfe | golfer | golfslag | golfspiller | green | hudtype 1–2 | pga | putte | sport | tee</annotation>
+		<annotation cp="🏌🏻">ball | birdie | caddy | driving | golf | golfe | green | hudtype 1–2 | person | pga | putte | range | tee</annotation>
 		<annotation cp="🏌🏻" type="tts">golfspiller: hudtype 1–2</annotation>
-		<annotation cp="🏌🏼">ball | caddie | caddy | drive | driving range | golf | golfball | golfe | golfer | golfslag | golfspiller | green | hudtype 3 | pga | putte | sport | tee</annotation>
+		<annotation cp="🏌🏼">ball | birdie | caddy | driving | golf | golfe | green | hudtype 3 | person | pga | putte | range | tee</annotation>
 		<annotation cp="🏌🏼" type="tts">golfspiller: hudtype 3</annotation>
-		<annotation cp="🏌🏽">ball | caddie | caddy | drive | driving range | golf | golfball | golfe | golfer | golfslag | golfspiller | green | hudtype 4 | pga | putte | sport | tee</annotation>
+		<annotation cp="🏌🏽">ball | birdie | caddy | driving | golf | golfe | green | hudtype 4 | person | pga | putte | range | tee</annotation>
 		<annotation cp="🏌🏽" type="tts">golfspiller: hudtype 4</annotation>
-		<annotation cp="🏌🏾">ball | caddie | caddy | drive | driving range | golf | golfball | golfe | golfer | golfslag | golfspiller | green | hudtype 5 | pga | putte | sport | tee</annotation>
+		<annotation cp="🏌🏾">ball | birdie | caddy | driving | golf | golfe | green | hudtype 5 | person | pga | putte | range | tee</annotation>
 		<annotation cp="🏌🏾" type="tts">golfspiller: hudtype 5</annotation>
-		<annotation cp="🏌🏿">ball | caddie | caddy | drive | driving range | golf | golfball | golfe | golfer | golfslag | golfspiller | green | hudtype 6 | pga | putte | sport | tee</annotation>
+		<annotation cp="🏌🏿">ball | birdie | caddy | driving | golf | golfe | green | hudtype 6 | person | pga | putte | range | tee</annotation>
 		<annotation cp="🏌🏿" type="tts">golfspiller: hudtype 6</annotation>
 		<annotation cp="🏌🏻‍♂">golf | golfspiller | hudtype 1–2 | mann | mannlig golfspiller</annotation>
 		<annotation cp="🏌🏻‍♂" type="tts">mannlig golfspiller: hudtype 1–2</annotation>
@@ -3463,6 +3742,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤸🏾‍♀" type="tts">kvinne som slår hjul: hudtype 5</annotation>
 		<annotation cp="🤸🏿‍♀">aktiv | begeistret | glad | gym | gymnastikk | hudtype 6 | kvinne | kvinne som slår hjul | person | slå hjul | turn</annotation>
 		<annotation cp="🤸🏿‍♀" type="tts">kvinne som slår hjul: hudtype 6</annotation>
+		<annotation cp="🤼🏻">bryter | bryting | duell | hudtype 1–2 | personer | ring | sport | turnering | wrestling</annotation>
+		<annotation cp="🤼🏻" type="tts">brytere: hudtype 1–2</annotation>
+		<annotation cp="🤼🏼">bryter | bryting | duell | hudtype 3 | personer | ring | sport | turnering | wrestling</annotation>
+		<annotation cp="🤼🏼" type="tts">brytere: hudtype 3</annotation>
+		<annotation cp="🤼🏽">bryter | bryting | duell | hudtype 4 | personer | ring | sport | turnering | wrestling</annotation>
+		<annotation cp="🤼🏽" type="tts">brytere: hudtype 4</annotation>
+		<annotation cp="🤼🏾">bryter | bryting | duell | hudtype 5 | personer | ring | sport | turnering | wrestling</annotation>
+		<annotation cp="🤼🏾" type="tts">brytere: hudtype 5</annotation>
+		<annotation cp="🤼🏿">bryter | bryting | duell | hudtype 6 | personer | ring | sport | turnering | wrestling</annotation>
+		<annotation cp="🤼🏿" type="tts">brytere: hudtype 6</annotation>
+		<annotation cp="🤼🏻‍♀">bryter | bryting | duell | hudtype 1–2 | kvinne | personer | sport | turnering | wrestling</annotation>
+		<annotation cp="🤼🏻‍♀" type="tts">kvinnelige brytere: hudtype 1–2</annotation>
+		<annotation cp="🤼🏼‍♀">bryter | bryting | duell | hudtype 3 | kvinne | personer | sport | turnering | wrestling</annotation>
+		<annotation cp="🤼🏼‍♀" type="tts">kvinnelige brytere: hudtype 3</annotation>
+		<annotation cp="🤼🏽‍♀">bryter | bryting | duell | hudtype 4 | kvinne | personer | sport | turnering | wrestling</annotation>
+		<annotation cp="🤼🏽‍♀" type="tts">kvinnelige brytere: hudtype 4</annotation>
+		<annotation cp="🤼🏾‍♀">bryter | bryting | duell | hudtype 5 | kvinne | personer | sport | turnering | wrestling</annotation>
+		<annotation cp="🤼🏾‍♀" type="tts">kvinnelige brytere: hudtype 5</annotation>
+		<annotation cp="🤼🏿‍♀">bryter | bryting | duell | hudtype 6 | kvinne | personer | sport | turnering | wrestling</annotation>
+		<annotation cp="🤼🏿‍♀" type="tts">kvinnelige brytere: hudtype 6</annotation>
+		<annotation cp="🤼🏻‍♂">bryter | bryting | duell | hudtype 1–2 | menn | ring | sport | turnering | wrestling</annotation>
+		<annotation cp="🤼🏻‍♂" type="tts">mannlige brytere: hudtype 1–2</annotation>
+		<annotation cp="🤼🏼‍♂">bryter | bryting | duell | hudtype 3 | menn | ring | sport | turnering | wrestling</annotation>
+		<annotation cp="🤼🏼‍♂" type="tts">mannlige brytere: hudtype 3</annotation>
+		<annotation cp="🤼🏽‍♂">bryter | bryting | duell | hudtype 4 | menn | ring | sport | turnering | wrestling</annotation>
+		<annotation cp="🤼🏽‍♂" type="tts">mannlige brytere: hudtype 4</annotation>
+		<annotation cp="🤼🏾‍♂">bryter | bryting | duell | hudtype 5 | menn | ring | sport | turnering | wrestling</annotation>
+		<annotation cp="🤼🏾‍♂" type="tts">mannlige brytere: hudtype 5</annotation>
+		<annotation cp="🤼🏿‍♂">bryter | bryting | duell | hudtype 6 | menn | ring | sport | turnering | wrestling</annotation>
+		<annotation cp="🤼🏿‍♂" type="tts">mannlige brytere: hudtype 6</annotation>
 		<annotation cp="🤽🏻">hudtype 1–2 | person | polo | sport | svømming | vann | vannpolo</annotation>
 		<annotation cp="🤽🏻" type="tts">vannpolo: hudtype 1–2</annotation>
 		<annotation cp="🤽🏼">hudtype 3 | person | polo | sport | svømming | vann | vannpolo</annotation>
@@ -3653,55 +3962,55 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧑🏿‍🤝‍🧑🏾" type="tts">personer som leier: hudtype 6, hudtype 5</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏿">hånd | holde hender | hudtype 6 | par | personer | personer som leier</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏿" type="tts">personer som leier: hudtype 6</annotation>
-		<annotation cp="👭🏻">bestevenn | bestevenner | bff | damer | dating | forelsket | hånd | hender | holde | homo | hudtype 1–2 | jenter | kjærester | kvinner | lesbisk | lhbt | par | skeiv | søstre | venner | vennskap</annotation>
+		<annotation cp="👭🏻">bestevenner | bff | damer | dating | hender | hudtype 1–2 | jenter | kvinner | par | søstre | tvillinger | venner | vennskap</annotation>
 		<annotation cp="👭🏻" type="tts">kvinner som leier: hudtype 1–2</annotation>
-		<annotation cp="👩🏻‍🤝‍👩🏼">bestevenn | bestevenner | bff | damer | dating | forelsket | hånd | hender | holde | homo | hudtype 1–2 | hudtype 3 | jenter | kjærester | kvinner | lesbisk | lhbt | par | skeiv | søstre | venner | vennskap</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏼">bestevenner | bff | damer | dating | hender | hudtype 1–2 | hudtype 3 | jenter | kvinner | par | søstre | tvillinger | venner | vennskap</annotation>
 		<annotation cp="👩🏻‍🤝‍👩🏼" type="tts">kvinner som leier: hudtype 1–2, hudtype 3</annotation>
-		<annotation cp="👩🏻‍🤝‍👩🏽">bestevenn | bestevenner | bff | damer | dating | forelsket | hånd | hender | holde | homo | hudtype 1–2 | hudtype 4 | jenter | kjærester | kvinner | lesbisk | lhbt | par | skeiv | søstre | venner | vennskap</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏽">bestevenner | bff | damer | dating | hender | hudtype 1–2 | hudtype 4 | jenter | kvinner | par | søstre | tvillinger | venner | vennskap</annotation>
 		<annotation cp="👩🏻‍🤝‍👩🏽" type="tts">kvinner som leier: hudtype 1–2, hudtype 4</annotation>
-		<annotation cp="👩🏻‍🤝‍👩🏾">bestevenn | bestevenner | bff | damer | dating | forelsket | hånd | hender | holde | homo | hudtype 1–2 | hudtype 5 | jenter | kjærester | kvinner | lesbisk | lhbt | par | skeiv | søstre | venner | vennskap</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏾">bestevenner | bff | damer | dating | hender | hudtype 1–2 | hudtype 5 | jenter | kvinner | par | søstre | tvillinger | venner | vennskap</annotation>
 		<annotation cp="👩🏻‍🤝‍👩🏾" type="tts">kvinner som leier: hudtype 1–2, hudtype 5</annotation>
-		<annotation cp="👩🏻‍🤝‍👩🏿">bestevenn | bestevenner | bff | damer | dating | forelsket | hånd | hender | holde | homo | hudtype 1–2 | hudtype 6 | jenter | kjærester | kvinner | lesbisk | lhbt | par | skeiv | søstre | venner | vennskap</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏿">bestevenner | bff | damer | dating | hender | hudtype 1–2 | hudtype 6 | jenter | kvinner | par | søstre | tvillinger | venner | vennskap</annotation>
 		<annotation cp="👩🏻‍🤝‍👩🏿" type="tts">kvinner som leier: hudtype 1–2, hudtype 6</annotation>
-		<annotation cp="👩🏼‍🤝‍👩🏻">bestevenn | bestevenner | bff | damer | dating | forelsket | hånd | hender | holde | homo | hudtype 1–2 | hudtype 3 | jenter | kjærester | kvinner | lesbisk | lhbt | par | skeiv | søstre | venner | vennskap</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏻">bestevenner | bff | damer | dating | hender | hudtype 1–2 | hudtype 3 | jenter | kvinner | par | søstre | tvillinger | venner | vennskap</annotation>
 		<annotation cp="👩🏼‍🤝‍👩🏻" type="tts">kvinner som leier: hudtype 3, hudtype 1–2</annotation>
-		<annotation cp="👭🏼">bestevenn | bestevenner | bff | damer | dating | forelsket | hånd | hender | holde | homo | hudtype 3 | jenter | kjærester | kvinner | lesbisk | lhbt | par | skeiv | søstre | venner | vennskap</annotation>
+		<annotation cp="👭🏼">bestevenner | bff | damer | dating | hender | hudtype 3 | jenter | kvinner | par | søstre | tvillinger | venner | vennskap</annotation>
 		<annotation cp="👭🏼" type="tts">kvinner som leier: hudtype 3</annotation>
-		<annotation cp="👩🏼‍🤝‍👩🏽">bestevenn | bestevenner | bff | damer | dating | forelsket | hånd | hender | holde | homo | hudtype 3 | hudtype 4 | jenter | kjærester | kvinner | lesbisk | lhbt | par | skeiv | søstre | venner | vennskap</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏽">bestevenner | bff | damer | dating | hender | hudtype 3 | hudtype 4 | jenter | kvinner | par | søstre | tvillinger | venner | vennskap</annotation>
 		<annotation cp="👩🏼‍🤝‍👩🏽" type="tts">kvinner som leier: hudtype 3, hudtype 4</annotation>
-		<annotation cp="👩🏼‍🤝‍👩🏾">bestevenn | bestevenner | bff | damer | dating | forelsket | hånd | hender | holde | homo | hudtype 3 | hudtype 5 | jenter | kjærester | kvinner | lesbisk | lhbt | par | skeiv | søstre | venner | vennskap</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏾">bestevenner | bff | damer | dating | hender | hudtype 3 | hudtype 5 | jenter | kvinner | par | søstre | tvillinger | venner | vennskap</annotation>
 		<annotation cp="👩🏼‍🤝‍👩🏾" type="tts">kvinner som leier: hudtype 3, hudtype 5</annotation>
-		<annotation cp="👩🏼‍🤝‍👩🏿">bestevenn | bestevenner | bff | damer | dating | forelsket | hånd | hender | holde | homo | hudtype 3 | hudtype 6 | jenter | kjærester | kvinner | lesbisk | lhbt | par | skeiv | søstre | venner | vennskap</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏿">bestevenner | bff | damer | dating | hender | hudtype 3 | hudtype 6 | jenter | kvinner | par | søstre | tvillinger | venner | vennskap</annotation>
 		<annotation cp="👩🏼‍🤝‍👩🏿" type="tts">kvinner som leier: hudtype 3, hudtype 6</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏻">bestevenn | bestevenner | bff | damer | dating | forelsket | hånd | hender | holde | homo | hudtype 1–2 | hudtype 4 | jenter | kjærester | kvinner | lesbisk | lhbt | par | skeiv | søstre | venner | vennskap</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏻">bestevenner | bff | damer | dating | hender | hudtype 1–2 | hudtype 4 | jenter | kvinner | par | søstre | tvillinger | venner | vennskap</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏻" type="tts">kvinner som leier: hudtype 4, hudtype 1–2</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏼">bestevenn | bestevenner | bff | damer | dating | forelsket | hånd | hender | holde | homo | hudtype 3 | hudtype 4 | jenter | kjærester | kvinner | lesbisk | lhbt | par | skeiv | søstre | venner | vennskap</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏼">bestevenner | bff | damer | dating | hender | hudtype 3 | hudtype 4 | jenter | kvinner | par | søstre | tvillinger | venner | vennskap</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏼" type="tts">kvinner som leier: hudtype 4, hudtype 3</annotation>
-		<annotation cp="👭🏽">bestevenn | bestevenner | bff | damer | dating | forelsket | hånd | hender | holde | homo | hudtype 4 | jenter | kjærester | kvinner | lesbisk | lhbt | par | skeiv | søstre | venner | vennskap</annotation>
+		<annotation cp="👭🏽">bestevenner | bff | damer | dating | hender | hudtype 4 | jenter | kvinner | par | søstre | tvillinger | venner | vennskap</annotation>
 		<annotation cp="👭🏽" type="tts">kvinner som leier: hudtype 4</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏾">bestevenn | bestevenner | bff | damer | dating | forelsket | hånd | hender | holde | homo | hudtype 4 | hudtype 5 | jenter | kjærester | kvinner | lesbisk | lhbt | par | skeiv | søstre | venner | vennskap</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏾">bestevenner | bff | damer | dating | hender | hudtype 4 | hudtype 5 | jenter | kvinner | par | søstre | tvillinger | venner | vennskap</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏾" type="tts">kvinner som leier: hudtype 4, hudtype 5</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏿">bestevenn | bestevenner | bff | damer | dating | forelsket | hånd | hender | holde | homo | hudtype 4 | hudtype 6 | jenter | kjærester | kvinner | lesbisk | lhbt | par | skeiv | søstre | venner | vennskap</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏿">bestevenner | bff | damer | dating | hender | hudtype 4 | hudtype 6 | jenter | kvinner | par | søstre | tvillinger | venner | vennskap</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏿" type="tts">kvinner som leier: hudtype 4, hudtype 6</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏻">bestevenn | bestevenner | bff | damer | dating | forelsket | hånd | hender | holde | homo | hudtype 1–2 | hudtype 5 | jenter | kjærester | kvinner | lesbisk | lhbt | par | skeiv | søstre | venner | vennskap</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏻">bestevenner | bff | damer | dating | hender | hudtype 1–2 | hudtype 5 | jenter | kvinner | par | søstre | tvillinger | venner | vennskap</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏻" type="tts">kvinner som leier: hudtype 5, hudtype 1–2</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏼">bestevenn | bestevenner | bff | damer | dating | forelsket | hånd | hender | holde | homo | hudtype 3 | hudtype 5 | jenter | kjærester | kvinner | lesbisk | lhbt | par | skeiv | søstre | venner | vennskap</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏼">bestevenner | bff | damer | dating | hender | hudtype 3 | hudtype 5 | jenter | kvinner | par | søstre | tvillinger | venner | vennskap</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏼" type="tts">kvinner som leier: hudtype 5, hudtype 3</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏽">bestevenn | bestevenner | bff | damer | dating | forelsket | hånd | hender | holde | homo | hudtype 4 | hudtype 5 | jenter | kjærester | kvinner | lesbisk | lhbt | par | skeiv | søstre | venner | vennskap</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏽">bestevenner | bff | damer | dating | hender | hudtype 4 | hudtype 5 | jenter | kvinner | par | søstre | tvillinger | venner | vennskap</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏽" type="tts">kvinner som leier: hudtype 5, hudtype 4</annotation>
-		<annotation cp="👭🏾">bestevenn | bestevenner | bff | damer | dating | forelsket | hånd | hender | holde | homo | hudtype 5 | jenter | kjærester | kvinner | lesbisk | lhbt | par | skeiv | søstre | venner | vennskap</annotation>
+		<annotation cp="👭🏾">bestevenner | bff | damer | dating | hender | hudtype 5 | jenter | kvinner | par | søstre | tvillinger | venner | vennskap</annotation>
 		<annotation cp="👭🏾" type="tts">kvinner som leier: hudtype 5</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏿">bestevenn | bestevenner | bff | damer | dating | forelsket | hånd | hender | holde | homo | hudtype 5 | hudtype 6 | jenter | kjærester | kvinner | lesbisk | lhbt | par | skeiv | søstre | venner | vennskap</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏿">bestevenner | bff | damer | dating | hender | hudtype 5 | hudtype 6 | jenter | kvinner | par | søstre | tvillinger | venner | vennskap</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏿" type="tts">kvinner som leier: hudtype 5, hudtype 6</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏻">bestevenn | bestevenner | bff | damer | dating | forelsket | hånd | hender | holde | homo | hudtype 1–2 | hudtype 6 | jenter | kjærester | kvinner | lesbisk | lhbt | par | skeiv | søstre | venner | vennskap</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏻">bestevenner | bff | damer | dating | hender | hudtype 1–2 | hudtype 6 | jenter | kvinner | par | søstre | tvillinger | venner | vennskap</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏻" type="tts">kvinner som leier: hudtype 6, hudtype 1–2</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏼">bestevenn | bestevenner | bff | damer | dating | forelsket | hånd | hender | holde | homo | hudtype 3 | hudtype 6 | jenter | kjærester | kvinner | lesbisk | lhbt | par | skeiv | søstre | venner | vennskap</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏼">bestevenner | bff | damer | dating | hender | hudtype 3 | hudtype 6 | jenter | kvinner | par | søstre | tvillinger | venner | vennskap</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏼" type="tts">kvinner som leier: hudtype 6, hudtype 3</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏽">bestevenn | bestevenner | bff | damer | dating | forelsket | hånd | hender | holde | homo | hudtype 4 | hudtype 6 | jenter | kjærester | kvinner | lesbisk | lhbt | par | skeiv | søstre | venner | vennskap</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏽">bestevenner | bff | damer | dating | hender | hudtype 4 | hudtype 6 | jenter | kvinner | par | søstre | tvillinger | venner | vennskap</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏽" type="tts">kvinner som leier: hudtype 6, hudtype 4</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏾">bestevenn | bestevenner | bff | damer | dating | forelsket | hånd | hender | holde | homo | hudtype 5 | hudtype 6 | jenter | kjærester | kvinner | lesbisk | lhbt | par | skeiv | søstre | venner | vennskap</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏾">bestevenner | bff | damer | dating | hender | hudtype 5 | hudtype 6 | jenter | kvinner | par | søstre | tvillinger | venner | vennskap</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏾" type="tts">kvinner som leier: hudtype 6, hudtype 5</annotation>
-		<annotation cp="👭🏿">bestevenn | bestevenner | bff | damer | dating | forelsket | hånd | hender | holde | homo | hudtype 6 | jenter | kjærester | kvinner | lesbisk | lhbt | par | skeiv | søstre | venner | vennskap</annotation>
+		<annotation cp="👭🏿">bestevenner | bff | damer | dating | hender | hudtype 6 | jenter | kvinner | par | søstre | tvillinger | venner | vennskap</annotation>
 		<annotation cp="👭🏿" type="tts">kvinner som leier: hudtype 6</annotation>
 		<annotation cp="👫🏻">bestevenn | bestevenner | bff | dating | forelsket | hånd | holder hender | hudtype 1–2 | kjærester | kvinne | mann | par | søsken</annotation>
 		<annotation cp="👫🏻" type="tts">mann og kvinne som leier: hudtype 1–2</annotation>
@@ -3753,55 +4062,55 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏿‍🤝‍👨🏾" type="tts">mann og kvinne som leier: hudtype 6, hudtype 5</annotation>
 		<annotation cp="👫🏿">bestevenn | bestevenner | bff | dating | forelsket | hånd | holder hender | hudtype 6 | kjærester | kvinne | mann | par | søsken</annotation>
 		<annotation cp="👫🏿" type="tts">mann og kvinne som leier: hudtype 6</annotation>
-		<annotation cp="👬🏻">bestevenn | bestevenner | bff | brødre | dating | forelsket | gutter | hånd | hender | holde | homo | hudtype 1–2 | kjærester | lhbt | mann | menn | par | skeiv | venner | vennskap</annotation>
+		<annotation cp="👬🏻">bestevenner | bff | brødre | dating | gutter | hender | hudtype 1–2 | karer | menn | par | tvillinger | venner | vennskap</annotation>
 		<annotation cp="👬🏻" type="tts">menn som leier: hudtype 1–2</annotation>
-		<annotation cp="👨🏻‍🤝‍👨🏼">bestevenn | bestevenner | bff | brødre | dating | forelsket | gutter | hånd | hender | holde | homo | hudtype 1–2 | hudtype 3 | kjærester | lhbt | mann | menn | par | skeiv | venner | vennskap</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏼">bestevenner | bff | brødre | dating | gutter | hender | hudtype 1–2 | hudtype 3 | karer | menn | par | tvillinger | venner | vennskap</annotation>
 		<annotation cp="👨🏻‍🤝‍👨🏼" type="tts">menn som leier: hudtype 1–2, hudtype 3</annotation>
-		<annotation cp="👨🏻‍🤝‍👨🏽">bestevenn | bestevenner | bff | brødre | dating | forelsket | gutter | hånd | hender | holde | homo | hudtype 1–2 | hudtype 4 | kjærester | lhbt | mann | menn | par | skeiv | venner | vennskap</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏽">bestevenner | bff | brødre | dating | gutter | hender | hudtype 1–2 | hudtype 4 | karer | menn | par | tvillinger | venner | vennskap</annotation>
 		<annotation cp="👨🏻‍🤝‍👨🏽" type="tts">menn som leier: hudtype 1–2, hudtype 4</annotation>
-		<annotation cp="👨🏻‍🤝‍👨🏾">bestevenn | bestevenner | bff | brødre | dating | forelsket | gutter | hånd | hender | holde | homo | hudtype 1–2 | hudtype 5 | kjærester | lhbt | mann | menn | par | skeiv | venner | vennskap</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏾">bestevenner | bff | brødre | dating | gutter | hender | hudtype 1–2 | hudtype 5 | karer | menn | par | tvillinger | venner | vennskap</annotation>
 		<annotation cp="👨🏻‍🤝‍👨🏾" type="tts">menn som leier: hudtype 1–2, hudtype 5</annotation>
-		<annotation cp="👨🏻‍🤝‍👨🏿">bestevenn | bestevenner | bff | brødre | dating | forelsket | gutter | hånd | hender | holde | homo | hudtype 1–2 | hudtype 6 | kjærester | lhbt | mann | menn | par | skeiv | venner | vennskap</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏿">bestevenner | bff | brødre | dating | gutter | hender | hudtype 1–2 | hudtype 6 | karer | menn | par | tvillinger | venner | vennskap</annotation>
 		<annotation cp="👨🏻‍🤝‍👨🏿" type="tts">menn som leier: hudtype 1–2, hudtype 6</annotation>
-		<annotation cp="👨🏼‍🤝‍👨🏻">bestevenn | bestevenner | bff | brødre | dating | forelsket | gutter | hånd | hender | holde | homo | hudtype 1–2 | hudtype 3 | kjærester | lhbt | mann | menn | par | skeiv | venner | vennskap</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏻">bestevenner | bff | brødre | dating | gutter | hender | hudtype 1–2 | hudtype 3 | karer | menn | par | tvillinger | venner | vennskap</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻" type="tts">menn som leier: hudtype 3, hudtype 1–2</annotation>
-		<annotation cp="👬🏼">bestevenn | bestevenner | bff | brødre | dating | forelsket | gutter | hånd | hender | holde | homo | hudtype 3 | kjærester | lhbt | mann | menn | par | skeiv | venner | vennskap</annotation>
+		<annotation cp="👬🏼">bestevenner | bff | brødre | dating | gutter | hender | hudtype 3 | karer | menn | par | tvillinger | venner | vennskap</annotation>
 		<annotation cp="👬🏼" type="tts">menn som leier: hudtype 3</annotation>
-		<annotation cp="👨🏼‍🤝‍👨🏽">bestevenn | bestevenner | bff | brødre | dating | forelsket | gutter | hånd | hender | holde | homo | hudtype 3 | hudtype 4 | kjærester | lhbt | mann | menn | par | skeiv | venner | vennskap</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏽">bestevenner | bff | brødre | dating | gutter | hender | hudtype 3 | hudtype 4 | karer | menn | par | tvillinger | venner | vennskap</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏽" type="tts">menn som leier: hudtype 3, hudtype 4</annotation>
-		<annotation cp="👨🏼‍🤝‍👨🏾">bestevenn | bestevenner | bff | brødre | dating | forelsket | gutter | hånd | hender | holde | homo | hudtype 3 | hudtype 5 | kjærester | lhbt | mann | menn | par | skeiv | venner | vennskap</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏾">bestevenner | bff | brødre | dating | gutter | hender | hudtype 3 | hudtype 5 | karer | menn | par | tvillinger | venner | vennskap</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏾" type="tts">menn som leier: hudtype 3, hudtype 5</annotation>
-		<annotation cp="👨🏼‍🤝‍👨🏿">bestevenn | bestevenner | bff | brødre | dating | forelsket | gutter | hånd | hender | holde | homo | hudtype 3 | hudtype 6 | kjærester | lhbt | mann | menn | par | skeiv | venner | vennskap</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏿">bestevenner | bff | brødre | dating | gutter | hender | hudtype 3 | hudtype 6 | karer | menn | par | tvillinger | venner | vennskap</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏿" type="tts">menn som leier: hudtype 3, hudtype 6</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏻">bestevenn | bestevenner | bff | brødre | dating | forelsket | gutter | hånd | hender | holde | homo | hudtype 1–2 | hudtype 4 | kjærester | lhbt | mann | menn | par | skeiv | venner | vennskap</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏻">bestevenner | bff | brødre | dating | gutter | hender | hudtype 1–2 | hudtype 4 | karer | menn | par | tvillinger | venner | vennskap</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻" type="tts">menn som leier: hudtype 4, hudtype 1–2</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏼">bestevenn | bestevenner | bff | brødre | dating | forelsket | gutter | hånd | hender | holde | homo | hudtype 3 | hudtype 4 | kjærester | lhbt | mann | menn | par | skeiv | venner | vennskap</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏼">bestevenner | bff | brødre | dating | gutter | hender | hudtype 3 | hudtype 4 | karer | menn | par | tvillinger | venner | vennskap</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏼" type="tts">menn som leier: hudtype 4, hudtype 3</annotation>
-		<annotation cp="👬🏽">bestevenn | bestevenner | bff | brødre | dating | forelsket | gutter | hånd | hender | holde | homo | hudtype 4 | kjærester | lhbt | mann | menn | par | skeiv | venner | vennskap</annotation>
+		<annotation cp="👬🏽">bestevenner | bff | brødre | dating | gutter | hender | hudtype 4 | karer | menn | par | tvillinger | venner | vennskap</annotation>
 		<annotation cp="👬🏽" type="tts">menn som leier: hudtype 4</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏾">bestevenn | bestevenner | bff | brødre | dating | forelsket | gutter | hånd | hender | holde | homo | hudtype 4 | hudtype 5 | kjærester | lhbt | mann | menn | par | skeiv | venner | vennskap</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏾">bestevenner | bff | brødre | dating | gutter | hender | hudtype 4 | hudtype 5 | karer | menn | par | tvillinger | venner | vennskap</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏾" type="tts">menn som leier: hudtype 4, hudtype 5</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏿">bestevenn | bestevenner | bff | brødre | dating | forelsket | gutter | hånd | hender | holde | homo | hudtype 4 | hudtype 6 | kjærester | lhbt | mann | menn | par | skeiv | venner | vennskap</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏿">bestevenner | bff | brødre | dating | gutter | hender | hudtype 4 | hudtype 6 | karer | menn | par | tvillinger | venner | vennskap</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏿" type="tts">menn som leier: hudtype 4, hudtype 6</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏻">bestevenn | bestevenner | bff | brødre | dating | forelsket | gutter | hånd | hender | holde | homo | hudtype 1–2 | hudtype 5 | kjærester | lhbt | mann | menn | par | skeiv | venner | vennskap</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏻">bestevenner | bff | brødre | dating | gutter | hender | hudtype 1–2 | hudtype 5 | karer | menn | par | tvillinger | venner | vennskap</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏻" type="tts">menn som leier: hudtype 5, hudtype 1–2</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏼">bestevenn | bestevenner | bff | brødre | dating | forelsket | gutter | hånd | hender | holde | homo | hudtype 3 | hudtype 5 | kjærester | lhbt | mann | menn | par | skeiv | venner | vennskap</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏼">bestevenner | bff | brødre | dating | gutter | hender | hudtype 3 | hudtype 5 | karer | menn | par | tvillinger | venner | vennskap</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏼" type="tts">menn som leier: hudtype 5, hudtype 3</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏽">bestevenn | bestevenner | bff | brødre | dating | forelsket | gutter | hånd | hender | holde | homo | hudtype 4 | hudtype 5 | kjærester | lhbt | mann | menn | par | skeiv | venner | vennskap</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏽">bestevenner | bff | brødre | dating | gutter | hender | hudtype 4 | hudtype 5 | karer | menn | par | tvillinger | venner | vennskap</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏽" type="tts">menn som leier: hudtype 5, hudtype 4</annotation>
-		<annotation cp="👬🏾">bestevenn | bestevenner | bff | brødre | dating | forelsket | gutter | hånd | hender | holde | homo | hudtype 5 | kjærester | lhbt | mann | menn | par | skeiv | venner | vennskap</annotation>
+		<annotation cp="👬🏾">bestevenner | bff | brødre | dating | gutter | hender | hudtype 5 | karer | menn | par | tvillinger | venner | vennskap</annotation>
 		<annotation cp="👬🏾" type="tts">menn som leier: hudtype 5</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏿">bestevenn | bestevenner | bff | brødre | dating | forelsket | gutter | hånd | hender | holde | homo | hudtype 5 | hudtype 6 | kjærester | lhbt | mann | menn | par | skeiv | venner | vennskap</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏿">bestevenner | bff | brødre | dating | gutter | hender | hudtype 5 | hudtype 6 | karer | menn | par | tvillinger | venner | vennskap</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏿" type="tts">menn som leier: hudtype 5, hudtype 6</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏻">bestevenn | bestevenner | bff | brødre | dating | forelsket | gutter | hånd | hender | holde | homo | hudtype 1–2 | hudtype 6 | kjærester | lhbt | mann | menn | par | skeiv | venner | vennskap</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏻">bestevenner | bff | brødre | dating | gutter | hender | hudtype 1–2 | hudtype 6 | karer | menn | par | tvillinger | venner | vennskap</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏻" type="tts">menn som leier: hudtype 6, hudtype 1–2</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏼">bestevenn | bestevenner | bff | brødre | dating | forelsket | gutter | hånd | hender | holde | homo | hudtype 3 | hudtype 6 | kjærester | lhbt | mann | menn | par | skeiv | venner | vennskap</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏼">bestevenner | bff | brødre | dating | gutter | hender | hudtype 3 | hudtype 6 | karer | menn | par | tvillinger | venner | vennskap</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏼" type="tts">menn som leier: hudtype 6, hudtype 3</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏽">bestevenn | bestevenner | bff | brødre | dating | forelsket | gutter | hånd | hender | holde | homo | hudtype 4 | hudtype 6 | kjærester | lhbt | mann | menn | par | skeiv | venner | vennskap</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏽">bestevenner | bff | brødre | dating | gutter | hender | hudtype 4 | hudtype 6 | karer | menn | par | tvillinger | venner | vennskap</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏽" type="tts">menn som leier: hudtype 6, hudtype 4</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏾">bestevenn | bestevenner | bff | brødre | dating | forelsket | gutter | hånd | hender | holde | homo | hudtype 5 | hudtype 6 | kjærester | lhbt | mann | menn | par | skeiv | venner | vennskap</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏾">bestevenner | bff | brødre | dating | gutter | hender | hudtype 5 | hudtype 6 | karer | menn | par | tvillinger | venner | vennskap</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏾" type="tts">menn som leier: hudtype 6, hudtype 5</annotation>
-		<annotation cp="👬🏿">bestevenn | bestevenner | bff | brødre | dating | forelsket | gutter | hånd | hender | holde | homo | hudtype 6 | kjærester | lhbt | mann | menn | par | skeiv | venner | vennskap</annotation>
+		<annotation cp="👬🏿">bestevenner | bff | brødre | dating | gutter | hender | hudtype 6 | karer | menn | par | tvillinger | venner | vennskap</annotation>
 		<annotation cp="👬🏿" type="tts">menn som leier: hudtype 6</annotation>
 		<annotation cp="💏🏻">hudtype 1–2 | kyss | kyssing | mennesker | romantikk</annotation>
 		<annotation cp="💏🏻" type="tts">kyss: hudtype 1–2</annotation>
@@ -4434,26 +4743,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="₺" type="tts">tyrkiske lire</annotation>
 		<annotation cp="₼" type="tts">aserbajdsjanske manat</annotation>
 		<annotation cp="₾" type="tts">georgiske lari</annotation>
-		<annotation cp="0⃣">taster</annotation>
-		<annotation cp="0⃣" type="tts">taster: 0</annotation>
-		<annotation cp="1⃣">taster</annotation>
-		<annotation cp="1⃣" type="tts">taster: 1</annotation>
-		<annotation cp="2⃣">taster</annotation>
-		<annotation cp="2⃣" type="tts">taster: 2</annotation>
-		<annotation cp="3⃣">taster</annotation>
-		<annotation cp="3⃣" type="tts">taster: 3</annotation>
-		<annotation cp="4⃣">taster</annotation>
-		<annotation cp="4⃣" type="tts">taster: 4</annotation>
-		<annotation cp="5⃣">taster</annotation>
-		<annotation cp="5⃣" type="tts">taster: 5</annotation>
-		<annotation cp="6⃣">taster</annotation>
-		<annotation cp="6⃣" type="tts">taster: 6</annotation>
-		<annotation cp="7⃣">taster</annotation>
-		<annotation cp="7⃣" type="tts">taster: 7</annotation>
-		<annotation cp="8⃣">taster</annotation>
-		<annotation cp="8⃣" type="tts">taster: 8</annotation>
-		<annotation cp="9⃣">taster</annotation>
-		<annotation cp="9⃣" type="tts">taster: 9</annotation>
 		<annotation cp="₧" type="tts">spanske peseta</annotation>
 	</annotations>
 </ldml>

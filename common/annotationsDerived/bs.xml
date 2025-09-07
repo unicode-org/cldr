@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-
-Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
 -->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -603,6 +602,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾" type="tts">osoba s plavom kosom: umjereno tamna boja kože</annotation>
 		<annotation cp="👱🏿">kosa | osoba s plavom kosom | plavo | tamna boja kože</annotation>
 		<annotation cp="👱🏿" type="tts">osoba s plavom kosom: tamna boja kože</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏼">hrvač | hrvanje | osoba | sport | svijetla boja kože | umjereno svijetla boja kože</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏼" type="tts">hrvanje: svijetla boja kože i umjereno svijetla boja kože</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏽">hrvač | hrvanje | osoba | sport | svijetla boja kože | umjerena boja kože</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏽" type="tts">hrvanje: svijetla boja kože i umjerena boja kože</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏾">hrvač | hrvanje | osoba | sport | svijetla boja kože | umjereno tamna boja kože</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏾" type="tts">hrvanje: svijetla boja kože i umjereno tamna boja kože</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏿">hrvač | hrvanje | osoba | sport | svijetla boja kože | tamna boja kože</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏿" type="tts">hrvanje: svijetla boja kože i tamna boja kože</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏻">hrvač | hrvanje | osoba | sport | svijetla boja kože | umjereno svijetla boja kože</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏻" type="tts">hrvanje: umjereno svijetla boja kože i svijetla boja kože</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏽">hrvač | hrvanje | osoba | sport | umjerena boja kože | umjereno svijetla boja kože</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏽" type="tts">hrvanje: umjereno svijetla boja kože i umjerena boja kože</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏾">hrvač | hrvanje | osoba | sport | umjereno svijetla boja kože | umjereno tamna boja kože</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏾" type="tts">hrvanje: umjereno svijetla boja kože i umjereno tamna boja kože</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏿">hrvač | hrvanje | osoba | sport | tamna boja kože | umjereno svijetla boja kože</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏿" type="tts">hrvanje: umjereno svijetla boja kože i tamna boja kože</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏻">hrvač | hrvanje | osoba | sport | svijetla boja kože | umjerena boja kože</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏻" type="tts">hrvanje: umjerena boja kože i svijetla boja kože</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏼">hrvač | hrvanje | osoba | sport | umjerena boja kože | umjereno svijetla boja kože</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏼" type="tts">hrvanje: umjerena boja kože i umjereno svijetla boja kože</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏾">hrvač | hrvanje | osoba | sport | umjerena boja kože | umjereno tamna boja kože</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏾" type="tts">hrvanje: umjerena boja kože i umjereno tamna boja kože</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏿">hrvač | hrvanje | osoba | sport | tamna boja kože | umjerena boja kože</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏿" type="tts">hrvanje: umjerena boja kože i tamna boja kože</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏻">hrvač | hrvanje | osoba | sport | svijetla boja kože | umjereno tamna boja kože</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏻" type="tts">hrvanje: umjereno tamna boja kože i svijetla boja kože</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏼">hrvač | hrvanje | osoba | sport | umjereno svijetla boja kože | umjereno tamna boja kože</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏼" type="tts">hrvanje: umjereno tamna boja kože i umjereno svijetla boja kože</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏽">hrvač | hrvanje | osoba | sport | umjerena boja kože | umjereno tamna boja kože</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏽" type="tts">hrvanje: umjereno tamna boja kože i umjerena boja kože</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏿">hrvač | hrvanje | osoba | sport | tamna boja kože | umjereno tamna boja kože</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏿" type="tts">hrvanje: umjereno tamna boja kože i tamna boja kože</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏻">hrvač | hrvanje | osoba | sport | svijetla boja kože | tamna boja kože</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏻" type="tts">hrvanje: tamna boja kože i svijetla boja kože</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏼">hrvač | hrvanje | osoba | sport | tamna boja kože | umjereno svijetla boja kože</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏼" type="tts">hrvanje: tamna boja kože i umjereno svijetla boja kože</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏽">hrvač | hrvanje | osoba | sport | tamna boja kože | umjerena boja kože</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏽" type="tts">hrvanje: tamna boja kože i umjerena boja kože</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏾">hrvač | hrvanje | osoba | sport | tamna boja kože | umjereno tamna boja kože</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏾" type="tts">hrvanje: tamna boja kože i umjereno tamna boja kože</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏼">osoba | par | poljubac | svijetla boja kože | umjereno svijetla boja kože</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏼" type="tts">poljubac: osoba, osoba, svijetla boja kože i umjereno svijetla boja kože</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏽">osoba | par | poljubac | svijetla boja kože | umjerena boja kože</annotation>
@@ -731,6 +770,56 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧑🏾‍🦲" type="tts">osoba: umjereno tamna boja kože i ćelavo</annotation>
 		<annotation cp="🧑🏿‍🦲">ćelavo | neodređeni spol | odrasla osoba | osoba | srednji rod | tamna boja kože</annotation>
 		<annotation cp="🧑🏿‍🦲" type="tts">osoba: tamna boja kože i ćelavo</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏼">grupa | osobe u provodu | ples | provod | svijetla boja kože | umjereno svijetla boja kože</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏼" type="tts">osobe u provodu: svijetla boja kože i umjereno svijetla boja kože</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏽">grupa | osobe u provodu | ples | provod | svijetla boja kože | umjerena boja kože</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏽" type="tts">osobe u provodu: svijetla boja kože i umjerena boja kože</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏾">grupa | osobe u provodu | ples | provod | svijetla boja kože | umjereno tamna boja kože</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏾" type="tts">osobe u provodu: svijetla boja kože i umjereno tamna boja kože</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏿">grupa | osobe u provodu | ples | provod | svijetla boja kože | tamna boja kože</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏿" type="tts">osobe u provodu: svijetla boja kože i tamna boja kože</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏻">grupa | osobe u provodu | ples | provod | svijetla boja kože | umjereno svijetla boja kože</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏻" type="tts">osobe u provodu: umjereno svijetla boja kože i svijetla boja kože</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏽">grupa | osobe u provodu | ples | provod | umjerena boja kože | umjereno svijetla boja kože</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏽" type="tts">osobe u provodu: umjereno svijetla boja kože i umjerena boja kože</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏾">grupa | osobe u provodu | ples | provod | umjereno svijetla boja kože | umjereno tamna boja kože</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏾" type="tts">osobe u provodu: umjereno svijetla boja kože i umjereno tamna boja kože</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏿">grupa | osobe u provodu | ples | provod | tamna boja kože | umjereno svijetla boja kože</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏿" type="tts">osobe u provodu: umjereno svijetla boja kože i tamna boja kože</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏻">grupa | osobe u provodu | ples | provod | svijetla boja kože | umjerena boja kože</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏻" type="tts">osobe u provodu: umjerena boja kože i svijetla boja kože</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏼">grupa | osobe u provodu | ples | provod | umjerena boja kože | umjereno svijetla boja kože</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏼" type="tts">osobe u provodu: umjerena boja kože i umjereno svijetla boja kože</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏾">grupa | osobe u provodu | ples | provod | umjerena boja kože | umjereno tamna boja kože</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏾" type="tts">osobe u provodu: umjerena boja kože i umjereno tamna boja kože</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏿">grupa | osobe u provodu | ples | provod | tamna boja kože | umjerena boja kože</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏿" type="tts">osobe u provodu: umjerena boja kože i tamna boja kože</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏻">grupa | osobe u provodu | ples | provod | svijetla boja kože | umjereno tamna boja kože</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏻" type="tts">osobe u provodu: umjereno tamna boja kože i svijetla boja kože</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏼">grupa | osobe u provodu | ples | provod | umjereno svijetla boja kože | umjereno tamna boja kože</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏼" type="tts">osobe u provodu: umjereno tamna boja kože i umjereno svijetla boja kože</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏽">grupa | osobe u provodu | ples | provod | umjerena boja kože | umjereno tamna boja kože</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏽" type="tts">osobe u provodu: umjereno tamna boja kože i umjerena boja kože</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏿">grupa | osobe u provodu | ples | provod | tamna boja kože | umjereno tamna boja kože</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏿" type="tts">osobe u provodu: umjereno tamna boja kože i tamna boja kože</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏻">grupa | osobe u provodu | ples | provod | svijetla boja kože | tamna boja kože</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏻" type="tts">osobe u provodu: tamna boja kože i svijetla boja kože</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏼">grupa | osobe u provodu | ples | provod | tamna boja kože | umjereno svijetla boja kože</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏼" type="tts">osobe u provodu: tamna boja kože i umjereno svijetla boja kože</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏽">grupa | osobe u provodu | ples | provod | tamna boja kože | umjerena boja kože</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏽" type="tts">osobe u provodu: tamna boja kože i umjerena boja kože</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏾">grupa | osobe u provodu | ples | provod | tamna boja kože | umjereno tamna boja kože</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏾" type="tts">osobe u provodu: tamna boja kože i umjereno tamna boja kože</annotation>
+		<annotation cp="🧑🏻‍🩰">balet | plesač | svijetla boja kože</annotation>
+		<annotation cp="🧑🏻‍🩰" type="tts">plesač baleta: svijetla boja kože</annotation>
+		<annotation cp="🧑🏼‍🩰">balet | plesač | umjereno svijetla boja kože</annotation>
+		<annotation cp="🧑🏼‍🩰" type="tts">plesač baleta: umjereno svijetla boja kože</annotation>
+		<annotation cp="🧑🏽‍🩰">balet | plesač | umjerena boja kože</annotation>
+		<annotation cp="🧑🏽‍🩰" type="tts">plesač baleta: umjerena boja kože</annotation>
+		<annotation cp="🧑🏾‍🩰">balet | plesač | umjereno tamna boja kože</annotation>
+		<annotation cp="🧑🏾‍🩰" type="tts">plesač baleta: umjereno tamna boja kože</annotation>
+		<annotation cp="🧑🏿‍🩰">balet | plesač | tamna boja kože</annotation>
+		<annotation cp="🧑🏿‍🩰" type="tts">plesač baleta: tamna boja kože</annotation>
 		<annotation cp="👨🏻">muškarac | muško | odrasla osoba | svijetla boja kože</annotation>
 		<annotation cp="👨🏻" type="tts">muškarac: svijetla boja kože</annotation>
 		<annotation cp="👨🏼">muškarac | muško | odrasla osoba | umjereno svijetla boja kože</annotation>
@@ -771,6 +860,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾‍♂" type="tts">muškarac s plavom kosom: umjereno tamna boja kože</annotation>
 		<annotation cp="👱🏿‍♂">kosa | muškarac | muškarac s plavom kosom | plavo | plavušan | tamna boja kože</annotation>
 		<annotation cp="👱🏿‍♂" type="tts">muškarac s plavom kosom: tamna boja kože</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏼">hrvač | hrvanje | muškarac | svijetla boja kože | umjereno svijetla boja kože</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏼" type="tts">hrvač: svijetla boja kože i umjereno svijetla boja kože</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏽">hrvač | hrvanje | muškarac | svijetla boja kože | umjerena boja kože</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏽" type="tts">hrvač: svijetla boja kože i umjerena boja kože</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏾">hrvač | hrvanje | muškarac | svijetla boja kože | umjereno tamna boja kože</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏾" type="tts">hrvač: svijetla boja kože i umjereno tamna boja kože</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏿">hrvač | hrvanje | muškarac | svijetla boja kože | tamna boja kože</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏿" type="tts">hrvač: svijetla boja kože i tamna boja kože</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏻">hrvač | hrvanje | muškarac | svijetla boja kože | umjereno svijetla boja kože</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏻" type="tts">hrvač: umjereno svijetla boja kože i svijetla boja kože</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏽">hrvač | hrvanje | muškarac | umjerena boja kože | umjereno svijetla boja kože</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏽" type="tts">hrvač: umjereno svijetla boja kože i umjerena boja kože</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏾">hrvač | hrvanje | muškarac | umjereno svijetla boja kože | umjereno tamna boja kože</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏾" type="tts">hrvač: umjereno svijetla boja kože i umjereno tamna boja kože</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏿">hrvač | hrvanje | muškarac | tamna boja kože | umjereno svijetla boja kože</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏿" type="tts">hrvač: umjereno svijetla boja kože i tamna boja kože</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏻">hrvač | hrvanje | muškarac | svijetla boja kože | umjerena boja kože</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏻" type="tts">hrvač: umjerena boja kože i svijetla boja kože</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏼">hrvač | hrvanje | muškarac | umjerena boja kože | umjereno svijetla boja kože</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏼" type="tts">hrvač: umjerena boja kože i umjereno svijetla boja kože</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏾">hrvač | hrvanje | muškarac | umjerena boja kože | umjereno tamna boja kože</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏾" type="tts">hrvač: umjerena boja kože i umjereno tamna boja kože</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏿">hrvač | hrvanje | muškarac | tamna boja kože | umjerena boja kože</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏿" type="tts">hrvač: umjerena boja kože i tamna boja kože</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏻">hrvač | hrvanje | muškarac | svijetla boja kože | umjereno tamna boja kože</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏻" type="tts">hrvač: umjereno tamna boja kože i svijetla boja kože</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏼">hrvač | hrvanje | muškarac | umjereno svijetla boja kože | umjereno tamna boja kože</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏼" type="tts">hrvač: umjereno tamna boja kože i umjereno svijetla boja kože</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏽">hrvač | hrvanje | muškarac | umjerena boja kože | umjereno tamna boja kože</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏽" type="tts">hrvač: umjereno tamna boja kože i umjerena boja kože</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏿">hrvač | hrvanje | muškarac | tamna boja kože | umjereno tamna boja kože</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏿" type="tts">hrvač: umjereno tamna boja kože i tamna boja kože</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏻">hrvač | hrvanje | muškarac | svijetla boja kože | tamna boja kože</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏻" type="tts">hrvač: tamna boja kože i svijetla boja kože</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏼">hrvač | hrvanje | muškarac | tamna boja kože | umjereno svijetla boja kože</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏼" type="tts">hrvač: tamna boja kože i umjereno svijetla boja kože</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏽">hrvač | hrvanje | muškarac | tamna boja kože | umjerena boja kože</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏽" type="tts">hrvač: tamna boja kože i umjerena boja kože</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏾">hrvač | hrvanje | muškarac | tamna boja kože | umjereno tamna boja kože</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏾" type="tts">hrvač: tamna boja kože i umjereno tamna boja kože</annotation>
 		<annotation cp="👨🏻‍❤‍💋‍👨🏻">muškarac | par | poljubac | svijetla boja kože</annotation>
 		<annotation cp="👨🏻‍❤‍💋‍👨🏻" type="tts">poljubac: muškarac, muškarac i svijetla boja kože</annotation>
 		<annotation cp="👨🏻‍❤‍💋‍👨🏼">muškarac | par | poljubac | svijetla boja kože | umjereno svijetla boja kože</annotation>
@@ -919,6 +1048,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾‍🦲" type="tts">muškarac: umjereno tamna boja kože i ćelavo</annotation>
 		<annotation cp="👨🏿‍🦲">ćelavo | muškarac | muško | odrasla osoba | tamna boja kože</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">muškarac: tamna boja kože i ćelavo</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏼">muškarac | muškarac u provodu | muškarci u provodu | ples | provod | svijetla boja kože | umjereno svijetla boja kože</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏼" type="tts">muškarci u provodu: svijetla boja kože i umjereno svijetla boja kože</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏽">muškarac | muškarac u provodu | muškarci u provodu | ples | provod | svijetla boja kože | umjerena boja kože</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏽" type="tts">muškarci u provodu: svijetla boja kože i umjerena boja kože</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏾">muškarac | muškarac u provodu | muškarci u provodu | ples | provod | svijetla boja kože | umjereno tamna boja kože</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏾" type="tts">muškarci u provodu: svijetla boja kože i umjereno tamna boja kože</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏿">muškarac | muškarac u provodu | muškarci u provodu | ples | provod | svijetla boja kože | tamna boja kože</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏿" type="tts">muškarci u provodu: svijetla boja kože i tamna boja kože</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏻">muškarac | muškarac u provodu | muškarci u provodu | ples | provod | svijetla boja kože | umjereno svijetla boja kože</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏻" type="tts">muškarci u provodu: umjereno svijetla boja kože i svijetla boja kože</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏽">muškarac | muškarac u provodu | muškarci u provodu | ples | provod | umjerena boja kože | umjereno svijetla boja kože</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏽" type="tts">muškarci u provodu: umjereno svijetla boja kože i umjerena boja kože</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏾">muškarac | muškarac u provodu | muškarci u provodu | ples | provod | umjereno svijetla boja kože | umjereno tamna boja kože</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏾" type="tts">muškarci u provodu: umjereno svijetla boja kože i umjereno tamna boja kože</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏿">muškarac | muškarac u provodu | muškarci u provodu | ples | provod | tamna boja kože | umjereno svijetla boja kože</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏿" type="tts">muškarci u provodu: umjereno svijetla boja kože i tamna boja kože</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏻">muškarac | muškarac u provodu | muškarci u provodu | ples | provod | svijetla boja kože | umjerena boja kože</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏻" type="tts">muškarci u provodu: umjerena boja kože i svijetla boja kože</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏼">muškarac | muškarac u provodu | muškarci u provodu | ples | provod | umjerena boja kože | umjereno svijetla boja kože</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏼" type="tts">muškarci u provodu: umjerena boja kože i umjereno svijetla boja kože</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏾">muškarac | muškarac u provodu | muškarci u provodu | ples | provod | umjerena boja kože | umjereno tamna boja kože</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏾" type="tts">muškarci u provodu: umjerena boja kože i umjereno tamna boja kože</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏿">muškarac | muškarac u provodu | muškarci u provodu | ples | provod | tamna boja kože | umjerena boja kože</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏿" type="tts">muškarci u provodu: umjerena boja kože i tamna boja kože</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏻">muškarac | muškarac u provodu | muškarci u provodu | ples | provod | svijetla boja kože | umjereno tamna boja kože</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏻" type="tts">muškarci u provodu: umjereno tamna boja kože i svijetla boja kože</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏼">muškarac | muškarac u provodu | muškarci u provodu | ples | provod | umjereno svijetla boja kože | umjereno tamna boja kože</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏼" type="tts">muškarci u provodu: umjereno tamna boja kože i umjereno svijetla boja kože</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏽">muškarac | muškarac u provodu | muškarci u provodu | ples | provod | umjerena boja kože | umjereno tamna boja kože</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏽" type="tts">muškarci u provodu: umjereno tamna boja kože i umjerena boja kože</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏿">muškarac | muškarac u provodu | muškarci u provodu | ples | provod | tamna boja kože | umjereno tamna boja kože</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏿" type="tts">muškarci u provodu: umjereno tamna boja kože i tamna boja kože</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏻">muškarac | muškarac u provodu | muškarci u provodu | ples | provod | svijetla boja kože | tamna boja kože</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏻" type="tts">muškarci u provodu: tamna boja kože i svijetla boja kože</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏼">muškarac | muškarac u provodu | muškarci u provodu | ples | provod | tamna boja kože | umjereno svijetla boja kože</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏼" type="tts">muškarci u provodu: tamna boja kože i umjereno svijetla boja kože</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏽">muškarac | muškarac u provodu | muškarci u provodu | ples | provod | tamna boja kože | umjerena boja kože</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏽" type="tts">muškarci u provodu: tamna boja kože i umjerena boja kože</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏾">muškarac | muškarac u provodu | muškarci u provodu | ples | provod | tamna boja kože | umjereno tamna boja kože</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏾" type="tts">muškarci u provodu: tamna boja kože i umjereno tamna boja kože</annotation>
 		<annotation cp="👩🏻">odrasla osoba | svijetla boja kože | žena</annotation>
 		<annotation cp="👩🏻" type="tts">žena: svijetla boja kože</annotation>
 		<annotation cp="👩🏼">odrasla osoba | umjereno svijetla boja kože | žena</annotation>
@@ -949,6 +1118,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾‍♀" type="tts">žena s plavom kosom: umjereno tamna boja kože</annotation>
 		<annotation cp="👱🏿‍♀">kosa | plavo | plavuša | tamna boja kože | žena | žena s plavom kosom</annotation>
 		<annotation cp="👱🏿‍♀" type="tts">žena s plavom kosom: tamna boja kože</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏼">hrvačica | hrvanje | svijetla boja kože | umjereno svijetla boja kože | žena</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏼" type="tts">hrvačica: svijetla boja kože i umjereno svijetla boja kože</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏽">hrvačica | hrvanje | svijetla boja kože | umjerena boja kože | žena</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏽" type="tts">hrvačica: svijetla boja kože i umjerena boja kože</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏾">hrvačica | hrvanje | svijetla boja kože | umjereno tamna boja kože | žena</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏾" type="tts">hrvačica: svijetla boja kože i umjereno tamna boja kože</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏿">hrvačica | hrvanje | svijetla boja kože | tamna boja kože | žena</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏿" type="tts">hrvačica: svijetla boja kože i tamna boja kože</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏻">hrvačica | hrvanje | svijetla boja kože | umjereno svijetla boja kože | žena</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏻" type="tts">hrvačica: umjereno svijetla boja kože i svijetla boja kože</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏽">hrvačica | hrvanje | umjerena boja kože | umjereno svijetla boja kože | žena</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏽" type="tts">hrvačica: umjereno svijetla boja kože i umjerena boja kože</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏾">hrvačica | hrvanje | umjereno svijetla boja kože | umjereno tamna boja kože | žena</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏾" type="tts">hrvačica: umjereno svijetla boja kože i umjereno tamna boja kože</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏿">hrvačica | hrvanje | tamna boja kože | umjereno svijetla boja kože | žena</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏿" type="tts">hrvačica: umjereno svijetla boja kože i tamna boja kože</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏻">hrvačica | hrvanje | svijetla boja kože | umjerena boja kože | žena</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏻" type="tts">hrvačica: umjerena boja kože i svijetla boja kože</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏼">hrvačica | hrvanje | umjerena boja kože | umjereno svijetla boja kože | žena</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏼" type="tts">hrvačica: umjerena boja kože i umjereno svijetla boja kože</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏾">hrvačica | hrvanje | umjerena boja kože | umjereno tamna boja kože | žena</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏾" type="tts">hrvačica: umjerena boja kože i umjereno tamna boja kože</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏿">hrvačica | hrvanje | tamna boja kože | umjerena boja kože | žena</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏿" type="tts">hrvačica: umjerena boja kože i tamna boja kože</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏻">hrvačica | hrvanje | svijetla boja kože | umjereno tamna boja kože | žena</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏻" type="tts">hrvačica: umjereno tamna boja kože i svijetla boja kože</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏼">hrvačica | hrvanje | umjereno svijetla boja kože | umjereno tamna boja kože | žena</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏼" type="tts">hrvačica: umjereno tamna boja kože i umjereno svijetla boja kože</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏽">hrvačica | hrvanje | umjerena boja kože | umjereno tamna boja kože | žena</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏽" type="tts">hrvačica: umjereno tamna boja kože i umjerena boja kože</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏿">hrvačica | hrvanje | tamna boja kože | umjereno tamna boja kože | žena</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏿" type="tts">hrvačica: umjereno tamna boja kože i tamna boja kože</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏻">hrvačica | hrvanje | svijetla boja kože | tamna boja kože | žena</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏻" type="tts">hrvačica: tamna boja kože i svijetla boja kože</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏼">hrvačica | hrvanje | tamna boja kože | umjereno svijetla boja kože | žena</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏼" type="tts">hrvačica: tamna boja kože i umjereno svijetla boja kože</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏽">hrvačica | hrvanje | tamna boja kože | umjerena boja kože | žena</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏽" type="tts">hrvačica: tamna boja kože i umjerena boja kože</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏾">hrvačica | hrvanje | tamna boja kože | umjereno tamna boja kože | žena</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏾" type="tts">hrvačica: tamna boja kože i umjereno tamna boja kože</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👨🏻">muškarac | par | poljubac | svijetla boja kože | žena</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👨🏻" type="tts">poljubac: žena, muškarac i svijetla boja kože</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👨🏼">muškarac | par | poljubac | svijetla boja kože | umjereno svijetla boja kože | žena</annotation>
@@ -1197,6 +1406,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🦲" type="tts">žena: umjereno tamna boja kože i ćelavo</annotation>
 		<annotation cp="👩🏿‍🦲">ćelavo | odrasla osoba | tamna boja kože | žena</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">žena: tamna boja kože i ćelavo</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏼">ples | provod | svijetla boja kože | umjereno svijetla boja kože | žena | žena u provodu | žene u provodu</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏼" type="tts">žene u provodu: svijetla boja kože i umjereno svijetla boja kože</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏽">ples | provod | svijetla boja kože | umjerena boja kože | žena | žena u provodu | žene u provodu</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏽" type="tts">žene u provodu: svijetla boja kože i umjerena boja kože</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏾">ples | provod | svijetla boja kože | umjereno tamna boja kože | žena | žena u provodu | žene u provodu</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏾" type="tts">žene u provodu: svijetla boja kože i umjereno tamna boja kože</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏿">ples | provod | svijetla boja kože | tamna boja kože | žena | žena u provodu | žene u provodu</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏿" type="tts">žene u provodu: svijetla boja kože i tamna boja kože</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏻">ples | provod | svijetla boja kože | umjereno svijetla boja kože | žena | žena u provodu | žene u provodu</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏻" type="tts">žene u provodu: umjereno svijetla boja kože i svijetla boja kože</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏽">ples | provod | umjerena boja kože | umjereno svijetla boja kože | žena | žena u provodu | žene u provodu</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏽" type="tts">žene u provodu: umjereno svijetla boja kože i umjerena boja kože</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏾">ples | provod | umjereno svijetla boja kože | umjereno tamna boja kože | žena | žena u provodu | žene u provodu</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏾" type="tts">žene u provodu: umjereno svijetla boja kože i umjereno tamna boja kože</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏿">ples | provod | tamna boja kože | umjereno svijetla boja kože | žena | žena u provodu | žene u provodu</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏿" type="tts">žene u provodu: umjereno svijetla boja kože i tamna boja kože</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏻">ples | provod | svijetla boja kože | umjerena boja kože | žena | žena u provodu | žene u provodu</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏻" type="tts">žene u provodu: umjerena boja kože i svijetla boja kože</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏼">ples | provod | umjerena boja kože | umjereno svijetla boja kože | žena | žena u provodu | žene u provodu</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏼" type="tts">žene u provodu: umjerena boja kože i umjereno svijetla boja kože</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏾">ples | provod | umjerena boja kože | umjereno tamna boja kože | žena | žena u provodu | žene u provodu</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏾" type="tts">žene u provodu: umjerena boja kože i umjereno tamna boja kože</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏿">ples | provod | tamna boja kože | umjerena boja kože | žena | žena u provodu | žene u provodu</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏿" type="tts">žene u provodu: umjerena boja kože i tamna boja kože</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏻">ples | provod | svijetla boja kože | umjereno tamna boja kože | žena | žena u provodu | žene u provodu</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏻" type="tts">žene u provodu: umjereno tamna boja kože i svijetla boja kože</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏼">ples | provod | umjereno svijetla boja kože | umjereno tamna boja kože | žena | žena u provodu | žene u provodu</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏼" type="tts">žene u provodu: umjereno tamna boja kože i umjereno svijetla boja kože</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏽">ples | provod | umjerena boja kože | umjereno tamna boja kože | žena | žena u provodu | žene u provodu</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏽" type="tts">žene u provodu: umjereno tamna boja kože i umjerena boja kože</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏿">ples | provod | tamna boja kože | umjereno tamna boja kože | žena | žena u provodu | žene u provodu</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏿" type="tts">žene u provodu: umjereno tamna boja kože i tamna boja kože</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏻">ples | provod | svijetla boja kože | tamna boja kože | žena | žena u provodu | žene u provodu</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏻" type="tts">žene u provodu: tamna boja kože i svijetla boja kože</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏼">ples | provod | tamna boja kože | umjereno svijetla boja kože | žena | žena u provodu | žene u provodu</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏼" type="tts">žene u provodu: tamna boja kože i umjereno svijetla boja kože</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏽">ples | provod | tamna boja kože | umjerena boja kože | žena | žena u provodu | žene u provodu</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏽" type="tts">žene u provodu: tamna boja kože i umjerena boja kože</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏾">ples | provod | tamna boja kože | umjereno tamna boja kože | žena | žena u provodu | žene u provodu</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏾" type="tts">žene u provodu: tamna boja kože i umjereno tamna boja kože</annotation>
 		<annotation cp="🧓🏻">neodređen spol | srednji rod | starija odrasla osoba | staro | svijetla boja kože</annotation>
 		<annotation cp="🧓🏻" type="tts">starija odrasla osoba: svijetla boja kože</annotation>
 		<annotation cp="🧓🏼">neodređen spol | srednji rod | starija odrasla osoba | staro | umjereno svijetla boja kože</annotation>
@@ -3113,6 +3362,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🕴🏾" type="tts">osoba u odijelu levitira: umjereno tamna boja kože</annotation>
 		<annotation cp="🕴🏿">odijelo | osoba | osoba u odijelu levitira | posao | tamna boja kože</annotation>
 		<annotation cp="🕴🏿" type="tts">osoba u odijelu levitira: tamna boja kože</annotation>
+		<annotation cp="👯🏻">grupa | osobe u provodu | ples | provod | svijetla boja kože</annotation>
+		<annotation cp="👯🏻" type="tts">osobe u provodu: svijetla boja kože</annotation>
+		<annotation cp="👯🏼">grupa | osobe u provodu | ples | provod | umjereno svijetla boja kože</annotation>
+		<annotation cp="👯🏼" type="tts">osobe u provodu: umjereno svijetla boja kože</annotation>
+		<annotation cp="👯🏽">grupa | osobe u provodu | ples | provod | umjerena boja kože</annotation>
+		<annotation cp="👯🏽" type="tts">osobe u provodu: umjerena boja kože</annotation>
+		<annotation cp="👯🏾">grupa | osobe u provodu | ples | provod | umjereno tamna boja kože</annotation>
+		<annotation cp="👯🏾" type="tts">osobe u provodu: umjereno tamna boja kože</annotation>
+		<annotation cp="👯🏿">grupa | osobe u provodu | ples | provod | tamna boja kože</annotation>
+		<annotation cp="👯🏿" type="tts">osobe u provodu: tamna boja kože</annotation>
+		<annotation cp="👯🏻‍♀">ples | provod | svijetla boja kože | žena | žena u provodu | žene u provodu</annotation>
+		<annotation cp="👯🏻‍♀" type="tts">žene u provodu: svijetla boja kože</annotation>
+		<annotation cp="👯🏼‍♀">ples | provod | umjereno svijetla boja kože | žena | žena u provodu | žene u provodu</annotation>
+		<annotation cp="👯🏼‍♀" type="tts">žene u provodu: umjereno svijetla boja kože</annotation>
+		<annotation cp="👯🏽‍♀">ples | provod | umjerena boja kože | žena | žena u provodu | žene u provodu</annotation>
+		<annotation cp="👯🏽‍♀" type="tts">žene u provodu: umjerena boja kože</annotation>
+		<annotation cp="👯🏾‍♀">ples | provod | umjereno tamna boja kože | žena | žena u provodu | žene u provodu</annotation>
+		<annotation cp="👯🏾‍♀" type="tts">žene u provodu: umjereno tamna boja kože</annotation>
+		<annotation cp="👯🏿‍♀">ples | provod | tamna boja kože | žena | žena u provodu | žene u provodu</annotation>
+		<annotation cp="👯🏿‍♀" type="tts">žene u provodu: tamna boja kože</annotation>
+		<annotation cp="👯🏻‍♂">muškarac | muškarac u provodu | muškarci u provodu | ples | provod | svijetla boja kože</annotation>
+		<annotation cp="👯🏻‍♂" type="tts">muškarci u provodu: svijetla boja kože</annotation>
+		<annotation cp="👯🏼‍♂">muškarac | muškarac u provodu | muškarci u provodu | ples | provod | umjereno svijetla boja kože</annotation>
+		<annotation cp="👯🏼‍♂" type="tts">muškarci u provodu: umjereno svijetla boja kože</annotation>
+		<annotation cp="👯🏽‍♂">muškarac | muškarac u provodu | muškarci u provodu | ples | provod | umjerena boja kože</annotation>
+		<annotation cp="👯🏽‍♂" type="tts">muškarci u provodu: umjerena boja kože</annotation>
+		<annotation cp="👯🏾‍♂">muškarac | muškarac u provodu | muškarci u provodu | ples | provod | umjereno tamna boja kože</annotation>
+		<annotation cp="👯🏾‍♂" type="tts">muškarci u provodu: umjereno tamna boja kože</annotation>
+		<annotation cp="👯🏿‍♂">muškarac | muškarac u provodu | muškarci u provodu | ples | provod | tamna boja kože</annotation>
+		<annotation cp="👯🏿‍♂" type="tts">muškarci u provodu: tamna boja kože</annotation>
 		<annotation cp="🧖🏻">osoba u prostoriji s parom | para | sauna | svijetla boja kože</annotation>
 		<annotation cp="🧖🏻" type="tts">osoba u prostoriji s parom: svijetla boja kože</annotation>
 		<annotation cp="🧖🏼">osoba u prostoriji s parom | para | sauna | umjereno svijetla boja kože</annotation>
@@ -3463,6 +3742,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤸🏾‍♀" type="tts">žena pravi premet: umjereno tamna boja kože</annotation>
 		<annotation cp="🤸🏿‍♀">gimnastika | premet | tamna boja kože | žena | žena pravi premet</annotation>
 		<annotation cp="🤸🏿‍♀" type="tts">žena pravi premet: tamna boja kože</annotation>
+		<annotation cp="🤼🏻">hrvač | hrvanje | osoba | sport | svijetla boja kože</annotation>
+		<annotation cp="🤼🏻" type="tts">hrvanje: svijetla boja kože</annotation>
+		<annotation cp="🤼🏼">hrvač | hrvanje | osoba | sport | umjereno svijetla boja kože</annotation>
+		<annotation cp="🤼🏼" type="tts">hrvanje: umjereno svijetla boja kože</annotation>
+		<annotation cp="🤼🏽">hrvač | hrvanje | osoba | sport | umjerena boja kože</annotation>
+		<annotation cp="🤼🏽" type="tts">hrvanje: umjerena boja kože</annotation>
+		<annotation cp="🤼🏾">hrvač | hrvanje | osoba | sport | umjereno tamna boja kože</annotation>
+		<annotation cp="🤼🏾" type="tts">hrvanje: umjereno tamna boja kože</annotation>
+		<annotation cp="🤼🏿">hrvač | hrvanje | osoba | sport | tamna boja kože</annotation>
+		<annotation cp="🤼🏿" type="tts">hrvanje: tamna boja kože</annotation>
+		<annotation cp="🤼🏻‍♀">hrvačica | hrvanje | svijetla boja kože | žena</annotation>
+		<annotation cp="🤼🏻‍♀" type="tts">hrvačica: svijetla boja kože</annotation>
+		<annotation cp="🤼🏼‍♀">hrvačica | hrvanje | umjereno svijetla boja kože | žena</annotation>
+		<annotation cp="🤼🏼‍♀" type="tts">hrvačica: umjereno svijetla boja kože</annotation>
+		<annotation cp="🤼🏽‍♀">hrvačica | hrvanje | umjerena boja kože | žena</annotation>
+		<annotation cp="🤼🏽‍♀" type="tts">hrvačica: umjerena boja kože</annotation>
+		<annotation cp="🤼🏾‍♀">hrvačica | hrvanje | umjereno tamna boja kože | žena</annotation>
+		<annotation cp="🤼🏾‍♀" type="tts">hrvačica: umjereno tamna boja kože</annotation>
+		<annotation cp="🤼🏿‍♀">hrvačica | hrvanje | tamna boja kože | žena</annotation>
+		<annotation cp="🤼🏿‍♀" type="tts">hrvačica: tamna boja kože</annotation>
+		<annotation cp="🤼🏻‍♂">hrvač | hrvanje | muškarac | svijetla boja kože</annotation>
+		<annotation cp="🤼🏻‍♂" type="tts">hrvač: svijetla boja kože</annotation>
+		<annotation cp="🤼🏼‍♂">hrvač | hrvanje | muškarac | umjereno svijetla boja kože</annotation>
+		<annotation cp="🤼🏼‍♂" type="tts">hrvač: umjereno svijetla boja kože</annotation>
+		<annotation cp="🤼🏽‍♂">hrvač | hrvanje | muškarac | umjerena boja kože</annotation>
+		<annotation cp="🤼🏽‍♂" type="tts">hrvač: umjerena boja kože</annotation>
+		<annotation cp="🤼🏾‍♂">hrvač | hrvanje | muškarac | umjereno tamna boja kože</annotation>
+		<annotation cp="🤼🏾‍♂" type="tts">hrvač: umjereno tamna boja kože</annotation>
+		<annotation cp="🤼🏿‍♂">hrvač | hrvanje | muškarac | tamna boja kože</annotation>
+		<annotation cp="🤼🏿‍♂" type="tts">hrvač: tamna boja kože</annotation>
 		<annotation cp="🤽🏻">osoba | polo | sport | svijetla boja kože | vaterpolo | voda</annotation>
 		<annotation cp="🤽🏻" type="tts">vaterpolo: svijetla boja kože</annotation>
 		<annotation cp="🤽🏼">osoba | polo | sport | umjereno svijetla boja kože | vaterpolo | voda</annotation>
@@ -3993,6 +4302,8 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇨🇴" type="tts">zastava: Kolumbija</annotation>
 		<annotation cp="🇨🇵">zastava</annotation>
 		<annotation cp="🇨🇵" type="tts">zastava: Ostrvo Clipperton</annotation>
+		<annotation cp="🇨🇶">zastava</annotation>
+		<annotation cp="🇨🇶" type="tts">zastava: Sark</annotation>
 		<annotation cp="🇨🇷">zastava</annotation>
 		<annotation cp="🇨🇷" type="tts">zastava: Kostarika</annotation>
 		<annotation cp="🇨🇺">zastava</annotation>
@@ -4432,26 +4743,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="₺" type="tts">Turska lira</annotation>
 		<annotation cp="₼" type="tts">Azerbejdžanski manat</annotation>
 		<annotation cp="₾" type="tts">Gruzijski lari</annotation>
-		<annotation cp="0⃣">Kapica za tipku</annotation>
-		<annotation cp="0⃣" type="tts">Kapica za tipku: 0</annotation>
-		<annotation cp="1⃣">Kapica za tipku</annotation>
-		<annotation cp="1⃣" type="tts">Kapica za tipku: 1</annotation>
-		<annotation cp="2⃣">Kapica za tipku</annotation>
-		<annotation cp="2⃣" type="tts">Kapica za tipku: 2</annotation>
-		<annotation cp="3⃣">Kapica za tipku</annotation>
-		<annotation cp="3⃣" type="tts">Kapica za tipku: 3</annotation>
-		<annotation cp="4⃣">Kapica za tipku</annotation>
-		<annotation cp="4⃣" type="tts">Kapica za tipku: 4</annotation>
-		<annotation cp="5⃣">Kapica za tipku</annotation>
-		<annotation cp="5⃣" type="tts">Kapica za tipku: 5</annotation>
-		<annotation cp="6⃣">Kapica za tipku</annotation>
-		<annotation cp="6⃣" type="tts">Kapica za tipku: 6</annotation>
-		<annotation cp="7⃣">Kapica za tipku</annotation>
-		<annotation cp="7⃣" type="tts">Kapica za tipku: 7</annotation>
-		<annotation cp="8⃣">Kapica za tipku</annotation>
-		<annotation cp="8⃣" type="tts">Kapica za tipku: 8</annotation>
-		<annotation cp="9⃣">Kapica za tipku</annotation>
-		<annotation cp="9⃣" type="tts">Kapica za tipku: 9</annotation>
 		<annotation cp="₧" type="tts">Španska pezeta</annotation>
 	</annotations>
 </ldml>

@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-
-Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
 -->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -603,6 +602,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾" type="tts">umuntu: uhlobo-5, izinwele ezinhlophe</annotation>
 		<annotation cp="👱🏿">izinwele | izinwele ezinhlophe | mhlophe | uhlobo-6 | umuntu onezinwele ezimhlophe | umuntu: izinwele ezinhlophe</annotation>
 		<annotation cp="👱🏿" type="tts">umuntu: uhlobo-6, izinwele ezinhlophe</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏼">abashayi-sibhakela | bhakela | uhlobo-1-2 | uhlobo-3 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏼" type="tts">abashayi-sibhakela: uhlobo-1-2, uhlobo-3</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏽">abashayi-sibhakela | bhakela | uhlobo-1-2 | uhlobo-4 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏽" type="tts">abashayi-sibhakela: uhlobo-1-2, uhlobo-4</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏾">abashayi-sibhakela | bhakela | uhlobo-1-2 | uhlobo-5 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏾" type="tts">abashayi-sibhakela: uhlobo-1-2, uhlobo-5</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏿">abashayi-sibhakela | bhakela | uhlobo-1-2 | uhlobo-6 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏿" type="tts">abashayi-sibhakela: uhlobo-1-2, uhlobo-6</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏻">abashayi-sibhakela | bhakela | uhlobo-1-2 | uhlobo-3 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏻" type="tts">abashayi-sibhakela: uhlobo-3, uhlobo-1-2</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏽">abashayi-sibhakela | bhakela | uhlobo-3 | uhlobo-4 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏽" type="tts">abashayi-sibhakela: uhlobo-3, uhlobo-4</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏾">abashayi-sibhakela | bhakela | uhlobo-3 | uhlobo-5 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏾" type="tts">abashayi-sibhakela: uhlobo-3, uhlobo-5</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏿">abashayi-sibhakela | bhakela | uhlobo-3 | uhlobo-6 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏿" type="tts">abashayi-sibhakela: uhlobo-3, uhlobo-6</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏻">abashayi-sibhakela | bhakela | uhlobo-1-2 | uhlobo-4 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏻" type="tts">abashayi-sibhakela: uhlobo-4, uhlobo-1-2</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏼">abashayi-sibhakela | bhakela | uhlobo-3 | uhlobo-4 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏼" type="tts">abashayi-sibhakela: uhlobo-4, uhlobo-3</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏾">abashayi-sibhakela | bhakela | uhlobo-4 | uhlobo-5 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏾" type="tts">abashayi-sibhakela: uhlobo-4, uhlobo-5</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏿">abashayi-sibhakela | bhakela | uhlobo-4 | uhlobo-6 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏿" type="tts">abashayi-sibhakela: uhlobo-4, uhlobo-6</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏻">abashayi-sibhakela | bhakela | uhlobo-1-2 | uhlobo-5 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏻" type="tts">abashayi-sibhakela: uhlobo-5, uhlobo-1-2</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏼">abashayi-sibhakela | bhakela | uhlobo-3 | uhlobo-5 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏼" type="tts">abashayi-sibhakela: uhlobo-5, uhlobo-3</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏽">abashayi-sibhakela | bhakela | uhlobo-4 | uhlobo-5 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏽" type="tts">abashayi-sibhakela: uhlobo-5, uhlobo-4</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏿">abashayi-sibhakela | bhakela | uhlobo-5 | uhlobo-6 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏿" type="tts">abashayi-sibhakela: uhlobo-5, uhlobo-6</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏻">abashayi-sibhakela | bhakela | uhlobo-1-2 | uhlobo-6 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏻" type="tts">abashayi-sibhakela: uhlobo-6, uhlobo-1-2</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏼">abashayi-sibhakela | bhakela | uhlobo-3 | uhlobo-6 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏼" type="tts">abashayi-sibhakela: uhlobo-6, uhlobo-3</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏽">abashayi-sibhakela | bhakela | uhlobo-4 | uhlobo-6 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏽" type="tts">abashayi-sibhakela: uhlobo-6, uhlobo-4</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏾">abashayi-sibhakela | bhakela | uhlobo-5 | uhlobo-6 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏾" type="tts">abashayi-sibhakela: uhlobo-6, uhlobo-5</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏼">izithandani | mdala | uhlobo-1-2 | uhlobo-3 | ukuqabula</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏼" type="tts">ukuqabula: mdala, mdala, uhlobo-1-2, uhlobo-3</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏽">izithandani | mdala | uhlobo-1-2 | uhlobo-4 | ukuqabula</annotation>
@@ -731,6 +770,56 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧑🏾‍🦲" type="tts">mdala: uhlobo-5, imbungculu</annotation>
 		<annotation cp="🧑🏿‍🦲">imbungculu | mdala | ubulili-phakathi | uhlobo-6</annotation>
 		<annotation cp="🧑🏿‍🦲" type="tts">mdala: uhlobo-6, imbungculu</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏼">abantu abasemcimbini | indlebe | intombazane | owesimame | uhlobo-1-2 | uhlobo-3 | ukudansa</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏼" type="tts">abantu abasemcimbini: uhlobo-1-2, uhlobo-3</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏽">abantu abasemcimbini | indlebe | intombazane | owesimame | uhlobo-1-2 | uhlobo-4 | ukudansa</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏽" type="tts">abantu abasemcimbini: uhlobo-1-2, uhlobo-4</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏾">abantu abasemcimbini | indlebe | intombazane | owesimame | uhlobo-1-2 | uhlobo-5 | ukudansa</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏾" type="tts">abantu abasemcimbini: uhlobo-1-2, uhlobo-5</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏿">abantu abasemcimbini | indlebe | intombazane | owesimame | uhlobo-1-2 | uhlobo-6 | ukudansa</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏿" type="tts">abantu abasemcimbini: uhlobo-1-2, uhlobo-6</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏻">abantu abasemcimbini | indlebe | intombazane | owesimame | uhlobo-1-2 | uhlobo-3 | ukudansa</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏻" type="tts">abantu abasemcimbini: uhlobo-3, uhlobo-1-2</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏽">abantu abasemcimbini | indlebe | intombazane | owesimame | uhlobo-3 | uhlobo-4 | ukudansa</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏽" type="tts">abantu abasemcimbini: uhlobo-3, uhlobo-4</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏾">abantu abasemcimbini | indlebe | intombazane | owesimame | uhlobo-3 | uhlobo-5 | ukudansa</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏾" type="tts">abantu abasemcimbini: uhlobo-3, uhlobo-5</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏿">abantu abasemcimbini | indlebe | intombazane | owesimame | uhlobo-3 | uhlobo-6 | ukudansa</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏿" type="tts">abantu abasemcimbini: uhlobo-3, uhlobo-6</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏻">abantu abasemcimbini | indlebe | intombazane | owesimame | uhlobo-1-2 | uhlobo-4 | ukudansa</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏻" type="tts">abantu abasemcimbini: uhlobo-4, uhlobo-1-2</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏼">abantu abasemcimbini | indlebe | intombazane | owesimame | uhlobo-3 | uhlobo-4 | ukudansa</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏼" type="tts">abantu abasemcimbini: uhlobo-4, uhlobo-3</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏾">abantu abasemcimbini | indlebe | intombazane | owesimame | uhlobo-4 | uhlobo-5 | ukudansa</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏾" type="tts">abantu abasemcimbini: uhlobo-4, uhlobo-5</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏿">abantu abasemcimbini | indlebe | intombazane | owesimame | uhlobo-4 | uhlobo-6 | ukudansa</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏿" type="tts">abantu abasemcimbini: uhlobo-4, uhlobo-6</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏻">abantu abasemcimbini | indlebe | intombazane | owesimame | uhlobo-1-2 | uhlobo-5 | ukudansa</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏻" type="tts">abantu abasemcimbini: uhlobo-5, uhlobo-1-2</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏼">abantu abasemcimbini | indlebe | intombazane | owesimame | uhlobo-3 | uhlobo-5 | ukudansa</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏼" type="tts">abantu abasemcimbini: uhlobo-5, uhlobo-3</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏽">abantu abasemcimbini | indlebe | intombazane | owesimame | uhlobo-4 | uhlobo-5 | ukudansa</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏽" type="tts">abantu abasemcimbini: uhlobo-5, uhlobo-4</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏿">abantu abasemcimbini | indlebe | intombazane | owesimame | uhlobo-5 | uhlobo-6 | ukudansa</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏿" type="tts">abantu abasemcimbini: uhlobo-5, uhlobo-6</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏻">abantu abasemcimbini | indlebe | intombazane | owesimame | uhlobo-1-2 | uhlobo-6 | ukudansa</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏻" type="tts">abantu abasemcimbini: uhlobo-6, uhlobo-1-2</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏼">abantu abasemcimbini | indlebe | intombazane | owesimame | uhlobo-3 | uhlobo-6 | ukudansa</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏼" type="tts">abantu abasemcimbini: uhlobo-6, uhlobo-3</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏽">abantu abasemcimbini | indlebe | intombazane | owesimame | uhlobo-4 | uhlobo-6 | ukudansa</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏽" type="tts">abantu abasemcimbini: uhlobo-6, uhlobo-4</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏾">abantu abasemcimbini | indlebe | intombazane | owesimame | uhlobo-5 | uhlobo-6 | ukudansa</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏾" type="tts">abantu abasemcimbini: uhlobo-6, uhlobo-5</annotation>
+		<annotation cp="🧑🏻‍🩰">ballet | dancer | uhlobo-1-2</annotation>
+		<annotation cp="🧑🏻‍🩰" type="tts">ballet dancer: uhlobo-1-2</annotation>
+		<annotation cp="🧑🏼‍🩰">ballet | dancer | uhlobo-3</annotation>
+		<annotation cp="🧑🏼‍🩰" type="tts">ballet dancer: uhlobo-3</annotation>
+		<annotation cp="🧑🏽‍🩰">ballet | dancer | uhlobo-4</annotation>
+		<annotation cp="🧑🏽‍🩰" type="tts">ballet dancer: uhlobo-4</annotation>
+		<annotation cp="🧑🏾‍🩰">ballet | dancer | uhlobo-5</annotation>
+		<annotation cp="🧑🏾‍🩰" type="tts">ballet dancer: uhlobo-5</annotation>
+		<annotation cp="🧑🏿‍🩰">ballet | dancer | uhlobo-6</annotation>
+		<annotation cp="🧑🏿‍🩰" type="tts">ballet dancer: uhlobo-6</annotation>
 		<annotation cp="👨🏻">indoda | owesilisa | ubaba | uhlobo-1-2</annotation>
 		<annotation cp="👨🏻" type="tts">indoda: uhlobo-1-2</annotation>
 		<annotation cp="👨🏼">indoda | owesilisa | ubaba | uhlobo-3</annotation>
@@ -771,6 +860,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾‍♂" type="tts">indoda: uhlobo-5, izinwele ezimhlophe</annotation>
 		<annotation cp="👱🏿‍♂">indoda | indoda enezinwele ezimhlophe | indoda: izinwele ezimhlophe | izinwele | izinwele ezimhlophe | mhlophe | uhlobo-6</annotation>
 		<annotation cp="👱🏿‍♂" type="tts">indoda: uhlobo-6, izinwele ezimhlophe</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏼">abashayisibhakela besilisa | bhakela | uhlobo-1-2 | uhlobo-3 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏼" type="tts">abashayisibhakela besilisa: uhlobo-1-2, uhlobo-3</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏽">abashayisibhakela besilisa | bhakela | uhlobo-1-2 | uhlobo-4 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏽" type="tts">abashayisibhakela besilisa: uhlobo-1-2, uhlobo-4</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏾">abashayisibhakela besilisa | bhakela | uhlobo-1-2 | uhlobo-5 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏾" type="tts">abashayisibhakela besilisa: uhlobo-1-2, uhlobo-5</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏿">abashayisibhakela besilisa | bhakela | uhlobo-1-2 | uhlobo-6 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏿" type="tts">abashayisibhakela besilisa: uhlobo-1-2, uhlobo-6</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏻">abashayisibhakela besilisa | bhakela | uhlobo-1-2 | uhlobo-3 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏻" type="tts">abashayisibhakela besilisa: uhlobo-3, uhlobo-1-2</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏽">abashayisibhakela besilisa | bhakela | uhlobo-3 | uhlobo-4 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏽" type="tts">abashayisibhakela besilisa: uhlobo-3, uhlobo-4</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏾">abashayisibhakela besilisa | bhakela | uhlobo-3 | uhlobo-5 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏾" type="tts">abashayisibhakela besilisa: uhlobo-3, uhlobo-5</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏿">abashayisibhakela besilisa | bhakela | uhlobo-3 | uhlobo-6 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏿" type="tts">abashayisibhakela besilisa: uhlobo-3, uhlobo-6</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏻">abashayisibhakela besilisa | bhakela | uhlobo-1-2 | uhlobo-4 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏻" type="tts">abashayisibhakela besilisa: uhlobo-4, uhlobo-1-2</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏼">abashayisibhakela besilisa | bhakela | uhlobo-3 | uhlobo-4 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏼" type="tts">abashayisibhakela besilisa: uhlobo-4, uhlobo-3</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏾">abashayisibhakela besilisa | bhakela | uhlobo-4 | uhlobo-5 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏾" type="tts">abashayisibhakela besilisa: uhlobo-4, uhlobo-5</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏿">abashayisibhakela besilisa | bhakela | uhlobo-4 | uhlobo-6 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏿" type="tts">abashayisibhakela besilisa: uhlobo-4, uhlobo-6</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏻">abashayisibhakela besilisa | bhakela | uhlobo-1-2 | uhlobo-5 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏻" type="tts">abashayisibhakela besilisa: uhlobo-5, uhlobo-1-2</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏼">abashayisibhakela besilisa | bhakela | uhlobo-3 | uhlobo-5 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏼" type="tts">abashayisibhakela besilisa: uhlobo-5, uhlobo-3</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏽">abashayisibhakela besilisa | bhakela | uhlobo-4 | uhlobo-5 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏽" type="tts">abashayisibhakela besilisa: uhlobo-5, uhlobo-4</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏿">abashayisibhakela besilisa | bhakela | uhlobo-5 | uhlobo-6 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏿" type="tts">abashayisibhakela besilisa: uhlobo-5, uhlobo-6</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏻">abashayisibhakela besilisa | bhakela | uhlobo-1-2 | uhlobo-6 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏻" type="tts">abashayisibhakela besilisa: uhlobo-6, uhlobo-1-2</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏼">abashayisibhakela besilisa | bhakela | uhlobo-3 | uhlobo-6 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏼" type="tts">abashayisibhakela besilisa: uhlobo-6, uhlobo-3</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏽">abashayisibhakela besilisa | bhakela | uhlobo-4 | uhlobo-6 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏽" type="tts">abashayisibhakela besilisa: uhlobo-6, uhlobo-4</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏾">abashayisibhakela besilisa | bhakela | uhlobo-5 | uhlobo-6 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏾" type="tts">abashayisibhakela besilisa: uhlobo-6, uhlobo-5</annotation>
 		<annotation cp="👨🏻‍❤‍💋‍👨🏻">indoda | izithandani | uhlobo-1-2 | ukuqabula</annotation>
 		<annotation cp="👨🏻‍❤‍💋‍👨🏻" type="tts">ukuqabula: indoda, indoda, uhlobo-1-2</annotation>
 		<annotation cp="👨🏻‍❤‍💋‍👨🏼">indoda | izithandani | uhlobo-1-2 | uhlobo-3 | ukuqabula</annotation>
@@ -919,6 +1048,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾‍🦲" type="tts">indoda: uhlobo-5, imbungculu</annotation>
 		<annotation cp="👨🏿‍🦲">imbungculu | indoda | owesilisa | ubaba | uhlobo-6</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">indoda: uhlobo-6, imbungculu</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏼">amadoda asemcimbini | indlebe | indoda | uhlobo-1-2 | uhlobo-3 | ukuthokozela umcimbi | umdansi</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏼" type="tts">amadoda asemcimbini: uhlobo-1-2, uhlobo-3</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏽">amadoda asemcimbini | indlebe | indoda | uhlobo-1-2 | uhlobo-4 | ukuthokozela umcimbi | umdansi</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏽" type="tts">amadoda asemcimbini: uhlobo-1-2, uhlobo-4</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏾">amadoda asemcimbini | indlebe | indoda | uhlobo-1-2 | uhlobo-5 | ukuthokozela umcimbi | umdansi</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏾" type="tts">amadoda asemcimbini: uhlobo-1-2, uhlobo-5</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏿">amadoda asemcimbini | indlebe | indoda | uhlobo-1-2 | uhlobo-6 | ukuthokozela umcimbi | umdansi</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏿" type="tts">amadoda asemcimbini: uhlobo-1-2, uhlobo-6</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏻">amadoda asemcimbini | indlebe | indoda | uhlobo-1-2 | uhlobo-3 | ukuthokozela umcimbi | umdansi</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏻" type="tts">amadoda asemcimbini: uhlobo-3, uhlobo-1-2</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏽">amadoda asemcimbini | indlebe | indoda | uhlobo-3 | uhlobo-4 | ukuthokozela umcimbi | umdansi</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏽" type="tts">amadoda asemcimbini: uhlobo-3, uhlobo-4</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏾">amadoda asemcimbini | indlebe | indoda | uhlobo-3 | uhlobo-5 | ukuthokozela umcimbi | umdansi</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏾" type="tts">amadoda asemcimbini: uhlobo-3, uhlobo-5</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏿">amadoda asemcimbini | indlebe | indoda | uhlobo-3 | uhlobo-6 | ukuthokozela umcimbi | umdansi</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏿" type="tts">amadoda asemcimbini: uhlobo-3, uhlobo-6</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏻">amadoda asemcimbini | indlebe | indoda | uhlobo-1-2 | uhlobo-4 | ukuthokozela umcimbi | umdansi</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏻" type="tts">amadoda asemcimbini: uhlobo-4, uhlobo-1-2</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏼">amadoda asemcimbini | indlebe | indoda | uhlobo-3 | uhlobo-4 | ukuthokozela umcimbi | umdansi</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏼" type="tts">amadoda asemcimbini: uhlobo-4, uhlobo-3</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏾">amadoda asemcimbini | indlebe | indoda | uhlobo-4 | uhlobo-5 | ukuthokozela umcimbi | umdansi</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏾" type="tts">amadoda asemcimbini: uhlobo-4, uhlobo-5</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏿">amadoda asemcimbini | indlebe | indoda | uhlobo-4 | uhlobo-6 | ukuthokozela umcimbi | umdansi</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏿" type="tts">amadoda asemcimbini: uhlobo-4, uhlobo-6</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏻">amadoda asemcimbini | indlebe | indoda | uhlobo-1-2 | uhlobo-5 | ukuthokozela umcimbi | umdansi</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏻" type="tts">amadoda asemcimbini: uhlobo-5, uhlobo-1-2</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏼">amadoda asemcimbini | indlebe | indoda | uhlobo-3 | uhlobo-5 | ukuthokozela umcimbi | umdansi</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏼" type="tts">amadoda asemcimbini: uhlobo-5, uhlobo-3</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏽">amadoda asemcimbini | indlebe | indoda | uhlobo-4 | uhlobo-5 | ukuthokozela umcimbi | umdansi</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏽" type="tts">amadoda asemcimbini: uhlobo-5, uhlobo-4</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏿">amadoda asemcimbini | indlebe | indoda | uhlobo-5 | uhlobo-6 | ukuthokozela umcimbi | umdansi</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏿" type="tts">amadoda asemcimbini: uhlobo-5, uhlobo-6</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏻">amadoda asemcimbini | indlebe | indoda | uhlobo-1-2 | uhlobo-6 | ukuthokozela umcimbi | umdansi</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏻" type="tts">amadoda asemcimbini: uhlobo-6, uhlobo-1-2</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏼">amadoda asemcimbini | indlebe | indoda | uhlobo-3 | uhlobo-6 | ukuthokozela umcimbi | umdansi</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏼" type="tts">amadoda asemcimbini: uhlobo-6, uhlobo-3</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏽">amadoda asemcimbini | indlebe | indoda | uhlobo-4 | uhlobo-6 | ukuthokozela umcimbi | umdansi</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏽" type="tts">amadoda asemcimbini: uhlobo-6, uhlobo-4</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏾">amadoda asemcimbini | indlebe | indoda | uhlobo-5 | uhlobo-6 | ukuthokozela umcimbi | umdansi</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏾" type="tts">amadoda asemcimbini: uhlobo-6, uhlobo-5</annotation>
 		<annotation cp="👩🏻">owesimame | uhlobo-1-2 | umama</annotation>
 		<annotation cp="👩🏻" type="tts">umama: uhlobo-1-2</annotation>
 		<annotation cp="👩🏼">owesimame | uhlobo-3 | umama</annotation>
@@ -949,6 +1118,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾‍♀" type="tts">umama: uhlobo-5, izinwele ezimhlophe</annotation>
 		<annotation cp="👱🏿‍♀">izinwele | izinwele ezimhlophe | mhlophe | uhlobo-6 | umama | umama onezinwele ezinhlophe | umama: izinwele ezimhlophe</annotation>
 		<annotation cp="👱🏿‍♀" type="tts">umama: uhlobo-6, izinwele ezimhlophe</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏼">abashayisibhakela besimame | bhakela | uhlobo-1-2 | uhlobo-3 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏼" type="tts">abashayisibhakela besimame: uhlobo-1-2, uhlobo-3</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏽">abashayisibhakela besimame | bhakela | uhlobo-1-2 | uhlobo-4 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏽" type="tts">abashayisibhakela besimame: uhlobo-1-2, uhlobo-4</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏾">abashayisibhakela besimame | bhakela | uhlobo-1-2 | uhlobo-5 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏾" type="tts">abashayisibhakela besimame: uhlobo-1-2, uhlobo-5</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏿">abashayisibhakela besimame | bhakela | uhlobo-1-2 | uhlobo-6 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏿" type="tts">abashayisibhakela besimame: uhlobo-1-2, uhlobo-6</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏻">abashayisibhakela besimame | bhakela | uhlobo-1-2 | uhlobo-3 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏻" type="tts">abashayisibhakela besimame: uhlobo-3, uhlobo-1-2</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏽">abashayisibhakela besimame | bhakela | uhlobo-3 | uhlobo-4 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏽" type="tts">abashayisibhakela besimame: uhlobo-3, uhlobo-4</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏾">abashayisibhakela besimame | bhakela | uhlobo-3 | uhlobo-5 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏾" type="tts">abashayisibhakela besimame: uhlobo-3, uhlobo-5</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏿">abashayisibhakela besimame | bhakela | uhlobo-3 | uhlobo-6 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏿" type="tts">abashayisibhakela besimame: uhlobo-3, uhlobo-6</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏻">abashayisibhakela besimame | bhakela | uhlobo-1-2 | uhlobo-4 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏻" type="tts">abashayisibhakela besimame: uhlobo-4, uhlobo-1-2</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏼">abashayisibhakela besimame | bhakela | uhlobo-3 | uhlobo-4 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏼" type="tts">abashayisibhakela besimame: uhlobo-4, uhlobo-3</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏾">abashayisibhakela besimame | bhakela | uhlobo-4 | uhlobo-5 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏾" type="tts">abashayisibhakela besimame: uhlobo-4, uhlobo-5</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏿">abashayisibhakela besimame | bhakela | uhlobo-4 | uhlobo-6 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏿" type="tts">abashayisibhakela besimame: uhlobo-4, uhlobo-6</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏻">abashayisibhakela besimame | bhakela | uhlobo-1-2 | uhlobo-5 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏻" type="tts">abashayisibhakela besimame: uhlobo-5, uhlobo-1-2</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏼">abashayisibhakela besimame | bhakela | uhlobo-3 | uhlobo-5 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏼" type="tts">abashayisibhakela besimame: uhlobo-5, uhlobo-3</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏽">abashayisibhakela besimame | bhakela | uhlobo-4 | uhlobo-5 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏽" type="tts">abashayisibhakela besimame: uhlobo-5, uhlobo-4</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏿">abashayisibhakela besimame | bhakela | uhlobo-5 | uhlobo-6 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏿" type="tts">abashayisibhakela besimame: uhlobo-5, uhlobo-6</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏻">abashayisibhakela besimame | bhakela | uhlobo-1-2 | uhlobo-6 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏻" type="tts">abashayisibhakela besimame: uhlobo-6, uhlobo-1-2</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏼">abashayisibhakela besimame | bhakela | uhlobo-3 | uhlobo-6 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏼" type="tts">abashayisibhakela besimame: uhlobo-6, uhlobo-3</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏽">abashayisibhakela besimame | bhakela | uhlobo-4 | uhlobo-6 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏽" type="tts">abashayisibhakela besimame: uhlobo-6, uhlobo-4</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏾">abashayisibhakela besimame | bhakela | uhlobo-5 | uhlobo-6 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏾" type="tts">abashayisibhakela besimame: uhlobo-6, uhlobo-5</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👨🏻">indoda | izithandani | uhlobo-1-2 | ukuqabula | umama</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👨🏻" type="tts">ukuqabula: umama, indoda, uhlobo-1-2</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👨🏼">indoda | izithandani | uhlobo-1-2 | uhlobo-3 | ukuqabula | umama</annotation>
@@ -1197,6 +1406,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🦲" type="tts">umama: uhlobo-5, imbungculu</annotation>
 		<annotation cp="👩🏿‍🦲">imbungculu | owesimame | uhlobo-6 | umama</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">umama: uhlobo-6, imbungculu</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏼">abasemame abasemcimbini | indlebe | owesimame | uhlobo-1-2 | uhlobo-3 | ukuthokozela umcimbi | umdansi</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏼" type="tts">abasemame abasemcimbini: uhlobo-1-2, uhlobo-3</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏽">abasemame abasemcimbini | indlebe | owesimame | uhlobo-1-2 | uhlobo-4 | ukuthokozela umcimbi | umdansi</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏽" type="tts">abasemame abasemcimbini: uhlobo-1-2, uhlobo-4</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏾">abasemame abasemcimbini | indlebe | owesimame | uhlobo-1-2 | uhlobo-5 | ukuthokozela umcimbi | umdansi</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏾" type="tts">abasemame abasemcimbini: uhlobo-1-2, uhlobo-5</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏿">abasemame abasemcimbini | indlebe | owesimame | uhlobo-1-2 | uhlobo-6 | ukuthokozela umcimbi | umdansi</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏿" type="tts">abasemame abasemcimbini: uhlobo-1-2, uhlobo-6</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏻">abasemame abasemcimbini | indlebe | owesimame | uhlobo-1-2 | uhlobo-3 | ukuthokozela umcimbi | umdansi</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏻" type="tts">abasemame abasemcimbini: uhlobo-3, uhlobo-1-2</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏽">abasemame abasemcimbini | indlebe | owesimame | uhlobo-3 | uhlobo-4 | ukuthokozela umcimbi | umdansi</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏽" type="tts">abasemame abasemcimbini: uhlobo-3, uhlobo-4</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏾">abasemame abasemcimbini | indlebe | owesimame | uhlobo-3 | uhlobo-5 | ukuthokozela umcimbi | umdansi</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏾" type="tts">abasemame abasemcimbini: uhlobo-3, uhlobo-5</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏿">abasemame abasemcimbini | indlebe | owesimame | uhlobo-3 | uhlobo-6 | ukuthokozela umcimbi | umdansi</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏿" type="tts">abasemame abasemcimbini: uhlobo-3, uhlobo-6</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏻">abasemame abasemcimbini | indlebe | owesimame | uhlobo-1-2 | uhlobo-4 | ukuthokozela umcimbi | umdansi</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏻" type="tts">abasemame abasemcimbini: uhlobo-4, uhlobo-1-2</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏼">abasemame abasemcimbini | indlebe | owesimame | uhlobo-3 | uhlobo-4 | ukuthokozela umcimbi | umdansi</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏼" type="tts">abasemame abasemcimbini: uhlobo-4, uhlobo-3</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏾">abasemame abasemcimbini | indlebe | owesimame | uhlobo-4 | uhlobo-5 | ukuthokozela umcimbi | umdansi</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏾" type="tts">abasemame abasemcimbini: uhlobo-4, uhlobo-5</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏿">abasemame abasemcimbini | indlebe | owesimame | uhlobo-4 | uhlobo-6 | ukuthokozela umcimbi | umdansi</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏿" type="tts">abasemame abasemcimbini: uhlobo-4, uhlobo-6</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏻">abasemame abasemcimbini | indlebe | owesimame | uhlobo-1-2 | uhlobo-5 | ukuthokozela umcimbi | umdansi</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏻" type="tts">abasemame abasemcimbini: uhlobo-5, uhlobo-1-2</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏼">abasemame abasemcimbini | indlebe | owesimame | uhlobo-3 | uhlobo-5 | ukuthokozela umcimbi | umdansi</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏼" type="tts">abasemame abasemcimbini: uhlobo-5, uhlobo-3</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏽">abasemame abasemcimbini | indlebe | owesimame | uhlobo-4 | uhlobo-5 | ukuthokozela umcimbi | umdansi</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏽" type="tts">abasemame abasemcimbini: uhlobo-5, uhlobo-4</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏿">abasemame abasemcimbini | indlebe | owesimame | uhlobo-5 | uhlobo-6 | ukuthokozela umcimbi | umdansi</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏿" type="tts">abasemame abasemcimbini: uhlobo-5, uhlobo-6</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏻">abasemame abasemcimbini | indlebe | owesimame | uhlobo-1-2 | uhlobo-6 | ukuthokozela umcimbi | umdansi</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏻" type="tts">abasemame abasemcimbini: uhlobo-6, uhlobo-1-2</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏼">abasemame abasemcimbini | indlebe | owesimame | uhlobo-3 | uhlobo-6 | ukuthokozela umcimbi | umdansi</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏼" type="tts">abasemame abasemcimbini: uhlobo-6, uhlobo-3</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏽">abasemame abasemcimbini | indlebe | owesimame | uhlobo-4 | uhlobo-6 | ukuthokozela umcimbi | umdansi</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏽" type="tts">abasemame abasemcimbini: uhlobo-6, uhlobo-4</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏾">abasemame abasemcimbini | indlebe | owesimame | uhlobo-5 | uhlobo-6 | ukuthokozela umcimbi | umdansi</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏾" type="tts">abasemame abasemcimbini: uhlobo-6, uhlobo-5</annotation>
 		<annotation cp="🧓🏻">mdala | omdala omdala | ubulili-phakathi | uhlobo-1-2</annotation>
 		<annotation cp="🧓🏻" type="tts">omdala omdala: uhlobo-1-2</annotation>
 		<annotation cp="🧓🏼">mdala | omdala omdala | ubulili-phakathi | uhlobo-3</annotation>
@@ -2897,6 +3146,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🕴🏾" type="tts">indoda egqoke isudu: uhlobo-5</annotation>
 		<annotation cp="🕴🏿">ibhizinisi | indoda | indoda egqoke isudu | isudu | uhlobo-6</annotation>
 		<annotation cp="🕴🏿" type="tts">indoda egqoke isudu: uhlobo-6</annotation>
+		<annotation cp="👯🏻">abantu abasemcimbini | indlebe | intombazane | owesimame | uhlobo-1-2 | ukudansa</annotation>
+		<annotation cp="👯🏻" type="tts">abantu abasemcimbini: uhlobo-1-2</annotation>
+		<annotation cp="👯🏼">abantu abasemcimbini | indlebe | intombazane | owesimame | uhlobo-3 | ukudansa</annotation>
+		<annotation cp="👯🏼" type="tts">abantu abasemcimbini: uhlobo-3</annotation>
+		<annotation cp="👯🏽">abantu abasemcimbini | indlebe | intombazane | owesimame | uhlobo-4 | ukudansa</annotation>
+		<annotation cp="👯🏽" type="tts">abantu abasemcimbini: uhlobo-4</annotation>
+		<annotation cp="👯🏾">abantu abasemcimbini | indlebe | intombazane | owesimame | uhlobo-5 | ukudansa</annotation>
+		<annotation cp="👯🏾" type="tts">abantu abasemcimbini: uhlobo-5</annotation>
+		<annotation cp="👯🏿">abantu abasemcimbini | indlebe | intombazane | owesimame | uhlobo-6 | ukudansa</annotation>
+		<annotation cp="👯🏿" type="tts">abantu abasemcimbini: uhlobo-6</annotation>
+		<annotation cp="👯🏻‍♀">abasemame abasemcimbini | indlebe | owesimame | uhlobo-1-2 | ukuthokozela umcimbi | umdansi</annotation>
+		<annotation cp="👯🏻‍♀" type="tts">abasemame abasemcimbini: uhlobo-1-2</annotation>
+		<annotation cp="👯🏼‍♀">abasemame abasemcimbini | indlebe | owesimame | uhlobo-3 | ukuthokozela umcimbi | umdansi</annotation>
+		<annotation cp="👯🏼‍♀" type="tts">abasemame abasemcimbini: uhlobo-3</annotation>
+		<annotation cp="👯🏽‍♀">abasemame abasemcimbini | indlebe | owesimame | uhlobo-4 | ukuthokozela umcimbi | umdansi</annotation>
+		<annotation cp="👯🏽‍♀" type="tts">abasemame abasemcimbini: uhlobo-4</annotation>
+		<annotation cp="👯🏾‍♀">abasemame abasemcimbini | indlebe | owesimame | uhlobo-5 | ukuthokozela umcimbi | umdansi</annotation>
+		<annotation cp="👯🏾‍♀" type="tts">abasemame abasemcimbini: uhlobo-5</annotation>
+		<annotation cp="👯🏿‍♀">abasemame abasemcimbini | indlebe | owesimame | uhlobo-6 | ukuthokozela umcimbi | umdansi</annotation>
+		<annotation cp="👯🏿‍♀" type="tts">abasemame abasemcimbini: uhlobo-6</annotation>
+		<annotation cp="👯🏻‍♂">amadoda asemcimbini | indlebe | indoda | uhlobo-1-2 | ukuthokozela umcimbi | umdansi</annotation>
+		<annotation cp="👯🏻‍♂" type="tts">amadoda asemcimbini: uhlobo-1-2</annotation>
+		<annotation cp="👯🏼‍♂">amadoda asemcimbini | indlebe | indoda | uhlobo-3 | ukuthokozela umcimbi | umdansi</annotation>
+		<annotation cp="👯🏼‍♂" type="tts">amadoda asemcimbini: uhlobo-3</annotation>
+		<annotation cp="👯🏽‍♂">amadoda asemcimbini | indlebe | indoda | uhlobo-4 | ukuthokozela umcimbi | umdansi</annotation>
+		<annotation cp="👯🏽‍♂" type="tts">amadoda asemcimbini: uhlobo-4</annotation>
+		<annotation cp="👯🏾‍♂">amadoda asemcimbini | indlebe | indoda | uhlobo-5 | ukuthokozela umcimbi | umdansi</annotation>
+		<annotation cp="👯🏾‍♂" type="tts">amadoda asemcimbini: uhlobo-5</annotation>
+		<annotation cp="👯🏿‍♂">amadoda asemcimbini | indlebe | indoda | uhlobo-6 | ukuthokozela umcimbi | umdansi</annotation>
+		<annotation cp="👯🏿‍♂" type="tts">amadoda asemcimbini: uhlobo-6</annotation>
 		<annotation cp="🧖🏻">igumbi lestimu | isona | uhlobo-1-2 | umuntu egumbini elinestimu</annotation>
 		<annotation cp="🧖🏻" type="tts">umuntu egumbini elinestimu: uhlobo-1-2</annotation>
 		<annotation cp="🧖🏼">igumbi lestimu | isona | uhlobo-3 | umuntu egumbini elinestimu</annotation>
@@ -3247,6 +3526,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤸🏾‍♀" type="tts">owesimame enza isondo lekalishi: uhlobo-5</annotation>
 		<annotation cp="🤸🏿‍♀">bhakela | isondo lekalishi | owesimame enza isondo lekalishi | uhlobo-6 | umdlalo | umuntu</annotation>
 		<annotation cp="🤸🏿‍♀" type="tts">owesimame enza isondo lekalishi: uhlobo-6</annotation>
+		<annotation cp="🤼🏻">abashayi-sibhakela | bhakela | uhlobo-1-2 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="🤼🏻" type="tts">abashayi-sibhakela: uhlobo-1-2</annotation>
+		<annotation cp="🤼🏼">abashayi-sibhakela | bhakela | uhlobo-3 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="🤼🏼" type="tts">abashayi-sibhakela: uhlobo-3</annotation>
+		<annotation cp="🤼🏽">abashayi-sibhakela | bhakela | uhlobo-4 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="🤼🏽" type="tts">abashayi-sibhakela: uhlobo-4</annotation>
+		<annotation cp="🤼🏾">abashayi-sibhakela | bhakela | uhlobo-5 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="🤼🏾" type="tts">abashayi-sibhakela: uhlobo-5</annotation>
+		<annotation cp="🤼🏿">abashayi-sibhakela | bhakela | uhlobo-6 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="🤼🏿" type="tts">abashayi-sibhakela: uhlobo-6</annotation>
+		<annotation cp="🤼🏻‍♀">abashayisibhakela besimame | bhakela | uhlobo-1-2 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="🤼🏻‍♀" type="tts">abashayisibhakela besimame: uhlobo-1-2</annotation>
+		<annotation cp="🤼🏼‍♀">abashayisibhakela besimame | bhakela | uhlobo-3 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="🤼🏼‍♀" type="tts">abashayisibhakela besimame: uhlobo-3</annotation>
+		<annotation cp="🤼🏽‍♀">abashayisibhakela besimame | bhakela | uhlobo-4 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="🤼🏽‍♀" type="tts">abashayisibhakela besimame: uhlobo-4</annotation>
+		<annotation cp="🤼🏾‍♀">abashayisibhakela besimame | bhakela | uhlobo-5 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="🤼🏾‍♀" type="tts">abashayisibhakela besimame: uhlobo-5</annotation>
+		<annotation cp="🤼🏿‍♀">abashayisibhakela besimame | bhakela | uhlobo-6 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="🤼🏿‍♀" type="tts">abashayisibhakela besimame: uhlobo-6</annotation>
+		<annotation cp="🤼🏻‍♂">abashayisibhakela besilisa | bhakela | uhlobo-1-2 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="🤼🏻‍♂" type="tts">abashayisibhakela besilisa: uhlobo-1-2</annotation>
+		<annotation cp="🤼🏼‍♂">abashayisibhakela besilisa | bhakela | uhlobo-3 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="🤼🏼‍♂" type="tts">abashayisibhakela besilisa: uhlobo-3</annotation>
+		<annotation cp="🤼🏽‍♂">abashayisibhakela besilisa | bhakela | uhlobo-4 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="🤼🏽‍♂" type="tts">abashayisibhakela besilisa: uhlobo-4</annotation>
+		<annotation cp="🤼🏾‍♂">abashayisibhakela besilisa | bhakela | uhlobo-5 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="🤼🏾‍♂" type="tts">abashayisibhakela besilisa: uhlobo-5</annotation>
+		<annotation cp="🤼🏿‍♂">abashayisibhakela besilisa | bhakela | uhlobo-6 | umdlalo | umshayi-sibhakela | umuntu</annotation>
+		<annotation cp="🤼🏿‍♂" type="tts">abashayisibhakela besilisa: uhlobo-6</annotation>
 		<annotation cp="🤽🏻">amanzi | ipholo | uhlobo-1-2 | ukubhukuda | umdlalo | umuntu</annotation>
 		<annotation cp="🤽🏻" type="tts">ukubhukuda: uhlobo-1-2</annotation>
 		<annotation cp="🤽🏼">amanzi | ipholo | uhlobo-3 | ukubhukuda | umdlalo | umuntu</annotation>
@@ -3777,6 +4086,8 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇨🇴" type="tts">ifulegi: i-Colombia</annotation>
 		<annotation cp="🇨🇵">ifulegi</annotation>
 		<annotation cp="🇨🇵" type="tts">ifulegi: i-Clipperton Island</annotation>
+		<annotation cp="🇨🇶">ifulegi</annotation>
+		<annotation cp="🇨🇶" type="tts">ifulegi: i-Sark</annotation>
 		<annotation cp="🇨🇷">ifulegi</annotation>
 		<annotation cp="🇨🇷" type="tts">ifulegi: i-Costa Rica</annotation>
 		<annotation cp="🇨🇺">ifulegi</annotation>
@@ -4216,25 +4527,5 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="₺" type="tts">i-Turkish Lira</annotation>
 		<annotation cp="₼" type="tts">i-Azerbaijani Manat</annotation>
 		<annotation cp="₾" type="tts">i-Georgian Lari</annotation>
-		<annotation cp="0⃣">i-keycap</annotation>
-		<annotation cp="0⃣" type="tts">i-keycap: 0</annotation>
-		<annotation cp="1⃣">i-keycap</annotation>
-		<annotation cp="1⃣" type="tts">i-keycap: 1</annotation>
-		<annotation cp="2⃣">i-keycap</annotation>
-		<annotation cp="2⃣" type="tts">i-keycap: 2</annotation>
-		<annotation cp="3⃣">i-keycap</annotation>
-		<annotation cp="3⃣" type="tts">i-keycap: 3</annotation>
-		<annotation cp="4⃣">i-keycap</annotation>
-		<annotation cp="4⃣" type="tts">i-keycap: 4</annotation>
-		<annotation cp="5⃣">i-keycap</annotation>
-		<annotation cp="5⃣" type="tts">i-keycap: 5</annotation>
-		<annotation cp="6⃣">i-keycap</annotation>
-		<annotation cp="6⃣" type="tts">i-keycap: 6</annotation>
-		<annotation cp="7⃣">i-keycap</annotation>
-		<annotation cp="7⃣" type="tts">i-keycap: 7</annotation>
-		<annotation cp="8⃣">i-keycap</annotation>
-		<annotation cp="8⃣" type="tts">i-keycap: 8</annotation>
-		<annotation cp="9⃣">i-keycap</annotation>
-		<annotation cp="9⃣" type="tts">i-keycap: 9</annotation>
 	</annotations>
 </ldml>

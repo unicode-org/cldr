@@ -213,11 +213,6 @@ public class OutputFileManager {
     }
 
     public static Set<CLDRLocale> createVxmlLocaleSet() {
-        if (false) { // Debugging only, to save time! Test with aa only
-            Set<CLDRLocale> set = new TreeSet<>();
-            set.add(CLDRLocale.getInstance("aa"));
-            return set;
-        }
         Set<CLDRLocale> set = new TreeSet<>(SurveyMain.getLocalesSet());
         // skip "en" and "root", since they should never be changed by the Survey Tool
         set.remove(CLDRLocale.getInstance("en"));

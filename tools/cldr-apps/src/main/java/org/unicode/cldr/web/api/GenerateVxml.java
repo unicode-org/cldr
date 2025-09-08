@@ -20,6 +20,13 @@ import org.unicode.cldr.web.*;
 @Path("/vxml")
 @Tag(name = "Generate VXML", description = "APIs for Survey Tool VXML (Vetted XML) generation")
 public class GenerateVxml {
+
+    /**
+     * Substitute for not-found MediaType.APPLICATION_ZIP. An alternative would be
+     * MediaType.APPLICATION_OCTET_STREAM.
+     */
+    private final String APPLICATION_ZIP = "application/zip";
+
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Operation(summary = "Generate VXML", description = "Generate VXML")
@@ -139,7 +146,7 @@ public class GenerateVxml {
 
     @GET
     @Path("/download")
-    @Produces(MediaType.APPLICATION_OCTET_STREAM)
+    @Produces(APPLICATION_ZIP)
     @Operation(summary = "Download VXML", description = "Download VXML as zip file")
     @APIResponses(
             value = {
@@ -186,7 +193,7 @@ public class GenerateVxml {
                 return Response.status(Response.Status.NOT_FOUND).build();
             }
             File zipFile = Zipper.zipDirectory(dir);
-            return Response.ok(zipFile).header("Content-Type", "application/zip").build();
+            return Response.ok(zipFile).header("Content-Type", APPLICATION_ZIP).build();
         } catch (Exception e) {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(e).build();
         }

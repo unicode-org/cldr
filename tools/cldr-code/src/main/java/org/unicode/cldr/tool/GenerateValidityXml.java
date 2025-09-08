@@ -300,6 +300,7 @@ public class GenerateValidityXml {
                     "Jpan",
                     "Hrkt",
                     "Kore",
+                    "Hntl",
                     // subsets
                     "Jamo");
 

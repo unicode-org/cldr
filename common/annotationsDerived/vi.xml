@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-
-Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
 -->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -603,6 +602,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾" type="tts">người tóc vàng hoe: màu da tối trung bình</annotation>
 		<annotation cp="👱🏿">màu da tối | người tóc vàng hoe | tóc | vàng hoe</annotation>
 		<annotation cp="👱🏿" type="tts">người tóc vàng hoe: màu da tối</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏼">đấu vật | đô vật | giải đấu vật | màu da sáng | màu da sáng trung bình | người chơi vật | trên võ đài | vật</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏼" type="tts">người chơi vật: màu da sáng, màu da sáng trung bình</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏽">đấu vật | đô vật | giải đấu vật | màu da sáng | màu da trung bình | người chơi vật | trên võ đài | vật</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏽" type="tts">người chơi vật: màu da sáng, màu da trung bình</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏾">đấu vật | đô vật | giải đấu vật | màu da sáng | màu da tối trung bình | người chơi vật | trên võ đài | vật</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏾" type="tts">người chơi vật: màu da sáng, màu da tối trung bình</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏿">đấu vật | đô vật | giải đấu vật | màu da sáng | màu da tối | người chơi vật | trên võ đài | vật</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏿" type="tts">người chơi vật: màu da sáng, màu da tối</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏻">đấu vật | đô vật | giải đấu vật | màu da sáng | màu da sáng trung bình | người chơi vật | trên võ đài | vật</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏻" type="tts">người chơi vật: màu da sáng trung bình, màu da sáng</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏽">đấu vật | đô vật | giải đấu vật | màu da sáng trung bình | màu da trung bình | người chơi vật | trên võ đài | vật</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏽" type="tts">người chơi vật: màu da sáng trung bình, màu da trung bình</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏾">đấu vật | đô vật | giải đấu vật | màu da sáng trung bình | màu da tối trung bình | người chơi vật | trên võ đài | vật</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏾" type="tts">người chơi vật: màu da sáng trung bình, màu da tối trung bình</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏿">đấu vật | đô vật | giải đấu vật | màu da sáng trung bình | màu da tối | người chơi vật | trên võ đài | vật</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏿" type="tts">người chơi vật: màu da sáng trung bình, màu da tối</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏻">đấu vật | đô vật | giải đấu vật | màu da sáng | màu da trung bình | người chơi vật | trên võ đài | vật</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏻" type="tts">người chơi vật: màu da trung bình, màu da sáng</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏼">đấu vật | đô vật | giải đấu vật | màu da sáng trung bình | màu da trung bình | người chơi vật | trên võ đài | vật</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏼" type="tts">người chơi vật: màu da trung bình, màu da sáng trung bình</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏾">đấu vật | đô vật | giải đấu vật | màu da tối trung bình | màu da trung bình | người chơi vật | trên võ đài | vật</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏾" type="tts">người chơi vật: màu da trung bình, màu da tối trung bình</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏿">đấu vật | đô vật | giải đấu vật | màu da tối | màu da trung bình | người chơi vật | trên võ đài | vật</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏿" type="tts">người chơi vật: màu da trung bình, màu da tối</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏻">đấu vật | đô vật | giải đấu vật | màu da sáng | màu da tối trung bình | người chơi vật | trên võ đài | vật</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏻" type="tts">người chơi vật: màu da tối trung bình, màu da sáng</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏼">đấu vật | đô vật | giải đấu vật | màu da sáng trung bình | màu da tối trung bình | người chơi vật | trên võ đài | vật</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏼" type="tts">người chơi vật: màu da tối trung bình, màu da sáng trung bình</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏽">đấu vật | đô vật | giải đấu vật | màu da tối trung bình | màu da trung bình | người chơi vật | trên võ đài | vật</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏽" type="tts">người chơi vật: màu da tối trung bình, màu da trung bình</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏿">đấu vật | đô vật | giải đấu vật | màu da tối | màu da tối trung bình | người chơi vật | trên võ đài | vật</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏿" type="tts">người chơi vật: màu da tối trung bình, màu da tối</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏻">đấu vật | đô vật | giải đấu vật | màu da sáng | màu da tối | người chơi vật | trên võ đài | vật</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏻" type="tts">người chơi vật: màu da tối, màu da sáng</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏼">đấu vật | đô vật | giải đấu vật | màu da sáng trung bình | màu da tối | người chơi vật | trên võ đài | vật</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏼" type="tts">người chơi vật: màu da tối, màu da sáng trung bình</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏽">đấu vật | đô vật | giải đấu vật | màu da tối | màu da trung bình | người chơi vật | trên võ đài | vật</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏽" type="tts">người chơi vật: màu da tối, màu da trung bình</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏾">đấu vật | đô vật | giải đấu vật | màu da tối | màu da tối trung bình | người chơi vật | trên võ đài | vật</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏾" type="tts">người chơi vật: màu da tối, màu da tối trung bình</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏼">cặp đôi | hẹn hò | màu da sáng | màu da sáng trung bình | người | nụ hôn | yêu</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏼" type="tts">nụ hôn: người, người, màu da sáng, màu da sáng trung bình</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏽">cặp đôi | hẹn hò | màu da sáng | màu da trung bình | người | nụ hôn | yêu</annotation>
@@ -731,6 +770,56 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧑🏾‍🦲" type="tts">người: màu da tối trung bình, hói</annotation>
 		<annotation cp="🧑🏿‍🦲">giới tính chung | giới tính không xác định | hói | màu da tối | người | người lớn</annotation>
 		<annotation cp="🧑🏿‍🦲" type="tts">người: màu da tối, hói</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏼">bản sao | bạn tâm giao | bạn thân | bộ đôi | màu da sáng | màu da sáng trung bình | những người đeo tai thỏ | phụ nữ đeo tai thỏ | sinh đôi | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏼" type="tts">những người đeo tai thỏ: màu da sáng, màu da sáng trung bình</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏽">bản sao | bạn tâm giao | bạn thân | bộ đôi | màu da sáng | màu da trung bình | những người đeo tai thỏ | phụ nữ đeo tai thỏ | sinh đôi | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏽" type="tts">những người đeo tai thỏ: màu da sáng, màu da trung bình</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏾">bản sao | bạn tâm giao | bạn thân | bộ đôi | màu da sáng | màu da tối trung bình | những người đeo tai thỏ | phụ nữ đeo tai thỏ | sinh đôi | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏾" type="tts">những người đeo tai thỏ: màu da sáng, màu da tối trung bình</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏿">bản sao | bạn tâm giao | bạn thân | bộ đôi | màu da sáng | màu da tối | những người đeo tai thỏ | phụ nữ đeo tai thỏ | sinh đôi | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏿" type="tts">những người đeo tai thỏ: màu da sáng, màu da tối</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏻">bản sao | bạn tâm giao | bạn thân | bộ đôi | màu da sáng | màu da sáng trung bình | những người đeo tai thỏ | phụ nữ đeo tai thỏ | sinh đôi | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏻" type="tts">những người đeo tai thỏ: màu da sáng trung bình, màu da sáng</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏽">bản sao | bạn tâm giao | bạn thân | bộ đôi | màu da sáng trung bình | màu da trung bình | những người đeo tai thỏ | phụ nữ đeo tai thỏ | sinh đôi | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏽" type="tts">những người đeo tai thỏ: màu da sáng trung bình, màu da trung bình</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏾">bản sao | bạn tâm giao | bạn thân | bộ đôi | màu da sáng trung bình | màu da tối trung bình | những người đeo tai thỏ | phụ nữ đeo tai thỏ | sinh đôi | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏾" type="tts">những người đeo tai thỏ: màu da sáng trung bình, màu da tối trung bình</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏿">bản sao | bạn tâm giao | bạn thân | bộ đôi | màu da sáng trung bình | màu da tối | những người đeo tai thỏ | phụ nữ đeo tai thỏ | sinh đôi | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏿" type="tts">những người đeo tai thỏ: màu da sáng trung bình, màu da tối</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏻">bản sao | bạn tâm giao | bạn thân | bộ đôi | màu da sáng | màu da trung bình | những người đeo tai thỏ | phụ nữ đeo tai thỏ | sinh đôi | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏻" type="tts">những người đeo tai thỏ: màu da trung bình, màu da sáng</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏼">bản sao | bạn tâm giao | bạn thân | bộ đôi | màu da sáng trung bình | màu da trung bình | những người đeo tai thỏ | phụ nữ đeo tai thỏ | sinh đôi | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏼" type="tts">những người đeo tai thỏ: màu da trung bình, màu da sáng trung bình</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏾">bản sao | bạn tâm giao | bạn thân | bộ đôi | màu da tối trung bình | màu da trung bình | những người đeo tai thỏ | phụ nữ đeo tai thỏ | sinh đôi | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏾" type="tts">những người đeo tai thỏ: màu da trung bình, màu da tối trung bình</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏿">bản sao | bạn tâm giao | bạn thân | bộ đôi | màu da tối | màu da trung bình | những người đeo tai thỏ | phụ nữ đeo tai thỏ | sinh đôi | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏿" type="tts">những người đeo tai thỏ: màu da trung bình, màu da tối</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏻">bản sao | bạn tâm giao | bạn thân | bộ đôi | màu da sáng | màu da tối trung bình | những người đeo tai thỏ | phụ nữ đeo tai thỏ | sinh đôi | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏻" type="tts">những người đeo tai thỏ: màu da tối trung bình, màu da sáng</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏼">bản sao | bạn tâm giao | bạn thân | bộ đôi | màu da sáng trung bình | màu da tối trung bình | những người đeo tai thỏ | phụ nữ đeo tai thỏ | sinh đôi | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏼" type="tts">những người đeo tai thỏ: màu da tối trung bình, màu da sáng trung bình</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏽">bản sao | bạn tâm giao | bạn thân | bộ đôi | màu da tối trung bình | màu da trung bình | những người đeo tai thỏ | phụ nữ đeo tai thỏ | sinh đôi | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏽" type="tts">những người đeo tai thỏ: màu da tối trung bình, màu da trung bình</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏿">bản sao | bạn tâm giao | bạn thân | bộ đôi | màu da tối | màu da tối trung bình | những người đeo tai thỏ | phụ nữ đeo tai thỏ | sinh đôi | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏿" type="tts">những người đeo tai thỏ: màu da tối trung bình, màu da tối</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏻">bản sao | bạn tâm giao | bạn thân | bộ đôi | màu da sáng | màu da tối | những người đeo tai thỏ | phụ nữ đeo tai thỏ | sinh đôi | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏻" type="tts">những người đeo tai thỏ: màu da tối, màu da sáng</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏼">bản sao | bạn tâm giao | bạn thân | bộ đôi | màu da sáng trung bình | màu da tối | những người đeo tai thỏ | phụ nữ đeo tai thỏ | sinh đôi | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏼" type="tts">những người đeo tai thỏ: màu da tối, màu da sáng trung bình</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏽">bản sao | bạn tâm giao | bạn thân | bộ đôi | màu da tối | màu da trung bình | những người đeo tai thỏ | phụ nữ đeo tai thỏ | sinh đôi | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏽" type="tts">những người đeo tai thỏ: màu da tối, màu da trung bình</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏾">bản sao | bạn tâm giao | bạn thân | bộ đôi | màu da tối | màu da tối trung bình | những người đeo tai thỏ | phụ nữ đeo tai thỏ | sinh đôi | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏾" type="tts">những người đeo tai thỏ: màu da tối, màu da tối trung bình</annotation>
+		<annotation cp="🧑🏻‍🩰">ba lê | màu da sáng | vũ công</annotation>
+		<annotation cp="🧑🏻‍🩰" type="tts">vũ công ba lê: màu da sáng</annotation>
+		<annotation cp="🧑🏼‍🩰">ba lê | màu da sáng trung bình | vũ công</annotation>
+		<annotation cp="🧑🏼‍🩰" type="tts">vũ công ba lê: màu da sáng trung bình</annotation>
+		<annotation cp="🧑🏽‍🩰">ba lê | màu da trung bình | vũ công</annotation>
+		<annotation cp="🧑🏽‍🩰" type="tts">vũ công ba lê: màu da trung bình</annotation>
+		<annotation cp="🧑🏾‍🩰">ba lê | màu da tối trung bình | vũ công</annotation>
+		<annotation cp="🧑🏾‍🩰" type="tts">vũ công ba lê: màu da tối trung bình</annotation>
+		<annotation cp="🧑🏿‍🩰">ba lê | màu da tối | vũ công</annotation>
+		<annotation cp="🧑🏿‍🩰" type="tts">vũ công ba lê: màu da tối</annotation>
 		<annotation cp="👨🏻">đàn ông | màu da sáng | người lớn</annotation>
 		<annotation cp="👨🏻" type="tts">đàn ông: màu da sáng</annotation>
 		<annotation cp="👨🏼">đàn ông | màu da sáng trung bình | người lớn</annotation>
@@ -771,6 +860,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾‍♂" type="tts">người đàn ông tóc vàng hoe: màu da tối trung bình</annotation>
 		<annotation cp="👱🏿‍♂">đàn ông | đàn ông: tóc vàng hoe | màu da tối | người đàn ông tóc vàng hoe | tóc vàng hoe</annotation>
 		<annotation cp="👱🏿‍♂" type="tts">người đàn ông tóc vàng hoe: màu da tối</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏼">đàn ông | đấu vật | đô vật | màu da sáng | màu da sáng trung bình | nam đô vật | những người đàn ông chơi vật | trên võ đài | vật</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏼" type="tts">những người đàn ông chơi vật: màu da sáng, màu da sáng trung bình</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏽">đàn ông | đấu vật | đô vật | màu da sáng | màu da trung bình | nam đô vật | những người đàn ông chơi vật | trên võ đài | vật</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏽" type="tts">những người đàn ông chơi vật: màu da sáng, màu da trung bình</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏾">đàn ông | đấu vật | đô vật | màu da sáng | màu da tối trung bình | nam đô vật | những người đàn ông chơi vật | trên võ đài | vật</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏾" type="tts">những người đàn ông chơi vật: màu da sáng, màu da tối trung bình</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏿">đàn ông | đấu vật | đô vật | màu da sáng | màu da tối | nam đô vật | những người đàn ông chơi vật | trên võ đài | vật</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏿" type="tts">những người đàn ông chơi vật: màu da sáng, màu da tối</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏻">đàn ông | đấu vật | đô vật | màu da sáng | màu da sáng trung bình | nam đô vật | những người đàn ông chơi vật | trên võ đài | vật</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏻" type="tts">những người đàn ông chơi vật: màu da sáng trung bình, màu da sáng</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏽">đàn ông | đấu vật | đô vật | màu da sáng trung bình | màu da trung bình | nam đô vật | những người đàn ông chơi vật | trên võ đài | vật</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏽" type="tts">những người đàn ông chơi vật: màu da sáng trung bình, màu da trung bình</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏾">đàn ông | đấu vật | đô vật | màu da sáng trung bình | màu da tối trung bình | nam đô vật | những người đàn ông chơi vật | trên võ đài | vật</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏾" type="tts">những người đàn ông chơi vật: màu da sáng trung bình, màu da tối trung bình</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏿">đàn ông | đấu vật | đô vật | màu da sáng trung bình | màu da tối | nam đô vật | những người đàn ông chơi vật | trên võ đài | vật</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏿" type="tts">những người đàn ông chơi vật: màu da sáng trung bình, màu da tối</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏻">đàn ông | đấu vật | đô vật | màu da sáng | màu da trung bình | nam đô vật | những người đàn ông chơi vật | trên võ đài | vật</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏻" type="tts">những người đàn ông chơi vật: màu da trung bình, màu da sáng</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏼">đàn ông | đấu vật | đô vật | màu da sáng trung bình | màu da trung bình | nam đô vật | những người đàn ông chơi vật | trên võ đài | vật</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏼" type="tts">những người đàn ông chơi vật: màu da trung bình, màu da sáng trung bình</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏾">đàn ông | đấu vật | đô vật | màu da tối trung bình | màu da trung bình | nam đô vật | những người đàn ông chơi vật | trên võ đài | vật</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏾" type="tts">những người đàn ông chơi vật: màu da trung bình, màu da tối trung bình</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏿">đàn ông | đấu vật | đô vật | màu da tối | màu da trung bình | nam đô vật | những người đàn ông chơi vật | trên võ đài | vật</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏿" type="tts">những người đàn ông chơi vật: màu da trung bình, màu da tối</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏻">đàn ông | đấu vật | đô vật | màu da sáng | màu da tối trung bình | nam đô vật | những người đàn ông chơi vật | trên võ đài | vật</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏻" type="tts">những người đàn ông chơi vật: màu da tối trung bình, màu da sáng</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏼">đàn ông | đấu vật | đô vật | màu da sáng trung bình | màu da tối trung bình | nam đô vật | những người đàn ông chơi vật | trên võ đài | vật</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏼" type="tts">những người đàn ông chơi vật: màu da tối trung bình, màu da sáng trung bình</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏽">đàn ông | đấu vật | đô vật | màu da tối trung bình | màu da trung bình | nam đô vật | những người đàn ông chơi vật | trên võ đài | vật</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏽" type="tts">những người đàn ông chơi vật: màu da tối trung bình, màu da trung bình</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏿">đàn ông | đấu vật | đô vật | màu da tối | màu da tối trung bình | nam đô vật | những người đàn ông chơi vật | trên võ đài | vật</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏿" type="tts">những người đàn ông chơi vật: màu da tối trung bình, màu da tối</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏻">đàn ông | đấu vật | đô vật | màu da sáng | màu da tối | nam đô vật | những người đàn ông chơi vật | trên võ đài | vật</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏻" type="tts">những người đàn ông chơi vật: màu da tối, màu da sáng</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏼">đàn ông | đấu vật | đô vật | màu da sáng trung bình | màu da tối | nam đô vật | những người đàn ông chơi vật | trên võ đài | vật</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏼" type="tts">những người đàn ông chơi vật: màu da tối, màu da sáng trung bình</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏽">đàn ông | đấu vật | đô vật | màu da tối | màu da trung bình | nam đô vật | những người đàn ông chơi vật | trên võ đài | vật</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏽" type="tts">những người đàn ông chơi vật: màu da tối, màu da trung bình</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏾">đàn ông | đấu vật | đô vật | màu da tối | màu da tối trung bình | nam đô vật | những người đàn ông chơi vật | trên võ đài | vật</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏾" type="tts">những người đàn ông chơi vật: màu da tối, màu da tối trung bình</annotation>
 		<annotation cp="👨🏻‍❤‍💋‍👨🏻">cặp đôi | đàn ông | hẹn hò | màu da sáng | nụ hôn | yêu</annotation>
 		<annotation cp="👨🏻‍❤‍💋‍👨🏻" type="tts">nụ hôn: đàn ông, đàn ông, màu da sáng</annotation>
 		<annotation cp="👨🏻‍❤‍💋‍👨🏼">cặp đôi | đàn ông | hẹn hò | màu da sáng | màu da sáng trung bình | nụ hôn | yêu</annotation>
@@ -919,6 +1048,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾‍🦲" type="tts">đàn ông: màu da tối trung bình, hói</annotation>
 		<annotation cp="👨🏿‍🦲">đàn ông | hói | màu da tối | người lớn</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">đàn ông: màu da tối, hói</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏼">đàn ông | màu da sáng | màu da sáng trung bình | những người đàn ông đeo tai thỏ | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏼" type="tts">những người đàn ông đeo tai thỏ: màu da sáng, màu da sáng trung bình</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏽">đàn ông | màu da sáng | màu da trung bình | những người đàn ông đeo tai thỏ | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏽" type="tts">những người đàn ông đeo tai thỏ: màu da sáng, màu da trung bình</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏾">đàn ông | màu da sáng | màu da tối trung bình | những người đàn ông đeo tai thỏ | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏾" type="tts">những người đàn ông đeo tai thỏ: màu da sáng, màu da tối trung bình</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏿">đàn ông | màu da sáng | màu da tối | những người đàn ông đeo tai thỏ | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏿" type="tts">những người đàn ông đeo tai thỏ: màu da sáng, màu da tối</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏻">đàn ông | màu da sáng | màu da sáng trung bình | những người đàn ông đeo tai thỏ | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏻" type="tts">những người đàn ông đeo tai thỏ: màu da sáng trung bình, màu da sáng</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏽">đàn ông | màu da sáng trung bình | màu da trung bình | những người đàn ông đeo tai thỏ | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏽" type="tts">những người đàn ông đeo tai thỏ: màu da sáng trung bình, màu da trung bình</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏾">đàn ông | màu da sáng trung bình | màu da tối trung bình | những người đàn ông đeo tai thỏ | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏾" type="tts">những người đàn ông đeo tai thỏ: màu da sáng trung bình, màu da tối trung bình</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏿">đàn ông | màu da sáng trung bình | màu da tối | những người đàn ông đeo tai thỏ | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏿" type="tts">những người đàn ông đeo tai thỏ: màu da sáng trung bình, màu da tối</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏻">đàn ông | màu da sáng | màu da trung bình | những người đàn ông đeo tai thỏ | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏻" type="tts">những người đàn ông đeo tai thỏ: màu da trung bình, màu da sáng</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏼">đàn ông | màu da sáng trung bình | màu da trung bình | những người đàn ông đeo tai thỏ | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏼" type="tts">những người đàn ông đeo tai thỏ: màu da trung bình, màu da sáng trung bình</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏾">đàn ông | màu da tối trung bình | màu da trung bình | những người đàn ông đeo tai thỏ | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏾" type="tts">những người đàn ông đeo tai thỏ: màu da trung bình, màu da tối trung bình</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏿">đàn ông | màu da tối | màu da trung bình | những người đàn ông đeo tai thỏ | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏿" type="tts">những người đàn ông đeo tai thỏ: màu da trung bình, màu da tối</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏻">đàn ông | màu da sáng | màu da tối trung bình | những người đàn ông đeo tai thỏ | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏻" type="tts">những người đàn ông đeo tai thỏ: màu da tối trung bình, màu da sáng</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏼">đàn ông | màu da sáng trung bình | màu da tối trung bình | những người đàn ông đeo tai thỏ | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏼" type="tts">những người đàn ông đeo tai thỏ: màu da tối trung bình, màu da sáng trung bình</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏽">đàn ông | màu da tối trung bình | màu da trung bình | những người đàn ông đeo tai thỏ | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏽" type="tts">những người đàn ông đeo tai thỏ: màu da tối trung bình, màu da trung bình</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏿">đàn ông | màu da tối | màu da tối trung bình | những người đàn ông đeo tai thỏ | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏿" type="tts">những người đàn ông đeo tai thỏ: màu da tối trung bình, màu da tối</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏻">đàn ông | màu da sáng | màu da tối | những người đàn ông đeo tai thỏ | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏻" type="tts">những người đàn ông đeo tai thỏ: màu da tối, màu da sáng</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏼">đàn ông | màu da sáng trung bình | màu da tối | những người đàn ông đeo tai thỏ | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏼" type="tts">những người đàn ông đeo tai thỏ: màu da tối, màu da sáng trung bình</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏽">đàn ông | màu da tối | màu da trung bình | những người đàn ông đeo tai thỏ | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏽" type="tts">những người đàn ông đeo tai thỏ: màu da tối, màu da trung bình</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏾">đàn ông | màu da tối | màu da tối trung bình | những người đàn ông đeo tai thỏ | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏾" type="tts">những người đàn ông đeo tai thỏ: màu da tối, màu da tối trung bình</annotation>
 		<annotation cp="👩🏻">màu da sáng | người lớn | phụ nữ</annotation>
 		<annotation cp="👩🏻" type="tts">phụ nữ: màu da sáng</annotation>
 		<annotation cp="👩🏼">màu da sáng trung bình | người lớn | phụ nữ</annotation>
@@ -949,6 +1118,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾‍♀" type="tts">người phụ nữ tóc vàng hoe: màu da tối trung bình</annotation>
 		<annotation cp="👱🏿‍♀">màu da tối | người phụ nữ tóc vàng hoe | nữ | phụ nữ | tóc vàng hoe</annotation>
 		<annotation cp="👱🏿‍♀" type="tts">người phụ nữ tóc vàng hoe: màu da tối</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏼">đấu vật | đô vật | màu da sáng | màu da sáng trung bình | những người phụ nữ chơi vật | nữ đô vật | phụ nữ | trên võ đài | vật</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏼" type="tts">những người phụ nữ chơi vật: màu da sáng, màu da sáng trung bình</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏽">đấu vật | đô vật | màu da sáng | màu da trung bình | những người phụ nữ chơi vật | nữ đô vật | phụ nữ | trên võ đài | vật</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏽" type="tts">những người phụ nữ chơi vật: màu da sáng, màu da trung bình</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏾">đấu vật | đô vật | màu da sáng | màu da tối trung bình | những người phụ nữ chơi vật | nữ đô vật | phụ nữ | trên võ đài | vật</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏾" type="tts">những người phụ nữ chơi vật: màu da sáng, màu da tối trung bình</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏿">đấu vật | đô vật | màu da sáng | màu da tối | những người phụ nữ chơi vật | nữ đô vật | phụ nữ | trên võ đài | vật</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏿" type="tts">những người phụ nữ chơi vật: màu da sáng, màu da tối</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏻">đấu vật | đô vật | màu da sáng | màu da sáng trung bình | những người phụ nữ chơi vật | nữ đô vật | phụ nữ | trên võ đài | vật</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏻" type="tts">những người phụ nữ chơi vật: màu da sáng trung bình, màu da sáng</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏽">đấu vật | đô vật | màu da sáng trung bình | màu da trung bình | những người phụ nữ chơi vật | nữ đô vật | phụ nữ | trên võ đài | vật</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏽" type="tts">những người phụ nữ chơi vật: màu da sáng trung bình, màu da trung bình</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏾">đấu vật | đô vật | màu da sáng trung bình | màu da tối trung bình | những người phụ nữ chơi vật | nữ đô vật | phụ nữ | trên võ đài | vật</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏾" type="tts">những người phụ nữ chơi vật: màu da sáng trung bình, màu da tối trung bình</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏿">đấu vật | đô vật | màu da sáng trung bình | màu da tối | những người phụ nữ chơi vật | nữ đô vật | phụ nữ | trên võ đài | vật</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏿" type="tts">những người phụ nữ chơi vật: màu da sáng trung bình, màu da tối</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏻">đấu vật | đô vật | màu da sáng | màu da trung bình | những người phụ nữ chơi vật | nữ đô vật | phụ nữ | trên võ đài | vật</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏻" type="tts">những người phụ nữ chơi vật: màu da trung bình, màu da sáng</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏼">đấu vật | đô vật | màu da sáng trung bình | màu da trung bình | những người phụ nữ chơi vật | nữ đô vật | phụ nữ | trên võ đài | vật</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏼" type="tts">những người phụ nữ chơi vật: màu da trung bình, màu da sáng trung bình</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏾">đấu vật | đô vật | màu da tối trung bình | màu da trung bình | những người phụ nữ chơi vật | nữ đô vật | phụ nữ | trên võ đài | vật</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏾" type="tts">những người phụ nữ chơi vật: màu da trung bình, màu da tối trung bình</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏿">đấu vật | đô vật | màu da tối | màu da trung bình | những người phụ nữ chơi vật | nữ đô vật | phụ nữ | trên võ đài | vật</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏿" type="tts">những người phụ nữ chơi vật: màu da trung bình, màu da tối</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏻">đấu vật | đô vật | màu da sáng | màu da tối trung bình | những người phụ nữ chơi vật | nữ đô vật | phụ nữ | trên võ đài | vật</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏻" type="tts">những người phụ nữ chơi vật: màu da tối trung bình, màu da sáng</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏼">đấu vật | đô vật | màu da sáng trung bình | màu da tối trung bình | những người phụ nữ chơi vật | nữ đô vật | phụ nữ | trên võ đài | vật</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏼" type="tts">những người phụ nữ chơi vật: màu da tối trung bình, màu da sáng trung bình</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏽">đấu vật | đô vật | màu da tối trung bình | màu da trung bình | những người phụ nữ chơi vật | nữ đô vật | phụ nữ | trên võ đài | vật</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏽" type="tts">những người phụ nữ chơi vật: màu da tối trung bình, màu da trung bình</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏿">đấu vật | đô vật | màu da tối | màu da tối trung bình | những người phụ nữ chơi vật | nữ đô vật | phụ nữ | trên võ đài | vật</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏿" type="tts">những người phụ nữ chơi vật: màu da tối trung bình, màu da tối</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏻">đấu vật | đô vật | màu da sáng | màu da tối | những người phụ nữ chơi vật | nữ đô vật | phụ nữ | trên võ đài | vật</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏻" type="tts">những người phụ nữ chơi vật: màu da tối, màu da sáng</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏼">đấu vật | đô vật | màu da sáng trung bình | màu da tối | những người phụ nữ chơi vật | nữ đô vật | phụ nữ | trên võ đài | vật</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏼" type="tts">những người phụ nữ chơi vật: màu da tối, màu da sáng trung bình</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏽">đấu vật | đô vật | màu da tối | màu da trung bình | những người phụ nữ chơi vật | nữ đô vật | phụ nữ | trên võ đài | vật</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏽" type="tts">những người phụ nữ chơi vật: màu da tối, màu da trung bình</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏾">đấu vật | đô vật | màu da tối | màu da tối trung bình | những người phụ nữ chơi vật | nữ đô vật | phụ nữ | trên võ đài | vật</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏾" type="tts">những người phụ nữ chơi vật: màu da tối, màu da tối trung bình</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👨🏻">cặp đôi | đàn ông | hẹn hò | màu da sáng | nụ hôn | phụ nữ | yêu</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👨🏻" type="tts">nụ hôn: phụ nữ, đàn ông, màu da sáng</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👨🏼">cặp đôi | đàn ông | hẹn hò | màu da sáng | màu da sáng trung bình | nụ hôn | phụ nữ | yêu</annotation>
@@ -1197,6 +1406,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🦲" type="tts">phụ nữ: màu da tối trung bình, hói</annotation>
 		<annotation cp="👩🏿‍🦲">hói | màu da tối | người lớn | phụ nữ</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">phụ nữ: màu da tối, hói</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏼">màu da sáng | màu da sáng trung bình | những người phụ nữ đeo tai thỏ | phụ nữ | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏼" type="tts">những người phụ nữ đeo tai thỏ: màu da sáng, màu da sáng trung bình</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏽">màu da sáng | màu da trung bình | những người phụ nữ đeo tai thỏ | phụ nữ | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏽" type="tts">những người phụ nữ đeo tai thỏ: màu da sáng, màu da trung bình</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏾">màu da sáng | màu da tối trung bình | những người phụ nữ đeo tai thỏ | phụ nữ | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏾" type="tts">những người phụ nữ đeo tai thỏ: màu da sáng, màu da tối trung bình</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏿">màu da sáng | màu da tối | những người phụ nữ đeo tai thỏ | phụ nữ | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏿" type="tts">những người phụ nữ đeo tai thỏ: màu da sáng, màu da tối</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏻">màu da sáng | màu da sáng trung bình | những người phụ nữ đeo tai thỏ | phụ nữ | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏻" type="tts">những người phụ nữ đeo tai thỏ: màu da sáng trung bình, màu da sáng</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏽">màu da sáng trung bình | màu da trung bình | những người phụ nữ đeo tai thỏ | phụ nữ | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏽" type="tts">những người phụ nữ đeo tai thỏ: màu da sáng trung bình, màu da trung bình</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏾">màu da sáng trung bình | màu da tối trung bình | những người phụ nữ đeo tai thỏ | phụ nữ | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏾" type="tts">những người phụ nữ đeo tai thỏ: màu da sáng trung bình, màu da tối trung bình</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏿">màu da sáng trung bình | màu da tối | những người phụ nữ đeo tai thỏ | phụ nữ | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏿" type="tts">những người phụ nữ đeo tai thỏ: màu da sáng trung bình, màu da tối</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏻">màu da sáng | màu da trung bình | những người phụ nữ đeo tai thỏ | phụ nữ | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏻" type="tts">những người phụ nữ đeo tai thỏ: màu da trung bình, màu da sáng</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏼">màu da sáng trung bình | màu da trung bình | những người phụ nữ đeo tai thỏ | phụ nữ | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏼" type="tts">những người phụ nữ đeo tai thỏ: màu da trung bình, màu da sáng trung bình</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏾">màu da tối trung bình | màu da trung bình | những người phụ nữ đeo tai thỏ | phụ nữ | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏾" type="tts">những người phụ nữ đeo tai thỏ: màu da trung bình, màu da tối trung bình</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏿">màu da tối | màu da trung bình | những người phụ nữ đeo tai thỏ | phụ nữ | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏿" type="tts">những người phụ nữ đeo tai thỏ: màu da trung bình, màu da tối</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏻">màu da sáng | màu da tối trung bình | những người phụ nữ đeo tai thỏ | phụ nữ | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏻" type="tts">những người phụ nữ đeo tai thỏ: màu da tối trung bình, màu da sáng</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏼">màu da sáng trung bình | màu da tối trung bình | những người phụ nữ đeo tai thỏ | phụ nữ | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏼" type="tts">những người phụ nữ đeo tai thỏ: màu da tối trung bình, màu da sáng trung bình</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏽">màu da tối trung bình | màu da trung bình | những người phụ nữ đeo tai thỏ | phụ nữ | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏽" type="tts">những người phụ nữ đeo tai thỏ: màu da tối trung bình, màu da trung bình</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏿">màu da tối | màu da tối trung bình | những người phụ nữ đeo tai thỏ | phụ nữ | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏿" type="tts">những người phụ nữ đeo tai thỏ: màu da tối trung bình, màu da tối</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏻">màu da sáng | màu da tối | những người phụ nữ đeo tai thỏ | phụ nữ | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏻" type="tts">những người phụ nữ đeo tai thỏ: màu da tối, màu da sáng</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏼">màu da sáng trung bình | màu da tối | những người phụ nữ đeo tai thỏ | phụ nữ | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏼" type="tts">những người phụ nữ đeo tai thỏ: màu da tối, màu da sáng trung bình</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏽">màu da tối | màu da trung bình | những người phụ nữ đeo tai thỏ | phụ nữ | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏽" type="tts">những người phụ nữ đeo tai thỏ: màu da tối, màu da trung bình</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏾">màu da tối | màu da tối trung bình | những người phụ nữ đeo tai thỏ | phụ nữ | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏾" type="tts">những người phụ nữ đeo tai thỏ: màu da tối, màu da tối trung bình</annotation>
 		<annotation cp="🧓🏻">già | giới tính không xác định | giới tính trung lập | màu da sáng | người lớn tuổi</annotation>
 		<annotation cp="🧓🏻" type="tts">người lớn tuổi: màu da sáng</annotation>
 		<annotation cp="🧓🏼">già | giới tính không xác định | giới tính trung lập | màu da sáng trung bình | người lớn tuổi</annotation>
@@ -3113,6 +3362,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🕴🏾" type="tts">người đàn ông mặc vest đang bay lên: màu da tối trung bình</annotation>
 		<annotation cp="🕴🏿">bộ đồ | đàn ông | kinh doanh | màu da tối | người đàn ông mặc vest đang bay lên</annotation>
 		<annotation cp="🕴🏿" type="tts">người đàn ông mặc vest đang bay lên: màu da tối</annotation>
+		<annotation cp="👯🏻">bản sao | bạn tâm giao | bạn thân | bộ đôi | màu da sáng | những người đeo tai thỏ | phụ nữ đeo tai thỏ | sinh đôi | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="👯🏻" type="tts">những người đeo tai thỏ: màu da sáng</annotation>
+		<annotation cp="👯🏼">bản sao | bạn tâm giao | bạn thân | bộ đôi | màu da sáng trung bình | những người đeo tai thỏ | phụ nữ đeo tai thỏ | sinh đôi | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="👯🏼" type="tts">những người đeo tai thỏ: màu da sáng trung bình</annotation>
+		<annotation cp="👯🏽">bản sao | bạn tâm giao | bạn thân | bộ đôi | màu da trung bình | những người đeo tai thỏ | phụ nữ đeo tai thỏ | sinh đôi | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="👯🏽" type="tts">những người đeo tai thỏ: màu da trung bình</annotation>
+		<annotation cp="👯🏾">bản sao | bạn tâm giao | bạn thân | bộ đôi | màu da tối trung bình | những người đeo tai thỏ | phụ nữ đeo tai thỏ | sinh đôi | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="👯🏾" type="tts">những người đeo tai thỏ: màu da tối trung bình</annotation>
+		<annotation cp="👯🏿">bản sao | bạn tâm giao | bạn thân | bộ đôi | màu da tối | những người đeo tai thỏ | phụ nữ đeo tai thỏ | sinh đôi | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="👯🏿" type="tts">những người đeo tai thỏ: màu da tối</annotation>
+		<annotation cp="👯🏻‍♀">màu da sáng | những người phụ nữ đeo tai thỏ | phụ nữ | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="👯🏻‍♀" type="tts">những người phụ nữ đeo tai thỏ: màu da sáng</annotation>
+		<annotation cp="👯🏼‍♀">màu da sáng trung bình | những người phụ nữ đeo tai thỏ | phụ nữ | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="👯🏼‍♀" type="tts">những người phụ nữ đeo tai thỏ: màu da sáng trung bình</annotation>
+		<annotation cp="👯🏽‍♀">màu da trung bình | những người phụ nữ đeo tai thỏ | phụ nữ | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="👯🏽‍♀" type="tts">những người phụ nữ đeo tai thỏ: màu da trung bình</annotation>
+		<annotation cp="👯🏾‍♀">màu da tối trung bình | những người phụ nữ đeo tai thỏ | phụ nữ | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="👯🏾‍♀" type="tts">những người phụ nữ đeo tai thỏ: màu da tối trung bình</annotation>
+		<annotation cp="👯🏿‍♀">màu da tối | những người phụ nữ đeo tai thỏ | phụ nữ | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="👯🏿‍♀" type="tts">những người phụ nữ đeo tai thỏ: màu da tối</annotation>
+		<annotation cp="👯🏻‍♂">đàn ông | màu da sáng | những người đàn ông đeo tai thỏ | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="👯🏻‍♂" type="tts">những người đàn ông đeo tai thỏ: màu da sáng</annotation>
+		<annotation cp="👯🏼‍♂">đàn ông | màu da sáng trung bình | những người đàn ông đeo tai thỏ | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="👯🏼‍♂" type="tts">những người đàn ông đeo tai thỏ: màu da sáng trung bình</annotation>
+		<annotation cp="👯🏽‍♂">đàn ông | màu da trung bình | những người đàn ông đeo tai thỏ | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="👯🏽‍♂" type="tts">những người đàn ông đeo tai thỏ: màu da trung bình</annotation>
+		<annotation cp="👯🏾‍♂">đàn ông | màu da tối trung bình | những người đàn ông đeo tai thỏ | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="👯🏾‍♂" type="tts">những người đàn ông đeo tai thỏ: màu da tối trung bình</annotation>
+		<annotation cp="👯🏿‍♂">đàn ông | màu da tối | những người đàn ông đeo tai thỏ | tai thỏ | tiệc tùng | vũ công</annotation>
+		<annotation cp="👯🏿‍♂" type="tts">những người đàn ông đeo tai thỏ: màu da tối</annotation>
 		<annotation cp="🧖🏻">mát xa | màu da sáng | người ở trong phòng xông hơi | người phụ nữ trong phòng xông hơi | nhà tắm hơi | phòng xông hơi | sang chảnh | spa | thư giãn</annotation>
 		<annotation cp="🧖🏻" type="tts">người ở trong phòng xông hơi: màu da sáng</annotation>
 		<annotation cp="🧖🏼">mát xa | màu da sáng trung bình | người ở trong phòng xông hơi | người phụ nữ trong phòng xông hơi | nhà tắm hơi | phòng xông hơi | sang chảnh | spa | thư giãn</annotation>
@@ -3463,6 +3742,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤸🏾‍♀" type="tts">người phụ nữ nhào lộn: màu da tối trung bình</annotation>
 		<annotation cp="🤸🏿‍♀">hào hứng | lăng nghiêng | màu da tối | người phụ nữ nhào lộn | nhào lộn | phụ nữ | thể dục | thể dục dụng cụ | vui vẻ</annotation>
 		<annotation cp="🤸🏿‍♀" type="tts">người phụ nữ nhào lộn: màu da tối</annotation>
+		<annotation cp="🤼🏻">đấu vật | đô vật | giải đấu vật | màu da sáng | người chơi vật | trên võ đài | vật</annotation>
+		<annotation cp="🤼🏻" type="tts">người chơi vật: màu da sáng</annotation>
+		<annotation cp="🤼🏼">đấu vật | đô vật | giải đấu vật | màu da sáng trung bình | người chơi vật | trên võ đài | vật</annotation>
+		<annotation cp="🤼🏼" type="tts">người chơi vật: màu da sáng trung bình</annotation>
+		<annotation cp="🤼🏽">đấu vật | đô vật | giải đấu vật | màu da trung bình | người chơi vật | trên võ đài | vật</annotation>
+		<annotation cp="🤼🏽" type="tts">người chơi vật: màu da trung bình</annotation>
+		<annotation cp="🤼🏾">đấu vật | đô vật | giải đấu vật | màu da tối trung bình | người chơi vật | trên võ đài | vật</annotation>
+		<annotation cp="🤼🏾" type="tts">người chơi vật: màu da tối trung bình</annotation>
+		<annotation cp="🤼🏿">đấu vật | đô vật | giải đấu vật | màu da tối | người chơi vật | trên võ đài | vật</annotation>
+		<annotation cp="🤼🏿" type="tts">người chơi vật: màu da tối</annotation>
+		<annotation cp="🤼🏻‍♀">đấu vật | đô vật | màu da sáng | những người phụ nữ chơi vật | nữ đô vật | phụ nữ | trên võ đài | vật</annotation>
+		<annotation cp="🤼🏻‍♀" type="tts">những người phụ nữ chơi vật: màu da sáng</annotation>
+		<annotation cp="🤼🏼‍♀">đấu vật | đô vật | màu da sáng trung bình | những người phụ nữ chơi vật | nữ đô vật | phụ nữ | trên võ đài | vật</annotation>
+		<annotation cp="🤼🏼‍♀" type="tts">những người phụ nữ chơi vật: màu da sáng trung bình</annotation>
+		<annotation cp="🤼🏽‍♀">đấu vật | đô vật | màu da trung bình | những người phụ nữ chơi vật | nữ đô vật | phụ nữ | trên võ đài | vật</annotation>
+		<annotation cp="🤼🏽‍♀" type="tts">những người phụ nữ chơi vật: màu da trung bình</annotation>
+		<annotation cp="🤼🏾‍♀">đấu vật | đô vật | màu da tối trung bình | những người phụ nữ chơi vật | nữ đô vật | phụ nữ | trên võ đài | vật</annotation>
+		<annotation cp="🤼🏾‍♀" type="tts">những người phụ nữ chơi vật: màu da tối trung bình</annotation>
+		<annotation cp="🤼🏿‍♀">đấu vật | đô vật | màu da tối | những người phụ nữ chơi vật | nữ đô vật | phụ nữ | trên võ đài | vật</annotation>
+		<annotation cp="🤼🏿‍♀" type="tts">những người phụ nữ chơi vật: màu da tối</annotation>
+		<annotation cp="🤼🏻‍♂">đàn ông | đấu vật | đô vật | màu da sáng | nam đô vật | những người đàn ông chơi vật | trên võ đài | vật</annotation>
+		<annotation cp="🤼🏻‍♂" type="tts">những người đàn ông chơi vật: màu da sáng</annotation>
+		<annotation cp="🤼🏼‍♂">đàn ông | đấu vật | đô vật | màu da sáng trung bình | nam đô vật | những người đàn ông chơi vật | trên võ đài | vật</annotation>
+		<annotation cp="🤼🏼‍♂" type="tts">những người đàn ông chơi vật: màu da sáng trung bình</annotation>
+		<annotation cp="🤼🏽‍♂">đàn ông | đấu vật | đô vật | màu da trung bình | nam đô vật | những người đàn ông chơi vật | trên võ đài | vật</annotation>
+		<annotation cp="🤼🏽‍♂" type="tts">những người đàn ông chơi vật: màu da trung bình</annotation>
+		<annotation cp="🤼🏾‍♂">đàn ông | đấu vật | đô vật | màu da tối trung bình | nam đô vật | những người đàn ông chơi vật | trên võ đài | vật</annotation>
+		<annotation cp="🤼🏾‍♂" type="tts">những người đàn ông chơi vật: màu da tối trung bình</annotation>
+		<annotation cp="🤼🏿‍♂">đàn ông | đấu vật | đô vật | màu da tối | nam đô vật | những người đàn ông chơi vật | trên võ đài | vật</annotation>
+		<annotation cp="🤼🏿‍♂" type="tts">những người đàn ông chơi vật: màu da tối</annotation>
 		<annotation cp="🤽🏻">bơi lội | bóng | màu da sáng | người chơi bóng dưới nước | người chơi bóng nước | nước | thể thao dưới nước</annotation>
 		<annotation cp="🤽🏻" type="tts">người chơi bóng nước: màu da sáng</annotation>
 		<annotation cp="🤽🏼">bơi lội | bóng | màu da sáng trung bình | người chơi bóng dưới nước | người chơi bóng nước | nước | thể thao dưới nước</annotation>
@@ -3918,7 +4227,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇦🇹">cờ</annotation>
 		<annotation cp="🇦🇹" type="tts">cờ: Áo</annotation>
 		<annotation cp="🇦🇺">cờ</annotation>
-		<annotation cp="🇦🇺" type="tts">cờ: Australia</annotation>
+		<annotation cp="🇦🇺" type="tts">cờ: Úc</annotation>
 		<annotation cp="🇦🇼">cờ</annotation>
 		<annotation cp="🇦🇼" type="tts">cờ: Aruba</annotation>
 		<annotation cp="🇦🇽">cờ</annotation>
@@ -3993,6 +4302,8 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇨🇴" type="tts">cờ: Colombia</annotation>
 		<annotation cp="🇨🇵">cờ</annotation>
 		<annotation cp="🇨🇵" type="tts">cờ: Đảo Clipperton</annotation>
+		<annotation cp="🇨🇶">cờ</annotation>
+		<annotation cp="🇨🇶" type="tts">cờ: Sark</annotation>
 		<annotation cp="🇨🇷">cờ</annotation>
 		<annotation cp="🇨🇷" type="tts">cờ: Costa Rica</annotation>
 		<annotation cp="🇨🇺">cờ</annotation>
@@ -4432,26 +4743,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="₺" type="tts">Lia Thổ Nhĩ Kỳ</annotation>
 		<annotation cp="₼" type="tts">Manat Azerbaijan</annotation>
 		<annotation cp="₾" type="tts">Lari Georgia</annotation>
-		<annotation cp="0⃣">mũ phím</annotation>
-		<annotation cp="0⃣" type="tts">mũ phím: 0</annotation>
-		<annotation cp="1⃣">mũ phím</annotation>
-		<annotation cp="1⃣" type="tts">mũ phím: 1</annotation>
-		<annotation cp="2⃣">mũ phím</annotation>
-		<annotation cp="2⃣" type="tts">mũ phím: 2</annotation>
-		<annotation cp="3⃣">mũ phím</annotation>
-		<annotation cp="3⃣" type="tts">mũ phím: 3</annotation>
-		<annotation cp="4⃣">mũ phím</annotation>
-		<annotation cp="4⃣" type="tts">mũ phím: 4</annotation>
-		<annotation cp="5⃣">mũ phím</annotation>
-		<annotation cp="5⃣" type="tts">mũ phím: 5</annotation>
-		<annotation cp="6⃣">mũ phím</annotation>
-		<annotation cp="6⃣" type="tts">mũ phím: 6</annotation>
-		<annotation cp="7⃣">mũ phím</annotation>
-		<annotation cp="7⃣" type="tts">mũ phím: 7</annotation>
-		<annotation cp="8⃣">mũ phím</annotation>
-		<annotation cp="8⃣" type="tts">mũ phím: 8</annotation>
-		<annotation cp="9⃣">mũ phím</annotation>
-		<annotation cp="9⃣" type="tts">mũ phím: 9</annotation>
 		<annotation cp="₧" type="tts">Đồng Peseta Tây Ban Nha</annotation>
 	</annotations>
 </ldml>

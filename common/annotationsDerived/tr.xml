@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-
-Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
 -->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -163,15 +162,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🫸🏾" type="tts">sağa iten el: orta koyu cilt tonu</annotation>
 		<annotation cp="🫸🏿">bekle | bekletme | çak | çakma | dur | durdurma | itme | koyu cilt tonu | reddetme | sağa | sağa iten el</annotation>
 		<annotation cp="🫸🏿" type="tts">sağa iten el: koyu cilt tonu</annotation>
-		<annotation cp="👌🏻">açık cilt tonu | anlaştık | budur | el | harika | inanılmaz | işaret | işte bu | kıstırma | leziz | mükemmel | müthiş | ok | okey | süper | tam olarak | Tamam | Tamam el işareti | tamam işareti | tamamdır | yes</annotation>
+		<annotation cp="👌🏻">açık cilt tonu | anlaştık | el | harika | işaret | işte bu | mükemmel | müthiş | ok | süper | tam olarak | Tamam | tamamdır</annotation>
 		<annotation cp="👌🏻" type="tts">tamam işareti: açık cilt tonu</annotation>
-		<annotation cp="👌🏼">anlaştık | budur | el | harika | inanılmaz | işaret | işte bu | kıstırma | leziz | mükemmel | müthiş | ok | okey | orta açık cilt tonu | süper | tam olarak | Tamam | Tamam el işareti | tamam işareti | tamamdır | yes</annotation>
+		<annotation cp="👌🏼">anlaştık | el | harika | işaret | işte bu | mükemmel | müthiş | ok | orta açık cilt tonu | süper | tam olarak | Tamam | tamamdır</annotation>
 		<annotation cp="👌🏼" type="tts">tamam işareti: orta açık cilt tonu</annotation>
-		<annotation cp="👌🏽">anlaştık | budur | el | harika | inanılmaz | işaret | işte bu | kıstırma | leziz | mükemmel | müthiş | ok | okey | orta cilt tonu | süper | tam olarak | Tamam | Tamam el işareti | tamam işareti | tamamdır | yes</annotation>
+		<annotation cp="👌🏽">anlaştık | el | harika | işaret | işte bu | mükemmel | müthiş | ok | orta cilt tonu | süper | tam olarak | Tamam | tamamdır</annotation>
 		<annotation cp="👌🏽" type="tts">tamam işareti: orta cilt tonu</annotation>
-		<annotation cp="👌🏾">anlaştık | budur | el | harika | inanılmaz | işaret | işte bu | kıstırma | leziz | mükemmel | müthiş | ok | okey | orta koyu cilt tonu | süper | tam olarak | Tamam | Tamam el işareti | tamam işareti | tamamdır | yes</annotation>
+		<annotation cp="👌🏾">anlaştık | el | harika | işaret | işte bu | mükemmel | müthiş | ok | orta koyu cilt tonu | süper | tam olarak | Tamam | tamamdır</annotation>
 		<annotation cp="👌🏾" type="tts">tamam işareti: orta koyu cilt tonu</annotation>
-		<annotation cp="👌🏿">anlaştık | budur | el | harika | inanılmaz | işaret | işte bu | kıstırma | koyu cilt tonu | leziz | mükemmel | müthiş | ok | okey | süper | tam olarak | Tamam | Tamam el işareti | tamam işareti | tamamdır | yes</annotation>
+		<annotation cp="👌🏿">anlaştık | el | harika | işaret | işte bu | koyu cilt tonu | mükemmel | müthiş | ok | süper | tam olarak | Tamam | tamamdır</annotation>
 		<annotation cp="👌🏿" type="tts">tamam işareti: koyu cilt tonu</annotation>
 		<annotation cp="🤌🏻">açık cilt tonu | bravo | çok güzel | el | el hareketleri | harika | kıstırma hareketi yapan parmaklar | lezzetli | parmaklar</annotation>
 		<annotation cp="🤌🏻" type="tts">kıstırma hareketi yapan parmaklar: açık cilt tonu</annotation>
@@ -603,6 +602,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾" type="tts">sarışın kişi: orta koyu cilt tonu</annotation>
 		<annotation cp="👱🏿">erkek | insan | kişi | kişiler | koyu cilt tonu | saç | sarı saçlı kişi | sarışın | yüz</annotation>
 		<annotation cp="👱🏿" type="tts">sarışın kişi: koyu cilt tonu</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏼">açık cilt tonu | birey | dövüş | düello | güreş | güreş minderi | güreşçi | güreşçilik | güreşen kişiler | kişi | orta açık cilt tonu | spor | vücut</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏼" type="tts">güreşen kişiler: açık cilt tonu orta açık cilt tonu</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏽">açık cilt tonu | birey | dövüş | düello | güreş | güreş minderi | güreşçi | güreşçilik | güreşen kişiler | kişi | orta cilt tonu | spor | vücut</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏽" type="tts">güreşen kişiler: açık cilt tonu orta cilt tonu</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏾">açık cilt tonu | birey | dövüş | düello | güreş | güreş minderi | güreşçi | güreşçilik | güreşen kişiler | kişi | orta koyu cilt tonu | spor | vücut</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏾" type="tts">güreşen kişiler: açık cilt tonu orta koyu cilt tonu</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏿">açık cilt tonu | birey | dövüş | düello | güreş | güreş minderi | güreşçi | güreşçilik | güreşen kişiler | kişi | koyu cilt tonu | spor | vücut</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏿" type="tts">güreşen kişiler: açık cilt tonu koyu cilt tonu</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏻">açık cilt tonu | birey | dövüş | düello | güreş | güreş minderi | güreşçi | güreşçilik | güreşen kişiler | kişi | orta açık cilt tonu | spor | vücut</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏻" type="tts">güreşen kişiler: orta açık cilt tonu açık cilt tonu</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏽">birey | dövüş | düello | güreş | güreş minderi | güreşçi | güreşçilik | güreşen kişiler | kişi | orta açık cilt tonu | orta cilt tonu | spor | vücut</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏽" type="tts">güreşen kişiler: orta açık cilt tonu orta cilt tonu</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏾">birey | dövüş | düello | güreş | güreş minderi | güreşçi | güreşçilik | güreşen kişiler | kişi | orta açık cilt tonu | orta koyu cilt tonu | spor | vücut</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏾" type="tts">güreşen kişiler: orta açık cilt tonu orta koyu cilt tonu</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏿">birey | dövüş | düello | güreş | güreş minderi | güreşçi | güreşçilik | güreşen kişiler | kişi | koyu cilt tonu | orta açık cilt tonu | spor | vücut</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏿" type="tts">güreşen kişiler: orta açık cilt tonu koyu cilt tonu</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏻">açık cilt tonu | birey | dövüş | düello | güreş | güreş minderi | güreşçi | güreşçilik | güreşen kişiler | kişi | orta cilt tonu | spor | vücut</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏻" type="tts">güreşen kişiler: orta cilt tonu açık cilt tonu</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏼">birey | dövüş | düello | güreş | güreş minderi | güreşçi | güreşçilik | güreşen kişiler | kişi | orta açık cilt tonu | orta cilt tonu | spor | vücut</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏼" type="tts">güreşen kişiler: orta cilt tonu orta açık cilt tonu</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏾">birey | dövüş | düello | güreş | güreş minderi | güreşçi | güreşçilik | güreşen kişiler | kişi | orta cilt tonu | orta koyu cilt tonu | spor | vücut</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏾" type="tts">güreşen kişiler: orta cilt tonu orta koyu cilt tonu</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏿">birey | dövüş | düello | güreş | güreş minderi | güreşçi | güreşçilik | güreşen kişiler | kişi | koyu cilt tonu | orta cilt tonu | spor | vücut</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏿" type="tts">güreşen kişiler: orta cilt tonu koyu cilt tonu</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏻">açık cilt tonu | birey | dövüş | düello | güreş | güreş minderi | güreşçi | güreşçilik | güreşen kişiler | kişi | orta koyu cilt tonu | spor | vücut</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏻" type="tts">güreşen kişiler: orta koyu cilt tonu açık cilt tonu</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏼">birey | dövüş | düello | güreş | güreş minderi | güreşçi | güreşçilik | güreşen kişiler | kişi | orta açık cilt tonu | orta koyu cilt tonu | spor | vücut</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏼" type="tts">güreşen kişiler: orta koyu cilt tonu orta açık cilt tonu</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏽">birey | dövüş | düello | güreş | güreş minderi | güreşçi | güreşçilik | güreşen kişiler | kişi | orta cilt tonu | orta koyu cilt tonu | spor | vücut</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏽" type="tts">güreşen kişiler: orta koyu cilt tonu orta cilt tonu</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏿">birey | dövüş | düello | güreş | güreş minderi | güreşçi | güreşçilik | güreşen kişiler | kişi | koyu cilt tonu | orta koyu cilt tonu | spor | vücut</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏿" type="tts">güreşen kişiler: orta koyu cilt tonu koyu cilt tonu</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏻">açık cilt tonu | birey | dövüş | düello | güreş | güreş minderi | güreşçi | güreşçilik | güreşen kişiler | kişi | koyu cilt tonu | spor | vücut</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏻" type="tts">güreşen kişiler: koyu cilt tonu açık cilt tonu</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏼">birey | dövüş | düello | güreş | güreş minderi | güreşçi | güreşçilik | güreşen kişiler | kişi | koyu cilt tonu | orta açık cilt tonu | spor | vücut</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏼" type="tts">güreşen kişiler: koyu cilt tonu orta açık cilt tonu</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏽">birey | dövüş | düello | güreş | güreş minderi | güreşçi | güreşçilik | güreşen kişiler | kişi | koyu cilt tonu | orta cilt tonu | spor | vücut</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏽" type="tts">güreşen kişiler: koyu cilt tonu orta cilt tonu</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏾">birey | dövüş | düello | güreş | güreş minderi | güreşçi | güreşçilik | güreşen kişiler | kişi | koyu cilt tonu | orta koyu cilt tonu | spor | vücut</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏾" type="tts">güreşen kişiler: koyu cilt tonu orta koyu cilt tonu</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏼">açık cilt tonu | aşk | kişiler | öpücük | öpüşme | orta açık cilt tonu | romantizm | seni seviyorum | yetişkin | yıldönümü</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏼" type="tts">öpücük: yetişkin yetişkin açık cilt tonu orta açık cilt tonu</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏽">açık cilt tonu | aşk | kişiler | öpücük | öpüşme | orta cilt tonu | romantizm | seni seviyorum | yetişkin | yıldönümü</annotation>
@@ -731,6 +770,56 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧑🏾‍🦲" type="tts">yetişkin: orta koyu cilt tonu kel</annotation>
 		<annotation cp="🧑🏿‍🦲">adam | insan | kel | kişi | koyu cilt tonu | yetişkin | yüz</annotation>
 		<annotation cp="🧑🏿‍🦲" type="tts">yetişkin: koyu cilt tonu kel</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏼">açık cilt tonu | aynısı | dans | dansçı | ikiz | kadın | orta açık cilt tonu | parti | ruh ikizi | tavşan kulak | tavşan kulaklar | tavşan kulaklı kişiler | vücut</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏼" type="tts">tavşan kulaklı kişiler: açık cilt tonu orta açık cilt tonu</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏽">açık cilt tonu | aynısı | dans | dansçı | ikiz | kadın | orta cilt tonu | parti | ruh ikizi | tavşan kulak | tavşan kulaklar | tavşan kulaklı kişiler | vücut</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏽" type="tts">tavşan kulaklı kişiler: açık cilt tonu orta cilt tonu</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏾">açık cilt tonu | aynısı | dans | dansçı | ikiz | kadın | orta koyu cilt tonu | parti | ruh ikizi | tavşan kulak | tavşan kulaklar | tavşan kulaklı kişiler | vücut</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏾" type="tts">tavşan kulaklı kişiler: açık cilt tonu orta koyu cilt tonu</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏿">açık cilt tonu | aynısı | dans | dansçı | ikiz | kadın | koyu cilt tonu | parti | ruh ikizi | tavşan kulak | tavşan kulaklar | tavşan kulaklı kişiler | vücut</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏿" type="tts">tavşan kulaklı kişiler: açık cilt tonu koyu cilt tonu</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏻">açık cilt tonu | aynısı | dans | dansçı | ikiz | kadın | orta açık cilt tonu | parti | ruh ikizi | tavşan kulak | tavşan kulaklar | tavşan kulaklı kişiler | vücut</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏻" type="tts">tavşan kulaklı kişiler: orta açık cilt tonu açık cilt tonu</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏽">aynısı | dans | dansçı | ikiz | kadın | orta açık cilt tonu | orta cilt tonu | parti | ruh ikizi | tavşan kulak | tavşan kulaklar | tavşan kulaklı kişiler | vücut</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏽" type="tts">tavşan kulaklı kişiler: orta açık cilt tonu orta cilt tonu</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏾">aynısı | dans | dansçı | ikiz | kadın | orta açık cilt tonu | orta koyu cilt tonu | parti | ruh ikizi | tavşan kulak | tavşan kulaklar | tavşan kulaklı kişiler | vücut</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏾" type="tts">tavşan kulaklı kişiler: orta açık cilt tonu orta koyu cilt tonu</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏿">aynısı | dans | dansçı | ikiz | kadın | koyu cilt tonu | orta açık cilt tonu | parti | ruh ikizi | tavşan kulak | tavşan kulaklar | tavşan kulaklı kişiler | vücut</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏿" type="tts">tavşan kulaklı kişiler: orta açık cilt tonu koyu cilt tonu</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏻">açık cilt tonu | aynısı | dans | dansçı | ikiz | kadın | orta cilt tonu | parti | ruh ikizi | tavşan kulak | tavşan kulaklar | tavşan kulaklı kişiler | vücut</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏻" type="tts">tavşan kulaklı kişiler: orta cilt tonu açık cilt tonu</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏼">aynısı | dans | dansçı | ikiz | kadın | orta açık cilt tonu | orta cilt tonu | parti | ruh ikizi | tavşan kulak | tavşan kulaklar | tavşan kulaklı kişiler | vücut</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏼" type="tts">tavşan kulaklı kişiler: orta cilt tonu orta açık cilt tonu</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏾">aynısı | dans | dansçı | ikiz | kadın | orta cilt tonu | orta koyu cilt tonu | parti | ruh ikizi | tavşan kulak | tavşan kulaklar | tavşan kulaklı kişiler | vücut</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏾" type="tts">tavşan kulaklı kişiler: orta cilt tonu orta koyu cilt tonu</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏿">aynısı | dans | dansçı | ikiz | kadın | koyu cilt tonu | orta cilt tonu | parti | ruh ikizi | tavşan kulak | tavşan kulaklar | tavşan kulaklı kişiler | vücut</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏿" type="tts">tavşan kulaklı kişiler: orta cilt tonu koyu cilt tonu</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏻">açık cilt tonu | aynısı | dans | dansçı | ikiz | kadın | orta koyu cilt tonu | parti | ruh ikizi | tavşan kulak | tavşan kulaklar | tavşan kulaklı kişiler | vücut</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏻" type="tts">tavşan kulaklı kişiler: orta koyu cilt tonu açık cilt tonu</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏼">aynısı | dans | dansçı | ikiz | kadın | orta açık cilt tonu | orta koyu cilt tonu | parti | ruh ikizi | tavşan kulak | tavşan kulaklar | tavşan kulaklı kişiler | vücut</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏼" type="tts">tavşan kulaklı kişiler: orta koyu cilt tonu orta açık cilt tonu</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏽">aynısı | dans | dansçı | ikiz | kadın | orta cilt tonu | orta koyu cilt tonu | parti | ruh ikizi | tavşan kulak | tavşan kulaklar | tavşan kulaklı kişiler | vücut</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏽" type="tts">tavşan kulaklı kişiler: orta koyu cilt tonu orta cilt tonu</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏿">aynısı | dans | dansçı | ikiz | kadın | koyu cilt tonu | orta koyu cilt tonu | parti | ruh ikizi | tavşan kulak | tavşan kulaklar | tavşan kulaklı kişiler | vücut</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏿" type="tts">tavşan kulaklı kişiler: orta koyu cilt tonu koyu cilt tonu</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏻">açık cilt tonu | aynısı | dans | dansçı | ikiz | kadın | koyu cilt tonu | parti | ruh ikizi | tavşan kulak | tavşan kulaklar | tavşan kulaklı kişiler | vücut</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏻" type="tts">tavşan kulaklı kişiler: koyu cilt tonu açık cilt tonu</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏼">aynısı | dans | dansçı | ikiz | kadın | koyu cilt tonu | orta açık cilt tonu | parti | ruh ikizi | tavşan kulak | tavşan kulaklar | tavşan kulaklı kişiler | vücut</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏼" type="tts">tavşan kulaklı kişiler: koyu cilt tonu orta açık cilt tonu</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏽">aynısı | dans | dansçı | ikiz | kadın | koyu cilt tonu | orta cilt tonu | parti | ruh ikizi | tavşan kulak | tavşan kulaklar | tavşan kulaklı kişiler | vücut</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏽" type="tts">tavşan kulaklı kişiler: koyu cilt tonu orta cilt tonu</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏾">aynısı | dans | dansçı | ikiz | kadın | koyu cilt tonu | orta koyu cilt tonu | parti | ruh ikizi | tavşan kulak | tavşan kulaklar | tavşan kulaklı kişiler | vücut</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏾" type="tts">tavşan kulaklı kişiler: koyu cilt tonu orta koyu cilt tonu</annotation>
+		<annotation cp="🧑🏻‍🩰">açık cilt tonu | bale | dansçı</annotation>
+		<annotation cp="🧑🏻‍🩰" type="tts">bale dansçısı: açık cilt tonu</annotation>
+		<annotation cp="🧑🏼‍🩰">bale | dansçı | orta açık cilt tonu</annotation>
+		<annotation cp="🧑🏼‍🩰" type="tts">bale dansçısı: orta açık cilt tonu</annotation>
+		<annotation cp="🧑🏽‍🩰">bale | dansçı | orta cilt tonu</annotation>
+		<annotation cp="🧑🏽‍🩰" type="tts">bale dansçısı: orta cilt tonu</annotation>
+		<annotation cp="🧑🏾‍🩰">bale | dansçı | orta koyu cilt tonu</annotation>
+		<annotation cp="🧑🏾‍🩰" type="tts">bale dansçısı: orta koyu cilt tonu</annotation>
+		<annotation cp="🧑🏿‍🩰">bale | dansçı | koyu cilt tonu</annotation>
+		<annotation cp="🧑🏿‍🩰" type="tts">bale dansçısı: koyu cilt tonu</annotation>
 		<annotation cp="👨🏻">açık cilt tonu | adam | erkek | insan | kişiler | sarışın erkek</annotation>
 		<annotation cp="👨🏻" type="tts">erkek: açık cilt tonu</annotation>
 		<annotation cp="👨🏼">adam | erkek | insan | kişiler | orta açık cilt tonu | sarışın erkek</annotation>
@@ -771,6 +860,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾‍♂" type="tts">sarışın erkek: orta koyu cilt tonu</annotation>
 		<annotation cp="👱🏿‍♂">adam | erkek | koyu cilt tonu | sarışın</annotation>
 		<annotation cp="👱🏿‍♂" type="tts">sarışın erkek: koyu cilt tonu</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏼">açık cilt tonu | adam | antrenman | dövüş | düello | er meydanı | erkek | güreş | güreş yapan erkek | kişi | kırkpınar | orta açık cilt tonu | spor</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏼" type="tts">güreş yapan erkek: açık cilt tonu orta açık cilt tonu</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏽">açık cilt tonu | adam | antrenman | dövüş | düello | er meydanı | erkek | güreş | güreş yapan erkek | kişi | kırkpınar | orta cilt tonu | spor</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏽" type="tts">güreş yapan erkek: açık cilt tonu orta cilt tonu</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏾">açık cilt tonu | adam | antrenman | dövüş | düello | er meydanı | erkek | güreş | güreş yapan erkek | kişi | kırkpınar | orta koyu cilt tonu | spor</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏾" type="tts">güreş yapan erkek: açık cilt tonu orta koyu cilt tonu</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏿">açık cilt tonu | adam | antrenman | dövüş | düello | er meydanı | erkek | güreş | güreş yapan erkek | kişi | kırkpınar | koyu cilt tonu | spor</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏿" type="tts">güreş yapan erkek: açık cilt tonu koyu cilt tonu</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏻">açık cilt tonu | adam | antrenman | dövüş | düello | er meydanı | erkek | güreş | güreş yapan erkek | kişi | kırkpınar | orta açık cilt tonu | spor</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏻" type="tts">güreş yapan erkek: orta açık cilt tonu açık cilt tonu</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏽">adam | antrenman | dövüş | düello | er meydanı | erkek | güreş | güreş yapan erkek | kişi | kırkpınar | orta açık cilt tonu | orta cilt tonu | spor</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏽" type="tts">güreş yapan erkek: orta açık cilt tonu orta cilt tonu</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏾">adam | antrenman | dövüş | düello | er meydanı | erkek | güreş | güreş yapan erkek | kişi | kırkpınar | orta açık cilt tonu | orta koyu cilt tonu | spor</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏾" type="tts">güreş yapan erkek: orta açık cilt tonu orta koyu cilt tonu</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏿">adam | antrenman | dövüş | düello | er meydanı | erkek | güreş | güreş yapan erkek | kişi | kırkpınar | koyu cilt tonu | orta açık cilt tonu | spor</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏿" type="tts">güreş yapan erkek: orta açık cilt tonu koyu cilt tonu</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏻">açık cilt tonu | adam | antrenman | dövüş | düello | er meydanı | erkek | güreş | güreş yapan erkek | kişi | kırkpınar | orta cilt tonu | spor</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏻" type="tts">güreş yapan erkek: orta cilt tonu açık cilt tonu</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏼">adam | antrenman | dövüş | düello | er meydanı | erkek | güreş | güreş yapan erkek | kişi | kırkpınar | orta açık cilt tonu | orta cilt tonu | spor</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏼" type="tts">güreş yapan erkek: orta cilt tonu orta açık cilt tonu</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏾">adam | antrenman | dövüş | düello | er meydanı | erkek | güreş | güreş yapan erkek | kişi | kırkpınar | orta cilt tonu | orta koyu cilt tonu | spor</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏾" type="tts">güreş yapan erkek: orta cilt tonu orta koyu cilt tonu</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏿">adam | antrenman | dövüş | düello | er meydanı | erkek | güreş | güreş yapan erkek | kişi | kırkpınar | koyu cilt tonu | orta cilt tonu | spor</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏿" type="tts">güreş yapan erkek: orta cilt tonu koyu cilt tonu</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏻">açık cilt tonu | adam | antrenman | dövüş | düello | er meydanı | erkek | güreş | güreş yapan erkek | kişi | kırkpınar | orta koyu cilt tonu | spor</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏻" type="tts">güreş yapan erkek: orta koyu cilt tonu açık cilt tonu</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏼">adam | antrenman | dövüş | düello | er meydanı | erkek | güreş | güreş yapan erkek | kişi | kırkpınar | orta açık cilt tonu | orta koyu cilt tonu | spor</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏼" type="tts">güreş yapan erkek: orta koyu cilt tonu orta açık cilt tonu</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏽">adam | antrenman | dövüş | düello | er meydanı | erkek | güreş | güreş yapan erkek | kişi | kırkpınar | orta cilt tonu | orta koyu cilt tonu | spor</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏽" type="tts">güreş yapan erkek: orta koyu cilt tonu orta cilt tonu</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏿">adam | antrenman | dövüş | düello | er meydanı | erkek | güreş | güreş yapan erkek | kişi | kırkpınar | koyu cilt tonu | orta koyu cilt tonu | spor</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏿" type="tts">güreş yapan erkek: orta koyu cilt tonu koyu cilt tonu</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏻">açık cilt tonu | adam | antrenman | dövüş | düello | er meydanı | erkek | güreş | güreş yapan erkek | kişi | kırkpınar | koyu cilt tonu | spor</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏻" type="tts">güreş yapan erkek: koyu cilt tonu açık cilt tonu</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏼">adam | antrenman | dövüş | düello | er meydanı | erkek | güreş | güreş yapan erkek | kişi | kırkpınar | koyu cilt tonu | orta açık cilt tonu | spor</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏼" type="tts">güreş yapan erkek: koyu cilt tonu orta açık cilt tonu</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏽">adam | antrenman | dövüş | düello | er meydanı | erkek | güreş | güreş yapan erkek | kişi | kırkpınar | koyu cilt tonu | orta cilt tonu | spor</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏽" type="tts">güreş yapan erkek: koyu cilt tonu orta cilt tonu</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏾">adam | antrenman | dövüş | düello | er meydanı | erkek | güreş | güreş yapan erkek | kişi | kırkpınar | koyu cilt tonu | orta koyu cilt tonu | spor</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏾" type="tts">güreş yapan erkek: koyu cilt tonu orta koyu cilt tonu</annotation>
 		<annotation cp="👨🏻‍❤‍💋‍👨🏻">açık cilt tonu | aşk | erkek | kişiler | öpücük | öpüşme | romantizm | seni seviyorum | yıldönümü</annotation>
 		<annotation cp="👨🏻‍❤‍💋‍👨🏻" type="tts">öpücük: erkek erkek açık cilt tonu</annotation>
 		<annotation cp="👨🏻‍❤‍💋‍👨🏼">açık cilt tonu | aşk | erkek | kişiler | öpücük | öpüşme | orta açık cilt tonu | romantizm | seni seviyorum | yıldönümü</annotation>
@@ -919,6 +1048,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾‍🦲" type="tts">erkek: orta koyu cilt tonu kel</annotation>
 		<annotation cp="👨🏿‍🦲">adam | erkek | insan | kel | kişiler | koyu cilt tonu | sarışın erkek</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">erkek: koyu cilt tonu kel</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏼">açık cilt tonu | adam | dans eden erkekler | dansçı | erkek | orta açık cilt tonu | partiye katılan erkek | partiye katılma | tavşan kulak | tavşan kulaklı erkek | tavşan kulaklı erkekler</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏼" type="tts">tavşan kulaklı erkekler: açık cilt tonu orta açık cilt tonu</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏽">açık cilt tonu | adam | dans eden erkekler | dansçı | erkek | orta cilt tonu | partiye katılan erkek | partiye katılma | tavşan kulak | tavşan kulaklı erkek | tavşan kulaklı erkekler</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏽" type="tts">tavşan kulaklı erkekler: açık cilt tonu orta cilt tonu</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏾">açık cilt tonu | adam | dans eden erkekler | dansçı | erkek | orta koyu cilt tonu | partiye katılan erkek | partiye katılma | tavşan kulak | tavşan kulaklı erkek | tavşan kulaklı erkekler</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏾" type="tts">tavşan kulaklı erkekler: açık cilt tonu orta koyu cilt tonu</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏿">açık cilt tonu | adam | dans eden erkekler | dansçı | erkek | koyu cilt tonu | partiye katılan erkek | partiye katılma | tavşan kulak | tavşan kulaklı erkek | tavşan kulaklı erkekler</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏿" type="tts">tavşan kulaklı erkekler: açık cilt tonu koyu cilt tonu</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏻">açık cilt tonu | adam | dans eden erkekler | dansçı | erkek | orta açık cilt tonu | partiye katılan erkek | partiye katılma | tavşan kulak | tavşan kulaklı erkek | tavşan kulaklı erkekler</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏻" type="tts">tavşan kulaklı erkekler: orta açık cilt tonu açık cilt tonu</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏽">adam | dans eden erkekler | dansçı | erkek | orta açık cilt tonu | orta cilt tonu | partiye katılan erkek | partiye katılma | tavşan kulak | tavşan kulaklı erkek | tavşan kulaklı erkekler</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏽" type="tts">tavşan kulaklı erkekler: orta açık cilt tonu orta cilt tonu</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏾">adam | dans eden erkekler | dansçı | erkek | orta açık cilt tonu | orta koyu cilt tonu | partiye katılan erkek | partiye katılma | tavşan kulak | tavşan kulaklı erkek | tavşan kulaklı erkekler</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏾" type="tts">tavşan kulaklı erkekler: orta açık cilt tonu orta koyu cilt tonu</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏿">adam | dans eden erkekler | dansçı | erkek | koyu cilt tonu | orta açık cilt tonu | partiye katılan erkek | partiye katılma | tavşan kulak | tavşan kulaklı erkek | tavşan kulaklı erkekler</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏿" type="tts">tavşan kulaklı erkekler: orta açık cilt tonu koyu cilt tonu</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏻">açık cilt tonu | adam | dans eden erkekler | dansçı | erkek | orta cilt tonu | partiye katılan erkek | partiye katılma | tavşan kulak | tavşan kulaklı erkek | tavşan kulaklı erkekler</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏻" type="tts">tavşan kulaklı erkekler: orta cilt tonu açık cilt tonu</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏼">adam | dans eden erkekler | dansçı | erkek | orta açık cilt tonu | orta cilt tonu | partiye katılan erkek | partiye katılma | tavşan kulak | tavşan kulaklı erkek | tavşan kulaklı erkekler</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏼" type="tts">tavşan kulaklı erkekler: orta cilt tonu orta açık cilt tonu</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏾">adam | dans eden erkekler | dansçı | erkek | orta cilt tonu | orta koyu cilt tonu | partiye katılan erkek | partiye katılma | tavşan kulak | tavşan kulaklı erkek | tavşan kulaklı erkekler</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏾" type="tts">tavşan kulaklı erkekler: orta cilt tonu orta koyu cilt tonu</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏿">adam | dans eden erkekler | dansçı | erkek | koyu cilt tonu | orta cilt tonu | partiye katılan erkek | partiye katılma | tavşan kulak | tavşan kulaklı erkek | tavşan kulaklı erkekler</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏿" type="tts">tavşan kulaklı erkekler: orta cilt tonu koyu cilt tonu</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏻">açık cilt tonu | adam | dans eden erkekler | dansçı | erkek | orta koyu cilt tonu | partiye katılan erkek | partiye katılma | tavşan kulak | tavşan kulaklı erkek | tavşan kulaklı erkekler</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏻" type="tts">tavşan kulaklı erkekler: orta koyu cilt tonu açık cilt tonu</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏼">adam | dans eden erkekler | dansçı | erkek | orta açık cilt tonu | orta koyu cilt tonu | partiye katılan erkek | partiye katılma | tavşan kulak | tavşan kulaklı erkek | tavşan kulaklı erkekler</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏼" type="tts">tavşan kulaklı erkekler: orta koyu cilt tonu orta açık cilt tonu</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏽">adam | dans eden erkekler | dansçı | erkek | orta cilt tonu | orta koyu cilt tonu | partiye katılan erkek | partiye katılma | tavşan kulak | tavşan kulaklı erkek | tavşan kulaklı erkekler</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏽" type="tts">tavşan kulaklı erkekler: orta koyu cilt tonu orta cilt tonu</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏿">adam | dans eden erkekler | dansçı | erkek | koyu cilt tonu | orta koyu cilt tonu | partiye katılan erkek | partiye katılma | tavşan kulak | tavşan kulaklı erkek | tavşan kulaklı erkekler</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏿" type="tts">tavşan kulaklı erkekler: orta koyu cilt tonu koyu cilt tonu</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏻">açık cilt tonu | adam | dans eden erkekler | dansçı | erkek | koyu cilt tonu | partiye katılan erkek | partiye katılma | tavşan kulak | tavşan kulaklı erkek | tavşan kulaklı erkekler</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏻" type="tts">tavşan kulaklı erkekler: koyu cilt tonu açık cilt tonu</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏼">adam | dans eden erkekler | dansçı | erkek | koyu cilt tonu | orta açık cilt tonu | partiye katılan erkek | partiye katılma | tavşan kulak | tavşan kulaklı erkek | tavşan kulaklı erkekler</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏼" type="tts">tavşan kulaklı erkekler: koyu cilt tonu orta açık cilt tonu</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏽">adam | dans eden erkekler | dansçı | erkek | koyu cilt tonu | orta cilt tonu | partiye katılan erkek | partiye katılma | tavşan kulak | tavşan kulaklı erkek | tavşan kulaklı erkekler</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏽" type="tts">tavşan kulaklı erkekler: koyu cilt tonu orta cilt tonu</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏾">adam | dans eden erkekler | dansçı | erkek | koyu cilt tonu | orta koyu cilt tonu | partiye katılan erkek | partiye katılma | tavşan kulak | tavşan kulaklı erkek | tavşan kulaklı erkekler</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏾" type="tts">tavşan kulaklı erkekler: koyu cilt tonu orta koyu cilt tonu</annotation>
 		<annotation cp="👩🏻">açık cilt tonu | insan | kadın | kişiler | sarışın kadın</annotation>
 		<annotation cp="👩🏻" type="tts">kadın: açık cilt tonu</annotation>
 		<annotation cp="👩🏼">insan | kadın | kişiler | orta açık cilt tonu | sarışın kadın</annotation>
@@ -949,6 +1118,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾‍♀" type="tts">sarışın kadın: orta koyu cilt tonu</annotation>
 		<annotation cp="👱🏿‍♀">bayan | insan | kadın | kız | koyu cilt tonu | sarışın</annotation>
 		<annotation cp="👱🏿‍♀" type="tts">sarışın kadın: koyu cilt tonu</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏼">açık cilt tonu | bayan | dövüş | er meydanı | güreş | güreş turnuvası | güreş yapan kadın | güreşçi | kadın | kişi | kırkpınar | orta açık cilt tonu | spor | vücut</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏼" type="tts">güreş yapan kadın: açık cilt tonu orta açık cilt tonu</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏽">açık cilt tonu | bayan | dövüş | er meydanı | güreş | güreş turnuvası | güreş yapan kadın | güreşçi | kadın | kişi | kırkpınar | orta cilt tonu | spor | vücut</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏽" type="tts">güreş yapan kadın: açık cilt tonu orta cilt tonu</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏾">açık cilt tonu | bayan | dövüş | er meydanı | güreş | güreş turnuvası | güreş yapan kadın | güreşçi | kadın | kişi | kırkpınar | orta koyu cilt tonu | spor | vücut</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏾" type="tts">güreş yapan kadın: açık cilt tonu orta koyu cilt tonu</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏿">açık cilt tonu | bayan | dövüş | er meydanı | güreş | güreş turnuvası | güreş yapan kadın | güreşçi | kadın | kişi | kırkpınar | koyu cilt tonu | spor | vücut</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏿" type="tts">güreş yapan kadın: açık cilt tonu koyu cilt tonu</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏻">açık cilt tonu | bayan | dövüş | er meydanı | güreş | güreş turnuvası | güreş yapan kadın | güreşçi | kadın | kişi | kırkpınar | orta açık cilt tonu | spor | vücut</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏻" type="tts">güreş yapan kadın: orta açık cilt tonu açık cilt tonu</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏽">bayan | dövüş | er meydanı | güreş | güreş turnuvası | güreş yapan kadın | güreşçi | kadın | kişi | kırkpınar | orta açık cilt tonu | orta cilt tonu | spor | vücut</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏽" type="tts">güreş yapan kadın: orta açık cilt tonu orta cilt tonu</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏾">bayan | dövüş | er meydanı | güreş | güreş turnuvası | güreş yapan kadın | güreşçi | kadın | kişi | kırkpınar | orta açık cilt tonu | orta koyu cilt tonu | spor | vücut</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏾" type="tts">güreş yapan kadın: orta açık cilt tonu orta koyu cilt tonu</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏿">bayan | dövüş | er meydanı | güreş | güreş turnuvası | güreş yapan kadın | güreşçi | kadın | kişi | kırkpınar | koyu cilt tonu | orta açık cilt tonu | spor | vücut</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏿" type="tts">güreş yapan kadın: orta açık cilt tonu koyu cilt tonu</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏻">açık cilt tonu | bayan | dövüş | er meydanı | güreş | güreş turnuvası | güreş yapan kadın | güreşçi | kadın | kişi | kırkpınar | orta cilt tonu | spor | vücut</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏻" type="tts">güreş yapan kadın: orta cilt tonu açık cilt tonu</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏼">bayan | dövüş | er meydanı | güreş | güreş turnuvası | güreş yapan kadın | güreşçi | kadın | kişi | kırkpınar | orta açık cilt tonu | orta cilt tonu | spor | vücut</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏼" type="tts">güreş yapan kadın: orta cilt tonu orta açık cilt tonu</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏾">bayan | dövüş | er meydanı | güreş | güreş turnuvası | güreş yapan kadın | güreşçi | kadın | kişi | kırkpınar | orta cilt tonu | orta koyu cilt tonu | spor | vücut</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏾" type="tts">güreş yapan kadın: orta cilt tonu orta koyu cilt tonu</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏿">bayan | dövüş | er meydanı | güreş | güreş turnuvası | güreş yapan kadın | güreşçi | kadın | kişi | kırkpınar | koyu cilt tonu | orta cilt tonu | spor | vücut</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏿" type="tts">güreş yapan kadın: orta cilt tonu koyu cilt tonu</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏻">açık cilt tonu | bayan | dövüş | er meydanı | güreş | güreş turnuvası | güreş yapan kadın | güreşçi | kadın | kişi | kırkpınar | orta koyu cilt tonu | spor | vücut</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏻" type="tts">güreş yapan kadın: orta koyu cilt tonu açık cilt tonu</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏼">bayan | dövüş | er meydanı | güreş | güreş turnuvası | güreş yapan kadın | güreşçi | kadın | kişi | kırkpınar | orta açık cilt tonu | orta koyu cilt tonu | spor | vücut</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏼" type="tts">güreş yapan kadın: orta koyu cilt tonu orta açık cilt tonu</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏽">bayan | dövüş | er meydanı | güreş | güreş turnuvası | güreş yapan kadın | güreşçi | kadın | kişi | kırkpınar | orta cilt tonu | orta koyu cilt tonu | spor | vücut</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏽" type="tts">güreş yapan kadın: orta koyu cilt tonu orta cilt tonu</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏿">bayan | dövüş | er meydanı | güreş | güreş turnuvası | güreş yapan kadın | güreşçi | kadın | kişi | kırkpınar | koyu cilt tonu | orta koyu cilt tonu | spor | vücut</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏿" type="tts">güreş yapan kadın: orta koyu cilt tonu koyu cilt tonu</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏻">açık cilt tonu | bayan | dövüş | er meydanı | güreş | güreş turnuvası | güreş yapan kadın | güreşçi | kadın | kişi | kırkpınar | koyu cilt tonu | spor | vücut</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏻" type="tts">güreş yapan kadın: koyu cilt tonu açık cilt tonu</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏼">bayan | dövüş | er meydanı | güreş | güreş turnuvası | güreş yapan kadın | güreşçi | kadın | kişi | kırkpınar | koyu cilt tonu | orta açık cilt tonu | spor | vücut</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏼" type="tts">güreş yapan kadın: koyu cilt tonu orta açık cilt tonu</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏽">bayan | dövüş | er meydanı | güreş | güreş turnuvası | güreş yapan kadın | güreşçi | kadın | kişi | kırkpınar | koyu cilt tonu | orta cilt tonu | spor | vücut</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏽" type="tts">güreş yapan kadın: koyu cilt tonu orta cilt tonu</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏾">bayan | dövüş | er meydanı | güreş | güreş turnuvası | güreş yapan kadın | güreşçi | kadın | kişi | kırkpınar | koyu cilt tonu | orta koyu cilt tonu | spor | vücut</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏾" type="tts">güreş yapan kadın: koyu cilt tonu orta koyu cilt tonu</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👨🏻">açık cilt tonu | aşk | erkek | kadın | kişiler | öpücük | öpüşme | romantizm | seni seviyorum | yıldönümü</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👨🏻" type="tts">öpücük: kadın erkek açık cilt tonu</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👨🏼">açık cilt tonu | aşk | erkek | kadın | kişiler | öpücük | öpüşme | orta açık cilt tonu | romantizm | seni seviyorum | yıldönümü</annotation>
@@ -1197,6 +1406,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🦲" type="tts">kadın: orta koyu cilt tonu kel</annotation>
 		<annotation cp="👩🏿‍🦲">insan | kadın | kel | kişiler | koyu cilt tonu | sarışın kadın</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">kadın: koyu cilt tonu kel</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏼">açık cilt tonu | bayan | dansçı | kadın | orta açık cilt tonu | partiye katılma | tavşan kulak | tavşan kulaklı kadın | tavşan kulaklı kadınlar</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏼" type="tts">tavşan kulaklı kadınlar: açık cilt tonu orta açık cilt tonu</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏽">açık cilt tonu | bayan | dansçı | kadın | orta cilt tonu | partiye katılma | tavşan kulak | tavşan kulaklı kadın | tavşan kulaklı kadınlar</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏽" type="tts">tavşan kulaklı kadınlar: açık cilt tonu orta cilt tonu</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏾">açık cilt tonu | bayan | dansçı | kadın | orta koyu cilt tonu | partiye katılma | tavşan kulak | tavşan kulaklı kadın | tavşan kulaklı kadınlar</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏾" type="tts">tavşan kulaklı kadınlar: açık cilt tonu orta koyu cilt tonu</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏿">açık cilt tonu | bayan | dansçı | kadın | koyu cilt tonu | partiye katılma | tavşan kulak | tavşan kulaklı kadın | tavşan kulaklı kadınlar</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏿" type="tts">tavşan kulaklı kadınlar: açık cilt tonu koyu cilt tonu</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏻">açık cilt tonu | bayan | dansçı | kadın | orta açık cilt tonu | partiye katılma | tavşan kulak | tavşan kulaklı kadın | tavşan kulaklı kadınlar</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏻" type="tts">tavşan kulaklı kadınlar: orta açık cilt tonu açık cilt tonu</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏽">bayan | dansçı | kadın | orta açık cilt tonu | orta cilt tonu | partiye katılma | tavşan kulak | tavşan kulaklı kadın | tavşan kulaklı kadınlar</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏽" type="tts">tavşan kulaklı kadınlar: orta açık cilt tonu orta cilt tonu</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏾">bayan | dansçı | kadın | orta açık cilt tonu | orta koyu cilt tonu | partiye katılma | tavşan kulak | tavşan kulaklı kadın | tavşan kulaklı kadınlar</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏾" type="tts">tavşan kulaklı kadınlar: orta açık cilt tonu orta koyu cilt tonu</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏿">bayan | dansçı | kadın | koyu cilt tonu | orta açık cilt tonu | partiye katılma | tavşan kulak | tavşan kulaklı kadın | tavşan kulaklı kadınlar</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏿" type="tts">tavşan kulaklı kadınlar: orta açık cilt tonu koyu cilt tonu</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏻">açık cilt tonu | bayan | dansçı | kadın | orta cilt tonu | partiye katılma | tavşan kulak | tavşan kulaklı kadın | tavşan kulaklı kadınlar</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏻" type="tts">tavşan kulaklı kadınlar: orta cilt tonu açık cilt tonu</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏼">bayan | dansçı | kadın | orta açık cilt tonu | orta cilt tonu | partiye katılma | tavşan kulak | tavşan kulaklı kadın | tavşan kulaklı kadınlar</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏼" type="tts">tavşan kulaklı kadınlar: orta cilt tonu orta açık cilt tonu</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏾">bayan | dansçı | kadın | orta cilt tonu | orta koyu cilt tonu | partiye katılma | tavşan kulak | tavşan kulaklı kadın | tavşan kulaklı kadınlar</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏾" type="tts">tavşan kulaklı kadınlar: orta cilt tonu orta koyu cilt tonu</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏿">bayan | dansçı | kadın | koyu cilt tonu | orta cilt tonu | partiye katılma | tavşan kulak | tavşan kulaklı kadın | tavşan kulaklı kadınlar</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏿" type="tts">tavşan kulaklı kadınlar: orta cilt tonu koyu cilt tonu</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏻">açık cilt tonu | bayan | dansçı | kadın | orta koyu cilt tonu | partiye katılma | tavşan kulak | tavşan kulaklı kadın | tavşan kulaklı kadınlar</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏻" type="tts">tavşan kulaklı kadınlar: orta koyu cilt tonu açık cilt tonu</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏼">bayan | dansçı | kadın | orta açık cilt tonu | orta koyu cilt tonu | partiye katılma | tavşan kulak | tavşan kulaklı kadın | tavşan kulaklı kadınlar</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏼" type="tts">tavşan kulaklı kadınlar: orta koyu cilt tonu orta açık cilt tonu</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏽">bayan | dansçı | kadın | orta cilt tonu | orta koyu cilt tonu | partiye katılma | tavşan kulak | tavşan kulaklı kadın | tavşan kulaklı kadınlar</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏽" type="tts">tavşan kulaklı kadınlar: orta koyu cilt tonu orta cilt tonu</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏿">bayan | dansçı | kadın | koyu cilt tonu | orta koyu cilt tonu | partiye katılma | tavşan kulak | tavşan kulaklı kadın | tavşan kulaklı kadınlar</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏿" type="tts">tavşan kulaklı kadınlar: orta koyu cilt tonu koyu cilt tonu</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏻">açık cilt tonu | bayan | dansçı | kadın | koyu cilt tonu | partiye katılma | tavşan kulak | tavşan kulaklı kadın | tavşan kulaklı kadınlar</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏻" type="tts">tavşan kulaklı kadınlar: koyu cilt tonu açık cilt tonu</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏼">bayan | dansçı | kadın | koyu cilt tonu | orta açık cilt tonu | partiye katılma | tavşan kulak | tavşan kulaklı kadın | tavşan kulaklı kadınlar</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏼" type="tts">tavşan kulaklı kadınlar: koyu cilt tonu orta açık cilt tonu</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏽">bayan | dansçı | kadın | koyu cilt tonu | orta cilt tonu | partiye katılma | tavşan kulak | tavşan kulaklı kadın | tavşan kulaklı kadınlar</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏽" type="tts">tavşan kulaklı kadınlar: koyu cilt tonu orta cilt tonu</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏾">bayan | dansçı | kadın | koyu cilt tonu | orta koyu cilt tonu | partiye katılma | tavşan kulak | tavşan kulaklı kadın | tavşan kulaklı kadınlar</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏾" type="tts">tavşan kulaklı kadınlar: koyu cilt tonu orta koyu cilt tonu</annotation>
 		<annotation cp="🧓🏻">açık cilt tonu | insan | kişi | yaşlı | yaşlı yetişkin</annotation>
 		<annotation cp="🧓🏻" type="tts">yaşlı yetişkin: açık cilt tonu</annotation>
 		<annotation cp="🧓🏼">insan | kişi | orta açık cilt tonu | yaşlı | yaşlı yetişkin</annotation>
@@ -1287,15 +1536,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🙎🏾‍♀" type="tts">darılan kadın: orta koyu cilt tonu</annotation>
 		<annotation cp="🙎🏿‍♀">bayan | darılan kadın | darılma | kadın | koyu cilt tonu | mimik</annotation>
 		<annotation cp="🙎🏿‍♀" type="tts">darılan kadın: koyu cilt tonu</annotation>
-		<annotation cp="🙅🏻">açık cilt tonu | asla | hareket | hayır | hayır hareketi | insan | iyi değil | izin vermiyorum | izinsiz | kişi | olmaz | vücut | yasak | yüz</annotation>
+		<annotation cp="🙅🏻">açık cilt tonu | asla | hareket | hayır | insan | iyi değil | izin vermiyorum | izinsiz | kişi | olmaz | vücut | yasak | yüz</annotation>
 		<annotation cp="🙅🏻" type="tts">hayır hareketi: açık cilt tonu</annotation>
-		<annotation cp="🙅🏼">asla | hareket | hayır | hayır hareketi | insan | iyi değil | izin vermiyorum | izinsiz | kişi | olmaz | orta açık cilt tonu | vücut | yasak | yüz</annotation>
+		<annotation cp="🙅🏼">asla | hareket | hayır | insan | iyi değil | izin vermiyorum | izinsiz | kişi | olmaz | orta açık cilt tonu | vücut | yasak | yüz</annotation>
 		<annotation cp="🙅🏼" type="tts">hayır hareketi: orta açık cilt tonu</annotation>
-		<annotation cp="🙅🏽">asla | hareket | hayır | hayır hareketi | insan | iyi değil | izin vermiyorum | izinsiz | kişi | olmaz | orta cilt tonu | vücut | yasak | yüz</annotation>
+		<annotation cp="🙅🏽">asla | hareket | hayır | insan | iyi değil | izin vermiyorum | izinsiz | kişi | olmaz | orta cilt tonu | vücut | yasak | yüz</annotation>
 		<annotation cp="🙅🏽" type="tts">hayır hareketi: orta cilt tonu</annotation>
-		<annotation cp="🙅🏾">asla | hareket | hayır | hayır hareketi | insan | iyi değil | izin vermiyorum | izinsiz | kişi | olmaz | orta koyu cilt tonu | vücut | yasak | yüz</annotation>
+		<annotation cp="🙅🏾">asla | hareket | hayır | insan | iyi değil | izin vermiyorum | izinsiz | kişi | olmaz | orta koyu cilt tonu | vücut | yasak | yüz</annotation>
 		<annotation cp="🙅🏾" type="tts">hayır hareketi: orta koyu cilt tonu</annotation>
-		<annotation cp="🙅🏿">asla | hareket | hayır | hayır hareketi | insan | iyi değil | izin vermiyorum | izinsiz | kişi | koyu cilt tonu | olmaz | vücut | yasak | yüz</annotation>
+		<annotation cp="🙅🏿">asla | hareket | hayır | insan | iyi değil | izin vermiyorum | izinsiz | kişi | koyu cilt tonu | olmaz | vücut | yasak | yüz</annotation>
 		<annotation cp="🙅🏿" type="tts">hayır hareketi: koyu cilt tonu</annotation>
 		<annotation cp="🙅🏻‍♂">açık cilt tonu | el | erkek | hareket | hayır | hayır hareketi yapan erkek | insan | iyi değil | yasak | yok</annotation>
 		<annotation cp="🙅🏻‍♂" type="tts">hayır hareketi yapan erkek: açık cilt tonu</annotation>
@@ -1347,15 +1596,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🙆🏾‍♀" type="tts">tamam hareketi yapan kadın: orta koyu cilt tonu</annotation>
 		<annotation cp="🙆🏿‍♀">bayan | el | hareket | kadın | koyu cilt tonu | tamam | tamam hareketi yapan kadın</annotation>
 		<annotation cp="🙆🏿‍♀" type="tts">tamam hareketi yapan kadın: koyu cilt tonu</annotation>
-		<annotation cp="💁🏻">açık cilt tonu | alaycı | bilgilendirme | dedikodu | el | elini yana yatırma | keyfin bilir | kişi | kişiler | neyse | saçını savurma | sen bilirsin | umurumda değil | yardım</annotation>
+		<annotation cp="💁🏻">açık cilt tonu | alaycı | bilgilendirme | dedikodu | el | elini yana yatırma | keyfin bilir | kişi | kişiler | neyse | saçını savurma | sen bilirsin | umurumda değil</annotation>
 		<annotation cp="💁🏻" type="tts">elini yana yatırma: açık cilt tonu</annotation>
-		<annotation cp="💁🏼">alaycı | bilgilendirme | dedikodu | el | elini yana yatırma | keyfin bilir | kişi | kişiler | neyse | orta açık cilt tonu | saçını savurma | sen bilirsin | umurumda değil | yardım</annotation>
+		<annotation cp="💁🏼">alaycı | bilgilendirme | dedikodu | el | elini yana yatırma | keyfin bilir | kişi | kişiler | neyse | orta açık cilt tonu | saçını savurma | sen bilirsin | umurumda değil</annotation>
 		<annotation cp="💁🏼" type="tts">elini yana yatırma: orta açık cilt tonu</annotation>
-		<annotation cp="💁🏽">alaycı | bilgilendirme | dedikodu | el | elini yana yatırma | keyfin bilir | kişi | kişiler | neyse | orta cilt tonu | saçını savurma | sen bilirsin | umurumda değil | yardım</annotation>
+		<annotation cp="💁🏽">alaycı | bilgilendirme | dedikodu | el | elini yana yatırma | keyfin bilir | kişi | kişiler | neyse | orta cilt tonu | saçını savurma | sen bilirsin | umurumda değil</annotation>
 		<annotation cp="💁🏽" type="tts">elini yana yatırma: orta cilt tonu</annotation>
-		<annotation cp="💁🏾">alaycı | bilgilendirme | dedikodu | el | elini yana yatırma | keyfin bilir | kişi | kişiler | neyse | orta koyu cilt tonu | saçını savurma | sen bilirsin | umurumda değil | yardım</annotation>
+		<annotation cp="💁🏾">alaycı | bilgilendirme | dedikodu | el | elini yana yatırma | keyfin bilir | kişi | kişiler | neyse | orta koyu cilt tonu | saçını savurma | sen bilirsin | umurumda değil</annotation>
 		<annotation cp="💁🏾" type="tts">elini yana yatırma: orta koyu cilt tonu</annotation>
-		<annotation cp="💁🏿">alaycı | bilgilendirme | dedikodu | el | elini yana yatırma | keyfin bilir | kişi | kişiler | koyu cilt tonu | neyse | saçını savurma | sen bilirsin | umurumda değil | yardım</annotation>
+		<annotation cp="💁🏿">alaycı | bilgilendirme | dedikodu | el | elini yana yatırma | keyfin bilir | kişi | kişiler | koyu cilt tonu | neyse | saçını savurma | sen bilirsin | umurumda değil</annotation>
 		<annotation cp="💁🏿" type="tts">elini yana yatırma: koyu cilt tonu</annotation>
 		<annotation cp="💁🏻‍♂">açık cilt tonu | adam | bilgi | dedikodu | elini yana yatıran erkek | erkek | insan | küstah | sarkastik | yana yatmış el</annotation>
 		<annotation cp="💁🏻‍♂" type="tts">elini yana yatıran erkek: açık cilt tonu</annotation>
@@ -1377,15 +1626,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="💁🏾‍♀" type="tts">elini yana yatıran kadın: orta koyu cilt tonu</annotation>
 		<annotation cp="💁🏿‍♀">bayan | elini yana yatıran kadın | kadın | koyu cilt tonu | küstah | yana yatmış el</annotation>
 		<annotation cp="💁🏿‍♀" type="tts">elini yana yatıran kadın: koyu cilt tonu</annotation>
-		<annotation cp="🙋🏻">açık cilt tonu | ben | burada | el | el kaldıran kişi | el kaldırma | elini kaldırma | hareket | kalkan el | kişi | merhaba | mutlu | selam | soru | söz isteme | vücut</annotation>
+		<annotation cp="🙋🏻">açık cilt tonu | ben | burada | el | el kaldırma | hareket | kalkan el | kişi | merhaba | selam | soru | söz isteme</annotation>
 		<annotation cp="🙋🏻" type="tts">elini kaldırma: açık cilt tonu</annotation>
-		<annotation cp="🙋🏼">ben | burada | el | el kaldıran kişi | el kaldırma | elini kaldırma | hareket | kalkan el | kişi | merhaba | mutlu | orta açık cilt tonu | selam | soru | söz isteme | vücut</annotation>
+		<annotation cp="🙋🏼">ben | burada | el | el kaldırma | hareket | kalkan el | kişi | merhaba | orta açık cilt tonu | selam | soru | söz isteme</annotation>
 		<annotation cp="🙋🏼" type="tts">elini kaldırma: orta açık cilt tonu</annotation>
-		<annotation cp="🙋🏽">ben | burada | el | el kaldıran kişi | el kaldırma | elini kaldırma | hareket | kalkan el | kişi | merhaba | mutlu | orta cilt tonu | selam | soru | söz isteme | vücut</annotation>
+		<annotation cp="🙋🏽">ben | burada | el | el kaldırma | hareket | kalkan el | kişi | merhaba | orta cilt tonu | selam | soru | söz isteme</annotation>
 		<annotation cp="🙋🏽" type="tts">elini kaldırma: orta cilt tonu</annotation>
-		<annotation cp="🙋🏾">ben | burada | el | el kaldıran kişi | el kaldırma | elini kaldırma | hareket | kalkan el | kişi | merhaba | mutlu | orta koyu cilt tonu | selam | soru | söz isteme | vücut</annotation>
+		<annotation cp="🙋🏾">ben | burada | el | el kaldırma | hareket | kalkan el | kişi | merhaba | orta koyu cilt tonu | selam | soru | söz isteme</annotation>
 		<annotation cp="🙋🏾" type="tts">elini kaldırma: orta koyu cilt tonu</annotation>
-		<annotation cp="🙋🏿">ben | burada | el | el kaldıran kişi | el kaldırma | elini kaldırma | hareket | kalkan el | kişi | koyu cilt tonu | merhaba | mutlu | selam | soru | söz isteme | vücut</annotation>
+		<annotation cp="🙋🏿">ben | burada | el | el kaldırma | hareket | kalkan el | kişi | koyu cilt tonu | merhaba | selam | soru | söz isteme</annotation>
 		<annotation cp="🙋🏿" type="tts">elini kaldırma: koyu cilt tonu</annotation>
 		<annotation cp="🙋🏻‍♂">açık cilt tonu | adam | el hareketi | el kaldırma | elini kaldıran erkek | erkek | hareket | insan | soru</annotation>
 		<annotation cp="🙋🏻‍♂" type="tts">elini kaldıran erkek: açık cilt tonu</annotation>
@@ -1467,35 +1716,35 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🙇🏾‍♀" type="tts">başını öne eğen kadın: orta koyu cilt tonu</annotation>
 		<annotation cp="🙇🏿‍♀">baş eğme | başını öne eğen kadın | bayan | hareket | kadın | koyu cilt tonu | lütuf | özür</annotation>
 		<annotation cp="🙇🏿‍♀" type="tts">başını öne eğen kadın: koyu cilt tonu</annotation>
-		<annotation cp="🤦🏻">açık cilt tonu | aman tanrım | avuç | çileden çıkma | inanamıyorum | inanmama | inanmıyorum | kişi | kızgınlık | öfke | olamaz | şok | vücut | yüz | yüzünü eliyle kapama</annotation>
+		<annotation cp="🤦🏻">açık cilt tonu | aman tanrım | çileden çıkma | inanamıyorum | inanmama | inanmıyorum | kızgınlık | öfke | olamaz | şok | yüzünü eliyle kapama</annotation>
 		<annotation cp="🤦🏻" type="tts">yüzünü eliyle kapama: açık cilt tonu</annotation>
-		<annotation cp="🤦🏼">aman tanrım | avuç | çileden çıkma | inanamıyorum | inanmama | inanmıyorum | kişi | kızgınlık | öfke | olamaz | orta açık cilt tonu | şok | vücut | yüz | yüzünü eliyle kapama</annotation>
+		<annotation cp="🤦🏼">aman tanrım | çileden çıkma | inanamıyorum | inanmama | inanmıyorum | kızgınlık | öfke | olamaz | orta açık cilt tonu | şok | yüzünü eliyle kapama</annotation>
 		<annotation cp="🤦🏼" type="tts">yüzünü eliyle kapama: orta açık cilt tonu</annotation>
-		<annotation cp="🤦🏽">aman tanrım | avuç | çileden çıkma | inanamıyorum | inanmama | inanmıyorum | kişi | kızgınlık | öfke | olamaz | orta cilt tonu | şok | vücut | yüz | yüzünü eliyle kapama</annotation>
+		<annotation cp="🤦🏽">aman tanrım | çileden çıkma | inanamıyorum | inanmama | inanmıyorum | kızgınlık | öfke | olamaz | orta cilt tonu | şok | yüzünü eliyle kapama</annotation>
 		<annotation cp="🤦🏽" type="tts">yüzünü eliyle kapama: orta cilt tonu</annotation>
-		<annotation cp="🤦🏾">aman tanrım | avuç | çileden çıkma | inanamıyorum | inanmama | inanmıyorum | kişi | kızgınlık | öfke | olamaz | orta koyu cilt tonu | şok | vücut | yüz | yüzünü eliyle kapama</annotation>
+		<annotation cp="🤦🏾">aman tanrım | çileden çıkma | inanamıyorum | inanmama | inanmıyorum | kızgınlık | öfke | olamaz | orta koyu cilt tonu | şok | yüzünü eliyle kapama</annotation>
 		<annotation cp="🤦🏾" type="tts">yüzünü eliyle kapama: orta koyu cilt tonu</annotation>
-		<annotation cp="🤦🏿">aman tanrım | avuç | çileden çıkma | inanamıyorum | inanmama | inanmıyorum | kişi | kızgınlık | koyu cilt tonu | öfke | olamaz | şok | vücut | yüz | yüzünü eliyle kapama</annotation>
+		<annotation cp="🤦🏿">aman tanrım | çileden çıkma | inanamıyorum | inanmama | inanmıyorum | kızgınlık | koyu cilt tonu | öfke | olamaz | şok | yüzünü eliyle kapama</annotation>
 		<annotation cp="🤦🏿" type="tts">yüzünü eliyle kapama: koyu cilt tonu</annotation>
-		<annotation cp="🤦🏻‍♂">açık cilt tonu | adam | aman tanrım | çileden çıkma | el | eliyle yüzünü kapatan erkek | erkek | inanamıyorum | inanmama | kişi | öfke | olamaz | sinir | utancından eliyle yüzünü kapatma | utanma</annotation>
+		<annotation cp="🤦🏻‍♂">açık cilt tonu | adam | aman tanrım | çileden çıkma | eliyle yüzünü kapatan erkek | erkek | inanamıyorum | inanmama | öfke | olamaz | sinir | utancından eliyle yüzünü kapatma | utanma</annotation>
 		<annotation cp="🤦🏻‍♂" type="tts">eliyle yüzünü kapatan erkek: açık cilt tonu</annotation>
-		<annotation cp="🤦🏼‍♂">adam | aman tanrım | çileden çıkma | el | eliyle yüzünü kapatan erkek | erkek | inanamıyorum | inanmama | kişi | öfke | olamaz | orta açık cilt tonu | sinir | utancından eliyle yüzünü kapatma | utanma</annotation>
+		<annotation cp="🤦🏼‍♂">adam | aman tanrım | çileden çıkma | eliyle yüzünü kapatan erkek | erkek | inanamıyorum | inanmama | öfke | olamaz | orta açık cilt tonu | sinir | utancından eliyle yüzünü kapatma | utanma</annotation>
 		<annotation cp="🤦🏼‍♂" type="tts">eliyle yüzünü kapatan erkek: orta açık cilt tonu</annotation>
-		<annotation cp="🤦🏽‍♂">adam | aman tanrım | çileden çıkma | el | eliyle yüzünü kapatan erkek | erkek | inanamıyorum | inanmama | kişi | öfke | olamaz | orta cilt tonu | sinir | utancından eliyle yüzünü kapatma | utanma</annotation>
+		<annotation cp="🤦🏽‍♂">adam | aman tanrım | çileden çıkma | eliyle yüzünü kapatan erkek | erkek | inanamıyorum | inanmama | öfke | olamaz | orta cilt tonu | sinir | utancından eliyle yüzünü kapatma | utanma</annotation>
 		<annotation cp="🤦🏽‍♂" type="tts">eliyle yüzünü kapatan erkek: orta cilt tonu</annotation>
-		<annotation cp="🤦🏾‍♂">adam | aman tanrım | çileden çıkma | el | eliyle yüzünü kapatan erkek | erkek | inanamıyorum | inanmama | kişi | öfke | olamaz | orta koyu cilt tonu | sinir | utancından eliyle yüzünü kapatma | utanma</annotation>
+		<annotation cp="🤦🏾‍♂">adam | aman tanrım | çileden çıkma | eliyle yüzünü kapatan erkek | erkek | inanamıyorum | inanmama | öfke | olamaz | orta koyu cilt tonu | sinir | utancından eliyle yüzünü kapatma | utanma</annotation>
 		<annotation cp="🤦🏾‍♂" type="tts">eliyle yüzünü kapatan erkek: orta koyu cilt tonu</annotation>
-		<annotation cp="🤦🏿‍♂">adam | aman tanrım | çileden çıkma | el | eliyle yüzünü kapatan erkek | erkek | inanamıyorum | inanmama | kişi | koyu cilt tonu | öfke | olamaz | sinir | utancından eliyle yüzünü kapatma | utanma</annotation>
+		<annotation cp="🤦🏿‍♂">adam | aman tanrım | çileden çıkma | eliyle yüzünü kapatan erkek | erkek | inanamıyorum | inanmama | koyu cilt tonu | öfke | olamaz | sinir | utancından eliyle yüzünü kapatma | utanma</annotation>
 		<annotation cp="🤦🏿‍♂" type="tts">eliyle yüzünü kapatan erkek: koyu cilt tonu</annotation>
-		<annotation cp="🤦🏻‍♀">açık cilt tonu | aman tanrım | bayan | çileden çıkma | el | eliyle yüzünü kapatan kadın | inanamıyorum | inanmama | kadın | öfke | olamaz | pişman | sinir | utanç | utancından eliyle yüzünü kapatma</annotation>
+		<annotation cp="🤦🏻‍♀">açık cilt tonu | aman tanrım | çileden çıkma | el | eliyle yüzünü kapatan kadın | inanamıyorum | inanmama | kadın | öfke | olamaz | sinir | utanç | utancından eliyle yüzünü kapatma</annotation>
 		<annotation cp="🤦🏻‍♀" type="tts">eliyle yüzünü kapatan kadın: açık cilt tonu</annotation>
-		<annotation cp="🤦🏼‍♀">aman tanrım | bayan | çileden çıkma | el | eliyle yüzünü kapatan kadın | inanamıyorum | inanmama | kadın | öfke | olamaz | orta açık cilt tonu | pişman | sinir | utanç | utancından eliyle yüzünü kapatma</annotation>
+		<annotation cp="🤦🏼‍♀">aman tanrım | çileden çıkma | el | eliyle yüzünü kapatan kadın | inanamıyorum | inanmama | kadın | öfke | olamaz | orta açık cilt tonu | sinir | utanç | utancından eliyle yüzünü kapatma</annotation>
 		<annotation cp="🤦🏼‍♀" type="tts">eliyle yüzünü kapatan kadın: orta açık cilt tonu</annotation>
-		<annotation cp="🤦🏽‍♀">aman tanrım | bayan | çileden çıkma | el | eliyle yüzünü kapatan kadın | inanamıyorum | inanmama | kadın | öfke | olamaz | orta cilt tonu | pişman | sinir | utanç | utancından eliyle yüzünü kapatma</annotation>
+		<annotation cp="🤦🏽‍♀">aman tanrım | çileden çıkma | el | eliyle yüzünü kapatan kadın | inanamıyorum | inanmama | kadın | öfke | olamaz | orta cilt tonu | sinir | utanç | utancından eliyle yüzünü kapatma</annotation>
 		<annotation cp="🤦🏽‍♀" type="tts">eliyle yüzünü kapatan kadın: orta cilt tonu</annotation>
-		<annotation cp="🤦🏾‍♀">aman tanrım | bayan | çileden çıkma | el | eliyle yüzünü kapatan kadın | inanamıyorum | inanmama | kadın | öfke | olamaz | orta koyu cilt tonu | pişman | sinir | utanç | utancından eliyle yüzünü kapatma</annotation>
+		<annotation cp="🤦🏾‍♀">aman tanrım | çileden çıkma | el | eliyle yüzünü kapatan kadın | inanamıyorum | inanmama | kadın | öfke | olamaz | orta koyu cilt tonu | sinir | utanç | utancından eliyle yüzünü kapatma</annotation>
 		<annotation cp="🤦🏾‍♀" type="tts">eliyle yüzünü kapatan kadın: orta koyu cilt tonu</annotation>
-		<annotation cp="🤦🏿‍♀">aman tanrım | bayan | çileden çıkma | el | eliyle yüzünü kapatan kadın | inanamıyorum | inanmama | kadın | koyu cilt tonu | öfke | olamaz | pişman | sinir | utanç | utancından eliyle yüzünü kapatma</annotation>
+		<annotation cp="🤦🏿‍♀">aman tanrım | çileden çıkma | el | eliyle yüzünü kapatan kadın | inanamıyorum | inanmama | kadın | koyu cilt tonu | öfke | olamaz | sinir | utanç | utancından eliyle yüzünü kapatma</annotation>
 		<annotation cp="🤦🏿‍♀" type="tts">eliyle yüzünü kapatan kadın: koyu cilt tonu</annotation>
 		<annotation cp="🤷🏻">açık cilt tonu | bilemem | bilmem | bilmeme | bilmiyorum | ilgisizlik | kararsız | kişi | ne bileyim | ne yapalım | omuz silkme | sanırım | vücut</annotation>
 		<annotation cp="🤷🏻" type="tts">omuz silkme: açık cilt tonu</annotation>
@@ -1507,15 +1756,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤷🏾" type="tts">omuz silkme: orta koyu cilt tonu</annotation>
 		<annotation cp="🤷🏿">bilemem | bilmem | bilmeme | bilmiyorum | ilgisizlik | kararsız | kişi | koyu cilt tonu | ne bileyim | ne yapalım | omuz silkme | sanırım | vücut</annotation>
 		<annotation cp="🤷🏿" type="tts">omuz silkme: koyu cilt tonu</annotation>
-		<annotation cp="🤷🏻‍♂">açık cilt tonu | adam | belki | bilmem | cahillik | cehalet | erkek | her neyse | ilgisizlik | kişi | kuşku | omuz silken erkek | omuz silkme | sanırım | şüphe | vücut</annotation>
+		<annotation cp="🤷🏻‍♂">açık cilt tonu | adam | belki | bilmem | erkek | her neyse | ilgisizlik | kişi | kuşku | omuz silken erkek | omuz silkme | sanırım | şüphe</annotation>
 		<annotation cp="🤷🏻‍♂" type="tts">omuz silken erkek: açık cilt tonu</annotation>
-		<annotation cp="🤷🏼‍♂">adam | belki | bilmem | cahillik | cehalet | erkek | her neyse | ilgisizlik | kişi | kuşku | omuz silken erkek | omuz silkme | orta açık cilt tonu | sanırım | şüphe | vücut</annotation>
+		<annotation cp="🤷🏼‍♂">adam | belki | bilmem | erkek | her neyse | ilgisizlik | kişi | kuşku | omuz silken erkek | omuz silkme | orta açık cilt tonu | sanırım | şüphe</annotation>
 		<annotation cp="🤷🏼‍♂" type="tts">omuz silken erkek: orta açık cilt tonu</annotation>
-		<annotation cp="🤷🏽‍♂">adam | belki | bilmem | cahillik | cehalet | erkek | her neyse | ilgisizlik | kişi | kuşku | omuz silken erkek | omuz silkme | orta cilt tonu | sanırım | şüphe | vücut</annotation>
+		<annotation cp="🤷🏽‍♂">adam | belki | bilmem | erkek | her neyse | ilgisizlik | kişi | kuşku | omuz silken erkek | omuz silkme | orta cilt tonu | sanırım | şüphe</annotation>
 		<annotation cp="🤷🏽‍♂" type="tts">omuz silken erkek: orta cilt tonu</annotation>
-		<annotation cp="🤷🏾‍♂">adam | belki | bilmem | cahillik | cehalet | erkek | her neyse | ilgisizlik | kişi | kuşku | omuz silken erkek | omuz silkme | orta koyu cilt tonu | sanırım | şüphe | vücut</annotation>
+		<annotation cp="🤷🏾‍♂">adam | belki | bilmem | erkek | her neyse | ilgisizlik | kişi | kuşku | omuz silken erkek | omuz silkme | orta koyu cilt tonu | sanırım | şüphe</annotation>
 		<annotation cp="🤷🏾‍♂" type="tts">omuz silken erkek: orta koyu cilt tonu</annotation>
-		<annotation cp="🤷🏿‍♂">adam | belki | bilmem | cahillik | cehalet | erkek | her neyse | ilgisizlik | kişi | koyu cilt tonu | kuşku | omuz silken erkek | omuz silkme | sanırım | şüphe | vücut</annotation>
+		<annotation cp="🤷🏿‍♂">adam | belki | bilmem | erkek | her neyse | ilgisizlik | kişi | koyu cilt tonu | kuşku | omuz silken erkek | omuz silkme | sanırım | şüphe</annotation>
 		<annotation cp="🤷🏿‍♂" type="tts">omuz silken erkek: koyu cilt tonu</annotation>
 		<annotation cp="🤷🏻‍♀">açık cilt tonu | bayan | belki | bilmem | cahillik | cehalet | her neyse | ilgisizlik | kadın | kişi | kuşku | omuz silken kadın | omuz silkme | sanırım | şüphe | vücut</annotation>
 		<annotation cp="🤷🏻‍♀" type="tts">omuz silken kadın: açık cilt tonu</annotation>
@@ -3113,6 +3362,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🕴🏾" type="tts">havalanan takım elbiseli adam: orta koyu cilt tonu</annotation>
 		<annotation cp="🕴🏿">erkek | havalanan takım elbiseli adam | iş | işadamı | koyu cilt tonu | takım elbise | yukarıda süzülen takım elbiseli iş adamı</annotation>
 		<annotation cp="🕴🏿" type="tts">havalanan takım elbiseli adam: koyu cilt tonu</annotation>
+		<annotation cp="👯🏻">açık cilt tonu | aynısı | dans | dansçı | ikiz | kadın | parti | ruh ikizi | tavşan kulak | tavşan kulaklar | tavşan kulaklı kişiler | vücut</annotation>
+		<annotation cp="👯🏻" type="tts">tavşan kulaklı kişiler: açık cilt tonu</annotation>
+		<annotation cp="👯🏼">aynısı | dans | dansçı | ikiz | kadın | orta açık cilt tonu | parti | ruh ikizi | tavşan kulak | tavşan kulaklar | tavşan kulaklı kişiler | vücut</annotation>
+		<annotation cp="👯🏼" type="tts">tavşan kulaklı kişiler: orta açık cilt tonu</annotation>
+		<annotation cp="👯🏽">aynısı | dans | dansçı | ikiz | kadın | orta cilt tonu | parti | ruh ikizi | tavşan kulak | tavşan kulaklar | tavşan kulaklı kişiler | vücut</annotation>
+		<annotation cp="👯🏽" type="tts">tavşan kulaklı kişiler: orta cilt tonu</annotation>
+		<annotation cp="👯🏾">aynısı | dans | dansçı | ikiz | kadın | orta koyu cilt tonu | parti | ruh ikizi | tavşan kulak | tavşan kulaklar | tavşan kulaklı kişiler | vücut</annotation>
+		<annotation cp="👯🏾" type="tts">tavşan kulaklı kişiler: orta koyu cilt tonu</annotation>
+		<annotation cp="👯🏿">aynısı | dans | dansçı | ikiz | kadın | koyu cilt tonu | parti | ruh ikizi | tavşan kulak | tavşan kulaklar | tavşan kulaklı kişiler | vücut</annotation>
+		<annotation cp="👯🏿" type="tts">tavşan kulaklı kişiler: koyu cilt tonu</annotation>
+		<annotation cp="👯🏻‍♀">açık cilt tonu | bayan | dansçı | kadın | partiye katılma | tavşan kulak | tavşan kulaklı kadın | tavşan kulaklı kadınlar</annotation>
+		<annotation cp="👯🏻‍♀" type="tts">tavşan kulaklı kadınlar: açık cilt tonu</annotation>
+		<annotation cp="👯🏼‍♀">bayan | dansçı | kadın | orta açık cilt tonu | partiye katılma | tavşan kulak | tavşan kulaklı kadın | tavşan kulaklı kadınlar</annotation>
+		<annotation cp="👯🏼‍♀" type="tts">tavşan kulaklı kadınlar: orta açık cilt tonu</annotation>
+		<annotation cp="👯🏽‍♀">bayan | dansçı | kadın | orta cilt tonu | partiye katılma | tavşan kulak | tavşan kulaklı kadın | tavşan kulaklı kadınlar</annotation>
+		<annotation cp="👯🏽‍♀" type="tts">tavşan kulaklı kadınlar: orta cilt tonu</annotation>
+		<annotation cp="👯🏾‍♀">bayan | dansçı | kadın | orta koyu cilt tonu | partiye katılma | tavşan kulak | tavşan kulaklı kadın | tavşan kulaklı kadınlar</annotation>
+		<annotation cp="👯🏾‍♀" type="tts">tavşan kulaklı kadınlar: orta koyu cilt tonu</annotation>
+		<annotation cp="👯🏿‍♀">bayan | dansçı | kadın | koyu cilt tonu | partiye katılma | tavşan kulak | tavşan kulaklı kadın | tavşan kulaklı kadınlar</annotation>
+		<annotation cp="👯🏿‍♀" type="tts">tavşan kulaklı kadınlar: koyu cilt tonu</annotation>
+		<annotation cp="👯🏻‍♂">açık cilt tonu | adam | dans eden erkekler | dansçı | erkek | partiye katılan erkek | partiye katılma | tavşan kulak | tavşan kulaklı erkek | tavşan kulaklı erkekler</annotation>
+		<annotation cp="👯🏻‍♂" type="tts">tavşan kulaklı erkekler: açık cilt tonu</annotation>
+		<annotation cp="👯🏼‍♂">adam | dans eden erkekler | dansçı | erkek | orta açık cilt tonu | partiye katılan erkek | partiye katılma | tavşan kulak | tavşan kulaklı erkek | tavşan kulaklı erkekler</annotation>
+		<annotation cp="👯🏼‍♂" type="tts">tavşan kulaklı erkekler: orta açık cilt tonu</annotation>
+		<annotation cp="👯🏽‍♂">adam | dans eden erkekler | dansçı | erkek | orta cilt tonu | partiye katılan erkek | partiye katılma | tavşan kulak | tavşan kulaklı erkek | tavşan kulaklı erkekler</annotation>
+		<annotation cp="👯🏽‍♂" type="tts">tavşan kulaklı erkekler: orta cilt tonu</annotation>
+		<annotation cp="👯🏾‍♂">adam | dans eden erkekler | dansçı | erkek | orta koyu cilt tonu | partiye katılan erkek | partiye katılma | tavşan kulak | tavşan kulaklı erkek | tavşan kulaklı erkekler</annotation>
+		<annotation cp="👯🏾‍♂" type="tts">tavşan kulaklı erkekler: orta koyu cilt tonu</annotation>
+		<annotation cp="👯🏿‍♂">adam | dans eden erkekler | dansçı | erkek | koyu cilt tonu | partiye katılan erkek | partiye katılma | tavşan kulak | tavşan kulaklı erkek | tavşan kulaklı erkekler</annotation>
+		<annotation cp="👯🏿‍♂" type="tts">tavşan kulaklı erkekler: koyu cilt tonu</annotation>
 		<annotation cp="🧖🏻">açık cilt tonu | buhar banyosu | buhar odası | buhar odasındaki kişi | hamam | rahatlamak | sauna</annotation>
 		<annotation cp="🧖🏻" type="tts">buhar odasındaki kişi: açık cilt tonu</annotation>
 		<annotation cp="🧖🏼">buhar banyosu | buhar odası | buhar odasındaki kişi | hamam | orta açık cilt tonu | rahatlamak | sauna</annotation>
@@ -3433,25 +3712,25 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🚵🏾‍♀" type="tts">dağ bisikleti süren kadın: orta koyu cilt tonu</annotation>
 		<annotation cp="🚵🏿‍♀">bayan | bisiklet | bisiklet sürme | bisikletçi | dağ | dağ bisikleti süren kadın | kadın | koyu cilt tonu</annotation>
 		<annotation cp="🚵🏿‍♀" type="tts">dağ bisikleti süren kadın: koyu cilt tonu</annotation>
-		<annotation cp="🤸🏻">açık cilt tonu | aktif | birey | jimnastik | kişi | mutlu | neşe | perende | perende atan kadın | perende atan kişi | sevinç | spor | vücut | yanlamasına takla</annotation>
+		<annotation cp="🤸🏻">açık cilt tonu | aktif | birey | jimnastik | perende atan kişi | spor | yanlamasına takla</annotation>
 		<annotation cp="🤸🏻" type="tts">perende atan kişi: açık cilt tonu</annotation>
-		<annotation cp="🤸🏼">aktif | birey | jimnastik | kişi | mutlu | neşe | orta açık cilt tonu | perende | perende atan kadın | perende atan kişi | sevinç | spor | vücut | yanlamasına takla</annotation>
+		<annotation cp="🤸🏼">aktif | birey | jimnastik | orta açık cilt tonu | perende atan kişi | spor | yanlamasına takla</annotation>
 		<annotation cp="🤸🏼" type="tts">perende atan kişi: orta açık cilt tonu</annotation>
-		<annotation cp="🤸🏽">aktif | birey | jimnastik | kişi | mutlu | neşe | orta cilt tonu | perende | perende atan kadın | perende atan kişi | sevinç | spor | vücut | yanlamasına takla</annotation>
+		<annotation cp="🤸🏽">aktif | birey | jimnastik | orta cilt tonu | perende atan kişi | spor | yanlamasına takla</annotation>
 		<annotation cp="🤸🏽" type="tts">perende atan kişi: orta cilt tonu</annotation>
-		<annotation cp="🤸🏾">aktif | birey | jimnastik | kişi | mutlu | neşe | orta koyu cilt tonu | perende | perende atan kadın | perende atan kişi | sevinç | spor | vücut | yanlamasına takla</annotation>
+		<annotation cp="🤸🏾">aktif | birey | jimnastik | orta koyu cilt tonu | perende atan kişi | spor | yanlamasına takla</annotation>
 		<annotation cp="🤸🏾" type="tts">perende atan kişi: orta koyu cilt tonu</annotation>
-		<annotation cp="🤸🏿">aktif | birey | jimnastik | kişi | koyu cilt tonu | mutlu | neşe | perende | perende atan kadın | perende atan kişi | sevinç | spor | vücut | yanlamasına takla</annotation>
+		<annotation cp="🤸🏿">aktif | birey | jimnastik | koyu cilt tonu | perende atan kişi | spor | yanlamasına takla</annotation>
 		<annotation cp="🤸🏿" type="tts">perende atan kişi: koyu cilt tonu</annotation>
-		<annotation cp="🤸🏻‍♂">açık cilt tonu | adam | aktif | çember hareketi | erkek | heyecanlı | jimnastik | kişi | mutlu | neşe | perende | perende atan erkek | spor | vücut</annotation>
+		<annotation cp="🤸🏻‍♂">açık cilt tonu | adam | çember hareketi | erkek | jimnastik | kişi | perende atan erkek | spor</annotation>
 		<annotation cp="🤸🏻‍♂" type="tts">perende atan erkek: açık cilt tonu</annotation>
-		<annotation cp="🤸🏼‍♂">adam | aktif | çember hareketi | erkek | heyecanlı | jimnastik | kişi | mutlu | neşe | orta açık cilt tonu | perende | perende atan erkek | spor | vücut</annotation>
+		<annotation cp="🤸🏼‍♂">adam | çember hareketi | erkek | jimnastik | kişi | orta açık cilt tonu | perende atan erkek | spor</annotation>
 		<annotation cp="🤸🏼‍♂" type="tts">perende atan erkek: orta açık cilt tonu</annotation>
-		<annotation cp="🤸🏽‍♂">adam | aktif | çember hareketi | erkek | heyecanlı | jimnastik | kişi | mutlu | neşe | orta cilt tonu | perende | perende atan erkek | spor | vücut</annotation>
+		<annotation cp="🤸🏽‍♂">adam | çember hareketi | erkek | jimnastik | kişi | orta cilt tonu | perende atan erkek | spor</annotation>
 		<annotation cp="🤸🏽‍♂" type="tts">perende atan erkek: orta cilt tonu</annotation>
-		<annotation cp="🤸🏾‍♂">adam | aktif | çember hareketi | erkek | heyecanlı | jimnastik | kişi | mutlu | neşe | orta koyu cilt tonu | perende | perende atan erkek | spor | vücut</annotation>
+		<annotation cp="🤸🏾‍♂">adam | çember hareketi | erkek | jimnastik | kişi | orta koyu cilt tonu | perende atan erkek | spor</annotation>
 		<annotation cp="🤸🏾‍♂" type="tts">perende atan erkek: orta koyu cilt tonu</annotation>
-		<annotation cp="🤸🏿‍♂">adam | aktif | çember hareketi | erkek | heyecanlı | jimnastik | kişi | koyu cilt tonu | mutlu | neşe | perende | perende atan erkek | spor | vücut</annotation>
+		<annotation cp="🤸🏿‍♂">adam | çember hareketi | erkek | jimnastik | kişi | koyu cilt tonu | perende atan erkek | spor</annotation>
 		<annotation cp="🤸🏿‍♂" type="tts">perende atan erkek: koyu cilt tonu</annotation>
 		<annotation cp="🤸🏻‍♀">açık cilt tonu | aktif | bayan | çember hareketi | heyecanlı | jimnastik | kadın | kişi | mutlu | neşe | oyun | perende | perende atan kadın | sevinç | spor</annotation>
 		<annotation cp="🤸🏻‍♀" type="tts">perende atan kadın: açık cilt tonu</annotation>
@@ -3463,6 +3742,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤸🏾‍♀" type="tts">perende atan kadın: orta koyu cilt tonu</annotation>
 		<annotation cp="🤸🏿‍♀">aktif | bayan | çember hareketi | heyecanlı | jimnastik | kadın | kişi | koyu cilt tonu | mutlu | neşe | oyun | perende | perende atan kadın | sevinç | spor</annotation>
 		<annotation cp="🤸🏿‍♀" type="tts">perende atan kadın: koyu cilt tonu</annotation>
+		<annotation cp="🤼🏻">açık cilt tonu | birey | dövüş | düello | güreş | güreş minderi | güreşçi | güreşçilik | güreşen kişiler | kişi | spor | vücut</annotation>
+		<annotation cp="🤼🏻" type="tts">güreşen kişiler: açık cilt tonu</annotation>
+		<annotation cp="🤼🏼">birey | dövüş | düello | güreş | güreş minderi | güreşçi | güreşçilik | güreşen kişiler | kişi | orta açık cilt tonu | spor | vücut</annotation>
+		<annotation cp="🤼🏼" type="tts">güreşen kişiler: orta açık cilt tonu</annotation>
+		<annotation cp="🤼🏽">birey | dövüş | düello | güreş | güreş minderi | güreşçi | güreşçilik | güreşen kişiler | kişi | orta cilt tonu | spor | vücut</annotation>
+		<annotation cp="🤼🏽" type="tts">güreşen kişiler: orta cilt tonu</annotation>
+		<annotation cp="🤼🏾">birey | dövüş | düello | güreş | güreş minderi | güreşçi | güreşçilik | güreşen kişiler | kişi | orta koyu cilt tonu | spor | vücut</annotation>
+		<annotation cp="🤼🏾" type="tts">güreşen kişiler: orta koyu cilt tonu</annotation>
+		<annotation cp="🤼🏿">birey | dövüş | düello | güreş | güreş minderi | güreşçi | güreşçilik | güreşen kişiler | kişi | koyu cilt tonu | spor | vücut</annotation>
+		<annotation cp="🤼🏿" type="tts">güreşen kişiler: koyu cilt tonu</annotation>
+		<annotation cp="🤼🏻‍♀">açık cilt tonu | bayan | dövüş | er meydanı | güreş | güreş turnuvası | güreş yapan kadın | güreşçi | kadın | kişi | kırkpınar | spor | vücut</annotation>
+		<annotation cp="🤼🏻‍♀" type="tts">güreş yapan kadın: açık cilt tonu</annotation>
+		<annotation cp="🤼🏼‍♀">bayan | dövüş | er meydanı | güreş | güreş turnuvası | güreş yapan kadın | güreşçi | kadın | kişi | kırkpınar | orta açık cilt tonu | spor | vücut</annotation>
+		<annotation cp="🤼🏼‍♀" type="tts">güreş yapan kadın: orta açık cilt tonu</annotation>
+		<annotation cp="🤼🏽‍♀">bayan | dövüş | er meydanı | güreş | güreş turnuvası | güreş yapan kadın | güreşçi | kadın | kişi | kırkpınar | orta cilt tonu | spor | vücut</annotation>
+		<annotation cp="🤼🏽‍♀" type="tts">güreş yapan kadın: orta cilt tonu</annotation>
+		<annotation cp="🤼🏾‍♀">bayan | dövüş | er meydanı | güreş | güreş turnuvası | güreş yapan kadın | güreşçi | kadın | kişi | kırkpınar | orta koyu cilt tonu | spor | vücut</annotation>
+		<annotation cp="🤼🏾‍♀" type="tts">güreş yapan kadın: orta koyu cilt tonu</annotation>
+		<annotation cp="🤼🏿‍♀">bayan | dövüş | er meydanı | güreş | güreş turnuvası | güreş yapan kadın | güreşçi | kadın | kişi | kırkpınar | koyu cilt tonu | spor | vücut</annotation>
+		<annotation cp="🤼🏿‍♀" type="tts">güreş yapan kadın: koyu cilt tonu</annotation>
+		<annotation cp="🤼🏻‍♂">açık cilt tonu | adam | antrenman | dövüş | düello | er meydanı | erkek | güreş | güreş yapan erkek | kişi | kırkpınar | spor</annotation>
+		<annotation cp="🤼🏻‍♂" type="tts">güreş yapan erkek: açık cilt tonu</annotation>
+		<annotation cp="🤼🏼‍♂">adam | antrenman | dövüş | düello | er meydanı | erkek | güreş | güreş yapan erkek | kişi | kırkpınar | orta açık cilt tonu | spor</annotation>
+		<annotation cp="🤼🏼‍♂" type="tts">güreş yapan erkek: orta açık cilt tonu</annotation>
+		<annotation cp="🤼🏽‍♂">adam | antrenman | dövüş | düello | er meydanı | erkek | güreş | güreş yapan erkek | kişi | kırkpınar | orta cilt tonu | spor</annotation>
+		<annotation cp="🤼🏽‍♂" type="tts">güreş yapan erkek: orta cilt tonu</annotation>
+		<annotation cp="🤼🏾‍♂">adam | antrenman | dövüş | düello | er meydanı | erkek | güreş | güreş yapan erkek | kişi | kırkpınar | orta koyu cilt tonu | spor</annotation>
+		<annotation cp="🤼🏾‍♂" type="tts">güreş yapan erkek: orta koyu cilt tonu</annotation>
+		<annotation cp="🤼🏿‍♂">adam | antrenman | dövüş | düello | er meydanı | erkek | güreş | güreş yapan erkek | kişi | kırkpınar | koyu cilt tonu | spor</annotation>
+		<annotation cp="🤼🏿‍♂" type="tts">güreş yapan erkek: koyu cilt tonu</annotation>
 		<annotation cp="🤽🏻">açık cilt tonu | antrenman | birey | havuz | kişi | spor | su | su sporları | su topu | top | vücut | yüzme</annotation>
 		<annotation cp="🤽🏻" type="tts">su topu: açık cilt tonu</annotation>
 		<annotation cp="🤽🏼">antrenman | birey | havuz | kişi | orta açık cilt tonu | spor | su | su sporları | su topu | top | vücut | yüzme</annotation>
@@ -3593,15 +3902,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🛀🏾" type="tts">banyo yapan kişi: orta koyu cilt tonu</annotation>
 		<annotation cp="🛀🏿">banyo | banyo yapan kişi | koyu cilt tonu | küvet</annotation>
 		<annotation cp="🛀🏿" type="tts">banyo yapan kişi: koyu cilt tonu</annotation>
-		<annotation cp="🛌🏻">açık cilt tonu | gece | insan | iyi geceler | iyi uykular | kestirme | öğle uykusu | otel | uyku | uyku saati | uyumak | yastık | yatakta yatan kişi | yatan insan | yatıyorum | yatmak | zzz</annotation>
+		<annotation cp="🛌🏻">açık cilt tonu | gece | insan | iyi geceler | iyi uykular | kestirme | otel | uyku | uyku saati | uyumak | yatan insan | yatmak | zzz</annotation>
 		<annotation cp="🛌🏻" type="tts">yatakta yatan kişi: açık cilt tonu</annotation>
-		<annotation cp="🛌🏼">gece | insan | iyi geceler | iyi uykular | kestirme | öğle uykusu | orta açık cilt tonu | otel | uyku | uyku saati | uyumak | yastık | yatakta yatan kişi | yatan insan | yatıyorum | yatmak | zzz</annotation>
+		<annotation cp="🛌🏼">gece | insan | iyi geceler | iyi uykular | kestirme | orta açık cilt tonu | otel | uyku | uyku saati | uyumak | yatan insan | yatmak | zzz</annotation>
 		<annotation cp="🛌🏼" type="tts">yatakta yatan kişi: orta açık cilt tonu</annotation>
-		<annotation cp="🛌🏽">gece | insan | iyi geceler | iyi uykular | kestirme | öğle uykusu | orta cilt tonu | otel | uyku | uyku saati | uyumak | yastık | yatakta yatan kişi | yatan insan | yatıyorum | yatmak | zzz</annotation>
+		<annotation cp="🛌🏽">gece | insan | iyi geceler | iyi uykular | kestirme | orta cilt tonu | otel | uyku | uyku saati | uyumak | yatan insan | yatmak | zzz</annotation>
 		<annotation cp="🛌🏽" type="tts">yatakta yatan kişi: orta cilt tonu</annotation>
-		<annotation cp="🛌🏾">gece | insan | iyi geceler | iyi uykular | kestirme | öğle uykusu | orta koyu cilt tonu | otel | uyku | uyku saati | uyumak | yastık | yatakta yatan kişi | yatan insan | yatıyorum | yatmak | zzz</annotation>
+		<annotation cp="🛌🏾">gece | insan | iyi geceler | iyi uykular | kestirme | orta koyu cilt tonu | otel | uyku | uyku saati | uyumak | yatan insan | yatmak | zzz</annotation>
 		<annotation cp="🛌🏾" type="tts">yatakta yatan kişi: orta koyu cilt tonu</annotation>
-		<annotation cp="🛌🏿">gece | insan | iyi geceler | iyi uykular | kestirme | koyu cilt tonu | öğle uykusu | otel | uyku | uyku saati | uyumak | yastık | yatakta yatan kişi | yatan insan | yatıyorum | yatmak | zzz</annotation>
+		<annotation cp="🛌🏿">gece | insan | iyi geceler | iyi uykular | kestirme | koyu cilt tonu | otel | uyku | uyku saati | uyumak | yatan insan | yatmak | zzz</annotation>
 		<annotation cp="🛌🏿" type="tts">yatakta yatan kişi: koyu cilt tonu</annotation>
 		<annotation cp="🧑🏻‍🤝‍🧑🏻">açık cilt tonu | çift | el | el ele | el ele tutuşan insanlar | kişi | tutmak | tutuşan eller</annotation>
 		<annotation cp="🧑🏻‍🤝‍🧑🏻" type="tts">el ele tutuşan insanlar: açık cilt tonu</annotation>
@@ -3993,6 +4302,8 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇨🇴" type="tts">bayrak: Kolombiya</annotation>
 		<annotation cp="🇨🇵">bayrak</annotation>
 		<annotation cp="🇨🇵" type="tts">bayrak: Clipperton Adası</annotation>
+		<annotation cp="🇨🇶">bayrak</annotation>
+		<annotation cp="🇨🇶" type="tts">bayrak: Sark</annotation>
 		<annotation cp="🇨🇷">bayrak</annotation>
 		<annotation cp="🇨🇷" type="tts">bayrak: Kosta Rika</annotation>
 		<annotation cp="🇨🇺">bayrak</annotation>
@@ -4432,26 +4743,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="₺" type="tts">Türk lirası</annotation>
 		<annotation cp="₼" type="tts">Azerbaycan manatı</annotation>
 		<annotation cp="₾" type="tts">Gürcistan larisi</annotation>
-		<annotation cp="0⃣">tuş</annotation>
-		<annotation cp="0⃣" type="tts">tuş: 0</annotation>
-		<annotation cp="1⃣">tuş</annotation>
-		<annotation cp="1⃣" type="tts">tuş: 1</annotation>
-		<annotation cp="2⃣">tuş</annotation>
-		<annotation cp="2⃣" type="tts">tuş: 2</annotation>
-		<annotation cp="3⃣">tuş</annotation>
-		<annotation cp="3⃣" type="tts">tuş: 3</annotation>
-		<annotation cp="4⃣">tuş</annotation>
-		<annotation cp="4⃣" type="tts">tuş: 4</annotation>
-		<annotation cp="5⃣">tuş</annotation>
-		<annotation cp="5⃣" type="tts">tuş: 5</annotation>
-		<annotation cp="6⃣">tuş</annotation>
-		<annotation cp="6⃣" type="tts">tuş: 6</annotation>
-		<annotation cp="7⃣">tuş</annotation>
-		<annotation cp="7⃣" type="tts">tuş: 7</annotation>
-		<annotation cp="8⃣">tuş</annotation>
-		<annotation cp="8⃣" type="tts">tuş: 8</annotation>
-		<annotation cp="9⃣">tuş</annotation>
-		<annotation cp="9⃣" type="tts">tuş: 9</annotation>
 		<annotation cp="₧" type="tts">İspanyol Pezetası</annotation>
 	</annotations>
 </ldml>

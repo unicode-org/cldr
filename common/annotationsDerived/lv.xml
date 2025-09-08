@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-
-Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
 -->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -603,6 +602,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾" type="tts">blonds cilvēks: vidēji tumšs ādas tonis</annotation>
 		<annotation cp="👱🏿">blonds | cilvēks | seja | tumšs ādas tonis</annotation>
 		<annotation cp="👱🏿" type="tts">blonds cilvēks: tumšs ādas tonis</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏼">cīkstēties | cīkstoņi | cīkstonis | cilvēks | cīņa | gaišs ādas tonis | rings | sports | vidēji gaišs ādas tonis</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏼" type="tts">cīkstoņi: gaišs ādas tonis un vidēji gaišs ādas tonis</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏽">cīkstēties | cīkstoņi | cīkstonis | cilvēks | cīņa | gaišs ādas tonis | rings | sports | vidējs ādas tonis</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏽" type="tts">cīkstoņi: gaišs ādas tonis un vidējs ādas tonis</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏾">cīkstēties | cīkstoņi | cīkstonis | cilvēks | cīņa | gaišs ādas tonis | rings | sports | vidēji tumšs ādas tonis</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏾" type="tts">cīkstoņi: gaišs ādas tonis un vidēji tumšs ādas tonis</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏿">cīkstēties | cīkstoņi | cīkstonis | cilvēks | cīņa | gaišs ādas tonis | rings | sports | tumšs ādas tonis</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏿" type="tts">cīkstoņi: gaišs ādas tonis un tumšs ādas tonis</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏻">cīkstēties | cīkstoņi | cīkstonis | cilvēks | cīņa | gaišs ādas tonis | rings | sports | vidēji gaišs ādas tonis</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏻" type="tts">cīkstoņi: vidēji gaišs ādas tonis un gaišs ādas tonis</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏽">cīkstēties | cīkstoņi | cīkstonis | cilvēks | cīņa | rings | sports | vidēji gaišs ādas tonis | vidējs ādas tonis</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏽" type="tts">cīkstoņi: vidēji gaišs ādas tonis un vidējs ādas tonis</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏾">cīkstēties | cīkstoņi | cīkstonis | cilvēks | cīņa | rings | sports | vidēji gaišs ādas tonis | vidēji tumšs ādas tonis</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏾" type="tts">cīkstoņi: vidēji gaišs ādas tonis un vidēji tumšs ādas tonis</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏿">cīkstēties | cīkstoņi | cīkstonis | cilvēks | cīņa | rings | sports | tumšs ādas tonis | vidēji gaišs ādas tonis</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏿" type="tts">cīkstoņi: vidēji gaišs ādas tonis un tumšs ādas tonis</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏻">cīkstēties | cīkstoņi | cīkstonis | cilvēks | cīņa | gaišs ādas tonis | rings | sports | vidējs ādas tonis</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏻" type="tts">cīkstoņi: vidējs ādas tonis un gaišs ādas tonis</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏼">cīkstēties | cīkstoņi | cīkstonis | cilvēks | cīņa | rings | sports | vidēji gaišs ādas tonis | vidējs ādas tonis</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏼" type="tts">cīkstoņi: vidējs ādas tonis un vidēji gaišs ādas tonis</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏾">cīkstēties | cīkstoņi | cīkstonis | cilvēks | cīņa | rings | sports | vidēji tumšs ādas tonis | vidējs ādas tonis</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏾" type="tts">cīkstoņi: vidējs ādas tonis un vidēji tumšs ādas tonis</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏿">cīkstēties | cīkstoņi | cīkstonis | cilvēks | cīņa | rings | sports | tumšs ādas tonis | vidējs ādas tonis</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏿" type="tts">cīkstoņi: vidējs ādas tonis un tumšs ādas tonis</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏻">cīkstēties | cīkstoņi | cīkstonis | cilvēks | cīņa | gaišs ādas tonis | rings | sports | vidēji tumšs ādas tonis</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏻" type="tts">cīkstoņi: vidēji tumšs ādas tonis un gaišs ādas tonis</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏼">cīkstēties | cīkstoņi | cīkstonis | cilvēks | cīņa | rings | sports | vidēji gaišs ādas tonis | vidēji tumšs ādas tonis</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏼" type="tts">cīkstoņi: vidēji tumšs ādas tonis un vidēji gaišs ādas tonis</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏽">cīkstēties | cīkstoņi | cīkstonis | cilvēks | cīņa | rings | sports | vidēji tumšs ādas tonis | vidējs ādas tonis</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏽" type="tts">cīkstoņi: vidēji tumšs ādas tonis un vidējs ādas tonis</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏿">cīkstēties | cīkstoņi | cīkstonis | cilvēks | cīņa | rings | sports | tumšs ādas tonis | vidēji tumšs ādas tonis</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏿" type="tts">cīkstoņi: vidēji tumšs ādas tonis un tumšs ādas tonis</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏻">cīkstēties | cīkstoņi | cīkstonis | cilvēks | cīņa | gaišs ādas tonis | rings | sports | tumšs ādas tonis</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏻" type="tts">cīkstoņi: tumšs ādas tonis un gaišs ādas tonis</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏼">cīkstēties | cīkstoņi | cīkstonis | cilvēks | cīņa | rings | sports | tumšs ādas tonis | vidēji gaišs ādas tonis</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏼" type="tts">cīkstoņi: tumšs ādas tonis un vidēji gaišs ādas tonis</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏽">cīkstēties | cīkstoņi | cīkstonis | cilvēks | cīņa | rings | sports | tumšs ādas tonis | vidējs ādas tonis</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏽" type="tts">cīkstoņi: tumšs ādas tonis un vidējs ādas tonis</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏾">cīkstēties | cīkstoņi | cīkstonis | cilvēks | cīņa | rings | sports | tumšs ādas tonis | vidēji tumšs ādas tonis</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏾" type="tts">cīkstoņi: tumšs ādas tonis un vidēji tumšs ādas tonis</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏼">gaišs ādas tonis | mīlestība | pāris | pieaugušais | randiņš | romantika | skūpsts | vidēji gaišs ādas tonis</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏼" type="tts">skūpsts: pieaugušais, pieaugušais, gaišs ādas tonis un vidēji gaišs ādas tonis</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏽">gaišs ādas tonis | mīlestība | pāris | pieaugušais | randiņš | romantika | skūpsts | vidējs ādas tonis</annotation>
@@ -731,6 +770,56 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧑🏾‍🦲" type="tts">pieaugušais: vidēji tumšs ādas tonis un bez matiem</annotation>
 		<annotation cp="🧑🏿‍🦲">bez matiem | bezdzimuma | cilvēks | dzimumneitrāls | pieaugušais | seja | tumšs ādas tonis</annotation>
 		<annotation cp="🧑🏿‍🦲" type="tts">pieaugušais: tumšs ādas tonis un bez matiem</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏼">ausis | ballīte | cilvēks | dejotāja | dejotāju šovs | gaišs ādas tonis | meitene | pāris | sieviete | vidēji gaišs ādas tonis | zaķa ausis | zaķis</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏼" type="tts">dejotāju šovs: gaišs ādas tonis un vidēji gaišs ādas tonis</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏽">ausis | ballīte | cilvēks | dejotāja | dejotāju šovs | gaišs ādas tonis | meitene | pāris | sieviete | vidējs ādas tonis | zaķa ausis | zaķis</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏽" type="tts">dejotāju šovs: gaišs ādas tonis un vidējs ādas tonis</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏾">ausis | ballīte | cilvēks | dejotāja | dejotāju šovs | gaišs ādas tonis | meitene | pāris | sieviete | vidēji tumšs ādas tonis | zaķa ausis | zaķis</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏾" type="tts">dejotāju šovs: gaišs ādas tonis un vidēji tumšs ādas tonis</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏿">ausis | ballīte | cilvēks | dejotāja | dejotāju šovs | gaišs ādas tonis | meitene | pāris | sieviete | tumšs ādas tonis | zaķa ausis | zaķis</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏿" type="tts">dejotāju šovs: gaišs ādas tonis un tumšs ādas tonis</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏻">ausis | ballīte | cilvēks | dejotāja | dejotāju šovs | gaišs ādas tonis | meitene | pāris | sieviete | vidēji gaišs ādas tonis | zaķa ausis | zaķis</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏻" type="tts">dejotāju šovs: vidēji gaišs ādas tonis un gaišs ādas tonis</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏽">ausis | ballīte | cilvēks | dejotāja | dejotāju šovs | meitene | pāris | sieviete | vidēji gaišs ādas tonis | vidējs ādas tonis | zaķa ausis | zaķis</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏽" type="tts">dejotāju šovs: vidēji gaišs ādas tonis un vidējs ādas tonis</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏾">ausis | ballīte | cilvēks | dejotāja | dejotāju šovs | meitene | pāris | sieviete | vidēji gaišs ādas tonis | vidēji tumšs ādas tonis | zaķa ausis | zaķis</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏾" type="tts">dejotāju šovs: vidēji gaišs ādas tonis un vidēji tumšs ādas tonis</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏿">ausis | ballīte | cilvēks | dejotāja | dejotāju šovs | meitene | pāris | sieviete | tumšs ādas tonis | vidēji gaišs ādas tonis | zaķa ausis | zaķis</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏿" type="tts">dejotāju šovs: vidēji gaišs ādas tonis un tumšs ādas tonis</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏻">ausis | ballīte | cilvēks | dejotāja | dejotāju šovs | gaišs ādas tonis | meitene | pāris | sieviete | vidējs ādas tonis | zaķa ausis | zaķis</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏻" type="tts">dejotāju šovs: vidējs ādas tonis un gaišs ādas tonis</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏼">ausis | ballīte | cilvēks | dejotāja | dejotāju šovs | meitene | pāris | sieviete | vidēji gaišs ādas tonis | vidējs ādas tonis | zaķa ausis | zaķis</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏼" type="tts">dejotāju šovs: vidējs ādas tonis un vidēji gaišs ādas tonis</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏾">ausis | ballīte | cilvēks | dejotāja | dejotāju šovs | meitene | pāris | sieviete | vidēji tumšs ādas tonis | vidējs ādas tonis | zaķa ausis | zaķis</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏾" type="tts">dejotāju šovs: vidējs ādas tonis un vidēji tumšs ādas tonis</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏿">ausis | ballīte | cilvēks | dejotāja | dejotāju šovs | meitene | pāris | sieviete | tumšs ādas tonis | vidējs ādas tonis | zaķa ausis | zaķis</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏿" type="tts">dejotāju šovs: vidējs ādas tonis un tumšs ādas tonis</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏻">ausis | ballīte | cilvēks | dejotāja | dejotāju šovs | gaišs ādas tonis | meitene | pāris | sieviete | vidēji tumšs ādas tonis | zaķa ausis | zaķis</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏻" type="tts">dejotāju šovs: vidēji tumšs ādas tonis un gaišs ādas tonis</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏼">ausis | ballīte | cilvēks | dejotāja | dejotāju šovs | meitene | pāris | sieviete | vidēji gaišs ādas tonis | vidēji tumšs ādas tonis | zaķa ausis | zaķis</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏼" type="tts">dejotāju šovs: vidēji tumšs ādas tonis un vidēji gaišs ādas tonis</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏽">ausis | ballīte | cilvēks | dejotāja | dejotāju šovs | meitene | pāris | sieviete | vidēji tumšs ādas tonis | vidējs ādas tonis | zaķa ausis | zaķis</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏽" type="tts">dejotāju šovs: vidēji tumšs ādas tonis un vidējs ādas tonis</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏿">ausis | ballīte | cilvēks | dejotāja | dejotāju šovs | meitene | pāris | sieviete | tumšs ādas tonis | vidēji tumšs ādas tonis | zaķa ausis | zaķis</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏿" type="tts">dejotāju šovs: vidēji tumšs ādas tonis un tumšs ādas tonis</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏻">ausis | ballīte | cilvēks | dejotāja | dejotāju šovs | gaišs ādas tonis | meitene | pāris | sieviete | tumšs ādas tonis | zaķa ausis | zaķis</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏻" type="tts">dejotāju šovs: tumšs ādas tonis un gaišs ādas tonis</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏼">ausis | ballīte | cilvēks | dejotāja | dejotāju šovs | meitene | pāris | sieviete | tumšs ādas tonis | vidēji gaišs ādas tonis | zaķa ausis | zaķis</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏼" type="tts">dejotāju šovs: tumšs ādas tonis un vidēji gaišs ādas tonis</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏽">ausis | ballīte | cilvēks | dejotāja | dejotāju šovs | meitene | pāris | sieviete | tumšs ādas tonis | vidējs ādas tonis | zaķa ausis | zaķis</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏽" type="tts">dejotāju šovs: tumšs ādas tonis un vidējs ādas tonis</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏾">ausis | ballīte | cilvēks | dejotāja | dejotāju šovs | meitene | pāris | sieviete | tumšs ādas tonis | vidēji tumšs ādas tonis | zaķa ausis | zaķis</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏾" type="tts">dejotāju šovs: tumšs ādas tonis un vidēji tumšs ādas tonis</annotation>
+		<annotation cp="🧑🏻‍🩰">baleta | dejotājs | gaišs ādas tonis</annotation>
+		<annotation cp="🧑🏻‍🩰" type="tts">baletdejotājs: gaišs ādas tonis</annotation>
+		<annotation cp="🧑🏼‍🩰">baleta | dejotājs | vidēji gaišs ādas tonis</annotation>
+		<annotation cp="🧑🏼‍🩰" type="tts">baletdejotājs: vidēji gaišs ādas tonis</annotation>
+		<annotation cp="🧑🏽‍🩰">baleta | dejotājs | vidējs ādas tonis</annotation>
+		<annotation cp="🧑🏽‍🩰" type="tts">baletdejotājs: vidējs ādas tonis</annotation>
+		<annotation cp="🧑🏾‍🩰">baleta | dejotājs | vidēji tumšs ādas tonis</annotation>
+		<annotation cp="🧑🏾‍🩰" type="tts">baletdejotājs: vidēji tumšs ādas tonis</annotation>
+		<annotation cp="🧑🏿‍🩰">baleta | dejotājs | tumšs ādas tonis</annotation>
+		<annotation cp="🧑🏿‍🩰" type="tts">baletdejotājs: tumšs ādas tonis</annotation>
 		<annotation cp="👨🏻">cilvēks | draugs | gaišs ādas tonis | kungs | seja | vīrietis | vīrs</annotation>
 		<annotation cp="👨🏻" type="tts">vīrietis: gaišs ādas tonis</annotation>
 		<annotation cp="👨🏼">cilvēks | draugs | kungs | seja | vidēji gaišs ādas tonis | vīrietis | vīrs</annotation>
@@ -771,6 +860,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾‍♂" type="tts">blondīns: vidēji tumšs ādas tonis</annotation>
 		<annotation cp="👱🏿‍♂">blondīns | tumšs ādas tonis | vīrietis</annotation>
 		<annotation cp="👱🏿‍♂" type="tts">blondīns: tumšs ādas tonis</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏼">cīkstonis | cilvēki | cīņa | gaišs ādas tonis | rings | sacīkstes | sports | vidēji gaišs ādas tonis | vīrietis</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏼" type="tts">cīkstonis: gaišs ādas tonis un vidēji gaišs ādas tonis</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏽">cīkstonis | cilvēki | cīņa | gaišs ādas tonis | rings | sacīkstes | sports | vidējs ādas tonis | vīrietis</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏽" type="tts">cīkstonis: gaišs ādas tonis un vidējs ādas tonis</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏾">cīkstonis | cilvēki | cīņa | gaišs ādas tonis | rings | sacīkstes | sports | vidēji tumšs ādas tonis | vīrietis</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏾" type="tts">cīkstonis: gaišs ādas tonis un vidēji tumšs ādas tonis</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏿">cīkstonis | cilvēki | cīņa | gaišs ādas tonis | rings | sacīkstes | sports | tumšs ādas tonis | vīrietis</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏿" type="tts">cīkstonis: gaišs ādas tonis un tumšs ādas tonis</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏻">cīkstonis | cilvēki | cīņa | gaišs ādas tonis | rings | sacīkstes | sports | vidēji gaišs ādas tonis | vīrietis</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏻" type="tts">cīkstonis: vidēji gaišs ādas tonis un gaišs ādas tonis</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏽">cīkstonis | cilvēki | cīņa | rings | sacīkstes | sports | vidēji gaišs ādas tonis | vidējs ādas tonis | vīrietis</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏽" type="tts">cīkstonis: vidēji gaišs ādas tonis un vidējs ādas tonis</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏾">cīkstonis | cilvēki | cīņa | rings | sacīkstes | sports | vidēji gaišs ādas tonis | vidēji tumšs ādas tonis | vīrietis</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏾" type="tts">cīkstonis: vidēji gaišs ādas tonis un vidēji tumšs ādas tonis</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏿">cīkstonis | cilvēki | cīņa | rings | sacīkstes | sports | tumšs ādas tonis | vidēji gaišs ādas tonis | vīrietis</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏿" type="tts">cīkstonis: vidēji gaišs ādas tonis un tumšs ādas tonis</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏻">cīkstonis | cilvēki | cīņa | gaišs ādas tonis | rings | sacīkstes | sports | vidējs ādas tonis | vīrietis</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏻" type="tts">cīkstonis: vidējs ādas tonis un gaišs ādas tonis</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏼">cīkstonis | cilvēki | cīņa | rings | sacīkstes | sports | vidēji gaišs ādas tonis | vidējs ādas tonis | vīrietis</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏼" type="tts">cīkstonis: vidējs ādas tonis un vidēji gaišs ādas tonis</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏾">cīkstonis | cilvēki | cīņa | rings | sacīkstes | sports | vidēji tumšs ādas tonis | vidējs ādas tonis | vīrietis</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏾" type="tts">cīkstonis: vidējs ādas tonis un vidēji tumšs ādas tonis</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏿">cīkstonis | cilvēki | cīņa | rings | sacīkstes | sports | tumšs ādas tonis | vidējs ādas tonis | vīrietis</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏿" type="tts">cīkstonis: vidējs ādas tonis un tumšs ādas tonis</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏻">cīkstonis | cilvēki | cīņa | gaišs ādas tonis | rings | sacīkstes | sports | vidēji tumšs ādas tonis | vīrietis</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏻" type="tts">cīkstonis: vidēji tumšs ādas tonis un gaišs ādas tonis</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏼">cīkstonis | cilvēki | cīņa | rings | sacīkstes | sports | vidēji gaišs ādas tonis | vidēji tumšs ādas tonis | vīrietis</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏼" type="tts">cīkstonis: vidēji tumšs ādas tonis un vidēji gaišs ādas tonis</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏽">cīkstonis | cilvēki | cīņa | rings | sacīkstes | sports | vidēji tumšs ādas tonis | vidējs ādas tonis | vīrietis</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏽" type="tts">cīkstonis: vidēji tumšs ādas tonis un vidējs ādas tonis</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏿">cīkstonis | cilvēki | cīņa | rings | sacīkstes | sports | tumšs ādas tonis | vidēji tumšs ādas tonis | vīrietis</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏿" type="tts">cīkstonis: vidēji tumšs ādas tonis un tumšs ādas tonis</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏻">cīkstonis | cilvēki | cīņa | gaišs ādas tonis | rings | sacīkstes | sports | tumšs ādas tonis | vīrietis</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏻" type="tts">cīkstonis: tumšs ādas tonis un gaišs ādas tonis</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏼">cīkstonis | cilvēki | cīņa | rings | sacīkstes | sports | tumšs ādas tonis | vidēji gaišs ādas tonis | vīrietis</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏼" type="tts">cīkstonis: tumšs ādas tonis un vidēji gaišs ādas tonis</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏽">cīkstonis | cilvēki | cīņa | rings | sacīkstes | sports | tumšs ādas tonis | vidējs ādas tonis | vīrietis</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏽" type="tts">cīkstonis: tumšs ādas tonis un vidējs ādas tonis</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏾">cīkstonis | cilvēki | cīņa | rings | sacīkstes | sports | tumšs ādas tonis | vidēji tumšs ādas tonis | vīrietis</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏾" type="tts">cīkstonis: tumšs ādas tonis un vidēji tumšs ādas tonis</annotation>
 		<annotation cp="👨🏻‍❤‍💋‍👨🏻">gaišs ādas tonis | mīlestība | pāris | randiņš | romantika | skūpsts | vīrietis</annotation>
 		<annotation cp="👨🏻‍❤‍💋‍👨🏻" type="tts">skūpsts: vīrietis, vīrietis un gaišs ādas tonis</annotation>
 		<annotation cp="👨🏻‍❤‍💋‍👨🏼">gaišs ādas tonis | mīlestība | pāris | randiņš | romantika | skūpsts | vidēji gaišs ādas tonis | vīrietis</annotation>
@@ -919,6 +1048,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾‍🦲" type="tts">vīrietis: vidēji tumšs ādas tonis un bez matiem</annotation>
 		<annotation cp="👨🏿‍🦲">bez matiem | cilvēks | draugs | kungs | seja | tumšs ādas tonis | vīrietis | vīrs</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">vīrietis: tumšs ādas tonis un bez matiem</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏼">ballīte | dejotāji | dejotājs | gaišs ādas tonis | vidēji gaišs ādas tonis | vīrietis | zaķa ausis</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏼" type="tts">dejotāji: gaišs ādas tonis un vidēji gaišs ādas tonis</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏽">ballīte | dejotāji | dejotājs | gaišs ādas tonis | vidējs ādas tonis | vīrietis | zaķa ausis</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏽" type="tts">dejotāji: gaišs ādas tonis un vidējs ādas tonis</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏾">ballīte | dejotāji | dejotājs | gaišs ādas tonis | vidēji tumšs ādas tonis | vīrietis | zaķa ausis</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏾" type="tts">dejotāji: gaišs ādas tonis un vidēji tumšs ādas tonis</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏿">ballīte | dejotāji | dejotājs | gaišs ādas tonis | tumšs ādas tonis | vīrietis | zaķa ausis</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏿" type="tts">dejotāji: gaišs ādas tonis un tumšs ādas tonis</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏻">ballīte | dejotāji | dejotājs | gaišs ādas tonis | vidēji gaišs ādas tonis | vīrietis | zaķa ausis</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏻" type="tts">dejotāji: vidēji gaišs ādas tonis un gaišs ādas tonis</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏽">ballīte | dejotāji | dejotājs | vidēji gaišs ādas tonis | vidējs ādas tonis | vīrietis | zaķa ausis</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏽" type="tts">dejotāji: vidēji gaišs ādas tonis un vidējs ādas tonis</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏾">ballīte | dejotāji | dejotājs | vidēji gaišs ādas tonis | vidēji tumšs ādas tonis | vīrietis | zaķa ausis</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏾" type="tts">dejotāji: vidēji gaišs ādas tonis un vidēji tumšs ādas tonis</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏿">ballīte | dejotāji | dejotājs | tumšs ādas tonis | vidēji gaišs ādas tonis | vīrietis | zaķa ausis</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏿" type="tts">dejotāji: vidēji gaišs ādas tonis un tumšs ādas tonis</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏻">ballīte | dejotāji | dejotājs | gaišs ādas tonis | vidējs ādas tonis | vīrietis | zaķa ausis</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏻" type="tts">dejotāji: vidējs ādas tonis un gaišs ādas tonis</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏼">ballīte | dejotāji | dejotājs | vidēji gaišs ādas tonis | vidējs ādas tonis | vīrietis | zaķa ausis</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏼" type="tts">dejotāji: vidējs ādas tonis un vidēji gaišs ādas tonis</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏾">ballīte | dejotāji | dejotājs | vidēji tumšs ādas tonis | vidējs ādas tonis | vīrietis | zaķa ausis</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏾" type="tts">dejotāji: vidējs ādas tonis un vidēji tumšs ādas tonis</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏿">ballīte | dejotāji | dejotājs | tumšs ādas tonis | vidējs ādas tonis | vīrietis | zaķa ausis</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏿" type="tts">dejotāji: vidējs ādas tonis un tumšs ādas tonis</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏻">ballīte | dejotāji | dejotājs | gaišs ādas tonis | vidēji tumšs ādas tonis | vīrietis | zaķa ausis</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏻" type="tts">dejotāji: vidēji tumšs ādas tonis un gaišs ādas tonis</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏼">ballīte | dejotāji | dejotājs | vidēji gaišs ādas tonis | vidēji tumšs ādas tonis | vīrietis | zaķa ausis</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏼" type="tts">dejotāji: vidēji tumšs ādas tonis un vidēji gaišs ādas tonis</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏽">ballīte | dejotāji | dejotājs | vidēji tumšs ādas tonis | vidējs ādas tonis | vīrietis | zaķa ausis</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏽" type="tts">dejotāji: vidēji tumšs ādas tonis un vidējs ādas tonis</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏿">ballīte | dejotāji | dejotājs | tumšs ādas tonis | vidēji tumšs ādas tonis | vīrietis | zaķa ausis</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏿" type="tts">dejotāji: vidēji tumšs ādas tonis un tumšs ādas tonis</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏻">ballīte | dejotāji | dejotājs | gaišs ādas tonis | tumšs ādas tonis | vīrietis | zaķa ausis</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏻" type="tts">dejotāji: tumšs ādas tonis un gaišs ādas tonis</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏼">ballīte | dejotāji | dejotājs | tumšs ādas tonis | vidēji gaišs ādas tonis | vīrietis | zaķa ausis</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏼" type="tts">dejotāji: tumšs ādas tonis un vidēji gaišs ādas tonis</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏽">ballīte | dejotāji | dejotājs | tumšs ādas tonis | vidējs ādas tonis | vīrietis | zaķa ausis</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏽" type="tts">dejotāji: tumšs ādas tonis un vidējs ādas tonis</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏾">ballīte | dejotāji | dejotājs | tumšs ādas tonis | vidēji tumšs ādas tonis | vīrietis | zaķa ausis</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏾" type="tts">dejotāji: tumšs ādas tonis un vidēji tumšs ādas tonis</annotation>
 		<annotation cp="👩🏻">blondīne | cilvēks | dāma | gaišs ādas tonis | kundze | seja | sieviete</annotation>
 		<annotation cp="👩🏻" type="tts">sieviete: gaišs ādas tonis</annotation>
 		<annotation cp="👩🏼">blondīne | cilvēks | dāma | kundze | seja | sieviete | vidēji gaišs ādas tonis</annotation>
@@ -949,6 +1118,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾‍♀" type="tts">blondīne: vidēji tumšs ādas tonis</annotation>
 		<annotation cp="👱🏿‍♀">blonda | blondi mati | blondīne | cilvēks | persona | sieviete | tumšs ādas tonis</annotation>
 		<annotation cp="👱🏿‍♀" type="tts">blondīne: tumšs ādas tonis</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏼">cīkstone | cilvēks | cīņa | gaišs ādas tonis | persona | rings | sacīkstes | sieviete | sports | vidēji gaišs ādas tonis</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏼" type="tts">cīkstone: gaišs ādas tonis un vidēji gaišs ādas tonis</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏽">cīkstone | cilvēks | cīņa | gaišs ādas tonis | persona | rings | sacīkstes | sieviete | sports | vidējs ādas tonis</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏽" type="tts">cīkstone: gaišs ādas tonis un vidējs ādas tonis</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏾">cīkstone | cilvēks | cīņa | gaišs ādas tonis | persona | rings | sacīkstes | sieviete | sports | vidēji tumšs ādas tonis</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏾" type="tts">cīkstone: gaišs ādas tonis un vidēji tumšs ādas tonis</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏿">cīkstone | cilvēks | cīņa | gaišs ādas tonis | persona | rings | sacīkstes | sieviete | sports | tumšs ādas tonis</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏿" type="tts">cīkstone: gaišs ādas tonis un tumšs ādas tonis</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏻">cīkstone | cilvēks | cīņa | gaišs ādas tonis | persona | rings | sacīkstes | sieviete | sports | vidēji gaišs ādas tonis</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏻" type="tts">cīkstone: vidēji gaišs ādas tonis un gaišs ādas tonis</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏽">cīkstone | cilvēks | cīņa | persona | rings | sacīkstes | sieviete | sports | vidēji gaišs ādas tonis | vidējs ādas tonis</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏽" type="tts">cīkstone: vidēji gaišs ādas tonis un vidējs ādas tonis</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏾">cīkstone | cilvēks | cīņa | persona | rings | sacīkstes | sieviete | sports | vidēji gaišs ādas tonis | vidēji tumšs ādas tonis</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏾" type="tts">cīkstone: vidēji gaišs ādas tonis un vidēji tumšs ādas tonis</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏿">cīkstone | cilvēks | cīņa | persona | rings | sacīkstes | sieviete | sports | tumšs ādas tonis | vidēji gaišs ādas tonis</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏿" type="tts">cīkstone: vidēji gaišs ādas tonis un tumšs ādas tonis</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏻">cīkstone | cilvēks | cīņa | gaišs ādas tonis | persona | rings | sacīkstes | sieviete | sports | vidējs ādas tonis</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏻" type="tts">cīkstone: vidējs ādas tonis un gaišs ādas tonis</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏼">cīkstone | cilvēks | cīņa | persona | rings | sacīkstes | sieviete | sports | vidēji gaišs ādas tonis | vidējs ādas tonis</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏼" type="tts">cīkstone: vidējs ādas tonis un vidēji gaišs ādas tonis</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏾">cīkstone | cilvēks | cīņa | persona | rings | sacīkstes | sieviete | sports | vidēji tumšs ādas tonis | vidējs ādas tonis</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏾" type="tts">cīkstone: vidējs ādas tonis un vidēji tumšs ādas tonis</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏿">cīkstone | cilvēks | cīņa | persona | rings | sacīkstes | sieviete | sports | tumšs ādas tonis | vidējs ādas tonis</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏿" type="tts">cīkstone: vidējs ādas tonis un tumšs ādas tonis</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏻">cīkstone | cilvēks | cīņa | gaišs ādas tonis | persona | rings | sacīkstes | sieviete | sports | vidēji tumšs ādas tonis</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏻" type="tts">cīkstone: vidēji tumšs ādas tonis un gaišs ādas tonis</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏼">cīkstone | cilvēks | cīņa | persona | rings | sacīkstes | sieviete | sports | vidēji gaišs ādas tonis | vidēji tumšs ādas tonis</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏼" type="tts">cīkstone: vidēji tumšs ādas tonis un vidēji gaišs ādas tonis</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏽">cīkstone | cilvēks | cīņa | persona | rings | sacīkstes | sieviete | sports | vidēji tumšs ādas tonis | vidējs ādas tonis</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏽" type="tts">cīkstone: vidēji tumšs ādas tonis un vidējs ādas tonis</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏿">cīkstone | cilvēks | cīņa | persona | rings | sacīkstes | sieviete | sports | tumšs ādas tonis | vidēji tumšs ādas tonis</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏿" type="tts">cīkstone: vidēji tumšs ādas tonis un tumšs ādas tonis</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏻">cīkstone | cilvēks | cīņa | gaišs ādas tonis | persona | rings | sacīkstes | sieviete | sports | tumšs ādas tonis</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏻" type="tts">cīkstone: tumšs ādas tonis un gaišs ādas tonis</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏼">cīkstone | cilvēks | cīņa | persona | rings | sacīkstes | sieviete | sports | tumšs ādas tonis | vidēji gaišs ādas tonis</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏼" type="tts">cīkstone: tumšs ādas tonis un vidēji gaišs ādas tonis</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏽">cīkstone | cilvēks | cīņa | persona | rings | sacīkstes | sieviete | sports | tumšs ādas tonis | vidējs ādas tonis</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏽" type="tts">cīkstone: tumšs ādas tonis un vidējs ādas tonis</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏾">cīkstone | cilvēks | cīņa | persona | rings | sacīkstes | sieviete | sports | tumšs ādas tonis | vidēji tumšs ādas tonis</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏾" type="tts">cīkstone: tumšs ādas tonis un vidēji tumšs ādas tonis</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👨🏻">gaišs ādas tonis | mīlestība | pāris | randiņš | romantika | sieviete | skūpsts | vīrietis</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👨🏻" type="tts">skūpsts: sieviete, vīrietis un gaišs ādas tonis</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👨🏼">gaišs ādas tonis | mīlestība | pāris | randiņš | romantika | sieviete | skūpsts | vidēji gaišs ādas tonis | vīrietis</annotation>
@@ -1197,6 +1406,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🦲" type="tts">sieviete: vidēji tumšs ādas tonis un bez matiem</annotation>
 		<annotation cp="👩🏿‍🦲">bez matiem | blondīne | cilvēks | dāma | kundze | seja | sieviete | tumšs ādas tonis</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">sieviete: tumšs ādas tonis un bez matiem</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏼">ballīte | dejotājas | dejotājs | gaišs ādas tonis | sieviete | vidēji gaišs ādas tonis | zaķa ausis</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏼" type="tts">dejotājas: gaišs ādas tonis un vidēji gaišs ādas tonis</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏽">ballīte | dejotājas | dejotājs | gaišs ādas tonis | sieviete | vidējs ādas tonis | zaķa ausis</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏽" type="tts">dejotājas: gaišs ādas tonis un vidējs ādas tonis</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏾">ballīte | dejotājas | dejotājs | gaišs ādas tonis | sieviete | vidēji tumšs ādas tonis | zaķa ausis</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏾" type="tts">dejotājas: gaišs ādas tonis un vidēji tumšs ādas tonis</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏿">ballīte | dejotājas | dejotājs | gaišs ādas tonis | sieviete | tumšs ādas tonis | zaķa ausis</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏿" type="tts">dejotājas: gaišs ādas tonis un tumšs ādas tonis</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏻">ballīte | dejotājas | dejotājs | gaišs ādas tonis | sieviete | vidēji gaišs ādas tonis | zaķa ausis</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏻" type="tts">dejotājas: vidēji gaišs ādas tonis un gaišs ādas tonis</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏽">ballīte | dejotājas | dejotājs | sieviete | vidēji gaišs ādas tonis | vidējs ādas tonis | zaķa ausis</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏽" type="tts">dejotājas: vidēji gaišs ādas tonis un vidējs ādas tonis</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏾">ballīte | dejotājas | dejotājs | sieviete | vidēji gaišs ādas tonis | vidēji tumšs ādas tonis | zaķa ausis</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏾" type="tts">dejotājas: vidēji gaišs ādas tonis un vidēji tumšs ādas tonis</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏿">ballīte | dejotājas | dejotājs | sieviete | tumšs ādas tonis | vidēji gaišs ādas tonis | zaķa ausis</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏿" type="tts">dejotājas: vidēji gaišs ādas tonis un tumšs ādas tonis</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏻">ballīte | dejotājas | dejotājs | gaišs ādas tonis | sieviete | vidējs ādas tonis | zaķa ausis</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏻" type="tts">dejotājas: vidējs ādas tonis un gaišs ādas tonis</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏼">ballīte | dejotājas | dejotājs | sieviete | vidēji gaišs ādas tonis | vidējs ādas tonis | zaķa ausis</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏼" type="tts">dejotājas: vidējs ādas tonis un vidēji gaišs ādas tonis</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏾">ballīte | dejotājas | dejotājs | sieviete | vidēji tumšs ādas tonis | vidējs ādas tonis | zaķa ausis</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏾" type="tts">dejotājas: vidējs ādas tonis un vidēji tumšs ādas tonis</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏿">ballīte | dejotājas | dejotājs | sieviete | tumšs ādas tonis | vidējs ādas tonis | zaķa ausis</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏿" type="tts">dejotājas: vidējs ādas tonis un tumšs ādas tonis</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏻">ballīte | dejotājas | dejotājs | gaišs ādas tonis | sieviete | vidēji tumšs ādas tonis | zaķa ausis</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏻" type="tts">dejotājas: vidēji tumšs ādas tonis un gaišs ādas tonis</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏼">ballīte | dejotājas | dejotājs | sieviete | vidēji gaišs ādas tonis | vidēji tumšs ādas tonis | zaķa ausis</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏼" type="tts">dejotājas: vidēji tumšs ādas tonis un vidēji gaišs ādas tonis</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏽">ballīte | dejotājas | dejotājs | sieviete | vidēji tumšs ādas tonis | vidējs ādas tonis | zaķa ausis</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏽" type="tts">dejotājas: vidēji tumšs ādas tonis un vidējs ādas tonis</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏿">ballīte | dejotājas | dejotājs | sieviete | tumšs ādas tonis | vidēji tumšs ādas tonis | zaķa ausis</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏿" type="tts">dejotājas: vidēji tumšs ādas tonis un tumšs ādas tonis</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏻">ballīte | dejotājas | dejotājs | gaišs ādas tonis | sieviete | tumšs ādas tonis | zaķa ausis</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏻" type="tts">dejotājas: tumšs ādas tonis un gaišs ādas tonis</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏼">ballīte | dejotājas | dejotājs | sieviete | tumšs ādas tonis | vidēji gaišs ādas tonis | zaķa ausis</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏼" type="tts">dejotājas: tumšs ādas tonis un vidēji gaišs ādas tonis</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏽">ballīte | dejotājas | dejotājs | sieviete | tumšs ādas tonis | vidējs ādas tonis | zaķa ausis</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏽" type="tts">dejotājas: tumšs ādas tonis un vidējs ādas tonis</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏾">ballīte | dejotājas | dejotājs | sieviete | tumšs ādas tonis | vidēji tumšs ādas tonis | zaķa ausis</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏾" type="tts">dejotājas: tumšs ādas tonis un vidēji tumšs ādas tonis</annotation>
 		<annotation cp="🧓🏻">bezdzimuma | cilvēks | dzimumneitrāls | gaišs ādas tonis | pieaugušais | vecāks pieaugušais | vecs</annotation>
 		<annotation cp="🧓🏻" type="tts">vecāks pieaugušais: gaišs ādas tonis</annotation>
 		<annotation cp="🧓🏼">bezdzimuma | cilvēks | dzimumneitrāls | pieaugušais | vecāks pieaugušais | vecs | vidēji gaišs ādas tonis</annotation>
@@ -3113,6 +3362,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🕴🏾" type="tts">levitējošs cilvēks uzvalkā: vidēji tumšs ādas tonis</annotation>
 		<annotation cp="🕴🏿">levitējošs cilvēks uzvalkā | lidināties | tumšs ādas tonis | uzvalks | vīrietis</annotation>
 		<annotation cp="🕴🏿" type="tts">levitējošs cilvēks uzvalkā: tumšs ādas tonis</annotation>
+		<annotation cp="👯🏻">ausis | ballīte | cilvēks | dejotāja | dejotāju šovs | gaišs ādas tonis | meitene | pāris | sieviete | zaķa ausis | zaķis</annotation>
+		<annotation cp="👯🏻" type="tts">dejotāju šovs: gaišs ādas tonis</annotation>
+		<annotation cp="👯🏼">ausis | ballīte | cilvēks | dejotāja | dejotāju šovs | meitene | pāris | sieviete | vidēji gaišs ādas tonis | zaķa ausis | zaķis</annotation>
+		<annotation cp="👯🏼" type="tts">dejotāju šovs: vidēji gaišs ādas tonis</annotation>
+		<annotation cp="👯🏽">ausis | ballīte | cilvēks | dejotāja | dejotāju šovs | meitene | pāris | sieviete | vidējs ādas tonis | zaķa ausis | zaķis</annotation>
+		<annotation cp="👯🏽" type="tts">dejotāju šovs: vidējs ādas tonis</annotation>
+		<annotation cp="👯🏾">ausis | ballīte | cilvēks | dejotāja | dejotāju šovs | meitene | pāris | sieviete | vidēji tumšs ādas tonis | zaķa ausis | zaķis</annotation>
+		<annotation cp="👯🏾" type="tts">dejotāju šovs: vidēji tumšs ādas tonis</annotation>
+		<annotation cp="👯🏿">ausis | ballīte | cilvēks | dejotāja | dejotāju šovs | meitene | pāris | sieviete | tumšs ādas tonis | zaķa ausis | zaķis</annotation>
+		<annotation cp="👯🏿" type="tts">dejotāju šovs: tumšs ādas tonis</annotation>
+		<annotation cp="👯🏻‍♀">ballīte | dejotājas | dejotājs | gaišs ādas tonis | sieviete | zaķa ausis</annotation>
+		<annotation cp="👯🏻‍♀" type="tts">dejotājas: gaišs ādas tonis</annotation>
+		<annotation cp="👯🏼‍♀">ballīte | dejotājas | dejotājs | sieviete | vidēji gaišs ādas tonis | zaķa ausis</annotation>
+		<annotation cp="👯🏼‍♀" type="tts">dejotājas: vidēji gaišs ādas tonis</annotation>
+		<annotation cp="👯🏽‍♀">ballīte | dejotājas | dejotājs | sieviete | vidējs ādas tonis | zaķa ausis</annotation>
+		<annotation cp="👯🏽‍♀" type="tts">dejotājas: vidējs ādas tonis</annotation>
+		<annotation cp="👯🏾‍♀">ballīte | dejotājas | dejotājs | sieviete | vidēji tumšs ādas tonis | zaķa ausis</annotation>
+		<annotation cp="👯🏾‍♀" type="tts">dejotājas: vidēji tumšs ādas tonis</annotation>
+		<annotation cp="👯🏿‍♀">ballīte | dejotājas | dejotājs | sieviete | tumšs ādas tonis | zaķa ausis</annotation>
+		<annotation cp="👯🏿‍♀" type="tts">dejotājas: tumšs ādas tonis</annotation>
+		<annotation cp="👯🏻‍♂">ballīte | dejotāji | dejotājs | gaišs ādas tonis | vīrietis | zaķa ausis</annotation>
+		<annotation cp="👯🏻‍♂" type="tts">dejotāji: gaišs ādas tonis</annotation>
+		<annotation cp="👯🏼‍♂">ballīte | dejotāji | dejotājs | vidēji gaišs ādas tonis | vīrietis | zaķa ausis</annotation>
+		<annotation cp="👯🏼‍♂" type="tts">dejotāji: vidēji gaišs ādas tonis</annotation>
+		<annotation cp="👯🏽‍♂">ballīte | dejotāji | dejotājs | vidējs ādas tonis | vīrietis | zaķa ausis</annotation>
+		<annotation cp="👯🏽‍♂" type="tts">dejotāji: vidējs ādas tonis</annotation>
+		<annotation cp="👯🏾‍♂">ballīte | dejotāji | dejotājs | vidēji tumšs ādas tonis | vīrietis | zaķa ausis</annotation>
+		<annotation cp="👯🏾‍♂" type="tts">dejotāji: vidēji tumšs ādas tonis</annotation>
+		<annotation cp="👯🏿‍♂">ballīte | dejotāji | dejotājs | tumšs ādas tonis | vīrietis | zaķa ausis</annotation>
+		<annotation cp="👯🏿‍♂" type="tts">dejotāji: tumšs ādas tonis</annotation>
 		<annotation cp="🧖🏻">atpūta | cilvēks tvaika telpā | gaišs ādas tonis | pirts | sauna | tvaika telpa</annotation>
 		<annotation cp="🧖🏻" type="tts">cilvēks tvaika telpā: gaišs ādas tonis</annotation>
 		<annotation cp="🧖🏼">atpūta | cilvēks tvaika telpā | pirts | sauna | tvaika telpa | vidēji gaišs ādas tonis</annotation>
@@ -3463,6 +3742,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤸🏾‍♀" type="tts">akrobāte: vidēji tumšs ādas tonis</annotation>
 		<annotation cp="🤸🏿‍♀">akrobāte | akrobātika | aktīvs | cilvēks | prieks | ritenītis | sieviete | sports | tumšs ādas tonis | vingrošana</annotation>
 		<annotation cp="🤸🏿‍♀" type="tts">akrobāte: tumšs ādas tonis</annotation>
+		<annotation cp="🤼🏻">cīkstēties | cīkstoņi | cīkstonis | cilvēks | cīņa | gaišs ādas tonis | rings | sports</annotation>
+		<annotation cp="🤼🏻" type="tts">cīkstoņi: gaišs ādas tonis</annotation>
+		<annotation cp="🤼🏼">cīkstēties | cīkstoņi | cīkstonis | cilvēks | cīņa | rings | sports | vidēji gaišs ādas tonis</annotation>
+		<annotation cp="🤼🏼" type="tts">cīkstoņi: vidēji gaišs ādas tonis</annotation>
+		<annotation cp="🤼🏽">cīkstēties | cīkstoņi | cīkstonis | cilvēks | cīņa | rings | sports | vidējs ādas tonis</annotation>
+		<annotation cp="🤼🏽" type="tts">cīkstoņi: vidējs ādas tonis</annotation>
+		<annotation cp="🤼🏾">cīkstēties | cīkstoņi | cīkstonis | cilvēks | cīņa | rings | sports | vidēji tumšs ādas tonis</annotation>
+		<annotation cp="🤼🏾" type="tts">cīkstoņi: vidēji tumšs ādas tonis</annotation>
+		<annotation cp="🤼🏿">cīkstēties | cīkstoņi | cīkstonis | cilvēks | cīņa | rings | sports | tumšs ādas tonis</annotation>
+		<annotation cp="🤼🏿" type="tts">cīkstoņi: tumšs ādas tonis</annotation>
+		<annotation cp="🤼🏻‍♀">cīkstone | cilvēks | cīņa | gaišs ādas tonis | persona | rings | sacīkstes | sieviete | sports</annotation>
+		<annotation cp="🤼🏻‍♀" type="tts">cīkstone: gaišs ādas tonis</annotation>
+		<annotation cp="🤼🏼‍♀">cīkstone | cilvēks | cīņa | persona | rings | sacīkstes | sieviete | sports | vidēji gaišs ādas tonis</annotation>
+		<annotation cp="🤼🏼‍♀" type="tts">cīkstone: vidēji gaišs ādas tonis</annotation>
+		<annotation cp="🤼🏽‍♀">cīkstone | cilvēks | cīņa | persona | rings | sacīkstes | sieviete | sports | vidējs ādas tonis</annotation>
+		<annotation cp="🤼🏽‍♀" type="tts">cīkstone: vidējs ādas tonis</annotation>
+		<annotation cp="🤼🏾‍♀">cīkstone | cilvēks | cīņa | persona | rings | sacīkstes | sieviete | sports | vidēji tumšs ādas tonis</annotation>
+		<annotation cp="🤼🏾‍♀" type="tts">cīkstone: vidēji tumšs ādas tonis</annotation>
+		<annotation cp="🤼🏿‍♀">cīkstone | cilvēks | cīņa | persona | rings | sacīkstes | sieviete | sports | tumšs ādas tonis</annotation>
+		<annotation cp="🤼🏿‍♀" type="tts">cīkstone: tumšs ādas tonis</annotation>
+		<annotation cp="🤼🏻‍♂">cīkstonis | cilvēki | cīņa | gaišs ādas tonis | rings | sacīkstes | sports | vīrietis</annotation>
+		<annotation cp="🤼🏻‍♂" type="tts">cīkstonis: gaišs ādas tonis</annotation>
+		<annotation cp="🤼🏼‍♂">cīkstonis | cilvēki | cīņa | rings | sacīkstes | sports | vidēji gaišs ādas tonis | vīrietis</annotation>
+		<annotation cp="🤼🏼‍♂" type="tts">cīkstonis: vidēji gaišs ādas tonis</annotation>
+		<annotation cp="🤼🏽‍♂">cīkstonis | cilvēki | cīņa | rings | sacīkstes | sports | vidējs ādas tonis | vīrietis</annotation>
+		<annotation cp="🤼🏽‍♂" type="tts">cīkstonis: vidējs ādas tonis</annotation>
+		<annotation cp="🤼🏾‍♂">cīkstonis | cilvēki | cīņa | rings | sacīkstes | sports | vidēji tumšs ādas tonis | vīrietis</annotation>
+		<annotation cp="🤼🏾‍♂" type="tts">cīkstonis: vidēji tumšs ādas tonis</annotation>
+		<annotation cp="🤼🏿‍♂">cīkstonis | cilvēki | cīņa | rings | sacīkstes | sports | tumšs ādas tonis | vīrietis</annotation>
+		<annotation cp="🤼🏿‍♂" type="tts">cīkstonis: tumšs ādas tonis</annotation>
 		<annotation cp="🤽🏻">cilvēks | gaišs ādas tonis | polo | sports | ūdens | ūdenspolo | ūdenspolo sportists</annotation>
 		<annotation cp="🤽🏻" type="tts">ūdenspolo sportists: gaišs ādas tonis</annotation>
 		<annotation cp="🤽🏼">cilvēks | polo | sports | ūdens | ūdenspolo | ūdenspolo sportists | vidēji gaišs ādas tonis</annotation>
@@ -3993,6 +4302,8 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇨🇴" type="tts">karogs: Kolumbija</annotation>
 		<annotation cp="🇨🇵">karogs</annotation>
 		<annotation cp="🇨🇵" type="tts">karogs: Klipertona sala</annotation>
+		<annotation cp="🇨🇶">karogs</annotation>
+		<annotation cp="🇨🇶" type="tts">karogs: Sarka</annotation>
 		<annotation cp="🇨🇷">karogs</annotation>
 		<annotation cp="🇨🇷" type="tts">karogs: Kostarika</annotation>
 		<annotation cp="🇨🇺">karogs</annotation>
@@ -4432,26 +4743,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="₺" type="tts">Turcijas lira</annotation>
 		<annotation cp="₼" type="tts">Azerbaidžānas manats</annotation>
 		<annotation cp="₾" type="tts">Gruzijas lari</annotation>
-		<annotation cp="0⃣">taustiņš</annotation>
-		<annotation cp="0⃣" type="tts">taustiņš: 0</annotation>
-		<annotation cp="1⃣">taustiņš</annotation>
-		<annotation cp="1⃣" type="tts">taustiņš: 1</annotation>
-		<annotation cp="2⃣">taustiņš</annotation>
-		<annotation cp="2⃣" type="tts">taustiņš: 2</annotation>
-		<annotation cp="3⃣">taustiņš</annotation>
-		<annotation cp="3⃣" type="tts">taustiņš: 3</annotation>
-		<annotation cp="4⃣">taustiņš</annotation>
-		<annotation cp="4⃣" type="tts">taustiņš: 4</annotation>
-		<annotation cp="5⃣">taustiņš</annotation>
-		<annotation cp="5⃣" type="tts">taustiņš: 5</annotation>
-		<annotation cp="6⃣">taustiņš</annotation>
-		<annotation cp="6⃣" type="tts">taustiņš: 6</annotation>
-		<annotation cp="7⃣">taustiņš</annotation>
-		<annotation cp="7⃣" type="tts">taustiņš: 7</annotation>
-		<annotation cp="8⃣">taustiņš</annotation>
-		<annotation cp="8⃣" type="tts">taustiņš: 8</annotation>
-		<annotation cp="9⃣">taustiņš</annotation>
-		<annotation cp="9⃣" type="tts">taustiņš: 9</annotation>
 		<annotation cp="₧" type="tts">Spānijas peseta</annotation>
 	</annotations>
 </ldml>

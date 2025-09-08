@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-
-Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
 -->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -603,6 +602,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾" type="tts">oseba: srednje temen ten kože in svetli lasje</annotation>
 		<annotation cp="👱🏿">blond | človek | lasje | obraz | oseba | oseba: svetli lasje | svetli lasje | svetlolasa oseba | temen ten kože</annotation>
 		<annotation cp="👱🏿" type="tts">oseba: temen ten kože in svetli lasje</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏼">borba | ljudje | rokoborba | spopad | šport | srednje svetel ten kože | svetel ten kože | tekmovanje v rokoborbi | v ringu | wrestling</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏼" type="tts">rokoborba: svetel ten kože in srednje svetel ten kože</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏽">borba | ljudje | rokoborba | spopad | šport | srednji ten kože | svetel ten kože | tekmovanje v rokoborbi | v ringu | wrestling</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏽" type="tts">rokoborba: svetel ten kože in srednji ten kože</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏾">borba | ljudje | rokoborba | spopad | šport | srednje temen ten kože | svetel ten kože | tekmovanje v rokoborbi | v ringu | wrestling</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏾" type="tts">rokoborba: svetel ten kože in srednje temen ten kože</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏿">borba | ljudje | rokoborba | spopad | šport | svetel ten kože | tekmovanje v rokoborbi | temen ten kože | v ringu | wrestling</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏿" type="tts">rokoborba: svetel ten kože in temen ten kože</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏻">borba | ljudje | rokoborba | spopad | šport | srednje svetel ten kože | svetel ten kože | tekmovanje v rokoborbi | v ringu | wrestling</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏻" type="tts">rokoborba: srednje svetel ten kože in svetel ten kože</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏽">borba | ljudje | rokoborba | spopad | šport | srednje svetel ten kože | srednji ten kože | tekmovanje v rokoborbi | v ringu | wrestling</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏽" type="tts">rokoborba: srednje svetel ten kože in srednji ten kože</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏾">borba | ljudje | rokoborba | spopad | šport | srednje svetel ten kože | srednje temen ten kože | tekmovanje v rokoborbi | v ringu | wrestling</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏾" type="tts">rokoborba: srednje svetel ten kože in srednje temen ten kože</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏿">borba | ljudje | rokoborba | spopad | šport | srednje svetel ten kože | tekmovanje v rokoborbi | temen ten kože | v ringu | wrestling</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏿" type="tts">rokoborba: srednje svetel ten kože in temen ten kože</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏻">borba | ljudje | rokoborba | spopad | šport | srednji ten kože | svetel ten kože | tekmovanje v rokoborbi | v ringu | wrestling</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏻" type="tts">rokoborba: srednji ten kože in svetel ten kože</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏼">borba | ljudje | rokoborba | spopad | šport | srednje svetel ten kože | srednji ten kože | tekmovanje v rokoborbi | v ringu | wrestling</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏼" type="tts">rokoborba: srednji ten kože in srednje svetel ten kože</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏾">borba | ljudje | rokoborba | spopad | šport | srednje temen ten kože | srednji ten kože | tekmovanje v rokoborbi | v ringu | wrestling</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏾" type="tts">rokoborba: srednji ten kože in srednje temen ten kože</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏿">borba | ljudje | rokoborba | spopad | šport | srednji ten kože | tekmovanje v rokoborbi | temen ten kože | v ringu | wrestling</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏿" type="tts">rokoborba: srednji ten kože in temen ten kože</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏻">borba | ljudje | rokoborba | spopad | šport | srednje temen ten kože | svetel ten kože | tekmovanje v rokoborbi | v ringu | wrestling</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏻" type="tts">rokoborba: srednje temen ten kože in svetel ten kože</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏼">borba | ljudje | rokoborba | spopad | šport | srednje svetel ten kože | srednje temen ten kože | tekmovanje v rokoborbi | v ringu | wrestling</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏼" type="tts">rokoborba: srednje temen ten kože in srednje svetel ten kože</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏽">borba | ljudje | rokoborba | spopad | šport | srednje temen ten kože | srednji ten kože | tekmovanje v rokoborbi | v ringu | wrestling</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏽" type="tts">rokoborba: srednje temen ten kože in srednji ten kože</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏿">borba | ljudje | rokoborba | spopad | šport | srednje temen ten kože | tekmovanje v rokoborbi | temen ten kože | v ringu | wrestling</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏿" type="tts">rokoborba: srednje temen ten kože in temen ten kože</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏻">borba | ljudje | rokoborba | spopad | šport | svetel ten kože | tekmovanje v rokoborbi | temen ten kože | v ringu | wrestling</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏻" type="tts">rokoborba: temen ten kože in svetel ten kože</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏼">borba | ljudje | rokoborba | spopad | šport | srednje svetel ten kože | tekmovanje v rokoborbi | temen ten kože | v ringu | wrestling</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏼" type="tts">rokoborba: temen ten kože in srednje svetel ten kože</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏽">borba | ljudje | rokoborba | spopad | šport | srednji ten kože | tekmovanje v rokoborbi | temen ten kože | v ringu | wrestling</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏽" type="tts">rokoborba: temen ten kože in srednji ten kože</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏾">borba | ljudje | rokoborba | spopad | šport | srednje temen ten kože | tekmovanje v rokoborbi | temen ten kože | v ringu | wrestling</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏾" type="tts">rokoborba: temen ten kože in srednje temen ten kože</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏼">obletnica | odrasla oseba | par | poljub | romanca | srček | srednje svetel ten kože | svetel ten kože</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏼" type="tts">poljub: odrasla oseba, odrasla oseba, svetel ten kože in srednje svetel ten kože</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏽">obletnica | odrasla oseba | par | poljub | romanca | srček | srednji ten kože | svetel ten kože</annotation>
@@ -731,6 +770,56 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧑🏾‍🦲" type="tts">odrasla oseba: srednje temen ten kože in plešast</annotation>
 		<annotation cp="🧑🏿‍🦲">odrasla oseba | plešast | spolno nevtralen | temen ten kože</annotation>
 		<annotation cp="🧑🏿‍🦲" type="tts">odrasla oseba: temen ten kože in plešast</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏼">bestica | dekle | dve osebi | dvojčici | dvojčka | dvojnici | identični | najboljša prijateljica | par | plesalka | prijateljica | sorodna duša | srednje svetel ten kože | svetel ten kože | uho | zabava | zajčica | zajčja ušesa | ženska | žur | žurerski ženski</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏼" type="tts">žurerski ženski: svetel ten kože in srednje svetel ten kože</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏽">bestica | dekle | dve osebi | dvojčici | dvojčka | dvojnici | identični | najboljša prijateljica | par | plesalka | prijateljica | sorodna duša | srednji ten kože | svetel ten kože | uho | zabava | zajčica | zajčja ušesa | ženska | žur | žurerski ženski</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏽" type="tts">žurerski ženski: svetel ten kože in srednji ten kože</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏾">bestica | dekle | dve osebi | dvojčici | dvojčka | dvojnici | identični | najboljša prijateljica | par | plesalka | prijateljica | sorodna duša | srednje temen ten kože | svetel ten kože | uho | zabava | zajčica | zajčja ušesa | ženska | žur | žurerski ženski</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏾" type="tts">žurerski ženski: svetel ten kože in srednje temen ten kože</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏿">bestica | dekle | dve osebi | dvojčici | dvojčka | dvojnici | identični | najboljša prijateljica | par | plesalka | prijateljica | sorodna duša | svetel ten kože | temen ten kože | uho | zabava | zajčica | zajčja ušesa | ženska | žur | žurerski ženski</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏿" type="tts">žurerski ženski: svetel ten kože in temen ten kože</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏻">bestica | dekle | dve osebi | dvojčici | dvojčka | dvojnici | identični | najboljša prijateljica | par | plesalka | prijateljica | sorodna duša | srednje svetel ten kože | svetel ten kože | uho | zabava | zajčica | zajčja ušesa | ženska | žur | žurerski ženski</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏻" type="tts">žurerski ženski: srednje svetel ten kože in svetel ten kože</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏽">bestica | dekle | dve osebi | dvojčici | dvojčka | dvojnici | identični | najboljša prijateljica | par | plesalka | prijateljica | sorodna duša | srednje svetel ten kože | srednji ten kože | uho | zabava | zajčica | zajčja ušesa | ženska | žur | žurerski ženski</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏽" type="tts">žurerski ženski: srednje svetel ten kože in srednji ten kože</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏾">bestica | dekle | dve osebi | dvojčici | dvojčka | dvojnici | identični | najboljša prijateljica | par | plesalka | prijateljica | sorodna duša | srednje svetel ten kože | srednje temen ten kože | uho | zabava | zajčica | zajčja ušesa | ženska | žur | žurerski ženski</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏾" type="tts">žurerski ženski: srednje svetel ten kože in srednje temen ten kože</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏿">bestica | dekle | dve osebi | dvojčici | dvojčka | dvojnici | identični | najboljša prijateljica | par | plesalka | prijateljica | sorodna duša | srednje svetel ten kože | temen ten kože | uho | zabava | zajčica | zajčja ušesa | ženska | žur | žurerski ženski</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏿" type="tts">žurerski ženski: srednje svetel ten kože in temen ten kože</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏻">bestica | dekle | dve osebi | dvojčici | dvojčka | dvojnici | identični | najboljša prijateljica | par | plesalka | prijateljica | sorodna duša | srednji ten kože | svetel ten kože | uho | zabava | zajčica | zajčja ušesa | ženska | žur | žurerski ženski</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏻" type="tts">žurerski ženski: srednji ten kože in svetel ten kože</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏼">bestica | dekle | dve osebi | dvojčici | dvojčka | dvojnici | identični | najboljša prijateljica | par | plesalka | prijateljica | sorodna duša | srednje svetel ten kože | srednji ten kože | uho | zabava | zajčica | zajčja ušesa | ženska | žur | žurerski ženski</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏼" type="tts">žurerski ženski: srednji ten kože in srednje svetel ten kože</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏾">bestica | dekle | dve osebi | dvojčici | dvojčka | dvojnici | identični | najboljša prijateljica | par | plesalka | prijateljica | sorodna duša | srednje temen ten kože | srednji ten kože | uho | zabava | zajčica | zajčja ušesa | ženska | žur | žurerski ženski</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏾" type="tts">žurerski ženski: srednji ten kože in srednje temen ten kože</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏿">bestica | dekle | dve osebi | dvojčici | dvojčka | dvojnici | identični | najboljša prijateljica | par | plesalka | prijateljica | sorodna duša | srednji ten kože | temen ten kože | uho | zabava | zajčica | zajčja ušesa | ženska | žur | žurerski ženski</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏿" type="tts">žurerski ženski: srednji ten kože in temen ten kože</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏻">bestica | dekle | dve osebi | dvojčici | dvojčka | dvojnici | identični | najboljša prijateljica | par | plesalka | prijateljica | sorodna duša | srednje temen ten kože | svetel ten kože | uho | zabava | zajčica | zajčja ušesa | ženska | žur | žurerski ženski</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏻" type="tts">žurerski ženski: srednje temen ten kože in svetel ten kože</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏼">bestica | dekle | dve osebi | dvojčici | dvojčka | dvojnici | identični | najboljša prijateljica | par | plesalka | prijateljica | sorodna duša | srednje svetel ten kože | srednje temen ten kože | uho | zabava | zajčica | zajčja ušesa | ženska | žur | žurerski ženski</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏼" type="tts">žurerski ženski: srednje temen ten kože in srednje svetel ten kože</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏽">bestica | dekle | dve osebi | dvojčici | dvojčka | dvojnici | identični | najboljša prijateljica | par | plesalka | prijateljica | sorodna duša | srednje temen ten kože | srednji ten kože | uho | zabava | zajčica | zajčja ušesa | ženska | žur | žurerski ženski</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏽" type="tts">žurerski ženski: srednje temen ten kože in srednji ten kože</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏿">bestica | dekle | dve osebi | dvojčici | dvojčka | dvojnici | identični | najboljša prijateljica | par | plesalka | prijateljica | sorodna duša | srednje temen ten kože | temen ten kože | uho | zabava | zajčica | zajčja ušesa | ženska | žur | žurerski ženski</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏿" type="tts">žurerski ženski: srednje temen ten kože in temen ten kože</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏻">bestica | dekle | dve osebi | dvojčici | dvojčka | dvojnici | identični | najboljša prijateljica | par | plesalka | prijateljica | sorodna duša | svetel ten kože | temen ten kože | uho | zabava | zajčica | zajčja ušesa | ženska | žur | žurerski ženski</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏻" type="tts">žurerski ženski: temen ten kože in svetel ten kože</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏼">bestica | dekle | dve osebi | dvojčici | dvojčka | dvojnici | identični | najboljša prijateljica | par | plesalka | prijateljica | sorodna duša | srednje svetel ten kože | temen ten kože | uho | zabava | zajčica | zajčja ušesa | ženska | žur | žurerski ženski</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏼" type="tts">žurerski ženski: temen ten kože in srednje svetel ten kože</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏽">bestica | dekle | dve osebi | dvojčici | dvojčka | dvojnici | identični | najboljša prijateljica | par | plesalka | prijateljica | sorodna duša | srednji ten kože | temen ten kože | uho | zabava | zajčica | zajčja ušesa | ženska | žur | žurerski ženski</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏽" type="tts">žurerski ženski: temen ten kože in srednji ten kože</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏾">bestica | dekle | dve osebi | dvojčici | dvojčka | dvojnici | identični | najboljša prijateljica | par | plesalka | prijateljica | sorodna duša | srednje temen ten kože | temen ten kože | uho | zabava | zajčica | zajčja ušesa | ženska | žur | žurerski ženski</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏾" type="tts">žurerski ženski: temen ten kože in srednje temen ten kože</annotation>
+		<annotation cp="🧑🏻‍🩰">balerina | balet | baletna plesalka | svetel ten kože</annotation>
+		<annotation cp="🧑🏻‍🩰" type="tts">baletka: svetel ten kože</annotation>
+		<annotation cp="🧑🏼‍🩰">balerina | balet | baletna plesalka | srednje svetel ten kože</annotation>
+		<annotation cp="🧑🏼‍🩰" type="tts">baletka: srednje svetel ten kože</annotation>
+		<annotation cp="🧑🏽‍🩰">balerina | balet | baletna plesalka | srednji ten kože</annotation>
+		<annotation cp="🧑🏽‍🩰" type="tts">baletka: srednji ten kože</annotation>
+		<annotation cp="🧑🏾‍🩰">balerina | balet | baletna plesalka | srednje temen ten kože</annotation>
+		<annotation cp="🧑🏾‍🩰" type="tts">baletka: srednje temen ten kože</annotation>
+		<annotation cp="🧑🏿‍🩰">balerina | balet | baletna plesalka | temen ten kože</annotation>
+		<annotation cp="🧑🏿‍🩰" type="tts">baletka: temen ten kože</annotation>
 		<annotation cp="👨🏻">brat | fant | moški | prijatelj | svetel ten kože</annotation>
 		<annotation cp="👨🏻" type="tts">moški: svetel ten kože</annotation>
 		<annotation cp="👨🏼">brat | fant | moški | prijatelj | srednje svetel ten kože</annotation>
@@ -771,6 +860,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾‍♂" type="tts">moški: srednje temen ten kože in blondinec</annotation>
 		<annotation cp="👱🏿‍♂">blondinec | fant | lasje | moški | moški: blondinec | temen ten kože</annotation>
 		<annotation cp="👱🏿‍♂" type="tts">moški: temen ten kože in blondinec</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏼">borba | fant | moška rokoborba | moški | oseba | rokoborba | spopad | šport | srednje svetel ten kože | svetel ten kože | tekmovanje v rokoborbi | v ringu | wrestling</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏼" type="tts">moška rokoborba: svetel ten kože in srednje svetel ten kože</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏽">borba | fant | moška rokoborba | moški | oseba | rokoborba | spopad | šport | srednji ten kože | svetel ten kože | tekmovanje v rokoborbi | v ringu | wrestling</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏽" type="tts">moška rokoborba: svetel ten kože in srednji ten kože</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏾">borba | fant | moška rokoborba | moški | oseba | rokoborba | spopad | šport | srednje temen ten kože | svetel ten kože | tekmovanje v rokoborbi | v ringu | wrestling</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏾" type="tts">moška rokoborba: svetel ten kože in srednje temen ten kože</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏿">borba | fant | moška rokoborba | moški | oseba | rokoborba | spopad | šport | svetel ten kože | tekmovanje v rokoborbi | temen ten kože | v ringu | wrestling</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏿" type="tts">moška rokoborba: svetel ten kože in temen ten kože</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏻">borba | fant | moška rokoborba | moški | oseba | rokoborba | spopad | šport | srednje svetel ten kože | svetel ten kože | tekmovanje v rokoborbi | v ringu | wrestling</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏻" type="tts">moška rokoborba: srednje svetel ten kože in svetel ten kože</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏽">borba | fant | moška rokoborba | moški | oseba | rokoborba | spopad | šport | srednje svetel ten kože | srednji ten kože | tekmovanje v rokoborbi | v ringu | wrestling</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏽" type="tts">moška rokoborba: srednje svetel ten kože in srednji ten kože</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏾">borba | fant | moška rokoborba | moški | oseba | rokoborba | spopad | šport | srednje svetel ten kože | srednje temen ten kože | tekmovanje v rokoborbi | v ringu | wrestling</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏾" type="tts">moška rokoborba: srednje svetel ten kože in srednje temen ten kože</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏿">borba | fant | moška rokoborba | moški | oseba | rokoborba | spopad | šport | srednje svetel ten kože | tekmovanje v rokoborbi | temen ten kože | v ringu | wrestling</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏿" type="tts">moška rokoborba: srednje svetel ten kože in temen ten kože</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏻">borba | fant | moška rokoborba | moški | oseba | rokoborba | spopad | šport | srednji ten kože | svetel ten kože | tekmovanje v rokoborbi | v ringu | wrestling</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏻" type="tts">moška rokoborba: srednji ten kože in svetel ten kože</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏼">borba | fant | moška rokoborba | moški | oseba | rokoborba | spopad | šport | srednje svetel ten kože | srednji ten kože | tekmovanje v rokoborbi | v ringu | wrestling</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏼" type="tts">moška rokoborba: srednji ten kože in srednje svetel ten kože</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏾">borba | fant | moška rokoborba | moški | oseba | rokoborba | spopad | šport | srednje temen ten kože | srednji ten kože | tekmovanje v rokoborbi | v ringu | wrestling</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏾" type="tts">moška rokoborba: srednji ten kože in srednje temen ten kože</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏿">borba | fant | moška rokoborba | moški | oseba | rokoborba | spopad | šport | srednji ten kože | tekmovanje v rokoborbi | temen ten kože | v ringu | wrestling</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏿" type="tts">moška rokoborba: srednji ten kože in temen ten kože</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏻">borba | fant | moška rokoborba | moški | oseba | rokoborba | spopad | šport | srednje temen ten kože | svetel ten kože | tekmovanje v rokoborbi | v ringu | wrestling</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏻" type="tts">moška rokoborba: srednje temen ten kože in svetel ten kože</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏼">borba | fant | moška rokoborba | moški | oseba | rokoborba | spopad | šport | srednje svetel ten kože | srednje temen ten kože | tekmovanje v rokoborbi | v ringu | wrestling</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏼" type="tts">moška rokoborba: srednje temen ten kože in srednje svetel ten kože</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏽">borba | fant | moška rokoborba | moški | oseba | rokoborba | spopad | šport | srednje temen ten kože | srednji ten kože | tekmovanje v rokoborbi | v ringu | wrestling</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏽" type="tts">moška rokoborba: srednje temen ten kože in srednji ten kože</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏿">borba | fant | moška rokoborba | moški | oseba | rokoborba | spopad | šport | srednje temen ten kože | tekmovanje v rokoborbi | temen ten kože | v ringu | wrestling</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏿" type="tts">moška rokoborba: srednje temen ten kože in temen ten kože</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏻">borba | fant | moška rokoborba | moški | oseba | rokoborba | spopad | šport | svetel ten kože | tekmovanje v rokoborbi | temen ten kože | v ringu | wrestling</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏻" type="tts">moška rokoborba: temen ten kože in svetel ten kože</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏼">borba | fant | moška rokoborba | moški | oseba | rokoborba | spopad | šport | srednje svetel ten kože | tekmovanje v rokoborbi | temen ten kože | v ringu | wrestling</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏼" type="tts">moška rokoborba: temen ten kože in srednje svetel ten kože</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏽">borba | fant | moška rokoborba | moški | oseba | rokoborba | spopad | šport | srednji ten kože | tekmovanje v rokoborbi | temen ten kože | v ringu | wrestling</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏽" type="tts">moška rokoborba: temen ten kože in srednji ten kože</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏾">borba | fant | moška rokoborba | moški | oseba | rokoborba | spopad | šport | srednje temen ten kože | tekmovanje v rokoborbi | temen ten kože | v ringu | wrestling</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏾" type="tts">moška rokoborba: temen ten kože in srednje temen ten kože</annotation>
 		<annotation cp="👨🏻‍❤‍💋‍👨🏻">moški | obletnica | par | poljub | romanca | srček | svetel ten kože</annotation>
 		<annotation cp="👨🏻‍❤‍💋‍👨🏻" type="tts">poljub: moški, moški in svetel ten kože</annotation>
 		<annotation cp="👨🏻‍❤‍💋‍👨🏼">moški | obletnica | par | poljub | romanca | srček | srednje svetel ten kože | svetel ten kože</annotation>
@@ -919,6 +1048,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾‍🦲" type="tts">moški: srednje temen ten kože in plešast</annotation>
 		<annotation cp="👨🏿‍🦲">brat | fant | moški | plešast | prijatelj | temen ten kože</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">moški: temen ten kože in plešast</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏼">fantje | moška zabava | moški | plesalec | srednje svetel ten kože | svetel ten kože | zabava | žur</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏼" type="tts">moška zabava: svetel ten kože in srednje svetel ten kože</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏽">fantje | moška zabava | moški | plesalec | srednji ten kože | svetel ten kože | zabava | žur</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏽" type="tts">moška zabava: svetel ten kože in srednji ten kože</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏾">fantje | moška zabava | moški | plesalec | srednje temen ten kože | svetel ten kože | zabava | žur</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏾" type="tts">moška zabava: svetel ten kože in srednje temen ten kože</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏿">fantje | moška zabava | moški | plesalec | svetel ten kože | temen ten kože | zabava | žur</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏿" type="tts">moška zabava: svetel ten kože in temen ten kože</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏻">fantje | moška zabava | moški | plesalec | srednje svetel ten kože | svetel ten kože | zabava | žur</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏻" type="tts">moška zabava: srednje svetel ten kože in svetel ten kože</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏽">fantje | moška zabava | moški | plesalec | srednje svetel ten kože | srednji ten kože | zabava | žur</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏽" type="tts">moška zabava: srednje svetel ten kože in srednji ten kože</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏾">fantje | moška zabava | moški | plesalec | srednje svetel ten kože | srednje temen ten kože | zabava | žur</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏾" type="tts">moška zabava: srednje svetel ten kože in srednje temen ten kože</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏿">fantje | moška zabava | moški | plesalec | srednje svetel ten kože | temen ten kože | zabava | žur</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏿" type="tts">moška zabava: srednje svetel ten kože in temen ten kože</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏻">fantje | moška zabava | moški | plesalec | srednji ten kože | svetel ten kože | zabava | žur</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏻" type="tts">moška zabava: srednji ten kože in svetel ten kože</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏼">fantje | moška zabava | moški | plesalec | srednje svetel ten kože | srednji ten kože | zabava | žur</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏼" type="tts">moška zabava: srednji ten kože in srednje svetel ten kože</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏾">fantje | moška zabava | moški | plesalec | srednje temen ten kože | srednji ten kože | zabava | žur</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏾" type="tts">moška zabava: srednji ten kože in srednje temen ten kože</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏿">fantje | moška zabava | moški | plesalec | srednji ten kože | temen ten kože | zabava | žur</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏿" type="tts">moška zabava: srednji ten kože in temen ten kože</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏻">fantje | moška zabava | moški | plesalec | srednje temen ten kože | svetel ten kože | zabava | žur</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏻" type="tts">moška zabava: srednje temen ten kože in svetel ten kože</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏼">fantje | moška zabava | moški | plesalec | srednje svetel ten kože | srednje temen ten kože | zabava | žur</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏼" type="tts">moška zabava: srednje temen ten kože in srednje svetel ten kože</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏽">fantje | moška zabava | moški | plesalec | srednje temen ten kože | srednji ten kože | zabava | žur</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏽" type="tts">moška zabava: srednje temen ten kože in srednji ten kože</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏿">fantje | moška zabava | moški | plesalec | srednje temen ten kože | temen ten kože | zabava | žur</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏿" type="tts">moška zabava: srednje temen ten kože in temen ten kože</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏻">fantje | moška zabava | moški | plesalec | svetel ten kože | temen ten kože | zabava | žur</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏻" type="tts">moška zabava: temen ten kože in svetel ten kože</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏼">fantje | moška zabava | moški | plesalec | srednje svetel ten kože | temen ten kože | zabava | žur</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏼" type="tts">moška zabava: temen ten kože in srednje svetel ten kože</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏽">fantje | moška zabava | moški | plesalec | srednji ten kože | temen ten kože | zabava | žur</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏽" type="tts">moška zabava: temen ten kože in srednji ten kože</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏾">fantje | moška zabava | moški | plesalec | srednje temen ten kože | temen ten kože | zabava | žur</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏾" type="tts">moška zabava: temen ten kože in srednje temen ten kože</annotation>
 		<annotation cp="👩🏻">dekle | pričeska | svetel ten kože | svetlolaska | ženska</annotation>
 		<annotation cp="👩🏻" type="tts">ženska: svetel ten kože</annotation>
 		<annotation cp="👩🏼">dekle | pričeska | srednje svetel ten kože | svetlolaska | ženska</annotation>
@@ -949,6 +1118,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾‍♀" type="tts">ženska: srednje temen ten kože in blondinka</annotation>
 		<annotation cp="👱🏿‍♀">blondinka | dekle | lasje | temen ten kože | ženska | ženska: blondinka</annotation>
 		<annotation cp="👱🏿‍♀" type="tts">ženska: temen ten kože in blondinka</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏼">borba | dekleta | oseba | rokoborba | spopad | spopasti se | šport | srednje svetel ten kože | svetel ten kože | tekmovanje v rokoborbi | v ringu | wrestling | ženska | ženske</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏼" type="tts">ženska rokoborba: svetel ten kože in srednje svetel ten kože</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏽">borba | dekleta | oseba | rokoborba | spopad | spopasti se | šport | srednji ten kože | svetel ten kože | tekmovanje v rokoborbi | v ringu | wrestling | ženska | ženske</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏽" type="tts">ženska rokoborba: svetel ten kože in srednji ten kože</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏾">borba | dekleta | oseba | rokoborba | spopad | spopasti se | šport | srednje temen ten kože | svetel ten kože | tekmovanje v rokoborbi | v ringu | wrestling | ženska | ženske</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏾" type="tts">ženska rokoborba: svetel ten kože in srednje temen ten kože</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏿">borba | dekleta | oseba | rokoborba | spopad | spopasti se | šport | svetel ten kože | tekmovanje v rokoborbi | temen ten kože | v ringu | wrestling | ženska | ženske</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏿" type="tts">ženska rokoborba: svetel ten kože in temen ten kože</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏻">borba | dekleta | oseba | rokoborba | spopad | spopasti se | šport | srednje svetel ten kože | svetel ten kože | tekmovanje v rokoborbi | v ringu | wrestling | ženska | ženske</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏻" type="tts">ženska rokoborba: srednje svetel ten kože in svetel ten kože</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏽">borba | dekleta | oseba | rokoborba | spopad | spopasti se | šport | srednje svetel ten kože | srednji ten kože | tekmovanje v rokoborbi | v ringu | wrestling | ženska | ženske</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏽" type="tts">ženska rokoborba: srednje svetel ten kože in srednji ten kože</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏾">borba | dekleta | oseba | rokoborba | spopad | spopasti se | šport | srednje svetel ten kože | srednje temen ten kože | tekmovanje v rokoborbi | v ringu | wrestling | ženska | ženske</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏾" type="tts">ženska rokoborba: srednje svetel ten kože in srednje temen ten kože</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏿">borba | dekleta | oseba | rokoborba | spopad | spopasti se | šport | srednje svetel ten kože | tekmovanje v rokoborbi | temen ten kože | v ringu | wrestling | ženska | ženske</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏿" type="tts">ženska rokoborba: srednje svetel ten kože in temen ten kože</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏻">borba | dekleta | oseba | rokoborba | spopad | spopasti se | šport | srednji ten kože | svetel ten kože | tekmovanje v rokoborbi | v ringu | wrestling | ženska | ženske</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏻" type="tts">ženska rokoborba: srednji ten kože in svetel ten kože</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏼">borba | dekleta | oseba | rokoborba | spopad | spopasti se | šport | srednje svetel ten kože | srednji ten kože | tekmovanje v rokoborbi | v ringu | wrestling | ženska | ženske</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏼" type="tts">ženska rokoborba: srednji ten kože in srednje svetel ten kože</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏾">borba | dekleta | oseba | rokoborba | spopad | spopasti se | šport | srednje temen ten kože | srednji ten kože | tekmovanje v rokoborbi | v ringu | wrestling | ženska | ženske</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏾" type="tts">ženska rokoborba: srednji ten kože in srednje temen ten kože</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏿">borba | dekleta | oseba | rokoborba | spopad | spopasti se | šport | srednji ten kože | tekmovanje v rokoborbi | temen ten kože | v ringu | wrestling | ženska | ženske</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏿" type="tts">ženska rokoborba: srednji ten kože in temen ten kože</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏻">borba | dekleta | oseba | rokoborba | spopad | spopasti se | šport | srednje temen ten kože | svetel ten kože | tekmovanje v rokoborbi | v ringu | wrestling | ženska | ženske</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏻" type="tts">ženska rokoborba: srednje temen ten kože in svetel ten kože</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏼">borba | dekleta | oseba | rokoborba | spopad | spopasti se | šport | srednje svetel ten kože | srednje temen ten kože | tekmovanje v rokoborbi | v ringu | wrestling | ženska | ženske</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏼" type="tts">ženska rokoborba: srednje temen ten kože in srednje svetel ten kože</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏽">borba | dekleta | oseba | rokoborba | spopad | spopasti se | šport | srednje temen ten kože | srednji ten kože | tekmovanje v rokoborbi | v ringu | wrestling | ženska | ženske</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏽" type="tts">ženska rokoborba: srednje temen ten kože in srednji ten kože</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏿">borba | dekleta | oseba | rokoborba | spopad | spopasti se | šport | srednje temen ten kože | tekmovanje v rokoborbi | temen ten kože | v ringu | wrestling | ženska | ženske</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏿" type="tts">ženska rokoborba: srednje temen ten kože in temen ten kože</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏻">borba | dekleta | oseba | rokoborba | spopad | spopasti se | šport | svetel ten kože | tekmovanje v rokoborbi | temen ten kože | v ringu | wrestling | ženska | ženske</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏻" type="tts">ženska rokoborba: temen ten kože in svetel ten kože</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏼">borba | dekleta | oseba | rokoborba | spopad | spopasti se | šport | srednje svetel ten kože | tekmovanje v rokoborbi | temen ten kože | v ringu | wrestling | ženska | ženske</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏼" type="tts">ženska rokoborba: temen ten kože in srednje svetel ten kože</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏽">borba | dekleta | oseba | rokoborba | spopad | spopasti se | šport | srednji ten kože | tekmovanje v rokoborbi | temen ten kože | v ringu | wrestling | ženska | ženske</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏽" type="tts">ženska rokoborba: temen ten kože in srednji ten kože</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏾">borba | dekleta | oseba | rokoborba | spopad | spopasti se | šport | srednje temen ten kože | tekmovanje v rokoborbi | temen ten kože | v ringu | wrestling | ženska | ženske</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏾" type="tts">ženska rokoborba: temen ten kože in srednje temen ten kože</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👨🏻">moški | obletnica | par | poljub | romanca | srček | svetel ten kože | ženska</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👨🏻" type="tts">poljub: ženska, moški in svetel ten kože</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👨🏼">moški | obletnica | par | poljub | romanca | srček | srednje svetel ten kože | svetel ten kože | ženska</annotation>
@@ -1197,6 +1406,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🦲" type="tts">ženska: srednje temen ten kože in plešast</annotation>
 		<annotation cp="👩🏿‍🦲">dekle | plešast | pričeska | svetlolaska | temen ten kože | ženska</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">ženska: temen ten kože in plešast</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏼">dekle | plesalec | srednje svetel ten kože | svetel ten kože | zabava | ženska | žur</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏼" type="tts">ženska zabava: svetel ten kože in srednje svetel ten kože</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏽">dekle | plesalec | srednji ten kože | svetel ten kože | zabava | ženska | žur</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏽" type="tts">ženska zabava: svetel ten kože in srednji ten kože</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏾">dekle | plesalec | srednje temen ten kože | svetel ten kože | zabava | ženska | žur</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏾" type="tts">ženska zabava: svetel ten kože in srednje temen ten kože</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏿">dekle | plesalec | svetel ten kože | temen ten kože | zabava | ženska | žur</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏿" type="tts">ženska zabava: svetel ten kože in temen ten kože</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏻">dekle | plesalec | srednje svetel ten kože | svetel ten kože | zabava | ženska | žur</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏻" type="tts">ženska zabava: srednje svetel ten kože in svetel ten kože</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏽">dekle | plesalec | srednje svetel ten kože | srednji ten kože | zabava | ženska | žur</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏽" type="tts">ženska zabava: srednje svetel ten kože in srednji ten kože</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏾">dekle | plesalec | srednje svetel ten kože | srednje temen ten kože | zabava | ženska | žur</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏾" type="tts">ženska zabava: srednje svetel ten kože in srednje temen ten kože</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏿">dekle | plesalec | srednje svetel ten kože | temen ten kože | zabava | ženska | žur</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏿" type="tts">ženska zabava: srednje svetel ten kože in temen ten kože</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏻">dekle | plesalec | srednji ten kože | svetel ten kože | zabava | ženska | žur</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏻" type="tts">ženska zabava: srednji ten kože in svetel ten kože</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏼">dekle | plesalec | srednje svetel ten kože | srednji ten kože | zabava | ženska | žur</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏼" type="tts">ženska zabava: srednji ten kože in srednje svetel ten kože</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏾">dekle | plesalec | srednje temen ten kože | srednji ten kože | zabava | ženska | žur</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏾" type="tts">ženska zabava: srednji ten kože in srednje temen ten kože</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏿">dekle | plesalec | srednji ten kože | temen ten kože | zabava | ženska | žur</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏿" type="tts">ženska zabava: srednji ten kože in temen ten kože</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏻">dekle | plesalec | srednje temen ten kože | svetel ten kože | zabava | ženska | žur</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏻" type="tts">ženska zabava: srednje temen ten kože in svetel ten kože</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏼">dekle | plesalec | srednje svetel ten kože | srednje temen ten kože | zabava | ženska | žur</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏼" type="tts">ženska zabava: srednje temen ten kože in srednje svetel ten kože</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏽">dekle | plesalec | srednje temen ten kože | srednji ten kože | zabava | ženska | žur</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏽" type="tts">ženska zabava: srednje temen ten kože in srednji ten kože</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏿">dekle | plesalec | srednje temen ten kože | temen ten kože | zabava | ženska | žur</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏿" type="tts">ženska zabava: srednje temen ten kože in temen ten kože</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏻">dekle | plesalec | svetel ten kože | temen ten kože | zabava | ženska | žur</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏻" type="tts">ženska zabava: temen ten kože in svetel ten kože</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏼">dekle | plesalec | srednje svetel ten kože | temen ten kože | zabava | ženska | žur</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏼" type="tts">ženska zabava: temen ten kože in srednje svetel ten kože</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏽">dekle | plesalec | srednji ten kože | temen ten kože | zabava | ženska | žur</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏽" type="tts">ženska zabava: temen ten kože in srednji ten kože</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏾">dekle | plesalec | srednje temen ten kože | temen ten kože | zabava | ženska | žur</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏾" type="tts">ženska zabava: temen ten kože in srednje temen ten kože</annotation>
 		<annotation cp="🧓🏻">starejša oseba | starejši | starejši odrasli | stari starši | svetel ten kože</annotation>
 		<annotation cp="🧓🏻" type="tts">starejši odrasli: svetel ten kože</annotation>
 		<annotation cp="🧓🏼">srednje svetel ten kože | starejša oseba | starejši | starejši odrasli | stari starši</annotation>
@@ -3113,6 +3362,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🕴🏾" type="tts">moški v poslovni obleki, ki lebdi: srednje temen ten kože</annotation>
 		<annotation cp="🕴🏿">ki lebdi | moški | moški v poslovni obleki | moški v poslovni obleki, ki lebdi | obleka | posli | temen ten kože</annotation>
 		<annotation cp="🕴🏿" type="tts">moški v poslovni obleki, ki lebdi: temen ten kože</annotation>
+		<annotation cp="👯🏻">bestica | dekle | dve osebi | dvojčici | dvojčka | dvojnici | identični | najboljša prijateljica | par | plesalka | prijateljica | sorodna duša | svetel ten kože | uho | zabava | zajčica | zajčja ušesa | ženska | žur | žurerski ženski</annotation>
+		<annotation cp="👯🏻" type="tts">žurerski ženski: svetel ten kože</annotation>
+		<annotation cp="👯🏼">bestica | dekle | dve osebi | dvojčici | dvojčka | dvojnici | identični | najboljša prijateljica | par | plesalka | prijateljica | sorodna duša | srednje svetel ten kože | uho | zabava | zajčica | zajčja ušesa | ženska | žur | žurerski ženski</annotation>
+		<annotation cp="👯🏼" type="tts">žurerski ženski: srednje svetel ten kože</annotation>
+		<annotation cp="👯🏽">bestica | dekle | dve osebi | dvojčici | dvojčka | dvojnici | identični | najboljša prijateljica | par | plesalka | prijateljica | sorodna duša | srednji ten kože | uho | zabava | zajčica | zajčja ušesa | ženska | žur | žurerski ženski</annotation>
+		<annotation cp="👯🏽" type="tts">žurerski ženski: srednji ten kože</annotation>
+		<annotation cp="👯🏾">bestica | dekle | dve osebi | dvojčici | dvojčka | dvojnici | identični | najboljša prijateljica | par | plesalka | prijateljica | sorodna duša | srednje temen ten kože | uho | zabava | zajčica | zajčja ušesa | ženska | žur | žurerski ženski</annotation>
+		<annotation cp="👯🏾" type="tts">žurerski ženski: srednje temen ten kože</annotation>
+		<annotation cp="👯🏿">bestica | dekle | dve osebi | dvojčici | dvojčka | dvojnici | identični | najboljša prijateljica | par | plesalka | prijateljica | sorodna duša | temen ten kože | uho | zabava | zajčica | zajčja ušesa | ženska | žur | žurerski ženski</annotation>
+		<annotation cp="👯🏿" type="tts">žurerski ženski: temen ten kože</annotation>
+		<annotation cp="👯🏻‍♀">dekle | plesalec | svetel ten kože | zabava | ženska | žur</annotation>
+		<annotation cp="👯🏻‍♀" type="tts">ženska zabava: svetel ten kože</annotation>
+		<annotation cp="👯🏼‍♀">dekle | plesalec | srednje svetel ten kože | zabava | ženska | žur</annotation>
+		<annotation cp="👯🏼‍♀" type="tts">ženska zabava: srednje svetel ten kože</annotation>
+		<annotation cp="👯🏽‍♀">dekle | plesalec | srednji ten kože | zabava | ženska | žur</annotation>
+		<annotation cp="👯🏽‍♀" type="tts">ženska zabava: srednji ten kože</annotation>
+		<annotation cp="👯🏾‍♀">dekle | plesalec | srednje temen ten kože | zabava | ženska | žur</annotation>
+		<annotation cp="👯🏾‍♀" type="tts">ženska zabava: srednje temen ten kože</annotation>
+		<annotation cp="👯🏿‍♀">dekle | plesalec | temen ten kože | zabava | ženska | žur</annotation>
+		<annotation cp="👯🏿‍♀" type="tts">ženska zabava: temen ten kože</annotation>
+		<annotation cp="👯🏻‍♂">fantje | moška zabava | moški | plesalec | svetel ten kože | zabava | žur</annotation>
+		<annotation cp="👯🏻‍♂" type="tts">moška zabava: svetel ten kože</annotation>
+		<annotation cp="👯🏼‍♂">fantje | moška zabava | moški | plesalec | srednje svetel ten kože | zabava | žur</annotation>
+		<annotation cp="👯🏼‍♂" type="tts">moška zabava: srednje svetel ten kože</annotation>
+		<annotation cp="👯🏽‍♂">fantje | moška zabava | moški | plesalec | srednji ten kože | zabava | žur</annotation>
+		<annotation cp="👯🏽‍♂" type="tts">moška zabava: srednji ten kože</annotation>
+		<annotation cp="👯🏾‍♂">fantje | moška zabava | moški | plesalec | srednje temen ten kože | zabava | žur</annotation>
+		<annotation cp="👯🏾‍♂" type="tts">moška zabava: srednje temen ten kože</annotation>
+		<annotation cp="👯🏿‍♂">fantje | moška zabava | moški | plesalec | temen ten kože | zabava | žur</annotation>
+		<annotation cp="👯🏿‍♂" type="tts">moška zabava: temen ten kože</annotation>
 		<annotation cp="🧖🏻">dnevni velnes | oseba v parni savni | para | parna savna | razkošno | razvajanje | savna | sproščanje | sprostitev | svetel ten kože | toplice</annotation>
 		<annotation cp="🧖🏻" type="tts">oseba v parni savni: svetel ten kože</annotation>
 		<annotation cp="🧖🏼">dnevni velnes | oseba v parni savni | para | parna savna | razkošno | razvajanje | savna | sproščanje | sprostitev | srednje svetel ten kože | toplice</annotation>
@@ -3463,6 +3742,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤸🏾‍♀" type="tts">ženska, ki dela premet vstran: srednje temen ten kože</annotation>
 		<annotation cp="🤸🏿‍♀">aktivna | dejavna | dekle | gimnastika | ki dela premet vstran | kolo | navdušena | oseba | premet vstran | salto | šport | temen ten kože | vesela | ženska | ženska, ki dela premet vstran</annotation>
 		<annotation cp="🤸🏿‍♀" type="tts">ženska, ki dela premet vstran: temen ten kože</annotation>
+		<annotation cp="🤼🏻">borba | ljudje | rokoborba | spopad | šport | svetel ten kože | tekmovanje v rokoborbi | v ringu | wrestling</annotation>
+		<annotation cp="🤼🏻" type="tts">rokoborba: svetel ten kože</annotation>
+		<annotation cp="🤼🏼">borba | ljudje | rokoborba | spopad | šport | srednje svetel ten kože | tekmovanje v rokoborbi | v ringu | wrestling</annotation>
+		<annotation cp="🤼🏼" type="tts">rokoborba: srednje svetel ten kože</annotation>
+		<annotation cp="🤼🏽">borba | ljudje | rokoborba | spopad | šport | srednji ten kože | tekmovanje v rokoborbi | v ringu | wrestling</annotation>
+		<annotation cp="🤼🏽" type="tts">rokoborba: srednji ten kože</annotation>
+		<annotation cp="🤼🏾">borba | ljudje | rokoborba | spopad | šport | srednje temen ten kože | tekmovanje v rokoborbi | v ringu | wrestling</annotation>
+		<annotation cp="🤼🏾" type="tts">rokoborba: srednje temen ten kože</annotation>
+		<annotation cp="🤼🏿">borba | ljudje | rokoborba | spopad | šport | tekmovanje v rokoborbi | temen ten kože | v ringu | wrestling</annotation>
+		<annotation cp="🤼🏿" type="tts">rokoborba: temen ten kože</annotation>
+		<annotation cp="🤼🏻‍♀">borba | dekleta | oseba | rokoborba | spopad | spopasti se | šport | svetel ten kože | tekmovanje v rokoborbi | v ringu | wrestling | ženska | ženske</annotation>
+		<annotation cp="🤼🏻‍♀" type="tts">ženska rokoborba: svetel ten kože</annotation>
+		<annotation cp="🤼🏼‍♀">borba | dekleta | oseba | rokoborba | spopad | spopasti se | šport | srednje svetel ten kože | tekmovanje v rokoborbi | v ringu | wrestling | ženska | ženske</annotation>
+		<annotation cp="🤼🏼‍♀" type="tts">ženska rokoborba: srednje svetel ten kože</annotation>
+		<annotation cp="🤼🏽‍♀">borba | dekleta | oseba | rokoborba | spopad | spopasti se | šport | srednji ten kože | tekmovanje v rokoborbi | v ringu | wrestling | ženska | ženske</annotation>
+		<annotation cp="🤼🏽‍♀" type="tts">ženska rokoborba: srednji ten kože</annotation>
+		<annotation cp="🤼🏾‍♀">borba | dekleta | oseba | rokoborba | spopad | spopasti se | šport | srednje temen ten kože | tekmovanje v rokoborbi | v ringu | wrestling | ženska | ženske</annotation>
+		<annotation cp="🤼🏾‍♀" type="tts">ženska rokoborba: srednje temen ten kože</annotation>
+		<annotation cp="🤼🏿‍♀">borba | dekleta | oseba | rokoborba | spopad | spopasti se | šport | tekmovanje v rokoborbi | temen ten kože | v ringu | wrestling | ženska | ženske</annotation>
+		<annotation cp="🤼🏿‍♀" type="tts">ženska rokoborba: temen ten kože</annotation>
+		<annotation cp="🤼🏻‍♂">borba | fant | moška rokoborba | moški | oseba | rokoborba | spopad | šport | svetel ten kože | tekmovanje v rokoborbi | v ringu | wrestling</annotation>
+		<annotation cp="🤼🏻‍♂" type="tts">moška rokoborba: svetel ten kože</annotation>
+		<annotation cp="🤼🏼‍♂">borba | fant | moška rokoborba | moški | oseba | rokoborba | spopad | šport | srednje svetel ten kože | tekmovanje v rokoborbi | v ringu | wrestling</annotation>
+		<annotation cp="🤼🏼‍♂" type="tts">moška rokoborba: srednje svetel ten kože</annotation>
+		<annotation cp="🤼🏽‍♂">borba | fant | moška rokoborba | moški | oseba | rokoborba | spopad | šport | srednji ten kože | tekmovanje v rokoborbi | v ringu | wrestling</annotation>
+		<annotation cp="🤼🏽‍♂" type="tts">moška rokoborba: srednji ten kože</annotation>
+		<annotation cp="🤼🏾‍♂">borba | fant | moška rokoborba | moški | oseba | rokoborba | spopad | šport | srednje temen ten kože | tekmovanje v rokoborbi | v ringu | wrestling</annotation>
+		<annotation cp="🤼🏾‍♂" type="tts">moška rokoborba: srednje temen ten kože</annotation>
+		<annotation cp="🤼🏿‍♂">borba | fant | moška rokoborba | moški | oseba | rokoborba | spopad | šport | tekmovanje v rokoborbi | temen ten kože | v ringu | wrestling</annotation>
+		<annotation cp="🤼🏿‍♂" type="tts">moška rokoborba: temen ten kože</annotation>
 		<annotation cp="🤽🏻">bazen | Marco | oseba | plavanje | šport | svetel ten kože | vaterpolo | vodni šport | waterpolo | žoga</annotation>
 		<annotation cp="🤽🏻" type="tts">vaterpolo: svetel ten kože</annotation>
 		<annotation cp="🤽🏼">bazen | Marco | oseba | plavanje | šport | srednje svetel ten kože | vaterpolo | vodni šport | waterpolo | žoga</annotation>
@@ -3483,15 +3792,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤽🏾‍♂" type="tts">moški vaterpolo: srednje temen ten kože</annotation>
 		<annotation cp="🤽🏿‍♂">fant | moški | plavanje | šport | temen ten kože | vaterpolo | vodni šport | waterpolo</annotation>
 		<annotation cp="🤽🏿‍♂" type="tts">moški vaterpolo: temen ten kože</annotation>
-		<annotation cp="🤽🏻‍♀">dekle | plavanje | šport | svetel ten kože | vaterpolo | vodni šport | waterpolo | ženska | ženski vaterpolo Add</annotation>
+		<annotation cp="🤽🏻‍♀">dekle | plavanje | šport | svetel ten kože | vaterpolo | vodni šport | waterpolo | ženska | ženski vaterpolo</annotation>
 		<annotation cp="🤽🏻‍♀" type="tts">ženski vaterpolo: svetel ten kože</annotation>
-		<annotation cp="🤽🏼‍♀">dekle | plavanje | šport | srednje svetel ten kože | vaterpolo | vodni šport | waterpolo | ženska | ženski vaterpolo Add</annotation>
+		<annotation cp="🤽🏼‍♀">dekle | plavanje | šport | srednje svetel ten kože | vaterpolo | vodni šport | waterpolo | ženska | ženski vaterpolo</annotation>
 		<annotation cp="🤽🏼‍♀" type="tts">ženski vaterpolo: srednje svetel ten kože</annotation>
-		<annotation cp="🤽🏽‍♀">dekle | plavanje | šport | srednji ten kože | vaterpolo | vodni šport | waterpolo | ženska | ženski vaterpolo Add</annotation>
+		<annotation cp="🤽🏽‍♀">dekle | plavanje | šport | srednji ten kože | vaterpolo | vodni šport | waterpolo | ženska | ženski vaterpolo</annotation>
 		<annotation cp="🤽🏽‍♀" type="tts">ženski vaterpolo: srednji ten kože</annotation>
-		<annotation cp="🤽🏾‍♀">dekle | plavanje | šport | srednje temen ten kože | vaterpolo | vodni šport | waterpolo | ženska | ženski vaterpolo Add</annotation>
+		<annotation cp="🤽🏾‍♀">dekle | plavanje | šport | srednje temen ten kože | vaterpolo | vodni šport | waterpolo | ženska | ženski vaterpolo</annotation>
 		<annotation cp="🤽🏾‍♀" type="tts">ženski vaterpolo: srednje temen ten kože</annotation>
-		<annotation cp="🤽🏿‍♀">dekle | plavanje | šport | temen ten kože | vaterpolo | vodni šport | waterpolo | ženska | ženski vaterpolo Add</annotation>
+		<annotation cp="🤽🏿‍♀">dekle | plavanje | šport | temen ten kože | vaterpolo | vodni šport | waterpolo | ženska | ženski vaterpolo</annotation>
 		<annotation cp="🤽🏿‍♀" type="tts">ženski vaterpolo: temen ten kože</annotation>
 		<annotation cp="🤾🏻">lob | met | metati | oseba | rokomet | šport | športno | svetel ten kože | ujeti | vreči | zalučati | žoga</annotation>
 		<annotation cp="🤾🏻" type="tts">rokomet: svetel ten kože</annotation>
@@ -3916,7 +4225,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇦🇼">zastava</annotation>
 		<annotation cp="🇦🇼" type="tts">zastava: Aruba</annotation>
 		<annotation cp="🇦🇽">zastava</annotation>
-		<annotation cp="🇦🇽" type="tts">zastava: Ålandski otoki</annotation>
+		<annotation cp="🇦🇽" type="tts">zastava: Alandski otoki</annotation>
 		<annotation cp="🇦🇿">zastava</annotation>
 		<annotation cp="🇦🇿" type="tts">zastava: Azerbajdžan</annotation>
 		<annotation cp="🇧🇦">zastava</annotation>
@@ -3938,7 +4247,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇧🇯">zastava</annotation>
 		<annotation cp="🇧🇯" type="tts">zastava: Benin</annotation>
 		<annotation cp="🇧🇱">zastava</annotation>
-		<annotation cp="🇧🇱" type="tts">zastava: Saint Barthélemy</annotation>
+		<annotation cp="🇧🇱" type="tts">zastava: Sveti Bartolomej</annotation>
 		<annotation cp="🇧🇲">zastava</annotation>
 		<annotation cp="🇧🇲" type="tts">zastava: Bermudi</annotation>
 		<annotation cp="🇧🇳">zastava</annotation>
@@ -3987,6 +4296,8 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇨🇴" type="tts">zastava: Kolumbija</annotation>
 		<annotation cp="🇨🇵">zastava</annotation>
 		<annotation cp="🇨🇵" type="tts">zastava: Otok Clipperton</annotation>
+		<annotation cp="🇨🇶">zastava</annotation>
+		<annotation cp="🇨🇶" type="tts">zastava: Sark</annotation>
 		<annotation cp="🇨🇷">zastava</annotation>
 		<annotation cp="🇨🇷" type="tts">zastava: Kostarika</annotation>
 		<annotation cp="🇨🇺">zastava</annotation>
@@ -4068,7 +4379,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇬🇳">zastava</annotation>
 		<annotation cp="🇬🇳" type="tts">zastava: Gvineja</annotation>
 		<annotation cp="🇬🇵">zastava</annotation>
-		<annotation cp="🇬🇵" type="tts">zastava: Guadeloupe</annotation>
+		<annotation cp="🇬🇵" type="tts">zastava: Gvadelup</annotation>
 		<annotation cp="🇬🇶">zastava</annotation>
 		<annotation cp="🇬🇶" type="tts">zastava: Ekvatorialna Gvineja</annotation>
 		<annotation cp="🇬🇷">zastava</annotation>
@@ -4078,7 +4389,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇬🇹">zastava</annotation>
 		<annotation cp="🇬🇹" type="tts">zastava: Gvatemala</annotation>
 		<annotation cp="🇬🇺">zastava</annotation>
-		<annotation cp="🇬🇺" type="tts">zastava: Guam</annotation>
+		<annotation cp="🇬🇺" type="tts">zastava: Gvam</annotation>
 		<annotation cp="🇬🇼">zastava</annotation>
 		<annotation cp="🇬🇼" type="tts">zastava: Gvineja Bissau</annotation>
 		<annotation cp="🇬🇾">zastava</annotation>
@@ -4136,7 +4447,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇰🇲">zastava</annotation>
 		<annotation cp="🇰🇲" type="tts">zastava: Komori</annotation>
 		<annotation cp="🇰🇳">zastava</annotation>
-		<annotation cp="🇰🇳" type="tts">zastava: Saint Kitts in Nevis</annotation>
+		<annotation cp="🇰🇳" type="tts">zastava: Sveti Krištof in Nevis</annotation>
 		<annotation cp="🇰🇵">zastava</annotation>
 		<annotation cp="🇰🇵" type="tts">zastava: Severna Koreja</annotation>
 		<annotation cp="🇰🇷">zastava</annotation>
@@ -4144,7 +4455,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇰🇼">zastava</annotation>
 		<annotation cp="🇰🇼" type="tts">zastava: Kuvajt</annotation>
 		<annotation cp="🇰🇾">zastava</annotation>
-		<annotation cp="🇰🇾" type="tts">zastava: Kajmanski otoki</annotation>
+		<annotation cp="🇰🇾" type="tts">zastava: Kajmanji otoki</annotation>
 		<annotation cp="🇰🇿">zastava</annotation>
 		<annotation cp="🇰🇿" type="tts">zastava: Kazahstan</annotation>
 		<annotation cp="🇱🇦">zastava</annotation>
@@ -4152,7 +4463,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇱🇧">zastava</annotation>
 		<annotation cp="🇱🇧" type="tts">zastava: Libanon</annotation>
 		<annotation cp="🇱🇨">zastava</annotation>
-		<annotation cp="🇱🇨" type="tts">zastava: Saint Lucia</annotation>
+		<annotation cp="🇱🇨" type="tts">zastava: Sveta Lucija</annotation>
 		<annotation cp="🇱🇮">zastava</annotation>
 		<annotation cp="🇱🇮" type="tts">zastava: Lihtenštajn</annotation>
 		<annotation cp="🇱🇰">zastava</annotation>
@@ -4178,7 +4489,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇲🇪">zastava</annotation>
 		<annotation cp="🇲🇪" type="tts">zastava: Črna gora</annotation>
 		<annotation cp="🇲🇫">zastava</annotation>
-		<annotation cp="🇲🇫" type="tts">zastava: Saint Martin</annotation>
+		<annotation cp="🇲🇫" type="tts">zastava: Francoski Sveti Martin</annotation>
 		<annotation cp="🇲🇬">zastava</annotation>
 		<annotation cp="🇲🇬" type="tts">zastava: Madagaskar</annotation>
 		<annotation cp="🇲🇭">zastava</annotation>
@@ -4192,7 +4503,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇲🇳">zastava</annotation>
 		<annotation cp="🇲🇳" type="tts">zastava: Mongolija</annotation>
 		<annotation cp="🇲🇴">zastava</annotation>
-		<annotation cp="🇲🇴" type="tts">zastava: Posebno upravno območje Ljudske republike Kitajske Macao</annotation>
+		<annotation cp="🇲🇴" type="tts">zastava: Posebno upravno območje Kitajske Makav</annotation>
 		<annotation cp="🇲🇵">zastava</annotation>
 		<annotation cp="🇲🇵" type="tts">zastava: Severni Marianski otoki</annotation>
 		<annotation cp="🇲🇶">zastava</annotation>
@@ -4204,7 +4515,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇲🇹">zastava</annotation>
 		<annotation cp="🇲🇹" type="tts">zastava: Malta</annotation>
 		<annotation cp="🇲🇺">zastava</annotation>
-		<annotation cp="🇲🇺" type="tts">zastava: Mauritius</annotation>
+		<annotation cp="🇲🇺" type="tts">zastava: Mavricij</annotation>
 		<annotation cp="🇲🇻">zastava</annotation>
 		<annotation cp="🇲🇻" type="tts">zastava: Maldivi</annotation>
 		<annotation cp="🇲🇼">zastava</annotation>
@@ -4256,7 +4567,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇵🇱">zastava</annotation>
 		<annotation cp="🇵🇱" type="tts">zastava: Poljska</annotation>
 		<annotation cp="🇵🇲">zastava</annotation>
-		<annotation cp="🇵🇲" type="tts">zastava: Saint Pierre in Miquelon</annotation>
+		<annotation cp="🇵🇲" type="tts">zastava: Sveta Peter in Mihael</annotation>
 		<annotation cp="🇵🇳">zastava</annotation>
 		<annotation cp="🇵🇳" type="tts">zastava: Pitcairn</annotation>
 		<annotation cp="🇵🇷">zastava</annotation>
@@ -4266,7 +4577,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇵🇹">zastava</annotation>
 		<annotation cp="🇵🇹" type="tts">zastava: Portugalska</annotation>
 		<annotation cp="🇵🇼">zastava</annotation>
-		<annotation cp="🇵🇼" type="tts">zastava: Palau</annotation>
+		<annotation cp="🇵🇼" type="tts">zastava: Palav</annotation>
 		<annotation cp="🇵🇾">zastava</annotation>
 		<annotation cp="🇵🇾" type="tts">zastava: Paragvaj</annotation>
 		<annotation cp="🇶🇦">zastava</annotation>
@@ -4314,11 +4625,11 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇸🇸">zastava</annotation>
 		<annotation cp="🇸🇸" type="tts">zastava: Južni Sudan</annotation>
 		<annotation cp="🇸🇹">zastava</annotation>
-		<annotation cp="🇸🇹" type="tts">zastava: Sao Tome in Principe</annotation>
+		<annotation cp="🇸🇹" type="tts">zastava: Sveti Tomaž in Princ</annotation>
 		<annotation cp="🇸🇻">zastava</annotation>
 		<annotation cp="🇸🇻" type="tts">zastava: Salvador</annotation>
 		<annotation cp="🇸🇽">zastava</annotation>
-		<annotation cp="🇸🇽" type="tts">zastava: Sint Maarten</annotation>
+		<annotation cp="🇸🇽" type="tts">zastava: Nizozemski Sveti Martin</annotation>
 		<annotation cp="🇸🇾">zastava</annotation>
 		<annotation cp="🇸🇾" type="tts">zastava: Sirija</annotation>
 		<annotation cp="🇸🇿">zastava</annotation>
@@ -4338,7 +4649,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇹🇯">zastava</annotation>
 		<annotation cp="🇹🇯" type="tts">zastava: Tadžikistan</annotation>
 		<annotation cp="🇹🇰">zastava</annotation>
-		<annotation cp="🇹🇰" type="tts">zastava: Tokelau</annotation>
+		<annotation cp="🇹🇰" type="tts">zastava: Tokelav</annotation>
 		<annotation cp="🇹🇱">zastava</annotation>
 		<annotation cp="🇹🇱" type="tts">zastava: Timor-Leste</annotation>
 		<annotation cp="🇹🇲">zastava</annotation>
@@ -4374,7 +4685,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇻🇦">zastava</annotation>
 		<annotation cp="🇻🇦" type="tts">zastava: Vatikan</annotation>
 		<annotation cp="🇻🇨">zastava</annotation>
-		<annotation cp="🇻🇨" type="tts">zastava: Saint Vincent in Grenadine</annotation>
+		<annotation cp="🇻🇨" type="tts">zastava: Sveti Vincencij in Grenadine</annotation>
 		<annotation cp="🇻🇪">zastava</annotation>
 		<annotation cp="🇻🇪" type="tts">zastava: Venezuela</annotation>
 		<annotation cp="🇻🇬">zastava</annotation>
@@ -4416,7 +4727,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="₡" type="tts">kostariški kolon</annotation>
 		<annotation cp="₦" type="tts">nigerijska naira</annotation>
 		<annotation cp="₪" type="tts">izraelski šekel</annotation>
-		<annotation cp="₫" type="tts">vientnamski dong</annotation>
+		<annotation cp="₫" type="tts">vietnamski dong</annotation>
 		<annotation cp="₭" type="tts">laoški kip</annotation>
 		<annotation cp="₮" type="tts">mongolski tugrik</annotation>
 		<annotation cp="₲" type="tts">paragvajski gvarani</annotation>

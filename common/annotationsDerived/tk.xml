@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-
-Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
 -->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -603,6 +602,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾" type="tts">adam: orta goýy deri reňki, sary saçly</annotation>
 		<annotation cp="👱🏿">adam: sary saçly | goýy deri reňki | saç | sary saçly</annotation>
 		<annotation cp="👱🏿" type="tts">adam: goýy deri reňki, sary saçly</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏼">açyk deri reňki | göreş | göreş tutýan adamlar | göreşçi | orta açyk deri reňki</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏼" type="tts">göreş tutýan adamlar: açyk deri reňki, orta açyk deri reňki</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏽">açyk deri reňki | göreş | göreş tutýan adamlar | göreşçi | orta deri reňki</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏽" type="tts">göreş tutýan adamlar: açyk deri reňki, orta deri reňki</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏾">açyk deri reňki | göreş | göreş tutýan adamlar | göreşçi | orta goýy deri reňki</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏾" type="tts">göreş tutýan adamlar: açyk deri reňki, orta goýy deri reňki</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏿">açyk deri reňki | göreş | göreş tutýan adamlar | göreşçi | goýy deri reňki</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏿" type="tts">göreş tutýan adamlar: açyk deri reňki, goýy deri reňki</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏻">açyk deri reňki | göreş | göreş tutýan adamlar | göreşçi | orta açyk deri reňki</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏻" type="tts">göreş tutýan adamlar: orta açyk deri reňki, açyk deri reňki</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏽">göreş | göreş tutýan adamlar | göreşçi | orta açyk deri reňki | orta deri reňki</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏽" type="tts">göreş tutýan adamlar: orta açyk deri reňki, orta deri reňki</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏾">göreş | göreş tutýan adamlar | göreşçi | orta açyk deri reňki | orta goýy deri reňki</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏾" type="tts">göreş tutýan adamlar: orta açyk deri reňki, orta goýy deri reňki</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏿">göreş | göreş tutýan adamlar | göreşçi | goýy deri reňki | orta açyk deri reňki</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏿" type="tts">göreş tutýan adamlar: orta açyk deri reňki, goýy deri reňki</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏻">açyk deri reňki | göreş | göreş tutýan adamlar | göreşçi | orta deri reňki</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏻" type="tts">göreş tutýan adamlar: orta deri reňki, açyk deri reňki</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏼">göreş | göreş tutýan adamlar | göreşçi | orta açyk deri reňki | orta deri reňki</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏼" type="tts">göreş tutýan adamlar: orta deri reňki, orta açyk deri reňki</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏾">göreş | göreş tutýan adamlar | göreşçi | orta deri reňki | orta goýy deri reňki</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏾" type="tts">göreş tutýan adamlar: orta deri reňki, orta goýy deri reňki</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏿">göreş | göreş tutýan adamlar | göreşçi | goýy deri reňki | orta deri reňki</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏿" type="tts">göreş tutýan adamlar: orta deri reňki, goýy deri reňki</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏻">açyk deri reňki | göreş | göreş tutýan adamlar | göreşçi | orta goýy deri reňki</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏻" type="tts">göreş tutýan adamlar: orta goýy deri reňki, açyk deri reňki</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏼">göreş | göreş tutýan adamlar | göreşçi | orta açyk deri reňki | orta goýy deri reňki</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏼" type="tts">göreş tutýan adamlar: orta goýy deri reňki, orta açyk deri reňki</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏽">göreş | göreş tutýan adamlar | göreşçi | orta deri reňki | orta goýy deri reňki</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏽" type="tts">göreş tutýan adamlar: orta goýy deri reňki, orta deri reňki</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏿">göreş | göreş tutýan adamlar | göreşçi | goýy deri reňki | orta goýy deri reňki</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏿" type="tts">göreş tutýan adamlar: orta goýy deri reňki, goýy deri reňki</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏻">açyk deri reňki | göreş | göreş tutýan adamlar | göreşçi | goýy deri reňki</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏻" type="tts">göreş tutýan adamlar: goýy deri reňki, açyk deri reňki</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏼">göreş | göreş tutýan adamlar | göreşçi | goýy deri reňki | orta açyk deri reňki</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏼" type="tts">göreş tutýan adamlar: goýy deri reňki, orta açyk deri reňki</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏽">göreş | göreş tutýan adamlar | göreşçi | goýy deri reňki | orta deri reňki</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏽" type="tts">göreş tutýan adamlar: goýy deri reňki, orta deri reňki</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏾">göreş | göreş tutýan adamlar | göreşçi | goýy deri reňki | orta goýy deri reňki</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏾" type="tts">göreş tutýan adamlar: goýy deri reňki, orta goýy deri reňki</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏼">açyk deri reňki | jübüt | orta açyk deri reňki | posa | şahs</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏼" type="tts">posa: şahs, şahs, açyk deri reňki, orta açyk deri reňki</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏽">açyk deri reňki | jübüt | orta deri reňki | posa | şahs</annotation>
@@ -731,6 +770,56 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧑🏾‍🦲" type="tts">şahs: orta goýy deri reňki, kel</annotation>
 		<annotation cp="🧑🏿‍🦲">adam | goýy deri reňki | jynsyýeti görkezilmedik | jynsyýeti tapawut etmeýän | kel | şahs | uly ýaşly</annotation>
 		<annotation cp="🧑🏿‍🦲" type="tts">şahs: goýy deri reňki, kel</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏼">açyk deri reňki | orta açyk deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly adamlar</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏼" type="tts">towşan gulakly adamlar: açyk deri reňki, orta açyk deri reňki</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏽">açyk deri reňki | orta deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly adamlar</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏽" type="tts">towşan gulakly adamlar: açyk deri reňki, orta deri reňki</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏾">açyk deri reňki | orta goýy deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly adamlar</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏾" type="tts">towşan gulakly adamlar: açyk deri reňki, orta goýy deri reňki</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏿">açyk deri reňki | goýy deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly adamlar</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏿" type="tts">towşan gulakly adamlar: açyk deri reňki, goýy deri reňki</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏻">açyk deri reňki | orta açyk deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly adamlar</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏻" type="tts">towşan gulakly adamlar: orta açyk deri reňki, açyk deri reňki</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏽">orta açyk deri reňki | orta deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly adamlar</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏽" type="tts">towşan gulakly adamlar: orta açyk deri reňki, orta deri reňki</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏾">orta açyk deri reňki | orta goýy deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly adamlar</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏾" type="tts">towşan gulakly adamlar: orta açyk deri reňki, orta goýy deri reňki</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏿">goýy deri reňki | orta açyk deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly adamlar</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏿" type="tts">towşan gulakly adamlar: orta açyk deri reňki, goýy deri reňki</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏻">açyk deri reňki | orta deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly adamlar</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏻" type="tts">towşan gulakly adamlar: orta deri reňki, açyk deri reňki</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏼">orta açyk deri reňki | orta deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly adamlar</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏼" type="tts">towşan gulakly adamlar: orta deri reňki, orta açyk deri reňki</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏾">orta deri reňki | orta goýy deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly adamlar</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏾" type="tts">towşan gulakly adamlar: orta deri reňki, orta goýy deri reňki</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏿">goýy deri reňki | orta deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly adamlar</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏿" type="tts">towşan gulakly adamlar: orta deri reňki, goýy deri reňki</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏻">açyk deri reňki | orta goýy deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly adamlar</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏻" type="tts">towşan gulakly adamlar: orta goýy deri reňki, açyk deri reňki</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏼">orta açyk deri reňki | orta goýy deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly adamlar</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏼" type="tts">towşan gulakly adamlar: orta goýy deri reňki, orta açyk deri reňki</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏽">orta deri reňki | orta goýy deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly adamlar</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏽" type="tts">towşan gulakly adamlar: orta goýy deri reňki, orta deri reňki</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏿">goýy deri reňki | orta goýy deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly adamlar</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏿" type="tts">towşan gulakly adamlar: orta goýy deri reňki, goýy deri reňki</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏻">açyk deri reňki | goýy deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly adamlar</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏻" type="tts">towşan gulakly adamlar: goýy deri reňki, açyk deri reňki</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏼">goýy deri reňki | orta açyk deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly adamlar</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏼" type="tts">towşan gulakly adamlar: goýy deri reňki, orta açyk deri reňki</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏽">goýy deri reňki | orta deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly adamlar</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏽" type="tts">towşan gulakly adamlar: goýy deri reňki, orta deri reňki</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏾">goýy deri reňki | orta goýy deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly adamlar</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏾" type="tts">towşan gulakly adamlar: goýy deri reňki, orta goýy deri reňki</annotation>
+		<annotation cp="🧑🏻‍🩰">açyk deri reňki | balet | tansçy</annotation>
+		<annotation cp="🧑🏻‍🩰" type="tts">balerina: açyk deri reňki</annotation>
+		<annotation cp="🧑🏼‍🩰">balet | orta açyk deri reňki | tansçy</annotation>
+		<annotation cp="🧑🏼‍🩰" type="tts">balerina: orta açyk deri reňki</annotation>
+		<annotation cp="🧑🏽‍🩰">balet | orta deri reňki | tansçy</annotation>
+		<annotation cp="🧑🏽‍🩰" type="tts">balerina: orta deri reňki</annotation>
+		<annotation cp="🧑🏾‍🩰">balet | orta goýy deri reňki | tansçy</annotation>
+		<annotation cp="🧑🏾‍🩰" type="tts">balerina: orta goýy deri reňki</annotation>
+		<annotation cp="🧑🏿‍🩰">balet | goýy deri reňki | tansçy</annotation>
+		<annotation cp="🧑🏿‍🩰" type="tts">balerina: goýy deri reňki</annotation>
 		<annotation cp="👨🏻">açyk deri reňki | erkek | erkek adam | uly ýaşly</annotation>
 		<annotation cp="👨🏻" type="tts">erkek: açyk deri reňki</annotation>
 		<annotation cp="👨🏼">erkek | erkek adam | orta açyk deri reňki | uly ýaşly</annotation>
@@ -751,15 +840,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧔🏾" type="tts">kişi: orta goýy deri reňki, sakal</annotation>
 		<annotation cp="🧔🏿">goýy deri reňki | kişi: sakal | şahs | şahs: sakal | sakal</annotation>
 		<annotation cp="🧔🏿" type="tts">kişi: goýy deri reňki, sakal</annotation>
-		<annotation cp="🧔🏻‍♂">açyk deri reňki | adam | sakal | sakally erkek</annotation>
+		<annotation cp="🧔🏻‍♂">açyk deri reňki | adam | erkek | murt | sakal | sakally erkek</annotation>
 		<annotation cp="🧔🏻‍♂" type="tts">adam: açyk deri reňki, sakal</annotation>
-		<annotation cp="🧔🏼‍♂">adam | orta açyk deri reňki | sakal | sakally erkek</annotation>
+		<annotation cp="🧔🏼‍♂">adam | erkek | murt | orta açyk deri reňki | sakal | sakally erkek</annotation>
 		<annotation cp="🧔🏼‍♂" type="tts">adam: orta açyk deri reňki, sakal</annotation>
-		<annotation cp="🧔🏽‍♂">adam | orta deri reňki | sakal | sakally erkek</annotation>
+		<annotation cp="🧔🏽‍♂">adam | erkek | murt | orta deri reňki | sakal | sakally erkek</annotation>
 		<annotation cp="🧔🏽‍♂" type="tts">adam: orta deri reňki, sakal</annotation>
-		<annotation cp="🧔🏾‍♂">adam | orta goýy deri reňki | sakal | sakally erkek</annotation>
+		<annotation cp="🧔🏾‍♂">adam | erkek | murt | orta goýy deri reňki | sakal | sakally erkek</annotation>
 		<annotation cp="🧔🏾‍♂" type="tts">adam: orta goýy deri reňki, sakal</annotation>
-		<annotation cp="🧔🏿‍♂">adam | goýy deri reňki | sakal | sakally erkek</annotation>
+		<annotation cp="🧔🏿‍♂">adam | erkek | goýy deri reňki | murt | sakal | sakally erkek</annotation>
 		<annotation cp="🧔🏿‍♂" type="tts">adam: goýy deri reňki, sakal</annotation>
 		<annotation cp="👱🏻‍♂">açyk deri reňki | erkek adam | erkek adam: sary saç | sary saç | sary saçly | sary saçly erkek adam</annotation>
 		<annotation cp="👱🏻‍♂" type="tts">erkek adam: açyk deri reňki, sary saç</annotation>
@@ -771,6 +860,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾‍♂" type="tts">erkek adam: orta goýy deri reňki, sary saç</annotation>
 		<annotation cp="👱🏿‍♂">erkek adam | erkek adam: sary saç | goýy deri reňki | sary saç | sary saçly | sary saçly erkek adam</annotation>
 		<annotation cp="👱🏿‍♂" type="tts">erkek adam: goýy deri reňki, sary saç</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏼">açyk deri reňki | erkekler | göreş | göreş tutýan erkekler | orta açyk deri reňki</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏼" type="tts">göreş tutýan erkekler: açyk deri reňki, orta açyk deri reňki</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏽">açyk deri reňki | erkekler | göreş | göreş tutýan erkekler | orta deri reňki</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏽" type="tts">göreş tutýan erkekler: açyk deri reňki, orta deri reňki</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏾">açyk deri reňki | erkekler | göreş | göreş tutýan erkekler | orta goýy deri reňki</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏾" type="tts">göreş tutýan erkekler: açyk deri reňki, orta goýy deri reňki</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏿">açyk deri reňki | erkekler | göreş | göreş tutýan erkekler | goýy deri reňki</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏿" type="tts">göreş tutýan erkekler: açyk deri reňki, goýy deri reňki</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏻">açyk deri reňki | erkekler | göreş | göreş tutýan erkekler | orta açyk deri reňki</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏻" type="tts">göreş tutýan erkekler: orta açyk deri reňki, açyk deri reňki</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏽">erkekler | göreş | göreş tutýan erkekler | orta açyk deri reňki | orta deri reňki</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏽" type="tts">göreş tutýan erkekler: orta açyk deri reňki, orta deri reňki</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏾">erkekler | göreş | göreş tutýan erkekler | orta açyk deri reňki | orta goýy deri reňki</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏾" type="tts">göreş tutýan erkekler: orta açyk deri reňki, orta goýy deri reňki</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏿">erkekler | göreş | göreş tutýan erkekler | goýy deri reňki | orta açyk deri reňki</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏿" type="tts">göreş tutýan erkekler: orta açyk deri reňki, goýy deri reňki</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏻">açyk deri reňki | erkekler | göreş | göreş tutýan erkekler | orta deri reňki</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏻" type="tts">göreş tutýan erkekler: orta deri reňki, açyk deri reňki</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏼">erkekler | göreş | göreş tutýan erkekler | orta açyk deri reňki | orta deri reňki</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏼" type="tts">göreş tutýan erkekler: orta deri reňki, orta açyk deri reňki</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏾">erkekler | göreş | göreş tutýan erkekler | orta deri reňki | orta goýy deri reňki</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏾" type="tts">göreş tutýan erkekler: orta deri reňki, orta goýy deri reňki</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏿">erkekler | göreş | göreş tutýan erkekler | goýy deri reňki | orta deri reňki</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏿" type="tts">göreş tutýan erkekler: orta deri reňki, goýy deri reňki</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏻">açyk deri reňki | erkekler | göreş | göreş tutýan erkekler | orta goýy deri reňki</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏻" type="tts">göreş tutýan erkekler: orta goýy deri reňki, açyk deri reňki</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏼">erkekler | göreş | göreş tutýan erkekler | orta açyk deri reňki | orta goýy deri reňki</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏼" type="tts">göreş tutýan erkekler: orta goýy deri reňki, orta açyk deri reňki</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏽">erkekler | göreş | göreş tutýan erkekler | orta deri reňki | orta goýy deri reňki</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏽" type="tts">göreş tutýan erkekler: orta goýy deri reňki, orta deri reňki</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏿">erkekler | göreş | göreş tutýan erkekler | goýy deri reňki | orta goýy deri reňki</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏿" type="tts">göreş tutýan erkekler: orta goýy deri reňki, goýy deri reňki</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏻">açyk deri reňki | erkekler | göreş | göreş tutýan erkekler | goýy deri reňki</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏻" type="tts">göreş tutýan erkekler: goýy deri reňki, açyk deri reňki</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏼">erkekler | göreş | göreş tutýan erkekler | goýy deri reňki | orta açyk deri reňki</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏼" type="tts">göreş tutýan erkekler: goýy deri reňki, orta açyk deri reňki</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏽">erkekler | göreş | göreş tutýan erkekler | goýy deri reňki | orta deri reňki</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏽" type="tts">göreş tutýan erkekler: goýy deri reňki, orta deri reňki</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏾">erkekler | göreş | göreş tutýan erkekler | goýy deri reňki | orta goýy deri reňki</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏾" type="tts">göreş tutýan erkekler: goýy deri reňki, orta goýy deri reňki</annotation>
 		<annotation cp="👨🏻‍❤‍💋‍👨🏻">açyk deri reňki | erkek | jübüt | posa</annotation>
 		<annotation cp="👨🏻‍❤‍💋‍👨🏻" type="tts">posa: erkek, erkek, açyk deri reňki</annotation>
 		<annotation cp="👨🏻‍❤‍💋‍👨🏼">açyk deri reňki | erkek | jübüt | orta açyk deri reňki | posa</annotation>
@@ -919,6 +1048,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾‍🦲" type="tts">erkek: orta goýy deri reňki, kel</annotation>
 		<annotation cp="👨🏿‍🦲">erkek | erkek adam | goýy deri reňki | kel | uly ýaşly</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">erkek: goýy deri reňki, kel</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏼">açyk deri reňki | erkekler | orta açyk deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly erkekler</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏼" type="tts">towşan gulakly erkekler: açyk deri reňki, orta açyk deri reňki</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏽">açyk deri reňki | erkekler | orta deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly erkekler</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏽" type="tts">towşan gulakly erkekler: açyk deri reňki, orta deri reňki</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏾">açyk deri reňki | erkekler | orta goýy deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly erkekler</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏾" type="tts">towşan gulakly erkekler: açyk deri reňki, orta goýy deri reňki</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏿">açyk deri reňki | erkekler | goýy deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly erkekler</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏿" type="tts">towşan gulakly erkekler: açyk deri reňki, goýy deri reňki</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏻">açyk deri reňki | erkekler | orta açyk deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly erkekler</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏻" type="tts">towşan gulakly erkekler: orta açyk deri reňki, açyk deri reňki</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏽">erkekler | orta açyk deri reňki | orta deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly erkekler</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏽" type="tts">towşan gulakly erkekler: orta açyk deri reňki, orta deri reňki</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏾">erkekler | orta açyk deri reňki | orta goýy deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly erkekler</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏾" type="tts">towşan gulakly erkekler: orta açyk deri reňki, orta goýy deri reňki</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏿">erkekler | goýy deri reňki | orta açyk deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly erkekler</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏿" type="tts">towşan gulakly erkekler: orta açyk deri reňki, goýy deri reňki</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏻">açyk deri reňki | erkekler | orta deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly erkekler</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏻" type="tts">towşan gulakly erkekler: orta deri reňki, açyk deri reňki</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏼">erkekler | orta açyk deri reňki | orta deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly erkekler</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏼" type="tts">towşan gulakly erkekler: orta deri reňki, orta açyk deri reňki</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏾">erkekler | orta deri reňki | orta goýy deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly erkekler</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏾" type="tts">towşan gulakly erkekler: orta deri reňki, orta goýy deri reňki</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏿">erkekler | goýy deri reňki | orta deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly erkekler</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏿" type="tts">towşan gulakly erkekler: orta deri reňki, goýy deri reňki</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏻">açyk deri reňki | erkekler | orta goýy deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly erkekler</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏻" type="tts">towşan gulakly erkekler: orta goýy deri reňki, açyk deri reňki</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏼">erkekler | orta açyk deri reňki | orta goýy deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly erkekler</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏼" type="tts">towşan gulakly erkekler: orta goýy deri reňki, orta açyk deri reňki</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏽">erkekler | orta deri reňki | orta goýy deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly erkekler</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏽" type="tts">towşan gulakly erkekler: orta goýy deri reňki, orta deri reňki</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏿">erkekler | goýy deri reňki | orta goýy deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly erkekler</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏿" type="tts">towşan gulakly erkekler: orta goýy deri reňki, goýy deri reňki</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏻">açyk deri reňki | erkekler | goýy deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly erkekler</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏻" type="tts">towşan gulakly erkekler: goýy deri reňki, açyk deri reňki</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏼">erkekler | goýy deri reňki | orta açyk deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly erkekler</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏼" type="tts">towşan gulakly erkekler: goýy deri reňki, orta açyk deri reňki</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏽">erkekler | goýy deri reňki | orta deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly erkekler</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏽" type="tts">towşan gulakly erkekler: goýy deri reňki, orta deri reňki</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏾">erkekler | goýy deri reňki | orta goýy deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly erkekler</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏾" type="tts">towşan gulakly erkekler: goýy deri reňki, orta goýy deri reňki</annotation>
 		<annotation cp="👩🏻">açyk deri reňki | uly ýaşly | zenan</annotation>
 		<annotation cp="👩🏻" type="tts">zenan: açyk deri reňki</annotation>
 		<annotation cp="👩🏼">orta açyk deri reňki | uly ýaşly | zenan</annotation>
@@ -949,6 +1118,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾‍♀" type="tts">zenan: orta goýy deri reňki, sary saçly</annotation>
 		<annotation cp="👱🏿‍♀">goýy deri reňki | saç | sary saçly | zenan | zenan: sary saçly</annotation>
 		<annotation cp="👱🏿‍♀" type="tts">zenan: goýy deri reňki, sary saçly</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏼">açyk deri reňki | aýallar | göreş | göreş tutýan zenanlar | orta açyk deri reňki</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏼" type="tts">göreş tutýan zenanlar: açyk deri reňki, orta açyk deri reňki</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏽">açyk deri reňki | aýallar | göreş | göreş tutýan zenanlar | orta deri reňki</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏽" type="tts">göreş tutýan zenanlar: açyk deri reňki, orta deri reňki</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏾">açyk deri reňki | aýallar | göreş | göreş tutýan zenanlar | orta goýy deri reňki</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏾" type="tts">göreş tutýan zenanlar: açyk deri reňki, orta goýy deri reňki</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏿">açyk deri reňki | aýallar | göreş | göreş tutýan zenanlar | goýy deri reňki</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏿" type="tts">göreş tutýan zenanlar: açyk deri reňki, goýy deri reňki</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏻">açyk deri reňki | aýallar | göreş | göreş tutýan zenanlar | orta açyk deri reňki</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏻" type="tts">göreş tutýan zenanlar: orta açyk deri reňki, açyk deri reňki</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏽">aýallar | göreş | göreş tutýan zenanlar | orta açyk deri reňki | orta deri reňki</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏽" type="tts">göreş tutýan zenanlar: orta açyk deri reňki, orta deri reňki</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏾">aýallar | göreş | göreş tutýan zenanlar | orta açyk deri reňki | orta goýy deri reňki</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏾" type="tts">göreş tutýan zenanlar: orta açyk deri reňki, orta goýy deri reňki</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏿">aýallar | göreş | göreş tutýan zenanlar | goýy deri reňki | orta açyk deri reňki</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏿" type="tts">göreş tutýan zenanlar: orta açyk deri reňki, goýy deri reňki</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏻">açyk deri reňki | aýallar | göreş | göreş tutýan zenanlar | orta deri reňki</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏻" type="tts">göreş tutýan zenanlar: orta deri reňki, açyk deri reňki</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏼">aýallar | göreş | göreş tutýan zenanlar | orta açyk deri reňki | orta deri reňki</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏼" type="tts">göreş tutýan zenanlar: orta deri reňki, orta açyk deri reňki</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏾">aýallar | göreş | göreş tutýan zenanlar | orta deri reňki | orta goýy deri reňki</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏾" type="tts">göreş tutýan zenanlar: orta deri reňki, orta goýy deri reňki</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏿">aýallar | göreş | göreş tutýan zenanlar | goýy deri reňki | orta deri reňki</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏿" type="tts">göreş tutýan zenanlar: orta deri reňki, goýy deri reňki</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏻">açyk deri reňki | aýallar | göreş | göreş tutýan zenanlar | orta goýy deri reňki</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏻" type="tts">göreş tutýan zenanlar: orta goýy deri reňki, açyk deri reňki</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏼">aýallar | göreş | göreş tutýan zenanlar | orta açyk deri reňki | orta goýy deri reňki</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏼" type="tts">göreş tutýan zenanlar: orta goýy deri reňki, orta açyk deri reňki</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏽">aýallar | göreş | göreş tutýan zenanlar | orta deri reňki | orta goýy deri reňki</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏽" type="tts">göreş tutýan zenanlar: orta goýy deri reňki, orta deri reňki</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏿">aýallar | göreş | göreş tutýan zenanlar | goýy deri reňki | orta goýy deri reňki</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏿" type="tts">göreş tutýan zenanlar: orta goýy deri reňki, goýy deri reňki</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏻">açyk deri reňki | aýallar | göreş | göreş tutýan zenanlar | goýy deri reňki</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏻" type="tts">göreş tutýan zenanlar: goýy deri reňki, açyk deri reňki</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏼">aýallar | göreş | göreş tutýan zenanlar | goýy deri reňki | orta açyk deri reňki</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏼" type="tts">göreş tutýan zenanlar: goýy deri reňki, orta açyk deri reňki</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏽">aýallar | göreş | göreş tutýan zenanlar | goýy deri reňki | orta deri reňki</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏽" type="tts">göreş tutýan zenanlar: goýy deri reňki, orta deri reňki</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏾">aýallar | göreş | göreş tutýan zenanlar | goýy deri reňki | orta goýy deri reňki</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏾" type="tts">göreş tutýan zenanlar: goýy deri reňki, orta goýy deri reňki</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👨🏻">açyk deri reňki | erkek | jübüt | posa | zenan</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👨🏻" type="tts">posa: zenan, erkek, açyk deri reňki</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👨🏼">açyk deri reňki | erkek | jübüt | orta açyk deri reňki | posa | zenan</annotation>
@@ -1197,6 +1406,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🦲" type="tts">zenan: orta goýy deri reňki, kel</annotation>
 		<annotation cp="👩🏿‍🦲">goýy deri reňki | kel | uly ýaşly | zenan</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">zenan: goýy deri reňki, kel</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏼">açyk deri reňki | orta açyk deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly zenanlar | zenanlar</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏼" type="tts">towşan gulakly zenanlar: açyk deri reňki, orta açyk deri reňki</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏽">açyk deri reňki | orta deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly zenanlar | zenanlar</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏽" type="tts">towşan gulakly zenanlar: açyk deri reňki, orta deri reňki</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏾">açyk deri reňki | orta goýy deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly zenanlar | zenanlar</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏾" type="tts">towşan gulakly zenanlar: açyk deri reňki, orta goýy deri reňki</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏿">açyk deri reňki | goýy deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly zenanlar | zenanlar</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏿" type="tts">towşan gulakly zenanlar: açyk deri reňki, goýy deri reňki</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏻">açyk deri reňki | orta açyk deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly zenanlar | zenanlar</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏻" type="tts">towşan gulakly zenanlar: orta açyk deri reňki, açyk deri reňki</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏽">orta açyk deri reňki | orta deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly zenanlar | zenanlar</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏽" type="tts">towşan gulakly zenanlar: orta açyk deri reňki, orta deri reňki</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏾">orta açyk deri reňki | orta goýy deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly zenanlar | zenanlar</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏾" type="tts">towşan gulakly zenanlar: orta açyk deri reňki, orta goýy deri reňki</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏿">goýy deri reňki | orta açyk deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly zenanlar | zenanlar</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏿" type="tts">towşan gulakly zenanlar: orta açyk deri reňki, goýy deri reňki</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏻">açyk deri reňki | orta deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly zenanlar | zenanlar</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏻" type="tts">towşan gulakly zenanlar: orta deri reňki, açyk deri reňki</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏼">orta açyk deri reňki | orta deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly zenanlar | zenanlar</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏼" type="tts">towşan gulakly zenanlar: orta deri reňki, orta açyk deri reňki</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏾">orta deri reňki | orta goýy deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly zenanlar | zenanlar</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏾" type="tts">towşan gulakly zenanlar: orta deri reňki, orta goýy deri reňki</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏿">goýy deri reňki | orta deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly zenanlar | zenanlar</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏿" type="tts">towşan gulakly zenanlar: orta deri reňki, goýy deri reňki</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏻">açyk deri reňki | orta goýy deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly zenanlar | zenanlar</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏻" type="tts">towşan gulakly zenanlar: orta goýy deri reňki, açyk deri reňki</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏼">orta açyk deri reňki | orta goýy deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly zenanlar | zenanlar</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏼" type="tts">towşan gulakly zenanlar: orta goýy deri reňki, orta açyk deri reňki</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏽">orta deri reňki | orta goýy deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly zenanlar | zenanlar</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏽" type="tts">towşan gulakly zenanlar: orta goýy deri reňki, orta deri reňki</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏿">goýy deri reňki | orta goýy deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly zenanlar | zenanlar</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏿" type="tts">towşan gulakly zenanlar: orta goýy deri reňki, goýy deri reňki</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏻">açyk deri reňki | goýy deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly zenanlar | zenanlar</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏻" type="tts">towşan gulakly zenanlar: goýy deri reňki, açyk deri reňki</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏼">goýy deri reňki | orta açyk deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly zenanlar | zenanlar</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏼" type="tts">towşan gulakly zenanlar: goýy deri reňki, orta açyk deri reňki</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏽">goýy deri reňki | orta deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly zenanlar | zenanlar</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏽" type="tts">towşan gulakly zenanlar: goýy deri reňki, orta deri reňki</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏾">goýy deri reňki | orta goýy deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly zenanlar | zenanlar</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏾" type="tts">towşan gulakly zenanlar: goýy deri reňki, orta goýy deri reňki</annotation>
 		<annotation cp="🧓🏻">açyk deri reňki | garry | gartaşan | gartaşan adam | gartaşan kişi | jynsyýeti görkezilmedik | jynsyýeti tapawut etmeýän | uly ýaşly</annotation>
 		<annotation cp="🧓🏻" type="tts">gartaşan kişi: açyk deri reňki</annotation>
 		<annotation cp="🧓🏼">garry | gartaşan | gartaşan adam | gartaşan kişi | jynsyýeti görkezilmedik | jynsyýeti tapawut etmeýän | orta açyk deri reňki | uly ýaşly</annotation>
@@ -1417,15 +1666,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧏🏾" type="tts">ker adam: orta goýy deri reňki</annotation>
 		<annotation cp="🧏🏿">elýeterlilik | eşit | goýy deri reňki | gulak | ker | ker adam</annotation>
 		<annotation cp="🧏🏿" type="tts">ker adam: goýy deri reňki</annotation>
-		<annotation cp="🧏🏻‍♂">açyk deri reňki | erkek | ker</annotation>
+		<annotation cp="🧏🏻‍♂">açyk deri reňki | erkek | eşdemok | eşit | gulagy agyr | gulak | ker | oglan | ýigit</annotation>
 		<annotation cp="🧏🏻‍♂" type="tts">ker erkek: açyk deri reňki</annotation>
-		<annotation cp="🧏🏼‍♂">erkek | ker | orta açyk deri reňki</annotation>
+		<annotation cp="🧏🏼‍♂">erkek | eşdemok | eşit | gulagy agyr | gulak | ker | oglan | orta açyk deri reňki | ýigit</annotation>
 		<annotation cp="🧏🏼‍♂" type="tts">ker erkek: orta açyk deri reňki</annotation>
-		<annotation cp="🧏🏽‍♂">erkek | ker | orta deri reňki</annotation>
+		<annotation cp="🧏🏽‍♂">erkek | eşdemok | eşit | gulagy agyr | gulak | ker | oglan | orta deri reňki | ýigit</annotation>
 		<annotation cp="🧏🏽‍♂" type="tts">ker erkek: orta deri reňki</annotation>
-		<annotation cp="🧏🏾‍♂">erkek | ker | orta goýy deri reňki</annotation>
+		<annotation cp="🧏🏾‍♂">erkek | eşdemok | eşit | gulagy agyr | gulak | ker | oglan | orta goýy deri reňki | ýigit</annotation>
 		<annotation cp="🧏🏾‍♂" type="tts">ker erkek: orta goýy deri reňki</annotation>
-		<annotation cp="🧏🏿‍♂">erkek | goýy deri reňki | ker</annotation>
+		<annotation cp="🧏🏿‍♂">erkek | eşdemok | eşit | goýy deri reňki | gulagy agyr | gulak | ker | oglan | ýigit</annotation>
 		<annotation cp="🧏🏿‍♂" type="tts">ker erkek: goýy deri reňki</annotation>
 		<annotation cp="🧏🏻‍♀">açyk deri reňki | ker | zenan</annotation>
 		<annotation cp="🧏🏻‍♀" type="tts">ker zenan: açyk deri reňki</annotation>
@@ -1787,15 +2036,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾‍💼" type="tts">erkek ofis işgäri: orta goýy deri reňki</annotation>
 		<annotation cp="👨🏿‍💼">binagär | erkek | erkek ofis işgäri | goýy deri reňki | işewürlik | ofis | ofis işgäri | ýolbaşçy</annotation>
 		<annotation cp="👨🏿‍💼" type="tts">erkek ofis işgäri: goýy deri reňki</annotation>
-		<annotation cp="👩🏻‍💼">açyk deri reňki | binagär | işewürlik | ofis işgäri | ýolbaşçy | zenan | zenan ofis işgäri</annotation>
+		<annotation cp="👩🏻‍💼">açyk deri reňki | aýal | binagär | biznes | işçi | menejer | ofis | ofis işgäri</annotation>
 		<annotation cp="👩🏻‍💼" type="tts">zenan ofis işgäri: açyk deri reňki</annotation>
-		<annotation cp="👩🏼‍💼">binagär | işewürlik | ofis işgäri | orta açyk deri reňki | ýolbaşçy | zenan | zenan ofis işgäri</annotation>
+		<annotation cp="👩🏼‍💼">aýal | binagär | biznes | işçi | menejer | ofis | ofis işgäri | orta açyk deri reňki</annotation>
 		<annotation cp="👩🏼‍💼" type="tts">zenan ofis işgäri: orta açyk deri reňki</annotation>
-		<annotation cp="👩🏽‍💼">binagär | işewürlik | ofis işgäri | orta deri reňki | ýolbaşçy | zenan | zenan ofis işgäri</annotation>
+		<annotation cp="👩🏽‍💼">aýal | binagär | biznes | işçi | menejer | ofis | ofis işgäri | orta deri reňki</annotation>
 		<annotation cp="👩🏽‍💼" type="tts">zenan ofis işgäri: orta deri reňki</annotation>
-		<annotation cp="👩🏾‍💼">binagär | işewürlik | ofis işgäri | orta goýy deri reňki | ýolbaşçy | zenan | zenan ofis işgäri</annotation>
+		<annotation cp="👩🏾‍💼">aýal | binagär | biznes | işçi | menejer | ofis | ofis işgäri | orta goýy deri reňki</annotation>
 		<annotation cp="👩🏾‍💼" type="tts">zenan ofis işgäri: orta goýy deri reňki</annotation>
-		<annotation cp="👩🏿‍💼">binagär | goýy deri reňki | işewürlik | ofis işgäri | ýolbaşçy | zenan | zenan ofis işgäri</annotation>
+		<annotation cp="👩🏿‍💼">aýal | binagär | biznes | goýy deri reňki | işçi | menejer | ofis | ofis işgäri</annotation>
 		<annotation cp="👩🏿‍💼" type="tts">zenan ofis işgäri: goýy deri reňki</annotation>
 		<annotation cp="🧑🏻‍🔬">açyk deri reňki | alym | biolog | fizik | himik | inžener</annotation>
 		<annotation cp="🧑🏻‍🔬" type="tts">alym: açyk deri reňki</annotation>
@@ -2317,15 +2566,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤱🏾" type="tts">emdirmek: orta goýy deri reňki</annotation>
 		<annotation cp="🤱🏿">bäbek | emdirmek | göwüs | goýy deri reňki</annotation>
 		<annotation cp="🤱🏿" type="tts">emdirmek: goýy deri reňki</annotation>
-		<annotation cp="👩🏻‍🍼">açyk deri reňki | aýal | bäbegi emdirýän aýal | bäbek | emdirýän | ideg</annotation>
+		<annotation cp="👩🏻‍🍼">açyk deri reňki | aýal | bäbek | eje | emdir | emdirmek | ene | eneke | ideg etmek | täze doglan</annotation>
 		<annotation cp="👩🏻‍🍼" type="tts">bäbegi emdirýän aýal: açyk deri reňki</annotation>
-		<annotation cp="👩🏼‍🍼">aýal | bäbegi emdirýän aýal | bäbek | emdirýän | ideg | orta açyk deri reňki</annotation>
+		<annotation cp="👩🏼‍🍼">aýal | bäbek | eje | emdir | emdirmek | ene | eneke | ideg etmek | orta açyk deri reňki | täze doglan</annotation>
 		<annotation cp="👩🏼‍🍼" type="tts">bäbegi emdirýän aýal: orta açyk deri reňki</annotation>
-		<annotation cp="👩🏽‍🍼">aýal | bäbegi emdirýän aýal | bäbek | emdirýän | ideg | orta deri reňki</annotation>
+		<annotation cp="👩🏽‍🍼">aýal | bäbek | eje | emdir | emdirmek | ene | eneke | ideg etmek | orta deri reňki | täze doglan</annotation>
 		<annotation cp="👩🏽‍🍼" type="tts">bäbegi emdirýän aýal: orta deri reňki</annotation>
-		<annotation cp="👩🏾‍🍼">aýal | bäbegi emdirýän aýal | bäbek | emdirýän | ideg | orta goýy deri reňki</annotation>
+		<annotation cp="👩🏾‍🍼">aýal | bäbek | eje | emdir | emdirmek | ene | eneke | ideg etmek | orta goýy deri reňki | täze doglan</annotation>
 		<annotation cp="👩🏾‍🍼" type="tts">bäbegi emdirýän aýal: orta goýy deri reňki</annotation>
-		<annotation cp="👩🏿‍🍼">aýal | bäbegi emdirýän aýal | bäbek | emdirýän | goýy deri reňki | ideg</annotation>
+		<annotation cp="👩🏿‍🍼">aýal | bäbek | eje | emdir | emdirmek | ene | eneke | goýy deri reňki | ideg etmek | täze doglan</annotation>
 		<annotation cp="👩🏿‍🍼" type="tts">bäbegi emdirýän aýal: goýy deri reňki</annotation>
 		<annotation cp="👨🏻‍🍼">açyk deri reňki | bäbegi emdirýän erkek | bäbek | emdirýän | erkek | ideg | süýt berýän</annotation>
 		<annotation cp="👨🏻‍🍼" type="tts">bäbegi emdirýän erkek: açyk deri reňki</annotation>
@@ -3037,15 +3286,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🏃🏾‍♂" type="tts">ylgap barýan erkek: orta goýy deri reňki</annotation>
 		<annotation cp="🏃🏿‍♂">çalt | derrew | erkek | goýy deri reňki | howlukmaç | marafon | ýaryş | ylga | ylgap barýan erkek | ylgaýan</annotation>
 		<annotation cp="🏃🏿‍♂" type="tts">ylgap barýan erkek: goýy deri reňki</annotation>
-		<annotation cp="🏃🏻‍♀">açyk deri reňki | marafon | ýaryş | ylgap barýan zenan | ylgaýan | zenan</annotation>
+		<annotation cp="🏃🏻‍♀">açyk deri reňki | aýal | çalt | derrew | hereket | marafon | okdurylmak | tiz | tizlik | ýaryş | ýaryşmak | ylgamak</annotation>
 		<annotation cp="🏃🏻‍♀" type="tts">ylgap barýan zenan: açyk deri reňki</annotation>
-		<annotation cp="🏃🏼‍♀">marafon | orta açyk deri reňki | ýaryş | ylgap barýan zenan | ylgaýan | zenan</annotation>
+		<annotation cp="🏃🏼‍♀">aýal | çalt | derrew | hereket | marafon | okdurylmak | orta açyk deri reňki | tiz | tizlik | ýaryş | ýaryşmak | ylgamak</annotation>
 		<annotation cp="🏃🏼‍♀" type="tts">ylgap barýan zenan: orta açyk deri reňki</annotation>
-		<annotation cp="🏃🏽‍♀">marafon | orta deri reňki | ýaryş | ylgap barýan zenan | ylgaýan | zenan</annotation>
+		<annotation cp="🏃🏽‍♀">aýal | çalt | derrew | hereket | marafon | okdurylmak | orta deri reňki | tiz | tizlik | ýaryş | ýaryşmak | ylgamak</annotation>
 		<annotation cp="🏃🏽‍♀" type="tts">ylgap barýan zenan: orta deri reňki</annotation>
-		<annotation cp="🏃🏾‍♀">marafon | orta goýy deri reňki | ýaryş | ylgap barýan zenan | ylgaýan | zenan</annotation>
+		<annotation cp="🏃🏾‍♀">aýal | çalt | derrew | hereket | marafon | okdurylmak | orta goýy deri reňki | tiz | tizlik | ýaryş | ýaryşmak | ylgamak</annotation>
 		<annotation cp="🏃🏾‍♀" type="tts">ylgap barýan zenan: orta goýy deri reňki</annotation>
-		<annotation cp="🏃🏿‍♀">goýy deri reňki | marafon | ýaryş | ylgap barýan zenan | ylgaýan | zenan</annotation>
+		<annotation cp="🏃🏿‍♀">aýal | çalt | derrew | goýy deri reňki | hereket | marafon | okdurylmak | tiz | tizlik | ýaryş | ýaryşmak | ylgamak</annotation>
 		<annotation cp="🏃🏿‍♀" type="tts">ylgap barýan zenan: goýy deri reňki</annotation>
 		<annotation cp="🏃‍➡">marafon | saga | ylgap barýan adam | ylgaýan | ýüzi</annotation>
 		<annotation cp="🏃‍➡" type="tts">ylgap barýan adam: ýüzi saga</annotation>
@@ -3059,17 +3308,17 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🏃🏾‍➡" type="tts">ylgap barýan adam: orta goýy deri reňki, ýüzi saga</annotation>
 		<annotation cp="🏃🏿‍➡">goýy deri reňki | marafon | saga | ylgap barýan adam | ylgaýan | ýüzi</annotation>
 		<annotation cp="🏃🏿‍➡" type="tts">ylgap barýan adam: goýy deri reňki, ýüzi saga</annotation>
-		<annotation cp="🏃‍♀‍➡">marafon | saga | ýaryş | ylgap barýan zenan | ylgaýan | ýüzi | zenan</annotation>
+		<annotation cp="🏃‍♀‍➡">aýal | çalt | derrew | hereket | marafon | okdurylmak | saga | tiz | tizlik | ýaryş | ýaryşmak | ylgamak | ýüzi</annotation>
 		<annotation cp="🏃‍♀‍➡" type="tts">ylgap barýan zenan: ýüzi saga</annotation>
-		<annotation cp="🏃🏻‍♀‍➡">açyk deri reňki | marafon | saga | ýaryş | ylgap barýan zenan | ylgaýan | ýüzi | zenan</annotation>
+		<annotation cp="🏃🏻‍♀‍➡">açyk deri reňki | aýal | çalt | derrew | hereket | marafon | okdurylmak | saga | tiz | tizlik | ýaryş | ýaryşmak | ylgamak | ýüzi</annotation>
 		<annotation cp="🏃🏻‍♀‍➡" type="tts">ylgap barýan zenan: açyk deri reňki, ýüzi saga</annotation>
-		<annotation cp="🏃🏼‍♀‍➡">marafon | orta açyk deri reňki | saga | ýaryş | ylgap barýan zenan | ylgaýan | ýüzi | zenan</annotation>
+		<annotation cp="🏃🏼‍♀‍➡">aýal | çalt | derrew | hereket | marafon | okdurylmak | orta açyk deri reňki | saga | tiz | tizlik | ýaryş | ýaryşmak | ylgamak | ýüzi</annotation>
 		<annotation cp="🏃🏼‍♀‍➡" type="tts">ylgap barýan zenan: orta açyk deri reňki, ýüzi saga</annotation>
-		<annotation cp="🏃🏽‍♀‍➡">marafon | orta deri reňki | saga | ýaryş | ylgap barýan zenan | ylgaýan | ýüzi | zenan</annotation>
+		<annotation cp="🏃🏽‍♀‍➡">aýal | çalt | derrew | hereket | marafon | okdurylmak | orta deri reňki | saga | tiz | tizlik | ýaryş | ýaryşmak | ylgamak | ýüzi</annotation>
 		<annotation cp="🏃🏽‍♀‍➡" type="tts">ylgap barýan zenan: orta deri reňki, ýüzi saga</annotation>
-		<annotation cp="🏃🏾‍♀‍➡">marafon | orta goýy deri reňki | saga | ýaryş | ylgap barýan zenan | ylgaýan | ýüzi | zenan</annotation>
+		<annotation cp="🏃🏾‍♀‍➡">aýal | çalt | derrew | hereket | marafon | okdurylmak | orta goýy deri reňki | saga | tiz | tizlik | ýaryş | ýaryşmak | ylgamak | ýüzi</annotation>
 		<annotation cp="🏃🏾‍♀‍➡" type="tts">ylgap barýan zenan: orta goýy deri reňki, ýüzi saga</annotation>
-		<annotation cp="🏃🏿‍♀‍➡">goýy deri reňki | marafon | saga | ýaryş | ylgap barýan zenan | ylgaýan | ýüzi | zenan</annotation>
+		<annotation cp="🏃🏿‍♀‍➡">aýal | çalt | derrew | goýy deri reňki | hereket | marafon | okdurylmak | saga | tiz | tizlik | ýaryş | ýaryşmak | ylgamak | ýüzi</annotation>
 		<annotation cp="🏃🏿‍♀‍➡" type="tts">ylgap barýan zenan: goýy deri reňki, ýüzi saga</annotation>
 		<annotation cp="🏃‍♂‍➡">çalt | derrew | erkek | howlukmaç | marafon | saga | ýaryş | ylga | ylgap barýan erkek | ylgaýan | ýüzi</annotation>
 		<annotation cp="🏃‍♂‍➡" type="tts">ylgap barýan erkek: ýüzi saga</annotation>
@@ -3113,6 +3362,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🕴🏾" type="tts">kostýum-balakly ýokary galyp barýan kişi: orta goýy deri reňki</annotation>
 		<annotation cp="🕴🏿">goýy deri reňki | işewürlik | kostýum-balak | kostýum-balakly ýokary galyp barýan kişi | şahs</annotation>
 		<annotation cp="🕴🏿" type="tts">kostýum-balakly ýokary galyp barýan kişi: goýy deri reňki</annotation>
+		<annotation cp="👯🏻">açyk deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly adamlar</annotation>
+		<annotation cp="👯🏻" type="tts">towşan gulakly adamlar: açyk deri reňki</annotation>
+		<annotation cp="👯🏼">orta açyk deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly adamlar</annotation>
+		<annotation cp="👯🏼" type="tts">towşan gulakly adamlar: orta açyk deri reňki</annotation>
+		<annotation cp="👯🏽">orta deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly adamlar</annotation>
+		<annotation cp="👯🏽" type="tts">towşan gulakly adamlar: orta deri reňki</annotation>
+		<annotation cp="👯🏾">orta goýy deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly adamlar</annotation>
+		<annotation cp="👯🏾" type="tts">towşan gulakly adamlar: orta goýy deri reňki</annotation>
+		<annotation cp="👯🏿">goýy deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly adamlar</annotation>
+		<annotation cp="👯🏿" type="tts">towşan gulakly adamlar: goýy deri reňki</annotation>
+		<annotation cp="👯🏻‍♀">açyk deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly zenanlar | zenanlar</annotation>
+		<annotation cp="👯🏻‍♀" type="tts">towşan gulakly zenanlar: açyk deri reňki</annotation>
+		<annotation cp="👯🏼‍♀">orta açyk deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly zenanlar | zenanlar</annotation>
+		<annotation cp="👯🏼‍♀" type="tts">towşan gulakly zenanlar: orta açyk deri reňki</annotation>
+		<annotation cp="👯🏽‍♀">orta deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly zenanlar | zenanlar</annotation>
+		<annotation cp="👯🏽‍♀" type="tts">towşan gulakly zenanlar: orta deri reňki</annotation>
+		<annotation cp="👯🏾‍♀">orta goýy deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly zenanlar | zenanlar</annotation>
+		<annotation cp="👯🏾‍♀" type="tts">towşan gulakly zenanlar: orta goýy deri reňki</annotation>
+		<annotation cp="👯🏿‍♀">goýy deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly zenanlar | zenanlar</annotation>
+		<annotation cp="👯🏿‍♀" type="tts">towşan gulakly zenanlar: goýy deri reňki</annotation>
+		<annotation cp="👯🏻‍♂">açyk deri reňki | erkekler | şüweleňde | tansçy | towşan gulak | towşan gulakly erkekler</annotation>
+		<annotation cp="👯🏻‍♂" type="tts">towşan gulakly erkekler: açyk deri reňki</annotation>
+		<annotation cp="👯🏼‍♂">erkekler | orta açyk deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly erkekler</annotation>
+		<annotation cp="👯🏼‍♂" type="tts">towşan gulakly erkekler: orta açyk deri reňki</annotation>
+		<annotation cp="👯🏽‍♂">erkekler | orta deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly erkekler</annotation>
+		<annotation cp="👯🏽‍♂" type="tts">towşan gulakly erkekler: orta deri reňki</annotation>
+		<annotation cp="👯🏾‍♂">erkekler | orta goýy deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly erkekler</annotation>
+		<annotation cp="👯🏾‍♂" type="tts">towşan gulakly erkekler: orta goýy deri reňki</annotation>
+		<annotation cp="👯🏿‍♂">erkekler | goýy deri reňki | şüweleňde | tansçy | towşan gulak | towşan gulakly erkekler</annotation>
+		<annotation cp="👯🏿‍♂" type="tts">towşan gulakly erkekler: goýy deri reňki</annotation>
 		<annotation cp="🧖🏻">açyk deri reňki | bug otagy | bug otagyndaky adam | sauna</annotation>
 		<annotation cp="🧖🏻" type="tts">bug otagyndaky adam: açyk deri reňki</annotation>
 		<annotation cp="🧖🏼">bug otagy | bug otagyndaky adam | orta açyk deri reňki | sauna</annotation>
@@ -3463,6 +3742,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤸🏾‍♀" type="tts">ýanyn aşyr atýan zenan: orta goýy deri reňki</annotation>
 		<annotation cp="🤸🏿‍♀">aşyr atmak | aýal | gimnastika | goýy deri reňki | ýanyn aşyr atýan zenan</annotation>
 		<annotation cp="🤸🏿‍♀" type="tts">ýanyn aşyr atýan zenan: goýy deri reňki</annotation>
+		<annotation cp="🤼🏻">açyk deri reňki | göreş | göreş tutýan adamlar | göreşçi</annotation>
+		<annotation cp="🤼🏻" type="tts">göreş tutýan adamlar: açyk deri reňki</annotation>
+		<annotation cp="🤼🏼">göreş | göreş tutýan adamlar | göreşçi | orta açyk deri reňki</annotation>
+		<annotation cp="🤼🏼" type="tts">göreş tutýan adamlar: orta açyk deri reňki</annotation>
+		<annotation cp="🤼🏽">göreş | göreş tutýan adamlar | göreşçi | orta deri reňki</annotation>
+		<annotation cp="🤼🏽" type="tts">göreş tutýan adamlar: orta deri reňki</annotation>
+		<annotation cp="🤼🏾">göreş | göreş tutýan adamlar | göreşçi | orta goýy deri reňki</annotation>
+		<annotation cp="🤼🏾" type="tts">göreş tutýan adamlar: orta goýy deri reňki</annotation>
+		<annotation cp="🤼🏿">göreş | göreş tutýan adamlar | göreşçi | goýy deri reňki</annotation>
+		<annotation cp="🤼🏿" type="tts">göreş tutýan adamlar: goýy deri reňki</annotation>
+		<annotation cp="🤼🏻‍♀">açyk deri reňki | aýallar | göreş | göreş tutýan zenanlar</annotation>
+		<annotation cp="🤼🏻‍♀" type="tts">göreş tutýan zenanlar: açyk deri reňki</annotation>
+		<annotation cp="🤼🏼‍♀">aýallar | göreş | göreş tutýan zenanlar | orta açyk deri reňki</annotation>
+		<annotation cp="🤼🏼‍♀" type="tts">göreş tutýan zenanlar: orta açyk deri reňki</annotation>
+		<annotation cp="🤼🏽‍♀">aýallar | göreş | göreş tutýan zenanlar | orta deri reňki</annotation>
+		<annotation cp="🤼🏽‍♀" type="tts">göreş tutýan zenanlar: orta deri reňki</annotation>
+		<annotation cp="🤼🏾‍♀">aýallar | göreş | göreş tutýan zenanlar | orta goýy deri reňki</annotation>
+		<annotation cp="🤼🏾‍♀" type="tts">göreş tutýan zenanlar: orta goýy deri reňki</annotation>
+		<annotation cp="🤼🏿‍♀">aýallar | göreş | göreş tutýan zenanlar | goýy deri reňki</annotation>
+		<annotation cp="🤼🏿‍♀" type="tts">göreş tutýan zenanlar: goýy deri reňki</annotation>
+		<annotation cp="🤼🏻‍♂">açyk deri reňki | erkekler | göreş | göreş tutýan erkekler</annotation>
+		<annotation cp="🤼🏻‍♂" type="tts">göreş tutýan erkekler: açyk deri reňki</annotation>
+		<annotation cp="🤼🏼‍♂">erkekler | göreş | göreş tutýan erkekler | orta açyk deri reňki</annotation>
+		<annotation cp="🤼🏼‍♂" type="tts">göreş tutýan erkekler: orta açyk deri reňki</annotation>
+		<annotation cp="🤼🏽‍♂">erkekler | göreş | göreş tutýan erkekler | orta deri reňki</annotation>
+		<annotation cp="🤼🏽‍♂" type="tts">göreş tutýan erkekler: orta deri reňki</annotation>
+		<annotation cp="🤼🏾‍♂">erkekler | göreş | göreş tutýan erkekler | orta goýy deri reňki</annotation>
+		<annotation cp="🤼🏾‍♂" type="tts">göreş tutýan erkekler: orta goýy deri reňki</annotation>
+		<annotation cp="🤼🏿‍♂">erkekler | göreş | göreş tutýan erkekler | goýy deri reňki</annotation>
+		<annotation cp="🤼🏿‍♂" type="tts">göreş tutýan erkekler: goýy deri reňki</annotation>
 		<annotation cp="🤽🏻">açyk deri reňki | suw | suw polo oýnaýan adam | waterpolo</annotation>
 		<annotation cp="🤽🏻" type="tts">suw polo oýnaýan adam: açyk deri reňki</annotation>
 		<annotation cp="🤽🏼">orta açyk deri reňki | suw | suw polo oýnaýan adam | waterpolo</annotation>
@@ -3993,6 +4302,8 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇨🇴" type="tts">baýdak: Kolumbiýa</annotation>
 		<annotation cp="🇨🇵">baýdak</annotation>
 		<annotation cp="🇨🇵" type="tts">baýdak: Klipperton adasy</annotation>
+		<annotation cp="🇨🇶">baýdak</annotation>
+		<annotation cp="🇨🇶" type="tts">baýdak: Sark</annotation>
 		<annotation cp="🇨🇷">baýdak</annotation>
 		<annotation cp="🇨🇷" type="tts">baýdak: Kosta-Rika</annotation>
 		<annotation cp="🇨🇺">baýdak</annotation>
@@ -4432,25 +4743,5 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="₺" type="tts">Türk lirasy</annotation>
 		<annotation cp="₼" type="tts">Azerbaýjan manady</annotation>
 		<annotation cp="₾" type="tts">Gruzin larisi</annotation>
-		<annotation cp="0⃣">klawiş gapagy</annotation>
-		<annotation cp="0⃣" type="tts">klawiş gapagy: 0</annotation>
-		<annotation cp="1⃣">klawiş gapagy</annotation>
-		<annotation cp="1⃣" type="tts">klawiş gapagy: 1</annotation>
-		<annotation cp="2⃣">klawiş gapagy</annotation>
-		<annotation cp="2⃣" type="tts">klawiş gapagy: 2</annotation>
-		<annotation cp="3⃣">klawiş gapagy</annotation>
-		<annotation cp="3⃣" type="tts">klawiş gapagy: 3</annotation>
-		<annotation cp="4⃣">klawiş gapagy</annotation>
-		<annotation cp="4⃣" type="tts">klawiş gapagy: 4</annotation>
-		<annotation cp="5⃣">klawiş gapagy</annotation>
-		<annotation cp="5⃣" type="tts">klawiş gapagy: 5</annotation>
-		<annotation cp="6⃣">klawiş gapagy</annotation>
-		<annotation cp="6⃣" type="tts">klawiş gapagy: 6</annotation>
-		<annotation cp="7⃣">klawiş gapagy</annotation>
-		<annotation cp="7⃣" type="tts">klawiş gapagy: 7</annotation>
-		<annotation cp="8⃣">klawiş gapagy</annotation>
-		<annotation cp="8⃣" type="tts">klawiş gapagy: 8</annotation>
-		<annotation cp="9⃣">klawiş gapagy</annotation>
-		<annotation cp="9⃣" type="tts">klawiş gapagy: 9</annotation>
 	</annotations>
 </ldml>

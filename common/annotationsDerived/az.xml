@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-
-Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
 -->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -603,6 +602,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾" type="tts">sarı saçlı adam: orta-tünd dəri tonu</annotation>
 		<annotation cp="👱🏿">adam | sarı saçlı adam | sarısaçlı şəxs | sarışın | sarışın kişi | tünd dəri tonu | üz</annotation>
 		<annotation cp="👱🏿" type="tts">sarı saçlı adam: tünd dəri tonu</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏼">açıq dəri tonu | döyüş | döyüş meydançasında | güləş | güləş turniri | güləşçilər | güləşmək | idman | orta-açıq dəri tonu | təkbətək döyüş</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏼" type="tts">güləş: açıq dəri tonu, orta-açıq dəri tonu</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏽">açıq dəri tonu | döyüş | döyüş meydançasında | güləş | güləş turniri | güləşçilər | güləşmək | idman | orta dəri tonu | təkbətək döyüş</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏽" type="tts">güləş: açıq dəri tonu, orta dəri tonu</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏾">açıq dəri tonu | döyüş | döyüş meydançasında | güləş | güləş turniri | güləşçilər | güləşmək | idman | orta-tünd dəri tonu | təkbətək döyüş</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏾" type="tts">güləş: açıq dəri tonu, orta-tünd dəri tonu</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏿">açıq dəri tonu | döyüş | döyüş meydançasında | güləş | güləş turniri | güləşçilər | güləşmək | idman | təkbətək döyüş | tünd dəri tonu</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏿" type="tts">güləş: açıq dəri tonu, tünd dəri tonu</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏻">açıq dəri tonu | döyüş | döyüş meydançasında | güləş | güləş turniri | güləşçilər | güləşmək | idman | orta-açıq dəri tonu | təkbətək döyüş</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏻" type="tts">güləş: orta-açıq dəri tonu, açıq dəri tonu</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏽">döyüş | döyüş meydançasında | güləş | güləş turniri | güləşçilər | güləşmək | idman | orta dəri tonu | orta-açıq dəri tonu | təkbətək döyüş</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏽" type="tts">güləş: orta-açıq dəri tonu, orta dəri tonu</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏾">döyüş | döyüş meydançasında | güləş | güləş turniri | güləşçilər | güləşmək | idman | orta-açıq dəri tonu | orta-tünd dəri tonu | təkbətək döyüş</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏾" type="tts">güləş: orta-açıq dəri tonu, orta-tünd dəri tonu</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏿">döyüş | döyüş meydançasında | güləş | güləş turniri | güləşçilər | güləşmək | idman | orta-açıq dəri tonu | təkbətək döyüş | tünd dəri tonu</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏿" type="tts">güləş: orta-açıq dəri tonu, tünd dəri tonu</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏻">açıq dəri tonu | döyüş | döyüş meydançasında | güləş | güləş turniri | güləşçilər | güləşmək | idman | orta dəri tonu | təkbətək döyüş</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏻" type="tts">güləş: orta dəri tonu, açıq dəri tonu</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏼">döyüş | döyüş meydançasında | güləş | güləş turniri | güləşçilər | güləşmək | idman | orta dəri tonu | orta-açıq dəri tonu | təkbətək döyüş</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏼" type="tts">güləş: orta dəri tonu, orta-açıq dəri tonu</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏾">döyüş | döyüş meydançasında | güləş | güləş turniri | güləşçilər | güləşmək | idman | orta dəri tonu | orta-tünd dəri tonu | təkbətək döyüş</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏾" type="tts">güləş: orta dəri tonu, orta-tünd dəri tonu</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏿">döyüş | döyüş meydançasında | güləş | güləş turniri | güləşçilər | güləşmək | idman | orta dəri tonu | təkbətək döyüş | tünd dəri tonu</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏿" type="tts">güləş: orta dəri tonu, tünd dəri tonu</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏻">açıq dəri tonu | döyüş | döyüş meydançasında | güləş | güləş turniri | güləşçilər | güləşmək | idman | orta-tünd dəri tonu | təkbətək döyüş</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏻" type="tts">güləş: orta-tünd dəri tonu, açıq dəri tonu</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏼">döyüş | döyüş meydançasında | güləş | güləş turniri | güləşçilər | güləşmək | idman | orta-açıq dəri tonu | orta-tünd dəri tonu | təkbətək döyüş</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏼" type="tts">güləş: orta-tünd dəri tonu, orta-açıq dəri tonu</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏽">döyüş | döyüş meydançasında | güləş | güləş turniri | güləşçilər | güləşmək | idman | orta dəri tonu | orta-tünd dəri tonu | təkbətək döyüş</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏽" type="tts">güləş: orta-tünd dəri tonu, orta dəri tonu</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏿">döyüş | döyüş meydançasında | güləş | güləş turniri | güləşçilər | güləşmək | idman | orta-tünd dəri tonu | təkbətək döyüş | tünd dəri tonu</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏿" type="tts">güləş: orta-tünd dəri tonu, tünd dəri tonu</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏻">açıq dəri tonu | döyüş | döyüş meydançasında | güləş | güləş turniri | güləşçilər | güləşmək | idman | təkbətək döyüş | tünd dəri tonu</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏻" type="tts">güləş: tünd dəri tonu, açıq dəri tonu</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏼">döyüş | döyüş meydançasında | güləş | güləş turniri | güləşçilər | güləşmək | idman | orta-açıq dəri tonu | təkbətək döyüş | tünd dəri tonu</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏼" type="tts">güləş: tünd dəri tonu, orta-açıq dəri tonu</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏽">döyüş | döyüş meydançasında | güləş | güləş turniri | güləşçilər | güləşmək | idman | orta dəri tonu | təkbətək döyüş | tünd dəri tonu</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏽" type="tts">güləş: tünd dəri tonu, orta dəri tonu</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏾">döyüş | döyüş meydançasında | güləş | güləş turniri | güləşçilər | güləşmək | idman | orta-tünd dəri tonu | təkbətək döyüş | tünd dəri tonu</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏾" type="tts">güləş: tünd dəri tonu, orta-tünd dəri tonu</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏼">açıq dəri tonu | böyük | cütlük | öpüş | orta-açıq dəri tonu | romantika | sevgi</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏼" type="tts">öpüş: böyük, böyük, açıq dəri tonu, orta-açıq dəri tonu</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏽">açıq dəri tonu | böyük | cütlük | öpüş | orta dəri tonu | romantika | sevgi</annotation>
@@ -731,6 +770,56 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧑🏾‍🦲" type="tts">böyük: orta-tünd dəri tonu, keçəl</annotation>
 		<annotation cp="🧑🏿‍🦲">böyük | gender-neytral | keçəl | tünd dəri tonu</annotation>
 		<annotation cp="🧑🏿‍🦲" type="tts">böyük: tünd dəri tonu, keçəl</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏼">açıq dəri tonu | bənzər | dovşan | əkiz | əkizlər | həmişəlik ən yaxşı dost | iki nəfər | orta-açıq dəri tonu | oxşar | qadın | qız | qoşa | qulaq | rəqqasə | ruk əkizi | şənlənən qadınlar | yaxın dost | ziyafət | ziyafətdə əylənmək</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏼" type="tts">şənlənən qadınlar: açıq dəri tonu, orta-açıq dəri tonu</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏽">açıq dəri tonu | bənzər | dovşan | əkiz | əkizlər | həmişəlik ən yaxşı dost | iki nəfər | orta dəri tonu | oxşar | qadın | qız | qoşa | qulaq | rəqqasə | ruk əkizi | şənlənən qadınlar | yaxın dost | ziyafət | ziyafətdə əylənmək</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏽" type="tts">şənlənən qadınlar: açıq dəri tonu, orta dəri tonu</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏾">açıq dəri tonu | bənzər | dovşan | əkiz | əkizlər | həmişəlik ən yaxşı dost | iki nəfər | orta-tünd dəri tonu | oxşar | qadın | qız | qoşa | qulaq | rəqqasə | ruk əkizi | şənlənən qadınlar | yaxın dost | ziyafət | ziyafətdə əylənmək</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏾" type="tts">şənlənən qadınlar: açıq dəri tonu, orta-tünd dəri tonu</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏿">açıq dəri tonu | bənzər | dovşan | əkiz | əkizlər | həmişəlik ən yaxşı dost | iki nəfər | oxşar | qadın | qız | qoşa | qulaq | rəqqasə | ruk əkizi | şənlənən qadınlar | tünd dəri tonu | yaxın dost | ziyafət | ziyafətdə əylənmək</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏿" type="tts">şənlənən qadınlar: açıq dəri tonu, tünd dəri tonu</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏻">açıq dəri tonu | bənzər | dovşan | əkiz | əkizlər | həmişəlik ən yaxşı dost | iki nəfər | orta-açıq dəri tonu | oxşar | qadın | qız | qoşa | qulaq | rəqqasə | ruk əkizi | şənlənən qadınlar | yaxın dost | ziyafət | ziyafətdə əylənmək</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏻" type="tts">şənlənən qadınlar: orta-açıq dəri tonu, açıq dəri tonu</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏽">bənzər | dovşan | əkiz | əkizlər | həmişəlik ən yaxşı dost | iki nəfər | orta dəri tonu | orta-açıq dəri tonu | oxşar | qadın | qız | qoşa | qulaq | rəqqasə | ruk əkizi | şənlənən qadınlar | yaxın dost | ziyafət | ziyafətdə əylənmək</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏽" type="tts">şənlənən qadınlar: orta-açıq dəri tonu, orta dəri tonu</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏾">bənzər | dovşan | əkiz | əkizlər | həmişəlik ən yaxşı dost | iki nəfər | orta-açıq dəri tonu | orta-tünd dəri tonu | oxşar | qadın | qız | qoşa | qulaq | rəqqasə | ruk əkizi | şənlənən qadınlar | yaxın dost | ziyafət | ziyafətdə əylənmək</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏾" type="tts">şənlənən qadınlar: orta-açıq dəri tonu, orta-tünd dəri tonu</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏿">bənzər | dovşan | əkiz | əkizlər | həmişəlik ən yaxşı dost | iki nəfər | orta-açıq dəri tonu | oxşar | qadın | qız | qoşa | qulaq | rəqqasə | ruk əkizi | şənlənən qadınlar | tünd dəri tonu | yaxın dost | ziyafət | ziyafətdə əylənmək</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏿" type="tts">şənlənən qadınlar: orta-açıq dəri tonu, tünd dəri tonu</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏻">açıq dəri tonu | bənzər | dovşan | əkiz | əkizlər | həmişəlik ən yaxşı dost | iki nəfər | orta dəri tonu | oxşar | qadın | qız | qoşa | qulaq | rəqqasə | ruk əkizi | şənlənən qadınlar | yaxın dost | ziyafət | ziyafətdə əylənmək</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏻" type="tts">şənlənən qadınlar: orta dəri tonu, açıq dəri tonu</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏼">bənzər | dovşan | əkiz | əkizlər | həmişəlik ən yaxşı dost | iki nəfər | orta dəri tonu | orta-açıq dəri tonu | oxşar | qadın | qız | qoşa | qulaq | rəqqasə | ruk əkizi | şənlənən qadınlar | yaxın dost | ziyafət | ziyafətdə əylənmək</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏼" type="tts">şənlənən qadınlar: orta dəri tonu, orta-açıq dəri tonu</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏾">bənzər | dovşan | əkiz | əkizlər | həmişəlik ən yaxşı dost | iki nəfər | orta dəri tonu | orta-tünd dəri tonu | oxşar | qadın | qız | qoşa | qulaq | rəqqasə | ruk əkizi | şənlənən qadınlar | yaxın dost | ziyafət | ziyafətdə əylənmək</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏾" type="tts">şənlənən qadınlar: orta dəri tonu, orta-tünd dəri tonu</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏿">bənzər | dovşan | əkiz | əkizlər | həmişəlik ən yaxşı dost | iki nəfər | orta dəri tonu | oxşar | qadın | qız | qoşa | qulaq | rəqqasə | ruk əkizi | şənlənən qadınlar | tünd dəri tonu | yaxın dost | ziyafət | ziyafətdə əylənmək</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏿" type="tts">şənlənən qadınlar: orta dəri tonu, tünd dəri tonu</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏻">açıq dəri tonu | bənzər | dovşan | əkiz | əkizlər | həmişəlik ən yaxşı dost | iki nəfər | orta-tünd dəri tonu | oxşar | qadın | qız | qoşa | qulaq | rəqqasə | ruk əkizi | şənlənən qadınlar | yaxın dost | ziyafət | ziyafətdə əylənmək</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏻" type="tts">şənlənən qadınlar: orta-tünd dəri tonu, açıq dəri tonu</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏼">bənzər | dovşan | əkiz | əkizlər | həmişəlik ən yaxşı dost | iki nəfər | orta-açıq dəri tonu | orta-tünd dəri tonu | oxşar | qadın | qız | qoşa | qulaq | rəqqasə | ruk əkizi | şənlənən qadınlar | yaxın dost | ziyafət | ziyafətdə əylənmək</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏼" type="tts">şənlənən qadınlar: orta-tünd dəri tonu, orta-açıq dəri tonu</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏽">bənzər | dovşan | əkiz | əkizlər | həmişəlik ən yaxşı dost | iki nəfər | orta dəri tonu | orta-tünd dəri tonu | oxşar | qadın | qız | qoşa | qulaq | rəqqasə | ruk əkizi | şənlənən qadınlar | yaxın dost | ziyafət | ziyafətdə əylənmək</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏽" type="tts">şənlənən qadınlar: orta-tünd dəri tonu, orta dəri tonu</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏿">bənzər | dovşan | əkiz | əkizlər | həmişəlik ən yaxşı dost | iki nəfər | orta-tünd dəri tonu | oxşar | qadın | qız | qoşa | qulaq | rəqqasə | ruk əkizi | şənlənən qadınlar | tünd dəri tonu | yaxın dost | ziyafət | ziyafətdə əylənmək</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏿" type="tts">şənlənən qadınlar: orta-tünd dəri tonu, tünd dəri tonu</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏻">açıq dəri tonu | bənzər | dovşan | əkiz | əkizlər | həmişəlik ən yaxşı dost | iki nəfər | oxşar | qadın | qız | qoşa | qulaq | rəqqasə | ruk əkizi | şənlənən qadınlar | tünd dəri tonu | yaxın dost | ziyafət | ziyafətdə əylənmək</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏻" type="tts">şənlənən qadınlar: tünd dəri tonu, açıq dəri tonu</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏼">bənzər | dovşan | əkiz | əkizlər | həmişəlik ən yaxşı dost | iki nəfər | orta-açıq dəri tonu | oxşar | qadın | qız | qoşa | qulaq | rəqqasə | ruk əkizi | şənlənən qadınlar | tünd dəri tonu | yaxın dost | ziyafət | ziyafətdə əylənmək</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏼" type="tts">şənlənən qadınlar: tünd dəri tonu, orta-açıq dəri tonu</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏽">bənzər | dovşan | əkiz | əkizlər | həmişəlik ən yaxşı dost | iki nəfər | orta dəri tonu | oxşar | qadın | qız | qoşa | qulaq | rəqqasə | ruk əkizi | şənlənən qadınlar | tünd dəri tonu | yaxın dost | ziyafət | ziyafətdə əylənmək</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏽" type="tts">şənlənən qadınlar: tünd dəri tonu, orta dəri tonu</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏾">bənzər | dovşan | əkiz | əkizlər | həmişəlik ən yaxşı dost | iki nəfər | orta-tünd dəri tonu | oxşar | qadın | qız | qoşa | qulaq | rəqqasə | ruk əkizi | şənlənən qadınlar | tünd dəri tonu | yaxın dost | ziyafət | ziyafətdə əylənmək</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏾" type="tts">şənlənən qadınlar: tünd dəri tonu, orta-tünd dəri tonu</annotation>
+		<annotation cp="🧑🏻‍🩰">açıq dəri tonu | balet | rəqqas</annotation>
+		<annotation cp="🧑🏻‍🩰" type="tts">balet rəqqası: açıq dəri tonu</annotation>
+		<annotation cp="🧑🏼‍🩰">balet | orta-açıq dəri tonu | rəqqas</annotation>
+		<annotation cp="🧑🏼‍🩰" type="tts">balet rəqqası: orta-açıq dəri tonu</annotation>
+		<annotation cp="🧑🏽‍🩰">balet | orta dəri tonu | rəqqas</annotation>
+		<annotation cp="🧑🏽‍🩰" type="tts">balet rəqqası: orta dəri tonu</annotation>
+		<annotation cp="🧑🏾‍🩰">balet | orta-tünd dəri tonu | rəqqas</annotation>
+		<annotation cp="🧑🏾‍🩰" type="tts">balet rəqqası: orta-tünd dəri tonu</annotation>
+		<annotation cp="🧑🏿‍🩰">balet | rəqqas | tünd dəri tonu</annotation>
+		<annotation cp="🧑🏿‍🩰" type="tts">balet rəqqası: tünd dəri tonu</annotation>
 		<annotation cp="👨🏻">açıq dəri tonu | dost | kişi | oğlan</annotation>
 		<annotation cp="👨🏻" type="tts">kişi: açıq dəri tonu</annotation>
 		<annotation cp="👨🏼">dost | kişi | oğlan | orta-açıq dəri tonu</annotation>
@@ -771,6 +860,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾‍♂" type="tts">sarışın kişi: orta-tünd dəri tonu</annotation>
 		<annotation cp="👱🏿‍♂">kişi | sarışın | tünd dəri tonu</annotation>
 		<annotation cp="👱🏿‍♂" type="tts">sarışın kişi: tünd dəri tonu</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏼">açıq dəri tonu | döyüş | döyüş meydançasında | güləş | güləş turniri | güləşçi kişi | güləşçi kişilər | güləşmək | idman | kişi | orta-açıq dəri tonu | şəxs | təkbətək döyüş</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏼" type="tts">güləşçi kişi: açıq dəri tonu, orta-açıq dəri tonu</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏽">açıq dəri tonu | döyüş | döyüş meydançasında | güləş | güləş turniri | güləşçi kişi | güləşçi kişilər | güləşmək | idman | kişi | orta dəri tonu | şəxs | təkbətək döyüş</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏽" type="tts">güləşçi kişi: açıq dəri tonu, orta dəri tonu</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏾">açıq dəri tonu | döyüş | döyüş meydançasında | güləş | güləş turniri | güləşçi kişi | güləşçi kişilər | güləşmək | idman | kişi | orta-tünd dəri tonu | şəxs | təkbətək döyüş</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏾" type="tts">güləşçi kişi: açıq dəri tonu, orta-tünd dəri tonu</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏿">açıq dəri tonu | döyüş | döyüş meydançasında | güləş | güləş turniri | güləşçi kişi | güləşçi kişilər | güləşmək | idman | kişi | şəxs | təkbətək döyüş | tünd dəri tonu</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏿" type="tts">güləşçi kişi: açıq dəri tonu, tünd dəri tonu</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏻">açıq dəri tonu | döyüş | döyüş meydançasında | güləş | güləş turniri | güləşçi kişi | güləşçi kişilər | güləşmək | idman | kişi | orta-açıq dəri tonu | şəxs | təkbətək döyüş</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏻" type="tts">güləşçi kişi: orta-açıq dəri tonu, açıq dəri tonu</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏽">döyüş | döyüş meydançasında | güləş | güləş turniri | güləşçi kişi | güləşçi kişilər | güləşmək | idman | kişi | orta dəri tonu | orta-açıq dəri tonu | şəxs | təkbətək döyüş</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏽" type="tts">güləşçi kişi: orta-açıq dəri tonu, orta dəri tonu</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏾">döyüş | döyüş meydançasında | güləş | güləş turniri | güləşçi kişi | güləşçi kişilər | güləşmək | idman | kişi | orta-açıq dəri tonu | orta-tünd dəri tonu | şəxs | təkbətək döyüş</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏾" type="tts">güləşçi kişi: orta-açıq dəri tonu, orta-tünd dəri tonu</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏿">döyüş | döyüş meydançasında | güləş | güləş turniri | güləşçi kişi | güləşçi kişilər | güləşmək | idman | kişi | orta-açıq dəri tonu | şəxs | təkbətək döyüş | tünd dəri tonu</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏿" type="tts">güləşçi kişi: orta-açıq dəri tonu, tünd dəri tonu</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏻">açıq dəri tonu | döyüş | döyüş meydançasında | güləş | güləş turniri | güləşçi kişi | güləşçi kişilər | güləşmək | idman | kişi | orta dəri tonu | şəxs | təkbətək döyüş</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏻" type="tts">güləşçi kişi: orta dəri tonu, açıq dəri tonu</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏼">döyüş | döyüş meydançasında | güləş | güləş turniri | güləşçi kişi | güləşçi kişilər | güləşmək | idman | kişi | orta dəri tonu | orta-açıq dəri tonu | şəxs | təkbətək döyüş</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏼" type="tts">güləşçi kişi: orta dəri tonu, orta-açıq dəri tonu</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏾">döyüş | döyüş meydançasında | güləş | güləş turniri | güləşçi kişi | güləşçi kişilər | güləşmək | idman | kişi | orta dəri tonu | orta-tünd dəri tonu | şəxs | təkbətək döyüş</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏾" type="tts">güləşçi kişi: orta dəri tonu, orta-tünd dəri tonu</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏿">döyüş | döyüş meydançasında | güləş | güləş turniri | güləşçi kişi | güləşçi kişilər | güləşmək | idman | kişi | orta dəri tonu | şəxs | təkbətək döyüş | tünd dəri tonu</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏿" type="tts">güləşçi kişi: orta dəri tonu, tünd dəri tonu</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏻">açıq dəri tonu | döyüş | döyüş meydançasında | güləş | güləş turniri | güləşçi kişi | güləşçi kişilər | güləşmək | idman | kişi | orta-tünd dəri tonu | şəxs | təkbətək döyüş</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏻" type="tts">güləşçi kişi: orta-tünd dəri tonu, açıq dəri tonu</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏼">döyüş | döyüş meydançasında | güləş | güləş turniri | güləşçi kişi | güləşçi kişilər | güləşmək | idman | kişi | orta-açıq dəri tonu | orta-tünd dəri tonu | şəxs | təkbətək döyüş</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏼" type="tts">güləşçi kişi: orta-tünd dəri tonu, orta-açıq dəri tonu</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏽">döyüş | döyüş meydançasında | güləş | güləş turniri | güləşçi kişi | güləşçi kişilər | güləşmək | idman | kişi | orta dəri tonu | orta-tünd dəri tonu | şəxs | təkbətək döyüş</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏽" type="tts">güləşçi kişi: orta-tünd dəri tonu, orta dəri tonu</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏿">döyüş | döyüş meydançasında | güləş | güləş turniri | güləşçi kişi | güləşçi kişilər | güləşmək | idman | kişi | orta-tünd dəri tonu | şəxs | təkbətək döyüş | tünd dəri tonu</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏿" type="tts">güləşçi kişi: orta-tünd dəri tonu, tünd dəri tonu</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏻">açıq dəri tonu | döyüş | döyüş meydançasında | güləş | güləş turniri | güləşçi kişi | güləşçi kişilər | güləşmək | idman | kişi | şəxs | təkbətək döyüş | tünd dəri tonu</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏻" type="tts">güləşçi kişi: tünd dəri tonu, açıq dəri tonu</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏼">döyüş | döyüş meydançasında | güləş | güləş turniri | güləşçi kişi | güləşçi kişilər | güləşmək | idman | kişi | orta-açıq dəri tonu | şəxs | təkbətək döyüş | tünd dəri tonu</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏼" type="tts">güləşçi kişi: tünd dəri tonu, orta-açıq dəri tonu</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏽">döyüş | döyüş meydançasında | güləş | güləş turniri | güləşçi kişi | güləşçi kişilər | güləşmək | idman | kişi | orta dəri tonu | şəxs | təkbətək döyüş | tünd dəri tonu</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏽" type="tts">güləşçi kişi: tünd dəri tonu, orta dəri tonu</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏾">döyüş | döyüş meydançasında | güləş | güləş turniri | güləşçi kişi | güləşçi kişilər | güləşmək | idman | kişi | orta-tünd dəri tonu | şəxs | təkbətək döyüş | tünd dəri tonu</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏾" type="tts">güləşçi kişi: tünd dəri tonu, orta-tünd dəri tonu</annotation>
 		<annotation cp="👨🏻‍❤‍💋‍👨🏻">açıq dəri tonu | cütlük | kişi | öpüş | romantika | sevgi</annotation>
 		<annotation cp="👨🏻‍❤‍💋‍👨🏻" type="tts">öpüş: kişi, kişi, açıq dəri tonu</annotation>
 		<annotation cp="👨🏻‍❤‍💋‍👨🏼">açıq dəri tonu | cütlük | kişi | öpüş | orta-açıq dəri tonu | romantika | sevgi</annotation>
@@ -919,6 +1048,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾‍🦲" type="tts">kişi: orta-tünd dəri tonu, keçəl</annotation>
 		<annotation cp="👨🏿‍🦲">dost | keçəl | kişi | oğlan | tünd dəri tonu</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">kişi: tünd dəri tonu, keçəl</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏼">açıq dəri tonu | dovşan qulaq | kişi | orta-açıq dəri tonu | parti | rəqqas | rəqs edən kişi | şənlik keçirmək</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏼" type="tts">rəqs edən kişi: açıq dəri tonu, orta-açıq dəri tonu</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏽">açıq dəri tonu | dovşan qulaq | kişi | orta dəri tonu | parti | rəqqas | rəqs edən kişi | şənlik keçirmək</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏽" type="tts">rəqs edən kişi: açıq dəri tonu, orta dəri tonu</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏾">açıq dəri tonu | dovşan qulaq | kişi | orta-tünd dəri tonu | parti | rəqqas | rəqs edən kişi | şənlik keçirmək</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏾" type="tts">rəqs edən kişi: açıq dəri tonu, orta-tünd dəri tonu</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏿">açıq dəri tonu | dovşan qulaq | kişi | parti | rəqqas | rəqs edən kişi | şənlik keçirmək | tünd dəri tonu</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏿" type="tts">rəqs edən kişi: açıq dəri tonu, tünd dəri tonu</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏻">açıq dəri tonu | dovşan qulaq | kişi | orta-açıq dəri tonu | parti | rəqqas | rəqs edən kişi | şənlik keçirmək</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏻" type="tts">rəqs edən kişi: orta-açıq dəri tonu, açıq dəri tonu</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏽">dovşan qulaq | kişi | orta dəri tonu | orta-açıq dəri tonu | parti | rəqqas | rəqs edən kişi | şənlik keçirmək</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏽" type="tts">rəqs edən kişi: orta-açıq dəri tonu, orta dəri tonu</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏾">dovşan qulaq | kişi | orta-açıq dəri tonu | orta-tünd dəri tonu | parti | rəqqas | rəqs edən kişi | şənlik keçirmək</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏾" type="tts">rəqs edən kişi: orta-açıq dəri tonu, orta-tünd dəri tonu</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏿">dovşan qulaq | kişi | orta-açıq dəri tonu | parti | rəqqas | rəqs edən kişi | şənlik keçirmək | tünd dəri tonu</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏿" type="tts">rəqs edən kişi: orta-açıq dəri tonu, tünd dəri tonu</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏻">açıq dəri tonu | dovşan qulaq | kişi | orta dəri tonu | parti | rəqqas | rəqs edən kişi | şənlik keçirmək</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏻" type="tts">rəqs edən kişi: orta dəri tonu, açıq dəri tonu</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏼">dovşan qulaq | kişi | orta dəri tonu | orta-açıq dəri tonu | parti | rəqqas | rəqs edən kişi | şənlik keçirmək</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏼" type="tts">rəqs edən kişi: orta dəri tonu, orta-açıq dəri tonu</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏾">dovşan qulaq | kişi | orta dəri tonu | orta-tünd dəri tonu | parti | rəqqas | rəqs edən kişi | şənlik keçirmək</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏾" type="tts">rəqs edən kişi: orta dəri tonu, orta-tünd dəri tonu</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏿">dovşan qulaq | kişi | orta dəri tonu | parti | rəqqas | rəqs edən kişi | şənlik keçirmək | tünd dəri tonu</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏿" type="tts">rəqs edən kişi: orta dəri tonu, tünd dəri tonu</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏻">açıq dəri tonu | dovşan qulaq | kişi | orta-tünd dəri tonu | parti | rəqqas | rəqs edən kişi | şənlik keçirmək</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏻" type="tts">rəqs edən kişi: orta-tünd dəri tonu, açıq dəri tonu</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏼">dovşan qulaq | kişi | orta-açıq dəri tonu | orta-tünd dəri tonu | parti | rəqqas | rəqs edən kişi | şənlik keçirmək</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏼" type="tts">rəqs edən kişi: orta-tünd dəri tonu, orta-açıq dəri tonu</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏽">dovşan qulaq | kişi | orta dəri tonu | orta-tünd dəri tonu | parti | rəqqas | rəqs edən kişi | şənlik keçirmək</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏽" type="tts">rəqs edən kişi: orta-tünd dəri tonu, orta dəri tonu</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏿">dovşan qulaq | kişi | orta-tünd dəri tonu | parti | rəqqas | rəqs edən kişi | şənlik keçirmək | tünd dəri tonu</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏿" type="tts">rəqs edən kişi: orta-tünd dəri tonu, tünd dəri tonu</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏻">açıq dəri tonu | dovşan qulaq | kişi | parti | rəqqas | rəqs edən kişi | şənlik keçirmək | tünd dəri tonu</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏻" type="tts">rəqs edən kişi: tünd dəri tonu, açıq dəri tonu</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏼">dovşan qulaq | kişi | orta-açıq dəri tonu | parti | rəqqas | rəqs edən kişi | şənlik keçirmək | tünd dəri tonu</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏼" type="tts">rəqs edən kişi: tünd dəri tonu, orta-açıq dəri tonu</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏽">dovşan qulaq | kişi | orta dəri tonu | parti | rəqqas | rəqs edən kişi | şənlik keçirmək | tünd dəri tonu</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏽" type="tts">rəqs edən kişi: tünd dəri tonu, orta dəri tonu</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏾">dovşan qulaq | kişi | orta-tünd dəri tonu | parti | rəqqas | rəqs edən kişi | şənlik keçirmək | tünd dəri tonu</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏾" type="tts">rəqs edən kişi: tünd dəri tonu, orta-tünd dəri tonu</annotation>
 		<annotation cp="👩🏻">açıq dəri tonu | qadın | sarışın | xanım</annotation>
 		<annotation cp="👩🏻" type="tts">qadın: açıq dəri tonu</annotation>
 		<annotation cp="👩🏼">orta-açıq dəri tonu | qadın | sarışın | xanım</annotation>
@@ -949,6 +1118,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾‍♀" type="tts">sarışın qadın: orta-tünd dəri tonu</annotation>
 		<annotation cp="👱🏿‍♀">qadın | sarışın | tünd dəri tonu</annotation>
 		<annotation cp="👱🏿‍♀" type="tts">sarışın qadın: tünd dəri tonu</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏼">açıq dəri tonu | arenada | döyüşmək | güləş | güləş yarışı | güləşçi qadın | güləşçi qadınlar | güləşmək | idman | orta-açıq dəri tonu | qadın | şəxs | təkbətək döyüş | tutuşmaq</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏼" type="tts">güləşçi qadın: açıq dəri tonu, orta-açıq dəri tonu</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏽">açıq dəri tonu | arenada | döyüşmək | güləş | güləş yarışı | güləşçi qadın | güləşçi qadınlar | güləşmək | idman | orta dəri tonu | qadın | şəxs | təkbətək döyüş | tutuşmaq</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏽" type="tts">güləşçi qadın: açıq dəri tonu, orta dəri tonu</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏾">açıq dəri tonu | arenada | döyüşmək | güləş | güləş yarışı | güləşçi qadın | güləşçi qadınlar | güləşmək | idman | orta-tünd dəri tonu | qadın | şəxs | təkbətək döyüş | tutuşmaq</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏾" type="tts">güləşçi qadın: açıq dəri tonu, orta-tünd dəri tonu</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏿">açıq dəri tonu | arenada | döyüşmək | güləş | güləş yarışı | güləşçi qadın | güləşçi qadınlar | güləşmək | idman | qadın | şəxs | təkbətək döyüş | tünd dəri tonu | tutuşmaq</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏿" type="tts">güləşçi qadın: açıq dəri tonu, tünd dəri tonu</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏻">açıq dəri tonu | arenada | döyüşmək | güləş | güləş yarışı | güləşçi qadın | güləşçi qadınlar | güləşmək | idman | orta-açıq dəri tonu | qadın | şəxs | təkbətək döyüş | tutuşmaq</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏻" type="tts">güləşçi qadın: orta-açıq dəri tonu, açıq dəri tonu</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏽">arenada | döyüşmək | güləş | güləş yarışı | güləşçi qadın | güləşçi qadınlar | güləşmək | idman | orta dəri tonu | orta-açıq dəri tonu | qadın | şəxs | təkbətək döyüş | tutuşmaq</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏽" type="tts">güləşçi qadın: orta-açıq dəri tonu, orta dəri tonu</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏾">arenada | döyüşmək | güləş | güləş yarışı | güləşçi qadın | güləşçi qadınlar | güləşmək | idman | orta-açıq dəri tonu | orta-tünd dəri tonu | qadın | şəxs | təkbətək döyüş | tutuşmaq</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏾" type="tts">güləşçi qadın: orta-açıq dəri tonu, orta-tünd dəri tonu</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏿">arenada | döyüşmək | güləş | güləş yarışı | güləşçi qadın | güləşçi qadınlar | güləşmək | idman | orta-açıq dəri tonu | qadın | şəxs | təkbətək döyüş | tünd dəri tonu | tutuşmaq</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏿" type="tts">güləşçi qadın: orta-açıq dəri tonu, tünd dəri tonu</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏻">açıq dəri tonu | arenada | döyüşmək | güləş | güləş yarışı | güləşçi qadın | güləşçi qadınlar | güləşmək | idman | orta dəri tonu | qadın | şəxs | təkbətək döyüş | tutuşmaq</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏻" type="tts">güləşçi qadın: orta dəri tonu, açıq dəri tonu</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏼">arenada | döyüşmək | güləş | güləş yarışı | güləşçi qadın | güləşçi qadınlar | güləşmək | idman | orta dəri tonu | orta-açıq dəri tonu | qadın | şəxs | təkbətək döyüş | tutuşmaq</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏼" type="tts">güləşçi qadın: orta dəri tonu, orta-açıq dəri tonu</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏾">arenada | döyüşmək | güləş | güləş yarışı | güləşçi qadın | güləşçi qadınlar | güləşmək | idman | orta dəri tonu | orta-tünd dəri tonu | qadın | şəxs | təkbətək döyüş | tutuşmaq</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏾" type="tts">güləşçi qadın: orta dəri tonu, orta-tünd dəri tonu</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏿">arenada | döyüşmək | güləş | güləş yarışı | güləşçi qadın | güləşçi qadınlar | güləşmək | idman | orta dəri tonu | qadın | şəxs | təkbətək döyüş | tünd dəri tonu | tutuşmaq</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏿" type="tts">güləşçi qadın: orta dəri tonu, tünd dəri tonu</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏻">açıq dəri tonu | arenada | döyüşmək | güləş | güləş yarışı | güləşçi qadın | güləşçi qadınlar | güləşmək | idman | orta-tünd dəri tonu | qadın | şəxs | təkbətək döyüş | tutuşmaq</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏻" type="tts">güləşçi qadın: orta-tünd dəri tonu, açıq dəri tonu</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏼">arenada | döyüşmək | güləş | güləş yarışı | güləşçi qadın | güləşçi qadınlar | güləşmək | idman | orta-açıq dəri tonu | orta-tünd dəri tonu | qadın | şəxs | təkbətək döyüş | tutuşmaq</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏼" type="tts">güləşçi qadın: orta-tünd dəri tonu, orta-açıq dəri tonu</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏽">arenada | döyüşmək | güləş | güləş yarışı | güləşçi qadın | güləşçi qadınlar | güləşmək | idman | orta dəri tonu | orta-tünd dəri tonu | qadın | şəxs | təkbətək döyüş | tutuşmaq</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏽" type="tts">güləşçi qadın: orta-tünd dəri tonu, orta dəri tonu</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏿">arenada | döyüşmək | güləş | güləş yarışı | güləşçi qadın | güləşçi qadınlar | güləşmək | idman | orta-tünd dəri tonu | qadın | şəxs | təkbətək döyüş | tünd dəri tonu | tutuşmaq</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏿" type="tts">güləşçi qadın: orta-tünd dəri tonu, tünd dəri tonu</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏻">açıq dəri tonu | arenada | döyüşmək | güləş | güləş yarışı | güləşçi qadın | güləşçi qadınlar | güləşmək | idman | qadın | şəxs | təkbətək döyüş | tünd dəri tonu | tutuşmaq</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏻" type="tts">güləşçi qadın: tünd dəri tonu, açıq dəri tonu</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏼">arenada | döyüşmək | güləş | güləş yarışı | güləşçi qadın | güləşçi qadınlar | güləşmək | idman | orta-açıq dəri tonu | qadın | şəxs | təkbətək döyüş | tünd dəri tonu | tutuşmaq</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏼" type="tts">güləşçi qadın: tünd dəri tonu, orta-açıq dəri tonu</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏽">arenada | döyüşmək | güləş | güləş yarışı | güləşçi qadın | güləşçi qadınlar | güləşmək | idman | orta dəri tonu | qadın | şəxs | təkbətək döyüş | tünd dəri tonu | tutuşmaq</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏽" type="tts">güləşçi qadın: tünd dəri tonu, orta dəri tonu</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏾">arenada | döyüşmək | güləş | güləş yarışı | güləşçi qadın | güləşçi qadınlar | güləşmək | idman | orta-tünd dəri tonu | qadın | şəxs | təkbətək döyüş | tünd dəri tonu | tutuşmaq</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏾" type="tts">güləşçi qadın: tünd dəri tonu, orta-tünd dəri tonu</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👨🏻">açıq dəri tonu | cütlük | kişi | öpüş | qadın | romantika | sevgi</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👨🏻" type="tts">öpüş: qadın, kişi, açıq dəri tonu</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👨🏼">açıq dəri tonu | cütlük | kişi | öpüş | orta-açıq dəri tonu | qadın | romantika | sevgi</annotation>
@@ -1197,6 +1406,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🦲" type="tts">qadın: orta-tünd dəri tonu, keçəl</annotation>
 		<annotation cp="👩🏿‍🦲">keçəl | qadın | sarışın | tünd dəri tonu | xanım</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">qadın: tünd dəri tonu, keçəl</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏼">açıq dəri tonu | dovşan qulaq | orta-açıq dəri tonu | parti | qadın | rəqqasə | rəqs edən qadınlar</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏼" type="tts">rəqs edən qadınlar: açıq dəri tonu, orta-açıq dəri tonu</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏽">açıq dəri tonu | dovşan qulaq | orta dəri tonu | parti | qadın | rəqqasə | rəqs edən qadınlar</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏽" type="tts">rəqs edən qadınlar: açıq dəri tonu, orta dəri tonu</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏾">açıq dəri tonu | dovşan qulaq | orta-tünd dəri tonu | parti | qadın | rəqqasə | rəqs edən qadınlar</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏾" type="tts">rəqs edən qadınlar: açıq dəri tonu, orta-tünd dəri tonu</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏿">açıq dəri tonu | dovşan qulaq | parti | qadın | rəqqasə | rəqs edən qadınlar | tünd dəri tonu</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏿" type="tts">rəqs edən qadınlar: açıq dəri tonu, tünd dəri tonu</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏻">açıq dəri tonu | dovşan qulaq | orta-açıq dəri tonu | parti | qadın | rəqqasə | rəqs edən qadınlar</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏻" type="tts">rəqs edən qadınlar: orta-açıq dəri tonu, açıq dəri tonu</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏽">dovşan qulaq | orta dəri tonu | orta-açıq dəri tonu | parti | qadın | rəqqasə | rəqs edən qadınlar</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏽" type="tts">rəqs edən qadınlar: orta-açıq dəri tonu, orta dəri tonu</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏾">dovşan qulaq | orta-açıq dəri tonu | orta-tünd dəri tonu | parti | qadın | rəqqasə | rəqs edən qadınlar</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏾" type="tts">rəqs edən qadınlar: orta-açıq dəri tonu, orta-tünd dəri tonu</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏿">dovşan qulaq | orta-açıq dəri tonu | parti | qadın | rəqqasə | rəqs edən qadınlar | tünd dəri tonu</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏿" type="tts">rəqs edən qadınlar: orta-açıq dəri tonu, tünd dəri tonu</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏻">açıq dəri tonu | dovşan qulaq | orta dəri tonu | parti | qadın | rəqqasə | rəqs edən qadınlar</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏻" type="tts">rəqs edən qadınlar: orta dəri tonu, açıq dəri tonu</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏼">dovşan qulaq | orta dəri tonu | orta-açıq dəri tonu | parti | qadın | rəqqasə | rəqs edən qadınlar</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏼" type="tts">rəqs edən qadınlar: orta dəri tonu, orta-açıq dəri tonu</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏾">dovşan qulaq | orta dəri tonu | orta-tünd dəri tonu | parti | qadın | rəqqasə | rəqs edən qadınlar</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏾" type="tts">rəqs edən qadınlar: orta dəri tonu, orta-tünd dəri tonu</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏿">dovşan qulaq | orta dəri tonu | parti | qadın | rəqqasə | rəqs edən qadınlar | tünd dəri tonu</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏿" type="tts">rəqs edən qadınlar: orta dəri tonu, tünd dəri tonu</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏻">açıq dəri tonu | dovşan qulaq | orta-tünd dəri tonu | parti | qadın | rəqqasə | rəqs edən qadınlar</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏻" type="tts">rəqs edən qadınlar: orta-tünd dəri tonu, açıq dəri tonu</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏼">dovşan qulaq | orta-açıq dəri tonu | orta-tünd dəri tonu | parti | qadın | rəqqasə | rəqs edən qadınlar</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏼" type="tts">rəqs edən qadınlar: orta-tünd dəri tonu, orta-açıq dəri tonu</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏽">dovşan qulaq | orta dəri tonu | orta-tünd dəri tonu | parti | qadın | rəqqasə | rəqs edən qadınlar</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏽" type="tts">rəqs edən qadınlar: orta-tünd dəri tonu, orta dəri tonu</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏿">dovşan qulaq | orta-tünd dəri tonu | parti | qadın | rəqqasə | rəqs edən qadınlar | tünd dəri tonu</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏿" type="tts">rəqs edən qadınlar: orta-tünd dəri tonu, tünd dəri tonu</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏻">açıq dəri tonu | dovşan qulaq | parti | qadın | rəqqasə | rəqs edən qadınlar | tünd dəri tonu</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏻" type="tts">rəqs edən qadınlar: tünd dəri tonu, açıq dəri tonu</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏼">dovşan qulaq | orta-açıq dəri tonu | parti | qadın | rəqqasə | rəqs edən qadınlar | tünd dəri tonu</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏼" type="tts">rəqs edən qadınlar: tünd dəri tonu, orta-açıq dəri tonu</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏽">dovşan qulaq | orta dəri tonu | parti | qadın | rəqqasə | rəqs edən qadınlar | tünd dəri tonu</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏽" type="tts">rəqs edən qadınlar: tünd dəri tonu, orta dəri tonu</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏾">dovşan qulaq | orta-tünd dəri tonu | parti | qadın | rəqqasə | rəqs edən qadınlar | tünd dəri tonu</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏾" type="tts">rəqs edən qadınlar: tünd dəri tonu, orta-tünd dəri tonu</annotation>
 		<annotation cp="🧓🏻">açıq dəri tonu | ağsaqqal | gender-neytral | qoca | yaşlı | yaşlı böyük</annotation>
 		<annotation cp="🧓🏻" type="tts">yaşlı böyük: açıq dəri tonu</annotation>
 		<annotation cp="🧓🏼">ağsaqqal | gender-neytral | orta-açıq dəri tonu | qoca | yaşlı | yaşlı böyük</annotation>
@@ -3113,6 +3362,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🕴🏾" type="tts">işgüzar kostyumlu kişi: orta-tünd dəri tonu</annotation>
 		<annotation cp="🕴🏿">biznes | biznesmen | işgüzar kostyumlu kişi | kişi | kostyum | tünd dəri tonu</annotation>
 		<annotation cp="🕴🏿" type="tts">işgüzar kostyumlu kişi: tünd dəri tonu</annotation>
+		<annotation cp="👯🏻">açıq dəri tonu | bənzər | dovşan | əkiz | əkizlər | həmişəlik ən yaxşı dost | iki nəfər | oxşar | qadın | qız | qoşa | qulaq | rəqqasə | ruk əkizi | şənlənən qadınlar | yaxın dost | ziyafət | ziyafətdə əylənmək</annotation>
+		<annotation cp="👯🏻" type="tts">şənlənən qadınlar: açıq dəri tonu</annotation>
+		<annotation cp="👯🏼">bənzər | dovşan | əkiz | əkizlər | həmişəlik ən yaxşı dost | iki nəfər | orta-açıq dəri tonu | oxşar | qadın | qız | qoşa | qulaq | rəqqasə | ruk əkizi | şənlənən qadınlar | yaxın dost | ziyafət | ziyafətdə əylənmək</annotation>
+		<annotation cp="👯🏼" type="tts">şənlənən qadınlar: orta-açıq dəri tonu</annotation>
+		<annotation cp="👯🏽">bənzər | dovşan | əkiz | əkizlər | həmişəlik ən yaxşı dost | iki nəfər | orta dəri tonu | oxşar | qadın | qız | qoşa | qulaq | rəqqasə | ruk əkizi | şənlənən qadınlar | yaxın dost | ziyafət | ziyafətdə əylənmək</annotation>
+		<annotation cp="👯🏽" type="tts">şənlənən qadınlar: orta dəri tonu</annotation>
+		<annotation cp="👯🏾">bənzər | dovşan | əkiz | əkizlər | həmişəlik ən yaxşı dost | iki nəfər | orta-tünd dəri tonu | oxşar | qadın | qız | qoşa | qulaq | rəqqasə | ruk əkizi | şənlənən qadınlar | yaxın dost | ziyafət | ziyafətdə əylənmək</annotation>
+		<annotation cp="👯🏾" type="tts">şənlənən qadınlar: orta-tünd dəri tonu</annotation>
+		<annotation cp="👯🏿">bənzər | dovşan | əkiz | əkizlər | həmişəlik ən yaxşı dost | iki nəfər | oxşar | qadın | qız | qoşa | qulaq | rəqqasə | ruk əkizi | şənlənən qadınlar | tünd dəri tonu | yaxın dost | ziyafət | ziyafətdə əylənmək</annotation>
+		<annotation cp="👯🏿" type="tts">şənlənən qadınlar: tünd dəri tonu</annotation>
+		<annotation cp="👯🏻‍♀">açıq dəri tonu | dovşan qulaq | parti | qadın | rəqqasə | rəqs edən qadınlar</annotation>
+		<annotation cp="👯🏻‍♀" type="tts">rəqs edən qadınlar: açıq dəri tonu</annotation>
+		<annotation cp="👯🏼‍♀">dovşan qulaq | orta-açıq dəri tonu | parti | qadın | rəqqasə | rəqs edən qadınlar</annotation>
+		<annotation cp="👯🏼‍♀" type="tts">rəqs edən qadınlar: orta-açıq dəri tonu</annotation>
+		<annotation cp="👯🏽‍♀">dovşan qulaq | orta dəri tonu | parti | qadın | rəqqasə | rəqs edən qadınlar</annotation>
+		<annotation cp="👯🏽‍♀" type="tts">rəqs edən qadınlar: orta dəri tonu</annotation>
+		<annotation cp="👯🏾‍♀">dovşan qulaq | orta-tünd dəri tonu | parti | qadın | rəqqasə | rəqs edən qadınlar</annotation>
+		<annotation cp="👯🏾‍♀" type="tts">rəqs edən qadınlar: orta-tünd dəri tonu</annotation>
+		<annotation cp="👯🏿‍♀">dovşan qulaq | parti | qadın | rəqqasə | rəqs edən qadınlar | tünd dəri tonu</annotation>
+		<annotation cp="👯🏿‍♀" type="tts">rəqs edən qadınlar: tünd dəri tonu</annotation>
+		<annotation cp="👯🏻‍♂">açıq dəri tonu | dovşan qulaq | kişi | parti | rəqqas | rəqs edən kişi | şənlik keçirmək</annotation>
+		<annotation cp="👯🏻‍♂" type="tts">rəqs edən kişi: açıq dəri tonu</annotation>
+		<annotation cp="👯🏼‍♂">dovşan qulaq | kişi | orta-açıq dəri tonu | parti | rəqqas | rəqs edən kişi | şənlik keçirmək</annotation>
+		<annotation cp="👯🏼‍♂" type="tts">rəqs edən kişi: orta-açıq dəri tonu</annotation>
+		<annotation cp="👯🏽‍♂">dovşan qulaq | kişi | orta dəri tonu | parti | rəqqas | rəqs edən kişi | şənlik keçirmək</annotation>
+		<annotation cp="👯🏽‍♂" type="tts">rəqs edən kişi: orta dəri tonu</annotation>
+		<annotation cp="👯🏾‍♂">dovşan qulaq | kişi | orta-tünd dəri tonu | parti | rəqqas | rəqs edən kişi | şənlik keçirmək</annotation>
+		<annotation cp="👯🏾‍♂" type="tts">rəqs edən kişi: orta-tünd dəri tonu</annotation>
+		<annotation cp="👯🏿‍♂">dovşan qulaq | kişi | parti | rəqqas | rəqs edən kişi | şənlik keçirmək | tünd dəri tonu</annotation>
+		<annotation cp="👯🏿‍♂" type="tts">rəqs edən kişi: tünd dəri tonu</annotation>
 		<annotation cp="🧖🏻">açıq dəri tonu | buxarlı | buxarlı otaq | buxarlı otaqda adam | dincəlmək | əzizləmək | rahatlamaq | sauna | spa | spa günü | təmtəraqlı</annotation>
 		<annotation cp="🧖🏻" type="tts">buxarlı otaqda adam: açıq dəri tonu</annotation>
 		<annotation cp="🧖🏼">buxarlı | buxarlı otaq | buxarlı otaqda adam | dincəlmək | əzizləmək | orta-açıq dəri tonu | rahatlamaq | sauna | spa | spa günü | təmtəraqlı</annotation>
@@ -3463,6 +3742,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤸🏾‍♀" type="tts">aktobat qadın: orta-tünd dəri tonu</annotation>
 		<annotation cp="🤸🏿‍♀">akrobat | akrobatik hərəkət | aktiv | aktobat qadın | fəal | gimnast | gimnastika | həyəcanlı | idman | mayallaq aşma | qadın | salto | şəxs | tünd dəri tonu | xoşbəxt</annotation>
 		<annotation cp="🤸🏿‍♀" type="tts">aktobat qadın: tünd dəri tonu</annotation>
+		<annotation cp="🤼🏻">açıq dəri tonu | döyüş | döyüş meydançasında | güləş | güləş turniri | güləşçilər | güləşmək | idman | təkbətək döyüş</annotation>
+		<annotation cp="🤼🏻" type="tts">güləş: açıq dəri tonu</annotation>
+		<annotation cp="🤼🏼">döyüş | döyüş meydançasında | güləş | güləş turniri | güləşçilər | güləşmək | idman | orta-açıq dəri tonu | təkbətək döyüş</annotation>
+		<annotation cp="🤼🏼" type="tts">güləş: orta-açıq dəri tonu</annotation>
+		<annotation cp="🤼🏽">döyüş | döyüş meydançasında | güləş | güləş turniri | güləşçilər | güləşmək | idman | orta dəri tonu | təkbətək döyüş</annotation>
+		<annotation cp="🤼🏽" type="tts">güləş: orta dəri tonu</annotation>
+		<annotation cp="🤼🏾">döyüş | döyüş meydançasında | güləş | güləş turniri | güləşçilər | güləşmək | idman | orta-tünd dəri tonu | təkbətək döyüş</annotation>
+		<annotation cp="🤼🏾" type="tts">güləş: orta-tünd dəri tonu</annotation>
+		<annotation cp="🤼🏿">döyüş | döyüş meydançasında | güləş | güləş turniri | güləşçilər | güləşmək | idman | təkbətək döyüş | tünd dəri tonu</annotation>
+		<annotation cp="🤼🏿" type="tts">güləş: tünd dəri tonu</annotation>
+		<annotation cp="🤼🏻‍♀">açıq dəri tonu | arenada | döyüşmək | güləş | güləş yarışı | güləşçi qadın | güləşçi qadınlar | güləşmək | idman | qadın | şəxs | təkbətək döyüş | tutuşmaq</annotation>
+		<annotation cp="🤼🏻‍♀" type="tts">güləşçi qadın: açıq dəri tonu</annotation>
+		<annotation cp="🤼🏼‍♀">arenada | döyüşmək | güləş | güləş yarışı | güləşçi qadın | güləşçi qadınlar | güləşmək | idman | orta-açıq dəri tonu | qadın | şəxs | təkbətək döyüş | tutuşmaq</annotation>
+		<annotation cp="🤼🏼‍♀" type="tts">güləşçi qadın: orta-açıq dəri tonu</annotation>
+		<annotation cp="🤼🏽‍♀">arenada | döyüşmək | güləş | güləş yarışı | güləşçi qadın | güləşçi qadınlar | güləşmək | idman | orta dəri tonu | qadın | şəxs | təkbətək döyüş | tutuşmaq</annotation>
+		<annotation cp="🤼🏽‍♀" type="tts">güləşçi qadın: orta dəri tonu</annotation>
+		<annotation cp="🤼🏾‍♀">arenada | döyüşmək | güləş | güləş yarışı | güləşçi qadın | güləşçi qadınlar | güləşmək | idman | orta-tünd dəri tonu | qadın | şəxs | təkbətək döyüş | tutuşmaq</annotation>
+		<annotation cp="🤼🏾‍♀" type="tts">güləşçi qadın: orta-tünd dəri tonu</annotation>
+		<annotation cp="🤼🏿‍♀">arenada | döyüşmək | güləş | güləş yarışı | güləşçi qadın | güləşçi qadınlar | güləşmək | idman | qadın | şəxs | təkbətək döyüş | tünd dəri tonu | tutuşmaq</annotation>
+		<annotation cp="🤼🏿‍♀" type="tts">güləşçi qadın: tünd dəri tonu</annotation>
+		<annotation cp="🤼🏻‍♂">açıq dəri tonu | döyüş | döyüş meydançasında | güləş | güləş turniri | güləşçi kişi | güləşçi kişilər | güləşmək | idman | kişi | şəxs | təkbətək döyüş</annotation>
+		<annotation cp="🤼🏻‍♂" type="tts">güləşçi kişi: açıq dəri tonu</annotation>
+		<annotation cp="🤼🏼‍♂">döyüş | döyüş meydançasında | güləş | güləş turniri | güləşçi kişi | güləşçi kişilər | güləşmək | idman | kişi | orta-açıq dəri tonu | şəxs | təkbətək döyüş</annotation>
+		<annotation cp="🤼🏼‍♂" type="tts">güləşçi kişi: orta-açıq dəri tonu</annotation>
+		<annotation cp="🤼🏽‍♂">döyüş | döyüş meydançasında | güləş | güləş turniri | güləşçi kişi | güləşçi kişilər | güləşmək | idman | kişi | orta dəri tonu | şəxs | təkbətək döyüş</annotation>
+		<annotation cp="🤼🏽‍♂" type="tts">güləşçi kişi: orta dəri tonu</annotation>
+		<annotation cp="🤼🏾‍♂">döyüş | döyüş meydançasında | güləş | güləş turniri | güləşçi kişi | güləşçi kişilər | güləşmək | idman | kişi | orta-tünd dəri tonu | şəxs | təkbətək döyüş</annotation>
+		<annotation cp="🤼🏾‍♂" type="tts">güləşçi kişi: orta-tünd dəri tonu</annotation>
+		<annotation cp="🤼🏿‍♂">döyüş | döyüş meydançasında | güləş | güləş turniri | güləşçi kişi | güləşçi kişilər | güləşmək | idman | kişi | şəxs | təkbətək döyüş | tünd dəri tonu</annotation>
+		<annotation cp="🤼🏿‍♂" type="tts">güləşçi kişi: tünd dəri tonu</annotation>
 		<annotation cp="🤽🏻">açıq dəri tonu | idman | Marco oyunu | polo | su | su idman növü | su poloçusu kişi | su polosu | top | üzgüçülük | yarışma</annotation>
 		<annotation cp="🤽🏻" type="tts">su polosu: açıq dəri tonu</annotation>
 		<annotation cp="🤽🏼">idman | Marco oyunu | orta-açıq dəri tonu | polo | su | su idman növü | su poloçusu kişi | su polosu | top | üzgüçülük | yarışma</annotation>
@@ -3993,6 +4302,8 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇨🇴" type="tts">bayraq: Kolumbiya</annotation>
 		<annotation cp="🇨🇵">bayraq</annotation>
 		<annotation cp="🇨🇵" type="tts">bayraq: Klipperton adası</annotation>
+		<annotation cp="🇨🇶">bayraq</annotation>
+		<annotation cp="🇨🇶" type="tts">bayraq: sark (ingilis dili) dialekti</annotation>
 		<annotation cp="🇨🇷">bayraq</annotation>
 		<annotation cp="🇨🇷" type="tts">bayraq: Kosta Rika</annotation>
 		<annotation cp="🇨🇺">bayraq</annotation>
@@ -4432,26 +4743,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="₺" type="tts">Türkiyə Lirəsi</annotation>
 		<annotation cp="₼" type="tts">Azərbaycan Manatı</annotation>
 		<annotation cp="₾" type="tts">Gürcüstan Larisi</annotation>
-		<annotation cp="0⃣">klaviatura qapağı</annotation>
-		<annotation cp="0⃣" type="tts">klaviatura qapağı: 0</annotation>
-		<annotation cp="1⃣">klaviatura qapağı</annotation>
-		<annotation cp="1⃣" type="tts">klaviatura qapağı: 1</annotation>
-		<annotation cp="2⃣">klaviatura qapağı</annotation>
-		<annotation cp="2⃣" type="tts">klaviatura qapağı: 2</annotation>
-		<annotation cp="3⃣">klaviatura qapağı</annotation>
-		<annotation cp="3⃣" type="tts">klaviatura qapağı: 3</annotation>
-		<annotation cp="4⃣">klaviatura qapağı</annotation>
-		<annotation cp="4⃣" type="tts">klaviatura qapağı: 4</annotation>
-		<annotation cp="5⃣">klaviatura qapağı</annotation>
-		<annotation cp="5⃣" type="tts">klaviatura qapağı: 5</annotation>
-		<annotation cp="6⃣">klaviatura qapağı</annotation>
-		<annotation cp="6⃣" type="tts">klaviatura qapağı: 6</annotation>
-		<annotation cp="7⃣">klaviatura qapağı</annotation>
-		<annotation cp="7⃣" type="tts">klaviatura qapağı: 7</annotation>
-		<annotation cp="8⃣">klaviatura qapağı</annotation>
-		<annotation cp="8⃣" type="tts">klaviatura qapağı: 8</annotation>
-		<annotation cp="9⃣">klaviatura qapağı</annotation>
-		<annotation cp="9⃣" type="tts">klaviatura qapağı: 9</annotation>
 		<annotation cp="₧" type="tts">İspan Pesetası</annotation>
 	</annotations>
 </ldml>

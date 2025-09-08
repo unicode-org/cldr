@@ -1,19 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-
-Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
 -->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
 		<language type="ckb"/>
 	</identity>
 	<annotations>
+		<annotation cp="¤" type="tts">پارەی نەناسراو</annotation>
+		<annotation cp="֏" type="tts">درامی ئەرمینیایی</annotation>
 		<annotation cp="؋" type="tts">ئەفغانیی ئەفغانستان</annotation>
+		<annotation cp="৳" type="tts">تەکەی بەنگالی</annotation>
+		<annotation cp="៛" type="tts">ڕیالی کەمبۆدی</annotation>
+		<annotation cp="₪" type="tts">شەخەلی ئیسرائیلی</annotation>
+		<annotation cp="₫" type="tts">دۆنگی ڤێتنامی</annotation>
+		<annotation cp="₮" type="tts">توگریکی مەنگۆلی</annotation>
+		<annotation cp="₸" type="tts">تەنگەی کازاخستانی</annotation>
 		<annotation cp="₺" type="tts">لیرەی تورکیا</annotation>
+		<annotation cp="₼" type="tts">مەنەتی ئازەربایجانی</annotation>
+		<annotation cp="₾" type="tts">لاری جۆرجیی</annotation>
 	</annotations>
 </ldml>

@@ -663,10 +663,25 @@ public class TestAnnotations extends TestFmwkPlus {
         }
     }
 
-    final UnicodeSet TEMPORARY_SKIP_COMPOUNDS =
-            new UnicodeSet(
-                            "[{👨🏻‍🐰‍👨🏼}{👨🏻‍🐰‍👨🏽}{👨🏻‍🐰‍👨🏾}{👨🏻‍🐰‍👨🏿}{👨🏻‍🫯‍👨🏼}{👨🏻‍🫯‍👨🏽}{👨🏻‍🫯‍👨🏾}{👨🏻‍🫯‍👨🏿}{👨🏼‍🐰‍👨🏻}{👨🏼‍🐰‍👨🏽}{👨🏼‍🐰‍👨🏾}{👨🏼‍🐰‍👨🏿}{👨🏼‍🫯‍👨🏻}{👨🏼‍🫯‍👨🏽}{👨🏼‍🫯‍👨🏾}{👨🏼‍🫯‍👨🏿}{👨🏽‍🐰‍👨🏻}{👨🏽‍🐰‍👨🏼}{👨🏽‍🐰‍👨🏾}{👨🏽‍🐰‍👨🏿}{👨🏽‍🫯‍👨🏻}{👨🏽‍🫯‍👨🏼}{👨🏽‍🫯‍👨🏾}{👨🏽‍🫯‍👨🏿}{👨🏾‍🐰‍👨🏻}{👨🏾‍🐰‍👨🏼}{👨🏾‍🐰‍👨🏽}{👨🏾‍🐰‍👨🏿}{👨🏾‍🫯‍👨🏻}{👨🏾‍🫯‍👨🏼}{👨🏾‍🫯‍👨🏽}{👨🏾‍🫯‍👨🏿}{👨🏿‍🐰‍👨🏻}{👨🏿‍🐰‍👨🏼}{👨🏿‍🐰‍👨🏽}{👨🏿‍🐰‍👨🏾}{👨🏿‍🫯‍👨🏻}{👨🏿‍🫯‍👨🏼}{👨🏿‍🫯‍👨🏽}{👨🏿‍🫯‍👨🏾}{👩🏻‍🐰‍👩🏼}{👩🏻‍🐰‍👩🏽}{👩🏻‍🐰‍👩🏾}{👩🏻‍🐰‍👩🏿}{👩🏻‍🫯‍👩🏼}{👩🏻‍🫯‍👩🏽}{👩🏻‍🫯‍👩🏾}{👩🏻‍🫯‍👩🏿}{👩🏼‍🐰‍👩🏻}{👩🏼‍🐰‍👩🏽}{👩🏼‍🐰‍👩🏾}{👩🏼‍🐰‍👩🏿}{👩🏼‍🫯‍👩🏻}{👩🏼‍🫯‍👩🏽}{👩🏼‍🫯‍👩🏾}{👩🏼‍🫯‍👩🏿}{👩🏽‍🐰‍👩🏻}{👩🏽‍🐰‍👩🏼}{👩🏽‍🐰‍👩🏾}{👩🏽‍🐰‍👩🏿}{👩🏽‍🫯‍👩🏻}{👩🏽‍🫯‍👩🏼}{👩🏽‍🫯‍👩🏾}{👩🏽‍🫯‍👩🏿}{👩🏾‍🐰‍👩🏻}{👩🏾‍🐰‍👩🏼}{👩🏾‍🐰‍👩🏽}{👩🏾‍🐰‍👩🏿}{👩🏾‍🫯‍👩🏻}{👩🏾‍🫯‍👩🏼}{👩🏾‍🫯‍👩🏽}{👩🏾‍🫯‍👩🏿}{👩🏿‍🐰‍👩🏻}{👩🏿‍🐰‍👩🏼}{👩🏿‍🐰‍👩🏽}{👩🏿‍🐰‍👩🏾}{👩🏿‍🫯‍👩🏻}{👩🏿‍🫯‍👩🏼}{👩🏿‍🫯‍👩🏽}{👩🏿‍🫯‍👩🏾}{👯🏻}{👯🏻‍♀}{👯🏻‍♂}{👯🏼}{👯🏼‍♀}{👯🏼‍♂}{👯🏽}{👯🏽‍♀}{👯🏽‍♂}{👯🏾}{👯🏾‍♀}{👯🏾‍♂}{👯🏿}{👯🏿‍♀}{👯🏿‍♂}{🤼🏻}{🤼🏻‍♀}{🤼🏻‍♂}{🤼🏼}{🤼🏼‍♀}{🤼🏼‍♂}{🤼🏽}{🤼🏽‍♀}{🤼🏽‍♂}{🤼🏾}{🤼🏾‍♀}{🤼🏾‍♂}{🤼🏿}{🤼🏿‍♀}{🤼🏿‍♂}{🧑🏻‍🐰‍🧑🏼}{🧑🏻‍🐰‍🧑🏽}{🧑🏻‍🐰‍🧑🏾}{🧑🏻‍🐰‍🧑🏿}{🧑🏻‍🩰}{🧑🏻‍🫯‍🧑🏼}{🧑🏻‍🫯‍🧑🏽}{🧑🏻‍🫯‍🧑🏾}{🧑🏻‍🫯‍🧑🏿}{🧑🏼‍🐰‍🧑🏻}{🧑🏼‍🐰‍🧑🏽}{🧑🏼‍🐰‍🧑🏾}{🧑🏼‍🐰‍🧑🏿}{🧑🏼‍🩰}{🧑🏼‍🫯‍🧑🏻}{🧑🏼‍🫯‍🧑🏽}{🧑🏼‍🫯‍🧑🏾}{🧑🏼‍🫯‍🧑🏿}{🧑🏽‍🐰‍🧑🏻}{🧑🏽‍🐰‍🧑🏼}{🧑🏽‍🐰‍🧑🏾}{🧑🏽‍🐰‍🧑🏿}{🧑🏽‍🩰}{🧑🏽‍🫯‍🧑🏻}{🧑🏽‍🫯‍🧑🏼}{🧑🏽‍🫯‍🧑🏾}{🧑🏽‍🫯‍🧑🏿}{🧑🏾‍🐰‍🧑🏻}{🧑🏾‍🐰‍🧑🏼}{🧑🏾‍🐰‍🧑🏽}{🧑🏾‍🐰‍🧑🏿}{🧑🏾‍🩰}{🧑🏾‍🫯‍🧑🏻}{🧑🏾‍🫯‍🧑🏼}{🧑🏾‍🫯‍🧑🏽}{🧑🏾‍🫯‍🧑🏿}{🧑🏿‍🐰‍🧑🏻}{🧑🏿‍🐰‍🧑🏼}{🧑🏿‍🐰‍🧑🏽}{🧑🏿‍🐰‍🧑🏾}{🧑🏿‍🩰}{🧑🏿‍🫯‍🧑🏻}{🧑🏿‍🫯‍🧑🏼}{🧑🏿‍🫯‍🧑🏽}{🧑🏿‍🫯‍🧑🏾}]")
-                    .freeze();
+    final UnicodeSet TEMPORARY_SKIP_COMPOUNDS = UnicodeSet.EMPTY;
+
+    // For any new Unicode release with emoji, put any ones that need to be derived into the
+    // following list (uncommented), replacing what was there (left just for comparison.
+    // After the submission (there is a BRS item for this) modify the algorithm in Annotations to
+    // generate the names for special compounds,
+    // and set the above to UnicodeSet.EMPTY to test, and comment out the new UnicodeSet.
+    //
+    //     new UnicodeSet(
+    // "[{👨🏻‍🐰‍👨🏼}{👨🏻‍🐰‍👨🏽}{👨🏻‍🐰‍👨🏾}{👨🏻‍🐰‍👨🏿}{👨🏻‍🫯‍👨🏼}{👨🏻‍🫯‍👨🏽}{👨🏻‍🫯‍👨🏾}{👨🏻‍🫯‍👨🏿}{👨🏼‍🐰‍👨🏻}{👨🏼‍🐰‍👨🏽}{👨🏼‍🐰‍👨🏾}{👨🏼‍🐰‍👨🏿}{👨🏼‍🫯‍👨🏻}{👨🏼‍🫯‍👨🏽}{👨🏼‍🫯‍👨🏾}{👨🏼‍🫯‍👨🏿}
+    // {👨🏽‍🐰‍👨🏻}{👨🏽‍🐰‍👨🏼}{👨🏽‍🐰‍👨🏾}{👨🏽‍🐰‍👨🏿}{👨🏽‍🫯‍👨🏻}{👨🏽‍🫯‍👨🏼}{👨🏽‍🫯‍👨🏾}{👨🏽‍🫯‍👨🏿}{👨🏾‍🐰‍👨🏻}{👨🏾‍🐰‍👨🏼}{👨🏾‍🐰‍👨🏽}{👨🏾‍🐰‍👨🏿}{👨🏾‍🫯‍👨🏻}{👨🏾‍🫯‍👨🏼}{👨🏾‍🫯‍👨🏽}{👨🏾‍🫯‍👨🏿}{👨🏿‍🐰‍👨🏻}
+    // {👨🏿‍🐰‍👨🏼}{👨🏿‍🐰‍👨🏽}{👨🏿‍🐰‍👨🏾}{👨🏿‍🫯‍👨🏻}{👨🏿‍🫯‍👨🏼}{👨🏿‍🫯‍👨🏽}{👨🏿‍🫯‍👨🏾}{👩🏻‍🐰‍👩🏼}{👩🏻‍🐰‍👩🏽}{👩🏻‍🐰‍👩🏾}{👩🏻‍🐰‍👩🏿}{👩🏻‍🫯‍👩🏼}{👩🏻‍🫯‍👩🏽}{👩🏻‍🫯‍👩🏾}{👩🏻‍🫯‍👩🏿}{👩🏼‍🐰‍👩🏻}
+    // {👩🏼‍🐰‍👩🏽}{👩🏼‍🐰‍👩🏾}{👩🏼‍🐰‍👩🏿}{👩🏼‍🫯‍👩🏻}{👩🏼‍🫯‍👩🏽}{👩🏼‍🫯‍👩🏾}{👩🏼‍🫯‍👩🏿}{👩🏽‍🐰‍👩🏻}{👩🏽‍🐰‍👩🏼}{👩🏽‍🐰‍👩🏾}{👩🏽‍🐰‍👩🏿}{👩🏽‍🫯‍👩🏻}{👩🏽‍🫯‍👩🏼}{👩🏽‍🫯‍👩🏾}{👩🏽‍🫯‍👩🏿}{👩🏾‍🐰‍👩🏻}
+    // {👩🏾‍🐰‍👩🏼}{👩🏾‍🐰‍👩🏽}{👩🏾‍🐰‍👩🏿}{👩🏾‍🫯‍👩🏻}{👩🏾‍🫯‍👩🏼}{👩🏾‍🫯‍👩🏽}{👩🏾‍🫯‍👩🏿}{👩🏿‍🐰‍👩🏻}{👩🏿‍🐰‍👩🏼}{👩🏿‍🐰‍👩🏽}{👩🏿‍🐰‍👩🏾}{👩🏿‍🫯‍👩🏻}{👩🏿‍🫯‍👩🏼}{👩🏿‍🫯‍👩🏽}{👩🏿‍🫯‍👩🏾}{👯🏻}{👯🏻‍♀}
+    // {👯🏻‍♂}{👯🏼}{👯🏼‍♀}{👯🏼‍♂}{👯🏽}{👯🏽‍♀}{👯🏽‍♂}{👯🏾}{👯🏾‍♀}{👯🏾‍♂}{👯🏿}{👯🏿‍♀}{👯🏿‍♂}{🤼🏻}{🤼🏻‍♀}{🤼🏻‍♂}{🤼🏼}{🤼🏼‍♀}{🤼🏼‍♂}
+    // {🤼🏽}{🤼🏽‍♀}{🤼🏽‍♂}{🤼🏾}{🤼🏾‍♀}{🤼🏾‍♂}{🤼🏿}{🤼🏿‍♀}{🤼🏿‍♂}{🧑🏻‍🐰‍🧑🏼}{🧑🏻‍🐰‍🧑🏽}{🧑🏻‍🐰‍🧑🏾}{🧑🏻‍🐰‍🧑🏿}{🧑🏻‍🩰}{🧑🏻‍🫯‍🧑🏼}{🧑🏻‍🫯‍🧑🏽}{🧑🏻‍🫯‍🧑🏾}{🧑🏻‍🫯‍🧑🏿}
+    // {🧑🏼‍🐰‍🧑🏻}{🧑🏼‍🐰‍🧑🏽}{🧑🏼‍🐰‍🧑🏾}{🧑🏼‍🐰‍🧑🏿}{🧑🏼‍🩰}{🧑🏼‍🫯‍🧑🏻}{🧑🏼‍🫯‍🧑🏽}{🧑🏼‍🫯‍🧑🏾}{🧑🏼‍🫯‍🧑🏿}{🧑🏽‍🐰‍🧑🏻}{🧑🏽‍🐰‍🧑🏼}{🧑🏽‍🐰‍🧑🏾}{🧑🏽‍🐰‍🧑🏿}{🧑🏽‍🩰}{🧑🏽‍🫯‍🧑🏻}{🧑🏽‍🫯‍🧑🏼}{🧑🏽‍🫯‍🧑🏾}
+    // {🧑🏽‍🫯‍🧑🏿}{🧑🏾‍🐰‍🧑🏻}{🧑🏾‍🐰‍🧑🏼}{🧑🏾‍🐰‍🧑🏽}{🧑🏾‍🐰‍🧑🏿}{🧑🏾‍🩰}{🧑🏾‍🫯‍🧑🏻}{🧑🏾‍🫯‍🧑🏼}{🧑🏾‍🫯‍🧑🏽}{🧑🏾‍🫯‍🧑🏿}{🧑🏿‍🐰‍🧑🏻}{🧑🏿‍🐰‍🧑🏼}{🧑🏿‍🐰‍🧑🏽}{🧑🏿‍🐰‍🧑🏾}{🧑🏿‍🩰}{🧑🏿‍🫯‍🧑🏻}{🧑🏿‍🫯‍🧑🏼}{🧑🏿‍🫯‍🧑🏽}{🧑🏿‍🫯‍🧑🏾}]")
+    //                        .freeze();
 
     /**
      * We test that all emoji have English annotations. This may fail when the emoji are updated for
@@ -679,15 +694,88 @@ public class TestAnnotations extends TestFmwkPlus {
      */
     public void testCompleteness() {
         UnicodeSet allRgiNoEs = Emoji.getAllRgiNoES();
-        UnicodeSet namesFound = new UnicodeSet();
-        UnicodeSet searchKeywordsFound = new UnicodeSet();
 
         // get both regular and derived emoji
+        for (String file :
+                List.of("en.xml")) { // for testing, can add others like "de.xml", "fr.xml"
+            UnicodeSet namesFound = new UnicodeSet();
+            UnicodeSet searchKeywordsFound = new UnicodeSet();
+            fillNamesAndSearchKeywords(
+                    file, namesFound, searchKeywordsFound); // freezes the results
+
+            warnln(
+                    Joiner.on('\t')
+                            .join(
+                                    "FYI, RGI:",
+                                    allRgiNoEs.size(),
+                                    "namesFound:",
+                                    namesFound.size(),
+                                    "searchKeywordsFound:",
+                                    searchKeywordsFound.size()));
+
+            UnicodeSet missingNames = new UnicodeSet(allRgiNoEs).removeAll(namesFound).freeze();
+
+            UnicodeSet missingKeywords =
+                    new UnicodeSet(allRgiNoEs).removeAll(searchKeywordsFound).freeze();
+
+            // If one of the following fails, it is likely due to code needed in DerivedAnnotations
+            // to handle special sequences.
+            // See instructions below.
+
+            if (!assertEquals(
+                    file + " RGI name annotations",
+                    "[]",
+                    new UnicodeSet(missingNames)
+                            .removeAll(TEMPORARY_SKIP_COMPOUNDS)
+                            .toPattern(false))) {
+                break;
+            }
+            if (!assertEquals(
+                    file + " RGI search key annotations",
+                    "[]",
+                    new UnicodeSet(missingKeywords)
+                            .removeAll(TEMPORARY_SKIP_COMPOUNDS)
+                            .toPattern(false))) {
+                break;
+            }
+            UnicodeSet onlyAllowedBecauseOfTEMPORARY_SKIP_COMPOUNDS =
+                    new UnicodeSet(missingNames)
+                            .addAll(missingKeywords)
+                            .retainAll(TEMPORARY_SKIP_COMPOUNDS)
+                            .freeze();
+            if (!onlyAllowedBecauseOfTEMPORARY_SKIP_COMPOUNDS.isEmpty()) {
+                // Normally the following exception is used.
+                throw new IllegalArgumentException(
+                        "This is probably due to new emoji being added. See instructions for fixing.");
+                // When there are new emoji that cause a failure in the derived annotations, do the
+                // following:
+                //
+                // file a ticket,
+                // comment out the above exception
+                // uncomment the logKnownIssue below
+                // replace the ticket number by the new ticket number
+                // and populate the TEMPORARY_SKIP_COMPOUNDS.
+
+                // The extra code to handled the special derived forms must be added well before
+                // Alpha (ideally before submission).
+                // that code will go into
+
+                //      public Annotations synthesize(String code, Transform<String, String>
+                // otherSource) {
+
+                //  logKnownIssue("CLDR-18462", file
+                //   + " Update Annotations.java for new compounds: "
+                //   +  onlyAllowedBecauseOfTEMPORARY_SKIP_COMPOUNDS.toPattern(false));
+            }
+        }
+    }
+
+    private void fillNamesAndSearchKeywords(
+            String file, UnicodeSet namesFound, UnicodeSet searchKeywordsFound) {
         List<Pair<String, String>> listXmlEmoji = new ArrayList<>();
         XMLFileReader.loadPathValues(
-                CLDRPaths.ANNOTATIONS_DERIVED_DIRECTORY + "en.xml", listXmlEmoji, false);
-        XMLFileReader.loadPathValues(
-                CLDRPaths.ANNOTATIONS_DIRECTORY + "en.xml", listXmlEmoji, false);
+                CLDRPaths.ANNOTATIONS_DERIVED_DIRECTORY + file, listXmlEmoji, false);
+        XMLFileReader.loadPathValues(CLDRPaths.ANNOTATIONS_DIRECTORY + file, listXmlEmoji, false);
 
         // pull out the ones that are handled by English
 
@@ -703,32 +791,6 @@ public class TestAnnotations extends TestFmwkPlus {
         }
         namesFound.freeze();
         searchKeywordsFound.freeze();
-        logln(
-                Joiner.on('\t')
-                        .join(
-                                "RGI:",
-                                allRgiNoEs.size(),
-                                "namesFound:",
-                                namesFound.size(),
-                                "searchKeywordsFound:",
-                                searchKeywordsFound.size()));
-        assertEquals(
-                "RGI - en.xml name annotations",
-                "[]",
-                new UnicodeSet(allRgiNoEs)
-                        .removeAll(namesFound)
-                        .removeAll(TEMPORARY_SKIP_COMPOUNDS)
-                        .toPattern(false));
-        assertEquals(
-                "RGI - en.xml search key annotations",
-                "[]",
-                new UnicodeSet(allRgiNoEs)
-                        .removeAll(searchKeywordsFound)
-                        .removeAll(TEMPORARY_SKIP_COMPOUNDS)
-                        .toPattern(false));
-        if (!TEMPORARY_SKIP_COMPOUNDS.isEmpty()) {
-            logKnownIssue("CLDR-18462", "Update Annotations.java for new compounds");
-        }
     }
 
     public void testRightFacing() {

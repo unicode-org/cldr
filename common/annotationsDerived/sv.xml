@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-
-Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
 -->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -213,15 +212,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤞🏾" type="tts">korsade fingrar: mellanmörk hy</annotation>
 		<annotation cp="🤞🏿">finger | hand | korsa | korsade fingrar | lycka | mörk hy</annotation>
 		<annotation cp="🤞🏿" type="tts">korsade fingrar: mörk hy</annotation>
-		<annotation cp="🫰🏻">dyrt | hand med tummen och pekfingret korsade | knäppa med fingrarna | ljus hy | pengaprassel | pengar | snäppa med fingrarna</annotation>
+		<annotation cp="🫰🏻">&lt;3 | betala | dyrt | fingrarna | knäppa | korsade | ljus hy | pekfinger | pengar | tumme</annotation>
 		<annotation cp="🫰🏻" type="tts">hand med tummen och pekfingret korsade: ljus hy</annotation>
-		<annotation cp="🫰🏼">dyrt | hand med tummen och pekfingret korsade | knäppa med fingrarna | mellanljus hy | pengaprassel | pengar | snäppa med fingrarna</annotation>
+		<annotation cp="🫰🏼">&lt;3 | betala | dyrt | fingrarna | knäppa | korsade | mellanljus hy | pekfinger | pengar | tumme</annotation>
 		<annotation cp="🫰🏼" type="tts">hand med tummen och pekfingret korsade: mellanljus hy</annotation>
-		<annotation cp="🫰🏽">dyrt | hand med tummen och pekfingret korsade | knäppa med fingrarna | mellanfärgad hy | pengaprassel | pengar | snäppa med fingrarna</annotation>
+		<annotation cp="🫰🏽">&lt;3 | betala | dyrt | fingrarna | knäppa | korsade | mellanfärgad hy | pekfinger | pengar | tumme</annotation>
 		<annotation cp="🫰🏽" type="tts">hand med tummen och pekfingret korsade: mellanfärgad hy</annotation>
-		<annotation cp="🫰🏾">dyrt | hand med tummen och pekfingret korsade | knäppa med fingrarna | mellanmörk hy | pengaprassel | pengar | snäppa med fingrarna</annotation>
+		<annotation cp="🫰🏾">&lt;3 | betala | dyrt | fingrarna | knäppa | korsade | mellanmörk hy | pekfinger | pengar | tumme</annotation>
 		<annotation cp="🫰🏾" type="tts">hand med tummen och pekfingret korsade: mellanmörk hy</annotation>
-		<annotation cp="🫰🏿">dyrt | hand med tummen och pekfingret korsade | knäppa med fingrarna | mörk hy | pengaprassel | pengar | snäppa med fingrarna</annotation>
+		<annotation cp="🫰🏿">&lt;3 | betala | dyrt | fingrarna | knäppa | korsade | mörk hy | pekfinger | pengar | tumme</annotation>
 		<annotation cp="🫰🏿" type="tts">hand med tummen och pekfingret korsade: mörk hy</annotation>
 		<annotation cp="🤟🏻">hand | jag älskar dig-gest | ljus hy</annotation>
 		<annotation cp="🤟🏻" type="tts">jag älskar dig-gest: ljus hy</annotation>
@@ -603,6 +602,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾" type="tts">blond person: mellanmörk hy</annotation>
 		<annotation cp="👱🏿">blond | blond man | blond person | människor | mörk hy</annotation>
 		<annotation cp="👱🏿" type="tts">blond person: mörk hy</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏼">brottande personer | brottare | brottning | ljus hy | mellanljus hy | person | sport</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏼" type="tts">brottande personer: ljus hy, mellanljus hy</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏽">brottande personer | brottare | brottning | ljus hy | mellanfärgad hy | person | sport</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏽" type="tts">brottande personer: ljus hy, mellanfärgad hy</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏾">brottande personer | brottare | brottning | ljus hy | mellanmörk hy | person | sport</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏾" type="tts">brottande personer: ljus hy, mellanmörk hy</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏿">brottande personer | brottare | brottning | ljus hy | mörk hy | person | sport</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏿" type="tts">brottande personer: ljus hy, mörk hy</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏻">brottande personer | brottare | brottning | ljus hy | mellanljus hy | person | sport</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏻" type="tts">brottande personer: mellanljus hy, ljus hy</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏽">brottande personer | brottare | brottning | mellanfärgad hy | mellanljus hy | person | sport</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏽" type="tts">brottande personer: mellanljus hy, mellanfärgad hy</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏾">brottande personer | brottare | brottning | mellanljus hy | mellanmörk hy | person | sport</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏾" type="tts">brottande personer: mellanljus hy, mellanmörk hy</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏿">brottande personer | brottare | brottning | mellanljus hy | mörk hy | person | sport</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏿" type="tts">brottande personer: mellanljus hy, mörk hy</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏻">brottande personer | brottare | brottning | ljus hy | mellanfärgad hy | person | sport</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏻" type="tts">brottande personer: mellanfärgad hy, ljus hy</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏼">brottande personer | brottare | brottning | mellanfärgad hy | mellanljus hy | person | sport</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏼" type="tts">brottande personer: mellanfärgad hy, mellanljus hy</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏾">brottande personer | brottare | brottning | mellanfärgad hy | mellanmörk hy | person | sport</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏾" type="tts">brottande personer: mellanfärgad hy, mellanmörk hy</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏿">brottande personer | brottare | brottning | mellanfärgad hy | mörk hy | person | sport</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏿" type="tts">brottande personer: mellanfärgad hy, mörk hy</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏻">brottande personer | brottare | brottning | ljus hy | mellanmörk hy | person | sport</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏻" type="tts">brottande personer: mellanmörk hy, ljus hy</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏼">brottande personer | brottare | brottning | mellanljus hy | mellanmörk hy | person | sport</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏼" type="tts">brottande personer: mellanmörk hy, mellanljus hy</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏽">brottande personer | brottare | brottning | mellanfärgad hy | mellanmörk hy | person | sport</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏽" type="tts">brottande personer: mellanmörk hy, mellanfärgad hy</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏿">brottande personer | brottare | brottning | mellanmörk hy | mörk hy | person | sport</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏿" type="tts">brottande personer: mellanmörk hy, mörk hy</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏻">brottande personer | brottare | brottning | ljus hy | mörk hy | person | sport</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏻" type="tts">brottande personer: mörk hy, ljus hy</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏼">brottande personer | brottare | brottning | mellanljus hy | mörk hy | person | sport</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏼" type="tts">brottande personer: mörk hy, mellanljus hy</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏽">brottande personer | brottare | brottning | mellanfärgad hy | mörk hy | person | sport</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏽" type="tts">brottande personer: mörk hy, mellanfärgad hy</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏾">brottande personer | brottare | brottning | mellanmörk hy | mörk hy | person | sport</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏾" type="tts">brottande personer: mörk hy, mellanmörk hy</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏼">kärlek | kyssas | ljus hy | människor | mellanljus hy | person | puss</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏼" type="tts">puss: person, person, ljus hy, mellanljus hy</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏽">kärlek | kyssas | ljus hy | människor | mellanfärgad hy | person | puss</annotation>
@@ -731,6 +770,56 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧑🏾‍🦲" type="tts">person: mellanmörk hy, skallig</annotation>
 		<annotation cp="🧑🏿‍🦲">könsneutral | mörk hy | person | skallig | vuxen</annotation>
 		<annotation cp="🧑🏿‍🦲" type="tts">person: mörk hy, skallig</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏼">kaninöron | kvinna | kvinnor med kaninöron | ljus hy | människor | mellanljus hy | personer med kaninöron | tjej</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏼" type="tts">personer med kaninöron: ljus hy, mellanljus hy</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏽">kaninöron | kvinna | kvinnor med kaninöron | ljus hy | människor | mellanfärgad hy | personer med kaninöron | tjej</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏽" type="tts">personer med kaninöron: ljus hy, mellanfärgad hy</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏾">kaninöron | kvinna | kvinnor med kaninöron | ljus hy | människor | mellanmörk hy | personer med kaninöron | tjej</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏾" type="tts">personer med kaninöron: ljus hy, mellanmörk hy</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏿">kaninöron | kvinna | kvinnor med kaninöron | ljus hy | människor | mörk hy | personer med kaninöron | tjej</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏿" type="tts">personer med kaninöron: ljus hy, mörk hy</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏻">kaninöron | kvinna | kvinnor med kaninöron | ljus hy | människor | mellanljus hy | personer med kaninöron | tjej</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏻" type="tts">personer med kaninöron: mellanljus hy, ljus hy</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏽">kaninöron | kvinna | kvinnor med kaninöron | människor | mellanfärgad hy | mellanljus hy | personer med kaninöron | tjej</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏽" type="tts">personer med kaninöron: mellanljus hy, mellanfärgad hy</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏾">kaninöron | kvinna | kvinnor med kaninöron | människor | mellanljus hy | mellanmörk hy | personer med kaninöron | tjej</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏾" type="tts">personer med kaninöron: mellanljus hy, mellanmörk hy</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏿">kaninöron | kvinna | kvinnor med kaninöron | människor | mellanljus hy | mörk hy | personer med kaninöron | tjej</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏿" type="tts">personer med kaninöron: mellanljus hy, mörk hy</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏻">kaninöron | kvinna | kvinnor med kaninöron | ljus hy | människor | mellanfärgad hy | personer med kaninöron | tjej</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏻" type="tts">personer med kaninöron: mellanfärgad hy, ljus hy</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏼">kaninöron | kvinna | kvinnor med kaninöron | människor | mellanfärgad hy | mellanljus hy | personer med kaninöron | tjej</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏼" type="tts">personer med kaninöron: mellanfärgad hy, mellanljus hy</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏾">kaninöron | kvinna | kvinnor med kaninöron | människor | mellanfärgad hy | mellanmörk hy | personer med kaninöron | tjej</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏾" type="tts">personer med kaninöron: mellanfärgad hy, mellanmörk hy</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏿">kaninöron | kvinna | kvinnor med kaninöron | människor | mellanfärgad hy | mörk hy | personer med kaninöron | tjej</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏿" type="tts">personer med kaninöron: mellanfärgad hy, mörk hy</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏻">kaninöron | kvinna | kvinnor med kaninöron | ljus hy | människor | mellanmörk hy | personer med kaninöron | tjej</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏻" type="tts">personer med kaninöron: mellanmörk hy, ljus hy</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏼">kaninöron | kvinna | kvinnor med kaninöron | människor | mellanljus hy | mellanmörk hy | personer med kaninöron | tjej</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏼" type="tts">personer med kaninöron: mellanmörk hy, mellanljus hy</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏽">kaninöron | kvinna | kvinnor med kaninöron | människor | mellanfärgad hy | mellanmörk hy | personer med kaninöron | tjej</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏽" type="tts">personer med kaninöron: mellanmörk hy, mellanfärgad hy</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏿">kaninöron | kvinna | kvinnor med kaninöron | människor | mellanmörk hy | mörk hy | personer med kaninöron | tjej</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏿" type="tts">personer med kaninöron: mellanmörk hy, mörk hy</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏻">kaninöron | kvinna | kvinnor med kaninöron | ljus hy | människor | mörk hy | personer med kaninöron | tjej</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏻" type="tts">personer med kaninöron: mörk hy, ljus hy</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏼">kaninöron | kvinna | kvinnor med kaninöron | människor | mellanljus hy | mörk hy | personer med kaninöron | tjej</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏼" type="tts">personer med kaninöron: mörk hy, mellanljus hy</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏽">kaninöron | kvinna | kvinnor med kaninöron | människor | mellanfärgad hy | mörk hy | personer med kaninöron | tjej</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏽" type="tts">personer med kaninöron: mörk hy, mellanfärgad hy</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏾">kaninöron | kvinna | kvinnor med kaninöron | människor | mellanmörk hy | mörk hy | personer med kaninöron | tjej</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏾" type="tts">personer med kaninöron: mörk hy, mellanmörk hy</annotation>
+		<annotation cp="🧑🏻‍🩰">balett | ballerina | dansare | ljus hy</annotation>
+		<annotation cp="🧑🏻‍🩰" type="tts">balettdansare: ljus hy</annotation>
+		<annotation cp="🧑🏼‍🩰">balett | ballerina | dansare | mellanljus hy</annotation>
+		<annotation cp="🧑🏼‍🩰" type="tts">balettdansare: mellanljus hy</annotation>
+		<annotation cp="🧑🏽‍🩰">balett | ballerina | dansare | mellanfärgad hy</annotation>
+		<annotation cp="🧑🏽‍🩰" type="tts">balettdansare: mellanfärgad hy</annotation>
+		<annotation cp="🧑🏾‍🩰">balett | ballerina | dansare | mellanmörk hy</annotation>
+		<annotation cp="🧑🏾‍🩰" type="tts">balettdansare: mellanmörk hy</annotation>
+		<annotation cp="🧑🏿‍🩰">balett | ballerina | dansare | mörk hy</annotation>
+		<annotation cp="🧑🏿‍🩰" type="tts">balettdansare: mörk hy</annotation>
 		<annotation cp="👨🏻">ljus hy | man | vuxen</annotation>
 		<annotation cp="👨🏻" type="tts">man: ljus hy</annotation>
 		<annotation cp="👨🏼">man | mellanljus hy | vuxen</annotation>
@@ -771,6 +860,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾‍♂" type="tts">blond man: mellanmörk hy</annotation>
 		<annotation cp="👱🏿‍♂">blond | man | mörk hy</annotation>
 		<annotation cp="👱🏿‍♂" type="tts">blond man: mörk hy</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏼">brottande män | brottning | ljus hy | män | män som brottas | manlig | mellanljus hy | person | sport</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏼" type="tts">brottande män: ljus hy, mellanljus hy</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏽">brottande män | brottning | ljus hy | män | män som brottas | manlig | mellanfärgad hy | person | sport</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏽" type="tts">brottande män: ljus hy, mellanfärgad hy</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏾">brottande män | brottning | ljus hy | män | män som brottas | manlig | mellanmörk hy | person | sport</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏾" type="tts">brottande män: ljus hy, mellanmörk hy</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏿">brottande män | brottning | ljus hy | män | män som brottas | manlig | mörk hy | person | sport</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏿" type="tts">brottande män: ljus hy, mörk hy</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏻">brottande män | brottning | ljus hy | män | män som brottas | manlig | mellanljus hy | person | sport</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏻" type="tts">brottande män: mellanljus hy, ljus hy</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏽">brottande män | brottning | män | män som brottas | manlig | mellanfärgad hy | mellanljus hy | person | sport</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏽" type="tts">brottande män: mellanljus hy, mellanfärgad hy</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏾">brottande män | brottning | män | män som brottas | manlig | mellanljus hy | mellanmörk hy | person | sport</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏾" type="tts">brottande män: mellanljus hy, mellanmörk hy</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏿">brottande män | brottning | män | män som brottas | manlig | mellanljus hy | mörk hy | person | sport</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏿" type="tts">brottande män: mellanljus hy, mörk hy</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏻">brottande män | brottning | ljus hy | män | män som brottas | manlig | mellanfärgad hy | person | sport</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏻" type="tts">brottande män: mellanfärgad hy, ljus hy</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏼">brottande män | brottning | män | män som brottas | manlig | mellanfärgad hy | mellanljus hy | person | sport</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏼" type="tts">brottande män: mellanfärgad hy, mellanljus hy</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏾">brottande män | brottning | män | män som brottas | manlig | mellanfärgad hy | mellanmörk hy | person | sport</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏾" type="tts">brottande män: mellanfärgad hy, mellanmörk hy</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏿">brottande män | brottning | män | män som brottas | manlig | mellanfärgad hy | mörk hy | person | sport</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏿" type="tts">brottande män: mellanfärgad hy, mörk hy</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏻">brottande män | brottning | ljus hy | män | män som brottas | manlig | mellanmörk hy | person | sport</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏻" type="tts">brottande män: mellanmörk hy, ljus hy</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏼">brottande män | brottning | män | män som brottas | manlig | mellanljus hy | mellanmörk hy | person | sport</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏼" type="tts">brottande män: mellanmörk hy, mellanljus hy</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏽">brottande män | brottning | män | män som brottas | manlig | mellanfärgad hy | mellanmörk hy | person | sport</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏽" type="tts">brottande män: mellanmörk hy, mellanfärgad hy</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏿">brottande män | brottning | män | män som brottas | manlig | mellanmörk hy | mörk hy | person | sport</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏿" type="tts">brottande män: mellanmörk hy, mörk hy</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏻">brottande män | brottning | ljus hy | män | män som brottas | manlig | mörk hy | person | sport</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏻" type="tts">brottande män: mörk hy, ljus hy</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏼">brottande män | brottning | män | män som brottas | manlig | mellanljus hy | mörk hy | person | sport</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏼" type="tts">brottande män: mörk hy, mellanljus hy</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏽">brottande män | brottning | män | män som brottas | manlig | mellanfärgad hy | mörk hy | person | sport</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏽" type="tts">brottande män: mörk hy, mellanfärgad hy</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏾">brottande män | brottning | män | män som brottas | manlig | mellanmörk hy | mörk hy | person | sport</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏾" type="tts">brottande män: mörk hy, mellanmörk hy</annotation>
 		<annotation cp="👨🏻‍❤‍💋‍👨🏻">kärlek | kyssas | ljus hy | man | människor | puss</annotation>
 		<annotation cp="👨🏻‍❤‍💋‍👨🏻" type="tts">puss: man, man, ljus hy</annotation>
 		<annotation cp="👨🏻‍❤‍💋‍👨🏼">kärlek | kyssas | ljus hy | man | människor | mellanljus hy | puss</annotation>
@@ -919,6 +1048,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾‍🦲" type="tts">man: mellanmörk hy, skallig</annotation>
 		<annotation cp="👨🏿‍🦲">man | mörk hy | skallig | vuxen</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">man: mörk hy, skallig</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏼">dans | kaninöron | ljus hy | man | män | män med kaninöron | mellanljus hy | party</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏼" type="tts">män med kaninöron: ljus hy, mellanljus hy</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏽">dans | kaninöron | ljus hy | man | män | män med kaninöron | mellanfärgad hy | party</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏽" type="tts">män med kaninöron: ljus hy, mellanfärgad hy</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏾">dans | kaninöron | ljus hy | man | män | män med kaninöron | mellanmörk hy | party</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏾" type="tts">män med kaninöron: ljus hy, mellanmörk hy</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏿">dans | kaninöron | ljus hy | man | män | män med kaninöron | mörk hy | party</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏿" type="tts">män med kaninöron: ljus hy, mörk hy</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏻">dans | kaninöron | ljus hy | man | män | män med kaninöron | mellanljus hy | party</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏻" type="tts">män med kaninöron: mellanljus hy, ljus hy</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏽">dans | kaninöron | man | män | män med kaninöron | mellanfärgad hy | mellanljus hy | party</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏽" type="tts">män med kaninöron: mellanljus hy, mellanfärgad hy</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏾">dans | kaninöron | man | män | män med kaninöron | mellanljus hy | mellanmörk hy | party</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏾" type="tts">män med kaninöron: mellanljus hy, mellanmörk hy</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏿">dans | kaninöron | man | män | män med kaninöron | mellanljus hy | mörk hy | party</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏿" type="tts">män med kaninöron: mellanljus hy, mörk hy</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏻">dans | kaninöron | ljus hy | man | män | män med kaninöron | mellanfärgad hy | party</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏻" type="tts">män med kaninöron: mellanfärgad hy, ljus hy</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏼">dans | kaninöron | man | män | män med kaninöron | mellanfärgad hy | mellanljus hy | party</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏼" type="tts">män med kaninöron: mellanfärgad hy, mellanljus hy</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏾">dans | kaninöron | man | män | män med kaninöron | mellanfärgad hy | mellanmörk hy | party</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏾" type="tts">män med kaninöron: mellanfärgad hy, mellanmörk hy</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏿">dans | kaninöron | man | män | män med kaninöron | mellanfärgad hy | mörk hy | party</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏿" type="tts">män med kaninöron: mellanfärgad hy, mörk hy</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏻">dans | kaninöron | ljus hy | man | män | män med kaninöron | mellanmörk hy | party</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏻" type="tts">män med kaninöron: mellanmörk hy, ljus hy</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏼">dans | kaninöron | man | män | män med kaninöron | mellanljus hy | mellanmörk hy | party</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏼" type="tts">män med kaninöron: mellanmörk hy, mellanljus hy</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏽">dans | kaninöron | man | män | män med kaninöron | mellanfärgad hy | mellanmörk hy | party</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏽" type="tts">män med kaninöron: mellanmörk hy, mellanfärgad hy</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏿">dans | kaninöron | man | män | män med kaninöron | mellanmörk hy | mörk hy | party</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏿" type="tts">män med kaninöron: mellanmörk hy, mörk hy</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏻">dans | kaninöron | ljus hy | man | män | män med kaninöron | mörk hy | party</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏻" type="tts">män med kaninöron: mörk hy, ljus hy</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏼">dans | kaninöron | man | män | män med kaninöron | mellanljus hy | mörk hy | party</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏼" type="tts">män med kaninöron: mörk hy, mellanljus hy</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏽">dans | kaninöron | man | män | män med kaninöron | mellanfärgad hy | mörk hy | party</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏽" type="tts">män med kaninöron: mörk hy, mellanfärgad hy</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏾">dans | kaninöron | man | män | män med kaninöron | mellanmörk hy | mörk hy | party</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏾" type="tts">män med kaninöron: mörk hy, mellanmörk hy</annotation>
 		<annotation cp="👩🏻">kvinna | ljus hy | vuxen</annotation>
 		<annotation cp="👩🏻" type="tts">kvinna: ljus hy</annotation>
 		<annotation cp="👩🏼">kvinna | mellanljus hy | vuxen</annotation>
@@ -949,6 +1118,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾‍♀" type="tts">blond kvinna: mellanmörk hy</annotation>
 		<annotation cp="👱🏿‍♀">blond | blondin | kvinna | mörk hy</annotation>
 		<annotation cp="👱🏿‍♀" type="tts">blond kvinna: mörk hy</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏼">brottande kvinnor | brottning | kvinnor | ljus hy | mellanljus hy | sport</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏼" type="tts">brottande kvinnor: ljus hy, mellanljus hy</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏽">brottande kvinnor | brottning | kvinnor | ljus hy | mellanfärgad hy | sport</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏽" type="tts">brottande kvinnor: ljus hy, mellanfärgad hy</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏾">brottande kvinnor | brottning | kvinnor | ljus hy | mellanmörk hy | sport</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏾" type="tts">brottande kvinnor: ljus hy, mellanmörk hy</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏿">brottande kvinnor | brottning | kvinnor | ljus hy | mörk hy | sport</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏿" type="tts">brottande kvinnor: ljus hy, mörk hy</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏻">brottande kvinnor | brottning | kvinnor | ljus hy | mellanljus hy | sport</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏻" type="tts">brottande kvinnor: mellanljus hy, ljus hy</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏽">brottande kvinnor | brottning | kvinnor | mellanfärgad hy | mellanljus hy | sport</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏽" type="tts">brottande kvinnor: mellanljus hy, mellanfärgad hy</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏾">brottande kvinnor | brottning | kvinnor | mellanljus hy | mellanmörk hy | sport</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏾" type="tts">brottande kvinnor: mellanljus hy, mellanmörk hy</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏿">brottande kvinnor | brottning | kvinnor | mellanljus hy | mörk hy | sport</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏿" type="tts">brottande kvinnor: mellanljus hy, mörk hy</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏻">brottande kvinnor | brottning | kvinnor | ljus hy | mellanfärgad hy | sport</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏻" type="tts">brottande kvinnor: mellanfärgad hy, ljus hy</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏼">brottande kvinnor | brottning | kvinnor | mellanfärgad hy | mellanljus hy | sport</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏼" type="tts">brottande kvinnor: mellanfärgad hy, mellanljus hy</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏾">brottande kvinnor | brottning | kvinnor | mellanfärgad hy | mellanmörk hy | sport</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏾" type="tts">brottande kvinnor: mellanfärgad hy, mellanmörk hy</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏿">brottande kvinnor | brottning | kvinnor | mellanfärgad hy | mörk hy | sport</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏿" type="tts">brottande kvinnor: mellanfärgad hy, mörk hy</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏻">brottande kvinnor | brottning | kvinnor | ljus hy | mellanmörk hy | sport</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏻" type="tts">brottande kvinnor: mellanmörk hy, ljus hy</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏼">brottande kvinnor | brottning | kvinnor | mellanljus hy | mellanmörk hy | sport</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏼" type="tts">brottande kvinnor: mellanmörk hy, mellanljus hy</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏽">brottande kvinnor | brottning | kvinnor | mellanfärgad hy | mellanmörk hy | sport</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏽" type="tts">brottande kvinnor: mellanmörk hy, mellanfärgad hy</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏿">brottande kvinnor | brottning | kvinnor | mellanmörk hy | mörk hy | sport</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏿" type="tts">brottande kvinnor: mellanmörk hy, mörk hy</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏻">brottande kvinnor | brottning | kvinnor | ljus hy | mörk hy | sport</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏻" type="tts">brottande kvinnor: mörk hy, ljus hy</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏼">brottande kvinnor | brottning | kvinnor | mellanljus hy | mörk hy | sport</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏼" type="tts">brottande kvinnor: mörk hy, mellanljus hy</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏽">brottande kvinnor | brottning | kvinnor | mellanfärgad hy | mörk hy | sport</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏽" type="tts">brottande kvinnor: mörk hy, mellanfärgad hy</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏾">brottande kvinnor | brottning | kvinnor | mellanmörk hy | mörk hy | sport</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏾" type="tts">brottande kvinnor: mörk hy, mellanmörk hy</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👨🏻">kärlek | kvinna | kyssas | ljus hy | man | människor | puss</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👨🏻" type="tts">puss: kvinna, man, ljus hy</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👨🏼">kärlek | kvinna | kyssas | ljus hy | man | människor | mellanljus hy | puss</annotation>
@@ -1197,6 +1406,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🦲" type="tts">kvinna: mellanmörk hy, skallig</annotation>
 		<annotation cp="👩🏿‍🦲">kvinna | mörk hy | skallig | vuxen</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">kvinna: mörk hy, skallig</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏼">dans | kaninöron | kvinna | kvinnor | kvinnor med kaninöron | ljus hy | mellanljus hy | party</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏼" type="tts">kvinnor med kaninöron: ljus hy, mellanljus hy</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏽">dans | kaninöron | kvinna | kvinnor | kvinnor med kaninöron | ljus hy | mellanfärgad hy | party</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏽" type="tts">kvinnor med kaninöron: ljus hy, mellanfärgad hy</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏾">dans | kaninöron | kvinna | kvinnor | kvinnor med kaninöron | ljus hy | mellanmörk hy | party</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏾" type="tts">kvinnor med kaninöron: ljus hy, mellanmörk hy</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏿">dans | kaninöron | kvinna | kvinnor | kvinnor med kaninöron | ljus hy | mörk hy | party</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏿" type="tts">kvinnor med kaninöron: ljus hy, mörk hy</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏻">dans | kaninöron | kvinna | kvinnor | kvinnor med kaninöron | ljus hy | mellanljus hy | party</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏻" type="tts">kvinnor med kaninöron: mellanljus hy, ljus hy</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏽">dans | kaninöron | kvinna | kvinnor | kvinnor med kaninöron | mellanfärgad hy | mellanljus hy | party</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏽" type="tts">kvinnor med kaninöron: mellanljus hy, mellanfärgad hy</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏾">dans | kaninöron | kvinna | kvinnor | kvinnor med kaninöron | mellanljus hy | mellanmörk hy | party</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏾" type="tts">kvinnor med kaninöron: mellanljus hy, mellanmörk hy</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏿">dans | kaninöron | kvinna | kvinnor | kvinnor med kaninöron | mellanljus hy | mörk hy | party</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏿" type="tts">kvinnor med kaninöron: mellanljus hy, mörk hy</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏻">dans | kaninöron | kvinna | kvinnor | kvinnor med kaninöron | ljus hy | mellanfärgad hy | party</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏻" type="tts">kvinnor med kaninöron: mellanfärgad hy, ljus hy</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏼">dans | kaninöron | kvinna | kvinnor | kvinnor med kaninöron | mellanfärgad hy | mellanljus hy | party</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏼" type="tts">kvinnor med kaninöron: mellanfärgad hy, mellanljus hy</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏾">dans | kaninöron | kvinna | kvinnor | kvinnor med kaninöron | mellanfärgad hy | mellanmörk hy | party</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏾" type="tts">kvinnor med kaninöron: mellanfärgad hy, mellanmörk hy</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏿">dans | kaninöron | kvinna | kvinnor | kvinnor med kaninöron | mellanfärgad hy | mörk hy | party</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏿" type="tts">kvinnor med kaninöron: mellanfärgad hy, mörk hy</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏻">dans | kaninöron | kvinna | kvinnor | kvinnor med kaninöron | ljus hy | mellanmörk hy | party</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏻" type="tts">kvinnor med kaninöron: mellanmörk hy, ljus hy</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏼">dans | kaninöron | kvinna | kvinnor | kvinnor med kaninöron | mellanljus hy | mellanmörk hy | party</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏼" type="tts">kvinnor med kaninöron: mellanmörk hy, mellanljus hy</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏽">dans | kaninöron | kvinna | kvinnor | kvinnor med kaninöron | mellanfärgad hy | mellanmörk hy | party</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏽" type="tts">kvinnor med kaninöron: mellanmörk hy, mellanfärgad hy</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏿">dans | kaninöron | kvinna | kvinnor | kvinnor med kaninöron | mellanmörk hy | mörk hy | party</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏿" type="tts">kvinnor med kaninöron: mellanmörk hy, mörk hy</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏻">dans | kaninöron | kvinna | kvinnor | kvinnor med kaninöron | ljus hy | mörk hy | party</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏻" type="tts">kvinnor med kaninöron: mörk hy, ljus hy</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏼">dans | kaninöron | kvinna | kvinnor | kvinnor med kaninöron | mellanljus hy | mörk hy | party</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏼" type="tts">kvinnor med kaninöron: mörk hy, mellanljus hy</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏽">dans | kaninöron | kvinna | kvinnor | kvinnor med kaninöron | mellanfärgad hy | mörk hy | party</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏽" type="tts">kvinnor med kaninöron: mörk hy, mellanfärgad hy</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏾">dans | kaninöron | kvinna | kvinnor | kvinnor med kaninöron | mellanmörk hy | mörk hy | party</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏾" type="tts">kvinnor med kaninöron: mörk hy, mellanmörk hy</annotation>
 		<annotation cp="🧓🏻">äldre | äldre person | gammal | könsneutral | ljus hy | vuxen</annotation>
 		<annotation cp="🧓🏻" type="tts">äldre person: ljus hy</annotation>
 		<annotation cp="🧓🏼">äldre | äldre person | gammal | könsneutral | mellanljus hy | vuxen</annotation>
@@ -1417,35 +1666,35 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧏🏾" type="tts">hörselskadad person: mellanmörk hy</annotation>
 		<annotation cp="🧏🏿">döv | hörsel | hörselskadad person | mörk hy | öra | tillgänglighet</annotation>
 		<annotation cp="🧏🏿" type="tts">hörselskadad person: mörk hy</annotation>
-		<annotation cp="🧏🏻‍♂">hörselskadad | ljus hy | man</annotation>
+		<annotation cp="🧏🏻‍♂">dåligt | döv | gest | höra | ljus hy | man | öra | tillgänglighet</annotation>
 		<annotation cp="🧏🏻‍♂" type="tts">hörselskadad man: ljus hy</annotation>
-		<annotation cp="🧏🏼‍♂">hörselskadad | man | mellanljus hy</annotation>
+		<annotation cp="🧏🏼‍♂">dåligt | döv | gest | höra | man | mellanljus hy | öra | tillgänglighet</annotation>
 		<annotation cp="🧏🏼‍♂" type="tts">hörselskadad man: mellanljus hy</annotation>
-		<annotation cp="🧏🏽‍♂">hörselskadad | man | mellanfärgad hy</annotation>
+		<annotation cp="🧏🏽‍♂">dåligt | döv | gest | höra | man | mellanfärgad hy | öra | tillgänglighet</annotation>
 		<annotation cp="🧏🏽‍♂" type="tts">hörselskadad man: mellanfärgad hy</annotation>
-		<annotation cp="🧏🏾‍♂">hörselskadad | man | mellanmörk hy</annotation>
+		<annotation cp="🧏🏾‍♂">dåligt | döv | gest | höra | man | mellanmörk hy | öra | tillgänglighet</annotation>
 		<annotation cp="🧏🏾‍♂" type="tts">hörselskadad man: mellanmörk hy</annotation>
-		<annotation cp="🧏🏿‍♂">hörselskadad | man | mörk hy</annotation>
+		<annotation cp="🧏🏿‍♂">dåligt | döv | gest | höra | man | mörk hy | öra | tillgänglighet</annotation>
 		<annotation cp="🧏🏿‍♂" type="tts">hörselskadad man: mörk hy</annotation>
-		<annotation cp="🧏🏻‍♀">hörselskada kvinna | hörselskadad | kvinna | ljus hy</annotation>
-		<annotation cp="🧏🏻‍♀" type="tts">hörselskada kvinna: ljus hy</annotation>
-		<annotation cp="🧏🏼‍♀">hörselskada kvinna | hörselskadad | kvinna | mellanljus hy</annotation>
-		<annotation cp="🧏🏼‍♀" type="tts">hörselskada kvinna: mellanljus hy</annotation>
-		<annotation cp="🧏🏽‍♀">hörselskada kvinna | hörselskadad | kvinna | mellanfärgad hy</annotation>
-		<annotation cp="🧏🏽‍♀" type="tts">hörselskada kvinna: mellanfärgad hy</annotation>
-		<annotation cp="🧏🏾‍♀">hörselskada kvinna | hörselskadad | kvinna | mellanmörk hy</annotation>
-		<annotation cp="🧏🏾‍♀" type="tts">hörselskada kvinna: mellanmörk hy</annotation>
-		<annotation cp="🧏🏿‍♀">hörselskada kvinna | hörselskadad | kvinna | mörk hy</annotation>
-		<annotation cp="🧏🏿‍♀" type="tts">hörselskada kvinna: mörk hy</annotation>
-		<annotation cp="🙇🏻">beklagar | buga | bugande person | bugar | gest | ljus hy | meditation | meditera | ursäkt</annotation>
+		<annotation cp="🧏🏻‍♀">döv | funktion | hörselskada | kvinna | ljus hy | nedsatt | öra</annotation>
+		<annotation cp="🧏🏻‍♀" type="tts">hörselskadad kvinna: ljus hy</annotation>
+		<annotation cp="🧏🏼‍♀">döv | funktion | hörselskada | kvinna | mellanljus hy | nedsatt | öra</annotation>
+		<annotation cp="🧏🏼‍♀" type="tts">hörselskadad kvinna: mellanljus hy</annotation>
+		<annotation cp="🧏🏽‍♀">döv | funktion | hörselskada | kvinna | mellanfärgad hy | nedsatt | öra</annotation>
+		<annotation cp="🧏🏽‍♀" type="tts">hörselskadad kvinna: mellanfärgad hy</annotation>
+		<annotation cp="🧏🏾‍♀">döv | funktion | hörselskada | kvinna | mellanmörk hy | nedsatt | öra</annotation>
+		<annotation cp="🧏🏾‍♀" type="tts">hörselskadad kvinna: mellanmörk hy</annotation>
+		<annotation cp="🧏🏿‍♀">döv | funktion | hörselskada | kvinna | mörk hy | nedsatt | öra</annotation>
+		<annotation cp="🧏🏿‍♀" type="tts">hörselskadad kvinna: mörk hy</annotation>
+		<annotation cp="🙇🏻">ångra | be | bön | förlåt | gest | ljus hy | meditation | meditera | person | ursäkt</annotation>
 		<annotation cp="🙇🏻" type="tts">bugande person: ljus hy</annotation>
-		<annotation cp="🙇🏼">beklagar | buga | bugande person | bugar | gest | meditation | meditera | mellanljus hy | ursäkt</annotation>
+		<annotation cp="🙇🏼">ångra | be | bön | förlåt | gest | meditation | meditera | mellanljus hy | person | ursäkt</annotation>
 		<annotation cp="🙇🏼" type="tts">bugande person: mellanljus hy</annotation>
-		<annotation cp="🙇🏽">beklagar | buga | bugande person | bugar | gest | meditation | meditera | mellanfärgad hy | ursäkt</annotation>
+		<annotation cp="🙇🏽">ångra | be | bön | förlåt | gest | meditation | meditera | mellanfärgad hy | person | ursäkt</annotation>
 		<annotation cp="🙇🏽" type="tts">bugande person: mellanfärgad hy</annotation>
-		<annotation cp="🙇🏾">beklagar | buga | bugande person | bugar | gest | meditation | meditera | mellanmörk hy | ursäkt</annotation>
+		<annotation cp="🙇🏾">ångra | be | bön | förlåt | gest | meditation | meditera | mellanmörk hy | person | ursäkt</annotation>
 		<annotation cp="🙇🏾" type="tts">bugande person: mellanmörk hy</annotation>
-		<annotation cp="🙇🏿">beklagar | buga | bugande person | bugar | gest | meditation | meditera | mörk hy | ursäkt</annotation>
+		<annotation cp="🙇🏿">ångra | be | bön | förlåt | gest | meditation | meditera | mörk hy | person | ursäkt</annotation>
 		<annotation cp="🙇🏿" type="tts">bugande person: mörk hy</annotation>
 		<annotation cp="🙇🏻‍♂">beklagelse | buga | bugande man | ljus hy | man | ursäkt</annotation>
 		<annotation cp="🙇🏻‍♂" type="tts">bugande man: ljus hy</annotation>
@@ -1857,15 +2106,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍💻" type="tts">kvinnlig IT-expert: mellanmörk hy</annotation>
 		<annotation cp="👩🏿‍💻">data | IT | kvinna | kvinnlig IT-expert | mörk hy | teknologi</annotation>
 		<annotation cp="👩🏿‍💻" type="tts">kvinnlig IT-expert: mörk hy</annotation>
-		<annotation cp="🧑🏻‍🎤">ljus hy | sångare</annotation>
+		<annotation cp="🧑🏻‍🎤">artist | ljus hy | rockstjärna | sångare | underhållare | vokalist</annotation>
 		<annotation cp="🧑🏻‍🎤" type="tts">sångare: ljus hy</annotation>
-		<annotation cp="🧑🏼‍🎤">mellanljus hy | sångare</annotation>
+		<annotation cp="🧑🏼‍🎤">artist | mellanljus hy | rockstjärna | sångare | underhållare | vokalist</annotation>
 		<annotation cp="🧑🏼‍🎤" type="tts">sångare: mellanljus hy</annotation>
-		<annotation cp="🧑🏽‍🎤">mellanfärgad hy | sångare</annotation>
+		<annotation cp="🧑🏽‍🎤">artist | mellanfärgad hy | rockstjärna | sångare | underhållare | vokalist</annotation>
 		<annotation cp="🧑🏽‍🎤" type="tts">sångare: mellanfärgad hy</annotation>
-		<annotation cp="🧑🏾‍🎤">mellanmörk hy | sångare</annotation>
+		<annotation cp="🧑🏾‍🎤">artist | mellanmörk hy | rockstjärna | sångare | underhållare | vokalist</annotation>
 		<annotation cp="🧑🏾‍🎤" type="tts">sångare: mellanmörk hy</annotation>
-		<annotation cp="🧑🏿‍🎤">mörk hy | sångare</annotation>
+		<annotation cp="🧑🏿‍🎤">artist | mörk hy | rockstjärna | sångare | underhållare | vokalist</annotation>
 		<annotation cp="🧑🏿‍🎤" type="tts">sångare: mörk hy</annotation>
 		<annotation cp="👨🏻‍🎤">artist | kändis | konsert | ljus hy | man | manlig sångare | stjärna</annotation>
 		<annotation cp="👨🏻‍🎤" type="tts">manlig sångare: ljus hy</annotation>
@@ -2007,15 +2256,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🚒" type="tts">kvinnlig brandman: mellanmörk hy</annotation>
 		<annotation cp="👩🏿‍🚒">brandbil | brandväsendet | kvinna | kvinnlig brandman | mörk hy</annotation>
 		<annotation cp="👩🏿‍🚒" type="tts">kvinnlig brandman: mörk hy</annotation>
-		<annotation cp="👮🏻">konstapel | ljus hy | polis | snut</annotation>
+		<annotation cp="👮🏻">aina | arrestera | bötfälla | farbror blå | gripa | konstapel | lagen | ljus hy | snut</annotation>
 		<annotation cp="👮🏻" type="tts">polis: ljus hy</annotation>
-		<annotation cp="👮🏼">konstapel | mellanljus hy | polis | snut</annotation>
+		<annotation cp="👮🏼">aina | arrestera | bötfälla | farbror blå | gripa | konstapel | lagen | mellanljus hy | snut</annotation>
 		<annotation cp="👮🏼" type="tts">polis: mellanljus hy</annotation>
-		<annotation cp="👮🏽">konstapel | mellanfärgad hy | polis | snut</annotation>
+		<annotation cp="👮🏽">aina | arrestera | bötfälla | farbror blå | gripa | konstapel | lagen | mellanfärgad hy | snut</annotation>
 		<annotation cp="👮🏽" type="tts">polis: mellanfärgad hy</annotation>
-		<annotation cp="👮🏾">konstapel | mellanmörk hy | polis | snut</annotation>
+		<annotation cp="👮🏾">aina | arrestera | bötfälla | farbror blå | gripa | konstapel | lagen | mellanmörk hy | snut</annotation>
 		<annotation cp="👮🏾" type="tts">polis: mellanmörk hy</annotation>
-		<annotation cp="👮🏿">konstapel | mörk hy | polis | snut</annotation>
+		<annotation cp="👮🏿">aina | arrestera | bötfälla | farbror blå | gripa | konstapel | lagen | mörk hy | snut</annotation>
 		<annotation cp="👮🏿" type="tts">polis: mörk hy</annotation>
 		<annotation cp="👮🏻‍♂">konstapel | lagen | ljus hy | man | manlig polis | polisman</annotation>
 		<annotation cp="👮🏻‍♂" type="tts">manlig polis: ljus hy</annotation>
@@ -2027,15 +2276,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👮🏾‍♂" type="tts">manlig polis: mellanmörk hy</annotation>
 		<annotation cp="👮🏿‍♂">konstapel | lagen | man | manlig polis | mörk hy | polisman</annotation>
 		<annotation cp="👮🏿‍♂" type="tts">manlig polis: mörk hy</annotation>
-		<annotation cp="👮🏻‍♀">konstapel | kvinna | kvinnlig polis | lagen | ljus hy | polis | snut</annotation>
+		<annotation cp="👮🏻‍♀">aina | arrestera | bötfälla | farbror blå | gripa | konstapel | kvinna | lagen | ljus hy | snut</annotation>
 		<annotation cp="👮🏻‍♀" type="tts">kvinnlig polis: ljus hy</annotation>
-		<annotation cp="👮🏼‍♀">konstapel | kvinna | kvinnlig polis | lagen | mellanljus hy | polis | snut</annotation>
+		<annotation cp="👮🏼‍♀">aina | arrestera | bötfälla | farbror blå | gripa | konstapel | kvinna | lagen | mellanljus hy | snut</annotation>
 		<annotation cp="👮🏼‍♀" type="tts">kvinnlig polis: mellanljus hy</annotation>
-		<annotation cp="👮🏽‍♀">konstapel | kvinna | kvinnlig polis | lagen | mellanfärgad hy | polis | snut</annotation>
+		<annotation cp="👮🏽‍♀">aina | arrestera | bötfälla | farbror blå | gripa | konstapel | kvinna | lagen | mellanfärgad hy | snut</annotation>
 		<annotation cp="👮🏽‍♀" type="tts">kvinnlig polis: mellanfärgad hy</annotation>
-		<annotation cp="👮🏾‍♀">konstapel | kvinna | kvinnlig polis | lagen | mellanmörk hy | polis | snut</annotation>
+		<annotation cp="👮🏾‍♀">aina | arrestera | bötfälla | farbror blå | gripa | konstapel | kvinna | lagen | mellanmörk hy | snut</annotation>
 		<annotation cp="👮🏾‍♀" type="tts">kvinnlig polis: mellanmörk hy</annotation>
-		<annotation cp="👮🏿‍♀">konstapel | kvinna | kvinnlig polis | lagen | mörk hy | polis | snut</annotation>
+		<annotation cp="👮🏿‍♀">aina | arrestera | bötfälla | farbror blå | gripa | konstapel | kvinna | lagen | mörk hy | snut</annotation>
 		<annotation cp="👮🏿‍♀" type="tts">kvinnlig polis: mörk hy</annotation>
 		<annotation cp="🕵🏻">detektiv | ljus hy | spion</annotation>
 		<annotation cp="🕵🏻" type="tts">detektiv: ljus hy</annotation>
@@ -2217,15 +2466,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧕🏾" type="tts">kvinna i sjal: mellanmörk hy</annotation>
 		<annotation cp="🧕🏿">hijab | kvinna i sjal | mörk hy | sjal | slöja</annotation>
 		<annotation cp="🧕🏿" type="tts">kvinna i sjal: mörk hy</annotation>
-		<annotation cp="🤵🏻">brudgum | ljus hy | man i smoking | person | person i smoking | smoking</annotation>
+		<annotation cp="🤵🏻">bröllop | brudgum | ljus hy | person | person i smoking | smoking</annotation>
 		<annotation cp="🤵🏻" type="tts">person i smoking: ljus hy</annotation>
-		<annotation cp="🤵🏼">brudgum | man i smoking | mellanljus hy | person | person i smoking | smoking</annotation>
+		<annotation cp="🤵🏼">bröllop | brudgum | mellanljus hy | person | person i smoking | smoking</annotation>
 		<annotation cp="🤵🏼" type="tts">person i smoking: mellanljus hy</annotation>
-		<annotation cp="🤵🏽">brudgum | man i smoking | mellanfärgad hy | person | person i smoking | smoking</annotation>
+		<annotation cp="🤵🏽">bröllop | brudgum | mellanfärgad hy | person | person i smoking | smoking</annotation>
 		<annotation cp="🤵🏽" type="tts">person i smoking: mellanfärgad hy</annotation>
-		<annotation cp="🤵🏾">brudgum | man i smoking | mellanmörk hy | person | person i smoking | smoking</annotation>
+		<annotation cp="🤵🏾">bröllop | brudgum | mellanmörk hy | person | person i smoking | smoking</annotation>
 		<annotation cp="🤵🏾" type="tts">person i smoking: mellanmörk hy</annotation>
-		<annotation cp="🤵🏿">brudgum | man i smoking | mörk hy | person | person i smoking | smoking</annotation>
+		<annotation cp="🤵🏿">bröllop | brudgum | mörk hy | person | person i smoking | smoking</annotation>
 		<annotation cp="🤵🏿" type="tts">person i smoking: mörk hy</annotation>
 		<annotation cp="🤵🏻‍♂">ljus hy | man | man i smoking | smoking</annotation>
 		<annotation cp="🤵🏻‍♂" type="tts">man i smoking: ljus hy</annotation>
@@ -2327,25 +2576,25 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🍼" type="tts">kvinna matar spädbarn: mellanmörk hy</annotation>
 		<annotation cp="👩🏿‍🍼">amma | kvinna | kvinna matar spädbarn | mata | mörk hy | spädbarn</annotation>
 		<annotation cp="👩🏿‍🍼" type="tts">kvinna matar spädbarn: mörk hy</annotation>
-		<annotation cp="👨🏻‍🍼">amma | barnskötare | ljus hy | man | man matar spädbarn | mata | spädbarn</annotation>
+		<annotation cp="👨🏻‍🍼">amma | barnskötare | fader | far | ljus hy | man | man matar spädbarn | mata | pappa | spädbarn</annotation>
 		<annotation cp="👨🏻‍🍼" type="tts">man matar spädbarn: ljus hy</annotation>
-		<annotation cp="👨🏼‍🍼">amma | barnskötare | man | man matar spädbarn | mata | mellanljus hy | spädbarn</annotation>
+		<annotation cp="👨🏼‍🍼">amma | barnskötare | fader | far | man | man matar spädbarn | mata | mellanljus hy | pappa | spädbarn</annotation>
 		<annotation cp="👨🏼‍🍼" type="tts">man matar spädbarn: mellanljus hy</annotation>
-		<annotation cp="👨🏽‍🍼">amma | barnskötare | man | man matar spädbarn | mata | mellanfärgad hy | spädbarn</annotation>
+		<annotation cp="👨🏽‍🍼">amma | barnskötare | fader | far | man | man matar spädbarn | mata | mellanfärgad hy | pappa | spädbarn</annotation>
 		<annotation cp="👨🏽‍🍼" type="tts">man matar spädbarn: mellanfärgad hy</annotation>
-		<annotation cp="👨🏾‍🍼">amma | barnskötare | man | man matar spädbarn | mata | mellanmörk hy | spädbarn</annotation>
+		<annotation cp="👨🏾‍🍼">amma | barnskötare | fader | far | man | man matar spädbarn | mata | mellanmörk hy | pappa | spädbarn</annotation>
 		<annotation cp="👨🏾‍🍼" type="tts">man matar spädbarn: mellanmörk hy</annotation>
-		<annotation cp="👨🏿‍🍼">amma | barnskötare | man | man matar spädbarn | mata | mörk hy | spädbarn</annotation>
+		<annotation cp="👨🏿‍🍼">amma | barnskötare | fader | far | man | man matar spädbarn | mata | mörk hy | pappa | spädbarn</annotation>
 		<annotation cp="👨🏿‍🍼" type="tts">man matar spädbarn: mörk hy</annotation>
-		<annotation cp="🧑🏻‍🍼">amma | barnskötare | ljus hy | mata | person | person ammar spädbarn | person matar spädbarn | spädbarn</annotation>
+		<annotation cp="🧑🏻‍🍼">amma | barnskötare | bebis | förälder | ljus hy | mata | person | person ammar spädbarn | person matar spädbarn | spädbarn</annotation>
 		<annotation cp="🧑🏻‍🍼" type="tts">person ammar spädbarn: ljus hy</annotation>
-		<annotation cp="🧑🏼‍🍼">amma | barnskötare | mata | mellanljus hy | person | person ammar spädbarn | person matar spädbarn | spädbarn</annotation>
+		<annotation cp="🧑🏼‍🍼">amma | barnskötare | bebis | förälder | mata | mellanljus hy | person | person ammar spädbarn | person matar spädbarn | spädbarn</annotation>
 		<annotation cp="🧑🏼‍🍼" type="tts">person ammar spädbarn: mellanljus hy</annotation>
-		<annotation cp="🧑🏽‍🍼">amma | barnskötare | mata | mellanfärgad hy | person | person ammar spädbarn | person matar spädbarn | spädbarn</annotation>
+		<annotation cp="🧑🏽‍🍼">amma | barnskötare | bebis | förälder | mata | mellanfärgad hy | person | person ammar spädbarn | person matar spädbarn | spädbarn</annotation>
 		<annotation cp="🧑🏽‍🍼" type="tts">person ammar spädbarn: mellanfärgad hy</annotation>
-		<annotation cp="🧑🏾‍🍼">amma | barnskötare | mata | mellanmörk hy | person | person ammar spädbarn | person matar spädbarn | spädbarn</annotation>
+		<annotation cp="🧑🏾‍🍼">amma | barnskötare | bebis | förälder | mata | mellanmörk hy | person | person ammar spädbarn | person matar spädbarn | spädbarn</annotation>
 		<annotation cp="🧑🏾‍🍼" type="tts">person ammar spädbarn: mellanmörk hy</annotation>
-		<annotation cp="🧑🏿‍🍼">amma | barnskötare | mata | mörk hy | person | person ammar spädbarn | person matar spädbarn | spädbarn</annotation>
+		<annotation cp="🧑🏿‍🍼">amma | barnskötare | bebis | förälder | mata | mörk hy | person | person ammar spädbarn | person matar spädbarn | spädbarn</annotation>
 		<annotation cp="🧑🏿‍🍼" type="tts">person ammar spädbarn: mörk hy</annotation>
 		<annotation cp="👼🏻">ängel | bebisängel | ljus hy | saga</annotation>
 		<annotation cp="👼🏻" type="tts">bebisängel: ljus hy</annotation>
@@ -3113,6 +3362,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🕴🏾" type="tts">svävande man i kostym: mellanmörk hy</annotation>
 		<annotation cp="🕴🏿">kostym | människor | mörk hy | svävande man i kostym | svävar</annotation>
 		<annotation cp="🕴🏿" type="tts">svävande man i kostym: mörk hy</annotation>
+		<annotation cp="👯🏻">kaninöron | kvinna | kvinnor med kaninöron | ljus hy | människor | personer med kaninöron | tjej</annotation>
+		<annotation cp="👯🏻" type="tts">personer med kaninöron: ljus hy</annotation>
+		<annotation cp="👯🏼">kaninöron | kvinna | kvinnor med kaninöron | människor | mellanljus hy | personer med kaninöron | tjej</annotation>
+		<annotation cp="👯🏼" type="tts">personer med kaninöron: mellanljus hy</annotation>
+		<annotation cp="👯🏽">kaninöron | kvinna | kvinnor med kaninöron | människor | mellanfärgad hy | personer med kaninöron | tjej</annotation>
+		<annotation cp="👯🏽" type="tts">personer med kaninöron: mellanfärgad hy</annotation>
+		<annotation cp="👯🏾">kaninöron | kvinna | kvinnor med kaninöron | människor | mellanmörk hy | personer med kaninöron | tjej</annotation>
+		<annotation cp="👯🏾" type="tts">personer med kaninöron: mellanmörk hy</annotation>
+		<annotation cp="👯🏿">kaninöron | kvinna | kvinnor med kaninöron | människor | mörk hy | personer med kaninöron | tjej</annotation>
+		<annotation cp="👯🏿" type="tts">personer med kaninöron: mörk hy</annotation>
+		<annotation cp="👯🏻‍♀">dans | kaninöron | kvinna | kvinnor | kvinnor med kaninöron | ljus hy | party</annotation>
+		<annotation cp="👯🏻‍♀" type="tts">kvinnor med kaninöron: ljus hy</annotation>
+		<annotation cp="👯🏼‍♀">dans | kaninöron | kvinna | kvinnor | kvinnor med kaninöron | mellanljus hy | party</annotation>
+		<annotation cp="👯🏼‍♀" type="tts">kvinnor med kaninöron: mellanljus hy</annotation>
+		<annotation cp="👯🏽‍♀">dans | kaninöron | kvinna | kvinnor | kvinnor med kaninöron | mellanfärgad hy | party</annotation>
+		<annotation cp="👯🏽‍♀" type="tts">kvinnor med kaninöron: mellanfärgad hy</annotation>
+		<annotation cp="👯🏾‍♀">dans | kaninöron | kvinna | kvinnor | kvinnor med kaninöron | mellanmörk hy | party</annotation>
+		<annotation cp="👯🏾‍♀" type="tts">kvinnor med kaninöron: mellanmörk hy</annotation>
+		<annotation cp="👯🏿‍♀">dans | kaninöron | kvinna | kvinnor | kvinnor med kaninöron | mörk hy | party</annotation>
+		<annotation cp="👯🏿‍♀" type="tts">kvinnor med kaninöron: mörk hy</annotation>
+		<annotation cp="👯🏻‍♂">dans | kaninöron | ljus hy | man | män | män med kaninöron | party</annotation>
+		<annotation cp="👯🏻‍♂" type="tts">män med kaninöron: ljus hy</annotation>
+		<annotation cp="👯🏼‍♂">dans | kaninöron | man | män | män med kaninöron | mellanljus hy | party</annotation>
+		<annotation cp="👯🏼‍♂" type="tts">män med kaninöron: mellanljus hy</annotation>
+		<annotation cp="👯🏽‍♂">dans | kaninöron | man | män | män med kaninöron | mellanfärgad hy | party</annotation>
+		<annotation cp="👯🏽‍♂" type="tts">män med kaninöron: mellanfärgad hy</annotation>
+		<annotation cp="👯🏾‍♂">dans | kaninöron | man | män | män med kaninöron | mellanmörk hy | party</annotation>
+		<annotation cp="👯🏾‍♂" type="tts">män med kaninöron: mellanmörk hy</annotation>
+		<annotation cp="👯🏿‍♂">dans | kaninöron | man | män | män med kaninöron | mörk hy | party</annotation>
+		<annotation cp="👯🏿‍♂" type="tts">män med kaninöron: mörk hy</annotation>
 		<annotation cp="🧖🏻">ångbastu | bastu | ljus hy | person i ångbastu | slappna av | spa</annotation>
 		<annotation cp="🧖🏻" type="tts">person i ångbastu: ljus hy</annotation>
 		<annotation cp="🧖🏼">ångbastu | bastu | mellanljus hy | person i ångbastu | slappna av | spa</annotation>
@@ -3463,6 +3742,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤸🏾‍♀" type="tts">kvinna som hjular: mellanmörk hy</annotation>
 		<annotation cp="🤸🏿‍♀">gymnastik | kullerbytta | kvinna | kvinna som hjular | mörk hy | volt</annotation>
 		<annotation cp="🤸🏿‍♀" type="tts">kvinna som hjular: mörk hy</annotation>
+		<annotation cp="🤼🏻">brottande personer | brottare | brottning | ljus hy | person | sport</annotation>
+		<annotation cp="🤼🏻" type="tts">brottande personer: ljus hy</annotation>
+		<annotation cp="🤼🏼">brottande personer | brottare | brottning | mellanljus hy | person | sport</annotation>
+		<annotation cp="🤼🏼" type="tts">brottande personer: mellanljus hy</annotation>
+		<annotation cp="🤼🏽">brottande personer | brottare | brottning | mellanfärgad hy | person | sport</annotation>
+		<annotation cp="🤼🏽" type="tts">brottande personer: mellanfärgad hy</annotation>
+		<annotation cp="🤼🏾">brottande personer | brottare | brottning | mellanmörk hy | person | sport</annotation>
+		<annotation cp="🤼🏾" type="tts">brottande personer: mellanmörk hy</annotation>
+		<annotation cp="🤼🏿">brottande personer | brottare | brottning | mörk hy | person | sport</annotation>
+		<annotation cp="🤼🏿" type="tts">brottande personer: mörk hy</annotation>
+		<annotation cp="🤼🏻‍♀">brottande kvinnor | brottning | kvinnor | ljus hy | sport</annotation>
+		<annotation cp="🤼🏻‍♀" type="tts">brottande kvinnor: ljus hy</annotation>
+		<annotation cp="🤼🏼‍♀">brottande kvinnor | brottning | kvinnor | mellanljus hy | sport</annotation>
+		<annotation cp="🤼🏼‍♀" type="tts">brottande kvinnor: mellanljus hy</annotation>
+		<annotation cp="🤼🏽‍♀">brottande kvinnor | brottning | kvinnor | mellanfärgad hy | sport</annotation>
+		<annotation cp="🤼🏽‍♀" type="tts">brottande kvinnor: mellanfärgad hy</annotation>
+		<annotation cp="🤼🏾‍♀">brottande kvinnor | brottning | kvinnor | mellanmörk hy | sport</annotation>
+		<annotation cp="🤼🏾‍♀" type="tts">brottande kvinnor: mellanmörk hy</annotation>
+		<annotation cp="🤼🏿‍♀">brottande kvinnor | brottning | kvinnor | mörk hy | sport</annotation>
+		<annotation cp="🤼🏿‍♀" type="tts">brottande kvinnor: mörk hy</annotation>
+		<annotation cp="🤼🏻‍♂">brottande män | brottning | ljus hy | män | män som brottas | manlig | person | sport</annotation>
+		<annotation cp="🤼🏻‍♂" type="tts">brottande män: ljus hy</annotation>
+		<annotation cp="🤼🏼‍♂">brottande män | brottning | män | män som brottas | manlig | mellanljus hy | person | sport</annotation>
+		<annotation cp="🤼🏼‍♂" type="tts">brottande män: mellanljus hy</annotation>
+		<annotation cp="🤼🏽‍♂">brottande män | brottning | män | män som brottas | manlig | mellanfärgad hy | person | sport</annotation>
+		<annotation cp="🤼🏽‍♂" type="tts">brottande män: mellanfärgad hy</annotation>
+		<annotation cp="🤼🏾‍♂">brottande män | brottning | män | män som brottas | manlig | mellanmörk hy | person | sport</annotation>
+		<annotation cp="🤼🏾‍♂" type="tts">brottande män: mellanmörk hy</annotation>
+		<annotation cp="🤼🏿‍♂">brottande män | brottning | män | män som brottas | manlig | mörk hy | person | sport</annotation>
+		<annotation cp="🤼🏿‍♂" type="tts">brottande män: mörk hy</annotation>
 		<annotation cp="🤽🏻">ljus hy | person | person som spelar vattenpolo | polo | sport | vattenpolo</annotation>
 		<annotation cp="🤽🏻" type="tts">person som spelar vattenpolo: ljus hy</annotation>
 		<annotation cp="🤽🏼">mellanljus hy | person | person som spelar vattenpolo | polo | sport | vattenpolo</annotation>
@@ -3553,15 +3862,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤹🏾‍♀" type="tts">kvinna som jonglerar: mellanmörk hy</annotation>
 		<annotation cp="🤹🏿‍♀">jonglering | kvinna | kvinna jonglerar | kvinna som jonglerar | kvinnlig | mörk hy | multitask</annotation>
 		<annotation cp="🤹🏿‍♀" type="tts">kvinna som jonglerar: mörk hy</annotation>
-		<annotation cp="🧘🏻">ljus hy | meditation | person i lotusposition | person i lotusställning | yoga</annotation>
+		<annotation cp="🧘🏻">ben | fokus | frid | korsade | ljus hy | lotusposition | meditation | yoga</annotation>
 		<annotation cp="🧘🏻" type="tts">person i lotusposition: ljus hy</annotation>
-		<annotation cp="🧘🏼">meditation | mellanljus hy | person i lotusposition | person i lotusställning | yoga</annotation>
+		<annotation cp="🧘🏼">ben | fokus | frid | korsade | lotusposition | meditation | mellanljus hy | yoga</annotation>
 		<annotation cp="🧘🏼" type="tts">person i lotusposition: mellanljus hy</annotation>
-		<annotation cp="🧘🏽">meditation | mellanfärgad hy | person i lotusposition | person i lotusställning | yoga</annotation>
+		<annotation cp="🧘🏽">ben | fokus | frid | korsade | lotusposition | meditation | mellanfärgad hy | yoga</annotation>
 		<annotation cp="🧘🏽" type="tts">person i lotusposition: mellanfärgad hy</annotation>
-		<annotation cp="🧘🏾">meditation | mellanmörk hy | person i lotusposition | person i lotusställning | yoga</annotation>
+		<annotation cp="🧘🏾">ben | fokus | frid | korsade | lotusposition | meditation | mellanmörk hy | yoga</annotation>
 		<annotation cp="🧘🏾" type="tts">person i lotusposition: mellanmörk hy</annotation>
-		<annotation cp="🧘🏿">meditation | mörk hy | person i lotusposition | person i lotusställning | yoga</annotation>
+		<annotation cp="🧘🏿">ben | fokus | frid | korsade | lotusposition | meditation | mörk hy | yoga</annotation>
 		<annotation cp="🧘🏿" type="tts">person i lotusposition: mörk hy</annotation>
 		<annotation cp="🧘🏻‍♂">ljus hy | man i lotusposition | meditering | yoga</annotation>
 		<annotation cp="🧘🏻‍♂" type="tts">man i lotusposition: ljus hy</annotation>
@@ -3835,55 +4144,55 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨‍❤‍👨" type="tts">par med hjärta: man, man</annotation>
 		<annotation cp="👩‍❤‍👩">hjärta | kärlek | kvinna | människor | par med hjärta</annotation>
 		<annotation cp="👩‍❤‍👩" type="tts">par med hjärta: kvinna, kvinna</annotation>
-		<annotation cp="👨‍👩‍👦">barn | familj | kvinna | mamma | mamma och pappa och en son | man | människor | pappa | pojke</annotation>
+		<annotation cp="👨‍👩‍👦">barn | familj | kvinna | mamma | man | människor | pappa | pojke</annotation>
 		<annotation cp="👨‍👩‍👦" type="tts">familj: man, kvinna, pojke</annotation>
-		<annotation cp="👨‍👩‍👧">barn | familj | flicka | kvinna | mamma | mamma och pappa och en son | man | människor | pappa</annotation>
+		<annotation cp="👨‍👩‍👧">barn | familj | flicka | kvinna | mamma | man | människor | pappa</annotation>
 		<annotation cp="👨‍👩‍👧" type="tts">familj: man, kvinna, flicka</annotation>
-		<annotation cp="👨‍👩‍👧‍👦">barn | familj | flicka | kvinna | mamma | mamma och pappa och en son | man | människor | pappa | pojke</annotation>
+		<annotation cp="👨‍👩‍👧‍👦">barn | familj | flicka | kvinna | mamma | man | människor | pappa | pojke</annotation>
 		<annotation cp="👨‍👩‍👧‍👦" type="tts">familj: man, kvinna, flicka, pojke</annotation>
-		<annotation cp="👨‍👩‍👦‍👦">barn | familj | kvinna | mamma | mamma och pappa och en son | man | människor | pappa | pojke</annotation>
+		<annotation cp="👨‍👩‍👦‍👦">barn | familj | kvinna | mamma | man | människor | pappa | pojke</annotation>
 		<annotation cp="👨‍👩‍👦‍👦" type="tts">familj: man, kvinna, pojke, pojke</annotation>
-		<annotation cp="👨‍👩‍👧‍👧">barn | familj | flicka | kvinna | mamma | mamma och pappa och en son | man | människor | pappa</annotation>
+		<annotation cp="👨‍👩‍👧‍👧">barn | familj | flicka | kvinna | mamma | man | människor | pappa</annotation>
 		<annotation cp="👨‍👩‍👧‍👧" type="tts">familj: man, kvinna, flicka, flicka</annotation>
-		<annotation cp="👨‍👨‍👦">barn | familj | mamma | mamma och pappa och en son | man | människor | pappa | pojke</annotation>
+		<annotation cp="👨‍👨‍👦">barn | familj | mamma | man | människor | pappa | pojke</annotation>
 		<annotation cp="👨‍👨‍👦" type="tts">familj: man, man, pojke</annotation>
-		<annotation cp="👨‍👨‍👧">barn | familj | flicka | mamma | mamma och pappa och en son | man | människor | pappa</annotation>
+		<annotation cp="👨‍👨‍👧">barn | familj | flicka | mamma | man | människor | pappa</annotation>
 		<annotation cp="👨‍👨‍👧" type="tts">familj: man, man, flicka</annotation>
-		<annotation cp="👨‍👨‍👧‍👦">barn | familj | flicka | mamma | mamma och pappa och en son | man | människor | pappa | pojke</annotation>
+		<annotation cp="👨‍👨‍👧‍👦">barn | familj | flicka | mamma | man | människor | pappa | pojke</annotation>
 		<annotation cp="👨‍👨‍👧‍👦" type="tts">familj: man, man, flicka, pojke</annotation>
-		<annotation cp="👨‍👨‍👦‍👦">barn | familj | mamma | mamma och pappa och en son | man | människor | pappa | pojke</annotation>
+		<annotation cp="👨‍👨‍👦‍👦">barn | familj | mamma | man | människor | pappa | pojke</annotation>
 		<annotation cp="👨‍👨‍👦‍👦" type="tts">familj: man, man, pojke, pojke</annotation>
-		<annotation cp="👨‍👨‍👧‍👧">barn | familj | flicka | mamma | mamma och pappa och en son | man | människor | pappa</annotation>
+		<annotation cp="👨‍👨‍👧‍👧">barn | familj | flicka | mamma | man | människor | pappa</annotation>
 		<annotation cp="👨‍👨‍👧‍👧" type="tts">familj: man, man, flicka, flicka</annotation>
-		<annotation cp="👩‍👩‍👦">barn | familj | kvinna | mamma | mamma och pappa och en son | människor | pappa | pojke</annotation>
+		<annotation cp="👩‍👩‍👦">barn | familj | kvinna | mamma | människor | pappa | pojke</annotation>
 		<annotation cp="👩‍👩‍👦" type="tts">familj: kvinna, kvinna, pojke</annotation>
-		<annotation cp="👩‍👩‍👧">barn | familj | flicka | kvinna | mamma | mamma och pappa och en son | människor | pappa</annotation>
+		<annotation cp="👩‍👩‍👧">barn | familj | flicka | kvinna | mamma | människor | pappa</annotation>
 		<annotation cp="👩‍👩‍👧" type="tts">familj: kvinna, kvinna, flicka</annotation>
-		<annotation cp="👩‍👩‍👧‍👦">barn | familj | flicka | kvinna | mamma | mamma och pappa och en son | människor | pappa | pojke</annotation>
+		<annotation cp="👩‍👩‍👧‍👦">barn | familj | flicka | kvinna | mamma | människor | pappa | pojke</annotation>
 		<annotation cp="👩‍👩‍👧‍👦" type="tts">familj: kvinna, kvinna, flicka, pojke</annotation>
-		<annotation cp="👩‍👩‍👦‍👦">barn | familj | kvinna | mamma | mamma och pappa och en son | människor | pappa | pojke</annotation>
+		<annotation cp="👩‍👩‍👦‍👦">barn | familj | kvinna | mamma | människor | pappa | pojke</annotation>
 		<annotation cp="👩‍👩‍👦‍👦" type="tts">familj: kvinna, kvinna, pojke, pojke</annotation>
-		<annotation cp="👩‍👩‍👧‍👧">barn | familj | flicka | kvinna | mamma | mamma och pappa och en son | människor | pappa</annotation>
+		<annotation cp="👩‍👩‍👧‍👧">barn | familj | flicka | kvinna | mamma | människor | pappa</annotation>
 		<annotation cp="👩‍👩‍👧‍👧" type="tts">familj: kvinna, kvinna, flicka, flicka</annotation>
-		<annotation cp="👨‍👦">barn | familj | mamma | mamma och pappa och en son | man | människor | pappa | pojke</annotation>
+		<annotation cp="👨‍👦">barn | familj | mamma | man | människor | pappa | pojke</annotation>
 		<annotation cp="👨‍👦" type="tts">familj: man, pojke</annotation>
-		<annotation cp="👨‍👦‍👦">barn | familj | mamma | mamma och pappa och en son | man | människor | pappa | pojke</annotation>
+		<annotation cp="👨‍👦‍👦">barn | familj | mamma | man | människor | pappa | pojke</annotation>
 		<annotation cp="👨‍👦‍👦" type="tts">familj: man, pojke, pojke</annotation>
-		<annotation cp="👨‍👧">barn | familj | flicka | mamma | mamma och pappa och en son | man | människor | pappa</annotation>
+		<annotation cp="👨‍👧">barn | familj | flicka | mamma | man | människor | pappa</annotation>
 		<annotation cp="👨‍👧" type="tts">familj: man, flicka</annotation>
-		<annotation cp="👨‍👧‍👦">barn | familj | flicka | mamma | mamma och pappa och en son | man | människor | pappa | pojke</annotation>
+		<annotation cp="👨‍👧‍👦">barn | familj | flicka | mamma | man | människor | pappa | pojke</annotation>
 		<annotation cp="👨‍👧‍👦" type="tts">familj: man, flicka, pojke</annotation>
-		<annotation cp="👨‍👧‍👧">barn | familj | flicka | mamma | mamma och pappa och en son | man | människor | pappa</annotation>
+		<annotation cp="👨‍👧‍👧">barn | familj | flicka | mamma | man | människor | pappa</annotation>
 		<annotation cp="👨‍👧‍👧" type="tts">familj: man, flicka, flicka</annotation>
-		<annotation cp="👩‍👦">barn | familj | kvinna | mamma | mamma och pappa och en son | människor | pappa | pojke</annotation>
+		<annotation cp="👩‍👦">barn | familj | kvinna | mamma | människor | pappa | pojke</annotation>
 		<annotation cp="👩‍👦" type="tts">familj: kvinna, pojke</annotation>
-		<annotation cp="👩‍👦‍👦">barn | familj | kvinna | mamma | mamma och pappa och en son | människor | pappa | pojke</annotation>
+		<annotation cp="👩‍👦‍👦">barn | familj | kvinna | mamma | människor | pappa | pojke</annotation>
 		<annotation cp="👩‍👦‍👦" type="tts">familj: kvinna, pojke, pojke</annotation>
-		<annotation cp="👩‍👧">barn | familj | flicka | kvinna | mamma | mamma och pappa och en son | människor | pappa</annotation>
+		<annotation cp="👩‍👧">barn | familj | flicka | kvinna | mamma | människor | pappa</annotation>
 		<annotation cp="👩‍👧" type="tts">familj: kvinna, flicka</annotation>
-		<annotation cp="👩‍👧‍👦">barn | familj | flicka | kvinna | mamma | mamma och pappa och en son | människor | pappa | pojke</annotation>
+		<annotation cp="👩‍👧‍👦">barn | familj | flicka | kvinna | mamma | människor | pappa | pojke</annotation>
 		<annotation cp="👩‍👧‍👦" type="tts">familj: kvinna, flicka, pojke</annotation>
-		<annotation cp="👩‍👧‍👧">barn | familj | flicka | kvinna | mamma | mamma och pappa och en son | människor | pappa</annotation>
+		<annotation cp="👩‍👧‍👧">barn | familj | flicka | kvinna | mamma | människor | pappa</annotation>
 		<annotation cp="👩‍👧‍👧" type="tts">familj: kvinna, flicka, flicka</annotation>
 		<annotation cp="🇦🇨">flagga</annotation>
 		<annotation cp="🇦🇨" type="tts">flagga: Ascension</annotation>
@@ -3987,6 +4296,8 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇨🇴" type="tts">flagga: Colombia</annotation>
 		<annotation cp="🇨🇵">flagga</annotation>
 		<annotation cp="🇨🇵" type="tts">flagga: Clippertonön</annotation>
+		<annotation cp="🇨🇶">flagga</annotation>
+		<annotation cp="🇨🇶" type="tts">flagga: Sark</annotation>
 		<annotation cp="🇨🇷">flagga</annotation>
 		<annotation cp="🇨🇷" type="tts">flagga: Costa Rica</annotation>
 		<annotation cp="🇨🇺">flagga</annotation>

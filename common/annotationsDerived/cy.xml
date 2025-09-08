@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-
-Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
 -->
+<!-- Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file. -->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -603,6 +602,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾" type="tts">person â gwallt golau: arlliw croen canolig-tywyll</annotation>
 		<annotation cp="👱🏿">arlliw croen tywyll | gwallt golau | person â gwallt golau</annotation>
 		<annotation cp="👱🏿" type="tts">person â gwallt golau: arlliw croen tywyll</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏼">arlliw croen canolig-golau | arlliw croen golau | chwaraeon | person | taflu codwm | taflwr codwm | taflwyr codwm</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏼" type="tts">taflwyr codwm: arlliw croen golau, arlliw croen canolig-golau</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏽">arlliw croen canolog | arlliw croen golau | chwaraeon | person | taflu codwm | taflwr codwm | taflwyr codwm</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏽" type="tts">taflwyr codwm: arlliw croen golau, arlliw croen canolog</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏾">arlliw croen canolig-tywyll | arlliw croen golau | chwaraeon | person | taflu codwm | taflwr codwm | taflwyr codwm</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏾" type="tts">taflwyr codwm: arlliw croen golau, arlliw croen canolig-tywyll</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏿">arlliw croen golau | arlliw croen tywyll | chwaraeon | person | taflu codwm | taflwr codwm | taflwyr codwm</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏿" type="tts">taflwyr codwm: arlliw croen golau, arlliw croen tywyll</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏻">arlliw croen canolig-golau | arlliw croen golau | chwaraeon | person | taflu codwm | taflwr codwm | taflwyr codwm</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏻" type="tts">taflwyr codwm: arlliw croen canolig-golau, arlliw croen golau</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏽">arlliw croen canolig-golau | arlliw croen canolog | chwaraeon | person | taflu codwm | taflwr codwm | taflwyr codwm</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏽" type="tts">taflwyr codwm: arlliw croen canolig-golau, arlliw croen canolog</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏾">arlliw croen canolig-golau | arlliw croen canolig-tywyll | chwaraeon | person | taflu codwm | taflwr codwm | taflwyr codwm</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏾" type="tts">taflwyr codwm: arlliw croen canolig-golau, arlliw croen canolig-tywyll</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏿">arlliw croen canolig-golau | arlliw croen tywyll | chwaraeon | person | taflu codwm | taflwr codwm | taflwyr codwm</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏿" type="tts">taflwyr codwm: arlliw croen canolig-golau, arlliw croen tywyll</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏻">arlliw croen canolog | arlliw croen golau | chwaraeon | person | taflu codwm | taflwr codwm | taflwyr codwm</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏻" type="tts">taflwyr codwm: arlliw croen canolog, arlliw croen golau</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏼">arlliw croen canolig-golau | arlliw croen canolog | chwaraeon | person | taflu codwm | taflwr codwm | taflwyr codwm</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏼" type="tts">taflwyr codwm: arlliw croen canolog, arlliw croen canolig-golau</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏾">arlliw croen canolig-tywyll | arlliw croen canolog | chwaraeon | person | taflu codwm | taflwr codwm | taflwyr codwm</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏾" type="tts">taflwyr codwm: arlliw croen canolog, arlliw croen canolig-tywyll</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏿">arlliw croen canolog | arlliw croen tywyll | chwaraeon | person | taflu codwm | taflwr codwm | taflwyr codwm</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏿" type="tts">taflwyr codwm: arlliw croen canolog, arlliw croen tywyll</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏻">arlliw croen canolig-tywyll | arlliw croen golau | chwaraeon | person | taflu codwm | taflwr codwm | taflwyr codwm</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏻" type="tts">taflwyr codwm: arlliw croen canolig-tywyll, arlliw croen golau</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏼">arlliw croen canolig-golau | arlliw croen canolig-tywyll | chwaraeon | person | taflu codwm | taflwr codwm | taflwyr codwm</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏼" type="tts">taflwyr codwm: arlliw croen canolig-tywyll, arlliw croen canolig-golau</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏽">arlliw croen canolig-tywyll | arlliw croen canolog | chwaraeon | person | taflu codwm | taflwr codwm | taflwyr codwm</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏽" type="tts">taflwyr codwm: arlliw croen canolig-tywyll, arlliw croen canolog</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏿">arlliw croen canolig-tywyll | arlliw croen tywyll | chwaraeon | person | taflu codwm | taflwr codwm | taflwyr codwm</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏿" type="tts">taflwyr codwm: arlliw croen canolig-tywyll, arlliw croen tywyll</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏻">arlliw croen golau | arlliw croen tywyll | chwaraeon | person | taflu codwm | taflwr codwm | taflwyr codwm</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏻" type="tts">taflwyr codwm: arlliw croen tywyll, arlliw croen golau</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏼">arlliw croen canolig-golau | arlliw croen tywyll | chwaraeon | person | taflu codwm | taflwr codwm | taflwyr codwm</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏼" type="tts">taflwyr codwm: arlliw croen tywyll, arlliw croen canolig-golau</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏽">arlliw croen canolog | arlliw croen tywyll | chwaraeon | person | taflu codwm | taflwr codwm | taflwyr codwm</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏽" type="tts">taflwyr codwm: arlliw croen tywyll, arlliw croen canolog</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏾">arlliw croen canolig-tywyll | arlliw croen tywyll | chwaraeon | person | taflu codwm | taflwr codwm | taflwyr codwm</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏾" type="tts">taflwyr codwm: arlliw croen tywyll, arlliw croen canolig-tywyll</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏼">arlliw croen canolig-golau | arlliw croen golau | cusan | pâr | person</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏼" type="tts">cusan: person, person, arlliw croen golau, arlliw croen canolig-golau</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏽">arlliw croen canolog | arlliw croen golau | cusan | pâr | person</annotation>
@@ -731,6 +770,56 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧑🏾‍🦲" type="tts">person: arlliw croen canolig-tywyll, moel</annotation>
 		<annotation cp="🧑🏿‍🦲">arlliw croen tywyll | moel | niwtral o ran rhywedd | oedolyn | person</annotation>
 		<annotation cp="🧑🏿‍🦲" type="tts">person: arlliw croen tywyll, moel</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏼">arlliw croen canolig-golau | arlliw croen golau | clust | dawnsiwr | menyw | merch | pobl mewn parti</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏼" type="tts">pobl mewn parti: arlliw croen golau, arlliw croen canolig-golau</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏽">arlliw croen canolog | arlliw croen golau | clust | dawnsiwr | menyw | merch | pobl mewn parti</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏽" type="tts">pobl mewn parti: arlliw croen golau, arlliw croen canolog</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏾">arlliw croen canolig-tywyll | arlliw croen golau | clust | dawnsiwr | menyw | merch | pobl mewn parti</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏾" type="tts">pobl mewn parti: arlliw croen golau, arlliw croen canolig-tywyll</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏿">arlliw croen golau | arlliw croen tywyll | clust | dawnsiwr | menyw | merch | pobl mewn parti</annotation>
+		<annotation cp="🧑🏻‍🐰‍🧑🏿" type="tts">pobl mewn parti: arlliw croen golau, arlliw croen tywyll</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏻">arlliw croen canolig-golau | arlliw croen golau | clust | dawnsiwr | menyw | merch | pobl mewn parti</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏻" type="tts">pobl mewn parti: arlliw croen canolig-golau, arlliw croen golau</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏽">arlliw croen canolig-golau | arlliw croen canolog | clust | dawnsiwr | menyw | merch | pobl mewn parti</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏽" type="tts">pobl mewn parti: arlliw croen canolig-golau, arlliw croen canolog</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏾">arlliw croen canolig-golau | arlliw croen canolig-tywyll | clust | dawnsiwr | menyw | merch | pobl mewn parti</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏾" type="tts">pobl mewn parti: arlliw croen canolig-golau, arlliw croen canolig-tywyll</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏿">arlliw croen canolig-golau | arlliw croen tywyll | clust | dawnsiwr | menyw | merch | pobl mewn parti</annotation>
+		<annotation cp="🧑🏼‍🐰‍🧑🏿" type="tts">pobl mewn parti: arlliw croen canolig-golau, arlliw croen tywyll</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏻">arlliw croen canolog | arlliw croen golau | clust | dawnsiwr | menyw | merch | pobl mewn parti</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏻" type="tts">pobl mewn parti: arlliw croen canolog, arlliw croen golau</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏼">arlliw croen canolig-golau | arlliw croen canolog | clust | dawnsiwr | menyw | merch | pobl mewn parti</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏼" type="tts">pobl mewn parti: arlliw croen canolog, arlliw croen canolig-golau</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏾">arlliw croen canolig-tywyll | arlliw croen canolog | clust | dawnsiwr | menyw | merch | pobl mewn parti</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏾" type="tts">pobl mewn parti: arlliw croen canolog, arlliw croen canolig-tywyll</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏿">arlliw croen canolog | arlliw croen tywyll | clust | dawnsiwr | menyw | merch | pobl mewn parti</annotation>
+		<annotation cp="🧑🏽‍🐰‍🧑🏿" type="tts">pobl mewn parti: arlliw croen canolog, arlliw croen tywyll</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏻">arlliw croen canolig-tywyll | arlliw croen golau | clust | dawnsiwr | menyw | merch | pobl mewn parti</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏻" type="tts">pobl mewn parti: arlliw croen canolig-tywyll, arlliw croen golau</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏼">arlliw croen canolig-golau | arlliw croen canolig-tywyll | clust | dawnsiwr | menyw | merch | pobl mewn parti</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏼" type="tts">pobl mewn parti: arlliw croen canolig-tywyll, arlliw croen canolig-golau</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏽">arlliw croen canolig-tywyll | arlliw croen canolog | clust | dawnsiwr | menyw | merch | pobl mewn parti</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏽" type="tts">pobl mewn parti: arlliw croen canolig-tywyll, arlliw croen canolog</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏿">arlliw croen canolig-tywyll | arlliw croen tywyll | clust | dawnsiwr | menyw | merch | pobl mewn parti</annotation>
+		<annotation cp="🧑🏾‍🐰‍🧑🏿" type="tts">pobl mewn parti: arlliw croen canolig-tywyll, arlliw croen tywyll</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏻">arlliw croen golau | arlliw croen tywyll | clust | dawnsiwr | menyw | merch | pobl mewn parti</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏻" type="tts">pobl mewn parti: arlliw croen tywyll, arlliw croen golau</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏼">arlliw croen canolig-golau | arlliw croen tywyll | clust | dawnsiwr | menyw | merch | pobl mewn parti</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏼" type="tts">pobl mewn parti: arlliw croen tywyll, arlliw croen canolig-golau</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏽">arlliw croen canolog | arlliw croen tywyll | clust | dawnsiwr | menyw | merch | pobl mewn parti</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏽" type="tts">pobl mewn parti: arlliw croen tywyll, arlliw croen canolog</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏾">arlliw croen canolig-tywyll | arlliw croen tywyll | clust | dawnsiwr | menyw | merch | pobl mewn parti</annotation>
+		<annotation cp="🧑🏿‍🐰‍🧑🏾" type="tts">pobl mewn parti: arlliw croen tywyll, arlliw croen canolig-tywyll</annotation>
+		<annotation cp="🧑🏻‍🩰">arlliw croen golau | bale | dawnsiwr | dawnswraig</annotation>
+		<annotation cp="🧑🏻‍🩰" type="tts">dawnsiwr/dawnswraig bale: arlliw croen golau</annotation>
+		<annotation cp="🧑🏼‍🩰">arlliw croen canolig-golau | bale | dawnsiwr | dawnswraig</annotation>
+		<annotation cp="🧑🏼‍🩰" type="tts">dawnsiwr/dawnswraig bale: arlliw croen canolig-golau</annotation>
+		<annotation cp="🧑🏽‍🩰">arlliw croen canolog | bale | dawnsiwr | dawnswraig</annotation>
+		<annotation cp="🧑🏽‍🩰" type="tts">dawnsiwr/dawnswraig bale: arlliw croen canolog</annotation>
+		<annotation cp="🧑🏾‍🩰">arlliw croen canolig-tywyll | bale | dawnsiwr | dawnswraig</annotation>
+		<annotation cp="🧑🏾‍🩰" type="tts">dawnsiwr/dawnswraig bale: arlliw croen canolig-tywyll</annotation>
+		<annotation cp="🧑🏿‍🩰">arlliw croen tywyll | bale | dawnsiwr | dawnswraig</annotation>
+		<annotation cp="🧑🏿‍🩰" type="tts">dawnsiwr/dawnswraig bale: arlliw croen tywyll</annotation>
 		<annotation cp="👨🏻">arlliw croen golau | dyn | oedolyn</annotation>
 		<annotation cp="👨🏻" type="tts">dyn: arlliw croen golau</annotation>
 		<annotation cp="👨🏼">arlliw croen canolig-golau | dyn | oedolyn</annotation>
@@ -771,6 +860,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾‍♂" type="tts">dyn â gwallt golau: arlliw croen canolig-tywyll</annotation>
 		<annotation cp="👱🏿‍♂">arlliw croen tywyll | blond | dyn | dyn â gwallt golau | gwallt golau</annotation>
 		<annotation cp="👱🏿‍♂" type="tts">dyn â gwallt golau: arlliw croen tywyll</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏼">arlliw croen canolig-golau | arlliw croen golau | chwaraeon | dyn | dynion yn reslo | reslo</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏼" type="tts">dynion yn reslo: arlliw croen golau, arlliw croen canolig-golau</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏽">arlliw croen canolog | arlliw croen golau | chwaraeon | dyn | dynion yn reslo | reslo</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏽" type="tts">dynion yn reslo: arlliw croen golau, arlliw croen canolog</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏾">arlliw croen canolig-tywyll | arlliw croen golau | chwaraeon | dyn | dynion yn reslo | reslo</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏾" type="tts">dynion yn reslo: arlliw croen golau, arlliw croen canolig-tywyll</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏿">arlliw croen golau | arlliw croen tywyll | chwaraeon | dyn | dynion yn reslo | reslo</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏿" type="tts">dynion yn reslo: arlliw croen golau, arlliw croen tywyll</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏻">arlliw croen canolig-golau | arlliw croen golau | chwaraeon | dyn | dynion yn reslo | reslo</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏻" type="tts">dynion yn reslo: arlliw croen canolig-golau, arlliw croen golau</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏽">arlliw croen canolig-golau | arlliw croen canolog | chwaraeon | dyn | dynion yn reslo | reslo</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏽" type="tts">dynion yn reslo: arlliw croen canolig-golau, arlliw croen canolog</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏾">arlliw croen canolig-golau | arlliw croen canolig-tywyll | chwaraeon | dyn | dynion yn reslo | reslo</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏾" type="tts">dynion yn reslo: arlliw croen canolig-golau, arlliw croen canolig-tywyll</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏿">arlliw croen canolig-golau | arlliw croen tywyll | chwaraeon | dyn | dynion yn reslo | reslo</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏿" type="tts">dynion yn reslo: arlliw croen canolig-golau, arlliw croen tywyll</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏻">arlliw croen canolog | arlliw croen golau | chwaraeon | dyn | dynion yn reslo | reslo</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏻" type="tts">dynion yn reslo: arlliw croen canolog, arlliw croen golau</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏼">arlliw croen canolig-golau | arlliw croen canolog | chwaraeon | dyn | dynion yn reslo | reslo</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏼" type="tts">dynion yn reslo: arlliw croen canolog, arlliw croen canolig-golau</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏾">arlliw croen canolig-tywyll | arlliw croen canolog | chwaraeon | dyn | dynion yn reslo | reslo</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏾" type="tts">dynion yn reslo: arlliw croen canolog, arlliw croen canolig-tywyll</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏿">arlliw croen canolog | arlliw croen tywyll | chwaraeon | dyn | dynion yn reslo | reslo</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏿" type="tts">dynion yn reslo: arlliw croen canolog, arlliw croen tywyll</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏻">arlliw croen canolig-tywyll | arlliw croen golau | chwaraeon | dyn | dynion yn reslo | reslo</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏻" type="tts">dynion yn reslo: arlliw croen canolig-tywyll, arlliw croen golau</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏼">arlliw croen canolig-golau | arlliw croen canolig-tywyll | chwaraeon | dyn | dynion yn reslo | reslo</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏼" type="tts">dynion yn reslo: arlliw croen canolig-tywyll, arlliw croen canolig-golau</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏽">arlliw croen canolig-tywyll | arlliw croen canolog | chwaraeon | dyn | dynion yn reslo | reslo</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏽" type="tts">dynion yn reslo: arlliw croen canolig-tywyll, arlliw croen canolog</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏿">arlliw croen canolig-tywyll | arlliw croen tywyll | chwaraeon | dyn | dynion yn reslo | reslo</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏿" type="tts">dynion yn reslo: arlliw croen canolig-tywyll, arlliw croen tywyll</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏻">arlliw croen golau | arlliw croen tywyll | chwaraeon | dyn | dynion yn reslo | reslo</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏻" type="tts">dynion yn reslo: arlliw croen tywyll, arlliw croen golau</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏼">arlliw croen canolig-golau | arlliw croen tywyll | chwaraeon | dyn | dynion yn reslo | reslo</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏼" type="tts">dynion yn reslo: arlliw croen tywyll, arlliw croen canolig-golau</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏽">arlliw croen canolog | arlliw croen tywyll | chwaraeon | dyn | dynion yn reslo | reslo</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏽" type="tts">dynion yn reslo: arlliw croen tywyll, arlliw croen canolog</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏾">arlliw croen canolig-tywyll | arlliw croen tywyll | chwaraeon | dyn | dynion yn reslo | reslo</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏾" type="tts">dynion yn reslo: arlliw croen tywyll, arlliw croen canolig-tywyll</annotation>
 		<annotation cp="👨🏻‍❤‍💋‍👨🏻">arlliw croen golau | cusan | dyn | pâr</annotation>
 		<annotation cp="👨🏻‍❤‍💋‍👨🏻" type="tts">cusan: dyn, dyn, arlliw croen golau</annotation>
 		<annotation cp="👨🏻‍❤‍💋‍👨🏼">arlliw croen canolig-golau | arlliw croen golau | cusan | dyn | pâr</annotation>
@@ -919,6 +1048,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾‍🦲" type="tts">dyn: arlliw croen canolig-tywyll, moel</annotation>
 		<annotation cp="👨🏿‍🦲">arlliw croen tywyll | dyn | moel | oedolyn</annotation>
 		<annotation cp="👨🏿‍🦲" type="tts">dyn: arlliw croen tywyll, moel</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏼">arlliw croen canolig-golau | arlliw croen golau | dawnsiwr | dyn | dyn mewn parti | dynion | parti</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏼" type="tts">dyn mewn parti: arlliw croen golau, arlliw croen canolig-golau</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏽">arlliw croen canolog | arlliw croen golau | dawnsiwr | dyn | dyn mewn parti | dynion | parti</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏽" type="tts">dyn mewn parti: arlliw croen golau, arlliw croen canolog</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏾">arlliw croen canolig-tywyll | arlliw croen golau | dawnsiwr | dyn | dyn mewn parti | dynion | parti</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏾" type="tts">dyn mewn parti: arlliw croen golau, arlliw croen canolig-tywyll</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏿">arlliw croen golau | arlliw croen tywyll | dawnsiwr | dyn | dyn mewn parti | dynion | parti</annotation>
+		<annotation cp="👨🏻‍🐰‍👨🏿" type="tts">dyn mewn parti: arlliw croen golau, arlliw croen tywyll</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏻">arlliw croen canolig-golau | arlliw croen golau | dawnsiwr | dyn | dyn mewn parti | dynion | parti</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏻" type="tts">dyn mewn parti: arlliw croen canolig-golau, arlliw croen golau</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏽">arlliw croen canolig-golau | arlliw croen canolog | dawnsiwr | dyn | dyn mewn parti | dynion | parti</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏽" type="tts">dyn mewn parti: arlliw croen canolig-golau, arlliw croen canolog</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏾">arlliw croen canolig-golau | arlliw croen canolig-tywyll | dawnsiwr | dyn | dyn mewn parti | dynion | parti</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏾" type="tts">dyn mewn parti: arlliw croen canolig-golau, arlliw croen canolig-tywyll</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏿">arlliw croen canolig-golau | arlliw croen tywyll | dawnsiwr | dyn | dyn mewn parti | dynion | parti</annotation>
+		<annotation cp="👨🏼‍🐰‍👨🏿" type="tts">dyn mewn parti: arlliw croen canolig-golau, arlliw croen tywyll</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏻">arlliw croen canolog | arlliw croen golau | dawnsiwr | dyn | dyn mewn parti | dynion | parti</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏻" type="tts">dyn mewn parti: arlliw croen canolog, arlliw croen golau</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏼">arlliw croen canolig-golau | arlliw croen canolog | dawnsiwr | dyn | dyn mewn parti | dynion | parti</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏼" type="tts">dyn mewn parti: arlliw croen canolog, arlliw croen canolig-golau</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏾">arlliw croen canolig-tywyll | arlliw croen canolog | dawnsiwr | dyn | dyn mewn parti | dynion | parti</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏾" type="tts">dyn mewn parti: arlliw croen canolog, arlliw croen canolig-tywyll</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏿">arlliw croen canolog | arlliw croen tywyll | dawnsiwr | dyn | dyn mewn parti | dynion | parti</annotation>
+		<annotation cp="👨🏽‍🐰‍👨🏿" type="tts">dyn mewn parti: arlliw croen canolog, arlliw croen tywyll</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏻">arlliw croen canolig-tywyll | arlliw croen golau | dawnsiwr | dyn | dyn mewn parti | dynion | parti</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏻" type="tts">dyn mewn parti: arlliw croen canolig-tywyll, arlliw croen golau</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏼">arlliw croen canolig-golau | arlliw croen canolig-tywyll | dawnsiwr | dyn | dyn mewn parti | dynion | parti</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏼" type="tts">dyn mewn parti: arlliw croen canolig-tywyll, arlliw croen canolig-golau</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏽">arlliw croen canolig-tywyll | arlliw croen canolog | dawnsiwr | dyn | dyn mewn parti | dynion | parti</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏽" type="tts">dyn mewn parti: arlliw croen canolig-tywyll, arlliw croen canolog</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏿">arlliw croen canolig-tywyll | arlliw croen tywyll | dawnsiwr | dyn | dyn mewn parti | dynion | parti</annotation>
+		<annotation cp="👨🏾‍🐰‍👨🏿" type="tts">dyn mewn parti: arlliw croen canolig-tywyll, arlliw croen tywyll</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏻">arlliw croen golau | arlliw croen tywyll | dawnsiwr | dyn | dyn mewn parti | dynion | parti</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏻" type="tts">dyn mewn parti: arlliw croen tywyll, arlliw croen golau</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏼">arlliw croen canolig-golau | arlliw croen tywyll | dawnsiwr | dyn | dyn mewn parti | dynion | parti</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏼" type="tts">dyn mewn parti: arlliw croen tywyll, arlliw croen canolig-golau</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏽">arlliw croen canolog | arlliw croen tywyll | dawnsiwr | dyn | dyn mewn parti | dynion | parti</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏽" type="tts">dyn mewn parti: arlliw croen tywyll, arlliw croen canolog</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏾">arlliw croen canolig-tywyll | arlliw croen tywyll | dawnsiwr | dyn | dyn mewn parti | dynion | parti</annotation>
+		<annotation cp="👨🏿‍🐰‍👨🏾" type="tts">dyn mewn parti: arlliw croen tywyll, arlliw croen canolig-tywyll</annotation>
 		<annotation cp="👩🏻">arlliw croen golau | menyw | oedolyn</annotation>
 		<annotation cp="👩🏻" type="tts">menyw: arlliw croen golau</annotation>
 		<annotation cp="👩🏼">arlliw croen canolig-golau | menyw | oedolyn</annotation>
@@ -949,6 +1118,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾‍♀" type="tts">menyw â gwallt golau: arlliw croen canolig-tywyll</annotation>
 		<annotation cp="👱🏿‍♀">arlliw croen tywyll | blonde | gwallt golau | menyw | menyw â gwallt golau</annotation>
 		<annotation cp="👱🏿‍♀" type="tts">menyw â gwallt golau: arlliw croen tywyll</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏼">arlliw croen canolig-golau | arlliw croen golau | chwaraeon | menyw | menywod yn reslo | reslo</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏼" type="tts">menywod yn reslo: arlliw croen golau, arlliw croen canolig-golau</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏽">arlliw croen canolog | arlliw croen golau | chwaraeon | menyw | menywod yn reslo | reslo</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏽" type="tts">menywod yn reslo: arlliw croen golau, arlliw croen canolog</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏾">arlliw croen canolig-tywyll | arlliw croen golau | chwaraeon | menyw | menywod yn reslo | reslo</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏾" type="tts">menywod yn reslo: arlliw croen golau, arlliw croen canolig-tywyll</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏿">arlliw croen golau | arlliw croen tywyll | chwaraeon | menyw | menywod yn reslo | reslo</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏿" type="tts">menywod yn reslo: arlliw croen golau, arlliw croen tywyll</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏻">arlliw croen canolig-golau | arlliw croen golau | chwaraeon | menyw | menywod yn reslo | reslo</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏻" type="tts">menywod yn reslo: arlliw croen canolig-golau, arlliw croen golau</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏽">arlliw croen canolig-golau | arlliw croen canolog | chwaraeon | menyw | menywod yn reslo | reslo</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏽" type="tts">menywod yn reslo: arlliw croen canolig-golau, arlliw croen canolog</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏾">arlliw croen canolig-golau | arlliw croen canolig-tywyll | chwaraeon | menyw | menywod yn reslo | reslo</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏾" type="tts">menywod yn reslo: arlliw croen canolig-golau, arlliw croen canolig-tywyll</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏿">arlliw croen canolig-golau | arlliw croen tywyll | chwaraeon | menyw | menywod yn reslo | reslo</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏿" type="tts">menywod yn reslo: arlliw croen canolig-golau, arlliw croen tywyll</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏻">arlliw croen canolog | arlliw croen golau | chwaraeon | menyw | menywod yn reslo | reslo</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏻" type="tts">menywod yn reslo: arlliw croen canolog, arlliw croen golau</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏼">arlliw croen canolig-golau | arlliw croen canolog | chwaraeon | menyw | menywod yn reslo | reslo</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏼" type="tts">menywod yn reslo: arlliw croen canolog, arlliw croen canolig-golau</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏾">arlliw croen canolig-tywyll | arlliw croen canolog | chwaraeon | menyw | menywod yn reslo | reslo</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏾" type="tts">menywod yn reslo: arlliw croen canolog, arlliw croen canolig-tywyll</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏿">arlliw croen canolog | arlliw croen tywyll | chwaraeon | menyw | menywod yn reslo | reslo</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏿" type="tts">menywod yn reslo: arlliw croen canolog, arlliw croen tywyll</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏻">arlliw croen canolig-tywyll | arlliw croen golau | chwaraeon | menyw | menywod yn reslo | reslo</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏻" type="tts">menywod yn reslo: arlliw croen canolig-tywyll, arlliw croen golau</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏼">arlliw croen canolig-golau | arlliw croen canolig-tywyll | chwaraeon | menyw | menywod yn reslo | reslo</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏼" type="tts">menywod yn reslo: arlliw croen canolig-tywyll, arlliw croen canolig-golau</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏽">arlliw croen canolig-tywyll | arlliw croen canolog | chwaraeon | menyw | menywod yn reslo | reslo</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏽" type="tts">menywod yn reslo: arlliw croen canolig-tywyll, arlliw croen canolog</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏿">arlliw croen canolig-tywyll | arlliw croen tywyll | chwaraeon | menyw | menywod yn reslo | reslo</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏿" type="tts">menywod yn reslo: arlliw croen canolig-tywyll, arlliw croen tywyll</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏻">arlliw croen golau | arlliw croen tywyll | chwaraeon | menyw | menywod yn reslo | reslo</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏻" type="tts">menywod yn reslo: arlliw croen tywyll, arlliw croen golau</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏼">arlliw croen canolig-golau | arlliw croen tywyll | chwaraeon | menyw | menywod yn reslo | reslo</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏼" type="tts">menywod yn reslo: arlliw croen tywyll, arlliw croen canolig-golau</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏽">arlliw croen canolog | arlliw croen tywyll | chwaraeon | menyw | menywod yn reslo | reslo</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏽" type="tts">menywod yn reslo: arlliw croen tywyll, arlliw croen canolog</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏾">arlliw croen canolig-tywyll | arlliw croen tywyll | chwaraeon | menyw | menywod yn reslo | reslo</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏾" type="tts">menywod yn reslo: arlliw croen tywyll, arlliw croen canolig-tywyll</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👨🏻">arlliw croen golau | cusan | dyn | menyw | pâr</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👨🏻" type="tts">cusan: menyw, dyn, arlliw croen golau</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👨🏼">arlliw croen canolig-golau | arlliw croen golau | cusan | dyn | menyw | pâr</annotation>
@@ -1197,6 +1406,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🦲" type="tts">menyw: arlliw croen canolig-tywyll, moel</annotation>
 		<annotation cp="👩🏿‍🦲">arlliw croen tywyll | menyw | moel | oedolyn</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">menyw: arlliw croen tywyll, moel</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏼">arlliw croen canolig-golau | arlliw croen golau | dawnsiwr | menyw | menyw mewn parti | menywod | parti</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏼" type="tts">menyw mewn parti: arlliw croen golau, arlliw croen canolig-golau</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏽">arlliw croen canolog | arlliw croen golau | dawnsiwr | menyw | menyw mewn parti | menywod | parti</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏽" type="tts">menyw mewn parti: arlliw croen golau, arlliw croen canolog</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏾">arlliw croen canolig-tywyll | arlliw croen golau | dawnsiwr | menyw | menyw mewn parti | menywod | parti</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏾" type="tts">menyw mewn parti: arlliw croen golau, arlliw croen canolig-tywyll</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏿">arlliw croen golau | arlliw croen tywyll | dawnsiwr | menyw | menyw mewn parti | menywod | parti</annotation>
+		<annotation cp="👩🏻‍🐰‍👩🏿" type="tts">menyw mewn parti: arlliw croen golau, arlliw croen tywyll</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏻">arlliw croen canolig-golau | arlliw croen golau | dawnsiwr | menyw | menyw mewn parti | menywod | parti</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏻" type="tts">menyw mewn parti: arlliw croen canolig-golau, arlliw croen golau</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏽">arlliw croen canolig-golau | arlliw croen canolog | dawnsiwr | menyw | menyw mewn parti | menywod | parti</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏽" type="tts">menyw mewn parti: arlliw croen canolig-golau, arlliw croen canolog</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏾">arlliw croen canolig-golau | arlliw croen canolig-tywyll | dawnsiwr | menyw | menyw mewn parti | menywod | parti</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏾" type="tts">menyw mewn parti: arlliw croen canolig-golau, arlliw croen canolig-tywyll</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏿">arlliw croen canolig-golau | arlliw croen tywyll | dawnsiwr | menyw | menyw mewn parti | menywod | parti</annotation>
+		<annotation cp="👩🏼‍🐰‍👩🏿" type="tts">menyw mewn parti: arlliw croen canolig-golau, arlliw croen tywyll</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏻">arlliw croen canolog | arlliw croen golau | dawnsiwr | menyw | menyw mewn parti | menywod | parti</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏻" type="tts">menyw mewn parti: arlliw croen canolog, arlliw croen golau</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏼">arlliw croen canolig-golau | arlliw croen canolog | dawnsiwr | menyw | menyw mewn parti | menywod | parti</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏼" type="tts">menyw mewn parti: arlliw croen canolog, arlliw croen canolig-golau</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏾">arlliw croen canolig-tywyll | arlliw croen canolog | dawnsiwr | menyw | menyw mewn parti | menywod | parti</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏾" type="tts">menyw mewn parti: arlliw croen canolog, arlliw croen canolig-tywyll</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏿">arlliw croen canolog | arlliw croen tywyll | dawnsiwr | menyw | menyw mewn parti | menywod | parti</annotation>
+		<annotation cp="👩🏽‍🐰‍👩🏿" type="tts">menyw mewn parti: arlliw croen canolog, arlliw croen tywyll</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏻">arlliw croen canolig-tywyll | arlliw croen golau | dawnsiwr | menyw | menyw mewn parti | menywod | parti</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏻" type="tts">menyw mewn parti: arlliw croen canolig-tywyll, arlliw croen golau</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏼">arlliw croen canolig-golau | arlliw croen canolig-tywyll | dawnsiwr | menyw | menyw mewn parti | menywod | parti</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏼" type="tts">menyw mewn parti: arlliw croen canolig-tywyll, arlliw croen canolig-golau</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏽">arlliw croen canolig-tywyll | arlliw croen canolog | dawnsiwr | menyw | menyw mewn parti | menywod | parti</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏽" type="tts">menyw mewn parti: arlliw croen canolig-tywyll, arlliw croen canolog</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏿">arlliw croen canolig-tywyll | arlliw croen tywyll | dawnsiwr | menyw | menyw mewn parti | menywod | parti</annotation>
+		<annotation cp="👩🏾‍🐰‍👩🏿" type="tts">menyw mewn parti: arlliw croen canolig-tywyll, arlliw croen tywyll</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏻">arlliw croen golau | arlliw croen tywyll | dawnsiwr | menyw | menyw mewn parti | menywod | parti</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏻" type="tts">menyw mewn parti: arlliw croen tywyll, arlliw croen golau</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏼">arlliw croen canolig-golau | arlliw croen tywyll | dawnsiwr | menyw | menyw mewn parti | menywod | parti</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏼" type="tts">menyw mewn parti: arlliw croen tywyll, arlliw croen canolig-golau</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏽">arlliw croen canolog | arlliw croen tywyll | dawnsiwr | menyw | menyw mewn parti | menywod | parti</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏽" type="tts">menyw mewn parti: arlliw croen tywyll, arlliw croen canolog</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏾">arlliw croen canolig-tywyll | arlliw croen tywyll | dawnsiwr | menyw | menyw mewn parti | menywod | parti</annotation>
+		<annotation cp="👩🏿‍🐰‍👩🏾" type="tts">menyw mewn parti: arlliw croen tywyll, arlliw croen canolig-tywyll</annotation>
 		<annotation cp="🧓🏻">arlliw croen golau | hen | niwtral o ran rhyw | oedolyn oedranus</annotation>
 		<annotation cp="🧓🏻" type="tts">oedolyn oedranus: arlliw croen golau</annotation>
 		<annotation cp="🧓🏼">arlliw croen canolig-golau | hen | niwtral o ran rhyw | oedolyn oedranus</annotation>
@@ -3113,6 +3362,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🕴🏾" type="tts">dyn mewn gwisg fusnes yn ymddyrchafu: arlliw croen canolig-tywyll</annotation>
 		<annotation cp="🕴🏿">arlliw croen tywyll | busnes | dyn | dyn mewn gwisg fusnes yn ymddyrchafu | gwisg</annotation>
 		<annotation cp="🕴🏿" type="tts">dyn mewn gwisg fusnes yn ymddyrchafu: arlliw croen tywyll</annotation>
+		<annotation cp="👯🏻">arlliw croen golau | clust | dawnsiwr | menyw | merch | pobl mewn parti</annotation>
+		<annotation cp="👯🏻" type="tts">pobl mewn parti: arlliw croen golau</annotation>
+		<annotation cp="👯🏼">arlliw croen canolig-golau | clust | dawnsiwr | menyw | merch | pobl mewn parti</annotation>
+		<annotation cp="👯🏼" type="tts">pobl mewn parti: arlliw croen canolig-golau</annotation>
+		<annotation cp="👯🏽">arlliw croen canolog | clust | dawnsiwr | menyw | merch | pobl mewn parti</annotation>
+		<annotation cp="👯🏽" type="tts">pobl mewn parti: arlliw croen canolog</annotation>
+		<annotation cp="👯🏾">arlliw croen canolig-tywyll | clust | dawnsiwr | menyw | merch | pobl mewn parti</annotation>
+		<annotation cp="👯🏾" type="tts">pobl mewn parti: arlliw croen canolig-tywyll</annotation>
+		<annotation cp="👯🏿">arlliw croen tywyll | clust | dawnsiwr | menyw | merch | pobl mewn parti</annotation>
+		<annotation cp="👯🏿" type="tts">pobl mewn parti: arlliw croen tywyll</annotation>
+		<annotation cp="👯🏻‍♀">arlliw croen golau | dawnsiwr | menyw | menyw mewn parti | menywod | parti</annotation>
+		<annotation cp="👯🏻‍♀" type="tts">menyw mewn parti: arlliw croen golau</annotation>
+		<annotation cp="👯🏼‍♀">arlliw croen canolig-golau | dawnsiwr | menyw | menyw mewn parti | menywod | parti</annotation>
+		<annotation cp="👯🏼‍♀" type="tts">menyw mewn parti: arlliw croen canolig-golau</annotation>
+		<annotation cp="👯🏽‍♀">arlliw croen canolog | dawnsiwr | menyw | menyw mewn parti | menywod | parti</annotation>
+		<annotation cp="👯🏽‍♀" type="tts">menyw mewn parti: arlliw croen canolog</annotation>
+		<annotation cp="👯🏾‍♀">arlliw croen canolig-tywyll | dawnsiwr | menyw | menyw mewn parti | menywod | parti</annotation>
+		<annotation cp="👯🏾‍♀" type="tts">menyw mewn parti: arlliw croen canolig-tywyll</annotation>
+		<annotation cp="👯🏿‍♀">arlliw croen tywyll | dawnsiwr | menyw | menyw mewn parti | menywod | parti</annotation>
+		<annotation cp="👯🏿‍♀" type="tts">menyw mewn parti: arlliw croen tywyll</annotation>
+		<annotation cp="👯🏻‍♂">arlliw croen golau | dawnsiwr | dyn | dyn mewn parti | dynion | parti</annotation>
+		<annotation cp="👯🏻‍♂" type="tts">dyn mewn parti: arlliw croen golau</annotation>
+		<annotation cp="👯🏼‍♂">arlliw croen canolig-golau | dawnsiwr | dyn | dyn mewn parti | dynion | parti</annotation>
+		<annotation cp="👯🏼‍♂" type="tts">dyn mewn parti: arlliw croen canolig-golau</annotation>
+		<annotation cp="👯🏽‍♂">arlliw croen canolog | dawnsiwr | dyn | dyn mewn parti | dynion | parti</annotation>
+		<annotation cp="👯🏽‍♂" type="tts">dyn mewn parti: arlliw croen canolog</annotation>
+		<annotation cp="👯🏾‍♂">arlliw croen canolig-tywyll | dawnsiwr | dyn | dyn mewn parti | dynion | parti</annotation>
+		<annotation cp="👯🏾‍♂" type="tts">dyn mewn parti: arlliw croen canolig-tywyll</annotation>
+		<annotation cp="👯🏿‍♂">arlliw croen tywyll | dawnsiwr | dyn | dyn mewn parti | dynion | parti</annotation>
+		<annotation cp="👯🏿‍♂" type="tts">dyn mewn parti: arlliw croen tywyll</annotation>
 		<annotation cp="🧖🏻">arlliw croen golau | person mewn ystafell llawn stêm | sawna | ystafell stêm</annotation>
 		<annotation cp="🧖🏻" type="tts">person mewn ystafell llawn stêm: arlliw croen golau</annotation>
 		<annotation cp="🧖🏼">arlliw croen canolig-golau | person mewn ystafell llawn stêm | sawna | ystafell stêm</annotation>
@@ -3463,6 +3742,36 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤸🏾‍♀" type="tts">menyw yn gwneud olwyn dro: arlliw croen canolig-tywyll</annotation>
 		<annotation cp="🤸🏿‍♀">arlliw croen tywyll | chwaraeon | gymnasteg | menyw | menyw yn gwneud olwyn dro | olwyn dro</annotation>
 		<annotation cp="🤸🏿‍♀" type="tts">menyw yn gwneud olwyn dro: arlliw croen tywyll</annotation>
+		<annotation cp="🤼🏻">arlliw croen golau | chwaraeon | person | taflu codwm | taflwr codwm | taflwyr codwm</annotation>
+		<annotation cp="🤼🏻" type="tts">taflwyr codwm: arlliw croen golau</annotation>
+		<annotation cp="🤼🏼">arlliw croen canolig-golau | chwaraeon | person | taflu codwm | taflwr codwm | taflwyr codwm</annotation>
+		<annotation cp="🤼🏼" type="tts">taflwyr codwm: arlliw croen canolig-golau</annotation>
+		<annotation cp="🤼🏽">arlliw croen canolog | chwaraeon | person | taflu codwm | taflwr codwm | taflwyr codwm</annotation>
+		<annotation cp="🤼🏽" type="tts">taflwyr codwm: arlliw croen canolog</annotation>
+		<annotation cp="🤼🏾">arlliw croen canolig-tywyll | chwaraeon | person | taflu codwm | taflwr codwm | taflwyr codwm</annotation>
+		<annotation cp="🤼🏾" type="tts">taflwyr codwm: arlliw croen canolig-tywyll</annotation>
+		<annotation cp="🤼🏿">arlliw croen tywyll | chwaraeon | person | taflu codwm | taflwr codwm | taflwyr codwm</annotation>
+		<annotation cp="🤼🏿" type="tts">taflwyr codwm: arlliw croen tywyll</annotation>
+		<annotation cp="🤼🏻‍♀">arlliw croen golau | chwaraeon | menyw | menywod yn reslo | reslo</annotation>
+		<annotation cp="🤼🏻‍♀" type="tts">menywod yn reslo: arlliw croen golau</annotation>
+		<annotation cp="🤼🏼‍♀">arlliw croen canolig-golau | chwaraeon | menyw | menywod yn reslo | reslo</annotation>
+		<annotation cp="🤼🏼‍♀" type="tts">menywod yn reslo: arlliw croen canolig-golau</annotation>
+		<annotation cp="🤼🏽‍♀">arlliw croen canolog | chwaraeon | menyw | menywod yn reslo | reslo</annotation>
+		<annotation cp="🤼🏽‍♀" type="tts">menywod yn reslo: arlliw croen canolog</annotation>
+		<annotation cp="🤼🏾‍♀">arlliw croen canolig-tywyll | chwaraeon | menyw | menywod yn reslo | reslo</annotation>
+		<annotation cp="🤼🏾‍♀" type="tts">menywod yn reslo: arlliw croen canolig-tywyll</annotation>
+		<annotation cp="🤼🏿‍♀">arlliw croen tywyll | chwaraeon | menyw | menywod yn reslo | reslo</annotation>
+		<annotation cp="🤼🏿‍♀" type="tts">menywod yn reslo: arlliw croen tywyll</annotation>
+		<annotation cp="🤼🏻‍♂">arlliw croen golau | chwaraeon | dyn | dynion yn reslo | reslo</annotation>
+		<annotation cp="🤼🏻‍♂" type="tts">dynion yn reslo: arlliw croen golau</annotation>
+		<annotation cp="🤼🏼‍♂">arlliw croen canolig-golau | chwaraeon | dyn | dynion yn reslo | reslo</annotation>
+		<annotation cp="🤼🏼‍♂" type="tts">dynion yn reslo: arlliw croen canolig-golau</annotation>
+		<annotation cp="🤼🏽‍♂">arlliw croen canolog | chwaraeon | dyn | dynion yn reslo | reslo</annotation>
+		<annotation cp="🤼🏽‍♂" type="tts">dynion yn reslo: arlliw croen canolog</annotation>
+		<annotation cp="🤼🏾‍♂">arlliw croen canolig-tywyll | chwaraeon | dyn | dynion yn reslo | reslo</annotation>
+		<annotation cp="🤼🏾‍♂" type="tts">dynion yn reslo: arlliw croen canolig-tywyll</annotation>
+		<annotation cp="🤼🏿‍♂">arlliw croen tywyll | chwaraeon | dyn | dynion yn reslo | reslo</annotation>
+		<annotation cp="🤼🏿‍♂" type="tts">dynion yn reslo: arlliw croen tywyll</annotation>
 		<annotation cp="🤽🏻">arlliw croen golau | chwaraeon | dŵr | person | polo</annotation>
 		<annotation cp="🤽🏻" type="tts">polo dŵr: arlliw croen golau</annotation>
 		<annotation cp="🤽🏼">arlliw croen canolig-golau | chwaraeon | dŵr | person | polo</annotation>
@@ -3993,6 +4302,8 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇨🇴" type="tts">baner: Colombia</annotation>
 		<annotation cp="🇨🇵">baner</annotation>
 		<annotation cp="🇨🇵" type="tts">baner: Ynys Clipperton</annotation>
+		<annotation cp="🇨🇶">baner</annotation>
+		<annotation cp="🇨🇶" type="tts">baner: Sarc</annotation>
 		<annotation cp="🇨🇷">baner</annotation>
 		<annotation cp="🇨🇷" type="tts">baner: Costa Rica</annotation>
 		<annotation cp="🇨🇺">baner</annotation>
@@ -4258,7 +4569,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇵🇭">baner</annotation>
 		<annotation cp="🇵🇭" type="tts">baner: Y Philipinau</annotation>
 		<annotation cp="🇵🇰">baner</annotation>
-		<annotation cp="🇵🇰" type="tts">baner: Pakistan</annotation>
+		<annotation cp="🇵🇰" type="tts">baner: Pacistan</annotation>
 		<annotation cp="🇵🇱">baner</annotation>
 		<annotation cp="🇵🇱" type="tts">baner: Gwlad Pwyl</annotation>
 		<annotation cp="🇵🇲">baner</annotation>
@@ -4432,25 +4743,5 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="₺" type="tts">Lira Twrci</annotation>
 		<annotation cp="₼" type="tts">Manat Azerbaijan</annotation>
 		<annotation cp="₾" type="tts">Lari Georgia</annotation>
-		<annotation cp="0⃣">gorchudd bysell</annotation>
-		<annotation cp="0⃣" type="tts">gorchudd bysell: 0</annotation>
-		<annotation cp="1⃣">gorchudd bysell</annotation>
-		<annotation cp="1⃣" type="tts">gorchudd bysell: 1</annotation>
-		<annotation cp="2⃣">gorchudd bysell</annotation>
-		<annotation cp="2⃣" type="tts">gorchudd bysell: 2</annotation>
-		<annotation cp="3⃣">gorchudd bysell</annotation>
-		<annotation cp="3⃣" type="tts">gorchudd bysell: 3</annotation>
-		<annotation cp="4⃣">gorchudd bysell</annotation>
-		<annotation cp="4⃣" type="tts">gorchudd bysell: 4</annotation>
-		<annotation cp="5⃣">gorchudd bysell</annotation>
-		<annotation cp="5⃣" type="tts">gorchudd bysell: 5</annotation>
-		<annotation cp="6⃣">gorchudd bysell</annotation>
-		<annotation cp="6⃣" type="tts">gorchudd bysell: 6</annotation>
-		<annotation cp="7⃣">gorchudd bysell</annotation>
-		<annotation cp="7⃣" type="tts">gorchudd bysell: 7</annotation>
-		<annotation cp="8⃣">gorchudd bysell</annotation>
-		<annotation cp="8⃣" type="tts">gorchudd bysell: 8</annotation>
-		<annotation cp="9⃣">gorchudd bysell</annotation>
-		<annotation cp="9⃣" type="tts">gorchudd bysell: 9</annotation>
 	</annotations>
 </ldml>

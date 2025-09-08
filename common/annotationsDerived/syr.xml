@@ -9,9 +9,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
-		<language type="su"/>
+		<language type="syr"/>
 	</identity>
 	<annotations>
-		<annotation cp="¤" type="tts">Mata Uang Teu Dikenal</annotation>
+		<annotation cp="¤" type="tts">ܟܣܦܐ ܠܐ ܝܕܝܥܐ</annotation>
+		<annotation cp="֏" type="tts">ܕܪܗܡ ܕܐܪܡܢܝܐ</annotation>
+		<annotation cp="₡" type="tts">ܟܘܠܘܢ ܕܟܘܣܬܐ ܪܝܟܐ</annotation>
+		<annotation cp="₪" type="tts">ܬܩܠܐ ܚܕܬܐ ܕܐܝܣܪܐܝܠ</annotation>
+		<annotation cp="₫" type="tts">ܕܘܢܓ ܕܒܝܬܢܐܡ</annotation>
+		<annotation cp="₺" type="tts">ܠܝܛܪܐ ܕܬܘܪܟܝܐ</annotation>
 	</annotations>
 </ldml>

@@ -41,6 +41,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<exemplarCharacters type="punctuation-auxiliary" draft="contributed">↑↑↑</exemplarCharacters>
 	</characters>
 	<numbers>
+		<symbols numberSystem="latn">
+			<group>'</group>
+		</symbols>
 		<currencies>
 			<currency type="BYN">
 				<displayName>Weissrussischer Rubel</displayName>

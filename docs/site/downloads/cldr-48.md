@@ -62,8 +62,23 @@ See the [Modifications section](https://www.unicode.org/reports/tr35/proposed.ht
 ## Data Changes
 
 ### DTD Changes
-
-- `territories` attribute of `languageData` in [`supplementalData.xml`](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalData.xml) removed. While it was a nice proxy to count the most important territories for each language, it was not clear and it was ripe for mis-understanding. ([CLDR-5708][])
+**[TBD: Update from https://unicode.org/cldr/charts/48/supplemental/dtd_deltas.html, adding the meaning/impact of each]**
+- `exemplarCharacters` added more `type` values:
+   - numbers-auxiliary — TBD
+   - punctuation-auxiliary — TBD
+   - punctuation-person — TBD
+- `dateTimeFormat` added more `type` values:
+   - relative — TBD
+- `gmtUnknownFormat` element was added — TBD
+- `language` added more `menu` values:
+   - core — TBD
+   - extension — TBD
+- `type` added more `scope` values:
+   - core — TBD
+- `numbers` added `rationalFormats` sub-element:
+   - TBD
+- `rbnf​/rulesetGrouping` added `rbnfRules` sub-element — TBD
+   - TBD- [TBD Fix this] `territories` attribute of `languageData` in [`supplementalData.xml`](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalData.xml) removed. While it was a nice proxy to count the most important territories for each language, it was not clear and it was ripe for mis-understanding. ([CLDR-5708][])
 
 For a full listing, see [Delta DTDs](https://unicode.org/cldr/charts/dev/supplemental/dtd_deltas.html).
 

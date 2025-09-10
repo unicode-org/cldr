@@ -28,25 +28,32 @@ The most significant changes in this release are:
 For more details, see below.
 
 ### Locale Coverage Status
+The following shows the coverage levels per language in this version of CLDR.
+- The **L-S** column indicates which of the **Count** locales are language-script variants.
+    - For example, zh_Hant and zh(_Hans) add two to the **Count**, and one to **L-S**.
+- The **RV** column indicates the number of other regional locales: none are in **Count**.
+    - For example, there are 46 locales for French, such as fr, fr_CA, fr_BE, etc., so that adds 46 to the RV column for Modern.
 
 #### Current Levels
 
-Count | Level | Usage | Examples
--- | -- | -- | --
-xx | Modern | Suitable for full UI internationalization | …
-xx | Moderate | Suitable for “document content” internationalization, eg. in spreadsheet | …
-xx | Basic | Suitable for locale selection, eg. choice of language on mobile phone | …
+Count | L-S | RV | Level | Usage | Examples
+-- | -- | -- | -- | -- | --
+104 | 5 | 305 | Modern | Suitable for full UI internationalization | Afrikaans, shqip, አማርኛ, ‫العربية‬, հայերեն, অসমীয়া, azərbaycan
+13 | 0 | 1 | Moderate | Suitable for “document content” internationalization, eg. in spreadsheet | Akan, Cebuano, Māori, тоҷикӣ
+57 | 10 | 22 | Basic | Suitable for locale selection, eg. choice of language on mobile phone | भोजपुरी, बर’, डोगरी, eʋegbe, Gã, हरियाणवी
 
 #### Changes
 
 | ± | New Level | Locales |
 | -- | -- | -- |
-| 📈 | Modern | … |
-| 📈 | Moderate | … |
-| 📈 | Basic | … |
-| 📉 | Basic* | … |
+| 📈 | Modern | Quechua, Akan, Romansh, Chuvash, Kazakh (Arabic), Shan, Bashkir |
+| 📈 | Moderate | Esperanto, Anii |
+| 📈 | Basic | Sicilian, Tuvinian, Buriat, Piedmontese |
+| 📉 | Basic* | Baluchi (Latin), Kurdish |
 
-\* Note: Each release, the number of items needed for Modern and Moderate increases. So locales without active contributors may drop down in coverage level.
+\* Note: Two locales dropped in coverage (📉), from Moderate to Basic.
+Each release, the number of items needed for Modern and Moderate increases.
+So locales without active contributors may drop down in coverage level.
 
 For a full listing, see [Coverage Levels](https://unicode.org/cldr/charts/dev/supplemental/locale_coverage.html)
 

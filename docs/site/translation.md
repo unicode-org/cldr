@@ -9,7 +9,7 @@ A sequence like 🆕 2025-05-09 marks items that have been recently added.
 In your browser you can copy this sequence, then use ⌘-F (Mac) or Ctrl-F (Windows) to find all the places it occurs.
 - **🆕 2025-09-08**
   - The Survey Tool is currently closed as we prepare for the release of CLDR 48.
-  - The Survey Tool will re-open in October for data submission for [DDL locales](https://cldr.unicode.org/translation/ddl) only
+  - The Survey Tool will re-open in October for data submission for [DDL locales](https://cldr.unicode.org/translation/ddl) only.
 
 When a section below changes, the date will be in the header.
 

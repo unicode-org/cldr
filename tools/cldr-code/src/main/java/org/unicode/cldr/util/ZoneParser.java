@@ -88,17 +88,6 @@ public class ZoneParser {
         country_to_zoneSet = CldrUtility.protectCollection(country_to_zoneSet);
     }
 
-    /**
-     * private Map bogusZones = null;
-     *
-     * <p>private Map getAliasMap() { if (bogusZones == null) { try { bogusZones = new TreeMap();
-     * BufferedReader in = Utility.getUTF8Data"TimeZoneAliases.txt"); while (true) { String line =
-     * in.readLine(); if (line == null) break; line = line.trim(); int pos = line.indexOf('#'); if
-     * (pos >= 0) { skippedAliases.add(line); line = line.substring(0,pos).trim(); } if
-     * (line.length() == 0) continue; List pieces = Utility.splitList(line,';', true);
-     * bogusZones.put(pieces.get(0), pieces.get(1)); } in.close(); } catch (IOException e) { throw
-     * new IllegalArgumentException("Can't find timezone aliases"); } } return bogusZones; }
-     */
     Map<String, List<String>> zoneData;
 
     Set<String> skippedAliases = new TreeSet<>();
@@ -567,18 +556,6 @@ public class ZoneParser {
         regionalCompare.add("Etc");
     }
 
-    private static String[] TZFiles = {
-        "africa",
-        "antarctica",
-        "asia",
-        "australasia",
-        "backward",
-        "etcetera",
-        "europe",
-        "northamerica",
-        "southamerica"
-    };
-
     private static Map<String, String> FIX_UNSTABLE_TZIDS;
 
     private static Set<String> SKIP_LINKS =
@@ -664,7 +641,7 @@ public class ZoneParser {
     private void makeZoneData() {
         try {
             // get version
-            BufferedReader versionIn = CldrUtility.getUTF8Data("tzdb-version.txt");
+            BufferedReader versionIn = CldrUtility.getUTF8Data("tzdb/version");
             version = versionIn.readLine();
             if (!version.matches("[0-9]{4}[a-z]")) {
                 throw new IllegalArgumentException(
@@ -677,7 +654,7 @@ public class ZoneParser {
             String deg = "([+-])([0-9][0-9][0-9]?)([0-9][0-9])([0-9][0-9])?"; //
             Matcher m = PatternCache.get(deg + deg).matcher("");
             zoneData = new TreeMap<>();
-            BufferedReader in = CldrUtility.getUTF8Data("zone.tab");
+            BufferedReader in = CldrUtility.getUTF8Data("tzdb/zone.tab");
             while (true) {
                 String line = in.readLine();
                 if (line == null) break;
@@ -749,95 +726,92 @@ public class ZoneParser {
             // now get links
             Pattern whitespace = PatternCache.get("\\s+");
             XEquivalenceClass<String, String> linkedItems = new XEquivalenceClass<>("None");
-            for (int i = 0; i < TZFiles.length; ++i) {
-                in = CldrUtility.getUTF8Data(TZFiles[i]);
-                String zoneID = null;
-                while (true) {
-                    String line = in.readLine();
-                    if (line == null) break;
-                    String originalLine = line;
-                    int commentPos = line.indexOf("#");
-                    String comment = null;
-                    if (commentPos >= 0) {
-                        comment = line.substring(commentPos + 1).trim();
-                        line = line.substring(0, commentPos);
-                    }
-                    line = line.trim();
-                    if (line.length() == 0) continue;
-                    String[] items = whitespace.split(line);
-                    if (zoneID != null || items[0].equals("Zone")) {
-                        List<String> l = new ArrayList<>();
-                        l.addAll(Arrays.asList(items));
-
-                        // Zone Africa/Algiers 0:12:12 - LMT 1891 Mar 15 0:01
-                        // 0:09:21 - PMT 1911 Mar 11 # Paris Mean Time
-                        if (zoneID == null) {
-                            l.remove(0); // "Zone"
-                            zoneID = l.get(0);
-                            String ntzid = FIX_UNSTABLE_TZIDS.get(zoneID);
-                            if (ntzid != null) zoneID = ntzid;
-                            l.remove(0);
-                        }
-                        List<ZoneLine> zoneRules = zone_rules.get(zoneID);
-                        if (zoneRules == null) {
-                            zoneRules = new ArrayList<>();
-                            zone_rules.put(zoneID, zoneRules);
-                        }
-
-                        if (l.size() < ZoneLine.FIELD_COUNT
-                                || l.size() > ZoneLine.FIELD_COUNT_UNTIL) {
-                            System.out.println("***Zone incorrect field count:");
-                            System.out.println(l);
-                            System.out.println(originalLine);
-                        }
-
-                        ZoneLine zoneLine = new ZoneLine(l);
-                        zoneLine.comment = comment;
-                        zoneRules.add(zoneLine);
-                        if (l.size() == ZoneLine.FIELD_COUNT) {
-                            zoneID = null; // no continuation line
-                        }
-                    } else if (items[0].equals("Rule")) {
-                        // # Rule NAME FROM TO TYPE IN ON AT SAVE LETTER/S
-                        // Rule Algeria 1916 only - Jun 14 23:00s 1:00 S
-
-                        String ruleID = items[1];
-                        List<RuleLine> ruleList = ruleID_rules.get(ruleID);
-                        if (ruleList == null) {
-                            ruleList = new ArrayList<>();
-                            ruleID_rules.put(ruleID, ruleList);
-                        }
-                        List<String> l = new ArrayList<>();
-                        l.addAll(Arrays.asList(items));
-                        l.remove(0);
-                        l.remove(0);
-                        if (l.size() != RuleLine.FIELD_COUNT) {
-                            System.out.println("***Rule incorrect field count:");
-                            System.out.println(l);
-                        }
-                        if (comment != null) l.add(comment);
-                        RuleLine ruleLine = new RuleLine(l);
-                        ruleList.add(ruleLine);
-
-                    } else if (items[0].equals("Link")) {
-                        String old = items[2];
-                        String newOne = items[1];
-                        if (!(SKIP_LINKS.contains(old) && SKIP_LINKS.contains(newOne))) {
-                            // System.out.println("Original " + old + "\t=>\t" + newOne);
-                            linkedItems.add(old, newOne);
-                        }
-                        /*
-                         * String conflict = (String) linkold_new.get(old); if (conflict !=
-                         * null) { System.out.println("Conflict with old: " + old + " => " +
-                         * conflict + ", " + newOne); } System.out.println(old + "\t=>\t" +
-                         * newOne); linkold_new.put(old, newOne);
-                         */
-                    } else {
-                        if (DEBUG) System.out.println("Unknown zone line: " + line);
-                    }
+            in = CldrUtility.getUTF8Data("tzdb/rearguard.zi");
+            String zoneID = null;
+            while (true) {
+                String line = in.readLine();
+                if (line == null) break;
+                String originalLine = line;
+                int commentPos = line.indexOf("#");
+                String comment = null;
+                if (commentPos >= 0) {
+                    comment = line.substring(commentPos + 1).trim();
+                    line = line.substring(0, commentPos);
                 }
-                in.close();
+                line = line.trim();
+                if (line.length() == 0) continue;
+                String[] items = whitespace.split(line);
+                if (zoneID != null || items[0].equals("Zone")) {
+                    List<String> l = new ArrayList<>();
+                    l.addAll(Arrays.asList(items));
+
+                    // Zone Africa/Algiers 0:12:12 - LMT 1891 Mar 15 0:01
+                    // 0:09:21 - PMT 1911 Mar 11 # Paris Mean Time
+                    if (zoneID == null) {
+                        l.remove(0); // "Zone"
+                        zoneID = l.get(0);
+                        String ntzid = FIX_UNSTABLE_TZIDS.get(zoneID);
+                        if (ntzid != null) zoneID = ntzid;
+                        l.remove(0);
+                    }
+                    List<ZoneLine> zoneRules = zone_rules.get(zoneID);
+                    if (zoneRules == null) {
+                        zoneRules = new ArrayList<>();
+                        zone_rules.put(zoneID, zoneRules);
+                    }
+
+                    if (l.size() < ZoneLine.FIELD_COUNT || l.size() > ZoneLine.FIELD_COUNT_UNTIL) {
+                        System.out.println("***Zone incorrect field count:");
+                        System.out.println(l);
+                        System.out.println(originalLine);
+                    }
+
+                    ZoneLine zoneLine = new ZoneLine(l);
+                    zoneLine.comment = comment;
+                    zoneRules.add(zoneLine);
+                    if (l.size() == ZoneLine.FIELD_COUNT) {
+                        zoneID = null; // no continuation line
+                    }
+                } else if (items[0].equals("Rule")) {
+                    // # Rule NAME FROM TO TYPE IN ON AT SAVE LETTER/S
+                    // Rule Algeria 1916 only - Jun 14 23:00s 1:00 S
+
+                    String ruleID = items[1];
+                    List<RuleLine> ruleList = ruleID_rules.get(ruleID);
+                    if (ruleList == null) {
+                        ruleList = new ArrayList<>();
+                        ruleID_rules.put(ruleID, ruleList);
+                    }
+                    List<String> l = new ArrayList<>();
+                    l.addAll(Arrays.asList(items));
+                    l.remove(0);
+                    l.remove(0);
+                    if (l.size() != RuleLine.FIELD_COUNT) {
+                        System.out.println("***Rule incorrect field count:");
+                        System.out.println(l);
+                    }
+                    if (comment != null) l.add(comment);
+                    RuleLine ruleLine = new RuleLine(l);
+                    ruleList.add(ruleLine);
+
+                } else if (items[0].equals("Link")) {
+                    String old = items[2];
+                    String newOne = items[1];
+                    if (!(SKIP_LINKS.contains(old) && SKIP_LINKS.contains(newOne))) {
+                        // System.out.println("Original " + old + "\t=>\t" + newOne);
+                        linkedItems.add(old, newOne);
+                    }
+                    /*
+                     * String conflict = (String) linkold_new.get(old); if (conflict !=
+                     * null) { System.out.println("Conflict with old: " + old + " => " +
+                     * conflict + ", " + newOne); } System.out.println(old + "\t=>\t" +
+                     * newOne); linkold_new.put(old, newOne);
+                     */
+                } else {
+                    if (DEBUG) System.out.println("Unknown zone line: " + line);
+                }
             }
+            in.close();
             // add in stuff that should be links
             for (int i = 0; i < ADD_ZONE_ALIASES_DATA.length; ++i) {
                 linkedItems.add(ADD_ZONE_ALIASES_DATA[i][0], ADD_ZONE_ALIASES_DATA[i][1]);

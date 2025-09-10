@@ -62,23 +62,31 @@ See the [Modifications section](https://www.unicode.org/reports/tr35/proposed.ht
 ## Data Changes
 
 ### DTD Changes
-**[TBD: Update from https://unicode.org/cldr/charts/48/supplemental/dtd_deltas.html, adding the meaning/impact of each]**
+**[TBD: Update from https://unicode.org/cldr/charts/48/supplemental/dtd_deltas.html, adding the meaning/impact of each]. Also consult the InfoHub vetter information.**
+#### ldml
 - `exemplarCharacters` added more `type` values:
-   - numbers-auxiliary — TBD
-   - punctuation-auxiliary — TBD
-   - punctuation-person — TBD
+   - numbers-auxiliary — for number characters that are not 'core' to the language, but sometimes used (like regular auxiliary)
+   - punctuation-auxiliary — for punctual characters that are not 'core' to the language, but sometimes used (like regular auxiliary)
+   - punctuation-person — for the limited set of punctuation characters used in person name fields: eg, "Jean-Luc", "MD, Ph.D."
 - `dateTimeFormat` added more `type` values:
    - relative — TBD
-- `gmtUnknownFormat` element was added — TBD
+- `gmtUnknownFormat` element was added — Indicating that the timezone is unknown (as opposed to absent from the format)
 - `language` added more `menu` values:
-   - core — TBD
+   - core — TBD 
    - extension — TBD
 - `type` added more `scope` values:
    - core — TBD
 - `numbers` added `rationalFormats` sub-element:
-   - TBD
+   - TBD Add from sites page
 - `rbnf​/rulesetGrouping` added `rbnfRules` sub-element — TBD
-   - TBD- [TBD Fix this] `territories` attribute of `languageData` in [`supplementalData.xml`](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalData.xml) removed. While it was a nice proxy to count the most important territories for each language, it was not clear and it was ripe for mis-understanding. ([CLDR-5708][])
+#### supplementalData
+- `era` — the range of `code` values nows allows two letters before the first hyphen.
+- `languageData` the `territories` attribute [`supplementalData.xml`](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalData.xml) was deprecated and data using it removed. The definition was unclear, and prone to mis-understanding — the more detailed data is in `territoryInfo`. ([CLDR-5708][])
+- `usesMetazone` adds two new attributes `stdOffset` and `dstOffset` so that implementations can use either "vanguard" or "rearguard" TZDB data sources.
+- `numberingSystem` — Unicode 17 data was added.
+#### ldmlBCP47
+- `type` adds a new attibute `region`
+- `keyboard3@conformsTo` is updated to allow "48" 
 
 For a full listing, see [Delta DTDs](https://unicode.org/cldr/charts/dev/supplemental/dtd_deltas.html).
 

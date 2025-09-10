@@ -29,7 +29,7 @@ For more information about the priorities during Submission, see [Survey Tool st
 
 ## Status and Schedule
 
-The Survey Tool is currently closed for submission. The Survey Tool will re-open in October for data submission for [DDL locales](https://cldr.unicode.org/translation/ddl) only. The Survey Tool will re-open for the next regular general submission cycle in 2026.
+The Survey Tool is currently closed for submission. The Survey Tool will re-open in October for data submission for [DDL locales](https://cldr.unicode.org/translation/ddl) only. The Survey Tool will re-open for the next regular general submission cycle around May of 2026.
 
 - **Disconnect error**. If you see a persistent Loading error with a disconnect message or other odd behavior, please [empty your cache](translation/getting-started/empty-cache).
 - Survey Tool email notification may be going to your spam folder. Check your spam folder regularly.

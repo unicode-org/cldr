@@ -7,37 +7,9 @@ title: Information Hub for Linguists
 The following list summarizes the recent changes, with more details in a section further down the page.
 A sequence like 🆕 2025-05-09 marks items that have been recently added.
 In your browser you can copy this sequence, then use ⌘-F (Mac) or Ctrl-F (Windows) to find all the places it occurs.
-- **🆕 2025-06-04**
-  - Some people have thought they couldn't vote on change-protected items, like the new [Characters in Use: punctuation-person](https://st.unicode.org/cldr-apps/v#/de/Alphabetic_Information/44e72c2489fcec13) (because the Survey Tool messaging was misleading!). Please read [Change Protected Items].
-- **🆕 2025-06-04**
-  -[CLDR-18712][] - Unit inflections issue is now fixed.
-- **🆕 2025-06-04**
-  - [CLDR-18712][] - Inflections are showing up for new units unexpectedly where grammar was not added. We are currently working on removing the unnecessary items.
-- **🆕 2025-06-03**
-  - Emoji search keywords are separated by a `|` character (U+007C `|` VERTICAL LINE). Some users had used the wrong character (such as U+FF5C	`｜` FULLWIDTH VERTICAL LINE). Those have been corrected, and will now be automatically converted whenever people enter the wrong character.
-  - A reminder: whenever people enter keywords, they are ordered automatically (with a language-independent ordering). With some languages (eg, Icelandic) the _blue star_ items were in the wrong order, leading votes to appear in a different order. This also causes the wrong character for `|` items to be reordered.
-  - The [ZWG currency code](https://en.wikipedia.org/wiki/Zimbabwean_ZiG), [XCG currency code](https://en.wikipedia.org/wiki/Caribbean_guilder)  and [Min Nan language code](https://en.wikipedia.org/wiki/Southern_Min) were not shown for translation in some locales. That has been corrected. Note that Min Nan will only show up with Coverage=Comprehensive.
-  - You can now search for emoji characters, such as the 💔. Use the 🔍 control at the top right.
-  - Plural rules were added for Konkani (kok), so the "one" category will show up.
-  - Various infrastructure improvements were made. For example, some examples were not updating correctly when they used data from other fields.
-- **🆕 2025-05-28**
-  - Many people are not voting correctly for **Characters in Use**: [punctuation-person](https://st.unicode.org/cldr-apps/v#/USER/Alphabetic_Information/3be8e5f5960f3603)
-- **🆕 2025-05-26**
-  - Updated zone names
-  - Please review the Gregorian [flexible date/time](https://st.unicode.org/cldr-apps/v#/USER/Gregorian/header_Formats_Flexible_Date_Formats) and [interval date/time formats](https://st.unicode.org/cldr-apps/v#/USER/Gregorian/header_Formats_Intervals_Date_Formats).
-There are inconsistencies between formats in many locales. New examples and warnings have been added to help you see the issues.
-- 🆕 2025-05-22
-  - Added keycap emoji. These were synthesized formerly, but are now available for translation: see [Keycaps](https://st.unicode.org/cldr-apps/v#/USER/EmojiSymbols/header_keycap).
-- 🆕 2025-05-18
-  - Added missing date & time formats:
-    - GyM and GyMEd
-    - Time formats: EBh, Eh, EH when there is an existing EBhm, Ehm, and EHm in the calendar respectively.
-    - Changed HH patterns in available and interval formats to include a reference to hour since seeing an hour number alone is ambigious.
-  - The region Sark, CQ, is now in modern coverage
-- 🆕 2025-05-09
-  - New flexible format and interval patterns
-  - Gregorian Calendar (Year First) calendar
-  - 2025-05-09 Enhanced "Show Hidden"
+- **🆕 2025-09-08**
+  - The Survey Tool is currently closed as we prepare for the release of CLDR 48.
+  - The Survey Tool will re-open in October for data submission for [DDL locales](https://cldr.unicode.org/translation/ddl) only
 
 When a section below changes, the date will be in the header.
 
@@ -57,8 +29,7 @@ For more information about the priorities during Submission, see [Survey Tool st
 
 ## Status and Schedule
 
-The Survey Tool is now open for [General Submission](translation/getting-started/survey-tool-phases#survey-tool-phase-general-submission) for CLDR 48. 
-The General Submission phase will be followed by the [Vetting phase](translation/getting-started/survey-tool-phases#survey-tool-phase-vetting) starting on June 11th.
+The Survey Tool is currently closed for submission. The Survey Tool will re-open in October for data submission for [DDL locales](https://cldr.unicode.org/translation/ddl) only. The Survey Tool will re-open for the next regular general submission cycle in 2026.
 
 - **Disconnect error**. If you see a persistent Loading error with a disconnect message or other odd behavior, please [empty your cache](translation/getting-started/empty-cache).
 - Survey Tool email notification may be going to your spam folder. Check your spam folder regularly.

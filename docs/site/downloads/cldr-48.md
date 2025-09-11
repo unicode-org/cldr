@@ -151,6 +151,12 @@ TBD, change these links to put the URLs at the bottom
 
 For a full listing, see [Supplemental Delta].
 
+### Transforms
+- Fixed problem in Gujarati → Latin with ૰
+- Updated to latest Unicode 17 data for Han → Latin, with very many changes.
+
+For a full listing, see [Transforms Delta].
+
 ### Locale Changes
 
 - Kurdish (Kurmanji) `ku` split from 1 locale `ku_TR` into 5 locales across 2 scripts and 4 countries. ([CLDR-18311][])
@@ -159,8 +165,21 @@ For a full listing, see [Supplemental Delta].
   - `ku_Latn_IQ`: Kurdish (Kurmanji, Latin alphabet, Iraq)
   - `ku_Arab_IQ`: Kurdish (Kurmanji, Arabic writing, Iraq), default for Kurdish (Kurmanji, Arabic writing) `ku_Arab`
   - `ku_Arab_IR`: Kurdish (Kurmanji, Arabic writing, Iran)
+- Languages that reached Basic in the last release have their names translated in this release
+- Compound language names now have "core" and "extension" variants for use in menus (TBD, flesh this out)
+- Many features selectable with locale options now have "core" names, for better presentation in menus (TBD, flesh this out)
+   - Calendar names, collation names, emoji options, currency formats, hour-cycle options, and so on. 
+- To match ISO, translations for Sark (CQ) were added.
+- Recent or upcoming currency names are added (XCG, ZWG)
+- There are now combination formats for relative times (TBD, flesh this out)
+- Some additional flexible (aka available) date formats were added  (TBD, flesh this out)
+- Many locales had seldom-used short timezone abbreviations (such as EST) removed, or moved to sublocales that use them.
+- The currency-number formats for alphaNextToNumber, noCurrency, and compact currency formats are now generated from other data for consistency.  (TBD, flesh this out)
+- The tooling made it easier to see when a space was a non-breaking character or not, or thin versions of those. The usage is now more consisent in many locales.
+- New emoji for Unicode 17, have added names and search keywords.
+- Additional guidance on translations was added, leading to refined translations or transcreations.
 
-For a full listing, see [Delta Data](https://unicode.org/cldr/charts/dev/delta/index.html)
+For a full listing, see [Delta Data].
 
 ### Message Format Specification
 
@@ -200,7 +219,9 @@ For a full listing, see [Delta Data](https://unicode.org/cldr/charts/dev/delta/i
 
 ## Migration
 
-- TBD
+- Number patterns that did not have a specific numberSystem (such as latn or arab) had be deprecated for many releases, and were finally removed.
+- **TBD — add many items!**
+
 
 ### V48 advance warnings
 The following changes are planned for CLDR 48. Please plan accordingly to avoid disruption.
@@ -250,5 +271,7 @@ For web pages with different views of CLDR data, see [http://cldr.unicode.org/in
 [CLDR-11400]: https://unicode-org.atlassian.net/browse/CLDR-11400
 [Delta DTDs]: https://unicode.org/cldr/charts/48/supplemental/dtd_deltas.html
 [BCP47 Delta]: https://unicode.org/cldr/charts/48/delta/bcp47.html
-[Supplemental Delta]: https://unicode.org/cldr/charts/dev/delta/supplemental-data.html
+[Supplemental Delta]: https://unicode.org/cldr/charts/48/delta/supplemental-data.html
 [Likely Subtags]: https://www.unicode.org/cldr/charts/48/delta/supplemental-data.html#Likely
+[Transforms Delta]: https://unicode.org/cldr/charts/48/delta/transforms.html
+[Delta Data]: https://unicode.org/cldr/charts/dev/delta/index.html

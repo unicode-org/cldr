@@ -64,6 +64,7 @@ import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.FileProcessor;
 import org.unicode.cldr.util.GlossonymConstructor;
+import org.unicode.cldr.util.Joiners;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
@@ -131,6 +132,8 @@ public class CLDRModify {
         final ConfigAction action;
         final boolean hexPath;
 
+        static UnicodeSet SUSPICIOUS_NON_REGEX = new UnicodeSet("[*|]").freeze();
+
         public ConfigMatch(ConfigKeys key, String match) {
             if (key == ConfigKeys.action) {
                 exactMatch = null;
@@ -139,7 +142,8 @@ public class CLDRModify {
                 hexPath = false;
             } else if (match.startsWith("/") && match.endsWith("/")) {
                 if (key != ConfigKeys.locale && key != ConfigKeys.path && key != ConfigKeys.value) {
-                    throw new IllegalArgumentException("Regex only allowed for old path/value.");
+                    throw new IllegalArgumentException(
+                            "Regex only allowed for locale=, path=, or value'.");
                 }
                 exactMatch = null;
                 regexMatch =
@@ -156,6 +160,17 @@ public class CLDRModify {
                 hexPath =
                         (key == ConfigKeys.new_path || key == ConfigKeys.path)
                                 && HEX.containsAll(match);
+                if (key == ConfigKeys.locale || key == ConfigKeys.path) {
+                    if (SUSPICIOUS_NON_REGEX.containsSome(match)) {
+                        System.out.println(
+                                Joiners.ES.join(
+                                        "The value ",
+                                        match,
+                                        " is being matched literally, but contains regex charcters. Did you mean /",
+                                        match,
+                                        "/ ?"));
+                    }
+                }
             }
         }
 
@@ -2366,7 +2381,8 @@ public class CLDRModify {
                                 keyValues.addAll(localeMatcher.getValue());
                             }
                         }
-                        System.out.println("# Checking entries & changing:\t" + keyValues.size());
+                        // System.out.println("# Checking entries & changing:\t" +
+                        // keyValues.size());
                         for (Map<ConfigKeys, ConfigMatch> entry : keyValues) {
                             ConfigMatch action = entry.get(ConfigKeys.action);
                             ConfigMatch pathMatch = entry.get(ConfigKeys.path);
@@ -2479,9 +2495,12 @@ public class CLDRModify {
                         myReader.process(CLDRModify.class, configFileName);
                     }
 
-                    static final String DEBUG_PATH =
-                            "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"long\"][@usage=\"referring\"][@formality=\"formal\"]/namePattern";
+                    final String DEBUG_PATH = null;
 
+                    // example:
+                    // "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"long\"][@usage=\"referring\"][@formality=\"formal\"]/namePattern";
+
+                    @SuppressWarnings("incomplete-switch")
                     @Override
                     public void handlePath(String xpath) {
                         // slow method; could optimize

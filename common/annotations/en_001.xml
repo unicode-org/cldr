@@ -108,7 +108,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="↶" type="tts">anticlockwise top-semicircle arrow</annotation>
 		<annotation cp="↷">clockwise top-semicircle arrow</annotation>
 		<annotation cp="↷" type="tts">clockwise top-semicircle arrow</annotation>
-		<annotation cp="↸">north-west arrow to long bar</annotation>
+		<annotation cp="↸">arrow | bar | long | north | west | north-west</annotation>
 		<annotation cp="↸" type="tts">north-west arrow to long bar</annotation>
 		<annotation cp="↹" draft="provisional">leftwards over rightwards arrow bars</annotation>
 		<annotation cp="↺">anticlockwise open-circle arrow</annotation>
@@ -139,13 +139,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⇔" type="tts">left-right double arrow</annotation>
 		<annotation cp="⇎">left-right double arrow with stroke</annotation>
 		<annotation cp="⇎" type="tts">left-right double arrow with stroke</annotation>
-		<annotation cp="⇖">north-west double arrow</annotation>
+		<annotation cp="⇖">arrow | double | north | west | north-west</annotation>
 		<annotation cp="⇖" type="tts">north-west double arrow</annotation>
-		<annotation cp="⇗">north-east double arrow</annotation>
+		<annotation cp="⇗">arrow | double | east | north | north-east</annotation>
 		<annotation cp="⇗" type="tts">north-east double arrow</annotation>
-		<annotation cp="⇘">south-east double arrow</annotation>
+		<annotation cp="⇘">arrow | double | east | south | south-east</annotation>
 		<annotation cp="⇘" type="tts">south-east double arrow</annotation>
-		<annotation cp="⇙">south-west double arrow</annotation>
+		<annotation cp="⇙">arrow | double | south | west | south-west</annotation>
 		<annotation cp="⇙" type="tts">south-west double arrow</annotation>
 		<annotation cp="⇞">upwards arrow with double stroke</annotation>
 		<annotation cp="⇞" type="tts">upwards arrow with double stroke</annotation>
@@ -158,11 +158,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⇵">downwards and upwards arrows</annotation>
 		<annotation cp="⇵" type="tts">downwards and upwards arrows</annotation>
 		<annotation cp="∂">differential | partial derivative | partial differential</annotation>
-		<annotation cp="∃">existential | mathematics | quantifier | there exists</annotation>
-		<annotation cp="∅">empty set | mathematics | null set | null sign | set operator</annotation>
-		<annotation cp="∉">element | not an element | not an element of | set</annotation>
+		<annotation cp="∃">exists | there | existential | mathematics | quantifier</annotation>
+		<annotation cp="∅">empty | mathematics | operator | set | null | sign</annotation>
+		<annotation cp="∉">an | element | not | set</annotation>
 		<annotation cp="∉" type="tts">not an element</annotation>
-		<annotation cp="∎">end of proof | end proof | halmos | q.e.d. | qed | tombstone</annotation>
+		<annotation cp="∎">end | halmos | proof | q.e.d. | qed | tombstone</annotation>
 		<annotation cp="∎" type="tts">end of proof</annotation>
 		<annotation cp="∑">mathematics | n-ary summation | sigma | summation</annotation>
 		<annotation cp="|">bar | line | pipe | sheffer stroke | vertical bar | vertical line</annotation>
@@ -172,47 +172,47 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="∣">divides | divisor | vertical bar</annotation>
 		<annotation cp="∥">parallel | parallel to</annotation>
 		<annotation cp="∥" type="tts">parallel to</annotation>
-		<annotation cp="∮">complex analysis | contour integral</annotation>
+		<annotation cp="∮">contour | integral | complex | analysis</annotation>
 		<annotation cp="≃">asymptote | asymptotically equal | asymptotically equal to | mathematics</annotation>
 		<annotation cp="≃" type="tts">asymptotically equal to</annotation>
 		<annotation cp="≅">approximately equal | approximately equal to | congruence | equality | isomorphism | mathematics</annotation>
 		<annotation cp="≅" type="tts">approximately equal to</annotation>
-		<annotation cp="≌">all equal | all equal to | equality | mathematics</annotation>
+		<annotation cp="≌">all | equal | equality | mathematics</annotation>
 		<annotation cp="≌" type="tts">all equal to</annotation>
-		<annotation cp="≣">equality | mathematics | strictly equivalent | strictly equivalent to</annotation>
+		<annotation cp="≣">equality | equivalent | mathematics | strictly</annotation>
 		<annotation cp="≣" type="tts">strictly equivalent to</annotation>
 		<annotation cp="≳">equivalent | greater-than | greater-than or equivalent to | inequality | mathematics</annotation>
 		<annotation cp="≳" type="tts">greater-than or equivalent to</annotation>
-		<annotation cp="≺">mathematics | ordered set | precedes | set operator</annotation>
-		<annotation cp="≻">follows | mathematics | ordered set | set operator | succeeds</annotation>
-		<annotation cp="⊁">does not succeed | mathematics | ordered set | set operator</annotation>
-		<annotation cp="⊃">mathematics | proper superset | set operator | superset of</annotation>
+		<annotation cp="≺">mathematics | operator | precedes | set | ordered</annotation>
+		<annotation cp="≻">mathematics | operator | set | succeeds | follows | ordered</annotation>
+		<annotation cp="⊁">does | mathematics | not | operator | set | succeed | ordered</annotation>
+		<annotation cp="⊃">mathematics | operator | set | superset | proper</annotation>
 		<annotation cp="⊃" type="tts">superset of</annotation>
-		<annotation cp="⊆">equal | mathematics | subset | subset of or equal to</annotation>
+		<annotation cp="⊆">equal | subset | mathematics</annotation>
 		<annotation cp="⊆" type="tts">subset of or equal to</annotation>
-		<annotation cp="⊇">equal | mathematics | superset | superset of or equal to</annotation>
+		<annotation cp="⊇">equal | equality | mathematics | superset</annotation>
 		<annotation cp="⊇" type="tts">superset of or equal to</annotation>
-		<annotation cp="⊕">circled plus | direct sum | exclusive or | logic | mathematics</annotation>
-		<annotation cp="⊖">circled minus | erosion | mathematics | symmetric difference</annotation>
-		<annotation cp="⊗">circled times | Kronecker | product | tensor</annotation>
-		<annotation cp="⊙">circled dot operator | mathematics | vector | XNOR</annotation>
+		<annotation cp="⊕">circled | plus | direct | sum | exclusive | or | logic | mathematics</annotation>
+		<annotation cp="⊖">circled | difference | erosion | minus | symmetric | mathematics</annotation>
+		<annotation cp="⊗">circled | product | tensor | times | Kronecker</annotation>
+		<annotation cp="⊙">circled | dot | operator | XNOR | mathematics | vector</annotation>
 		<annotation cp="⊛">circled asterisk operator</annotation>
-		<annotation cp="⊞">addition-like | free additive convolution | mathematics | squared plus</annotation>
-		<annotation cp="⊮">does not force | mathematics</annotation>
-		<annotation cp="⊰">mathematics | ordered set | precedes under relation | set operator</annotation>
-		<annotation cp="⊱">mathematics | ordered set | set operator | succeeds under relation</annotation>
-		<annotation cp="⋭">does not contain as normal subgroup equal | does not contain as normal subgroup or equal | group theory | mathematics</annotation>
+		<annotation cp="⊞">addition-like | mathematics | plus | squared | free | additive | convolution</annotation>
+		<annotation cp="⊮">does | force | not | mathematics</annotation>
+		<annotation cp="⊰">mathematics | operator | precedes | relation | set | under | ordered</annotation>
+		<annotation cp="⊱">mathematics | operator | relation | set | succeeds | under | ordered</annotation>
+		<annotation cp="⋭">as | contain | does | equal | group | mathematics | normal | not | subgroup | theory | or</annotation>
 		<annotation cp="⋭" type="tts">does not contain as normal subgroup or equal</annotation>
 		<annotation cp="⊶">original | original of</annotation>
 		<annotation cp="⊶" type="tts">original of</annotation>
-		<annotation cp="⋰">ellipsis | mathematics | upwards diagonal ellipsis | upwards right diagonal ellipsis</annotation>
+		<annotation cp="⋰">diagonal | ellipsis | mathematics | right | up | upwards</annotation>
 		<annotation cp="⋰" type="tts">upwards right diagonal ellipsis</annotation>
-		<annotation cp="⋱">downwards right diagonal ellipsis | ellipsis | mathematics</annotation>
+		<annotation cp="⋱">diagonal | down | ellipsis | mathematics | right</annotation>
 		<annotation cp="⋱" type="tts">downwards right diagonal ellipsis</annotation>
-		<annotation cp="■">black square | filled square</annotation>
-		<annotation cp="□">hollow square | white square</annotation>
-		<annotation cp="▢">hollow square with rounded corners | white square with rounded corners</annotation>
-		<annotation cp="▣">hollow square containing filled square | white square containing black small square</annotation>
+		<annotation cp="■">filled | square | black</annotation>
+		<annotation cp="□">hollow | square | white</annotation>
+		<annotation cp="▢">corners | hollow | rounded | square | with | white</annotation>
+		<annotation cp="▣">containing | filled | hollow | square | white | black | small</annotation>
 		<annotation cp="▦">square with orthogonal crosshatch fill</annotation>
 		<annotation cp="▦" type="tts">square with orthogonal crosshatch fill</annotation>
 		<annotation cp="▧">square with upper left to lower right fill</annotation>
@@ -221,32 +221,32 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="▨" type="tts">square with upper right to lower left fill</annotation>
 		<annotation cp="▩">square with diagonal crosshatch fill</annotation>
 		<annotation cp="▩" type="tts">square with diagonal crosshatch fill</annotation>
-		<annotation cp="▬">black rectangle | filled rectangle</annotation>
-		<annotation cp="▭">hollow rectangle | white rectangle</annotation>
-		<annotation cp="▮">black vertical rectangle | filled vertical rectangle</annotation>
-		<annotation cp="▰">black parallelogram | filled parallelogram</annotation>
+		<annotation cp="▬">filled | rectangle | black</annotation>
+		<annotation cp="▭">hollow | rectangle | white</annotation>
+		<annotation cp="▮">filled | rectangle | vertical | black</annotation>
+		<annotation cp="▰">filled | parallelogram | black</annotation>
 		<annotation cp="▲">arrow | black up-pointing triangle | filled up-pointing triangle | triangle | up</annotation>
-		<annotation cp="△">hollow up-pointing triangle | white up-pointing triangle</annotation>
-		<annotation cp="▴">black up-pointing small triangle | filled up-pointing small triangle</annotation>
-		<annotation cp="▵">hollow up-pointing small triangle | white up-pointing small triangle</annotation>
-		<annotation cp="▷">hollow right-pointing triangle | white right-pointing triangle</annotation>
-		<annotation cp="▸">black right-pointing triangle | filled right-pointing small triangle</annotation>
-		<annotation cp="▹">hollow right-pointing small triangle | white right-pointing small triangle</annotation>
-		<annotation cp="►">black right-pointing pointer | filled right-pointing pointer</annotation>
-		<annotation cp="▻">hollow right-pointing pointer | white right-pointing pointer</annotation>
+		<annotation cp="△">hollow | triangle | up-pointing | white</annotation>
+		<annotation cp="▴">filled | small | triangle | up-pointing | black</annotation>
+		<annotation cp="▵">hollow | small | triangle | up-pointing | white</annotation>
+		<annotation cp="▷">hollow | right-pointing | triangle | white</annotation>
+		<annotation cp="▸">filled | right-pointing | small | triangle | black</annotation>
+		<annotation cp="▹">hollow | right-pointing | small | triangle | white</annotation>
+		<annotation cp="►">filled | pointer | right-pointing | black</annotation>
+		<annotation cp="▻">hollow | pointer | right-pointing | white</annotation>
 		<annotation cp="▼">arrow | black down-pointing triangle | down | filled down-pointing triangle | triangle</annotation>
-		<annotation cp="▽">hollow down-pointing triangle | white down-pointing triangle</annotation>
-		<annotation cp="▾">black down-pointing small triangle | filled down-pointing small triangle</annotation>
-		<annotation cp="▿">hollow down-pointing small triangle | white down-pointing small triangle</annotation>
-		<annotation cp="◁">hollow left-pointing triangle | white left-pointing triangle</annotation>
-		<annotation cp="◂">black left-pointing small triangle | filled left-pointing small triangle</annotation>
-		<annotation cp="◃">hollow left-pointing small triangle | white left-pointing small triangle</annotation>
-		<annotation cp="◄">black left-pointing pointer | filled left-pointing pointer</annotation>
-		<annotation cp="◅">hollow left-pointing pointer | white left-pointing pointer</annotation>
-		<annotation cp="◆">black diamond | filled diamond</annotation>
-		<annotation cp="◇">hollow diamond | white diamond</annotation>
-		<annotation cp="◈">hollow diamond containing filled diamond | white diamond containing black small diamond</annotation>
-		<annotation cp="◉">circled dot | concentric circles filled | fisheye | hollow circle containing filled circle | white circle containing black small circle</annotation>
+		<annotation cp="▽">down-pointing | hollow | triangle | white</annotation>
+		<annotation cp="▾">down-pointing | filled | small | triangle | black</annotation>
+		<annotation cp="▿">down-pointing | hollow | small | triangle | white</annotation>
+		<annotation cp="◁">hollow | left-pointing | triangle | white</annotation>
+		<annotation cp="◂">filled | left-pointing | small | triangle | black</annotation>
+		<annotation cp="◃">hollow | left-pointing | small | triangle | white</annotation>
+		<annotation cp="◄">filled | left-pointing | pointer | black</annotation>
+		<annotation cp="◅">hollow | left-pointing | pointer | white</annotation>
+		<annotation cp="◆">diamond | filled | black</annotation>
+		<annotation cp="◇">diamond | hollow | white</annotation>
+		<annotation cp="◈">containing | diamond | filled | hollow | white | black | small</annotation>
+		<annotation cp="◉">cicles | circle | circled | concentric | containing | dot | filled | fisheye | hollow | ward | circles | white | black | small</annotation>
 		<annotation cp="○">circle | hollow circle | ring | white circle</annotation>
 		<annotation cp="●">black circle | circle | filled circle</annotation>
 		<annotation cp="◐">circle with left half filled</annotation>
@@ -261,9 +261,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="◔" type="tts">circle with upper-right quadrant filled</annotation>
 		<annotation cp="◕">circle with all but upper-left quadrant filled</annotation>
 		<annotation cp="◕" type="tts">circle with all but upper-left quadrant filled</annotation>
-		<annotation cp="◖">left half black circle | left half filled circle</annotation>
-		<annotation cp="◗">right half black circle | right half filled circle</annotation>
-		<annotation cp="◙">black square containing hollow circle | filled square containing hollow circle | inverse hollow circle</annotation>
+		<annotation cp="◖">circle | filled | half | left | black</annotation>
+		<annotation cp="◗">circle | filled | half | right | black</annotation>
+		<annotation cp="◙">circle | containing | filled | hollow | inverse | square | black</annotation>
 		<annotation cp="◜">upper-left quadrant circular arc</annotation>
 		<annotation cp="◜" type="tts">upper-left quadrant circular arc</annotation>
 		<annotation cp="◝">upper-right quadrant circular arc</annotation>
@@ -272,18 +272,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="◞" type="tts">lower-right quadrant circular arc</annotation>
 		<annotation cp="◟">lower-left quadrant circular arc</annotation>
 		<annotation cp="◟" type="tts">lower-left quadrant circular arc</annotation>
-		<annotation cp="◢">black lower-right triangle | filled lower-right triangle</annotation>
+		<annotation cp="◢">filled | lower | right | triangle | black | lower-right</annotation>
 		<annotation cp="◢" type="tts">filled lower-right triangle</annotation>
-		<annotation cp="◣">black lower-left triangle | filled lower-left triangle</annotation>
+		<annotation cp="◣">filled | left | lower | triangle | black | lower-left</annotation>
 		<annotation cp="◣" type="tts">filled lower-left triangle</annotation>
-		<annotation cp="◤">black upper-left triangle | filled upper-left triangle</annotation>
+		<annotation cp="◤">filled | left | triangle | upper | black | upper-left</annotation>
 		<annotation cp="◤" type="tts">filled upper-left triangle</annotation>
-		<annotation cp="◥">black upper-right triangle | filled upper-right triangle</annotation>
+		<annotation cp="◥">filled | right | triangle | upper | black | upper-right</annotation>
 		<annotation cp="◥" type="tts">filled upper-right triangle</annotation>
 		<annotation cp="◯">circle | large hollow circle | large white circle | ring</annotation>
-		<annotation cp="◳">hollow square with upper-right quadrant | white square with upper-right quadrant</annotation>
+		<annotation cp="◳">hollow | quadrant | right | square | upper | white | with | upper-right</annotation>
 		<annotation cp="◳" type="tts">hollow square with upper-right quadrant</annotation>
-		<annotation cp="◷">hollow circle with upper-right quadrant | white circle with upper-right quadrant</annotation>
+		<annotation cp="◷">circle | hollow | quadrant | right | upper | with | white | upper-right</annotation>
 		<annotation cp="◷" type="tts">hollow circle with upper-right quadrant</annotation>
 		<annotation cp="◿">lower-right triangle | white</annotation>
 		<annotation cp="◿" type="tts">lower-right triangle</annotation>
@@ -296,12 +296,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⨼">interior product | mathematics</annotation>
 		<annotation cp="⩣">logical or with double underbar | mathematics</annotation>
 		<annotation cp="⩣" type="tts">logical or with double underbar</annotation>
-		<annotation cp="⩽">inequality | less-than or slanted equal to | mathematics</annotation>
+		<annotation cp="⩽">equal | less-than | slanted | inequality | mathematics</annotation>
 		<annotation cp="⩽" type="tts">less-than or slanted equal to</annotation>
 		<annotation cp="⪍">less-than above similar or equal</annotation>
 		<annotation cp="⪍" type="tts">less-than above similar or equal</annotation>
-		<annotation cp="⪚">double-line equal to or greater-than | inequality | mathematics</annotation>
+		<annotation cp="⪚">double-line | equal | greater-than | inequality | mathematics</annotation>
 		<annotation cp="⪚" type="tts">double-line equal to or greater-than</annotation>
+		<annotation cp="🪊">brass | instrument | jazz | music | sad | slide | trombone</annotation>
+		<annotation cp="🪎">gem | gold | jewels | loot | money | prize | silver | valuables | wealth | chest | treasure</annotation>
+		<annotation cp="🫍">marine | ocean | whale | killer | orca</annotation>
 		<annotation cp="😘">adorbs | bae | blowing | face | flirt | heart | ily | kiss | love | lover | miss | muah | mwah | romantic | smooch | xoxo | you</annotation>
 		<annotation cp="😋">delicious | face | face savouring food | savouring | smile | yum</annotation>
 		<annotation cp="😋" type="tts">face savouring food</annotation>
@@ -318,9 +321,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙈">embarrassed | evil | face | forbidden | forgot | gesture | hide | monkey | no | omg | prohibited | scared | secret | see | smh | watch</annotation>
 		<annotation cp="💗">143 | emotion | excited | growing | heart | heartpulse | ily | kisses | muah | mwah | nervous | pulse | xoxo</annotation>
 		<annotation cp="🩶">grey | heart | silver | slate</annotation>
+		<annotation cp="💯">100 | a+ | agree | clearly | definitely | faithful | fleek | full | hundred | keep | perfect | point | score | TRUE | truth | yup</annotation>
 		<annotation cp="💬">balloon | bubble | comic | dialogue | message | sms | speech | talk | text | typing</annotation>
 		<annotation cp="🗨">balloon | bubble | dialogue | left speech bubble | speech</annotation>
-		<annotation cp="💭">balloon | bubble | cartoon | cloud | comic | daydream | decisions | dream | idea | invent | invention | realise | think | thoughts | wonder</annotation>
+		<annotation cp="💭">balloon | bubble | cartoon | cloud | comic | daydream | decisions | dream | idea | invent | invention | realize | think | thoughts | wonder | realise</annotation>
 		<annotation cp="🙌">celebration | gesture | hand | hooray | raising hands | woo hoo | yay</annotation>
 		<annotation cp="🙏">appreciate | ask | beg | blessed | bow | cmon | five | folded | gesture | hand | high | please | pray | thanks | thx</annotation>
 		<annotation cp="👃">body | nose | noses | nosey | odour | smell | smells</annotation>
@@ -380,59 +384,137 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐦‍🔥">fantasy | firebird | phoenix | rebirth | reincarnation</annotation>
 		<annotation cp="🦑">animal | food | mollusc | squid</annotation>
 		<annotation cp="🪴">grow | house | nurturing | plant | potted plant</annotation>
-		<annotation cp="🫑">bell pepper | capsicum | pepper | sweet pepper | vegetable</annotation>
+		<annotation cp="🍋‍🟩">acidity | citrus | cocktail | fruit | garnish | key | lime | margarita | mojito | refreshing | salsa | sour | tangy | tequila | tropical | zest</annotation>
+		<annotation cp="🍌">banana | fruit | potassium</annotation>
+		<annotation cp="🍍">colada | fruit | pina | pineapple | tropical | piña</annotation>
+		<annotation cp="🍆" type="tts">aubergine</annotation>
+		<annotation cp="🌶">hot | pepper | chilli</annotation>
+		<annotation cp="🫑">bell | capsicum | food | pepper | vegetable | sweet</annotation>
 		<annotation cp="🫑" type="tts">pepper</annotation>
-		<annotation cp="🥬">bok choy | cabbage | kale | leafy green | lettuce | pak choi</annotation>
+		<annotation cp="🥬">bok | burgers | cabbage | choy | green | kale | leafy | lettuce | salad | choi | pak</annotation>
 		<annotation cp="🧄">flavouring | garlic</annotation>
 		<annotation cp="🧅">flavouring | onion</annotation>
-		<annotation cp="🫚">beer | ginger root | root | root ginger | spice</annotation>
+		<annotation cp="🫚">beer | ginger | health | herb | natural | root | spice</annotation>
 		<annotation cp="🫚" type="tts">root ginger</annotation>
+		<annotation cp="🫛">beans | beanstalk | edamame | legume | pea | pod | soybean | vegetable | veggie | soya</annotation>
 		<annotation cp="🫜">beetroot | garden | root | turnip | vegetable</annotation>
+		<annotation cp="🫓">arepa | bread | flatbread | food | gordita | lavash | naan | pita | nan | pitta</annotation>
 		<annotation cp="🧇">breakfast | iron | unclear | vague | waffle</annotation>
-		<annotation cp="🥩">chop | cut of meat | lamb chop | pork chop | steak</annotation>
+		<annotation cp="🥩">chop | cut | lambchop | meat | porkchop | red | steak | lamb | pork</annotation>
+		<annotation cp="🍟">fast | food | french | fries | chips</annotation>
+		<annotation cp="🍳">breakfast | cooking | easy | egg | fry | frying | over | pan | restaurant | side | sunny | up | fried</annotation>
+		<annotation cp="🍿">corn | movie | pop | popcorn | film</annotation>
 		<annotation cp="🧂">condiment | flavour | mad | salt | salty | shaker | taste | upset</annotation>
+		<annotation cp="🥫">can | canned | food | tin</annotation>
 		<annotation cp="🥫" type="tts">tinned food</annotation>
-		<annotation cp="🍥">cake | fish | fish cake with swirl | narutomaki | pastry | swirl</annotation>
-		<annotation cp="🥡">oyster pail | takeaway box | takeout box</annotation>
-		<annotation cp="🍶">bar | beverage | bottle | cup | drink | sake | saké</annotation>
+		<annotation cp="🍥">cake | fish | food | pastry | restaurant | swirl | fishcake | narutomaki</annotation>
+		<annotation cp="🥡">box | chopsticks | delivery | food | oyster | pail | takeout | Chinese | takeaway</annotation>
+		<annotation cp="🍪">chip | chocolate | cookie | dessert | sweet | biscuit</annotation>
+		<annotation cp="🫖">brew | drink | food | pot | tea | teapot</annotation>
+		<annotation cp="🍶">bar | beverage | bottle | cup | drink | restaurant | sake</annotation>
+		<annotation cp="🥃">glass | liquor | scotch | shot | tumbler | whiskey | whisky | spirits</annotation>
+		<annotation cp="🥤">cup | drink | juice | malt | soda | soft | straw | water | fizzy | milkshake | pop</annotation>
+		<annotation cp="🧃">beverage | box | juice | straw | sweet | carton</annotation>
 		<annotation cp="🧉">drink | maté</annotation>
 		<annotation cp="🧉" type="tts">maté</annotation>
 		<annotation cp="🍴">breakfast | brekkie | cooking | cutlery | delicious | dinner | eat | feed | food | fork | hungry | knife | lunch | restaurant | yum | yummy</annotation>
 		<annotation cp="🏺">amphora | Aquarius | drink | jar | jug | zodiac</annotation>
 		<annotation cp="🗻">Fuji | Mount Fuji | mountain</annotation>
 		<annotation cp="🗻" type="tts">Mount Fuji</annotation>
-		<annotation cp="🏛">classical | classical building | column</annotation>
+		<annotation cp="🏕">camping | tent</annotation>
+		<annotation cp="🏜">desert | cactus</annotation>
+		<annotation cp="🏝">desert | island | palm | tree</annotation>
+		<annotation cp="🏞">national | park | mountain | river | tree</annotation>
+		<annotation cp="🏛">building | classical | column</annotation>
+		<annotation cp="🏗">building | construction | crane | site</annotation>
+		<annotation cp="🧱">brick | bricks | clay | mortar | wall</annotation>
+		<annotation cp="🪵">log | lumber | timber | wood | stump</annotation>
+		<annotation cp="🏪">24 | building | convenience | hours | store | shop</annotation>
 		<annotation cp="🕌">Islam | mosque | Muslim | religion</annotation>
 		<annotation cp="🛕">Hindu | temple</annotation>
 		<annotation cp="🛕" type="tts">Hindu temple</annotation>
+		<annotation cp="🕍">Jew | Jewish | judaism | religion | synagogue | temple | Judaism</annotation>
+		<annotation cp="⛩">religion | shinto | shrine | torii</annotation>
 		<annotation cp="🕋">Islam | Kaaba | Muslim | religion</annotation>
 		<annotation cp="🕋" type="tts">Kaaba</annotation>
-		<annotation cp="🛝">amusement park | play | playground slide | theme park</annotation>
-		<annotation cp="🎡">amusement park | ferris | theme park | wheel</annotation>
-		<annotation cp="🎢">amusement park | coaster | roller | theme park</annotation>
-		<annotation cp="🚃">car | electric | railway | railway carriage | train | tram | trolleybus</annotation>
-		<annotation cp="🚙">4x4 | car | drive | off-road | recreational | sport | sportutility | suv | utility | vehicle</annotation>
-		<annotation cp="🦼">accessibility | powered wheelchair</annotation>
+		<annotation cp="🌇">building | dusk | sun | sunset | cityscape</annotation>
+		<annotation cp="🛝">amusement | park | play | playground | playing | slide | sliding | theme</annotation>
+		<annotation cp="🎡">amusement | ferris | park | theme | wheel</annotation>
+		<annotation cp="🎢">amusement | coaster | park | roller | theme</annotation>
+		<annotation cp="🚃">car | electric | railway | train | tram | travel | trolleybus | carriage</annotation>
+		<annotation cp="🚄">high-speed | railway | shinkansen | speed | train | TGV</annotation>
+		<annotation cp="🚇">metro | subway | travel | tube | underground</annotation>
+		<annotation cp="🚞">car | mountain | railway | trip | carriage</annotation>
+		<annotation cp="🚌">bus | school | vehicle | coach</annotation>
+		<annotation cp="🚍">bus | cars | oncoming | coach</annotation>
+		<annotation cp="🚓">5–0 | car | cops | patrol | police</annotation>
+		<annotation cp="🚖">cab | cabbie | cars | drove | hail | oncoming | taxi | yellow | car | drive</annotation>
+		<annotation cp="🚗" type="tts">car</annotation>
+		<annotation cp="🚘">automobile | car | cars | drove | oncoming | vehicle | drive</annotation>
+		<annotation cp="🚘" type="tts">oncoming car</annotation>
+		<annotation cp="🚙">car | drive | recreational | sport | sportutility | utility | vehicle | 4x4 | off-road | suv</annotation>
+		<annotation cp="🚚">car | delivery | drive | truck | vehicle | lorry</annotation>
+		<annotation cp="🚛">articulated | car | drive | lorry | move | semi | truck | vehicle</annotation>
+		<annotation cp="🏍">motorcycle | racing | motorbike</annotation>
+		<annotation cp="🦼">accessibility | motorized | wheelchair</annotation>
 		<annotation cp="🦼" type="tts">powered wheelchair</annotation>
-		<annotation cp="🛺">auto rickshaw | tuk tuk | tuk-tuk</annotation>
+		<annotation cp="🛺">auto | rickshaw | tuk | tuk-tuk</annotation>
+		<annotation cp="🚏">bus | busstop | stop</annotation>
+		<annotation cp="⛽">diesel | fuel | fuelpump | gas | gasoline | pump | station | petrol</annotation>
 		<annotation cp="🛞">circle | turn | tyre | wheel</annotation>
-		<annotation cp="🛟">float | life preserver | life saver | lifebuoy | rescue | ring buoy | safety</annotation>
+		<annotation cp="🚥">horizontal | intersection | light | signal | stop | stoplight | traffic | junction</annotation>
+		<annotation cp="🚦">drove | intersection | light | signal | stop | stoplight | traffic | vertical | junction</annotation>
+		<annotation cp="🛟">buoy | float | life | lifesaver | preserver | rescue | ring | safety | save | saver | swim</annotation>
 		<annotation cp="🛟" type="tts">lifebuoy</annotation>
-		<annotation cp="🛫">aeroplane | airplane | check-in | departure | take-off</annotation>
+		<annotation cp="⛵">boat | resort | sailboat | sailing | sea | yacht</annotation>
+		<annotation cp="🛶">boat | canoe | kayak</annotation>
+		<annotation cp="🛳">passenger | ship | cruise | liner</annotation>
+		<annotation cp="🛥" type="tts">motorboat</annotation>
+		<annotation cp="✈">aeroplane | airplane | fly | flying | jet | plane | travel</annotation>
+		<annotation cp="✈" type="tts">aeroplane</annotation>
+		<annotation cp="🛩">aeroplane | airplane | plane | small | aircraft | light</annotation>
+		<annotation cp="🛩" type="tts">small aeroplane</annotation>
+		<annotation cp="🛫">aeroplane | airplane | check-in | departure | departures | plane | take-off</annotation>
+		<annotation cp="🛫" type="tts">aeroplane departure</annotation>
+		<annotation cp="🛬">aeroplane | airplane | arrival | arrivals | arriving | landing | plane</annotation>
+		<annotation cp="🛬" type="tts">aeroplane arrival</annotation>
 		<annotation cp="🪂">hang-glide | parachute | parasail | parascend | skydive</annotation>
-		<annotation cp="🕧">12:30 | 12.30 | clock | half past twelve | twelve-thirty</annotation>
-		<annotation cp="🕜">1:30 | 1.30 | clock | half past one | one-thirty</annotation>
-		<annotation cp="🕝">2:30 | 2.30 | clock | half past two | two-thirty</annotation>
-		<annotation cp="🕞">3:30 | 3.30 | clock | half past three | three-thirty</annotation>
-		<annotation cp="🕟">4:30 | 4.30 | clock | four-thirty | half past four</annotation>
-		<annotation cp="🕠">5:30 | 5.30 | clock | five-thirty | half past five</annotation>
-		<annotation cp="🕡">6:30 | 6.30 | clock | half past six | six-thirty</annotation>
-		<annotation cp="🕢">7:30 | 7.30 | clock | half past seven | seven-thirty</annotation>
-		<annotation cp="🕣">8:30 | 8.30 | clock | eight-thirty | half past eight</annotation>
-		<annotation cp="🕤">9:30 | 9.30 | clock | half past nine | nine-thirty</annotation>
-		<annotation cp="🕥">10:30 | 10.30 | clock | half past ten | ten-thirty</annotation>
-		<annotation cp="🕦">11:30 | 11.30 | clock | eleven-thirty | half past eleven</annotation>
-		<annotation cp="🎏">carp | carp wind sock | celebration | Japanese wind socks | koinobori | streamer</annotation>
+		<annotation cp="🚟">railway | suspension | monorail</annotation>
+		<annotation cp="🚀">launch | rocket | rockets | space | travel</annotation>
+		<annotation cp="🛸">aliens | extra | flying | saucer | terrestrial | UFO | extraterrestrial</annotation>
+		<annotation cp="🛎">bell | bellhop | hotel | concierge | reception | service</annotation>
+		<annotation cp="🛎" type="tts">service bell</annotation>
+		<annotation cp="⌚">clock | time | watch | wristwatch</annotation>
+		<annotation cp="🕧">12 | 12:30 | 30 | clock | thirty | time | twelve | twelve-thirty | 12.3 | half | past</annotation>
+		<annotation cp="🕜">1 | 1:30 | 30 | clock | one | one-thirty | thirty | time | 1.3 | half | past</annotation>
+		<annotation cp="🕝">2 | 2:30 | 30 | clock | thirty | time | two | two-thirty | 2.3 | half | past</annotation>
+		<annotation cp="🕞">3 | 3:30 | 30 | clock | thirty | three | three-thirty | time | 3.3 | half | past</annotation>
+		<annotation cp="🕟">30 | 4 | 4:30 | clock | four | four-thirty | thirty | time | 4.3 | half | past</annotation>
+		<annotation cp="🕠">30 | 5 | 5:30 | clock | five | five-thirty | thirty | time | 5.3 | half | past</annotation>
+		<annotation cp="🕡">30 | 6 | 6:30 | clock | six | six-thirty | thirty | 6.3 | half | past</annotation>
+		<annotation cp="🕖">0 | 7 | 7:00 | clock | o’clock | seven | time</annotation>
+		<annotation cp="🕢">30 | 7 | 7:30 | clock | seven | seven-thirty | thirty | 7.3 | half | past</annotation>
+		<annotation cp="🕣">30 | 8 | 8:30 | clock | eight | eight-thirty | thirty | time | 8.3 | half | past</annotation>
+		<annotation cp="🕤">30 | 9 | 9:30 | clock | nine | nine-thirty | thirty | time | 9.3 | half | past</annotation>
+		<annotation cp="🕙">0 | 10 | 10:00 | clock | o’clock | ten | time</annotation>
+		<annotation cp="🕥">10 | 10:30 | 30 | clock | ten | ten-thirty | thirty | time | 10.3 | half | past</annotation>
+		<annotation cp="🕦">11 | 11:30 | 30 | clock | eleven | eleven-thirty | thirty | time | 11.3 | half | past</annotation>
+		<annotation cp="🌗">last | moon | quarter | space | half | third</annotation>
+		<annotation cp="🌙">crescent | moon | ramadan | space | Ramadan</annotation>
+		<annotation cp="🌜">dreams | face | last | moon | quarter</annotation>
+		<annotation cp="🌡">thermometer | weather | temperature</annotation>
+		<annotation cp="☀">bright | rays | space | sun | sunny | weather | sunshine</annotation>
+		<annotation cp="🪐">planet | ringed | saturn | saturnine | Saturn</annotation>
+		<annotation cp="⭐">astronomy | medium | star | stars | white</annotation>
+		<annotation cp="☁">cloud | weather | cloudy</annotation>
+		<annotation cp="⛈">cloud | lightning | rain | thunder | thunderstorm | weather</annotation>
+		<annotation cp="🌂">closed | clothing | rain | umbrella</annotation>
+		<annotation cp="☂">clothing | rain | umbrella | open</annotation>
+		<annotation cp="☔">clothing | drop | drops | rain | umbrella | weather | open | raindrops</annotation>
+		<annotation cp="⛱">ground | rain | sun | umbrella | beach | sunshade</annotation>
+		<annotation cp="🌊">nature | ocean | surf | surfer | surfing | water | wave | sea</annotation>
+		<annotation cp="🎏">carp | celebration | streamer | Japanese | koinobori | sock | wind</annotation>
+		<annotation cp="🎗">celebration | reminder | ribbon | awareness</annotation>
 		<annotation cp="⚽" type="tts">football</annotation>
 		<annotation cp="🏓" type="tts">table tennis</annotation>
 		<annotation cp="🤿">diving | mask | scuba | snorkelling</annotation>
@@ -443,7 +525,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎨">art | artist | artsy | arty | colourful | creative | entertainment | museum | painter | painting | palette</annotation>
 		<annotation cp="🦺">emergency | hi-vis | high-vis | jacket | life jacket | safety | vest</annotation>
 		<annotation cp="👔" type="tts">tie</annotation>
-		<annotation cp="👕">blue | casual | clothes | clothing | collar | dressed | green | shirt | shopping | t shirt | t-shirt | tshirt | weekend</annotation>
+		<annotation cp="👕">blue | casual | clothes | clothing | collar | dressed | shirt | shopping | t-shirt | tshirt | weekend | green | t</annotation>
 		<annotation cp="🩱">bathing suit | one-piece swimsuit | swimming costume</annotation>
 		<annotation cp="🩲">bathing suit | briefs | one-piece | pants | swimsuit | underwear</annotation>
 		<annotation cp="🩳">bathing suit | boardshorts | shorts | swim shorts | underwear</annotation>
@@ -454,6 +536,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📯" type="tts">post horn</annotation>
 		<annotation cp="🎸">guitar | instrument | music</annotation>
 		<annotation cp="🪘" type="tts">conga drum</annotation>
+		<annotation cp="💰">bag | bank | bet | billion | cash | cost | dollar | gold | million | money | moneybag | paid | paying | pot | rich | win</annotation>
 		<annotation cp="💷">banknote | bill | currency | money | note | pound | sterling</annotation>
 		<annotation cp="📫">closed postbox with raised flag | letterbox | mail | mailbox | post | post box | postbox</annotation>
 		<annotation cp="📪">closed postbox with lowered flag | letterbox | lowered | mail | mailbox | post box | postbox</annotation>
@@ -507,7 +590,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="®">r | registered | trademark</annotation>
 		<annotation cp="🚩">post | red flag | triangular flag</annotation>
 		<annotation cp="🏳">surrender | waving | white flag</annotation>
-		<annotation cp="🏳‍🌈">bisexual | flag | gay | genderqueer | glbt | glbtq | lesbian | lgbt | lgbtq | lgbtq+ | lgbtqia | pride | queer | rainbow | trans | transgender</annotation>
+		<annotation cp="🏳‍🌈">bisexual | flag | gay | genderqueer | glbt | glbtq | lesbian | lgbt | lgbtq | lgbtqia | pride | queer | rainbow | trans | transgender | lgbtq+</annotation>
 		<annotation cp="🏳‍⚧">flag | light blue | pink | trans | transgender | white</annotation>
 		<annotation cp="£">currency | EGP | GBP | pound | quid | sterling</annotation>
 		<annotation cp="₢">Brazil | BRB | cruzeiro | currency</annotation>

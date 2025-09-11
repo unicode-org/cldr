@@ -135,7 +135,11 @@ public final class XPathParts extends XPathParser
             pw.print(e.toString(XML_NO_VALUE));
         } else {
             pw.print(e.toString(XML_OPEN));
-            pw.print(untrim(eValue, size()));
+            if (getDtdData().isCdataElement(e.getElement())) {
+                pw.print("<![CDATA[\n" + eValue + "]]>");
+            } else {
+                pw.print(untrim(eValue, size()));
+            }
             pw.print(e.toString(XML_CLOSE));
         }
         if (xpath_comments != null) {

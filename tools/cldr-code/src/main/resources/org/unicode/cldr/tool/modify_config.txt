@@ -1,1 +1,3 @@
-locale=/(ar|bn|co|cs|de|el|en_AU|en_GB|en_Shaw|es_MX|fil|fr_CA|frr|gu|he|is|kn|ko|lld|lt|ml|nl|oc_ES|or|pl|rif|root|ru|sk|ta|th|tt|uk|zh_Hant)/;	action=delete;	path=/.*/calendar.*iso8601.*/
+locale=/.*/; action=delete; path=//ldml/dates/calendars/calendar[@type="coptic"]/eras/eraNames/era[@type="0"]
+locale=/.*/; action=delete; path=//ldml/dates/calendars/calendar[@type="coptic"]/eras/eraAbbr/era[@type="0"]
+locale=/.*/; action=delete; path=//ldml/dates/calendars/calendar[@type="coptic"]/eras/eraNarrow/era[@type="0"]

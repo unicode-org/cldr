@@ -268,7 +268,10 @@ public class CLDRFileTransformer {
                         continue;
                     }
                 }
-                value = daip.processInput(xpath, value, null);
+                // skip items that should not have DAIP
+                if (!xpath.contains("rbnfRules")) {
+                    value = daip.processInput(xpath, value, null);
+                }
                 outputSource.putValueAtPath(fullPath, value);
             }
         }
@@ -297,9 +300,6 @@ public class CLDRFileTransformer {
         switch (localeTransform.policy) {
             case RETAIN:
             case MINIMIZE:
-                if (oldValue != null) {
-                    return oldValue;
-                }
                 break;
             default:
         }
@@ -319,10 +319,11 @@ public class CLDRFileTransformer {
                 transliterated = value;
             }
         } else {
-            transliterated = transliterator.transliterate(value);
+            transliterated = transliterateByLines(transliterator, value);
             transliterated = Normalizer.compose(transliterated, false);
         }
-        if (localeTransform.policy == PolicyIfExisting.MINIMIZE) {
+        if (localeTransform.policy == PolicyIfExisting.MINIMIZE
+                && !path.startsWith("//ldml/rbnf")) {
             if (transliterated.equals(value)) {
                 return null;
             }
@@ -334,8 +335,30 @@ public class CLDRFileTransformer {
         return transliterated;
     }
 
+    private String transliterateByLines(Transliterator transliterator, String value) {
+        StringBuilder transliterated = new StringBuilder();
+        for (final String valueLine : value.split("[\r\n]")) {
+            if (transliterated.length() > 0) {
+                transliterated.append("\n");
+            }
+            transliterated.append(transliterator.transliterate(valueLine));
+        }
+        return transliterated.toString();
+    }
+
     public static void main(String[] args) throws Exception {
+        if (args.length > 0) {
+            System.out.println(" .. only dir " + args[0]);
+        }
+        if (args.length > 1) {
+            System.out.println(" .. only locale " + args[1]);
+        }
+        /**
+         * Usage: CLDRFileTransformer [ dir [ locale ]] with optional dir and locale, restrict to
+         * just one
+         */
         for (String dir : DtdType.ldml.directories) {
+            if (args.length > 0 && !dir.equals(args[0])) continue;
             if (dir.equals("casing") // skip, field contents are keywords, not localizable content
                     || dir.equals(
                             "collation") // skip, field contents are complex, and can't be simply
@@ -352,6 +375,8 @@ public class CLDRFileTransformer {
                     new CLDRFileTransformer(
                             factory, CLDRPaths.COMMON_DIRECTORY + "transforms" + File.separator);
             for (LocaleTransform localeTransform : LocaleTransform.values()) {
+                if ((args.length > 1) && (!localeTransform.getOutputLocale().equals(args[1])))
+                    continue;
                 CLDRFile output = transformer.transform(localeTransform);
                 if (output == null) {
                     System.out.println(
@@ -363,10 +388,10 @@ public class CLDRFileTransformer {
                     continue;
                 }
                 String outputFile = output.getLocaleID() + ".xml";
+
                 try (TempPrintWriter out =
                         TempPrintWriter.openUTF8Writer(sourceDirectory, outputFile)
                                 .skipCopyright(true)) {
-                    // System.out.println("Generating locale file: " + outputDir + outputFile);
                     if (!transformer.unconverted.isEmpty()) {
                         System.out.println("Untransformed characters: " + transformer.unconverted);
                         transformer.unconverted.clear();

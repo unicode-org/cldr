@@ -99,9 +99,10 @@ public class DtdData extends XMLFileReader.SimpleHandler {
 
     public enum Mode {
         REQUIRED("#REQUIRED"),
-        OPTIONAL("#IMPLIED"),
         FIXED("#FIXED"),
-        NULL("null");
+        NULL("null"), // there is a default value
+        OPTIONAL("#IMPLIED") // ordered after the others (normally)
+    ;
 
         public final String source;
 
@@ -116,7 +117,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                 }
             }
             if (mode == null) {
-                return NULL;
+                return Mode.NULL;
             }
             throw new IllegalArgumentException(mode);
         }
@@ -503,6 +504,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         private boolean isOrderedElement;
         private boolean isDeprecatedElement;
         private boolean isTechPreviewElement;
+        private boolean isCdataElement;
         private ElementStatus elementStatus = ElementStatus.regular;
         private ValueConstraint valueConstraint = ValueConstraint.nonempty;
 
@@ -625,6 +627,9 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                     case "@TECHPREVIEW":
                         isTechPreviewElement = true;
                         break;
+                    case "@CDATA":
+                        isCdataElement = true;
+                        break;
                     default:
                         if (addition.startsWith("@MATCH") || addition.startsWith("@VALUE")) {
                             // Try to catch this case
@@ -688,6 +693,13 @@ public class DtdData extends XMLFileReader.SimpleHandler {
 
         public ValueConstraint getValueConstraint() {
             return valueConstraint;
+        }
+
+        /**
+         * @return true if this is an element whose value should be wrapped in a cdata
+         */
+        public boolean isCdataElement() {
+            return isCdataElement;
         }
 
         /**
@@ -1223,6 +1235,9 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         if (isTechPreview(current.name)) {
             b.append(COMMENT_PREFIX + "<!--@TECHPREVIEW-->");
         }
+        if (isCdataElement(current.name)) {
+            b.append(COMMENT_PREFIX + "<!--@CDATA-->");
+        }
         if (current.getElementStatus() != ElementStatus.regular) {
             b.append(
                     COMMENT_PREFIX
@@ -1356,6 +1371,14 @@ public class DtdData extends XMLFileReader.SimpleHandler {
 
     public boolean isDistinguishing(String elementName, String attribute) {
         return getAttributeStatus(elementName, attribute) == AttributeStatus.distinguished;
+    }
+
+    public boolean isCdataElement(String elementName) {
+        Element element = nameToElement.get(elementName);
+        if (element == null) {
+            return false;
+        }
+        return element.isCdataElement();
     }
 
     static final Set<String> METADATA =

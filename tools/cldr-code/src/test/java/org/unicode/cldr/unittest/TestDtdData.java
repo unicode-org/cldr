@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
@@ -24,7 +25,10 @@ import org.unicode.cldr.util.DtdData.Attribute;
 import org.unicode.cldr.util.DtdData.Element;
 import org.unicode.cldr.util.DtdData.Element.ValueConstraint;
 import org.unicode.cldr.util.DtdData.ElementType;
+import org.unicode.cldr.util.DtdData.Mode;
 import org.unicode.cldr.util.DtdType;
+import org.unicode.cldr.util.Joiners;
+import org.unicode.cldr.util.MapComparator;
 import org.unicode.cldr.util.MatchValue;
 import org.unicode.cldr.util.MatchValue.EnumParser;
 import org.unicode.cldr.util.Pair;
@@ -936,4 +940,131 @@ public class TestDtdData extends TestFmwk {
             assertEquals(path, expected, actual);
         }
     }
+
+    final Set<String> attributeOrderGrandfathered =
+            Set.of(
+                    "//ldml…/version[@ number < cldrVersion", // Status: metadata ≠ value Mode:
+                    // REQUIRED ≠ FIXED
+                    "//ldml…/pattern[@ numbers < count", // Status: value ≠ distinguished    Mode:
+                    // OPTIONAL
+                    "//ldml…/symbols[@ references < numberSystem", // Status: metadata ≠
+                    // distinguished Mode: OPTIONAL
+                    "//supplementalData…/languagePopulation[@ writingPercent < populationPercent", // Status: value    Mode: OPTIONAL ≠ REQUIRED
+                    "//supplementalData…/metazoneId[@ longId < deprecated", // Status: value
+                    // Mode: OPTIONAL ≠ NULL
+                    "//supplementalData…/version[@ number < cldrVersion", // Status: metadata ≠
+                    // value Mode: REQUIRED ≠
+                    // FIXED
+                    "//supplementalData…/coverageLevel[@ value < match", // Status: value ≠
+                    // distinguished    Mode:
+                    // REQUIRED
+                    "//supplementalData…/parentLocale[@ localeRules < locales", // Status: value
+                    // Mode: OPTIONAL ≠
+                    // REQUIRED
+                    "//supplementalData…/group[@ grouping < status", // Status: value ≠
+                    // distinguished    Mode:
+                    // OPTIONAL
+                    "//supplementalData…/approvalRequirement[@ votes < locales", // Status: value ≠
+                    // distinguished
+                    // Mode: REQUIRED
+                    "//supplementalData…/mapZone[@ type < other", // Status: value ≠ distinguished
+                    //  Mode: REQUIRED
+                    "//supplementalData…/transform[@ variant < direction", // Status: distinguished
+                    //   Mode: OPTIONAL ≠
+                    // NULL
+                    "//supplementalData…/transform[@ backwardAlias < visibility", // Status: value
+                    //  Mode: OPTIONAL
+                    // ≠ NULL
+                    "//supplementalData…/numberingSystem[@ type < id", // Status: value ≠
+                    // distinguished    Mode:
+                    // REQUIRED
+                    "//supplementalData…/variable[@ type < id", // Status: value ≠ distinguished
+                    // Mode: OPTIONAL ≠ REQUIRED
+                    "//ldmlBCP47…/type[@ since < iana", // Status: metadata ≠ value Mode: OPTIONAL
+                    "//ldmlBCP47…/version[@ number < cldrVersion", // Status: metadata ≠ value Mode:
+                    // REQUIRED ≠ FIXED
+                    "//ldmlBCP47…/key[@ extension < name", // Status: distinguished    Mode:
+                    // OPTIONAL ≠ REQUIRED
+                    "//ldmlBCP47…/key[@ description < deprecated", // Status: value    Mode:
+                    // OPTIONAL ≠ NULL
+                    "//keyboard3…/reorder[@ before < from", // Status: value    Mode: OPTIONAL ≠
+                    // REQUIRED
+                    "//keyboardTest3…/repertoire[@ type < name", // Status: value ≠ distinguished
+                    // Mode: OPTIONAL ≠ REQUIRED
+                    "//keyboardTest3…/info[@ author < name" // Status: metadata ≠ distinguished
+                    // Mode: OPTIONAL ≠ REQUIRED
+                    );
+
+    public void testAttributeOrder() {
+        for (DtdType dtdType : DtdType.values()) {
+            if (dtdType == DtdType.ldmlICU) {
+                continue;
+            }
+            DtdData dtdData = DtdData.getInstance(dtdType);
+            for (Element element : dtdData.getElements()) {
+                if (element.isDeprecated()) {
+                    continue;
+                }
+                Attribute lastAttribute = null;
+                for (Attribute attribute : element.getAttributes().keySet()) {
+                    if (attribute.isDeprecated() || attribute.name.equals("alt")) {
+                        continue;
+                    }
+                    if (lastAttribute != null) {
+                        String header =
+                                Joiners.ES.join(
+                                        "//",
+                                        dtdType,
+                                        "…/",
+                                        element.name,
+                                        "[@ ",
+                                        lastAttribute.name,
+                                        " < ",
+                                        attribute.name);
+                        int diffToLast =
+                                attributeStatusModeComparator.compare(attribute, lastAttribute);
+                        if (diffToLast < 0) {
+                            String message =
+                                    Joiners.ES.join(
+                                            "\"",
+                                            header,
+                                            "\",\t// Status: ",
+                                            showDiff(
+                                                    lastAttribute.getStatus(),
+                                                    attribute.getStatus()),
+                                            "\tMode: ",
+                                            showDiff(lastAttribute.mode, attribute.mode));
+                            if (!attributeOrderGrandfathered.contains(header)) {
+                                errln(message);
+                            } else if (isVerbose()) {
+                                warnln(message);
+                            }
+                        }
+                    }
+                    lastAttribute = attribute;
+                }
+            }
+            MapComparator<String> comp = dtdData.getAttributeComparator();
+            comp.getOrder();
+        }
+        warnln("Use -v to see overrides");
+    }
+
+    private String showDiff(Object a, Object b) {
+        return a == b ? a.toString() : a + " ≠ " + b;
+    }
+
+    final Comparator<Attribute> attributeStatusModeComparator =
+            new Comparator<>() {
+                @Override
+                public int compare(Attribute o1, Attribute o2) {
+                    return Comparator.comparing(
+                                    Attribute::getStatus) // @distinguished before @value before
+                            // @metadata;
+                            .thenComparing(x -> x.mode != Mode.OPTIONAL ? 0 : 1)
+                            // #optional must come after all others
+                            // (which can be intermixed)
+                            .compare(o1, o2);
+                }
+            };
 }

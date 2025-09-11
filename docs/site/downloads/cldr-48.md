@@ -95,25 +95,61 @@ See the [Modifications section](https://www.unicode.org/reports/tr35/proposed.ht
 - `type` adds a new attibute `region`
 - `keyboard3@conformsTo` is updated to allow "48" 
 
-For a full listing, see [Delta DTDs](https://unicode.org/cldr/charts/dev/supplemental/dtd_deltas.html).
+For a full listing, see [Delta DTDs].
+
+### BCP47 Data Changes
+- `nu-tols` Numbering system for Tolong Siki digits
+- One additional zone: 	America/Coyhaique = tz-clcxq
+- Seven region attributes for determining regions for timezones
+- Three additional aliases
+
+For a full listing, see [BCP47 Delta].
+
+TBD, change these links to put the URLs at the bottom
 
 ### Supplemental Data Changes
 
+#### Identifiers
+- Added aliases/deprecations for languages (dek, mnk, nte)
+- Updated to the latest language subtag registry, with various additions and deprecations
+- Updated to the ISO currency data, with various additions and deprecations
+- Added unit IDs part, part-per-1e6, part-per-1e9, cup-imperial, fluid-ounce-metric, with conversions
+  - deprecated unit IDs permillion, portion, portion-per-1e9, 100-kilometer
+
+#### Language Data
 - [language_script.tsv](https://github.com/unicode-org/cldr/blob/main/tools/cldr-code/src/main/resources/org/unicode/cldr/util/data/language_script.tsv) updated to include only one "Primary" writing system for languages that used to have multiple options ([CLDR-18114][]). Notable changes are:
   - Panjabi `pa` has the primary  to Gurumukhi `Guru` because widespread usage is in the Gurumukhi script -- while most speakers are in Pakistan `PK`, written usage remains Gurumukhi.
   - Azerbaijani `az` and Northern Kurdish `ku` primarily are used in Latin `Latn`.
   - Chinese languages `zh`, `hak`, and `nan` are matched to Simplified Han writing `Hans` -- except Cantonese `yue`, which is known for a preference in Traditional Han writing `Hant`.
   - Hassiniyya `mey` was missing significant data, it should be associated with the Arabic `Arab` writing system by default, not Latin `Latn`.
+- 5 new language distance values are added (for fallback to zh)
+- Substantial updates to Language Info: additional languages in countries; revised population values, writing percentages, literacy percentages, and official status values.
+
+#### Likely Subtags
+- Many additions: see [Likely Subtags]
 - Errors in likely subtags addressed
    - The default language for Belarus `BY` is now Russian `ru`, reflecting modern usage. ([CLDR-14479][])
    - Literary Chinese `lzh` was written in Traditional Han writing `Hant`. ([CLDR-16715][])
 - Likely subtags updated because of prior mentioned primary script matches.
   - Northern Kurdish `ku` now matched to Cyrillic writing in the CIS countries. ([CLDR-18114][])
   - Hassiniyya `mey` updated to default to `mey_Arab_DZ` instead of `mey_Latn_SN` ([CLDR-18114][])
-  - See other likely subtags updated in [the Supplemental Data Delta page](https://www.unicode.org/cldr/charts/48/delta/supplemental-data.html#Likely)
 
+#### Calendars, Timezones, Dayperiods
+- Many updates and corrections for Metazone data
+- Many updates to calendars, including the removal of eras and adjustment to era start dates
+- Day periods for kok, scn, hi_Latn, 
 
-For a full listing, see [¤¤BCP47 Delta](https://unicode.org/cldr/charts/dev/delta/bcp47.html) and [¤¤Supplemental Delta](https://unicode.org/cldr/charts/dev/delta/supplemental-data.html)
+#### Plural Rules
+- additions for cv, ie, kok, sgs
+
+#### Currencies
+- Updates to the latest ISO currencies
+
+#### Weekdata
+- IS changed to firstDay=sun
+- ku_SY adding H and hB
+
+For a full listing, see [Supplemental Delta].
 
 ### Locale Changes
 
@@ -212,3 +248,7 @@ For web pages with different views of CLDR data, see [http://cldr.unicode.org/in
 [CLDR-18275]: https://unicode-org.atlassian.net/browse/CLDR-18275
 [CLDR-18311]: https://unicode-org.atlassian.net/browse/CLDR-18311
 [CLDR-11400]: https://unicode-org.atlassian.net/browse/CLDR-11400
+[Delta DTDs]: https://unicode.org/cldr/charts/48/supplemental/dtd_deltas.html
+[BCP47 Delta]: https://unicode.org/cldr/charts/48/delta/bcp47.html
+[Supplemental Delta]: https://unicode.org/cldr/charts/dev/delta/supplemental-data.html
+[Likely Subtags]: https://www.unicode.org/cldr/charts/48/delta/supplemental-data.html#Likely

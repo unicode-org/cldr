@@ -25,9 +25,9 @@ The program **CompareEn.java** can be used to copy data from en_GB up to en_001.
     4.  You'll then want to retract any items that shouldn't be copied.
     5.  Change CompareEn.java if there are paths that should be skipped in the future.
 2.  Once you agree on the results, you'll run -u.
-    1.  That will modify your local copy of en\_oo1.xml
+    1.  That will modify your local copy of en\_001.xml
     2.  Then do a diff with HEAD to make sure it matches expectations
-    3.  Then check in en\_oo1.xml and CompareEn.java
+    3.  Then check in en\_001.xml and CompareEn.java
 
 ## Review guidelines for inclusion in en_001
 

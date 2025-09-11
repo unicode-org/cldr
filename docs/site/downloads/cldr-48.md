@@ -29,14 +29,14 @@ For more details, see below.
 
 ### Locale Coverage Status
 The following shows the coverage levels per language in this version of CLDR.
-- The **L-S** column indicates which of the **Count** locales are language-script variants.
-    - For example, zh_Hant and zh(_Hans) add two to the **Count**, and one to **L-S**.
-- The **RV** column indicates the number of other regional locales: none are in **Count**.
+- The **With Script** column indicates which of the **Count** locales are language-script variants.
+    - For example, zh_Hant and zh(_Hans) add two to the **Count**, and one to **With Script**.
+- The **Regional Variants** column indicates the number of other regional locales: none are in **Count**.
     - For example, there are 46 locales for French, such as fr, fr_CA, fr_BE, etc., so that adds 46 to the RV column for Modern.
 
 #### Current Levels
 
-Count | L-S | RV | Level | Usage | Examples
+Count | With Script | Regional Variants | Level | Usage | Examples
 -- | -- | -- | -- | -- | --
 104 | 5 | 305 | Modern | Suitable for full UI internationalization | Afrikaans, shqip, አማርኛ, ‫العربية‬, հայերեն, অসমীয়া, azərbaycan
 13 | 0 | 1 | Moderate | Suitable for “document content” internationalization, eg. in spreadsheet | Akan, Cebuano, Māori, тоҷикӣ

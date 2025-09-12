@@ -28,25 +28,32 @@ The most significant changes in this release are:
 For more details, see below.
 
 ### Locale Coverage Status
+The following shows the coverage levels per language in this version of CLDR.
+- The **With Script** column indicates which of the **Count** locales are language-script variants.
+    - For example, zh_Hant and zh(_Hans) add two to the **Count**, and one to **With Script**.
+- The **Regional Variants** column indicates the number of other regional locales: none are in **Count**.
+    - For example, there are 46 locales for French, such as fr, fr_CA, fr_BE, etc., so that adds 46 to the RV column for Modern.
 
 #### Current Levels
 
-Count | Level | Usage | Examples
--- | -- | -- | --
-xx | Modern | Suitable for full UI internationalization | …
-xx | Moderate | Suitable for “document content” internationalization, eg. in spreadsheet | …
-xx | Basic | Suitable for locale selection, eg. choice of language on mobile phone | …
+Count | With Script | Regional Variants | Level | Usage | Examples
+-- | -- | -- | -- | -- | --
+104 | 5 | 305 | Modern | Suitable for full UI internationalization | Afrikaans, shqip, አማርኛ, ‫العربية‬, հայերեն, অসমীয়া, azərbaycan
+13 | 0 | 1 | Moderate | Suitable for “document content” internationalization, eg. in spreadsheet | Akan, Cebuano, Māori, тоҷикӣ
+57 | 10 | 22 | Basic | Suitable for locale selection, eg. choice of language on mobile phone | भोजपुरी, बर’, डोगरी, eʋegbe, Gã, हरियाणवी
 
 #### Changes
 
 | ± | New Level | Locales |
 | -- | -- | -- |
-| 📈 | Modern | … |
-| 📈 | Moderate | … |
-| 📈 | Basic | … |
-| 📉 | Basic* | … |
+| 📈 | Modern | Quechua, Akan, Romansh, Chuvash, Kazakh (Arabic), Shan, Bashkir |
+| 📈 | Moderate | Esperanto, Anii |
+| 📈 | Basic | Sicilian, Tuvinian, Buriat, Piedmontese |
+| 📉 | Basic* | Baluchi (Latin), Kurdish |
 
-\* Note: Each release, the number of items needed for Modern and Moderate increases. So locales without active contributors may drop down in coverage level.
+\* Note: Two locales dropped in coverage (📉), from Moderate to Basic.
+Each release, the number of items needed for Modern and Moderate increases.
+So locales without active contributors may drop down in coverage level.
 
 For a full listing, see [Coverage Levels](https://unicode.org/cldr/charts/dev/supplemental/locale_coverage.html)
 
@@ -62,28 +69,93 @@ See the [Modifications section](https://www.unicode.org/reports/tr35/proposed.ht
 ## Data Changes
 
 ### DTD Changes
+**[TBD: Update from https://unicode.org/cldr/charts/48/supplemental/dtd_deltas.html, adding the meaning/impact of each]. Also consult the InfoHub vetter information.**
+#### ldml
+- `exemplarCharacters` added more `type` values:
+   - numbers-auxiliary — for number characters that are not 'core' to the language, but sometimes used (like regular auxiliary)
+   - punctuation-auxiliary — for punctual characters that are not 'core' to the language, but sometimes used (like regular auxiliary)
+   - punctuation-person — for the limited set of punctuation characters used in person name fields: eg, "Jean-Luc", "MD, Ph.D."
+- `dateTimeFormat` added more `type` values:
+   - relative — TBD
+- `gmtUnknownFormat` element was added — Indicating that the timezone is unknown (as opposed to absent from the format)
+- `language` added more `menu` values:
+   - core — TBD 
+   - extension — TBD
+- `type` added more `scope` values:
+   - core — TBD
+- `numbers` added `rationalFormats` sub-element:
+   - TBD Add from sites page
+- `rbnf​/rulesetGrouping` added `rbnfRules` sub-element — TBD
+#### supplementalData
+- `era` — the range of `code` values nows allows two letters before the first hyphen.
+- `languageData` the `territories` attribute [`supplementalData.xml`](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalData.xml) was deprecated and data using it removed. The definition was unclear, and prone to mis-understanding — the more detailed data is in `territoryInfo`. ([CLDR-5708][])
+- `usesMetazone` adds two new attributes `stdOffset` and `dstOffset` so that implementations can use either "vanguard" or "rearguard" TZDB data sources.
+- `numberingSystem` — Unicode 17 data was added.
+#### ldmlBCP47
+- `type` adds a new attibute `region`
+- `keyboard3@conformsTo` is updated to allow "48" 
 
-- `territories` attribute of `languageData` in [`supplementalData.xml`](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalData.xml) removed. While it was a nice proxy to count the most important territories for each language, it was not clear and it was ripe for mis-understanding. ([CLDR-5708][])
+For a full listing, see [Delta DTDs].
 
-For a full listing, see [Delta DTDs](https://unicode.org/cldr/charts/dev/supplemental/dtd_deltas.html).
+### BCP47 Data Changes
+- `nu-tols` Numbering system for Tolong Siki digits
+- One additional zone: 	America/Coyhaique = tz-clcxq
+- Seven region attributes for determining regions for timezones
+- Three additional aliases
+
+For a full listing, see [BCP47 Delta].
+
+TBD, change these links to put the URLs at the bottom
 
 ### Supplemental Data Changes
 
+#### Identifiers
+- Added aliases/deprecations for languages (dek, mnk, nte)
+- Updated to the latest language subtag registry, with various additions and deprecations
+- Updated to the ISO currency data, with various additions and deprecations
+- Added unit IDs part, part-per-1e6, part-per-1e9, cup-imperial, fluid-ounce-metric, with conversions
+  - deprecated unit IDs permillion, portion, portion-per-1e9, 100-kilometer
+
+#### Language Data
 - [language_script.tsv](https://github.com/unicode-org/cldr/blob/main/tools/cldr-code/src/main/resources/org/unicode/cldr/util/data/language_script.tsv) updated to include only one "Primary" writing system for languages that used to have multiple options ([CLDR-18114][]). Notable changes are:
   - Panjabi `pa` has the primary  to Gurumukhi `Guru` because widespread usage is in the Gurumukhi script -- while most speakers are in Pakistan `PK`, written usage remains Gurumukhi.
   - Azerbaijani `az` and Northern Kurdish `ku` primarily are used in Latin `Latn`.
   - Chinese languages `zh`, `hak`, and `nan` are matched to Simplified Han writing `Hans` -- except Cantonese `yue`, which is known for a preference in Traditional Han writing `Hant`.
   - Hassiniyya `mey` was missing significant data, it should be associated with the Arabic `Arab` writing system by default, not Latin `Latn`.
+- 5 new language distance values are added (for fallback to zh)
+- Substantial updates to Language Info: additional languages in countries; revised population values, writing percentages, literacy percentages, and official status values.
+
+#### Likely Subtags
+- Many additions: see [Likely Subtags]
 - Errors in likely subtags addressed
    - The default language for Belarus `BY` is now Russian `ru`, reflecting modern usage. ([CLDR-14479][])
    - Literary Chinese `lzh` was written in Traditional Han writing `Hant`. ([CLDR-16715][])
 - Likely subtags updated because of prior mentioned primary script matches.
   - Northern Kurdish `ku` now matched to Cyrillic writing in the CIS countries. ([CLDR-18114][])
   - Hassiniyya `mey` updated to default to `mey_Arab_DZ` instead of `mey_Latn_SN` ([CLDR-18114][])
-  - See other likely subtags updated in [the Supplemental Data Delta page](https://www.unicode.org/cldr/charts/48/delta/supplemental-data.html#Likely)
 
+#### Calendars, Timezones, Dayperiods
+- Many updates and corrections for Metazone data
+- Many updates to calendars, including the removal of eras and adjustment to era start dates
+- Day periods for kok, scn, hi_Latn, 
 
-For a full listing, see [¤¤BCP47 Delta](https://unicode.org/cldr/charts/dev/delta/bcp47.html) and [¤¤Supplemental Delta](https://unicode.org/cldr/charts/dev/delta/supplemental-data.html)
+#### Plural Rules
+- additions for cv, ie, kok, sgs
+
+#### Currencies
+- Updates to the latest ISO currencies
+
+#### Weekdata
+- IS changed to firstDay=sun
+- ku_SY adding H and hB
+
+For a full listing, see [Supplemental Delta].
+
+### Transforms
+- Fixed problem in Gujarati → Latin with ૰
+- Updated to latest Unicode 17 data for Han → Latin, with very many changes.
+
+For a full listing, see [Transforms Delta].
 
 ### Locale Changes
 
@@ -93,8 +165,21 @@ For a full listing, see [¤¤BCP47 Delta](https://unicode.org/cldr/charts/dev/de
   - `ku_Latn_IQ`: Kurdish (Kurmanji, Latin alphabet, Iraq)
   - `ku_Arab_IQ`: Kurdish (Kurmanji, Arabic writing, Iraq), default for Kurdish (Kurmanji, Arabic writing) `ku_Arab`
   - `ku_Arab_IR`: Kurdish (Kurmanji, Arabic writing, Iran)
+- Languages that reached Basic in the last release have their names translated in this release
+- Compound language names now have "core" and "extension" variants for use in menus (TBD, flesh this out)
+- Many features selectable with locale options now have "core" names, for better presentation in menus (TBD, flesh this out)
+   - Calendar names, collation names, emoji options, currency formats, hour-cycle options, and so on. 
+- To match ISO, translations for Sark (CQ) were added.
+- Recent or upcoming currency names are added (XCG, ZWG)
+- There are now combination formats for relative times (TBD, flesh this out)
+- Some additional flexible (aka available) date formats were added  (TBD, flesh this out)
+- Many locales had seldom-used short timezone abbreviations (such as EST) removed, or moved to sublocales that use them.
+- The currency-number formats for alphaNextToNumber, noCurrency, and compact currency formats are now generated from other data for consistency.  (TBD, flesh this out)
+- The tooling made it easier to see when a space was a non-breaking character or not, or thin versions of those. The usage is now more consisent in many locales.
+- New emoji for Unicode 17, have added names and search keywords.
+- Additional guidance on translations was added, leading to refined translations or transcreations.
 
-For a full listing, see [Delta Data](https://unicode.org/cldr/charts/dev/delta/index.html)
+For a full listing, see [Delta Data].
 
 ### Message Format Specification
 
@@ -134,7 +219,9 @@ For a full listing, see [Delta Data](https://unicode.org/cldr/charts/dev/delta/i
 
 ## Migration
 
-- TBD
+- Number patterns that did not have a specific numberSystem (such as latn or arab) had be deprecated for many releases, and were finally removed.
+- **TBD — add many items!**
+
 
 ### V48 advance warnings
 The following changes are planned for CLDR 48. Please plan accordingly to avoid disruption.
@@ -182,3 +269,9 @@ For web pages with different views of CLDR data, see [http://cldr.unicode.org/in
 [CLDR-18275]: https://unicode-org.atlassian.net/browse/CLDR-18275
 [CLDR-18311]: https://unicode-org.atlassian.net/browse/CLDR-18311
 [CLDR-11400]: https://unicode-org.atlassian.net/browse/CLDR-11400
+[Delta DTDs]: https://unicode.org/cldr/charts/48/supplemental/dtd_deltas.html
+[BCP47 Delta]: https://unicode.org/cldr/charts/48/delta/bcp47.html
+[Supplemental Delta]: https://unicode.org/cldr/charts/48/delta/supplemental-data.html
+[Likely Subtags]: https://www.unicode.org/cldr/charts/48/delta/supplemental-data.html#Likely
+[Transforms Delta]: https://unicode.org/cldr/charts/48/delta/transforms.html
+[Delta Data]: https://unicode.org/cldr/charts/dev/delta/index.html

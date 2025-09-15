@@ -1053,8 +1053,7 @@ Users of some scripts/languages may prefer a different base than U+25CC. See  [`
 
 One of the `output` or `id` attributes is required.
 
-**Note**: There is currently no way to indicate a custom display for a key without output (i.e. without a `to=` attribute), nor is there a way to indicate that such a key has a standardized identity (e.g. that a key should be identified as a “Shift”). These may be addressed in future versions of this standard.
-
+**Note**: There is currently no way to indicate that a key has a standardized identity (e.g. that a key should be identified as a “Shift”). This may be addressed in future versions of this standard.
 
 _Attribute:_ `output` (optional)
 
@@ -1655,6 +1654,8 @@ _Attribute:_ `modifiers` (required for `hardware`)
 > Each modifier component must match `[A-Za-z0-9]+`. Extra whitespace is ignored.
 >
 > To indicate that no modifiers apply, the reserved name of `none` is used.
+>
+> For hardware layouts, the `layer` with `modifiers="none"` becomes the base layer when the keyboard is used as a touch layout.
 
 **Syntax**
 

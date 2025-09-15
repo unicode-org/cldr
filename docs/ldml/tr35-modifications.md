@@ -69,6 +69,12 @@ Click on **Previous Version** in the header until you get to the desired version
 
 * This Modifications section was split out to its own part, [Appendix A, Modifications](tr35-modifications.md)
 
+### Keyboards
+
+* A sentence was struck under the documentation of the [display](./tr35-keyboards.md#element-display) element. A key without output may be indicated by means of the `keyId=` attribute on the display, which see.
+
+* A sentence was added under the [layer](./tr35-keyboards.md#element-layer) element, in the definition of the `modifiers=` attribute about hardware layouts being used as touch layouts.
+
 * * *
 
 © 2001–2025 Unicode, Inc.

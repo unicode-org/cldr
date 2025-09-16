@@ -24,14 +24,22 @@ This data is also a factor in determining which languages are supported on mobil
 ### Changes
 
 The most significant changes in this release are:
-- Updates for Unicode 17, including new names and search terms for new emoji, new sort-order, many Hani→Latn transform additions
-- Recent or upcoming currency names added (XCG, ZWG)
-- Rational number formats added, allowing for formats like 5½.
-- `usesMetazone` adds two new attributes `stdOffset` and `dstOffset` so that implementations can use either "vanguard" or "rearguard" TZDB data sources.
-- Updates to Unicode 17.0, 
-- Further additions to the Message Format 2.0 spec
+- Updates for Unicode 17, including new names and search terms for new emoji, new sort-order, Han→Latn romanization additions for many characters
+- Updated to the latest external standards and data sources, such as the language subtag registry, UN M49 macro regions, ISO 4217 currencies, etc.
+- Many enhancements of the CLDR specification (LDML), including:
+  - Further additions to the Message Format 2.0 spec
+- Many additions to language data including:
+    - Likely Subtags, for getting deriving the likely script and region from the language (used in many processes)
+    - Populations of languages in countries: significant updates to improve accuracy and maintainability
+- New formatting options
+    - Rational number formats added, allowing for formats like 5½.
+    - For timezones, `usesMetazone` adds two new attributes `stdOffset` and `dstOffset` so that implementations can use either "vanguard" or "rearguard" TZDB data sources.
+    - There are now combination formats for _relative_ dates + times, such as “March 20 _at_ 12:30”.
+    - Additional units were added for scientific contexts (coulombs, farads, teslas, etc.) and for English systems (fortnights, imperial pints, etc.).
+Note that new non-metric units were not translated aside from a few languages
+- Many corrections and updates for Metazone data, for calendars (including removal of eras and fixes to start dates).
 - This is the first release where the new CLDR Organization process is in place for DDL languages.
-As a result, several locales were able to reach higher levels (see below)DDL line to add
+As a result, several locales were able to reach higher levels (see below).
 
 For more details, see below.
 
@@ -79,7 +87,7 @@ See the [Modifications section](https://www.unicode.org/reports/tr35/proposed.ht
 ### Locale Changes
 
 #### General
-- Languages that reached Basic in the last release have their names translated at Modern Coverage in this release
+- Languages that reached Basic in the last release have their names translated at Modern Coverage in this release.
 - Compound language names now have "core" and "extension" variants for more uniform formats in menus and lists
    - For example, that allows the Kurdish variants to with a uniform format where more than Kurmanji is displayed.
        - Kashmiri
@@ -101,8 +109,7 @@ See the [Modifications section](https://www.unicode.org/reports/tr35/proposed.ht
            - Gregorian
 - Recent or upcoming currency names were added (XCG, ZWG)
 - To match ISO, translations for the region Sark (CQ) was added.
-- There are now combination formats for relative times.
-    - A combining pattern is used to combine a date with a time, such as “March 20 _at_ 12:30”.
+- There are now combination formats for _relative_ dates + times, such as “March 20 _at_ 12:30”.
 In some languages the use of a relative date such as “tomorrow” or “2 days ago” requires a _different_ combining pattern than for a fixed date like “March 20”.
 A new “relative” variant is introduced to allow for those languages.
 - Some additional flexible (aka available) date formats were added.
@@ -128,32 +135,31 @@ The alphaNextToNumber patterns allow for a space between letter currency symbols
 For a full listing, see [Delta Data].
 
 ### DTD Changes
+For a full listing, see [Delta DTDs].
 
 #### ldml
-The explanations of usage are in the [locale](#locale) section.
-- `exemplarCharacters` added more `type` values:
+The explanations of usage are in the [Locale Changes](#locale-changes) section.
+- `exemplarCharacters` — added more `type` values:
    - `numbers-auxiliary` — for number characters that are not 'core' to the language, but sometimes used (like regular auxiliary)
    - `punctuation-auxiliary` — for punctual characters that are not 'core' to the language, but sometimes used (like regular auxiliary)
    - `punctuation-person` — for the limited set of punctuation characters used in person name fields: eg, "Jean-Luc", "MD, Ph.D."
-- `dateTimeFormat` added a `relative` `type` value for combining time and date.
-- `gmtUnknownFormat` element was added — Indicating that the timezone is unknown (as opposed to absent from the format)
-- `language` added more `menu` values: `core` and `extension`
-- `type` added a `core` `scope` value
-- `numbers` added `rationalFormats` sub-elements: `rationalPattern`, `integerAndRationalPattern` (with an `alt="superSub" variant`), `rationalUsage`
-- `rbnf​/rulesetGrouping` added `rbnfRules` sub-element:
+- `dateTimeFormat` — added a `relative` `type` value for combining time and date.
+- `gmtUnknownFormat` — element was added — Indicating that the timezone is unknown (as opposed to absent from the format)
+- `language` — added more `menu` values: `core` and `extension`
+- `type` — added a `core` `scope` value
+- `numbers` — added `rationalFormats` sub-elements: `rationalPattern`, `integerAndRationalPattern` (with an `alt="superSub" variant`), `rationalUsage`
+- `rbnf​/rulesetGrouping` — added `rbnfRules` sub-element:
     - This “flattens” the rules into a format that is easier for implementations to use directly.
 
 #### supplementalData
 - `era` — the range of `code` values nows allows two letters before the first hyphen.
-- `languageData` the `territories` attribute [`supplementalData.xml`](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalData.xml) was deprecated and data using it removed. The definition was unclear, and prone to mis-understanding — the more detailed data is in `territoryInfo`. ([CLDR-5708][])
-- `usesMetazone` adds two new attributes `stdOffset` and `dstOffset` so that implementations can use either "vanguard" or "rearguard" TZDB data sources.
+- `languageData` — the `territories` attribute [`supplementalData.xml`](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalData.xml) was deprecated and data using it removed. The definition was unclear, and prone to mis-understanding — the more detailed data is in `territoryInfo`. ([CLDR-5708][])
+- `usesMetazone` — adds two new attributes `stdOffset` and `dstOffset` so that implementations can use either "vanguard" or "rearguard" TZDB data sources.
 - `numberingSystem` — Unicode 17 data was added.
 
 #### ldmlBCP47
-- `type` adds a new attibute `region`
-- `keyboard3@conformsTo` is updated to allow "48" 
-
-For a full listing, see [Delta DTDs].
+- `type` — adds a new attibute `region`
+- `keyboard3@conformsTo` — is updated to allow "48" 
 
 ### BCP47 Data Changes
 - `nu-tols` numbering system for Tolong Siki digits
@@ -244,25 +250,18 @@ The following files are new in the release:
 ## Migration
 
 - Number patterns that did not have a specific numberSystem (such as latn or arab) had be deprecated for many releases, and were finally removed.
+- The default week numbering changes to ISO instead being based on the calendar week starting in CLDR 48 [CLDR-18275]. The calendar week is will be more clearly targeted at matching usage in displayed month calendars.
+- Additionally, language and territory data in `languageData` and `territoryInfo` data received significant updates to improve accuracy and maintainability [CLDR-18087]
+- The likely language for Belarus changed to Russian [CLDR-14479]
+- The pre-Meiji Japanese eras were removed: There was too much uncertainty in the exact values them 
+and feedback that the general practice for exact dates is to use Gregorian for pre-Meiji dates.
 - **TBD Additional items plus future guidance will be added before the beta, on Oct 1.**
 
 
-### V48 advance warnings
-The following changes are planned for CLDR 48. Please plan accordingly to avoid disruption.
-
-- Any locales that are missing Core data by the end of the CLDR 48 cycle will be removed [CLDR-16004][]
-- The default week numbering will change to ISO instead being based on the calendar week starting in CLDR 48 [CLDR-18275][]. The calendar week data will be more clearly targeted at matching usage in displayed month calendars.
-- The likely language for Belarus is slated to change to Russian [CLDR-14479][]
+### V49 advance warnings
+The following changes are planned for CLDR 49. Please plan accordingly to avoid disruption.
 - The major components in [supplementalData.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalData.xml) and [supplementalMetadata.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalMetadata.xml) files are slated to be organized more logically and moved into separate files.
     - This will make it easier for implementations to filter out data that they don't need, and make internal maintenance easier. This will not affect the data: just which file it is located in. Please plan to update XML and JSON parsers accordingly.
-- Additionally, language and territory data in `languageData` and `territoryInfo` data will receive significant updates to improve accuracy and maintainability [CLDR-18087][]
-
-### V49 advance warnings
-
-- There is too much uncertainty in the exact values for pre-Meiji Japanese eras,
-and there is feedback that the general practice for exact dates is to use Gregorian for pre-Meiji dates.
-These are slated for removal in a future release.
-Please add a comment to [CLDR-11400] if you use this data and explain your use case if possible.
 
 ## Known Issues
 
@@ -270,7 +269,6 @@ Please add a comment to [CLDR-11400] if you use this data and explain your use c
 These will be removed in the future, but note that they may be present in the new [JSON data](#json-data-changes):
   - Non-subdivisions such as `AW`:  Use the region code `AW` instead for translation.
   - Overlong subdivisions such as `fi01`: Use the region code `AX` instead for translation.
-  
 
 ## Acknowledgments
 

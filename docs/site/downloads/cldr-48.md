@@ -8,6 +8,8 @@ title: CLDR 48 Release Note
 |:---:|:----------:|:---------:|:------:|:--------:|:------------:|:---:|:----------:|:---------:|:---------:|
 |  48 | 2025-10-~~XX~~ | [v48](/index/downloads/cldr-48) | ~~[CLDR48](https://unicode.org/Public/cldr/48/)~~ | [Charts48](https://unicode.org/cldr/charts/dev) | [LDML48](https://www.unicode.org/reports/tr35/proposed.html) | [Δ48](https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixversion%20%3D%2048%20ORDER%20BY%20priority%20DESC) | ~~[release-48]()~~ | [ΔDtd48](https://www.unicode.org/cldr/charts/dev/supplemental/dtd_deltas.html) | ~~[48.0.0]()~~ |
 
+# ALPHA DRAFT
+
 ## Overview
 
 Unicode CLDR provides key building blocks for software supporting the world's languages.
@@ -22,8 +24,14 @@ This data is also a factor in determining which languages are supported on mobil
 ### Changes
 
 The most significant changes in this release are:
-
-- TBD
+- Updates for Unicode 17, including new names and search terms for new emoji, new sort-order, many Hani→Latn transform additions
+- Recent or upcoming currency names added (XCG, ZWG)
+- Rational number formats added, allowing for formats like 5½.
+- `usesMetazone` adds two new attributes `stdOffset` and `dstOffset` so that implementations can use either "vanguard" or "rearguard" TZDB data sources.
+- Updates to Unicode 17.0, 
+- Further additions to the Message Format 2.0 spec
+- This is the first release where the new CLDR Organization process is in place for DDL languages.
+As a result, several locales were able to reach higher levels (see below)DDL line to add
 
 For more details, see below.
 
@@ -46,9 +54,9 @@ Count | With Script | Regional Variants | Level | Usage | Examples
 
 | ± | New Level | Locales |
 | -- | -- | -- |
-| 📈 | Modern | Quechua, Akan, Romansh, Chuvash, Kazakh (Arabic), Shan, Bashkir |
-| 📈 | Moderate | Esperanto, Anii |
-| 📈 | Basic | Sicilian, Tuvinian, Buriat, Piedmontese |
+| 📈 | Modern | Akan, Bashkir, Chuvash, Kazakh (Arabic), Romansh, Shan, Quechua |
+| 📈 | Moderate | Anii, Esperanto |
+| 📈 | Basic | Buriat, Piedmontese, Tuvinian, Sicilian |
 | 📉 | Basic* | Baluchi (Latin), Kurdish |
 
 \* Note: Two locales dropped in coverage (📉), from Moderate to Basic.
@@ -61,36 +69,86 @@ For a full listing, see [Coverage Levels](https://unicode.org/cldr/charts/dev/su
 
 The following are the most significant changes to the specification (LDML).
 
-- TBD
+- **TBD Changes will be added before the beta, on Oct 1.**
 
 There are many more changes that are important to implementations, such as changes to certain identifier syntax and various algorithms.
 See the [Modifications section](https://www.unicode.org/reports/tr35/proposed.html#Modifications) of the specification for details.
 
 ## Data Changes
 
+### Locale Changes
+
+#### General
+- Languages that reached Basic in the last release have their names translated at Modern Coverage in this release
+- Compound language names now have "core" and "extension" variants for more uniform formats in menus and lists
+   - For example, that allows the Kurdish variants to with a uniform format where more than Kurmanji is displayed.
+       - Kashmiri
+       - Kurdish (Kurmanji, Latin)
+       - Kurdish (Central, Arabic)
+       - Kurdish (Southern, Arabic)
+       - Kyrgyz
+- Many features selectable with locale options now have `scope="core"` names, for better presentation in menus
+   - Calendar names, collation names, emoji options, currency formats, hour-cycle options, and so on.
+   - Rather than seeing
+       - Calendar
+           - Buddhist Calendar
+           - Chinese Calendar
+           - Gregorian Calendar
+    - Users can see
+        - Calendar
+           - Buddhist
+           - Chinese
+           - Gregorian
+- Recent or upcoming currency names were added (XCG, ZWG)
+- To match ISO, translations for the region Sark (CQ) was added.
+- There are now combination formats for relative times.
+    - A combining pattern is used to combine a date with a time, such as “March 20 _at_ 12:30”.
+In some languages the use of a relative date such as “tomorrow” or “2 days ago” requires a _different_ combining pattern than for a fixed date like “March 20”.
+A new “relative” variant is introduced to allow for those languages.
+- Some additional flexible (aka available) date formats were added.
+- Many locales had seldom-used short timezone abbreviations (such as EST) removed, or moved to sublocales that use them.
+- The currency-number formats for alphaNextToNumber, noCurrency, and compact currency formats are now generated from other data for consistency.
+The alphaNextToNumber patterns allow for a space between letter currency symbols and numbers, so "USD 123" vs "$123".
+- The tooling made it easier to see when a space was a non-breaking character or not, or thin versions of those. The usage is now more consisent in many locales.
+- New emoji for Unicode 17 have added names and search keywords.
+- For the Etc/Unknown timezone, the exemplarCity name was changed from “Unknown City” to “Unknown Location”, for clarity.
+- Rational number formats were added, allowing for formats like 5½.
+- Certain concentration units were reworked, for “parts per million”, “parts per billion”
+- Additional units were added for scientific contexts (coulombs, farads, teslas, etc.) and for English systems (fortnights, imperial pints, etc.) However, the English system names were not required for translation.
+- Additional guidance on translations was added, leading to refined translations or transcreations.
+
+#### Specific Locales
+- Kurdish (Kurmanji) `ku` split from 1 locale `ku_TR` into 5 locales across 2 scripts and 4 countries. ([CLDR-18311][])
+  - `ku_Latn_TR`: Kurdish (Kurmanji, Latin alphabet, Turkey) default for Kurdish (Kurmanji) `ku` and `ku_Latn`
+  - `ku_Latn_SY`: Kurdish (Kurmanji, Latin alphabet, Syria)
+  - `ku_Latn_IQ`: Kurdish (Kurmanji, Latin alphabet, Iraq)
+  - `ku_Arab_IQ`: Kurdish (Kurmanji, Arabic writing, Iraq), default for Kurdish (Kurmanji, Arabic writing) `ku_Arab`
+  - `ku_Arab_IR`: Kurdish (Kurmanji, Arabic writing, Iran)
+
+For a full listing, see [Delta Data].
+
 ### DTD Changes
-**[TBD: Update from https://unicode.org/cldr/charts/48/supplemental/dtd_deltas.html, adding the meaning/impact of each]. Also consult the InfoHub vetter information.**
+
 #### ldml
+The explanations of usage are in the [locale](#locale) section.
 - `exemplarCharacters` added more `type` values:
-   - numbers-auxiliary — for number characters that are not 'core' to the language, but sometimes used (like regular auxiliary)
-   - punctuation-auxiliary — for punctual characters that are not 'core' to the language, but sometimes used (like regular auxiliary)
-   - punctuation-person — for the limited set of punctuation characters used in person name fields: eg, "Jean-Luc", "MD, Ph.D."
-- `dateTimeFormat` added more `type` values:
-   - relative — TBD
+   - `numbers-auxiliary` — for number characters that are not 'core' to the language, but sometimes used (like regular auxiliary)
+   - `punctuation-auxiliary` — for punctual characters that are not 'core' to the language, but sometimes used (like regular auxiliary)
+   - `punctuation-person` — for the limited set of punctuation characters used in person name fields: eg, "Jean-Luc", "MD, Ph.D."
+- `dateTimeFormat` added a `relative` `type` value for combining time and date.
 - `gmtUnknownFormat` element was added — Indicating that the timezone is unknown (as opposed to absent from the format)
-- `language` added more `menu` values:
-   - core — TBD 
-   - extension — TBD
-- `type` added more `scope` values:
-   - core — TBD
-- `numbers` added `rationalFormats` sub-element:
-   - TBD Add from sites page
-- `rbnf​/rulesetGrouping` added `rbnfRules` sub-element — TBD
+- `language` added more `menu` values: `core` and `extension`
+- `type` added a `core` `scope` value
+- `numbers` added `rationalFormats` sub-elements: `rationalPattern`, `integerAndRationalPattern` (with an `alt="superSub" variant`), `rationalUsage`
+- `rbnf​/rulesetGrouping` added `rbnfRules` sub-element:
+    - This “flattens” the rules into a format that is easier for implementations to use directly.
+
 #### supplementalData
 - `era` — the range of `code` values nows allows two letters before the first hyphen.
 - `languageData` the `territories` attribute [`supplementalData.xml`](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalData.xml) was deprecated and data using it removed. The definition was unclear, and prone to mis-understanding — the more detailed data is in `territoryInfo`. ([CLDR-5708][])
 - `usesMetazone` adds two new attributes `stdOffset` and `dstOffset` so that implementations can use either "vanguard" or "rearguard" TZDB data sources.
 - `numberingSystem` — Unicode 17 data was added.
+
 #### ldmlBCP47
 - `type` adds a new attibute `region`
 - `keyboard3@conformsTo` is updated to allow "48" 
@@ -98,14 +156,12 @@ See the [Modifications section](https://www.unicode.org/reports/tr35/proposed.ht
 For a full listing, see [Delta DTDs].
 
 ### BCP47 Data Changes
-- `nu-tols` Numbering system for Tolong Siki digits
+- `nu-tols` numbering system for Tolong Siki digits
 - One additional zone: 	America/Coyhaique = tz-clcxq
 - Seven region attributes for determining regions for timezones
 - Three additional aliases
 
 For a full listing, see [BCP47 Delta].
-
-TBD, change these links to put the URLs at the bottom
 
 ### Supplemental Data Changes
 
@@ -113,7 +169,7 @@ TBD, change these links to put the URLs at the bottom
 - Added aliases/deprecations for languages (dek, mnk, nte)
 - Updated to the latest language subtag registry, with various additions and deprecations
 - Updated to the ISO currency data, with various additions and deprecations
-- Added unit IDs part, part-per-1e6, part-per-1e9, cup-imperial, fluid-ounce-metric, with conversions
+- Added unit IDs part, part-per-1e6, part-per-1e9, cup-imperial, fluid-ounce-metric, … with conversions
   - deprecated unit IDs permillion, portion, portion-per-1e9, 100-kilometer
 
 #### Language Data
@@ -122,7 +178,7 @@ TBD, change these links to put the URLs at the bottom
   - Azerbaijani `az` and Northern Kurdish `ku` primarily are used in Latin `Latn`.
   - Chinese languages `zh`, `hak`, and `nan` are matched to Simplified Han writing `Hans` -- except Cantonese `yue`, which is known for a preference in Traditional Han writing `Hant`.
   - Hassiniyya `mey` was missing significant data, it should be associated with the Arabic `Arab` writing system by default, not Latin `Latn`.
-- 5 new language distance values are added (for fallback to zh)
+- 5 new language distance values are added (for fallback to zh).
 - Substantial updates to Language Info: additional languages in countries; revised population values, writing percentages, literacy percentages, and official status values.
 
 #### Likely Subtags
@@ -137,7 +193,7 @@ TBD, change these links to put the URLs at the bottom
 #### Calendars, Timezones, Dayperiods
 - Many updates and corrections for Metazone data
 - Many updates to calendars, including the removal of eras and adjustment to era start dates
-- Day periods for kok, scn, hi_Latn, 
+- Day periods for kok, scn, hi_Latn
 
 #### Plural Rules
 - additions for cv, ie, kok, sgs
@@ -152,62 +208,30 @@ TBD, change these links to put the URLs at the bottom
 For a full listing, see [Supplemental Delta].
 
 ### Transforms
-- Fixed problem in Gujarati → Latin with ૰
+- Fixed problem in Gujarati → Latin romanization, with ૰
 - Updated to latest Unicode 17 data for Han → Latin, with very many changes.
 
 For a full listing, see [Transforms Delta].
 
-### Locale Changes
-
-- Kurdish (Kurmanji) `ku` split from 1 locale `ku_TR` into 5 locales across 2 scripts and 4 countries. ([CLDR-18311][])
-  - `ku_Latn_TR`: Kurdish (Kurmanji, Latin alphabet, Turkey) default for Kurdish (Kurmanji) `ku` and `ku_Latn`
-  - `ku_Latn_SY`: Kurdish (Kurmanji, Latin alphabet, Syria)
-  - `ku_Latn_IQ`: Kurdish (Kurmanji, Latin alphabet, Iraq)
-  - `ku_Arab_IQ`: Kurdish (Kurmanji, Arabic writing, Iraq), default for Kurdish (Kurmanji, Arabic writing) `ku_Arab`
-  - `ku_Arab_IR`: Kurdish (Kurmanji, Arabic writing, Iran)
-- Languages that reached Basic in the last release have their names translated in this release
-- Compound language names now have "core" and "extension" variants for use in menus (TBD, flesh this out)
-- Many features selectable with locale options now have "core" names, for better presentation in menus (TBD, flesh this out)
-   - Calendar names, collation names, emoji options, currency formats, hour-cycle options, and so on. 
-- To match ISO, translations for Sark (CQ) were added.
-- Recent or upcoming currency names are added (XCG, ZWG)
-- There are now combination formats for relative times (TBD, flesh this out)
-- Some additional flexible (aka available) date formats were added  (TBD, flesh this out)
-- Many locales had seldom-used short timezone abbreviations (such as EST) removed, or moved to sublocales that use them.
-- The currency-number formats for alphaNextToNumber, noCurrency, and compact currency formats are now generated from other data for consistency.  (TBD, flesh this out)
-- The tooling made it easier to see when a space was a non-breaking character or not, or thin versions of those. The usage is now more consisent in many locales.
-- New emoji for Unicode 17, have added names and search keywords.
-- Additional guidance on translations was added, leading to refined translations or transcreations.
-
-For a full listing, see [Delta Data].
-
-### Message Format Specification
-
-- TBD
-
-### Collation Data Changes
-
-- TBD
-
 ### Number Spellout Data Changes
 
-- TBD
-
-### Segmentation Data Changes
-
-- TBD
-
-### Transform Data Changes
-
-- TBD
+- The biggest change is to the format, which has been “flattened” for easier use by clients.
 
 ### JSON Data Changes
 
 - TBD
 
 ### File Changes
+The following files are new in the release:
 
-- TBD
+| Level 1 | Level 2 | Level 3 | Files |
+| :---- | :---- | :---- | :---- |
+| common | annotations |  | ba.xml, shn.xml, sv\_FI.xml, syr.xml |
+|  | casing |  | sgs.xml |
+|  | collation |  | blo.xml, sgs.xml |
+|  | main |  | bqi\_IR.xml, bqi.xml, bua\_RU.xml, bua.xml, en\_EE.xml, en\_GE.xml, en\_JP.xml, en\_LT.xml, en\_LV.xml, en\_UA.xml, kek\_GT.xml, kek.xml, ku\_Arab\_IQ.xml, ku\_Arab\_IR.xml, ku\_Arab.xml, ku\_Latn\_IQ.xml, ku\_Latn\_SY.xml, ku\_Latn\_TR.xml, ku\_Latn.xml, lzz\_TR.xml, lzz.xml, mww\_Hmnp\_US.xml, mww\_Hmnp.xml, mww.xml, oka\_CA.xml, oka\_US.xml, oka.xml, pi\_Latn\_GB.xml, pi\_Latn.xml, pi.xml, pms\_IT.xml, pms.xml, sgs\_LT.xml, sgs.xml, suz\_Deva\_NP.xml, suz\_Deva.xml, suz\_Sunu\_NP.xml, suz\_Sunu.xml, suz.xml |
+|  | testData | personNameTest | ba.txt, blo.txt, cv.txt, kk\_Arab.txt, kok\_Latn.txt, rm.txt, shn.txt |
+|  | uca |  | FractionalUCA\_blanked.txt |
 
 ### Tooling Changes
 
@@ -220,7 +244,7 @@ For a full listing, see [Delta Data].
 ## Migration
 
 - Number patterns that did not have a specific numberSystem (such as latn or arab) had be deprecated for many releases, and were finally removed.
-- **TBD — add many items!**
+- **TBD Additional items plus future guidance will be added before the beta, on Oct 1.**
 
 
 ### V48 advance warnings

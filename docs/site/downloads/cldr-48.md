@@ -64,7 +64,7 @@ Count | With Script | Regional Variants | Level | Usage | Examples
 | -- | -- | -- |
 | 📈 | Modern | Akan, Bashkir, Chuvash, Kazakh (Arabic), Romansh, Shan, Quechua |
 | 📈 | Moderate | Anii, Esperanto |
-| 📈 | Basic | Buriat, Piedmontese, Tuvinian, Sicilian |
+| 📈 | Basic | Buriat, Piedmontese, Sicilian, Tuvinian |
 | 📉 | Basic* | Baluchi (Latin), Kurdish |
 
 \* Note: Two locales dropped in coverage (📉), from Moderate to Basic.
@@ -89,7 +89,7 @@ See the [Modifications section](https://www.unicode.org/reports/tr35/proposed.ht
 #### General
 - Languages that reached Basic in the last release have their names translated at Modern Coverage in this release.
 - Compound language names now have "core" and "extension" variants for more uniform formats in menus and lists
-   - For example, that allows the Kurdish variants to with a uniform format where more than Kurmanji is displayed.
+   - For example, that allows the Kurdish variants to have a uniform format where more than Kurmanji is displayed.
        - Kashmiri
        - Kurdish (Kurmanji, Latin)
        - Kurdish (Central, Arabic)
@@ -114,14 +114,14 @@ In some languages the use of a relative date such as “tomorrow” or “2 days
 A new “relative” variant is introduced to allow for those languages.
 - Some additional flexible (aka available) date formats were added.
 - Many locales had seldom-used short timezone abbreviations (such as EST) removed, or moved to sublocales that use them.
-- The currency-number formats for alphaNextToNumber, noCurrency, and compact currency formats are now generated from other data for consistency.
+- The currency-number formats for `alphaNextToNumber`, `noCurrency`, and compact currency formats are now generated from other data for consistency.
 The alphaNextToNumber patterns allow for a space between letter currency symbols and numbers, so "USD 123" vs "$123".
 - The tooling made it easier to see when a space was a non-breaking character or not, or thin versions of those. The usage is now more consisent in many locales.
 - New emoji for Unicode 17 have added names and search keywords.
 - For the Etc/Unknown timezone, the exemplarCity name was changed from “Unknown City” to “Unknown Location”, for clarity.
 - Rational number formats were added, allowing for formats like 5½.
 - Certain concentration units were reworked, for “parts per million”, “parts per billion”
-- Additional units were added for scientific contexts (coulombs, farads, teslas, etc.) and for English systems (fortnights, imperial pints, etc.) However, the English system names were not required for translation.
+- Additional units were added for scientific contexts (coulombs, farads, teslas, etc.) and for English systems (fortnights, imperial pints, etc.). However, the English system names were not required for translation.
 - Additional guidance on translations was added, leading to refined translations or transcreations.
 
 #### Specific Locales

@@ -1111,18 +1111,23 @@ A common restriction is that the letters in a name only come from a single scrip
 
 To narrow it down, an implementation may form the union of exemplar characters from a set of languages in CLDR (together with their uppercase equivalents); these include letters and combining marks (accents). Here are some examples:
 
-| Icelandic | a á b d ð e é f g h i í j k l m n o ó p r s t u ú v x y ý þ æ ö |
+| Language | Exemplars (Main) |
 | :---- | :---: |
+| Icelandic | a á b d ð e é f g h i í j k l m n o ó p r s t u ú v x y ý þ æ ö |
 | Polish | a ą b c ć d e ę f g h i j k l ł m n ń o ó p r s ś t u w y z ź ż |
 | Arabic | ً ٌ ٍ َ ُ ِ ّ ْ ٰ ء أ ؤ إ ئ ا آ ب ة ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ى ي |
 | Urdu | **ا ب پ ت ٹ ث ج چ ح خ د ڈ ذ ر ڑ ز ژ س ش ص ض ط ظ ع غ ف ق ک گ ل م ن و ہ ھ ء ی ے** |
 
-There are also auxiliary exemplars that should be included, for letters that are not part of the core alphabet, but do occur.
+There are also auxiliary exemplars (in the same script) that should be included, that are not part of the core alphabet, but are in use (typically loan words or names).
+For example, in English someone would not be surprised to see a name such as René or Schröder. 
 
-| Polish (aux) | à â å ä æ ç é è ê ë î ï ô ö œ q ß ù û ü v x ÿ |
+| Language | Exemplars (Auxilliary) |
 | :---- | :---: |
+| Polish (aux) | à â å ä æ ç é è ê ë î ï ô ö œ q ß ù û ü v x ÿ |
 
-Some possible sets of languages are: TBD
+It is often useful to explicitly include the exemplars from multiple languages. 
+For example, an implementation may choose to include the exemplars from official languages of the EU, or for major languages of Africa.
+There is data in CLDR for the populations of languages in countries, and their official status, that may be useful for this.
 
 ### Non-Letters
 

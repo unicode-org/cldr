@@ -1023,8 +1023,16 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             String baseA = a.getElement(0);
             String baseB = b.getElement(0);
             if (!ROOT.name.equals(baseA) || !ROOT.name.equals(baseB)) {
+                final XPathParts oddity = (ROOT.name.equals(baseA) ? b : a);
+                final String baseOddity = oddity.getElement(0);
+                final String elementOddity = oddity.getElement(-1);
                 throw new IllegalArgumentException(
-                        "Comparing different DTDs: " + ROOT.name + ", " + baseA + ", " + baseB);
+                        "Comparing different DTDs: This comparator is for DTD "
+                                + ROOT.name
+                                + ", but attempted compare with DTD "
+                                + baseOddity
+                                + " in: "
+                                + oddity.toString());
             }
             int min = Math.min(a.size(), b.size());
             Element parent = ROOT;

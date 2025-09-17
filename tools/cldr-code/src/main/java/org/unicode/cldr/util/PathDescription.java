@@ -58,11 +58,9 @@ public class PathDescription {
 
     private static final PathDescriptionParser hintsParser = new PathDescriptionParser();
 
-    private static final RegexLookup<Pair<String, String>> pathHandling =
-            parser.parse(pathDescriptionString);
+    private static RegexLookup<Pair<String, String>> pathHandling = null;
 
-    private static final RegexLookup<Pair<String, String>> pathHintsHandling =
-            hintsParser.parse(pathDescriptionHintsString);
+    private static RegexLookup<Pair<String, String>> pathHintsHandling = null;
 
     /** markdown to append */
     private static final String references = parser.getReferences();
@@ -80,8 +78,18 @@ public class PathDescription {
     }
 
     /** for tests */
-    static RegexLookup<Pair<String, String>> getPathHandling() {
+    public static RegexLookup<Pair<String, String>> getPathHandling() {
+        if (pathHandling == null) {
+            pathHandling = parser.parse(pathDescriptionFileName);
+        }
         return pathHandling;
+    }
+
+    private static RegexLookup<Pair<String, String>> getPathHintsHandling() {
+        if (pathHintsHandling == null) {
+            pathHintsHandling = hintsParser.parse(pathDescriptionHintsFileName);
+        }
+        return pathHintsHandling;
     }
 
     // set in construction
@@ -127,7 +135,7 @@ public class PathDescription {
 
     public String getRawDescription(String path, Object context) {
         status.clear();
-        final Pair<String, String> entry = pathHandling.get(path, context, pathArguments);
+        final Pair<String, String> entry = getPathHandling().get(path, context, pathArguments);
         if (entry == null) {
             return null;
         }
@@ -135,8 +143,9 @@ public class PathDescription {
     }
 
     public String getHintRawDescription(String path, Object context) {
+
         status.clear();
-        final Pair<String, String> entry = pathHintsHandling.get(path, context, pathArguments);
+        final Pair<String, String> entry = getPathHintsHandling().get(path, context, pathArguments);
         if (entry == null) {
             return null;
         }
@@ -147,7 +156,7 @@ public class PathDescription {
             String path, Object context, Output<Finder> matcherFound, Set<String> failures) {
         status.clear();
         final Pair<String, String> entry =
-                pathHandling.get(path, context, pathArguments, matcherFound, failures);
+                getPathHandling().get(path, context, pathArguments, matcherFound, failures);
         if (entry == null) {
             return null;
         }
@@ -157,7 +166,7 @@ public class PathDescription {
     public String getDescription(String path, String value, Object context) {
         status.clear();
 
-        final Pair<String, String> entry = pathHandling.get(path, context, pathArguments);
+        final Pair<String, String> entry = getPathHandling().get(path, context, pathArguments);
         String description;
         String markdown;
         if (entry == null) {

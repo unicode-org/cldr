@@ -525,7 +525,13 @@ Exemplars are characters used by a language, separated into different categories
 
 The basic exemplar character sets (main and auxiliary) contain the commonly used letters for a given modern form of a language, which can be for testing and for determining the appropriate repertoire of letters for charset conversion or collation. ("Letter" is interpreted broadly, as anything having the property Alphabetic in the [[UAX44](https://www.unicode.org/reports/tr41/#UAX44)], which also includes syllabaries and ideographs.) It is not a complete set of letters used for a language, nor should it be considered to apply to multiple languages in a particular country. Punctuation and other symbols should not be included in the main and auxiliary sets. In particular, format characters like CGJ are not included.
 
-There are 4 types of sets altogether: main, numbers, punctuation, and index. Within each type, there are are subtypes: a _main_ set containing the minimal set required for users of the language, and an _auxiliary_ set is designed to encompass additional characters — those non-native or historical characters that would customarily occur in common publications, dictionaries, and so on. The index set doesn't have an _auxiliary_, and the punctuation set has an additional subtype for person-name punctuation (see [Person Name Validation](tr35-personNames.html#person-name-validation).
+There are 4 types of sets altogether: main, numbers, punctuation, and index.
+Within each type, there are are subtypes: 
+a _main_ set containing the minimal set required for users of the language, 
+and an _auxiliary_ set is designed to encompass additional characters —
+those non-native or historical characters that would customarily occur in common publications, dictionaries, and so on.
+There are two exceptions: an index set doesn't have an _auxiliary_ set, 
+and the punctuation set has an additional subtype for person-name punctuation (see [Person Name Validation](tr35-personNames.html#person-name-validation).
 
 Major style guidelines are good references for an auxiliary set. So, for example, if Irish newspapers and magazines would commonly have Danish names using å, for example, then it would be appropriate to include å in the auxiliary exemplar characters; just not in the main exemplar set. Thus English has the following:
 

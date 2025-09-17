@@ -2917,6 +2917,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
      * @return
      */
     public Collection<String> getExtraPaths() {
+        if (this.getDtdType() != DtdType.ldml) {
+            return Collections.emptySet();
+        }
         Set<String> toAddTo = new HashSet<>(getRawExtraPaths());
         for (String path : this.iterableWithoutExtras()) {
             toAddTo.remove(path);
@@ -2930,6 +2933,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
      * @return
      */
     public Collection<String> getExtraPaths(String prefix, Collection<String> toAddTo) {
+        if (this.getDtdType() != DtdType.ldml) {
+            return Collections.emptySet();
+        }
         for (String item : getRawExtraPaths()) {
             if (item.startsWith(prefix)
                     && dataSource.getValueAtPath(item) == null) { // don't use getStringValue, since
@@ -2949,6 +2955,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
      * @return
      */
     public Set<String> getRawExtraPaths() {
+        if (this.getDtdType() != DtdType.ldml) {
+            return Collections.emptySet();
+        }
         if (extraPaths == null) {
             extraPaths = ImmutableSet.<String>builder().addAll(getRawExtraPathsPrivate()).build();
             if (DEBUG) {

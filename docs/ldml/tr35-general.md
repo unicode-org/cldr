@@ -528,7 +528,7 @@ The basic exemplar character sets (main and auxiliary) contain the commonly used
 There are 4 types of sets altogether: main, numbers, punctuation, and index.
 Within each type, there are are subtypes: 
 a _main_ set containing the minimal set required for users of the language, 
-and an _auxiliary_ set is designed to encompass additional characters —
+and an _auxiliary_ set, which is designed to encompass additional characters —
 those non-native or historical characters that would customarily occur in common publications, dictionaries, and so on.
 There are two exceptions: an index set doesn't have an _auxiliary_ set, 
 and the punctuation set has an additional subtype for person-name punctuation (see [Person Name Validation](tr35-personNames.html#person-name-validation).

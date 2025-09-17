@@ -759,6 +759,8 @@ public class Ldml2JsonConverter {
             } else {
                 outFilename = js.section + ".json";
             }
+            final String location = filename + " section " + js.packageName + "/" + js.section;
+
             String tier = "";
             boolean writeOther = Boolean.parseBoolean(options.get("other").getValue());
             if (js.section.equals("other") && !writeOther) {
@@ -864,16 +866,18 @@ public class Ldml2JsonConverter {
                     String previousIdentityPath = null;
                     for (CldrItem item : theItems) {
                         if (item.getPath().isEmpty()) {
-                            throw new IllegalArgumentException(
-                                    "empty xpath in "
-                                            + filename
-                                            + " section "
-                                            + js.packageName
-                                            + "/"
-                                            + js.section);
+                            throw new IllegalArgumentException("empty xpath in " + location);
                         }
                         if (type == RunType.rbnf) {
-                            item.adjustRbnfPath();
+                            if (item.getFullPath().contains("/rbnfRules")) {
+                                System.err.println("TODO CLDR-18956: skipping NEW rules.");
+                                continue;
+                            }
+                            try {
+                                item.adjustRbnfPath();
+                            } catch (Throwable t) {
+                                throw new RuntimeException(location + ": " + item.getPath(), t);
+                            }
                         }
 
                         // items in the identity section of a file should only ever contain the

@@ -520,7 +520,7 @@ Exemplars are characters used by a language, separated into different categories
 | numbers-auxiliary         | Additional characters for use with numbers (technical or older usage) |  |
 | punctuation     | Main punctuation characters | - ‐ – — , ; \\: ! ? . … “ ” ‘ ’ ( ) [ ] § @ * / & # † ‡ ′ ″ |
 | punctuation-auxiliary     | Additional punctuation (technical or older usage) |  |
-| punctuation-person     | Punctuation used in people names, such as "Jean-Luke Smith Ph.D., MD. | - / . , |
+| punctuation-person     | Punctuation used in people names, such as "Jean-Luc Smith Ph.D., MD. | - / . , |
 | index           | Characters for the header of an index | A B C D E F G H I J K L M N O P Q R S T U V W X Y Z |
 
 The basic exemplar character sets (main and auxiliary) contain the commonly used letters for a given modern form of a language, which can be for testing and for determining the appropriate repertoire of letters for charset conversion or collation. ("Letter" is interpreted broadly, as anything having the property Alphabetic in the [[UAX44](https://www.unicode.org/reports/tr41/#UAX44)], which also includes syllabaries and ideographs.) It is not a complete set of letters used for a language, nor should it be considered to apply to multiple languages in a particular country. Punctuation and other symbols should not be included in the main and auxiliary sets. In particular, format characters like CGJ are not included.

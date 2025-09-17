@@ -55,11 +55,14 @@ The LDML specification is divided into the following parts:
 
 **Changes in LDML Version 48 (Differences from Version 47)**
 
+### Locale Identifiers
+* [Special Script Codes](tr35.html#special-script-codes) The `Hntl` compound script was added. (This is also reflected in the `<scriptData>` elements in supplementalData.xml.)
+  
 ### DateTime formats
 
-* In [Element dateTimeFormat](tr35-dates.md#dateTimeFormat), added a new type `relative` and updated the
+* [Element dateTimeFormat](tr35-dates.md#dateTimeFormat) Added a new type `relative` and updated the
 guidelines on how to use the different `dateTimeFormat` types.
-* In [Using Time Zone Names](tr35-dates.md#Using_Time_Zone_Names), the "specific location format" was removed
+* [Using Time Zone Names](tr35-dates.md#Using_Time_Zone_Names) The "specific location format" was removed.
 
 Note that small changes such as typos and link fixes are not listed above.
 Modifications in previous versions are listed in those respective versions.

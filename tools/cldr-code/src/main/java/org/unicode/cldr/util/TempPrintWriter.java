@@ -19,6 +19,9 @@ import org.unicode.cldr.tool.ShowLocaleCoverage;
  * the old file (except for date), then it is deleted. Otherwise it replaces the target file. Moved
  * from UnicodeTools.
  *
+ * <p>dontReplaceFile() may be called before close() to prevent replacement (such as if a processing
+ * error occurred)
+ *
  * @author markdavis
  */
 public class TempPrintWriter extends Writer {
@@ -55,6 +58,10 @@ public class TempPrintWriter extends Writer {
         return new TempPrintWriter(new File(dir, filename));
     }
 
+    public static TempPrintWriter openUTF8Writer(File dir, String filename) {
+        return new TempPrintWriter(new File(dir, filename));
+    }
+
     public TempPrintWriter(String dir, String filename) {
         this(new File(dir, filename));
     }
@@ -76,6 +83,10 @@ public class TempPrintWriter extends Writer {
         }
     }
 
+    /**
+     * Will prevent the file from being overwritten. Call this before close() if something goes
+     * wrong during write.
+     */
     public void dontReplaceFile() {
         noReplace = true;
     }

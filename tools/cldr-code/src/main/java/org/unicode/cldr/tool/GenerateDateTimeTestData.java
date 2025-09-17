@@ -562,7 +562,7 @@ public class GenerateDateTimeTestData {
     }
 
     /**
-     * @return The manually created collection of field input value combinatinos that characterize
+     * @return The manually created collection of field input value combinations that characterize
      *     the test cases of the kernel.
      */
     private static ImmutableSet<FieldStyleComboInput> getFieldStyleComboInputs() {
@@ -1049,7 +1049,7 @@ public class GenerateDateTimeTestData {
         return sb.toString();
     }
 
-    private static TestCase convertTestCaseInputToTestCase(
+    private static TestCase convertStylesTestCaseInputToTestCase(
             ICUServiceBuilder icuServiceBuilder,
             CLDRFile localeCldrFile,
             TestCaseInput testCaseInput) {
@@ -1095,7 +1095,8 @@ public class GenerateDateTimeTestData {
             TestCaseInput testCaseInput) {
 
         if (testCaseInput.fieldStyleCombo.semanticSkeleton == null) {
-            return convertTestCaseInputToTestCase(icuServiceBuilder, localeCldrFile, testCaseInput);
+            return convertStylesTestCaseInputToTestCase(
+                    icuServiceBuilder, localeCldrFile, testCaseInput);
         } else {
             String calendarStr = testCaseInput.calendar.getType();
             String skeleton =
@@ -1107,7 +1108,7 @@ public class GenerateDateTimeTestData {
             // compute the expected
             // TODO: fix CLDR DateTimeFormats constructor to use CLDRFile to get the dateTimeFormat
             //   glue pattern rather than use ICU to get it
-            DateTimeFormats formats = new DateTimeFormats().set(localeCldrFile, calendarStr);
+            DateTimeFormats formats = new DateTimeFormats().set(localeCldrFile, calendarStr, false);
             SimpleDateFormat formatterForSkeleton = formats.getDateFormatFromSkeleton(skeleton);
             formatterForSkeleton.setCalendar(testCaseInput.calendar);
             formatterForSkeleton.setTimeZone(testCaseInput.timeZone);

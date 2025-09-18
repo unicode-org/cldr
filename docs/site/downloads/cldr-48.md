@@ -6,7 +6,7 @@ title: CLDR 48 Release Note
 
 | No. |    Date    | Rel. Note |  Data  |  Charts  | Spec |   Delta  | GitHub Tag | Delta DTD | CLDR JSON |
 |:---:|:----------:|:---------:|:------:|:--------:|:------------:|:---:|:----------:|:---------:|:---------:|
-|  48 | 2025-10-~~XX~~ | [v48](/index/downloads/cldr-48) | ~~[CLDR48](https://unicode.org/Public/cldr/48/)~~ | [Charts48](https://unicode.org/cldr/charts/dev) | [LDML48](https://www.unicode.org/reports/tr35/proposed.html) | [Δ48](https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixversion%20%3D%2048%20ORDER%20BY%20priority%20DESC) | [release-48-alpha2d](https://github.com/unicode-org/cldr/releases/tag/release-48-alpha2d) | [ΔDtd48](https://www.unicode.org/cldr/charts/dev/supplemental/dtd_deltas.html) | ~~[48.0.0]()~~ |
+|  48 | 2025-10-~~XX~~ | [v48](/index/downloads/cldr-48) | ~~[CLDR48](https://unicode.org/Public/cldr/48/)~~ | [Charts48](https://unicode.org/cldr/charts/dev) | [LDML48](https://www.unicode.org/reports/tr35/proposed.html) | [Δ48](https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixversion%20%3D%2048%20ORDER%20BY%20priority%20DESC) | [release-48-alpha3](https://github.com/unicode-org/cldr/releases/tag/release-48-alpha3) | [ΔDtd48](https://www.unicode.org/cldr/charts/dev/supplemental/dtd_deltas.html) | ~~[48.0.0]()~~ |
 
 # ALPHA DRAFT
 
@@ -118,11 +118,11 @@ A new “relative” variant is introduced to allow for those languages.
 The alphaNextToNumber patterns allow for a space between letter currency symbols and numbers. For example, "USD 123" vs "$123".
 - The tooling made it easier to see when a space was a non-breaking character or not, or thin versions of those. The usage is now more consisent in many locales.
 - New emoji for Unicode 17 have added names and search keywords.
-- For the Etc/Unknown timezone, the exemplarCity name was changed from “Unknown City” to “Unknown Location”, for clarity.
+- For the Etc/Unknown timezone, the exemplarCity name was changed from “Unknown City” to “Unknown Location” for clarity.
 - Rational number formats were added, allowing for formats like 5½.
 - Certain concentration units were reworked, for “parts per million”, “parts per billion”
 - Additional units were added for scientific contexts (coulombs, farads, teslas, etc.) and for English systems (fortnights, imperial pints, etc.). However, the English system names were not required for translation.
-- Additional guidance on translations was added, leading to refined translations or transcreations.
+- Additional guidance on translation was added, leading to refined translations or transcreations.
 
 #### Specific Locales
 - Kurdish (Kurmanji) `ku` split from 1 locale `ku_TR` into 5 locales across 2 scripts and 4 countries. ([CLDR-18311][])
@@ -153,7 +153,7 @@ The explanations of usage are in the [Locale Changes](#locale-changes) section.
 
 #### supplementalData
 - `era` — the range of `code` values nows allows two letters before the first hyphen.
-- `languageData` — the `territories` attribute [`supplementalData.xml`](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalData.xml) was deprecated and data using it removed. The definition was unclear, and prone to mis-understanding — the more detailed data is in `territoryInfo`. ([CLDR-5708][])
+- `languageData` — the `territories` attribute [`supplementalData.xml`](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalData.xml) was deprecated and data using it removed. The definition was unclear, and prone to misunderstanding — the more detailed data is in `territoryInfo`. ([CLDR-5708][])
 - `usesMetazone` — adds two new attributes `stdOffset` and `dstOffset` so that implementations can use either "vanguard" or "rearguard" TZDB data sources.
 - `numberingSystem` — Unicode 17 data was added.
 
@@ -257,8 +257,8 @@ The following files are new in the release:
 
 ### V49 advance warnings
 The following changes are planned for CLDR 49. Please plan accordingly to avoid disruption.
-- The default week numbering changes to ISO instead being based on the calendar week starting in CLDR 48 [CLDR-18275]. The calendar week is will be more clearly targeted at matching usage in displayed month calendars.
-- The pre-Meiji Japanese eras were removed: There was too much uncertainty in the exact values them 
+- The default week numbering changes to ISO instead being based on the calendar week starting in CLDR 48 [CLDR-18275]. The calendar week will be more clearly targeted at matching usage in displayed month calendars.
+- The pre-Meiji Japanese eras were removed: There was too much uncertainty in the exact values 
 and feedback that the general practice for exact dates is to use Gregorian for pre-Meiji dates.
 - The major components in [supplementalData.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalData.xml) and [supplementalMetadata.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalMetadata.xml) files are slated to be organized more logically and moved into separate files.
     - This will make it easier for implementations to filter out data that they don't need, and make internal maintenance easier. This will not affect the data: just which file it is located in. Please plan to update XML and JSON parsers accordingly.

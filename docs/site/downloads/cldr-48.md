@@ -34,7 +34,7 @@ The most significant changes in this release are:
 - New formatting options
     - Rational number formats added, allowing for formats like 5½.
     - For timezones, `usesMetazone` adds two new attributes `stdOffset` and `dstOffset` so that implementations can use either "vanguard" or "rearguard" TZDB data sources.
-    - There are now combination formats for _relative_ dates + times, such as “March 20 _at_ 12:30”.
+    - There are now combination formats for _relative_ dates + times, such as “tomorrow _at_ 12:30”.
     - Additional units were added for scientific contexts (coulombs, farads, teslas, etc.) and for English systems (fortnights, imperial pints, etc.).
 New non-metric units were not translated aside from a few languages
 - Many corrections and updates for Metazone data, for calendars (including removal of eras and fixes to start dates).

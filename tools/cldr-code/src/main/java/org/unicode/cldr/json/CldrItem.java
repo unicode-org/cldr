@@ -385,10 +385,6 @@ public class CldrItem implements Comparable<CldrItem> {
     }
 
     void adjustRbnfPath() {
-        if (getFullPath().contains("/rbnfRules")) {
-            System.err.println("TODO CLDR-18956: skipping NEW rules.");
-            return;
-        }
         XPathParts xpp = XPathParts.getFrozenInstance(getFullPath());
         final String sub = xpp.findAttributeValue("rbnfrule", "value");
         if (sub != null) {

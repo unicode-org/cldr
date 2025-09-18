@@ -68,6 +68,8 @@ public final class WikiSubdivisionLanguages {
 
     private static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
     private static final Normalizer2 NFC = Normalizer2.getNFCInstance();
+    private static final java.util.regex.Pattern IS_ISO_3166_1 =
+            java.util.regex.Pattern.compile("^[A-Z][A-Z]$");
 
     private static ChainedMap.M3<String, String, String> SUB_LANG_NAME =
             ChainedMap.of(
@@ -76,6 +78,7 @@ public final class WikiSubdivisionLanguages {
             ChainedMap.of(
                     new TreeMap<String, Object>(), new TreeMap<String, Object>(), String.class);
     private static Set<String> bogus = new TreeSet<>();
+    private static Set<String> iso3166_1 = new TreeSet<>();
     private static Multimap<Status, String> bogusStatus = TreeMultimap.create();
 
     public static String getSubdivisionName(String subdivisionId, String languageId) {
@@ -132,7 +135,11 @@ public final class WikiSubdivisionLanguages {
                 TsvWriter.writeRow(tsv, item, label, code, codeLabel);
 
                 String subdivision = SubdivisionNode.convertToCldr(code);
-                if (!regularSubdivisions.contains(subdivision)) {
+                if (IS_ISO_3166_1.matcher(subdivision).matches()) {
+                    System.err.println(subdivision);
+                    iso3166_1.put(subdivision);
+                    continue;
+                } else if (!regularSubdivisions.contains(subdivision)) {
                     Status status = codeToStatus.get(subdivision);
                     if (status == null) {
                         bogus.add(subdivision);

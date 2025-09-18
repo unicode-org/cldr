@@ -17,7 +17,7 @@ adapting software to the conventions of different languages.
 
 CLDR 48 was an open submission cycle allowing contributors to supply data for their languages via the CLDR Survey Tool —
 data that is widely used to support much of the world’s software.
-This data is also a factor in determining which languages are supported on mobile phones and computer operating systems. 
+This data is also a factor in determining which languages are supported on mobile phones and computer operating systems.
 
 ### Changes
 
@@ -79,13 +79,15 @@ See the [Modifications section](https://www.unicode.org/reports/tr35/proposed.ht
    - relative — TBD
 - `gmtUnknownFormat` element was added — Indicating that the timezone is unknown (as opposed to absent from the format)
 - `language` added more `menu` values:
-   - core — TBD 
+   - core — TBD
    - extension — TBD
 - `type` added more `scope` values:
    - core — TBD
 - `numbers` added `rationalFormats` sub-element:
    - TBD Add from sites page
-- `rbnf​/rulesetGrouping` added `rbnfRules` sub-element — TBD
+
+- `rbnf​/rulesetGrouping` added `rbnfRules` sub-element — [CLDR-8909]
+
 #### supplementalData
 - `era` — the range of `code` values nows allows two letters before the first hyphen.
 - `languageData` the `territories` attribute [`supplementalData.xml`](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalData.xml) was deprecated and data using it removed. The definition was unclear, and prone to mis-understanding — the more detailed data is in `territoryInfo`. ([CLDR-5708][])
@@ -93,7 +95,7 @@ See the [Modifications section](https://www.unicode.org/reports/tr35/proposed.ht
 - `numberingSystem` — Unicode 17 data was added.
 #### ldmlBCP47
 - `type` adds a new attibute `region`
-- `keyboard3@conformsTo` is updated to allow "48" 
+- `keyboard3@conformsTo` is updated to allow "48"
 
 For a full listing, see [Delta DTDs].
 
@@ -137,7 +139,7 @@ TBD, change these links to put the URLs at the bottom
 #### Calendars, Timezones, Dayperiods
 - Many updates and corrections for Metazone data
 - Many updates to calendars, including the removal of eras and adjustment to era start dates
-- Day periods for kok, scn, hi_Latn, 
+- Day periods for kok, scn, hi_Latn,
 
 #### Plural Rules
 - additions for cv, ie, kok, sgs
@@ -168,7 +170,7 @@ For a full listing, see [Transforms Delta].
 - Languages that reached Basic in the last release have their names translated in this release
 - Compound language names now have "core" and "extension" variants for use in menus (TBD, flesh this out)
 - Many features selectable with locale options now have "core" names, for better presentation in menus (TBD, flesh this out)
-   - Calendar names, collation names, emoji options, currency formats, hour-cycle options, and so on. 
+   - Calendar names, collation names, emoji options, currency formats, hour-cycle options, and so on.
 - To match ISO, translations for Sark (CQ) were added.
 - Recent or upcoming currency names are added (XCG, ZWG)
 - There are now combination formats for relative times (TBD, flesh this out)
@@ -203,7 +205,39 @@ For a full listing, see [Delta Data].
 
 ### JSON Data Changes
 
-- TBD
+- RBNF
+  - Just as with the RBNF data format change in XML [CLDR-8909], the JSON data also has a change in structure. [CLDR-18956].
+  - Below is an example of the changed data format.
+  - The new data item is the `_rbnfRulesFile` key. Its value is the name of a data file in
+  the same directory, containing the raw rules.
+  - The previous data format is included for this release, but will be removed in a future release. In this case, the `%digits-ordinal` (and any other such keys) will be removed.
+
+
+```js
+{
+    "rbnf": {
+      "OrdinalRules": {
+        "%digits-ordinal": [
+          [
+            "-x",
+            "−→→;"
+          ],
+          [
+            "0",
+            "=#,##0=;"
+          ]
+        ],
+        "_rbnfRulesFile": "ar-OrdinalRules.txt"
+      },
+    }
+}
+```
+
+The `ar-OrdinalRules.txt` file contains all rules for this locale:
+
+   %digits-ordinal:
+   -x: −>>;
+   0: =#,##0=;
 
 ### File Changes
 
@@ -246,7 +280,7 @@ Please add a comment to [CLDR-11400] if you use this data and explain your use c
 These will be removed in the future, but note that they may be present in the new [JSON data](#json-data-changes):
   - Non-subdivisions such as `AW`:  Use the region code `AW` instead for translation.
   - Overlong subdivisions such as `fi01`: Use the region code `AX` instead for translation.
-  
+
 
 ## Acknowledgments
 
@@ -259,6 +293,8 @@ in particular, see [Exhibit 1](https://unicode.org/copyright.html#Exhibit1).
 For web pages with different views of CLDR data, see [http://cldr.unicode.org/index/charts](/index/charts).
 
 [CLDR-5708]: https://unicode-org.atlassian.net/browse/CLDR-5708
+[CLDR-8909]: https://unicode-org.atlassian.net/browse/CLDR-8909
+[CLDR-11400]: https://unicode-org.atlassian.net/browse/CLDR-11400
 [CLDR-14479]: https://unicode-org.atlassian.net/browse/CLDR-14479
 [CLDR-16004]: https://unicode-org.atlassian.net/browse/CLDR-16004
 [CLDR-16715]: https://unicode-org.atlassian.net/browse/CLDR-16715
@@ -268,7 +304,8 @@ For web pages with different views of CLDR data, see [http://cldr.unicode.org/in
 [CLDR-18219]: https://unicode-org.atlassian.net/browse/CLDR-18219
 [CLDR-18275]: https://unicode-org.atlassian.net/browse/CLDR-18275
 [CLDR-18311]: https://unicode-org.atlassian.net/browse/CLDR-18311
-[CLDR-11400]: https://unicode-org.atlassian.net/browse/CLDR-11400
+[CLDR-18956]: https://unicode-org.atlassian.net/browse/CLDR-18956
+
 [Delta DTDs]: https://unicode.org/cldr/charts/48/supplemental/dtd_deltas.html
 [BCP47 Delta]: https://unicode.org/cldr/charts/48/delta/bcp47.html
 [Supplemental Delta]: https://unicode.org/cldr/charts/48/delta/supplemental-data.html

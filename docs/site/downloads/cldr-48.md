@@ -24,13 +24,13 @@ This data is also a factor in determining which languages are supported on mobil
 ### Changes
 
 The most significant changes in this release are:
-- Updates for Unicode 17, including new names and search terms for new emoji, new sort-order, Han→Latn romanization additions for many characters
+- Updated for Unicode 17, including new names and search terms for new emoji, new sort-order, Han→Latn romanization additions for many characters
 - Updated to the latest external standards and data sources, such as the language subtag registry, UN M49 macro regions, ISO 4217 currencies, etc.
 - Many enhancements of the CLDR specification (LDML), including:
   - Further additions to the Message Format 2.0 spec
 - Many additions to language data including:
-    - Likely Subtags, for getting deriving the likely script and region from the language (used in many processes)
-    - Populations of languages in countries: significant updates to improve accuracy and maintainability
+    - Likely Subtags, for deriving the likely script and region from the language (used in many processes)
+    - Language populations in countries: significant updates to improve accuracy and maintainability
 - New formatting options
     - Rational number formats added, allowing for formats like 5½.
     - For timezones, `usesMetazone` adds two new attributes `stdOffset` and `dstOffset` so that implementations can use either "vanguard" or "rearguard" TZDB data sources.

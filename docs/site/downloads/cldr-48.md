@@ -6,7 +6,7 @@ title: CLDR 48 Release Note
 
 | No. |    Date    | Rel. Note |  Data  |  Charts  | Spec |   Delta  | GitHub Tag | Delta DTD | CLDR JSON |
 |:---:|:----------:|:---------:|:------:|:--------:|:------------:|:---:|:----------:|:---------:|:---------:|
-|  48 | 2025-10-~~XX~~ | [v48](/index/downloads/cldr-48) | ~~[CLDR48](https://unicode.org/Public/cldr/48/)~~ | [Charts48](https://unicode.org/cldr/charts/dev) | [LDML48](https://www.unicode.org/reports/tr35/proposed.html) | [Δ48](https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixversion%20%3D%2048%20ORDER%20BY%20priority%20DESC) | ~~[release-48]()~~ | [ΔDtd48](https://www.unicode.org/cldr/charts/dev/supplemental/dtd_deltas.html) | ~~[48.0.0]()~~ |
+|  48 | 2025-10-~~XX~~ | [v48](/index/downloads/cldr-48) | ~~[CLDR48](https://unicode.org/Public/cldr/48/)~~ | [Charts48](https://unicode.org/cldr/charts/dev) | [LDML48](https://www.unicode.org/reports/tr35/proposed.html) | [Δ48](https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixversion%20%3D%2048%20ORDER%20BY%20priority%20DESC) | [release-48-alpha2d](https://github.com/unicode-org/cldr/releases/tag/release-48-alpha2d) | [ΔDtd48](https://www.unicode.org/cldr/charts/dev/supplemental/dtd_deltas.html) | ~~[48.0.0]()~~ |
 
 # ALPHA DRAFT
 
@@ -36,7 +36,7 @@ The most significant changes in this release are:
     - For timezones, `usesMetazone` adds two new attributes `stdOffset` and `dstOffset` so that implementations can use either "vanguard" or "rearguard" TZDB data sources.
     - There are now combination formats for _relative_ dates + times, such as “March 20 _at_ 12:30”.
     - Additional units were added for scientific contexts (coulombs, farads, teslas, etc.) and for English systems (fortnights, imperial pints, etc.).
-Note that new non-metric units were not translated aside from a few languages
+New non-metric units were not translated aside from a few languages
 - Many corrections and updates for Metazone data, for calendars (including removal of eras and fixes to start dates).
 - This is the first release where the new CLDR Organization process is in place for DDL languages.
 As a result, several locales were able to reach higher levels (see below).
@@ -112,10 +112,10 @@ See the [Modifications section](https://www.unicode.org/reports/tr35/proposed.ht
 - There are now combination formats for _relative_ dates + times, such as “March 20 _at_ 12:30”.
 In some languages the use of a relative date such as “tomorrow” or “2 days ago” requires a _different_ combining pattern than for a fixed date like “March 20”.
 A new “relative” variant is introduced to allow for those languages.
-- Some additional flexible (aka available) date formats were added.
+- Some additional flexible date formats were added. (aka `availableFormats`)
 - Many locales had seldom-used short timezone abbreviations (such as EST) removed, or moved to sublocales that use them.
 - The currency-number formats for `alphaNextToNumber`, `noCurrency`, and compact currency formats are now generated from other data for consistency.
-The alphaNextToNumber patterns allow for a space between letter currency symbols and numbers, so "USD 123" vs "$123".
+The alphaNextToNumber patterns allow for a space between letter currency symbols and numbers. For example, "USD 123" vs "$123".
 - The tooling made it easier to see when a space was a non-breaking character or not, or thin versions of those. The usage is now more consisent in many locales.
 - New emoji for Unicode 17 have added names and search keywords.
 - For the Etc/Unknown timezone, the exemplarCity name was changed from “Unknown City” to “Unknown Location”, for clarity.
@@ -250,16 +250,16 @@ The following files are new in the release:
 ## Migration
 
 - Number patterns that did not have a specific numberSystem (such as latn or arab) had be deprecated for many releases, and were finally removed.
-- The default week numbering changes to ISO instead being based on the calendar week starting in CLDR 48 [CLDR-18275]. The calendar week is will be more clearly targeted at matching usage in displayed month calendars.
 - Additionally, language and territory data in `languageData` and `territoryInfo` data received significant updates to improve accuracy and maintainability [CLDR-18087]
 - The likely language for Belarus changed to Russian [CLDR-14479]
-- The pre-Meiji Japanese eras were removed: There was too much uncertainty in the exact values them 
-and feedback that the general practice for exact dates is to use Gregorian for pre-Meiji dates.
 - **TBD Additional items plus future guidance will be added before the beta, on Oct 1.**
 
 
 ### V49 advance warnings
 The following changes are planned for CLDR 49. Please plan accordingly to avoid disruption.
+- The default week numbering changes to ISO instead being based on the calendar week starting in CLDR 48 [CLDR-18275]. The calendar week is will be more clearly targeted at matching usage in displayed month calendars.
+- The pre-Meiji Japanese eras were removed: There was too much uncertainty in the exact values them 
+and feedback that the general practice for exact dates is to use Gregorian for pre-Meiji dates.
 - The major components in [supplementalData.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalData.xml) and [supplementalMetadata.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalMetadata.xml) files are slated to be organized more logically and moved into separate files.
     - This will make it easier for implementations to filter out data that they don't need, and make internal maintenance easier. This will not affect the data: just which file it is located in. Please plan to update XML and JSON parsers accordingly.
 

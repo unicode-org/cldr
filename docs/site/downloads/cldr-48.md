@@ -121,7 +121,7 @@ The alphaNextToNumber patterns allow for a space between letter currency symbols
 - For the Etc/Unknown timezone, the exemplarCity name was changed from “Unknown City” to “Unknown Location” for clarity.
 - Rational number formats were added, allowing for formats like 5½.
 - Certain concentration units were reworked, for “parts per million”, “parts per billion”
-- Additional units were added for scientific contexts (coulombs, farads, teslas, etc.) and for English systems (fortnights, imperial pints, etc.). However, the English system names were not required for translation.
+- Additional units were added for scientific contexts (coulombs, farads, teslas, etc.) and for English systems (fortnights, imperial pints, etc.). However, translation of these English system names were not required.
 - Additional guidance on translation was added, leading to refined translations or transcreations.
 
 #### Specific Locales

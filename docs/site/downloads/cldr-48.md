@@ -109,7 +109,7 @@ See the [Modifications section](https://www.unicode.org/reports/tr35/proposed.ht
            - Gregorian
 - Recent or upcoming currency names were added (XCG, ZWG)
 - To match ISO, translations for the region Sark (CQ) was added.
-- There are now combination formats for _relative_ dates + times, such as “March 20 _at_ 12:30”.
+- There are now combination formats for _relative_ dates + times, such as “tomorrow _at_ 12:30”.
 In some languages the use of a relative date such as “tomorrow” or “2 days ago” requires a _different_ combining pattern than for a fixed date like “March 20”.
 A new “relative” variant is introduced to allow for those languages.
 - Some additional flexible date formats were added. (aka `availableFormats`)

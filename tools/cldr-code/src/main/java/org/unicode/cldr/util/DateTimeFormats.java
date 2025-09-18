@@ -181,9 +181,7 @@ public class DateTimeFormats {
     public DateTimeFormats set(CLDRFile file, String calendarID, boolean useStock) {
         this.file = file;
         locale = new ULocale(file.getLocaleID());
-        if (useStock) {
-            icuServiceBuilder = new ICUServiceBuilder().setCldrFile(file);
-        }
+        icuServiceBuilder = new ICUServiceBuilder().setCldrFile(file);
         PatternInfo returnInfo = new PatternInfo();
         generator = DateTimePatternGenerator.getEmptyInstance();
         this.calendarID = calendarID;

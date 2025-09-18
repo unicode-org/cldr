@@ -16,6 +16,9 @@ not be patched by hand, as any changes made in that fashion may be lost.
     <likelySubtags>
 		<likelySubtag from="aa" to="aa_Latn_ET"/>		<!--Afar‧?‧?	➡ Afar‧Latin‧Ethiopia-->
 		<likelySubtag from="ab" to="ab_Cyrl_GE"/>		<!--Abkhazian‧?‧?	➡ Abkhazian‧Cyrillic‧Georgia-->
+		<likelySubtag from="abq" to="abq_Cyrl_RU"/>		<!--Abaza‧?‧?	➡ Abaza‧Cyrillic‧Russia-->
+		<likelySubtag from="abq_TR" to="abq_Latn_TR"/>		<!--Abaza‧?‧Türkiye	➡ Abaza‧Latin‧Türkiye-->
+		<likelySubtag from="abq_Latn" to="abq_Latn_TR"/>		<!--Abaza‧Latin‧?	➡ Abaza‧Latin‧Türkiye-->
 		<likelySubtag from="abr" to="abr_Latn_GH"/>		<!--Abron‧?‧?	➡ Abron‧Latin‧Ghana-->
 		<likelySubtag from="ace" to="ace_Latn_ID"/>		<!--Acehnese‧?‧?	➡ Acehnese‧Latin‧Indonesia-->
 		<likelySubtag from="ach" to="ach_Latn_UG"/>		<!--Acoli‧?‧?	➡ Acoli‧Latin‧Uganda-->
@@ -259,6 +262,7 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<likelySubtag from="got" to="got_Goth_UA"/>		<!--Gothic‧?‧?	➡ Gothic‧Gothic‧Ukraine-->
 		<likelySubtag from="grb" to="grb_Latn_LR"/>		<!--Grebo‧?‧?	➡ Grebo‧Latin‧Liberia-->
 		<likelySubtag from="grc" to="grc_Grek_GR"/>		<!--Ancient Greek‧?‧?	➡ Ancient Greek‧Greek‧Greece-->
+		<likelySubtag from="grr" to="grr_Arab_DZ"/>		<!--Taznatit‧?‧?	➡ Taznatit‧Arabic‧Algeria-->
 		<likelySubtag from="grt" to="grt_Beng_IN"/>		<!--Garo‧?‧?	➡ Garo‧Bangla‧India-->
 		<likelySubtag from="gsw" to="gsw_Latn_CH"/>		<!--Swiss German‧?‧?	➡ Swiss German‧Latin‧Switzerland-->
 		<likelySubtag from="gu" to="gu_Gujr_IN"/>		<!--Gujarati‧?‧?	➡ Gujarati‧Gujarati‧India-->
@@ -537,6 +541,7 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<likelySubtag from="myv" to="myv_Cyrl_RU"/>		<!--Erzya‧?‧?	➡ Erzya‧Cyrillic‧Russia-->
 		<likelySubtag from="myx" to="myx_Latn_UG"/>		<!--Masaaba‧?‧?	➡ Masaaba‧Latin‧Uganda-->
 		<likelySubtag from="myz" to="myz_Mand_IR"/>		<!--Classical Mandaic‧?‧?	➡ Classical Mandaic‧Mandaean‧Iran-->
+		<likelySubtag from="mzb" to="mzb_Arab_DZ"/>		<!--Tumzabt‧?‧?	➡ Tumzabt‧Arabic‧Algeria-->
 		<likelySubtag from="mzn" to="mzn_Arab_IR"/>		<!--Mazanderani‧?‧?	➡ Mazanderani‧Arabic‧Iran-->
 		<likelySubtag from="na" to="na_Latn_NR"/>		<!--Nauru‧?‧?	➡ Nauru‧Latin‧Nauru-->
 		<likelySubtag from="nan" to="nan_Hans_CN"/>		<!--Min Nan Chinese‧?‧?	➡ Min Nan Chinese‧Simplified‧China-->
@@ -732,6 +737,9 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<likelySubtag from="ssy" to="ssy_Latn_ER"/>		<!--Saho‧?‧?	➡ Saho‧Latin‧Eritrea-->
 		<likelySubtag from="st" to="st_Latn_ZA"/>		<!--Southern Sotho‧?‧?	➡ Southern Sotho‧Latin‧South Africa-->
 		<likelySubtag from="stq" to="stq_Latn_DE"/>		<!--Saterland Frisian‧?‧?	➡ Saterland Frisian‧Latin‧Germany-->
+		<likelySubtag from="stu" to="stu_Lana_MM"/>		<!--Samtao‧?‧?	➡ Samtao‧Lanna‧Myanmar (Burma)-->
+		<likelySubtag from="stu_CN" to="stu_Tale_CN"/>		<!--Samtao‧?‧China	➡ Samtao‧Tai Le‧China-->
+		<likelySubtag from="stu_Tale" to="stu_Tale_CN"/>		<!--Samtao‧Tai Le‧?	➡ Samtao‧Tai Le‧China-->
 		<likelySubtag from="su" to="su_Latn_ID"/>		<!--Sundanese‧?‧?	➡ Sundanese‧Latin‧Indonesia-->
 		<likelySubtag from="suk" to="suk_Latn_TZ"/>		<!--Sukuma‧?‧?	➡ Sukuma‧Latin‧Tanzania-->
 		<likelySubtag from="sus" to="sus_Latn_GN"/>		<!--Susu‧?‧?	➡ Susu‧Latin‧Guinea-->
@@ -1237,6 +1245,7 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<likelySubtag from="und_Krai" to="bap_Krai_IN"/>		<!--?‧Kirat Rai‧?	➡ Bantawa‧Kirat Rai‧India-->
 		<likelySubtag from="und_Kthi" to="bho_Kthi_IN"/>		<!--?‧Kaithi‧?	➡ Bhojpuri‧Kaithi‧India-->
 		<likelySubtag from="und_Lana" to="nod_Lana_TH"/>		<!--?‧Lanna‧?	➡ Northern Thai‧Lanna‧Thailand-->
+		<likelySubtag from="und_Lana_MM" to="stu_Lana_MM"/>		<!--?‧Lanna‧Myanmar (Burma)	➡ Samtao‧Lanna‧Myanmar (Burma)-->
 		<likelySubtag from="und_Laoo" to="lo_Laoo_LA"/>		<!--?‧Lao‧?	➡ Lao‧Lao‧Laos-->
 		<likelySubtag from="und_Latn_AE" to="en_Latn_AE"/>		<!--?‧Latin‧United Arab Emirates	➡ English‧Latin‧United Arab Emirates-->
 		<likelySubtag from="und_Latn_AF" to="tk_Latn_AF"/>		<!--?‧Latin‧Afghanistan	➡ Turkmen‧Latin‧Afghanistan-->

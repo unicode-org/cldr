@@ -7,9 +7,12 @@ title: Updating Subdivision Translations
 1. Make sure that that the subdivisions are updated first as per [Updating Subdivision Codes](/development/updating-codes/updating-subdivision-codes)
 2. Make sure you have completed [Maven Setup](/development/maven)
 3. Run tool WikiSubdivisionLanguages
-4. ~~mvn \-DCLDR\_DIR\=**\_\_\_\_\_\_\_\_/cldr**\-Dexec.mainClass\=org.unicode.cldr.tool.GenerateLanguageContainment exec:java \-pl cldr\-rdf~~
-	1. STEVEN LOOMIS 2022\-0829 \- this does not make sense here.
-5. Sanity check result, run tests.
+
+```shell
+$ mvn --file=tools/pom.xml -pl cldr-rdf exec:java -Dexec.mainClass=org.unicode.cldr.tool.WikiSubdivisionLanguages
+```
+
+4. Sanity check result, run tests.
 
 ### NOTES
 1. Should only add values, never change what is there beforehand.

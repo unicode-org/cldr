@@ -50,6 +50,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="afnan" draft="provisional">Nangarhara</subdivision>
 			<subdivision type="afnim" draft="provisional">Nīmrūzas province</subdivision>
 			<subdivision type="afnur" draft="provisional">Nūrestāna</subdivision>
+			<subdivision type="afpan" draft="provisional">Pandžšīras province</subdivision>
 			<subdivision type="afpar" draft="provisional">Parvanas province</subdivision>
 			<subdivision type="afpia" draft="provisional">Paktija</subdivision>
 			<subdivision type="afpka" draft="provisional">Paktika</subdivision>
@@ -73,6 +74,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="al04" draft="provisional">Fieri ķarka</subdivision>
 			<subdivision type="al05" draft="provisional">Ģirokastras apgabals</subdivision>
 			<subdivision type="al06" draft="provisional">Korčas apgabals</subdivision>
+			<subdivision type="al07" draft="provisional">Kukesi ķarka</subdivision>
+			<subdivision type="al08" draft="provisional">Ļežas ķarka</subdivision>
 			<subdivision type="al09" draft="provisional">Dibras apgabals</subdivision>
 			<subdivision type="al10" draft="provisional">Škodras ķarka</subdivision>
 			<subdivision type="al11" draft="provisional">Tirānas ķarka</subdivision>
@@ -236,6 +239,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="bd54" draft="provisional">Rādžšāhī apgabals</subdivision>
 			<subdivision type="bd55" draft="provisional">Rangpura</subdivision>
 			<subdivision type="bd60" draft="provisional">Siletas apgabals</subdivision>
+			<subdivision type="bda" draft="provisional">Barisālas apgabals²</subdivision>
 			<subdivision type="bdc" draft="provisional">Dakas apgabals</subdivision>
 			<subdivision type="bdd" draft="provisional">Khulnas apgabals</subdivision>
 			<subdivision type="bebru" draft="provisional">Briseles galvaspilsētas reģions</subdivision>
@@ -920,6 +924,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ee834" draft="provisional">Tiri pagasts</subdivision>
 			<subdivision type="ee928" draft="provisional">Veike-Mārjas pagasts</subdivision>
 			<subdivision type="egalx" draft="provisional">Aleksandrijas muhāfaza</subdivision>
+			<subdivision type="egasn" draft="provisional">Asuānas muhāfaza</subdivision>
 			<subdivision type="egast" draft="provisional">Asjūtas muhāfaza</subdivision>
 			<subdivision type="egba" draft="provisional">Sarkanās jūras muhāfaza</subdivision>
 			<subdivision type="egbh" draft="provisional">Buheirātas muhāfaza</subdivision>
@@ -927,6 +932,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="egc" draft="provisional">Kairas muhāfaza</subdivision>
 			<subdivision type="egdk" draft="provisional">Dekahlījas muhāfaza</subdivision>
 			<subdivision type="egdt" draft="provisional">Dumjātas muhāfaza</subdivision>
+			<subdivision type="egfym" draft="provisional">Faijūmas muhāfaza</subdivision>
 			<subdivision type="eggh" draft="provisional">Garbijas muhāfaza</subdivision>
 			<subdivision type="eggz" draft="provisional">Gīzas muhāfaza</subdivision>
 			<subdivision type="egis" draft="provisional">Ismaīlījas muhāfaza</subdivision>
@@ -1154,6 +1160,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr972" draft="provisional">Martinika</subdivision>
 			<subdivision type="fr973" draft="provisional">Gviāna</subdivision>
 			<subdivision type="fr974" draft="provisional">Reinjona</subdivision>
+			<subdivision type="fr976" draft="provisional">Majota</subdivision>
 			<subdivision type="frara" draft="provisional">Overņa-Rona-Alpi</subdivision>
 			<subdivision type="frbfc" draft="provisional">Burgundija—Franškontē</subdivision>
 			<subdivision type="frbre" draft="provisional">Bretaņa</subdivision>
@@ -1162,6 +1169,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="frhdf" draft="provisional">Odefransa</subdivision>
 			<subdivision type="fridf" draft="provisional">Ildefransa</subdivision>
 			<subdivision type="frnaq" draft="provisional">Jaunakvitānija</subdivision>
+			<subdivision type="frnor" draft="provisional">Normandija</subdivision>
 			<subdivision type="frocc" draft="provisional">Oksitānija</subdivision>
 			<subdivision type="frpac" draft="provisional">Provansa-Alpi-Azūra Krasts</subdivision>
 			<subdivision type="frpdl" draft="provisional">Luāra²</subdivision>
@@ -1177,46 +1185,94 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbabe" draft="provisional">Aberdīna</subdivision>
 			<subdivision type="gbagy" draft="provisional">Englsi</subdivision>
 			<subdivision type="gbbas" draft="provisional">Bāta un Ziemeļaustrumu Somerseta</subdivision>
+			<subdivision type="gbbbd" draft="provisional">Blekbērna ar Darvenu</subdivision>
 			<subdivision type="gbbcp" draft="provisional">Bornmuta, Kraistčērča un Pūla</subdivision>
 			<subdivision type="gbbdf" draft="provisional">Bedforda (boro)</subdivision>
+			<subdivision type="gbbdg" draft="provisional">Bārkinga un Degenema</subdivision>
+			<subdivision type="gbben" draft="provisional">Brenta</subdivision>
+			<subdivision type="gbbex" draft="provisional">Beksli</subdivision>
+			<subdivision type="gbbge" draft="provisional">Bridženda (grāfistes boro)</subdivision>
+			<subdivision type="gbbgw" draft="provisional">Blainaiguenta</subdivision>
 			<subdivision type="gbbir" draft="provisional">Birmingema</subdivision>
 			<subdivision type="gbbkm" draft="provisional">Bekingemšīra</subdivision>
+			<subdivision type="gbbne" draft="provisional">Bārneta</subdivision>
 			<subdivision type="gbbnh" draft="provisional">Braitona un Hova</subdivision>
+			<subdivision type="gbbns" draft="provisional">Bārnsli (boro)</subdivision>
+			<subdivision type="gbbol" draft="provisional">Boltona (boro)</subdivision>
 			<subdivision type="gbbpl" draft="provisional">Blekpūla</subdivision>
 			<subdivision type="gbbrc" draft="provisional">Breknelforesta</subdivision>
+			<subdivision type="gbbrd" draft="provisional">Bredforda (boro)</subdivision>
+			<subdivision type="gbbry" draft="provisional">Bromli</subdivision>
 			<subdivision type="gbbst" draft="provisional">Bristole</subdivision>
+			<subdivision type="gbbur" draft="provisional">Beri (boro)</subdivision>
 			<subdivision type="gbcam" draft="provisional">Kembridžšīra</subdivision>
+			<subdivision type="gbcay" draft="provisional">Kārfili</subdivision>
 			<subdivision type="gbcbf" draft="provisional">Centrālā Bedfordšīra</subdivision>
+			<subdivision type="gbcgn" draft="provisional">Keredigjona</subdivision>
+			<subdivision type="gbche" draft="provisional">Češīras Austrumi</subdivision>
+			<subdivision type="gbchw" draft="provisional">Češīras Rietumi un Čestera</subdivision>
+			<subdivision type="gbcld" draft="provisional">Kolderdeila</subdivision>
 			<subdivision type="gbcma" draft="provisional">Kambrija</subdivision>
+			<subdivision type="gbcmd" draft="provisional">Kemdena</subdivision>
+			<subdivision type="gbcmn" draft="provisional">Karmārtenšīra</subdivision>
 			<subdivision type="gbcon" draft="provisional">Kornvola</subdivision>
 			<subdivision type="gbcov" draft="provisional">Koventrija</subdivision>
 			<subdivision type="gbcrf" draft="provisional">Kārdifa</subdivision>
+			<subdivision type="gbcry" draft="provisional">Kroidona</subdivision>
+			<subdivision type="gbcwy" draft="provisional">Konuja (grāfistes boro)</subdivision>
+			<subdivision type="gbdal" draft="provisional">Dārlingtona (boro)</subdivision>
 			<subdivision type="gbdby" draft="provisional">Dārbišīra</subdivision>
+			<subdivision type="gbden" draft="provisional">Denbišīra</subdivision>
 			<subdivision type="gbder" draft="provisional">Dārbi</subdivision>
 			<subdivision type="gbdev" draft="provisional">Devona</subdivision>
+			<subdivision type="gbdnc" draft="provisional">Donkastera (boro)</subdivision>
 			<subdivision type="gbdnd" draft="provisional">Dandī</subdivision>
 			<subdivision type="gbdor" draft="provisional">Dorseta</subdivision>
+			<subdivision type="gbdud" draft="provisional">Dadli (boro)</subdivision>
 			<subdivision type="gbdur" draft="provisional">Daremas grāfiste</subdivision>
+			<subdivision type="gbeal" draft="provisional">Īlinga</subdivision>
 			<subdivision type="gbedh" draft="provisional">Edinburga</subdivision>
+			<subdivision type="gbels" draft="provisional">Rietumu salas</subdivision>
+			<subdivision type="gbenf" draft="provisional">Enfīlda</subdivision>
 			<subdivision type="gbeng">Anglija</subdivision>
 			<subdivision type="gbery" draft="provisional">Jorkšīras Īstraidinga</subdivision>
 			<subdivision type="gbess" draft="provisional">Eseksa</subdivision>
 			<subdivision type="gbesx" draft="provisional">Īstsaseksa</subdivision>
+			<subdivision type="gbfln" draft="provisional">Flintšīra</subdivision>
+			<subdivision type="gbgat" draft="provisional">Geitsheda (boro)</subdivision>
 			<subdivision type="gbgbn" draft="provisional">Lielbritānija</subdivision>
 			<subdivision type="gbglg" draft="provisional">Glāzgova</subdivision>
 			<subdivision type="gbgls" draft="provisional">Glosteršīra</subdivision>
 			<subdivision type="gbgre" draft="provisional">Griniča</subdivision>
+			<subdivision type="gbgwn" draft="provisional">Guineza</subdivision>
+			<subdivision type="gbhal" draft="provisional">Holtona</subdivision>
 			<subdivision type="gbham" draft="provisional">Hempšīra</subdivision>
+			<subdivision type="gbhav" draft="provisional">Heiveringa</subdivision>
+			<subdivision type="gbhck" draft="provisional">Hekni</subdivision>
 			<subdivision type="gbhef" draft="provisional">Herefordšīra</subdivision>
+			<subdivision type="gbhil" draft="provisional">Hilingdona</subdivision>
+			<subdivision type="gbhld" draft="provisional">Hailenda</subdivision>
+			<subdivision type="gbhmf" draft="provisional">Hamersmita un Fulema</subdivision>
+			<subdivision type="gbhns" draft="provisional">Haunslova</subdivision>
+			<subdivision type="gbhpl" draft="provisional">Hārtlpūla (boro)</subdivision>
 			<subdivision type="gbhrt" draft="provisional">Hārtfordšīra</subdivision>
+			<subdivision type="gbhrw" draft="provisional">Herova</subdivision>
+			<subdivision type="gbhry" draft="provisional">Heringeja</subdivision>
 			<subdivision type="gbios" draft="provisional">Sili salas</subdivision>
 			<subdivision type="gbiow" draft="provisional">Vaita</subdivision>
+			<subdivision type="gbisl" draft="provisional">Izlingtona</subdivision>
+			<subdivision type="gbkec" draft="provisional">Kensingtona un Čelsi</subdivision>
 			<subdivision type="gbken" draft="provisional">Kenta</subdivision>
 			<subdivision type="gbkhl" draft="provisional">Kingstona pie Hallas</subdivision>
+			<subdivision type="gbkir" draft="provisional">Kērklīsa</subdivision>
+			<subdivision type="gbktt" draft="provisional">Kingstona pie Temzas</subdivision>
+			<subdivision type="gbkwl" draft="provisional">Nousli</subdivision>
 			<subdivision type="gblan" draft="provisional">Lankašīra</subdivision>
 			<subdivision type="gblbh" draft="provisional">Lembeta</subdivision>
 			<subdivision type="gblce" draft="provisional">Lestera</subdivision>
+			<subdivision type="gblds" draft="provisional">Līdsa (boro)</subdivision>
 			<subdivision type="gblec" draft="provisional">Lesteršīra</subdivision>
+			<subdivision type="gblew" draft="provisional">Lūišema</subdivision>
 			<subdivision type="gblin" draft="provisional">Linkolnšīra</subdivision>
 			<subdivision type="gbliv" draft="provisional">Liverpūle</subdivision>
 			<subdivision type="gblnd" draft="provisional">Londonas Sitija</subdivision>
@@ -1224,49 +1280,89 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbmdb" draft="provisional">Midlsbro</subdivision>
 			<subdivision type="gbmdw" draft="provisional">Medveja (unitārā pašvaldība)</subdivision>
 			<subdivision type="gbmik" draft="provisional">Miltonkīnza (unitārā pašvaldība)</subdivision>
+			<subdivision type="gbmon" draft="provisional">Monmutšīra</subdivision>
 			<subdivision type="gbmrt" draft="provisional">Mertona</subdivision>
+			<subdivision type="gbmty" draft="provisional">Mērtirtidvila (grāfistes boro)</subdivision>
 			<subdivision type="gbnbl" draft="provisional">Nortamberlenda</subdivision>
+			<subdivision type="gbnel" draft="provisional">Ziemeļaustrumu Linkolnšīra</subdivision>
 			<subdivision type="gbnet" draft="provisional">Ņūkāsla pie Tainas</subdivision>
 			<subdivision type="gbnfk" draft="provisional">Norfolka</subdivision>
 			<subdivision type="gbngm" draft="provisional">Notingema</subdivision>
 			<subdivision type="gbnir" draft="provisional">Ziemeļīrija</subdivision>
+			<subdivision type="gbnln" draft="provisional">Ziemeļlinkolnšīra</subdivision>
 			<subdivision type="gbnsm" draft="provisional">Ziemeļsomerseta</subdivision>
 			<subdivision type="gbnth" draft="provisional">Northemptonšīra</subdivision>
+			<subdivision type="gbntl" draft="provisional">Nīta Porttolbota</subdivision>
 			<subdivision type="gbntt" draft="provisional">Notingemšīra</subdivision>
+			<subdivision type="gbnty" draft="provisional">Ziemeļtainsaida</subdivision>
+			<subdivision type="gbnwm" draft="provisional">Ņūema</subdivision>
+			<subdivision type="gbnwp" draft="provisional">Ņūporta (grāfistes boro)</subdivision>
 			<subdivision type="gbnyk" draft="provisional">Nortjorkšīra</subdivision>
+			<subdivision type="gbold" draft="provisional">Oldema (boro)</subdivision>
 			<subdivision type="gbork" draft="provisional">Orkneju salas</subdivision>
 			<subdivision type="gboxf" draft="provisional">Oksfordšīra</subdivision>
+			<subdivision type="gbpem" draft="provisional">Pembrukšīra</subdivision>
 			<subdivision type="gbply" draft="provisional">Plimuta</subdivision>
 			<subdivision type="gbpor" draft="provisional">Portsmuta</subdivision>
+			<subdivision type="gbpow" draft="provisional">Povisa</subdivision>
 			<subdivision type="gbpte" draft="provisional">Pīterboro</subdivision>
+			<subdivision type="gbrcc" draft="provisional">Redkāra un Klīvlenda</subdivision>
+			<subdivision type="gbrch" draft="provisional">Ročdeila (boro)</subdivision>
+			<subdivision type="gbrct" draft="provisional">Ronda Kinona Tāva</subdivision>
+			<subdivision type="gbrdb" draft="provisional">Redbridža</subdivision>
 			<subdivision type="gbrdg" draft="provisional">Redinga</subdivision>
+			<subdivision type="gbric" draft="provisional">Ričmonda pie Temzas</subdivision>
+			<subdivision type="gbrot" draft="provisional">Roterema (boro)</subdivision>
 			<subdivision type="gbrut" draft="provisional">Ratlenda</subdivision>
+			<subdivision type="gbsaw" draft="provisional">Sendvela</subdivision>
 			<subdivision type="gbsct">Skotija</subdivision>
 			<subdivision type="gbsfk" draft="provisional">Safolka</subdivision>
+			<subdivision type="gbsft" draft="provisional">Seftona</subdivision>
 			<subdivision type="gbsgc" draft="provisional">Dienvidglosteršīra</subdivision>
 			<subdivision type="gbshf" draft="provisional">Šefīlda</subdivision>
+			<subdivision type="gbshn" draft="provisional">Senthelensa (boro)</subdivision>
 			<subdivision type="gbshr" draft="provisional">Šropšīra</subdivision>
+			<subdivision type="gbskp" draft="provisional">Stokporta (boro)</subdivision>
+			<subdivision type="gbslf" draft="provisional">Solforda (boro)</subdivision>
 			<subdivision type="gbslg" draft="provisional">Slau (boro)</subdivision>
+			<subdivision type="gbsnd" draft="provisional">Sanderlenda (boro)</subdivision>
+			<subdivision type="gbsol" draft="provisional">Solihala (boro)</subdivision>
 			<subdivision type="gbsom" draft="provisional">Somerseta</subdivision>
 			<subdivision type="gbsry" draft="provisional">Sareja</subdivision>
 			<subdivision type="gbste" draft="provisional">Stoka pie Trentas</subdivision>
 			<subdivision type="gbsth" draft="provisional">Sauthemptona</subdivision>
+			<subdivision type="gbstn" draft="provisional">Satona</subdivision>
 			<subdivision type="gbsts" draft="provisional">Stefordšīra</subdivision>
+			<subdivision type="gbstt" draft="provisional">Stoktona pie Tīsas (boro)</subdivision>
+			<subdivision type="gbsty" draft="provisional">Dienvidtainsaida</subdivision>
 			<subdivision type="gbswa" draft="provisional">Svonzi</subdivision>
 			<subdivision type="gbswd" draft="provisional">Svindona (unitārā pašvaldība)</subdivision>
 			<subdivision type="gbswk" draft="provisional">Sautvorka</subdivision>
+			<subdivision type="gbtam" draft="provisional">Teimsaida</subdivision>
+			<subdivision type="gbtfw" draft="provisional">Telforda un Rīkina</subdivision>
 			<subdivision type="gbthr" draft="provisional">Taroka</subdivision>
 			<subdivision type="gbtob" draft="provisional">Torbeja</subdivision>
+			<subdivision type="gbtof" draft="provisional">Torvaina</subdivision>
+			<subdivision type="gbtrf" draft="provisional">Treforda</subdivision>
+			<subdivision type="gbtwh" draft="provisional">Tauerhemletsa</subdivision>
 			<subdivision type="gbukm" draft="provisional">Apvienotā Karaliste</subdivision>
+			<subdivision type="gbvgl" draft="provisional">Glamorganas Ieleja</subdivision>
 			<subdivision type="gbwar" draft="provisional">Vorikšīra</subdivision>
 			<subdivision type="gbwbk" draft="provisional">Rietumbārkšīra</subdivision>
+			<subdivision type="gbwft" draft="provisional">Voltemforesta</subdivision>
+			<subdivision type="gbwgn" draft="provisional">Vigana (boro)</subdivision>
 			<subdivision type="gbwil" draft="provisional">Viltšīra</subdivision>
+			<subdivision type="gbwkf" draft="provisional">Veikfīlda (boro)</subdivision>
+			<subdivision type="gbwll" draft="provisional">Volsola (boro)</subdivision>
 			<subdivision type="gbwls">Velsa</subdivision>
 			<subdivision type="gbwlv" draft="provisional">Vulverhemptona</subdivision>
 			<subdivision type="gbwnd" draft="provisional">Vondsvērta</subdivision>
 			<subdivision type="gbwnm" draft="provisional">Vindzora un Meidenheda</subdivision>
 			<subdivision type="gbwok" draft="provisional">Vokingema (boro)</subdivision>
 			<subdivision type="gbwor" draft="provisional">Vusteršīra</subdivision>
+			<subdivision type="gbwrl" draft="provisional">Virala</subdivision>
+			<subdivision type="gbwrt" draft="provisional">Voringtona (boro)</subdivision>
+			<subdivision type="gbwrx" draft="provisional">Reksema (grāfistes boro)</subdivision>
 			<subdivision type="gbwsm" draft="provisional">Vestminstera</subdivision>
 			<subdivision type="gbwsx" draft="provisional">Vestsaseksa</subdivision>
 			<subdivision type="gbyor" draft="provisional">Jorka</subdivision>
@@ -1457,12 +1553,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="hubz" draft="provisional">Boršodas-Abaūjas-Zemplēna meģe</subdivision>
 			<subdivision type="hucs" draft="provisional">Čongrādas meģe</subdivision>
 			<subdivision type="hude" draft="provisional">Debrecena</subdivision>
+			<subdivision type="hudu" draft="provisional">Dunaūjvāroša</subdivision>
 			<subdivision type="hueg" draft="provisional">Egera</subdivision>
+			<subdivision type="huer" draft="provisional">Ērda</subdivision>
 			<subdivision type="hufe" draft="provisional">Fejēras meģe</subdivision>
 			<subdivision type="hugs" draft="provisional">Ģēras-Mošonas-Šopronas meģe</subdivision>
 			<subdivision type="hugy" draft="provisional">Ģēra</subdivision>
 			<subdivision type="huhb" draft="provisional">Hajdū-Biharas meģe</subdivision>
 			<subdivision type="huhe" draft="provisional">Hevešas meģe</subdivision>
+			<subdivision type="huhv" draft="provisional">Hodmezēvāšārheja</subdivision>
 			<subdivision type="hujn" draft="provisional">Jāsas-Naģkunas-Solnokas meģe</subdivision>
 			<subdivision type="huke" draft="provisional">Komāromas-Estergomas meģe</subdivision>
 			<subdivision type="hukm" draft="provisional">Kečkemēta</subdivision>
@@ -1507,6 +1606,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="idkr" draft="provisional">Riau salas</subdivision>
 			<subdivision type="idks" draft="provisional">Dienvidkalimantāna</subdivision>
 			<subdivision type="idkt" draft="provisional">Centrālā Kalimantāna</subdivision>
+			<subdivision type="idku" draft="provisional">Ziemeļkalimantāna</subdivision>
 			<subdivision type="idla" draft="provisional">Lampungas province</subdivision>
 			<subdivision type="idma" draft="provisional">Maluku province</subdivision>
 			<subdivision type="idml" draft="provisional">Moluku salas</subdivision>
@@ -1996,8 +2096,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="laxa" draft="provisional">Saiņabūlī province</subdivision>
 			<subdivision type="laxe" draft="provisional">Sēkonas province</subdivision>
 			<subdivision type="laxi" draft="provisional">Sjenkhoānas province</subdivision>
+			<subdivision type="lbak" draft="provisional">Akāras muhāfaza</subdivision>
 			<subdivision type="lbas" draft="provisional">Ziemeļlibānas muhāfaza</subdivision>
 			<subdivision type="lbba" draft="provisional">Beirūtas muhāfaza</subdivision>
+			<subdivision type="lbbh" draft="provisional">Baalbekas-Hermelas muhāfaza</subdivision>
+			<subdivision type="lbbi" draft="provisional">Bekaas muhāfaza</subdivision>
+			<subdivision type="lbja" draft="provisional">Dienvidu muhāfaza</subdivision>
 			<subdivision type="lbjl" draft="provisional">Kalnu Libānas muhāfaza</subdivision>
 			<subdivision type="lbna" draft="provisional">Nabatijas muhāfaza</subdivision>
 			<subdivision type="lc01" draft="provisional">Anslavua</subdivision>
@@ -2424,6 +2528,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mn037" draft="provisional">Darhanūlas aimaks</subdivision>
 			<subdivision type="mn039" draft="provisional">Henteja aimaks</subdivision>
 			<subdivision type="mn041" draft="provisional">Huvsgula aimaks</subdivision>
+			<subdivision type="mn043" draft="provisional">Hovdas aimaks</subdivision>
 			<subdivision type="mn046" draft="provisional">Uvsas aimaks</subdivision>
 			<subdivision type="mn047" draft="provisional">Tuves aimaks</subdivision>
 			<subdivision type="mn049" draft="provisional">Selengas aimaks</subdivision>
@@ -2681,6 +2786,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ngog" draft="provisional">Oguno štats</subdivision>
 			<subdivision type="ngon" draft="provisional">Ondo</subdivision>
 			<subdivision type="ngos" draft="provisional">Osunas štats</subdivision>
+			<subdivision type="ngoy" draft="provisional">Ojo</subdivision>
 			<subdivision type="ngpl" draft="provisional">Plato štats</subdivision>
 			<subdivision type="ngri" draft="provisional">Riversas štats</subdivision>
 			<subdivision type="ngso" draft="provisional">Sokoto štats</subdivision>
@@ -2694,12 +2800,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="nici" draft="provisional">Činandegas departaments</subdivision>
 			<subdivision type="nico" draft="provisional">Čontalesas departaments</subdivision>
 			<subdivision type="nies" draft="provisional">Esteli departaments</subdivision>
+			<subdivision type="nigr" draft="provisional">Granadas departaments</subdivision>
 			<subdivision type="niji" draft="provisional">Hinotegas departaments</subdivision>
+			<subdivision type="nile" draft="provisional">Leonas departaments</subdivision>
 			<subdivision type="nimd" draft="provisional">Madrisas departaments</subdivision>
 			<subdivision type="nimn" draft="provisional">Managvas departaments</subdivision>
 			<subdivision type="nims" draft="provisional">Masajas departaments</subdivision>
 			<subdivision type="nimt" draft="provisional">Matagalpas departaments</subdivision>
 			<subdivision type="nins" draft="provisional">Nuevasegovijas departaments</subdivision>
+			<subdivision type="niri" draft="provisional">Rivasas departaments</subdivision>
 			<subdivision type="nisj" draft="provisional">Riosanhuanas departaments</subdivision>
 			<subdivision type="nlbq1" draft="provisional">Bonaire</subdivision>
 			<subdivision type="nlbq2" draft="provisional">Saba</subdivision>
@@ -2838,6 +2947,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="pgepw" draft="provisional">Engas province</subdivision>
 			<subdivision type="pgesw" draft="provisional">Austrumu Sepikas province</subdivision>
 			<subdivision type="pggpk" draft="provisional">Galfa</subdivision>
+			<subdivision type="pghla" draft="provisional">Helas province</subdivision>
+			<subdivision type="pgjwk" draft="provisional">Jivakas province</subdivision>
 			<subdivision type="pgmba" draft="provisional">Milnbejas province</subdivision>
 			<subdivision type="pgmpl" draft="provisional">Morobes province</subdivision>
 			<subdivision type="pgmpm" draft="provisional">Madangas province</subdivision>
@@ -2850,6 +2961,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="pgshm" draft="provisional">Dienvidu kalnienes province</subdivision>
 			<subdivision type="pgwbk" draft="provisional">Rietumu Jaunbritānijas province</subdivision>
 			<subdivision type="pgwhm" draft="provisional">Rietumu kalnienes province</subdivision>
+			<subdivision type="pgwpd" draft="provisional">Rietumu province (Papua-Jaungvineja)</subdivision>
 			<subdivision type="ph00" draft="provisional">Valsts galvaspilsētas reģions</subdivision>
 			<subdivision type="ph01" draft="provisional">Ilokosa</subdivision>
 			<subdivision type="ph02" draft="provisional">Kagajanas Ieleja</subdivision>
@@ -3010,6 +3122,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="pw228" draft="provisional">Nivalas štats</subdivision>
 			<subdivision type="pw350" draft="provisional">Peleliu</subdivision>
 			<subdivision type="pw370" draft="provisional">Sonsorola</subdivision>
+			<subdivision type="py1" draft="provisional">Konsepsjonas departaments (Paragvaja)</subdivision>
 			<subdivision type="py2" draft="provisional">Sanpedro</subdivision>
 			<subdivision type="py3" draft="provisional">Kordiljera</subdivision>
 			<subdivision type="py4" draft="provisional">Gvaira</subdivision>
@@ -3017,6 +3130,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="py6" draft="provisional">Kaasapa</subdivision>
 			<subdivision type="py7" draft="provisional">Itapva</subdivision>
 			<subdivision type="py8" draft="provisional">Misjonesa</subdivision>
+			<subdivision type="py9" draft="provisional">Paragvari departaments</subdivision>
 			<subdivision type="py10" draft="provisional">Alto Parana</subdivision>
 			<subdivision type="py11" draft="provisional">Centrālais departaments</subdivision>
 			<subdivision type="py12" draft="provisional">Njeembuku</subdivision>
@@ -3188,6 +3302,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="rw03" draft="provisional">Ziemeļu province</subdivision>
 			<subdivision type="rw04" draft="provisional">Rietumu province</subdivision>
 			<subdivision type="rw05" draft="provisional">Dienvidu province</subdivision>
+			<subdivision type="sa01" draft="provisional">Rijādas mintaka</subdivision>
 			<subdivision type="sa02" draft="provisional">Mekas mintaka</subdivision>
 			<subdivision type="sa03" draft="provisional">Medīnas mintaka</subdivision>
 			<subdivision type="sa04" draft="provisional">Austrumu province</subdivision>
@@ -3806,6 +3921,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="twyun" draft="provisional">Junlinas distrikts</subdivision>
 			<subdivision type="tz01" draft="provisional">Arušas reģions</subdivision>
 			<subdivision type="tz02" draft="provisional">Dāresalāmas reģions</subdivision>
+			<subdivision type="tz03" draft="provisional">Dodomas reģions</subdivision>
 			<subdivision type="tz04" draft="provisional">Iringas reģions</subdivision>
 			<subdivision type="tz05" draft="provisional">Kageras reģions</subdivision>
 			<subdivision type="tz06" draft="provisional">Ziemeļpembas reģions</subdivision>
@@ -3813,6 +3929,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="tz08" draft="provisional">Kigomas reģions</subdivision>
 			<subdivision type="tz09" draft="provisional">Kilimandžaro reģions</subdivision>
 			<subdivision type="tz10" draft="provisional">Dienvidpembas reģions</subdivision>
+			<subdivision type="tz11" draft="provisional">Dienvidzanzibāras reģions</subdivision>
 			<subdivision type="tz12" draft="provisional">Lindi reģions</subdivision>
 			<subdivision type="tz13" draft="provisional">Mara reģions</subdivision>
 			<subdivision type="tz14" draft="provisional">Mbejas reģions</subdivision>

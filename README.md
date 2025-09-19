@@ -35,8 +35,6 @@ describing the organization of files within this repository
 
 ### Contributing
 
-Most data submissions are done via the [CLDR Survey Tool](https://st.unicode.org/cldr-apps/), which is open and available on predetermined cycles.
-
 For details about all code or data contributions, see [CONTRIBUTING.md](./CONTRIBUTING.md)
 
 #### Spotless

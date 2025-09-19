@@ -5,7 +5,7 @@ title: Unicode CLDR Project
 # Unicode CLDR Project
 
 ## News
-
+- **2025-09-18 [CLDR 48 Alpha](downloads/cldr-48) available for testing**
 - **2025-04-24** [Survey Tool is open for submission](https://cldr.unicode.org/translation)
 - **2025-03-13 [CLDR 47](downloads/cldr-47) released**
 

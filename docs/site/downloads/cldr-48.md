@@ -19,7 +19,7 @@ adapting software to the conventions of different languages.
 
 CLDR 48 was an open submission cycle allowing contributors to supply data for their languages via the CLDR Survey Tool —
 data that is widely used to support much of the world’s software.
-This data is also a factor in determining which languages are supported on mobile phones and computer operating systems. 
+This data is also a factor in determining which languages are supported on mobile phones and computer operating systems.
 
 ### Changes
 
@@ -225,7 +225,38 @@ For a full listing, see [Transforms Delta].
 
 ### JSON Data Changes
 
-- TBD
+- RBNF
+  - Just as with the RBNF data format change in XML [CLDR-8909], the JSON data also has a change in structure. [CLDR-18956].
+  - Below is an example of the changed data format.
+  - The new data item is the `_rbnfRulesFile` key. Its value is the name of a data file in the same directory, containing the raw rules.  (Note: Do not interpret the .txt file’s name in any way.)
+  - The previous data format is included for this release, but will be removed in a future release. In this case, the `%digits-ordinal` (and any other such keys) will be removed.
+
+
+```js
+{
+    "rbnf": {
+      "OrdinalRules": {
+        "%digits-ordinal": [
+          [
+            "-x",
+            "−→→;"
+          ],
+          [
+            "0",
+            "=#,##0=;"
+          ]
+        ],
+        "_rbnfRulesFile": "ar-OrdinalRules.txt"
+      },
+    }
+}
+```
+
+The `ar-OrdinalRules.txt` file contains all rules for this locale:
+
+   %digits-ordinal:
+   -x: −>>;
+   0: =#,##0=;
 
 ### File Changes
 The following files are new in the release:
@@ -258,7 +289,7 @@ The following files are new in the release:
 ### V49 advance warnings
 The following changes are planned for CLDR 49. Please plan accordingly to avoid disruption.
 - The default week numbering changes to ISO instead being based on the calendar week starting in CLDR 48 [CLDR-18275]. The calendar week will be more clearly targeted at matching usage in displayed month calendars.
-- The pre-Meiji Japanese eras will be removed: There was too much uncertainty in the exact values 
+- The pre-Meiji Japanese eras will be removed: There was too much uncertainty in the exact values
 and feedback that the general practice for exact dates is to use Gregorian for pre-Meiji dates.
 - The major components in [supplementalData.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalData.xml) and [supplementalMetadata.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalMetadata.xml) files are slated to be organized more logically and moved into separate files.
     - This will make it easier for implementations to filter out data that they don't need, and make internal maintenance easier. This will not affect the data: just which file it is located in. Please plan to update XML and JSON parsers accordingly.
@@ -281,6 +312,8 @@ in particular, see [Exhibit 1](https://unicode.org/copyright.html#Exhibit1).
 For web pages with different views of CLDR data, see [http://cldr.unicode.org/index/charts](/index/charts).
 
 [CLDR-5708]: https://unicode-org.atlassian.net/browse/CLDR-5708
+[CLDR-8909]: https://unicode-org.atlassian.net/browse/CLDR-8909
+[CLDR-11400]: https://unicode-org.atlassian.net/browse/CLDR-11400
 [CLDR-14479]: https://unicode-org.atlassian.net/browse/CLDR-14479
 [CLDR-16004]: https://unicode-org.atlassian.net/browse/CLDR-16004
 [CLDR-16715]: https://unicode-org.atlassian.net/browse/CLDR-16715
@@ -290,7 +323,8 @@ For web pages with different views of CLDR data, see [http://cldr.unicode.org/in
 [CLDR-18219]: https://unicode-org.atlassian.net/browse/CLDR-18219
 [CLDR-18275]: https://unicode-org.atlassian.net/browse/CLDR-18275
 [CLDR-18311]: https://unicode-org.atlassian.net/browse/CLDR-18311
-[CLDR-11400]: https://unicode-org.atlassian.net/browse/CLDR-11400
+[CLDR-18956]: https://unicode-org.atlassian.net/browse/CLDR-18956
+
 [Delta DTDs]: https://unicode.org/cldr/charts/48/supplemental/dtd_deltas.html
 [BCP47 Delta]: https://unicode.org/cldr/charts/48/delta/bcp47.html
 [Supplemental Delta]: https://unicode.org/cldr/charts/48/delta/supplemental-data.html

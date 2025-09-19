@@ -13,6 +13,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	<localeDisplayNames>
 		<subdivisions>
 			<subdivision type="aedu" draft="provisional">ទីក្រុងឌូបៃ</subdivision>
+			<subdivision type="amer" draft="provisional">យេរេវ៉ាន</subdivision>
+			<subdivision type="aznx" draft="provisional">សាធារណរដ្ឋស្វយ័តណាក់ឈីវ៉ាន់</subdivision>
+			<subdivision type="bdb" draft="provisional">តំបន់ចិត្តាហ្គង</subdivision>
 			<subdivision type="cdkn" draft="provisional">គីនសាសា</subdivision>
 			<subdivision type="cnbj" draft="provisional">ប៉េកាំង</subdivision>
 			<subdivision type="cnfj" draft="provisional">ហ្វូជៀន</subdivision>
@@ -23,9 +26,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="cnhi" draft="provisional">ហៃណាន</subdivision>
 			<subdivision type="cnhk" draft="provisional">ហុងកុង</subdivision>
 			<subdivision type="cnhl" draft="provisional">ខេត្តហេយឡុងជៀង</subdivision>
+			<subdivision type="cnjl" draft="provisional">ជីលីន</subdivision>
 			<subdivision type="cnmo" draft="provisional">ម៉ាកាវ</subdivision>
 			<subdivision type="cnsh" draft="provisional">ស៊ាងហៃ</subdivision>
 			<subdivision type="cnsx" draft="provisional">ខេត្តសានស៊ី</subdivision>
+			<subdivision type="cnxz" draft="provisional">តំបន់ស្វយ័តទីបេ</subdivision>
 			<subdivision type="cnyn" draft="provisional">ខេត្តយូណាន</subdivision>
 			<subdivision type="codc" draft="provisional">ទីក្រុងបូកូតា</subdivision>
 			<subdivision type="cz10" draft="provisional">ទីក្រុងប្រាក</subdivision>
@@ -40,14 +45,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbsct">ស្កុតឡែន</subdivision>
 			<subdivision type="gbukm" draft="provisional">សហរាជាណាចក្រ</subdivision>
 			<subdivision type="gbwls">វ៉ាល់ស៍</subdivision>
+			<subdivision type="getb" draft="provisional">ទីប៊ីលីស៊ី</subdivision>
+			<subdivision type="gwbs" draft="provisional">ប៊ីសូ</subdivision>
 			<subdivision type="idac" draft="provisional">ខេត្តអាឆេ</subdivision>
 			<subdivision type="idba" draft="provisional">កោះបាលី</subdivision>
+			<subdivision type="idji" draft="provisional">ជ្វាខាងកើត</subdivision>
 			<subdivision type="idjk" draft="provisional">ចាការតា</subdivision>
 			<subdivision type="idjw" draft="provisional">កោះជ្វា</subdivision>
 			<subdivision type="idka" draft="provisional">កាលីម៉ាន់តាន់</subdivision>
+			<subdivision type="idki" draft="provisional">កាលីម៉ាន់តាន់ខាងកើត</subdivision>
 			<subdivision type="idsb" draft="provisional">ខេត្តស៊ូម៉ាត្រាខាងលិច</subdivision>
 			<subdivision type="idsl" draft="provisional">ស៊ូឡាវីស៊ី</subdivision>
 			<subdivision type="idsm" draft="provisional">កោះស៊ូម៉ាត្រា</subdivision>
+			<subdivision type="idsr" draft="provisional">ស៊ូឡាវេស៊ីខាងលិច</subdivision>
 			<subdivision type="idsu" draft="provisional">ខេត្តស៊ូម៉ាត្រាខាងជើង</subdivision>
 			<subdivision type="indl" draft="provisional">ដេលី</subdivision>
 			<subdivision type="it21" draft="provisional">ខេត្តជើងភ្នំ</subdivision>
@@ -161,6 +171,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mm11" draft="provisional">រដ្ឋកាឈីន</subdivision>
 			<subdivision type="mm12" draft="provisional">រដ្ឋកាយ៉ា</subdivision>
 			<subdivision type="mm13" draft="provisional">រដ្ឋកាយីន</subdivision>
+			<subdivision type="mm14" draft="provisional">រដ្ឋឈិន</subdivision>
 			<subdivision type="mm15" draft="provisional">រដ្ឋមន</subdivision>
 			<subdivision type="mm17" draft="provisional">រដ្ឋសាន</subdivision>
 			<subdivision type="mm18" draft="provisional">ទឹកដីសហភាពណៃពិដោ</subdivision>
@@ -169,6 +180,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="my14" draft="provisional">គូឡាឡាំពួ</subdivision>
 			<subdivision type="my16" draft="provisional">ពុត្រាចាយ៉ា</subdivision>
 			<subdivision type="pgncd" draft="provisional">ព័រម៉ូរែសប៊ី</subdivision>
+			<subdivision type="phboh" draft="provisional">បូហុល</subdivision>
+			<subdivision type="phceb" draft="provisional">សេប៊ូ</subdivision>
+			<subdivision type="phplw" draft="provisional">ប៉ាឡាវ៉ាន់</subdivision>
 			<subdivision type="qada" draft="provisional">ដូហា</subdivision>
 			<subdivision type="rumow" draft="provisional">ម៉ូស្គូ</subdivision>
 			<subdivision type="th10" draft="provisional">បាងកក</subdivision>
@@ -236,6 +250,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="th77" draft="provisional">ខេត្តប្រចួបគីរីខ័ន្ធ</subdivision>
 			<subdivision type="th80" draft="provisional">ខេត្តនគរស្រីធម្មរាជ</subdivision>
 			<subdivision type="th81" draft="provisional">ខេត្តក្របី</subdivision>
+			<subdivision type="th82" draft="provisional">ខេត្តផាំងង៉ា</subdivision>
 			<subdivision type="th83" draft="provisional">ខេត្តភូកេត</subdivision>
 			<subdivision type="th84" draft="provisional">ខេត្តសុរាស្ត្រធានី</subdivision>
 			<subdivision type="th85" draft="provisional">ខេត្តរនង</subdivision>
@@ -248,9 +263,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="th95" draft="provisional">ខេត្តយលា</subdivision>
 			<subdivision type="th96" draft="provisional">ខេត្តនរាធិវាស</subdivision>
 			<subdivision type="ths" draft="provisional">ផាត់ថាយ៉ា</subdivision>
+			<subdivision type="tr28" draft="provisional">ខេត្ត គីរីស៊ូន</subdivision>
 			<subdivision type="twkhh" draft="provisional">កៅស្យុង</subdivision>
 			<subdivision type="twnwt" draft="provisional">ទីក្រុងតៃប៉ិថ្មី</subdivision>
 			<subdivision type="twtpe" draft="provisional">តៃប៉ិ</subdivision>
+			<subdivision type="twtxg" draft="provisional">តៃជុង</subdivision>
 			<subdivision type="ua30" draft="provisional">កៀវ</subdivision>
 			<subdivision type="usca" draft="provisional">កាលីហ្វញ៉ា</subdivision>
 			<subdivision type="usct" draft="provisional">ខុនណេកទីខាត់</subdivision>
@@ -314,6 +331,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="vn69" draft="provisional">ខេត្តថាយង្វៀន</subdivision>
 			<subdivision type="vn70" draft="provisional">ខេត្តវិញហ្វុក</subdivision>
 			<subdivision type="vn71" draft="provisional">ខេត្តឌៀនបៀន</subdivision>
+			<subdivision type="vn72" draft="provisional">ខេត្តដាក់ណុង</subdivision>
 			<subdivision type="vn73" draft="provisional">ខេត្តផ្សំអំបើស</subdivision>
 			<subdivision type="vnct" draft="provisional">ទីក្រុងព្រែកឫស្សី</subdivision>
 			<subdivision type="vndn" draft="provisional">ដាណាំង</subdivision>

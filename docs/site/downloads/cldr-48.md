@@ -228,8 +228,7 @@ For a full listing, see [Transforms Delta].
 - RBNF
   - Just as with the RBNF data format change in XML [CLDR-8909], the JSON data also has a change in structure. [CLDR-18956].
   - Below is an example of the changed data format.
-  - The new data item is the `_rbnfRulesFile` key. Its value is the name of a data file in
-  the same directory, containing the raw rules.
+  - The new data item is the `_rbnfRulesFile` key. Its value is the name of a data file in the same directory, containing the raw rules.  (Note: Do not interpret the .txt file’s name in any way.)
   - The previous data format is included for this release, but will be removed in a future release. In this case, the `%digits-ordinal` (and any other such keys) will be removed.
 
 

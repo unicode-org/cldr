@@ -93,7 +93,7 @@ jobs:
           java-version: 11
           distribution: 'temurin'
       - name: Setup Maven Settings
-        uses: s4u/maven-settings-action@v2.8.0
+        uses: s4u/maven-settings-action@v3.1.0
         with:
           servers: |
             [{

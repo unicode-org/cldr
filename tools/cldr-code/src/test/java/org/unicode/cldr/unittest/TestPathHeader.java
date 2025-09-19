@@ -794,12 +794,9 @@ public class TestPathHeader extends TestFmwkPlus {
         String errorDescription = null;
         if (description == null) {
             errorDescription = ("Path has no description:\t" + value + "\t" + path);
-        } else if (!description.contains("https://")) {
+        } else if (!(description.contains("[") && description.contains("]"))) {
             errorDescription =
-                    ("Description has no URL:\t" + description + "\t" + value + "\t" + path);
-        } else if (!normal.reset(description).find()) {
-            errorDescription =
-                    ("Description has generic URL, fix to be specific:\t"
+                    ("Description has no bracketed link:\t"
                             + description
                             + "\t"
                             + value

@@ -101,7 +101,7 @@ public class TestCLDRLinks {
         // this gets all URLs in references
         PathDescriptionParser pathDescriptionParser = new PathDescriptionParser();
         String fileName = PathDescription.pathDescriptionFileName;
-        pathDescriptionParser.parse(PathDescription.getBigString(fileName));
+        pathDescriptionParser.parse(fileName);
         for (final String url : urlsFromString(pathDescriptionParser.getReferences())) {
             urls.putIfAbsent(url, fileName);
         }

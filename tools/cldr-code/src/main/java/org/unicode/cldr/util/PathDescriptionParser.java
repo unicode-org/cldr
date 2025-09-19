@@ -7,19 +7,21 @@ import java.util.regex.Pattern;
 
 public class PathDescriptionParser {
     private static final String PROLOGUE = "PROLOGUE";
+    private static final String VARIABLES = "VARIABLES";
     private static final String REFERENCES = "References";
-    final RegexLookup<Pair<String, String>> lookup =
+    private final RegexLookup<Pair<String, String>> lookup =
             new RegexLookup<>(RegexLookup.LookupType.OPTIMIZED_DIRECTORY_PATTERN_LOOKUP);
 
     // running instance variables
-    String section = ""; // ## title
-    String description = null; // ### title
-    List<String> patterns = new ArrayList<>();
-    List<String> text = new ArrayList<>();
-    List<String> referenceLines = new ArrayList<>();
+    private String section = ""; // ## title
+    private String description = null; // ### title
+    private final List<String> patterns = new ArrayList<>();
+    private final List<String> text = new ArrayList<>();
+    private final List<String> referenceLines = new ArrayList<>();
 
-    public RegexLookup<Pair<String, String>> parse(String string) {
-        final String lines[] = string.split("\n");
+    public RegexLookup<Pair<String, String>> parse(String fileName) {
+        String string = PathDescription.getBigString(fileName);
+        final String[] lines = string.split("\n");
         int n = 0;
 
         try {
@@ -30,12 +32,7 @@ public class PathDescriptionParser {
             end(); // process last lines
         } catch (Throwable t) {
             throw new RuntimeException(
-                    "Failed parsing PathDescriptions.md:"
-                            + n
-                            + ": at "
-                            + section
-                            + "#"
-                            + description,
+                    "Failed parsing " + fileName + ":" + n + ": at " + section + "#" + description,
                     t);
         }
 
@@ -43,21 +40,27 @@ public class PathDescriptionParser {
     }
 
     /**
-     * @returns true if we're in the top section
+     * @return true if we're in the top section
      */
-    boolean inPrologue() {
+    private boolean inPrologue() {
         return (section.equals(PROLOGUE));
     }
 
-    boolean inReferences() {
+    private boolean inVariables() {
+        return (section.equals(VARIABLES));
+    }
+
+    private boolean inReferences() {
         return (section.equals(REFERENCES));
     }
 
-    void processLine(final String line) {
+    private void processLine(final String line) {
         if (line.startsWith("#")) {
             processHeader(line);
         } else if (inPrologue() || beforePrologue()) {
             return; // skip all other lines until new header
+        } else if (inVariables()) {
+            processVariable(line);
         } else if (inReferences()) {
             processReference(line);
         } else if (line.startsWith("- `")) {
@@ -68,6 +71,19 @@ public class PathDescriptionParser {
         } else {
             processBody(line);
         }
+    }
+
+    private void processVariable(String line) {
+        if (line.isBlank()) {
+            return;
+        }
+        int pos = line.indexOf("=");
+        if (pos < 0) {
+            throw new IllegalArgumentException("Failed to read variable in " + line);
+        }
+        String varName = line.substring(0, pos).trim();
+        String varValue = line.substring(pos + 1).trim();
+        lookup.addVariable(varName, varValue);
     }
 
     private void processBody(String line) {
@@ -88,7 +104,8 @@ public class PathDescriptionParser {
         return String.join("\n", referenceLines).trim();
     }
 
-    final Pattern HEADER_PATTERN = Pattern.compile("^(#+)(?:[ ]+(.*))?$");
+    private final Pattern HEADER_PATTERN = Pattern.compile("^(#+)(?:[ ]+(.*))?$");
+    private final Pattern VARIABLES_PATTERN = Pattern.compile("^# *VARIABLES *$");
 
     private void processHeader(String line) {
         endHeader(); // process previous content and reset
@@ -104,10 +121,17 @@ public class PathDescriptionParser {
         if (title == null) title = "";
         title = title.trim();
         if (headerLevel == 1) {
-            if (!beforePrologue()) {
-                throw new IllegalArgumentException("Extra # header after beginning of file");
+            if (VARIABLES_PATTERN.matcher(line).matches()) {
+                if (beforePrologue()) {
+                    throw new IllegalArgumentException("Prologue should precede # " + VARIABLES);
+                }
+                section = VARIABLES;
+            } else {
+                if (!beforePrologue()) {
+                    throw new IllegalArgumentException("Extra # header after beginning of file");
+                }
+                section = PROLOGUE;
             }
-            section = PROLOGUE;
             description = null;
         } else if (headerLevel == 2) { // ##
             if (beforePrologue()) {
@@ -149,7 +173,7 @@ public class PathDescriptionParser {
         return section.isEmpty();
     }
 
-    void processContent() {
+    private void processContent() {
         final String textStr = String.join("\n", text).trim();
         if (description == null) {
             // have not had a ### section yet.
@@ -168,11 +192,10 @@ public class PathDescriptionParser {
         } else if (patterns.size() > 1) {
             throw new IllegalArgumentException("Only one pattern is supported at present.");
         }
-
-        lookup.addWithoutVariables(patterns.get(0), Pair.of(description, textStr));
+        lookup.add(patterns.get(0), Pair.of(description, textStr));
     }
 
-    void resetContent() {
+    private void resetContent() {
         patterns.clear();
         text.clear();
     }

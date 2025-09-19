@@ -28,6 +28,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.regex.Pattern;
 import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
 import org.unicode.cldr.draft.FileUtilities;
@@ -44,6 +45,7 @@ import org.unicode.cldr.util.ChainedMap.M4;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -68,8 +70,7 @@ public final class WikiSubdivisionLanguages {
 
     private static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
     private static final Normalizer2 NFC = Normalizer2.getNFCInstance();
-    private static final java.util.regex.Pattern IS_ISO_3166_1 =
-            java.util.regex.Pattern.compile("^[A-Z][A-Z]$");
+    private static final Pattern IS_ISO_3166_1 = PatternCache.get("^[A-Z][A-Z]$");
 
     private static ChainedMap.M3<String, String, String> SUB_LANG_NAME =
             ChainedMap.of(
@@ -137,7 +138,7 @@ public final class WikiSubdivisionLanguages {
                 String subdivision = SubdivisionNode.convertToCldr(code);
                 if (IS_ISO_3166_1.matcher(subdivision).matches()) {
                     System.err.println(subdivision);
-                    iso3166_1.put(subdivision);
+                    iso3166_1.add(subdivision);
                     continue;
                 } else if (!regularSubdivisions.contains(subdivision)) {
                     Status status = codeToStatus.get(subdivision);
@@ -413,10 +414,38 @@ public final class WikiSubdivisionLanguages {
                     parts2.setAttribute(-1, "type", replacementType);
                     toRemove.add(path);
                     path = parts2.toString();
-                    toAdd.put(path, name);
-                    System.out.println("Adding alias: " + replacementType + "«" + name + "»");
+                    if (IS_ISO_3166_1.matcher(replacementType).matches()) {
+                        // alias is to ISO 3166 , so drop it
+                        System.out.println(
+                                oldFileSubdivisions.getLocaleID()
+                                        + " Dropping alias to ISO 3166-1: "
+                                        + replacementType
+                                        + "«"
+                                        + name
+                                        + "» for "
+                                        + type);
+                    } else {
+                        toAdd.put(path, name);
+                        System.out.println(
+                                oldFileSubdivisions.getLocaleID()
+                                        + " Adding alias: "
+                                        + replacementType
+                                        + "«"
+                                        + name
+                                        + "» for "
+                                        + type);
+                    }
                     break;
                 }
+            } else if (IS_ISO_3166_1.matcher(type).matches()) {
+                System.out.println(
+                        oldFileSubdivisions.getLocaleID()
+                                + " Dropping ISO 3166-1: "
+                                + type
+                                + "«"
+                                + name
+                                + "» - does not belong in subdivisions");
+                toRemove.add(path);
             }
             inverse.put(name, path);
         }

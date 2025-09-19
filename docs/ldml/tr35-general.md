@@ -516,13 +516,24 @@ Exemplars are characters used by a language, separated into different categories
 | --------------- | ----------- | -------- |
 | main / standard | Main letters used in the language | a-z å æ ø |
 | auxiliary       | Additional characters for common foreign words, technical usage | á à ă â å ä ã ā æ ç é è ĕ ê ë ē í ì ĭ î ï ī ñ ó ò ŏ ô ö ø ō œ ú ù ŭ û ü ū ÿ |
+| numbers         | Main characters needed to display the common number formats: decimal, percent, and currency. | \[\\u061C\\u200E \\- , ٫ ٬ . % ٪ ‰ ؉ + 0٠ 1١ 2٢ 3٣ 4٤ 5٥ 6٦ 7٧ 8٨ 9٩\] |
+| numbers-auxiliary         | Additional characters for use with numbers (technical or older usage) |  |
+| punctuation     | Main punctuation characters | - ‐ – — , ; \\: ! ? . … “ ” ‘ ’ ( ) [ ] § @ * / & # † ‡ ′ ″ |
+| punctuation-auxiliary     | Additional punctuation (technical or older usage) |  |
+| punctuation-person     | Punctuation used in people names, such as "Jean-Luc Smith Ph.D., MD. | - / . , |
 | index           | Characters for the header of an index | A B C D E F G H I J K L M N O P Q R S T U V W X Y Z |
-| punctuation     | Common punctuation | - ‐ – — , ; \\: ! ? . … “ ” ‘ ’ ( ) [ ] § @ * / & # † ‡ ′ ″ |
-| numbers         | The characters needed to display the common number formats: decimal, percent, and currency. | \[\\u061C\\u200E \\- , ٫ ٬ . % ٪ ‰ ؉ + 0٠ 1١ 2٢ 3٣ 4٤ 5٥ 6٦ 7٧ 8٨ 9٩\] |
 
 The basic exemplar character sets (main and auxiliary) contain the commonly used letters for a given modern form of a language, which can be for testing and for determining the appropriate repertoire of letters for charset conversion or collation. ("Letter" is interpreted broadly, as anything having the property Alphabetic in the [[UAX44](https://www.unicode.org/reports/tr41/#UAX44)], which also includes syllabaries and ideographs.) It is not a complete set of letters used for a language, nor should it be considered to apply to multiple languages in a particular country. Punctuation and other symbols should not be included in the main and auxiliary sets. In particular, format characters like CGJ are not included.
 
-There are five sets altogether: main, auxiliary, punctuation, numbers, and index. The _main_ set should contain the minimal set required for users of the language, while the _auxiliary_ exemplar set is designed to encompass additional characters: those non-native or historical characters that would customarily occur in common publications, dictionaries, and so on. Major style guidelines are good references for the auxiliary set. So, for example, if Irish newspapers and magazines would commonly have Danish names using å, for example, then it would be appropriate to include å in the auxiliary exemplar characters; just not in the main exemplar set. Thus English has the following:
+There are 4 types of sets altogether: main, numbers, punctuation, and index.
+Within each type, there are are subtypes: 
+a _main_ set containing the minimal set required for users of the language, 
+and an _auxiliary_ set, which is designed to encompass additional characters —
+those non-native or historical characters that would customarily occur in common publications, dictionaries, and so on.
+There are two exceptions: an index set doesn't have an _auxiliary_ set, 
+and the punctuation set has an additional subtype for person-name punctuation (see [Person Name Validation](tr35-personNames.html#person-name-validation).
+
+Major style guidelines are good references for an auxiliary set. So, for example, if Irish newspapers and magazines would commonly have Danish names using å, for example, then it would be appropriate to include å in the auxiliary exemplar characters; just not in the main exemplar set. Thus English has the following:
 
 ```xml
 <exemplarCharacters>[a b c d e f g h i j k l m n o p q r s t u v w x y z]</exemplarCharacters>

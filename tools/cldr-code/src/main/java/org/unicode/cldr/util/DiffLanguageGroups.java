@@ -280,7 +280,9 @@ public class DiffLanguageGroups {
     }
 
     public static String show(String languageCode) {
-        return languageCode.equals("mul") ? "Ω" : getName(languageCode) + " ⁅" + languageCode + "⁆";
+        return languageCode.equals("mul")
+                ? languageCode
+                : getName(languageCode) + " ⁅" + languageCode + "⁆";
     }
 
     public static String getName(String languageCode) {

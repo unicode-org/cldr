@@ -847,6 +847,11 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
             new Transform<>() {
                 @Override
                 public RegexFinder transform(String source) {
+                    if (source.startsWith("^") || source.startsWith("/")) {
+                        throw new IllegalArgumentException(
+                                "Pattern must not start with ^ or /: ^//ldml/ is automatically inserted: "
+                                        + source);
+                    }
                     final String newSource = "^//ldml/" + source.replace("[@", "\\[@");
                     return new RegexFinder(newSource);
                 }

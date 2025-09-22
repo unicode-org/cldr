@@ -20,6 +20,7 @@ public class PathDescriptionParser {
     private final List<String> referenceLines = new ArrayList<>();
 
     public RegexLookup<Pair<String, String>> parse(String fileName) {
+        lookup.setPatternTransform(RegexLookup.RegexFinderTransformPathLDML);
         String string = PathDescription.getBigString(fileName);
         final String[] lines = string.split("\n");
         int n = 0;
@@ -91,7 +92,8 @@ public class PathDescriptionParser {
     }
 
     private void processRegex(String line) {
-        Pattern.compile(line); // make sure it compiles
+        // Note: variable replacement has not yet occurred. Do not try to compile the pattern yet,
+        // since some variable replacements are necessary for producing valid regex.
         patterns.add(line);
     }
 

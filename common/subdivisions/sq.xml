@@ -177,6 +177,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="brdf" draft="provisional">Distrikti Federal i Brazilit</subdivision>
 			<subdivision type="brmg" draft="provisional">Minas Gerais</subdivision>
 			<subdivision type="brms" draft="provisional">Mato Grosso do Sul</subdivision>
+			<subdivision type="brmt" draft="provisional">Mato Grosso</subdivision>
 			<subdivision type="brpa" draft="provisional">Pará</subdivision>
 			<subdivision type="brpe" draft="provisional">Pernambuco</subdivision>
 			<subdivision type="brrn" draft="provisional">Rio Grande do Norte</subdivision>
@@ -221,15 +222,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="chai" draft="provisional">Kantoni Appenzell Innerrhoden</subdivision>
 			<subdivision type="char" draft="provisional">Kantoni Appenzell Ausserrhoden</subdivision>
 			<subdivision type="chbe" draft="provisional">Kantoni Bern</subdivision>
+			<subdivision type="chbl" draft="provisional">Kantoni Basel-Landschaft</subdivision>
 			<subdivision type="chbs" draft="provisional">Kantoni Basel-Stadt</subdivision>
 			<subdivision type="chfr" draft="provisional">Kantoni Fribourg</subdivision>
 			<subdivision type="chge" draft="provisional">Kantoni Gjenevë</subdivision>
 			<subdivision type="chgl" draft="provisional">Kantoni Glarus</subdivision>
 			<subdivision type="chgr" draft="provisional">Kantoni Graubünden</subdivision>
+			<subdivision type="chju" draft="provisional">Kantoni Jura</subdivision>
 			<subdivision type="chlu" draft="provisional">Kantoni Luzern</subdivision>
 			<subdivision type="chne" draft="provisional">Kantoni Neuchâtel</subdivision>
+			<subdivision type="chnw" draft="provisional">Kantoni Nidwalden</subdivision>
 			<subdivision type="chow" draft="provisional">Kantoni Obwalden</subdivision>
 			<subdivision type="chsg" draft="provisional">Kantoni St. Gallen</subdivision>
+			<subdivision type="chsh" draft="provisional">Kantoni Schaffhausen</subdivision>
 			<subdivision type="chso" draft="provisional">Kantoni Solothurn</subdivision>
 			<subdivision type="chsz" draft="provisional">Schwyz</subdivision>
 			<subdivision type="chtg" draft="provisional">Thurgau</subdivision>
@@ -425,6 +430,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr56" draft="provisional">Morbihan</subdivision>
 			<subdivision type="fr57" draft="provisional">Moselle</subdivision>
 			<subdivision type="fr58" draft="provisional">Nièvre</subdivision>
+			<subdivision type="fr59" draft="provisional">Nord</subdivision>
 			<subdivision type="fr60" draft="provisional">Oise</subdivision>
 			<subdivision type="fr61" draft="provisional">Orne</subdivision>
 			<subdivision type="fr62" draft="provisional">Pas-de-Calais</subdivision>
@@ -827,6 +833,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="me09" draft="provisional">Komuna e Koloshinit</subdivision>
 			<subdivision type="me10" draft="provisional">Komuna e Kotorrit</subdivision>
 			<subdivision type="me11" draft="provisional">Komuna e Mojkovacit</subdivision>
+			<subdivision type="me12" draft="provisional">Nikshiqi</subdivision>
 			<subdivision type="me13" draft="provisional">Komuna e Plavës</subdivision>
 			<subdivision type="me14" draft="provisional">Komuna e Plevlës</subdivision>
 			<subdivision type="me16" draft="provisional">Komuna e Podgoricës</subdivision>
@@ -968,6 +975,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="no34" draft="provisional">Innlandet</subdivision>
 			<subdivision type="no50" draft="provisional">Trøndelag</subdivision>
 			<subdivision type="pgncd" draft="provisional">Port Moresbi</subdivision>
+			<subdivision type="pgnsb" draft="provisional">Rajoni Autonom i Bougainville</subdivision>
 			<subdivision type="pkba" draft="provisional">Baloçistan, Pakistan</subdivision>
 			<subdivision type="pkpb" draft="provisional">Panxhab, Pakistan</subdivision>
 			<subdivision type="pksd" draft="provisional">Sind</subdivision>
@@ -1010,10 +1018,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="rukam" draft="provisional">Kamçatka Krai</subdivision>
 			<subdivision type="rukb" draft="provisional">Kabardino-Balkaria</subdivision>
 			<subdivision type="rukc" draft="provisional">Karaçaj-Çerkesia</subdivision>
+			<subdivision type="rukgd" draft="provisional">Rajoni i Kaliningradit</subdivision>
 			<subdivision type="rukk" draft="provisional">Hakasia</subdivision>
 			<subdivision type="rukl" draft="provisional">Kalmikia</subdivision>
 			<subdivision type="ruko" draft="provisional">Komiu</subdivision>
 			<subdivision type="rukr" draft="provisional">Karelia</subdivision>
+			<subdivision type="rukrs" draft="provisional">Rajoni i Kurskut</subdivision>
 			<subdivision type="rume" draft="provisional">Mari El</subdivision>
 			<subdivision type="rumow" draft="provisional">Moska</subdivision>
 			<subdivision type="rusa" draft="provisional">Sahaja</subdivision>
@@ -1024,7 +1034,27 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ruud" draft="provisional">Udmurtia</subdivision>
 			<subdivision type="rw01" draft="provisional">Kigali</subdivision>
 			<subdivision type="sa02" draft="provisional">Provinca Meka</subdivision>
+			<subdivision type="seab" draft="provisional">Stokkolma</subdivision>
+			<subdivision type="seac" draft="provisional">qarku i Vasterbotenit</subdivision>
+			<subdivision type="sebd" draft="provisional">qarku i Norbotenit</subdivision>
+			<subdivision type="sec" draft="provisional">qarku i Upsalës</subdivision>
+			<subdivision type="sed" draft="provisional">qarku i Sodermanlandit</subdivision>
+			<subdivision type="see" draft="provisional">qarku i Ostergotlandit</subdivision>
+			<subdivision type="sef" draft="provisional">qarku i Jonkopingut</subdivision>
+			<subdivision type="seg" draft="provisional">qarku i Kronobergut</subdivision>
+			<subdivision type="seh" draft="provisional">qarku i Kalmarit</subdivision>
+			<subdivision type="sei" draft="provisional">qarku i Gotlandit</subdivision>
+			<subdivision type="sek" draft="provisional">qarku i Blekinges</subdivision>
 			<subdivision type="sem" draft="provisional">Qarku Skåne</subdivision>
+			<subdivision type="sen" draft="provisional">qarku i Halandit</subdivision>
+			<subdivision type="seo" draft="provisional">qarku i Vastra Gotalandit</subdivision>
+			<subdivision type="ses" draft="provisional">qarku i Varmlandit</subdivision>
+			<subdivision type="set" draft="provisional">qarku i Orebrosë</subdivision>
+			<subdivision type="seu" draft="provisional">qarku i Vastmanlandit</subdivision>
+			<subdivision type="sew" draft="provisional">qarku i Dalarnës</subdivision>
+			<subdivision type="sex" draft="provisional">qarku i Gavleborgut</subdivision>
+			<subdivision type="sey" draft="provisional">qarku i Vasternorlandit</subdivision>
+			<subdivision type="sez" draft="provisional">qarku i Jamtlandit</subdivision>
 			<subdivision type="shhl" draft="provisional">Ishulli Shën Elena</subdivision>
 			<subdivision type="si040" draft="provisional">Izola</subdivision>
 			<subdivision type="si052" draft="provisional">Kranj</subdivision>

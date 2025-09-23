@@ -48,15 +48,17 @@ The LDML specification is divided into the following parts:
 ## <a name="Contents" href="#Contents">Contents of Appendix A, Modifications</a>
 
 * [Modifications](#modifications)
+  * [Locale Identifiers](#locale-identifiers)
   * [DateTime formats](#datetime-formats)
   * [Modifications section](#modifications-section)
+  * [Keyboards](#keyboards)
 
 ## Modifications
 
 **Changes in LDML Version 48 (Differences from Version 47)**
 
 ### Locale Identifiers
-* [Special Script Codes](tr35.html#special-script-codes) The `Hntl` compound script was added. (This is also reflected in the `<scriptData>` elements in supplementalData.xml.)
+* [Special Script Codes](tr35.md#special-script-codes) The `Hntl` compound script was added. (This is also reflected in the `<scriptData>` elements in supplementalData.xml.)
   
 ### DateTime formats
 
@@ -74,9 +76,9 @@ Click on **Previous Version** in the header until you get to the desired version
 
 ### Keyboards
 
-* A sentence was struck under the documentation of the [display](./tr35-keyboards.md#element-display) element. A key without output may be indicated by means of the `keyId=` attribute on the display, which see.
+* A sentence was struck under the documentation of the [display](tr35-keyboards.md#element-display) element. A key without output may be indicated by means of the `keyId=` attribute on the display, which see.
 
-* A sentence was added under the [layer](./tr35-keyboards.md#element-layer) element, in the definition of the `modifiers=` attribute about hardware layouts being used as touch layouts.
+* A sentence was added under the [layer](tr35-keyboards.md#element-layer) element, in the definition of the `modifiers=` attribute about hardware layouts being used as touch layouts.
 
 * * *
 

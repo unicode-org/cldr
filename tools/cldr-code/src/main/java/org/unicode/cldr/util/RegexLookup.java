@@ -28,7 +28,7 @@ import org.unicode.cldr.util.RegexLookup.Finder.Info;
  * Lookup items according to a set of regex patterns. Returns the value according to the first
  * pattern that matches. Not thread-safe.
  *
- * @param <T>
+ * @param <T> the type of the value to be returned by the method get()
  */
 public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
     protected static final String SEPARATOR = "; ";
@@ -839,6 +839,21 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
                     final String newSource = source.replace("[@", "\\[@").replace('\'', '"');
                     return new RegexFinder(
                             newSource.startsWith("//") ? "^" + newSource : newSource);
+                }
+            };
+
+    /** ^//ldml/ is appended to the beginning of each pattern, and [@ is changed to \[@ */
+    public static Transform<String, RegexFinder> RegexFinderTransformPathLDML =
+            new Transform<>() {
+                @Override
+                public RegexFinder transform(String source) {
+                    if (source.startsWith("^") || source.startsWith("/")) {
+                        throw new IllegalArgumentException(
+                                "Pattern must not start with ^ or /: ^//ldml/ is automatically inserted: "
+                                        + source);
+                    }
+                    final String newSource = "^//ldml/" + source.replace("[@", "\\[@");
+                    return new RegexFinder(newSource);
                 }
             };
 

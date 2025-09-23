@@ -19,7 +19,7 @@ public class TestPathDescription {
     private void parseOneString(String fileName) {
         final String bigString = PathDescription.getBigString(fileName);
         final PathDescriptionParser parser = new PathDescriptionParser();
-        final RegexLookup<Pair<String, String>> lookup = parser.parse(bigString);
+        final RegexLookup<Pair<String, String>> lookup = parser.parse(fileName);
 
         assertNotNull(lookup);
         assertNotEquals(0, lookup.size(), "lookup is empty");

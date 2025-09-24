@@ -1688,7 +1688,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                                         "concentr-part",
                                         "concentr-permillion", // deprecated
                                         "concentr-million", // deprecated
-                                        "concentr-1e6", // NOTE: if we decide to add more, we should do the comparison programmatically
+                                        "concentr-1e6", // NOTE: if we decide to add more, we should
+                                        // do the comparison programmatically
                                         "concentr-1e9",
                                         "concentr-part-per-million", // deprecated
                                         "concentr-part-per-1e6",

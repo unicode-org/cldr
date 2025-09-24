@@ -1170,8 +1170,9 @@ For example:
 - The `locales` attribute lists all the locales that have those `pluralRules`. (No locale can be listed more than once for the same `type`.)
 - Each `pluralRule` associates a plural category (the value of the attribute `count`) with a `condition` and `samples`.
 There one exception: there is no explicit condition for `other`.
-- The plural categories are currently limited to {`zero`, `one`, `two`, `few`, `many`, `other`} .
-- The `other` category is mandatory: any particular locale may have any combination of {`zero`, `one`, `two`, `few`, `many`}, from none to all.
+- The plural categories are currently limited to {`zero`, `one`, `two`, `few`, `many`, `other`}.
+- No plural category can occur more than once in the same `pluralRules` element.
+- The `other` category is mandatory: any particular locale may also have any combination of {`zero`, `one`, `two`, `few`, `many`}.
 
 The pluralRules can be expressed as a single string. For example, ICU uses the following syntax
 ```
@@ -1186,6 +1187,7 @@ samples       // as below
 In order to determine the plural category for a given number, each `pluralRule` is evaluated in the order: {`zero`, `one`, `two`, `few`, `many`}
 - If any rule evaluates to `true`, then the corresponding plural category is returned.
 - If no other category is returned, then `other` is.
+
 It is possible for two rules in {`zero`, `one`, `two`, `few`, `many`} to _overlap_, to both evaluate to `true` for the same number.
 (That is generally avoided for the CLDR rules, except in cases where a later condition (in evaluation order) would be overly complicated.)
 The rules should be constructed so that each listed plural category is non-empty.
@@ -1247,9 +1249,10 @@ Although some of them are used to describe insignificant 0s in the source number
 | c      | compact decimal exponent value: exponent of the power of 10 used in compact decimal formatting. |
 | e      | a deprecated synonym for ‘c’. Note: it may be redefined in the future.                          |
 
-\* If there is a compact decimal exponent value (‘c’), then the n, i, f, t, v, and w values are computed _after_ shifting the decimal point in the original by the ‘c’ value.
+- If there is a compact decimal exponent value (‘c’), then the n, i, f, t, v, and w values are computed _after_ shifting the decimal point in the original by the ‘c’ value.
 So for 1.2c3, the n, i, f, t, v, and w values are the same as those of 1200:  i=1200 and f=0.
 Similarly, 1.2005c3 has i=1200 and f=5 (corresponding to 1200.5).
+- The old keywords 'mod', 'in', 'is', and 'within' are present only for backwards compatibility. The preferred form is to use '%' for modulo, and '=' or '!=' for the relations, with the operand 'i' instead of within. (The difference between **in** and **within** is that **in** only includes integers in the specified range, while **within** includes all values.)
 
 ###### Table: <a name="Plural_Operand_Examples" href="#Plural_Operand_Examples">Plural Operand Examples</a>
 
@@ -1288,7 +1291,14 @@ The positive relations are of the format **x = y** and **x = y mod z**. The **y*
 | 3 = 2..4, 15    | true  |
 | 3 != 2..4, 15   | false |
 
-> The old keywords 'mod', 'in', 'is', and 'within' are present only for backwards compatibility. The preferred form is to use '%' for modulo, and '=' or '!=' for the relations, with the operand 'i' instead of within. (The difference between **in** and **within** is that **in** only includes integers in the specified range, while **within** includes all values.)
+| Expression | Comments |
+| --- | --- |
+| n = 1 | n can be 1, 1.0, 1.00, … but no greater |
+| i = 1 | n can be 1, 1.0, 1.00, … _and_ 1.1, 1.99999, … but no greater |
+| i % 10 = 1 | Uses the integer remainder, where 21.33 % 10 ⇒ 1 |
+| n % 10 = 1 | Uses the decimal remainder, where 21.33 % 10 ⇒ 1.33. Equivalent to `i % 10 = 1 and f = 0` |
+| i % 10 = 3 | The last integer digit of `n` equals 3 |
+| i % 1000 = 33 | The last 3 integer digits of `n` equal 33 |
 
 The modulus (% or **mod**) is a remainder operation as defined in Java; for example, where **n** = 4.3 the result of **n mod 3** is 1.3.
 
@@ -1308,19 +1318,9 @@ The values of relations are defined according to the operand as follows. Importa
 | Rules | Comments |
 | --- | --- |
 | one: n = 1 <br/> few: n = 2..4 | This defines two rules, for 'one' and 'few'. The condition for 'one' is "n = 1" which means that the number must be equal to 1 for this condition to pass. The condition for 'few' is "n = 2..4" which means that the number must be between 2 and 4 inclusive for this condition to pass. All other numbers are assigned the keyword 'other' by the default rule. |
-| zero: n = 0 or n != 1 and n mod 100 = 1..19 <br/> one: n = 1 | Each rule must not overlap with other rules. Also note that a modulus is applied to n in the last rule, thus its condition holds for 119, 219, 319, … |
+| zero: n = 0 or n != 1 and n mod 100 = 1..19 <br/> one: n = 1 | Each rule should not overlap with other rules. Also note that a modulus is applied to n in the last rule, thus its condition holds for 119, 219, 319, … |
 | one: n = 1 <br/> few: n mod 10 = 2..4 and n mod 100 != 12..14 | This illustrates conjunction and negation. The condition for 'few' has two parts, both of which must be met: "n mod 10 = 2..4" and "n mod 100 != 12..14". The first part applies a modulus to n before the test as in the previous example. The second part applies a different modulus and also uses negation, thus it matches all numbers _not_ in 12, 13, 14, 112, 113, 114, 212, 213, 214, … |
 
-#### Common Plural Rule Expressions ####
-
-| Expression | Comments |
-| --- | --- |
-| n = 1 | n can be 1, 1.0, 1.00, … but no greater |
-| i = 1 | n can be 1, 1.0, 1.00, … _and_ 1.1, 1.99999, … but no greater |
-| i % 10 = 1 | Uses the integer remainder, where 21.33 % 10 ⇒ 1 |
-| n % 10 = 1 | Uses the decimal remainder, where 21.33 % 10 ⇒ 1.33. Equivalent to `i % 10 = 1 and f = 0` |
-| i % 10 = 3 | The last integer digit of `n` equals 3 |
-| i % 1000 = 33 | The last 3 integer digits of `n` equal 33 |
 
 #### <a name="Samples" href="#Samples">Samples</a>
 

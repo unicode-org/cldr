@@ -111,12 +111,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="●" type="tts">kelcʼh leun</annotation>
 		<annotation cp="◯">kelcʼh | kelcʼh ledan goullo</annotation>
 		<annotation cp="◯" type="tts">kelcʼh ledan goullo</annotation>
-		<annotation cp="🪊">benveg | jazz | laton | sonerezh | trist | trombon</annotation>
-		<annotation cp="🪊" type="tts">trombon</annotation>
-		<annotation cp="🫍">meurvor | mor | skoazog</annotation>
-		<annotation cp="🫍" type="tts">skoazog</annotation>
-		<annotation cp="🛘">arvar | disacʼh-ercʼh | drouziwezh | kren-douar | menez | reier | riskladur douar</annotation>
-		<annotation cp="🛘" type="tts">riskladur douar</annotation>
 		<annotation cp="💀">euzhvil | klopenn | marv</annotation>
 		<annotation cp="💀" type="tts">klopenn</annotation>
 		<annotation cp="💩">bern kaocʼh | kaocʼh</annotation>
@@ -525,6 +519,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐋" type="tts">balum</annotation>
 		<annotation cp="🐬">delfin | loen</annotation>
 		<annotation cp="🐬" type="tts">delfin</annotation>
+		<annotation cp="🫍">meurvor | mor | skoazog</annotation>
+		<annotation cp="🫍" type="tts">skoazog</annotation>
 		<annotation cp="🦭">loen | meurvor | mor | morleon | reunig</annotation>
 		<annotation cp="🦭" type="tts">reunig</annotation>
 		<annotation cp="🐟">loen | pesk | pesked</annotation>
@@ -883,6 +879,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏔" type="tts">menez ercʼhek</annotation>
 		<annotation cp="⛰">menez</annotation>
 		<annotation cp="⛰" type="tts">menez</annotation>
+		<annotation cp="🛘">arvar | disacʼh-ercʼh | drouziwezh | kren-douar | menez | reier | riskladur douar</annotation>
+		<annotation cp="🛘" type="tts">riskladur douar</annotation>
 		<annotation cp="🌋">dislonkadenn | menez-tan</annotation>
 		<annotation cp="🌋" type="tts">menez-tan</annotation>
 		<annotation cp="🗻">Fuji | menez</annotation>
@@ -1523,14 +1521,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="📻" type="tts">skingomzer</annotation>
 		<annotation cp="🎷">benveg | saksofon | sonerezh</annotation>
 		<annotation cp="🎷" type="tts">saksofon</annotation>
+		<annotation cp="🎺">benveg | sonerezh | trompilh</annotation>
+		<annotation cp="🎺" type="tts">trompilh</annotation>
+		<annotation cp="🪊">benveg | jazz | laton | sonerezh | trist | trombon</annotation>
+		<annotation cp="🪊" type="tts">trombon</annotation>
 		<annotation cp="🪗">akordeoñs | benveg | sonerezh</annotation>
 		<annotation cp="🪗" type="tts">akordeoñs</annotation>
 		<annotation cp="🎸">benveg | gitar | sonerezh</annotation>
 		<annotation cp="🎸" type="tts">gitar</annotation>
 		<annotation cp="🎹">benveg | klavier | sonerezh</annotation>
 		<annotation cp="🎹" type="tts">klavier sonerezh</annotation>
-		<annotation cp="🎺">benveg | sonerezh | trompilh</annotation>
-		<annotation cp="🎺" type="tts">trompilh</annotation>
 		<annotation cp="🎻">benveg | biolin | sonerezh | violoñs</annotation>
 		<annotation cp="🎻" type="tts">violoñs</annotation>
 		<annotation cp="🪕">banjo | benveg | sonerezh</annotation>
@@ -1641,10 +1641,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔖" type="tts">merk-pajenn</annotation>
 		<annotation cp="🏷">tikedenn</annotation>
 		<annotation cp="🏷" type="tts">tikedenn</annotation>
-		<annotation cp="💰">dollar | moneiz | sacʼh | sacʼhad moneiz</annotation>
-		<annotation cp="💰" type="tts">sacʼhad moneiz</annotation>
 		<annotation cp="🪙">aour | arcʼhant | moneiz | pezh</annotation>
 		<annotation cp="🪙" type="tts">pezh moneiz</annotation>
+		<annotation cp="💰">dollar | moneiz | sacʼh | sacʼhad moneiz</annotation>
+		<annotation cp="💰" type="tts">sacʼhad moneiz</annotation>
 		<annotation cp="💴">arcʼhant | bilhed | bilhed e yenoù | moneiz | unanenn | yen</annotation>
 		<annotation cp="💴" type="tts">bilhed e yenoù</annotation>
 		<annotation cp="💵">arcʼhant | bilhed | bilhed e dollaroù | dollar | moneiz | unanenn</annotation>

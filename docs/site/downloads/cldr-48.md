@@ -288,7 +288,7 @@ The following files are new in the release:
 
 ### V49 advance warnings
 The following changes are planned for CLDR 49. Please plan accordingly to avoid disruption.
-- [CLDR-18303][] H24 will be deprecated, and if it is encountered, it will have H23 behavior. There is no known intentional usage of H24. If you have a current need for H24 instead of H23, please add comment on [CLDR-18303][].
+- [CLDR-18303][] H24 will be deprecated. If it is encountered, it will have H23 behavior. There is no known intentional usage of H24. If you have a current need for H24 instead of H23, please comment on [CLDR-18303][].
 - The default week numbering changes to ISO instead being based on the calendar week starting in CLDR 48 [CLDR-18275]. The calendar week will be more clearly targeted at matching usage in displayed month calendars.
 - The pre-Meiji Japanese eras will be removed: There was too much uncertainty in the exact values
 and feedback that the general practice for exact dates is to use Gregorian for pre-Meiji dates.

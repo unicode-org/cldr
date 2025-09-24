@@ -1185,12 +1185,15 @@ However, when all of the units would be omitted, then the highest unit is shown 
 
 Implementations may offer mechanisms to control the precision of the formatted mixed unit. Examples include, but are not limited to:
 * An implementation could apply the precision of a number formatter to the final unit.
-  However, this … has a couple of disadvantages, such as matching precision across user preferences. For example, suppose the input amount is 1.5254 and the precision is 2 decimals.
+  However, this approach has a couple of disadvantages, such as matching precision across user preferences. For example, suppose the input amount is 1.5254 and the precision is 2 decimals.
     * Locale A uses decimal degrees and gets 1.53°.
     * Locale B uses degrees, minutes, seconds, and gets 1° 31′ 31.44″
 	* Locale B has an unnecessarily precise result: the equivalent of 1.52540 in precision.
-* An implementation could allow a percentage precision;
-  thus 1612 meters with ±1% precision would be represented by **1 mile** rather than **1 mile 9 feet**.
+* An implementation could match the decimal precision that would be used with just the first unit, such as the following:
+    * Two decimal digits with degrees is 1.53°, representing a range of 1.525° to 1.535°
+    * Only continue adding subunits (or fractions in the final unit) if the current amount is not within that range.
+       * 1° 31′ => 1.516666667, so it is not within that range, and we add another subunit
+       * 1° 31′ 31″ => 1.525277778, so it is within range, and we don't add any fractional units
 
 The default behavior is to round the lowest unit to the nearest integer.
 Thus 1.99959 degree-and-arc-minute-and-arc-second would be (before rounding) **1 degree 59 minutes 58.524 seconds**.

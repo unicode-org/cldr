@@ -1151,9 +1151,9 @@ Sort the single units by that order, using a stable sort.
 If there are private-use single units, sort them after all the non-private use single units, in alphabetical order.
    * meter-square-kilogram ⇒ square-kilogram-meter
    * meter-square-gram ⇒ square-gram-meter
-5. As an edge case, there could be two adjacent single units with the same _simple_ unit but different prefixes such as _square-meter-kilometer_.
-In that case, sort a sequence of those units by the smaller prefixes first, so … picometer < … meter < … megameter < …
-     * kilometer-meter  ⇒ meter-kilometer
+5. As an edge case, there could be two adjacent single units with the same _simple_ unit but different prefixes such as _meter-kilometer_.
+In that case, sort a sequence of those units by the larger prefixes first, so … megameter < … meter < … picometer < …
+     * meter-kilometer ⇒ kilometer-meter
 
 The examples in #4 are due to the following ordering of the `unitQuantity` elements:
 

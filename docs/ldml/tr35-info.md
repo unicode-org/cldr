@@ -1138,7 +1138,7 @@ The unitType (as in “length-meter”) is not the same as the quantity. It is o
 
 ### <a name="Unit_Identifier_Normalization" href="#Unit_Identifier_Normalization">Unit Identifier Normalization</a>
 
-There are many possible ways to construct complex units. For comparison of unit identifiers, an implementation can normalize in the following way:
+There are many possible ways to construct complex units. For comparison of unit identifiers, and for formatting, an implementation can normalize in the following way:
 
 1. Convert all but the first -per- to simple multiplication. The result then has the format of /numerator ( -per- denominator)?/
    * foot-per-second-per-second ⇒ foot-per-second-second
@@ -1146,11 +1146,14 @@ There are many possible ways to construct complex units. For comparison of unit 
 3. Convert multiple instances of a unit into the appropriate power.
    * foot-per-second-second ⇒ foot-per-square-second
    * kilogram-meter-kilogram ⇒ meter-square-kilogram
-4. For each single unit, disregarding prefixes and powers, get the order of the _simple_ unit among the `unitQuantity` elements in the [units.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/units.xml). Sort the single units by that order, using a stable sort. If there are private-use single units, sort them after all the non-private use single units.
-   * meter-square-kilogram => square-kilogram-meter
+4. For each single unit, disregarding prefixes and powers, get the order of the _simple_ unit among the `unitQuantity` elements in the [units.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/units.xml).
+Sort the single units by that order, using a stable sort.
+If there are private-use single units, sort them after all the non-private use single units, in alphabetical order.
+   * meter-square-kilogram ⇒ square-kilogram-meter
    * meter-square-gram ⇒ square-gram-meter
-5. As an edge case, there could be two adjacent single units with the same _simple_ unit but different prefixes, such as _meter-kilometer_. In that case, sort the larger prefixes first, such as _kilometer-meter_ or _kibibyte-kilobyte_.
-6. Within private-use single units, sort by the simple unit alphabetically.
+5. As an edge case, there could be two adjacent single units with the same _simple_ unit but different prefixes such as _square-meter-kilometer_.
+In that case, sort a sequence of those units by the smaller prefixes first, so … picometer < … meter < … megameter < …
+     * kilometer-meter  ⇒ meter-kilometer
 
 The examples in #4 are due to the following ordering of the `unitQuantity` elements:
 
@@ -1160,6 +1163,8 @@ The examples in #4 are due to the following ordering of the `unitQuantity` eleme
 3.  <unitQuantity baseUnit='meter' quantity='length' status='simple'/>
 4.  …
 ```
+
+Note that this uses an ordering of elements _within_ a unit identifier. It is different than an ordering _of_ separate units, such as within a table.
 
 ## Mixed Units
 
@@ -1180,7 +1185,7 @@ However, when all of the units would be omitted, then the highest unit is shown 
 
 Implementations may offer mechanisms to control the precision of the formatted mixed unit. Examples include, but are not limited to:
 * An implementation could apply the precision of a number formatter to the final unit.
-  However, this mechanisim has a couple of disadvantages, such as matching precision across user preferences. For example, suppose the input amount is 1.5254 and the precision is 2 decimals.
+  However, this … has a couple of disadvantages, such as matching precision across user preferences. For example, suppose the input amount is 1.5254 and the precision is 2 decimals.
     * Locale A uses decimal degrees and gets 1.53°.
     * Locale B uses degrees, minutes, seconds, and gets 1° 31′ 31.44″
 	* Locale B has an unnecessarily precise result: the equivalent of 1.52540 in precision.

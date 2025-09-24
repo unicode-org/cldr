@@ -709,20 +709,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="♭" type="tts">panpa</annotation>
 		<annotation cp="♯">agudu | dièse | diesis | takiy | uchuy willakuy</annotation>
 		<annotation cp="♯" type="tts">agudu</annotation>
-		<annotation cp="🪊">diapositiva | instrumento | jazz | latón | llakisqa | musiku</annotation>
-		<annotation cp="🪊" type="tts">trombón nisqa</annotation>
-		<annotation cp="🪎">chanin | gema | joyas | qullqi | qullqiwan | quri</annotation>
-		<annotation cp="🪎" type="tts">qulliwan kufri</annotation>
-		<annotation cp="🫈">chukchasapa | cryptid | gigante | hatun chaki | sasquatch | woodwose | yeti | yunka</annotation>
-		<annotation cp="🫈" type="tts">chukchasapa kawsaq</annotation>
-		<annotation cp="🫍">ballena | mama qucha | marina</annotation>
-		<annotation cp="🫍" type="tts">orca</annotation>
-		<annotation cp="🫪">chʼaqwasqa | hinchado | llakikuy | mancharikuy | musphasqa | unpu</annotation>
-		<annotation cp="🫪" type="tts">distorsionado uya</annotation>
-		<annotation cp="🫯">argumento | chʼaqway | debate | mana acuerdopi kay | maqanakuy | ruckus</annotation>
-		<annotation cp="🫯" type="tts">maqanakuy phuyu</annotation>
-		<annotation cp="🛘">avalancha | desastre | pacha kuyuy | peligro | qaqakuna | tʼuru tʼuru | urqu</annotation>
-		<annotation cp="🛘" type="tts">allpa kuyuriy</annotation>
 		<annotation cp="😀">kusi | kusisqa uya | uya</annotation>
 		<annotation cp="😀" type="tts">kusisqa uya</annotation>
 		<annotation cp="😃">kichay | kusi | kusisqa uya hatun ñawikunawan | simi | uya</annotation>
@@ -893,6 +879,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😲" type="tts">añasqa uya</annotation>
 		<annotation cp="😳">kuyusqa | manchakusqa | uya</annotation>
 		<annotation cp="😳" type="tts">manchakusqa uya</annotation>
+		<annotation cp="🫪">chʼaqwasqa | hinchado | llakikuy | mancharikuy | musphasqa | unpu</annotation>
+		<annotation cp="🫪" type="tts">distorsionado uya</annotation>
 		<annotation cp="🥺">khuyakuy | llullu uya | uyllasqa uya | uyllay</annotation>
 		<annotation cp="🥺" type="tts">uyllasqa uya</annotation>
 		<annotation cp="🥹">orgulloso | piña | uya wiqikunawan hapisqa | waqasqa | waqay</annotation>
@@ -1039,6 +1027,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💯" type="tts">pachaq chikukuna</annotation>
 		<annotation cp="💢">comic | mana allin | phiñakuy | phiñakuy unancha</annotation>
 		<annotation cp="💢" type="tts">phiñakuy unancha</annotation>
+		<annotation cp="🫯">argumento | chʼaqway | debate | mana acuerdopi kay | maqanakuy | ruckus</annotation>
+		<annotation cp="🫯" type="tts">maqanakuy phuyu</annotation>
 		<annotation cp="💥">bum | comic | tupa</annotation>
 		<annotation cp="💥" type="tts">tupa</annotation>
 		<annotation cp="💫">comic | muyu muyu | quyllur</annotation>
@@ -1195,8 +1185,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑" type="tts">runa</annotation>
 		<annotation cp="👱">chukcha | qillu | qillu chukcha runa | runa: qillu chukcha</annotation>
 		<annotation cp="👱" type="tts">runa: qillu chukcha</annotation>
-		<annotation cp="🧑‍🩰">ballet | tusuq</annotation>
-		<annotation cp="🧑‍🩰" type="tts">ballet tusuq</annotation>
 		<annotation cp="👨">puriq runa | qari</annotation>
 		<annotation cp="👨" type="tts">qari</annotation>
 		<annotation cp="🧔">kʼaki | runa | runa: kʼaki</annotation>
@@ -1505,6 +1493,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧟‍♀" type="tts">warmi zombi</annotation>
 		<annotation cp="🧌">fantasia | kawri | troll nisqa | willarina</annotation>
 		<annotation cp="🧌" type="tts">troll nisqa</annotation>
+		<annotation cp="🫈">chukchasapa | cryptid | gigante | hatun chaki | sasquatch | woodwose | yeti | yunka</annotation>
+		<annotation cp="🫈" type="tts">chukchasapa kawsaq</annotation>
 		<annotation cp="💆">masaje | runa masaje uyapi | salon | uya</annotation>
 		<annotation cp="💆" type="tts">runa masaje uyapi</annotation>
 		<annotation cp="💆‍♂">masaje | tata | tata masaje uyapi | uya</annotation>
@@ -1559,6 +1549,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏃‍♂" type="tts">tata phawachkan</annotation>
 		<annotation cp="🏃‍♀">carrera | maraton | phawachkan | warmi</annotation>
 		<annotation cp="🏃‍♀" type="tts">warmi phawachkan</annotation>
+		<annotation cp="🧑‍🩰">ballet | tusuq</annotation>
+		<annotation cp="🧑‍🩰" type="tts">ballet tusuq</annotation>
 		<annotation cp="💃">tusuchkan | tusuy | warmi</annotation>
 		<annotation cp="💃" type="tts">warmi tusuchkan</annotation>
 		<annotation cp="🕺">runa tusuchkan | tata | tusuchkan | tusuy</annotation>
@@ -1921,6 +1913,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐋" type="tts">ballena</annotation>
 		<annotation cp="🐬">delfin | rikracha</annotation>
 		<annotation cp="🐬" type="tts">delfin</annotation>
+		<annotation cp="🫍">ballena | mama qucha | marina</annotation>
+		<annotation cp="🫍" type="tts">orca</annotation>
 		<annotation cp="🦭">foca | mamaquchamanta Leon</annotation>
 		<annotation cp="🦭" type="tts">foca</annotation>
 		<annotation cp="🐟">challwa | Piscis | zodiaco</annotation>
@@ -2319,6 +2313,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏔" type="tts">rit’i urqupi</annotation>
 		<annotation cp="⛰">urqu</annotation>
 		<annotation cp="⛰" type="tts">urqu</annotation>
+		<annotation cp="🛘">avalancha | desastre | pacha kuyuy | peligro | qaqakuna | tʼuru tʼuru | urqu</annotation>
+		<annotation cp="🛘" type="tts">allpa kuyuriy</annotation>
 		<annotation cp="🌋">ariq | erupcion | urqu</annotation>
 		<annotation cp="🌋" type="tts">ariq</annotation>
 		<annotation cp="🗻">fuji | fuji urqi | urqu</annotation>
@@ -3037,14 +3033,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="📻" type="tts">radio</annotation>
 		<annotation cp="🎷">instrumento | saxofon | takiy</annotation>
 		<annotation cp="🎷" type="tts">saxofon</annotation>
+		<annotation cp="🎺">instrumento | takiy | trompeta</annotation>
+		<annotation cp="🎺" type="tts">trompeta</annotation>
+		<annotation cp="🪊">diapositiva | instrumento | jazz | latón | llakisqa | musiku</annotation>
+		<annotation cp="🪊" type="tts">trombón nisqa</annotation>
 		<annotation cp="🪗">acordion | concertina | tawa kuchu</annotation>
 		<annotation cp="🪗" type="tts">acordion</annotation>
 		<annotation cp="🎸">guitarra | instrumento | takiy</annotation>
 		<annotation cp="🎸" type="tts">guitarra</annotation>
 		<annotation cp="🎹">instrumento | ñitina | piano | takiy | teclas musicales</annotation>
 		<annotation cp="🎹" type="tts">teclas musicales</annotation>
-		<annotation cp="🎺">instrumento | takiy | trompeta</annotation>
-		<annotation cp="🎺" type="tts">trompeta</annotation>
 		<annotation cp="🎻">instrumento | takiy | violin</annotation>
 		<annotation cp="🎻" type="tts">violin</annotation>
 		<annotation cp="🪕">banjo | cadenaswan | takiy</annotation>
@@ -3165,10 +3163,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔖" type="tts">chinpuq</annotation>
 		<annotation cp="🏷">sutichaq</annotation>
 		<annotation cp="🏷" type="tts">sutichaq</annotation>
-		<annotation cp="💰">qipi | qulli qipi | qullqi</annotation>
-		<annotation cp="💰" type="tts">qulli qipi</annotation>
 		<annotation cp="🪙">metal | moneda | paqu | qullqi | tesoro</annotation>
 		<annotation cp="🪙" type="tts">moneda</annotation>
+		<annotation cp="💰">qipi | qulli qipi | qullqi</annotation>
+		<annotation cp="💰" type="tts">qulli qipi</annotation>
+		<annotation cp="🪎">chanin | gema | joyas | qullqi | qullqiwan | quri</annotation>
+		<annotation cp="🪎" type="tts">qulliwan kufri</annotation>
 		<annotation cp="💴">billete | chanin | qullqi | yen</annotation>
 		<annotation cp="💴" type="tts">yen billete</annotation>
 		<annotation cp="💵">billete | chanin | dolar | qullqi</annotation>

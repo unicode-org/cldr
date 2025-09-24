@@ -1063,14 +1063,15 @@ per
 
 <a name='mixed_unit_identifier' href='#mixed_unit_identifier'>mixed_unit_identifier</a>
 <br/>:= single_unit ("-" and "-" single_unit)*
+* [ wfc: Each part separated by -and- must be convertible to the others.]
+* Note: in the normalized form, each part is smaller than the subsequent one: thus `inch-and-foot` normalizes to `foot-and-inch`.
 * *Examples:*
     * foot-and-inch
+    * degree-and-arc-minute-and-arc-second
 
 and
 <br/>:= "and"
 * [ wfc:  The token 'and' is the single value in \<unitIdComponent type="and"\> ]
-* [ wfc: Each part separated by -and- must be convertible to the others.]
-* Note: in the normalized form, each part is smaller than the subsequent one: thus inch-and-foot normalizes to foot-and-inch.
 
 <a name='long_unit_identifier' href='#long_unit_identifier'>long_unit_identifier</a>
 <br/>:= grouping "-" core_unit_identifier

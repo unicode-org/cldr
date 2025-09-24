@@ -18,14 +18,51 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<!-- Note: see https://github.com/unicode-org/icu/packages/1954682/versions
-			for the icu4j.version tag to use. While latest ICU4J has a published version
-			like nn.0.1-SNAPSHOT (i.e. before release candidate), we should use a specific
-			dated asset as found by clicking the version at the link above. When ICU4J reaches
-			release candidate and changes to a version like nn.1-SNAPSHOT, we should just use
-			that so we are always getting the latest version pushed (and should not have CLDR
-			compatibility issues at that point). -->
-		<icu4j.version>78.0.1-20250916.173842-8</icu4j.version> <!-- before ICU rc, specific dated version -->
+		<!-- Update ICU4J libraries in CLDR
+		    To update the version of ICU4J libraries in CLDR, we must *first* use ICU github to
+		    to publish updated ICU4J libraries to the github maven repo using an ICU github
+		    action, and *then* update the version in the appropriate one of the two icu4j.version
+		    entries below (the unused entry should be commented out). Details:
+		    1. First you need to know whether development for the current ICU release (coordinated
+		       with the curret CLDR release) is on the ICU github "main" branch or on a maintenance
+		       branch such as "maint/maint-78".
+		    2. Then in the ICU github main page <https://github.com/unicode-org/icu>, select
+		       "Actions" from the top bar. In the Actions page, on the left sidebar, click on "Show
+		       more workflows...". In the resulting expanded list of actions in the left sidebar,
+		       click on "Publish snapshot icu4j.jar to GH Maven". In the resulting detail page for
+		       that action, click on the "Run workflow ⏷" button. THis brings up a panel in which
+		       you need to select whether to publish from the ICU "main" branch or the appropriate
+		       maintenance branch, as noted in step 1. Select the correct branch and then click
+		       the "Run workflow" button in the panel. This will add an entry for this new workflow
+		       to the top of the list, where you can monitor its progress. Wait until the workflow
+		       completes before doing the next steps; it may take 2-10 minutes for the workflow to
+		       complete.
+		    3. Once it has completed, look at the github page where the results are published:
+		       <https://github.com/unicode-org/icu/packages/1954682/versions>.
+		       * If the latest version has a 2-part version of the form nn.1-SNAPSHOT (which will
+		         generally not happen until after ICU has branched to a maint branch and is at rc),
+		         then use the second of the two icu4j.version lines below (uncomment it, comment out
+		         the other one) and make sure it reflects the latest version published to the github
+		         page above. If it already does, then you are done, nothing needs doing in CLDR,
+		         which will automatically use the latest version published to the github maven repo;
+		         at that point CLDR should not encounter new compatibility problems with post-rc
+		         changes in ICU (if there are any).
+		       * If the latest version has a 3-part version of the form nn.0.1-SNAPSHOT, then you
+		         need to specify an explicit dated version, not just a version number. Click on that
+		         version number to get the detail page for that version. In the detail page there
+		         is a list of assets on the right side, with names like
+		         "icu4j-78.0.1-20250924.061614-9.jar.md5"; these have a version (here 78.0.1), a
+		         date.time stamp (here 20250924.061614) and a sequence number (here 9). For the
+		         topmost entry, extract the middle section consisting of just those parts (i.e.
+		         "78.0.1-20250924.061614-9" in this example). Use the first of the
+		         two icu4j.version lines below (uncomment it, comment out the other one) and update
+		         it to use this extracted value.
+		    4. If you have updated this pom file, then you need to run the usual pre-commit tests
+		       as with any PR. And of course these tests may sometimes reveal compatibility issues
+		       between CLDR and the updated version of ICU, which would need to be fixed as part
+		       of the PR.
+			-->
+		<icu4j.version>78.0.1-20250924.061614-9</icu4j.version> <!-- before ICU rc, specific dated version -->
 		<!--<icu4j.version>78.1-SNAPSHOT</icu4j.version>--> <!-- after ICU rc, latest published version -->
 		<junit.jupiter.version>5.8.2</junit.jupiter.version>
 		<maven-surefire-plugin-version>3.3.1</maven-surefire-plugin-version>

@@ -1154,22 +1154,50 @@ Usage example: In English (which only defines language-specific rules for “one
 
 ### <a name="Plural_rules_syntax" href="#Plural_rules_syntax">Plural rules syntax</a>
 
-The xml value for each pluralRule is a _condition_ with a boolean result.
-That value specifies whether that rule (i.e. that plural form) applies to a given _source number N_ in sampleValue syntax, where _N_ can be expressed as a decimal fraction or with compact decimal formatting.
-The compact decimal formatting is denoted by a special notation in the syntax, e.g., “1.2c6” for “1.2M”.
-Clients of CLDR may express all the rules for a locale using the following syntax:
+The plural categories for each locale are determined by evaluating rules in a plural rule set, which is defined by the contents of the element `pluralRules`.
+For example:
 
+```
+<plurals type="cardinal">
+…
+  <pluralRules locales="am as bn doi fa gu hi kn kok kok_Latn pcm zu">
+    <pluralRule count="one">i = 0 or n = 1 @integer 0, 1 @decimal 0.0~1.0, 0.00~0.04</pluralRule>
+    <pluralRule count="other"> @integer 2~17, 100, 1000, 10000, 100000, 1000000, … @decimal 1.1~2.6, 10.0, 100.0, 1000.0, 10000.0, 100000.0, 1000000.0, …</pluralRule>
+  </pluralRules>
+…
+```
+- The `type` attribute is currently either `cardinal` (plural) or `ordinal` (1st, 2nd, …).
+- The `locales` attribute lists all the locales that have those `pluralRules`. (No locale can be listed more than once for the same `type`.)
+- Each `pluralRule` associates a plural category (the value of the attribute `count`) with a `condition` and `samples`.
+There one exception: there is no explicit condition for `other`.
+- The plural categories are currently limited to {`zero`, `one`, `two`, `few`, `many`, `other`} .
+- The `other` category is mandatory: any particular locale may have any combination of {`zero`, `one`, `two`, `few`, `many`}, from none to all.
+
+The pluralRules can be expressed as a single string. For example, ICU uses the following syntax
 ```
 rules         = rule (';' rule)*
-rule          = keyword ':' condition samples
+rule          = category ':' condition samples
               | 'other' ':' samples
-keyword       = [a-z]+
-keyword       = [a-z]+
+category      = [a-z]+
+condition     // as below
+samples       // as below
 ```
 
-In CLDR, the keyword is the attribute value of 'count'. Those values in CLDR are currently limited to just what is in the DTD, but clients may support other values.
+In order to determine the plural category for a given number, each `pluralRule` is evaluated in the order: {`zero`, `one`, `two`, `few`, `many`}
+- If any rule evaluates to `true`, then the corresponding plural category is returned.
+- If no other category is returned, then `other` is.
+It is possible for two rules in {`zero`, `one`, `two`, `few`, `many`} to _overlap_, to both evaluate to `true` for the same number.
+(That is generally avoided for the CLDR rules, except in cases where a later condition (in evaluation order) would be overly complicated.)
+The rules should be constructed so that each listed plural category is non-empty.
+(This is true for the CLDR data.)
 
-The conditions themselves have the following syntax.
+The `samples` list one or more numbers with that plural category.
+Thus they do not include numbers where previous conditions (in the order {`zero`, `one`, `two`, `few`, `many`, `other`} would also evaluate to true.
+Each sample number _N_ is a decimal fraction, optionally with compact decimal formatting.
+Note that _N_ may have trailing fractional zeros, since those are significant for determining plural categories for many languages.
+The compact decimal formatting is denoted by a special notation in the syntax, e.g., “1.2c6” for “1.2M”.
+
+The conditions and samples have the following syntax:
 
 ```
 condition       = and_condition ('or' and_condition)*
@@ -1282,6 +1310,17 @@ The values of relations are defined according to the operand as follows. Importa
 | one: n = 1 <br/> few: n = 2..4 | This defines two rules, for 'one' and 'few'. The condition for 'one' is "n = 1" which means that the number must be equal to 1 for this condition to pass. The condition for 'few' is "n = 2..4" which means that the number must be between 2 and 4 inclusive for this condition to pass. All other numbers are assigned the keyword 'other' by the default rule. |
 | zero: n = 0 or n != 1 and n mod 100 = 1..19 <br/> one: n = 1 | Each rule must not overlap with other rules. Also note that a modulus is applied to n in the last rule, thus its condition holds for 119, 219, 319, … |
 | one: n = 1 <br/> few: n mod 10 = 2..4 and n mod 100 != 12..14 | This illustrates conjunction and negation. The condition for 'few' has two parts, both of which must be met: "n mod 10 = 2..4" and "n mod 100 != 12..14". The first part applies a modulus to n before the test as in the previous example. The second part applies a different modulus and also uses negation, thus it matches all numbers _not_ in 12, 13, 14, 112, 113, 114, 212, 213, 214, … |
+
+#### Common Plural Rule Expressions ####
+
+| Expression | Comments |
+| --- | --- |
+| n = 1 | n can be 1, 1.0, 1.00, … but no greater |
+| i = 1 | n can be 1, 1.0, 1.00, … _and_ 1.1, 1.99999, … but no greater |
+| i % 10 = 1 | Uses the integer remainder, where 21.33 % 10 ⇒ 1 |
+| n % 10 = 1 | Uses the decimal remainder, where 21.33 % 10 ⇒ 1.33. Equivalent to `i % 10 = 1 and f = 0` |
+| i % 10 = 3 | The last integer digit of `n` equals 3 |
+| i % 1000 = 33 | The last 3 integer digits of `n` equal 33 |
 
 #### <a name="Samples" href="#Samples">Samples</a>
 

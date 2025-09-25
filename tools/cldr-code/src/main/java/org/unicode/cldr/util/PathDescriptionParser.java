@@ -36,7 +36,6 @@ public class PathDescriptionParser {
                     "Failed parsing " + fileName + ":" + n + ": at " + section + "#" + description,
                     t);
         }
-
         return lookup;
     }
 
@@ -159,6 +158,10 @@ public class PathDescriptionParser {
     private void end() {
         if (!inReferences()) {
             throw new IllegalArgumentException("End of lines when not in # " + REFERENCES);
+        }
+        if (getReferences().isEmpty()) {
+            throw new IllegalArgumentException(
+                    "No references were found in section: " + REFERENCES);
         }
         // no need to call endHeader here as there isn't anything to terminate in references.
     }

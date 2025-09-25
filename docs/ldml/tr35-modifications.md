@@ -92,7 +92,7 @@ The rules have been converted to a “flat” format, which is easier for client
 
 ### MessageFormat
 #### Normative changes to Stable parts of the specification:
-* Syntax and data model errors are now required to be prioritized over other errors ([\#1011](https://github.com/unicode-org/message-format-wg/pull/1011))  
+* Syntax and data model errors now must be prioritized over other errors ([\#1011](https://github.com/unicode-org/message-format-wg/pull/1011))  
 * The Default Bidi Strategy is now required and default ([\#1066](https://github.com/unicode-org/message-format-wg/pull/1066))  
 * The `:offset` function (previously named `:math`) is now available as Stable ([\#1073](https://github.com/unicode-org/message-format-wg/pull/1073))
 

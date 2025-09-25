@@ -77,7 +77,8 @@ For a full listing, see [Coverage Levels](https://unicode.org/cldr/charts/dev/su
 
 The following are the most significant changes to the specification (LDML).
 
-- **TBD Changes will be added before the beta, on Oct 1.**
+- **A summary of the changes will be added for the beta on Oct 1.**
+**In the meantime, see [Modifications section](https://www.unicode.org/reports/tr35/proposed.html#Modifications) for the detailed modifications.**
 
 There are many more changes that are important to implementations, such as changes to certain identifier syntax and various algorithms.
 See the [Modifications section](https://www.unicode.org/reports/tr35/proposed.html#Modifications) of the specification for details.

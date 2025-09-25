@@ -189,7 +189,7 @@ For a full listing, see [Supplemental Delta].
 #### Language Data
 - [language_script.tsv](https://github.com/unicode-org/cldr/blob/main/tools/cldr-code/src/main/resources/org/unicode/cldr/util/data/language_script.tsv) updated to include only one "Primary" writing system for languages that used to have multiple options ([CLDR-18114][]).
 Notable changes are:
-  - Panjabi `pa` has changed the primary to Gurumukhi `Guru` because widespread usage is in the Gurumukhi script -- while most speakers are in Pakistan `PK`, written usage remains Gurumukhi.
+  - Punjabi `pa` has changed the primary script to Gurmukhi `Guru` because widespread usage is in the Gurmukhi script. While most speakers are in Pakistan `PK`, written usage remains Gurmukhi.
   - Azerbaijani `az` and Northern Kurdish `ku` primarily are used in Latin `Latn`.
   - Chinese languages `zh`, `hak`, and `nan` are matched to Simplified Han writing `Hans` -- except Cantonese `yue`, which is known for a preference in Traditional Han writing `Hant`.
   - Hassiniyya `mey` was missing significant data, it should be associated with the Arabic `Arab` writing system by default, not Latin `Latn`.
@@ -287,7 +287,7 @@ The following files are new in the release:
 
 ## Migration
 
-- Number patterns that did not have a specific numberSystem (such as latn or arab) had been deprecated for many releases, and were finally removed.
+- Number patterns that did not have a specific numberSystem (such as `latn` or `arab`) had been deprecated for many releases, and were finally removed.
 - Additionally, language and territory data in `languageData` and `territoryInfo` data received significant updates to improve accuracy and maintainability [CLDR-18087]
 - The likely language for Belarus changed to Russian [CLDR-14479]
 - **TBD Additional items plus future guidance will be added before the spec-beta.**

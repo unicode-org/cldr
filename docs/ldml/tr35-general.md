@@ -954,21 +954,20 @@ per
 * [ wfc: The token 'per' is the single value in \<unitIdComponent type="per"\> ]
 
 <a name='product_unit' href='#product_unit'>product_unit</a>
-<br/>:= single_unit ("-" single_unit)* ("-" pu_single_unit)*
-<br/>   | pu_single_unit ("-" pu_single_unit)*
-* [ wfc:  No pu\_single\_unit may precede a single unit ]
+<br/>:= single_unit ("-" single_unit)*
 * *Examples:*
     * foot-pound-force
 
 <a name='single_unit' href='#single_unit'>single_unit</a>
 <br/>:= dimensionality_prefix? simple_unit
 <br/>   | unit_constant
+<br/>   | pu_single_unit
 * *Examples:*
     * square-kilometer
     * 100
 
 <a name='pu_single_unit' href='#pu_single_unit'>pu_single_unit</a>
-<br/>:= := ("xxx-" | "x-") [a-z0-9]{3,8}
+<br/>:= ("xxx-" | "x-") [a-z0-9]{3,8}
 * *Examples:*
     * square-xxx-knuts (a Harry Potter unit)
 * *Notes:*
@@ -1063,9 +1062,12 @@ per
     * The set of suffix components often expands in new releases, so the requirement to be one of these attribute values is a validity constraint, not a well-formedness constraint.
 
 <a name='mixed_unit_identifier' href='#mixed_unit_identifier'>mixed_unit_identifier</a>
-<br/>:= (single_unit | pu_single_unit) ("-" and "-" (single_unit | pu_single_unit ))*
+<br/>:= single_unit ("-" and "-" single_unit)*
+* [ wfc: Each part separated by -and- must be convertible to the others.]
+* Note: in the normalized form, each part is smaller than the subsequent one: thus `inch-and-foot` normalizes to `foot-and-inch`.
 * *Examples:*
     * foot-and-inch
+    * degree-and-arc-minute-and-arc-second
 
 and
 <br/>:= "and"

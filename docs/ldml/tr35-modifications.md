@@ -103,7 +103,7 @@ A key without output may be indicated by means of the `keyId=` attribute on the 
 
 * The Modifications section was split out to its own file, [Appendix A, Modifications](tr35-modifications.md)
 
-### Asknowledgments section
+### Acknowledgments section
 
 * The Acknowledgments section was split out to its own file, [Acknowledgments](tr35-acknowledgments.md#acknowledgments)
 

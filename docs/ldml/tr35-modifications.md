@@ -62,29 +62,28 @@ The LDML specification is divided into the following parts:
   
 ### Misc.
 * [Character Elements](tr35-general.md#character-elements) Added new exemplar types.
-* [DTD Annotations](tr35.md#dtd_annotations) — Added the @CDATA annotation, to indicate which elements are generated with @CDATA format
+* [DTD Annotations](tr35.md#dtd_annotations) Added the @CDATA annotation, to indicate which elements are generated with @CDATA format
 * [Person Name Validation](tr35-personNames.md#person-name-validation) Added guidance for validating person names.
 
 ### DateTime formats
 
 * [Element dateTimeFormat](tr35-dates.md#dateTimeFormat) Added a new type `relative` for relative date/times, such as "tomorrow at 10:00",
-and updated the guidelines on how to use the different `dateTimeFormat` types.
+and updated the guidelines for using the different `dateTimeFormat` types.
 * [Using Time Zone Names](tr35-dates.md#using-time-zone-names) Removed the "specific location format".
 * [timeZoneNames Elements Used for Fallback](tr35-dates.md#timeZoneNames-elements-used-for-fallback) Added the `gmtUnknownFormat`, to indicate when the timezone is unknown.
 * [Metazone Names](tr35-dates.md#metazone-names) Added `usesMetazone`, to specify which offset is considered standard time, and which offset is considered daylight.
-* [Time Zone Format Terminology](tr35-dates.md#time-zone-format-terminology) Added the **Localized GMT format:** (replacing the **Specific location format:**).
+* [Time Zone Format Terminology](tr35-dates.md#time-zone-format-terminology) Added the **Localized GMT format** (replacing the **Specific location format**).
 This affects the behavior of the `z` timezone format symbol.
 There is also now a mechanism for finding the region code from short timezone identifier, which is used for the _non-location formats (generic or specific)_
 
 ### Numbers
-* [Numbers](tr35-numbers.md)
 * [Plural rules syntax](tr35-numbers.md#plural-rules-syntax) Added substantial clarifications and new examples.
 The order of execution is also clearly specified.
 * [Rule-Based Number Formatting]() Added a full specification.
 The rules have been converted to a “flat” format, which is easier for clients to handle (the old format will be retained for one more release).
 
 ### Units of Measurement
-* [Unit Syntax](tr35-general.md#unit-syntax) product_unit has been simplified, and mixed units have an additional well-formedness constraint.
+* [Unit Syntax](tr35-general.md#unit-syntax) Simplified the EBNF `product_unit`, and added an additional well-formedness constraint for a mixed units.
 * [Unit Identifier Normalization](#tr35-general.md) Modified the normalization process
 * [Mixed Units](tr35-general.md#mixed-units) Modified the guidance for handling precision.
 

@@ -37,6 +37,7 @@ class LdmlConvertRules {
                     "currency:displayName:count",
                     "numbers:symbols:numberSystem",
                     "numbers:decimalFormats:numberSystem",
+                    "numbers:rationalFormats:numberSystem",
                     "numbers:currencyFormats:numberSystem",
                     "numbers:percentFormats:numberSystem",
                     "numbers:scientificFormats:numberSystem",

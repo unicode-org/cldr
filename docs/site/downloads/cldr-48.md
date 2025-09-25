@@ -24,10 +24,11 @@ This data is also a factor in determining which languages are supported on mobil
 ### Changes
 
 The most significant changes in this release are:
-- Updated for Unicode 17, including new names and search terms for new emoji, new sort-order, Han→Latn romanization additions for many characters.
+- Updated for Unicode 17, including new names and search terms for new emoji, new sort-order, Han → Latin romanization additions for many characters.
 - Updated to the latest external standards and data sources, such as the language subtag registry, UN M49 macro regions, ISO 4217 currencies, etc.
 - Many enhancements of the CLDR specification (LDML), including:
-  - Further additions to the Message Format 2.0 spec.
+  - **TBD A summary of the changes will be added for the spec-beta.**
+**In the meantime, see the [Modifications section](https://www.unicode.org/reports/tr35/dev/tr35-modifications.html).**
 - Many additions to language data including:
     - Likely Subtags, for deriving the likely script and region from the language (used in many processes).
     - Language populations in countries: significant updates to improve accuracy and maintainability.
@@ -77,11 +78,11 @@ For a full listing, see [Coverage Levels](https://unicode.org/cldr/charts/dev/su
 
 The following are the most significant changes to the specification (LDML).
 
-- **A summary of the changes will be added for the beta on Oct 1.**
-**In the meantime, see [Modifications section](https://www.unicode.org/reports/tr35/proposed.html#Modifications) for the detailed modifications.**
+- **TBD A summary of the changes will be added for the spec-beta.**
+**In the meantime, see the [Modifications section](https://www.unicode.org/reports/tr35/dev/tr35-modifications.html).**
 
 There are many more changes that are important to implementations, such as changes to certain identifier syntax and various algorithms.
-See the [Modifications section](https://www.unicode.org/reports/tr35/proposed.html#Modifications) of the specification for details.
+See the [Modifications section](https://www.unicode.org/reports/tr35/dev/tr35-modifications.html) of the specification for details.
 
 ## Data Changes
 
@@ -109,7 +110,7 @@ See the [Modifications section](https://www.unicode.org/reports/tr35/proposed.ht
            - Chinese
            - Gregorian
 - Recent or upcoming currency names were added (XCG, ZWG).
-- To match ISO, translations for the region Sark (CQ) was added.
+- To match ISO, added translations for the region Sark (CQ).
 - There are now combination formats for _relative_ dates + times, such as “tomorrow _at_ 12:30”.
 In some languages the use of a relative date such as “tomorrow” or “2 days ago” requires a _different_ combining pattern than for a fixed date like “March 20”.
 A new “relative” variant is introduced to allow for those languages.
@@ -122,7 +123,8 @@ The alphaNextToNumber patterns allow for a space between letter currency symbols
 - For the Etc/Unknown timezone, the `exemplarCity` name was changed from “Unknown City” to “Unknown Location” for clarity.
 - Rational number formats were added, allowing for formats like 5½.
 - Certain concentration units were reworked, for “parts per million”, “parts per billion”.
-- Additional units were added for scientific contexts (coulombs, farads, teslas, etc.) and for English systems (fortnights, imperial pints, etc.). However, translation of these English system names were not required.
+- Additional units were added for scientific contexts (coulombs, farads, teslas, etc.) and for English systems (fortnights, imperial pints, etc.).
+However, translation of these English system names was not required.
 - Additional guidance on translation was added, leading to refined translations or transcreations.
 
 #### Specific Locales
@@ -153,24 +155,29 @@ The explanations of usage are in the [Locale Changes](#locale-changes) section.
     - This “flattens” the rules into a format that is easier for implementations to use directly.
 
 #### supplementalData
-- `era` — the range of `code` values nows allows two letters before the first hyphen.
-- `languageData` — the `territories` attribute [`supplementalData.xml`](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalData.xml) was deprecated and data using it removed. The definition was unclear, and prone to misunderstanding — the more detailed data is in `territoryInfo`. ([CLDR-5708][])
+- `era` — the range of `code` values now allows two letters before the first hyphen.
+- `languageData` — the `territories` attribute [`supplementalData.xml`](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalData.xml) was deprecated and data using it removed.
+The definition was unclear, and prone to misunderstanding — the more detailed data is in `territoryInfo`. ([CLDR-5708][])
 - `usesMetazone` — adds two new attributes `stdOffset` and `dstOffset` so that implementations can use either "vanguard" or "rearguard" TZDB data sources.
 - `numberingSystem` — Unicode 17 data was added.
 
 #### ldmlBCP47
-- `type` — adds a new attibute `region`.
+- `type` — adds a new attribute `region`.
 - `keyboard3@conformsTo` — is updated to allow "48".
 
 ### BCP47 Data Changes
+
+For a full listing, see [BCP47 Delta].
+
 - `nu-tols` numbering system for Tolong Siki digits
 - One additional zone: 	America/Coyhaique = tz-clcxq
 - Seven region attributes for determining regions for timezones
 - Three additional aliases
 
-For a full listing, see [BCP47 Delta].
 
 ### Supplemental Data Changes
+
+For a full listing, see [Supplemental Delta].
 
 #### Identifiers
 - Added aliases/deprecations for languages (dek, mnk, nte).
@@ -180,12 +187,13 @@ For a full listing, see [BCP47 Delta].
   - deprecated unit IDs permillion, portion, portion-per-1e9, 100-kilometer.
 
 #### Language Data
-- [language_script.tsv](https://github.com/unicode-org/cldr/blob/main/tools/cldr-code/src/main/resources/org/unicode/cldr/util/data/language_script.tsv) updated to include only one "Primary" writing system for languages that used to have multiple options ([CLDR-18114][]). Notable changes are:
-  - Panjabi `pa` has the primary  to Gurumukhi `Guru` because widespread usage is in the Gurumukhi script -- while most speakers are in Pakistan `PK`, written usage remains Gurumukhi.
+- [language_script.tsv](https://github.com/unicode-org/cldr/blob/main/tools/cldr-code/src/main/resources/org/unicode/cldr/util/data/language_script.tsv) updated to include only one "Primary" writing system for languages that used to have multiple options ([CLDR-18114][]).
+Notable changes are:
+  - Panjabi `pa` has changed the primary to Gurumukhi `Guru` because widespread usage is in the Gurumukhi script -- while most speakers are in Pakistan `PK`, written usage remains Gurumukhi.
   - Azerbaijani `az` and Northern Kurdish `ku` primarily are used in Latin `Latn`.
   - Chinese languages `zh`, `hak`, and `nan` are matched to Simplified Han writing `Hans` -- except Cantonese `yue`, which is known for a preference in Traditional Han writing `Hant`.
   - Hassiniyya `mey` was missing significant data, it should be associated with the Arabic `Arab` writing system by default, not Latin `Latn`.
-- 5 new language distance values are added (for fallback to zh).
+- 5 new language distance values are added (for fallback to `zh`).
 - Substantial updates to Language Info: additional languages in countries; revised population values, writing percentages, literacy percentages, and official status values.
 
 #### Likely Subtags
@@ -203,7 +211,7 @@ For a full listing, see [BCP47 Delta].
 - Day periods for kok, scn, hi_Latn
 
 #### Plural Rules
-- additions for cv, ie, kok, sgs
+- Additions for cv, ie, kok, sgs
 
 #### Currencies
 - Updates to the latest ISO currencies
@@ -212,13 +220,11 @@ For a full listing, see [BCP47 Delta].
 - IS changed to firstDay=sun
 - ku_SY adding H and hB
 
-For a full listing, see [Supplemental Delta].
-
 ### Transforms
+For a full listing, see [Transforms Delta].
+
 - Fixed problem in Gujarati → Latin romanization, with ૰
 - Updated to latest Unicode 17 data for Han → Latin, with very many changes.
-
-For a full listing, see [Transforms Delta].
 
 ### Number Spellout Data Changes
 
@@ -281,10 +287,10 @@ The following files are new in the release:
 
 ## Migration
 
-- Number patterns that did not have a specific numberSystem (such as latn or arab) had be deprecated for many releases, and were finally removed.
+- Number patterns that did not have a specific numberSystem (such as latn or arab) had been deprecated for many releases, and were finally removed.
 - Additionally, language and territory data in `languageData` and `territoryInfo` data received significant updates to improve accuracy and maintainability [CLDR-18087]
 - The likely language for Belarus changed to Russian [CLDR-14479]
-- **TBD Additional items plus future guidance will be added before the beta, on Oct 1.**
+- **TBD Additional items plus future guidance will be added before the spec-beta.**
 
 
 ### V49 advance warnings
@@ -305,8 +311,8 @@ These will be removed in the future, but note that they may be present in the ne
 
 ## Acknowledgments
 
-Many people have made significant contributions to CLDR and LDML;
-see the [Acknowledgments](/index/acknowledgments) page for a full listing.
+Many people have made significant contributions to CLDR and LDML.
+For a full listing, see the [Acknowledgments](https://www.unicode.org/reports/tr35/dev/tr35-acknowledgments.html).
 
 The Unicode [Terms of Use](https://unicode.org/copyright.html) apply to CLDR data;
 in particular, see [Exhibit 1](https://unicode.org/copyright.html#Exhibit1).

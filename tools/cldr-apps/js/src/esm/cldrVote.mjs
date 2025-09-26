@@ -52,17 +52,7 @@ function wireUpButton(button, tr, theRow, vHash) {
     return false;
   });
 
-  // proposal issues
-  if (tr.myProposal) {
-    if (button == tr.myProposal.button) {
-      button.className = "ichoice-x";
-      button.checked = true;
-      tr.lastOn = button;
-    } else {
-      button.className = "ichoice-o";
-      button.checked = false;
-    }
-  } else if (
+  if (
     theRow.voteVhash === vHash ||
     (theRow.voteVhash === undefined && vHash === null)
   ) {
@@ -110,13 +100,6 @@ async function handleWiredClick(tr, theRow, vHash, newValue, button) {
   // and scroll
   cldrLoad.showCurrentId();
 
-  if (tr.myProposal) {
-    const otherCell = tr.querySelector(".othercell");
-    if (otherCell) {
-      otherCell.removeChild(tr.myProposal);
-    }
-    tr.myProposal = null; // mark any pending proposal as invalid.
-  }
   tr.wait = true;
   cldrTable.resetLastShown();
   theRow.proposedResults = null;
@@ -208,8 +191,12 @@ function handleVoteSubmitted(json, tr, theRow, button, valToShow) {
       button.checked = false;
       cldrSurvey.hideLoader();
       if (json.testResults && (json.testWarnings || json.testErrors)) {
-        // tried to submit, have errs or warnings.
-        showProposedItem(tr.inputTd, tr, theRow, valToShow, json.testResults);
+        // Tried to submit, have errs or warnings.
+        // Caution: even though json is defined, it is NOT used here as the 5th argument
+        // for showProposedItem, which apparently depends on the 5th argument being
+        // undefined when called from here (handleVoteSubmitted), and only defined
+        // when called from handleVoteNotSubmitted.
+        showProposedItem(tr, theRow, valToShow, json.testResults);
       }
       if (CLDR_VOTE_DEBUG) {
         console.log(
@@ -232,7 +219,7 @@ function handleVoteNotSubmitted(json, tr, theRow, button, valToShow) {
     (json.statusAction && json.statusAction != "ALLOW") ||
     (json.testResults && (json.testWarnings || json.testErrors))
   ) {
-    showProposedItem(tr.inputTd, tr, theRow, valToShow, json.testResults, json);
+    showProposedItem(tr, theRow, valToShow, json.testResults, json);
   }
   button.className = "ichoice-o";
   button.checked = false;
@@ -285,61 +272,18 @@ function getSubmitUrl(xpstrid) {
 
 /**
  * Show an item that's not in the saved data, but has been proposed newly by the user.
- * Called only by loadHandler in handleWiredClick.
  * Used for "+" button in table.
+ *
+ * Caution: if called from handleVoteSubmitted, the fifth argument (json) is undefined
+ * (even though there is json from the server response), and that appears to be necessary
+ * for this function to work right, as it stands. The fifth argument (json) is only defined
+ * when called from handleVoteNotSubmitted. This function cries out to be thoroughly refactored,
+ * but that may only be feasible in conjunction with a thorough analysis or refactoring of the
+ * back end.
  */
-function showProposedItem(inTd, tr, theRow, value, tests, json) {
-  // Find where our value went.
-  var ourItem = cldrSurvey.findItemByValue(theRow.items, value);
-  var testKind = getTestKind(tests);
-  var ourDiv = null;
-  var wrap;
-  if (!ourItem) {
-    /*
-     * This may happen if, for example, the user types a space (" ") in
-     * the input pop-up window and presses Enter. The value has been rejected
-     * by the server. Then we show an additional pop-up window with the error message
-     * from the server like "Input Processor Error: DAIP returned a 0 length string"
-     */
-    ourDiv = document.createElement("div");
-    var newButton = cldrSurvey.cloneAnon(
-      document.getElementById("proto-button")
-    );
-    const otherCell = tr.querySelector(".othercell");
-    if (otherCell && tr.myProposal) {
-      otherCell.removeChild(tr.myProposal);
-    }
-    tr.myProposal = ourDiv;
-    tr.myProposal.value = value;
-    tr.myProposal.button = newButton;
-    if (newButton) {
-      if (value === "") {
-        newButton.value = cldrTable.EMPTY_ELEMENT_VALUE; // Special case for ''
-      } else {
-        newButton.value = value;
-      }
-      if (tr.lastOn) {
-        tr.lastOn.checked = false;
-        tr.lastOn.className = "ichoice-o";
-      }
-      wireUpButton(newButton, tr, theRow, "[retry]", {
-        value: value,
-      });
-      wrap = wrapRadio(newButton);
-      ourDiv.appendChild(wrap);
-    }
-    var h3 = document.createElement("span");
-    appendItem(h3, value, "value");
-    ourDiv.appendChild(h3);
-    if (otherCell) {
-      otherCell.appendChild(tr.myProposal);
-    }
-  } else {
-    ourDiv = ourItem.div;
-  }
+function showProposedItem(tr, theRow, value, tests, json) {
+  const ourItem = cldrSurvey.findItemByValue(theRow.items, value);
   if (json && !cldrSurvey.parseStatusAction(json.statusAction).vote) {
-    ourDiv.className = "d-item-err";
-
     const replaceErrors =
       json.statusAction === "FORBID_PERMANENT_WITHOUT_FORUM";
     if (replaceErrors) {
@@ -355,82 +299,68 @@ function showProposedItem(inTd, tr, theRow, value, tests, json) {
       ];
     }
 
+    const valueMessage = value === "" ? "Abstention" : "Value: " + value;
+
     // TODO: modernize to obviate cldrSurvey.testsToHtml
     // Reference: https://unicode-org.atlassian.net/browse/CLDR-18013
-    const description = cldrSurvey.testsToHtml(tests);
-    cldrNotify.openWithHtml("Response to voting", description);
+    const testDescription = cldrSurvey.testsToHtml(tests);
     if (ourItem || (replaceErrors && value === "") /* Abstain */) {
-      const message = cldrText.sub(
-        "StatusAction_msg",
-        [cldrText.get("StatusAction_" + json.statusAction)],
-        "p",
-        ""
-      );
-      const description = cldrText.sub(
-        "StatusAction_popupmsg",
-        [cldrText.get("StatusAction_" + json.statusAction), theRow.code],
-        "p",
-        ""
-      );
-      cldrNotify.error(message, description);
+      const statusAction = cldrText.get("StatusAction_" + json.statusAction);
+      const message = cldrText.sub("StatusAction_msg", [statusAction]);
+      /*
+       * This may happen if, for example, the user types a space (" ") in
+       * the input pop-up window and presses Enter. The value has been rejected
+       * by the server. Then we show an additional pop-up window with the error message
+       * from the server like "Input Processor Error: DAIP returned a 0 length string"
+       */
+      const statusMessage = cldrText.sub("StatusAction_popupmsg", [
+        statusAction,
+        theRow.code,
+      ]);
+      const description =
+        valueMessage + "<br>" + statusMessage + " " + testDescription;
+      cldrNotify.openWithHtml(message, description);
+    } else {
+      const description = valueMessage + "<br>" + testDescription;
+      cldrNotify.openWithHtml("Response to voting", description);
     }
     return;
-  } else if (json && json.didNotSubmit) {
-    ourDiv.className = "d-item-err";
+  } else if (json?.didNotSubmit) {
     const description = "Did not submit this value: " + json.didNotSubmit;
     cldrNotify.error("Not submitted", description);
     return;
-  } else {
-    cldrTable.setDivClassSelected(ourDiv, testKind);
   }
-
+  // Note: it is possible to arrive here (as of 2025-09), for example, if the vote was accepted but has warnings
+  const ourDiv = ourItem ? ourItem.div : document.createElement("div");
+  const testKind = getTestKind(tests);
+  cldrTable.setDivClassSelected(ourDiv, testKind);
   if (testKind || !ourItem) {
-    var div3 = document.createElement("div");
-    var newHtml = "";
-    newHtml += cldrSurvey.testsToHtml(tests);
-
+    const div3 = document.createElement("div");
     if (!ourItem) {
-      var h3 = document.createElement("h3");
+      const h3 = document.createElement("h3");
       appendItem(h3, value, "value");
       h3.className = "span";
       div3.appendChild(h3);
     }
-    var newDiv = document.createElement("div");
+    const newDiv = document.createElement("div");
     div3.appendChild(newDiv);
-    newDiv.innerHTML = newHtml;
+    newDiv.innerHTML = cldrSurvey.testsToHtml(tests);
     if (json && !parseStatusAction(json.statusAction).vote) {
-      div3.appendChild(
-        cldrDom.createChunk(
-          cldrText.sub(
-            "StatusAction_msg",
-            [cldrText.get("StatusAction_" + json.statusAction)],
-            "p",
-            ""
-          )
-        )
-      );
+      const text = cldrText.sub("StatusAction_msg", [
+        cldrText.get("StatusAction_" + json.statusAction),
+      ]);
+      div3.appendChild(cldrDom.createChunk(text, "p", ""));
     }
 
     div3.popParent = tr;
 
     // will replace any existing function
-    var ourShowFn = function (showDiv) {
-      var retFn;
-      if (ourItem && ourItem.showFn) {
-        retFn = ourItem.showFn(showDiv);
-      } else {
-        retFn = null;
-      }
-      if (tr.myProposal && value == tr.myProposal.value) {
-        // make sure it wasn't submitted twice
-        showDiv.appendChild(div3);
-      }
-      return retFn;
+    const ourShowFn = function (showDiv) {
+      return ourItem?.showFn ? ourItem.showFn(showDiv) : null;
     };
     cldrTable.listen(null, tr, ourDiv, ourShowFn);
     cldrInfo.showRowObjFunc(tr, ourDiv, ourShowFn);
   }
-  return false;
 }
 
 /**

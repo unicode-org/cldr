@@ -893,16 +893,6 @@ function updateRowOthersCell(tr, theRow, cell, protoButton) {
   if (!hadOtherItems /*!onIE*/) {
     listen(null, tr, cell);
   }
-  if (
-    tr.myProposal &&
-    tr.myProposal.value &&
-    !cldrSurvey.findItemByValue(theRow.items, tr.myProposal.value)
-  ) {
-    // add back my proposal
-    cell.appendChild(tr.myProposal);
-  } else {
-    tr.myProposal = null; // not needed
-  }
 }
 
 /**

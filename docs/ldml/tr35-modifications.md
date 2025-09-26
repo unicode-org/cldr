@@ -83,7 +83,7 @@ The order of execution is also clearly specified.
 The rules have been converted to a “flat” format, which is easier for clients to handle (the old format will be retained for one more release).
 
 ### Units of Measurement
-* [Unit Syntax](tr35-general.md#unit-syntax) Simplified the EBNF `product_unit`, and added an additional well-formedness constraint for mixed units.
+* [Unit Syntax](tr35-general.md#unit-syntax) Simplified the EBNF `product_unit` and added an additional well-formedness constraint for mixed units.
 * [Unit Identifier Normalization](#tr35-general.md) Modified the normalization process
 * [Mixed Units](tr35-general.md#mixed-units) Modified the guidance for handling precision.
 

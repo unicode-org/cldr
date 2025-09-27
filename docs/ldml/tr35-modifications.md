@@ -69,6 +69,7 @@ The LDML specification is divided into the following parts:
 
 * [Element dateTimeFormat](tr35-dates.md#dateTimeFormat) Added a new type `relative` for relative date/times, such as "tomorrow at 10:00",
 and updated the guidelines for using the different `dateTimeFormat` types.
+* [Element intervalFormats](tr35-dates.md#intervalFormats) Clarified the quoting of literal text in intervalFormat patterns.
 * [Using Time Zone Names](tr35-dates.md#using-time-zone-names) Removed the "specific location format".
 * [timeZoneNames Elements Used for Fallback](tr35-dates.md#timeZoneNames-elements-used-for-fallback) Added the `gmtUnknownFormat`, to indicate when the timezone is unknown.
 * [Metazone Names](tr35-dates.md#metazone-names) Added `usesMetazone`, to specify which offset is considered standard time, and which offset is considered daylight.

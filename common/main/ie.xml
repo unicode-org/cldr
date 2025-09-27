@@ -922,7 +922,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yyyyQQQQ" draft="unconfirmed">QQQQ y G</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
-						<intervalFormatFallback draft="unconfirmed">{0} til {1}</intervalFormatFallback>
+						<intervalFormatFallback draft="unconfirmed">{0} 'til' {1}</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
 							<greatestDifference id="B" draft="unconfirmed">↑↑↑</greatestDifference>
 							<greatestDifference id="h" draft="unconfirmed">h–h 'h'. B</greatestDifference>
@@ -1423,7 +1423,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<appendItem request="Timezone">↑↑↑</appendItem>
 					</appendItems>
 					<intervalFormats>
-						<intervalFormatFallback>{0} til {1}</intervalFormatFallback>
+						<intervalFormatFallback>{0} 'til' {1}</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
 							<greatestDifference id="B" draft="unconfirmed">↑↑↑</greatestDifference>
 							<greatestDifference id="h" draft="unconfirmed">h – h B</greatestDifference>

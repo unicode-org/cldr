@@ -1068,16 +1068,33 @@ As in other cases, **narrow** may be ambiguous out of context.
 <!ATTLIST era aliases NMTOKENS #IMPLIED >
 ```
 
-The `<calendarData>` element now provides only locale-independent data about calendar behaviors via its `<calendar>` subelements, which for each calendar can specify the astronomical basis of the calendar (solar, lunar, etc.) and the date ranges for its eras.
-
-Era start or end dates are specified in terms of the equivalent proleptic Gregorian date (in "y-M-d" format). Eras may be open-ended, with unspecified start or end dates. For example, here are the eras for the Gregorian calendar:
+The `<calendarData>` element now provides only locale-independent data about calendar behaviors via its `<calendar>` subelements,
+which for each calendar can specify the astronomical basis of the calendar (solar, lunar, etc.) and the date ranges for its eras.
+For example:
 
 ```xml
-<era type="0" end="0-12-31" code="gregory-inverse" aliases="bc bce"/>
-<era type="1" start="1-01-01" code="gregory" aliases="ad ce"/>
+<calendar type="gregorian">
+  <calendarSystem type="solar" />
+  <eras>
+    <era type="0" end="0-12-31" code="bce" aliases="bc"/> <!-- Before Common Era, Before Christ -->
+    <era type="1" start="1-01-01" code="ce" aliases="ad"/> <!-- Common Era, Anno Domini -->
+  </eras>
+</calendar>
 ```
+The `type` has an integer value. 
+The type values do not have to start at 0, nor be contiguous.
+However, they must be unique for the calendar, and define the ordering of `era`s within that calendar.
 
-For a sequence of eras with specified start dates, the end of each era need not be explicitly specified (it is assumed to match the start of the subsequent era). For example, here are the first few eras for the Japanese calendar:
+Era `start` or `end` dates are specified in terms of the equivalent _proleptic_ Gregorian date in the format "yyyy-MM-dd", such as 1842-01-01.
+These behave the same as the `to` and `from` attributes described in [Date and Date Ranges](tr35.md#date-and-date-ranges).
+
+For the first era, the start date is -∞ (to the limit of the datetime datatype) whether or not there is a `start` attribute.
+This may result in negative years.
+For the last era, the end date is  ∞ (to the limit of the datetime datatype), whether or not there is an `end` attribute.
+The "first" and "last" eras are _after_ any import of eras using the the `inheritEras` element (see below).
+
+For a sequence of eras with specified start dates, the end of each era need not be explicitly specified (it is assumed to match the start of the subsequent era).
+For example, here are the first few eras for the Japanese calendar:
 
 ```xml
 <era type="0" start="645-6-19" />
@@ -1086,22 +1103,27 @@ For a sequence of eras with specified start dates, the end of each era need not 
 …
 ```
 
-Some eras have additional `code` and `aliases` attributes that define invariant strings for identifying the eras. The `code` is a single globally unique identifier, and `aliases` are space-separated identifiers unique within the calendar. The code and aliases follow the following rules:
+The following are illegal:
+- an undefined transition: one era with no `end`, with the following era having no `start` attribute
+- an overlap: one era with an `end`, with the following era having a `start` before that `end`
+- a discontinuity: one era with an `end`, with the following era having a `start` that is not immediately after the end.
 
-1. Every calendar has either an era with a `code` that is the same as the BCP-47 name of that calendar or an `inheritEras` element pointing to another calendar with such an era. This era should be used for anchoring the "extended year" in the calendar (`u` in the date format pattern).
-2. Eras that count backwards (larger numbers for older years) are suffixed with `-inverse`.
-3. If the same era code is used in multiple calendars, then the calculations for year, month, and day in that era must be the same in all calendars in which it is used. For example, the `ethioaa` era is used in two calendar systems.
+Eras may have additional `code` and `aliases` attributes that define invariant strings for identifying the eras.
+The `code` is a single globally unique identifier, and `aliases` are space-separated identifiers unique within the calendar.
 
-If a `<calendar>` contains an `<inheritEras/>` element, all eras from the specified calendar should be inserted in order into the sequence of eras for the current calendar and follow the same start and end date rules. For example:
+If a `<calendar>` contains an `<inheritEras/>` element, all eras from the specified calendar should be inserted in order into the sequence of eras for the current calendar and follow the same start and end date rules.
+For example:
 
 ```xml
 <calendar type="japanese">
-    <inheritEras calendar="gregorian" />
-    <eras>
-        <era type="0" start="645-6-19"/>
-        <era type="1" start="650-2-15"/>
-        <!-- ... -->
-    </eras>
+  <inheritEras calendar="gregorian" />
+  <eras>
+    <era type="232" start="1868-10-23" code="meiji"/>
+    <era type="233" start="1912-07-30" code="taisho"/>
+    <era type="234" start="1926-12-25" code="showa"/>
+    <era type="235" start="1989-01-08" code="heisei"/>
+    <era type="236" start="2019-05-01" code="reiwa"/>
+  </eras>
 </calendar>
 ```
 

@@ -1094,12 +1094,12 @@ For the last era, the end date is  ∞ (to the limit of the datetime datatype), 
 The "first" and "last" eras are _after_ any import of eras using the the `inheritEras` element (see below).
 
 For a sequence of eras with specified start dates, the end of each era need not be explicitly specified (it is assumed to match the start of the subsequent era).
-For example, here are the first few eras for the Japanese calendar:
+For example, here some eras for the Japanese calendar:
 
 ```xml
-<era type="0" start="645-6-19" />
-<era type="1" start="650-2-15" />
-<era type="2" start="672-1-1" />
+    <era type="234" start="1926-12-25" code="showa"/>
+    <era type="235" start="1989-01-08" code="heisei"/>
+    <era type="236" start="2019-05-01" code="reiwa"/>
 …
 ```
 

@@ -59,6 +59,9 @@ The LDML specification is divided into the following parts:
 
 ### Locale Identifiers
 * [Special Script Codes](tr35.md#special-script-codes) Added the `Hntl` compound script. (This is also reflected in the `<scriptData>` elements in supplementalData.xml.)
+* [Likely Subtags](tr35.md#likely-subtags) Changed the Canonicalize step to point to the section on canonicalization.
+* [Unicode Locale Identifier](https://unicode.org/reports/tr35/#unicode-locale-identifier) Changed the `attribute` component in the EBNF to be `uattribute` for consistency with `ufield`, etc.
+and to reduce confusion with XML attributes.
   
 ### Misc.
 * [Character Elements](tr35-general.md#character-elements) Added new exemplar types.

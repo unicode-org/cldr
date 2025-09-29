@@ -386,40 +386,33 @@ A pattern `type` attribute is used for _compact number formats_, such as the fol
 </decimalFormatLength>
 <decimalFormatLength type="short">
     <decimalFormat>
-					 <pattern type="1000" count="one">¤0K</pattern>
-				 	<pattern type="1000" count="one" alt="alphaNextToNumber">¤ 0K</pattern>
-			 		<pattern type="1000" count="other">¤0K</pattern>
-		 			<pattern type="1000" count="other" alt="alphaNextToNumber">¤ 0K</pattern>
-			 		<pattern type="10000" count="one">¤00K</pattern>
-			 		<pattern type="10000" count="one" alt="alphaNextToNumber">¤ 00K</pattern>
-		 			<pattern type="10000" count="other">¤00K</pattern>
-		 			<pattern type="10000" count="other" alt="alphaNextToNumber">¤ 00K</pattern>
-		 			<pattern type="100000" count="one">¤000K</pattern>
-		 			<pattern type="100000" count="one" alt="alphaNextToNumber">¤ 000K</pattern>
-			 		<pattern type="100000" count="other">¤000K</pattern>
-		 			<pattern type="100000" count="other" alt="alphaNextToNumber">¤ 000K</pattern>
-		 			<pattern type="1000000" count="one">¤0M</pattern>
-		 			<pattern type="1000000" count="one" alt="alphaNextToNumber">¤ 0M</pattern>
-      …
+        <pattern type="1000" count="one">0 K ¤</pattern>
+        <pattern type="1000" count="other">0 K ¤</pattern>
+        <pattern type="10000" count="one">00 K ¤</pattern>
+        <pattern type="10000" count="other">00 K ¤</pattern>
+        <pattern type="100000" count="one">000 K ¤</pattern>
+        <pattern type="100000" count="other">000 K ¤</pattern>
+        <pattern type="1000000" count="one">0 M ¤</pattern>
+        <pattern type="1000000" count="other">0 M ¤</pattern>      …
     </decimalFormat>
 </decimalFormatLength>
 …
 <currencyFormatLength type="short"> // for illustration below, these are from a different locale
     <currencyFormat type="standard">
-					 <pattern type="1000" count="one">¤0K</pattern>
-				 	<pattern type="1000" count="one" alt="alphaNextToNumber">¤ 0K</pattern>
-			 		<pattern type="1000" count="other">¤0K</pattern>
-		 			<pattern type="1000" count="other" alt="alphaNextToNumber">¤ 0K</pattern>
-			 		<pattern type="10000" count="one">¤00K</pattern>
-			 		<pattern type="10000" count="one" alt="alphaNextToNumber">¤ 00K</pattern>
-		 			<pattern type="10000" count="other">¤00K</pattern>
-		 			<pattern type="10000" count="other" alt="alphaNextToNumber">¤ 00K</pattern>
-		 			<pattern type="100000" count="one">¤000K</pattern>
-		 			<pattern type="100000" count="one" alt="alphaNextToNumber">¤ 000K</pattern>
-			 		<pattern type="100000" count="other">¤000K</pattern>
-		 			<pattern type="100000" count="other" alt="alphaNextToNumber">¤ 000K</pattern>
-		 			<pattern type="1000000" count="one">¤0M</pattern>
-		 			<pattern type="1000000" count="one" alt="alphaNextToNumber">¤ 0M</pattern>
+        <pattern type="1000" count="one">¤0K</pattern>
+        <pattern type="1000" count="one" alt="alphaNextToNumber">¤ 0K</pattern>
+        <pattern type="1000" count="other">¤0K</pattern>
+        <pattern type="1000" count="other" alt="alphaNextToNumber">¤ 0K</pattern>
+        <pattern type="10000" count="one">¤00K</pattern>
+        <pattern type="10000" count="one" alt="alphaNextToNumber">¤ 00K</pattern>
+        <pattern type="10000" count="other">¤00K</pattern>
+        <pattern type="10000" count="other" alt="alphaNextToNumber">¤ 00K</pattern>
+        <pattern type="100000" count="one">¤000K</pattern>
+        <pattern type="100000" count="one" alt="alphaNextToNumber">¤ 000K</pattern>
+        <pattern type="100000" count="other">¤000K</pattern>
+        <pattern type="100000" count="other" alt="alphaNextToNumber">¤ 000K</pattern>
+        <pattern type="1000000" count="one">¤0M</pattern>
+        <pattern type="1000000" count="one" alt="alphaNextToNumber">¤ 0M</pattern>
         …
     </currencyFormat>
 </currencyFormatLength>
@@ -428,29 +421,39 @@ A pattern `type` attribute is used for _compact number formats_, such as the fol
 Formats can be supplied for numbers (as above) or for currencies or other units. They can also be used with ranges of numbers, resulting in formatting strings like “$10K” or “$3–7M”.
 
 To format a number N, use the following steps:
-  * For example, let N be 123456, and the currency = CAD, and the currency symbol string for the locale = "$CA"
-1. Find the pattern P element with greatest type less than or equal to N, with the appropriate plural category.
-  * P = `<pattern type="100000" count="other">¤000K</pattern>`
-2. If it is a currency format, look at the currency symbol string, and the position of the currency symbol ¤ in the pattern element value.
+    * For example, let N be 123456, and the currency = CAD, and the currency symbol string for the locale = "$CA"
+1. Let P be the pattern element with greatest type less than or equal to N, and any count value.
+    * P = `<pattern type="100000" count="**one**">¤000K</pattern>`
+2. Let pev be the pattern element value.
+    * pev = "¤000K" 
+3. If the element value of P is "0", then use regular number (resp., currency) formatting instead, and skip the rest of these steps.
+4. If P is a currency format, look at the currency symbol string, and the position of the currency symbol ¤ in the pattern element value.
 If ¤ is immediately to the left of a 0 and the currency string ends with a _letter grapheme cluster_ (eg, $CA),
 or to the right and the currency starts with a _letter grapheme cluster_ (eg, CA$),
-then switch to the alphaNextToNumber pattern.
-  * P = `<pattern type="100000" count="other" alt="alphaNextToNumber">¤ 000K</pattern>` (with the currency symbol CA$)
-3. If P is "0", then use regular number (resp., currency) formatting instead.
-4. Let Z be the number of 0 characters in the pattern, minus 1.
-  * Z = 2
-4. Let P' be the element value, after replacing that sequence of zeros by "{0}".
-  * P' = "¤ {0}K"
-5. Let T be the numeric value of the `type`, after removing the final Z zeros.
-  * "100000" removing "00" = "1000"
-  * T  = 1000
-6. Let N' be N / T
-  * N = 123.456
-7. Let F be N' formatted according to P' and the numeric precision settings (the min/max number of significant or fraction digits).
-  * F = "$CA 123K" (where the precision is min = max = 3 significant digits)
-  * F = "$CA 123.4K" (where the precision is min = max = 1 fraction digit)
+then switch to the `alt=alphaNextToNumber` pattern.
+    * P = `<pattern type="100000" count="**one**" alt="alphaNextToNumber">¤ 000K</pattern>` // with the currency symbol CA$
+    * pev = "¤ 000K" 
+5. Let Z be the number of 0 characters in pev, minus 1.
+    * Z = 2
+6. Let pev' be the pev, after replacing that sequence of zeros by "{0}".
+    * pev' = "¤ {0}K"
+7. Let T be the numeric value of the `type` attribute value, after removing the final Z zeros.
+    * "100000" removing "00" = "1000"
+    * T  = 1000
+8. Let N' be N / T
+    * N = 123.456
+9. Determine the plural category of N, based on the numeric precision settings (the min/max number of significant or fraction digits), and switch the pev if necessary.
+    * In this case, the plural category of 123.456 in English with any precision is "other", so
+    * P = `<pattern type="100000" count="**other**" alt="alphaNextToNumber">¤ 000K</pattern>`
+    * pev = "¤ 000K"
+    * For the short compact formats, it doesn't make a difference for English, but may for other locales!
+9. Let F be N' formatted according to pev' and the numeric precision settings.
+    * F = "$CA 123K"   // where the precision is min = max = 3 significant digits
+    * F = "$CA 123.4K" // where the precision is min = max = 1 fraction digit
 
-A _letter grapheme cluster_ is a grapheme cluster that includes a letter. For example, each of the following are are _letter grapheme clusters_: <q>, <q, °>.
+Note:
+- A _letter grapheme cluster_ is a grapheme cluster that includes a letter. For example, each of the following are are _letter grapheme clusters_: \<q>, \<q, _combining ring above_>.
+- All of the pattern elements with the same type must have the same number of zeros in the pattern element value.
 
 The default pattern for any type that is not supplied is the special value “0”, as in the following. The value “0” must be used when a child locale overrides a parent locale to drop the compact pattern for that type and use the default pattern.
 

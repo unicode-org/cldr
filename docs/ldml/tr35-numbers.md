@@ -423,30 +423,31 @@ Formats can be supplied for numbers (as above) or for currencies or other units.
 To format a number N, use the following steps. The examples use N = 123456, the currency = CAD, and the currency symbol string = "$CA"
 1. Let P be the pattern element with greatest type less than or equal to N, and any count value.
     * P = `<pattern type="100000" count="**one**">¤000K</pattern>`
-2. Let pev be the pattern element value.
-    * pev = "¤000K" 
-3. If the element value of P is "0", then use regular number (resp., currency) formatting instead, and skip the rest of these steps.
-4. If P is a currency format, look at the currency symbol string, and the position of the currency symbol ¤ in the pattern element value.
+2. Let V be the pattern element value.
+    * V = "¤000K" 
+3. If the element value of P is "0", then use the corresponding non-compact number formatting instead, and skip the rest of these steps — but adjust the precision as described below.
+    * For example, instead of `currencyFormat` `<pattern type="10000" count="one">¤00K</pattern>`, use `<pattern>¤#,##0.00</pattern>`.
+5. If P is a currency format, look at the currency symbol string, and the position of the currency symbol ¤ in the pattern element value.
 If ¤ is immediately to the left of a 0 and the currency string ends with a _letter grapheme cluster_ (eg, $CA),
 or to the right and the currency starts with a _letter grapheme cluster_ (eg, CA$),
 then switch to the `alt=alphaNextToNumber` pattern.
     * P = `<pattern type="100000" count="**one**" alt="alphaNextToNumber">¤ 000K</pattern>` // with the currency symbol CA$
-    * pev = "¤ 000K" 
-5. Let Z be the number of 0 characters in pev, minus 1.
+    * V = "¤ 000K" 
+6. Let Z be the number of 0 characters in V, minus 1.
     * Z = 2
-6. Let pev' be the pev, after replacing that sequence of zeros by "{0}".
-    * pev' = "¤ {0}K"
-7. Let T be the numeric value of the `type` attribute value, after removing the final Z zeros.
+7. Let V' be the same as V, but replacing that sequence of zeros by "{0}".
+    * V' = "¤ {0}K"
+8. Let T be the numeric value of the `type` attribute value, after removing the final Z zeros.
     * "100000" removing "00" = "1000"
     * T  = 1000
-8. Let N' be N / T
+9. Let N' be N / T
     * N = 123.456
-9. Determine the plural category of N, based on the numeric precision settings (the min/max number of significant or fraction digits), and switch the pev if necessary.
+10. Determine the plural category of N, based on the numeric precision settings (the min/max number of significant or fraction digits), and switch the pev if necessary.
     * In this case, the plural category of 123.456 in English with any precision is "other", so
     * P = `<pattern type="100000" count="**other**" alt="alphaNextToNumber">¤ 000K</pattern>`
-    * pev = "¤ 000K"
+    * V = "¤ 000K"
     * For the short compact formats, it doesn't make a difference for English, but may for other locales!
-9. Let F be N' formatted according to pev' and the numeric precision settings.
+9. Let F be N' formatted according to V' and the numeric precision settings.
     * F = "$CA 123K"   // where the precision is min = max = 3 significant digits
     * F = "$CA 123.4K" // where the precision is min = max = 1 fraction digit
 

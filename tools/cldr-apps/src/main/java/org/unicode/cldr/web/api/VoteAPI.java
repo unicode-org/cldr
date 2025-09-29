@@ -177,7 +177,6 @@ public class VoteAPI {
         public static final class Row {
 
             public static final class Candidate {
-                public String displayValue;
                 public String example;
                 public String history;
                 public boolean isBaselineValue;
@@ -418,7 +417,7 @@ public class VoteAPI {
         public boolean didVote;
 
         @Schema(description = "If set, some other reason why the submission failed.")
-        public String didNotSubmit;
+        public String reasonNotSubmitted;
 
         @Schema(description = "If not ALLOW_*, gives reason why the voting was not allowed.")
         public StatusAction statusAction = null;
@@ -427,15 +426,15 @@ public class VoteAPI {
         public CheckStatusSummary[] testResults;
 
         @Schema(description = "True if testResults include warnings.")
-        public boolean testWarnings;
+        public boolean hasTestWarnings;
 
         @Schema(description = "True if testResults include errors.")
-        public boolean testErrors;
+        public boolean hasTestErrors;
 
         void setTestResults(List<CheckStatus> testResults) {
             this.testResults = new CheckStatusSummary[testResults.size()];
-            this.testWarnings = has(testResults, CheckStatus.warningType);
-            this.testErrors = has(testResults, CheckStatus.errorType);
+            this.hasTestWarnings = has(testResults, CheckStatus.warningType);
+            this.hasTestErrors = has(testResults, CheckStatus.errorType);
             for (int i = 0; i < testResults.size(); i++) {
                 this.testResults[i] = new CheckStatusSummary(testResults.get(i));
             }

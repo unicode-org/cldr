@@ -484,11 +484,11 @@ final class DataDrivenSTTestHandler extends XMLFileReader.SimpleHandler {
                         "exception="
                                 + needException
                                 + " but got status "
-                                + r.didNotSubmit
+                                + r.reasonNotSubmitted
                                 + " - "
                                 + r.toString());
             } else {
-                System.out.println(" status = " + r.didNotSubmit);
+                System.out.println(" status = " + r.reasonNotSubmitted);
             }
         } catch (Throwable iae) {
             if (needException == true) {

@@ -420,8 +420,7 @@ A pattern `type` attribute is used for _compact number formats_, such as the fol
 
 Formats can be supplied for numbers (as above) or for currencies or other units. They can also be used with ranges of numbers, resulting in formatting strings like “$10K” or “$3–7M”.
 
-To format a number N, use the following steps:
-    * For example, let N be 123456, and the currency = CAD, and the currency symbol string for the locale = "$CA"
+To format a number N, use the following steps. The examples use N = 123456, the currency = CAD, and the currency symbol string = "$CA"
 1. Let P be the pattern element with greatest type less than or equal to N, and any count value.
     * P = `<pattern type="100000" count="**one**">¤000K</pattern>`
 2. Let pev be the pattern element value.

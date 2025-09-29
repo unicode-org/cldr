@@ -80,8 +80,8 @@ There is also now a mechanism for finding the region code from short timezone id
 * [Plural rules syntax](tr35-numbers.md#plural-rules-syntax) Added substantial clarifications and new examples.
 The order of execution is also clearly specified.
 * [Compact Number Formats](tr35-numbers.md#compact-number-formats) Specified the mechanism for formatting compact numbers more precisely.
-* [Rule-Based Number Formatting]() Added a full specification.
-The rules have also been converted to a “flat” format, which is easier for clients to handle (the old format will be retained for one more release).
+* [Rule-Based Number Formatting]() The rules are also now represented by a new XML structure with a “flat” format,
+which is easier for clients to handle (the old format will be retained for one more release).
 
 ### Units of Measurement
 * [Unit Syntax](tr35-general.md#unit-syntax) Simplified the EBNF `product_unit` and added an additional well-formedness constraint for mixed units.

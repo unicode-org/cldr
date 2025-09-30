@@ -420,40 +420,44 @@ A pattern `type` attribute is used for _compact number formats_, such as the fol
 
 Formats can be supplied for numbers (as above) or for currencies or other units. They can also be used with ranges of numbers, resulting in formatting strings like “$10K” or “$3–7M”.
 
-To format a number N, use the following steps. The examples use N = 123456, the currency = CAD, and the currency symbol string = "$CA"
+To format a number N, use the following steps:
+
+Notes:
+- A _letter grapheme cluster_ is a grapheme cluster that starts with a letter and then 0 or more combining marks.
+For example, each of the following are are _letter grapheme clusters_: \<q>, \<q, _combining ring above_>, \<q, _combining ring above_, _acute accent_>.
+- All of the pattern elements with the same type must have the same number of zeros in the pattern element value.
+- The examples use N = 123456, the currency = CAD, and the currency symbol string = "$CA"
+
 1. Let P be the pattern element with greatest type less than or equal to N, and any count value.
     * P = `<pattern type="100000" count="**one**">¤000K</pattern>`
 2. Let V be the pattern element value.
     * V = "¤000K" 
 3. If the element value of P is "0", then use the corresponding non-compact number formatting instead, and skip the rest of these steps — but adjust the precision as described below.
     * For example, instead of `currencyFormat` `<pattern type="10000" count="one">¤00K</pattern>`, use `<pattern>¤#,##0.00</pattern>`.
-5. If P is a currency format, look at the currency symbol string, and the position of the currency symbol ¤ in the pattern element value.
-If ¤ is immediately to the left of a 0 and the currency string ends with a _letter grapheme cluster_ (eg, $CA),
-or to the right and the currency starts with a _letter grapheme cluster_ (eg, CA$),
-then switch to the `alt=alphaNextToNumber` pattern.
-    * P = `<pattern type="100000" count="**one**" alt="alphaNextToNumber">¤ 000K</pattern>` // with the currency symbol CA$
+4. If P is a currency format, look at the currency symbol string, and the position of the currency symbol ¤ in the pattern element value.
+If ¤ is immediately to the left of a 0 and the currency string ends with a _letter grapheme cluster_ (eg, "$CA"),
+or to the right and the currency starts with a letter (eg, "CA$"),
+then switch to the `alt=alphaNextToNumber` pattern, if there is one.
+    * P = `<pattern type="100000" count="**one**" alt="alphaNextToNumber">¤ 000K</pattern>` // with the currency symbol "CA$"
     * V = "¤ 000K" 
-6. Let Z be the number of 0 characters in V, minus 1.
+5. Let Z be the number of 0 characters in V, minus 1.
     * Z = 2
-7. Let V' be the same as V, but replacing that sequence of zeros by "{0}".
-    * V' = "¤ {0}K"
-8. Let T be the numeric value of the `type` attribute value, after removing the final Z zeros.
+6. Let T be the numeric value of the `type` attribute value, after removing the final Z zeros.
     * "100000" removing "00" = "1000"
     * T  = 1000
-9. Let N' be N / T
+7. Let N' be N / T
     * N = 123.456
-10. Determine the plural category of N, based on the numeric precision settings (the min/max number of significant or fraction digits), and switch the pev if necessary.
-    * In this case, the plural category of 123.456 in English with any precision is "other", so
+8. Determine the plural category of N, based on the numeric precision settings (the min/max number of significant or fraction digits), and switch  the value of V if necessary.
+    * In this case, the plural category of 123.456 in English with any precision is "other", so the 
     * P = `<pattern type="100000" count="**other**" alt="alphaNextToNumber">¤ 000K</pattern>`
     * V = "¤ 000K"
     * For the short compact formats, it doesn't make a difference for English, but may for other locales!
-9. Let F be N' formatted according to V' and the numeric precision settings.
+9. Let V' be the same as V, but replacing that sequence of zeros by "{0}".
+    * V' = "¤ {0}K"
+10. Let F be N' formatted according to V' and the numeric precision settings.
     * F = "$CA 123K"   // where the precision is min = max = 3 significant digits
     * F = "$CA 123.4K" // where the precision is min = max = 1 fraction digit
 
-Note:
-- A _letter grapheme cluster_ is a grapheme cluster that includes a letter. For example, each of the following are are _letter grapheme clusters_: \<q>, \<q, _combining ring above_>.
-- All of the pattern elements with the same type must have the same number of zeros in the pattern element value.
 
 The default pattern for any type that is not supplied is the special value “0”, as in the following. The value “0” must be used when a child locale overrides a parent locale to drop the compact pattern for that type and use the default pattern.
 

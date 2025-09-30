@@ -164,6 +164,7 @@ The definition was unclear, and prone to misunderstanding — the more detailed 
 #### ldmlBCP47
 - `type` — adds a new attribute `region`.
 - `keyboard3@conformsTo` — is updated to allow "48".
+- `hc` — adds values `c12` and `c24` as Technical Preview. Also see the note about `h24` in "V49 advance warnings". ([CLDR-18894][])
 
 ### BCP47 Data Changes
 
@@ -332,6 +333,7 @@ For web pages with different views of CLDR data, see [http://cldr.unicode.org/in
 [CLDR-18219]: https://unicode-org.atlassian.net/browse/CLDR-18219
 [CLDR-18275]: https://unicode-org.atlassian.net/browse/CLDR-18275
 [CLDR-18311]: https://unicode-org.atlassian.net/browse/CLDR-18311
+[CLDR-18894]: https://unicode-org.atlassian.net/browse/CLDR-18894
 [CLDR-18956]: https://unicode-org.atlassian.net/browse/CLDR-18956
 
 [Delta DTDs]: https://unicode.org/cldr/charts/48/supplemental/dtd_deltas.html

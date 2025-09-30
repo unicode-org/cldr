@@ -1237,7 +1237,7 @@ The calculation of the first day of the week depends on various fields in a loca
 
 This element is for data that indicates, for various regions, the preferred time cycle in the region, as well as all time cycles that are considered acceptable in the region. The defaults are those specified for region 001.
 
-There is a single `preferred` value, and multiple `allowed` values. The meanings of the values H, h, K, k, b and B are defined in [Date Field Symbol Table](#Date_Field_Symbol_Table). The `allowed` values are in preference order, and are used with the 'C' hour skeleton pattern symbol.
+There is a single `preferred` value, and multiple `allowed` values. The meanings of the values H, h, K, k, b and B are defined in [Date Field Symbol Table](#Date_Field_Symbol_Table). The `allowed` values are in preference order; they are used with the 'C' hour skeleton pattern symbol and the `c12` and `c24` values for the [Unicode Hour Cycle Identifier](tr35.md#UnicodeHourCycleIdentifier).
 
 For example, in the following, RU (Russia) is marked as using only 24 hour time, and in particular the 24 hour time that goes from 0..23 (H), rather than from 1..24 (k).
 
@@ -2628,8 +2628,10 @@ The choices are:
 3. **H12:** Display hours numbered from 1 through 12 (the most common 12-hour clock)
 4. **H23:** Display hours numbered from 0 through 23 (the most common 24-hour clock)
 5. **H24:** Display hours numbered from 1 through 24
+6. **Clock12:** Display hours using a 12-hour clock preferred by the locale
+7. **Clock24:** Display hours using a 24-hour clock preferred by the locale
 
-Typically, locales will display a day period on H11 and H12, but the day period could be any of those allowed by CLDR, such as AM/PM (field "a"), noon/midnight (field "b"), or flexible day periods such as "in the afternoon" (field "B"). The choice could depend on locale, length, and calendar system.
+Typically, locales will display a day period on H11, H12, and Clock12, but the day period could be any of those allowed by CLDR, such as AM/PM (field "a"), noon/midnight (field "b"), or flexible day periods such as "in the afternoon" (field "B"). The choice could depend on locale, length, and calendar system.
 
 Note: An option could be added in the future to give the developer more control over how day periods are displayed or to disable day periods when there is sufficient context.
 
@@ -2693,23 +2695,23 @@ The following table contains the basic mapping from a semantic field to a standa
 - Standalone: whether the specified field is the only field in the semantic skeleton. "N/A" means to use the same standard field for both standalone and non-standalone.
 - Option: for Time, this is the [hour cycle](#Semantic_Skeleton_Hour_Cycle), and for Zone, this is the [time zone style](#Semantic_Skeleton_Time_Zone_Style).
 
-| Semantic Field | Standalone? | Option   | Long   | Medium | Short  |
-|----------------|-------------|----------|--------|--------|--------|
-| Year           | N/A         | N/A      | \*     | \*     | \*     |
-| Month          | No          | N/A      | \*     | \*     | \*     |
-| Month          | Yes         | N/A      | LLLL   | LLL    | L      |
-| Day            | N/A         | N/A      | \*     | \*     | \*     |
-| Weekday        | No          | N/A      | EEEE   | EEE    | EEE    |
-| Weekday        | Yes         | N/A      | EEEE   | EEE    | EEEEE  |
-| Time           | N/A         | unset    | C      | C      | C      |
-| Time           | N/A         | H11, H12 | h      | h      | h      |
-| Time           | N/A         | H23, H24 | H      | H      | H      |
-| Zone           | No          | Generic  | v      | v      | v      |
-| Zone           | Yes         | Generic  | vvvv   | vvvv   | v      |
-| Zone           | No          | Specific | z      | z      | z      |
-| Zone           | Yes         | Specific | zzzz   | zzzz   | z      |
-| Zone           | N/A         | Location | VVVV   | VVVV   | VVVV   |
-| Zone           | N/A         | Offset   | O      | O      | O      |
+| Semantic Field | Standalone? | Option            | Long   | Medium | Short  |
+|----------------|-------------|-------------------|--------|--------|--------|
+| Year           | N/A         | N/A               | \*     | \*     | \*     |
+| Month          | No          | N/A               | \*     | \*     | \*     |
+| Month          | Yes         | N/A               | LLLL   | LLL    | L      |
+| Day            | N/A         | N/A               | \*     | \*     | \*     |
+| Weekday        | No          | N/A               | EEEE   | EEE    | EEE    |
+| Weekday        | Yes         | N/A               | EEEE   | EEE    | EEEEE  |
+| Time           | N/A         | unset             | C      | C      | C      |
+| Time           | N/A         | H11, H12, Clock12 | h      | h      | h      |
+| Time           | N/A         | H23, H24, Clock24 | H      | H      | H      |
+| Zone           | No          | Generic           | v      | v      | v      |
+| Zone           | Yes         | Generic           | vvvv   | vvvv   | v      |
+| Zone           | No          | Specific          | z      | z      | z      |
+| Zone           | Yes         | Specific          | zzzz   | zzzz   | z      |
+| Zone           | N/A         | Location          | VVVV   | VVVV   | VVVV   |
+| Zone           | N/A         | Offset            | O      | O      | O      |
 
 \* Lengths for Year, Month, and Day are taken from the [datetimeSkeleton](#dateFormats) in the Long, Medium, and Short variants. The era field, if present, should be included with the Year. For example, in en-US, CLDR 46, the datetimeSkeletons are:
 

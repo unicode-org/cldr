@@ -91,6 +91,7 @@ See the [Modifications section](https://www.unicode.org/reports/tr35/dev/tr35-mo
 #### General
 - Languages that reached Basic in the last release have their names translated at Modern Coverage in this release.
 - Compound language names now have "core" and "extension" variants for more uniform formats in menus and lists.
+The description of how to format names for locale IDs has been extended and clarified.
    - For example, that allows the Kurdish variants to have a uniform format where more than Kurmanji is displayed.
        - Kashmiri
        - Kurdish (Kurmanji, Latin)
@@ -285,15 +286,27 @@ The following files are new in the release:
 
 - TBD
 
+----
+
 ## Migration
 
 - Number patterns that did not have a specific numberSystem (such as `latn` or `arab`) had been deprecated for many releases, and were finally removed.
 - Additionally, language and territory data in `languageData` and `territoryInfo` data received significant updates to improve accuracy and maintainability [CLDR-18087]
 - The likely language for Belarus changed to Russian [CLDR-14479]
+- The unit identifiers for the following changed for consistency.
+As with all such changes, aliases are available to permit parsing and formatting to work across versions.
+    - `permillion` changed to `part-per-1e6`; English values remain “parts per million”, “{0} part per million”, etc.
+    - `portion-per-1e9` changed to `part-per-1e9`; English values remain “parts per billion”, “{0} part per billion”, etc.
+    - `part` used for constructing arbitrary concentrations such as “parts per 100,000”; English values “parts”, “{0} part”, etc.
+- English and/or root names of many exemplar cities and some metazones changed.
+This was typically to move towards the official spelling in the country in question, such as retaining accents, or to add landscape terms such as “Island”.
+For example: El Aaiun → El Aaiún; Casey → Casey Station; Hovd Time → Khovd Time.
+- A few additional availableFormat and interval format patterns have been added, such as GyMEd and Hv, to fill some gaps.
+- The metazone for Hawaii has changed.
 - **TBD Additional items plus future guidance will be added before the spec-beta.**
 
-
 ### V49 advance warnings
+
 The following changes are planned for CLDR 49. Please plan accordingly to avoid disruption.
 - [CLDR-18303][] H24 will be deprecated. If it is encountered, it will have H23 behavior. There is no known intentional usage of H24. If you have a current need for H24 instead of H23, please comment on [CLDR-18303][].
 - The default week numbering changes to ISO instead being based on the calendar week starting in CLDR 48 [CLDR-18275]. The calendar week will be more clearly targeted at matching usage in displayed month calendars.

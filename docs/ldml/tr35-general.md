@@ -167,35 +167,100 @@ For example, for the locale identifier zh_Hant_CN_co_pinyin_cu_USD, the display 
 <type type="pinyin" key="collation">Pinyin Sort Order</type>
 ```
 
+The `language` element has the additional `alt="menu"` option, that allows for related languages to be sorted together.
+
+```xml
+<language type="yue" alt="menu">Chinese, Cantonese</language> 
+<language type="zh" alt="menu">Chinese, Mandarin</language>
+```
+However, when `localePattern`s are used, the names start to get complicated. There is an additional `menu` attribute, with two values: `core` and `extension`.For example:
+
+```xml
+<language type="ckb">Central Kurdish</language>
+<language type="ckb" menu="core">Kurdish</language>
+<language type="ckb" menu="extension">Central</language>
+…
+<language type="ku">Kurdish</language>
+<language type="ku" menu="core">Kurdish</language>
+<language type="ku" menu="extension">Kurmanji</language>
+…
+<language type="sdh">Southern Kurdish</language>
+<language type="sdh" menu="core">Kurdish</language>
+<language type="sdh" menu="extension">Southern</language>
+```
+
+The core part can be used as the language name, with the extension going into the `localePattern`, such as in the following illustration of part of a menu:
+
+| Language |
+| ---- |
+| … |
+| Kashmiri |
+| Kurdish (Kurmanji, Latin) |
+| Kurdish (Central, Arabic) |
+| Kurdish (Southern, Arabic) |
+| Kyrgyz |
+| … |
+
 ### <a name="locale_display_name_algorithm" href="#locale_display_name_algorithm">Locale Display Name Algorithm</a>
 
-A locale display name LDN is generated for a locale identifier L in the following way. First, convert the locale identifier to *canonical syntax* per **[Part 1, Canonical Unicode Locale Identifiers](tr35.md#Canonical_Unicode_Locale_Identifiers)**. That will put the subtags in a defined order, and replace aliases by their canonical counterparts. (That defined order is followed in the processing below.)
+A locale display name LDN is generated for a locale identifier L in the following way. 
+1. Convert the locale identifier to *canonical syntax* per **[Part 1, Canonical Unicode Locale Identifiers](tr35.md#Canonical_Unicode_Locale_Identifiers)**.
+That will put the subtags in a defined order, and replace aliases by their canonical counterparts. (That defined order is followed in the processing below.)
+2. Build a base name LDN from the language, possibly also some other subtags, taking into account the parameters listed below.
+    * The language name uses the longest match, dropping all fields that match. For example:
+        * With L = "nl_Cyrl_BE", if there is a `<language type="nl_BE">`Flemish`</language>`, the language name is set to "Flemish", and the "BE" is ignored in step 4.
+        * With L = "ca_fonipa_valencia", if there is a `<language type="ca_valencia">`Valencian`</language>`, the language name is set to "Valencian", and the subtag "valencia" is ignored in step 4.
+4. Build a list of qualifying strings LQS.
+    1. For each remaining subtag language identifier (script, region, or variant):  
+        1. Where there is a match for a subtag, disregard that subtag from L and add the name of the subtag to LDN or LQS as described below.
+        2. If there is no match for a subtag, use the fallback pattern with the subtag instead.
+    2. For any remaining `-u` or `t` key-value pairs, there are two options (based on the parameters; the first is the default)
+        1. `WholeKeyValue`: Add the formatted key-value, OR
+        2. `SeparateKeyValue` Add a string created from the formatted key and the formatted value using `scope="core"`
+5. Once LDN and LQS are built, return the following based on the length of LQS.
 
-Then follow each of the following steps for the subtags in L, building a base name LDN and a list of qualifying strings LQS.
+| Length | Processing |
+| :---- | :---- |
+| 0 | return LDN |
+| 1 | use the \<localePattern\> to compose the result LDN from LDN and LQS\[0\], and return it. |
+| \>1 | use the \<localeSeparator\> element value to join the elements of the list into LDN2, then use the \<localePattern\> to compose the result LDN from LDN and LDN2, and return it. |
 
-Where there is a match for a subtag, disregard that subtag from L and add the element value to LDN or LQS as described below. If there is no match for a subtag, use the fallback pattern with the subtag instead.
-
-Once LDN and LQS are built, return the following based on the length of LQS.
-
-<!-- HTML: no header -->
-<table><tbody>
-<tr><td>0</td><td>return LDN</td></tr>
-<tr><td>1</td><td>use the &lt;localePattern&gt; to compose the result LDN from LDN and LQS[0], and return it.</td></tr>
-<tr><td>&gt;1</td><td>use the &lt;localeSeparator&gt; element value to join the elements of the list into LDN2, then use the &lt;localePattern&gt; to compose the result LDN from LDN and LDN2, and return it.</td></tr>
-</tbody></table>
-
-The processing can be controlled via the following parameters.
+The processing can be controlled via the following parameters (the names of the parameters are only illustrative):
 
 *   `CombineLanguage`: boolean
     *   Example: the `CombineLanguage = true`, picking the bold value below.
-    *   `<language type="nl">Dutch</language>`
+    *   `<language type="nl">`Dutch`</language>`
     *   **`<language type="nl_BE">Flemish</language>`**
 *   `PreferAlt`: map from element to preferred alt value, picking the bold value below.
     *   Example: the `PreferAlt` contains `{"language"="short"}`:
-    *   `<language type="az">Azerbaijani</language>`
+    *   `<language type="az">`Azerbaijani`</language>`
     *   **`<language type="az" alt="short">Azeri</language>`**
+*  `CoreAndExtension`: if there is a `menu="core"` and a `menu="extension"` value:
+    1.  Use the `menu=core` variant for the name in question.
+    2.  Add the `menu=extension` variant to the head of the LQS before it is formatted.
+*  `WholeKeyValue`: for `-u` or `t` key-value pairs
+    1.  Format with combined key-value, if available; otherwise format with `SeparateKeyValue`
+        *  For example, using `…_ca_buddhist`
+        *  `<type key="calendar" type="buddhist">`Buddhist Calendar`</type>`
+		* ⇒ "Buddhist Calendar"
+*  `SeparateKeyValue`: for `-u` or `t` key-value pairs
+    1.  Format with separate key and value using `scope="core"`, if available; otherwise format with `WholeKeyValue`
+        *  For example, using `…_ca_buddhist`
+         * `<key type="calendar">`Calendar`</key>` +
+         * `<type key="calendar" type="buddhist" scope="core">`Buddhist`</type>` +
+         * `<localeKeyTypePattern>`{0}: {1}`</localeKeyTypePattern>`
+		 * ⇒ "Calendar: Buddhist"
 
 In addition, the input locale display name could be minimized (see [Part 1: Likely Subtags](tr35.md#Likely_Subtags)) before generating the LDN. Selective minimization is often the best choice. For example, in a menu list it is often clearer to show the region if there are any regional variants. Thus the user would just see \["Spanish"\] for es if the latter is the only supported Spanish, but where es-MX is also listed, then see \["Spanish (Spain)", "Spanish (Mexico)"\].
+
+The key-type `scope="core"` is also useful in menus. For example, if a menu or pull-down is offering different choices of calendars, it is cleaner to use the key value for the name of the menu (eg, "Calendar"), and use the `scope="core"` values for the choices. Thus:
+
+| Calendar |
+| ---- |
+| Buddhist |
+| Chinese |
+| Gregorian |
+| Hijri |
 
 * * *
 

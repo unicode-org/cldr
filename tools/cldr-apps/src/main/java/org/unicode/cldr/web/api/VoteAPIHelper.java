@@ -646,7 +646,7 @@ public class VoteAPIHelper {
 
     private static void normalizedToZeroLengthError(VoteResponse r, List<CheckStatus> result) {
         final String message = "DAIP returned a 0 length string";
-        r.didNotSubmit = message;
+        r.reasonNotSubmitted = message;
         r.statusAction = CheckCLDR.StatusAction.FORBID_ERRORS;
         String[] list = {message};
         result.add(

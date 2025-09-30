@@ -190,13 +190,8 @@ function handleVoteSubmitted(json, tr, theRow, button, valToShow) {
       button.className = "ichoice-o";
       button.checked = false;
       cldrSurvey.hideLoader();
-      if (json.testResults && (json.testWarnings || json.testErrors)) {
-        // Tried to submit, have errs or warnings.
-        // Caution: even though json is defined, it is NOT used here as the 5th argument
-        // for showProposedItem, which apparently depends on the 5th argument being
-        // undefined when called from here (handleVoteSubmitted), and only defined
-        // when called from handleVoteNotSubmitted.
-        showProposedItem(tr, theRow, valToShow, json.testResults);
+      if (json.testResults && (json.hasTestWarnings || json.hasTestErrors)) {
+        showProposedItem(tr, theRow, valToShow, json);
       }
       if (CLDR_VOTE_DEBUG) {
         console.log(
@@ -217,9 +212,9 @@ function handleVoteSubmitted(json, tr, theRow, button, valToShow) {
 function handleVoteNotSubmitted(json, tr, theRow, button, valToShow) {
   if (
     (json.statusAction && json.statusAction != "ALLOW") ||
-    (json.testResults && (json.testWarnings || json.testErrors))
+    (json.testResults && (json.hasTestWarnings || json.hasTestErrors))
   ) {
-    showProposedItem(tr, theRow, valToShow, json.testResults, json);
+    showVoteNotSubmitted(tr, theRow, valToShow, json);
   }
   button.className = "ichoice-o";
   button.checked = false;
@@ -270,67 +265,64 @@ function getSubmitUrl(xpstrid) {
   return cldrAjax.makeApiUrl(api, null);
 }
 
-/**
- * Show an item that's not in the saved data, but has been proposed newly by the user.
- * Used for "+" button in table.
- *
- * Caution: if called from handleVoteSubmitted, the fifth argument (json) is undefined
- * (even though there is json from the server response), and that appears to be necessary
- * for this function to work right, as it stands. The fifth argument (json) is only defined
- * when called from handleVoteNotSubmitted. This function cries out to be thoroughly refactored,
- * but that may only be feasible in conjunction with a thorough analysis or refactoring of the
- * back end.
- */
-function showProposedItem(tr, theRow, value, tests, json) {
-  const ourItem = cldrSurvey.findItemByValue(theRow.items, value);
-  if (json && !cldrSurvey.parseStatusAction(json.statusAction).vote) {
-    const replaceErrors =
-      json.statusAction === "FORBID_PERMANENT_WITHOUT_FORUM";
-    if (replaceErrors) {
-      /*
-       * Special case: for clarity, replace any warnings/errors that may be
-       * in tests[] with a single error message for this situation.
-       */
-      tests = [
-        {
-          type: "Error",
-          message: cldrText.get("StatusAction_" + json.statusAction),
-        },
-      ];
-    }
-
-    const valueMessage = value === "" ? "Abstention" : "Value: " + value;
-
-    // TODO: modernize to obviate cldrSurvey.testsToHtml
-    // Reference: https://unicode-org.atlassian.net/browse/CLDR-18013
-    const testDescription = cldrSurvey.testsToHtml(tests);
-    if (ourItem || (replaceErrors && value === "") /* Abstain */) {
-      const statusAction = cldrText.get("StatusAction_" + json.statusAction);
-      const message = cldrText.sub("StatusAction_msg", [statusAction]);
-      /*
-       * This may happen if, for example, the user types a space (" ") in
-       * the input pop-up window and presses Enter. The value has been rejected
-       * by the server. Then we show an additional pop-up window with the error message
-       * from the server like "Input Processor Error: DAIP returned a 0 length string"
-       */
-      const statusMessage = cldrText.sub("StatusAction_popupmsg", [
-        statusAction,
-        theRow.code,
-      ]);
-      const description =
-        valueMessage + "<br>" + statusMessage + " " + testDescription;
-      cldrNotify.openWithHtml(message, description);
-    } else {
-      const description = valueMessage + "<br>" + testDescription;
-      cldrNotify.openWithHtml("Response to voting", description);
-    }
-    return;
-  } else if (json?.didNotSubmit) {
-    const description = "Did not submit this value: " + json.didNotSubmit;
+function showVoteNotSubmitted(tr, theRow, value, json) {
+  if (!cldrSurvey.parseStatusAction(json.statusAction).vote) {
+    showVoteNotAllowed(theRow, value, json);
+  } else if (json.reasonNotSubmitted) {
+    const description = "Did not submit this value: " + json.reasonNotSubmitted;
     cldrNotify.error("Not submitted", description);
-    return;
+  } else {
+    showProposedItem(tr, theRow, value, json);
   }
-  // Note: it is possible to arrive here (as of 2025-09), for example, if the vote was accepted but has warnings
+}
+
+function showVoteNotAllowed(theRow, value, json) {
+  const ourItem = cldrSurvey.findItemByValue(theRow.items, value);
+  const replaceErrors = json.statusAction === "FORBID_PERMANENT_WITHOUT_FORUM";
+  let tests = json.testResults;
+  if (replaceErrors) {
+    /*
+     * Special case: for clarity, replace any warnings/errors that may be
+     * in tests[] with a single error message for this situation.
+     */
+    tests = [
+      {
+        type: "Error",
+        message: cldrText.get("StatusAction_" + json.statusAction),
+      },
+    ];
+  }
+
+  const valueMessage = value === "" ? "Abstention" : "Value: " + value;
+
+  // TODO: modernize to obviate cldrSurvey.testsToHtml
+  // Reference: https://unicode-org.atlassian.net/browse/CLDR-18013
+  const testDescription = cldrSurvey.testsToHtml(tests);
+  if (ourItem || (replaceErrors && value === "") /* Abstain */) {
+    const statusAction = cldrText.get("StatusAction_" + json.statusAction);
+    const message = cldrText.sub("StatusAction_msg", [statusAction]);
+    /*
+     * This may happen if, for example, the user types a space (" ") in
+     * the input pop-up window and presses Enter. The value has been rejected
+     * by the server. Then we show an additional pop-up window with the error message
+     * from the server like "Input Processor Error: DAIP returned a 0 length string"
+     */
+    const statusMessage = cldrText.sub("StatusAction_popupmsg", [
+      statusAction,
+      theRow.code,
+    ]);
+    const description =
+      valueMessage + "<br>" + statusMessage + " " + testDescription;
+    cldrNotify.openWithHtml(message, description);
+  } else {
+    const description = valueMessage + "<br>" + testDescription;
+    cldrNotify.openWithHtml("Vote not allowed", description);
+  }
+}
+
+function showProposedItem(tr, theRow, value, json) {
+  const tests = json.testResults;
+  const ourItem = cldrSurvey.findItemByValue(theRow.items, value);
   const ourDiv = ourItem ? ourItem.div : document.createElement("div");
   const testKind = getTestKind(tests);
   cldrTable.setDivClassSelected(ourDiv, testKind);
@@ -345,7 +337,7 @@ function showProposedItem(tr, theRow, value, tests, json) {
     const newDiv = document.createElement("div");
     div3.appendChild(newDiv);
     newDiv.innerHTML = cldrSurvey.testsToHtml(tests);
-    if (json && !parseStatusAction(json.statusAction).vote) {
+    if (!json.didVote && !parseStatusAction(json.statusAction).vote) {
       const text = cldrText.sub("StatusAction_msg", [
         cldrText.get("StatusAction_" + json.statusAction),
       ]);

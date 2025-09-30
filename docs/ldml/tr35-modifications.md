@@ -59,6 +59,9 @@ The LDML specification is divided into the following parts:
 
 ### Locale Identifiers
 * [Special Script Codes](tr35.md#special-script-codes) Added the `Hntl` compound script. (This is also reflected in the `<scriptData>` elements in supplementalData.xml.)
+* [Likely Subtags](tr35.md#likely-subtags) Changed the Canonicalize step to point to the section on canonicalization.
+* [Unicode Locale Identifier](tr35.md#unicode-locale-identifier) Changed the `attribute` component in the EBNF to be `uattribute` for consistency with `ufield`, etc.
+and to reduce confusion with XML attributes.
   
 ### Misc.
 * [Character Elements](tr35-general.md#character-elements) Added new exemplar types.
@@ -75,6 +78,7 @@ and updated the guidelines for using the different `dateTimeFormat` types.
 * [Time Zone Format Terminology](tr35-dates.md#time-zone-format-terminology) Added the **Localized GMT format** (replacing the **Specific location format**).
 This affects the behavior of the `z` timezone format symbol.
 There is also now a mechanism for finding the region code from short timezone identifier, which is used for the _non-location formats (generic or specific)_
+* [Calendar Data](tr35-dates.md#calendar-data) Specified more precisely the meaning of the `era` attributes in supplemental data, and how to determine the transition point in time between eras.
 
 ### Numbers
 * [Plural rules syntax](tr35-numbers.md#plural-rules-syntax) Added substantial clarifications and new examples.

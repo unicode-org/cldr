@@ -1225,7 +1225,7 @@ digitPos        = [1-9]
 
 * Whitespace (defined as Unicode [Pattern_White_Space](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5Cp%7BPattern_White_Space%7D)) can occur between or around any of the above tokens, with the exception of the tokens in value, digit, and sampleValue.
 * In the syntax, **and** binds more tightly than **or**. So **X or Y and Z** is interpreted as **(X or (Y and Z))**.
-  * For example, e = 0 and i != 0 and i % 1000000 = 0 and *+v = 0+* or e != 0..5 is parsed as if it were (e = 0 and i != 0 and i % 1000000 = 0 and v = 0) or (e != 0..5)
+  * For example, c = 0 and i != 0 and i % 1000000 = 0 and *+v = 0+* or c != 0..5 is parsed as if it were (c = 0 and i != 0 and i % 1000000 = 0 and v = 0) or (c != 0..5)
 * Each plural rule must be written to be self-contained, and not depend on the ordering. Thus rules must be mutually exclusive; for a given numeric value, only one rule can apply (i.e., the condition can only be true for one of the pluralRule elements). Each keyword can have at most one condition. The 'other' keyword must have an empty condition: it is only present for samples.
 * The samples should be included, since they are used by client software for samples and determining whether the keyword has finite values or not.
 * The 'other' keyword must have no condition, and all other keywords must have a condition.
@@ -1256,7 +1256,7 @@ Similarly, 1.2005c3 has i=1200 and f=5 (corresponding to 1200.5).
 
 ###### Table: <a name="Plural_Operand_Examples" href="#Plural_Operand_Examples">Plural Operand Examples</a>
 
-|    source |         n |         i | v | w |   f |  t | e |
+|    source |         n |         i | v | w |   f |  t | c |
 |----------:|----------:|----------:|--:|--:|----:|---:|--:|
 |         1 |         1 |         1 | 0 | 0 |   0 |  0 | 0 |
 |       1.0 |         1 |         1 | 1 | 0 |   0 |  0 | 0 |
@@ -1326,7 +1326,7 @@ The values of relations are defined according to the operand as follows. Importa
 
 Samples are provided if sample indicator (@integer or @decimal) is present on any rule. (CLDR always provides samples.)
 
-Where samples are provided, the absence of one of the sample indicators indicates that no numeric values can satisfy that rule. For example, the rule "i = 1 and v = 0" can only have integer samples, so @decimal must not occur. The @integer samples have no visible fraction digits, while @decimal samples have visible fraction digits; both can have compact decimal exponent values (if the 'e' operand occurs).
+Where samples are provided, the absence of one of the sample indicators indicates that no numeric values can satisfy that rule. For example, the rule "i = 1 and v = 0" can only have integer samples, so @decimal must not occur. The @integer samples have no visible fraction digits, while @decimal samples have visible fraction digits; both can have compact decimal exponent values (if the `c` operand occurs).
 
 The sampleRanges have a special notation: **start**~**end**. The **start** and **end** values must have the same number of decimal digits, and the same compact decimal exponent values (or neither have compact decimal exponent values). The range encompasses all and only those values **v** where **start ≤ v ≤ end**, and where **v** has the same number of decimal places as **start** and **end**, and the same compact decimal exponent values.
 

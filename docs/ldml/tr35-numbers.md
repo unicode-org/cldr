@@ -371,48 +371,59 @@ For more information on numbering systems and their definitions, see _[Section 1
 A pattern `type` attribute is used for _compact number formats_, such as the following:
 
 ```xml
-<decimalFormatLength type="long">
-    <decimalFormat>
-        <pattern type="1000" count="one">0 millier</pattern>
-        <pattern type="1000" count="other">0 milliers</pattern>
-        <pattern type="10000" count="one">00 mille</pattern>
-        <pattern type="10000" count="other">00 mille</pattern>
-        <pattern type="100000" count="one">000 mille</pattern>
-        <pattern type="100000" count="other">000 mille</pattern>
-        <pattern type="1000000" count="one">0 million</pattern>
-        <pattern type="1000000" count="other">0 millions</pattern>
-        …
-    </decimalFormat>
-</decimalFormatLength>
-<decimalFormatLength type="short">
-    <decimalFormat>
-        <pattern type="1000" count="one">0 K ¤</pattern>
-        <pattern type="1000" count="other">0 K ¤</pattern>
-        <pattern type="10000" count="one">00 K ¤</pattern>
-        <pattern type="10000" count="other">00 K ¤</pattern>
-        <pattern type="100000" count="one">000 K ¤</pattern>
-        <pattern type="100000" count="other">000 K ¤</pattern>
-        <pattern type="1000000" count="one">0 M ¤</pattern>
-        <pattern type="1000000" count="other">0 M ¤</pattern>      …
-    </decimalFormat>
-</decimalFormatLength>
+			<decimalFormatLength type="long">
+				<decimalFormat>
+					<pattern type="1000" count="one">0 thousand</pattern>
+					<pattern type="1000" count="other">0 thousand</pattern>
+					<pattern type="10000" count="one">00 thousand</pattern>
+					<pattern type="10000" count="other">00 thousand</pattern>
+					<pattern type="100000" count="one">000 thousand</pattern>
+					<pattern type="100000" count="other">000 thousand</pattern>
+					<pattern type="1000000" count="one">0 million</pattern>
+					<pattern type="1000000" count="other">0 million</pattern>
+					<pattern type="10000000" count="one">00 million</pattern>
+					<pattern type="10000000" count="other">00 million</pattern>
 …
-<currencyFormatLength type="short"> // for illustration below, these are from a different locale
+				</decimalFormat>
+			</decimalFormatLength>
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000" count="one">0K</pattern>
+					<pattern type="1000" count="other">0K</pattern>
+					<pattern type="10000" count="one">00K</pattern>
+					<pattern type="10000" count="other">00K</pattern>
+					<pattern type="100000" count="one">000K</pattern>
+					<pattern type="100000" count="other">000K</pattern>
+					<pattern type="1000000" count="one">0M</pattern>
+					<pattern type="1000000" count="other">0M</pattern>
+					<pattern type="10000000" count="one">00M</pattern>
+					<pattern type="10000000" count="other">00M</pattern>
+…
+				</decimalFormat>
+			</decimalFormatLength>
+…
+<currencyFormatLength type="short">
     <currencyFormat type="standard">
-        <pattern type="1000" count="one">¤0K</pattern>
-        <pattern type="1000" count="one" alt="alphaNextToNumber">¤ 0K</pattern>
-        <pattern type="1000" count="other">¤0K</pattern>
-        <pattern type="1000" count="other" alt="alphaNextToNumber">¤ 0K</pattern>
-        <pattern type="10000" count="one">¤00K</pattern>
-        <pattern type="10000" count="one" alt="alphaNextToNumber">¤ 00K</pattern>
-        <pattern type="10000" count="other">¤00K</pattern>
-        <pattern type="10000" count="other" alt="alphaNextToNumber">¤ 00K</pattern>
-        <pattern type="100000" count="one">¤000K</pattern>
-        <pattern type="100000" count="one" alt="alphaNextToNumber">¤ 000K</pattern>
-        <pattern type="100000" count="other">¤000K</pattern>
-        <pattern type="100000" count="other" alt="alphaNextToNumber">¤ 000K</pattern>
-        <pattern type="1000000" count="one">¤0M</pattern>
-        <pattern type="1000000" count="one" alt="alphaNextToNumber">¤ 0M</pattern>
+					<pattern type="1000" count="one">¤0K</pattern>
+					<pattern type="1000" count="one" alt="alphaNextToNumber">¤ 0K</pattern>
+					<pattern type="1000" count="other">¤0K</pattern>
+					<pattern type="1000" count="other" alt="alphaNextToNumber">¤ 0K</pattern>
+					<pattern type="10000" count="one">¤00K</pattern>
+					<pattern type="10000" count="one" alt="alphaNextToNumber">¤ 00K</pattern>
+					<pattern type="10000" count="other">¤00K</pattern>
+					<pattern type="10000" count="other" alt="alphaNextToNumber">¤ 00K</pattern>
+					<pattern type="100000" count="one">¤000K</pattern>
+					<pattern type="100000" count="one" alt="alphaNextToNumber">¤ 000K</pattern>
+					<pattern type="100000" count="other">¤000K</pattern>
+					<pattern type="100000" count="other" alt="alphaNextToNumber">¤ 000K</pattern>
+					<pattern type="1000000" count="one">¤0M</pattern>
+					<pattern type="1000000" count="one" alt="alphaNextToNumber">¤ 0M</pattern>
+					<pattern type="1000000" count="other">¤0M</pattern>
+					<pattern type="1000000" count="other" alt="alphaNextToNumber">¤ 0M</pattern>
+					<pattern type="10000000" count="one">¤00M</pattern>
+					<pattern type="10000000" count="one" alt="alphaNextToNumber">¤ 00M</pattern>
+					<pattern type="10000000" count="other">¤00M</pattern>
+					<pattern type="10000000" count="other" alt="alphaNextToNumber">¤ 00M</pattern>
         …
     </currencyFormat>
 </currencyFormatLength>

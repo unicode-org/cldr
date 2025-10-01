@@ -603,7 +603,6 @@ public class ShowLocaleCoverage {
 
                     final Level cldrLocaleLevelGoal =
                             SC.getLocaleCoverageLevel(Organization.cldr, locale);
-                    final String specialFlag = getSpecialFlag(locale);
 
                     final boolean cldrLevelGoalBasicToModern =
                             Level.CORE_TO_MODERN.contains(cldrLocaleLevelGoal);
@@ -652,8 +651,7 @@ public class ShowLocaleCoverage {
                         }
                         String goalFlag = cldrLocaleLevelGoal == adjustedGoal ? "" : "*";
                         tsv_missing_counts.println(
-                                specialFlag
-                                        + locale
+                                locale
                                         + "\t"
                                         + goalFlag
                                         + adjustedGoal
@@ -710,7 +708,6 @@ public class ShowLocaleCoverage {
                                                 locale,
                                                 language,
                                                 script,
-                                                specialFlag,
                                                 file.getStringValue(path),
                                                 goalLevel,
                                                 foundLevel,
@@ -730,7 +727,6 @@ public class ShowLocaleCoverage {
                                                 locale,
                                                 language,
                                                 script,
-                                                specialFlag,
                                                 file.getStringValue(path),
                                                 goalLevel,
                                                 foundLevel,
@@ -775,8 +771,7 @@ public class ShowLocaleCoverage {
                                             .collect(Collectors.joining("; "));
 
                             tsv_missing_basic.println(
-                                    specialFlag
-                                            + locale //
+                                    locale //
                                             + "\t"
                                             + statusData.missing //
                                             + "\t"
@@ -791,8 +786,7 @@ public class ShowLocaleCoverage {
                                     );
                         }
                         tsv_missing_basic.println(
-                                specialFlag
-                                        + locale //
+                                locale //
                                         + "\t"
                                         + starredCounter.missingTotal //
                                         + "\t"
@@ -888,7 +882,7 @@ public class ShowLocaleCoverage {
                     final String visibleLevelGoal =
                             cldrLocaleLevelGoal == Level.UNDETERMINED
                                     ? ""
-                                    : specialFlag + cldrLocaleLevelGoal.toString();
+                                    : cldrLocaleLevelGoal.toString();
                     final String goalComparedToComputed =
                             computed == cldrLocaleLevelGoal
                                     ? " ≡"
@@ -1060,10 +1054,7 @@ public class ShowLocaleCoverage {
                                     + localeSet.size()
                                     + "\t"
                                     + Joiner.on(" ")
-                                            .join(
-                                                    localeSet.stream()
-                                                            .map(x -> x + getSpecialFlag(x))
-                                                            .collect(Collectors.toSet()))
+                                            .join(localeSet.stream().collect(Collectors.toSet()))
                                     + "\t"
                                     + phString);
                 }
@@ -1085,12 +1076,6 @@ public class ShowLocaleCoverage {
 
     private static String linkTsv(String tsvFileName, String anchorText) {
         return "<a href='" + TSV_BASE + tsvFileName + "' target='cldr-tsv'>" + anchorText + "</a>";
-    }
-
-    private static String getSpecialFlag(String locale) {
-        return SC.getLocaleCoverageLevel(Organization.special, locale) == Level.UNDETERMINED
-                ? ""
-                : "‡";
     }
 
     private static class IterableFilter implements Iterable<String> {
@@ -1153,7 +1138,6 @@ public class ShowLocaleCoverage {
             String locale,
             String language,
             String script,
-            String specialFlag,
             String nativeValue,
             Level cldrLocaleLevelGoal,
             Level itemLevel,
@@ -1185,8 +1169,7 @@ public class ShowLocaleCoverage {
         }
 
         String line =
-                specialFlag
-                        + language
+                language
                         + "\t"
                         + ENGLISH.nameGetter().getNameFromIdentifier(language)
                         + "\t"

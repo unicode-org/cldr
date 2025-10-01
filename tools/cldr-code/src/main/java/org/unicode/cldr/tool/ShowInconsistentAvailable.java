@@ -7,7 +7,6 @@ import com.google.common.collect.ComparisonChain;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
-import com.google.common.collect.Sets;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.text.DateIntervalInfo;
 import com.ibm.icu.text.DateIntervalInfo.PatternInfo;
@@ -86,18 +85,14 @@ public class ShowInconsistentAvailable {
     public static void main(String[] args) {
         MyOptions.parse(args);
         Set<String> cldrLocales = StandardCodes.make().getLocaleCoverageLocales(Organization.cldr);
-        Set<String> specialLocales =
-                StandardCodes.make().getLocaleCoverageLocales(Organization.special);
-        final Set<String> cldrLocalesWithoutSpecial = Sets.difference(cldrLocales, specialLocales);
-
         if (MyOptions.ordering.option.doesOccur()) {
-            showOrdering(cldrLocalesWithoutSpecial);
+            showOrdering(cldrLocales);
         }
         if (MyOptions.root.option.doesOccur()) {
             getRootPaths();
         }
         if (MyOptions.inconsistencies.option.doesOccur()) {
-            showInconsistencies(cldrLocalesWithoutSpecial);
+            showInconsistencies(cldrLocales);
         }
     }
 

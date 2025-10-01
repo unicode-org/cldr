@@ -57,7 +57,9 @@ The LDML specification is divided into the following parts:
 
 **Changes in LDML Version 48 (Differences from Version 47)**
 
-### Locale Identifiers
+### Locale Identifiers and Names
+* [Display Name Elements](tr35-general.md#display-name-elements) Described the usage of the `language` element `menu` values `core` and `extension`, and `alt="menu"`.
+Also revamped the description of how to construct names for locale IDs, for clarity.
 * [Special Script Codes](tr35.md#special-script-codes) Added the `Hntl` compound script. (This is also reflected in the `<scriptData>` elements in supplementalData.xml.)
 * [Likely Subtags](tr35.md#likely-subtags) Changed the Canonicalize step to point to the section on canonicalization.
 * [Unicode Locale Identifier](tr35.md#unicode-locale-identifier) Changed the `attribute` component in the EBNF to be `uattribute` for consistency with `ufield`, etc.
@@ -84,8 +86,9 @@ There is also now a mechanism for finding the region code from short timezone id
 * [Plural rules syntax](tr35-numbers.md#plural-rules-syntax) Added substantial clarifications and new examples.
 The order of execution is also clearly specified.
 * [Compact Number Formats](tr35-numbers.md#compact-number-formats) Specified the mechanism for formatting compact numbers more precisely.
-* [Rule-Based Number Formatting]() The rules are also now represented by a new XML structure with a “flat” format,
-which is easier for clients to handle (the old format will be retained for one more release).
+* [Rule-Based Number Formatting](tr35-numbers.md#) Added a full specification.
+The rules have been converted to a “flat” format, which is easier for clients to handle (the old format will be retained for one more release).
+* [Rational Numbers](tr35-numbers.md#rational-numbers) Added support for formatting fractions like 5½.
 
 ### Units of Measurement
 * [Unit Syntax](tr35-general.md#unit-syntax) Simplified the EBNF `product_unit` and added an additional well-formedness constraint for mixed units.

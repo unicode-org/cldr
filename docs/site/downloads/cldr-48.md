@@ -6,9 +6,9 @@ title: CLDR 48 Release Note
 
 | No. |    Date    | Rel. Note |  Data  |  Charts  | Spec |   Delta  | GitHub Tag | Delta DTD | CLDR JSON |
 |:---:|:----------:|:---------:|:------:|:--------:|:------------:|:---:|:----------:|:---------:|:---------:|
-|  48 | 2025-10-~~XX~~ | [v48](/index/downloads/cldr-48) | ~~[CLDR48](https://unicode.org/Public/cldr/48/)~~ | [Charts48](https://unicode.org/cldr/charts/dev) | [LDML48](https://www.unicode.org/reports/tr35/proposed.html) | [Δ48](https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixversion%20%3D%2048%20ORDER%20BY%20priority%20DESC) | [release-48-alpha3](https://github.com/unicode-org/cldr/releases/tag/release-48-alpha3) | [ΔDtd48](https://www.unicode.org/cldr/charts/dev/supplemental/dtd_deltas.html) | [48.0.0-ALPHA3](https://github.com/unicode-org/cldr-json/releases/tag/48.0.0-ALPHA3) |
+|  48 | 2025-10-~~XX~~ | [v48](/index/downloads/cldr-48) | ~~[CLDR48](https://unicode.org/Public/cldr/48/)~~ | [Charts48](https://unicode.org/cldr/charts/dev) | [LDML48](https://www.unicode.org/reports/tr35/proposed.html) | [Δ48](https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixversion%20%3D%2048%20ORDER%20BY%20priority%20DESC) | [release-48-beta1](https://github.com/unicode-org/cldr/releases/tag/release-48-beta1) | [ΔDtd48](https://www.unicode.org/cldr/charts/dev/supplemental/dtd_deltas.html) | [48.0.0-BETA1](https://github.com/unicode-org/cldr-json/releases/tag/48.0.0-BETA1) |
 
-# ALPHA DRAFT
+# BETA DRAFT
 
 ## Overview
 
@@ -78,8 +78,42 @@ For a full listing, see [Coverage Levels](https://unicode.org/cldr/charts/dev/su
 
 The following are the most significant changes to the specification (LDML).
 
-- **TBD A summary of the changes will be added for the spec-beta.**
-**In the meantime, see the [Modifications section](https://www.unicode.org/reports/tr35/dev/tr35-modifications.html).**
+### Locale Identifiers and Names
+* [Display Name Elements](tr35-general.md#display-name-elements) Described the usage of the `language` element `menu` values `core` and `extension`, and `alt="menu"`.
+Also revamped the description of how to construct names for locale IDs, for clarity.
+  
+### Misc.
+* [Character Elements](tr35-general.md#character-elements) Added new exemplar types.
+* [Person Name Validation](tr35-personNames.md#person-name-validation) Added guidance for validating person names.
+
+### DateTime formats
+
+* [Element dateTimeFormat](tr35-dates.md#dateTimeFormat) Added a new type `relative` for relative date/times, such as "tomorrow at 10:00",
+and updated the guidelines for using the different `dateTimeFormat` types.
+* [timeZoneNames Elements Used for Fallback](tr35-dates.md#timeZoneNames-elements-used-for-fallback) Added the `gmtUnknownFormat`, to indicate when the timezone is unknown.
+* [Metazone Names](tr35-dates.md#metazone-names) Added `usesMetazone`, to specify which offset is considered standard time, and which offset is considered daylight.
+* [Time Zone Format Terminology](tr35-dates.md#time-zone-format-terminology) Added the **Localized GMT format** (and removing the **Specific location format**).
+This affects the behavior of the `z` timezone format symbol.
+There is also now a mechanism for finding the region code from short timezone identifier, which is used for the _non-location formats (generic or specific)_
+* [Calendar Data](tr35-dates.md#calendar-data) Specified more precisely the meaning of the `era` attributes in supplemental data, and how to determine the transition point in time between eras.
+
+### Numbers
+* [Plural rules syntax](tr35-numbers.md#plural-rules-syntax) Added substantial clarifications and new examples.
+The order of execution is also clearly specified.
+* [Compact Number Formats](tr35-numbers.md#compact-number-formats) Specified the mechanism for formatting compact numbers more precisely.
+* [Rational Numbers](tr35-numbers.md#rational-numbers) Added support for formatting fractions like 5½.
+
+### Units of Measurement
+* [Unit Syntax](tr35-general.md#unit-syntax) Simplified the EBNF `product_unit` and added an additional well-formedness constraint for mixed units.
+* [Unit Identifier Normalization](#tr35-general.md) Modified the normalization process
+* [Mixed Units](tr35-general.md#mixed-units) Modified the guidance for handling precision.
+
+### MessageFormat
+* Syntax and data model errors now must be prioritized over other errors ([\#1011](https://github.com/unicode-org/message-format-wg/pull/1011))  
+* The Default Bidi Strategy is now required and default ([\#1066](https://github.com/unicode-org/message-format-wg/pull/1066))  
+* The `:offset` function (previously named `:math`) is now available as Stable ([\#1073](https://github.com/unicode-org/message-format-wg/pull/1073))
+* The `:datetime`, `:date`, and `:time` functions are updated to build on top of semantic skeletons ([\#1078](https://github.com/unicode-org/message-format-wg/pull/1078), [\#1083](https://github.com/unicode-org/message-format-wg/pull/1083))  
+* `:percent` is added as a new Draft function ([\#1094](https://github.com/unicode-org/message-format-wg/pull/1094))
 
 There are many more changes that are important to implementations, such as changes to certain identifier syntax and various algorithms.
 See the [Modifications section](https://www.unicode.org/reports/tr35/dev/tr35-modifications.html) of the specification for details.
@@ -127,6 +161,7 @@ The alphaNextToNumber patterns allow for a space between letter currency symbols
 - Additional units were added for scientific contexts (coulombs, farads, teslas, etc.) and for English systems (fortnights, imperial pints, etc.).
 However, translation of these English system names was not required.
 - Additional guidance on translation was added, leading to refined translations or transcreations.
+- SIL contributed exemplar data for 860 new or updated locales. The ones that don't have other locale data are in the `/exemplars/` directory (parallel to `/common`.
 
 #### Specific Locales
 - Kurdish (Kurmanji) `ku` split from 1 locale `ku_TR` into 5 locales across 2 scripts and 4 countries. ([CLDR-18311][])
@@ -163,7 +198,7 @@ The definition was unclear, and prone to misunderstanding — the more detailed 
 - `numberingSystem` — Unicode 17 data was added.
 
 #### ldmlBCP47
-- `type` — adds a new attribute `region`.
+- `type` — adds a new attribute `region`, for detemining the region from short timezone IDs when not derivable from the first two characters.
 - `keyboard3@conformsTo` — is updated to allow "48".
 - `hc` — adds values `c12` and `c24` as Technical Preview. Also see the note about `h24` in "V49 advance warnings". ([CLDR-18894][])
 
@@ -279,21 +314,17 @@ The following files are new in the release:
 |  | testData | personNameTest | ba.txt, blo.txt, cv.txt, kk\_Arab.txt, kok\_Latn.txt, rm.txt, shn.txt |
 |  | uca |  | FractionalUCA\_blanked.txt |
 
-### Tooling Changes
-
-- TBD
-
-### Keyboard Changes
-
-- TBD
-
-----
-
 ## Migration
 
 - Number patterns that did not have a specific numberSystem (such as `latn` or `arab`) had been deprecated for many releases, and were finally removed.
 - Additionally, language and territory data in `languageData` and `territoryInfo` data received significant updates to improve accuracy and maintainability [CLDR-18087]
 - The likely language for Belarus changed to Russian [CLDR-14479]
+- [Using Time Zone Names](tr35-dates.md#using-time-zone-names) Removed the "specific location format", and modified the fallback behavior of 'z'.
+- [Unit Identifier Normalization](#tr35-general.md) Modified the normalization process
+- The `era` element `type` attributes no longer need to start at 0. Implementations that use arrays may have to adjust their implementations.
+- The default week numbering mechanism changes to be identical to ISO instead being based on the calendar week.
+- Deprecated unit IDs `permillion`, `portion`, `portion-per-1e9`. These are replaced by IDs using `part`. Also deprecated the compound component `100-kilometer`, since (certain) integers are allowed in unit ID denominators.
+- For compact short currency formatting (such as "$13B"), implementations should use the new `alphaNextToNumber` variants to get the correct spacing.
 - The unit identifiers for the following changed for consistency.
 As with all such changes, aliases are available to permit parsing and formatting to work across versions.
     - `permillion` changed to `part-per-1e6`; English values remain “parts per million”, “{0} part per million”, etc.
@@ -304,7 +335,6 @@ This was typically to move towards the official spelling in the country in quest
 For example: El Aaiun → El Aaiún; Casey → Casey Station; Hovd Time → Khovd Time.
 - A few additional availableFormat and interval format patterns have been added, such as GyMEd and Hv, to fill some gaps.
 - The metazone for Hawaii has changed.
-- **TBD Additional items plus future guidance will be added before the spec-beta.**
 
 ### V49 advance warnings
 

@@ -222,6 +222,17 @@ For a full listing, see [Supplemental Delta].
 - Updated to the ISO currency data, with various additions and deprecations.
 - Added unit IDs part, part-per-1e6, part-per-1e9, cup-imperial, fluid-ounce-metric, … with conversions.
   - deprecated unit IDs permillion, portion, portion-per-1e9, 100-kilometer.
+- Eras and era codes added and deleted to align with ECMA-402 ([CLDR-18369][])
+  - New era: Before Hijri, code `bh`, in all Islamic calendars
+  - New era codes and replacements:
+    - `am` (Coptic)
+    - `aa` (Ethiopian, replaces `mundi`)
+    - `am` (Ethiopian, replaces `incar`)
+    - `shaka` (Indian, replaces `saka`)
+    - `broc` (ROC, replaces `before-roc`)
+  - All codes that include the calendar name (like `gregory-inverse`) were removed, except for `roc`
+  - Additional aliases removed for ECMA-402 alignment:
+    - `minguo` (ROC)
 
 #### Language Data
 - [language_script.tsv](https://github.com/unicode-org/cldr/blob/main/tools/cldr-code/src/main/resources/org/unicode/cldr/util/data/language_script.tsv) updated to include only one "Primary" writing system for languages that used to have multiple options ([CLDR-18114][]).
@@ -376,6 +387,7 @@ For web pages with different views of CLDR data, see [http://cldr.unicode.org/in
 [CLDR-18219]: https://unicode-org.atlassian.net/browse/CLDR-18219
 [CLDR-18275]: https://unicode-org.atlassian.net/browse/CLDR-18275
 [CLDR-18311]: https://unicode-org.atlassian.net/browse/CLDR-18311
+[CLDR-18369]: https://unicode-org.atlassian.net/browse/CLDR-18369
 [CLDR-18894]: https://unicode-org.atlassian.net/browse/CLDR-18894
 [CLDR-18956]: https://unicode-org.atlassian.net/browse/CLDR-18956
 

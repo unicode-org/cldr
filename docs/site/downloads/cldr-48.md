@@ -88,7 +88,7 @@ Also revamped the description of how to construct names for locale IDs, for clar
 
 * [Element dateTimeFormat](https://www.unicode.org/reports/tr35/dev/tr35-dates.html#dateTimeFormat) Added a new type `relative` for relative date/times, such as "tomorrow at 10:00",
 and updated the guidelines for using the different `dateTimeFormat` types.
-* [timeZoneNames Elements Used for Fallback](https://www.unicode.org/reports/tr35/dev/tr35-dates.html#timeZoneNames-elements-used-for-fallback) Added the `gmtUnknownFormat`, to indicate when the timezone is unknown.
+* [timeZoneNames Elements Used for Fallback](https://www.unicode.org/reports/tr35/dev/tr35-dates.html#timeZoneNames-elements-used-for-fallback) Added the `gmtUnknownFormat` to indicate when the timezone is unknown.
 * [Metazone Names](https://www.unicode.org/reports/tr35/dev/tr35-dates.html#metazone-names) Added `usesMetazone` to specify which offset is considered standard time and which offset is considered daylight.
 * [Time Zone Format Terminology](https://www.unicode.org/reports/tr35/dev/tr35-dates.html#time-zone-format-terminology) Added the **Localized GMT format** (and removed the **Specific location format**).
 This affects the behavior of the `z` timezone format symbol.
@@ -108,7 +108,7 @@ The order of execution is also clearly specified.
 
 ### MessageFormat
 * Syntax and data model errors must now be prioritized over other errors. <!-- ([\#1011](https://github.com/unicode-org/message-format-wg/pull/1011)) -->
-* The Default Bidi Strategy is now required and default. <!-- <!-- ([\#1066](https://github.com/unicode-org/message-format-wg/pull/1066)) -->
+* The Default Bidi Strategy is now required and default. <!-- ([\#1066](https://github.com/unicode-org/message-format-wg/pull/1066)) -->
 * The `:offset` function (previously named `:math`) is now available as Stable. <!-- ([\#1073](https://github.com/unicode-org/message-format-wg/pull/1073)) -->
 * The `:datetime`, `:date`, and `:time` functions are updated to build on top of semantic skeletons. <!-- ([\#1078](https://github.com/unicode-org/message-format-wg/pull/1078), [\#1083](https://github.com/unicode-org/message-format-wg/pull/1083)) -->
 * `:percent` is added as a new Draft function. <!-- ([\#1094](https://github.com/unicode-org/message-format-wg/pull/1094)) -->
@@ -188,7 +188,7 @@ For a full listing, see [BCP47 Delta].
 
 - `nu-tols` numbering system for Tolong Siki digits
 - One additional zone: 	America/Coyhaique = tz-clcxq
-- Region attributes in timezones, for determining regions where it can't be derived from the short TZID 
+- Region attributes in timezones for determining regions where it can't be derived from the short TZID 
 - Three additional aliases
 
 ### Supplemental Data Changes
@@ -319,7 +319,7 @@ For example: El Aaiun → El Aaiún; Casey → Casey Station; Hovd Time → Khov
 
 The following changes are planned for CLDR 49. Please plan accordingly to avoid disruption.
 - H24 will be deprecated. If it is encountered, it will have H23 behavior. There is no known intentional usage of H24. If you have a current need for H24 instead of H23, please comment on [CLDR-18303][].
-- The default week numbering changes to ISO instead being based on the calendar week starting in CLDR 48. The calendar week will be more clearly targeted at matching usage in displayed month calendars. [CLDR-18275]
+- The default week numbering changes to ISO instead being based on the calendar week starting in CLDR 48. The calendar week will be more clearly targeted at matching usage in displayed month calendars. [CLDR-18275][ ]
 - The pre-Meiji Japanese eras will be removed: There was too much uncertainty in the exact values
 and feedback that the general practice for exact dates is to use Gregorian for pre-Meiji dates.
 - The major components in [supplementalData.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalData.xml) and [supplementalMetadata.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalMetadata.xml) files are slated to be organized more logically and moved into separate files.

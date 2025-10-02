@@ -23,24 +23,22 @@ This data is also a factor in determining which languages are supported on mobil
 
 ### Changes
 
-The most significant changes in this release are:
+Some of the most significant changes in this release are:
 - Updated for Unicode 17, including new names and search terms for new emoji, new sort-order, Han → Latin romanization additions for many characters.
-- Updated to the latest external standards and data sources, such as the language subtag registry, UN M49 macro regions, ISO 4217 currencies, etc.
-- Many enhancements of the CLDR specification (LDML), including:
-  - **TBD A summary of the changes will be added for the spec-beta.**
-**In the meantime, see the [Modifications section](https://www.unicode.org/reports/tr35/dev/tr35-modifications.html).**
 - Many additions to language data including:
     - Likely Subtags, for deriving the likely script and region from the language (used in many processes).
     - Language populations in countries: significant updates to improve accuracy and maintainability.
+- Updated to the latest external standards and data sources, such as the language subtag registry, UN M49 macro regions, ISO 4217 currencies, etc.
 - New formatting options
     - Rational number formats added, allowing for formats like 5½.
     - For timezones, `usesMetazone` adds two new attributes `stdOffset` and `dstOffset` so that implementations can use either "vanguard" or "rearguard" TZDB data sources.
     - There are now combination formats for _relative_ dates + times, such as “tomorrow _at_ 12:30”.
     - Additional units were added for scientific contexts (coulombs, farads, teslas, etc.) and for English systems (fortnights, imperial pints, etc.).
-New non-metric units were not translated aside from a few languages.
-- Many corrections and updates for Metazone data, for calendars (including removal of eras and fixes to start dates).
+(New English units were not translated aside from a few languages.)
 - This is the first release where the new CLDR Organization process is in place for DDL languages.
-As a result, several locales were able to reach higher levels (see below).
+As a result, several locales were able to reach higher levels.
+- Many enhancements of the CLDR specification (LDML), covering the above items and many more:
+for details see [Specification Changes](#specification-changes)
 
 For more details, see below.
 
@@ -76,44 +74,44 @@ For a full listing, see [Coverage Levels](https://unicode.org/cldr/charts/dev/su
 
 ## Specification Changes
 
-The following are the most significant changes to the specification (LDML).
+The following are some of the most significant changes to the specification (LDML).
 
 ### Locale Identifiers and Names
-* [Display Name Elements](tr35-general.md#display-name-elements) Described the usage of the `language` element `menu` values `core` and `extension`, and `alt="menu"`.
+* [Display Name Elements](https://www.unicode.org/reports/tr35/dev/tr35-general.html#display-name-elements) Described the usage of the `language` element `menu` values `core` and `extension`, and `alt="menu"`.
 Also revamped the description of how to construct names for locale IDs, for clarity.
   
 ### Misc.
-* [Character Elements](tr35-general.md#character-elements) Added new exemplar types.
-* [Person Name Validation](tr35-personNames.md#person-name-validation) Added guidance for validating person names.
+* [Character Elements](https://www.unicode.org/reports/tr35/dev/tr35-general.html#character-elements) Added new exemplar types.
+* [Person Name Validation](https://www.unicode.org/reports/tr35/dev/tr35-personNames.html#person-name-validation) Added guidance for validating person names.
 
 ### DateTime formats
 
-* [Element dateTimeFormat](tr35-dates.md#dateTimeFormat) Added a new type `relative` for relative date/times, such as "tomorrow at 10:00",
+* [Element dateTimeFormat](https://www.unicode.org/reports/tr35/dev/tr35-dates.html#dateTimeFormat) Added a new type `relative` for relative date/times, such as "tomorrow at 10:00",
 and updated the guidelines for using the different `dateTimeFormat` types.
-* [timeZoneNames Elements Used for Fallback](tr35-dates.md#timeZoneNames-elements-used-for-fallback) Added the `gmtUnknownFormat`, to indicate when the timezone is unknown.
-* [Metazone Names](tr35-dates.md#metazone-names) Added `usesMetazone`, to specify which offset is considered standard time, and which offset is considered daylight.
-* [Time Zone Format Terminology](tr35-dates.md#time-zone-format-terminology) Added the **Localized GMT format** (and removing the **Specific location format**).
+* [timeZoneNames Elements Used for Fallback](https://www.unicode.org/reports/tr35/dev/tr35-dates.html#timeZoneNames-elements-used-for-fallback) Added the `gmtUnknownFormat`, to indicate when the timezone is unknown.
+* [Metazone Names](https://www.unicode.org/reports/tr35/dev/tr35-dates.html#metazone-names) Added `usesMetazone`, to specify which offset is considered standard time, and which offset is considered daylight.
+* [Time Zone Format Terminology](https://www.unicode.org/reports/tr35/dev/tr35-dates.html#time-zone-format-terminology) Added the **Localized GMT format** (and removing the **Specific location format**).
 This affects the behavior of the `z` timezone format symbol.
 There is also now a mechanism for finding the region code from short timezone identifier, which is used for the _non-location formats (generic or specific)_
-* [Calendar Data](tr35-dates.md#calendar-data) Specified more precisely the meaning of the `era` attributes in supplemental data, and how to determine the transition point in time between eras.
+* [Calendar Data](https://www.unicode.org/reports/tr35/dev/tr35-dates.html#calendar-data) Specified more precisely the meaning of the `era` attributes in supplemental data, and how to determine the transition point in time between eras.
 
 ### Numbers
-* [Plural rules syntax](tr35-numbers.md#plural-rules-syntax) Added substantial clarifications and new examples.
+* [Plural rules syntax](https://www.unicode.org/reports/tr35/dev/tr35-numbers.html#plural-rules-syntax) Added substantial clarifications and new examples.
 The order of execution is also clearly specified.
-* [Compact Number Formats](tr35-numbers.md#compact-number-formats) Specified the mechanism for formatting compact numbers more precisely.
-* [Rational Numbers](tr35-numbers.md#rational-numbers) Added support for formatting fractions like 5½.
+* [Compact Number Formats](https://www.unicode.org/reports/tr35/dev/tr35-numbers.html#compact-number-formats) Specified the mechanism for formatting compact numbers more precisely.
+* [Rational Numbers](https://www.unicode.org/reports/tr35/dev/tr35-numbers.html#rational-numbers) Added support for formatting fractions like 5½.
 
 ### Units of Measurement
-* [Unit Syntax](tr35-general.md#unit-syntax) Simplified the EBNF `product_unit` and added an additional well-formedness constraint for mixed units.
-* [Unit Identifier Normalization](#tr35-general.md) Modified the normalization process
-* [Mixed Units](tr35-general.md#mixed-units) Modified the guidance for handling precision.
+* [Unit Syntax](https://www.unicode.org/reports/tr35/dev/tr35-general.html#unit-syntax) Simplified the EBNF `product_unit` and added an additional well-formedness constraint for mixed units.
+* [Unit Identifier Normalization](https://www.unicode.org/reports/tr35/dev/tr35-general.html) Modified the normalization process
+* [Mixed Units](https://www.unicode.org/reports/tr35/dev/tr35-general.html#mixed-units) Modified the guidance for handling precision.
 
 ### MessageFormat
-* Syntax and data model errors now must be prioritized over other errors ([\#1011](https://github.com/unicode-org/message-format-wg/pull/1011))  
-* The Default Bidi Strategy is now required and default ([\#1066](https://github.com/unicode-org/message-format-wg/pull/1066))  
-* The `:offset` function (previously named `:math`) is now available as Stable ([\#1073](https://github.com/unicode-org/message-format-wg/pull/1073))
-* The `:datetime`, `:date`, and `:time` functions are updated to build on top of semantic skeletons ([\#1078](https://github.com/unicode-org/message-format-wg/pull/1078), [\#1083](https://github.com/unicode-org/message-format-wg/pull/1083))  
-* `:percent` is added as a new Draft function ([\#1094](https://github.com/unicode-org/message-format-wg/pull/1094))
+* Syntax and data model errors now must be prioritized over other errors <!-- ([\#1011](https://github.com/unicode-org/message-format-wg/pull/1011)) -->
+* The Default Bidi Strategy is now required and default <!-- <!-- ([\#1066](https://github.com/unicode-org/message-format-wg/pull/1066)) -->
+* The `:offset` function (previously named `:math`) is now available as Stable <!-- ([\#1073](https://github.com/unicode-org/message-format-wg/pull/1073)) -->
+* The `:datetime`, `:date`, and `:time` functions are updated to build on top of semantic skeletons <!-- ([\#1078](https://github.com/unicode-org/message-format-wg/pull/1078), [\#1083](https://github.com/unicode-org/message-format-wg/pull/1083)) -->
+* `:percent` is added as a new Draft function <!-- ([\#1094](https://github.com/unicode-org/message-format-wg/pull/1094)) -->
 
 There are many more changes that are important to implementations, such as changes to certain identifier syntax and various algorithms.
 See the [Modifications section](https://www.unicode.org/reports/tr35/dev/tr35-modifications.html) of the specification for details.
@@ -124,37 +122,19 @@ See the [Modifications section](https://www.unicode.org/reports/tr35/dev/tr35-mo
 
 #### General
 - Languages that reached Basic in the last release have their names translated at Modern Coverage in this release.
+- New emoji for Unicode 17 have added names and search keywords.
 - Compound language names now have "core" and "extension" variants for more uniform formats in menus and lists.
-The description of how to format names for locale IDs has been extended and clarified.
-   - For example, that allows the Kurdish variants to have a uniform format where more than Kurmanji is displayed.
-       - Kashmiri
-       - Kurdish (Kurmanji, Latin)
-       - Kurdish (Central, Arabic)
-       - Kurdish (Southern, Arabic)
-       - Kyrgyz
-- Many features selectable with locale options now have `scope="core"` names, for better presentation in menus.
-   - Calendar names, collation names, emoji options, currency formats, hour-cycle options, and so on.
-   - Rather than seeing
-       - Calendar
-           - Buddhist Calendar
-           - Chinese Calendar
-           - Gregorian Calendar
-    - Users can see
-        - Calendar
-           - Buddhist
-           - Chinese
-           - Gregorian
+The description of how to format names for locale IDs has been extended and clarified with new attributes added for better presentation in menus and other environments `menu="core"`, `menu="extension"`, `scope="core"`. [See Display Name Elements](https://www.unicode.org/reports/tr35/dev/tr35-general.html#display-name-elements) for details.
 - Recent or upcoming currency names were added (XCG, ZWG).
 - To match ISO, added translations for the region Sark (CQ).
 - There are now combination formats for _relative_ dates + times, such as “tomorrow _at_ 12:30”.
 In some languages the use of a relative date such as “tomorrow” or “2 days ago” requires a _different_ combining pattern than for a fixed date like “March 20”.
 A new “relative” variant is introduced to allow for those languages.
-- Some additional flexible date formats were added. (aka `availableFormats`)
+- Added some additional flexible date formats (aka `availableFormats`). 
 - Many locales had seldom-used short timezone abbreviations (such as EST) removed, or moved to sublocales that use them.
 - The currency-number formats for `alphaNextToNumber`, `noCurrency`, and compact currency formats are now generated from other data for consistency.
-The alphaNextToNumber patterns allow for a space between letter currency symbols and numbers. For example, "USD 123" vs "$123".
-- The tooling made it easier to see when a space was a non-breaking character or not, or thin versions of those. The usage is now more consistent in many locales.
-- New emoji for Unicode 17 have added names and search keywords.
+The `alphaNextToNumber` patterns allow for adding a space between letter currency symbols and numbers. For example, "USD 123" vs "US$123".
+- The tooling made it easier to see when a space was a non-breaking character or not, or a thin version of those. The usage is now more consistent in many locales.
 - For the Etc/Unknown timezone, the `exemplarCity` name was changed from “Unknown City” to “Unknown Location” for clarity.
 - Rational number formats were added, allowing for formats like 5½.
 - Certain concentration units were reworked, for “parts per million”, “parts per billion”.
@@ -164,7 +144,7 @@ However, translation of these English system names was not required.
 - SIL contributed exemplar data for 860 new or updated locales. The ones that don't have other locale data are in the `/exemplars/` directory (parallel to `/common`.
 
 #### Specific Locales
-- Kurdish (Kurmanji) `ku` split from 1 locale `ku_TR` into 5 locales across 2 scripts and 4 countries. ([CLDR-18311][])
+- Kurdish (Kurmanji) `ku` split from 1 locale `ku_TR` into 5 locales across 2 scripts and 4 countries. [CLDR-18311][]
   - `ku_Latn_TR`: Kurdish (Kurmanji, Latin alphabet, Turkey) default for Kurdish (Kurmanji) `ku` and `ku_Latn`
   - `ku_Latn_SY`: Kurdish (Kurmanji, Latin alphabet, Syria)
   - `ku_Latn_IQ`: Kurdish (Kurmanji, Latin alphabet, Iraq)
@@ -193,14 +173,14 @@ The explanations of usage are in the [Locale Changes](#locale-changes) section.
 #### supplementalData
 - `era` — the range of `code` values now allows two letters before the first hyphen.
 - `languageData` — the `territories` attribute [`supplementalData.xml`](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalData.xml) was deprecated and data using it removed.
-The definition was unclear, and prone to misunderstanding — the more detailed data is in `territoryInfo`. ([CLDR-5708][])
+The definition was unclear, and prone to misunderstanding — the more detailed data is in `territoryInfo`. [CLDR-5708][]
 - `usesMetazone` — adds two new attributes `stdOffset` and `dstOffset` so that implementations can use either "vanguard" or "rearguard" TZDB data sources.
 - `numberingSystem` — Unicode 17 data was added.
 
 #### ldmlBCP47
-- `type` — adds a new attribute `region`, for detemining the region from short timezone IDs when not derivable from the first two characters.
+- `type` — adds a new attribute `region`, for determining the region from short timezone IDs when not derivable from the first two characters.
 - `keyboard3@conformsTo` — is updated to allow "48".
-- `hc` — adds values `c12` and `c24` as Technical Preview. Also see the note about `h24` in "V49 advance warnings". ([CLDR-18894][])
+- `hc` — adds values `c12` and `c24` as Technical Preview. Also see the note about `h24` in "V49 advance warnings". [CLDR-18894][]
 
 ### BCP47 Data Changes
 
@@ -208,9 +188,8 @@ For a full listing, see [BCP47 Delta].
 
 - `nu-tols` numbering system for Tolong Siki digits
 - One additional zone: 	America/Coyhaique = tz-clcxq
-- Seven region attributes for determining regions for timezones
+- Region attributes in timezones, for determining regions where it can't be derived from the short TZID 
 - Three additional aliases
-
 
 ### Supplemental Data Changes
 
@@ -224,7 +203,7 @@ For a full listing, see [Supplemental Delta].
   - deprecated unit IDs permillion, portion, portion-per-1e9, 100-kilometer.
 
 #### Language Data
-- [language_script.tsv](https://github.com/unicode-org/cldr/blob/main/tools/cldr-code/src/main/resources/org/unicode/cldr/util/data/language_script.tsv) updated to include only one "Primary" writing system for languages that used to have multiple options ([CLDR-18114][]).
+- [language_script.tsv](https://github.com/unicode-org/cldr/blob/main/tools/cldr-code/src/main/resources/org/unicode/cldr/util/data/language_script.tsv) updated to include only one "Primary" writing system for languages that used to have multiple options [CLDR-18114][].
 Notable changes are:
   - Punjabi `pa` has changed the primary script to Gurmukhi `Guru` because widespread usage is in the Gurmukhi script. While most speakers are in Pakistan `PK`, written usage remains Gurmukhi.
   - Azerbaijani `az` and Northern Kurdish `ku` primarily are used in Latin `Latn`.
@@ -236,11 +215,11 @@ Notable changes are:
 #### Likely Subtags
 - Many additions: see [Likely Subtags]
 - Errors in likely subtags addressed
-   - The default language for Belarus `BY` is now Russian `ru`, reflecting modern usage. ([CLDR-14479][])
-   - Literary Chinese `lzh` was written in Traditional Han writing `Hant`. ([CLDR-16715][])
+   - The default language for Belarus `BY` is now Russian `ru`, reflecting modern usage. [CLDR-14479][]
+   - Literary Chinese `lzh` was written in Traditional Han writing `Hant`. [CLDR-16715][]
 - Likely subtags updated because of prior mentioned primary script matches.
-  - Northern Kurdish `ku` now matched to Cyrillic writing in the CIS countries. ([CLDR-18114][])
-  - Hassiniyya `mey` updated to default to `mey_Arab_DZ` instead of `mey_Latn_SN`. ([CLDR-18114][])
+  - Northern Kurdish `ku` now matched to Cyrillic writing in the CIS countries. [CLDR-18114][]
+  - Hassiniyya `mey` updated to default to `mey_Arab_DZ` instead of `mey_Latn_SN`. [CLDR-18114][]
 
 #### Calendars, Timezones, Dayperiods
 - Many updates and corrections for Metazone data
@@ -319,8 +298,8 @@ The following files are new in the release:
 - Number patterns that did not have a specific numberSystem (such as `latn` or `arab`) had been deprecated for many releases, and were finally removed.
 - Additionally, language and territory data in `languageData` and `territoryInfo` data received significant updates to improve accuracy and maintainability [CLDR-18087]
 - The likely language for Belarus changed to Russian [CLDR-14479]
-- [Using Time Zone Names](tr35-dates.md#using-time-zone-names) Removed the "specific location format", and modified the fallback behavior of 'z'.
-- [Unit Identifier Normalization](#tr35-general.md) Modified the normalization process
+- [Using Time Zone Names](https://www.unicode.org/reports/tr35/dev/tr35-dates.html#using-time-zone-names) Removed the "specific location format", and modified the fallback behavior of 'z'.
+- [Unit Identifier Normalization](https://www.unicode.org/reports/tr35/dev/#tr35-general.html) Modified the normalization process
 - The `era` element `type` attributes no longer need to start at 0. Implementations that use arrays may have to adjust their implementations.
 - The default week numbering mechanism changes to be identical to ISO instead being based on the calendar week.
 - Deprecated unit IDs `permillion`, `portion`, `portion-per-1e9`. These are replaced by IDs using `part`. Also deprecated the compound component `100-kilometer`, since (certain) integers are allowed in unit ID denominators.
@@ -339,8 +318,8 @@ For example: El Aaiun → El Aaiún; Casey → Casey Station; Hovd Time → Khov
 ### V49 advance warnings
 
 The following changes are planned for CLDR 49. Please plan accordingly to avoid disruption.
-- [CLDR-18303][] H24 will be deprecated. If it is encountered, it will have H23 behavior. There is no known intentional usage of H24. If you have a current need for H24 instead of H23, please comment on [CLDR-18303][].
-- The default week numbering changes to ISO instead being based on the calendar week starting in CLDR 48 [CLDR-18275]. The calendar week will be more clearly targeted at matching usage in displayed month calendars.
+- H24 will be deprecated. If it is encountered, it will have H23 behavior. There is no known intentional usage of H24. If you have a current need for H24 instead of H23, please comment on [CLDR-18303][].
+- The default week numbering changes to ISO instead being based on the calendar week starting in CLDR 48. The calendar week will be more clearly targeted at matching usage in displayed month calendars. [CLDR-18275]
 - The pre-Meiji Japanese eras will be removed: There was too much uncertainty in the exact values
 and feedback that the general practice for exact dates is to use Gregorian for pre-Meiji dates.
 - The major components in [supplementalData.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalData.xml) and [supplementalMetadata.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalMetadata.xml) files are slated to be organized more logically and moved into separate files.

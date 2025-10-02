@@ -109,7 +109,7 @@ The JSON data is packaged and released in the CLDR-JSON repository. See https://
 
 CLDR files are maintained in a git source code repository at https://github.com/unicode-org/cldr.git.
 
-**Note**: On Sep 14, 2021, the main branch was renamed to 'main', please see [This Page](/development/main-rename) for how to fix.
+**Note**: On Sep 14, 2021, the main branch was renamed to 'main'.
 
 There are several ways to access the repository contents.
 
@@ -118,9 +118,9 @@ There are several ways to access the repository contents.
 
 For browsing a particular file for a particular version, or revision history of a particular file, use the [GitHub Browser](https://github.com/unicode-org/cldr.git). For example:
 
-- Go to the latest French LDML file at https://github.com/unicode-org/cldr/blob/master/common/main/fr.xml.
+- Go to the latest French LDML file at https://github.com/unicode-org/cldr/blob/main/common/main/fr.xml.
 - See all the files in a directory structure using https://github.com/unicode-org/cldr.
-- Find a file using https://github.com/unicode-org/cldr/find/master (click after "cldr /" above the blue box).
+- Find a file using https://github.com/unicode-org/cldr/find/main (click in the space after "cldr /" above the blue box).
 
 
 ### Advanced Git Access
@@ -152,7 +152,7 @@ At the top level of each GitHub repository tree, there are a number of special f
     - *uca* — customized Unicode collation data
     - *validity* — data for validating BCP47 identifiers
 - *docs* — the source of the LDML spec and other documents
-- *exemplars/main* — preliminary exemplar character data for locales which do not hav e
+- *exemplars/main* — preliminary exemplar character data for locales which do not yet have data in CLDR.
 - *keyboards* — source files for the CLDR keyboard data
     - *seed* — preliminary locales that do not yet have sufficient vetted data.
     - *annotations*
@@ -162,13 +162,12 @@ At the top level of each GitHub repository tree, there are a number of special f
     - *rbnf*
         - *transforms* — these folders have the same structure as their counterparts in common. Note that supplemental is not duplicated.
 - *~~specs~~* — deprecated, with contents moved to docs.
-- [*tools*](https://github.com/unicode-org/cldr/tree/master/tools) — source for internal tools for processing CLDR data
+- [*tools*](https://github.com/unicode-org/cldr/tree/main/tools) — source for internal tools for processing CLDR data
     - *SurveyConsole* — (not currently deployed) This is a tool providing an operational dashboard for the Survey Tool
     - c/*genldml* — The only C language tool, this was used to convert ICU format data into LDML.
-    - *cldr-apps-watcher* — (not currently deployed) This is a tool which will watch the Survey Tool and ensure that it remains operational.
-    - [*cldr-apps*](https://github.com/unicode-org/cldr/tree/master/tools/cldr-apps) — Survey Tool source code
-    - *cldr-unittest* — Unit tests against the CLDR code in the “java” directory. (Not to be confused with CheckCLDR tests.)
-    - [*java*](https://github.com/unicode-org/cldr/tree/master/tools/java) — main source code for the CLDR tooling
+    - *cldr-apps-webdriver* — Automated tests for the Survey Tool to ensure that it remains operational.
+    - [*cldr-apps*](https://github.com/unicode-org/cldr/tree/main/tools/cldr-apps) — Survey Tool source code
+    - [*cldr-code*](https://github.com/unicode-org/cldr/tree/main/tools/cldr-code) — main source code for the CLDR tooling
     - *python* — utility Python code
     - *scripts* — accessory shell scripts, used for CLDR process and Survey Tool deployment
 

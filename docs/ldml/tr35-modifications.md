@@ -109,18 +109,13 @@ The rules have been converted to a “flat” format, which is easier for client
 * [Collation](tr35-collation.md) Added the new `FractionalUCA_blanked.txt` to the root collation data files.
 
 ### MessageFormat
-#### Normative changes to Stable parts of the specification:
-* Syntax and data model errors now must be prioritized over other errors ([\#1011](https://github.com/unicode-org/message-format-wg/pull/1011))  
-* The Default Bidi Strategy is now required and default ([\#1066](https://github.com/unicode-org/message-format-wg/pull/1066))  
-* The `:offset` function (previously named `:math`) is now available as Stable ([\#1073](https://github.com/unicode-org/message-format-wg/pull/1073))
-
-#### Normative changes to Draft parts of the specification:
-* The `:datetime`, `:date`, and `:time` functions are updated to build on top of semantic skeletons ([\#1078](https://github.com/unicode-org/message-format-wg/pull/1078), [\#1083](https://github.com/unicode-org/message-format-wg/pull/1083))  
-* `:percent` is added as a new Draft function ([\#1094](https://github.com/unicode-org/message-format-wg/pull/1094))
-
-#### Editorial changes:
-* The format is more clearly rebranded as "Unicode MessageFormat" ([\#1064](https://github.com/unicode-org/message-format-wg/pull/1064))  
-* The pattern selection definition is refactored to be easier to understand without changing its meaning ([\#1080](https://github.com/unicode-org/message-format-wg/pull/1080))
+* Syntax and data model errors must now be prioritized over other errors <!-- ([\#1011](https://github.com/unicode-org/message-format-wg/pull/1011)) -->
+* The Default Bidi Strategy is now required and default <!-- ([\#1066](https://github.com/unicode-org/message-format-wg/pull/1066)) --> 
+* The `:offset` function (previously named `:math`) is now available as Stable <!-- ([\#1073](https://github.com/unicode-org/message-format-wg/pull/1073)) -->
+* The `:datetime`, `:date`, and `:time` _draft_ functions are updated to build on top of semantic skeletons <!-- ([\#1078](https://github.com/unicode-org/message-format-wg/pull/1078), [\#1083](https://github.com/unicode-org/message-format-wg/pull/1083)) -->
+* `:percent` is added as a new _draft_ function <!-- ([\#1094](https://github.com/unicode-org/message-format-wg/pull/1094)) -->
+* The format is renamed to "Unicode MessageFormat" for clarity <!-- ([\#1064](https://github.com/unicode-org/message-format-wg/pull/1064)) -->
+* The pattern selection definition is refactored to be easier to understand without changing its meaning <!-- ([\#1080](https://github.com/unicode-org/message-format-wg/pull/1080)) -->
 
 ### Keyboards
 __TBD Needs some cleanup for consistency__
@@ -128,16 +123,13 @@ __TBD Needs some cleanup for consistency__
 A key without output may be indicated by means of the `keyId=` attribute on the display, which see.
 * A sentence was added under the [layer](tr35-keyboards.md#element-layer) element in the definition of the `modifiers=` attribute about hardware layouts being used as touch layouts.
 
-### Message Format
-* __TBD__
-
 ### Modifications section
 
 * The Modifications section was split out to its own file, [Appendix A, Modifications](tr35-modifications.md)
 
 ### Acknowledgments section
 
-* The Acknowledgments section was split out to its own file, [Acknowledgments](tr35-acknowledgments.md#acknowledgments)
+* The Acknowledgments section was split out to its own file, [Appendix B, Acknowledgments](tr35-acknowledgments.md)
 
 Note that small changes such as typos and link fixes are not listed above.
 Modifications in previous versions are listed in those respective versions.

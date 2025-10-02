@@ -34,11 +34,11 @@ Some of the most significant changes in this release are:
     - For timezones, `usesMetazone` adds two new attributes `stdOffset` and `dstOffset` so that implementations can use either "vanguard" or "rearguard" TZDB data sources.
     - There are now combination formats for _relative_ dates + times, such as “tomorrow _at_ 12:30”.
     - Additional units were added for scientific contexts (coulombs, farads, teslas, etc.) and for English systems (fortnights, imperial pints, etc.).
-(New English units were not translated aside from a few languages.)
+(New English system units were only translated into a few languages.)
 - This is the first release where the new CLDR Organization process is in place for DDL languages.
 As a result, several locales were able to reach higher levels.
-- Many enhancements of the CLDR specification (LDML), covering the above items and many more:
-for details see [Specification Changes](#specification-changes)
+- Many enhancements of the CLDR specification (LDML), covering the above items and many more.
+For details see [Specification Changes](#specification-changes).
 
 For more details, see below.
 
@@ -89,8 +89,8 @@ Also revamped the description of how to construct names for locale IDs, for clar
 * [Element dateTimeFormat](https://www.unicode.org/reports/tr35/dev/tr35-dates.html#dateTimeFormat) Added a new type `relative` for relative date/times, such as "tomorrow at 10:00",
 and updated the guidelines for using the different `dateTimeFormat` types.
 * [timeZoneNames Elements Used for Fallback](https://www.unicode.org/reports/tr35/dev/tr35-dates.html#timeZoneNames-elements-used-for-fallback) Added the `gmtUnknownFormat`, to indicate when the timezone is unknown.
-* [Metazone Names](https://www.unicode.org/reports/tr35/dev/tr35-dates.html#metazone-names) Added `usesMetazone`, to specify which offset is considered standard time, and which offset is considered daylight.
-* [Time Zone Format Terminology](https://www.unicode.org/reports/tr35/dev/tr35-dates.html#time-zone-format-terminology) Added the **Localized GMT format** (and removing the **Specific location format**).
+* [Metazone Names](https://www.unicode.org/reports/tr35/dev/tr35-dates.html#metazone-names) Added `usesMetazone` to specify which offset is considered standard time and which offset is considered daylight.
+* [Time Zone Format Terminology](https://www.unicode.org/reports/tr35/dev/tr35-dates.html#time-zone-format-terminology) Added the **Localized GMT format** (and removed the **Specific location format**).
 This affects the behavior of the `z` timezone format symbol.
 There is also now a mechanism for finding the region code from short timezone identifier, which is used for the _non-location formats (generic or specific)_
 * [Calendar Data](https://www.unicode.org/reports/tr35/dev/tr35-dates.html#calendar-data) Specified more precisely the meaning of the `era` attributes in supplemental data, and how to determine the transition point in time between eras.
@@ -103,15 +103,15 @@ The order of execution is also clearly specified.
 
 ### Units of Measurement
 * [Unit Syntax](https://www.unicode.org/reports/tr35/dev/tr35-general.html#unit-syntax) Simplified the EBNF `product_unit` and added an additional well-formedness constraint for mixed units.
-* [Unit Identifier Normalization](https://www.unicode.org/reports/tr35/dev/tr35-general.html) Modified the normalization process
+* [Unit Identifier Normalization](https://www.unicode.org/reports/tr35/dev/tr35-general.html) Modified the normalization process.
 * [Mixed Units](https://www.unicode.org/reports/tr35/dev/tr35-general.html#mixed-units) Modified the guidance for handling precision.
 
 ### MessageFormat
-* Syntax and data model errors now must be prioritized over other errors <!-- ([\#1011](https://github.com/unicode-org/message-format-wg/pull/1011)) -->
-* The Default Bidi Strategy is now required and default <!-- <!-- ([\#1066](https://github.com/unicode-org/message-format-wg/pull/1066)) -->
-* The `:offset` function (previously named `:math`) is now available as Stable <!-- ([\#1073](https://github.com/unicode-org/message-format-wg/pull/1073)) -->
-* The `:datetime`, `:date`, and `:time` functions are updated to build on top of semantic skeletons <!-- ([\#1078](https://github.com/unicode-org/message-format-wg/pull/1078), [\#1083](https://github.com/unicode-org/message-format-wg/pull/1083)) -->
-* `:percent` is added as a new Draft function <!-- ([\#1094](https://github.com/unicode-org/message-format-wg/pull/1094)) -->
+* Syntax and data model errors must now be prioritized over other errors. <!-- ([\#1011](https://github.com/unicode-org/message-format-wg/pull/1011)) -->
+* The Default Bidi Strategy is now required and default. <!-- <!-- ([\#1066](https://github.com/unicode-org/message-format-wg/pull/1066)) -->
+* The `:offset` function (previously named `:math`) is now available as Stable. <!-- ([\#1073](https://github.com/unicode-org/message-format-wg/pull/1073)) -->
+* The `:datetime`, `:date`, and `:time` functions are updated to build on top of semantic skeletons. <!-- ([\#1078](https://github.com/unicode-org/message-format-wg/pull/1078), [\#1083](https://github.com/unicode-org/message-format-wg/pull/1083)) -->
+* `:percent` is added as a new Draft function. <!-- ([\#1094](https://github.com/unicode-org/message-format-wg/pull/1094)) -->
 
 There are many more changes that are important to implementations, such as changes to certain identifier syntax and various algorithms.
 See the [Modifications section](https://www.unicode.org/reports/tr35/dev/tr35-modifications.html) of the specification for details.
@@ -133,7 +133,7 @@ A new “relative” variant is introduced to allow for those languages.
 - Added some additional flexible date formats (aka `availableFormats`). 
 - Many locales had seldom-used short timezone abbreviations (such as EST) removed, or moved to sublocales that use them.
 - The currency-number formats for `alphaNextToNumber`, `noCurrency`, and compact currency formats are now generated from other data for consistency.
-The `alphaNextToNumber` patterns allow for adding a space between letter currency symbols and numbers. For example, "USD 123" vs "US$123".
+The `alphaNextToNumber` patterns allow for adding a space between letter currency symbols and numbers, for example, "USD 123" vs "US$123".
 - The tooling made it easier to see when a space was a non-breaking character or not, or a thin version of those. The usage is now more consistent in many locales.
 - For the Etc/Unknown timezone, the `exemplarCity` name was changed from “Unknown City” to “Unknown Location” for clarity.
 - Rational number formats were added, allowing for formats like 5½.
@@ -173,7 +173,7 @@ The explanations of usage are in the [Locale Changes](#locale-changes) section.
 #### supplementalData
 - `era` — the range of `code` values now allows two letters before the first hyphen.
 - `languageData` — the `territories` attribute [`supplementalData.xml`](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalData.xml) was deprecated and data using it removed.
-The definition was unclear, and prone to misunderstanding — the more detailed data is in `territoryInfo`. [CLDR-5708][]
+The definition was unclear and prone to misunderstanding — the more detailed data is in `territoryInfo`. [CLDR-5708][]
 - `usesMetazone` — adds two new attributes `stdOffset` and `dstOffset` so that implementations can use either "vanguard" or "rearguard" TZDB data sources.
 - `numberingSystem` — Unicode 17 data was added.
 
@@ -298,8 +298,8 @@ The following files are new in the release:
 - Number patterns that did not have a specific numberSystem (such as `latn` or `arab`) had been deprecated for many releases, and were finally removed.
 - Additionally, language and territory data in `languageData` and `territoryInfo` data received significant updates to improve accuracy and maintainability [CLDR-18087]
 - The likely language for Belarus changed to Russian [CLDR-14479]
-- [Using Time Zone Names](https://www.unicode.org/reports/tr35/dev/tr35-dates.html#using-time-zone-names) Removed the "specific location format", and modified the fallback behavior of 'z'.
-- [Unit Identifier Normalization](https://www.unicode.org/reports/tr35/dev/#tr35-general.html) Modified the normalization process
+- [Using Time Zone Names](https://www.unicode.org/reports/tr35/dev/tr35-dates.html#using-time-zone-names) Removed the "specific location format" and modified the fallback behavior of 'z'.
+- [Unit Identifier Normalization](https://www.unicode.org/reports/tr35/dev/#tr35-general.html) Modified the normalization process.
 - The `era` element `type` attributes no longer need to start at 0. Implementations that use arrays may have to adjust their implementations.
 - The default week numbering mechanism changes to be identical to ISO instead being based on the calendar week.
 - Deprecated unit IDs `permillion`, `portion`, `portion-per-1e9`. These are replaced by IDs using `part`. Also deprecated the compound component `100-kilometer`, since (certain) integers are allowed in unit ID denominators.

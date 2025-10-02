@@ -327,11 +327,8 @@ and feedback that the general practice for exact dates is to use Gregorian for p
 
 ## Known Issues
 
-- [CLDR-18219][] `common/subdivisions` data files contained additional values that should not be present.
-These will be removed in the future, but note that they may be present in the new [JSON data](#json-data-changes):
-  - Non-subdivisions such as `AW`:  Use the region code `AW` instead for translation.
-  - Overlong subdivisions such as `fi01`: Use the region code `AX` instead for translation.
-
+- _None yet_
+  
 ## Acknowledgments
 
 Many people have made significant contributions to CLDR and LDML.

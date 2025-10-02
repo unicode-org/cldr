@@ -131,7 +131,8 @@ public class ConsoleCheckCLDR {
         coverage(
                 new Params()
                         .setHelp("Set the coverage: eg -c comprehensive")
-                        .setMatch("comprehensive|modern|moderate|basic")), // UOption.REQUIRES_ARG
+                        .setMatch("comprehensive|modern|moderate|basic")
+                        .setDefault("comprehensive")), // UOption.REQUIRES_ARG
         examples(
                 new Params()
                         .setHelp("Turn on examples (actually a summary of the demo)")

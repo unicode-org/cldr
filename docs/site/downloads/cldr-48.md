@@ -319,7 +319,7 @@ For example: El Aaiun → El Aaiún; Casey → Casey Station; Hovd Time → Khov
 
 The following changes are planned for CLDR 49. Please plan accordingly to avoid disruption.
 - H24 will be deprecated. If it is encountered, it will have H23 behavior. There is no known intentional usage of H24. If you have a current need for H24 instead of H23, please comment on [CLDR-18303][].
-- The default week numbering changes to ISO instead being based on the calendar week starting in CLDR 48. The calendar week will be more clearly targeted at matching usage in displayed month calendars. [CLDR-18275][ ]
+- The default week numbering system changes to follow ISO, instead of being based on the calendar week, starting in CLDR 48. The calendar week will be more clearly targeted at matching usage in displayed month calendars. [CLDR-18275][]
 - The pre-Meiji Japanese eras will be removed: There was too much uncertainty in the exact values
 and feedback that the general practice for exact dates is to use Gregorian for pre-Meiji dates.
 - The major components in [supplementalData.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalData.xml) and [supplementalMetadata.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalMetadata.xml) files are slated to be organized more logically and moved into separate files.

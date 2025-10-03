@@ -43,6 +43,9 @@ const NO_WINNING_VALUE = "no-winning-value";
  */
 const EMPTY_ELEMENT_VALUE = "❮EMPTY❯";
 
+const TRANS_HINT_ID = "en"; // expected to match SurveyMain.TRANS_HINT_ID
+const TRANS_HINT_DIRECTION = "ltr"; // English is left-to-right
+
 /**
  * Remember the element (HTMLTableCellElement or HTMLDivElement) that was most recently
  * shown as "selected" (displayed with a thick border). When a new element gets selected,
@@ -773,8 +776,7 @@ function updateRowEnglishComparisonCell(tr, theRow, cell) {
       trHint = cldrText.get("empty_comparison_cell_hint");
     }
   }
-  const TRANS_HINT_ID = "en"; // expected to match SurveyMain.TRANS_HINT_ID
-  cldrSurvey.setLang(cell, TRANS_HINT_ID);
+  cldrSurvey.setLang(cell, TRANS_HINT_ID, TRANS_HINT_DIRECTION);
   if (theRow.displayExample || trHint || theRow.forumStatus.hasPosts) {
     const infos = document.createElement("div");
     infos.className = "infos-code";
@@ -811,6 +813,7 @@ function updateRowProposedWinningCell(tr, theRow, cell, protoButton) {
   if (theRow.rowFlagged) {
     const flagIcon = cldrSurvey.addIcon(cell, "s-flag");
     flagIcon.title = cldrText.get("flag_desc");
+    cldrSurvey.setLang(flagIcon, TRANS_HINT_ID, TRANS_HINT_DIRECTION);
   }
   cldrSurvey.setLang(cell, null, theRow.dir);
   tr.proposedcell = cell;

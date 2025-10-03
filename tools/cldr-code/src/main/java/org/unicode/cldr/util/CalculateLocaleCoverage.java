@@ -241,7 +241,6 @@ public class CalculateLocaleCoverage {
 
                 final Level cldrLocaleLevelGoal =
                         SC.getLocaleCoverageLevel(Organization.cldr, locale);
-                final String specialFlag = getSpecialFlag(locale);
 
                 final boolean cldrLevelGoalBasicToModern =
                         Level.CORE_TO_MODERN.contains(cldrLocaleLevelGoal);
@@ -456,13 +455,6 @@ public class CalculateLocaleCoverage {
         long end = System.currentTimeMillis();
         logger.info(
                 (end - start) + " millis = " + ((end - start) / localeCount) + " millis/locale");
-    }
-
-    private static String getSpecialFlag(String locale) {
-        return StandardCodes.make().getLocaleCoverageLevel(Organization.special, locale)
-                        == Level.UNDETERMINED
-                ? ""
-                : "‡";
     }
 
     private static class IterableFilter implements Iterable<String> {

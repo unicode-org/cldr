@@ -54,9 +54,6 @@ public class ChartLocaleGrowth {
             testInfo.getSupplementalDataInfo();
     static final Set<String> CldrModernLocales =
             StandardCodes.make().getLocaleCoverageLocales(Organization.cldr, Set.of(Level.MODERN));
-    static final Set<String> SpecialLocales =
-            StandardCodes.make()
-                    .getLocaleCoverageLocales(Organization.special, Set.of(Level.MODERN));
 
     private static org.unicode.cldr.util.Factory factory =
             testInfo.getCommonAndSeedAndMainAndAnnotationsFactory();
@@ -371,7 +368,6 @@ public class ChartLocaleGrowth {
 
             if (showMissing) {
                 if (CldrModernLocales.contains(locale)) {
-                    final boolean isSpecial = SpecialLocales.contains(locale);
                     if (firstShowMissing) {
                         firstShowMissing = false;
                         log.printlnWithTabs(
@@ -388,7 +384,7 @@ public class ChartLocaleGrowth {
                             16,
                             locale
                                     + "\t"
-                                    + (isSpecial ? "" : "TC")
+                                    + "TC"
                                     + show(
                                             Level.CORE,
                                             foundCounter,
@@ -414,23 +410,21 @@ public class ChartLocaleGrowth {
                                             foundCounter,
                                             unconfirmedCounter,
                                             missingCounter));
-                    if (!isSpecial) {
-                        long count = unconfirmedCounter.getTotal() + missingCounter.getTotal();
-                        for (Entry<MissingStatus, String> statusAndPath : missingPaths.entrySet()) {
-                            logPaths.printlnWithTabs(
-                                    3,
-                                    locale
-                                            + "\t"
-                                            + count
-                                            + "\t"
-                                            + statusAndPath.getKey()
-                                            + "\t"
-                                            + statusAndPath.getValue());
-                        }
-                        for (String path : unconfirmedPaths) {
-                            logPaths.printlnWithTabs(
-                                    3, locale + "\t" + count + "\tunconfirmed\t" + path);
-                        }
+                    long count = unconfirmedCounter.getTotal() + missingCounter.getTotal();
+                    for (Entry<MissingStatus, String> statusAndPath : missingPaths.entrySet()) {
+                        logPaths.printlnWithTabs(
+                                3,
+                                locale
+                                        + "\t"
+                                        + count
+                                        + "\t"
+                                        + statusAndPath.getKey()
+                                        + "\t"
+                                        + statusAndPath.getValue());
+                    }
+                    for (String path : unconfirmedPaths) {
+                        logPaths.printlnWithTabs(
+                                3, locale + "\t" + count + "\tunconfirmed\t" + path);
                     }
                     int line = 0;
                 }

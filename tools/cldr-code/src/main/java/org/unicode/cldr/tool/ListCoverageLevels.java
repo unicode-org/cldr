@@ -8,7 +8,6 @@ import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSortedSet;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Multiset;
-import com.google.common.collect.Sets;
 import com.google.common.collect.Streams;
 import com.google.common.collect.TreeMultimap;
 import com.google.common.collect.TreeMultiset;
@@ -69,10 +68,7 @@ public class ListCoverageLevels {
 
     static final StandardCodes stdCodes = StandardCodes.make();
 
-    static final Set<String> cldrCoverage =
-            Sets.difference(
-                    stdCodes.getLocaleCoverageLocales(Organization.cldr),
-                    stdCodes.getLocaleCoverageLocales(Organization.special));
+    static final Set<String> cldrCoverage = stdCodes.getLocaleCoverageLocales(Organization.cldr);
 
     private static String levelName(Level level) {
         return level == Level.COMPREHENSIVE ? "ꞏ" + level : level.toString();

@@ -78,10 +78,7 @@ public class DiffLanguageGroups {
                                 temp.put(x.getKey(), LanguageStatus.OTHER_BASIC_PLUS);
                         });
 
-        Sets.difference(
-                        StandardCodes.make().getLocaleCoverageLocales(Organization.cldr),
-                        StandardCodes.make().getLocaleCoverageLocales(Organization.special))
-                .stream()
+        StandardCodes.make().getLocaleCoverageLocales(Organization.cldr).stream()
                 .forEach(
                         x -> {
                             if (!x.contains("_")) temp.put(x, LanguageStatus.TC);

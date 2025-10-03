@@ -875,10 +875,6 @@ public class TestTransforms extends TestFmwkPlus {
         Set<String> modernCldr =
                 StandardCodes.make()
                         .getLocaleCoverageLocales(Organization.cldr, ImmutableSet.of(Level.MODERN));
-        Set<String> special =
-                StandardCodes.make()
-                        .getLocaleCoverageLocales(
-                                Organization.special, ImmutableSet.of(Level.MODERN));
         Factory factory = CLDRConfig.getInstance().getCommonAndSeedAndMainAndAnnotationsFactory();
         Set<String> missing = new TreeSet<>();
         SampleDataSet badPlusSample = new SampleDataSet();
@@ -894,9 +890,6 @@ public class TestTransforms extends TestFmwkPlus {
         Set<Pair<String, String>> badLocaleScript = new TreeSet<>();
 
         for (String locale : modernCldr) {
-            if (special.contains(locale)) {
-                continue;
-            }
             if (!ltp.set(locale).getRegion().isEmpty()) {
                 continue;
             }

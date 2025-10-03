@@ -59,9 +59,7 @@ public class OrgList {
                         () -> {
                             Map<String, String> map = new TreeMap<>();
                             for (Organization o : Organization.values()) {
-                                if (o.visibleOnFrontEnd()) {
-                                    map.put(o.name(), o.getDisplayName());
-                                }
+                                map.put(o.name(), o.getDisplayName());
                             }
                             return map;
                         });

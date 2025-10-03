@@ -540,9 +540,6 @@ Cldr	;	be	;	modern	;	T5	Belarusian
 Cldr	;	cy	;	modern	;	T5	Welsh
 Cldr	;	yue	;	modern	;	T5	Cantonese
 
-#Cldr	Tier	generated
-Cldr	;	sr_Latn	;	modern		;	Tx	Serbian (auto-generated)
-
 #Cldr regional (from Google)
 Cldr	;	es_US	;	modern	; TR Spanish (United States)
 Cldr	;	es_MX	;	modern	; TR Spanish (Mexico)
@@ -553,8 +550,6 @@ Cldr	;	fr_CA	;	modern	; TR French (Canada)
 Cldr	;	de_CH	;	modern	; TR High German (Switzerland)
 
 #Cldr	other (from Apple)
-#Cldr    ;   fo  ;   modern
-#Cldr    ;   to  ;   moderate	# maybe different level from Apple's
 Cldr	;	en_AU	;	modern
 Cldr	;	es_MX	;	modern
 Cldr	;	fr_CA	;	modern
@@ -609,31 +604,17 @@ Cldr    ; doi ; basic ; Dogri
 
 #Cldr other (high coverage locales)
 
-Cldr  ; hsb ; modern ; Upper Sorbian
-Cldr  ; dsb ; modern  ; Lower Sorbian
 Cldr  ; gd  ; modern  ; Scottish Gaelic
-Cldr  ; chr ; modern  ; Cherokee
-Cldr	;	to	;	moderate ; Tongan
-Cldr  ; yue_Hans  ; modern  ; Cantonese (Simplified)
 
-Cldr  ; fo  ; moderate  ; Faroese
-Cldr  ; qu ; modern  ; Quechua
-Cldr  ; br  ; moderate  ; Breton
-Cldr  ; sc  ; moderate  ; Sardinian
-Cldr  ; kgp ; moderate  ; Kaingang
-Cldr  ; yrl ; moderate  ; Nheetgatu
-Cldr  ; ast ; moderate  ; Asturian
-Cldr  ; ff_Adlm ; moderate ; Fulah (Adlam)
-
-Cldr  ; bs_Cyrl ; basic ; Bosnian (Cyrillic)
-Cldr  ; ia  ; basic ; Interlingua
-Cldr  ; kea ; basic ; Kabuverdianu
-Cldr  ; rm  ; basic ; Romansh
 Cldr	;	tg	;	moderate ; Tajik
 Cldr	;	ti	;	moderate ; Tigrinya
 Cldr	;	tt	;	moderate ; Tatar
-Cldr  ; uz_Cyrl ; basic ; Uzbek (Cyrillic)
 Cldr	;	wo	;	moderate ; Wolof
+
+# These 3 are needed to pass test TestCLDRLocaleCoverage.TestCldrSuperset
+Cldr	;	sr_Latn	;   modern	 ;	Tx	Serbian (auto-generated)
+Cldr    ;   qu      ;   modern   ; Quechua
+Cldr	;	to	    ;   moderate ; Tongan
 
 Bangor_Univ ;   cy   ;    modern  ; Welsh
 
@@ -1018,24 +999,3 @@ yahoo ; mul ; modern ;
 #Example of using weight and pathMatch:
 #iaap ; @weight=4 @pathMatch=annotations1,anotations2,characterLabel1,characterLabel2 * ; moderate ;
 
-special	;	ast	;	moderate	;	Asturian
-special ;	br	;	moderate	;	Breton
-special ; bs_Cyrl ; basic ; Bosnian (Cyrillic)
-special ;	chr	;	modern	;	Cherokee
-special ; cv  ; moderate ; Chuvash
-special ;	dsb	;	modern	;	Lower Sorbian
-special ;	ff	;	basic	;	Fulah
-special ;	ff_Adlm	;	moderate	;	Fulah (Adlam)
-special ;	fo	;	moderate	;	Faroese
-special ; ia  ; basic ; Interlingua
-special ;	hsb	;	modern	;	Upper Sorbian
-special ; kea ; basic ; Kabuverdianu
-special ;	kgp	;	moderate	;	Kaingang
-special ; rm  ; basic ; Romansh
-special ;	sc	;	moderate	;	Sardinian
-special ;	sr_Latn	;	modern	;	Serbian (Latn)
-special ;	yrl	;	moderate	;	Nheengatu
-special ;	yue_Hans	;	modern	;	Cantonese (Simplified)
-special ; uz_Cyrl ; basic ; Uzbek (Cyrillic)
-special	;	to	;	moderate ; Tongan
-special  ; qu  ; moderate  ; Quechua

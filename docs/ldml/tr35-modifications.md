@@ -74,7 +74,7 @@ Also revamped the description of how to construct names for locale IDs, for clar
 * [Likely Subtags](tr35.md#likely-subtags) Changed the Canonicalize step to point to the section on canonicalization.
 * [Unicode Locale Identifier](tr35.md#unicode-locale-identifier) Changed the `attribute` component in the EBNF to be `uattribute` for consistency with `ufield`, etc.
 and to reduce confusion with XML attributes.
-  
+
 ### Misc.
 * [Character Elements](tr35-general.md#character-elements) Added new exemplar types.
 * [DTD Annotations](tr35.md#dtd_annotations) Added the @CDATA annotation, to indicate which elements are generated with @CDATA format
@@ -110,7 +110,7 @@ The rules have been converted to a “flat” format, which is easier for client
 
 ### MessageFormat
 * Syntax and data model errors must now be prioritized over other errors <!-- ([\#1011](https://github.com/unicode-org/message-format-wg/pull/1011)) -->
-* The Default Bidi Strategy is now required and default <!-- ([\#1066](https://github.com/unicode-org/message-format-wg/pull/1066)) --> 
+* The Default Bidi Strategy is now required and default <!-- ([\#1066](https://github.com/unicode-org/message-format-wg/pull/1066)) -->
 * The `:offset` function (previously named `:math`) is now available as Stable <!-- ([\#1073](https://github.com/unicode-org/message-format-wg/pull/1073)) -->
 * The `:datetime`, `:date`, and `:time` _draft_ functions are updated to build on top of semantic skeletons <!-- ([\#1078](https://github.com/unicode-org/message-format-wg/pull/1078), [\#1083](https://github.com/unicode-org/message-format-wg/pull/1083)) -->
 * `:percent` is added as a new _draft_ function <!-- ([\#1094](https://github.com/unicode-org/message-format-wg/pull/1094)) -->
@@ -118,10 +118,9 @@ The rules have been converted to a “flat” format, which is easier for client
 * The pattern selection definition is refactored to be easier to understand without changing its meaning <!-- ([\#1080](https://github.com/unicode-org/message-format-wg/pull/1080)) -->
 
 ### Keyboards
-__TBD Needs some cleanup for consistency__
-* A sentence was struck under the documentation of the [display](tr35-keyboards.md#element-display) element.
-A key without output may be indicated by means of the `keyId=` attribute on the display, which see.
-* A sentence was added under the [layer](tr35-keyboards.md#element-layer) element in the definition of the `modifiers=` attribute about hardware layouts being used as touch layouts.
+
+* [`display`](tr35-keyboards.md#element-display): Noted that a key without output may be indicated by means of the `keyId=` attribute on the display.
+* [`layer`](tr35-keyboards.md#element-layer): Noted the use of the `modifiers=` attribute for hardware layouts being used as touch layouts.
 
 ### Modifications section
 

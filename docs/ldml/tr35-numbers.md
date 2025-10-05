@@ -73,6 +73,7 @@ The LDML specification is divided into the following parts:
   * [Padding](#Padding)
   * [Rounding](#Rounding)
   * [Quoting Rules](#Quoting_Rules)
+* [Rational Numbers](#rational-numbers)
 * [Currencies](#Currencies)
   * [Supplemental Currency Data](#Supplemental_Currency_Data)
 * [Language Plural Rules](#Language_Plural_Rules)

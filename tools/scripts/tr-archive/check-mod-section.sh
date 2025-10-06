@@ -40,7 +40,7 @@ then
     exit 0
 else
     msg "⚠️ Spec changes but tr35-modifications.md section was not updated!"
-    msg "At least add an HTML comment such as:"
+    msg "For non-substantive changes that do not require an item in modifications such as fixing typos, add an HTML comment such as:"
     msg ""
     msg "     <!-- updated whitespace -->"
     msg ""

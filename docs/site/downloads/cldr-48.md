@@ -79,7 +79,7 @@ The following are some of the most significant changes to the specification (LDM
 ### Locale Identifiers and Names
 * [Display Name Elements](https://www.unicode.org/reports/tr35/dev/tr35-general.html#display-name-elements) Described the usage of the `language` element `menu` values `core` and `extension`, and `alt="menu"`.
 Also revamped the description of how to construct names for locale IDs, for clarity.
-  
+
 ### Misc.
 * [Character Elements](https://www.unicode.org/reports/tr35/dev/tr35-general.html#character-elements) Added new exemplar types.
 * [Person Name Validation](https://www.unicode.org/reports/tr35/dev/tr35-personNames.html#person-name-validation) Added guidance for validating person names.
@@ -130,7 +130,7 @@ The description of how to format names for locale IDs has been extended and clar
 - There are now combination formats for _relative_ dates + times, such as “tomorrow _at_ 12:30”.
 In some languages the use of a relative date such as “tomorrow” or “2 days ago” requires a _different_ combining pattern than for a fixed date like “March 20”.
 A new “relative” variant is introduced to allow for those languages.
-- Added some additional flexible date formats (aka `availableFormats`). 
+- Added some additional flexible date formats (aka `availableFormats`).
 - Many locales had seldom-used short timezone abbreviations (such as EST) removed, or moved to sublocales that use them.
 - The currency-number formats for `alphaNextToNumber`, `noCurrency`, and compact currency formats are now generated from other data for consistency.
 The `alphaNextToNumber` patterns allow for adding a space between letter currency symbols and numbers, for example, "USD 123" vs "US$123".
@@ -188,7 +188,7 @@ For a full listing, see [BCP47 Delta].
 
 - `nu-tols` numbering system for Tolong Siki digits
 - One additional zone: 	America/Coyhaique = tz-clcxq
-- Region attributes in timezones for determining regions where it can't be derived from the short TZID 
+- Region attributes in timezones for determining regions where it can't be derived from the short TZID
 - Three additional aliases
 
 ### Supplemental Data Changes
@@ -233,9 +233,11 @@ Notable changes are:
   - Hassiniyya `mey` updated to default to `mey_Arab_DZ` instead of `mey_Latn_SN`. [CLDR-18114][]
 
 #### Calendars, Timezones, Dayperiods
+
 - Many updates and corrections for Metazone data
 - Many updates to calendars, including the removal of eras and adjustment to era start dates
 - Day periods for kok, scn, hi_Latn
+- `de`: "Uhr" was removed where AM/PM was present. [CLDR-18934]
 
 #### Plural Rules
 - Additions for cv, ie, kok, sgs
@@ -252,6 +254,10 @@ For a full listing, see [Transforms Delta].
 
 - Fixed problem in Gujarati → Latin romanization, with ૰
 - Updated to latest Unicode 17 data for Han → Latin, with very many changes.
+
+### Numbers
+
+- `de_CH`: the group symbol was changed to `'` (apostrophe). [CLDR-13542]
 
 ### Number Spellout Data Changes
 
@@ -339,7 +345,7 @@ and feedback that the general practice for exact dates is to use Gregorian for p
 ## Known Issues
 
 - _None yet_
-  
+
 ## Acknowledgments
 
 Many people have made significant contributions to CLDR and LDML.
@@ -353,18 +359,20 @@ For web pages with different views of CLDR data, see [http://cldr.unicode.org/in
 [CLDR-5708]: https://unicode-org.atlassian.net/browse/CLDR-5708
 [CLDR-8909]: https://unicode-org.atlassian.net/browse/CLDR-8909
 [CLDR-11400]: https://unicode-org.atlassian.net/browse/CLDR-11400
+[CLDR-13542]: https://unicode-org.atlassian.net/browse/CLDR-13542
 [CLDR-14479]: https://unicode-org.atlassian.net/browse/CLDR-14479
 [CLDR-16004]: https://unicode-org.atlassian.net/browse/CLDR-16004
 [CLDR-16715]: https://unicode-org.atlassian.net/browse/CLDR-16715
-[CLDR-18303]: https://unicode-org.atlassian.net/browse/CLDR-18303
 [CLDR-18087]: https://unicode-org.atlassian.net/browse/CLDR-18087
 [CLDR-18113]: https://unicode-org.atlassian.net/browse/CLDR-18113
 [CLDR-18114]: https://unicode-org.atlassian.net/browse/CLDR-18114
 [CLDR-18219]: https://unicode-org.atlassian.net/browse/CLDR-18219
 [CLDR-18275]: https://unicode-org.atlassian.net/browse/CLDR-18275
+[CLDR-18303]: https://unicode-org.atlassian.net/browse/CLDR-18303
 [CLDR-18311]: https://unicode-org.atlassian.net/browse/CLDR-18311
 [CLDR-18369]: https://unicode-org.atlassian.net/browse/CLDR-18369
 [CLDR-18894]: https://unicode-org.atlassian.net/browse/CLDR-18894
+[CLDR-18934]: https://unicode-org.atlassian.net/browse/CLDR-18934
 [CLDR-18956]: https://unicode-org.atlassian.net/browse/CLDR-18956
 
 [Delta DTDs]: https://unicode.org/cldr/charts/48/supplemental/dtd_deltas.html

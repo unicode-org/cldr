@@ -48,18 +48,14 @@ The LDML specification is divided into the following parts:
 ## <a name="Contents" href="#Contents">Contents of Appendix A, Modifications</a>
 
 * [Modifications](#modifications)
-  * [Locale Identifiers](#locale-identifiers)
+  * [Locale Identifiers and Names](#locale-identifiers-and-names)
   * [Misc.](#misc)
   * [DateTime formats](#datetime-formats)
   * [Numbers](#numbers)
   * [Units of Measurement](#units-of-measurement)
   * [Collation](#collation)
   * [MessageFormat](#messageformat)
-    * [Normative changes to Stable parts of the specification:](#normative-changes-to-stable-parts-of-the-specification)
-    * [Normative changes to Draft parts of the specification:](#normative-changes-to-draft-parts-of-the-specification)
-    * [Editorial changes:](#editorial-changes)
   * [Keyboards](#keyboards)
-  * [Message Format](#message-format)
   * [Modifications section](#modifications-section)
   * [Acknowledgments section](#acknowledgments-section)
 

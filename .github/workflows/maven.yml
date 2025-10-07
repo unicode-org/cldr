@@ -60,6 +60,9 @@ jobs:
             output: linkcheck.md
       - name: Link Checker Summary PathDescriptions.md
         run: cat linkcheck.md >> $GITHUB_STEP_SUMMARY
+      - name: 'spec: Check that tr35-modifications.md was updated'
+        if: github.event_name == 'pull_request'
+        run: bash tools/scripts/tr-archive/check-mod-section.sh HEAD origin/${{ github.base_ref }}
   package:
     name: "Package up CLDR"
     runs-on: ubuntu-latest

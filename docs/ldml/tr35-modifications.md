@@ -118,10 +118,9 @@ The rules have been converted to a “flat” format, which is easier for client
 * The pattern selection definition is refactored to be easier to understand without changing its meaning <!-- ([\#1080](https://github.com/unicode-org/message-format-wg/pull/1080)) -->
 
 ### Keyboards
-__TBD Needs some cleanup for consistency__
-* A sentence was struck under the documentation of the [display](tr35-keyboards.md#element-display) element.
-A key without output may be indicated by means of the `keyId=` attribute on the display, which see.
-* A sentence was added under the [layer](tr35-keyboards.md#element-layer) element in the definition of the `modifiers=` attribute about hardware layouts being used as touch layouts.
+
+* [`display`](tr35-keyboards.md#element-display): Noted that a key without output may be indicated by means of the `keyId=` attribute on the display.
+* [`layer`](tr35-keyboards.md#element-layer): Noted the use of the `modifiers=` attribute for hardware layouts being used as touch layouts.
 
 ### Modifications section
 

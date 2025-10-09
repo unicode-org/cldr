@@ -101,7 +101,7 @@
                 placeholder="Select locale(s)"
                 :options="localeOptions"
                 :max-tag-count="10"
-                @change="concatenateAndValidateLocales"
+                @change="validateLocales"
               >
                 <!-- This appears in the menu: -->
                 <template #option="{ localeDescription }">
@@ -114,7 +114,7 @@
                     style="margin-right: 3px"
                     @close="onClose"
                   >
-                    <span :title="option.localeDescription">{{
+                    <span :title="option.localeDescription || x">{{
                       option.value
                     }}</span>
                   </a-tag>
@@ -178,35 +178,37 @@ import { onMounted, ref, reactive } from "vue";
 
 const DEBUG = false;
 
+// Must be false for production! Test for locWarnings if the client and server disagree
+const TEST_LOC_WARNINGS = false;
+
 const VETTER_LEVEL_NUMBER = 5;
 
 // Numbers
-let userId = ref(0);
+const userId = ref(0);
 
 // Booleans
-let loading = ref(true);
-let hasPermission = ref(false);
-let addedNewUser = ref(false);
-let canChooseOrg = ref(false);
-let allLocales = ref(false);
-let justGotError = ref(false);
+const loading = ref(true);
+const hasPermission = ref(false);
+const addedNewUser = ref(false);
+const canChooseOrg = ref(false);
+const allLocales = ref(false);
+const justGotError = ref(false);
 
 // Strings
-let newUserEmail = ref("");
-let newUserLevel = ref("");
-let newUserLocales = ref("");
-let newUserName = ref("");
-let newUserOrg = ref("");
+const newUserEmail = ref("");
+const newUserLevel = ref("");
+const newUserName = ref("");
+const newUserOrg = ref("");
 
 // Arrays
 
 // Often for arrays, reactive() seems to work better than ref(),
 // but for a-select menus, ref() sometimes seems to be required.
 // For documentation of a-select, see https://www.antdv.com/components/select/
-let orgValueAndLabel = ref([]);
-let orgOptions = ref([]);
-let chosenLocales = ref([]);
-let localeOptions = ref([]);
+const orgValueAndLabel = ref([]);
+const orgOptions = ref([]);
+const chosenLocales = ref([]);
+const localeOptions = ref([]);
 
 // Variables assigned with reactive() must be handled differently
 // from those assigned with ref().
@@ -239,7 +241,6 @@ function initializeData() {
   // Strings
   newUserEmail.value = "";
   newUserLevel.value = "";
-  newUserLocales.value = "";
   newUserName.value = "";
   newUserOrg.value = "";
 
@@ -265,11 +266,10 @@ function setData(data) {
     setOrgLocales(data.orgLocales);
   }
   if (data.error) {
-    justGotError.value = true;
+    justGotError.value = true; // See comment in errorsExist()
   }
   if (data.validatedLocales) {
-    locWarnings = reactive(data.validatedLocales.locWarnings);
-    newUserLocales.value = data.validatedLocales.newUserLocales;
+    setValidatedLocales(data.validatedLocales);
   }
   if (data.newUser) {
     setNewUserData(data.newUser);
@@ -284,8 +284,8 @@ function setNewUserData(newUser) {
 }
 
 function setOrgData(orgObject) {
-  // orgObject= { displayToShort, shortToDisplay, sortedDisplayNames };
-  // Two maps and one array
+  // orgObject has two maps (displayToShort, shortToDisplay) and one array (sortedDisplayNames).
+  // orgObject = { displayToShort, shortToDisplay, sortedDisplayNames }
   const array = [];
   for (let orgDisplayName of orgObject.sortedDisplayNames) {
     const orgShortName = orgObject.displayToShort[orgDisplayName];
@@ -304,6 +304,9 @@ function setOrgData(orgObject) {
 }
 
 function setOrgLocales(orgLocales) {
+  if (!orgLocales) {
+    console.error("No locales for organization " + newUserOrg.value);
+  }
   const array = [];
   for (let localeId of orgLocales.split(" ")) {
     const localeName = cldrAddUser.getLocaleName(localeId);
@@ -315,24 +318,39 @@ function setOrgLocales(orgLocales) {
     };
     array.push(item);
   }
+  if (TEST_LOC_WARNINGS) {
+    array.push({
+      value: "bogus",
+      localeDescription: "Bogus International = bogus",
+    });
+    // Afar = aa is valid but missing from most organizations
+    array.push({
+      value: "aa",
+      localeDescription: "Afar = aa",
+    });
+  }
   localeOptions.value = array;
 }
 
+/**
+ * Replace the set of chosen locales with a validated set retrieved from the server.
+ * This has the side effect of putting the locale IDs in alphabetical order.
+ * However, it only happens if the server found and removed one or more invalid locales.
+ *
+ * @param validatedLocales the space-separated set of locale IDs
+ */
+function setValidatedLocales(validatedLocales) {
+  locWarnings = reactive(validatedLocales.locWarnings);
+  chosenLocales.value = validatedLocales.newUserLocales.split(" ");
+}
+
 function getOrgLocalesAfterChoosingOrg() {
-  if (DEBUG) {
-    console.log(
-      "In getOrgLocalesAfterChoosingOrg, orgValueAndLabel.value = " +
-        orgValueAndLabel.value
-    );
-    console.log(
-      "In getOrgLocalesAfterChoosingOrg, typeof orgValueAndLabel = " +
-        typeof orgValueAndLabel
-    );
-    const keys = Object.keys(orgValueAndLabel);
-    console.log("orgValueAndLabel contains " + keys.length + " keys: " + keys);
-  }
+  // First clear the chosen locales, to prevent problems if user choose an org, then chooses
+  // locales, then chooses a different org that doesn't have those locales.
+  chosenLocales.value = [];
+
   // label-in-value causes the selected org to be an object { value: ..., label: ... },
-  // so we need to extract the value (short name).
+  // so we need to extract the value (short org name).
   // The "value" in newUserOrg.value is for Vue ref().
   // The first "value" in orgValueAndLabel.value.value is for Vue ref().
   // The second "value" in orgValueAndLabel.value.value is a key in { value: ..., label: ... }.
@@ -340,15 +358,18 @@ function getOrgLocalesAfterChoosingOrg() {
   cldrAddUser.getOrgLocales(newUserOrg.value);
 }
 
-async function concatenateAndValidateLocales() {
-  if (allLocales.value) {
-    newUserLocales.value = cldrAddUser.ALL_LOCALES;
+async function validateLocales() {
+  if (allLocales.value === true) {
     return;
   }
-  newUserLocales.value = chosenLocales.value.join(" ");
+  if (chosenLocales.value.length === 0) {
+    return;
+  }
+  // Validation is almost superfluous now that locales are selected from a menu,
+  // rather than input by typing.
   cldrAddUser.validateLocales(
     newUserOrg.value,
-    newUserLocales.value,
+    joinChosenLocales(),
     newUserLevel.value,
     levelList
   );
@@ -366,10 +387,14 @@ function explainWarning(reason) {
   return cldrText.get(`locale_rejection_${reason}`, reason);
 }
 
+/**
+ * Check whether to show a spinner indicating that we're waiting for server responses
+ * in order to load the page with data.
+ * Set loading = true to show a spinner, loading = false otherwise.
+ */
 function areWeLoading() {
   // Note: given levelList = reactive([..., ...]), Vue does not support getting
   // levelList.length directly. Use Object.keys(levelList).length instead.
-
   loading.value = !(
     Object.keys(levelList).length &&
     (Object.keys(orgOptions).length || newUserOrg.value)
@@ -380,7 +405,7 @@ function areWeLoading() {
         loading.value +
         "; Object.keys(levelList).length = " +
         Object.keys(levelList).length +
-        "; orgOptions.length = " +
+        "; Object.keys(orgOptions).length = " +
         Object.keys(orgOptions).length +
         "; newUserOrg.value = " +
         newUserOrg.value
@@ -390,20 +415,20 @@ function areWeLoading() {
 
 function readyToAdd() {
   return (
-    // It could make sense to require errorsExist() == false here; however, currently this
+    // It could make sense to require errorsExist() === false here; however, currently this
     // is not done, since some errors are detected on the back end, and the only way to
     // determine whether they are fixed is to submit with the Add button.
     newUserOrg.value &&
     newUserName.value &&
     newUserEmail.value &&
     newUserLevel.value &&
-    (newUserLocales.value || allLocales.value === true)
+    (chosenLocales.value.length > 0 || allLocales.value === true)
   );
 }
 
 async function add() {
   validate();
-  await concatenateAndValidateLocales();
+  await validateLocales();
   if (!readyToAdd()) {
     if (DEBUG) {
       console.log("Early return from add() since readyToAdd() returned false");
@@ -421,11 +446,17 @@ async function add() {
   const postData = {
     email: newUserEmail.value,
     level: newUserLevel.value,
-    locales: newUserLocales.value,
+    locales: joinChosenLocales(),
     name: newUserName.value,
     org: newUserOrg.value,
   };
   cldrAddUser.add(postData);
+}
+
+function joinChosenLocales() {
+  return allLocales.value === true
+    ? cldrAddUser.ALL_LOCALES
+    : chosenLocales.value.join(" ");
 }
 
 function validate() {
@@ -445,8 +476,8 @@ function validate() {
     addError("Level required.");
   } else if (
     localesAreRequired() &&
-    !allLocales.value &&
-    !newUserLocales.value
+    allLocales.value === false &&
+    chosenLocales.value.length === 0
   ) {
     addError("Locales is required for this userlevel.");
   }
@@ -463,6 +494,8 @@ function removeError(message) {
 function errorsExist() {
   if (justGotError.value) {
     justGotError.value = false;
+    // The dependency on justGotError seems needed to get some errors to display reactively, especially in
+    // response to the Add button; otherwise the v-if="errorsExist()" condition doesn't always trigger an update.
     return true;
   }
   return cldrAddUser.errorsExist(); // boolean

@@ -120,17 +120,14 @@ async function validateLocales(
     .then(cldrAjax.handleFetchErrors)
     .then((r) => r.json())
     .then(({ messages, normalized }) => {
-      if (newUserLocales != normalized) {
+      if (messages && newUserLocales != normalized) {
         // only update the warnings if the normalized value changes
-        newUserLocales = normalized;
-        if (messages) {
-          callbackToSetData({
-            validatedLocales: {
-              locWarnings: messages,
-              newUserLocales: normalized,
-            },
-          });
-        }
+        callbackToSetData({
+          validatedLocales: {
+            locWarnings: messages,
+            newUserLocales: normalized,
+          },
+        });
       }
     })
     .catch((e) => addError(`Error: ${e} validating locale`));

@@ -256,7 +256,8 @@ function getHtml(json) {
   if (isJustMe) {
     html += "<h2>My Account</h2>\n";
   } else {
-    const org = json.org ? orgs.shortToDisplay[json.org] : "ALL";
+    const org =
+      json.org && json.org != "all" ? orgs.shortToDisplay[json.org] : "ALL";
     html += "<h2>Users for " + org + "</h2>\n";
   }
   html += getEmailNotification(json);

@@ -3,6 +3,7 @@ package org.unicode.cldr.web.api;
 import java.util.Map;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
@@ -23,12 +24,12 @@ import org.unicode.cldr.util.Organization;
 @Tag(name = "locales", description = "APIs for locale lists")
 public class LocaleList {
 
-    public final class LocaleNormalizerResponse {
+    public static final class LocaleNormalizerResponse {
         @Schema(description = "Normalized locale array")
         public String normalized;
 
         @Schema(description = "List of messages of why some locales were rejected")
-        public Map<String, LocaleNormalizer.LocaleRejection> messages = null;
+        public Map<String, LocaleNormalizer.LocaleRejection> messages;
 
         public LocaleNormalizerResponse(LocaleNormalizer n, final String normalized) {
             this.messages = n.getMessages();
@@ -68,7 +69,6 @@ public class LocaleList {
                     String locs,
             @Parameter(
                             description = "Optional Organization, as a coverage limit",
-                            required = false,
                             example = "adlam",
                             schema = @Schema(type = SchemaType.STRING))
                     @QueryParam("org")
@@ -126,5 +126,50 @@ public class LocaleList {
         String combinedNormalized = langSet.toString();
         final LocaleNormalizerResponse r = new LocaleNormalizerResponse(ln, combinedNormalized);
         return Response.ok().entity(r).build();
+    }
+
+    @Path("/org/{orgName}")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Operation(
+            summary = "Get the list of locales for an organization",
+            description = "Return a list of locales")
+    @APIResponses(
+            value = {
+                @APIResponse(
+                        responseCode = "200",
+                        description = "Space-separated list of locale IDs",
+                        content =
+                                @Content(
+                                        mediaType = "application/json",
+                                        schema =
+                                                @Schema(
+                                                        implementation =
+                                                                OrgLocalesResponse.class))),
+            })
+    public Response org(
+            @Parameter(
+                            description = "Organization name",
+                            required = true,
+                            example = "adlam",
+                            schema = @Schema(type = SchemaType.STRING))
+                    @PathParam("orgName")
+                    String orgName) {
+        Organization o = Organization.fromString(orgName);
+        if (o == null) {
+            return new STError("Bad organization: " + orgName).build();
+        }
+        LocaleSet localeSet = o.getCoveredLocales();
+        OrgLocalesResponse response = new OrgLocalesResponse(localeSet);
+        return Response.ok().entity(response).build();
+    }
+
+    public class OrgLocalesResponse {
+        @Schema(description = "Space-separated list of locale IDs")
+        public String locales;
+
+        OrgLocalesResponse(LocaleSet localeSet) {
+            this.locales = localeSet.toString();
+        }
     }
 }

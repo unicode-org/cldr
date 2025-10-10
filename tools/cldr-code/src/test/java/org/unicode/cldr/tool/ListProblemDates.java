@@ -5,7 +5,6 @@ import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
-import com.google.common.collect.Sets.SetView;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.text.UnicodeSet;
 import java.time.Instant;
@@ -31,10 +30,8 @@ import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.XPathParts;
 
 public class ListProblemDates {
-    private static final SetView<String> TC_LOCALES =
-            Sets.difference(
-                    StandardCodes.make().getLocaleCoverageLocales(Organization.cldr),
-                    StandardCodes.make().getLocaleCoverageLocales(Organization.special));
+    private static final Set<String> TC_LOCALES =
+            StandardCodes.make().getLocaleCoverageLocales(Organization.cldr);
     private static final String SAMPLE_ISO_DATE = "2020-01-02T03:04:05Z";
     private static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
     private static final Factory FACTORY = CLDR_CONFIG.getCldrFactory();

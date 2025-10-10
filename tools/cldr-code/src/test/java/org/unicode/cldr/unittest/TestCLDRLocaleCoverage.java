@@ -271,18 +271,16 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
                 cldrLocales != null && !cldrLocales.isEmpty());
     }
 
-    /** Tests that cldr+special is a superset of the TC locales, with the right levels */
+    /** Tests that cldr is a superset of the TC locales, with the right levels */
     public void TestCldrSuperset() {
         final Set<Organization> orgs = Organization.getTCOrgs();
 
         Map<Organization, Map<String, Level>> orgToLevels = new TreeMap<>();
         orgs.forEach(org -> orgToLevels.put(org, sc.getLocalesToLevelsFor(org)));
 
-        Map<String, Level> special = sc.getLocalesToLevelsFor(Organization.special);
-
         Map<String, Level> cldr = sc.getLocalesToLevelsFor(Organization.cldr);
 
-        // check that the cldr locales (+ special) have the max level of the TC locales
+        // check that the cldr locales have the max level of the TC locales
 
         for (Entry<String, Level> entry : cldr.entrySet()) {
             final String locale = entry.getKey();
@@ -299,7 +297,6 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
                                             }));
 
             Level cldrLevel = entry.getValue();
-            Level specialLevel = special.get(locale);
             boolean cldrLevelIsModern = cldrLevel.compareTo(Level.MODERN) >= 0;
 
             // check the vote count
@@ -339,8 +336,7 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
             }
 
             // check the max level
-            Level maxLevel =
-                    Level.max(specialLevel, Level.max(orgToLevel.values().toArray(new Level[0])));
+            Level maxLevel = Level.max(orgToLevel.values().toArray(new Level[0]));
             assertEquals(
                     "cldr level = max for "
                             + locale
@@ -359,10 +355,6 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
                             final Organization org = e.getKey();
                             final Map<String, Level> l = e.getValue();
                             checkCldrContains("cldr", cldr, org.name(), l);
-                            checkCldrContains("cldr", cldr, "special", l);
-                            // check that special doesn't overlap with TC, except for locales in
-                            // LOCALE_CONTAINMENT_EXCEPTIONS
-                            checkDisjoint("special", special, org.name(), l);
                         });
     }
 
@@ -412,9 +404,6 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
         final Set<String> defaultContentLocales = sd.getDefaultContentLocales();
 
         for (Organization organization : sc.getLocaleCoverageOrganizations()) {
-            if (organization == Organization.special) {
-                continue;
-            }
             final Map<String, Level> localesToLevels = sc.getLocalesToLevelsFor(organization);
             for (Entry<String, Level> localeAndLevel : localesToLevels.entrySet()) {
                 String originalLocale = localeAndLevel.getKey();

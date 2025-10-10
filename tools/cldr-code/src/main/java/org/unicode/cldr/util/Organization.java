@@ -77,7 +77,6 @@ public enum Organization {
     sil("SIL", "SIL International"),
     silicon("Stanford SILICON"),
     sitelen_pona("Sitelen Pona", "Sitelen Pona Publishers and Typographers Association"),
-    special("High Coverage and Generated"),
     srilanka("Sri Lanka ICTA", "Sri Lanka"),
     sunuwar_ws("Sunuwar Sewa Samaj", "Sunuwar Welfare Society"),
     surveytool("Survey Tool"),
@@ -178,9 +177,5 @@ public enum Organization {
             }
         }
         return localeSet;
-    }
-
-    public boolean visibleOnFrontEnd() {
-        return this != Organization.special;
     }
 }

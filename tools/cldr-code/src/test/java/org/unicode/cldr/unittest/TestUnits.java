@@ -4530,10 +4530,7 @@ public class TestUnits extends TestFmwkPlus {
         Set<String> available = factory.getAvailableLanguages();
         Set<String> TC =
                 Sets.intersection(
-                        available,
-                        Sets.difference(
-                                STANDARD_CODES.getLocaleCoverageLocales(Organization.cldr),
-                                STANDARD_CODES.getLocaleCoverageLocales(Organization.special)));
+                        available, STANDARD_CODES.getLocaleCoverageLocales(Organization.cldr));
         // UnitId id = converter.createUnitId("light-speed-second");
         // String lightSeconds1 = id.toString(cldrFile,"long", "other", "nominative", null, true);
         if (isVerbose()) {

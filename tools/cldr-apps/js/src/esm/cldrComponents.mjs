@@ -84,6 +84,7 @@ function setup(app) {
   app.component("a-radio", Radio);
   app.component("a-row", Row);
   app.component("a-select", Select);
+  app.component("a-select-option", Select.Option);
   app.component("a-spin", Spin);
   app.component("a-step", Steps.Step);
   app.component("a-steps", Steps);

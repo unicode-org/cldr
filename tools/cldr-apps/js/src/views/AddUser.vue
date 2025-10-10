@@ -1,109 +1,145 @@
 <template>
   <article>
     <a-spin v-if="loading" :delay="500" />
-    <div v-if="errors.length">
+    <div v-if="!hasPermission">
+      Please log in as a user with sufficient permissions.
+    </div>
+    <div v-if="errorsExist()">
       <span class="addUserErrors">Please correct the following error(s):</span>
       <ul>
-        <li v-for="error in errors">{{ error }}</li>
+        <li v-for="error in getErrors()" :key="error">{{ error }}</li>
       </ul>
     </div>
-    <div v-if="!loading && !addedNewUser" class="adduser">
+    <div v-if="hasPermission && !loading && !addedNewUser" class="adduser">
       <h2>Add User</h2>
       <table>
         <tr>
+          <th><label for="new_org">Organization:</label></th>
+          <td v-if="canChooseOrg">
+            <a-select
+              id="new_org"
+              v-model:value="orgValueAndLabel"
+              label-in-value
+              show-search
+              style="width: 100%"
+              placeholder="Select an organization"
+              :options="orgOptions"
+              @change="getOrgLocalesAfterChoosingOrg"
+            >
+              <template #option="{ label }">
+                {{ label }}
+              </template>
+            </a-select>
+          </td>
+          <td v-else>
+            <input id="new_org" disabled="disabled" v-model="newUserOrg" />
+          </td>
+        </tr>
+        <tr>
           <th><label for="new_name">Name:</label></th>
           <td>
-            <input
-              size="40"
+            <a-input
               id="new_name"
-              name="new_name"
-              v-model="newUser.name"
+              size="40"
+              v-model:value="newUserName"
+              placeholder="Enter a user name"
             />
           </td>
         </tr>
         <tr>
           <th><label for="new_email">E-mail:</label></th>
           <td>
-            <input
-              size="40"
+            <a-input
               id="new_email"
-              name="new_email"
-              v-model="newUser.email"
+              size="40"
+              v-model:value="newUserEmail"
               type="email"
+              placeholder="Enter an e-mail address"
+              @blur="validateEmail(newUserEmail)"
             />
-          </td>
-        </tr>
-        <tr>
-          <th><label for="new_org">Organization:</label></th>
-          <td v-if="canChooseOrg">
-            <select id="new_org" name="new_org" v-model="newUser.org">
-              <option disabled value="">Please select one</option>
-              <option
-                v-for="displayName of orgs.sortedDisplayNames"
-                v-bind:value="orgs.displayToShort[displayName]"
-              >
-                {{ displayName }}
-              </option>
-            </select>
-          </td>
-          <td v-else>
-            <input id="new_org" disabled="disabled" v-model="newUser.org" />
           </td>
         </tr>
         <tr>
           <th><label for="new_level">User level:</label></th>
           <td>
-            <select id="new_level" name="new_level" v-model="newUser.level">
-              <option disabled value="">Please select one</option>
-              <option
+            <a-select
+              id="new_level"
+              v-model:value="newUserLevel"
+              style="width: 100%"
+              placeholder="Select a user level"
+            >
+              <a-select-option
                 v-for="(v, number) in levelList"
                 v-bind:value="number"
                 :disabled="!v.canCreateOrSetLevelTo"
+                :key="number"
               >
                 {{ v.string }}
-              </option>
-            </select>
+              </a-select-option>
+            </a-select>
           </td>
         </tr>
-        <tr v-if="newUser.level && newUser.level >= 5">
-          <th><label for="new_locales">Languages responsible:</label></th>
-          <td>
-            <input
-              id="new_locales"
-              name="new_locales"
-              v-model="newUser.locales"
-              @change="validateLocales"
-              placeholder="en de de_CH fr zh_Hant"
-            />
-            &nbsp;
-            <button v-on:click="setAllLocales()">All Locales</button><br />
-            (Space separated. Use the All Locales button to grant access to all
-            locales. )<br />
-
-            <div v-if="locWarnings">
-              <span class="locWarnings"
-                >The following locales will not be added due to problems:</span
+        <template v-if="localesAreRequired()">
+          <tr>
+            <th><label for="radio_head"> </label></th>
+            <td>
+              <a-radio-group id="radio_head" v-model:value="allLocales">
+                <a-radio :value="true">All locales</a-radio>
+                <a-radio :value="false">Specific locales</a-radio>
+              </a-radio-group>
+            </td>
+          </tr>
+          <tr v-if="!allLocales">
+            <th><label for="new_locales">Locales:</label></th>
+            <td>
+              <a-select
+                id="new_locales"
+                v-model:value="chosenLocales"
+                mode="multiple"
+                show-search
+                style="width: 100%"
+                placeholder="Select locale(s)"
+                :options="localeOptions"
+                :max-tag-count="10"
+                @change="validateLocales"
               >
-              <ul>
-                <li v-bind:key="loc" v-for="loc in Object.keys(locWarnings)">
-                  <code>{{ loc }}</code>
-                  {{ getParenthesizedName(loc) }}
-                  — {{ explainWarning(locWarnings[loc]) }}
-                </li>
-              </ul>
-            </div>
-          </td>
-        </tr>
+                <!-- This appears in the menu: -->
+                <template #option="{ localeDescription }">
+                  {{ localeDescription }}
+                </template>
+                <!-- This appears in the input box after choosing from menu: -->
+                <template #tagRender="{ closable, onClose, option }">
+                  <a-tag
+                    :closable="closable"
+                    style="margin-right: 3px"
+                    @close="onClose"
+                  >
+                    <span :title="option.localeDescription || x">{{
+                      option.value
+                    }}</span>
+                  </a-tag>
+                </template>
+              </a-select>
+              <div v-if="Object.keys(locWarnings).length">
+                <span class="locWarnings"
+                  >The following locales will not be added due to
+                  problems:</span
+                >
+                <ul>
+                  <li v-bind:key="loc" v-for="loc in Object.keys(locWarnings)">
+                    <code>{{ loc }}</code>
+                    {{ getParenthesizedName(loc) }}
+                    — {{ explainWarning(locWarnings[loc]) }}
+                  </li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+        </template>
+
         <tr class="addButton">
           <td colspan="2">
-            <button
-              v-if="
-                newUser.name && newUser.email && newUser.org && newUser.level
-              "
-              v-on:click="add()"
-            >
-              Add
-            </button>
+            <button v-if="readyToAdd()" v-on:click="add()">Add</button>
           </td>
         </tr>
       </table>
@@ -112,8 +148,8 @@
     <div v-if="addedNewUser">
       <h2>Added User</h2>
       <p>
-        ✅ The new user was added. Name: <kbd>{{ newUser.name }}</kbd> E-mail:
-        <kbd>{{ newUser.email }}</kbd> ID:
+        ✅ The new user was added. Name: <kbd>{{ newUserName }}</kbd> E-mail:
+        <kbd>{{ newUserEmail }}</kbd> ID:
         <kbd>{{ userId }}</kbd>
       </p>
       <p>
@@ -127,249 +163,378 @@
         </button>
       </p>
       <hr />
-      <p><button v-on:click="initializeData()">Add another user</button></p>
+      <p>
+        <button v-on:click="startAddingAnotherUser()">Add another user</button>
+      </p>
     </div>
   </article>
 </template>
 
-<script>
-import * as cldrAccount from "../esm/cldrAccount.mjs";
-import * as cldrAjax from "../esm/cldrAjax.mjs";
-import * as cldrLoad from "../esm/cldrLoad.mjs";
-import * as cldrOrganizations from "../esm/cldrOrganizations.mjs";
-import * as cldrStatus from "../esm/cldrStatus.mjs";
+<script setup>
+import * as cldrAddUser from "../esm/cldrAddUser.mjs";
 import * as cldrText from "../esm/cldrText.mjs";
-import * as cldrUserLevels from "../esm/cldrUserLevels.mjs";
 
-export default {
-  data() {
-    return {
-      addedNewUser: false,
-      canChooseOrg: null,
-      errors: [],
-      locWarnings: null,
-      levelList: null,
-      loading: false,
-      newUser: {
-        email: null,
-        level: null,
-        locales: null,
-        name: null,
-        org: null,
-      },
-      orgs: null,
-      userId: null,
+import { onMounted, ref, reactive } from "vue";
+
+const DEBUG = false;
+
+// Must be false for production! Test for locWarnings if the client and server disagree
+const TEST_LOC_WARNINGS = false;
+
+const VETTER_LEVEL_NUMBER = 5;
+
+// Numbers
+const userId = ref(0);
+
+// Booleans
+const loading = ref(true);
+const hasPermission = ref(false);
+const addedNewUser = ref(false);
+const canChooseOrg = ref(false);
+const allLocales = ref(false);
+const justGotError = ref(false);
+
+// Strings
+const newUserEmail = ref("");
+const newUserLevel = ref("");
+const newUserName = ref("");
+const newUserOrg = ref("");
+
+// Arrays
+
+// Often for arrays, reactive() seems to work better than ref(),
+// but for a-select menus, ref() sometimes seems to be required.
+// For documentation of a-select, see https://www.antdv.com/components/select/
+const orgValueAndLabel = ref([]);
+const orgOptions = ref([]);
+const chosenLocales = ref([]);
+const localeOptions = ref([]);
+
+// Variables assigned with reactive() must be handled differently
+// from those assigned with ref().
+// For example, they are not referenced using .value
+let locWarnings = reactive([]);
+let levelList = reactive([]);
+
+onMounted(mounted);
+
+function mounted() {
+  startAddingAnotherUser();
+  hasPermission.value = Boolean(cldrAddUser.hasPermission());
+}
+
+function startAddingAnotherUser() {
+  initializeData();
+  cldrAddUser.viewMounted(setData);
+}
+
+function initializeData() {
+  // Numbers
+  userId.value = 0;
+
+  // Booleans
+  loading.value = true;
+  addedNewUser.value = false;
+  canChooseOrg.value = false;
+  allLocales.value = false;
+
+  // Strings
+  newUserEmail.value = "";
+  newUserLevel.value = "";
+  newUserName.value = "";
+  newUserOrg.value = "";
+
+  // Arrays (see comment above about ref()/.value vs reactive())
+
+  orgValueAndLabel.value = [];
+  orgOptions.value = [];
+  chosenLocales.value = [];
+  localeOptions.value = [];
+
+  locWarnings = reactive([]);
+  levelList = reactive([]);
+}
+
+function setData(data) {
+  if (data.levelList) {
+    levelList = reactive(data.levelList);
+  }
+  if (data.orgObject) {
+    setOrgData(data.orgObject);
+  }
+  if (data.orgLocales) {
+    setOrgLocales(data.orgLocales);
+  }
+  if (data.error) {
+    justGotError.value = true; // See comment in errorsExist()
+  }
+  if (data.validatedLocales) {
+    setValidatedLocales(data.validatedLocales);
+  }
+  if (data.newUser) {
+    setNewUserData(data.newUser);
+  }
+  areWeLoading();
+}
+
+function setNewUserData(newUser) {
+  addedNewUser.value = true;
+  userId.value = newUser.id;
+  newUserEmail.value = newUser.email;
+}
+
+function setOrgData(orgObject) {
+  // orgObject has two maps (displayToShort, shortToDisplay) and one array (sortedDisplayNames).
+  // orgObject = { displayToShort, shortToDisplay, sortedDisplayNames }
+  const array = [];
+  for (let orgDisplayName of orgObject.sortedDisplayNames) {
+    const orgShortName = orgObject.displayToShort[orgDisplayName];
+    const item = {
+      // The key must be "value" for the menu to work right.
+      value: orgShortName,
+      // The key must be "label" (not, e.g., "orgDescription") in order to use label-in-value,
+      // which enables the displayed chosen value to include the display name.
+      label: orgDisplayName + " = " + orgShortName,
     };
-  },
+    array.push(item);
+  }
+  orgOptions.value = array;
+  canChooseOrg.value = true;
+  newUserOrg.value = "";
+}
 
-  created() {
-    this.initializeData();
-  },
+function setOrgLocales(orgLocales) {
+  if (!orgLocales) {
+    console.error("No locales for organization " + newUserOrg.value);
+  }
+  const array = [];
+  for (let localeId of orgLocales.split(" ")) {
+    const localeName = cldrAddUser.getLocaleName(localeId);
+    const item = {
+      // A key other than "value" here, such as "localeIdValue", would be more descriptive,
+      // but does not appear to work.
+      value: localeId,
+      localeDescription: localeName + " = " + localeId,
+    };
+    array.push(item);
+  }
+  if (TEST_LOC_WARNINGS) {
+    array.push({
+      value: "bogus",
+      localeDescription: "Bogus International = bogus",
+    });
+    // Afar = aa is valid but missing from most organizations
+    array.push({
+      value: "aa",
+      localeDescription: "Afar = aa",
+    });
+  }
+  localeOptions.value = array;
+}
 
-  methods: {
-    initializeData() {
-      this.addedNewUser = false;
-      this.errors = [];
-      this.locWarnings = null;
-      this.newUser.email = "";
-      this.newUser.level = "";
-      this.newUser.locales = "";
-      this.newUser.name = "";
-      this.userId = null;
-      this.getLevelList();
-      if (cldrStatus.getPermissions().userIsAdmin) {
-        this.canChooseOrg = true;
-        this.newUser.org = "";
-        this.getOrgs();
-      } else {
-        this.canChooseOrg = false;
-        this.newUser.org = cldrStatus.getOrganizationName();
-        this.orgs = null;
-      }
-    },
+/**
+ * Replace the set of chosen locales with a validated set retrieved from the server.
+ * This has the side effect of putting the locale IDs in alphabetical order.
+ * However, it only happens if the server found and removed one or more invalid locales.
+ *
+ * @param validatedLocales the space-separated set of locale IDs
+ */
+function setValidatedLocales(validatedLocales) {
+  locWarnings = reactive(validatedLocales.locWarnings);
+  chosenLocales.value = validatedLocales.newUserLocales.split(" ");
+}
 
-    async validateLocales() {
-      const skipOrg = cldrUserLevels.canVoteInNonOrgLocales(
-        this.newUser.level,
-        this.levelList
-      );
-      const orgForValidation = skipOrg ? "" : this.newUser.org;
-      await cldrAjax
-        .doFetch(
-          "./api/locales/normalize?" +
-            new URLSearchParams({
-              locs: this.newUser.locales,
-              org: orgForValidation,
-            })
-        )
-        .then(cldrAjax.handleFetchErrors)
-        .then((r) => r.json())
-        .then(({ messages, normalized }) => {
-          if (this.newUser.locales != normalized) {
-            // only update the warnings if the normalized value changes
-            this.newUser.locales = normalized;
-            this.locWarnings = messages;
-          }
-        })
-        .catch((e) => this.errors.push(`Error: ${e} validating locale`));
-    },
+function getOrgLocalesAfterChoosingOrg() {
+  // First clear the chosen locales, to prevent problems if user choose an org, then chooses
+  // locales, then chooses a different org that doesn't have those locales.
+  chosenLocales.value = [];
 
-    getLevelList() {
-      this.loading = true;
-      this.levelList = cldrUserLevels.getLevelList().then(this.loadLevelList);
-    },
+  // label-in-value causes the selected org to be an object { value: ..., label: ... },
+  // so we need to extract the value (short org name).
+  // The "value" in newUserOrg.value is for Vue ref().
+  // The first "value" in orgValueAndLabel.value.value is for Vue ref().
+  // The second "value" in orgValueAndLabel.value.value is a key in { value: ..., label: ... }.
+  newUserOrg.value = orgValueAndLabel.value.value;
+  cldrAddUser.getOrgLocales(newUserOrg.value);
+}
 
-    loadLevelList(list) {
-      if (!list) {
-        this.errors.push("User-level list not received from server");
-        this.loading = false;
-      } else {
-        this.levelList = list;
-        this.areWeLoading();
-      }
-    },
+async function validateLocales() {
+  if (allLocales.value === true) {
+    return;
+  }
+  if (chosenLocales.value.length === 0) {
+    return;
+  }
+  // Validation is almost superfluous now that locales are selected from a menu,
+  // rather than input by typing.
+  cldrAddUser.validateLocales(
+    newUserOrg.value,
+    joinChosenLocales(),
+    newUserLevel.value,
+    levelList
+  );
+}
 
-    getLocaleName(loc) {
-      if (!loc) return null;
-      return cldrLoad.getTheLocaleMap()?.getLocaleName(loc);
-    },
+function getParenthesizedName(loc) {
+  const name = cldrAddUser.getLocaleName(loc);
+  if (name && name !== loc) {
+    return `(${name})`;
+  }
+  return "";
+}
 
-    getParenthesizedName(loc) {
-      const name = this.getLocaleName(loc);
-      if (name && name !== loc) {
-        return `(${name})`;
-      }
-      return "";
-    },
+function explainWarning(reason) {
+  return cldrText.get(`locale_rejection_${reason}`, reason);
+}
 
-    explainWarning(reason) {
-      return cldrText.get(`locale_rejection_${reason}`, reason);
-    },
+/**
+ * Check whether to show a spinner indicating that we're waiting for server responses
+ * in order to load the page with data.
+ * Set loading = true to show a spinner, loading = false otherwise.
+ */
+function areWeLoading() {
+  // Note: given levelList = reactive([..., ...]), Vue does not support getting
+  // levelList.length directly. Use Object.keys(levelList).length instead.
+  loading.value = !(
+    Object.keys(levelList).length &&
+    (Object.keys(orgOptions).length || newUserOrg.value)
+  );
+  if (DEBUG) {
+    console.log(
+      "areWeLoading: loading.value = " +
+        loading.value +
+        "; Object.keys(levelList).length = " +
+        Object.keys(levelList).length +
+        "; Object.keys(orgOptions).length = " +
+        Object.keys(orgOptions).length +
+        "; newUserOrg.value = " +
+        newUserOrg.value
+    );
+  }
+}
 
-    getOrgs() {
-      this.loading = true;
-      cldrOrganizations.get().then(this.loadOrgs);
-    },
+function readyToAdd() {
+  return (
+    // It could make sense to require errorsExist() === false here; however, currently this
+    // is not done, since some errors are detected on the back end, and the only way to
+    // determine whether they are fixed is to submit with the Add button.
+    newUserOrg.value &&
+    newUserName.value &&
+    newUserEmail.value &&
+    newUserLevel.value &&
+    (chosenLocales.value.length > 0 || allLocales.value === true)
+  );
+}
 
-    loadOrgs(o) {
-      if (o) {
-        this.orgs = o;
-        this.areWeLoading();
-      } else {
-        this.errors.push("Organization names not received from server");
-        this.loading = false;
-      }
-    },
+async function add() {
+  validate();
+  await validateLocales();
+  if (!readyToAdd()) {
+    if (DEBUG) {
+      console.log("Early return from add() since readyToAdd() returned false");
+    }
+    return;
+  }
+  if (errorsExist()) {
+    // Errors are cleared at the start of validate(), so if errorsExist() here, they
+    // were detected on the front end, not the back end.
+    if (DEBUG) {
+      console.log("Early return from add() since errorsExist() returned true");
+    }
+    return;
+  }
+  const postData = {
+    email: newUserEmail.value,
+    level: newUserLevel.value,
+    locales: joinChosenLocales(),
+    name: newUserName.value,
+    org: newUserOrg.value,
+  };
+  cldrAddUser.add(postData);
+}
 
-    areWeLoading() {
-      this.loading = !(this.levelList && (this.orgs || this.newUser.org));
-    },
+function joinChosenLocales() {
+  return allLocales.value === true
+    ? cldrAddUser.ALL_LOCALES
+    : chosenLocales.value.join(" ");
+}
 
-    async add() {
-      this.validate();
-      await this.validateLocales();
-      if (this.errors.length) {
-        return;
-      }
-      const xhrArgs = {
-        url: cldrAjax.makeApiUrl("adduser", null),
-        postData: this.newUser,
-        handleAs: "json",
-        load: this.loadHandler,
-        error: (err) => this.errors.push(err),
-      };
-      cldrAjax.sendXhr(xhrArgs);
-    },
+function validate() {
+  cldrAddUser.clearErrors();
+  if (!newUserOrg.value) {
+    addError("Organization required.");
+  }
+  if (!newUserName.value) {
+    addError("Name required.");
+  }
+  if (!newUserEmail.value) {
+    addError("E-mail required.");
+  } else {
+    validateEmail(newUserEmail.value);
+  }
+  if (!newUserLevel.value) {
+    addError("Level required.");
+  } else if (
+    localesAreRequired() &&
+    allLocales.value === false &&
+    chosenLocales.value.length === 0
+  ) {
+    addError("Locales is required for this userlevel.");
+  }
+}
 
-    validate() {
-      this.errors = [];
-      if (!this.newUser.name) {
-        this.errors.push("Name required.");
-      }
-      if (!this.newUser.email) {
-        this.errors.push("E-mail required.");
-      } else if (!this.validateEmail(this.newUser.email)) {
-        this.errors.push("Valid e-mail required.");
-      }
-      if (!this.newUser.org) {
-        this.errors.push("Organization required.");
-      }
-      if (!this.newUser.level) {
-        this.errors.push("Level required.");
-      } else if (this.newUser.level >= 5 && !this.newUser.locales) {
-        this.errors.push(
-          "Languages responsible is required for this userlevel."
-        );
-      }
-    },
+function addError(message) {
+  cldrAddUser.addError(message);
+}
 
-    /**
-     * Let the browser validate the e-mail address
-     *
-     * @return true if the given e-mail address is valid
-     *
-     * Note: the Survey Tool back end may have different criteria.
-     * For example (as of 2021-03), the back end requires a period, while
-     * the browser may not. Also, the back end (Java) may normalize the e-mail
-     * by Java trim() and toLowerCase().
-     */
-    validateEmail(emailAddress) {
-      const el = document.createElement("input");
-      el.type = "email";
-      el.value = emailAddress;
-      return el.checkValidity();
-    },
+function removeError(message) {
+  cldrAddUser.removeError(message);
+}
 
-    loadHandler(json) {
-      if (json.err) {
-        this.errors.push(
-          "Error from the server: " + this.translateErr(json.err)
-        );
-      } else if (!json.userId) {
-        this.errors.push("The server did not return a user id.");
-      } else {
-        const n = Math.floor(Number(json.userId));
-        if (
-          String(n) !== String(json.userId) ||
-          n <= 0 ||
-          !Number.isInteger(n)
-        ) {
-          this.errors.push("The server returned an invalid id: " + json.userId);
-        } else {
-          this.addedNewUser = true;
-          this.userId = Number(json.userId);
-          if (json.email) {
-            this.newUser.email = json.email; // normalized, e.g., to lower case by server
-          }
-        }
-      }
-    },
+function errorsExist() {
+  if (justGotError.value) {
+    justGotError.value = false;
+    // The dependency on justGotError seems needed to get some errors to display reactively, especially in
+    // response to the Add button; otherwise the v-if="errorsExist()" condition doesn't always trigger an update.
+    return true;
+  }
+  return cldrAddUser.errorsExist(); // boolean
+}
 
-    translateErr(err) {
-      const map = {
-        BAD_NAME: "Missing or invalid name",
-        BAD_EMAIL: "Missing or invalid e-mail",
-        BAD_ORG: "Missing or invalid organization",
-        BAD_LEVEL: "Missing, invalid, or forbidden user level",
-        DUP_EMAIL: "A user with that e-mail already exists",
-        UNKNOWN: "An unspecified error occurred",
-      };
-      if (!map[err]) {
-        return err;
-      }
-      return map[err] + " [" + err + "]";
-    },
+function getErrors() {
+  return cldrAddUser.getErrors();
+}
 
-    setAllLocales() {
-      this.newUser.locales = "*";
-      return false;
-    },
+function localesAreRequired() {
+  return newUserLevel.value >= VETTER_LEVEL_NUMBER;
+}
 
-    manageThisUser() {
-      cldrAccount.zoomUser(this.newUser.email);
-    },
-  },
-};
+/**
+ * Let the browser validate the e-mail address
+ *
+ * @emailAddress string value
+ * @return true if the given e-mail address is valid
+ *
+ * Note: the Survey Tool back end may have different criteria.
+ * For example (as of 2021-03), the back end requires a period, while
+ * the browser may not. Also, the back end (Java) may normalize the e-mail
+ * by Java trim() and toLowerCase().
+ */
+function validateEmail(emailAddress) {
+  const message = "Valid e-mail required.";
+  const el = document.createElement("input");
+  el.type = "email";
+  el.value = emailAddress;
+  if (el.checkValidity()) {
+    removeError(message);
+  } else {
+    addError(message);
+  }
+}
+
+function manageThisUser() {
+  cldrAddUser.manageThisUser(newUserEmail.value);
+}
 </script>
 
 <style scoped>

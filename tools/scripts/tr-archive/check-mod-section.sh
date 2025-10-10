@@ -16,7 +16,7 @@ then
     exit 1
 fi
 
-CHANGED=$(git diff --name-status $1 $2 | grep '^[MA]' | cut -c2- | fgrep 'docs/ldml/tr35-')
+CHANGED=$(git diff --name-status $2...$1 | grep '^[MA]' | cut -c2- | grep 'docs/ldml/tr35.*\.md')
 
 if [[ -z "${CHANGED}" ]];
 then

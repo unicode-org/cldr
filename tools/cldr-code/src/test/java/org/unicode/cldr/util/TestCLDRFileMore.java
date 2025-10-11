@@ -185,40 +185,53 @@ public class TestCLDRFileMore {
         // tools/cldr-code/src/test/resources/org/unicode/cldr/unittest/data/common/main/hy.xml
         final Factory myFactory = getTestDataFactory();
         final CLDRFile hyFile = myFactory.make("hy", true);
+        final String xpathAz = "//ldml/localeDisplayNames/languages/language[@type=\"az\"]";
+        final String xpathAa = "//ldml/localeDisplayNames/languages/language[@type=\"aa\"]";
+        final String xpathAb = "//ldml/localeDisplayNames/languages/language[@type=\"ab\"]";
+        final String xpathDayPeriod =
+                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"wide\"]/dayPeriod[@type=\"pm\"]";
 
-        {
-            final String xpath = "//ldml/localeDisplayNames/languages/language[@type=\"az\"]";
-            // no location - code-fallback
-            assertNull(hyFile.getSourceLocation(xpath), "expected null location for " + xpath);
-        }
-        {
-            // found in hy.xml
-            final String xpath = "//ldml/localeDisplayNames/languages/language[@type=\"aa\"]";
-            XMLSource.SourceLocation location = hyFile.getSourceLocation(xpath);
-            assertNotNull(location, "location for " + xpath);
-            assertEquals(testfile.toPath().toString(), location.getSystem(), "system for " + xpath);
-            assertEquals(17, location.getLine(), "line for " + xpath);
-            assertEquals(43, location.getColumn(), "col for " + xpath);
-        }
-        {
-            // found in hy.xml
-            final String xpath = "//ldml/localeDisplayNames/languages/language[@type=\"ab\"]";
-            XMLSource.SourceLocation location = hyFile.getSourceLocation(xpath);
-            assertNotNull(location, "location for " + xpath);
-            assertEquals(testfile.toPath().toString(), location.getSystem(), "system for " + xpath);
-            assertEquals(18, location.getLine(), "line for " + xpath);
-            assertEquals(64, location.getColumn(), "col for " + xpath);
-        }
-        {
-            // found in root.xml
-            final String xpath =
-                    "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"wide\"]/dayPeriod[@type=\"pm\"]";
-            XMLSource.SourceLocation location = hyFile.getSourceLocation(xpath);
-            assertNotNull(location, "location for " + xpath);
-            assertEquals(rootfile.toPath().toString(), location.getSystem(), "system for " + xpath);
-            assertEquals(25, location.getLine(), "line for " + xpath);
-            assertEquals(43, location.getColumn(), "col for " + xpath);
-        }
+        // null location = code-fallback
+        final XMLSource.SourceLocation locationAz = hyFile.getSourceLocation(xpathAz);
+        // found in hy.xml
+        final XMLSource.SourceLocation locationAb = hyFile.getSourceLocation(xpathAb);
+        // found in hy.xml
+        final XMLSource.SourceLocation locationAa = hyFile.getSourceLocation(xpathAa);
+        // found in root.xml
+        final XMLSource.SourceLocation locationDayPeriod = hyFile.getSourceLocation(xpathDayPeriod);
+
+        // first assert the location objects
+        assertAll(
+                () -> assertNull(locationAz, "expected null location for " + xpathAz),
+                () -> assertNotNull(locationAa, "location for " + xpathAa),
+                () -> assertNotNull(locationAb, "location for " + xpathAb),
+                () -> assertNotNull(locationDayPeriod, "location for " + xpathDayPeriod));
+
+        // next, assert against the location objects
+        // these will have to do with the special datafiles in
+        // .  tools/cldr-code/src/test/resources/org/unicode/cldr/unittest/data/common/
+        assertAll(
+                () ->
+                        assertEquals(
+                                testfile.toPath().toString(),
+                                locationAa.getSystem(),
+                                "system for " + xpathAa),
+                () -> assertEquals(48, locationAa.getLine(), "line for " + xpathAa),
+                () -> assertEquals(43, locationAa.getColumn(), "col for " + xpathAa),
+                () ->
+                        assertEquals(
+                                testfile.toPath().toString(),
+                                locationAb.getSystem(),
+                                "system for " + xpathAb),
+                () -> assertEquals(49, locationAb.getLine(), "line for " + xpathAb),
+                () -> assertEquals(64, locationAb.getColumn(), "col for " + xpathAb),
+                () ->
+                        assertEquals(
+                                rootfile.toPath().toString(),
+                                locationDayPeriod.getSystem(),
+                                "system for " + xpathDayPeriod),
+                () -> assertEquals(59, locationDayPeriod.getLine(), "line for " + xpathDayPeriod),
+                () -> assertEquals(43, locationDayPeriod.getColumn(), "col for " + xpathDayPeriod));
     }
 
     /**

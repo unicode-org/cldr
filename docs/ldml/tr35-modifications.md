@@ -74,6 +74,9 @@ Also revamped the description of how to construct names for locale IDs, for clar
 * [Likely Subtags](tr35.md#likely-subtags) Changed the Canonicalize step to point to the section on canonicalization.
 * [Unicode Locale Identifier](tr35.md#unicode-locale-identifier) Changed the `attribute` component in the EBNF to be `uattribute` for consistency with `ufield`, etc.
 and to reduce confusion with XML attributes.
+* [Unicode Subdivision Codes](tr35.md#Unicode_Subdivision_Codes) Added more
+explanation about the potential reuse of ISO 3166-2 codes, and clarified that
+CLDR does not closely monitor all ISO 3166-2 changes.
 
 ### Misc.
 * [Character Elements](tr35-general.md#character-elements) Added new exemplar types.

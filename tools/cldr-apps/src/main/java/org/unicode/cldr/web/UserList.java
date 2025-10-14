@@ -446,8 +446,7 @@ public class UserList {
                 (u.session == null)
                         ? ""
                         : SurveyMain.timeDiff(u.session.getLastBrowserCallMillisSinceEpoch());
-        String seen =
-                (user.last_connect == null) ? "" : SurveyMain.timeDiff(user.last_connect.getTime());
+        String seen = (user.lastlogin == null) ? "" : SurveyMain.timeDiff(user.lastlogin.getTime());
         boolean havePermToChange = me.isAdminFor(user);
         boolean userCanDeleteUser = UserRegistry.userCanDeleteUser(me, user.id, user.userlevel);
         VoteResolver.Level level = VoteResolver.Level.fromSTLevel(user.userlevel);
@@ -461,7 +460,8 @@ public class UserList {
                         .put("havePermToChange", havePermToChange)
                         .put("id", user.id)
                         .put("intlocs", user.intlocs)
-                        .put("lastlogin", user.last_connect)
+                        .put("firstdate", user.firstdate)
+                        .put("lastlogin", user.lastlogin)
                         .put("locales", normalizeLocales(user.locales))
                         .put("badLocales", user.badLocales)
                         .put("name", user.name)

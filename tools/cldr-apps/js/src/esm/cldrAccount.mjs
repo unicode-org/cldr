@@ -769,7 +769,19 @@ function getUserSeen(u) {
   const what = u.data.active ? "active" : "seen";
   let html = "<b>" + what + ": " + when + "</b>";
   if (what === "seen") {
-    html += "<br /><font size='-2'>" + u.data.lastlogin + "</font></td>";
+    let created = u.data.firstdate;
+    if (!created) {
+      created = "unknown date before 2025-10-14; never voted?";
+    } else if (created < "2025-10-14") {
+      // Change 2023-05-04T20:00:00.000Z to 2023-05-04, for example.
+      created = "approximately " + created.replace(/T.+/, "");
+    }
+    html +=
+      "<br /><font size='-2'>" +
+      u.data.lastlogin +
+      "<br />(account created " +
+      created +
+      ")</font></td>";
   }
   return html;
 }

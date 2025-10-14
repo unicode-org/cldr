@@ -12,6 +12,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -19,6 +21,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TimeZone;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import org.apache.commons.codec.digest.DigestUtils;
@@ -152,27 +155,27 @@ public class UserRegistry {
 
     public static final String CLDR_INTEREST = "cldr_interest";
 
-    public static final String SQL_insertStmt =
+    private static final String SQL_insertStmt =
             "INSERT INTO "
                     + CLDR_USERS
-                    + "(userlevel,name,org,email,password,locales,lastlogin) "
-                    + "VALUES(?,?,?,?,?,?,NULL)";
-    public static final String SQL_queryStmt_FRO =
-            "SELECT id,name,userlevel,org,locales,intlocs,lastlogin from "
+                    + "(userlevel,name,org,email,password,locales,firstdate,lastlogin) "
+                    + "VALUES(?,?,?,?,?,?,?,NULL)";
+    private static final String SQL_queryStmt_FRO =
+            "SELECT id,name,userlevel,org,locales,intlocs,firstdate,lastlogin from "
                     + CLDR_USERS
                     + " where email=? AND password=?";
-    public static final String SQL_queryIdStmt_FRO =
-            "SELECT name,org,email,userlevel,intlocs,locales,lastlogin,password from "
+    private static final String SQL_queryIdStmt_FRO =
+            "SELECT name,org,email,userlevel,intlocs,locales,firstdate,lastlogin,password from "
                     + CLDR_USERS
                     + " where id=?";
-    public static final String SQL_queryEmailStmt_FRO =
-            "SELECT id,name,userlevel,org,locales,intlocs,lastlogin,password from "
+    private static final String SQL_queryEmailStmt_FRO =
+            "SELECT id,name,userlevel,org,locales,intlocs,firstdate,lastlogin,password from "
                     + CLDR_USERS
                     + " where email=?";
-    public static final String SQL_touchStmt =
+    private static final String SQL_touchStmt =
             "UPDATE " + CLDR_USERS + " set lastlogin=CURRENT_TIMESTAMP where id=?";
-    public static final String SQL_removeIntLoc = "DELETE FROM " + CLDR_INTEREST + " WHERE uid=?";
-    public static final String SQL_updateIntLoc =
+    private static final String SQL_removeIntLoc = "DELETE FROM " + CLDR_INTEREST + " WHERE uid=?";
+    private static final String SQL_updateIntLoc =
             "INSERT INTO " + CLDR_INTEREST + " (uid,forum) VALUES(?,?)";
 
     private UserSettingsData userSettings = null;
@@ -185,14 +188,14 @@ public class UserRegistry {
         @Schema(description = "User ID")
         public int id; // id number
 
-        @Schema(description = "numeric userlevel")
+        @Schema(description = "Numeric userlevel")
         public int userlevel = LOCKED; // user level
 
         @Schema(hidden = true)
         private String password; // password
 
         @Schema(description = "User email")
-        public String email; //
+        public String email;
 
         @Schema(description = "User org")
         public String org; // organization
@@ -200,13 +203,20 @@ public class UserRegistry {
         @Schema(description = "User name")
         public String name; // full name
 
+        @Schema(
+                description =
+                        "User account creation date, approximate or null if before 2025-10-14",
+                implementation = java.util.Date.class)
+        public Timestamp firstdate;
+
         @Schema(name = "time", implementation = java.util.Date.class)
-        public java.sql.Timestamp last_connect;
+        // Here and in some http responses, lastlogin is named "time".
+        public java.sql.Timestamp lastlogin;
 
         @Schema(hidden = true)
         public String locales;
 
-        @Schema(name = "badLocales", description = "set of incorrectly specified locales")
+        @Schema(name = "badLocales", description = "Set of incorrectly specified locales")
         public String[] badLocales = null;
 
         @Schema(hidden = true)
@@ -652,7 +662,7 @@ public class UserRegistry {
             }
             // take out the rawSet as un-normalized
             rawSet.removeAll(localeSet);
-            Set<String> badSet = new TreeSet<String>();
+            Set<String> badSet = new TreeSet<>();
             badSet.addAll(
                     rawSet); // anything still in the rawSet is bad somehow, it's un-normalized.
             // anything in the localeSet that's not an extant locale
@@ -745,7 +755,14 @@ public class UserRegistry {
                     createUserTable(conn);
                     conn.commit();
                 } else {
-                    /* update table to DATETIME instead of TIMESTAMP */
+                    if (DBUtils.tableHasColumn(conn, CLDR_USERS, "firstdate")) {
+                        logger.warning("firstdate column already existed");
+                    } else {
+                        logger.warning("firstdate column was missing; calling addFirstDateColumn");
+                        addFirstDateColumn(conn);
+                    }
+                    /* update table to DATETIME instead of TIMESTAMP
+                    (already done long ago, maybe this code should be removed?) */
                     Statement s = conn.createStatement();
                     sql = "alter table cldr_users change lastlogin lastlogin DATETIME";
                     s.execute(sql);
@@ -812,41 +829,32 @@ public class UserRegistry {
         Statement s = conn.createStatement();
 
         sql =
-                ("create table "
+                ("CREATE TABLE "
                         + CLDR_USERS
                         + "(id INT NOT NULL "
                         + DBUtils.DB_SQL_IDENTITY
                         + ", "
-                        + "userlevel int not null, "
+                        + "userlevel INT NOT NULL, "
                         + "name "
                         + DBUtils.DB_SQL_UNICODE
-                        + " not null, "
-                        + "email varchar(128) not null UNIQUE, "
-                        + "org varchar(256) not null, "
-                        + "password varchar(100) not null, "
-                        + "audit varchar(1024) , "
-                        + "locales varchar(1024) , "
-                        +
-                        // "prefs varchar(1024) , " + /* deprecated Dec 2010. Not used
-                        // anywhere */
-                        "intlocs varchar(1024) , "
-                        + // added apr 2006: ALTER table
-                        // CLDR_USERS ADD COLUMN intlocs
-                        // VARCHAR(1024)
-                        "lastlogin "
+                        + " NOT NULL, "
+                        + "email VARCHAR(128) NOT NULL UNIQUE, "
+                        + "org VARCHAR(256) NOT NULL, "
+                        + "password VARCHAR(100) NOT NULL, "
+                        + "audit VARCHAR(1024) , "
+                        + "locales VARCHAR(1024) , "
+                        + "intlocs VARCHAR(1024) , "
+                        + "firstdate "
                         + DBUtils.DB_SQL_TIMESTAMP0
-                        + // added may 2006:
-                        // alter table
-                        // CLDR_USERS ADD
-                        // COLUMN lastlogin
-                        // TIMESTAMP
-                        (!DBUtils.db_Mysql ? ",primary key(id)" : "")
+                        + "lastlogin "
+                        + DBUtils.DB_SQL_TIMESTAMP0
+                        + (!DBUtils.db_Mysql ? ",PRIMARY KEY(id)" : "")
                         + ")");
         s.execute(sql);
         sql =
                 ("INSERT INTO "
                         + CLDR_USERS
-                        + "(userlevel,name,org,email,password) "
+                        + "(userlevel,name,org,email,password,firstdate) "
                         + "VALUES("
                         + ADMIN
                         + ","
@@ -857,7 +865,10 @@ public class UserRegistry {
                         + "',"
                         + "'"
                         + SurveyMain.vap
-                        + "')");
+                        + "',"
+                        + "firstdate "
+                        + DBUtils.sqlNow()
+                        + ")");
         s.execute(sql);
         SurveyLog.debug("DB: added user Admin");
         s.close();
@@ -941,8 +952,9 @@ public class UserRegistry {
                     u.intlocs = rs.getString(5);
                     final String locales = rs.getString(6);
                     u.setLocales(LocaleNormalizer.normalizeQuietly(locales), locales);
-                    u.last_connect = rs.getTimestamp(7);
-                    u.password = rs.getString(8);
+                    u.firstdate = rs.getTimestamp(7);
+                    u.lastlogin = rs.getTimestamp(8);
+                    u.password = rs.getString(9);
                     ret = u; // let it finish..
 
                     if (id >= arraySize) {
@@ -1072,7 +1084,8 @@ public class UserRegistry {
             u.org = rs.getString(4);
             u.setLocales(rs.getString(5));
             u.intlocs = rs.getString(6);
-            u.last_connect = rs.getTimestamp(7);
+            u.firstdate = rs.getTimestamp(7);
+            u.lastlogin = rs.getTimestamp(8);
             u.claSigned = (u.getCla() != null);
 
             // good so far..
@@ -1171,14 +1184,14 @@ public class UserRegistry {
             return DBUtils.prepareStatementForwardReadOnly(
                     conn,
                     "listAllUsers",
-                    "SELECT id,userlevel,name,email,org,locales,intlocs,lastlogin FROM "
+                    "SELECT id,userlevel,name,email,org,locales,intlocs,firstdate,lastlogin FROM "
                             + CLDR_USERS
                             + " ORDER BY org,userlevel,name ");
         } else {
             PreparedStatement ps =
                     DBUtils.prepareStatementWithArgsFRO(
                             conn,
-                            "SELECT id,userlevel,name,email,org,locales,intlocs,lastlogin FROM "
+                            "SELECT id,userlevel,name,email,org,locales,intlocs,firstdate,lastlogin FROM "
                                     + CLDR_USERS
                                     + " WHERE org=? ORDER BY org,userlevel,name");
             ps.setString(1, organization);
@@ -1786,6 +1799,7 @@ public class UserRegistry {
             insertStmt.setString(4, u.email);
             insertStmt.setString(5, u.getPassword());
             insertStmt.setString(6, u.locales);
+            insertStmt.setTimestamp(7, u.firstdate);
             if (!insertStmt.execute()) {
                 if (!hushUserMessages) logger.info("Added.");
                 conn.commit();
@@ -2121,7 +2135,7 @@ public class UserRegistry {
                 conn = DBUtils.getInstance().getAConnection();
                 ps = list(null, conn);
                 rs = ps.executeQuery();
-                // id,userlevel,name,email,org,locales,intlocs,lastlogin
+                // id,userlevel,name,email,org,locales,intlocs,firstdate,lastlogin
                 while (rs.next()) {
                     // We don't go through the cache, because not all users may
                     // be loaded.
@@ -2134,7 +2148,8 @@ public class UserRegistry {
                     u.org = rs.getString(5);
                     u.setLocales(rs.getString(6));
                     u.intlocs = rs.getString(7);
-                    u.last_connect = rs.getTimestamp(8);
+                    u.firstdate = rs.getTimestamp(8);
+                    u.lastlogin = rs.getTimestamp(9);
 
                     // now, map it to a UserInfo
                     VoterInfo v = u.createVoterInfo();
@@ -2240,7 +2255,7 @@ public class UserRegistry {
             conn = DBUtils.getInstance().getAConnection();
             ps = list(null, conn);
             rs = ps.executeQuery();
-            // id,userlevel,name,email,org,locales,intlocs,lastlogin
+            // id,userlevel,name,email,org,locales,intlocs,firstdate,lastlogin
             while (rs.next()) {
                 int userlevel = rs.getInt(2);
                 if (userlevel == ANONYMOUS) {
@@ -2251,7 +2266,8 @@ public class UserRegistry {
                     u.org = rs.getString(5);
                     u.setLocales(rs.getString(6));
                     u.intlocs = rs.getString(7);
-                    u.last_connect = rs.getTimestamp(8);
+                    u.firstdate = rs.getTimestamp(8);
+                    u.lastlogin = rs.getTimestamp(9);
                     u.claSigned = true;
                     set.add(u);
                 }
@@ -2422,6 +2438,184 @@ public class UserRegistry {
                     t);
         } finally {
             DBUtils.close(rs, ps, conn);
+        }
+    }
+
+    /**
+     * Create and populate the firstdate column. For each user, set firstdate based on the oldest
+     * version in which they voted, according to vote tables from version 25 and later; users who
+     * never voted get null meaning "unknown". This is expected to be a one-time operation performed
+     * 2015-10 by ST at startup before the start of version v49. Subsequently new users will get
+     * firstdate set when their accounts are created.
+     *
+     * @param conn the db connection
+     * @throws SQLException if error
+     */
+    private void addFirstDateColumn(Connection conn) throws SQLException {
+        logger.warning("Starting addFirstDateColumn");
+        final long timeStart = System.currentTimeMillis();
+        // First get the list of all users from the db users table, and map each one to a
+        // placeholder time stamp "noneYet". Don't use null as the placeholder, since null
+        // will indicate an id found in a vote table but not in the users table (probably
+        // meaning the user account was deleted).
+        final Map<Integer, Timestamp> userFirstDate = new HashMap<>();
+        final Timestamp noneYet = new Timestamp(0);
+        final String sql = "SELECT id FROM " + CLDR_USERS;
+        ResultSet rs = null;
+        PreparedStatement ps = null;
+        try {
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                int userId = rs.getInt(1);
+                if (userId < 1 || userId > 3300) {
+                    logger.warning("UNEXPECTED userId: " + userId);
+                }
+                userFirstDate.put(userId, noneYet);
+            }
+        } finally {
+            DBUtils.close(rs, ps);
+        }
+        // Next get the first date for each user in the map.
+        getFirstDates(conn, userFirstDate, noneYet);
+        // Finally, create the new firstdate column, and populate it using userFirstDate.
+        if (DBUtils.addColumnIfMissing(conn, CLDR_USERS, "firstdate", DBUtils.DB_SQL_TIMESTAMP0)) {
+            logger.warning("firstdate column was missing; added; calling populateFirstDateColumn");
+            populateFirstDateColumn(conn, userFirstDate, noneYet);
+        } else {
+            logger.severe("addFirstDateColumn failed to add column");
+        }
+        long elapsedTime = (System.currentTimeMillis() - timeStart) / (1000 * 60);
+        logger.warning(
+                "Finished populateFirstDateColumn, elapsed time = " + elapsedTime + " minutes");
+    }
+
+    /**
+     * Replace the placeholder time stamps in the given map with the first date for each user
+     *
+     * @param conn the db connection
+     * @param userFirstDate map from user ID to time stamp, to be modified
+     * @param noneYet the placeholder timestamp
+     * @throws SQLException if error
+     */
+    private void getFirstDates(
+            Connection conn, Map<Integer, Timestamp> userFirstDate, Timestamp noneYet)
+            throws SQLException {
+        final Map<Integer, Timestamp> verToDate = mapVersionToFirstDate(conn);
+        long timeStart = System.currentTimeMillis();
+        int fixedCountAllVersions = 0;
+        for (int ver : verToDate.keySet()) {
+            int fixedCountThisVersion = 0;
+            String voteTable =
+                    DBUtils.Table.VOTE_VALUE.forVersion(Integer.toString(ver), false).toString();
+            if (DBUtils.hasTable(voteTable)) {
+                final String sql = "SELECT DISTINCT submitter FROM " + voteTable;
+                PreparedStatement ps = null;
+                ResultSet rs = null;
+                try {
+                    ps = conn.prepareStatement(sql);
+                    rs = ps.executeQuery();
+                    while (rs.next()) {
+                        int userId = rs.getInt("submitter");
+                        Timestamp date = userFirstDate.get(userId);
+                        if (date == null) {
+                            logger.warning(
+                                    "Vote table has user missing from users table, skipping user ID: "
+                                            + userId);
+                        } else if (date.equals(noneYet)) {
+                            userFirstDate.put(userId, verToDate.get(ver));
+                            ++fixedCountAllVersions;
+                            ++fixedCountThisVersion;
+                        }
+                    }
+                } finally {
+                    DBUtils.close(ps, rs);
+                }
+                logger.warning(
+                        "Got first dates from version "
+                                + ver
+                                + "; fixed (in this vote table): "
+                                + fixedCountThisVersion
+                                + "; so far fixed (in any vote table): "
+                                + fixedCountAllVersions
+                                + "; seconds elapsed = "
+                                + (System.currentTimeMillis() - timeStart) / 1000);
+            }
+        }
+    }
+
+    private Map<Integer, Timestamp> mapVersionToFirstDate(Connection conn) throws SQLException {
+        final int firstVersion = SurveyAjax.oldestVersionForImportingVotes;
+        final int lastVersion = Integer.parseInt(SurveyMain.getNewVersion());
+        Map<Integer, Timestamp> verToDate = new TreeMap<>();
+        for (int ver = firstVersion; ver <= lastVersion; ver++) {
+            String voteTable =
+                    DBUtils.Table.VOTE_VALUE.forVersion(Integer.toString(ver), false).toString();
+            if (DBUtils.hasTable(voteTable)) {
+                ResultSet rs = null;
+                PreparedStatement ps = null;
+                try {
+                    final String sql =
+                            "SELECT last_mod FROM " + voteTable + " ORDER BY last_mod LIMIT 1";
+                    ps = conn.prepareStatement(sql);
+                    rs = ps.executeQuery();
+                    while (rs.next()) {
+                        Timestamp date = rs.getTimestamp(1);
+                        Timestamp adjustedDate = removeTime(date);
+                        verToDate.put(ver, adjustedDate);
+                        logger.warning(
+                                "Version "
+                                        + ver
+                                        + " first date = "
+                                        + adjustedDate
+                                        + " (adjusted from "
+                                        + date
+                                        + ")");
+                    }
+                } finally {
+                    DBUtils.close(ps, rs);
+                }
+            }
+        }
+        return verToDate;
+    }
+
+    // Convert 2025-04-10 16:53:25 to 2025-04-10 00:00:00, for example
+    private static Timestamp removeTime(Timestamp timestamp) {
+        Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
+        cal.setTime(timestamp);
+        cal.set(Calendar.HOUR_OF_DAY, 0);
+        cal.set(Calendar.MINUTE, 0);
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        return new Timestamp(cal.getTimeInMillis());
+    }
+
+    /**
+     * Populate the firstdate column in the db based on the given map
+     *
+     * @param conn the db connection
+     * @param userFirstDate map from user ID to time stamp, already completed
+     * @param noneYet the placeholder timestamp (still possible for users who never voted)
+     * @throws SQLException if error
+     */
+    private void populateFirstDateColumn(
+            Connection conn, Map<Integer, Timestamp> userFirstDate, Timestamp noneYet)
+            throws SQLException {
+        final String sql = "UPDATE " + CLDR_USERS + " SET firstdate=? WHERE id=?";
+        PreparedStatement ps = null;
+        try {
+            ps = conn.prepareStatement(sql);
+            for (int userId : userFirstDate.keySet()) {
+                Timestamp firstdate = userFirstDate.get(userId);
+                if (!firstdate.equals(noneYet)) {
+                    ps.setTimestamp(1, firstdate);
+                    ps.setInt(2, userId);
+                    ps.executeUpdate();
+                }
+            }
+        } finally {
+            DBUtils.close(ps);
         }
     }
 }

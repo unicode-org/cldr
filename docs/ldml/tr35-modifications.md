@@ -101,7 +101,7 @@ The order of execution is also clearly specified.
 * [Compact Number Formats](tr35-numbers.md#compact-number-formats) Specified the mechanism for formatting compact numbers more precisely.
 * [Rule-Based Number Formatting](tr35-numbers.md#) Added a full specification.
 The rules have been converted to a “flat” format, which is easier for clients to handle (the old format will be retained for one more release).
-* [Rational Numbers](tr35-numbers.md#rational-numbers) Added support for formatting fractions like 5½.
+* [Rational Numbers](tr35-numbers.md#rational-numbers) Added support for formatting fractions like 5½ in technical preview.
 
 ### Units of Measurement
 * [Unit Syntax](tr35-general.md#unit-syntax) Simplified the EBNF `product_unit` and added an additional well-formedness constraint for mixed units.

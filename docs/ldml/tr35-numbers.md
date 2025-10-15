@@ -855,6 +855,9 @@ Single quotes (**'**) enclose bits of the pattern that should be treated literal
 
 ## Rational Numbers
 
+> [!IMPORTANT]
+> Rational numbers (this section) are a technical preview and should not be considered stable.
+
 ```xml
 <!ELEMENT rationalFormats ( alias | ( rationalPattern*, integerAndRationalPattern*, rationalUsage*, special* ) ) >
 <!ATTLIST rationalFormats numberSystem CDATA #REQUIRED >

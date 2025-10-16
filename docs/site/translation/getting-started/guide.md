@@ -220,23 +220,30 @@ There are six columns in the Dashboard view.
 
 Following are guidelines on best practices for handling items under each category in Dashboard.
 
-- **Missing**
-    - These are items where there is no localization provided by any contributor. Click on the line to be taken to the item in the Survey Tool where items are highlighted and you can add a translation. When you fix a **Missing** item it will turn to **Changed**.
-
 ![alt-text](../../images/gettingStartedGuideMissing.png)
 
+- **Error**
+    - The currently winning value has caused an error in validation that will have to be resolved before release. (High priority.)
+    - Fix the error. In some cases there is a conflict between items and you'll need to fix the conflicting item, not the one showing the error.
+- **Missing**
+    - These are items where there is no localization provided by any contributor. Click on the line to be taken to the item in the Survey Tool where items are highlighted and you can add a translation. When you fix a **Missing** item it will turn to **Changed**.
 - **Losing**
-    - These are items that you already voted on. This indicates that your vote is not for the currently winning value. If you can live with the winning item—if it is reasonable, even if you don't think it is optimal—change your vote to be for the winning item. If not, click the **Forum** button in the **Info Panel** and give reasons for people to change their vote to what you have suggested. If not all users have voted yet, these values may still be approved before the end of the cycle. **Engage with others on the Forum discussions**. Make sure to post the reasons why others should change their votes and **respond to others’ posts**.
+    - These are items that you have already voted on, but where your vote is not for the currently winning value. If you can live with the currently winning value — even if you don't think it is optimal, but reasonable — change your vote to be for the winning item. Otherwise, click the **Forum** button in the **Info Panel** and give reasons for why your fellow vetters should change their vote to what you have suggested. If others change their vote, the value may still be approved before the end of the cycle. **Engage with others on the Forum discussions**. Make sure to post good and verifiable arguments as to why others should change their votes and **respond to others’ posts**.
 - **Disputed**
-    - This is very similar to **Losing**, except in this case your vote is winning and someone else's is losing. Review all of the items to see if someone else’s item is better and read the forum post, and whether you want to change your vote. Discuss in the forum, then use the Hide button to hide disputes you’ve addressed in the forum.
+    - This is similar to **Losing**, except in this case your value is winning and someone else's is losing. Review all of the items to see if someone else’s item is better and read the forum, and whether you want to change your vote. Discuss in the forum, then use the Hide button to hide disputes you’ve addressed in the forum.
 - **Changed**
-    - The Changed count is provided in the Dashboard only as a reference. The **Changed** items are either:
-        - Missing items now have a value.
-        - The Winning value of the translation has been changed.
+    - The **Changed** items are either:
+        - Values that were missing translations now have a one.
+        - The Winning translation has been changed.
 - **English Changed**
-    - These are items where the English source has changed after the last change in your language. Items that are listed in this section indicates that you need to re-check them and assess the impact to your language and update as appropriate. (Some English changes will have no impact to translations.)
+    - These are items where the English source has changed *after* the last change in translation. Items that are listed in this section indicates that you need to re-check them and assess the impact to your language and update as appropriate. (Sometimes English changes will have no impact to translations.)
 - **Warnings**
-    - These are issues which appear after automatic checks. (For examples, a message could be "_The value is the same as English"_, which is a quite common warning for languages that are close to English in the spelling of languages or territories. If the value is actually ok, then click on the Hide button (crossed eye). If not, then vote for a fix, or post on the Forum for discussion.
+    - These are issues which appear after automatic checks. For example, a message could be "_The value is the same as English"_, which is a quite common warning for languages that are close to English in the spelling of languages or territories. If the value is actually valid, then click on the Hide button (crossed eye). If not, then vote for a fix, or post on the Forum for discussion.
+- **Inherited Changed**
+    - The translated value is inherited from another value, and that value has changed. Ensure that the value is still suitable for inheritance.
+- **Abstained**
+    - These are values where you and the org you represent have not provided any vote at all. It is best practice to have no abstained values for your language and coverage level to ensure high confidence in our release. (High priority.)
+
 
 ![alt-text](../../images/gettingStartedGuideWarning.png)
 
@@ -246,11 +253,12 @@ There are two ways to clear items from the **Dashboard** list:
 
 1. Fix them (such as adding a translation for a missing item)
 2. Hide them (such as when the English has changed but the translation doesn’t need to change).
-    - _**Only**_ _hide items if it really is a false positive,_ _**not**_ _because you gave up on fixing it…_
-    - _If you hide an item by mistake:_
-        - _Unhide all the lines with the top eye button._
-        - _Click on the orange eye button in the line (a “Show" tooltip will appear)._
-        - _Hide all the lines again by clicking the top eye button._
+
+- _**Only**_ hide items if they really are false positives, **not** because you gave up on fixing them…
+- If you hide an item by mistake:
+    - Unhide all the lines with the top eye button.
+    - Click on the orange eye button in the line (a “Show" tooltip will appear).
+    - Hide all the lines again by clicking the top eye button.
 
 ## Reports
 

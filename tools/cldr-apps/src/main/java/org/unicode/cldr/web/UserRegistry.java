@@ -2446,9 +2446,9 @@ public class UserRegistry {
     /**
      * Create and populate the firstdate column. For each user, set firstdate based on the oldest
      * version in which they voted, according to vote tables from version 25 and later; users who
-     * never voted get null meaning "unknown". This is expected to be a one-time operation performed
-     * 2015-10 by ST at startup before the start of version v49. Subsequently new users will get
-     * firstdate set when their accounts are created.
+     * never voted get values based on user ID numbers, which are in chronological order. This is
+     * expected to be a one-time operation performed 2015-10 by ST at startup before the start of
+     * version v49. Subsequently new users will get firstdate set when their accounts are created.
      *
      * @param conn the db connection
      * @throws SQLException if error
@@ -2813,10 +2813,11 @@ public class UserRegistry {
     }
 
     /**
-     * Populate the firstdate column in the db based on the given map
+     * Populate the firstdate column in the db based on the given maps
      *
      * @param conn the db connection
      * @param userFirstVersion map from user ID to version number, already completed
+     * @param verToDate map from version number to date
      * @throws SQLException if error
      */
     private void populateFirstDateColumn(

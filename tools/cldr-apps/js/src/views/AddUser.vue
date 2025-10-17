@@ -262,7 +262,7 @@ function setData(data) {
   if (data.orgObject) {
     setOrgData(data.orgObject);
   }
-  if (data.orgLocales) {
+  if (data.orgName && data.orgLocales) {
     setOrgLocales(data.orgName, data.orgLocales);
   }
   if (data.error) {
@@ -303,8 +303,8 @@ function setOrgData(orgObject) {
   newUserOrg.value = "";
 }
 
-function setOrgLocales(org, orgLocales) {
-  newUserOrg.value = org;
+function setOrgLocales(orgName, orgLocales) {
+  newUserOrg.value = orgName;
   if (!orgLocales) {
     console.error("No locales for organization " + newUserOrg.value);
   }

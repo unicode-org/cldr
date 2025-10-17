@@ -2489,8 +2489,7 @@ public class UserRegistry {
             logger.severe("addFirstDateColumn failed to add column");
         }
         long elapsedTime = (System.currentTimeMillis() - timeStart) / (1000 * 60);
-        logger.warning(
-                "Finished populateFirstDateColumn, elapsed time = " + elapsedTime + " minutes");
+        logger.warning("Finished addFirstDateColumn, elapsed time = " + elapsedTime + " minutes");
     }
 
     /**
@@ -2542,13 +2541,10 @@ public class UserRegistry {
                             logger.warning(
                                     "Vote table has user missing from users table, skipping user ID: "
                                             + userId);
-                        } else {
-                            int version = userFirstVersion.get(userId);
-                            if (version == 0) {
-                                userFirstVersion.put(userId, ver);
-                                ++fixedCountAllVersions;
-                                ++fixedCountThisVersion;
-                            }
+                        } else if (userFirstVersion.get(userId) == 0) {
+                            userFirstVersion.put(userId, ver);
+                            ++fixedCountAllVersions;
+                            ++fixedCountThisVersion;
                         }
                     }
                 } finally {
@@ -2762,10 +2758,9 @@ public class UserRegistry {
         }
     }
 
-    // As of 2025-10, only these 19 versions have votes:
-    // 25, 26, 28, 30, 32, 33, 34, 35, 36, 37, 38, 40, 41, 42, 43, 44, 45, 46, 48
-
     private Map<Integer, Timestamp> mapVersionToFirstDate(Connection conn) throws SQLException {
+        // As of 2025-10, only these 19 versions have votes:
+        // 25, 26, 28, 30, 32, 33, 34, 35, 36, 37, 38, 40, 41, 42, 43, 44, 45, 46, 48
         final int firstVersion = SurveyAjax.oldestVersionForImportingVotes;
         final int lastVersion = Integer.parseInt(SurveyMain.getNewVersion());
         Map<Integer, Timestamp> verToDate = new TreeMap<>();

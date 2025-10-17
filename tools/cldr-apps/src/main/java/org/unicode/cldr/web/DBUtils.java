@@ -329,6 +329,18 @@ public class DBUtils {
                 > 0;
     }
 
+    public static boolean addColumnIfMissing(
+            Connection conn, String tableName, String columnName, String type) throws SQLException {
+        if (DBUtils.tableHasColumn(conn, tableName, columnName)) {
+            return false; // Did not create since it already exists
+        }
+        Statement s = conn.createStatement();
+        String sql = "ALTER TABLE " + tableName + " ADD COLUMN " + columnName + " " + type;
+        s.execute(sql);
+        s.close();
+        return true;
+    }
+
     private static byte[] encode_u8(String what) {
         byte[] u8;
         if (what == null) {

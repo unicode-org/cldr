@@ -763,14 +763,24 @@ function prettyLocaleList(locales) {
 }
 
 function getUserSeen(u) {
-  const when = u.data.active ? u.data.active : u.data.seen;
-  if (!when) {
-    return "";
-  }
+  const when = (u.data.active ? u.data.active : u.data.seen) || "never";
   const what = u.data.active ? "active" : "seen";
   let html = "<b>" + what + ": " + when + "</b>";
   if (what === "seen") {
-    html += "<br /><font size='-2'>" + u.data.lastlogin + "</font></td>";
+    let created = u.data.firstdate;
+    if (!created) {
+      created = "unknown date; never voted?";
+    } else if (created < "2025-10-17") {
+      // Change 2023-05-04T20:00:00.000Z to 2023-05-04, for example.
+      created = "approximately " + created.replace(/T.+/, "");
+    }
+    const lastlogin = u.data.lastlogin || "never";
+    html +=
+      "<br /><font size='-2'>" +
+      lastlogin +
+      "<br />(account created " +
+      created +
+      ")</font></td>";
   }
   return html;
 }

@@ -73,11 +73,11 @@ async function getOrgLocales(orgName) {
     .doFetch(resource)
     .then(cldrAjax.handleFetchErrors)
     .then((r) => r.json())
-    .then(setOrgLocales)
+    .then((json) => setOrgLocales(orgName, json))
     .catch((e) => addError(`Error: ${e} getting org locales`));
 }
 
-function setOrgLocales(json) {
+function setOrgLocales(orgName, json) {
   if (json.err) {
     cldrRetry.handleDisconnect(json.err, json, "", "Loading org locales");
     return;
@@ -87,6 +87,7 @@ function setOrgLocales(json) {
       ? Object.keys(cldrLoad.getTheLocaleMap().locmap.locales).join(" ")
       : json.locales;
   callbackToSetData({
+    orgName,
     orgLocales,
   });
 }

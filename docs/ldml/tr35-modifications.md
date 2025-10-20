@@ -66,6 +66,7 @@ The LDML specification is divided into the following parts:
 -->
 
 **Changes in LDML Version 48 (Differences from Version 47)**
+<!-- Update the date (need to add/update this comment to pass CI tests that require mods to be updated when spec is) -->
 
 ### Locale Identifiers and Names
 * [Display Name Elements](tr35-general.md#display-name-elements) Described the usage of the `language` element `menu` values `core` and `extension`, and `alt="menu"`.

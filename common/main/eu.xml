@@ -13962,14 +13962,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="ESP">
-				<pattern>¤ #,##0.00</pattern>
+				<pattern numberSystem="latn">¤ #,##0.00</pattern>
 				<displayName>pezeta espainiarra</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">pezeta espainiar</displayName>
 				<symbol>₧</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
-				<decimal>,</decimal>
-				<group>.</group>
+				<decimal numberSystem="latn">,</decimal>
+				<group numberSystem="latn">.</group>
 			</currency>
 			<currency type="ETB">
 				<displayName>birr etiopiarra</displayName>

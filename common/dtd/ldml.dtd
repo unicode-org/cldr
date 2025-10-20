@@ -1441,6 +1441,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
     <!--@DEPRECATED:true, false-->
 <!ATTLIST pattern references CDATA #IMPLIED >
     <!--@METADATA-->
+<!ATTLIST pattern numberSystem CDATA #IMPLIED >
+    <!--@MATCH:bcp47/nu-->
 
 <!ELEMENT datetimeSkeleton ( #PCDATA ) >
 <!ATTLIST datetimeSkeleton numbers CDATA #IMPLIED >
@@ -2062,7 +2064,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!ATTLIST decimal references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST decimal numberSystem CDATA #IMPLIED >
-    <!--@DEPRECATED-->
+    <!--@MATCH:bcp47/nu-->
 
 <!ELEMENT group ( #PCDATA ) >
 <!ATTLIST group alt NMTOKENS #IMPLIED >
@@ -2073,7 +2075,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!ATTLIST group references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST group numberSystem CDATA #IMPLIED >
-    <!--@DEPRECATED-->
+    <!--@MATCH:bcp47/nu-->
 
 <!ELEMENT list ( #PCDATA ) >
 <!ATTLIST list alt NMTOKENS #IMPLIED >

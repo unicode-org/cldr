@@ -6502,13 +6502,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="ESP">
-				<pattern>¤ #,##0.00</pattern>
+				<pattern numberSystem="latn">¤ #,##0.00</pattern>
 				<displayName>pesseta espanyola</displayName>
 				<displayName count="one">pesseta espanyola</displayName>
 				<displayName count="other">pessetes espanyoles</displayName>
 				<symbol>₧</symbol>
-				<decimal>,</decimal>
-				<group>.</group>
+				<decimal numberSystem="latn">,</decimal>
+				<group numberSystem="latn">.</group>
 			</currency>
 			<currency type="ETB">
 				<displayName>birr etíop</displayName>

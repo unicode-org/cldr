@@ -316,25 +316,26 @@ The exact format of the path is provisional in CLDR 29, but as currently shown:
 <!ELEMENT language EMPTY >
 <!ATTLIST language type NMTOKEN #REQUIRED >
 <!ATTLIST language scripts NMTOKENS #IMPLIED >
-<!ATTLIST language territories NMTOKENS #IMPLIED >
 <!ATTLIST language variants NMTOKENS #IMPLIED >
 <!ATTLIST language alt NMTOKENS #IMPLIED >
 ```
 
-The language data is used for consistency checking and testing. It provides a list of which languages are used with which scripts and in which countries. To a large extent, however, the territory list has been superseded by the data in _[Supplemental Territory Information](#Supplemental_Territory_Information)_ .
+The language data is used for consistency checking and testing. It provides a list of which languages are used with which scripts.
+Formerly a `territory` attribute (deprecated in CLDR 48) also provided a list of territories in which the language was used; however
+that has been superseded by the data in _[Supplemental Territory Information](#Supplemental_Territory_Information)_ .
 
 ```xml
 <languageData>
-    <language type="af" scripts="Latn" territories="ZA" />
-    <language type="am" scripts="Ethi" territories="ET" />
-    <language type="ar" scripts="Arab" territories="AE BH DZ EG IN IQ JO KW LB LY MA OM PS QA SA SD SY TN YE" />
+    <language type="af" scripts="Latn"/>
+    <language type="am" scripts="Ethi"/>
+    <language type="ar" scripts="Arab"/>
     ...
 ```
 
-If the language is not a modern language, or the script is not a modern script, or the language not a major language of the territory, then the `alt` attribute is set to secondary.
+If the language is not a modern language, or the script is not a modern script, then the `alt` attribute is set to secondary.
 
 ```xml
-    <language type="fr" scripts="Latn" territories="IT US" alt="secondary" />
+    <language type="ar" scripts="Syrc" alt="secondary"/>
     ...
 ```
 

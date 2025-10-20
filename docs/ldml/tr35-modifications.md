@@ -83,6 +83,9 @@ CLDR does not closely monitor all ISO 3166-2 changes.
 * [Character Elements](tr35-general.md#character-elements) Added new exemplar types.
 * [DTD Annotations](tr35.md#dtd_annotations) Added the @CDATA annotation, to indicate which elements are generated with @CDATA format
 * [Person Name Validation](tr35-personNames.md#person-name-validation) Added guidance for validating person names.
+* [Supplemental Language Data](tr35-info.md#Supplemental_Language_Data) For the `language` subelement of `languageData`, the `territory`
+attribute has been deprecated (and data using it has been removed). A better source for such information is the more detailed data
+in [Supplemental Territory Information](tr35-info.md#Supplemental_Territory_Information). 
 
 ### DateTime formats
 

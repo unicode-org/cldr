@@ -949,6 +949,12 @@ public class TestDtdData extends TestFmwk {
                     // OPTIONAL
                     "//ldml…/symbols[@ references < numberSystem", // Status: metadata ≠
                     // distinguished Mode: OPTIONAL
+                    "//ldml…/pattern[@ references < numberSystem", // Status: metadata ≠
+                    // distinguished	Mode: OPTIONAL
+                    "//ldml…/decimal[@ references < numberSystem", // Status: metadata ≠
+                    // distinguished	Mode: OPTIONAL
+                    "//ldml…/group[@ references < numberSystem", // Status: metadata ≠ distinguished
+                    //	Mode: OPTIONAL
                     "//supplementalData…/languagePopulation[@ writingPercent < populationPercent", // Status: value    Mode: OPTIONAL ≠ REQUIRED
                     "//supplementalData…/metazoneId[@ longId < deprecated", // Status: value
                     // Mode: OPTIONAL ≠ NULL

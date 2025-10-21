@@ -1436,13 +1436,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
     <!-- Only used for decimalFormats type="1000..." -->
 <!ATTLIST pattern alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/alphaNextToNumber, ascii, noCurrency, variant-->
-<!ATTLIST pattern numberSystem CDATA #IMPLIED >
-    <!--@MATCH:bcp47/nu-->
 <!ATTLIST pattern draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 <!ATTLIST pattern references CDATA #IMPLIED >
     <!--@METADATA-->
+<!ATTLIST pattern numberSystem CDATA #IMPLIED >
+    <!--@MATCH:bcp47/nu-->
 
 <!ELEMENT datetimeSkeleton ( #PCDATA ) >
 <!ATTLIST datetimeSkeleton numbers CDATA #IMPLIED >

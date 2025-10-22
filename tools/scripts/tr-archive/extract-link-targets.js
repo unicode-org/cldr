@@ -2,6 +2,13 @@ const fs = require("fs").promises;
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 const path = require("path");
+const { gfmurlify, ELEMENTS } = require("./gfmurlify");
+
+const elementSet = new Set(ELEMENTS);
+
+function isAutoElement(e) {
+  return elementSet.has(e.toLowerCase());
+}
 
 /**
  * Run this after outputting html into 'dist'
@@ -42,7 +49,7 @@ function constructLink(targetSection, anchor) {
  */
 async function extractAnchors(infile) {
   const basename = path.basename(infile, ".html");
-  dirname = '../../../docs/ldml';
+  dirname = "../../../docs/ldml";
   console.log(`${SECTION_ICON} Reading ${infile}`);
   let f1 = await fs.readFile(infile, "utf-8");
 
@@ -60,13 +67,21 @@ async function extractAnchors(infile) {
   const anchors = new Set();
   const targets = new Set();
 
+  /** add an explicit anchor. warn if duplicates. */
   function addAnchor(n) {
     if (!n) return;
     if (anchors.has(n)) {
-      console.error(`${WARN_ICON} ${constructLink(basename)}: Duplicate anchor: #${n}`);
+      console.error(
+        `${WARN_ICON} ${constructLink(basename)}: Duplicate anchor: #${n}`
+      );
     } else {
       anchors.add(n);
     }
+  }
+  /** add an anchor, but no warning on duplicate. this for implicit anchors */
+  function addAnchorQuietly(n) {
+    if (!n) return;
+    anchors.add(n); // no warning on dup
   }
 
   function addTarget(href) {
@@ -77,7 +92,7 @@ async function extractAnchors(infile) {
 
     const intra_page = INTRA_PAGE_LINK.exec(href);
     const tr_section = TR_SECTION_LINK.exec(href);
-    const external   = EXTERNAL_LINK.exec(href);
+    const external = EXTERNAL_LINK.exec(href);
     if (intra_page) {
       // same page
       targets.add(constructLink(basename, intra_page[1]));
@@ -98,9 +113,32 @@ async function extractAnchors(infile) {
     const id = a.getAttribute("id");
     addAnchor(id);
 
-    if (a.tagName === 'A') {
+    if (a.tagName === "A") {
       const name = a.getAttribute("name");
-      addAnchor(name);
+      const href = a.getAttribute("href");
+      if (id != name) {
+        // don't care if id and name match
+        addAnchor(name);
+      }
+      if (!id && !name && !href) {
+        const txt = a.textContent.trim();
+        if (!txt) continue;
+        const gfm_id = gfmurlify(txt);
+        if (gfm_id !== name) {
+          addAnchorQuietly(gfm_id);
+        }
+      }
+    } else if (isAutoElement(a.tagName)) {
+      if (a.tagName === "H1") continue; // skip top title
+      // try to generate
+      const txt = a.textContent.trim();
+      if (!txt) continue;
+      // skip these as they don't need to be tracked.
+      if (txt.startsWith("Unicode Technical Standard #35")) {
+        continue;
+      }
+      const gfm_id = gfmurlify(txt);
+      addAnchorQuietly(gfm_id);
     }
   }
   // extract targets
@@ -111,10 +149,10 @@ async function extractAnchors(infile) {
     }
   }
 
-  const coll = new Intl.Collator(['und']);
+  const coll = new Intl.Collator(["und"]);
   const anchorList = Array.from(anchors.values()).sort(coll.compare);
   const anchorFile = path.join(dirname, `${basename}.anchors.json`);
-  await fs.writeFile(anchorFile, JSON.stringify(anchorList, null, '  '));
+  await fs.writeFile(anchorFile, JSON.stringify(anchorList, null, "  "));
   const targetList = Array.from(targets.values()).sort(coll.compare);
   return [basename, anchorList, targetList];
 }
@@ -142,15 +180,19 @@ async function checkAll() {
   const sectionToTargets = {
     // e.g.  "tr35-info" : Set(["tr35-keyboards.md#Element_keyboard", …])
   };
-  checked.forEach(([sourceSection,anchorList,targetList]) => {
+  checked.forEach(([sourceSection, anchorList, targetList]) => {
     allInternalAnchors.add(constructLink(sourceSection)); // example: 'tr35-collation.md'
-    targetList.forEach(target => allInternalTargets.add(target));
+    targetList.forEach((target) => allInternalTargets.add(target));
     sectionToTargets[sourceSection] = new Set(targetList); // for error checking
-    const myInternalAnchors = anchorList.map(anchor => constructLink(sourceSection, anchor));
-    myInternalAnchors.forEach(anchor => allInternalAnchors.add(anchor)); // tr35-collation.md#Parts
+    const myInternalAnchors = anchorList.map((anchor) =>
+      constructLink(sourceSection, anchor)
+    );
+    myInternalAnchors.forEach((anchor) => allInternalAnchors.add(anchor)); // tr35-collation.md#Parts
   });
 
-  console.log(`${GEAR_ICON} Checking ${allInternalTargets.size} internal links against ${allInternalAnchors.size} anchors`);
+  console.log(
+    `${GEAR_ICON} Checking ${allInternalTargets.size} internal links against ${allInternalAnchors.size} anchors`
+  );
 
   const missingInternalLinks = new Set();
 
@@ -163,25 +205,31 @@ async function checkAll() {
   if (!!missingInternalLinks.size) {
     for (expectedAnchor of missingInternalLinks.values()) {
       // coalesce
-      const sourceSections = ((Object.entries(sectionToTargets)
-        .filter(([section,s]) => s.has(expectedAnchor))) // Does this section target this anchor?
-        .map(([section]) => constructLink(section)) // drop the set
-        .join(' & ') // join section name(s)
-      ) || '(unknown section(s))'; // error
-      console.error(`${MISSING_ICON} Broken internal link: ${sourceSections}: (${expectedAnchor})`);
+      const sourceSections =
+        Object.entries(sectionToTargets)
+          .filter(([section, s]) => s.has(expectedAnchor)) // Does this section target this anchor?
+          .map(([section]) => constructLink(section)) // drop the set
+          .join(" & ") || // join section name(s)
+        "(unknown section(s))"; // error
+      console.error(
+        `${MISSING_ICON} Broken internal link: ${sourceSections}: (${expectedAnchor})`
+      );
     }
     console.error(`${WARN_ICON} ${missingInternalLinks.size} missing links.`);
     process.exitCode = 1;
   }
 
-  console.log(`${POINT_ICON} use: 'lychee --cache docs/ldml' to check external links`);
+  console.log(
+    `${POINT_ICON} use: 'lychee --cache docs/ldml' to check external links`
+  );
 
   return checked.map(([anchorFile]) => anchorFile);
 }
 checkAll().then(
-  (x) => x.forEach(section => {
-    console.log(`${DONE_ICON} ${constructLink(section)}`);
-  }),
+  (x) =>
+    x.forEach((section) => {
+      console.log(`${DONE_ICON} ${constructLink(section)}`);
+    }),
   (e) => {
     console.error(e);
     process.exitCode = 1;

@@ -292,6 +292,9 @@ For a full listing, see [Transforms Delta].
 }
 ```
 
+- The `rgScope` values are now approved, but they are not output in cldr-json at present.
+See [CLDR-19029] for a discussion of the issue.
+
 The `ar-OrdinalRules.txt` file contains all rules for this locale:
 
    %digits-ordinal:
@@ -374,6 +377,7 @@ For web pages with different views of CLDR data, see [http://cldr.unicode.org/in
 [CLDR-18894]: https://unicode-org.atlassian.net/browse/CLDR-18894
 [CLDR-18934]: https://unicode-org.atlassian.net/browse/CLDR-18934
 [CLDR-18956]: https://unicode-org.atlassian.net/browse/CLDR-18956
+[CLDR-19029]: https://unicode-org.atlassian.net/browse/CLDR-19029
 
 [Delta DTDs]: https://unicode.org/cldr/charts/48/supplemental/dtd_deltas.html
 [BCP47 Delta]: https://unicode.org/cldr/charts/48/delta/bcp47.html

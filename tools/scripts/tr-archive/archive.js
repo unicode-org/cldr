@@ -6,12 +6,7 @@ const path = require("path");
 const markedAlert = require("marked-alert");
 const matter = require("gray-matter");
 const AnchorJS = require("anchor-js");
-
-// this one is closer to GitHub, it seems.
-const amh = require("anchor-markdown-header");
-
-// array of elements to put anhors on
-const ELEMENTS = "h2 h3 h4 h5 h6 caption dfn".split(" ");
+const { gfmurlify, ELEMENTS } = require("./gfmurlify");
 
 // Not great, but do this so AnchorJS will work
 global.document = new jsdom.JSDOM(`...`).window.document;
@@ -21,12 +16,6 @@ const anchorjs = new AnchorJS();
 function anchorurlify(t) {
   // undocumented
   return anchorjs.urlify(t);
-}
-
-/** give the anchor as GFM probably would do it */
-function gfmurlify(t) {
-  const md = amh(t); // '[message.abnf](#messageabnf)'
-  return /.*\(#([^)]+)\)/.exec(md)[1];
 }
 
 // Setup some options for our markdown renderer
@@ -267,12 +256,12 @@ async function renderit(infile) {
         }
       }
       // add the 'original' casing as an anchor, i.e. "Some Thing" -> "#Some_Thing" vs "some-thing" if it doesn't already exist
-      if (txt !== gfm_id
-        && /^[a-zA-Z -]+$/.test(txt)) {
-        const n = txt.replace(/ /g, '_');
-        if (!dom.window.document.getElementById(n)
-          && !(dom.window.document.getElementsByName(n)?.length)) {
-
+      if (txt !== gfm_id && /^[a-zA-Z -]+$/.test(txt)) {
+        const n = txt.replace(/ /g, "_");
+        if (
+          !dom.window.document.getElementById(n) &&
+          !dom.window.document.getElementsByName(n)?.length
+        ) {
           //console.log({ txt, gfm_id, n });
           const origAnchor = document.createElement("a");
           origAnchor.setAttribute("name", n);

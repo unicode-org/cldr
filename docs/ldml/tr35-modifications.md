@@ -2,7 +2,7 @@
 
 # Unicode Locale Data Markup Language (LDML)<br/>Appendix A: Modifications
 
-|Version|48 (draft)|
+|Version|48        |
 |-------|----------|
 |Editors|<a href="tr35-acknowledgments.md#acknowledgments">CLDR committee members|
 
@@ -14,12 +14,12 @@ This is a partial document, describing only the changes to the LDML since the pr
 
 ### _Status_
 
-_This is a draft document which may be updated, replaced, or superseded by other documents at any time.
+<!-- _This is a draft document which may be updated, replaced, or superseded by other documents at any time.
 Publication does not imply endorsement by the Unicode Consortium.
-This is not a stable document; it is inappropriate to cite this document as other than a work in progress._
+This is not a stable document; it is inappropriate to cite this document as other than a work in progress._ -->
 
-<!-- _This document has been reviewed by Unicode members and other interested parties, and has been approved for publication by the Unicode Consortium.
-This is a stable document and may be used as reference material or cited as a normative reference by other specifications._ -->
+_This document has been reviewed by Unicode members and other interested parties, and has been approved for publication by the Unicode Consortium.
+This is a stable document and may be used as reference material or cited as a normative reference by other specifications._
 
 > _**A Unicode Technical Standard (UTS)** is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS._
 
@@ -66,9 +66,8 @@ The LDML specification is divided into the following parts:
 -->
 
 **Changes in LDML Version 48 (Differences from Version 47)**
-<!-- Update the date (need to add/update this comment to pass CI tests that require mods to be updated when spec is) -->
-<!-- Some internal links were updated to fix broken links. -->
-<!-- fixed broken links -->
+<!-- Updated date -->
+<!-- Fixed broken links -->
 
 ### Locale Identifiers and Names
 * [Display Name Elements](tr35-general.md#display-name-elements) Described the usage of the `language` element `menu` values `core` and `extension`, and `alt="menu"`.

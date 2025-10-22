@@ -26,7 +26,7 @@ This is a stable document and may be used as reference material or cited as a no
 > _**A Unicode Technical Standard (UTS)** is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS._
 
 _Please submit corrigenda and other comments with the CLDR bug reporting form [[Bugs](https://cldr.unicode.org/index/bug-reports)].
-Related information that is useful in understanding this document is found in the [References](#References).
+Related information that is useful in understanding this document is found in the [References](tr35.md#References).
 For the latest version of the Unicode Standard see [[Unicode](https://www.unicode.org/versions/latest/)].
 For more information see [About Unicode Technical Reports](https://www.unicode.org/reports/about-reports.html) and the [Specifications FAQ](https://www.unicode.org/faq/specifications.html).
 Unicode Technical Reports are governed by the Unicode [Terms of Use](https://www.unicode.org/copyright.html)._
@@ -1104,9 +1104,9 @@ The `nameField` values and their modifiers are described in the [Person Name Obj
 
 ## Person Name Validation
 
-When implementations allow entry of person names, they are often too strict; there are many instances where people can’t enter their real names, such as O’Brian, Stéphanie, Wałęsa, Þjóðólfr. Conversely, when an implementation is too lenient, it allows names like Ȟěl̀a, or B🅾️b. (See also [Zalgo](https://en.wikipedia.org/wiki/Zalgo_text).) 
+When implementations allow entry of person names, they are often too strict; there are many instances where people can’t enter their real names, such as O’Brian, Stéphanie, Wałęsa, Þjóðólfr. Conversely, when an implementation is too lenient, it allows names like Ȟěl̀a, or B🅾️b. (See also [Zalgo](https://en.wikipedia.org/wiki/Zalgo_text).)
 
-Sometimes the constraints are imposed by limitations of outdated software or databases (such as not supporting Unicode character), or legal restrictions (such as only accepting names legal in Switzerland on native Swiss passports). 
+Sometimes the constraints are imposed by limitations of outdated software or databases (such as not supporting Unicode character), or legal restrictions (such as only accepting names legal in Switzerland on native Swiss passports).
 
 However, when the limitations are due to unfamiliarity with the kinds of characters that can appear in languages, Unicode properties and CLDR data can help implementers to avoid being either too strict or too lenient.
 
@@ -1124,13 +1124,13 @@ To narrow it down, an implementation may form the union of exemplar characters f
 | Urdu | **ا ب پ ت ٹ ث ج چ ح خ د ڈ ذ ر ڑ ز ژ س ش ص ض ط ظ ع غ ف ق ک گ ل م ن و ہ ھ ء ی ے** |
 
 There are also auxiliary exemplars (in the same script) that should be included, that are not part of the core alphabet, but are in use (typically loan words or names).
-For example, in English someone would not be surprised to see a name such as René or Schröder. 
+For example, in English someone would not be surprised to see a name such as René or Schröder.
 
 | Language | Exemplars (Auxilliary) |
 | :---- | :---: |
 | Polish (aux) | à â å ä æ ç é è ê ë î ï ô ö œ q ß ù û ü v x ÿ |
 
-It is often useful to explicitly include the exemplars from multiple languages. 
+It is often useful to explicitly include the exemplars from multiple languages.
 For example, an implementation may choose to include the exemplars from official languages of the EU, or for major languages of Africa.
 There is data in CLDR for the populations of languages in countries, and their official status, that may be useful for this.
 
@@ -1147,25 +1147,25 @@ Examples include: Jean-Luc; Dr. Doom; James Smith Jr., MD
 
 ### Normalization
 
-When names are input from the keyboard, they should be normalized before validation. Typically the best foundation for that is Unicode NFC format. Additional useful normalizations are 
+When names are input from the keyboard, they should be normalized before validation. Typically the best foundation for that is Unicode NFC format. Additional useful normalizations are
 
-* Replacement of arbitrary sequences of whitespace characters by a single space .  
-  * \\p{whitespace}{2,∞} → U+0020  
-* Replacement of  U+2010 HYPHEN and U+2011 NON-BREAKING HYPHEN   
+* Replacement of arbitrary sequences of whitespace characters by a single space .
+  * \\p{whitespace}{2,∞} → U+0020
+* Replacement of  U+2010 HYPHEN and U+2011 NON-BREAKING HYPHEN
   * \[‐‑\] → \-
 
 ### Additional possible constraints
 
 Other useful constraints include testing for extremely unusual cases, which may be mistakes or jokes ([Zalgo](https://en.wikipedia.org/wiki/Zalgo_text)). For these it is helpful to transform first into NFD, then apply the tests.
 
-* Too many identical grapheme clusters in a sequence  
-  *  (Tóóóóóm)  
-* Too many non-letters in a row   
-  * (Jean—Luc Jr..,, MD)  
-* Too many combining marks in a row  
+* Too many identical grapheme clusters in a sequence
+  *  (Tóóóóóm)
+* Too many non-letters in a row
+  * (Jean—Luc Jr..,, MD)
+* Too many combining marks in a row
   * Faruq̣̣̈̈
 
-For further information, including confusables, mixed script detection, and so on, see [UTS \#39: Unicode Security Mechanisms](https://www.unicode.org/reports/tr39/). 
+For further information, including confusables, mixed script detection, and so on, see [UTS \#39: Unicode Security Mechanisms](https://www.unicode.org/reports/tr39/).
 
 ## PersonName Data Interface Examples
 

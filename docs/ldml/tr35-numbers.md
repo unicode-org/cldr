@@ -26,7 +26,7 @@ This is a stable document and may be used as reference material or cited as a no
 > _**A Unicode Technical Standard (UTS)** is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS._
 
 _Please submit corrigenda and other comments with the CLDR bug reporting form [[Bugs](https://cldr.unicode.org/index/bug-reports)].
-Related information that is useful in understanding this document is found in the [References](#References).
+Related information that is useful in understanding this document is found in the [References](tr35.md#References).
 For the latest version of the Unicode Standard see [[Unicode](https://www.unicode.org/versions/latest/)].
 For more information see [About Unicode Technical Reports](https://www.unicode.org/reports/about-reports.html) and the [Specifications FAQ](https://www.unicode.org/faq/specifications.html).
 Unicode Technical Reports are governed by the Unicode [Terms of Use](https://www.unicode.org/copyright.html)._
@@ -442,7 +442,7 @@ For example, each of the following are are _letter grapheme clusters_: \<q>, \<q
 1. Let P be the pattern element with greatest type less than or equal to N, and any count value.
     * P = `<pattern type="100000" count="**one**">¤000K</pattern>`
 2. Let V be the pattern element value.
-    * V = "¤000K" 
+    * V = "¤000K"
 3. If the element value of P is "0", then use the corresponding non-compact number formatting instead, and skip the rest of these steps — but adjust the precision as described below.
     * For example, instead of `currencyFormat` `<pattern type="10000" count="one">¤00K</pattern>`, use `<pattern>¤#,##0.00</pattern>`.
 4. If P is a currency format, look at the currency symbol string, and the position of the currency symbol ¤ in the pattern element value.
@@ -450,7 +450,7 @@ If ¤ is immediately to the left of a 0 and the currency string ends with a _let
 or to the right and the currency starts with a letter (eg, "CA$"),
 then switch to the `alt=alphaNextToNumber` pattern, if there is one.
     * P = `<pattern type="100000" count="**one**" alt="alphaNextToNumber">¤ 000K</pattern>` // with the currency symbol "CA$"
-    * V = "¤ 000K" 
+    * V = "¤ 000K"
 5. Let Z be the number of 0 characters in V, minus 1.
     * Z = 2
 6. Let T be the numeric value of the `type` attribute value, after removing the final Z zeros.
@@ -459,7 +459,7 @@ then switch to the `alt=alphaNextToNumber` pattern, if there is one.
 7. Let N' be N / T
     * N = 123.456
 8. Determine the plural category of N, based on the numeric precision settings (the min/max number of significant or fraction digits), and switch  the value of V if necessary.
-    * In this case, the plural category of 123.456 in English with any precision is "other", so the 
+    * In this case, the plural category of 123.456 in English with any precision is "other", so the
     * P = `<pattern type="100000" count="**other**" alt="alphaNextToNumber">¤ 000K</pattern>`
     * V = "¤ 000K"
     * For the short compact formats, it doesn't make a difference for English, but may for other locales!
@@ -480,7 +480,7 @@ With the data above, N=12345 matches `<pattern type="10000" count="other">00 K</
 
 Formatting 1200 in USD would result in “1.2 K $”, while 990 implicitly maps to the special value “0”, which maps to `<currencyFormat type="standard"><pattern>#,##0.00 ¤</pattern>`, and would result in simply “990 $”.
 
-The short non-currency format is designed for UI environments where space is at a premium, and should ideally result in a formatted string no more than about 6 em wide (with no fractional digits). 
+The short non-currency format is designed for UI environments where space is at a premium, and should ideally result in a formatted string no more than about 6 em wide (with no fractional digits).
 The short currency format will include currency symbols, and should ideally be no more than 8 em in width.
 
 #### <a name="Currency_Formats" href="#Currency_Formats">Currency Formats</a>

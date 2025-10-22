@@ -290,7 +290,7 @@ Comments with DUCET-style weights in files other than allkeys_CLDR.txt and allke
   An implementation may modify the weights further to fit the needs of its data structures.
 
 * **UCA_Rules** - A file that specifies the root collation order in the form of [tailoring rules](#Collation_Tailorings). This is only an approximation of the FractionalUCA data, since the rule syntax cannot express every detail of the collation elements. For example, in the DUCET and in FractionalUCA, tertiary differences are usually expressed with special tertiary weights on all collation elements of an expansion, while a typical from-rules builder will modify the tertiary weight of only one of the collation elements.
-* **CollationTest_CLDR** - The CLDR versions of the CollationTest files, which use the tailorings for CLDR. For information on the format, see [CollationTest.html](https://www.unicode.org/Public/UCA/latest/CollationTest.html) in the [UCA data directory](https://www.unicode.org/reports/tr10/#Data10).
+* **CollationTest_CLDR** - The CLDR versions of the CollationTest files, which use the tailorings for CLDR. For information on the format, see [UTS #10: 12.2 Conformance Tests](https://unicode.org/reports/tr10/#Conformance_Tests) and the [UCA data directory](https://www.unicode.org/reports/tr10/#Data10).
   * CollationTest_CLDR_NON_IGNORABLE.txt
   * CollationTest_CLDR_SHIFTED.txt
 

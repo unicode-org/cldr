@@ -1,4 +1,3 @@
-
 name: gh-pages
 
 # Note: we have a foot in two camps here, maybe more
@@ -27,7 +26,7 @@ on:
     paths:
       - "tools/scripts/tr-archive/**"
       - "docs/**"
-      - '.github/workflows/gh-pages.yml'
+      - ".github/workflows/gh-pages.yml"
 jobs:
   build:
     name: "Build Github Pages"
@@ -47,17 +46,18 @@ jobs:
       - uses: nodenv/actions/node-version@v4 # setup using .node-version
       - name: Run TR archiver
         # Note: will update ToC if out of date
-        run: 'cd tools/scripts/tr-archive/ && npm ci && npm run build'
+        run: "cd tools/scripts/tr-archive/ && npm ci && npm run build"
       - name: Run Kbd Charts
-        run: 'cd docs/charts/keyboards && npm ci && npm run build'
+        run: "cd docs/charts/keyboards && npm ci && npm run build"
       - name: Upload tr35.zip
         uses: actions/upload-artifact@v4
         with:
           name: tr35-spec
           path: tools/scripts/tr-archive/tr35.zip
-      - name: 'Run TR link extractor (experimental)'
+      - name: "Check internal anchors in spec"
         # Note: see CLDR-16526 for making this an error
-        run: 'cd tools/scripts/tr-archive/ && npm run extract-link-targets || (echo Warning, please fix these ; true)'
+        # see <tools/scripts/tr-archive/README.md> for instructions
+        run: "cd tools/scripts/tr-archive/ && npm run extract-link-targets"
       - name: Lint Markdown
         # Warn, don't fail yet
         run: npx markdownlint-cli *.md {specs,docs}/*.md || (echo Warning, please fix these ; true)
@@ -73,10 +73,10 @@ jobs:
       - name: Run lychee
         uses: lycheeverse/lychee-action@v1
         with:
-            args: "-n --cache --max-cache-age 10d docs/rfc docs/ldml"
-            fail: false
-            format: markdown
-            output: linkcheck.md
+          args: "-n --cache --max-cache-age 10d docs/rfc docs/ldml"
+          fail: false
+          format: markdown
+          output: linkcheck.md
       - name: Link Checker Summary
         run: cat linkcheck.md >> $GITHUB_STEP_SUMMARY
       - uses: ruby/setup-ruby@v1
@@ -90,7 +90,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Rearrange stuff
-        run: 'cp -vr tools/scripts/tr-archive/dist/* ./_site/ldml/ && cp tools/scripts/tr-archive/reports-v2.css ./_site/'
+        run: "cp -vr tools/scripts/tr-archive/dist/* ./_site/ldml/ && cp tools/scripts/tr-archive/reports-v2.css ./_site/"
       - name: Deploy to GitHub Pages (main)
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: actions/upload-pages-artifact@v3

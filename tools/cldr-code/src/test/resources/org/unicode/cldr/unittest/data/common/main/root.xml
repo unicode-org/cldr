@@ -1,23 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
-	Note: This file is for TestCLDRFile.testSourceLocale()
+	Note: This file is for TestCLDRFileMore.testSourceLocale()
 -->
-
 <!-- DO NOT EDIT (usually… see below) -->
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!--
 
     _   _   _             _   _             _
@@ -33,12 +19,12 @@
 This is a TEST file, part of a little mini CLDR root
  located in tools/cldr-code/src/test/resources/org/unicode/cldr/unittest/data/common/
 
-It's used in TestCLDRFile.testSourceLocale()
+It's used in TestCLDRFileMore.testSourceLocale() for testing XML loading
 
 -->
-
 <ldml>
 	<identity>
+    	<!-- Not CLDR data. Do not edit. See top of file. -->
 		<version number="$Revision$" />
 		<language type="root" />
 	</identity>
@@ -47,19 +33,25 @@ It's used in TestCLDRFile.testSourceLocale()
 		<calendars>
 			<calendar type="gregorian">
 				<dayPeriods>
+    				<!-- Not CLDR data. Do not edit. See top of file. -->
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="abbreviated">
+    						<!-- Not CLDR data. Do not edit. See top of file. -->
 							<alias source="locale" path="../dayPeriodWidth[@type='wide']" />
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
+    						<!-- Not CLDR data. Do not edit. See top of file. -->
 							<alias source="locale" path="../dayPeriodWidth[@type='abbreviated']" />
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
+    						<!-- Not CLDR data. Do not edit. See top of file. -->
 							<dayPeriod type="am">AM</dayPeriod>
 							<dayPeriod type="pm">PM</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
+					<!-- Not CLDR data. Do not edit. See top of file. -->
 					<dayPeriodContext type="stand-alone">
+    					<!-- Not CLDR data. Do not edit. See top of file. -->
 						<alias source="locale" path="../dayPeriodContext[@type='format']" />
 					</dayPeriodContext>
 				</dayPeriods>
@@ -69,6 +61,7 @@ It's used in TestCLDRFile.testSourceLocale()
 	<units>
 		<unitLength type="short">
 			<unit type="angle-revolution">
+    			<!-- Not CLDR data. Do not edit. See top of file. -->
 				<displayName>rev</displayName>
 				<unitPattern count="other">{0} rev</unitPattern>
 			</unit>

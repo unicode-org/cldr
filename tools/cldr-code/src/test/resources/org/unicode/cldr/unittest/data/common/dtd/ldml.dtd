@@ -34,11 +34,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 This is a TEST file, part of a little mini CLDR root
  located in tools/cldr-code/src/test/resources/org/unicode/cldr/unittest/data/common/
 
-It's used in TestCLDRFile.testSourceLocale()
+It's used in TestCLDRFileMore.testSourceLocale() for testing the XML loading mechanism.
+This is not the usual DTD, please don't edit it.
 
 -->
 
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT ldml ( identity, ( localeDisplayNames?, dates?, units?) ) >
 <!ATTLIST ldml version CDATA #IMPLIED >
     <!--@METADATA-->
@@ -49,6 +51,7 @@ It's used in TestCLDRFile.testSourceLocale()
 
 <!-- ######################################################### -->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT identity ( alias | ( version, generation?, language, script?, territory?, variant?, special* ) ) >
 <!ATTLIST identity draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
@@ -57,6 +60,7 @@ It's used in TestCLDRFile.testSourceLocale()
 <!-- ######################################################### -->
 <!-- # These elements are common to almost all elements defined -->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT alias ( special* ) >
 <!ATTLIST alias source NMTOKEN #REQUIRED >
     <!--@MATCH:literal/locale-->
@@ -70,8 +74,10 @@ It's used in TestCLDRFile.testSourceLocale()
     <!--@METADATA-->
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT special ANY >
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT version EMPTY >
 <!ATTLIST version number CDATA #REQUIRED >
     <!--@MATCH:regex/\$Revision.*\$-->
@@ -83,6 +89,7 @@ It's used in TestCLDRFile.testSourceLocale()
     <!--@METADATA-->
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT generation EMPTY >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -93,6 +100,7 @@ It's used in TestCLDRFile.testSourceLocale()
     <!--@METADATA-->
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT language ( #PCDATA ) >
 <!ATTLIST language type NMTOKEN #REQUIRED >
     <!--@MATCH:validity/locale-->
@@ -105,6 +113,7 @@ It's used in TestCLDRFile.testSourceLocale()
     <!--@MATCH:any-->
     <!--@METADATA-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT script ( #PCDATA ) >
 <!ATTLIST script type NMTOKEN #REQUIRED >
     <!--@MATCH:validity/script-->
@@ -116,6 +125,7 @@ It's used in TestCLDRFile.testSourceLocale()
 <!ATTLIST script references CDATA #IMPLIED >
     <!--@METADATA-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT territory ( #PCDATA ) >
 <!ATTLIST territory type NMTOKEN #REQUIRED >
     <!--@MATCH:validity/region-->
@@ -127,6 +137,7 @@ It's used in TestCLDRFile.testSourceLocale()
 <!ATTLIST territory references CDATA #IMPLIED >
     <!--@METADATA-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT variant ( #PCDATA ) >
 <!ATTLIST variant type NMTOKEN #REQUIRED >
     <!--@MATCH:validity/variant-->
@@ -140,6 +151,7 @@ It's used in TestCLDRFile.testSourceLocale()
 
 <!-- ######################################################### -->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT fallback ( #PCDATA ) >
     <!--@DEPRECATED-->
 <!ATTLIST fallback alt NMTOKENS #IMPLIED >
@@ -152,6 +164,7 @@ It's used in TestCLDRFile.testSourceLocale()
     <!--@METADATA-->
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT localeDisplayNames ( alias | ( languages?, special* ) ) >
 <!ATTLIST localeDisplayNames draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
@@ -159,6 +172,7 @@ It's used in TestCLDRFile.testSourceLocale()
 
 <!-- # Either 1 alias OR any specials, any order, zero or more language -->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT languages ( alias | ( language | special )* ) >
 <!ATTLIST languages draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
@@ -174,6 +188,7 @@ It's used in TestCLDRFile.testSourceLocale()
 
 <!-- ######################################################### -->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT dates ( alias | ( calendars?, special* ) ) >
 <!ATTLIST dates alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/variant-->
@@ -189,6 +204,7 @@ It's used in TestCLDRFile.testSourceLocale()
     <!--@VALUE-->
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT calendars ( alias | ( default*, calendar*, special* ) ) >
     <!-- use calendarPreferenceData instead of default element -->
 <!ATTLIST calendars draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
@@ -198,6 +214,7 @@ It's used in TestCLDRFile.testSourceLocale()
     <!--@VALUE-->
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT calendar ( alias | ( dayPeriods?, special* ) ) >
     <!-- use of fields is deprecated here -->
 <!ATTLIST calendar type NMTOKEN #REQUIRED >
@@ -216,6 +233,7 @@ It's used in TestCLDRFile.testSourceLocale()
     <!--@VALUE-->
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT dayPeriods ( alias | ( dayPeriodContext*, special* ) ) >
 <!ATTLIST dayPeriods draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
@@ -223,6 +241,7 @@ It's used in TestCLDRFile.testSourceLocale()
 <!ATTLIST dayPeriods references CDATA #IMPLIED >
     <!--@METADATA-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT dayPeriodContext ( alias | ( dayPeriodWidth*, special* ) ) >
 <!ATTLIST dayPeriodContext type NMTOKEN #REQUIRED >
     <!--@MATCH:literal/format, stand-alone-->
@@ -232,6 +251,7 @@ It's used in TestCLDRFile.testSourceLocale()
 <!ATTLIST dayPeriodContext references CDATA #IMPLIED >
     <!--@METADATA-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT dayPeriodWidth ( alias | ( dayPeriod*, special* ) ) >
 <!ATTLIST dayPeriodWidth type (abbreviated | narrow | wide) #REQUIRED >
 <!ATTLIST dayPeriodWidth draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
@@ -240,6 +260,7 @@ It's used in TestCLDRFile.testSourceLocale()
 <!ATTLIST dayPeriodWidth references CDATA #IMPLIED >
     <!--@METADATA-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT dayPeriod ( #PCDATA ) >
 <!ATTLIST dayPeriod type NMTOKEN #REQUIRED >
     <!--@MATCH:literal/afternoon1, afternoon2, am, evening1, evening2, midnight, morning1, morning2, night1, night2, noon, pm-->
@@ -249,6 +270,7 @@ It's used in TestCLDRFile.testSourceLocale()
     <!--@METADATA-->
 <!ATTLIST dayPeriod references CDATA #IMPLIED >
     <!--@METADATA-->
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT unitPattern ( #PCDATA ) >
 <!ATTLIST unitPattern count (0 | 1 | zero | one | two | few | many | other) #REQUIRED >
 <!ATTLIST unitPattern case NMTOKENS #IMPLIED >
@@ -263,6 +285,7 @@ It's used in TestCLDRFile.testSourceLocale()
     <!--@VALUE-->
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT displayName ( #PCDATA ) >
 <!ATTLIST displayName count (0 | 1 | zero | one | two | few | many | other) #IMPLIED >
     <!-- only for currencies -->
@@ -274,6 +297,7 @@ It's used in TestCLDRFile.testSourceLocale()
 <!ATTLIST displayName references CDATA #IMPLIED >
     <!--@METADATA-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT units ( alias | ( unit*, unitLength*, durationUnit*, special* ) ) >
 <!ATTLIST units alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/variant-->
@@ -286,6 +310,7 @@ It's used in TestCLDRFile.testSourceLocale()
     <!--@VALUE-->
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT unit ( alias | ( gender*, displayName*, unitPattern*, perUnitPattern*, special* ) ) >
 <!ATTLIST unit type NMTOKEN #REQUIRED >
     <!--@MATCH:validity/unit-->
@@ -300,12 +325,14 @@ It's used in TestCLDRFile.testSourceLocale()
     <!--@VALUE-->
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT gender ( #PCDATA ) >
 <!ATTLIST gender alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/animate, common, feminine, inanimate, masculine, neuter, personal-->
 <!ATTLIST gender draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT perUnitPattern ( #PCDATA ) >
 <!ATTLIST perUnitPattern alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/variant-->
@@ -314,6 +341,7 @@ It's used in TestCLDRFile.testSourceLocale()
 <!ATTLIST perUnitPattern references CDATA #IMPLIED >
     <!--@METADATA-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT unitLength ( alias | ( compoundUnit*, unit*, coordinateUnit*, special* ) ) >
 <!ATTLIST unitLength type (long | short | narrow) #REQUIRED >
 <!ATTLIST unitLength alt NMTOKENS #IMPLIED >
@@ -327,6 +355,7 @@ It's used in TestCLDRFile.testSourceLocale()
     <!--@VALUE-->
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT compoundUnit ( alias | ( compoundUnitPattern1*, compoundUnitPattern*, unitPrefixPattern*, special* ) ) >
 <!ATTLIST compoundUnit type NMTOKEN #REQUIRED >
     <!--@MATCH:or/regex/10p-?[0-9]{1,2}||regex/1024p[1-8]||literal/per, times, power2, power3-->
@@ -341,6 +370,7 @@ It's used in TestCLDRFile.testSourceLocale()
     <!--@VALUE-->
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT compoundUnitPattern1 ( #PCDATA ) >
 <!ATTLIST compoundUnitPattern1 count (0 | 1 | zero | one | two | few | many | other) #IMPLIED >
 <!ATTLIST compoundUnitPattern1 gender NMTOKENS #IMPLIED >
@@ -354,6 +384,7 @@ It's used in TestCLDRFile.testSourceLocale()
 <!ATTLIST compoundUnitPattern1 references CDATA #IMPLIED >
     <!--@METADATA-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT compoundUnitPattern ( #PCDATA ) >
 <!ATTLIST compoundUnitPattern case NMTOKENS #IMPLIED >
     <!--@MATCH:literal/ablative, accusative, comitative, dative, ergative, genitive, instrumental, locative, locativecopulative, nominative, oblique, prepositional, sociative, vocative-->
@@ -367,6 +398,7 @@ It's used in TestCLDRFile.testSourceLocale()
     <!--@VALUE-->
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT unitPrefixPattern ( #PCDATA ) >
 <!ATTLIST unitPrefixPattern alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/variant-->
@@ -375,6 +407,7 @@ It's used in TestCLDRFile.testSourceLocale()
 <!ATTLIST unitPrefixPattern references CDATA #IMPLIED >
     <!--@METADATA-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT coordinateUnit ( alias | ( displayName*, coordinateUnitPattern*, special* ) ) >
 <!ATTLIST coordinateUnit alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/variant-->
@@ -382,6 +415,7 @@ It's used in TestCLDRFile.testSourceLocale()
     <!--@METADATA-->
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT coordinateUnitPattern ( #PCDATA ) >
 <!ATTLIST coordinateUnitPattern type (north | east | south | west) #REQUIRED >
 <!ATTLIST coordinateUnitPattern alt NMTOKENS #IMPLIED >
@@ -389,6 +423,7 @@ It's used in TestCLDRFile.testSourceLocale()
 <!ATTLIST coordinateUnitPattern draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT durationUnit ( alias | ( durationUnitPattern*, special* ) ) >
 <!ATTLIST durationUnit type NMTOKEN #REQUIRED >
     <!--@MATCH:literal/hm, hms, ms-->
@@ -400,6 +435,7 @@ It's used in TestCLDRFile.testSourceLocale()
 <!ATTLIST durationUnit references CDATA #IMPLIED >
     <!--@METADATA-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT durationUnitPattern ( #PCDATA ) >
 <!ATTLIST durationUnitPattern alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/variant-->
@@ -411,6 +447,7 @@ It's used in TestCLDRFile.testSourceLocale()
     <!--@VALUE-->
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT listPatterns ( alias | ( listPattern*, special* ) ) >
 <!ATTLIST listPatterns alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/variant-->
@@ -423,6 +460,7 @@ It's used in TestCLDRFile.testSourceLocale()
     <!--@VALUE-->
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT listPattern ( alias | ( listPatternPart*, special* ) ) >
 <!ATTLIST listPattern type NMTOKEN #IMPLIED >
     <!--@MATCH:literal/or, or-narrow, or-short, standard-narrow, standard-short, unit, unit-narrow, unit-short-->
@@ -437,6 +475,7 @@ It's used in TestCLDRFile.testSourceLocale()
     <!--@VALUE-->
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT listPatternPart ( #PCDATA ) >
 <!ATTLIST listPatternPart type (start | middle | end | 2 | 3) #REQUIRED >
 <!ATTLIST listPatternPart alt NMTOKENS #IMPLIED >
@@ -451,6 +490,7 @@ It's used in TestCLDRFile.testSourceLocale()
 
 <!-- ######################################################### -->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT collations ( alias | ( defaultCollation?, default*, collation*, special* ) ) >
 <!ATTLIST collations version NMTOKEN #IMPLIED >
     <!--@METADATA-->
@@ -462,12 +502,14 @@ It's used in TestCLDRFile.testSourceLocale()
     <!--@VALUE-->
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT defaultCollation ( #PCDATA ) >
 <!ATTLIST defaultCollation alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/variant-->
 <!ATTLIST defaultCollation draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT collation ( alias | ( base?, import*, settings?, suppress_contractions?, optimize?, ( cr* | rules? ), special* ) ) >
 <!ATTLIST collation type NMTOKEN "standard" >
     <!--@MATCH:or/bcp47/co||regex/private-.*||literal/digits-after-->
@@ -488,10 +530,12 @@ It's used in TestCLDRFile.testSourceLocale()
     <!--@VALUE-->
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT base ( alias | special ) >
     <!--@ORDERED-->
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT import EMPTY >
     <!-- deprecated, see CLDR ticket #8289 -->
     <!--@DEPRECATED-->
@@ -507,6 +551,7 @@ It's used in TestCLDRFile.testSourceLocale()
     <!--@METADATA-->
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT settings ( special* ) >
     <!-- deprecated, see CLDR ticket #8289 -->
     <!--@ORDERED-->
@@ -551,16 +596,19 @@ It's used in TestCLDRFile.testSourceLocale()
     <!--@VALUE-->
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT suppress_contractions ( #PCDATA | cp )* >
     <!-- deprecated, see CLDR ticket #8289 -->
     <!--@ORDERED-->
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT optimize ( #PCDATA | cp )* >
     <!-- deprecated, see CLDR ticket #8289 -->
     <!--@ORDERED-->
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT cr ( #PCDATA ) >
 <!ATTLIST cr alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/variant, proposed, short-->
@@ -572,10 +620,12 @@ It's used in TestCLDRFile.testSourceLocale()
 
 <!-- # Use the cr element instead, with ICU syntax. -->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT rules ( alias | ( ( reset | import ), ( reset | import | p | pc | s | sc | t | tc | q | qc | i | ic | x )* ) ) >
     <!--@ORDERED-->
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT reset ( #PCDATA | cp | first_variable | last_variable | first_tertiary_ignorable | last_tertiary_ignorable | first_secondary_ignorable | last_secondary_ignorable | first_primary_ignorable | last_primary_ignorable | first_non_ignorable | last_non_ignorable | first_trailing | last_trailing )* >
     <!--@ORDERED-->
     <!--@DEPRECATED-->
@@ -583,97 +633,123 @@ It's used in TestCLDRFile.testSourceLocale()
     <!--@VALUE-->
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT first_variable EMPTY >
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT last_variable EMPTY >
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT first_tertiary_ignorable EMPTY >
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT last_tertiary_ignorable EMPTY >
     <!--@ORDERED-->
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT first_secondary_ignorable EMPTY >
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT last_secondary_ignorable EMPTY >
     <!--@ORDERED-->
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT first_primary_ignorable EMPTY >
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT last_primary_ignorable EMPTY >
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT first_non_ignorable EMPTY >
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT last_non_ignorable EMPTY >
     <!--@ORDERED-->
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT first_trailing EMPTY >
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT last_trailing EMPTY >
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT p ( #PCDATA | cp | last_variable )* >
     <!--@ORDERED-->
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT pc ( #PCDATA | cp | last_variable )* >
     <!--@ORDERED-->
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT s ( #PCDATA | cp | last_variable )* >
     <!--@ORDERED-->
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT sc ( #PCDATA | cp | last_variable )* >
     <!--@ORDERED-->
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT t ( #PCDATA | cp | last_variable )* >
     <!--@ORDERED-->
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT tc ( #PCDATA | cp | last_variable )* >
     <!--@ORDERED-->
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT q ( #PCDATA | cp | last_variable )* >
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT qc ( #PCDATA | cp | last_variable )* >
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT i ( #PCDATA | cp | last_variable )* >
     <!--@ORDERED-->
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT ic ( #PCDATA | cp | last_variable )* >
     <!--@ORDERED-->
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT x ( context?, ( p | pc | s | sc | t | tc | q | qc | i | ic )*, extend? ) >
     <!--@ORDERED-->
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT context ( #PCDATA | cp )* >
     <!--@ORDERED-->
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT extend ( #PCDATA | cp )* >
     <!--@ORDERED-->
     <!--@DEPRECATED-->
 
 <!-- ######################################################### -->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT posix ( alias | ( messages*, special* ) ) >
 <!ATTLIST posix draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
@@ -684,6 +760,7 @@ It's used in TestCLDRFile.testSourceLocale()
     <!--@VALUE-->
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT messages ( alias | ( yesstr*, nostr*, yesexpr*, noexpr*, special* ) ) >
 <!ATTLIST messages alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/variant-->
@@ -696,6 +773,7 @@ It's used in TestCLDRFile.testSourceLocale()
     <!--@VALUE-->
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT yesstr ( #PCDATA ) >
 <!ATTLIST yesstr alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/variant-->
@@ -705,6 +783,7 @@ It's used in TestCLDRFile.testSourceLocale()
 <!ATTLIST yesstr references CDATA #IMPLIED >
     <!--@METADATA-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT nostr ( #PCDATA ) >
 <!ATTLIST nostr alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/variant-->
@@ -714,6 +793,7 @@ It's used in TestCLDRFile.testSourceLocale()
 <!ATTLIST nostr references CDATA #IMPLIED >
     <!--@METADATA-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT yesexpr ( #PCDATA ) >
     <!--@DEPRECATED-->
 <!ATTLIST yesexpr alt NMTOKENS #IMPLIED >
@@ -726,6 +806,7 @@ It's used in TestCLDRFile.testSourceLocale()
     <!--@METADATA-->
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT noexpr ( #PCDATA ) >
     <!--@DEPRECATED-->
 <!ATTLIST noexpr alt NMTOKENS #IMPLIED >
@@ -738,8 +819,10 @@ It's used in TestCLDRFile.testSourceLocale()
     <!--@METADATA-->
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT characterLabels ( alias | ( characterLabelPattern*, characterLabel*, special* ) ) >
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT characterLabelPattern ( #PCDATA ) >
 <!ATTLIST characterLabelPattern type NMTOKEN #REQUIRED >
     <!--@MATCH:literal/all, category-list, compatibility, enclosed, extended, historic, miscellaneous, other, scripts, strokes, subscript, superscript-->
@@ -750,6 +833,7 @@ It's used in TestCLDRFile.testSourceLocale()
 <!ATTLIST characterLabelPattern draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT characterLabel ( #PCDATA ) >
 <!ATTLIST characterLabel type NMTOKEN #REQUIRED >
     <!--@MATCH:literal/activities, african_scripts, american_scripts, animal, animals_nature, arrows, body, box_drawing, braille, building, bullets_stars, consonantal_jamo, currency_symbols, dash_connector, digits, dingbats, divination_symbols, downwards_arrows, downwards_upwards_arrows, east_asian_scripts, emoji, european_scripts, female, flag, flags, food_drink, format, format_whitespace, full_width_form_variant, geometric_shapes, half_width_form_variant, han_characters, han_radicals, hanja, hanzi_simplified, hanzi_traditional, heart, historic_scripts, ideographic_desc_characters, japanese_kana, kanbun, kanji, keycap, leftwards_arrows, leftwards_rightwards_arrows, letterlike_symbols, limited_use, male, math_symbols, middle_eastern_scripts, miscellaneous, modern_scripts, modifier, musical_symbols, nature, nonspacing, numbers, objects, other, paired, person, phonetic_alphabet, pictographs, place, plant, punctuation, rightwards_arrows, sign_standard_symbols, small_form_variant, smiley, smileys_people, south_asian_scripts, southeast_asian_scripts, spacing, sport, symbols, technical_symbols, tone_marks, travel, travel_places, upwards_arrows, variant_forms, vocalic_jamo, weather, western_asian_scripts, whitespace-->
@@ -758,6 +842,7 @@ It's used in TestCLDRFile.testSourceLocale()
 <!ATTLIST characterLabel draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT segmentations ( alias | ( segmentation*, special* ) ) >
 <!ATTLIST segmentations alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/variant-->
@@ -770,6 +855,7 @@ It's used in TestCLDRFile.testSourceLocale()
     <!--@VALUE-->
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT segmentation ( alias | ( variables?, segmentRules?, exceptions?, suppressions? ) | special* ) >
 <!ATTLIST segmentation type NMTOKEN #REQUIRED >
     <!--@MATCH:literal/GraphemeClusterBreak, LineBreak, SentenceBreak, WordBreak-->
@@ -784,8 +870,10 @@ It's used in TestCLDRFile.testSourceLocale()
     <!--@VALUE-->
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT variables ( alias | ( variable*, special* ) ) >
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT variable ( #PCDATA ) >
     <!--@ORDERED-->
 <!ATTLIST variable id CDATA #REQUIRED >
@@ -798,8 +886,10 @@ It's used in TestCLDRFile.testSourceLocale()
 <!ATTLIST variable references CDATA #IMPLIED >
     <!--@METADATA-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT segmentRules ( alias | ( rule*, special* ) ) >
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT rule ( #PCDATA ) >
 <!ATTLIST rule id NMTOKEN #REQUIRED >
     <!--@MATCH:range/0.0~9999.0-->
@@ -811,10 +901,12 @@ It's used in TestCLDRFile.testSourceLocale()
 <!ATTLIST rule references CDATA #IMPLIED >
     <!--@METADATA-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT exceptions ( exception* ) >
     <!-- use suppressions instead -->
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT exception ( #PCDATA ) >
     <!--@ORDERED-->
     <!--@DEPRECATED-->
@@ -822,6 +914,7 @@ It's used in TestCLDRFile.testSourceLocale()
     <!--@METADATA-->
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT suppressions ( alias | ( suppression*, special* ) ) >
 <!ATTLIST suppressions type NMTOKEN "standard" >
     <!--@MATCH:literal/standard-->
@@ -829,6 +922,7 @@ It's used in TestCLDRFile.testSourceLocale()
     <!--@METADATA-->
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT suppression ( #PCDATA ) >
     <!--@ORDERED-->
 <!ATTLIST suppression alt NMTOKENS #IMPLIED >
@@ -836,14 +930,17 @@ It's used in TestCLDRFile.testSourceLocale()
 <!ATTLIST suppression draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT rbnf ( alias | ( rulesetGrouping*, special* ) ) >
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT rulesetGrouping ( alias | ( ruleset*, special* ) ) >
 <!ATTLIST rulesetGrouping type NMTOKEN #REQUIRED >
     <!--@MATCH:literal/NumberingSystemRules, OrdinalRules, SpelloutRules-->
 <!ATTLIST rulesetGrouping draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT ruleset ( alias | ( rbnfrule*, special* ) ) >
     <!--@ORDERED-->
 <!ATTLIST ruleset type NMTOKEN #REQUIRED >
@@ -856,6 +953,7 @@ It's used in TestCLDRFile.testSourceLocale()
     <!--@METADATA-->
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT rbnfrule ( #PCDATA ) >
     <!--@ORDERED-->
 <!ATTLIST rbnfrule value CDATA #REQUIRED >
@@ -872,8 +970,10 @@ It's used in TestCLDRFile.testSourceLocale()
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT typographicNames ( alias | ( axisName*, styleName*, featureName*, special* ) ) >
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT axisName ( #PCDATA ) >
 <!ATTLIST axisName type (ital | opsz | slnt | wdth | wght) #REQUIRED >
 <!ATTLIST axisName alt NMTOKENS #IMPLIED >
@@ -881,6 +981,7 @@ It's used in TestCLDRFile.testSourceLocale()
 <!ATTLIST axisName draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT styleName ( #PCDATA ) >
 <!ATTLIST styleName type (ital | opsz | slnt | wdth | wght) #REQUIRED >
 <!ATTLIST styleName subtype NMTOKEN #REQUIRED >
@@ -890,6 +991,7 @@ It's used in TestCLDRFile.testSourceLocale()
 <!ATTLIST styleName draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT featureName ( #PCDATA ) >
 <!ATTLIST featureName type (afrc | cpsp | dlig | frac | lnum | onum | ordn | pnum | smcp | tnum | zero) #REQUIRED >
 <!ATTLIST featureName alt NMTOKENS #IMPLIED >
@@ -897,9 +999,11 @@ It's used in TestCLDRFile.testSourceLocale()
 <!ATTLIST featureName draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT personNames ( alias | ( nameOrderLocales*, foreignSpaceReplacement*, initialPattern*, personName*, sampleName*, special* ) ) >
     <!--@TECHPREVIEW-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT nameOrderLocales ( #PCDATA ) >
     <!--@TECHPREVIEW-->
 <!ATTLIST nameOrderLocales order (givenFirst | surnameFirst) #REQUIRED >
@@ -910,6 +1014,7 @@ It's used in TestCLDRFile.testSourceLocale()
 <!ATTLIST nameOrderLocales references CDATA #IMPLIED >
     <!--@METADATA-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT foreignSpaceReplacement ( #PCDATA ) >
     <!--@TECHPREVIEW-->
 <!ATTLIST foreignSpaceReplacement xml:space (default | preserve) "preserve" >
@@ -921,6 +1026,7 @@ It's used in TestCLDRFile.testSourceLocale()
 <!ATTLIST foreignSpaceReplacement references CDATA #IMPLIED >
     <!--@METADATA-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT initialPattern ( #PCDATA ) >
     <!--@TECHPREVIEW-->
 <!ATTLIST initialPattern type (initial | initialSequence) #REQUIRED >
@@ -931,6 +1037,7 @@ It's used in TestCLDRFile.testSourceLocale()
 <!ATTLIST initialPattern references CDATA #IMPLIED >
     <!--@METADATA-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT personName ( alias | ( namePattern+, special* ) ) >
     <!--@TECHPREVIEW-->
 <!ATTLIST personName order NMTOKENS #IMPLIED >
@@ -942,6 +1049,7 @@ It's used in TestCLDRFile.testSourceLocale()
 <!ATTLIST personName formality NMTOKENS #IMPLIED >
     <!--@MATCH:literal/formal, informal-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT namePattern ( #PCDATA ) >
     <!--@TECHPREVIEW-->
 <!ATTLIST namePattern alt (1 | 2) #IMPLIED >
@@ -950,11 +1058,13 @@ It's used in TestCLDRFile.testSourceLocale()
 <!ATTLIST namePattern references CDATA #IMPLIED >
     <!--@METADATA-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT sampleName ( alias | ( nameField+, special* ) ) >
     <!--@TECHPREVIEW-->
 <!ATTLIST sampleName item NMTOKENS #REQUIRED >
     <!--@MATCH:literal/nativeG, nativeGS, nativeGGS, nativeFull, foreignG, foreignGS, foreignGGS, foreignFull-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT nameField ( #PCDATA ) >
     <!--@TECHPREVIEW-->
 <!ATTLIST nameField type CDATA #REQUIRED >
@@ -966,8 +1076,10 @@ It's used in TestCLDRFile.testSourceLocale()
 <!ATTLIST nameField references CDATA #IMPLIED >
     <!--@METADATA-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT annotations ( alias | ( annotation*, special* ) ) >
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT annotation ( #PCDATA ) >
 <!ATTLIST annotation cp CDATA #REQUIRED >
     <!--@MATCH:any-->
@@ -983,12 +1095,15 @@ It's used in TestCLDRFile.testSourceLocale()
 <!-- ######################################################### -->
 <!-- # This element contains metadata for Survey Tool internal use (optimization, etc). -->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT metadata ( alias | ( casingData?, special* ) ) >
     <!--@METADATA-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT casingData ( alias | ( casingItem*, special* ) ) >
     <!--@METADATA-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT casingItem ( #PCDATA ) >
 <!ATTLIST casingItem type CDATA #REQUIRED >
     <!--@MATCH:any-->
@@ -1001,10 +1116,12 @@ It's used in TestCLDRFile.testSourceLocale()
 <!ATTLIST casingItem draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT references ( reference* ) >
     <!--@METADATA-->
     <!--@DEPRECATED-->
 
+<!-- This is not the usual DTD, please don't edit it. See top of file. -->
 <!ELEMENT reference ( #PCDATA ) >
     <!--@METADATA-->
     <!--@DEPRECATED-->

@@ -216,21 +216,21 @@ public class TestCLDRFileMore {
                                 testfile.toPath().toString(),
                                 locationAa.getSystem(),
                                 "system for " + xpathAa),
-                () -> assertEquals(48, locationAa.getLine(), "line for " + xpathAa),
+                () -> assertEquals(39, locationAa.getLine(), "line for " + xpathAa),
                 () -> assertEquals(43, locationAa.getColumn(), "col for " + xpathAa),
                 () ->
                         assertEquals(
                                 testfile.toPath().toString(),
                                 locationAb.getSystem(),
                                 "system for " + xpathAb),
-                () -> assertEquals(49, locationAb.getLine(), "line for " + xpathAb),
+                () -> assertEquals(40, locationAb.getLine(), "line for " + xpathAb),
                 () -> assertEquals(64, locationAb.getColumn(), "col for " + xpathAb),
                 () ->
                         assertEquals(
                                 rootfile.toPath().toString(),
                                 locationDayPeriod.getSystem(),
                                 "system for " + xpathDayPeriod),
-                () -> assertEquals(59, locationDayPeriod.getLine(), "line for " + xpathDayPeriod),
+                () -> assertEquals(49, locationDayPeriod.getLine(), "line for " + xpathDayPeriod),
                 () -> assertEquals(43, locationDayPeriod.getColumn(), "col for " + xpathDayPeriod));
     }
 

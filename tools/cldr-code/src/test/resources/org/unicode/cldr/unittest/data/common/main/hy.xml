@@ -6,19 +6,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 -->
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!-- DO NOT EDIT (usually… see below) -->
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!--
 
     _   _   _             _   _             _
@@ -34,17 +21,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 This is a TEST file, part of a little mini CLDR root
  located in tools/cldr-code/src/test/resources/org/unicode/cldr/unittest/data/common/
 
-It's used in TestCLDRFile.testSourceLocale()
+It's used in TestCLDRFileMore.testSourceLocale()
+ It's used in TestCLDRFileMore.testSourceLocale() for testing the XML loading mechanism.
+
 
 -->
-
 <ldml>
 	<identity>
-		<version number="$Revision$"/>
-		<language type="hy"/>
+    	<!-- Not CLDR data. Do not edit. See top of file. -->
+		<version number="$Revision$" />
+		<language type="hy" />
 	</identity>
+	<!-- Not CLDR data. Do not edit. See top of file. -->
 	<localeDisplayNames>
 		<languages>
+    		<!-- Not CLDR data. Do not edit. See top of file. -->
 			<language type="aa">աֆարերեն</language>
 			<language type="ab" draft="unconfirmed">աբխազերեն</language>
         </languages>

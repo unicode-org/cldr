@@ -26,7 +26,7 @@ This is a stable document and may be used as reference material or cited as a no
 > _**A Unicode Technical Standard (UTS)** is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS._
 
 _Please submit corrigenda and other comments with the CLDR bug reporting form [[Bugs](https://cldr.unicode.org/index/bug-reports)].
-Related information that is useful in understanding this document is found in the [References](#References).
+Related information that is useful in understanding this document is found in the [References](tr35.md#References).
 For the latest version of the Unicode Standard see [[Unicode](https://www.unicode.org/versions/latest/)].
 For more information see [About Unicode Technical Reports](https://www.unicode.org/reports/about-reports.html) and the [Specifications FAQ](https://www.unicode.org/faq/specifications.html).
 Unicode Technical Reports are governed by the Unicode [Terms of Use](https://www.unicode.org/copyright.html)._
@@ -281,7 +281,6 @@ Currently, the following attribute values allow _UnicodeSet_ notation:
 
 * `from` or `before` on the `<transform>` element
 * `from` or `before` on the `<reorder>` element
-* `chars` on the [`<repertoire>`](#test-element-repertoire) test element.
 
 ### UTS18 Escaping
 
@@ -292,7 +291,6 @@ The `\u{…usv}` notation, a subset of hex notation, is described in [UTS #18 se
 * `value` on the `<variable>` element
 * `output` and `display` on the `<display>` element
 * `baseCharacter` on the `<displayOptions>` element
-* Some attributes on [Keyboard Test Data](#keyboard-test-data) subelements
 
 Characters of general category of Mark (M), Control characters (Cc), Format characters (Cf), and whitespace other than space should be encoded using one of the notation above as appropriate.
 

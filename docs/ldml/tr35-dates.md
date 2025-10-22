@@ -26,7 +26,7 @@ This is a stable document and may be used as reference material or cited as a no
 > _**A Unicode Technical Standard (UTS)** is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS._
 
 _Please submit corrigenda and other comments with the CLDR bug reporting form [[Bugs](https://cldr.unicode.org/index/bug-reports)].
-Related information that is useful in understanding this document is found in the [References](#References).
+Related information that is useful in understanding this document is found in the [References](tr35.md#References).
 For the latest version of the Unicode Standard see [[Unicode](https://www.unicode.org/versions/latest/)].
 For more information see [About Unicode Technical Reports](https://www.unicode.org/reports/about-reports.html) and the [Specifications FAQ](https://www.unicode.org/faq/specifications.html).
 Unicode Technical Reports are governed by the Unicode [Terms of Use](https://www.unicode.org/copyright.html)._
@@ -67,7 +67,7 @@ The LDML specification is divided into the following parts:
 * [Calendar Fields](#Calendar_Fields)
 * [Supplemental Calendar Data](#Supplemental_Calendar_Data)
   * [Calendar Data](#Calendar_Data)
-  * [Calendar Preference Data](#Calendar_Preference_Data)
+  * [Calendar Preference Data](#calendar-preference-data)
   * [Week Data](#Week_Data)
     * Table: [Week Designation Types](#Week_Designation_Types)
     * [First Day Overrides](#first-day-overrides)
@@ -1115,7 +1115,7 @@ Note that the order of the eras is _not_ necessarily the order in the XML file, 
 For a given _proleptic_ Gregorian date D and calendar C, the era code for D is in the `era` element in C with the greatest start date ≤ the given date.
 It is also the _first_ `era` element with start date ≤ the given date in C, given the above ordering for `era` elements.
 
-The `type` has an integer value. 
+The `type` has an integer value.
 The type values do not have to start at 0, nor do they need to be in chronological order.
 They are used to access the era names in locale files.
 For example:
@@ -1126,12 +1126,13 @@ For example:
 <era type="234">Shōwa</era>
 <era type="235">Heisei</era>
 <era type="236">Reiwa</era>
+```
 
 The `end` attribute is unused, and is slated for deprecation in the future.
 
 **Note:** The `territories` attribute in the `calendar` element is deprecated. It was formerly used to indicate calendar preference by territory, but this is now given by the _[Calendar Preference Data](#Calendar_Preference_Data)_ below.
 
-### <a name="Calendar_Preference_Data" href="#Calendar_Preference_Data">Calendar Preference Data</a>
+### Calendar Preference Data
 
 ```xml
 <!ELEMENT calendarPreferenceData ( calendarPreference* ) >

@@ -26,7 +26,7 @@ This is a stable document and may be used as reference material or cited as a no
 > _**A Unicode Technical Standard (UTS)** is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS._
 
 _Please submit corrigenda and other comments with the CLDR bug reporting form [[Bugs](https://cldr.unicode.org/index/bug-reports)].
-Related information that is useful in understanding this document is found in the [References](#References).
+Related information that is useful in understanding this document is found in the [References](tr35.md#References).
 For the latest version of the Unicode Standard see [[Unicode](https://www.unicode.org/versions/latest/)].
 For more information see [About Unicode Technical Reports](https://www.unicode.org/reports/about-reports.html) and the [Specifications FAQ](https://www.unicode.org/faq/specifications.html).
 Unicode Technical Reports are governed by the Unicode [Terms of Use](https://www.unicode.org/copyright.html)._
@@ -170,7 +170,7 @@ For example, for the locale identifier zh_Hant_CN_co_pinyin_cu_USD, the display 
 The `language` element has the additional `alt="menu"` option, that allows for related languages to be sorted together.
 
 ```xml
-<language type="yue" alt="menu">Chinese, Cantonese</language> 
+<language type="yue" alt="menu">Chinese, Cantonese</language>
 <language type="zh" alt="menu">Chinese, Mandarin</language>
 ```
 However, when `localePattern`s are used, the names start to get complicated. There is an additional `menu` attribute, with two values: `core` and `extension`.For example:
@@ -203,7 +203,7 @@ The core part can be used as the language name, with the extension going into th
 
 ### <a name="locale_display_name_algorithm" href="#locale_display_name_algorithm">Locale Display Name Algorithm</a>
 
-A locale display name LDN is generated for a locale identifier L in the following way. 
+A locale display name LDN is generated for a locale identifier L in the following way.
 1. Convert the locale identifier to *canonical syntax* per **[Part 1, Canonical Unicode Locale Identifiers](tr35.md#Canonical_Unicode_Locale_Identifiers)**.
 That will put the subtags in a defined order, and replace aliases by their canonical counterparts. (That defined order is followed in the processing below.)
 2. Build a base name LDN from the language, possibly also some other subtags, taking into account the parameters listed below.
@@ -211,7 +211,7 @@ That will put the subtags in a defined order, and replace aliases by their canon
         * With L = "nl_Cyrl_BE", if there is a `<language type="nl_BE">`Flemish`</language>`, the language name is set to "Flemish", and the "BE" is ignored in step 4.
         * With L = "ca_fonipa_valencia", if there is a `<language type="ca_valencia">`Valencian`</language>`, the language name is set to "Valencian", and the subtag "valencia" is ignored in step 4.
 4. Build a list of qualifying strings LQS.
-    1. For each remaining subtag language identifier (script, region, or variant):  
+    1. For each remaining subtag language identifier (script, region, or variant):
         1. Where there is a match for a subtag, disregard that subtag from L and add the name of the subtag to LDN or LQS as described below.
         2. If there is no match for a subtag, use the fallback pattern with the subtag instead.
     2. For any remaining `-u` or `t` key-value pairs, there are two options (based on the parameters; the first is the default)
@@ -591,11 +591,11 @@ Exemplars are characters used by a language, separated into different categories
 The basic exemplar character sets (main and auxiliary) contain the commonly used letters for a given modern form of a language, which can be for testing and for determining the appropriate repertoire of letters for charset conversion or collation. ("Letter" is interpreted broadly, as anything having the property Alphabetic in the [[UAX44](https://www.unicode.org/reports/tr41/#UAX44)], which also includes syllabaries and ideographs.) It is not a complete set of letters used for a language, nor should it be considered to apply to multiple languages in a particular country. Punctuation and other symbols should not be included in the main and auxiliary sets. In particular, format characters like CGJ are not included.
 
 There are 4 types of sets altogether: main, numbers, punctuation, and index.
-Within each type, there are are subtypes: 
-a _main_ set containing the minimal set required for users of the language, 
+Within each type, there are are subtypes:
+a _main_ set containing the minimal set required for users of the language,
 and an _auxiliary_ set, which is designed to encompass additional characters —
 those non-native or historical characters that would customarily occur in common publications, dictionaries, and so on.
-There are two exceptions: an index set doesn't have an _auxiliary_ set, 
+There are two exceptions: an index set doesn't have an _auxiliary_ set,
 and the punctuation set has an additional subtype for person-name punctuation (see [Person Name Validation](tr35-personNames.md#person-name-validation).
 
 Major style guidelines are good references for an auxiliary set. So, for example, if Irish newspapers and magazines would commonly have Danish names using å, for example, then it would be appropriate to include å in the auxiliary exemplar characters; just not in the main exemplar set. Thus English has the following:

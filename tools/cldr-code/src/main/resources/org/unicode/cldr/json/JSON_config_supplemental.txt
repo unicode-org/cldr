@@ -42,5 +42,7 @@ section=IGNORE ; path=//cldr/supplemental/metadata/serialElements.* ; package=IG
 section=IGNORE ; path=//cldr/supplemental/metadata/suppress.* ; package=IGNORE
 # defaultContent is not really ignored, but is handled by special code in Ldml2JsonConverter
 section=IGNORE ; path=//cldr/supplemental/metadata/defaultContent.* ; package=IGNORE
+# CLDR-19029 a design is needed for rgScope in cldr-json, for now we ignore it
+section=IGNORE ; path=//cldr/supplemental/rgScope.* ; package=IGNORE
 #
 section=personNamesDefaults ; path=//cldr/supplemental/personNamesDefaults/.* ; package=core

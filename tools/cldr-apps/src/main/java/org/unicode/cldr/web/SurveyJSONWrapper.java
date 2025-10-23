@@ -91,7 +91,8 @@ public final class SurveyJSONWrapper {
                 .put("emailHash", u.getEmailHash())
                 .put("userlevelName", u.getLevel())
                 .put("org", u.org)
-                .put("time", u.last_connect);
+                .put("firstdate", u.firstdate)
+                .put("time", u.lastlogin);
     }
 
     public static JSONObject wrap(CheckCLDR check) throws JSONException {

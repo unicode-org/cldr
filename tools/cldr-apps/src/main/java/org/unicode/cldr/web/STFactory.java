@@ -1511,18 +1511,8 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 s.close();
                 s = null; // don't close twice.
                 System.err.println("Created table " + DBUtils.Table.VOTE_VALUE);
-            } else if (!DBUtils.tableHasColumn(
-                    conn, DBUtils.Table.VOTE_VALUE.toString(), VOTE_TYPE)) {
-                s = conn.createStatement();
-                sql =
-                        "ALTER TABLE "
-                                + DBUtils.Table.VOTE_VALUE
-                                + " ADD COLUMN "
-                                + VOTE_TYPE
-                                + " TINYINT NOT NULL";
-                s.execute(sql);
-                s.close();
-                s = null;
+            } else if (DBUtils.addColumnIfMissing(
+                    conn, DBUtils.Table.VOTE_VALUE.toString(), VOTE_TYPE, "TINYINT NOT NULL")) {
                 System.err.println(
                         "Added column " + VOTE_TYPE + " to table " + DBUtils.Table.VOTE_VALUE);
             }

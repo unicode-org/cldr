@@ -6,12 +6,19 @@
 
 package org.unicode.cldr.web;
 
+import static java.lang.Math.abs;
+
 import com.google.gson.JsonSyntaxException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -19,6 +26,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TimeZone;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import org.apache.commons.codec.digest.DigestUtils;
@@ -152,27 +160,28 @@ public class UserRegistry {
 
     public static final String CLDR_INTEREST = "cldr_interest";
 
-    public static final String SQL_insertStmt =
+    private static final String SQL_insertStmt =
             "INSERT INTO "
                     + CLDR_USERS
-                    + "(userlevel,name,org,email,password,locales,lastlogin) "
-                    + "VALUES(?,?,?,?,?,?,NULL)";
-    public static final String SQL_queryStmt_FRO =
-            "SELECT id,name,userlevel,org,locales,intlocs,lastlogin from "
+                    + "(userlevel,name,org,email,password,locales,firstdate,lastlogin) "
+                    + "VALUES(?,?,?,?,?,?,?,NULL)";
+    private static final String SQL_queryStmt_FRO =
+            "SELECT id,name,userlevel,org,locales,intlocs,firstdate,lastlogin FROM "
                     + CLDR_USERS
-                    + " where email=? AND password=?";
-    public static final String SQL_queryIdStmt_FRO =
-            "SELECT name,org,email,userlevel,intlocs,locales,lastlogin,password from "
+                    + " WHERE email=? AND password=?";
+    private static final String SQL_queryIdStmt_FRO =
+            "SELECT name,org,email,userlevel,intlocs,locales,firstdate,lastlogin,password FROM "
                     + CLDR_USERS
-                    + " where id=?";
-    public static final String SQL_queryEmailStmt_FRO =
-            "SELECT id,name,userlevel,org,locales,intlocs,lastlogin,password from "
+                    + " WHERE id=?";
+    private static final String SQL_queryEmailStmt_FRO =
+            "SELECT id,name,userlevel,org,locales,intlocs,firstdate,lastlogin,password FROM "
                     + CLDR_USERS
-                    + " where email=?";
-    public static final String SQL_touchStmt =
-            "UPDATE " + CLDR_USERS + " set lastlogin=CURRENT_TIMESTAMP where id=?";
-    public static final String SQL_removeIntLoc = "DELETE FROM " + CLDR_INTEREST + " WHERE uid=?";
-    public static final String SQL_updateIntLoc =
+                    + " WHERE email=?";
+
+    private static final String SQL_touchStmt =
+            "UPDATE " + CLDR_USERS + " SET lastlogin=CURRENT_TIMESTAMP WHERE id=?";
+    private static final String SQL_removeIntLoc = "DELETE FROM " + CLDR_INTEREST + " WHERE uid=?";
+    private static final String SQL_updateIntLoc =
             "INSERT INTO " + CLDR_INTEREST + " (uid,forum) VALUES(?,?)";
 
     private UserSettingsData userSettings = null;
@@ -185,14 +194,14 @@ public class UserRegistry {
         @Schema(description = "User ID")
         public int id; // id number
 
-        @Schema(description = "numeric userlevel")
+        @Schema(description = "Numeric userlevel")
         public int userlevel = LOCKED; // user level
 
         @Schema(hidden = true)
         private String password; // password
 
         @Schema(description = "User email")
-        public String email; //
+        public String email;
 
         @Schema(description = "User org")
         public String org; // organization
@@ -200,13 +209,19 @@ public class UserRegistry {
         @Schema(description = "User name")
         public String name; // full name
 
+        @Schema(
+                description = "User account creation date, approximate if before 2025-10-17",
+                implementation = java.util.Date.class)
+        public Timestamp firstdate;
+
         @Schema(name = "time", implementation = java.util.Date.class)
-        public java.sql.Timestamp last_connect;
+        // Here and in some http responses, lastlogin is named "time".
+        public java.sql.Timestamp lastlogin;
 
         @Schema(hidden = true)
         public String locales;
 
-        @Schema(name = "badLocales", description = "set of incorrectly specified locales")
+        @Schema(name = "badLocales", description = "Set of incorrectly specified locales")
         public String[] badLocales = null;
 
         @Schema(hidden = true)
@@ -638,13 +653,13 @@ public class UserRegistry {
             } else {
                 locales = list;
             }
-            Set<String> localeSet = new HashSet<String>();
+            Set<String> localeSet = new HashSet<>();
             for (final String s : LocaleNormalizer.splitToArray(list)) {
                 if (!LocaleNormalizer.isAllLocales(s)) {
                     localeSet.add(s);
                 }
             }
-            Set<String> rawSet = new HashSet<String>();
+            Set<String> rawSet = new HashSet<>();
             for (final String s : LocaleNormalizer.splitToArray(rawList)) {
                 if (!LocaleNormalizer.isAllLocales(s)) {
                     rawSet.add(s);
@@ -652,7 +667,7 @@ public class UserRegistry {
             }
             // take out the rawSet as un-normalized
             rawSet.removeAll(localeSet);
-            Set<String> badSet = new TreeSet<String>();
+            Set<String> badSet = new TreeSet<>();
             badSet.addAll(
                     rawSet); // anything still in the rawSet is bad somehow, it's un-normalized.
             // anything in the localeSet that's not an extant locale
@@ -745,6 +760,10 @@ public class UserRegistry {
                     createUserTable(conn);
                     conn.commit();
                 } else {
+                    if (!DBUtils.tableHasColumn(conn, CLDR_USERS, "firstdate")) {
+                        logger.warning("firstdate column was missing; calling addFirstDateColumn");
+                        addFirstDateColumn(conn);
+                    }
                     /* update table to DATETIME instead of TIMESTAMP */
                     Statement s = conn.createStatement();
                     sql = "alter table cldr_users change lastlogin lastlogin DATETIME";
@@ -812,41 +831,32 @@ public class UserRegistry {
         Statement s = conn.createStatement();
 
         sql =
-                ("create table "
+                ("CREATE TABLE "
                         + CLDR_USERS
                         + "(id INT NOT NULL "
                         + DBUtils.DB_SQL_IDENTITY
                         + ", "
-                        + "userlevel int not null, "
+                        + "userlevel INT NOT NULL, "
                         + "name "
                         + DBUtils.DB_SQL_UNICODE
-                        + " not null, "
-                        + "email varchar(128) not null UNIQUE, "
-                        + "org varchar(256) not null, "
-                        + "password varchar(100) not null, "
-                        + "audit varchar(1024) , "
-                        + "locales varchar(1024) , "
-                        +
-                        // "prefs varchar(1024) , " + /* deprecated Dec 2010. Not used
-                        // anywhere */
-                        "intlocs varchar(1024) , "
-                        + // added apr 2006: ALTER table
-                        // CLDR_USERS ADD COLUMN intlocs
-                        // VARCHAR(1024)
-                        "lastlogin "
+                        + " NOT NULL, "
+                        + "email VARCHAR(128) NOT NULL UNIQUE, "
+                        + "org VARCHAR(256) NOT NULL, "
+                        + "password VARCHAR(100) NOT NULL, "
+                        + "audit VARCHAR(1024) , "
+                        + "locales VARCHAR(1024) , "
+                        + "intlocs VARCHAR(1024) , "
+                        + "firstdate "
                         + DBUtils.DB_SQL_TIMESTAMP0
-                        + // added may 2006:
-                        // alter table
-                        // CLDR_USERS ADD
-                        // COLUMN lastlogin
-                        // TIMESTAMP
-                        (!DBUtils.db_Mysql ? ",primary key(id)" : "")
+                        + " , lastlogin "
+                        + DBUtils.DB_SQL_TIMESTAMP0
+                        + (!DBUtils.db_Mysql ? ",PRIMARY KEY(id)" : "")
                         + ")");
         s.execute(sql);
         sql =
                 ("INSERT INTO "
                         + CLDR_USERS
-                        + "(userlevel,name,org,email,password) "
+                        + "(userlevel,name,org,email,password,firstdate) "
                         + "VALUES("
                         + ADMIN
                         + ","
@@ -857,6 +867,8 @@ public class UserRegistry {
                         + "',"
                         + "'"
                         + SurveyMain.vap
+                        + "', '"
+                        + DBUtils.sqlNow()
                         + "')");
         s.execute(sql);
         SurveyLog.debug("DB: added user Admin");
@@ -941,8 +953,9 @@ public class UserRegistry {
                     u.intlocs = rs.getString(5);
                     final String locales = rs.getString(6);
                     u.setLocales(LocaleNormalizer.normalizeQuietly(locales), locales);
-                    u.last_connect = rs.getTimestamp(7);
-                    u.password = rs.getString(8);
+                    u.firstdate = rs.getTimestamp(7);
+                    u.lastlogin = rs.getTimestamp(8);
+                    u.password = rs.getString(9);
                     ret = u; // let it finish..
 
                     if (id >= arraySize) {
@@ -1031,10 +1044,10 @@ public class UserRegistry {
      */
     public UserRegistry.User get(String pass, String email, String ip, boolean letmein)
             throws LogoutException {
-        if ((email == null) || (email.length() == 0)) {
+        if ((email == null) || (email.isEmpty())) {
             return null; // nothing to do
         }
-        if (((pass != null && pass.length() == 0)) && !letmein) {
+        if (((pass != null && pass.isEmpty())) && !letmein) {
             return null; // nothing to do
         }
 
@@ -1072,7 +1085,8 @@ public class UserRegistry {
             u.org = rs.getString(4);
             u.setLocales(rs.getString(5));
             u.intlocs = rs.getString(6);
-            u.last_connect = rs.getTimestamp(7);
+            u.firstdate = rs.getTimestamp(7);
+            u.lastlogin = rs.getTimestamp(8);
             u.claSigned = (u.getCla() != null);
 
             // good so far..
@@ -1171,14 +1185,14 @@ public class UserRegistry {
             return DBUtils.prepareStatementForwardReadOnly(
                     conn,
                     "listAllUsers",
-                    "SELECT id,userlevel,name,email,org,locales,intlocs,lastlogin FROM "
+                    "SELECT id,userlevel,name,email,org,locales,intlocs,firstdate,lastlogin FROM "
                             + CLDR_USERS
                             + " ORDER BY org,userlevel,name ");
         } else {
             PreparedStatement ps =
                     DBUtils.prepareStatementWithArgsFRO(
                             conn,
-                            "SELECT id,userlevel,name,email,org,locales,intlocs,lastlogin FROM "
+                            "SELECT id,userlevel,name,email,org,locales,intlocs,firstdate,lastlogin FROM "
                                     + CLDR_USERS
                                     + " WHERE org=? ORDER BY org,userlevel,name");
             ps.setString(1, organization);
@@ -1774,6 +1788,7 @@ public class UserRegistry {
         u.name = u.name.replace('\'', '_');
         final String locales = (u.locales == null) ? "" : u.locales.replace('\'', '_');
         u.setLocales(LocaleNormalizer.normalizeQuietly(locales), locales);
+        u.firstdate = DBUtils.sqlNow();
 
         Connection conn = null;
         PreparedStatement insertStmt = null;
@@ -1786,6 +1801,7 @@ public class UserRegistry {
             insertStmt.setString(4, u.email);
             insertStmt.setString(5, u.getPassword());
             insertStmt.setString(6, u.locales);
+            insertStmt.setTimestamp(7, u.firstdate);
             if (!insertStmt.execute()) {
                 if (!hushUserMessages) logger.info("Added.");
                 conn.commit();
@@ -2121,7 +2137,7 @@ public class UserRegistry {
                 conn = DBUtils.getInstance().getAConnection();
                 ps = list(null, conn);
                 rs = ps.executeQuery();
-                // id,userlevel,name,email,org,locales,intlocs,lastlogin
+                // id,userlevel,name,email,org,locales,intlocs,firstdate,lastlogin
                 while (rs.next()) {
                     // We don't go through the cache, because not all users may
                     // be loaded.
@@ -2134,7 +2150,8 @@ public class UserRegistry {
                     u.org = rs.getString(5);
                     u.setLocales(rs.getString(6));
                     u.intlocs = rs.getString(7);
-                    u.last_connect = rs.getTimestamp(8);
+                    u.firstdate = rs.getTimestamp(8);
+                    u.lastlogin = rs.getTimestamp(9);
 
                     // now, map it to a UserInfo
                     VoterInfo v = u.createVoterInfo();
@@ -2240,7 +2257,7 @@ public class UserRegistry {
             conn = DBUtils.getInstance().getAConnection();
             ps = list(null, conn);
             rs = ps.executeQuery();
-            // id,userlevel,name,email,org,locales,intlocs,lastlogin
+            // id,userlevel,name,email,org,locales,intlocs,firstdate,lastlogin
             while (rs.next()) {
                 int userlevel = rs.getInt(2);
                 if (userlevel == ANONYMOUS) {
@@ -2251,7 +2268,8 @@ public class UserRegistry {
                     u.org = rs.getString(5);
                     u.setLocales(rs.getString(6));
                     u.intlocs = rs.getString(7);
-                    u.last_connect = rs.getTimestamp(8);
+                    u.firstdate = rs.getTimestamp(8);
+                    u.lastlogin = rs.getTimestamp(9);
                     u.claSigned = true;
                     set.add(u);
                 }
@@ -2422,6 +2440,401 @@ public class UserRegistry {
                     t);
         } finally {
             DBUtils.close(rs, ps, conn);
+        }
+    }
+
+    /**
+     * Create and populate the firstdate column. For each user, set firstdate based on the oldest
+     * version in which they voted, according to vote tables from version 25 and later; users who
+     * never voted get values based on user ID numbers, which are in chronological order. This is
+     * expected to be a one-time operation performed 2015-10 by ST at startup before the start of
+     * version v49. Subsequently new users will get firstdate set when their accounts are created.
+     *
+     * @param conn the db connection
+     * @throws SQLException if error
+     */
+    private void addFirstDateColumn(Connection conn) throws SQLException {
+        logger.warning("Starting addFirstDateColumn");
+        final long timeStart = System.currentTimeMillis();
+        // First get the list of all users from the db users table, and map each one to
+        // placeholder version zero.
+        final TreeMap<Integer, Integer> userFirstVersion = new TreeMap<>();
+        final String sql = "SELECT id FROM " + CLDR_USERS;
+        ResultSet rs = null;
+        PreparedStatement ps = null;
+        try {
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                int userId = rs.getInt(1);
+                if (userId < 1 || userId > 3300) {
+                    logger.warning("UNEXPECTED userId: " + userId);
+                }
+                userFirstVersion.put(userId, 0);
+            }
+        } finally {
+            DBUtils.close(rs, ps);
+        }
+        // Next get the first version for each user in the map.
+        final Map<Integer, Timestamp> verToDate = mapVersionToFirstDate(conn);
+        Map<Integer, Integer> verToLastUser = new TreeMap<>();
+        getFirstVersions(conn, userFirstVersion, verToDate, verToLastUser);
+        improveFirstVersions(userFirstVersion, verToLastUser);
+
+        // Finally, create the new firstdate column, and populate it using userFirstDate.
+        if (DBUtils.addColumnIfMissing(conn, CLDR_USERS, "firstdate", DBUtils.DB_SQL_TIMESTAMP0)) {
+            logger.warning("firstdate column was missing; added; calling populateFirstDateColumn");
+            populateFirstDateColumn(conn, userFirstVersion, verToDate);
+        } else {
+            logger.severe("addFirstDateColumn failed to add column");
+        }
+        long elapsedTime = (System.currentTimeMillis() - timeStart) / (1000 * 60);
+        logger.warning("Finished addFirstDateColumn, elapsed time = " + elapsedTime + " minutes");
+    }
+
+    /**
+     * Replace the placeholder time stamps in the given map with the first date for each user
+     *
+     * @param conn the db connection
+     * @param userFirstVersion map from user ID to version number, to be modified
+     * @param verToDate map from version number to date
+     * @param verToLastUser map from version number to the highest user ID that voted in that
+     *     version
+     * @throws SQLException if error
+     */
+    private void getFirstVersions(
+            Connection conn,
+            Map<Integer, Integer> userFirstVersion,
+            Map<Integer, Timestamp> verToDate,
+            Map<Integer, Integer> verToLastUser)
+            throws SQLException {
+        long timeStart = System.currentTimeMillis();
+        int fixedCountAllVersions = 0;
+        for (int ver : verToDate.keySet()) {
+            int fixedCountThisVersion = 0;
+            String voteTable =
+                    DBUtils.Table.VOTE_VALUE.forVersion(Integer.toString(ver), false).toString();
+            if (DBUtils.hasTable(voteTable)) {
+                // Basically "SELECT DISTINCT submitter FROM " + voteTable, but
+                // skip votes copied from one user to another ("WHERE NOT EXISTS ...").
+                // Ignore the locale (omit "b.locale = a.locale AND") since copying has
+                // evidently occurred between locales such as "nb" and "no"; assume that
+                // exactly matching timestamps (last_mod) for the same xpath are not coincidental.
+                final String sql =
+                        "SELECT DISTINCT submitter FROM "
+                                + voteTable
+                                + " AS a WHERE NOT EXISTS (SELECT * FROM "
+                                + voteTable
+                                + " AS b WHERE b.xpath = a.xpath AND b.last_mod = a.last_mod "
+                                + "AND b.submitter < a.submitter)";
+                logger.warning("sql = " + sql);
+                PreparedStatement ps = null;
+                ResultSet rs = null;
+                ArrayList<Integer> idList = new ArrayList<>();
+                try {
+                    ps = conn.prepareStatement(sql);
+                    rs = ps.executeQuery();
+                    while (rs.next()) {
+                        int userId = rs.getInt("submitter");
+                        idList.add(userId);
+                        if (!userFirstVersion.containsKey(userId)) {
+                            logger.warning(
+                                    "Vote table has user missing from users table, skipping user ID: "
+                                            + userId);
+                        } else if (userFirstVersion.get(userId) == 0) {
+                            userFirstVersion.put(userId, ver);
+                            ++fixedCountAllVersions;
+                            ++fixedCountThisVersion;
+                        }
+                    }
+                } finally {
+                    DBUtils.close(ps, rs);
+                }
+                logger.warning(
+                        "Got users from version "
+                                + ver
+                                + "; fixed (in this vote table): "
+                                + fixedCountThisVersion
+                                + "; so far fixed (in any vote table): "
+                                + fixedCountAllVersions
+                                + "; seconds elapsed = "
+                                + (System.currentTimeMillis() - timeStart) / 1000);
+                Collections.sort(idList);
+                Collections.reverse(idList);
+                int idListSize = idList.size();
+                if (idListSize > 10) {
+                    idList.subList(10, idListSize).clear();
+                }
+                verToLastUser.put(ver, idList.get(0));
+                logger.warning("Highest IDs in version " + ver + " are: " + idList);
+            }
+        }
+    }
+
+    /**
+     * Take advantage of the fact that user id is assigned sequentially in chronological order, to
+     * fill in the missing first-version (for users not found in the vote tables), and also to
+     * improve first-version that are out of order (for users who never voted or were added long
+     * before they made votes that are found in the vote tables).
+     *
+     * @param userFirstVersion map from user ID to version number, to be modified
+     * @param verToLastUser map from version number to the highest user ID that voted in that
+     *     version
+     */
+    private void improveFirstVersions(
+            TreeMap<Integer, Integer> userFirstVersion, Map<Integer, Integer> verToLastUser) {
+        conformToNeighbors(userFirstVersion);
+        improveByOrder(userFirstVersion);
+        flagByRanges(userFirstVersion, verToLastUser);
+    }
+
+    private void improveByOrder(TreeMap<Integer, Integer> userFirstVersion) {
+        int goodFirstVersion = 0;
+        for (int userId : userFirstVersion.descendingKeySet()) {
+            int ver = userFirstVersion.get(userId);
+            if (goodFirstVersion == 0) {
+                if (ver != 0) {
+                    goodFirstVersion = ver;
+                }
+            } else if (ver == 0) {
+                logger.warning(
+                        "improveByOrder: userId = "
+                                + userId
+                                + "; changing ver zero to "
+                                + goodFirstVersion);
+                userFirstVersion.put(userId, goodFirstVersion);
+            } else if (ver > goodFirstVersion) {
+                logger.warning(
+                        "improveByOrder: userId = "
+                                + userId
+                                + "; changing ver "
+                                + ver
+                                + " to "
+                                + goodFirstVersion);
+                userFirstVersion.put(userId, goodFirstVersion);
+            } else if (ver < goodFirstVersion) {
+                long versionGap = goodFirstVersion - ver;
+                if (versionGap > 2) {
+                    logger.warning(
+                            "improveByOrder: userId = "
+                                    + userId
+                                    + "; NOT changing goodFirstVersion "
+                                    + goodFirstVersion
+                                    + " to "
+                                    + ver
+                                    + " since the gap is too large, versionGap = "
+                                    + versionGap);
+                } else {
+                    logger.warning(
+                            "improveByOrder: userId = "
+                                    + userId
+                                    + "; changing goodFirstVersion "
+                                    + goodFirstVersion
+                                    + " to "
+                                    + ver
+                                    + "; versionGap = "
+                                    + versionGap);
+                    goodFirstVersion = ver;
+                }
+            }
+        }
+    }
+
+    private void flagByRanges(
+            TreeMap<Integer, Integer> userFirstVersion, Map<Integer, Integer> verToLastUser) {
+        for (int userId : userFirstVersion.keySet()) {
+            int ver = userFirstVersion.get(userId);
+            if (ver == 0) {
+                continue;
+            }
+            if (!verToLastUser.containsKey(ver)) {
+                logger.warning("flagByRanges: version " + ver + " is missing from verToLastUser");
+                continue;
+            }
+            int lastUserPerRange = verToLastUser.get(ver);
+            if (userId == lastUserPerRange + 1) {
+                verToLastUser.put(ver, userId); // OK, extend the range
+            } else if (userId > lastUserPerRange) {
+                logger.warning(
+                        "flagByRanges: userId = "
+                                + userId
+                                + "; out of range for version "
+                                + ver
+                                + "; lastUserPerRange = "
+                                + lastUserPerRange);
+            }
+        }
+    }
+
+    /**
+     * Fix values that are too far removed from the mean of their close neighbors. For example, the
+     * user ID might imply the account was created in version 30, but the vote table might indicate
+     * the user voted in version 25. Such anomalies probably result from copying votes from one user
+     * to another.
+     *
+     * @param userFirstVersion map from user ID to version number, to be modified
+     */
+    private void conformToNeighbors(TreeMap<Integer, Integer> userFirstVersion) {
+        // Omit user IDs that map to zero, and separate the remainder into a
+        // list of users and a list of corresponding versions.
+        ArrayList<Integer> denseUsers = new ArrayList<>();
+        ArrayList<Integer> denseVers = new ArrayList<>();
+        for (int userId : userFirstVersion.keySet()) {
+            int ver = userFirstVersion.get(userId);
+            if (ver != 0) {
+                denseUsers.add(userId);
+                denseVers.add(ver);
+            }
+        }
+        int fixedCount = 0;
+        for (int i = 0; i < denseVers.size(); i++) {
+            int ver = denseVers.get(i);
+            int userId = denseUsers.get(i);
+            int fixedVer = fixAnomaly(denseVers, i);
+            if (fixedVer < ver) {
+                userFirstVersion.put(userId, fixedVer);
+                logger.warning(
+                        "Anomaly fixed: userId = "
+                                + userId
+                                + "; ver = "
+                                + ver
+                                + " changed to "
+                                + fixedVer);
+                ++fixedCount;
+            } else if (fixedVer > ver) {
+                logger.warning(
+                        "Anomaly NOT fixed since fixed version would be later: userId = "
+                                + userId
+                                + "; ver = "
+                                + ver
+                                + " NOT changed to "
+                                + fixedVer);
+            }
+        }
+        logger.warning("Total " + fixedCount + " anomalies fixed");
+    }
+
+    /**
+     * If the element at the specified index differs too much from the mean value of its neighbors,
+     * return that mean value. Otherwise, return the element unchanged.
+     *
+     * @param a the array
+     * @param i the index
+     * @return the possibly corrected value
+     */
+    private int fixAnomaly(ArrayList<Integer> a, int i) {
+        final int RANGE = 10; // how many neighbors to check on each side
+        int start = i - RANGE;
+        if (start < 0) {
+            start = 0;
+        }
+        int end = i + RANGE;
+        if (end > a.size() - 1) {
+            end = a.size() - 1;
+        }
+        ArrayList<Integer> b = new ArrayList<>();
+        for (int j = start; j < end; j++) {
+            if (j != i) {
+                b.add(a.get(j));
+            }
+        }
+        int[] c = new int[b.size()];
+        for (int j = 0; j < b.size(); j++) {
+            c[j] = b.get(j);
+        }
+        double m = median(c);
+        int val = a.get(i);
+        double delta = abs(m - val);
+        return (delta > 1.0) ? (int) Math.round(m) : val;
+    }
+
+    static double median(int[] x) {
+        Arrays.sort(x);
+        int n = x.length;
+        if (n % 2 != 0) {
+            return x[n / 2];
+        } else {
+            return (double) (x[(n - 1) / 2] + x[n / 2]) / 2.0;
+        }
+    }
+
+    private Map<Integer, Timestamp> mapVersionToFirstDate(Connection conn) throws SQLException {
+        // As of 2025-10, only these 19 versions have votes:
+        // 25, 26, 28, 30, 32, 33, 34, 35, 36, 37, 38, 40, 41, 42, 43, 44, 45, 46, 48
+        final int firstVersion = SurveyAjax.oldestVersionForImportingVotes;
+        final int lastVersion = Integer.parseInt(SurveyMain.getNewVersion());
+        Map<Integer, Timestamp> verToDate = new TreeMap<>();
+        for (int ver = firstVersion; ver <= lastVersion; ver++) {
+            String voteTable =
+                    DBUtils.Table.VOTE_VALUE.forVersion(Integer.toString(ver), false).toString();
+            if (DBUtils.hasTable(voteTable)) {
+                ResultSet rs = null;
+                PreparedStatement ps = null;
+                try {
+                    final String sql =
+                            "SELECT last_mod FROM " + voteTable + " ORDER BY last_mod LIMIT 1";
+                    ps = conn.prepareStatement(sql);
+                    rs = ps.executeQuery();
+                    while (rs.next()) {
+                        Timestamp date = rs.getTimestamp(1);
+                        Timestamp adjustedDate = removeTime(date);
+                        verToDate.put(ver, adjustedDate);
+                        logger.warning(
+                                "Version "
+                                        + ver
+                                        + " first date = "
+                                        + adjustedDate
+                                        + " (adjusted from "
+                                        + date
+                                        + ")");
+                    }
+                } finally {
+                    DBUtils.close(ps, rs);
+                }
+            }
+        }
+        return verToDate;
+    }
+
+    // Convert 2025-04-10 16:53:25 to 2025-04-10 00:00:00, for example
+    private static Timestamp removeTime(Timestamp timestamp) {
+        Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
+        cal.setTime(timestamp);
+        cal.set(Calendar.HOUR_OF_DAY, 0);
+        cal.set(Calendar.MINUTE, 0);
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        return new Timestamp(cal.getTimeInMillis());
+    }
+
+    /**
+     * Populate the firstdate column in the db based on the given maps
+     *
+     * @param conn the db connection
+     * @param userFirstVersion map from user ID to version number, already completed
+     * @param verToDate map from version number to date
+     * @throws SQLException if error
+     */
+    private void populateFirstDateColumn(
+            Connection conn,
+            Map<Integer, Integer> userFirstVersion,
+            Map<Integer, Timestamp> verToDate)
+            throws SQLException {
+        final String sql = "UPDATE " + CLDR_USERS + " SET firstdate=? WHERE id=?";
+        PreparedStatement ps = null;
+        try {
+            ps = conn.prepareStatement(sql);
+            for (int userId : userFirstVersion.keySet()) {
+                int ver = userFirstVersion.get(userId);
+                if (ver != 0) {
+                    Timestamp firstdate = verToDate.get(ver);
+                    ps.setTimestamp(1, firstdate);
+                    ps.setInt(2, userId);
+                    ps.executeUpdate();
+                }
+            }
+        } finally {
+            DBUtils.close(ps);
         }
     }
 }

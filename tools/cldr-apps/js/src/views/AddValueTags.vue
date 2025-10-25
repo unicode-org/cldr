@@ -26,7 +26,7 @@
 </template>
 
 <script setup>
-import { defineEmits, onMounted, ref } from "vue";
+import { onMounted, ref } from "vue";
 import { unicodeName } from "unicode-name";
 
 const DEBUG = true;

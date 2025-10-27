@@ -129,9 +129,10 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
         // Follow the instructions below.
 
         // Set the version number to the current release number
-        final int exceptionMajorVersion = 48;
+        final int exceptionMajorVersion = 49;
 
         // Include all and only the locales that newly reached Basic coverage.
+        // (until the next version that has a SurveyTool phase)
         Set<String> exceptionsForCurrentVersion =
                 ImmutableSet.of("ba", "bua", "pms", "scn", "shn", "tyv");
 

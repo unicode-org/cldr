@@ -1027,114 +1027,30 @@ x.x: =#,##0.#=;
         </rulesetGrouping>
         <rulesetGrouping type="OrdinalRules">
             <rbnfRules><![CDATA[
-%%digits-ordinal-masculine-larger-suffix:
-0: тен;
-1: >%%digits-ordinal-masculine-suffix>;
-100: >>;
-%%digits-ordinal-masculine-suffix:
-0: и;
-1: ви;
-2: ри;
-3: ти;
-5: и;
-20: >>;
-100: >%%digits-ordinal-masculine-larger-suffix>;
-1000: >>;
 %digits-ordinal-masculine:
 -x: −>>;
-0: =#,##0=-=%%digits-ordinal-masculine-suffix=;
-%%digits-ordinal-feminine-larger-suffix:
-0: тна;
-1: >%%digits-ordinal-feminine-suffix>;
-100: >>;
-%%digits-ordinal-feminine-suffix:
-0: а;
-1: ва;
-2: ра;
-3: та;
-5: а;
-20: >>;
-100: >%%digits-ordinal-feminine-larger-suffix>;
-1000: >>;
+0: =#,##0=-$(ordinal,zero{тен}one{ви}two{ри}few{ти}many{ми}other{и})$;
 %digits-ordinal-feminine:
 -x: −>>;
-0: =#,##0=-=%%digits-ordinal-feminine-suffix=;
-%%digits-ordinal-neuter-larger-suffix:
-0: тно;
-1: >%%digits-ordinal-neuter-suffix>;
-100: >>;
-%%digits-ordinal-neuter-suffix:
-0: o;
-1: вo;
-2: рo;
-3: тo;
-5: o;
-20: >>;
-100: >%%digits-ordinal-neuter-larger-suffix>;
-1000: >>;
+0: =#,##0=-$(ordinal,zero{тна}one{ва}two{ра}few{та}many{ма}other{а})$;
 %digits-ordinal-neuter:
 -x: −>>;
-0: =#,##0=-=%%digits-ordinal-neuter-suffix=;
+0: =#,##0=-$(ordinal,zero{тно}one{вo}two{рo}few{тo}many{мо}other{o})$;
 %digits-ordinal:
 0: =%digits-ordinal-masculine=;
 ]]></rbnfRules>
             <!-- The following redundant ruleset elements have been deprecated and will be removed in the next release. Please use the rbnfRules contents instead. -->
-            <ruleset type="digits-ordinal-masculine-larger-suffix" access="private">
-                <rbnfrule value="0">тен;</rbnfrule>
-                <rbnfrule value="1">→%%digits-ordinal-masculine-suffix→;</rbnfrule>
-                <rbnfrule value="100">→→;</rbnfrule>
-            </ruleset>
-            <ruleset type="digits-ordinal-masculine-suffix" access="private">
-                <rbnfrule value="0">и;</rbnfrule>
-                <rbnfrule value="1">ви;</rbnfrule>
-                <rbnfrule value="2">ри;</rbnfrule>
-                <rbnfrule value="3">ти;</rbnfrule>
-                <rbnfrule value="5">и;</rbnfrule>
-                <rbnfrule value="20">→→;</rbnfrule>
-                <rbnfrule value="100">→%%digits-ordinal-masculine-larger-suffix→;</rbnfrule>
-                <rbnfrule value="1000">→→;</rbnfrule>
-            </ruleset>
             <ruleset type="digits-ordinal-masculine">
                 <rbnfrule value="-x">−→→;</rbnfrule>
-                <rbnfrule value="0">=#,##0=-=%%digits-ordinal-masculine-suffix=;</rbnfrule>
-            </ruleset>
-            <ruleset type="digits-ordinal-feminine-larger-suffix" access="private">
-                <rbnfrule value="0">тна;</rbnfrule>
-                <rbnfrule value="1">→%%digits-ordinal-feminine-suffix→;</rbnfrule>
-                <rbnfrule value="100">→→;</rbnfrule>
-            </ruleset>
-            <ruleset type="digits-ordinal-feminine-suffix" access="private">
-                <rbnfrule value="0">а;</rbnfrule>
-                <rbnfrule value="1">ва;</rbnfrule>
-                <rbnfrule value="2">ра;</rbnfrule>
-                <rbnfrule value="3">та;</rbnfrule>
-                <rbnfrule value="5">а;</rbnfrule>
-                <rbnfrule value="20">→→;</rbnfrule>
-                <rbnfrule value="100">→%%digits-ordinal-feminine-larger-suffix→;</rbnfrule>
-                <rbnfrule value="1000">→→;</rbnfrule>
+                <rbnfrule value="0">=#,##0=-$(ordinal,zero{тен}one{ви}two{ри}few{ти}many{ми}other{и})$;</rbnfrule>
             </ruleset>
             <ruleset type="digits-ordinal-feminine">
                 <rbnfrule value="-x">−→→;</rbnfrule>
-                <rbnfrule value="0">=#,##0=-=%%digits-ordinal-feminine-suffix=;</rbnfrule>
-            </ruleset>
-            <ruleset type="digits-ordinal-neuter-larger-suffix" access="private">
-                <rbnfrule value="0">тно;</rbnfrule>
-                <rbnfrule value="1">→%%digits-ordinal-neuter-suffix→;</rbnfrule>
-                <rbnfrule value="100">→→;</rbnfrule>
-            </ruleset>
-            <ruleset type="digits-ordinal-neuter-suffix" access="private">
-                <rbnfrule value="0">o;</rbnfrule>
-                <rbnfrule value="1">вo;</rbnfrule>
-                <rbnfrule value="2">рo;</rbnfrule>
-                <rbnfrule value="3">тo;</rbnfrule>
-                <rbnfrule value="5">o;</rbnfrule>
-                <rbnfrule value="20">→→;</rbnfrule>
-                <rbnfrule value="100">→%%digits-ordinal-neuter-larger-suffix→;</rbnfrule>
-                <rbnfrule value="1000">→→;</rbnfrule>
+                <rbnfrule value="0">=#,##0=-$(ordinal,zero{тна}one{ва}two{ра}few{та}many{ма}other{а})$;</rbnfrule>
             </ruleset>
             <ruleset type="digits-ordinal-neuter">
                 <rbnfrule value="-x">−→→;</rbnfrule>
-                <rbnfrule value="0">=#,##0=-=%%digits-ordinal-neuter-suffix=;</rbnfrule>
+                <rbnfrule value="0">=#,##0=-$(ordinal,zero{тно}one{вo}two{рo}few{тo}many{мо}other{o})$;</rbnfrule>
             </ruleset>
             <ruleset type="digits-ordinal">
                 <rbnfrule value="0">=%digits-ordinal-masculine=;</rbnfrule>

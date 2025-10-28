@@ -338,6 +338,7 @@ public class LikelySubtagsTest extends TestFmwk {
 
         if (!TestCLDRPaths.canUseArchiveDirectory()) {
             warnln("Skipping - no cldr archive");
+            return;
         }
 
         final VersionInfo lastReleaseVi = ToolConstants.LAST_RELEASE_VI;

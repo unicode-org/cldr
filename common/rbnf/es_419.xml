@@ -14,17 +14,9 @@ For terms of use, see http://www.unicode.org/copyright.html
     <rbnf>
         <rulesetGrouping type="OrdinalRules">
             <rbnfRules><![CDATA[
-%%dord-mascabbrev:
-0: º;
-1: ᵉʳ;
-2: º;
-3: ᵉʳ;
-4: º;
-20: >>;
-100: >>;
 %digits-ordinal-masculine-adjective:
 -x: −>>;
-0: =#,##0==%%dord-mascabbrev=.;
+0: =#,##0=$(ordinal,one{ᵉʳ}other{º})$.;
 %digits-ordinal-masculine:
 -x: −>>;
 0: =#,##0=º.;
@@ -41,18 +33,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 0: =%digits-ordinal-masculine=;
 ]]></rbnfRules>
             <!-- The following redundant ruleset elements have been deprecated and will be removed in the next release. Please use the rbnfRules contents instead. -->
-            <ruleset type="dord-mascabbrev" access="private">
-                <rbnfrule value="0">º;</rbnfrule>
-                <rbnfrule value="1">ᵉʳ;</rbnfrule>
-                <rbnfrule value="2">º;</rbnfrule>
-                <rbnfrule value="3">ᵉʳ;</rbnfrule>
-                <rbnfrule value="4">º;</rbnfrule>
-                <rbnfrule value="20">→→;</rbnfrule>
-                <rbnfrule value="100">→→;</rbnfrule>
-            </ruleset>
             <ruleset type="digits-ordinal-masculine-adjective">
                 <rbnfrule value="-x">−→→;</rbnfrule>
-                <rbnfrule value="0">=#,##0==%%dord-mascabbrev=.;</rbnfrule>
+                <rbnfrule value="0">=#,##0=$(ordinal,one{ᵉʳ}other{º})$.;</rbnfrule>
             </ruleset>
             <ruleset type="digits-ordinal-masculine">
                 <rbnfrule value="-x">−→→;</rbnfrule>

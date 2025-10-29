@@ -317,7 +317,7 @@ The following files are new in the release:
 - Additionally, language and territory data in `languageData` and `territoryInfo` data received significant updates to improve accuracy and maintainability [CLDR-18087]
 - The likely language for Belarus changed to Russian [CLDR-14479]
 - [Using Time Zone Names](https://www.unicode.org/reports/tr35/48/tr35-dates.html#using-time-zone-names) Removed the "specific location format" and modified the fallback behavior of 'z'.
-- [Unit Identifier Normalization](https://www.unicode.org/reports/tr35//#tr35-general.html) Modified the normalization process.
+- [Unit Identifier Normalization](https://www.unicode.org/reports/tr35/48/#tr35-general.html) Modified the normalization process.
 - The `era` element `type` attributes no longer need to start at 0. Implementations that use arrays may have to adjust their implementations.
 - The default week numbering mechanism changes to be identical to ISO instead being based on the calendar week.
 - Deprecated unit IDs `permillion`, `portion`, `portion-per-1e9`. These are replaced by IDs using `part`. Also deprecated the compound component `100-kilometer`, since (certain) integers are allowed in unit ID denominators.

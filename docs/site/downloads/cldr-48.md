@@ -350,7 +350,7 @@ and feedback that the general practice for exact dates is to use Gregorian for p
 ## Acknowledgments
 
 Many people have made significant contributions to CLDR and LDML.
-For a full listing, see the [Acknowledgments](https://www.unicode.org/reports/tr35//tr35-acknowledgments.html).
+For a full listing, see the [Acknowledgments](https://www.unicode.org/reports/tr35/48/tr35-acknowledgments.html).
 
 The Unicode [Terms of Use](https://unicode.org/copyright.html) apply to CLDR data;
 in particular, see [Exhibit 1](https://unicode.org/copyright.html#Exhibit1).

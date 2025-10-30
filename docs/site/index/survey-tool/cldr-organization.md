@@ -2,9 +2,9 @@
 title: 'CLDR Organization'
 ---
 
-The most effective way to contribute to CLDR locale data is by means of an authorized CLDR Servey Tool Organization (aka CLDR Organization). 
+The most effective way to contribute to CLDR locale data is by means of an authorized CLDR Survey Tool Organization (aka CLDR Organization). 
 This provides the ability to have multiple vetters (aka Survey Tool contributors), and manage those vetters independently of the CLDR Technical Committee:
-adding adding or locking vetters and tracking vetter progress.
+adding or locking vetters and tracking vetter progress.
 In addition, the vetters in a CLDR Organization get increased voting weight: 4 times the weight of a guest vetter.
 Typically a CLDR Organization is limited by the CLDR TC to a fixed set of languages; this is often a single language, but sometimes more than one.
 

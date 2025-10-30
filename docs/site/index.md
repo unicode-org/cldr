@@ -50,7 +50,7 @@ CLDR has an online tool to gather data, the [Survey Tool](index/survey-tool). Th
 
 - For languages that are already available in the Survey Tool, see [picking a locale](translation/getting-started/guide#picking-locales). If your locale is not already available in the Survey Tool, see [Adding new locales](requesting_changes#adding-new-locales).
     -   Contribute as an individual (vetter) for your language by [setting up an account](index/survey-tool/survey-tool-accounts)
-    -   Qualifying organizations (companies, governments, institutions, etc) can request for an Organization level contribution status. Please file a [ticket](requesting_changes#how-to-file-a-ticket) if you need organization set up.
+    -   Qualifying organizations (companies, governments, institutions, etc) can request Organization level contribution status. See [CLDR Organization](index/survey-tool/cldr-organization) for details.
 - Unicode [voting members](https://home.unicode.org/membership/members/) can join the technical committee for bigger impact. The CLDR Technical committee is responsible for assessing the Survey Tool features, proposals for additions or changes to structure, bug fixes, and final resolution of each release of CLDR.
 
 #### Code and Structure

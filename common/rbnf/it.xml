@@ -1166,33 +1166,23 @@ x.x: =#,##0.#=;
         </rulesetGrouping>
         <rulesetGrouping type="OrdinalRules">
             <rbnfRules><![CDATA[
-%%dord-mascabbrev:
-0: º;
 %digits-ordinal-masculine:
 -x: −>>;
-0: =#,##0==%%dord-mascabbrev=;
-%%dord-femabbrev:
-0: ª;
+0: =#,##0=º;
 %digits-ordinal-feminine:
 -x: −>>;
-0: =#,##0==%%dord-femabbrev=;
+0: =#,##0=ª;
 %digits-ordinal:
 0: =%digits-ordinal-masculine=;
 ]]></rbnfRules>
             <!-- The following redundant ruleset elements have been deprecated and will be removed in the next release. Please use the rbnfRules contents instead. -->
-            <ruleset type="dord-mascabbrev" access="private">
-                <rbnfrule value="0">º;</rbnfrule>
-            </ruleset>
             <ruleset type="digits-ordinal-masculine">
                 <rbnfrule value="-x">−→→;</rbnfrule>
-                <rbnfrule value="0">=#,##0==%%dord-mascabbrev=;</rbnfrule>
-            </ruleset>
-            <ruleset type="dord-femabbrev" access="private">
-                <rbnfrule value="0">ª;</rbnfrule>
+                <rbnfrule value="0">=#,##0=º;</rbnfrule>
             </ruleset>
             <ruleset type="digits-ordinal-feminine">
                 <rbnfrule value="-x">−→→;</rbnfrule>
-                <rbnfrule value="0">=#,##0==%%dord-femabbrev=;</rbnfrule>
+                <rbnfrule value="0">=#,##0=ª;</rbnfrule>
             </ruleset>
             <ruleset type="digits-ordinal">
                 <rbnfrule value="0">=%digits-ordinal-masculine=;</rbnfrule>

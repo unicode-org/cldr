@@ -15,9 +15,6 @@ CLDR data is used by all [major software systems](/index#who-uses-cldr)
 (including all mobile phones) for their software internationalization and localization,
 adapting software to the conventions of different languages.
 
-CLDR 48 was an open submission cycle allowing contributors to supply data for their languages via the CLDR Survey Tool —
-data that is widely used to support much of the world’s software.
-This data is also a factor in determining which languages are supported on mobile phones and computer operating systems. 
 
 ### Changes
 

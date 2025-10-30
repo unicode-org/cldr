@@ -2,7 +2,7 @@
 title: CLDR 49 Release Note
 ---
 
-# CLDR 48 Release Note
+# CLDR 49 Release Note
 
 | No. |    Date    | Rel. Note |  Data  |  Charts  | Spec |   Delta  | GitHub Tag | Delta DTD | CLDR JSON |
 |:---:|:----------:|:---------:|:------:|:--------:|:------------:|:---:|:----------:|:---------:|:---------:|

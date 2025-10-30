@@ -107,7 +107,7 @@ public class TestSupplementalDataInfo {
         assertNotNull(cal.get("gregorian"));
         assertNotNull(cal.get("japanese"));
         assertEquals("solar", cal.get("gregorian").getSystemType());
-        assertEquals("717-11-17", cal.get("japanese").get(8).getStart());
+        assertEquals("1868-10-23", cal.get("japanese").get(232).getStart());
 
         // moved from TestExampleGenerator.TestEraMap
         Relation<String, String> keyToSubtypes = SupplementalDataInfo.getInstance().getBcp47Keys();

@@ -1,5 +1,5 @@
 ---
-title: CLDR 48 Release Note
+title: CLDR 49 Release Note
 ---
 
 # CLDR 48 Release Note

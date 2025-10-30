@@ -5,9 +5,8 @@ title: Unicode CLDR Project
 # Unicode CLDR Project
 
 ## News
-- **2025-10-02** [CLDR 48 Beta](downloads/cldr-48) available for review
-- **2025-09-18** [CLDR 48 Alpha](downloads/cldr-48) available for testing
-- **2025-03-13 [CLDR 47](downloads/cldr-47) released**
+- **2025-10-29** [CLDR 48](downloads/cldr-48) released
+- **2025-03-13** [CLDR 47](downloads/cldr-47) released
 
 
 ## What is CLDR?

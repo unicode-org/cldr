@@ -6,9 +6,7 @@ title: CLDR 48 Release Note
 
 | No. |    Date    | Rel. Note |  Data  |  Charts  | Spec |   Delta  | GitHub Tag | Delta DTD | CLDR JSON |
 |:---:|:----------:|:---------:|:------:|:--------:|:------------:|:---:|:----------:|:---------:|:---------:|
-|  48 | 2025-10-~~XX~~ | [v48](/index/downloads/cldr-48) | ~~[CLDR48](https://unicode.org/Public/cldr/48/)~~ | [Charts48](https://unicode.org/cldr/charts/dev) | [LDML48](https://www.unicode.org/reports/tr35/proposed.html) | [Δ48](https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixversion%20%3D%2048%20ORDER%20BY%20priority%20DESC) | [release-48-beta3](https://github.com/unicode-org/cldr/releases/tag/release-48-beta3) | [ΔDtd48](https://www.unicode.org/cldr/charts/dev/supplemental/dtd_deltas.html) | [48.0.0-BETA3](https://github.com/unicode-org/cldr-json/releases/tag/48.0.0-BETA3)) |
-
-# BETA DRAFT
+|  48 | 2025-10-29 | [v48](/index/downloads/cldr-48) | [CLDR48](https://unicode.org/Public/cldr/48/) | [Charts48](https://unicode.org/cldr/charts/48/) | [LDML48](https://www.unicode.org/reports/tr35/48/tr35.html) | [Δ48](https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixversion%20%3D%2048%20ORDER%20BY%20priority%20DESC) | [release-48](https://github.com/unicode-org/cldr/releases/tag/release-48) | [ΔDtd48](https://www.unicode.org/cldr/charts/48/supplemental/dtd_deltas.html) | [48.0.0](https://github.com/unicode-org/cldr-json/releases/tag/48.0.0) |
 
 ## Overview
 
@@ -70,41 +68,41 @@ Count | With Script | Regional Variants | Level | Usage | Examples
 Each release, the number of items needed for Modern and Moderate increases.
 So locales without active contributors may drop down in coverage level.
 
-For a full listing, see [Coverage Levels](https://unicode.org/cldr/charts/dev/supplemental/locale_coverage.html)
+For a full listing, see [Coverage Levels](https://unicode.org/cldr/charts/48/supplemental/locale_coverage.html)
 
 ## Specification Changes
 
 The following are some of the most significant changes to the specification (LDML).
 
 ### Locale Identifiers and Names
-* [Display Name Elements](https://www.unicode.org/reports/tr35/dev/tr35-general.html#display-name-elements) Described the usage of the `language` element `menu` values `core` and `extension`, and `alt="menu"`.
+* [Display Name Elements](https://www.unicode.org/reports/tr35/48/tr35-general.html#display-name-elements) Described the usage of the `language` element `menu` values `core` and `extension`, and `alt="menu"`.
 Also revamped the description of how to construct names for locale IDs, for clarity.
 
 ### Misc.
-* [Character Elements](https://www.unicode.org/reports/tr35/dev/tr35-general.html#character-elements) Added new exemplar types.
-* [Person Name Validation](https://www.unicode.org/reports/tr35/dev/tr35-personNames.html#person-name-validation) Added guidance for validating person names.
+* [Character Elements](https://www.unicode.org/reports/tr35/48/tr35-general.html#character-elements) Added new exemplar types.
+* [Person Name Validation](https://www.unicode.org/reports/tr35/48/tr35-personNames.html#person-name-validation) Added guidance for validating person names.
 
 ### DateTime formats
 
-* [Element dateTimeFormat](https://www.unicode.org/reports/tr35/dev/tr35-dates.html#dateTimeFormat) Added a new type `relative` for relative date/times, such as "tomorrow at 10:00",
+* [Element dateTimeFormat](https://www.unicode.org/reports/tr35/48/tr35-dates.html#dateTimeFormat) Added a new type `relative` for relative date/times, such as "tomorrow at 10:00",
 and updated the guidelines for using the different `dateTimeFormat` types.
-* [timeZoneNames Elements Used for Fallback](https://www.unicode.org/reports/tr35/dev/tr35-dates.html#timeZoneNames-elements-used-for-fallback) Added the `gmtUnknownFormat` to indicate when the timezone is unknown.
-* [Metazone Names](https://www.unicode.org/reports/tr35/dev/tr35-dates.html#metazone-names) Added `usesMetazone` to specify which offset is considered standard time and which offset is considered daylight.
-* [Time Zone Format Terminology](https://www.unicode.org/reports/tr35/dev/tr35-dates.html#time-zone-format-terminology) Added the **Localized GMT format** (and removed the **Specific location format**).
+* [timeZoneNames Elements Used for Fallback](https://www.unicode.org/reports/tr35/48/tr35-dates.html#timeZoneNames-elements-used-for-fallback) Added the `gmtUnknownFormat` to indicate when the timezone is unknown.
+* [Metazone Names](https://www.unicode.org/reports/tr35/48/tr35-dates.html#metazone-names) Added `usesMetazone` to specify which offset is considered standard time and which offset is considered daylight.
+* [Time Zone Format Terminology](https://www.unicode.org/reports/tr35/48/tr35-dates.html#time-zone-format-terminology) Added the **Localized GMT format** (and removed the **Specific location format**).
 This affects the behavior of the `z` timezone format symbol.
 There is also now a mechanism for finding the region code from short timezone identifier, which is used for the _non-location formats (generic or specific)_
-* [Calendar Data](https://www.unicode.org/reports/tr35/dev/tr35-dates.html#calendar-data) Specified more precisely the meaning of the `era` attributes in supplemental data, and how to determine the transition point in time between eras.
+* [Calendar Data](https://www.unicode.org/reports/tr35/48/tr35-dates.html#calendar-data) Specified more precisely the meaning of the `era` attributes in supplemental data, and how to determine the transition point in time between eras.
 
 ### Numbers
-* [Plural rules syntax](https://www.unicode.org/reports/tr35/dev/tr35-numbers.html#plural-rules-syntax) Added substantial clarifications and new examples.
+* [Plural rules syntax](https://www.unicode.org/reports/tr35/48/tr35-numbers.html#plural-rules-syntax) Added substantial clarifications and new examples.
 The order of execution is also clearly specified.
-* [Compact Number Formats](https://www.unicode.org/reports/tr35/dev/tr35-numbers.html#compact-number-formats) Specified the mechanism for formatting compact numbers more precisely.
-* [Rational Numbers](https://www.unicode.org/reports/tr35/dev/tr35-numbers.html#rational-numbers) Added support for formatting fractions like 5½.
+* [Compact Number Formats](https://www.unicode.org/reports/tr35/48/tr35-numbers.html#compact-number-formats) Specified the mechanism for formatting compact numbers more precisely.
+* [Rational Numbers](https://www.unicode.org/reports/tr35/48/tr35-numbers.html#rational-numbers) Added support for formatting fractions like 5½.
 
 ### Units of Measurement
-* [Unit Syntax](https://www.unicode.org/reports/tr35/dev/tr35-general.html#unit-syntax) Simplified the EBNF `product_unit` and added an additional well-formedness constraint for mixed units.
-* [Unit Identifier Normalization](https://www.unicode.org/reports/tr35/dev/tr35-general.html) Modified the normalization process.
-* [Mixed Units](https://www.unicode.org/reports/tr35/dev/tr35-general.html#mixed-units) Modified the guidance for handling precision.
+* [Unit Syntax](https://www.unicode.org/reports/tr35/48/tr35-general.html#unit-syntax) Simplified the EBNF `product_unit` and added an additional well-formedness constraint for mixed units.
+* [Unit Identifier Normalization](https://www.unicode.org/reports/tr35/48/tr35-general.html) Modified the normalization process.
+* [Mixed Units](https://www.unicode.org/reports/tr35/48/tr35-general.html#mixed-units) Modified the guidance for handling precision.
 
 ### MessageFormat
 * Syntax and data model errors must now be prioritized over other errors. <!-- ([\#1011](https://github.com/unicode-org/message-format-wg/pull/1011)) -->
@@ -114,7 +112,7 @@ The order of execution is also clearly specified.
 * `:percent` is added as a new Draft function. <!-- ([\#1094](https://github.com/unicode-org/message-format-wg/pull/1094)) -->
 
 There are many more changes that are important to implementations, such as changes to certain identifier syntax and various algorithms.
-See the [Modifications section](https://www.unicode.org/reports/tr35/dev/tr35-modifications.html) of the specification for details.
+See the [Modifications section](https://www.unicode.org/reports/tr35/48/tr35-modifications.html) of the specification for details.
 
 ## Data Changes
 
@@ -124,7 +122,7 @@ See the [Modifications section](https://www.unicode.org/reports/tr35/dev/tr35-mo
 - Languages that reached Basic in the last release have their names translated at Modern Coverage in this release.
 - New emoji for Unicode 17 have added names and search keywords.
 - Compound language names now have "core" and "extension" variants for more uniform formats in menus and lists.
-The description of how to format names for locale IDs has been extended and clarified with new attributes added for better presentation in menus and other environments `menu="core"`, `menu="extension"`, `scope="core"`. [See Display Name Elements](https://www.unicode.org/reports/tr35/dev/tr35-general.html#display-name-elements) for details.
+The description of how to format names for locale IDs has been extended and clarified with new attributes added for better presentation in menus and other environments `menu="core"`, `menu="extension"`, `scope="core"`. [See Display Name Elements](https://www.unicode.org/reports/tr35/48/tr35-general.html#display-name-elements) for details.
 - Recent or upcoming currency names were added (XCG, ZWG).
 - To match ISO, added translations for the region Sark (CQ).
 - There are now combination formats for _relative_ dates + times, such as “tomorrow _at_ 12:30”.
@@ -318,8 +316,8 @@ The following files are new in the release:
 - Number patterns that did not have a specific numberSystem (such as `latn` or `arab`) had been deprecated for many releases, and were finally removed.
 - Additionally, language and territory data in `languageData` and `territoryInfo` data received significant updates to improve accuracy and maintainability [CLDR-18087]
 - The likely language for Belarus changed to Russian [CLDR-14479]
-- [Using Time Zone Names](https://www.unicode.org/reports/tr35/dev/tr35-dates.html#using-time-zone-names) Removed the "specific location format" and modified the fallback behavior of 'z'.
-- [Unit Identifier Normalization](https://www.unicode.org/reports/tr35/dev/#tr35-general.html) Modified the normalization process.
+- [Using Time Zone Names](https://www.unicode.org/reports/tr35/48/tr35-dates.html#using-time-zone-names) Removed the "specific location format" and modified the fallback behavior of 'z'.
+- [Unit Identifier Normalization](https://www.unicode.org/reports/tr35/48/#tr35-general.html) Modified the normalization process.
 - The `era` element `type` attributes no longer need to start at 0. Implementations that use arrays may have to adjust their implementations.
 - The default week numbering mechanism changes to be identical to ISO instead being based on the calendar week.
 - Deprecated unit IDs `permillion`, `portion`, `portion-per-1e9`. These are replaced by IDs using `part`. Also deprecated the compound component `100-kilometer`, since (certain) integers are allowed in unit ID denominators.
@@ -352,7 +350,7 @@ and feedback that the general practice for exact dates is to use Gregorian for p
 ## Acknowledgments
 
 Many people have made significant contributions to CLDR and LDML.
-For a full listing, see the [Acknowledgments](https://www.unicode.org/reports/tr35/dev/tr35-acknowledgments.html).
+For a full listing, see the [Acknowledgments](https://www.unicode.org/reports/tr35/48/tr35-acknowledgments.html).
 
 The Unicode [Terms of Use](https://unicode.org/copyright.html) apply to CLDR data;
 in particular, see [Exhibit 1](https://unicode.org/copyright.html#Exhibit1).
@@ -385,4 +383,4 @@ For web pages with different views of CLDR data, see [http://cldr.unicode.org/in
 [Supplemental Delta]: https://unicode.org/cldr/charts/48/delta/supplemental-data.html
 [Likely Subtags]: https://www.unicode.org/cldr/charts/48/delta/supplemental-data.html#Likely
 [Transforms Delta]: https://unicode.org/cldr/charts/48/delta/transforms.html
-[Delta Data]: https://unicode.org/cldr/charts/dev/delta/index.html
+[Delta Data]: https://unicode.org/cldr/charts/48/delta/index.html

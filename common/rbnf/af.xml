@@ -170,27 +170,14 @@ x.x: =#,##0.#=;
         </rulesetGrouping>
         <rulesetGrouping type="OrdinalRules">
             <rbnfRules><![CDATA[
-%%digits-ordinal-indicator:
-0: ste;
-1: ste;
-2: de;
-20: ste;
-100: >>;
 %digits-ordinal:
 -x: −>>;
-0: =#,##0==%%digits-ordinal-indicator=;
+0: =#,##0=$(ordinal,few{de}other{ste})$;
 ]]></rbnfRules>
             <!-- The following redundant ruleset elements have been deprecated and will be removed in the next release. Please use the rbnfRules contents instead. -->
-            <ruleset type="digits-ordinal-indicator" access="private">
-                <rbnfrule value="0">ste;</rbnfrule>
-                <rbnfrule value="1">ste;</rbnfrule>
-                <rbnfrule value="2">de;</rbnfrule>
-                <rbnfrule value="20">ste;</rbnfrule>
-                <rbnfrule value="100">→→;</rbnfrule>
-            </ruleset>
             <ruleset type="digits-ordinal">
                 <rbnfrule value="-x">−→→;</rbnfrule>
-                <rbnfrule value="0">=#,##0==%%digits-ordinal-indicator=;</rbnfrule>
+                <rbnfrule value="0">=#,##0=$(ordinal,few{de}other{ste})$;</rbnfrule>
             </ruleset>
         </rulesetGrouping>
     </rbnf>

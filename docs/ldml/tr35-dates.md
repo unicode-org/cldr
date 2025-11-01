@@ -2,7 +2,7 @@
 
 # Unicode Locale Data Markup Language (LDML)<br/>Part 4: Dates
 
-|Version|48 (draft)        |
+|Version|49 (draft)        |
 |-------|------------------|
 |Editors|Peter Edberg and <a href="tr35-acknowledgments.md#acknowledgments">other CLDR committee members</a>|
 

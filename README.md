@@ -50,3 +50,6 @@ A CLA is required to contribute to this project - please refer to the [CONTRIBUT
 The contents of this repository are governed by the Unicode [Terms of Use](https://www.unicode.org/copyright.html) and are released under [LICENSE](./LICENSE).
 
 Note that some CLDR tools depend on libraries managed via Maven; use of these libraries is governed by separate license agreements.
+>.
+>
+>

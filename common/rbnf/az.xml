@@ -183,19 +183,14 @@ x.x: =#,##0.#=;
         </rulesetGrouping>
         <rulesetGrouping type="OrdinalRules">
             <rbnfRules><![CDATA[
-%%digits-ordinal-indicator:
-0: ''inci;
 %digits-ordinal:
 -x: −>>;
-0: =#,##0==%%digits-ordinal-indicator=;
+0: =#,##0='inci;
 ]]></rbnfRules>
             <!-- The following redundant ruleset elements have been deprecated and will be removed in the next release. Please use the rbnfRules contents instead. -->
-            <ruleset type="digits-ordinal-indicator" access="private">
-                <rbnfrule value="0">''inci;</rbnfrule>
-            </ruleset>
             <ruleset type="digits-ordinal">
                 <rbnfrule value="-x">−→→;</rbnfrule>
-                <rbnfrule value="0">=#,##0==%%digits-ordinal-indicator=;</rbnfrule>
+                <rbnfrule value="0">=#,##0='inci;</rbnfrule>
             </ruleset>
         </rulesetGrouping>
     </rbnf>

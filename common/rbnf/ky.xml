@@ -339,19 +339,14 @@ x.x: =#,##0.#=;
         </rulesetGrouping>
         <rulesetGrouping type="OrdinalRules">
             <rbnfRules><![CDATA[
-%%digits-ordinal-indicator:
-0: ''инчи;
 %digits-ordinal:
 -x: −>>;
-0: =#,##0==%%digits-ordinal-indicator=;
+0: =#,##0='инчи;
 ]]></rbnfRules>
             <!-- The following redundant ruleset elements have been deprecated and will be removed in the next release. Please use the rbnfRules contents instead. -->
-            <ruleset type="digits-ordinal-indicator" access="private">
-                <rbnfrule value="0">''инчи;</rbnfrule>
-            </ruleset>
             <ruleset type="digits-ordinal">
                 <rbnfrule value="-x">−→→;</rbnfrule>
-                <rbnfrule value="0">=#,##0==%%digits-ordinal-indicator=;</rbnfrule>
+                <rbnfrule value="0">=#,##0='инчи;</rbnfrule>
             </ruleset>
         </rulesetGrouping>
     </rbnf>

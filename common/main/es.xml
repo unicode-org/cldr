@@ -7731,7 +7731,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<pluralMinimalPairs count="one">{0} día</pluralMinimalPairs>
 			<pluralMinimalPairs count="many">{0} de días</pluralMinimalPairs>
 			<pluralMinimalPairs count="other">{0} días</pluralMinimalPairs>
-			<ordinalMinimalPairs ordinal="other">Toma la {0}.ª a la derecha.</ordinalMinimalPairs>
+            <ordinalMinimalPairs ordinal="one">El {0}.ᵉʳ equipo clasificado ganó.</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">El equipo {0}.º clasificado ganó.</ordinalMinimalPairs>
 			<genderMinimalPairs gender="feminine">La {0} es...</genderMinimalPairs>
 			<genderMinimalPairs gender="masculine">El {0} es…</genderMinimalPairs>
 		</minimalPairs>

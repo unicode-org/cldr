@@ -1035,7 +1035,7 @@ x.x: =#,##0.#=;
 0: =#,##0=-$(ordinal,zero{тна}one{ва}two{ра}few{та}many{ма}other{а})$;
 %digits-ordinal-neuter:
 -x: −>>;
-0: =#,##0=-$(ordinal,zero{тно}one{вo}two{рo}few{тo}many{мо}other{o})$;
+0: =#,##0=-$(ordinal,zero{тно}one{во}two{ро}few{то}many{мо}other{о})$;
 %digits-ordinal:
 0: =%digits-ordinal-masculine=;
 ]]></rbnfRules>
@@ -1050,7 +1050,7 @@ x.x: =#,##0.#=;
             </ruleset>
             <ruleset type="digits-ordinal-neuter">
                 <rbnfrule value="-x">−→→;</rbnfrule>
-                <rbnfrule value="0">=#,##0=-$(ordinal,zero{тно}one{вo}two{рo}few{тo}many{мо}other{o})$;</rbnfrule>
+                <rbnfrule value="0">=#,##0=-$(ordinal,zero{тно}one{во}two{ро}few{то}many{мо}other{о})$;</rbnfrule>
             </ruleset>
             <ruleset type="digits-ordinal">
                 <rbnfrule value="0">=%digits-ordinal-masculine=;</rbnfrule>

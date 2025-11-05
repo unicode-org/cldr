@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
+import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.util.VersionInfo;
 import java.io.IOException;
 import java.util.HashMap;
@@ -211,6 +212,31 @@ public class TestCoverageLevel2 extends TestWithKnownIssues {
         }
     }
 
+    /**
+     * @param knownIssue issue ID such as CLDR-18968
+     * @param setToModify the notInEnglish or notInCoverage set to check and modify
+     * @param setToExclude the list of excluded locales
+     * @returns true if anything was removed
+     */
+    private boolean removeIfKnownIssue(
+            final String knownIssue,
+            Set<String> setToModify,
+            final String message,
+            final Set<String> setToExclude) {
+        final Set<String> toRemove = new TreeSet<>(setToModify);
+        toRemove.retainAll(setToExclude);
+        System.out.println(setToModify + " => " + toRemove);
+        if (!toRemove.isEmpty()) {
+            if (logKnownIssue(
+                    knownIssue,
+                    String.format("Excluding: %s from %s", toRemove.toString(), message))) {
+                setToModify.removeAll(toRemove);
+                return true;
+            }
+        }
+        return false; // no changes
+    }
+
     /** Bring the bad news (if any). Reporting factored out here. */
     private void assertMissingCoverage(
             final Level failIfAbove,
@@ -221,25 +247,43 @@ public class TestCoverageLevel2 extends TestWithKnownIssues {
         // given xpp is  scripts/script or languages/language, etc.
         final String plural = xpp.getElement(-2); // the plural form of what we're looking for
         Assertions.assertAll(
-                () ->
-                        assertTrue(
-                                notInEnglish.isEmpty(),
-                                () ->
-                                        String.format(
-                                                "en.xml missing these %s: %s",
-                                                plural, notInEnglish.toString())),
                 () -> {
+                    assertTrue(
+                            notInEnglish.isEmpty(),
+                            () ->
+                                    String.format(
+                                            "en.xml missing these %s: %s",
+                                            plural, notInEnglish.toString()));
+                },
+                () -> {
+                    // make a modifyable copy here so we can exclude some due to logKnownIssues
+                    Set<String> remainingNotInCoverage = new TreeSet<>(notInCoverage);
                     final Supplier<String> formatter =
                             () ->
                                     String.format(
                                             "coverageLevels.xml has level > %s for these %s: %s",
-                                            failIfAbove, plural, notInCoverage.toString());
-                    if (!notInCoverage.isEmpty() && plural.equals("variants")) {
-                        if (logKnownIssue("CLDR-18480", formatter.get())) {
-                            return;
+                                            failIfAbove, plural, remainingNotInCoverage.toString());
+                    // handle known issues here
+                    if (!remainingNotInCoverage.isEmpty()) {
+                        if (plural.equals("variants")
+                                && logKnownIssue("CLDR-18480", formatter.get())) {
+                            remainingNotInCoverage.clear();
+                        } else if (plural.equals("languages")) {
+                            // Can add known issues here,
+                            // add multiple lines as below:
+                            //
+                            //   removeIfKnownIssue("CLDR-00000", remainingNotInCoverage, message,
+                            //       ImmutableSet.of("es","tlh","zxx"));
+
+                            removeIfKnownIssue(
+                                    "CLDR-18972",
+                                    remainingNotInCoverage,
+                                    formatter.get(),
+                                    ImmutableSet.of("ba", "bua", "pms", "scn", "shn", "tyv"));
                         }
+                        // do the assertion.
+                        assertTrue(remainingNotInCoverage.isEmpty(), formatter);
                     }
-                    assertTrue(notInCoverage.isEmpty(), formatter);
                 });
     }
 }

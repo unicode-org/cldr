@@ -215,6 +215,7 @@ public class TestCoverageLevel2 extends TestWithKnownIssues {
     /**
      * @param knownIssue issue ID such as CLDR-18968
      * @param setToModify the notInEnglish or notInCoverage set to check and modify
+     * @param message message to include in the known issue (giving context)
      * @param setToExclude the list of excluded locales
      * @returns true if anything was removed
      */
@@ -225,7 +226,6 @@ public class TestCoverageLevel2 extends TestWithKnownIssues {
             final Set<String> setToExclude) {
         final Set<String> toRemove = new TreeSet<>(setToModify);
         toRemove.retainAll(setToExclude);
-        System.out.println(setToModify + " => " + toRemove);
         if (!toRemove.isEmpty()) {
             if (logKnownIssue(
                     knownIssue,

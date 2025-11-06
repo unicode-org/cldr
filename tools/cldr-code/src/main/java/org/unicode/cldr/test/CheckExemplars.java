@@ -85,6 +85,12 @@ public class CheckExemplars extends FactoryCheckCLDR {
                     .removeAll(new UnicodeSet("[[:Uppercase:]-[\u0130]]"))
                     .freeze();
 
+    private static final UnicodeSet ALLOWED_IN_NUMBERS_NOT_IN_MAIN =
+            new UnicodeSet("[[:N:][:Letter_Number:][:Numeric_Type=Numeric:]]").freeze();
+
+    private static final UnicodeSet ALLOWED_IN_MAIN =
+            new UnicodeSet(AllowedInExemplars).removeAll(ALLOWED_IN_NUMBERS_NOT_IN_MAIN).freeze();
+
     public static final UnicodeSet ALLOWED_IN_PUNCTUATION =
             new UnicodeSet("[[:P:][:S:]-[:Sc:]]").freeze();
 
@@ -99,7 +105,10 @@ public class CheckExemplars extends FactoryCheckCLDR {
                     .freeze();
 
     public enum ExemplarType {
-        main(AllowedInExemplars, "(specific-script - uppercase - invisibles + \u0130)", true),
+        main(
+                ALLOWED_IN_MAIN,
+                "(specific-script - uppercase - invisibles - numbers + \u0130)",
+                true),
         auxiliary(ALLOWED_IN_AUX, "(specific-script - uppercase - invisibles + \u0130)", true),
         punctuation(ALLOWED_IN_PUNCTUATION, "punctuation", false),
         punctuation_auxiliary(ALLOWED_IN_PUNCTUATION, "punctuation-auxiliary", false),
@@ -468,7 +477,6 @@ public class CheckExemplars extends FactoryCheckCLDR {
             // after a first check, we check again in case we flattened
 
             if (!remainder.isEmpty()) {
-                fixedExemplar1 = displayFormatter.format(exemplar1);
                 result.add(
                         new CheckStatus()
                                 .setCause(this)
@@ -514,32 +522,6 @@ public class CheckExemplars extends FactoryCheckCLDR {
                                                             : "letters")
                                                     + "!"));
                     break;
-            }
-        }
-        checkNumbersInMain(exemplar1, exemplarType, result);
-    }
-
-    private void checkNumbersInMain(
-            UnicodeSet exemplar1, ExemplarType exemplarType, List<CheckStatus> result) {
-        if (exemplarType == ExemplarType.main) {
-            for (String s : exemplar1) {
-                int cp = s.codePointAt(0);
-                if (Character.isDigit(cp)) {
-                    result.add(
-                            new CheckStatus()
-                                    .setCause(this)
-                                    .setMainType(CheckStatus.errorType)
-                                    .setSubtype(Subtype.numbersInMainExemplars)
-                                    .setMessage(
-                                            "Main exemplars should not contain numbers; found "
-                                                    + Character.toString(cp)
-                                                    + " (U+"
-                                                    + String.format("%04X", cp)
-                                                    + " "
-                                                    + Character.getName(cp)
-                                                    + ")"));
-                    return;
-                }
             }
         }
     }

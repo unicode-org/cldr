@@ -463,7 +463,6 @@ public class CheckExemplars extends FactoryCheckCLDR {
                     remainder.add(s);
                 }
                 // else just check normalization
-
             }
 
             // after a first check, we check again in case we flattened
@@ -517,14 +516,14 @@ public class CheckExemplars extends FactoryCheckCLDR {
                     break;
             }
         }
-        checkNumbersInMain(v, exemplarType, result);
+        checkNumbersInMain(exemplar1, exemplarType, result);
     }
 
-    private void checkNumbersInMain(String v, ExemplarType exemplarType, List<CheckStatus> result) {
+    private void checkNumbersInMain(
+            UnicodeSet exemplar1, ExemplarType exemplarType, List<CheckStatus> result) {
         if (exemplarType == ExemplarType.main) {
-            int cp;
-            for (int i = 0; i < v.length(); i += Character.charCount(cp)) {
-                cp = v.codePointAt(i);
+            for (String s : exemplar1) {
+                int cp = s.codePointAt(0);
                 if (Character.isDigit(cp)) {
                     result.add(
                             new CheckStatus()

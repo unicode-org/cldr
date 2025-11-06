@@ -86,7 +86,7 @@ public class CheckExemplars extends FactoryCheckCLDR {
                     .freeze();
 
     private static final UnicodeSet ALLOWED_IN_NUMBERS_NOT_IN_MAIN =
-            new UnicodeSet("[[:N:][:Letter_Number:][:Numeric_Type=Numeric:]]").freeze();
+            new UnicodeSet("[[:Numeric_Type=Decimal:]]").freeze();
 
     private static final UnicodeSet ALLOWED_IN_MAIN =
             new UnicodeSet(AllowedInExemplars).removeAll(ALLOWED_IN_NUMBERS_NOT_IN_MAIN).freeze();

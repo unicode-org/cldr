@@ -13,12 +13,10 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
-import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.ComparatorUtilities;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.SimpleUnicodeSetFormatter;
-import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.UnicodeSetPrettyPrinter;
 import org.unicode.cldr.util.XPathParts;
 
@@ -30,7 +28,6 @@ public class CheckExemplars extends FactoryCheckCLDR {
         "quotationStart", "quotationEnd",
         "alternateQuotationStart", "alternateQuotationEnd"
     };
-    static final SupplementalDataInfo SUP = CLDRConfig.getInstance().getSupplementalDataInfo();
 
     Collator col;
     boolean isRoot;
@@ -178,9 +175,9 @@ public class CheckExemplars extends FactoryCheckCLDR {
     public CheckCLDR handleCheck(
             String path, String fullPath, String value, Options options, List<CheckStatus> result) {
         if (fullPath == null) return this; // skip paths that we don't have
-        if (path.indexOf("/exemplarCharacters") < 0) {
+        if (!path.contains("/exemplarCharacters")) {
             if (path.contains("parseLenient")) {
-                checkParse(path, fullPath, value, options, result);
+                checkParse(path, value, result);
             }
             return this;
         }
@@ -205,7 +202,7 @@ public class CheckExemplars extends FactoryCheckCLDR {
                             new UnicodeSet(mainSet)
                                     .retainAll(auxiliarySet)
                                     .removeAll(HangulSyllables);
-                    if (overlap.size() != 0) {
+                    if (!overlap.isEmpty()) {
                         String fixedExemplar1 = rawFormatter.format(overlap);
                         result.add(
                                 new CheckStatus()
@@ -278,7 +275,7 @@ public class CheckExemplars extends FactoryCheckCLDR {
 
             // check for consistency with RTL
 
-            Boolean localeIsRTL = false;
+            boolean localeIsRTL = false;
             String charOrientation =
                     getResolvedCldrFileToCheck()
                             .getStringValue("//ldml/layout/orientation/characterOrder");
@@ -310,8 +307,7 @@ public class CheckExemplars extends FactoryCheckCLDR {
         return this;
     }
 
-    private void checkParse(
-            String path, String fullPath, String value, Options options, List<CheckStatus> result) {
+    private void checkParse(String path, String value, List<CheckStatus> result) {
         if (value == null) {
             CheckStatus message =
                     new CheckStatus()
@@ -351,11 +347,7 @@ public class CheckExemplars extends FactoryCheckCLDR {
                             .setCause(this)
                             .setMainType(CheckStatus.errorType)
                             .setSubtype(Subtype.badParseLenient)
-                            .setMessage(
-                                    e.toString()
-                                            + (e.getMessage() == null
-                                                    ? ""
-                                                    : ": " + e.getMessage()));
+                            .setMessage(e + (e.getMessage() == null ? "" : ": " + e.getMessage()));
             result.add(message);
         }
     }
@@ -418,10 +410,7 @@ public class CheckExemplars extends FactoryCheckCLDR {
                         .setCause(this)
                         .setMainType(CheckStatus.errorType)
                         .setSubtype(Subtype.illegalExemplarSet)
-                        .setMessage(
-                                "{0} exemplars contain multiple scripts: {1}",
-                                new Object[] {title, scripts}));
-        return;
+                        .setMessage("{0} exemplars contain multiple scripts: {1}", title, scripts));
     }
 
     private void checkExemplar(String v, List<CheckStatus> result, ExemplarType exemplarType) {
@@ -472,14 +461,14 @@ public class CheckExemplars extends FactoryCheckCLDR {
             for (String s : remainder0) {
                 if (Character.codePointCount(s, 0, s.length()) == 1) {
                     remainder.add(s);
-                } else {
-                    // just check normalization
                 }
+                // else just check normalization
+
             }
 
             // after a first check, we check again in case we flattened
 
-            if (remainder.size() != 0) {
+            if (!remainder.isEmpty()) {
                 fixedExemplar1 = displayFormatter.format(exemplar1);
                 result.add(
                         new CheckStatus()
@@ -490,13 +479,13 @@ public class CheckExemplars extends FactoryCheckCLDR {
                                         "Should be limited to "
                                                 + exemplarType.message
                                                 + "; thus not contain: \u200E{0}\u200E",
-                                        new Object[] {remainder}));
+                                        remainder));
             }
         }
 
         // now check for empty
 
-        if (!isRoot && exemplar1.size() == 0) {
+        if (!isRoot && exemplar1.isEmpty()) {
             switch (exemplarType) {
                     //            case currencySymbol: // ok if empty
                     //                break;
@@ -526,6 +515,32 @@ public class CheckExemplars extends FactoryCheckCLDR {
                                                             : "letters")
                                                     + "!"));
                     break;
+            }
+        }
+        checkNumbersInMain(v, exemplarType, result);
+    }
+
+    private void checkNumbersInMain(String v, ExemplarType exemplarType, List<CheckStatus> result) {
+        if (exemplarType == ExemplarType.main) {
+            int cp;
+            for (int i = 0; i < v.length(); i += Character.charCount(cp)) {
+                cp = v.codePointAt(i);
+                if (Character.isDigit(cp)) {
+                    result.add(
+                            new CheckStatus()
+                                    .setCause(this)
+                                    .setMainType(CheckStatus.errorType)
+                                    .setSubtype(Subtype.numbersInMainExemplars)
+                                    .setMessage(
+                                            "Main exemplars should not contain numbers; found "
+                                                    + Character.toString(cp)
+                                                    + " (U+"
+                                                    + String.format("%04X", cp)
+                                                    + " "
+                                                    + Character.getName(cp)
+                                                    + ")"));
+                    return;
+                }
             }
         }
     }

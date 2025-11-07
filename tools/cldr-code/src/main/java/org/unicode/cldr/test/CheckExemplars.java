@@ -220,7 +220,7 @@ public class CheckExemplars extends FactoryCheckCLDR {
                                         .setSubtype(Subtype.auxiliaryExemplarsOverlap)
                                         .setMessage(
                                                 "Auxiliary characters also exist in main: \u200E{0}\u200E",
-                                                new Object[] {fixedExemplar1}));
+                                                fixedExemplar1));
                     }
                 }
             } else if (type == ExemplarType.punctuation) {
@@ -311,7 +311,7 @@ public class CheckExemplars extends FactoryCheckCLDR {
                 }
             }
 
-        } catch (Exception e) {
+        } catch (Exception ignored) {
         } // if these didn't parse, checkExemplar will be called anyway at some point
         return this;
     }
@@ -452,8 +452,7 @@ public class CheckExemplars extends FactoryCheckCLDR {
                             .setMainType(CheckStatus.errorType)
                             .setSubtype(Subtype.internalUnicodeSetFormattingError)
                             .setMessage(
-                                    "Internal Error: formatting not working for {0}",
-                                    new Object[] {exemplar1}));
+                                    "Internal Error: formatting not working for {0}", exemplar1));
         }
         // else if (!v.equals(fixedExemplar1)) {
         // result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType)

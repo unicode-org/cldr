@@ -298,8 +298,11 @@ public class ChartDelta extends Chart {
             for (Entry<String, Counter<ChangeType>> entry : fileCounters.entrySet()) {
                 showTotal(pw, entry.getKey(), entry.getValue());
             }
-            for (String s : badHeaders) {
-                pw.println(s);
+            if (!badHeaders.isEmpty()) {
+                System.out.println("Bad headers: PageId.Unknown with PathHeader");
+                for (String s : badHeaders) {
+                    System.out.println(s);
+                }
             }
             // pw.println("# EOF");
         } catch (IOException e) {

@@ -60,6 +60,7 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CLDRURLS;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.DateConstants;
+import org.unicode.cldr.util.ExemplarSets.ExemplarType;
 import org.unicode.cldr.util.GrammarInfo;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalScope;
@@ -898,7 +899,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                     continue;
                 }
                 CLDRFile cldrFile = testInfo.getCLDRFile(locale, false);
-                UnicodeSet set = cldrFile.getExemplarSet("", WinningChoice.NORMAL);
+                UnicodeSet set = cldrFile.getExemplarSet(ExemplarType.main, WinningChoice.NORMAL);
                 for (String s : set) {
                     int script = UScript.getScript(s.codePointAt(0));
                     if (script != UScript.UNKNOWN

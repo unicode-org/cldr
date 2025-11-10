@@ -52,6 +52,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
+import org.unicode.cldr.util.ExemplarSets.ExemplarType;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
 import org.unicode.cldr.util.LocaleInheritanceInfo.Reason;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
@@ -2369,36 +2370,12 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         return this;
     }
 
-    public UnicodeSet getExemplarSet(String type, WinningChoice winningChoice) {
-        return getExemplarSet(type, winningChoice, UnicodeSet.CASE_INSENSITIVE);
-    }
-
-    public UnicodeSet getExemplarSet(ExemplarType type, WinningChoice winningChoice) {
-        return getExemplarSet(type, winningChoice, UnicodeSet.CASE_INSENSITIVE);
-    }
-
     static final UnicodeSet HACK_CASE_CLOSURE_SET =
             new UnicodeSet(
                             "[ſẛﬀẞ{i̇}\u1F71\u1F73\u1F75\u1F77\u1F79\u1F7B\u1F7D\u1FBB\u1FBE\u1FC9\u1FCB\u1FD3\u1FDB\u1FE3\u1FEB\u1FF9\u1FFB\u2126\u212A\u212B]")
                     .freeze();
 
-    public enum ExemplarType {
-        main,
-        auxiliary,
-        index,
-        punctuation,
-        numbers;
-
-        public static ExemplarType fromString(String type) {
-            return type.isEmpty() ? main : valueOf(type);
-        }
-    }
-
-    public UnicodeSet getExemplarSet(String type, WinningChoice winningChoice, int option) {
-        return getExemplarSet(ExemplarType.fromString(type), winningChoice, option);
-    }
-
-    public UnicodeSet getExemplarSet(ExemplarType type, WinningChoice winningChoice, int option) {
+    public UnicodeSet getExemplarSet(ExemplarType type, WinningChoice winningChoice) {
         UnicodeSet result = getRawExemplarSet(type, winningChoice);
         if (result.isEmpty()) {
             return result.cloneAsThawed();

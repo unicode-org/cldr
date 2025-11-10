@@ -20,7 +20,7 @@ import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
 import org.unicode.cldr.draft.ScriptMetadata.Trinary;
 import org.unicode.cldr.tool.LikelySubtags;
-import org.unicode.cldr.util.CLDRFile.ExemplarType;
+import org.unicode.cldr.util.ExemplarSets.ExemplarType;
 import org.unicode.cldr.util.Iso639Data.Type;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 

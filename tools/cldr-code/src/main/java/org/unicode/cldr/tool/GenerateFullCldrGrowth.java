@@ -5,9 +5,10 @@ import com.google.common.collect.Sets;
 import java.io.IOException;
 import java.nio.file.*;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import org.unicode.cldr.util.CLDRFile;
@@ -19,6 +20,7 @@ import org.unicode.cldr.util.DtdData.Attribute;
 import org.unicode.cldr.util.DtdData.AttributeStatus;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Joiners;
+import org.unicode.cldr.util.Splitters;
 import org.unicode.cldr.util.XPathParts;
 
 public class GenerateFullCldrGrowth {
@@ -38,47 +40,72 @@ public class GenerateFullCldrGrowth {
         }
     }
 
+    static Path archiveDir =
+            Paths.get(CLDRPaths.ARCHIVE_DIRECTORY); // Replace with your directory path
+
     public static void main(String[] args) throws IOException {
-        Path archiveDir =
-                Paths.get(CLDRPaths.ARCHIVE_DIRECTORY); // Replace with your directory path
+        System.out.println(CldrVersion.LAST_RELEASE_EACH_YEAR);
 
-        // get subdirs in alpha order
-        List<Path> orderedCldrDirs =
-                Files.list(archiveDir)
-                        .filter(
-                                x ->
-                                        x.getFileName().toString().startsWith("cldr-")
-                                                && x.getFileName().toString().compareTo("cldr-2")
-                                                        >= 0)
-                        .sorted(Comparator.comparing(Path::getFileName))
-                        .collect(Collectors.toList());
-
-        Path previousRelease = null;
-        System.out.println("Version\t" + Joiners.TAB.join(ChangeType.values()));
-        for (Path release : orderedCldrDirs) {
-            if (previousRelease != null) {
-                compare(release, previousRelease);
+        System.out.println("Version\tYear\t" + Joiners.TAB.join(ChangeType.values()));
+        CldrVersion nextVersion = null;
+        for (CldrVersion previousVersion : CldrVersion.LAST_RELEASE_EACH_YEAR) {
+            if (nextVersion != null) {
+                compare(nextVersion, previousVersion);
             }
-            previousRelease = release;
+            nextVersion = previousVersion;
         }
     }
 
-    private static void compare(Path release, Path previousRelease) throws IOException {
+    static final Set<String> SKIP_COMMON_SUBDIRS =
+            Set.of(
+                    "collation",
+                    "annotations",
+                    "annotationsDerived",
+                    "casing",
+                    "subdivisions",
+                    "supplemental-temp");
+
+    private static void compare(CldrVersion nextVersion, CldrVersion previousVersion)
+            throws IOException {
+        //        if (nextVersion.compareTo(CldrVersion.v2_0_1) > 0) { // for debugging
+        //            return;
+        //        }
+        Path release = archiveDir.resolve("cldr-" + nextVersion + "/common");
+        Path previousRelease = archiveDir.resolve("cldr-" + previousVersion + "/common");
+        int commonIndex = release.getNameCount();
+        Map<Path, String> failures = new TreeMap<>();
+
         Counter<ChangeType> changes = new Counter<>();
-        try (Stream<Path> stream = Files.walk(release.resolve("common"))) {
+        try (Stream<Path> stream =
+                Files.walk(release).collect(Collectors.toList()).parallelStream()) {
             stream.filter(
                             x ->
                                     x.getFileName().toString().endsWith(".xml")
-                                            && !x.toString().contains("/collation/")) //  &&
-                    // x.toString().contains("/annotations/")
-                    .forEach(x -> getChanges(changes, x, replaceBase(x, release, previousRelease)));
+                                            && !SKIP_COMMON_SUBDIRS.contains(
+                                                    x.getName(commonIndex).toString()))
+                    .forEach(
+                            x -> {
+                                String error =
+                                        getChanges(
+                                                changes,
+                                                x,
+                                                replaceBase(x, release, previousRelease));
+                                if (error != null) {
+                                    failures.put(x, error);
+                                }
+                            });
         }
         System.out.println(
-                release.getFileName()
+                nextVersion
+                        + "\t"
+                        + nextVersion.getYear()
                         + "\t"
                         + List.of(ChangeType.values()).stream()
                                 .map(x -> String.valueOf(changes.get(x)))
                                 .collect(Collectors.joining("\t")));
+        if (!failures.isEmpty()) {
+            System.out.println(failures);
+        }
     }
 
     private static Path replaceBase(Path x, Path xPrefix, Path otherPrefix) {
@@ -86,25 +113,44 @@ public class GenerateFullCldrGrowth {
         return otherPrefix.resolve(relativePath);
     }
 
-    private static void getChanges(Counter<ChangeType> changes, Path x, Path previousRelease) {
-        CLDRFile current =
-                CLDRFile.loadFromFile(
-                        x.toFile(), x.getFileName().toString(), DraftStatus.contributed);
-        CLDRFile last =
-                !previousRelease.toFile().exists()
-                        ? null
-                        : CLDRFile.loadFromFile(
-                                previousRelease.toFile(),
-                                previousRelease.getFileName().toString(),
-                                DraftStatus.contributed);
+    private static String getChanges(Counter<ChangeType> changes, Path x, Path previousRelease) {
+        CLDRFile current = null;
+        CLDRFile last = null;
+        try {
+            current =
+                    CLDRFile.loadFromFile(
+                            x.toFile(), x.getFileName().toString(), DraftStatus.contributed);
+            last =
+                    !previousRelease.toFile().exists()
+                            ? null
+                            : CLDRFile.loadFromFile(
+                                    previousRelease.toFile(),
+                                    previousRelease.getFileName().toString(),
+                                    DraftStatus.contributed);
+        } catch (Exception e) {
+            return e.getMessage();
+        }
         boolean mayHaveValueAttributes = current.getDtdType() != DtdType.ldml;
         DtdData dtdData = current.getDtdData();
         // could optimize by finding elements with value attributes and caching
         for (String currentPath : current) {
             String currentValue = current.getStringValue(currentPath);
             String lastValue = last == null ? null : last.getStringValue(currentPath);
-            ChangeType changeType = ChangeType.getDiff(currentValue, lastValue);
-            changes.add(changeType, 1);
+            if (currentPath.contains("/annotations/")) {
+                Set<String> currentSet = getVBarSet(currentValue);
+                Set<String> lastSet = getVBarSet(lastValue);
+                int sameCount = Sets.intersection(currentSet, lastSet).size();
+                changes.add(ChangeType.same, sameCount);
+                int addCount = currentSet.size() - sameCount;
+                int deleteCount = lastSet.size() - sameCount;
+                int changeCount = Math.min(addCount, deleteCount);
+                changes.add(ChangeType.changed, addCount);
+                changes.add(ChangeType.added, addCount - changeCount);
+                changes.add(ChangeType.deleted, deleteCount - changeCount);
+            } else {
+                ChangeType changeType = ChangeType.getDiff(currentValue, lastValue);
+                changes.add(changeType, 1);
+            }
             if (mayHaveValueAttributes) {
                 XPathParts currentParts =
                         XPathParts.getFrozenInstance(current.getFullXPath(currentPath));
@@ -132,5 +178,12 @@ public class GenerateFullCldrGrowth {
                 }
             }
         }
+        return null;
+    }
+
+    private static Set<String> getVBarSet(String currentValue) {
+        return currentValue == null
+                ? Set.of()
+                : Set.copyOf(Splitters.VBAR.splitToList(currentValue));
     }
 }

@@ -53,6 +53,7 @@ import org.unicode.cldr.draft.ScriptMetadata.Info;
 import org.unicode.cldr.util.ArrayComparator;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.ExemplarType;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
@@ -619,7 +620,11 @@ public class ShowLanguages {
                 } catch (RuntimeException e) {
                     scriptSet = new UnicodeSet();
                 }
-                UnicodeSet exemplars = nativeLanguage.getExemplarSet("", WinningChoice.WINNING);
+                UnicodeSet exemplars =
+                        nativeLanguage.getExemplarSet(
+                                ExemplarType.main,
+                                WinningChoice.WINNING,
+                                UnicodeSet.CASE_INSENSITIVE);
                 if (scriptSet.containsNone(exemplars)) {
                     System.out.println(
                             "Skipping CLDR file -- exemplars differ: "
@@ -1009,14 +1014,14 @@ public class ShowLanguages {
             script_languages = Multimaps.invertFrom(language_scripts, TreeMultimap.create());
 
             // now get some metadata
-            localeAliasInfo.put("language", new TreeMap<String, String>());
-            localeAliasInfo.put("script", new TreeMap<String, String>());
-            localeAliasInfo.put("territory", new TreeMap<String, String>());
-            localeAliasInfo.put("variant", new TreeMap<String, String>());
-            localeAliasInfo.put("zone", new TreeMap<String, String>());
-            localeAliasInfo.put("subdivision", new TreeMap<String, String>());
-            localeAliasInfo.put("unit", new TreeMap<String, String>());
-            localeAliasInfo.put("usage", new TreeMap<String, String>());
+            localeAliasInfo.put("language", new TreeMap<>());
+            localeAliasInfo.put("script", new TreeMap<>());
+            localeAliasInfo.put("territory", new TreeMap<>());
+            localeAliasInfo.put("variant", new TreeMap<>());
+            localeAliasInfo.put("zone", new TreeMap<>());
+            localeAliasInfo.put("subdivision", new TreeMap<>());
+            localeAliasInfo.put("unit", new TreeMap<>());
+            localeAliasInfo.put("usage", new TreeMap<>());
 
             // localeAliasInfo.get("language").put("nb", "no");
             localeAliasInfo.get("language").put("zh_CN", "zh_Hans_CN");
@@ -2613,7 +2618,7 @@ public class ShowLanguages {
                             new FormattedFileWriter(null, title, null, SUPPLEMENTAL_INDEX_ANCHORS));
             // doTitle(pw, title);
             List<String[]> rows = new ArrayList<>();
-            printContains3("001", rows, new ArrayList<String>());
+            printContains3("001", rows, new ArrayList<>());
             TablePrinter tablePrinter =
                     new TablePrinter()
                             .addColumn("World", "class='source'", null, "class='z0'", true)

@@ -124,6 +124,7 @@ public class CheckExemplars extends FactoryCheckCLDR {
         public final UnicodeSet toRemove;
         public final String message;
         public final boolean convertUppercase;
+        public final CLDRFile.ExemplarType cldr;
 
         ExemplarType(UnicodeSet allowed, String message, boolean convertUppercase) {
             if (!allowed.isFrozen()) {
@@ -133,6 +134,7 @@ public class CheckExemplars extends FactoryCheckCLDR {
             this.message = message;
             this.toRemove = new UnicodeSet(allowed).complement().freeze();
             this.convertUppercase = convertUppercase;
+            cldr = CLDRFile.ExemplarType.fromString(name());
         }
 
         public static ExemplarType from(String name) {
@@ -165,7 +167,10 @@ public class CheckExemplars extends FactoryCheckCLDR {
         if (!SUPPRESS_AUX_EMPTY_CHECK) {
             UnicodeSet auxiliarySet =
                     getResolvedCldrFileToCheck()
-                            .getExemplarSet("auxiliary", CLDRFile.WinningChoice.WINNING);
+                            .getExemplarSet(
+                                    ExemplarType.auxiliary.cldr,
+                                    CLDRFile.WinningChoice.WINNING,
+                                    UnicodeSet.CASE_INSENSITIVE);
 
             if (auxiliarySet == null) {
                 possibleErrors.add(
@@ -199,7 +204,11 @@ public class CheckExemplars extends FactoryCheckCLDR {
         // check relation to auxiliary set
         try {
             UnicodeSet mainSet =
-                    getResolvedCldrFileToCheck().getExemplarSet("", CLDRFile.WinningChoice.WINNING);
+                    getResolvedCldrFileToCheck()
+                            .getExemplarSet(
+                                    ExemplarType.main.cldr,
+                                    CLDRFile.WinningChoice.WINNING,
+                                    UnicodeSet.CASE_INSENSITIVE);
             if (type == ExemplarType.auxiliary) {
                 UnicodeSet auxiliarySet = SimpleUnicodeSetFormatter.parseLenient(value);
 
@@ -258,7 +267,10 @@ public class CheckExemplars extends FactoryCheckCLDR {
                 // auxiliary exemplars
                 UnicodeSet auxiliarySet =
                         getResolvedCldrFileToCheck()
-                                .getExemplarSet("auxiliary", CLDRFile.WinningChoice.WINNING);
+                                .getExemplarSet(
+                                        ExemplarType.auxiliary.cldr,
+                                        CLDRFile.WinningChoice.WINNING,
+                                        UnicodeSet.CASE_INSENSITIVE);
                 if (auxiliarySet == null) {
                     auxiliarySet = new UnicodeSet();
                 }

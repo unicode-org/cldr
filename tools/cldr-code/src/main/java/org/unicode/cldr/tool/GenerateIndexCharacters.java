@@ -44,7 +44,11 @@ public class GenerateIndexCharacters {
         // ICU.
         AlphabeticIndex<String> index = new AlphabeticIndex<>(uLocale);
         index.clearRecords();
-        UnicodeSet indexLabels = cFile.getExemplarSet("index", WinningChoice.WINNING);
+        UnicodeSet indexLabels =
+                cFile.getExemplarSet(
+                        org.unicode.cldr.util.CLDRFile.ExemplarType.main,
+                        WinningChoice.WINNING,
+                        UnicodeSet.CASE_INSENSITIVE);
         if (indexLabels != null && indexLabels.size() > 0) {
             index.addLabels(indexLabels);
         }

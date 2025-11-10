@@ -8,7 +8,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!ELEMENT supplementalData ( version, generation?, cldrVersion?, currencyData?, territoryContainment?, subdivisionContainment?, languageData?, scriptData?, territoryInfo?, postalCodeData?, calendarData?, calendarPreferenceData?, weekData?, timeData?, measurementData?, unitIdComponents?, unitPrefixes?, unitConstants*, unitQuantities*, convertUnits*, unitPreferenceData?, timezoneData?, characters?, transforms?, metadata?, codeMappings?, parentLocales*, personNamesDefaults?, likelySubtags?, metazoneInfo?, plurals?, telephoneCodeData?, numberingSystems?, bcp47KeywordMappings?, gender?, references?, languageMatching?, dayPeriodRuleSet*, metaZones?, primaryZones?, windowsZones?, coverageLevels?, idValidity?, rgScope?, languageGroups?, grammaticalData? ) >
 
 <!ATTLIST supplementalData version CDATA #IMPLIED >
-    <!--@MATCH:any-->
+    <!--@MATCH:version-->
     <!--@METADATA-->
     <!--@DEPRECATED-->
 

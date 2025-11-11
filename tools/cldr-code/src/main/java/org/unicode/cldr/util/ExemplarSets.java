@@ -11,20 +11,28 @@ public class ExemplarSets {
             new UnicodeSet(
                             "[[[:Nd:][:script=common:][:script=inherited:]-[:Default_Ignorable_Code_Point:]-[:C:] - [_]] [\u05BE \u05F3 \u066A-\u066C]"
                                     + "[[؉][་ །༌][ཱ]‎‎{য়}য়]"
-                                    + // TODO Fix this Hack
+                                    + // TODO Fix this Hack; reference:
+                                    // https://unicode-org.atlassian.net/browse/CLDR-19115
                                     "-[❮❯]]")
                     .freeze(); // [\\u200c-\\u200f]
     // [:script=common:][:script=inherited:]
 
     public static final UnicodeSet HangulSyllables =
             new UnicodeSet("[[:Hangul_Syllable_Type=LVT:][:Hangul_Syllable_Type=LV:]]").freeze();
-    public static final BitSet Japn = new BitSet();
+    public static final BitSet Jpan = new BitSet();
     public static final BitSet Kore = new BitSet();
 
+    /*
+    TODO: all of this should be dynamic, using the script data as below:
+    <scriptData>
+                <scriptVariant type="compound" id='Hanb' base='Hani Bopo'/> <!-- Han with Bopomofo (alias for Han + Bopomofo) -->
+        ...
+        Reference: https://unicode-org.atlassian.net/browse/CLDR-18950
+     */
     static {
-        ExemplarSets.Japn.set(UScript.HAN);
-        ExemplarSets.Japn.set(UScript.HIRAGANA);
-        ExemplarSets.Japn.set(UScript.KATAKANA);
+        ExemplarSets.Jpan.set(UScript.HAN);
+        ExemplarSets.Jpan.set(UScript.HIRAGANA);
+        ExemplarSets.Jpan.set(UScript.KATAKANA);
         ExemplarSets.Kore.set(UScript.HAN);
         ExemplarSets.Kore.set(UScript.HANGUL);
     }

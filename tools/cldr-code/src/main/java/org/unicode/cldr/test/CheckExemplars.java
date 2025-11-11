@@ -290,7 +290,7 @@ public class CheckExemplars extends FactoryCheckCLDR {
             return; // allow 2 scripts in exemplars for currencies.
         }
         // allowable combinations
-        if (s.equals(ExemplarSets.Japn) || s.equals(ExemplarSets.Kore)) {
+        if (s.equals(ExemplarSets.Jpan) || s.equals(ExemplarSets.Kore)) {
             return;
         }
         StringBuilder scripts = new StringBuilder();

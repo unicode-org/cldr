@@ -1,0 +1,254 @@
+<?xml version="1.0"?>
+<keyboard3 xmlns="https://schemas.unicode.org/cldr/45/keyboard3" locale="sa-Deva"
+  conformsTo="47" draft="contributed" >
+  <info author="Andrew Glass" name="Sanskrit (Phonetic)"
+    layout="QWERTY" indicator="\u{0938}\u{0902}" />
+  <version number="1.0.1"/>
+  <keys>
+    <import base="cldr" path="47/keys-Zyyy-punctuation.xml"/>
+    <import base="cldr" path="47/keys-Zyyy-currency.xml"/>
+
+    <!-- gap -->
+      <key id="gap" gap="true" width="1" />
+
+    <!-- Special -->
+      <key id="q"          output="\u{0950}" />
+      <key id="Q"          output="\u{0950}" />
+
+    <!-- Full vowels -->
+      <key id="a"          output="\u{0905}" />
+      <key id="A"          output="\u{0906}" />
+      <key id="i"          output="\u{0907}" />
+      <key id="I"          output="\u{0908}" />
+      <key id="u"          output="\u{0909}" />
+      <key id="U"          output="\u{090A}" />
+      <key id="alt_r"      output="\u{090B}" />
+      <key id="alt_R"      output="\u{0960}" />
+      <key id="alt_l"      output="\u{090C}" />
+      <key id="alt_L"      output="\u{0961}" />
+      <key id="e"          output="\u{090F}" />
+      <key id="E"          output="\u{0910}" />
+      <key id="o"          output="\u{0913}" />
+      <key id="O"          output="\u{0914}" />
+
+    <!-- Vowel modifiers -->
+      <key id="alt_M"      output="\u{0901}" />
+      <key id="alt_m"      output="\u{0902}" />
+      <key id="virama"     output="\u{0903}" />
+      <key id="alt_comma"  output="\u{094D}" />
+      <key id="alt_period" output="\u{093C}" />
+
+    <!-- Consonants -->
+      <key id="k"          output="\u{0915}\u{094D}" />
+      <key id="K"          output="\u{0916}\u{094D}" />
+      <key id="g"          output="\u{0917}\u{094D}" />
+      <key id="G"          output="\u{0918}\u{094D}" />
+      <key id="alt_g"      output="\u{0919}\u{094D}" />
+      <key id="c"          output="\u{091A}\u{094D}" />
+      <key id="alt_c"      output="\u{A8F8}" />
+      <key id="C"          output="\u{091B}\u{094D}" />
+      <key id="j"          output="\u{091C}\u{094D}" />
+      <key id="J"          output="\u{091D}\u{094D}" />
+      <key id="alt_y"      output="\u{091E}\u{094D}" />
+      <key id="alt_t"      output="\u{091F}\u{094D}" />
+      <key id="alt_T"      output="\u{0920}\u{094D}" />
+      <key id="alt_d"      output="\u{0921}\u{094D}" />
+      <key id="alt_D"      output="\u{0922}\u{094D}" />
+      <key id="alt_n"      output="\u{0923}\u{094D}" />
+      <key id="t"          output="\u{0924}\u{094D}" />
+      <key id="T"          output="\u{0925}\u{094D}" />
+      <key id="d"          output="\u{0926}\u{094D}" />
+      <key id="D"          output="\u{0927}\u{094D}" />
+      <key id="n"          output="\u{0928}\u{094D}" />
+      <key id="p"          output="\u{092A}\u{094D}" />
+      <key id="P"          output="\u{092B}\u{094D}" />
+      <key id="b"          output="\u{092C}\u{094D}" />
+      <key id="B"          output="\u{092D}\u{094D}" />
+      <key id="m"          output="\u{092E}\u{094D}" />
+      <key id="y"          output="\u{092F}\u{094D}" />
+      <key id="r"          output="\u{0930}\u{094D}" />
+      <key id="l"          output="\u{0932}\u{094D}" />
+      <key id="L"          output="\u{0933}\u{094D}" />
+      <key id="v"          output="\u{0935}\u{094D}" />
+      <key id="w"          output="\u{0935}\u{094D}" />
+      <key id="alt_s"      output="\u{0936}\u{094D}" />
+      <key id="alt_x"      output="\u{0937}\u{094D}" />
+      <key id="s"          output="\u{0938}\u{094D}" />
+      <key id="h"          output="\u{0939}\u{094D}" />
+
+    <!-- Digits -->
+      <key id="0"          output="\u{0966}" />
+      <key id="1"          output="\u{0967}" />
+      <key id="2"          output="\u{0968}" />
+      <key id="3"          output="\u{0969}" />
+      <key id="4"          output="\u{096A}" />
+      <key id="5"          output="\u{096B}" />
+      <key id="6"          output="\u{096C}" />
+      <key id="7"          output="\u{096D}" />
+      <key id="8"          output="\u{096E}" />
+      <key id="9"          output="\u{096F}" />
+
+    <!-- Punctuation -->
+      <key id="alt_a"      output="\u{093D}" />
+      <key id="pipe"       output="\u{0964}" />
+      <key id="alt_0"      output="\u{0970}" />
+      <key id="alt_slash"  output="\u{221A}" />
+      <key id="alt_pipe"   output="\u{0951}" />
+      <key id="alt_hyphen" output="\u{0952}" />
+      <key id="nbsp"       output="\u{00A0}" />
+      <key id="shftalt_0"  output="\u{A8F9}" />
+      <key id="shftalt_6"  output="\u{A8FA}" />
+      <key id="alt_hyphen" output="\u{A8FB}" />
+      <key id="siddham"    output="\u{A8FC}" />
+      <key id="alt_grave"  output="\u{A8FD}" />
+
+    <!-- Mark -->
+      <key id="alt_apos"   output="\m{SUPER}" />
+  </keys>
+
+  <layers formId="us">
+    <layer modifiers="none">
+      <row keys="siddham 1 2 3 4 5 6 7 8 9 0 hyphen equal"/>
+      <row keys="q w e r t y u i o p open-square close-square pipe"/>
+      <row keys="a s d f g h j k l virama apos"/>
+      <row keys="z x c v b n m comma period slash"/>
+      <row keys="space"/>
+    </layer>
+    <layer modifiers="shift">
+      <row keys="tilde bang at hash dollar percent caret amp asterisk open-paren close-paren underscore plus"/>
+      <row keys="Q W E R T Y U I O P open-curly close-curly pipe"/>
+      <row keys="A S D F G H J K L virama double-quote"/>
+      <row keys="Z X C V B N M open-angle close-angle question"/>
+      <row keys="space"/>
+    </layer>
+    <layer modifiers="caps">
+      <row keys="siddham 1 2 3 4 5 6 7 8 9 0 hyphen equal"/>
+      <row keys="Q W E R T Y U I O P open-square close-square backslash"/>
+      <row keys="A S D F G H J K L semi-colon apos"/>
+      <row keys="Z X C V B N M comma period slash"/>
+      <row keys="space"/>
+    </layer>
+    <layer modifiers="shift caps">
+      <row keys="tilde bang at hash dollar percent caret amp asterisk open-paren close-paren underscore plus"/>
+      <row keys="q w e r t y u i o p open-curly close-curly pipe"/>
+      <row keys="a s d f g h j k l colon double-quote"/>
+      <row keys="z x c v b n m open-angle close-angle question"/>
+      <row keys="space"/>
+    </layer>
+    <layer modifiers="altR">
+      <row keys="alt_grave gap gap gap gap gap gap gap gap gap alt_0 alt_hyphen equal"/>
+      <row keys="gap gap gap alt_r alt_t alt_y gap gap gap gap gap gap alt_pipe"/>
+      <row keys="alt_a alt_s alt_d gap alt_g virama gap gap alt_l gap alt_apos"/>
+      <row keys="gap alt_x alt_c gap gap alt_n alt_m alt_comma alt_period alt_slash"/>
+      <row keys="nbsp"/>
+    </layer>
+    <layer modifiers="shift altR">
+      <row keys="gap gap gap gap gap gap shftalt_6 gap gap gap shftalt_0 alt_hyphen gap"/>
+      <row keys="gap gap gap alt_R gap gap gap gap gap gap gap gap alt_pipe"/>
+      <row keys="gap gap gap gap gap gap gap gap alt_L gap gap"/>
+      <row keys="gap gap alt_c gap gap gap alt_M gap gap gap"/>
+      <row keys="gap"/>
+    </layer>
+  </layers>
+
+  <variables>
+    <uset id="consonants" value="[\u{0915}-\u{0928} \u{092A}-\u{0930} \u{0932} \u{0933} \u{0935}-\u{0939}]"/>
+  </variables>
+
+  <transforms type="simple">
+    <transformGroup> <!-- Avagraha -->
+      <transform from="\u{0947} \u{0905}" to="\u{0947} \u{093D}" />
+      <transform from="\u{094B} \u{0905}" to="\u{094B} \u{093D}" />
+    </transformGroup>
+
+    <transformGroup> <!-- Candrabindu -->
+      <transform from="\u{0020}\u{0901}"  to="\u{A8F2}" />
+      <transform from="\m{SUPER}\u{0901}" to="\u{A8F2}" />
+      <transform from="\u{A8F2}\u{094D}"  to="\u{A8F3}" />
+      <transform from="\u{A8F2}\u{0901}"  to="\u{A8F4}" />
+      <transform from="\u{0968}\u{0901}"  to="\u{A8F5}" />
+      <transform from="\u{0969}\u{0901}"  to="\u{A8F6}" />
+      <transform from="\u{093D}\u{0901}"  to="\u{A8F7}" />
+    </transformGroup>
+
+    <transformGroup> <!-- Long vowels -->
+      <transform from="\u{0905}\u{0905}" to="\u{0906}" />
+      <transform from="\u{0907}\u{0907}" to="\u{0908}" />
+      <transform from="\u{0909}\u{0909}" to="\u{090A}" />
+      <transform from="\u{090B}\u{090B}" to="\u{0960}" />
+      <transform from="\u{0905}\u{0907}" to="\u{0910}" />
+      <transform from="\u{0905}\u{0909}" to="\u{0914}" />
+      <transform from="\u{090F}\u{090F}" to="\u{0910}" />
+      <transform from="\u{0913}\u{0913}" to="\u{0914}" />
+
+      <transform from="\u{093F}\u{0907}" to="\u{0940}" />
+      <transform from="\u{0941}\u{0909}" to="\u{0942}" />
+      <transform from="\u{0943}\u{090B}" to="\u{0944}" />
+      <transform from="\u{0947}\u{090F}" to="\u{0948}" />
+      <transform from="\u{094B}\u{0913}" to="\u{094C}" />
+    </transformGroup>
+
+    <transformGroup> <!-- Dependent vowel a-->
+      <transform from="($[consonants])\m{A}\u{0905}" to="$1\u{093E}" />
+      <transform from="($[consonants])\m{A}\u{0907}" to="$1\u{0948}" />
+      <transform from="($[consonants])\m{A}\u{0909}" to="$1\u{094C}" />
+      <transform from="($[consonants])\u{094D}\u{0905}" to="$1\m{A}" />
+      <transform from="($[consonants]\u{093C})\u{094D}\u{0905}" to="$1" />
+    </transformGroup>
+
+    <transformGroup> <!-- Dependent vowels not a-->
+      <transform from="\u{094D}\u{0906}" to="\u{093E}" />
+      <transform from="\u{094D}\u{0907}" to="\u{093F}" />
+      <transform from="\u{094D}\u{0908}" to="\u{0940}" />
+      <transform from="\u{094D}\u{0909}" to="\u{0941}" />
+      <transform from="\u{094D}\u{090A}" to="\u{0942}" />
+      <transform from="\u{094D}\u{090B}" to="\u{0943}" />
+      <transform from="\u{094D}\u{0960}" to="\u{0944}" />
+      <transform from="\u{094D}\u{090C}" to="\u{0962}" />
+      <transform from="\u{094D}\u{0961}" to="\u{0963}" />
+      <transform from="\u{094D}\u{090F}" to="\u{0947}" />
+      <transform from="\u{094D}\u{0910}" to="\u{0948}" />
+      <transform from="\u{094D}\u{0913}" to="\u{094B}" />
+      <transform from="\u{094D}\u{0914}" to="\u{094C}" />
+    </transformGroup>
+
+    <transformGroup> <!-- Aspirated consonants -->
+      <transform from="\u{0915}\u{094D}\u{0939}\u{094D}" to="\u{0916}\u{094D}" /> <!-- kh -->
+      <transform from="\u{0917}\u{094D}\u{0939}\u{094D}" to="\u{0918}\u{094D}" /> <!-- gh --> 
+      <transform from="\u{091A}\u{094D}\u{0939}\u{094D}" to="\u{091B}\u{094D}" /> <!-- ch -->
+      <transform from="\u{091C}\u{094D}\u{0939}\u{094D}" to="\u{091D}\u{094D}" /> <!-- jh -->
+      <transform from="\u{091F}\u{094D}\u{0939}\u{094D}" to="\u{0920}\u{094D}" /> <!-- ṭh -->
+      <transform from="\u{0921}\u{094D}\u{0939}\u{094D}" to="\u{0922}\u{094D}" /> <!-- ḍh -->
+      <transform from="\u{0924}\u{094D}\u{0939}\u{094D}" to="\u{0925}\u{094D}" /> <!-- th -->
+      <transform from="\u{0926}\u{094D}\u{0939}\u{094D}" to="\u{0927}\u{094D}" /> <!-- dh -->
+      <transform from="\u{092A}\u{094D}\u{0939}\u{094D}" to="\u{092B}\u{094D}" /> <!-- ph -->
+      <transform from="\u{092C}\u{094D}\u{0939}\u{094D}" to="\u{092D}\u{094D}" /> <!-- bh -->
+    </transformGroup>
+
+    <transformGroup> <!-- Punctuation -->
+      <transform from="\u{0964}\u{0964}" to="\u{0965}" />
+    </transformGroup>
+
+    <transformGroup> <!-- Cantillation marks -->
+      <transform from="\m{SUPER}\u{0966}" to="\u{A8E0}" /> <!-- 0 -->
+      <transform from="\m{SUPER}\u{0967}" to="\u{A8E1}" /> <!-- 1 -->
+      <transform from="\m{SUPER}\u{0968}" to="\u{A8E2}" /> <!-- 2 -->
+      <transform from="\m{SUPER}\u{0969}" to="\u{A8E3}" /> <!-- 3 -->
+      <transform from="\m{SUPER}\u{096A}" to="\u{A8E4}" /> <!-- 4 -->
+      <transform from="\m{SUPER}\u{096B}" to="\u{A8E5}" /> <!-- 5 -->
+      <transform from="\m{SUPER}\u{096C}" to="\u{A8E6}" /> <!-- 6 -->
+      <transform from="\m{SUPER}\u{096D}" to="\u{A8E7}" /> <!-- 7 -->
+      <transform from="\m{SUPER}\u{096E}" to="\u{A8E8}" /> <!-- 8 -->
+      <transform from="\m{SUPER}\u{096F}" to="\u{A8E9}" /> <!-- 9 -->
+      <transform from="\m{SUPER}\u{0905}" to="\u{A8EA}" /> <!-- A -->
+      <transform from="\m{SUPER}\u{0909}" to="\u{A8EB}" /> <!-- U -->
+      <transform from="\m{SUPER}\u{0915}" to="\u{A8EC}" /> <!-- KA -->
+      <transform from="\m{SUPER}\u{0928}" to="\u{A8ED}" /> <!-- NA -->
+      <transform from="\m{SUPER}\u{092A}" to="\u{A8EE}" /> <!-- PA -->
+      <transform from="\m{SUPER}\u{0930}" to="\u{A8EF}" /> <!-- RA -->
+      <transform from="\m{SUPER}\u{0935}" to="\u{A8F0}" /> <!-- VI -->
+      <transform from="\m{SUPER}\u{093D}" to="\u{A8F1}" /> <!-- Avagraha -->
+    </transformGroup>
+
+  </transforms>
+</keyboard3>

@@ -14,8 +14,8 @@ import org.unicode.cldr.test.DisplayAndInputProcessor.NumericType;
 import org.unicode.cldr.test.DisplayAndInputProcessor.PathSpaceType;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRFile.ExemplarType;
 import org.unicode.cldr.util.CodePointEscaper;
+import org.unicode.cldr.util.ExemplarSets.ExemplarType;
 import org.unicode.cldr.util.Factory;
 
 public class TestDisplayAndInputProcessor extends TestFmwk {

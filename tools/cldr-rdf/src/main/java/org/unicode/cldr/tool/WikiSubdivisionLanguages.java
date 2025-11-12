@@ -44,6 +44,7 @@ import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.ChainedMap.M4;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
+import org.unicode.cldr.util.ExemplarSets.ExemplarType;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleXMLSource;
@@ -227,9 +228,11 @@ public final class WikiSubdivisionLanguages {
             Multimap<String, String> inverse = LinkedHashMultimap.create();
             CLDRFile fileSubdivisions = fixedFile(oldFileSubdivisions, inverse);
 
-            UnicodeSet main = file.getExemplarSet("", WinningChoice.WINNING, 0);
-            UnicodeSet auxiliary = file.getExemplarSet("auxiliary", WinningChoice.WINNING);
-            UnicodeSet punctuation = file.getExemplarSet("punctuation", WinningChoice.WINNING);
+            UnicodeSet main = file.getExemplarSet(ExemplarType.main, WinningChoice.WINNING);
+            UnicodeSet auxiliary =
+                    file.getExemplarSet(ExemplarType.auxiliary, WinningChoice.WINNING);
+            UnicodeSet punctuation =
+                    file.getExemplarSet(ExemplarType.punctuation, WinningChoice.WINNING);
             UnicodeSet numbers = file.getExemplarsNumeric(NumberingSystem.defaultSystem);
             exemplars =
                     new UnicodeSet()

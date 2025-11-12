@@ -59,6 +59,7 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CLDRTool;
 import org.unicode.cldr.util.CLDRURLS;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.ExemplarSets.ExemplarType;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.FileCopier;
 import org.unicode.cldr.util.Iso639Data;
@@ -619,7 +620,8 @@ public class ShowLanguages {
                 } catch (RuntimeException e) {
                     scriptSet = new UnicodeSet();
                 }
-                UnicodeSet exemplars = nativeLanguage.getExemplarSet("", WinningChoice.WINNING);
+                UnicodeSet exemplars =
+                        nativeLanguage.getExemplarSet(ExemplarType.main, WinningChoice.WINNING);
                 if (scriptSet.containsNone(exemplars)) {
                     System.out.println(
                             "Skipping CLDR file -- exemplars differ: "

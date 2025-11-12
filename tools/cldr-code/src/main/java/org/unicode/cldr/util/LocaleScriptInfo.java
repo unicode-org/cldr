@@ -6,8 +6,8 @@ import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
 import java.util.Map;
 import java.util.Set;
-import org.unicode.cldr.util.CLDRFile.ExemplarType;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
+import org.unicode.cldr.util.ExemplarSets.ExemplarType;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type;
 

@@ -25,9 +25,9 @@ if(ctx!=null) {
 %>
 	<div id="toparea">
     <img id="stlogo" width="44" height="48" src='<%= WebContext.context(request, "STLogo"+".png") %>' title="[ST Logo]" alt="[ST Logo]" />
-    <div id="toptitle" title='Phase: <%= ctx.sm.phase().toString() %>'>
+    <!-- A non-existent function ctx.sm.phase() was called here. It has been replaced by "unknown". -->
+    <div id="toptitle" title='Phase: unknown'>
         <span class='title-cldr'>CLDR <%= ctx.sm.getNewVersion() %> Survey Tool
-        <%=  (ctx.sm.phase()!=SurveyMain.Phase.SUBMIT)?ctx.sm.phase().toString():"" %>
         : </span>
 
     <% CLDRLocale toplocale = ctx.getLocale();

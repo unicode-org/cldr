@@ -305,7 +305,7 @@ Changes to these items require CLDR Technical Committee review.
 
 After hitting that **Request** button, you'll see the following.
 
-![Request Justification](request-justification.png)
+![Request Justification](/images/request-justification.png)
 
 Here is the process:
 

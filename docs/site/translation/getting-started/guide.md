@@ -301,7 +301,7 @@ Changes to these items require CLDR Technical Committee review.
 
 <!--![alt-text](../../images/gettingStartedGuideCharsInUse.jpeg) -->
 
-![Request for Review](docs/site/images/request-review.png)
+![Request for Review](/images/request-review.png)
 
 After hitting that **Request** button, you'll see the following.
 

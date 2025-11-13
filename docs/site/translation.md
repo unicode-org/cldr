@@ -131,18 +131,18 @@ New examples and warnings have been added to help you see the issues:
 Intervals have "Related Flexible Dates" that show inconsistencies between the intervals and flexible. 
 For example, in the following the era (n.C.) is on the opposite side.
 
-![Related dates display](related-dates-display.png)
+![Related dates display](/images/related-dates-display.png)
 
 Available formats show related formats. 
 For example, in the following the format with the day of the week (So) has zero-padded hours, while the format without the day of the week doesn't.
 
-![Related time display](related-time-display.png)
+![Related time display](/images/related-time-display.png)
 
 New warnings are available for cases where the removal of an era (G), day-of-week (E), or timezone (v) changes the pattern unexpectedly. 
 In the warning below, one pattern is in the order **year-month-day** and has **zero-padded** days (dd), 
 while the other is in the order **day-month-year**, with **unpadded days** (d). 
 
-![Date pattern warning](date-pattern-warning.png)
+![Date pattern warning](/images/date-pattern-warning.png)
 
 **Note that `y` is favored over `yy` in date patterns.**
 The `y` will show the year 2011 as "2011", while `yy` will truncate to "11", which could be a year, month, or day:

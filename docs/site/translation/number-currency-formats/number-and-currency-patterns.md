@@ -132,7 +132,7 @@ X digit-other
 
 There are special patterns for formatting rational fractions, such as in the following:
 
-![Rationals](docs/site/images/rationals.png)
+![Rationals](/images/rationals.png)
 
 As usual, different numbering systems used in your language can have different patterns. Here are the different fields for you to vote for.
 

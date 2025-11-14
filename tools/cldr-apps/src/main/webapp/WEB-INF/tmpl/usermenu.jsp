@@ -17,8 +17,7 @@ String helpName = ctx.getString("helpName");
     		%><%@ include file="/WEB-INF/tmpl/small_login.jsp" %><%
     		ctx.println("</form>");
 
-        	// A non-existent function ctx.getCoverageSetting was called here. It has been replaced by null.
-    		String curSetting = null;
+    		String curSetting = ctx.getEffectiveCoverageLevel();
     		if(curSetting!=null && !curSetting.equals(WebContext.COVLEV_RECOMMENDED)) {
     			ctx.println("<span style='border: 2px solid blue'>");
     		}

@@ -868,7 +868,7 @@ public class WebContext implements Cloneable, Appendable {
                         .contains(org.toLowerCase()));
     }
 
-    // WARNING: this is accessed by possibleProblems.jsp
+    // WARNING: this is accessed by possibleProblems.jsp and usermenu.jsp
     public String getEffectiveCoverageLevel() {
         return getEffectiveCoverageLevel(getLocale().toString());
     }

@@ -23,7 +23,6 @@ import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.RecordingCLDRFile;
-import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.XMLSource;
 
 @CLDRTool(alias = "generate-example-dependencies", description = "Generate example dependencies")
@@ -70,8 +69,6 @@ public class GenerateExampleDependencies {
 
     private final boolean verbose;
 
-    private final Set<String> rootOnlyPaths = new HashSet<>();
-
     public static void main(String[] args) throws IOException {
         GenerateExampleDependencies.MyOptions.parse(args);
         Matcher fileFilter =
@@ -104,9 +101,6 @@ public class GenerateExampleDependencies {
                 continue;
             }
             locales.add(file);
-        }
-        for (String s : new SimpleXMLSource("root")) {
-            rootOnlyPaths.add(s);
         }
     }
 
@@ -141,10 +135,6 @@ public class GenerateExampleDependencies {
     }
 
     private void addDependenciesForLocale(Multimap<String, String> dependencies, String localeId) {
-        for (String path : new SimpleXMLSource(localeId)) {
-            rootOnlyPaths.remove(path);
-        }
-
         RecordingCLDRFile cldrFile = makeRecordingCldrFile(localeId);
         cldrFile.disableCaching();
 

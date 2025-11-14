@@ -430,7 +430,7 @@ public class VerifyZones {
                 .setHeaderCell(true)
                 .setHeaderAttributes("class='dtf-th'")
                 .setCellAttributes("class='dtf-s'");
-        ZoneFormats englishZoneFormats = new ZoneFormats().set(englishCldrFile);
+        ZoneFormats englishZoneFormats = new ZoneFormats(englishCldrFile);
         addZones(englishZoneFormats, nativeCdrFile, timezoneFilter, tablePrinter);
 
         out.append(tablePrinter.toString() + "\n");

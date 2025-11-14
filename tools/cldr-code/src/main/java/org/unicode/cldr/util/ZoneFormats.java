@@ -6,11 +6,19 @@ import com.ibm.icu.util.TimeZone;
 import java.util.Locale;
 
 public class ZoneFormats {
-    private String gmtFormat;
-    private String hourFormat;
-    private String[] hourFormatPlusMinus;
-    private ICUServiceBuilder icuServiceBuilder = new ICUServiceBuilder();
+    private final String gmtFormat;
+    private final String hourFormat;
+    private final String[] hourFormatPlusMinus;
+    private final ICUServiceBuilder icuServiceBuilder;
     CLDRFile cldrFile;
+
+    public ZoneFormats(CLDRFile cldrFile) {
+        this.cldrFile = cldrFile;
+        this.gmtFormat = cldrFile.getWinningValue("//ldml/dates/timeZoneNames/gmtFormat");
+        this.hourFormat = cldrFile.getWinningValue("//ldml/dates/timeZoneNames/hourFormat");
+        this.hourFormatPlusMinus = hourFormat.split(";");
+        this.icuServiceBuilder = new ICUServiceBuilder(cldrFile);
+    }
 
     public enum Length {
         LONG,
@@ -27,16 +35,6 @@ public class ZoneFormats {
         standard,
         daylight,
         genericOrStandard
-    }
-
-    public ZoneFormats set(CLDRFile cldrFile) {
-        this.cldrFile = cldrFile;
-
-        gmtFormat = cldrFile.getWinningValue("//ldml/dates/timeZoneNames/gmtFormat");
-        hourFormat = cldrFile.getWinningValue("//ldml/dates/timeZoneNames/hourFormat");
-        hourFormatPlusMinus = hourFormat.split(";");
-        icuServiceBuilder.setCldrFile(cldrFile);
-        return this;
     }
 
     public String formatGMT(TimeZone currentZone) {

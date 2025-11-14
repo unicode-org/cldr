@@ -49,7 +49,7 @@ public class GenerateSeedDurations {
                             + testInfo.getEnglish().nameGetter().getNameFromIdentifier(locale);
             System.out.println("\n" + localeString);
 
-            DateTimeFormats formats = new DateTimeFormats().set(cldrFile, "gregorian");
+            DateTimeFormats formats = new DateTimeFormats(cldrFile, "gregorian");
             System.out.println("    <numericUnits>");
             for (String numericUnit : numericUnits) {
                 SimpleDateFormat pattern = formats.getDateFormatFromSkeleton(numericUnit);

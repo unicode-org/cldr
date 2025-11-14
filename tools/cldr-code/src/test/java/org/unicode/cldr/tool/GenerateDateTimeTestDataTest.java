@@ -36,9 +36,7 @@ public class GenerateDateTimeTestDataTest {
             String localeStr = locale.getName();
             CLDRFile localeCldrFile = GenerateDateTimeTestData.getCLDRFile(localeStr).orElse(null);
             assert localeCldrFile != null;
-            ICUServiceBuilder icuServiceBuilder = new ICUServiceBuilder();
-            icuServiceBuilder.clearCache();
-            icuServiceBuilder.setCldrFile(localeCldrFile);
+            ICUServiceBuilder icuServiceBuilder = new ICUServiceBuilder(localeCldrFile);
 
             FieldStyleCombo fieldStyleCombo = new FieldStyleCombo();
             fieldStyleCombo.semanticSkeleton = semanticSkeleton;
@@ -128,9 +126,7 @@ public class GenerateDateTimeTestDataTest {
             String localeStr = locale.getName();
             CLDRFile localeCldrFile = GenerateDateTimeTestData.getCLDRFile(localeStr).orElse(null);
             assert localeCldrFile != null;
-            ICUServiceBuilder icuServiceBuilder = new ICUServiceBuilder();
-            icuServiceBuilder.clearCache();
-            icuServiceBuilder.setCldrFile(localeCldrFile);
+            ICUServiceBuilder icuServiceBuilder = new ICUServiceBuilder(localeCldrFile);
 
             FieldStyleCombo fieldStyleCombo = new FieldStyleCombo();
             fieldStyleCombo.semanticSkeleton = semanticSkeleton;

@@ -28,7 +28,7 @@ import org.unicode.cldr.util.VerifyCompactNumbers;
 
 public class TestCompactNumbers extends TestFmwkPlus {
     static final boolean DEBUG = false;
-    private static StandardCodes sc = StandardCodes.make();
+    private static final StandardCodes sc = StandardCodes.make();
     private static final CLDRConfig CLDRCONFIG = CLDRConfig.getInstance();
     private static final SupplementalDataInfo SDI = CLDRCONFIG.getSupplementalDataInfo();
     private static final CLDRFile ENGLISH = CLDRCONFIG.getEnglish();
@@ -57,7 +57,7 @@ public class TestCompactNumbers extends TestFmwkPlus {
         Set<String> debugCreationErrors = new LinkedHashSet<>();
         String[] debugOriginals = null;
 
-        ICUServiceBuilder builder = new ICUServiceBuilder().setCldrFile(cldrFile);
+        final ICUServiceBuilder builder = new ICUServiceBuilder(cldrFile);
         NumberFormat nf = builder.getNumberFormat(1);
 
         CompactDecimalFormat cdf =
@@ -208,7 +208,7 @@ public class TestCompactNumbers extends TestFmwkPlus {
                     DecimalQuantity dq = DecimalQuantity_DualStorageBCD.fromExponentString("1.1");
                     Count count = rules.getCount(dq);
                     System.out.println("Locale: " + locale);
-                    ICUServiceBuilder builder = new ICUServiceBuilder().setCldrFile(cldrFile);
+                    final ICUServiceBuilder builder = new ICUServiceBuilder(cldrFile);
 
                     DecimalFormat decimalFormat =
                             currencyStyle == CurrencyStyle.PLAIN

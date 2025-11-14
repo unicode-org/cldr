@@ -324,10 +324,10 @@ public class ShowPlurals {
     }
 
     static final class SampleMaker {
-        ICUServiceBuilder icusb = new ICUServiceBuilder();
-        CLDRFile cldrFile;
+        private ICUServiceBuilder icusb = new ICUServiceBuilder();
+        private CLDRFile cldrFile;
 
-        void setCldrFile(CLDRFile cldrFile) {
+        private void setCldrFile(CLDRFile cldrFile) {
             this.cldrFile = cldrFile;
             icusb.setCldrFile(cldrFile);
         }

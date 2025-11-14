@@ -171,8 +171,7 @@ public class TimezoneFormatter extends UFormat {
         inputLocaleID = desiredLocaleFile.getLocaleID();
         String hourFormatString = getStringValue("//ldml/dates/timeZoneNames/hourFormat");
         String[] hourFormatStrings = CldrUtility.splitArray(hourFormatString, ';');
-        ICUServiceBuilder icuServiceBuilder =
-                new ICUServiceBuilder().setCldrFile(desiredLocaleFile);
+        ICUServiceBuilder icuServiceBuilder = new ICUServiceBuilder(desiredLocaleFile);
         hourFormatPlus = icuServiceBuilder.getDateFormat("gregorian", 0, 1);
         hourFormatPlus.applyPattern(hourFormatStrings[0]);
         hourFormatMinus = icuServiceBuilder.getDateFormat("gregorian", 0, 1);

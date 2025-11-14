@@ -75,7 +75,7 @@ public class BuildIcuCompactDecimalFormat {
 
         // get the common CLDR data used for number/date/time formats
 
-        ICUServiceBuilder builder = new ICUServiceBuilder().setCldrFile(resolvedCldrFile);
+        final ICUServiceBuilder builder = new ICUServiceBuilder(resolvedCldrFile);
 
         DecimalFormat decimalFormat =
                 currencyStyle == CurrencyStyle.PLAIN

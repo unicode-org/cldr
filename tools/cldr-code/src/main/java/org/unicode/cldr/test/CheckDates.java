@@ -63,7 +63,7 @@ public class CheckDates extends FactoryCheckCLDR {
     static boolean GREGORIAN_ONLY = CldrUtility.getProperty("GREGORIAN", false);
     private static final Set<String> CALENDARS_FOR_CORES = Set.of("gregorian", "iso8601");
 
-    ICUServiceBuilder icuServiceBuilder = new ICUServiceBuilder();
+    private final ICUServiceBuilder icuServiceBuilder = new ICUServiceBuilder();
     DateTimePatternGenerator.FormatParser formatParser =
             new DateTimePatternGenerator.FormatParser();
     DateTimePatternGenerator dateTimePatternGenerator = DateTimePatternGenerator.getEmptyInstance();

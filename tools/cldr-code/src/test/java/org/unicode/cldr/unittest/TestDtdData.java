@@ -993,9 +993,9 @@ public class TestDtdData extends TestFmwk {
                     // Mode: OPTIONAL ≠ REQUIRED
                     "//keyboardTest3…/info[@ author < name", // Status: metadata ≠ distinguished
                     // Mode: OPTIONAL ≠ REQUIRED
-                    "//supplementalData…/dayPeriodRule[@ before < from", 
+                    "//supplementalData…/dayPeriodRule[@ before < from",
                     // Status: value ≠ distinguished    Mode: OPTIONAL
-                    "//supplementalData…/minDays[@ territories < draft", 
+                    "//supplementalData…/minDays[@ territories < draft",
                     // Status: value ≠ distinguished    Mode: REQUIRED ≠ OPTIONAL
                     "//supplementalData…/firstDay[@ territories < draft"
                     // Status: value ≠ distinguished    Mode: REQUIRED ≠ OPTIONAL

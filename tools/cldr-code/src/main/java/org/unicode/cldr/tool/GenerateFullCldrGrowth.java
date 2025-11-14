@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import org.unicode.cldr.util.CLDRFile;
@@ -46,13 +47,41 @@ public class GenerateFullCldrGrowth {
     public static void main(String[] args) throws IOException {
         System.out.println(CldrVersion.LAST_RELEASE_EACH_YEAR);
 
-        System.out.println("Version\tYear\t" + Joiners.TAB.join(ChangeType.values()));
+        System.out.println(Changes.header());
+
         CldrVersion nextVersion = null;
         for (CldrVersion previousVersion : CldrVersion.LAST_RELEASE_EACH_YEAR) {
             if (nextVersion != null) {
                 compare(nextVersion, previousVersion);
             }
             nextVersion = previousVersion;
+        }
+    }
+
+    private static class Changes {
+        Counter<ChangeType> changeTypes = new Counter<>();
+        Set<String> locales = new TreeSet<>();
+        Counter<DtdType> dtdTypes = new Counter<>();
+
+        static String header() {
+            return Joiners.TAB.join(
+                    "Version",
+                    "Year",
+                    Joiners.TAB.join(ChangeType.values()),
+                    "Locales",
+                    Joiners.TAB.join(DtdType.values()));
+        }
+
+        @Override
+        public String toString() {
+            return Joiners.TAB.join(
+                    List.of(ChangeType.values()).stream()
+                            .map(x -> String.valueOf(changeTypes.get(x)))
+                            .collect(Collectors.joining("\t")),
+                    locales.size(),
+                    List.of(DtdType.values()).stream()
+                            .map(x -> String.valueOf(dtdTypes.get(x)))
+                            .collect(Collectors.joining("\t")));
         }
     }
 
@@ -75,7 +104,8 @@ public class GenerateFullCldrGrowth {
         int commonIndex = release.getNameCount();
         Map<Path, String> failures = new TreeMap<>();
 
-        Counter<ChangeType> changes = new Counter<>();
+        Changes changes = new Changes();
+
         try (Stream<Path> stream =
                 Files.walk(release).collect(Collectors.toList()).parallelStream()) {
             stream.filter(
@@ -95,14 +125,10 @@ public class GenerateFullCldrGrowth {
                                 }
                             });
         }
-        System.out.println(
-                nextVersion
-                        + "\t"
-                        + nextVersion.getYear()
-                        + "\t"
-                        + List.of(ChangeType.values()).stream()
-                                .map(x -> String.valueOf(changes.get(x)))
-                                .collect(Collectors.joining("\t")));
+        System.out.println(Joiners.TAB.join(nextVersion, nextVersion.getYear(), changes));
+        if (nextVersion == CldrVersion.LAST_RELEASE_EACH_YEAR.get(0)) {
+            System.out.println(changes.locales);
+        }
         if (!failures.isEmpty()) {
             System.out.println(failures);
         }
@@ -113,7 +139,7 @@ public class GenerateFullCldrGrowth {
         return otherPrefix.resolve(relativePath);
     }
 
-    private static String getChanges(Counter<ChangeType> changes, Path x, Path previousRelease) {
+    private static String getChanges(Changes changes, Path x, Path previousRelease) {
         CLDRFile current = null;
         CLDRFile last = null;
         try {
@@ -130,26 +156,31 @@ public class GenerateFullCldrGrowth {
         } catch (Exception e) {
             return e.getMessage();
         }
-        boolean mayHaveValueAttributes = current.getDtdType() != DtdType.ldml;
+        boolean isLdml = current.getDtdType() == DtdType.ldml;
+        if (isLdml) {
+            changes.locales.add(x.getFileName().toString());
+        }
+        boolean mayHaveValueAttributes = !isLdml;
         DtdData dtdData = current.getDtdData();
         // could optimize by finding elements with value attributes and caching
         for (String currentPath : current) {
+            changes.dtdTypes.add(dtdData.dtdType, 1);
             String currentValue = current.getStringValue(currentPath);
             String lastValue = last == null ? null : last.getStringValue(currentPath);
             if (currentPath.contains("/annotations/")) {
                 Set<String> currentSet = getVBarSet(currentValue);
                 Set<String> lastSet = getVBarSet(lastValue);
                 int sameCount = Sets.intersection(currentSet, lastSet).size();
-                changes.add(ChangeType.same, sameCount);
+                changes.changeTypes.add(ChangeType.same, sameCount);
                 int addCount = currentSet.size() - sameCount;
                 int deleteCount = lastSet.size() - sameCount;
                 int changeCount = Math.min(addCount, deleteCount);
-                changes.add(ChangeType.changed, addCount);
-                changes.add(ChangeType.added, addCount - changeCount);
-                changes.add(ChangeType.deleted, deleteCount - changeCount);
+                changes.changeTypes.add(ChangeType.changed, addCount);
+                changes.changeTypes.add(ChangeType.added, addCount - changeCount);
+                changes.changeTypes.add(ChangeType.deleted, deleteCount - changeCount);
             } else {
                 ChangeType changeType = ChangeType.getDiff(currentValue, lastValue);
-                changes.add(changeType, 1);
+                changes.changeTypes.add(changeType, 1);
             }
             if (mayHaveValueAttributes) {
                 XPathParts currentParts =
@@ -170,7 +201,7 @@ public class GenerateFullCldrGrowth {
                                 && attributeInfo.attributeStatus == AttributeStatus.value) {
                             String currentAttributeValue = currentAttributes.get(attribute);
                             String lastAttributeValue = lastAttributes.get(attribute);
-                            changes.add(
+                            changes.changeTypes.add(
                                     ChangeType.getDiff(currentAttributeValue, lastAttributeValue),
                                     1);
                         }

@@ -6,6 +6,7 @@ import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
+import com.google.common.collect.Sets;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.util.VersionInfo;
 import java.io.FileNotFoundException;
@@ -21,6 +22,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.regex.Matcher;
+import java.util.stream.Collectors;
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.tool.ToolConstants.ChartStatus;
 import org.unicode.cldr.util.CLDRConfig;
@@ -31,6 +33,7 @@ import org.unicode.cldr.util.DtdData.Attribute;
 import org.unicode.cldr.util.DtdData.AttributeStatus;
 import org.unicode.cldr.util.DtdData.Element;
 import org.unicode.cldr.util.DtdType;
+import org.unicode.cldr.util.Joiners;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
 /**
@@ -42,10 +45,10 @@ public class ChartDtdDelta extends Chart {
 
     private static final Splitter SPLITTER_SPACE = Splitter.on(' ');
 
-    private static final String NEW_PREFIX = "+";
+    private static final String NEW_PREFIX = "⨁";
 
     private static final String DEPRECATED_PREFIX = "⊖";
-    private static final String UNDEPRECATED_PREFIX = "⊙"; // no occurances yet
+    private static final String UNDEPRECATED_PREFIX = "⊙"; // no occurrences yet
 
     private static final String ORDERED_SIGN = "⇣";
     private static final String UNORDERED_SIGN = "⇟";
@@ -207,7 +210,15 @@ public class ChartDtdDelta extends Chart {
         try (PrintWriter tsvFile =
                 FileUtilities.openUTF8Writer(
                         CLDRPaths.CHART_DIRECTORY + "/tsv/", "dtd_deltas.tsv")) {
-            tablePrinter.toTsv(tsvFile);
+            for (DiffElement datum : data) {
+                tsvFile.println(
+                        Joiners.TAB.join(
+                                datum.getVersionString(),
+                                datum.dtdType,
+                                datum.newPath,
+                                datum.newElement,
+                                Joiners.SP.join(datum.newAttributes)));
+            }
         }
     }
 
@@ -271,7 +282,8 @@ public class ChartDtdDelta extends Chart {
         // indication
         if (seen.contains(element)) {
             if (showAnyway) {
-                addData(dtdCurrent, NEW_PREFIX + name, version, newPath, OMITTED_ATTRIBUTES);
+                Set<Attribute> foo = Set.of();
+                addData(dtdCurrent, NEW_PREFIX + name, version, newPath, OMITTED_ATTRIBUTES, foo);
             }
             return;
         }
@@ -302,7 +314,8 @@ public class ChartDtdDelta extends Chart {
                     prefix + name + (ordered ? ORDERED_SIGN : ""),
                     version,
                     newPath,
-                    attributeNames);
+                    attributeNames,
+                    element.getAttributes().keySet());
         } else {
             oldElement = oldNameToElement.get(name);
             boolean oldOrdered = oldElement.isOrdered();
@@ -345,7 +358,10 @@ public class ChartDtdDelta extends Chart {
                         deprecatedStatus + previewStatus + name + orderingStatus,
                         version,
                         newPath,
-                        attributeNames);
+                        attributeNames,
+                        Sets.difference(
+                                element.getAttributes().keySet(),
+                                oldElement.getAttributes().keySet()));
             }
         }
         if (element.getName().equals("coordinateUnit")) {
@@ -389,13 +405,19 @@ public class ChartDtdDelta extends Chart {
         final String newPath;
         final String newElement;
         final String attributeNames;
+        final Set<String> newAttributes;
 
         public DiffElement(
                 DtdData dtdCurrent,
                 String version,
                 String newPath,
                 String newElement,
-                Set<String> attributeNames2) {
+                Set<String> attributeNames2,
+                Set<Attribute> newAttributes) {
+            this.newAttributes =
+                    newAttributes.stream()
+                            .map(x -> NEW_PREFIX + x.getName())
+                            .collect(Collectors.toSet());
             isBeta = version.endsWith("β");
             try {
                 this.version =
@@ -450,8 +472,11 @@ public class ChartDtdDelta extends Chart {
             String element,
             String prefix,
             String newPath,
-            Set<String> attributeNames) {
-        DiffElement item = new DiffElement(dtdCurrent, prefix, newPath, element, attributeNames);
+            Set<String> attributeNames,
+            Set<Attribute> newAttributes) {
+        DiffElement item =
+                new DiffElement(
+                        dtdCurrent, prefix, newPath, element, attributeNames, newAttributes);
         data.add(item);
     }
 

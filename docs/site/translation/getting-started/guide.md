@@ -301,11 +301,11 @@ Changes to these items require CLDR Technical Committee review.
 
 <!--![alt-text](../../images/gettingStartedGuideCharsInUse.jpeg) -->
 
-![Request for Review](https://github.com/user-attachments/assets/10d3dcb3-cf58-4673-bd3a-2493f21adf21)
+![Request for Review](/images/request-review.png)
 
 After hitting that **Request** button, you'll see the following.
 
-![Request Justification](https://github.com/user-attachments/assets/08d6a668-c76c-441b-8ef4-d6d3ce315c2d)
+![Request Justification](/images/request-justification.png)
 
 Here is the process:
 

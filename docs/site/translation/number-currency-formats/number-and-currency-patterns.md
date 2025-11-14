@@ -126,13 +126,13 @@ X digit-one
 
 X digit-two
 
-Xdigit-other
+X digit-other
 
 ## Rational Formatting
 
 There are special patterns for formatting rational fractions, such as in the following:
 
-![Screenshot 2025-03-29 at 17 46 03](https://github.com/user-attachments/assets/1a5a3ba5-e38e-49f5-9219-b1cd1d35ad08)
+![Rationals](/images/rationals.png)
 
 As usual, different numbering systems used in your language can have different patterns. Here are the different fields for you to vote for.
 

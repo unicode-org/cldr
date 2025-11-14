@@ -285,7 +285,7 @@ public class ExampleGenerator {
 
     private final ExampleCache exCache = new ExampleCache();
 
-    private final ICUServiceBuilder icuServiceBuilder = new ICUServiceBuilder();
+    private final ICUServiceBuilder icuServiceBuilder;
 
     private final PluralInfo pluralInfo;
 
@@ -359,9 +359,7 @@ public class ExampleGenerator {
      */
     public void updateCache(String xpath) {
         exCache.update(xpath);
-        if (ICUServiceBuilder.ISB_CAN_CLEAR_CACHE) {
-            icuServiceBuilder.clearCache();
-        }
+        icuServiceBuilder.clearCache();
     }
 
     /**
@@ -438,7 +436,7 @@ public class ExampleGenerator {
                 supplementalDataInfo.getGrammarInfo(localeId); // getGrammarInfo can return null
         this.englishFile = englishFile;
         this.typeIsEnglish = (resolvedCldrFile == englishFile);
-        icuServiceBuilder.setCldrFile(resolvedCldrFile);
+        this.icuServiceBuilder = new ICUServiceBuilder(resolvedCldrFile);
 
         bestMinimalPairSamples = new BestMinimalPairSamples(cldrFile, icuServiceBuilder, false);
 

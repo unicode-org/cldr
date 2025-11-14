@@ -36,6 +36,7 @@ public class ExampleDependencies {
                     .putAll(
                             "//ldml/contextTransforms/contextTransformUsage[@type=\"([^\"]*+)\"]/contextTransform[@type=\"([^\"]*+)\"]",
                             "//ldml/dates/fields/field[@type=\"([^\"]*+)\"]/relativePeriod",
+                            "//ldml/dates/fields/field[@type=\"([^\"]*+)\"]/relativeTime[@type=\"([^\"]*+)\"]",
                             "//ldml/dates/fields/field[@type=\"([^\"]*+)\"]/relativeTime[@type=\"([^\"]*+)\"]/relativeTimePattern[@count=\"([^\"]*+)\"]",
                             "//ldml/dates/fields/field[@type=\"([^\"]*+)\"]/relative[@type=\"([^\"]*+)\"]",
                             "//ldml/personNames/personName[@order=\"([^\"]*+)\"][@length=\"([^\"]*+)\"][@usage=\"([^\"]*+)\"][@formality=\"([^\"]*+)\"]/namePattern")
@@ -72,6 +73,7 @@ public class ExampleDependencies {
                             "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/months/monthContext[@type=\"([^\"]*+)\"]/monthWidth[@type=\"([^\"]*+)\"]/month[@type=\"([^\"]*+)\"][@yeartype=\"([^\"]*+)\"]",
                             "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/quarters/quarterContext[@type=\"([^\"]*+)\"]/quarterWidth[@type=\"([^\"]*+)\"]/quarter[@type=\"([^\"]*+)\"]",
                             "//ldml/dates/fields/field[@type=\"([^\"]*+)\"]/relativePeriod",
+                            "//ldml/dates/fields/field[@type=\"([^\"]*+)\"]/relativeTime[@type=\"([^\"]*+)\"]",
                             "//ldml/dates/fields/field[@type=\"([^\"]*+)\"]/relativeTime[@type=\"([^\"]*+)\"]/relativeTimePattern[@count=\"([^\"]*+)\"]",
                             "//ldml/dates/fields/field[@type=\"([^\"]*+)\"]/relative[@type=\"([^\"]*+)\"]",
                             "//ldml/personNames/personName[@order=\"([^\"]*+)\"][@length=\"([^\"]*+)\"][@usage=\"([^\"]*+)\"][@formality=\"([^\"]*+)\"]/namePattern")
@@ -123,6 +125,7 @@ public class ExampleDependencies {
                             "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/timeFormats/timeFormatLength[@type=\"([^\"]*+)\"]/timeFormat[@type=\"([^\"]*+)\"]/pattern[@type=\"([^\"]*+)\"]",
                             "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/timeFormats/timeFormatLength[@type=\"([^\"]*+)\"]/timeFormat[@type=\"([^\"]*+)\"]/pattern[@type=\"([^\"]*+)\"][@alt=\"([^\"]*+)\"]",
                             "//ldml/dates/fields/field[@type=\"([^\"]*+)\"]/relativePeriod",
+                            "//ldml/dates/fields/field[@type=\"([^\"]*+)\"]/relativeTime[@type=\"([^\"]*+)\"]",
                             "//ldml/dates/fields/field[@type=\"([^\"]*+)\"]/relativeTime[@type=\"([^\"]*+)\"]/relativeTimePattern[@count=\"([^\"]*+)\"]",
                             "//ldml/dates/fields/field[@type=\"([^\"]*+)\"]/relative[@type=\"([^\"]*+)\"]",
                             "//ldml/dates/timeZoneNames/gmtFormat",
@@ -167,6 +170,7 @@ public class ExampleDependencies {
                             "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/timeFormats/timeFormatLength[@type=\"([^\"]*+)\"]/timeFormat[@type=\"([^\"]*+)\"]/pattern[@type=\"([^\"]*+)\"]",
                             "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/timeFormats/timeFormatLength[@type=\"([^\"]*+)\"]/timeFormat[@type=\"([^\"]*+)\"]/pattern[@type=\"([^\"]*+)\"][@alt=\"([^\"]*+)\"]",
                             "//ldml/dates/fields/field[@type=\"([^\"]*+)\"]/relativePeriod",
+                            "//ldml/dates/fields/field[@type=\"([^\"]*+)\"]/relativeTime[@type=\"([^\"]*+)\"]",
                             "//ldml/dates/fields/field[@type=\"([^\"]*+)\"]/relativeTime[@type=\"([^\"]*+)\"]/relativeTimePattern[@count=\"([^\"]*+)\"]",
                             "//ldml/dates/fields/field[@type=\"([^\"]*+)\"]/relative[@type=\"([^\"]*+)\"]",
                             "//ldml/dates/timeZoneNames/gmtFormat",
@@ -211,6 +215,7 @@ public class ExampleDependencies {
                             "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/timeFormats/timeFormatLength[@type=\"([^\"]*+)\"]/timeFormat[@type=\"([^\"]*+)\"]/pattern[@type=\"([^\"]*+)\"]",
                             "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/timeFormats/timeFormatLength[@type=\"([^\"]*+)\"]/timeFormat[@type=\"([^\"]*+)\"]/pattern[@type=\"([^\"]*+)\"][@alt=\"([^\"]*+)\"]",
                             "//ldml/dates/fields/field[@type=\"([^\"]*+)\"]/relativePeriod",
+                            "//ldml/dates/fields/field[@type=\"([^\"]*+)\"]/relativeTime[@type=\"([^\"]*+)\"]",
                             "//ldml/dates/fields/field[@type=\"([^\"]*+)\"]/relativeTime[@type=\"([^\"]*+)\"]/relativeTimePattern[@count=\"([^\"]*+)\"]",
                             "//ldml/dates/fields/field[@type=\"([^\"]*+)\"]/relative[@type=\"([^\"]*+)\"]",
                             "//ldml/dates/timeZoneNames/gmtFormat",
@@ -255,6 +260,7 @@ public class ExampleDependencies {
                             "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/timeFormats/timeFormatLength[@type=\"([^\"]*+)\"]/timeFormat[@type=\"([^\"]*+)\"]/pattern[@type=\"([^\"]*+)\"]",
                             "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/timeFormats/timeFormatLength[@type=\"([^\"]*+)\"]/timeFormat[@type=\"([^\"]*+)\"]/pattern[@type=\"([^\"]*+)\"][@alt=\"([^\"]*+)\"]",
                             "//ldml/dates/fields/field[@type=\"([^\"]*+)\"]/relativePeriod",
+                            "//ldml/dates/fields/field[@type=\"([^\"]*+)\"]/relativeTime[@type=\"([^\"]*+)\"]",
                             "//ldml/dates/fields/field[@type=\"([^\"]*+)\"]/relativeTime[@type=\"([^\"]*+)\"]/relativeTimePattern[@count=\"([^\"]*+)\"]",
                             "//ldml/dates/fields/field[@type=\"([^\"]*+)\"]/relative[@type=\"([^\"]*+)\"]",
                             "//ldml/dates/timeZoneNames/gmtFormat",
@@ -312,6 +318,7 @@ public class ExampleDependencies {
                             "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/timeFormats/timeFormatLength[@type=\"([^\"]*+)\"]/timeFormat[@type=\"([^\"]*+)\"]/pattern[@type=\"([^\"]*+)\"]",
                             "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/timeFormats/timeFormatLength[@type=\"([^\"]*+)\"]/timeFormat[@type=\"([^\"]*+)\"]/pattern[@type=\"([^\"]*+)\"][@alt=\"([^\"]*+)\"]",
                             "//ldml/dates/fields/field[@type=\"([^\"]*+)\"]/relativePeriod",
+                            "//ldml/dates/fields/field[@type=\"([^\"]*+)\"]/relativeTime[@type=\"([^\"]*+)\"]",
                             "//ldml/dates/fields/field[@type=\"([^\"]*+)\"]/relativeTime[@type=\"([^\"]*+)\"]/relativeTimePattern[@count=\"([^\"]*+)\"]",
                             "//ldml/dates/fields/field[@type=\"([^\"]*+)\"]/relative[@type=\"([^\"]*+)\"]",
                             "//ldml/dates/timeZoneNames/gmtFormat",
@@ -356,6 +363,7 @@ public class ExampleDependencies {
                             "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/timeFormats/timeFormatLength[@type=\"([^\"]*+)\"]/timeFormat[@type=\"([^\"]*+)\"]/pattern[@type=\"([^\"]*+)\"]",
                             "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/timeFormats/timeFormatLength[@type=\"([^\"]*+)\"]/timeFormat[@type=\"([^\"]*+)\"]/pattern[@type=\"([^\"]*+)\"][@alt=\"([^\"]*+)\"]",
                             "//ldml/dates/fields/field[@type=\"([^\"]*+)\"]/relativePeriod",
+                            "//ldml/dates/fields/field[@type=\"([^\"]*+)\"]/relativeTime[@type=\"([^\"]*+)\"]",
                             "//ldml/dates/fields/field[@type=\"([^\"]*+)\"]/relativeTime[@type=\"([^\"]*+)\"]/relativeTimePattern[@count=\"([^\"]*+)\"]",
                             "//ldml/dates/fields/field[@type=\"([^\"]*+)\"]/relative[@type=\"([^\"]*+)\"]",
                             "//ldml/dates/timeZoneNames/gmtFormat",
@@ -403,6 +411,9 @@ public class ExampleDependencies {
                             "//ldml/personNames/personName[@order=\"([^\"]*+)\"][@length=\"([^\"]*+)\"][@usage=\"([^\"]*+)\"][@formality=\"([^\"]*+)\"]/namePattern")
                     .putAll(
                             "//ldml/dates/fields/field[@type=\"([^\"]*+)\"]/relativePeriod",
+                            "//ldml/personNames/personName[@order=\"([^\"]*+)\"][@length=\"([^\"]*+)\"][@usage=\"([^\"]*+)\"][@formality=\"([^\"]*+)\"]/namePattern")
+                    .putAll(
+                            "//ldml/dates/fields/field[@type=\"([^\"]*+)\"]/relativeTime[@type=\"([^\"]*+)\"]",
                             "//ldml/personNames/personName[@order=\"([^\"]*+)\"][@length=\"([^\"]*+)\"][@usage=\"([^\"]*+)\"][@formality=\"([^\"]*+)\"]/namePattern")
                     .putAll(
                             "//ldml/dates/fields/field[@type=\"([^\"]*+)\"]/relativeTime[@type=\"([^\"]*+)\"]/relativeTimePattern[@count=\"([^\"]*+)\"]",
@@ -486,9 +497,6 @@ public class ExampleDependencies {
                             "//ldml/personNames/personName[@order=\"([^\"]*+)\"][@length=\"([^\"]*+)\"][@usage=\"([^\"]*+)\"][@formality=\"([^\"]*+)\"]/namePattern")
                     .putAll(
                             "//ldml/dates/timeZoneNames/zone[@type=\"([^\"]*+)\"]/short/daylight",
-                            "//ldml/personNames/personName[@order=\"([^\"]*+)\"][@length=\"([^\"]*+)\"][@usage=\"([^\"]*+)\"][@formality=\"([^\"]*+)\"]/namePattern")
-                    .putAll(
-                            "//ldml/dates/timeZoneNames/zone[@type=\"([^\"]*+)\"]/short/generic",
                             "//ldml/personNames/personName[@order=\"([^\"]*+)\"][@length=\"([^\"]*+)\"][@usage=\"([^\"]*+)\"][@formality=\"([^\"]*+)\"]/namePattern")
                     .putAll(
                             "//ldml/dates/timeZoneNames/zone[@type=\"([^\"]*+)\"]/short/standard",
@@ -611,6 +619,7 @@ public class ExampleDependencies {
                             "//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator",
                             "//ldml/localeDisplayNames/territories/territory[@type=\"([^\"]*+)\"]",
                             "//ldml/localeDisplayNames/territories/territory[@type=\"([^\"]*+)\"][@alt=\"([^\"]*+)\"]",
+                            "//ldml/personNames/nameOrderLocales[@order=\"([^\"]*+)\"]",
                             "//ldml/personNames/personName[@order=\"([^\"]*+)\"][@length=\"([^\"]*+)\"][@usage=\"([^\"]*+)\"][@formality=\"([^\"]*+)\"]/namePattern")
                     .putAll(
                             "//ldml/localeDisplayNames/scripts/script[@type=\"([^\"]*+)\"][@alt=\"([^\"]*+)\"]",
@@ -741,6 +750,9 @@ public class ExampleDependencies {
                             "//ldml/personNames/personName[@order=\"([^\"]*+)\"][@length=\"([^\"]*+)\"][@usage=\"([^\"]*+)\"][@formality=\"([^\"]*+)\"]/namePattern")
                     .putAll(
                             "//ldml/numbers/currencyFormats[@numberSystem=\"([^\"]*+)\"]/currencyFormatLength/currencyFormat[@type=\"([^\"]*+)\"]/pattern[@type=\"([^\"]*+)\"][@alt=\"([^\"]*+)\"]",
+                            "//ldml/personNames/personName[@order=\"([^\"]*+)\"][@length=\"([^\"]*+)\"][@usage=\"([^\"]*+)\"][@formality=\"([^\"]*+)\"]/namePattern")
+                    .putAll(
+                            "//ldml/numbers/currencyFormats[@numberSystem=\"([^\"]*+)\"]/currencyFormatLength[@type=\"([^\"]*+)\"]/currencyFormat[@type=\"([^\"]*+)\"]",
                             "//ldml/personNames/personName[@order=\"([^\"]*+)\"][@length=\"([^\"]*+)\"][@usage=\"([^\"]*+)\"][@formality=\"([^\"]*+)\"]/namePattern")
                     .putAll(
                             "//ldml/numbers/currencyFormats[@numberSystem=\"([^\"]*+)\"]/currencyFormatLength[@type=\"([^\"]*+)\"]/currencyFormat[@type=\"([^\"]*+)\"]/pattern[@type=\"([^\"]*+)\"][@count=\"([^\"]*+)\"]",
@@ -1030,6 +1042,7 @@ public class ExampleDependencies {
                             "//ldml/listPatterns/listPattern[@type=\"([^\"]*+)\"]/listPatternPart[@type=\"([^\"]*+)\"]",
                             "//ldml/numbers/currencies/currency[@type=\"([^\"]*+)\"]/displayName[@count=\"([^\"]*+)\"]",
                             "//ldml/numbers/currencyFormats[@numberSystem=\"([^\"]*+)\"]/unitPattern[@count=\"([^\"]*+)\"]",
+                            "//ldml/numbers/decimalFormats[@numberSystem=\"([^\"]*+)\"]/decimalFormatLength[@type=\"([^\"]*+)\"]/decimalFormat[@type=\"([^\"]*+)\"]/pattern[@type=\"([^\"]*+)\"][@count=\"([^\"]*+)\"]",
                             "//ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"([^\"]*+)\"]",
                             "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"([^\"]*+)\"]",
                             "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"([^\"]*+)\"]",
@@ -1050,6 +1063,9 @@ public class ExampleDependencies {
                             "//ldml/units/unitLength[@type=\"([^\"]*+)\"]/unit[@type=\"([^\"]*+)\"]/perUnitPattern",
                             "//ldml/units/unitLength[@type=\"([^\"]*+)\"]/unit[@type=\"([^\"]*+)\"]/unitPattern[@count=\"([^\"]*+)\"]",
                             "//ldml/units/unitLength[@type=\"([^\"]*+)\"]/unit[@type=\"([^\"]*+)\"]/unitPattern[@count=\"([^\"]*+)\"][@case=\"([^\"]*+)\"]")
+                    .putAll(
+                            "//ldml/numbers/decimalFormats[@numberSystem=\"([^\"]*+)\"]/decimalFormatLength[@type=\"([^\"]*+)\"]/decimalFormat[@type=\"([^\"]*+)\"]",
+                            "//ldml/personNames/personName[@order=\"([^\"]*+)\"][@length=\"([^\"]*+)\"][@usage=\"([^\"]*+)\"][@formality=\"([^\"]*+)\"]/namePattern")
                     .putAll(
                             "//ldml/numbers/decimalFormats[@numberSystem=\"([^\"]*+)\"]/decimalFormatLength[@type=\"([^\"]*+)\"]/decimalFormat[@type=\"([^\"]*+)\"]/pattern[@type=\"([^\"]*+)\"][@count=\"([^\"]*+)\"]",
                             "//ldml/personNames/personName[@order=\"([^\"]*+)\"][@length=\"([^\"]*+)\"][@usage=\"([^\"]*+)\"][@formality=\"([^\"]*+)\"]/namePattern")
@@ -1751,6 +1767,9 @@ public class ExampleDependencies {
                             "//ldml/personNames/personName[@order=\"([^\"]*+)\"][@length=\"([^\"]*+)\"][@usage=\"([^\"]*+)\"][@formality=\"([^\"]*+)\"]/namePattern")
                     .putAll(
                             "//ldml/units/durationUnit[@type=\"([^\"]*+)\"]/durationUnitPattern[@alt=\"([^\"]*+)\"]",
+                            "//ldml/personNames/personName[@order=\"([^\"]*+)\"][@length=\"([^\"]*+)\"][@usage=\"([^\"]*+)\"][@formality=\"([^\"]*+)\"]/namePattern")
+                    .putAll(
+                            "//ldml/units/unitLength[@type=\"([^\"]*+)\"]/compoundUnit[@type=\"([^\"]*+)\"]",
                             "//ldml/personNames/personName[@order=\"([^\"]*+)\"][@length=\"([^\"]*+)\"][@usage=\"([^\"]*+)\"][@formality=\"([^\"]*+)\"]/namePattern")
                     .putAll(
                             "//ldml/units/unitLength[@type=\"([^\"]*+)\"]/compoundUnit[@type=\"([^\"]*+)\"]/compoundUnitPattern",

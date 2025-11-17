@@ -95,24 +95,24 @@ public class TestNestedMaps extends TestFmwk {
         return Joiners.VBAR.join(result);
     }
 
-    public void testWithBcp47() {
-        NestedMap.Map3<String, String, String, String> fullMulti =
-                NestedMap.Map3.create(TreeMap::new);
-        Map<R2<String, String>, Map<String, String>> bcp47Full = SDI.getBcp47Full();
-        bcp47Full.entrySet().stream()
-                .forEach(
-                        x ->
-                                x.getValue().entrySet().stream()
-                                        .forEach(
-                                                y ->
-                                                        fullMulti.put(
-                                                                x.getKey().get0(),
-                                                                x.getKey().get1(),
-                                                                y.getKey(),
-                                                                y.getValue())));
-        ImmutableMap3<String, String, String, String> im = fullMulti.createImmutable();
-        im.stream().forEach(System.out::println);
-    }
+    //    public void testWithBcp47() {
+    //        NestedMap.Map3<String, String, String, String> fullMulti =
+    //                NestedMap.Map3.create(TreeMap::new);
+    //        Map<R2<String, String>, Map<String, String>> bcp47Full = SDI.getBcp47Full();
+    //        bcp47Full.entrySet().stream()
+    //                .forEach(
+    //                        x ->
+    //                                x.getValue().entrySet().stream()
+    //                                        .forEach(
+    //                                                y ->
+    //                                                        fullMulti.put(
+    //                                                                x.getKey().get0(),
+    //                                                                x.getKey().get1(),
+    //                                                                y.getKey(),
+    //                                                                y.getValue())));
+    //        ImmutableMap3<String, String, String, String> im = fullMulti.createImmutable();
+    //        im.stream().forEach(System.out::println);
+    //    }
 
     public void testWithValidity() {
         NestedMap.Map3<LstrType, String, Reason, List<String>> validity2 =

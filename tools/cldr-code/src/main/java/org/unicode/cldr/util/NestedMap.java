@@ -21,8 +21,17 @@ import java.util.stream.StreamSupport;
  * ENGINE CLASS A generic, nested map structure that can handle a variable number of levels. This
  * class provides the core logic and is wrapped by the type-safe shims.
  *
- * <p>Various nested Multisets can be created by using an extra layer with Boolean. Multimap2<K1,
- * K2, V> == NestedMap3<K1, K2, V, Boolean>
+ * <p>The items you would use are:<br>
+ * Map2<K1, K2, V> and ImmutableMap2<K1, K2, V>, streaming with Entry3<K1, K2, V><br>
+ * Map3<K1, K2, K3, V> and ImmutableMap3<K1, K2, V>, streaming with Entry3<K1, K2, L3. V><br>
+ * Multimap2<K1, K2, V> and ImmutableMultimap3<K1, K2, V>, streaming with Entry3<K1, K2, V><br>
+ * - Under the covers, a MultimapN is just a MapN+1, with Boolean as the V, and TRUE as the value.
+ *
+ * <p>We can add further levels in the future, as needed, with the same template.
+ *
+ * <p>We could also add the ability to have different comparators for the keys, for sorted maps.
+ *
+ * <p>Question: might be cleaner to have the classes like Map3 be in their own files
  */
 public class NestedMap {
 
@@ -417,7 +426,7 @@ public class NestedMap {
         }
     }
 
-    public static class Multimap2<K1, K2, K3> {
+    public static class Multimap2<K1, K2, V> {
         private final NestedMap engine;
 
         private Multimap2(NestedMap engine) {
@@ -430,15 +439,15 @@ public class NestedMap {
             return new Multimap2<>(new NestedMap(supplier));
         }
 
-        public void put(K1 key1, K2 key2, K3 key3) {
+        public void put(K1 key1, K2 key2, V key3) {
             engine.put(key1, key2, key3, true);
         }
 
-        public boolean contains(K1 key1, K2 key2, K3 key3) {
+        public boolean contains(K1 key1, K2 key2, V key3) {
             return engine.get(key1, key2, key3) != null;
         }
 
-        public boolean remove(K1 key1, K2 key2, K3 key3) {
+        public boolean remove(K1 key1, K2 key2, V key3) {
             return engine.remove(key1, key2, key3) != null;
         }
 
@@ -457,22 +466,22 @@ public class NestedMap {
             return engine.hashCode();
         }
 
-        public Stream<Entry3<K1, K2, K3>> stream() {
-            return engine.stream().map(list -> new Entry3<K1, K2, K3>(list));
+        public Stream<Entry3<K1, K2, V>> stream() {
+            return engine.stream().map(list -> new Entry3<K1, K2, V>(list));
         }
 
-        public ImmutableMultimap2<K1, K2, K3> createImmutable() {
-            return new ImmutableMultimap2<K1, K2, K3>(engine);
+        public ImmutableMultimap2<K1, K2, V> createImmutable() {
+            return new ImmutableMultimap2<K1, K2, V>(engine);
         }
     }
 
-    public static class ImmutableMultimap2<K1, K2, K3> extends Multimap2<K1, K2, K3> {
+    public static class ImmutableMultimap2<K1, K2, V> extends Multimap2<K1, K2, V> {
 
         private ImmutableMultimap2(NestedMap engine) {
             super(engine.toImmutable());
         }
 
-        public void add(K1 key1, K2 key2, K3 key3) {
+        public void add(K1 key1, K2 key2, V key3) {
             throw new UnsupportedOperationException();
         }
     }

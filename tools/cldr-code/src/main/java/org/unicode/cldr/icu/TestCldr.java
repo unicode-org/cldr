@@ -46,6 +46,7 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.LocaleNames;
 import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.PatternCache;
 import org.xml.sax.Attributes;
@@ -223,7 +224,7 @@ public class TestCldr extends TestFmwk {
         }
 
         void checkResult(String value) {
-            ULocale ul = new ULocale("xx");
+            ULocale ul = new ULocale(LocaleNames.XX_TEST);
             try {
                 for (int i = 0; i < currentLocales.size(); ++i) {
                     ul = currentLocales.get(i);

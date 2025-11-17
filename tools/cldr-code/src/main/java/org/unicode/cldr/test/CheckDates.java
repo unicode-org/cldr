@@ -129,12 +129,14 @@ public class CheckDates extends FactoryCheckCLDR {
             CLDRFile cldrFileToCheck, Options options, List<CheckStatus> possibleErrors) {
         if (cldrFileToCheck == null) return this;
         super.handleSetCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
+        String localeID = cldrFileToCheck.getLocaleID();
+        final CLDRLocale loc = CLDRLocale.getInstance(localeID);
+        this.icuServiceBuilder = ICUServiceBuilder.forLocale(loc);
 
-        icuServiceBuilder = new ICUServiceBuilder(getResolvedCldrFileToCheck());
         // the following is a hack to work around a bug in ICU4J (the snapshot, not the released
         // version).
         try {
-            bi = BreakIterator.getCharacterInstance(new ULocale(cldrFileToCheck.getLocaleID()));
+            bi = BreakIterator.getCharacterInstance(new ULocale(localeID));
         } catch (RuntimeException e) {
             bi = BreakIterator.getCharacterInstance(new ULocale(""));
         }
@@ -147,7 +149,6 @@ public class CheckDates extends FactoryCheckCLDR {
             flexInfo.checkFlexibles(DECIMAL_XPATH, decimal, DECIMAL_XPATH);
         }
 
-        String localeID = cldrFileToCheck.getLocaleID();
         LocaleIDParser lp = new LocaleIDParser();
         territory = lp.set(localeID).getRegion();
         language = lp.getLanguage();
@@ -155,7 +156,6 @@ public class CheckDates extends FactoryCheckCLDR {
             if (language.equals("root")) {
                 territory = "001";
             } else {
-                CLDRLocale loc = CLDRLocale.getInstance(localeID);
                 CLDRLocale defContent = sdi.getDefaultContentFromBase(loc);
                 if (defContent == null) {
                     territory = "001";

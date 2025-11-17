@@ -142,8 +142,7 @@ public class DateTimeFormats {
 
     private final DateTimePatternGenerator generator;
     private final ICUServiceBuilder icuServiceBuilder;
-    private final ICUServiceBuilder icuServiceBuilderEnglish =
-            new ICUServiceBuilder(CONFIG.getEnglish());
+    private final ICUServiceBuilder icuServiceBuilderEnglish;
 
     private final DateIntervalInfo dateIntervalInfo = new DateIntervalInfo();
     private final String calendarID;
@@ -169,8 +168,12 @@ public class DateTimeFormats {
      */
     public DateTimeFormats(CLDRFile file, String calendarID, boolean useStock) {
         this.file = file;
-        ULocale locale = new ULocale(file.getLocaleID());
-        icuServiceBuilder = new ICUServiceBuilder(file);
+        String localeId = file.getLocaleID();
+        ULocale locale = new ULocale(localeId);
+        CLDRLocale loc = CLDRLocale.getInstance(localeId);
+        CLDRLocale locEn = CLDRLocale.getInstance("en");
+        this.icuServiceBuilder = ICUServiceBuilder.forLocale(loc);
+        this.icuServiceBuilderEnglish = ICUServiceBuilder.forLocale(locEn);
         PatternInfo returnInfo = new PatternInfo();
         generator = DateTimePatternGenerator.getEmptyInstance();
         this.calendarID = calendarID;

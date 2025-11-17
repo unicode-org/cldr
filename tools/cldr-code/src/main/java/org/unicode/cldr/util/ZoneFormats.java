@@ -17,7 +17,8 @@ public class ZoneFormats {
         this.gmtFormat = cldrFile.getWinningValue("//ldml/dates/timeZoneNames/gmtFormat");
         this.hourFormat = cldrFile.getWinningValue("//ldml/dates/timeZoneNames/hourFormat");
         this.hourFormatPlusMinus = hourFormat.split(";");
-        this.icuServiceBuilder = new ICUServiceBuilder(cldrFile);
+        CLDRLocale loc = CLDRLocale.getInstance(cldrFile.getLocaleID());
+        this.icuServiceBuilder = ICUServiceBuilder.forLocale(loc);
     }
 
     public enum Length {

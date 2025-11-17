@@ -19,6 +19,7 @@ import org.unicode.cldr.test.CheckCLDR.CheckStatus.Type;
 import org.unicode.cldr.test.DisplayAndInputProcessor.NumericType;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.ICUServiceBuilder;
@@ -92,12 +93,13 @@ public class CheckNumbers extends FactoryCheckCLDR {
             CLDRFile cldrFileToCheck, Options options, List<CheckStatus> possibleErrors) {
         if (cldrFileToCheck == null) return this;
         super.handleSetCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
-        icuServiceBuilder = new ICUServiceBuilder(getResolvedCldrFileToCheck());
+        String localeId = cldrFileToCheck.getLocaleID();
+        CLDRLocale loc = CLDRLocale.getInstance(localeId);
+        this.icuServiceBuilder = ICUServiceBuilder.forLocale(loc);
         isPOSIX = cldrFileToCheck.getLocaleID().indexOf("POSIX") >= 0;
         SupplementalDataInfo supplementalData =
                 SupplementalDataInfo.getInstance(getFactory().getSupplementalDirectory());
-        PluralInfo pluralInfo =
-                supplementalData.getPlurals(PluralType.cardinal, cldrFileToCheck.getLocaleID());
+        PluralInfo pluralInfo = supplementalData.getPlurals(PluralType.cardinal, localeId);
         pluralTypes = pluralInfo.getCounts();
         pluralExamples = pluralInfo.getCountToExamplesMap();
         validNumberingSystems = supplementalData.getNumberingSystems();

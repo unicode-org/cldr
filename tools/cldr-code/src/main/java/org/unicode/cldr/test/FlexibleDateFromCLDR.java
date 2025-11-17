@@ -22,6 +22,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.XPathParts;
 
@@ -74,7 +75,9 @@ class FlexibleDateFromCLDR {
                     });
 
     public FlexibleDateFromCLDR(CLDRFile cldrFile) {
-        icuServiceBuilder = new ICUServiceBuilder(cldrFile);
+        String localeId = cldrFile.getLocaleID();
+        CLDRLocale loc = CLDRLocale.getInstance(localeId);
+        this.icuServiceBuilder = ICUServiceBuilder.forLocale(loc);
         gen = DateTimePatternGenerator.getEmptyInstance(); // for now
         failureMap.clear();
     }
@@ -127,7 +130,7 @@ class FlexibleDateFromCLDR {
         System.out.println("END");
     }
 
-    Map<String, String> failureMap = new TreeMap<>();
+    private final Map<String, String> failureMap = new TreeMap<>();
 
     /**
      * @param path

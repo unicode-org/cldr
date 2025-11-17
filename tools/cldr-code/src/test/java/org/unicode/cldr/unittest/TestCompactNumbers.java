@@ -18,6 +18,7 @@ import org.unicode.cldr.test.BuildIcuCompactDecimalFormat;
 import org.unicode.cldr.test.BuildIcuCompactDecimalFormat.CurrencyStyle;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.StandardCodes;
@@ -57,7 +58,8 @@ public class TestCompactNumbers extends TestFmwkPlus {
         Set<String> debugCreationErrors = new LinkedHashSet<>();
         String[] debugOriginals = null;
 
-        final ICUServiceBuilder builder = new ICUServiceBuilder(cldrFile);
+        CLDRLocale loc = CLDRLocale.getInstance(locale);
+        final ICUServiceBuilder builder = ICUServiceBuilder.forLocale(loc);
         NumberFormat nf = builder.getNumberFormat(1);
 
         CompactDecimalFormat cdf =
@@ -208,7 +210,8 @@ public class TestCompactNumbers extends TestFmwkPlus {
                     DecimalQuantity dq = DecimalQuantity_DualStorageBCD.fromExponentString("1.1");
                     Count count = rules.getCount(dq);
                     System.out.println("Locale: " + locale);
-                    final ICUServiceBuilder builder = new ICUServiceBuilder(cldrFile);
+                    CLDRLocale loc = CLDRLocale.getInstance(locale);
+                    final ICUServiceBuilder builder = ICUServiceBuilder.forLocale(loc);
 
                     DecimalFormat decimalFormat =
                             currencyStyle == CurrencyStyle.PLAIN

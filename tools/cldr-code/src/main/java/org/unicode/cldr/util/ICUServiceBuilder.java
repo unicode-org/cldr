@@ -28,8 +28,8 @@ import org.unicode.cldr.util.SupplementalDataInfo.CurrencyNumberInfo;
 
 public class ICUServiceBuilder {
     private static final Currency NO_CURRENCY = Currency.getInstance("XXX");
-    private final CLDRFile cldrFile;
-    private CLDRFile collationFile;
+    private static final SupplementalDataInfo supplementalData =
+            CLDRConfig.getInstance().getSupplementalDataInfo();
     private static final Map<CLDRLocale, ICUServiceBuilder> ISBMap = new HashMap<>();
 
     private static final TimeZone utc = TimeZone.getTimeZone("GMT");
@@ -40,12 +40,38 @@ public class ICUServiceBuilder {
         iso.setTimeZone(utc);
     }
 
-    public ICUServiceBuilder(CLDRFile cldrFile) {
+    private final CLDRFile cldrFile;
+    private final CLDRFile collationFile;
+
+    /**
+     * This private constructor is meant to be called only by ICUServiceBuilder.forLocale.
+     *
+     * @param cldrFile the CLDRFile
+     */
+    private ICUServiceBuilder(CLDRFile cldrFile) {
+        this(cldrFile, false /* locIsFake */);
+    }
+
+    /**
+     * This constructor is meant to be called only by the private constructor (with locIsFake =
+     * false) and by unit tests with fictional locale ID such as "xx" or "mul" (with locIsFake =
+     * true) for which ICUServiceBuilder.forLocale won't work
+     *
+     * @param cldrFile the CLDRFile
+     * @param locIsFake true if cldrFile has a fictional locale ID (can't call forLocale)
+     */
+    public ICUServiceBuilder(CLDRFile cldrFile, boolean locIsFake) {
         if (!cldrFile.isResolved()) {
             throw new IllegalArgumentException("CLDRFile must be resolved");
         }
         this.cldrFile = cldrFile;
-        this.supplementalData = CLDRConfig.getInstance().getSupplementalDataInfo();
+        if (locIsFake) {
+            this.collationFile = null;
+        } else {
+            this.collationFile =
+                    Factory.make(CLDRPaths.COLLATION_DIRECTORY, ".*")
+                            .makeWithFallback(cldrFile.getLocaleID());
+        }
     }
 
     public static String isoDateFormat(Date date) {
@@ -84,8 +110,6 @@ public class ICUServiceBuilder {
         cacheRuleBasedCollators.clear();
     }
 
-    private SupplementalDataInfo supplementalData;
-
     private static final int[] DateFormatValues = {
         -1, DateFormat.SHORT, DateFormat.MEDIUM, DateFormat.LONG, DateFormat.FULL
     };
@@ -112,11 +136,6 @@ public class ICUServiceBuilder {
             CLDRFile cldrFile =
                     Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*").make(locale.getBaseName(), true);
             result = new ICUServiceBuilder(cldrFile);
-            result.collationFile =
-                    Factory.make(CLDRPaths.COLLATION_DIRECTORY, ".*")
-                            .makeWithFallback(locale.getBaseName());
-            result.supplementalData =
-                    SupplementalDataInfo.getInstance(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
             ISBMap.put(locale, result);
         }
         return result;
@@ -541,7 +560,7 @@ public class ICUServiceBuilder {
     }; // // "standard", , "INR",
 
     // add symbols for clarity.
-    public static int integer = 0, decimal = 2, percent = 3, scientific = 4;
+    public static final int integer = 0, decimal = 2, percent = 3, scientific = 4;
 
     // ICUServiceBuilder needs a much more substantial overhaul, so adding an enum would be wasted
     // effort
@@ -630,7 +649,7 @@ public class ICUServiceBuilder {
         }
     }
 
-    static int CURRENCY = 0, OTHER_KEY = 1, PATTERN = 2;
+    private static final int CURRENCY = 0, OTHER_KEY = 1, PATTERN = 2;
 
     public DecimalFormat getCurrencyFormat(String currency) {
         return _getNumberFormat(currency, CURRENCY, null, null);
@@ -750,7 +769,7 @@ public class ICUServiceBuilder {
                 for (int i = 0; i < pieces.length; ++i) {
                     pieces[i] = fixCurrencySpacing(pieces[i], currencySymbol);
                 }
-                pattern = org.unicode.cldr.util.CldrUtility.join(pieces, ";");
+                pattern = CldrUtility.join(pieces, ";");
             } else {
                 pattern = fixCurrencySpacing(pattern, currencySymbol);
             }
@@ -949,12 +968,12 @@ public class ICUServiceBuilder {
         }
     }
 
-    UnicodeSet beforeCurrencyMatch;
-    UnicodeSet beforeSurroundingMatch;
-    String beforeInsertBetween;
-    UnicodeSet afterCurrencyMatch;
-    UnicodeSet afterSurroundingMatch;
-    String afterInsertBetween;
+    private UnicodeSet beforeCurrencyMatch;
+    private UnicodeSet beforeSurroundingMatch;
+    private String beforeInsertBetween;
+    private UnicodeSet afterCurrencyMatch;
+    private UnicodeSet afterSurroundingMatch;
+    private String afterInsertBetween;
 
     private String getPattern(String key1, int isCurrency, String numberSystem) {
         String prefix = "//ldml/numbers/";
@@ -1024,20 +1043,18 @@ public class ICUServiceBuilder {
     }
 
     public static String getDayPeriodPath(DayPeriod period, Context context, Width width) {
-        String path =
-                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\""
-                        + context
-                        + "\"]/dayPeriodWidth[@type=\""
-                        + width
-                        + "\"]/dayPeriod[@type=\""
-                        + period
-                        + "\"]";
-        return path;
+        return "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\""
+                + context
+                + "\"]/dayPeriodWidth[@type=\""
+                + width
+                + "\"]/dayPeriod[@type=\""
+                + period
+                + "\"]";
     }
 
-    static final String HM_PATH =
+    private static final String HM_PATH =
             "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"hm\"]";
-    static final String BHM_PATH =
+    private static final String BHM_PATH =
             "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"Bhm\"]";
 
     public String formatDayPeriod(int timeInDay, String dayPeriodFormatString) {

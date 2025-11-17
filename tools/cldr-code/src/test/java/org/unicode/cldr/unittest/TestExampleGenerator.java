@@ -2524,7 +2524,8 @@ public class TestExampleGenerator extends TestFmwk {
             {"MdM", "Missing literal between first and second formats in «MdM»"},
             {"Md", "Interval patterns must have two parts, with a separator between: «Md»"}
         };
-        ICUServiceBuilder isb = ICUServiceBuilder.forLocale(CLDRLocale.getInstance("en"));
+        final CLDRLocale loc = CLDRLocale.getInstance("en");
+        final ICUServiceBuilder isb = ICUServiceBuilder.forLocale(loc);
         Date DATE1 = Date.from(Instant.parse("2025-01-01T12:00:00Z"));
         Date DATE2 = Date.from(Instant.parse("2025-01-01T13:00:00Z"));
 

@@ -70,6 +70,7 @@ import org.unicode.cldr.util.GrammarInfo.GrammaticalScope;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalTarget;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.LocaleNames;
 import org.unicode.cldr.util.NameGetter;
 import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.Pair;
@@ -436,7 +437,12 @@ public class ExampleGenerator {
                 supplementalDataInfo.getGrammarInfo(localeId); // getGrammarInfo can return null
         this.englishFile = englishFile;
         this.typeIsEnglish = (resolvedCldrFile == englishFile);
-        this.icuServiceBuilder = new ICUServiceBuilder(resolvedCldrFile);
+        boolean locIsFake =
+                LocaleNames.XX_TEST.equals(localeId) || LocaleNames.MUL.equals(localeId);
+        this.icuServiceBuilder =
+                locIsFake
+                        ? new ICUServiceBuilder(resolvedCldrFile, locIsFake)
+                        : ICUServiceBuilder.forLocale(CLDRLocale.getInstance(localeId));
 
         bestMinimalPairSamples = new BestMinimalPairSamples(cldrFile, icuServiceBuilder, false);
 

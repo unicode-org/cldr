@@ -33,6 +33,7 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRFile.NumberingSystem;
+import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CalculatedCoverageLevels;
 import org.unicode.cldr.util.DateTimeFormats;
@@ -1172,8 +1173,8 @@ public class GenerateDateTimeTestData {
             if (localeCldrFile == null) {
                 continue;
             }
-
-            ICUServiceBuilder icuServiceBuilder = new ICUServiceBuilder(localeCldrFile);
+            final CLDRLocale loc = CLDRLocale.getInstance(localeStr);
+            final ICUServiceBuilder icuServiceBuilder = ICUServiceBuilder.forLocale(loc);
 
             for (FieldStyleComboInput input : getFieldStyleComboInputs()) {
                 assert input.shouldMultiplyByDateTime || input.shouldMultiplyByTimeZone;

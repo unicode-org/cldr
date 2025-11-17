@@ -39,6 +39,9 @@ import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 
 public class TestDtdData extends TestFmwk {
+
+    private static final boolean SHOW_ATTRIBUTES = System.getProperty("SHOW_ATTRIBUTES") != null;
+
     private static final String COMMON_DIR = CLDRPaths.BASE_DIRECTORY + "common/";
     static CLDRConfig testInfo = CLDRConfig.getInstance();
     private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO =
@@ -1067,4 +1070,93 @@ public class TestDtdData extends TestFmwk {
                             .compare(o1, o2);
                 }
             };
+
+    /**
+     * For now, this is just investigating the consistency of the dtd data. Later on, it will turn
+     * into a proper test.
+     */
+    public void testMultivaluedAttributes() {
+        if (SHOW_ATTRIBUTES) {
+            System.out.println("\nDTD\tElement\tAttribute\tStatus\tType\tPath above");
+        } else {
+            warnln("Use -DSHOW_ATTRIBUTES to see current results");
+        }
+        for (DtdType dtdType : DtdType.values()) {
+            if (dtdType == DtdType.ldmlICU
+                    || dtdType == dtdType.keyboard3
+                    || dtdType == dtdType.keyboardTest3) {
+                continue;
+            }
+            Multimap<String, String> nmtokensAttributeNameToElementName = TreeMultimap.create();
+            DtdData dtdData = DtdData.getInstance(dtdType);
+            Set<Element> seen = new HashSet<>();
+            checkAttributes(
+                    dtdData.ROOT,
+                    seen,
+                    new ArrayList<Element>(),
+                    nmtokensAttributeNameToElementName);
+            if (SHOW_ATTRIBUTES) {
+                nmtokensAttributeNameToElementName.asMap().entrySet().stream()
+                        .forEach(
+                                x ->
+                                        System.out.println(
+                                                Joiners.TAB.join(
+                                                        dtdType,
+                                                        x.getKey(),
+                                                        Joiners.TAB.join(x.getValue()))));
+            }
+        }
+    }
+
+    private void checkAttributes(
+            Element element,
+            Set<Element> seen,
+            List<Element> parents,
+            Multimap<String, String> nmtokensAttributeNameToElementName) {
+        //        System.out.println(" ".repeat(parents.size()) + element);
+        seen.add(element);
+        final Set<String> SKIP = Set.of("alt", "references");
+        for (Attribute attribute : element.getAttributes().keySet()) {
+            if (attribute.isDeprecated() || SKIP.contains(attribute.getName())) {
+                continue;
+            }
+            // Isolate the attributes that contain a set or list of items (separated by spaces).
+            // It appears that some CDATA should really be NMTOKENS; some NMTOKENSs maybe also
+            // should be NMTOKENs
+            switch (attribute.type) {
+                case NMTOKENS:
+                    // possible other items that should be NMTOKENS
+                case ENTITIES:
+                case IDREFS:
+                case CDATA:
+                    nmtokensAttributeNameToElementName.put(
+                            Joiners.TAB.join(
+                                    attribute.element,
+                                    attribute.getName(),
+                                    attribute.getStatus(),
+                                    attribute.type),
+                            Joiner.on('/').join(parents));
+                    break;
+                    // singletons
+                case NMTOKEN:
+                case ENTITY:
+                case ENUMERATED_TYPE:
+                case ID:
+                case IDREF:
+                    break;
+            }
+        }
+        Set<Element> children = element.getChildren().keySet();
+        if (children.isEmpty()) {
+            return;
+        }
+        parents.add(element);
+        for (Element child : children) {
+            if (child.isDeprecated() || seen.contains(child)) {
+                continue;
+            }
+            checkAttributes(child, seen, parents, nmtokensAttributeNameToElementName);
+        }
+        parents.remove(parents.size() - 1);
+    }
 }

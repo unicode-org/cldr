@@ -27,8 +27,8 @@ import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
 import org.unicode.cldr.util.SupplementalDataInfo.CurrencyNumberInfo;
 
 public class ICUServiceBuilder {
-    public static Currency NO_CURRENCY = Currency.getInstance("XXX");
-    private CLDRFile cldrFile;
+    private static final Currency NO_CURRENCY = Currency.getInstance("XXX");
+    private final CLDRFile cldrFile;
     private CLDRFile collationFile;
     private static final Map<CLDRLocale, ICUServiceBuilder> ISBMap = new HashMap<>();
 
@@ -38,10 +38,6 @@ public class ICUServiceBuilder {
 
     static {
         iso.setTimeZone(utc);
-    }
-
-    public ICUServiceBuilder() {
-        // This constructor without CLDRFile requires setCldrFile to be called subsequently.
     }
 
     public ICUServiceBuilder(CLDRFile cldrFile) {
@@ -99,14 +95,6 @@ public class ICUServiceBuilder {
 
     public CLDRFile getCldrFile() {
         return cldrFile;
-    }
-
-    public ICUServiceBuilder setCldrFile(CLDRFile cldrFile) {
-        if (!cldrFile.isResolved()) throw new IllegalArgumentException("CLDRFile must be resolved");
-        this.cldrFile = cldrFile;
-        supplementalData = CLDRConfig.getInstance().getSupplementalDataInfo();
-        clearCache();
-        return this;
     }
 
     public static ICUServiceBuilder forLocale(CLDRLocale locale) {

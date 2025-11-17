@@ -63,7 +63,7 @@ public class CheckDates extends FactoryCheckCLDR {
     static boolean GREGORIAN_ONLY = CldrUtility.getProperty("GREGORIAN", false);
     private static final Set<String> CALENDARS_FOR_CORES = Set.of("gregorian", "iso8601");
 
-    private final ICUServiceBuilder icuServiceBuilder = new ICUServiceBuilder();
+    private ICUServiceBuilder icuServiceBuilder;
     DateTimePatternGenerator.FormatParser formatParser =
             new DateTimePatternGenerator.FormatParser();
     DateTimePatternGenerator dateTimePatternGenerator = DateTimePatternGenerator.getEmptyInstance();
@@ -130,7 +130,7 @@ public class CheckDates extends FactoryCheckCLDR {
         if (cldrFileToCheck == null) return this;
         super.handleSetCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
 
-        icuServiceBuilder.setCldrFile(getResolvedCldrFileToCheck());
+        icuServiceBuilder = new ICUServiceBuilder(getResolvedCldrFileToCheck());
         // the following is a hack to work around a bug in ICU4J (the snapshot, not the released
         // version).
         try {
@@ -139,8 +139,7 @@ public class CheckDates extends FactoryCheckCLDR {
             bi = BreakIterator.getCharacterInstance(new ULocale(""));
         }
         CLDRFile resolved = getResolvedCldrFileToCheck();
-        flexInfo = new FlexibleDateFromCLDR(); // ought to just clear(), but not available.
-        flexInfo.set(resolved);
+        flexInfo = new FlexibleDateFromCLDR(resolved);
 
         // load decimal path specially
         String decimal = resolved.getWinningValue(DECIMAL_XPATH);

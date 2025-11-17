@@ -324,12 +324,12 @@ public class ShowPlurals {
     }
 
     static final class SampleMaker {
-        private ICUServiceBuilder icusb = new ICUServiceBuilder();
+        private ICUServiceBuilder icusb;
         private CLDRFile cldrFile;
 
         private void setCldrFile(CLDRFile cldrFile) {
             this.cldrFile = cldrFile;
-            icusb.setCldrFile(cldrFile);
+            this.icusb = new ICUServiceBuilder(cldrFile);
         }
 
         private String getSample(DecimalQuantity numb, String samplePattern) {

@@ -47,13 +47,12 @@ public class CheckNumbers extends FactoryCheckCLDR {
      * If you are going to use ICU services, then ICUServiceBuilder will allow you to create them
      * entirely from CLDR data, without using the ICU data.
      */
-    private ICUServiceBuilder icuServiceBuilder = new ICUServiceBuilder();
+    private ICUServiceBuilder icuServiceBuilder;
 
     private Set<Count> pluralTypes;
     private Map<Count, Set<Double>> pluralExamples;
     private Set<String> validNumberingSystems;
 
-    private String defaultNumberingSystem;
     private String defaultTimeSeparatorPath;
     private String patternForHm;
 
@@ -93,7 +92,7 @@ public class CheckNumbers extends FactoryCheckCLDR {
             CLDRFile cldrFileToCheck, Options options, List<CheckStatus> possibleErrors) {
         if (cldrFileToCheck == null) return this;
         super.handleSetCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
-        icuServiceBuilder.setCldrFile(getResolvedCldrFileToCheck());
+        icuServiceBuilder = new ICUServiceBuilder(getResolvedCldrFileToCheck());
         isPOSIX = cldrFileToCheck.getLocaleID().indexOf("POSIX") >= 0;
         SupplementalDataInfo supplementalData =
                 SupplementalDataInfo.getInstance(getFactory().getSupplementalDirectory());
@@ -104,7 +103,7 @@ public class CheckNumbers extends FactoryCheckCLDR {
         validNumberingSystems = supplementalData.getNumberingSystems();
 
         CLDRFile resolvedFile = getResolvedCldrFileToCheck();
-        defaultNumberingSystem =
+        String defaultNumberingSystem =
                 resolvedFile.getWinningValue("//ldml/numbers/defaultNumberingSystem");
         if (defaultNumberingSystem == null
                 || !validNumberingSystems.contains(defaultNumberingSystem)) {

@@ -553,7 +553,6 @@ public class ConsoleCheckCLDR {
                     Set<PathHeader> paths = new TreeSet<>(); // CLDRFile.ldmlComparator);
                     Map<String, String> m = new TreeMap<>();
                     Map<String, String> options = new HashMap<>();
-                    FlexibleDateFromCLDR fset = new FlexibleDateFromCLDR();
 
                     if (CLDRFile.isSupplementalName(localeID)) return;
                     if (supplementalDataInfo.getDefaultContentLocales().contains(localeID)) {
@@ -681,9 +680,8 @@ public class ConsoleCheckCLDR {
 
                     UnicodeSet missingExemplars = new UnicodeSet();
                     UnicodeSet missingCurrencyExemplars = new UnicodeSet();
-                    if (checkFlexibleDates) {
-                        fset.set(file);
-                    }
+                    FlexibleDateFromCLDR fset =
+                            checkFlexibleDates ? new FlexibleDateFromCLDR(file) : null;
                     pathShower.set(localeID);
 
                     // only create if we are going to use it

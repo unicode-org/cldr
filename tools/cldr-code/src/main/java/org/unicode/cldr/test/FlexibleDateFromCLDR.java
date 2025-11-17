@@ -31,8 +31,8 @@ import org.unicode.cldr.util.XPathParts;
  * @author markdavis
  */
 class FlexibleDateFromCLDR {
-    DateTimePatternGenerator gen = DateTimePatternGenerator.getEmptyInstance();
-    private transient ICUServiceBuilder icuServiceBuilder = new ICUServiceBuilder();
+    private final DateTimePatternGenerator gen;
+    private final transient ICUServiceBuilder icuServiceBuilder;
 
     static List<String> tests =
             Arrays.asList(
@@ -73,13 +73,12 @@ class FlexibleDateFromCLDR {
                         "GuuuuQMMMMwwWddDDDFEEEEaHHmmssSSSvvvv", // bizarre case just for testing
                     });
 
-    public void set(CLDRFile cldrFile) {
-        icuServiceBuilder.setCldrFile(cldrFile);
+    public FlexibleDateFromCLDR(CLDRFile cldrFile) {
+        icuServiceBuilder = new ICUServiceBuilder(cldrFile);
         gen = DateTimePatternGenerator.getEmptyInstance(); // for now
         failureMap.clear();
     }
 
-    /** */
     public void showFlexibles() {
         Map<String, String> items = gen.getSkeletons(new LinkedHashMap<>());
         System.out.println("ERRORS");

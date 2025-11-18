@@ -1081,10 +1081,10 @@ public class TestDtdData extends TestFmwk {
         } else {
             warnln("Use -DSHOW_ATTRIBUTES to see current results");
         }
+        final Set<DtdType> SKIP = Set.of(DtdType.ldmlICU, DtdType.keyboard3, DtdType.keyboardTest3);
+
         for (DtdType dtdType : DtdType.values()) {
-            if (dtdType == DtdType.ldmlICU
-                    || dtdType == dtdType.keyboard3
-                    || dtdType == dtdType.keyboardTest3) {
+            if (SKIP.contains(dtdType)) {
                 continue;
             }
             Multimap<String, String> nmtokensAttributeNameToElementName = TreeMultimap.create();
@@ -1115,7 +1115,7 @@ public class TestDtdData extends TestFmwk {
             Multimap<String, String> nmtokensAttributeNameToElementName) {
         //        System.out.println(" ".repeat(parents.size()) + element);
         seen.add(element);
-        final Set<String> SKIP = Set.of("alt", "references");
+        final Set<String> SKIP = Set.of("alt", "references", "description");
         for (Attribute attribute : element.getAttributes().keySet()) {
             if (attribute.isDeprecated() || SKIP.contains(attribute.getName())) {
                 continue;

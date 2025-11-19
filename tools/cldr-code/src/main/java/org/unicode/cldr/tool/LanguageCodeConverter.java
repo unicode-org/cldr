@@ -18,6 +18,7 @@ import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.LocaleNames;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StringIterables;
 
@@ -52,7 +53,7 @@ public class LanguageCodeConverter {
                     .put("sit-NP", "lif")
                     .put("ut", "und")
                     .put("un", "und")
-                    .put("xx", "und")
+                    .put(LocaleNames.XX_TEST, "und")
 
                     // .put("sh", "fil")
                     .freeze();

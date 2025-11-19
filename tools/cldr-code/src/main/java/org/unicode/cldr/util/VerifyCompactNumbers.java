@@ -194,7 +194,9 @@ public class VerifyCompactNumbers {
             // tablePrinter1.addColumn("View").setHeaderCell(true).setHeaderAttributes("class='dtf-th'").setCellAttributes("class='dtf-s'");
 
             ULocale locale2 = new ULocale(locale);
-            ICUServiceBuilder builder = new ICUServiceBuilder().setCldrFile(cldrFile);
+            CLDRLocale loc = CLDRLocale.getInstance(locale);
+            final ICUServiceBuilder builder = ICUServiceBuilder.forLocale(loc);
+
             NumberFormat nf = builder.getNumberFormat(1);
 
             // nf.setMaximumFractionDigits(0);

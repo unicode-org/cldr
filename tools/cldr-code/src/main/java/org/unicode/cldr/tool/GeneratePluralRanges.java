@@ -24,6 +24,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Factory;
@@ -155,8 +156,8 @@ public class GeneratePluralRanges {
         Output<DecimalQuantity> maxSample = new Output<>();
         Output<DecimalQuantity> minSample = new Output<>();
 
-        ICUServiceBuilder icusb = new ICUServiceBuilder();
-        icusb.setCldrFile(cldrFile);
+        final CLDRLocale loc = CLDRLocale.getInstance(locale);
+        final ICUServiceBuilder icusb = ICUServiceBuilder.forLocale(loc);
         DecimalFormat nf = icusb.getNumberFormat(1);
         // String decimal =
         // cldrFile.getWinningValue("//ldml/numbers/symbols[@numberSystem=\"latn\"]/decimal");

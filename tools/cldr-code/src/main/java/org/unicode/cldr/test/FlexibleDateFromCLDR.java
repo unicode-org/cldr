@@ -22,6 +22,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.XPathParts;
 
@@ -31,8 +32,8 @@ import org.unicode.cldr.util.XPathParts;
  * @author markdavis
  */
 class FlexibleDateFromCLDR {
-    DateTimePatternGenerator gen = DateTimePatternGenerator.getEmptyInstance();
-    private transient ICUServiceBuilder icuServiceBuilder = new ICUServiceBuilder();
+    private final DateTimePatternGenerator gen;
+    private final transient ICUServiceBuilder icuServiceBuilder;
 
     static List<String> tests =
             Arrays.asList(
@@ -73,13 +74,14 @@ class FlexibleDateFromCLDR {
                         "GuuuuQMMMMwwWddDDDFEEEEaHHmmssSSSvvvv", // bizarre case just for testing
                     });
 
-    public void set(CLDRFile cldrFile) {
-        icuServiceBuilder.setCldrFile(cldrFile);
+    public FlexibleDateFromCLDR(CLDRFile cldrFile) {
+        String localeId = cldrFile.getLocaleID();
+        CLDRLocale loc = CLDRLocale.getInstance(localeId);
+        this.icuServiceBuilder = ICUServiceBuilder.forLocale(loc);
         gen = DateTimePatternGenerator.getEmptyInstance(); // for now
         failureMap.clear();
     }
 
-    /** */
     public void showFlexibles() {
         Map<String, String> items = gen.getSkeletons(new LinkedHashMap<>());
         System.out.println("ERRORS");
@@ -128,7 +130,7 @@ class FlexibleDateFromCLDR {
         System.out.println("END");
     }
 
-    Map<String, String> failureMap = new TreeMap<>();
+    private final Map<String, String> failureMap = new TreeMap<>();
 
     /**
      * @param path

@@ -1,7 +1,7 @@
-<%@ include file="/WEB-INF/jspf/stcontext.jspf" %><!--  menu_top.jspf begin -->
+<%@ include file="/WEB-INF/jspf/stcontext.jspf" %><!--  menu_top.jsp begin -->
 
 <%
-    /* TODO: is this entire file dead code? */
+    /* This code can maybe be reached or compiled by choosing My Account, User Activity (in Action column), Download XML... */
 	WebContext subCtx = ctx;
 	int n;
 	String which = (String) subCtx.get("which");
@@ -60,7 +60,9 @@ static void writeMenu(JspWriter jout, WebContext wCtx, SurveyMenus.Section sec, 
 %>
 	<b>Sections:</b>
 <%
-       String covlev = ctx.getCoverageSetting();
+       // Note: the function ctx.getCoverageSetting() does not exist.
+       // This code therefore falls back to Level.COMPREHENSIVE.
+       String covlev = null; // ctx.getCoverageSetting();
        Level coverage = Level.COMPREHENSIVE;
        if(covlev!=null && covlev.length()>0) {
            coverage = Level.get(covlev);
@@ -90,4 +92,4 @@ static void writeMenu(JspWriter jout, WebContext wCtx, SurveyMenus.Section sec, 
 			out.flush();
 			ctx.flush();
 %>
-<!--  menu_top.jspf end -->
+<!--  menu_top.jsp end -->

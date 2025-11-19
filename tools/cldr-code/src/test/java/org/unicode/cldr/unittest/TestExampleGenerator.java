@@ -1809,7 +1809,7 @@ public class TestExampleGenerator extends TestFmwk {
                 "japanese type=235 abbreviated",
                 "〖平成31年〗",
                 exampleGeneratorJa,
-                "//ldml/dates/calendars/calendar[@type=\"japanese\"]/eras/eraAbbr/era[@type=\"235\"]");
+                "//ldml/dates/calendars/calendar[@type=\"japanese\"]/eras/eraAbbr/era[@type=\"3\"]");
         checkValue(
                 "gregorian type=0 wide",
                 "〖1 antes de Cristo〗",

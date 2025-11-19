@@ -15,10 +15,10 @@
       +
     </a-tag>
     <template v-if="index + 1 < tagArray.length">
-      <a-tag :closable="true" @close="deleteTag(index)">
+      <a-tag :closable="true" @close="deleteTag(index)" class="regular-tag">
         <a-tooltip>
           <template #title> {{ tagTooltip(tag) }} </template>
-          {{ tag }}
+          {{ displayTag(tag) }}
         </a-tooltip>
       </a-tag>
     </template>
@@ -27,7 +27,8 @@
 
 <script setup>
 import { onMounted, ref } from "vue";
-import { unicodeName } from "unicode-name";
+
+import * as cldrChar from "../esm/cldrChar.mjs";
 
 const DEBUG = true;
 
@@ -103,8 +104,9 @@ function convertTagsToText() {
 }
 
 function convertTextToTags(text) {
-  // To support codepoints greater than U+FFFF, use text.split(/(?:)/u), not split("")
-  const tags = text.split(/(?:)/u);
+  // Currently each character becomes a tag.
+  // In the future some sequences of characters might be combined into single tags.
+  const tags = cldrChar.split(text);
   tags.push(END_TAG);
   tagArray.value = tags;
   if (DEBUG) {
@@ -113,38 +115,41 @@ function convertTextToTags(text) {
 }
 
 function processInput(s) {
-  if (s?.startsWith("U+")) {
-    const usv = parseInt(s.slice(2), 16); // Unicode scalar value
-    if (
-      usv > 0 &&
-      usv < 0x10ffff &&
-      (usv & 0xffff) < 0xfffe &&
-      (usv < 0xd800 || usv > 0xdfff)
-    ) {
-      // To support codepoints greater than U+FFFF, use fromCodePoint, not fromCharCode
-      return String.fromCodePoint(usv);
-    }
+  const c = cldrChar.fromUPlus(s);
+  if (c) {
+    return c;
   }
   return s;
 }
 
+function displayTag(tag) {
+  const codePoint = cldrChar.firstCodePoint(tag);
+  if (cldrChar.isWhiteSpace(codePoint)) {
+    return cldrChar.name(codePoint);
+  } else {
+    return tag;
+  }
+}
+
 function tagTooltip(tag) {
-  // To support codepoints greater than U+FFFF, use codePointAt, NOT charCodeAt.
-  const firstChar = tag.codePointAt(0);
-  const usv = "U+" + firstChar.toString(16).toUpperCase().padStart(4, "0");
-  const name = unicodeName(firstChar);
-  return usv + " " + name;
+  const codePoint = cldrChar.firstCodePoint(tag);
+  return cldrChar.uPlus(codePoint) + " " + cldrChar.name(codePoint);
 }
 </script>
 
 <style scoped>
+.regular-tag {
+  margin: 0 3px 0 0;
+}
+
 .new-tag-input {
   width: 78px;
-  margin: 0 8px 0 0;
+  margin: 0 3px 0 0;
 }
 
 .new-tag-plus {
   background: #fff;
   border-style: dashed;
+  margin: 0 3px 0 0;
 }
 </style>

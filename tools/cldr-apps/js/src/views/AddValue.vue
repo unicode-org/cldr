@@ -18,28 +18,48 @@
   >
     <p>
       <a-config-provider :direction="dir">
-        <template v-if="inputModeIsTags">
+        <template
+          v-if="
+            USE_TAGS &&
+            !CAN_EDIT_TAGS &&
+            (SHOW_TAGS_AND_TEXT_TOGETHER || inputModeIsTags)
+          "
+        >
           <component
-            :is="AddValueTags"
-            :key="componentKey"
+            :is="AddValueTagsReadOnly"
+            :key="componentKeyReadOnly"
+            v-model="newValue"
+            ref="tagsReadonlyRef"
+          />
+        </template>
+        <template
+          v-if="
+            CAN_EDIT_TAGS && (SHOW_TAGS_AND_TEXT_TOGETHER || inputModeIsTags)
+          "
+        >
+          <component
+            :is="AddValueTagsEdit"
+            :key="componentKeyEdit"
             v-model="newValue"
             ref="tagsRef"
             @change="handleTagsChange"
           />
         </template>
-        <template v-else>
+        <p v-if="SHOW_TAGS_AND_TEXT_TOGETHER" class="vertical-spacer" />
+        <template v-if="SHOW_TAGS_AND_TEXT_TOGETHER || !inputModeIsTags">
           <!-- input mode is Text -->
           <a-input
             v-model:value="newValue"
             placeholder="Add a translation"
             ref="inputToFocus"
             @keydown.enter="onSubmit"
+            @change="handleTextChange"
           />
         </template>
       </a-config-provider>
     </p>
 
-    <p>
+    <p v-if="SHOW_RADIO">
       <label for="radio_mode">Input mode:&nbsp;&nbsp;</label>
       <a-radio-group id="radio_mode" v-model:value="inputModeIsTags">
         <a-tooltip placement="bottom">
@@ -73,12 +93,38 @@
 <script setup>
 import { nextTick, ref } from "vue";
 
-import AddValueTags from "./AddValueTags.vue";
+import AddValueTagsEdit from "./AddValueTagsEdit.vue";
+import AddValueTagsReadOnly from "./AddValueTagsReadOnly.vue";
 
 import * as cldrAddValue from "../esm/cldrAddValue.mjs";
 import * as cldrConstants from "../esm/cldrConstants.mjs";
 import * as cldrStatus from "../esm/cldrStatus.mjs";
 
+/**
+ * If true, a tag view is available in addition to the normal text view
+ */
+const USE_TAGS = true;
+
+/**
+ * If true, tags can be edited
+ */
+const CAN_EDIT_TAGS = USE_TAGS && true;
+
+/**
+ * If true, the tag view is shown at the same time as the text view
+ */
+const SHOW_TAGS_AND_TEXT_TOGETHER = USE_TAGS && true;
+
+/**
+ * If true, a pair of radio buttons enables switching between text and tag views. This is
+ * necessary if USE_TAGS is true and SHOW_TAGS_AND_TEXT_TOGETHER is false. It is probably
+ * not appropriate unless CAN_EDIT_TAGS is true.
+ */
+const SHOW_RADIO = USE_TAGS && !SHOW_TAGS_AND_TEXT_TOGETHER;
+
+/**
+ * textHelp and tagHelp are only displayed if SHOW_RADIO is true
+ */
 const textHelp =
   "Show the value as a text string, which can be edited using the ordinary editing features of the web browser";
 
@@ -92,8 +138,10 @@ const formTop = ref(0);
 const formIsVisible = ref(false);
 const inputToFocus = ref(null);
 const inputModeIsTags = ref(false);
-const componentKey = ref(0);
+const componentKeyEdit = ref(0);
+const componentKeyReadOnly = ref(0);
 const tagsRef = ref();
+const tagsReadonlyRef = ref();
 
 const showVoteForMissing = ref(
   cldrStatus.getPermissions()?.userCanVoteForMissing
@@ -117,6 +165,9 @@ function showModal(event) {
 
 function setValue(s) {
   newValue.value = s;
+  if (SHOW_TAGS_AND_TEXT_TOGETHER) {
+    handleTextChange();
+  }
 }
 
 function focusInput() {
@@ -151,12 +202,19 @@ function voteForMissing() {
 }
 
 function handleTagsChange() {
-  // Incrementing the componentKey forces re-rendering. Otherwise reactive update
+  // Incrementing the componentKeyEdit forces re-rendering. Otherwise reactive update
   // fails for unknown reasons under some circumstances. For example, when a tag is
   // deleted, if re-rendering is not forced, sometimes two adjacent [+] controls are
   // displayed, which should not be the case. Reference:
   // https://michaelnthiessen.com/force-re-render/#better-way-you-can-use-forceupdate
-  componentKey.value++;
+  componentKeyEdit.value++;
+}
+
+function handleTextChange() {
+  if (SHOW_TAGS_AND_TEXT_TOGETHER) {
+    componentKeyEdit.value++;
+    componentKeyReadOnly.value++;
+  }
 }
 
 defineExpose({
@@ -169,6 +227,10 @@ defineExpose({
   display: flex;
   justify-content: space-between;
   padding-top: 1em;
+}
+
+.vertical-spacer {
+  margin: 1em 0 0 0;
 }
 
 .plus {

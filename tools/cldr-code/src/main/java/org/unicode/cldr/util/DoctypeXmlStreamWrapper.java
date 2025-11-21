@@ -8,7 +8,10 @@ import java.io.Reader;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import org.unicode.cldr.icu.LDMLConstants;
+import org.unicode.cldr.tool.CldrVersion;
 import org.xml.sax.InputSource;
 
 public class DoctypeXmlStreamWrapper {
@@ -17,6 +20,7 @@ public class DoctypeXmlStreamWrapper {
     private static final byte DOCTYPE_BYTES[] = DOCTYPE.getBytes(StandardCharsets.UTF_8);
     // the string to look for:  xmlns="
     private static final String XMLNS_EQUALS = LDMLConstants.XMLNS + "=\"";
+    private static final String XMLNS_SCHEMA_BASE = XMLNS_EQUALS + CLDRURLS.CLDR_SCHEMA_BASE + "/";
 
     /**
      * Size of the input buffer, needs to be able to handle any expansion when the header is updated
@@ -84,12 +88,27 @@ public class DoctypeXmlStreamWrapper {
         }
     }
 
+    private static final Pattern numberAndType = PatternCache.get("([0-9]{2})/([^\"]+)");
+
     /** Fix an input String, including DOCTYPE */
     private static String fixup(final String s) {
-        // exit if nothing matches
-        for (final DtdType d : DtdType.values()) {
-            if (s.contains(XMLNS_EQUALS + d.getNsUrl())) {
-                return fixup(s, d);
+        // Does it contain any CLDR-looking schemas?
+        final int xmlnsIndex = s.indexOf(XMLNS_SCHEMA_BASE);
+        if (xmlnsIndex != -1) {
+            final String remainder = s.substring(xmlnsIndex + XMLNS_SCHEMA_BASE.length());
+            final Matcher m = numberAndType.matcher(s);
+            if (m.matches()) {
+                final String ver = m.group(1);
+                CldrVersion.from(ver);
+                final String type = m.group(2);
+                // is it a valid DtdType?
+                // final DtdType d = EnumLookup<DtdType>.forString(type,true);
+                final DtdType d = null;
+                if (d != null) {
+                    // fix it up unconditionally.
+                    // TODO: Check version # here.
+                    return fixup(s, d);
+                }
             }
         }
         // couldn't fix it, just pass through

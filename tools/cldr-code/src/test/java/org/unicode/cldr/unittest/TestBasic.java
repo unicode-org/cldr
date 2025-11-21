@@ -385,8 +385,7 @@ public class TestBasic extends TestFmwkPlus {
             xmlReader.setErrorHandler(new MyErrorHandler());
             InputSource is = new InputSource(fis);
             is.setSystemId(systemID.toString());
-            DoctypeXmlStreamWrapper.wrap(is);
-            xmlReader.parse(is);
+            xmlReader.parse(DoctypeXmlStreamWrapper.wrap(is));
             // fis.close();
         } catch (SAXException | IOException e) {
             errln("\t" + "Can't read " + systemID + "\t" + e.getClass() + "\t" + e.getMessage());

@@ -88,7 +88,7 @@ public class DoctypeXmlStreamWrapper {
         }
     }
 
-    private static final Pattern numberAndType = PatternCache.get("([0-9]{2})/([^\"]+)");
+    private static final Pattern numberAndType = PatternCache.get("^([0-9][0-9])\\/([a-zA-Z0-9]+)");
 
     /** Fix an input String, including DOCTYPE */
     private static String fixup(final String s) {
@@ -96,19 +96,21 @@ public class DoctypeXmlStreamWrapper {
         final int xmlnsIndex = s.indexOf(XMLNS_SCHEMA_BASE);
         if (xmlnsIndex != -1) {
             final String remainder = s.substring(xmlnsIndex + XMLNS_SCHEMA_BASE.length());
-            final Matcher m = numberAndType.matcher(s);
-            if (m.matches()) {
-                final String ver = m.group(1);
-                CldrVersion.from(ver);
+            final Matcher m = numberAndType.matcher(remainder);
+            if (m.lookingAt()) {
+                // final String ver = m.group(1); // TODO: CldrVersion.from(ver);
                 final String type = m.group(2);
                 // is it a valid DtdType?
-                // final DtdType d = EnumLookup<DtdType>.forString(type,true);
-                final DtdType d = null;
+                final DtdType d = DtdType.valueOf(type);
                 if (d != null) {
                     // fix it up unconditionally.
                     // TODO: Check version # here.
                     return fixup(s, d);
+                } else {
+                    System.err.println("Bad DTDtype: " + type + " in : " + s.substring(0,100));
                 }
+            } else {
+                System.err.println("Nomatch in " + remainder.substring(0,100) + " against " + numberAndType.pattern() + " though " + m.toString());
             }
         }
         // couldn't fix it, just pass through

@@ -157,11 +157,6 @@ public enum DtdType {
         return dtdPath.replaceAll("\\.dtd$", ".xsd");
     }
 
-    /** The xmlns name for this dtd type */
-    public String getNsUrl() {
-        return CLDRURLS.CLDR_CURVER_BASE + "/" + name();
-    }
-
     /** The current version DTD as a URI */
     String getDtdUri() {
         return new File(CLDRPaths.BASE_DIRECTORY, dtdPath).toURI().toString();

@@ -11,7 +11,6 @@ import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.unicode.cldr.icu.LDMLConstants;
-import org.unicode.cldr.tool.CldrVersion;
 import org.xml.sax.InputSource;
 
 public class DoctypeXmlStreamWrapper {
@@ -107,10 +106,16 @@ public class DoctypeXmlStreamWrapper {
                     // TODO: Check version # here.
                     return fixup(s, d);
                 } else {
-                    System.err.println("Bad DTDtype: " + type + " in : " + s.substring(0,100));
+                    System.err.println("Bad DTDtype: " + type + " in : " + s.substring(0, 100));
                 }
             } else {
-                System.err.println("Nomatch in " + remainder.substring(0,100) + " against " + numberAndType.pattern() + " though " + m.toString());
+                System.err.println(
+                        "Nomatch in "
+                                + remainder.substring(0, 100)
+                                + " against "
+                                + numberAndType.pattern()
+                                + " though "
+                                + m.toString());
             }
         }
         // couldn't fix it, just pass through

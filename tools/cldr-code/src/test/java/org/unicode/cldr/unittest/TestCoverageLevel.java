@@ -491,6 +491,8 @@ public class TestCoverageLevel extends TestFmwkPlus {
                         "("
                                 + "compat|dictionary|emoji|eor|phonebook|phonetic|pinyin|searchjl|stroke|traditional|unihan|zhuyin)");
 
+        final Pattern hc100 = PatternCache.get("(c12|c24)"); // hc values at comprehensive for now
+
         SupplementalDataInfo sdi = testInfo.getSupplementalDataInfo();
         CLDRFile english = testInfo.getEnglish();
 
@@ -651,6 +653,12 @@ public class TestCoverageLevel extends TestFmwkPlus {
                 if (keyType.equals("calendar")) {
                     String ct = xpp.findAttributeValue("type", "type");
                     if (calendar100.matcher(ct).matches()) {
+                        continue;
+                    }
+                }
+                if (keyType.equals("hc")) {
+                    String ct = xpp.findAttributeValue("type", "type");
+                    if (hc100.matcher(ct).matches()) {
                         continue;
                     }
                 }

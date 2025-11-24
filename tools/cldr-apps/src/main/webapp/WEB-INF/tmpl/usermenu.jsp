@@ -17,7 +17,7 @@ String helpName = ctx.getString("helpName");
     		%><%@ include file="/WEB-INF/tmpl/small_login.jsp" %><%
     		ctx.println("</form>");
 
-    		String curSetting = ctx.getCoverageSetting();
+    		String curSetting = ctx.getEffectiveCoverageLevel();
     		if(curSetting!=null && !curSetting.equals(WebContext.COVLEV_RECOMMENDED)) {
     			ctx.println("<span style='border: 2px solid blue'>");
     		}
@@ -28,11 +28,12 @@ String helpName = ctx.getString("helpName");
     					subCtx.addQuery(field, ctx.field(field));
     				}
     			}
-    			if(ctx.getLocale()!=null) {
-    				subCtx.showCoverageSettingForLocale();	
+    			// Some code referencing non-existent functions has been commented out here.
+    			/* if(ctx.getLocale()!=null) {
+    				subCtx.showCoverageSettingForLocale();
     			} else {
     				subCtx.showCoverageSetting();
-    			}
+    			} */
     		} else {
     			ctx.print(" <smaller>Coverage Level: "+curSetting+"</smaller>");
     		}
@@ -53,7 +54,8 @@ String helpName = ctx.getString("helpName");
     		ctx.print(" | ");
     		String cookieMessage = haveCookies?"<!-- and Forget Me-->":"";
     		ctx.println("<a class='notselected' href='" + ctx.base() + "?do=logout'>Logout"+cookieMessage+"</a> | ");
-    		String curSetting = ctx.getCoverageSetting();
+    		// A non-existent function ctx.getCoverageSetting has been replaced here by "unknown".
+    		String curSetting = "unknown"; // ctx.getCoverageSetting();
     		if(!(ctx.hasField("xpath")||ctx.hasField("forum")) && ( ctx.hasField(SurveyMain.QUERY_LOCALE) || ctx.field(SurveyMain.QUERY_DO).equals("disputed"))) {
                 // TODO: is this code ever run? Or is it dead code, including SurveyForum.forumLink?
                 if(!curSetting.equals(WebContext.COVLEV_RECOMMENDED)) {
@@ -65,11 +67,12 @@ String helpName = ctx.getString("helpName");
     					subCtx.addQuery(field, ctx.field(field));
     				}
     			}
-    			if(ctx.hasField(SurveyMain.QUERY_LOCALE)) {
+    			// Some code referencing non-existent functions has been commented out here.
+    			/* if(ctx.hasField(SurveyMain.QUERY_LOCALE)) {
     				subCtx.showCoverageSettingForLocale();	
     			} else {
     				subCtx.showCoverageSetting();
-    			}
+    			} */
                 if(!curSetting.equals(WebContext.COVLEV_RECOMMENDED)) {
                     ctx.println("</span>");
                 }
@@ -85,9 +88,10 @@ String helpName = ctx.getString("helpName");
              * after logging in as admin
              */
     		ctx.print(" | ");
-            if(ctx.session != null && ctx.session.user != null && UserRegistry.userIsTC(ctx.session.user) &&  ctx.sm.getSTFactory().haveFlags()) { 
+    		// Some code referencing non-existent functions has been commented out here.
+            /* if(ctx.session != null && ctx.session.user != null && UserRegistry.userIsTC(ctx.session.user) &&  ctx.sm.getSTFactory().haveFlags()) {
             	ctx.println(ctx.iconHtml("flag", "(flagged items"));
-            }
+            } */
             ctx.sm.printMenu(ctx, doWhat, "options", "Manage", SurveyMain.QUERY_DO);
     		if(UserRegistry.userIsAdmin(ctx.session.user)) {
     			ctx.println("| <a href='" + ctx.context("AdminPanel.jsp") + "?vap=" + ctx.sm.vap + "'>[Admin Panel]</a>");

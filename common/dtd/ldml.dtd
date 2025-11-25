@@ -2502,11 +2502,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
     <!--@MATCH:validity/currency-->
 <!ATTLIST currency alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/variant-->
-<!ATTLIST currency numberSystem CDATA #IMPLIED >
-    <!--@MATCH:bcp47/nu-->
 <!ATTLIST currency draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
+<!ATTLIST currency numberSystem CDATA #IMPLIED >
+    <!--@MATCH:bcp47/nu-->
 <!ATTLIST currency references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST currency validSubLocales CDATA #IMPLIED >

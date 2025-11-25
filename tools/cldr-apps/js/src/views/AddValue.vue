@@ -17,43 +17,32 @@
     }"
     @ok="onSubmit"
   >
-    <a-menu mode="inline" @click="handleMenuClick">
-      <a-menu-item key="1"> Option 1 </a-menu-item>
-      <a-menu-item key="2"> Option 2 </a-menu-item>
-      <a-menu-item key="3"> Option 3 </a-menu-item>
-    </a-menu>
     <p>
       <a-config-provider :direction="dir">
         <template
-          v-if="
-            USE_TAGS &&
-            !CAN_EDIT_TAGS &&
-            (SHOW_TAGS_AND_TEXT_TOGETHER || inputModeIsTags)
-          "
+          v-if="useTags && !canEditTags && (inputModeIsTags || !showRadio)"
         >
+          <!-- show as basic tags -->
           <component
-            :is="AddValueTagsReadOnly"
-            :key="componentKeyReadOnly"
+            :is="AddValueTagsBasic"
+            :key="componentKeyBasic"
             v-model="newValue"
-            ref="tagsReadonlyRef"
+            ref="tagsBasicRef"
           />
         </template>
-        <template
-          v-if="
-            CAN_EDIT_TAGS && (SHOW_TAGS_AND_TEXT_TOGETHER || inputModeIsTags)
-          "
-        >
+        <template v-if="canEditTags && (inputModeIsTags || !showRadio)">
+          <!-- show as editable tags -->
           <component
             :is="AddValueTagsEdit"
             :key="componentKeyEdit"
             v-model="newValue"
-            ref="tagsRef"
+            ref="tagsEditRef"
             @change="handleTagsChange"
           />
         </template>
-        <p v-if="SHOW_TAGS_AND_TEXT_TOGETHER" class="vertical-spacer" />
-        <template v-if="SHOW_TAGS_AND_TEXT_TOGETHER || !inputModeIsTags">
-          <!-- input mode is Text -->
+        <p v-if="!showRadio" class="vertical-spacer" />
+        <template v-if="!(showRadio && inputModeIsTags)">
+          <!-- show as text -->
           <a-input
             v-model:value="newValue"
             placeholder="Add a translation"
@@ -65,7 +54,7 @@
       </a-config-provider>
     </p>
 
-    <p v-if="SHOW_RADIO">
+    <p v-if="showRadio">
       <label for="radio_mode">Input mode:&nbsp;&nbsp;</label>
       <a-radio-group id="radio_mode" v-model:value="inputModeIsTags">
         <a-tooltip placement="bottom">
@@ -80,62 +69,90 @@
     </p>
 
     <div class="button-container">
-      <a-button @click="onEnglish">→English</a-button>
-      <a-button @click="onWinning">→Winning</a-button>
-      <button
-        class="plus"
-        type="button"
-        @click="voteForMissing"
-        v-if="showVoteForMissing"
-      >
-        {{ cldrConstants.VOTE_FOR_MISSING }} - vote for missing
-      </button>
+      <a-tooltip placement="bottom">
+        <template #title>{{ "Input a copy of the English value" }}</template>
+        <a-button @click="onEnglish">→English</a-button>
+      </a-tooltip>
+      &nbsp;
+      <a-tooltip placement="bottom">
+        <template #title>{{ "Input a copy of the winning value" }}</template>
+        <a-button @click="onWinning">→Winning</a-button>
+      </a-tooltip>
+      &nbsp;
+      <a-tooltip placement="bottom">
+        <template #title>{{ "Vote for missing" }}</template>
+        <a-button @click="voteForMissing" v-if="showVoteForMissing">
+          {{ cldrConstants.VOTE_FOR_MISSING }}
+        </a-button>
+      </a-tooltip>
+      &nbsp;
       <a-button type="cancel" @click="onCancel">Cancel</a-button>
+      &nbsp;
       <a-button type="primary" @click="onSubmit">Submit</a-button>
     </div>
+    <!-- Checkboxes are displayed only if user Shift-clicks on Cancel, to enable experimental tag features for testing/debugging -->
+    <a-modal
+      v-model:visible="formHasTagOptions"
+      width="20ch"
+      :closable="false"
+      :footer="null"
+    >
+      <a-checkbox v-model:checked="useTags" @change="handleCheckboxChange"
+        >use tags</a-checkbox
+      ><br />
+      <a-checkbox
+        v-model:checked="canEditTags"
+        @change="handleCheckboxChange"
+        :disabled="!useTags"
+        >can edit tags</a-checkbox
+      ><br />
+      <a-checkbox
+        v-model:checked="showRadio"
+        @change="handleCheckboxChange"
+        :disabled="!useTags"
+        >show radio</a-checkbox
+      >
+    </a-modal>
   </a-modal>
 </template>
 
 <script setup>
 import { nextTick, ref } from "vue";
 
+// Two kinds of "tags" are supported: basic (read-only) and editable
+import AddValueTagsBasic from "./AddValueTagsBasic.vue";
 import AddValueTagsEdit from "./AddValueTagsEdit.vue";
-import AddValueTagsReadOnly from "./AddValueTagsReadOnly.vue";
 
 import * as cldrAddValue from "../esm/cldrAddValue.mjs";
 import * as cldrConstants from "../esm/cldrConstants.mjs";
 import * as cldrStatus from "../esm/cldrStatus.mjs";
 
+const DEBUG = true;
+
 /**
  * If true, a tag view is available in addition to the normal text view
  */
-const USE_TAGS = true;
+const useTags = ref(false);
 
 /**
  * If true, tags can be edited
  */
-const CAN_EDIT_TAGS = USE_TAGS && false;
+const canEditTags = ref(false);
 
 /**
- * If true, the tag view is shown at the same time as the text view
+ * If true, a pair of radio buttons enables switching between text and tag views; otherwise, if using tags,
+ * tags and text are shown at the same time.
  */
-const SHOW_TAGS_AND_TEXT_TOGETHER = USE_TAGS && true;
+const showRadio = ref(false);
 
 /**
- * If true, a pair of radio buttons enables switching between text and tag views. This is
- * necessary if USE_TAGS is true and SHOW_TAGS_AND_TEXT_TOGETHER is false. It is probably
- * not appropriate unless CAN_EDIT_TAGS is true.
- */
-const SHOW_RADIO = USE_TAGS && !SHOW_TAGS_AND_TEXT_TOGETHER;
-
-/**
- * textHelp and tagHelp are only displayed if SHOW_RADIO is true
+ * textHelp and tagHelp are only displayed if showRadio is true
  */
 const textHelp =
   "Show the value as a text string, which can be edited using the ordinary editing features of the web browser";
 
 const tagHelp =
-  "Show the value as a sequence of tags, each tag representing a character, with special features for viewing/editing tags";
+  "Show the value as a sequence of tags, each tag representing a character";
 
 const xpstrid = ref(""); // xpath string id
 const newValue = ref("");
@@ -144,11 +161,11 @@ const formTop = ref(0);
 const formIsVisible = ref(false);
 const inputToFocus = ref(null);
 const inputModeIsTags = ref(false);
-const formHasTagMenu = ref(false);
+const formHasTagOptions = ref(false);
 const componentKeyEdit = ref(0);
-const componentKeyReadOnly = ref(0);
-const tagsRef = ref();
-const tagsReadonlyRef = ref();
+const componentKeyBasic = ref(0);
+const tagsEditRef = ref();
+const tagsBasicRef = ref();
 
 const showVoteForMissing = ref(
   cldrStatus.getPermissions()?.userCanVoteForMissing
@@ -172,7 +189,7 @@ function showModal(event) {
 
 function setValue(s) {
   newValue.value = s;
-  if (SHOW_TAGS_AND_TEXT_TOGETHER) {
+  if (!showRadio.value) {
     handleTextChange();
   }
 }
@@ -192,9 +209,8 @@ function onWinning() {
 }
 
 function onCancel(event) {
-  if (event.shiftKey) {
-    console.log("Got shift-click on Cancel button!");
-    formHasTagMenu.value = true;
+  if (DEBUG && event.shiftKey) {
+    formHasTagOptions.value = true;
     return;
   }
   formIsVisible.value = false;
@@ -223,18 +239,17 @@ function handleTagsChange() {
 }
 
 function handleTextChange() {
-  if (SHOW_TAGS_AND_TEXT_TOGETHER) {
+  if (!showRadio.value) {
     componentKeyEdit.value++;
-    componentKeyReadOnly.value++;
+    componentKeyBasic.value++;
   }
 }
 
-const handleMenuClick = (e) => {
-  console.log("Menu item clicked:", e.key);
-  // You can add your logic here for when a menu item is clicked
-  // Close the modal if needed
-  // visible.value = false;
-};
+function handleCheckboxChange() {
+  if (!useTags.value) {
+    canEditTags.value = showRadio.value = false;
+  }
+}
 
 defineExpose({
   setXpathStringId,

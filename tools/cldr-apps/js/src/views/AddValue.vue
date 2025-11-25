@@ -2,6 +2,7 @@
   <!-- If use a-button instead of button, form positioning fails -->
   <button class="plus" type="button" @click="showModal">
     ✚
+
     <!-- U+271A HEAVY GREEK CROSS -->
   </button>
   <a-modal
@@ -16,6 +17,11 @@
     }"
     @ok="onSubmit"
   >
+    <a-menu mode="inline" @click="handleMenuClick">
+      <a-menu-item key="1"> Option 1 </a-menu-item>
+      <a-menu-item key="2"> Option 2 </a-menu-item>
+      <a-menu-item key="3"> Option 3 </a-menu-item>
+    </a-menu>
     <p>
       <a-config-provider :direction="dir">
         <template
@@ -108,7 +114,7 @@ const USE_TAGS = true;
 /**
  * If true, tags can be edited
  */
-const CAN_EDIT_TAGS = USE_TAGS && true;
+const CAN_EDIT_TAGS = USE_TAGS && false;
 
 /**
  * If true, the tag view is shown at the same time as the text view
@@ -138,6 +144,7 @@ const formTop = ref(0);
 const formIsVisible = ref(false);
 const inputToFocus = ref(null);
 const inputModeIsTags = ref(false);
+const formHasTagMenu = ref(false);
 const componentKeyEdit = ref(0);
 const componentKeyReadOnly = ref(0);
 const tagsRef = ref();
@@ -184,7 +191,12 @@ function onWinning() {
   setValue(cldrAddValue.getWinning(xpstrid.value));
 }
 
-function onCancel() {
+function onCancel(event) {
+  if (event.shiftKey) {
+    console.log("Got shift-click on Cancel button!");
+    formHasTagMenu.value = true;
+    return;
+  }
   formIsVisible.value = false;
   cldrAddValue.setFormIsVisible(false, xpstrid.value);
 }
@@ -216,6 +228,13 @@ function handleTextChange() {
     componentKeyReadOnly.value++;
   }
 }
+
+const handleMenuClick = (e) => {
+  console.log("Menu item clicked:", e.key);
+  // You can add your logic here for when a menu item is clicked
+  // Close the modal if needed
+  // visible.value = false;
+};
 
 defineExpose({
   setXpathStringId,

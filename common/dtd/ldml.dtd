@@ -2505,13 +2505,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!ATTLIST currency draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
-<!ATTLIST currency numberSystem CDATA #IMPLIED >
-    <!--@MATCH:bcp47/nu-->
 <!ATTLIST currency references CDATA #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST currency validSubLocales CDATA #IMPLIED >
     <!--@VALUE-->
     <!--@DEPRECATED-->
+<!ATTLIST currency numberSystem CDATA #IMPLIED >
+    <!--@MATCH:bcp47/nu-->
 
 <!ELEMENT symbol ( #PCDATA ) >
 <!ATTLIST symbol choice (true | false) #IMPLIED >

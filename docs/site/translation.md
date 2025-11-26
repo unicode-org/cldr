@@ -12,9 +12,8 @@ In your browser you can copy this sequence, then use ⌘-F (Mac) or Ctrl-F (Wind
     - This includes locales like Kurdish, Yoruba, Zulu, and many others.
     - In order to give more time for submission -- we will not have a resolution phase for v49, meaning that the survey tool will remain open for new submissions until the next general submission cycle in April 2026.
     - This does mean that submissions made between now and April 2026 will NOT be reflected in the v49 data release of CLDR. Instead, they will be included in the v50 release of CLDR, which is scheduled for October 2026.
-    - Exceptional changes that are requested for v49 should be [filed as JIRA tickets](requesting_changes) for TC review and they will be remediated by modifying the XML directly.
   - Survey Tool submission for v50 for locales maintained by the Technical Committee (TC), such as English, German, French, will open as usual around May 2026.
-    - Exceptional changes for v49 for TC-maintained locales should be [filed as JIRA tickets](requesting_changes) for TC review.
+  - Exceptional changes for v49 for TC-maintained locales should be [filed as JIRA tickets](requesting_changes) for TC review and they will be remediated by modifying the XML directly..
 
 When a section below changes, the date will be in the header.
 
@@ -45,7 +44,7 @@ If the error appears under Typography, you can ignore it. <!-- [[CLDR-13552](htt
 
 🆕 2025-11-24 We are reviewing new locale requests for inclusion in CLDR 50. See [how to add a new locales](https://cldr.unicode.org/development/adding-locales).
 
-The following new languages are available in the Survey Tool for submission:
+The following new languages are available in the Survey Tool for submission as of v48:
 
 - Buryat (bua)
 - Coptic (cop)

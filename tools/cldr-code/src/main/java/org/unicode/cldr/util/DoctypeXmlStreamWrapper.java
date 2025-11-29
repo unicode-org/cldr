@@ -97,25 +97,17 @@ public class DoctypeXmlStreamWrapper {
             final String remainder = s.substring(xmlnsIndex + XMLNS_SCHEMA_BASE.length());
             final Matcher m = numberAndType.matcher(remainder);
             if (m.lookingAt()) {
-                // final String ver = m.group(1); // TODO: CldrVersion.from(ver);
+                // final String ver = m.group(1); // Not currently used.
                 final String type = m.group(2);
                 // is it a valid DtdType?
                 final DtdType d = DtdType.valueOf(type);
                 if (d != null) {
                     // fix it up unconditionally.
-                    // TODO: Check version # here.
+                    // Could check version # here.
                     return fixup(s, d);
                 } else {
                     System.err.println("Bad DTDtype: " + type + " in : " + s.substring(0, 100));
                 }
-            } else {
-                System.err.println(
-                        "Nomatch in "
-                                + remainder.substring(0, 100)
-                                + " against "
-                                + numberAndType.pattern()
-                                + " though "
-                                + m.toString());
             }
         }
         // couldn't fix it, just pass through

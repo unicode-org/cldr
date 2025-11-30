@@ -20,6 +20,35 @@ import org.unicode.cldr.util.VoteResolver.Status;
 public class TestVoteResolver {
 
     @Test
+    void testNonTcOrgByCountNotTime() {
+        final VoteResolver<String> vr = getStringResolver();
+        vr.setLocale(
+                CLDRLocale.getInstance("br"), null); // NB: pathHeader is needed for annotations
+        vr.setBaseline("Inez Bouvet", Status.unconfirmed);
+        vr.setBaileyValue("BV");
+
+        // Three dates
+        final Date t0 = new Date(1500000000000L);
+        final Date t1 = new Date(1600000000000L);
+        final Date t2 = new Date(1700000000000L);
+
+        // earlier, but majority vote
+        vr.add("1 Bouvet", TestHelper.TestUser.bretonV1.voterId, null, t0);
+        vr.add("1 Bouvet", TestHelper.TestUser.bretonV2.voterId, null, t1);
+        // latest, but minority vote
+        vr.add("2 Bouvet", TestHelper.TestUser.bretonV3.voterId, null, t2);
+
+        assertAll(
+                "Verify org's vote",
+                () -> assertEquals("1 Bouvet", vr.getOrgVote(Organization.breton)),
+                () -> assertEquals("1 Bouvet", vr.getWinningValue()),
+                () ->
+                        assertEquals(
+                                VoteResolver.VoteStatus.ok,
+                                vr.getStatusForOrganization(Organization.breton)));
+    }
+
+    @Test
     void testDisputed() {
         final VoteResolver<String> vr = getStringResolver();
         vr.setLocale(

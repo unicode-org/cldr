@@ -368,7 +368,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             } else {
                 xmlsource =
                         dataBackedSource =
-                                new BallotBoxXMLSource<User>(
+                                new BallotBoxXMLSource<>(
                                         diskDataEntry.diskData.cloneAsThawed(), this);
                 registerXmlSource(dataBackedSource);
                 loadVoteValues();
@@ -390,7 +390,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                     () ->
                             "makeResolvingSource() sourceList: "
                                     + sourceList.stream()
-                                            .map(l -> l.getLocaleID())
+                                            .map(XMLSource::getLocaleID)
                                             .collect(Collectors.joining("»")));
             return registerXmlSource(new XMLSource.ResolvingSource(sourceList));
         }
@@ -633,7 +633,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             r.setBaseline(currentValue, currentStatus);
             r.add(currentValue);
 
-            /** Note that rFile may not have all votes filled in yet as we're in startup phase */
+            /* Note that rFile may not have all votes filled in yet as we're in startup phase */
             final CLDRFile baseFile = (rFile != null) ? rFile : diskDataEntry.diskFile;
             r.setBaileyValue(baseFile.getBaileyValue(path, null, null));
 

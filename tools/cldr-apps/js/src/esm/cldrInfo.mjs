@@ -333,7 +333,7 @@ function addSelectedItem(theRow) {
   const { language, direction } = getLanguageAndDirection();
   selectedItemWrapper.setLanguageAndDirection(language, direction);
 
-  const description = getItemDescription(item?.pClass, theRow);
+  const description = getItemDescription(item?.status, theRow);
   selectedItemWrapper.setDescription(description);
 
   const { linkUrl, linkText } = getLinkUrlAndText(theRow, item);
@@ -355,7 +355,7 @@ function getValueAndClass(theRow, item) {
   if (!displayValue) {
     displayValue = ""; // not "undefined"
   }
-  const valueClass = item?.pClass || "value";
+  const valueClass = item?.status || "value";
   return { displayValue, valueClass };
 }
 
@@ -370,16 +370,7 @@ function getLanguageAndDirection() {
 
 /**
  * Add a link in the Info Panel for "Jump to Original" (cldrText.get('followAlias')),
- * if theRow.inheritedLocale or theRow.inheritedXpid is defined.
- *
- * Normally at least one of theRow.inheritedLocale and theRow.inheritedXpid should be
- * defined whenever we have an INHERITANCE_MARKER item. Otherwise an error is reported
- * by checkRowConsistency.
- *
- * An alternative would be for the server to send the link, instead of inheritedLocale
- * and inheritedXpid, to the client, avoiding the need for the client to know so much,
- * including the need to replace 'code-fallback' with 'root' or when to use cldrStatus.getCurrentLocale()
- * in place of inheritedLocale or use xpstrid in place of inheritedXpid.
+ * if appropriate.
  *
  * @param {Object} theRow the row
  * @param {Object} item the candidate item
@@ -389,26 +380,11 @@ function getLinkUrlAndText(theRow, item) {
   let linkText = null;
   if (
     item?.value === cldrSurvey.INHERITANCE_MARKER &&
-    (theRow?.inheritedLocale || theRow?.inheritedXpid)
+    item?.status !== "constructed" &&
+    theRow?.inheritedUrl
   ) {
-    let loc = theRow.inheritedLocale;
-    let xpstrid = theRow.inheritedXpid || theRow.xpstrid;
-    if (!loc) {
-      loc = cldrStatus.getCurrentLocale();
-    } else if (loc === "code-fallback") {
-      /*
-       * Never use 'code-fallback' in the link, use 'root' instead.
-       * On the server, 'code-fallback' sometimes goes by the name XMLSource.CODE_FALLBACK_ID.
-       */
-      loc = "root";
-    }
-    if (xpstrid === theRow.xpstrid && loc === cldrStatus.getCurrentLocale()) {
-      // following the alias would come back to the current item; no link
-      // and no link text either
-    } else {
-      linkText = cldrText.get("followAlias");
-      linkUrl = "#/" + loc + "//" + xpstrid;
-    }
+    linkText = cldrText.get("followAlias");
+    linkUrl = theRow.inheritedUrl;
   }
   return { linkUrl, linkText };
 }
@@ -562,8 +538,8 @@ function updateRowVoteInfo(tr, theRow) {
     var isectionIsUsed = false;
 
     /*
-     * Note: we can't just check for item.pClass === "winner" here, since, for example, the winning value may
-     * have value = cldrSurvey.INHERITANCE_MARKER and item.pClass = "alias".
+     * Note: we can't just check for item.status === "winner" here, since, for example, the winning value may
+     * have value = cldrSurvey.INHERITANCE_MARKER and item.status = "alias".
      */
     if (value === theRow.winningValue) {
       const statusClass = cldrTable.getRowApprovalStatusClass(theRow);
@@ -589,7 +565,7 @@ function updateRowVoteInfo(tr, theRow) {
        * theRow.inheritedValue can be undefined here; then do not append
        */
       if (theRow.inheritedValue) {
-        cldrVote.appendItem(valdiv, theRow.inheritedDisplayValue, item.pClass);
+        cldrVote.appendItem(valdiv, theRow.inheritedDisplayValue, item.status);
         valdiv.appendChild(
           cldrDom.createChunk(cldrText.get("voteInfo_votesForInheritance"), "p")
         );
@@ -674,30 +650,31 @@ function makeVoteExplainerDiv(voteTranscript) {
   return voteExplainerDiv;
 }
 
-function getItemDescription(itemClass, theRow) {
+function getItemDescription(candidateStatus, theRow) {
+  if (!candidateStatus) {
+    return "";
+  }
   /*
-   * itemClass may be "winner, "alias", "fallback", "fallback_code", "fallback_root", or "loser".
-   *  See getPClass in DataPage.java.*
+   * candidateStatus may be "winner, "alias", "constructed", "fallback", "fallback_code", "fallback_root", or "loser".
+   * See DataPage.DataRow.CandidateItem.getCandidateStatus in DataPage.java
    */
   const inheritedLocale = theRow?.inheritedLocale;
-  if (itemClass === "fallback") {
+  if (candidateStatus === "fallback") {
     const locName = cldrLoad.getLocaleName(inheritedLocale);
     return cldrText.sub("item_description_fallback", [locName]);
-  } else if (itemClass === "alias") {
+  } else if (candidateStatus === "alias") {
     if (inheritedLocale === cldrStatus.getCurrentLocale()) {
-      return cldrText.get(
-        theRow.inheritedXpid
-          ? "item_description_alias_same_locale"
-          : "noFollowAlias"
-      );
+      return cldrText.get("item_description_alias_same_locale");
     } else {
       const locName = cldrLoad.getLocaleName(inheritedLocale);
       return cldrText.sub("item_description_alias_diff_locale", [locName]);
     }
+  } else if (candidateStatus === "constructed") {
+    return cldrText.get("noFollowAlias");
   } else {
     // Strings produced here, used as keys for cldrText.get(), may include:
     // "item_description_winner", "item_description_fallback_code", "item_description_fallback_root", "item_description_loser".
-    return cldrText.get("item_description_" + itemClass);
+    return cldrText.get("item_description_" + candidateStatus);
   }
 }
 

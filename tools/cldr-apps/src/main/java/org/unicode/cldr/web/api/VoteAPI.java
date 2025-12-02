@@ -180,7 +180,7 @@ public class VoteAPI {
                 public String example;
                 public String history;
                 public boolean isBaselineValue;
-                public String pClass;
+                public String status;
                 public String rawValue;
                 public List<CheckStatusSummary> tests;
                 public String value;
@@ -217,7 +217,6 @@ public class VoteAPI {
             public String dir;
             public String displayExample;
             public String displayName;
-            public String rawEnglish;
             public Map<String, String> extraAttributes;
             public boolean flagged;
             public SurveyForum.PathForumStatus forumStatus;
@@ -226,7 +225,7 @@ public class VoteAPI {
             public String inheritedLocale;
             public String inheritedValue;
             public String inheritedDisplayValue;
-            public String inheritedXpid;
+            public String inheritedUrl;
             public Map<String, Candidate> items;
 
             @Schema(description = "map of placeholder string to example value")

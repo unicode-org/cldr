@@ -8,7 +8,7 @@ import * as cldrLoad from "./cldrLoad.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";
 import * as cldrSurvey from "./cldrSurvey.mjs";
 
-const SIDEWAYS_DEBUG = true;
+const SIDEWAYS_DEBUG = false;
 /** If true only load when clicked */
 const LOAD_ON_DEMAND = true;
 

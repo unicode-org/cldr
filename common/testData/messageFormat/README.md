@@ -1,3 +1,7 @@
+# CLDR `common/testData/messageFormat` directory
+
+This directory contains test data for grapheme locale validity, canonicalization, and name generation.
+
 The tests in the `./tests/` directory were originally copied from the [messageformat project](https://github.com/messageformat/messageformat/tree/11c95dab2b25db8454e49ff4daadb817e1d5b770/packages/mf2-messageformat/src/__fixtures)
 and are here relicensed by their original author (Eemeli Aro) under the Unicode License.
 
@@ -68,6 +72,7 @@ The function `:test:function` requires a [Number Operand](/spec/registry.md#numb
 #### Options
 
 The following _options_ are available on `:test:function`:
+
 - `decimalPlaces`, a _digit size option_ for which only `0` and `1` are valid values.
   - `0`
   - `1`
@@ -174,3 +179,5 @@ except that it cannot be used for selection.
 
 When `:test:format` is used as a _selector_,
 the steps under 2.iii. of [Resolve Selectors](/spec/formatting.md#resolve-selectors) are followed.
+
+For copyright, terms of use, and further details, see the top [README](../../../README.md).

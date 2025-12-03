@@ -488,6 +488,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                     }
                     if (!isValidSurveyToolVote(
                             theSubmitter, xpath)) { // Make sure it is a visible path
+                        SurveyLog.warnOnce(logger, "Ignoring invalid vote for path " + xpath);
                         continue;
                     }
                     try {
@@ -1821,7 +1822,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         try {
             return getPathHeaderFactory().fromPath(xpath);
         } catch (Throwable t) {
-            SurveyLog.warnOnce(logger, "PH for path " + xpath + t);
+            SurveyLog.warnOnce(logger, "PH for path " + xpath + t + "\nCaused by: " + t.getCause());
             return null;
         }
     }

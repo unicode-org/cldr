@@ -1,11 +1,12 @@
 /*
  * cldrDeferHelp: encapsulate code related to showing language descriptions in the Info Panel
  */
-import { marked } from "./cldrMarked.mjs";
+import { fetch } from "./cldrAjax.mjs";
 import * as cldrDom from "./cldrDom.mjs";
+import { marked } from "./cldrMarked.mjs";
+import * as cldrNotify from "./cldrNotify.mjs";
+
 const defaultEndpoint = "https://dbpedia.org/sparql/";
-const format = "JSON";
-const abstractLang = "en";
 
 const USELESS_IN_INFO_PANEL = "see info panel";
 
@@ -55,40 +56,36 @@ function subloadAbstract(resource) {
   const absContent = $("<p/>", { text: `Loading ${resource}` });
   absDiv.append(absContent);
 
-  // This query simply returns the abstract result for the specific resource.
-  // The query is so small that browsers persistently cache the GET request.
-  sparqlQuery(
-    `PREFIX  dbo:  <http://dbpedia.org/ontology/>
-  PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-  SELECT ?abstract ?primaryTopic
-  WHERE {
-      <${resource}> dbo:abstract ?abstract .
-      <${resource}> foaf:isPrimaryTopicOf ?primaryTopic
-      FILTER langMatches(lang(?abstract), "${abstractLang}")
-  } LIMIT 1`
-  ).then(
-    ({ results }) => {
-      let seeAlso = resource;
-      if (
-        results.bindings[0].primaryTopic &&
-        results.bindings[0].primaryTopic.value
-      ) {
-        seeAlso = results.bindings[0].primaryTopic.value;
+  resourceQuery(resource)
+    .then((r) => r.json())
+    .then(
+      ({ results }) => {
+        let seeAlso = resource;
+        if (
+          results.bindings[0].primaryTopic &&
+          results.bindings[0].primaryTopic.value
+        ) {
+          seeAlso = results.bindings[0].primaryTopic.value;
+        }
+        absContent.text(results.bindings[0].abstract.value);
+        absDiv.append(
+          $("<a/>", {
+            text: "(more)",
+            title: resource,
+            target: "_blank",
+            href: seeAlso,
+          })
+        );
+      },
+      (err) => {
+        cldrNotify.logException(err, `Loading ${resource}`);
+        absContent.text(
+          `Error: Could not load ${resource} : ${
+            err?.status || err?.message || ""
+          }`
+        );
       }
-      absContent.text(results.bindings[0].abstract.value);
-      absDiv.append(
-        $("<a/>", {
-          text: "(more)",
-          title: resource,
-          target: "_blank",
-          href: seeAlso,
-        })
-      );
-    },
-    (err) => {
-      absContent.text(`Err loading ${resource}: ${err}`);
-    }
-  );
+    );
 
   return absDiv;
 }
@@ -101,7 +98,29 @@ function subloadAbstract(resource) {
  */
 function sparqlQuery(query, endpoint) {
   endpoint = endpoint || defaultEndpoint;
-  return $.getJSON(endpoint, { query, format });
+  const url = new URL(endpoint);
+  url.searchParams.append("query", query);
+  url.searchParams.append("format", "JSON");
+  return fetch(url);
+}
+
+function resourceQuery(resource) {
+  const abstractLang = "en"; // for now, only English abstracts
+  // This query simply returns the abstract result for the specific resource.
+  // The query is so small that browsers persistently cache the GET request.
+  //
+  // We include the hostname so that the cache is specific to this instance, to avoid cached CORS headers.
+  return sparqlQuery(
+    `PREFIX  dbo:  <http://dbpedia.org/ontology/>
+  PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+  SELECT ?abstract ?primaryTopic
+  WHERE {
+      <${resource}> dbo:abstract ?abstract .
+      <${resource}> foaf:isPrimaryTopicOf ?primaryTopic
+      FILTER langMatches(lang(?abstract), "${abstractLang}")
+  } LIMIT 1
+  # Query from ${window.location.hostname} - cldr.unicode.org` // this is a comment. We include cldr.unicode.org for tracing.
+  );
 }
 
 function addPlaceholderHelp(fragment, placeholderStatus, placeholderInfo) {

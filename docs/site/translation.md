@@ -8,7 +8,7 @@ The following list summarizes the recent changes, with more details in a section
 A sequence like 🆕 2025-11-24 marks items that have been recently added.
 In your browser you can copy this sequence, then use ⌘-F (Mac) or Ctrl-F (Windows) to find all the places it occurs.
 - **🆕 2025-11-24**
-  - Current plans are to open the Survey Tool in early December 2026, but only for Digitally Disadvantaged Locales ([DDL](https://cldr.unicode.org/translation/ddl)) submission.
+  - Current plans are to open the Survey Tool in early December 2025, but only for Digitally Disadvantaged Locales ([DDL](https://cldr.unicode.org/translation/ddl)) submission.
     - This includes locales like Kurdish, Yoruba, Zulu, and many others.
     - In order to give more time for submission -- we will not have a resolution phase for v49, meaning that the survey tool will remain open for new submissions until the next general submission cycle in April 2026.
     - This does mean that submissions made between now and April 2026 will NOT be reflected in the v49 data release of CLDR. Instead, they will be included in the v50 release of CLDR, which is scheduled for October 2026.

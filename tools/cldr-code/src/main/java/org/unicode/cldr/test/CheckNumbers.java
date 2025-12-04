@@ -259,6 +259,20 @@ public class CheckNumbers extends FactoryCheckCLDR {
         }
         XPathParts parts = XPathParts.getFrozenInstance(path);
 
+        // Check that number formats are for an explicit number system (but not for currency paths)
+        if (type != NumericType.CURRENCY) {
+            String numberSystem = parts.getAttributeValue(2, "numberSystem");
+            if (numberSystem == null) {
+                result.add(
+                        new CheckStatus()
+                                .setCause(this)
+                                .setMainType(CheckStatus.errorType)
+                                .setSubtype(Subtype.missingNumberingSystem)
+                                .setMessage(
+                                        "Number formats must have an explicit numberSystem attribute."));
+            }
+        }
+
         // Do tests that need to split the values
 
         boolean isPositive = true;

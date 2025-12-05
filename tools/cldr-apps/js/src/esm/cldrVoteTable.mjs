@@ -21,7 +21,7 @@ function add(containerEl, votingResults, item, value, totalVoteCount) {
      * background of the candidate value: "alias", "fallback", "fallback_root", etc.
      */
     const baileyClass =
-      item.rawValue === cldrSurvey.INHERITANCE_MARKER ? item.pClass : "";
+      item.rawValue === cldrSurvey.INHERITANCE_MARKER ? item.status : "";
     const wrapper = cldrVue.mount(InfoVoting, containerEl);
     wrapper.setData({
       totalVoteCount: totalVoteCount,

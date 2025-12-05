@@ -164,7 +164,7 @@ const strings = {
   info_panel_selected:
     "Description of the currently selected candidate item, including any errors, warnings, or examples",
 
-  // pClass ( see DataPage.java)
+  // Status of candidate item (see CandidateStatus in DataPage.java)
   item_description_winner: "This item is currently winning.",
   item_description_alias_same_locale:
     "This item is inherited from another field in this locale.",
@@ -175,7 +175,6 @@ const strings = {
     "This item is inherited from the root locale.",
   item_description_loser: "This item is currently losing.",
   item_description_fallback: "This item is inherited from the ${0} locale.",
-  pClassExplain_desc: "This area shows the item's status.",
   followAlias: "Jump to Original ⇒",
   noFollowAlias: "This item is constructed from other values.",
 

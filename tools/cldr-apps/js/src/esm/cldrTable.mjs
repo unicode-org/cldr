@@ -636,17 +636,15 @@ function checkRowConsistency(theRow) {
               " - there is INHERITANCE_MARKER without inheritedValue"
           );
         }
-      } else if (!theRow.inheritedLocale && !theRow.inheritedXpid) {
+      } else if (!theRow.inheritedUrl) {
         /*
-         * It is probably a bug if item.value === cldrSurvey.INHERITANCE_MARKER but theRow.inheritedLocale and
-         * theRow.inheritedXpid are both undefined (null on server).
-         * This happens with "example C" in
-         *     https://unicode.org/cldr/trac/ticket/11299#comment:15
+         * It is probably a bug if item.value === cldrSurvey.INHERITANCE_MARKER but theRow.inheritedUrl is
+         * undefined (null on server).
          */
         console.log(
           "For " +
             theRow.xpstrid +
-            " - there is INHERITANCE_MARKER without inheritedLocale or inheritedXpid"
+            " - there is INHERITANCE_MARKER without inheritedUrl"
         );
       }
     }
@@ -931,7 +929,7 @@ function addVitem(td, tr, theRow, item, newButton) {
   }
   const subSpan = document.createElement("span");
   subSpan.className = "subSpan";
-  cldrVote.appendItem(subSpan, displayValue, item.pClass);
+  cldrVote.appendItem(subSpan, displayValue, item.status);
   choiceField.appendChild(subSpan);
   if (item.isBaselineValue == true) {
     cldrDom.appendIcon(

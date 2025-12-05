@@ -1746,15 +1746,65 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         }
     }
 
+    private static Map<String, List<Integer>> createCurrencyDecimalCasesMap() {
+        Map<String, List<Integer>> currencyDecimalCasesMap = new HashMap<>();
+        //                      currency:  digits, rounding, cashDigits, cashRounding
+        currencyDecimalCasesMap.put("ADP", Arrays.asList(0, 0, 0, 0));
+        currencyDecimalCasesMap.put("AMD", Arrays.asList(2, 0, 0, 0));
+        currencyDecimalCasesMap.put("BHD", Arrays.asList(3, 0, 3, 0));
+        currencyDecimalCasesMap.put("CAD", Arrays.asList(2, 0, 2, 5));
+        currencyDecimalCasesMap.put("CHF", Arrays.asList(2, 0, 2, 5));
+        currencyDecimalCasesMap.put("CLF", Arrays.asList(4, 0, 4, 0));
+        currencyDecimalCasesMap.put("CZK", Arrays.asList(2, 0, 0, 0));
+        currencyDecimalCasesMap.put("DKK", Arrays.asList(2, 0, 2, 50));
+        currencyDecimalCasesMap.put("HUF", Arrays.asList(0, 0, 0, 5));
+        currencyDecimalCasesMap.put("RSD", Arrays.asList(2, 0, 0, 0));
+        currencyDecimalCasesMap.put("TWD", Arrays.asList(2, 0, 0, 0));
+        currencyDecimalCasesMap.put("USD", Arrays.asList(2, 0, 2, 0)); // per DEFAULT
+        return Collections.unmodifiableMap(currencyDecimalCasesMap);
+    }
+
     public void TestCurrencyDecimalPlaces() {
         IsoCurrencyParser isoCodes = IsoCurrencyParser.getInstance();
         Relation<String, IsoCurrencyParser.Data> codeList = isoCodes.getCodeList();
+        Map<String, List<Integer>> currencyDecimalCasesMap = createCurrencyDecimalCasesMap();
         Set<String> currencyCodes = STANDARD_CODES.getGoodAvailableCodes("currency");
         for (String cc : currencyCodes) {
+            CurrencyNumberInfo cni = SUPPLEMENTAL.getCurrencyNumberInfo(cc);
+            List<Integer> expectedValues = currencyDecimalCasesMap.get(cc);
+            if (expectedValues != null) {
+                int expectedDigits = expectedValues.get(0).intValue();
+                int expectedRounding = expectedValues.get(1).intValue();
+                int expectedCashDigits = expectedValues.get(2).intValue();
+                int expectedCashRounding = expectedValues.get(3).intValue();
+                if (expectedDigits != cni.digits
+                        || expectedRounding != cni.rounding
+                        || expectedCashDigits != cni.cashDigits
+                        || expectedCashRounding != cni.cashRounding) {
+                    errln(
+                            "Error in CLDR currency decimal values for "
+                                    + cc
+                                    + "; expected digits/rounding/cashDigits/cashRounding "
+                                    + expectedDigits
+                                    + "/"
+                                    + expectedRounding
+                                    + "/"
+                                    + expectedCashDigits
+                                    + "/"
+                                    + expectedCashRounding
+                                    + "; got "
+                                    + cni.digits
+                                    + "/"
+                                    + cni.rounding
+                                    + "/"
+                                    + cni.cashDigits
+                                    + "/"
+                                    + cni.cashRounding);
+                }
+            }
             Set<IsoCurrencyParser.Data> d = codeList.get(cc);
             if (d != null) {
                 for (IsoCurrencyParser.Data x : d) {
-                    CurrencyNumberInfo cni = SUPPLEMENTAL.getCurrencyNumberInfo(cc);
                     if (cni.digits != x.getMinorUnit()) {
                         logln(
                                 "Mismatch between ISO/CLDR for decimal places for currency => "

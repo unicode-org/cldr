@@ -40,6 +40,7 @@ import org.unicode.cldr.util.LanguageTagCanonicalizer;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LanguageTagParser.Format;
 import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.LocaleNames;
 import org.unicode.cldr.util.LocaleValidator;
 import org.unicode.cldr.util.LocaleValidator.AllowedMatch;
 import org.unicode.cldr.util.LocaleValidator.AllowedValid;
@@ -457,7 +458,7 @@ public class TestLocale extends TestFmwkPlus {
             },
         };
         // load up a dummy source
-        SimpleXMLSource dxs = new SimpleXMLSource("xx");
+        SimpleXMLSource dxs = new SimpleXMLSource(LocaleNames.XX_TEST);
         for (String[] row : tests) {
             NameType nameType = NameType.valueOf(row[0]);
             if (nameType == NameType.NONE) {

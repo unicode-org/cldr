@@ -2510,6 +2510,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!ATTLIST currency validSubLocales CDATA #IMPLIED >
     <!--@VALUE-->
     <!--@DEPRECATED-->
+<!ATTLIST currency numberSystem CDATA #IMPLIED >
+    <!--@MATCH:bcp47/nu-->
 
 <!ELEMENT symbol ( #PCDATA ) >
 <!ATTLIST symbol choice (true | false) #IMPLIED >

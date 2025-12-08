@@ -215,9 +215,11 @@ public class VoteAPIHelper {
             // Give priority to autoPage (derived from path) if it's valid. For a bookmarked
             // page+path, the user most likely wants the specific path, which may have moved from
             // one page to another.
-            pageId = PageId.fromString(args.autoPage);
+            if (args.autoPage != null) {
+                pageId = PageId.fromStringCompatible(args.autoPage);
+            }
             if (pageId == null && args.page != null) {
-                pageId = PageId.fromString(args.page);
+                pageId = PageId.fromStringCompatible(args.page);
             }
             if (pageId == null) {
                 throw new SurveyException(ErrorCode.E_BAD_SECTION);

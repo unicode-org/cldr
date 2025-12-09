@@ -57,6 +57,7 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XPathParts;
 
 public class CheckDates extends FactoryCheckCLDR {
+    private static final boolean DISABLE = true;
     private static final boolean DEBUG = false;
     private static final boolean DISABLE_DATE_ORDER = true;
 
@@ -272,6 +273,8 @@ public class CheckDates extends FactoryCheckCLDR {
             return this;
         }
 
+        XPathParts parts = XPathParts.getFrozenInstance(fullPath);
+
         if (!path.contains("/dates") || path.endsWith("/default") || path.endsWith("/alias")) {
             return this;
         }
@@ -466,6 +469,10 @@ public class CheckDates extends FactoryCheckCLDR {
             final String collisionPrefix = "//ldml/dates/calendars/calendar";
             main:
             if (path.startsWith(collisionPrefix)) {
+                if (parts.containsElement("dateTimeFormats")
+                        && !parts.containsElement("appendItems")) {
+                    checkDateTimeFormats(path, parts, value, result);
+                }
                 int pos = path.indexOf("\"]"); // end of first type
                 if (pos < 0 || skipPath(path)) { // skip narrow, no-calendar
                     break main;
@@ -495,7 +502,6 @@ public class CheckDates extends FactoryCheckCLDR {
                 DayPeriod dayPeriod = null;
                 final boolean isDayPeriod = path.contains("dayPeriod");
                 if (isDayPeriod) {
-                    XPathParts parts = XPathParts.getFrozenInstance(fullPath);
                     type =
                             Type.fromString(
                                     parts.getAttributeValue(5, "type")); // format, stand-alone
@@ -678,6 +684,93 @@ public class CheckDates extends FactoryCheckCLDR {
             }
         }
         return this;
+    }
+
+    private static final Pattern datePatternDoesntEndsWithDigits =
+            Pattern.compile(".*(MMM|LLL|[^yd])");
+    private static final XPathParts timeParts =
+            XPathParts.getFrozenInstance(
+                    "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/timeFormats/timeFormatLength[@type=\"short\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]");
+    private static final XPathParts dateParts =
+            XPathParts.getFrozenInstance(
+                    "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateFormats/dateFormatLength[@type=\"short\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"]");
+    private static final XPathParts availableParts =
+            XPathParts.getFrozenInstance(
+                    "//ldml/dates/calendars/calendar[@type=\"generic\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"yyyyQQQ\"]");
+
+    private static final int calendarIndex = timeParts.findElement("calendar");
+    private static final int dateFormatLengthIndex = timeParts.findElement("dateFormatLength");
+    private static final int dateFormatIndex = timeParts.findElement("timeFormat");
+
+    // NOTE: the timeFormatLength is always at the same position as the dateFormatLength, but just
+    // for consistency...
+
+    private void checkDateTimeFormats(
+            String path, XPathParts parts, String value, List<CheckStatus> result) {
+
+        // Make sure that if the format has adjacent placeholders, we don't run numbers together
+        if (!value.contains("}{")) { // only worry about adjacents
+            return;
+        }
+        // we assume that relative dates don't end with digits
+        if ("relative".equals(parts.getAttributeValue(dateFormatIndex, "type"))) {
+            return;
+        }
+
+        String length = parts.getAttributeValue(dateFormatLengthIndex, "type");
+        String calendar = parts.getAttributeValue(calendarIndex, "type");
+
+        // By the spec, the dateTimeFormatLength will be the same as the dateFormatLength
+        // So see if the corresponding date ends with digits
+        // However, this only accounts for the stock formats; not combinations of available.
+
+        CLDRFile resolvedCldrFile = getResolvedCldrFileToCheck();
+
+        XPathParts currentDateParts =
+                dateParts
+                        .cloneAsThawed()
+                        .setAttribute(calendarIndex, "type", calendar)
+                        .setAttribute(dateFormatLengthIndex, "type", length);
+        String dateValue = resolvedCldrFile.getStringValue(currentDateParts.toString());
+        if (dateValue == null) {
+            throw new IllegalArgumentException(
+                    "Missing value: " + currentDateParts); // should never occur
+        }
+
+        // TODO: This is a first pass, to correct the bad cases.
+        // We should check later to see if we can allow more cases.
+        // IN THAT CASE, the following code could be the start of that, so it is left here, but
+        // inoperative
+
+        if (!DISABLE) {
+            // all current formats are date + time, not reverse
+            if (value.contains("{0}{1}")) {
+                throw new IllegalArgumentException("Enhance checks to handle {0}{1}");
+            }
+
+            // TODO: also check the available formats that are for a date
+
+            if (datePatternDoesntEndsWithDigits.matcher(dateValue).matches()) {
+                return;
+            }
+        }
+
+        // My first version of this checked the corresponding time formats to see which could start
+        // with an integer.
+        // However, when we count available formats, essentially all locales have a time format
+        // starting with HH
+
+        String mergedPattern = value.replace("{1}", dateValue).replace("{0}", "HH…");
+        CheckStatus item =
+                new CheckStatus()
+                        .setCause(this)
+                        .setMainType(CheckStatus.errorType)
+                        .setSubtype(Subtype.illegalDatePattern)
+                        .setMessage(
+                                "The date and time must not have adjacent integers. "
+                                        + "This pattern could produce {0}",
+                                mergedPattern);
+        result.add(item);
     }
 
     private void checkTimeFormatMatchesRegion(String value, List<CheckStatus> result) {

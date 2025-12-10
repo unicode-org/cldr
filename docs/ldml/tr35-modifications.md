@@ -66,7 +66,8 @@ The LDML specification is divided into the following parts:
 -->
 
 **Changes in LDML Version 48.1 (Differences from Version 48)**
-<!-- Will be added with a separate cherry-pick -->
+
+* [Segmentations](tr35-general.html#Segmentations) removed outdated note about `X Format*->` not being supported in CLDR since it no longer accurate.
 
 **Changes in LDML Version 48 (Differences from Version 47)**
 

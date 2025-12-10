@@ -1697,19 +1697,6 @@ There are some implicit rules:
 *   The implicit initial rules are always "start-of-text ÷" and "÷ end-of-text"; these are not to be included explicitly.
 *   The implicit final rule is always "Any ÷ Any". This is not to be included explicitly.
 
-> **Note:** A rule like X Format\* -> X in [[UAX29](https://www.unicode.org/reports/tr41/#UAX29)] and [[UAX14](https://www.unicode.org/reports/tr41/#UAX14)] is not supported. Instead, this needs to be expressed as normal regular expressions. The normal way to support this is to modify the variables, such as in the following example:
->
-> ```xml
-> <variable id="$Format">\p{Word_Break=Format}</variable>
-> <variable id="$Katakana">\p{Word_Break=Katakana}</variable>
-> ...
-> <!-- In place of rule 3, add format and extend to everything -->
-> <variable id="$X">[$Format $Extend]*</variable>
-> <variable id="$Katakana">($Katakana $X)</variable>
-> <variable id="$ALetter">($ALetter $X)</variable>
-> ...
-> ```
-
 ### <a name="Segmentation_Inheritance" href="#Segmentation_Inheritance">Segmentation Inheritance</a>
 
 Variables and rules both inherit from the parent.

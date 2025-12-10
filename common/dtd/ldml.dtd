@@ -144,6 +144,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!ATTLIST localePattern references CDATA #IMPLIED >
     <!--@METADATA-->
 
+<!ELEMENT localeNestedPattern ( #PCDATA ) >
+<!ATTLIST localeNestedPattern alt NMTOKENS #IMPLIED >
+    <!--@MATCH:literal/variant-->
+<!ATTLIST localeNestedPattern draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+    <!--@METADATA-->
+<!ATTLIST localeNestedPattern references CDATA #IMPLIED >
+    <!--@METADATA-->
+
 <!ELEMENT localeSeparator ( #PCDATA ) >
 <!ATTLIST localeSeparator alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/variant-->

@@ -2,8 +2,8 @@
 
 # Unicode Locale Data Markup Language (LDML)<br/>Appendix A: Modifications
 
-|Version|48        |
-|-------|----------|
+|Version|48.1 (draft)|
+|-------|------------|
 |Editors|<a href="tr35-acknowledgments.md#acknowledgments">CLDR committee members|
 
 For the full header, summary, and status, see [Part 1: Core](tr35.md).
@@ -14,12 +14,12 @@ This is a partial document, describing only the changes to the LDML since the pr
 
 ### _Status_
 
-<!-- _This is a draft document which may be updated, replaced, or superseded by other documents at any time.
+_This is a draft document which may be updated, replaced, or superseded by other documents at any time.
 Publication does not imply endorsement by the Unicode Consortium.
-This is not a stable document; it is inappropriate to cite this document as other than a work in progress._ -->
+This is not a stable document; it is inappropriate to cite this document as other than a work in progress._
 
-_This document has been reviewed by Unicode members and other interested parties, and has been approved for publication by the Unicode Consortium.
-This is a stable document and may be used as reference material or cited as a normative reference by other specifications._
+<!-- _This document has been reviewed by Unicode members and other interested parties, and has been approved for publication by the Unicode Consortium.
+This is a stable document and may be used as reference material or cited as a normative reference by other specifications._ -->
 
 > _**A Unicode Technical Standard (UTS)** is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS._
 
@@ -65,9 +65,10 @@ The LDML specification is divided into the following parts:
       Note: As of CLDR-18209, ALL changes to the spec require this file, tr35-modifications.md to be modified as well. If you are making a change that doesn't need to be noted, or is already noted, please simply add an HTML comment (such as this one) to the appropriate section.  The comment will not be visible to viewers of the HTML page.
 -->
 
+**Changes in LDML Version 48.1 (Differences from Version 48)**
+<!-- Will be added with a separate cherry-pick -->
+
 **Changes in LDML Version 48 (Differences from Version 47)**
-<!-- Updated date -->
-<!-- Fixed broken links -->
 
 ### Locale Identifiers and Names
 * [Display Name Elements](tr35-general.md#display-name-elements) Described the usage of the `language` element `menu` values `core` and `extension`, and `alt="menu"`.

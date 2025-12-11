@@ -13,7 +13,7 @@ The following table lists the files for each released version. For license infor
 
 | No. | Date | Rel. Note | Data | Charts | Spec | Delta Tickets | GitHub Tag | Delta DTD | CLDR JSON |
 |:---:|:----------:|:---------:|:------:|:--------:|:------------:|:---:|:----------:|:---------:|:---------:|
-| Latest |  | [latest-version][] | [latest-data][] | [latest-charts][] | [latest-ldml][] | [latest-tickets][] | [release-47][]| [latest-delta-dtd][] | See release notes |
+| Latest |  | [latest-version][] | [latest-data][] | [latest-charts][] | [latest-ldml][] | [latest-tickets][] | [latest-tag][]| [latest-delta-dtd][] | See release notes |
 | Dev |  | [dev-version][] |  | [dev-charts][]| [dev-ldml][] | [dev-tickets][] | [main][]| [dev-delta-dtd][] | See release notes |
 |  48 | 2025-10-29 | [v48][] | [CLDR48][] | [Charts48][] | [LDML48][] | [Δ48][] | [release-48][] | [ΔDtd48][] | [48.0.0][] |
 |  47 | 2025-03-13 | [v47][] | [CLDR47][] | [Charts47][] | [LDML47][] | [Δ47][] | [release-47][] | [ΔDtd47][] | [47.0.0][] |
@@ -203,6 +203,7 @@ The 1.0 version of CLDR is described here for historical interest only. It was h
 [latest-charts]: https://www.unicode.org/cldr/charts/latest/index.html
 [latest-ldml]: https://www.unicode.org/reports/tr35/
 [latest-tickets]: https://unicode-org.atlassian.net/issues/?filter=10838
+[latest-tag]: https://github.com/unicode-org/cldr/releases/tag/latest
 [latest-delta-dtd]: https://www.unicode.org/cldr/charts/latest/supplemental/dtd_deltas.html
 
 <!-- Dev release -->

@@ -203,7 +203,7 @@ The 1.0 version of CLDR is described here for historical interest only. It was h
 [latest-charts]: https://www.unicode.org/cldr/charts/latest/index.html
 [latest-ldml]: https://www.unicode.org/reports/tr35/
 [latest-tickets]: https://unicode-org.atlassian.net/issues/?filter=10838
-[latest-tag]: https://github.com/unicode-org/cldr/releases/tag/latest
+[latest-tag]: /tag-latest
 [latest-delta-dtd]: https://www.unicode.org/cldr/charts/latest/supplemental/dtd_deltas.html
 
 <!-- Dev release -->

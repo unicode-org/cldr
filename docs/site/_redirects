@@ -4,7 +4,7 @@
 # redirect latest and dev pages
 /downloads/dev*  /downloads/cldr-48
 /downloads/latest* /downloads/cldr-47
-https://github.com/unicode-org/cldr/releases/tag/latest https://github.com/unicode-org/cldr/releases/tag/release-48
+/tag-latest https://github.com/unicode-org/cldr/releases/tag/release-48
 
 # redirect old download pages [CLDR-17977]
 /index/downloads/* /downloads/:splat

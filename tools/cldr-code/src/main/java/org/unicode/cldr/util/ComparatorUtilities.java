@@ -25,8 +25,8 @@ public class ComparatorUtilities {
     public static Collator getCldrCollator(String localeId, int strength) {
         Collator col = null;
         try {
-            ICUServiceBuilder isb = null;
-            isb = ICUServiceBuilder.forLocale(CLDRLocale.getInstance(localeId));
+            final CLDRLocale loc = CLDRLocale.getInstance(localeId);
+            final ICUServiceBuilder isb = ICUServiceBuilder.forLocale(loc);
             col = isb.getRuleBasedCollator().setStrength2(strength).freeze();
         } catch (Exception e) {
         }

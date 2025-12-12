@@ -28,6 +28,7 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.ICUServiceBuilder;
+import org.unicode.cldr.util.LocaleNames;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.Factory;
 import org.unicode.cldr.util.SimpleXMLSource;
@@ -46,7 +47,7 @@ public class TestDateOrder extends TestFmwk {
         try {
             // Build test file
 
-            XMLSource source = new SimpleXMLSource("xx");
+            XMLSource source = new SimpleXMLSource(LocaleNames.XX_TEST);
             // add xpaths
             String fullDate =
                     "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateFormats/dateFormatLength[@type=\"full\"]/dateFormat/pattern";
@@ -123,8 +124,10 @@ public class TestDateOrder extends TestFmwk {
             warnln("Use -v to see a comparison between calendars");
         }
 
-        ICUServiceBuilder isb = ICUServiceBuilder.forLocale(CLDRLocale.getInstance("en"));
-        ICUServiceBuilder isbCan = ICUServiceBuilder.forLocale(CLDRLocale.getInstance("en_CA"));
+        final CLDRLocale locEn = CLDRLocale.getInstance("en");
+        final CLDRLocale locEnCan = CLDRLocale.getInstance("en_CA");
+        final ICUServiceBuilder isb = ICUServiceBuilder.forLocale(locEn);
+        final ICUServiceBuilder isbCan = ICUServiceBuilder.forLocale(locEnCan);
         CLDRFile english = CLDRConfig.getInstance().getEnglish();
         CLDRFile englishCan = CLDRConfig.getInstance().getCldrFactory().make("en_CA", true);
         Factory phf = PathHeader.getFactory();

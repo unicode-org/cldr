@@ -18,6 +18,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.regex.Pattern;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -74,8 +75,8 @@ public class BuildIcuCompactDecimalFormat {
         }
 
         // get the common CLDR data used for number/date/time formats
-
-        ICUServiceBuilder builder = new ICUServiceBuilder().setCldrFile(resolvedCldrFile);
+        final CLDRLocale loc = CLDRLocale.getInstance(resolvedCldrFile.getLocaleID());
+        final ICUServiceBuilder builder = ICUServiceBuilder.forLocale(loc);
 
         DecimalFormat decimalFormat =
                 currencyStyle == CurrencyStyle.PLAIN

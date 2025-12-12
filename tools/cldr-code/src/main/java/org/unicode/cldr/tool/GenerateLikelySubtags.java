@@ -302,7 +302,6 @@ public class GenerateLikelySubtags {
                             "kdh_Latn_TG",
                             "zlm_Latn_MY",
                             "hif_Latn_FJ",
-                            "gon_Telu_IN",
                             "lzz_Latn_TR",
                             "lif_Deva_NP",
                             "unx_Beng_IN",
@@ -442,7 +441,6 @@ public class GenerateLikelySubtags {
                                 // {"und_Cyrl_PL", "be_Cyrl_PL"},
 
                                 //        {"hif", "hif_Latn_FJ"},
-                                //        {"gon", "gon_Telu_IN"},
                                 //        {"lif", "lif_Deva_NP"},
                                 //        {"unx", "unx_Beng_IN"},
                                 //        {"unr", "unr_Beng_IN"},

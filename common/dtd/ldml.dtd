@@ -89,6 +89,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
     <!--@MATCH:validity/region-->
 <!ATTLIST territory alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/short, variant, biot, chagos-->
+<!ATTLIST territory menu NMTOKENS #IMPLIED >
+    <!--@MATCH:literal/core, extension-->
 <!ATTLIST territory draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
@@ -140,6 +142,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!ATTLIST localePattern draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST localePattern references CDATA #IMPLIED >
+    <!--@METADATA-->
+
+<!ELEMENT localeNestedPattern ( #PCDATA ) >
+<!ATTLIST localeNestedPattern alt NMTOKENS #IMPLIED >
+    <!--@MATCH:literal/variant-->
+<!ATTLIST localeNestedPattern draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+    <!--@METADATA-->
+<!ATTLIST localeNestedPattern references CDATA #IMPLIED >
     <!--@METADATA-->
 
 <!ELEMENT localeSeparator ( #PCDATA ) >

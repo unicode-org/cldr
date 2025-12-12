@@ -7,6 +7,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 
 <!ELEMENT supplementalData ( version, generation?, cldrVersion?, currencyData?, territoryContainment?, subdivisionContainment?, languageData?, scriptData?, territoryInfo?, postalCodeData?, calendarData?, calendarPreferenceData?, weekData?, timeData?, measurementData?, unitIdComponents?, unitPrefixes?, unitConstants*, unitQuantities*, convertUnits*, unitPreferenceData?, timezoneData?, characters?, transforms?, metadata?, codeMappings?, parentLocales*, personNamesDefaults?, likelySubtags?, metazoneInfo?, plurals?, telephoneCodeData?, numberingSystems?, bcp47KeywordMappings?, gender?, references?, languageMatching?, dayPeriodRuleSet*, metaZones?, primaryZones?, windowsZones?, coverageLevels?, idValidity?, rgScope?, languageGroups?, grammaticalData? ) >
 
+<!ATTLIST supplementalData version CDATA #IMPLIED >
+    <!--@MATCH:version-->
+    <!--@METADATA-->
+    <!--@DEPRECATED-->
+
 <!ELEMENT version EMPTY >
     <!--@METADATA-->
 <!ATTLIST version number CDATA #REQUIRED >
@@ -300,7 +305,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
     <!--@MATCH:set/validity/region/all-->
     <!--@VALUE-->
 <!ATTLIST minDays draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
-    <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 <!ATTLIST minDays references CDATA #IMPLIED >
     <!--@METADATA-->
@@ -313,7 +317,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
     <!--@MATCH:set/validity/region/all-->
     <!--@VALUE-->
 <!ATTLIST firstDay draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
-    <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
 <!ATTLIST firstDay references CDATA #IMPLIED >
     <!--@MATCH:any-->
@@ -1229,7 +1232,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
     <!--@VALUE-->
 <!ATTLIST dayPeriodRule from NMTOKEN #IMPLIED >
     <!--@MATCH:time/HH:mm-->
-    <!--@VALUE-->
 <!ATTLIST dayPeriodRule to NMTOKEN #IMPLIED >
     <!--@MATCH:time/HH:mm-->
     <!--@VALUE-->

@@ -14,6 +14,7 @@ import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UnicodeFilter;
 import com.ibm.icu.util.ICUUncheckedIOException;
 import java.io.File;
+import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.Writer;
 import java.util.Arrays;
@@ -109,8 +110,14 @@ public class CLDRTransforms {
         Transliterator.registerAny(); // do this last!
     }
 
+    private static class XmlFilter implements FilenameFilter {
+        public boolean accept(File dir, String name) {
+            return name.endsWith(".xml");
+        }
+    }
+
     public static List<String> getAvailableIds() {
-        return Arrays.asList(new File(TRANSFORM_DIR).list());
+        return Arrays.asList(new File(TRANSFORM_DIR).list(new XmlFilter()));
     }
 
     public Set<String> getOverriddenTransliterators() {

@@ -51,11 +51,11 @@ We are reviewing new locale requests for inclusion in CLDR 50. See [how to add a
 
 ## New Areas
 
-TBD - New areas and data will be announced at the start of general submission for CLDR 50.
+TBA - New areas and data will be announced at the start of general submission for CLDR 50.
 
 ### New emoji
 
-TBD - Section will be updated when Unicode 18 emoji keywords are added to the survey tool for localization
+TBA - Section will be updated when Unicode 18 emoji keywords are added to the survey tool for localization
 
 ## Survey Tool
 

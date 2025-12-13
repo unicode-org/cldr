@@ -131,7 +131,7 @@ Last updated: 2025-12-12
 
 1. [CLDR-18615] - Unclear error message if a link sends you to a page that no longer exists in the Survey Tool
 1. [CLDR-18607] - Unable to download current votes in CSV
-1. [CLDR-17829] - some links in the Info panel not displaying properly
+1. [CLDR-17829] - Some links in the Info panel not displaying properly
 
 ## CLDR training (for new linguists)
 

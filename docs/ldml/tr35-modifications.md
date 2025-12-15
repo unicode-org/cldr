@@ -34,7 +34,7 @@ This is a partial document, describing only the changes to the LDML since the pr
 
 **Changes in LDML Version 48.1 (Differences from Version 48)**
 
-* [Segmentations](tr35-general.html#Segmentations) removed outdated note about `X Format*->` not being supported in CLDR since it no longer accurate.
+* [Segmentations](tr35-general.html#Segmentations) removed outdated note about `X Format*->X` not being supported in CLDR since it no longer accurate.
 
 **Changes in LDML Version 48 (Differences from Version 47)**
 <!-- Update the date (need to add/update this comment to pass CI tests that require mods to be updated when spec is) -->

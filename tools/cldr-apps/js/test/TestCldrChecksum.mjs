@@ -74,14 +74,14 @@ const sLong =
   '"items":{"4oaR4oaR4oaR":{"tests":[],' +
   '"rawValue":"↑↑↑",' +
   '"valueHash":"4oaR4oaR4oaR",' +
-  '"pClass":"fallback",' +
+  '"status":"fallback",' +
   '"isBaselineValue":false,' +
   '"value":"↑↑↑",' +
   '"example":"<div class=\'cldr_example\'>Chinesisch (Traditionell)"},' +
   '"Q2hpbmVzaXNjaCAodHJhZGl0aW9uZWxsKQ":{"tests":[],' +
   '"rawValue":"Chinesisch (traditionell)",' +
   '"valueHash":"Q2hpbmVzaXNjaCAodHJhZGl0aW9uZWxsKQ",' +
-  '"pClass":"winner",' +
+  '"status":"winner",' +
   '"isBaselineValue":true,' +
   '"votes":{"1442":{"org":"microsoft",' +
   '"level":"vetter",' +

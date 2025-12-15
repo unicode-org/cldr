@@ -15,6 +15,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.DoctypeXmlStreamWrapper;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
@@ -29,7 +30,7 @@ public class TestKeyboardFlatten {
             })
     void TestBrokenImports(final String path) throws IOException {
         try (final InputStream input = TestKeyboardFlatten.class.getResourceAsStream(path); ) {
-            final InputSource source = new InputSource(input);
+            final InputSource source = DoctypeXmlStreamWrapper.wrap(new InputSource(input));
             // Expect failure.
             assertThrows(
                     IllegalArgumentException.class,

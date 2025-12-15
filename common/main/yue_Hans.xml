@@ -1334,6 +1334,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="em" type="default" scope="core">预设</type>
 			<type key="em" type="emoji" scope="core">Emoji</type>
 			<type key="em" type="text" scope="core">文字</type>
+			<type key="hc" type="c12">12 小时制</type>
+			<type key="hc" type="c12" scope="core">12</type>
+			<type key="hc" type="c24">24 小时制</type>
+			<type key="hc" type="c24" scope="core">24</type>
 			<type key="hc" type="h11">12 小时制 (0–11)</type>
 			<type key="hc" type="h11" scope="core">12 (0–11)</type>
 			<type key="hc" type="h12">12 小时制 (1–12)</type>
@@ -2385,7 +2389,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<dateTimeFormats>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
-							<pattern>{1}{0}</pattern>
+							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
 							<pattern>↑↑↑</pattern>
@@ -2399,7 +2403,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern>{1}{0}</pattern>
+							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="relative">
 							<pattern>{1}{0}</pattern>
@@ -2410,7 +2414,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern>{1}{0}</pattern>
+							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="relative">
 							<pattern>{1}{0}</pattern>
@@ -2985,7 +2989,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern>{1}{0}</pattern>
+							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="relative">
 							<pattern>{1}{0}</pattern>
@@ -2996,7 +3000,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern>{1}{0}</pattern>
+							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="relative">
 							<pattern>{1}{0}</pattern>
@@ -3007,7 +3011,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern>{1}{0}</pattern>
+							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="relative">
 							<pattern>{1}{0}</pattern>

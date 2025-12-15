@@ -410,18 +410,18 @@ function wrapRadio(button) {
  *
  * @param div {DOM} div to append to
  * @param value {String} string value
- * @param pClass {String} html class for the voting item
+ * @param status {String} html class for the voting item
  * @return {DOM} the new span
  */
-function appendItem(div, value, pClass) {
+function appendItem(div, value, status) {
   if (!value) {
     return;
   }
   var text = document.createTextNode(value);
   var span = document.createElement("span");
   span.appendChild(text);
-  if (pClass) {
-    span.className = pClass;
+  if (status) {
+    span.className = status;
   } else {
     span.className = "value";
   }

@@ -1,5 +1,7 @@
 package org.unicode.cldr.util;
 
+import static java.util.Map.entry;
+
 import com.google.common.base.Splitter;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
@@ -95,7 +97,7 @@ public class PathHeader implements Comparable<PathHeader> {
         LTR_ALWAYS;
 
         /**
-         * @returns true if visible in surveytool
+         * @return true if visible in surveytool
          */
         public final boolean visible() {
             return (this != DEPRECATED && this != HIDE);
@@ -377,6 +379,32 @@ public class PathHeader implements Comparable<PathHeader> {
                 return PageIdNames.forString(name);
             } catch (Exception e) {
                 throw new ICUException("No PageId for " + name, e);
+            }
+        }
+
+        /**
+         * When page names change, try to maintain backwards compatibility by mapping old names to
+         * new names. (See TestPathHeaderCompat.java.) One limitation of this feature is that
+         * sometimes one old name corresponds to two or more new names; for example, items formerly
+         * in "Symbols2" may now be in "EmojiSymbols", "MathSymbols", "Punctuation", or
+         * "OtherSymbols"; only one mapping is provided here. Fortunately, often a URL includes a
+         * xpath string ID as well as a page name, and in such cases if the xpath still exists the
+         * correct page name will be determined from the xpath.
+         */
+        private static final Map<String, PageId> compatiblePageIdNames =
+                Map.ofEntries(
+                        entry("ISO8601", PageId.Gregorian_YMD),
+                        entry("Symbols2", PageId.OtherSymbols));
+
+        public static PageId fromStringCompatible(String name) {
+            try {
+                return PageIdNames.forString(name);
+            } catch (Exception e) {
+                PageId id = compatiblePageIdNames.get(name);
+                if (id != null) {
+                    return id;
+                }
+                throw e;
             }
         }
 
@@ -775,7 +803,7 @@ public class PathHeader implements Comparable<PathHeader> {
                     return result;
                 } catch (Exception e) {
                     throw new IllegalArgumentException(
-                            "Probably mismatch in Page/Section enum, or too few capturing groups in regex for "
+                            "Possible mismatch in Page/Section enum, or too few capturing groups in regex for "
                                     + path,
                             e);
                 }

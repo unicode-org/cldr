@@ -4,7 +4,6 @@ import java.io.PrintWriter;
 import java.util.*;
 import java.util.Map.Entry;
 import java.util.logging.Logger;
-import java.util.stream.Collectors;
 import javax.json.bind.spi.JsonbProvider;
 import javax.ws.rs.core.Response;
 import org.unicode.cldr.test.CheckCLDR;
@@ -213,9 +212,14 @@ public class VoteAPIHelper {
         String xp = null;
 
         if (args.page != null || args.autoPage != null) {
-            pageId = PageId.fromString(args.page);
-            if (pageId == null && args.autoPage != null) {
-                pageId = PageId.fromString(args.autoPage);
+            // Give priority to autoPage (derived from path) if it's valid. For a bookmarked
+            // page+path, the user most likely wants the specific path, which may have moved from
+            // one page to another.
+            if (args.autoPage != null) {
+                pageId = PageId.fromStringCompatible(args.autoPage);
+            }
+            if (pageId == null && args.page != null) {
+                pageId = PageId.fromStringCompatible(args.page);
             }
             if (pageId == null) {
                 throw new SurveyException(ErrorCode.E_BAD_SECTION);
@@ -310,7 +314,6 @@ public class VoteAPIHelper {
         // situations.
         row.displayExample = r.getDisplayExample();
         row.displayName = r.getDisplayName();
-        row.rawEnglish = r.getRawEnglish();
         row.extraAttributes = r.getNonDistinguishingAttributes();
         row.flagged = r.isFlagged();
         row.forumStatus = new SurveyForum.PathForumStatus(r.getLocale(), xpath);
@@ -319,7 +322,7 @@ public class VoteAPIHelper {
         row.inheritedLocale = r.getInheritedLocaleName();
         row.inheritedValue = r.getInheritedValue();
         row.inheritedDisplayValue = r.getInheritedDisplayValue();
-        row.inheritedXpid = r.getInheritedXPath();
+        row.inheritedUrl = makeInheritedUrl(r);
         row.items = calculateItems(r, redacted);
         row.placeholderInfo = placeholders.get(xpath);
         row.placeholderStatus = placeholders.getStatus(xpath);
@@ -338,6 +341,28 @@ public class VoteAPIHelper {
         row.fixedCandidates = r.fixedCandidates();
         row.noEscaping = DisplayAndInputProcessor.hasUnicodeSetValue(xpath);
         return row;
+    }
+
+    /**
+     * Make a relative URL to the inherited path
+     *
+     * @param r the DataRow
+     * @return the URL, such as "#/fr//97554ebf534323c", or null
+     */
+    private static String makeInheritedUrl(DataRow r) {
+        String inheritedLocale = r.getInheritedLocaleName();
+        if (inheritedLocale != null) {
+            String inheritedXpid = r.getInheritedXPath();
+            if (inheritedXpid == null) {
+                inheritedXpid = XPathTable.getStringIDString(r.getXpath());
+            }
+            if (XMLSource.CODE_FALLBACK_ID.equals(inheritedLocale)) {
+                // Never use 'code-fallback' in the link, use 'root' instead.
+                inheritedLocale = XMLSource.ROOT_ID;
+            }
+            return "#/" + inheritedLocale + "//" + inheritedXpid;
+        }
+        return null;
     }
 
     /**
@@ -362,10 +387,7 @@ public class VoteAPIHelper {
         final Set<Entry<Integer, Integer>> votesForMissing = resolver.getVotesForMissing();
         if (!votesForMissing.isEmpty()) {
             results.votesForMissing =
-                    votesForMissing.stream()
-                            .map(e -> e.getKey())
-                            .collect(Collectors.toList())
-                            .toArray(new Integer[0]);
+                    votesForMissing.stream().map(Entry::getKey).toArray(Integer[]::new);
         } else {
             results.votesForMissing = null;
         }
@@ -399,7 +421,7 @@ public class VoteAPIHelper {
         c.example = i.getExample();
         c.history = i.getHistory();
         c.isBaselineValue = i.isBaselineValue();
-        c.pClass = i.getCandidateStatus().toString();
+        c.status = i.getCandidateStatus().toString();
         c.rawValue = i.getValue();
         c.tests = getConvertedTests(i.getTests());
         c.value = i.getProcessedValue();
@@ -597,7 +619,6 @@ public class VoteAPIHelper {
         }
         loc = locale.getBaseName(); // sanitized
         final SurveyMain sm = CookieSession.sm;
-        CheckCLDR.Options options = DataPage.getSimpleOptions(locale);
         final STFactory stf = sm.getSTFactory();
         synchronized (mySession) {
             try {
@@ -624,10 +645,13 @@ public class VoteAPIHelper {
                     if (!r.statusAction.isForbidden()) {
                         final BallotBox<UserRegistry.User> ballotBox =
                                 stf.ballotBoxForLocale(locale);
-                        Integer withVote = voteLevelChanged;
                         // Hey, VOTE_FOR_MISSING is the point of this function..
                         ballotBox.voteForValueWithType(
-                                mySession.user, xp, null, withVote, VoteType.VOTE_FOR_MISSING);
+                                mySession.user,
+                                xp,
+                                null,
+                                voteLevelChanged,
+                                VoteType.VOTE_FOR_MISSING);
                         r.didVote = true;
                     }
                 }

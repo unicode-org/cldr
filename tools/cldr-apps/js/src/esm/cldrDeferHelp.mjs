@@ -69,13 +69,10 @@ function subloadAbstract(resource) {
   ).then(
     ({ results }) => {
       let seeAlso = resource;
-      if (
-        results.bindings[0].primaryTopic &&
-        results.bindings[0].primaryTopic.value
-      ) {
+      if (results?.bindings[0]?.primaryTopic?.value) {
         seeAlso = results.bindings[0].primaryTopic.value;
+        absContent.text(results.bindings[0].abstract.value);
       }
-      absContent.text(results.bindings[0].abstract.value);
       absDiv.append(
         $("<a/>", {
           text: "(more)",

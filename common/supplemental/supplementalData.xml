@@ -57,7 +57,7 @@ For terms of use, see https://www.unicode.org/copyright.html
             <info iso4217="OMR" digits="3" rounding="0"/>
             <info iso4217="PKR" digits="0" rounding="0"/>
             <info iso4217="PYG" digits="0" rounding="0"/>
-            <info iso4217="RSD" digits="0" rounding="0"/>
+            <info iso4217="RSD" digits="2" rounding="0" cashDigits="0" cashRounding="0"/>
             <info iso4217="RWF" digits="0" rounding="0"/>
             <info iso4217="SEK" digits="2" rounding="0" cashDigits="0" cashRounding="0"/>
             <info iso4217="SLE" digits="2" rounding="0"/>
@@ -1493,6 +1493,8 @@ XXX Code for transations where no currency is involved
 		<language type="enm" scripts="Latn"/>
 		<language type="eo" scripts="Latn"/>
 		<language type="es" scripts="Latn"/>
+		<language type="esg" scripts="Gonm"/>
+		<language type="esg" scripts="Deva Telu" alt="secondary"/>
 		<language type="esu" scripts="Latn"/>
 		<language type="et" scripts="Latn"/>
 		<language type="ett" scripts="Ital Latn" alt="secondary"/>
@@ -1549,7 +1551,8 @@ XXX Code for transations where no currency is involved
 		<language type="gmy" scripts="Linb"/>
 		<language type="gn" scripts="Latn"/>
 		<language type="goh" scripts="Latn"/>
-		<language type="gon" scripts="Deva Telu"/>
+		<language type="gon" scripts="Deva"/>
+		<language type="gon" scripts="Telu Gong Gonm Orya" alt="secondary"/>
 		<language type="gor" scripts="Latn"/>
 		<language type="gos" scripts="Latn"/>
 		<language type="got" scripts="Goth"/>
@@ -1619,6 +1622,8 @@ XXX Code for transations where no currency is involved
 		<language type="inh" scripts="Arab Latn" alt="secondary"/>
 		<language type="io" scripts="Latn"/>
 		<language type="is" scripts="Latn"/>
+		<language type="isv" scripts="Latn"/>
+		<language type="isv" scripts="Cyrl" alt="secondary"/>
 		<language type="it" scripts="Latn"/>
 		<language type="iu" scripts="Cans Latn"/>
 		<language type="izh" scripts="Latn"/>
@@ -2144,6 +2149,8 @@ XXX Code for transations where no currency is involved
 		<language type="wni" scripts="Arab"/>
 		<language type="wo" scripts="Latn"/>
 		<language type="wo" scripts="Arab" alt="secondary"/>
+		<language type="wsg" scripts="Telu"/>
+		<language type="wsg" scripts="Deva Gong Gonm" alt="secondary"/>
 		<language type="wtm" scripts="Deva"/>
 		<language type="wuu" scripts="Hans"/>
 		<language type="xal" scripts="Cyrl"/>
@@ -3151,6 +3158,7 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="ccp" populationPercent="0.028"/>	<!--Chakma-->
 			<languagePopulation type="bfq" populationPercent="0.023"/>	<!--Badaga-->
 			<languagePopulation type="njo" populationPercent="0.023"/>	<!--Ao Naga-->
+			<languagePopulation type="wsg" populationPercent="0.021" references="R1389"/>	<!--Adilabad Gondi-->
 			<languagePopulation type="ria" populationPercent="0.013"/>	<!--Riang [India]-->
 			<languagePopulation type="bo" populationPercent="0.011"/>	<!--Tibetan-->
 			<languagePopulation type="bpy" populationPercent="0.0068"/>	<!--Bishnupriya-->
@@ -5744,5 +5752,6 @@ XXX Code for transations where no currency is involved
 		<reference type="R1386" uri="https://www.ethnologue.com/country/dz/languages">[missing]</reference>
 		<reference type="R1387" uri="https://www.ethnologue.com/country/mm/languages">[missing]</reference>
 		<reference type="R1388">Leclerc (2014)</reference>
+		<reference type="R1389" uri="https://iso639-3.sil.org/sites/iso639-3/files/change_requests/2015/2015-062_wsg.pdf">[missing]</reference>
 	</references>
 </supplementalData>

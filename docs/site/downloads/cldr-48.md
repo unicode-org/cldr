@@ -7,6 +7,7 @@ title: CLDR 48 Release Note
 | No. |    Date    | Rel. Note |  Data  |  Charts  | Spec |   Delta  | GitHub Tag | Delta DTD | CLDR JSON |
 |:---:|:----------:|:---------:|:------:|:--------:|:------------:|:---:|:----------:|:---------:|:---------:|
 |  48 | 2025-10-29 | [v48](/index/downloads/cldr-48) | [CLDR48](https://unicode.org/Public/cldr/48/) | [Charts48](https://unicode.org/cldr/charts/48/) | [LDML48](https://www.unicode.org/reports/tr35/48/tr35.html) | [Δ48](https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixversion%20%3D%2048%20ORDER%20BY%20priority%20DESC) | [release-48](https://github.com/unicode-org/cldr/releases/tag/release-48) | [ΔDtd48](https://www.unicode.org/cldr/charts/48/supplemental/dtd_deltas.html) | [48.0.0](https://github.com/unicode-org/cldr-json/releases/tag/48.0.0) |
+|  48.1 | TBD | [v48.1](/index/downloads/cldr-48#48.1) | n/a | TBD | [LDML48](https://www.unicode.org/reports/tr35/proposed.html)  | [Δ48.1](https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixversion%20%3D%2048.1%20ORDER%20BY%20priority%20DESC) | TBD | TBD | TBD |
 
 ## Overview
 
@@ -346,6 +347,7 @@ and feedback that the general practice for exact dates is to use Gregorian for p
 ## Known Issues
 
 - ISO 3166-2 subdivision codes for Iran changed in 2020, and there are not yet new equivalent stable codes. See [CLDR-19046][] for more details.
+- Segmentation format changed, spec updated in CLDR 48.1 to remove obsolete note. See [CLDR-19140][] for more details.
 
 ## Acknowledgments
 
@@ -377,6 +379,7 @@ For web pages with different views of CLDR data, see [http://cldr.unicode.org/in
 [CLDR-18956]: https://unicode-org.atlassian.net/browse/CLDR-18956
 [CLDR-19029]: https://unicode-org.atlassian.net/browse/CLDR-19029
 [CLDR-19046]: https://unicode-org.atlassian.net/browse/CLDR-19046
+[CLDR-19140]: https://unicode-org.atlassian.net/browse/CLDR-19140
 
 [Delta DTDs]: https://unicode.org/cldr/charts/48/supplemental/dtd_deltas.html
 [BCP47 Delta]: https://unicode.org/cldr/charts/48/delta/bcp47.html

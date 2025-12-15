@@ -368,7 +368,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             } else {
                 xmlsource =
                         dataBackedSource =
-                                new BallotBoxXMLSource<User>(
+                                new BallotBoxXMLSource<>(
                                         diskDataEntry.diskData.cloneAsThawed(), this);
                 registerXmlSource(dataBackedSource);
                 loadVoteValues();
@@ -390,7 +390,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                     () ->
                             "makeResolvingSource() sourceList: "
                                     + sourceList.stream()
-                                            .map(l -> l.getLocaleID())
+                                            .map(XMLSource::getLocaleID)
                                             .collect(Collectors.joining("»")));
             return registerXmlSource(new XMLSource.ResolvingSource(sourceList));
         }
@@ -488,6 +488,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                     }
                     if (!isValidSurveyToolVote(
                             theSubmitter, xpath)) { // Make sure it is a visible path
+                        SurveyLog.warnOnce(logger, "Ignoring invalid vote for path " + xpath);
                         continue;
                     }
                     try {
@@ -633,7 +634,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             r.setBaseline(currentValue, currentStatus);
             r.add(currentValue);
 
-            /** Note that rFile may not have all votes filled in yet as we're in startup phase */
+            /* Note that rFile may not have all votes filled in yet as we're in startup phase */
             final CLDRFile baseFile = (rFile != null) ? rFile : diskDataEntry.diskFile;
             r.setBaileyValue(baseFile.getBaileyValue(path, null, null));
 
@@ -1821,7 +1822,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         try {
             return getPathHeaderFactory().fromPath(xpath);
         } catch (Throwable t) {
-            SurveyLog.warnOnce(logger, "PH for path " + xpath + t);
+            SurveyLog.warnOnce(logger, "PH for path " + xpath + t + "\nCaused by: " + t.getCause());
             return null;
         }
     }

@@ -76,6 +76,7 @@ public class DataPage {
 
     public enum CandidateStatus {
         ALIAS,
+        CONSTRUCTED,
         FALLBACK,
         FALLBACK_CODE,
         FALLBACK_ROOT,
@@ -262,7 +263,7 @@ public class DataPage {
                             this.votes = rawVotes;
                         } else {
                             // we need to collect triple up arrow AND hard votes
-                            Set<User> allVotes = new TreeSet<User>();
+                            Set<User> allVotes = new TreeSet<>();
                             if (rawVotes != null) {
                                 allVotes.addAll(rawVotes);
                             }
@@ -290,7 +291,11 @@ public class DataPage {
             public CandidateStatus getCandidateStatus() {
                 if (rawValue.equals(CldrUtility.INHERITANCE_MARKER)) {
                     if (pathWhereFound != null) {
-                        return CandidateStatus.ALIAS;
+                        if (GlossonymConstructor.PSEUDO_PATH.equals(pathWhereFound)) {
+                            return CandidateStatus.CONSTRUCTED;
+                        } else {
+                            return CandidateStatus.ALIAS;
+                        }
                     }
                     if (inheritedLocale != null) {
                         if (XMLSource.CODE_FALLBACK_ID.equals(inheritedLocale.getBaseName())) {
@@ -560,8 +565,7 @@ public class DataPage {
 
             rawEnglish = comparisonValueFile.getStringValue(xpath);
 
-            Output<String> pathWhereFound = new Output<String>(),
-                    localeWhereFound = new Output<String>();
+            Output<String> pathWhereFound = new Output<>(), localeWhereFound = new Output<>();
             comparisonValueFile.getStringValueWithBailey(xpath, pathWhereFound, localeWhereFound);
             final boolean samePath = xpath.equals(pathWhereFound.value);
             if (!samePath) {
@@ -670,16 +674,13 @@ public class DataPage {
             return displayName;
         }
 
-        public String getRawEnglish() {
-            return rawEnglish;
-        }
-
         /** Get the locale for this DataRow */
         @Override
         public CLDRLocale getLocale() {
             return locale;
         }
 
+        // Called from tc-mzfix.jsp
         public String getPrettyPath() {
             if (pp == null) {
                 pp = sm.xpt.getPrettyPath(xpathId);
@@ -1195,43 +1196,6 @@ public class DataPage {
         }
     }
 
-    /** The ExampleEntry class represents an Example box, so that it can be stored and restored. */
-    public class ExampleEntry {
-
-        public DataPage.DataRow dataRow;
-
-        public String hash;
-        public DataRow.CandidateItem item;
-        public DataPage page;
-        public CheckCLDR.CheckStatus status;
-
-        /**
-         * Create a new ExampleEntry
-         *
-         * @param page the DataPage
-         * @param row the DataRow
-         * @param item the CandidateItem
-         * @param status the CheckStatus
-         */
-        public ExampleEntry(
-                DataPage page,
-                DataRow row,
-                DataRow.CandidateItem item,
-                CheckCLDR.CheckStatus status) {
-            this.page = page;
-            this.dataRow = row;
-            this.item = item;
-            this.status = status;
-
-            /*
-             * unique serial #- covers item, status.
-             *
-             * fieldHash ensures that we don't get the wrong field.
-             */
-            hash = CookieSession.cheapEncode(DataPage.getN()) + row.fieldHash();
-        }
-    }
-
     /** Divider denoting a specific Continent division. */
     public static final String CONTINENT_DIVIDER = "~";
 
@@ -1270,19 +1234,6 @@ public class DataPage {
         if (TRACE_TIME) {
             System.err.println("DataPage: Note, TRACE_TIME is TRUE");
         }
-    }
-
-    /** A serial number, used only in the function getN() */
-    private static int n = 0;
-
-    /**
-     * Get a unique serial number
-     *
-     * @return the number
-     *     <p>Called only by the ExampleEntry constructor
-     */
-    protected static synchronized int getN() {
-        return ++n;
     }
 
     /** Initialize this DataPage if it hasn't already been initialized */
@@ -1449,8 +1400,6 @@ public class DataPage {
     private static final boolean DEBUG_DATA_PAGE = false;
     private String creationTime = null; // only used if DEBUG_DATA_PAGE
 
-    private GrammarInfo grammarInfo;
-
     DataPage(PageId pageId, SurveyMain sm, CLDRLocale loc, String prefix, XPathMatcher matcher) {
         this.locale = loc;
         this.sm = sm;
@@ -1483,21 +1432,10 @@ public class DataPage {
      * Get the page id
      *
      * @return pageId
-     *     <p>Called by getRow
+     *     <p>Called by some .jsp files
      */
     public PageId getPageId() {
         return pageId;
-    }
-
-    /**
-     * Create a DisplaySet for this DataPage
-     *
-     * @param sortMode
-     * @return the DisplaySet
-     *     <p>Called by getRow
-     */
-    public DisplaySet createDisplaySet(SortMode sortMode) {
-        return sortMode.createDisplaySet(null /* matcher */, rowsHash.values());
     }
 
     /**
@@ -1604,7 +1542,7 @@ public class DataPage {
                 // Only display metazone data for which an English value exists
                 if (isMetazones && !Objects.equals(suff, "/commonlyUsed")) {
                     String engValue = comparisonValueFile.getStringValue(base_xpath_string);
-                    if (engValue == null || engValue.length() == 0) {
+                    if (engValue == null || engValue.isEmpty()) {
                         continue;
                     }
                 }
@@ -1946,7 +1884,7 @@ public class DataPage {
             STFactory.removeExcludedChecks(checkCldrResult);
             checkCldr.getExamples(xpath, isExtraPath ? null : ourValue, examplesResult);
         }
-        if (ourValue != null && ourValue.length() > 0) {
+        if (ourValue != null && !ourValue.isEmpty()) {
             addOurValue(ourValue, row, checkCldrResult, sourceLocaleStatus, xpath);
         }
     }
@@ -1968,7 +1906,7 @@ public class DataPage {
             Set<String> v, String xpath, DataRow row, TestResultBundle checkCldr) {
         for (String avalue : v) {
             Set<User> votes = ballotBox.getVotesForValue(xpath, avalue);
-            if (votes == null || votes.size() == 0) {
+            if (votes == null || votes.isEmpty()) {
                 continue;
             }
             CandidateItem item2 = row.addItem(avalue, "votes");

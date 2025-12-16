@@ -82,7 +82,10 @@
       <li v-if="isAdmin">
         <ul>
           <li>
-            <a href="#downgraded///">Votes for downgraded paths</a>
+            <a href="#downgraded///">Votes for Downgraded Paths</a>
+          </li>
+          <li>
+            <a href="#bad_locales///">Invalid Locale IDs</a>
           </li>
         </ul>
       </li>

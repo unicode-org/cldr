@@ -495,6 +495,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 
 <!ELEMENT nestedBracketReplacement ( #PCDATA ) >
 <!ATTLIST nestedBracketReplacement source CDATA #REQUIRED >
+    <!--@MATCH:any-->
 <!ATTLIST nestedBracketReplacement alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/variant-->
 <!ATTLIST nestedBracketReplacement draft (approved | contributed | provisional | unconfirmed) #IMPLIED >

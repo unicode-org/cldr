@@ -700,6 +700,28 @@ There are alternatives for cases where the breaks are on a word boundary, where 
 <ellipsis type="word-initial">… {0}</ellipsis>
 ```
 
+### <a name="Character_Nested_Bracket_Replacement" href="#Character_Nested_Bracket_Replacement">Nested Bracket Replacement</a>
+
+```xml
+<!ELEMENT nestedBracketReplacement ( #PCDATA ) >
+<!ATTLIST nestedBracketReplacement source CDATA #REQUIRED >
+```
+
+Example:
+
+```xml
+<nestedBracketReplacement source="(">[</nestedBracketReplacement>
+<nestedBracketReplacement source=")">]</nestedBracketReplacement>
+<nestedBracketReplacement source="（">［</nestedBracketReplacement>
+<nestedBracketReplacement source="）">］</nestedBracketReplacement>
+```
+
+The `nestedBracketReplacement` element indicates a character to be used when two sets of brackets (parentheses) are nested. This currently supports only one level of nesting.
+
+Clients should replace the inner bracket pair by substituting the source string with the value string. For example, in the string "a ( b ( c ) )", the two inner brackets should be replaced according to the replacements data, resulting in "a ( b [ c ] )".
+
+In cases where it is necessary to determine whether the brackets are nested, clients can use the `Bidi_Paired_Bracket_Type` property.
+
 ### <a name="Character_More_Info" href="#Character_More_Info">More Information</a>
 
 The moreInformation string is one that can be displayed in an interface to indicate that more information is available. For example:

@@ -2956,7 +2956,9 @@ public class UserRegistry {
         logger.warning(
                 "Fixing invalid locales for user "
                         + user.id
-                        + " user.email "
+                        + " "
+                        + user.email
+                        + " "
                         + user.org
                         + " "
                         + levelAsStr(user.userlevel)

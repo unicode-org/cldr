@@ -266,7 +266,7 @@ The key-type `scope="core"` is also useful in menus. For example, if a menu or p
 
 **Processing types of locale identifier subtags**
 
-When the display name contains "(" or ")" characters (or full-width equivalents), replace them by "\[", "\]" (or full-width equivalents) before adding.
+When both the subtag display name and the \<localePattern\> contain bracket characters, replace the brackets in the subtag display name with their nested bracket equivalents according to the [Nested Bracket Replacement](#Character_Nested_Bracket_Replacement) data.
 
 1.  **Language.** Match the L subtags against the type values in the `<language>` elements. Pick the element with the most subtags matching. If there is more than one such element, pick the one that has subtypes matching earlier. If there are two such elements, pick the one that is alphabetically less. If there is no match, then further convert L to *canonical form* per **[Part 1, Canonical Unicode Locale Identifiers](tr35.md#Canonical_Unicode_Locale_Identifiers)** and try the preceding steps again. Set LBN to the selected value. Disregard any of the matching subtags in the following processing.
     *   If CombineLanguage is false, only choose matches with the language subtag matching.

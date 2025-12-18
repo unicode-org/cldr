@@ -110,12 +110,11 @@ async function validateLocales(
     levelList
   );
   const orgForValidation = skipOrg ? "" : newUserOrg;
-  const resource =
-    "./api/locales/normalize?" +
-    new URLSearchParams({
-      locs: newUserLocales,
-      org: orgForValidation,
-    });
+  const p = new URLSearchParams({
+    locs: newUserLocales,
+    org: orgForValidation,
+  });
+  const resource = makeApiUrl("locales/normalize", p);
   await cldrAjax
     .doFetch(resource)
     .then(cldrAjax.handleFetchErrors)

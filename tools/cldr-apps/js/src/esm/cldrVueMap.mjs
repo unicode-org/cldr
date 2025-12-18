@@ -2,6 +2,7 @@ import AboutPanel from "../views/AboutPanel.vue";
 import AnnouncePanel from "../views/AnnouncePanel.vue";
 import AddUser from "../views/AddUser.vue";
 import AutoImport from "../views/AutoImport.vue";
+import BadLocaleIds from "../views/BadLocaleIds.vue";
 import DowngradedVotes from "../views/DowngradedVotes.vue";
 import FlaggedItems from "../views/FlaggedItems.vue";
 import GeneralInfo from "../views/GeneralInfo.vue";
@@ -27,6 +28,7 @@ const specialToComponentMap = {
   announcements: AnnouncePanel,
   add_user: AddUser,
   auto_import: AutoImport,
+  bad_locales: BadLocaleIds,
   cla: SignCla,
   downgraded: DowngradedVotes,
   flagged: FlaggedItems,

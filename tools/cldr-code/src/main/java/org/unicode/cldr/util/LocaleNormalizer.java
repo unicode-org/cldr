@@ -1,7 +1,9 @@
 package org.unicode.cldr.util;
 
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
@@ -25,8 +27,10 @@ import java.util.stream.Collectors;
  * along with special handling for isAllLocales.
  */
 public class LocaleNormalizer {
+
     public enum LocaleRejection {
         outside_org_coverage("Outside org. coverage"),
+        default_content("Default content"),
         unknown("Unknown");
 
         LocaleRejection(String message) {
@@ -60,7 +64,7 @@ public class LocaleNormalizer {
 
     /**
      * The actual set of locales used by CLDR. For Survey Tool, this may be set by SurveyMain during
-     * initialization. It is used for validation so it should not simply be ALL_LOCALES_SET.
+     * initialization. It is used for validation, so it should not simply be ALL_LOCALES_SET.
      */
     private static LocaleSet knownLocales = null;
 
@@ -77,7 +81,7 @@ public class LocaleNormalizer {
      * @return the normalized string like "aa zh"
      */
     public String normalize(String list) {
-        return norm(this, list, null);
+        return norm(this, list, null, this.defaultContentIsDisallowed);
     }
 
     /**
@@ -89,7 +93,11 @@ public class LocaleNormalizer {
      * @return the normalized string like "aa zh"
      */
     public static String normalizeQuietly(String list) {
-        return norm(null, list, null);
+        return norm(null, list, null, false /* defaultContentIsDisallowed */);
+    }
+
+    public static String normalizeQuietlyDisallowDefaultContent(String list) {
+        return norm(null, list, null, true /* defaultContentIsDisallowed */);
     }
 
     /**
@@ -102,7 +110,7 @@ public class LocaleNormalizer {
      * @return the normalized string like "aa zh"
      */
     public String normalizeForSubset(String list, LocaleSet orgLocaleSet) {
-        return norm(this, list, orgLocaleSet);
+        return norm(this, list, orgLocaleSet, this.defaultContentIsDisallowed);
     }
 
     /**
@@ -118,9 +126,14 @@ public class LocaleNormalizer {
      * @param list the String like "zh aa test123"
      * @param orgLocaleSet the locales covered by a particular organization, used as a filter unless
      *     null or ALL_LOCALES_SET
+     * @param defaultContentIsDisallowed true if default-content locales are disallowed
      * @return the normalized string like "aa zh"
      */
-    private static String norm(LocaleNormalizer locNorm, String list, LocaleSet orgLocaleSet) {
+    private static String norm(
+            LocaleNormalizer locNorm,
+            String list,
+            LocaleSet orgLocaleSet,
+            boolean defaultContentIsDisallowed) {
         if (list == null) {
             return "";
         }
@@ -131,7 +144,8 @@ public class LocaleNormalizer {
         if (isAllLocales(list)) {
             return ALL_LOCALES;
         }
-        final LocaleSet locSet = setFromString(locNorm, list, orgLocaleSet);
+        final LocaleSet locSet =
+                setFromString(locNorm, list, orgLocaleSet, defaultContentIsDisallowed);
         return locSet.toString();
     }
 
@@ -172,11 +186,14 @@ public class LocaleNormalizer {
     }
 
     public static LocaleSet setFromStringQuietly(String locales, LocaleSet orgLocaleSet) {
-        return setFromString(null, locales, orgLocaleSet);
+        return setFromString(null, locales, orgLocaleSet, false /* defaultContentIsDisallowed */);
     }
 
     private static LocaleSet setFromString(
-            LocaleNormalizer locNorm, String localeList, LocaleSet orgLocaleSet) {
+            LocaleNormalizer locNorm,
+            String localeList,
+            LocaleSet orgLocaleSet,
+            boolean defaultContentIsDisallowed) {
         if (isAllLocales(localeList)) {
             if (orgLocaleSet == null || orgLocaleSet.isAllLocales()) {
                 return ALL_LOCALES_SET;
@@ -184,20 +201,31 @@ public class LocaleNormalizer {
             return intersectKnownWithOrgLocales(orgLocaleSet);
         }
         final LocaleSet newSet = new LocaleSet();
-        if (localeList == null || (localeList = localeList.trim()).length() == 0) {
+        if (localeList == null || (localeList = localeList.trim()).isEmpty()) {
             return newSet;
         }
+        final Set<String> defCon =
+                (defaultContentIsDisallowed
+                                || (locNorm != null && locNorm.defaultContentIsDisallowed))
+                        ? SupplementalDataInfo.getInstance().getDefaultContentLocales()
+                        : null;
         final String[] array = splitToArray(localeList);
         for (String s : array) {
-            CLDRLocale locale = CLDRLocale.getInstance(s);
-            if (knownLocales == null || knownLocales.contains(locale)) {
-                if (orgLocaleSet == null || orgLocaleSet.containsLocaleOrParent(locale)) {
-                    newSet.add(locale);
-                } else if (locNorm != null) {
-                    locNorm.addMessage(locale.getBaseName(), LocaleRejection.outside_org_coverage);
+            if (defCon != null && defCon.contains(s)) {
+                if (locNorm != null) {
+                    locNorm.addMessage(s, LocaleRejection.default_content);
                 }
-            } else if (locNorm != null) {
-                locNorm.addMessage(locale.getBaseName(), LocaleRejection.unknown);
+            } else {
+                CLDRLocale locale = CLDRLocale.getInstance(s);
+                if (knownLocales == null || knownLocales.contains(locale)) {
+                    if (orgLocaleSet == null || orgLocaleSet.containsLocaleOrParent(locale)) {
+                        newSet.add(locale);
+                    } else if (locNorm != null) {
+                        locNorm.addMessage(s, LocaleRejection.outside_org_coverage);
+                    }
+                } else if (locNorm != null) {
+                    locNorm.addMessage(s, LocaleRejection.unknown);
+                }
             }
         }
         return newSet;
@@ -207,8 +235,14 @@ public class LocaleNormalizer {
         if (localeList == null || localeList.isEmpty()) {
             return new String[0];
         }
-        final String[] array = localeList.trim().split("[, \t\u00a0\\s]+"); // whitespace
-        return array;
+        return localeList.trim().split("[, \t\u00a0\\s]+"); // whitespace
+    }
+
+    private boolean defaultContentIsDisallowed = false;
+
+    public LocaleNormalizer disallowDefaultContent() {
+        this.defaultContentIsDisallowed = true;
+        return this;
     }
 
     private static LocaleSet intersectKnownWithOrgLocales(LocaleSet orgLocaleSet) {
@@ -224,5 +258,216 @@ public class LocaleNormalizer {
             }
         }
         return intersection;
+    }
+
+    /////////
+
+    public enum InvalidLocaleAction {
+        FIND,
+        FIX
+    }
+
+    public static class ProblemMap {
+        /** Map from invalid locale ID names to Problem descriptions */
+        public Map<String, Problem> map = new TreeMap<>();
+
+        public static void merge(ProblemMap allProblems, ProblemMap userProblems) {
+            for (String localeId : userProblems.map.keySet()) {
+                Problem newProblem = userProblems.map.get(localeId);
+                if (!allProblems.map.containsKey(localeId)) {
+                    allProblems.map.put(localeId, newProblem);
+                } else {
+                    Problem oldProblem = allProblems.map.get(localeId);
+                    oldProblem.userCount += newProblem.userCount;
+                    oldProblem.addSolutions(newProblem.solutions);
+                }
+            }
+        }
+    }
+
+    public static class Problem {
+        public final LocaleRejection rejection;
+        public Integer userCount;
+        public Map<Solution, Integer> solutions = new TreeMap<>(); // map to count (repetitions)
+
+        public Problem(LocaleRejection rejection, Integer count, Solution solution) {
+            this.rejection = rejection;
+            this.userCount = count;
+            this.solutions.put(solution, 1);
+        }
+
+        public void addSolution(Solution newSolution) {
+            if (this.solutions.containsKey(newSolution)) {
+                this.solutions.put(newSolution, this.solutions.get(newSolution) + 1);
+            } else {
+                this.solutions.put(newSolution, 1);
+            }
+        }
+
+        public void addSolutions(Map<Solution, Integer> newSolutions) {
+            for (Solution newSolution : newSolutions.keySet()) {
+                Integer newCount = newSolutions.get(newSolution);
+                if (this.solutions.containsKey(newSolution)) {
+                    this.solutions.put(newSolution, this.solutions.get(newSolution) + newCount);
+                } else {
+                    this.solutions.put(newSolution, newCount);
+                }
+            }
+        }
+
+        public void increment() {
+            ++userCount;
+        }
+    }
+
+    public static class Solution implements Comparable<Solution> {
+        public enum Type {
+            REPLACE,
+            DELETE
+        }
+
+        public final String localeId;
+        public Type type;
+        public CLDRLocale replacementLocale = null;
+
+        public Solution(String localeId, Type type, CLDRLocale repLoc) {
+            if (type != Type.REPLACE) {
+                throw new IllegalArgumentException("3-arg constructor is for REPLACE, not " + type);
+            }
+            this.localeId = localeId;
+            this.type = type;
+            this.replacementLocale = repLoc;
+        }
+
+        public Solution(String localeId, Type type) {
+            if (type != Type.DELETE) {
+                throw new IllegalArgumentException("2-arg constructor is for DELETE, not " + type);
+            }
+            this.localeId = localeId;
+            this.type = type;
+        }
+
+        @Override
+        public int compareTo(Solution o) {
+            return this.toString().compareTo(o.toString());
+        }
+
+        public String toString() {
+            if (type == null) {
+                type = Type.DELETE;
+            }
+            switch (type) {
+                case REPLACE:
+                    return type + " with " + replacementLocale.getBaseName();
+                case DELETE:
+                    return type.toString();
+                default:
+                    throw new RuntimeException("Solution type not handled: " + type);
+            }
+        }
+    }
+
+    public void checkUserLocales(String locales, LocaleSet orgLocales, ProblemMap problems) {
+        if (orgLocales == null) {
+            normalize(locales);
+        } else {
+            normalizeForSubset(locales, orgLocales);
+        }
+        // TODO: what about "en"? It's allowed by normalize(), rejected by normalizeForSubset()
+        // unless the organization has "*". But it's always read-only in Survey Tool. Maybe it
+        // should be treated similarly to default-content locales, but always deleted, or replaced
+        // by "en_XYZ"...?
+        // Reference: https://unicode-org.atlassian.net/browse/CLDR-18913
+        if (hasMessage()) {
+            rejectLocales(orgLocales, problems);
+        }
+    }
+
+    private void rejectLocales(LocaleSet orgLocales, ProblemMap problems) {
+        final Map<String, LocaleRejection> messages = getMessages();
+        for (String localeId : messages.keySet()) {
+            LocaleRejection rejection = messages.get(localeId);
+            Solution solution = solveRejection(rejection, localeId, orgLocales);
+            Problem problem = problems.map.get(localeId);
+            if (problem == null) {
+                problems.map.put(localeId, new Problem(rejection, 1, solution));
+            } else {
+                problem.addSolution(solution);
+                problem.increment();
+            }
+        }
+    }
+
+    private Solution solveRejection(
+            LocaleRejection rejection, String localeId, LocaleSet orgLocales) {
+        switch (rejection) {
+            case unknown:
+                return solveUnknownLocale(localeId, orgLocales);
+            case default_content:
+                return solveDefaultContentLocale(localeId, orgLocales);
+            case outside_org_coverage:
+                return solveLocaleOutsideOrgCoverage(localeId, orgLocales);
+            default:
+                throw new RuntimeException("Rejection not handled: " + rejection);
+        }
+    }
+
+    /**
+     * Do not use getLikelySubtags on these; "all" would map to "all_Mlym_IN" and "und" would map to
+     * "en_Latn_US"
+     */
+    private final Set<String> unusableNames =
+            new HashSet<>(Arrays.asList("all", LocaleNames.MUL, LocaleNames.UND, LocaleNames.ROOT));
+
+    private Solution solveUnknownLocale(String localeId, LocaleSet orgLocales) {
+        if (!unusableNames.contains(localeId)) {
+            // TODO: per ticket description, "The normalized code uses the alias table and the
+            // likely
+            // subtags table."
+            // -- what does "alias table" mean? Maybe: GenerateLanguageContainment.ALIAS_MAP?
+            // Reference: https://unicode-org.atlassian.net/browse/CLDR-18913
+            String replacementLocaleId =
+                    SupplementalDataInfo.getInstance().getLikelySubtags().get(localeId);
+            if (replacementLocaleId != null && !replacementLocaleId.isEmpty()) {
+                CLDRLocale repLoc = CLDRLocale.getInstance(replacementLocaleId);
+                if (repLoc != null
+                        && (orgLocales == null || orgLocales.contains(repLoc))
+                        && !(defaultContentIsDisallowed
+                                && SupplementalDataInfo.getInstance()
+                                        .getDefaultContentLocales()
+                                        .contains(replacementLocaleId))) {
+                    return new Solution(localeId, Solution.Type.REPLACE, repLoc);
+                }
+            }
+        }
+        // TODO: possibly assign the user the full locale set for their organization
+        // Reference: https://unicode-org.atlassian.net/browse/CLDR-18913
+        System.out.println("In solveUnknownLocale, returning DELETE; orgLocales = " + orgLocales);
+        return new Solution(localeId, Solution.Type.DELETE);
+    }
+
+    private Solution solveDefaultContentLocale(String localeId, LocaleSet orgLocales) {
+        CLDRLocale loc = CLDRLocale.getInstance(localeId);
+        CLDRLocale dcParent = SupplementalDataInfo.getInstance().getBaseFromDefaultContent(loc);
+        if (dcParent != null) {
+            String replacementLocaleId = dcParent.getBaseName();
+            CLDRLocale repLoc = CLDRLocale.getInstance(replacementLocaleId);
+            if (repLoc != null && (orgLocales == null || orgLocales.contains(repLoc))) {
+                return new Solution(localeId, Solution.Type.REPLACE, repLoc);
+            }
+        }
+        // TODO: possibly assign the user the full locale set for their organization
+        // Reference: https://unicode-org.atlassian.net/browse/CLDR-18913
+        System.out.println(
+                "In solveDefaultContentLocale, returning DELETE; orgLocales = " + orgLocales);
+        return new Solution(localeId, Solution.Type.DELETE);
+    }
+
+    private Solution solveLocaleOutsideOrgCoverage(String localeId, LocaleSet orgLocales) {
+        // TODO: possibly assign the user the full locale set for their organization
+        // Reference: https://unicode-org.atlassian.net/browse/CLDR-18913
+        System.out.println(
+                "In solveDefaultContentLocale, returning DELETE; orgLocales = " + orgLocales);
+        return new Solution(localeId, Solution.Type.DELETE);
     }
 }

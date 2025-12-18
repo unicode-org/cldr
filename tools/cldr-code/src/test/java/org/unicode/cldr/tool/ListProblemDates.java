@@ -115,10 +115,10 @@ public class ListProblemDates {
                         "core"));
 
         for (String locale : targets) {
-
-            CLDRFile cldrFile = FACTORY.make(locale, true);
-            ICUServiceBuilder service = ICUServiceBuilder.forLocale(CLDRLocale.getInstance(locale));
-            Set<PathHeader> sortedPaths = new TreeSet<>();
+            final CLDRFile cldrFile = FACTORY.make(locale, true);
+            final CLDRLocale loc = CLDRLocale.getInstance(locale);
+            final ICUServiceBuilder service = ICUServiceBuilder.forLocale(loc);
+            final Set<PathHeader> sortedPaths = new TreeSet<>();
 
             for (String path : cldrFile) {
                 XPathParts parts = XPathParts.getFrozenInstance(path);

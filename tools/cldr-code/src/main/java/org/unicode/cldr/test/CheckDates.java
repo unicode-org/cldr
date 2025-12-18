@@ -64,7 +64,7 @@ public class CheckDates extends FactoryCheckCLDR {
     static boolean GREGORIAN_ONLY = CldrUtility.getProperty("GREGORIAN", false);
     private static final Set<String> CALENDARS_FOR_CORES = Set.of("gregorian", "iso8601");
 
-    ICUServiceBuilder icuServiceBuilder = new ICUServiceBuilder();
+    private ICUServiceBuilder icuServiceBuilder;
     DateTimePatternGenerator.FormatParser formatParser =
             new DateTimePatternGenerator.FormatParser();
     DateTimePatternGenerator dateTimePatternGenerator = DateTimePatternGenerator.getEmptyInstance();
@@ -130,18 +130,19 @@ public class CheckDates extends FactoryCheckCLDR {
             CLDRFile cldrFileToCheck, Options options, List<CheckStatus> possibleErrors) {
         if (cldrFileToCheck == null) return this;
         super.handleSetCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
+        String localeID = cldrFileToCheck.getLocaleID();
+        final CLDRLocale loc = CLDRLocale.getInstance(localeID);
+        this.icuServiceBuilder = ICUServiceBuilder.forLocale(loc);
 
-        icuServiceBuilder.setCldrFile(getResolvedCldrFileToCheck());
         // the following is a hack to work around a bug in ICU4J (the snapshot, not the released
         // version).
         try {
-            bi = BreakIterator.getCharacterInstance(new ULocale(cldrFileToCheck.getLocaleID()));
+            bi = BreakIterator.getCharacterInstance(new ULocale(localeID));
         } catch (RuntimeException e) {
             bi = BreakIterator.getCharacterInstance(new ULocale(""));
         }
         CLDRFile resolved = getResolvedCldrFileToCheck();
-        flexInfo = new FlexibleDateFromCLDR(); // ought to just clear(), but not available.
-        flexInfo.set(resolved);
+        flexInfo = new FlexibleDateFromCLDR(resolved);
 
         // load decimal path specially
         String decimal = resolved.getWinningValue(DECIMAL_XPATH);
@@ -149,7 +150,6 @@ public class CheckDates extends FactoryCheckCLDR {
             flexInfo.checkFlexibles(DECIMAL_XPATH, decimal, DECIMAL_XPATH);
         }
 
-        String localeID = cldrFileToCheck.getLocaleID();
         LocaleIDParser lp = new LocaleIDParser();
         territory = lp.set(localeID).getRegion();
         language = lp.getLanguage();
@@ -157,7 +157,6 @@ public class CheckDates extends FactoryCheckCLDR {
             if (language.equals("root")) {
                 territory = "001";
             } else {
-                CLDRLocale loc = CLDRLocale.getInstance(localeID);
                 CLDRLocale defContent = sdi.getDefaultContentFromBase(loc);
                 if (defContent == null) {
                     territory = "001";

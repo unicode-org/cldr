@@ -82,8 +82,8 @@ public class SimpleUnicodeSetFormatter implements FormatterParser<UnicodeSet> {
         Comparator<String> collator = BASIC_COLLATOR;
         try {
             if (localeId != null) {
-                ICUServiceBuilder isb =
-                        ICUServiceBuilder.forLocale(CLDRLocale.getInstance(localeId));
+                final CLDRLocale loc = CLDRLocale.getInstance(localeId);
+                final ICUServiceBuilder isb = ICUServiceBuilder.forLocale(loc);
                 collator = (Comparator) isb.getRuleBasedCollator();
             }
         } catch (Exception e) { // for our purposes, better to fall back to the default

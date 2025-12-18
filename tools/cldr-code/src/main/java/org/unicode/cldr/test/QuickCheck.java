@@ -541,8 +541,7 @@ public class QuickCheck {
                 continue;
             }
             CLDRFile file = factory.make(locale, false);
-            DateTimeFormats dtf = new DateTimeFormats();
-            dtf.set(file, "gregorian", false);
+            DateTimeFormats dtf = new DateTimeFormats(file, "gregorian", false);
             for (String[] stockInfo : items) {
                 String length = stockInfo[0];
                 // ldml/dates/calendars/calendar[@type="gregorian"]/dateFormats/dateFormatLength[@type="full"]/dateFormat[@type="standard"]/pattern[@type="standard"]

@@ -9,6 +9,7 @@ import org.unicode.cldr.tool.GenerateDateTimeTestData.SemanticSkeleton;
 import org.unicode.cldr.tool.GenerateDateTimeTestData.SemanticSkeletonLength;
 import org.unicode.cldr.tool.GenerateDateTimeTestData.YearStyle;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.ICUServiceBuilder;
 
 public class GenerateDateTimeTestDataTest {
@@ -36,9 +37,8 @@ public class GenerateDateTimeTestDataTest {
             String localeStr = locale.getName();
             CLDRFile localeCldrFile = GenerateDateTimeTestData.getCLDRFile(localeStr).orElse(null);
             assert localeCldrFile != null;
-            ICUServiceBuilder icuServiceBuilder = new ICUServiceBuilder();
-            icuServiceBuilder.clearCache();
-            icuServiceBuilder.setCldrFile(localeCldrFile);
+            final CLDRLocale loc = CLDRLocale.getInstance(localeStr);
+            final ICUServiceBuilder icuServiceBuilder = ICUServiceBuilder.forLocale(loc);
 
             FieldStyleCombo fieldStyleCombo = new FieldStyleCombo();
             fieldStyleCombo.semanticSkeleton = semanticSkeleton;
@@ -128,9 +128,8 @@ public class GenerateDateTimeTestDataTest {
             String localeStr = locale.getName();
             CLDRFile localeCldrFile = GenerateDateTimeTestData.getCLDRFile(localeStr).orElse(null);
             assert localeCldrFile != null;
-            ICUServiceBuilder icuServiceBuilder = new ICUServiceBuilder();
-            icuServiceBuilder.clearCache();
-            icuServiceBuilder.setCldrFile(localeCldrFile);
+            final CLDRLocale loc = CLDRLocale.getInstance(localeStr);
+            final ICUServiceBuilder icuServiceBuilder = ICUServiceBuilder.forLocale(loc);
 
             FieldStyleCombo fieldStyleCombo = new FieldStyleCombo();
             fieldStyleCombo.semanticSkeleton = semanticSkeleton;

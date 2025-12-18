@@ -54,6 +54,17 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
     transient String[] fixedPath = new String[1];
 
     /**
+     * Whether to call intern() on strings, such as in getPathLocation. This can reduce memory
+     * usage. However, in special circumstances such as during GenerateExampleDependencies, faster
+     * performance is achieved by making it false.
+     */
+    private static boolean doInternStrings = true;
+
+    public static void setDoInternStrings(boolean doInternStrings) {
+        XMLSource.doInternStrings = doInternStrings;
+    }
+
+    /**
      * This class represents a source location of an XPath.
      *
      * @see TestFmwk.SourceLocation
@@ -1001,7 +1012,9 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                 boolean skipFirst,
                 boolean skipInheritanceMarker,
                 List<LocaleInheritanceInfo> list) {
-            xpath = xpath.intern();
+            if (doInternStrings) {
+                xpath = xpath.intern();
+            }
 
             //   When calculating the Bailey values, we track the final
             //   return value as firstValue. If non-null, this will become
@@ -1069,7 +1082,9 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                     aliasedPath =
                             aliases.get(possibleSubpath)
                                     + xpath.substring(possibleSubpath.length());
-                    aliasedPath = aliasedPath.intern();
+                    if (doInternStrings) {
+                        aliasedPath = aliasedPath.intern();
+                    }
                     if (list != null) {
                         // It's an explicit alias, just at a parent element (subset xpath)
                         list.add(
@@ -1090,7 +1105,10 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
 
             // alts are special; they act like there is a root alias to the path without the alt.
             if (aliasedPath == null && xpath.contains("[@alt=")) {
-                aliasedPath = XPathParts.getPathWithoutAlt(xpath).intern();
+                aliasedPath = XPathParts.getPathWithoutAlt(xpath);
+                if (doInternStrings) {
+                    aliasedPath = aliasedPath.intern();
+                }
                 if (list != null) {
                     list.add(
                             new LocaleInheritanceInfo(
@@ -1103,10 +1121,16 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             // //ldml/numbers/currencies/currency[@type="BRZ"]/displayName[@count="other"] =>
             // //ldml/numbers/currencies/currency[@type="BRZ"]/displayName
             if (aliasedPath == null && xpath.contains("[@count=")) {
-                aliasedPath = COUNT_EQUALS.matcher(xpath).replaceAll("[@count=\"other\"]").intern();
+                aliasedPath = COUNT_EQUALS.matcher(xpath).replaceAll("[@count=\"other\"]");
+                if (doInternStrings) {
+                    aliasedPath = aliasedPath.intern();
+                }
                 if (aliasedPath.equals(xpath)) {
                     if (xpath.contains("/displayName")) {
-                        aliasedPath = COUNT_EQUALS.matcher(xpath).replaceAll("").intern();
+                        aliasedPath = COUNT_EQUALS.matcher(xpath).replaceAll("");
+                        if (doInternStrings) {
+                            aliasedPath = aliasedPath.intern();
+                        }
                         if (aliasedPath.equals(xpath)) {
                             throw new RuntimeException("Internal error");
                         }

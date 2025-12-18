@@ -2957,8 +2957,8 @@ public class SurveyAjax extends HttpServlet {
         CLDRFile englishFile = fac.make("en", true);
         CLDRFile nativeFile = fac.make(l, true);
 
-        DateTimeFormats formats = new DateTimeFormats().set(nativeFile, calendarType);
-        DateTimeFormats english = new DateTimeFormats().set(englishFile, calendarType);
+        DateTimeFormats formats = new DateTimeFormats(nativeFile, calendarType);
+        DateTimeFormats english = new DateTimeFormats(englishFile, calendarType);
 
         formats.addTable(english, out);
         formats.addDateTable(englishFile, out);

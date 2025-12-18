@@ -22,6 +22,7 @@ import org.unicode.cldr.test.BuildIcuCompactDecimalFormat.CurrencyStyle;
 import org.unicode.cldr.tool.GeneratePluralRanges.RangeSample;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRURLS;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
@@ -324,12 +325,13 @@ public class ShowPlurals {
     }
 
     static final class SampleMaker {
-        ICUServiceBuilder icusb = new ICUServiceBuilder();
-        CLDRFile cldrFile;
+        private ICUServiceBuilder icusb;
+        private CLDRFile cldrFile;
 
-        void setCldrFile(CLDRFile cldrFile) {
+        private void setCldrFile(CLDRFile cldrFile) {
             this.cldrFile = cldrFile;
-            icusb.setCldrFile(cldrFile);
+            CLDRLocale loc = CLDRLocale.getInstance(cldrFile.getLocaleID());
+            this.icusb = ICUServiceBuilder.forLocale(loc);
         }
 
         private String getSample(DecimalQuantity numb, String samplePattern) {

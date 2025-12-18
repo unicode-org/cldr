@@ -16,7 +16,7 @@ The DDL Working Group has started to meet every other week as of June, 2023.
 
 ## List
 
-This is a list of all languages and locales currently set up in the CLDR system that are considered digitally disadvantaged languages. If you don't see your language in this list, please [visit the adding locales page](development/adding-locales.md).
+This is a list of all languages and locales currently set up in the CLDR system that are considered digitally disadvantaged languages. If you don't see your language in this list, please [visit the page on new locales](cldr-spec/core-data-for-new-locales).
 
 |Language Name|Language Tag|
 |--|--|
@@ -240,4 +240,4 @@ This is a list of all languages and locales currently set up in the CLDR system 
 |Zarma|dje|
 |Zhuang|za|
 
-This list is created from https://www.unicode.org/cldr/charts/latest/supplemental/locale_coverage.html after removing locales maintained by the CLDR Technical Committee.
+This list is created from [locale coverage chart](https://www.unicode.org/cldr/charts/latest/supplemental/locale_coverage.html) after removing locales maintained by the CLDR Technical Committee.

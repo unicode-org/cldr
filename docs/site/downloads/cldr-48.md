@@ -6,8 +6,8 @@ title: CLDR 48 Release Note
 
 | No. |    Date    | Rel. Note |  Data  |  Charts  | Spec |   Delta  | GitHub Tag | Delta DTD | CLDR JSON |
 |:---:|:----------:|:---------:|:------:|:--------:|:------------:|:---:|:----------:|:---------:|:---------:|
-|  48 | 2025-10-29 | [v48](/index/downloads/cldr-48) | [CLDR48](https://unicode.org/Public/cldr/48/) | [Charts48](https://unicode.org/cldr/charts/48/) | [LDML48](https://www.unicode.org/reports/tr35/48/tr35.html) | [Δ48](https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixversion%20%3D%2048%20ORDER%20BY%20priority%20DESC) | [release-48](https://github.com/unicode-org/cldr/releases/tag/release-48) | [ΔDtd48](https://www.unicode.org/cldr/charts/48/supplemental/dtd_deltas.html) | [48.0.0](https://github.com/unicode-org/cldr-json/releases/tag/48.0.0) |
-|  48.1 | TBD | [v48.1](/index/downloads/cldr-48#48.1) | n/a | TBD | [LDML48](https://www.unicode.org/reports/tr35/proposed.html)  | [Δ48.1](https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixversion%20%3D%2048.1%20ORDER%20BY%20priority%20DESC) | TBD | TBD | TBD |
+|  48 | 2025-10-29 | [v48] | [CLDR48] | [Charts48]| [LDML48] | [Δ48] | [release-48] | [ΔDtd48] | [48.0.0] |
+|  48.1 | 2026-01-XX | [v48.1] | n/a | TBD | [LDML48.1] | [Δ48.1] | TBD | TBD | TBD |
 
 ## Overview
 
@@ -19,6 +19,8 @@ adapting software to the conventions of different languages.
 CLDR 48 was an open submission cycle allowing contributors to supply data for their languages via the CLDR Survey Tool —
 data that is widely used to support much of the world’s software.
 This data is also a factor in determining which languages are supported on mobile phones and computer operating systems.
+
+Release notes for CLDR 48.1 can be found in the [48.1 Changes section](/downloads/cldr-48#481-changes)
 
 ### Changes
 
@@ -402,3 +404,21 @@ For web pages with different views of CLDR data, see [http://cldr.unicode.org/in
 [Likely Subtags]: https://www.unicode.org/cldr/charts/48/delta/supplemental-data.html#Likely
 [Transforms Delta]: https://unicode.org/cldr/charts/48/delta/transforms.html
 [Delta Data]: https://unicode.org/cldr/charts/48/delta/index.html
+
+<!-- 48. release: TBD -->
+[v48.1]: /downloads/cldr-48#481-changes
+[LDML48.1]: https://www.unicode.org/reports/tr35/proposed.html
+[Δ48.1]: https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixversion%20%3D%2048.1%20ORDER%20BY%20priority%20DESC
+[48.1.0]: https://github.com/unicode-org/cldr-json/releases/tag/48.1.0
+
+
+<!-- 48 release: 2025-10-29 -->
+[v48]: /downloads/cldr-48
+[CLDR48]: https://unicode.org/Public/cldr/48/
+[Charts48]: https://unicode.org/cldr/charts/48
+[LDML48]: https://www.unicode.org/reports/tr35/48
+[Δ48]: https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixversion%20%3D%2048%20ORDER%20BY%20priority%20DESC
+[release-48]: https://github.com/unicode-org/cldr/releases/tag/release-48
+[ΔDtd48]: https://www.unicode.org/cldr/charts/48/supplemental/dtd_deltas.html
+[48.0.0]: https://github.com/unicode-org/cldr-json/releases/tag/48.0.0
+

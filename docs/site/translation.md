@@ -5,15 +5,16 @@ title: Information Hub for Linguists
 # Information Hub for Linguists
 
 The following list summarizes the recent changes, with more details in a section further down the page.
-A sequence like 🆕 2025-11-24 marks items that have been recently added.
+A sequence like 🆕 2025-12-18 marks items that have been recently added.
 In your browser you can copy this sequence, then use ⌘-F (Mac) or Ctrl-F (Windows) to find all the places it occurs.
-- **🆕 2025-11-24**
-  - Current plans are to open the Survey Tool in early December 2025, but only for Digitally Disadvantaged Locales ([DDL](https://cldr.unicode.org/translation/ddl)) submission.
-    - This includes locales like Kurdish, Yoruba, Zulu, and many others.
-    - In order to give more time for submission -- we will not have a resolution phase for v49, meaning that the survey tool will remain open for new submissions until the next general submission cycle in April 2026.
-    - This does mean that submissions made between now and April 2026 will NOT be reflected in the v49 data release of CLDR. Instead, they will be included in the v50 release of CLDR, which is scheduled for October 2026.
-  - Survey Tool submission for v50 for locales maintained by the Technical Committee (TC), such as English, German, French, will open as usual around May 2026.
-  - Exceptional changes for v49 for TC-maintained locales should be [filed as JIRA tickets](requesting_changes) for TC review and they will be remediated by modifying the XML directly..
+
+- **🆕 2025-12-18**
+  - The Survey Tool has opened early for DDL locales to contribute data. See the [DDL: Help Center] to start.
+    - This includes locales like Kurdish, Qʼeqchiʼ, and many others. See [DDL locales] for full list of locales.
+    - In order to give more time for submission -- we will not have a resolution phase for v49, meaning that the survey tool will remain open for new submissions until resolution for CLDR 50 starts in July 2026
+    - This does mean that submissions made between now and July 2026 will NOT be reflected in the v49 data release of CLDR. Instead, they will be included in the v50 release of CLDR, which is scheduled for October 2026.
+  - Survey Tool submission for v50 for locales maintained by the Technical Committee (TC), such as English, German, French, will open as usual in April or May 2026.
+  - Exceptional changes for v49 for TC-maintained locales should be [filed as JIRA tickets](requesting_changes) for TC review and they will be remediated by modifying the XML directly.
 
 When a section below changes, the date will be in the header.
 
@@ -33,12 +34,9 @@ For more information about the priorities during Submission, see [Survey Tool st
 
 ## Status and Schedule
 
-The Survey Tool is currently closed for submission.
+The Survey Tool has opened early [DDL locales] data submission. See the [DDL: Help Center] for more information on submitting data for DDL locales.
 
-Languages which don't have a value in the *Target Level* column of the [Locale Coverage chart] are not *TC locales* and will open early for data submission in December.
-[DDL locales](https://cldr.unicode.org/translation/ddl) is the best resource to learn more about DDL locales and how to submit data for them.
-
-The Survey Tool will re-open for the next regular general submission cycle around May of 2026.
+Languages which have a value in the *Target Level* column of the [Locale Coverage chart] are considered *TC locales* and will not open for submission until the start of the next regular submission for CLDR 50 in April or May of 2026.
 
 - **Disconnect error**. If you see a persistent Loading error with a disconnect message or other odd behavior, please [empty your cache](translation/getting-started/empty-cache).
 - Survey Tool email notification may be going to your spam folder. Check your spam folder regularly.
@@ -197,5 +195,7 @@ entry you're editing/vetting. Use it if in doubt.*
 [Example Hidden]: https://st.unicode.org/cldr-apps/v#/USER/Number_Formatting_Patterns/67afe297d3a17a3
 [Key for Show Hidden]: https://cldr.unicode.org/translation/core-data/exemplars#key-to-escapes
 [**input** these from the keyboard]: /translation/core-data/exemplars#input
-[Change Protected Items]: https://cldr.unicode.org/translation/getting-started/guide#changing-protected-items]
+[Change Protected Items]: /translation/getting-started/guide#changing-protected-items]
 [Locale Coverage chart]: https://unicode.org/cldr/charts/dev/supplemental/locale_coverage.html
+[DDL locales]: /ddl#list
+[DDL: Help Center]: /translation/ddl

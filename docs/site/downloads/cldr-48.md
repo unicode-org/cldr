@@ -334,7 +334,22 @@ For example: El Aaiun → El Aaiún; Casey → Casey Station; Hovd Time → Khov
 - A few additional availableFormat and interval format patterns have been added, such as GyMEd and Hv, to fill some gaps.
 - The metazone for Hawaii has changed.
 
-### V49 advance warnings
+## 48.1 Changes
+
+Version 48.1 is a dot release. The following summarizes the changes. For a full listing, see [Δ48.1](https://unicode-org.atlassian.net/issues/?jql=project+%3D+CLDR+AND+status+%3D+Done+AND+resolution+%3D+Fixed+AND+fixVersion+%3D+%2248.1%22+ORDER+BY+priority+DESC)
+
+### Data changes
+
+- Update RSD (Serbian Dinar) to use 2-digits for non-cash and 0-digits for cash.
+- Fix issue with tippi and bindi in Punjabi exemplars.
+- Fix parsing issue in numeric date+time patterns for zh_Hant and yue.
+- Fix issues with hour cycle display names for several languages.
+
+### Spec changes
+
+- Segmentations - removed outdated note about `X Format*->` not being supported in CLDR since it no longer accurate.
+
+## V49 advance warnings
 
 The following changes are planned for CLDR 49. Please plan accordingly to avoid disruption.
 - H24 will be deprecated. If it is encountered, it will have H23 behavior. There is no known intentional usage of H24. If you have a current need for H24 instead of H23, please comment on [CLDR-18303][].

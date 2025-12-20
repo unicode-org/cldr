@@ -22,6 +22,7 @@ public class TestVoteResolver {
     @Test
     void testNonTcOrgByCountNotTime() {
         final VoteResolver<String> vr = getStringResolver();
+        vr.enableTranscript();
         vr.setLocale(
                 CLDRLocale.getInstance("br"), null); // NB: pathHeader is needed for annotations
         vr.setBaseline("Inez Bouvet", Status.unconfirmed);
@@ -38,14 +39,34 @@ public class TestVoteResolver {
         // latest, but minority vote
         vr.add("2 Bouvet", TestHelper.TestUser.bretonV3.voterId, null, t2);
 
-        assertAll(
-                "Verify org's vote",
-                () -> assertEquals("1 Bouvet", vr.getOrgVote(Organization.breton)),
-                () -> assertEquals("1 Bouvet", vr.getWinningValue()),
-                () ->
-                        assertEquals(
-                                VoteResolver.VoteStatus.ok,
-                                vr.getStatusForOrganization(Organization.breton)));
+        boolean printTranscript = true;
+        try {
+            assertAll(
+                    "Verify org's vote",
+                    () ->
+                            assertEquals(
+                                    "1 Bouvet",
+                                    vr.getOrgVote(Organization.breton),
+                                    "breton's vote"),
+                    () ->
+                            assertEquals(
+                                    4,
+                                    vr.getOrgToVotes(Organization.breton).get("1 Bouvet"),
+                                    "breton's vote for '1 Bouvet'"),
+                    () -> assertEquals("1 Bouvet", vr.getWinningValue(), "for the winning value"),
+                    () ->
+                            assertEquals(
+                                    VoteResolver.VoteStatus.ok,
+                                    vr.getStatusForOrganization(Organization.breton)));
+            printTranscript = false; // none of the assertions failed, so no need to print
+        } finally {
+            if (printTranscript) {
+                // if there were errors, print out the transcript for debugging.
+                vr.isDisputed(); // to cause calculation
+                System.err.println(vr.getTranscript());
+                System.err.println(vr.toString());
+            }
+        }
     }
 
     @Test
@@ -124,16 +145,19 @@ public class TestVoteResolver {
         vr.add("bafut", TestHelper.TestUser.unaffiliatedS.voterId);
 
         vr.enableTranscript(); // Should be recalculated from here.
+        final String vrString = vr.toString(); // NB:  toString() modifies the transcript!
         assertAll(
                 "Verify the outcome",
                 () -> assertEquals("bambara", vr.getWinningValue()),
                 () -> assertEquals(Status.provisional, vr.getWinningStatus()));
         final String transcriptText = vr.getTranscript();
-        System.out.println(transcriptText);
-        System.out.println(vr.toString()); // NB:  toString() modifies the transcript!
         assertTrue(
                 transcriptText.contains("earlier than 'bassa'"),
-                () -> "Transcript did not match expectations:\n" + transcriptText);
+                () ->
+                        "Transcript did not match expectations:\n"
+                                + transcriptText
+                                + "\n"
+                                + vrString);
     }
 
     private VoteResolver<String> getStringResolver() {

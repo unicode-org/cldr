@@ -48,6 +48,7 @@ public class Counter<T> implements Iterable<T>, Comparable<Counter<T>> {
         public long value;
         private final int forceUnique;
         public long time;
+        public int participants;
 
         {
             synchronized (RWLong.class) { // make thread-safe
@@ -71,6 +72,16 @@ public class Counter<T> implements Iterable<T>, Comparable<Counter<T>> {
         public String toString() {
             return String.valueOf(value);
         }
+
+        /** return the number of times participate() was counted */
+        public final int getParticipants() {
+            return participants;
+        }
+
+        /** add one to the participant coutn */
+        void participate() {
+            participants++;
+        }
     }
 
     public Counter<T> add(T obj, long countValue) {
@@ -85,7 +96,10 @@ public class Counter<T> implements Iterable<T>, Comparable<Counter<T>> {
         RWLong count = map.get(obj);
         if (count == null) map.put(obj, count = new RWLong());
         count.value += countValue;
-        count.time = time;
+        if (countValue != 0) {
+            count.time = time;
+        }
+        count.participate();
         return this;
     }
 
@@ -104,6 +118,12 @@ public class Counter<T> implements Iterable<T>, Comparable<Counter<T>> {
     public long get(T obj) {
         RWLong count = map.get(obj);
         return count == null ? 0 : count.value;
+    }
+
+    /** returns the number of times 'add' was called */
+    public int getParticipation(T obj) {
+        RWLong count = map.get(obj);
+        return count == null ? 0 : count.getParticipants();
     }
 
     /**

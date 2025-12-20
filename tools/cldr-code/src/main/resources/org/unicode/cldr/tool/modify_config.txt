@@ -1,3 +1,1 @@
-locale=/.*/; action=delete; path=//ldml/dates/calendars/calendar[@type="coptic"]/eras/eraNames/era[@type="0"]
-locale=/.*/; action=delete; path=//ldml/dates/calendars/calendar[@type="coptic"]/eras/eraAbbr/era[@type="0"]
-locale=/.*/; action=delete; path=//ldml/dates/calendars/calendar[@type="coptic"]/eras/eraNarrow/era[@type="0"]
+locale=/.*/; action=replace; path=///ldml/localeDisplayNames/territories/territory[@type="(\w*)"]/; value=/(.*)\s+\((.*)\)/; new_path=//ldml/localeDisplayNames/territories/territory[@type="$1"][@menu="core"]; new_value=$1

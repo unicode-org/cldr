@@ -35,11 +35,6 @@ import org.unicode.cldr.test.DisplayAndInputProcessor;
  * // are small), or synchronize.
  * VoteResolver resolver = new VoteResolver();
  *
- * // For any particular base path, set the values
- * // set the 1.5 status (if we're working on 1.6). This &lt;b&gt;must&lt;/b&gt; be done for each new base path
- * resolver.newPath(oldValue, oldStatus);
- * [TODO: function newPath doesn't exist, revise this documentation]
- *
  * // now add some values, with who voted for them
  * resolver.add(value1, voter1);
  * resolver.add(value1, voter2);
@@ -49,6 +44,9 @@ import org.unicode.cldr.test.DisplayAndInputProcessor;
  * winner = resolver.getWinningValue();
  * status = resolver.getWinningStatus();
  * conflicts = resolver.getConflictedOrganizations();
+ *
+ * // if you want to use it for another path, call clear.
+ * resolver.clear();
  * </pre>
  */
 public class VoteResolver<T> {
@@ -784,7 +782,7 @@ public class VoteResolver<T> {
                 }
 
                 // temporarily make the top voted value this org's value.
-                // TODO: may not be needed, see below
+                // TODO CLDR-9830: may not be needed, see below.
                 orgToAdd.put(org, value);
 
                 /** does this org vote by time (TC) or by number of votes (others)? */
@@ -830,8 +828,11 @@ public class VoteResolver<T> {
                                             + "MAXCOUNT: "
                                             + maxCount);
                         }
-                        considerCount = items.getCount(considerItem); // TODO: == maxCount == count?
-                        considerTime = items.getTime(considerItem); // TODO: == maxtime == time?
+                        considerCount =
+                                items.getCount(
+                                        considerItem); // TODO CLDR-9830: == maxCount == count?
+                        considerTime =
+                                items.getTime(considerItem); // TODO CLDR-9830: == maxtime == time?
                     } else if (!votesByTime
                             && (count == maxCount)
                             && (participation > considerParticipation)) {
@@ -868,7 +869,7 @@ public class VoteResolver<T> {
                 annotateTranscript(
                         "--- %s vote is for '%s' with strength %d",
                         org.getDisplayName(), considerItem, considerCount);
-                // TODO: is this ever not reached if there is a value?
+                // TODO CLDR-9830: is this ever not reached if there is a value?
                 orgToAdd.put(org, considerItem);
                 totals.add(considerItem, considerCount, considerTime);
 
@@ -1047,7 +1048,7 @@ public class VoteResolver<T> {
         values.clear();
         votesForMissing.clear();
 
-        // TODO: clear these out between reuse
+        // TODO CLDR-9830: clear these out between reuse?
         // Are there other values that should be cleared?
         oValue = null;
         setWinningValue(null);
@@ -1301,7 +1302,7 @@ public class VoteResolver<T> {
                 // Declare the winner here, because we're about to return from the function
             } else {
                 /*
-                 * TODO: When can this still happen? See https://unicode.org/cldr/trac/ticket/11299 "Example C".
+                 * TODO: When can this still happen? See CLDR-11299 "Example C".
                  * Also http://localhost:8080/cldr-apps/v#/en_CA/Gregorian/
                  * -- also http://localhost:8080/cldr-apps/v#/aa/Languages_A_D/
                  *    xpath //ldml/localeDisplayNames/languages/language[@type="zh_Hans"][@alt="long"]
@@ -1359,7 +1360,7 @@ public class VoteResolver<T> {
         winningStatus = computeStatus(weights[0], weights[1]);
 
         // if we are not as good as the baseline (trunk), use the baseline
-        // TODO: how could baselineStatus be null here??
+        // TODO CLDR-9830: how could baselineStatus be null here??
         if (baselineStatus != null && winningStatus.compareTo(baselineStatus) < 0) {
             setWinningValue(baselineValue);
             annotateTranscript(
@@ -1553,7 +1554,6 @@ public class VoteResolver<T> {
         }
         if (transcript != null && !DEBUG) {
             for (Entry<T, Long> comp : compMap.entrySet()) {
-                // TODO: could sort here, or not.
                 annotateTranscript(
                         "-- component '%s' has weight %d",
                         comp.getKey().toString(), comp.getValue());
@@ -2161,7 +2161,8 @@ public class VoteResolver<T> {
     }
 
     /*
-     * TODO: either delete this or explain why it's needed
+     * TODO CLDR-9830: either delete this or explain why it's needed
+     * @return the number of distinct values being voted on
      */
     public int size() {
         return values.size();

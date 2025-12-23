@@ -542,7 +542,9 @@
 //supplementalData/measurementData/paperSize[@type="%A"]/_territories			; Supplemental ; Measurement ; Paper ; $1 ; HIDE
 
 //supplementalData/dayPeriodRuleSet[@type="%A"]/dayPeriodRules[@locales="%A"]/dayPeriodRule[@type="%A"]/_%E			; Supplemental ; DayPeriod ; $1-$2 ; $3-$4 ; HIDE
+//supplementalData/dayPeriodRuleSet[@type="%A"]/dayPeriodRules[@locales="%A"]/dayPeriodRule[@type="%A"][@from="%A"]/_%E			; Supplemental ; DayPeriod ; $1-$2 ; $3-$4-$5 ; HIDE
 //supplementalData/dayPeriodRuleSet/dayPeriodRules[@locales="%A"]/dayPeriodRule[@type="%A"]/_%E			; Supplemental ; DayPeriod ; $1 ; $2-$3 ; HIDE
+//supplementalData/dayPeriodRuleSet/dayPeriodRules[@locales="%A"]/dayPeriodRule[@type="%A"][@from="%A"]/_%E			; Supplemental ; DayPeriod ; $1 ; $2-$3-$4 ; HIDE
 
 //supplementalData/grammaticalData/grammaticalFeatures[@targets="%A"][@locales="%A"]/grammaticalCase[@scope="%A"]/_values ; Supplemental ; Grammar ; Case ; $1-$2-$3 ; HIDE
 //supplementalData/grammaticalData/grammaticalFeatures[@targets="%A"][@locales="%A"]/grammaticalDefiniteness[@scope="%A"]/_values ; Supplemental ; Grammar ; Definiteness ; $1-$2-$3 ; HIDE

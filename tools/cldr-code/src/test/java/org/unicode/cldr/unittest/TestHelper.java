@@ -316,7 +316,10 @@ public class TestHelper extends TestFmwkPlus {
         microsoftV(134, Organization.microsoft, Level.vetter),
         ibmE(114, Organization.ibm, Level.manager),
         ibmT(129, Organization.ibm, Level.tc),
-        unaffiliatedS2(802, Organization.unaffiliated, Level.guest);
+        unaffiliatedS2(802, Organization.unaffiliated, Level.guest),
+        bretonV1(901, Organization.breton, Level.vetter),
+        bretonV2(902, Organization.breton, Level.vetter),
+        bretonV3(903, Organization.breton, Level.vetter);
 
         public static final Map<Integer, VoterInfo> TEST_USERS;
         public final Integer voterId;

@@ -579,8 +579,8 @@ public class VoteResolver<T> {
      * @param <T>
      */
     static class MaxCounter<T> extends Counter<T> {
-        public MaxCounter(boolean b) {
-            super(b);
+        public MaxCounter(boolean naturalOrdering) {
+            super(naturalOrdering);
         }
 
         /** Add, but only to bring up to the maximum value. */
@@ -589,6 +589,8 @@ public class VoteResolver<T> {
             long value = getCount(obj);
             if ((value <= countValue)) {
                 super.add(obj, countValue - value, time); // only add the difference!
+            } else {
+                super.add(obj, 0, time); // just add a participant
             }
             return this;
         }
@@ -780,19 +782,23 @@ public class VoteResolver<T> {
                         }
                     }
                 }
-                // This is deprecated, but preserve it until the method is removed.
-                /*
-                 * TODO: explain the above comment, and follow through. What is deprecated (orgToAdd, or getOrgVote)?
-                 * Preserve until which method is removed (getOrgVote)?
-                 */
+
+                // temporarily make the top voted value this org's value.
+                // TODO: may not be needed, see below
                 orgToAdd.put(org, value);
+
+                /** does this org vote by time (TC) or by number of votes (others)? */
+                final boolean votesByTime = orgVotesByTime(org);
+
+                T considerItem = null;
+                long considerCount = 0;
+                long considerTime = 0;
+                int considerParticipation = 0;
 
                 // We add the max vote for each of the organizations choices
                 long maxCount = 0;
-                T considerItem = null;
-                long considerCount = 0;
                 long maxtime = 0;
-                long considerTime = 0;
+
                 for (T item : items.keySet()) {
                     if (DEBUG) {
                         System.out.println(
@@ -802,6 +808,7 @@ public class VoteResolver<T> {
                     }
                     long count = items.getCount(item);
                     long time = items.getTime(item);
+                    int participation = votesByTime ? 0 : items.getParticipation(item);
                     if (count > maxCount) {
                         maxCount = count;
                         maxtime = time;
@@ -823,9 +830,21 @@ public class VoteResolver<T> {
                                             + "MAXCOUNT: "
                                             + maxCount);
                         }
-                        considerCount = items.getCount(considerItem);
-                        considerTime = items.getTime(considerItem);
-                    } else if ((time > maxtime) && (count == maxCount)) {
+                        considerCount = items.getCount(considerItem); // TODO: == maxCount == count?
+                        considerTime = items.getTime(considerItem); // TODO: == maxtime == time?
+                    } else if (!votesByTime
+                            && (count == maxCount)
+                            && (participation > considerParticipation)) {
+                        // tell the 'losing' item
+                        if (considerItem != null) {
+                            annotateTranscript(
+                                    "---- Org is not voting for '%s' with %d votes: there is an item '%s' with %d votes",
+                                    considerItem, considerParticipation, item, participation);
+                        }
+                        considerItem = item;
+                    } else if ((time > maxtime)
+                            && (count == maxCount)
+                            && (votesByTime || (participation == considerParticipation))) {
                         maxtime = time;
                         // tell the 'losing' item
                         if (considerItem != null) {
@@ -844,10 +863,12 @@ public class VoteResolver<T> {
                                             + new Timestamp(considerTime));
                         }
                     }
+                    considerParticipation = participation;
                 }
                 annotateTranscript(
                         "--- %s vote is for '%s' with strength %d",
                         org.getDisplayName(), considerItem, considerCount);
+                // TODO: is this ever not reached if there is a value?
                 orgToAdd.put(org, considerItem);
                 totals.add(considerItem, considerCount, considerTime);
 
@@ -906,21 +927,18 @@ public class VoteResolver<T> {
         }
 
         /**
-         * This is now deprecated, since the organization may have multiple votes.
+         * Get the winning vote for this organization
          *
          * @param org
          * @return
-         * @deprecated
          */
-        @Deprecated
         public T getOrgVote(Organization org) {
             return orgToAdd.get(org);
         }
 
-        public T getOrgVoteRaw(Organization orgOfUser) {
-            return orgToAdd.get(orgOfUser);
-        }
-
+        /**
+         * @return all possible votes from the org, including ones which are disputed.
+         */
         public Map<T, Long> getOrgToVotes(Organization org) {
             Map<T, Long> result = new LinkedHashMap<>();
             MaxCounter<T> counter = orgToVotes.get(org);
@@ -1912,15 +1930,34 @@ public class VoteResolver<T> {
      * @return
      */
     public T getOrgVote(Organization org) {
+        if (!resolved) {
+            resolveVotes();
+        }
         return organizationToValueAndVote.getOrgVote(org);
     }
 
+    /**
+     * @return a map of all votes for this organization
+     */
     public Map<T, Long> getOrgToVotes(Organization org) {
+        if (!resolved) {
+            resolveVotes();
+        }
         return organizationToValueAndVote.getOrgToVotes(org);
     }
 
     public Map<String, Long> getNameTime() {
+        if (!resolved) {
+            resolveVotes();
+        }
         return organizationToValueAndVote.getNameTime();
+    }
+
+    /**
+     * @return true if this organization's votes are ordered by time (as with TC orgs)
+     */
+    private static boolean orgVotesByTime(Organization org) {
+        return (org.isTCOrg());
     }
 
     /**
@@ -2172,7 +2209,7 @@ public class VoteResolver<T> {
             // If the value is provisional, it needs more votes.
             return VoteStatus.provisionalOrWorse;
         }
-        T orgVote = organizationToValueAndVote.getOrgVoteRaw(orgOfUser);
+        T orgVote = organizationToValueAndVote.getOrgVote(orgOfUser);
         if (!equalsOrgVote(winningValue, orgVote)) {
             // We voted and lost
             return VoteStatus.losing;

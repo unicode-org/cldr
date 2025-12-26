@@ -1,0 +1,44 @@
+# Build ICU
+
+name: CLDR Modify
+
+on:
+  workflow_dispatch:
+    inputs:
+      cldr-ref:
+        description: CLDR ref to build
+        required: true
+        default: 'main'
+      cldr-repo:
+        description: CLDR repo to build
+        required: true
+        default: 'unicode-org/cldr'
+jobs:
+  modify:
+    name: Build CLDR
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone CLDR
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.cldr-ref }}
+          lfs: false
+          repository: ${{ github.event.inputs.cldr-repo }}
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: 11
+          distribution: 'temurin'
+      - name: Cache local Maven repository
+        uses: actions/cache@v4
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('tools/**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+      - name: Build with Maven
+        run: >
+          mvn -s .github/workflows/mvn-settings.xml -B compile install package --file tools/pom.xml
+          -DskipTests=true -pl cldr-code
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,6 +1,8 @@
-# Build ICU
-
 name: CLDR Modify
+
+env:
+  CLDR_DIR: ${{ github.workspace }}
+  CLDR_JAR: ${{ env.CLDR_DIR }}/tools/cldr-code/target/cldr-code.jar
 
 on:
   workflow_dispatch:
@@ -42,3 +44,9 @@ jobs:
           -DskipTests=true -pl cldr-code
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Run CLDR-modify
+        run: >
+          TMPD=$(mktemp -d) ;
+          java -jar $CLDR_JAR modify -d${TMPD} -s${CLDR_DIR}/common/main  && mv -v ${TMPD}/*.xml common/main/
+      - name: git status
+        run: git status

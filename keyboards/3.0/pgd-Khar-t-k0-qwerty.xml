@@ -3,7 +3,7 @@
   conformsTo="47" draft="contributed" >
   <info author="Andrew Glass" name="Gandhari (Phonetic)"
     layout="QWERTY" indicator="\u{10A12}\u{10A0E}" />
-  <version number="1.0.1"/>
+  <version number="1.0.2"/>
 
   <keys>
     <import base="cldr" path="47/keys-Zyyy-punctuation.xml"/>
@@ -18,7 +18,7 @@
       <key id="3"          output="\u{10A42}" /> <!-- Three -->
       <key id="4"          output="\u{10A43}" /> <!-- Four -->
       <key id="5"          output="\m{FIVE}"  /> <!-- Five -->
-      <key id="6"          output="\m{SIXX}"  /> <!-- Six -->
+      <key id="6"          output="\m{SIX}"   /> <!-- Six -->
       <key id="7"          output="\m{SEVE}"  /> <!-- Seven -->
       <key id="8"          output="\m{EIGH}"  /> <!-- Eight -->
       <key id="9"          output="\m{NINE}"  /> <!-- Nine -->
@@ -59,13 +59,13 @@
       <key id="alt_k"      output="\u{10A32}\m{A}" />
       <key id="K"          output="\u{10A11}\m{A}" />
       <key id="q"          output="\u{10A11}\m{A}" />
-      <key id="Q"          output="\u{10A11}\m{A}" />
+      <key id="Q"          output="\u{10A11}\m{A}" /> <!--intentional duplicate -->
       <key id="g"          output="\u{10A12}\m{A}" />
       <key id="G"          output="\u{10A13}\m{A}" />
       <key id="c"          output="\u{10A15}\m{A}" />
       <key id="C"          output="\u{10A16}\m{A}" />
       <key id="j"          output="\u{10A17}\m{A}" />
-      <key id="J"          output="\u{10A17}\m{A}" />
+      <key id="J"          output="\u{10A17}\m{A}" /> <!--intentional duplicate -->
       <key id="alt_y"      output="\u{10A19}\m{A}" />
       <key id="alt_t"      output="\u{10A1A}\m{A}" />
       <key id="alt_T"      output="\u{10A1B}\m{A}" />
@@ -77,41 +77,52 @@
       <key id="d"          output="\u{10A21}\m{A}" />
       <key id="D"          output="\u{10A22}\m{A}" />
       <key id="n"          output="\u{10A23}\m{A}" />
+      <key id="N"          output="\u{10A1E}\m{A}" />
       <key id="p"          output="\u{10A24}\m{A}" />
       <key id="P"          output="\u{10A25}\m{A}" />
       <key id="f"          output="\u{10A25}\m{A}" />
-      <key id="F"          output="\u{10A25}\m{A}" />
+      <key id="F"          output="\u{10A25}\m{A}" /> <!--intentional duplicate -->
       <key id="b"          output="\u{10A26}\m{A}" />
       <key id="B"          output="\u{10A27}\m{A}" />
       <key id="m"          output="\u{10A28}\m{A}" />
+      <key id="M"          output="\u{10A0E}" />
       <key id="y"          output="\u{10A29}\m{A}" />
+      <key id="Y"          output="\m{C}\u{10A29}\m{A}" /> <!--full ya -->
       <key id="r"          output="\u{10A2A}\m{A}" />
+      <key id="R"          output="\u{10A2A}\m{A}" /> <!--intentional duplicate -->
       <key id="l"          output="\u{10A2B}\m{A}" />
+      <key id="L"          output="\u{10A2B}\m{A}" /> <!--intentional duplicate -->
       <key id="v"          output="\u{10A2C}\m{A}" />
-      <key id="w"          output="\u{10A2C}\m{A}" />
+      <key id="V"          output="\u{10A35}\m{A}" />
+      <key id="w"          output="\u{10A2D}\m{A}" />
+      <key id="W"          output="\u{10A2D}\m{A}" /> <!--intentional duplicate -->
       <key id="alt_s"      output="\u{10A2D}\m{A}" />
       <key id="x"          output="\u{10A2E}\m{A}" />
+      <key id="X"          output="\u{10A10}\u{10A3F}\u{10A2E}\m{A}" />
       <key id="s"          output="\u{10A2F}\m{A}" />
+      <key id="S"          output="\u{10A2D}\m{A}" />
       <key id="z"          output="\u{10A30}\m{A}" />
+      <key id="Z"          output="\u{10A30}\m{A}" /> <!--intentional duplicate -->
       <key id="h"          output="\u{10A31}\m{A}" />
+      <key id="H"          output="\u{10A0F}" />
 
     <!-- Consonant modifiers -->
       <key id="barabove"   output="\u{10A38}" />
       <key id="cauda"      output="\u{10A39}" />
       <key id="dotbelow"   output="\u{10A3A}" />
       <key id="virama"     output="\u{10A3F}" />
-      <key id="apos"       output="\m{nobar}" />
+      <key id="apos"       output="\m{special}" />
 
     <!-- Punctuation -->
-      <key id="comma"      output="\u{10A50}" />
-      <key id="period"     output="\u{10A51}" />
-      <key id="semi-colon" output="\u{10A52}" />
-      <key id="colon"      output="\u{10A53}" />
-      <key id="alt_comma"  output="\u{10A54}" />
-      <key id="alt_period" output="\u{10A55}" />
-      <key id="pipe"       output="\u{10A56}" />
-      <key id="alt_pipe"   output="\u{10A57}" />
-      <key id="equal"      output="\u{10A58}" />
+      <key id="period"      output="\u{10A50}" />
+      <key id="close-angle" output="\u{10A51}" />
+      <key id="semi-colon"  output="\u{10A52}" />
+      <key id="colon"       output="\u{10A53}" />
+      <key id="comma"       output="\u{10A54}" />
+      <key id="open-angle"  output="\u{10A55}" />
+      <key id="pipe"        output="\u{10A56}" />
+      <key id="alt_pipe"    output="\u{10A57}" />
+      <key id="equal"       output="\u{10A58}" />
   </keys>
 
   <layers formId="us">
@@ -119,7 +130,7 @@
       <row keys="grave 1 2 3 4 5 6 7 8 9 0 barabove equal"/>
       <row keys="q w e r t y u i o p open-square close-square backslash"/>
       <row keys="a s d f g h j k l semi-colon apos"/>
-      <row keys="z x c v b n m comma period virama"/>
+      <row keys="z x c v b n m comma period slash"/>
       <row keys="space"/>
     </layer>
     <layer modifiers="shift">
@@ -147,17 +158,24 @@
       <row keys="gap half gap gap gap gap gap gap alt_8 gap gap gap gap"/>
       <row keys="gap gap alt_e alt_r alt_t alt_y alt_u alt_i alt_o gap gap gap gap"/>
       <row keys="alt_a alt_s alt_d gap gap alt_h gap alt_k gap gap gap"/>
-      <row keys="gap gap gap gap gap alt_n alt_m alt_comma alt_period gap"/>
+      <row keys="gap gap gap gap gap alt_n alt_m gap dotbelow virama"/>
       <row keys="space"/>
     </layer>
     <layer modifiers="shift altR">
-      <row keys="gap gap gap gap gap gap gap gap gap gap gap dotbelow gap"/>
+      <row keys="gap gap gap gap gap gap gap gap gap gap gap gap gap"/>
       <row keys="gap gap gap alt_R alt_T gap gap gap gap gap gap gap alt_pipe"/>
       <row keys="alt_A gap alt_D gap gap alt_H gap gap gap gap gap"/>
       <row keys="gap gap gap gap gap gap alt_M gap gap gap"/>
       <row keys="gap"/>
     </layer>
   </layers>
+
+  <variables>
+    <uset id="vowels"            value="[\u{10A01}-\u{10A03} \u{10A05}-\u{10A06}]" />
+    <set id="vowelmodifiers"     value="\u{10A0C} \u{10A0D} \u{10A0E} \u{10A0F}" />
+    <uset id="consonants"        value="[\u{10A10}-\u{10A13} \u{10A15}-\u{10A17} \u{10A19}-\u{10A35}]" />
+    <set id="consonantmodifiers" value="\u{10A38} \u{10A39} \u{10A3A}" />
+  </variables>
 
   <transforms type="simple">
     <transformGroup> <!-- Numbers -->
@@ -198,86 +216,108 @@
       <transform from="\m{NINE}"                                     to="\u{10A43}\u{10A43}\u{10A40}" />                   <!-- Four Four One -->
       <transform from="\m{EIGH}"                                     to="\u{10A43}\u{10A43}" />                            <!-- Four Four -->
       <transform from="\m{SEVE}"                                     to="\u{10A43}\u{10A42}" />                            <!-- Four Three -->
-      <transform from="\m{SIXX}"                                     to="\u{10A43}\u{10A41}" />                            <!-- Four Two -->
+      <transform from="\m{SIX}"                                      to="\u{10A43}\u{10A41}" />                            <!-- Four Two -->
       <transform from="\m{FIVE}"                                     to="\u{10A43}\u{10A40}" />                            <!-- Four One -->
       <transform from="\m{ZERO}"                                     to="0" />                                             <!-- Four One -->
     </transformGroup>
 
     <transformGroup> <!-- Derived consonants -->
-      <transform from="\u{10A10}\m{A}\u{10A31}\m{A}"     to="\u{10A11}\m{A}" />
-      <transform from="\u{10A12}\m{A}\u{10A31}\m{A}"     to="\u{10A13}\m{A}" />
-      <transform from="\u{10A15}\m{A}\u{10A31}\m{A}"     to="\u{10A16}\m{A}" />
-      <transform from="\u{10A1A}\m{A}\u{10A31}\m{A}"     to="\u{10A1B}\m{A}" />
-      <transform from="\u{10A1B}\m{A}\u{10A31}\m{A}"     to="\u{10A33}\m{A}" />  <!-- ṭh h to ṭ́h -->
-      <transform from="\u{10A1C}\m{A}\u{10A31}\m{A}"     to="\u{10A1D}\m{A}" />
-      <transform from="\u{10A1F}\m{A}\u{10A31}\m{A}"     to="\u{10A20}\m{A}" />
-      <transform from="\u{10A21}\m{A}\u{10A31}\m{A}"     to="\u{10A22}\m{A}" />
-      <transform from="\u{10A24}\m{A}\u{10A31}\m{A}"     to="\u{10A25}\m{A}" />
-      <transform from="\u{10A26}\m{A}\u{10A31}\m{A}"     to="\u{10A27}\m{A}" />
-      <transform from="\u{10A2F}\m{A}\u{10A31}\m{A}"     to="\u{10A2D}\m{A}" />  <!-- S H to Ś -->
-      <transform from="\u{10A1A}\m{A}\m{nobar}"          to="\u{10A34}\m{A}" />  <!-- ṭ ' to ṭ́ -->
-      <transform from="\u{10A2C}\m{A}\u{10A31}\m{A}"     to="\u{10A35}\m{A}" />  <!-- V H to VH -->
-      <transform from="\u{10A2B}\m{A}\u{10A19}\m{A}"     to="\u{10A2B}\u{200D}\u{10A3F}\u{10A29}\m{A}" />  <!-- V H to VH -->
-      <transform from="\m{nobar}"                        to="\u{0027}" />  <!-- ṭ ' to ṭ́ -->
+      <transform from="\u{10A10}\m{A}\u{10A31}\m{A}"      to="\u{10A11}\m{A}" />  <!-- kh -->
+      <transform from="\u{10A10}\m{A}\m{special}"         to="\u{10A32}\m{A}" />  <!-- k ' > ḱ -->
+      <transform from="\u{10A12}\m{A}\u{10A31}\m{A}"      to="\u{10A13}\m{A}" />  <!-- gh -->
+      <transform from="\u{10A15}\m{A}\u{10A31}\m{A}"      to="\u{10A16}\m{A}" />  <!-- ch -->
+      <transform from="\u{10A1A}\m{A}\u{10A31}\m{A}"      to="\u{10A1B}\m{A}" />  <!-- ṭh -->
+      <transform from="\u{10A1B}\m{A}\u{10A31}\m{A}"      to="\u{10A33}\m{A}" />  <!-- ṭh h to ṭ́h -->
+      <transform from="\u{10A1B}\m{A}\m{special}"         to="\u{10A33}\m{A}" />  <!-- ṭh ' to ṭ́h -->
+      <transform from="\u{10A1C}\m{A}\u{10A31}\m{A}"      to="\u{10A1D}\m{A}" />  <!-- ḍh -->
+      <transform from="\u{10A1F}\m{A}\u{10A31}\m{A}"      to="\u{10A20}\m{A}" />  <!-- th -->
+      <transform from="\u{10A21}\m{A}\u{10A31}\m{A}"      to="\u{10A22}\m{A}" />  <!-- dh -->
+      <transform from="\u{10A24}\m{A}\u{10A31}\m{A}"      to="\u{10A25}\m{A}" />  <!-- ph -->
+      <transform from="\u{10A26}\m{A}\u{10A31}\m{A}"      to="\u{10A27}\m{A}" />  <!-- bh -->
+      <transform from="\u{10A2F}\m{A}\u{10A31}\m{A}"      to="\u{10A2D}\m{A}" />  <!-- s h to ś -->
+      <transform from="\u{10A1A}\m{A}\m{special}"         to="\u{10A34}\m{A}" />  <!-- ṭ ' to ṭ́ -->
+      <transform from="\u{10A2C}\m{A}\u{10A31}\m{A}"      to="\u{10A35}\m{A}" />  <!-- v h to vh -->
+      <transform from="\u{10A2C}\m{A}\m{special}"         to="\u{10A35}\m{A}" />  <!-- ṭ ' to ṭ́ -->
+      <transform from="\m{special}"                       to="\u{0027}" />  <!-- ṭ ' to ṭ́ -->
+      <transform from="\u{10A2B}\m{A}\m{C}\u{10A29}\m{A}" to="\u{10A2B}\u{200D}\u{10A3F}\u{10A29}\m{A}" />  <!-- l'ya -->
     </transformGroup>
 
     <transformGroup> <!-- Derived punctuation -->
-      <transform from="\u{10A56}\u{10A56}"               to="\u{10A57}" />  <!-- Double danda -->
+      <transform from="\m{A}\u{0020}"                     to="" />           <!-- Cancel halant -->
+      <transform from="\u{10A56}\u{10A56}"                to="\u{10A57}" />  <!-- Double danda -->
     </transformGroup>
 
     <transformGroup> <!-- Dependent vowels -->
-      <transform from="\m{A}\u{10A00}"                   to="" />
-      <transform from="\m{A}\u{10A00}\u{10A0C}"          to="\u{10A0C}" />
-      <transform from="\m{A}\u{10A00}\u{10A01}"          to="\u{10A01}" />
-      <transform from="\m{A}\u{10A00}\u{10A01}\u{10A0C}" to="\u{10A01}\u{10A0C}" />
-      <transform from="\m{A}\u{10A00}\u{10A02}"          to="\u{10A02}" />
-      <transform from="\m{A}\u{10A00}\u{10A02}\u{10A0C}" to="\u{10A02}\u{10A0C}" />
-      <transform from="\m{A}\u{10A00}\u{10A03}"          to="\u{10A03}" />
-      <transform from="\m{A}\u{10A00}\u{10A03}\u{10A0C}" to="\u{10A03}\u{10A0C}" />
-      <transform from="\m{A}\u{10A00}\u{10A05}"          to="\u{10A05}" />
-      <transform from="\m{A}\u{10A00}\u{10A05}\u{10A0C}" to="\u{10A05}\u{10A0C}" />
-      <transform from="\m{A}\u{10A00}\u{10A06}"          to="\u{10A06}" />
-      <transform from="\m{A}\u{10A00}\u{10A06}\u{10A0C}" to="\u{10A06}\u{10A0C}" />
+      <transform from="\m{A}\u{10A00}"                    to="\m{B}" />
+      <transform from="\m{A}\u{10A00}\u{10A0C}"           to="\u{10A0C}" />
+      <transform from="\m{A}\u{10A00}\u{10A01}"           to="\u{10A01}" />
+      <transform from="\m{A}\u{10A00}\u{10A01}\u{10A0C}"  to="\u{10A01}\u{10A0C}" />
+      <transform from="\m{A}\u{10A00}\u{10A02}"           to="\u{10A02}" />
+      <transform from="\m{A}\u{10A00}\u{10A02}\u{10A0C}"  to="\u{10A02}\u{10A0C}" />
+      <transform from="\m{A}\u{10A00}\u{10A03}"           to="\u{10A03}" />
+      <transform from="\m{A}\u{10A00}\u{10A03}\u{10A0C}"  to="\u{10A03}\u{10A0C}" />
+      <transform from="\m{A}\u{10A00}\u{10A05}"           to="\u{10A05}" />
+      <transform from="\m{A}\u{10A00}\u{10A05}\u{10A0C}"  to="\u{10A05}\u{10A0C}" />
+      <transform from="\m{A}\u{10A00}\u{10A06}"           to="\u{10A06}" />
+      <transform from="\m{A}\u{10A00}\u{10A06}\u{10A0C}"  to="\u{10A06}\u{10A0C}" />
+    </transformGroup>
+
+    <transformGroup> <!-- Modifiers -->
+      <transform from="\m{A}($[vowelmodifiers])"          to="$1" />
+      <transform from="\m{A}($[consonantmodifiers])"      to="$1\m{A}" />
+    </transformGroup>
+
+    <transformGroup> <!-- Virama -->
+      <transform from="\m{A}\u{10A3F}"                    to="\u{10A3F}" />
     </transformGroup>
 
     <transformGroup> <!-- Virama consonants -->
-      <transform from="\m{A}\u{10A10}\m{A}"              to="\u{10A3F}\u{10A10}\m{A}" />
-      <transform from="\m{A}\u{10A32}\m{A}"              to="\u{10A3F}\u{10A32}\m{A}" />
-      <transform from="\m{A}\u{10A11}\m{A}"              to="\u{10A3F}\u{10A11}\m{A}" />
-      <transform from="\m{A}\u{10A12}\m{A}"              to="\u{10A3F}\u{10A12}\m{A}" />
-      <transform from="\m{A}\u{10A13}\m{A}"              to="\u{10A3F}\u{10A13}\m{A}" />
-      <transform from="\m{A}\u{10A15}\m{A}"              to="\u{10A3F}\u{10A15}\m{A}" />
-      <transform from="\m{A}\u{10A16}\m{A}"              to="\u{10A3F}\u{10A16}\m{A}" />
-      <transform from="\m{A}\u{10A17}\m{A}"              to="\u{10A3F}\u{10A17}\m{A}" />
-      <transform from="\m{A}\u{10A17}\m{A}"              to="\u{10A3F}\u{10A17}\m{A}" />
-      <transform from="\m{A}\u{10A19}\m{A}"              to="\u{10A3F}\u{10A19}\m{A}" />
-      <transform from="\m{A}\u{10A1A}\m{A}"              to="\u{10A3F}\u{10A1A}\m{A}" />
-      <transform from="\m{A}\u{10A1B}\m{A}"              to="\u{10A3F}\u{10A1B}\m{A}" />
-      <transform from="\m{A}\u{10A1C}\m{A}"              to="\u{10A3F}\u{10A1C}\m{A}" />
-      <transform from="\m{A}\u{10A1D}\m{A}"              to="\u{10A3F}\u{10A1D}\m{A}" />
-      <transform from="\m{A}\u{10A1E}\m{A}"              to="\u{10A3F}\u{10A1E}\m{A}" />
-      <transform from="\m{A}\u{10A1F}\m{A}"              to="\u{10A3F}\u{10A1F}\m{A}" />
-      <transform from="\m{A}\u{10A20}\m{A}"              to="\u{10A3F}\u{10A20}\m{A}" />
-      <transform from="\m{A}\u{10A21}\m{A}"              to="\u{10A3F}\u{10A21}\m{A}" />
-      <transform from="\m{A}\u{10A22}\m{A}"              to="\u{10A3F}\u{10A22}\m{A}" />
-      <transform from="\m{A}\u{10A23}\m{A}"              to="\u{10A3F}\u{10A23}\m{A}" />
-      <transform from="\m{A}\u{10A24}\m{A}"              to="\u{10A3F}\u{10A24}\m{A}" />
-      <transform from="\m{A}\u{10A25}\m{A}"              to="\u{10A3F}\u{10A25}\m{A}" />
-      <transform from="\m{A}\u{10A26}\m{A}"              to="\u{10A3F}\u{10A26}\m{A}" />
-      <transform from="\m{A}\u{10A27}\m{A}"              to="\u{10A3F}\u{10A27}\m{A}" />
-      <transform from="\m{A}\u{10A28}\m{A}"              to="\u{10A3F}\u{10A28}\m{A}" />
-      <transform from="\m{A}\u{10A29}\m{A}"              to="\u{10A3F}\u{10A29}\m{A}" />
-      <transform from="\m{A}\u{10A2A}\m{A}"              to="\u{10A3F}\u{10A2A}\m{A}" />
-      <transform from="\m{A}\u{10A2B}\m{A}"              to="\u{10A3F}\u{10A2B}\m{A}" />
-      <transform from="\m{A}\u{10A2C}\m{A}"              to="\u{10A3F}\u{10A2C}\m{A}" />
-      <transform from="\m{A}\u{10A2C}\m{A}"              to="\u{10A3F}\u{10A2C}\m{A}" />
-      <transform from="\m{A}\u{10A2D}\m{A}"              to="\u{10A3F}\u{10A2D}\m{A}" />
-      <transform from="\m{A}\u{10A2E}\m{A}"              to="\u{10A3F}\u{10A2E}\m{A}" />
-      <transform from="\m{A}\u{10A2F}\m{A}"              to="\u{10A3F}\u{10A2F}\m{A}" />
-      <transform from="\m{A}\u{10A30}\m{A}"              to="\u{10A3F}\u{10A30}\m{A}" />
-      <transform from="\m{A}\u{10A31}\m{A}"              to="\u{10A3F}\u{10A31}\m{A}" />
+      <transform from="\m{A}\u{10A10}\m{A}"               to="\u{10A3F}\u{10A10}\m{A}" />
+      <transform from="\m{A}\u{10A32}\m{A}"               to="\u{10A3F}\u{10A32}\m{A}" />
+      <transform from="\m{A}\u{10A11}\m{A}"               to="\u{10A3F}\u{10A11}\m{A}" />
+      <transform from="\m{A}\u{10A12}\m{A}"               to="\u{10A3F}\u{10A12}\m{A}" />
+      <transform from="\m{A}\u{10A13}\m{A}"               to="\u{10A3F}\u{10A13}\m{A}" />
+      <transform from="\m{A}\u{10A15}\m{A}"               to="\u{10A3F}\u{10A15}\m{A}" />
+      <transform from="\m{A}\u{10A16}\m{A}"               to="\u{10A3F}\u{10A16}\m{A}" />
+      <transform from="\m{A}\u{10A17}\m{A}"               to="\u{10A3F}\u{10A17}\m{A}" />
+      <transform from="\m{A}\u{10A17}\m{A}"               to="\u{10A3F}\u{10A17}\m{A}" />
+      <transform from="\m{A}\u{10A19}\m{A}"               to="\u{10A3F}\u{10A19}\m{A}" />
+      <transform from="\m{A}\u{10A1A}\m{A}"               to="\u{10A3F}\u{10A1A}\m{A}" />
+      <transform from="\m{A}\u{10A1B}\m{A}"               to="\u{10A3F}\u{10A1B}\m{A}" />
+      <transform from="\m{A}\u{10A1C}\m{A}"               to="\u{10A3F}\u{10A1C}\m{A}" />
+      <transform from="\m{A}\u{10A1D}\m{A}"               to="\u{10A3F}\u{10A1D}\m{A}" />
+      <transform from="\m{A}\u{10A1E}\m{A}"               to="\u{10A3F}\u{10A1E}\m{A}" />
+      <transform from="\m{A}\u{10A1F}\m{A}"               to="\u{10A3F}\u{10A1F}\m{A}" />
+      <transform from="\m{A}\u{10A20}\m{A}"               to="\u{10A3F}\u{10A20}\m{A}" />
+      <transform from="\m{A}\u{10A21}\m{A}"               to="\u{10A3F}\u{10A21}\m{A}" />
+      <transform from="\m{A}\u{10A22}\m{A}"               to="\u{10A3F}\u{10A22}\m{A}" />
+      <transform from="\m{A}\u{10A23}\m{A}"               to="\u{10A3F}\u{10A23}\m{A}" />
+      <transform from="\m{A}\u{10A24}\m{A}"               to="\u{10A3F}\u{10A24}\m{A}" />
+      <transform from="\m{A}\u{10A25}\m{A}"               to="\u{10A3F}\u{10A25}\m{A}" />
+      <transform from="\m{A}\u{10A26}\m{A}"               to="\u{10A3F}\u{10A26}\m{A}" />
+      <transform from="\m{A}\u{10A27}\m{A}"               to="\u{10A3F}\u{10A27}\m{A}" />
+      <transform from="\m{A}\u{10A28}\m{A}"               to="\u{10A3F}\u{10A28}\m{A}" />
+      <transform from="\m{A}\u{10A29}\m{A}"               to="\u{10A3F}\u{10A29}\m{A}" />
+      <transform from="\m{A}\u{10A2A}\m{A}"               to="\u{10A3F}\u{10A2A}\m{A}" />
+      <transform from="\m{A}\u{10A2B}\m{A}"               to="\u{10A3F}\u{10A2B}\m{A}" />
+      <transform from="\m{A}\u{10A2C}\m{A}"               to="\u{10A3F}\u{10A2C}\m{A}" />
+      <transform from="\m{A}\u{10A2C}\m{A}"               to="\u{10A3F}\u{10A2C}\m{A}" />
+      <transform from="\m{A}\u{10A2D}\m{A}"               to="\u{10A3F}\u{10A2D}\m{A}" />
+      <transform from="\m{A}\u{10A2E}\m{A}"               to="\u{10A3F}\u{10A2E}\m{A}" />
+      <transform from="\m{A}\u{10A2F}\m{A}"               to="\u{10A3F}\u{10A2F}\m{A}" />
+      <transform from="\m{A}\u{10A30}\m{A}"               to="\u{10A3F}\u{10A30}\m{A}" />
+      <transform from="\m{A}\u{10A31}\m{A}"               to="\u{10A3F}\u{10A31}\m{A}" />
     </transformGroup>
+  </transforms>
 
+  <transforms type="backspace">
+    <transformGroup>
+      <transform from="\u{10A00}$[vowels]"                to="" />
+      <transform from="$[vowels]"                         to="\m{A}" />
+      <transform from="($[consonants])$[vowelmodifiers]"  to="$1\m{A}" />
+      <transform from="\u{10A3F}$[consonants]\m{A}"       to="\m{A}" />
+      <transform from="\m{B}"                             to="\m{A}" />
+    </transformGroup>
   </transforms>
 
 </keyboard3>

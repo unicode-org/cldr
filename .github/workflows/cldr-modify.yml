@@ -2,7 +2,7 @@ name: CLDR Modify
 
 env:
   CLDR_DIR: ${{ github.workspace }}
-  CLDR_JAR: ${{ env.CLDR_DIR }}/tools/cldr-code/target/cldr-code.jar
+  CLDR_JAR: ${{ github.workspace }}/tools/cldr-code/target/cldr-code.jar
 
 on:
   workflow_dispatch:

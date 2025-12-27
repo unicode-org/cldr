@@ -1,0 +1,67 @@
+name: CLDR Modify
+
+env:
+  CLDR_DIR: ${{ github.workspace }}
+  CLDR_JAR: ${{ github.workspace }}/tools/cldr-code/target/cldr-code.jar
+
+on:
+  workflow_dispatch:
+    inputs:
+      cldr-ref:
+        description: CLDR ref to build
+        required: true
+        default: 'main'
+      cldr-repo:
+        description: CLDR repo to build
+        required: true
+        default: 'unicode-org/cldr'
+jobs:
+  modify:
+    name: Build CLDR
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Clone CLDR
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.cldr-ref }}
+          lfs: false
+          repository: ${{ github.event.inputs.cldr-repo }}
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: 11
+          distribution: 'temurin'
+      - name: Cache local Maven repository
+        uses: actions/cache@v4
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('tools/**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+      - name: Build with Maven
+        run: >
+          mvn -s .github/workflows/mvn-settings.xml -B compile install package --file tools/pom.xml
+          -DskipTests=true -pl cldr-code
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Run CLDR-modify
+        run: >
+          TMPD=$(mktemp -d) ;
+          java -jar $CLDR_JAR modify -d${TMPD} -s${CLDR_DIR}/common/main  && mv -v ${TMPD}/*.xml common/main/
+      - name: git status
+        run: git status
+      - name: Update branch
+        run: |
+          git config user.name 'Steven R. Loomis [bot]'
+          git config user.email 'srloomis@unicode.org'
+          git add common/main
+          git commit -am 'CLDR-00000 cldrmodify from CLDR-16083'
+          git checkout -b srl295/auto-cldr-modify
+          # reset origin using token
+          git remote set-url origin "https://srl295:${GH_TOKEN}@github.com/srl295/cldr.git"
+          git push --set-upstream -f origin srl295/auto-cldr-modify 
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -57,4 +57,4 @@ jobs:
           git add common/main
           git commit -am 'CLDR-00000 cldrmodify from CLDR-16083'
           git checkout -b srl295/auto-cldr-modify
-          git push -u -f origin 
+          git push --set-upstream -f origin srl295/auto-cldr-modify 

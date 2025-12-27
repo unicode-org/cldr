@@ -50,3 +50,10 @@ jobs:
           java -jar $CLDR_JAR modify -d${TMPD} -s${CLDR_DIR}/common/main  && mv -v ${TMPD}/*.xml common/main/
       - name: git status
         run: git status
+      - name: Update branch
+        run: |
+          git config user.name 'Steven R. Loomis [bot]'
+          git config user.email 'srloomis@unicode.org'
+          git add common/main
+          git commit -am 'CLDR-00000 cldrmodify from CLDR-16083'
+          git push -f origin srl295/auto-cldr-modify

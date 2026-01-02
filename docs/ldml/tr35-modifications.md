@@ -2,7 +2,7 @@
 
 # Unicode Locale Data Markup Language (LDML)<br/>Appendix A: Modifications
 
-|Version|48.1 (draft)|
+|Version|48.1        |
 |-------|------------|
 |Editors|<a href="tr35-acknowledgments.md#acknowledgments">CLDR committee members|
 
@@ -14,12 +14,12 @@ This is a partial document, describing only the changes to the LDML since the pr
 
 ### _Status_
 
-_This is a draft document which may be updated, replaced, or superseded by other documents at any time.
+<!-- _This is a draft document which may be updated, replaced, or superseded by other documents at any time.
 Publication does not imply endorsement by the Unicode Consortium.
-This is not a stable document; it is inappropriate to cite this document as other than a work in progress._
+This is not a stable document; it is inappropriate to cite this document as other than a work in progress._ -->
 
-<!-- _This document has been reviewed by Unicode members and other interested parties, and has been approved for publication by the Unicode Consortium.
-This is a stable document and may be used as reference material or cited as a normative reference by other specifications._ -->
+_This document has been reviewed by Unicode members and other interested parties, and has been approved for publication by the Unicode Consortium.
+This is a stable document and may be used as reference material or cited as a normative reference by other specifications._
 
 > _**A Unicode Technical Standard (UTS)** is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS._
 

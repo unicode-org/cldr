@@ -1609,6 +1609,12 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                     }
                 }
             }
+            if (currency.equals("EUR")
+                    && logKnownIssue(
+                            "CLDR-19174",
+                            "ISO4217 data in CLDR does not yet reflect BG use of EUR")) {
+                isoCountries.add("BG");
+            }
 
             TreeSet<String> cldrCountries = new TreeSet<>();
             for (Pair<String, CurrencyDateInfo> x : data) {

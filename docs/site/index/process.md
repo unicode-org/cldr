@@ -11,30 +11,31 @@ This document describes the Unicode CLDR Technical Committee's process for data 
 - The process is designed to be light-weight; in particular, the meetings are frequent, short, and informal. Most of the discussion happens over email or in virtual meetings, with a database recording requested changes (see [Requesting Changes](/requesting_changes)).
 - When gathering data for a region and language, it is important to have multiple sources for that data to produce the most commonly used data. The initial versions of the data were based on best available sources, and updates with new and improvements are released twice a year with work by contributors inside and outside of the Unicode Consortium.
 - It is important to note that CLDR is a Repository, not a Registration. That is, contributors should NOT expect that their suggestions will simply be adopted into the repository; instead, it will be vetted by other contributors.
-- The [CLDR Survey Tool](https://st.unicode.org) is the main channel for collecting data, and bug/feature requests are tracked in a database ([file a ticket](/requesting_changes#how-to-file-a-ticket)).
+- The [CLDR Survey Tool](https://st.unicode.org) is the main channel for collecting data, and bug/feature requests are tracked in a database ([file a ticket]).
 - The final approval of the release of any version of CLDR is up to the decision of the CLDR Technical Committee.
 
 ## Formal Technical Committee Procedures
 
-For more information on the formal procedures for the Unicode CLDR Technical Committee, see the [Technical Committee Procedures for the Unicode Consortium](https://www.unicode.org/consortium/tc-procedures.html).
+For more information on the formal procedures for the Unicode CLDR Technical Committee, see the [Technical Committee Procedures for the Unicode Consortium].
 
 ## Specification Changes
 
 The [UTS #35: Locale Data Markup Language (LDML)](https://www.unicode.org/reports/tr35/) specification are kept up to date with each release with change/added structure for new data types or other features.
 
-- Requests for changes are entered in the bug/feature request database ([file a ticket](/requesting_changes#how-to-file-a-ticket)).
+The CLDR TC maintains redirects that redirect users to from each major CLDR release to the latest version of the spec. For example,
+reports/tr35/46/tr35.html will redirect to the 46.1 version of the specification since the 46.1 was the latest revision of the LDML for 46.
+To make this clear to any readers, the modifications for any dot release of CLDR will always include the modifications for any release(s) during that major version,
+as well as clearly delinating the modifications of that dot release in its own section. [CLDR 46.1 modifications] is a great example of this.
+
+- Requests for changes are entered in the bug/feature request database ([file a ticket]).
 - Structural changes are always backwards-compatible. That is, previous files will continue to work. Deprecated elements remain, although their usage is strongly discouraged.
 - There is a standing policy for structural changes that require non-trivial code for proper implementation, such as time zone fallback or alias mechanisms. These require design discussions in the [CLDR Design Working Group](https://cldr.unicode.org/cldr-tc/design-wg) and approval by the [CLDR Technical Committee](https://cldr.unicode.org/cldr-tc). Complex changes may require prototypes that demonstrate correct function according to the proposed specification.
 - New sections may be added to the specification with the status of _Technical Preview_ or _Final Candidate_. That depends on how comprehensive the new section is, what type of feedback the Technical Committee requires, and whether the feedback period needs to extend across one or more releases.
 
 - When a spec change or clarification affects existing ICU APIs, CLDR will discuss the change with ICU and an ICU member be a required reviewer on the pull request.
-
 - ​New spec features will be ​marked as Tech Preview​ ​i​f the following conditions are true:
-
     - ​They are intended for implementation in ICU (eg excluding annotations for emoji, etc)
-
     - They make compliant pre-existing ICU APIs​ become non-compliant
-
     - ​They won’t be implemented by ICU (in at least draft status) in the synchronized releases
  
 | **Status** | **Description** |
@@ -174,13 +175,13 @@ The structure and DTD may change, but except for additions or for small bug fixe
 
 ## Public Feedback Process
 
-The public can supply formal feedback into CLDR via the [Survey Tool](https://st.unicode.org) or by [filing a ticket](/requesting_changes#how-to-file-a-ticket). There is also a public forum for questions at [CLDR Mailing List](https://www.unicode.org/consortium/distlist.html#cldr_list) (details on archives are found there).
+The public can supply formal feedback into CLDR via the [Survey Tool](https://st.unicode.org) or by [filing a ticket]. There is also a public forum for questions at [CLDR Mailing List](https://www.unicode.org/consortium/distlist.html#cldr_list) (details on archives are found there).
 
 There is also a members-only [CLDR mailing list](https://www.unicode.org/members/index.html#cldr) for members of the CLDR Technical Committee.
 
 [Public Review Issues](https://www.unicode.org/review/) may be posted in cases where broader public feedback is desired on a particular issue.
 
-Be aware that changes and updates to CLDR will only be taken in response to information entered in the [Survey Tool](https://st.unicode.org) or by [filing a ticket](/requesting_changes#how-to-file-a-ticket). Discussion on public mailing lists is not monitored; no actions will be taken in response to such discussion -- only in response to filed bugs. The process of checking and entering data takes time and effort; so even when bugs/feature requests are accepted, it may take some time before they are in a release of CLDR.
+Be aware that changes and updates to CLDR will only be taken in response to information entered in the [Survey Tool](https://st.unicode.org) or by [filing a ticket]. Discussion on public mailing lists is not monitored; no actions will be taken in response to such discussion -- only in response to filed bugs. The process of checking and entering data takes time and effort; so even when bugs/feature requests are accepted, it may take some time before they are in a release of CLDR.
 
 ## Data Release Process
 
@@ -218,3 +219,7 @@ The current Technical Committee Officers are:
 - Chair: Mark Davis (Google)
 - Vice-Chair: Annemarie Apple (Google)
 
+[file a ticket]: /requesting_changes#how-to-file-a-ticket
+[filing a ticket]: /requesting_changes#how-to-file-a-ticket
+[Technical Committee Procedures for the Unicode Consortium]: https://www.unicode.org/consortium/tc-procedures.html
+[CLDR 46.1 modifications]: https://www.unicode.org/reports/tr35/tr35-74/tr35.html#modifications

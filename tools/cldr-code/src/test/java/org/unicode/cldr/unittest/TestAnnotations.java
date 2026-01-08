@@ -30,6 +30,8 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.util.Annotations;
 import org.unicode.cldr.util.Annotations.AnnotationSet;
@@ -296,23 +298,24 @@ public class TestAnnotations extends TestFmwkPlus {
             locales.remove("root");
         }
         /*
-         * Note: "problems" here is a work-around for what appears to be a deficiency
-         * in the function sourceLocation, involving the call stack. Seemingly sourceLocation
-         * can't handle the "->" notation used for parallelStream().forEach() if
-         * uniquePerLocale calls errln directly.
+         * "problems" is here to collect and sort issues in parallel,
+         * and avoid issues calling errln() from a lambda.
          */
-        Set<String> problems = new HashSet<>();
-        locales.parallelStream().forEach(locale -> uniquePerLocale(locale, problems));
+        Set<String> problems =
+                locales.parallelStream()
+                        .flatMap(locale -> uniquePerLocale(locale))
+                        .collect(Collectors.toCollection(() -> new TreeSet<>()));
         if (!problems.isEmpty()) {
             problems.forEach(s -> errln(s));
         }
     }
 
-    private void uniquePerLocale(String locale, Set<String> problems) {
+    private Stream<String> uniquePerLocale(String locale) {
+        Set<String> problems = new TreeSet<>();
         logln("uniqueness: " + locale);
         // use a case insensitive collator
         Multimap<String, String> nameToEmoji =
-                TreeMultimap.create(CollatorHelper.ROOT_SECONDARY, Ordering.natural());
+                TreeMultimap.create(CollatorHelper.ROOT_NFKC_CF_SECONDARY, Ordering.natural());
         AnnotationSet data = Annotations.getDataSet(locale);
         for (String emoji : Emoji.getAllRgi()) {
             String name = data.getShortName(emoji);
@@ -331,15 +334,13 @@ public class TestAnnotations extends TestFmwkPlus {
             Collection<String> emojis = entry.getValue();
             if (emojis.size() > 1) {
                 synchronized (problems) {
-                    if (problems.add(
+                    problems.add(
                             "Duplicate name in "
                                     + locale
                                     + ": “"
                                     + name
                                     + "” for "
-                                    + Joiner.on(" & ").join(emojis))) {
-                        int debug = 0;
-                    }
+                                    + Joiner.on(" & ").join(emojis));
                 }
                 if (duplicateNameToEmoji == null) {
                     duplicateNameToEmoji = TreeMultimap.create();
@@ -354,6 +355,7 @@ public class TestAnnotations extends TestFmwkPlus {
                 System.out.println(locale + "\t" + eng.getShortName(emoji) + "\t" + emoji);
             }
         }
+        return problems.stream();
     }
 
     public void testAnnotationPaths() {

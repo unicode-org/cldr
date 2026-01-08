@@ -6,6 +6,7 @@ import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSortedSet;
 import com.google.common.collect.Multimap;
+import com.google.common.collect.Ordering;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R3;
@@ -36,6 +37,7 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CollatorHelper;
 import org.unicode.cldr.util.Emoji;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;
@@ -308,7 +310,9 @@ public class TestAnnotations extends TestFmwkPlus {
 
     private void uniquePerLocale(String locale, Set<String> problems) {
         logln("uniqueness: " + locale);
-        Multimap<String, String> nameToEmoji = TreeMultimap.create();
+        // use a case insensitive collator
+        Multimap<String, String> nameToEmoji =
+                TreeMultimap.create(CollatorHelper.ROOT_SECONDARY, Ordering.natural());
         AnnotationSet data = Annotations.getDataSet(locale);
         for (String emoji : Emoji.getAllRgi()) {
             String name = data.getShortName(emoji);

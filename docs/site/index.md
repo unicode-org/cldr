@@ -5,6 +5,7 @@ title: Unicode CLDR Project
 # Unicode CLDR Project
 
 ## News
+- **2026-01-08** [CLDR 48.1](/downloads/cldr-48#481-changes) released
 - **2025-12-18** [CLDR Survey Tool is open early for DDL data submission](translation/ddl)
 - **2025-10-29** [CLDR 48](downloads/cldr-48) released
 

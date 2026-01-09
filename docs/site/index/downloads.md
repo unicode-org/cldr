@@ -15,7 +15,7 @@ The following table lists the files for each released version. For license infor
 |:---:|:----------:|:---------:|:------:|:--------:|:------------:|:---:|:----------:|:---------:|:---------:|
 | Latest |  | [latest-version][] | [latest-data][] | [latest-charts][] | [latest-ldml][] | [latest-tickets][] | [latest-tag][]| [latest-delta-dtd][] | See release notes |
 | Dev |  | [dev-version][] |  | [dev-charts][]| [dev-ldml][] | [dev-tickets][] | [main][]| [dev-delta-dtd][] | See release notes |
-|  48.1 | 2026-01-XX | [v48.1] | n/a | TBD | [LDML48.1] | [Δ48.1] | TBD | TBD | TBD |
+|  48.1 | 2026-01-08 | [v48.1] | [CLDR48.1] | TBD | [LDML48.1] | [Δ48.1] | [release-48-1-final1] | n/a | [48.1.0] |
 |  48 | 2025-10-29 | [v48][] | [CLDR48][] | [Charts48][] | [LDML48][] | [Δ48][] | [release-48][] | [ΔDtd48][] | [48.0.0][] |
 |  47 | 2025-03-13 | [v47][] | [CLDR47][] | [Charts47][] | [LDML47][] | [Δ47][] | [release-47][] | [ΔDtd47][] | [47.0.0][] |
 | 46.1 | 2024-12-18 | [v46.1][] | n/a | [Charts46.1][] | [LDML46.1][] | [Δ46.1][] | [release-46-1][] | [ΔDtd46.1][] | [46.1.0][] |
@@ -225,21 +225,24 @@ The 1.0 version of CLDR is described here for historical interest only. It was h
 [49.0.0]: https://github.com/unicode-org/cldr-json/releases/tag/49.0.0
 [v49]: /downloads/cldr-49
 
-<!-- 48. release: 2026-01-XX -->
+<!-- 48.1 release: 2026-01-08 -->
 [v48.1]: /downloads/cldr-48#481-changes
-[LDML48.1]: https://www.unicode.org/reports/tr35/proposed.html
+[CLDR48.1]: https://unicode.org/Public/cldr/48.1/
+[Charts48]: https://unicode.org/cldr/charts/48.1/
+[LDML48.1]: https://www.unicode.org/reports/tr35/48/tr35.html
+[release-48-1-final1]: https://github.com/unicode-org/cldr/releases/tag/release-48-1-final1
 [Δ48.1]: https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixversion%20%3D%2048.1%20ORDER%20BY%20priority%20DESC
 [48.1.0]: https://github.com/unicode-org/cldr-json/releases/tag/48.1.0
 
 <!-- 48 release: 2025-10-29 -->
+[v48]: /downloads/cldr-48
 [CLDR48]: https://unicode.org/Public/cldr/48/
 [Charts48]: https://unicode.org/cldr/charts/48
-[LDML48]: https://www.unicode.org/reports/tr35/48
+[LDML48]: https://www.unicode.org/reports/tr35/tr35-76/tr35.html
 [Δ48]: https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixversion%20%3D%2048%20ORDER%20BY%20priority%20DESC
 [release-48]: https://github.com/unicode-org/cldr/releases/tag/release-48
 [ΔDtd48]: https://www.unicode.org/cldr/charts/48/supplemental/dtd_deltas.html
 [48.0.0]: https://github.com/unicode-org/cldr-json/releases/tag/48.0.0
-[v48]: /downloads/cldr-48
 
 <!-- 47 release: 2025-03-13 -->
 [CLDR47]: https://unicode.org/Public/cldr/47/

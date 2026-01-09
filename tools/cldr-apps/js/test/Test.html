@@ -62,6 +62,7 @@
     <script src="dist/cldrTestBundle.mjs"></script>
     <script type="module" class="mocha-exec">
       mocha.checkLeaks();
+      mocha.globals(['puppeteer___ariaQuerySelector']);
       mocha.run();
     </script>
   </body>

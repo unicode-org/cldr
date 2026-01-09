@@ -7,7 +7,7 @@ title: CLDR 48 Release Note
 | No. |    Date    | Rel. Note |  Data  |  Charts  | Spec |   Delta  | GitHub Tag | Delta DTD | CLDR JSON |
 |:---:|:----------:|:---------:|:------:|:--------:|:------------:|:---:|:----------:|:---------:|:---------:|
 |  48 | 2025-10-29 | [v48] | [CLDR48] | [Charts48]| [LDML48] | [Δ48] | [release-48] | [ΔDtd48] | [48.0.0] |
-|  48.1 | 2026-01-08 | [v48.1] | [CLDR48.1] | TBD | [LDML48.1] | [Δ48.1] | [release-48-1-final1] | n/a | [48.1.0] |
+|  48.1 | 2026-01-08 | [v48.1] | [CLDR48.1] | TBD | [LDML48.1] | [Δ48.1] | [release-48-1] | n/a | [48.1.0] |
 
 ## Overview
 

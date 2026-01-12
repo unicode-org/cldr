@@ -7,7 +7,7 @@ title: CLDR 48 Release Note
 | No. |    Date    | Rel. Note |  Data  |  Charts  | Spec |   Delta  | GitHub Tag | Delta DTD | CLDR JSON |
 |:---:|:----------:|:---------:|:------:|:--------:|:------------:|:---:|:----------:|:---------:|:---------:|
 |  48 | 2025-10-29 | [v48] | [CLDR48] | [Charts48]| [LDML48] | [Δ48] | [release-48] | [ΔDtd48] | [48.0.0] |
-|  48.1 | 2026-01-08 | [v48.1] | [CLDR48.1] | TBD | [LDML48.1] | [Δ48.1] | [release-48-1] | n/a | [48.1.0] |
+|  48.1 | 2026-01-08 | [v48.1] | [CLDR48.1] | [Charts48.1] | [LDML48.1] | [Δ48.1] | [release-48-1] | n/a | [48.1.0] |
 
 ## Overview
 
@@ -338,6 +338,10 @@ For example: El Aaiun → El Aaiún; Casey → Casey Station; Hovd Time → Khov
 
 ## 48.1 Changes
 
+| No. |    Date    | Rel. Note |  Data  |  Charts  | Spec |   Delta  | GitHub Tag | Delta DTD | CLDR JSON |
+|:---:|:----------:|:---------:|:------:|:--------:|:------------:|:---:|:----------:|:---------:|:---------:|
+|  48.1 | 2026-01-08 | [v48.1] | [CLDR48.1] | [Charts48.1] | [LDML48.1] | [Δ48.1] | [release-48-1] | n/a | [48.1.0] |
+
 Version 48.1 is a dot release. The following summarizes the changes. For a full listing, see [Δ48.1](https://unicode-org.atlassian.net/issues/?jql=project+%3D+CLDR+AND+status+%3D+Done+AND+resolution+%3D+Fixed+AND+fixVersion+%3D+%2248.1%22+ORDER+BY+priority+DESC)
 
 ### Data changes
@@ -363,8 +367,9 @@ and feedback that the general practice for exact dates is to use Gregorian for p
 
 ## Known Issues
 
-- ISO 3166-2 subdivision codes for Iran changed in 2020, and there are not yet new equivalent stable codes. See [CLDR-19046][] for more details.
-- Segmentation format changed, spec updated in CLDR 48.1 to remove obsolete note. See [CLDR-19140][] for more details.
+- ISO 3166-2 subdivision codes for Iran changed in 2020, and there are not yet new equivalent stable codes. [CLDR-19046]
+- Segmentation format changed, spec updated in CLDR 48.1 to remove obsolete note. [CLDR-19140]
+- There are a few collisions in the emoji short names in ba, fr, ja, rm, vi. [CLDR-19189]
 
 ## Acknowledgments
 
@@ -397,6 +402,7 @@ For web pages with different views of CLDR data, see [http://cldr.unicode.org/in
 [CLDR-19029]: https://unicode-org.atlassian.net/browse/CLDR-19029
 [CLDR-19046]: https://unicode-org.atlassian.net/browse/CLDR-19046
 [CLDR-19140]: https://unicode-org.atlassian.net/browse/CLDR-19140
+[CLDR-19189]: https://unicode-org.atlassian.net/browse/CLDR-19189
 
 [Delta DTDs]: https://unicode.org/cldr/charts/48/supplemental/dtd_deltas.html
 [BCP47 Delta]: https://unicode.org/cldr/charts/48/delta/bcp47.html
@@ -408,7 +414,7 @@ For web pages with different views of CLDR data, see [http://cldr.unicode.org/in
 <!-- 48.1 release: 2026-01-08 -->
 [v48.1]: /downloads/cldr-48#481-changes
 [CLDR48.1]: https://unicode.org/Public/cldr/48.1/
-[Charts48]: https://unicode.org/cldr/charts/48.1/
+[Charts48.1]: https://unicode.org/cldr/charts/48.1/
 [LDML48.1]: https://www.unicode.org/reports/tr35/48/tr35.html
 [release-48-1]: https://github.com/unicode-org/cldr/releases/tag/release-48-1
 [Δ48.1]: https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixversion%20%3D%2048.1%20ORDER%20BY%20priority%20DESC

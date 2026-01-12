@@ -369,7 +369,7 @@ and feedback that the general practice for exact dates is to use Gregorian for p
 
 - ISO 3166-2 subdivision codes for Iran changed in 2020, and there are not yet new equivalent stable codes. [CLDR-19046]
 - Segmentation format changed, spec updated in CLDR 48.1 to remove obsolete note. [CLDR-19140]
-- There are collisions in the emoji short names in ba, fr, ja, rm, vi. [CLDR-19189]
+- There are a few collisions in the emoji short names in ba, fr, ja, rm, vi. [CLDR-19189]
 
 ## Acknowledgments
 

@@ -12,7 +12,9 @@ You can set a property in `cldr.properties` to temporarily add an Organization, 
 
 ```properties
 # any orgs listed here will be added to the list of CLA orgs
-ADD_CLA_ORGS=cherokee
+ADD_CLA_ORGS=airbnb mayan_lpp
+# any orgs listed here will be removed from the list of CLA orgs
+REMOVE_CLA_ORGS=surveytool
 ```
 
 ### Updating the Organization status of a single user
@@ -22,15 +24,15 @@ The following SQL will update a single user (id 12) with a specific organization
 ```sql
 -- get ready to update
 -- find the set kind for SignedCla
-SET @SET_CLA = (SELECT set_id FROM set_kinds WHERE set_name = 'SignedCla'); 
+SET @SET_CLA = (SELECT set_id FROM set_kinds WHERE set_name = 'SignedCla');
 SET @UPDATE_ORG = 'airbnb'; SET @SIGNED_DATE='2023-08-28'; SET @CLDR_VER='48';
 SET @UPDATE_USER = 12;
 SELECT @SET_CLA,@UPDATE_ORG,@SIGNED_DATE,@CLDR_VER,@UPDATEUSER; -- verify vars
 -- Update ONE USER
-REPLACE INTO set_values (usr_id, set_id, set_value) 
-  VALUES (@UPDATE_USER, @SET_CLA, 
-    CONCAT('{"email":"-","name":"-","employer":"', 
-        @UPDATE_ORG, 
+REPLACE INTO set_values (usr_id, set_id, set_value)
+  VALUES (@UPDATE_USER, @SET_CLA,
+    CONCAT('{"email":"-","name":"-","employer":"',
+        @UPDATE_ORG,
         '","corporate":"true","version":"',
         @CLDR_VER,
         '","signed":"',

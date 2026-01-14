@@ -48,7 +48,7 @@ public class Counter<T> implements Iterable<T>, Comparable<Counter<T>> {
         public long value;
         private final int forceUnique;
         public long time;
-        public int participants;
+        private int participants;
 
         {
             synchronized (RWLong.class) { // make thread-safe
@@ -73,12 +73,24 @@ public class Counter<T> implements Iterable<T>, Comparable<Counter<T>> {
             return String.valueOf(value);
         }
 
-        /** return the number of times participate() was counted */
+        /**
+         * A "Participant" is an entity which contributes to the count. The exact semantics are to
+         * be defined by the caller.
+         *
+         * @see {@link #participate()}
+         * @return the number of times participate() was called
+         */
         public final int getParticipants() {
             return participants;
         }
 
-        /** add one to the participant coutn */
+        /**
+         * A "Participant" is an entity which contributes to the count. The exact semantics are to
+         * be defined by the caller.
+         *
+         * @see {@link #getParticipants()} Each call to this function adds one (1) to the
+         *     participant count.
+         */
         void participate() {
             participants++;
         }

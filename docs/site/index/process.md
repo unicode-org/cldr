@@ -69,12 +69,12 @@ There are multiple levels of access and control:
 
 | **Vetter Level** | **Number of Votes** | **Description** |  |
 |---|---|---|:---:|
-| *TC Member* | 50 | - Manage users in their organization <br>- Can vet and submit data for all locales (However, their vetting work is only done to correct issues.) <br>- Can see the email addresses for all vetters in their organization <br>- High level vote must be used by agreement with the CLDR technical Committee, otherwise the voting level of their organization's vetters should be used. |  |
+| *TC Member* | 50 | - Manage users in their organization <br>- Can vet and submit data for all locales (only done to correct issues) <br>- Can see the email addresses for all vetters in their organization <br>- High level vote must be used by agreement with the CLDR Technical Committee, otherwise the voting level of their organization's vetters should be used. |  |
 | *TC Organization Managers* | 6 | - Manage users in their organization <br>- Can vet and submit data for all locales (However, their vetting work is only done to correct issues.) <br>- Can see the email addresses for all vetters in their organization |  |
-| *Organization Managers* | 4 | -Manage users in their organization <br>- Can vet and submit data for all locales (However, their vetting work is only done to correct issues.) <br>- Can see the email addresses for all vetters in their organization |  |
-| *TC Organization Vetter* | 6 | - Can vet and submit data for a particular set of locales. <br>- Can see the email addresses for submitted data in their locales. <br>- Cannot manage other users. |  |
+| *Organization Manager* | 4 | -Manage users in their organization <br>- Can vet and submit data for all locales (only done to correct issues) <br>- Can see the email addresses for all vetters in their organization |  |
+| *TC Organization Vetter* | 6 | - Can vet and submit data for a particular set of locales <br>- Can see the email addresses for submitted data in their locales <br>- Cannot manage other users |  |
 | *Organization Vetter* | 4 | - Can vet and submit data for a particular set of locales <br>- Can see the email addresses for submitted data in their locales. <br>- Cannot manage other users. |  |
-| *Guest Vetter* | 1 | - Can vet and submit data for a particular set of locales <br>- Cannot see email addresses. <br>- Cannot manage other users.  |  |
+| *Guest Vetter* | 1 | - Can vet and submit data for a particular set of locales <br>- Cannot see email addresses <br>- Cannot manage other users  |  |
 | *Locked/Removed Vetter* | 0 | - When a user is locked or removed during a vetting cycle, their vote is considered a zero weight and is no longer counted. |  |
 
 These levels are decided by the technical committee and the TC representative for the respective organizations.
@@ -124,15 +124,15 @@ For each release, there is one optimal (or, "winning") field value determined by
 
 
 1. *Established* locales are currently found in [coverageLevels.xml], with `approvalRequirement[@votes="8"]`
-    - Some specific items have an even higher threshold. See approvalRequirement elements in [coverageLevels.xml] for details.
-2. If the oldStatus is better than the new draft status, then no change is made. Otherwise, the optimal value and its draft status are made part of the new release.
+    - Some specific items have an even higher threshold. See `approvalRequirement` elements in [coverageLevels.xml] for details.
+2. If the `oldStatus` is better than the new draft status, then no change is made. Otherwise, the optimal value and its draft status are made part of the new release.
     - For example, if the new optimal value does not have the status of **approved**, and the previous release had an **approved** value (one that does not have an error and is not a fallback), then that previously-released value stays **approved** and replaces the optimal value in the following steps.
 
 It is difficult to develop a formulation that provides for stability, yet allows people to make needed changes. The CLDR committee welcomes suggestions for tuning this mechanism. Such suggestions can be made by [filing a ticket].
 
 ## Data- Resolution
 
-After theontribution of collecting and vetting data, the data needs to be curated to be free of errors for the release:
+After the contribution of collecting and vetting data, the data needs to be curated to be free of errors for the release:
 
 - Collisions errors are resolved by retaining one of the values and removing the other(s).
 - The resolution choice is based on the judgment of the committee, typically according to which field is most commonly used.
@@ -154,7 +154,7 @@ For more information see the key links in [CLDR Survey Tool] (especially the Vet
     - These are changed in-place, without changing the draft status.
 - Linguistically-sensitive data should always go through the survey tool. Examples include:
     - names of months, territories, number formats, changing ASCII apostrophe to U+02BC modifier letter apostrophe or U+02BB modifier letter turned comma, or U+02BD modifier letter reversed comma, adding/removing normal exemplar characters.
-- The TC committee can authorize bulk submissions of new data directly, with all new data marked draft="unconfirmed" (or other status decided by the committee), but only where the data passes the CheckCLDR console tests.
+- The TC committee can authorize bulk submissions of new data directly, with all new data marked `draft="unconfirmed"` (or other status decided by the committee), but only where the data passes the CheckCLDR console tests.
 - The survey tool does not currently handle all CLDR data. For data it doesn't cover, the regular bug system is used to submit new data or ask for revisions of this data. In particular:
     - Collation, transforms, or text segmentation, which are more complex.
         - For collation data, see the [comparison charts] or the XML data at [/common/collation/]
@@ -216,7 +216,7 @@ Labels in the **Jira** column correspond to the **phase** field in Jira. Phase f
 
 ## Meetings and Communication
 
-The currently-scheduled meetings are listed on the [Unicode Calendar](https://www.unicode.org/timesens/calendar.html). Meetings are held by phone, weekly. Additional meeting is scheduled every other Mondays depending on the need and people's availability.
+The currently-scheduled meetings are listed on the [Unicode Calendar](https://www.unicode.org/timesens/calendar.html). Meetings are held by phone and Google Meet, weekly. Additional meetings are scheduled depending on the need and participants' availability.
 
 There is an internal email list for the Unicode CLDR Technical Committee, open to Unicode members and invited experts. All national standards bodies who are interested in locale data are also invited to become involved by establishing a [Liaison membership] in the Unicode Consortium, to gain access to this list.
 

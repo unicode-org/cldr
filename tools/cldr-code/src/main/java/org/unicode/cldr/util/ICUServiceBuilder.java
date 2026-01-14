@@ -313,12 +313,20 @@ public class ICUServiceBuilder {
         checkFound(last);
 
         int minEras = (calendar.equals("chinese") || calendar.equals("dangi")) ? 0 : 1;
+        int lowestEra = calendar.equals("japanese") ? 232 : calendar.equals("coptic") ? 1 : 0;
 
-        List<String> temp = getArray(prefix + "eras/eraAbbr/era[@type=\"", 0, null, "\"]", minEras);
+        List<String> temp =
+                getArray(prefix + "eras/eraAbbr/era[@type=\"", lowestEra, null, "\"]", minEras);
+        for (int i = 0; i < lowestEra; ++i) {
+            temp.add(0, "");
+        }
         formatData.setEras(last = temp.toArray(new String[0]));
         if (minEras != 0) checkFound(last);
 
-        temp = getArray(prefix + "eras/eraNames/era[@type=\"", 0, null, "\"]", minEras);
+        temp = getArray(prefix + "eras/eraNames/era[@type=\"", lowestEra, null, "\"]", minEras);
+        for (int i = 0; i < lowestEra; ++i) {
+            temp.add(0, "");
+        }
         formatData.setEraNames(last = temp.toArray(new String[0]));
         if (minEras != 0) checkFound(last);
 

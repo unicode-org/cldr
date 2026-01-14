@@ -85,4 +85,4 @@ The details for the current release are found in [Current CLDR Cycle](https://do
 
 [cldr-json]: /index/json-format-data
 [cldr-json-users]: https://github.com/unicode-org/cldr-json/blob/master/USERS.md#projects
-[locale-data]: /index/cldr-spec/definitions#locale-data
+[locale data]: /index/cldr-spec/definitions#locale-data

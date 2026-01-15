@@ -1765,6 +1765,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         currencyDecimalCasesMap.put("CZK", Arrays.asList(2, 0, 0, 0));
         currencyDecimalCasesMap.put("DKK", Arrays.asList(2, 0, 2, 50));
         currencyDecimalCasesMap.put("HUF", Arrays.asList(0, 0, 0, 5));
+        currencyDecimalCasesMap.put("MRU", Arrays.asList(2, 0, 2, 20));
         currencyDecimalCasesMap.put("RSD", Arrays.asList(2, 0, 0, 0));
         currencyDecimalCasesMap.put("TWD", Arrays.asList(2, 0, 0, 0));
         currencyDecimalCasesMap.put("USD", Arrays.asList(2, 0, 2, 0)); // per DEFAULT

@@ -319,7 +319,7 @@ public class TestAnnotations extends TestFmwkPlus {
         // use a case insensitive collator
         // 'value' is originalName -> emoji
         Multimap<String, Pair<String, String>> nameToEmoji =
-                TreeMultimap.create(CollatorHelper.ROOT_NFKC_CF_SECONDARY, Ordering.natural());
+                TreeMultimap.create(CollatorHelper.ROOT_INSENSITIVE, Ordering.natural());
         AnnotationSet data = Annotations.getDataSet(locale);
         for (String emoji : Emoji.getAllRgi()) {
             String name = data.getShortName(emoji);

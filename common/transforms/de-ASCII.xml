@@ -10,13 +10,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<transforms>
 		<transform source="de" target="ASCII" direction="forward" alias="de-t-de-d0-ascii">
 			<tRule>
-$AE = [Ä {A \u0308}];
-$OE = [Ö {O \u0308}];
-$UE = [Ü {U \u0308}];
+$AE = [Ä {A\u0308}];
+$OE = [Ö {O\u0308}];
+$UE = [Ü {U\u0308}];
 
-[ä {a \u0308}] → ae;
-[ö {o \u0308}] → oe;
-[ü {u \u0308}] → ue;
+[ä {a\u0308}] → ae;
+[ö {o\u0308}] → oe;
+[ü {u\u0308}] → ue;
 
 {$AE} [:Lowercase:] → Ae;
 {$OE} [:Lowercase:] → Oe;

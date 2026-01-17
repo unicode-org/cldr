@@ -318,8 +318,6 @@ public class TestBCP47 extends TestFmwk {
                     "WET");
 
     public void testBcp47IdsForAllTimezoneIds() {
-        // TODO (ICU-23096): remove once ICU is updated.
-        Set<String> newlyIntroducedTimeZoneIds = Set.of("clcxq");
         Map<String, String> aliasToId = new TreeMap<>();
         Set<String> missingAliases = new TreeSet<>();
         Set<String> deprecatedAliases = new TreeSet<>();
@@ -332,14 +330,22 @@ public class TestBCP47 extends TestFmwk {
             if (itemIsDeprecated) {
                 deprecatedBcp47s.add(bcp47Type);
             }
-            if (!newlyIntroducedTimeZoneIds.contains(bcp47Type)) {
-                bcp47IdsNotUsed.add(bcp47Type);
-            }
             if (aliasSet == null) {
                 continue;
             }
             for (String alias : aliasSet) {
-                aliasToId.put(alias, bcp47Type);
+                String mappedBcp47Type = aliasToId.get(alias);
+                if (mappedBcp47Type == null) {
+                    aliasToId.put(alias, bcp47Type);
+                } else {
+                    errln(
+                            "CLDR alias "
+                                    + alias
+                                    + " has mapping to bcp47 "
+                                    + mappedBcp47Type
+                                    + ", trying to also map to "
+                                    + bcp47Type);
+                }
                 if (itemIsDeprecated) {
                     deprecatedAliases.add(alias);
                 }
@@ -351,14 +357,6 @@ public class TestBCP47 extends TestFmwk {
 
         for (String tzid : TimeZone.getAvailableIDs()) {
             if (BOGUS_TZIDS.contains(tzid)) {
-                continue;
-            }
-            if (tzid.equals("Antarctica/South_Pole")) {
-                // This non-canonical alias was moved from one zone to another per CLDR-16439;
-                // skip test until we have an ICU updated to reflect this.
-                logKnownIssue(
-                        "CLDR-18361",
-                        "BRS 48 task, update ICU4J libs for CLDR after 48m1 integration to ICU");
                 continue;
             }
             String bcp47Id = aliasToId.get(tzid);

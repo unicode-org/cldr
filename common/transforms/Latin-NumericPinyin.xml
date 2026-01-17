@@ -26,7 +26,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 $tone = [̄́̌̀̆] ;
 # Move the tone to the end of a syllable, and convert to number
 e {($tone) r} → r &Pinyin-NumericPinyin($1);
-($tone) ( [i o n u {o n} {n g}]) → $2 &Pinyin-NumericPinyin($1);
+($tone) ( [i o n u {on} {ng}]) → $2 &Pinyin-NumericPinyin($1);
 ($tone) → &Pinyin-NumericPinyin($1);
 # The following backs up until it finds the right vowel, then deposits the tone
 $vowel = [aAeEiIoOuU {ü} {Ü} vV];

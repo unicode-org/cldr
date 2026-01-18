@@ -1,5 +1,6 @@
 package org.unicode.cldr.util;
 
+import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.util.ULocale;
@@ -68,12 +69,14 @@ public final class CollatorHelper {
     }
 
     private static Comparator<String> makeROOT_INSENSITIVE() {
+        // make our own copy to avoid static ordering
+        final RuleBasedCollator secondary = makeRootSecondary();
         return new Comparator<String>() {
             @Override
             public int compare(String o1, String o2) {
-                String n1 = UCharacter.caseFold(o1, 0);
-                String n2 = UCharacter.caseFold(o2, 0);
-                return SECONDARY.compare(n1, n2);
+                String n1 = UCharacter.foldCase(o1, 0);
+                String n2 = UCharacter.foldCase(o2, 0);
+                return secondary.compare(n1, n2);
             }
         };
     }

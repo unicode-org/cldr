@@ -12,13 +12,14 @@ This section describes how to run the CLDRModify passes for the mechanical clean
 
 You will run CLDRModify with different options, in multiple passes.
 
-   1. Sanity check the results during each step, fix any problems, tag, and check in as described below.  
-   1. ***This sanity check is important,*** since the regularizing often reveals problems in the original. For example, a date format like MMM'-yy regularizes to MMM-'yy' \-- but the original was clearly an error.
+   1. Check the results during each step, fix any problems, tag, and check in as described below.  
+   1. ***This check is important,*** since the regularizing often reveals problems in the original. For example, a date format like MMM'-yy regularizes to MMM-'yy' \-- but the original was clearly an error.
    1. If you need to do a single file over again (eg resolving conflicts), use the \-m option on CLDRModify, as described below.
 
 **Details**
 
-For the purpose of this document, we'll assume you are generating into {cldrdata}/dropbox/gen/main/ as the target directory. Change any instance below to the directory that you actually use.
+For the purpose of this document, we'll assume you are generating into {cldrdata}/dropbox/gen/main/ as the target directory.
+Change any instance below to the directory that you actually use.
 
 ### Passes
 
@@ -65,9 +66,11 @@ There are a number of "one time fixes" that are in the CLDRModify code. The typi
 1. \-fk: use a configuration file; see the details on [CLDRModify Config](cldrmodify-using-config-file).
 
 #### Inactive options
-The following are some of the **inactive** options. The code remains in case we want to adapt for future cases, but don't use them unless you fix the code to do what you want, and carefully diff the results. You will have to enable them in checkSuboptions(): limits the ones that are active to prevent mistakes.
+The following are some of the **inactive** options. The code remains in case we want to adapt for future cases,
+but don't use them unless you fix the code to do what you want, and carefully diff the results.
+You will have to enable them in checkSuboptions(): limits the ones that are active to prevent mistakes.
 
-1. \-fc: Transition from an old currency to a new currency. This fix is quite useful when a country introduces a new currency code (usually due to a devaluation), but the name remains the same. In order to use this fix, modify the following values in the CLDRModify code under "**fixList.add('c', "Fix transiton from an old currency code to a new one**"
+1. \-fc: Transition from an old currency to a new currency. This fix is quite useful when a country introduces a new currency code (usually due to a devaluation),but the name remains the same. In order to use this fix, modify the following values in the CLDRModify code under "**fixList.add('c', "Fix transiton from an old currency code to a new one**"
     1. Change the String oldCurrencyCode and newCurrencyCode to reflect the currency codes you are transitioning.  
     2. Change the int fromDate and toDate to reflect the dates that the old currency was in circulation.
 These will be used to create the date range in the old currency string.  
@@ -78,4 +81,11 @@ These will be used to create the date range in the old currency string.
 6. \-fd: Fix dates  
 7. \-fz: Fix exemplars  
 8. \-fr: Fix references and standard
-9. ...
+
+### Reviewing CLDR Modify PRs
+
+This section is intended to be a list of common things you may see during CLDR modify passes when reviewing someone else's PR.
+
+* Exemplar reordering
+  * Spaces may be removed when there are no primary collation differences among the characters, only secondary differences. [Example of spaces removed in isv.xml exemplars](https://github.com/unicode-org/cldr/pull/5270/changes#diff-ba52c055de164815d3b0ba08c988ed9483962bb1edfd2429abb12393f57b998c).
+  * Numbers and punctuation will be removed if they are present in the main or aux exemplar sets. [Example removal of `၀` from the pce.xml main exemplar set](https://github.com/unicode-org/cldr/pull/5270/changes#diff-25bec871eb82dbfebc767718365eb979352c0eacdb160289ef94c2be6a27d271).

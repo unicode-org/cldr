@@ -55,7 +55,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
     <!--@MATCH:range/0~100-->
     <!--@VALUE-->
 <!ATTLIST info cashRounding NMTOKEN #IMPLIED >
-    <!--@MATCH:literal/0, 5, 50-->
+    <!--@MATCH:literal/0, 5, 20, 50-->
     <!--@VALUE-->
 <!ATTLIST info draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->

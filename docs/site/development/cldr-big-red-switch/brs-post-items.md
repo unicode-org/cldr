@@ -1,47 +1,73 @@
 ---
-title: CLDR BRS Post Items
+title: CLDR BRS Tasks to Post a Release
 ---
 
-# CLDR BRS Post Items
+# CLDR BRS Tasks to Post a Release
 
 Title was: CLDR BRS Post Items (Section E) for Rick
 
-**Actions for Rick, prior to Alpha**
+**Update the links in table at top of release page & download page for each release announcement**
 
-**A24-1**
+Before each stage of the release, alpha, beta, and release, the items in the key need to be updated to the latest version.
+Below is an example of the links for both a major and minor release. See the [CLDR Process: Specification Changes] for information on how redirects for the spec work when dot releases are announced.
 
-1. [http://cldr.unicode.org/index/downloads/cldr-XX](http://cldr.unicode.org/index/downloads/cldr-XX) — In the header, put the SVN Tag link on the Data item On the release page, e.g. http://cldr.unicode.org/index/downloads/cldr-35  
-   2. set the string and link for "SVN Tag" field to "release-35-alpha" and a SVN link such as http://www.unicode.org/repos/cldr/tags/release-35-alpha/ and add that link also to the "Data" field.  
-   3. [http://cldr.unicode.org/](http://cldr.unicode.org/) — In the "News" section at the top of the page, add a new yellow top row for the alpha (for the beta/release, reuse that row). Remove old releases from the table (major ≤ alpha-2 \- leaving only 2 recent major releases), and de-yellow the remainder except for the top row.  
-   4. [http://cldr.unicode.org/index/downloads](http://cldr.unicode.org/index/downloads) — Add a new row (below "Latest" and "Dev") for the new alpha. Copy various links as needed. (It will stay the same for the beta, then change to be the release row).
+Note: 
 
-**A26**
-
-**Updating "news" items on main page. Check for the background color on *row*, not cell. E.g.**
-**_NOTE: the following is propbably outdated._***
-
-```<tr style="background-color:rgb(255,255,0)"\>
-<td>2021-03-01</td>
-<td><a href="[https://sites.google.com/site/cldr/index/downloads/cldr-39](https://sites.google.com/unicode.org/cldr/index/downloads/cldr-39)" target="_blank">CLDR v39</a> Alpha available</td>
-</tr>
-<tr>
-<td>2020-10-28</td\>
-<td><a href="[https://sites.google.com/site/cldr/index/downloads/cldr-38](https://sites.google.com/unicode.org/cldr/index/downloads/cldr-38)" target="_blank">CLDR v38.1</a> Released</td>
-</tr>
 ```
-**Actions for Rick, gathering participants**
+| No. | Date | Rel. Note | Data | Charts | Spec | Delta Tickets | GitHub Tag | Delta DTD | CLDR JSON |
+|:---:|:----------:|:---------:|:------:|:--------:|:------------:|:---:|:----------:|:---------:|:---------:|
+|  48 | 2025-10-29 | [v48][] | [CLDR48][] | [Charts48][] | [LDML48][] | [Δ48][] | [release-48][] | [ΔDtd48][] | [48.0.0][] |
+```
 
-**A26-1**
+```
+<!-- 48 release: 2025-10-29 -->
+[v48]: /downloads/cldr-48
+[CLDR48]: https://unicode.org/Public/cldr/48/
+[Charts48]: https://unicode.org/cldr/charts/48
+[LDML48]: https://www.unicode.org/reports/tr35/tr35-76/tr35.html
+[Δ48]: https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixversion%20%3D%2048%20ORDER%20BY%20priority%20DESC
+[release-48]: https://github.com/unicode-org/cldr/releases/tag/release-48
+[ΔDtd48]: https://www.unicode.org/cldr/charts/48/supplemental/dtd_deltas.html
+[48.0.0]: https://github.com/unicode-org/cldr-json/releases/tag/48.0.0
+```
 
-\* Get contributors for [http://cldr.unicode.org/index/acknowledgments](http://cldr.unicode.org/index/acknowledgments)
+An example of a the links for a dot release may look like:
 
-\* List of those who contributed through Survey tool: Login as TC or Admin, under "List Survey Tool Users, find 'Manage Users' then click 'Email Address of Users Who Participated' (shows all users, not just your org).
+```
+| No. | Date | Rel. Note | Data | Charts | Spec | Delta Tickets | GitHub Tag | Delta DTD | CLDR JSON |
+|:---:|:----------:|:---------:|:------:|:--------:|:------------:|:---:|:----------:|:---------:|:---------:|
+|  48.1 | 2026-01-08 | [v48.1] | [CLDR48.1] | TBD | [LDML48.1] | [Δ48.1] | [release-48-1] | n/a | [48.1.0] |
+```
 
-\* Bug reporters and bug committers in Jira. Search in CLDR project for the full reporter list. Include fixversion \= the release you want, status \= done or reviewing. After searching, save as CSV and import into Excel as UTF-8. In Jira, gather unique Reporter list via sorting. Example: [https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20in%20%28Done%2C%20Reviewing%29%20AND%20fixVersion%20%3D%20%2239%22%20order%20by%20created%20DESC](https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20in%20%28Done%2C%20Reviewing%29%20AND%20fixVersion%20%3D%20%2239%22%20order%20by%20created%20DESC)
+```
+<!-- 48.1 release: 2026-01-08 -->
+[v48.1]: /downloads/cldr-48#481-changes
+[CLDR48.1]: https://unicode.org/Public/cldr/48.1/
+[Charts48]: https://unicode.org/cldr/charts/48.1/
+[LDML48.1]: https://www.unicode.org/reports/tr35/48/tr35.html
+[release-48-1-final1]: https://github.com/unicode-org/cldr/releases/tag/release-48-1
+[Δ48.1]: https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixversion%20%3D%2048.1%20ORDER%20BY%20priority%20DESC
+[48.1.0]: https://github.com/unicode-org/cldr-json/releases/tag/48.1.0
+```
 
-\* To find all Atlassian/Jira users, see this report and fish out addresses for the unique reporters who aren't already in the Acks page, if available: [https://admin.atlassian.com/s/a116048c-e2e1-4d0c-8ec4-ab9cf3ad6cb5/users](https://admin.atlassian.com/s/a116048c-e2e1-4d0c-8ec4-ab9cf3ad6cb5/users) Or try the “Gear” menu in JIRA (top right corner) then the User admin panel, then use "download users".
+**Updating News Item**
 
-\* People who submitted pull requests within the release time-frame:
+**Updating "news" items on [main page] under the '**[News]**' header. 
+
+In the "News" section at the top of the page, add a new yellow top row for the alpha (for the beta/release, reuse that row). Remove announcements of change in Survey Tool status, and
+any additional old releases from the list (major ≤ alpha-2 \- leaving only 2 recent major releases). Ideally there should be at most 3-4 items in the news section at at time.
+
+**Collect CLDR Contributors**
+
+Get contributors for [http://cldr.unicode.org/index/acknowledgments](http://cldr.unicode.org/index/acknowledgments)
+
+* List of those who contributed through Survey tool: Login as TC or Admin, under "List Survey Tool Users, find 'Manage Users' then click 'Email Address of Users Who Participated' (shows all users, not just your org).
+
+* Bug reporters and bug committers in Jira. Search in CLDR project for the full reporter list. Include fixversion \= the release you want, status \= done or reviewing. After searching, save as CSV and import into Excel as UTF-8. In Jira, gather unique Reporter list via sorting. Example: [https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20in%20%28Done%2C%20Reviewing%29%20AND%20fixVersion%20%3D%20%2239%22%20order%20by%20created%20DESC](https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20in%20%28Done%2C%20Reviewing%29%20AND%20fixVersion%20%3D%20%2239%22%20order%20by%20created%20DESC)
+
+* To find all Atlassian/Jira users, see this report and fish out addresses for the unique reporters who aren't already in the Acks page, if available: [https://admin.atlassian.com/s/a116048c-e2e1-4d0c-8ec4-ab9cf3ad6cb5/users](https://admin.atlassian.com/s/a116048c-e2e1-4d0c-8ec4-ab9cf3ad6cb5/users) Or try the “Gear” menu in JIRA (top right corner) then the User admin panel, then use "download users".
+
+* People who submitted pull requests within the release time-frame:
 
 [https://github.com/unicode-org/cldr/graphs/contributors?from=2020-11-01\&to=2021-03-22\&type=c](https://github.com/unicode-org/cldr/graphs/contributors?from=2020-11-01&to=2021-03-22&type=c)
 
@@ -49,11 +75,11 @@ See also: [https://github.com/orgs/unicode-org/people](https://github.com/orgs/u
 
 But there's apparently no way to find email addresses, and no way to send a broadcast message.
 
-\* Once everything is gathered as in steps above, send a message out to those people who contributed at least one item, (see the [http://cldr.unicode.org/development/cldr-big-red-switch](http://cldr.unicode.org/development/cldr-big-red-switch)).
+* Once everything is gathered as in steps above, send a message out to those people who contributed at least one item, (see the [http://cldr.unicode.org/development/cldr-big-red-switch](http://cldr.unicode.org/development/cldr-big-red-switch)).
 
-\* This is NOT a blocker for the release; we can update that page at any time.
+* This is NOT a blocker for the release; we can update that page at any time.
 
-\* Note: To import UTF-8 into Excel, make a blank document. Then use Data-\>FromText and import the CSV file. Choose UTF-8 as the encoding and "New worksheet" rather than importing over existing. Email addresses are currently in column C, and there are 1,610 of them as of 2021-03-30.
+* Note: To import UTF-8 into Excel, make a blank document. Then use Data-\>FromText and import the CSV file. Choose UTF-8 as the encoding and "New worksheet" rather than importing over existing. Email addresses are currently in column C, and there are 1,610 of them as of 2021-03-30.
 
 **Actions for Rick, section "E" of the CLDR Release BRS**
 
@@ -226,3 +252,7 @@ Delta \= link to the query for milestone
 SVN Tag \= dev version
 
 DTD delta \= "trunk" version
+
+[CLDR Process: Specification Changes]: /index/process#specification-changes/
+[main page]: https://cldr.unicode.org/
+[News]: https://cldr.unicode.org/#news

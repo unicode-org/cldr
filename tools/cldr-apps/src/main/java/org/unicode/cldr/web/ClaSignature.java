@@ -51,9 +51,7 @@ public final class ClaSignature {
                         Organization.adobe,
                         Organization.airbnb,
                         Organization.apple,
-                        Organization.cherokee,
                         Organization.google,
-                        Organization.ibm,
                         Organization.mayan_lpp,
                         Organization.meta,
                         Organization.microsoft,
@@ -74,7 +72,19 @@ public final class ClaSignature {
                 }
             }
         }
-        // If this is too noisy, we can move it elsewhere
+        final String removalOrgs = CLDRConfig.getInstance().getProperty("REMOVE_CLA_ORGS", "");
+        if (removalOrgs != null && !removalOrgs.isEmpty()) {
+            for (final String o : removalOrgs.trim().split(" ")) {
+                final Organization org = Organization.fromString(o);
+                if (org != null) {
+                    orgs.remove(org);
+                } else {
+                    System.err.println("Bad organization in REMOVE_CLA_ORGS: " + o);
+                }
+            }
+        }
+        // If this is too noisy, we can move it elsewhere.
+        // We print out the entire list, as if it were an 'ADD_CLA_ORGS' line.
         System.out.println(
                 "ADD_CLA_ORGS="
                         + orgs.stream()

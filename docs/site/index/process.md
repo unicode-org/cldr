@@ -71,29 +71,29 @@ There are multiple levels of access and control:
 |---|---|---|:---:|
 | *TC Member* | 50 | - Manage users in their organization <br>- Can vet and submit data for all locales (only done to correct issues) <br>- Can see the email addresses for all vetters in their organization <br>- High level vote must be used by agreement with the CLDR Technical Committee, otherwise the voting level of their organization's vetters should be used. |  |
 | *TC Organization Managers* | 6 | - Manage users in their organization <br>- Can vet and submit data for all locales (However, their vetting work is only done to correct issues.) <br>- Can see the email addresses for all vetters in their organization |  |
-| *Organization Manager* | 4 | -Manage users in their organization <br>- Can vet and submit data for all locales (only done to correct issues) <br>- Can see the email addresses for all vetters in their organization |  |
-| *TC Organization Vetter* | 6 | - Can vet and submit data for a particular set of locales <br>- Can see the email addresses for submitted data in their locales <br>- Cannot manage other users |  |
+| *Organization Manager* | 4 | - Manage users in their organization <br>- Can vet and submit data for all locales (only done to correct issues) <br>- Can see the email addresses for all vetters in their organization |  |
+| *TC Organization Vetter* | 6 | - Can vet and submit data for a particular set of locales <br>- Can see the email addresses for vetters that submitted data in their locales <br>- Cannot manage other users |  |
 | *Organization Vetter* | 4 | - Can vet and submit data for a particular set of locales <br>- Can see the email addresses for submitted data in their locales. <br>- Cannot manage other users. |  |
-| *Guest Vetter* | 1 | - Can vet and submit data for a particular set of locales <br>- Cannot see email addresses <br>- Cannot manage other users  |  |
-| *Locked/Removed Vetter* | 0 | - When a user is locked or removed during a vetting cycle, their vote is considered a zero weight and is no longer counted. |  |
+| *Guest Vetter* | 1 | - Can vet and submit data for a particular set of locales <br>- Cannot see others' email addresses <br>- Cannot manage other users  |  |
+| *Locked Vetter* | 0 | - When a user is locked during a vetting cycle, their vote is considered a zero weight and is no longer counted. |  |
 
 These levels are decided by the technical committee and the TC representative for the respective organizations.
 
 - Unicode TC members (full/institutional/supporting) can create new user accounts at the TC, Manager, Vetter, or Guest level.
-- Vetters of TC Organizations that are fully engaged in the CLDR Technical Committee are given the higher vote level of a *TC Organization Vetter* to reflect their level of expertise and coordination in the working of CLDR and the survey tool as compared to the normal *Organization Vetter* level.
-- Other organizations, including liaison or associate members, can create user accounts at the Manager, Vetter, or Guest level only.
+- Vetters of TC Organizations that are fully engaged in the CLDR Technical Committee are given the higher vote level of a *TC Organization Vetter* to reflect their level of expertise and coordination in the workings of CLDR and the survey tool as compared to the regular *Organization Vetter* level.
+- Other organizations, including liaison or associate members, can create user accounts at the Manager, Vetter, or Guest level.
 - Users who sign up for an account outside of any other organization are added to the special Unafilliated organization, and are given the level of Guest.
 - The TC may move users between organizations if needed, without losing voting records or history.
 
 ### Voting Process
 
-> _Note: within the Survey Tool, click on the_ **ⓘ** _symbol in the right hand sidebar to access the "Vote Expxlainer" which explains how a particular item's result was calculated._
+> _Note: within the Survey Tool, click on the_ **ⓘ** _symbol in the right hand sidebar to access the "Vote Explainer" which explains how a particular item's result was calculated._
 
 - Each user gets a vote on each value, but the strength of the vote varies according to the user level (see table above).
 - For each value, each organization gets a vote based on the maximum (not cumulative) strength of the votes of its users who voted on that item.
     - For example, if an organization has 10 Vetters for one locale, if the highest user level who voted has user level of 4 votes, then the vote count attributed to the organization as a whole is 4 for that item.
 - If the users within an organization vote for different values, a user with a higher voting level will overrule a vote at a lower voting level.
-    - For "TC Organizations" (see above), a later vote at the same level will override an earlier vote: "latest wins"
+    - For "TC Organizations" (see above), a later vote at the same level will override an earlier vote: "latest wins".
     - For all other organizations, a value with more users voting for it will win over a value with fewer users voting for it.
     - If there's still a tie, the tie will be broken arbitrarily by comparing the text lexically.
 
@@ -130,9 +130,9 @@ For each release, there is one optimal (or, "winning") field value determined by
 
 It is difficult to develop a formulation that provides for stability, yet allows people to make needed changes. The CLDR committee welcomes suggestions for tuning this mechanism. Such suggestions can be made by [filing a ticket].
 
-## Data- Resolution
+## Data Resolution
 
-After the contribution of collecting and vetting data, the data needs to be curated to be free of errors for the release:
+After the contribution of collecting and vetting data, the data needs goes through a curation stage to ensure it is free of errors for the release:
 
 - Collisions errors are resolved by retaining one of the values and removing the other(s).
 - The resolution choice is based on the judgment of the committee, typically according to which field is most commonly used.
@@ -152,7 +152,7 @@ For more information see the key links in [CLDR Survey Tool] (especially the Vet
 - If data has a formal problem, it can be fixed directly (in GitHub) without going through the above process. Examples include:
     - syntactic problems in pattern, extra trailing spaces, inconsistent decimals, mechanical sweeps to change attributes, translatable characters not quoted in patterns, changing ' (punctuation mark) to curly apostrophe or s-cedilla to s-comma-below, removing disallowed exemplar characters (non-letter, number, mark, uppercase when there is a lowercase).
     - These are changed in-place, without changing the draft status.
-- Linguistically-sensitive data should always go through the survey tool. Examples include:
+- Linguistically sensitive data should always go through the survey tool. Examples include:
     - names of months, territories, number formats, changing ASCII apostrophe to U+02BC modifier letter apostrophe or U+02BB modifier letter turned comma, or U+02BD modifier letter reversed comma, adding/removing normal exemplar characters.
 - The TC committee can authorize bulk submissions of new data directly, with all new data marked `draft="unconfirmed"` (or other status decided by the committee), but only where the data passes the CheckCLDR console tests.
 - The survey tool does not currently handle all CLDR data. For data it doesn't cover, the regular bug system is used to submit new data or ask for revisions of this data. In particular:

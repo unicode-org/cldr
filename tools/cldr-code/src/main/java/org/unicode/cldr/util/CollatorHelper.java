@@ -15,7 +15,7 @@ public final class CollatorHelper {
     public static final RuleBasedCollator ROOT_PRIMARY = makeRootPrimary();
     public static final RuleBasedCollator ROOT_PRIMARY_SHIFTED = makeRootPrimaryShifted();
     public static final RuleBasedCollator ROOT_SECONDARY = makeRootSecondary();
-    public static final Comparator<String> ROOT_INSENSITIVE = makeROOT_INSENSITIVE();
+    public static final Comparator<String> CASE_FOLDED = makeCaseFolded();
 
     private static RuleBasedCollator makeEmojiCollator() {
         ULocale uLocale = ULocale.forLanguageTag("en-u-co-emoji");
@@ -68,15 +68,19 @@ public final class CollatorHelper {
         return (RuleBasedCollator) col.freeze();
     }
 
-    private static Comparator<String> makeROOT_INSENSITIVE() {
+    private static Comparator<String> makeCaseFolded() {
         // make our own copy to avoid static ordering
-        final RuleBasedCollator secondary = makeRootSecondary();
+        final RuleBasedCollator SECONDARY = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
+        {
+            SECONDARY.setStrength(RuleBasedCollator.SECONDARY);
+            SECONDARY.freeze();
+        }
         return new Comparator<String>() {
             @Override
             public int compare(String o1, String o2) {
                 String n1 = UCharacter.foldCase(o1, 0);
                 String n2 = UCharacter.foldCase(o2, 0);
-                return secondary.compare(n1, n2);
+                return SECONDARY.compare(n1, n2);
             }
         };
     }

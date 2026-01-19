@@ -99,7 +99,7 @@ These levels are decided by the technical committee and the TC representative fo
 
 ### Optimal Field Value
 
-For each release, there is one optimal (or, "winning") field value determined by the following process:
+For each release, there is one optimal (or "winning") field value determined by the following process:
 
 - Add up the votes for each value from each organization.
 (Each organization votes for only one value, see above.)

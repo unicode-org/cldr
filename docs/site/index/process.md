@@ -132,7 +132,7 @@ It is difficult to develop a formulation that provides for stability, yet allows
 
 ## Data Resolution
 
-After the contribution of collecting and vetting data, the data needs goes through a curation stage to ensure it is free of errors for the release:
+After the contribution of collecting and vetting data, the data goes through a curation stage to ensure it is free of errors for the release:
 
 - Collisions errors are resolved by retaining one of the values and removing the other(s).
 - The resolution choice is based on the judgment of the committee, typically according to which field is most commonly used.

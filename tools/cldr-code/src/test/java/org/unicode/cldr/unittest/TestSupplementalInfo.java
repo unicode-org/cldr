@@ -1609,12 +1609,6 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                     }
                 }
             }
-            if (currency.equals("EUR")
-                    && logKnownIssue(
-                            "CLDR-19174",
-                            "ISO4217 data in CLDR does not yet reflect BG use of EUR")) {
-                isoCountries.add("BG");
-            }
 
             TreeSet<String> cldrCountries = new TreeSet<>();
             for (Pair<String, CurrencyDateInfo> x : data) {
@@ -1765,6 +1759,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         currencyDecimalCasesMap.put("CZK", Arrays.asList(2, 0, 0, 0));
         currencyDecimalCasesMap.put("DKK", Arrays.asList(2, 0, 2, 50));
         currencyDecimalCasesMap.put("HUF", Arrays.asList(0, 0, 0, 5));
+        currencyDecimalCasesMap.put("MRU", Arrays.asList(2, 0, 2, 20));
         currencyDecimalCasesMap.put("RSD", Arrays.asList(2, 0, 0, 0));
         currencyDecimalCasesMap.put("TWD", Arrays.asList(2, 0, 0, 0));
         currencyDecimalCasesMap.put("USD", Arrays.asList(2, 0, 2, 0)); // per DEFAULT

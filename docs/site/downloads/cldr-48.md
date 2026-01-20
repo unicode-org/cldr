@@ -416,8 +416,9 @@ For web pages with different views of CLDR data, see [http://cldr.unicode.org/in
 [CLDR48.1]: https://unicode.org/Public/cldr/48.1/
 [Charts48.1]: https://unicode.org/cldr/charts/48.1/
 [LDML48.1]: https://www.unicode.org/reports/tr35/48/tr35.html
+[Δ48.1]: https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixversion%20%3D%2048%2E1%20ORDER%20BY%20priority%20DESC
 [release-48-1]: https://github.com/unicode-org/cldr/releases/tag/release-48-1
-[Δ48.1]: https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixversion%20%3D%2048.1%20ORDER%20BY%20priority%20DESC
+<!-- no ΔDtd48.1 -->
 [48.1.0]: https://github.com/unicode-org/cldr-json/releases/tag/48.1.0
 
 <!-- 48 release: 2025-10-29 -->

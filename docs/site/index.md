@@ -9,6 +9,9 @@ title: Unicode CLDR Project
 - **2025-12-18** [CLDR Survey Tool is open early for DDL data submission](translation/ddl)
 - **2025-10-29** [CLDR 48](downloads/cldr-48) released
 
+## CLDR Mission
+
+_To build and maintain the most trusted and comprehensive repository of [locale data], reflecting common usage across the world, through active participation from organizations and community members._
 
 ## What is CLDR?
 
@@ -82,3 +85,4 @@ The details for the current release are found in [Current CLDR Cycle](https://do
 
 [cldr-json]: /index/json-format-data
 [cldr-json-users]: https://github.com/unicode-org/cldr-json/blob/master/USERS.md#projects
+[locale data]: /index/cldr-spec/definitions#locale-data

@@ -266,13 +266,13 @@ The key-type `scope="core"` is also useful in menus. For example, if a menu or p
 
 **Processing types of locale identifier subtags**
 
-When the display name contains "(" or ")" characters (or full-width equivalents), replace them by "\[", "\]" (or full-width equivalents) before adding.
+When both the subtag display name and the \<localePattern\> contain bracket characters, replace the brackets in the subtag display name with their nested bracket equivalents according to the [Nested Bracket Replacement](#Character_Nested_Bracket_Replacement) data.
 
 1.  **Language.** Match the L subtags against the type values in the `<language>` elements. Pick the element with the most subtags matching. If there is more than one such element, pick the one that has subtypes matching earlier. If there are two such elements, pick the one that is alphabetically less. If there is no match, then further convert L to *canonical form* per **[Part 1, Canonical Unicode Locale Identifiers](tr35.md#Canonical_Unicode_Locale_Identifiers)** and try the preceding steps again. Set LBN to the selected value. Disregard any of the matching subtags in the following processing.
     *   If CombineLanguage is false, only choose matches with the language subtag matching.
 2.  **Script, Region, Variants.** Where any of these subtags are in L, append the matching element value to LQS.
-3.  **T extensions.** Get the value of the `key="h0" type="hybrid"` element, if there is one; otherwise the value of the `<key type="t">` element. Next get the locale display name of the tlang. Join the pair using `<localePattern>` and append to the LQS. Then format and add display names to LQS for any of the remaining tkey-tvalue pairs as described below.
-4.  **U extensions.** If there is an attribute value A, process the key-value pair <"u", A> as below and append to LQS. Then format and add display names for each of the remaining key-type pairs as described below.
+3.  **U extensions.** If there is an attribute value A, process the key-value pair <"u", A> as below and append to LQS. Then format and add display names for each of the remaining key-type pairs as described below.
+4.  **T extensions.** Get the value of the `key="h0" type="hybrid"` element, if there is one; otherwise the value of the `<key type="t">` element. Next get the locale display name of the tlang. Do not use `<localePattern>`; instead, append the subtag display names directly to the LQS. Then format and add display names to LQS for any of the remaining tkey-tvalue pairs as described below.
 5.  **Other extensions.** There are currently no such extensions defined. Until such time as there are formats defined for them, append each of the extensions’ subtags to LQS.
 6.  **Private Use extensions.** Get the value
 
@@ -298,9 +298,9 @@ When the display name contains "(" or ")" characters (or full-width equivalents)
 | es-Cyrl-MX                    | Spanish (Cyrillic, Mexico) |
 | en-Latn-GB-fonipa-scouse      | English (Latin, United Kingdom, IPA Phonetics, Scouse) |
 | en-u-nu-thai-ca-islamic-civil | English (Calendar: islamic-civil, Thai Digits) |
-| hi-u-nu-latn-t-en-h0-hybrid   | Hindi (Hybrid: English, Western Digits) |
-| en-u-nu-deva-t-de             | English (Transform: German, Devanagari Digits) |
-| fr-z-zz-zzz-v-vv-vvv-u-uu-uuu-t-ru-Cyrl-s-ss-sss-a-aa-aaa-x-u-x | French (Transform: Russian \[Cyrillic\], uu: uuu, a: aa-aaa, s: ss-sss, v: vv-vvv, x: u-x, z: zz-zzz) |
+| hi-u-nu-latn-t-en-h0-hybrid   | Hindi (Western Digits, Hybrid: English) |
+| en-u-nu-deva-t-de-mm-fonipa   | English (Devanagari Digits, Transform: German, Myanmar \[Burma\], IPA Phonetics) |
+| fr-z-zz-zzz-v-vv-vvv-u-uu-uuu-t-ru-Cyrl-s-ss-sss-a-aa-aaa-x-u-x | French (uu: uuu, Transform: Russian, Cyrillic, a: aa-aaa, s: ss-sss, v: vv-vvv, x: u-x, z: zz-zzz) |
 
 
 
@@ -699,6 +699,28 @@ There are alternatives for cases where the breaks are on a word boundary, where 
 ```xml
 <ellipsis type="word-initial">… {0}</ellipsis>
 ```
+
+### <a name="Character_Nested_Bracket_Replacement" href="#Character_Nested_Bracket_Replacement">Nested Bracket Replacement</a>
+
+```xml
+<!ELEMENT nestedBracketReplacement ( #PCDATA ) >
+<!ATTLIST nestedBracketReplacement bracket CDATA #REQUIRED >
+```
+
+Example:
+
+```xml
+<nestedBracketReplacement bracket="(">[</nestedBracketReplacement>
+<nestedBracketReplacement bracket=")">]</nestedBracketReplacement>
+<nestedBracketReplacement bracket="（">［</nestedBracketReplacement>
+<nestedBracketReplacement bracket="）">］</nestedBracketReplacement>
+```
+
+The `nestedBracketReplacement` element indicates a character to be used when two sets of brackets (parentheses) are nested. This currently supports only one level of nesting.
+
+Clients should replace the inner bracket pair by substituting the bracket string with the value string. For example, in the string "a ( b ( c ) )", the two inner brackets should be replaced according to the replacements data, resulting in "a ( b [ c ] )".
+
+In cases where it is necessary to determine whether the brackets are nested, clients can use the `Bidi_Paired_Bracket_Type` property.
 
 ### <a name="Character_More_Info" href="#Character_More_Info">More Information</a>
 

@@ -1027,6 +1027,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 
 <!-- Moved up as part of change to moderate -->
 		<coverageLevel value="moderate" match="characters/ellipsis[@type='%ellipsisTypes']"/>
+		<coverageLevel value="moderate" match="characters/nestedBracketReplacement[@bracket='%A']"/>
 		<coverageLevel value="moderate" match="characters/moreInformation"/>
 		<coverageLevel value="moderate" match="characters/parseLenients[@scope='%anyAttribute'][@level='%anyAttribute']/parseLenient[@sample='%anyAttribute']"/>
 		

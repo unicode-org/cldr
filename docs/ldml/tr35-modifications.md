@@ -67,7 +67,10 @@ The LDML specification is divided into the following parts:
 
 **Changes in LDML Version 48.2 (Differences from Version 48.1)**
 
-* (TBD)
+### MessageFormat
+
+* The `:currency` and `:percent` functions are now Stable, with the same implementations as previously.
+* The `u:locale` option (previously in Draft) is dropped from the specification.
 
 **Changes in LDML Version 48.1 (Differences from Version 48)**
 

@@ -190,7 +190,6 @@ The LDML specification is divided into the following parts:
 * [Unicode Namespace](#unicode-namespace)
   * [Unicode Namespace Options](#unicode-namespace-options)
     * [`u:id`](#uid)
-    * [`u:locale`](#ulocale)
     * [`u:dir`](#udir)
 * [Interchange Data Model](#interchange-data-model)
   * [Message Model](#message-model)
@@ -2915,7 +2914,7 @@ The function `:string` has no _options_.
 > For example:
 >
 > ```
-> {$s :string u:dir=ltr u:locale=fr-CA}
+> {$s :string u:dir=ltr u:id=my-string}
 > ```
 
 ##### `:string` Resolved Value
@@ -3210,12 +3209,8 @@ The _function_ `:offset` performs selection as described in [Number Selection](#
 
 #### The `:currency` function
 
-> [!IMPORTANT]
-> The _function_ `:currency` has a status of **Draft**.
-> It is proposed for inclusion in a future release of this specification and is not Stable.
-
 The _function_ `:currency` is a _formatter_ for currency values,
-which are a specialized form of numeric formatting.
+which is a specialized form of numeric formatting.
 
 ##### `:currency` Operands
 
@@ -3386,10 +3381,6 @@ of the _operand_ of the annotated _expression_,
 together with the resolved options' values.
 
 #### The `:percent` function
-
-> [!IMPORTANT]
-> The _function_ `:percent` has a status of **Draft**.
-> It is proposed for inclusion in a future release of this specification and is not Stable.
 
 The function `:percent` is a selector and formatter for percent values.
 
@@ -4231,48 +4222,6 @@ _variable_ whose _resolved value_ is either a string
 or can be resolved to a string without error.
 For other values, a _Bad Option_ error is emitted
 and the `u:id` _option_ and its _option value_ are ignored.
-
-#### `u:locale`
-
-> [!IMPORTANT]
-> This _option_ has a status of **Draft**.
-> It is proposed for inclusion in a future release and is not Stable.
-
-Implementations MAY support this option.
-
-Replaces the _locale_ defined in the _function context_ for this _expression_.
-
-A comma-delimited list consisting of
-well-formed [BCP 47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt)
-language tags,
-or an implementation-defined list of such tags.
-
-If this _option_ is set on _markup_, a _Bad Option_ error is emitted
-and the `u:locale` _option_ and its _option value_ are ignored.
-
-During processing, the `u:locale` _option_
-MUST be removed from the resolved mapping of _options_
-before calling the _function handler_.
-
-Values matching the following ABNF are always accepted:
-```abnf
-u-locale-option = unicode_bcp47_locale_id *(o "," o unicode_bcp47_locale_id)
-```
-using `unicode_bcp47_locale_id` as defined for
-[Unicode Locale Identifier](tr35.md#unicode_bcp47_locale_id).
-
-Implementations MAY support additional language tags,
-such as private-use or grandfathered tags,
-or tags using `_` instead of `-` as a separator.
-When the value of `u:locale` is set by a _variable_,
-implementations MAY support non-string values otherwise representing locales.
-
-Implementations MAY emit a _Bad Option_ error
-and MAY ignore the `u:locale` _option_ and _option value_ as a whole
-or any of the entries in the list of language tags.
-This might be because the locale specified is not supported
-or because the language tag is not well-formed,
-not valid, or some other reason.
 
 #### `u:dir`
 

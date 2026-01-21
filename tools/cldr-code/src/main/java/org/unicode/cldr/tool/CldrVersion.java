@@ -114,7 +114,7 @@ public enum CldrVersion {
                 || versionString.equals(CLDRFile.GEN_VERSION + ".0")) {
             return CldrVersion.baseline;
         }
-        return versionString.charAt(0) == 'v'
+        return versionString.charAt(0) > '9'
                 ? valueOf(versionString)
                 : from(VersionInfo.getInstance(versionString));
     }

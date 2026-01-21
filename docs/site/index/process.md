@@ -69,7 +69,7 @@ There are multiple levels of access and control:
 
 | **Vetter Level** | **Number of Votes** | **Description** |  |
 |---|---|---|:---:|
-| *TC Member* | 50 | - Manage users in their organization <br>- Can vet and submit data for all locales (only done to correct issues) <br>- Can see the email addresses for all vetters in their organization <br>- High level vote must be used by agreement with the CLDR Technical Committee, otherwise the voting level of their organization's vetters should be used. |  |
+| *TC Member* | 50 | - Manage users in their organization <br>- Can vet and submit data for all locales (high level votes are only used to correct issues with CLDR Technical Committee's approval - otherwise the voting level of their organization would be used) <br>- Can see the email addresses for all vetters in their organization |  |
 | *TC Organization Managers* | 6 | - Manage users in their organization <br>- Can vet and submit data for all locales (However, their vetting work is only done to correct issues.) <br>- Can see the email addresses for all vetters in their organization |  |
 | *Organization Manager* | 4 | - Manage users in their organization <br>- Can vet and submit data for all locales (only done to correct issues) <br>- Can see the email addresses for all vetters in their organization |  |
 | *TC Organization Vetter* | 6 | - Can vet and submit data for a particular set of locales <br>- Can see the email addresses for vetters that submitted data in their locales <br>- Cannot manage other users |  |

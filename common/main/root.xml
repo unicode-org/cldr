@@ -53,6 +53,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<ellipsis type="word-final">{0} …</ellipsis>
 		<ellipsis type="word-initial">… {0}</ellipsis>
 		<ellipsis type="word-medial">{0} … {1}</ellipsis>
+		<nestedBracketReplacement bracket="(">[</nestedBracketReplacement>
+		<nestedBracketReplacement bracket=")">]</nestedBracketReplacement>
+		<nestedBracketReplacement bracket="（">［</nestedBracketReplacement>
+		<nestedBracketReplacement bracket="）">］</nestedBracketReplacement>
 		<moreInformation>?</moreInformation>
 		<parseLenients scope="date" level="lenient">
 			<parseLenient sample="-">[\- ‑ . /]</parseLenient>

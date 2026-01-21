@@ -146,6 +146,7 @@ public class TestExampleGenerator extends TestFmwk {
             ImmutableSet.of(
                     "//ldml/layout/orientation/characterOrder",
                     "//ldml/layout/orientation/lineOrder",
+                    "//ldml/characters/nestedBracketReplacement[@bracket=\"([^\"]*+)\"]",
                     "//ldml/characters/moreInformation",
                     "//ldml/numbers/symbols[@numberSystem=\"([^\"]*+)\"]/infinity",
                     "//ldml/numbers/symbols[@numberSystem=\"([^\"]*+)\"]/list",
@@ -2197,6 +2198,7 @@ public class TestExampleGenerator extends TestFmwk {
             {
                 SKIP,
                 "//ldml/characters/moreInformation"
+                        + "//ldml/characters/nestedBracketReplacement[@bracket=\"*\"]"
                         + "//ldml/dates/fields/field[@type=\"*\"]/relative[@type=\"*\"]"
                         + "//ldml/dates/timeZoneNames/gmtZeroFormat"
                         + "//ldml/dates/timeZoneNames/gmtUnknownFormat"

@@ -36,6 +36,8 @@ jobs:
         bundler-cache: true
     - name: Build Site
       run: 'sh tools/scripts/web/build-site.sh'
+    - name: 'Remove wrangler.jsonc for now (this is the OLD pages build)'
+      run: 'rm -f wrangler.jsonc'
     - name: Pre-install Wrangler
       if: (github.event_name == 'push') || (github.event.pull_request.head.repo.full_name == 'unicode-org/cldr')
       run: npm i -g wrangler@3.x

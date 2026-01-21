@@ -434,6 +434,7 @@ function unpackMenuSideBar(json) {
   // menu
   $(".sidebar-chooser").click(function () {
     cldrStatus.setCurrentPage($(this).attr("id"));
+    cldrStatus.setCurrentId("");
     cldrStatus.setCurrentSpecial("");
     cldrLoad.reloadV();
     $("#left-sidebar").removeClass("active");

@@ -125,6 +125,12 @@ The following changes are planned for CLDR 49. Please plan accordingly to avoid 
 and feedback that the general practice for exact dates is to use Gregorian for pre-Meiji dates.
 - The major components in [supplementalData.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalData.xml) and [supplementalMetadata.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalMetadata.xml) files are slated to be organized more logically and moved into separate files.
     - This will make it easier for implementations to filter out data that they don't need, and make internal maintenance easier. This will not affect the data, just which file it is located in. Please plan to update XML and JSON parsers accordingly.
+ 
+### V50 advance warnings
+
+The following changes are planned for CLDR 50. Please plan accordingly to avoid disruption.
+
+- Locales which do not have Core data will be removed if still missing core data by alpha. [CLDR-16004]
 
 ## Known Issues
 
@@ -141,6 +147,7 @@ in particular, see [Exhibit 1](https://unicode.org/copyright.html#Exhibit1).
 
 For web pages with different views of CLDR data, see [http://cldr.unicode.org/index/charts](/index/charts).
 
+[CLDR-16004]: https://unicode-org.atlassian.net/browse/CLDR-16004
 [CLDR-18275]: https://unicode-org.atlassian.net/browse/CLDR-18275
 [CLDR-18303]: https://unicode-org.atlassian.net/browse/CLDR-18303
 [CLDR-19046]: https://unicode-org.atlassian.net/browse/CLDR-19046

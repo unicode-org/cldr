@@ -16,8 +16,8 @@ public enum Organization {
     adobe("Adobe"),
     afghan_csa("Afghan CSA"),
     afghan_mcit("Afghan MCIT"),
-    adyghe_lang_lit_assoc(
-            "Adyghe Lang & Lit Association",
+    adyghe(
+            "Adyghe",
             "Adyghe (Circassian) Language and Literature Association.",
             "Адыгабзэ ыкIи Литературэ Хасэ",
             "Adıge (Çerkes) Dili ve Edebiyatı Derneği",

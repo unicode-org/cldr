@@ -8,38 +8,40 @@ title: CLDR Process
 
 This document describes the Unicode CLDR Technical Committee's process for data collection, resolution, public feedback and release.
 
-- The process is designed to be light-weight; in particular, the meetings are frequent, short, and informal. Most of the discussion happens over email or in virtual meetings, with a database recording requested changes (see [Requesting Changes](/requesting_changes)).
+- The process is designed to be light-weight; in particular, the meetings are frequent, short, and informal. Most of the discussion happens over email or in virtual meetings, with a database recording requested changes (see [Requesting Changes]).
 - When gathering data for a region and language, it is important to have multiple sources for that data to produce the most commonly used data. The initial versions of the data were based on best available sources, and updates with new and improvements are released twice a year with work by contributors inside and outside of the Unicode Consortium.
 - It is important to note that CLDR is a Repository, not a Registration. That is, contributors should NOT expect that their suggestions will simply be adopted into the repository; instead, it will be vetted by other contributors.
-- The [CLDR Survey Tool](https://st.unicode.org) is the main channel for collecting data, and bug/feature requests are tracked in a database ([file a ticket](/requesting_changes#how-to-file-a-ticket)).
+- The [CLDR Survey Tool] is the main channel for collecting data, and bug/feature requests are tracked in a database (see [Requesting Changes]).
 - The final approval of the release of any version of CLDR is up to the decision of the CLDR Technical Committee.
 
 ## Formal Technical Committee Procedures
 
-For more information on the formal procedures for the Unicode CLDR Technical Committee, see the [Technical Committee Procedures for the Unicode Consortium](https://www.unicode.org/consortium/tc-procedures.html).
+For more information on the formal procedures for the Unicode CLDR Technical Committee, see the [Technical Committee Procedures for the Unicode Consortium].
 
 ## Specification Changes
 
-The [UTS #35: Locale Data Markup Language (LDML)](https://www.unicode.org/reports/tr35/) specification are kept up to date with each release with change/added structure for new data types or other features.
+The [UTS #35: Locale Data Markup Language (LDML)] specification are kept up to date with each release with change/added structure for new data types or other features.
 
-- Requests for changes are entered in the bug/feature request database ([file a ticket](/requesting_changes#how-to-file-a-ticket)).
+The CLDR TC maintains redirects that redirect users to from each major CLDR release to the latest version of the spec. For example,
+reports/tr35/46/tr35.html will redirect to the 46.1 version of the specification since the 46.1 was the latest revision of the LDML for 46.
+To make this clear to any readers, the modifications for any dot release of CLDR will always include the modifications for any release(s) during that major version,
+as well as clearly delinating the modifications of that dot release in its own section. [CLDR 46.1 modifications] is a great example of this.
+
+- Requests for changes are entered in the bug/feature request database ([file a ticket]).
 - Structural changes are always backwards-compatible. That is, previous files will continue to work. Deprecated elements remain, although their usage is strongly discouraged.
-- There is a standing policy for structural changes that require non-trivial code for proper implementation, such as time zone fallback or alias mechanisms. These require design discussions in the [CLDR Design Working Group](https://cldr.unicode.org/cldr-tc/design-wg) and approval by the [CLDR Technical Committee](https://cldr.unicode.org/cldr-tc). Complex changes may require prototypes that demonstrate correct function according to the proposed specification.
-- New sections may be added to the specification with the status of _Technical Preview_ or _Final Candidate_. That depends on how comprehensive the new section is, what type of feedback the Technical Committee requires, and whether the feedback period needs to extend across one or more releases.
-
-- When a spec change or clarification affects existing ICU APIs, CLDR will discuss the change with ICU and an ICU member be a required reviewer on the pull request.
-
-- ​New spec features will be ​marked as Tech Preview​ ​i​f the following conditions are true:
-
-    - ​They are intended for implementation in ICU (eg excluding annotations for emoji, etc)
-
-    - They make compliant pre-existing ICU APIs​ become non-compliant
-
-    - ​They won’t be implemented by ICU (in at least draft status) in the synchronized releases
+- There is a standing policy for structural changes that require non-trivial code for proper implementation, such as time zone fallback or alias mechanisms.
+    - These require design discussions in the [CLDR Design Working Group] and approval by the [CLDR Technical Committee].
+    - Complex changes may require prototypes that demonstrate correct function according to the proposed specification.
+    - When a spec change or clarification affects existing ICU APIs, CLDR will discuss the change with ICU and an ICU member be a required reviewer on the pull request.
+- New sections may be added to the specification with the status of _Technical Preview_ or _Final Candidate_ depending on how comprehensive the new section is, what type of feedback the Technical Committee requires, and whether the feedback period needs to extend across one or more releases.
+- ​New features in the spec will be ​marked as _Technical Preview_​ ​i​f the following conditions are true:
+    - ​They are intended for implementation in ICU and/or ICU4X (eg excluding annotations for emoji, etc)
+    - They make compliant pre-existing ICU or ICU4X APIs​ become non-compliant
+    - ​They won’t be implemented by either ICU or ICU4X (in at least draft status) in the synchronized CLDR release
  
 | **Status** | **Description** |
 |---|:---|
-| *Technical Preview* | - The specification section is fairly complete but not stable, included in the release to gather feedback. <br>- Features may be modified or removed based upon feedback. <br>A section in Technical Preview may remain in Technical Preview in the following release if more feedback is needed, or could advance to Final Candidate or to stable.<br>- It is similar to elements marked with [@TECHPREVIEW in the DTD as described in the LDML](https://www.unicode.org/reports/tr35/#dtd-annotations). | 
+| *Technical Preview* | - The specification section is fairly complete but not stable, included in the release to gather feedback. <br>- Features may be modified or removed based upon feedback. <br>A section in Technical Preview may remain in Technical Preview in the following release if more feedback is needed, or could advance to Final Candidate or to stable.<br>- It is similar to elements marked with [@TECHPREVIEW in the DTD as described in the LDML]. | 
 | *Final Candidate* | - The specification section is complete and considered ready for release, and is expected to become stable in the next release. An optional Final Candidate stage follows a period of feedback in Technical Preview where final feedback is desired. Changes will only be made if serious issues are discovered during this feedback period. |
 | *Stable* | - The specification section has been approved as stable by the Technical Committee, any changes must be backward compatible. Deprecated elements will remain, although their usage is strongly discouraged. | 
 
@@ -49,8 +51,8 @@ The contributors of locale data are expected to be language speakers residing in
 
 There are two types of data in the repository:
 
-- **Core data** (See [Core data for new locales](/index/cldr-spec/core-data-for-new-locales)): The content is collected from language experts typically with a CLDR Technical Committee member involvement, and is reviewed by the committee. This is required for a new language to be added in CLDR.
-- **Common locale data**: This is the bulk of the CLDR data and data collection occurs twice a year using the Survey tool. (See [Getting Started](/translation/getting-started).)
+- **Core data** (See [Core data for new locales]): The content is collected from language experts typically with a CLDR Technical Committee member involvement, and is reviewed by the committee. This is required for a new language to be added in CLDR.
+- **Common locale data**: This is the bulk of the CLDR data and data collection occurs twice a year using the Survey tool. (See [Getting Started].)
 
 The following 4 states are used to differentiate the data contribution levels. The initial data contributions are normally marked as draft; this may be changed once the data is vetted.
 
@@ -81,7 +83,7 @@ These levels are decided by the technical committee and the TC representative fo
 - TC Organizations that are fully engaged in the CLDR Technical Committee are given a higher vote level of 6 votes to reflect their level of expertise and coordination in the working of CLDR and the survey tool as compared to the normal organization vote level of 4 votes
 - Liaison or associate members can assign to Guest, or to other levels with approval of the TC.
     - The liaison/associate member him/herself gets TC status in order to manage users, but gets a Guest status in terms of voting, unless the committee approves a higher level.
-- Users assigned to "[unicode.org](https://unicode.org/)" are normally assigned as Guest, but the committee can assign a different level.
+- Users who are not affiliated with any [CLDR organization] are normally assigned as Guest, but the committee can assign a different level.
 
 ### Voting Process
 
@@ -114,12 +116,12 @@ For each release, there is one optimal field value determined by the following:
 | *unconfirmed* | *otherwise* |
 
 
-1. *Established* locales are currently found in [coverageLevels.xml](https://github.com/unicode-org/cldr/blob/master/common/supplemental/coverageLevels.xml), with approvalRequirement\[@votes="8"\]
-    - Some specific items have an even higher threshold. See approvalRequirement elements in [coverageLevels.xml](https://unicode.org/repos/cldr/trunk/common/supplemental/coverageLevels.xml) for details.
+1. *Established* locales are currently found in [coverageLevels.xml], with approvalRequirement\[@votes="8"\]
+    - Some specific items have an even higher threshold. See approvalRequirement elements in [coverageLevels.xml] for details.
 2. If the oldStatus is better than the new draft status, then no change is made. Otherwise, the optimal value and its draft status are made part of the new release.
     - For example, if the new optimal value does not have the status of **approved**, and the previous release had an **approved** value (one that does not have an error and is not a fallback), then that previously-released value stays **approved** and replaces the optimal value in the following steps.
 
-It is difficult to develop a formulation that provides for stability, yet allows people to make needed changes. The CLDR committee welcomes suggestions for tuning this mechanism. Such suggestions can be made by [filing a ticket](/requesting_changes#how-to-file-a-ticket).
+It is difficult to develop a formulation that provides for stability, yet allows people to make needed changes. The CLDR committee welcomes suggestions for tuning this mechanism. Such suggestions can be made by [filing a ticket].
 
 ## Data- Resolution
 
@@ -137,7 +139,7 @@ If a locale does not have minimal data (at least at a provisional level), then i
 
 This process can be fine-tuned by the Technical Committee as needed, to resolve any problems that turn up. A committee decision can also override any of the above process for any specific values.
 
-For more information see the key links in [CLDR Survey Tool](https://st.unicode.org) (especially the Vetting Phase).
+For more information see the key links in [CLDR Survey Tool] (especially the Vetting Phase).
 
 **Notes:**
 - If data has a formal problem, it can be fixed directly (in CVS) without going through the above process. Examples include:
@@ -148,11 +150,11 @@ For more information see the key links in [CLDR Survey Tool](https://st.unicode.
 - The TC committee can authorize bulk submissions of new data directly (CVS), with all new data marked draft="unconfirmed" (or other status decided by the committee), but only where the data passes the CheckCLDR console tests.
 - The survey tool does not currently handle all CLDR data. For data it doesn't cover, the regular bug system is used to submit new data or ask for revisions of this data. In particular:
     - Collation, transforms, or text segmentation, which are more complex.
-        - For collation data, see the comparison charts at [https://www.unicode.org/cldr/comparison\_charts.html](https://www.unicode.org/cldr/comparison_charts.html) or the XML data at [https://unicode.org/cldr/data/common/collation/](https://unicode.org/cldr/data/common/collation/)
-        - For transforms, see the XML data at [https://unicode.org/cldr/data/common/transforms/](https://unicode.org/cldr/data/common/transforms/)
+        - For collation data, see the [comparison charts] or the XML data at [/common/collation/]
+        - For transforms, see the XML data at [/common/transforms/]
     - Non-linguistic locale data:
-        - XML data: [https://unicode.org/cldr/data/common/supplemental/](https://unicode.org/cldr/data/common/supplemental/)
-        - HTML view: [https://www.unicode.org/cldr/charts/latest/supplemental/](https://www.unicode.org/cldr/charts/latest/supplemental/)
+        - XML data: [/common/supplemental/]
+        - HTML view: [supplemental data charts]
 
 ### Prioritization
 
@@ -170,27 +172,27 @@ Corrigenda may also be included in maintenance releases. Maintenance releases ma
 
 The structure and DTD may change, but except for additions or for small bug fixes, data will not be changed in a way that would affect the content of resolved data.
 
-[**Data Retention Policy**](/index/process/cldr-data-retention-policy)
+[**Data Retention Policy**]
 
 ## Public Feedback Process
 
-The public can supply formal feedback into CLDR via the [Survey Tool](https://st.unicode.org) or by [filing a ticket](/requesting_changes#how-to-file-a-ticket). There is also a public forum for questions at [CLDR Mailing List](https://www.unicode.org/consortium/distlist.html#cldr_list) (details on archives are found there).
+The public can supply formal feedback into CLDR via the [CLDR Survey Tool] or by [filing a ticket]. There is also a public forum for questions at [CLDR Mailing List] (details on archives are found there).
 
-There is also a members-only [CLDR mailing list](https://www.unicode.org/members/index.html#cldr) for members of the CLDR Technical Committee.
+There is also a members-only CLDR mailing list for members of the [CLDR Technical Committee].
 
-[Public Review Issues](https://www.unicode.org/review/) may be posted in cases where broader public feedback is desired on a particular issue.
+[Public Review Issues] may be posted in cases where broader public feedback is desired on a particular issue.
 
-Be aware that changes and updates to CLDR will only be taken in response to information entered in the [Survey Tool](https://st.unicode.org) or by [filing a ticket](/requesting_changes#how-to-file-a-ticket). Discussion on public mailing lists is not monitored; no actions will be taken in response to such discussion -- only in response to filed bugs. The process of checking and entering data takes time and effort; so even when bugs/feature requests are accepted, it may take some time before they are in a release of CLDR.
+Be aware that changes and updates to CLDR will only be taken in response to information entered in the [CLDR Survey Tool] or by [filing a ticket]. Discussion on public mailing lists is not monitored; no actions will be taken in response to such discussion -- only in response to filed bugs. The process of checking and entering data takes time and effort; so even when bugs/feature requests are accepted, it may take some time before they are in a release of CLDR.
 
 ## Data Release Process
 
 ### Version Numbering
 
-The locale data is frozen per version. Once a version is released, it is never modified. Any changes, however minor, will mean a newer version of the locale data being released. The version numbering scheme is "xy.z", where z is incremented for maintenance releases, and xy is incremented for regular semi-annual releases as defined by the [regular semi-annual schedule](/index#TOC-General-Schedule-)
+The locale data is frozen per version. Once a version is released, it is never modified. Any changes, however minor, will mean a newer version of the locale data being released. The version numbering scheme is "xy.z", where z is incremented for maintenance releases, and xy is incremented for regular semi-annual releases as defined by the [schedule]
 
 ### Release Schedule
 
-Early releases of a version of the common locale data will be issued as either alpha or beta releases, available for public feedback. The dates for the next scheduled release will be on [CLDR Project](https://www.unicode.org/cldr/index.html).
+Early releases of a version of the common locale data will be issued as either alpha or beta releases, available for public feedback. The dates for the next scheduled release will be on [CLDR Project].
 
 The schedule milestones are listed below.
 
@@ -207,9 +209,9 @@ Labels in the **Jira** column correspond to the **phase** field in Jira. Phase f
 
 ## Meetings and Communication
 
-The currently-scheduled meetings are listed on the [Unicode Calendar](https://www.unicode.org/timesens/calendar.html). Meetings are held by phone, every week at 8:00 AM Pacific Time (-08:00 GMT in winter, -07:00 GMT in summer). Additional meeting is scheduled every other Mondays depending on the need and people's availability.
+The currently-scheduled meetings are held via Google Meet every week at 8:30 AM Pacific Time (-08:30 GMT in winter, -07:30 GMT in summer).
 
-There is an internal email list for the Unicode CLDR Technical Committee, open to Unicode members and invited experts. All national standards bodies who are interested in locale data are also invited to become involved by establishing a [Liaison membership](https://www.unicode.org/consortium/join.html) in the Unicode Consortium, to gain access to this list.
+There is an internal email list for the Unicode CLDR Technical Committee, open to Unicode members and invited experts. All national standards bodies who are interested in locale data are also invited to become involved by establishing a [Liaison membership] in the Unicode Consortium, to gain access to this list.
 
 ## Officers
 
@@ -218,3 +220,29 @@ The current Technical Committee Officers are:
 - Chair: Mark Davis (Google)
 - Vice-Chair: Annemarie Apple (Google)
 
+[CLDR 46.1 modifications]: https://www.unicode.org/reports/tr35/tr35-74/tr35.html#modifications
+[CLDR Design Working Group]: /cldr-tc/design-wg
+[CLDR Mailing List]: https://www.unicode.org/consortium/distlist.html#cldr_list
+[CLDR Organization]: /index/survey-tool/cldr-organization
+[CLDR Project]: /index
+[CLDR Technical Committee]: /cldr-tc
+[CLDR Survey Tool]: https://st.unicode.org
+[/common/collation/]: https://unicode.org/cldr/data/common/collation/
+[/common/supplemental/]: https://unicode.org/cldr/data/common/supplemental/
+[/common/transforms/]: https://unicode.org/cldr/data/common/transforms/
+[comparison charts]: https://www.unicode.org/cldr/comparison_charts.html
+[Core data for new locales]: /index/cldr-spec/core-data-for-new-locales
+[coverageLevels.xml]: https://github.com/unicode-org/cldr/blob/master/common/supplemental/coverageLevels.xml
+[**Data Retention Policy**]: /index/process/cldr-data-retention-policy
+[file a ticket]: /requesting_changes#how-to-file-a-ticket
+[filing a ticket]: /requesting_changes#how-to-file-a-ticket
+[Getting Started]: /translation/getting-started
+[Liaison membership]: https://www.unicode.org/consortium/join.html
+[supplemental data charts]: https://www.unicode.org/cldr/charts/latest/supplemental/
+[Public Review Issues]: https://www.unicode.org/review/
+[schedule]: /index#what-is-the-schedule
+[Technical Committee Procedures for the Unicode Consortium]: https://www.unicode.org/consortium/tc-procedures.html
+[@TECHPREVIEW in the DTD as described in the LDML]: https://www.unicode.org/reports/tr35/#dtd-annotations
+[Requesting Changes]: /requesting_changes
+[Unicode Calendar]: https://www.unicode.org/timesens/calendar.html
+[UTS #35: Locale Data Markup Language (LDML)]: https://www.unicode.org/reports/tr35/

@@ -31,6 +31,8 @@ import {
   Form,
   Input,
   List,
+  Menu,
+  MenuItem,
   Modal,
   Popover,
   Progress,
@@ -77,6 +79,8 @@ function setup(app) {
   app.component("a-list-item-meta", List.Item.Meta);
   app.component("a-list-item", List.Item);
   app.component("a-list", List);
+  app.component("a-menu", Menu);
+  app.component("a-menu-item", MenuItem);
   app.component("a-modal", Modal);
   app.component("a-popover", Popover);
   app.component("a-progress", Progress);

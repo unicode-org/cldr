@@ -31,16 +31,21 @@ This is a partial document, describing only the changes to the LDML since the pr
 <!--
       Note: As of CLDR-18209, ALL changes to the spec require this file, tr35-modifications.md to be modified as well. If you are making a change that doesn't need to be noted, or is already noted, please simply add an HTML comment (such as this one) to the appropriate section.  The comment will not be visible to viewers of the HTML page.
 -->
-<!-- Bump spec this-version due to spec update in 48.1, update spec date -->
+
+**Changes in LDML Version 49 (Differences from Version 48.1)**
+
+### MessageFormat
+
+* The `:currency` and `:percent` functions are now Stable, with the same implementations as previously.
+* The `u:locale` option (previously in Draft) is dropped from the specification.
+
+<!-- Bump spec this-version and previous-version due to spec update in 48.1, update spec date -->
 
 **Changes in LDML Version 48.1 (Differences from Version 48)**
 
 * [Segmentations](tr35-general.html#Segmentations) removed outdated note about `X Format*->X` not being supported in CLDR since it no longer accurate.
 
 **Changes in LDML Version 48 (Differences from Version 47)**
-<!-- Update the date (need to add/update this comment to pass CI tests that require mods to be updated when spec is) -->
-<!-- Some internal links were updated to fix broken links. -->
-<!-- fixed broken links -->
 
 ### Locale Identifiers and Names
 * [Display Name Elements](tr35-general.md#display-name-elements) Described the usage of the `language` element `menu` values `core` and `extension`, and `alt="menu"`.
@@ -118,7 +123,7 @@ Click on **Previous Version** in the header until you get to the desired version
 
 * * *
 
-© 2001–2025 Unicode, Inc.
+© 2001–2026 Unicode, Inc.
 This publication is protected by copyright, and permission must be obtained from Unicode, Inc.
 prior to any reproduction, modification, or other use not permitted by the [Terms of Use](https://www.unicode.org/copyright.html).
 Specifically, you may make copies of this publication and may annotate and translate it solely for personal or internal business purposes and not for public distribution,

@@ -2,7 +2,6 @@
   <!-- If use a-button instead of button, form positioning fails -->
   <button class="plus" type="button" @click="showModal">
     ✚
-
     <!-- U+271A HEAVY GREEK CROSS -->
   </button>
   <a-modal
@@ -19,53 +18,45 @@
   >
     <p>
       <a-config-provider :direction="dir">
-        <template
-          v-if="useTags && !canEditTags && (inputModeIsTags || !showRadio)"
+        <!-- show as text -->
+        <a-input
+          v-model:value="newValue"
+          placeholder="Add a translation"
+          ref="inputToFocus"
+          @keydown.enter="onSubmit"
+          @change="handleTextChange"
+        />
+        <p class="vertical-spacer" />
+        <a-checkbox v-model:checked="useTags" @change="handleTagsCheckboxChange"
+          >tags</a-checkbox
         >
+        <template v-if="useTags && !(canEditTags || tagsHaveMenus)">
           <!-- show as basic tags -->
           <component
             :is="AddValueTagsBasic"
             :key="componentKeyBasic"
             v-model="newValue"
-            ref="tagsBasicRef"
           />
         </template>
-        <template v-if="canEditTags && (inputModeIsTags || !showRadio)">
+        <template v-if="canEditTags">
           <!-- show as editable tags -->
           <component
             :is="AddValueTagsEdit"
             :key="componentKeyEdit"
             v-model="newValue"
-            ref="tagsEditRef"
             @change="handleTagsChange"
           />
         </template>
-        <p v-if="!showRadio" class="vertical-spacer" />
-        <template v-if="!(showRadio && inputModeIsTags)">
-          <!-- show as text -->
-          <a-input
-            v-model:value="newValue"
-            placeholder="Add a translation"
-            ref="inputToFocus"
-            @keydown.enter="onSubmit"
-            @change="handleTextChange"
+        <template v-if="tagsHaveMenus">
+          <!-- show as tags with menus -->
+          <component
+            :is="AddValueTags"
+            :key="componentKeyMenus"
+            v-model="newValue"
+            @change="handleTagsChange"
           />
         </template>
       </a-config-provider>
-    </p>
-
-    <p v-if="showRadio">
-      <label for="radio_mode">Input mode:&nbsp;&nbsp;</label>
-      <a-radio-group id="radio_mode" v-model:value="inputModeIsTags">
-        <a-tooltip placement="bottom">
-          <template #title>{{ textHelp }}</template>
-          <a-radio :value="false">Text</a-radio>
-        </a-tooltip>
-        <a-tooltip placement="bottom">
-          <template #title>{{ tagHelp }}</template>
-          <a-radio :value="true">Tags</a-radio>
-        </a-tooltip>
-      </a-radio-group>
     </p>
 
     <div class="button-container">
@@ -93,12 +84,18 @@
     <!-- Checkboxes are displayed only if user Shift-clicks on Cancel, to enable experimental tag features for testing/debugging -->
     <a-modal
       v-model:visible="formHasTagOptions"
-      width="20ch"
-      :closable="false"
+      width="30ch"
+      :closable="true"
       :footer="null"
     >
       <a-checkbox v-model:checked="useTags" @change="handleCheckboxChange"
         >use tags</a-checkbox
+      ><br />
+      <a-checkbox
+        v-model:checked="tagsHaveMenus"
+        @change="handleCheckboxChange"
+        :disabled="!useTags"
+        >tags have menus</a-checkbox
       ><br />
       <a-checkbox
         v-model:checked="canEditTags"
@@ -106,12 +103,6 @@
         :disabled="!useTags"
         >can edit tags</a-checkbox
       ><br />
-      <a-checkbox
-        v-model:checked="showRadio"
-        @change="handleCheckboxChange"
-        :disabled="!useTags"
-        >show radio</a-checkbox
-      >
     </a-modal>
   </a-modal>
 </template>
@@ -119,15 +110,17 @@
 <script setup>
 import { nextTick, ref } from "vue";
 
-// Two kinds of "tags" are supported: basic (read-only) and editable
+// Three kinds of "tags" are supported: basic (read-only), editable, and semi-editable (menu for whitespace)
 import AddValueTagsBasic from "./AddValueTagsBasic.vue";
 import AddValueTagsEdit from "./AddValueTagsEdit.vue";
+import AddValueTags from "./AddValueTags.vue";
 
 import * as cldrAddValue from "../esm/cldrAddValue.mjs";
+import * as cldrChar from "../esm/cldrChar.mjs";
 import * as cldrConstants from "../esm/cldrConstants.mjs";
 import * as cldrStatus from "../esm/cldrStatus.mjs";
 
-const DEBUG = true;
+const DEBUG = false;
 
 /**
  * If true, a tag view is available in addition to the normal text view
@@ -135,24 +128,15 @@ const DEBUG = true;
 const useTags = ref(false);
 
 /**
+ * If true, some tags (whitespace) can be clicked on to obtain a menu for switching characters
+ * (such as between ordinary space and thin space)
+ */
+const tagsHaveMenus = ref(false);
+
+/**
  * If true, tags can be edited
  */
 const canEditTags = ref(false);
-
-/**
- * If true, a pair of radio buttons enables switching between text and tag views; otherwise, if using tags,
- * tags and text are shown at the same time.
- */
-const showRadio = ref(false);
-
-/**
- * textHelp and tagHelp are only displayed if showRadio is true
- */
-const textHelp =
-  "Show the value as a text string, which can be edited using the ordinary editing features of the web browser";
-
-const tagHelp =
-  "Show the value as a sequence of tags, each tag representing a character";
 
 const xpstrid = ref(""); // xpath string id
 const newValue = ref("");
@@ -160,12 +144,10 @@ const formLeft = ref(0);
 const formTop = ref(0);
 const formIsVisible = ref(false);
 const inputToFocus = ref(null);
-const inputModeIsTags = ref(false);
 const formHasTagOptions = ref(false);
+const componentKeyMenus = ref(0);
 const componentKeyEdit = ref(0);
 const componentKeyBasic = ref(0);
-const tagsEditRef = ref();
-const tagsBasicRef = ref();
 
 const showVoteForMissing = ref(
   cldrStatus.getPermissions()?.userCanVoteForMissing
@@ -189,9 +171,7 @@ function showModal(event) {
 
 function setValue(s) {
   newValue.value = s;
-  if (!showRadio.value) {
-    handleTextChange();
-  }
+  handleTextChange();
 }
 
 function focusInput() {
@@ -236,18 +216,38 @@ function handleTagsChange() {
   // displayed, which should not be the case. Reference:
   // https://michaelnthiessen.com/force-re-render/#better-way-you-can-use-forceupdate
   componentKeyEdit.value++;
+  componentKeyMenus.value++;
 }
 
 function handleTextChange() {
-  if (!showRadio.value) {
-    componentKeyEdit.value++;
-    componentKeyBasic.value++;
+  componentKeyEdit.value++;
+  componentKeyBasic.value++;
+  componentKeyMenus.value++;
+  // Automatically turn on the tags checkbox if there is a whitespace character other than " " (U+0020)
+  if (!useTags.value) {
+    const charArray = cldrChar.split(newValue.value);
+    for (let c of charArray) {
+      if (c != " " && cldrChar.isWhiteSpace(c)) {
+        useTags.value = true;
+        handleTagsCheckboxChange();
+        break;
+      }
+    }
+  }
+}
+
+function handleTagsCheckboxChange() {
+  if (useTags.value) {
+    tagsHaveMenus.value = true;
+    canEditTags.value = false;
+  } else {
+    tagsHaveMenus.value = canEditTags.value = false;
   }
 }
 
 function handleCheckboxChange() {
   if (!useTags.value) {
-    canEditTags.value = showRadio.value = false;
+    tagsHaveMenus.value = canEditTags.value = false;
   }
 }
 
@@ -260,7 +260,6 @@ defineExpose({
 .button-container {
   display: flex;
   justify-content: space-between;
-  padding-top: 1em;
 }
 
 .vertical-spacer {

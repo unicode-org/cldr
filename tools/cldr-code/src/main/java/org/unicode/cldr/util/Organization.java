@@ -14,6 +14,12 @@ public enum Organization {
     // Please update Locales.txt for default coverage when adding an organization here.
     adlam("Winden Jangen Adlam"),
     adobe("Adobe"),
+    adyghe(
+            "Adyghe",
+            "Adyghe (Circassian) Language and Literature Association.",
+            "Адыгабзэ ыкIи Литературэ Хасэ",
+            "Adıge (Çerkes) Dili ve Edebiyatı Derneği",
+            "Ассоциация Черкесского (Адыгейского) Языка и Литературы"),
     afghan_csa("Afghan CSA"),
     afghan_mcit("Afghan MCIT"),
     afrigen("Afrigen"),

@@ -1,5 +1,5 @@
 ---
-title: 'CLDR: Big Red Switch' (BRS)
+title: 'CLDR: Big Red Switch (BRS)'
 ---
 
 # CLDR: Big Red Switch (BRS)

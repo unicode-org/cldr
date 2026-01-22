@@ -1,8 +1,8 @@
 ---
-title: 'CLDR: Big Red Switch'
+title: 'CLDR: Big Red Switch' (BRS)
 ---
 
-# CLDR: Big Red Switch
+# CLDR: Big Red Switch (BRS)
 
 The BRS (Big Red Switch) is the checklist of tasks that need to be completed in order to release the next version of CLDR.
 

@@ -80,7 +80,7 @@ public final class CollatorHelper {
             public int compare(String o1, String o2) {
                 String n1 = UCharacter.foldCase(o1, 0);
                 String n2 = UCharacter.foldCase(o2, 0);
-                return SECONDARY.compare(n1, n2);
+                return n1.compareTo(n2);
             }
         };
     }

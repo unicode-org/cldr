@@ -60,7 +60,7 @@
       <key id="alt_i"        output="\u{0F68}\u{0F71}\u{0F72}" />
       <key id="alt_I"        output="\u{0F68}\u{0F71}\u{0F72}" />
       <key id="u"            output="\u{0F68}\u{0F74}" />
-      <key id="U"            output="\u{0F68}\u{0F7}\u{0F74}" />
+      <key id="U"            output="\u{0F68}\u{0F71}\u{0F74}" />
       <key id="alt_u"        output="\u{0F68}\u{0F71}\u{0F74}" />
       <key id="alt_U"        output="\u{0F68}\u{0F71}\u{0F74}" />
       <key id="alt_r"        output="\u{0F62}\u{0FB2}\u{0F80}" />
@@ -140,16 +140,16 @@
       <key id="0"            output="\u{0F20}" />
 
     <!-- digits minus half -->
-      <key id="alt_1"        output="\u{0F2A}" />  
-      <key id="alt_2"        output="\u{0F2B}" />  
-      <key id="alt_3"        output="\u{0F2C}" />  
-      <key id="alt_4"        output="\u{0F2D}" /> 
-      <key id="alt_5"        output="\u{0F2E}" /> 
-      <key id="alt_6"        output="\u{0F2F}" /> 
-      <key id="alt_7"        output="\u{0F30}" /> 
-      <key id="alt_8"        output="\u{0F31}" /> 
-      <key id="alt_9"        output="\u{0F32}" /> 
-      <key id="alt_0"        output="\u{0F33}" /> 
+      <key id="alt_1"        output="\u{0F2A}" />
+      <key id="alt_2"        output="\u{0F2B}" />
+      <key id="alt_3"        output="\u{0F2C}" />
+      <key id="alt_4"        output="\u{0F2D}" />
+      <key id="alt_5"        output="\u{0F2E}" />
+      <key id="alt_6"        output="\u{0F2F}" />
+      <key id="alt_7"        output="\u{0F30}" />
+      <key id="alt_8"        output="\u{0F31}" />
+      <key id="alt_9"        output="\u{0F32}" />
+      <key id="alt_0"        output="\u{0F33}" />
   </keys>
 
   <layers formId="us">
@@ -203,7 +203,7 @@
       \u{0F53}-\u{0F56} \u{0F58}-\u{0F5B} \u{0F5D}-\u{0F68} \u{0F6A}
       \u{0F90}-\u{0F92} \u{0F94}-\u{0F97} \u{0F99}-\u{0F9C} \u{0F9E}-\u{0FA1}
       \u{0FA3}-\u{0FA6} \u{0FA8}-\u{0FAB} \u{0FAD}-\u{0FB8} \u{0FBA}-\u{0FBC}]" />
-    
+
     <set id="suby" value="\u{0F40} \u{0F41} \u{0F42} \u{0F54} \u{0F55} \u{0F56} \u{0F58} \u{0F62} \u{0F63} \u{0F90} \u{0F91} \u{0F92} \u{0FA4} \u{0FA6} \u{0FA8}" />
     <set id="subr" value="\u{0F40} \u{0F41} \u{0F42} \u{0F4F} \u{0F50} \u{0F51} \u{0F53} \u{0F54} \u{0F55} \u{0F56} \u{0F58} \u{0F61} \u{0F63} \u{0F64} \u{0F66} \u{0F67} \u{0F90} \u{0F91} \u{0F92} \u{0F9F} \u{0FA0} \u{0FA1} \u{0FA3} \u{0FA4} \u{0FA5} \u{0FA6} \u{0FA8} \u{0FB4} \u{0FB6} \u{0FB7}" />
     <set id="subl" value="\u{0F40} \u{0F42} \u{0F56} \u{0F5F} \u{0F61} \u{0F62} \u{0F66} \u{0F90} \u{0F92} \u{0FA6} \u{0FAF} \u{0FB6}" />
@@ -310,7 +310,7 @@
       <transform from="\m{STACK}\u{0F66}"         to="\u{0FB6}" />
       <transform from="\m{STACK}\u{0F67}"         to="\u{0FB7}" />
       <transform from="\m{STACK}\u{0F68}"         to="\u{0FB8}" />
-      <transform from="\m{STACK}\u{0F0D}"         to="\u{0F19}" />    
+      <transform from="\m{STACK}\u{0F0D}"         to="\u{0F19}" />
     </transformGroup>
 
     <transformGroup> <!-- nasals -->
@@ -386,7 +386,7 @@
     </transformGroup>
 
     <transformGroup> <!-- head l -->
-      <transform from="\u{0F63}\u{0F40}"         to="\u{0F63}\u{0F90}" /> <!-- K --> 
+      <transform from="\u{0F63}\u{0F40}"         to="\u{0F63}\u{0F90}" /> <!-- K -->
       <transform from="\u{0F63}\u{0F42}"         to="\u{0F63}\u{0F92}" /> <!-- G -->
       <transform from="\u{0F63}\u{0F44}"         to="\u{0F63}\u{0F94}" /> <!-- NG -->
       <transform from="\u{0F63}\u{0F45}"         to="\u{0F63}\u{0F95}" /> <!-- C -->
@@ -521,6 +521,6 @@
       <transform from="\u{0F8E}\m{CYCLE}"          to="\u{0F8F}" />
       <transform from="\u{0F8F}\m{CYCLE}"          to="\u{0F8E}" />
 
-    </transformGroup>   
+    </transformGroup>
   </transforms>
 </keyboard3>

@@ -993,8 +993,14 @@ public class TestDtdData extends TestFmwk {
                     // REQUIRED
                     "//keyboardTest3…/repertoire[@ type < name", // Status: value ≠ distinguished
                     // Mode: OPTIONAL ≠ REQUIRED
-                    "//keyboardTest3…/info[@ author < name" // Status: metadata ≠ distinguished
+                    "//keyboardTest3…/info[@ author < name", // Status: metadata ≠ distinguished
                     // Mode: OPTIONAL ≠ REQUIRED
+                    "//supplementalData…/dayPeriodRule[@ before < from",
+                    // Status: value ≠ distinguished    Mode: OPTIONAL
+                    "//supplementalData…/minDays[@ territories < draft",
+                    // Status: value ≠ distinguished    Mode: REQUIRED ≠ OPTIONAL
+                    "//supplementalData…/firstDay[@ territories < draft"
+                    // Status: value ≠ distinguished    Mode: REQUIRED ≠ OPTIONAL
                     );
 
     public void testAttributeOrder() {

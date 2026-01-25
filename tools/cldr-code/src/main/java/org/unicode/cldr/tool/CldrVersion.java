@@ -5,6 +5,12 @@ import com.google.common.collect.Lists;
 import com.ibm.icu.impl.locale.XCldrStub.ImmutableMap;
 import com.ibm.icu.util.VersionInfo;
 import java.io.File;
+import java.time.Instant;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.EnumSet;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
@@ -25,62 +31,63 @@ import org.unicode.cldr.util.CLDRPaths;
 // TODO merge with all other copies of the CLDR version and replace with supplemental metadata,
 // CLDR-9149
 public enum CldrVersion {
-    unknown,
-    v1_1,
-    v1_1_1,
-    v1_2,
-    v1_3,
-    v1_4,
-    v1_4_1,
-    v1_5_0_1,
-    v1_5_1,
-    v1_6_1,
-    v1_7_2,
-    v1_8_1,
-    v1_9_1,
-    v2_0_1,
-    v21_0,
-    v22_1,
-    v23_1,
-    v24_0,
-    v25_0,
-    v26_0,
-    v27_0,
-    v28_0,
-    v29_0,
-    v30_0,
-    v31_0,
-    v32_0,
-    v33_0,
-    v33_1,
-    v34_0,
-    v35_0,
-    v35_1,
-    v36_0,
-    v36_1,
-    v37_0,
-    v38_0,
-    v38_1,
-    v39_0,
-    v40_0,
-    v41_0,
-    v42_0,
-    v43_0,
-    v44_0,
-    v44_1,
-    v45_0,
-    v46_0,
-    v46_1,
-    v47_0,
-    v48_0,
+    unknown(""),
+    v1_1("2004-06-08"),
+    v1_1_1("2004-07-29"),
+    v1_2("2004-11-04"),
+    v1_3("2005-06-02"),
+    v1_4("2006-07-17"),
+    v1_4_1("2006-11-03"),
+    v1_5_0_1("2007-07-31"),
+    v1_5_1("2007-12-21"),
+    v1_6_1("2008-07-23"),
+    v1_7_2("2009-12-10"),
+    v1_8_1("2010-04-29"),
+    v1_9_1("2011-03-11"),
+    v2_0_1("2011-07-18"),
+    v21_0("2012-02-10"),
+    v22_1("2012-10-26"),
+    v23_1("2013-05-15"),
+    v24_0("2013-09-18"),
+    v25_0("2014-03-19"),
+    v26_0("2014-09-18"),
+    v27_0("2015-03-19"),
+    v28_0("2015-09-17"),
+    v29_0("2016-03-16"),
+    v30_0("2016-10-05"),
+    v31_0("2017-03-20"),
+    v32_0("2017-11-01"),
+    v33_0("2018-03-26"),
+    v33_1("2018-06-20"),
+    v34_0("2018-10-15"),
+    v35_0("2019-03-27"),
+    v35_1("2019-04-17"),
+    v36_0("2019-10-04"),
+    v36_1("2020-03-11"),
+    v37_0("2020-04-23"),
+    v38_0("2020-10-28"),
+    v38_1("2020-12-17"),
+    v39_0("2021-04-07"),
+    v40_0("2021-10-27"),
+    v41_0("2022-04-06"),
+    v42_0("2022-10-19"),
+    v43_0("2023-04-12"),
+    v44_0("2023-10-31"),
+    v44_1("2023-12-13"),
+    v45_0("2024-04-17"),
+    v46_0("2024-10-24"),
+    v46_1("2024-12-18"),
+    v47_0("2025-03-13"),
+    v48_0("2025-10-29"),
     /**
      * @see CLDRFile#GEN_VERSION
      */
-    baseline;
+    baseline("");
 
     private final String baseDirectory;
     private final String dotName;
     private final VersionInfo versionInfo;
+    private final Instant date;
 
     /**
      * Get the closest available version (successively dropping lower-significance values) We do
@@ -118,6 +125,16 @@ public enum CldrVersion {
                         : versionString);
     }
 
+    public Instant getDate() {
+        return date;
+    }
+
+    static final ZoneId Z = ZoneId.of("GMT");
+
+    public int getYear() {
+        return ZonedDateTime.ofInstant(date, Z).getYear();
+    }
+
     public VersionInfo getVersionInfo() {
         return versionInfo;
     }
@@ -135,7 +152,7 @@ public enum CldrVersion {
         return compareTo(other) < 0;
     }
 
-    private CldrVersion() {
+    private CldrVersion(String date) {
         String oldName = name();
         if (oldName.charAt(0) == 'v') {
             dotName = oldName.substring(1).replace('_', '.');
@@ -147,12 +164,14 @@ public enum CldrVersion {
             final VersionInfo cldrVersion = VersionInfo.getInstance(CLDRFile.GEN_VERSION);
             versionInfo = "baseline".equals(oldName) ? cldrVersion : VersionInfo.getInstance(0);
         }
+        this.date = date.isEmpty() ? null : Instant.parse(date + "T00:00:00Z");
     }
 
     public static final CldrVersion LAST_RELEASE_VERSION = values()[values().length - 2];
     public static final List<CldrVersion> CLDR_VERSIONS_ASCENDING;
     public static final List<CldrVersion> CLDR_VERSIONS_DESCENDING;
     private static final Map<VersionInfo, CldrVersion> versionInfoToCldrVersion;
+    public static final List<CldrVersion> LAST_RELEASE_EACH_YEAR;
 
     static {
         EnumSet<CldrVersion> temp = EnumSet.allOf(CldrVersion.class);
@@ -176,6 +195,22 @@ public enum CldrVersion {
             }
         }
         versionInfoToCldrVersion = ImmutableMap.copyOf(temp2);
+
+        List<CldrVersion> lastReleaseEachYear = new ArrayList<>();
+        int lastYear = -1;
+        ArrayList<CldrVersion> descending = new ArrayList<>(Arrays.asList(CldrVersion.values()));
+        Collections.reverse(descending);
+        for (CldrVersion v : descending) {
+            if (v == CldrVersion.baseline || v == CldrVersion.unknown) {
+                continue;
+            }
+            int year = v.getYear();
+            if (year != lastYear) {
+                lastReleaseEachYear.add(v);
+                lastYear = year;
+            }
+        }
+        LAST_RELEASE_EACH_YEAR = List.copyOf(lastReleaseEachYear);
     }
 
     public List<File> getPathsForFactory() {

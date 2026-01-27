@@ -1,37 +1,20 @@
 <template>
   <template v-for="(tag, index) in tagArray" :key="index">
-    <a-input
-      v-if="visibleInputIndex === index"
-      ref="tagInputRef"
-      v-model:value="newTagText"
-      type="text"
-      size="small"
-      class="new-tag-input"
-      v-focus
-      @blur="handleInputConfirm(index)"
-      @keyup.enter="handleInputConfirm(index)"
-    />
-    <a-tag v-else class="new-tag-plus" @click="visibleInputIndex = index">
-      +
-    </a-tag>
-    <template v-if="index + 1 < tagArray.length">
-      <a-tag
-        :closable="true"
-        @close="deleteTag(index)"
-        @click="handleClickTag($event, index)"
-        class="regular-tag"
-      >
+    <template v-if="tagIsClickable(tag)">
+      <a-tag @click="handleClickTag($event, index)" class="regular-tag">
         <a-tooltip>
           <template #title> {{ tagTooltip(tag) }} </template>
-          {{ displayTag(tag) }}
+          {{ displayTag(tag, index) }}
         </a-tooltip>
       </a-tag>
     </template>
+    <template v-else> {{ tag }} </template>
   </template>
   <!-- Clicking a tag brings up a menu to change its value -->
   <a-modal
     v-model:visible="menuIsVisible"
     width="50ch"
+    autofocus
     :closable="true"
     :footer="null"
     :style="{
@@ -58,10 +41,7 @@ import { onMounted, ref } from "vue";
 
 import * as cldrChar from "../esm/cldrChar.mjs";
 
-const DEBUG = true;
-
-// The END_TAG is not displayed; it serves only for [+] adding a new tag at the end
-const END_TAG = "end";
+const DEBUG = false;
 
 const props = defineProps({
   modelValue: String,
@@ -75,39 +55,7 @@ function mounted() {
 
 const emit = defineEmits(["change", "update:modelValue"]);
 
-const tagArray = ref([END_TAG]);
-const newTagText = ref("");
-const visibleInputIndex = ref(-1);
-const tagInputRef = ref(null);
-
-// Enable any element with v-focus to become focused automatically. In particular, the
-// element with ref=tagInputRef gets the blinking cursor without needing the user to click in it.
-const vFocus = {
-  mounted: (el) => el.focus(),
-};
-
-function deleteTag(index) {
-  tagArray.value.splice(index, 1);
-  if (DEBUG) {
-    console.log("deleteTag: index = " + index + "; tags = " + tagArray.value);
-  }
-  updateParent();
-}
-
-function handleInputConfirm(index) {
-  const s = processInput(newTagText.value);
-  if (s) {
-    tagArray.value.splice(index, 0, s);
-    if (DEBUG) {
-      console.log(
-        "handleInputConfirm index = " + index + "; tags = " + tagArray.value
-      );
-    }
-  }
-  visibleInputIndex.value = -1;
-  newTagText.value = "";
-  updateParent();
-}
+const tagArray = ref([]);
 
 function updateParent() {
   emit("change");
@@ -115,53 +63,93 @@ function updateParent() {
 }
 
 /**
- * Whenever the tags change, update the text string value, in case the user
- * switches to Text mode or presses the Submit button. (Alternatively, we
- * could wait for one of those events to occur, however that might need tighter
- * coupling with the parent component.)
+ * Update the text string to agree with the tags
  */
 function convertTagsToText() {
-  // Omit END_TAG, hence "-1"
-  const text = tagArray.value.slice(0, -1).join("");
+  const text = tagArray.value.join("");
   if (DEBUG) {
     console.log(
-      "convertTagsToText: tags = " + tagArray.value + "; text = " + text
+      "AddValueTags.convertTagsToText: tags = " +
+        tagArray.value +
+        "; text = " +
+        text
     );
   }
   return text;
 }
 
+/**
+ * Update the tags to agree with the text string
+ */
 function convertTextToTags(text) {
-  // Currently each character becomes a tag.
-  // In the future some sequences of characters might be combined into single tags.
-  const tags = cldrChar.split(text);
-  tags.push(END_TAG);
+  if (DEBUG) {
+    console.log("AddValueTags.convertTextToTags: Hello!");
+  }
+  // Each whitespace character becomes a tag. Each sequence of other characters is combined into a tag.
+  // Example: "abc xyz" becomes three tags: ["abc", " ", "xyz"].
+  const tags = [];
+  let combined = "";
+  const charArray = cldrChar.split(text);
+  for (let c of charArray) {
+    if (cldrChar.isWhiteSpace(c)) {
+      if (combined.length != 0) {
+        tags.push(combined);
+        combined = "";
+      }
+      tags.push(c);
+    } else {
+      combined += c;
+    }
+  }
+  if (combined.length != 0) {
+    tags.push(combined);
+  }
   tagArray.value = tags;
   if (DEBUG) {
-    console.log("convertTextToTags: text = " + text + "; tags = " + tags);
+    console.log(
+      "AddValueTags.convertTextToTags: text = " +
+        text +
+        "; tags = " +
+        tags +
+        "; tagArray.value = " +
+        tagArray.value
+    );
   }
 }
 
-function processInput(s) {
-  const c = cldrChar.fromUPlus(s);
-  if (c) {
-    return c;
-  }
-  return s;
+function tagIsClickable(tag) {
+  const codePoint = cldrChar.firstCodePoint(tag);
+  return cldrChar.isWhiteSpace(codePoint);
 }
 
-function displayTag(tag) {
+function displayTag(tag, index) {
   const codePoint = cldrChar.firstCodePoint(tag);
   if (cldrChar.isWhiteSpace(codePoint)) {
+    if (DEBUG) {
+      console.log(
+        "AddValueTags.displayTag (index = " +
+          index +
+          "): whitespace " +
+          cldrChar.name(codePoint)
+      );
+    }
     return cldrChar.name(codePoint);
   } else {
+    console.log(
+      "AddValueTags.displayTag (index = " + index + "): NOT whitespace " + tag
+    );
     return tag;
   }
 }
 
 function tagTooltip(tag) {
   const codePoint = cldrChar.firstCodePoint(tag);
-  return cldrChar.uPlus(codePoint) + " " + cldrChar.name(codePoint);
+  return (
+    cldrChar.name(codePoint) +
+    " (" +
+    cldrChar.uPlus(codePoint) +
+    "): click to choose alternative"
+  );
 }
 
 const menuIsVisible = ref(false);
@@ -219,17 +207,6 @@ function handleChooseCharacter(codePoint) {
 
 <style scoped>
 .regular-tag {
-  margin: 0 3px 0 0;
-}
-
-.new-tag-input {
-  width: 78px;
-  margin: 0 3px 0 0;
-}
-
-.new-tag-plus {
-  background: #fff;
-  border-style: dashed;
-  margin: 0 3px 0 0;
+  margin: 0 3px 0 3px;
 }
 </style>

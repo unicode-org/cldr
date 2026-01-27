@@ -28,37 +28,37 @@ The following table lists the files for each released version. For license infor
 | 42 | 2022-10-19 | [v42][] | [CLDR42][] | [Charts42][] | [LDML42][] | [Δ42][] | [release-42][] | [ΔDtd42][] | [42.0.0][] |
 | 41 | 2022-04-06 | [v41][] | [CLDR41][] | [Charts41][] | [LDML41][] | [Δ41][] | [release-41][] | [ΔDtd41][] | [41.0.0][] |
 | 40 | 2021-10-27 | [v40][] | [CLDR40][]| [Charts40][] | [LDML40][] | [Δ40][] | [release-40][] | [ΔDtd40][] | [40.0.0][] |
-| 39 | 2021-04-07 | [v39][] | [CLDR39][] | [Charts39][] | [LDML39][] | [Δ39][] | [release-39][] | [ΔDtd39][] | [39.0.0][] |
-| 38.1 | 2020-12-17  | [v38.1][] | [CLDR38.1][] | [Charts38.1][] | [LDML38][] | [Δ38.1][] | [release-38-1][] | [ΔDtd38.1][] | [38.1.0][] |
-| 38 | 2020-10-28  | [v38][] | [CLDR38][] | [Charts38][] | [LDML38][] | [Δ38][] | [ΔDtd38][] | [38.0.0][] |
-| 37 | 2020-04-23 | [v37][]| [CLDR37][] | [Charts37][] | [LDML37][] | [Δ37][] | [release-37][] | [ΔDtd37][] | [37.0.0][] |
-| 36.1 | 2020-03-11 | v36.1 | [CLDR36.1][] | [Charts36.1][] | [LDML36][] | [Δ36.1][] | [release-36-1][] | [ΔDtd36.1][] | n/a |
-| 36 | 2019-10-04 | [v36][] | [CLDR36][] | [Charts36][] | [LDML36][] | [Δ36][]| [release-36][] | [ΔDtd36][] | [36.0.0][] |
-| 35.1 | 2019-04-17 | [v35.1][] | [CLDR35.1][]| [Charts35.1][] | [LDML35][] | [Δ35.1][] | [release-35-1][] | [ΔDtd35][]| [35.1.0][] |
-| 35 | 2019-03-27 | [v35][] | [CLDR35][]| [Charts35.1][] | [LDML35][] | [Δ35][] | [release-35][] | [ΔDtd35][]| [35.0.0][] |
-| 34 | 2018-10-15 | [v34][] | [CLDR34][] | [Charts34][] | [LDML34][] | [~~Δ34~~][] | [release-34][] | [ΔDtd34][] | [34.0.0][] |
-| 33.1 | 2018-06-20 | [v33.1][] | [CLDR33.1][] | [Charts34*][] | [LDML33*][] | [~~Δ33.1~~][] | [release-33-1][] | [ΔDtd33][] [*][] | n/a |
-| 33 | 2018-03-26 | [v33][] | [CLDR33][]| [Charts33][] | [LDML33][] | [~~Δ33~~][] | [release-33][] | [ΔDtd33][] | n/a |
+| 39 | 2021-04-07 | [v39][] | [CLDR39][] | [Charts39.zip][] | [LDML39][] | [Δ39][] | [release-39][] | [ΔDtd39][] | [39.0.0][] |
+| 38.1 | 2020-12-17  | [v38.1][] | [CLDR38.1][] | [Charts38.1.zip][] | [LDML38][] | [Δ38.1][] | [release-38-1][] | [ΔDtd38.1][] | [38.1.0][] |
+| 38 | 2020-10-28  | [v38][] | [CLDR38][] | [Charts38.zip][] | [LDML38][] | [Δ38][] | [ΔDtd38][] | [38.0.0][] |
+| 37 | 2020-04-23 | [v37][]| [CLDR37][] | [Charts37.zip][] | [LDML37][] | [Δ37][] | [release-37][] | [ΔDtd37][] | [37.0.0][] |
+| 36.1 | 2020-03-11 | v36.1 | [CLDR36.1][] | [Charts36.1.zip][] | [LDML36][] | [Δ36.1][] | [release-36-1][] | [ΔDtd36.1][] | n/a |
+| 36 | 2019-10-04 | [v36][] | [CLDR36][] | [Charts36.zip][] | [LDML36][] | [Δ36][]| [release-36][] | [ΔDtd36][] | [36.0.0][] |
+| 35.1 | 2019-04-17 | [v35.1][] | [CLDR35.1][]| [Charts35.1.zip][] | [LDML35][] | [Δ35.1][] | [release-35-1][] | [ΔDtd35][]| [35.1.0][] |
+| 35 | 2019-03-27 | [v35][] | [CLDR35][]| [Charts35.1.zip][] | [LDML35][] | [Δ35][] | [release-35][] | [ΔDtd35][]| [35.0.0][] |
+| 34 | 2018-10-15 | [v34][] | [CLDR34][] | [Charts34.zip][] | [LDML34][] | [~~Δ34~~][] | [release-34][] | [ΔDtd34][] | [34.0.0][] |
+| 33.1 | 2018-06-20 | [v33.1][] | [CLDR33.1][] | [Charts34.zip*][] | [LDML33*][] | [~~Δ33.1~~][] | [release-33-1][] | [ΔDtd33][] [*][] | n/a |
+| 33 | 2018-03-26 | [v33][] | [CLDR33][]| [Charts33.zip][] | [LDML33][] | [~~Δ33~~][] | [release-33][] | [ΔDtd33][] | n/a |
 | 32.0.1 | 2017-12-08 | [v32][] | [CLDR32.0.1][] | [Charts32][] | [LDML32][] | [~~Δ32.0.1~~][] | [release-32-0-1][] | [ΔDtd32][] | n/a |
-| 32 | 2017-11-01 | [v32][] | [CLDR32][] | [Charts32][] | [LDML32][] | [~~Δ32~~][] | [release-32][] | [ΔDtd32][] | [32.0.0][] |
-| 31.0.1 | 2017-04-07 | [v31][] | [CLDR31.0.1][] | [Charts31][] | [LDML31][] | [~~Δ31.0.1~~][] | [release-31-0-1][] |   | [31.0.1][] |
-| 31 | 2017-03-20 | [v31][] | [CLDR31][] | [Charts31][] | [LDML31][] | [~~Δ31~~][] | [release-31][] |   | [31.0.0][] |
-| 30.0.3 | 2016-12-02 | v30 | [CLDR30.0.3][] | [Charts30][] | [LDML30][] | [~~Δ30.0.3~~][] | [release-30-0-3][] |   | n/a |
-| 30.0.2 | 2016-10-17 | v30 | [CLDR30.0.2][] | [Charts30][] | [LDML30][] | [~~Δ30.0.2~~][] | [release-30-0-2][] |   | [30.0.2][] |
-| 30.0.1 | 2016-10-14 | v30 | [CLDR30.0.1][] | [Charts30][] | [LDML30][] | [~~Δ30.0.1~~][] | [release-30-0-1][] |   | [31.0.1][] |
-| 30 | 2016-10-05 | v30 | [CLDR30][] | [Charts30][] | [LDML30][] | [~~Δ30~~][] | [release-30][] |   | [30.0.0][] |
-| 29 | 2016-03-16 | v29 | [CLDR29][] | [Charts29][] | [LDML29][] | [~~Δ29~~][] | [release-29][] |   | n/a |
-| 28 | 2015-09-17 | v28 | [CLDR28][] | [Charts28][] | [LDML28][] | [~~Δ28~~][] | [release-28][] |   | [28.0.0][] |
-| 27-0-1 | 2015-03-30 | v27 | [CLDR27.0.1][] | [Charts27][] | [LDML27][] | [~~Δ27.0.1~~][] | [release-27-0-1][] |   | [27.0.1][] [27.0.3][] |
-| 27 | 2015-03-19 | v27 | [CLDR27][] | [Charts27][] | [LDML27][] | [~~Δ27~~][] | [release-27][] |   | [27.0.0][] |
-| 26.0.1 | 2014-12-04 | v26.0.1 | [CLDR26.0.1][] | [Charts26][] | [LDML26][] | ~~n/a~~ | [release-26-0-1][] |   | n/a |
-| 26 | 2014-09-18 | v26 | [CLDR26][] | [Charts26][] | [LDML26][] | [~~Δ26~~][] | [release-26][] |   | n/a |
-| 25 | 2014-03-19 | v25 | [CLDR25][] | [Charts25][]| [LDML25][] | [~~Δ25~~][] | [release-25][] |   | n/a |
-| 24 | 2013-09-18 | v24 | [CLDR24][] | [Charts24][] | [LDML24][] | [~~Δ24~~][] | [release-24][] |   | n/a |
-| 23.1 | 2013-05-15 | v23.1 | [CLDR23.1][] | [Charts23.1][] | [LDML23][] | [~~Δ23.1~~][] | [release-23-1][] |   | n/a |
-| 23 | 2013-03-15 | v23 | [CLDR23][] | [Charts23][] | [LDML23][] | [~~Δ23~~][] | [release-23][] |   | n/a |
-| 22.1 | 2012-10-26 | v22.1 | [CLDR22.1][] | [Charts22.1][] | [LDML22.1][] | [~~Δ22.1~~][] | [release-22-1][] |   | n/a |
-| 22 | 2012-09-10 | v22 | [CLDR22][] | [Charts22][] | [LDML22][] | [~~Δ22~~][] | [release-22][] |   | n/a |
+| 32 | 2017-11-01 | [v32][] | [CLDR32][] | [Charts32.zip][] | [LDML32][] | [~~Δ32~~][] | [release-32][] | [ΔDtd32][] | [32.0.0][] |
+| 31.0.1 | 2017-04-07 | [v31][] | [CLDR31.0.1][] | [Charts31.zip][] | [LDML31][] | [~~Δ31.0.1~~][] | [release-31-0-1][] |   | [31.0.1][] |
+| 31 | 2017-03-20 | [v31][] | [CLDR31][] | [Charts31.zip][] | [LDML31][] | [~~Δ31~~][] | [release-31][] |   | [31.0.0][] |
+| 30.0.3 | 2016-12-02 | v30 | [CLDR30.0.3][] | [Charts30.zip][] | [LDML30][] | [~~Δ30.0.3~~][] | [release-30-0-3][] |   | n/a |
+| 30.0.2 | 2016-10-17 | v30 | [CLDR30.0.2][] | [Charts30.zip][] | [LDML30][] | [~~Δ30.0.2~~][] | [release-30-0-2][] |   | [30.0.2][] |
+| 30.0.1 | 2016-10-14 | v30 | [CLDR30.0.1][] | [Charts30.zip][] | [LDML30][] | [~~Δ30.0.1~~][] | [release-30-0-1][] |   | [31.0.1][] |
+| 30 | 2016-10-05 | v30 | [CLDR30][] | [Charts30.zip][] | [LDML30][] | [~~Δ30~~][] | [release-30][] |   | [30.0.0][] |
+| 29 | 2016-03-16 | v29 | [CLDR29][] | [Charts29.zip][] | [LDML29][] | [~~Δ29~~][] | [release-29][] |   | n/a |
+| 28 | 2015-09-17 | v28 | [CLDR28][] | [Charts28.zip][] | [LDML28][] | [~~Δ28~~][] | [release-28][] |   | [28.0.0][] |
+| 27-0-1 | 2015-03-30 | v27 | [CLDR27.0.1][] | [Charts27.zip][] | [LDML27][] | [~~Δ27.0.1~~][] | [release-27-0-1][] |   | [27.0.1][] [27.0.3][] |
+| 27 | 2015-03-19 | v27 | [CLDR27][] | [Charts27.zip][] | [LDML27][] | [~~Δ27~~][] | [release-27][] |   | [27.0.0][] |
+| 26.0.1 | 2014-12-04 | v26.0.1 | [CLDR26.0.1][] | [Charts26.zip][] | [LDML26][] | ~~n/a~~ | [release-26-0-1][] |   | n/a |
+| 26 | 2014-09-18 | v26 | [CLDR26][] | [Charts26.zip][] | [LDML26][] | [~~Δ26~~][] | [release-26][] |   | n/a |
+| 25 | 2014-03-19 | v25 | [CLDR25][] | [Charts25.zip][]| [LDML25][] | [~~Δ25~~][] | [release-25][] |   | n/a |
+| 24 | 2013-09-18 | v24 | [CLDR24][] | [Charts24.zip][] | [LDML24][] | [~~Δ24~~][] | [release-24][] |   | n/a |
+| 23.1 | 2013-05-15 | v23.1 | [CLDR23.1][] | [Charts23.1.zip][] | [LDML23][] | [~~Δ23.1~~][] | [release-23-1][] |   | n/a |
+| 23 | 2013-03-15 | v23 | [CLDR23][] | [Charts23.zip][] | [LDML23][] | [~~Δ23~~][] | [release-23][] |   | n/a |
+| 22.1 | 2012-10-26 | v22.1 | [CLDR22.1][] | [Charts22.1.zip][] | [LDML22.1][] | [~~Δ22.1~~][] | [release-22-1][] |   | n/a |
+| 22 | 2012-09-10 | v22 | [CLDR22][] | [Charts22.zip][] | [LDML22][] | [~~Δ22~~][] | [release-22][] |   | n/a |
 | 21.0.2 | 2012-06-06 | v21.0.2 | via SVN |   | [LDML21.0.1][] | [~~Δ21.0.2~~][] | [release-21-0-2][] |   | n/a |
 | 21.0.1 | 2012-03-21 | v21.0.1 | via SVN |   | [LDML21.0.1][] | [~~Δ21.0.1~~][] | [release-21-0-1][] |   | n/a |
 | 21.0 | 2012-02-10 | v21 | [CLDR21][]|   | [LDML21][] | [~~Δ21~~][] | [release-21][] |   | n/a |
@@ -353,7 +353,7 @@ The 1.0 version of CLDR is described here for historical interest only. It was h
 <!-- 39 release: 2021-04-07 -->
 [v39]: /index/downloads/cldr-39
 [CLDR39]: https://unicode.org/Public/cldr/39/
-[Charts39]: https://www.unicode.org/cldr/charts/39/
+[Charts39.zip]: https://www.unicode.org/cldr/charts/39/
 [LDML39]: https://www.unicode.org/reports/tr35/tr35-63/tr35.html
 [Δ39]: https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2239%22%20ORDER%20BY%20component%20ASC%2C%20priority%20DESC%2C%20created%20ASC
 [release-39]: https://github.com/unicode-org/cldr/tree/release-39
@@ -363,7 +363,7 @@ The 1.0 version of CLDR is described here for historical interest only. It was h
 <!-- 38.1 release: 2020-12-17 -->
 [v38.1]: /index/downloads/cldr-38?pli=1#TOC-CLDR-38.1
 [CLDR38.1]: https://unicode.org/Public/cldr/38.1
-[Charts38.1]: https://www.unicode.org/cldr/charts/38.1/index.html
+[Charts38.1.zip]: https://www.unicode.org/cldr/charts/38.1/index.html
 [LDML38]: https://www.unicode.org/reports/tr35/tr35-61/tr35.html
 [Δ38.1]: https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2238%2E1%22%20ORDER%20BY%20component%20ASC%2C%20priority%20DESC%2C%20created%20ASC
 [release-38-1]: https://github.com/unicode-org/cldr/tree/release-38-1
@@ -373,7 +373,7 @@ The 1.0 version of CLDR is described here for historical interest only. It was h
 <!-- 38 release: 2020-10-28 -->
 [v38]: /index/downloads/cldr-38
 [CLDR38]: https://unicode.org/Public/cldr/38/
-[Charts38]: https://www.unicode.org/cldr/charts/38/
+[Charts38.zip]: https://www.unicode.org/cldr/charts/38/
 [LDML38]: https://www.unicode.org/reports/tr35/tr35-61/tr35.html
 [Δ38]: https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2238%22%20ORDER%20BY%20component%20ASC%2C%20priority%20DESC%2C%20created%20ASC
 [release-38]: https://github.com/unicode-org/cldr/tree/release-38
@@ -383,7 +383,7 @@ The 1.0 version of CLDR is described here for historical interest only. It was h
 <!-- 37 release: 2020-04-23 -->
 [v37]: /index/downloads/cldr-37
 [CLDR37]: https://unicode.org/Public/cldr/37/
-[Charts37]: https://www.unicode.org/cldr/charts/37/
+[Charts37.zip]: https://www.unicode.org/cldr/charts/37/
 [LDML37]: https://www.unicode.org/reports/tr35/tr35-59/tr35.html
 [Δ37]: https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2237%22%20ORDER%20BY%20component%20ASC%2C%20priority%20DESC%2C%20created%20ASC
 [release-37]: https://github.com/unicode-org/cldr/tree/release-37
@@ -392,7 +392,7 @@ The 1.0 version of CLDR is described here for historical interest only. It was h
 
 <!-- 36.1 release: 2020-03-11 -->
 [CLDR36.1]: https://unicode.org/Public/cldr/36.1/
-[Charts36.1]: https://www.unicode.org/cldr/charts/36.1/
+[Charts36.1.zip]: https://www.unicode.org/cldr/charts/36.1/
 [LDML36]: https://www.unicode.org/reports/tr35/tr35-57/tr35.html
 [Δ36.1]: https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20fixVersion%20%3D%20%2236.1%22%20ORDER%20BY%20component%20ASC%2C%20priority%20DESC%2C%20created%20ASC
 [release-36-1]: https://github.com/unicode-org/cldr/tree/release-36-1
@@ -401,7 +401,7 @@ The 1.0 version of CLDR is described here for historical interest only. It was h
 <!-- 36 release: 2019-10-04 -->
 [v36]: /index/downloads/cldr-36
 [CLDR36]: https://unicode.org/Public/cldr/36/
-[Charts36]: https://www.unicode.org/cldr/charts/36/
+[Charts36.zip]: https://www.unicode.org/cldr/charts/36/
 [LDML36]: https://www.unicode.org/reports/tr35/tr35-57/tr35.html
 [Δ36]: https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2236%22%20ORDER%20BY%20created%20ASC
 [release-36]: https://github.com/unicode-org/cldr/tree/release-36
@@ -411,7 +411,7 @@ The 1.0 version of CLDR is described here for historical interest only. It was h
 <!-- 35.1 release: 2019-04-17 -->
 [v35.1]: /index/downloads/cldr-35?pli=1#TOC-V35.1
 [CLDR35.1]: https://unicode.org/Public/cldr/35.1/
-[Charts35.1]: https://www.unicode.org/cldr/charts/35/
+[Charts35.1.zip]: https://www.unicode.org/cldr/charts/35/
 [LDML35]: https://www.unicode.org/reports/tr35/tr35-55/tr35.html
 [Δ35.1]: https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20fixVersion%20%3D%2035.1%20ORDER%20BY%20created%20ASC
 [release-35-1]: https://github.com/unicode-org/cldr/tree/release-35-1
@@ -421,7 +421,7 @@ The 1.0 version of CLDR is described here for historical interest only. It was h
 <!-- 35 release: 2019-03-27 -->
 [v35]: /index/downloads/cldr-35
 [CLDR35]: https://unicode.org/Public/cldr/35/
-[Charts35.1]: https://www.unicode.org/cldr/charts/35/
+[Charts35.1.zip]: https://www.unicode.org/cldr/charts/35/
 [LDML35]: https://www.unicode.org/reports/tr35/tr35-55/tr35.html
 [Δ35]: https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20fixVersion%20%3D%20%2235%22%20ORDER%20BY%20created%20ASC
 [release-35]: https://github.com/unicode-org/cldr/tree/release-35
@@ -431,7 +431,7 @@ The 1.0 version of CLDR is described here for historical interest only. It was h
 <!-- 34 release: 2018-10-15 -->
 [v34]: /index/downloads/cldr-34
 [CLDR34]: https://unicode.org/Public/cldr/34/
-[Charts34]: https://www.unicode.org/cldr/charts/34/
+[Charts34.zip]: https://www.unicode.org/cldr/charts/34/
 [LDML34]: https://www.unicode.org/reports/tr35/tr35-53/tr35.html
 [~~Δ34~~]: https://unicode.org/cldr/trac/query?resolution=fixed&milestone=34&group=component&max=999
 [release-34]: https://github.com/unicode-org/cldr/releases/tag/release-34
@@ -441,7 +441,7 @@ The 1.0 version of CLDR is described here for historical interest only. It was h
 <!-- 33.1 release: 2018-06-20 -->
 [v33.1]: /index/downloads/cldr-33-1
 [CLDR33.1]: https://unicode.org/Public/cldr/33.1/
-[Charts34*]: https://www.unicode.org/cldr/charts/34/
+[Charts34.zip*]: https://www.unicode.org/cldr/charts/34/
 [LDML33*]: https://www.unicode.org/reports/tr35/tr35-51/tr35.html
 [~~Δ33.1~~]: https://unicode.org/cldr/trac/query?resolution=fixed&milestone=33.1&group=component&max=999
 [release-33-1]: https://github.com/unicode-org/cldr/releases/tag/release-33-1/
@@ -451,7 +451,7 @@ The 1.0 version of CLDR is described here for historical interest only. It was h
 <!-- 33.1 release: 2018-06-20 -->
 [v33]: /index/downloads/cldr-33
 [CLDR33]: https://unicode.org/Public/cldr/33/
-[Charts33]: https://www.unicode.org/cldr/charts/33/
+[Charts33.zip]: https://www.unicode.org/cldr/charts/33/
 [LDML33]: https://www.unicode.org/reports/tr35/tr35-51/tr35.html
 [~~Δ33~~]: https://unicode.org/cldr/trac/query?resolution=fixed&milestone=33&group=component&max=999
 [release-33]: https://github.com/unicode-org/cldr/releases/tag/release-33/
@@ -460,7 +460,7 @@ The 1.0 version of CLDR is described here for historical interest only. It was h
 <!-- 32.0.1 release: 2017-12-08 -->
 [v32]: /index/downloads/cldr-32
 [CLDR32.0.1]: https://unicode.org/Public/cldr/32.0.1/
-[Charts32]: https://www.unicode.org/cldr/charts/32/
+[Charts32.zip]: https://www.unicode.org/cldr/charts/32/
 [LDML32]: https://www.unicode.org/reports/tr35/tr35-49/tr35.html
 [~~Δ32.0.1~~]: https://unicode.org/cldr/trac/query?resolution=fixed&milestone=32.0.1&group=component&max=999
 [release-32-0-1]: https://github.com/unicode-org/cldr/releases/tag/release-32-0-1/
@@ -469,7 +469,7 @@ The 1.0 version of CLDR is described here for historical interest only. It was h
 <!-- 32 release: 2017-11-01 -->
 [v32]: /index/downloads/cldr-32
 [CLDR32]: https://unicode.org/Public/cldr/32/
-[Charts32]: https://www.unicode.org/cldr/charts/32/
+[Charts32.zip]: https://www.unicode.org/cldr/charts/32/
 [LDML32]: https://www.unicode.org/reports/tr35/tr35-49/tr35.html
 [~~Δ32~~]: https://unicode.org/cldr/trac/query?resolution=fixed&milestone=32&group=component&max=999
 [release-32]: https://github.com/unicode-org/cldr/releases/tag/release-32/
@@ -479,7 +479,7 @@ The 1.0 version of CLDR is described here for historical interest only. It was h
 <!-- 31.0.1 release: 2017-04-07 -->
 [v31]: /index/downloads/cldr-31
 [CLDR31.0.1]: https://www.unicode.org/Public/cldr/31.0.1/
-[Charts31]: https://www.unicode.org/cldr/charts/31/
+[Charts31.zip]: https://www.unicode.org/cldr/charts/31/
 [LDML31]: https://www.unicode.org/reports/tr35/tr35-47/tr35.html
 [~~Δ31.0.1~~]: https://unicode.org/cldr/trac/query?resolution=fixed&milestone=31&milestone=31.0.1&group=component&max=999&col=id&col=summary&col=owner&col=type&col=status&col=priority&col=time&order=priority
 [release-31-0-1]: https://github.com/unicode-org/cldr/releases/tag/release-31-0-1/
@@ -488,7 +488,7 @@ The 1.0 version of CLDR is described here for historical interest only. It was h
 <!-- 31 release: 2017-03-20-->
 [v31]: /index/downloads/cldr-31
 [CLDR31]: https://unicode.org/Public/cldr/31/
-[Charts31]: https://www.unicode.org/cldr/charts/31/
+[Charts31.zip]: https://www.unicode.org/cldr/charts/31/
 [LDML31]: https://www.unicode.org/reports/tr35/tr35-47/tr35.html
 [~~Δ31~~]: https://unicode.org/cldr/trac/query?resolution=fixed&milestone=31&group=component&max=999
 [release-31]: https://github.com/unicode-org/cldr/releases/tag/release-31/
@@ -496,14 +496,14 @@ The 1.0 version of CLDR is described here for historical interest only. It was h
 
 <!-- 30.0.3 release: 2016-12-02 -->
 [CLDR30.0.3]: https://unicode.org/Public/cldr/30.0.3/
-[Charts30]: https://www.unicode.org/cldr/charts/30/
+[Charts30.zip]: https://www.unicode.org/cldr/charts/30/
 [LDML30]: https://www.unicode.org/reports/tr35/tr35-45/tr35.html
 [~~Δ30.0.3~~]: https://unicode.org/cldr/trac/query?status=closed&status=reviewing&revw=!&milestone=30.0.3&group=component&max=999&col=id&col=summary&order=priority
 [release-30-0-3]: https://github.com/unicode-org/cldr/releases/tag/release-30-0-3
 
 <!-- 30.0.2 release: 2016-10-17 -->
 [CLDR30.0.2]: https://unicode.org/Public/cldr/30.0.2/
-[Charts30]: https://www.unicode.org/cldr/charts/30/
+[Charts30.zip]: https://www.unicode.org/cldr/charts/30/
 [LDML30]: https://www.unicode.org/reports/tr35/tr35-45/tr35.html
 [~~Δ30.0.2~~]: https://unicode.org/cldr/trac/query?status=closed&status=reviewing&revw=!&milestone=30.0.2&group=component&max=999&col=id&col=summary&order=priority
 [release-30-0-2]: https://github.com/unicode-org/cldr/releases/tag/release-30-0-2
@@ -511,7 +511,7 @@ The 1.0 version of CLDR is described here for historical interest only. It was h
 
 <!-- 30.0.1 release: 2016-10-14 -->
 [CLDR30.0.1]: https://unicode.org/Public/cldr/30.0.1/
-[Charts30]: https://www.unicode.org/cldr/charts/30/
+[Charts30.zip]: https://www.unicode.org/cldr/charts/30/
 [LDML30]: https://www.unicode.org/reports/tr35/tr35-45/tr35.html
 [~~Δ30.0.1~~]: https://unicode.org/cldr/trac/query?status=closed&status=reviewing&revw=!&milestone=30.0.1&group=component&max=999&col=id&col=summary&order=priority
 [release-30-0-1]: https://github.com/unicode-org/cldr/releases/tag/release-30-0-1
@@ -519,7 +519,7 @@ The 1.0 version of CLDR is described here for historical interest only. It was h
 
 <!-- 30 release: 2016-10-05 -->
 [CLDR30]: https://unicode.org/Public/cldr/30/
-[Charts30]: https://www.unicode.org/cldr/charts/30/
+[Charts30.zip]: https://www.unicode.org/cldr/charts/30/
 [LDML30]: https://www.unicode.org/reports/tr35/tr35-45/tr35.html
 [~~Δ30~~]: https://unicode.org/cldr/trac/query?status=closed&status=reviewing&resolution=fixed&milestone=30&group=component&max=999&col=id&col=summary
 [release-30]: https://github.com/unicode-org/cldr/releases/tag/release-30
@@ -527,14 +527,14 @@ The 1.0 version of CLDR is described here for historical interest only. It was h
 
 <!-- 29 release: 2016-03-16 -->
 [CLDR29]: https://unicode.org/Public/cldr/29/
-[Charts29]: https://www.unicode.org/cldr/charts/29/
+[Charts29.zip]: https://www.unicode.org/cldr/charts/29/
 [LDML29]: https://www.unicode.org/reports/tr35/tr35-43/tr35.html
 [~~Δ29~~]: https://unicode.org/cldr/trac/query?status=closed&status=reviewing&resolution=fixed&milestone=29&group=component&max=999&col=id&col=summary
 [release-29]: https://github.com/unicode-org/cldr/releases/tag/release-29
 
 <!-- 28 release: 2015-09-17 -->
 [CLDR28]: https://unicode.org/Public/cldr/28/
-[Charts28]: https://www.unicode.org/cldr/charts/28/
+[Charts28.zip]: https://www.unicode.org/cldr/charts/28/
 [LDML28]: https://www.unicode.org/reports/tr35/tr35-41/tr35.html
 [~~Δ28~~]: https://unicode.org/cldr/trac/query?status=closed&status=reviewing&resolution=fixed&milestone=28&group=component&max=999&col=id&col=summary
 [release-28]: https://github.com/unicode-org/cldr/releases/tag/release-28
@@ -542,70 +542,68 @@ The 1.0 version of CLDR is described here for historical interest only. It was h
 
 <!-- 27-0-1 release: 2015-03-30 -->
 [CLDR27.0.1]: https://unicode.org/Public/cldr/27.0.1/
-[Charts27]: https://www.unicode.org/cldr/charts/27/
+[Charts27.zip]: https://www.unicode.org/cldr/charts/27/
 [LDML27]: https://www.unicode.org/reports/tr35/tr35-39/tr35.html
 [~~Δ27.0.1~~]: https://unicode.org/cldr/trac/query?status=closed&status=reviewing&resolution=fixed&milestone=27.0.1&group=component&max=999&col=id&col=summary
 [release-27-0-1]: https://github.com/unicode-org/cldr/releases/tag/release-27-0-1
 [27.0.1]: https://github.com/unicode-org/cldr-json/releases/tag/27.0.1
 [27.0.3]: https://github.com/unicode-org/cldr-json/releases/tag/27.0.3
 [CLDR27]: https://unicode.org/Public/cldr/27/
-[Charts27]: https://www.unicode.org/cldr/charts/27/
-[LDML27]: https://www.unicode.org/reports/tr35/tr35-39/tr35.html
 [~~Δ27~~]: https://unicode.org/cldr/trac/query?status=closed&status=reviewing&resolution=fixed&milestone=27&group=component&max=999&col=id&col=summary
 [release-27]: https://github.com/unicode-org/cldr/releases/tag/release-27
 [27.0.0]: https://github.com/unicode-org/cldr-json/releases/tag/27.0.0
 
 <!-- 26.0.1 release: 2014-12-04 -->
 [CLDR26.0.1]: https://unicode.org/Public/cldr/26.0.1/
-[Charts26]: https://www.unicode.org/cldr/charts/26/index.html
+[Charts26.zip]: https://www.unicode.org/cldr/charts/26/index.html
 [LDML26]: https://www.unicode.org/reports/tr35/tr35-37/tr35.html
 [release-26-0-1]: https://github.com/unicode-org/cldr/releases/tag/release-26-0-1
 
 <!-- 26 release: 2014-09-18 -->
 [CLDR26]: https://unicode.org/Public/cldr/26/
-[Charts26]: https://www.unicode.org/cldr/charts/26/index.html
+[Charts26.zip]: https://www.unicode.org/cldr/charts/26/index.html
 [LDML26]: https://www.unicode.org/reports/tr35/tr35-37/tr35.html
 [~~Δ26~~]: https://unicode.org/cldr/trac/query?status=closed&status=reviewing&resolution=fixed&milestone=26&group=component&max=999&col=id&col=summary
 [release-26]: https://github.com/unicode-org/cldr/releases/tag/release-26
 
 <!-- 25 release: 2014-03-19 -->
 [CLDR25]: https://unicode.org/Public/cldr/25/
-[Charts25]: https://www.unicode.org/cldr/charts/25/index.html
+[Charts25.zip]: https://www.unicode.org/cldr/charts/25/index.html
 [LDML25]: https://www.unicode.org/reports/tr35/tr35-35/tr35.html
 [~~Δ25~~]: https://unicode.org/cldr/trac/query?status=closed&milestone=25dsub&milestone=25design&milestone=25M1&milestone=25rc&milestone=25final&max=900
 [release-25]: https://github.com/unicode-org/cldr/releases/tag/release-25
 
 <!-- 24 release: 2013-09-18 -->
 [CLDR24]: https://unicode.org/Public/cldr/24/
-[Charts24]: https://www.unicode.org/cldr/charts/24/index.html
+[Charts24.zip]: https://www.unicode.org/cldr/charts/24/index.html
 [LDML24]: https://www.unicode.org/reports/tr35/tr35-33/tr35.html
 [~~Δ24~~]: https://unicode.org/cldr/trac/query?status=closed&resolution=fixed&resolution=duplicate&resolution=as-designed&resolution=moot&resolution=fix-in-surveytool&milestone=24dsub&milestone=24dsub2&milestone=24dvet&milestone=24rc&milestone=24final&max=900
 [release-24]: https://github.com/unicode-org/cldr/releases/tag/release-24
 
 <!-- 23.1 release: 2013-05-15 -->
 [CLDR23.1]: https://unicode.org/Public/cldr/23.1/
-[Charts23.1]: https://www.unicode.org/cldr/charts/23.1/index.html
+[Charts23.1.zip]: https://www.unicode.org/cldr/charts/23.1/index.html
 [LDML23]: https://www.unicode.org/reports/tr35/tr35-31/tr35.html
 [~~Δ23.1~~]: https://unicode.org/cldr/trac/query?status=closed&milestone=23.1
 [release-23-1]: https://github.com/unicode-org/cldr/releases/tag/release-23-1
 
 <!-- 23 release: 2013-03-15 -->
 [CLDR23]: https://unicode.org/Public/cldr/23/
-[Charts23]: https://www.unicode.org/cldr/charts/23/index.html
+[Charts23.zip]: https://www.unicode.org/cldr/charts/23/index.html
 [LDML23]: https://www.unicode.org/reports/tr35/tr35-31/tr35.html
 [~~Δ23~~]: https://unicode.org/cldr/trac/query?max=900&milestone=23dsub&milestone=23dres&milestone=23&order=id&col=id&col=summary&col=milestone&col=type&col=status&col=priority&col=component&revw=!
 [release-23]: https://github.com/unicode-org/cldr/releases/tag/release-23
 
 <!-- 22.1 release: 2012-10-26 -->
 [CLDR22.1]: https://unicode.org/Public/cldr/22.1/
-[Charts22.1]: https://www.unicode.org/cldr/charts/22.1/index.html
+[Charts22.1.zip]: https://www.unicode.org/cldr/charts/22.1/index.html
 [LDML22.1]: https://www.unicode.org/reports/tr35/tr35-29.html
 [~~Δ22.1~~]: https://unicode.org/cldr/trac/query?status=closed&milestone=22.1
 [release-22-1]: https://github.com/unicode-org/cldr/releases/tag/release-22-1#docs
 
 <!-- 22 release: 2012-09-10 -->
 [CLDR22]: https://unicode.org/Public/cldr/22/
-[Charts22]: https://www.unicode.org/cldr/charts/22/index.html
+[Charts22.zip]: https://www.unicode.org/cldr/charts/22/index.html
 [LDML22]: https://www.unicode.org/reports/tr35/tr35-27.html
 [~~Δ22~~]: https://unicode.org/cldr/trac/query?max=900&milestone=22dvet&milestone=22dres&milestone=22&milestone=22dsub&order=priority
 [release-22]: https://github.com/unicode-org/cldr/releases/tag/release-22

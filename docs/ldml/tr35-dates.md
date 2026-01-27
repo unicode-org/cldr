@@ -1098,8 +1098,8 @@ For example, the following means that the two eras from calendar "gregorian" sho
 </calendar>
 ```
 
-Each `era` element has a `code` attribute and optional `aliases` attributes that define invariant strings for identifying the eras. These are more mnemonic than the `type` identifiers (see below).
-The `code` is unique within the calendar, and the `aliases` are space-separated identifiers, each also unique within the calendar.
+Each `era` element has a `code` attribute and optional `aliases` attributes that define stable strings for identifying the eras. These are more mnemonic than the `type` identifiers (see below).
+The `code` defines the primary identifier for the era, and `aliases` are space-separated additional identifiers. Each identifier is at most 8 characters long.
 
 The `start` date is specified in terms of the equivalent _proleptic_ Gregorian date in the format "yyyy-MM-dd", such as 1842-01-01.
 An omitted start date behaves as if start=-∞.

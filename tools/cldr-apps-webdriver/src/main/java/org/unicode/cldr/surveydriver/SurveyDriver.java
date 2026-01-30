@@ -1,7 +1,5 @@
 package org.unicode.cldr.surveydriver;
 
-import static org.junit.Assert.assertTrue;
-
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
@@ -70,8 +68,6 @@ public class SurveyDriver {
      * Configure for Survey Tool server, which can be localhost, cldr-smoke, cldr-staging, ...
      */
     static final String BASE_URL = SurveyDriverCredentials.getUrl() + "/cldr-apps/";
-    // static final String BASE_URL = "https://cldr-smoke.unicode.org/cldr-apps/";
-    // static final String BASE_URL = "https://cldr-staging.unicode.org/cldr-apps/";
 
     static final long TIME_OUT_SECONDS = SurveyDriverCredentials.getTimeOut();
     static final long SLEEP_MILLISECONDS = 100;
@@ -99,30 +95,36 @@ public class SurveyDriver {
 
     private boolean gotComprehensiveCoverage = false;
 
-    public static void runTests() {
+    public static void main(String args[]) {
         SurveyDriver s = new SurveyDriver();
         s.setUp();
         try {
             if (TEST_VETTING_TABLE) {
-                assertTrue(SurveyDriverVettingTable.testVettingTable(s));
+                assertTrue("testVettingTable", SurveyDriverVettingTable.testVettingTable(s));
             }
             if (TEST_FAST_VOTING) {
-                assertTrue(s.testFastVoting());
+                assertTrue("testFastVoting", s.testFastVoting());
             }
             if (TEST_LOCALES_AND_PAGES) {
-                assertTrue(s.testAllLocalesAndPages());
+                assertTrue("testAllLocalesAndPages", s.testAllLocalesAndPages());
             }
             if (TEST_ANNOTATION_VOTING) {
-                assertTrue(s.testAnnotationVoting());
+                assertTrue("testAnnotationVoting", s.testAnnotationVoting());
             }
             if (TEST_XML_UPLOADER) {
-                assertTrue(new SurveyDriverXMLUploader(s).testXMLUploader());
+                assertTrue("testXMLUploader", new SurveyDriverXMLUploader(s).testXMLUploader());
             }
             if (TEST_DASHBOARD) {
-                assertTrue(new SurveyDriverDashboard(s).test());
+                assertTrue("test Dashboard", new SurveyDriverDashboard(s).test());
             }
         } finally {
             s.tearDown();
+        }
+    }
+
+    static void assertTrue(String message, boolean b) {
+        if (!b) {
+            throw new RuntimeException(message + " - expected true but got false. ");
         }
     }
 
@@ -146,15 +148,15 @@ public class SurveyDriver {
             }
             sessionId = ((RemoteWebDriver) driver).getSessionId();
             SurveyDriverLog.println(
-                    "Session id = " + sessionId); // e.g., 9c0d7d317d64cb53b6eaefc70427d4d8
+                "Session id = " + sessionId); // e.g., 9c0d7d317d64cb53b6eaefc70427d4d8
         } else {
             driver = new ChromeDriver(options);
         }
         wait =
-                new WebDriverWait(
-                        driver,
-                        Duration.ofSeconds(TIME_OUT_SECONDS),
-                        Duration.ofMillis(SLEEP_MILLISECONDS));
+            new WebDriverWait(
+                driver,
+                Duration.ofSeconds(TIME_OUT_SECONDS),
+                Duration.ofMillis(SLEEP_MILLISECONDS));
         if (USE_REMOTE_WEBDRIVER) {
             userIndex = getUserIndexFromGrid(sessionId);
         }
@@ -163,7 +165,7 @@ public class SurveyDriver {
     /** Clean up when finished testing. */
     private void tearDown() {
         SurveyDriverLog.println(
-                "cldr-apps-webdriver is quitting, goodbye from sessionId " + sessionId);
+            "cldr-apps-webdriver is quitting, goodbye from sessionId " + sessionId);
         if (driver != null) {
             /*
              * This five-second sleep may not always be appropriate. It can help to see the browser for a few seconds
@@ -220,7 +222,7 @@ public class SurveyDriver {
                  * and continue wherever it occurs.
                  */
                 SurveyDriverLog.println(
-                        "Continuing main loop after StaleElementReferenceException, i = " + i);
+                    "Continuing main loop after StaleElementReferenceException, i = " + i);
             }
         }
         SurveyDriverLog.println("✅ Fast vote test passed for " + loc + ", " + page);
@@ -303,10 +305,10 @@ public class SurveyDriver {
                             break;
                         }
                         SurveyDriverLog.println(
-                                "Continuing after StaleElementReferenceException for findElement by id rowId "
-                                        + rowId
-                                        + " for "
-                                        + url);
+                            "Continuing after StaleElementReferenceException for findElement by id rowId "
+                                + rowId
+                                + " for "
+                                + url);
                         continue;
                     } catch (Exception e) {
                         SurveyDriverLog.println(e);
@@ -314,7 +316,7 @@ public class SurveyDriver {
                     }
                     if (rowEl == null) {
                         SurveyDriverLog.println(
-                                "❌ Fast vote test failed, missing row id " + rowId + " for " + url);
+                            "❌ Fast vote test failed, missing row id " + rowId + " for " + url);
                         return false;
                     }
                     try {
@@ -324,10 +326,10 @@ public class SurveyDriver {
                             break;
                         }
                         SurveyDriverLog.println(
-                                "Continuing after StaleElementReferenceException for findElement by class cellClass "
-                                        + cellClass
-                                        + " for "
-                                        + url);
+                            "Continuing after StaleElementReferenceException for findElement by class cellClass "
+                                + cellClass
+                                + " for "
+                                + url);
                         continue;
                     } catch (Exception e) {
                         SurveyDriverLog.println(e);
@@ -335,12 +337,12 @@ public class SurveyDriver {
                     }
                     if (columnEl == null) {
                         SurveyDriverLog.println(
-                                "❌ Fast vote test failed, no column "
-                                        + cellClass
-                                        + " for row "
-                                        + rowId
-                                        + " for "
-                                        + url);
+                            "❌ Fast vote test failed, no column "
+                                + cellClass
+                                + " for row "
+                                + rowId
+                                + " for "
+                                + url);
                         return false;
                     }
                     try {
@@ -350,10 +352,10 @@ public class SurveyDriver {
                             break;
                         }
                         SurveyDriverLog.println(
-                                "Continuing after StaleElementReferenceException for findElement by tagName "
-                                        + rowId
-                                        + " for "
-                                        + url);
+                            "Continuing after StaleElementReferenceException for findElement by tagName "
+                                + rowId
+                                + " for "
+                                + url);
                         continue;
                     } catch (Exception e) {
                         SurveyDriverLog.println(e);
@@ -363,17 +365,17 @@ public class SurveyDriver {
                 }
                 if (clickEl == null) {
                     SurveyDriverLog.println(
-                            "❌ Fast vote test failed, no tag "
-                                    + tagName
-                                    + " for row "
-                                    + rowId
-                                    + " for "
-                                    + url);
+                        "❌ Fast vote test failed, no tag "
+                            + tagName
+                            + " for row "
+                            + rowId
+                            + " for "
+                            + url);
                     return false;
                 }
                 clickEl =
-                        waitUntilRowCellTagElementClickable(
-                                clickEl, rowId, cellClass, tagName, url);
+                    waitUntilRowCellTagElementClickable(
+                        clickEl, rowId, cellClass, tagName, url);
                 if (clickEl == null) {
                     return false;
                 }
@@ -382,10 +384,10 @@ public class SurveyDriver {
                 } catch (Exception e) {
                     SurveyDriverLog.println(e);
                     SurveyDriverLog.println(
-                            "❌ Fast vote test failed, invisibilityOfElementLocated overlay for row "
-                                    + rowId
-                                    + " for "
-                                    + url);
+                        "❌ Fast vote test failed, invisibilityOfElementLocated overlay for row "
+                            + rowId
+                            + " for "
+                            + url);
                     return false;
                 }
                 if (firstClickTime == 0.0) {
@@ -398,18 +400,18 @@ public class SurveyDriver {
                         break;
                     }
                     SurveyDriverLog.println(
-                            "Continuing after StaleElementReferenceException for clickEl.click for row "
-                                    + rowId
-                                    + " for "
-                                    + url);
+                        "Continuing after StaleElementReferenceException for clickEl.click for row "
+                            + rowId
+                            + " for "
+                            + url);
                     continue;
                 } catch (Exception e) {
                     SurveyDriverLog.println(e);
                     SurveyDriverLog.println(
-                            "❌ Fast vote test failed, clickEl.click for row "
-                                    + rowId
-                                    + " for "
-                                    + url);
+                        "❌ Fast vote test failed, clickEl.click for row "
+                            + rowId
+                            + " for "
+                            + url);
                     return false;
                 }
                 if (doAdd) {
@@ -422,15 +424,15 @@ public class SurveyDriver {
                         WebElement inputEl = waitInputBoxAppears(rowEl, url);
                         if (inputEl == null) {
                             SurveyDriverLog.println(
-                                    "Warning: continuing, didn't see input box for " + url);
+                                "Warning: continuing, didn't see input box for " + url);
                             continue;
                         }
                         inputEl =
-                                waitUntilRowCellTagElementClickable(
-                                        inputEl, rowId, cellClass, "input", url);
+                            waitUntilRowCellTagElementClickable(
+                                inputEl, rowId, cellClass, "input", url);
                         if (inputEl == null) {
                             SurveyDriverLog.println(
-                                    "Warning: continuing, input box not clickable for " + url);
+                                "Warning: continuing, input box not clickable for " + url);
                             continue;
                         }
                         inputEl.clear();
@@ -439,10 +441,10 @@ public class SurveyDriver {
                         inputEl.sendKeys(Keys.RETURN);
                     } catch (WebDriverException e) {
                         SurveyDriverLog.println(
-                                "Continuing after WebDriverException for doAdd for row "
-                                        + rowId
-                                        + " for "
-                                        + url);
+                            "Continuing after WebDriverException for doAdd for row "
+                                + rowId
+                                + " for "
+                                + url);
                     }
                 }
             }
@@ -458,7 +460,7 @@ public class SurveyDriver {
         }
         double deltaTime = System.currentTimeMillis() - firstClickTime;
         SurveyDriverLog.println(
-                "Total time elapsed since first click = " + deltaTime / 1000.0 + " sec");
+            "Total time elapsed since first click = " + deltaTime / 1000.0 + " sec");
         return true;
     }
 
@@ -545,15 +547,15 @@ public class SurveyDriver {
     private WebElement getClickableElementByXpath(String xpath, String url) {
         try {
             wait.until(
-                    (ExpectedCondition<Boolean>)
-                            webDriver -> driver.findElement(By.xpath(xpath)) != null);
+                (ExpectedCondition<Boolean>)
+                    webDriver -> driver.findElement(By.xpath(xpath)) != null);
         } catch (Exception e) {
             SurveyDriverLog.println(e);
             SurveyDriverLog.println(
-                    "❌ Test failed, timed out waiting for element to be found by xpath "
-                            + xpath
-                            + " in url "
-                            + url);
+                "❌ Test failed, timed out waiting for element to be found by xpath "
+                    + xpath
+                    + " in url "
+                    + url);
             return null;
         }
         WebElement el;
@@ -563,10 +565,10 @@ public class SurveyDriver {
         } catch (Exception e) {
             SurveyDriverLog.println(e);
             SurveyDriverLog.println(
-                    "❌ Test failed, timed out waiting for "
-                            + xpath
-                            + " button to be clickable in "
-                            + url);
+                "❌ Test failed, timed out waiting for "
+                    + xpath
+                    + " button to be clickable in "
+                    + url);
             return null;
         }
         return el;
@@ -602,7 +604,7 @@ public class SurveyDriver {
             item.click();
         } catch (Exception e) {
             SurveyDriverLog.println(
-                    "Exception caught while trying to choose Comprehensive from Coverage menu");
+                "Exception caught while trying to choose Comprehensive from Coverage menu");
             SurveyDriverLog.println(e);
             return false;
         }
@@ -618,7 +620,7 @@ public class SurveyDriver {
          * there is INHERITANCE_MARKER without inheritedValue"
          */
         String searchString =
-                "INHERITANCE_MARKER without inheritedValue"; // formerly, "there is no Bailey Target
+            "INHERITANCE_MARKER without inheritedValue"; // formerly, "there is no Bailey Target
         // item"
 
         for (String loc : locales) {
@@ -656,21 +658,21 @@ public class SurveyDriver {
         int searchStringCount = countLogEntriesContainingString(searchString);
         if (searchStringCount > 0) {
             SurveyDriverLog.println(
-                    "❌ Test failed: "
-                            + searchStringCount
-                            + " occurrences in log of '"
-                            + searchString
-                            + "' for "
-                            + url);
+                "❌ Test failed: "
+                    + searchStringCount
+                    + " occurrences in log of '"
+                    + searchString
+                    + "' for "
+                    + url);
             return false;
         }
         SurveyDriverLog.println(
-                "✅ Test passed: zero occurrences in log of '"
-                        + searchString
-                        + "' for "
-                        + loc
-                        + ", "
-                        + page);
+            "✅ Test passed: zero occurrences in log of '"
+                + searchString
+                + "' for "
+                + loc
+                + ", "
+                + page);
 
         WebElement el = null;
         try {
@@ -755,16 +757,16 @@ public class SurveyDriver {
     public boolean waitForTitle(String s, String url) {
         try {
             wait.until(
-                    (ExpectedCondition<Boolean>)
-                            webDriver ->
-                                    (Objects.requireNonNull(webDriver).getTitle().contains(s)));
+                (ExpectedCondition<Boolean>)
+                    webDriver ->
+                        (Objects.requireNonNull(webDriver).getTitle().contains(s)));
         } catch (Exception e) {
             SurveyDriverLog.println(e);
             SurveyDriverLog.println(
-                    "❌ Test failed, maybe timed out, waiting for title to contain "
-                            + s
-                            + " in "
-                            + url);
+                "❌ Test failed, maybe timed out, waiting for title to contain "
+                    + s
+                    + " in "
+                    + url);
             return false;
         }
         return true;
@@ -780,16 +782,16 @@ public class SurveyDriver {
         String loadingId = "LoadingMessageSection";
         try {
             wait.until(
-                    (ExpectedCondition<Boolean>)
-                            webDriver ->
-                                    Objects.requireNonNull(webDriver)
-                                            .findElement(By.id(loadingId))
-                                            .getCssValue("display")
-                                            .contains("none"));
+                (ExpectedCondition<Boolean>)
+                    webDriver ->
+                        Objects.requireNonNull(webDriver)
+                            .findElement(By.id(loadingId))
+                            .getCssValue("display")
+                            .contains("none"));
         } catch (Exception e) {
             SurveyDriverLog.println(e);
             SurveyDriverLog.println(
-                    "❌ Test failed, maybe timed out, waiting for " + loadingId + " in " + url);
+                "❌ Test failed, maybe timed out, waiting for " + loadingId + " in " + url);
             return false;
         }
         return true;
@@ -841,16 +843,16 @@ public class SurveyDriver {
     public boolean waitUntilElementActive(String id, String url) {
         try {
             wait.until(
-                    (ExpectedCondition<Boolean>)
-                            webDriver -> {
-                                WebElement el =
-                                        Objects.requireNonNull(webDriver).findElement(By.id(id));
-                                return el != null && el.getAttribute("class").contains("active");
-                            });
+                (ExpectedCondition<Boolean>)
+                    webDriver -> {
+                        WebElement el =
+                            Objects.requireNonNull(webDriver).findElement(By.id(id));
+                        return el != null && el.getAttribute("class").contains("active");
+                    });
         } catch (Exception e) {
             SurveyDriverLog.println(e);
             SurveyDriverLog.println(
-                    "❌ Test failed, maybe timed out, waiting for " + id + " in " + url);
+                "❌ Test failed, maybe timed out, waiting for " + id + " in " + url);
             return false;
         }
         return true;
@@ -866,16 +868,16 @@ public class SurveyDriver {
     public boolean waitUntilElementInactive(String id, String url) {
         try {
             wait.until(
-                    (ExpectedCondition<Boolean>)
-                            webDriver -> {
-                                WebElement el =
-                                        Objects.requireNonNull(webDriver).findElement(By.id(id));
-                                return el == null || !el.getAttribute("class").contains("active");
-                            });
+                (ExpectedCondition<Boolean>)
+                    webDriver -> {
+                        WebElement el =
+                            Objects.requireNonNull(webDriver).findElement(By.id(id));
+                        return el == null || !el.getAttribute("class").contains("active");
+                    });
         } catch (Exception e) {
             SurveyDriverLog.println(e);
             SurveyDriverLog.println(
-                    "❌ Test failed, maybe timed out, waiting for inactive id " + id + " in " + url);
+                "❌ Test failed, maybe timed out, waiting for inactive id " + id + " in " + url);
             return false;
         }
         return true;
@@ -901,9 +903,9 @@ public class SurveyDriver {
             try {
                 WebElement addCell = rowEl.findElement(By.className("addcell"));
                 inputEl =
-                        wait.until(
-                                ExpectedConditions.presenceOfNestedElementLocatedBy(
-                                        addCell, By.tagName("input")));
+                    wait.until(
+                        ExpectedConditions.presenceOfNestedElementLocatedBy(
+                            addCell, By.tagName("input")));
                 /*
                  * TODO: don't wait here for 30 seconds, as sometimes happens...
                  */
@@ -912,7 +914,7 @@ public class SurveyDriver {
                     break;
                 }
                 SurveyDriverLog.println(
-                        "waitInputBoxAppears repeating for StaleElementReferenceException");
+                    "waitInputBoxAppears repeating for StaleElementReferenceException");
                 continue;
             } catch (Exception e) {
                 /*
@@ -921,7 +923,7 @@ public class SurveyDriver {
                  */
                 SurveyDriverLog.println(e);
                 SurveyDriverLog.println(
-                        "❌ Test failed, maybe timed out, waiting for input in addcell in " + url);
+                    "❌ Test failed, maybe timed out, waiting for input in addcell in " + url);
             }
             break;
         }
@@ -945,10 +947,10 @@ public class SurveyDriver {
         } catch (Exception e) {
             SurveyDriverLog.println(e);
             SurveyDriverLog.println(
-                    "❌ Test failed, maybe timed out, waiting button with class "
-                            + className
-                            + " to be clickable in "
-                            + url);
+                "❌ Test failed, maybe timed out, waiting button with class "
+                    + className
+                    + " to be clickable in "
+                    + url);
             return false;
         }
         return true;
@@ -967,10 +969,10 @@ public class SurveyDriver {
         } catch (Exception e) {
             SurveyDriverLog.println(e);
             SurveyDriverLog.println(
-                    "❌ Test failed, maybe timed out, waiting for "
-                            + el
-                            + " to be clickable in "
-                            + url);
+                "❌ Test failed, maybe timed out, waiting for "
+                    + el
+                    + " to be clickable in "
+                    + url);
             return false;
         }
         return true;
@@ -987,7 +989,7 @@ public class SurveyDriver {
      * @return the (possibly updated) clickEl for success, null for failure
      */
     public WebElement waitUntilRowCellTagElementClickable(
-            WebElement clickEl, String rowId, String cellClass, String tagName, String url) {
+        WebElement clickEl, String rowId, String cellClass, String tagName, String url) {
         int repeats = 0;
         for (; ; ) {
             try {
@@ -998,7 +1000,7 @@ public class SurveyDriver {
                     break;
                 }
                 SurveyDriverLog.println(
-                        "waitUntilRowCellTagElementClickable repeating for StaleElementReferenceException");
+                    "waitUntilRowCellTagElementClickable repeating for StaleElementReferenceException");
                 WebElement rowEl = driver.findElement(By.id(rowId));
                 WebElement columnEl = rowEl.findElement(By.className(cellClass));
                 clickEl = columnEl.findElement(By.tagName(tagName));
@@ -1007,7 +1009,7 @@ public class SurveyDriver {
                     break;
                 }
                 SurveyDriverLog.println(
-                        "waitUntilRowCellTagElementClickable repeating for NoSuchElementException");
+                    "waitUntilRowCellTagElementClickable repeating for NoSuchElementException");
                 WebElement rowEl = driver.findElement(By.id(rowId));
                 WebElement columnEl = rowEl.findElement(By.className(cellClass));
                 clickEl = columnEl.findElement(By.tagName(tagName));
@@ -1024,14 +1026,14 @@ public class SurveyDriver {
             }
         }
         SurveyDriverLog.println(
-                "❌ Test failed in waitUntilRowCellTagElementClickable for "
-                        + rowId
-                        + ","
-                        + cellClass
-                        + ","
-                        + tagName
-                        + " in "
-                        + url);
+            "❌ Test failed in waitUntilRowCellTagElementClickable for "
+                + rowId
+                + ","
+                + cellClass
+                + ","
+                + tagName
+                + " in "
+                + url);
         return null;
     }
 
@@ -1045,7 +1047,7 @@ public class SurveyDriver {
      * @param url the url we're loading
      */
     public void clickOnRowCellTagElement(
-            WebElement clickEl, String rowId, String cellClass, String tagName, String url) {
+        WebElement clickEl, String rowId, String cellClass, String tagName, String url) {
         int repeats = 0;
         for (; ; ) {
             try {
@@ -1056,21 +1058,21 @@ public class SurveyDriver {
                     break;
                 }
                 SurveyDriverLog.println(
-                        "clickOnRowCellTagElement repeating for StaleElementReferenceException for "
-                                + rowId
-                                + ","
-                                + cellClass
-                                + ","
-                                + tagName
-                                + " in "
-                                + url);
+                    "clickOnRowCellTagElement repeating for StaleElementReferenceException for "
+                        + rowId
+                        + ","
+                        + cellClass
+                        + ","
+                        + tagName
+                        + " in "
+                        + url);
                 int recreateStringCount =
-                        countLogEntriesContainingString(
-                                "insertRows: recreating table from scratch");
+                    countLogEntriesContainingString(
+                        "insertRows: recreating table from scratch");
                 SurveyDriverLog.println(
-                        "clickOnRowCellTagElement: log has "
-                                + recreateStringCount
-                                + " scratch messages");
+                    "clickOnRowCellTagElement: log has "
+                        + recreateStringCount
+                        + " scratch messages");
                 WebElement rowEl = driver.findElement(By.id(rowId));
                 WebElement columnEl = rowEl.findElement(By.className(cellClass));
                 clickEl = columnEl.findElement(By.tagName(tagName));
@@ -1080,14 +1082,14 @@ public class SurveyDriver {
             }
         }
         SurveyDriverLog.println(
-                "❗ Test failed in clickOnRowCellTagElement for "
-                        + rowId
-                        + ","
-                        + cellClass
-                        + ","
-                        + tagName
-                        + " in "
-                        + url);
+            "❗ Test failed in clickOnRowCellTagElement for "
+                + rowId
+                + ","
+                + cellClass
+                + ","
+                + tagName
+                + " in "
+                + url);
     }
 
     /**
@@ -1102,22 +1104,22 @@ public class SurveyDriver {
     public boolean waitUntilClassExists(String className, boolean checking, String url) {
         try {
             wait.until(
-                    (ExpectedCondition<Boolean>)
-                            webDriver -> {
-                                int elCount =
-                                        Objects.requireNonNull(webDriver)
-                                                .findElements(By.className(className))
-                                                .size();
-                                return checking ? (elCount > 0) : (elCount == 0);
-                            });
+                (ExpectedCondition<Boolean>)
+                    webDriver -> {
+                        int elCount =
+                            Objects.requireNonNull(webDriver)
+                                .findElements(By.className(className))
+                                .size();
+                        return checking ? (elCount > 0) : (elCount == 0);
+                    });
         } catch (Exception e) {
             SurveyDriverLog.println(e);
             SurveyDriverLog.println(
-                    "❌ Test failed, maybe timed out, waiting for class "
-                            + className
-                            + (checking ? "" : " not")
-                            + " to exist for "
-                            + url);
+                "❌ Test failed, maybe timed out, waiting for class "
+                    + className
+                    + (checking ? "" : " not")
+                    + " to exist for "
+                    + url);
             return false;
         }
         return true;
@@ -1135,22 +1137,22 @@ public class SurveyDriver {
     public boolean waitUntilIdExists(String idName, boolean checking, String url) {
         try {
             wait.until(
-                    (ExpectedCondition<Boolean>)
-                            webDriver -> {
-                                int elCount =
-                                        Objects.requireNonNull(webDriver)
-                                                .findElements(By.id(idName))
-                                                .size();
-                                return checking ? (elCount > 0) : (elCount == 0);
-                            });
+                (ExpectedCondition<Boolean>)
+                    webDriver -> {
+                        int elCount =
+                            Objects.requireNonNull(webDriver)
+                                .findElements(By.id(idName))
+                                .size();
+                        return checking ? (elCount > 0) : (elCount == 0);
+                    });
         } catch (Exception e) {
             SurveyDriverLog.println(e);
             SurveyDriverLog.println(
-                    "❌ Test failed, maybe timed out, waiting for id "
-                            + idName
-                            + (checking ? "" : " not")
-                            + " to exist for "
-                            + url);
+                "❌ Test failed, maybe timed out, waiting for id "
+                    + idName
+                    + (checking ? "" : " not")
+                    + " to exist for "
+                    + url);
             return false;
         }
         return true;
@@ -1203,10 +1205,10 @@ public class SurveyDriver {
         if (uIndex < 0) {
             uIndex = new Random().nextInt(9);
             System.out.println(
-                    "Setting user index randomly to "
-                            + uIndex
-                            + "; unable to determine from "
-                            + url);
+                "Setting user index randomly to "
+                    + uIndex
+                    + "; unable to determine from "
+                    + url);
         }
         return uIndex;
     }

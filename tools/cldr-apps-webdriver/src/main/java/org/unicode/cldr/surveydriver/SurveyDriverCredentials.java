@@ -15,15 +15,15 @@ public class SurveyDriverCredentials {
     private static final String EMAIL_PREFIX = "driver-";
 
     /**
-     * cldr-apps-webdriver/src/test/resources/org/unicode/cldr/surveydriver/surveydriver.properties
-     * -- not in version control; contains a line WEBDRIVER_PASSWORD=...
+     * A file should exist: cldr-apps-webdriver/surveydriver.properties -- not in version control;
+     * contains WEBDRIVER_PASSWORD=..., etc.
      */
     private static final String PROPS_FILENAME = "surveydriver.properties";
 
     private static final String PROPS_PASSWORD_KEY = "WEBDRIVER_PASSWORD";
     private static final String PROPS_URL_KEY = "SURVEYTOOL_URL";
-
-    private static final Object PROPS_WEBDRIVER_KEY = "WEBDRIVER_URL";
+    private static final String PROPS_WEBDRIVER_KEY = "WEBDRIVER_URL";
+    private static final String PROPS_TIME_OUT_SECONDS_KEY = "TIME_OUT_SECONDS";
     private static String webdriverPassword = null;
 
     private final String email;
@@ -67,7 +67,7 @@ public class SurveyDriverCredentials {
 
         void tryFromResource() {
             final InputStream stream =
-                    SurveyDriverCredentials.class.getResourceAsStream(PROPS_FILENAME);
+                SurveyDriverCredentials.class.getResourceAsStream(PROPS_FILENAME);
             if (stream == null) {
                 throw new RuntimeException("File not found: " + PROPS_FILENAME);
             }
@@ -98,7 +98,8 @@ public class SurveyDriverCredentials {
     }
 
     public static String getUrl() {
-        String host = getProperties().get(PROPS_URL_KEY).toString();
+        Object prop = getProperties().get(PROPS_URL_KEY);
+        String host = prop == null ? null : prop.toString();
         if (host == null || host.isEmpty()) {
             host = "http://localhost:9080";
         }
@@ -107,7 +108,8 @@ public class SurveyDriverCredentials {
     }
 
     public static String getWebdriverUrl() {
-        String host = getProperties().get(PROPS_WEBDRIVER_KEY).toString();
+        Object prop = getProperties().get(PROPS_WEBDRIVER_KEY);
+        String host = prop == null ? null : prop.toString();
         if (host == null || host.isEmpty()) {
             host = "http://localhost:4444";
         }
@@ -116,11 +118,12 @@ public class SurveyDriverCredentials {
     }
 
     public static int getTimeOut() {
-        String s = getProperties().get("TIME_OUT_SECONDS").toString();
+        Object prop = getProperties().get(PROPS_TIME_OUT_SECONDS_KEY);
+        String s = prop == null ? null : prop.toString();
         if (s == null || s.isEmpty()) {
             s = "60";
         }
-        System.out.println("TIME_OUT_SECONDS=" + s);
+        System.out.println(PROPS_TIME_OUT_SECONDS_KEY + "=" + s);
         return Integer.parseInt(s);
     }
 }

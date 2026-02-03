@@ -20,6 +20,7 @@ on:
     branches:
       - main
       - "maint/maint-*"
+      - "srl295/maint-*" # TODO for testing CLDR-19231
     tags:
       - "release-*"
     # Only run if docs change.

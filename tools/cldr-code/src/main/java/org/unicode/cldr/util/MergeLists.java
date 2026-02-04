@@ -10,8 +10,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import com.google.common.collect.ImmutableSet;
-
 public class MergeLists<T> {
 
     Collection<Collection<T>> source = new ArrayList<>();
@@ -67,8 +65,7 @@ public class MergeLists<T> {
             if (first.size() == 0) {
                 Map<T, Collection<T>> reasons = new LinkedHashMap<>();
                 getFirsts(first, reasons);
-                throw new MergeListException(
-                        "Conflicting requested ordering", reasons.values());
+                throw new MergeListException("Conflicting requested ordering", reasons.values());
             }
             // now get first item that is in first
             T best = extractFirstOk(orderedWorkingSet, first); // removes from working set
@@ -82,12 +79,13 @@ public class MergeLists<T> {
     public static class MergeListException extends IllegalArgumentException { // can't use generics
         private static final long serialVersionUID = 1L;
         public final Collection<Collection> problems;
+
         public MergeListException(String message, Collection problems) {
             super(message);
             this.problems = problems;
         }
     }
-    
+
     public static <T> boolean hasConsistentOrder(Collection<T> a, Collection<T> b) {
         LinkedHashSet<T> remainder = new LinkedHashSet<>(a);
         remainder.retainAll(b);

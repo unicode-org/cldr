@@ -113,7 +113,7 @@ jobs:
           echo "${CCC_KNOWNHOSTS}" > ${HOME}/.knownhosts && chmod go= ${HOME}/.knownhosts
           rsync -cav --delete-after -e "ssh -o UserKnownHostsFile=${HOME}/.knownhosts -i ${HOME}/.key -p ${CCC_PORT}" ./_site/ ${CCC_USER}@${CCC_HOST}:spec/$(basename ${GITHUB_REF_NAME})/
           echo "::endgroup::"
-          echo "Now go to https://cldr-smoke.unicode.org/spec/"$(basename ${GITHUB_REF_NAME})
+          echo "# Posted to https://cldr-smoke.unicode.org/spec/"$(basename ${GITHUB_REF_NAME}) | tee -a $GITHUB_STEP_SUMMARY
   deploy:
     name: "Deploy to GitHub Pages"
     # only deploy from main branch of main repo
@@ -132,9 +132,9 @@ jobs:
       group: ${{ github.workflow }}-${{ github.ref }}
       cancel-in-progress: true
   preview:
-    name: "Deploy Spec to preview"
+    name: "Deploy Spec to production"
     environment:
-      name: spec-preview
+      name: spec-production
     runs-on: ubuntu-latest
     needs: build
     steps:
@@ -145,8 +145,38 @@ jobs:
           name: tr35-spec
       - name: Unpack
         run: unzip tr35.zip
-      - name: print out meta
-        run: jq . < dist/js/metadata.json
+      - name: Extract Metadata
+        id: metadata
+        run: |
+          # dump all metadata
+          jq . < dist/js/metadata.json
+          (echo -n 'revision=' ; jq -r .info.revision < dist/js/metadata.json) | tee -a $GITHUB_OUTPUT
+      - name: Setup ssh
+        # For the host key verification of ssh behind rsync.
+        run: |
+          mkdir ~/.ssh
+          echo "sarasvati.unicode.org ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBGx+XeCMGtRbA7X26EVcYG41zQrZmM05Vw5I0zISPqz9f+94Vlm4P26hsmY/DCA1j4EMlbbiISqRqzbLfAz1s5s=" >> ~/.ssh/known_hosts
+          echo "cldr-smoke.unicode.org ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBKebRPtFh4wfiya5UX+8OGJorbdu66PeXASGLvgmSMgewsBF0LwS2r5qcMlv11LdSQh/PrP0gWndmG7bBOQOZj0=" >> ~/.ssh/known_hosts
+          echo "${SSH_KEY}" | base64 -d > ~/.ssh/id_rsa
+          md5sum ~/.ssh/id_rsa
+          echo "Host ${{ vars.SSH_HOST }}" >> ~/.ssh/config
+          echo " User ${{ vars.SSH_USER }}" >> ~/.ssh/config
+          echo " Port ${{ vars.SSH_PORT }}" >> ~/.ssh/config
+          echo " IdentityFile ${HOME}/.ssh/id_rsa" >> ~/.ssh/config
+          cat ~/.ssh/config
+          chmod -R go= ~/.ssh
+        env:
+          SSH_KEY: ${{ secrets.SSH_KEY }}
+
+      - name: Sync files to server
+        run: |
+          rsync --recursive --delete --delete-after --verbose --verbose \
+          dist/ \
+          ${{ vars.SSH_HOST }}:public_html/reports/tr35/tr35-${{ steps.metadata.outputs.revision }}/
+      - name: Upload revision
+        run: |
+          echo "- Production: https://${{ vars.SSH_HOST }}/reports/tr35/tr35-${{ steps.metadata.outputs.revision }}/tr35.html" | tee -a $GITHUB_STEP_SUMMARY
+          echo "- TODO CLDR-19231 Currently: https://${{ vars.SSH_HOST }}/~${{ vars.SSH_USER }}/reports/tr35/tr35-${{ steps.metadata.outputs.revision }}/tr35.html" | tee -a $GITHUB_STEP_SUMMARY
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
       cancel-in-progress: true

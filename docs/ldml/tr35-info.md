@@ -2,7 +2,7 @@
 
 # Unicode Locale Data Markup Language (LDML)<br/>Part 6: Supplemental
 
-|Version|49 (draft) |
+|Version|48.2 (draft) |
 |-------|-----------|
 |Editors|Steven Loomis (<a href="mailto:srloomis@unicode.org">srloomis@unicode.org</a>) and <a href="tr35-acknowledgments.md#acknowledgments">other CLDR committee members|
 

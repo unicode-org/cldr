@@ -2,7 +2,7 @@
 
 # Unicode Locale Data Markup Language (LDML)<br/>Part 8: Person Names
 
-|Version|49 (draft)              |
+|Version|48.2 (draft)              |
 |-------|------------------------|
 |Editors|Mark Davis, Peter Edberg,  Rich Gillam, Alex Kolisnychenko, Mike McKenna and [other CLDR committee members](tr35-acknowledgments.md#acknowledgments)|
 

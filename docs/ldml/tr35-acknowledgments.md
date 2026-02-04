@@ -2,7 +2,7 @@
 
 # Unicode Locale Data Markup Language (LDML)<br/>Appendix B: Acknowledgments
 
-|Version|49 (draft)|
+|Version|48.2 (draft)|
 |-------|----------|
 |Editors|<a href="tr35-acknowledgments.md#acknowledgments">CLDR committee members|
 

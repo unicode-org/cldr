@@ -96,7 +96,7 @@ jobs:
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: actions/upload-pages-artifact@v3
       - name: Deploy to Smoketest
-        if: github.repository == 'unicode-org/cldr' && github.event_name == 'push'
+        if: github.repository == 'unicode-org/cldr' && github.event_name == 'push' && false # TODO CLDR-19231
         shell: bash
         env:
           RSA_KEY_CCC: ${{ secrets.RSA_KEY_CCC }}
@@ -128,6 +128,25 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4.0.5
     # only run one deployment at once.
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+      cancel-in-progress: true
+  preview:
+    name: "Deploy Spec to preview"
+    environment:
+      name: spec-preview
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      #note: no checkout needed.
+      - name: Download TR35.zip
+        uses: actions/download-artifact@v4
+        with:
+          name: tr35-spec
+      - name: Unpack
+        run: unzip tr35.zip
+      - name: print out meta
+        run: jq . < dist/js/metadata.json
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
       cancel-in-progress: true

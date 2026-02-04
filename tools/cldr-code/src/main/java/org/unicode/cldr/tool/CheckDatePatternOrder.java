@@ -190,7 +190,8 @@ public class CheckDatePatternOrder {
             try {
                 List<DatetimeGroup> result = mergeList.merge();
                 System.out.println(
-                        Joiners.TAB.join(namer.getNameFromIdentifier(locale), locale, result));
+                        Joiners.TAB.join(
+                                namer.getNameFromIdentifier(locale), locale, result, "none"));
             } catch (MergeListException e) {
                 List<List<DatetimeGroup>> minimizedProblems =
                         minimize(createTypedList(e.problems, DatetimeGroup.class));

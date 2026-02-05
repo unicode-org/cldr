@@ -67,11 +67,13 @@ The LDML specification is divided into the following parts:
 
 **Changes in LDML Version 48.2 (Differences from Version 48.1)**
 
+<!-- CLDR-19231 reformatted/simplified tr35.md version block to improve deployment-->
+
 * (TBD)
 
 **Changes in LDML Version 48.1 (Differences from Version 48)**
 
-* [Segmentations](tr35-general.html#Segmentations) removed outdated note about `X Format*->X` not being supported in CLDR since it no longer accurate.
+* [Segmentations](tr35-general.md#Segmentations) removed outdated note about `X Format*->X` not being supported in CLDR since it no longer accurate.
 
 **Changes in LDML Version 48 (Differences from Version 47)**
 

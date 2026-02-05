@@ -131,6 +131,7 @@ jobs:
       group: ${{ github.workflow }}-${{ github.ref }}
       cancel-in-progress: true
   preview:
+    if: github.repository == 'unicode-org/cldr' && github.event_name == 'push' && (contains(github.ref, 'maint/maint-') || (github.ref == 'refs/heads/main'))
     name: "Deploy Spec to production"
     environment:
       name: spec-production

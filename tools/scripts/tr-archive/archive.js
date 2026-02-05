@@ -302,8 +302,9 @@ function urlToRevision(u) {
 }
 
 async function getInfo() {
-  const infile = path.join(OUT_DIR, `tr35.md`);
-  console.log(`Reading info from ${infile}`);
+  const PART_ONE = `tr35.md`;
+  const infile = path.join(OUT_DIR, PART_ONE);
+  console.log(`${PART_ONE}: Reading info from ${infile}`);
   const { /*dom, document, data, */ content } = await readAndParse(infile);
   // we're not using DOM at the present, but we want to use a consistent reader process.
 
@@ -325,17 +326,26 @@ async function getInfo() {
     }
   });
 
-  if (!rawMeta.version) throw `Could not read metadata from ${infile}`;
+  if (!rawMeta.version) throw `${PART_ONE}: Could not read metadata from ${infile}`;
 
   rawMeta.revision = urlToRevision(rawMeta?.thisversion);
   rawMeta.prevRevision = urlToRevision(rawMeta?.previousversion);
 
   if (!rawMeta.revision) {
-    throw `Could not read “This Version” header (expected UTS#35 revision): ${rawMeta.thisversion}`;
+    throw `${PART_ONE}: Could not read “This Version” header (expected UTS#35 revision): ${rawMeta.thisversion}`;
   }
 
-  if (!/^[0-9]{2,3}$/.test(rawMeta.revision)) {
-    throw `Bad Revision number ${rawMeta.thisversion}`;
+  /** @returns true if it is a revision (11-999) */
+  function isRevision(v) {
+    return /^[0-9]{2,3}$/.test(v);
+  }
+
+  if (!isRevision(rawMeta.revision)) {
+    throw `${PART_ONE}: Bad This Version number ${rawMeta.thisversion}`;
+  }
+
+  if (!isRevision(rawMeta.prevRevision)) {
+    throw `${PART_ONE}: Bad Previous Version number ${rawMeta.previousversion}`;
   }
 
   return rawMeta;

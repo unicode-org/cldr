@@ -95,7 +95,7 @@ jobs:
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: actions/upload-pages-artifact@v3
       - name: Deploy to Smoketest
-        if: github.repository == 'unicode-org/cldr' && github.event_name == 'push' && false # TODO CLDR-19231
+        if: github.repository == 'unicode-org/cldr' && github.event_name == 'push'
         shell: bash
         env:
           RSA_KEY_CCC: ${{ secrets.RSA_KEY_CCC }}

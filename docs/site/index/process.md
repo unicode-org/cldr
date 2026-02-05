@@ -34,10 +34,10 @@ as well as clearly delinating the modifications of that dot release in its own s
     - Complex changes may require prototypes that demonstrate correct function according to the proposed specification.
     - When a spec change or clarification affects existing ICU APIs, CLDR will discuss the change with ICU and an ICU member be a required reviewer on the pull request.
 - New sections may be added to the specification with the status of _Technical Preview_ or _Final Candidate_ depending on how comprehensive the new section is, what type of feedback the Technical Committee requires, and whether the feedback period needs to extend across one or more releases.
-- ​New features in the spec will be ​marked as _Technical Preview_​ ​i​f the following conditions are true:
-    - ​They are intended for implementation in ICU and/or ICU4X (eg excluding annotations for emoji, etc)
-    - They make compliant pre-existing ICU or ICU4X APIs​ become non-compliant
-    - ​They won’t be implemented by either ICU or ICU4X (in at least draft status) in the synchronized CLDR release
+- New features in the spec will be marked as _Technical Preview_ if the following conditions are true:
+    - They are intended for implementation in ICU and/or ICU4X (eg excluding annotations for emoji, etc)
+    - They make compliant pre-existing ICU or ICU4X APIs become non-compliant
+    - They won’t be implemented by either ICU or ICU4X (in at least draft status) in the synchronized CLDR release
  
 | **Status** | **Description** |
 |---|:---|
@@ -49,10 +49,12 @@ as well as clearly delinating the modifications of that dot release in its own s
 
 The contributors of locale data are expected to be language speakers residing in the country/region. In particular, national standards organizations are encouraged to be involved in the data vetting process.
 
-There are two types of data in the repository:
-
-- **Core data** (See [Core data for new locales]): The content is collected from language experts typically with a CLDR Technical Committee member involvement, and is reviewed by the committee. This is required for a new language to be added in CLDR.
-- **Common locale data**: This is the bulk of the CLDR data and data collection occurs twice a year using the Survey tool. (See [Getting Started].)
+In order to add a locale to the repository, **Core data** (See [Core data for new locales]) is needed.
+The content is collected from language experts and is reviewed by the CLDR Technical Committee.
+This information is the minimum needed for the Survey Tool to offer the locale for further data collection
+and is required for a new locale to be added in CLDR.
+With the Core data added to the CLDR, further data collection takes place using the Survey tool.
+(See [Getting Started].)
 
 The following 4 states are used to differentiate the data contribution levels. The initial data contributions are normally marked as draft; this may be changed once the data is vetted.
 

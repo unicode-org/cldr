@@ -334,6 +334,10 @@ async function getInfo() {
     throw `Could not read “This Version” header (expected UTS#35 revision): ${rawMeta.thisversion}`;
   }
 
+  if (!/^[0-9]{2,3}$/.test(rawMeta.revision)) {
+    throw `Bad Revision number ${rawMeta.thisversion}`;
+  }
+
   return rawMeta;
 }
 

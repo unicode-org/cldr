@@ -55,7 +55,8 @@ currency	|	NOK	|	Norwegian Krone	|	BV	|	BOUVET ISLAND	|	C
 currency	|	BRL	|	Brazilian Real	|	BR	|	BRAZIL	|	C
 currency	|	USD	|	US Dollar	|	IO	|	BRITISH INDIAN OCEAN TERRITORY	|	C
 currency	|	BND	|	Brunei Dollar	|	BN	|	BRUNEI DARUSSALAM	|	C
-currency	|	BGN	|	Bulgarian Lev	|	BG	|	BULGARIA	|	C
+# C (current) was changed to O (obsolete) 2026-01 in the following line; Bulgaria changed from BGN to EUR
+currency	|	BGN	|	Bulgarian Lev	|	BG	|	BULGARIA	|	O
 currency	|	XOF	|	CFA Franc BCEAO †	|	BF	|	BURKINA FASO	|	C
 currency	|	BIF	|	Burundi Franc	|	BI	|	BURUNDI	|	C
 currency	|	KHR	|	Riel	|	KH	|	CAMBODIA	|	C
@@ -407,3 +408,5 @@ currency    |   VED |   Bolívar Soberano    |  VE   |  VENEZUALA   | F
 currency    |   XCG |   Caribbean Guilder    |  CW   |   CURAÇAO  | P
 currency    |   XCG |   Caribbean Guilder    |  SX   |   SINT MAARTEN  | P
 currency    |   ZWG |   Zimbabwean Gold    |  ZW   |   ZIMBABWE  | P
+# the following line was added 2026-01; Bulgaria changed from BGN to EUR
+currency	|	EUR	|	Euro	|	BG	|	BULGARIA	|	C

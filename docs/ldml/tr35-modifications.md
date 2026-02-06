@@ -69,7 +69,8 @@ The LDML specification is divided into the following parts:
 
 <!-- CLDR-19231 reformatted/simplified tr35.md version block to improve deployment-->
 
-* (TBD)
+* The `:currency` and `:percent` functions are now Stable, with the same implementations as previously.
+* The `u:locale` option (previously in Draft) is dropped from the specification.
 
 **Changes in LDML Version 48.1 (Differences from Version 48)**
 

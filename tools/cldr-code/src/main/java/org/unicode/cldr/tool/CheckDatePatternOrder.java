@@ -5,7 +5,10 @@ import com.google.common.base.Objects;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
+import com.google.common.collect.Multiset;
+import com.google.common.collect.SortedMultiset;
 import com.google.common.collect.TreeMultimap;
+import com.google.common.collect.TreeMultiset;
 import com.ibm.icu.impl.UnicodeMap;
 import com.ibm.icu.text.DateTimePatternGenerator;
 import com.ibm.icu.text.DateTimePatternGenerator.FormatParser;
@@ -24,6 +27,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Joiners;
 import org.unicode.cldr.util.Level;
@@ -41,10 +45,11 @@ public class CheckDatePatternOrder {
     enum DatetimeGroup {
         era,
         date,
+        dateMMM, // string month, eg MMM or MMMM
         dow,
         time,
         dayPeriod,
-        dayPeriodL,
+        dayPeriodB, // non-am/pm day period
         zone
     }
 
@@ -60,7 +65,7 @@ public class CheckDatePatternOrder {
         day_of_year("D", DatetimeGroup.date),
         day_of_week_in_month("F", DatetimeGroup.date),
         dayperiod("ab", DatetimeGroup.dayPeriod),
-        dayperiodL("B", DatetimeGroup.dayPeriodL),
+        dayperiodL("B", DatetimeGroup.dayPeriodB),
         hour("HkhK", DatetimeGroup.time),
         minute("m", DatetimeGroup.time),
         second("sA", DatetimeGroup.time),
@@ -89,25 +94,47 @@ public class CheckDatePatternOrder {
         }
     }
 
-    static final Comparator<List<DatetimeGroup>> LongestThenOrdered =
-            new Comparator<>() {
+    static final class LongestFirst<T extends Comparable<T>, U extends Collection<T>> implements Comparator<U> {
 
-                @Override
-                public int compare(List<DatetimeGroup> list1, List<DatetimeGroup> list2) {
-                    int comp = list2.size() - list1.size();
-                    if (comp != 0) {
-                        return comp;
-                    }
-
-                    for (int i = 0; i < list1.size(); i++) {
-                        int comparison = list1.get(i).compareTo(list2.get(i));
-                        if (comparison != 0) {
-                            return comparison;
-                        }
-                    }
-                    return 0;
+        @Override
+        public int compare(U o1, U o2) {
+            int comp = o1.size() - o2.size();
+            if (comp != 0) {
+                return comp;
+            }
+            Iterator<T> it1 = o1.iterator();
+            Iterator<T> it2 = o2.iterator();
+            while (it1.hasNext()) {
+                int comparison = it1.next().compareTo(it2.next());
+                if (comparison != 0) {
+                    return comparison;
                 }
-            };
+            }
+            return 0;
+        }
+        
+    }
+
+    static final Comparator<List<DatetimeGroup>> LongestThenOrderedDTGList = new LongestFirst<>();
+    static final Comparator<List<DatetimeGroup>> LongestThenOrderedStringList = new LongestFirst<>();
+//            new Comparator<>() {
+//
+//                @Override
+//                public int compare(List<T> list1, List<T> list2) {
+//                    int comp = list2.size() - list1.size();
+//                    if (comp != 0) {
+//                        return comp;
+//                    }
+//
+//                    for (int i = 0; i < list1.size(); i++) {
+//                        int comparison = list1.get(i).compareTo(list2.get(i));
+//                        if (comparison != 0) {
+//                            return comparison;
+//                        }
+//                    }
+//                    return 0;
+//                }
+//            };
 
     static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
     static final SupplementalDataInfo SDI = CLDR_CONFIG.getSupplementalDataInfo();
@@ -124,18 +151,22 @@ public class CheckDatePatternOrder {
                                 Organization.cldr, EnumSet.of(Level.MODERN, Level.MODERATE));
 
         NameGetter namer = new NameGetter(CLDR_CONFIG.getEnglish());
-        List<DatetimeGroup> ordering = new ArrayList<>();
 
         // initially, we are only doing gregorian
-
+        Counter<String> filteredCount = new Counter<>();
+        Counter<String> filteredPatternCount = new Counter<>();
+        Multimap<List<DatetimeGroup>, String> orderingToLocales = TreeMultimap.create(LongestThenOrderedDTGList, Comparator.naturalOrder());
+        Multimap<List<DatetimeGroup>, String> conflictingOrderingsToLocales = TreeMultimap.create(LongestThenOrderedDTGList, Comparator.naturalOrder());
+        
         for (String locale : modernModerateLocales) {
             Multimap<List<DatetimeGroup>, String> lists =
-                    TreeMultimap.create(LongestThenOrdered, Comparator.naturalOrder());
+                    TreeMultimap.create(LongestThenOrderedDTGList, Comparator.naturalOrder());
             CLDRFile cldrFile = CF.make(locale, true);
             for (String path : cldrFile) {
-                // only need to look at the following:
+                // only need to look at the following paths (examples)
                 // ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="Bh"]
                 // ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/dateTimeFormatLength[@type="full"]/dateTimeFormat[@type="standard"]/pattern[@type="standard"]
+                
                 XPathParts parts = XPathParts.getFrozenInstance(path);
                 if (parts.size() < 4
                         || !"calendar".equals(parts.getElement(3))
@@ -151,18 +182,34 @@ public class CheckDatePatternOrder {
                                 ? parts.getAttributeValue(6, "id")
                                 : parts.getAttributeValue(5, "type");
                 String value = cldrFile.getStringValue(path);
+                
                 FormatParser fp = new DateTimePatternGenerator.FormatParser();
                 fp.set(value);
                 DatetimeGroup last = null;
-                ordering.clear();
+                List<DatetimeGroup> ordering = new ArrayList<>();
                 for (Object item : fp.getItems()) {
                     if (!(item instanceof VariableField)) {
                         continue;
                     }
-                    DatetimePart dc = DatetimePart.from((VariableField) item);
-                    if (dc.bdc != last) { // don't worry about multiple instances
-                        ordering.add(dc.bdc);
-                        last = dc.bdc;
+                    final VariableField vf = (VariableField) item;
+                    DatetimePart dc = DatetimePart.from(vf);
+                    DatetimeGroup bdc = dc.bdc;
+                    // change numeric date to dateN
+                    if (dc == DatetimePart.month && !vf.isNumeric()) {
+                        bdc = DatetimeGroup.dateMMM;
+                    }
+
+                    if (bdc != last) { // don't worry about multiple instances
+                        // also change sequences of date dateN or dateN date to dateN
+                        if (last == DatetimeGroup.date && bdc == DatetimeGroup.dateMMM) { // patch up
+                            ordering.set(ordering.size() - 1, bdc);
+                            last = DatetimeGroup.dateMMM;
+                        } else if (last == DatetimeGroup.dateMMM && bdc == DatetimeGroup.date) {
+                            // skip
+                        } else {
+                        ordering.add(bdc);
+                        last = bdc;
+                        }
                     }
                 }
                 if (id.equals("Ed")) {
@@ -192,23 +239,65 @@ public class CheckDatePatternOrder {
                 System.out.println(
                         Joiners.TAB.join(
                                 namer.getNameFromIdentifier(locale), locale, result, "none"));
+                filteredCount.add(locale, 0);
+                orderingToLocales.put(result, locale);
             } catch (MergeListException e) {
                 List<List<DatetimeGroup>> minimizedProblems =
                         minimize(createTypedList(e.problems, DatetimeGroup.class));
+                List<DatetimeGroup> union =
+                        minimizedProblems.stream()
+                                .flatMap(Collection::stream)
+                                .distinct()
+                                .collect(Collectors.toList());
+                List<DatetimeGroup> intersection =
+                        minimizedProblems.stream()
+                                .collect(
+                                        () -> new ArrayList<>(minimizedProblems.get(0)),
+                                        ArrayList::retainAll,
+                                        ArrayList::retainAll);
+
+                final List<Entry<List<DatetimeGroup>, Collection<String>>> filtered =
+                        filter(lists.asMap().entrySet(), minimizedProblems);
+                filteredCount.add(locale, filtered.size() - 1);
+                filtered.stream().forEach(x -> {
+                    filteredPatternCount.add(locale, x.getValue().size());
+                    conflictingOrderingsToLocales.put(x.getKey(), locale);
+               });
+
                 System.out.println(
                         mergeMessage
-                                + JOINER_TAB_N.join(
-                                        Joiners.TAB.join(
+                                + Joiners.TAB.join(
                                                 namer.getNameFromIdentifier(locale),
                                                 locale,
-                                                e.getMessage(),
-                                                minimizedProblems),
-                                        JOINER_TAB_N.join(
-                                                filter(
-                                                        lists.asMap().entrySet(),
-                                                        minimizedProblems))));
+                                                e.partialResult + "👹" + e.orderedWorkingSet,
+                                                intersection,
+                                                minimizedProblems));
+
+                filtered.stream().forEach(x -> System.out.println(Joiners.TAB.join(
+                                                namer.getNameFromIdentifier(locale),
+                                                locale,
+                                                x)));
             }
         }
+
+        System.out.println("\nOK Orders to locales\n");
+        orderingToLocales.asMap().entrySet().stream().forEach(x -> System.out.println(x.getKey() + "\t" + x.getValue()));
+        
+        System.out.println("\nConflict count to locales\n");
+        filteredCount.getEntrySetSortedByCount(false, null).stream()
+                .forEach(
+                        x -> {if (x.get0() > 0) 
+                                System.out.println(
+                                        Joiners.TAB.join(
+                                                x.get0(),
+                                                x.get1(),
+                                                namer.getNameFromIdentifier(x.get1())));});
+        System.out.println("\nConflict order totals\t" + filteredCount.getTotal());
+        System.out.println("\nConflict pattern totals\t" + filteredPatternCount.getTotal());
+
+        System.out.println("\nConflicting orders to locales\n");
+        conflictingOrderingsToLocales.asMap().entrySet().stream().forEach(x -> System.out.println(x.getKey() + "\t" + x.getValue()));
+
     }
 
     private static <T> List<Entry<List<DatetimeGroup>, Collection<String>>> filter(

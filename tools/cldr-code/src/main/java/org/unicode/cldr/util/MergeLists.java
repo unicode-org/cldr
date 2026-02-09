@@ -65,7 +65,7 @@ public class MergeLists<T> {
             if (first.size() == 0) {
                 Map<T, Collection<T>> reasons = new LinkedHashMap<>();
                 getFirsts(first, reasons);
-                throw new MergeListException("Conflicting requested ordering", reasons.values());
+                throw new MergeListException("Conflicting requested ordering", result, orderedWorkingSet, reasons.values());
             }
             // now get first item that is in first
             T best = extractFirstOk(orderedWorkingSet, first); // removes from working set
@@ -78,10 +78,14 @@ public class MergeLists<T> {
 
     public static class MergeListException extends IllegalArgumentException { // can't use generics
         private static final long serialVersionUID = 1L;
+        public final Collection partialResult;
+        public final Collection orderedWorkingSet;
         public final Collection<Collection> problems;
 
-        public MergeListException(String message, Collection problems) {
+        public MergeListException(String message, Collection partialResult, Set orderedWorkingSet, Collection problems) {
             super(message);
+            this.partialResult = partialResult;
+            this.orderedWorkingSet = orderedWorkingSet;
             this.problems = problems;
         }
     }

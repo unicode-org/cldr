@@ -182,36 +182,7 @@ public class CheckDatePatternOrder {
                                 : parts.getAttributeValue(5, "type");
                 String value = cldrFile.getStringValue(path);
 
-                FormatParser fp = new DateTimePatternGenerator.FormatParser();
-                fp.set(value);
-                DatetimeGroup last = null;
-                List<DatetimeGroup> ordering = new ArrayList<>();
-                for (Object item : fp.getItems()) {
-                    if (!(item instanceof VariableField)) {
-                        continue;
-                    }
-                    final VariableField vf = (VariableField) item;
-                    DatetimePart dc = DatetimePart.from(vf);
-                    DatetimeGroup bdc = dc.bdc;
-                    // change numeric date to dateN
-                    if (dc == DatetimePart.month && !vf.isNumeric()) {
-                        bdc = DatetimeGroup.dateMMM;
-                    }
-
-                    if (bdc != last) { // don't worry about multiple instances
-                        // also change sequences of date dateN or dateN date to dateN
-                        if (last == DatetimeGroup.date
-                                && bdc == DatetimeGroup.dateMMM) { // patch up
-                            ordering.set(ordering.size() - 1, bdc);
-                            last = DatetimeGroup.dateMMM;
-                        } else if (last == DatetimeGroup.dateMMM && bdc == DatetimeGroup.date) {
-                            // skip
-                        } else {
-                            ordering.add(bdc);
-                            last = bdc;
-                        }
-                    }
-                }
+                List<DatetimeGroup> ordering = getOrderingFromPattern(value);
                 if (id.equals("Ed")) {
                     continue;
                 }
@@ -222,7 +193,8 @@ public class CheckDatePatternOrder {
 
             // Now we see if there is a consistent ordering among elements within the calendar
             String mergeMessage = "";
-            MergeLists<DatetimeGroup> mergeList = new MergeLists<>(new TreeSet<DatetimeGroup>(), new TreeSet<DatetimeGroup>());
+            MergeLists<DatetimeGroup> mergeList =
+                    new MergeLists<>(new TreeSet<DatetimeGroup>(), new TreeSet<DatetimeGroup>());
             for (List<DatetimeGroup> key : lists.keySet()) {
                 try {
                     mergeList.add(key);
@@ -309,11 +281,46 @@ public class CheckDatePatternOrder {
                 .forEach(x -> System.out.println(x.getKey() + "\t" + x.getValue()));
     }
 
+    @SuppressWarnings("deprecation")
+    private static List<DatetimeGroup> getOrderingFromPattern(String pattern) {
+        FormatParser fp = new DateTimePatternGenerator.FormatParser();
+        fp.set(pattern);
+        DatetimeGroup last = null;
+        List<DatetimeGroup> ordering = new ArrayList<>();
+        for (Object item : fp.getItems()) {
+            if (!(item instanceof VariableField)) {
+                continue;
+            }
+            final VariableField vf = (VariableField) item;
+            DatetimePart dc = DatetimePart.from(vf);
+            DatetimeGroup bdc = dc.bdc;
+            // change numeric date to dateN
+            if (dc == DatetimePart.month && !vf.isNumeric()) {
+                bdc = DatetimeGroup.dateMMM;
+            }
+
+            if (bdc != last) { // don't worry about multiple instances
+                // also change sequences of date dateN or dateN date to dateN
+                if (last == DatetimeGroup.date && bdc == DatetimeGroup.dateMMM) { // patch up
+                    ordering.set(ordering.size() - 1, bdc);
+                    last = DatetimeGroup.dateMMM;
+                } else if (last == DatetimeGroup.dateMMM && bdc == DatetimeGroup.date) {
+                    // skip
+                } else {
+                    ordering.add(bdc);
+                    last = bdc;
+                }
+            }
+        }
+        return ordering;
+    }
+
     private static <T> List<Entry<List<DatetimeGroup>, Collection<String>>> filter(
             Set<Entry<List<DatetimeGroup>, Collection<String>>> entrySet, List<List<T>> problems) {
         return entrySet.stream().filter(x -> filter(x, problems)).collect(Collectors.toList());
     }
 
+    @SuppressWarnings("deprecation")
     private static <T> List<List<T>> minimize(List<List<T>> problems) {
         // MergeLists stops at the first point where there is a problem.
         // However, we can refine the list down to just the items that have direct conflicts because
@@ -370,6 +377,7 @@ public class CheckDatePatternOrder {
         }
     }
 
+    @SuppressWarnings({"rawtypes", "unchecked"})
     private static <T> boolean filter(Entry<List<T>, Collection<String>> x, Collection problems) {
         List<T> list = x.getKey();
         for (Collection<T> problem : (Collection<Collection<T>>) problems) {
@@ -404,12 +412,13 @@ public class CheckDatePatternOrder {
 
     // Need this hack because exceptions can't use generics
 
+    @SuppressWarnings("rawtypes")
     public static <T> List<List<T>> createTypedList(
             Collection<Collection> sourceCollection, Class<T> classType) {
         // Use Java 8 streams to filter and cast each element
         List<List<T>> resultList =
                 sourceCollection.stream()
-                        .map(ArrayList::new) // Create a new ArrayList from each inner collection
+                        .map(ArrayList<T>::new) // Create a new ArrayList from each inner collection
                         .collect(Collectors.toList()); // Collect the results into an outer List
         return resultList;
     }

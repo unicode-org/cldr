@@ -10,17 +10,43 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * Merges lists together, maintaining consistency with all the components. That is, [[date,
+ * time],[time,zone]] would merge to [date, time, zone]. Exceptions will be thrown in 2 instances:
+ *
+ * <ul>
+ *   <li>One of the input lists has duplicate elements, eg [time, date, time], making it impossible
+ *       to add. However, that will just cause an add() to fail; catching and continuing make give
+ *       results (but wouldn't account for the missing add().
+ *   <li>There is a cycle, such as [[A, B, C] [C, D, A]]. In that case an exception is thrown. Some
+ *       internal information is attached to the exception.
+ * </ul>
+ *
+ * @param <T>
+ */
 public class MergeLists<T> {
 
-    Collection<Collection<T>> source = new ArrayList<>();
-    Set<T> orderedWorkingSet;
+    final Collection<Collection<T>> source = new ArrayList<>();
+    final Set<T> orderedWorkingSet;
+    final Set<T> onlyFirsts;
 
     public MergeLists() {
-        this(new LinkedHashSet<T>());
+        this(new LinkedHashSet<T>(), new LinkedHashSet<T>());
     }
 
-    public MergeLists(Set<T> orderedWorkingSet) {
+    /**
+     * The sets determine the ordering of items that don't have a defined ordering.<br>
+     * For example, [[A C] [B C]] could result in either of two orderings: [A B C] or [B C A].<br>
+     * The preference between them can be handled by using two TreeSets (with or without a
+     * comparator). If A < B naturally, [A B C] would be favored. If you want [B C A], use a
+     * comparator that reverses the natural ordering.
+     *
+     * @param orderedWorkingSet
+     * @param first
+     */
+    public MergeLists(Set<T> onlyFirsts, Set<T> orderedWorkingSet) {
         this.orderedWorkingSet = orderedWorkingSet;
+        this.onlyFirsts = onlyFirsts;
     }
 
     public MergeLists<T> add(Collection<T> orderedItems) {
@@ -40,7 +66,7 @@ public class MergeLists<T> {
         return add(Arrays.asList(stuff));
     }
 
-    public MergeLists<T> addAll(Collection<Collection<T>> collectionsOfOrderedItems) {
+    public <U extends Collection<T>> MergeLists<T> addAll(Collection<U> collectionsOfOrderedItems) {
         for (Collection<T> orderedItems : collectionsOfOrderedItems) {
             add(orderedItems);
         }
@@ -59,16 +85,19 @@ public class MergeLists<T> {
         // this is slower, but puts things into as much of the order specified as possible
         // could be optimized further, but we don't care that much
 
-        Set<T> first = new LinkedHashSet<>();
         while (orderedWorkingSet.size() != 0) {
-            getFirsts(first);
-            if (first.size() == 0) {
+            getFirsts(onlyFirsts);
+            if (onlyFirsts.size() == 0) {
                 Map<T, Collection<T>> reasons = new LinkedHashMap<>();
-                getFirsts(first, reasons);
-                throw new MergeListException("Conflicting requested ordering", result, orderedWorkingSet, reasons.values());
+                getFirsts(onlyFirsts, reasons);
+                throw new MergeListException(
+                        "Conflicting requested ordering",
+                        result,
+                        orderedWorkingSet,
+                        reasons.values());
             }
             // now get first item that is in first
-            T best = extractFirstOk(orderedWorkingSet, first); // removes from working set
+            T best = extractFirstOk(orderedWorkingSet, onlyFirsts); // removes from working set
             // remaining items now contains no non-first items
             removeFromSource(best);
             result.add(best);
@@ -76,13 +105,19 @@ public class MergeLists<T> {
         return result;
     }
 
-    public static class MergeListException extends IllegalArgumentException { // can't use generics
+    @SuppressWarnings("rawtypes")
+    public static class MergeListException extends IllegalArgumentException {
+        // can't use generics!
         private static final long serialVersionUID = 1L;
         public final Collection partialResult;
         public final Collection orderedWorkingSet;
         public final Collection<Collection> problems;
 
-        public MergeListException(String message, Collection partialResult, Set orderedWorkingSet, Collection problems) {
+        public MergeListException(
+                String message,
+                Collection partialResult,
+                Set orderedWorkingSet,
+                Collection problems) {
             super(message);
             this.partialResult = partialResult;
             this.orderedWorkingSet = orderedWorkingSet;
@@ -110,8 +145,8 @@ public class MergeLists<T> {
         return !bi.hasNext(); // if we have any left over, we failed
     }
 
-    public static <T> Collection<T> hasConsistentOrderWithEachOf(
-            Collection<T> a, Collection<Collection<T>> bs) {
+    public static <T, U extends Collection<T>> Collection<T> hasConsistentOrderWithEachOf(
+            Collection<T> a, Collection<U> bs) {
         for (Collection<T> b : bs) {
             if (!hasConsistentOrder(a, b)) {
                 return b;

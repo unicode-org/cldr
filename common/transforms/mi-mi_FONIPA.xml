@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<!-- Copyright © 1991-2017 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html -->
+<supplementalData>
+	<version number="$Revision$" />
+	<transforms>
+		<transform source="mi" target="mi_FONIPA" direction="forward" draft="contributed" alias="mi-fonipa-t-mi">
+			<tRule>
+::NFC;
+::Lower;
+
+wh → f;
+h → h;
+k → k;
+m → m;
+ng → ŋ;
+n → n;
+p → p;
+r → ɾ;
+t → t;
+w → w;
+au → au;
+ā → aː;
+a → a;
+ē → ɛː;
+e → ɛ;
+ī → iː;
+i → i;
+ō → ɔː;
+o → ɔ;
+ū → ʉː;
+u → ʉ;
+::NFC;
+			</tRule>
+		</transform>
+	</transforms>
+</supplementalData>

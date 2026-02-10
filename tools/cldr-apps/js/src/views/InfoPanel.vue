@@ -1,5 +1,14 @@
 <template>
   <div>
+    <div v-if="altText" class="secondary">
+      <i>{{ altLang }}: </i
+      ><cldr-value @lang="altLang"> {{ altText }} </cldr-value>
+    </div>
+    <div>
+      <a-input placeholder="fr" v-model:value="altLang">
+        <template #prefix> Other Lang: </template>
+      </a-input>
+    </div>
     <section id="InfoPanelSection">
       <header class="sidebyside-column-top">
         <button
@@ -38,7 +47,12 @@
 import { ref } from "vue";
 import * as cldrInfo from "../esm/cldrInfo.mjs";
 import * as cldrStatus from "../esm/cldrStatus.mjs";
+import * as cldrClient from "../esm/cldrClient.mjs";
 import InheritanceExplainer from "./InheritanceExplainer.vue";
+import CldrValue from "./CldrValue.vue";
+
+const altText = ref("");
+const altLang = ref("");
 
 export default {
   setup() {
@@ -47,7 +61,26 @@ export default {
       inheritanceExplainer,
       locale: cldrStatus.refs.currentLocale,
       id: cldrStatus.refs.currentId,
+      altLang,
+      altText,
     };
+  },
+  watch: {
+    async id(xpstrid) {
+      if (!altLang.value) {
+        altText.value = "";
+        return;
+      }
+      const client = await cldrClient.getClient();
+      const locale = altLang.value;
+      const { body } = await client.apis.voting.getRow({ xpstrid, locale });
+      const { page } = body;
+      const { rows } = page;
+      const row = Object.entries(rows)[0][1];
+      const { winningValue } = row;
+      // ↑↑↑
+      altText.value = winningValue || "";
+    },
   },
   components: {
     InheritanceExplainer,

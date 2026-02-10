@@ -50,7 +50,7 @@ function name(codePoint) {
 /**
  * Get the "U+..." string representation for the given code point
  *
- * @param {Number} codePoint a code point such as 0x20
+ * @param {Number} codePoint a code point such as 0x0020
  * @returns {String} the standard notation such as "U+0020"
  */
 function uPlus(codePoint) {
@@ -86,13 +86,19 @@ function isAllowed(codePoint) {
 }
 
 /**
- * Is the given code point white space?
+ * Is the given character (code point or single-character string) white space?
  *
- * @param {Number} codePoint
+ * @param {Number|String} c -- the code point or single-character string
  * @returns {Boolean} true or false
  */
-function isWhiteSpace(codePoint) {
-  const c = String.fromCodePoint(codePoint);
+function isWhiteSpace(c) {
+  if (typeof c === "number") {
+    c = String.fromCodePoint(c);
+  } else if (typeof c !== "string" || [...c].length !== 1) {
+    throw new Error(
+      "isWhiteSpace requires a numeric code point or single-character string"
+    );
+  }
   // Reference: https://util.unicode.org/UnicodeJsps/character.jsp
   return c.match(/\p{White_Space}/u);
 }

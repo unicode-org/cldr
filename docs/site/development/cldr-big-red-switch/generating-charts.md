@@ -20,9 +20,18 @@ The input for this process is the `../cldr-staging/production` file, and the out
 	For more details and options, see [keyboard-charts].
 4. Run the Java tool `GenerateAllCharts`. The results for each will be in `../cldr-staging/docs/charts/<version>/by_type/names.currency.html` and so on.
 5. Spot\-check for sanity.
-	1. Start from the main page (eg `cldr-staging/docs/charts/<version>/index.html`), and click on each of those links.
-	2. On each of the subpages, take the first chart on each page, recursively.
-	3. Use the "Index" link to go back up (not the back button), and make sure it goes to the right version of the page.
+	1. Start from the main page (eg `cldr-staging/docs/charts/<version>/index.html`)
+	2. Check the DTD deltas (`cldr-staging/docs/charts/<version>/supplemental/dtd_deltas.html`. 
+	    * All major versions should have at least one row for that version. 
+	    * Dot versions may or may not: diff the /dtd/ files to check for whether differences should show up.
+	3. Spot check the Delta Charts (`cldr-staging/docs/charts/<version>/delta/index.html`)
+	    * ¤¤BCP47 Delta
+	    * ¤¤Supplemental Delta
+	    * ¤¤Transforms Delta
+	    * a locale in a language you know.
+	 4.  For other links on the main page, click on each of those links.
+         * On each of the subpages, take the first chart on each page, recursively.
+         * Use the "Index" link to go back up (not the back button), and make sure it goes to the right version of the page.
 6. Push the updated branch to the `cldr-staging` repo. It can be done with a PR, but a PR is not necessary (and nearly impossible to review).
 
 ## Deployment

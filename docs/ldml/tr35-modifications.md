@@ -69,6 +69,11 @@ The LDML specification is divided into the following parts:
 
 <!-- CLDR-19231 reformatted/simplified tr35.md version block to improve deployment-->
 
+* New section [Nested Bracket Replacement](tr35-general.html#Character_Nested_Bracket_Replacement)
+* [Locale Display Name Algorithm](tr35-general.html#locale_display_name_algorithm) updated to use the nested bracket replacement data and avoid nested parentheses by flattening `-t-` (transform) language names
+
+### MessageFormat
+
 * The `:currency` and `:percent` functions are now Stable, with the same implementations as previously.
 * The `u:locale` option (previously in Draft) is dropped from the specification.
 

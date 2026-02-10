@@ -7,6 +7,9 @@ const markedAlert = require("marked-alert");
 const matter = require("gray-matter");
 const AnchorJS = require("anchor-js");
 const { gfmurlify, ELEMENTS } = require("./gfmurlify");
+const OUT_DIR = "./dist";
+const META_FILE = "js/metadata.json";
+const PARTS = `## Parts`;
 
 // Not great, but do this so AnchorJS will work
 global.document = new jsdom.JSDOM(`...`).window.document;
@@ -39,16 +42,7 @@ marked.setOptions({
 
 marked.use(markedAlert());
 
-/**
- * Read the input .md file, and write to a corresponding .html file
- * @param {string} infile path to input file
- * @returns {Promise<string>} name of output file (for status update)
- */
-async function renderit(infile) {
-  const gtag = (await fs.readFile("gtag.html", "utf-8")).trim();
-  console.log(`Reading ${infile}`);
-  const basename = path.basename(infile, ".md");
-  const outfile = path.join(path.dirname(infile), `${basename}.html`);
+async function readAndParse(infile) {
   let f1 = await fs.readFile(infile, "utf-8");
   // any metadata on the file?
   const { data, content } = matter(f1);
@@ -66,6 +60,22 @@ async function renderit(infile) {
   // now fix. Spin up a JSDOM so we can manipulate
   const dom = new JSDOM(rawHtml);
   const document = dom.window.document;
+
+  return { dom, document, data, content: f1 };
+}
+
+/**
+ * Read the input .md file, and write to a corresponding .html file
+ * @param {string} infile path to input file
+ * @returns {Promise<string>} name of output file (for status update)
+ */
+async function renderit(infile) {
+  const gtag = (await fs.readFile("gtag.html", "utf-8")).trim();
+  console.log(`Rendering ${infile}`);
+  const basename = path.basename(infile, ".md");
+  const outfile = path.join(path.dirname(infile), `${basename}.html`);
+
+  const { dom, document, data, content } = await readAndParse(infile);
 
   // First the HEAD
   const head = dom.window.document.getElementsByTagName("head")[0];
@@ -280,20 +290,97 @@ async function renderit(infile) {
   return outfile;
 }
 
+const REV_MATCH = /^https.*\/reports\/tr35\/tr35-([0-9]{2,2})\/tr35.html$/;
+
+/** extract a TR revision number from a full URL */
+function urlToRevision(u) {
+  if (!u) return null;
+
+  const r = REV_MATCH.exec(u);
+  if (!r) return null;
+  return r[1];
+}
+
+async function getInfo() {
+  const PART_ONE = `tr35.md`;
+  const infile = path.join(OUT_DIR, PART_ONE);
+  console.log(`${PART_ONE}: Reading info from ${infile}`);
+  const { /*dom, document, data, */ content } = await readAndParse(infile);
+  // we're not using DOM at the present, but we want to use a consistent reader process.
+
+  const lines = content.split(/(?:\r)?\n/);
+  // look for the Parts splitter
+  const partsIndex = lines.indexOf(PARTS);
+  if (partsIndex == -1) {
+    throw `Could not find '${PARTS}' in ${infile}`;
+  }
+  const metaLines = lines.slice(0, partsIndex);
+
+  const rawMeta = {};
+  // |This Version|<https://www.unicode.org/reports/tr35/tr35-77/tr35.html>|
+  const META_MATCH = /^\s*\|\s*([^\|-]+)\s*\|\s*<?([^\|>]+)>?\s*\|\s*$/;
+  metaLines.forEach((s) => {
+    const r = META_MATCH.exec(s.trim());
+    if (r) {
+      rawMeta[r[1].trim().toLowerCase().replace(/\s*/g, "")] = r[2].trim();
+    }
+  });
+
+  if (!rawMeta.version) throw `${PART_ONE}: Could not read metadata from ${infile}`;
+
+  rawMeta.revision = urlToRevision(rawMeta?.thisversion);
+  rawMeta.prevRevision = urlToRevision(rawMeta?.previousversion);
+
+  if (!rawMeta.revision) {
+    throw `${PART_ONE}: Could not read “This Version” header (expected UTS#35 revision): ${rawMeta.thisversion}`;
+  }
+
+  /** @returns true if it is a revision (11-999) */
+  function isRevision(v) {
+    return /^[0-9]{2,3}$/.test(v);
+  }
+
+  if (!isRevision(rawMeta.revision)) {
+    throw `${PART_ONE}: Bad This Version number ${rawMeta.thisversion}`;
+  }
+
+  if (!isRevision(rawMeta.prevRevision)) {
+    throw `${PART_ONE}: Bad Previous Version number ${rawMeta.previousversion}`;
+  }
+
+  return rawMeta;
+}
+
 /**
  * Convert all files
  * @returns Promise<String[]> list of output files
  */
 async function fixall() {
-  outbox = "./dist";
+  outbox = OUT_DIR;
+
+  const info = await getInfo();
+
+  // make sure we have metadata before we start
+  console.dir(info);
 
   // TODO: move source file copy into JavaScript?
   // srcbox = '../../../docs/ldml';
 
-  const fileList = (await fs.readdir(outbox))
-    .filter((f) => /\.md$/.test(f))
-    .map((f) => path.join(outbox, f));
-  return Promise.all(fileList.map(renderit));
+  const inFiles = (await fs.readdir(outbox)).filter((f) => /\.md$/.test(f));
+
+  const fileList = inFiles.map((f) => path.join(outbox, f));
+  const outFiles = await Promise.all(fileList.map(renderit));
+  const meta = {
+    inFiles,
+    outFiles,
+    info,
+  };
+  await fs.writeFile(
+    path.join(outbox, META_FILE),
+    JSON.stringify(meta, null, " "),
+    "utf-8"
+  );
+  return meta;
 }
 
 fixall().then(

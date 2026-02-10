@@ -483,6 +483,8 @@ Formatting 1200 in USD would result in “1.2 K $”, while 990 implicitly maps 
 The short non-currency format is designed for UI environments where space is at a premium, and should ideally result in a formatted string no more than about 6 em wide (with no fractional digits).
 The short currency format will include currency symbols, and should ideally be no more than 8 em in width.
 
+When `currencyFormatLength` is not included for a desired format length (short or long), the currency should be formatted without compact notation and then substituted as the numeric value into the corresponding `decimalFormatLength`, adjusting for the number of 0s. For example, using the above data, 12000 USD in compact long format would result in “12 $ mille”.
+
 #### <a name="Currency_Formats" href="#Currency_Formats">Currency Formats</a>
 
 Patterns for use with currency formatting:

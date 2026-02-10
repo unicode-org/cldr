@@ -205,6 +205,11 @@ jobs:
           '-Dorg.unicode.cldr.api.testArgs=-e10 -n'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: JUnit Test Summary
+        uses: test-summary/action@v2
+        with:
+          paths: "tools/*/target/surefire-reports/**/TEST-*.xml"
+        if: always()
   check:
     #Cannot change the name, it's a required step.
     #name: "Run ConsoleCheckCLDR"

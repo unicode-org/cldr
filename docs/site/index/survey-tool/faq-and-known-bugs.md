@@ -4,8 +4,6 @@ title: FAQ and Known Bugs
 
 # FAQ and Known Bugs
 
-[**Survey Tool**](http://st.unicode.org/cldr-apps/survey) **\|** [**Accounts**](/index/survey-tool/survey-tool-accounts) **\|** [**Guide**](/translation/getting-started/guide) **\|** [**FAQ and Known Bugs**](/index/survey-tool/faq-and-known-bugs)
-
 ## FAQ (Frequently Asked Questions)
 
 ***Q. Should I preserve the case of English words, like names of languages?***
@@ -20,7 +18,7 @@ A. You need to remove "(other)" or the equivalent from language names. In genera
 
 A. The performance of the Survey Tool has been greatly improved compared to previous versions. However, we are constantly striving to improve performance and our ability to accommodate a larger user base.
 
-If you feel a task is taking an unusual amount of time, and it is a consistent problem, please [file a ticket](/requesting_changes#how-to-file-a-ticket). In the ticket, describe exactly what operation is being attempted and approximately how long it is taking to receive a response.
+If you feel a task is taking an unusual amount of time, and it is a consistent problem, please [file a ticket](/translation/getting-started/guide#reporting-survey-tool-issues). In the ticket, describe exactly what operation is being attempted and approximately how long it is taking to receive a response.
 
 ***Q. How are votes weighted and the "best" item picked?***
 
@@ -36,9 +34,21 @@ Data in a sublocale may be *spuriously different*; that is, the parent's data ma
 
 A. If there is no other translation available, what you will see is a "neutral" code, typically an ISO code. In cases where there is no such code available, such as for labels like "Month", then you may see English \-\- which needs to be translated.
 
+***_Q. I can't find an item in the Survey Tool that I am trying to fix?***
+
+A. First check your coverage level to make sure you are at the right coverage level.
+
+[![coverage level selector image](/images/gettingStartedGuideCoverage.png)
+
+You can also try searching for the item with the [search functionality in the Survey Tool](translation/getting-started/guide#searching-for-items).
+
+If you are unable to find the item by either method follow the [Reporting Survey Tool issues guide](/translation/getting-started/guide#reporting-survey-tool-issues)
+
 ***Q. How do I delete an item?***
 
-A. You can only delete an item if you yourself have entered it, and there are no other votes. Click on the "Abstain" button for that row.
+A. You can only delete an item if you yourself have entered it, and there are no other votes. Click on the button in the "Abstain" column for that row to reset your vote for that item.
+
+![abstain vote example image](/images/index/Abstain%20vote%20example.png)
 
 To remove a spurious difference in a sublocale, vote for the red fallback item.
 
@@ -46,26 +56,21 @@ To remove a spurious difference in a sublocale, vote for the red fallback item.
 
 A. It doesn't really matter much. What is really important is to make sure the the *right* item is voted for; so try to get consensus as described above. If all the alternatives are really wrong, and you really don't know what the right item would be, vote for the red fallback item.
 
-***Q. What if I want to just try out some changes, but don't want to affect the data?***
-
-A. Everyone can add data to "**Unknown or Invalid Language**" (und), so you can try out the Survey tool there without worry.
-
 **Q. What if I have questions?**
 
 A. You should click on the items you have questions about, and read the information in the right\-hand information panel.
 
 *In many cases, even seemingly straightforward translations like the language, script, and territory names have issues.*
 
-You can also go directly to the [Translation Guidelines](/translation).
+You can also go directly to the [Information Hub for Linguists](/translation).
 
 If you have further questions, or problems with the Survey Tool, send a message to [cldr\-users@unicode.org](mailto:cldr-users@unicode.org).
 
 ## Known Bugs, Issues, Restrictions
 
-The following are general known bugs and issues. For known issues in the current release, see [Translation Guidelines](/translation).
+The following are general known bugs and issues. For known issues in the current release, see [Information Hub for Linguists: Known Issues](/translation#known-issues).
 
-1. The description of bulk uploading (http://cldr.unicode.org/index/survey-tool/upload) has not yet been updated for the new UI.
-2. The description of managing users (http://cldr.unicode.org/index/survey-tool/managing-users) has not yet been updated for the new UI.
+- The description of bulk uploading (http://cldr.unicode.org/index/survey-tool/upload) has not yet been updated for the new UI.
 
-If you find additional problems, please [file a ticket](/requesting_changes#how-to-file-a-ticket).
+If you find additional problems, please see [Survey Tool Guide: Reporting Survey Tool issues](/translation/getting-started/guide#reporting-survey-tool-issues)
 

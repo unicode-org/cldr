@@ -4,38 +4,68 @@ title: Survey Tool Guide
 
 # Survey Tool Guide
 
-### _News_
+## Introduction
 
 The Survey tool is a web based tool for collecting CLDR data and includes various features that the contributors (vetters) should know before getting started.
 
-Note that the exact appearance in screenshots may change as the tool is enhanced over time and based on your vetter level.
+Your experience may differ from the screenshots as the tool is enhanced over time and functionality may differ depending on your account type and target coverage level.
 
 ### 💡 Helpful Tips
 
-- Please read the home page of the [Translation Guidelines](/translation) before starting your data contribution.
-    - If you experience a **Loading...** problem with the Survey Tool, try clearing your browser cache. See [Reloading JavaScript](https://www.filecloud.com/blog/2015/03/tech-tip-how-to-do-hard-refresh-in-browsers/#.XOjGNtMzbuM).
+- Please read the home page of the [Information Hub for Linguists](/translation) before starting your data contribution.
+- Pay attention to the current [Survey Tool phase and schedule](/translation#status-and-schedule). At a point towards the end of Survey Tool period, the Technical Committee will change the survey tool to "Vetting Mode". In Vetting Mode, submitting new data/translations is no longer possible, but you can still change your votes and participate in the forum. (The exception is that you can submit new data if the currently winning value has generated an error or a warning.)
+- **Capitalization:** Translations should be what is most appropriate for ”middle-of-sentence” use. So, for example, if your language normally doesn't spell languages with a capital letter, then you shouldn’t do that here. Please see [Capitalization](/translation/translation-guide-general/capitalization) for more details.
+- **Plurals:** For important information regarding the use of plural forms for your language, please read [Plurals](/translation/getting-started/plurals).
+- If you experience a **Loading...** problem with the Survey Tool, try clearing your browser cache. See [Reloading JavaScript](https://www.filecloud.com/blog/2015/03/tech-tip-how-to-do-hard-refresh-in-browsers/#.XOjGNtMzbuM).
 - **Browser support** for Survey Tool includes the latest versions of Edge, Safari, Chrome, and Firefox.
 - Use [Reports](#reports) at the beginning to review the data in your language in a holistic manner for Date & time, Zones, and Numbers.
-    - Capitalization: Translations should be what is most appropriate for ”middle-of-sentence” use. So, for example, if your language normally doesn't spell languages with a capital letter, then you shouldn’t do that here. Please see [Capitalization](/translation/translation-guide-general/capitalization) for more details.
-    - Plurals: For important information regarding the use of plural forms for your language, please read [Plurals](/translation/getting-started/plurals).
 
-### Vetting Phase
+## Reporting Survey Tool issues
 
-At a point towards the end of Survey Tool period, the Technical Committee will change the survey tool to "Vetting Mode". In Vetting Mode, submitting new data/translations is no longer possible, but you can still change your votes and participate in the forum. (The exception is that you can submit new data if the currently winning value has generated an error or a warning.)
+If you run into a problem with the Survey Tool functionalities, please see [Known Issues](/translation#known-issues) and [Survey Tool FAQ](/index/survey-tool/faq-and-known-bugs) to see whether it has already been reported.
 
-## Login and Import of old votes
+If not, or if you have suggestions for improvements, please reach out to the manager for your organization if you are contributing data as part of an organization or [file a ticket](/requesting_changes#how-to-file-a-ticket) if you are contributing as an unaffiliated contributer.
+
+## Searching for items in the Survey Tool {searching-for-items}
+
+You can search for items in the Survey Tool by either the code, English or the current value in the language. You do not need to log in to search. You will need to select a language before searching otherwise the Survey Tool will load the English values.
+
+Searching by code:
+
+![Search by code image](/images/translation/SearchingByCode.png)
+
+Searching by English:
+
+![Search by English image](/images/translation/SearchingByEnglish.png)
+
+Searching emoji:
+
+![Search by emoji image](/images/translation/SearchingByEmoji.png)
+
+Searching by localized value:
+
+![Search by localized value image](/images/translation/SearchByLocalizedValue.png)
+
+## Getting Started
+
+### Login and Import of old votes
 
 1. Go to https://st.unicode.org/cldr-apps/survey/ and log in.
-![alt-text](../../images/gettingStartedGuideNotOpenYet.jpeg)
+![Log in button image](../../images/gettingStartedGuideNotOpenYet.jpeg)
 1. **Import of old votes** is automatically handled when you log in for all your votes **matching** the latest released data. If you have voted previously, upon first log-in, you will see a message showing the number of your votes that matched the currently winning votes that have been auto-imported.
 2. Import of your old votes will take some time, but this will be done at 1st log-in only.
-![alt-text](../../images/gettingStartedGuideOldWinningVotes.jpg)
+![Old Winning Votes Import image](../../images/gettingStartedGuideOldWinningVotes.jpg)
 
 1. **Import old votes manually**. You can still import your old voted data that **DO NOT match** the last released data.
-    1. Go to the **☰ Menu**, look under **My Votes**, and choose **Import Old Votes**.
-    ![alt-text](../../images/GettingStartedGuideImportOldVotes.png)
+    - Go to the **☰ Menu**, look under **My Votes**, and choose **Import Old Votes**.
 
-![alt-text](../../images/gettingStartedGuideImportSelectedItems.jpeg)
+    ![Import Old Votes button image](../../images/GettingStartedGuideImportOldVotes.png)
+
+    - Losing votes will import as anonymous votes.
+
+    ![anonymous vote example image](/images/index/AnonymousVoteExample.png)
+
+![Imported Selected Items button image](../../images/gettingStartedGuideImportSelectedItems.jpeg)
 
 1. Scroll to the bottom to see the category selection for bulk import.
 2. Select the categories that you want to import and click **Import selected items** button at the bottom.
@@ -55,6 +85,8 @@ At a point towards the end of Survey Tool period, the Technical Committee will c
 1.  Only those of you working on a specific variant language (or "sub-locale") will pick a non-default region. If you work on Mexican Spanish, pick **Mexico**. (This should already be pre-selected for you.)
 
 _If the [Info Panel](#info-panel) was turned off, click on the **Open Info Panel** button near the top right of the window._
+
+## Adding data items and voting
 
 ### Voting view
 
@@ -179,6 +211,7 @@ _**Note:**_ _The total progress widget is currently only visible when the dashbo
 
 ### _Page progress_
 _Progress bar shows progress of items on page for your coverage level._
+
 ![alt-text](../../images/gettingStartedGuidePageProgress.png)
 
 ### _Overall progress_
@@ -189,9 +222,13 @@ _Progress bar shows progress of items overall for your coverage level._
 
 ## Dashboard
 
-The Dashboard will show you a list of data items with warnings of different kinds. Some will require action, some may be false positives. (For the veterans, this is the redesigned Priority Viewer.)
+The Dashboard will show you a list of data items with warnings of different kinds. Some will require action, some may be false positives.
 
 ![alt-text](../../images/gettingStartedGuideDashboard.png)
+
+The number of items displayed in the dashboard will change depending on your current coverage level.
+
+[![coverage level selector image](/images/gettingStartedGuideCoverage.png)
 
 The goal is that you should work the Dashboard down to show zero items, then review the [Reports](#reports) (below).
 
@@ -442,12 +479,6 @@ For **Request posts**, you can select your decision using the 3 available button
 See [Responding to Request posts in Info Panel](#responding-to-request-posts).
 
 ![alt-text](../../images/gettingStartedGuideForumPosts.png)
-
-## Reporting Survey Tool issues
-
-If you run into a problem with the Survey Tool functionalities, please see [FAQ & Known Bugs](../../index/survey-tool/faq-and-known-bugs) to see whether it has already been reported (and whether there is a work-around). If not, or if you have suggestions for improvements, please file a bug using the Feedback link at the bottom of each window. If you encounter problems or have enhancement suggestions for the survey tool, please [file a ticket](../requesting_changes#how-to-file-a-ticket).
-
-![alt-text](../../images/gettingStartedGuideCoverage.png)
 
 **Email notification**
 

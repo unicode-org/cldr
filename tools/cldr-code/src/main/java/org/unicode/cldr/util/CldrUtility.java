@@ -1810,4 +1810,16 @@ public class CldrUtility {
             // ignore
         }
     }
+
+    public static void showIf(boolean show, Object... x) {
+        if (show) System.out.println(Joiners.ES.join(x));
+    }
+
+    public static void show(Object... x) {
+        System.out.println(Joiners.ES.join(x));
+    }
+
+    public static <T> Iterable<T> getIterableFromIterator(Iterator<T> iterator) {
+        return () -> iterator;
+    }
 }

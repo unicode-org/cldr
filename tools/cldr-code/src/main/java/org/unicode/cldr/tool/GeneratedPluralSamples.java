@@ -73,6 +73,11 @@ public class GeneratedPluralSamples {
             }
             offset = temp;
             visibleFractionDigitCount = start.getVisibleDecimalDigitCount();
+            int visibleFractionDigitCountEnd = end.getVisibleDecimalDigitCount();
+            if (visibleFractionDigitCount != visibleFractionDigitCountEnd) {
+                throw new IllegalArgumentException(
+                        "Range's arguments must have the same visibleFractionDigitCount");
+            }
             startValue = start.getIntegerValue() * offset + start.getDecimalDigits();
             endValue = end.getIntegerValue() * offset + end.getDecimalDigits();
             if (startValue < 0 || endValue < 0) {

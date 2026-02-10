@@ -153,7 +153,7 @@ public class ShowPlurals {
                         .setHeaderAttributes("class='dtf-th'")
                         .setCellAttributes("class='dtf-s'")
                         .setSpanRows(false);
-        PluralRulesFactory prf = PluralRulesFactory.getInstance(supplementalDataInfo);
+        // PluralRulesFactory prf = PluralRulesFactory.getInstance(supplementalDataInfo);
         // Map<ULocale, PluralRulesFactory.SamplePatterns> samples =
         // PluralRulesFactory.getLocaleToSamplePatterns();
         Set<String> cardinalLocales = supplementalDataInfo.getPluralLocales(PluralType.cardinal);

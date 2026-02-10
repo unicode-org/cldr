@@ -7,10 +7,10 @@ title: Generating Charts
 The input for this process is the `../cldr-staging/production` file, and the output is in the github repo [`cldr-staging`][cldr-staging]. **(If for the development version, the input is `main` or the `maint` branch, but we should change that.)**
 
 1. Switch to the correct branch in the `cldr-staging` repo, such as `charts/49`.
-	- `cldr-staging` is expected to be checked out as a _sibling_ directory to your CLDR source repository, hence `../cldr-staging`
+	- `cldr-staging` is expected to be checked out as a _sibling_ directory to your CLDR source repository, hence `../cldr-staging`.
 	- If that branch doesn't exist, create it (by copying from the next lowest numbered branch).
 	- You will then need to git delete any existing subdirectories in`docs/charts/` in `cldr-staging`.
-	- To summarize, every chart branch in cldr-staging, such as `charts/49` should only have ONE charts directory, that is `docs/charts/49`.
+	- To summarize, every chart branch in cldr-staging, such as `charts/49`, should only have ONE charts directory: `docs/charts/49`.
 2. Make sure the settings and VM arguments are right for where you are in the release:
 	1. **Start, Mid\-release, Prefinal release,** or **Final release** (see below)
 3. Build the keyboard charts.
@@ -89,7 +89,7 @@ The input for this process is the `../cldr-staging/production` file, and the out
 	1. \-DCHART\_VERSION\=**99**
 	2. \-DCHART\_STATUS\=**beta** // \=*default*, uses trunk, calls it β
 
-### Prefinal Release
+### Pre\-final Release
 
 1. VM Arguments
 	1. \-DCHART\_VERSION\=**99**

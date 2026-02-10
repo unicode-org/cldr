@@ -395,6 +395,10 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             return attributeStatus;
         }
 
+        public Mode getMode() {
+            return mode;
+        }
+
         public ValueStatus getValueStatus(String value) {
             return deprecatedValues.contains(value)
                     ? ValueStatus.invalid
@@ -507,6 +511,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         private boolean isCdataElement;
         private ElementStatus elementStatus = ElementStatus.regular;
         private ValueConstraint valueConstraint = ValueConstraint.nonempty;
+        private Set<Element> parents = new LinkedHashSet<>();
 
         private Element(String name2) {
             name = name2.intern();
@@ -535,7 +540,9 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                     } else if (part.equals("ANY")) {
                         type = ElementType.ANY;
                     } else {
-                        CldrUtility.putNew(children, dtdData.elementFrom(part), children.size());
+                        final Element child = dtdData.elementFrom(part);
+                        CldrUtility.putNew(children, child, children.size());
+                        child.getParents().add(this);
                     }
                 }
             }
@@ -611,7 +618,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             return null;
         }
 
-        public void addComment(String addition) {
+        void addComment(String addition) {
             if (addition.startsWith("@")) {
                 // there are exactly 4 cases: deprecated, ordered, techPreview and metadata
                 switch (addition) {
@@ -707,6 +714,10 @@ public class DtdData extends XMLFileReader.SimpleHandler {
          */
         public String getRawModel() {
             return rawModel;
+        }
+
+        public Set<Element> getParents() {
+            return parents;
         }
     }
 
@@ -969,6 +980,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                         System.out.println(element.getName() + "\t→\t@" + names);
                     }
                 }
+                element.parents = Set.copyOf(element.getParents());
             }
             List<String> elementList = elementMergeList.merge();
             List<String> attributeList = attributeMergeList.merge();
@@ -1128,6 +1140,10 @@ public class DtdData extends XMLFileReader.SimpleHandler {
 
     public Map<String, Element> getElementFromName() {
         return nameToElement;
+    }
+
+    public Element getElementFromName(String name) {
+        return nameToElement.get(name);
     }
 
     @Override

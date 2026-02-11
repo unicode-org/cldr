@@ -145,6 +145,7 @@ The rules have been converted to a “flat” format, which is easier for client
 * [`display`](tr35-keyboards.md#element-display): Noted that a key without output may be indicated by means of the `keyId=` attribute on the display.
 * [`layer`](tr35-keyboards.md#element-layer): Noted the use of the `modifiers=` attribute for hardware layouts being used as touch layouts.
 * References and links into the section concerning keyboard test data (which was removed prior to spec finalization) were removed.
+* Normalization for the default backspace transform was clarified, and authors were encouraged to add backspace transforms to avoid the default.
 
 ### Modifications section
 

@@ -1097,4 +1097,36 @@ public class TestTransforms extends TestFmwkPlus {
             }
         }
     }
+
+    public void TestGujaratiLatinFilterCoverage() {
+        Transliterator gujaratiToLatin = CLDRTransforms.getTestingLatinScriptTransform("Gujr");
+        assertEquals(
+            "Gujr-Latn should transform U+0AF0 via Gujarati-InterIndic + InterIndic-Latin",
+            "0.",
+            gujaratiToLatin.transform("\u0AF0"));
+
+        if (gujaratiToLatin.getFilter() == null) {
+            errln("Gujr-Latn should have a top-level filter");
+            return;
+        }
+        if (!(gujaratiToLatin.getFilter() instanceof UnicodeSet)) {
+            errln("Gujr-Latn filter should be a UnicodeSet, but was: " + gujaratiToLatin.getFilter().getClass().getName());
+            return;
+        }
+
+        UnicodeSet sourceSet = getSourceUnicodeSet(gujaratiToLatin);
+        UnicodeSet filterSet = new UnicodeSet((UnicodeSet) gujaratiToLatin.getFilter());
+        UnicodeSet missing = new UnicodeSet(sourceSet).removeAll(filterSet);
+
+        if (!missing.isEmpty()) {
+             errln("Gujr-Latn filter must cover handled source set. Missing: "
+            + missing.toPattern(false)
+            + "\nSource: "
+            + sourceSet.toPattern(false)
+            + "\nFilter: "
+            + filterSet.toPattern(false));
+        } else {
+             logln("Gujr-Latn filter covers all source characters.");
+        }
+    }
 }

@@ -47,6 +47,7 @@ import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoteResolver.Level;
 import org.unicode.cldr.util.VoteResolver.VoterInfo;
 import org.unicode.cldr.util.VoterInfoList;
+import org.unicode.cldr.web.api.LocaleList;
 import org.unicode.cldr.web.util.JSONException;
 import org.unicode.cldr.web.util.JSONObject;
 import org.unicode.cldr.web.util.JSONString;
@@ -409,7 +410,7 @@ public class UserRegistry {
          * @return true if the user has that authority
          */
         public boolean canVoteInNonOrgLocales() {
-            return levelCanVoteInNonOrgLocales(userlevel);
+            return levelCanVoteInNonOrgLocales(Level.fromSTLevel(userlevel));
         }
 
         @Override
@@ -420,9 +421,7 @@ public class UserRegistry {
         @Schema(name = "userLevelName", description = "VoteResolver.Level user level")
         public synchronized VoteResolver.Level getLevel() {
             // CAUTION: this name, like "VETTER", is uppercase when serialized for json response,
-            // while
-            // in some other http responses, lowercase levels like "vetter" are used -- we should be
-            // consistent
+            // while in some other http responses, lowercase levels like "vetter" are used.
             return VoteResolver.Level.fromSTLevel(this.userlevel);
         }
 
@@ -644,11 +643,18 @@ public class UserRegistry {
             }
         }
 
+        public String getLocales() {
+            return locales;
+        }
+
         public void setLocales(String list) {
             setLocales(list, null);
         }
 
         public void setLocales(String list, String rawList) {
+            if (list == null || "all locales".equals(list.toLowerCase())) {
+                list = "";
+            }
             if (LocaleNormalizer.isAllLocales(list)) {
                 locales = LocaleNormalizer.ALL_LOCALES;
             } else {
@@ -675,8 +681,8 @@ public class UserRegistry {
             // goes into the badSet
             final Set<CLDRLocale> stLocaleSet = SurveyMain.getLocalesSet();
             for (final String s : localeSet) {
-                final CLDRLocale l = CLDRLocale.getInstance(s);
-                if (!stLocaleSet.contains(l)) {
+                final CLDRLocale l = CLDRLocale.getExistingInstance(s);
+                if (l == null || !stLocaleSet.contains(l)) {
                     badSet.add(s);
                 }
             }
@@ -692,11 +698,12 @@ public class UserRegistry {
      * Can this user level vote in locales that are not in their organization's locales per
      * Locales.txt?
      *
+     * @param level the user level
      * @return true if this user level has that authority
-     *     <p>A GUEST user has this advantage over a VETTER or MANAGER, though with less votes
+     *     <p>A GUEST user has this advantage over a VETTER or MANAGER, though with fewer votes
      */
-    public static boolean levelCanVoteInNonOrgLocales(int userlevel) {
-        return userlevel == ADMIN || userlevel == TC || userlevel == GUEST;
+    public static boolean levelCanVoteInNonOrgLocales(Level level) {
+        return level.isTCOrStronger() || level.isExactlyGuest();
     }
 
     public static void printPasswordLink(WebContext ctx, String email, String password) {
@@ -834,6 +841,8 @@ public class UserRegistry {
         }
     }
 
+    private static final int MAX_LOCALE_STRING = 1024;
+
     /**
      * @param conn
      * @throws SQLException
@@ -856,6 +865,7 @@ public class UserRegistry {
                         + "org VARCHAR(256) NOT NULL, "
                         + "password VARCHAR(100) NOT NULL, "
                         + "audit VARCHAR(1024) , "
+                        /* See MAX_LOCALE_STRING -- must not exceed 1024 for "locales VARCHAR(1024)" */
                         + "locales VARCHAR(1024) , "
                         + "intlocs VARCHAR(1024) , "
                         + "firstdate "
@@ -2854,14 +2864,13 @@ public class UserRegistry {
      * Find all invalid locale IDs that are assigned to Survey Tool users, and if action is FIX, fix
      * them
      *
-     * @param allProblems the map to fill in, from invalid locale ID to the user count and reason it
-     *     is invalid
+     * @param data to fill in
      * @param action FIND or FIX
      * @throws SQLException for SQL errors
      * @throws SurveyException for internal errors
      */
     public void findInvalidUserLocales(
-            LocaleNormalizer.ProblemMap allProblems, LocaleNormalizer.InvalidLocaleAction action)
+            LocaleList.InvalidLocaleData data, LocaleNormalizer.InvalidLocaleAction action)
             throws SQLException, SurveyException {
         ResultSet rs = null;
         PreparedStatement ps = null;
@@ -2872,9 +2881,10 @@ public class UserRegistry {
                 ps = list(null, conn);
                 rs = ps.executeQuery();
                 while (rs.next()) {
-                    LocaleNormalizer.ProblemMap userProblems = checkUserLocales(conn, rs, action);
+                    LocaleNormalizer.ProblemMap userProblems =
+                            checkUserLocales(conn, rs, data, action);
                     if (userProblems != null) {
-                        LocaleNormalizer.ProblemMap.merge(allProblems, userProblems);
+                        data.problems.merge(userProblems);
                     }
                 }
             }
@@ -2885,106 +2895,193 @@ public class UserRegistry {
     }
 
     private LocaleNormalizer.ProblemMap checkUserLocales(
-            Connection conn, ResultSet rs, LocaleNormalizer.InvalidLocaleAction action)
+            Connection conn,
+            ResultSet rs,
+            LocaleList.InvalidLocaleData data,
+            LocaleNormalizer.InvalidLocaleAction action)
             throws SQLException, SurveyException {
-        final String locales = rs.getString(6);
+        final String localesFromDB = rs.getString(6);
         // Could get interestLocales = rs.getString(7); however, as of 2025-12-11, only 8 users
         // (4 Locked, 3 TC, 1 Vetter) have non-null non-empty intlocs and there does not appear to
         // be a need to check them.
-        if (locales == null || locales.isBlank()) {
+        if (localesFromDB == null || localesFromDB.isBlank()) {
             return null;
         }
         final int userId = rs.getInt(1);
         final int userLevel = rs.getInt(2);
-        Level level = Level.fromSTLevel(userLevel);
-        if (true && level.isLocked()) {
-            // TODO: OK to ignore locked users, and/or delete all locales for locked users?
-            // Reference: https://unicode-org.atlassian.net/browse/CLDR-18913
-            return null;
+        final Organization org = Organization.fromString(rs.getString(5));
+        final Level level = Level.fromSTLevel(userLevel);
+        if (level == null || level.isLocked() || level.isExactlyAnonymous()) {
+            return null; // Ignore locked/anonymous users
         }
-        if (LocaleNormalizer.isAllLocales(locales)) {
-            if (level.isManagerOrStronger()) {
-                return null;
-            } else {
-                // TODO: disallow/fix isAllLocales (*) for some userlevels
-                // Reference: https://unicode-org.atlassian.net/browse/CLDR-18913
-                logger.warning("checkUserLocales: user " + userId + " isAllLocales...");
-            }
+        if (LocaleNormalizer.isAllLocales(localesFromDB) && level.isManagerOrStronger()) {
+            return null; // OK for managers+ to have "*" for all locales
         }
-        final Organization org =
-                UserRegistry.levelCanVoteInNonOrgLocales(userLevel)
-                        ? null
-                        : Organization.fromString(rs.getString(5));
-        final LocaleSet orgLocales = org == null ? null : org.getCoveredLocales();
-        final LocaleNormalizer ln = new LocaleNormalizer().disallowDefaultContent();
+        final LocaleSet orgLocales = org.getCoveredLocales();
+        boolean canVoteNonOrg = UserRegistry.levelCanVoteInNonOrgLocales(level);
+        final LocaleNormalizer ln = new LocaleNormalizer().makeStrict();
         final LocaleNormalizer.ProblemMap userProblems = new LocaleNormalizer.ProblemMap();
-        ln.checkUserLocales(locales, orgLocales, userProblems);
-        if (userProblems.map.isEmpty()) {
-            // TODO: this happens if locales = "*" for non-TC/managers
-            // Reference: https://unicode-org.atlassian.net/browse/CLDR-18913
-            return null;
-        }
-        switch (action) {
-            case FIND:
-                break;
-            case FIX:
-                fixInvalidLocalesForOneUser(conn, ln, getInfo(userId), userProblems);
-                break;
-            default:
-                throw new RuntimeException("Action not handled: " + action);
-        }
-        return userProblems;
+        ln.checkUserLocales(localesFromDB, orgLocales, canVoteNonOrg, userProblems);
+        return handleUserProblems(conn, action, org, userId, ln, localesFromDB, userProblems, data);
     }
 
-    private void fixInvalidLocalesForOneUser(
+    private LocaleNormalizer.ProblemMap handleUserProblems(
             Connection conn,
+            LocaleNormalizer.InvalidLocaleAction action,
+            Organization org,
+            int userId,
             LocaleNormalizer ln,
-            User user,
-            LocaleNormalizer.ProblemMap userProblems)
+            String localesFromDB,
+            LocaleNormalizer.ProblemMap userProblems,
+            LocaleList.InvalidLocaleData data)
             throws SQLException, SurveyException {
         Set<String> localesToDelete = new TreeSet<>();
         Set<CLDRLocale> localesToAdd = new TreeSet<>();
-        for (String localeId : userProblems.map.keySet()) {
-            LocaleNormalizer.Problem problem = userProblems.map.get(localeId);
+        StringBuilder description = new StringBuilder();
+        for (String localeId : userProblems.locMap.keySet()) {
+            LocaleNormalizer.Problem problem = userProblems.locMap.get(localeId);
+            description.append("[").append(problem.rejection.toString()).append(":");
             for (LocaleNormalizer.Solution solution : problem.solutions.keySet()) {
                 localesToDelete.add(solution.localeId); // for DELETE or REPLACE
+                description.append(" ").append(solution);
                 if (solution.type == LocaleNormalizer.Solution.Type.REPLACE) {
                     localesToAdd.add(solution.replacementLocale);
                 }
             }
+            description.append("] ");
         }
-        logger.warning(
-                "Fixing invalid locales for user "
-                        + user.id
-                        + " "
-                        + user.email
-                        + " "
-                        + user.org
-                        + " "
-                        + levelAsStr(user.userlevel)
-                        + "; delete "
-                        + localesToDelete
-                        + "; add "
-                        + localesToAdd);
-        fixDbLocales(conn, ln, user, localesToDelete, localesToAdd);
+        User user = getInfo(userId);
+        if (action == LocaleNormalizer.InvalidLocaleAction.FIND && getLeader(conn, org) == 0) {
+            userProblems.addLeaderlessOrg(org);
+        }
+        if (!userProblems.locMap.isEmpty()) {
+            String newLocales =
+                    handleInvalidLocalesForOneUser(
+                            conn, action, ln, user, localesToDelete, localesToAdd, description);
+            LocaleList.InvalidLocaleUser u =
+                    new LocaleList.InvalidLocaleUser(
+                            user, localesFromDB, newLocales, description.toString());
+            data.users.add(u);
+        }
+        return userProblems;
     }
 
-    private void fixDbLocales(
+    private String handleInvalidLocalesForOneUser(
             Connection conn,
+            LocaleNormalizer.InvalidLocaleAction action,
             LocaleNormalizer ln,
             User user,
-            Set<String> localeIdsToDelete,
-            Set<CLDRLocale> localesToAdd)
+            Set<String> localesToDelete,
+            Set<CLDRLocale> localesToAdd,
+            StringBuilder description)
             throws SQLException, SurveyException {
+        String newLocales = getNewLocales(user, ln, localesToDelete, localesToAdd);
+        if (newLocales.isEmpty()) {
+            // The user would end up with zero locales. If they can vote in all locales anyway
+            // (manager+) that's not a problem. Otherwise, look at their voting history and add
+            // the locales in which they have voted. This is necessary for guest accounts in spite
+            // of having canVoteInNonOrgLocales() == true, since guest users still can't vote in a
+            // non-org locale unless they have that locale in the cldr_users table.
+            if (!user.getLevel().isManagerOrStronger()) {
+                if (addVotedLocales(conn, user, localesToAdd) > 0) {
+                    newLocales = getNewLocales(user, ln, localesToDelete, localesToAdd);
+                    description.append(" [Amended from voting history]");
+                }
+            }
+        }
+        int len = newLocales.length();
+        if (len > MAX_LOCALE_STRING) {
+            String msg =
+                    "Cannot set locales for user "
+                            + user.id
+                            + ": locale string length "
+                            + len
+                            + " would exceed "
+                            + MAX_LOCALE_STRING
+                            + "; newLocales = "
+                            + newLocales;
+            logger.severe(msg);
+            throw new SurveyException(E_INTERNAL, msg);
+        }
+        if (action == LocaleNormalizer.InvalidLocaleAction.FIX) {
+            setFixedLocales(conn, user, newLocales);
+            emailManagerForFixedLocales(conn, user, localesToDelete, localesToAdd, newLocales);
+        }
+        return newLocales;
+    }
+
+    private String getNewLocales(
+            User user,
+            LocaleNormalizer ln,
+            Set<String> localesToDelete,
+            Set<CLDRLocale> localesToAdd) {
         final Set<CLDRLocale> newSet = new HashSet<>(localesToAdd);
-        newSet.addAll(user.getAuthorizedLocaleSet().getSet());
+        LocaleSet authSet = user.getAuthorizedLocaleSet();
+        if (!authSet.isAllLocales()) {
+            newSet.addAll(authSet.getSet());
+        }
         final Set<CLDRLocale> remainderSet =
                 newSet.stream()
-                        .filter(item -> !localeIdsToDelete.contains(item.getBaseName()))
+                        .filter(item -> !localesToDelete.contains(item.getBaseName()))
                         .collect(Collectors.toSet());
         final LocaleSet localeSet = new LocaleSet().addAll(remainderSet);
-        final String locales = ln.normalize(localeSet.toString());
-        setFixedLocales(conn, user, locales);
+        return ln.normalize(localeSet.toString());
+    }
+
+    private int addVotedLocales(Connection conn, User user, Set<CLDRLocale> localesToAdd) {
+        int localesAdded = 0;
+        int newVer = Integer.parseInt(SurveyMain.getNewVersion());
+        StringBuilder sb = new StringBuilder();
+        int tableCount = 0;
+        int ver = newVer;
+        while (ver-- >= SurveyAjax.oldestVersionForImportingVotes) {
+            String oldVotesTable =
+                    DBUtils.Table.VOTE_VALUE
+                            .forVersion(Integer.valueOf(ver).toString(), false)
+                            .toString();
+            if (DBUtils.hasTable(oldVotesTable)) {
+                if (sb.length() > 0) {
+                    sb.append(" UNION ");
+                }
+                sb.append("SELECT DISTINCT locale FROM ")
+                        .append(oldVotesTable)
+                        .append(" WHERE submitter=?");
+                ++tableCount;
+            }
+        }
+        final String sql = sb.toString();
+        PreparedStatement ps = null;
+        java.sql.ResultSet rs = null;
+        try {
+            ps = DBUtils.prepareStatementWithArgsFRO(conn, sql);
+            if (ps != null) {
+                for (int i = 1; i <= tableCount; i++) {
+                    ps.setInt(i, user.id); // one for each submitter=? in the query
+                }
+                rs = ps.executeQuery();
+            }
+            if (rs != null) {
+                while (rs.next()) {
+                    String localeId = rs.getString(1);
+                    CLDRLocale loc = CLDRLocale.getExistingInstance(localeId);
+                    if (loc != null && !localesToAdd.contains(loc)) {
+                        localesToAdd.add(loc);
+                        ++localesAdded;
+                    }
+                }
+            }
+        } catch (SQLException se) {
+            logger.log(
+                    java.util.logging.Level.WARNING,
+                    "Query for old vote locales for user "
+                            + user.id
+                            + " failed: "
+                            + DBUtils.unchainSqlException(se),
+                    se);
+        } finally {
+            DBUtils.close(ps, rs);
+        }
+        return localesAdded;
     }
 
     /**
@@ -2994,7 +3091,7 @@ public class UserRegistry {
      * @param user the specified user
      * @param newLocales the set of locales, as a string like "am fr zh"
      */
-    private void setFixedLocales(Connection conn, User user, String newLocales)
+    private static void setFixedLocales(Connection conn, User user, String newLocales)
             throws SQLException, SurveyException {
         PreparedStatement ps = null;
         try {
@@ -3012,5 +3109,122 @@ public class UserRegistry {
                 ps.close();
             }
         }
+    }
+
+    private void emailManagerForFixedLocales(
+            Connection conn,
+            User user,
+            Set<String> localesToDelete,
+            Set<CLDRLocale> localesToAdd,
+            String locales) {
+        VoteResolver.Level level = user.getLevel();
+        Organization org = user.getOrganization();
+        int managerId;
+        User manager;
+        if (level.isManagerOrStronger()) { // email the user directly
+            managerId = user.id;
+            manager = user;
+        } else { // email the user's manager (or TC if no manager)
+            managerId = getLeader(conn, org);
+            if (managerId == 0) {
+                return; // already reported leaderless org during "FIND" stage
+            }
+            manager = getInfo(managerId);
+        }
+        String del = String.join(", ", localesToDelete);
+        String add = joinCldrLocales(localesToAdd);
+        String subject = "Survey Tool authorized locales changed";
+        String body = makeMessageBody(manager, user, del, add, locales);
+        MailSender.getInstance().queue(null /* senderId */, managerId, subject, body);
+    }
+
+    private String joinCldrLocales(Set<CLDRLocale> locs) {
+        StringBuilder sb = new StringBuilder();
+        int i = 0;
+        for (CLDRLocale loc : locs) {
+            if (i++ > 0) {
+                sb.append(", ");
+            }
+            sb.append(loc.getBaseName());
+        }
+        return sb.toString();
+    }
+
+    /**
+     * Find a manager or technical committee member in the user's organization
+     *
+     * @param conn the DB connection
+     * @param org the user's organization
+     * @return the user ID of the manager or TC, or 0 (zero) for failure
+     */
+    private int getLeader(Connection conn, Organization org) {
+        final String orgName = org.name();
+        int managerId = takeMeToYourLeader(conn, orgName, MANAGER);
+        if (managerId == 0) {
+            managerId = takeMeToYourLeader(conn, orgName, TC);
+        }
+        return managerId;
+    }
+
+    private static int takeMeToYourLeader(Connection conn, String orgName, int managerOrTC) {
+        PreparedStatement ps = null;
+        java.sql.ResultSet rs = null;
+        try {
+            String sql = "SELECT id FROM " + CLDR_USERS + " WHERE org=? AND userlevel=? LIMIT 1";
+            ps = DBUtils.prepareStatementWithArgsFRO(conn, sql);
+            if (ps != null) {
+                ps.setString(1, orgName);
+                ps.setInt(2, managerOrTC);
+                rs = ps.executeQuery();
+            }
+            if (rs != null && rs.next()) {
+                return rs.getInt(1); // success
+            }
+        } catch (SQLException se) {
+            logger.log(
+                    java.util.logging.Level.WARNING,
+                    "Query for manager for "
+                            + orgName
+                            + " failed: "
+                            + DBUtils.unchainSqlException(se),
+                    se);
+        } finally {
+            DBUtils.close(ps, rs);
+        }
+        return 0; // failure
+    }
+
+    private static String makeMessageBody(
+            User manager, User user, String localesToDelete, String localesToAdd, String locales) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Dear ").append(manager.name).append(",\n\n");
+        sb.append("An automated Survey Tool maintenance task has revised ");
+        if (manager.id == user.id) {
+            sb.append("your set of authorized locales.\n\n");
+            sb.append(
+                    "You can still vote in all locales covered by your organization, "
+                            + "since you are a manager or a member of the Technical Committee.\n\n");
+        } else {
+            sb.append("the set of authorized locales for the following user.\n\n");
+            sb.append("Name: ")
+                    .append(user.name)
+                    .append("\n")
+                    .append("E-mail: ")
+                    .append(user.email)
+                    .append("\n")
+                    .append("Organization: ")
+                    .append(user.getOrganization().getDisplayName())
+                    .append("\n\n");
+        }
+        if (!localesToDelete.isEmpty()) {
+            sb.append("Locale(s) removed: ").append(localesToDelete).append("\n");
+        }
+        if (!localesToAdd.isEmpty()) {
+            sb.append("Locale(s) added: ").append(localesToAdd).append("\n");
+        }
+        sb.append("Locale(s) now authorized: ").append(locales).append("\n\n");
+        sb.append(
+                "If appropriate, you may use Survey Tool to revise the set of locales further.\n");
+        return sb.toString();
     }
 }

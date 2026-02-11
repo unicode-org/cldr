@@ -261,7 +261,7 @@ public class UserList {
         String newLocales = getParam(LIST_ACTION_SETLOCALES + u.tag);
 
         String s = reg.setLocales(session, u.user, newLocales, false);
-        u.user.locales = newLocales; // MODIFY
+        u.user.setLocales(newLocales); // MODIFY
         if (u.session != null) {
             s +=
                     "<br/><i>Logging out user session "
@@ -271,7 +271,7 @@ public class UserList {
         }
         UserRegistry.User newThem = reg.getInfo(u.user.id);
         if (newThem != null) {
-            u.user.locales = newThem.locales; // update
+            u.user.setLocales(newThem.getLocales()); // update
         }
         u.ua.put(LIST_ACTION_SETLOCALES + u.tag, s);
     }
@@ -320,8 +320,8 @@ public class UserList {
     }
 
     private void changeLocales(String action, UserSettings u) {
-        if (u.user.locales == null) {
-            u.user.locales = "";
+        if (u.user.getLocales() == null) {
+            u.user.setLocales("");
         }
         String s =
                 "<label>Locales: (space separated) <input id='"
@@ -331,7 +331,7 @@ public class UserList {
                         + LIST_ACTION_SETLOCALES
                         + u.tag
                         + "' value='"
-                        + u.user.locales
+                        + u.user.getLocales()
                         + "'></label>"
                         + "<button onclick=\"{document.getElementById('"
                         + LIST_ACTION_SETLOCALES
@@ -462,7 +462,7 @@ public class UserList {
                         .put("intlocs", user.intlocs)
                         .put("firstdate", user.firstdate)
                         .put("lastlogin", user.lastlogin)
-                        .put("locales", normalizeLocales(user.locales))
+                        .put("locales", normalizeLocales(user.getLocales()))
                         .put("badLocales", user.badLocales)
                         .put("name", user.name)
                         .put("org", user.org)

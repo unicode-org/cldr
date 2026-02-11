@@ -362,6 +362,10 @@ public class VoteResolver<T> {
             return stlevel <= vetter.stlevel;
         }
 
+        public boolean isExactlyGuest() {
+            return stlevel == guest.stlevel;
+        }
+
         public boolean isGuestOrStronger() {
             return stlevel <= guest.stlevel;
         }

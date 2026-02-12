@@ -432,7 +432,7 @@ For web pages with different views of CLDR data, see [http://cldr.unicode.org/in
 [v48.2]: /downloads/cldr-48#482-changes
 [CLDR48.2]: https://unicode.org/Public/cldr/48.2/
 [Charts48.2]: https://unicode.org/cldr/charts/48.2/
-[LDML48.2]: https://www.unicode.org/reports/tr35/48/tr35.html
+[LDML48.2]: https://www.unicode.org/reports/tr35/tr35-78/tr35.html
 [Δ48.2]: https://unicode-org.atlassian.net/issues?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixversion%20%3D%2048.2%20ORDER%20BY%20priority%20DESC
 [release-48-2]: https://github.com/unicode-org/cldr/releases/tag/release-48-1
 <!-- no ΔDtd48.2 -->
@@ -442,7 +442,7 @@ For web pages with different views of CLDR data, see [http://cldr.unicode.org/in
 [v48.1]: /downloads/cldr-48#481-changes
 [CLDR48.1]: https://unicode.org/Public/cldr/48.1/
 [Charts48.1]: https://unicode.org/cldr/charts/48.1/
-[LDML48.1]: https://www.unicode.org/reports/tr35/48/tr35.html
+[LDML48.1]: https://www.unicode.org/reports/tr35/tr35-77/tr35.html
 [Δ48.1]: https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixversion%20%3D%2048%2E1%20ORDER%20BY%20priority%20DESC
 [release-48-1]: https://github.com/unicode-org/cldr/releases/tag/release-48-1
 <!-- no ΔDtd48.1 -->

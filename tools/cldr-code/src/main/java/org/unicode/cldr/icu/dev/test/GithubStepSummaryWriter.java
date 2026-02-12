@@ -2,9 +2,10 @@ package org.unicode.cldr.icu.dev.test;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
+import java.util.function.Consumer;
 import java.util.function.Supplier;
 
-public class GithubStepSummaryWriter implements AutoCloseable {
+public class GithubStepSummaryWriter implements AutoCloseable, Consumer<CharSequence> {
     private static final String GITHUB_STEP_SUMMARY = System.getenv("GITHUB_STEP_SUMMARY");
 
     private final File stepSummaryFile;
@@ -63,5 +64,10 @@ public class GithubStepSummaryWriter implements AutoCloseable {
         if (stepSummaryStream != null) {
             stepSummaryStream.close();
         }
+    }
+
+    @Override
+    public void accept(CharSequence t) {
+        writeStepSummary(t);
     }
 }

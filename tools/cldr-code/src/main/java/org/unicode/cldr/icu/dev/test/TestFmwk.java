@@ -609,7 +609,9 @@ public class TestFmwk extends AbstractTestLog {
                     "\nTest cases taking excessive time (>" + localParams.maxTargetSec + "s):");
             localParams.log.println(localParams.timeLog.toString());
             writeStepSummary(
-                    "#### Test cases taking excessive time (&gt;\" + localParams.maxTargetSec + \"s)\n"
+                    "#### Test cases taking excessive time (&gt;"
+                            + localParams.maxTargetSec
+                            + "s)\n"
                             + localParams.timeLog.toString());
         }
 
@@ -618,10 +620,8 @@ public class TestFmwk extends AbstractTestLog {
             // Suggest to the user that they could print all issues.
             localParams.log.println(" (Use -allKnownIssues to show all known issue sites) ");
         }
-        /** print the known issues to github */
-        writeStepSummary("\n<details><summary>Known Issues</summary>\n\n");
-        localParams.knownIssues.printKnownIssues((String s) -> writeStepSummary(s));
-        writeStepSummary("\n\n</details>\n");
+        // write it in Markdown format.
+        localParams.knownIssues.printKnownIssuesMarkdown(githubStepSummaryWriter);
 
         if (localParams.errorSummary != null && localParams.errorSummary.length() > 0) {
             localParams.log.println("\nError summary:");

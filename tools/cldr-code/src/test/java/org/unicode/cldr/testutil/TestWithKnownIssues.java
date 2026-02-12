@@ -2,6 +2,7 @@ package org.unicode.cldr.testutil;
 
 import java.io.PrintWriter;
 import org.junit.jupiter.api.AfterAll;
+import org.unicode.cldr.icu.dev.test.GithubStepSummaryWriter;
 import org.unicode.cldr.icu.dev.test.TestFmwk.TestParams;
 import org.unicode.cldr.icu.dev.test.UnicodeKnownIssues;
 import org.unicode.cldr.unittest.TestAll;
@@ -47,6 +48,8 @@ public class TestWithKnownIssues {
                             "Use -D%s%s=-allKnownIssues to show all known issue sites",
                             OUR_CLASS.getPackageName(), ShimmedMain.TEST_ARGS));
         }
+        GithubStepSummaryWriter ssw = new GithubStepSummaryWriter();
+        uki.printKnownIssuesMarkdown(ssw);
         uki.clear();
     }
 

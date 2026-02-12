@@ -1137,4 +1137,55 @@ public class TestTransforms extends TestFmwkPlus {
                 ".",
                 gujaratiToLatin.transform("\u0AF0"));
     }
+
+    public void TestAllIndicLatinFilterCoverage() {
+        // Test all 9 major Indic scripts to ensure their Latin transliterators
+        // have filters that cover all characters in their transform source sets
+        String[] indicScripts = {
+            "Deva", "Beng", "Gujr", "Guru", "Knda", "Mlym", "Orya", "Taml", "Telu"
+        };
+        StringBuilder failures = new StringBuilder();
+
+        for (String script : indicScripts) {
+            String id = script + "-Latn";
+            try {
+                Transliterator t = CLDRTransforms.getTestingLatinScriptTransform(script);
+
+                if (t.getFilter() == null) {
+                    failures.append(id).append(": Missing top-level filter\n");
+                    continue;
+                }
+
+                if (!(t.getFilter() instanceof UnicodeSet)) {
+                    failures.append(id)
+                            .append(": Filter is not a UnicodeSet (")
+                            .append(t.getFilter().getClass().getSimpleName())
+                            .append(")\n");
+                    continue;
+                }
+
+                UnicodeSet sourceSet = getSourceUnicodeSet(t);
+                UnicodeSet filterSet = new UnicodeSet((UnicodeSet) t.getFilter());
+                UnicodeSet missing = new UnicodeSet(sourceSet).removeAll(filterSet);
+
+                if (!missing.isEmpty()) {
+                    failures.append(id)
+                            .append(": Filter missing coverage for ")
+                            .append(missing.toPattern(false))
+                            .append("\n");
+                }
+            } catch (Exception e) {
+                failures.append(id)
+                        .append(": Instantiation error - ")
+                        .append(e.getMessage())
+                        .append("\n");
+            }
+        }
+
+        if (failures.length() > 0) {
+            String msg = "Indic-Latin filter coverage failures:\n" + failures.toString();
+            errln(msg);
+            assertTrue(msg, failures.length() == 0);
+        }
+    }
 }

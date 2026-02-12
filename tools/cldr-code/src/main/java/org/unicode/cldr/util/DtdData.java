@@ -304,7 +304,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                     default:
                         if (commentIn.startsWith("@ONLYIF")) {
                             if (allowedParents.isEmpty()) {
-                                allowedParents = new HashSet<>();
+                                allowedParents = new LinkedHashSet<>();
                             }
                             // @ONLYIF/parent=languages
                             Map<String, String> attributes = parseAttributes(commentIn);
@@ -330,7 +330,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                             case "@DEPRECATED":
                                 deprecatedValues =
                                         Collections.unmodifiableSet(
-                                                new HashSet<>(COMMA.splitToList(argument)));
+                                                new LinkedHashSet<>(COMMA.splitToList(argument)));
                                 break;
                             case "@MATCH":
                                 if (matchValue != null) {

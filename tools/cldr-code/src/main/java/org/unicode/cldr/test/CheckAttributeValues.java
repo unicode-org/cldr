@@ -107,12 +107,14 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
                     element_attribute_validity.get(element);
             for (String attribute : attributes.keySet()) {
                 Attribute attributeInfo = elementInfo.getAttributeNamed(attribute);
-                if (!attributeInfo.allowedParents.isEmpty()) {
+                Set<String> allowedParents = attributeInfo.allowedParents;
+                if (!allowedParents.isEmpty()) {
                     if (i > 0) {
-                        // i - 1 corresponds to the element owning the attribute, as XPathParts stores elements and attributes sequentially, 
+                        // i - 1 corresponds to the element owning the attribute, as XPathParts
+                        // stores elements and attributes sequentially,
                         // with attributes evaluated at index i.
                         String parent = parts.getElement(i - 1);
-                        if (!attributeInfo.allowedParents.contains(parent)) {
+                        if (!allowedParents.contains(parent)) {
                             result.add(
                                     new CheckStatus()
                                             .setCause(this)
@@ -121,7 +123,7 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
                                             .setMessage(
                                                     "Attribute {0} is only valid when parent element is {1}; found under {2}",
                                                     new Object[] {
-                                                        attribute, attributeInfo.allowedParents, parent
+                                                        attribute, allowedParents, parent
                                                     }));
                         }
                     } else {
@@ -133,9 +135,7 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
                                         .setSubtype(Subtype.unexpectedAttributeValue)
                                         .setMessage(
                                                 "Attribute {0} is only valid when parent element is {1}; found on root element {2}",
-                                                new Object[] {
-                                                    attribute, attributeInfo.allowedParents, element
-                                                }));
+                                                new Object[] {attribute, allowedParents, element}));
                     }
                 }
                 if (!attributeInfo.values.isEmpty()) {

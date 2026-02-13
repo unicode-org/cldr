@@ -11,7 +11,6 @@ import * as cldrLoad from "./cldrLoad.mjs";
 import * as cldrNotify from "./cldrNotify.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";
 import * as cldrText from "./cldrText.mjs";
-import * as cldrXlsx from "./cldrXlsx.mjs";
 import * as XLSX from "xlsx";
 
 /**
@@ -20,6 +19,7 @@ import * as XLSX from "xlsx";
 const FIND_BAD_LOCALE_URL = "locales/invalid";
 const FIX_BAD_LOCALE_URL = "locales/invalid/fix";
 const UNKNOWN_LOCALE_NAME = "?";
+const ALL_LOCALES = "*";
 
 const DEBUG = true;
 
@@ -64,12 +64,21 @@ function setData(json) {
 }
 
 function makeDataFromJson(json) {
-  const data = { problems: json.problems, localeToName: {}, totals: {} };
+  const data = {
+    problems: json.problems,
+    users: json.users,
+    leaderlessOrgNames: json.leaderlessOrgNames || null,
+    localeToName: {},
+    totals: {},
+  };
   for (let problem of json.problems) {
     const id = problem.id;
     if (!data.localeToName[id]) {
-      const name = cldrLoad.getLocaleName(id);
-      data.localeToName[id] = name === id ? UNKNOWN_LOCALE_NAME : name;
+      let name = cldrLoad.getLocaleName(id);
+      if (name === id && id !== ALL_LOCALES) {
+        name = UNKNOWN_LOCALE_NAME;
+      }
+      data.localeToName[id] = name;
     }
     if (data.totals[problem.rejection]) {
       data.totals[problem.rejection]++;
@@ -134,32 +143,47 @@ function handleFixError(e) {
   cldrNotify.exception(e, "Trying to fix bad locale codes");
 }
 
-async function saveAsSheet() {
+async function saveLocalesAsSheet() {
   if (DEBUG) {
-    console.log("cldrBadLocaleIds.saveAsSheet");
+    console.log("cldrBadLocaleIds.saveLocalesAsSheet");
   }
   const tableHeader = [];
-  tableHeader.push(getHeaderRow());
-
+  tableHeader.push(getLocaleHeaderRow());
   const tableBody = [];
   for (let problem of theData.problems) {
-    tableBody.push(getBodyRow(problem));
+    tableBody.push(getLocaleBodyRow(problem));
   }
-
   const worksheetData = tableHeader.concat(tableBody);
   const worksheet = XLSX.utils.aoa_to_sheet(worksheetData);
   const workbook = XLSX.utils.book_new();
-
   const worksheetName = "InvalidLocales";
-
   XLSX.utils.book_append_sheet(workbook, worksheet, worksheetName);
-
   XLSX.writeFile(workbook, `${worksheetName}.xlsx`, {
     cellStyles: true,
   });
 }
 
-function getHeaderRow() {
+async function saveUsersAsSheet() {
+  if (DEBUG) {
+    console.log("cldrBadLocaleIds.saveUsersAsSheet");
+  }
+  const tableHeader = [];
+  tableHeader.push(getUserHeaderRow());
+  const tableBody = [];
+  for (let user of theData.users) {
+    tableBody.push(getUserBodyRow(user));
+  }
+  const worksheetData = tableHeader.concat(tableBody);
+  const worksheet = XLSX.utils.aoa_to_sheet(worksheetData);
+  const workbook = XLSX.utils.book_new();
+  const worksheetName = "InvalidLocaleUsers";
+  XLSX.utils.book_append_sheet(workbook, worksheet, worksheetName);
+  XLSX.writeFile(workbook, `${worksheetName}.xlsx`, {
+    cellStyles: true,
+  });
+}
+
+function getLocaleHeaderRow() {
   return [
     "Locale ID",
     "Locale Name",
@@ -169,7 +193,7 @@ function getHeaderRow() {
   ];
 }
 
-function getBodyRow(problem) {
+function getLocaleBodyRow(problem) {
   return [
     problem.id,
     theData.localeToName[problem.id],
@@ -179,11 +203,38 @@ function getBodyRow(problem) {
   ];
 }
 
+function getUserHeaderRow() {
+  return [
+    "User ID",
+    "Email",
+    "Org",
+    "Level",
+    "Old locs",
+    "New locs",
+    "Description",
+  ];
+}
+
+function getUserBodyRow(user) {
+  return [
+    user.id,
+    user.email,
+    user.org,
+    user.level,
+    user.oldLocs,
+    user.newLocs,
+    user.description,
+  ];
+}
+
 export {
   fixAll,
-  getBodyRow,
-  getHeaderRow,
+  getLocaleBodyRow,
+  getLocaleHeaderRow,
+  getUserBodyRow,
+  getUserHeaderRow,
   hasPermission,
   refresh,
-  saveAsSheet,
+  saveLocalesAsSheet,
+  saveUsersAsSheet,
 };

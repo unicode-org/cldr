@@ -369,6 +369,16 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
     }
 
     /**
+     * Get an instance only if it already exists
+     *
+     * @param s the locale ID
+     * @return the CLDRLocale, or null if not found
+     */
+    public static CLDRLocale getExistingInstance(String s) {
+        return stringToLoc.get(s);
+    }
+
+    /**
      * Allocate a CLDRLocale (could be a singleton). If null is passed in, null will be returned.
      *
      * @param s

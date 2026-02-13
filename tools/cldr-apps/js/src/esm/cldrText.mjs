@@ -8,6 +8,8 @@ const strings = {
   badLocalesPleaseLogIn: "To view, please log in as Admin.",
   badLocalesCurrentlyNone:
     "There are currently no invalid locale IDs assigned to users 🎉",
+  badLocalesLeaderlessOrgs:
+    "The following organization(s) have no managers/TC to whom email notification could be sent:",
   badLocalesFixAll: "Fix all invalid locale IDs!",
   badLocalesFixSuccessHeader: "Success",
   badLocalesFixSuccessDetail: "The invalid locale IDs were successfully fixed",

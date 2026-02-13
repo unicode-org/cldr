@@ -1,11 +1,13 @@
 package org.unicode.cldr.tool;
 
+import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.number.LocalizedNumberFormatter;
 import com.ibm.icu.number.NumberFormatter;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
 import java.util.TreeMap;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
@@ -26,6 +28,7 @@ public class UnLiteracyParser extends XMLFileReader.SimpleHandler {
     // Debug stuff
     public static void main(String args[]) {
         final UnLiteracyParser ulp = new UnLiteracyParser().read();
+        int hadErr = 0;
         for (final Entry<String, PerCountry> e : ulp.perCountry.entrySet()) {
             final String country = e.getKey();
             final String latest = e.getValue().latest();
@@ -49,12 +52,29 @@ public class UnLiteracyParser extends XMLFileReader.SimpleHandler {
                             + " = "
                             + total);
             if ((literate + illiterate + unknown) != total) {
-                System.out.println(
+                hadErr++;
+                System.err.println(
                         "- doesn't add up for "
                                 + country
                                 + " - total is "
-                                + (literate + illiterate + unknown));
+                                + (literate + illiterate + unknown)
+                                + " for "
+                                + py.size()
+                                + " records.");
+                if ((literate + illiterate + unknown) == 0) {
+                    if (total == 0) {
+                        // what DID we get?
+                        System.out.println("Dumping " + country + " for " + latest + ":");
+                        py.dump();
+                    } else {
+                        System.err.println(" total only- no literacy data.");
+                    }
+                }
             }
+        }
+        if (hadErr > 0) {
+            System.err.println(hadErr + " error(s).");
+            System.exit(1);
         }
     }
 
@@ -64,7 +84,7 @@ public class UnLiteracyParser extends XMLFileReader.SimpleHandler {
     public static final String UN_LITERACY = "external/un_literacy.xml";
 
     UnLiteracyParser read() {
-        System.out.println("* Reading " + UN_LITERACY);
+        System.out.println("* Reading " + UN_LITERACY + " (run UnLiteracyParser.java to debug)");
         new XMLFileReader()
                 .setHandler(this)
                 .readCLDRResource(UN_LITERACY, XMLFileReader.CONTENT_HANDLER, false);
@@ -118,9 +138,11 @@ public class UnLiteracyParser extends XMLFileReader.SimpleHandler {
         thisRecord.clear();
     }
 
+    static final Set<String> ALL_AREAS = ImmutableSet.of("Rural", "Urban", "Total");
+
     boolean validate() {
         try {
-            assertEqual("Area", "Total");
+            assertOneOf("Area", ALL_AREAS);
             assertEqual("Sex", "Both Sexes");
 
             assertPresent(AGE);
@@ -146,6 +168,14 @@ public class UnLiteracyParser extends XMLFileReader.SimpleHandler {
         }
     }
 
+    void assertOneOf(String field, Set<String> expected) {
+        assertPresent(field);
+        String value = get(field);
+        if (!expected.contains(value)) {
+            throw new IllegalArgumentException("Value out of range: got " + field + "=" + value);
+        }
+    }
+
     void assertEqual(String field, String expected) {
         assertPresent(field);
         String value = get(field);
@@ -162,6 +192,9 @@ public class UnLiteracyParser extends XMLFileReader.SimpleHandler {
     }
 
     private void handleRecord() {
+        final String area = get("Area");
+        if (!area.equals("Total")) return; // we only want the total.
+
         final String country = get(COUNTRY_OR_AREA);
         final String year = get(YEAR);
         final String age = get(AGE);
@@ -224,10 +257,31 @@ public class UnLiteracyParser extends XMLFileReader.SimpleHandler {
                     .map((pa) -> pa.perLiteracy.getOrDefault(literacy, 0L))
                     .reduce(0L, (Long a, Long b) -> a + b);
         }
+
+        /**
+         * @returns total number of records
+         */
+        int size() {
+            return perAge.size();
+        }
+
+        /** debug dump */
+        void dump() {
+            for (final Map.Entry<String, PerAge> e : perAge.entrySet()) {
+                System.out.println("- " + e.getKey() + " => PerAge");
+                e.getValue().dump();
+            }
+        }
     }
 
     final class PerAge {
         final Map<String, Long> perLiteracy = new TreeMap<String, Long>();
         String reliability = null;
+
+        void dump() {
+            for (final Map.Entry<String, Long> e : perLiteracy.entrySet()) {
+                System.out.println("  - " + e.getKey() + " = " + e.getValue());
+            }
+        }
     }
 }

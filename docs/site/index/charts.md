@@ -40,3 +40,4 @@ Other Data
 
 For more details on the locale data collection process, please see the [CLDR process](/index/process). For filing or viewing bug reports, see [CLDR Bug Reports](/requesting_changes).
 
+For how to generate or update the charts, see [Generating Charts](/development/cldr-big-red-switch/generating-charts)

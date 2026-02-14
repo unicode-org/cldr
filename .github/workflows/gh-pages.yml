@@ -71,7 +71,7 @@ jobs:
           key: cache-lychee-${{ github.sha }}
           restore-keys: cache-lychee-
       - name: Run lychee
-        uses: lycheeverse/lychee-action@v1
+        uses: lycheeverse/lychee-action@v2.0.2
         with:
           args: "-n --cache --max-cache-age 10d docs/rfc docs/ldml"
           fail: false

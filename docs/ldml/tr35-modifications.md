@@ -41,6 +41,7 @@ This is a partial document, describing only the changes to the LDML since the pr
 
 * New section [Nested Bracket Replacement](tr35-general.html#Character_Nested_Bracket_Replacement)
 * [Locale Display Name Algorithm](tr35-general.html#locale_display_name_algorithm) updated to use the nested bracket replacement data and avoid nested parentheses by flattening `-t-` (transform) language names
+* [Calendar era `code`s](tr35-dates.md#Calendar_Data) Added length limit
 
 ### MessageFormat
 

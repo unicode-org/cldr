@@ -31,3 +31,6 @@ surveytooldeploy:
   certbot_certs:
     - domains:
       - cldr-ref.unicode.org
+
+# for datadog
+dd_env=staging

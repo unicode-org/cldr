@@ -34,10 +34,10 @@ as well as clearly delinating the modifications of that dot release in its own s
     - Complex changes may require prototypes that demonstrate correct function according to the proposed specification.
     - When a spec change or clarification affects existing ICU APIs, CLDR will discuss the change with ICU and an ICU member be a required reviewer on the pull request.
 - New sections may be added to the specification with the status of _Technical Preview_ or _Final Candidate_ depending on how comprehensive the new section is, what type of feedback the Technical Committee requires, and whether the feedback period needs to extend across one or more releases.
-- ​New features in the spec will be ​marked as _Technical Preview_​ ​i​f the following conditions are true:
-    - ​They are intended for implementation in ICU and/or ICU4X (eg excluding annotations for emoji, etc)
-    - They make compliant pre-existing ICU or ICU4X APIs​ become non-compliant
-    - ​They won’t be implemented by either ICU or ICU4X (in at least draft status) in the synchronized CLDR release
+- New features in the spec will be marked as _Technical Preview_ if the following conditions are true:
+    - They are intended for implementation in ICU and/or ICU4X (eg excluding annotations for emoji, etc)
+    - They make compliant pre-existing ICU or ICU4X APIs become non-compliant
+    - They won’t be implemented by either ICU or ICU4X (in at least draft status) in the synchronized CLDR release
  
 | **Status** | **Description** |
 |---|:---|
@@ -49,10 +49,12 @@ as well as clearly delinating the modifications of that dot release in its own s
 
 The contributors of locale data are expected to be language speakers residing in the country/region. In particular, national standards organizations are encouraged to be involved in the data vetting process.
 
-There are two types of data in the repository:
-
-- **Core data** (See [Core data for new locales]): The content is collected from language experts typically with a CLDR Technical Committee member involvement, and is reviewed by the committee. This is required for a new language to be added in CLDR.
-- **Common locale data**: This is the bulk of the CLDR data and data collection occurs twice a year using the Survey tool. (See [Getting Started].)
+In order to add a locale to the repository, **Core data** (See [Core data for new locales]) is needed.
+The content is collected from language experts and is reviewed by the CLDR Technical Committee.
+This information is the minimum needed for the Survey Tool to offer the locale for further data collection
+and is required for a new locale to be added in CLDR.
+With the Core data added to the CLDR, further data collection takes place using the Survey tool.
+(See [Getting Started].)
 
 The following 4 states are used to differentiate the data contribution levels. The initial data contributions are normally marked as draft; this may be changed once the data is vetted.
 
@@ -69,36 +71,43 @@ There are multiple levels of access and control:
 
 | **Vetter Level** | **Number of Votes** | **Description** |  |
 |---|---|---|:---:|
-| *TC Member* | 50 / 6 or 4 | - Manage users in their organization <br>- Can vet and submit data for all locales (However, their vetting work is only done to correct issues.) <br>- Can see the email addresses for all vetters in their organization <br>- Only uses a 50 vote for items agreed to by the CLDR technical Committee <br>- TC members may have a 6 or 4 regular vote depending on how actively their organization participates in the TC |  |
+| *TC Member* | 50 | - Manage users in their organization <br>- Can vet and submit data for all locales (high level votes are only used to correct issues with CLDR Technical Committee's approval - otherwise the voting level of their organization would be used) <br>- Can see the email addresses for all vetters in their organization |  |
 | *TC Organization Managers* | 6 | - Manage users in their organization <br>- Can vet and submit data for all locales (However, their vetting work is only done to correct issues.) <br>- Can see the email addresses for all vetters in their organization |  |
-| *Organization Managers* | 4 | -Manage users in their organization <br>- Can vet and submit data for all locales (However, their vetting work is only done to correct issues.) <br>- Can see the email addresses for all vetters in their organization |  |
-| *TC Organization  Vetter* | 6 | - Can vet and submit data for a particular set of locales. <br>- Can see the email addresses for submitted data in their locales. <br>- Cannot manage other users. |  |
+| *Organization Manager* | 4 | - Manage users in their organization <br>- Can vet and submit data for all locales (only done to correct issues) <br>- Can see the email addresses for all vetters in their organization |  |
+| *TC Organization Vetter* | 6 | - Can vet and submit data for a particular set of locales <br>- Can see the email addresses for vetters that submitted data in their locales <br>- Cannot manage other users |  |
 | *Organization Vetter* | 4 | - Can vet and submit data for a particular set of locales <br>- Can see the email addresses for submitted data in their locales. <br>- Cannot manage other users. |  |
-| *Guest Vetter* | 1 | - Can vet and submit data for a particular set of locales <br>- Cannot see email addresses. <br>- Cannot manage other users.  |  |
-| *Locked Vetter* | 0 | - If a user is locked or removed, then their vote is considered a zero weight. |  |
+| *Guest Vetter* | 1 | - Can vet and submit data for a particular set of locales <br>- Cannot see others' email addresses <br>- Cannot manage other users  |  |
+| *Locked Vetter* | 0 | - When a user is locked during a vetting cycle, their vote is considered a zero weight and is no longer counted. |  |
 
 These levels are decided by the technical committee and the TC representative for the respective organizations.
 
-- Unicode TC members (full/institutional/supporting) can assign its users to Regular or Guest level, and with approval of the TC, users at the Expert level.
-- TC Organizations that are fully engaged in the CLDR Technical Committee are given a higher vote level of 6 votes to reflect their level of expertise and coordination in the working of CLDR and the survey tool as compared to the normal organization vote level of 4 votes
-- Liaison or associate members can assign to Guest, or to other levels with approval of the TC.
-    - The liaison/associate member him/herself gets TC status in order to manage users, but gets a Guest status in terms of voting, unless the committee approves a higher level.
-- Users who are not affiliated with any [CLDR organization] are normally assigned as Guest, but the committee can assign a different level.
+- Unicode TC members (full/institutional/supporting) can create new user accounts at the TC, Manager, Vetter, or Guest level.
+- Vetters of TC Organizations that are fully engaged in the CLDR Technical Committee are given the higher vote level of a *TC Organization Vetter* to reflect their level of expertise and coordination in the workings of CLDR and the survey tool as compared to the regular *Organization Vetter* level.
+- Other organizations, including liaison or associate members, can create user accounts at the Manager, Vetter, or Guest level.
+- Users who sign up for an account outside of any other organization are added to the special Unafilliated organization, and are given the level of Guest.
+- The TC may move users between organizations if needed, without losing voting records or history.
 
 ### Voting Process
 
+> _Note: within the Survey Tool, click on the_ **ⓘ** _symbol in the right hand sidebar to access the "Vote Explainer" which explains how a particular item's result was calculated._
+
 - Each user gets a vote on each value, but the strength of the vote varies according to the user level (see table above).
 - For each value, each organization gets a vote based on the maximum (not cumulative) strength of the votes of its users who voted on that item.
-- For example, if an organization has 10 Vetters for one locale, if the highest user level who voted has user level of 4 votes, then the vote count attributed to the organization as a whole is 4 for that item.
+    - For example, if an organization has 10 Vetters for one locale, if the highest user level who voted has user level of 4 votes, then the vote count attributed to the organization as a whole is 4 for that item.
+- If the users within an organization vote for different values, a user with a higher voting level will overrule a vote at a lower voting level.
+    - For "TC Organizations" (see above), a later vote at the same level will override an earlier vote: "latest wins".
+    - For all other organizations, a value with more users voting for it will win over a value with fewer users voting for it.
+    - If there's still a tie, the tie will be broken arbitrarily by comparing the text lexically.
 
 ### Optimal Field Value
 
-For each release, there is one optimal field value determined by the following:
+For each release, there is one optimal (or "winning") field value determined by the following process:
 
 - Add up the votes for each value from each organization.
+(Each organization votes for only one value, see above.)
 - Sort the possible alternative values for a given field
     - by the most votes (descending)
-    - then by UCA order of the values (ascending)
+    - then by [UCA] order of the values (ascending)
 - The first value is the optimal value (**O**).
 - The second value (if any) is the next best value (**N**).
 
@@ -116,16 +125,16 @@ For each release, there is one optimal field value determined by the following:
 | *unconfirmed* | *otherwise* |
 
 
-1. *Established* locales are currently found in [coverageLevels.xml], with approvalRequirement\[@votes="8"\]
-    - Some specific items have an even higher threshold. See approvalRequirement elements in [coverageLevels.xml] for details.
-2. If the oldStatus is better than the new draft status, then no change is made. Otherwise, the optimal value and its draft status are made part of the new release.
+1. *Established* locales are currently found in [coverageLevels.xml], with `approvalRequirement[@votes="8"]`
+    - Some specific items have an even higher threshold. See `approvalRequirement` elements in [coverageLevels.xml] for details.
+2. If the `oldStatus` is better than the new draft status, then no change is made. Otherwise, the optimal value and its draft status are made part of the new release.
     - For example, if the new optimal value does not have the status of **approved**, and the previous release had an **approved** value (one that does not have an error and is not a fallback), then that previously-released value stays **approved** and replaces the optimal value in the following steps.
 
 It is difficult to develop a formulation that provides for stability, yet allows people to make needed changes. The CLDR committee welcomes suggestions for tuning this mechanism. Such suggestions can be made by [filing a ticket].
 
-## Data- Resolution
+## Data Resolution
 
-After the contribution of collecting and vetting data, the data needs to be refined free of errors for the release:
+After the contribution of collecting and vetting data, the data goes through a curation stage to ensure it is free of errors for the release:
 
 - Collisions errors are resolved by retaining one of the values and removing the other(s).
 - The resolution choice is based on the judgment of the committee, typically according to which field is most commonly used.
@@ -142,12 +151,12 @@ This process can be fine-tuned by the Technical Committee as needed, to resolve 
 For more information see the key links in [CLDR Survey Tool] (especially the Vetting Phase).
 
 **Notes:**
-- If data has a formal problem, it can be fixed directly (in CVS) without going through the above process. Examples include:
+- If data has a formal problem, it can be fixed directly (in GitHub) without going through the above process. Examples include:
     - syntactic problems in pattern, extra trailing spaces, inconsistent decimals, mechanical sweeps to change attributes, translatable characters not quoted in patterns, changing ' (punctuation mark) to curly apostrophe or s-cedilla to s-comma-below, removing disallowed exemplar characters (non-letter, number, mark, uppercase when there is a lowercase).
     - These are changed in-place, without changing the draft status.
-- Linguistically-sensitive data should always go through the survey tool. Examples include:
+- Linguistically sensitive data should always go through the survey tool. Examples include:
     - names of months, territories, number formats, changing ASCII apostrophe to U+02BC modifier letter apostrophe or U+02BB modifier letter turned comma, or U+02BD modifier letter reversed comma, adding/removing normal exemplar characters.
-- The TC committee can authorize bulk submissions of new data directly (CVS), with all new data marked draft="unconfirmed" (or other status decided by the committee), but only where the data passes the CheckCLDR console tests.
+- The TC committee can authorize bulk submissions of new data directly, with all new data marked `draft="unconfirmed"` (or other status decided by the committee), but only where the data passes the CheckCLDR console tests.
 - The survey tool does not currently handle all CLDR data. For data it doesn't cover, the regular bug system is used to submit new data or ask for revisions of this data. In particular:
     - Collation, transforms, or text segmentation, which are more complex.
         - For collation data, see the [comparison charts] or the XML data at [/common/collation/]
@@ -209,7 +218,7 @@ Labels in the **Jira** column correspond to the **phase** field in Jira. Phase f
 
 ## Meetings and Communication
 
-The currently-scheduled meetings are held via Google Meet every week at 8:30 AM Pacific Time (-08:30 GMT in winter, -07:30 GMT in summer).
+The currently-scheduled meetings are listed on the [Unicode Calendar](https://www.unicode.org/timesens/calendar.html). Meetings are held by phone and Google Meet, weekly. Additional meetings are scheduled depending on the need and participants' availability.
 
 There is an internal email list for the Unicode CLDR Technical Committee, open to Unicode members and invited experts. All national standards bodies who are interested in locale data are also invited to become involved by establishing a [Liaison membership] in the Unicode Consortium, to gain access to this list.
 
@@ -245,4 +254,5 @@ The current Technical Committee Officers are:
 [@TECHPREVIEW in the DTD as described in the LDML]: https://www.unicode.org/reports/tr35/#dtd-annotations
 [Requesting Changes]: /requesting_changes
 [Unicode Calendar]: https://www.unicode.org/timesens/calendar.html
+[UCA]: https://www.unicode.org/reports/tr10/#Default_Unicode_Collation_Element_Table
 [UTS #35: Locale Data Markup Language (LDML)]: https://www.unicode.org/reports/tr35/

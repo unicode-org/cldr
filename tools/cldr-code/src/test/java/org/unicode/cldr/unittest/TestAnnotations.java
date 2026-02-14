@@ -6,6 +6,7 @@ import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSortedSet;
 import com.google.common.collect.Multimap;
+import com.google.common.collect.Ordering;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R3;
@@ -29,6 +30,8 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.util.Annotations;
 import org.unicode.cldr.util.Annotations.AnnotationSet;
@@ -36,6 +39,7 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CollatorHelper;
 import org.unicode.cldr.util.Emoji;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;
@@ -281,12 +285,10 @@ public class TestAnnotations extends TestFmwkPlus {
         }
     }
 
+    // TODO CLDR-16947 - this test should migrate into
+    // CheckDisplayCollisions-run-against-derived-annotations (see isuse)
+    // TODO CLDR-19189
     public void TestUniqueness() {
-        //        if (logKnownIssue(
-        //                "CLDR-16947", "skip duplicate TestUniqueness in favor of
-        // CheckDisplayCollisions")) {
-        //            return;
-        //        }
         Set<String> locales = new TreeSet<>();
         locales.add("en");
         if (!TEST_ONLY_ENGLISH_UNIQUENESS) {
@@ -294,21 +296,30 @@ public class TestAnnotations extends TestFmwkPlus {
             locales.remove("root");
         }
         /*
-         * Note: "problems" here is a work-around for what appears to be a deficiency
-         * in the function sourceLocation, involving the call stack. Seemingly sourceLocation
-         * can't handle the "->" notation used for parallelStream().forEach() if
-         * uniquePerLocale calls errln directly.
+         * "problems" is here to collect and sort issues in parallel,
+         * and avoid issues calling errln() from a lambda.
          */
-        Set<String> problems = new HashSet<>();
-        locales.parallelStream().forEach(locale -> uniquePerLocale(locale, problems));
+        Set<String> problems =
+                locales.parallelStream()
+                        .flatMap(locale -> uniquePerLocale(locale))
+                        .collect(Collectors.toCollection(() -> new TreeSet<>()));
         if (!problems.isEmpty()) {
+            if (logKnownIssue(
+                    "CLDR-19189",
+                    "cased collision in annotations:\n" + String.join("\n", problems))) {
+                return;
+            }
             problems.forEach(s -> errln(s));
         }
     }
 
-    private void uniquePerLocale(String locale, Set<String> problems) {
+    private Stream<String> uniquePerLocale(String locale) {
+        Set<String> problems = new TreeSet<>();
         logln("uniqueness: " + locale);
-        Multimap<String, String> nameToEmoji = TreeMultimap.create();
+        // use a case insensitive collator
+        // 'value' is originalName -> emoji
+        Multimap<String, Pair<String, String>> nameToEmoji =
+                TreeMultimap.create(CollatorHelper.CASE_FOLDED, Ordering.natural());
         AnnotationSet data = Annotations.getDataSet(locale);
         for (String emoji : Emoji.getAllRgi()) {
             String name = data.getShortName(emoji);
@@ -319,37 +330,42 @@ public class TestAnnotations extends TestFmwkPlus {
                 throw new IllegalArgumentException(
                         CldrUtility.INHERITANCE_MARKER + " in name of " + emoji + " in " + locale);
             }
-            nameToEmoji.put(name, emoji);
+            nameToEmoji.put(name, Pair.of(name, emoji));
         }
         Multimap<String, String> duplicateNameToEmoji = null;
-        for (Entry<String, Collection<String>> entry : nameToEmoji.asMap().entrySet()) {
+        for (Entry<String, Collection<Pair<String, String>>> entry :
+                nameToEmoji.asMap().entrySet()) {
             String name = entry.getKey();
-            Collection<String> emojis = entry.getValue();
+            final Collection<Pair<String, String>> emojis = entry.getValue();
+            if (duplicateNameToEmoji == null) {
+                duplicateNameToEmoji = TreeMultimap.create();
+            }
             if (emojis.size() > 1) {
-                synchronized (problems) {
-                    if (problems.add(
-                            "Duplicate name in "
-                                    + locale
-                                    + ": “"
-                                    + name
-                                    + "” for "
-                                    + Joiner.on(" & ").join(emojis))) {
-                        int debug = 0;
+                final String prefix = "Duplicate name in " + locale + ": “" + name + "” for ";
+                final StringBuilder remainder = new StringBuilder();
+                for (final Pair<String, String> emoji : emojis) {
+                    duplicateNameToEmoji.put(emoji.getFirst(), emoji.getSecond());
+                    if (remainder.length() > 0) { // ampersand after the first item
+                        remainder.append(" & ");
+                    }
+                    remainder.append("“").append(emoji.getSecond()).append("”");
+                    if (!emoji.getFirst().equals(name)) {
+                        // case-insensitive collision, so note that
+                        remainder.append("(≈“" + emoji.getFirst() + "”) ");
                     }
                 }
-                if (duplicateNameToEmoji == null) {
-                    duplicateNameToEmoji = TreeMultimap.create();
-                }
-                duplicateNameToEmoji.putAll(name, emojis);
+                problems.add(prefix + remainder.toString());
             }
         }
         if (isVerbose() && duplicateNameToEmoji != null && !duplicateNameToEmoji.isEmpty()) {
+            // TODO CLDR-16947: the following will print out in an interleaved way due to threading.
             System.out.println("\nCollisions");
             for (Entry<String, String> entry : duplicateNameToEmoji.entries()) {
                 String emoji = entry.getValue();
                 System.out.println(locale + "\t" + eng.getShortName(emoji) + "\t" + emoji);
             }
         }
+        return problems.stream();
     }
 
     public void testAnnotationPaths() {

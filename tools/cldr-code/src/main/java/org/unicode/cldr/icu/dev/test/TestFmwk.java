@@ -34,6 +34,7 @@ import java.util.MissingResourceException;
 import java.util.NoSuchElementException;
 import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Supplier;
 import java.util.logging.Logger;
 import java.util.stream.Stream;
 import org.unicode.cldr.util.CLDRPaths;
@@ -67,6 +68,18 @@ public class TestFmwk extends AbstractTestLog {
             logger = Logger.getLogger(getClass().getName());
         }
         return logger;
+    }
+
+    private final GithubStepSummaryWriter githubStepSummaryWriter = new GithubStepSummaryWriter();
+
+    /** write to GITHUB_STEP_SUMMARY if it exists. Adds a newline. Threadsafe. */
+    protected final void writeStepSummary(final Supplier<CharSequence> s) {
+        githubStepSummaryWriter.writeStepSummary(s);
+    }
+
+    /** write to GITHUB_STEP_SUMMARY if it exists. Adds a newline. Threadsafe. */
+    protected final void writeStepSummary(final CharSequence s) {
+        githubStepSummaryWriter.writeStepSummary(s);
     }
 
     /** The default time zone for all of our tests. Used in Target.run(); */
@@ -553,6 +566,15 @@ public class TestFmwk extends AbstractTestLog {
      * returns the error code as a result instead of calling System.exit().
      */
     public int run(String[] args, PrintWriter log) {
+        writeStepSummary(
+                () ->
+                        "\n"
+                                + "### TestFmwk run: "
+                                + getClass().getName()
+                                + "\n\n"
+                                + "<details><summary>Test Args</summary>\n\n```\n"
+                                + String.join(" ", args)
+                                + "\n```\n\n</details>\n");
         boolean prompt = false;
         int wx = 0;
         for (int i = 0; i < args.length; ++i) {
@@ -586,6 +608,11 @@ public class TestFmwk extends AbstractTestLog {
             localParams.log.println(
                     "\nTest cases taking excessive time (>" + localParams.maxTargetSec + "s):");
             localParams.log.println(localParams.timeLog.toString());
+            writeStepSummary(
+                    "#### Test cases taking excessive time (&gt;"
+                            + localParams.maxTargetSec
+                            + "s)\n"
+                            + localParams.timeLog.toString());
         }
 
         if (localParams.knownIssues.printKnownIssues(localParams.log::println)) {
@@ -593,16 +620,25 @@ public class TestFmwk extends AbstractTestLog {
             // Suggest to the user that they could print all issues.
             localParams.log.println(" (Use -allKnownIssues to show all known issue sites) ");
         }
+        // write it in Markdown format.
+        localParams.knownIssues.printKnownIssuesMarkdown(githubStepSummaryWriter);
 
         if (localParams.errorSummary != null && localParams.errorSummary.length() > 0) {
             localParams.log.println("\nError summary:");
             localParams.log.println(localParams.errorSummary.toString());
+            writeStepSummary(
+                    "#### Failing Tests\n\n - "
+                            + String.join(
+                                    "\n - ", localParams.errorSummary.toString().trim().split("\n"))
+                            + "\n");
         }
 
         if (errorCount > 0) {
+            writeStepSummary("- :x: " + errorCount + " TEST(S) FAILED");
             localParams.log.println("\n<< " + errorCount + " TEST(S) FAILED >>");
         } else {
             localParams.log.println("\n<< ALL TESTS PASSED >>");
+            writeStepSummary("- :white_check_mark: ALL TESTS PASSED");
         }
 
         if (prompt) {

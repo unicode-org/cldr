@@ -1,4 +1,4 @@
-# CLDR Docs
+# CLDR `docs` directory
 
 CLDR main page: [https://www.unicode.org/cldr](unicode.org/cldr)
 
@@ -12,8 +12,6 @@ CLDR main page: [https://www.unicode.org/cldr](unicode.org/cldr)
 
 - draft-davis-u-langtag-ext-00: [html](rfc/draft-davis-u-langtag-ext-00.html) [txt](rfc/draft-davis-u-langtag-ext-00.txt)
 
-##### Copyright
+### Copyright
 
-Copyright &copy; 1991-2025 Unicode, Inc.
-All rights reserved.
-[Terms of use](https://www.unicode.org/copyright.html)
+For copyright, terms of use, and further details, see the top [README](../README.md).

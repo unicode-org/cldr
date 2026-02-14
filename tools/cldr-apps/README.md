@@ -1,11 +1,10 @@
-# CLDR Survey Tool
+# CLDR Survey Tool `tools/cldr-apps` directory
 
 For general information, see the main [README.md](../../README.md).
 
 The `cldr-apps` subproject builds `cldr-apps.war` which contains the Survey Tool
 packaged for deployment. The Survey Tool is used to collect and confirm translations
 for CLDR.
-
 
 ## DB setup
 
@@ -44,7 +43,7 @@ MYSQL_HOST=localhost
 ```
 
 - Use `mvn --file=tools/pom.xml -DskipTests=true -pl cldr-apps liberty:dev` to run a development
-web server, listening on port 9080. Hit control-C to cancel the server.
+  web server, listening on port 9080. Hit control-C to cancel the server.
 
 - Navigate to http://localhost:9080/cldr-apps to view the app
 
@@ -132,8 +131,7 @@ SurveyTool can start working, to remove the `CLDR_MAINTENANCE=true` line.
 
 You will also likely want to change the `CLDR_DIR` property in that file to point to your CLDR root, otherwise a new CLDR root will be checked out.
 
-Search for this file in your Java workspace after launching - it may be in a random place. See [Advanced Configuration](#advanced-configuration) below for how to move this directory. On one system the cldr directory was in `tools/cldr-apps/target/liberty/wlp/usr/servers/cldr/cldr`.  On the production and staging servers, the location is `/srv/st/config`
-
+Search for this file in your Java workspace after launching - it may be in a random place. See [Advanced Configuration](#advanced-configuration) below for how to move this directory. On one system the cldr directory was in `tools/cldr-apps/target/liberty/wlp/usr/servers/cldr/cldr`. On the production and staging servers, the location is `/srv/st/config`
 
 #### Advanced Configuration
 
@@ -179,7 +177,7 @@ To run tests against an existing deployment, you can download a pre-built server
 
 - Server Builds are actually attached to each action run in <https://github.com/unicode-org/cldr/actions/workflows/maven.yml>, look for an artifact entitled `cldr-apps-server` at the bottom of a run.
 
-- *Warning*: Clicking on this artifact will download a zipfile named `cldr-apps-server.zip` which _contains_ `cldr-apps.zip`.  Double clicking or automatic downloading will often extract one too many levels of zipfiles. If you see a folder named `wlp` then you have extracted too much. From the command line you can unpack with `unzip cldr-apps-server.zip` which will extract `cldr-apps.zip`.  Unpack the file to `tools/cldr-apps/target/cldr-apps.zip`
+- _Warning_: Clicking on this artifact will download a zipfile named `cldr-apps-server.zip` which _contains_ `cldr-apps.zip`. Double clicking or automatic downloading will often extract one too many levels of zipfiles. If you see a folder named `wlp` then you have extracted too much. From the command line you can unpack with `unzip cldr-apps-server.zip` which will extract `cldr-apps.zip`. Unpack the file to `tools/cldr-apps/target/cldr-apps.zip`
 
 ### Build and run
 
@@ -202,13 +200,13 @@ docker compose run --rm -it webdriver
 Want to see what the WebDriver is doing? Sure, you can.
 
 1. Start the selenium container with `docker compose up -d selenium`
-2. Get the local VNC port number: use `docker ps` and it will show up, for example look for `0.0.0.0:39999->5900/tcp` meaning that 39999 is the randomly assigned port (5900 is the VNC port number, but we don't assign that locally.). Or, get the local noVNC port number, which will be  mapped to 7900, `0.0.0.0:37777->7900/tcp` indicating port 37777
+2. Get the local VNC port number: use `docker ps` and it will show up, for example look for `0.0.0.0:39999->5900/tcp` meaning that 39999 is the randomly assigned port (5900 is the VNC port number, but we don't assign that locally.). Or, get the local noVNC port number, which will be mapped to 7900, `0.0.0.0:37777->7900/tcp` indicating port 37777
 3. For noVNC, just point a browser at <http://localhost:37777> (in the above example). In Docker Desktop, you might be able to _click_ on the port number mapped to 7900 to launch a browser.
-   For VNC, use a VNC client to connect to `localhost:39999` (for example).  <vnc://localhost:39999> might work in a browser.
+   For VNC, use a VNC client to connect to `localhost:39999` (for example). <vnc://localhost:39999> might work in a browser.
 4. Enter the "secret" password, more details [here](https://github.com/SeleniumHQ/docker-selenium?tab=readme-ov-file#using-a-vnc-client).
 5. Now run the webdriver (above) and you can watch the brower go.
 
-### client tests
+### Client tests
 
 This will launch the [client tests](js/test/client/README.md).
 
@@ -217,10 +215,6 @@ cd tools/cldr-apps
 docker compose run --rm -it client-test
 ```
 
-### Licenses
+## More information
 
-See the main [README.md](../../README.md).
-
-### Copyright
-
-Copyright © 2004-2025 Unicode, Inc. Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the United States and other countries.
+For copyright, terms of use, and further details, see the top [README](../../README.md).

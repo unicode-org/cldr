@@ -1553,7 +1553,7 @@ XXX Code for transations where no currency is involved
 		<language type="gn" scripts="Latn"/>
 		<language type="goh" scripts="Latn"/>
 		<language type="gon" scripts="Deva"/>
-		<language type="gon" scripts="Telu Gong Gonm Orya" alt="secondary"/>
+		<language type="gon" scripts="Gong Gonm Orya Telu" alt="secondary"/>
 		<language type="gor" scripts="Latn"/>
 		<language type="gos" scripts="Latn"/>
 		<language type="got" scripts="Goth"/>
@@ -1816,6 +1816,7 @@ XXX Code for transations where no currency is involved
 		<language type="mr" scripts="Deva"/>
 		<language type="mr" scripts="Modi" alt="secondary"/>
 		<language type="mrd" scripts="Deva"/>
+		<language type="mrh" scripts="Latn"/>
 		<language type="mrj" scripts="Cyrl"/>
 		<language type="mro" scripts="Latn"/>
 		<language type="mro" scripts="Mroo" alt="secondary"/>
@@ -3155,7 +3156,7 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="unx" populationPercent="0.048"/>	<!--Munda-->
 			<languagePopulation type="bfy" populationPercent="0.037"/>	<!--Bagheli-->
 			<languagePopulation type="srx" populationPercent="0.035" references="R1196"/>	<!--Sirmauri-->
-			<languagePopulation type="saz" populationPercent="0.029"/>	<!--Saurashtra-->
+			<languagePopulation type="saz" populationPercent="0.029"/>	<!--Sourashtra-->
 			<languagePopulation type="ccp" populationPercent="0.028"/>	<!--Chakma-->
 			<languagePopulation type="bfq" populationPercent="0.023"/>	<!--Badaga-->
 			<languagePopulation type="njo" populationPercent="0.023"/>	<!--Ao Naga-->
@@ -3166,6 +3167,7 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="bft" populationPercent="0.0062"/>	<!--Balti-->
 			<languagePopulation type="bra" populationPercent="0.0041"/>	<!--Braj-->
 			<languagePopulation type="lep" populationPercent="0.0035"/>	<!--Lepcha-->
+			<languagePopulation type="mrh" populationPercent="0.0034" references="R1391"/>	<!--Mara Chin-->
 			<languagePopulation type="kxv" populationPercent="0.0029"/>	<!--Kuvi-->
 			<languagePopulation type="btv" populationPercent="0.0026"/>	<!--Bateri-->
 			<languagePopulation type="lif" populationPercent="0.0026"/>	<!--Limbu-->
@@ -3238,7 +3240,7 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="ca" populationPercent="0.035"/>	<!--Catalan-->
 			<languagePopulation type="el" populationPercent="0.035"/>	<!--Greek-->
 			<languagePopulation type="hr" populationPercent="0.0057"/>	<!--Croatian-->
-			<languagePopulation type="mhn" populationPercent="0.0023"/>	<!--Mócheno-->
+			<languagePopulation type="mhn" populationPercent="0.0023"/>	<!--Mòcheno-->
 			<languagePopulation type="rgn" populationPercent="0" references="R1150"/>	<!--Romagnol-->
 		</territory>
 		<territory type="JE" gdp="5569000000" literacyPercent="99" population="103387">	<!--Jersey-->
@@ -3468,6 +3470,7 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="kac" populationPercent="1.7"/>	<!--Kachin-->
 			<languagePopulation type="rhg" populationPercent="1.7"/>	<!--Rohingya-->
 			<languagePopulation type="mnw" populationPercent="1.5"/>	<!--Mon-->
+			<languagePopulation type="mrh" populationPercent="0.036" references="R1392"/>	<!--Mara Chin-->
 			<languagePopulation type="hnj" populationPercent="0.022" references="R1107"/>	<!--Hmong Njua-->
 			<languagePopulation type="stu" populationPercent="0.017" references="R1387"/>	<!--Samtao-->
 			<languagePopulation type="kht" populationPercent="0.0074"/>	<!--Khamti-->
@@ -3835,45 +3838,54 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="uk" populationPercent="0" officialStatus="official_regional" references="R1260"/>	<!--Ukrainian-->
 		</territory>
 		<territory type="RU" gdp="5816000000000" literacyPercent="99.7" population="140821000">	<!--Russia-->
-			<languagePopulation type="ru" populationPercent="94" officialStatus="official" references="R1204"/>	<!--Russian-->
-			<languagePopulation type="tt" populationPercent="1.4" officialStatus="official_regional" references="R1214"/>	<!--Tatar-->
-			<languagePopulation type="ba" populationPercent="1.3" officialStatus="official_regional"/>	<!--Bashkir-->
+			<languagePopulation type="ru" populationPercent="99" officialStatus="official" references="R1279"/>	<!--Russian-->
+			<languagePopulation type="en" populationPercent="3.8" references="R1279"/>	<!--English-->
+			<languagePopulation type="tt" populationPercent="2.4" officialStatus="official_regional" references="R1279"/>	<!--Tatar-->
 			<languagePopulation type="cv" populationPercent="1.3" references="R1159"/>	<!--Chuvash-->
+			<languagePopulation type="ce" populationPercent="1.1" officialStatus="official_regional" references="R1279"/>	<!--Chechen-->
 			<languagePopulation type="hy" literacyPercent="50" populationPercent="0.84" references="R1278"/>	<!--Armenian-->
-			<languagePopulation type="ce" populationPercent="0.66" officialStatus="official_regional"/>	<!--Chechen-->
-			<languagePopulation type="av" populationPercent="0.39" officialStatus="official_regional"/>	<!--Avaric-->
-			<languagePopulation type="udm" populationPercent="0.38" officialStatus="official_regional"/>	<!--Udmurt-->
-			<languagePopulation type="chm" populationPercent="0.37" references="R1101"/>	<!--Mari-->
-			<languagePopulation type="sah" populationPercent="0.32" officialStatus="official_regional" references="R1183"/>	<!--Yakut-->
-			<languagePopulation type="os" populationPercent="0.32" references="R1233"/>	<!--Ossetic-->
-			<languagePopulation type="kbd" populationPercent="0.31" officialStatus="official_regional"/>	<!--Kabardian-->
+			<languagePopulation type="ba" populationPercent="0.8" officialStatus="official_regional" references="R1279"/>	<!--Bashkir-->
+			<languagePopulation type="de" populationPercent="0.79" references="R1279"/>	<!--German-->
+			<languagePopulation type="av" populationPercent="0.48" officialStatus="official_regional" references="R1279"/>	<!--Avaric-->
+			<languagePopulation type="uk" populationPercent="0.46" references="R1279"/>	<!--Ukrainian-->
+			<languagePopulation type="kbd" populationPercent="0.34" officialStatus="official_regional" references="R1279"/>	<!--Kabardian-->
 			<languagePopulation type="myv" populationPercent="0.31" officialStatus="official_regional"/>	<!--Erzya-->
-			<languagePopulation type="dar" populationPercent="0.26"/>	<!--Dargwa-->
-			<languagePopulation type="bua" populationPercent="0.22" officialStatus="official_regional" references="R1040"/>	<!--Buriat-->
+			<languagePopulation type="kum" populationPercent="0.3" officialStatus="official_regional" references="R1279"/>	<!--Kumyk-->
+			<languagePopulation type="sah" populationPercent="0.28" officialStatus="official_regional" references="R1279"/>	<!--Yakut-->
+			<languagePopulation type="dar" populationPercent="0.27" references="R1279"/>	<!--Dargwa-->
+			<languagePopulation type="os" populationPercent="0.26" references="R1279"/>	<!--Ossetic-->
+			<languagePopulation type="inh" populationPercent="0.25" officialStatus="official_regional" references="R1279"/>	<!--Ingush-->
+			<languagePopulation type="bua" populationPercent="0.23" officialStatus="official_regional" references="R1279"/>	<!--Buriat-->
+			<languagePopulation type="az_Cyrl" populationPercent="0.22" officialStatus="official_regional" references="R1279"/>	<!--Azerbaijani (Cyrillic)-->
+			<languagePopulation type="lez" populationPercent="0.21" officialStatus="official_regional" references="R1279"/>	<!--Lezghian-->
 			<languagePopulation type="mdf" populationPercent="0.21" officialStatus="official_regional"/>	<!--Moksha-->
-			<languagePopulation type="kum" populationPercent="0.2" officialStatus="official_regional"/>	<!--Kumyk-->
-			<languagePopulation type="kv" populationPercent="0.18" officialStatus="official_regional"/>	<!--Komi-->
-			<languagePopulation type="lez" populationPercent="0.18" officialStatus="official_regional"/>	<!--Lezghian-->
-			<languagePopulation type="krc" populationPercent="0.17" officialStatus="official_regional"/>	<!--Karachay-Balkar-->
-			<languagePopulation type="inh" populationPercent="0.16" officialStatus="official_regional"/>	<!--Ingush-->
-			<languagePopulation type="tyv" populationPercent="0.13" officialStatus="official_regional"/>	<!--Tuvinian-->
-			<languagePopulation type="az_Cyrl" populationPercent="0.093" officialStatus="official_regional" references="R1261"/>	<!--Azerbaijani (Cyrillic)-->
-			<languagePopulation type="ady" populationPercent="0.088" officialStatus="official_regional"/>	<!--Adyghe-->
-			<languagePopulation type="krl" populationPercent="0.082"/>	<!--Karelian-->
-			<languagePopulation type="lbe" populationPercent="0.078" officialStatus="official_regional"/>	<!--Lak-->
-			<languagePopulation type="koi" populationPercent="0.045" officialStatus="official_regional"/>	<!--Komi-Permyak-->
+			<languagePopulation type="kk" populationPercent="0.2" references="R1279"/>	<!--Kazakh-->
+			<languagePopulation type="krc" populationPercent="0.2" officialStatus="official_regional" references="R1279"/>	<!--Karachay-Balkar-->
+			<languagePopulation type="chm" populationPercent="0.19" references="R1279"/>	<!--Mari-->
+			<languagePopulation type="tyv" populationPercent="0.19" officialStatus="official_regional" references="R1279"/>	<!--Tuvinian-->
+			<languagePopulation type="udm" populationPercent="0.19" officialStatus="official_regional" references="R1279"/>	<!--Udmurt-->
+			<languagePopulation type="uz" populationPercent="0.17" references="R1279"/>	<!--Uzbek-->
+			<languagePopulation type="tg" populationPercent="0.16" references="R1279"/>	<!--Tajik-->
+			<languagePopulation type="kv" populationPercent="0.081" officialStatus="official_regional" references="R1279"/>	<!--Komi-->
+			<languagePopulation type="ady" populationPercent="0.081" officialStatus="official_regional" references="R1040"/>	<!--Adyghe-->
+			<languagePopulation type="xal" populationPercent="0.08" references="R1279"/>	<!--Kalmyk-->
+			<languagePopulation type="lbe" populationPercent="0.065" officialStatus="official_regional" references="R1279"/>	<!--Lak-->
+			<languagePopulation type="ka" populationPercent="0.06" references="R1279"/>	<!--Georgian-->
+			<languagePopulation type="alt" populationPercent="0.047" references="R1279"/>	<!--Southern Altai-->
+			<languagePopulation type="be" populationPercent="0.045" references="R1279"/>	<!--Belarusian-->
 			<languagePopulation type="pnt_Cyrl" populationPercent="0.04" references="R1335"/>	<!--Pontic (Cyrillic)-->
-			<languagePopulation type="mrj" populationPercent="0.021"/>	<!--Western Mari-->
+			<languagePopulation type="koi" populationPercent="0.031" officialStatus="official_regional" references="R1279"/>	<!--Komi-Permyak-->
 			<languagePopulation type="abq" populationPercent="0.021" references="R1040"/>	<!--Abaza-->
-			<languagePopulation type="alt" populationPercent="0.014"/>	<!--Southern Altai-->
-			<languagePopulation type="fi" populationPercent="0.012"/>	<!--Finnish-->
-			<languagePopulation type="sr" populationPercent="0.0041" references="R1040"/>	<!--Serbian-->
-			<languagePopulation type="vep" populationPercent="0.0026"/>	<!--Veps-->
-			<languagePopulation type="mn" populationPercent="0.0015"/>	<!--Mongolian-->
-			<languagePopulation type="kaa" populationPercent="0.0006" references="R1199"/>	<!--Kara-Kalpak-->
-			<languagePopulation type="izh" populationPercent="0.0001"/>	<!--Ingrian-->
-			<languagePopulation type="vot" populationPercent="0"/>	<!--Votic-->
-			<languagePopulation type="cu" populationPercent="0" references="R1279"/>	<!--Church Slavic-->
+			<languagePopulation type="mrj" populationPercent="0.011" references="R1279"/>	<!--Western Mari-->
+			<languagePopulation type="fi" populationPercent="0.01" references="R1279"/>	<!--Finnish-->
+			<languagePopulation type="krl" populationPercent="0.01" references="R1279"/>	<!--Karelian-->
+			<languagePopulation type="sr" populationPercent="0.0042" references="R1279"/>	<!--Serbian-->
+			<languagePopulation type="mn" populationPercent="0.0033" references="R1279"/>	<!--Mongolian-->
+			<languagePopulation type="vep" populationPercent="0.0016" references="R1279"/>	<!--Veps-->
+			<languagePopulation type="cu" populationPercent="0.001" references="R1279"/>	<!--Church Slavic-->
+			<languagePopulation type="kaa" populationPercent="0.0003" references="R1279"/>	<!--Kara-Kalpak-->
+			<languagePopulation type="izh" populationPercent="0" references="R1279"/>	<!--Ingrian-->
+			<languagePopulation type="vot" populationPercent="0" references="R1279"/>	<!--Votic-->
 		</territory>
 		<territory type="RW" gdp="42700000000" literacyPercent="71.1" population="13623300">	<!--Rwanda-->
 			<languagePopulation type="rw" populationPercent="77" officialStatus="official"/>	<!--Kinyarwanda-->
@@ -5232,7 +5244,6 @@ XXX Code for transations where no currency is involved
 		<reference type="R1098" uri="http://www.ethnologue.com/show_language.asp?code=mag">[missing]</reference>
 		<reference type="R1099" uri="http://www.ethnologue.com/show_language.asp?code=efi">[missing]</reference>
 		<reference type="R1100" uri="http://www.ethnologue.com/show_language.asp?code=tbw">[missing]</reference>
-		<reference type="R1101" uri="http://www.ethnologue.com/show_language.asp?code=mhr">[missing]</reference>
 		<reference type="R1102" uri="https://en.wikipedia.org/wiki/Languages_with_official_status_in_India#Writing_systems">Deva is the official script for sd in India; set to 55%. Arab, Guru, Khoj also used.</reference>
 		<reference type="R1103" uri="http://www.ethnologue.com/show_language.asp?code=srn">The lingua franca of 80% of the population</reference>
 		<reference type="R1104" uri="http://www.tokelau.org.nz/Stats.html">2016 Census</reference>
@@ -5314,7 +5325,6 @@ XXX Code for transations where no currency is involved
 		<reference type="R1180" uri="http://www.ethnologue.com/show_language.asp?code=saq">Many also use Swahili</reference>
 		<reference type="R1181" uri="http://www.ethnologue.com/show_language.asp?code=shi">Latin is not shown as being used, rather Arabic</reference>
 		<reference type="R1182" uri="http://www.ethnologue.com/show_language.asp?code=naq">Used in schools up to University.</reference>
-		<reference type="R1183" uri="http://en.wikipedia.org/wiki/Sakha_language">Also called Sakha.</reference>
 		<reference type="R1184" uri="https://www.cia.gov/cia/publications/factbook/geos/fs.html">No indigenous inhabitants. http://en.wikipedia.org/wiki/French_Southern_Territories</reference>
 		<reference type="R1185" uri="https://statsmauritius.govmu.org/Documents/Statistics/ESI/2022/EI1687/2022%20Population%20Census_Main%20Results_18112022.pdf">2022 Census language spoken at home</reference>
 		<reference type="R1186" uri="http://www.ethnologue.com/show_language.asp?code=mas">Shows 50% literacy</reference>
@@ -5335,7 +5345,6 @@ XXX Code for transations where no currency is involved
 		<reference type="R1201">native speaker pop is low, ~6200; but is most widely spoken 2nd language</reference>
 		<reference type="R1202" uri="http://ec.europa.eu/public_opinion/archives/ebs/ebs_243_en.pdf">[missing]</reference>
 		<reference type="R1203" uri="https://www.cia.gov/library/publications/the-world-factbook/geos/nz.html">[missing]</reference>
-		<reference type="R1204" uri="http://en.wikipedia.org/wiki/Russian_language">(94% of studends in Russia receive primarily Russian-language ed)</reference>
 		<reference type="R1205" uri="http://ec.europa.eu/public_opinion/archives/ebs/ebs_243_en.pdf">Europeans and their languages survey, page 7</reference>
 		<reference type="R1206" uri="http://en.wikipedia.org/wiki/Turkish_language#Geographic_distribution">http://ec.europa.eu/public_opinion/archives/ebs/ebs_243_en.pdf Europeans and their languages survey, page 7</reference>
 		<reference type="R1207" uri="https://www.ons.gov.uk/peoplepopulationandcommunity/culturalidentity/language/bulletins/languageenglandandwales/census2021">[missing]</reference>
@@ -5345,7 +5354,6 @@ XXX Code for transations where no currency is involved
 		<reference type="R1211" uri="https://www.cia.gov/library/publications/the-world-factbook/geos/gr.html">[missing]</reference>
 		<reference type="R1212">www.amar.org.ir</reference>
 		<reference type="R1213" uri="http://ec.europa.eu/education/languages/archive/languages/langmin/euromosaic/pol3_en.html">- regional lang community status, taught in some schools</reference>
-		<reference type="R1214" uri="http://www.tatar.ru/">- 52.9% of Tatarstan is ethnic Tatar, the pop figure is an upper bound</reference>
 		<reference type="R1215"> http://en.wikipedia.org/wiki/Interlingua#Community Has a regular conf in Sweden, also Brazil; an auxiliary language with tiny population worldwide</reference>
 		<reference type="R1216">This is base pop for &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;fub&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot; lang code; ff shows as a macrolanguage</reference>
 		<reference type="R1217" uri="http://www.ethnologue.com/language/bkm">[missing]</reference>
@@ -5364,7 +5372,6 @@ XXX Code for transations where no currency is involved
 		<reference type="R1230" uri="http://en.wikipedia.org/wiki/Khmu_language">[missing]</reference>
 		<reference type="R1231" uri="http://en.wikipedia.org/wiki/Kuy_language">[missing]</reference>
 		<reference type="R1232" uri="http://www.ethnologue.com/show_language.asp?code=rjs">[missing]</reference>
-		<reference type="R1233" uri="http://www.gks.ru/free_doc/new_site/population/demo/per-itog/tab6.xls">census data</reference>
 		<reference type="R1234" uri="https://www.cia.gov/library/publications/the-world-factbook/geos/su.html">- source for GDP</reference>
 		<reference type="R1235" uri="https://www.cia.gov/library/publications/the-world-factbook/geos/su.html">- source for GDP Level of English usage unclear, but official for govt and education</reference>
 		<reference type="R1236" uri="https://www.cia.gov/library/publications/the-world-factbook/geos/so.html">- estimate 90%of literate pop can use Arabic; Lpop = 99%</reference>
@@ -5392,7 +5399,6 @@ XXX Code for transations where no currency is involved
 		<reference type="R1258" uri="http://en.wikipedia.org/wiki/Lithuanian_minority_in_Poland">, Podlaskie Voivodeship </reference>
 		<reference type="R1259">official in Vojvodina only</reference>
 		<reference type="R1260">official in Vojvodina only; no pop data yet found</reference>
-		<reference type="R1261" uri="http://en.wikipedia.org/wiki/Azerbaijanis_in_Russia">regional in Dagestan, population estimate</reference>
 		<reference type="R1262" uri="http://en.wikipedia.org/wiki/Languages_of_the_United_States#Yiddish">[missing]</reference>
 		<reference type="R1263" uri="http://en.wikipedia.org/wiki/Uzbek_language#Writing_systems">https://www.cia.gov/library/publications/the-world-factbook/geos/uz.html Latin/Cyrillic balance is estimated, based on literacy; younger education now in Latin</reference>
 		<reference type="R1264">Information on the Latin/Cyrillic script percentages for Kosovo not currently found.</reference>
@@ -5410,7 +5416,7 @@ XXX Code for transations where no currency is involved
 		<reference type="R1276" uri="http://www.ethnologue.com/show_language.asp?code=bin">[missing]</reference>
 		<reference type="R1277" uri="http://en.wikipedia.org/wiki/German_minority_in_Poland">regional-official in part of Opole Voivodeship; in Poland 325 schools with primary instr in German, estimate 37000 students. Real figure probably higher.</reference>
 		<reference type="R1278" uri="https://en.wikipedia.org/wiki/Armenians_in_Russia">Census figures cited there seem to put Armenian using pop between 50-75%. Using 50%.</reference>
-		<reference type="R1279" uri="https://en.wikipedia.org/wiki/Religion_in_russia#Russian_Orthodoxy">[missing]</reference>
+		<reference type="R1279" uri="http://rosstat.gov.ru/vpn_popul">2020 Russian Census Spoken language, as first language or later acquired</reference>
 		<reference type="R1280" uri="http://www.ethnologue.com/language/nus">unknown literacy</reference>
 		<reference type="R1281" uri="http://www.ethnologue.com/language/dyo">only 10% monolingual</reference>
 		<reference type="R1282" uri="http://www.ethnologue.com/language/sbp">near zero literacy; pop ~80000 (2009) see David Lawrence, Tanzania and its People, page 121, Google books</reference>
@@ -5522,5 +5528,7 @@ XXX Code for transations where no currency is involved
 		<reference type="R1388">Leclerc (2014)</reference>
 		<reference type="R1389" uri="https://iso639-3.sil.org/sites/iso639-3/files/change_requests/2015/2015-062_wsg.pdf">[missing]</reference>
 		<reference type="R1390" uri="https://joshuaproject.net/people_groups/10161/JO">[missing]</reference>
+		<reference type="R1391">2011 estimate, people that speak it as their first, second or third language. http://www.censusindia.gov.in/2011census/C-17.html</reference>
+		<reference type="R1392">1994 estimate in https://www.ethnologue.com/country/mm/languages</reference>
 	</references>
 </supplementalData>

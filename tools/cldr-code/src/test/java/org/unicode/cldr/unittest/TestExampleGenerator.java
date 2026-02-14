@@ -146,6 +146,7 @@ public class TestExampleGenerator extends TestFmwk {
             ImmutableSet.of(
                     "//ldml/layout/orientation/characterOrder",
                     "//ldml/layout/orientation/lineOrder",
+                    "//ldml/characters/nestedBracketReplacement[@bracket=\"([^\"]*+)\"]",
                     "//ldml/characters/moreInformation",
                     "//ldml/numbers/symbols[@numberSystem=\"([^\"]*+)\"]/infinity",
                     "//ldml/numbers/symbols[@numberSystem=\"([^\"]*+)\"]/list",
@@ -2197,6 +2198,7 @@ public class TestExampleGenerator extends TestFmwk {
             {
                 SKIP,
                 "//ldml/characters/moreInformation"
+                        + "//ldml/characters/nestedBracketReplacement[@bracket=\"*\"]"
                         + "//ldml/dates/fields/field[@type=\"*\"]/relative[@type=\"*\"]"
                         + "//ldml/dates/timeZoneNames/gmtZeroFormat"
                         + "//ldml/dates/timeZoneNames/gmtUnknownFormat"
@@ -2578,7 +2580,7 @@ public class TestExampleGenerator extends TestFmwk {
             // Available times
 
             {"Hmv", "〖13:25 EST〗〖03:25 EST〗〖Related formats:〗〖13:25〗"},
-            {"Hv", "〖13h EST〗〖03h EST〗"},
+            {"Hv", "〖13 EST〗〖03 EST〗"},
             {"Eh", "〖Sun 1 PM〗〖Sun 3 AM〗"},
             {"Ehm", "〖Sun 1:25 PM〗〖Sun 3:25 AM〗〖Related formats:〗〖1:25 PM〗"},
             {"EHm", "〖Sun 13:25〗〖Sun 03:25〗〖Related formats:〗〖13:25〗"},

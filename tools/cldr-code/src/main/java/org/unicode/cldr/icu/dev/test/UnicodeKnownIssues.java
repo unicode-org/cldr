@@ -21,6 +21,15 @@ public class UnicodeKnownIssues {
         knownIssues.clear();
     }
 
+    public boolean isEmpty() {
+        return knownIssues.isEmpty();
+    }
+
+    /** how many unique issues are reported? */
+    public int size() {
+        return knownIssues.size();
+    }
+
     /**
      * Max number of lines to show by default (including the "more") unless -allKnownIssues is
      * given. Must be at least 2.
@@ -125,5 +134,35 @@ public class UnicodeKnownIssues {
             }
         }
         return didCurtail;
+    }
+
+    /** Print the known issues in (Github Flavored) Markdown format. Does not curtail. */
+    public void printKnownIssuesMarkdown(Consumer<CharSequence> logFn) {
+        if (isEmpty()) return;
+        /** print the known issues to github */
+        logFn.accept("\n<details><summary>" + size() + " Known Issues</summary>\n\n");
+        for (Entry<String, List<String>> entry : knownIssues.entrySet()) {
+            String ticketLink = entry.getKey();
+            Matcher m = UNICODE_JIRA_PATTERN.matcher(ticketLink);
+            if (m.matches()) {
+                // We are here NOT using the atlassian link. Why? Because we don't want to link
+                // EVERY PR EVER back to all known issues. So, we use the redirect.
+                logFn.accept(
+                        String.format(
+                                "- [%s](%s)",
+                                ticketLink, "https://unicode.org/cldr/trac/ticket/" + m.group(2)));
+            } else {
+                // Unknown or something else
+                logFn.accept("- " + ticketLink);
+            }
+            // write out the known issues as a preformatted block
+            logFn.accept("\n\n```");
+            for (final String instance : entry.getValue()) {
+                logFn.accept(instance.trim());
+            }
+            logFn.accept("```\n\n");
+        }
+
+        logFn.accept("\n\n</details>\n");
     }
 }

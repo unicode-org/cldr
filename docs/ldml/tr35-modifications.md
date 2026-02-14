@@ -42,6 +42,9 @@ This is a partial document, describing only the changes to the LDML since the pr
 * New section [Nested Bracket Replacement](tr35-general.html#Character_Nested_Bracket_Replacement)
 * [Locale Display Name Algorithm](tr35-general.html#locale_display_name_algorithm) updated to use the nested bracket replacement data and avoid nested parentheses by flattening `-t-` (transform) language names
 
+**Changes in LDML Version 49 (Differences from Version 48.2)**
+* Clarified the process of selecting the best `dateFormatItem` when there is no exact match, and how to use `appendItems` to add missing fields. This includes a clarification of what are date fields and what are time fields, and a note that `appendItems` for date and time fields should be appended before combining them.
+
 ### MessageFormat
 
 * The `:currency` and `:percent` functions are now Stable, with the same implementations as previously.

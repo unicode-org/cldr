@@ -132,6 +132,7 @@ The LDML specification is divided into the following parts:
     * [Example Post-reorder transforms](#example-post-reorder-transforms)
     * [Reorder and Markers](#reorder-and-markers)
   * [Backspace Transforms](#backspace-transforms)
+    * [Default Backspace Transform](#default-backspace-transform)
 * [Invariants](#invariants)
 * [Keyboard IDs](#keyboard-ids)
   * [Principles for Keyboard IDs](#principles-for-keyboard-ids)
@@ -3126,7 +3127,7 @@ The first three transforms above delete various ligatures with a single keypress
 
 If no specified transform among all `transformGroup`s under the `<transforms type="backspace">` element matches, a default will be used instead — an implied final transform that simply deletes a single codepoint at the end of the input context.
 Because the context is in NFD, this default behavior may break apart what the user considers to be one character.
-For example, if at the end of the context is the string `Dü`, in NFD form, this will be the codepoints `D`, `u` (U+0075) followed by `¨` (U+0308). Pressing backspace once will delete the U+0308 codepoint, leaving `Du` in the context. Pressing backspace again will leave only `D`.
+For example, if at the end of the context is the string `Dü`, in NFD form, this will be the codepoints `D` (U+0044), `u` (U+0075) followed by `¨` (U+0308). Pressing backspace once will delete the U+0308 codepoint, leaving `Du` in the context. Pressing backspace again will leave only `D`.
 
 This implied transform is effectively similar to the following code sample, even though the `*` operator is not actually allowed in `from=`.
 See the documentation for *Match a single Unicode codepoint* under [transform syntax](#regex-like-syntax) and [markers](#markers), above.

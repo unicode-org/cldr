@@ -1097,4 +1097,95 @@ public class TestTransforms extends TestFmwkPlus {
             }
         }
     }
+
+    public void TestGujaratiLatinFilterCoverage() {
+        Transliterator gujaratiToLatin = CLDRTransforms.getTestingLatinScriptTransform("Gujr");
+        if (gujaratiToLatin.getFilter() == null) {
+            errln("Gujr-Latn should have a top-level filter");
+            return;
+        }
+        if (!(gujaratiToLatin.getFilter() instanceof UnicodeSet)) {
+            errln(
+                    "Gujr-Latn filter should be a UnicodeSet, but was: "
+                            + gujaratiToLatin.getFilter().getClass().getName());
+            return;
+        }
+
+        UnicodeSet sourceSet = getSourceUnicodeSet(gujaratiToLatin);
+        UnicodeSet filterSet = new UnicodeSet((UnicodeSet) gujaratiToLatin.getFilter());
+        UnicodeSet missing = new UnicodeSet(sourceSet).removeAll(filterSet);
+
+        if (!missing.isEmpty()) {
+            errln(
+                    "Gujr-Latn filter must cover handled source set. Missing: "
+                            + missing.toPattern(false)
+                            + "\nSource: "
+                            + sourceSet.toPattern(false)
+                            + "\nFilter: "
+                            + filterSet.toPattern(false));
+        } else {
+            logln("Gujr-Latn filter covers all source characters.");
+        }
+    }
+
+    public void TestGujaratiLatinAbbreviationSignRegression() {
+        Transliterator gujaratiToLatin = CLDRTransforms.getTestingLatinScriptTransform("Gujr");
+        // U+0AF0 GUJARATI ABBREVIATION SIGN should map to '.'
+        // (See Gujarati-InterIndic.xml \u0AF0->\uE070 and InterIndic-Latin.xml \uE070->'.')
+        assertEquals(
+                "Gujr-Latn should transform U+0AF0 (Abbreviation Sign) to '.'",
+                ".",
+                gujaratiToLatin.transform("\u0AF0"));
+    }
+
+    public void TestAllIndicLatinFilterCoverage() {
+        // Test all 9 major Indic scripts to ensure their Latin transliterators
+        // have filters that cover all characters in their transform source sets
+        String[] indicScripts = {
+            "Deva", "Beng", "Gujr", "Guru", "Knda", "Mlym", "Orya", "Taml", "Telu"
+        };
+        StringBuilder failures = new StringBuilder();
+
+        for (String script : indicScripts) {
+            String id = script + "-Latn";
+            try {
+                Transliterator t = CLDRTransforms.getTestingLatinScriptTransform(script);
+
+                if (t.getFilter() == null) {
+                    failures.append(id).append(": Missing top-level filter\n");
+                    continue;
+                }
+
+                if (!(t.getFilter() instanceof UnicodeSet)) {
+                    failures.append(id)
+                            .append(": Filter is not a UnicodeSet (")
+                            .append(t.getFilter().getClass().getSimpleName())
+                            .append(")\n");
+                    continue;
+                }
+
+                UnicodeSet sourceSet = getSourceUnicodeSet(t);
+                UnicodeSet filterSet = new UnicodeSet((UnicodeSet) t.getFilter());
+                UnicodeSet missing = new UnicodeSet(sourceSet).removeAll(filterSet);
+
+                if (!missing.isEmpty()) {
+                    failures.append(id)
+                            .append(": Filter missing coverage for ")
+                            .append(missing.toPattern(false))
+                            .append("\n");
+                }
+            } catch (Exception e) {
+                failures.append(id)
+                        .append(": Instantiation error - ")
+                        .append(e.getMessage())
+                        .append("\n");
+            }
+        }
+
+        if (failures.length() > 0) {
+            String msg = "Indic-Latin filter coverage failures:\n" + failures.toString();
+            errln(msg);
+            assertTrue(msg, failures.length() == 0);
+        }
+    }
 }

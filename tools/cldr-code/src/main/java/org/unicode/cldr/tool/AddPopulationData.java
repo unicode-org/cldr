@@ -506,6 +506,7 @@ public class AddPopulationData {
         } catch (Throwable t) {
             throw new IOException("Could not read UN data " + UnLiteracyParser.UN_LITERACY, t);
         }
+        boolean unWarning = false;
 
         for (final Map.Entry<String, UnLiteracyParser.PerCountry> e : ulp.perCountry.entrySet()) {
             final String country = e.getKey();
@@ -530,9 +531,11 @@ public class AddPopulationData {
             }
             double total = literate + illiterate;
             if (total < 1.0 || literate < 1.0 || illiterate < 1.0) {
+                unWarning = true;
                 System.err.println(
                         String.format(
-                                "%s: lit=%d, ill=%d, tot=%f??", code, literate, illiterate, total));
+                                "un_literacy.xml: %s: lit=%d, ill=%d, tot=%f??",
+                                code, literate, illiterate, total));
             }
             double percent =
                     ((double) literate)
@@ -542,6 +545,10 @@ public class AddPopulationData {
         }
         if (result.isEmpty() && hadErr != null) {
             hadErr.value = true;
+        }
+        if (unWarning) {
+            System.err.println(
+                    "UN Data had some zeros- run UnLiteracyParser for more details on above warnings.");
         }
         return result;
     }

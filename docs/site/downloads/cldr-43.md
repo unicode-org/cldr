@@ -248,7 +248,7 @@ The CLDR language matching data can *and should* be overridden whenever there is
 - **Turkey / Türkiye**
 	- In v42, the customary English name for the country code TR was "Turkey", and an alternate name was "Türkiye". In v43, the customary English name was changed to "Türkiye", and the alternate name was set to "Turkey". Translators were advised of the change, and reviewed the names in their locales to see if any needed adjustment. Implementations that wish to retain the English name "Turkey" may choose to use the alternate form.
 - **Keyboards**
-	- The [Keyboard WG] is working on a major revamp of the Keyboard specification, [Released in version 44][44-keyboards]. “Keyboard 3.0” has a very different goal than the original format, and therefore existing keyboard files do not interoperate, were not maintained, and will be removed.
+	- The [Keyboard WG] is working on a major overhaul of the Keyboard specification, [Released in version 44][44-keyboards]. “Keyboard 3.0” has a very different goal and therefore existing keyboard files do not interoperate, have not been maintained, and will be removed.
 
 
 ## Known Issues

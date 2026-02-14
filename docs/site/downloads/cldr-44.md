@@ -163,7 +163,7 @@ Note that there are additional sample keyboard data files in progress which were
 - Bengali, Assamese Phonetic Keyboard (PR \#[3368](https://github.com/unicode-org/cldr/pull/3368))
 - French AZERTY optimisé (PR \#[3220](https://github.com/unicode-org/cldr/pull/3220))
 
-**Note**: prior keyboard data files are not compatible, were not maintained and have also been removed in CLDR v44. The prior keyboard files are still available from earlier CLDR downloads, but are not recommended for use as they are known to be incorrect, and are not compatible with the current DTD.
+**Note**: Prior keyboard data files are not compatible, have not been maintained and have also been removed in CLDR v44. The prior keyboard files are still available from earlier CLDR downloads, but are not recommended for use as they are known to be incorrect and are not compatible with the current DTD.
 
 See the *Known Issues* section for additional known issues.
 

@@ -156,7 +156,7 @@ The following is a summary of the DTD changes which reflect changes in the struc
 
 ### Keyboard Changes
 
-**Keyboard** has a new DTD (keyboard3\.dtd and the \<keyboard3\> element). This is a complete rewrite of the specification by the Keyboard WG, and is available as a technical preview in CLDR version 44\. See [TR35 Part 7: Keyboards](https://www.unicode.org/reports/tr35/tr35-keyboards.html). The prior DTDs are included in CLDR but are not used by CLDR data or tooling.
+**Keyboard** has a new DTD (keyboard3\.dtd and the \<keyboard3\> element). This is a complete rewrite of the specification by the CLDR Keyboard Working Group, and is available as a technical preview in CLDR version 44\. See [TR35 Part 7: Keyboards](https://www.unicode.org/reports/tr35/tr35-keyboards.html). The prior DTDs are included in CLDR but are not used by CLDR data or tooling.
 
 Note that there are additional sample keyboard data files in progress which were not complete for v44, but may be consulted as samples:
 

@@ -1046,7 +1046,7 @@ public class TestTransforms extends TestFmwkPlus {
                         continue;
                     default:
                         // add(locale, script, path, source, transformed, cp);
-                        if (scriptCode >= 0) { // no extensions, not latin, etc.
+                        if (scriptCode >= 0) {      // no extensions,   not latin, etc..
                             add(locale, script, path, source, transformed, cp);
                         } else {
                             bs.clear(UScript.LATIN);
@@ -1139,12 +1139,9 @@ public class TestTransforms extends TestFmwkPlus {
     }
 
     public void TestAllIndicLatinFilterCoverage() {
-        // Test all 9 major Indic scripts to ensure their Latin transliterators
-        // have filters that cover all characters in their transform source sets.
-        // We compare the *-Latn filter against the *-InterIndic source set (plus extras)
-        // to avoid tautology (testing the filter against itself).
+       // Compare *-Latn filter with independent *-InterIndic source set.
 
-        // Maps short code (from CLDRTransforms) to file name (for *InterIndic.xml)
+// Include shared extras (danda/ZWJ/ZWNJ) handled in the pipeline.
         String[][] scripts = {
             {"Deva", "Devanagari"},
             {"Beng", "Bengali"},
@@ -1183,7 +1180,7 @@ public class TestTransforms extends TestFmwkPlus {
 
                 UnicodeSet filterSet = new UnicodeSet((UnicodeSet) t.getFilter());
 
-                // Get source set from the InterIndic transform (the "truth")
+                
                 Transliterator tInter;
                 try {
                     tInter = Transliterator.getInstance(interIndicId);

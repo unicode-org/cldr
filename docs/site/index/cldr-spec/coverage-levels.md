@@ -36,7 +36,7 @@ As of v43, the files in **/seed/** have been moved to **/common/**. Older versio
 
 ## Core Data
 
-**The data needed for a new locale to be added. See [Core Data for New Locales](/index/cldr-spec/core-data-for-new-locales) for details on Core Data and how to submit for new locales.**
+**The data needed for a new locale to be added. See [Core Data for New Locales](/cldr-spec/core-data-for-new-locales) for details on Core Data and how to submit for new locales.**
 
 **It is expected that during the next Survey Tool cycle after a new locale is added, the data for the Basic Coverage Level will be supplied.**
 
@@ -70,13 +70,13 @@ Before submitting data above the Basic Level, the following must be in place:
 1. Plural and Ordinal rules
 	- As in \[supplemental/plurals.xml] and \[supplemental/ordinals.xml]
 	- Must also include minimal pairs
-	- For more information, see [cldr\-spec/plural\-rules](/index/cldr-spec/plural-rules).
+	- For more information, see [cldr\-spec/plural\-rules](/cldr-spec/plural-rules).
 2. Casing information (only where the language uses a cased scripts according to [ScriptMetadata.txt](https://github.com/unicode-org/cldr/blob/main/common/properties/scriptMetadata.txt))
 	- This will go into [common/casing](https://github.com/unicode-org/cldr/blob/main/common/casing/)
 3. Collation rules \[non\-Survey Tool]
 	- This can be supplied as a list of characters, or as rule file.
 	- The list is a space\-delimited list of the characters used by the language (in the given script). The list may include multiple\-character strings, where those are treated specially. For example, if "ch" is sorted after "h" one might see "a b c d .. g h ch i j ..."
-	- More sophisticated users can do a better job, supplying a file of rules as in [cldr\-spec/collation\-guidelines](/index/cldr-spec/collation-guidelines).
+	- More sophisticated users can do a better job, supplying a file of rules as in [cldr\-spec/collation\-guidelines](/cldr-spec/collation-guidelines).
 4. The result will be a file like: [common/collation/ar.xml](https://github.com/unicode-org/cldr/blob/main/common/collation/ar.xml) or [common/collation/da.xml](https://github.com/unicode-org/cldr/blob/main/common/collation/da.xml).
 
 The data for the Moderate Level includes subsets of the Modern data, both in depth and breadth.

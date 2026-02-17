@@ -467,8 +467,8 @@ The goal is to bring it to the attention to all linguists contributing in a part
 
 ## Advanced Features
 
-1. Users familiar with CLDR XML format can upload votes (and submissions) for multiple items at once. See [Bulk Data Upload](/index/survey-tool/bulk-data-upload).
-2. Organization managers can manage users for their organization (add, remove, send passwords, set locales, etc.) For more information, see [Managing Users](/index/survey-tool/managing-users).
+1. Users familiar with CLDR XML format can upload votes (and submissions) for multiple items at once. See [Bulk Data Upload](/survey-tool/bulk-data-upload).
+2. Organization managers can manage users for their organization (add, remove, send passwords, set locales, etc.) For more information, see [Managing Users](/survey-tool/managing-users).
     1. Some users may want to reset their Coverage Level, with the menu that looks like the image to the right.
     2. The Coverage Level determines the items that you will see for translation: the minimal level has the highest priority items. You normally start with the level marked "Default" (which will vary by your organization and locale). Each successively higher level adds more items, at successively lower priorities. You will not normally go beyond "Modern", unless you have special instructions for your organization.
     3. _Note that some companies won't use the data until it is complete at a certain coverage level, typically_ _**Modern**._

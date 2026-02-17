@@ -78,7 +78,7 @@ Add the annotations.
         1. Edit as described in [PathHeader](/development/updating-dtds).
     2.  PathDescriptions.md (tools/java/org/unicode/cldr/util/data/) - provides a description of what the field is, for translators.
         1. If it needs more explanation, add a section (or perhaps a whole page) to the translation guide, eg http://cldr.org/translation/plurals.
-        2. For an example, see [8479](/index/bug-reports#TOC-Filing-a-Ticket)
+        2. For an example, see [8479](/bug-reports#TOC-Filing-a-Ticket)
     3. Placeholders.txt - provides information about the placeholders, if there can be any.
          1. If the value has placeholders ({0}, {1},...) then edit this file as described in [Placeholders](/development/updating-dtds).
     4. The coverageLevels.xml (common/supplemental/coverageLevels) - sets the coverage level for the path.
@@ -253,7 +253,7 @@ If a value has placeholders, edit Placeholders.txt:
     - ^//ldml/units/unit\\\[@type="day%A"\]/unitPattern ; {0}=NUMBER\_OF\_DAYS 3
 2. There is a variable %A that will match attribute value syntax (or substrings).
 3. \<example> may contain spaces, but \<message\_name> must not.
-4. For an example, see [8484](/index/bug-reports#TOC-Filing-a-Ticket)
+4. For an example, see [8484](/bug-reports#TOC-Filing-a-Ticket)
 5. Check that the ConsoleCheckCLDR **CheckForExamplars** fails if there are no placeholders in the value
 6. Note: we should switch methods so that we don't need to quote \\\[, etc, but we haven't yet.
 
@@ -322,12 +322,12 @@ There are three ways for paths to show up in the Survey Tool (and in other tooli
 
 ### OK if Missing
 
-Certain paths don't have to be present in locales. They are not counted as Missing in the Dashboard and shouldn't have an effect on coverage. To handle these, modify the file [missingOk.txt](/index/bug-reports#TOC-Filing-a-Ticket) to provide a regex that captures those paths. Be careful, however, to not be overly inclusive: you want all and only those paths that are ok to skip. Typically those are paths for which root values are perfectly fine.
+Certain paths don't have to be present in locales. They are not counted as Missing in the Dashboard and shouldn't have an effect on coverage. To handle these, modify the file [missingOk.txt](/bug-reports#TOC-Filing-a-Ticket) to provide a regex that captures those paths. Be careful, however, to not be overly inclusive: you want all and only those paths that are ok to skip. Typically those are paths for which root values are perfectly fine.
 
 ## Examples of DTD modifications
 
 The following is an example of the different files that may need to be modified. It has both count= and a placeholder, so it hits most of the kinds of changes.
-- https://cldr.unicode.org/index/bug-reports#TOC-Filing-a-Ticket
+- https://cldr.unicode.org/bug-reports#TOC-Filing-a-Ticket
 
 
 ## Modifying English/Root

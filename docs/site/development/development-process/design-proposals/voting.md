@@ -28,7 +28,7 @@ We have been trying to tune the voting process, see [2260](http://www.unicode.or
 
 ## Background
 
-Our current voting process is at http://cldr.unicode.org/index/process#TOC-Draft-Status-of-Optimal-Field-Value
+Our current voting process is at http://cldr.unicode.org/process#TOC-Draft-Status-of-Optimal-Field-Value
 
 The key points are:
 

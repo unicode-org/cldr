@@ -6,7 +6,7 @@ title: CLDR 49 Release Note
 
 | No. |    Date    | Rel. Note |  Data  |  Charts  | Spec |   Delta  | GitHub Tag | Delta DTD | CLDR JSON |
 |:---:|:----------:|:---------:|:------:|:--------:|:------------:|:---:|:----------:|:---------:|:---------:|
-|  49 | 2026-03-~~XX~~ | [v49](/index/downloads/cldr-49) | ~~[CLDR49](https://unicode.org/Public/cldr/49/)~~ | [Charts49](https://unicode.org/cldr/charts/dev) | [LDML49](https://www.unicode.org/reports/tr35/49/tr35.html) | [Δ49](https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixversion%20%3D%2049%20ORDER%20BY%20priority%20DESC) | ~~[release-49]()~~ | [ΔDtd48](https://www.unicode.org/cldr/charts/dev/supplemental/dtd_deltas.html) | ~~[49.0.0]()~~ |
+|  49 | 2026-03-~~XX~~ | [v49](/downloads/cldr-49) | ~~[CLDR49](https://unicode.org/Public/cldr/49/)~~ | [Charts49](https://unicode.org/cldr/charts/dev) | [LDML49](https://www.unicode.org/reports/tr35/49/tr35.html) | [Δ49](https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixversion%20%3D%2049%20ORDER%20BY%20priority%20DESC) | ~~[release-49]()~~ | [ΔDtd48](https://www.unicode.org/cldr/charts/dev/supplemental/dtd_deltas.html) | ~~[49.0.0]()~~ ...
 
 ## Overview
 
@@ -140,12 +140,12 @@ The following changes are planned for CLDR 50. Please plan accordingly to avoid 
 ## Acknowledgments
 
 Many people have made significant contributions to CLDR and LDML;
-see the [Acknowledgments](/index/acknowledgments) page for a full listing.
+see the [Acknowledgments](/acknowledgments) page for a full listing.
 
 The Unicode [Terms of Use](https://unicode.org/copyright.html) apply to CLDR data;
 in particular, see [Exhibit 1](https://unicode.org/copyright.html#Exhibit1).
 
-For web pages with different views of CLDR data, see [http://cldr.unicode.org/index/charts](/index/charts).
+For web pages with different views of CLDR data, see [http://cldr.unicode.org/charts](/charts).
 
 [CLDR-16004]: https://unicode-org.atlassian.net/browse/CLDR-16004
 [CLDR-18275]: https://unicode-org.atlassian.net/browse/CLDR-18275

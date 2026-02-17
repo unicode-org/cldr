@@ -40,7 +40,7 @@ Unicode CLDR is an open-source project. To contribute to a Unicode Consortium re
 
 ### Group Review
 
-The [Keyboard Working Group](/index/keyboard-workgroup) (KBD) will review the proposed keyboard layout data and work with the contributor to address any issues. The [minimum layout requirements](#requirements-on-keyboard-layouts-in-cldr) and policies governing submissions are outlined below.
+The [Keyboard Working Group](/keyboard-workgroup) (KBD) will review the proposed keyboard layout data and work with the contributor to address any issues. The [minimum layout requirements](#requirements-on-keyboard-layouts-in-cldr) and policies governing submissions are outlined below.
 
 Once the group is satisfied with the PR, it will recommend the [CLDR Technical Committee](/cldr-tc) to include the keyboard layout data in the repository. Normally, the [draft status](https://www.unicode.org/reports/tr35/#Attribute_draft) of a new keyboard will be *contributed*. The layout must be included in the repository prior to the data freeze deadline for the target CLDR release. This is to ensure that KBD and the TC have sufficient time to address any public feedback, which could include removing the layout altogether or postponing it to a later release.	
 

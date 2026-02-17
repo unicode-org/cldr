@@ -192,7 +192,7 @@ See [LDML Language Plural Rules](https://unicode.org/reports/tr35/tr35-numbers.h
 
 ## Plural Message Migration
 
-The plural categories are used not only within CLDR, but also for localizing messages for different products. When the plural rules change (such as in [CLDR 24](/index/downloads/cldr-24-release-note)), the following issues should be considered. Fractional support in plurals is new in CLDR 24\. Because the fractions didn't work before, the changes in categories from 23 to 24 should not cause an issue for implementations. The other changes can be categorized as Splitting or Merging categories.
+The plural categories are used not only within CLDR, but also for localizing messages for different products. When the plural rules change (such as in [CLDR 24](/downloads/cldr-24-release-note)), the following issues should be considered. Fractional support in plurals is new in CLDR 24\. Because the fractions didn't work before, the changes in categories from 23 to 24 should not cause an issue for implementations. The other changes can be categorized as Splitting or Merging categories.
 
 There are some more complicated cases, but the following outlines the main issues to watch for, using examples. For illustration, assume a language uses "" for singular, "u" for dual, and "s" for other.​ ​
 

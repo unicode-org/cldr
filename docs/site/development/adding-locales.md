@@ -4,7 +4,7 @@ title: Adding a new locale to CLDR
 
 # Adding a new locale to CLDR
 
-NOTE: this is an internal page for TC developers. Others should see [Core Data for New Locales](/index/cldr-spec/core-data-for-new-locales).
+NOTE: this is an internal page for TC developers. Others should see [Core Data for New Locales](/cldr-spec/core-data-for-new-locales).
 
 ## Regional locales
 
@@ -17,7 +17,7 @@ Otherwise:
 ## New locales
 
 Before adding a new locale, you must have the minimal core data that cannot be added through the Survey Tool.
-See [Core Data for New Locales](/index/cldr-spec/core-data-for-new-locales) for the process.
+See [Core Data for New Locales](/cldr-spec/core-data-for-new-locales) for the process.
 This will include:
 
  - language code

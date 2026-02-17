@@ -18,7 +18,7 @@ Beginning with CLDR version 1.7.2, machine-readable files are available listing 
 
 The BCP47 data is also currently maintained in a source code repository, with each release tagged, for viewing directly without unzipping. For example, see https://github.com/unicode-org/cldr/tree/release-38/common/bcp47. The current development snapshot is found at https://github.com/unicode-org/cldr/tree/master/common/bcp47.
 
-All releases including the latest are listed on http://cldr.unicode.org/index/downloads, with a link to each respective data directory under the column heading **Data**, and direct access to the repository under the **GitHub Tag.**
+All releases including the latest are listed on http://cldr.unicode.org/downloads, with a link to each respective data directory under the column heading **Data**, and direct access to the repository under the **GitHub Tag.**
 
 For example, the timezone.xml file looks like the following:
 

@@ -6,7 +6,7 @@ title: Managing Users
 
 If you have a TC or Manager level account, you can manage other translators (users). When data submission starts, you'll want to lock the users who are not active, add new users, and send messages to your users. For the existing users you might need to resend passwords \-\- it is simplest just to do that for everyone once you've added new users.
 
-When you create users, you give them permissions and choose which locales they are to work on. It is also important that you set your [organization][CLDR Organization]'s coverage levels appropriately, see "[Setting your Organization's Coverage levels](/index/survey-tool/coverage)".
+When you create users, you give them permissions and choose which locales they are to work on. It is also important that you set your [organization][CLDR Organization]'s coverage levels appropriately, see "[Setting your Organization's Coverage levels](/survey-tool/coverage)".
 
 The tool might feel a bit awkward to use, so please ask if you have any questions.
 
@@ -29,7 +29,7 @@ Set the name, email, and the locale(s) they are responsible for.
 
 Set the Userlevel based on your assessment of the person's skill. Normally this is "Vetter". You can use "Street" for volunteers whom you don't know. People don't have to come from your organization as long as you have confidence in them.
 
-See the [CLDR Process](/index/process) page for a description of the user levels and their privileges.
+See the [CLDR Process](/process) page for a description of the user levels and their privileges.
 
 ![image](../../images/index/managingUsers3.jpg)
 
@@ -106,7 +106,7 @@ Later on, in the vetting phase, you can send messages with the outstanding dispu
 ##To check that all of your important locales have vetters assigned
 
 1. Under [the ☰ menu](https://st.unicode.org/cldr-apps/v#menu///), choose "[Vetting Participation](https://st.unicode.org/cldr-apps/v#vetting_participation///)". It may take a while to load.
-2. The listed locales are ones that are a priority for your organization according to the coverage information. (If it's wrong, see "[Changing Your Organization's Coverage Levels](/index/survey-tool/coverage)".)
+2. The listed locales are ones that are a priority for your organization according to the coverage information. (If it's wrong, see "[Changing Your Organization's Coverage Levels](/survey-tool/coverage)".)
 3. If you need new locales added, let your committee representative know.
 4. Under each locale, the currently active users are listed. The ones listed with yellow background have not participated in the current cycle. The ones with gray background have participated, and their vote count is shown.
 5. Note that locales are listed in ISO code order, so for example "Chinese" is listed at the bottom for "zh".

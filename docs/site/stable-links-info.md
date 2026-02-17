@@ -10,9 +10,9 @@ This page contains information about updating the various stable links to part o
 |---|---|---|---|
 |   |  |  |  |
 |   | **Versions of CLDR** |  |  |
-| development version | http://cldr.unicode.org/index/downloads/dev | http://cldr.unicode.org/index/downloads/cldr-24 | Modify Google sites page |
-| latest version | http://cldr.unicode.org/index/downloads/latest | http://cldr.unicode.org/index/downloads/cldr-23-1 | Modify Google sites page |
-| specific (eg 22) | http://cldr.unicode.org/index/downloads/cldr-22 | http://cldr.unicode.org/index/downloads/cldr-22 | nothing needed |
+| development version | http://cldr.unicode.org/downloads/dev | http://cldr.unicode.org/downloads/cldr-24 | Modify Google sites page |
+| latest version | http://cldr.unicode.org/downloads/latest | http://cldr.unicode.org/downloads/cldr-23-1 | Modify Google sites page |
+| specific (eg 22) | http://cldr.unicode.org/downloads/cldr-22 | http://cldr.unicode.org/downloads/cldr-22 | nothing needed |
 |   |  |  |  |
 |   | **Links to CLDR data (zip files)** |  |  |
 | development version | http://unicode.org/Public/cldr/dev | http://unicode.org/Public/cldr/dev | nothing needed (permanent redirect in cldr/.htaccess if ever needs to be touched) |

@@ -4,7 +4,7 @@ title: JSON Format Data
 
 # JSON Format Data
 
-**This page is out of date, see** [**CLDR Releases/Downloads: JSON Data**](https://cldr.unicode.org/index/downloads#json-data) **for details of the JSON data.**
+**This page is out of date, see** [**CLDR Releases/Downloads: JSON Data**](https://cldr.unicode.org/downloads#json-data) **for details of the JSON data.**
 
 The CLDR Technical Committee is pleased to announce a preliminary publishing of the CLDR 22.1 main and supplemental data in JSON format.
 
@@ -14,7 +14,7 @@ In addition, we now have a conversion utility that can be used to convert LDML i
 
 The CLDR committee welcomes comments on this specification and the data itself. Our hope is that as more people realize that there is a standard format for CLDR data in JSON, it will become the best practice way to use CLDR data in the Javascript environment.
 
-The JSON specification for CLDR data can be found [here](/index/cldr-spec/cldr-json-bindings).
+The JSON specification for CLDR data can be found [here](/cldr-spec/cldr-json-bindings).
 
 To access the CLDR 22.1 data in the JSON format, click [HERE](https://home.unicode.org/basic-info/projects/#!/repos/cldr-aux/json/22.1/)
 

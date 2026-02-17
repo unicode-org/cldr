@@ -4,7 +4,7 @@ title: CLDR Survey Tool
 
 # CLDR Survey Tool
 
-[**Survey Tool**](https://st.unicode.org/cldr-apps/v#locales///) **|** [**Accounts**](/index/survey-tool/survey-tool-accounts) **|** [**Guide**](/translation/getting-started/guide) **|** [**FAQ and Known Bugs**](/index/survey-tool/faq-and-known-bugs)
+[**Survey Tool**](https://st.unicode.org/cldr-apps/v#locales///) **|** [**Accounts**](/survey-tool/survey-tool-accounts) **|** [**Guide**](/translation/getting-started/guide) **|** [**FAQ and Known Bugs**](/survey-tool/faq-and-known-bugs)
 
 ### Introduction
 
@@ -16,13 +16,13 @@ Below are the main pages to look at.
 
 ### Schedule
 
-For the Milestone schedule, see the [CLDR Schedule](/index/draft-schedule). See the [Information Hub for Linguists](/translation) for the most recent updates about the current or upcoming cycle.
+For the Milestone schedule, see the [CLDR Schedule](/draft-schedule). See the [Information Hub for Linguists](/translation) for the most recent updates about the current or upcoming cycle.
 
 The SurveyTool is usually open for one submission period annually starting in Q2, but the schedule may change depending on needs.
 
 ### Accounts
 
-You don't need an account to view data for a particular language. If you wish to propose changes or additions, you will need an account. For how to get one, see [Survey Tool Accounts](/index/survey-tool/survey-tool-accounts). If you would like to add data for a new locale, see [Adding New Locales](/requesting_changes/adding-new-locales).
+You don't need an account to view data for a particular language. If you wish to propose changes or additions, you will need an account. For how to get one, see [Survey Tool Accounts](/survey-tool/survey-tool-accounts). If you would like to add data for a new locale, see [Adding New Locales](/requesting_changes/adding-new-locales).
 
 ### Guide
 
@@ -30,7 +30,7 @@ For an overview of how the Survey Tool works, see the [Survey Tool Guide](/trans
 
 ### New Fields
 
-To see a summary of the new fields that will be in the next version of CLDR, see http://cldr.unicode.org/index/downloads/dev. At the top of that page you can follow a link to the beta release page.
+To see a summary of the new fields that will be in the next version of CLDR, see http://cldr.unicode.org/downloads/dev. At the top of that page you can follow a link to the beta release page.
 
 ### Development
 

@@ -4,7 +4,7 @@ title: FAQ and Known Bugs
 
 # FAQ and Known Bugs
 
-[**Survey Tool**](http://st.unicode.org/cldr-apps/survey) **\|** [**Accounts**](/index/survey-tool/survey-tool-accounts) **\|** [**Guide**](/translation/getting-started/guide) **\|** [**FAQ and Known Bugs**](/index/survey-tool/faq-and-known-bugs)
+[**Survey Tool**](http://st.unicode.org/cldr-apps/survey) **\|** [**Accounts**](/survey-tool/survey-tool-accounts) **\|** [**Guide**](/translation/getting-started/guide) **\|** [**FAQ and Known Bugs**](/survey-tool/faq-and-known-bugs)
 
 ## FAQ (Frequently Asked Questions)
 
@@ -24,7 +24,7 @@ If you feel a task is taking an unusual amount of time, and it is a consistent p
 
 ***Q. How are votes weighted and the "best" item picked?***
 
-A. You basically want to get multiple organizations to agree on the best value. For details on the voting process, see [Resolution Procedure](/index/process).
+A. You basically want to get multiple organizations to agree on the best value. For details on the voting process, see [Resolution Procedure](/process).
 
 ***Q. In the key, it says that the red box is a fallback. What does that mean?***
 
@@ -64,8 +64,8 @@ If you have further questions, or problems with the Survey Tool, send a message 
 
 The following are general known bugs and issues. For known issues in the current release, see [Translation Guidelines](/translation).
 
-1. The description of bulk uploading (http://cldr.unicode.org/index/survey-tool/upload) has not yet been updated for the new UI.
-2. The description of managing users (http://cldr.unicode.org/index/survey-tool/managing-users) has not yet been updated for the new UI.
+1. The description of bulk uploading (http://cldr.unicode.org/survey-tool/upload) has not yet been updated for the new UI.
+2. The description of managing users (http://cldr.unicode.org/survey-tool/managing-users) has not yet been updated for the new UI.
 
 If you find additional problems, please [file a ticket](/requesting_changes#how-to-file-a-ticket).
 

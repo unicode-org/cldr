@@ -31,7 +31,7 @@ An organization that focuses on a small number of locales will probably want to 
 
 Breton ; br ; modern Breton ; \*  ; moderate
 
-To request a change in the default coverage for your locale, file a [new ticket](/index/bug-reports#TOC-Filing-a-Ticket).
+To request a change in the default coverage for your locale, file a [new ticket](/bug-reports#TOC-Filing-a-Ticket).
 
 As part of CLDR v35, the coverage level has been refined further. See ticket \#[11498](https://unicode-org.atlassian.net/browse/CLDR-11498)
 

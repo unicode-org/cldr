@@ -60,7 +60,7 @@ The following are legacy tools to review votes, but the Priority Items tool is d
 
 **Review:** Priority Items |Date/Time | Zones | Numbers
 
-You can also see a video walkthrough of the review sections on [Walkthrough](/index/survey-tool/walkthrough).
+You can also see a video walkthrough of the review sections on [Walkthrough](/survey-tool/walkthrough).
 
 The rest of this page discusses how to do the Priority Items. Once you have done the Priority Items, [Review reports](/translation/getting-started/review-formats).
 
@@ -125,7 +125,7 @@ Vetting Phase
 
 _Go through the summary list, clicking the checkbox (☑) to show the issues of type you're working on._ You can click several at once if you find that easier. That will then expose the issues of that type below the summary.
 
-After the data submission phase, any differences in the submitted data will be resolved according to the [data resolution process](/index/process#TOC-Data--Resolution).
+After the data submission phase, any differences in the submitted data will be resolved according to the [data resolution process](/process#TOC-Data--Resolution).
 
 ### How to Handle
 

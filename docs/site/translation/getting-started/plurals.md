@@ -10,7 +10,7 @@ In CLDR, Plurals are used for localized Units and Compact numbers (under Numbers
 
 In the Survey Tool for translation purpose, plural forms shown per language will differ as only those that are relevant to that language are shown.
 
-For example, in French, the distinction of the One and Other are available. Please see [Plural Rules](/index/cldr-spec/plural-rules), and [file a ticket](/requesting_changes) if you see a form in the Survey Tool that is not expected in your language.
+For example, in French, the distinction of the One and Other are available. Please see [Plural Rules](/cldr-spec/plural-rules), and [file a ticket](/requesting_changes) if you see a form in the Survey Tool that is not expected in your language.
 
 ![image](../../images/French-plural.PNG)
 
@@ -77,7 +77,7 @@ Unit patterns for past and future (3 hours ago, In 4 hours) are related to [Rela
 
 Minimal pairs are used to verify the different grammatical features used by a language. _**These messages are not to be translated literally; do not simply translate the English!**_
 
-- **Plurals (cardinals) and Ordinals.** See [Determining Plural Categories](/index/cldr-spec/plural-rules#TOC-Determining-Plural-Categories).
+- **Plurals (cardinals) and Ordinals.** See [Determining Plural Categories](/cldr-spec/plural-rules#TOC-Determining-Plural-Categories).
 - **Grammatical Case and Gender.** See [Grammatical Inflection](/translation/grammatical-inflection)
 
 

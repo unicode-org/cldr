@@ -130,7 +130,7 @@ jobs:
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
       cancel-in-progress: true
-  preview:
+  production:
     if: github.repository == 'unicode-org/cldr' && github.event_name == 'push' && (contains(github.ref, 'maint/maint-') || (github.ref == 'refs/heads/main'))
     name: "Deploy Spec to production"
     environment:
@@ -175,8 +175,7 @@ jobs:
           ${{ vars.SSH_HOST }}:public_html/reports/tr35/tr35-${{ steps.metadata.outputs.revision }}/
       - name: Upload revision
         run: |
-          echo "- Production: https://${{ vars.SSH_HOST }}/reports/tr35/tr35-${{ steps.metadata.outputs.revision }}/tr35.html" | tee -a $GITHUB_STEP_SUMMARY
-          echo "- TODO CLDR-19231 Currently: https://${{ vars.SSH_HOST }}/~${{ vars.SSH_USER }}/reports/tr35/tr35-${{ steps.metadata.outputs.revision }}/tr35.html" | tee -a $GITHUB_STEP_SUMMARY
+          echo "- Production: https://unicode.org/reports/tr35/tr35-${{ steps.metadata.outputs.revision }}/tr35.html" | tee -a $GITHUB_STEP_SUMMARY
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
       cancel-in-progress: true

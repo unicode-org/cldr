@@ -34,12 +34,10 @@ jobs:
       with:
         ruby-version: 3.2
         bundler-cache: true
-    - name: Setup Jekyll
-      run: 'gem install bundler jekyll kramdown-parser-gfm webrick'
-    - name: Setup assets
-      run: 'cd docs/site/assets && npm ci && npm run build'
-    - name: Build cldr.pages.dev
-      run: 'cd docs/site && jekyll build'
+    - name: Build Site
+      run: 'sh tools/scripts/web/build-site.sh'
+    - name: 'Remove wrangler.jsonc for now (this is the OLD pages build)'
+      run: 'rm -f wrangler.jsonc'
     - name: Pre-install Wrangler
       if: (github.event_name == 'push') || (github.event.pull_request.head.repo.full_name == 'unicode-org/cldr')
       run: npm i -g wrangler@3.x

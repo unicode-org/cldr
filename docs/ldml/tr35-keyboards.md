@@ -3136,7 +3136,7 @@ It is important that implementations do not by default delete more than one non-
 Note that implementations will vary in the emoji handling due to the iterative nature of successive Unicode releases. See [UTS#51 §2.4.2: Emoji Modifiers in Text](https://www.unicode.org/reports/tr51/#Emoji_Modifiers_in_Text)
 
 Keyboard authors should almost always include backspace transforms in their keyboards, to ensure that backspacing has intuitive and expected behavior for users.
-The default backspace transform described here will almost always yield unexpected behavior for users.
+The default backspace transform described here may yield unexpected behavior for users.
 
 ```xml
 <transforms type="backspace">

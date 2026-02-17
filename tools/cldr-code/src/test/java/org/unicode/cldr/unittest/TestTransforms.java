@@ -1140,16 +1140,33 @@ public class TestTransforms extends TestFmwkPlus {
 
     public void TestAllIndicLatinFilterCoverage() {
         // Test all 9 major Indic scripts to ensure their Latin transliterators
-        // have filters that cover all characters in their transform source sets
-        String[] indicScripts = {
-            "Deva", "Beng", "Gujr", "Guru", "Knda", "Mlym", "Orya", "Taml", "Telu"
+        // have filters that cover all characters in their transform source sets.
+        // We compare the *-Latn filter against the *-InterIndic source set (plus extras)
+        // to avoid tautology (testing the filter against itself).
+
+        // Maps short code (from CLDRTransforms) to file name (for *InterIndic.xml)
+        String[][] scripts = {
+            {"Deva", "Devanagari"},
+            {"Beng", "Bengali"},
+            {"Gujr", "Gujarati"},
+            {"Guru", "Gurmukhi"},
+            {"Knda", "Kannada"},
+            {"Mlym", "Malayalam"},
+            {"Orya", "Oriya"},
+            {"Taml", "Tamil"},
+            {"Telu", "Telugu"}
         };
+
         StringBuilder failures = new StringBuilder();
 
-        for (String script : indicScripts) {
-            String id = script + "-Latn";
+        for (String[] scriptData : scripts) {
+            String shortCode = scriptData[0];
+            String longName = scriptData[1];
+            String id = shortCode + "-Latn";
+            String interIndicId = longName + "-InterIndic";
+
             try {
-                Transliterator t = CLDRTransforms.getTestingLatinScriptTransform(script);
+                Transliterator t = CLDRTransforms.getTestingLatinScriptTransform(shortCode);
 
                 if (t.getFilter() == null) {
                     failures.append(id).append(": Missing top-level filter\n");
@@ -1164,8 +1181,30 @@ public class TestTransforms extends TestFmwkPlus {
                     continue;
                 }
 
-                UnicodeSet sourceSet = getSourceUnicodeSet(t);
                 UnicodeSet filterSet = new UnicodeSet((UnicodeSet) t.getFilter());
+
+                // Get source set from the InterIndic transform (the "truth")
+                Transliterator tInter;
+                try {
+                    tInter = Transliterator.getInstance(interIndicId);
+                } catch (Exception e) {
+                    failures.append(id)
+                            .append(": Could not instantiate ")
+                            .append(interIndicId)
+                            .append(" - ")
+                            .append(e.getMessage())
+                            .append("\n");
+                    continue;
+                }
+
+                UnicodeSet sourceSet = getSourceUnicodeSet(tInter);
+
+                // Add explicit extras used across Indic scripts
+                sourceSet.add(0x0964); // Danda
+                sourceSet.add(0x0965); // Double Danda
+                sourceSet.add(0x200C); // ZWNJ
+                sourceSet.add(0x200D); // ZWJ
+
                 UnicodeSet missing = new UnicodeSet(sourceSet).removeAll(filterSet);
 
                 if (!missing.isEmpty()) {

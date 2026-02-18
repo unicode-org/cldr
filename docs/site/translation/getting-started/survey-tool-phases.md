@@ -42,7 +42,7 @@ You should know in this stage:
 - You can start work
 - Expect a churn: there may be additional Tooling fixes and Data additions during this period. 
 - Tool may be taken down for updates more frequently during general submission
-- You are expected to look for issues with the Survey tool and any other problems you encounter as a vetter. Please [file a ticket](/index/bug-reports).
+- You are expected to look for issues with the Survey tool and any other problems you encounter as a vetter. Please [file a ticket](/bug-reports).
 
 ### Survey Tool phase: General Submission
 

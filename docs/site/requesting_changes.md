@@ -19,8 +19,8 @@ In CLDR Bug Reports, please try to give as much information as possible to help 
 
 A few areas are particularly tricky.
 
-* For the sort order of a language, see [Collation Guidelines](/index/cldr-spec/collation-guidelines)
-* For plural rules (ordinals and cardinals), see [Plural Rules](/index/cldr-spec/plural-rules)
+* For the sort order of a language, see [Collation Guidelines](/cldr-spec/collation-guidelines)
+* For plural rules (ordinals and cardinals), see [Plural Rules](/cldr-spec/plural-rules)
 
 ### Requesting updates to locale data through a ticket
 
@@ -37,7 +37,7 @@ Helpful information include:
 
 Please file all tickets in English since the people who are reviewing your ticket are likely to not speak your language. You can use automated translation software if you don't speak English well enough, and include the same text in your native language as well.
 
-Note: If you are a regular user of that language you can also contribute directly through the Survey Tool. [More information about the process including opening an account.](/index/survey-tool)
+Note: If you are a regular user of that language you can also contribute directly through the Survey Tool. [More information about the process including opening an account.](/survey-tool)
 
 ### How to File a Ticket
 
@@ -52,13 +52,13 @@ You must have an account in order to file tickets. If you do not have an account
 
 ## When to fix in survey tool
 
-If you regularly use software in a language and would like to contribute and help fix/add data for that language, please use [the Survey Tool]( https://cldr.unicode.org/index/survey-tool)
+If you regularly use software in a language and would like to contribute and help fix/add data for that language, please use [the Survey Tool]( https://cldr.unicode.org/survey-tool)
 during the regular CLDR development cycle.
 
 ## Adding New Locales
 
 If you would like to add data for a new locale:
 
-* Make sure that you pick the right locale code for the new data. See [Picking the Right Language Code](/index/cldr-spec/picking-the-right-language-code)
-* Gather the [Core Data for New Locales](/index/cldr-spec/core-data-for-new-locales). A new locale is only added if someone commits to supplying/maintaining the data.
+* Make sure that you pick the right locale code for the new data. See [Picking the Right Language Code](/cldr-spec/picking-the-right-language-code)
+* Gather the [Core Data for New Locales](/cldr-spec/core-data-for-new-locales). A new locale is only added if someone commits to supplying/maintaining the data.
 * Follow the instructions above to file a ticket, requesting the addition.  Add the language code (#1) and core data (#2) in the ticket)

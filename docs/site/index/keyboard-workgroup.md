@@ -67,7 +67,7 @@ Discussion
 
 Release
 
-- Updates to LDML (UTS#35) Part 7: Keyboards have been released as part of [CLDR v45](/index/downloads/cldr-45).
+- Updates to LDML (UTS#35) Part 7: Keyboards have been released as part of [CLDR v45](/downloads/cldr-45).
 
 Implementations
 

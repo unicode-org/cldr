@@ -325,13 +325,13 @@ Changes aside from Message Format 2.0 include:
 ## Acknowledgments
 
 Many people have made significant contributions to CLDR and LDML;
-see the [Acknowledgments](/index/acknowledgments) page for a full listing.
+see the [Acknowledgments](/acknowledgments) page for a full listing.
 We'd especially like to acknowledge the work done by interns this release: Chris Pyle, Helena Aytenfisu (ህሊና የሺጥላ አይተንፍሱ), and Emiyare Cyril Ikwut-Ukwa.
 
 The Unicode [Terms of Use](https://unicode.org/copyright.html) apply to CLDR data;
 in particular, see [Exhibit 1](https://unicode.org/copyright.html#Exhibit1).
 
-For web pages with different views of CLDR data, see [http://cldr.unicode.org/index/charts](/index/charts).
+For web pages with different views of CLDR data, see [http://cldr.unicode.org/charts](/charts).
 
 
 [CLDR-16062]: https://unicode-org.atlassian.net/browse/CLDR-16062

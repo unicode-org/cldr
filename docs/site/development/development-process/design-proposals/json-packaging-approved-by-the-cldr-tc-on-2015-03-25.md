@@ -4,11 +4,11 @@ title: 'JSON Packaging (Approved by the CLDR TC on 2015-03-25)'
 
 # JSON Packaging (Approved by the CLDR TC on 2015-03-25)
 
-***This page is out of date, see*** [***http://cldr.unicode.org/index/downloads#TOC-JSON-Data***](/index/downloads#TOC-JSON-Data) ***for details of the JSON data.***
+***This page is out of date, see*** [***http://cldr.unicode.org/downloads#TOC-JSON-Data***](/downloads#TOC-JSON-Data) ***for details of the JSON data.***
 
 ## Overview
 
-CLDR's official locale data is, and probably always will be, published in XML format. However, JSON format data is quickly becoming a popular alternative, especially for JavaScript applications. Currently, when a CLDR release is published, we generate the corresponding JSON data ( according to http://cldr.unicode.org/index/cldr-spec/json ) and include additional zip files as part of the CLDR distribution. While the distribution of the data in this way is helpful to some, it would be even more useful for us to create a series of packages that are installable using bower ( see http://bower.io/ for details ). In this way, applications that desire to use the CLDR data in JSON format can simply specify the appropriate packages as a prerequisite, thus eliminating the need to copy and redistribute the data.
+CLDR's official locale data is, and probably always will be, published in XML format. However, JSON format data is quickly becoming a popular alternative, especially for JavaScript applications. Currently, when a CLDR release is published, we generate the corresponding JSON data ( according to http://cldr.unicode.org/cldr-spec/json ) and include additional zip files as part of the CLDR distribution. While the distribution of the data in this way is helpful to some, it would be even more useful for us to create a series of packages that are installable using bower ( see http://bower.io/ for details ). In this way, applications that desire to use the CLDR data in JSON format can simply specify the appropriate packages as a prerequisite, thus eliminating the need to copy and redistribute the data.
 
 ### Design Goals
 

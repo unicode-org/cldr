@@ -25,7 +25,7 @@ This is a stable document and may be used as reference material or cited as a no
 
 > _**A Unicode Technical Standard (UTS)** is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS._
 
-_Please submit corrigenda and other comments with the CLDR bug reporting form [[Bugs](https://cldr.unicode.org/index/bug-reports)].
+_Please submit corrigenda and other comments with the CLDR bug reporting form [[Bugs](https://cldr.unicode.org/bug-reports)].
 Related information that is useful in understanding this document is found in the [References](tr35.md#References).
 For the latest version of the Unicode Standard see [[Unicode](https://www.unicode.org/versions/latest/)].
 For more information see [About Unicode Technical Reports](https://www.unicode.org/reports/about-reports.html) and the [Specifications FAQ](https://www.unicode.org/faq/specifications.html).
@@ -525,7 +525,7 @@ The format for this file uses the CLDR collation syntax, see _[Collation Tailori
 
 This element of the LDML format contains one or more `collation` elements, distinguished by type. Each `collation` contains elements with parametric settings, or rules that specify a certain sort order, as a tailoring of the root order, or both.
 
-> 👉 **Note**: CLDR collation tailoring data should follow the [CLDR Collation Guidelines](https://cldr.unicode.org/index/cldr-spec/collation-guidelines).
+> 👉 **Note**: CLDR collation tailoring data should follow the [CLDR Collation Guidelines](https://cldr.unicode.org/cldr-spec/collation-guidelines).
 
 ### <a name="Collation_Types" href="#Collation_Types">Collation Types</a>
 

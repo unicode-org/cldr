@@ -395,7 +395,7 @@ For a full listing, see the [Acknowledgments](https://www.unicode.org/reports/tr
 The Unicode [Terms of Use](https://unicode.org/copyright.html) apply to CLDR data;
 in particular, see [Exhibit 1](https://unicode.org/copyright.html#Exhibit1).
 
-For web pages with different views of CLDR data, see [http://cldr.unicode.org/index/charts](/index/charts).
+For web pages with different views of CLDR data, see [http://cldr.unicode.org/charts](/charts).
 
 [CLDR-5708]: https://unicode-org.atlassian.net/browse/CLDR-5708
 [CLDR-8909]: https://unicode-org.atlassian.net/browse/CLDR-8909

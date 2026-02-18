@@ -71,7 +71,7 @@ You do not have to supply the *sample phrase (column 4)* in the Survey Tool, but
 
 ### Minimal Pairs: Plurals and Ordinals
 
-See [Plural Rules](/index/cldr-spec/plural-rules)
+See [Plural Rules](/cldr-spec/plural-rules)
 
 ## Units > Compound Units
 

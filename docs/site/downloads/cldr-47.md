@@ -260,12 +260,12 @@ The following changes are planned for CLDR 48. Please plan accordingly to avoid 
 ## Acknowledgments
 
 Many people have made significant contributions to CLDR and LDML;
-see the [Acknowledgments](/index/acknowledgments) page for a full listing.
+see the [Acknowledgments](/acknowledgments) page for a full listing.
 
 The Unicode [Terms of Use](https://unicode.org/copyright.html) apply to CLDR data;
 in particular, see [Exhibit 1](https://unicode.org/copyright.html#Exhibit1).
 
-For web pages with different views of CLDR data, see [charts](/index/charts).
+For web pages with different views of CLDR data, see [charts](/charts).
 
 [CLDR-10397]: https://unicode-org.atlassian.net/browse/CLDR-10397
 [CLDR-11874]: https://unicode-org.atlassian.net/browse/CLDR-11874

@@ -62,7 +62,7 @@ TODO: List all major types of tasks with their definitions and link to pages wit
 
 For each release, we add names to the Unicode CLDR Acknowledgments page:
 
-http://cldr.unicode.org/index/acknowledgments.
+http://cldr.unicode.org/acknowledgments.
 
 However, names are not automatically entered there, since some people may not wish to have their names listed. If your name is not there and you would like it to be, please send me your name as it should appear on that page. Your name should be in Latin characters, optionally with names in one or more other scripts in parentheses, such as "Vladimir Weinstein (Владимир Вајнштајн)"
 

@@ -23,7 +23,7 @@ title: 'Handling Tickets (bugs/enhancements)'
 	1. Assess the **to\-assess** tickets assigned to you.
 	2. You can close bugs as duplicate or if user misunderstanding if it is very clear without committee discussion. Always include a comment if you close the ticket.
 	3. If the component is wrong, change component and reassign to the right component owner.
-		1. (TODO: copy components to that page, and add notes to clarify; if possible, link to list of components \+ descriptions at top of new ticket). http://cldr.unicode.org/index/bug\-reports
+		1. (TODO: copy components to that page, and add notes to clarify; if possible, link to list of components \+ descriptions at top of new ticket). http://cldr.unicode.org/bug\-reports
 	4. Add your assessment information:
 		1. Change **Milestone** to “assessed”
 			1. Update Priority, Phase, Component as you'd recommend.
@@ -128,8 +128,8 @@ See also [BRS: Handling Known Issues](/development/cldr-big-red-switch/brs-log-k
 2. ***Check*** [http://unicode.org/cldr/trac/timeline?changeset\=on\&build\=on\&daysback\=8](http://unicode.org/cldr/trac/timeline?changeset=on&build=on&daysback=8) to verify that no changes "slipped in"
 3. ***Add a line PUSHING***
 4. ***Push to production***
-5. *If there were noticeable changes, put them in* [*http://cldr.unicode.org/index/survey\-tool\#TOC\-Latest\-Updates*](/index/survey-tool#TOC-Latest-Updates) ***(move the old items up to Tool Updates).***
-6. *If it was a Known Bug, remove from* [*https://sites.google.com/site/cldr/index/survey\-tool/known\-bugs*](/index/survey-tool/faq-and-known-bugs)***.***
+5. *If there were noticeable changes, put them in* [*http://cldr.unicode.org/survey\-tool\#TOC\-Latest\-Updates*](/survey-tool#TOC-Latest-Updates) ***(move the old items up to Tool Updates).***
+6. *If it was a Known Bug, remove from* [*https://sites.google.com/site/cldr/index/survey\-tool/known\-bugs*](/survey-tool/faq-and-known-bugs)***.***
 7. ***Change status of all READY and PUSHING items to PUSHED.***
 8. ***You can delete some older items that are no longer relevant.***
 9. ***If the spreadsheet data seems stale, switch to the BuildsCheckins tab, and increment the 'to update' cell. \[ If anyone knows a better way to structure the spreadsheet, please feel free.. \-srl]***

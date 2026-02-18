@@ -59,7 +59,7 @@ any additional old releases from the list (major ≤ alpha-2 \- leaving only 2 r
 
 **Collect CLDR Contributors**
 
-Get contributors for [http://cldr.unicode.org/index/acknowledgments](http://cldr.unicode.org/index/acknowledgments)
+Get contributors for [http://cldr.unicode.org/acknowledgments](http://cldr.unicode.org/acknowledgments)
 
 * List of those who contributed through Survey tool: Login as TC or Admin, under "List Survey Tool Users, find 'Manage Users' then click 'Email Address of Users Who Participated' (shows all users, not just your org).
 
@@ -169,11 +169,11 @@ Change the dtd redirection, in **/home/httpd/htdocs/cldr/dtd/.htaccess** so that
 
 Update https://sites.google.com/site/cldr/index/charts and other pages that refer to version files directly. List here: https://sites.google.com/site/cldr/index/downloads/dev \[Not clear if there are other pages that should be included here??\] Here is a list of cells/fields on the [http://sites.google.com/site/cldr/index/downloads](https://sites.google.com/unicode.org/cldr/index/downloads) page that need to be checked and updated for reach release:
 
-* [dev-version](http://cldr.unicode.org/index/downloads/dev)  
+* [dev-version](http://cldr.unicode.org/downloads/dev)  
 * [**dev-charts**](http://unicode.org/cldr/charts/dev)  
 * [**dev-delta-dtd**](https://www.unicode.org/cldr/charts/dev/supplemental/dtd_deltas.html)  
 * [**dev-tickets**](https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2239%22%20ORDER%20BY%20created%20ASC)  
-* [**latest-version**](http://cldr.unicode.org/index/downloads/latest) // contents at [http://cldr.unicode.org/index/downloads/dev](http://cldr.unicode.org/index/downloads/dev) needs update  
+* [**latest-version**](http://cldr.unicode.org/downloads/latest) // contents at [http://cldr.unicode.org/downloads/dev](http://cldr.unicode.org/downloads/dev) needs update  
 * [**latest-charts**](https://unicode-org.github.io/cldr-staging/charts/latest/index.html) // we try to have all of these (this and below) have stable links with /latest/ and depend on either link redirects or copies, but some we have to hardcode.  
 * [**latest-ldml**](http://www.unicode.org/reports/tr35/)  
 * [**latest-tickets**](https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2238%2E1%22%20ORDER%20BY%20created%20ASC)  
@@ -221,13 +221,13 @@ Fix the links as followed (to **Link Nonfinal**). (When the release is done, fix
 *Note: replace 99 by target release number, 999 by target release number minus 1, and 88 by final tr35 revision.*  
 Near the top, add this line:
 
-**This version is currently in development. See the [latest release](http://cldr.unicode.org/index/downloads/latest).**
+**This version is currently in development. See the [latest release](http://cldr.unicode.org/downloads/latest).**
 
 Update these two pages as required with the dev version pointer to the new page:
 
-[http://cldr.unicode.org/index/downloads/latest](http://cldr.unicode.org/index/downloads/latest)
+[http://cldr.unicode.org/downloads/latest](http://cldr.unicode.org/downloads/latest)
 
-[http://cldr.unicode.org/index/downloads/beta](http://cldr.unicode.org/index/downloads/beta)
+[http://cldr.unicode.org/downloads/beta](http://cldr.unicode.org/downloads/beta)
 
 *Also create the Data folder so that the link doesn't fail, and have the charts made so that link doesn't fail.*
 

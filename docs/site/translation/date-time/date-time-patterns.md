@@ -343,7 +343,7 @@ For developers who use CLDR data, 
 
 💡 **Translation Tips**
 
-- If your language has a grammatical difference in the month names(aside from just the simple addition of a prefix or suffix), localizers will need to use a work-around construction ([file a ticket](/index/bug-reports#TOC-Filing-a-Ticket) if this is the case for your language).
+- If your language has a grammatical difference in the month names(aside from just the simple addition of a prefix or suffix), localizers will need to use a work-around construction ([file a ticket](/bug-reports#TOC-Filing-a-Ticket) if this is the case for your language).
 
 As described [under Date/Time Names](/translation/date-time/date-time-names), CLDR also provides a relative week period pattern which is used for constructions such as “the week of April 11, 2016”. The English pattern that produces this is “the week of {0}”; the date format that replaces {0} is determined separately. Because the week-of patterns described here may appear in user interfaces that also show dates produced using the relative week period patterns, all of these patterns should be designed with consistent wording and structure.
 

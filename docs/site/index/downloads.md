@@ -4,7 +4,7 @@ title: CLDR Releases/Downloads
 
 # CLDR Releases/Downloads
 
-*Each release of the Unicode CLDR is a stable release and may be used as reference material or cited as a normative reference by other specifications. Each version, once published, is absolutely stable and will never change. Implementations may also apply [CLDR Corrigenda](/index/corrigenda) to a release. Bug reports and feature requests for subsequent versions may be filed at [Bug Reports](/index/bug-reports).*
+*Each release of the Unicode CLDR is a stable release and may be used as reference material or cited as a normative reference by other specifications. Each version, once published, is absolutely stable and will never change. Implementations may also apply [CLDR Corrigenda](/corrigenda) to a release. Bug reports and feature requests for subsequent versions may be filed at [Bug Reports](/bug-reports).*
 
 
 ## Downloads
@@ -92,11 +92,11 @@ The following table lists the files for each released version. For license infor
 | No. | CLDR Version Number. |
 | Date | CLDR Version Release Date. |
 | Rel. Note | A general description of the contents of the release, relevant notes about the release including migration warnings. |
-| Data | A set of zip files containing the contents of the release (the files are complete in themselves, and do not require files from earlier releases -- for the structure of the zip file, see [Repository Organization](/index/downloads#Repository_Organization)). |
+| Data | A set of zip files containing the contents of the release (the files are complete in themselves, and do not require files from earlier releases -- for the structure of the zip file, see [Repository Organization](/downloads#Repository_Organization)). |
 | Charts | A set of charts showing some of the data in the release. |
 | Spec | The version of [UTS #35: LDML](https://www.unicode.org/reports/tr35/) that corresponds to the release. |
 | Delta Tickets | A list of all the tickets (fixes and features) in the release, which can be used to get the precise corresponding file changes. (Some earlier releases are not available in this way due to the JIRA migration, but all of the information is available in GitHub or JIRA.) |
-| Github Tag | The files in the release, accessible via [Repository Access](/index/downloads#latest_draft_version). |
+| Github Tag | The files in the release, accessible via [Repository Access](/downloads#latest_draft_version). |
 | Delta DTDs | A link pointing to charts of changes in the DTDs since the previous version. |
 
 Access to the latest working snapshot of CLDR, and access to data collected for other platforms is available through the web. The **Github Tag** can be used to get the contents of the release, as described below.

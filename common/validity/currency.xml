@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE supplementalData SYSTEM '../../common/dtd/ldmlSupplemental.dtd'>
 <!--
-	Copyright © 1991-2025 Unicode, Inc.
+	Copyright © 1991-2026 Unicode, Inc.
 	For terms of use, see http://www.unicode.org/copyright.html
 	SPDX-License-Identifier: Unicode-3.0
 	CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,9 +12,9 @@
 <supplementalData>
 	<version number="$Revision$"/>
 	<idValidity>
-		<id type='currency' idStatus='regular'>		<!-- 154 items -->
+		<id type='currency' idStatus='regular'>		<!-- 153 items -->
 			AED AFN ALL AMD AOA ARS AUD AWG AZN
-			BAM BBD BDT BGN BHD BIF BMD BND BOB BRL BSD BTN BWP BYN BZD
+			BAM BBD BDT BHD BIF BMD BND BOB BRL BSD BTN BWP BYN BZD
 			CAD CDF CHF CLP CNY COP CRC CUP CVE CZK
 			DJF DKK DOP DZD
 			EGP ERN ETB EUR
@@ -40,11 +40,11 @@
 			YER
 			ZAR ZMW ZWG
 		</id>
-		<!-- Deprecated values are those that are not legal tender in some country after 2025.
+		<!-- Deprecated values are those that are not legal tender in some country after 2026.
 			 More detailed usage information needed for some implementations is in supplemental data. -->
-		<id type='currency' idStatus='deprecated'>		<!-- 153 items -->
+		<id type='currency' idStatus='deprecated'>		<!-- 154 items -->
 			ADP AFA ALK ANG AOK AON AOR ARA ARL~M ARP ATS AZM
-			BAD BAN BEC BEF BEL BGL~M BGO BOL BOP BOV BRB~C BRE BRN BRR BRZ BUK BYB BYR
+			BAD BAN BEC BEF BEL BGL~O BOL BOP BOV BRB~C BRE BRN BRR BRZ BUK BYB BYR
 			CHE CHW CLE~F CNH CNX COU CSD CSK CUC CYP
 			DDM DEM
 			ECS ECV EEK ESA~B ESP

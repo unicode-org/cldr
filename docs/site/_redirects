@@ -10,8 +10,11 @@
 /index/downloads/* /downloads/:splat
 
 # pages that were renamed [CLDR-17977]
-/index/cldr-spec/unicode-transliteration-guidelines* /index/cldr-spec/transliteration-guidelines
+/index/cldr-spec/unicode-transliteration-guidelines* /cldr-spec/transliteration-guidelines
 /index/bug-reports* /requesting_changes
+
+# drop /index from all paths [CLDR-18575]
+/index/* /:splat
 
 # page that was renamed [CLDR-18888]
 /development/development-process/design-proposals/iso-636-deprecation-requests-draft* /development/development-process/design-proposals/iso-639-deprecation-requests-draft

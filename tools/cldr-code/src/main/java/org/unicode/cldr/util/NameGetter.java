@@ -322,7 +322,16 @@ public class NameGetter {
                                 kname = hybridName;
                             }
                         }
-                        oldFormatType = getNameFromIdentifier(oldFormatType);
+                        LanguageTagParser tParser = new LanguageTagParser().set(oldFormatType);
+                        oldFormatType =
+                                getNameFromOtherThings(
+                                        tParser,
+                                        nameOpt,
+                                        altPicker,
+                                        localeKeyTypePattern,
+                                        localeSeparator,
+                                        localeSeparator,
+                                        paths);
                         break;
                     case "cu":
                         oldFormatType =

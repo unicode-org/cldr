@@ -317,7 +317,10 @@ public class NameGetter {
                     case "t":
                         List<String> hybrid = lparser.getLocaleExtensionsDetailed().get("h0");
                         if (hybrid != null) {
-                            kname = cldrFile.getKeyValueName("h0", JOIN_UNDERBAR.join(hybrid));
+                            String hybridName = cldrFile.getKeyValueName("h0", JOIN_UNDERBAR.join(hybrid));
+                            if (hybridName != null) {
+                                kname = hybridName;
+                            }
                         }
                         oldFormatType = getNameFromIdentifier(oldFormatType);
                         break;

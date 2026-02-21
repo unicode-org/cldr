@@ -101,6 +101,8 @@ public class GenerateLocaleIDTestData {
             "es-419",
             "es-Cyrl-MX",
             "hi-Latn",
+            "hi-u-nu-latn-t-en-h0-hybrid",
+            "en-u-nu-deva-t-de-mm-fonipa",
             "nl-BE",
             "nl-Latn-BE",
             "en-MM",

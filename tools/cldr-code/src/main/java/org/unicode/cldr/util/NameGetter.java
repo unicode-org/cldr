@@ -1,5 +1,9 @@
 package org.unicode.cldr.util;
 
+import com.google.common.base.Joiner;
+import com.google.common.base.Splitter;
+import com.ibm.icu.text.MessageFormat;
+import com.ibm.icu.text.Transform;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -8,11 +12,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import com.google.common.base.Joiner;
-import com.google.common.base.Splitter;
-import com.ibm.icu.text.MessageFormat;
-import com.ibm.icu.text.Transform;
 
 public class NameGetter {
 

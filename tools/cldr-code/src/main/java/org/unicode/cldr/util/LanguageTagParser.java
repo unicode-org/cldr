@@ -408,7 +408,6 @@ public class LanguageTagParser {
             throwError(subtag, "Private Use / Extension requires subsequent subtag");
         }
         boolean takesSubkeys = extension == 'u' || extension == 't';
-        boolean firstT = extension == 't';
         boolean haveContents = false;
         List<String> result = new ArrayList<>();
         try {
@@ -428,7 +427,6 @@ public class LanguageTagParser {
                     base = subtag;
                     continue;
                 }
-                firstT = false;
                 result.add(subtag);
             }
             return null;

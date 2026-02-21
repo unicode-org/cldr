@@ -5,16 +5,19 @@ env:
   CLDR_JAR: ${{ github.workspace }}/tools/cldr-code/target/cldr-code.jar
 
 on:
-  workflow_dispatch:
-    inputs:
-      cldr-ref:
-        description: CLDR ref to build
-        required: true
-        default: 'main'
-      cldr-repo:
-        description: CLDR repo to build
-        required: true
-        default: 'unicode-org/cldr'
+  push:
+    branches:
+      - 'srl295/cldr-16083/continuous-cldr-modify'
+  # workflow_dispatch:
+  #   inputs:
+  #     cldr-ref:
+  #       description: CLDR ref to build
+  #       required: true
+  #       default: 'main'
+  #     cldr-repo:
+  #       description: CLDR repo to build
+  #       required: true
+  #       default: 'unicode-org/cldr'
 jobs:
   modify:
     name: Build CLDR
@@ -26,9 +29,9 @@ jobs:
       - name: Clone CLDR
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.inputs.cldr-ref }}
+          # ref: ${{ github.event.inputs.cldr-ref }}
           lfs: false
-          repository: ${{ github.event.inputs.cldr-repo }}
+          # repository: ${{ github.event.inputs.cldr-repo }}
       - name: Set up JDK
         uses: actions/setup-java@v4
         with:
@@ -59,9 +62,9 @@ jobs:
           git config user.email 'srloomis@unicode.org'
           git add common/main
           git commit -am 'CLDR-00000 cldrmodify from CLDR-16083'
-          git checkout -b srl295/auto-cldr-modify
+          git checkout -b auto/w
           # reset origin using token
           git remote set-url origin "https://srl295:${GH_TOKEN}@github.com/srl295/cldr.git"
-          git push --set-upstream -f origin srl295/auto-cldr-modify 
+          git push --set-upstream -f origin srl295/auto-cldr-modify
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

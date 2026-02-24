@@ -75,8 +75,8 @@ jobs:
         if: steps.gitstatus.outputs.changecount > 0
         run: |
           set -euxo pipefail
-          git config user.name 'UnicodeBot [bot]'
-          git config user.email 'tracbot@unicode.org'
+          git config user.name 'cldr-modify.yml [bot]'
+          git config user.email 'unicode-org@users.noreply.github.com'
           git add common/main
           git commit -am $(git log --pretty=%s HEAD | head -1 | cut -d' ' -f1)' CLDRModify from '$(git log --pretty=%h -n 1 HEAD)' - see CLDR-16083'
           git checkout -b auto/cldrmodify/main
@@ -93,6 +93,8 @@ jobs:
             --title $(git log --pretty=%s HEAD | head -1 | cut -d' ' -f1)" auto: CLDRModify" \
             --body $(git log --pretty=%s HEAD | head -1 | cut -d' ' -f1)" Automatically created, see CLDR-16083" \
             --base 'main' \
+            --label 'automatic' \
+            --reviewer 'unicode-org/cldr-tc' \
             --head $(git rev-parse --abbrev-ref HEAD) \
             | tee -a $GITHUB_STEP_SUMMARY ) || ( echo "# Could not create PR - may already exist" | tee -a $GITHUB_STEP_SUMMARY )
         env:

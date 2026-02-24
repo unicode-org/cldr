@@ -94,7 +94,6 @@ jobs:
             --body $(git log --pretty=%s HEAD | head -1 | cut -d' ' -f1)" Automatically created, see CLDR-16083" \
             --base 'main' \
             --label 'automatic' \
-            --reviewer 'unicode-org/cldr-tc' \
             --head $(git rev-parse --abbrev-ref HEAD) \
             | tee -a $GITHUB_STEP_SUMMARY ) || ( echo "# Could not create PR - may already exist" | tee -a $GITHUB_STEP_SUMMARY )
         env:

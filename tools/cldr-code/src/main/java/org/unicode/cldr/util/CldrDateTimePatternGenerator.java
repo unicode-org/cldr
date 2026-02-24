@@ -7,6 +7,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import com.ibm.icu.util.Output;
+import org.unicode.cldr.util.XMLSource;
+
 public class CldrDateTimePatternGenerator {
     private final CLDRFile file;
     private final String calendarID;
@@ -75,7 +78,7 @@ public class CldrDateTimePatternGenerator {
             } else if (path.contains("/dates/fields/field") && path.contains("displayName")) {
                 XPathParts parts = XPathParts.getFrozenInstance(path);
                 String type = parts.getAttributeValue(-2, "type");
-                String value = file.getWinningValue(path);
+                String value = file.getStringValueWithBailey(path);
                 if (type != null && value != null) {
                     fieldNames.put(type, value);
                 }
@@ -98,17 +101,24 @@ public class CldrDateTimePatternGenerator {
             }
         }
 
-        dateTimeFormatFull = getStringValueWithFallbackOrDefault("//ldml/dates/calendars/calendar[@type=\"" + calendarID + "\"]/dateTimeFormats/dateTimeFormatLength[@type=\"full\"]/dateTimeFormat/pattern", dateTimeFormatFull);
-        dateTimeFormatLong = getStringValueWithFallbackOrDefault("//ldml/dates/calendars/calendar[@type=\"" + calendarID + "\"]/dateTimeFormats/dateTimeFormatLength[@type=\"long\"]/dateTimeFormat/pattern", dateTimeFormatLong);
-        dateTimeFormatMedium = getStringValueWithFallbackOrDefault("//ldml/dates/calendars/calendar[@type=\"" + calendarID + "\"]/dateTimeFormats/dateTimeFormatLength[@type=\"medium\"]/dateTimeFormat/pattern", dateTimeFormatMedium);
-        dateTimeFormatShort = getStringValueWithFallbackOrDefault("//ldml/dates/calendars/calendar[@type=\"" + calendarID + "\"]/dateTimeFormats/dateTimeFormatLength[@type=\"short\"]/dateTimeFormat/pattern", dateTimeFormatShort);
+        dateTimeFormatFull = getStringValueWithFallbackOrDefault("//ldml/dates/calendars/calendar[@type=\"" + calendarID + "\"]/dateTimeFormats/dateTimeFormatLength[@type=\"full\"]/dateTimeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]", dateTimeFormatFull);
+        dateTimeFormatLong = getStringValueWithFallbackOrDefault("//ldml/dates/calendars/calendar[@type=\"" + calendarID + "\"]/dateTimeFormats/dateTimeFormatLength[@type=\"long\"]/dateTimeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]", dateTimeFormatLong);
+        dateTimeFormatMedium = getStringValueWithFallbackOrDefault("//ldml/dates/calendars/calendar[@type=\"" + calendarID + "\"]/dateTimeFormats/dateTimeFormatLength[@type=\"medium\"]/dateTimeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]", dateTimeFormatMedium);
+        dateTimeFormatShort = getStringValueWithFallbackOrDefault("//ldml/dates/calendars/calendar[@type=\"" + calendarID + "\"]/dateTimeFormats/dateTimeFormatLength[@type=\"short\"]/dateTimeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]", dateTimeFormatShort);
     }
 
     private String getStringValueWithFallback(String path) {
-        String val = file.getWinningValue(path);
-        if (val == null && !calendarID.equals("gregorian")) {
-            String gregPath = path.replaceFirst("\\[@type=\"[^\"]+\"\\]", "[@type=\"gregorian\"]");
-            val = file.getWinningValue(gregPath);
+        Output<String> localeWhereFound = new Output<>();
+        String val = file.getStringValueWithBailey(path, null, localeWhereFound);
+        
+        if (!calendarID.equals("gregorian")) {
+            if (val == null || (localeWhereFound.value != null && (localeWhereFound.value.equals("root") || localeWhereFound.value.equals(XMLSource.CODE_FALLBACK_ID)))) {
+                String gregPath = path.replaceFirst("\\[@type=\"[^\"]+\"\\]", "[@type=\"gregorian\"]");
+                String gregVal = file.getStringValueWithBailey(gregPath, null, localeWhereFound);
+                if (gregVal != null && localeWhereFound.value != null && !localeWhereFound.value.equals("root") && !localeWhereFound.value.equals(XMLSource.CODE_FALLBACK_ID)) {
+                    return gregVal;
+                }
+            }
         }
         return val;
     }
@@ -155,6 +165,9 @@ public class CldrDateTimePatternGenerator {
         int bestDistance = Integer.MAX_VALUE;
         String bestMatchSkeleton = null;
         
+        if (calendarID.equals("buddhist") && file.getLocaleID().startsWith("th") && canonicalSkeleton.equals("yyMEEEd")) {
+            System.err.println("DEBUG: th buddhist avail formats: " + availableFormats.keySet());
+        }
         for (String availSkeleton : availableFormats.keySet()) {
             int dist = getDistance(canonicalSkeleton, availSkeleton);
             if (dist < bestDistance) {
@@ -201,7 +214,7 @@ public class CldrDateTimePatternGenerator {
         String requestName = getAppendRequestName(firstChar);
         String appendFormat = appendItems.get(requestName);
         if (appendFormat == null) {
-             appendFormat = "{0} '├{2}:' {1}'┤'";
+             appendFormat = "{0} \u251c{2}: {1}\u2524"; 
         }
         
         String fieldNameKey = getFieldDisplayNameKey(firstChar);
@@ -286,10 +299,10 @@ public class CldrDateTimePatternGenerator {
 
     private String getDateTimePattern(String dateSkeleton) {
         boolean wideMonth = dateSkeleton.contains("MMMM") || dateSkeleton.contains("LLLL");
-        boolean weekday = dateSkeleton.contains("E") || dateSkeleton.contains("c");
+        boolean weekday = dateSkeleton.contains("EEEE") || dateSkeleton.contains("cccc") || dateSkeleton.contains("E") || dateSkeleton.contains("c");
         boolean abbrMonth = dateSkeleton.contains("MMM") || dateSkeleton.contains("LLL");
         
-        if (wideMonth && weekday) return dateTimeFormatFull;
+        if (wideMonth && weekday && (dateSkeleton.contains("EEEE") || dateSkeleton.contains("cccc"))) return dateTimeFormatFull;
         if (wideMonth) return dateTimeFormatLong;
         if (abbrMonth) return dateTimeFormatMedium;
         return dateTimeFormatShort;
@@ -327,7 +340,11 @@ public class CldrDateTimePatternGenerator {
             }
             
             if (af != null) {
-                dist += Math.abs(rf.length() - af.length());
+                if (rc == af.charAt(0)) {
+                    dist += Math.abs(rf.length() - af.length());
+                } else {
+                    dist += 10 + Math.abs(rf.length() - af.length());
+                }
             } else {
                 dist += 20; 
             }

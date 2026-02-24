@@ -423,7 +423,9 @@ function readyToAdd() {
     newUserName.value &&
     newUserEmail.value &&
     newUserLevel.value &&
-    (chosenLocales.value.length > 0 || allLocales.value === true)
+    (chosenLocales.value.length > 0 ||
+      allLocales.value === true ||
+      !localesAreRequired())
   );
 }
 

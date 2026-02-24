@@ -34,11 +34,37 @@ public class CldrDateTimePatternGenerator {
     private static final String[] STOCK = {"short", "medium", "long", "full"};
     
     /**
-     * The canonical order of date/time fields as defined by the LDML specification.
+     * The canonical order of date/time fields as defined by the LDML specification (TR35).
      * Skeletons are normalized to this order to ensure consistent matching.
      */
-    private static final String CANONICAL_ORDER = "GyYruUQqMLwWEecdDFgabBhHKkmsSAzZOvVXx";
+    private static final String CANONICAL_ORDER = "GyYuUrQqMLwWEecdDFgabBhHKkmsSAzZOvVXx";
 
+    /** Characters representing date fields. */
+    private static final String DATE_FIELDS = "GyYruUQqMLwWEdDFg";
+
+    /** Characters representing time fields. */
+    private static final String TIME_FIELDS = "aBhHkKmmsSAzZOvVXx";
+
+    /** Characters that are always numeric. */
+    private static final String ALWAYS_NUMERIC_FIELDS = "yYruUwWdDFghHKkmsSA";
+
+    /** Characters that are numeric if length is 1 or 2, and text otherwise. */
+    private static final String NUMERIC_OR_TEXT_FIELDS = "MLQqec";
+
+    /** Sets of related field characters that represent the same semantic field (e.g., M and L for Month). */
+    private static final String[] RELATED_FIELD_SETS = {
+        "yYruU", "ML", "wW", "dDFg", "Eec", "abB", "hHKk", "sSA", "zZOvVXx"
+    };
+
+    /**
+     * Constructs a new generator for the given CLDRFile and calendar.
+     * 
+     * @param file the CLDRFile to read data from (should be a resolved file for proper inheritance)
+     * @param calendarID the ID of the calendar (e.g., "gregorian", "japanese")
+     * @param useStock if true, the generator will also include the standard stock date and time 
+     *                 formats (short, medium, long, full) as defined in the dateFormats/timeFormats 
+     *                 sections when matching skeletons.
+     */
     public CldrDateTimePatternGenerator(CLDRFile file, String calendarID, boolean useStock) {
         this.file = file;
         this.calendarID = calendarID;
@@ -46,38 +72,57 @@ public class CldrDateTimePatternGenerator {
         init();
     }
 
+    /**
+     * Initializes the generator by loading preferred hour formats, stock patterns,
+     * field display names, and available format patterns from the CLDR data.
+     */
     private void init() {
-        // TR35 says the default hour cycle is derived from the short time pattern.
-        // We look it up and check the first hour character we find.
-        String shortTimePath = "//ldml/dates/calendars/calendar[@type=\"" + calendarID + "\"]/timeFormats/timeFormatLength[@type=\"short\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]";
-        String shortTimePattern = getStringValueWithFallback(shortTimePath);
-        if (shortTimePattern != null) {
-            for (int i = 0; i < shortTimePattern.length(); i++) {
-                char c = shortTimePattern.charAt(i);
-                if (c == 'h' || c == 'H' || c == 'k' || c == 'K') {
-                    defaultHourFormatChar = c;
-                    break;
-                }
+        // TR35, Section 3.8.3: "it ['j'] requests the preferred hour format for the locale 
+        // (h, H, K, or k), as determined by the preferred attribute of the hours element 
+        // in supplemental data."
+        SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
+        CLDRLocale loc = CLDRLocale.getInstance(file.getLocaleID());
+        String region = loc.getCountry();
+        if (region == null || region.isEmpty()) {
+            CLDRLocale max = loc.getMaximal();
+            if (max != null) {
+                region = max.getCountry();
             }
+        }
+        PreferredAndAllowedHour pref = sdi.getTimeData().get(region);
+        if (pref == null) {
+            pref = sdi.getTimeData().get("001");
+        }
+        if (pref != null) {
+            defaultHourFormatChar = pref.preferred.toString().charAt(0);
         }
 
         if (useStock) {
             for (String stock : STOCK) {
                 String dPath = "//ldml/dates/calendars/calendar[@type=\"" + calendarID + "\"]/dateFormats/dateFormatLength[@type=\"" + stock + "\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"]";
+                String dsPath = "//ldml/dates/calendars/calendar[@type=\"" + calendarID + "\"]/dateFormats/dateFormatLength[@type=\"" + stock + "\"]/dateFormat[@type=\"standard\"]/datetimeSkeleton";
                 String tPath = "//ldml/dates/calendars/calendar[@type=\"" + calendarID + "\"]/timeFormats/timeFormatLength[@type=\"" + stock + "\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]";
+                String tsPath = "//ldml/dates/calendars/calendar[@type=\"" + calendarID + "\"]/timeFormats/timeFormatLength[@type=\"" + stock + "\"]/timeFormat[@type=\"standard\"]/datetimeSkeleton";
                 
                 String dp = getStringValueWithFallback(dPath);
-                if (dp != null) availableFormats.put(getSkeletonFromPattern(dp), dp);
+                String ds = getStringValueWithFallback(dsPath);
+                if (dp != null && ds != null) {
+                    availableFormats.put(canonicalizeSkeleton(ds), dp);
+                }
                 
                 String tp = getStringValueWithFallback(tPath);
-                if (tp != null) availableFormats.put(getSkeletonFromPattern(tp), tp);
+                String ts = getStringValueWithFallback(tsPath);
+                if (tp != null && ts != null) {
+                    availableFormats.put(canonicalizeSkeleton(ts), tp);
+                }
             }
         }
 
         Set<String> allIds = new LinkedHashSet<>();
         Set<String> allAppendRequests = new LinkedHashSet<>();
         
-        for (String path : file.fullIterable()) {
+        // Efficiently collect all possible format IDs and append requests from the calendar subtrees.
+        for (String path : With.in(file.iterator("//ldml/dates/calendars/calendar"))) {
             if (path.contains("/availableFormats/dateFormatItem")) {
                 XPathParts parts = XPathParts.getFrozenInstance(path);
                 String id = parts.getAttributeValue(-1, "id");
@@ -86,7 +131,12 @@ public class CldrDateTimePatternGenerator {
                 XPathParts parts = XPathParts.getFrozenInstance(path);
                 String request = parts.getAttributeValue(-1, "request");
                 if (request != null) allAppendRequests.add(request);
-            } else if (path.contains("/dates/fields/field") && path.contains("displayName")) {
+            }
+        }
+        
+        // Collect field display names from the fields subtree.
+        for (String path : With.in(file.iterator("//ldml/dates/fields/field"))) {
+            if (path.contains("displayName")) {
                 XPathParts parts = XPathParts.getFrozenInstance(path);
                 String type = parts.getAttributeValue(-2, "type");
                 String value = file.getStringValueWithBailey(path);
@@ -96,6 +146,7 @@ public class CldrDateTimePatternGenerator {
             }
         }
 
+        // Resolve the actual patterns for OUR specific calendar (handling TR35 cross-calendar fallback).
         for (String id : allIds) {
             String path = "//ldml/dates/calendars/calendar[@type=\"" + calendarID + "\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"" + id + "\"]";
             String value = getStringValueWithFallback(path);
@@ -122,6 +173,9 @@ public class CldrDateTimePatternGenerator {
      * Resolves values from the CLDRFile, strictly handling the TR35 rule that 
      * non-Gregorian calendars fallback to Gregorian values if missing locally 
      * or at the root aliasing levels.
+     * 
+     * @param path the XPath to resolve
+     * @return the resolved string value, or null if not found
      */
     private String getStringValueWithFallback(String path) {
         Output<String> localeWhereFound = new Output<>();
@@ -141,15 +195,31 @@ public class CldrDateTimePatternGenerator {
         return val;
     }
 
+    /**
+     * Resolves a value from the CLDRFile with fallback, returning a default value if not found.
+     * 
+     * @param path the XPath to resolve
+     * @param defaultValue the value to return if resolution fails
+     * @return the resolved value or the default
+     */
     private String getStringValueWithFallbackOrDefault(String path, String defaultValue) {
         String val = getStringValueWithFallback(path);
         return val != null ? val : defaultValue;
     }
 
+    /**
+     * Returns the default hour format character (h, H, K, or k) for the locale.
+     */
     public char getDefaultHourFormatChar() {
         return defaultHourFormatChar;
     }
 
+    /**
+     * Adds all base skeletons defined in the availableFormats to the provided set.
+     * 
+     * @param result the set to add skeletons to
+     * @return the provided set with added skeletons
+     */
     public Set<String> getBaseSkeletons(Set<String> result) {
         if (result == null) {
             result = new LinkedHashSet<>();
@@ -168,6 +238,9 @@ public class CldrDateTimePatternGenerator {
      * 4. Search for the closest available skeleton using the TR35 distance metric.
      * 5. Expand the matched pattern to match requested field lengths.
      * 6. Use appendItems to add any requested fields missing from the best match.
+     * 
+     * @param skeleton the requested skeleton
+     * @return the best localized pattern
      */
     public String getBestPattern(String skeleton) {
         if (skeleton == null || skeleton.isEmpty()) return "";
@@ -194,9 +267,6 @@ public class CldrDateTimePatternGenerator {
         int bestDistance = Integer.MAX_VALUE;
         String bestMatchSkeleton = null;
         
-        if (calendarID.equals("buddhist") && file.getLocaleID().startsWith("th") && canonicalSkeleton.equals("yyMEEEd")) {
-            System.err.println("DEBUG: th buddhist avail formats: " + availableFormats.keySet());
-        }
         for (String availSkeleton : availableFormats.keySet()) {
             int dist = getDistance(canonicalSkeleton, availSkeleton);
             if (dist < bestDistance) {
@@ -238,6 +308,13 @@ public class CldrDateTimePatternGenerator {
         return res;
     }
     
+    /**
+     * Appends a missing field to an existing pattern using the appendItems template.
+     * 
+     * @param pattern the existing pattern
+     * @param field the missing field to append
+     * @return the updated pattern
+     */
     private String appendField(String pattern, String field) {
         char firstChar = field.charAt(0);
         String requestName = getAppendRequestName(firstChar);
@@ -253,6 +330,12 @@ public class CldrDateTimePatternGenerator {
         return appendFormat.replace("{0}", pattern).replace("{1}", firstFieldPattern).replace("{2}", fieldDisplayName);
     }
 
+    /**
+     * Returns the TR35 appendItem request name for a given field character.
+     * 
+     * @param fieldChar the field character
+     * @return the request name (e.g., "Year", "Month")
+     */
     private String getAppendRequestName(char fieldChar) {
         switch(fieldChar) {
             case 'G': return "Era";
@@ -271,6 +354,12 @@ public class CldrDateTimePatternGenerator {
         }
     }
 
+    /**
+     * Returns the CLDR field name key for display name lookup.
+     * 
+     * @param fieldChar the field character
+     * @return the field name key (e.g., "year", "month")
+     */
     private String getFieldDisplayNameKey(char fieldChar) {
         switch(fieldChar) {
             case 'G': return "era";
@@ -293,33 +382,54 @@ public class CldrDateTimePatternGenerator {
         }
     }
 
+    /**
+     * Produces a basic pattern for a single field by searching available formats
+     * for a matching or related field of the same length.
+     * 
+     * @param field the field to generate a pattern for
+     * @return a localized pattern string
+     */
     private String getBasicPattern(String field) {
         String p = availableFormats.get(field);
         if (p != null) return p;
         for (String avail : availableFormats.keySet()) {
              if (avail.length() == field.length() && areFieldsRelated(avail.charAt(0), field.charAt(0))) {
-                 return expandPattern(field, avail, availableFormats.get(avail));
+                 if (isNumeric(avail.charAt(0), avail.length()) == isNumeric(field.charAt(0), field.length())) {
+                     return expandPattern(field, avail, availableFormats.get(avail));
+                 }
              }
         }
         return field;
     }
 
+    /**
+     * Extracts date-related fields from a skeleton.
+     * 
+     * @param skeleton the full skeleton
+     * @return a skeleton containing only date fields
+     */
     private String getDateSkeleton(String skeleton) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < skeleton.length(); i++) {
             char c = skeleton.charAt(i);
-            if ("GyYruUQqMLwWEdDFg".indexOf(c) >= 0) {
+            if (DATE_FIELDS.indexOf(c) >= 0) {
                 sb.append(c);
             }
         }
         return sb.toString();
     }
 
+    /**
+     * Extracts time-related fields from a skeleton.
+     * 
+     * @param skeleton the full skeleton
+     * @return a skeleton containing only time fields
+     */
     private String getTimeSkeleton(String skeleton) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < skeleton.length(); i++) {
             char c = skeleton.charAt(i);
-            if ("aBhHkKmmsSAzZOvVXx".indexOf(c) >= 0) {
+            if (TIME_FIELDS.indexOf(c) >= 0) {
                 sb.append(c);
             }
         }
@@ -329,6 +439,9 @@ public class CldrDateTimePatternGenerator {
     /**
      * Determines which dateTimeFormat glue pattern to use based on the TR35 "Missing Skeleton Fields" algorithm.
      * The selection is strictly based on the width of the Month and Weekday fields in the date half.
+     * 
+     * @param dateSkeleton the date portion of the skeleton
+     * @return the combined dateTimeFormat pattern
      */
     private String getDateTimePattern(String dateSkeleton) {
         boolean wideMonth = dateSkeleton.contains("MMMM") || dateSkeleton.contains("LLLL");
@@ -342,12 +455,19 @@ public class CldrDateTimePatternGenerator {
     }
 
     /**
-     * TR35 matching penalty metric:
-     * - Same field type and length = 0 penalty.
-     * - Same field type, different length = penalty of |req - avail|.
-     * - Related field type (e.g. M vs L) = penalty of 10 + |req - avail|.
-     * - Missing field = massive penalty (20 per field).
-     * - Extra fields in available = rejected entirely (returns 10000).
+     * Calculates the TR35 distance between a requested skeleton and an available one.
+     * 
+     * Penalties:
+     * - Same field type and length = 0.
+     * - Same field type, different length = |req - avail|.
+     * - Related field type (e.g. M vs L) = 10 + |req - avail|.
+     * - Numeric/Text mismatch (e.g. M vs MMM) = 100 + |req - avail|.
+     * - Missing field = 20.
+     * - Extra fields in available = rejected (10000).
+     * 
+     * @param req the requested skeleton
+     * @param avail the available skeleton to compare
+     * @return the calculated distance
      */
     private int getDistance(String req, String avail) {
         List<String> reqFields = splitSkeleton(req);
@@ -381,10 +501,13 @@ public class CldrDateTimePatternGenerator {
             }
             
             if (af != null) {
-                if (rc == af.charAt(0)) {
-                    dist += Math.abs(rf.length() - af.length());
+                int lengthDist = Math.abs(rf.length() - af.length());
+                if (isNumeric(rc, rf.length()) != isNumeric(af.charAt(0), af.length())) {
+                    dist += 100 + lengthDist;
+                } else if (rc == af.charAt(0)) {
+                    dist += lengthDist;
                 } else {
-                    dist += 10 + Math.abs(rf.length() - af.length());
+                    dist += 10 + lengthDist;
                 }
             } else {
                 dist += 20; 
@@ -392,23 +515,44 @@ public class CldrDateTimePatternGenerator {
         }
         return dist;
     }
+
+    /**
+     * Checks if a field with a given character and length is numeric or text.
+     * 
+     * @param field the field character
+     * @param length the field length
+     * @return true if numeric, false if text
+     */
+    private boolean isNumeric(char field, int length) {
+        if (ALWAYS_NUMERIC_FIELDS.indexOf(field) >= 0) {
+            return true;
+        }
+        if (NUMERIC_OR_TEXT_FIELDS.indexOf(field) >= 0) {
+            return length <= 2;
+        }
+        return false;
+    }
     
     /**
      * Checks if two field characters represent the same semantic field (e.g., M and L for Month).
+     * 
+     * @param a first field character
+     * @param b second field character
+     * @return true if the fields are related
      */
     private boolean areFieldsRelated(char a, char b) {
         if (a == b) return true;
-        String[] sets = {
-            "yYruU", "ML", "wW", "dDFg", "Eec", "abB", "hHKk", "sSA", "zZOvVXx"
-        };
-        for (String set : sets) {
+        for (String set : RELATED_FIELD_SETS) {
             if (set.indexOf(a) >= 0 && set.indexOf(b) >= 0) return true;
         }
         return false;
     }
 
     /**
-     * Splits a skeleton into its constituent fields (e.g., "yMMMd" -> ["y", "MMM", "d"]).
+     * Splits a skeleton into its constituent field strings (e.g., "yMMMd" -> ["y", "MMM", "d"]).
+     * 
+     * @param skel the skeleton to split
+     * @return a list of field strings
      */
     private List<String> splitSkeleton(String skel) {
         List<String> res = new ArrayList<>();
@@ -424,10 +568,12 @@ public class CldrDateTimePatternGenerator {
     }
 
     /**
-     * Adjusts the field lengths in the base pattern to match the requested skeleton.
+     * Adjusts the field lengths and types in a base pattern to match the requested skeleton.
      * 
-     * For example, if the request is "yyyy" and the best match is "y" (pattern "y"),
-     * it expands the pattern to "yyyy". It also handles related fields like M vs L.
+     * @param reqSkeleton the requested skeleton
+     * @param availSkeleton the available skeleton the pattern came from
+     * @param pattern the localized pattern to expand
+     * @return the expanded pattern
      */
     private String expandPattern(String reqSkeleton, String availSkeleton, String pattern) {
         List<String> reqFields = splitSkeleton(reqSkeleton);
@@ -481,8 +627,13 @@ public class CldrDateTimePatternGenerator {
                 }
                 
                 if (availF != null && patField.length() == availF.length()) {
-                    char newChar = reqF.charAt(0);
-                    for (int k = 0; k < reqF.length(); k++) res.append(newChar);
+                    if (isNumeric(reqF.charAt(0), reqF.length()) == isNumeric(availF.charAt(0), availF.length())) {
+                        char newChar = reqF.charAt(0);
+                        for (int k = 0; k < reqF.length(); k++) res.append(newChar);
+                    } else {
+                        // Prevent substitution between numeric and non-numeric fields
+                        res.append(patField);
+                    }
                 } else {
                     res.append(patField);
                 }
@@ -495,6 +646,9 @@ public class CldrDateTimePatternGenerator {
 
     /**
      * Normalizes a skeleton to the canonical field order.
+     * 
+     * @param skel the skeleton to normalize
+     * @return the canonicalized skeleton
      */
     private String canonicalizeSkeleton(String skel) {
         int[] counts = new int[128];
@@ -508,22 +662,5 @@ public class CldrDateTimePatternGenerator {
             for (int j = 0; j < counts[c]; j++) res.append(c);
         }
         return res.toString();
-    }
-
-    /**
-     * Extracts a canonical skeleton from a date/time pattern string.
-     */
-    private String getSkeletonFromPattern(String pattern) {
-        StringBuilder skel = new StringBuilder();
-        boolean inQuotes = false;
-        for (int i = 0; i < pattern.length(); i++) {
-            char c = pattern.charAt(i);
-            if (c == '\'') {
-                inQuotes = !inQuotes;
-            } else if (!inQuotes && Character.isLetter(c)) {
-                skel.append(c);
-            }
-        }
-        return canonicalizeSkeleton(skel.toString());
     }
 }

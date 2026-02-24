@@ -38,6 +38,8 @@ public class CldrDateTimePatternGenerator {
     }
 
     private void init() {
+        // TR35 says the default hour cycle is derived from the short time pattern.
+        // We look it up and check the first hour character we find.
         String shortTimePath = "//ldml/dates/calendars/calendar[@type=\"" + calendarID + "\"]/timeFormats/timeFormatLength[@type=\"short\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]";
         String shortTimePattern = getStringValueWithFallback(shortTimePath);
         if (shortTimePattern != null) {
@@ -107,11 +109,18 @@ public class CldrDateTimePatternGenerator {
         dateTimeFormatShort = getStringValueWithFallbackOrDefault("//ldml/dates/calendars/calendar[@type=\"" + calendarID + "\"]/dateTimeFormats/dateTimeFormatLength[@type=\"short\"]/dateTimeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]", dateTimeFormatShort);
     }
 
+    /**
+     * Resolves values from the CLDRFile, strictly handling the TR35 rule that 
+     * non-Gregorian calendars fallback to Gregorian values if missing locally 
+     * or at the root aliasing levels.
+     */
     private String getStringValueWithFallback(String path) {
         Output<String> localeWhereFound = new Output<>();
         String val = file.getStringValueWithBailey(path, null, localeWhereFound);
         
         if (!calendarID.equals("gregorian")) {
+            // If value is null, or it was only found at root/code-fallback, we must 
+            // attempt to inherit from the specific locale's Gregorian calendar first.
             if (val == null || (localeWhereFound.value != null && (localeWhereFound.value.equals("root") || localeWhereFound.value.equals(XMLSource.CODE_FALLBACK_ID)))) {
                 String gregPath = path.replaceFirst("\\[@type=\"[^\"]+\"\\]", "[@type=\"gregorian\"]");
                 String gregVal = file.getStringValueWithBailey(gregPath, null, localeWhereFound);
@@ -297,6 +306,10 @@ public class CldrDateTimePatternGenerator {
         return sb.toString();
     }
 
+    /**
+     * Determines which dateTimeFormat glue pattern to use based on the TR35 "Missing Skeleton Fields" algorithm.
+     * The selection is strictly based on the width of the Month and Weekday fields in the date half.
+     */
     private String getDateTimePattern(String dateSkeleton) {
         boolean wideMonth = dateSkeleton.contains("MMMM") || dateSkeleton.contains("LLLL");
         boolean weekday = dateSkeleton.contains("EEEE") || dateSkeleton.contains("cccc") || dateSkeleton.contains("E") || dateSkeleton.contains("c");
@@ -308,6 +321,14 @@ public class CldrDateTimePatternGenerator {
         return dateTimeFormatShort;
     }
 
+    /**
+     * TR35 matching penalty metric:
+     * - Same field type and length = 0 penalty.
+     * - Same field type, different length = penalty of |req - avail|.
+     * - Related field type (e.g. M vs L) = penalty of 10 + |req - avail|.
+     * - Missing field = massive penalty (20 per field).
+     * - Extra fields in available = rejected entirely (returns 10000).
+     */
     private int getDistance(String req, String avail) {
         List<String> reqFields = splitSkeleton(req);
         List<String> availFields = splitSkeleton(avail);

@@ -10,6 +10,12 @@ import java.util.Set;
 import com.ibm.icu.util.Output;
 import org.unicode.cldr.util.XMLSource;
 
+/**
+ * A generator that produces the best localized date/time pattern for a given skeleton.
+ * 
+ * This implementation strictly follows the LDML TR35 specification for DateTimePatternGenerator,
+ * utilizing CLDRFile for direct data access and implementing the Matching Skeletons algorithm.
+ */
 public class CldrDateTimePatternGenerator {
     private final CLDRFile file;
     private final String calendarID;
@@ -27,7 +33,10 @@ public class CldrDateTimePatternGenerator {
 
     private static final String[] STOCK = {"short", "medium", "long", "full"};
     
-    // Canonical order of fields as per CLDR/ICU usage
+    /**
+     * The canonical order of date/time fields as defined by the LDML specification.
+     * Skeletons are normalized to this order to ensure consistent matching.
+     */
     private static final String CANONICAL_ORDER = "GyYruUQqMLwWEecdDFgabBhHKkmsSAzZOvVXx";
 
     public CldrDateTimePatternGenerator(CLDRFile file, String calendarID, boolean useStock) {
@@ -149,6 +158,17 @@ public class CldrDateTimePatternGenerator {
         return result;
     }
 
+    /**
+     * Returns the best matching localized pattern for the requested skeleton.
+     * 
+     * The process follows these steps:
+     * 1. Canonicalize the requested skeleton.
+     * 2. Check for an exact match in available formats.
+     * 3. If it contains both date and time fields, split them, match independently, and combine.
+     * 4. Search for the closest available skeleton using the TR35 distance metric.
+     * 5. Expand the matched pattern to match requested field lengths.
+     * 6. Use appendItems to add any requested fields missing from the best match.
+     */
     public String getBestPattern(String skeleton) {
         if (skeleton == null || skeleton.isEmpty()) return "";
         
@@ -373,6 +393,9 @@ public class CldrDateTimePatternGenerator {
         return dist;
     }
     
+    /**
+     * Checks if two field characters represent the same semantic field (e.g., M and L for Month).
+     */
     private boolean areFieldsRelated(char a, char b) {
         if (a == b) return true;
         String[] sets = {
@@ -384,6 +407,9 @@ public class CldrDateTimePatternGenerator {
         return false;
     }
 
+    /**
+     * Splits a skeleton into its constituent fields (e.g., "yMMMd" -> ["y", "MMM", "d"]).
+     */
     private List<String> splitSkeleton(String skel) {
         List<String> res = new ArrayList<>();
         if (skel == null || skel.isEmpty()) return res;
@@ -397,6 +423,12 @@ public class CldrDateTimePatternGenerator {
         return res;
     }
 
+    /**
+     * Adjusts the field lengths in the base pattern to match the requested skeleton.
+     * 
+     * For example, if the request is "yyyy" and the best match is "y" (pattern "y"),
+     * it expands the pattern to "yyyy". It also handles related fields like M vs L.
+     */
     private String expandPattern(String reqSkeleton, String availSkeleton, String pattern) {
         List<String> reqFields = splitSkeleton(reqSkeleton);
         List<String> availFields = splitSkeleton(availSkeleton);
@@ -461,6 +493,9 @@ public class CldrDateTimePatternGenerator {
         return res.toString();
     }
 
+    /**
+     * Normalizes a skeleton to the canonical field order.
+     */
     private String canonicalizeSkeleton(String skel) {
         int[] counts = new int[128];
         for (int i = 0; i < skel.length(); i++) {
@@ -475,6 +510,9 @@ public class CldrDateTimePatternGenerator {
         return res.toString();
     }
 
+    /**
+     * Extracts a canonical skeleton from a date/time pattern string.
+     */
     private String getSkeletonFromPattern(String pattern) {
         StringBuilder skel = new StringBuilder();
         boolean inQuotes = false;

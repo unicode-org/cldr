@@ -163,10 +163,24 @@ public class CldrDateTimePatternGenerator {
             }
         }
 
-        dateTimeFormatFull = getStringValueWithFallbackOrDefault("//ldml/dates/calendars/calendar[@type=\"" + calendarID + "\"]/dateTimeFormats/dateTimeFormatLength[@type=\"full\"]/dateTimeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]", dateTimeFormatFull);
-        dateTimeFormatLong = getStringValueWithFallbackOrDefault("//ldml/dates/calendars/calendar[@type=\"" + calendarID + "\"]/dateTimeFormats/dateTimeFormatLength[@type=\"long\"]/dateTimeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]", dateTimeFormatLong);
-        dateTimeFormatMedium = getStringValueWithFallbackOrDefault("//ldml/dates/calendars/calendar[@type=\"" + calendarID + "\"]/dateTimeFormats/dateTimeFormatLength[@type=\"medium\"]/dateTimeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]", dateTimeFormatMedium);
-        dateTimeFormatShort = getStringValueWithFallbackOrDefault("//ldml/dates/calendars/calendar[@type=\"" + calendarID + "\"]/dateTimeFormats/dateTimeFormatLength[@type=\"short\"]/dateTimeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]", dateTimeFormatShort);
+        // TODO: Consider using atTime pattern
+        String dateTimeFormatLengthPattern = "//ldml/dates/calendars/calendar[@type=\"%s\"]/dateTimeFormats/dateTimeFormatLength[@type=\"%s\"]/dateTimeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]";
+        dateTimeFormatFull = getStringValueWithFallbackOrDefault(
+            String.format(dateTimeFormatLengthPattern, calendarID, "full"),
+            dateTimeFormatFull
+        );
+        dateTimeFormatLong = getStringValueWithFallbackOrDefault(
+            String.format(dateTimeFormatLengthPattern, calendarID, "long"),
+            dateTimeFormatLong
+        );
+        dateTimeFormatMedium = getStringValueWithFallbackOrDefault(
+            String.format(dateTimeFormatLengthPattern, calendarID, "medium"),
+            dateTimeFormatMedium
+        );
+        dateTimeFormatShort = getStringValueWithFallbackOrDefault(
+            String.format(dateTimeFormatLengthPattern, calendarID, "short"),
+            dateTimeFormatShort
+        );
     }
 
     /**
@@ -180,6 +194,10 @@ public class CldrDateTimePatternGenerator {
     private String getStringValueWithFallback(String path) {
         Output<String> localeWhereFound = new Output<>();
         String val = file.getStringValueWithBailey(path, null, localeWhereFound);
+
+        if (file.getLocaleID().contains("ar") && path.contains("dateTimeFormatLength")) {
+            System.err.println(path + " => " + val + " (" + localeWhereFound + ")");
+        }
         
         if (!calendarID.equals("gregorian")) {
             // If value is null, or it was only found at root/code-fallback, we must 
@@ -394,7 +412,7 @@ public class CldrDateTimePatternGenerator {
         if (p != null) return p;
         for (String avail : availableFormats.keySet()) {
              if (avail.length() == field.length() && areFieldsRelated(avail.charAt(0), field.charAt(0))) {
-                 if (isNumeric(avail.charAt(0), avail.length()) == isNumeric(field.charAt(0), field.length())) {
+                 if (isNumeric(avail) == isNumeric(field)) {
                      return expandPattern(field, avail, availableFormats.get(avail));
                  }
              }
@@ -444,14 +462,19 @@ public class CldrDateTimePatternGenerator {
      * @return the combined dateTimeFormat pattern
      */
     private String getDateTimePattern(String dateSkeleton) {
-        boolean wideMonth = dateSkeleton.contains("MMMM") || dateSkeleton.contains("LLLL");
-        boolean weekday = dateSkeleton.contains("EEEE") || dateSkeleton.contains("cccc") || dateSkeleton.contains("E") || dateSkeleton.contains("c");
-        boolean abbrMonth = dateSkeleton.contains("MMM") || dateSkeleton.contains("LLL");
-        
-        if (wideMonth && weekday && (dateSkeleton.contains("EEEE") || dateSkeleton.contains("cccc"))) return dateTimeFormatFull;
-        if (wideMonth) return dateTimeFormatLong;
-        if (abbrMonth) return dateTimeFormatMedium;
-        return dateTimeFormatShort;
+        // TODO: Select the correct glue pattern. For now, match the previous behavior.
+        if (false) {
+            boolean wideMonth = dateSkeleton.contains("MMMM") || dateSkeleton.contains("LLLL");
+            boolean weekday = dateSkeleton.contains("EEEE") || dateSkeleton.contains("cccc") || dateSkeleton.contains("E") || dateSkeleton.contains("c");
+            boolean abbrMonth = dateSkeleton.contains("MMM") || dateSkeleton.contains("LLL");
+            
+            if (wideMonth && weekday && (dateSkeleton.contains("EEEE") || dateSkeleton.contains("cccc"))) return dateTimeFormatFull;
+            if (wideMonth) return dateTimeFormatLong;
+            if (abbrMonth) return dateTimeFormatMedium;
+            return dateTimeFormatShort;
+        }
+
+        return dateTimeFormatMedium;
     }
 
     /**
@@ -462,7 +485,7 @@ public class CldrDateTimePatternGenerator {
      * - Same field type, different length = |req - avail|.
      * - Related field type (e.g. M vs L) = 10 + |req - avail|.
      * - Numeric/Text mismatch (e.g. M vs MMM) = 100 + |req - avail|.
-     * - Missing field = 20.
+     * - Missing field = 50.
      * - Extra fields in available = rejected (10000).
      * 
      * @param req the requested skeleton
@@ -501,34 +524,51 @@ public class CldrDateTimePatternGenerator {
             }
             
             if (af != null) {
-                int lengthDist = Math.abs(rf.length() - af.length());
-                if (isNumeric(rc, rf.length()) != isNumeric(af.charAt(0), af.length())) {
-                    dist += 100 + lengthDist;
-                } else if (rc == af.charAt(0)) {
-                    dist += lengthDist;
-                } else {
-                    dist += 10 + lengthDist;
-                }
+                dist += getSingleFieldDistance(af, rf);
             } else {
-                dist += 20; 
+                dist += 50; 
             }
         }
         return dist;
     }
 
     /**
+     * Calculates the TR35 distance between two individual fields.
+     */
+    private static int getSingleFieldDistance(String availField, String requestedField) {
+        int diff = 0;
+        if (availField.charAt(0) != requestedField.charAt(0)) {
+            diff += 1;
+        }
+        boolean isNumeric = isNumeric(availField);
+        if (isNumeric != isNumeric(requestedField)) {
+            diff += 100;
+            return diff;
+        }
+        if (isNumeric) {
+            diff += 2;
+            return diff;
+        }
+        // Normalize E to EEE
+        int l1 = Math.max(3, availField.length());
+        int l2 = Math.max(3, requestedField.length());
+        diff += 3 + Math.abs(l1 - l2);
+        return diff;
+    }
+
+    /**
      * Checks if a field with a given character and length is numeric or text.
      * 
-     * @param field the field character
-     * @param length the field length
+     * @param field the field string, like "MMM"
      * @return true if numeric, false if text
      */
-    private boolean isNumeric(char field, int length) {
+    private static boolean isNumeric(CharSequence fieldString) {
+        char field = fieldString.charAt(0);
         if (ALWAYS_NUMERIC_FIELDS.indexOf(field) >= 0) {
             return true;
         }
         if (NUMERIC_OR_TEXT_FIELDS.indexOf(field) >= 0) {
-            return length <= 2;
+            return fieldString.length() <= 2;
         }
         return false;
     }
@@ -627,7 +667,7 @@ public class CldrDateTimePatternGenerator {
                 }
                 
                 if (availF != null && patField.length() == availF.length()) {
-                    if (isNumeric(reqF.charAt(0), reqF.length()) == isNumeric(availF.charAt(0), availF.length())) {
+                    if (isNumeric(reqF) == isNumeric(availF)) {
                         char newChar = reqF.charAt(0);
                         for (int k = 0; k < reqF.length(); k++) res.append(newChar);
                     } else {

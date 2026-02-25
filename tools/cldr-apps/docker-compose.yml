@@ -2,7 +2,7 @@ services:
   cldr-apps:
     build: .
     ports:
-      - 9080 # web
+      - 9080  # web
     volumes:
       - ../..:/srv/st/src/cldr:ro
     depends_on:
@@ -32,14 +32,14 @@ services:
     image: selenium/standalone-chrome:latest
     shm_size: 2gb
     ports:
-      - 5900 # vnc
-      - 7900 # novnc
+      - 5900  # vnc
+      - 7900  # novnc
     depends_on:
       - cldr-apps
     links:
       - cldr-apps
   client-test:
-    image: node
+    image: node:24  # TODO CLDR-19262: pinning this for now due to err with yargs
     user: "node"
     working_dir: /home/node/app
     command:

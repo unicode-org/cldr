@@ -158,7 +158,7 @@ public class CheckWidths extends CheckCLDR {
                     break;
                 case PLACEHOLDER_UNITS:
                     factor = UNIT_WIDTHS_UTIL.getRoughComponentMax(path);
-                    // fall through ok
+                // fall through ok
                 case PLACEHOLDERS:
                     value = PLACEHOLDER_PATTERN.matcher(value).replaceAll("");
                     break;

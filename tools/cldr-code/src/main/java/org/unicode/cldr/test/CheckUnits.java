@@ -138,7 +138,7 @@ public class CheckUnits extends CheckCLDR {
                             }
                         }
                     }
-                    // fall through
+                // fall through
                 case prefix:
                     idType = parts.getAttributeValue(-2, "type");
                     for (String shortUnitId : pathType.sampleComposedShortUnitIds.get(idType)) {

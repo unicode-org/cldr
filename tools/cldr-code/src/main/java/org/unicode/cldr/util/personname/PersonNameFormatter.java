@@ -668,8 +668,8 @@ public class PersonNameFormatter {
                     case informal:
                         // no option, just fall back
                         break;
-                        // WARNING The following fallbacks are ONLY for the examples in CLDR, not
-                        // for production software
+                    // WARNING The following fallbacks are ONLY for the examples in CLDR, not
+                    // for production software
                     case genitive:
                         bestValue = bestValue + "ᵍ";
                         break;

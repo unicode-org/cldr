@@ -672,7 +672,7 @@ public class GrammarInfo implements Freezable<GrammarInfo> {
                                     sourceCase.value = "vocative";
                                     break;
                                 }
-                                // otherwise fall thorugh to feminine
+                            // otherwise fall thorugh to feminine
                             case "feminine":
                                 sourceCase.value = "nominative";
                                 sourcePlural.value = "few";

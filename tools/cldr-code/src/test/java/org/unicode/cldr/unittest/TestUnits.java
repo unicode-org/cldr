@@ -3504,10 +3504,10 @@ public class TestUnits extends TestFmwkPlus {
                         }
                     }
                     break;
-                    // could add more conditions on these
+                // could add more conditions on these
                 case and:
                     assertNotNull(simpleUnit + "/" + part + "; not at start", lastType);
-                    // fall through
+                // fall through
                 case power:
                 case per:
                     assertNotEquals(

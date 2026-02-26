@@ -195,10 +195,6 @@ public class CldrDateTimePatternGenerator {
         Output<String> localeWhereFound = new Output<>();
         String val = file.getStringValueWithBailey(path, null, localeWhereFound);
 
-        if (file.getLocaleID().contains("ar") && path.contains("dateTimeFormatLength")) {
-            System.err.println(path + " => " + val + " (" + localeWhereFound + ")");
-        }
-        
         if (!calendarID.equals("gregorian")) {
             // If value is null, or it was only found at root/code-fallback, we must 
             // attempt to inherit from the specific locale's Gregorian calendar first.
@@ -462,19 +458,14 @@ public class CldrDateTimePatternGenerator {
      * @return the combined dateTimeFormat pattern
      */
     private String getDateTimePattern(String dateSkeleton) {
-        // TODO: Select the correct glue pattern. For now, match the previous behavior.
-        if (false) {
-            boolean wideMonth = dateSkeleton.contains("MMMM") || dateSkeleton.contains("LLLL");
-            boolean weekday = dateSkeleton.contains("EEEE") || dateSkeleton.contains("cccc") || dateSkeleton.contains("E") || dateSkeleton.contains("c");
-            boolean abbrMonth = dateSkeleton.contains("MMM") || dateSkeleton.contains("LLL");
-            
-            if (wideMonth && weekday && (dateSkeleton.contains("EEEE") || dateSkeleton.contains("cccc"))) return dateTimeFormatFull;
-            if (wideMonth) return dateTimeFormatLong;
-            if (abbrMonth) return dateTimeFormatMedium;
-            return dateTimeFormatShort;
-        }
-
-        return dateTimeFormatMedium;
+        boolean wideMonth = dateSkeleton.contains("MMMM") || dateSkeleton.contains("LLLL");
+        boolean weekday = dateSkeleton.contains("EEEE") || dateSkeleton.contains("cccc") || dateSkeleton.contains("E") || dateSkeleton.contains("c");
+        boolean abbrMonth = dateSkeleton.contains("MMM") || dateSkeleton.contains("LLL");
+        
+        if (wideMonth && weekday && (dateSkeleton.contains("EEEE") || dateSkeleton.contains("cccc"))) return dateTimeFormatFull;
+        if (wideMonth) return dateTimeFormatLong;
+        if (abbrMonth) return dateTimeFormatMedium;
+        return dateTimeFormatShort;
     }
 
     /**

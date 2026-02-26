@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
-Copyright © 1991-2025 Unicode, Inc.
+Copyright © 1991-2026 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -48,44 +48,6 @@ x.x: << ստորակել >>;
 1000000000000000: << բիլիար[ >>];
 1000000000000000000: =#,##0=;
 ]]></rbnfRules>
-            <!-- The following redundant ruleset elements have been deprecated and will be removed in the next release. Please use the rbnfRules contents instead. -->
-            <ruleset type="spellout-numbering-year">
-                <rbnfrule value="x.x">=0.0=;</rbnfrule>
-                <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-numbering">
-                <rbnfrule value="0">=%spellout-cardinal=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-cardinal">
-                <rbnfrule value="-x">հանած →→;</rbnfrule>
-                <rbnfrule value="x.x">←← ստորակել →→;</rbnfrule>
-                <rbnfrule value="0">զրո;</rbnfrule>
-                <rbnfrule value="1">մեկ;</rbnfrule>
-                <rbnfrule value="2">երկու;</rbnfrule>
-                <rbnfrule value="3">երեք;</rbnfrule>
-                <rbnfrule value="4">չորս;</rbnfrule>
-                <rbnfrule value="5">հինգ;</rbnfrule>
-                <rbnfrule value="6">վեց;</rbnfrule>
-                <rbnfrule value="7">յոթ;</rbnfrule>
-                <rbnfrule value="8">ութ;</rbnfrule>
-                <rbnfrule value="9">ինը;</rbnfrule>
-                <rbnfrule value="10">տասն[­→→];</rbnfrule>
-                <rbnfrule value="20">քսան[­→→];</rbnfrule>
-                <rbnfrule value="30">երեսուն[­→→];</rbnfrule>
-                <rbnfrule value="40">քառասուն[­→→];</rbnfrule>
-                <rbnfrule value="50">հիսուն[­→→];</rbnfrule>
-                <rbnfrule value="60">վաթսուն[­→→];</rbnfrule>
-                <rbnfrule value="70">յոթանասուն[­→→];</rbnfrule>
-                <rbnfrule value="80">ութսուն[­→→];</rbnfrule>
-                <rbnfrule value="90">իննասուն[­→→];</rbnfrule>
-                <rbnfrule value="100">←←­հարյուր[ →→];</rbnfrule>
-                <rbnfrule value="1000">←← հազար[ →→];</rbnfrule>
-                <rbnfrule value="1000000">←← միլիօն[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">←← միլիար[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">←← բիլիօն[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">←← բիլիար[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
-            </ruleset>
         </rulesetGrouping>
     </rbnf>
 </ldml>

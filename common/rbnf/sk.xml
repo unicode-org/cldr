@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
-Copyright © 1991-2025 Unicode, Inc.
+Copyright © 1991-2026 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -89,87 +89,6 @@ x.x: << čiarka >>;
 1000000000000000: <%spellout-cardinal-masculine< $(cardinal,one{biliarda}few{biliardy}other{biliardov})$[ >>];
 1000000000000000000: =#,##0=;
 ]]></rbnfRules>
-            <!-- The following redundant ruleset elements have been deprecated and will be removed in the next release. Please use the rbnfRules contents instead. -->
-            <ruleset type="spellout-numbering-year">
-                <rbnfrule value="x.x">=0.0=;</rbnfrule>
-                <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-numbering">
-                <rbnfrule value="0">=%spellout-cardinal-masculine=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-cardinal-masculine">
-                <rbnfrule value="-x">mínus →→;</rbnfrule>
-                <rbnfrule value="x.x">←← čiarka →→;</rbnfrule>
-                <rbnfrule value="0">nula;</rbnfrule>
-                <rbnfrule value="1">jeden;</rbnfrule>
-                <rbnfrule value="2">dva;</rbnfrule>
-                <rbnfrule value="3">tri;</rbnfrule>
-                <rbnfrule value="4">štyri;</rbnfrule>
-                <rbnfrule value="5">päť;</rbnfrule>
-                <rbnfrule value="6">šesť;</rbnfrule>
-                <rbnfrule value="7">sedem;</rbnfrule>
-                <rbnfrule value="8">osem;</rbnfrule>
-                <rbnfrule value="9">deväť;</rbnfrule>
-                <rbnfrule value="10">desať;</rbnfrule>
-                <rbnfrule value="11">jedenásť;</rbnfrule>
-                <rbnfrule value="12">dvanásť;</rbnfrule>
-                <rbnfrule value="13">trinásť;</rbnfrule>
-                <rbnfrule value="14">štrnásť;</rbnfrule>
-                <rbnfrule value="15">pätnásť;</rbnfrule>
-                <rbnfrule value="16">šestnásť;</rbnfrule>
-                <rbnfrule value="17">sedemnásť;</rbnfrule>
-                <rbnfrule value="18">osemnásť;</rbnfrule>
-                <rbnfrule value="19">devätnásť;</rbnfrule>
-                <rbnfrule value="20">dvadsať[­→→];</rbnfrule>
-                <rbnfrule value="30">tridsať[­→→];</rbnfrule>
-                <rbnfrule value="40">štyridsať[­→→];</rbnfrule>
-                <rbnfrule value="50">←←desiat[­→→];</rbnfrule>
-                <rbnfrule value="100">←%spellout-cardinal-feminine←­sto[ →→];</rbnfrule>
-                <rbnfrule value="1000">←%spellout-cardinal-feminine← tisíc[ →→];</rbnfrule>
-                <rbnfrule value="1000000">←%spellout-cardinal-masculine← $(cardinal,one{milión}few{milióny}other{miliónov})$[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">←%spellout-cardinal-masculine← $(cardinal,one{miliarda}few{miliardy}other{miliardov})$[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">←%spellout-cardinal-masculine← $(cardinal,one{bilión}few{bilióny}other{biliónov})$[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine← $(cardinal,one{biliarda}few{biliardy}other{biliardov})$[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-cardinal-neuter">
-                <rbnfrule value="-x">mínus →→;</rbnfrule>
-                <rbnfrule value="x.x">←← čiarka →→;</rbnfrule>
-                <rbnfrule value="0">nula;</rbnfrule>
-                <rbnfrule value="1">jedno;</rbnfrule>
-                <rbnfrule value="2">dve;</rbnfrule>
-                <rbnfrule value="3">=%spellout-cardinal-masculine=;</rbnfrule>
-                <rbnfrule value="20">dvadsať[­→→];</rbnfrule>
-                <rbnfrule value="30">tridsať[­→→];</rbnfrule>
-                <rbnfrule value="40">štyridsať[­→→];</rbnfrule>
-                <rbnfrule value="50">←←desiat[­→→];</rbnfrule>
-                <rbnfrule value="100">←%spellout-cardinal-feminine←­sto[ →→];</rbnfrule>
-                <rbnfrule value="1000">←%spellout-cardinal-feminine← tisíc[ →→];</rbnfrule>
-                <rbnfrule value="1000000">←%spellout-cardinal-masculine← $(cardinal,one{milión}few{milióny}other{miliónov})$[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">←%spellout-cardinal-masculine← $(cardinal,one{miliarda}few{miliardy}other{miliardov})$[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">←%spellout-cardinal-masculine← $(cardinal,one{bilión}few{bilióny}other{biliónov})$[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine← $(cardinal,one{biliarda}few{biliardy}other{biliardov})$[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-cardinal-feminine">
-                <rbnfrule value="-x">mínus →→;</rbnfrule>
-                <rbnfrule value="x.x">←← čiarka →→;</rbnfrule>
-                <rbnfrule value="0">nula;</rbnfrule>
-                <rbnfrule value="1">jedna;</rbnfrule>
-                <rbnfrule value="2">dve;</rbnfrule>
-                <rbnfrule value="3">=%spellout-cardinal-masculine=;</rbnfrule>
-                <rbnfrule value="20">dvadsať[­→→];</rbnfrule>
-                <rbnfrule value="30">tridsať[­→→];</rbnfrule>
-                <rbnfrule value="40">štyridsať[­→→];</rbnfrule>
-                <rbnfrule value="50">←←desiat[­→→];</rbnfrule>
-                <rbnfrule value="100">←%spellout-cardinal-feminine←­sto[ →→];</rbnfrule>
-                <rbnfrule value="1000">←%spellout-cardinal-feminine← tisíc[ →→];</rbnfrule>
-                <rbnfrule value="1000000">←%spellout-cardinal-masculine← $(cardinal,one{milión}few{milióny}other{miliónov})$[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">←%spellout-cardinal-masculine← $(cardinal,one{miliarda}few{miliardy}other{miliardov})$[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">←%spellout-cardinal-masculine← $(cardinal,one{bilión}few{bilióny}other{biliónov})$[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine← $(cardinal,one{biliarda}few{biliardy}other{biliardov})$[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
-            </ruleset>
         </rulesetGrouping>
     </rbnf>
 </ldml>

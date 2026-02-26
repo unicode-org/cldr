@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
-Copyright © 1991-2025 Unicode, Inc.
+Copyright © 1991-2026 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -90,88 +90,6 @@ x.x: << komats >>;
 2000000000000000: <%spellout-cardinal-masculine< biljardi[ >>];
 1000000000000000000: =#,##0=;
 ]]></rbnfRules>
-            <!-- The following redundant ruleset elements have been deprecated and will be removed in the next release. Please use the rbnfRules contents instead. -->
-            <ruleset type="spellout-numbering-year">
-                <rbnfrule value="x.x">=0.0=;</rbnfrule>
-                <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-numbering">
-                <rbnfrule value="0">=%spellout-cardinal-masculine=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-prefixed" access="private">
-                <rbnfrule value="0">ERROR;</rbnfrule>
-                <rbnfrule value="1">vien;</rbnfrule>
-                <rbnfrule value="2">div;</rbnfrule>
-                <rbnfrule value="3">trīs;</rbnfrule>
-                <rbnfrule value="4">četr;</rbnfrule>
-                <rbnfrule value="5">piec;</rbnfrule>
-                <rbnfrule value="6">seš;</rbnfrule>
-                <rbnfrule value="7">septiņ;</rbnfrule>
-                <rbnfrule value="8">astoņ;</rbnfrule>
-                <rbnfrule value="9">deviņ;</rbnfrule>
-                <rbnfrule value="10">ERROR;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-cardinal-masculine">
-                <rbnfrule value="-x">mīnus →→;</rbnfrule>
-                <rbnfrule value="x.x">←← komats →→;</rbnfrule>
-                <rbnfrule value="0">nulle;</rbnfrule>
-                <rbnfrule value="1">viens;</rbnfrule>
-                <rbnfrule value="2">divi;</rbnfrule>
-                <rbnfrule value="3">trīs;</rbnfrule>
-                <rbnfrule value="4">četri;</rbnfrule>
-                <rbnfrule value="5">pieci;</rbnfrule>
-                <rbnfrule value="6">seši;</rbnfrule>
-                <rbnfrule value="7">septiņi;</rbnfrule>
-                <rbnfrule value="8">astoņi;</rbnfrule>
-                <rbnfrule value="9">deviņi;</rbnfrule>
-                <rbnfrule value="10">desmit;</rbnfrule>
-                <rbnfrule value="11">→%%spellout-prefixed→padsmit;</rbnfrule>
-                <rbnfrule value="20">←%%spellout-prefixed←desmit[ →→];</rbnfrule>
-                <rbnfrule value="100">simt[ →→];</rbnfrule>
-                <rbnfrule value="200">←%%spellout-prefixed←simt[ →→];</rbnfrule>
-                <rbnfrule value="1000">tūkstoš[ →→];</rbnfrule>
-                <rbnfrule value="2000">←%%spellout-prefixed←tūkstoš[ →→];</rbnfrule>
-                <rbnfrule value="10000" radix="1000">←%spellout-cardinal-masculine← tūkstoši[ →→];</rbnfrule>
-                <rbnfrule value="1000000">viens miljons[ →→];</rbnfrule>
-                <rbnfrule value="2000000">←%spellout-cardinal-masculine← miljoni[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">viens miljards[ →→];</rbnfrule>
-                <rbnfrule value="2000000000">←%spellout-cardinal-masculine← miljardi[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">viens biljons[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000">←%spellout-cardinal-masculine← biljoni[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">viens biljards[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000000">←%spellout-cardinal-masculine← biljardi[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-cardinal-feminine">
-                <rbnfrule value="-x">mīnus →→;</rbnfrule>
-                <rbnfrule value="x.x">←← komats →→;</rbnfrule>
-                <rbnfrule value="0">nulle;</rbnfrule>
-                <rbnfrule value="1">viena;</rbnfrule>
-                <rbnfrule value="2">divas;</rbnfrule>
-                <rbnfrule value="3">trīs;</rbnfrule>
-                <rbnfrule value="4">četras;</rbnfrule>
-                <rbnfrule value="5">piecas;</rbnfrule>
-                <rbnfrule value="6">sešas;</rbnfrule>
-                <rbnfrule value="7">septiņas;</rbnfrule>
-                <rbnfrule value="8">astoņas;</rbnfrule>
-                <rbnfrule value="9">deviņas;</rbnfrule>
-                <rbnfrule value="10">=%spellout-cardinal-masculine=;</rbnfrule>
-                <rbnfrule value="20">←%%spellout-prefixed←desmit[ →→];</rbnfrule>
-                <rbnfrule value="100">simt[ →→];</rbnfrule>
-                <rbnfrule value="200">←%%spellout-prefixed←simt[ →→];</rbnfrule>
-                <rbnfrule value="1000">tūkstoš[ →→];</rbnfrule>
-                <rbnfrule value="2000">←%%spellout-prefixed←tūkstoš[ →→];</rbnfrule>
-                <rbnfrule value="10000" radix="1000">←%spellout-cardinal-masculine← tūkstoši[ →→];</rbnfrule>
-                <rbnfrule value="1000000">viens miljons[ →→];</rbnfrule>
-                <rbnfrule value="2000000">←%spellout-cardinal-masculine← miljoni[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">viens miljards[ →→];</rbnfrule>
-                <rbnfrule value="2000000000">←%spellout-cardinal-masculine← miljardi[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">viens biljons[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000">←%spellout-cardinal-masculine← biljoni[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">viens biljards[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000000">←%spellout-cardinal-masculine← biljardi[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
-            </ruleset>
         </rulesetGrouping>
     </rbnf>
 </ldml>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
-Copyright © 1991-2025 Unicode, Inc.
+Copyright © 1991-2026 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -82,82 +82,6 @@ x.x: <<・>>>;
 x.x: =#,##0.#=;
 0: 第=%spellout-numbering=;
 ]]></rbnfRules>
-            <!-- The following redundant ruleset elements have been deprecated and will be removed in the next release. Please use the rbnfRules contents instead. -->
-            <ruleset type="spellout-numbering-year-latn">
-                <rbnfrule value="x.x">=0.0=;</rbnfrule>
-                <rbnfrule value="0">=0=;</rbnfrule>
-                <rbnfrule value="1">元;</rbnfrule>
-                <rbnfrule value="2">=0=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-numbering-year">
-                <rbnfrule value="x.x">=0.0=;</rbnfrule>
-                <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
-                <rbnfrule value="1">元;</rbnfrule>
-                <rbnfrule value="2">=%spellout-numbering=;</rbnfrule>
-                <rbnfrule value="1000">=%%spellout-numbering-year-digits=;</rbnfrule>
-                <rbnfrule value="10000">=%spellout-numbering=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-numbering-year-digits" access="private">
-                <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
-                <rbnfrule value="10">←←→→→;</rbnfrule>
-                <rbnfrule value="100">←←→→→;</rbnfrule>
-                <rbnfrule value="1000">←←→→→;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-numbering">
-                <rbnfrule value="0">=%spellout-cardinal=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-cardinal-financial">
-                <rbnfrule value="-x">マイナス→→;</rbnfrule>
-                <rbnfrule value="x.x">←←点→→→;</rbnfrule>
-                <rbnfrule value="0">零;</rbnfrule>
-                <rbnfrule value="1">壱;</rbnfrule>
-                <rbnfrule value="2">弐;</rbnfrule>
-                <rbnfrule value="3">参;</rbnfrule>
-                <rbnfrule value="4">四;</rbnfrule>
-                <rbnfrule value="5">伍;</rbnfrule>
-                <rbnfrule value="6">六;</rbnfrule>
-                <rbnfrule value="7">七;</rbnfrule>
-                <rbnfrule value="8">八;</rbnfrule>
-                <rbnfrule value="9">九;</rbnfrule>
-                <rbnfrule value="10">拾[→→];</rbnfrule>
-                <rbnfrule value="20">←←拾[→→];</rbnfrule>
-                <rbnfrule value="100">←←百[→→];</rbnfrule>
-                <rbnfrule value="1000">←←千[→→];</rbnfrule>
-                <rbnfrule value="10000">←←萬[→→];</rbnfrule>
-                <rbnfrule value="100000000">←←億[→→];</rbnfrule>
-                <rbnfrule value="1000000000000">←←兆[→→];</rbnfrule>
-                <rbnfrule value="10000000000000000">←←京[→→];</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-cardinal">
-                <rbnfrule value="-x">マイナス→→;</rbnfrule>
-                <rbnfrule value="x.x">←←・→→→;</rbnfrule>
-                <rbnfrule value="0">〇;</rbnfrule>
-                <rbnfrule value="1">一;</rbnfrule>
-                <rbnfrule value="2">二;</rbnfrule>
-                <rbnfrule value="3">三;</rbnfrule>
-                <rbnfrule value="4">四;</rbnfrule>
-                <rbnfrule value="5">五;</rbnfrule>
-                <rbnfrule value="6">六;</rbnfrule>
-                <rbnfrule value="7">七;</rbnfrule>
-                <rbnfrule value="8">八;</rbnfrule>
-                <rbnfrule value="9">九;</rbnfrule>
-                <rbnfrule value="10">十[→→];</rbnfrule>
-                <rbnfrule value="20">←←十[→→];</rbnfrule>
-                <rbnfrule value="100">百[→→];</rbnfrule>
-                <rbnfrule value="200">←←百[→→];</rbnfrule>
-                <rbnfrule value="1000">千[→→];</rbnfrule>
-                <rbnfrule value="2000">←←千[→→];</rbnfrule>
-                <rbnfrule value="10000">←←万[→→];</rbnfrule>
-                <rbnfrule value="100000000">←←億[→→];</rbnfrule>
-                <rbnfrule value="1000000000000">←←兆[→→];</rbnfrule>
-                <rbnfrule value="10000000000000000">←←京[→→];</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-ordinal">
-                <rbnfrule value="x.x">=#,##0.#=;</rbnfrule>
-                <rbnfrule value="0">第=%spellout-numbering=;</rbnfrule>
-            </ruleset>
         </rulesetGrouping>
         <rulesetGrouping type="OrdinalRules">
             <rbnfRules><![CDATA[
@@ -165,11 +89,6 @@ x.x: =#,##0.#=;
 -x: 第−>#,##0>;
 0: 第=#,##0=;
 ]]></rbnfRules>
-            <!-- The following redundant ruleset elements have been deprecated and will be removed in the next release. Please use the rbnfRules contents instead. -->
-            <ruleset type="digits-ordinal">
-                <rbnfrule value="-x">第−→#,##0→;</rbnfrule>
-                <rbnfrule value="0">第=#,##0=;</rbnfrule>
-            </ruleset>
         </rulesetGrouping>
     </rbnf>
 </ldml>

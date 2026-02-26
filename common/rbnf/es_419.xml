@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
-Copyright © 1991-2025 Unicode, Inc.
+Copyright © 1991-2026 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -32,30 +32,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 %digits-ordinal:
 0: =%digits-ordinal-masculine=;
 ]]></rbnfRules>
-            <!-- The following redundant ruleset elements have been deprecated and will be removed in the next release. Please use the rbnfRules contents instead. -->
-            <ruleset type="digits-ordinal-masculine-adjective">
-                <rbnfrule value="-x">−→→;</rbnfrule>
-                <rbnfrule value="0">=#,##0=$(ordinal,one{ᵉʳ}other{º})$.;</rbnfrule>
-            </ruleset>
-            <ruleset type="digits-ordinal-masculine">
-                <rbnfrule value="-x">−→→;</rbnfrule>
-                <rbnfrule value="0">=#,##0=º.;</rbnfrule>
-            </ruleset>
-            <ruleset type="digits-ordinal-feminine">
-                <rbnfrule value="-x">−→→;</rbnfrule>
-                <rbnfrule value="0">=#,##0=ª.;</rbnfrule>
-            </ruleset>
-            <ruleset type="digits-ordinal-masculine-plural">
-                <rbnfrule value="-x">−→→;</rbnfrule>
-                <rbnfrule value="0">=#,##0=ᵒˢ.;</rbnfrule>
-            </ruleset>
-            <ruleset type="digits-ordinal-feminine-plural">
-                <rbnfrule value="-x">−→→;</rbnfrule>
-                <rbnfrule value="0">=#,##0=ᵃˢ.;</rbnfrule>
-            </ruleset>
-            <ruleset type="digits-ordinal">
-                <rbnfrule value="0">=%digits-ordinal-masculine=;</rbnfrule>
-            </ruleset>
         </rulesetGrouping>
     </rbnf>
 </ldml>

@@ -4,7 +4,8 @@ name: CLDR Modify
 
 env:
   CLDR_DIR: ${{ github.workspace }}
-  CLDR_JAR: ${{ github.workspace }}/tools/cldr-code/target/cldr-code.jar
+  AUTO_BRANCH: auto/cldrmodify/main
+  AUTO_REMOTE: origin
 
 on:
   push:
@@ -78,11 +79,12 @@ jobs:
           git config user.name 'cldr-modify.yml [bot]'
           git config user.email 'unicode-org@users.noreply.github.com'
           git add common/main
-          git commit -am $(git log --pretty=%s HEAD | head -1 | cut -d' ' -f1)' CLDRModify from '$(git log --pretty=%h -n 1 HEAD)' - see CLDR-16083'
-          git checkout -b auto/cldrmodify/main
+          bash .github/workflows/cldr-modify-commit.sh
+          git checkout -b ${AUTO_BRANCH}
           # reset origin using token
-          git remote set-url origin "https://unicode-org:${GH_TOKEN}@github.com/unicode-org/cldr.git"
-          git push --set-upstream -f origin auto/cldrmodify/main
+          git remote set-url ${AUTO_REMOTE} "https://unicode-org:${GH_TOKEN}@github.com/unicode-org/cldr.git"
+          # push ONLY if files under common/ are out of date.
+          bash .github/workflows/cldr-modify-push-if-needed.sh ${AUTO_REMOTE} ${AUTO_BRANCH} common/
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Open PR
@@ -93,8 +95,9 @@ jobs:
             --title $(git log --pretty=%s HEAD | head -1 | cut -d' ' -f1)" auto: CLDRModify" \
             --body $(git log --pretty=%s HEAD | head -1 | cut -d' ' -f1)" Automatically created, see CLDR-16083" \
             --base 'main' \
+            --reviewer 'unicode-org/cldr-brs' \
             --label 'automatic' \
-            --head $(git rev-parse --abbrev-ref HEAD) \
+            --head ${AUTO_BRANCH} \
             | tee -a $GITHUB_STEP_SUMMARY ) || ( echo "# Could not create PR - may already exist" | tee -a $GITHUB_STEP_SUMMARY )
         env:
           GH_TOKEN: ${{ github.token }}

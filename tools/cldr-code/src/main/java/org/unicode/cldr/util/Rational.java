@@ -458,14 +458,14 @@ public final class Rational extends Number implements Comparable<Rational> {
                 switch (style) {
                     case repeating:
                         limit = 30;
-                        // fall through with smaller limit
+                    // fall through with smaller limit
                     case repeatingAll:
                         // if we come directly here, the limit is huge
                         result = toRepeating(limit);
                         if (result != null) { // null is returned if we can't fit into the limit
                             break;
                         }
-                        // otherwise drop through to simple
+                    // otherwise drop through to simple
                     case formatted:
                         // skip approximate test
                         result = denIsOne ? numStr : numStr + DIVIDER + denStr;

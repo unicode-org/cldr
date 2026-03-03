@@ -484,11 +484,11 @@ public class LenientDateParser {
                     case 'Y':
                     case 'u':
                         return Type.YEAR;
-                        // case 'Q': return Type.QUARTER;
+                    // case 'Q': return Type.QUARTER;
                     case 'M':
                     case 'L':
                         return Type.MONTH;
-                        // case 'w': case 'W': return Type.WEEK;
+                    // case 'w': case 'W': return Type.WEEK;
                     case 'e':
                     case 'E':
                     case 'c':

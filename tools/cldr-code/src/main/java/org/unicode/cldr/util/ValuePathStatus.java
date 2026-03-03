@@ -111,7 +111,7 @@ public class ValuePathStatus {
                 // SupplementalDataInfo.getInstance(sourceFile.getSupplementalDirectory());
                 PluralInfo plurals = supplementalDataInfo2.getPlurals(sourceFile.getLocaleID());
                 return plurals == null || !plurals.hasSamples(c, digits); // ok if no samples
-                // TODO: handle fractions
+            // TODO: handle fractions
             default:
                 throw new IllegalArgumentException();
         }

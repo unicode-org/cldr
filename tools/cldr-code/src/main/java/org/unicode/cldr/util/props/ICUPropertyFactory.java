@@ -82,10 +82,10 @@ public class ICUPropertyFactory extends UnicodeProperty.Factory {
                     return UCharacter.getName1_0(codePoint);
                 case UProperty.UPPERCASE_MAPPING:
                     return UCharacter.toUpperCase(Locale.ENGLISH, UTF16.valueOf(codePoint));
-                    // case NFC: return Normalizer.normalize(codePoint, Normalizer.NFC);
-                    // case NFD: return Normalizer.normalize(codePoint, Normalizer.NFD);
-                    // case NFKC: return Normalizer.normalize(codePoint, Normalizer.NFKC);
-                    // case NFKD: return Normalizer.normalize(codePoint, Normalizer.NFKD);
+                // case NFC: return Normalizer.normalize(codePoint, Normalizer.NFC);
+                // case NFD: return Normalizer.normalize(codePoint, Normalizer.NFD);
+                // case NFKC: return Normalizer.normalize(codePoint, Normalizer.NFKC);
+                // case NFKD: return Normalizer.normalize(codePoint, Normalizer.NFKD);
                 case isNFC:
                     return String.valueOf(
                             Normalizer.normalize(codePoint, Normalizer.NFC)

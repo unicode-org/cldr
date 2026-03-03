@@ -2041,8 +2041,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                         return true;
                 }
                 break;
-                ////
-                // supplementalData/transforms/transform[@source="am"][@target="am_FONIPA"][@direction="forward"]/comment
+            ////
+            // supplementalData/transforms/transform[@source="am"][@target="am_FONIPA"][@direction="forward"]/comment
             case supplementalData:
                 // these are NOT under /metadata/ but are actually metadata
                 switch (element1) {

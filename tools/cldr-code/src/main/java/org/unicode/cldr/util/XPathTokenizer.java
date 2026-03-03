@@ -49,7 +49,7 @@ public class XPathTokenizer {
                         current++; // skip past the separator
                         return retval;
                     }
-                    // fall through
+                // fall through
                 default:
                     current++;
             }
@@ -79,7 +79,7 @@ public class XPathTokenizer {
                         }
                         return xpath;
                     }
-                    // fall through
+                // fall through
                 default:
                     current--;
             }
@@ -104,7 +104,7 @@ public class XPathTokenizer {
                         }
                         return xpath;
                     }
-                    // fall through
+                // fall through
                 default:
                     current--;
             }

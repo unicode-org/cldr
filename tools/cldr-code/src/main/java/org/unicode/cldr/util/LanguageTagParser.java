@@ -52,9 +52,9 @@ public class LanguageTagParser {
                 private int getBucket(String o1) {
                     switch (o1.length()) {
                         case 1:
-                            return o1.charAt(0) == 't' ? 0 : 2;
+                            return o1.charAt(0) == 't' ? 2 : 0;
                         case 2:
-                            return o1.charAt(1) <= '9' ? 1 : 3;
+                            return o1.charAt(1) <= '9' ? 3 : 1;
                         default:
                             throw new IllegalArgumentException();
                     }
@@ -408,7 +408,6 @@ public class LanguageTagParser {
             throwError(subtag, "Private Use / Extension requires subsequent subtag");
         }
         boolean takesSubkeys = extension == 'u' || extension == 't';
-        boolean firstT = extension == 't';
         boolean haveContents = false;
         List<String> result = new ArrayList<>();
         try {
@@ -419,7 +418,7 @@ public class LanguageTagParser {
                 }
                 if (takesSubkeys
                         && subtag.length() == 2
-                        && (!firstT || isTKey(subtag))) { // start new key-value pair
+                        && (extension == 'u' || isTKey(subtag))) { // start new key-value pair
                     if (!result.isEmpty() || base.length() != 1) { // don't add empty t- or u-
                         localeExtensions.put(base, ImmutableList.copyOf(result));
                         haveContents = true;
@@ -428,7 +427,6 @@ public class LanguageTagParser {
                     base = subtag;
                     continue;
                 }
-                firstT = false;
                 result.add(subtag);
             }
             return null;

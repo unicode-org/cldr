@@ -101,10 +101,16 @@ public class GenerateLocaleIDTestData {
             "es-419",
             "es-Cyrl-MX",
             "hi-Latn",
+            "hi-u-nu-latn-t-en-h0-hybrid",
+            "en-u-nu-deva-t-de-mm-fonipa",
             "nl-BE",
             "nl-Latn-BE",
             "en-MM",
-            "zh-Hans-fonipa"
+            "zh-Hans-fonipa",
+            "en-u-hc-h12-t-s0-ascii-d0-fwidth",
+            "en-t-fr-ca-fonipa-s0-ascii",
+            "en-u-ca-buddhist-t-en-latn-001-t0-und",
+            "en-t-ja-latn-jp-m0-iso"
         };
         try (TempPrintWriter pw =
                 TempPrintWriter.openUTF8Writer(

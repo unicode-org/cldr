@@ -19,6 +19,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<!-- Update ICU4J libraries in CLDR
+		A. Normally:
 		    To update the version of ICU4J libraries in CLDR, we must *first* use ICU github to
 		    to publish updated ICU4J libraries to the github maven repo using an ICU github
 		    action, and *then* update the version in the appropriate one of the two icu4j.version
@@ -57,13 +58,16 @@
 		         "78.0.1-20250924.061614-9" in this example). Use the first of the
 		         two icu4j.version lines below (uncomment it, comment out the other one) and update
 		         it to use this extracted value.
-		    4. If you have updated this pom file, then you need to run the usual pre-commit tests
-		       as with any PR. And of course these tests may sometimes reveal compatibility issues
-		       between CLDR and the updated version of ICU, which would need to be fixed as part
-		       of the PR.
-			-->
+		B. In some cases we will use a released version of ICU4J, without a -SNAPSHOT. These come
+		   from Maven central and are not listed in
+		   <https://github.com/unicode-org/icu/packages/1954682/versions>.
+		C. Either way, if you have updated this pom file, then you need to run the usual pre-commit
+		   tests as with any PR. And of course these tests may sometimes reveal compatibility issues
+		   between CLDR and the updated version of ICU, which would need to be fixed as part of the
+		   PR.
+		-->
 		<!--<icu4j.version>78.0.1-20250924.061614-9</icu4j.version>--> <!-- before ICU rc, specific dated version -->
-		<icu4j.version>78.1-SNAPSHOT</icu4j.version> <!-- after ICU rc, latest published version -->
+		<icu4j.version>78.2</icu4j.version> <!-- after ICU rc, latest published version; or released version -->
 		<junit.jupiter.version>5.8.2</junit.jupiter.version>
 		<maven-surefire-plugin-version>3.3.1</maven-surefire-plugin-version>
 		<assertj-version>3.26.3</assertj-version>

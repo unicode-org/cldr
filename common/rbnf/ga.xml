@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
-Copyright © 1991-2025 Unicode, Inc.
+Copyright © 1991-2026 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -128,132 +128,6 @@ x.x: << pointe >>;
 100: céad [>>|quadrilliún];
 200: <%%spellout-cardinal-attributive< $(cardinal,many{gcéad}other{chéad})$ [>>|quadrilliún];
 ]]></rbnfRules>
-            <!-- The following redundant ruleset elements have been deprecated and will be removed in the next release. Please use the rbnfRules contents instead. -->
-            <ruleset type="lenient-parse" access="private">
-                <rbnfrule value="0">&amp; ' ' , ',' ;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-numbering-year">
-                <rbnfrule value="-x">míneas →→;</rbnfrule>
-                <rbnfrule value="x.x">=0.0=;</rbnfrule>
-                <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-numbering">
-                <rbnfrule value="-x">míneas →→;</rbnfrule>
-                <rbnfrule value="x.x">←← pointe →→;</rbnfrule>
-                <rbnfrule value="0">a náid;</rbnfrule>
-                <rbnfrule value="1">a haon;</rbnfrule>
-                <rbnfrule value="2">a dó;</rbnfrule>
-                <rbnfrule value="3">a trí;</rbnfrule>
-                <rbnfrule value="4">a ceathair;</rbnfrule>
-                <rbnfrule value="5">a cúig;</rbnfrule>
-                <rbnfrule value="6">a sé;</rbnfrule>
-                <rbnfrule value="7">a seacht;</rbnfrule>
-                <rbnfrule value="8">a hocht;</rbnfrule>
-                <rbnfrule value="9">a naoi;</rbnfrule>
-                <rbnfrule value="10">a deich;</rbnfrule>
-                <rbnfrule value="11">→→ $(cardinal,two{dhéag}other{déag})$;</rbnfrule>
-                <rbnfrule value="20">fiche[ →→];</rbnfrule>
-                <rbnfrule value="30">tríocha[ →→];</rbnfrule>
-                <rbnfrule value="40">daichead[ →→];</rbnfrule>
-                <rbnfrule value="50">caoga[ →→];</rbnfrule>
-                <rbnfrule value="60">seasca[ →→];</rbnfrule>
-                <rbnfrule value="70">seachtó[ →→];</rbnfrule>
-                <rbnfrule value="80">ochtó[ →→];</rbnfrule>
-                <rbnfrule value="90">nócha[ →→];</rbnfrule>
-                <rbnfrule value="100">céad[ is →→];</rbnfrule>
-                <rbnfrule value="200">←%%spellout-cardinal-attributive← $(cardinal,many{gcéad}other{chéad})$[ is →→];</rbnfrule>
-                <rbnfrule value="1000">←%%thousands←[ →→];</rbnfrule>
-                <rbnfrule value="1000000">←%%millions←[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">←%%billions←[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">←%%trillions←[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">←%%quadrillions←[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-cardinal">
-                <rbnfrule value="-x">míneas →→;</rbnfrule>
-                <rbnfrule value="x.x">←← pointe →→;</rbnfrule>
-                <rbnfrule value="0">náid;</rbnfrule>
-                <rbnfrule value="1">aon;</rbnfrule>
-                <rbnfrule value="2">dó;</rbnfrule>
-                <rbnfrule value="3">trí;</rbnfrule>
-                <rbnfrule value="4">ceathair;</rbnfrule>
-                <rbnfrule value="5">cúig;</rbnfrule>
-                <rbnfrule value="6">sé;</rbnfrule>
-                <rbnfrule value="7">seacht;</rbnfrule>
-                <rbnfrule value="8">ocht;</rbnfrule>
-                <rbnfrule value="9">naoi;</rbnfrule>
-                <rbnfrule value="10">deich;</rbnfrule>
-                <rbnfrule value="11">→→ $(cardinal,two{dhéag}other{déag})$;</rbnfrule>
-                <rbnfrule value="20">=%spellout-numbering=;</rbnfrule>
-            </ruleset>
-            <ruleset type="is-number-attributive" access="private">
-                <rbnfrule value="0">[ | is ]=%%spellout-cardinal-attributive=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-cardinal-attributive" access="private">
-                <rbnfrule value="0">náid;</rbnfrule>
-                <rbnfrule value="1">aon;</rbnfrule>
-                <rbnfrule value="2">dhá;</rbnfrule>
-                <rbnfrule value="3">trí;</rbnfrule>
-                <rbnfrule value="4">ceithre;</rbnfrule>
-                <rbnfrule value="5">cúig;</rbnfrule>
-                <rbnfrule value="6">sé;</rbnfrule>
-                <rbnfrule value="7">seacht;</rbnfrule>
-                <rbnfrule value="8">ocht;</rbnfrule>
-                <rbnfrule value="9">naoi;</rbnfrule>
-                <rbnfrule value="10">deich;</rbnfrule>
-                <rbnfrule value="11">→→ $(cardinal,two{dhéag}other{déag})$;</rbnfrule>
-                <rbnfrule value="20">fiche[ is →→];</rbnfrule>
-                <rbnfrule value="30">tríocha[ is →→];</rbnfrule>
-                <rbnfrule value="40">daichead[ is →→];</rbnfrule>
-                <rbnfrule value="50">caoga[ is →→];</rbnfrule>
-                <rbnfrule value="60">seasca[ is →→];</rbnfrule>
-                <rbnfrule value="70">seachtó[ is →→];</rbnfrule>
-                <rbnfrule value="80">ochtó[ is →→];</rbnfrule>
-                <rbnfrule value="90">nócha[ is →→];</rbnfrule>
-                <rbnfrule value="100">céad[ is →→];</rbnfrule>
-                <rbnfrule value="200">←%%spellout-cardinal-attributive← $(cardinal,many{gcéad}other{chéad})$[→%%is-number-attributive→];</rbnfrule>
-                <rbnfrule value="1000">=%spellout-numbering=;</rbnfrule>
-            </ruleset>
-            <ruleset type="thousands" access="private">
-                <rbnfrule value="1">míle;</rbnfrule>
-                <rbnfrule value="2">=%%spellout-cardinal-attributive= $(cardinal,many{míle}other{mhíle})$;</rbnfrule>
-                <rbnfrule value="11">→%%spellout-cardinal-attributive→ mhíle dhéag;</rbnfrule>
-                <rbnfrule value="20">=%%spellout-cardinal-attributive= mhíle;</rbnfrule>
-                <rbnfrule value="100">céad [→→|míle];</rbnfrule>
-                <rbnfrule value="200">←%%spellout-cardinal-attributive← $(cardinal,many{gcéad}other{chéad})$ [→→|míle];</rbnfrule>
-            </ruleset>
-            <ruleset type="millions" access="private">
-                <rbnfrule value="1">milliún;</rbnfrule>
-                <rbnfrule value="2">=%%spellout-cardinal-attributive= $(cardinal,many{milliún}other{mhilliún})$;</rbnfrule>
-                <rbnfrule value="11">→%%spellout-cardinal-attributive→ mhilliún dhéag;</rbnfrule>
-                <rbnfrule value="20">=%%spellout-cardinal-attributive= mhilliún;</rbnfrule>
-                <rbnfrule value="100">céad [→→|milliún];</rbnfrule>
-                <rbnfrule value="200">←%%spellout-cardinal-attributive← $(cardinal,many{gcéad}other{chéad})$ [→→|milliún];</rbnfrule>
-            </ruleset>
-            <ruleset type="billions" access="private">
-                <rbnfrule value="1">billiún;</rbnfrule>
-                <rbnfrule value="2">=%%spellout-cardinal-attributive= billiún;</rbnfrule>
-                <rbnfrule value="11">→%%spellout-cardinal-attributive→ billiún déag;</rbnfrule>
-                <rbnfrule value="20">=%%spellout-cardinal-attributive= billiún;</rbnfrule>
-                <rbnfrule value="100">céad [→→|billiún];</rbnfrule>
-                <rbnfrule value="200">←%%spellout-cardinal-attributive← $(cardinal,many{gcéad}other{chéad})$ [→→|billiún];</rbnfrule>
-            </ruleset>
-            <ruleset type="trillions" access="private">
-                <rbnfrule value="1">thrilliún;</rbnfrule>
-                <rbnfrule value="2">=%%spellout-cardinal-attributive= $(cardinal,many{dtrilliún}other{thrilliún})$;</rbnfrule>
-                <rbnfrule value="11">→%%spellout-cardinal-attributive→ thrilliún dhéag;</rbnfrule>
-                <rbnfrule value="20">=%%spellout-cardinal-attributive= thrilliún;</rbnfrule>
-                <rbnfrule value="100">céad [→→|thrilliún];</rbnfrule>
-                <rbnfrule value="200">←%%spellout-cardinal-attributive← $(cardinal,many{gcéad}other{chéad})$ [→→|thrilliún];</rbnfrule>
-            </ruleset>
-            <ruleset type="quadrillions" access="private">
-                <rbnfrule value="1">quadrilliún;</rbnfrule>
-                <rbnfrule value="2">=%%spellout-cardinal-attributive= quadrilliún;</rbnfrule>
-                <rbnfrule value="11">→%%spellout-cardinal-attributive→ quadrilliún déag;</rbnfrule>
-                <rbnfrule value="20">=%%spellout-cardinal-attributive= quadrilliún;</rbnfrule>
-                <rbnfrule value="100">céad [→→|quadrilliún];</rbnfrule>
-                <rbnfrule value="200">←%%spellout-cardinal-attributive← $(cardinal,many{gcéad}other{chéad})$ [→→|quadrilliún];</rbnfrule>
-            </ruleset>
         </rulesetGrouping>
         <rulesetGrouping type="OrdinalRules">
             <rbnfRules><![CDATA[
@@ -261,11 +135,6 @@ x.x: << pointe >>;
 -x: −>>;
 0: =#,##0=ú;
 ]]></rbnfRules>
-            <!-- The following redundant ruleset elements have been deprecated and will be removed in the next release. Please use the rbnfRules contents instead. -->
-            <ruleset type="digits-ordinal">
-                <rbnfrule value="-x">−→→;</rbnfrule>
-                <rbnfrule value="0">=#,##0=ú;</rbnfrule>
-            </ruleset>
         </rulesetGrouping>
     </rbnf>
 </ldml>

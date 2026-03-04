@@ -40,7 +40,6 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
-import org.unicode.cldr.util.CLDRURLS;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CoreCoverageInfo;
 import org.unicode.cldr.util.CoreCoverageInfo.CoreItems;
@@ -74,11 +73,8 @@ import org.unicode.cldr.util.XPathParts;
  */
 public class ShowLocaleCoverage {
 
-    private static final String TSV_BASE =
-            CLDRURLS.CLDR_STAGING_REPO_MAIN
-                    + "docs/charts/"
-                    + ToolConstants.CHART_VI.getVersionString(1, 2)
-                    + "/tsv/";
+    // relative to the supplemental subdirectory
+    private static final String TSV_BASE = "../tsv/";
     public static final Splitter LF_SPLITTER = Splitter.on('\n');
 
     // thresholds for measuring Level attainment

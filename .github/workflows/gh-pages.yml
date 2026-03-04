@@ -1,5 +1,10 @@
 name: gh-pages
 
+env:
+  CLDR_DIR: ${{ github.workspace }}
+  AUTO_BRANCH: auto/tr35/main
+  AUTO_REMOTE: origin
+
 # Note: we have a foot in two camps here, maybe more
 #
 # - docs/ldml is the spec, and it gets special handling and generation. Ends up cldr-smoke for now
@@ -31,10 +36,14 @@ jobs:
   build:
     name: "Build Github Pages"
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
     steps:
       - uses: actions/checkout@v4
         with:
           lfs: false
+          fetch-depth: 1
       - name: Cache local npm repository
         uses: actions/cache@v4
         with:
@@ -113,6 +122,47 @@ jobs:
           rsync -cav --delete-after -e "ssh -o UserKnownHostsFile=${HOME}/.knownhosts -i ${HOME}/.key -p ${CCC_PORT}" ./_site/ ${CCC_USER}@${CCC_HOST}:spec/$(basename ${GITHUB_REF_NAME})/
           echo "::endgroup::"
           echo "Now go to https://cldr-smoke.unicode.org/spec/"$(basename ${GITHUB_REF_NAME})
+      - name: Verify SpecFix Changes
+        if: github.repository == 'unicode-org/cldr' && github.event_name == 'push' && github.ref == 'refs/heads/main'
+        id: gitstatus
+        run: |
+          echo '### tr35 fixups' >> $GITHUB_STEP_SUMMARY
+          echo >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          git status | tee -a $GITHUB_STEP_SUMMARY
+          git diff --stat | tee -a $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          ( echo changecount=$(git diff 2>/dev/null | wc -l) ) | tee -a $GITHUB_OUTPUT
+      - name: Update SpecFix branch
+        if: github.repository == 'unicode-org/cldr' && github.event_name == 'push' && github.ref == 'refs/heads/main' && steps.gitstatus.outputs.changecount > 0
+        run: |
+          set -euxo pipefail
+          git config user.name 'gh-pages.yml [bot]'
+          git config user.email 'unicode-org@users.noreply.github.com'
+          git add docs/ldml
+          bash .github/workflows/cldr-modify-commit.sh gh-pages.yml SpecFix
+          git log -n 1
+          git checkout -b ${AUTO_BRANCH}
+          # reset origin using token
+          git remote set-url ${AUTO_REMOTE} "https://unicode-org:${GH_TOKEN}@github.com/unicode-org/cldr.git"
+          # push ONLY if files under common/ are out of date.
+          bash .github/workflows/cldr-modify-push-if-needed.sh ${AUTO_REMOTE} ${AUTO_BRANCH} docs/ldml/
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Open SpecFix PR
+        if: github.repository == 'unicode-org/cldr' && github.event_name == 'push' && github.ref == 'refs/heads/main' && steps.gitstatus.outputs.changecount > 0
+        run: |
+          set -euxo pipefail
+          ( gh pr create \
+            --title $(git log --pretty=%s HEAD | head -1 | cut -d' ' -f1)" auto: SpecFix" \
+            --body $(git log --pretty=%s HEAD | head -1 | cut -d' ' -f1)" Automatically created, see CLDR-16083" \
+            --base 'main' \
+            --reviewer 'unicode-org/cldr-brs' \
+            --label 'automatic' \
+            --head ${AUTO_BRANCH} \
+            | tee -a $GITHUB_STEP_SUMMARY ) || ( echo "# Could not create PR - may already exist" | tee -a $GITHUB_STEP_SUMMARY )
+        env:
+          GH_TOKEN: ${{ github.token }}
   deploy:
     name: "Deploy to GitHub Pages"
     # only deploy from main branch of main repo

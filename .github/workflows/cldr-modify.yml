@@ -79,7 +79,7 @@ jobs:
           git config user.name 'cldr-modify.yml [bot]'
           git config user.email 'unicode-org@users.noreply.github.com'
           git add common/main
-          bash .github/workflows/cldr-modify-commit.sh
+          bash .github/workflows/cldr-modify-commit.sh cldr-modify.yml CLDRModify
           git checkout -b ${AUTO_BRANCH}
           # reset origin using token
           git remote set-url ${AUTO_REMOTE} "https://unicode-org:${GH_TOKEN}@github.com/unicode-org/cldr.git"

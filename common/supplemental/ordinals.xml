@@ -75,10 +75,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
         </pluralRules>
 
         <!-- 3: one,few,other -->
+
         <pluralRules locales="ba">
-            <pluralRule count="one">n = 0 or n % 10 = 1,2,4,5,7,8 or n % 100 = 20,50,70,80 or n % 1000 = 0 and n % 1000000 != 0</pluralRule>
-            <pluralRule count="few">n % 10 = 3 or n % 100 = 0 and n % 1000 != 0</pluralRule>
-            <pluralRule count="other"> @integer 6, 9, 10, 30, 40, 60, 90 ...</pluralRule>
+            <pluralRule count="one">n = 0 or n % 10 = 1,2,4,5,7,8 or n % 100 = 20,50,70,80 or n % 1000 = 0 and n % 1000000 != 0 @integer 0~2, 4, 5, 7, 8, 11, 12, 14, 15, 17, 18, 20~22, 101, 1000, 10000, 100000, …</pluralRule>
+            <pluralRule count="few">n % 10 = 3 or n % 100 = 0 and n % 1000 != 0 @integer 3, 13, 23, 33, 43, 53, 63, 73, 100, 1003, …</pluralRule>
+            <pluralRule count="other"> @integer 6, 9, 10, 16, 19, 26, 29, 30, 36, 39, 40, 106, 1006, 1000000, …</pluralRule>
         </pluralRules>
 
         <!-- 3: one,many,other -->

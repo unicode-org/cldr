@@ -133,7 +133,7 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
                     case UCharacter.TITLECASE_LETTER:
                         return titlecase;
 
-                        // for other letters / numbers / symbols, return other
+                    // for other letters / numbers / symbols, return other
                     case UCharacter.OTHER_LETTER:
                     case UCharacter.DECIMAL_DIGIT_NUMBER:
                     case UCharacter.LETTER_NUMBER:

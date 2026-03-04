@@ -482,6 +482,8 @@ public class TestLocale extends TestFmwkPlus {
         root.putValueAtDPath(
                 "//ldml/localeDisplayNames/codePatterns/codePattern[@type=\"territory\"]",
                 "Territorie: {0}");
+        root.putValueAtDPath("//ldml/characters/nestedBracketReplacement[@bracket=\"(\"]", "[");
+        root.putValueAtDPath("//ldml/characters/nestedBracketReplacement[@bracket=\")\"]", "]");
         CLDRFile f = new CLDRFile(dxs, root);
         ExampleGenerator eg = new ExampleGenerator(f, testInfo.getEnglish());
         NameGetter nameGetter = f.nameGetter();

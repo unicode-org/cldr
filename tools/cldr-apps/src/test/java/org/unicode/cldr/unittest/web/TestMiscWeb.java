@@ -146,4 +146,11 @@ public class TestMiscWeb extends TestFmwk {
             errln("❌ For input " + input + " expected " + result + " but got " + result);
         }
     }
+
+    public void testLocaleGetExistingInstance() {
+        final CLDRLocale loc1 = CLDRLocale.getExistingInstance("bogus");
+        assertNull("CLDRLocale.getExistingInstance should return null for bogus ID", loc1);
+        final CLDRLocale loc2 = CLDRLocale.getExistingInstance("en");
+        assertNotNull("CLDRLocale.getExistingInstance should not return null for valid ID", loc2);
+    }
 }

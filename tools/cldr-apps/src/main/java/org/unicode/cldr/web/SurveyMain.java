@@ -639,7 +639,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 reportNormalizationWarning(ctx.getOut(), locNorm, newLocales);
                 autoProceed = false;
             }
-            u.locales = newLocales;
+            u.setLocales(newLocales);
             u.setPassword(randomPass);
             u.userlevel = ctx.fieldInt("new_userlevel", -1);
             if (u.userlevel <= 0) {

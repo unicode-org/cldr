@@ -3,6 +3,7 @@ package org.unicode.cldr.unittest.web;
 import java.sql.SQLException;
 import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.LocaleNormalizer;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.web.CookieSession;
 import org.unicode.cldr.web.TestSTFactory;
@@ -106,7 +107,7 @@ public class TestUserRegistry extends TestFmwk {
 
         User admin = reg.new User(id++);
         admin.userlevel = UserRegistry.ADMIN;
-        admin.locales = "zh";
+        admin.setLocales("zh");
         admin.org = "SurveyTool";
         if (UserRegistry.countUserVoteForLocaleWhy(admin, locA) != null) {
             errln("Admin can vote in any locale");
@@ -114,7 +115,7 @@ public class TestUserRegistry extends TestFmwk {
 
         User locked = reg.new User(id++);
         locked.userlevel = UserRegistry.LOCKED;
-        locked.locales = "*";
+        locked.setLocales(LocaleNormalizer.ALL_LOCALES);
         locked.org = "Apple";
         if (UserRegistry.countUserVoteForLocaleWhy(locked, locZ)
                 != UserRegistry.ModifyDenial.DENY_NO_RIGHTS) {
@@ -123,7 +124,7 @@ public class TestUserRegistry extends TestFmwk {
 
         User vetter1 = reg.new User(id++);
         vetter1.userlevel = UserRegistry.VETTER;
-        vetter1.locales = "aa";
+        vetter1.setLocales("aa");
         vetter1.org = "Google"; // assume Google has "aa" and/or "*" in Locales.txt
         if (UserRegistry.countUserVoteForLocaleWhy(vetter1, locA) != null) {
             errln("Vetter can vote in their locale if it is also their org locale");
@@ -135,7 +136,7 @@ public class TestUserRegistry extends TestFmwk {
 
         User vetter2 = reg.new User(id++);
         vetter2.userlevel = UserRegistry.VETTER;
-        vetter2.locales = "aa zh";
+        vetter2.setLocales("aa zh");
         vetter2.org = "Adobe"; // assume Adobe has "zh" but not "aa" or "*" in Locales.txt
         if (UserRegistry.countUserVoteForLocaleWhy(vetter2, locA)
                 != UserRegistry.ModifyDenial.DENY_LOCALE_LIST) {
@@ -147,7 +148,7 @@ public class TestUserRegistry extends TestFmwk {
 
         User guest = reg.new User(id++);
         guest.userlevel = UserRegistry.GUEST;
-        guest.locales = "aa zh";
+        guest.setLocales("aa zh");
         guest.org = "Adobe"; // assume Adobe has "zh" but not "aa" or "*" in Locales.txt
         if (UserRegistry.countUserVoteForLocaleWhy(guest, locA) != null) {
             errln(

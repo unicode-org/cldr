@@ -132,51 +132,6 @@ For more access to the source repository, you can use an git client to check out
 -   You will need "git-lfs" installed to be able to compile the CLDR tools. See https://git-lfs.github.com or use the [Github Desktop](https://desktop.github.com) client.
 
 
-## Repository Organization
-
-At the top level of each GitHub repository tree, there are a number of special folders, plus a number of platform folders.
-
-- *common* — CLDR data corresponding to the release
-    - *annotations* — annotations and TTS names for characters
-        - *annotationsDerived* — names algorithmically derived based on structure
-    - *bcp47* — data for unicode locale extensions
-    - *casing* — intended capitalization for various categories in each language, for use by the Survey Tool
-    - *collation* — collation LDML files
-    - *dtd* — the latest XML DTD files for the release
-    - *main* — the main locale-dependent LDML files
-    - *properties* — property files in UCD format
-    - *rbnf* — rule-based number formats
-    - *segments* — rules for segmenting text
-    - *subdivisions* — names of region (country) subdivisions.
-    - *supplemental* — additional files with non-linguistic data.
-    - *testData* — folders of test data for implementations.
-    - *transforms* — data for transliteration and other text transforms
-    - *uca* — customized Unicode collation data
-    - *validity* — data for validating BCP47 identifiers
-- *docs* — the source of the LDML spec and other documents
-- *exemplars/main* — preliminary exemplar character data for locales which do not yet have data in CLDR.
-- *keyboards* — source files for the CLDR keyboard data
-    - *seed* — preliminary locales that do not yet have sufficient vetted data.
-    - *annotations*
-    - *casing*
-    - *collation*
-    - *main*
-    - *rbnf*
-        - *transforms* — these folders have the same structure as their counterparts in common. Note that supplemental is not duplicated.
-- *~~specs~~* — deprecated, with contents moved to docs.
-- [*tools*](https://github.com/unicode-org/cldr/tree/main/tools) — source for internal tools for processing CLDR data
-    - *SurveyConsole* — (not currently deployed) This is a tool providing an operational dashboard for the Survey Tool
-    - c/*genldml* — The only C language tool, this was used to convert ICU format data into LDML.
-    - *cldr-apps-webdriver* — Automated tests for the Survey Tool to ensure that it remains operational.
-    - [*cldr-apps*](https://github.com/unicode-org/cldr/tree/main/tools/cldr-apps) — Survey Tool source code
-    - [*cldr-code*](https://github.com/unicode-org/cldr/tree/main/tools/cldr-code) — main source code for the CLDR tooling
-    - *python* — utility Python code
-    - *scripts* — accessory shell scripts, used for CLDR process and Survey Tool deployment
-
-
-The common, dtd, and tools folders are in each release.
-
-
 ## POSIX Data
 
 **Note**: Beginning with CLDR 21, the CLDR project no longer publishes POSIX-format locale sources as part of its distribution. The POSIX locale generation tools will continue to be made available as a part of the release. Developers who require POSIX compliant locales can generate them using these tools.

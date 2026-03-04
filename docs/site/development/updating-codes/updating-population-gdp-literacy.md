@@ -52,26 +52,17 @@ Once you are there, generate a file by using the following steps. There are 3 co
 
 ## Load UN Literacy Data
 
-1. Goto http://unstats.un.org/unsd/demographic/products/socind/default.htm
-2. Click on "Education"
-3. Click in "Table 4a \- Literacy"
-4. Download data \- save as temporary file
-5. Open in Excel, OpenOffice, or Numbers \- save as cldr/tools/java/org/unicode/cldr/util/data/external/un\_literacy.csv (Windows Comma Separated)
-	1. If it has multiple sheets, you want the one that says "Data", and looks like:
-6. Table 4a. Literacy
-7. Last update: December 2012
-8. Country or area Year Adult (15\+) literacy rate Youth (15\-24\) literacy rate
-9. Total Men Women Total Men Women
-10. Albania 2008 96 97 95 99 99 99
-11. Diff the old version vs. the current.
-12. If the format changes, you'll have to modify the loadUnLiteracy() method in **org/unicode/cldr/tool/AddPopulationData.java**
-13. Note that the content does not seem to have changed since 2012, but the page says "*Please note this page is currently under revision*."
-	1. If there is no change to the data (still no change 10 years later), there is no reason to commit a new version of the file.
-	2. See also [CLDR\-15923](https://unicode-org.atlassian.net/browse/CLDR-15923)
+1. Go to <http://data.un.org/Data.aspx?d=POP&f=tableCode:31>
+	> If this link is broken, go to <http://unstats.un.org/unsd/demographic/products/socind/> and look for "Population by literacy, age, sex and urban/rural residence"
+2. Expand all filters. Choose the latest *year*, and *Both Sexes*. Leave other filters alone. Click Apply Filter
+3. Click Download -> XML
+4. Save this as `tools/cldr-code/src/main/resources/org/unicode/cldr/util/data/external/un_literacy.xml`
+5. run the tool `UnLiteracyParser` to get a detailed validation of this data.
+   As of this writing, there are 12 unexplained errors where the data does not add up.
 
 ## Load CIA Factbook
 
-**Note:** Pages in original instruction were moved to below. These pages no longer provide text version compatible with files in CLDR. ([CLDR\-14470](https://unicode-org.atlassian.net/browse/CLDR-14470))
+**Note:** The CIA World Factbook has been sunset, see [CLDR-19239]
 
 - Population: https://www.cia.gov/the-world-factbook/field/population
 - Real GDP (purchasing power parity): https://www.cia.gov/the-world-factbook/field/real-gdp-purchasing-power-parity
@@ -105,3 +96,4 @@ Once you are there, generate a file by using the following steps. There are 3 co
 5. Once everything looks ok, check everything in to git.
 6. Once done, then run the ConvertLanguageData tool as on [Update Language Script Info](/development/updating-codes/update-language-script-info)
 
+[CLDR-19239]: https://unicode-org.atlassian.net/browse/CLDR-19239

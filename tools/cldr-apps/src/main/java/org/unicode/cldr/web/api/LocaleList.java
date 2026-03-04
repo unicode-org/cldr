@@ -1,9 +1,14 @@
 package org.unicode.cldr.web.api;
 
+import static org.unicode.cldr.web.UserRegistry.levelAsStr;
+
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.TreeSet;
 import java.util.logging.Logger;
 import javax.ws.rs.Consumes;
@@ -87,7 +92,7 @@ public class LocaleList {
                     @QueryParam("org")
                     String org) {
 
-        LocaleNormalizer ln = new LocaleNormalizer().disallowDefaultContent();
+        LocaleNormalizer ln = new LocaleNormalizer().makeStrict();
         String normalized;
 
         if (org == null || org.isBlank()) {
@@ -214,13 +219,14 @@ public class LocaleList {
             return Response.status(403, "Forbidden").build();
         }
         session.userDidAction();
-        List<InvalidLocale> list = new ArrayList<>();
+        InvalidLocaleData data = new InvalidLocaleData();
+
         try {
-            findInvalidLocales(list, LocaleNormalizer.InvalidLocaleAction.FIND);
+            findInvalidLocales(data, LocaleNormalizer.InvalidLocaleAction.FIND);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-        InvalidLocalesResponse response = new InvalidLocalesResponse(list);
+        InvalidLocalesResponse response = new InvalidLocalesResponse(data);
         return Response.ok().entity(response).build();
     }
 
@@ -258,20 +264,20 @@ public class LocaleList {
         session.userDidAction();
         // Synchronize to prevent another Admin user from doing the same thing at the same time
         synchronized (LocaleList.class) {
-            List<InvalidLocale> list = new ArrayList<>();
+            InvalidLocaleData data = new InvalidLocaleData();
             try {
-                findInvalidLocales(list, LocaleNormalizer.InvalidLocaleAction.FIND);
-                if (list.size() != request.count) {
-                    // The caller specified the wrong number of problems; their data may be out of
-                    // date
+                findInvalidLocales(data, LocaleNormalizer.InvalidLocaleAction.FIND);
+                if (data.list.size() != request.count) {
+                    // The caller specified the wrong number of problems; their data may be outdated
                     return Response.status(404, "Count not matched").build();
                 }
-                list.clear();
-                findInvalidLocales(list, LocaleNormalizer.InvalidLocaleAction.FIX);
+                data.list.clear();
+                findInvalidLocales(data, LocaleNormalizer.InvalidLocaleAction.FIX);
             } catch (Exception e) {
-                throw new RuntimeException(e);
+                logger.severe("An exception occurred fixing invalid locales: " + e.getMessage());
+                return Response.status(500, "An exception occurred").entity(e).build();
             }
-            InvalidLocalesResponse response = new InvalidLocalesResponse(list);
+            InvalidLocalesResponse response = new InvalidLocalesResponse(data);
             return Response.ok().entity(response).build();
         }
     }
@@ -280,8 +286,65 @@ public class LocaleList {
         @Schema(description = "Array of InvalidLocale objects")
         public final InvalidLocale[] problems;
 
-        InvalidLocalesResponse(List<InvalidLocale> list) {
-            this.problems = list.toArray(new InvalidLocale[0]);
+        @Schema(description = "Array of InvalidLocaleUser objects")
+        public final InvalidLocaleUser[] users;
+
+        @Schema(description = "Organizations without managers/TC to receive notification emails")
+        public Set<String> leaderlessOrgNames;
+
+        public InvalidLocalesResponse(InvalidLocaleData data) {
+            this.problems = data.list.toArray(new InvalidLocale[0]);
+            this.users = InvalidLocaleUser.getSortedArray(data.users);
+            if (!data.problems.leaderlessOrgs.isEmpty()) {
+                this.leaderlessOrgNames = new TreeSet<>();
+                for (Organization org : data.problems.leaderlessOrgs) {
+                    this.leaderlessOrgNames.add(org.getDisplayName() + " (" + org.name() + ")");
+                }
+            }
+        }
+    }
+
+    public static class InvalidLocaleData {
+        // Map invalid locale ID to the number of users who have it and the reason it is invalid
+        public LocaleNormalizer.ProblemMap problems = new LocaleNormalizer.ProblemMap();
+
+        // Describe each invalid locale ID
+        public List<InvalidLocale> list = new ArrayList<>();
+
+        // Describe each user with locale ID problems
+        public List<LocaleList.InvalidLocaleUser> users = new ArrayList<>();
+    }
+
+    public static class InvalidLocaleUser {
+        public final int id;
+        public final String email;
+        public final String org;
+        public final String level;
+        public final String oldLocs;
+        public final String newLocs;
+        public final String description;
+
+        public InvalidLocaleUser(
+                UserRegistry.User user, String oldLocs, String newLocs, String description) {
+            this.id = user.id;
+            this.email = user.email;
+            this.org = user.org;
+            this.level = levelAsStr(user.userlevel);
+            this.oldLocs = oldLocs;
+            this.newLocs = newLocs;
+            this.description = description;
+        }
+
+        public static InvalidLocaleUser[] getSortedArray(List<InvalidLocaleUser> users) {
+            InvalidLocaleUser[] array = users.toArray(new InvalidLocaleUser[0]);
+            Arrays.sort(array, new InvalidLocaleUser.SortById());
+            return array;
+        }
+
+        static class SortById implements Comparator<InvalidLocaleUser> {
+            public int compare(InvalidLocaleUser u1, InvalidLocaleUser u2) {
+                return u1.id - u2.id;
+            }
         }
     }
 
@@ -290,24 +353,21 @@ public class LocaleList {
      * users, and if action is FIX, fix them. "Invalid" here includes unknown IDs, locales that are
      * outside the user's organization's coverage, and default content locales.
      *
-     * @param list the empty list to be filled in
+     * @param data to be filled in
      * @param action FIND or FIX
      */
     private static void findInvalidLocales(
-            List<InvalidLocale> list, LocaleNormalizer.InvalidLocaleAction action)
+            InvalidLocaleData data, LocaleNormalizer.InvalidLocaleAction action)
             throws SQLException, SurveyException {
-        // Map invalid locale ID to the number of users who have it and the reason it is invalid
-        final LocaleNormalizer.ProblemMap problems = new LocaleNormalizer.ProblemMap();
-
-        CookieSession.sm.reg.findInvalidUserLocales(problems, action);
+        CookieSession.sm.reg.findInvalidUserLocales(data, action);
         logger.warning(
                 "Find invalid locales action = "
                         + action
                         + " got "
-                        + problems.map.size()
+                        + data.problems.locMap.size()
                         + " problems");
-        for (String id : new TreeSet<>(problems.map.keySet())) {
-            list.add(new LocaleList.InvalidLocale(id, problems.map.get(id)));
+        for (String id : new TreeSet<>(data.problems.locMap.keySet())) {
+            data.list.add(new LocaleList.InvalidLocale(id, data.problems.locMap.get(id)));
         }
     }
 

@@ -369,7 +369,7 @@ public class GenerateValidityXml {
                         break;
                     case script:
                         switch (code) {
-                                // extra specials
+                            // extra specials
                             case "Qaag":
                             case "Zinh":
                             case "Zsye":

@@ -214,10 +214,10 @@ class FlexibleDateFromCLDR {
                     String baseType = calendarType.substring(0, hyphenIndex);
                     addAvailableFormatsForFile(dtpg, baseType, parentCLDRFiles.get(0));
                 }
-                // then fall through to generic (sideways)
+            // then fall through to generic (sideways)
             case "generic":
                 addAvailableFormatsForFile(dtpg, "generic", parentCLDRFiles.get(0));
-                // then fall through to gregorian (sideways)
+            // then fall through to gregorian (sideways)
             case "gregorian":
                 // this inherits upward from parents
                 addAvailableFormatsWithParents(dtpg, "gregorian", parentCLDRFiles);
@@ -225,7 +225,7 @@ class FlexibleDateFromCLDR {
 
             case "dangi":
                 addAvailableFormatsForFile(dtpg, "dangi", parentCLDRFiles.get(0));
-                // fall through to chinese (sideways)
+            // fall through to chinese (sideways)
             case "chinese":
                 // this inherits upward from parents
                 addAvailableFormatsWithParents(dtpg, "chinese", parentCLDRFiles);

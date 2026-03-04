@@ -1,8 +1,6 @@
 # CLDR Scripts
 
-For general information, see the main [README.md](../../README.md).
-
-The `scripts` folder contains accessory scripts of various kinds, used for CLDR process and Survey Tool deployment. These include:
+The `tools/scripts` directory contains accessory scripts of various kinds, used for CLDR process and Survey Tool deployment. These include:
 
 - ansible: a folder containing Ansible scripts for configuring a remote server to run the Survey Tool, still in use as of 2025
 - cldr-svnprops-check.py: possibly obsolete, a Python script to check and fix svn property settings for CLDR source files

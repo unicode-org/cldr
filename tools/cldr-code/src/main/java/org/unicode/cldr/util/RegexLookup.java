@@ -1277,10 +1277,10 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
                 old = storage.get(pattern);
                 //            old = SPEntries.get(pattern);
                 break;
-                //        case OPTIMIZED_DIRECTORY_PATTERN_LOOKUP:
-                //            old = storage.get(pattern);
-                //            old = RTEntries.get(pattern);
-                //            break;
+            //        case OPTIMIZED_DIRECTORY_PATTERN_LOOKUP:
+            //            old = storage.get(pattern);
+            //            old = RTEntries.get(pattern);
+            //            break;
             default:
                 old = MEntries.get(pattern);
                 break;
@@ -1293,10 +1293,10 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
                     storage.put(pattern, target);
                     //                SPEntries.put(pattern, target);
                     break;
-                    //            case OPTIMIZED_DIRECTORY_PATTERN_LOOKUP:
-                    //                storage.put(pattern, target);
-                    //                RTEntries.put(pattern, target);
-                    //                break;
+                //            case OPTIMIZED_DIRECTORY_PATTERN_LOOKUP:
+                //                storage.put(pattern, target);
+                //                RTEntries.put(pattern, target);
+                //                break;
                 default:
                     MEntries.put(pattern, target);
                     break;
@@ -1323,11 +1323,11 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
                 //            return
                 // Collections.unmodifiableCollection(SPEntries.entrySet()).iterator();
                 return Collections.unmodifiableCollection(storage.entrySet()).iterator();
-                //        case OPTIMIZED_DIRECTORY_PATTERN_LOOKUP:
-                //            return
-                // Collections.unmodifiableCollection(RTEntries.entrySet()).iterator();
-                //            return
-                // Collections.unmodifiableCollection(storage.entrySet()).iterator();
+            //        case OPTIMIZED_DIRECTORY_PATTERN_LOOKUP:
+            //            return
+            // Collections.unmodifiableCollection(RTEntries.entrySet()).iterator();
+            //            return
+            // Collections.unmodifiableCollection(storage.entrySet()).iterator();
             default:
                 return Collections.unmodifiableCollection(MEntries.entrySet()).iterator();
         }
@@ -1368,9 +1368,9 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
             case OPTIMIZED_DIRECTORY_PATTERN_LOOKUP:
                 //            return SPEntries.size();
                 return storage.size();
-                //        case OPTIMIZED_DIRECTORY_PATTERN_LOOKUP:
-                //            return storage.size();
-                //            return RTEntries.size();
+            //        case OPTIMIZED_DIRECTORY_PATTERN_LOOKUP:
+            //            return storage.size();
+            //            return RTEntries.size();
             default:
                 return MEntries.size();
         }

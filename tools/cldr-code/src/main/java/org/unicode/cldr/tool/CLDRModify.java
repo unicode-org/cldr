@@ -2390,7 +2390,7 @@ public class CLDRModify {
                             ConfigMatch newPath = entry.get(ConfigKeys.new_path);
                             ConfigMatch newValue = entry.get(ConfigKeys.new_value);
                             switch (action.action) {
-                                    // we add all the values up front
+                                // we add all the values up front
                                 case addNew:
                                 case add:
                                     if (pathMatch != null
@@ -2413,7 +2413,7 @@ public class CLDRModify {
                                                 "config");
                                     }
                                     break;
-                                    // we just check
+                                // we just check
                                 case replace:
                                     if ((pathMatch == null && valueMatch == null)
                                             || (newPath == null && newValue == null)) {
@@ -2423,7 +2423,7 @@ public class CLDRModify {
                                                         + entry);
                                     }
                                     break;
-                                    // For delete, we just check; we'll remove later
+                                // For delete, we just check; we'll remove later
                                 case delete:
                                     if (newPath != null || newValue != null) {
                                         throw new IllegalArgumentException(

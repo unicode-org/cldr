@@ -52,10 +52,10 @@ public abstract class PluralRulesFactory extends PluralRules.Factory {
                 case NORMAL:
                     prf = new PluralRulesFactoryVanilla(supplementalDataInfo);
                     break;
-                    //            case ALTERNATE:
-                    //                prf = new
-                    // PluralRulesFactoryWithOverrides(supplementalDataInfo);
-                    //                break;
+                //            case ALTERNATE:
+                //                prf = new
+                // PluralRulesFactoryWithOverrides(supplementalDataInfo);
+                //                break;
                 default:
                     throw new InternalError("Illegal type value: " + type);
             }

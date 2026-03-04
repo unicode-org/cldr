@@ -928,7 +928,7 @@ public class TestHelper extends TestFmwkPlus {
         }
     }
 
-    void assertSpecialLocale(String loc, SpecialLocales.Type type) {
+    private void assertSpecialLocale(String loc, SpecialLocales.Type type) {
         assertEquals(
                 "SpecialLocales type for " + loc,
                 type,
@@ -944,6 +944,7 @@ public class TestHelper extends TestFmwkPlus {
         assertSpecialLocale("en", SpecialLocales.Type.readonly);
         assertSpecialLocale("en_ZZ_PROGRAMMERESE", null); // not defined
         assertSpecialLocale(LocaleNames.UND, null);
+        assertSpecialLocale(LocaleNames.ROOT, SpecialLocales.Type.readonly);
         assertSpecialLocale(LocaleNames.MUL, SpecialLocales.Type.scratch);
         assertSpecialLocale("mul_ZZ", SpecialLocales.Type.scratch);
         assertSpecialLocale("und_001", null); // not defined

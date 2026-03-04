@@ -83,8 +83,27 @@
         group: root
         mode: '440'
         src: templates/56-surveytool.j2
+    - name: add openliberty-cldr override dir
+      file:
+        path: /etc/systemd/system/openliberty@cldr.service.d/
+        state: directory
+        mode: '0770'
+        owner: root
+        group: root
+    - name: add openliberty-cldr override file
+      ansible.builtin.copy:
+        force: no
+        src: templates/openliberty-cldr-override.conf
+        dest: /etc/systemd/system/openliberty@cldr.service.d/override.conf
+        owner: root
+        group: root
+        mode: '644'
+      notify: Reload systemd
   handlers:
     - name: Restart OpenLiberty
       service:
         name: "{{ cldr_openliberty_service }}"
         state: restarted
+    - name: Reload systemd
+      ansible.builtin.systemd:
+        daemon_reload: true

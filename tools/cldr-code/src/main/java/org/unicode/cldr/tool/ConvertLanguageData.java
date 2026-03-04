@@ -36,6 +36,7 @@ import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
 import org.unicode.cldr.util.Builder;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
@@ -71,7 +72,12 @@ import org.unicode.cldr.util.XPathParts.Comments;
  */
 public class ConvertLanguageData {
 
-    private static final boolean DEBUG = false;
+    private static final java.util.logging.Level CONVERT_LANGUAGEDATA_LEVEL =
+            java.util.logging.Level.parse(
+                    CLDRConfig.getInstance()
+                            .getProperty(
+                                    "CONVERT_LANGUAGEDATA_LEVEL",
+                                    java.util.logging.Level.SEVERE.getName()));
     // change this if you need to override what is generated for the default contents.
     private static final List<String> defaultOverrides = Arrays.asList("es_ES".split("\\s+"));
 
@@ -271,6 +277,10 @@ public class ConvertLanguageData {
         System.out.println("Moving " + genSupp + " to " + oldSupp);
         Files.move(genSupp.toPath(), oldSupp.toPath(), StandardCopyOption.REPLACE_EXISTING);
         System.out.println("DONE");
+        System.out.println(
+                "-DCONVERT_LANGUAGEDATA_LEVEL="
+                        + CONVERT_LANGUAGEDATA_LEVEL
+                        + " - set to ALL to enable warnings");
     }
 
     public static String getLanguageCodeAndName(String code) {
@@ -452,14 +462,16 @@ public class ConvertLanguageData {
             // compare
             if (!CldrUtility.equals(oldData.entrySet(), newData.entrySet())) {
                 for (String problem : compareBasicLanguageData(oldData, newData)) {
-                    warnings.add(
-                            BadItem.DETAIL.toString(
-                                    "changing <languageData>",
-                                    languageSubtag
-                                            + "\t"
-                                            + englishNameGetter.getNameFromIdentifier(
-                                                    languageSubtag),
-                                    problem));
+                    if (BadItem.DETAIL.shown()) {
+                        warnings.add(
+                                BadItem.DETAIL.toString(
+                                        "changing <languageData>",
+                                        languageSubtag
+                                                + "\t"
+                                                + englishNameGetter.getNameFromIdentifier(
+                                                        languageSubtag),
+                                        problem));
+                    }
                 }
             }
 
@@ -471,14 +483,7 @@ public class ConvertLanguageData {
         }
         out.println("\t</languageData>");
         for (String s : warnings) {
-            if (s.contains("!")) {
-                System.out.println(s);
-            }
-        }
-        for (String s : warnings) {
-            if (!s.contains("!")) {
-                System.out.println(s);
-            }
+            System.out.println(s);
         }
     }
 
@@ -1215,9 +1220,6 @@ public class ConvertLanguageData {
                             baseLanguage, ltp.set(languageCode).getScript(), languagePopulationRaw);
                 }
 
-                if (languageLiteracy != countryLiteracy) {
-                    int debug = 0;
-                }
                 out.print(
                         "\t\t\t<languagePopulation type=\""
                                 + languageCode
@@ -2541,7 +2543,7 @@ public class ConvertLanguageData {
 
     private static String fixLanguageCode(String languageCodeRaw, List<String> row) {
         String languageCode = languageTagCanonicalizer.transform(languageCodeRaw);
-        if (DEBUG && !languageCode.equals(languageCodeRaw)) {
+        if (BadItem.DETAIL.shown() && !languageCode.equals(languageCodeRaw)) {
             System.out.println("## " + languageCodeRaw + " => " + languageCode);
         }
         int bar = languageCode.indexOf('_');
@@ -2565,15 +2567,17 @@ public class ConvertLanguageData {
     }
 
     enum BadItem {
-        ERROR,
-        WARNING,
-        DETAIL;
+        ERROR(java.util.logging.Level.SEVERE),
+        WARNING(java.util.logging.Level.WARNING),
+        DETAIL(java.util.logging.Level.FINER);
 
         void show(String problem, String details, String... items) {
+            if (!shown()) return;
             System.out.println(toString(problem, details, items));
         }
 
         void show(String problem, String details, List<String> row) {
+            if (!shown()) return;
             System.out.println(toString(problem, details, row));
         }
 
@@ -2591,6 +2595,17 @@ public class ConvertLanguageData {
                     + details
                     + (row != null && row.size() > 0 ? "\t" + Joiner.on("\t").join(row) : "");
         }
+
+        /** true if this item class is shown */
+        boolean shown() {
+            return this.logLevel.intValue() >= CONVERT_LANGUAGEDATA_LEVEL.intValue();
+        }
+
+        BadItem(java.util.logging.Level lev) {
+            logLevel = lev;
+        }
+
+        private final java.util.logging.Level logLevel;
     }
 
     private static String fixCountryCode(String countryCode, List<String> row) {

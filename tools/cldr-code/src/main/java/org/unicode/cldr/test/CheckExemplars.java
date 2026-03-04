@@ -396,8 +396,8 @@ public class CheckExemplars extends FactoryCheckCLDR {
 
         if (!isRoot && exemplar1.isEmpty()) {
             switch (exemplarType) {
-                    //            case currencySymbol: // ok if empty
-                    //                break;
+                //            case currencySymbol: // ok if empty
+                //                break;
                 case auxiliary:
                     result.add(
                             new CheckStatus()

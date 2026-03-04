@@ -358,13 +358,13 @@ public class TimezoneFormatter extends UFormat {
                 calendar.setTimeInMillis(Math.abs(gmtOffset1));
                 result = format.format(calendar);
                 return gmtFormat.format(new Object[] {result});
-                // 4. For ISO 8601 time zone format ("ZZZZZ") return the results according to the
-                // ISO 8601.
-                // America/Los_Angeles → "-08:00"
-                // Etc/GMT → Z // special case of UTC
-                // Note: The digits in this case are always from the western digits, 0..9.
+            // 4. For ISO 8601 time zone format ("ZZZZZ") return the results according to the
+            // ISO 8601.
+            // America/Los_Angeles → "-08:00"
+            // Etc/GMT → Z // special case of UTC
+            // Note: The digits in this case are always from the western digits, 0..9.
 
-                // TODO
+            // TODO
             case NON_LOCATION:
                 // 5. For the non-location formats (generic or specific),
                 // 5.1 if there is an explicit translation for the TZID in timeZoneNames according

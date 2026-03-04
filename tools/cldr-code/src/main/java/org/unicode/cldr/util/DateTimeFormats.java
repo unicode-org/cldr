@@ -14,7 +14,6 @@ import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.util.Calendar;
 import com.ibm.icu.util.DateInterval;
 import com.ibm.icu.util.ICUUncheckedIOException;
 import com.ibm.icu.util.Output;
@@ -281,9 +280,25 @@ public class DateTimeFormats {
             }
         }
 
+        // TODO: Consider using atTime pattern
+        String dateTimeFormatLengthPattern =
+                "//ldml/dates/calendars/calendar[@type=\"%s\"]/dateTimeFormats/dateTimeFormatLength[@type=\"%s\"]/dateTimeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]";
         generator.setDateTimeFormat(
-                Calendar.getDateTimePattern(
-                        Calendar.getInstance(locale), locale, DateFormat.MEDIUM));
+                DateFormat.FULL,
+                file.getStringValueWithBailey(
+                        String.format(dateTimeFormatLengthPattern, calendarID, "full")));
+        generator.setDateTimeFormat(
+                DateFormat.LONG,
+                file.getStringValueWithBailey(
+                        String.format(dateTimeFormatLengthPattern, calendarID, "long")));
+        generator.setDateTimeFormat(
+                DateFormat.MEDIUM,
+                file.getStringValueWithBailey(
+                        String.format(dateTimeFormatLengthPattern, calendarID, "medium")));
+        generator.setDateTimeFormat(
+                DateFormat.SHORT,
+                file.getStringValueWithBailey(
+                        String.format(dateTimeFormatLengthPattern, calendarID, "short")));
 
         // ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"yMMMEd\"]/greatestDifference[@id=\"d\"]
         for (String path :

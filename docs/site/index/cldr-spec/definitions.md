@@ -10,7 +10,7 @@ title: Definitions
 
 ***literate percent*** - indicates the percentage of the country's population that is literate, based on literacy information from the World Bank, CIA Factbook, and others.
 
-***locale data*** <a name="locale-data"></a> - Locale data refers to the linguistic and cultural conventions that define how software presents information. It includes localized names of territories and languages, date and time formats, number and currency symbols, sorting (collation), localized emoji descriptions, and language-specific rules, all tied to a specific language and region. It allows localized applications to more easily adapt to local conventions.
+***locale data*** <a name="locale-data"></a> - Locale data refers to the linguistic and cultural conventions that define how software represents information. It includes localized [names of territories and languages], [date and time formats], [number and currency symbols], [sorting (collation)], [localized emoji descriptions], language-specific rules, etc. All of these are tied to a specific language and region. It allows localized applications to more easily adapt to local conventions.
 
 ***official language*** - as used in CLDR, a language that can generally be used in communications with a central government. That is, people can expect that essentially all communication from the government is available in that language (ballots, information pamphlets, legal documents, …) and that they can use that language in communicating to the central government (petitions, forms, …).
 
@@ -22,3 +22,8 @@ Official languages for a country are not necessarily the same as those with offi
 
 ***writing percent*** (writingPercent) - percentage of the population fluent in that language in that country who regularly read or write a significant amount in that language. Ideally, the regularity would be measured as "7-day actives". Reliable information is difficult to obtain; the information in CLDR is a best estimate culled from different sources. If it is know that the language is not widely written, but there are no solid figures, the value is typically given 1%\-5%.
 
+[names of territories and languages]: /translation/displaynames
+[date and time formats]: /translation/date-time
+[number and currency symbols]: /translation/number-currency-formats
+[sorting (collation)]: /index/cldr-spec/collation-guidelines
+[localized emoji descriptions]: /translation/characters/short-names-and-keywords

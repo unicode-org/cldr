@@ -48,14 +48,52 @@ The CLDR plural categories do not necessarily match the traditional grammatical 
 
 ### Minimal pairs
 
-The categories are verified by looking a minimal pairs: where a change in numeric value (expressed in digits) forces a change in the other words. For example, the following is a minimal pair for English, establishing a difference in category between "1" and "2".
+For both plurals (aka cardinals) and ordinals, CLDR requires what are called _minimal pairs_, both to justify and verify the categories, and to supply examples for vetters. 
+A set of minimal pairs provides one example per category, where a change in numeric value (expressed in digits) forces a change in the other words.
+Although the term used is _minimal pairs_, this refers to pairwise differences; the set of minimal pairs for a given language might be as many as 6 examples.
+There are three general types of appoaches to this: *noun changes*, *verb changes*, and *pronoun changes*.
 
+When creating minimal pairs, often vetters try noun changes, and don't find any in their language. 
+They then give up and say that there are no minimal pairs for their languages.
+When the software requires them to provide minimal pairs, they then provide bad examples.
+The following examples illustrate the approaches, and the subsequent sections provide details.
+
+#### Noun Changes
+Do nouns change if an associated number changes?
 | Category | Resolved String | Minimal Pair Template |
 |---|---|---|
-| one | 1 day | {NUMBER} day |
-| other | 2 day s | {NUMBER}  day s |
+| one | 1 day | {0} day |
+| other | 2 day_s_ | {0}  day_s_ |
 
-Warning for Vetters
+The {0} is a placeholder, and will be replaced by a series of digits.
+
+#### Verb Changes
+In some languages, no nouns change with numbers: they are all like the English noun "sheep".
+| Category | Resolved String | Minimal Pair Template |
+|---|---|---|
+| one | 1 sheep | {0} sheep |
+| other | 2 sheep | {0} sheep |
+
+For those languages, _verb changes_ may be needed to demonstrate changes between categories.
+| Category | Resolved String | Minimal Pair Template |
+|---|---|---|
+| one | 1 sheep is here | {0} sheep is here |
+| other | 2 sheep _are_ here | {0} sheep are here |
+
+#### Pronoun Changes
+In some languages, neither nouns nor verbs ever change with numbers: they are all like "sheep" and "will be".
+| Category | Resolved String | Minimal Pair Template |
+|---|---|---|
+| one | 1 sheep will be here | {0} sheep will be here |
+| other | 2 sheep will be here | {0} sheep will be here |
+
+For those languages, _pronoun references_ changes may be needed to demonstrate changes between categories.
+| Category | Resolved String | Minimal Pair Template |
+|---|---|---|
+| one | 1 sheep will be here; will you see it? | {0} sheep will be here; will you see it? |
+| other | 2 sheep will be here; will you see them? | {0} sheep will be here; will you see them? |
+
+### Warning for Vetters
 
 The Category (Code) values indicate a certain range of numbers that differ between languages. To see the meaning of each Code value for your language see [Language Plural Rules](https://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html) chart.
 

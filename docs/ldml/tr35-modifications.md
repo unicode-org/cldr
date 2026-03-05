@@ -69,6 +69,7 @@ The LDML specification is divided into the following parts:
 **Changes in LDML Version 48.2 (Differences from Version 48.1)**
 
 <!-- CLDR-19231 reformatted/simplified tr35.md version block to improve deployment-->
+<!-- Updated spec date for last mod per CLDR-17223 -->
 
 * New section [Nested Bracket Replacement](tr35-general.md#Character_Nested_Bracket_Replacement)
 * [Locale Display Name Algorithm](tr35-general.md#locale_display_name_algorithm) updated to use the nested bracket replacement data and avoid nested parentheses by flattening `-t-` (transform) language names.

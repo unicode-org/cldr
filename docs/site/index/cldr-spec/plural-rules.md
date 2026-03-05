@@ -44,7 +44,9 @@ with an extra one for fractions. For example:
 
 ## Determining Plural Categories
 
-The CLDR plural categories do not necessarily match the traditional grammatical categories. Instead, the categories are determined by changes required in a phrase or sentence if a numeric placeholder changes value. 
+The CLDR plural categories do not necessarily match the traditional grammatical categories.
+Instead, the categories are determined by changes required in a phrase or sentence if a numeric placeholder changes value.
+That numeric placeholder is represented by {0}, and will be replaced by a series of digits.
 
 ### Minimal pairs
 
@@ -63,14 +65,13 @@ Do nouns change if an associated number changes?
 | Category | Resolved String | Minimal Pair Template |
 |---|---|---|
 | one | 1 day | {0} day |
-| other | 2 day<u>s</u> | {0} day<u>s</u> |
-
-The {0} is a placeholder, and will be replaced by a series of digits.
+| other | 2 day<b>s</b> | {0} day<b>s</b> |
 
 When trying to create minimal pairs, check different nouns in your language.
 If your language has gender or grammatical cases for nouns, try phrases with nouns of different genders or different cases. 
 For example, in some languages neuter nouns might not change with numbers, but masculine nouns might; or phases where the noun is genitive might. 
 Remember that there must be no semantic differences in the phrases for each category *other than those required by a change in the number*.
+Note also that the noun must be one that works in your language: it does *not* have to match the English noun.
 More details are below.
 
 #### Verb Changes
@@ -83,8 +84,8 @@ In some languages, no nouns change with numbers: they are all like the English n
 For those languages, _verb changes_ may be needed to demonstrate changes between categories.
 | Category | Resolved String | Minimal Pair Template |
 |---|---|---|
-| one | 1 sheep is here | {0} sheep is here |
-| other | 2 sheep _are_ here | {0} sheep are here |
+| one | 1 sheep _is_ here | {0} sheep _is_ here |
+| other | 2 sheep _are_ here | {0} sheep _are_ here |
 
 #### Pronoun Changes
 In some languages, neither nouns nor verbs ever change with numbers: they are all like "sheep" and "will be".
@@ -93,11 +94,14 @@ In some languages, neither nouns nor verbs ever change with numbers: they are al
 | one | 1 sheep will be here | {0} sheep will be here |
 | other | 2 sheep will be here | {0} sheep will be here |
 
-For those languages, _pronoun references_ changes may be needed to demonstrate changes between categories.
+For those languages, _pronoun reference_ changes may be needed to demonstrate changes between categories, where a pronoun references the noun associated with the number.
 | Category | Resolved String | Minimal Pair Template |
 |---|---|---|
-| one | 1 sheep will be here; will you see it? | {0} sheep will be here; will you see it? |
-| other | 2 sheep will be here; will you see them? | {0} sheep will be here; will you see them? |
+| one | 1 sheep will be here; will you see _it_? | {0} sheep will be here; will you see _it_? |
+| other | 2 sheep will be here; will you see _them_? | {0} sheep will be here; will you see _them_? |
+
+#### Other Changes
+In some languages, other grammatical constructions may be needed to verify the categories.
 
 ### Warning for Vetters
 

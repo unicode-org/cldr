@@ -133,6 +133,10 @@ jobs:
           git diff --stat | tee -a $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
           ( echo changecount=$(git diff 2>/dev/null | wc -l) ) | tee -a $GITHUB_OUTPUT
+          # bump modification section if needed.
+          bash tools/scripts/tr-archive/check-mod-section.sh HEAD "origin/$BASE_REF" >/dev/null || echo '<!--' 'Auto SpecFix' $(date) '-->' | tee -a docs/ldml/tr35-modifications.md
+        env:
+          BASE_REF: ${{ github.base_ref }}
       - name: Update SpecFix branch
         if: github.repository == 'unicode-org/cldr' && github.event_name == 'push' && github.ref == 'refs/heads/main' && steps.gitstatus.outputs.changecount > 0
         run: |

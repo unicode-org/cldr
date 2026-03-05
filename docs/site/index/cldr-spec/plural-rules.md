@@ -63,9 +63,15 @@ Do nouns change if an associated number changes?
 | Category | Resolved String | Minimal Pair Template |
 |---|---|---|
 | one | 1 day | {0} day |
-| other | 2 day_s_ | {0}  day_s_ |
+| other | 2 day<u>s</u> | {0} day<u>s</u> |
 
 The {0} is a placeholder, and will be replaced by a series of digits.
+
+When trying to create minimal pairs, check different nouns in your language.
+If your language has gender or grammatical cases for nouns, try phrases with nouns of different genders or different cases. 
+For example, in some languages neuter nouns might not change with numbers, but masculine nouns might; or phases where the noun is genitive might. 
+Remember that there must be no semantic differences in the phrases for each category *other than those required by a change in the number*.
+More details are below.
 
 #### Verb Changes
 In some languages, no nouns change with numbers: they are all like the English noun "sheep".

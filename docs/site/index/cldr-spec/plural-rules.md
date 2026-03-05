@@ -62,6 +62,7 @@ The following examples illustrate the approaches, and the subsequent sections pr
 
 #### Noun Changes
 Do nouns change if an associated number changes?
+
 | Category | Resolved String | Minimal Pair Template |
 |---|---|---|
 | one | 1 day | {0} day |
@@ -76,12 +77,14 @@ More details are below.
 
 #### Verb Changes
 In some languages, no nouns change with numbers: they are all like the English noun "sheep".
+
 | Category | Resolved String | Minimal Pair Template |
 |---|---|---|
 | one | 1 sheep | {0} sheep |
 | other | 2 sheep | {0} sheep |
 
 For those languages, _verb changes_ may be needed to demonstrate changes between categories.
+
 | Category | Resolved String | Minimal Pair Template |
 |---|---|---|
 | one | 1 sheep _is_ here | {0} sheep _is_ here |
@@ -89,12 +92,14 @@ For those languages, _verb changes_ may be needed to demonstrate changes between
 
 #### Pronoun Changes
 In some languages, neither nouns nor verbs ever change with numbers: they are all like "sheep" and "will be".
+
 | Category | Resolved String | Minimal Pair Template |
 |---|---|---|
 | one | 1 sheep will be here | {0} sheep will be here |
 | other | 2 sheep will be here | {0} sheep will be here |
 
 For those languages, _pronoun reference_ changes may be needed to demonstrate changes between categories, where a pronoun references the noun associated with the number.
+
 | Category | Resolved String | Minimal Pair Template |
 |---|---|---|
 | one | 1 sheep will be here; will you see _it_? | {0} sheep will be here; will you see _it_? |

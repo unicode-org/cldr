@@ -38,7 +38,9 @@ public enum Organization {
             "Чăваш патшалăх гуманитарии ăслăлăхсен институчĕ"),
     cihan_uni("Cihan University-Erbil"),
     cldr("Cldr"),
-    conseggio_ligure("Council for Ligurian Linguistic Heritage", "Conseggio pe-o patrimònio linguistico ligure"),
+    conseggio_ligure(
+        "Council for Ligurian Linguistic Heritage",
+        "Conseggio pe-o patrimònio linguistico ligure"),
     gaeilge("Foras na Gaeilge"),
     georgia_isi("Georgia ISI"),
     gnome("Gnome Foundation"),

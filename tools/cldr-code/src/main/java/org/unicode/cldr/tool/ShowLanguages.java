@@ -920,7 +920,7 @@ public class ShowLanguages {
                         ; // nothing
                     else if ("secondary".equals(alt)) language += "*";
                     else language += "*" + alt;
-                    // <language type="af" scripts="Latn" territories="ZA"/>
+                    // <language type="af" scripts="Latn"/>
                     addTokens(language, attributes.get("territories"), " ", language_territories);
                     continue;
                 }

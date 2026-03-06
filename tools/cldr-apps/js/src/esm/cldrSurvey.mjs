@@ -800,18 +800,6 @@ function testsToHtml(tests) {
   return newHtml;
 }
 
-function findItemByValue(items, value) {
-  if (!items) {
-    return null;
-  }
-  for (var i in items) {
-    if (value == items[i].value) {
-      return items[i];
-    }
-  }
-  return null;
-}
-
 function appendExtraAttributes(container, theRow) {
   for (var attr in theRow.extraAttributes) {
     var attrval = theRow.extraAttributes[attr];
@@ -840,12 +828,13 @@ function locInfo(loc) {
  * Set the dir and lang attributes for a node that represents
  * a CLDR value.
  * Also appends the 'cldrValue' class to the node.
+ *
  * @param {Node} node DOM node to be set
  * @param {String} loc locale (default locale if falsy)
  * @param {String} overridedir override the directionality (not used if falsy)
  */
 function setLang(node, loc, overridedir) {
-  var info = locInfo(loc);
+  const info = locInfo(loc);
 
   function assertValidDir(d) {
     if (d != "rtl" && d != "ltr") {
@@ -856,12 +845,12 @@ function setLang(node, loc, overridedir) {
   if (overridedir) {
     assertValidDir(overridedir);
     node.dir = overridedir;
-  } else if (info && info.dir) {
+  } else if (info?.dir) {
     assertValidDir(info.dir);
     node.dir = info.dir;
   }
 
-  if (info && info.bcp47) {
+  if (info?.bcp47) {
     node.lang = info.bcp47;
   }
 
@@ -1000,7 +989,6 @@ export {
   createGravatar,
   expediteStatusUpdate,
   fetchInitialStatus,
-  findItemByValue,
   getDidUnbust,
   getTagChildren,
   getXpathMap,

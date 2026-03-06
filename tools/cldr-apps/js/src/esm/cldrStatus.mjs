@@ -153,7 +153,33 @@ function setContextPath(path) {
 }
 
 /**
+ * A string such as '4oaR4oaR4oaR' that is the value hash of a candidate item,
+ * identifying that item as being currently selected (highlighted) in the main table.
+ *
+ * A value hash is calculated from a value on the back end; see DataPage.getValueHash.
+ *
+ * Each table row (xpath) can have zero or one candidate item(s) displayed in the
+ * "Winning" column, and any number of candidate items displayed in the "Others" column.
+ *
+ * The current value hash is only meaningful in relation to the corresponding xpath (row).
+ */
+let currentValueHash = "";
+
+function getCurrentValueHash() {
+  return currentValueHash;
+}
+
+function setCurrentValueHash(valueHash) {
+  if (!valueHash) {
+    currentValueHash = "";
+  } else {
+    currentValueHash = valueHash;
+  }
+}
+
+/**
  * A string such as '' (empty), or '821c2a2fc5c206d' (identifying an xpath),
+ * or 'header_South_America_Argentina' (identifying a header, see cldrTable.isHeaderId)
  * or '12345' (identifying a user) or other string (identifying a forum post)
  */
 let currentId = "";
@@ -496,6 +522,7 @@ export {
   getCurrentPage,
   getCurrentSection,
   getCurrentSpecial,
+  getCurrentValueHash,
   getExtendedPhase,
   getIsPhaseBeta,
   getIsUnofficial,
@@ -523,6 +550,7 @@ export {
   setCurrentPage,
   setCurrentSection,
   setCurrentSpecial,
+  setCurrentValueHash,
   setExtendedPhase,
   setIsDisconnected,
   setIsPhaseBeta,

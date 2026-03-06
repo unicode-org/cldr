@@ -103,10 +103,10 @@ function addTopButtons(theRow, frag) {
 
 function getUsersValue(theRow) {
   const surveyUser = cldrStatus.getSurveyUser();
-  if (surveyUser && surveyUser.id) {
+  if (surveyUser?.id) {
     if (theRow.voteVhash && theRow.voteVhash !== "") {
-      const item = theRow.items[theRow.voteVhash];
-      if (item && item.votes && item.votes[surveyUser.id]) {
+      const item = cldrTable.findItemByValueHash(theRow, theRow.voteVhash);
+      if (item?.votes && item.votes[surveyUser.id]) {
         if (item.value === cldrSurvey.INHERITANCE_MARKER) {
           return theRow.inheritedValue;
         }

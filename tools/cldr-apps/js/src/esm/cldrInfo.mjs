@@ -11,13 +11,16 @@ import * as cldrStatus from "./cldrStatus.mjs";
 import * as cldrSurvey from "./cldrSurvey.mjs";
 import * as cldrTable from "./cldrTable.mjs";
 import * as cldrText from "./cldrText.mjs";
-import * as cldrVote from "./cldrVote.mjs";
 import * as cldrVoteTable from "./cldrVoteTable.mjs";
 import * as cldrVue from "./cldrVue.mjs";
 
 import InfoPanel from "../views/InfoPanel.vue";
 import InfoSelectedItem from "../views/InfoSelectedItem.vue";
+import InfoCandidateItems from "../views/InfoCandidateItems.vue";
+import InfoTicketItem from "../views/InfoTicketItem.vue";
 import InfoRegionalVariants from "../views/InfoRegionalVariants.vue";
+
+const DEBUG = false;
 
 const DISABLE_SIDEWAYS_MENU = false;
 
@@ -41,9 +44,9 @@ let panelVisible = false;
  */
 let panelWanted = true;
 
-let unShow = null;
-
 let selectedItemWrapper = null;
+let candidateItemsWrapper = null;
+let ticketItemWrapper = null;
 let regionalVariantsWrapper = null;
 
 const ITEM_INFO_ID = "itemInfo"; // must match redesign.css
@@ -53,7 +56,8 @@ const HELP_HTML_ID = "info-panel-help";
 const PLACEHOLDER_HELP_ID = "info-panel-placeholder";
 const INFO_MESSAGE_ID = "info-panel-message";
 const SELECTED_ITEM_ID = "info-panel-selected";
-const INFO_VOTE_TICKET_ID = "info-panel-vote-and-ticket";
+const INFO_VOTE_ID = "info-panel-vote";
+const INFO_TICKET_ID = "info-panel-ticket";
 const INFO_REGIONAL_ID = "info-panel-regional";
 const INFO_FORUM_ID = "info-panel-forum";
 const INFO_XPATH_ID = "info-panel-xpath";
@@ -82,6 +86,10 @@ function insertWidget() {
     insertLegacyElement(containerEl);
     const selectedItemEl = document.getElementById(SELECTED_ITEM_ID);
     selectedItemWrapper = cldrVue.mount(InfoSelectedItem, selectedItemEl);
+    const candidateItemsEl = document.getElementById(INFO_VOTE_ID);
+    candidateItemsWrapper = cldrVue.mount(InfoCandidateItems, candidateItemsEl);
+    const ticketItemEl = document.getElementById(INFO_TICKET_ID);
+    ticketItemWrapper = cldrVue.mount(InfoTicketItem, ticketItemEl);
     if (!DISABLE_SIDEWAYS_MENU) {
       const regionalVariantsEl = document.getElementById(INFO_REGIONAL_ID);
       regionalVariantsWrapper = cldrVue.mount(
@@ -101,8 +109,6 @@ function insertWidget() {
  * For compatibility with legacy Survey Tool code, this is not a Vue component, although it
  * may contain some Vue components.
  *
- * The legacy code involving showRowObjFunc, etc., does extensive direct DOM manipulation.
- *
  * Create divs inside the element whose id is ITEM_INFO_ID, each containing a part of the Info Panel
  * which may be either a legacy div or a Vue component.
  *
@@ -119,7 +125,8 @@ function insertLegacyElement(containerEl) {
   appendDiv(el, PLACEHOLDER_HELP_ID);
   appendDiv(el, INFO_MESSAGE_ID);
   appendDiv(el, SELECTED_ITEM_ID);
-  appendDiv(el, INFO_VOTE_TICKET_ID);
+  appendDiv(el, INFO_VOTE_ID);
+  appendDiv(el, INFO_TICKET_ID);
   appendDiv(el, INFO_REGIONAL_ID);
   appendDiv(el, INFO_FORUM_ID);
   appendDiv(el, INFO_XPATH_ID);
@@ -191,22 +198,25 @@ function updateOpenPanelButtons() {
   });
 }
 
-// This method is now only used for getGuidanceMessage, for the Page table
-// before any row has been selected. Avoid using it for anything else.
-// cldrLoad.mjs: cldrInfo.showMessage(getGuidanceMessage(json.canModify));
-function showMessage(str) {
+function showGuidance(canModify) {
+  if (panelInitialized && cldrStatus.getCurrentId()) {
+    return;
+  }
   if (panelShouldBeShown()) {
-    show(str, null, null, null);
+    let key;
+    if (!cldrStatus.getSurveyUser()) {
+      key = "loginGuidance";
+    } else {
+      key = canModify ? "dataPageInitialGuidance" : "readonlyGuidance";
+    }
+    const str = cldrText.get(key);
+    show(str, null);
   }
 }
 
-// Major tech debt here. Currently called as follows:
-// cldrLoad.mjs:   cldrInfo.showRowObjFunc(xtr, xtr.proposedcell, xtr.proposedcell.showFn);
-// cldrTable.mjs:  cldrInfo.showRowObjFunc(tr, tr.proposedcell, tr.proposedcell.showFn);
-// cldrVote.mjs:   cldrInfo.showRowObjFunc(tr, ourDiv, ourShowFn);
-function showRowObjFunc(tr, hideIfLast, fn) {
+function refresh(tr) {
   if (panelShouldBeShown()) {
-    show(null, tr, hideIfLast, fn);
+    show(null, tr);
   }
 }
 
@@ -232,29 +242,25 @@ function panelShouldBeShown() {
  *
  * Open the panel if it's not already open
  *
- * @param {String} str the string to show at the top
+ * @param {String} str the string to show at the top, or null
  * @param {Node} tr the <TR> of the row
- * @param {Object} hideIfLast mysterious parameter, a.k.a. theObj
- * @param {Function} fn the draw function, a.k.a. showFn, sometimes constructed by cldrTable.showItemInfoFn,
- *                      sometimes ourShowFn in cldrVote.showProposedItem
  */
-function show(str, tr, hideIfLast, fn) {
+function show(str, tr) {
   openPanel();
-  if (unShow) {
-    unShow();
-    unShow = null;
-  }
-  cldrTable.updateSelectedRowAndCell(tr, hideIfLast);
-  addDeferredHelp(tr?.theRow); // if !tr.theRow, erase (as when click Next/Previous)
-  addPlaceholderHelp(tr?.theRow); // ditto
+  const theRow = tr?.theRow || null;
+  addDeferredHelp(theRow); // if !theRow, erase (as when click Next/Previous)
+  addPlaceholderHelp(theRow); // ditto
   addInfoMessage(str);
-  addVoteDivAndTicketLink(tr, fn);
-  addSelectedItem(tr?.theRow); // after addVoteDivAndTicketLink calls fn to set theRow.selectedItem
+  if (theRow) {
+    updateRowVoteInfo(theRow);
+  }
+  addSelectedItem(theRow);
+  addTicketLink(theRow);
   if (!DISABLE_SIDEWAYS_MENU) {
-    addRegionalSidewaysMenu(tr);
+    addRegionalSidewaysMenu(tr?.xpstrid);
   }
   addForumPanel(tr);
-  addXpath(tr);
+  addXpath(theRow);
   addBottom();
 }
 
@@ -325,7 +331,7 @@ function addSelectedItem(theRow) {
   if (!selectedItemWrapper) {
     return;
   }
-  const item = theRow?.selectedItem;
+  const item = findSelectedItem(theRow);
 
   const { displayValue, valueClass } = getValueAndClass(theRow, item);
   selectedItemWrapper.setValueAndClass(displayValue, valueClass);
@@ -345,6 +351,49 @@ function addSelectedItem(theRow) {
   selectedItemWrapper.setTestHtml(testHtml);
 
   selectedItemWrapper.setExampleHtml(item?.example);
+}
+
+/**
+ * Find the selected or default candidate item for the given row.
+ *
+ * If no item is selected, default to the winning item, or null if there is no winning item.
+ *
+ * The user can select a candidate item by clicking on it in the "Winning" or "Others" column.
+ *
+ * @param {Object} theRow
+ * @returns {Object} the candidate item
+ */
+function findSelectedItem(theRow) {
+  if (!theRow) {
+    return null;
+  }
+  let valueHash = cldrStatus.getCurrentValueHash();
+  if (!valueHash) {
+    if (!theRow.winningVhash) {
+      if (DEBUG) {
+        console.log("No valueHash OR winningVhash in findSelectedItem");
+      }
+    } else {
+      if (DEBUG) {
+        console.log("No valueHash in findSelectedItem; using winningVhash");
+      }
+      valueHash = theRow.winningVhash;
+      cldrStatus.setCurrentValueHash(valueHash);
+    }
+  }
+  if (valueHash) {
+    const item = cldrTable.findItemByValueHash(theRow, valueHash);
+    if (item) {
+      return item;
+    }
+  }
+  if (DEBUG) {
+    // This is not necessarily a bug. Some rows in some locales have no candidate items.
+    console.log(
+      "No item in findSelectedItem; no match for valueHash = " + valueHash
+    );
+  }
+  return null;
 }
 
 function getValueAndClass(theRow, item) {
@@ -389,37 +438,136 @@ function getLinkUrlAndText(theRow, item) {
   return { linkUrl, linkText };
 }
 
-function addVoteDivAndTicketLink(tr, fn) {
-  const fragment = document.createDocumentFragment();
-
-  // If a generator fn (common case), call it.
-  // Typically, fn is the function returned by showItemInfoFn.
-  // However, there is also "ourShowFn" in cldrVote.mjs...
-  // It's not clear why this is so indirect and complicated; tech debt; probably it could be more straightforward.
-  if (fn) {
-    unShow = fn(fragment);
-  }
-  if (tr) {
-    updateRowVoteInfo(tr, tr.theRow);
-    fragment.appendChild(tr.voteDiv);
-  }
-  if (tr?.ticketLink) {
-    fragment.appendChild(tr.ticketLink.cloneNode(true));
-  }
-  const el = document.getElementById(INFO_VOTE_TICKET_ID);
-  if (!el) {
+/**
+ * Update the voting info for this row
+ *
+ * @param theRow {Object} the data from the server for this row
+ */
+function updateRowVoteInfo(theRow) {
+  if (!theRow) {
+    console.error("theRow is null or undefined in updateRowVoteInfo");
     return;
   }
-  cldrDom.removeAllChildNodes(el);
-  el.appendChild(fragment);
+  if (!candidateItemsWrapper) {
+    console.error(
+      "candidateItemsWrapper is null or undefined in updateRowVoteInfo"
+    );
+    return;
+  }
+  const data = { candidateItems: [] };
+  const surveyUser = cldrStatus.getSurveyUser();
+  if (theRow.voteVhash && surveyUser) {
+    const voteForItem = cldrTable.findItemByValueHash(theRow, theRow.voteVhash);
+    if (voteForItem?.votes[surveyUser.id]?.voteDetails?.override) {
+      data.overrideMessage = cldrText.sub("override_explain_msg", {
+        overrideVotes: voteForItem.votes[surveyUser.id].voteDetails.override,
+        votes: surveyUser.votecount,
+      });
+    }
+    data.rowFlagged = Boolean(theRow.rowFlagged);
+  }
+
+  /*
+   * The value_vote array has an even number of elements,
+   * like [value0, vote0, value1, vote1, value2, vote2, ...].
+   */
+  const vr = theRow.votingResults;
+  let n = 0;
+  while (n < vr.value_vote.length) {
+    const value = vr.value_vote[n++];
+    const vote = parseInt(vr.value_vote[n++]);
+    if (value === cldrTable.NO_WINNING_VALUE) {
+      continue;
+    }
+    const item = cldrTable.findItemByRawValue(theRow, value);
+    if (item == null) {
+      continue;
+    }
+    if (value === cldrSurvey.INHERITANCE_MARKER && !theRow.inheritedValue) {
+      continue; // theRow.inheritedValue can be undefined here; then do not append
+    }
+    const voteTableData = cldrVoteTable.construct(
+      theRow.votingResults,
+      item,
+      value,
+      vote
+    );
+    const candidateItem = {
+      isBaselineValue: Boolean(item.isBaselineValue),
+      vote: vote,
+      voteTableData: voteTableData,
+    };
+    if (value === cldrSurvey.INHERITANCE_MARKER) {
+      candidateItem.displayValue = theRow.inheritedDisplayValue;
+      candidateItem.status = item.status;
+      candidateItem.elaboration = cldrText.get("voteInfo_votesForInheritance");
+    } else {
+      candidateItem.displayValue = item.value;
+      candidateItem.status = theRow.winningValue ? "winner" : "value";
+      candidateItem.elaboration = "";
+    }
+    data.candidateItems.push(candidateItem);
+  }
+  data.transcript = theRow.voteTranscript;
+  if (vr.valueIsLocked) {
+    data.isLocked = true;
+  } else if (vr.requiredVotes >= 50) {
+    // Note: in this case, the numeric value of vr.requiredVotes (50+) is not included in the message
+    data.explainFlag = true;
+  } else if (vr.requiredVotes) {
+    data.reqVoteMessage = cldrText.sub("explainRequiredVotes", {
+      requiredVotes: vr.requiredVotes,
+    });
+  }
+  const { language, direction } = getLanguageAndDirection();
+  data.language = language;
+  data.direction = direction;
+  candidateItemsWrapper.setData(data);
+}
+
+/**
+ * Add a section in the Info Panel for the given ticket link.
+ *
+ * This happens, for example, if the back end returns data for a PathHeader with status = READ_ONLY.
+ *
+ * @param {Object} theRow
+ */
+function addTicketLink(theRow) {
+  if (ticketItemWrapper) {
+    let linkText = null;
+    let linkUrl = null;
+    if (theRow?.hasTicketLink) {
+      linkText = cldrText.get("file_a_ticket");
+      const curLocale = cldrStatus.getCurrentLocale();
+      // Note: the portion of this URL following "?" is currently (2026-03) ignored by the server.
+      // It dates back to when CLDR used "trac".
+      linkUrl =
+        "https://cldr.unicode.org/requesting_changes#TOC-Filing-a-Ticket" +
+        "?component=data&summary=" +
+        curLocale +
+        ":" +
+        theRow.xpath +
+        "&locale=" +
+        curLocale +
+        "&xpath=" +
+        theRow.xpstrid +
+        "&version=" +
+        cldrStatus.getNewVersion();
+      if (cldrStatus.getIsUnofficial()) {
+        linkText += cldrText.get("file_ticket_unofficial");
+        linkUrl += "&description=NOT+PRODUCTION+SURVEYTOOL!";
+      }
+    }
+    ticketItemWrapper.setLink(linkUrl, linkText);
+  }
 }
 
 // regional variants (sibling locales)
-function addRegionalSidewaysMenu(tr) {
+function addRegionalSidewaysMenu(xpstrid) {
   if (!regionalVariantsWrapper) {
     return;
   }
-  cldrSideways.loadMenu(regionalVariantsWrapper, tr?.xpstrid);
+  cldrSideways.loadMenu(regionalVariantsWrapper, xpstrid);
 }
 
 function addForumPanel(tr) {
@@ -450,204 +598,21 @@ function addBottom() {
   el.innerHTML = "<p>&nbsp;</p>";
 }
 
-function addXpath(tr) {
+function addXpath(theRow) {
   const el = document.getElementById(INFO_XPATH_ID);
   if (!el) {
     return;
   }
   const fragment = document.createDocumentFragment();
-  if (tr?.theRow?.xpath) {
+  if (theRow?.xpath) {
     fragment.appendChild(
-      cldrDom.clickToSelect(
-        cldrDom.createChunk(tr.theRow.xpath, "div", "xpath")
-      )
+      cldrDom.clickToSelect(cldrDom.createChunk(theRow.xpath, "div", "xpath"))
     );
   }
   cldrDom.removeAllChildNodes(el);
-  if (tr) {
+  if (theRow) {
     el.appendChild(fragment);
   }
-}
-
-/**
- * Update the vote info for this row.
- *
- * Set up the "vote div".
- *
- * @param tr the table row
- * @param theRow the data from the server for this row
- *
- * Called by updateRow.
- *
- * TODO: shorten this function by using subroutines.
- */
-function updateRowVoteInfo(tr, theRow) {
-  if (!theRow) {
-    console.error("theRow is null or undefined in updateRowVoteInfo");
-    return;
-  }
-  tr.voteDiv = document.createElement("div");
-  tr.voteDiv.className = "voteDiv";
-
-  const surveyUser = cldrStatus.getSurveyUser();
-  if (theRow.voteVhash && surveyUser) {
-    const voteForItem = theRow.items[theRow.voteVhash];
-    if (voteForItem?.votes[surveyUser.id]?.voteDetails?.override) {
-      tr.voteDiv.appendChild(
-        cldrDom.createChunk(
-          cldrText.sub("override_explain_msg", {
-            overrideVotes:
-              voteForItem.votes[surveyUser.id].voteDetails.override,
-            votes: surveyUser.votecount,
-          }),
-          "p",
-          "helpContent"
-        )
-      );
-    }
-    if (theRow.rowFlagged) {
-      cldrSurvey.addIcon(tr.voteDiv, "i-flag");
-      tr.voteDiv.appendChild(
-        cldrDom.createChunk(cldrText.get("flag_desc", "p", "helpContent"))
-      );
-    }
-  }
-
-  /*
-   * The value_vote array has an even number of elements,
-   * like [value0, vote0, value1, vote1, value2, vote2, ...].
-   */
-  const vr = theRow.votingResults;
-  let n = 0;
-  while (n < vr.value_vote.length) {
-    const value = vr.value_vote[n++];
-    const vote = parseInt(vr.value_vote[n++]);
-    if (value === cldrTable.NO_WINNING_VALUE) {
-      continue;
-    }
-    var item = tr.rawValueToItem[value]; // backlink to specific item in hash
-    if (item == null) {
-      continue;
-    }
-    var valdiv = cldrDom.createChunk(
-      null,
-      "div",
-      n > 2 ? "value-div" : "value-div first"
-    );
-    var isection = cldrDom.createChunk(null, "div", "voteInfo_iconBar");
-    var isectionIsUsed = false;
-
-    /*
-     * Note: we can't just check for item.status === "winner" here, since, for example, the winning value may
-     * have value = cldrSurvey.INHERITANCE_MARKER and item.status = "alias".
-     */
-    if (value === theRow.winningValue) {
-      const statusClass = cldrTable.getRowApprovalStatusClass(theRow);
-      const statusTitle = cldrText.get(statusClass);
-      cldrDom.appendIcon(
-        isection,
-        "voteInfo_winningItem d-dr-" + statusClass,
-        cldrText.sub("draftStatus", [statusTitle])
-      );
-      isectionIsUsed = true;
-    }
-    if (item.isBaselineValue) {
-      cldrDom.appendIcon(
-        isection,
-        "i-star",
-        cldrText.get("voteInfo_baseline_desc")
-      );
-      isectionIsUsed = true;
-    }
-    cldrSurvey.setLang(valdiv); // want the whole div to be marked as cldrValue
-    if (value === cldrSurvey.INHERITANCE_MARKER) {
-      /*
-       * theRow.inheritedValue can be undefined here; then do not append
-       */
-      if (theRow.inheritedValue) {
-        cldrVote.appendItem(valdiv, theRow.inheritedDisplayValue, item.status);
-        valdiv.appendChild(
-          cldrDom.createChunk(cldrText.get("voteInfo_votesForInheritance"), "p")
-        );
-      }
-    } else {
-      cldrVote.appendItem(
-        valdiv,
-        item.value, // get display value not raw
-        value === theRow.winningValue ? "winner" : "value"
-      );
-    }
-    if (value === theRow.inheritedValue) {
-      valdiv.appendChild(
-        cldrDom.createChunk(cldrText.get("voteInfo_votesForSpecificValue"), "p")
-      );
-    }
-    if (isectionIsUsed) {
-      valdiv.appendChild(isection);
-    }
-    tr.voteDiv.appendChild(valdiv);
-    cldrVoteTable.add(tr.voteDiv, theRow.votingResults, item, value, vote);
-  }
-  tr.voteDiv.appendChild(makeVoteExplainerDiv(theRow.voteTranscript));
-  if (vr.valueIsLocked) {
-    tr.voteDiv.appendChild(
-      cldrDom.createChunk(
-        cldrText.get("valueIsLocked"),
-        "p",
-        "alert alert-warning fix-popover-help"
-      )
-    );
-  } else if (vr.requiredVotes >= 50) {
-    // Note: in this case, the numeric value of vr.requiredVotes (50+) is not included in the message
-    const note = document.createElement("p");
-    note.className = "alert alert-warning fix-popover-help";
-    note.innerHTML = cldrText.get("explainFlagForReview");
-    tr.voteDiv.appendChild(note);
-  } else if (vr.requiredVotes) {
-    const msg = cldrText.sub("explainRequiredVotes", {
-      requiredVotes: vr.requiredVotes,
-    });
-    tr.voteDiv.appendChild(
-      cldrDom.createChunk(msg, "p", "alert alert-warning fix-popover-help")
-    );
-  }
-}
-
-function makeVoteExplainerDiv(voteTranscript) {
-  const voteExplainerDiv = document.createElement("div");
-  const showTranscriptIcon = cldrDom.createChunk(
-    "",
-    "i",
-    "glyphicon glyphicon-info-sign show-transcript"
-  );
-  showTranscriptIcon.setAttribute("title", cldrText.get("transcript_flyover"));
-  const showTranscriptLink = cldrDom.createChunk("", "a", "show-transcript");
-  showTranscriptLink.setAttribute(
-    "href",
-    "javascript:window.cldrBundle.toggleTranscript()"
-  );
-  showTranscriptLink.appendChild(showTranscriptIcon);
-  voteExplainerDiv.appendChild(showTranscriptLink);
-  if (voteTranscript) {
-    const transcriptBox = cldrDom.createChunk(
-      "",
-      "div",
-      "transcript-container"
-    );
-    const transcriptText = cldrDom.createChunk(
-      voteTranscript,
-      "pre",
-      "transcript-text"
-    );
-    transcriptBox.appendChild(transcriptText);
-    const transcriptNote = document.createElement("p");
-    transcriptNote.className = "alert alert-warning";
-    transcriptNote.innerHTML = cldrText.get("transcript_note");
-    transcriptBox.appendChild(transcriptNote);
-    voteExplainerDiv.appendChild(transcriptBox);
-    voteExplainerDiv.appendChild(document.createElement("br"));
-  }
-  return voteExplainerDiv;
 }
 
 function getItemDescription(candidateStatus, theRow) {
@@ -686,12 +651,4 @@ function clearCachesAndReload() {
   cldrLoad.reloadV();
 }
 
-export {
-  clearCachesAndReload,
-  closePanel,
-  initialize,
-  panelShouldBeShown,
-  show,
-  showMessage,
-  showRowObjFunc,
-};
+export { clearCachesAndReload, closePanel, initialize, refresh, showGuidance };

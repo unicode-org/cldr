@@ -56,12 +56,12 @@ const strings = {
   noVotingInfo: " (no voting info received)",
   newDataWaiting: "(new data waiting)",
 
-  clickToCopy: "click to copy to input box",
   file_a_ticket:
     "Read all above links, and then click here to file a ticket only if changes are necessary. Do not submit a translation of this text without reading the above text and links.",
-  file_ticket_unofficial: "This is not an official Survey Tool instance.",
-  file_ticket_must: "You must file a ticket to modify this item.",
-  file_ticket_notice: "May not be modified- see details.",
+  file_ticket_unofficial:
+    " (Note: this is not the production SurveyTool! Do not submit a ticket!) ",
+  file_ticket_notice: "May not be modified - see details.",
+  file_ticket_hover: "Link to file a ticket",
 
   htmldraft: "A",
   htmlcode: "Code",
@@ -199,20 +199,26 @@ const strings = {
   explainRequiredVotes: "Changes to this item require ${requiredVotes} votes.",
   explainFlagForReview:
     "To change this item, you have to flag it for review! See <a target='_blank' href='https://cldr.unicode.org/translation/getting-started/guide#changing-protected-items'>Changing Protected Items</a> for more information.",
+  flagExplanationStart:
+    "To change this item, you have to flag it for review! See ",
+  flagURL:
+    "https://cldr.unicode.org/translation/getting-started/guide#changing-protected-items",
+  flagLinkText: "Changing Protected Items",
+  flagExplanationEnd: " for more information.",
   valueIsLocked:
     "This item has been locked by the CLDR Technical Committee. See the forum entry.",
   xpath_desc:
-    "This is the XPath denoting the currently clicked item. For more information, see http://cldr.unicode.org (click to select)",
+    "This is the XPath denoting the currently clicked item. For more information, see https://cldr.unicode.org (click to select)",
 
   winningStatus_disputed: "Disputed",
   winningStatus_msg: "${1} ${0} Value ",
 
   dataPageInitialGuidance:
-    "Please consult the <a target='_blank' href='http://cldr.unicode.org/translation/getting-started/guide'>Instructions <span class='glyphicon glyphicon-share'></span></a> page.<br/><br/>Briefly, for each row:<br/><ol><li>Click on a cell in the 'Code' column.</li><li>Read the details that appear in the right panel (widen your window to see it).</li><li> Hover over the English and the Winning value to see examples.</li><li>To vote:<ol><li>for an existing item in the Winning or Others column, click on the <input type='radio'/> for that item.</li><li>for a new value, click on the button in the \"Add\" column. A new editing box will open. Enter the new value and hit RETURN.</li><li>for no value (abstain, or retract a vote), click on the  <input type='radio'/> in the Abstain column.</li></ol></li></ol>",
+    "Please consult the <a target='_blank' href='https://cldr.unicode.org/translation/getting-started/guide'>Instructions <span class='glyphicon glyphicon-share'></span></a> page.<br/><br/>Briefly, for each row:<br/><ol><li>Click on a cell in the 'Code' column.</li><li>Read the details that appear in the right panel (widen your window to see it).</li><li> Hover over the English and the Winning value to see examples.</li><li>To vote:<ol><li>for an existing item in the Winning or Others column, click on the <input type='radio'/> for that item.</li><li>for a new value, click on the button in the \"Add\" column. A new editing box will open. Enter the new value and hit RETURN.</li><li>for no value (abstain, or retract a vote), click on the  <input type='radio'/> in the Abstain column.</li></ol></li></ol>",
   generalPageInitialGuidance:
     "This area will show details of items as you work with the Survey Tool.",
   generalSpecialGuidance:
-    "Please hover over the sidebar to choose a section to begin entering data. If you have not already done so, please read the <a target='_blank' href='http://www.unicode.org/cldr/survey_tool.html'>Instructions</a>, particularly the Guide and the Walkthrough. You can also use the Dashboard to see all the errors, warnings, and missing items in one place.",
+    "Please hover over the sidebar to choose a section to begin entering data. If you have not already done so, please read the <a target='_blank' href='https://www.unicode.org/cldr/survey_tool.html'>Instructions</a>, particularly the Guide and the Walkthrough. You can also use the Dashboard to see all the errors, warnings, and missing items in one place.",
 
   loginGuidance: "You may not make any changes, you are not logged in.",
   readonlyGuidance: "You may not make changes to this locale.",
@@ -224,10 +230,12 @@ const strings = {
   flyovervorgvote: "The final vote for this organization",
   flyovervdissenting:
     "Other votes cast against the final vote by members of the organization",
+
+  voteInfo_candidate_item_desc:
+    "A candidate item. Any votes for this item are shown in the table below it.",
   voteInfoScorebox_msg: "${0}: ${1}",
-  voteInfo_established_url:
-    "http://cldr.unicode.org/index/process#TOC-Draft-Status-of-Optimal-Field-Value",
   voteInfo_orgColumn: "Org.",
+  voteInfo_userColumn: "User",
   voteInfo_noVotes: "(no votes)",
   voteInfo_anon: "(imported anonymously)",
   voteInfo_iconBar_desc: "This area shows the status of each candidate item.",
@@ -239,7 +247,11 @@ const strings = {
   voteInfo_orgsVote_desc: "This vote is the organization's winning vote",
   voteInfo_orgsNonVote_desc: "This vote is not the organization's winning vote",
   voteInfo_baseline_desc:
-    "This is the “baseline” data. See http://cldr.unicode.org/translation/getting-started/guide#TOC-Icons",
+    "This is the “baseline” data. See https://cldr.unicode.org/translation/getting-started/guide#TOC-Icons",
+  voteInfo_baseline_short_desc: "This is the “baseline” data.",
+  voteInfo_baseline_link_url:
+    "https://cldr.unicode.org/translation/getting-started/guide#TOC-Icons",
+  voteInfo_baseline_link_text: "[Guide]",
   voteInfo_winningItem_desc:
     "This mark shows the item which is currently winning.",
   voteInfo_winningKey_desc:
@@ -249,8 +261,7 @@ const strings = {
   voteInfo_moreInfo:
     "Click here for a full explanation of the icons and their meanings.",
   voteInfo_votesForInheritance: "These are votes for inheritance.",
-  voteInfo_votesForSpecificValue:
-    "These are votes for the specific value currently matching the inherited value. Votes for this specific value are combined with any votes for inheritance.",
+
   // CheckCLDR.StatusAction
   StatusAction_msg: "Not submitted: ${0}",
   StatusAction_popupmsg:

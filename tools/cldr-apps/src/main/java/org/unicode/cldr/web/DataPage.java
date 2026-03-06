@@ -190,8 +190,9 @@ public class DataPage {
              * Get the value of this CandidateItem, processed for display.
              *
              * @return the processed value
-             *     <p>This is what the client receives by the name "value". Compare what is called
-             *     "rawValue" on both server and client.
+             *     <p>This is what the client receives by the name "value". Compare what is often
+             *     called "rawValue" on both server and client. Caution: in VoteResolver, "value"
+             *     means raw value.
              */
             public String getProcessedValue() {
                 if (rawValue == null) {

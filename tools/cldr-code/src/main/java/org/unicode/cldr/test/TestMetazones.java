@@ -458,7 +458,6 @@ public class TestMetazones {
             }
 
             if (bestZone != null && !zoneToRanges.keySet().contains(bestZone)) {
-                zoneToRanges.keySet().contains(bestZone);
                 errorLog.println(
                         "The 'best zone' ("
                                 + showZone(bestZone)

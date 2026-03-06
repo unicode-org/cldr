@@ -39,8 +39,9 @@ function convertTextToTags(text) {
 }
 
 function displayTag(tag) {
-  const codePoint = cldrChar.firstCodePoint(tag);
-  if (cldrChar.isWhiteSpace(codePoint)) {
+  const c = cldrChar.firstChar(tag);
+  if (cldrChar.isWhiteSpace(c)) {
+    const codePoint = cldrChar.firstCodePoint(c);
     return cldrChar.name(codePoint);
   } else {
     return tag;

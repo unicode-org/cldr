@@ -196,7 +196,7 @@ public class SearchCLDR {
 
         boolean showEnglish = myOptions.get("english").doesOccur();
 
-        File[] paths = {new File(CLDRPaths.MAIN_DIRECTORY), new File(sourceDirectory)};
+        File[] paths = {new File(sourceDirectory)};
 
         Factory cldrFactory = SimpleFactory.make(paths, fileMatcher);
 

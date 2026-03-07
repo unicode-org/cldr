@@ -33,7 +33,6 @@ import * as cldrStatus from "./cldrStatus.mjs";
 import * as cldrSurvey from "./cldrSurvey.mjs";
 import * as cldrTable from "./cldrTable.mjs";
 import * as cldrText from "./cldrText.mjs";
-import * as cldrVettingParticipation from "./cldrVettingParticipation.mjs";
 import * as cldrVueMap from "./cldrVueMap.mjs";
 
 import { h } from "vue";
@@ -338,50 +337,7 @@ function showCurrentId() {
       special.handleIdChanged(curSpecial, showCurrentId);
     }
   } else {
-    unspecialHandleIdChanged();
-  }
-}
-
-function unspecialHandleIdChanged() {
-  const curId = cldrStatus.getCurrentId();
-  if (curId) {
-    if (cldrTable.isHeaderId(curId)) {
-      cldrTable.goToHeaderId(curId);
-    } else {
-      goToRowId(curId);
-    }
-  }
-}
-
-function goToRowId(curId) {
-  const rowId = cldrTable.makeRowId(curId);
-  const xtr = document.getElementById(rowId);
-  if (!xtr) {
-    if (CLDR_LOAD_DEBUG) {
-      console.log(
-        "Warning: could not load rowId = " + rowId + "; curId = " + curId
-      );
-    }
-    updateCurrentId(null);
-  } else {
-    if (CLDR_LOAD_DEBUG && (!xtr.proposedcell || xtr.proposedcell.showFn)) {
-      // warn, but show it anyway
-      console.log(
-        "Warning: now proposed cell && showFn " +
-          curId +
-          " - not setup - " +
-          xtr.toString() +
-          " pc=" +
-          xtr.proposedcell +
-          " sf = " +
-          xtr.proposedcell.showFn
-      );
-    }
-    cldrInfo.showRowObjFunc(xtr, xtr.proposedcell, xtr.proposedcell.showFn);
-    if (CLDR_LOAD_DEBUG) {
-      console.log("Changed to " + cldrStatus.getCurrentId());
-    }
-    xtr.scrollIntoView({ block: "nearest" });
+    cldrTable.handleIdChanged();
   }
 }
 
@@ -920,24 +876,12 @@ function loadAllRowsFromJson(json, theDiv) {
       showCurrentId(); // already calls scroll
       cldrGui.refreshCounterVetting();
       $("#nav-page-footer").show(); // make bottom "Prev/Next" buttons visible after building table
-      if (!cldrStatus.getCurrentId()) {
-        cldrInfo.showMessage(getGuidanceMessage(json.canModify));
-      }
+      cldrInfo.showGuidance(json.canModify);
     } else if (CLDR_LOAD_DEBUG) {
       console.log(
         "cldrLoad.loadAllRowsFromJson skipping insertRows because isInputBusy"
       );
     }
-  }
-}
-
-function getGuidanceMessage(canModify) {
-  if (!cldrStatus.getSurveyUser()) {
-    return cldrText.get("loginGuidance");
-  } else if (!canModify) {
-    return cldrText.get("readonlyGuidance");
-  } else {
-    return cldrText.get("dataPageInitialGuidance");
   }
 }
 

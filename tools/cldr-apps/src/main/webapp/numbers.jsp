@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<%@ page language="java"
- import="java.util.*,java.util.regex.*,java.io.IOException,java.text.ParsePosition,com.ibm.icu.impl.ICUResourceBundle,com.ibm.icu.text.*,com.ibm.icu.util.*,com.ibm.icu.impl.ICUData"
+<%@ page
+ import="java.util.*,java.util.regex.*,java.io.IOException,java.text.ParsePosition,com.ibm.icu.impl.ICUResourceBundle,com.ibm.icu.math.BigDecimal,com.ibm.icu.text.*,com.ibm.icu.util.*,com.ibm.icu.impl.ICUData"
  contentType="text/html;charset=UTF-8"
  pageEncoding="UTF-8"%>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
@@ -13,7 +13,6 @@
   <link rel='stylesheet' type='text/css' href='./surveytool.css' />
 <style type="text/css">
   .rtl {text-align:right}
-  .noparse {background-color:lightgray}
   .nonsense {color:#C3C3C3; background-color:lightgray}
   .thead {text-align:center; font-weight:bold;}
 /*  .results {font-family:Sans-serif;}*/
@@ -28,15 +27,19 @@ div.expander > span {
     text-decoration: none;
     padding-left: 0.25em;
     padding-right: 0.25em;
-    padding-top: 0em;
-    padding-bottom: 0em;
+    padding-top: 0;
+    padding-bottom: 0;
     margin-right: 0.5em;
     line-height: 1.6em;
     vertical-align: top;
     font-size: 75%;
     font-weight: bold;
 }
-
+h2 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
 </style>
 <%!
 static final String ORDINAL_RULES = "OrdinalRules";
@@ -45,19 +48,54 @@ static final String NUMBERING_SYSTEM_RULES = "NumberingSystemRules";
 static final List<ULocale> LOCALES = getAvailableLocales();
 static final boolean PARSE_CHECK = true;
 static final int MAX_LINE_COUNT = 1000;
-static final double[][] DEFAULT_RANGES = new double[][] {
-        new double[]{-1, 0},
-        new double[]{0.2, 0.2},
-        new double[]{1, 31},
-        new double[]{98, 102},
-        new double[]{998, 1002},
-        new double[]{1998, 2002},
-        new double[]{9998, 10002},
-        new double[]{100000, 100001},
-        new double[]{1000000, 1000001},
-        new double[]{10000000, 10000001},
-        new double[]{100000000, 100000001},
-        new double[]{1000000000, 1000000001},
+static final int MAX_FRACTION_DIGITS = 9;
+
+/**
+ * A range of numbers to format. The long constructor creates an exact integer range; the double
+ * constructor handles fractions and special values (Inf, NaN). When {@code start} is null the
+ * range is a single special double value stored in {@code complexVal}.
+ */
+private static final class NumberRange {
+    final BigDecimal start;
+    final BigDecimal end;
+    final double complexVal;
+
+    NumberRange(long start, long end) {
+        this.start = new BigDecimal(start);
+        this.end = new BigDecimal(end);
+        this.complexVal = Double.NaN;
+    }
+
+    NumberRange(double start, double end) {
+        if (Double.isInfinite(start) || Double.isNaN(start)) {
+            this.start = null;
+            this.end = null;
+            this.complexVal = start;
+        } else {
+            this.start = new BigDecimal(start).setScale(MAX_FRACTION_DIGITS, BigDecimal.ROUND_HALF_UP);
+            this.end = new BigDecimal(end).setScale(MAX_FRACTION_DIGITS, BigDecimal.ROUND_HALF_UP);
+            this.complexVal = Double.NaN;
+        }
+    }
+
+    boolean isRational() {
+        return start != null;
+    }
+}
+
+static final NumberRange[] DEFAULT_RANGES = new NumberRange[] {
+        new NumberRange(-1, 0),
+        new NumberRange(0.2, 0.2),
+        new NumberRange(1, 31),
+        new NumberRange(98, 102),
+        new NumberRange(998, 1002),
+        new NumberRange(1998, 2002),
+        new NumberRange(9998, 10002),
+        new NumberRange(100000, 100001),
+        new NumberRange(1000000, 1000001),
+        new NumberRange(10000000, 10000001),
+        new NumberRange(100000000, 100000001),
+        new NumberRange(1000000000, 1000000001),
     };
 
 static List<ULocale> getAvailableLocales() {
@@ -73,19 +111,15 @@ static List<ULocale> getAvailableLocales() {
     }
     return result;
 }
-static final String escapeString(String arg) {
+static String escapeString(String arg) {
     return arg.replaceAll("&", "&amp;").replaceAll("\"", "&quot;").replaceAll("<", "&lt;").replaceAll(">", "&gt;");
-}
-
-static final String unescapeString(String arg) {
-    return arg.replaceAll("&amp;", "&").replaceAll("&quot;", "\"").replaceAll("&lt;", "<").replaceAll("&gt;", ">");
 }
 
 /**
  * If we get something like 3.8.1.0_11, it becomes just "3.8.1".
  * If we get something like 4.0.0.0, it becomes just "4.0".
  */
-static final String trimVersion(String ver) {
+static String trimVersion(String ver) {
     int endIdx = ver.lastIndexOf('_') - 1;
     if (endIdx < 0) {
         endIdx = ver.length() - 1;
@@ -115,27 +149,33 @@ private static String getRulePrefix(String currRuleName) {
     }
 }
 
-private static String getDisplayName(RuleBasedNumberFormat spellout, String currRuleName) {
+private static String getDisplayName(String currRuleName) {
     try {
         String prefix = currRuleName.substring(1, currRuleName.indexOf('-'));
         if (prefix.equals("spellout") || prefix.equals("digits") || prefix.equals("duration")) {
-            String suffix = currRuleName.substring(currRuleName.indexOf('-') + 1);
-            //return suffix + (spellout.getDefaultRuleSetName().equals(currRuleName) ? "<br/><em>Default</em>" : "");
-            return suffix;
+            currRuleName = currRuleName.substring(currRuleName.indexOf('-') + 1);
         }
     }
     catch (StringIndexOutOfBoundsException e) {
+        // Meh, use the default.
     }
-    return currRuleName;
+    return escapeString(currRuleName);
 }
 
 private static void printSkipLine(JspWriter out, RuleBasedNumberFormat rbnf) throws IOException {
     //System.out.println("<tr><td colspan=\"" + tableColumns + "\">...</td></tr>");
     out.print("<tr><td>...</td>");
     for (String name : rbnf.getRuleSetNames()) {
-        out.print("<th class=\"thead\"><b>" + getDisplayName(rbnf, name) + "</b></th>");
+        out.print("<th class=\"thead\"><b>" + getDisplayName(name) + "</b></th>");
     }
     out.println("</tr>");
+}
+
+static final NumberFormat FRACTION_FORMATTER = NumberFormat.getInstance(ULocale.US);
+static {
+    FRACTION_FORMATTER.setMaximumFractionDigits(MAX_FRACTION_DIGITS);
+    FRACTION_FORMATTER.setMinimumFractionDigits(1);
+    FRACTION_FORMATTER.setGroupingUsed(false);
 }
 
 private static String formatNumber(double num) {
@@ -150,11 +190,7 @@ private static String formatNumber(double num) {
         }
     }
     else if (longVal != num) {
-        NumberFormat fmt = NumberFormat.getInstance(ULocale.US);
-        fmt.setMaximumFractionDigits(9);
-        fmt.setMinimumFractionDigits(1);
-        fmt.setGroupingUsed(false);
-        numStr = fmt.format(num);
+        numStr = FRACTION_FORMATTER.format(num);
     }
     else {
         numStr = Long.toString(longVal);
@@ -162,27 +198,72 @@ private static String formatNumber(double num) {
     return numStr;
 }
 
-private static void printLine(JspWriter out, RuleBasedNumberFormat rbnf, double num, boolean isRTL) throws IOException {
+private static String formatNumber(BigDecimal num) {
+    if (num.scale() == 0) {
+        return Long.toString(num.longValue());
+    }
+    return FRACTION_FORMATTER.format(num);
+}
+
+private static void printUnrationalLine(JspWriter out, RuleBasedNumberFormat rbnf, double num, boolean isRTL) throws IOException {
     String numStr = formatNumber(num);
 
     out.print("<tr><td>" + numStr + "</td>");
     for (String name : rbnf.getRuleSetNames()) {
         String result = rbnf.format(num, name);
         String errorMsg = "";
-        if (PARSE_CHECK && !isUnparseable(name) && !Double.isNaN(num)) {
+        if (PARSE_CHECK && !Double.isNaN(num)) {
             // Even when it's an irrelevant value, we want to parse to make
             // sure that there is no exception being thrown.
             try {
                 Number parseResult = rbnf.parse(result, new ParsePosition(0));
                 if (parseResult.doubleValue() != num && !isIrrelevantValue(name, num)) {
-                    errorMsg = "<br/><span style=\"color:red\">Error parsed as " + parseResult + "</span>";
+                    errorMsg = "<br/><span style=\"color:red\">Error parsed as " + escapeString(parseResult.toString()) + "</span>";
                 }
             }
             catch (Throwable e) {
-                errorMsg = "<br/><span style=\"color:red\">Error parsing " + e + "</span>";
+                errorMsg = "<br/><span style=\"color:red\">Error parsing " + escapeString(e.getMessage()) + "</span>";
             }
         }
-        out.print("<td" + getNumberStyle(name, num, isRTL) + ">" + result + errorMsg+ "</td>");
+        out.print("<td" + getNumberStyle(name, num, isRTL) + ">" + escapeString(result) + errorMsg+ "</td>");
+    }
+    out.println("</tr>");
+}
+
+private static void printLine(JspWriter out, RuleBasedNumberFormat rbnf, BigDecimal num, boolean isRTL) throws IOException {
+    String numStr;
+    boolean isInteger = num.scale() == 0;
+    if (isInteger) {
+        numStr = num.toString();
+    }
+    else {
+        numStr = FRACTION_FORMATTER.format(num);
+    }
+
+    out.print("<tr><td>" + numStr + "</td>");
+    for (String name : rbnf.getRuleSetNames()) {
+        String result;
+        if (isInteger) {
+            result = rbnf.format(num.longValue(), name);
+        }
+        else {
+            result = rbnf.format(num.doubleValue(), name);
+        }
+        String errorMsg = "";
+        if (PARSE_CHECK) {
+            try {
+                Number parseResult = rbnf.parse(result, new ParsePosition(0));
+                boolean roundtrips = (isInteger && parseResult.longValue() == num.longValue())
+                        || (!isInteger && parseResult.doubleValue() == num.doubleValue());
+                if (!roundtrips && !isIrrelevantValue(name, num)) {
+                    errorMsg = "<br/><span style=\"color:red\">Error parsed as " + escapeString(parseResult.toString()) + "</span>";
+                }
+            }
+            catch (Throwable e) {
+                errorMsg = "<br/><span style=\"color:red\">Error parsing " + escapeString(e.getMessage()) + "</span>";
+            }
+        }
+        out.print("<td" + getNumberStyle(name, num.doubleValue(), isRTL) + ">" + escapeString(result) + errorMsg + "</td>");
     }
     out.println("</tr>");
 }
@@ -191,20 +272,17 @@ private static boolean isIrrelevantValue(String ruleName, double val) {
     return (val < 1 || val != (long)val) && (ruleName.contains("ordinal") || ruleName.contains("year"));
 }
 
-private static boolean isUnparseable(String ruleName) {
-    return ruleName.contains("@noparse");
+private static boolean isIrrelevantValue(String ruleName, BigDecimal val) {
+    return (val.compareTo(BigDecimal.ONE) < 0 || val.scale() != 0)
+            && (ruleName.contains("ordinal") || ruleName.contains("year"));
 }
 
 private static String getNumberStyle(String ruleName, double val, boolean isRTL) {
-    String bidiStyle = "";
-    if (isRTL) {
-        bidiStyle = " rtl";
-    }
     if (isIrrelevantValue(ruleName, val)) {
-        return " class=\"nonsense"+bidiStyle+"\"";
-    }
-    if (ruleName.contains("@noparse")) {
-        return " class=\"noparse"+bidiStyle+"\"";
+        if (isRTL) {
+            return " class=\"nonsense rtl\"";
+        }
+        return " class=\"nonsense\"";
     }
     if (isRTL) {
         return " class=\"rtl\"";
@@ -234,45 +312,42 @@ private static String getRules(ULocale selectedLocale, String ruleType) {
 }
 
 private static double parseNumber(String str) {
-    try {
-        return Double.valueOf(str).doubleValue();
+    if ("Inf".equals(str)) {
+        return Double.POSITIVE_INFINITY;
     }
-    catch (NumberFormatException nfe) {
-        if ("Inf".equals(str)) {
-            return Double.POSITIVE_INFINITY;
-        }
-        else if ("-Inf".equals(str)) {
-            return Double.NEGATIVE_INFINITY;
-        }
-        else if ("NaN".equals(str)) {
-            return Double.NaN;
-        }
-        throw nfe;
+    if ("-Inf".equals(str)) {
+        return Double.NEGATIVE_INFINITY;
     }
+    if ("NaN".equals(str)) {
+        return Double.NaN;
+    }
+    return Double.parseDouble(str);
 }
 
 private static final Pattern NUMBER_PAIR = Pattern.compile("(-?[0-9,.]+|-?Inf|NaN)(?:-(-?[0-9,.]+))?");
 
-private static double[][] getNumberRanges(String numbers) {
+private static NumberRange[] getNumberRanges(String numbers) {
     String []numberLines = numbers.split("[;\\r\\n]");
-    double [][]result = new double[numberLines.length][];
+    NumberRange []result = new NumberRange[numberLines.length];
     int count = 0;
     for (String line : numberLines) {
         if (line.length() == 0) {
             continue;
         }
-        double []range = new double[2];
         try {
             Matcher numberPair = NUMBER_PAIR.matcher(line);
-            numberPair.find();
-            range[0] = parseNumber(numberPair.group(1));
-            if (numberPair.group(2) != null) {
-                range[1] = parseNumber(numberPair.group(2));
+            if (numberPair.find()) {
+                String startStr = numberPair.group(1).replace(",", "");
+                String endStr = numberPair.group(2) != null
+                        ? numberPair.group(2).replace(",", "")
+                        : startStr;
+                try {
+                    result[count++] = new NumberRange(Long.parseLong(startStr), Long.parseLong(endStr));
+                }
+                catch (NumberFormatException e) {
+                    result[count++] = new NumberRange(parseNumber(startStr), parseNumber(endStr));
+                }
             }
-            else {
-                range[1] = range[0];
-            }
-            result[count++] = range;
         }
         catch (Exception pe) {
             // skip
@@ -311,7 +386,7 @@ if (type == null) {
 }
 String errorMsg = null;
 String rulesStr = request.getParameter("rules");
-if (!isEdit || rulesStr == null || rulesStr.length() <= 0) {
+if (!isEdit || rulesStr == null || rulesStr.isEmpty()) {
     try {
         rulesStr = getRules(selectedLocale, type);
     }
@@ -319,7 +394,6 @@ if (!isEdit || rulesStr == null || rulesStr.length() <= 0) {
         if (errorMsg == null) {
             // The standard default rules can not be loaded? That is bad. Is ICU okay?
             errorMsg = e.getMessage();
-            org.unicode.cldr.web.SurveyLog.logException(e);
         }
         rulesStr = "";
     }
@@ -337,27 +411,27 @@ String numbers = request.getParameter("numbers");
 if (numbers == null) {
     numbers = "";
 }
-double [][]ranges = getNumberRanges(numbers);
+NumberRange []ranges = getNumberRanges(numbers);
 if (ranges == null || ranges.length == 0) {
     ranges = DEFAULT_RANGES;
 }
 
 
 %>
-<script>
+<script type="text/javascript">
 //<![CDATA[
 /*
 Calling this function toggles the display a set of subitems.
 @param middleElem The node that is before the node to toggle.
 */
 function toggleView(middleElem) {
-    var groupElem = middleElem;
+    let groupElem = middleElem;
     do {
         groupElem = groupElem.nextSibling;
     }
-    while (groupElem.nodeType != 1); // Get to the next real node.
-    var selectorElem = middleElem.firstChild;
-    if (groupElem.style.display == 'block') {
+    while (groupElem.nodeType !== 1); // Get to the next real node.
+    let selectorElem = middleElem.firstChild;
+    if (groupElem.style.display === 'block') {
         groupElem.style.display = 'none';
         selectorElem.innerHTML = '+';
     }
@@ -370,10 +444,10 @@ function toggleView(middleElem) {
 //]]>
 </script>
 </head>
-<body style="padding: 1em;">
+<body style="padding-left: 1em; padding-right: 1em;">
 <h2>Number Format Tester</h2>
 
-<form action='<%= request.getRequestURI() %>' method="post">
+<form action='<%= escapeString(request.getRequestURI()) %>' method="post">
 <table style="border: solid black 1px; width: 100%;">
 <tr><th style="text-align: right; width: 1%; white-space:nowrap; border-width: 0;"><label for="locale">Locale</label></th>
     <td style="text-align: left; width: 1%; white-space:nowrap"><select id="locale" name="locale"><%
@@ -402,16 +476,20 @@ for (ULocale currULoc : LOCALES) {
 <tr>
     <td style="padding-right: 1em;"><textarea id="numbers" name="numbers" cols="20" rows="40"><%
 StringBuilder numberLine = new StringBuilder();
-for (double[] pair: ranges) {
-    if (pair == null) {
+for (NumberRange range: ranges) {
+    if (range == null) {
         continue;
     }
     if (numberLine.length() > 0) {
         numberLine.append("\n");
     }
-    numberLine.append(formatNumber(pair[0]));
-    if (pair[0] < pair[1]) {
-        numberLine.append("-").append(formatNumber(pair[1]));
+    if (range.isRational()) {
+        numberLine.append(formatNumber(range.start));
+        if (range.start.compareTo(range.end) < 0) {
+            numberLine.append("-").append(formatNumber(range.end));
+        }
+    } else {
+        numberLine.append(formatNumber(range.complexVal));
     }
 }
 out.println(numberLine.toString());
@@ -431,7 +509,7 @@ out.println(numberLine.toString());
 
 <%
 if (errorMsg != null) {
-    out.print("<p style=\"color:red;\">"+errorMsg+"</p>");
+    out.print("<p style=\"color:red;\">"+escapeString(errorMsg)+"</p>");
 }
 else {
     int tableColumns = 0;
@@ -440,13 +518,13 @@ else {
         tableColumns += numColumns;
         out.print("<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" class=\"results\">");
         out.print("<tr><th rowspan=\"2\" class=\"thead\"><b>Number</b></th>");
-        out.print("<th colspan=\"" + numColumns + "\" style=\"text-align:center;\">"+getRulePrefix(rbnf.getDefaultRuleSetName()));
-        out.print("<br/><span style=\"color: gray\">Default = " + getDisplayName(rbnf, rbnf.getDefaultRuleSetName()));
+        out.print("<th colspan=\"" + numColumns + "\" style=\"text-align:center;\">"+escapeString(getRulePrefix(rbnf.getDefaultRuleSetName())));
+        out.print("<br/><span style=\"color: gray\">Default = " + getDisplayName(rbnf.getDefaultRuleSetName()));
         out.println("</span></th>");
         out.println("</tr>");
         out.print("<tr>");
         for (String name : rbnf.getRuleSetNames()) {
-            out.print("<th class=\"thead\"><b>" + getDisplayName(rbnf, name) + "</b></th>");
+            out.print("<th class=\"thead\"><b>" + getDisplayName(name) + "</b></th>");
         }
         out.println("</tr>");
         byte direction = Character.getDirectionality(rbnf.format(1).charAt(0));
@@ -456,34 +534,37 @@ else {
             if (ranges[rangeIdx] == null) {
                 continue;
             }
-            double end = ranges[rangeIdx][1];
-            if (end == (long)end && rangeIdx != 0) {
+            NumberRange range = ranges[rangeIdx];
+            if (range.isRational() && rangeIdx != 0) {
                 printSkipLine(out, rbnf);
             }
-            double num = ranges[rangeIdx][0];
-            if (Double.isInfinite(num) || Double.isNaN(num)) {
-                printLine(out, rbnf, num, isRTL);
+            if (!range.isRational()) {
+                printUnrationalLine(out, rbnf, range.complexVal, isRTL);
             }
             else {
-                for (; num <= end; num++) {
+                BigDecimal num = range.start;
+                BigDecimal end = range.end;
+                while (num.compareTo(end) <= 0) {
                     if (lineCount++ >= MAX_LINE_COUNT) {
                         throw new Exception("Too many numbers to format.");
                     }
                     printLine(out, rbnf, num, isRTL);
+                    num = num.add(BigDecimal.ONE);
                 }
             }
         }
     }
     catch (Exception e) {
-        out.print("<tr><td colspan=\"" + (tableColumns + 1) + "\" style=\"color:red; text-align: center\">"+e.getMessage()+"</td></tr>");
+        out.print("<tr><td colspan=\"" + (tableColumns + 1) + "\" style=\"color:red; text-align: center\">"+escapeString(e.getMessage())+"</td></tr>");
     }
     out.println("</table>");
 }
 %>
 <hr />
-        <div style="float: left;"><a href="http://www.unicode.org/">Unicode</a> | <a href="http://cldr.unicode.org/">CLDR</a>
-        | <a href="http://cldr.unicode.org/index/bug-reports#TOC-Filing-a-Ticket">Feedback or corrections to the displayed rules</a></div>
+        <div style="float: left;padding-bottom: 1em"><a href="https://unicode.org/">Unicode</a> | <a href="https://cldr.unicode.org/">CLDR</a>
+        | <a href="https://unicode.org/reports/tr35/tr35-numbers.html#RBNF_Syntax">Rule Based Number Format Syntax Documentation</a>
+        | <a href="https://cldr.unicode.org/requesting_changes#how-to-file-a-ticket">Feedback or corrections to the displayed rules</a></div>
 <div style="float: right; font-size: 60%;"><span class="notselected">Powered by
-<a href="http://www.icu-project.org/">ICU</a> <%= trimVersion(VersionInfo.ICU_VERSION.toString()) %></span></div>
+<a href="https://icu.unicode.org/">ICU</a> <%= trimVersion(VersionInfo.ICU_VERSION.toString()) %></span></div>
 </body>
 </html>

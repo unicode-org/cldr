@@ -12527,8 +12527,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="range">↑↑↑</pattern>
 		</miscPatterns>
 		<minimalPairs>
-			<pluralMinimalPairs count="other" draft="contributed">{0} көн</pluralMinimalPairs>
-			<ordinalMinimalPairs ordinal="other">{0} уңға боролоғоҙ.</ordinalMinimalPairs>
+			<pluralMinimalPairs count="one">Миндә {0} алма бар, уны һиңә бирәйемме?</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">Миндә {0} алма бар, уларҙы һиңә бирәйемме?</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="one">{0}-се сатта уң яҡҡа боролоғоҙ</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="few">{0}-сө сатта уң яҡҡа боролоғоҙ</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">{0}-сы сатта уң яҡҡа боролоғоҙ</ordinalMinimalPairs>
 		</minimalPairs>
 	</numbers>
 	<units>

@@ -13,6 +13,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
@@ -441,7 +442,7 @@ public class GenerateProductionData {
             }
 
             // we even add empty files, but can delete them back on the directory level.
-            try (PrintWriter pw = new PrintWriter(destinationFile)) {
+            try (PrintWriter pw = new PrintWriter(destinationFile, StandardCharsets.UTF_8)) {
                 CLDRFile outCldrFile = cldrFileUnresolved.cloneAsThawed();
 
                 // Remove paths, but pull out the ones to retain
@@ -532,6 +533,9 @@ public class GenerateProductionData {
             } catch (FileNotFoundException e) {
                 throw new ICUUncheckedIOException(
                         "Can't copy " + sourceFile + " to " + destinationFile + " — ", e);
+            } catch (IOException e) {
+                throw new ICUUncheckedIOException(
+                        "Error opening file " + destinationFile + " — ", e);
             }
             return !gotOne;
         } else {

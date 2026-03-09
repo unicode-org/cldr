@@ -735,7 +735,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<usesMetazone mzone="Atlantic"/>
 			</timezone>
 			<timezone type="America/Vancouver">
-				<usesMetazone mzone="America_Pacific" stdOffset="-08" dstOffset="-07"/>
+				<usesMetazone mzone="America_Pacific" to="2026-03-09 07:00" />
+				<!-- TZDB plans on changing the tm_isdst value for this period, so we need explicit offsets. -->
+				<usesMetazone mzone="America_Pacific" from="2026-03-09 07:00" stdOffset="-08" dstOffset="-07"/>
 			</timezone>
 			<timezone type="America/Whitehorse">
 				<usesMetazone to="2020-11-01 07:00" mzone="America_Pacific"/>

@@ -2,8 +2,8 @@ name: cldr-mvn
 
 env:
   ## uncomment only ONE of these
-  CLDR_CHECK_MODE: FINAL_TESTING
-  # CLDR_CHECK_MODE: BUILD
+  # CLDR_CHECK_MODE: FINAL_TESTING
+  CLDR_CHECK_MODE: BUILD
 
 on:
   push:

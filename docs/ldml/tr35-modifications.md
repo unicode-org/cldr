@@ -30,6 +30,9 @@ This is a partial document, describing only the changes to the LDML since the pr
 
 <!--
       Note: As of CLDR-18209, ALL changes to the spec require this file, tr35-modifications.md to be modified as well. If you are making a change that doesn't need to be noted, or is already noted, please simply add an HTML comment (such as this one) to the appropriate section.  The comment will not be visible to viewers of the HTML page.
+      
+      - regenerated ToC
+      
 -->
 
 **Changes in LDML Version 49 (Differences from Version 48.2)**

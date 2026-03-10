@@ -3064,22 +3064,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<field type="minute-short">
 				<displayName>мин.</displayName>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="one">за {0} мин.</relativeTimePattern>
+					<relativeTimePattern count="few">за {0} мин.</relativeTimePattern>
+					<relativeTimePattern count="other">за {0} мин.</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="one">прије {0} мин.</relativeTimePattern>
+					<relativeTimePattern count="few">прије {0} мин.</relativeTimePattern>
+					<relativeTimePattern count="other">прије {0} мин.</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="minute-narrow">
 				<displayName>мин</displayName>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="one">за {0} мин.</relativeTimePattern>
+					<relativeTimePattern count="few">за {0} мин.</relativeTimePattern>
+					<relativeTimePattern count="other">за {0} мин.</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">прије {0} мин.</relativeTimePattern>

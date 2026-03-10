@@ -125,6 +125,7 @@ import AddValueTagsEdit from "./AddValueTagsEdit.vue";
 
 import * as cldrAddValue from "../esm/cldrAddValue.mjs";
 import * as cldrConstants from "../esm/cldrConstants.mjs";
+import * as cldrLoad from "../esm/cldrLoad.mjs";
 import * as cldrStatus from "../esm/cldrStatus.mjs";
 
 const DEBUG = true;
@@ -178,6 +179,10 @@ function setXpathStringId(id) {
 }
 
 function showModal(event) {
+  if (cldrStatus.getCurrentId() !== xpstrid.value) {
+    cldrLoad.updateCurrentId(xpstrid.value);
+  }
+
   // Use the coordinates of the button's top-left corner
   formLeft.value = event.clientX - event.offsetX;
   formTop.value = event.clientY - event.offsetY;

@@ -34,10 +34,10 @@ function setFormIsVisible(visible, xpstrid) {
 function addValueButton(containerEl, xpstrid, overrideDir) {
   try {
     const dir = overrideDir || cldrSurvey.locInfo()?.dir;
-    const AddValueWrapper = cldrVue.mount(AddValue, containerEl, {
+    const addValueWrapper = cldrVue.mount(AddValue, containerEl, {
       dir,
     });
-    AddValueWrapper.setXpathStringId(xpstrid);
+    addValueWrapper.setXpathStringId(xpstrid);
   } catch (e) {
     console.error(
       "Error loading Add Value Button vue " + e.message + " / " + e.name

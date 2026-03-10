@@ -1,5 +1,5 @@
 /*
- * cldrVoteTable: add table showing votes in Info Panel
+ * cldrVoteTable: construct data for table showing votes in Info Panel
  */
 import * as cldrNotify from "./cldrNotify.mjs";
 import * as cldrSurvey from "../esm/cldrSurvey.mjs";
@@ -7,9 +7,7 @@ import * as cldrText from "../esm/cldrText.mjs";
 import * as cldrUserLevels from "./cldrUserLevels.mjs";
 import * as cldrVue from "./cldrVue.mjs";
 
-import InfoVoting from "../views/InfoVoting.vue";
-
-function add(containerEl, votingResults, item, value, totalVoteCount) {
+function construct(votingResults, item, value, totalVoteCount) {
   try {
     const voteRows = addRows(votingResults, item, value);
     if (!voteRows?.length) {
@@ -22,15 +20,16 @@ function add(containerEl, votingResults, item, value, totalVoteCount) {
      */
     const baileyClass =
       item.rawValue === cldrSurvey.INHERITANCE_MARKER ? item.status : "";
-    const wrapper = cldrVue.mount(InfoVoting, containerEl);
-    wrapper.setData({
+    return {
       totalVoteCount: totalVoteCount,
       voteRows: voteRows,
       baileyClass: baileyClass,
-    });
+    };
   } catch (e) {
-    console.error("Error loading InfoVoting vue " + e.message + " / " + e.name);
-    cldrNotify.exception(e, "while loading InfoVoting");
+    console.error(
+      "Error constructing cldrVoteTable " + e.message + " / " + e.name
+    );
+    cldrNotify.exception(e, "while constructing cldrVoteTable");
   }
 }
 
@@ -43,8 +42,10 @@ function addRows(votingResults, item, value) {
       cldrUserLevels.ANONYMOUS
     );
   const voteRows = [];
-  if (itemVotesLength == 0 || anon) {
+  if (anon) {
     addAnonVote(voteRows, anon);
+  } else if (itemVotesLength == 0) {
+    addNoVotes(voteRows);
   } else {
     updateRowVoteInfoForAllOrgs(voteRows, votingResults, value, item);
   }
@@ -57,6 +58,17 @@ function addAnonVote(voteRows, anon) {
   const voteInfo = {
     voteCount: noVotes,
     userName: anonVoter,
+    email: "",
+    details: null,
+  };
+  voteRows.push(makeVoteObj("" /* org */, voteInfo));
+}
+
+function addNoVotes(voteRows) {
+  const noVotes = cldrText.get("voteInfo_noVotes");
+  const voteInfo = {
+    voteCount: noVotes,
+    userName: "",
     email: "",
     details: null,
   };
@@ -149,4 +161,4 @@ function getEmail(voteInfo) {
     : cldrText.get("emailHidden");
 }
 
-export { add };
+export { construct };

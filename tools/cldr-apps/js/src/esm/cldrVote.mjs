@@ -83,6 +83,9 @@ async function handleWiredClick(tr, theRow, vHash, newValue, button) {
   if (!tr || !theRow || tr.wait) {
     return;
   }
+  if (vHash) {
+    cldrStatus.setCurrentValueHash(vHash);
+  }
   var value = "";
   var valToShow;
   if (newValue || newValue === "") {
@@ -162,6 +165,9 @@ async function handleWiredClick(tr, theRow, vHash, newValue, button) {
  * @param {String} valToShow the value the user is voting for
  */
 function handleVoteOk(json, tr, theRow, button, valToShow) {
+  if (theRow.voteVhash) {
+    cldrStatus.setCurrentValueHash(theRow.voteVhash);
+  }
   if (json.err && json.err.length > 0) {
     handleVoteErr(tr, json.err, button);
   } else if (json.didVote) {
@@ -191,6 +197,7 @@ function handleVoteSubmitted(json, tr, theRow, button, valToShow) {
       button.checked = false;
       cldrSurvey.hideLoader();
       if (json.testResults && (json.hasTestWarnings || json.hasTestErrors)) {
+        // Is this still necessary, or cruft?
         showProposedItem(tr, theRow, valToShow, json);
       }
       if (CLDR_VOTE_DEBUG) {
@@ -277,7 +284,7 @@ function showVoteNotSubmitted(tr, theRow, value, json) {
 }
 
 function showVoteNotAllowed(theRow, value, json) {
-  const ourItem = cldrSurvey.findItemByValue(theRow.items, value);
+  const ourItem = cldrTable.findItemByProcessedValue(theRow, value);
   const replaceErrors = json.statusAction === "FORBID_PERMANENT_WITHOUT_FORUM";
   let tests = json.testResults;
   if (replaceErrors) {
@@ -322,7 +329,7 @@ function showVoteNotAllowed(theRow, value, json) {
 
 function showProposedItem(tr, theRow, value, json) {
   const tests = json.testResults;
-  const ourItem = cldrSurvey.findItemByValue(theRow.items, value);
+  const ourItem = cldrTable.findItemByProcessedValue(theRow, value);
   const ourDiv = ourItem ? ourItem.div : document.createElement("div");
   const testKind = getTestKind(tests);
   cldrTable.setDivClassSelected(ourDiv, testKind);
@@ -343,15 +350,8 @@ function showProposedItem(tr, theRow, value, json) {
       ]);
       div3.appendChild(cldrDom.createChunk(text, "p", ""));
     }
-
     div3.popParent = tr;
-
-    // will replace any existing function
-    const ourShowFn = function (showDiv) {
-      return ourItem?.showFn ? ourItem.showFn(showDiv) : null;
-    };
-    cldrTable.listen(null, tr, ourDiv, ourShowFn);
-    cldrInfo.showRowObjFunc(tr, ourDiv, ourShowFn);
+    cldrTable.listen(tr, ourDiv, null);
   }
 }
 

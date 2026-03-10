@@ -7961,6 +7961,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>sat</displayName>
 				<relative type="0">ovaj sat</relative>
 				<relativeTime type="future">
+					<relativeTimePattern count="one">za {0} sati</relativeTimePattern>
+					<relativeTimePattern count="few">za {0} sati</relativeTimePattern>
+					<relativeTimePattern count="other">za {0} sati</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">prije {0} sati</relativeTimePattern>
+					<relativeTimePattern count="few">prije {0} sati</relativeTimePattern>
+					<relativeTimePattern count="other">prije {0} sati</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="hour-short">
+				<displayName>sati</displayName>
+				<relative type="0">↑↑↑</relative>
+				<relativeTime type="future">
 					<relativeTimePattern count="one">za {0} sat</relativeTimePattern>
 					<relativeTimePattern count="few">za {0} sata</relativeTimePattern>
 					<relativeTimePattern count="other">za {0} sati</relativeTimePattern>
@@ -7971,32 +7985,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<relativeTimePattern count="other">prije {0} sati</relativeTimePattern>
 				</relativeTime>
 			</field>
-			<field type="hour-short">
-				<displayName>h</displayName>
-				<relative type="0">↑↑↑</relative>
-				<relativeTime type="future">
-					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
-				</relativeTime>
-			</field>
 			<field type="hour-narrow">
 				<displayName>↑↑↑</displayName>
 				<relative type="0">↑↑↑</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="one">za {0} sat</relativeTimePattern>
+					<relativeTimePattern count="few">za {0} sata</relativeTimePattern>
+					<relativeTimePattern count="other">za {0} sati</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="one">prije {0} sat</relativeTimePattern>
+					<relativeTimePattern count="few">prije {0} sata</relativeTimePattern>
+					<relativeTimePattern count="other">prije {0} sati</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="minute">

@@ -36,12 +36,12 @@ jobs:
         bundler-cache: true
     - name: Build Site
       run: 'sh tools/scripts/web/build-site.sh'
-    - name: 'Remove wrangler.jsonc for now (this is the OLD pages build)'
+    - name: 'Remove wrangler.jsonc for now (which is for the NEW workers build)'
       run: 'rm -f wrangler.jsonc'
     - name: Pre-install Wrangler
       if: (github.event_name == 'push') || (github.event.pull_request.head.repo.full_name == 'unicode-org/cldr')
       run: npm i -g wrangler@3.x
-    - name: Deploy cldr.pages.dev
+    - name: Deploy to OLD Pages Site
       if: (github.event_name == 'push') || (github.event.pull_request.head.repo.full_name == 'unicode-org/cldr')
       id: deploy
       uses: cloudflare/wrangler-action@v3
@@ -49,7 +49,7 @@ jobs:
         apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         # use '--branch pr####' (pr###.cldr.pages.dev) for PRs, otherwise goes to cldr.unicode.org (production)
-        command: pages deploy ./_site --project-name=cldr ${{ github.event_name == 'pull_request' && format('--branch pr{0}', github.event.pull_request.number) || '' }}
+        command: pages deploy ./_site --project-name=cldr-old/ ${{ github.event_name == 'pull_request' && format('--branch pr{0}', github.event.pull_request.number) || '' }}
     - name: Calculate changed site files
       id: prdiff
       if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == 'unicode-org/cldr'

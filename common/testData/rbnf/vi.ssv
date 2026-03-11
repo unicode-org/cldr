@@ -1,0 +1,41 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal;1;thứ nhất
+spell;%spellout-ordinal;2;thứ nhì
+spell;%spellout-ordinal;3;thứ ba
+spell;%spellout-ordinal;4;thứ tư
+spell;%spellout-ordinal;5;thứ năm
+spell;%spellout-ordinal;6;thứ sáu
+spell;%spellout-ordinal;7;thứ bảy
+spell;%spellout-ordinal;8;thứ tám
+spell;%spellout-ordinal;9;thứ chín
+spell;%spellout-ordinal;10;thứ mười
+spell;%spellout-cardinal;-1;âm một
+spell;%spellout-cardinal;0;không
+spell;%spellout-cardinal;0.5;không phẩy năm
+spell;%spellout-cardinal;1;một
+spell;%spellout-cardinal;2;hai
+spell;%spellout-numbering;-1;âm một
+spell;%spellout-numbering;0;không
+spell;%spellout-numbering;0.5;không phẩy năm
+spell;%spellout-numbering;1;một
+spell;%spellout-numbering;2;hai
+spell;%spellout-numbering-year;1999;một nghìn chín trăm chín mươi chín
+spell;%spellout-numbering-year;2000;hai nghìn
+spell;%spellout-numbering-year;2001;hai nghìn không trăm lẻ một
+digits;%digits-ordinal;1;thứ 1
+digits;%digits-ordinal;2;thứ 2
+digits;%digits-ordinal;3;thứ 3
+digits;%digits-ordinal;4;thứ 4
+digits;%digits-ordinal;5;thứ 5
+digits;%digits-ordinal;6;thứ 6
+digits;%digits-ordinal;7;thứ 7
+digits;%digits-ordinal;8;thứ 8
+digits;%digits-ordinal;9;thứ 9
+digits;%digits-ordinal;10;thứ 10

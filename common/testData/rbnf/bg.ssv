@@ -1,0 +1,126 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal-neuter;1;първо
+spell;%spellout-ordinal-neuter;2;второ
+spell;%spellout-ordinal-neuter;3;трето
+spell;%spellout-ordinal-neuter;4;четвърто
+spell;%spellout-ordinal-neuter;5;пето
+spell;%spellout-ordinal-neuter;6;шесто
+spell;%spellout-ordinal-neuter;7;седмо
+spell;%spellout-ordinal-neuter;8;осмо
+spell;%spellout-ordinal-neuter;9;девето
+spell;%spellout-ordinal-neuter;10;десето
+spell;%spellout-ordinal-feminine;1;първа
+spell;%spellout-ordinal-feminine;2;втора
+spell;%spellout-ordinal-feminine;3;трета
+spell;%spellout-ordinal-feminine;4;четвърта
+spell;%spellout-ordinal-feminine;5;пета
+spell;%spellout-ordinal-feminine;6;шеста
+spell;%spellout-ordinal-feminine;7;седма
+spell;%spellout-ordinal-feminine;8;осма
+spell;%spellout-ordinal-feminine;9;девета
+spell;%spellout-ordinal-feminine;10;десета
+spell;%spellout-ordinal-masculine;1;първи
+spell;%spellout-ordinal-masculine;2;втори
+spell;%spellout-ordinal-masculine;3;трети
+spell;%spellout-ordinal-masculine;4;четвърти
+spell;%spellout-ordinal-masculine;5;пети
+spell;%spellout-ordinal-masculine;6;шести
+spell;%spellout-ordinal-masculine;7;седми
+spell;%spellout-ordinal-masculine;8;осми
+spell;%spellout-ordinal-masculine;9;девети
+spell;%spellout-ordinal-masculine;10;десети
+spell;%spellout-cardinal-neuter-financial;-1;минус едно
+spell;%spellout-cardinal-neuter-financial;0;нула
+spell;%spellout-cardinal-neuter-financial;0.5;нула цяло и пет
+spell;%spellout-cardinal-neuter-financial;1;едно
+spell;%spellout-cardinal-neuter-financial;2;две
+spell;%spellout-cardinal-feminine-financial;-1;минус една
+spell;%spellout-cardinal-feminine-financial;0;нула
+spell;%spellout-cardinal-feminine-financial;0.5;нула цяло и пет
+spell;%spellout-cardinal-feminine-financial;1;една
+spell;%spellout-cardinal-feminine-financial;2;две
+spell;%spellout-cardinal-masculine-financial;-1;минус един
+spell;%spellout-cardinal-masculine-financial;0;нула
+spell;%spellout-cardinal-masculine-financial;0.5;нула цяло и пет
+spell;%spellout-cardinal-masculine-financial;1;един
+spell;%spellout-cardinal-masculine-financial;2;два
+spell;%spellout-cardinal-masculine-personal-financial;-1;минус един
+spell;%spellout-cardinal-masculine-personal-financial;0;нула
+spell;%spellout-cardinal-masculine-personal-financial;0.5;нула цяло и петима
+spell;%spellout-cardinal-masculine-personal-financial;1;един
+spell;%spellout-cardinal-masculine-personal-financial;2;двама
+spell;%spellout-cardinal-masculine-personal;-1;минус един
+spell;%spellout-cardinal-masculine-personal;0;нула
+spell;%spellout-cardinal-masculine-personal;0.5;нула цяло и петима
+spell;%spellout-cardinal-masculine-personal;1;един
+spell;%spellout-cardinal-masculine-personal;2;двама
+spell;%spellout-cardinal-neuter;-1;минус едно
+spell;%spellout-cardinal-neuter;0;нула
+spell;%spellout-cardinal-neuter;0.5;нула цяло и пет
+spell;%spellout-cardinal-neuter;1;едно
+spell;%spellout-cardinal-neuter;2;две
+spell;%spellout-cardinal-feminine;-1;минус една
+spell;%spellout-cardinal-feminine;0;нула
+spell;%spellout-cardinal-feminine;0.5;нула цяло и пет
+spell;%spellout-cardinal-feminine;1;една
+spell;%spellout-cardinal-feminine;2;две
+spell;%spellout-cardinal-masculine;-1;минус един
+spell;%spellout-cardinal-masculine;0;нула
+spell;%spellout-cardinal-masculine;0.5;нула цяло и пет
+spell;%spellout-cardinal-masculine;1;един
+spell;%spellout-cardinal-masculine;2;два
+spell;%spellout-numbering;-1;минус едно
+spell;%spellout-numbering;0;нула
+spell;%spellout-numbering;0.5;нула цяло и пет
+spell;%spellout-numbering;1;едно
+spell;%spellout-numbering;2;две
+spell;%spellout-numbering-year;1999;хиляда деветстотин деветдесет и девет
+spell;%spellout-numbering-year;2000;две хиляди
+spell;%spellout-numbering-year;2001;две хиляди и едно
+digits;%digits-ordinal;1;1-и
+digits;%digits-ordinal;2;2-и
+digits;%digits-ordinal;3;3-и
+digits;%digits-ordinal;4;4-и
+digits;%digits-ordinal;5;5-и
+digits;%digits-ordinal;6;6-и
+digits;%digits-ordinal;7;7-и
+digits;%digits-ordinal;8;8-и
+digits;%digits-ordinal;9;9-и
+digits;%digits-ordinal;10;10-и
+digits;%digits-ordinal-neuter;1;1-о
+digits;%digits-ordinal-neuter;2;2-о
+digits;%digits-ordinal-neuter;3;3-о
+digits;%digits-ordinal-neuter;4;4-о
+digits;%digits-ordinal-neuter;5;5-о
+digits;%digits-ordinal-neuter;6;6-о
+digits;%digits-ordinal-neuter;7;7-о
+digits;%digits-ordinal-neuter;8;8-о
+digits;%digits-ordinal-neuter;9;9-о
+digits;%digits-ordinal-neuter;10;10-о
+digits;%digits-ordinal-feminine;1;1-а
+digits;%digits-ordinal-feminine;2;2-а
+digits;%digits-ordinal-feminine;3;3-а
+digits;%digits-ordinal-feminine;4;4-а
+digits;%digits-ordinal-feminine;5;5-а
+digits;%digits-ordinal-feminine;6;6-а
+digits;%digits-ordinal-feminine;7;7-а
+digits;%digits-ordinal-feminine;8;8-а
+digits;%digits-ordinal-feminine;9;9-а
+digits;%digits-ordinal-feminine;10;10-а
+digits;%digits-ordinal-masculine;1;1-и
+digits;%digits-ordinal-masculine;2;2-и
+digits;%digits-ordinal-masculine;3;3-и
+digits;%digits-ordinal-masculine;4;4-и
+digits;%digits-ordinal-masculine;5;5-и
+digits;%digits-ordinal-masculine;6;6-и
+digits;%digits-ordinal-masculine;7;7-и
+digits;%digits-ordinal-masculine;8;8-и
+digits;%digits-ordinal-masculine;9;9-и
+digits;%digits-ordinal-masculine;10;10-и

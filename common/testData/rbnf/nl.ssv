@@ -1,0 +1,46 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal;1;eerste
+spell;%spellout-ordinal;2;tweede
+spell;%spellout-ordinal;3;derde
+spell;%spellout-ordinal;4;vierde
+spell;%spellout-ordinal;5;vijfde
+spell;%spellout-ordinal;6;zesde
+spell;%spellout-ordinal;7;zevende
+spell;%spellout-ordinal;8;achtste
+spell;%spellout-ordinal;9;negende
+spell;%spellout-ordinal;10;tiende
+spell;%spellout-cardinal-stressed;-1;min één
+spell;%spellout-cardinal-stressed;0;nul
+spell;%spellout-cardinal-stressed;0.5;nul komma vijf
+spell;%spellout-cardinal-stressed;1;één
+spell;%spellout-cardinal-stressed;2;twee
+spell;%spellout-cardinal;-1;min een
+spell;%spellout-cardinal;0;nul
+spell;%spellout-cardinal;0.5;nul komma vijf
+spell;%spellout-cardinal;1;een
+spell;%spellout-cardinal;2;twee
+spell;%spellout-numbering;-1;min een
+spell;%spellout-numbering;0;nul
+spell;%spellout-numbering;0.5;nul komma vijf
+spell;%spellout-numbering;1;een
+spell;%spellout-numbering;2;twee
+spell;%spellout-numbering-year;1999;negentiennegen­en­negentig
+spell;%spellout-numbering-year;2000;twee­duizend
+spell;%spellout-numbering-year;2001;twee­duizend­een
+digits;%digits-ordinal;1;1e
+digits;%digits-ordinal;2;2e
+digits;%digits-ordinal;3;3e
+digits;%digits-ordinal;4;4e
+digits;%digits-ordinal;5;5e
+digits;%digits-ordinal;6;6e
+digits;%digits-ordinal;7;7e
+digits;%digits-ordinal;8;8e
+digits;%digits-ordinal;9;9e
+digits;%digits-ordinal;10;10e

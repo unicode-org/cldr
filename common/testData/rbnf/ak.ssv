@@ -1,0 +1,31 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal;1;a-ɛ-di-kane
+spell;%spellout-ordinal;2;a-ɛ-tɔ-so-abien
+spell;%spellout-ordinal;3;a-ɛ-tɔ-so-abiasa
+spell;%spellout-ordinal;4;a-ɛ-tɔ-so-anan
+spell;%spellout-ordinal;5;a-ɛ-tɔ-so-anum
+spell;%spellout-ordinal;6;a-ɛ-tɔ-so-asia
+spell;%spellout-ordinal;7;a-ɛ-tɔ-so-asuon
+spell;%spellout-ordinal;8;a-ɛ-tɔ-so-awɔtwe
+spell;%spellout-ordinal;9;a-ɛ-tɔ-so-akron
+spell;%spellout-ordinal;10;a-ɛ-tɔ-so-du
+spell;%spellout-cardinal;-1;kaw koro
+spell;%spellout-cardinal;0;hwee
+spell;%spellout-cardinal;0.5;hwee pɔw anum
+spell;%spellout-cardinal;1;koro
+spell;%spellout-cardinal;2;abien
+spell;%spellout-numbering;-1;kaw koro
+spell;%spellout-numbering;0;hwee
+spell;%spellout-numbering;0.5;hwee pɔw anum
+spell;%spellout-numbering;1;koro
+spell;%spellout-numbering;2;abien
+spell;%spellout-numbering-year;1999;koro akron akron akron
+spell;%spellout-numbering-year;2000;abien hwee hwee hwee
+spell;%spellout-numbering-year;2001;abien hwee hwee koro

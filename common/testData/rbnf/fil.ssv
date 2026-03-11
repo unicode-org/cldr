@@ -1,0 +1,41 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal;1;ika isá
+spell;%spellout-ordinal;2;ika dalawá
+spell;%spellout-ordinal;3;ika tatló
+spell;%spellout-ordinal;4;ika ápat
+spell;%spellout-ordinal;5;ika limá
+spell;%spellout-ordinal;6;ika anim
+spell;%spellout-ordinal;7;ika pitó
+spell;%spellout-ordinal;8;ika waló
+spell;%spellout-ordinal;9;ika siyám
+spell;%spellout-ordinal;10;ika sampû
+spell;%spellout-cardinal;-1;minus isá
+spell;%spellout-cardinal;0;walâ
+spell;%spellout-cardinal;0.5;walâ tuldok limá
+spell;%spellout-cardinal;1;isá
+spell;%spellout-cardinal;2;dalawá
+spell;%spellout-numbering;-1;minus isá
+spell;%spellout-numbering;0;walâ
+spell;%spellout-numbering;0.5;walâ tuldok limá
+spell;%spellout-numbering;1;isá
+spell;%spellout-numbering;2;dalawá
+spell;%spellout-numbering-year;1999;isáng libó’t siyám na daán at siyám na pû’t siyám
+spell;%spellout-numbering-year;2000;dalawáng libó
+spell;%spellout-numbering-year;2001;dalawáng libó’t isá
+digits;%digits-ordinal;1;ika1
+digits;%digits-ordinal;2;ika2
+digits;%digits-ordinal;3;ika3
+digits;%digits-ordinal;4;ika4
+digits;%digits-ordinal;5;ika5
+digits;%digits-ordinal;6;ika6
+digits;%digits-ordinal;7;ika7
+digits;%digits-ordinal;8;ika8
+digits;%digits-ordinal;9;ika9
+digits;%digits-ordinal;10;ika10

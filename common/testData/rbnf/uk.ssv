@@ -1,0 +1,71 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-cardinal-feminine;-1;мінус одна
+spell;%spellout-cardinal-feminine;0;нуль
+spell;%spellout-cardinal-feminine;0.5;нуль кома пʼять
+spell;%spellout-cardinal-feminine;1;одна
+spell;%spellout-cardinal-feminine;2;дві
+spell;%spellout-cardinal-neuter;-1;мінус одне
+spell;%spellout-cardinal-neuter;0;нуль
+spell;%spellout-cardinal-neuter;0.5;нуль кома пʼять
+spell;%spellout-cardinal-neuter;1;одне
+spell;%spellout-cardinal-neuter;2;два
+spell;%spellout-cardinal-masculine;-1;мінус один
+spell;%spellout-cardinal-masculine;0;нуль
+spell;%spellout-cardinal-masculine;0.5;нуль кома пʼять
+spell;%spellout-cardinal-masculine;1;один
+spell;%spellout-cardinal-masculine;2;два
+spell;%spellout-numbering;-1;мінус один
+spell;%spellout-numbering;0;нуль
+spell;%spellout-numbering;0.5;нуль кома пʼять
+spell;%spellout-numbering;1;один
+spell;%spellout-numbering;2;два
+spell;%spellout-numbering-year;1999;одна тисяча девʼятсот девʼяносто девʼять
+spell;%spellout-numbering-year;2000;дві тисячі
+spell;%spellout-numbering-year;2001;дві тисячі один
+digits;%digits-ordinal-feminine;1;1-а
+digits;%digits-ordinal-feminine;2;2-а
+digits;%digits-ordinal-feminine;3;3-я
+digits;%digits-ordinal-feminine;4;4-а
+digits;%digits-ordinal-feminine;5;5-а
+digits;%digits-ordinal-feminine;6;6-а
+digits;%digits-ordinal-feminine;7;7-а
+digits;%digits-ordinal-feminine;8;8-а
+digits;%digits-ordinal-feminine;9;9-а
+digits;%digits-ordinal-feminine;10;10-а
+digits;%digits-ordinal-neuter;1;1-е
+digits;%digits-ordinal-neuter;2;2-е
+digits;%digits-ordinal-neuter;3;3-є
+digits;%digits-ordinal-neuter;4;4-е
+digits;%digits-ordinal-neuter;5;5-е
+digits;%digits-ordinal-neuter;6;6-е
+digits;%digits-ordinal-neuter;7;7-е
+digits;%digits-ordinal-neuter;8;8-е
+digits;%digits-ordinal-neuter;9;9-е
+digits;%digits-ordinal-neuter;10;10-е
+digits;%digits-ordinal-masculine;1;1-ий
+digits;%digits-ordinal-masculine;2;2-ий
+digits;%digits-ordinal-masculine;3;3-ій
+digits;%digits-ordinal-masculine;4;4-ий
+digits;%digits-ordinal-masculine;5;5-ий
+digits;%digits-ordinal-masculine;6;6-ий
+digits;%digits-ordinal-masculine;7;7-ий
+digits;%digits-ordinal-masculine;8;8-ий
+digits;%digits-ordinal-masculine;9;9-ий
+digits;%digits-ordinal-masculine;10;10-ий
+digits;%digits-ordinal;1;1-ий
+digits;%digits-ordinal;2;2-ий
+digits;%digits-ordinal;3;3-ій
+digits;%digits-ordinal;4;4-ий
+digits;%digits-ordinal;5;5-ий
+digits;%digits-ordinal;6;6-ий
+digits;%digits-ordinal;7;7-ий
+digits;%digits-ordinal;8;8-ий
+digits;%digits-ordinal;9;9-ий
+digits;%digits-ordinal;10;10-ий

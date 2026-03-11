@@ -1,0 +1,36 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-cardinal-reale;-1;minus éin
+spell;%spellout-cardinal-reale;0;null
+spell;%spellout-cardinal-reale;0.5;null komma fem
+spell;%spellout-cardinal-reale;1;éin
+spell;%spellout-cardinal-reale;2;to
+spell;%spellout-cardinal-feminine;-1;minus éin
+spell;%spellout-cardinal-feminine;0;null
+spell;%spellout-cardinal-feminine;0.5;null komma fem
+spell;%spellout-cardinal-feminine;1;éin
+spell;%spellout-cardinal-feminine;2;to
+spell;%spellout-cardinal-masculine;-1;minus éin
+spell;%spellout-cardinal-masculine;0;null
+spell;%spellout-cardinal-masculine;0.5;null komma fem
+spell;%spellout-cardinal-masculine;1;éin
+spell;%spellout-cardinal-masculine;2;to
+spell;%spellout-cardinal-neuter;-1;minus eitt
+spell;%spellout-cardinal-neuter;0;null
+spell;%spellout-cardinal-neuter;0.5;null komma fem
+spell;%spellout-cardinal-neuter;1;eitt
+spell;%spellout-cardinal-neuter;2;to
+spell;%spellout-numbering;-1;minus éin
+spell;%spellout-numbering;0;null
+spell;%spellout-numbering;0.5;null komma fem
+spell;%spellout-numbering;1;éin
+spell;%spellout-numbering;2;to
+spell;%spellout-numbering-year;1999;nitten hundre og nitti­ni
+spell;%spellout-numbering-year;2000;tjue hundre
+spell;%spellout-numbering-year;2001;tjue hundre og éin

@@ -1,0 +1,62 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal-feminine;1;prva
+spell;%spellout-ordinal-feminine;2;druga
+spell;%spellout-ordinal-feminine;3;treća
+spell;%spellout-ordinal-feminine;4;četvrta
+spell;%spellout-ordinal-feminine;5;peta
+;spell;%spellout-ordinal-feminine;6;šesta
+spell;%spellout-ordinal-feminine;7;sedma
+spell;%spellout-ordinal-feminine;8;osma
+spell;%spellout-ordinal-feminine;9;deveta
+spell;%spellout-ordinal-feminine;10;deseta
+spell;%spellout-ordinal-neuter;1;prvo
+spell;%spellout-ordinal-neuter;2;drugo
+spell;%spellout-ordinal-neuter;3;treće
+spell;%spellout-ordinal-neuter;4;četvrto
+spell;%spellout-ordinal-neuter;5;peto
+;spell;%spellout-ordinal-neuter;6;šesto
+spell;%spellout-ordinal-neuter;7;sedmo
+spell;%spellout-ordinal-neuter;8;osmo
+spell;%spellout-ordinal-neuter;9;deveto
+spell;%spellout-ordinal-neuter;10;deseto
+spell;%spellout-ordinal-masculine;1;prvi
+spell;%spellout-ordinal-masculine;2;drugi
+spell;%spellout-ordinal-masculine;3;treći
+spell;%spellout-ordinal-masculine;4;četvrti
+spell;%spellout-ordinal-masculine;5;peti
+# Bad parse of 6 --> 600
+;spell;%spellout-ordinal-masculine;6;šesti
+spell;%spellout-ordinal-masculine;7;sedmi
+spell;%spellout-ordinal-masculine;8;osmi
+spell;%spellout-ordinal-masculine;9;deveti
+spell;%spellout-ordinal-masculine;10;deseti
+spell;%spellout-cardinal-feminine;-1;minus jedna
+spell;%spellout-cardinal-feminine;0;nula
+spell;%spellout-cardinal-feminine;0.5;nula zarez pet
+spell;%spellout-cardinal-feminine;1;jedna
+spell;%spellout-cardinal-feminine;2;dvije
+spell;%spellout-cardinal-neuter;-1;minus jedno
+spell;%spellout-cardinal-neuter;0;nula
+spell;%spellout-cardinal-neuter;0.5;nula zarez pet
+spell;%spellout-cardinal-neuter;1;jedno
+spell;%spellout-cardinal-neuter;2;dva
+spell;%spellout-cardinal-masculine;-1;minus jedan
+spell;%spellout-cardinal-masculine;0;nula
+spell;%spellout-cardinal-masculine;0.5;nula zarez pet
+spell;%spellout-cardinal-masculine;1;jedan
+spell;%spellout-cardinal-masculine;2;dva
+spell;%spellout-numbering;-1;minus jedan
+spell;%spellout-numbering;0;nula
+spell;%spellout-numbering;0.5;nula zarez pet
+spell;%spellout-numbering;1;jedan
+spell;%spellout-numbering;2;dva
+spell;%spellout-numbering-year;1999;tisuću devetsto devedeset i devet
+spell;%spellout-numbering-year;2000;dvije tisuće
+spell;%spellout-numbering-year;2001;dvije tisuće jedan

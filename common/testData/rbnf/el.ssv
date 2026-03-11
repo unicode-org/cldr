@@ -1,0 +1,71 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal-neuter;1;πρώτο
+spell;%spellout-ordinal-neuter;2;δεύτερο
+spell;%spellout-ordinal-neuter;3;τρίτο
+spell;%spellout-ordinal-neuter;4;τέταρτο
+spell;%spellout-ordinal-neuter;5;πέμπτο
+spell;%spellout-ordinal-neuter;6;έκτο
+spell;%spellout-ordinal-neuter;7;έβδομο
+spell;%spellout-ordinal-neuter;8;όγδο
+spell;%spellout-ordinal-neuter;9;ένατο
+spell;%spellout-ordinal-neuter;10;δέκατο
+spell;%spellout-ordinal-feminine;1;πρώτη
+spell;%spellout-ordinal-feminine;2;δεύτερη
+spell;%spellout-ordinal-feminine;3;τρίτη
+spell;%spellout-ordinal-feminine;4;τέταρτη
+spell;%spellout-ordinal-feminine;5;πέμπτη
+spell;%spellout-ordinal-feminine;6;έκτη
+spell;%spellout-ordinal-feminine;7;έβδομη
+spell;%spellout-ordinal-feminine;8;όγδοη
+spell;%spellout-ordinal-feminine;9;ένατη
+spell;%spellout-ordinal-feminine;10;δέκατη
+spell;%spellout-ordinal-masculine;1;πρώτος
+spell;%spellout-ordinal-masculine;2;δεύτερος
+spell;%spellout-ordinal-masculine;3;τρίτος
+spell;%spellout-ordinal-masculine;4;τέταρτος
+spell;%spellout-ordinal-masculine;5;πέμπτος
+spell;%spellout-ordinal-masculine;6;έκτος
+spell;%spellout-ordinal-masculine;7;έβδομος
+spell;%spellout-ordinal-masculine;8;όγδοος
+spell;%spellout-ordinal-masculine;9;ένατος
+spell;%spellout-ordinal-masculine;10;δέκατος
+spell;%spellout-cardinal-neuter;-1;μείον ένα
+spell;%spellout-cardinal-neuter;0;μηδέν
+spell;%spellout-cardinal-neuter;0.5;μηδέν κόμμα πέντε
+spell;%spellout-cardinal-neuter;1;ένα
+spell;%spellout-cardinal-neuter;2;δύο
+spell;%spellout-cardinal-feminine;-1;μείον μία
+spell;%spellout-cardinal-feminine;0;μηδέν
+spell;%spellout-cardinal-feminine;0.5;μηδέν κόμμα πέντε
+spell;%spellout-cardinal-feminine;1;μία
+spell;%spellout-cardinal-feminine;2;δύο
+spell;%spellout-cardinal-masculine;-1;μείον ένας
+spell;%spellout-cardinal-masculine;0;μηδέν
+spell;%spellout-cardinal-masculine;0.5;μηδέν κόμμα πέντε
+spell;%spellout-cardinal-masculine;1;ένας
+spell;%spellout-cardinal-masculine;2;δύο
+spell;%spellout-numbering;-1;μείον ένα
+spell;%spellout-numbering;0;μηδέν
+spell;%spellout-numbering;0.5;μηδέν κόμμα πέντε
+spell;%spellout-numbering;1;ένα
+spell;%spellout-numbering;2;δύο
+spell;%spellout-numbering-year;1999;χίλια εννιακόσια εννενήντα εννέα
+spell;%spellout-numbering-year;2000;δύο χίλιάδες
+spell;%spellout-numbering-year;2001;δύο χίλιάδες ένα
+digits;%digits-ordinal;1;1
+digits;%digits-ordinal;2;2
+digits;%digits-ordinal;3;3
+digits;%digits-ordinal;4;4
+digits;%digits-ordinal;5;5
+digits;%digits-ordinal;6;6
+digits;%digits-ordinal;7;7
+digits;%digits-ordinal;8;8
+digits;%digits-ordinal;9;9
+digits;%digits-ordinal;10;10

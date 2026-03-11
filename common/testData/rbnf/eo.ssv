@@ -1,0 +1,31 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal;1;unua
+spell;%spellout-ordinal;2;dua
+spell;%spellout-ordinal;3;tria
+spell;%spellout-ordinal;4;kvara
+spell;%spellout-ordinal;5;kvina
+spell;%spellout-ordinal;6;sesa
+spell;%spellout-ordinal;7;sepa
+spell;%spellout-ordinal;8;oka
+spell;%spellout-ordinal;9;naŭa
+spell;%spellout-ordinal;10;deka
+spell;%spellout-cardinal;-1;minus unu
+spell;%spellout-cardinal;0;nulo
+spell;%spellout-cardinal;0.5;nulo komo kvin
+spell;%spellout-cardinal;1;unu
+spell;%spellout-cardinal;2;du
+spell;%spellout-numbering;-1;minus unu
+spell;%spellout-numbering;0;nulo
+spell;%spellout-numbering;0.5;nulo komo kvin
+spell;%spellout-numbering;1;unu
+spell;%spellout-numbering;2;du
+spell;%spellout-numbering-year;1999;mil naŭcent naŭdek naŭ
+spell;%spellout-numbering-year;2000;du mil
+spell;%spellout-numbering-year;2001;du mil unu

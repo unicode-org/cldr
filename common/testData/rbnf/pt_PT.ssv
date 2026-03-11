@@ -1,0 +1,46 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal-feminine;1;primeira
+spell;%spellout-ordinal-feminine;2;segunda
+spell;%spellout-ordinal-feminine;3;terceira
+spell;%spellout-ordinal-feminine;4;quarta
+spell;%spellout-ordinal-feminine;5;quinta
+spell;%spellout-ordinal-feminine;6;sexta
+spell;%spellout-ordinal-feminine;7;sétima
+spell;%spellout-ordinal-feminine;8;oitava
+spell;%spellout-ordinal-feminine;9;nona
+spell;%spellout-ordinal-feminine;10;décima
+spell;%spellout-ordinal-masculine;1;primeiro
+spell;%spellout-ordinal-masculine;2;segundo
+spell;%spellout-ordinal-masculine;3;terceiro
+spell;%spellout-ordinal-masculine;4;quarto
+spell;%spellout-ordinal-masculine;5;quinto
+spell;%spellout-ordinal-masculine;6;sexto
+spell;%spellout-ordinal-masculine;7;sétimo
+spell;%spellout-ordinal-masculine;8;oitavo
+spell;%spellout-ordinal-masculine;9;nono
+spell;%spellout-ordinal-masculine;10;décimo
+spell;%spellout-cardinal-feminine;-1;menos uma
+spell;%spellout-cardinal-feminine;0;zero
+spell;%spellout-cardinal-feminine;0.5;zero vírgula cinco
+spell;%spellout-cardinal-feminine;1;uma
+spell;%spellout-cardinal-feminine;2;duas
+spell;%spellout-cardinal-masculine;-1;menos um
+spell;%spellout-cardinal-masculine;0;zero
+spell;%spellout-cardinal-masculine;0.5;zero vírgula cinco
+spell;%spellout-cardinal-masculine;1;um
+spell;%spellout-cardinal-masculine;2;dois
+spell;%spellout-numbering;-1;menos um
+spell;%spellout-numbering;0;zero
+spell;%spellout-numbering;0.5;zero vírgula cinco
+spell;%spellout-numbering;1;um
+spell;%spellout-numbering;2;dois
+spell;%spellout-numbering-year;1999;mil novecentos e noventa e nove
+spell;%spellout-numbering-year;2000;dois mil
+spell;%spellout-numbering-year;2001;dois mil e um

@@ -1,0 +1,36 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-cardinal-feminine-before-consonant;-1;minws un
+spell;%spellout-cardinal-feminine-before-consonant;0;dim
+spell;%spellout-cardinal-feminine-before-consonant;0.5;dim pwynt pum
+spell;%spellout-cardinal-feminine-before-consonant;1;un
+spell;%spellout-cardinal-feminine-before-consonant;2;dwy
+spell;%spellout-cardinal-feminine;-1;minws un
+spell;%spellout-cardinal-feminine;0;dim
+spell;%spellout-cardinal-feminine;0.5;dim pwynt pump
+spell;%spellout-cardinal-feminine;1;un
+spell;%spellout-cardinal-feminine;2;dwy
+spell;%spellout-cardinal-masculine-before-consonant;-1;minws un
+spell;%spellout-cardinal-masculine-before-consonant;0;dim
+spell;%spellout-cardinal-masculine-before-consonant;0.5;dim pwynt pum
+spell;%spellout-cardinal-masculine-before-consonant;1;un
+spell;%spellout-cardinal-masculine-before-consonant;2;dau
+spell;%spellout-cardinal-masculine;-1;minws un
+spell;%spellout-cardinal-masculine;0;dim
+spell;%spellout-cardinal-masculine;0.5;dim pwynt pump
+spell;%spellout-cardinal-masculine;1;un
+spell;%spellout-cardinal-masculine;2;dau
+spell;%spellout-numbering;-1;minws un
+spell;%spellout-numbering;0;dim
+spell;%spellout-numbering;0.5;dim pwynt pump
+spell;%spellout-numbering;1;un
+spell;%spellout-numbering;2;dau
+spell;%spellout-numbering-year;1999;un mil naw cant naw deg naw
+spell;%spellout-numbering-year;2000;dau mil
+spell;%spellout-numbering-year;2001;dau mil un

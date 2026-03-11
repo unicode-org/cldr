@@ -1,0 +1,56 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal-masculine;1;الأول
+spell;%spellout-ordinal-masculine;2;الثاني
+spell;%spellout-ordinal-masculine;3;الثالث
+spell;%spellout-ordinal-masculine;4;الرابع
+spell;%spellout-ordinal-masculine;5;الخامس
+spell;%spellout-ordinal-masculine;6;السادس
+spell;%spellout-ordinal-masculine;7;السابع
+spell;%spellout-ordinal-masculine;8;الثامن
+spell;%spellout-ordinal-masculine;9;التاسع
+spell;%spellout-ordinal-masculine;10;العاشر
+spell;%spellout-ordinal-feminine;1;الأولى
+spell;%spellout-ordinal-feminine;2;الثانية
+spell;%spellout-ordinal-feminine;3;الثالثة
+spell;%spellout-ordinal-feminine;4;الرابعة
+spell;%spellout-ordinal-feminine;5;الخامسة
+spell;%spellout-ordinal-feminine;6;السادسة
+spell;%spellout-ordinal-feminine;7;السابعة
+spell;%spellout-ordinal-feminine;8;الثامنة
+spell;%spellout-ordinal-feminine;9;التاسعة
+spell;%spellout-ordinal-feminine;10;العاشرة
+spell;%spellout-cardinal-masculine;-1;ناقص واحد
+spell;%spellout-cardinal-masculine;0;صفر
+spell;%spellout-cardinal-masculine;0.5;صفر فاصل خمسة 
+spell;%spellout-cardinal-masculine;1;واحد
+spell;%spellout-cardinal-masculine;2;إثنان
+spell;%spellout-cardinal-feminine;-1;ناقص واحدة
+spell;%spellout-cardinal-feminine;0;صفر
+spell;%spellout-cardinal-feminine;0.5;صفر فاصل خمسة
+spell;%spellout-cardinal-feminine;1;واحدة
+spell;%spellout-cardinal-feminine;2;إثنتان
+spell;%spellout-numbering;-1;ناقص واحد
+spell;%spellout-numbering;0;صفر
+spell;%spellout-numbering;0.5;صفر فاصل خمسة
+spell;%spellout-numbering;1;واحد
+spell;%spellout-numbering;2;إثنان
+spell;%spellout-numbering-year;1999;ألف وتسعة مائة وتسعة وتسعون
+spell;%spellout-numbering-year;2000;ألفين
+spell;%spellout-numbering-year;2001;ألفين وواحد
+digits;%digits-ordinal;1;1
+digits;%digits-ordinal;2;2
+digits;%digits-ordinal;3;3
+digits;%digits-ordinal;4;4
+digits;%digits-ordinal;5;5
+digits;%digits-ordinal;6;6
+digits;%digits-ordinal;7;7
+digits;%digits-ordinal;8;8
+digits;%digits-ordinal;9;9
+digits;%digits-ordinal;10;10

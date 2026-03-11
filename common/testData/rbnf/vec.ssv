@@ -1,0 +1,46 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal-feminine;1;prima
+spell;%spellout-ordinal-feminine;2;segonda
+spell;%spellout-ordinal-feminine;3;tersa
+spell;%spellout-ordinal-feminine;4;cuarta
+spell;%spellout-ordinal-feminine;5;cuinta
+spell;%spellout-ordinal-feminine;6;sesta
+spell;%spellout-ordinal-feminine;7;sètema
+spell;%spellout-ordinal-feminine;8;otava
+spell;%spellout-ordinal-feminine;9;nona
+spell;%spellout-ordinal-feminine;10;dèzema
+spell;%spellout-ordinal-masculine;1;primo
+spell;%spellout-ordinal-masculine;2;segondo
+spell;%spellout-ordinal-masculine;3;terso
+spell;%spellout-ordinal-masculine;4;cuarto
+spell;%spellout-ordinal-masculine;5;cuinto
+spell;%spellout-ordinal-masculine;6;sesto
+spell;%spellout-ordinal-masculine;7;sètemo
+spell;%spellout-ordinal-masculine;8;otavo
+spell;%spellout-ordinal-masculine;9;nono
+spell;%spellout-ordinal-masculine;10;dèzemo
+spell;%spellout-cardinal-feminine;-1;manca una
+spell;%spellout-cardinal-feminine;0;zero
+spell;%spellout-cardinal-feminine;0.5;zero vìrgoła sincue
+spell;%spellout-cardinal-feminine;1;una
+spell;%spellout-cardinal-feminine;2;do
+spell;%spellout-cardinal-masculine;-1;manca un
+spell;%spellout-cardinal-masculine;0;zero
+spell;%spellout-cardinal-masculine;0.5;zero vìrgoła ­sincue
+spell;%spellout-cardinal-masculine;1;un
+spell;%spellout-cardinal-masculine;2;du
+spell;%spellout-numbering;-1;manca uno
+spell;%spellout-numbering;0;zero
+spell;%spellout-numbering;0.5;zero vìrgoła sincue
+spell;%spellout-numbering;1;uno
+spell;%spellout-numbering;2;do
+spell;%spellout-numbering-year;1999;miłe­nove­sento­novanta­nove
+spell;%spellout-numbering-year;2000;du­miła
+spell;%spellout-numbering-year;2001;du­miła­uno

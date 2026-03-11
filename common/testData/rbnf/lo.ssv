@@ -1,0 +1,41 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal;1;ที่​ໜຶ່ງ
+spell;%spellout-ordinal;2;ที่​ສອງ
+spell;%spellout-ordinal;3;ที่​ສາມ
+spell;%spellout-ordinal;4;ที่​ສີ່
+spell;%spellout-ordinal;5;ที่​ຫ້າ
+spell;%spellout-ordinal;6;ที่​ຫົກ
+spell;%spellout-ordinal;7;ที่​ເຈັດ
+spell;%spellout-ordinal;8;ที่​ແປດ
+spell;%spellout-ordinal;9;ที่​ເກົ້າ
+spell;%spellout-ordinal;10;ที่​ສິບ
+spell;%spellout-cardinal;-1;ลบ​ໜຶ່ງ
+spell;%spellout-cardinal;0;ศูนย์
+spell;%spellout-cardinal;0.5;ศูนย์​จุด​ຫ້າ
+spell;%spellout-cardinal;1;ໜຶ່ງ
+spell;%spellout-cardinal;2;ສອງ
+spell;%spellout-numbering;-1;ลบ​ໜຶ່ງ
+spell;%spellout-numbering;0;ศูนย์
+spell;%spellout-numbering;0.5;ศูนย์​จุด​ຫ້າ
+spell;%spellout-numbering;1;ໜຶ່ງ
+spell;%spellout-numbering;2;ສອງ
+spell;%spellout-numbering-year;1999;ໜຶ່ງ​พัน​ເກົ້າ​ร้อย​ເກົ້າ​ສິບ​ເກົ້າ
+spell;%spellout-numbering-year;2000;ສອງ​พัน
+spell;%spellout-numbering-year;2001;ສອງ​พัน​ໜຶ່ງ
+digits;%digits-ordinal;1;ที่​1
+digits;%digits-ordinal;2;ที่​2
+digits;%digits-ordinal;3;ที่​3
+digits;%digits-ordinal;4;ที่​4
+digits;%digits-ordinal;5;ที่​5
+digits;%digits-ordinal;6;ที่​6
+digits;%digits-ordinal;7;ที่​7
+digits;%digits-ordinal;8;ที่​8
+digits;%digits-ordinal;9;ที่​9
+digits;%digits-ordinal;10;ที่​10

@@ -1,0 +1,61 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal-neuter;1;першае
+spell;%spellout-ordinal-neuter;2;другое
+spell;%spellout-ordinal-neuter;3;трэццяе
+spell;%spellout-ordinal-neuter;4;чацьвертае
+spell;%spellout-ordinal-neuter;5;пятае
+spell;%spellout-ordinal-neuter;6;шостае
+spell;%spellout-ordinal-neuter;7;сёмае
+spell;%spellout-ordinal-neuter;8;восьмае
+spell;%spellout-ordinal-neuter;9;дзявятае
+spell;%spellout-ordinal-neuter;10;дзясятае
+spell;%spellout-ordinal-feminine;1;першая
+spell;%spellout-ordinal-feminine;2;другая
+spell;%spellout-ordinal-feminine;3;трэццяя
+spell;%spellout-ordinal-feminine;4;чацьвертая
+spell;%spellout-ordinal-feminine;5;пятая
+spell;%spellout-ordinal-feminine;6;шостая
+spell;%spellout-ordinal-feminine;7;сёмая
+spell;%spellout-ordinal-feminine;8;восьмая
+spell;%spellout-ordinal-feminine;9;дзявятая
+spell;%spellout-ordinal-feminine;10;дзясятая
+spell;%spellout-ordinal-masculine;1;першы
+spell;%spellout-ordinal-masculine;2;другі
+spell;%spellout-ordinal-masculine;3;трэйці
+spell;%spellout-ordinal-masculine;4;чацьверты
+spell;%spellout-ordinal-masculine;5;пяты
+spell;%spellout-ordinal-masculine;6;шосты
+spell;%spellout-ordinal-masculine;7;сёмы
+spell;%spellout-ordinal-masculine;8;восьмы
+spell;%spellout-ordinal-masculine;9;дзявяты
+spell;%spellout-ordinal-masculine;10;дзясяты
+spell;%spellout-cardinal-feminine;-1;мінус адна
+spell;%spellout-cardinal-feminine;0;нуль
+spell;%spellout-cardinal-feminine;0.5;нуль коска пяць
+spell;%spellout-cardinal-feminine;1;адна
+spell;%spellout-cardinal-feminine;2;дзве
+spell;%spellout-cardinal-neuter;-1;мінус адно
+spell;%spellout-cardinal-neuter;0;нуль
+spell;%spellout-cardinal-neuter;0.5;нуль коска пяць
+spell;%spellout-cardinal-neuter;1;адно
+spell;%spellout-cardinal-neuter;2;два
+spell;%spellout-cardinal-masculine;-1;мінус адзiн
+spell;%spellout-cardinal-masculine;0;нуль
+spell;%spellout-cardinal-masculine;0.5;нуль коска пяць
+spell;%spellout-cardinal-masculine;1;адзiн
+spell;%spellout-cardinal-masculine;2;два
+spell;%spellout-numbering;-1;мінус адзiн
+spell;%spellout-numbering;0;нуль
+spell;%spellout-numbering;0.5;нуль коска пяць
+spell;%spellout-numbering;1;адзiн
+spell;%spellout-numbering;2;два
+spell;%spellout-numbering-year;1999;адна тысяча дзевяцьсот дзевяноста дзевяць
+spell;%spellout-numbering-year;2000;дзве тысячы
+spell;%spellout-numbering-year;2001;дзве тысячы адзiн

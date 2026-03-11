@@ -1,0 +1,101 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal-m;1;erstem
+spell;%spellout-ordinal-m;2;zweitem
+spell;%spellout-ordinal-m;3;drittem
+spell;%spellout-ordinal-m;4;viertem
+spell;%spellout-ordinal-m;5;fünftem
+spell;%spellout-ordinal-m;6;sechstem
+spell;%spellout-ordinal-m;7;siebtem
+spell;%spellout-ordinal-m;8;achtem
+spell;%spellout-ordinal-m;9;neuntem
+spell;%spellout-ordinal-m;10;zehntem
+spell;%spellout-ordinal-s;1;erstes
+spell;%spellout-ordinal-s;2;zweites
+spell;%spellout-ordinal-s;3;drittes
+spell;%spellout-ordinal-s;4;viertes
+spell;%spellout-ordinal-s;5;fünftes
+spell;%spellout-ordinal-s;6;sechstes
+spell;%spellout-ordinal-s;7;siebtes
+spell;%spellout-ordinal-s;8;achtes
+spell;%spellout-ordinal-s;9;neuntes
+spell;%spellout-ordinal-s;10;zehntes
+spell;%spellout-ordinal-r;1;erster
+spell;%spellout-ordinal-r;2;zweiter
+spell;%spellout-ordinal-r;3;dritter
+spell;%spellout-ordinal-r;4;vierter
+spell;%spellout-ordinal-r;5;fünfter
+spell;%spellout-ordinal-r;6;sechster
+spell;%spellout-ordinal-r;7;siebter
+spell;%spellout-ordinal-r;8;achter
+spell;%spellout-ordinal-r;9;neunter
+spell;%spellout-ordinal-r;10;zehnter
+spell;%spellout-ordinal-n;1;ersten
+spell;%spellout-ordinal-n;2;zweiten
+spell;%spellout-ordinal-n;3;dritten
+spell;%spellout-ordinal-n;4;vierten
+spell;%spellout-ordinal-n;5;fünften
+spell;%spellout-ordinal-n;6;sechsten
+spell;%spellout-ordinal-n;7;siebten
+spell;%spellout-ordinal-n;8;achten
+spell;%spellout-ordinal-n;9;neunten
+spell;%spellout-ordinal-n;10;zehnten
+spell;%spellout-ordinal;1;erste
+spell;%spellout-ordinal;2;zweite
+spell;%spellout-ordinal;3;dritte
+spell;%spellout-ordinal;4;vierte
+spell;%spellout-ordinal;5;fünfte
+spell;%spellout-ordinal;6;sechste
+spell;%spellout-ordinal;7;siebte
+spell;%spellout-ordinal;8;achte
+spell;%spellout-ordinal;9;neunte
+spell;%spellout-ordinal;10;zehnte
+spell;%spellout-cardinal-m;-1;minus einem
+spell;%spellout-cardinal-m;0;null
+spell;%spellout-cardinal-m;0.5;null Komma fünf
+spell;%spellout-cardinal-m;1;einem
+spell;%spellout-cardinal-m;2;zwei
+spell;%spellout-cardinal-s;-1;minus eines
+spell;%spellout-cardinal-s;0;null
+spell;%spellout-cardinal-s;0.5;null Komma fünf
+spell;%spellout-cardinal-s;1;eines
+spell;%spellout-cardinal-s;2;zwei
+spell;%spellout-cardinal-r;-1;minus einer
+spell;%spellout-cardinal-r;0;null
+spell;%spellout-cardinal-r;0.5;null Komma fünf
+spell;%spellout-cardinal-r;1;einer
+spell;%spellout-cardinal-r;2;zwei
+spell;%spellout-cardinal-n;-1;minus einen
+spell;%spellout-cardinal-n;0;null
+spell;%spellout-cardinal-n;0.5;null Komma fünf
+spell;%spellout-cardinal-n;1;einen
+spell;%spellout-cardinal-n;2;zwei
+spell;%spellout-cardinal-feminine;-1;minus eine
+spell;%spellout-cardinal-feminine;0;null
+spell;%spellout-cardinal-feminine;0.5;null Komma fünf
+spell;%spellout-cardinal-feminine;1;eine
+spell;%spellout-cardinal-feminine;2;zwei
+spell;%spellout-cardinal-masculine;-1;minus ein
+spell;%spellout-cardinal-masculine;0;null
+spell;%spellout-cardinal-masculine;0.5;null Komma fünf
+spell;%spellout-cardinal-masculine;1;ein
+spell;%spellout-cardinal-masculine;2;zwei
+spell;%spellout-cardinal-neuter;-1;minus ein
+spell;%spellout-cardinal-neuter;0;null
+spell;%spellout-cardinal-neuter;0.5;null Komma fünf
+spell;%spellout-cardinal-neuter;1;ein
+spell;%spellout-cardinal-neuter;2;zwei
+spell;%spellout-numbering;-1;minus eins
+spell;%spellout-numbering;0;null
+spell;%spellout-numbering;0.5;null Komma fünf
+spell;%spellout-numbering;1;eins
+spell;%spellout-numbering;2;zwei
+spell;%spellout-numbering-year;1999;neunzehn­hundert­neun­und­neunzig
+spell;%spellout-numbering-year;2000;zwei­tausend
+spell;%spellout-numbering-year;2001;zwei­tausend­eins

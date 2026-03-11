@@ -1,0 +1,76 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal-feminine;1;ראשונה
+spell;%spellout-ordinal-feminine;2;שניה
+spell;%spellout-ordinal-feminine;3;שלישית
+spell;%spellout-ordinal-feminine;4;רביעית
+spell;%spellout-ordinal-feminine;5;חמישית
+spell;%spellout-ordinal-feminine;6;שישית
+spell;%spellout-ordinal-feminine;7;שביעית
+spell;%spellout-ordinal-feminine;8;שמינית
+spell;%spellout-ordinal-feminine;9;תשיעית
+spell;%spellout-ordinal-feminine;10;עשירית
+spell;%spellout-ordinal-masculine;1;ראשון
+spell;%spellout-ordinal-masculine;2;שני
+spell;%spellout-ordinal-masculine;3;שלישי
+spell;%spellout-ordinal-masculine;4;רביעי
+spell;%spellout-ordinal-masculine;5;חמישי
+spell;%spellout-ordinal-masculine;6;שישי
+spell;%spellout-ordinal-masculine;7;שביעי
+spell;%spellout-ordinal-masculine;8;שמיני
+spell;%spellout-ordinal-masculine;9;תשיעי
+spell;%spellout-ordinal-masculine;10;עשירי
+spell;%spellout-construct-feminine;-1;מינוס אחת
+spell;%spellout-construct-feminine;0;אפס
+spell;%spellout-construct-feminine;0.5;אפס נקודה חמש
+spell;%spellout-construct-feminine;1;אחת
+spell;%spellout-construct-feminine;2;שתי
+spell;%spellout-construct-masculine;-1;מינוס אחד
+spell;%spellout-construct-masculine;0;אפס
+spell;%spellout-construct-masculine;0.5;אפס נקודה חמשת
+spell;%spellout-construct-masculine;1;אחד
+spell;%spellout-construct-masculine;2;שני
+spell;%spellout-cardinal-feminine-standalone;-1;מינוס אחת
+spell;%spellout-cardinal-feminine-standalone;0;אפס
+spell;%spellout-cardinal-feminine-standalone;0.5;אפס נקודה חמש
+spell;%spellout-cardinal-feminine-standalone;1;אחת
+spell;%spellout-cardinal-feminine-standalone;2;שתיים
+spell;%spellout-cardinal-masculine-standalone;-1;מינוס אחד
+spell;%spellout-cardinal-masculine-standalone;0;אפס
+spell;%spellout-cardinal-masculine-standalone;0.5;אפס נקודה חמישה 
+spell;%spellout-cardinal-masculine-standalone;1;אחד
+spell;%spellout-cardinal-masculine-standalone;2;שניים
+spell;%spellout-cardinal-feminine;-1;מינוס אחת
+spell;%spellout-cardinal-feminine;0;אפס
+spell;%spellout-cardinal-feminine;0.5;אפס נקודה חמש
+spell;%spellout-cardinal-feminine;1;אחת
+spell;%spellout-cardinal-feminine;2;שתי
+spell;%spellout-cardinal-masculine;-1;מינוס אחד
+spell;%spellout-cardinal-masculine;0;אפס
+spell;%spellout-cardinal-masculine;0.5;אפס נקודה חמישה 
+spell;%spellout-cardinal-masculine;1;אחד
+spell;%spellout-cardinal-masculine;2;שני
+spell;%spellout-numbering;-1;מינוס אחת
+spell;%spellout-numbering;0;אפס
+spell;%spellout-numbering;0.5;אפס נקודה חמש
+spell;%spellout-numbering;1;אחת
+spell;%spellout-numbering;2;שתיים
+spell;%spellout-numbering-year;1999;אלף תשע מאות תשעים ותשע
+spell;%spellout-numbering-year;2000;אלפיים
+spell;%spellout-numbering-year;2001;אלפיים ואחת
+digits;%digits-ordinal;1;1
+digits;%digits-ordinal;2;2
+digits;%digits-ordinal;3;3
+digits;%digits-ordinal;4;4
+digits;%digits-ordinal;5;5
+digits;%digits-ordinal;6;6
+digits;%digits-ordinal;7;7
+digits;%digits-ordinal;8;8
+digits;%digits-ordinal;9;9
+digits;%digits-ordinal;10;10

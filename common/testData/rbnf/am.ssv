@@ -1,0 +1,41 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal;1;አንድኛ
+spell;%spellout-ordinal;2;ሁለትኛ
+spell;%spellout-ordinal;3;ሦስትኛ
+spell;%spellout-ordinal;4;አራትኛ
+spell;%spellout-ordinal;5;አምስትኛ
+spell;%spellout-ordinal;6;ስድስትኛ
+spell;%spellout-ordinal;7;ሰባትኛ
+spell;%spellout-ordinal;8;ስምንትኛ
+spell;%spellout-ordinal;9;ዘጠኝኛ
+spell;%spellout-ordinal;10;አስርኛ
+spell;%spellout-cardinal;-1;ቅንስናሽ አንድ
+spell;%spellout-cardinal;0;ባዶ
+spell;%spellout-cardinal;0.5;ባዶ ነጥብ አምስት
+spell;%spellout-cardinal;1;አንድ
+spell;%spellout-cardinal;2;ሁለት
+spell;%spellout-numbering;-1;ቅንስናሽ አንድ
+spell;%spellout-numbering;0;ባዶ
+spell;%spellout-numbering;0.5;ባዶ ነጥብ አምስት
+spell;%spellout-numbering;1;አንድ
+spell;%spellout-numbering;2;ሁለት
+spell;%spellout-numbering-year;1999;አስር ዘጠኝ መቶ ዘጠኝ አስር ዘጠኝ
+spell;%spellout-numbering-year;2000;ሁለት አስር መቶ
+spell;%spellout-numbering-year;2001;ሁለት አስር መቶ አንድ
+digits;%digits-ordinal;1;1ኛ
+digits;%digits-ordinal;2;2ኛ
+digits;%digits-ordinal;3;3ኛ
+digits;%digits-ordinal;4;4ኛ
+digits;%digits-ordinal;5;5ኛ
+digits;%digits-ordinal;6;6ኛ
+digits;%digits-ordinal;7;7ኛ
+digits;%digits-ordinal;8;8ኛ
+digits;%digits-ordinal;9;9ኛ
+digits;%digits-ordinal;10;10ኛ

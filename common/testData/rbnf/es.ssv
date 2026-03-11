@@ -1,0 +1,136 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal-feminine;1;primera
+spell;%spellout-ordinal-feminine;2;segunda
+spell;%spellout-ordinal-feminine;3;tercera
+spell;%spellout-ordinal-feminine;4;cuarta
+spell;%spellout-ordinal-feminine;5;quinta
+spell;%spellout-ordinal-feminine;6;sexta
+spell;%spellout-ordinal-feminine;7;séptima
+spell;%spellout-ordinal-feminine;8;octava
+spell;%spellout-ordinal-feminine;9;novena
+spell;%spellout-ordinal-feminine;10;décima
+spell;%spellout-ordinal-feminine-plural;1;primeras
+spell;%spellout-ordinal-feminine-plural;2;segundas
+spell;%spellout-ordinal-feminine-plural;3;terceras
+spell;%spellout-ordinal-feminine-plural;4;cuartas
+spell;%spellout-ordinal-feminine-plural;5;quintas
+spell;%spellout-ordinal-feminine-plural;6;sextas
+spell;%spellout-ordinal-feminine-plural;7;séptimas
+spell;%spellout-ordinal-feminine-plural;8;octavas
+spell;%spellout-ordinal-feminine-plural;9;novenas
+spell;%spellout-ordinal-feminine-plural;10;décimas
+spell;%spellout-ordinal-masculine;1;primero
+spell;%spellout-ordinal-masculine;2;segundo
+spell;%spellout-ordinal-masculine;3;tercero
+spell;%spellout-ordinal-masculine;4;cuarto
+spell;%spellout-ordinal-masculine;5;quinto
+spell;%spellout-ordinal-masculine;6;sexto
+spell;%spellout-ordinal-masculine;7;séptimo
+spell;%spellout-ordinal-masculine;8;octavo
+spell;%spellout-ordinal-masculine;9;noveno
+spell;%spellout-ordinal-masculine;10;décimo
+spell;%spellout-ordinal-masculine-plural;1;primeros
+spell;%spellout-ordinal-masculine-plural;2;segundos
+spell;%spellout-ordinal-masculine-plural;3;terceros
+spell;%spellout-ordinal-masculine-plural;4;cuartos
+spell;%spellout-ordinal-masculine-plural;5;quintos
+spell;%spellout-ordinal-masculine-plural;6;sextos
+spell;%spellout-ordinal-masculine-plural;7;séptimos
+spell;%spellout-ordinal-masculine-plural;8;octavos
+spell;%spellout-ordinal-masculine-plural;9;novenos
+spell;%spellout-ordinal-masculine-plural;10;décimos
+spell;%spellout-ordinal-masculine-adjective;1;primer
+spell;%spellout-ordinal-masculine-adjective;2;segundo
+spell;%spellout-ordinal-masculine-adjective;3;tercer
+spell;%spellout-ordinal-masculine-adjective;4;cuarto
+spell;%spellout-ordinal-masculine-adjective;5;quinto
+spell;%spellout-ordinal-masculine-adjective;6;sexto
+spell;%spellout-ordinal-masculine-adjective;7;séptimo
+spell;%spellout-ordinal-masculine-adjective;8;octavo
+spell;%spellout-ordinal-masculine-adjective;9;noveno
+spell;%spellout-ordinal-masculine-adjective;10;décimo
+spell;%spellout-cardinal-feminine;-1;menos una
+spell;%spellout-cardinal-feminine;0;cero
+spell;%spellout-cardinal-feminine;0.5;cero coma cinco
+spell;%spellout-cardinal-feminine;1;una
+spell;%spellout-cardinal-feminine;2;dos
+spell;%spellout-cardinal-masculine;-1;menos un
+spell;%spellout-cardinal-masculine;0;cero
+spell;%spellout-cardinal-masculine;0.5;cero coma cinco
+spell;%spellout-cardinal-masculine;1;un
+spell;%spellout-cardinal-masculine;2;dos
+spell;%spellout-numbering;-1;menos uno
+spell;%spellout-numbering;0;cero
+spell;%spellout-numbering;0.5;cero coma cinco
+spell;%spellout-numbering;1;uno
+spell;%spellout-numbering;2;dos
+spell;%spellout-numbering-year;1999;mil novecientos noventa y nueve
+spell;%spellout-numbering-year;2000;dos mil
+spell;%spellout-numbering-year;2001;dos mil uno
+digits;%digits-ordinal;1;1.º
+digits;%digits-ordinal;2;2.º
+digits;%digits-ordinal;3;3.º
+digits;%digits-ordinal;4;4.º
+digits;%digits-ordinal;5;5.º
+digits;%digits-ordinal;6;6.º
+digits;%digits-ordinal;7;7.º
+digits;%digits-ordinal;8;8.º
+digits;%digits-ordinal;9;9.º
+digits;%digits-ordinal;10;10.º
+digits;%digits-ordinal-feminine-plural;1;1.ᵃˢ
+digits;%digits-ordinal-feminine-plural;2;2.ᵃˢ
+digits;%digits-ordinal-feminine-plural;3;3.ᵃˢ
+digits;%digits-ordinal-feminine-plural;4;4.ᵃˢ
+digits;%digits-ordinal-feminine-plural;5;5.ᵃˢ
+digits;%digits-ordinal-feminine-plural;6;6.ᵃˢ
+digits;%digits-ordinal-feminine-plural;7;7.ᵃˢ
+digits;%digits-ordinal-feminine-plural;8;8.ᵃˢ
+digits;%digits-ordinal-feminine-plural;9;9.ᵃˢ
+digits;%digits-ordinal-feminine-plural;10;10.ᵃˢ
+digits;%digits-ordinal-masculine-plural;1;1.ᵒˢ
+digits;%digits-ordinal-masculine-plural;2;2.ᵒˢ
+digits;%digits-ordinal-masculine-plural;3;3.ᵒˢ
+digits;%digits-ordinal-masculine-plural;4;4.ᵒˢ
+digits;%digits-ordinal-masculine-plural;5;5.ᵒˢ
+digits;%digits-ordinal-masculine-plural;6;6.ᵒˢ
+digits;%digits-ordinal-masculine-plural;7;7.ᵒˢ
+digits;%digits-ordinal-masculine-plural;8;8.ᵒˢ
+digits;%digits-ordinal-masculine-plural;9;9.ᵒˢ
+digits;%digits-ordinal-masculine-plural;10;10.ᵒˢ
+digits;%digits-ordinal-feminine;1;1.ª
+digits;%digits-ordinal-feminine;2;2.ª
+digits;%digits-ordinal-feminine;3;3.ª
+digits;%digits-ordinal-feminine;4;4.ª
+digits;%digits-ordinal-feminine;5;5.ª
+digits;%digits-ordinal-feminine;6;6.ª
+digits;%digits-ordinal-feminine;7;7.ª
+digits;%digits-ordinal-feminine;8;8.ª
+digits;%digits-ordinal-feminine;9;9.ª
+digits;%digits-ordinal-feminine;10;10.ª
+digits;%digits-ordinal-masculine;1;1.º
+digits;%digits-ordinal-masculine;2;2.º
+digits;%digits-ordinal-masculine;3;3.º
+digits;%digits-ordinal-masculine;4;4.º
+digits;%digits-ordinal-masculine;5;5.º
+digits;%digits-ordinal-masculine;6;6.º
+digits;%digits-ordinal-masculine;7;7.º
+digits;%digits-ordinal-masculine;8;8.º
+digits;%digits-ordinal-masculine;9;9.º
+digits;%digits-ordinal-masculine;10;10.º
+digits;%digits-ordinal-masculine-adjective;1;1.º
+digits;%digits-ordinal-masculine-adjective;2;2.º
+digits;%digits-ordinal-masculine-adjective;3;3.º
+digits;%digits-ordinal-masculine-adjective;4;4.º
+digits;%digits-ordinal-masculine-adjective;5;5.º
+digits;%digits-ordinal-masculine-adjective;6;6.º
+digits;%digits-ordinal-masculine-adjective;7;7.º
+digits;%digits-ordinal-masculine-adjective;8;8.º
+digits;%digits-ordinal-masculine-adjective;9;9.º
+digits;%digits-ordinal-masculine-adjective;10;10.º

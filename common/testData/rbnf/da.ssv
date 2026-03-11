@@ -1,0 +1,46 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal-neuter;1;første
+spell;%spellout-ordinal-neuter;2;andet
+spell;%spellout-ordinal-neuter;3;tredje
+spell;%spellout-ordinal-neuter;4;fjerde
+spell;%spellout-ordinal-neuter;5;femte
+spell;%spellout-ordinal-neuter;6;sjette
+spell;%spellout-ordinal-neuter;7;syvende
+spell;%spellout-ordinal-neuter;8;ottende
+spell;%spellout-ordinal-neuter;9;niende
+spell;%spellout-ordinal-neuter;10;tiende
+spell;%spellout-ordinal-common;1;første
+spell;%spellout-ordinal-common;2;anden
+spell;%spellout-ordinal-common;3;tredje
+spell;%spellout-ordinal-common;4;fjerde
+spell;%spellout-ordinal-common;5;femte
+spell;%spellout-ordinal-common;6;sjette
+spell;%spellout-ordinal-common;7;syvende
+spell;%spellout-ordinal-common;8;ottende
+spell;%spellout-ordinal-common;9;niende
+spell;%spellout-ordinal-common;10;tiende
+spell;%spellout-cardinal-neuter;-1;minus et
+spell;%spellout-cardinal-neuter;0;nul
+spell;%spellout-cardinal-neuter;0.5;nul komma fem
+spell;%spellout-cardinal-neuter;1;et
+spell;%spellout-cardinal-neuter;2;to
+spell;%spellout-cardinal-common;-1;minus en
+spell;%spellout-cardinal-common;0;nul
+spell;%spellout-cardinal-common;0.5;nul komma fem
+spell;%spellout-cardinal-common;1;en
+spell;%spellout-cardinal-common;2;to
+spell;%spellout-numbering;-1;minus et
+spell;%spellout-numbering;0;nul
+spell;%spellout-numbering;0.5;nul komma fem
+spell;%spellout-numbering;1;et
+spell;%spellout-numbering;2;to
+spell;%spellout-numbering-year;1999;nitten­hundrede og ni­og­halvfems
+spell;%spellout-numbering-year;2000;tyve­hundrede
+spell;%spellout-numbering-year;2001;tyve­hundrede og et

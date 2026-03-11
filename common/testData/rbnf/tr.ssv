@@ -1,0 +1,31 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal;1;birinci
+spell;%spellout-ordinal;2;ikinci
+spell;%spellout-ordinal;3;üçüncü
+spell;%spellout-ordinal;4;dördüncü
+spell;%spellout-ordinal;5;beşinci
+spell;%spellout-ordinal;6;altıncı
+spell;%spellout-ordinal;7;yedinci
+spell;%spellout-ordinal;8;sekizinci
+spell;%spellout-ordinal;9;dokuzuncu
+spell;%spellout-ordinal;10;onuncu
+spell;%spellout-cardinal;-1;eksi bir
+spell;%spellout-cardinal;0;sıfır
+spell;%spellout-cardinal;0.5;sıfır virgül beş
+spell;%spellout-cardinal;1;bir
+spell;%spellout-cardinal;2;iki
+spell;%spellout-numbering;-1;eksi bir
+spell;%spellout-numbering;0;sıfır
+spell;%spellout-numbering;0.5;sıfır virgül beş
+spell;%spellout-numbering;1;bir
+spell;%spellout-numbering;2;iki
+spell;%spellout-numbering-year;1999;bin dokuz yüz doksan dokuz
+spell;%spellout-numbering-year;2000;iki bin
+spell;%spellout-numbering-year;2001;iki bin bir

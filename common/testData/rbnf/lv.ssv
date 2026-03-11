@@ -1,0 +1,26 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-cardinal-feminine;-1;mīnus viena
+spell;%spellout-cardinal-feminine;0;nulle
+spell;%spellout-cardinal-feminine;0.5;nulle komats piecas
+spell;%spellout-cardinal-feminine;1;viena
+spell;%spellout-cardinal-feminine;2;divas
+spell;%spellout-cardinal-masculine;-1;mīnus viens
+spell;%spellout-cardinal-masculine;0;nulle
+spell;%spellout-cardinal-masculine;0.5;nulle komats pieci
+spell;%spellout-cardinal-masculine;1;viens
+spell;%spellout-cardinal-masculine;2;divi
+spell;%spellout-numbering;-1;mīnus viens
+spell;%spellout-numbering;0;nulle
+spell;%spellout-numbering;0.5;nulle komats pieci
+spell;%spellout-numbering;1;viens
+spell;%spellout-numbering;2;divi
+spell;%spellout-numbering-year;1999;tūkstoš deviņsimt deviņdesmit deviņi
+spell;%spellout-numbering-year;2000;divtūkstoš
+spell;%spellout-numbering-year;2001;divtūkstoš viens

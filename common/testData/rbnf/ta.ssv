@@ -1,0 +1,41 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal;1;முதலாவது
+spell;%spellout-ordinal;2;இரண்டாவது
+spell;%spellout-ordinal;3;மூன்றாவது
+spell;%spellout-ordinal;4;நான்காவது
+spell;%spellout-ordinal;5;ஐந்தாவது
+spell;%spellout-ordinal;6;ஆறாவது
+spell;%spellout-ordinal;7;ஏழாவது
+spell;%spellout-ordinal;8;எட்டாவது
+spell;%spellout-ordinal;9;ஒன்பதாவது
+spell;%spellout-ordinal;10;பத்தாவது
+spell;%spellout-cardinal;-1;எதிர்ம ஒன்று
+spell;%spellout-cardinal;0;பூஜ்யம்
+spell;%spellout-cardinal;0.5;பூஜ்யம் புள்ளி ஐந்து
+spell;%spellout-cardinal;1;ஒன்று
+spell;%spellout-cardinal;2;இரண்டு
+spell;%spellout-numbering;-1;எதிர்ம ஒன்று
+spell;%spellout-numbering;0;பூஜ்யம்
+spell;%spellout-numbering;0.5;பூஜ்யம் புள்ளி ஐந்து
+spell;%spellout-numbering;1;ஒன்று
+spell;%spellout-numbering;2;இரண்டு
+spell;%spellout-numbering-year;1999;ஒன்று ஆயிரம் தொள்ளாயிரம் தொண்ணூறு ஒன்பது
+spell;%spellout-numbering-year;2000;இரண்டு ஆயிரம்
+spell;%spellout-numbering-year;2001;இரண்டு ஆயிரம் ஒன்று
+digits;%digits-ordinal;1;1.
+digits;%digits-ordinal;2;2.
+digits;%digits-ordinal;3;3.
+digits;%digits-ordinal;4;4.
+digits;%digits-ordinal;5;5.
+digits;%digits-ordinal;6;6.
+digits;%digits-ordinal;7;7.
+digits;%digits-ordinal;8;8.
+digits;%digits-ordinal;9;9.
+digits;%digits-ordinal;10;10.

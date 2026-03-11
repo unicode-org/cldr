@@ -1,0 +1,61 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal-verbose;1;first
+spell;%spellout-ordinal-verbose;2;second
+spell;%spellout-ordinal-verbose;3;third
+spell;%spellout-ordinal-verbose;4;fourth
+spell;%spellout-ordinal-verbose;5;fifth
+spell;%spellout-ordinal-verbose;6;sixth
+spell;%spellout-ordinal-verbose;7;seventh
+spell;%spellout-ordinal-verbose;8;eighth
+spell;%spellout-ordinal-verbose;9;ninth
+spell;%spellout-ordinal-verbose;10;tenth
+spell;%spellout-ordinal;1;first
+spell;%spellout-ordinal;2;second
+spell;%spellout-ordinal;3;third
+spell;%spellout-ordinal;4;fourth
+spell;%spellout-ordinal;5;fifth
+spell;%spellout-ordinal;6;sixth
+spell;%spellout-ordinal;7;seventh
+spell;%spellout-ordinal;8;eighth
+spell;%spellout-ordinal;9;ninth
+spell;%spellout-ordinal;10;tenth
+spell;%spellout-cardinal-verbose;-1;minus one
+spell;%spellout-cardinal-verbose;0;zero
+spell;%spellout-cardinal-verbose;0.5;zero point five
+spell;%spellout-cardinal-verbose;1;one
+spell;%spellout-cardinal-verbose;2;two
+spell;%spellout-cardinal;-1;minus one
+spell;%spellout-cardinal;0;zero
+spell;%spellout-cardinal;0.5;zero point five
+spell;%spellout-cardinal;1;one
+spell;%spellout-cardinal;2;two
+spell;%spellout-numbering-verbose;-1;minus one
+spell;%spellout-numbering-verbose;0;zero
+spell;%spellout-numbering-verbose;0.5;zero point five
+spell;%spellout-numbering-verbose;1;one
+spell;%spellout-numbering-verbose;2;two
+spell;%spellout-numbering;-1;minus one
+spell;%spellout-numbering;0;zero
+spell;%spellout-numbering;0.5;zero point five
+spell;%spellout-numbering;1;one
+spell;%spellout-numbering;2;two
+spell;%spellout-numbering-year;1999;nineteen ninety-nine
+spell;%spellout-numbering-year;2000;two thousand
+spell;%spellout-numbering-year;2001;two thousand one
+digits;%digits-ordinal;1;1st
+digits;%digits-ordinal;2;2nd
+digits;%digits-ordinal;3;3rd
+digits;%digits-ordinal;4;4th
+digits;%digits-ordinal;5;5th
+digits;%digits-ordinal;6;6th
+digits;%digits-ordinal;7;7th
+digits;%digits-ordinal;8;8th
+digits;%digits-ordinal;9;9th
+digits;%digits-ordinal;10;10th

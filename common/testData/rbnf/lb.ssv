@@ -1,0 +1,61 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal-neuter;1;éischt
+spell;%spellout-ordinal-neuter;2;zweet
+spell;%spellout-ordinal-neuter;3;drëtt
+spell;%spellout-ordinal-neuter;4;véiert
+spell;%spellout-ordinal-neuter;5;fënneft
+spell;%spellout-ordinal-neuter;6;sechst
+spell;%spellout-ordinal-neuter;7;siwent
+spell;%spellout-ordinal-neuter;8;aacht
+spell;%spellout-ordinal-neuter;9;néngt
+spell;%spellout-ordinal-neuter;10;zéngt
+spell;%spellout-ordinal-feminine;1;éischter
+spell;%spellout-ordinal-feminine;2;zweeter
+spell;%spellout-ordinal-feminine;3;drëtter
+spell;%spellout-ordinal-feminine;4;véierter
+spell;%spellout-ordinal-feminine;5;fënnefter
+spell;%spellout-ordinal-feminine;6;sechster
+spell;%spellout-ordinal-feminine;7;siwenter
+spell;%spellout-ordinal-feminine;8;aachter
+spell;%spellout-ordinal-feminine;9;néngter
+spell;%spellout-ordinal-feminine;10;zéngter
+spell;%spellout-ordinal-masculine;1;éischten
+spell;%spellout-ordinal-masculine;2;zweeten
+spell;%spellout-ordinal-masculine;3;drëtten
+spell;%spellout-ordinal-masculine;4;véierten
+spell;%spellout-ordinal-masculine;5;fënneften
+spell;%spellout-ordinal-masculine;6;sechsten
+spell;%spellout-ordinal-masculine;7;siwenten
+spell;%spellout-ordinal-masculine;8;aachten
+spell;%spellout-ordinal-masculine;9;néngten
+spell;%spellout-ordinal-masculine;10;zéngten
+spell;%spellout-cardinal-neuter;-1;minus een
+spell;%spellout-cardinal-neuter;0;null
+spell;%spellout-cardinal-neuter;0.5;null Komma fënnef
+spell;%spellout-cardinal-neuter;1;een
+spell;%spellout-cardinal-neuter;2;zwee
+spell;%spellout-cardinal-feminine;-1;minus eng
+spell;%spellout-cardinal-feminine;0;null
+spell;%spellout-cardinal-feminine;0.5;null Komma fënnef
+spell;%spellout-cardinal-feminine;1;eng
+spell;%spellout-cardinal-feminine;2;zwou
+spell;%spellout-cardinal-masculine;-1;minus eent
+spell;%spellout-cardinal-masculine;0;null
+spell;%spellout-cardinal-masculine;0.5;null Komma fënnef
+spell;%spellout-cardinal-masculine;1;eent
+spell;%spellout-cardinal-masculine;2;zwee
+spell;%spellout-numbering;-1;minus eent
+spell;%spellout-numbering;0;null
+spell;%spellout-numbering;0.5;null Komma fënnef
+spell;%spellout-numbering;1;eent
+spell;%spellout-numbering;2;zwee
+spell;%spellout-numbering-year;1999;nonzénghonnertnéngannonzeg
+spell;%spellout-numbering-year;2000;zwee­dausend­
+spell;%spellout-numbering-year;2001;zwee­dausend­een

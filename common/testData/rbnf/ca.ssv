@@ -1,0 +1,116 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal-feminine-plural;1;primeres
+spell;%spellout-ordinal-feminine-plural;2;segones
+spell;%spellout-ordinal-feminine-plural;3;terceres
+spell;%spellout-ordinal-feminine-plural;4;quartes
+spell;%spellout-ordinal-feminine-plural;5;cinquenes
+spell;%spellout-ordinal-feminine-plural;6;sisenes
+spell;%spellout-ordinal-feminine-plural;7;setenes
+spell;%spellout-ordinal-feminine-plural;8;vuitenes
+spell;%spellout-ordinal-feminine-plural;9;novenes
+spell;%spellout-ordinal-feminine-plural;10;desenes
+spell;%spellout-ordinal-masculine-plural;1;primers
+spell;%spellout-ordinal-masculine-plural;2;segons
+spell;%spellout-ordinal-masculine-plural;3;tercers
+spell;%spellout-ordinal-masculine-plural;4;quarts
+spell;%spellout-ordinal-masculine-plural;5;cinquès
+spell;%spellout-ordinal-masculine-plural;6;sisès
+spell;%spellout-ordinal-masculine-plural;7;setès
+spell;%spellout-ordinal-masculine-plural;8;vuitès
+spell;%spellout-ordinal-masculine-plural;9;novès
+spell;%spellout-ordinal-masculine-plural;10;desès
+spell;%spellout-ordinal-feminine;1;primera
+spell;%spellout-ordinal-feminine;2;segona
+spell;%spellout-ordinal-feminine;3;tercera
+spell;%spellout-ordinal-feminine;4;quarta
+spell;%spellout-ordinal-feminine;5;cinquena
+spell;%spellout-ordinal-feminine;6;sisena
+spell;%spellout-ordinal-feminine;7;setena
+spell;%spellout-ordinal-feminine;8;vuitena
+spell;%spellout-ordinal-feminine;9;novena
+spell;%spellout-ordinal-feminine;10;desena
+spell;%spellout-ordinal-masculine;1;primer
+spell;%spellout-ordinal-masculine;2;segon
+spell;%spellout-ordinal-masculine;3;tercer
+spell;%spellout-ordinal-masculine;4;quart
+spell;%spellout-ordinal-masculine;5;cinquè
+spell;%spellout-ordinal-masculine;6;sisè
+spell;%spellout-ordinal-masculine;7;setè
+spell;%spellout-ordinal-masculine;8;vuitè
+spell;%spellout-ordinal-masculine;9;novè
+spell;%spellout-ordinal-masculine;10;desè
+spell;%spellout-cardinal-feminine;-1;menys una
+spell;%spellout-cardinal-feminine;0;zero
+spell;%spellout-cardinal-feminine;0.5;zero coma cinc
+spell;%spellout-cardinal-feminine;1;una
+spell;%spellout-cardinal-feminine;2;dues
+spell;%spellout-cardinal-masculine;-1;menys un
+spell;%spellout-cardinal-masculine;0;zero
+spell;%spellout-cardinal-masculine;0.5;zero coma cinc
+spell;%spellout-cardinal-masculine;1;un
+spell;%spellout-cardinal-masculine;2;dos
+spell;%spellout-numbering;-1;menys u
+spell;%spellout-numbering;0;zero
+spell;%spellout-numbering;0.5;zero coma cinc
+spell;%spellout-numbering;1;u
+spell;%spellout-numbering;2;dos
+spell;%spellout-numbering-year;1999;mil nou-cents noranta-nou
+spell;%spellout-numbering-year;2000;dos mil
+spell;%spellout-numbering-year;2001;dos mil u
+digits;%digits-ordinal-feminine-plural;1;1es
+digits;%digits-ordinal-feminine-plural;2;2es
+digits;%digits-ordinal-feminine-plural;3;3es
+digits;%digits-ordinal-feminine-plural;4;4es
+digits;%digits-ordinal-feminine-plural;5;5es
+digits;%digits-ordinal-feminine-plural;6;6es
+digits;%digits-ordinal-feminine-plural;7;7es
+digits;%digits-ordinal-feminine-plural;8;8es
+digits;%digits-ordinal-feminine-plural;9;9es
+digits;%digits-ordinal-feminine-plural;10;10es
+digits;%digits-ordinal-feminine;1;1a
+digits;%digits-ordinal-feminine;2;2a
+digits;%digits-ordinal-feminine;3;3a
+digits;%digits-ordinal-feminine;4;4a
+digits;%digits-ordinal-feminine;5;5a
+digits;%digits-ordinal-feminine;6;6a
+digits;%digits-ordinal-feminine;7;7a
+digits;%digits-ordinal-feminine;8;8a
+digits;%digits-ordinal-feminine;9;9a
+digits;%digits-ordinal-feminine;10;10a
+digits;%digits-ordinal-masculine-plural;1;1rs
+digits;%digits-ordinal-masculine-plural;2;2ns
+digits;%digits-ordinal-masculine-plural;3;3rs
+digits;%digits-ordinal-masculine-plural;4;4ts
+digits;%digits-ordinal-masculine-plural;5;5ns
+digits;%digits-ordinal-masculine-plural;6;6ns
+digits;%digits-ordinal-masculine-plural;7;7ns
+digits;%digits-ordinal-masculine-plural;8;8ns
+digits;%digits-ordinal-masculine-plural;9;9ns
+digits;%digits-ordinal-masculine-plural;10;10ns
+digits;%digits-ordinal-masculine;1;1r
+digits;%digits-ordinal-masculine;2;2n
+digits;%digits-ordinal-masculine;3;3r
+digits;%digits-ordinal-masculine;4;4t
+digits;%digits-ordinal-masculine;5;5è
+digits;%digits-ordinal-masculine;6;6è
+digits;%digits-ordinal-masculine;7;7è
+digits;%digits-ordinal-masculine;8;8è
+digits;%digits-ordinal-masculine;9;9è
+digits;%digits-ordinal-masculine;10;10è
+digits;%digits-ordinal;1;1r
+digits;%digits-ordinal;2;2n
+digits;%digits-ordinal;3;3r
+digits;%digits-ordinal;4;4t
+digits;%digits-ordinal;5;5è
+digits;%digits-ordinal;6;6è
+digits;%digits-ordinal;7;7è
+digits;%digits-ordinal;8;8è
+digits;%digits-ordinal;9;9è
+digits;%digits-ordinal;10;10è

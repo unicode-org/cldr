@@ -1,0 +1,31 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal;1;беренсе
+spell;%spellout-ordinal;2;икенсе
+spell;%spellout-ordinal;3;өсөнсө
+spell;%spellout-ordinal;4;дүртенсе
+spell;%spellout-ordinal;5;бишенсе
+spell;%spellout-ordinal;6;алтынсы
+spell;%spellout-ordinal;7;етенсе
+spell;%spellout-ordinal;8;һигеҙенсе
+spell;%spellout-ordinal;9;туғыҙынсы
+spell;%spellout-ordinal;10;унынсы
+spell;%spellout-cardinal;-1;минус бер
+spell;%spellout-cardinal;0;нуль
+spell;%spellout-cardinal;0.5;нуль бөтөн ундан биш
+spell;%spellout-cardinal;1;бер
+spell;%spellout-cardinal;2;ике
+spell;%spellout-numbering;-1;минус бер
+spell;%spellout-numbering;0;нуль
+spell;%spellout-numbering;0.5;нуль бөтөн ундан биш
+spell;%spellout-numbering;1;бер
+spell;%spellout-numbering;2;ике
+spell;%spellout-numbering-year;1999;мең туғыҙ йөҙ туҡһан туғыҙ
+spell;%spellout-numbering-year;2000;ике мең
+spell;%spellout-numbering-year;2001;ике мең бер

@@ -1,0 +1,31 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-cardinal-feminine;-1;минус една
+spell;%spellout-cardinal-feminine;0;нула
+spell;%spellout-cardinal-feminine;0.5;нула кома пет
+spell;%spellout-cardinal-feminine;1;една
+spell;%spellout-cardinal-feminine;2;две
+spell;%spellout-cardinal-neuter;-1;минус едно
+spell;%spellout-cardinal-neuter;0;нула
+spell;%spellout-cardinal-neuter;0.5;нула кома пет
+spell;%spellout-cardinal-neuter;1;едно
+spell;%spellout-cardinal-neuter;2;два
+spell;%spellout-cardinal-masculine;-1;минус еден
+spell;%spellout-cardinal-masculine;0;нула
+spell;%spellout-cardinal-masculine;0.5;нула кома пет
+spell;%spellout-cardinal-masculine;1;еден
+spell;%spellout-cardinal-masculine;2;два
+spell;%spellout-numbering;-1;минус еден
+spell;%spellout-numbering;0;нула
+spell;%spellout-numbering;0.5;нула кома пет
+spell;%spellout-numbering;1;еден
+spell;%spellout-numbering;2;два
+spell;%spellout-numbering-year;1999;една илјада деветсто деведесет и девет
+spell;%spellout-numbering-year;2000;две илјада
+spell;%spellout-numbering-year;2001;две илјада еден

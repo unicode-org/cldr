@@ -1,0 +1,91 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal-feminine;1;पहली
+spell;%spellout-ordinal-feminine;2;दूसरी
+spell;%spellout-ordinal-feminine;3;तीसरी
+spell;%spellout-ordinal-feminine;4;चौथी
+spell;%spellout-ordinal-feminine;5;पाँचवी
+spell;%spellout-ordinal-feminine;6;छठी
+spell;%spellout-ordinal-feminine;7;सातवी
+spell;%spellout-ordinal-feminine;8;आठवी
+spell;%spellout-ordinal-feminine;9;नौवी
+spell;%spellout-ordinal-feminine;10;दसवी
+spell;%spellout-ordinal-masculine-oblique;1;पहले
+spell;%spellout-ordinal-masculine-oblique;2;दूसरे
+spell;%spellout-ordinal-masculine-oblique;3;तीसरे
+spell;%spellout-ordinal-masculine-oblique;4;चौथे
+spell;%spellout-ordinal-masculine-oblique;5;पाँचवें
+spell;%spellout-ordinal-masculine-oblique;6;छठे
+spell;%spellout-ordinal-masculine-oblique;7;सातवें
+spell;%spellout-ordinal-masculine-oblique;8;आठवें
+spell;%spellout-ordinal-masculine-oblique;9;नौवें
+spell;%spellout-ordinal-masculine-oblique;10;दसवें
+spell;%spellout-ordinal-masculine;1;पहला
+spell;%spellout-ordinal-masculine;2;दूसरा
+spell;%spellout-ordinal-masculine;3;तीसरा
+spell;%spellout-ordinal-masculine;4;चौथा
+spell;%spellout-ordinal-masculine;5;पाँचवाँ
+spell;%spellout-ordinal-masculine;6;छठा
+spell;%spellout-ordinal-masculine;7;सातवाँ
+spell;%spellout-ordinal-masculine;8;आठवाँ
+spell;%spellout-ordinal-masculine;9;नौवाँ
+spell;%spellout-ordinal-masculine;10;दसवाँ
+spell;%spellout-cardinal;-1;ऋण एक
+spell;%spellout-cardinal;0;शून्य
+spell;%spellout-cardinal;0.5;शून्य दशमलव पाँच
+spell;%spellout-cardinal;1;एक
+spell;%spellout-cardinal;2;दो
+spell;%spellout-numbering;-1;ऋण एक
+spell;%spellout-numbering;0;शून्य
+spell;%spellout-numbering;0.5;शून्य दशमलव पाँच
+spell;%spellout-numbering;1;एक
+spell;%spellout-numbering;2;दो
+spell;%spellout-numbering-year;1999;एक हज़ार नौ सौ निन्यानबे
+spell;%spellout-numbering-year;2000;दो हज़ार
+spell;%spellout-numbering-year;2001;दो हज़ार एक
+digits;%digits-ordinal;1;1ला
+digits;%digits-ordinal;2;2रा
+digits;%digits-ordinal;3;3रा
+digits;%digits-ordinal;4;4था
+digits;%digits-ordinal;5;5वाँ
+digits;%digits-ordinal;6;6ठा
+digits;%digits-ordinal;7;7वाँ
+digits;%digits-ordinal;8;8वाँ
+digits;%digits-ordinal;9;9वाँ
+digits;%digits-ordinal;10;10वाँ
+digits;%digits-ordinal-feminine;1;1ली
+digits;%digits-ordinal-feminine;2;2री
+digits;%digits-ordinal-feminine;3;3री
+digits;%digits-ordinal-feminine;4;4थी
+digits;%digits-ordinal-feminine;5;5वीँ
+digits;%digits-ordinal-feminine;6;6ठी
+digits;%digits-ordinal-feminine;7;7वीँ
+digits;%digits-ordinal-feminine;8;8वीँ
+digits;%digits-ordinal-feminine;9;9वीँ
+digits;%digits-ordinal-feminine;10;10वीँ
+digits;%digits-ordinal-masculine-oblique;1;1ले
+digits;%digits-ordinal-masculine-oblique;2;2रे
+digits;%digits-ordinal-masculine-oblique;3;3रे
+digits;%digits-ordinal-masculine-oblique;4;4थे
+digits;%digits-ordinal-masculine-oblique;5;5वें
+digits;%digits-ordinal-masculine-oblique;6;6ठे
+digits;%digits-ordinal-masculine-oblique;7;7वें
+digits;%digits-ordinal-masculine-oblique;8;8वें
+digits;%digits-ordinal-masculine-oblique;9;9वें
+digits;%digits-ordinal-masculine-oblique;10;10वें
+digits;%digits-ordinal-masculine;1;1ला
+digits;%digits-ordinal-masculine;2;2रा
+digits;%digits-ordinal-masculine;3;3रा
+digits;%digits-ordinal-masculine;4;4था
+digits;%digits-ordinal-masculine;5;5वाँ
+digits;%digits-ordinal-masculine;6;6ठा
+digits;%digits-ordinal-masculine;7;7वाँ
+digits;%digits-ordinal-masculine;8;8वाँ
+digits;%digits-ordinal-masculine;9;9वाँ
+digits;%digits-ordinal-masculine;10;10वाँ

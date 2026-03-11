@@ -1,0 +1,21 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-cardinal;-1;ꭺꮳꮄꮝꮧ ꮠꮼ
+spell;%spellout-cardinal;0;ꮭ ꭺꮝꮧ
+spell;%spellout-cardinal;0.5;ꮭ ꭺꮝꮧ ꭺꮝꮣᏹ ꭿꮝꭹ
+spell;%spellout-cardinal;1;ꮠꮼ
+spell;%spellout-cardinal;2;ꮤꮅ
+spell;%spellout-numbering;-1;ꭺꮳꮄꮝꮧ ꮠꮼ
+spell;%spellout-numbering;0;ꮭ ꭺꮝꮧ
+spell;%spellout-numbering;0.5;ꮭ ꭺꮝꮧ ꭺꮝꮣᏹ ꭿꮝꭹ
+spell;%spellout-numbering;1;ꮠꮼ
+spell;%spellout-numbering;2;ꮤꮅ
+spell;%spellout-numbering-year;1999;ꮠꮼ ꭲꮿꭶᏼꮅ ꮠꮑꮃ ꮝꭺꭿꮵꮖ ꮠꮑꮃꮝꭺ ꮠꮑꮃ
+spell;%spellout-numbering-year;2000;ꮤꮅ ꭲꮿꭶᏼꮅ
+spell;%spellout-numbering-year;2001;ꮤꮅ ꭲꮿꭶᏼꮅ ꮠꮼ

@@ -1,0 +1,26 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-cardinal-feminine;-1;minus një
+spell;%spellout-cardinal-feminine;0;zero
+spell;%spellout-cardinal-feminine;0.5;zero presje pesë
+spell;%spellout-cardinal-feminine;1;një
+spell;%spellout-cardinal-feminine;2;dy
+spell;%spellout-cardinal-masculine;-1;minus një
+spell;%spellout-cardinal-masculine;0;zero
+spell;%spellout-cardinal-masculine;0.5;zero presje pesë
+spell;%spellout-cardinal-masculine;1;një
+spell;%spellout-cardinal-masculine;2;dy
+spell;%spellout-numbering;-1;minus një
+spell;%spellout-numbering;0;zero
+spell;%spellout-numbering;0.5;zero presje pesë
+spell;%spellout-numbering;1;një
+spell;%spellout-numbering;2;dy
+spell;%spellout-numbering-year;1999;një mijë e nëntëqind e nëntëdhjetë e nëntë
+spell;%spellout-numbering-year;2000;dy mijë
+spell;%spellout-numbering-year;2001;dy mijë e një

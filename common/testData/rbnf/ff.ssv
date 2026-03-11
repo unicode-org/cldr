@@ -1,0 +1,36 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal;1;arande
+spell;%spellout-ordinal;2;ɗiɗaɓo
+spell;%spellout-ordinal;3;tatiaɓo
+spell;%spellout-ordinal;4;nawaɓo
+spell;%spellout-ordinal;5;jowaɓo
+spell;%spellout-ordinal;6;jeearande
+spell;%spellout-ordinal;7;jeeɗiɗaɓo
+spell;%spellout-ordinal;8;jeetataɓo
+spell;%spellout-ordinal;9;jeenawaɓo
+spell;%spellout-ordinal;10;sappo
+spell;%spellout-cardinal-class-o;-1;minus gooto
+spell;%spellout-cardinal-class-o;0;ɓolum
+spell;%spellout-cardinal-class-o;0.5;ɓolum poofirgel njowo
+spell;%spellout-cardinal-class-o;1;gooto
+spell;%spellout-cardinal-class-o;2;ɗiɗo
+spell;%spellout-cardinal;-1;minus goʼo
+spell;%spellout-cardinal;0;ɓolum
+spell;%spellout-cardinal;0.5;ɓolum poofirgel jowi
+spell;%spellout-cardinal;1;goʼo
+spell;%spellout-cardinal;2;ɗiɗi
+spell;%spellout-numbering;-1;minus goʼo
+spell;%spellout-numbering;0;ɓolum
+spell;%spellout-numbering;0.5;ɓolum poofirgel jowi
+spell;%spellout-numbering;1;goʼo
+spell;%spellout-numbering;2;ɗiɗi
+spell;%spellout-numbering-year;1999;ujunere goʼo e temedere jeenawi e cepanze jeenawi e jeenawi
+spell;%spellout-numbering-year;2000;ujunere ɗiɗi
+spell;%spellout-numbering-year;2001;ujunere ɗiɗi e goʼo

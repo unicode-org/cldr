@@ -1,0 +1,31 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-cardinal-feminine;-1;mínus jedna
+spell;%spellout-cardinal-feminine;0;nula
+spell;%spellout-cardinal-feminine;0.5;nula čiarka päť
+spell;%spellout-cardinal-feminine;1;jedna
+spell;%spellout-cardinal-feminine;2;dve
+spell;%spellout-cardinal-neuter;-1;mínus jedno
+spell;%spellout-cardinal-neuter;0;nula
+spell;%spellout-cardinal-neuter;0.5;nula čiarka päť
+spell;%spellout-cardinal-neuter;1;jedno
+spell;%spellout-cardinal-neuter;2;dve
+spell;%spellout-cardinal-masculine;-1;mínus jeden
+spell;%spellout-cardinal-masculine;0;nula
+spell;%spellout-cardinal-masculine;0.5;nula čiarka päť
+spell;%spellout-cardinal-masculine;1;jeden
+spell;%spellout-cardinal-masculine;2;dva
+spell;%spellout-numbering;-1;mínus jeden
+spell;%spellout-numbering;0;nula
+spell;%spellout-numbering;0.5;nula čiarka päť
+spell;%spellout-numbering;1;jeden
+spell;%spellout-numbering;2;dva
+spell;%spellout-numbering-year;1999;jedna tisíc deväť­sto deväťdesiat­deväť
+spell;%spellout-numbering-year;2000;dve tisíc
+spell;%spellout-numbering-year;2001;dve tisíc jeden

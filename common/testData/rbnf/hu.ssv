@@ -1,0 +1,46 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal-verbose;1;első
+spell;%spellout-ordinal-verbose;2;második
+spell;%spellout-ordinal-verbose;3;harmadik
+spell;%spellout-ordinal-verbose;4;negyedik
+spell;%spellout-ordinal-verbose;5;ötödik
+spell;%spellout-ordinal-verbose;6;hatodik
+spell;%spellout-ordinal-verbose;7;hetedik
+spell;%spellout-ordinal-verbose;8;nyolcadik
+spell;%spellout-ordinal-verbose;9;kilencedik
+spell;%spellout-ordinal-verbose;10;tizedik
+spell;%spellout-ordinal;1;első
+spell;%spellout-ordinal;2;második
+spell;%spellout-ordinal;3;harmadik
+spell;%spellout-ordinal;4;negyedik
+spell;%spellout-ordinal;5;ötödik
+spell;%spellout-ordinal;6;hatodik
+spell;%spellout-ordinal;7;hetedik
+spell;%spellout-ordinal;8;nyolcadik
+spell;%spellout-ordinal;9;kilencedik
+spell;%spellout-ordinal;10;tizedik
+spell;%spellout-cardinal-verbose;-1;mínusz egy
+spell;%spellout-cardinal-verbose;0;nulla
+spell;%spellout-cardinal-verbose;0.5;nulla egész öt
+spell;%spellout-cardinal-verbose;1;egy
+spell;%spellout-cardinal-verbose;2;kettő
+spell;%spellout-cardinal;-1;mínusz egy
+spell;%spellout-cardinal;0;nulla
+spell;%spellout-cardinal;0.5;nulla egész öt
+spell;%spellout-cardinal;1;egy
+spell;%spellout-cardinal;2;kettő
+spell;%spellout-numbering;-1;mínusz egy
+spell;%spellout-numbering;0;nulla
+spell;%spellout-numbering;0.5;nulla egész öt
+spell;%spellout-numbering;1;egy
+spell;%spellout-numbering;2;kettő
+spell;%spellout-numbering-year;1999;ezer­kilenc­száz­kilencven­kilenc
+spell;%spellout-numbering-year;2000;két­ezer
+spell;%spellout-numbering-year;2001;két­ezer­egy

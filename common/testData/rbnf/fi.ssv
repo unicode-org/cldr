@@ -1,0 +1,346 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal-allative-plural;1;ensimmäisille
+spell;%spellout-ordinal-allative-plural;2;toisille
+spell;%spellout-ordinal-allative-plural;3;kolmannille
+spell;%spellout-ordinal-allative-plural;4;neljännille
+spell;%spellout-ordinal-allative-plural;5;viidennille
+spell;%spellout-ordinal-allative-plural;6;kuudennille
+spell;%spellout-ordinal-allative-plural;7;seitsemännille
+spell;%spellout-ordinal-allative-plural;8;kahdeksannille
+spell;%spellout-ordinal-allative-plural;9;yhdeksännille
+spell;%spellout-ordinal-allative-plural;10;kymmenennille
+spell;%spellout-ordinal-ablative-plural;1;ensimmäisiltä
+spell;%spellout-ordinal-ablative-plural;2;toisilta
+spell;%spellout-ordinal-ablative-plural;3;kolmannilta
+spell;%spellout-ordinal-ablative-plural;4;neljänniltä
+spell;%spellout-ordinal-ablative-plural;5;viidenniltä
+spell;%spellout-ordinal-ablative-plural;6;kuudennilta
+spell;%spellout-ordinal-ablative-plural;7;seitsemänniltä
+spell;%spellout-ordinal-ablative-plural;8;kahdeksannilta
+spell;%spellout-ordinal-ablative-plural;9;yhdeksänniltä
+spell;%spellout-ordinal-ablative-plural;10;kymmenenniltä
+spell;%spellout-ordinal-adessive-plural;1;ensimmäisillä
+spell;%spellout-ordinal-adessive-plural;2;toisilla
+spell;%spellout-ordinal-adessive-plural;3;kolmannilla
+spell;%spellout-ordinal-adessive-plural;4;neljännillä
+spell;%spellout-ordinal-adessive-plural;5;viidennillä
+spell;%spellout-ordinal-adessive-plural;6;kuudennilla
+spell;%spellout-ordinal-adessive-plural;7;seitsemännillä
+spell;%spellout-ordinal-adessive-plural;8;kahdeksannilla
+spell;%spellout-ordinal-adessive-plural;9;yhdeksännillä
+spell;%spellout-ordinal-adessive-plural;10;kymmenennillä
+spell;%spellout-ordinal-illative-plural;1;ensimmäisiin
+spell;%spellout-ordinal-illative-plural;2;toisiin
+spell;%spellout-ordinal-illative-plural;3;kolmansiin
+spell;%spellout-ordinal-illative-plural;4;neljänsiin
+spell;%spellout-ordinal-illative-plural;5;viidensiin
+spell;%spellout-ordinal-illative-plural;6;kuudensiin
+spell;%spellout-ordinal-illative-plural;7;seitsemänsiin
+spell;%spellout-ordinal-illative-plural;8;kahdeksansiin
+spell;%spellout-ordinal-illative-plural;9;yhdeksänsiin
+spell;%spellout-ordinal-illative-plural;10;kymmenensiin
+spell;%spellout-ordinal-elative-plural;1;ensimmäisistä
+spell;%spellout-ordinal-elative-plural;2;toisista
+spell;%spellout-ordinal-elative-plural;3;kolmansista
+spell;%spellout-ordinal-elative-plural;4;neljänsistä
+spell;%spellout-ordinal-elative-plural;5;viidensistä
+spell;%spellout-ordinal-elative-plural;6;kuudensista
+spell;%spellout-ordinal-elative-plural;7;seitsemänsistä
+spell;%spellout-ordinal-elative-plural;8;kahdeksansista
+spell;%spellout-ordinal-elative-plural;9;yhdeksänsistä
+spell;%spellout-ordinal-elative-plural;10;kymmenensistä
+spell;%spellout-ordinal-inessive-plural;1;ensimmäisissä
+spell;%spellout-ordinal-inessive-plural;2;toisissa
+spell;%spellout-ordinal-inessive-plural;3;kolmansissa
+spell;%spellout-ordinal-inessive-plural;4;neljänsissä
+spell;%spellout-ordinal-inessive-plural;5;viidensissä
+spell;%spellout-ordinal-inessive-plural;6;kuudensissa
+spell;%spellout-ordinal-inessive-plural;7;seitsemänsissä
+spell;%spellout-ordinal-inessive-plural;8;kahdeksansissa
+spell;%spellout-ordinal-inessive-plural;9;yhdeksänsissä
+spell;%spellout-ordinal-inessive-plural;10;kymmenensissä
+spell;%spellout-ordinal-translative-plural;1;ensimmäisiksi
+spell;%spellout-ordinal-translative-plural;2;toisiksi
+spell;%spellout-ordinal-translative-plural;3;kolmansiksi
+spell;%spellout-ordinal-translative-plural;4;neljänsiksi
+spell;%spellout-ordinal-translative-plural;5;viidensiksi
+spell;%spellout-ordinal-translative-plural;6;kuudensiksi
+spell;%spellout-ordinal-translative-plural;7;seitsemänsiksi
+spell;%spellout-ordinal-translative-plural;8;kahdeksansiksi
+spell;%spellout-ordinal-translative-plural;9;yhdeksänsiksi
+spell;%spellout-ordinal-translative-plural;10;kymmenensiksi
+spell;%spellout-ordinal-essive-plural;1;ensimmäisinä
+spell;%spellout-ordinal-essive-plural;2;toisina
+spell;%spellout-ordinal-essive-plural;3;kolmansina
+spell;%spellout-ordinal-essive-plural;4;neljänsinä
+spell;%spellout-ordinal-essive-plural;5;viidensinä
+spell;%spellout-ordinal-essive-plural;6;kuudensina
+spell;%spellout-ordinal-essive-plural;7;seitsemänsinä
+spell;%spellout-ordinal-essive-plural;8;kahdeksansina
+spell;%spellout-ordinal-essive-plural;9;yhdeksänsinä
+spell;%spellout-ordinal-essive-plural;10;kymmenensinä
+spell;%spellout-ordinal-partitive-plural;1;ensimmäisiä
+spell;%spellout-ordinal-partitive-plural;2;toisia
+spell;%spellout-ordinal-partitive-plural;3;kolmansia
+spell;%spellout-ordinal-partitive-plural;4;neljänsiä
+spell;%spellout-ordinal-partitive-plural;5;viidensiä
+spell;%spellout-ordinal-partitive-plural;6;kuudensia
+spell;%spellout-ordinal-partitive-plural;7;seitsemänsiä
+spell;%spellout-ordinal-partitive-plural;8;kahdeksansia
+spell;%spellout-ordinal-partitive-plural;9;yhdeksänsiä
+spell;%spellout-ordinal-partitive-plural;10;kymmenensiä
+spell;%spellout-ordinal-genitive-plural;1;ensimmäisten
+spell;%spellout-ordinal-genitive-plural;2;toisten
+spell;%spellout-ordinal-genitive-plural;3;kolmansien
+spell;%spellout-ordinal-genitive-plural;4;neljänsien
+spell;%spellout-ordinal-genitive-plural;5;viidensien
+spell;%spellout-ordinal-genitive-plural;6;kuudensien
+spell;%spellout-ordinal-genitive-plural;7;seitsemänsien
+spell;%spellout-ordinal-genitive-plural;8;kahdeksansien
+spell;%spellout-ordinal-genitive-plural;9;yhdeksänsien
+spell;%spellout-ordinal-genitive-plural;10;kymmenensien
+spell;%spellout-ordinal-plural;1;ensimmäiset
+spell;%spellout-ordinal-plural;2;toiset
+spell;%spellout-ordinal-plural;3;kolmannet
+spell;%spellout-ordinal-plural;4;neljännet
+spell;%spellout-ordinal-plural;5;viidennet
+spell;%spellout-ordinal-plural;6;kuudennet
+spell;%spellout-ordinal-plural;7;seitsemännet
+spell;%spellout-ordinal-plural;8;kahdeksannet
+spell;%spellout-ordinal-plural;9;yhdeksännet
+spell;%spellout-ordinal-plural;10;kymmenennet
+spell;%spellout-ordinal-allative;1;ensimmäiselle
+spell;%spellout-ordinal-allative;2;toiselle
+spell;%spellout-ordinal-allative;3;kolmannelle
+spell;%spellout-ordinal-allative;4;neljännelle
+spell;%spellout-ordinal-allative;5;viidennelle
+spell;%spellout-ordinal-allative;6;kuudennelle
+spell;%spellout-ordinal-allative;7;seitsemännelle
+spell;%spellout-ordinal-allative;8;kahdeksannelle
+spell;%spellout-ordinal-allative;9;yhdeksännelle
+spell;%spellout-ordinal-allative;10;kymmenennelle
+spell;%spellout-ordinal-ablative;1;ensimmäiseltä
+spell;%spellout-ordinal-ablative;2;toiselta
+spell;%spellout-ordinal-ablative;3;kolmannelta
+spell;%spellout-ordinal-ablative;4;neljänneltä
+spell;%spellout-ordinal-ablative;5;viidenneltä
+spell;%spellout-ordinal-ablative;6;kuudennelta
+spell;%spellout-ordinal-ablative;7;seitsemänneltä
+spell;%spellout-ordinal-ablative;8;kahdeksannelta
+spell;%spellout-ordinal-ablative;9;yhdeksänneltä
+spell;%spellout-ordinal-ablative;10;kymmenenneltä
+spell;%spellout-ordinal-adessive;1;ensimmäisellä
+spell;%spellout-ordinal-adessive;2;toisella
+spell;%spellout-ordinal-adessive;3;kolmannella
+spell;%spellout-ordinal-adessive;4;neljännellä
+spell;%spellout-ordinal-adessive;5;viidennellä
+spell;%spellout-ordinal-adessive;6;kuudennella
+spell;%spellout-ordinal-adessive;7;seitsemännellä
+spell;%spellout-ordinal-adessive;8;kahdeksannella
+spell;%spellout-ordinal-adessive;9;yhdeksännellä
+spell;%spellout-ordinal-adessive;10;kymmenennellä
+spell;%spellout-ordinal-illative;1;ensimmäiseen
+spell;%spellout-ordinal-illative;2;toiseen
+spell;%spellout-ordinal-illative;3;kolmanteen
+spell;%spellout-ordinal-illative;4;neljänteen
+spell;%spellout-ordinal-illative;5;viidenteen
+spell;%spellout-ordinal-illative;6;kuudenteen
+spell;%spellout-ordinal-illative;7;seitsemänteen
+spell;%spellout-ordinal-illative;8;kahdeksanteen
+spell;%spellout-ordinal-illative;9;yhdeksänteen
+spell;%spellout-ordinal-illative;10;kymmenenteen
+spell;%spellout-ordinal-elative;1;ensimmäisestä
+spell;%spellout-ordinal-elative;2;toisesta
+spell;%spellout-ordinal-elative;3;kolmannesta
+spell;%spellout-ordinal-elative;4;neljännestä
+spell;%spellout-ordinal-elative;5;viidennestä
+spell;%spellout-ordinal-elative;6;kuudennesta
+spell;%spellout-ordinal-elative;7;seitsemännestä
+spell;%spellout-ordinal-elative;8;kahdeksannesta
+spell;%spellout-ordinal-elative;9;yhdeksännestä
+spell;%spellout-ordinal-elative;10;kymmenennestä
+spell;%spellout-ordinal-inessive;1;ensimmäisessä
+spell;%spellout-ordinal-inessive;2;toisessa
+spell;%spellout-ordinal-inessive;3;kolmannessa
+spell;%spellout-ordinal-inessive;4;neljännessä
+spell;%spellout-ordinal-inessive;5;viidennessä
+spell;%spellout-ordinal-inessive;6;kuudennessa
+spell;%spellout-ordinal-inessive;7;seitsemännessä
+spell;%spellout-ordinal-inessive;8;kahdeksannessa
+spell;%spellout-ordinal-inessive;9;yhdeksännessä
+spell;%spellout-ordinal-inessive;10;kymmenennessä
+spell;%spellout-ordinal-translative;1;ensimmäiseksi
+spell;%spellout-ordinal-translative;2;toiseksi
+spell;%spellout-ordinal-translative;3;kolmanneksi
+spell;%spellout-ordinal-translative;4;neljänneksi
+spell;%spellout-ordinal-translative;5;viidenneksi
+spell;%spellout-ordinal-translative;6;kuudenneksi
+spell;%spellout-ordinal-translative;7;seitsemänneksi
+spell;%spellout-ordinal-translative;8;kahdeksanneksi
+spell;%spellout-ordinal-translative;9;yhdeksänneksi
+spell;%spellout-ordinal-translative;10;kymmenenneksi
+spell;%spellout-ordinal-essive;1;ensimmäisenä
+spell;%spellout-ordinal-essive;2;toisena
+spell;%spellout-ordinal-essive;3;kolmantena
+spell;%spellout-ordinal-essive;4;neljäntenä
+spell;%spellout-ordinal-essive;5;viidentenä
+spell;%spellout-ordinal-essive;6;kuudentena
+spell;%spellout-ordinal-essive;7;seitsemäntenä
+spell;%spellout-ordinal-essive;8;kahdeksantena
+spell;%spellout-ordinal-essive;9;yhdeksäntenä
+spell;%spellout-ordinal-essive;10;kymmenentenä
+spell;%spellout-ordinal-partitive;1;ensimmäistä
+spell;%spellout-ordinal-partitive;2;toista
+spell;%spellout-ordinal-partitive;3;kolmatta
+spell;%spellout-ordinal-partitive;4;neljättä
+spell;%spellout-ordinal-partitive;5;viidettä
+spell;%spellout-ordinal-partitive;6;kuudetta
+spell;%spellout-ordinal-partitive;7;seitsemättä
+spell;%spellout-ordinal-partitive;8;kahdeksatta
+spell;%spellout-ordinal-partitive;9;yhdeksättä
+spell;%spellout-ordinal-partitive;10;kymmenettä
+spell;%spellout-ordinal-genitive;1;ensimmäisen
+spell;%spellout-ordinal-genitive;2;toisen
+spell;%spellout-ordinal-genitive;3;kolmannen
+spell;%spellout-ordinal-genitive;4;neljännen
+spell;%spellout-ordinal-genitive;5;viidennen
+spell;%spellout-ordinal-genitive;6;kuudennen
+spell;%spellout-ordinal-genitive;7;seitsemännen
+spell;%spellout-ordinal-genitive;8;kahdeksannen
+spell;%spellout-ordinal-genitive;9;yhdeksännen
+spell;%spellout-ordinal-genitive;10;kymmenennen
+spell;%spellout-ordinal;1;ensimmäinen
+spell;%spellout-ordinal;2;toinen
+spell;%spellout-ordinal;3;kolmas
+spell;%spellout-ordinal;4;neljäs
+spell;%spellout-ordinal;5;viides
+spell;%spellout-ordinal;6;kuudes
+spell;%spellout-ordinal;7;seitsemäs
+spell;%spellout-ordinal;8;kahdeksas
+spell;%spellout-ordinal;9;yhdeksäs
+spell;%spellout-ordinal;10;kymmenes
+spell;%spellout-cardinal-allative-plural;-1;miinus yksille
+spell;%spellout-cardinal-allative-plural;0;nollille
+spell;%spellout-cardinal-allative-plural;0.5;nollille pilkku viisille
+spell;%spellout-cardinal-allative-plural;1;yksille
+spell;%spellout-cardinal-allative-plural;2;kaksille
+spell;%spellout-cardinal-ablative-plural;-1;miinus yksiltä
+spell;%spellout-cardinal-ablative-plural;0;nollilta
+spell;%spellout-cardinal-ablative-plural;0.5;nollilta pilkku viisiltä
+spell;%spellout-cardinal-ablative-plural;1;yksiltä
+spell;%spellout-cardinal-ablative-plural;2;kaksilta
+spell;%spellout-cardinal-adessive-plural;-1;miinus yksillä
+spell;%spellout-cardinal-adessive-plural;0;nollilla
+spell;%spellout-cardinal-adessive-plural;0.5;nollilla pilkku viisillä
+spell;%spellout-cardinal-adessive-plural;1;yksillä
+spell;%spellout-cardinal-adessive-plural;2;kaksilla
+spell;%spellout-cardinal-illative-plural;-1;miinus yksiin
+spell;%spellout-cardinal-illative-plural;0;nolliin
+spell;%spellout-cardinal-illative-plural;0.5;nolliin pilkku viisiin
+spell;%spellout-cardinal-illative-plural;1;yksiin
+spell;%spellout-cardinal-illative-plural;2;kaksiin
+spell;%spellout-cardinal-elative-plural;-1;miinus yksistä
+spell;%spellout-cardinal-elative-plural;0;nollista
+spell;%spellout-cardinal-elative-plural;0.5;nollista pilkku viisistä
+spell;%spellout-cardinal-elative-plural;1;yksistä
+spell;%spellout-cardinal-elative-plural;2;kaksista
+spell;%spellout-cardinal-inessive-plural;-1;miinus yksissä
+spell;%spellout-cardinal-inessive-plural;0;nollissa
+spell;%spellout-cardinal-inessive-plural;0.5;nollissa pilkku viisissä
+spell;%spellout-cardinal-inessive-plural;1;yksissä
+spell;%spellout-cardinal-inessive-plural;2;kaksissa
+spell;%spellout-cardinal-translative-plural;-1;miinus yksiksi
+spell;%spellout-cardinal-translative-plural;0;nolliksi
+spell;%spellout-cardinal-translative-plural;0.5;nolliksi pilkku viisiksi
+spell;%spellout-cardinal-translative-plural;1;yksiksi
+spell;%spellout-cardinal-translative-plural;2;kaksiksi
+spell;%spellout-cardinal-essive-plural;-1;miinus yksinä
+spell;%spellout-cardinal-essive-plural;0;nollina
+spell;%spellout-cardinal-essive-plural;0.5;nollina pilkku viisinä
+spell;%spellout-cardinal-essive-plural;1;yksinä
+spell;%spellout-cardinal-essive-plural;2;kaksina
+spell;%spellout-cardinal-partitive-plural;-1;miinus yksiä
+spell;%spellout-cardinal-partitive-plural;0;nollia
+spell;%spellout-cardinal-partitive-plural;0.5;nollia pilkku viisiä
+spell;%spellout-cardinal-partitive-plural;1;yksiä
+spell;%spellout-cardinal-partitive-plural;2;kaksia
+spell;%spellout-cardinal-genitive-plural;-1;miinus yksien
+spell;%spellout-cardinal-genitive-plural;0;nollien
+spell;%spellout-cardinal-genitive-plural;0.5;nollien pilkku viisien
+spell;%spellout-cardinal-genitive-plural;1;yksien
+spell;%spellout-cardinal-genitive-plural;2;kaksien
+spell;%spellout-cardinal-plural;-1;miinus yhdet
+spell;%spellout-cardinal-plural;0;nollat
+spell;%spellout-cardinal-plural;0.5;nollat pilkku viidet
+spell;%spellout-cardinal-plural;1;yhdet
+spell;%spellout-cardinal-plural;2;kahdet
+spell;%spellout-cardinal-allative;-1;miinus yhdelle
+spell;%spellout-cardinal-allative;0;nollalle
+spell;%spellout-cardinal-allative;0.5;nollalle pilkku viidelle
+spell;%spellout-cardinal-allative;1;yhdelle
+spell;%spellout-cardinal-allative;2;kahdelle
+spell;%spellout-cardinal-ablative;-1;miinus yhdeltä
+spell;%spellout-cardinal-ablative;0;nollalta
+spell;%spellout-cardinal-ablative;0.5;nollalta pilkku viideltä
+spell;%spellout-cardinal-ablative;1;yhdeltä
+spell;%spellout-cardinal-ablative;2;kahdelta
+spell;%spellout-cardinal-adessive;-1;miinus yhdellä
+spell;%spellout-cardinal-adessive;0;nollalla
+spell;%spellout-cardinal-adessive;0.5;nollalla pilkku viidellä
+spell;%spellout-cardinal-adessive;1;yhdellä
+spell;%spellout-cardinal-adessive;2;kahdella
+spell;%spellout-cardinal-illative;-1;miinus yhteen
+spell;%spellout-cardinal-illative;0;nollaan
+spell;%spellout-cardinal-illative;0.5;nollaan pilkku viiteen
+spell;%spellout-cardinal-illative;1;yhteen
+spell;%spellout-cardinal-illative;2;kahteen
+spell;%spellout-cardinal-elative;-1;miinus yhdestä
+spell;%spellout-cardinal-elative;0;nollasta
+spell;%spellout-cardinal-elative;0.5;nollasta pilkku viidestä
+spell;%spellout-cardinal-elative;1;yhdestä
+spell;%spellout-cardinal-elative;2;kahdesta
+spell;%spellout-cardinal-inessive;-1;miinus yhdessä
+spell;%spellout-cardinal-inessive;0;nollassa
+spell;%spellout-cardinal-inessive;0.5;nollassa pilkku viidessä
+spell;%spellout-cardinal-inessive;1;yhdessä
+spell;%spellout-cardinal-inessive;2;kahdessa
+spell;%spellout-cardinal-translative;-1;miinus yhdeksi
+spell;%spellout-cardinal-translative;0;nollaksi
+spell;%spellout-cardinal-translative;0.5;nollaksi pilkku viideksi
+spell;%spellout-cardinal-translative;1;yhdeksi
+spell;%spellout-cardinal-translative;2;kahdeksi
+spell;%spellout-cardinal-essive;-1;miinus yhtenä
+spell;%spellout-cardinal-essive;0;nollana
+spell;%spellout-cardinal-essive;0.5;nollana pilkku viitenä
+spell;%spellout-cardinal-essive;1;yhtenä
+spell;%spellout-cardinal-essive;2;kahtena
+spell;%spellout-cardinal-partitive;-1;miinus yhtä
+spell;%spellout-cardinal-partitive;0;nollaa
+spell;%spellout-cardinal-partitive;0.5;nollaa pilkku viittä
+spell;%spellout-cardinal-partitive;1;yhtä
+spell;%spellout-cardinal-partitive;2;kahta
+spell;%spellout-cardinal-genitive;-1;miinus yhden
+spell;%spellout-cardinal-genitive;0;nollan
+spell;%spellout-cardinal-genitive;0.5;nollan pilkku viiden
+spell;%spellout-cardinal-genitive;1;yhden
+spell;%spellout-cardinal-genitive;2;kahden
+spell;%spellout-cardinal;-1;miinus yksi
+spell;%spellout-cardinal;0;nolla
+spell;%spellout-cardinal;0.5;nolla pilkku viisi
+spell;%spellout-cardinal;1;yksi
+spell;%spellout-cardinal;2;kaksi
+spell;%spellout-numbering;-1;miinus yksi
+spell;%spellout-numbering;0;nolla
+spell;%spellout-numbering;0.5;nolla pilkku viisi
+spell;%spellout-numbering;1;yksi
+spell;%spellout-numbering;2;kaksi
+spell;%spellout-numbering-year;1999;tuhat­yhdeksän­sataa­yhdeksän­kymmentä­yhdeksän
+spell;%spellout-numbering-year;2000;kaksi­tuhatta
+spell;%spellout-numbering-year;2001;kaksi­tuhatta­yksi

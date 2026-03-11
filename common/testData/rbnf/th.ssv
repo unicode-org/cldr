@@ -1,0 +1,41 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal;1;ที่​หนึ่ง
+spell;%spellout-ordinal;2;ที่​สอง
+spell;%spellout-ordinal;3;ที่​สาม
+spell;%spellout-ordinal;4;ที่​สี่
+spell;%spellout-ordinal;5;ที่​ห้า
+spell;%spellout-ordinal;6;ที่​หก
+spell;%spellout-ordinal;7;ที่​เจ็ด
+spell;%spellout-ordinal;8;ที่​แปด
+spell;%spellout-ordinal;9;ที่​เก้า
+spell;%spellout-ordinal;10;ที่​สิบ
+spell;%spellout-cardinal;-1;ลบ​หนึ่ง
+spell;%spellout-cardinal;0;ศูนย์
+spell;%spellout-cardinal;0.5;ศูนย์​จุด​ห้า
+spell;%spellout-cardinal;1;หนึ่ง
+spell;%spellout-cardinal;2;สอง
+spell;%spellout-numbering;-1;ลบ​หนึ่ง
+spell;%spellout-numbering;0;ศูนย์
+spell;%spellout-numbering;0.5;ศูนย์​จุด​ห้า
+spell;%spellout-numbering;1;หนึ่ง
+spell;%spellout-numbering;2;สอง
+spell;%spellout-numbering-year;1999;หนึ่ง​พัน​เก้า​ร้อย​เก้า​สิบ​เก้า
+spell;%spellout-numbering-year;2000;สอง​พัน
+spell;%spellout-numbering-year;2001;สอง​พัน​หนึ่ง
+digits;%digits-ordinal;1;ที่ 1
+digits;%digits-ordinal;2;ที่ 2
+digits;%digits-ordinal;3;ที่ 3
+digits;%digits-ordinal;4;ที่ 4
+digits;%digits-ordinal;5;ที่ 5
+digits;%digits-ordinal;6;ที่ 6
+digits;%digits-ordinal;7;ที่ 7
+digits;%digits-ordinal;8;ที่ 8
+digits;%digits-ordinal;9;ที่ 9
+digits;%digits-ordinal;10;ที่ 10

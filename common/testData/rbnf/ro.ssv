@@ -1,0 +1,41 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-cardinal-neuter;-1;minus unu
+spell;%spellout-cardinal-neuter;0;zero
+spell;%spellout-cardinal-neuter;0.5;zero virgulă cinci
+spell;%spellout-cardinal-neuter;1;unu
+spell;%spellout-cardinal-neuter;2;două
+spell;%spellout-cardinal-feminine;-1;minus una
+spell;%spellout-cardinal-feminine;0;zero
+spell;%spellout-cardinal-feminine;0.5;zero virgulă cinci
+spell;%spellout-cardinal-feminine;1;una
+spell;%spellout-cardinal-feminine;2;două
+spell;%spellout-cardinal-masculine;-1;minus unu
+spell;%spellout-cardinal-masculine;0;zero
+spell;%spellout-cardinal-masculine;0.5;zero virgulă cinci
+spell;%spellout-cardinal-masculine;1;unu
+spell;%spellout-cardinal-masculine;2;doi
+spell;%spellout-numbering;-1;minus unu
+spell;%spellout-numbering;0;zero
+spell;%spellout-numbering;0.5;zero virgulă cinci
+spell;%spellout-numbering;1;unu
+spell;%spellout-numbering;2;doi
+spell;%spellout-numbering-year;1999;una mie nouă sute nouăzeci și nouă
+spell;%spellout-numbering-year;2000;două mii
+spell;%spellout-numbering-year;2001;două mii unu
+digits;%digits-ordinal;1;1a
+digits;%digits-ordinal;2;2a
+digits;%digits-ordinal;3;3a
+digits;%digits-ordinal;4;4a
+digits;%digits-ordinal;5;5a
+digits;%digits-ordinal;6;6a
+digits;%digits-ordinal;7;7a
+digits;%digits-ordinal;8;8a
+digits;%digits-ordinal;9;9a
+digits;%digits-ordinal;10;10a

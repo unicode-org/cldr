@@ -1,0 +1,41 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal;1;ទីមួយ
+spell;%spellout-ordinal;2;ទីពីរ
+spell;%spellout-ordinal;3;ទីបី
+spell;%spellout-ordinal;4;ទីបួន
+spell;%spellout-ordinal;5;ទីប្រាំ
+spell;%spellout-ordinal;6;ទីប្រាំមួយ
+spell;%spellout-ordinal;7;ទីប្រាំពីរ
+spell;%spellout-ordinal;8;ទីប្រាំបី
+spell;%spellout-ordinal;9;ទីប្រាំបួន
+spell;%spellout-ordinal;10;ទីដប់
+spell;%spellout-cardinal;-1;ដក​មួយ
+spell;%spellout-cardinal;0;សូន្យ
+spell;%spellout-cardinal;0.5;សូន្យ​ចុច​ប្រាំ
+spell;%spellout-cardinal;1;មួយ
+spell;%spellout-cardinal;2;ពីរ
+spell;%spellout-numbering;-1;ដក​មួយ
+spell;%spellout-numbering;0;សូន្យ
+spell;%spellout-numbering;0.5;សូន្យ​ចុច​ប្រាំ
+spell;%spellout-numbering;1;មួយ
+spell;%spellout-numbering;2;ពីរ
+spell;%spellout-numbering-year;1999;មួយ​ពាន់​ប្រាំបួន​រយ​កៅសិប​ប្រាំបួន
+spell;%spellout-numbering-year;2000;ពីរ​ពាន់
+spell;%spellout-numbering-year;2001;ពីរ​ពាន់​មួយ
+digits;%digits-ordinal;1;ទី1
+digits;%digits-ordinal;2;ទី2
+digits;%digits-ordinal;3;ទី3
+digits;%digits-ordinal;4;ទី4
+digits;%digits-ordinal;5;ទី5
+digits;%digits-ordinal;6;ទី6
+digits;%digits-ordinal;7;ទី7
+digits;%digits-ordinal;8;ទី8
+digits;%digits-ordinal;9;ទី9
+digits;%digits-ordinal;10;ទី10

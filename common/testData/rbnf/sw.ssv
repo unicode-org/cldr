@@ -1,0 +1,31 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal;1;kwanza
+spell;%spellout-ordinal;2;pili
+spell;%spellout-ordinal;3;wa tatu
+spell;%spellout-ordinal;4;wa nne
+spell;%spellout-ordinal;5;wa tano
+spell;%spellout-ordinal;6;wa sita
+spell;%spellout-ordinal;7;wa saba
+spell;%spellout-ordinal;8;wa nane
+spell;%spellout-ordinal;9;wa tisa
+spell;%spellout-ordinal;10;wa kumi
+spell;%spellout-cardinal;-1;kasoro moja
+spell;%spellout-cardinal;0;sifuri
+spell;%spellout-cardinal;0.5;sifuri nukta tano
+spell;%spellout-cardinal;1;moja
+spell;%spellout-cardinal;2;mbili
+spell;%spellout-numbering;-1;kasoro moja
+spell;%spellout-numbering;0;sifuri
+spell;%spellout-numbering;0.5;sifuri nukta tano
+spell;%spellout-numbering;1;moja
+spell;%spellout-numbering;2;mbili
+spell;%spellout-numbering-year;1999;elfu moja, mia tisa na tisini na tisa
+spell;%spellout-numbering-year;2000;elfu mbili
+spell;%spellout-numbering-year;2001;elfu mbili, moja

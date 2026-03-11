@@ -1,0 +1,46 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal;1;ewwel
+spell;%spellout-ordinal;2;tieni
+spell;%spellout-ordinal;3;tielet
+spell;%spellout-ordinal;4;rabaʼ
+spell;%spellout-ordinal;5;ħames
+spell;%spellout-ordinal;6;sitt
+spell;%spellout-ordinal;7;sebaʼ
+spell;%spellout-ordinal;8;tmien
+spell;%spellout-ordinal;9;disaʼ
+spell;%spellout-ordinal;10;għaxar
+spell;%spellout-cardinal-feminine-connective;-1;minus waħda
+spell;%spellout-cardinal-feminine-connective;0;żero
+spell;%spellout-cardinal-feminine-connective;0.5;żero punt ħames
+spell;%spellout-cardinal-feminine-connective;1;waħda
+spell;%spellout-cardinal-feminine-connective;2;żewġt
+spell;%spellout-cardinal-masculine-connective;-1;minus wieħed
+spell;%spellout-cardinal-masculine-connective;0;żero
+spell;%spellout-cardinal-masculine-connective;0.5;żero punt ħames
+spell;%spellout-cardinal-masculine-connective;1;wieħed
+spell;%spellout-cardinal-masculine-connective;2;żewġt
+spell;%spellout-cardinal-feminine;-1;minus waħda
+spell;%spellout-cardinal-feminine;0;żero
+spell;%spellout-cardinal-feminine;0.5;żero punt ħames
+spell;%spellout-cardinal-feminine;1;waħda
+spell;%spellout-cardinal-feminine;2;żewġ
+spell;%spellout-cardinal-masculine;-1;minus wieħed
+spell;%spellout-cardinal-masculine;0;żero
+spell;%spellout-cardinal-masculine;0.5;żero punt ħames
+spell;%spellout-cardinal-masculine;1;wieħed
+spell;%spellout-cardinal-masculine;2;żewġ
+spell;%spellout-numbering;-1;minus wieħed
+spell;%spellout-numbering;0;żero
+spell;%spellout-numbering;0.5;żero punt ħamsa
+spell;%spellout-numbering;1;wieħed
+spell;%spellout-numbering;2;tnejn
+spell;%spellout-numbering-year;1999;elf u disaʼ mija u disgħa u disgħin
+spell;%spellout-numbering-year;2000;elfejn
+spell;%spellout-numbering-year;2001;elfejn u wieħed

@@ -1,0 +1,86 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal-native;1;첫째
+spell;%spellout-ordinal-native;2;둘째
+spell;%spellout-ordinal-native;3;셋째
+spell;%spellout-ordinal-native;4;넷째
+spell;%spellout-ordinal-native;5;다섯째
+spell;%spellout-ordinal-native;6;여섯째
+spell;%spellout-ordinal-native;7;일곱째
+spell;%spellout-ordinal-native;8;여덟째
+spell;%spellout-ordinal-native;9;아홉째
+spell;%spellout-ordinal-native;10;열째
+spell;%spellout-ordinal-sinokorean;1;첫째
+spell;%spellout-ordinal-sinokorean;2;둘째
+spell;%spellout-ordinal-sinokorean;3;셋째
+spell;%spellout-ordinal-sinokorean;4;넷째
+spell;%spellout-ordinal-sinokorean;5;다섯째
+spell;%spellout-ordinal-sinokorean;6;여섯째
+spell;%spellout-ordinal-sinokorean;7;일곱째
+spell;%spellout-ordinal-sinokorean;8;여덟째
+spell;%spellout-ordinal-sinokorean;9;아홉째
+spell;%spellout-ordinal-sinokorean;10;열째
+spell;%spellout-ordinal-native-count;1;첫 번째
+spell;%spellout-ordinal-native-count;2;두 번째
+spell;%spellout-ordinal-native-count;3;세 번째
+spell;%spellout-ordinal-native-count;4;네 번째
+spell;%spellout-ordinal-native-count;5;다섯 번째
+spell;%spellout-ordinal-native-count;6;여섯 번째
+spell;%spellout-ordinal-native-count;7;일곱 번째
+spell;%spellout-ordinal-native-count;8;여덟 번째
+spell;%spellout-ordinal-native-count;9;아홉 번째
+spell;%spellout-ordinal-native-count;10;열 번째
+spell;%spellout-ordinal-sinokorean-count;1;첫 번째
+spell;%spellout-ordinal-sinokorean-count;2;두 번째
+spell;%spellout-ordinal-sinokorean-count;3;세 번째
+spell;%spellout-ordinal-sinokorean-count;4;네 번째
+spell;%spellout-ordinal-sinokorean-count;5;다섯 번째
+spell;%spellout-ordinal-sinokorean-count;6;여섯 번째
+spell;%spellout-ordinal-sinokorean-count;7;일곱 번째
+spell;%spellout-ordinal-sinokorean-count;8;여덟 번째
+spell;%spellout-ordinal-sinokorean-count;9;아홉 번째
+spell;%spellout-ordinal-sinokorean-count;10;열 번째
+spell;%spellout-cardinal-financial;-1;마이너스 일
+spell;%spellout-cardinal-financial;0;영
+spell;%spellout-cardinal-financial;0.5;영점오
+spell;%spellout-cardinal-financial;1;일
+spell;%spellout-cardinal-financial;2;이
+spell;%spellout-cardinal-native;-1;마이너스 하나
+spell;%spellout-cardinal-native;0;영
+spell;%spellout-cardinal-native;0.5;영점오
+spell;%spellout-cardinal-native;1;하나
+spell;%spellout-cardinal-native;2;둘
+spell;%spellout-cardinal-native-attributive;-1;마이너스 한
+spell;%spellout-cardinal-native-attributive;0;영
+spell;%spellout-cardinal-native-attributive;0.5;영점오
+spell;%spellout-cardinal-native-attributive;1;한
+spell;%spellout-cardinal-native-attributive;2;두
+spell;%spellout-cardinal-sinokorean;-1;마이너스 일
+spell;%spellout-cardinal-sinokorean;0;영
+spell;%spellout-cardinal-sinokorean;0.5;영점오
+spell;%spellout-cardinal-sinokorean;1;일
+spell;%spellout-cardinal-sinokorean;2;이
+spell;%spellout-numbering;-1;마이너스 일
+spell;%spellout-numbering;0;공
+spell;%spellout-numbering;0.5;영점오
+spell;%spellout-numbering;1;일
+spell;%spellout-numbering;2;이
+spell;%spellout-numbering-year;1999;천구백구십구
+spell;%spellout-numbering-year;2000;이천
+spell;%spellout-numbering-year;2001;이천일
+digits;%digits-ordinal;1;1번째
+digits;%digits-ordinal;2;2번째
+digits;%digits-ordinal;3;3번째
+digits;%digits-ordinal;4;4번째
+digits;%digits-ordinal;5;5번째
+digits;%digits-ordinal;6;6번째
+digits;%digits-ordinal;7;7번째
+digits;%digits-ordinal;8;8번째
+digits;%digits-ordinal;9;9번째
+digits;%digits-ordinal;10;10번째

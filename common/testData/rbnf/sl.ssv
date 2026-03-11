@@ -1,0 +1,431 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal-plural-instrumental;1;prvimi
+spell;%spellout-ordinal-plural-instrumental;2;drugimi
+spell;%spellout-ordinal-plural-instrumental;3;tretjimi
+spell;%spellout-ordinal-plural-instrumental;4;četrtimi
+spell;%spellout-ordinal-plural-instrumental;5;petimi
+spell;%spellout-ordinal-plural-instrumental;6;šestimi
+spell;%spellout-ordinal-plural-instrumental;7;sedmimi
+spell;%spellout-ordinal-plural-instrumental;8;osmimi
+spell;%spellout-ordinal-plural-instrumental;9;devetimi
+spell;%spellout-ordinal-plural-instrumental;10;desetimi
+spell;%spellout-ordinal-dual-instrumental;1;prvima
+spell;%spellout-ordinal-dual-instrumental;2;drugima
+spell;%spellout-ordinal-dual-instrumental;3;tretjima
+spell;%spellout-ordinal-dual-instrumental;4;četrtima
+spell;%spellout-ordinal-dual-instrumental;5;petima
+spell;%spellout-ordinal-dual-instrumental;6;šestima
+spell;%spellout-ordinal-dual-instrumental;7;sedmima
+spell;%spellout-ordinal-dual-instrumental;8;osmima
+spell;%spellout-ordinal-dual-instrumental;9;devetima
+spell;%spellout-ordinal-dual-instrumental;10;desetima
+spell;%spellout-ordinal-feminine-instrumental;1;prvo
+spell;%spellout-ordinal-feminine-instrumental;2;drugo
+spell;%spellout-ordinal-feminine-instrumental;3;tretjo
+spell;%spellout-ordinal-feminine-instrumental;4;četrto
+spell;%spellout-ordinal-feminine-instrumental;5;peto
+spell;%spellout-ordinal-feminine-instrumental;6;šesto
+spell;%spellout-ordinal-feminine-instrumental;7;sedmo
+spell;%spellout-ordinal-feminine-instrumental;8;osmo
+spell;%spellout-ordinal-feminine-instrumental;9;deveto
+spell;%spellout-ordinal-feminine-instrumental;10;deseto
+spell;%spellout-ordinal-neuter-instrumental;1;prvim
+spell;%spellout-ordinal-neuter-instrumental;2;drugim
+spell;%spellout-ordinal-neuter-instrumental;3;tretjim
+spell;%spellout-ordinal-neuter-instrumental;4;četrtim
+spell;%spellout-ordinal-neuter-instrumental;5;petim
+spell;%spellout-ordinal-neuter-instrumental;6;šestim
+spell;%spellout-ordinal-neuter-instrumental;7;sedmim
+spell;%spellout-ordinal-neuter-instrumental;8;osmim
+spell;%spellout-ordinal-neuter-instrumental;9;devetim
+spell;%spellout-ordinal-neuter-instrumental;10;desetim
+spell;%spellout-ordinal-masculine-instrumental;1;prvim
+spell;%spellout-ordinal-masculine-instrumental;2;drugim
+spell;%spellout-ordinal-masculine-instrumental;3;tretjim
+spell;%spellout-ordinal-masculine-instrumental;4;četrtim
+spell;%spellout-ordinal-masculine-instrumental;5;petim
+spell;%spellout-ordinal-masculine-instrumental;6;šestim
+spell;%spellout-ordinal-masculine-instrumental;7;sedmim
+spell;%spellout-ordinal-masculine-instrumental;8;osmim
+spell;%spellout-ordinal-masculine-instrumental;9;devetim
+spell;%spellout-ordinal-masculine-instrumental;10;desetim
+spell;%spellout-ordinal-plural-locative;1;prvih
+spell;%spellout-ordinal-plural-locative;2;drugih
+spell;%spellout-ordinal-plural-locative;3;tretjih
+spell;%spellout-ordinal-plural-locative;4;četrtih
+spell;%spellout-ordinal-plural-locative;5;petih
+spell;%spellout-ordinal-plural-locative;6;šestih
+spell;%spellout-ordinal-plural-locative;7;sedmih
+spell;%spellout-ordinal-plural-locative;8;osmih
+spell;%spellout-ordinal-plural-locative;9;devetih
+spell;%spellout-ordinal-plural-locative;10;desetih
+spell;%spellout-ordinal-feminine-locative;1;prvi
+spell;%spellout-ordinal-feminine-locative;2;drugi
+spell;%spellout-ordinal-feminine-locative;3;tretji
+spell;%spellout-ordinal-feminine-locative;4;četrti
+spell;%spellout-ordinal-feminine-locative;5;peti
+spell;%spellout-ordinal-feminine-locative;6;šesti
+spell;%spellout-ordinal-feminine-locative;7;sedmi
+spell;%spellout-ordinal-feminine-locative;8;osmi
+spell;%spellout-ordinal-feminine-locative;9;deveti
+spell;%spellout-ordinal-feminine-locative;10;deseti
+spell;%spellout-ordinal-neuter-locative;1;prvem
+spell;%spellout-ordinal-neuter-locative;2;drugem
+spell;%spellout-ordinal-neuter-locative;3;tretjem
+spell;%spellout-ordinal-neuter-locative;4;četrtem
+spell;%spellout-ordinal-neuter-locative;5;petem
+spell;%spellout-ordinal-neuter-locative;6;šestem
+spell;%spellout-ordinal-neuter-locative;7;sedmem
+spell;%spellout-ordinal-neuter-locative;8;osmem
+spell;%spellout-ordinal-neuter-locative;9;devetem
+spell;%spellout-ordinal-neuter-locative;10;desetem
+spell;%spellout-ordinal-masculine-locative;1;prvem
+spell;%spellout-ordinal-masculine-locative;2;drugem
+spell;%spellout-ordinal-masculine-locative;3;tretjem
+spell;%spellout-ordinal-masculine-locative;4;četrtem
+spell;%spellout-ordinal-masculine-locative;5;petem
+spell;%spellout-ordinal-masculine-locative;6;šestem
+spell;%spellout-ordinal-masculine-locative;7;sedmem
+spell;%spellout-ordinal-masculine-locative;8;osmem
+spell;%spellout-ordinal-masculine-locative;9;devetem
+spell;%spellout-ordinal-masculine-locative;10;desetem
+spell;%spellout-ordinal-plural-feminine-accusative;1;prve
+spell;%spellout-ordinal-plural-feminine-accusative;2;druge
+spell;%spellout-ordinal-plural-feminine-accusative;3;tretje
+spell;%spellout-ordinal-plural-feminine-accusative;4;četrte
+spell;%spellout-ordinal-plural-feminine-accusative;5;pete
+spell;%spellout-ordinal-plural-feminine-accusative;6;šeste
+spell;%spellout-ordinal-plural-feminine-accusative;7;sedme
+spell;%spellout-ordinal-plural-feminine-accusative;8;osme
+spell;%spellout-ordinal-plural-feminine-accusative;9;devete
+spell;%spellout-ordinal-plural-feminine-accusative;10;desete
+spell;%spellout-ordinal-plural-neuter-accusative;1;prva
+spell;%spellout-ordinal-plural-neuter-accusative;2;druga
+spell;%spellout-ordinal-plural-neuter-accusative;3;tretja
+spell;%spellout-ordinal-plural-neuter-accusative;4;četrta
+spell;%spellout-ordinal-plural-neuter-accusative;5;peta
+spell;%spellout-ordinal-plural-neuter-accusative;6;šesta
+spell;%spellout-ordinal-plural-neuter-accusative;7;sedma
+spell;%spellout-ordinal-plural-neuter-accusative;8;osma
+spell;%spellout-ordinal-plural-neuter-accusative;9;deveta
+spell;%spellout-ordinal-plural-neuter-accusative;10;deseta
+spell;%spellout-ordinal-plural-masculine-accusative;1;prvi
+spell;%spellout-ordinal-plural-masculine-accusative;2;drugi
+spell;%spellout-ordinal-plural-masculine-accusative;3;tretji
+spell;%spellout-ordinal-plural-masculine-accusative;4;četrti
+spell;%spellout-ordinal-plural-masculine-accusative;5;peti
+spell;%spellout-ordinal-plural-masculine-accusative;6;šesti
+spell;%spellout-ordinal-plural-masculine-accusative;7;sedmi
+spell;%spellout-ordinal-plural-masculine-accusative;8;osmi
+spell;%spellout-ordinal-plural-masculine-accusative;9;deveti
+spell;%spellout-ordinal-plural-masculine-accusative;10;deseti
+spell;%spellout-ordinal-feminine-accusative;1;prvo
+spell;%spellout-ordinal-feminine-accusative;2;drugo
+spell;%spellout-ordinal-feminine-accusative;3;tretjo
+spell;%spellout-ordinal-feminine-accusative;4;četrto
+spell;%spellout-ordinal-feminine-accusative;5;peto
+spell;%spellout-ordinal-feminine-accusative;6;šesto
+spell;%spellout-ordinal-feminine-accusative;7;sedmo
+spell;%spellout-ordinal-feminine-accusative;8;osmo
+spell;%spellout-ordinal-feminine-accusative;9;deveto
+spell;%spellout-ordinal-feminine-accusative;10;deseto
+spell;%spellout-ordinal-neuter-accusative;1;prvo
+spell;%spellout-ordinal-neuter-accusative;2;drugo
+spell;%spellout-ordinal-neuter-accusative;3;tretje
+spell;%spellout-ordinal-neuter-accusative;4;četrto
+spell;%spellout-ordinal-neuter-accusative;5;peto
+spell;%spellout-ordinal-neuter-accusative;6;šesto
+spell;%spellout-ordinal-neuter-accusative;7;sedmo
+spell;%spellout-ordinal-neuter-accusative;8;osmo
+spell;%spellout-ordinal-neuter-accusative;9;deveto
+spell;%spellout-ordinal-neuter-accusative;10;deseto
+spell;%spellout-ordinal-masculine-animate-accusative;1;prvega
+spell;%spellout-ordinal-masculine-animate-accusative;2;drugega
+spell;%spellout-ordinal-masculine-animate-accusative;3;tretjega
+spell;%spellout-ordinal-masculine-animate-accusative;4;četrtega
+spell;%spellout-ordinal-masculine-animate-accusative;5;petega
+spell;%spellout-ordinal-masculine-animate-accusative;6;šestega
+spell;%spellout-ordinal-masculine-animate-accusative;7;sedmega
+spell;%spellout-ordinal-masculine-animate-accusative;8;osmega
+spell;%spellout-ordinal-masculine-animate-accusative;9;devetega
+spell;%spellout-ordinal-masculine-animate-accusative;10;desetega
+spell;%spellout-ordinal-masculine-accusative;1;prvi
+spell;%spellout-ordinal-masculine-accusative;2;drugi
+spell;%spellout-ordinal-masculine-accusative;3;tretji
+spell;%spellout-ordinal-masculine-accusative;4;četrti
+spell;%spellout-ordinal-masculine-accusative;5;peti
+spell;%spellout-ordinal-masculine-accusative;6;šesti
+spell;%spellout-ordinal-masculine-accusative;7;sedmi
+spell;%spellout-ordinal-masculine-accusative;8;osmi
+spell;%spellout-ordinal-masculine-accusative;9;deveti
+spell;%spellout-ordinal-masculine-accusative;10;deseti
+spell;%spellout-ordinal-plural-dative;1;prvim
+spell;%spellout-ordinal-plural-dative;2;drugim
+spell;%spellout-ordinal-plural-dative;3;tretjim
+spell;%spellout-ordinal-plural-dative;4;četrtim
+spell;%spellout-ordinal-plural-dative;5;petim
+spell;%spellout-ordinal-plural-dative;6;šestim
+spell;%spellout-ordinal-plural-dative;7;sedmim
+spell;%spellout-ordinal-plural-dative;8;osmim
+spell;%spellout-ordinal-plural-dative;9;devetim
+spell;%spellout-ordinal-plural-dative;10;desetim
+spell;%spellout-ordinal-dual-dative;1;prvima
+spell;%spellout-ordinal-dual-dative;2;drugima
+spell;%spellout-ordinal-dual-dative;3;tretjima
+spell;%spellout-ordinal-dual-dative;4;četrtima
+spell;%spellout-ordinal-dual-dative;5;petima
+spell;%spellout-ordinal-dual-dative;6;šestima
+spell;%spellout-ordinal-dual-dative;7;sedmima
+spell;%spellout-ordinal-dual-dative;8;osmima
+spell;%spellout-ordinal-dual-dative;9;devetima
+spell;%spellout-ordinal-dual-dative;10;desetima
+spell;%spellout-ordinal-dative;1;prvemu
+spell;%spellout-ordinal-dative;2;drugemu
+spell;%spellout-ordinal-dative;3;tretjemu
+spell;%spellout-ordinal-dative;4;četrtemu
+spell;%spellout-ordinal-dative;5;petemu
+spell;%spellout-ordinal-dative;6;šestemu
+spell;%spellout-ordinal-dative;7;sedmemu
+spell;%spellout-ordinal-dative;8;osmemu
+spell;%spellout-ordinal-dative;9;devetemu
+spell;%spellout-ordinal-dative;10;desetemu
+spell;%spellout-ordinal-plural-genitive;1;prvih
+spell;%spellout-ordinal-plural-genitive;2;drugih
+spell;%spellout-ordinal-plural-genitive;3;tretjih
+spell;%spellout-ordinal-plural-genitive;4;četrtih
+spell;%spellout-ordinal-plural-genitive;5;petih
+spell;%spellout-ordinal-plural-genitive;6;šestih
+spell;%spellout-ordinal-plural-genitive;7;sedmih
+spell;%spellout-ordinal-plural-genitive;8;osmih
+spell;%spellout-ordinal-plural-genitive;9;devetih
+spell;%spellout-ordinal-plural-genitive;10;desetih
+spell;%spellout-ordinal-feminine-genitive;1;prve
+spell;%spellout-ordinal-feminine-genitive;2;druge
+spell;%spellout-ordinal-feminine-genitive;3;tretje
+spell;%spellout-ordinal-feminine-genitive;4;četrte
+spell;%spellout-ordinal-feminine-genitive;5;pete
+spell;%spellout-ordinal-feminine-genitive;6;šeste
+spell;%spellout-ordinal-feminine-genitive;7;sedme
+spell;%spellout-ordinal-feminine-genitive;8;osme
+spell;%spellout-ordinal-feminine-genitive;9;devete
+spell;%spellout-ordinal-feminine-genitive;10;desete
+spell;%spellout-ordinal-neuter-genitive;1;prvega
+spell;%spellout-ordinal-neuter-genitive;2;drugega
+spell;%spellout-ordinal-neuter-genitive;3;tretjega
+spell;%spellout-ordinal-neuter-genitive;4;četrtega
+spell;%spellout-ordinal-neuter-genitive;5;petega
+spell;%spellout-ordinal-neuter-genitive;6;šestega
+spell;%spellout-ordinal-neuter-genitive;7;sedmega
+spell;%spellout-ordinal-neuter-genitive;8;osmega
+spell;%spellout-ordinal-neuter-genitive;9;devetega
+spell;%spellout-ordinal-neuter-genitive;10;desetega
+spell;%spellout-ordinal-masculine-genitive;1;prvega
+spell;%spellout-ordinal-masculine-genitive;2;drugega
+spell;%spellout-ordinal-masculine-genitive;3;tretjega
+spell;%spellout-ordinal-masculine-genitive;4;četrtega
+spell;%spellout-ordinal-masculine-genitive;5;petega
+spell;%spellout-ordinal-masculine-genitive;6;šestega
+spell;%spellout-ordinal-masculine-genitive;7;sedmega
+spell;%spellout-ordinal-masculine-genitive;8;osmega
+spell;%spellout-ordinal-masculine-genitive;9;devetega
+spell;%spellout-ordinal-masculine-genitive;10;desetega
+spell;%spellout-ordinal-plural-feminine;1;prve
+spell;%spellout-ordinal-plural-feminine;2;druge
+spell;%spellout-ordinal-plural-feminine;3;tretje
+spell;%spellout-ordinal-plural-feminine;4;četrte
+spell;%spellout-ordinal-plural-feminine;5;pete
+spell;%spellout-ordinal-plural-feminine;6;šeste
+spell;%spellout-ordinal-plural-feminine;7;sedme
+spell;%spellout-ordinal-plural-feminine;8;osme
+spell;%spellout-ordinal-plural-feminine;9;devete
+spell;%spellout-ordinal-plural-feminine;10;desete
+spell;%spellout-ordinal-plural-neuter;1;prva
+spell;%spellout-ordinal-plural-neuter;2;druga
+spell;%spellout-ordinal-plural-neuter;3;tretja
+spell;%spellout-ordinal-plural-neuter;4;četrta
+spell;%spellout-ordinal-plural-neuter;5;peta
+spell;%spellout-ordinal-plural-neuter;6;šesta
+spell;%spellout-ordinal-plural-neuter;7;sedma
+spell;%spellout-ordinal-plural-neuter;8;osma
+spell;%spellout-ordinal-plural-neuter;9;deveta
+spell;%spellout-ordinal-plural-neuter;10;deseta
+spell;%spellout-ordinal-plural-masculine;1;prvi
+spell;%spellout-ordinal-plural-masculine;2;drugi
+spell;%spellout-ordinal-plural-masculine;3;tretji
+spell;%spellout-ordinal-plural-masculine;4;četrti
+spell;%spellout-ordinal-plural-masculine;5;peti
+spell;%spellout-ordinal-plural-masculine;6;šesti
+spell;%spellout-ordinal-plural-masculine;7;sedmi
+spell;%spellout-ordinal-plural-masculine;8;osmi
+spell;%spellout-ordinal-plural-masculine;9;deveti
+spell;%spellout-ordinal-plural-masculine;10;deseti
+spell;%spellout-ordinal-dual-feminine;1;prvi
+spell;%spellout-ordinal-dual-feminine;2;drugi
+spell;%spellout-ordinal-dual-feminine;3;tretji
+spell;%spellout-ordinal-dual-feminine;4;četrti
+spell;%spellout-ordinal-dual-feminine;5;peti
+spell;%spellout-ordinal-dual-feminine;6;šesti
+spell;%spellout-ordinal-dual-feminine;7;sedmi
+spell;%spellout-ordinal-dual-feminine;8;osmi
+spell;%spellout-ordinal-dual-feminine;9;deveti
+spell;%spellout-ordinal-dual-feminine;10;deseti
+spell;%spellout-ordinal-dual-neuter;1;prvi
+spell;%spellout-ordinal-dual-neuter;2;drugi
+spell;%spellout-ordinal-dual-neuter;3;tretji
+spell;%spellout-ordinal-dual-neuter;4;četrti
+spell;%spellout-ordinal-dual-neuter;5;peti
+spell;%spellout-ordinal-dual-neuter;6;šesti
+spell;%spellout-ordinal-dual-neuter;7;sedmi
+spell;%spellout-ordinal-dual-neuter;8;osmi
+spell;%spellout-ordinal-dual-neuter;9;deveti
+spell;%spellout-ordinal-dual-neuter;10;deseti
+spell;%spellout-ordinal-dual-masculine;1;prva
+spell;%spellout-ordinal-dual-masculine;2;druga
+spell;%spellout-ordinal-dual-masculine;3;tretja
+spell;%spellout-ordinal-dual-masculine;4;četrta
+spell;%spellout-ordinal-dual-masculine;5;peta
+spell;%spellout-ordinal-dual-masculine;6;šesta
+spell;%spellout-ordinal-dual-masculine;7;sedma
+spell;%spellout-ordinal-dual-masculine;8;osma
+spell;%spellout-ordinal-dual-masculine;9;deveta
+spell;%spellout-ordinal-dual-masculine;10;deseta
+spell;%spellout-ordinal-feminine;1;prva
+spell;%spellout-ordinal-feminine;2;druga
+spell;%spellout-ordinal-feminine;3;tretja
+spell;%spellout-ordinal-feminine;4;četrta
+spell;%spellout-ordinal-feminine;5;peta
+spell;%spellout-ordinal-feminine;6;šesta
+spell;%spellout-ordinal-feminine;7;sedma
+spell;%spellout-ordinal-feminine;8;osma
+spell;%spellout-ordinal-feminine;9;deveta
+spell;%spellout-ordinal-feminine;10;deseta
+spell;%spellout-ordinal-neuter;1;prvo
+spell;%spellout-ordinal-neuter;2;drugo
+spell;%spellout-ordinal-neuter;3;tretje
+spell;%spellout-ordinal-neuter;4;četrto
+spell;%spellout-ordinal-neuter;5;peto
+spell;%spellout-ordinal-neuter;6;šesto
+spell;%spellout-ordinal-neuter;7;sedmo
+spell;%spellout-ordinal-neuter;8;osmo
+spell;%spellout-ordinal-neuter;9;deveto
+spell;%spellout-ordinal-neuter;10;deseto
+spell;%spellout-ordinal-masculine;1;prvi
+spell;%spellout-ordinal-masculine;2;drugi
+spell;%spellout-ordinal-masculine;3;tretji
+spell;%spellout-ordinal-masculine;4;četrti
+spell;%spellout-ordinal-masculine;5;peti
+spell;%spellout-ordinal-masculine;6;šesti
+spell;%spellout-ordinal-masculine;7;sedmi
+spell;%spellout-ordinal-masculine;8;osmi
+spell;%spellout-ordinal-masculine;9;deveti
+spell;%spellout-ordinal-masculine;10;deseti
+spell;%spellout-cardinal-neuter-locative;-1;minus enem
+spell;%spellout-cardinal-neuter-locative;0;nič
+spell;%spellout-cardinal-neuter-locative;0.5;nič cela pet
+spell;%spellout-cardinal-neuter-locative;1;enem
+spell;%spellout-cardinal-neuter-locative;2;dveh
+spell;%spellout-cardinal-feminine-locative;-1;minus eni
+spell;%spellout-cardinal-feminine-locative;0;nič
+spell;%spellout-cardinal-feminine-locative;0.5;nič cela pet
+spell;%spellout-cardinal-feminine-locative;1;eni
+spell;%spellout-cardinal-feminine-locative;2;dveh
+spell;%spellout-cardinal-masculine-locative;-1;minus enem
+spell;%spellout-cardinal-masculine-locative;0;nič
+spell;%spellout-cardinal-masculine-locative;0.5;nič cela pet
+spell;%spellout-cardinal-masculine-locative;1;enem
+spell;%spellout-cardinal-masculine-locative;2;dveh
+spell;%spellout-cardinal-feminine-instrumental;-1;minus eno
+spell;%spellout-cardinal-feminine-instrumental;0;nič
+spell;%spellout-cardinal-feminine-instrumental;0.5;nič cela petimi
+spell;%spellout-cardinal-feminine-instrumental;1;eno
+spell;%spellout-cardinal-feminine-instrumental;2;dvema
+spell;%spellout-cardinal-neuter-instrumental;-1;minus enim
+spell;%spellout-cardinal-neuter-instrumental;0;ničim
+spell;%spellout-cardinal-neuter-instrumental;0.5;nič cela petimi
+spell;%spellout-cardinal-neuter-instrumental;1;enim
+spell;%spellout-cardinal-neuter-instrumental;2;dvema
+spell;%spellout-cardinal-masculine-instrumental;-1;minus enim
+spell;%spellout-cardinal-masculine-instrumental;0;ničim
+spell;%spellout-cardinal-masculine-instrumental;0.5;nič cela petimi
+spell;%spellout-cardinal-masculine-instrumental;1;enim
+spell;%spellout-cardinal-masculine-instrumental;2;dvema
+spell;%spellout-cardinal-feminine-accusative;-1;minus eno
+spell;%spellout-cardinal-feminine-accusative;0;nič
+spell;%spellout-cardinal-feminine-accusative;0.5;nič cela pet
+spell;%spellout-cardinal-feminine-accusative;1;eno
+spell;%spellout-cardinal-feminine-accusative;2;dve
+spell;%spellout-cardinal-neuter-accusative;-1;minus eno
+spell;%spellout-cardinal-neuter-accusative;0;nič
+spell;%spellout-cardinal-neuter-accusative;0.5;nič cela pet
+spell;%spellout-cardinal-neuter-accusative;1;eno
+spell;%spellout-cardinal-neuter-accusative;2;dve
+spell;%spellout-cardinal-masculine-animate-accusative;-1;minus enega
+spell;%spellout-cardinal-masculine-animate-accusative;0;nič
+spell;%spellout-cardinal-masculine-animate-accusative;0.5;nič cela petih
+spell;%spellout-cardinal-masculine-animate-accusative;1;enega
+spell;%spellout-cardinal-masculine-animate-accusative;2;dveh
+spell;%spellout-cardinal-masculine-accusative;-1;minus enega
+spell;%spellout-cardinal-masculine-accusative;0;nič
+spell;%spellout-cardinal-masculine-accusative;0.5;nič cela pet
+spell;%spellout-cardinal-masculine-accusative;1;enega
+spell;%spellout-cardinal-masculine-accusative;2;dva
+spell;%spellout-cardinal-feminine-dative;-1;minus eni
+spell;%spellout-cardinal-feminine-dative;0;nič
+spell;%spellout-cardinal-feminine-dative;0.5;nič cela petim
+spell;%spellout-cardinal-feminine-dative;1;eni
+spell;%spellout-cardinal-feminine-dative;2;dvema
+spell;%spellout-cardinal-neuter-dative;-1;minus enemu
+spell;%spellout-cardinal-neuter-dative;0;ničemu
+spell;%spellout-cardinal-neuter-dative;0.5;nič cela petim
+spell;%spellout-cardinal-neuter-dative;1;enemu
+spell;%spellout-cardinal-neuter-dative;2;dvema
+spell;%spellout-cardinal-masculine-dative;-1;minus enemu
+spell;%spellout-cardinal-masculine-dative;0;ničemu
+spell;%spellout-cardinal-masculine-dative;0.5;nič cela petim
+spell;%spellout-cardinal-masculine-dative;1;enemu
+spell;%spellout-cardinal-masculine-dative;2;dvema
+spell;%spellout-cardinal-feminine-genitive;-1;minus ene
+spell;%spellout-cardinal-feminine-genitive;0;nič
+spell;%spellout-cardinal-feminine-genitive;0.5;nič cela petih
+spell;%spellout-cardinal-feminine-genitive;1;ene
+spell;%spellout-cardinal-feminine-genitive;2;dveh
+spell;%spellout-cardinal-neuter-genitive;-1;minus enega
+spell;%spellout-cardinal-neuter-genitive;0;nič
+spell;%spellout-cardinal-neuter-genitive;0.5;nič cela petih
+spell;%spellout-cardinal-neuter-genitive;1;enega
+spell;%spellout-cardinal-neuter-genitive;2;dveh
+spell;%spellout-cardinal-masculine-genitive;-1;minus enega
+spell;%spellout-cardinal-masculine-genitive;0;nič
+spell;%spellout-cardinal-masculine-genitive;0.5;nič cela petih
+spell;%spellout-cardinal-masculine-genitive;1;enega
+spell;%spellout-cardinal-masculine-genitive;2;dveh
+spell;%spellout-cardinal-feminine;-1;minus ena
+spell;%spellout-cardinal-feminine;0;nič
+spell;%spellout-cardinal-feminine;0.5;nič cela pet
+spell;%spellout-cardinal-feminine;1;ena
+spell;%spellout-cardinal-feminine;2;dve
+spell;%spellout-cardinal-neuter;-1;minus eno
+spell;%spellout-cardinal-neuter;0;nič
+spell;%spellout-cardinal-neuter;0.5;nič cela pet
+spell;%spellout-cardinal-neuter;1;eno
+spell;%spellout-cardinal-neuter;2;dve
+spell;%spellout-cardinal-masculine;-1;minus en
+spell;%spellout-cardinal-masculine;0;nič
+spell;%spellout-cardinal-masculine;0.5;nič cela pet
+spell;%spellout-cardinal-masculine;1;en
+spell;%spellout-cardinal-masculine;2;dva
+spell;%spellout-numbering;-1;minus eno
+spell;%spellout-numbering;0;nič
+spell;%spellout-numbering;0.5;nič cela pet
+spell;%spellout-numbering;1;eno
+spell;%spellout-numbering;2;dve
+spell;%spellout-numbering-year;1999;tisoč­devet­sto­devetindevetdesetega
+spell;%spellout-numbering-year;2000;dva­tisočega
+spell;%spellout-numbering-year;2001;dva­tisoč­prvega

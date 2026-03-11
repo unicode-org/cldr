@@ -1,0 +1,41 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal;1;pertama
+spell;%spellout-ordinal;2;kedua
+spell;%spellout-ordinal;3;ketiga
+spell;%spellout-ordinal;4;keempat
+spell;%spellout-ordinal;5;kelima
+spell;%spellout-ordinal;6;keenam
+spell;%spellout-ordinal;7;ketujuh
+spell;%spellout-ordinal;8;kelapan
+spell;%spellout-ordinal;9;kesembilan
+spell;%spellout-ordinal;10;kesepuluh
+spell;%spellout-cardinal;-1;negatif satu
+spell;%spellout-cardinal;0;kosong
+spell;%spellout-cardinal;0.5;kosong perpuluhan lima
+spell;%spellout-cardinal;1;satu
+spell;%spellout-cardinal;2;dua
+spell;%spellout-numbering;-1;negatif satu
+spell;%spellout-numbering;0;kosong
+spell;%spellout-numbering;0.5;kosong perpuluhan lima
+spell;%spellout-numbering;1;satu
+spell;%spellout-numbering;2;dua
+spell;%spellout-numbering-year;1999;seribu sembilan ratus sembilan puluh sembilan
+spell;%spellout-numbering-year;2000;dua ribu
+spell;%spellout-numbering-year;2001;dua ribu satu
+digits;%digits-ordinal;1;No. 1
+digits;%digits-ordinal;2;ke-2
+digits;%digits-ordinal;3;ke-3
+digits;%digits-ordinal;4;ke-4
+digits;%digits-ordinal;5;ke-5
+digits;%digits-ordinal;6;ke-6
+digits;%digits-ordinal;7;ke-7
+digits;%digits-ordinal;8;ke-8
+digits;%digits-ordinal;9;ke-9
+digits;%digits-ordinal;10;ke-10

@@ -1,0 +1,71 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal-plural;1;første
+spell;%spellout-ordinal-plural;2;andre
+spell;%spellout-ordinal-plural;3;tredje
+spell;%spellout-ordinal-plural;4;fjerde
+spell;%spellout-ordinal-plural;5;femte
+spell;%spellout-ordinal-plural;6;sjette
+spell;%spellout-ordinal-plural;7;sjuende
+spell;%spellout-ordinal-plural;8;åttende
+spell;%spellout-ordinal-plural;9;niende
+spell;%spellout-ordinal-plural;10;tiende
+spell;%spellout-ordinal-feminine;1;første
+spell;%spellout-ordinal-feminine;2;andre
+spell;%spellout-ordinal-feminine;3;tredje
+spell;%spellout-ordinal-feminine;4;fjerde
+spell;%spellout-ordinal-feminine;5;femte
+spell;%spellout-ordinal-feminine;6;sjette
+spell;%spellout-ordinal-feminine;7;sjuende
+spell;%spellout-ordinal-feminine;8;åttende
+spell;%spellout-ordinal-feminine;9;niende
+spell;%spellout-ordinal-feminine;10;tiende
+spell;%spellout-ordinal-neuter;1;første
+spell;%spellout-ordinal-neuter;2;andre
+spell;%spellout-ordinal-neuter;3;tredje
+spell;%spellout-ordinal-neuter;4;fjerde
+spell;%spellout-ordinal-neuter;5;femte
+spell;%spellout-ordinal-neuter;6;sjette
+spell;%spellout-ordinal-neuter;7;sjuende
+spell;%spellout-ordinal-neuter;8;åttende
+spell;%spellout-ordinal-neuter;9;niende
+spell;%spellout-ordinal-neuter;10;tiende
+spell;%spellout-ordinal-masculine;1;første
+spell;%spellout-ordinal-masculine;2;andre
+spell;%spellout-ordinal-masculine;3;tredje
+spell;%spellout-ordinal-masculine;4;fjerde
+spell;%spellout-ordinal-masculine;5;femte
+spell;%spellout-ordinal-masculine;6;sjette
+spell;%spellout-ordinal-masculine;7;sjuende
+spell;%spellout-ordinal-masculine;8;åttende
+spell;%spellout-ordinal-masculine;9;niende
+spell;%spellout-ordinal-masculine;10;tiende
+spell;%spellout-cardinal-neuter;-1;minus ett
+spell;%spellout-cardinal-neuter;0;null
+spell;%spellout-cardinal-neuter;0.5;null komma fem
+spell;%spellout-cardinal-neuter;1;ett
+spell;%spellout-cardinal-neuter;2;to
+spell;%spellout-cardinal-feminine;-1;minus ei
+spell;%spellout-cardinal-feminine;0;null
+spell;%spellout-cardinal-feminine;0.5;null komma fem
+spell;%spellout-cardinal-feminine;1;ei
+spell;%spellout-cardinal-feminine;2;to
+spell;%spellout-cardinal-masculine;-1;minus én
+spell;%spellout-cardinal-masculine;0;null
+spell;%spellout-cardinal-masculine;0.5;null komma fem
+spell;%spellout-cardinal-masculine;1;én
+spell;%spellout-cardinal-masculine;2;to
+spell;%spellout-numbering;-1;minus én
+spell;%spellout-numbering;0;null
+spell;%spellout-numbering;0.5;null komma fem
+spell;%spellout-numbering;1;én
+spell;%spellout-numbering;2;to
+spell;%spellout-numbering-year;1999;nitten­hundre og nitti­ni
+spell;%spellout-numbering-year;2000;tjue­hundre
+spell;%spellout-numbering-year;2001;tjue­hundre og én

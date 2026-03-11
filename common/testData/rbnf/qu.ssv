@@ -1,0 +1,31 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal;1;huk-ñiqin
+spell;%spellout-ordinal;2;iskay-ñiqin
+spell;%spellout-ordinal;3;kinsa-ñiqin
+spell;%spellout-ordinal;4;tawa-ñiqin
+spell;%spellout-ordinal;5;phisqa-ñiqin
+spell;%spellout-ordinal;6;suqta-ñiqin
+spell;%spellout-ordinal;7;qanchis-ñiqin
+spell;%spellout-ordinal;8;pusaq-ñiqin
+spell;%spellout-ordinal;9;isqun-ñiqin
+spell;%spellout-ordinal;10;chunka-ñiqin
+spell;%spellout-cardinal;-1;minusu huk
+spell;%spellout-cardinal;0;chusaq
+spell;%spellout-cardinal;0.5;chusaq comma phisqa
+spell;%spellout-cardinal;1;huk
+spell;%spellout-cardinal;2;iskay
+spell;%spellout-numbering;-1;minusu huk
+spell;%spellout-numbering;0;chusaq
+spell;%spellout-numbering;0.5;chusaq comma phisqa
+spell;%spellout-numbering;1;huk
+spell;%spellout-numbering;2;iskay
+spell;%spellout-numbering-year;1999;huk waranqa isqun pachak isqun chunka isqun-ni-yuq
+spell;%spellout-numbering-year;2000;iskay waranqa
+spell;%spellout-numbering-year;2001;iskay waranqa huk

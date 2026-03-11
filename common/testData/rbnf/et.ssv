@@ -1,0 +1,21 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-cardinal;-1;miinus üks
+spell;%spellout-cardinal;0;null
+spell;%spellout-cardinal;0.5;null koma viis
+spell;%spellout-cardinal;1;üks
+spell;%spellout-cardinal;2;kaks
+spell;%spellout-numbering;-1;miinus üks
+spell;%spellout-numbering;0;null
+spell;%spellout-numbering;0.5;null koma viis
+spell;%spellout-numbering;1;üks
+spell;%spellout-numbering;2;kaks
+spell;%spellout-numbering-year;1999;üheksateist sada üheksakümmend üheksa
+spell;%spellout-numbering-year;2000;kakskümmend sada
+spell;%spellout-numbering-year;2001;kakskümmend sada üks

@@ -1,0 +1,56 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal;1;第一
+spell;%spellout-ordinal;2;第二
+spell;%spellout-ordinal;3;第三
+spell;%spellout-ordinal;4;第四
+spell;%spellout-ordinal;5;第五
+spell;%spellout-ordinal;6;第六
+spell;%spellout-ordinal;7;第七
+spell;%spellout-ordinal;8;第八
+spell;%spellout-ordinal;9;第九
+spell;%spellout-ordinal;10;第十
+spell;%spellout-cardinal-alternate2;-1;负一
+spell;%spellout-cardinal-alternate2;0;零
+spell;%spellout-cardinal-alternate2;0.5;零点五
+spell;%spellout-cardinal-alternate2;1;一
+spell;%spellout-cardinal-alternate2;2;两
+spell;%spellout-cardinal;-1;负一
+spell;%spellout-cardinal;0;零
+spell;%spellout-cardinal;0.5;零点五
+spell;%spellout-cardinal;1;一
+spell;%spellout-cardinal;2;二
+spell;%spellout-cardinal-financial;-1;负壹
+spell;%spellout-cardinal-financial;0;零
+spell;%spellout-cardinal-financial;0.5;零点伍
+spell;%spellout-cardinal-financial;1;壹
+spell;%spellout-cardinal-financial;2;贰
+spell;%spellout-numbering;-1;负一
+spell;%spellout-numbering;0;〇
+spell;%spellout-numbering;0.5;〇点五
+spell;%spellout-numbering;1;一
+spell;%spellout-numbering;2;二
+spell;%spellout-numbering-days;-1;负初一
+spell;%spellout-numbering-days;0;〇
+spell;%spellout-numbering-days;0.5;0.5
+spell;%spellout-numbering-days;1;初一
+spell;%spellout-numbering-days;2;初二
+spell;%spellout-numbering-year;1999;一九九九
+spell;%spellout-numbering-year;2000;二〇〇〇
+spell;%spellout-numbering-year;2001;二〇〇一
+digits;%digits-ordinal;1;第1
+digits;%digits-ordinal;2;第2
+digits;%digits-ordinal;3;第3
+digits;%digits-ordinal;4;第4
+digits;%digits-ordinal;5;第5
+digits;%digits-ordinal;6;第6
+digits;%digits-ordinal;7;第7
+digits;%digits-ordinal;8;第8
+digits;%digits-ordinal;9;第9
+digits;%digits-ordinal;10;第10

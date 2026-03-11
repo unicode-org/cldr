@@ -1,0 +1,31 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-cardinal-feminine;-1;minus ein
+spell;%spellout-cardinal-feminine;0;null
+spell;%spellout-cardinal-feminine;0.5;null komma fimm
+spell;%spellout-cardinal-feminine;1;ein
+spell;%spellout-cardinal-feminine;2;tvær
+spell;%spellout-cardinal-neuter;-1;minus eitt
+spell;%spellout-cardinal-neuter;0;null
+spell;%spellout-cardinal-neuter;0.5;null komma fimm
+spell;%spellout-cardinal-neuter;1;eitt
+spell;%spellout-cardinal-neuter;2;tvey
+spell;%spellout-cardinal-masculine;-1;minus ein
+spell;%spellout-cardinal-masculine;0;null
+spell;%spellout-cardinal-masculine;0.5;null komma fimm
+spell;%spellout-cardinal-masculine;1;ein
+spell;%spellout-cardinal-masculine;2;tveir
+spell;%spellout-numbering;-1;minus ein
+spell;%spellout-numbering;0;null
+spell;%spellout-numbering;0.5;null komma fimm
+spell;%spellout-numbering;1;ein
+spell;%spellout-numbering;2;tveir
+spell;%spellout-numbering-year;1999;nítjan­hundrað­og­níti­níggju
+spell;%spellout-numbering-year;2000;tjúgo­hundrað
+spell;%spellout-numbering-year;2001;tjúgo­hundrað­og­ein

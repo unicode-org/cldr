@@ -1,0 +1,31 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal;1;ပထမ
+spell;%spellout-ordinal;2;ဒုတိယ
+spell;%spellout-ordinal;3;တတိယ
+spell;%spellout-ordinal;4;စတုတ္ထ
+spell;%spellout-ordinal;5;ပဉ္စမ
+spell;%spellout-ordinal;6;ဆဋ္ဌမ
+spell;%spellout-ordinal;7;သတ္တမ
+spell;%spellout-ordinal;8;အဋ္ဌမ
+spell;%spellout-ordinal;9;နဝမ
+spell;%spellout-ordinal;10;ဒသမ
+spell;%spellout-cardinal;-1;အနုတ်တစ်
+spell;%spellout-cardinal;0;သုည
+spell;%spellout-cardinal;0.5;သုညဒသမငါး
+spell;%spellout-cardinal;1;တစ်
+spell;%spellout-cardinal;2;နှစ်
+spell;%spellout-numbering;-1;အနုတ်တစ်
+spell;%spellout-numbering;0;သုည
+spell;%spellout-numbering;0.5;သုညဒသမငါး
+spell;%spellout-numbering;1;တစ်
+spell;%spellout-numbering;2;နှစ်
+spell;%spellout-numbering-year;1999;တစ်ထောင့်ကိုးရာ့ကိုးဆယ်ကိုး
+spell;%spellout-numbering-year;2000;နှစ်ထောင်
+spell;%spellout-numbering-year;2001;နှစ်ထောင့်တစ်

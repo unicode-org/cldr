@@ -1,0 +1,116 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal-feminine;1;première
+spell;%spellout-ordinal-feminine;2;deuxième
+spell;%spellout-ordinal-feminine;3;troisième
+spell;%spellout-ordinal-feminine;4;quatrième
+spell;%spellout-ordinal-feminine;5;cinquième
+spell;%spellout-ordinal-feminine;6;sixième
+spell;%spellout-ordinal-feminine;7;septième
+spell;%spellout-ordinal-feminine;8;huitième
+spell;%spellout-ordinal-feminine;9;neuvième
+spell;%spellout-ordinal-feminine;10;dixième
+spell;%spellout-ordinal-feminine-plural;1;premières
+spell;%spellout-ordinal-feminine-plural;2;deuxièmes
+spell;%spellout-ordinal-feminine-plural;3;troisièmes
+spell;%spellout-ordinal-feminine-plural;4;quatrièmes
+spell;%spellout-ordinal-feminine-plural;5;cinquièmes
+spell;%spellout-ordinal-feminine-plural;6;sixièmes
+spell;%spellout-ordinal-feminine-plural;7;septièmes
+spell;%spellout-ordinal-feminine-plural;8;huitièmes
+spell;%spellout-ordinal-feminine-plural;9;neuvièmes
+spell;%spellout-ordinal-feminine-plural;10;dixièmes
+spell;%spellout-ordinal-masculine;1;premier
+spell;%spellout-ordinal-masculine;2;deuxième
+spell;%spellout-ordinal-masculine;3;troisième
+spell;%spellout-ordinal-masculine;4;quatrième
+spell;%spellout-ordinal-masculine;5;cinquième
+spell;%spellout-ordinal-masculine;6;sixième
+spell;%spellout-ordinal-masculine;7;septième
+spell;%spellout-ordinal-masculine;8;huitième
+spell;%spellout-ordinal-masculine;9;neuvième
+spell;%spellout-ordinal-masculine;10;dixième
+spell;%spellout-ordinal-masculine-plural;1;premiers
+spell;%spellout-ordinal-masculine-plural;2;deuxièmes
+spell;%spellout-ordinal-masculine-plural;3;troisièmes
+spell;%spellout-ordinal-masculine-plural;4;quatrièmes
+spell;%spellout-ordinal-masculine-plural;5;cinquièmes
+spell;%spellout-ordinal-masculine-plural;6;sixièmes
+spell;%spellout-ordinal-masculine-plural;7;septièmes
+spell;%spellout-ordinal-masculine-plural;8;huitièmes
+spell;%spellout-ordinal-masculine-plural;9;neuvièmes
+spell;%spellout-ordinal-masculine-plural;10;dixièmes
+spell;%spellout-cardinal-feminine;-1;moins une
+spell;%spellout-cardinal-feminine;0;zéro
+spell;%spellout-cardinal-feminine;0.5;zéro virgule cinq
+spell;%spellout-cardinal-feminine;1;une
+spell;%spellout-cardinal-feminine;2;deux
+spell;%spellout-cardinal-masculine;-1;moins un
+spell;%spellout-cardinal-masculine;0;zéro
+spell;%spellout-cardinal-masculine;0.5;zéro virgule cinq
+spell;%spellout-cardinal-masculine;1;un
+spell;%spellout-cardinal-masculine;2;deux
+spell;%spellout-numbering;-1;moins un
+spell;%spellout-numbering;0;zéro
+spell;%spellout-numbering;0.5;zéro virgule cinq
+spell;%spellout-numbering;1;un
+spell;%spellout-numbering;2;deux
+spell;%spellout-numbering-year;1999;dix-neuf-cent quatre-vingt-dix-neuf
+spell;%spellout-numbering-year;2000;deux mille
+spell;%spellout-numbering-year;2001;deux mille un
+digits;%digits-ordinal;1;1er
+digits;%digits-ordinal;2;2e
+digits;%digits-ordinal;3;3e
+digits;%digits-ordinal;4;4e
+digits;%digits-ordinal;5;5e
+digits;%digits-ordinal;6;6e
+digits;%digits-ordinal;7;7e
+digits;%digits-ordinal;8;8e
+digits;%digits-ordinal;9;9e
+digits;%digits-ordinal;10;10e
+digits;%digits-ordinal-feminine-plural;1;1res
+digits;%digits-ordinal-feminine-plural;2;2es
+digits;%digits-ordinal-feminine-plural;3;3es
+digits;%digits-ordinal-feminine-plural;4;4es
+digits;%digits-ordinal-feminine-plural;5;5es
+digits;%digits-ordinal-feminine-plural;6;6es
+digits;%digits-ordinal-feminine-plural;7;7es
+digits;%digits-ordinal-feminine-plural;8;8es
+digits;%digits-ordinal-feminine-plural;9;9es
+digits;%digits-ordinal-feminine-plural;10;10es
+digits;%digits-ordinal-masculine-plural;1;1ers
+digits;%digits-ordinal-masculine-plural;2;2es
+digits;%digits-ordinal-masculine-plural;3;3es
+digits;%digits-ordinal-masculine-plural;4;4es
+digits;%digits-ordinal-masculine-plural;5;5es
+digits;%digits-ordinal-masculine-plural;6;6es
+digits;%digits-ordinal-masculine-plural;7;7es
+digits;%digits-ordinal-masculine-plural;8;8es
+digits;%digits-ordinal-masculine-plural;9;9es
+digits;%digits-ordinal-masculine-plural;10;10es
+digits;%digits-ordinal-feminine;1;1re
+digits;%digits-ordinal-feminine;2;2e
+digits;%digits-ordinal-feminine;3;3e
+digits;%digits-ordinal-feminine;4;4e
+digits;%digits-ordinal-feminine;5;5e
+digits;%digits-ordinal-feminine;6;6e
+digits;%digits-ordinal-feminine;7;7e
+digits;%digits-ordinal-feminine;8;8e
+digits;%digits-ordinal-feminine;9;9e
+digits;%digits-ordinal-feminine;10;10e
+digits;%digits-ordinal-masculine;1;1er
+digits;%digits-ordinal-masculine;2;2e
+digits;%digits-ordinal-masculine;3;3e
+digits;%digits-ordinal-masculine;4;4e
+digits;%digits-ordinal-masculine;5;5e
+digits;%digits-ordinal-masculine;6;6e
+digits;%digits-ordinal-masculine;7;7e
+digits;%digits-ordinal-masculine;8;8e
+digits;%digits-ordinal-masculine;9;9e
+digits;%digits-ordinal-masculine;10;10e

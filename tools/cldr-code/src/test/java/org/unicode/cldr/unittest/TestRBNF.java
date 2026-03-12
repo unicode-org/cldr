@@ -45,8 +45,8 @@ public class TestRBNF extends TestFmwkPlus {
             errln("No .ssv test files found in " + TEST_DATA_DIR);
             return;
         }
-        for (String csvFile : ssvFiles) {
-            checkLocaleFile(csvFile);
+        for (String ssvFile : ssvFiles) {
+            checkLocaleFile(ssvFile);
         }
     }
 
@@ -81,9 +81,9 @@ public class TestRBNF extends TestFmwkPlus {
             }
         }
 
-        File csvPath = new File(TEST_DATA_DIR + ssvFile);
+        File ssvPath = new File(TEST_DATA_DIR + ssvFile);
         int lineNum = 0;
-        try (BufferedReader reader = Files.newBufferedReader(csvPath.toPath())) {
+        try (BufferedReader reader = Files.newBufferedReader(ssvPath.toPath())) {
             String line;
             while ((line = reader.readLine()) != null) {
                 lineNum++;
@@ -225,9 +225,6 @@ public class TestRBNF extends TestFmwkPlus {
     private static final Number[] ROUNDTRIP_LONG_VALUES = {
         -1L, 0L, 1L, 2L, 3L, 10L, 99L, 100L, 101L, 999L, 1000L, 1001L, 1999L, 2000L, 2001L, 2100L,
         2200L, 10000L, 20000L, 100000L, 200000L, 1000000L, 2000000L,
-        // TODO These values should be tested some day.
-        // Double.POSITIVE_INFINITY,
-        // Double.NaN
     };
 
     private static final Map<String, Number[]> ROUNDTRIP_VALUES = new HashMap<>();
@@ -237,7 +234,9 @@ public class TestRBNF extends TestFmwkPlus {
                 "SpelloutRules",
                 new Number[] {
                     -1L, 0L, 0.2, 1L, 1.1, 2L, 3L, 10L, 99L, 100L, 101L, 999L, 1000L, 1001L, 1999L,
-                    2000L, 2001L, 2100L, 2200L, 10000L, 20000L, 100000L, 200000L, 1000000L, 2000000L
+                    2000L, 2001L, 2100L, 2200L, 10000L, 20000L, 100000L, 200000L, 1000000L, 2000000L,
+                    Double.POSITIVE_INFINITY,
+                    Double.NaN
                 });
         ROUNDTRIP_VALUES.put("OrdinalRules", ROUNDTRIP_LONG_VALUES);
         ROUNDTRIP_VALUES.put("NumberingSystemRules", ROUNDTRIP_LONG_VALUES);
@@ -538,5 +537,8 @@ public class TestRBNF extends TestFmwkPlus {
 
     public static void main(String[] args) {
         generateData();
+//        var test = new TestRBNF();
+//        test.params = TestParams.create(new String(), new PrintWriter(System.out));
+//        test.testConformance();
     }
 }

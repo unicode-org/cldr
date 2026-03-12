@@ -5,6 +5,8 @@ import com.ibm.icu.util.ULocale;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -134,18 +136,32 @@ public class TestRBNF extends TestFmwkPlus {
                     number = Long.parseLong(numberStr);
                 }
                 String actual;
-                if (ruleName.isEmpty()) {
-                    if (number instanceof Double) {
-                        actual = rbnf.format(number.doubleValue());
+                try {
+                    if (ruleName.isEmpty()) {
+                        if (number instanceof Double) {
+                            actual = rbnf.format(number.doubleValue());
+                        } else {
+                            actual = rbnf.format(number.longValue());
+                        }
                     } else {
-                        actual = rbnf.format(number.longValue());
+                        if (number instanceof Double) {
+                            actual = rbnf.format(number.doubleValue(), ruleName);
+                        } else {
+                            actual = rbnf.format(number.longValue(), ruleName);
+                        }
                     }
-                } else {
-                    if (number instanceof Double) {
-                        actual = rbnf.format(number.doubleValue(), ruleName);
-                    } else {
-                        actual = rbnf.format(number.longValue(), ruleName);
-                    }
+                } catch (IllegalArgumentException e) {
+                    errln(
+                            ssvFile
+                                    + ":"
+                                    + lineNum
+                                    + " format "
+                                    + numberStr
+                                    + " ["
+                                    + ruleName
+                                    + "]: "
+                                    + e.getMessage());
+                    continue;
                 }
 
                 assertEquals(
@@ -330,6 +346,18 @@ public class TestRBNF extends TestFmwkPlus {
     }
 
     private Map<String, String> extractRules(File xmlFile) {
+        Map<String, String> result = extractRulesWithoutWarning(xmlFile);
+        if (result == null) {
+            String filename = xmlFile.getName();
+            String localeId = filename.substring(0, filename.length() - 4);
+            if (!ALIASES.contains(localeId)) {
+                warnln("No rulesetGrouping found in " + xmlFile);
+            }
+        }
+        return result;
+    }
+
+    private static Map<String, String> extractRulesWithoutWarning(File xmlFile) {
         String filePath = xmlFile.getAbsolutePath();
         List<Pair<String, String>> data = new ArrayList<>();
         XMLFileReader.loadPathValues(filePath, data, false);
@@ -346,13 +374,169 @@ public class TestRBNF extends TestFmwkPlus {
             }
         }
         if (rules.isEmpty()) {
-            String filename = xmlFile.getName();
-            String localeId = filename.substring(0, filename.length() - 4);
-            if (!ALIASES.contains(localeId)) {
-                warnln("No rulesetGrouping found in " + xmlFile);
-            }
             return null;
         }
         return rules;
+    }
+
+    private static final Map<String, String> GROUPING_TO_TYPE = new HashMap<>();
+
+    static {
+        for (Map.Entry<String, String> entry : TYPE_TO_GROUPING.entrySet()) {
+            GROUPING_TO_TYPE.put(entry.getValue(), entry.getKey());
+        }
+    }
+
+    // Candidate numbers for cardinal/numbering rulesets
+    private static final Number[] CARDINAL_CANDIDATES = {
+        -1L, 0L, 0.5, 1L, 2L, 3L, 4L, 5L, 6L, 7L, 8L, 9L, 10L, 11L, 12L, 13L, 14L, 15L, 16L, 17L,
+        18L, 19L, 20L, 21L, 25L, 30L, 40L, 50L, 60L, 70L, 80L, 90L, 99L, 100L, 101L, 200L, 300L,
+        500L, 1000L, 1001L, 2000L, 5000L, 10000L, 100000L, 1000000L, 2000000L
+    };
+
+    private static final Number[] ORDINAL_CANDIDATES = {1L, 2L, 3L, 4L, 5L, 6L, 7L, 8L, 9L, 10L};
+
+    private static final Number[] YEAR_CANDIDATES = {1999L, 2000L, 2001L};
+
+    /**
+     * Generates .ssv test data files for RBNF locales that don't already have one. Run this method
+     * after adding new RBNF rulesets.
+     */
+    static void generateData() {
+        String[] xmlFiles = RBNF_DIR.list((dir, name) -> name.endsWith(".xml"));
+        if (xmlFiles == null) {
+            return;
+        }
+        Arrays.sort(xmlFiles);
+
+        for (String xmlFile : xmlFiles) {
+            String localeId = xmlFile.substring(0, xmlFile.length() - 4);
+            if (KNOWN_BROKEN_LOCALES.contains(localeId)) {
+                continue;
+            }
+            if (ALIASES.contains(localeId)) {
+                continue;
+            }
+
+            File outputFile = new File(TEST_DATA_DIR + localeId + ".ssv");
+            if (outputFile.exists()) {
+                continue;
+            }
+
+            File rbnfXml = new File(RBNF_DIR, xmlFile);
+            Map<String, String> groupingRules = extractRulesWithoutWarning(rbnfXml);
+            if (groupingRules == null || groupingRules.isEmpty()) {
+                continue;
+            }
+
+            ULocale locale = new ULocale(localeId);
+            List<String> lines = new ArrayList<>();
+
+            for (Map.Entry<String, String> groupEntry : groupingRules.entrySet()) {
+                String grouping = groupEntry.getKey();
+                String rules = groupEntry.getValue().trim();
+                if (rules.isEmpty()) continue;
+
+                String type = GROUPING_TO_TYPE.get(grouping);
+                if (type == null) {
+                    continue;
+                }
+
+                RuleBasedNumberFormat rbnf;
+                try {
+                    rbnf = new RuleBasedNumberFormat(rules, locale);
+                } catch (Exception e) {
+                    System.err.println(
+                            localeId
+                                    + " "
+                                    + grouping
+                                    + ": Failed to create RBNF: "
+                                    + e.getMessage());
+                    continue;
+                }
+
+                for (String ruleSetName : rbnf.getRuleSetNames()) {
+                    if (ruleSetName.startsWith("%%")) {
+                        continue;
+                    }
+
+                    Number[] candidates = getCandidates(ruleSetName);
+                    List<String> testLines = generateTestLines(rbnf, ruleSetName, candidates, type);
+                    lines.addAll(testLines);
+                }
+            }
+
+            if (lines.isEmpty()) {
+                continue;
+            }
+
+            try (PrintWriter pw = new PrintWriter(outputFile, StandardCharsets.UTF_8)) {
+                pw.println("#");
+                pw.println("# Copyright © 2026-2026 Unicode, Inc.");
+                pw.println("# For terms of use, see https://www.unicode.org/terms_of_use.html");
+                pw.println("#");
+                pw.println("# Format: type;rule name;number;expected result");
+                pw.println(
+                        "# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules");
+                pw.println("# rule name: empty for the default ruleset");
+                pw.println("#");
+                for (String line : lines) {
+                    pw.println(line);
+                }
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            System.out.println(
+                    "Generated " + outputFile.getName() + " (" + lines.size() + " tests)");
+        }
+    }
+
+    private static Number[] getCandidates(String ruleSetName) {
+        if (ruleSetName.contains("ordinal")) {
+            return ORDINAL_CANDIDATES;
+        }
+        if (ruleSetName.contains("year")) {
+            return YEAR_CANDIDATES;
+        }
+        return CARDINAL_CANDIDATES;
+    }
+
+    private static List<String> generateTestLines(
+            RuleBasedNumberFormat rbnf, String ruleSetName, Number[] candidates, String type) {
+        List<String> result = new ArrayList<>();
+        for (Number n : candidates) {
+            String formatted = formatNumber(rbnf, ruleSetName, n);
+            result.add(toSsvLine(type, ruleSetName, n, formatted));
+        }
+
+        return result;
+    }
+
+    private static String formatNumber(RuleBasedNumberFormat rbnf, String ruleSetName, Number n) {
+        if (n instanceof Double) {
+            return rbnf.format(n.doubleValue(), ruleSetName);
+        } else {
+            return rbnf.format(n.longValue(), ruleSetName);
+        }
+    }
+
+    private static String toSsvLine(
+            String type, String ruleSetName, Number number, String formatted) {
+        String numStr;
+        if (number instanceof Double) {
+            double d = number.doubleValue();
+            if (d == Math.floor(d) && !Double.isInfinite(d)) {
+                numStr = String.valueOf((long) d);
+            } else {
+                numStr = String.valueOf(d);
+            }
+        } else {
+            numStr = String.valueOf(number.longValue());
+        }
+        return type + ";" + ruleSetName + ";" + numStr + ";" + formatted;
+    }
+
+    public static void main(String[] args) {
+        generateData();
     }
 }

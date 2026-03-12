@@ -6,16 +6,6 @@
 # type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
 # rule name: empty for the default ruleset
 #
-spell;%spellout-ordinal-reale;1;första
-spell;%spellout-ordinal-reale;2;andra
-spell;%spellout-ordinal-reale;3;tredje
-spell;%spellout-ordinal-reale;4;fjärde
-spell;%spellout-ordinal-reale;5;femte
-spell;%spellout-ordinal-reale;6;sjätte
-spell;%spellout-ordinal-reale;7;sjunde
-spell;%spellout-ordinal-reale;8;åttonde
-spell;%spellout-ordinal-reale;9;nionde
-spell;%spellout-ordinal-reale;10;tionde
 spell;%spellout-ordinal-feminine;1;första
 spell;%spellout-ordinal-feminine;2;andra
 spell;%spellout-ordinal-feminine;3;tredje
@@ -46,54 +36,203 @@ spell;%spellout-ordinal-neuter;7;sjunde
 spell;%spellout-ordinal-neuter;8;åttonde
 spell;%spellout-ordinal-neuter;9;nionde
 spell;%spellout-ordinal-neuter;10;tionde
-spell;%spellout-cardinal-reale;-1;minus en
-spell;%spellout-cardinal-reale;0;noll
-spell;%spellout-cardinal-reale;0.5;noll komma fem
-spell;%spellout-cardinal-reale;1;en
-spell;%spellout-cardinal-reale;2;två
 spell;%spellout-cardinal-feminine;-1;minus en
 spell;%spellout-cardinal-feminine;0;noll
 spell;%spellout-cardinal-feminine;0.5;noll komma fem
 spell;%spellout-cardinal-feminine;1;en
 spell;%spellout-cardinal-feminine;2;två
+spell;%spellout-cardinal-feminine;3;tre
+spell;%spellout-cardinal-feminine;4;fyra
+spell;%spellout-cardinal-feminine;5;fem
+spell;%spellout-cardinal-feminine;6;sex
+spell;%spellout-cardinal-feminine;7;sju
+spell;%spellout-cardinal-feminine;8;åtta
+spell;%spellout-cardinal-feminine;9;nio
+spell;%spellout-cardinal-feminine;10;tio
+spell;%spellout-cardinal-feminine;11;elva
+spell;%spellout-cardinal-feminine;12;tolv
+spell;%spellout-cardinal-feminine;13;tretton
+spell;%spellout-cardinal-feminine;14;fjorton
+spell;%spellout-cardinal-feminine;15;femton
+spell;%spellout-cardinal-feminine;16;sexton
+spell;%spellout-cardinal-feminine;17;sjutton
+spell;%spellout-cardinal-feminine;18;arton
+spell;%spellout-cardinal-feminine;19;nitton
+spell;%spellout-cardinal-feminine;20;tjugo
+spell;%spellout-cardinal-feminine;21;tjugo­en
+spell;%spellout-cardinal-feminine;25;tjugo­fem
+spell;%spellout-cardinal-feminine;30;trettio
+spell;%spellout-cardinal-feminine;40;fyrtio
+spell;%spellout-cardinal-feminine;50;femtio
+spell;%spellout-cardinal-feminine;60;sextio
+spell;%spellout-cardinal-feminine;70;sjuttio
+spell;%spellout-cardinal-feminine;80;åttio
+spell;%spellout-cardinal-feminine;90;nittio
+spell;%spellout-cardinal-feminine;99;nittio­nio
+spell;%spellout-cardinal-feminine;100;ett­hundra
+spell;%spellout-cardinal-feminine;101;ett­hundra­en
+spell;%spellout-cardinal-feminine;200;två­hundra
+spell;%spellout-cardinal-feminine;300;tre­hundra
+spell;%spellout-cardinal-feminine;500;fem­hundra
+spell;%spellout-cardinal-feminine;1000;ettusen
+spell;%spellout-cardinal-feminine;1001;ettusen en
+spell;%spellout-cardinal-feminine;2000;två­tusen
+spell;%spellout-cardinal-feminine;5000;fem­tusen
+spell;%spellout-cardinal-feminine;10000;tio­tusen
+spell;%spellout-cardinal-feminine;100000;ett­hundra­tusen
+spell;%spellout-cardinal-feminine;1000000;en miljon
+spell;%spellout-cardinal-feminine;2000000;två miljoner
 spell;%spellout-cardinal-masculine;-1;minus en
 spell;%spellout-cardinal-masculine;0;noll
 spell;%spellout-cardinal-masculine;0.5;noll komma fem
 spell;%spellout-cardinal-masculine;1;en
 spell;%spellout-cardinal-masculine;2;två
+spell;%spellout-cardinal-masculine;3;tre
+spell;%spellout-cardinal-masculine;4;fyra
+spell;%spellout-cardinal-masculine;5;fem
+spell;%spellout-cardinal-masculine;6;sex
+spell;%spellout-cardinal-masculine;7;sju
+spell;%spellout-cardinal-masculine;8;åtta
+spell;%spellout-cardinal-masculine;9;nio
+spell;%spellout-cardinal-masculine;10;tio
+spell;%spellout-cardinal-masculine;11;elva
+spell;%spellout-cardinal-masculine;12;tolv
+spell;%spellout-cardinal-masculine;13;tretton
+spell;%spellout-cardinal-masculine;14;fjorton
+spell;%spellout-cardinal-masculine;15;femton
+spell;%spellout-cardinal-masculine;16;sexton
+spell;%spellout-cardinal-masculine;17;sjutton
+spell;%spellout-cardinal-masculine;18;arton
+spell;%spellout-cardinal-masculine;19;nitton
+spell;%spellout-cardinal-masculine;20;tjugo
+spell;%spellout-cardinal-masculine;21;tjugo­en
+spell;%spellout-cardinal-masculine;25;tjugo­fem
+spell;%spellout-cardinal-masculine;30;trettio
+spell;%spellout-cardinal-masculine;40;fyrtio
+spell;%spellout-cardinal-masculine;50;femtio
+spell;%spellout-cardinal-masculine;60;sextio
+spell;%spellout-cardinal-masculine;70;sjuttio
+spell;%spellout-cardinal-masculine;80;åttio
+spell;%spellout-cardinal-masculine;90;nittio
+spell;%spellout-cardinal-masculine;99;nittio­nio
+spell;%spellout-cardinal-masculine;100;ett­hundra
+spell;%spellout-cardinal-masculine;101;ett­hundra­en
+spell;%spellout-cardinal-masculine;200;två­hundra
+spell;%spellout-cardinal-masculine;300;tre­hundra
+spell;%spellout-cardinal-masculine;500;fem­hundra
+spell;%spellout-cardinal-masculine;1000;ettusen
+spell;%spellout-cardinal-masculine;1001;ettusen en
+spell;%spellout-cardinal-masculine;2000;två­tusen
+spell;%spellout-cardinal-masculine;5000;fem­tusen
+spell;%spellout-cardinal-masculine;10000;tio­tusen
+spell;%spellout-cardinal-masculine;100000;ett­hundra­tusen
+spell;%spellout-cardinal-masculine;1000000;en miljon
+spell;%spellout-cardinal-masculine;2000000;två miljoner
 spell;%spellout-cardinal-neuter;-1;minus ett
 spell;%spellout-cardinal-neuter;0;noll
 spell;%spellout-cardinal-neuter;0.5;noll komma fem
 spell;%spellout-cardinal-neuter;1;ett
 spell;%spellout-cardinal-neuter;2;två
+spell;%spellout-cardinal-neuter;3;tre
+spell;%spellout-cardinal-neuter;4;fyra
+spell;%spellout-cardinal-neuter;5;fem
+spell;%spellout-cardinal-neuter;6;sex
+spell;%spellout-cardinal-neuter;7;sju
+spell;%spellout-cardinal-neuter;8;åtta
+spell;%spellout-cardinal-neuter;9;nio
+spell;%spellout-cardinal-neuter;10;tio
+spell;%spellout-cardinal-neuter;11;elva
+spell;%spellout-cardinal-neuter;12;tolv
+spell;%spellout-cardinal-neuter;13;tretton
+spell;%spellout-cardinal-neuter;14;fjorton
+spell;%spellout-cardinal-neuter;15;femton
+spell;%spellout-cardinal-neuter;16;sexton
+spell;%spellout-cardinal-neuter;17;sjutton
+spell;%spellout-cardinal-neuter;18;arton
+spell;%spellout-cardinal-neuter;19;nitton
+spell;%spellout-cardinal-neuter;20;tjugo
+spell;%spellout-cardinal-neuter;21;tjugo­ett
+spell;%spellout-cardinal-neuter;25;tjugo­fem
+spell;%spellout-cardinal-neuter;30;trettio
+spell;%spellout-cardinal-neuter;40;fyrtio
+spell;%spellout-cardinal-neuter;50;femtio
+spell;%spellout-cardinal-neuter;60;sextio
+spell;%spellout-cardinal-neuter;70;sjuttio
+spell;%spellout-cardinal-neuter;80;åttio
+spell;%spellout-cardinal-neuter;90;nittio
+spell;%spellout-cardinal-neuter;99;nittio­nio
+spell;%spellout-cardinal-neuter;100;ett­hundra
+spell;%spellout-cardinal-neuter;101;ett­hundra­ett
+spell;%spellout-cardinal-neuter;200;två­hundra
+spell;%spellout-cardinal-neuter;300;tre­hundra
+spell;%spellout-cardinal-neuter;500;fem­hundra
+spell;%spellout-cardinal-neuter;1000;et­tusen
+spell;%spellout-cardinal-neuter;1001;et­tusen ett
+spell;%spellout-cardinal-neuter;2000;två­tusen
+spell;%spellout-cardinal-neuter;5000;fem­tusen
+spell;%spellout-cardinal-neuter;10000;tio­tusen
+spell;%spellout-cardinal-neuter;100000;ett­hundra­tusen
+spell;%spellout-cardinal-neuter;1000000;en miljon
+spell;%spellout-cardinal-neuter;2000000;två miljoner
 spell;%spellout-numbering;-1;minus ett
 spell;%spellout-numbering;0;noll
 spell;%spellout-numbering;0.5;noll komma fem
 spell;%spellout-numbering;1;ett
 spell;%spellout-numbering;2;två
+spell;%spellout-numbering;3;tre
+spell;%spellout-numbering;4;fyra
+spell;%spellout-numbering;5;fem
+spell;%spellout-numbering;6;sex
+spell;%spellout-numbering;7;sju
+spell;%spellout-numbering;8;åtta
+spell;%spellout-numbering;9;nio
+spell;%spellout-numbering;10;tio
+spell;%spellout-numbering;11;elva
+spell;%spellout-numbering;12;tolv
+spell;%spellout-numbering;13;tretton
+spell;%spellout-numbering;14;fjorton
+spell;%spellout-numbering;15;femton
+spell;%spellout-numbering;16;sexton
+spell;%spellout-numbering;17;sjutton
+spell;%spellout-numbering;18;arton
+spell;%spellout-numbering;19;nitton
+spell;%spellout-numbering;20;tjugo
+spell;%spellout-numbering;21;tjugo­ett
+spell;%spellout-numbering;25;tjugo­fem
+spell;%spellout-numbering;30;trettio
+spell;%spellout-numbering;40;fyrtio
+spell;%spellout-numbering;50;femtio
+spell;%spellout-numbering;60;sextio
+spell;%spellout-numbering;70;sjuttio
+spell;%spellout-numbering;80;åttio
+spell;%spellout-numbering;90;nittio
+spell;%spellout-numbering;99;nittio­nio
+spell;%spellout-numbering;100;ett­hundra
+spell;%spellout-numbering;101;ett­hundra­ett
+spell;%spellout-numbering;200;två­hundra
+spell;%spellout-numbering;300;tre­hundra
+spell;%spellout-numbering;500;fem­hundra
+spell;%spellout-numbering;1000;et­tusen
+spell;%spellout-numbering;1001;et­tusen ett
+spell;%spellout-numbering;2000;två­tusen
+spell;%spellout-numbering;5000;fem­tusen
+spell;%spellout-numbering;10000;tio­tusen
+spell;%spellout-numbering;100000;ett­hundra­tusen
+spell;%spellout-numbering;1000000;en miljon
+spell;%spellout-numbering;2000000;två miljoner
 spell;%spellout-numbering-year;1999;nitton­hundra­nittio­nio
 spell;%spellout-numbering-year;2000;tjugo­hundra
 spell;%spellout-numbering-year;2001;tjugo­hundra­ett
-digits;%digits-ordinal;1;1:a
-digits;%digits-ordinal;2;2:a
-digits;%digits-ordinal;3;3:e
-digits;%digits-ordinal;4;4:e
-digits;%digits-ordinal;5;5:e
-digits;%digits-ordinal;6;6:e
-digits;%digits-ordinal;7;7:e
-digits;%digits-ordinal;8;8:e
-digits;%digits-ordinal;9;9:e
-digits;%digits-ordinal;10;10:e
-digits;%digits-ordinal-reale;1;1:a
-digits;%digits-ordinal-reale;2;2:a
-digits;%digits-ordinal-reale;3;3:e
-digits;%digits-ordinal-reale;4;4:e
-digits;%digits-ordinal-reale;5;5:e
-digits;%digits-ordinal-reale;6;6:e
-digits;%digits-ordinal-reale;7;7:e
-digits;%digits-ordinal-reale;8;8:e
-digits;%digits-ordinal-reale;9;9:e
-digits;%digits-ordinal-reale;10;10:e
+digits;;1;1:a
+digits;;2;2:a
+digits;;3;3:e
+digits;;4;4:e
+digits;;5;5:e
+digits;;6;6:e
+digits;;7;7:e
+digits;;8;8:e
+digits;;9;9:e
+digits;;10;10:e
 digits;%digits-ordinal-feminine;1;1:a
 digits;%digits-ordinal-feminine;2;2:a
 digits;%digits-ordinal-feminine;3;3:e

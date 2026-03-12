@@ -219,7 +219,7 @@ public class TestRBNF extends TestFmwkPlus {
     }
 
     private static final Set<String> KNOWN_BROKEN_LOCALES =
-            new TreeSet<>(Arrays.asList("ga", "ky", "lt", "su"));
+            new TreeSet<>(Arrays.asList("ga", "lt"));
     private static final Set<String> ALIASES = new TreeSet<>(Arrays.asList("nb", "en_001"));
 
     private static final Number[] ROUNDTRIP_LONG_VALUES = {
@@ -233,8 +233,31 @@ public class TestRBNF extends TestFmwkPlus {
         ROUNDTRIP_VALUES.put(
                 "SpelloutRules",
                 new Number[] {
-                    -1L, 0L, 0.2, 1L, 1.1, 2L, 3L, 10L, 99L, 100L, 101L, 999L, 1000L, 1001L, 1999L,
-                    2000L, 2001L, 2100L, 2200L, 10000L, 20000L, 100000L, 200000L, 1000000L, 2000000L,
+                    -1L,
+                    0L,
+                    0.2,
+                    1L,
+                    1.1,
+                    2L,
+                    3L,
+                    10L,
+                    99L,
+                    100L,
+                    101L,
+                    999L,
+                    1000L,
+                    1001L,
+                    1999L,
+                    2000L,
+                    2001L,
+                    2100L,
+                    2200L,
+                    10000L,
+                    20000L,
+                    100000L,
+                    200000L,
+                    1000000L,
+                    2000000L,
                     Double.POSITIVE_INFINITY,
                     Double.NaN
                 });
@@ -537,8 +560,8 @@ public class TestRBNF extends TestFmwkPlus {
 
     public static void main(String[] args) {
         generateData();
-//        var test = new TestRBNF();
-//        test.params = TestParams.create(new String(), new PrintWriter(System.out));
-//        test.testConformance();
+        var test = new TestRBNF();
+        test.params = TestParams.create("", new PrintWriter(System.out));
+        test.testConformance();
     }
 }

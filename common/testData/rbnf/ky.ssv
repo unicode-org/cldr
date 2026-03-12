@@ -1,0 +1,169 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal;1;биринчи
+spell;%spellout-ordinal;2;экинчи
+spell;%spellout-ordinal;3;үчүнчү
+spell;%spellout-ordinal;4;төртүнчү
+spell;%spellout-ordinal;5;бешинчи
+spell;%spellout-ordinal;6;алтынчы
+spell;%spellout-ordinal;7;жетинчи
+spell;%spellout-ordinal;8;сегизинчи
+spell;%spellout-ordinal;9;тогузунчу
+spell;%spellout-ordinal;10;онунчу
+spell;%spellout-cardinal-verbose;-1;минус бир
+spell;%spellout-cardinal-verbose;0;нөл
+spell;%spellout-cardinal-verbose;0.5;нөл бүтүн ондон беш
+spell;%spellout-cardinal-verbose;1;бир
+spell;%spellout-cardinal-verbose;2;эки
+spell;%spellout-cardinal-verbose;3;үч
+spell;%spellout-cardinal-verbose;4;төрт
+spell;%spellout-cardinal-verbose;5;беш
+spell;%spellout-cardinal-verbose;6;алты
+spell;%spellout-cardinal-verbose;7;жети
+spell;%spellout-cardinal-verbose;8;сегиз
+spell;%spellout-cardinal-verbose;9;тогуз
+spell;%spellout-cardinal-verbose;10;он
+spell;%spellout-cardinal-verbose;11;он бир
+spell;%spellout-cardinal-verbose;12;он эки
+spell;%spellout-cardinal-verbose;13;он үч
+spell;%spellout-cardinal-verbose;14;он төрт
+spell;%spellout-cardinal-verbose;15;он беш
+spell;%spellout-cardinal-verbose;16;он алты
+spell;%spellout-cardinal-verbose;17;он жети
+spell;%spellout-cardinal-verbose;18;он сегиз
+spell;%spellout-cardinal-verbose;19;он тогуз
+spell;%spellout-cardinal-verbose;20;жыйырма
+spell;%spellout-cardinal-verbose;21;жыйырма бир
+spell;%spellout-cardinal-verbose;25;жыйырма беш
+spell;%spellout-cardinal-verbose;30;отуз
+spell;%spellout-cardinal-verbose;40;кырк
+spell;%spellout-cardinal-verbose;50;элүү
+spell;%spellout-cardinal-verbose;60;алтымыш
+spell;%spellout-cardinal-verbose;70;жетимиш
+spell;%spellout-cardinal-verbose;80;сексен
+spell;%spellout-cardinal-verbose;90;токсон
+spell;%spellout-cardinal-verbose;99;токсон тогуз
+spell;%spellout-cardinal-verbose;100;жүз
+spell;%spellout-cardinal-verbose;101;бир жүз жана бир
+spell;%spellout-cardinal-verbose;200;эки жүз
+spell;%spellout-cardinal-verbose;300;үч жүз
+spell;%spellout-cardinal-verbose;500;беш жүз
+spell;%spellout-cardinal-verbose;1000;миң
+spell;%spellout-cardinal-verbose;1001;бир миң жана бир
+spell;%spellout-cardinal-verbose;2000;эки миң
+spell;%spellout-cardinal-verbose;5000;беш миң
+spell;%spellout-cardinal-verbose;10000;он миң
+spell;%spellout-cardinal-verbose;100000;жүз миң
+spell;%spellout-cardinal-verbose;1000000;миллион
+spell;%spellout-cardinal-verbose;2000000;эки миллион
+spell;%spellout-cardinal;-1;минус бир
+spell;%spellout-cardinal;0;нөл
+spell;%spellout-cardinal;0.5;нөл бүтүн ондон беш
+spell;%spellout-cardinal;1;бир
+spell;%spellout-cardinal;2;эки
+spell;%spellout-cardinal;3;үч
+spell;%spellout-cardinal;4;төрт
+spell;%spellout-cardinal;5;беш
+spell;%spellout-cardinal;6;алты
+spell;%spellout-cardinal;7;жети
+spell;%spellout-cardinal;8;сегиз
+spell;%spellout-cardinal;9;тогуз
+spell;%spellout-cardinal;10;он
+spell;%spellout-cardinal;11;он бир
+spell;%spellout-cardinal;12;он эки
+spell;%spellout-cardinal;13;он үч
+spell;%spellout-cardinal;14;он төрт
+spell;%spellout-cardinal;15;он беш
+spell;%spellout-cardinal;16;он алты
+spell;%spellout-cardinal;17;он жети
+spell;%spellout-cardinal;18;он сегиз
+spell;%spellout-cardinal;19;он тогуз
+spell;%spellout-cardinal;20;жыйырма
+spell;%spellout-cardinal;21;жыйырма бир
+spell;%spellout-cardinal;25;жыйырма беш
+spell;%spellout-cardinal;30;отуз
+spell;%spellout-cardinal;40;кырк
+spell;%spellout-cardinal;50;элүү
+spell;%spellout-cardinal;60;алтымыш
+spell;%spellout-cardinal;70;жетимиш
+spell;%spellout-cardinal;80;сексен
+spell;%spellout-cardinal;90;токсон
+spell;%spellout-cardinal;99;токсон тогуз
+spell;%spellout-cardinal;100;жүз
+spell;%spellout-cardinal;101;бир жүз бир
+spell;%spellout-cardinal;200;эки жүз
+spell;%spellout-cardinal;300;үч жүз
+spell;%spellout-cardinal;500;беш жүз
+spell;%spellout-cardinal;1000;миң
+spell;%spellout-cardinal;1001;бир миң бир
+spell;%spellout-cardinal;2000;эки миң
+spell;%spellout-cardinal;5000;беш миң
+spell;%spellout-cardinal;10000;он миң
+spell;%spellout-cardinal;100000;жүз миң
+spell;%spellout-cardinal;1000000;миллион
+spell;%spellout-cardinal;2000000;эки миллион
+spell;%spellout-numbering;-1;минус бир
+spell;%spellout-numbering;0;нөл
+spell;%spellout-numbering;0.5;нөл бүтүн ондон беш
+spell;%spellout-numbering;1;бир
+spell;%spellout-numbering;2;эки
+spell;%spellout-numbering;3;үч
+spell;%spellout-numbering;4;төрт
+spell;%spellout-numbering;5;беш
+spell;%spellout-numbering;6;алты
+spell;%spellout-numbering;7;жети
+spell;%spellout-numbering;8;сегиз
+spell;%spellout-numbering;9;тогуз
+spell;%spellout-numbering;10;он
+spell;%spellout-numbering;11;он бир
+spell;%spellout-numbering;12;он эки
+spell;%spellout-numbering;13;он үч
+spell;%spellout-numbering;14;он төрт
+spell;%spellout-numbering;15;он беш
+spell;%spellout-numbering;16;он алты
+spell;%spellout-numbering;17;он жети
+spell;%spellout-numbering;18;он сегиз
+spell;%spellout-numbering;19;он тогуз
+spell;%spellout-numbering;20;жыйырма
+spell;%spellout-numbering;21;жыйырма бир
+spell;%spellout-numbering;25;жыйырма беш
+spell;%spellout-numbering;30;отуз
+spell;%spellout-numbering;40;кырк
+spell;%spellout-numbering;50;элүү
+spell;%spellout-numbering;60;алтымыш
+spell;%spellout-numbering;70;жетимиш
+spell;%spellout-numbering;80;сексен
+spell;%spellout-numbering;90;токсон
+spell;%spellout-numbering;99;токсон тогуз
+spell;%spellout-numbering;100;жүз
+spell;%spellout-numbering;101;бир жүз бир
+spell;%spellout-numbering;200;эки жүз
+spell;%spellout-numbering;300;үч жүз
+spell;%spellout-numbering;500;беш жүз
+spell;%spellout-numbering;1000;миң
+spell;%spellout-numbering;1001;бир миң бир
+spell;%spellout-numbering;2000;эки миң
+spell;%spellout-numbering;5000;беш миң
+spell;%spellout-numbering;10000;он миң
+spell;%spellout-numbering;100000;жүз миң
+spell;%spellout-numbering;1000000;миллион
+spell;%spellout-numbering;2000000;эки миллион
+spell;%spellout-numbering-year;1999;бир миң тогуз жүз токсон тогуз
+spell;%spellout-numbering-year;2000;эки миң
+spell;%spellout-numbering-year;2001;эки миң бир
+digits;%digits-ordinal;1;1'инчи
+digits;%digits-ordinal;2;2'инчи
+digits;%digits-ordinal;3;3'инчи
+digits;%digits-ordinal;4;4'инчи
+digits;%digits-ordinal;5;5'инчи
+digits;%digits-ordinal;6;6'инчи
+digits;%digits-ordinal;7;7'инчи
+digits;%digits-ordinal;8;8'инчи
+digits;%digits-ordinal;9;9'инчи
+digits;%digits-ordinal;10;10'инчи

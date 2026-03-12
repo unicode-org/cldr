@@ -69,7 +69,12 @@ public class TestRBNF extends TestFmwkPlus {
                 try {
                     formatters.put(entry.getKey(), new RuleBasedNumberFormat(rules, locale));
                 } catch (Exception e) {
-                    errln(localeId + ": Failed to create RuleBasedNumberFormat for " + entry.getKey() + ": " + e.getMessage());
+                    errln(
+                            localeId
+                                    + ": Failed to create RuleBasedNumberFormat for "
+                                    + entry.getKey()
+                                    + ": "
+                                    + e.getMessage());
                 }
             }
         }
@@ -98,8 +103,7 @@ public class TestRBNF extends TestFmwkPlus {
                 if (grouping == null) {
                     if (type.isEmpty()) {
                         warnln(ssvFile + ":" + lineNum + ": Disabled test: " + line);
-                    }
-                    else {
+                    } else {
                         errln(ssvFile + ":" + lineNum + ": Unknown type: " + type);
                     }
                     continue;
@@ -107,7 +111,15 @@ public class TestRBNF extends TestFmwkPlus {
 
                 RuleBasedNumberFormat rbnf = formatters.get(grouping);
                 if (rbnf == null) {
-                    errln(ssvFile + ":" + lineNum + ": No " + grouping + " rules found in " + localeId + ".xml");
+                    errln(
+                            ssvFile
+                                    + ":"
+                                    + lineNum
+                                    + ": No "
+                                    + grouping
+                                    + " rules found in "
+                                    + localeId
+                                    + ".xml");
                     continue;
                 }
 
@@ -118,23 +130,20 @@ public class TestRBNF extends TestFmwkPlus {
                 }
                 if (numberStr.contains(".") || numberStr.equals("Inf") || numberStr.equals("NaN")) {
                     number = Double.parseDouble(numberStr);
-                }
-                else {
+                } else {
                     number = Long.parseLong(numberStr);
                 }
                 String actual;
                 if (ruleName.isEmpty()) {
                     if (number instanceof Double) {
                         actual = rbnf.format(number.doubleValue());
-                    }
-                    else {
+                    } else {
                         actual = rbnf.format(number.longValue());
                     }
                 } else {
                     if (number instanceof Double) {
                         actual = rbnf.format(number.doubleValue(), ruleName);
-                    }
-                    else {
+                    } else {
                         actual = rbnf.format(number.longValue(), ruleName);
                     }
                 }
@@ -149,11 +158,28 @@ public class TestRBNF extends TestFmwkPlus {
                         rbnf.setDefaultRuleSet(ruleName);
                     }
                     Number parsed = rbnf.parse(expected);
-                    assertEquals(ssvFile + ":" + lineNum + " parse \"" + expected + "\" [" + ruleName + "]",
+                    assertEquals(
+                            ssvFile
+                                    + ":"
+                                    + lineNum
+                                    + " parse \""
+                                    + expected
+                                    + "\" ["
+                                    + ruleName
+                                    + "]",
                             number,
                             parsed);
                 } catch (ParseException e) {
-                    errln(ssvFile + ":" + lineNum + " parse failed for \"" + expected + "\" [" + ruleName + "]: " + e.getMessage());
+                    errln(
+                            ssvFile
+                                    + ":"
+                                    + lineNum
+                                    + " parse failed for \""
+                                    + expected
+                                    + "\" ["
+                                    + ruleName
+                                    + "]: "
+                                    + e.getMessage());
                 }
             }
         } catch (IOException e) {
@@ -178,15 +204,14 @@ public class TestRBNF extends TestFmwkPlus {
 
     private static final Set<String> KNOWN_BROKEN_LOCALES =
             new TreeSet<>(Arrays.asList("ga", "ky", "lt", "su"));
-    private static final Set<String> ALIASES =
-            new TreeSet<>(Arrays.asList("nb", "en_001"));
+    private static final Set<String> ALIASES = new TreeSet<>(Arrays.asList("nb", "en_001"));
 
     private static final Number[] ROUNDTRIP_LONG_VALUES = {
-            -1L, 0L, 1L, 2L, 3L, 10L, 99L, 100L, 101L, 999L, 1000L, 1001L, 1999L, 2000L, 2001L,
-            2100L, 2200L, 10000L, 20000L, 100000L, 200000L, 1000000L, 2000000L,
-            // TODO These values should be tested some day.
-//            Double.POSITIVE_INFINITY,
-//            Double.NaN
+        -1L, 0L, 1L, 2L, 3L, 10L, 99L, 100L, 101L, 999L, 1000L, 1001L, 1999L, 2000L, 2001L, 2100L,
+        2200L, 10000L, 20000L, 100000L, 200000L, 1000000L, 2000000L,
+        // TODO These values should be tested some day.
+        // Double.POSITIVE_INFINITY,
+        // Double.NaN
     };
 
     private static final Map<String, Number[]> ROUNDTRIP_VALUES = new HashMap<>();
@@ -195,9 +220,8 @@ public class TestRBNF extends TestFmwkPlus {
         ROUNDTRIP_VALUES.put(
                 "SpelloutRules",
                 new Number[] {
-                        -1L, 0L, 0.2, 1L, 1.1, 2L, 3L, 10L, 99L, 100L, 101L, 999L, 1000L, 1001L,
-                        1999L, 2000L, 2001L, 2100L, 2200L, 10000L, 20000L, 100000L, 200000L, 1000000L,
-                        2000000L
+                    -1L, 0L, 0.2, 1L, 1.1, 2L, 3L, 10L, 99L, 100L, 101L, 999L, 1000L, 1001L, 1999L,
+                    2000L, 2001L, 2100L, 2200L, 10000L, 20000L, 100000L, 200000L, 1000000L, 2000000L
                 });
         ROUNDTRIP_VALUES.put("OrdinalRules", ROUNDTRIP_LONG_VALUES);
         ROUNDTRIP_VALUES.put("NumberingSystemRules", ROUNDTRIP_LONG_VALUES);
@@ -252,7 +276,12 @@ public class TestRBNF extends TestFmwkPlus {
             try {
                 rbnf = new RuleBasedNumberFormat(rules, locale);
             } catch (Exception e) {
-                errln(localeId + " " + grouping + ": Failed to create RuleBasedNumberFormat: " + e.getMessage());
+                errln(
+                        localeId
+                                + " "
+                                + grouping
+                                + ": Failed to create RuleBasedNumberFormat: "
+                                + e.getMessage());
                 continue;
             }
 
@@ -273,12 +302,27 @@ public class TestRBNF extends TestFmwkPlus {
                     try {
                         Number parsed = rbnf.parse(formatted);
                         assertEquals(
-                                localeId + " " + ruleSetName + " roundtrip " + value + " → \"" + formatted + "\"",
+                                localeId
+                                        + " "
+                                        + ruleSetName
+                                        + " roundtrip "
+                                        + value
+                                        + " → \""
+                                        + formatted
+                                        + "\"",
                                 value.doubleValue(),
                                 parsed.doubleValue());
                     } catch (ParseException e) {
                         errln(
-                                localeId + " " + ruleSetName + " parse failed for " + value + " → \"" + formatted + "\": " + e.getMessage());
+                                localeId
+                                        + " "
+                                        + ruleSetName
+                                        + " parse failed for "
+                                        + value
+                                        + " → \""
+                                        + formatted
+                                        + "\": "
+                                        + e.getMessage());
                     }
                 }
             }

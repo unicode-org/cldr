@@ -95,10 +95,10 @@ jobs:
             --title $(git log --pretty=%s HEAD | head -1 | cut -d' ' -f1)" auto: CLDRModify" \
             --body $(git log --pretty=%s HEAD | head -1 | cut -d' ' -f1)" Automatically created, see CLDR-16083" \
             --base 'main' \
-            --reviewer 'unicode-org/cldr-brs' \
             --label 'automatic' \
             --head ${AUTO_BRANCH} \
             | tee -a $GITHUB_STEP_SUMMARY ) || ( echo "# Could not create PR - may already exist" | tee -a $GITHUB_STEP_SUMMARY )
+#            --reviewer 'unicode-org/cldr-brs' \
         env:
           GH_TOKEN: ${{ github.token }}
 

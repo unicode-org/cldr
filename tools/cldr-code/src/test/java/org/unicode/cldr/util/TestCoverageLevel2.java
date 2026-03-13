@@ -5,9 +5,11 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
+import com.google.common.collect.ImmutableList;
 import com.ibm.icu.util.VersionInfo;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
@@ -24,6 +26,9 @@ import org.unicode.cldr.tool.ToolConstants;
 public class TestCoverageLevel2 extends TestWithKnownIssues {
 
     final int ITERATIONS = 100000; // keep this low for normal testing
+
+    public static final List<String> LOCALES_NOT_READY_FOR_COVERAGE =
+            ImmutableList.of("ba", "bua", "pms", "scn", "shn", "tyv");
 
     @Test
     public void TestCoveragePerf() {
@@ -206,6 +211,9 @@ public class TestCoverageLevel2 extends TestWithKnownIssues {
             if (covs.values().stream()
                     .anyMatch((cov) -> cov.getLevel(xpath).isAbove(failIfAbove))) {
                 // fail if level > failIfAbove for any of those locales
+                if (LOCALES_NOT_READY_FOR_COVERAGE.contains(type)) {
+                    logKnownIssue("CLDR-19212", type + " is not ready for coverage");
+                }
                 notInCoverage.add(type);
             }
         }

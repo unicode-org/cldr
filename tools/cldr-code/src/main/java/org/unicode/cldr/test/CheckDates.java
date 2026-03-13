@@ -707,6 +707,10 @@ public class CheckDates extends FactoryCheckCLDR {
     private void checkDateTimeFormats(
             String path, XPathParts parts, String value, List<CheckStatus> result) {
 
+        if (parts.containsElement("intervalFormatItem")) {
+            checkIntervalFormatItems(path, parts, value, result);
+        }
+
         // Make sure that if the format has adjacent placeholders, we don't run numbers together
         if (!value.contains("}{")) { // only worry about adjacents
             return;
@@ -770,6 +774,101 @@ public class CheckDates extends FactoryCheckCLDR {
                                         + "This pattern could produce {0}",
                                 mergedPattern);
         result.add(item);
+    }
+
+    static final Map<String, String> SKELETON_GREATEST_DIFF_REPLACE =
+            Map.of(
+                    // for this in skeleton, look for this in greatestDiffs:
+                    "h", "a", // Skeleton greatest diff h => greatestDifference a
+                    // We don't actually have any of the following in intervalFormatItem
+                    // data as of CLDR 49, but we could in the future:
+                    "E", "d", // Skeleton greatest diff E => greatestDifference d
+                    "U", "y", // Skeleton greatest diff U => greatestDifference y
+                    "r", "y");
+
+    // In the following, "cccccc" gets replaced with calendarId
+    private static final String INTERVAL_FORMAT_FALLBACK_PATH =
+            "//ldml/dates/calendars/calendar[@type=\"cccccc\"]/dateTimeFormats/intervalFormats/intervalFormatFallback";
+
+    private static final Pattern LEADING_YEARMONTH = PatternCache.get("^yM");
+    private static final Pattern TRAILING_TIMEZONE = PatternCache.get("\\u0020?[vz]+$");
+    private static final Pattern LEADING_TIMEZONE = PatternCache.get("^[vz]+\\u0020?");
+    private static final Pattern TRAILING_ERA = PatternCache.get("\\u0020?G+$");
+    private static final Pattern LEADING_ERA = PatternCache.get("^G+\\u0020?");
+
+    private void checkIntervalFormatItems(
+            String path, XPathParts parts, String value, List<CheckStatus> result) {
+        String skeletonId = parts.findAttributeValue("intervalFormatItem", "id");
+        String skeletonGreatestDiff = skeletonId.substring(0, 1);
+        // The greatest difference in the intervalFormatItem skeleton (id) is determined by the
+        // first character in the skeleton. Generally it is the same as the first character but
+        // replacements need to be made for certain first characters:
+        if (SKELETON_GREATEST_DIFF_REPLACE.containsKey(skeletonGreatestDiff)) {
+            skeletonGreatestDiff = SKELETON_GREATEST_DIFF_REPLACE.get(skeletonGreatestDiff);
+        }
+        String greatestDiffId = parts.findAttributeValue("greatestDifference", "id");
+        if (greatestDiffId.equals(skeletonGreatestDiff)) {
+            // OK, this greatestDifference entry is for the largest data difference for this
+            // intervalFormatItem's skeleton; the pattern should look basically like the
+            // availableFormat for this skeleton plugged into the intervalFormatFallback for
+            // this calendar, with some known modifications.
+            String calendarId = parts.findAttributeValue("calendar", "type");
+            String intervalFormatFallback =
+                    getCldrFileToCheck()
+                            .getWinningValue(
+                                    INTERVAL_FORMAT_FALLBACK_PATH.replace("cccccc", calendarId));
+            // For generic calendar, we will get better results (availableFormats actually for
+            // generic calendar) replacing skeletons like yMd with yyyyMd
+            String skeletonIdAdjusted =
+                    (calendarId.equals("generic"))
+                            ? LEADING_YEARMONTH.matcher(skeletonId).replaceFirst("yyyyM")
+                            : skeletonId;
+            DateTimePatternGenerator dtpg = getDTPGForCalendarType(calendarId);
+            String availableFormat = dtpg.getBestPattern(skeletonIdAdjusted);
+            if (intervalFormatFallback != null && availableFormat != null) {
+                // Construct a format from intervalFormatFallback && availableFormat and
+                // compare to actual value.
+                // First normalize all of the pieces (spaces -> \u0020, EEE -> E)
+                String intvFmtFallbkNorm = normalizeIntervalFmtElement(intervalFormatFallback);
+                String availFmtNorm = normalizeIntervalFmtElement(availableFormat);
+                // Remove parts not-relevant to greatestDiff shat should not be repeated.
+                // Need to do this after we have normalized availableFormat spaces...
+                String availFmtFirstNorm = TRAILING_TIMEZONE.matcher(availFmtNorm).replaceFirst("");
+                String availFmtSecondNorm = LEADING_TIMEZONE.matcher(availFmtNorm).replaceFirst("");
+                if (!greatestDiffId.equals("G")) {
+                    // Non-Gregorian formats might include G even if skeleton does not
+                    availFmtFirstNorm = TRAILING_ERA.matcher(availFmtFirstNorm).replaceFirst("");
+                    availFmtSecondNorm = LEADING_ERA.matcher(availFmtSecondNorm).replaceFirst("");
+                }
+                String constructValueNorm =
+                        MessageFormat.format(
+                                intvFmtFallbkNorm, availFmtFirstNorm, availFmtSecondNorm);
+                String valueNorm = normalizeIntervalFmtElement(value);
+                if (!constructValueNorm.equals(valueNorm)) {
+                    CheckStatus item =
+                            new CheckStatus()
+                                    .setCause(this)
+                                    .setMainType(CheckStatus.warningType)
+                                    .setSubtype(Subtype.inconsistentDatePattern)
+                                    .setMessage(
+                                            "Expected intervalFormat like (normalized) "
+                                                    + constructValueNorm
+                                                    + ", got (normalized) "
+                                                    + valueNorm);
+                    result.add(item);
+                }
+            }
+        }
+    }
+
+    private static final Pattern NORM_SPACES = PatternCache.get("\\h+");
+    private static final Pattern ABBREV_MONTH = PatternCache.get("(?<!E)E{1,3}(?!E)");
+
+    private String normalizeIntervalFmtElement(String intervalFmtElement) {
+        // Convert all spaces (including no-break) to \u0020, replace "EEE" or "EE" with "E"
+        String normalized = NORM_SPACES.matcher(intervalFmtElement).replaceAll(" ");
+        normalized = ABBREV_MONTH.matcher(normalized).replaceAll("E");
+        return normalized;
     }
 
     private void checkTimeFormatMatchesRegion(String value, List<CheckStatus> result) {
@@ -1208,7 +1307,7 @@ public class CheckDates extends FactoryCheckCLDR {
                     // Need to do more work. Try two things to get a reasonable suggestion:
                     // - Getting the winning pattern (valueFromId) from availableFormats for id,
                     // if it is not the same as the bad value we already have.
-                    // - Replace a pattern field in fixedValue twhose type does not match the
+                    // - Replace a pattern field in fixedValue whose type does not match the
                     // corresponding field from id.
                     //
                     // Here is the first thing, getting the winning pattern (valueFromId) from

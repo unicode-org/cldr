@@ -1,5 +1,6 @@
 package org.unicode.cldr.unittest;
 
+import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
@@ -22,6 +23,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.TestCLDRPaths;
 import org.unicode.cldr.util.UnitConverter;
@@ -479,6 +481,137 @@ public class TestBCP47 extends TestFmwk {
                                         + newKeyTypeAliases);
                     }
                 }
+            }
+        }
+    }
+
+    static final Joiner JOIN_TAB = Joiner.on('\t').useForNull("null");
+
+    static final Set<String> keyNamesElsewhere =
+            Set.of("cu", "nu", "tz", "x0", "kb", "kc", "kk", "kn", "mu", "fw");
+    static final Set<String> typeNamesElsewhere =
+            Set.of("REORDER_CODE", "RG_KEY_VALUE", "SUBDIVISION_CODE", "SCRIPT_CODE");
+
+    public void TestBcp47KeyTypeCoverage() {
+        String locale = "en";
+        CLDRFile cldrFile = testInfo.getCldrFactory().make(locale, true);
+        System.out.println();
+
+        for (final String bcp47Key : bcp47key_types.keySet()) {
+            final R2<String, String> keyRow = Row.of(bcp47Key, "");
+            if ("true".equals(deprecated.get(keyRow))) {
+                continue;
+            }
+            char ext = bcp47Key.charAt(1) < 'a' ? 'T' : 'U';
+
+            String description = SUPPLEMENTAL_DATA_INFO.getBcp47Descriptions().get(keyRow);
+
+            // check for presence in cldrFile, and for coverage
+
+            String keyPath = CLDRFile.getPathForKey(bcp47Key);
+            String value = cldrFile.getStringValue(keyPath);
+            String icuKey = bcp47Key;
+
+            if (value == null) {
+                // <key type="calendar">Calendar</key>
+                Set<String> aliases = bcp47keyType_aliases.get(keyRow);
+                if (aliases != null) {
+                    for (String alias : aliases) {
+                        keyPath = CLDRFile.getPathForKey(alias);
+                        value = cldrFile.getStringValue(keyPath);
+                        if (value != null) {
+                            icuKey = alias;
+                            break;
+                        }
+                    }
+                }
+            }
+            Level level = SUPPLEMENTAL_DATA_INFO.getCoverageLevel(keyPath, locale);
+
+            System.out.println(
+                    JOIN_TAB.join(
+                            "key", ext, bcp47Key, icuKey, level, " ", " ", value, description));
+
+            assertNotNull(locale + " " + bcp47Key, value);
+
+            assertNotEquals(locale + " " + bcp47Key + " coverage", Level.COMPREHENSIVE, level);
+
+            if (keyNamesElsewhere.contains(bcp47Key)) {
+                continue;
+            }
+
+            for (final String bcp47Type : bcp47key_types.get(bcp47Key)) {
+                final R2<String, String> keyTypeRow = Row.of(bcp47Key, bcp47Type);
+                if ("true".equals(deprecated.get(keyTypeRow))
+                        || typeNamesElsewhere.contains(bcp47Type)) {
+                    continue;
+                }
+                description = SUPPLEMENTAL_DATA_INFO.getBcp47Descriptions().get(keyTypeRow);
+
+                // check for presence in file, and for coverage
+
+                // <types><type key="calendar" type="buddhist">Buddhist Calendar</type>
+
+                String keyValuePath = CLDRFile.getPathForKeyType(bcp47Key, bcp47Type);
+                value = cldrFile.getStringValue(keyValuePath);
+                String icuType = bcp47Type;
+                if (value == null) {
+                    keyValuePath = CLDRFile.getPathForKeyType(icuKey, bcp47Type);
+                    value = cldrFile.getStringValue(keyValuePath);
+
+                    if (value == null) {
+                        //          <key type="calendar">Calendar</key>
+                        Set<String> aliases = bcp47keyType_aliases.get(keyTypeRow);
+                        if (aliases != null) {
+                            for (String alias : aliases) {
+                                keyValuePath = CLDRFile.getPathForKeyType(icuKey, alias);
+                                value = cldrFile.getStringValue(keyValuePath);
+                                if (value != null) {
+                                    icuType = alias;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                level = SUPPLEMENTAL_DATA_INFO.getCoverageLevel(keyValuePath, locale);
+                System.out.println(
+                        JOIN_TAB.join(
+                                "type",
+                                ext,
+                                bcp47Key,
+                                icuKey,
+                                level,
+                                bcp47Type,
+                                icuType,
+                                value,
+                                description));
+
+                //                if (value == null) {
+                //                    //          <key type="calendar">Calendar</key>
+                //                    Set<String> aliases = bcp47keyType_aliases.get(row);
+                //                    if (aliases != null) {
+                //                        for (String alias : aliases) {
+                //                            keyValuePath = CLDRFile.getPathForKeyValue(bcp47Key,
+                // bcp47Type);
+                //                            value = cldrFile.getStringValue(keyPath);
+                //                           if (value != null) {
+                //                               bcp47Key = alias;
+                //                               break;
+                //                           }
+                //                        }
+                //                    }
+                //                }
+
+                //                if (value != null) {
+                //                    assertNotNull(locale + " " + row, value);
+                //
+                //                }
+                //                assertNotNull(locale + " " + row, value);
+
+                //                assertNotEquals(locale + " " + row + " coverage",
+                // Level.COMPREHENSIVE, level);
             }
         }
     }

@@ -8,21 +8,21 @@ The following list summarizes the recent changes, with more details in a section
 A sequence like 🆕 2025-12-18 marks items that have been recently added.
 In your browser you can copy this sequence, then use ⌘-F (Mac) or Ctrl-F (Windows) to find all the places it occurs.
 
+- **🆕 2026-03-13**
+
+    The Survey Tool will remain open for DDL contributions, and Survey Tool submission for v49 for locales maintained by the Technical Committee (TC), such as English, German, French, will open as usual in April or May 2026.
+
 - **🆕 2025-12-18**
   - The Survey Tool has opened early for DDL locales to contribute data. See the [DDL: Help Center] to start.
     - This includes locales like Kurdish, Qʼeqchiʼ, and many others. See [DDL locales] for full list of locales.
-    - In order to give more time for submission -- we will not have a resolution phase for v49, meaning that the survey tool will remain open for new submissions until resolution for CLDR 50 starts in July 2026
-    - This does mean that submissions made between now and July 2026 will NOT be reflected in the v49 data release of CLDR. Instead, they will be included in the v50 release of CLDR, which is scheduled for October 2026.
-  - Survey Tool submission for v50 for locales maintained by the Technical Committee (TC), such as English, German, French, will open as usual in April or May 2026.
-  - Exceptional changes for v49 for TC-maintained locales should be [filed as JIRA tickets](requesting_changes) for TC review and they will be remediated by modifying the XML directly.
 
 When a section below changes, the date will be in the header.
 
 ### Starting Submission
 
-Before you start Submission, please read the [CLDR training](#cldr-training-for-new-linguists) (if new to the survey tool). 
+Before you start Submission, please read the [CLDR training](#cldr-training-for-new-linguists) (if new to the survey tool).
 Please prioritize the sections Missing, Provisional, and Errors.
-Please read the [Updates](#updates). 
+Please read the [Updates](#updates).
 For more information about the priorities during Submission, see [Survey Tool stages](translation/getting-started/survey-tool-phases).
 
 ### Prerequisites
@@ -36,7 +36,7 @@ For more information about the priorities during Submission, see [Survey Tool st
 
 The Survey Tool has opened early [DDL locales] data submission. See the [DDL: Help Center] for more information on submitting data for DDL locales.
 
-Languages which have a value in the *Target Level* column of the [Locale Coverage chart] are considered *TC locales* and will not open for submission until the start of the next regular submission for CLDR 50 in April or May of 2026.
+Languages which have a value in the *Target Level* column of the [Locale Coverage chart] are considered *TC locales* and will not open for submission until the start of the next regular submission for CLDR 49 in April or May of 2026.
 
 - **Disconnect error**. If you see a persistent Loading error with a disconnect message or other odd behavior, please [empty your cache](translation/getting-started/empty-cache).
 - Survey Tool email notification may be going to your spam folder. Check your spam folder regularly.
@@ -45,11 +45,11 @@ If the error appears under Typography, you can ignore it. <!-- [[CLDR-13552](htt
 
 ## New languages
 
-We are reviewing new locale requests for inclusion in CLDR 50. See [how to add a new locales](https://cldr.unicode.org/development/adding-locales).
+We are reviewing new locale requests for inclusion in CLDR 49. See [how to add a new locales](https://cldr.unicode.org/development/adding-locales).
 
 ## New Areas
 
-TBA - New areas and data will be announced at the start of general submission for CLDR 50.
+TBA - New areas and data will be announced at the start of general submission for CLDR 49.
 
 ### New emoji
 
@@ -78,7 +78,7 @@ See [Recent changes](https://cldr.unicode.org/translation#recent-changes) for ad
 
 - Some of the Page reorganization may continue.
 
-### New Approve Status Icons 
+### New Approve Status Icons
 
 | Symbol | Status | Notes |
 |:---:|---|---|
@@ -90,7 +90,7 @@ See [Recent changes](https://cldr.unicode.org/translation#recent-changes) for ad
 | ⬆️ | Inherited | Used in combination with ✖️ and ❌ |
 
 ### Enhanced "Show Hidden"
-🆕 2025-05-09 — If a field contains characters that are invisible or certain characters that look like others, 
+🆕 2025-05-09 — If a field contains characters that are invisible or certain characters that look like others,
 a special Show Hidden bar will appear below the field that helps distinguish them.
 For example, see [Example Hidden] — here is a screen-shot.
 

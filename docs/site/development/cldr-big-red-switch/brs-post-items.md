@@ -6,12 +6,12 @@ title: CLDR BRS Tasks to Post a Release
 
 Title was: CLDR BRS Post Items (Section E) for Rick
 
-**Update the links in table at top of release page & download page for each release announcement**
+## Update the links in table at top of release page & download page for each release announcement
 
 Before each stage of the release, alpha, beta, and release, the items in the key need to be updated to the latest version.
 Below is an example of the links for both a major and minor release. See the [CLDR Process: Specification Changes] for information on how redirects for the spec work when dot releases are announced.
 
-Note: 
+Example of link table with related links:
 
 ```
 | No. | Date | Rel. Note | Data | Charts | Spec | Delta Tickets | GitHub Tag | Delta DTD | CLDR JSON |
@@ -31,7 +31,7 @@ Note:
 [48.0.0]: https://github.com/unicode-org/cldr-json/releases/tag/48.0.0
 ```
 
-An example of a the links for a dot release may look like:
+Example of dot release table and links:
 
 ```
 | No. | Date | Rel. Note | Data | Charts | Spec | Delta Tickets | GitHub Tag | Delta DTD | CLDR JSON |
@@ -45,14 +45,35 @@ An example of a the links for a dot release may look like:
 [CLDR48.1]: https://unicode.org/Public/cldr/48.1/
 [Charts48]: https://unicode.org/cldr/charts/48.1/
 [LDML48.1]: https://www.unicode.org/reports/tr35/48/tr35.html
-[release-48-1-final1]: https://github.com/unicode-org/cldr/releases/tag/release-48-1
 [Δ48.1]: https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixversion%20%3D%2048.1%20ORDER%20BY%20priority%20DESC
+[release-48-1]: https://github.com/unicode-org/cldr/releases/tag/release-48-1
+<!-- no ΔDtd48.1 -->
 [48.1.0]: https://github.com/unicode-org/cldr-json/releases/tag/48.1.0
 ```
 
-**Updating News Item**
+### Updating redirects for release notes
 
-**Updating "news" items on [main page] under the '**[News]**' header. 
+Update the table with the final list of release links for redirects related to the site.
+Redirects for other properties which include the spec, and charts are controlled on the server and need Steven or Tom to update them.
+
+Go to [/docs/site/_redirects] and updatethe link for the latest and dev release notes.
+
+- Latest redirects to the most recently released version.
+- Dev redirects to the version currently in development.
+- /tag-latest redirects to the release tag in GitHub
+
+```
+# redirect latest and dev pages
+/downloads/dev*  /downloads/cldr-49
+/downloads/latest* /downloads/cldr-48#481-changes
+/tag-latest https://github.com/unicode-org/cldr/releases/tag/release-48-1
+```
+
+Note: You will need to create a [stub page] for the next version of the release notes before you can update the redirects.
+
+## Updating News Item to announce a release
+
+Updating "news" items on [main page] under the '**[News]**' header. 
 
 In the "News" section at the top of the page, add a new yellow top row for the alpha (for the beta/release, reuse that row). Remove announcements of change in Survey Tool status, and
 any additional old releases from the list (major ≤ alpha-2 \- leaving only 2 recent major releases). Ideally there should be at most 3-4 items in the news section at at time.
@@ -212,11 +233,9 @@ Normal announcement mechanism is described in: [http://www.unicode.org/\~book/an
 
 Verify that these are empty before trunk opens: [http://unicode.org/cldr/trac/report/22](http://unicode.org/cldr/trac/report/22) [http://unicode.org/cldr/trac/report/51](http://unicode.org/cldr/trac/report/51) [http://unicode.org/cldr/trac/report/52](http://unicode.org/cldr/trac/report/52) \-- and then Notify cldr@unicode.org that the trunk is open: e.g., say "Now that CLDR X.Y has been released, the SVN trunk ( http://unicode.org/repos/cldr/trunk ) is open for commits towards the next release." Use a subject line something like: "CLDR X.Y \- trunk now open", where X.Y is the next release. If report 51 is not empty, verify that anything remaining is either the result of a misticketed item, or that any commits had net zero effect on trunk ( for example, a change that was later backed out ).
 
-F02
+## Creating a new release note stub page {stub-page}
 
-Create a new stub release page for the next release by copying the previous page (...downloads/cldr-31 or whatever) and state that it's a stub. Retain the top-level headers from the previous release page. Yellow some sections for the update.
-
-Fix the links as followed (to **Link Nonfinal**). (When the release is done, fix to **Link Final**).
+Create a new stub release page for the next release by copying the previous page (...downloads/cldr-49 or whatever) and state that it's a stub. Retain the top-level headers from the previous release page.
 
 *Note: replace 99 by target release number, 999 by target release number minus 1, and 88 by final tr35 revision.*  
 Near the top, add this line:
@@ -253,6 +272,8 @@ SVN Tag \= dev version
 
 DTD delta \= "trunk" version
 
+[/docs/site/_redirects]: https://github.com/unicode-org/cldr/blob/main/docs/site/_redirects
 [CLDR Process: Specification Changes]: /index/process#specification-changes/
 [main page]: https://cldr.unicode.org/
 [News]: https://cldr.unicode.org/#news
+[stub page]: #stub-page

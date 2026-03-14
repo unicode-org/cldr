@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
+import org.junit.jupiter.api.Test;
 import org.unicode.cldr.tool.GenerateRBNFTestData;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Pair;
@@ -34,6 +35,7 @@ public class TestRBNF extends TestFmwkPlus {
         TYPE_TO_GROUPING.put("number", "NumberingSystemRules");
     }
 
+    @Test
     public void testConformance() {
         File testDir = new File(TEST_DATA_DIR);
         if (!testDir.exists() || !testDir.isDirectory()) {
@@ -205,6 +207,7 @@ public class TestRBNF extends TestFmwkPlus {
         }
     }
 
+    @Test
     public void testRoundtrip() {
         if (!RBNF_DIR.exists() || !RBNF_DIR.isDirectory()) {
             errln("RBNF directory not found: " + RBNF_DIR);

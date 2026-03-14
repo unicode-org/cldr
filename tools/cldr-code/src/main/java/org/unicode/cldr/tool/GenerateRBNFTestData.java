@@ -181,7 +181,7 @@ public class GenerateRBNFTestData {
             }
 
             long baseValue = Long.parseLong(baseStr);
-            if (baseValue <= MAXIMUM_TEST_VALUE) {
+            if (baseValue < MAXIMUM_TEST_VALUE) {
                 if (isCardinal || baseValue >= 2) {
                     candidates.add(baseValue - 1);
                 }
@@ -191,10 +191,13 @@ public class GenerateRBNFTestData {
                 }
                 // else this type typically doesn't work less than 1.
                 candidates.add(baseValue + 1);
+            } else {
+                // This base value is not feasible to roundtrip the formatting and parsing with ICU
+                // at this time.
+                // It can be formatted, but not parsed correctly.
+                // Let's try the largest maximum value that can be roundtripped instead.
+                candidates.add(MAXIMUM_TEST_VALUE);
             }
-            // else this value is not feasible to roundtrip the formatting and parsing with ICU at
-            // this time.
-            // It can be formatted, but not parsed correctly.
         }
 
         return candidates;

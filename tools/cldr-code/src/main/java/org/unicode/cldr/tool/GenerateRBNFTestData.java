@@ -8,6 +8,7 @@ import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -43,18 +44,27 @@ public class GenerateRBNFTestData {
             new TreeSet<>(Arrays.asList("ga", "lt"));
     private static final Set<String> ALIASES = new TreeSet<>(Arrays.asList("nb", "en_001"));
 
-    // Candidate numbers for cardinal/numbering rulesets
-    static final Number[] CARDINAL_CANDIDATES = {
-        -1L, 0L, 0.5, 1L, 2L, 3L, 4L, 5L, 6L, 7L, 8L, 9L, 10L, 11L, 12L, 13L, 14L, 15L, 16L,
-        17L, 18L, 19L, 20L, 21L, 25L, 30L, 40L, 50L, 60L, 70L, 80L, 90L, 99L, 100L, 101L, 200L,
-        300L, 500L, 1000L, 1001L, 2000L, 5000L, 10000L, 100000L, 1000000L, 2000000L
-    };
+    static final TreeSet<Number> YEAR_CANDIDATES =
+            new TreeSet<>(Arrays.asList(1999L, 2000L, 2001L));
+    static final TreeSet<Number> ORDINAL_CANDIDATES =
+            new TreeSet<>(Arrays.asList(1L, 2L, 3L, 4L, 5L, 6L, 7L, 8L, 9L, 10L));
+    static final TreeSet<Number> CARDINAL_CANDIDATES =
+            new TreeSet<>(Comparator.comparingDouble(Number::doubleValue));
 
-    static final Number[] ORDINAL_CANDIDATES = {
-        1L, 2L, 3L, 4L, 5L, 6L, 7L, 8L, 9L, 10L
-    };
+    static {
+        CARDINAL_CANDIDATES.addAll(
+                Arrays.asList(
+                        -1L, 0L, 0.5, 1L, 2L, 3L, 4L, 5L, 6L, 7L, 8L, 9L, 10L, 11L, 12L, 13L, 14L,
+                        15L, 16L, 17L, 18L, 19L, 20L, 21L, 25L, 30L, 40L, 50L, 60L, 70L, 80L, 90L,
+                        99L, 100L, 101L, 200L, 300L, 500L, 1000L, 1001L, 2000L, 5000L, 10000L,
+                        100000L, 1000000L, 2000000L));
+    }
 
-    static final Number[] YEAR_CANDIDATES = {1999L, 2000L, 2001L};
+    /*
+    This is 2^53 - 1, which is the highest value that can roundtrip between a double and a long.
+    While this could go to LONG.MAX_VALUE, accurate roundtrip parsing is not currently possible with ICU at this time in 2026.
+    */
+    static final long MAXIMUM_TEST_VALUE = 9007199254740991L;
 
     static String toSsvLine(String type, String ruleSetName, Number number, String formatted) {
         String numStr;
@@ -80,9 +90,14 @@ public class GenerateRBNFTestData {
     }
 
     static List<String> generateTestLines(
-            RuleBasedNumberFormat rbnf, String ruleSetName, Number[] candidates, String type) {
+            RuleBasedNumberFormat rbnf,
+            String ruleSetName,
+            TreeSet<Number> candidates,
+            String type) {
         List<String> result = new ArrayList<>();
-        boolean omitName = ruleSetName.equals(rbnf.getDefaultRuleSetName());
+        boolean omitName =
+                ruleSetName.equals(rbnf.getDefaultRuleSetName())
+                        && "NumberingSystemRules".equals(type);
         for (Number n : candidates) {
             String formatted = formatNumber(rbnf, ruleSetName, n);
             result.add(toSsvLine(type, omitName ? "" : ruleSetName, n, formatted));
@@ -90,14 +105,99 @@ public class GenerateRBNFTestData {
         return result;
     }
 
-    static Number[] getCandidates(String ruleSetName) {
+    static TreeSet<Number> getCandidates(String rules, String ruleSetName) {
+        TreeSet<Number> candidates = new TreeSet<>(Comparator.comparingDouble(Number::doubleValue));
+        boolean isCardinal = false;
+
         if (ruleSetName.contains("ordinal")) {
-            return ORDINAL_CANDIDATES;
+            candidates.addAll(ORDINAL_CANDIDATES);
+        } else if (ruleSetName.contains("year")) {
+            candidates.addAll(YEAR_CANDIDATES);
+        } else {
+            candidates.addAll(CARDINAL_CANDIDATES);
+            isCardinal = true;
         }
-        if (ruleSetName.contains("year")) {
-            return YEAR_CANDIDATES;
+
+        // Find the start of this ruleset
+        String header = ruleSetName + ":";
+        int start = rules.indexOf(header);
+        if (start < 0) {
+            return candidates;
         }
-        return CARDINAL_CANDIDATES;
+        start += header.length();
+
+        // Find the end (next ruleset or end of string)
+        int end = rules.length();
+        int nextRuleset = rules.indexOf("\n%", start);
+        if (nextRuleset >= 0) {
+            end = nextRuleset;
+        }
+
+        String rulesetText = rules.substring(start, end);
+
+        // Split by ';' to get individual rules
+        for (String rule : rulesetText.split(";")) {
+            rule = rule.trim();
+            if (rule.isEmpty()) {
+                continue;
+            }
+
+            int colonIdx = rule.indexOf(':');
+            if (colonIdx < 0) {
+                continue;
+            }
+
+            String baseStr = rule.substring(0, colonIdx).trim();
+
+            // Handle special rules
+            if (baseStr.equals("-x")) {
+                if (isCardinal) {
+                    candidates.add(-1L);
+                }
+                // else not interesting from a conformance perspective.
+                continue;
+            }
+            if (baseStr.endsWith("x")) {
+                if (isCardinal) {
+                    candidates.add(0.5);
+                    candidates.add(1.5);
+                }
+                // else not interesting from a conformance perspective.
+                continue;
+            }
+            if (baseStr.equals("Inf")) {
+                candidates.add(Double.POSITIVE_INFINITY);
+                continue;
+            }
+            if (baseStr.equals("NaN")) {
+                candidates.add(Double.NaN);
+                continue;
+            }
+
+            // Strip /divisor suffix (e.g. "1010/100" -> "1010")
+            int slashIdx = baseStr.indexOf('/');
+            if (slashIdx >= 0) {
+                baseStr = baseStr.substring(0, slashIdx);
+            }
+
+            long baseValue = Long.parseLong(baseStr);
+            if (baseValue <= MAXIMUM_TEST_VALUE) {
+                if (isCardinal || baseValue >= 2) {
+                    candidates.add(baseValue - 1);
+                }
+                // else this type typically doesn't work less than 1.
+                if (isCardinal || baseValue >= 1) {
+                    candidates.add(baseValue);
+                }
+                // else this type typically doesn't work less than 1.
+                candidates.add(baseValue + 1);
+            }
+            // else this value is not feasible to roundtrip the formatting and parsing with ICU at
+            // this time.
+            // It can be formatted, but not parsed correctly.
+        }
+
+        return candidates;
     }
 
     /**
@@ -162,9 +262,8 @@ public class GenerateRBNFTestData {
                         continue;
                     }
 
-                    Number[] candidates = getCandidates(ruleSetName);
-                    List<String> testLines =
-                            generateTestLines(rbnf, ruleSetName, candidates, type);
+                    TreeSet<Number> candidates = getCandidates(rules, ruleSetName);
+                    List<String> testLines = generateTestLines(rbnf, ruleSetName, candidates, type);
                     lines.addAll(testLines);
                 }
             }
@@ -176,8 +275,7 @@ public class GenerateRBNFTestData {
             try (PrintWriter pw = new PrintWriter(outputFile, StandardCharsets.UTF_8)) {
                 pw.println("#");
                 pw.println("# Copyright © 2026-2026 Unicode, Inc.");
-                pw.println(
-                        "# For terms of use, see https://www.unicode.org/terms_of_use.html");
+                pw.println("# For terms of use, see https://www.unicode.org/terms_of_use.html");
                 pw.println("#");
                 pw.println("# Format: type;rule name;number;expected result");
                 pw.println(

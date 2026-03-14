@@ -5,6 +5,7 @@ import com.ibm.icu.util.ULocale;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -14,7 +15,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
-
 import org.unicode.cldr.tool.GenerateRBNFTestData;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Pair;
@@ -130,7 +130,9 @@ public class TestRBNF extends TestFmwkPlus {
                     errln(ssvFile + ":" + lineNum + ": can not parse number: " + numberStr);
                     continue;
                 }
-                if (numberStr.contains(".") || numberStr.equals("Inf") || numberStr.equals("NaN")) {
+                if (numberStr.contains(".")
+                        || numberStr.equals("Infinity")
+                        || numberStr.equals("NaN")) {
                     number = Double.parseDouble(numberStr);
                 } else {
                     number = Long.parseLong(numberStr);
@@ -377,5 +379,11 @@ public class TestRBNF extends TestFmwkPlus {
             }
         }
         return result;
+    }
+
+    public static void main(String[] args) {
+        var test = new TestRBNF();
+        test.params = TestParams.create("", new PrintWriter(System.out));
+        test.testConformance();
     }
 }

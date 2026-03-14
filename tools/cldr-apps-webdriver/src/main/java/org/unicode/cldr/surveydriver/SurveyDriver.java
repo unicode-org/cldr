@@ -55,7 +55,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class SurveyDriver {
 
     static void assertTrue(boolean t) {
-        if(!t) throw new RuntimeException("Expected true but got false");
+        if (!t) throw new RuntimeException("Expected true but got false");
     }
 
     /*

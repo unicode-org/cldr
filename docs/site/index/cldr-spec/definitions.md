@@ -4,7 +4,7 @@ title: Definitions
 
 # Definitions
 
-***customary modern usage*** - The terms or characters commonly used in modern contexts: newspapers, journals, lay publications, street signs, commercial signage, common geographic names, company names, and so on. It does not include terms or characters that are only commonly used in technical or academic contexts such as mathematical expressions, archaic or historic texts, citations of archaic words, liturgical texts, or pedagogical use.
+***customary modern usage*** - The terms or characters commonly used in modern contexts: newspapers, journals, lay publications, street signs, commercial signage, common geographic names, company names, and so on. It does not include terms or characters that are only commonly used in technical or academic contexts such as mathematical expressions, archaic or historic texts, citations of archaic words, liturgical texts, or pedagogical use. See [Researching Common Usage] for guidance on finding and documenting evidence of common usage.
 
 ***language population*** - the number of people fluent in that language in that country, including both first and second language speakers. The level of fluency is that necessary to use a UI on a computer, smartphone, or similar devices. Reliable information is difficult to obtain; the information in CLDR is an estimate culled from different sources.
 
@@ -27,3 +27,4 @@ Official languages for a country are not necessarily the same as those with offi
 [number and currency symbols]: /translation/number-currency-formats
 [sorting (collation)]: /index/cldr-spec/collation-guidelines
 [localized emoji descriptions]: /translation/characters/short-names-and-keywords
+[Researching Common Usage]: /translation/common-usage

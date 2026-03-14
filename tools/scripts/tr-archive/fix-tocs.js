@@ -93,7 +93,7 @@ async function processFile(f) {
 
     let i = 0;
 
-    if (!f.endsWith(partOneName)) {
+    if (!f.endsWith(partOneName) && !f.endsWith("tr35-modifications.md") && !f.endsWith("tr35-acknowledgments.md")) {
         // look for beginning of Parts
         for (; i < lines.length; i++) {
             if (partsStart.test(lines[i])) break;

@@ -1,0 +1,380 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-cardinal-feminine;-1;мінус одна
+spell;%spellout-cardinal-feminine;0;нуль
+spell;%spellout-cardinal-feminine;0.5;нуль кома пʼять
+spell;%spellout-cardinal-feminine;1;одна
+spell;%spellout-cardinal-feminine;1.5;одна кома пʼять
+spell;%spellout-cardinal-feminine;2;дві
+spell;%spellout-cardinal-feminine;3;три
+spell;%spellout-cardinal-feminine;4;чотири
+spell;%spellout-cardinal-feminine;5;пʼять
+spell;%spellout-cardinal-feminine;6;шість
+spell;%spellout-cardinal-feminine;7;сім
+spell;%spellout-cardinal-feminine;8;вісім
+spell;%spellout-cardinal-feminine;9;девʼять
+spell;%spellout-cardinal-feminine;10;десять
+spell;%spellout-cardinal-feminine;11;одинадцять
+spell;%spellout-cardinal-feminine;12;дванадцять
+spell;%spellout-cardinal-feminine;13;тринадцять
+spell;%spellout-cardinal-feminine;14;чотирнадцять
+spell;%spellout-cardinal-feminine;15;пʼятнадцять
+spell;%spellout-cardinal-feminine;16;шістнадцять
+spell;%spellout-cardinal-feminine;17;сімнадцять
+spell;%spellout-cardinal-feminine;18;вісімнадцять
+spell;%spellout-cardinal-feminine;19;девʼятнадцять
+spell;%spellout-cardinal-feminine;20;двадцять
+spell;%spellout-cardinal-feminine;21;двадцять одна
+spell;%spellout-cardinal-feminine;25;двадцять пʼять
+spell;%spellout-cardinal-feminine;29;двадцять девʼять
+spell;%spellout-cardinal-feminine;30;тридцять
+spell;%spellout-cardinal-feminine;31;тридцять одна
+spell;%spellout-cardinal-feminine;39;тридцять девʼять
+spell;%spellout-cardinal-feminine;40;сорок
+spell;%spellout-cardinal-feminine;41;сорок одна
+spell;%spellout-cardinal-feminine;49;сорок девʼять
+spell;%spellout-cardinal-feminine;50;пʼятдесят
+spell;%spellout-cardinal-feminine;51;пʼятдесят одна
+spell;%spellout-cardinal-feminine;59;пʼятдесят девʼять
+spell;%spellout-cardinal-feminine;60;шістдесят
+spell;%spellout-cardinal-feminine;61;шістдесят одна
+spell;%spellout-cardinal-feminine;69;шістдесят девʼять
+spell;%spellout-cardinal-feminine;70;сімдесят
+spell;%spellout-cardinal-feminine;71;сімдесят одна
+spell;%spellout-cardinal-feminine;79;сімдесят девʼять
+spell;%spellout-cardinal-feminine;80;вісімдесят
+spell;%spellout-cardinal-feminine;81;вісімдесят одна
+spell;%spellout-cardinal-feminine;89;вісімдесят девʼять
+spell;%spellout-cardinal-feminine;90;девʼяносто
+spell;%spellout-cardinal-feminine;91;девʼяносто одна
+spell;%spellout-cardinal-feminine;99;девʼяносто девʼять
+spell;%spellout-cardinal-feminine;100;сто
+spell;%spellout-cardinal-feminine;101;сто одна
+spell;%spellout-cardinal-feminine;199;сто девʼяносто девʼять
+spell;%spellout-cardinal-feminine;200;двісті
+spell;%spellout-cardinal-feminine;201;двісті одна
+spell;%spellout-cardinal-feminine;299;двісті девʼяносто девʼять
+spell;%spellout-cardinal-feminine;300;триста
+spell;%spellout-cardinal-feminine;301;триста одна
+spell;%spellout-cardinal-feminine;399;триста девʼяносто девʼять
+spell;%spellout-cardinal-feminine;400;чотириста
+spell;%spellout-cardinal-feminine;401;чотириста одна
+spell;%spellout-cardinal-feminine;499;чотириста девʼяносто девʼять
+spell;%spellout-cardinal-feminine;500;пʼятсот
+spell;%spellout-cardinal-feminine;501;пʼятсот одна
+spell;%spellout-cardinal-feminine;599;пʼятсот девʼяносто девʼять
+spell;%spellout-cardinal-feminine;600;шістсот
+spell;%spellout-cardinal-feminine;601;шістсот одна
+spell;%spellout-cardinal-feminine;699;шістсот девʼяносто девʼять
+spell;%spellout-cardinal-feminine;700;сімсот
+spell;%spellout-cardinal-feminine;701;сімсот одна
+spell;%spellout-cardinal-feminine;799;сімсот девʼяносто девʼять
+spell;%spellout-cardinal-feminine;800;вісімсот
+spell;%spellout-cardinal-feminine;801;вісімсот одна
+spell;%spellout-cardinal-feminine;899;вісімсот девʼяносто девʼять
+spell;%spellout-cardinal-feminine;900;девʼятсот
+spell;%spellout-cardinal-feminine;901;девʼятсот одна
+spell;%spellout-cardinal-feminine;999;девʼятсот девʼяносто девʼять
+spell;%spellout-cardinal-feminine;1000;одна тисяча
+spell;%spellout-cardinal-feminine;1001;одна тисяча одна
+spell;%spellout-cardinal-feminine;2000;дві тисячі
+spell;%spellout-cardinal-feminine;5000;пʼять тисяч
+spell;%spellout-cardinal-feminine;10000;десять тисяч
+spell;%spellout-cardinal-feminine;100000;сто тисяч
+spell;%spellout-cardinal-feminine;999999;девʼятсот девʼяносто девʼять тисяч девʼятсот девʼяносто девʼять
+spell;%spellout-cardinal-feminine;1000000;один мільйон
+spell;%spellout-cardinal-feminine;1000001;один мільйон одна
+spell;%spellout-cardinal-feminine;2000000;два мільйони
+spell;%spellout-cardinal-feminine;999999999;девʼятсот девʼяносто девʼять мільйонів девʼятсот девʼяносто девʼять тисяч девʼятсот девʼяносто девʼять
+spell;%spellout-cardinal-feminine;1000000000;один мільярд
+spell;%spellout-cardinal-feminine;1000000001;один мільярд одна
+spell;%spellout-cardinal-feminine;999999999999;девʼятсот девʼяносто девʼять мільярдів девʼятсот девʼяносто девʼять мільйонів девʼятсот девʼяносто девʼять тисяч девʼятсот девʼяносто девʼять
+spell;%spellout-cardinal-feminine;1000000000000;один більйон
+spell;%spellout-cardinal-feminine;1000000000001;один більйон одна
+spell;%spellout-cardinal-feminine;999999999999999;девʼятсот девʼяносто девʼять більйонів девʼятсот девʼяносто девʼять мільярдів девʼятсот девʼяносто девʼять мільйонів девʼятсот девʼяносто девʼять тисяч девʼятсот девʼяносто девʼять
+spell;%spellout-cardinal-feminine;1000000000000000;один більярд
+spell;%spellout-cardinal-feminine;1000000000000001;один більярд одна
+spell;%spellout-cardinal-neuter;-1;мінус одне
+spell;%spellout-cardinal-neuter;0;нуль
+spell;%spellout-cardinal-neuter;0.5;нуль кома пʼять
+spell;%spellout-cardinal-neuter;1;одне
+spell;%spellout-cardinal-neuter;1.5;одне кома пʼять
+spell;%spellout-cardinal-neuter;2;два
+spell;%spellout-cardinal-neuter;3;три
+spell;%spellout-cardinal-neuter;4;чотири
+spell;%spellout-cardinal-neuter;5;пʼять
+spell;%spellout-cardinal-neuter;6;шість
+spell;%spellout-cardinal-neuter;7;сім
+spell;%spellout-cardinal-neuter;8;вісім
+spell;%spellout-cardinal-neuter;9;девʼять
+spell;%spellout-cardinal-neuter;10;десять
+spell;%spellout-cardinal-neuter;11;одинадцять
+spell;%spellout-cardinal-neuter;12;дванадцять
+spell;%spellout-cardinal-neuter;13;тринадцять
+spell;%spellout-cardinal-neuter;14;чотирнадцять
+spell;%spellout-cardinal-neuter;15;пʼятнадцять
+spell;%spellout-cardinal-neuter;16;шістнадцять
+spell;%spellout-cardinal-neuter;17;сімнадцять
+spell;%spellout-cardinal-neuter;18;вісімнадцять
+spell;%spellout-cardinal-neuter;19;девʼятнадцять
+spell;%spellout-cardinal-neuter;20;двадцять
+spell;%spellout-cardinal-neuter;21;двадцять одне
+spell;%spellout-cardinal-neuter;25;двадцять пʼять
+spell;%spellout-cardinal-neuter;29;двадцять девʼять
+spell;%spellout-cardinal-neuter;30;тридцять
+spell;%spellout-cardinal-neuter;31;тридцять одне
+spell;%spellout-cardinal-neuter;39;тридцять девʼять
+spell;%spellout-cardinal-neuter;40;сорок
+spell;%spellout-cardinal-neuter;41;сорок одне
+spell;%spellout-cardinal-neuter;49;сорок девʼять
+spell;%spellout-cardinal-neuter;50;пʼятдесят
+spell;%spellout-cardinal-neuter;51;пʼятдесят одне
+spell;%spellout-cardinal-neuter;59;пʼятдесят девʼять
+spell;%spellout-cardinal-neuter;60;шістдесят
+spell;%spellout-cardinal-neuter;61;шістдесят одне
+spell;%spellout-cardinal-neuter;69;шістдесят девʼять
+spell;%spellout-cardinal-neuter;70;сімдесят
+spell;%spellout-cardinal-neuter;71;сімдесят одне
+spell;%spellout-cardinal-neuter;79;сімдесят девʼять
+spell;%spellout-cardinal-neuter;80;вісімдесят
+spell;%spellout-cardinal-neuter;81;вісімдесят одне
+spell;%spellout-cardinal-neuter;89;вісімдесят девʼять
+spell;%spellout-cardinal-neuter;90;девʼяносто
+spell;%spellout-cardinal-neuter;91;девʼяносто одне
+spell;%spellout-cardinal-neuter;99;девʼяносто девʼять
+spell;%spellout-cardinal-neuter;100;сто
+spell;%spellout-cardinal-neuter;101;сто одне
+spell;%spellout-cardinal-neuter;199;сто девʼяносто девʼять
+spell;%spellout-cardinal-neuter;200;двісті
+spell;%spellout-cardinal-neuter;201;двісті одне
+spell;%spellout-cardinal-neuter;299;двісті девʼяносто девʼять
+spell;%spellout-cardinal-neuter;300;триста
+spell;%spellout-cardinal-neuter;301;триста одне
+spell;%spellout-cardinal-neuter;399;триста девʼяносто девʼять
+spell;%spellout-cardinal-neuter;400;чотириста
+spell;%spellout-cardinal-neuter;401;чотириста одне
+spell;%spellout-cardinal-neuter;499;чотириста девʼяносто девʼять
+spell;%spellout-cardinal-neuter;500;пʼятсот
+spell;%spellout-cardinal-neuter;501;пʼятсот одне
+spell;%spellout-cardinal-neuter;599;пʼятсот девʼяносто девʼять
+spell;%spellout-cardinal-neuter;600;шістсот
+spell;%spellout-cardinal-neuter;601;шістсот одне
+spell;%spellout-cardinal-neuter;699;шістсот девʼяносто девʼять
+spell;%spellout-cardinal-neuter;700;сімсот
+spell;%spellout-cardinal-neuter;701;сімсот одне
+spell;%spellout-cardinal-neuter;799;сімсот девʼяносто девʼять
+spell;%spellout-cardinal-neuter;800;вісімсот
+spell;%spellout-cardinal-neuter;801;вісімсот одне
+spell;%spellout-cardinal-neuter;899;вісімсот девʼяносто девʼять
+spell;%spellout-cardinal-neuter;900;девʼятсот
+spell;%spellout-cardinal-neuter;901;девʼятсот одне
+spell;%spellout-cardinal-neuter;999;девʼятсот девʼяносто девʼять
+spell;%spellout-cardinal-neuter;1000;одна тисяча
+spell;%spellout-cardinal-neuter;1001;одна тисяча одне
+spell;%spellout-cardinal-neuter;2000;дві тисячі
+spell;%spellout-cardinal-neuter;5000;пʼять тисяч
+spell;%spellout-cardinal-neuter;10000;десять тисяч
+spell;%spellout-cardinal-neuter;100000;сто тисяч
+spell;%spellout-cardinal-neuter;999999;девʼятсот девʼяносто девʼять тисяч девʼятсот девʼяносто девʼять
+spell;%spellout-cardinal-neuter;1000000;один мільйон
+spell;%spellout-cardinal-neuter;1000001;один мільйон одне
+spell;%spellout-cardinal-neuter;2000000;два мільйони
+spell;%spellout-cardinal-neuter;999999999;девʼятсот девʼяносто девʼять мільйонів девʼятсот девʼяносто девʼять тисяч девʼятсот девʼяносто девʼять
+spell;%spellout-cardinal-neuter;1000000000;один мільярд
+spell;%spellout-cardinal-neuter;1000000001;один мільярд одне
+spell;%spellout-cardinal-neuter;999999999999;девʼятсот девʼяносто девʼять мільярдів девʼятсот девʼяносто девʼять мільйонів девʼятсот девʼяносто девʼять тисяч девʼятсот девʼяносто девʼять
+spell;%spellout-cardinal-neuter;1000000000000;один більйон
+spell;%spellout-cardinal-neuter;1000000000001;один більйон одне
+spell;%spellout-cardinal-neuter;999999999999999;девʼятсот девʼяносто девʼять більйонів девʼятсот девʼяносто девʼять мільярдів девʼятсот девʼяносто девʼять мільйонів девʼятсот девʼяносто девʼять тисяч девʼятсот девʼяносто девʼять
+spell;%spellout-cardinal-neuter;1000000000000000;один більярд
+spell;%spellout-cardinal-neuter;1000000000000001;один більярд одне
+spell;%spellout-cardinal-masculine;-1;мінус один
+spell;%spellout-cardinal-masculine;0;нуль
+spell;%spellout-cardinal-masculine;0.5;нуль кома пʼять
+spell;%spellout-cardinal-masculine;1;один
+spell;%spellout-cardinal-masculine;1.5;один кома пʼять
+spell;%spellout-cardinal-masculine;2;два
+spell;%spellout-cardinal-masculine;3;три
+spell;%spellout-cardinal-masculine;4;чотири
+spell;%spellout-cardinal-masculine;5;пʼять
+spell;%spellout-cardinal-masculine;6;шість
+spell;%spellout-cardinal-masculine;7;сім
+spell;%spellout-cardinal-masculine;8;вісім
+spell;%spellout-cardinal-masculine;9;девʼять
+spell;%spellout-cardinal-masculine;10;десять
+spell;%spellout-cardinal-masculine;11;одинадцять
+spell;%spellout-cardinal-masculine;12;дванадцять
+spell;%spellout-cardinal-masculine;13;тринадцять
+spell;%spellout-cardinal-masculine;14;чотирнадцять
+spell;%spellout-cardinal-masculine;15;пʼятнадцять
+spell;%spellout-cardinal-masculine;16;шістнадцять
+spell;%spellout-cardinal-masculine;17;сімнадцять
+spell;%spellout-cardinal-masculine;18;вісімнадцять
+spell;%spellout-cardinal-masculine;19;девʼятнадцять
+spell;%spellout-cardinal-masculine;20;двадцять
+spell;%spellout-cardinal-masculine;21;двадцять один
+spell;%spellout-cardinal-masculine;25;двадцять пʼять
+spell;%spellout-cardinal-masculine;29;двадцять девʼять
+spell;%spellout-cardinal-masculine;30;тридцять
+spell;%spellout-cardinal-masculine;31;тридцять один
+spell;%spellout-cardinal-masculine;39;тридцять девʼять
+spell;%spellout-cardinal-masculine;40;сорок
+spell;%spellout-cardinal-masculine;41;сорок один
+spell;%spellout-cardinal-masculine;49;сорок девʼять
+spell;%spellout-cardinal-masculine;50;пʼятдесят
+spell;%spellout-cardinal-masculine;51;пʼятдесят один
+spell;%spellout-cardinal-masculine;59;пʼятдесят девʼять
+spell;%spellout-cardinal-masculine;60;шістдесят
+spell;%spellout-cardinal-masculine;61;шістдесят один
+spell;%spellout-cardinal-masculine;69;шістдесят девʼять
+spell;%spellout-cardinal-masculine;70;сімдесят
+spell;%spellout-cardinal-masculine;71;сімдесят один
+spell;%spellout-cardinal-masculine;79;сімдесят девʼять
+spell;%spellout-cardinal-masculine;80;вісімдесят
+spell;%spellout-cardinal-masculine;81;вісімдесят один
+spell;%spellout-cardinal-masculine;89;вісімдесят девʼять
+spell;%spellout-cardinal-masculine;90;девʼяносто
+spell;%spellout-cardinal-masculine;91;девʼяносто один
+spell;%spellout-cardinal-masculine;99;девʼяносто девʼять
+spell;%spellout-cardinal-masculine;100;сто
+spell;%spellout-cardinal-masculine;101;сто один
+spell;%spellout-cardinal-masculine;199;сто девʼяносто девʼять
+spell;%spellout-cardinal-masculine;200;двісті
+spell;%spellout-cardinal-masculine;201;двісті один
+spell;%spellout-cardinal-masculine;299;двісті девʼяносто девʼять
+spell;%spellout-cardinal-masculine;300;триста
+spell;%spellout-cardinal-masculine;301;триста один
+spell;%spellout-cardinal-masculine;399;триста девʼяносто девʼять
+spell;%spellout-cardinal-masculine;400;чотириста
+spell;%spellout-cardinal-masculine;401;чотириста один
+spell;%spellout-cardinal-masculine;499;чотириста девʼяносто девʼять
+spell;%spellout-cardinal-masculine;500;пʼятсот
+spell;%spellout-cardinal-masculine;501;пʼятсот один
+spell;%spellout-cardinal-masculine;599;пʼятсот девʼяносто девʼять
+spell;%spellout-cardinal-masculine;600;шістсот
+spell;%spellout-cardinal-masculine;601;шістсот один
+spell;%spellout-cardinal-masculine;699;шістсот девʼяносто девʼять
+spell;%spellout-cardinal-masculine;700;сімсот
+spell;%spellout-cardinal-masculine;701;сімсот один
+spell;%spellout-cardinal-masculine;799;сімсот девʼяносто девʼять
+spell;%spellout-cardinal-masculine;800;вісімсот
+spell;%spellout-cardinal-masculine;801;вісімсот один
+spell;%spellout-cardinal-masculine;899;вісімсот девʼяносто девʼять
+spell;%spellout-cardinal-masculine;900;девʼятсот
+spell;%spellout-cardinal-masculine;901;девʼятсот один
+spell;%spellout-cardinal-masculine;999;девʼятсот девʼяносто девʼять
+spell;%spellout-cardinal-masculine;1000;одна тисяча
+spell;%spellout-cardinal-masculine;1001;одна тисяча один
+spell;%spellout-cardinal-masculine;2000;дві тисячі
+spell;%spellout-cardinal-masculine;5000;пʼять тисяч
+spell;%spellout-cardinal-masculine;10000;десять тисяч
+spell;%spellout-cardinal-masculine;100000;сто тисяч
+spell;%spellout-cardinal-masculine;999999;девʼятсот девʼяносто девʼять тисяч девʼятсот девʼяносто девʼять
+spell;%spellout-cardinal-masculine;1000000;один мільйон
+spell;%spellout-cardinal-masculine;1000001;один мільйон один
+spell;%spellout-cardinal-masculine;2000000;два мільйони
+spell;%spellout-cardinal-masculine;999999999;девʼятсот девʼяносто девʼять мільйонів девʼятсот девʼяносто девʼять тисяч девʼятсот девʼяносто девʼять
+spell;%spellout-cardinal-masculine;1000000000;один мільярд
+spell;%spellout-cardinal-masculine;1000000001;один мільярд один
+spell;%spellout-cardinal-masculine;999999999999;девʼятсот девʼяносто девʼять мільярдів девʼятсот девʼяносто девʼять мільйонів девʼятсот девʼяносто девʼять тисяч девʼятсот девʼяносто девʼять
+spell;%spellout-cardinal-masculine;1000000000000;один більйон
+spell;%spellout-cardinal-masculine;1000000000001;один більйон один
+spell;%spellout-cardinal-masculine;999999999999999;девʼятсот девʼяносто девʼять більйонів девʼятсот девʼяносто девʼять мільярдів девʼятсот девʼяносто девʼять мільйонів девʼятсот девʼяносто девʼять тисяч девʼятсот девʼяносто девʼять
+spell;%spellout-cardinal-masculine;1000000000000000;один більярд
+spell;%spellout-cardinal-masculine;1000000000000001;один більярд один
+spell;%spellout-numbering;-1;мінус один
+spell;%spellout-numbering;0;нуль
+spell;%spellout-numbering;0.5;нуль кома пʼять
+spell;%spellout-numbering;1;один
+spell;%spellout-numbering;2;два
+spell;%spellout-numbering;3;три
+spell;%spellout-numbering;4;чотири
+spell;%spellout-numbering;5;пʼять
+spell;%spellout-numbering;6;шість
+spell;%spellout-numbering;7;сім
+spell;%spellout-numbering;8;вісім
+spell;%spellout-numbering;9;девʼять
+spell;%spellout-numbering;10;десять
+spell;%spellout-numbering;11;одинадцять
+spell;%spellout-numbering;12;дванадцять
+spell;%spellout-numbering;13;тринадцять
+spell;%spellout-numbering;14;чотирнадцять
+spell;%spellout-numbering;15;пʼятнадцять
+spell;%spellout-numbering;16;шістнадцять
+spell;%spellout-numbering;17;сімнадцять
+spell;%spellout-numbering;18;вісімнадцять
+spell;%spellout-numbering;19;девʼятнадцять
+spell;%spellout-numbering;20;двадцять
+spell;%spellout-numbering;21;двадцять один
+spell;%spellout-numbering;25;двадцять пʼять
+spell;%spellout-numbering;30;тридцять
+spell;%spellout-numbering;40;сорок
+spell;%spellout-numbering;50;пʼятдесят
+spell;%spellout-numbering;60;шістдесят
+spell;%spellout-numbering;70;сімдесят
+spell;%spellout-numbering;80;вісімдесят
+spell;%spellout-numbering;90;девʼяносто
+spell;%spellout-numbering;99;девʼяносто девʼять
+spell;%spellout-numbering;100;сто
+spell;%spellout-numbering;101;сто один
+spell;%spellout-numbering;200;двісті
+spell;%spellout-numbering;300;триста
+spell;%spellout-numbering;500;пʼятсот
+spell;%spellout-numbering;1000;одна тисяча
+spell;%spellout-numbering;1001;одна тисяча один
+spell;%spellout-numbering;2000;дві тисячі
+spell;%spellout-numbering;5000;пʼять тисяч
+spell;%spellout-numbering;10000;десять тисяч
+spell;%spellout-numbering;100000;сто тисяч
+spell;%spellout-numbering;1000000;один мільйон
+spell;%spellout-numbering;2000000;два мільйони
+spell;%spellout-numbering-year;1;один
+spell;%spellout-numbering-year;1999;одна тисяча девʼятсот девʼяносто девʼять
+spell;%spellout-numbering-year;2000;дві тисячі
+spell;%spellout-numbering-year;2001;дві тисячі один
+digits;%digits-ordinal-feminine;1;1-а
+digits;%digits-ordinal-feminine;2;2-а
+digits;%digits-ordinal-feminine;3;3-я
+digits;%digits-ordinal-feminine;4;4-а
+digits;%digits-ordinal-feminine;5;5-а
+digits;%digits-ordinal-feminine;6;6-а
+digits;%digits-ordinal-feminine;7;7-а
+digits;%digits-ordinal-feminine;8;8-а
+digits;%digits-ordinal-feminine;9;9-а
+digits;%digits-ordinal-feminine;10;10-а
+digits;%digits-ordinal-neuter;1;1-е
+digits;%digits-ordinal-neuter;2;2-е
+digits;%digits-ordinal-neuter;3;3-є
+digits;%digits-ordinal-neuter;4;4-е
+digits;%digits-ordinal-neuter;5;5-е
+digits;%digits-ordinal-neuter;6;6-е
+digits;%digits-ordinal-neuter;7;7-е
+digits;%digits-ordinal-neuter;8;8-е
+digits;%digits-ordinal-neuter;9;9-е
+digits;%digits-ordinal-neuter;10;10-е
+digits;%digits-ordinal-masculine;1;1-ий
+digits;%digits-ordinal-masculine;2;2-ий
+digits;%digits-ordinal-masculine;3;3-ій
+digits;%digits-ordinal-masculine;4;4-ий
+digits;%digits-ordinal-masculine;5;5-ий
+digits;%digits-ordinal-masculine;6;6-ий
+digits;%digits-ordinal-masculine;7;7-ий
+digits;%digits-ordinal-masculine;8;8-ий
+digits;%digits-ordinal-masculine;9;9-ий
+digits;%digits-ordinal-masculine;10;10-ий
+digits;%digits-ordinal;1;1-ий
+digits;%digits-ordinal;2;2-ий
+digits;%digits-ordinal;3;3-ій
+digits;%digits-ordinal;4;4-ий
+digits;%digits-ordinal;5;5-ий
+digits;%digits-ordinal;6;6-ий
+digits;%digits-ordinal;7;7-ий
+digits;%digits-ordinal;8;8-ий
+digits;%digits-ordinal;9;9-ий
+digits;%digits-ordinal;10;10-ий

@@ -1,0 +1,143 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal;1;kwanza
+spell;%spellout-ordinal;2;pili
+spell;%spellout-ordinal;3;wa tatu
+spell;%spellout-ordinal;4;wa nne
+spell;%spellout-ordinal;5;wa tano
+spell;%spellout-ordinal;6;wa sita
+spell;%spellout-ordinal;7;wa saba
+spell;%spellout-ordinal;8;wa nane
+spell;%spellout-ordinal;9;wa tisa
+spell;%spellout-ordinal;10;wa kumi
+spell;%spellout-cardinal;-1;kasoro moja
+spell;%spellout-cardinal;0;sifuri
+spell;%spellout-cardinal;0.5;sifuri nukta tano
+spell;%spellout-cardinal;1;moja
+spell;%spellout-cardinal;1.5;moja nukta tano
+spell;%spellout-cardinal;2;mbili
+spell;%spellout-cardinal;3;tatu
+spell;%spellout-cardinal;4;nne
+spell;%spellout-cardinal;5;tano
+spell;%spellout-cardinal;6;sita
+spell;%spellout-cardinal;7;saba
+spell;%spellout-cardinal;8;nane
+spell;%spellout-cardinal;9;tisa
+spell;%spellout-cardinal;10;kumi
+spell;%spellout-cardinal;11;kumi na moja
+spell;%spellout-cardinal;12;kumi na mbili
+spell;%spellout-cardinal;13;kumi na tatu
+spell;%spellout-cardinal;14;kumi na nne
+spell;%spellout-cardinal;15;kumi na tano
+spell;%spellout-cardinal;16;kumi na sita
+spell;%spellout-cardinal;17;kumi na saba
+spell;%spellout-cardinal;18;kumi na nane
+spell;%spellout-cardinal;19;kumi na tisa
+spell;%spellout-cardinal;20;ishirini
+spell;%spellout-cardinal;21;ishirini na moja
+spell;%spellout-cardinal;25;ishirini na tano
+spell;%spellout-cardinal;29;ishirini na tisa
+spell;%spellout-cardinal;30;thelathini
+spell;%spellout-cardinal;31;thelathini na moja
+spell;%spellout-cardinal;39;thelathini na tisa
+spell;%spellout-cardinal;40;arobaini
+spell;%spellout-cardinal;41;arobaini na moja
+spell;%spellout-cardinal;49;arobaini na tisa
+spell;%spellout-cardinal;50;hamsini
+spell;%spellout-cardinal;51;hamsini na moja
+spell;%spellout-cardinal;59;hamsini na tisa
+spell;%spellout-cardinal;60;sitini
+spell;%spellout-cardinal;61;sitini na moja
+spell;%spellout-cardinal;69;sitini na tisa
+spell;%spellout-cardinal;70;sabini
+spell;%spellout-cardinal;71;sabini na moja
+spell;%spellout-cardinal;79;sabini na tisa
+spell;%spellout-cardinal;80;themanini
+spell;%spellout-cardinal;81;themanini na moja
+spell;%spellout-cardinal;89;themanini na tisa
+spell;%spellout-cardinal;90;tisini
+spell;%spellout-cardinal;91;tisini na moja
+spell;%spellout-cardinal;99;tisini na tisa
+spell;%spellout-cardinal;100;mia moja
+spell;%spellout-cardinal;101;mia moja na moja
+spell;%spellout-cardinal;200;mia mbili
+spell;%spellout-cardinal;300;mia tatu
+spell;%spellout-cardinal;500;mia tano
+spell;%spellout-cardinal;999;mia tisa na tisini na tisa
+spell;%spellout-cardinal;1000;elfu moja
+spell;%spellout-cardinal;1001;elfu moja, moja
+spell;%spellout-cardinal;2000;elfu mbili
+spell;%spellout-cardinal;5000;elfu tano
+spell;%spellout-cardinal;10000;elfu kumi
+spell;%spellout-cardinal;100000;elfu mia moja
+spell;%spellout-cardinal;999999;elfu mia tisa na tisini na tisa, mia tisa na tisini na tisa
+spell;%spellout-cardinal;1000000;milioni moja
+spell;%spellout-cardinal;1000001;milioni moja, moja
+spell;%spellout-cardinal;2000000;milioni mbili
+spell;%spellout-cardinal;999999999;milioni mia tisa na tisini na tisa, elfu mia tisa na tisini na tisa, mia tisa na tisini na tisa
+spell;%spellout-cardinal;1000000000;bilioni moja
+spell;%spellout-cardinal;1000000001;bilioni moja, moja
+spell;%spellout-cardinal;999999999999;bilioni mia tisa na tisini na tisa, milioni mia tisa na tisini na tisa, elfu mia tisa na tisini na tisa, mia tisa na tisini na tisa
+spell;%spellout-cardinal;1000000000000;trilioni moja
+spell;%spellout-cardinal;1000000000001;trilioni moja, moja
+spell;%spellout-cardinal;999999999999999;trilioni mia tisa na tisini na tisa, bilioni mia tisa na tisini na tisa, milioni mia tisa na tisini na tisa, elfu mia tisa na tisini na tisa, mia tisa na tisini na tisa
+spell;%spellout-cardinal;1000000000000000;kvadrilioni moja
+spell;%spellout-cardinal;1000000000000001;kvadrilioni moja, moja
+spell;%spellout-cardinal;Infinity;usio
+spell;%spellout-cardinal;NaN;si nambari
+spell;%spellout-numbering;-1;kasoro moja
+spell;%spellout-numbering;0;sifuri
+spell;%spellout-numbering;0.5;sifuri nukta tano
+spell;%spellout-numbering;1;moja
+spell;%spellout-numbering;2;mbili
+spell;%spellout-numbering;3;tatu
+spell;%spellout-numbering;4;nne
+spell;%spellout-numbering;5;tano
+spell;%spellout-numbering;6;sita
+spell;%spellout-numbering;7;saba
+spell;%spellout-numbering;8;nane
+spell;%spellout-numbering;9;tisa
+spell;%spellout-numbering;10;kumi
+spell;%spellout-numbering;11;kumi na moja
+spell;%spellout-numbering;12;kumi na mbili
+spell;%spellout-numbering;13;kumi na tatu
+spell;%spellout-numbering;14;kumi na nne
+spell;%spellout-numbering;15;kumi na tano
+spell;%spellout-numbering;16;kumi na sita
+spell;%spellout-numbering;17;kumi na saba
+spell;%spellout-numbering;18;kumi na nane
+spell;%spellout-numbering;19;kumi na tisa
+spell;%spellout-numbering;20;ishirini
+spell;%spellout-numbering;21;ishirini na moja
+spell;%spellout-numbering;25;ishirini na tano
+spell;%spellout-numbering;30;thelathini
+spell;%spellout-numbering;40;arobaini
+spell;%spellout-numbering;50;hamsini
+spell;%spellout-numbering;60;sitini
+spell;%spellout-numbering;70;sabini
+spell;%spellout-numbering;80;themanini
+spell;%spellout-numbering;90;tisini
+spell;%spellout-numbering;99;tisini na tisa
+spell;%spellout-numbering;100;mia moja
+spell;%spellout-numbering;101;mia moja na moja
+spell;%spellout-numbering;200;mia mbili
+spell;%spellout-numbering;300;mia tatu
+spell;%spellout-numbering;500;mia tano
+spell;%spellout-numbering;1000;elfu moja
+spell;%spellout-numbering;1001;elfu moja, moja
+spell;%spellout-numbering;2000;elfu mbili
+spell;%spellout-numbering;5000;elfu tano
+spell;%spellout-numbering;10000;elfu kumi
+spell;%spellout-numbering;100000;elfu mia moja
+spell;%spellout-numbering;1000000;milioni moja
+spell;%spellout-numbering;2000000;milioni mbili
+spell;%spellout-numbering-year;1;moja
+spell;%spellout-numbering-year;1999;elfu moja, mia tisa na tisini na tisa
+spell;%spellout-numbering-year;2000;elfu mbili
+spell;%spellout-numbering-year;2001;elfu mbili, moja

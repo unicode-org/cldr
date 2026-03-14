@@ -1,0 +1,194 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal;1;birinci
+spell;%spellout-ordinal;2;ikinci
+spell;%spellout-ordinal;3;üçüncü
+spell;%spellout-ordinal;4;dördüncü
+spell;%spellout-ordinal;5;beşinci
+spell;%spellout-ordinal;6;altıncı
+spell;%spellout-ordinal;7;yeddinci
+spell;%spellout-ordinal;8;səkkizinci
+spell;%spellout-ordinal;9;doqquzuncu
+spell;%spellout-ordinal;10;onuncu
+spell;%spellout-ordinal;11;on birinci
+spell;%spellout-ordinal;19;on doqquzuncu
+spell;%spellout-ordinal;20;iyirminci
+spell;%spellout-ordinal;21;iyirmi birinci
+spell;%spellout-ordinal;29;iyirmi doqquzuncu
+spell;%spellout-ordinal;30;otuzuncu
+spell;%spellout-ordinal;31;otuz birinci
+spell;%spellout-ordinal;39;otuz doqquzuncu
+spell;%spellout-ordinal;40;qırxıncı
+spell;%spellout-ordinal;41;qırx birinci
+spell;%spellout-ordinal;49;qırx doqquzuncu
+spell;%spellout-ordinal;50;əllinci
+spell;%spellout-ordinal;51;əlli birinci
+spell;%spellout-ordinal;59;əlli doqquzuncu
+spell;%spellout-ordinal;60;altmışıncı
+spell;%spellout-ordinal;61;altmış birinci
+spell;%spellout-ordinal;69;altmış doqquzuncu
+spell;%spellout-ordinal;70;yetmişıncı
+spell;%spellout-ordinal;71;yetmiş birinci
+spell;%spellout-ordinal;79;yetmiş doqquzuncu
+spell;%spellout-ordinal;80;səqsənıncı
+spell;%spellout-ordinal;81;səqsən birinci
+spell;%spellout-ordinal;89;səqsən doqquzuncu
+spell;%spellout-ordinal;90;doxsanıncı
+spell;%spellout-ordinal;91;doxsan birinci
+spell;%spellout-ordinal;99;doxsan doqquzuncu
+spell;%spellout-ordinal;100;bir yüzüncü
+spell;%spellout-ordinal;101;bir yüz birinci
+spell;%spellout-ordinal;999;doqquz yüz doxsan doqquzuncu
+spell;%spellout-ordinal;1000;bir bininci
+spell;%spellout-ordinal;1001;bir bin birinci
+spell;%spellout-ordinal;999999;doqquz yüz doxsan doqquz bin doqquz yüz doxsan doqquzuncu
+spell;%spellout-ordinal;1000000;bir milyonuncu
+spell;%spellout-ordinal;1000001;bir milyon birinci
+spell;%spellout-ordinal;999999999;doqquz yüz doxsan doqquz milyon doqquz yüz doxsan doqquz bin doqquz yüz doxsan doqquzuncu
+spell;%spellout-ordinal;1000000000;bir milyarıncı
+spell;%spellout-ordinal;1000000001;bir milyar birinci
+spell;%spellout-ordinal;999999999999;doqquz yüz doxsan doqquz milyar doqquz yüz doxsan doqquz milyon doqquz yüz doxsan doqquz bin doqquz yüz doxsan doqquzuncu
+spell;%spellout-ordinal;1000000000000;bir trilyonuncu
+spell;%spellout-ordinal;1000000000001;bir trilyon birinci
+spell;%spellout-ordinal;999999999999999;doqquz yüz doxsan doqquz trilyon doqquz yüz doxsan doqquz milyar doqquz yüz doxsan doqquz milyon doqquz yüz doxsan doqquz bin doqquz yüz doxsan doqquzuncu
+spell;%spellout-ordinal;1000000000000000;bir katrilyonuncu
+spell;%spellout-ordinal;1000000000000001;bir katrilyon birinci
+spell;%spellout-cardinal;-1;əksi bir
+spell;%spellout-cardinal;0;sıfır
+spell;%spellout-cardinal;0.5;sıfır tam beş
+spell;%spellout-cardinal;1;bir
+spell;%spellout-cardinal;1.5;bir tam beş
+spell;%spellout-cardinal;2;iki
+spell;%spellout-cardinal;3;üç
+spell;%spellout-cardinal;4;dörd
+spell;%spellout-cardinal;5;beş
+spell;%spellout-cardinal;6;altı
+spell;%spellout-cardinal;7;yeddi
+spell;%spellout-cardinal;8;səkkiz
+spell;%spellout-cardinal;9;doqquz
+spell;%spellout-cardinal;10;on
+spell;%spellout-cardinal;11;on bir
+spell;%spellout-cardinal;12;on iki
+spell;%spellout-cardinal;13;on üç
+spell;%spellout-cardinal;14;on dörd
+spell;%spellout-cardinal;15;on beş
+spell;%spellout-cardinal;16;on altı
+spell;%spellout-cardinal;17;on yeddi
+spell;%spellout-cardinal;18;on səkkiz
+spell;%spellout-cardinal;19;on doqquz
+spell;%spellout-cardinal;20;iyirmi
+spell;%spellout-cardinal;21;iyirmi bir
+spell;%spellout-cardinal;25;iyirmi beş
+spell;%spellout-cardinal;29;iyirmi doqquz
+spell;%spellout-cardinal;30;otuz
+spell;%spellout-cardinal;31;otuz bir
+spell;%spellout-cardinal;39;otuz doqquz
+spell;%spellout-cardinal;40;qırx
+spell;%spellout-cardinal;41;qırx bir
+spell;%spellout-cardinal;49;qırx doqquz
+spell;%spellout-cardinal;50;əlli
+spell;%spellout-cardinal;51;əlli bir
+spell;%spellout-cardinal;59;əlli doqquz
+spell;%spellout-cardinal;60;atmış
+spell;%spellout-cardinal;61;atmış bir
+spell;%spellout-cardinal;69;atmış doqquz
+spell;%spellout-cardinal;70;yetmiş
+spell;%spellout-cardinal;71;yetmiş bir
+spell;%spellout-cardinal;79;yetmiş doqquz
+spell;%spellout-cardinal;80;səqsən
+spell;%spellout-cardinal;81;səqsən bir
+spell;%spellout-cardinal;89;səqsən doqquz
+spell;%spellout-cardinal;90;doxsan
+spell;%spellout-cardinal;91;doxsan bir
+spell;%spellout-cardinal;99;doxsan doqquz
+spell;%spellout-cardinal;100;bir yüz
+spell;%spellout-cardinal;101;bir yüz bir
+spell;%spellout-cardinal;200;iki yüz
+spell;%spellout-cardinal;300;üç yüz
+spell;%spellout-cardinal;500;beş yüz
+spell;%spellout-cardinal;999;doqquz yüz doxsan doqquz
+spell;%spellout-cardinal;1000;bir min
+spell;%spellout-cardinal;1001;bir min bir
+spell;%spellout-cardinal;2000;iki min
+spell;%spellout-cardinal;5000;beş min
+spell;%spellout-cardinal;10000;on min
+spell;%spellout-cardinal;100000;bir yüz min
+spell;%spellout-cardinal;999999;doqquz yüz doxsan doqquz min doqquz yüz doxsan doqquz
+spell;%spellout-cardinal;1000000;bir milyon
+spell;%spellout-cardinal;1000001;bir milyon bir
+spell;%spellout-cardinal;2000000;iki milyon
+spell;%spellout-cardinal;999999999;doqquz yüz doxsan doqquz milyon doqquz yüz doxsan doqquz min doqquz yüz doxsan doqquz
+spell;%spellout-cardinal;1000000000;bir milyard
+spell;%spellout-cardinal;1000000001;bir milyard bir
+spell;%spellout-cardinal;999999999999;doqquz yüz doxsan doqquz milyard doqquz yüz doxsan doqquz milyon doqquz yüz doxsan doqquz min doqquz yüz doxsan doqquz
+spell;%spellout-cardinal;1000000000000;bir trilyon
+spell;%spellout-cardinal;1000000000001;bir trilyon bir
+spell;%spellout-cardinal;999999999999999;doqquz yüz doxsan doqquz trilyon doqquz yüz doxsan doqquz milyard doqquz yüz doxsan doqquz milyon doqquz yüz doxsan doqquz min doqquz yüz doxsan doqquz
+spell;%spellout-cardinal;1000000000000000;bir katrilyon
+spell;%spellout-cardinal;1000000000000001;bir katrilyon bir
+spell;%spellout-numbering;-1;əksi bir
+spell;%spellout-numbering;0;sıfır
+spell;%spellout-numbering;0.5;sıfır tam beş
+spell;%spellout-numbering;1;bir
+spell;%spellout-numbering;2;iki
+spell;%spellout-numbering;3;üç
+spell;%spellout-numbering;4;dörd
+spell;%spellout-numbering;5;beş
+spell;%spellout-numbering;6;altı
+spell;%spellout-numbering;7;yeddi
+spell;%spellout-numbering;8;səkkiz
+spell;%spellout-numbering;9;doqquz
+spell;%spellout-numbering;10;on
+spell;%spellout-numbering;11;on bir
+spell;%spellout-numbering;12;on iki
+spell;%spellout-numbering;13;on üç
+spell;%spellout-numbering;14;on dörd
+spell;%spellout-numbering;15;on beş
+spell;%spellout-numbering;16;on altı
+spell;%spellout-numbering;17;on yeddi
+spell;%spellout-numbering;18;on səkkiz
+spell;%spellout-numbering;19;on doqquz
+spell;%spellout-numbering;20;iyirmi
+spell;%spellout-numbering;21;iyirmi bir
+spell;%spellout-numbering;25;iyirmi beş
+spell;%spellout-numbering;30;otuz
+spell;%spellout-numbering;40;qırx
+spell;%spellout-numbering;50;əlli
+spell;%spellout-numbering;60;atmış
+spell;%spellout-numbering;70;yetmiş
+spell;%spellout-numbering;80;səqsən
+spell;%spellout-numbering;90;doxsan
+spell;%spellout-numbering;99;doxsan doqquz
+spell;%spellout-numbering;100;bir yüz
+spell;%spellout-numbering;101;bir yüz bir
+spell;%spellout-numbering;200;iki yüz
+spell;%spellout-numbering;300;üç yüz
+spell;%spellout-numbering;500;beş yüz
+spell;%spellout-numbering;1000;bir min
+spell;%spellout-numbering;1001;bir min bir
+spell;%spellout-numbering;2000;iki min
+spell;%spellout-numbering;5000;beş min
+spell;%spellout-numbering;10000;on min
+spell;%spellout-numbering;100000;bir yüz min
+spell;%spellout-numbering;1000000;bir milyon
+spell;%spellout-numbering;2000000;iki milyon
+spell;%spellout-numbering-year;1;bir
+spell;%spellout-numbering-year;1999;bir min doqquz yüz doxsan doqquz
+spell;%spellout-numbering-year;2000;iki min
+spell;%spellout-numbering-year;2001;iki min bir
+digits;%digits-ordinal;1;1'inci
+digits;%digits-ordinal;2;2'inci
+digits;%digits-ordinal;3;3'inci
+digits;%digits-ordinal;4;4'inci
+digits;%digits-ordinal;5;5'inci
+digits;%digits-ordinal;6;6'inci
+digits;%digits-ordinal;7;7'inci
+digits;%digits-ordinal;8;8'inci
+digits;%digits-ordinal;9;9'inci
+digits;%digits-ordinal;10;10'inci

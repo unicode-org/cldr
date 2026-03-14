@@ -321,13 +321,10 @@ jobs:
     - name: Bringup Containers
       run: docker compose up -d cldr-apps selenium
       working-directory: tools/cldr-apps
-    - name: Build webdriver
-      run: docker compose run -v ~/.m2/repository:/root/.m2/repository:rw --rm webdriver mvn -B package -pl cldr-apps-webdriver
-      working-directory: tools/
     - name: Test with Webdriver
       # See tools/cldr-apps/README.md
       run: >
-        docker compose run -v ~/.m2/repository:/root/.m2/repository:rw --rm webdriver || ( docker compose exec -it cldr-apps tail /logs/messages.log ; true )
+        docker compose run --rm webdriver || ( docker compose exec -it cldr-apps tail /logs/messages.log ; true )
       working-directory: tools/cldr-apps
     - name: Prepare client tests
       run: docker run --rm -v ~/.npm:/root/.npm:rw -v $(pwd)/js:/home/node/app:rw -w /home/node/app node npm ci

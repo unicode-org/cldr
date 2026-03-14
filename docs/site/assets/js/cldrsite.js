@@ -230,9 +230,20 @@ const SiteMap = {
     hide() {
       this.$emit("hide");
     },
+    pathToHref(x) {
+      return md2html(x);
+    }
   },
   template: `
     <div class="sitemap">
+          <div v-if="tree?.value?.changed?.length" class="changed">
+            <h4>Site Pages changed in this Preview:</h4>
+            <li v-for="change in tree?.value?.changed" :key="change">
+              <a :href="pathToHref(change)">{{ change }}</a>
+            </li>
+            <h4>Note: this section will not show up in the production build.</h4>
+          </div>
+
           <SubMap :usermap="tree?.value?.usermap" path="index"/>
     </div>
   `,

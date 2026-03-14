@@ -16,9 +16,6 @@ then
     exit 1
 fi
 
-echo "comparing $2...$1" >&2
-git diff --name-status $2...$1 >&2
-
 CHANGED=$(git diff --name-status $2...$1 | grep '^[MA]' | cut -c2- | grep 'docs/ldml/tr35.*\.md')
 
 if [[ -z "${CHANGED}" ]];

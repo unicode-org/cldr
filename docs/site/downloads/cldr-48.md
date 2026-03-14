@@ -27,9 +27,7 @@ Release notes for CLDR 48.1 can be found in the [48.1 Changes section](/download
 
 Some of the most significant changes in this release are:
 - Updated for Unicode 17, including new names and search terms for new emoji, new sort-order, Han → Latin romanization additions for many characters.
-- Many additions to language data including:
-    - Likely Subtags, for deriving the likely script and region from the language (used in many processes).
-    - Language populations in countries: significant updates to improve accuracy and maintainability.
+- Many additions to language data supporting Likely Subtags, for deriving the likely script and region from the language (used in many processes).
 - Updated to the latest external standards and data sources, such as the language subtag registry, UN M49 macro regions, ISO 4217 currencies, etc.
 - New formatting options
     - Rational number formats added, allowing for formats like 5½.
@@ -318,7 +316,7 @@ The following files are new in the release:
 ## Migration
 
 - Number patterns that did not have a specific numberSystem (such as `latn` or `arab`) had been deprecated for many releases, and were finally removed.
-- Additionally, language and territory data in `languageData` and `territoryInfo` data received significant updates to improve accuracy and maintainability [CLDR-18087]
+- Additionally, language and territory data in `languageData` and `territoryInfo` data received significant updates to improve accuracy and maintainability [CLDR-18087] In particular, the `territories` attribute in `languageData` was deprecated and removed, as it was unclear and prone to misunderstanding. Implementations that used this data may need to adjust accordingly, using `territoryInfo`.
 - The likely language for Belarus changed to Russian [CLDR-14479]
 - [Using Time Zone Names](https://www.unicode.org/reports/tr35/48/tr35-dates.html#using-time-zone-names) Removed the "specific location format" and modified the fallback behavior of 'z'.
 - [Unit Identifier Normalization](https://www.unicode.org/reports/tr35/48/#tr35-general.html) Modified the normalization process.

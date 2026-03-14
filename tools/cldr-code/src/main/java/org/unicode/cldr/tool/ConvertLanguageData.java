@@ -362,14 +362,16 @@ public class ConvertLanguageData {
                                         TreeSet.class));
             }
             if (languageInCountryData.officialStatus.isMajor()) {
-                // Output will look like <language type="sw" territories="TZ"/>
+                // This is no longer saved to output
+                // It used to appear like: <language type="sw" territories="TZ"/>
                 status_territories.put(
                         BasicLanguageData.Type.primary, languageInCountryData.countryCode);
             } else if (languageInCountryData.officialStatus.isOfficial()
                     || languageInCountryData.getLanguagePopulation()
                             >= cutoff * languageInCountryData.countryPopulation
                     || languageInCountryData.getLanguagePopulation() >= 1000000) {
-                // Output will look like <language type="sw" territories="CD" alt="secondary"/>
+                // This is no longer saved to output
+                // It used to appear like: <language type="sw" territories="CD" alt="secondary"/>
                 status_territories.put(
                         BasicLanguageData.Type.secondary, languageInCountryData.countryCode);
             }

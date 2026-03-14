@@ -1,7 +1,5 @@
 package org.unicode.cldr.surveydriver;
 
-import static org.junit.Assert.assertTrue;
-
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
@@ -56,6 +54,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public class SurveyDriver {
 
+    static void assertTrue(boolean t) {
+        if (!t) throw new RuntimeException("Expected true but got false");
+    }
+
     /*
      * Enable/disable specific tests using these booleans
      */
@@ -98,6 +100,10 @@ public class SurveyDriver {
     private int userIndex = 0; // possibly changed below, see getUserIndexFromGrid
 
     private boolean gotComprehensiveCoverage = false;
+
+    public static void main(String args[]) {
+        runTests();
+    }
 
     public static void runTests() {
         SurveyDriver s = new SurveyDriver();

@@ -123,7 +123,7 @@ jobs:
           echo "::endgroup::"
           echo "Now go to https://cldr-smoke.unicode.org/spec/"$(basename ${GITHUB_REF_NAME})
       - name: Verify SpecFix Changes
-        if: github.repository == 'unicode-org/cldr' && github.event_name == 'push' && github.ref == 'refs/heads/main'
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         id: gitstatus
         run: |
           echo '### tr35 fixups' >> $GITHUB_STEP_SUMMARY
@@ -133,28 +133,26 @@ jobs:
           git diff --stat | tee -a $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
           ( echo changecount=$(git diff 2>/dev/null | wc -l) ) | tee -a $GITHUB_OUTPUT
-          # bump modification section if needed.
-          bash tools/scripts/tr-archive/check-mod-section.sh HEAD "origin/$BASE_REF" >/dev/null || echo '<!--' 'Auto SpecFix' $(date) '-->' | tee -a docs/ldml/tr35-modifications.md
-        env:
-          BASE_REF: ${{ github.base_ref }}
       - name: Update SpecFix branch
-        if: github.repository == 'unicode-org/cldr' && github.event_name == 'push' && github.ref == 'refs/heads/main' && steps.gitstatus.outputs.changecount > 0
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && steps.gitstatus.outputs.changecount > 0
         run: |
           set -euxo pipefail
           git config user.name 'gh-pages.yml [bot]'
           git config user.email 'unicode-org@users.noreply.github.com'
           git add docs/ldml
           bash .github/workflows/cldr-modify-commit.sh gh-pages.yml SpecFix
+          bash tools/scripts/tr-archive/check-mod-section.sh HEAD "origin/main" || (echo '<!--' 'Auto SpecFix' $(date) '-->' | tee -a docs/ldml/tr35-modifications.md && git commit --amend -C HEAD docs/ldml/tr35-modifications.md)
           git log -n 1
           git checkout -b ${AUTO_BRANCH}
           # reset origin using token
-          git remote set-url ${AUTO_REMOTE} "https://unicode-org:${GH_TOKEN}@github.com/unicode-org/cldr.git"
+          git remote set-url ${AUTO_REMOTE} "https://unicode-org:${GH_TOKEN}@github.com/${GITHUB_REPO}.git"
           # push ONLY if files under common/ are out of date.
           bash .github/workflows/cldr-modify-push-if-needed.sh ${AUTO_REMOTE} ${AUTO_BRANCH} docs/ldml/
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPO: ${{ github.repository }}
       - name: Open SpecFix PR
-        if: github.repository == 'unicode-org/cldr' && github.event_name == 'push' && github.ref == 'refs/heads/main' && steps.gitstatus.outputs.changecount > 0
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && steps.gitstatus.outputs.changecount > 0
         run: |
           set -euxo pipefail
           ( gh pr create \

@@ -306,6 +306,12 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-node-
           node-
+    - name: Build cldr-apps-webdriver with Maven
+      run: >
+        mvn -s .github/workflows/mvn-settings.xml -B compile install package --file tools/pom.xml -pl cldr-apps-webdriver
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
     - name: Pull Images
       run: docker compose pull -q
       working-directory: tools/cldr-apps
@@ -316,8 +322,8 @@ jobs:
       run: docker compose up -d cldr-apps selenium
       working-directory: tools/cldr-apps
     - name: Build webdriver
-      run: docker compose run -v ~/.m2/repository:/root/.m2/repository:rw --rm webdriver mvn -B test-compile
-      working-directory: tools/cldr-apps
+      run: docker compose run -v ~/.m2/repository:/root/.m2/repository:rw --rm webdriver mvn -B package -pl cldr-apps-webdriver
+      working-directory: tools/
     - name: Test with Webdriver
       # See tools/cldr-apps/README.md
       run: >

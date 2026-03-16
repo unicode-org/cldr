@@ -7,8 +7,8 @@ title: CLDR 48 Release Note
 | No. |    Date    | Rel. Note |  Data  |  Charts  | Spec |   Delta  | GitHub Tag | Delta DTD | CLDR JSON |
 |:---:|:----------:|:---------:|:------:|:--------:|:------------:|:---:|:----------:|:---------:|:---------:|
 |  48 | 2025-10-29 | [v48] | [CLDR48] | [Charts48]| [LDML48] | [Δ48] | [release-48] | [ΔDtd48] | [48.0.0] |
-|  48.1 | 2026-01-08 | [v48.1] | [CLDR48.1] | [Charts48.1] | [LDML48.1] | [Δ48.1] | [release-48-1] | n/a | [48.1.0] |
-|  48.2 | TBD | [v48.2] | TBD | TBD | TBD | [Δ48.2] | TBD | n/a | TBD |
+|  48.1 | 2026-01-08 | [v48.1] | [CLDR48.1] | n/a | [LDML48.1] | [Δ48.1] | [release-48-1] | n/a | [48.1.0] |
+|  48.2 | 2026-03-17 | [v48.2] | [CLDR48.2] | [Charts48.2] | [LDML48.2] | [Δ48.2] | [release-48-2] | n/a | [48.2.0] |
 
 ## Overview
 
@@ -368,7 +368,15 @@ Version 48.1 is a dot release. The following summarizes the changes. For a full 
 
 ### Spec changes
 
-- TBD
+- New section [Nested Bracket Replacement](tr35-general.md#Character_Nested_Bracket_Replacement)
+    - [Locale Display Name Algorithm](tr35-general.md#locale_display_name_algorithm) updated to use the nested bracket replacement data and avoid nested parentheses by flattening `-t-` (transform) language names.
+        - As part of this, the display name order is changed so that any names for `-u-` items appear _before_ (instead of after) any names for `-t-` items.
+    - Specify that missing `<keys>` translations should fall back to the key identifier
+    - The section "Enhanced Language Matching" is retitled as [Language Matching Variables](tr35.md#enhanced-language-matching) and clarified.
+
+- MessageFormat updates
+    - The `:currency` and `:percent` functions are now Stable, with the same implementations as previously.
+    - The `u:locale` option (previously in Draft) is dropped from the specification.
 
 ## V49 advance warnings
 

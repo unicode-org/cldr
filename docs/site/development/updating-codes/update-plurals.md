@@ -24,7 +24,7 @@ Whenever you change plural rules, ordinal rules, or plural ranges — and at the
  - Diff, commit if changed.
 1. Run GenerateAllCharts (actually, it is enough to run ShowLanguages) and the unit tests.
  - This will insure that the rules are correctly represented, and aligned with the minimal pairs.
- - Diff the plurals chart against the old one: eg v.s. https://unicode-org.github.io/cldr-staging/charts/38/supplemental/language_plural_rules.html
+ - Diff the plurals chart against the old one: eg against https://www.unicode.org/cldr/charts/48/supplemental/language_plural_rules.html
 ~~1. Run FindPluralDifferences to see that the expected changes are there (only tests integers right now).~~
 ~~- Modify the versions variable to use the last release.~~
 ~~- This is also run at the end of the release to get the Migration info for the release.~~

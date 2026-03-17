@@ -148,7 +148,7 @@ public class TestCompactNumbers extends TestFmwkPlus {
              * <pattern type="1000000" count="few">0 miliony</pattern>
              * <pattern type="1000000" count="many">0 milionu</pattern>
              * <pattern type="1000000" count="other">0 milionů</pattern>
-             * https://unicode-org.github.io/cldr-staging/charts/41/supplemental/language_plural_rules.html#cs
+             * https://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html#cs
              */
             {"fr", "EUR", 100d, "100 €"},
             {"fr", "EUR", 1000d, "1 k €"},

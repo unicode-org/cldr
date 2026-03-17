@@ -93,7 +93,7 @@ Creating Artifacts (Example: for **release-40**)
 
 * Data zips:  
   * Automated Way  
-    1. go to cldr-staging's workflow, [https://github.com/unicode-org/cldr-staging/actions/workflows/maven.ym](https://github.com/unicode-org/cldr-staging/actions/workflows/maven.ym)l for the corresponding tag (such as release-40)  
+    1. go to cldr-staging's workflow, [https://github.com/unicode-org/cldr-staging/actions/workflows/maven.yml](https://github.com/unicode-org/cldr-staging/actions/workflows/maven.yml) for the corresponding tag (such as release-40)  
     2. Click on the Workflow Run corresponding to the specific tag  
     3. An artifact will appear, **cldr-staging**. Download and unpack this zipfile.  
     4. cldr-staging.zip will contain **core.zip** and **keyboards.zip**  
@@ -174,11 +174,11 @@ Update https://sites.google.com/site/cldr/index/charts and other pages that refe
 * [**dev-delta-dtd**](https://www.unicode.org/cldr/charts/dev/supplemental/dtd_deltas.html)  
 * [**dev-tickets**](https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2239%22%20ORDER%20BY%20created%20ASC)  
 * [**latest-version**](http://cldr.unicode.org/index/downloads/latest) // contents at [http://cldr.unicode.org/index/downloads/dev](http://cldr.unicode.org/index/downloads/dev) needs update  
-* [**latest-charts**](https://unicode-org.github.io/cldr-staging/charts/latest/index.html) // we try to have all of these (this and below) have stable links with /latest/ and depend on either link redirects or copies, but some we have to hardcode.  
+* [**latest-charts**](https://www.unicode.org/cldr/charts/latest/index.html) // we try to have all of these (this and below) have stable links with /latest/ and depend on either link redirects or copies, but some we have to hardcode.  
 * [**latest-ldml**](http://www.unicode.org/reports/tr35/)  
 * [**latest-tickets**](https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2238%2E1%22%20ORDER%20BY%20created%20ASC)  
 * [`release-39`](https://github.com/unicode-org/cldr/tree/release-39)  
-* [**latest-delta-dtd**](https://unicode-org.github.io/cldr-staging/charts/38.1/supplemental/dtd_deltas.html)
+* [**latest-delta-dtd**](https://www.unicode.org/cldr/charts/latest/supplemental/dtd_deltas.html)
 
 *Bug-How-To-Links:*
 

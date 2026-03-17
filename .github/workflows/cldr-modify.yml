@@ -62,6 +62,19 @@ jobs:
           -Dexec.mainClass=org.unicode.cldr.tool.CLDRModify
           -Dexec.args="modify -d${TMPD} -s$(pwd)/common/main" &&
           (mv -v ${TMPD}/*.xml common/main/ || true)
+      - name: Run CLDR-modify common/main -fP
+        run: >
+          export TMPD=$(mktemp -d)
+          CLDR_DIR=$(pwd) ;
+          LANG=en_US.UTF-8
+          mvn -s .github/workflows/mvn-settings.xml -B
+          "-DCLDR_DIR=${CLDR_DIR}"
+          --file=tools/pom.xml
+          -pl cldr-code
+          -Dfile.encoding=utf-8 exec:java
+          -Dexec.mainClass=org.unicode.cldr.tool.CLDRModify
+          -Dexec.args="modify -fP -d${TMPD} -s$(pwd)/common/main" &&
+          (mv -v ${TMPD}/*.xml common/main/ || true)
       - name: Verify git Changes
         id: gitstatus
         run: |

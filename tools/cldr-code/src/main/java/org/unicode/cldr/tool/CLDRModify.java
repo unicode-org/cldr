@@ -53,6 +53,7 @@ import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CLDRTool;
+import org.unicode.cldr.util.CLDRTreeWriter;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CollatorHelper;
 import org.unicode.cldr.util.DateTimeCanonicalizer;
@@ -253,7 +254,8 @@ public class CLDRModify {
             ALL_DIRS = 13,
             CHECK = 14,
             KONFIG = 15,
-            RETAIN = 16;
+            RETAIN = 16,
+            INPLACE = 17;
 
     private static final UOption[] options = {
         UOption.HELP_H(),
@@ -273,6 +275,7 @@ public class CLDRModify {
         UOption.create("check", 'c', UOption.NO_ARG),
         UOption.create("konfig", 'k', UOption.OPTIONAL_ARG).setDefault("modify_config.txt"),
         UOption.create("Retain", 'R', UOption.NO_ARG),
+        UOption.create("Inplace", 'I', UOption.NO_ARG)
     };
 
     private static final UnicodeSet allMergeOptions = new UnicodeSet("[rcd]");
@@ -327,6 +330,8 @@ public class CLDRModify {
                     + "-R\t retain unchanged files"
                     + XPathParts.NEWLINE
                     + "-f\t to perform various fixes on the files (add following arguments to specify which ones, eg -fxi)"
+                    + XPathParts.NEWLINE
+                    + "-I\t to write files inplace instead of to the generated dir"
                     + XPathParts.NEWLINE;
 
     static final String HELP_TEXT2 =
@@ -336,6 +341,8 @@ public class CLDRModify {
     private static boolean SHOW_PROCESSING = false;
 
     static String sourceInput;
+
+    static CLDRTreeWriter treeWriter = null;
 
     /** Picks options and executes. Use -h to see options. */
     public static void main(String[] args) throws Exception {
@@ -358,10 +365,15 @@ public class CLDRModify {
         }
         String sourceDirBase =
                 CldrUtility.checkValidDirectory(sourceInput); // Utility.COMMON_DIRECTORY + "main/";
-        String targetDirBase =
-                CldrUtility.checkValidDirectory(destInput); // Utility.GEN_DIRECTORY + "main/";
         System.out.format("Source:\t%s\n", sourceDirBase);
-        System.out.format("Target:\t%s\n", targetDirBase);
+        String targetDirBase = null;
+        if (options[INPLACE].doesOccur) {
+            treeWriter = new CLDRTreeWriter(sourceDirBase);
+        } else {
+            targetDirBase =
+                    CldrUtility.checkValidDirectory(destInput); // Utility.GEN_DIRECTORY + "main/";
+            System.out.format("Target:\t%s\n", targetDirBase);
+        }
 
         boolean retainUnchangedFiles = options[RETAIN].doesOccur;
 
@@ -379,7 +391,7 @@ public class CLDRModify {
         for (String dir : dirSet) {
             String sourceDir = sourceDirBase + dir;
             if (!new File(sourceDir).isDirectory()) continue;
-            String targetDir = targetDirBase + dir;
+            final String targetDir = (targetDirBase != null) ? (targetDirBase + dir) : null;
             try {
                 Factory cldrFactoryForAvailable = Factory.make(sourceDir, ".*");
                 Factory cldrFactory = cldrFactoryForAvailable;
@@ -408,11 +420,12 @@ public class CLDRModify {
                         new File(CLDRPaths.MAIN_DIRECTORY) // to load common/main/root.xml
                     };
                     cldrFactory = SimpleFactory.make(paths, ".*");
-                } else {
-                    System.err.println("!!! " + sourceDir);
                 }
 
                 if (options[VET_ADD].doesOccur) {
+                    if (targetDir == null) {
+                        throw new IllegalArgumentException("Can't use VET_ADD and in-place write");
+                    }
                     VettingAdder va = new VettingAdder(options[VET_ADD].value);
                     va.showFiles(cldrFactory, targetDir);
                     return;
@@ -513,7 +526,8 @@ public class CLDRModify {
                     }
                     if (options[FIX].doesOccur) {
                         fix(k, options[FIX].value, options[KONFIG].value, cldrFactory);
-                        System.out.println("#TOTAL\tItems changed: " + fixList.totalChanged);
+                        // TODO: noise
+                        // System.out.println("#TOTAL\tItems changed: " + fixList.totalChanged);
                     }
                     if (DEBUG_PATHS != null) {
                         System.out.println("Debug3 (" + test + "):\t" + k.toString(DEBUG_PATHS));
@@ -522,48 +536,52 @@ public class CLDRModify {
                         System.out.println("Debug4 (" + test + "):\t" + k.toString(DEBUG_PATHS));
                     }
 
-                    PrintWriter pw = FileUtilities.openUTF8Writer(targetDir, test + ".xml");
-                    String testPath =
-                            "//ldml/dates/calendars/calendar[@type=\"persian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"abbreviated\"]/month[@type=\"1\"]";
-                    if (false) {
-                        System.out.println("Printing Raw File:");
-                        testPath =
-                                "//ldml/dates/calendars/calendar[@type=\"persian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"abbreviated\"]/alias";
-                        System.out.println(k.getStringValue(testPath));
-                        TreeSet s = new TreeSet();
-                        k.forEach(s::add);
+                    if (treeWriter != null) {
+                        treeWriter.deferWrite(k);
+                    } else {
+                        PrintWriter pw = FileUtilities.openUTF8Writer(targetDir, test + ".xml");
+                        String testPath =
+                                "//ldml/dates/calendars/calendar[@type=\"persian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"abbreviated\"]/month[@type=\"1\"]";
+                        if (false) {
+                            System.out.println("Printing Raw File:");
+                            testPath =
+                                    "//ldml/dates/calendars/calendar[@type=\"persian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"abbreviated\"]/alias";
+                            System.out.println(k.getStringValue(testPath));
+                            TreeSet s = new TreeSet();
+                            k.forEach(s::add);
 
-                        System.out.println(k.getStringValue(testPath));
-                        Set orderedSet = new TreeSet(k.getComparator());
-                        k.forEach(orderedSet::add);
-                        for (Iterator it3 = orderedSet.iterator(); it3.hasNext(); ) {
-                            String path = (String) it3.next();
-                            if (path.equals(testPath)) {
-                                System.out.println("huh?");
+                            System.out.println(k.getStringValue(testPath));
+                            Set orderedSet = new TreeSet(k.getComparator());
+                            k.forEach(orderedSet::add);
+                            for (Iterator it3 = orderedSet.iterator(); it3.hasNext(); ) {
+                                String path = (String) it3.next();
+                                if (path.equals(testPath)) {
+                                    System.out.println("huh?");
+                                }
+                                String value = k.getStringValue(path);
+                                String fullpath = k.getFullXPath(path);
+                                System.out.println("\t=\t" + fullpath);
+                                System.out.println("\t=\t" + value);
                             }
-                            String value = k.getStringValue(path);
-                            String fullpath = k.getFullXPath(path);
-                            System.out.println("\t=\t" + fullpath);
-                            System.out.println("\t=\t" + value);
+                            System.out.println("Done Printing Raw File:");
                         }
-                        System.out.println("Done Printing Raw File:");
-                    }
 
-                    k.write(pw);
-                    pw.close();
+                        k.write(pw);
+                        pw.close();
 
-                    File oldFile = new File(sourceDir, test + ".xml");
-                    File newFile = new File(targetDir, test + ".xml");
-                    if (!retainUnchangedFiles
-                            && !oldFile.equals(
-                                    newFile) // only skip if the source & target are different.
-                            && equalsSkippingCopyright(oldFile, newFile)) {
-                        newFile.delete();
-                        continue;
-                    }
+                        File oldFile = new File(sourceDir, test + ".xml");
+                        File newFile = new File(targetDir, test + ".xml");
+                        if (!retainUnchangedFiles
+                                && !oldFile.equals(
+                                        newFile) // only skip if the source & target are different.
+                                && equalsSkippingCopyright(oldFile, newFile)) {
+                            newFile.delete();
+                            continue;
+                        }
 
-                    if (options[CHECK].doesOccur) {
-                        QuickCheck.check(new File(targetDir, test + ".xml"));
+                        if (options[CHECK].doesOccur) {
+                            QuickCheck.check(new File(targetDir, test + ".xml"));
+                        }
                     }
                 }
                 if (totalSkeletons.size() != 0) {
@@ -573,6 +591,9 @@ public class CLDRModify {
                     System.out.println("# Removed:\t" + totalRemoved);
                 }
             } finally {
+                if (treeWriter != null) {
+                    treeWriter.close();
+                }
                 fixList.handleCleanup();
                 System.out.println(
                         "Done -- Elapsed time: "

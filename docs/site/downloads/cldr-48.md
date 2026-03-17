@@ -8,7 +8,7 @@ title: CLDR 48 Release Note
 |:---:|:----------:|:---------:|:------:|:--------:|:------------:|:---:|:----------:|:---------:|:---------:|
 |  48 | 2025-10-29 | [v48] | [CLDR48] | [Charts48]| [LDML48] | [Δ48] | [release-48] | [ΔDtd48] | [48.0.0] |
 |  48.1 | 2026-01-08 | [v48.1] | [CLDR48.1] | n/a | [LDML48.1] | [Δ48.1] | [release-48-1] | n/a | [48.1.0] |
-|  48.2 | 2026-03-17 | [v48.2] | [CLDR48.2] | [Charts48.2] | [LDML48.2] | [Δ48.2] | [release-48-2] | n/a | [48.2.0] |
+|  48.2 | 2026-03-17 | [v48.2] | [CLDR48.2] | n/a | [LDML48.2] | [Δ48.2] | [release-48-2] | n/a | [48.2.0] |
 
 ## Overview
 
@@ -360,11 +360,15 @@ Version 48.1 is a dot release. The following summarizes the changes. For a full 
 
 | No. |    Date    | Rel. Note |  Data  |  Charts  | Spec |   Delta  | GitHub Tag | Delta DTD | CLDR JSON |
 |:---:|:----------:|:---------:|:------:|:--------:|:------------:|:---:|:----------:|:---------:|:---------:|
-|  48.2 | TBD | [v48.2] | TBD | TBD | TBD | [Δ48.2] | TBD | n/a | TBD |
+||  48.2 | 2026-03-17 | [v48.2] | [CLDR48.2] | n/a | [LDML48.2] | [Δ48.2] | [release-48-2] | n/a | [48.2.0] |
 
 ### Data changes
 
-- TBD
+- Group separator for number formatting was updated to `'`.
+- Some fixes to date formats including `Hv` available formats were updated to match behavior in CLDR 47 due to web compatibility issues related to current JS capabilities.
+- Emoji annotations fixes including collisions between emoji short names.
+- Updated AM/PM for ko & ps to be consistent with how the wide forms are localized.
+- Full list of changes are available in [Δ48.2]
 
 ### Spec changes
 

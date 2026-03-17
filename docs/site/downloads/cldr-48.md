@@ -360,7 +360,7 @@ Version 48.1 is a dot release. The following summarizes the changes. For a full 
 
 | No. |    Date    | Rel. Note |  Data  |  Charts  | Spec |   Delta  | GitHub Tag | Delta DTD | CLDR JSON |
 |:---:|:----------:|:---------:|:------:|:--------:|:------------:|:---:|:----------:|:---------:|:---------:|
-||  48.2 | 2026-03-17 | [v48.2] | [CLDR48.2] | n/a | [LDML48.2] | [Δ48.2] | [release-48-2] | n/a | [48.2.0] |
+| 48.2 | 2026-03-17 | [v48.2] | [CLDR48.2] | n/a | [LDML48.2] | [Δ48.2] | [release-48-2] | n/a | [48.2.0] |
 
 ### Data changes
 

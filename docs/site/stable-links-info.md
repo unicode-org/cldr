@@ -21,8 +21,8 @@ This page contains information about updating the various stable links to part o
 |   |  |  |  |
 |  | **Chart links** |  |  |
 | development version | http://unicode.org/cldr/charts/dev | http://www.unicode.org/repos/cldr-aux/charts/25/index.html | Obsolete |
-| latest version | http://unicode.org/cldr/charts/latest | https://unicode-org.github.io/cldr-staging/charts/latest/ | nothing needed |
-| specific (eg 41) | http://unicode.org/cldr/charts/41 | https://unicode-org.github.io/cldr-staging/charts/41/ | nothing needed |
+| latest version | http://unicode.org/cldr/charts/latest | https://www.unicode.org/cldr/charts/latest/ | nothing needed |
+| specific (eg 41) | http://unicode.org/cldr/charts/41 | https://www.unicode.org/cldr/charts/41/ | nothing needed |
 |   |  |  |  |
 |  | **Specification links** |  |  |
 | development version | (will have specific links) | http://www.unicode.org/reports/tr35/proposed.html | nothing needed (1) |

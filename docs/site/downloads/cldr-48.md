@@ -364,8 +364,8 @@ Version 48.1 is a dot release. The following summarizes the changes. For a full 
 
 ### Data changes
 
-- Group separator for number formatting was updated to `'`.
-- Some fixes to date formats including `Hv` available formats were updated to match behavior in CLDR 47 due to web compatibility issues related to current JS capabilities.
+- Group separator for number formatting was updated to `'` in fr-CH consistent with other Swiss locales.
+- Some fixes to date formats including: `Hv` available formats were updated to match behavior in CLDR 47 due to web compatibility issues related to current JS capabilities.
 - Emoji annotations fixes including collisions between emoji short names.
 - Updated AM/PM for ko & ps to be consistent with how the wide forms are localized.
 - Full list of changes are available in [Δ48.2]
@@ -440,7 +440,7 @@ For web pages with different views of CLDR data, see [http://cldr.unicode.org/in
 [Transforms Delta]: https://unicode.org/cldr/charts/48/delta/transforms.html
 [Delta Data]: https://unicode.org/cldr/charts/48/delta/index.html
 
-<!-- 48.2 release: TBD -->
+<!-- 48.2 release: 2026-03-17 -->
 [v48.2]: /downloads/cldr-48#482-changes
 [CLDR48.2]: https://unicode.org/Public/cldr/48.2/
 [Charts48.2]: https://unicode.org/cldr/charts/48.2/

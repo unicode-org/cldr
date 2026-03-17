@@ -1913,7 +1913,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                         .freeze();
     }
 
-    static MapComparator<String> countValueOrder =
+    public static MapComparator<String> countValueOrder =
             new MapComparator<String>()
                     .add("0", "1", "zero", "one", "two", "few", "many", "other")
                     .freeze();

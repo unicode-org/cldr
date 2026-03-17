@@ -50,6 +50,7 @@ jobs:
       - name: Run CLDR-modify passes
         run: |
           function cldrmodify() {
+            echo "- :gear: Running CLDRModify " $1 >> $GITHUB_STEP_SUMMARY
             echo "::group::CLDRModify $1"
             mvn -s .github/workflows/mvn-settings.xml -B "-DCLDR_DIR=${CLDR_DIR}" --file=tools/pom.xml -pl cldr-code -Dfile.encoding=utf-8 exec:java -Dexec.mainClass=org.unicode.cldr.tool.CLDRModify "-Dexec.args=-I -s$1"
             echo "::endgroup::"

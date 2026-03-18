@@ -1,6 +1,9 @@
 # yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
 name: Verify CLDR Site can build, tag as Site Update
 
+# this does NOT publish the site!
+# that is done by cloudflare
+
 permissions:
   id-token: write
   pull-requests: write

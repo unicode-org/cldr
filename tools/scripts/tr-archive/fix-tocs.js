@@ -185,7 +185,15 @@ async function processFile(f) {
 }
 
 // Process everything.
+async function fixAllTocs() {
+  return getSrcFiles()
+    .then((f) => Promise.all(f.map((p) => processFile(p))));
+}
 
-getSrcFiles()
-  .then((f) => Promise.all(f.map((p) => processFile(p))))
-  .then((x) => console.dir(x), console.error);
+module.exports = { fixAllTocs };
+
+// for running fix-tocs.js individually
+if (require.main === module) {
+  fixAllTocs()
+    .then((x) => console.dir(x), console.error);
+}

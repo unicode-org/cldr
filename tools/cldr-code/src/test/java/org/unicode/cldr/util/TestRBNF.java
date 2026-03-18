@@ -240,8 +240,7 @@ public class TestRBNF {
         }
     }
 
-    private static final Set<String> KNOWN_BROKEN_LOCALES =
-            new TreeSet<>(Arrays.asList("ga"));
+    private static final Set<String> KNOWN_BROKEN_LOCALES = new TreeSet<>(Arrays.asList("ga"));
     private static final Set<String> ALIASES = new TreeSet<>(Arrays.asList("nb", "en_001"));
 
     private static final Number[] ROUNDTRIP_LONG_VALUES = {

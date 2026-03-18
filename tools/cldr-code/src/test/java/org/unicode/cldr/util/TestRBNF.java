@@ -35,7 +35,7 @@ public class TestRBNF {
     }
 
     @Test
-    public void testConformance() {
+    void testConformance() {
         File testDir = new File(TEST_DATA_DIR);
         assertTrue(
                 testDir.exists() && testDir.isDirectory(),
@@ -225,7 +225,7 @@ public class TestRBNF {
     }
 
     @Test
-    public void testRoundtrip() {
+    void testRoundtrip() {
         assertTrue(
                 RBNF_DIR.exists() && RBNF_DIR.isDirectory(),
                 "RBNF directory not found: " + RBNF_DIR);
@@ -241,7 +241,7 @@ public class TestRBNF {
     }
 
     private static final Set<String> KNOWN_BROKEN_LOCALES =
-            new TreeSet<>(Arrays.asList("ga", "lt"));
+            new TreeSet<>(Arrays.asList("ga"));
     private static final Set<String> ALIASES = new TreeSet<>(Arrays.asList("nb", "en_001"));
 
     private static final Number[] ROUNDTRIP_LONG_VALUES = {
